@@ -9,7 +9,7 @@ module.exports = {
         items: [
           { text: 'Guide', link: '/guide/introduction' },
           { text: 'Styleguide', link: '/styleguide/' },
-          { text: 'Core Libraries', link: '/core-libraries/' }
+          { text: 'Tooling', link: '/tooling/' }
         ]
       },
       { text: 'API Reference', link: '/api/' },
@@ -22,7 +22,7 @@ module.exports = {
       },
       { text: 'Community', link: '/community/' }
     ],
-    sidebarDepth: 3,
+    sidebarDepth: 2,
     sidebar: {
       '/guide/': [
         'installation',
