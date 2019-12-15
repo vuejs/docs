@@ -1,0 +1,44 @@
+module.exports = {
+  title: 'Vue.js',
+  description: 'Vue.js - The Progressive JavaScript Framework',
+  themeConfig: {
+    nav: [
+      {
+        text: 'Docs',
+        ariaLabel: 'Documentation Menu',
+        items: [
+          { text: 'Guide', link: '/guide/introduction' },
+          { text: 'Styleguide', link: '/styleguide/' },
+          { text: 'Core Libraries', link: '/core-libraries/' }
+        ]
+      },
+      { text: 'API Reference', link: '/api/' },
+      { text: 'Examples',
+        ariaLabel: 'Examples Menu',
+        items: [
+          { text: 'Examples', link: '/examples/' },
+          { text: 'Cookbook', link: '/cookbook/' },
+        ]
+      },
+      { text: 'Community', link: '/community/' }
+    ],
+    sidebarDepth: 3,
+    sidebar: {
+      '/guide/': [
+        'installation',
+        'introduction'
+      ]
+    },
+  },
+  plugins: {
+    '@vuepress/pwa': {
+      serviceWorker: true,
+      updatePopup: {
+        '/': {
+          message: "New content is available.",
+          buttonText: "Refresh"
+        },
+      },
+    },
+  },
+}
