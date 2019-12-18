@@ -1,6 +1,6 @@
-# Vuejs.org Docs - Next Repo
+# vuejs.org next
 
-This repo contains the code for the future VuePress version of the Vuejs.org docs.
+This repo contains the code for the future VuePress version of the vuejs.org docs.
 
 ## Getting Setup
 
