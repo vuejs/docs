@@ -57,15 +57,7 @@ const app = new Vue({
 ```
 <intro-1 />
 
-We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Change the `message` property in the code snippet below to a different value. You the rendered example update accordingly:
-
-<iframe
-     src="https://codesandbox.io/embed/vue-basic-example-buthm?autoresize=1&fontsize=14&hidenavigation=1&moduleview=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Vue basic example"
-     allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-     sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-   ></iframe>
+We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Change the `message` property in the code snippet below to a different value. You the rendered example update accordingly: ![placeholder sandbox link](https://codesandbox.io/s/xenodochial-meninsky-rxlt4)
 
 In addition to text interpolation, we can also bind element attributes like this:
 
@@ -90,3 +82,42 @@ const app2 = new Vue({
 <intro-2 />
 Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
 
+## Conditionals and Loops
+
+It's easy to toggle the presence of an element, too:
+
+``` html
+<div id="app-3">
+  <span v-if="seen">Now you see me</span>
+</div>
+```
+<intro-3/>
+
+This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](TODO) when elements are inserted/updated/removed by Vue.
+
+You can change `seen` from `true` to `false` in the sandbox below to check the effect: https://codesandbox.io/s/basic-conditional-rendering-eptpp
+
+There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
+
+``` html
+<div id="app-4">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+```
+``` js
+var app4 = new Vue({
+  el: '#app-4',
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ]
+  }
+})
+```
+<intro-4/>
