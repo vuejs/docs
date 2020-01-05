@@ -46,14 +46,13 @@ At the core of Vue.js is a system that enables us to declaratively render data t
 </div>
 ```
 ``` js
-const app = new Vue({
-  el: '#app',
-  data() {
-    return {
-      message: 'Hello Vue!'
-    }
+const App = {
+  data: {
+    message: 'Hello Vue!'
   }
-})
+}
+
+Vue.createApp().mount(App, '#app')
 ```
 <intro-1 />
 
@@ -70,14 +69,13 @@ In addition to text interpolation, we can also bind element attributes like this
 </div>
 ```
 ``` js
-const app2 = new Vue({
-  el: '#app-2',
-  data() {
-    return {
-      message: 'You loaded this page on ' + new Date().toLocaleString()
-    }
+const App2 = {
+  data: {
+    message: 'You loaded this page on ' + new Date().toLocaleString()
   }
-})
+}
+
+Vue.createApp().mount(App2, '#app-2')
 ```
 <intro-2 />
 Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
@@ -90,6 +88,15 @@ It's easy to toggle the presence of an element, too:
 <div id="app-3">
   <span v-if="seen">Now you see me</span>
 </div>
+```
+```js
+const App3 = {
+  data: {
+    message: 'You loaded this page on ' + new Date().toLocaleString()
+  }
+}
+
+Vue.createApp().mount(App3, '#app-3')
 ```
 <intro-3/>
 
@@ -109,18 +116,17 @@ There are quite a few other directives, each with its own special functionality.
 </div>
 ```
 ``` js
-const app4 = new Vue({
-  el: '#app-4',
-  data() {
-    return {
-      todos: [
-        { text: 'Learn JavaScript' },
-        { text: 'Learn Vue' },
-        { text: 'Build something awesome' }
-      ]
-    }
+const App4 = {
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ]
   }
-})
+}
+
+Vue.createApp().mount(App4, '#app-4')
 ```
 <intro-4/>
 
@@ -135,19 +141,18 @@ To let users interact with your app, we can use the `v-on` directive to attach e
 </div>
 ```
 ``` js
-constapp5 = new Vue({
-  el: '#app-5',
-  data() {
-    return {
-      message: 'Hello Vue.js!'
-    }
+const App5 = {
+  data: {
+    message: 'Hello Vue.js!'
   },
   methods: {
     reverseMessage() {
       this.message = this.message.split('').reverse().join('')
     }
   }
-})
+}
+
+Vue.createApp().mount(App5, '#app-5')
 ```
 <intro-5/>
 
@@ -162,14 +167,13 @@ Vue also provides the `v-model` directive that makes two-way binding between for
 </div>
 ```
 ``` js
-var app6 = new Vue({
-  el: '#app-6',
-  data() {
-    return {
-      message: 'Hello Vue!'
-    }
+const App6 = {
+  data: {
+    message: 'Hello Vue!'
   }
-})
+}
+
+Vue.createApp().mount(App6, '#app-6')
 ```
 <intro-6/>
 
@@ -179,15 +183,21 @@ The component system is another important concept in Vue, because it's an abstra
 
 ![Component Tree](/images/components.png)
 
-In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward:
+In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward: we create a component object as we did with `App` objects and we define it in parent's `components` option:
 
 ``` js
 // Define a new component called todo-item
-Vue.component('todo-item', {
+const TodoItem = {
   template: '<li>This is a todo</li>'
-})
+}
 
-const app = new Vue(...)
+const App = {
+  components: {
+    'todo-item': TodoItem
+  }
+}
+
+Vue.createApp().mount(...)
 ```
 
 Now you can compose it in another component's template:
@@ -202,13 +212,10 @@ Now you can compose it in another component's template:
 But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](TODO:components.html#Props):
 
 ``` js
-Vue.component('todo-item', {
-  // The todo-item component now accepts a
-  // "prop", which is like a custom attribute.
-  // This prop is called todo.
+const TodoItem = {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
-})
+}
 ```
 
 Now we can pass the todo into each repeated component using `v-bind`:
@@ -231,23 +238,25 @@ Now we can pass the todo into each repeated component using `v-bind`:
 </div>
 ```
 ``` js
-Vue.component('todo-item', {
+const TodoItem = {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
-})
+}
 
-const app7 = new Vue({
-  el: '#app-7',
-  data() {
-    return {
-      groceryList: [
-        { id: 0, text: 'Vegetables' },
-        { id: 1, text: 'Cheese' },
-        { id: 2, text: 'Whatever else humans are supposed to eat' }
-      ]
-    }
+const App7 = {
+  data: {
+    groceryList: [
+      { id: 0, text: 'Vegetables' },
+      { id: 1, text: 'Cheese' },
+      { id: 2, text: 'Whatever else humans are supposed to eat' }
+    ]
+  },
+  components: {
+    'todo-item': TodoItem
   }
-})
+}
+
+Vue.createApp().mount(App7, '#app-7')
 ```
 <intro-7/>
 
