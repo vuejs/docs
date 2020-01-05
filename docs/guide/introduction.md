@@ -109,15 +109,66 @@ There are quite a few other directives, each with its own special functionality.
 </div>
 ```
 ``` js
-var app4 = new Vue({
+const app4 = new Vue({
   el: '#app-4',
-  data: {
-    todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
-    ]
+  data() {
+    return {
+      todos: [
+        { text: 'Learn JavaScript' },
+        { text: 'Learn Vue' },
+        { text: 'Build something awesome' }
+      ]
+    }
   }
 })
 ```
 <intro-4/>
+
+## Handling User Input
+
+To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
+
+``` html
+<div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+```
+``` js
+constapp5 = new Vue({
+  el: '#app-5',
+  data() {
+    return {
+      message: 'Hello Vue.js!'
+    }
+  },
+  methods: {
+    reverseMessage() {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+```
+<intro-5/>
+
+Note that in this method we update the state of our app without touching the DOM - all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.
+
+Vue also provides the `v-model` directive that makes two-way binding between form input and app state a breeze:
+
+``` html
+<div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
+```
+``` js
+var app6 = new Vue({
+  el: '#app-6',
+  data() {
+    return {
+      message: 'Hello Vue!'
+    }
+  }
+})
+```
+<intro-6/>
