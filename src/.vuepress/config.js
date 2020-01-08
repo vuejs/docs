@@ -30,7 +30,8 @@ module.exports = {
         'introduction',
         'instance',
         'template-syntax',
-        'computed'
+        'computed',
+        'class-and-style'
       ]
     }
   },
