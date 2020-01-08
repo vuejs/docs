@@ -1,40 +1,40 @@
 module.exports = {
-  title: "Vue.js",
-  description: "Vue.js - The Progressive JavaScript Framework",
+  title: 'Vue.js',
+  description: 'Vue.js - The Progressive JavaScript Framework',
   themeConfig: {
     nav: [
       {
-        text: "Docs",
-        ariaLabel: "Documentation Menu",
+        text: 'Docs',
+        ariaLabel: 'Documentation Menu',
         items: [
-          { text: "Guide", link: "/guide/introduction" },
-          { text: "Styleguide", link: "/styleguide/" },
-          { text: "Tooling", link: "/tooling/" }
+          { text: 'Guide', link: '/guide/introduction' },
+          { text: 'Styleguide', link: '/styleguide/' },
+          { text: 'Tooling', link: '/tooling/' }
         ]
       },
-      { text: "API Reference", link: "/api/" },
+      { text: 'API Reference', link: '/api/' },
       {
-        text: "Examples",
-        ariaLabel: "Examples Menu",
+        text: 'Examples',
+        ariaLabel: 'Examples Menu',
         items: [
-          { text: "Examples", link: "/examples/" },
-          { text: "Cookbook", link: "/cookbook/" }
+          { text: 'Examples', link: '/examples/' },
+          { text: 'Cookbook', link: '/cookbook/' }
         ]
       },
-      { text: "Community", link: "/community/" }
+      { text: 'Community', link: '/community/' }
     ],
     sidebarDepth: 2,
     sidebar: {
-      "/guide/": ["installation", "introduction", "instance"]
+      '/guide/': ['installation', 'introduction', 'instance', 'template-syntax']
     }
   },
   plugins: {
-    "@vuepress/pwa": {
+    '@vuepress/pwa': {
       serviceWorker: true,
       updatePopup: {
-        "/": {
-          message: "New content is available.",
-          buttonText: "Refresh"
+        '/': {
+          message: 'New content is available.',
+          buttonText: 'Refresh'
         }
       }
     }
