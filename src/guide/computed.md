@@ -2,7 +2,7 @@
 
 ## Computed Properties
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-computed-properties?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how computed properties work with Vue School">Learn how computed properties work with a free lesson on Vue School</a></div>
+[Learn how computed properties work with a free lesson on Vue School](https://vueschool.io/lessons/vuejs-computed-properties?friend=vuejs)
 
 In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example:
 
@@ -29,18 +29,21 @@ That's why for any complex logic, you should use a **computed property**.
 const vm = Vue.createApp().mount(
   {
     data: {
-      message: "Hello"
+      message: 'Hello'
     },
     computed: {
       // a computed getter
       reversedMessage() {
         // `this` points to the vm instance
-        return this.message.split("").reverse().join("")
+        return this.message
+          .split('')
+          .reverse()
+          .join('')
       }
     }
   },
-  "#example"
-);
+  '#example'
+)
 ```
 
 Result:
@@ -50,9 +53,9 @@ Result:
 Here we have declared a computed property `reversedMessage`. The function we provided will be used as the getter function for the property `vm.reversedMessage`:
 
 ```js
-console.log(vm.reversedMessage); // => 'olleH'
-vm.message = "Goodbye";
-console.log(vm.reversedMessage); // => 'eybdooG'
+console.log(vm.reversedMessage) // => 'olleH'
+vm.message = 'Goodbye'
+console.log(vm.reversedMessage) // => 'eybdooG'
 ```
 
 You can open the sandbox(TODO) and play with the example vm yourself. The value of `vm.reversedMessage` is always dependent on the value of `vm.message`.
@@ -101,37 +104,43 @@ Vue does provide a more generic way to observe and react to data changes on a Vu
 ```
 
 ```js
-const vm = Vue.createApp().mount({
-  data: {
-    firstName: "Foo",
-    lastName: "Bar",
-    fullName: "Foo Bar"
-  },
-  watch: {
-    firstName(val) {
-      this.fullName = val + " " + this.lastName;
+const vm = Vue.createApp().mount(
+  {
+    data: {
+      firstName: 'Foo',
+      lastName: 'Bar',
+      fullName: 'Foo Bar'
     },
-    lastName(val) {
-      this.fullName = this.firstName + " " + val;
+    watch: {
+      firstName(val) {
+        this.fullName = val + ' ' + this.lastName
+      },
+      lastName(val) {
+        this.fullName = this.firstName + ' ' + val
+      }
     }
-  }
-}, '#demo');
+  },
+  '#demo'
+)
 ```
 
 The above code is imperative and repetitive. Compare it with a computed property version:
 
 ```js
-const vm = Vue.createApp().mount({
-  data: {
-    firstName: "Foo",
-    lastName: "Bar"
-  },
-  computed: {
-    fullName() {
-      return this.firstName + " " + this.lastName;
+const vm = Vue.createApp().mount(
+  {
+    data: {
+      firstName: 'Foo',
+      lastName: 'Bar'
+    },
+    computed: {
+      fullName() {
+        return this.firstName + ' ' + this.lastName
+      }
     }
-  }
-}, '#demo');
+  },
+  '#demo'
+)
 ```
 
 Much better, isn't it?
@@ -185,101 +194,56 @@ For example:
 <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 <script>
-  var watchExampleVM = new Vue({
-    el: "#watch-example",
-    data: {
-      question: "",
-      answer: "I cannot give you an answer until you ask a question!"
-    },
-    watch: {
-      // whenever question changes, this function will run
-      question: function(newQuestion, oldQuestion) {
-        this.answer = "Waiting for you to stop typing...";
-        this.debouncedGetAnswer();
-      }
-    },
-    created: function() {
-      // _.debounce is a function provided by lodash to limit how
-      // often a particularly expensive operation can be run.
-      // In this case, we want to limit how often we access
-      // yesno.wtf/api, waiting until the user has completely
-      // finished typing before making the ajax request. To learn
-      // more about the _.debounce function (and its cousin
-      // _.throttle), visit: https://lodash.com/docs#debounce
-      this.debouncedGetAnswer = _.debounce(this.getAnswer, 500);
-    },
-    methods: {
-      getAnswer: function() {
-        if (this.question.indexOf("?") === -1) {
-          this.answer = "Questions usually contain a question mark. ;-)";
-          return;
+  const watchExampleVM = Vue.createApp().mount(
+    {
+      data: {
+        question: '',
+        answer: 'I cannot give you an answer until you ask a question!'
+      },
+      watch: {
+        // whenever question changes, this function will run
+        question(newQuestion, oldQuestion) {
+          this.answer = 'Waiting for you to stop typing...'
+          this.debouncedGetAnswer()
         }
-        this.answer = "Thinking...";
-        var vm = this;
-        axios
-          .get("https://yesno.wtf/api")
-          .then(function(response) {
-            vm.answer = _.capitalize(response.data.answer);
-          })
-          .catch(function(error) {
-            vm.answer = "Error! Could not reach the API. " + error;
-          });
+      },
+      created() {
+        // _.debounce is a function provided by lodash to limit how
+        // often a particularly expensive operation can be run.
+        // In this case, we want to limit how often we access
+        // yesno.wtf/api, waiting until the user has completely
+        // finished typing before making the ajax request. To learn
+        // more about the _.debounce function (and its cousin
+        // _.throttle), visit: https://lodash.com/docs#debounce
+        this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+      },
+      methods: {
+        getAnswer() {
+          if (this.question.indexOf('?') === -1) {
+            this.answer = 'Questions usually contain a question mark. ;-)'
+            return
+          }
+          this.answer = 'Thinking...'
+          axios
+            .get('https://yesno.wtf/api')
+            .then(response => {
+              this.answer = _.capitalize(response.data.answer)
+            })
+            .catch(error => {
+              this.answer = 'Error! Could not reach the API. ' + error
+            })
+        }
       }
-    }
-  });
+    },
+    '#watch-example'
+  )
 </script>
 ```
 
 Result:
 
-{% raw %}
-
-<div id="watch-example" class="demo">
-  <p>
-    Ask a yes/no question:
-    <input v-model="question">
-  </p>
-  <p>{{ answer }}</p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
-<script>
-var watchExampleVM = new Vue({
-  el: '#watch-example',
-  data: {
-    question: '',
-    answer: 'I cannot give you an answer until you ask a question!'
-  },
-  watch: {
-    question: function (newQuestion, oldQuestion) {
-      this.answer = 'Waiting for you to stop typing...'
-      this.debouncedGetAnswer()
-    }
-  },
-  created: function () {
-    this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
-  },
-  methods: {
-    getAnswer: function () {
-      if (this.question.indexOf('?') === -1) {
-        this.answer = 'Questions usually contain a question mark. ;-)'
-        return
-      }
-      this.answer = 'Thinking...'
-      var vm = this
-      axios.get('https://yesno.wtf/api')
-        .then(function (response) {
-          vm.answer = _.capitalize(response.data.answer)
-        })
-        .catch(function (error) {
-          vm.answer = 'Error! Could not reach the API. ' + error
-        })
-    }
-  }
-})
-</script>
-{% endraw %}
+<computed-2 />
 
 In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API), limit how often we perform that operation, and set intermediary states until we get a final answer. None of that would be possible with a computed property.
 
-In addition to the `watch` option, you can also use the imperative [vm.\$watch API](../api/#vm-watch).
+In addition to the `watch` option, you can also use the imperative [vm.\$watch API](TODO:../api/#vm-watch).

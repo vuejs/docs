@@ -25,7 +25,13 @@ module.exports = {
     ],
     sidebarDepth: 2,
     sidebar: {
-      '/guide/': ['installation', 'introduction', 'instance', 'template-syntax']
+      '/guide/': [
+        'installation',
+        'introduction',
+        'instance',
+        'template-syntax',
+        'computed'
+      ]
     }
   },
   plugins: {
@@ -39,4 +45,4 @@ module.exports = {
       }
     }
   }
-};
+}

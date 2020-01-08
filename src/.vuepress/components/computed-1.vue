@@ -6,16 +6,19 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        message: 'Hello'
-      }
-    },
-      computed: {
-        reversedMessage: function () {
-          return this.message.split('').reverse().join('')
-        }
-      }
+export default {
+  data() {
+    return {
+      message: 'Hello'
+    };
+  },
+  computed: {
+    reversedMessage: function() {
+      return this.message
+        .split('')
+        .reverse()
+        .join('');
+    }
   }
+};
 </script>
