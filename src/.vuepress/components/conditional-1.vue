@@ -23,8 +23,7 @@ export default {
   },
   methods: {
     toggleLoginType() {
-      return (this.loginType =
-        this.loginType === 'username' ? 'email' : 'username')
+      this.loginType = this.loginType === 'username' ? 'email' : 'username'
     }
   }
 }
