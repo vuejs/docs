@@ -1,6 +1,6 @@
 <template>
   <ul id="v-for-object" class="demo">
-    <li v-for="value in object">
+    <li v-for="value in myObject">
       {{ value }}
     </li>
   </ul>
@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      object: {
+      myObject: {
         title: 'How to do lists in Vue',
         author: 'Jane Doe',
         publishedAt: '2016-04-10'
@@ -19,5 +19,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>

@@ -67,7 +67,7 @@ You can also use `v-for` to iterate through the properties of an object.
 
 ```html
 <ul id="v-for-object" class="demo">
-  <li v-for="value in object">
+  <li v-for="value in myObject">
     {{ value }}
   </li>
 </ul>
@@ -77,7 +77,7 @@ You can also use `v-for` to iterate through the properties of an object.
 Vue.createApp().mount(
   {
     data: {
-      object: {
+      myObject: {
         title: 'How to do lists in Vue',
         author: 'Jane Doe',
         publishedAt: '2016-04-10'
@@ -95,7 +95,7 @@ Result:
 You can also provide a second argument for the property's name (a.k.a. key):
 
 ```html
-<li v-for="(value, name) in object">
+<li v-for="(value, name) in myObject">
   {{ name }}: {{ value }}
 </li>
 ```
@@ -105,7 +105,7 @@ You can also provide a second argument for the property's name (a.k.a. key):
 And another for the index:
 
 ```html
-<li v-for="(value, name, index) in object">
+<li v-for="(value, name, index) in myObject">
   {{ index }}. {{ name }}: {{ value }}
 </li>
 ```

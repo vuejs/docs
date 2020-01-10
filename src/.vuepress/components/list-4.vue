@@ -1,6 +1,6 @@
 <template>
   <ul id="v-for-object" class="demo">
-    <li v-for="(value, name) in object">{{ name }}: {{ value }}</li>
+    <li v-for="(value, name) in myObject">{{ name }}: {{ value }}</li>
   </ul>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      object: {
+      myObject: {
         title: 'How to do lists in Vue',
         author: 'Jane Doe',
         publishedAt: '2016-04-10'
