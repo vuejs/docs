@@ -17,8 +17,10 @@ We can use the `v-for` directive to render a list of items based on an array. Th
 ```js
 Vue.createApp().mount(
   {
-    data: {
-      items: [{ message: 'Foo' }, { message: 'Bar' }]
+    data() {
+      return {
+        items: [{ message: 'Foo' }, { message: 'Bar' }]
+      }
     }
   },
   '#example-1'
@@ -42,9 +44,11 @@ Inside `v-for` blocks we have full access to parent scope properties. `v-for` al
 ```js
 Vue.createApp().mount(
   {
-    data: {
-      parentMessage: 'Parent',
-      items: [{ message: 'Foo' }, { message: 'Bar' }]
+    data() {
+      return {
+        parentMessage: 'Parent',
+        items: [{ message: 'Foo' }, { message: 'Bar' }]
+      }
     }
   },
   '#example-2'
@@ -76,11 +80,13 @@ You can also use `v-for` to iterate through the properties of an object.
 ```js
 Vue.createApp().mount(
   {
-    data: {
-      myObject: {
-        title: 'How to do lists in Vue',
-        author: 'Jane Doe',
-        publishedAt: '2016-04-10'
+    data() {
+      return {
+        myObject: {
+          title: 'How to do lists in Vue',
+          author: 'Jane Doe',
+          publishedAt: '2016-04-10'
+        }
       }
     }
   },
@@ -177,8 +183,10 @@ For example:
 ```
 
 ```js
-data: {
-  numbers: [ 1, 2, 3, 4, 5 ]
+data() {
+  return {
+    numbers: [ 1, 2, 3, 4, 5 ]
+  }
 },
 computed: {
   evenNumbers() {
@@ -190,12 +198,16 @@ computed: {
 In situations where computed properties are not feasible (e.g. inside nested `v-for` loops), you can use a method:
 
 ```html
-<li v-for="n in even(numbers)">{{ n }}</li>
+<ul v-for="numbers in sets">
+  <li v-for="n in even(numbers)">{{ n }}</li>
+</ul>
 ```
 
 ```js
-data: {
-  numbers: [ 1, 2, 3, 4, 5 ]
+data() {
+  return {
+    sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
+  }
 },
 methods: {
   even(numbers) {
@@ -321,23 +333,25 @@ Vue.createApp().mount(
     components: {
       'todo-item': TodoItem
     },
-    data: {
-      newTodoText: '',
-      todos: [
-        {
-          id: 1,
-          title: 'Do the dishes'
-        },
-        {
-          id: 2,
-          title: 'Take out the trash'
-        },
-        {
-          id: 3,
-          title: 'Mow the lawn'
-        }
-      ],
-      nextTodoId: 4
+    data() {
+      return {
+        newTodoText: '',
+        todos: [
+          {
+            id: 1,
+            title: 'Do the dishes'
+          },
+          {
+            id: 2,
+            title: 'Take out the trash'
+          },
+          {
+            id: 3,
+            title: 'Mow the lawn'
+          }
+        ],
+        nextTodoId: 4
+      }
     },
     methods: {
       addNewTodo() {
