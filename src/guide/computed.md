@@ -28,8 +28,10 @@ That's why for any complex logic, you should use a **computed property**.
 ```js
 const vm = Vue.createApp().mount(
   {
-    data: {
-      message: 'Hello'
+    data() {
+      return {
+        message: 'Hello'
+      }
     },
     computed: {
       // a computed getter
@@ -106,10 +108,12 @@ Vue does provide a more generic way to observe and react to data changes on a Vu
 ```js
 const vm = Vue.createApp().mount(
   {
-    data: {
-      firstName: 'Foo',
-      lastName: 'Bar',
-      fullName: 'Foo Bar'
+    data() {
+      return {
+        firstName: 'Foo',
+        lastName: 'Bar',
+        fullName: 'Foo Bar'
+      }
     },
     watch: {
       firstName(val) {
@@ -129,9 +133,11 @@ The above code is imperative and repetitive. Compare it with a computed property
 ```js
 const vm = Vue.createApp().mount(
   {
-    data: {
-      firstName: 'Foo',
-      lastName: 'Bar'
+    data() {
+      return {
+        firstName: 'Foo',
+        lastName: 'Bar'
+      }
     },
     computed: {
       fullName() {
@@ -192,37 +198,25 @@ For example:
 <!-- is able to remain small by not reinventing them. This also   -->
 <!-- gives you the freedom to use what you're familiar with.      -->
 <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 <script>
   const watchExampleVM = Vue.createApp().mount(
     {
-      data: {
-        question: '',
-        answer: 'I cannot give you an answer until you ask a question!'
+      data() {
+        return {
+          question: '',
+          answer: 'Questions usually contain a question mark. ;-)'
+        }
       },
       watch: {
         // whenever question changes, this function will run
         question(newQuestion, oldQuestion) {
-          this.answer = 'Waiting for you to stop typing...'
-          this.debouncedGetAnswer()
+          if (newQuestion.indexOf('?') > -1) {
+            this.getAnswer()
+          }
         }
-      },
-      created() {
-        // _.debounce is a function provided by lodash to limit how
-        // often a particularly expensive operation can be run.
-        // In this case, we want to limit how often we access
-        // yesno.wtf/api, waiting until the user has completely
-        // finished typing before making the ajax request. To learn
-        // more about the _.debounce function (and its cousin
-        // _.throttle), visit: https://lodash.com/docs#debounce
-        this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
       },
       methods: {
         getAnswer() {
-          if (this.question.indexOf('?') === -1) {
-            this.answer = 'Questions usually contain a question mark. ;-)'
-            return
-          }
           this.answer = 'Thinking...'
           axios
             .get('https://yesno.wtf/api')
@@ -244,6 +238,6 @@ Result:
 
 <computed-2 />
 
-In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API), limit how often we perform that operation, and set intermediary states until we get a final answer. None of that would be possible with a computed property.
+In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API) and sets a condition for performing this operation. None of that would be possible with a computed property.
 
 In addition to the `watch` option, you can also use the imperative [vm.\$watch API](TODO:../api/#vm-watch).

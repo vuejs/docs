@@ -7,7 +7,6 @@
     "build": "vuepress build src"
   },
   "dependencies": {
-    "axios": "^0.19.1",
-    "lodash": "^4.17.15"
+    "axios": "^0.19.1"
   }
 }
