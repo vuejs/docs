@@ -156,18 +156,16 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 <div v-on:click.self="doThat">...</div>
 ```
 
-<p class="tip">Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `v-on:click.prevent.self` will prevent **all clicks** while `v-on:click.self.prevent` will only prevent clicks on the element itself.</p>
-
-> New in 2.1.4+
+::: tip
+Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `v-on:click.prevent.self` will prevent **all clicks** while `v-on:click.self.prevent` will only prevent clicks on the element itself.
+:::
 
 ```html
 <!-- the click event will be triggered at most once -->
 <a v-on:click.once="doThis"></a>
 ```
 
-Unlike the other modifiers, which are exclusive to native DOM events, the `.once` modifier can also be used on [component events](components-custom-events.html). If you haven't read about components yet, don't worry about this for now.
-
-> New in 2.3.0+
+Unlike the other modifiers, which are exclusive to native DOM events, the `.once` modifier can also be used on [component events](TODO:components-custom-events.html). If you haven't read about components yet, don't worry about this for now.
 
 Vue also offers the `.passive` modifier, corresponding to [`addEventListener`'s `passive` option](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters).
 
@@ -180,7 +178,9 @@ Vue also offers the `.passive` modifier, corresponding to [`addEventListener`'s 
 
 The `.passive` modifier is especially useful for improving performance on mobile devices.
 
-<p class="tip">Don't use `.passive` and `.prevent` together, because `.prevent` will be ignored and your browser will probably show you a warning. Remember, `.passive` communicates to the browser that you _don't_ want to prevent the event's default behavior.</p>
+::: tip
+Don't use `.passive` and `.prevent` together, because `.prevent` will be ignored and your browser will probably show you a warning. Remember, `.passive` communicates to the browser that you _don't_ want to prevent the event's default behavior.
+:::
 
 ## Key Modifiers
 
@@ -201,7 +201,9 @@ In the above example, the handler will only be called if `$event.key` is equal t
 
 ### Key Codes
 
-<p class="tip">The use of `keyCode` events [is deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) and may not be supported in new browsers.</p>
+::: tip
+The use of `keyCode` events [is deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) and may not be supported in new browsers.
+:::
 
 Using `keyCode` attributes is also permitted:
 
@@ -221,9 +223,9 @@ Vue provides aliases for the most commonly used key codes when necessary for leg
 - `.left`
 - `.right`
 
-<p class="tip">A few keys (`.esc` and all arrow keys) have inconsistent `key` values in IE9, so these built-in aliases should be preferred if you need to support IE9.</p>
+A few keys (`.esc` and all arrow keys) have inconsistent `key` values in IE9, so these built-in aliases should be preferred if you need to support IE9.
 
-You can also [define custom key modifier aliases](../api/#keyCodes) via the global `config.keyCodes` object:
+You can also [define custom key modifier aliases](TODO:../api/#keyCodes) via the global `config.keyCodes` object:
 
 ```js
 // enable `v-on:keyup.f1`
@@ -232,8 +234,6 @@ Vue.config.keyCodes.f1 = 112
 
 ## System Modifier Keys
 
-> New in 2.1.0+
-
 You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
 
 - `.ctrl`
@@ -241,7 +241,9 @@ You can use the following modifiers to trigger mouse or keyboard event listeners
 - `.shift`
 - `.meta`
 
-> Note: On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the Windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+::: tip Note
+On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the Windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+:::
 
 For example:
 
@@ -253,11 +255,11 @@ For example:
 <div v-on:click.ctrl="doSomething">Do something</div>
 ```
 
-<p class="tip">Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone. If you do want such behaviour, use the `keyCode` for `ctrl` instead: `keyup.17`.</p>
+::: tip Tip
+Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone. If you do want such behaviour, use the `keyCode` for `ctrl` instead: `keyup.17`.
+:::
 
 ### `.exact` Modifier
-
-> New in 2.5.0+
 
 The `.exact` modifier allows control of the exact combination of system modifiers needed to trigger an event.
 
@@ -273,8 +275,6 @@ The `.exact` modifier allows control of the exact combination of system modifier
 ```
 
 ### Mouse Button Modifiers
-
-> New in 2.2.0+
 
 - `.left`
 - `.right`
