@@ -84,3 +84,99 @@ new Vue({
 ```
 
 <forms-4/>
+
+### Radio
+
+```html
+<input type="radio" id="one" value="One" v-model="picked" />
+<label for="one">One</label>
+<br />
+<input type="radio" id="two" value="Two" v-model="picked" />
+<label for="two">Two</label>
+<br />
+<span>Picked: {{ picked }}</span>
+```
+
+<forms-5/>
+
+### Select
+
+Single select:
+
+```html
+<div id="example-select" class="demo">
+  <select v-model="selected">
+    <option disabled value="">Please select one</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <span>Selected: {{ selected }}</span>
+</div>
+```
+
+```js
+Vue.createApp().mount(
+  {
+    data() {
+      return {
+        selected: ''
+      }
+    }
+  },
+  '#example-select'
+)
+```
+
+<forms-6/>
+
+:::tip Note
+If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
+:::
+
+Multiple select (bound to Array):
+
+```html
+<select v-model="selected" multiple>
+  <option>A</option>
+  <option>B</option>
+  <option>C</option>
+</select>
+<br />
+<span>Selected: {{ selected }}</span>
+```
+
+<forms-7/>
+
+Dynamic options rendered with `v-for`:
+
+```html
+<div id="example-select-dynamic" class="demo">
+  <select v-model="selected">
+    <option v-for="option in options" v-bind:value="option.value">
+      {{ option.text }}
+    </option>
+  </select>
+  <span>Selected: {{ selected }}</span>
+</div>
+```
+
+```js
+Vue.createApp().mount(
+  {
+    data() {
+      return {
+        selected: 'A',
+        options: [
+          { text: 'One', value: 'A' },
+          { text: 'Two', value: 'B' },
+          { text: 'Three', value: 'C' }
+        ]
+      }
+    }
+  },
+  '#example-select-dynamic'
+)
+```
+
+<forms-8/>
