@@ -100,7 +100,7 @@ It's easy to toggle the presence of an element, too:
 const App3 = {
   data() {
     return {
-      message: 'You loaded this page on ' + new Date().toLocaleString()
+      seen: true
     }
   }
 }
