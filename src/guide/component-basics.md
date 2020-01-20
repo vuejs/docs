@@ -49,62 +49,9 @@ Components can be reused as many times as you want:
 </div>
 ```
 
-{% raw %}
-
-<div id="components-demo2" class="demo">
-  <button-counter></button-counter>
-  <button-counter></button-counter>
-  <button-counter></button-counter>
-</div>
-<script>
-new Vue({ el: '#components-demo2' })
-</script>
-{% endraw %}
+<components-2 />
 
 Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
-
-### `data` Must Be a Function
-
-When we defined the `<button-counter>` component, you may have noticed that `data` wasn't directly provided an object, like this:
-
-```js
-data: {
-  count: 0
-}
-```
-
-Instead, **a component's `data` option must be a function**, so that each instance can maintain an independent copy of the returned data object:
-
-```js
-data: function () {
-  return {
-    count: 0
-  }
-}
-```
-
-If Vue didn't have this rule, clicking on one button would affect the data of _all other instances_, like below:
-
-{% raw %}
-
-<div id="components-demo3" class="demo">
-  <button-counter2></button-counter2>
-  <button-counter2></button-counter2>
-  <button-counter2></button-counter2>
-</div>
-<script>
-var buttonCounter2Data = {
-  count: 0
-}
-Vue.component('button-counter2', {
-  data: function () {
-    return buttonCounter2Data
-  },
-  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
-})
-new Vue({ el: '#components-demo3' })
-</script>
-{% endraw %}
 
 ## Organizing Components
 
@@ -114,17 +61,19 @@ It's common for an app to be organized into a tree of nested components:
 
 For example, you might have components for a header, sidebar, and content area, each typically containing other components for navigation links, blog posts, etc.
 
-To use these components in templates, they must be registered so that Vue knows about them. There are two types of component registration: **global** and **local**. So far, we've only registered components globally, using `Vue.component`:
+To use these components in templates, they must be registered so that Vue knows about them. There are two types of component registration: **global** and **local**. So far, we've only registered components globally, using `component` method of created app:
 
 ```js
-Vue.component('my-component-name', {
+const app = Vue.createApp()
+
+app.component('my-component-name', {
   // ... options ...
 })
 ```
 
-Globally registered components can be used in the template of any root Vue instance (`new Vue`) created afterwards -- and even inside all subcomponents of that Vue instance's component tree.
+Globally registered components can be used in the template of `app` instance created afterwards - and even inside all subcomponents of that Vue instance's component tree.
 
-That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](components-registration.html).
+That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](TODO:components-registration.html).
 
 ## Passing Data to Child Components with Props
 
@@ -133,9 +82,11 @@ Earlier, we mentioned creating a component for blog posts. The problem is, that 
 Props are custom attributes you can register on a component. When a value is passed to a prop attribute, it becomes a property on that component instance. To pass a title to our blog post component, we can include it in the list of props this component accepts, using a `props` option:
 
 ```js
-Vue.component('blog-post', {
+const app = Vue.createApp()
+
+app.component('blog-post', {
   props: ['title'],
-  template: '<h3>{{ title }}</h3>'
+  template: `<h3>{{ title }}</h3>`
 })
 ```
 
@@ -149,35 +100,22 @@ Once a prop is registered, you can pass data to it as a custom attribute, like t
 <blog-post title="Why Vue is so fun"></blog-post>
 ```
 
-{% raw %}
-
-<div id="blog-post-demo" class="demo">
-  <blog-post1 title="My journey with Vue"></blog-post1>
-  <blog-post1 title="Blogging with Vue"></blog-post1>
-  <blog-post1 title="Why Vue is so fun"></blog-post1>
-</div>
-<script>
-Vue.component('blog-post1', {
-  props: ['title'],
-  template: '<h3>{{ title }}</h3>'
-})
-new Vue({ el: '#blog-post-demo' })
-</script>
-{% endraw %}
+<components-3/>
 
 In a typical app, however, you'll likely have an array of posts in `data`:
 
 ```js
-new Vue({
-  el: '#blog-post-demo',
-  data: {
-    posts: [
-      { id: 1, title: 'My journey with Vue' },
-      { id: 2, title: 'Blogging with Vue' },
-      { id: 3, title: 'Why Vue is so fun' }
-    ]
+const App = {
+  data() {
+    return {
+      posts: [
+        { id: 1, title: 'My journey with Vue' },
+        { id: 2, title: 'Blogging with Vue' },
+        { id: 3, title: 'Why Vue is so fun' }
+      ]
+    }
   }
-})
+}
 ```
 
 Then want to render a component for each one:
@@ -190,7 +128,7 @@ Then want to render a component for each one:
 ></blog-post>
 ```
 
-Above, you'll see that we can use `v-bind` to dynamically pass props. This is especially useful when you don't know the exact content you're going to render ahead of time, like when [fetching posts from an API](https://jsfiddle.net/chrisvfritz/sbLgr0ad).
+Above, you'll see that we can use `v-bind` to dynamically pass props. This is especially useful when you don't know the exact content you're going to render ahead of time.
 
 That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](components-props.html).
 
