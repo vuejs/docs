@@ -295,3 +295,34 @@ Now `v-model` should work perfectly with this component:
 ```
 
 That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](TODO:components-custom-events.html).
+
+## Content Distribution with Slots
+
+Just like with HTML elements, it's often useful to be able to pass content to a component, like this:
+
+```html
+<alert-box>
+  Something bad happened.
+</alert-box>
+```
+
+Which might render something like:
+
+<components-5/>
+
+Fortunately, this task is made very simple by Vue's custom `<slot>` element:
+
+```js
+app.component('alert-box', {
+  template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `
+})
+```
+
+As you'll see above, we just add the slot where we want it to go -- and that's it. We're done!
+
+That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](TODO:components-slots.html).
