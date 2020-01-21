@@ -326,3 +326,57 @@ app.component('alert-box', {
 As you'll see above, we just add the slot where we want it to go -- and that's it. We're done!
 
 That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](TODO:components-slots.html).
+
+## Dynamic Components
+
+Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
+
+<components-6/>
+
+The above is made possible by Vue's `<component>` element with the `is` special attribute:
+
+```html
+<!-- Component changes when currentTabComponent changes -->
+<component v-bind:is="currentTabComponent"></component>
+```
+
+In the example above, `currentTabComponent` can contain either:
+
+- the name of a registered component, or
+- a component's options object
+
+See [TODO:this fiddle](https://jsfiddle.net/chrisvfritz/o3nycadu/) to experiment with the full code, or [TODO:this version](https://jsfiddle.net/chrisvfritz/b2qj69o1/) for an example binding to a component's options object, instead of its registered name.
+
+Keep in mind that this attribute can be used with regular HTML elements, however they will be treated as components, which means all attributes **will be bound as DOM attributes**. For some properties such as `value` to work as you would expect, you will need to bind them using the [`.prop` modifier](TODO:../api/#v-bind).
+
+That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](TODO:components-dynamic-async.html).
+
+## DOM Template Parsing Caveats
+
+Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
+
+This will lead to issues when using components with elements that have such restrictions. For example:
+
+```html
+<table>
+  <blog-post-row></blog-post-row>
+</table>
+```
+
+The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. Fortunately, the `is` special attribute offers a workaround:
+
+```html
+<table>
+  <tr is="blog-post-row"></tr>
+</table>
+```
+
+It should be noted that **this limitation does _not_ apply if you are using string templates from one of the following sources**:
+
+- String templates (e.g. `template: '...'`)
+- [Single-file (`.vue`) components](TODO:single-file-components.html)
+- [`<script type="text/x-template">`](TODO:components-edge-cases.html#X-Templates)
+
+That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
+
+Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](TODO:components-dynamic-async.html), as well as the other pages in the Components In-Depth section of the sidebar.
