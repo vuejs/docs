@@ -242,3 +242,56 @@ methods: {
   }
 }
 ```
+
+### Using `v-model` on Components
+
+Custom events can also be used to create custom inputs that work with `v-model`. Remember that:
+
+```html
+<input v-model="searchText" />
+```
+
+does the same thing as:
+
+```html
+<input
+  v-bind:value="searchText"
+  v-on:input="searchText = $event.target.value"
+/>
+```
+
+When used on a component, `v-model` instead does this:
+
+```html
+<custom-input
+  v-bind:model-value="searchText"
+  v-on:update="searchText = $event"
+></custom-input>
+```
+
+For this to actually work though, the `<input>` inside the component must:
+
+- Bind the `value` attribute to a `modelValue` prop
+- On `input`, emit an `update` event with the new value
+
+Here's that in action:
+
+```js
+app.component('custom-input', {
+  props: ['value'],
+  template: `
+    <input
+      v-bind:value="modelValue"
+      v-on:input="$emit('update', $event.target.value)"
+    >
+  `
+})
+```
+
+Now `v-model` should work perfectly with this component:
+
+```html
+<custom-input v-model="searchText"></custom-input>
+```
+
+That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](TODO:components-custom-events.html).
