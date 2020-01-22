@@ -39,8 +39,6 @@ module.exports = {
             'conditional',
             'list',
             'events',
-            'conditional',
-            'list'
           ]
         }
       ]
