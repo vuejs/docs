@@ -37,7 +37,7 @@ module.exports = {
             'computed',
             'class-and-style',
             'conditional',
-            'list'
+            'list',
             // 'events',
             'forms'
           ]
