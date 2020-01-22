@@ -38,6 +38,7 @@ module.exports = {
             // 'class-and-style',
             'conditional',
             'list'
+            // 'events'
           ]
         }
       ]

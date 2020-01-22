@@ -29,44 +29,46 @@ We'll talk about [the component system](TODO:components.html) in detail later. F
 
 ## Data and Methods
 
-When a Vue instance is created, it adds all the properties found in its `data` object to Vue's **reactivity system**. When the values of those properties change, the view will "react", updating to match the new values.
+When a Vue instance is created, it adds all the properties found in its `data` to Vue's **reactivity system**. When the values of those properties change, the view will "react", updating to match the new values.
 
 ```js
 // Our data object
-const data = { a: 1 };
+const data = { a: 1 }
 
 // The object is added to a Vue instance
 const vm = Vue.createApp().mount({
-  data: {
-    a: 1
+  data() {
+    return data
   }
 })
 
 // Getting the property on the instance
 // returns the one from the original data
-vm.a === data.a; // => true
+vm.a === data.a // => true
 
 // Setting the property on the instance
 // also affects the original data
-vm.a = 2;
-data.a; // => 2
+vm.a = 2
+data.a // => 2
 ```
 
 When this data changes, the view will re-render. It should be noted that properties in `data` are only **reactive** if they existed when the instance was created. That means if you add a new property, like:
 
 ```js
-vm.b = "hi";
+vm.b = 'hi'
 ```
 
 Then changes to `b` will not trigger any view updates. If you know you'll need a property later, but it starts out empty or non-existent, you'll need to set some initial value. For example:
 
 ```js
-data: {
-  newTodoText: '',
-  visitCount: 0,
-  hideCompletedTodos: false,
-  todos: [],
-  error: null
+data() {
+  return {
+    newTodoText: '',
+    visitCount: 0,
+    hideCompletedTodos: false,
+    todos: [],
+    error: null
+  }
 }
 ```
 
@@ -74,14 +76,18 @@ The only exception to this being the use of `Object.freeze()`, which prevents ex
 
 ```js
 const obj = {
-  foo: "bar"
-};
+  foo: 'bar'
+}
 
-Object.freeze(obj);
+Object.freeze(obj)
 
-const vm = Vue.createApp().mount({
-    data: obj
-  },'#app'
+const vm = Vue.createApp().mount(
+  {
+    data() {
+      return obj
+    }
+  },
+  '#app'
 )
 ```
 
@@ -96,10 +102,16 @@ const vm = Vue.createApp().mount({
 In addition to data properties, Vue instances expose a number of useful instance properties and methods. These are prefixed with `$` to differentiate them from user-defined properties. For example:
 
 ```js
-const data = { a: 1 };
-const vm = Vue.createApp().mount({
-  data: data
-}, '#example');
+const vm = Vue.createApp().mount(
+  {
+    data() {
+      return {
+        a: 1
+      }
+    }
+  },
+  '#example'
+)
 
 vm.$data.a // => 1
 ```
@@ -115,16 +127,20 @@ Each Vue instance goes through a series of initialization steps when it's create
 For example, the [`created`](TODO:../api/#created) hook can be used to run code after an instance is created:
 
 ```js
-Vue.createApp().mount({
-  data: {
-    a: 1
+Vue.createApp().mount(
+  {
+    data() {
+      return {
+        a: 1
+      }
+    },
+    created() {
+      // `this` points to the vm instance
+      console.log('a is: ' + this.a) // => "a is: 1"
+    }
   },
-  created() {
-    // `this` points to the vm instance
-    console.log("a is: " + this.a);
-  }
-}, '#app');
-// => "a is: 1"
+  '#app'
+)
 ```
 
 There are also other hooks which will be called at different stages of the instance's lifecycle, such as [`mounted`](TODO:../api/#mounted), [`updated`](TODO:../api/#updated), and [`destroyed`](TODO:../api/#destroyed). All lifecycle hooks are called with their `this` context pointing to the Vue instance invoking it.
