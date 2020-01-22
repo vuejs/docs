@@ -36,9 +36,11 @@ module.exports = {
             'template-syntax',
             // 'computed',
             // 'class-and-style',
-            // 'conditional',
-            // 'list'
+            'conditional',
+            'list'
             'events'
+            'conditional',
+            'list'
           ]
         }
       ]
