@@ -34,8 +34,8 @@ module.exports = {
             'introduction',
             'instance',
             'template-syntax',
-            // 'computed',
-            // 'class-and-style',
+            'computed',
+            'class-and-style',
             'conditional',
             'list'
             // 'events'
