@@ -345,7 +345,7 @@ In the example above, `currentTabComponent` can contain either:
 - the name of a registered component, or
 - a component's options object
 
-See [TODO:this fiddle](https://jsfiddle.net/chrisvfritz/o3nycadu/) to experiment with the full code, or [TODO:this version](https://jsfiddle.net/chrisvfritz/b2qj69o1/) for an example binding to a component's options object, instead of its registered name.
+See [this sandbox](https://codesandbox.io/s/dynamic-components-dvtl8) to experiment with the full code, or [this version](https://codesandbox.io/s/dynamic-components-with-options-xfnrp) for an example binding to a component's options object, instead of its registered name.
 
 Keep in mind that this attribute can be used with regular HTML elements, however they will be treated as components, which means all attributes **will be bound as DOM attributes**. For some properties such as `value` to work as you would expect, you will need to bind them using the [`.prop` modifier](TODO:../api/#v-bind).
 
