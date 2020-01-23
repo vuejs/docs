@@ -39,6 +39,7 @@ module.exports = {
             'conditional',
             'list',
             'events',
+            'forms'
           ]
         }
       ]
