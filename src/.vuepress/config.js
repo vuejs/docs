@@ -38,9 +38,9 @@ module.exports = {
             'class-and-style',
             'conditional',
             'list',
-            // 'events',
-            // 'forms',
-            'component-basics'
+            'events',
+            'forms',
+            'component-basics',
           ]
         }
       ]

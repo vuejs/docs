@@ -5,5 +5,8 @@
   "scripts": {
     "serve": "vuepress dev src",
     "build": "vuepress build src"
+  },
+  "dependencies": {
+    "axios": "^0.19.1"
   }
 }

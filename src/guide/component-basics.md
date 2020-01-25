@@ -263,7 +263,7 @@ When used on a component, `v-model` instead does this:
 ```html
 <custom-input
   v-bind:model-value="searchText"
-  v-on:update="searchText = $event"
+  v-on:update:model-value="searchText = $event"
 ></custom-input>
 ```
 

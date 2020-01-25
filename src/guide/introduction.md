@@ -211,18 +211,16 @@ The component system is another important concept in Vue, because it's an abstra
 In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward: we create a component object as we did with `App` objects and we define it in parent's `components` option:
 
 ```js
+// Create Vue application
+const app = Vue.createApp()
+
 // Define a new component called todo-item
-const TodoItem = {
-  template: '<li>This is a todo</li>'
-}
+app.component('todo-item', {
+  template: `<li>This is a todo</li>`
+})
 
-const App = {
-  components: {
-    'todo-item': TodoItem
-  }
-}
-
-Vue.createApp().mount(...)
+// Mount Vue application
+app.mount(...)
 ```
 
 Now you can compose it in another component's template:
@@ -237,10 +235,10 @@ Now you can compose it in another component's template:
 But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](TODO:components.html#Props):
 
 ```js
-const TodoItem = {
+app.component('todo-item', {
   props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-}
+  template: `<li>{{ todo.text }}</li>`
+})
 ```
 
 Now we can pass the todo into each repeated component using `v-bind`:
@@ -264,10 +262,12 @@ Now we can pass the todo into each repeated component using `v-bind`:
 ```
 
 ```js
-const TodoItem = {
+const app = Vue.createApp()
+
+app.component('todo-item', {
   props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-}
+  template: `<li>{{ todo.text }}</li>`
+})
 
 const App7 = {
   data() {
@@ -278,13 +278,10 @@ const App7 = {
         { id: 2, text: 'Whatever else humans are supposed to eat' }
       ]
     }
-  },
-  components: {
-    'todo-item': TodoItem
   }
 }
 
-Vue.createApp().mount(App7, '#app-7')
+app.mount(App7, '#app-7')
 ```
 
 <intro-7/>
