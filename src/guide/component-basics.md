@@ -265,14 +265,14 @@ When used on a component, `v-model` instead does this:
 ```html
 <custom-input
   v-bind:model-value="searchText"
-  v-on:update="searchText = $event"
+  v-on:update:model-value="searchText = $event"
 ></custom-input>
 ```
 
 For this to actually work though, the `<input>` inside the component must:
 
 - Bind the `value` attribute to a `modelValue` prop
-- On `input`, emit an `update` event with the new value
+- On `input`, emit an `update:model-value` event with the new value
 
 Here's that in action:
 
@@ -282,7 +282,7 @@ app.component('custom-input', {
   template: `
     <input
       v-bind:value="modelValue"
-      v-on:input="$emit('update', $event.target.value)"
+      v-on:input="$emit('update:model-value', $event.target.value)"
     >
   `
 })
