@@ -35,6 +35,8 @@ app.mount({}, '#components-demo')
 
 <components-1/>
 
+Since components are reusable Vue instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
+
 ## Reusing Components
 
 Components can be reused as many times as you want:
@@ -263,7 +265,7 @@ When used on a component, `v-model` instead does this:
 ```html
 <custom-input
   v-bind:model-value="searchText"
-  v-on:update:model-value="searchText = $event"
+  v-on:update="searchText = $event"
 ></custom-input>
 ```
 
