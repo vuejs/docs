@@ -130,11 +130,11 @@ When you use the `class` attribute on a custom component, those classes will be 
 For example, if you declare this component:
 
 ```js
-const app = Vue.createApp();
+const app = Vue.createApp()
 
-app.component("my-component", {
+app.component('my-component', {
   template: `<p class="foo bar">Hi!</p>`
-});
+})
 ```
 
 Then add some classes when using it:

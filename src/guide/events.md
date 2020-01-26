@@ -20,9 +20,9 @@ Vue.createApp({
   data() {
     return {
       counter: 1
-    };
+    }
   }
-}).mount("#example-1");
+}).mount('#example-1')
 ```
 
 Result:
@@ -46,20 +46,20 @@ For example:
 Vue.createApp({
   data() {
     return {
-      name: "Vue.js"
-    };
+      name: 'Vue.js'
+    }
   },
   methods: {
     greet(event) {
       // `this` inside methods points to the Vue instance
-      alert("Hello " + this.name + "!");
+      alert('Hello ' + this.name + '!')
       // `event` is the native DOM event
       if (event) {
-        alert(event.target.tagName);
+        alert(event.target.tagName)
       }
     }
   }
-}).mount("#example-2");
+}).mount('#example-2')
 ```
 
 Result:
@@ -81,10 +81,10 @@ Instead of binding directly to a method name, we can also use methods in an inli
 Vue.createApp({
   methods: {
     say(message) {
-      alert(message);
+      alert(message)
     }
   }
-}).mount("#example-3");
+}).mount('#example-3')
 ```
 
 Result:
@@ -220,7 +220,7 @@ You can also [define custom key modifier aliases](TODO:../api/#keyCodes) via the
 
 ```js
 // enable `v-on:keyup.f1`
-Vue.config.keyCodes.f1 = 112;
+Vue.config.keyCodes.f1 = 112
 ```
 
 ## System Modifier Keys

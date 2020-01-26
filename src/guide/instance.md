@@ -5,13 +5,13 @@
 Every Vue application starts by creating a new **Vue instance** with the `createApp` function:
 
 ```js
-Vue.createApp(/* options */);
+Vue.createApp(/* options */)
 ```
 
 After the Vue instance is created, we can _mount_ it, passing a container to `.mount` method. For example, if we want to mount a Vue application on `<div id="app"></div>`, we should pass `#app`:
 
 ```js
-Vue.createApp(/* options */).mount("#app");
+Vue.createApp(/* options */).mount('#app')
 ```
 
 Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our Vue instance.
@@ -39,29 +39,29 @@ When a Vue instance is created, it adds all the properties found in its `data` t
 
 ```js
 // Our data object
-const data = { a: 1 };
+const data = { a: 1 }
 
 // The object is added to a Vue instance
 const vm = Vue.createApp({
   data() {
-    return data;
+    return data
   }
-}).mount("#app");
+}).mount('#app')
 
 // Getting the property on the instance
 // returns the one from the original data
-vm.a === data.a; // => true
+vm.a === data.a // => true
 
 // Setting the property on the instance
 // also affects the original data
-vm.a = 2;
-data.a; // => 2
+vm.a = 2
+data.a // => 2
 ```
 
 When this data changes, the view will re-render. It should be noted that properties in `data` are only **reactive** if they existed when the instance was created. That means if you add a new property, like:
 
 ```js
-vm.b = "hi";
+vm.b = 'hi'
 ```
 
 Then changes to `b` will not trigger any view updates. If you know you'll need a property later, but it starts out empty or non-existent, you'll need to set some initial value. For example:
@@ -82,16 +82,16 @@ The only exception to this being the use of `Object.freeze()`, which prevents ex
 
 ```js
 const obj = {
-  foo: "bar"
-};
+  foo: 'bar'
+}
 
-Object.freeze(obj);
+Object.freeze(obj)
 
 const vm = Vue.createApp({
   data() {
-    return obj;
+    return obj
   }
-}).mount("#app");
+}).mount('#app')
 ```
 
 ```html
@@ -110,13 +110,13 @@ const vm = Vue.createApp().mount(
     data() {
       return {
         a: 1
-      };
+      }
     }
   },
-  "#example"
-);
+  '#example'
+)
 
-vm.$data.a; // => 1
+vm.$data.a // => 1
 ```
 
 In the future, you can consult the [API reference](TODO:../api/#Instance-Properties) for a full list of instance properties and methods.
@@ -134,13 +134,13 @@ Vue.createApp({
   data() {
     return {
       a: 1
-    };
+    }
   },
   created() {
     // `this` points to the vm instance
-    console.log("a is: " + this.a); // => "a is: 1"
+    console.log('a is: ' + this.a) // => "a is: 1"
   }
-});
+})
 ```
 
 There are also other hooks which will be called at different stages of the instance's lifecycle, such as [`mounted`](TODO:../api/#mounted), [`updated`](TODO:../api/#updated), and [`destroyed`](TODO:../api/#destroyed). All lifecycle hooks are called with their `this` context pointing to the Vue instance invoking it.

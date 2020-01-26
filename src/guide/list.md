@@ -18,10 +18,10 @@ We can use the `v-for` directive to render a list of items based on an array. Th
 Vue.createApp({
   data() {
     return {
-      items: [{ message: "Foo" }, { message: "Bar" }]
-    };
+      items: [{ message: 'Foo' }, { message: 'Bar' }]
+    }
   }
-}).mount("#example-1");
+}).mount('#example-1')
 ```
 
 Result:
@@ -42,11 +42,11 @@ Inside `v-for` blocks we have full access to parent scope properties. `v-for` al
 Vue.createApp({
   data() {
     return {
-      parentMessage: "Parent",
-      items: [{ message: "Foo" }, { message: "Bar" }]
-    };
+      parentMessage: 'Parent',
+      items: [{ message: 'Foo' }, { message: 'Bar' }]
+    }
   }
-}).mount("#example-2");
+}).mount('#example-2')
 ```
 
 Result:
@@ -76,13 +76,13 @@ Vue.createApp({
   data() {
     return {
       myObject: {
-        title: "How to do lists in Vue",
-        author: "Jane Doe",
-        publishedAt: "2016-04-10"
+        title: 'How to do lists in Vue',
+        author: 'Jane Doe',
+        publishedAt: '2016-04-10'
       }
-    };
+    }
   }
-}).mount("#v-for-object");
+}).mount('#v-for-object')
 ```
 
 Result:
@@ -312,46 +312,46 @@ Here's a complete example of a simple todo list:
 const app = Vue.createApp({
   data() {
     return {
-      newTodoText: "",
+      newTodoText: '',
       todos: [
         {
           id: 1,
-          title: "Do the dishes"
+          title: 'Do the dishes'
         },
         {
           id: 2,
-          title: "Take out the trash"
+          title: 'Take out the trash'
         },
         {
           id: 3,
-          title: "Mow the lawn"
+          title: 'Mow the lawn'
         }
       ],
       nextTodoId: 4
-    };
+    }
   },
   methods: {
     addNewTodo() {
       this.todos.push({
         id: this.nextTodoId++,
         title: this.newTodoText
-      });
-      this.newTodoText = "";
+      })
+      this.newTodoText = ''
     }
   }
-});
+})
 
-app.component("todo-item", {
+app.component('todo-item', {
   template: `
           <li>
             {{ title }}
             <button v-on:click="$emit('remove')">Remove</button>
           </li>
         `,
-  props: ["title"]
-});
+  props: ['title']
+})
 
-app.mount("#todo-list-example");
+app.mount('#todo-list-example')
 ```
 
 <list-7/>
