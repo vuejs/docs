@@ -21,7 +21,7 @@ app.component('button-counter', {
 })
 ```
 
-Components are reusable Vue instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root Vue instance created with `new Vue`:
+Components are reusable Vue instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root Vue instance:
 
 ```html
 <div id="components-demo">
@@ -30,7 +30,7 @@ Components are reusable Vue instances with a name: in this case, `<button-counte
 ```
 
 ```js
-app.mount({}, '#components-demo')
+app.mount('#components-demo')
 ```
 
 <components-1/>
@@ -117,7 +117,14 @@ const App = {
   }
 }
 
-app.mount(App, '#blog-posts-demo')
+const app = Vue.createApp()
+
+app.component('blog-post', {
+  props: ['title'],
+  template: `<h4>{{ title }}</h4>`
+})
+
+app.mount('#blog-posts-demo')
 ```
 
 Then want to render a component for each one:
@@ -134,7 +141,7 @@ Then want to render a component for each one:
 
 Above, you'll see that we can use `v-bind` to dynamically pass props. This is especially useful when you don't know the exact content you're going to render ahead of time.
 
-That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](components-props.html).
+That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](TODO:components-props.html).
 
 ## Listening to Child Components Events
 
