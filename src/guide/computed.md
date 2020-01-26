@@ -14,7 +14,7 @@ In-template expressions are very convenient, but they are meant for simple opera
 
 At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it displays `message` in reverse. The problem is made worse when you want to include the reversed message in your template more than once.
 
-That's why for any complex logic, you should use a **computed property**.
+That's why for complex logic that includes reactive data, you should use a **computed property**.
 
 ### Basic Example
 
@@ -26,26 +26,23 @@ That's why for any complex logic, you should use a **computed property**.
 ```
 
 ```js
-const vm = Vue.createApp().mount(
-  {
-    data() {
-      return {
-        message: 'Hello'
-      }
-    },
-    computed: {
-      // a computed getter
-      reversedMessage() {
-        // `this` points to the vm instance
-        return this.message
-          .split('')
-          .reverse()
-          .join('')
-      }
-    }
+const vm = Vue.createApp({
+  data() {
+    return {
+      message: "Hello"
+    };
   },
-  '#example'
-)
+  computed: {
+    // a computed getter
+    reversedMessage() {
+      // `this` points to the vm instance
+      return this.message
+        .split("")
+        .reverse()
+        .join("");
+    }
+  }
+}).mount("#example");
 ```
 
 Result:
@@ -55,9 +52,9 @@ Result:
 Here we have declared a computed property `reversedMessage`. The function we provided will be used as the getter function for the property `vm.reversedMessage`:
 
 ```js
-console.log(vm.reversedMessage) // => 'olleH'
-vm.message = 'Goodbye'
-console.log(vm.reversedMessage) // => 'eybdooG'
+console.log(vm.reversedMessage); // => 'olleH'
+vm.message = "Goodbye";
+console.log(vm.reversedMessage); // => 'eybdooG'
 ```
 
 You can open the sandbox(TODO) and play with the example vm yourself. The value of `vm.reversedMessage` is always dependent on the value of `vm.message`.
@@ -106,47 +103,41 @@ Vue does provide a more generic way to observe and react to data changes on a Vu
 ```
 
 ```js
-const vm = Vue.createApp().mount(
-  {
-    data() {
-      return {
-        firstName: 'Foo',
-        lastName: 'Bar',
-        fullName: 'Foo Bar'
-      }
-    },
-    watch: {
-      firstName(val) {
-        this.fullName = val + ' ' + this.lastName
-      },
-      lastName(val) {
-        this.fullName = this.firstName + ' ' + val
-      }
-    }
+const vm = Vue.createApp({
+  data() {
+    return {
+      firstName: "Foo",
+      lastName: "Bar",
+      fullName: "Foo Bar"
+    };
   },
-  '#demo'
-)
+  watch: {
+    firstName(val) {
+      this.fullName = val + " " + this.lastName;
+    },
+    lastName(val) {
+      this.fullName = this.firstName + " " + val;
+    }
+  }
+}).mount("#demo");
 ```
 
 The above code is imperative and repetitive. Compare it with a computed property version:
 
 ```js
-const vm = Vue.createApp().mount(
-  {
-    data() {
-      return {
-        firstName: 'Foo',
-        lastName: 'Bar'
-      }
-    },
-    computed: {
-      fullName() {
-        return this.firstName + ' ' + this.lastName
-      }
-    }
+const vm = Vue.createApp({
+  data() {
+    return {
+      firstName: "Foo",
+      lastName: "Bar"
+    };
   },
-  '#demo'
-)
+  computed: {
+    fullName() {
+      return this.firstName + " " + this.lastName;
+    }
+  }
+}).mount("#demo");
 ```
 
 Much better, isn't it?
@@ -199,38 +190,35 @@ For example:
 <!-- gives you the freedom to use what you're familiar with.      -->
 <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
 <script>
-  const watchExampleVM = Vue.createApp().mount(
-    {
-      data() {
-        return {
-          question: '',
-          answer: 'Questions usually contain a question mark. ;-)'
-        }
-      },
-      watch: {
-        // whenever question changes, this function will run
-        question(newQuestion, oldQuestion) {
-          if (newQuestion.indexOf('?') > -1) {
-            this.getAnswer()
-          }
-        }
-      },
-      methods: {
-        getAnswer() {
-          this.answer = 'Thinking...'
-          axios
-            .get('https://yesno.wtf/api')
-            .then(response => {
-              this.answer = _.capitalize(response.data.answer)
-            })
-            .catch(error => {
-              this.answer = 'Error! Could not reach the API. ' + error
-            })
+  const watchExampleVM = Vue.createApp({
+    data() {
+      return {
+        question: "",
+        answer: "Questions usually contain a question mark. ;-)"
+      };
+    },
+    watch: {
+      // whenever question changes, this function will run
+      question(newQuestion, oldQuestion) {
+        if (newQuestion.indexOf("?") > -1) {
+          this.getAnswer();
         }
       }
     },
-    '#watch-example'
-  )
+    methods: {
+      getAnswer() {
+        this.answer = "Thinking...";
+        axios
+          .get("https://yesno.wtf/api")
+          .then(response => {
+            this.answer = _.capitalize(response.data.answer);
+          })
+          .catch(error => {
+            this.answer = "Error! Could not reach the API. " + error;
+          });
+      }
+    }
+  }).mount("#watch-example");
 </script>
 ```
 
