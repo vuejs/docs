@@ -28,9 +28,11 @@ You can have multiple classes toggled by having more fields in the object. In ad
 And the following data:
 
 ```js
-data: {
-  isActive: true,
-  hasError: false
+data() {
+  return {
+    isActive: true,
+    hasError: false
+  }
 }
 ```
 
@@ -49,10 +51,12 @@ The bound object doesn't have to be inline:
 ```
 
 ```js
-data: {
-  classObject: {
-    active: true,
-    'text-danger': false
+data() {
+  return {
+    classObject: {
+      active: true,
+      'text-danger': false
+    }
   }
 }
 ```
@@ -64,9 +68,11 @@ This will render the same result. We can also bind to a [computed property](comp
 ```
 
 ```js
-data: {
-  isActive: true,
-  error: null
+data() {
+  return {
+    isActive: true,
+    error: null
+  }
 },
 computed: {
   classObject() {
@@ -87,9 +93,11 @@ We can pass an array to `v-bind:class` to apply a list of classes:
 ```
 
 ```js
-data: {
-  activeClass: 'active',
-  errorClass: 'text-danger'
+data() {
+  return {
+    activeClass: 'active',
+    errorClass: 'text-danger'
+  }
 }
 ```
 
@@ -122,9 +130,11 @@ When you use the `class` attribute on a custom component, those classes will be 
 For example, if you declare this component:
 
 ```js
-const MyComponent = {
-  template: '<p class="foo bar">Hi!</p>'
-}
+const app = Vue.createApp();
+
+app.component("my-component", {
+  template: `<p class="foo bar">Hi!</p>`
+});
 ```
 
 Then add some classes when using it:
@@ -133,17 +143,6 @@ Then add some classes when using it:
 <div id="app">
   <my-component class="baz boo"></my-component>
 </div>
-```
-
-```js
-Vue.createApp().mount(
-  {
-    components: {
-      'my-component': MyComponent
-    }
-  },
-  '#app'
-)
 ```
 
 The rendered HTML will be:
@@ -177,9 +176,11 @@ The object syntax for `v-bind:style` is pretty straightforward - it looks almost
 ```
 
 ```js
-data: {
-  activeColor: 'red',
-  fontSize: 30
+data() {
+  return {
+    activeColor: 'red',
+    fontSize: 30
+  }
 }
 ```
 
@@ -190,10 +191,12 @@ It is often a good idea to bind to a style object directly so that the template 
 ```
 
 ```js
-data: {
-  styleObject: {
-    color: 'red',
-    fontSize: '13px'
+data() {
+  return {
+    styleObject: {
+      color: 'red',
+      fontSize: '13px'
+    }
   }
 }
 ```
