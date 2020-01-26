@@ -15,16 +15,13 @@ We can use the `v-for` directive to render a list of items based on an array. Th
 ```
 
 ```js
-Vue.createApp().mount(
-  {
-    data() {
-      return {
-        items: [{ message: 'Foo' }, { message: 'Bar' }]
-      }
-    }
-  },
-  '#example-1'
-)
+Vue.createApp({
+  data() {
+    return {
+      items: [{ message: "Foo" }, { message: "Bar" }]
+    };
+  }
+}).mount("#example-1");
 ```
 
 Result:
@@ -42,17 +39,14 @@ Inside `v-for` blocks we have full access to parent scope properties. `v-for` al
 ```
 
 ```js
-Vue.createApp().mount(
-  {
-    data() {
-      return {
-        parentMessage: 'Parent',
-        items: [{ message: 'Foo' }, { message: 'Bar' }]
-      }
-    }
-  },
-  '#example-2'
-)
+Vue.createApp({
+  data() {
+    return {
+      parentMessage: "Parent",
+      items: [{ message: "Foo" }, { message: "Bar" }]
+    };
+  }
+}).mount("#example-2");
 ```
 
 Result:
@@ -78,20 +72,17 @@ You can also use `v-for` to iterate through the properties of an object.
 ```
 
 ```js
-Vue.createApp().mount(
-  {
-    data() {
-      return {
-        myObject: {
-          title: 'How to do lists in Vue',
-          author: 'Jane Doe',
-          publishedAt: '2016-04-10'
-        }
+Vue.createApp({
+  data() {
+    return {
+      myObject: {
+        title: "How to do lists in Vue",
+        author: "Jane Doe",
+        publishedAt: "2016-04-10"
       }
-    }
-  },
-  '#v-for-object'
-)
+    };
+  }
+}).mount("#v-for-object");
 ```
 
 Result:
@@ -318,53 +309,49 @@ Here's a complete example of a simple todo list:
 ```
 
 ```js
-const TodoItem = {
+const app = Vue.createApp({
+  data() {
+    return {
+      newTodoText: "",
+      todos: [
+        {
+          id: 1,
+          title: "Do the dishes"
+        },
+        {
+          id: 2,
+          title: "Take out the trash"
+        },
+        {
+          id: 3,
+          title: "Mow the lawn"
+        }
+      ],
+      nextTodoId: 4
+    };
+  },
+  methods: {
+    addNewTodo() {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      });
+      this.newTodoText = "";
+    }
+  }
+});
+
+app.component("todo-item", {
   template: `
           <li>
             {{ title }}
             <button v-on:click="$emit('remove')">Remove</button>
           </li>
         `,
-  props: ['title']
-}
+  props: ["title"]
+});
 
-Vue.createApp().mount(
-  {
-    components: {
-      'todo-item': TodoItem
-    },
-    data() {
-      return {
-        newTodoText: '',
-        todos: [
-          {
-            id: 1,
-            title: 'Do the dishes'
-          },
-          {
-            id: 2,
-            title: 'Take out the trash'
-          },
-          {
-            id: 3,
-            title: 'Mow the lawn'
-          }
-        ],
-        nextTodoId: 4
-      }
-    },
-    methods: {
-      addNewTodo() {
-        this.todos.push({
-          id: this.nextTodoId++,
-          title: this.newTodoText
-        })
-        this.newTodoText = ''
-      }
-    }
-  },
-  '#todo-list-example'
-)
+app.mount("#todo-list-example");
 ```
 
 <list-7/>
