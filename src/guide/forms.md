@@ -76,12 +76,13 @@ Multiple checkboxes, bound to the same Array:
 ```
 
 ```js
-new Vue({
-  el: '#example-3',
-  data: {
-    checkedNames: []
+Vue.createApp({
+  data() {
+    return {
+      checkedNames: []
+    }
   }
-})
+}).mount('#example-3')
 ```
 
 <forms-4/>
@@ -89,13 +90,25 @@ new Vue({
 ### Radio
 
 ```html
-<input type="radio" id="one" value="One" v-model="picked" />
-<label for="one">One</label>
-<br />
-<input type="radio" id="two" value="Two" v-model="picked" />
-<label for="two">Two</label>
-<br />
-<span>Picked: {{ picked }}</span>
+<div id="example-4">
+  <input type="radio" id="one" value="One" v-model="picked" />
+  <label for="one">One</label>
+  <br />
+  <input type="radio" id="two" value="Two" v-model="picked" />
+  <label for="two">Two</label>
+  <br />
+  <span>Picked: {{ picked }}</span>
+</div>
+```
+
+```js
+Vue.createApp({
+  data() {
+    return {
+      picked: ''
+    }
+  }
+}).mount('#example-4')
 ```
 
 <forms-5/>
@@ -117,16 +130,13 @@ Single select:
 ```
 
 ```js
-Vue.createApp().mount(
-  {
-    data() {
-      return {
-        selected: ''
-      }
+Vue.createApp({
+  data() {
+    return {
+      selected: ''
     }
-  },
-  '#example-select'
-)
+  }
+}).mount('#example-select')
 ```
 
 <forms-6/>
@@ -163,21 +173,18 @@ Dynamic options rendered with `v-for`:
 ```
 
 ```js
-Vue.createApp().mount(
-  {
-    data() {
-      return {
-        selected: 'A',
-        options: [
-          { text: 'One', value: 'A' },
-          { text: 'Two', value: 'B' },
-          { text: 'Three', value: 'C' }
-        ]
-      }
+Vue.createApp({
+  data() {
+    return {
+      selected: 'A',
+      options: [
+        { text: 'One', value: 'A' },
+        { text: 'Two', value: 'B' },
+        { text: 'Three', value: 'C' }
+      ]
     }
-  },
-  '#example-select-dynamic'
-)
+  }
+}).mount('#example-select-dynamic')
 ```
 
 <forms-8/>

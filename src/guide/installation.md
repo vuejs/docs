@@ -47,7 +47,7 @@ If you are using native ES Modules, there is also an ES Modules compatible build
 
 ```html
 <script type="module">
-  import Vue from "https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.esm.browser.js";
+  import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.esm.browser.js'
 </script>
 ```
 
@@ -114,15 +114,15 @@ If you need to compile templates on the client (e.g. passing a string to the `te
 // TODO: Needs to be changed with v3 examples
 // this requires the compiler
 new Vue({
-  template: "<div>{{ hi }}</div>"
-});
+  template: '<div>{{ hi }}</div>'
+})
 
 // this does not
 new Vue({
   render(h) {
-    return h("div", this.hi);
+    return h('div', this.hi)
   }
-});
+})
 ```
 
 When using `vue-loader` or `vueify`, templates inside `*.vue` files are pre-compiled into JavaScript at build time. You don't really need the compiler in the final bundle, and can therefore use the runtime-only build.
@@ -136,25 +136,25 @@ module.exports = {
   // ...
   resolve: {
     alias: {
-      vue$: "vue/dist/vue.esm.js" // 'vue/dist/vue.common.js' for webpack 1
+      vue$: 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
     }
   }
-};
+}
 ```
 
 #### Rollup
 
 ```js
-const alias = require("rollup-plugin-alias");
+const alias = require('rollup-plugin-alias')
 
 rollup({
   // ...
   plugins: [
     alias({
-      vue: require.resolve("vue/dist/vue.esm.js")
+      vue: require.resolve('vue/dist/vue.esm.js')
     })
   ]
-});
+})
 ```
 
 #### Browserify
@@ -197,26 +197,26 @@ In Webpack 4+, you can use the `mode` option:
 
 ```js
 module.exports = {
-  mode: "production"
-};
+  mode: 'production'
+}
 ```
 
 But in Webpack 3 and earlier, you'll need to use [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
 
 ```js
-var webpack = require("webpack");
+var webpack = require('webpack')
 
 module.exports = {
   // ...
   plugins: [
     // ...
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
       }
     })
   ]
-};
+}
 ```
 
 #### Rollup

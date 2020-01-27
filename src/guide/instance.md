@@ -5,7 +5,13 @@
 Every Vue application starts by creating a new **Vue instance** with the `createApp` function:
 
 ```js
-Vue.createApp().mount(/* options */)
+Vue.createApp(/* options */)
+```
+
+After the Vue instance is created, we can _mount_ it, passing a container to `.mount` method. For example, if we want to mount a Vue application on `<div id="app"></div>`, we should pass `#app`:
+
+```js
+Vue.createApp(/* options */).mount('#app')
 ```
 
 Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our Vue instance.
@@ -36,11 +42,11 @@ When a Vue instance is created, it adds all the properties found in its `data` t
 const data = { a: 1 }
 
 // The object is added to a Vue instance
-const vm = Vue.createApp().mount({
+const vm = Vue.createApp({
   data() {
     return data
   }
-})
+}).mount('#app')
 
 // Getting the property on the instance
 // returns the one from the original data
@@ -81,14 +87,11 @@ const obj = {
 
 Object.freeze(obj)
 
-const vm = Vue.createApp().mount(
-  {
-    data() {
-      return obj
-    }
-  },
-  '#app'
-)
+const vm = Vue.createApp({
+  data() {
+    return obj
+  }
+}).mount('#app')
 ```
 
 ```html
@@ -127,20 +130,17 @@ Each Vue instance goes through a series of initialization steps when it's create
 For example, the [`created`](TODO:../api/#created) hook can be used to run code after an instance is created:
 
 ```js
-Vue.createApp().mount(
-  {
-    data() {
-      return {
-        a: 1
-      }
-    },
-    created() {
-      // `this` points to the vm instance
-      console.log('a is: ' + this.a) // => "a is: 1"
+Vue.createApp({
+  data() {
+    return {
+      a: 1
     }
   },
-  '#app'
-)
+  created() {
+    // `this` points to the vm instance
+    console.log('a is: ' + this.a) // => "a is: 1"
+  }
+})
 ```
 
 There are also other hooks which will be called at different stages of the instance's lifecycle, such as [`mounted`](TODO:../api/#mounted), [`updated`](TODO:../api/#updated), and [`destroyed`](TODO:../api/#destroyed). All lifecycle hooks are called with their `this` context pointing to the Vue instance invoking it.

@@ -18,19 +18,7 @@ If you are an experienced frontend developer and want to know how Vue compares t
 The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
 :::
 
-The easiest way to try out Vue.js is using the [JSFiddle Hello World example](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Feel free to open it in another tab and follow along as we go through some basic examples. Or, you can <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html" rel="noopener noreferrer">create an <code>index.html</code> file</a> and include Vue with:
-
-```html
-<!-- development version, includes helpful console warnings -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-```
-
-or:
-
-```html
-<!-- production version, optimized for size and speed -->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-```
+The easiest way to try out Vue.js is using the [Hello World example](TODO). Feel free to open it in another tab and follow along as we go through some basic examples.
 
 The [Installation](installation.md) page provides more options of installing Vue. Note: We **do not** recommend that beginners start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools.
 
@@ -53,12 +41,12 @@ const App = {
   }
 }
 
-Vue.createApp().mount(App, '#app')
+Vue.createApp(App).mount('#app')
 ```
 
 <intro-1 />
 
-We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Change the `message` property in the code snippet below to a different value. You the rendered example update accordingly: ![placeholder sandbox link](https://codesandbox.io/s/xenodochial-meninsky-rxlt4)
+We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Change the `message` property in the code snippet below to a different value and the rendered example will update accordingly: ![TODO:placeholder sandbox link](https://codesandbox.io/s/xenodochial-meninsky-rxlt4)
 
 In addition to text interpolation, we can also bind element attributes like this:
 
@@ -80,7 +68,7 @@ const App2 = {
   }
 }
 
-Vue.createApp().mount(App2, '#app-2')
+Vue.createApp(App2).mount('#app-2')
 ```
 
 <intro-2 />
@@ -105,14 +93,14 @@ const App3 = {
   }
 }
 
-Vue.createApp().mount(App3, '#app-3')
+Vue.createApp(App3).mount('#app-3')
 ```
 
 <intro-3/>
 
 This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](TODO) when elements are inserted/updated/removed by Vue.
 
-You can change `seen` from `true` to `false` in the sandbox below to check the effect: https://codesandbox.io/s/basic-conditional-rendering-eptpp
+You can change `seen` from `true` to `false` in the sandbox below to check the effect: TODO:https://codesandbox.io/s/basic-conditional-rendering-eptpp
 
 There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
 
@@ -139,7 +127,7 @@ const App4 = {
   }
 }
 
-Vue.createApp().mount(App4, '#app-4')
+Vue.createApp(App4).mount('#app-4')
 ```
 
 <intro-4/>
@@ -172,7 +160,7 @@ const App5 = {
   }
 }
 
-Vue.createApp().mount(App5, '#app-5')
+Vue.createApp(App5).mount('#app-5')
 ```
 
 <intro-5/>
@@ -197,7 +185,7 @@ const App6 = {
   }
 }
 
-Vue.createApp().mount(App6, '#app-6')
+Vue.createApp(App6).mount('#app-6')
 ```
 
 <intro-6/>
@@ -212,7 +200,7 @@ In Vue, a component is essentially a Vue instance with pre-defined options. Regi
 
 ```js
 // Create Vue application
-const app = Vue.createApp()
+const app = Vue.createApp(...)
 
 // Define a new component called todo-item
 app.component('todo-item', {
@@ -262,13 +250,6 @@ Now we can pass the todo into each repeated component using `v-bind`:
 ```
 
 ```js
-const app = Vue.createApp()
-
-app.component('todo-item', {
-  props: ['todo'],
-  template: `<li>{{ todo.text }}</li>`
-})
-
 const App7 = {
   data() {
     return {
@@ -281,7 +262,14 @@ const App7 = {
   }
 }
 
-app.mount(App7, '#app-7')
+const app = Vue.createApp(App7)
+
+app.component('todo-item', {
+  props: ['todo'],
+  template: `<li>{{ todo.text }}</li>`
+})
+
+app.mount('#app-7')
 ```
 
 <intro-7/>
