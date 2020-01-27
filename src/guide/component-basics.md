@@ -285,7 +285,7 @@ Here's that in action:
 
 ```js
 app.component('custom-input', {
-  props: ['value'],
+  props: ['modelValue'],
   template: `
     <input
       v-bind:value="modelValue"
