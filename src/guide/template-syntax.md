@@ -12,7 +12,7 @@ If you are familiar with Virtual DOM concepts and prefer the raw power of JavaSc
 
 The most basic form of data binding is text interpolation using the "Mustache" syntax (double curly braces):
 
-``` html
+```html
 <span>Message: {{ msg }}</span>
 ```
 
@@ -20,7 +20,7 @@ The mustache tag will be replaced with the value of the `msg` property on the co
 
 You can also perform one-time interpolations that do not update on data change by using the [v-once directive](TODO:../api/#v-once), but keep in mind this will also affect any other bindings on the same node:
 
-``` html
+```html
 <span v-once>This will never change: {{ msg }}</span>
 ```
 
@@ -28,10 +28,11 @@ You can also perform one-time interpolations that do not update on data change b
 
 The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](TODO:../api/#v-html):
 
-``` html
+```html
 <p>Using mustaches: {{ rawHtml }}</p>
 <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 ```
+
 <template-1/>
 
 The contents of the `span` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
@@ -44,13 +45,13 @@ Dynamically rendering arbitrary HTML on your website can be very dangerous becau
 
 Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](../api/#v-bind):
 
-``` html
+```html
 <div v-bind:id="dynamicId"></div>
 ```
 
 In the case of boolean attributes, where their mere existence implies `true`, `v-bind` works a little differently. In this example:
 
-``` html
+```html
 <button v-bind:disabled="isButtonDisabled">Button</button>
 ```
 
@@ -60,19 +61,16 @@ If `isButtonDisabled` has the value of `null`, `undefined`, or `false`, the `dis
 
 So far we've only been binding to simple property keys in our templates. But Vue.js actually supports the full power of JavaScript expressions inside all data bindings:
 
-``` html
-{{ number + 1 }}
-
-{{ ok ? 'YES' : 'NO' }}
-
-{{ message.split('').reverse().join('') }}
+```html
+{{ number + 1 }} {{ ok ? 'YES' : 'NO' }} {{ message.split('').reverse().join('')
+}}
 
 <div v-bind:id="'list-' + id"></div>
 ```
 
 These expressions will be evaluated as JavaScript in the data scope of the owner Vue instance. One restriction is that each binding can only contain **one single expression**, so the following will **NOT** work:
 
-``` html
+```html
 <!-- this is a statement, not an expression: -->
 {{ var a = 1 }}
 
@@ -88,7 +86,7 @@ Template expressions are sandboxed and only have access to a [whitelist of globa
 
 Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be **a single JavaScript expression** (with the exception of `v-for`, which will be discussed later). A directive's job is to reactively apply side effects to the DOM when the value of its expression changes. Let's review the example we saw in the introduction:
 
-``` html
+```html
 <p v-if="seen">Now you see me</p>
 ```
 
@@ -98,7 +96,7 @@ Here, the `v-if` directive would remove/insert the `<p>` element based on the tr
 
 Some directives can take an "argument", denoted by a colon after the directive name. For example, the `v-bind` directive is used to reactively update an HTML attribute:
 
-``` html
+```html
 <a v-bind:href="url"> ... </a>
 ```
 
@@ -106,7 +104,7 @@ Here `href` is the argument, which tells the `v-bind` directive to bind the elem
 
 Another example is the `v-on` directive, which listens to DOM events:
 
-``` html
+```html
 <a v-on:click="doSomething"> ... </a>
 ```
 
@@ -116,7 +114,7 @@ Here the argument is the event name to listen to. We will talk about event handl
 
 It is also possible to use a JavaScript expression in a directive argument by wrapping it with square brackets:
 
-``` html
+```html
 <!--
 Note that there are some constraints to the argument expression, as explained
 in the "Dynamic Argument Expression Constraints" section below.
@@ -128,7 +126,7 @@ Here `attributeName` will be dynamically evaluated as a JavaScript expression, a
 
 Similarly, you can use dynamic arguments to bind a handler to a dynamic event name:
 
-``` html
+```html
 <a v-on:[eventName]="doSomething"> ... </a>
 ```
 
@@ -142,7 +140,7 @@ Dynamic arguments are expected to evaluate to a string, with the exception of `n
 
 Dynamic argument expressions have some syntax constraints because certain characters, such as spaces and quotes, are invalid inside HTML attribute names. For example, the following is invalid:
 
-``` html
+```html
 <!-- This will trigger a compiler warning. -->
 <a v-bind:['foo' + bar]="value"> ... </a>
 ```
@@ -151,7 +149,7 @@ The workaround is to either use expressions without spaces or quotes, or replace
 
 When using in-DOM templates (templates directly written in an HTML file), you should also avoid naming keys with uppercase characters, as browsers will coerce attribute names into lowercase:
 
-``` html
+```html
 <!--
 This will be converted to v-bind:[someattr] in in-DOM templates.
 Unless you have a "someattr" property in your instance, your code won't work.
@@ -163,11 +161,11 @@ Unless you have a "someattr" property in your instance, your code won't work.
 
 Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
 
-``` html
-<form v-on:submit.prevent="onSubmit"> ... </form>
+```html
+<form v-on:submit.prevent="onSubmit">...</form>
 ```
 
-You'll see other examples of modifiers later, [for `v-on`](TODO:events.html#Event-Modifiers) and [for `v-model`](TODO:forms.html#Modifiers), when we explore those features.
+You'll see other examples of modifiers later, [for `v-on`](events.md#event-modifiers) and [for `v-model`](forms.md#modifiers), when we explore those features.
 
 ## Shorthands
 
@@ -175,20 +173,20 @@ The `v-` prefix serves as a visual cue for identifying Vue-specific attributes i
 
 ### `v-bind` Shorthand
 
-``` html
+```html
 <!-- full syntax -->
 <a v-bind:href="url"> ... </a>
 
 <!-- shorthand -->
 <a :href="url"> ... </a>
 
-<!-- shorthand with dynamic argument (2.6.0+) -->
+<!-- shorthand with dynamic argument -->
 <a :[key]="url"> ... </a>
 ```
 
 ### `v-on` Shorthand
 
-``` html
+```html
 <!-- full syntax -->
 <a v-on:click="doSomething"> ... </a>
 

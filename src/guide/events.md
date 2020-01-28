@@ -16,16 +16,13 @@ For example:
 ```
 
 ```js
-Vue.createApp().mount(
-  {
-    data() {
-      return {
-        counter: 1
-      }
+Vue.createApp({
+  data() {
+    return {
+      counter: 1
     }
-  },
-  '#example-1'
-)
+  }
+}).mount('#example-1')
 ```
 
 Result:
@@ -46,26 +43,23 @@ For example:
 ```
 
 ```js
-Vue.createApp().mount(
-  {
-    data() {
-      return {
-        name: 'Vue.js'
-      }
-    },
-    methods: {
-      greet(event) {
-        // `this` inside methods points to the Vue instance
-        alert('Hello ' + this.name + '!')
-        // `event` is the native DOM event
-        if (event) {
-          alert(event.target.tagName)
-        }
-      }
+Vue.createApp({
+  data() {
+    return {
+      name: 'Vue.js'
     }
   },
-  '#example-2'
-)
+  methods: {
+    greet(event) {
+      // `this` inside methods points to the Vue instance
+      alert('Hello ' + this.name + '!')
+      // `event` is the native DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}).mount('#example-2')
 ```
 
 Result:
@@ -84,16 +78,13 @@ Instead of binding directly to a method name, we can also use methods in an inli
 ```
 
 ```js
-Vue.createApp().mount(
-  {
-    methods: {
-      say(message) {
-        alert(message)
-      }
+Vue.createApp({
+  methods: {
+    say(message) {
+      alert(message)
     }
-  },
-  '#example-3'
-)
+  }
+}).mount('#example-3')
 ```
 
 Result:
