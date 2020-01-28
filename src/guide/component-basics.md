@@ -8,7 +8,7 @@ Here's an example of a Vue component:
 
 ```js
 // Create a Vue application
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 // Define a new global component called button-counter
 app.component('button-counter', {
