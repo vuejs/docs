@@ -18,7 +18,7 @@ Although not strictly associated with the [MVVM pattern](https://en.wikipedia.or
 
 When you create a Vue instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](TODO:../api/#Options-Data).
 
-A Vue application consists of a **root Vue instance** created with `createAppe`, optionally organized into a tree of nested, reusable components. For example, a todo app's component tree might look like this:
+A Vue application consists of a **root Vue instance** created with `createApp`, optionally organized into a tree of nested, reusable components. For example, a todo app's component tree might look like this:
 
 ```
 Root Instance
