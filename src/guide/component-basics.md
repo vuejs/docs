@@ -276,6 +276,10 @@ When used on a component, `v-model` instead does this:
 ></custom-input>
 ```
 
+::: warning
+Please note we used `model-value` with kebab-case here because we are working with in-DOM template. You can find a detailed explanation on kebab-cased vs camelCased attributes in the [DOM Template Parsing Caveats](#dom-template-parsing-caveats) section
+:::
+
 For this to actually work though, the `<input>` inside the component must:
 
 - Bind the `value` attribute to a `modelValue` prop
@@ -378,7 +382,26 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 </table>
 ```
 
-It should be noted that **this limitation does _not_ apply if you are using string templates from one of the following sources**:
+Also, HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, camelCased prop names and event handler parameters need to use their kebab-cased (hyphen-delimited) equivalents:
+
+```js
+// camelCase in JavaScript
+
+app.component('blog-post', {
+  props: ['postTitle'],
+  template: `
+    <h3>{{ postTitle }}</h3>
+  `
+})
+```
+
+```html
+<!-- kebab-case in HTML -->
+
+<blog-post post-title="hello!"></blog-post>
+```
+
+It should be noted that **these limitations does _not_ apply if you are using string templates from one of the following sources**:
 
 - String templates (e.g. `template: '...'`)
 - [Single-file (`.vue`) components](TODO:single-file-components.html)
