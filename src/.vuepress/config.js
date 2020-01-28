@@ -40,8 +40,13 @@ module.exports = {
             'list',
             'events',
             'forms',
-            'component-basics',
+            'component-basics'
           ]
+        },
+        {
+          title: 'Components In-Depth',
+          collapsable: true,
+          children: ['component-registration']
         }
       ]
     }
