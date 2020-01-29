@@ -263,15 +263,35 @@ to validate that the value of the `author` prop was created with `new Person`.
 
 A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined.
 
-While explicitly defined props are preferred for passing information to a child component, authors of component libraries can't always foresee the contexts in which their components might be used. That's why components can accept arbitrary attributes, which are added to the component's root element.
+While explicitly defined props are preferred for passing information to a child component, authors of component libraries can't always foresee the contexts in which their components might be used. That's why components can accept arbitrary attributes.
 
-For example, imagine we're using a 3rd-party `bootstrap-date-input` component with a Bootstrap plugin that requires a `data-date-picker` attribute on the `input`. We can add this attribute to our component instance:
+When the component returns a single root node, attributes will be implicitly added to the root node's props. For example, imagine we're using a 3rd-party `bootstrap-date-input` component with a Bootstrap plugin that requires a `data-date-picker` attribute on the `input`. We can add this attribute to our component instance:
 
 ```html
 <bootstrap-date-input data-date-picker="activated"></bootstrap-date-input>
 ```
 
 And the `data-date-picker="activated"` attribute will automatically be added to the root element of `bootstrap-date-input`.
+
+If the component receives extraneous attrs, but returns multiple root nodes (a [fragment](TODO:fragment.md)), an automatic merge cannot be performed. In this case you need to select an element to apply the passed attributes via `v-bind="$attrs"`:
+
+```html
+<!-- child component -->
+
+<span>Select a date:</span>
+<input v-bind="$attrs" type="date" class="form-control" />
+```
+
+`$attrs` instance property contains the attribute names and values passed to a component, such as:
+
+```js
+{
+  required: true,
+  placeholder: 'Enter your username'
+}
+```
+
+If you did not apply `this.$attrs` in a multi-root component explicitly, a runtime warning will be emitted. You can suppress this warning with [Disabling Attribute Inheritance](#disabling-attribute-inheritance).
 
 ### Replacing/Merging with Existing Attributes
 
@@ -299,28 +319,21 @@ For most attributes, the value provided to the component will replace the value 
 
 ### Disabling Attribute Inheritance
 
-If you do **not** want the root element of a component to inherit attributes, you can set `inheritAttrs: false` in the component's options. For example:
+If you do **not** want the single root element of a component to inherit attributes, you can set `inheritAttrs: false` in the component's options. For example:
 
 ```js
-Vue.component('my-component', {
+const app = Vue.createApp({})
+
+app.component('my-component', {
   inheritAttrs: false
   // ...
 })
 ```
 
-This can be especially useful in combination with the `$attrs` instance property, which contains the attribute names and values passed to a component, such as:
+With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](TODO:../style-guide/#Base-component-names-strongly-recommended):
 
 ```js
-{
-  required: true,
-  placeholder: 'Enter your username'
-}
-```
-
-With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](../style-guide/#Base-component-names-strongly-recommended):
-
-```js
-Vue.component('base-input', {
+app.component('base-input', {
   inheritAttrs: false,
   props: ['label', 'value'],
   template: `
@@ -335,8 +348,6 @@ Vue.component('base-input', {
   `
 })
 ```
-
-<p class="tip">Note that `inheritAttrs: false` option does **not** affect `style` and `class` bindings.</p>
 
 This pattern allows you to use base components more like raw HTML elements, without having to care about which element is actually at its root:
 
