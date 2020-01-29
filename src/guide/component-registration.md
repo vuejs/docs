@@ -29,7 +29,7 @@ You can see other recommendations for component names in the [Style Guide](TODO:
 
 ### Name Casing
 
-You have two options when defining component names:
+When defining components in a string template or a single-file component, you have two options when defining component names:
 
 #### With kebab-case
 
