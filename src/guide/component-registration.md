@@ -16,7 +16,7 @@ app.component('my-component-name', {
 })
 ```
 
-The component's name is the first argument of `app.component`.
+The component's name is the first argument of `app.component`. In the example above, the component's name is "my-component-name".
 
 The name you give a component may depend on where you intend to use it. When using a component directly in the DOM (as opposed to in a string template or [single-file component](TODO: single-file-components.html)), we strongly recommend following the [W3C rules](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) for custom tag names (all-lowercase, must contain a hyphen). This helps you avoid conflicts with current and future HTML elements.
 
