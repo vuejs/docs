@@ -46,7 +46,7 @@ module.exports = {
         {
           title: 'Components In-Depth',
           collapsable: true,
-          children: ['component-registration']
+          children: ['component-registration', 'component-props']
         }
       ]
     }
