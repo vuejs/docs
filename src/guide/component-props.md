@@ -2,27 +2,6 @@
 
 > This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
 
-## Prop Casing (camelCase vs kebab-case)
-
-HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you're using in-DOM templates, camelCased prop names need to use their kebab-cased (hyphen-delimited) equivalents:
-
-```js
-const app = Vue.createApp({})
-
-app.component('blog-post', {
-  // camelCase in JavaScript
-  props: ['postTitle'],
-  template: '<h3>{{ postTitle }}</h3>'
-})
-```
-
-```html
-<!-- kebab-case in HTML -->
-<blog-post post-title="hello!"></blog-post>
-```
-
-Again, if you're using string templates, this limitation does not apply.
-
 ## Prop Types
 
 So far, we've only seen props listed as an array of strings:
@@ -358,3 +337,24 @@ This pattern allows you to use base components more like raw HTML elements, with
   placeholder="Enter your username"
 ></base-input>
 ```
+
+## Prop Casing (camelCase vs kebab-case)
+
+HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you're using in-DOM templates, camelCased prop names need to use their kebab-cased (hyphen-delimited) equivalents:
+
+```js
+const app = Vue.createApp({})
+
+app.component('blog-post', {
+  // camelCase in JavaScript
+  props: ['postTitle'],
+  template: '<h3>{{ postTitle }}</h3>'
+})
+```
+
+```html
+<!-- kebab-case in HTML -->
+<blog-post post-title="hello!"></blog-post>
+```
+
+Again, if you're using string templates, this limitation does not apply.
