@@ -47,3 +47,23 @@ Note that this enables multiple v-model bindings on the same component, each syn
 ```
 
 ## Handling `v-model` modifiers
+
+In 2.x, we have hard-coded support for modifiers like `.trim` on component `v-model`. However, it would be more useful if the component can support custom modifiers. In 3.x, modifiers added to a component `v-model` will be provided to the component via the modelModifiers prop:
+
+```html
+<my-component v-model.capitalize="bar"></my-component>
+```
+
+```js
+app.component('my-component', {
+  props: ['modelValue', 'modelModifiers'],
+  template: `
+    <input type="text" 
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)">
+  `,
+  created() {
+    console.log(this.modelModifiers) // { capitalize: true }
+  }
+})
+```
