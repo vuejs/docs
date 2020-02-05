@@ -67,3 +67,64 @@ app.component('my-component', {
   }
 })
 ```
+
+We can check `modelModifier` object keys and write a handler to change the emitted value. In the code below we will capitalize the string:
+
+```html
+<div id="app">
+  <my-component v-model.capitalize="myText"></my-component>
+  {{ myText }}
+</div>
+```
+
+```js
+const app = Vue.createApp({
+  data() {
+    return {
+      myText: ''
+    }
+  }
+})
+
+app.component('my-component', {
+  props: ['modelValue', 'modelModifiers'],
+  methods: {
+    modifyInput(value) {
+      // check the modifier and modify the value if it's present
+      if (this.modelModifiers.capitalize) {
+        return value.charAt(0).toUpperCase() + value.slice(1)
+      }
+      // if we haven't an expected modifier, just return an initial value
+      return value
+    }
+  },
+  template: `
+    <input type="text" 
+      :value="modelValue"
+      @input="$emit('update:modelValue', this.modifyInput($event.target.value))"
+    >
+  `
+})
+
+app.mount('#app')
+```
+
+For `v-model` with arguments, the generated prop name will be `arg + "Modifiers"`:
+
+```html
+<my-component v-model:foo.capitalize="bar"></my-component>
+```
+
+```js
+app.component('my-component', {
+  props: ['foo', 'fooModifiers'],
+  template: `
+    <input type="text" 
+      :value="foo"
+      @input="$emit('update:foo', $event.target.value)">
+  `,
+  created() {
+    console.log(this.fooModifiers) // { capitalize: true }
+  }
+})
+```
