@@ -49,12 +49,8 @@ module.exports = {
           children: [
             'component-registration',
             'component-props',
-<<<<<<< HEAD
             'component-custom-events',
             'component-slots'
-=======
-            'component-custom-events'
->>>>>>> master
           ]
         }
       ]
