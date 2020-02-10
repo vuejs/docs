@@ -49,7 +49,9 @@ module.exports = {
           children: [
             'component-registration',
             'component-props',
-            'component-custom-events'
+            'component-custom-events',
+            // 'component-slots',
+            'component-dynamic-async'
           ]
         }
       ]
