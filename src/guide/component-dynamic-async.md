@@ -29,7 +29,7 @@ Check out the result below:
 
 <dynamic-2/>
 
-Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered. See [this example](https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-keep-alive-with-dynamic-components) for the complete code.
+Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered. See [this example](https://codesandbox.io/s/components-keep-alive-f6k3r) for the complete code.
 
 :::tip Note
 Note that `<keep-alive>` requires the components being switched between to all have names, either using the `name` option on a component, or through local/global registration
@@ -42,8 +42,10 @@ Check out more details on `<keep-alive>` in the [API reference](TODO:../api/#kee
 In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's needed. To make that easier, Vue allows you to define your component as a factory function that asynchronously resolves your component definition. Vue will only trigger the factory function when the component needs to be rendered and will cache the result for future re-renders. For example:
 
 ```js
-Vue.component('async-example', function(resolve, reject) {
-  setTimeout(function() {
+const app = Vue.createApp({})
+
+app.component('async-example', (resolve, reject) => {
+  setTimeout(() => {
     // Pass the component definition to the resolve callback
     resolve({
       template: '<div>I am async!</div>'
@@ -55,7 +57,7 @@ Vue.component('async-example', function(resolve, reject) {
 As you can see, the factory function receives a `resolve` callback, which should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed. The `setTimeout` here is for demonstration; how to retrieve the component is up to you. One recommended approach is to use async components together with [Webpack's code-splitting feature](https://webpack.js.org/guides/code-splitting/):
 
 ```js
-Vue.component('async-webpack-example', function(resolve) {
+app.component('async-webpack-example', resolve => {
   // This special require syntax will instruct Webpack to
   // automatically split your built code into bundles which
   // are loaded over Ajax requests.
