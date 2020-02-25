@@ -1,4 +1,4 @@
-# Provide / Inject
+# Provide / inject
 
 > This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
 
@@ -93,3 +93,16 @@ In fact, you can think of dependency injection as sort of “long-range props”
 - descendant components don’t need to know where injected properties are coming from
 
 ## Working with reactivity
+
+In the example above, if we change the list of `todos`, this change won't be reflected in the injected `foo` property. This is because `provide/inject` bindings are _not_ reactive by default. We can change this behavior with passing a `ref` property or `reactive` object to `provide`. In our case, if we want to react to changes in ancestor component, we need to assign a Composition API `computed` property to our provided `foo`:
+
+```js
+app.component('todo-list', {
+  // ...
+  provide() {
+    return {
+      foo: Vue.computed(() => this.todos.length)
+    }
+  }
+})
+```
