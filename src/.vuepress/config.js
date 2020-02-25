@@ -50,7 +50,9 @@ module.exports = {
             'component-registration',
             'component-props',
             'component-custom-events',
-            'component-slots'
+            // 'component-slots',
+            // 'component-dynamic-async',
+            'component-provide-inject'
           ]
         }
       ]
