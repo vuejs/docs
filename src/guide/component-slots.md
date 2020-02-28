@@ -22,9 +22,10 @@ Then in the template for `<navigation-link>`, you might have:
 </a>
 ```
 
-When the component renders, `<slot></slot>` will be replaced by "Your Profile". 
+When the component renders, `<slot></slot>` will be replaced by "Your Profile".
 
 `html
+
 <!-- rendered HTML -->
 <a href="/profile" class="nav-link">
   Your Profile
@@ -172,8 +173,10 @@ To provide content to named slots, we need to use the `v-slot` directive on a `<
     <h1>Here might be a page title</h1>
   </template>
 
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <template v-slot:default>
+    <p>A paragraph for the main content.</p>
+    <p>And another one.</p>
+  <template v-slot:default>
 
   <template v-slot:footer>
     <p>Here's some contact info</p>
@@ -181,9 +184,7 @@ To provide content to named slots, we need to use the `v-slot` directive on a `<
 </base-layout>
 ```
 
-Now everything inside the `<template>` elements will be passed to the corresponding slots. Any content not wrapped in a `<template>` using `v-slot` will automatically be rendered in the default slot.
-
-However, wrapping your default slot content with a `<template>` can be beneficial in being explicit with how the content is intended to be rendered.
+Now everything inside the `<template>` elements will be passed to the corresponding slots.
 
 ```html
 <base-layout>
