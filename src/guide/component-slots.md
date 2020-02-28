@@ -181,7 +181,7 @@ To provide content to named slots, we need to use the `v-slot` directive on a `<
 </base-layout>
 ```
 
-Now everything inside the `<template>` elements will be passed to the corresponding slots. Any content not wrapped in a `<template>` using `v-slot` is assumed to be for the default slot.
+Now everything inside the `<template>` elements will be passed to the corresponding slots. Any content not wrapped in a `<template>` using `v-slot` will automatically be rendered in the default slot.
 
 However, you can still wrap default slot content in a `<template>` if you wish to be explicit:
 
