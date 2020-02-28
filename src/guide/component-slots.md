@@ -146,7 +146,7 @@ There are times when it's useful to have multiple slots. For example, in a `<bas
 </div>
 ```
 
-For these cases, the `<slot>` element has a special attribute, `name`, which can be used to define additional slots:
+For these cases, the `<slot>` element has a special attribute, `name`, which can be used to assign a unique ID to different slots so you can determine where content should be rendered:
 
 ```html
 <div class="container">
