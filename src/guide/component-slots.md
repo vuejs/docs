@@ -183,7 +183,7 @@ To provide content to named slots, we need to use the `v-slot` directive on a `<
 
 Now everything inside the `<template>` elements will be passed to the corresponding slots. Any content not wrapped in a `<template>` using `v-slot` will automatically be rendered in the default slot.
 
-However, you can still wrap default slot content in a `<template>` if you wish to be explicit:
+However, wrapping your default slot content with a `<template>` can be beneficial in being explicit with how the content is intended to be rendered.
 
 ```html
 <base-layout>
