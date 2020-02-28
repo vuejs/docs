@@ -164,7 +164,7 @@ For these cases, the `<slot>` element has a special attribute, `name`, which can
 
 A `<slot>` outlet without `name` implicitly has the name "default".
 
-To provide content to named slots, we can use the `v-slot` directive on a `<template>`, providing the name of the slot as `v-slot`'s argument:
+To provide content to named slots, we need to use the `v-slot` directive on a `<template>` element, providing the name of the slot as `v-slot`'s argument:
 
 ```html
 <base-layout>
