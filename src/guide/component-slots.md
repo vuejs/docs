@@ -22,7 +22,16 @@ Then in the template for `<navigation-link>`, you might have:
 </a>
 ```
 
-When the component renders, `<slot></slot>` will be replaced by "Your Profile". Slots can contain any template code, including HTML:
+When the component renders, `<slot></slot>` will be replaced by "Your Profile". 
+
+`html
+<!-- rendered HTML -->
+<a href="/profile" class="nav-link">
+  Your Profile
+</a>
+`
+
+Strings are just the beginning though! Slots can also contain any template code, including HTML:
 
 ```html
 <navigation-link url="/profile">
