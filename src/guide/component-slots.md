@@ -54,7 +54,7 @@ Or even other components:
 
 If `<navigation-link>`'s template did **not** contain a `<slot>` element, any content provided between its opening and closing tag would be discarded.
 
-## Compilation Scope
+## Render Scope
 
 When you want to use data inside a slot, such as in:
 
@@ -186,24 +186,7 @@ To provide content to named slots, we need to use the `v-slot` directive on a `<
 
 Now everything inside the `<template>` elements will be passed to the corresponding slots.
 
-```html
-<base-layout>
-  <template v-slot:header>
-    <h1>Here might be a page title</h1>
-  </template>
-
-  <template v-slot:default>
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
-  </template>
-
-  <template v-slot:footer>
-    <p>Here's some contact info</p>
-  </template>
-</base-layout>
-```
-
-Either way, the rendered HTML will be:
+The rendered HTML will be:
 
 ```html
 <div class="container">
