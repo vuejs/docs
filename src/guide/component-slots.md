@@ -9,72 +9,91 @@ Vue implements a content distribution API inspired by the [Web Components spec d
 This allows you to compose components like this:
 
 ```html
-<navigation-link url="/profile">
-  Your Profile
-</navigation-link>
+<todo-button>
+  Add todo
+</todo-button>
 ```
 
-Then in the template for `<navigation-link>`, you might have:
+Then in the template for `<todo-button>`, you might have:
 
 ```html
-<a v-bind:href="url" class="nav-link">
+<!-- todo-button component template -->
+<button class="btn-primary">
   <slot></slot>
-</a>
+</button>
 ```
 
 When the component renders, `<slot></slot>` will be replaced by "Your Profile".
 
-`html
-
+```html
 <!-- rendered HTML -->
-<a href="/profile" class="nav-link">
-  Your Profile
-</a>
-`
+<button class="btn-primary">
+  Add todo
+</button>
+```
 
 Strings are just the beginning though! Slots can also contain any template code, including HTML:
 
 ```html
-<navigation-link url="/profile">
+<todo-button>
   <!-- Add a Font Awesome icon -->
-  <span class="fa fa-user"></span>
-  Your Profile
-</navigation-link>
+  <i class="fas fa-plus"></i>
+  Add todo
+</todo-button>
 ```
 
 Or even other components:
 
 ```html
-<navigation-link url="/profile">
+<todo-button>
   <!-- Use a component to add an icon -->
-  <font-awesome-icon name="user"></font-awesome-icon>
+  <font-awesome-icon name="plus"></font-awesome-icon>
   Your Profile
-</navigation-link>
+</todo-button>
 ```
 
-If `<navigation-link>`'s template did **not** contain a `<slot>` element, any content provided between its opening and closing tag would be discarded.
+If `<todo-button>`'s template did **not** contain a `<slot>` element, any content provided between its opening and closing tag would be discarded.
+
+```html
+<!-- todo-button component template -->
+
+<button class="btn-primary">
+  Create a new item
+</button>
+```
+
+```html
+<todo-button>
+  <!-- Following text won't be rendered -->
+  Add todo
+</todo-button>
+```
 
 ## Render Scope
 
 When you want to use data inside a slot, such as in:
 
 ```html
-<navigation-link url="/profile">
-  Logged in as {{ user.name }}
-</navigation-link>
+<todo-button>
+  Delete a {{ item.name }}
+</todo-button>
 ```
 
-That slot has access to the same instance properties (i.e. the same "scope") as the rest of the template. The slot does **not** have access to `<navigation-link>`'s scope. For example, trying to access `url` would not work:
+That slot has access to the same instance properties (i.e. the same "scope") as the rest of the template.
+
+![Slot explanation](/images/slot.png)
+
+The slot does **not** have access to `<todo-button>`'s scope. For example, trying to access `action` would not work:
 
 ```html
-<navigation-link url="/profile">
-  Clicking here will send you to: {{ url }}
+<todo-button action="delete">
+  Clicking here will {{ action }} an item
   <!--
-  The `url` will be undefined, because this content is passed
-  _to_ <navigation-link>, rather than defined _inside_ the
-  <navigation-link> component.
+  The `action` will be undefined, because this content is passed
+  _to_ <todo-button>, rather than defined _inside_ the
+  <todo-button> component.
   -->
-</navigation-link>
+</todo-button>
 ```
 
 As a rule, remember that:
@@ -207,57 +226,60 @@ Note that **`v-slot` can only be added to a `<template>`** (with [one exception]
 
 ## Scoped Slots
 
-Sometimes, it's useful for slot content to have access to data only available in the child component. For example, imagine a `<current-user>` component with the following template:
+Sometimes, it's useful for slot content to have access to data only available in the child component. It's a common case when a component is used to render an array of items, and we want to be able to customize the way each item is rendered.
+
+For example, we have a component, containing a list of todo-items.
 
 ```js
-app.component('current-user', {
+app.component('todo-list', {
   data() {
     return {
-      user: {
-        firstName: 'John',
-        lastName: 'Doe'
-      }
+      items: ['Feed a cat', 'Buy milk']
     }
   },
   template: `
-    <span>
-      <slot>
-        {{ user.lastName }}
-      </slot>
-    </span>
+    <ul>
+      <li v-for="(todo, index) in items" :key="index">
+        {{ item }}
+      </li>
+    </ul>
   `
 })
 ```
 
-We might want to replace this fallback content to display the user's first name, like this:
+We might want to replace the slot to customize it on parent component:
 
 ```html
-<current-user>
-  {{ user.firstName }}
-</current-user>
+<todo-list>
+  <i class="fas fa-check"></i>
+  <span class="green">{{ item }}<span>
+</todo-list>
 ```
 
-That won't work, however, because only the `<current-user>` component has access to the `user` and the content we're providing is rendered in the parent.
+That won't work, however, because only the `<todo-list>` component has access to the `item` and the content we're providing is rendered in the parent.
 
-To make `user` available to the slot content in the parent, we can bind `user` as an attribute to the `<slot>` element:
+To make `item` available to the slot content in the parent, we can add a `<slot>` element and bind it as an attribute:
 
 ```html
-<span>
-  <slot v-bind:user="user">
-    {{ user.lastName }}
-  </slot>
-</span>
+<ul>
+  <li v-for="( item, index ) in items" :key="index">
+    <slot :item="item"></slot>
+  </li>
+</ul>
 ```
 
 Attributes bound to a `<slot>` element are called **slot props**. Now, in the parent scope, we can use `v-slot` with a value to define a name for the slot props we've been provided:
 
 ```html
-<current-user>
+<todo-list>
   <template v-slot:default="slotProps">
-    {{ slotProps.user.firstName }}
+    <i class="fas fa-check"></i>
+    <span class="green">{{ slotProps.item }}<span>
   </template>
-</current-user>
+</todo-list>
 ```
+
+![Scoped Slot Example](/images/scoped-slot.png)
 
 In this example, we've chosen to name the object containing all our slot props `slotProps`, but you can use any name you like.
 
@@ -266,37 +288,43 @@ In this example, we've chosen to name the object containing all our slot props `
 In cases like above, when _only_ the default slot is provided content, the component's tags can be used as the slot's template. This allows us to use `v-slot` directly on the component:
 
 ```html
-<current-user v-slot:default="slotProps">
-  {{ slotProps.user.firstName }}
-</current-user>
+<todo-list v-slot:default="slotProps">
+  <i class="fas fa-check"></i>
+  <span class="green">{{ slotProps.item }}<span>
+</todo-list>
 ```
 
 This can be shortened even further. Just as non-specified content is assumed to be for the default slot, `v-slot` without an argument is assumed to refer to the default slot:
 
 ```html
-<current-user v-slot="slotProps">
-  {{ slotProps.user.firstName }}
-</current-user>
+<todo-list v-slot="slotProps">
+  <i class="fas fa-check"></i>
+  <span class="green">{{ slotProps.item }}<span>
+</todo-list>
 ```
 
 Note that the abbreviated syntax for default slot **cannot** be mixed with named slots, as it would lead to scope ambiguity:
 
 ```html
 <!-- INVALID, will result in warning -->
-<current-user v-slot="slotProps">
-  {{ slotProps.user.firstName }}
+<todo-list v-slot="slotProps">
+  <todo-list v-slot:default="slotProps">
+    <i class="fas fa-check"></i>
+    <span class="green">{{ slotProps.item }}<span>
+  </todo-list>
   <template v-slot:other="otherSlotProps">
     slotProps is NOT available here
   </template>
-</current-user>
+</todo-list>
 ```
 
 Whenever there are multiple slots, use the full `<template>` based syntax for _all_ slots:
 
 ```html
-<current-user>
+<todo-list>
   <template v-slot:default="slotProps">
-    {{ slotProps.user.firstName }}
+    <i class="fas fa-check"></i>
+    <span class="green">{{ slotProps.item }}<span>
   </template>
 
   <template v-slot:other="otherSlotProps">
@@ -318,17 +346,19 @@ function (slotProps) {
 That means the value of `v-slot` can actually accept any valid JavaScript expression that can appear in the argument position of a function definition. So you can also use [ES2015 destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) to pull out specific slot props, like so:
 
 ```html
-<current-user v-slot="{ user }">
-  {{ user.firstName }}
-</current-user>
+<todo-list v-slot="{ item }">
+  <i class="fas fa-check"></i>
+  <span class="green">{{ item }}<span>
+</todo-list>
 ```
 
-This can make the template much cleaner, especially when the slot provides many props. It also opens other possibilities, such as renaming props, e.g. `user` to `person`:
+This can make the template much cleaner, especially when the slot provides many props. It also opens other possibilities, such as renaming props, e.g. `item` to `todo`:
 
 ```html
-<current-user v-slot="{ user: person }">
-  {{ person.firstName }}
-</current-user>
+<todo-list v-slot="{ item: todo }">
+  <i class="fas fa-check"></i>
+  <span class="green">{{ todo }}<span>
+</todo-list>
 ```
 
 You can even define fallbacks, to be used in case a slot prop is undefined:
@@ -374,17 +404,19 @@ However, just as with other directives, the shorthand is only available when an 
 
 ```html
 <!-- This will trigger a warning -->
-<current-user #="{ user }">
-  {{ user.firstName }}
-</current-user>
+<todo-list #="{ item }">
+  <i class="fas fa-check"></i>
+  <span class="green">{{ item }}<span>
+</todo-list>
 ```
 
 Instead, you must always specify the name of the slot if you wish to use the shorthand:
 
 ```html
-<current-user #default="{ user }">
-  {{ user.firstName }}
-</current-user>
+<todo-list #default="{ item }">
+  <i class="fas fa-check"></i>
+  <span class="green">{{ item }}<span>
+</todo-list>
 ```
 
 ## Other Examples
