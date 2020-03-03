@@ -256,7 +256,7 @@ We might want to replace the slot to customize it on parent component:
 </todo-list>
 ```
 
-That won't work, however, because only the `<todo-list>` component has access to the `item` and the content we're providing is rendered in the parent.
+That won't work, however, because only the `<todo-list>` component has access to the `item` and we are providing the slot content from its parent.
 
 To make `item` available to the slot content in the parent, we can add a `<slot>` element and bind it as an attribute:
 
