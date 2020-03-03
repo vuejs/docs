@@ -239,7 +239,7 @@ app.component('todo-list', {
   },
   template: `
     <ul>
-      <li v-for="(todo, index) in items" :key="index">
+      <li v-for="(todo, index) in items" v-bind:key="index">
         {{ item }}
       </li>
     </ul>
@@ -262,8 +262,8 @@ To make `item` available to the slot content provided by the parent, we can add 
 
 ```html
 <ul>
-  <li v-for="( item, index ) in items" :key="index">
-    <slot :item="item"></slot>
+  <li v-for="( item, index ) in items" v-bind:key="`${item}-${index}`">
+    <slot v-bind:item="item"></slot>
   </li>
 </ul>
 ```
