@@ -23,7 +23,7 @@ Then in the template for `<todo-button>`, you might have:
 </button>
 ```
 
-When the component renders, `<slot></slot>` will be replaced by "Your Profile".
+When the component renders, `<slot></slot>` will be replaced by "Add Todo".
 
 ```html
 <!-- rendered HTML -->
