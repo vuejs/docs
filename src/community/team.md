@@ -1,0 +1,3 @@
+# Team
+
+<community-team-index/>

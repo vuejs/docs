@@ -1,6 +1,12 @@
 module.exports = {
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
+  head: [
+    ['link', {
+      href: 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+      rel: 'stylesheet'
+    }]
+  ],
   themeConfig: {
     nav: [
       {
@@ -21,7 +27,13 @@ module.exports = {
           { text: 'Cookbook', link: '/cookbook/' }
         ]
       },
-      { text: 'Community', link: '/community/' }
+      {
+        text: 'Community',
+        ariaLabel: 'Community Menu',
+        items: [
+          { text: 'Team', link: '/community/team/' }
+        ]
+      }
     ],
     sidebarDepth: 2,
     sidebar: {
