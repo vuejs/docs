@@ -43,7 +43,7 @@
       </p>
 
       <VuerProfile
-        v-for="profile in members"
+        v-for="profile in emeriti"
         :key="profile.name"
         :profile="profile"
         :title-visible="titleVisible"
@@ -76,7 +76,7 @@
       </div>
 
       <VuerProfile
-        v-for="profile in members"
+        v-for="profile in partners"
         :key="profile.name"
         :profile="profile"
         :title-visible="titleVisible"
