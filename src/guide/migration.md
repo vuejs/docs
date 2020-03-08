@@ -77,7 +77,7 @@ this.$emit('onUpdate:title', newTitle)
 
 However, this led to some confusion since two-way data flow is closely tied to the `v-model` directive, whereas `v-bind` is normally used for one-way data flow for props.
 
-### How to Sync Props in Vue 3
+#### How to Sync Props in Vue 3
 
 In Vue 3, we no longer need the `.sync` modifier anymore. Similar to how we can listen for changes to a form input value, Vue 3 allows us to perform "two way data binding" on props by allowing you to pass the prop as an argument to `v-model`.
 
@@ -109,25 +109,29 @@ Previously, we constructed these directives by using the hooks listed below to t
 
 Here’s an example of this:
 
+```html
 <p v-highlight="yellow">Highlight this text bright yellow</p>
+```
 
+```js
 Vue.directive('highlight', {
-bind(el, binding, vnode) {
-el.style.background = binding.value
-}
-});
+  bind(el, binding, vnode) {
+    el.style.background = binding.value
+  }
+})
+```
 
 Here, in the initial setup for this element, the directive binds a style by passing in a value, that can be updated to different values through the application.
 
 In Vue 3, however, we’ve created a more cohesive API for custom directives. As you can see, they differ greatly from our component lifecycle methods even though we’re hooking into similar events. We’ve now unified them like so:
 
-bind → **beforeMount**
-inserted → **mounted**
-**beforeUpdate**: new! this is called before the element itself is updated, much like the component lifecycle hooks.
-update removed! There were too many similarities to updated, so this is redundant. Please use updated instead.
-componentUpdated → **updated**
-**beforeUnmount** new! similar to component lifecycle hooks, this will be called right before an element is unmounted.
-unbind -> **unmounted**
+- bind → **beforeMount**
+- inserted → **mounted**
+- **beforeUpdate**: new! this is called before the element itself is updated, much like the component lifecycle hooks.
+- update → removed! There were too many similarities to updated, so this is redundant. Please use updated instead.
+- componentUpdated → **updated**
+- **beforeUnmount** new! similar to component lifecycle hooks, this will be called right before an element is unmounted.
+- unbind -> **unmounted**
 
 The final API is as follows:
 
