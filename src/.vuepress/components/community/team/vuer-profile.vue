@@ -129,7 +129,7 @@
 </template>
 
 <script>
-import { minimizeLink, generateGithubUrl } from './utils'
+import { minimizeLink, generateGithubUrl, kmToMi, roundDistance } from './utils'
 
 export default {
   components: {
@@ -138,41 +138,44 @@ export default {
 
   props: {
     profile: Object,
-    titleVisible: Boolean
+    titleVisible: Boolean,
+    useMiles: Boolean
   },
 
   computed: {
-    workHtml: function () {
-      var work = this.profile.work
-      var html = ''
+    workHtml () {
+      const work = this.profile.work
+      let html = ''
+
       if (work.orgUrl) {
-        html += '<a href="' + work.orgUrl + '" target="_blank" rel="noopener noreferrer">'
+        html += `<a href="${work.orgUrl}" target="_blank" rel="noopener noreferrer">`
+
         if (work.org) {
           html += work.org
         } else {
           this.minimizeLink(work.orgUrl)
         }
+
         html += '</a>'
       } else if (work.org) {
         html += work.org
       }
+
       if (work.role) {
         if (html.length > 0) {
-          html = work.role + ' @ ' + html
+          html = `${work.role} @ ${html}`
         } else {
           html = work.role
         }
       }
+
       return html
     },
 
-    textDistance: function () {
-      var distanceInKm = this.profile.distanceInKm || 0
-      if (this.$root.useMiles) {
-        return roundDistance(kmToMi(distanceInKm)) + ' miles'
-      } else {
-        return roundDistance(distanceInKm) + ' km'
-      }
+    textDistance () {
+      const distanceInKm = this.profile.distanceInKm || 0
+
+      return this.useMiles ? `${roundDistance(kmToMi(distanceInKm))} miles` : `${roundDistance(distanceInKm)}km`
     },
 
     hasSocialLinks () {
@@ -247,7 +250,7 @@ export default {
     &.twitter
       color: #1da1f3
 
-    &.linked
+    &.linkedin
       color: #0077b5
 
     i
