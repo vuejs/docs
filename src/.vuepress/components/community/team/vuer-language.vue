@@ -26,17 +26,24 @@ const languageNameFor = {
   no: 'Norwegian'
 }
 
-const preferredCode = getPreferredLanguageCode().split('-')[0]
-
 export default {
   props: {
     vuerName: String,
     code: String
   },
 
+  data: () => ({
+    preferredCode: 'en'
+  }),
+
+  mounted () {
+    // since getPreferredLanguageCode() depends on window.navigator, it should be placed inside mounted()
+    this.preferredCode = getPreferredLanguageCode().split('-')[0]
+  },
+
   computed: {
     title () {
-      if (this.code === preferredCode) {
+      if (this.code === this.preferredCode) {
         return `${this.vuerName} can give technical talks in your preferred language.`
       }
 
