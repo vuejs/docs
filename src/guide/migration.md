@@ -6,7 +6,13 @@
 
 We're glad you asked! The answer is no. We've gone to great lengths to ensure most of the API is the same and the core concepts haven't changed. It's long because we like to offer very detailed explanations and include a lot of examples. Rest assured, **this is not something you have to read from top to bottom!**
 
+[//]: # 'TODO: update composition API with a link'
+
+Possibly the biggest change is our new Composition API, which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
+
 > Where should I start in a migration?
+
+[//]: # 'TODO: update this link when we have a migration helper'
 
 1. Start by running the [migration helper](https://github.com/vuejs/vue-migration-helper) on a current project. We've carefully minified and compressed a senior Vue dev into a simple command line interface. Whenever they recognize an obsolete feature, they'll let you know, offer suggestions, and provide links to more info.
 
@@ -16,21 +22,21 @@ We're glad you asked! The answer is no. We've gone to great lengths to ensure mo
 
 4. By now, your app should be fully migrated. If you're still hungry for more though, you can read the rest of this page - or dive in to the new and improved guide from [the beginning](index.html). Many parts will be skimmable, since you're already familiar with the core concepts.
 
-> How long will it take to migrate a Vue 1.x app to 2.0?
+> How long will it take to migrate a Vue 2.x app to 3.0?
 
 It depends on a few factors:
 
 - The size of your app (small to medium-sized apps will probably be less than a day)
 
-- How many times you get distracted and start playing with a cool new feature. 😉 &nbsp;Not judging, it also happened to us while building 2.0!
+- How many times you get distracted and start playing with a cool new feature. 😉 &nbsp;Not judging, it also happened to us while building 3.0!
 
-- Which obsolete features you're using. Most can be upgraded with find-and-replace, but others might take a few minutes. If you're not currently following best practices, Vue 2.0 will also try harder to force you to. This is a good thing in the long run, but could also mean a significant (though possibly overdue) refactor.
+[//]: # 'TODO: update this with link to styleguide'
 
-> If I upgrade to Vue 2, will I also have to upgrade Vuex and Vue Router?
+- Which obsolete features you're using. Most can be upgraded with find-and-replace, but others might take a few minutes. If you're not currently following best practices according to our styleguide, Vue 3.0 will also try harder to force you to. This is a good thing in the long run, but could also mean a significant (though possibly overdue) refactor.
 
-Only Vue Router 2 is compatible with Vue 2, so yes, you'll have to follow the [migration path for Vue Router](migration-vue-router.html) as well. Fortunately, most applications don't have a lot of router code, so this likely won't take more than an hour.
+> If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
 
-As for Vuex, even version 0.8 is compatible with Vue 2, so you're not forced to upgrade. The only reason you may want to upgrade immediately is to take advantage of the new features in Vuex 2, such as modules and reduced boilerplate.
+[//]: # 'TODO: still need to see where this lands'
 
 ## Templates
 
