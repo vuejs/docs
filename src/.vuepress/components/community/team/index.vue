@@ -24,13 +24,13 @@
         <p>The core team have been sorted by their distance from you.</p>
       </div>
 
-      <vuer-profile
+      <VuerProfile
         v-for="profile in members"
         :key="profile.name"
         :profile="profile"
         :title-visible="titleVisible"
         :use-miles="useMiles"
-      ></vuer-profile>
+      />
     </div>
 
     <div class="team">
@@ -42,13 +42,13 @@
         Here we honor some no-longer-active core team members who have made valuable contributions in the past.
       </p>
 
-      <vuer-profile
-        v-for="profile in emeriti"
+      <VuerProfile
+        v-for="profile in members"
         :key="profile.name"
         :profile="profile"
         :title-visible="titleVisible"
         :use-miles="useMiles"
-      ></vuer-profile>
+      />
     </div>
 
     <div class="team">
@@ -75,13 +75,13 @@
         <p>The community partners have been sorted by their distance from you.</p>
       </div>
 
-      <vuer-profile
-        v-for="profile in partners"
+      <VuerProfile
+        v-for="profile in members"
         :key="profile.name"
         :profile="profile"
         :title-visible="titleVisible"
         :use-miles="useMiles"
-      ></vuer-profile>
+      />
     </div>
   </div>
 </template>

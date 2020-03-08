@@ -51,18 +51,17 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-button {
-  display: inline-block;
-  padding: 0.4em 0.7em 0.45em;
-  font-weight: bold;
-  font-size: 0.5em;
-  text-transform: uppercase;
-  line-height: 1;
-  border: none;
-  background: #304455;
-  color: #fff;
-  border-radius: 3px;
-  position: relative;
-  cursor: pointer;
-}
+button
+  display: inline-block
+  padding: 0.4em 0.7em 0.45em
+  font-weight: bold
+  font-size: 0.5em
+  text-transform: uppercase
+  line-height: 1
+  border: none
+  background: #304455
+  color: #fff
+  border-radius: 3px
+  position: relative
+  cursor: pointer
 </style>
