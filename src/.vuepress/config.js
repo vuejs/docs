@@ -53,7 +53,7 @@ module.exports = {
           ]
         },
         {
-          title: 'Migration',
+          title: 'Migration to Vue 3',
           collapsable: true,
           children: ['migration']
         },

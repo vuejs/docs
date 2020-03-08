@@ -1,7 +1,5 @@
 # Migration to Vue 3
 
-## FAQ
-
 > There's so much here! Does that mean 3.0 is completely different, I'll have to learn the basics all over again, and migrating will be practically impossible?
 
 We're glad you asked! The answer is no. We've gone to great lengths to ensure most of the API is the same and the core concepts haven't changed. It's long because we like to offer very detailed explanations and include a lot of examples. Rest assured, **this is not something you have to read from top to bottom!**
@@ -9,6 +7,8 @@ We're glad you asked! The answer is no. We've gone to great lengths to ensure mo
 [//]: # 'TODO: update composition API with a link'
 
 Possibly the biggest change is our new Composition API, which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
+
+## FAQ
 
 > Where should I start in a migration?
 
