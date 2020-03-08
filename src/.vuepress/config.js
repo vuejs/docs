@@ -51,6 +51,16 @@ module.exports = {
             'component-props',
             'component-custom-events'
           ]
+        },
+        {
+          title: 'Migration',
+          collapsable: true,
+          children: ['migration']
+        },
+        {
+          title: 'Contribute to the Docs',
+          collapsable: true,
+          children: ['writing-guide']
         }
       ]
     }
