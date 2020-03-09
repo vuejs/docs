@@ -7,9 +7,7 @@
           v-if="!userPosition"
           @positionRetrieved="setUserPosition"
           @positionErrored="setUserPositionError"
-        >
-          Find near me
-        </GetPositionButton>
+        />
       </h2>
 
       <div v-if="errorGettingLocation" class="danger custom-block">
@@ -58,9 +56,7 @@
           v-if="!userPosition"
           @positionRetrieved="setUserPosition"
           @positionErrored="setUserPositionError"
-        >
-          Find near me
-        </GetPositionButton>
+        />
       </h2>
 
       <div v-if="errorGettingLocation" class="danger custom-block">
