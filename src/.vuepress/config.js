@@ -54,7 +54,8 @@ module.exports = {
           ]
         }
       ]
-    }
+    },
+    smoothScroll: false
   },
   plugins: {
     '@vuepress/pwa': {
