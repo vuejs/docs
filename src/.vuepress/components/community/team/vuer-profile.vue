@@ -13,10 +13,7 @@
     </div>
 
     <div class="profile">
-      <h3 :data-official-title="profile.title">
-        {{ profile.name }}
-        <sup v-if="profile.title && titleVisible" v-html="profile.title"></sup>
-      </h3>
+      <h3 :data-official-title="profile.title">{{ profile.name }}</h3>
       <dl>
         <template v-if="profile.reposOfficial">
           <dt>Core focus</dt>
@@ -138,7 +135,6 @@ export default {
 
   props: {
     profile: Object,
-    titleVisible: Boolean,
     useMiles: Boolean
   },
 

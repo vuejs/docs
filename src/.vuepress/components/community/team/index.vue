@@ -22,13 +22,7 @@
         <p>The core team have been sorted by their distance from you.</p>
       </div>
 
-      <VuerProfile
-        v-for="profile in members"
-        :key="profile.name"
-        :profile="profile"
-        :title-visible="titleVisible"
-        :use-miles="useMiles"
-      />
+      <VuerProfile v-for="profile in members" :key="profile.name" :profile="profile" :use-miles="useMiles"/>
     </div>
 
     <div class="team">
@@ -40,13 +34,7 @@
         Here we honor some no-longer-active core team members who have made valuable contributions in the past.
       </p>
 
-      <VuerProfile
-        v-for="profile in emeriti"
-        :key="profile.name"
-        :profile="profile"
-        :title-visible="titleVisible"
-        :use-miles="useMiles"
-      />
+      <VuerProfile v-for="profile in emeriti" :key="profile.name" :profile="profile" :use-miles="useMiles"/>
     </div>
 
     <div class="team">
@@ -71,13 +59,7 @@
         <p>The community partners have been sorted by their distance from you.</p>
       </div>
 
-      <VuerProfile
-        v-for="profile in partners"
-        :key="profile.name"
-        :profile="profile"
-        :title-visible="titleVisible"
-        :use-miles="useMiles"
-      />
+      <VuerProfile v-for="profile in partners" :key="profile.name" :profile="profile" :use-miles="useMiles"/>
     </div>
   </div>
 </template>
@@ -148,8 +130,7 @@ export default {
     geolocationSupported: false,
     errorGettingLocation: false,
     userPosition: null,
-    useMiles: false,
-    titleVisible: false
+    useMiles: false
   }),
 
   computed: {
