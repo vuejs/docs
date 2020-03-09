@@ -31,7 +31,7 @@ app.component('todo-list', {
     }
   },
   provide: {
-    foo: 'bar'
+    user: 'John Doe'
   },
   template: `
     <div>
@@ -44,7 +44,7 @@ app.component('todo-list', {
 app.component('todo-list-statistics', {
   inject: ['foo'],
   created() {
-    console.log(`Injected property: ${this.foo}`) // > Injected property: bar
+    console.log(`Injected property: ${this.user}`) // > Injected property: John Doe
   }
 })
 ```
@@ -59,7 +59,7 @@ app.component('todo-list', {
     }
   },
   provide: {
-    foo: this.todos.length // this will result in error 'Cannot read property 'length' of undefined`
+    todoLength: this.todos.length // this will result in error 'Cannot read property 'length' of undefined`
   },
   template: `
     ...
@@ -78,7 +78,7 @@ app.component('todo-list', {
   },
   provide() {
     return {
-      foo: this.todos.length
+      todoLength: this.todos.length
     }
   },
   template: `
@@ -91,8 +91,8 @@ This allows us to more safely keep developing that component, without fear that 
 
 In fact, you can think of dependency injection as sort of “long-range props”, except:
 
-- ancestor components don’t need to know which descendants use the properties it provides
-- descendant components don’t need to know where injected properties are coming from
+- parent components don’t need to know which descendants use the properties it provides
+- child components don’t need to know where injected properties are coming from
 
 ## Working with reactivity
 
