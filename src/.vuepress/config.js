@@ -1,3 +1,35 @@
+const sidebar = {
+  guide: [
+    {
+      title: 'Essentials',
+      collapsable: false,
+      children: [
+        '/guide/installation',
+        '/guide/introduction',
+        '/guide/instance',
+        '/guide/template-syntax',
+        '/guide/computed',
+        '/guide/class-and-style',
+        '/guide/conditional',
+        '/guide/list',
+        '/guide/events',
+        '/guide/forms',
+        '/guide/component-basics'
+      ]
+    },
+    {
+      title: 'Components In-Depth',
+      collapsable: false,
+      children: [
+        '/guide/component-registration',
+        '/guide/component-props',
+        '/guide/component-custom-events',
+        '/guide/component-slots'
+      ]
+    }
+  ]
+}
+
 module.exports = {
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
@@ -37,35 +69,8 @@ module.exports = {
     ],
     sidebarDepth: 2,
     sidebar: {
-      '/guide/': [
-        {
-          title: 'Essentials',
-          collapsable: true,
-          children: [
-            'installation',
-            'introduction',
-            'instance',
-            'template-syntax',
-            'computed',
-            'class-and-style',
-            'conditional',
-            'list',
-            'events',
-            'forms',
-            'component-basics'
-          ]
-        },
-        {
-          title: 'Components In-Depth',
-          collapsable: true,
-          children: [
-            'component-registration',
-            'component-props',
-            'component-custom-events',
-            'component-slots'
-          ]
-        }
-      ]
+      '/guide/': sidebar.guide,
+      '/community/': sidebar.guide
     },
     smoothScroll: false
   },
