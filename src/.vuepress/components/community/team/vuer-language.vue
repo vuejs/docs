@@ -1,5 +1,5 @@
 <template>
-  <li :title="this.title">{{ this.name }}</li>
+  <li :title="this.title" :class="{ highlighted }">{{ this.name }}</li>
 </template>
 
 <script>
@@ -42,8 +42,20 @@ export default {
   },
 
   computed: {
+    isUserPreferredLanguage () {
+      return this.code === this.preferredCode
+    },
+
+    isEnglish () {
+      return this.code === 'en'
+    },
+
+    highlighted () {
+      return this.isUserPreferredLanguage && !this.isEnglish
+    },
+
     title () {
-      if (this.code === this.preferredCode) {
+      if (this.highlighted) {
         return `${this.vuerName} can give technical talks in your preferred language.`
       }
 

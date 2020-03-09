@@ -55,7 +55,7 @@
             <span
               v-if="profile.distanceInKm <= 150"
               :title="`${profile.name} is close enough to commute to your location.`"
-              class="user-match"
+              class="highlighted"
             >{{ textDistance }} away</span>
             <template v-else>{{ textDistance }} away</template>
             in {{ profile.city }}
@@ -270,6 +270,21 @@ export default {
       vertical-align: text-bottom;
       font-size: 1.3em;
     }
+  }
+}
+
+.highlighted {
+  cursor: help;
+  color: #4682b4;
+
+  &::after {
+    content: "\f06a";
+    font-family: FontAwesome;
+    font-size: 0.75em;
+    vertical-align: super;
+    margin-left: 4px;
+    margin-right: 2px;
+    position: relative;
   }
 }
 </style>
