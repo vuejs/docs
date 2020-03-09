@@ -190,70 +190,86 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.vuer
-  display: flex
-  padding: 25px 0
+<style lang="scss" scoped>
+.vuer {
+  display: flex;
+  padding: 25px 0;
+}
 
-.avatar
-  flex: 0 0 80px
+.avatar {
+  flex: 0 0 80px;
 
-  img
-    border-radius: 50%
-    object-fit: cover
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
 
-.profile
-  padding-left: 26px
-  flex: 1
+.profile {
+  padding-left: 26px;
+  flex: 1;
 
-  h3
-    margin: 0
-    font-size: 1.3em
+  h3 {
+    margin: 0;
+    font-size: 1.3em;
+  }
 
-  dl
-    margin: 0.6em 0 0
+  dl {
+    margin: 0.6em 0 0;
+  }
 
-  ul, li, dt, dd
-    display: inline
-    padding: 0
-    margin: 0
-    line-height: 1.3
+  ul, li, dt, dd {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    line-height: 1.3;
+  }
 
-  dt
-    text-transform: uppercase
-    font-size: 0.84em
-    font-weight: 600
-    min-width: 1.2em
-    margin-right: 0.5em
-    display: inline-block
+  dt {
+    text-transform: uppercase;
+    font-size: 0.84em;
+    font-weight: 600;
+    min-width: 1.2em;
+    margin-right: 0.5em;
+    display: inline-block;
+  }
 
-  dd::after
-    display: block
-    content: ''
-    margin-top: 0.6em
+  dd::after {
+    display: block;
+    content: '';
+    margin-top: 0.6em;
+  }
 
-  li+li::before
-    display: inline-block
-    content: '·'
-    margin: 0 .4em
+  li+li::before {
+    display: inline-block;
+    content: '·';
+    margin: 0 0.4em;
+  }
+}
 
-.social
-  a
-    display: inline-block
-    line-height: 1
-    vertical-align: middle
-    margin-right: .4em
+.social {
+  a {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    margin-right: 0.4em;
 
-    &.github, &.codepen
-      color: #000
+    &.github, &.codepen {
+      color: #000;
+    }
 
-    &.twitter
-      color: #1da1f3
+    &.twitter {
+      color: #1da1f3;
+    }
 
-    &.linkedin
-      color: #0077b5
+    &.linkedin {
+      color: #0077b5;
+    }
 
-    i
-      vertical-align: text-bottom
-      font-size: 1.3em
+    i {
+      vertical-align: text-bottom;
+      font-size: 1.3em;
+    }
+  }
+}
 </style>

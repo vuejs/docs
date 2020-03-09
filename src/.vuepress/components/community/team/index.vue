@@ -215,11 +215,13 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.vuer+.vuer
-  border-top: 1px dotted #ddd
+<style lang="scss" scoped>
+.vuer+.vuer {
+  border-top: 1px dotted #ddd;
+}
 
-.get-position-button
-  float: right
-  margin-top: .3em
+.get-position-button {
+  float: right;
+  margin-top: .3em;
+}
 </style>
