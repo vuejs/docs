@@ -32,7 +32,10 @@
           </ul>
         </dd>
 
-        <dt>Proficiencies</dt>
+        <dt title="Proficiencies">
+          <i class="fa fa-briefcase"></i>
+          <span class="sr-only">Proficiencies</span>
+        </dt>
         <dd class="proficiency-list">
           <ul>
             <li v-for="proficiency in partner.proficiencies" :key="proficiency.name">
