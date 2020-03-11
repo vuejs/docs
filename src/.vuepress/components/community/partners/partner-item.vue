@@ -1,7 +1,7 @@
 <template>
   <div class="partner">
     <div class="logo">
-      <a :href="partner.urlLink" target="_blank" rel="sponsored noopener">
+      <a :href="partner.urlLink">
         <img :alt="`${partner.name}'s logo`" :src="logo" width="125" height="auto">
       </a>
     </div>
@@ -13,7 +13,7 @@
           <span class="sr-only">Link</span>
         </dt>
         <dd>
-          <a :href="partner.urlLink" target="_blank" rel="sponsored noopener">{{ partner.urlText }}</a>
+          <a :href="partner.urlLink">{{ partner.urlText }}</a>
         </dd>
 
         <dt>
@@ -36,7 +36,7 @@
         <dd class="proficiency-list">
           <ul>
             <li v-for="proficiency in partner.proficiencies" :key="proficiency.name">
-              <a v-if="proficiency.url" :href="proficiency.url" target="_blank" rel="sponsored noopener">
+              <a v-if="proficiency.url" :href="proficiency.url">
                 {{ proficiency.name }}
               </a>
               <template v-else>{{ proficiency.name }}</template>
