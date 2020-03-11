@@ -63,7 +63,8 @@ module.exports = {
         text: 'Community',
         ariaLabel: 'Community Menu',
         items: [
-          { text: 'Team', link: '/community/team/' }
+          { text: 'Team', link: '/community/team/' },
+          { text: 'Partners', link: '/community/partners/' }
         ]
       }
     ],

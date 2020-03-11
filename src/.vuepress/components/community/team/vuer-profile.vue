@@ -98,27 +98,10 @@
           </dd>
         </template>
         <footer v-if="hasSocialLinks" class="social">
-          <a class=github title="GitHub" v-if="profile.github" :href="generateGithubUrl(profile.github)">
-            <i class="fa fa-github"></i>
-            <span class="sr-only">Github</span>
-          </a>
-          <a class=twitter title="Twitter" v-if="profile.twitter" :href="`https://twitter.com/${profile.twitter}`">
-            <i class="fa fa-twitter"></i>
-            <span class="sr-only">Twitter</span>
-          </a>
-          <a class=codepen title="CodePen" v-if="profile.codepen" :href="`https://codepen.io/${profile.codepen}`">
-            <i class="fa fa-codepen"></i>
-            <span class="sr-only">CodePen</span>
-          </a>
-          <a
-            class=linkedin
-            title="LinkedIn"
-            v-if="profile.linkedin"
-            :href="`https://www.linkedin.com/in/${profile.linkedin}`"
-          >
-            <i class="fa fa-linkedin"></i>
-            <span class="sr-only">LinkedIn</span>
-          </a>
+          <SocialIcon type="GitHub" v-if="profile.github" :url="generateGithubUrl(profile.github)"/>
+          <SocialIcon type="Twitter" v-if="profile.twitter" :url="`https://twitter.com/${profile.twitter}`"/>
+          <SocialIcon type="CodePen" v-if="profile.codepen" :url="`https://codepen.io/${profile.codepen}`"/>
+          <SocialIcon type="LinkedIn" v-if="profile.linkedin" :url="`https://www.linkedin.com/in/${profile.linkedin}`"/>
         </footer>
       </dl>
     </div>
@@ -130,7 +113,8 @@ import { minimizeLink, generateGithubUrl, kmToMi, roundDistance } from './utils'
 
 export default {
   components: {
-    VuerLanguage: () => import('./vuer-language')
+    VuerLanguage: () => import('./vuer-language'),
+    SocialIcon: () => import('../../common/social-icon')
   },
 
   props: {
@@ -246,26 +230,8 @@ export default {
 .social {
   a {
     display: inline-block;
-    line-height: 1;
-    vertical-align: middle;
-    margin-right: 0.4em;
-
-    &.github, &.codepen {
-      color: #000;
-    }
-
-    &.twitter {
-      color: #1da1f3;
-    }
-
-    &.linkedin {
-      color: #0077b5;
-    }
-
-    i {
-      vertical-align: text-bottom;
-      font-size: 1.3em;
-    }
+    margin-right: 0.3em;
+    font-size: 1.3em;
   }
 }
 
