@@ -9,6 +9,7 @@
     "build": "vuepress build src"
   },
   "dependencies": {
-    "axios": "^0.19.1"
+    "axios": "^0.19.1",
+    "showdown": "^1.9.1"
   }
 }
