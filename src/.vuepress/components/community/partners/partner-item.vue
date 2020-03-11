@@ -33,7 +33,7 @@
         </dd>
 
         <dt>Proficiencies</dt>
-        <dd class="proficienciy-list">
+        <dd class="proficiency-list">
           <ul>
             <li v-for="proficiency in partner.proficiencies" :key="proficiency.name">
               <a v-if="proficiency.url" :href="proficiency.url" target="_blank" rel="sponsored noopener">
@@ -146,7 +146,7 @@ export default {
   }
 }
 
-dd.proficienciy-list {
+dd.proficiency-list {
   line-height: 1.6;
 }
 
