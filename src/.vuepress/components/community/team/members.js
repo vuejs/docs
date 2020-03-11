@@ -359,6 +359,25 @@ const members = [
     links: [
       'https://bencodezen.io/'
     ]
+  },
+  {
+    name: 'Kia King Ishii',
+    title: 'The optimist web designer/developer',
+    city: 'Kanagawa, Japan',
+    languages: ['en', 'jp'],
+    work: {
+      role: 'Tech Talent',
+      org: 'Global Brain',
+      orgUrl: 'https://globalbrains.com/'
+    },
+    github: 'kiaking',
+    twitter: 'KiaKing85',
+    reposOfficial: [
+      'vuex'
+    ],
+    reposPersonal: [
+      'vuex-orm/*'
+    ]
   }
 ]))
 
