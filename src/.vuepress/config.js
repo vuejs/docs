@@ -1,6 +1,49 @@
+const sidebar = {
+  guide: [
+    {
+      title: 'Essentials',
+      collapsable: false,
+      children: [
+        '/guide/installation',
+        '/guide/introduction',
+        '/guide/instance',
+        '/guide/template-syntax',
+        '/guide/computed',
+        '/guide/class-and-style',
+        '/guide/conditional',
+        '/guide/list',
+        '/guide/events',
+        '/guide/forms',
+        '/guide/component-basics'
+      ]
+    },
+    {
+      title: 'Components In-Depth',
+      collapsable: false,
+      children: [
+        '/guide/component-registration',
+        '/guide/component-props',
+        '/guide/component-custom-events',
+        '/guide/component-slots',
+        '/guide/component-provide-inject'
+      ]
+    }
+  ]
+}
+
 module.exports = {
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
+  head: [
+    [
+      'link',
+      {
+        href:
+          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        rel: 'stylesheet'
+      }
+    ]
+  ],
   themeConfig: {
     nav: [
       {
@@ -21,42 +64,21 @@ module.exports = {
           { text: 'Cookbook', link: '/cookbook/' }
         ]
       },
-      { text: 'Community', link: '/community/' }
+      {
+        text: 'Community',
+        ariaLabel: 'Community Menu',
+        items: [
+          { text: 'Team', link: '/community/team/' },
+          { text: 'Partners', link: '/community/partners/' }
+        ]
+      }
     ],
     sidebarDepth: 2,
     sidebar: {
-      '/guide/': [
-        {
-          title: 'Essentials',
-          collapsable: true,
-          children: [
-            'installation',
-            'introduction',
-            'instance',
-            'template-syntax',
-            'computed',
-            'class-and-style',
-            'conditional',
-            'list',
-            'events',
-            'forms',
-            'component-basics'
-          ]
-        },
-        {
-          title: 'Components In-Depth',
-          collapsable: true,
-          children: [
-            'component-registration',
-            'component-props',
-            'component-custom-events',
-            'component-slots',
-            // 'component-dynamic-async',
-            'component-provide-inject'
-          ]
-        }
-      ]
-    }
+      '/guide/': sidebar.guide,
+      '/community/': sidebar.guide
+    },
+    smoothScroll: false
   },
   plugins: {
     '@vuepress/pwa': {
