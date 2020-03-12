@@ -109,4 +109,4 @@ app.component('todo-list', {
 })
 ```
 
-In this, any change to `todos.length` will be reflected correctly in the components, where `foo` is injected. Read more about `reactive` provide/inject in the [Composition API section](TODO)
+In this, any change to `todos.length` will be reflected correctly in the components, where `todoLength` is injected. Read more about `reactive` provide/inject in the [Composition API section](TODO)
