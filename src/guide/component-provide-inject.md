@@ -103,7 +103,7 @@ app.component('todo-list', {
   // ...
   provide() {
     return {
-      foo: Vue.computed(() => this.todos.length)
+      todoLength: Vue.computed(() => this.todos.length)
     }
   }
 })
