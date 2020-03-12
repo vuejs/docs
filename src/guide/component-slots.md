@@ -195,7 +195,7 @@ To provide content to named slots, we need to use the `v-slot` directive on a `<
   <template v-slot:default>
     <p>A paragraph for the main content.</p>
     <p>And another one.</p>
-  <template v-slot:default>
+  </template>
 
   <template v-slot:footer>
     <p>Here's some contact info</p>
@@ -364,9 +364,10 @@ This can make the template much cleaner, especially when the slot provides many 
 You can even define fallbacks, to be used in case a slot prop is undefined:
 
 ```html
-<current-user v-slot="{ user = { firstName: 'Guest' } }">
-  {{ user.firstName }}
-</current-user>
+<todo-list v-slot="{ item = 'Placeholder' }">
+  <i class="fas fa-check"></i>
+  <span class="green">{{ todo }}<span>
+</todo-list>
 ```
 
 ## Dynamic Slot Names
@@ -418,47 +419,3 @@ Instead, you must always specify the name of the slot if you wish to use the sho
   <span class="green">{{ item }}<span>
 </todo-list>
 ```
-
-## Other Examples
-
-**Slot props allow us to turn slots into reusable templates that can render different content based on input props.** This is most useful when you are designing a reusable component that encapsulates data logic while allowing the consuming parent component to customize part of its layout.
-
-For example, we are implementing a `<todo-list>` component that contains the layout and filtering logic for a list:
-
-```html
-<ul>
-  <li v-for="todo in filteredTodos" v-bind:key="todo.id">
-    {{ todo.text }}
-  </li>
-</ul>
-```
-
-Instead of hard-coding the content for each todo, we can let the parent component take control by making every todo a slot, then binding `todo` as a slot prop:
-
-```html
-<ul>
-  <li v-for="todo in filteredTodos" v-bind:key="todo.id">
-    <!--
-    We have a slot for each todo, passing it the
-    `todo` object as a slot prop.
-    -->
-    <slot name="todo" v-bind:todo="todo">
-      <!-- Fallback content -->
-      {{ todo.text }}
-    </slot>
-  </li>
-</ul>
-```
-
-Now when we use the `<todo-list>` component, we can optionally define an alternative `<template>` for todo items, but with access to data from the child:
-
-```html
-<todo-list v-bind:todos="todos">
-  <template v-slot:todo="{ todo }">
-    <span v-if="todo.isComplete">✓</span>
-    {{ todo.text }}
-  </template>
-</todo-list>
-```
-
-However, even this barely scratches the surface of what scoped slots are capable of. For real-life, powerful examples of scoped slot usage, we recommend browsing libraries such as [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller) or [Vue Promised](https://github.com/posva/vue-promised)

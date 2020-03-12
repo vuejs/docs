@@ -24,7 +24,8 @@ const sidebar = {
         '/guide/component-registration',
         '/guide/component-props',
         '/guide/component-custom-events',
-        '/guide/component-slots'
+        '/guide/component-slots',
+        '/guide/component-provide-inject'
       ]
     }
   ]
