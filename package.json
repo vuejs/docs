@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
     "vuepress": "^1.2.0"
   },
   "scripts": {
@@ -7,6 +9,7 @@
     "build": "vuepress build src"
   },
   "dependencies": {
-    "axios": "^0.19.1"
+    "axios": "^0.19.1",
+    "showdown": "^1.9.1"
   }
 }
