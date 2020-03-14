@@ -605,7 +605,7 @@ export default myGreatMixin
 ```
 </div>
 
-## Priority B Rules: Strongly Recommended <span class="hide-from-sidebar>(Improving Readability)</span>
+## Priority B Rules: Strongly Recommended <span class="hide-from-sidebar">(Improving Readability)</span>
 
 ### Component files <sup data-p="b">strongly recommended</sup>
 
