@@ -57,7 +57,7 @@ module.exports = {
         ariaLabel: 'Documentation Menu',
         items: [
           { text: 'Guide', link: '/guide/introduction' },
-          { text: 'Styleguide', link: '/styleguide/' },
+          { text: 'Style Guide', link: '/style-guide/' },
           { text: 'Tooling', link: '/tooling/' }
         ]
       },
