@@ -27,6 +27,16 @@ const sidebar = {
         '/guide/component-slots',
         '/guide/component-provide-inject'
       ]
+    },
+    {
+      title: 'Migration to Vue 3',
+      collapsable: true,
+      children: ['migration']
+    },
+    {
+      title: 'Contribute to the Docs',
+      collapsable: true,
+      children: ['writing-guide']
     }
   ]
 }
