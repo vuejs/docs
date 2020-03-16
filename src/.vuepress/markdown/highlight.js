@@ -12,8 +12,7 @@ module.exports = fancyHighlight => {
 
   prism.languages.insertBefore('vue-html', 'tag', {
     interpolation: {
-      pattern: /^{{(?:(?!}}).)*}}/,
-      greedy: true,
+      pattern: /{{((?!}})(.|\n))*}}/,
       inside: {
         punctuation: /^{{|}}$/,
         'inline-js language-js': {
