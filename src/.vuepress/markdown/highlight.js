@@ -118,7 +118,6 @@ function extractTemplate(code) {
 
     traverse(AST, {
       /**
-       *
        * @param {import("@babel/traverse").NodePath<import('@babel/types').ObjectExpression>} node$
        */
       ObjectExpression(node$) {
