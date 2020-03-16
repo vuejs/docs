@@ -107,7 +107,6 @@ module.exports = fancyHighlight => {
 }
 
 /**
- *
  * @param {string} code
  */
 function extractTemplate(code) {
