@@ -104,7 +104,7 @@ module.exports = {
   },
   markdown: {
     /** @param {import('markdown-it')} md */
-    extendMarkdown(md) {
+    extendMarkdown: md => {
       md.options.highlight = require('./markdown/highlight')(
         md.options.highlight
       )
