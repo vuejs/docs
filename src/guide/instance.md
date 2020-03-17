@@ -153,4 +153,4 @@ Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript
 
 Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
 
-![The Vue Instance Lifecycle](/images/lifecycle.png)
+<img src="/images/lifecycle.png" width="500" style="margin: 0px auto;display: block;" />
