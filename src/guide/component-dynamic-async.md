@@ -18,7 +18,7 @@ You'll notice that if you select a post, switch to the _Archive_ tab, then switc
 
 Recreating dynamic components is normally useful behavior, but in this case, we'd really like those tab component instances to be cached once they're created for the first time. To solve this problem, we can wrap our dynamic component with a `<keep-alive>` element:
 
-```html
+```vue-html
 <!-- Inactive components will be cached! -->
 <keep-alive>
   <component v-bind:is="currentTabComponent"></component>
