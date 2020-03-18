@@ -6,7 +6,7 @@
 
 Earlier, we used the `is` attribute to switch between components in a tabbed interface:
 
-```html
+```vue-html
 <component v-bind:is="currentTabComponent"></component>
 ```
 
