@@ -65,46 +65,6 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
 
 Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
 
-### Controlling Reusable Elements with `key`
-
-Vue tries to render elements as efficiently as possible, often re-using them instead of rendering from scratch. Beyond helping make Vue very fast, this can have some useful advantages. For example, if you allow users to toggle between multiple login types:
-
-```html
-<template v-if="loginType === 'username'">
-  <label>Username</label>
-  <input placeholder="Enter your username" />
-</template>
-<template v-else>
-  <label>Email</label>
-  <input placeholder="Enter your email address" />
-</template>
-```
-
-Then switching the `loginType` in the code above will not erase what the user has already entered. Since both templates use the same elements, the `<input>` is not replaced - just its `placeholder`.
-
-Check it out for yourself by entering some text in the input, then pressing the toggle button:
-
-<conditional-1 />
-
-This isn't always desirable though, so Vue offers a way for you to say, "These two elements are completely separate - don't re-use them." Add a `key` attribute with unique values:
-
-```html
-<template v-if="loginType === 'username'">
-  <label>Username</label>
-  <input placeholder="Enter your username" key="username-input" />
-</template>
-<template v-else>
-  <label>Email</label>
-  <input placeholder="Enter your email address" key="email-input" />
-</template>
-```
-
-Now those inputs will be rendered from scratch each time you toggle. See for yourself:
-
-<conditional-2 />
-
-Note that the `<label>` elements are still efficiently re-used, because they don't have `key` attributes.
-
 ## `v-show`
 
 Another option for conditionally displaying an element is the `v-show` directive. The usage is largely the same:
@@ -115,9 +75,7 @@ Another option for conditionally displaying an element is the `v-show` directive
 
 The difference is that an element with `v-show` will always be rendered and remain in the DOM; `v-show` only toggles the `display` CSS property of the element.
 
-::: tip
-Note that `v-show` doesn't support the ::: v-pre `<template>` ::: element, nor does it work with `v-else`.</p>
-:::
+`v-show` doesn't support the `<template>` element, nor does it work with `v-else`.
 
 ## `v-if` vs `v-show`
 
@@ -131,7 +89,7 @@ Generally speaking, `v-if` has higher toggle costs while `v-show` has higher ini
 
 ## `v-if` with `v-for`
 
-::: tip
+::: tip Note
 Using `v-if` and `v-for` together is **not recommended**. See the [style guide](TODO:/v2/style-guide/#Avoid-v-if-with-v-for-essential) for further information.
 :::
 
