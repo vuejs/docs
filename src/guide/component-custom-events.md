@@ -1,6 +1,6 @@
 # Custom Events
 
-> This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
 ## Event Names
 
@@ -80,7 +80,7 @@ app.component('my-component', {
 })
 ```
 
-We can check `modelModifier` object keys and write a handler to change the emitted value. In the code below we will capitalize the string:
+We can check `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string:
 
 ```html
 <div id="app">
