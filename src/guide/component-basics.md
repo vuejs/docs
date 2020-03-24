@@ -1,7 +1,5 @@
 # Components Basics
 
-<div class="vueschool"><a href="https://vueschool.io/courses/vuejs-components-fundamentals?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Components Fundamentals Course">Watch a free video course on Vue School</a></div>
-
 ## Base Example
 
 Here's an example of a Vue component:
@@ -17,7 +15,10 @@ app.component('button-counter', {
       count: 0
     }
   },
-  template: `<button v-on:click="count++">You clicked me {{ count }} times.</button>`
+  template: `
+    <button v-on:click="count++">
+      You clicked me {{ count }} times.
+    </button>`
 })
 ```
 
@@ -33,7 +34,12 @@ Components are reusable Vue instances with a name: in this case, `<button-counte
 app.mount('#components-demo')
 ```
 
-<components-1/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abORVEJ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abORVEJ">
+  Component basics</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Since components are reusable Vue instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
 
@@ -49,7 +55,12 @@ Components can be reused as many times as you want:
 </div>
 ```
 
-<components-2 />
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="rNVqYvM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: reusing components">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNVqYvM">
+  Component basics: reusing components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
 
@@ -73,7 +84,7 @@ app.component('my-component-name', {
 
 Globally registered components can be used in the template of `app` instance created afterwards - and even inside all subcomponents of that Vue instance's component tree.
 
-That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](TODO:components-registration.html).
+That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](component-registration.md).
 
 ## Passing Data to Child Components with Props
 
@@ -82,12 +93,14 @@ Earlier, we mentioned creating a component for blog posts. The problem is, that 
 Props are custom attributes you can register on a component. When a value is passed to a prop attribute, it becomes a property on that component instance. To pass a title to our blog post component, we can include it in the list of props this component accepts, using a `props` option:
 
 ```js
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('blog-post', {
   props: ['title'],
   template: `<h4>{{ title }}</h4>`
 })
+
+app.mount('#blog-post-demo')
 ```
 
 A component can have as many props as you'd like and by default, any value can be passed to any prop. In the template above, you'll see that we can access this value on the component instance, just like with `data`.
@@ -95,12 +108,19 @@ A component can have as many props as you'd like and by default, any value can b
 Once a prop is registered, you can pass data to it as a custom attribute, like this:
 
 ```html
-<blog-post title="My journey with Vue"></blog-post>
-<blog-post title="Blogging with Vue"></blog-post>
-<blog-post title="Why Vue is so fun"></blog-post>
+<div id="blog-post-demo" class="demo">
+  <blog-post title="My journey with Vue"></blog-post>
+  <blog-post title="Blogging with Vue"></blog-post>
+  <blog-post title="Why Vue is so fun"></blog-post>
+</div>
 ```
 
-<components-3/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="PoqyOaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: passing props">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyOaX">
+  Component basics: passing props</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 In a typical app, however, you'll likely have an array of posts in `data`:
 
@@ -141,7 +161,7 @@ Then want to render a component for each one:
 
 Above, you'll see that we can use `v-bind` to dynamically pass props. This is especially useful when you don't know the exact content you're going to render ahead of time.
 
-That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](TODO:components-props.html).
+That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](component-props.html).
 
 ## Listening to Child Components Events
 
@@ -166,7 +186,7 @@ Which can be used in the template to control the font size of all blog posts:
 
 ```html
 <div id="blog-posts-events-demo">
-  <div :style="{ fontSize: postFontSize + 'em' }">
+  <div v-bind:style="{ fontSize: postFontSize + 'em' }">
     <blog-post
       v-for="post in posts"
       v-bind:key="post.id"
@@ -216,7 +236,12 @@ Then the child component can emit an event on itself by calling the built-in [**
 
 Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update `postFontSize` value.
 
-<components-4/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="KKpGyrp" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: emitting events">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpGyrp">
+  Component basics: emitting events</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### Emitting a Value With an Event
 
@@ -305,7 +330,7 @@ Now `v-model` should work perfectly with this component:
 <custom-input v-model="searchText"></custom-input>
 ```
 
-That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](TODO:components-custom-events.html).
+That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](component-custom-events.md).
 
 ## Content Distribution with Slots
 
@@ -319,7 +344,12 @@ Just like with HTML elements, it's often useful to be able to pass content to a 
 
 Which might render something like:
 
-<components-5/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="jOPeaob" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: slots">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPeaob">
+  Component basics: slots</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Fortunately, this task is made very simple by Vue's custom `<slot>` element:
 
@@ -336,13 +366,18 @@ app.component('alert-box', {
 
 As you'll see above, we just add the slot where we want it to go -- and that's it. We're done!
 
-That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](TODO:components-slots.html).
+That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](component-slots.md).
 
 ## Dynamic Components
 
 Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
 
-<components-6/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="oNXaoKy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: dynamic components">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXaoKy">
+  Component basics: dynamic components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 The above is made possible by Vue's `<component>` element with the `is` special attribute:
 
@@ -356,7 +391,7 @@ In the example above, `currentTabComponent` can contain either:
 - the name of a registered component, or
 - a component's options object
 
-See [this sandbox](https://codesandbox.io/s/dynamic-components-dvtl8) to experiment with the full code, or [this version](https://codesandbox.io/s/dynamic-components-with-options-xfnrp) for an example binding to a component's options object, instead of its registered name.
+See [this sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) to experiment with the full code, or [this version](https://codepen.io/team/Vue/pen/oNXapXM) for an example binding to a component's options object, instead of its registered name.
 
 Keep in mind that this attribute can be used with regular HTML elements, however they will be treated as components, which means all attributes **will be bound as DOM attributes**. For some properties such as `value` to work as you would expect, you will need to bind them using the [`.prop` modifier](TODO:../api/#v-bind).
 
@@ -405,7 +440,7 @@ It should be noted that **these limitations does _not_ apply if you are using st
 
 - String templates (e.g. `template: '...'`)
 - [Single-file (`.vue`) components](TODO:single-file-components.html)
-- [`<script type="text/x-template">`](TODO:components-edge-cases.html#X-Templates)
+- `<script type="text/x-template">`
 
 That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
 
