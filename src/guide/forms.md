@@ -26,7 +26,12 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 <p>Message is: {{ message }}</p>
 ```
 
-<forms-1/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="eYNPEqj" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: basic v-model">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/eYNPEqj">
+  Handling forms: basic v-model</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### Multiline text
 
@@ -37,7 +42,12 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 <textarea v-model="message" placeholder="add multiple lines"></textarea>
 ```
 
-<forms-2/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="xxGyXaG" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: textarea">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/xxGyXaG">
+  Handling forms: textarea</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Interpolation on textareas won't work. Use `v-model` instead.
 
@@ -58,12 +68,17 @@ Single checkbox, boolean value:
 <label for="checkbox">{{ checked }}</label>
 ```
 
-<forms-3/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="PoqyJVE" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: checkbox">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyJVE">
+  Handling forms: checkbox</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Multiple checkboxes, bound to the same Array:
 
 ```html
-<div id="example-3">
+<div id="v-model-multiple-checkboxes">
   <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
   <label for="jack">Jack</label>
   <input type="checkbox" id="john" value="John" v-model="checkedNames" />
@@ -82,15 +97,20 @@ Vue.createApp({
       checkedNames: []
     }
   }
-}).mount('#example-3')
+}).mount('#v-model-multiple-checkboxes')
 ```
 
-<forms-4/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="bGdmoyj" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: multiple checkboxes">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/bGdmoyj">
+  Handling forms: multiple checkboxes</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### Radio
 
 ```html
-<div id="example-4">
+<div id="v-model-radiobutton">
   <input type="radio" id="one" value="One" v-model="picked" />
   <label for="one">One</label>
   <br />
@@ -108,17 +128,22 @@ Vue.createApp({
       picked: ''
     }
   }
-}).mount('#example-4')
+}).mount('#v-model-radiobutton')
 ```
 
-<forms-5/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="MWwPEMM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: radiobutton">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/MWwPEMM">
+  Handling forms: radiobutton</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### Select
 
 Single select:
 
 ```html
-<div id="example-select" class="demo">
+<div id="v-model-select" class="demo">
   <select v-model="selected">
     <option disabled value="">Please select one</option>
     <option>A</option>
@@ -136,10 +161,15 @@ Vue.createApp({
       selected: ''
     }
   }
-}).mount('#example-select')
+}).mount('#v-model-select')
 ```
 
-<forms-6/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpGydL" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: select">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpGydL">
+  Handling forms: select</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 :::tip Note
 If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
@@ -157,12 +187,17 @@ Multiple select (bound to Array):
 <span>Selected: {{ selected }}</span>
 ```
 
-<forms-7/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="gOpBXPz" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: select bound to array">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/gOpBXPz">
+  Handling forms: select bound to array</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Dynamic options rendered with `v-for`:
 
 ```html
-<div id="example-select-dynamic" class="demo">
+<div id="v-model-select-dynamic" class="demo">
   <select v-model="selected">
     <option v-for="option in options" v-bind:value="option.value">
       {{ option.text }}
@@ -184,10 +219,15 @@ Vue.createApp({
       ]
     }
   }
-}).mount('#example-select-dynamic')
+}).mount('#v-model-select-dynamic')
 ```
 
-<forms-8/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="abORVZm" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: select with dynamic options">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abORVZm">
+  Handling forms: select with dynamic options</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Value Bindings
 
