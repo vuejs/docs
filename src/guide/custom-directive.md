@@ -72,7 +72,7 @@ Directive hooks are passed these arguments:
 
 - `el`: The element the directive is bound to. This can be used to directly manipulate the DOM.
 - `binding`: An object containing the following properties.
-  - `instance`: The instance of the parent component of the directive's bound element
+  - `instance`: The instance of the component where directive is used.
   - `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
   - `oldValue`: The previous value, only available in `update` and `componentUpdated`. It is available whether or not the value has changed.
   - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
@@ -152,23 +152,23 @@ Directive arguments can be dynamic. For example, in `v-mydirective:[argument]="v
 Let's say you want to make a custom directive that allows you to pin elements to your page using fixed positioning. We could create a custom directive where the value updates the vertical positioning in pixels, like this:
 
 ```html
-<div id="baseexample">
+<div id="dynamic-arguments-example" class="demo">
   <p>Scroll down the page</p>
   <p v-pin="200">Stick me 200px from the top of the page</p>
 </div>
 ```
 
 ```js
-Vue.directive('pin', {
-  bind: function(el, binding, vnode) {
+const app = Vue.createApp({})
+
+app.directive('pin', {
+  mounted(el, binding, vnode) {
     el.style.position = 'fixed'
     el.style.top = binding.value + 'px'
   }
 })
 
-new Vue({
-  el: '#baseexample'
-})
+app.mount('#dynamic-arguments-example')
 ```
 
 This would pin the element 200px from the top of the page. But what happens if we run into a scenario when we need to pin the element from the left, instead of the top? Here's where a dynamic argument that can be updated per component instance comes in very handy:
@@ -181,42 +181,42 @@ This would pin the element 200px from the top of the page. But what happens if w
 ```
 
 ```js
-Vue.directive('pin', {
-  bind: function(el, binding, vnode) {
+const app = Vue.createApp({
+  data() {
+    return {
+      direction: 'right'
+    }
+  }
+})
+
+app.directive('pin', {
+  mounted(el, binding, vnode) {
     el.style.position = 'fixed'
-    var s = binding.arg == 'left' ? 'left' : 'top'
+    const s = binding.arg || 'top'
     el.style[s] = binding.value + 'px'
   }
 })
 
-new Vue({
-  el: '#dynamicexample',
-  data: function() {
-    return {
-      direction: 'left'
-    }
-  }
-})
+app.mount('#dynamic-arguments-example')
 ```
 
 Result:
 
-{% raw %}
-
-<iframe height="200" style="width: 100%;" class="demo" scrolling="no" title="Dynamic Directive Arguments" src="//codepen.io/team/Vue/embed/rgLLzb/?height=300&theme-id=32763&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/team/Vue/pen/rgLLzb/'>Dynamic Directive Arguments</a> by Vue
-  (<a href='https://codepen.io/Vue'>@Vue</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-{% endraw %}
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="YzXgGmv" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: dynamic arguments">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/YzXgGmv">
+  Custom directives: dynamic arguments</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Our custom directive is now flexible enough to support a few different use cases.
 
 ## Function Shorthand
 
-In many cases, you may want the same behavior on `bind` and `update`, but don't care about the other hooks. For example:
+In many cases, you may want the same behavior on `mounted` and `updated`, but don't care about the other hooks. You can do it by passing the callback to directive:
 
 ```js
-Vue.directive('color-swatch', function(el, binding) {
+app.directive('color-swatch', (el, binding) => {
   el.style.backgroundColor = binding.value
 })
 ```
@@ -230,8 +230,48 @@ If your directive needs multiple values, you can also pass in a JavaScript objec
 ```
 
 ```js
-Vue.directive('demo', function(el, binding) {
+app.directive('demo', (el, binding) => {
   console.log(binding.value.color) // => "white"
   console.log(binding.value.text) // => "hello!"
 })
 ```
+
+## Usage on Components
+
+In 3.0, with fragments support, components can potentially have more than one root nodes. This creates an issue when a custom directive is used on a component with multiple root nodes.
+
+To explain the details of how custom directives will work on components in 3.0, we need to first understand how custom directives are compiled in 3.0. For a directive like this:
+
+```html
+<div v-demo="test"></div>
+```
+
+Will roughly compile into this:
+
+```js
+const vFoo = resolveDirective('demo')
+
+return withDirectives(h('div'), [[vDemo, test]])
+```
+
+Where `vDemo` will be the directive object written by the user, which contains hooks like `mounted` and `updated`.
+
+`withDirectives` returns a cloned VNode with the user hooks wrapped and injected as VNode lifecycle hooks (see [Render Function](TODO:Render-functions) for more details):
+
+```js
+{
+  onVnodeMounted(vnode) {
+    // call vDemo.mounted(...)
+  }
+}
+```
+
+**As a result, custom directives are fully included as part of a VNode's data. When a custom directive is used on a component, these `onVnodeXXX` hooks are passed down to the component as extraneous props and end up in `this.$attrs`.**
+
+This also means it's possible to directly hook into an element's lifecycle like this in the template, which can be handy when a custom directive is too involved:
+
+```html
+<div @vnodeMounted="myHook" />
+```
+
+This is consistent with the [attribute fallthrough behavior](component-props.html#non-prop-attributes). So, the rule for custom directives on a component will be the same as other extraneous attributes: it is up to the child component to decide where and whether to apply it. When the child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.
