@@ -1,6 +1,6 @@
 # Slots
 
-> This page assumes you've already read the [Components Basics](components.html). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
 ## Slot Content
 
@@ -222,7 +222,7 @@ The rendered HTML will be:
 </div>
 ```
 
-Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#Abbreviated-Syntax-for-Lone-Default-Slots))
+Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#abbreviated-syntax-for-lone-default-slots))
 
 ## Scoped Slots
 

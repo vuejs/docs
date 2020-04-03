@@ -2,8 +2,6 @@
 
 > This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/global-vs-local-components?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Component Registration lesson">Watch a free video lesson on Vue School</a></div>
-
 ## Component Names
 
 When registering a component, it will always be given a name. For example, in the global registration we've seen so far:
