@@ -7,7 +7,7 @@
 We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
 
 ```html
-<ul id="example-1">
+<ul id="array-rendering">
   <li v-for="item in items">
     {{ item.message }}
   </li>
@@ -21,17 +21,22 @@ Vue.createApp({
       items: [{ message: 'Foo' }, { message: 'Bar' }]
     }
   }
-}).mount('#example-1')
+}).mount('#array-rendering')
 ```
 
 Result:
 
-<list-1/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="VwLGbwa" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Array">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/VwLGbwa">
+  v-for with Array</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Inside `v-for` blocks we have full access to parent scope properties. `v-for` also supports an optional second argument for the index of the current item.
 
 ```html
-<ul id="example-2">
+<ul id="array-with-index">
   <li v-for="(item, index) in items">
     {{ parentMessage }} - {{ index }} - {{ item.message }}
   </li>
@@ -46,12 +51,17 @@ Vue.createApp({
       items: [{ message: 'Foo' }, { message: 'Bar' }]
     }
   }
-}).mount('#example-2')
+}).mount('#array-with-index')
 ```
 
 Result:
 
-<list-2/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="wvaEdBP" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Array and index">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/wvaEdBP">
+  v-for with Array and index</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
 
@@ -87,7 +97,12 @@ Vue.createApp({
 
 Result:
 
-<list-3 />
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="NWqLjqy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Object">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/NWqLjqy">
+  v-for with Object</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 You can also provide a second argument for the property's name (a.k.a. key):
 
@@ -97,7 +112,12 @@ You can also provide a second argument for the property's name (a.k.a. key):
 </li>
 ```
 
-<list-4/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="poJOPjx" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Object and key">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/poJOPjx">
+  v-for with Object and key</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 And another for the index:
 
@@ -107,15 +127,20 @@ And another for the index:
 </li>
 ```
 
-<list-5/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abOaWdo" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Object key and index">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abOaWdo">
+  v-for with Object key and index</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-:::tip
+:::tip Note
 When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which is **not** guaranteed to be consistent across JavaScript engine implementations.
 :::
 
 ## Maintaining State
 
-When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index. This is similar to the behavior of `track-by="$index"` in Vue 1.x.
+When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index.
 
 This default mode is efficient, but **only suitable when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)**.
 
@@ -131,7 +156,7 @@ It is recommended to provide a `key` attribute with `v-for` whenever possible, u
 
 Since it's a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
 
-:::tip
+:::tip Note
 Don't use non-primitive values like objects and arrays as `v-for` keys. Use string or numeric values instead.
 :::
 
@@ -212,18 +237,23 @@ methods: {
 `v-for` can also take an integer. In this case it will repeat the template that many times.
 
 ```html
-<div>
+<div id="range" class="demo">
   <span v-for="n in 10">{{ n }} </span>
 </div>
 ```
 
 Result:
 
-<list-6 />
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="NWqLjNY" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with a range">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/NWqLjNY">
+  v-for with a range</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## `v-for` on a `<template>`
 
-Similar to template `v-if`, you can also use a :::v-pre`<template>`::: tag with `v-for` to render a block of multiple elements. For example:
+Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
 
 ```html
 <ul>
@@ -237,7 +267,7 @@ Similar to template `v-if`, you can also use a :::v-pre`<template>`::: tag with 
 ## `v-for` with `v-if`
 
 :::tip
-Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](/v2/style-guide/#Avoid-v-if-with-v-for-essential) for details.
+Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](TODO) for details.
 :::
 
 When they exist on the same node, `v-for` has a higher priority than `v-if`. That means the `v-if` will be run on each iteration of the loop separately. This can be useful when you want to render nodes for only _some_ items, like below:
@@ -263,12 +293,12 @@ If instead, your intent is to conditionally skip execution of the loop, you can 
 
 ## `v-for` with a Component
 
-> This section assumes knowledge of [Components](TODO:components.html). Feel free to skip it and come back later.
+> This section assumes knowledge of [Components](component-basics.md). Feel free to skip it and come back later.
 
 You can directly use `v-for` on a custom component, like any normal element:
 
 ```html
-<my-component v-for="item in items" :key="item.id"></my-component>
+<my-component v-for="item in items" v-bind:key="item.id"></my-component>
 ```
 
 However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
@@ -354,4 +384,9 @@ app.component('todo-item', {
 app.mount('#todo-list-example')
 ```
 
-<list-7/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abOaWpz" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with components">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abOaWpz">
+  v-for with components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>

@@ -123,7 +123,9 @@ However, this can be a bit verbose if you have multiple conditional classes. Tha
 
 ### With Components
 
-> This section assumes knowledge of [Vue Components](TODO:components.html). Feel free to skip it and come back later.
+> This section assumes knowledge of [Vue Components](component-basics.md). Feel free to skip it and come back later.
+
+> TODO: revise this with multi-root components
 
 When you use the `class` attribute on a custom component, those classes will be added to the component's root element. Existing classes on this element will not be overwritten.
 
