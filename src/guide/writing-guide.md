@@ -82,6 +82,10 @@ Writing documentation is an exercise in empathy. We're not describing an objecti
   - **Use a lot of positive and empathetic emojis.** It's always better to seem a little strange than mean or impatient.
   - **Kindly communicate rules/boundaries.** If someone behaves in a way that's abusive/inappropriate, respond only with kindness and maturity, but also make it clear that this behavior is not acceptable and what will happen (according to the code of conduct) if they continue behaving poorly.
 
+### Contributing
+
+We appreciate small, focused PRs. If you'd like to make an extremely large change, please communicate with team members prior to a pull request. Here's a [writeup that details why this is so critical](https://www.netlify.com/blog/2020/03/31/how-to-scope-down-prs/) for us to work well on this team. Please understand that though we always appreciate contributions, ultamitely we have to prioritize what works best for the project as a whole.
+
 ## Resources
 
 ### Software
