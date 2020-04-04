@@ -21,7 +21,7 @@ app.directive('focus', {
   mounted(el) {
     // Focus the element
     el.focus()
-  }
+  },
 })
 ```
 
@@ -70,31 +70,46 @@ We'll explore the arguments passed into these hooks (i.e. `el`, `binding`, `vnod
 
 Directive hooks are passed these arguments:
 
-- `el`: The element the directive is bound to. This can be used to directly manipulate the DOM.
-- `binding`: An object containing the following properties.
-  - `instance`: The instance of the component where directive is used.
-  - `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-  - `oldValue`: The previous value, only available in `update` and `componentUpdated`. It is available whether or not the value has changed.
-  - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-  - `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-  - `dir`: an object, passed as a parameter to the directive. For example, in the our first directive
-  ```js
-  app.directive('focus', {
-    mounted(el) {
-      el.focus()
-    }
-  })
-  ```
-  `dir` would be the following object:
-  ```js
-  {
-    mounted(el) {
-      el.focus()
-    }
+#### el
+
+The element the directive is bound to. This can be used to directly manipulate the DOM.
+
+#### binding
+
+An object containing the following properties.
+
+- `instance`: The instance of the component where directive is used.
+- `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
+- `oldValue`: The previous value, only available in `update` and `componentUpdated`. It is available whether or not the value has changed.
+- `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
+- `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
+- `dir`: an object, passed as a parameter to the directive. For example, in the our first directive
+
+```js
+app.directive('focus', {
+  mounted(el) {
+    el.focus()
+  },
+})
+```
+
+`dir` would be the following object:
+
+```js
+{
+  mounted(el) {
+    el.focus()
   }
-  ```
-- `vnode`: The virtual node produced by Vue's compiler. See the [VNode API](TODO:../api/#VNode-Interface) for full details.
-- `prevVnode`: The previous virtual node, only available in the `update` and `componentUpdated` hooks.
+}
+```
+
+#### vnode
+
+The virtual node produced by Vue's compiler. See the [VNode API](TODO:../api/#VNode-Interface) for full details.
+
+#### prevNode
+
+The previous virtual node, only available in the `update` and `componentUpdated` hooks.
 
 :::tip Note
 Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
@@ -112,9 +127,9 @@ An example of a custom directive using some of these properties:
 const app = Vue.createApp({
   data() {
     return {
-      message: 'hello!'
+      message: 'hello!',
     }
-  }
+  },
 })
 
 app.directive('demo', {
@@ -132,7 +147,7 @@ app.directive('demo', {
       '<br>' +
       'vnode keys: ' +
       Object.keys(vnode).join(', ')
-  }
+  },
 })
 
 app.mount('#hook-arguments-example')
@@ -165,7 +180,7 @@ app.directive('pin', {
   mounted(el, binding, vnode) {
     el.style.position = 'fixed'
     el.style.top = binding.value + 'px'
-  }
+  },
 })
 
 app.mount('#dynamic-arguments-example')
@@ -184,9 +199,9 @@ This would pin the element 200px from the top of the page. But what happens if w
 const app = Vue.createApp({
   data() {
     return {
-      direction: 'right'
+      direction: 'right',
     }
-  }
+  },
 })
 
 app.directive('pin', {
@@ -194,7 +209,7 @@ app.directive('pin', {
     el.style.position = 'fixed'
     const s = binding.arg || 'top'
     el.style[s] = binding.value + 'px'
-  }
+  },
 })
 
 app.mount('#dynamic-arguments-example')
