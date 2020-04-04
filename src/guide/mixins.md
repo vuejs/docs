@@ -203,9 +203,7 @@ const app = Vue.createApp({
   custom: 'hello!'
 })
 
-app.config.optionMergeStrategies.custom = (toVal, fromVal) => {
-  return toVal || fromVal
-}
+app.config.optionMergeStrategies.custom = (toVal, fromVal) => toVal || fromVal
 
 app.mixin({
   custom: 'goodbye!',
