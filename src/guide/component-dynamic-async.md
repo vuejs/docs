@@ -12,7 +12,12 @@ Earlier, we used the `is` attribute to switch between components in a tabbed int
 
 When switching between these components though, you'll sometimes want to maintain their state or avoid re-rendering for performance reasons. For example, when expanding our tabbed interface a little:
 
-<dynamic-1/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="jOPjZOe" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Dynamic components: without keep-alive">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPjZOe">
+  Dynamic components: without keep-alive</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 You'll notice that if you select a post, switch to the _Archive_ tab, then switch back to _Posts_, it's no longer showing the post you selected. That's because each time you switch to a new tab, Vue creates a new instance of the `currentTabComponent`.
 
@@ -27,9 +32,14 @@ Recreating dynamic components is normally useful behavior, but in this case, we'
 
 Check out the result below:
 
-<dynamic-2/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="VwLJQvP" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Dynamic components: with keep-alive">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/VwLJQvP">
+  Dynamic components: with keep-alive</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered. See [this example](https://codesandbox.io/s/components-keep-alive-f6k3r) for the complete code.
+Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered.
 
 :::tip Note
 Note that `<keep-alive>` requires the components being switched between to all have names, either using the `name` option on a component, or through local/global registration
@@ -48,7 +58,7 @@ app.component('async-example', (resolve, reject) => {
   setTimeout(() => {
     // Pass the component definition to the resolve callback
     resolve({
-      template: '<div>I am async!</div>'
+      template: '<div>I am async!</div>',
     })
   }, 1000)
 })
@@ -57,7 +67,7 @@ app.component('async-example', (resolve, reject) => {
 As you can see, the factory function receives a `resolve` callback, which should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed. The `setTimeout` here is for demonstration; how to retrieve the component is up to you. One recommended approach is to use async components together with [Webpack's code-splitting feature](https://webpack.js.org/guides/code-splitting/):
 
 ```js
-app.component('async-webpack-example', resolve => {
+app.component('async-webpack-example', (resolve) => {
   // This special require syntax will instruct Webpack to
   // automatically split your built code into bundles which
   // are loaded over Ajax requests.
@@ -81,8 +91,8 @@ When using [local registration](components-registration.html#Local-Registration)
 new Vue({
   // ...
   components: {
-    'my-component': () => import('./my-async-component')
-  }
+    'my-component': () => import('./my-async-component'),
+  },
 })
 ```
 
@@ -106,7 +116,7 @@ const AsyncComponent = () => ({
   delay: 200,
   // The error component will be displayed if a timeout is
   // provided and exceeded. Default: Infinity.
-  timeout: 3000
+  timeout: 3000,
 })
 ```
 
