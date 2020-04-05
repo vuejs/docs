@@ -117,7 +117,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 An example of a custom directive using some of these properties:
 
-```html
+```vue-html
 <div id="hook-arguments-example" class="demo">
   <span v-demo:foo.a.b="message"></span>
 </div>
@@ -166,7 +166,7 @@ Directive arguments can be dynamic. For example, in `v-mydirective:[argument]="v
 
 Let's say you want to make a custom directive that allows you to pin elements to your page using fixed positioning. We could create a custom directive where the value updates the vertical positioning in pixels, like this:
 
-```html
+```vue-html
 <div id="dynamic-arguments-example" class="demo">
   <p>Scroll down the page</p>
   <p v-pin="200">Stick me 200px from the top of the page</p>
@@ -188,7 +188,7 @@ app.mount('#dynamic-arguments-example')
 
 This would pin the element 200px from the top of the page. But what happens if we run into a scenario when we need to pin the element from the left, instead of the top? Here's where a dynamic argument that can be updated per component instance comes in very handy:
 
-```html
+```vue-html
 <div id="dynamicexample">
   <h3>Scroll down inside this section ↓</h3>
   <p v-pin:[direction]="200">I am pinned onto the page at 200px to the left.</p>
@@ -240,7 +240,7 @@ app.directive('color-swatch', (el, binding) => {
 
 If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
 
-```html
+```vue-html
 <div v-demo="{ color: 'white', text: 'hello!' }"></div>
 ```
 
@@ -257,7 +257,7 @@ In 3.0, with fragments support, components can potentially have more than one ro
 
 To explain the details of how custom directives will work on components in 3.0, we need to first understand how custom directives are compiled in 3.0. For a directive like this:
 
-```html
+```vue-html
 <div v-demo="test"></div>
 ```
 
@@ -285,8 +285,8 @@ Where `vDemo` will be the directive object written by the user, which contains h
 
 This also means it's possible to directly hook into an element's lifecycle like this in the template, which can be handy when a custom directive is too involved:
 
-```html
-<div @vnodeMounted="myHook" />
+```vue-html
+<div v-on:vnodeMounted="myHook" />
 ```
 
 This is consistent with the [attribute fallthrough behavior](component-props.html#non-prop-attributes). So, the rule for custom directives on a component will be the same as other extraneous attributes: it is up to the child component to decide where and whether to apply it. When the child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.
