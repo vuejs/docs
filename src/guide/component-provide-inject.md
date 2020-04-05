@@ -1,6 +1,6 @@
 # Provide / inject
 
-> This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
 Usually, when we need to pass data from the parent to child component, we use [props](component-props.md). Imagine the structure where you have some deeply nested components and you only need something from the parent component in the deep nested child. In this case, you still need to pass the prop down the whole component chain which might be annoying.
 
