@@ -129,8 +129,8 @@ const members = [
     languages: ['hi', 'en'],
     work: {
       role: 'Software Engineer',
-      org: 'Myntra',
-      orgUrl: 'https://www.myntra.com/'
+      org: 'Agritask',
+      orgUrl: 'https://www.agritask.com/'
     },
     github: 'znck',
     twitter: 'znck0',
@@ -138,10 +138,10 @@ const members = [
       'rollup-plugin-vue', 'vue-issue-helper'
     ],
     reposPersonal: [
-      'keynote', 'bootstrap-for-vue', 'vue-interop'
+     'vue-developer-experience', 'prop-types', 'virtualized',  'lazy-hydration', 'vue-slides'
     ],
     links: [
-      'https://znck.me', 'https://www.codementor.io/znck'
+      'https://znck.me'
     ]
   },
   {
