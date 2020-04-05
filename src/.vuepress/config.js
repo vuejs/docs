@@ -26,6 +26,7 @@ const sidebar = {
         '/guide/component-custom-events',
         '/guide/component-slots',
         '/guide/component-provide-inject',
+        '/guide/component-dynamic-async',
       ],
     },
     {
