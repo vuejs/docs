@@ -49,75 +49,82 @@ Check out more details on `<keep-alive>` in the [API reference](TODO:../api/#kee
 
 ## Async Components
 
-In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's needed. To make that easier, Vue allows you to define your component as a factory function that asynchronously resolves your component definition. Vue will only trigger the factory function when the component needs to be rendered and will cache the result for future re-renders. For example:
+In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's needed. To make that possible, Vue has a `defineAsyncComponent` method:
 
 ```js
 const app = Vue.createApp({})
 
-app.component('async-example', (resolve, reject) => {
-  setTimeout(() => {
-    // Pass the component definition to the resolve callback
-    resolve({
-      template: '<div>I am async!</div>',
+const AsyncComp = Vue.defineAsyncComponent(
+  () =>
+    new Promise((resolve, reject) => {
+      resolve({
+        template: '<div>I am async!</div>',
+      })
     })
-  }, 1000)
-})
+)
+
+app.component('async-example', AsyncComp)
 ```
 
-As you can see, the factory function receives a `resolve` callback, which should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed. The `setTimeout` here is for demonstration; how to retrieve the component is up to you. One recommended approach is to use async components together with [Webpack's code-splitting feature](https://webpack.js.org/guides/code-splitting/):
-
-```js
-app.component('async-webpack-example', (resolve) => {
-  // This special require syntax will instruct Webpack to
-  // automatically split your built code into bundles which
-  // are loaded over Ajax requests.
-  require(['./my-async-component'], resolve)
-})
-```
+As you can see, this method accepts a factory function returning a `Promise`. Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
 
 You can also return a `Promise` in the factory function, so with Webpack 2 and ES2015 syntax you can do:
 
 ```js
-Vue.component(
-  'async-webpack-example',
-  // The `import` function returns a Promise.
-  () => import('./my-async-component')
+import { defineAsyncComponent } from 'vue'
+
+const AsyncComp = defineAsyncComponent(() =>
+  import('./components/AsyncComponent.vue')
 )
+
+app.component('async-component', AsyncComp)
 ```
 
 When using [local registration](components-registration.html#Local-Registration), you can also directly provide a function that returns a `Promise`:
 
 ```js
-new Vue({
+import { createApp, defineAsyncComponent } from 'vue'
+
+createApp({
   // ...
   components: {
-    'my-component': () => import('./my-async-component'),
+    components: {
+      AsyncComponent: defineAsyncComponent(() =>
+        import('./components/AsyncComponent.vue')
+      ),
+    },
   },
 })
 ```
 
-<p class="tip">If you're a <strong>Browserify</strong> user that would like to use async components, its creator has unfortunately [made it clear](https://github.com/substack/node-browserify/issues/58#issuecomment-21978224) that async loading "is not something that Browserify will ever support." Officially, at least. The Browserify community has found [some workarounds](https://github.com/vuejs/vuejs.org/issues/620), which may be helpful for existing and complex applications. For all other scenarios, we recommend using Webpack for built-in, first-class async support.</p>
+### Advanced usage
 
-### Handling Loading State
-
-> New in 2.3.0+
-
-The async component factory can also return an object of the following format:
+The `defineAsyncComponent` method can also return an object of the following format:
 
 ```js
-const AsyncComponent = () => ({
-  // The component to load (should be a Promise)
-  component: import('./MyComponent.vue'),
+import { defineAsyncComponent } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  // The factory function
+  loader: () => import('./Foo.vue')
   // A component to use while the async component is loading
-  loading: LoadingComponent,
+  loadingComponent: LoadingComponent,
   // A component to use if the load fails
-  error: ErrorComponent,
+  errorComponent: ErrorComponent,
   // Delay before showing the loading component. Default: 200ms.
   delay: 200,
   // The error component will be displayed if a timeout is
   // provided and exceeded. Default: Infinity.
   timeout: 3000,
+  // A function that returns a boolean indicating whether the async component should retry when the loader promise rejects
+  retryWhen: error => error.code !== 404,
+  // Maximum allowed retries number
+  maxRetries: 3,
+  // Defining if component is suspensible
+  suspensible: false
 })
 ```
 
-> Note that you must use [Vue Router](https://github.com/vuejs/vue-router) 2.4.0+ if you wish to use the above syntax for route components.
+Async components are _suspensible_ by default. This means if it has a [<Suspense>](TODO) in the parent chain, it will be treated as an async dependency of that `<Suspense>`. In this case, the loading state will be controlled by the `<Suspense>`, and the component's own loading, error, delay and timeout options will be ignored.
+
+The async component can opt-out of `Suspense` control and let the component always control its own loading state by specifying `suspensible: false` in its options.
