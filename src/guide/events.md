@@ -9,7 +9,7 @@ We can use the `v-on` directive to listen to DOM events and run some JavaScript 
 For example:
 
 ```html
-<div id="example-1">
+<div id="basic-event">
   <button v-on:click="counter += 1">Add 1</button>
   <p>The button above has been clicked {{ counter }} times.</p>
 </div>
@@ -22,12 +22,17 @@ Vue.createApp({
       counter: 1
     }
   }
-}).mount('#example-1')
+}).mount('#basic-event')
 ```
 
 Result:
 
-<events-1/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="xxGadPZ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: basic">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/xxGadPZ">
+  Event handling: basic</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Method Event Handlers
 
@@ -36,7 +41,7 @@ The logic for many event handlers will be more complex though, so keeping your J
 For example:
 
 ```html
-<div id="example-2">
+<div id="event-with-method">
   <!-- `greet` is the name of a method defined below -->
   <button v-on:click="greet">Greet</button>
 </div>
@@ -59,19 +64,24 @@ Vue.createApp({
       }
     }
   }
-}).mount('#example-2')
+}).mount('#event-with-method')
 ```
 
 Result:
 
-<events-2/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="jOPvmaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: with a method">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPvmaX">
+  Event handling: with a method</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Methods in Inline Handlers
 
 Instead of binding directly to a method name, we can also use methods in an inline JavaScript statement:
 
 ```html
-<div id="example-3">
+<div id="inline-handler">
   <button v-on:click="say('hi')">Say hi</button>
   <button v-on:click="say('what')">Say what</button>
 </div>
@@ -84,12 +94,17 @@ Vue.createApp({
       alert(message)
     }
   }
-}).mount('#example-3')
+}).mount('#inline-handler')
 ```
 
 Result:
 
-<events-3/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNvgjda" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: with an inline handler">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNvgjda">
+  Event handling: with an inline handler</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Sometimes we also need to access the original DOM event in an inline statement handler. You can pass it into a method using the special `$event` variable:
 
@@ -156,7 +171,7 @@ Order matters when using modifiers because the relevant code is generated in the
 <a v-on:click.once="doThis"></a>
 ```
 
-Unlike the other modifiers, which are exclusive to native DOM events, the `.once` modifier can also be used on [component events](TODO:components-custom-events.html). If you haven't read about components yet, don't worry about this for now.
+Unlike the other modifiers, which are exclusive to native DOM events, the `.once` modifier can also be used on [component events](component-custom-events.html). If you haven't read about components yet, don't worry about this for now.
 
 Vue also offers the `.passive` modifier, corresponding to [`addEventListener`'s `passive` option](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters).
 

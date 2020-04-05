@@ -1,6 +1,59 @@
+const sidebar = {
+  guide: [
+    {
+      title: 'Essentials',
+      collapsable: false,
+      children: [
+        '/guide/installation',
+        '/guide/introduction',
+        '/guide/instance',
+        '/guide/template-syntax',
+        '/guide/computed',
+        '/guide/class-and-style',
+        '/guide/conditional',
+        '/guide/list',
+        '/guide/events',
+        '/guide/forms',
+        '/guide/component-basics',
+      ],
+    },
+    {
+      title: 'Components In-Depth',
+      collapsable: false,
+      children: [
+        '/guide/component-registration',
+        '/guide/component-props',
+        '/guide/component-custom-events',
+        '/guide/component-slots',
+        '/guide/component-provide-inject',
+      ],
+    },
+    {
+      title: 'Migration to Vue 3',
+      collapsable: true,
+      children: ['migration'],
+    },
+    {
+      title: 'Contribute to the Docs',
+      collapsable: true,
+      children: ['writing-guide'],
+    },
+  ],
+}
+
 module.exports = {
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
+  head: [
+    [
+      'link',
+      {
+        href:
+          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        rel: 'stylesheet',
+      },
+    ],
+  ],
   themeConfig: {
     nav: [
       {
@@ -8,9 +61,9 @@ module.exports = {
         ariaLabel: 'Documentation Menu',
         items: [
           { text: 'Guide', link: '/guide/introduction' },
-          { text: 'Styleguide', link: '/styleguide/' },
-          { text: 'Tooling', link: '/tooling/' }
-        ]
+          { text: 'Style Guide', link: '/style-guide/' },
+          { text: 'Tooling', link: '/tooling/' },
+        ],
       },
       { text: 'API Reference', link: '/api/' },
       {
@@ -18,44 +71,25 @@ module.exports = {
         ariaLabel: 'Examples Menu',
         items: [
           { text: 'Examples', link: '/examples/' },
-          { text: 'Cookbook', link: '/cookbook/' }
-        ]
+          { text: 'Cookbook', link: '/cookbook/' },
+        ],
       },
-      { text: 'Community', link: '/community/' }
+      {
+        text: 'Community',
+        ariaLabel: 'Community Menu',
+        items: [
+          { text: 'Team', link: '/community/team/' },
+          { text: 'Partners', link: '/community/partners/' },
+          { text: 'Themes', link: '/community/themes/' },
+        ],
+      },
     ],
     sidebarDepth: 2,
     sidebar: {
-      '/guide/': [
-        {
-          title: 'Essentials',
-          collapsable: true,
-          children: [
-            'installation',
-            'introduction',
-            'instance',
-            'template-syntax',
-            'computed',
-            'class-and-style',
-            'conditional',
-            'list',
-            'events',
-            'forms',
-            'component-basics'
-          ]
-        },
-        {
-          title: 'Components In-Depth',
-          collapsable: true,
-          children: [
-            'component-registration',
-            'component-props',
-            'component-custom-events',
-            // 'component-slots',
-            'component-dynamic-async'
-          ]
-        }
-      ]
-    }
+      '/guide/': sidebar.guide,
+      '/community/': sidebar.guide,
+    },
+    smoothScroll: false,
   },
   plugins: {
     '@vuepress/pwa': {
@@ -63,9 +97,17 @@ module.exports = {
       updatePopup: {
         '/': {
           message: 'New content is available.',
-          buttonText: 'Refresh'
-        }
-      }
-    }
-  }
+          buttonText: 'Refresh',
+        },
+      },
+    },
+  },
+  markdown: {
+    /** @param {import('markdown-it')} md */
+    extendMarkdown: (md) => {
+      md.options.highlight = require('./markdown/highlight')(
+        md.options.highlight
+      )
+    },
+  },
 }

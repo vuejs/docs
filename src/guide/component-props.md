@@ -1,6 +1,6 @@
 # Props
 
-> This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
 ## Prop Types
 
@@ -243,6 +243,8 @@ to validate that the value of the `author` prop was created with `new Person`.
 A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined.
 
 While explicitly defined props are preferred for passing information to a child component, authors of component libraries can't always foresee the contexts in which their components might be used. That's why components can accept arbitrary attributes.
+
+> TODO: revise this after attrs fallthrough RFC is merged
 
 When the component returns a single root node, attributes will be implicitly added to the root node's props. For example, imagine we're using a 3rd-party `bootstrap-date-input` component with a Bootstrap plugin that requires a `data-date-picker` attribute on the `input`. We can add this attribute to our component instance:
 

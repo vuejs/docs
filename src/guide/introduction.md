@@ -12,13 +12,13 @@ If you are an experienced frontend developer and want to know how Vue compares t
 
 ## Getting Started
 
-<a class="button" href="installation.html">Installation</a>
+[Installation](installation.md)
 
 ::: tip
 The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
 :::
 
-The easiest way to try out Vue.js is using the [Hello World example](TODO). Feel free to open it in another tab and follow along as we go through some basic examples.
+The easiest way to try out Vue.js is using the [Hello World example](https://codepen.io/team/Vue/pen/KKpRVpx). Feel free to open it in another tab and follow along as we go through some basic examples.
 
 The [Installation](installation.md) page provides more options of installing Vue. Note: We **do not** recommend that beginners start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools.
 
@@ -27,13 +27,13 @@ The [Installation](installation.md) page provides more options of installing Vue
 At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
 
 ```html
-<div id="app">
+<div id="hello-vue">
   {{ message }}
 </div>
 ```
 
 ```js
-const App = {
+const HelloVueApp = {
   data() {
     return {
       message: 'Hello Vue!'
@@ -41,17 +41,22 @@ const App = {
   }
 }
 
-Vue.createApp(App).mount('#app')
+Vue.createApp(HelloVueApp).mount('#hello-vue')
 ```
 
-<intro-1 />
+We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Change the `message` property in the code snippet below to a different value and the rendered example will update accordingly:
 
-We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Change the `message` property in the code snippet below to a different value and the rendered example will update accordingly: ![TODO:placeholder sandbox link](https://codesandbox.io/s/xenodochial-meninsky-rxlt4)
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="KKpRVpx" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-1">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpRVpx">
+  Intro-1</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 In addition to text interpolation, we can also bind element attributes like this:
 
 ```html
-<div id="app-2">
+<div id="bind-attribute">
   <span v-bind:title="message">
     Hover your mouse over me for a few seconds to see my dynamically bound
     title!
@@ -60,7 +65,7 @@ In addition to text interpolation, we can also bind element attributes like this
 ```
 
 ```js
-const App2 = {
+const AttributeBindingApp = {
   data() {
     return {
       message: 'You loaded this page on ' + new Date().toLocaleString()
@@ -68,10 +73,16 @@ const App2 = {
   }
 }
 
-Vue.createApp(App2).mount('#app-2')
+Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
 ```
 
-<intro-2 />
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpRVvJ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Attribute dynamic binding">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpRVvJ">
+  Attribute dynamic binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
 Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
 
 ## Conditionals and Loops
@@ -79,13 +90,13 @@ Here we are encountering something new. The `v-bind` attribute you are seeing is
 It's easy to toggle the presence of an element, too:
 
 ```html
-<div id="app-3">
+<div id="conditional-rendering">
   <span v-if="seen">Now you see me</span>
 </div>
 ```
 
 ```js
-const App3 = {
+const ConditionalRenderingApp = {
   data() {
     return {
       seen: true
@@ -93,19 +104,24 @@ const App3 = {
   }
 }
 
-Vue.createApp(App3).mount('#app-3')
+Vue.createApp(ConditionalRenderingApp).mount('#conditional-rendering')
 ```
-
-<intro-3/>
 
 This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](TODO) when elements are inserted/updated/removed by Vue.
 
-You can change `seen` from `true` to `false` in the sandbox below to check the effect: TODO:https://codesandbox.io/s/basic-conditional-rendering-eptpp
+You can change `seen` from `true` to `false` in the sandbox below to check the effect
+
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="oNXdbpB" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Conditional rendering">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXdbpB">
+  Conditional rendering</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
 
 ```html
-<div id="app-4">
+<div id="list-rendering">
   <ol>
     <li v-for="todo in todos">
       {{ todo.text }}
@@ -115,7 +131,7 @@ There are quite a few other directives, each with its own special functionality.
 ```
 
 ```js
-const App4 = {
+const ListRenderingApp = {
   data() {
     return {
       todos: [
@@ -127,24 +143,29 @@ const App4 = {
   }
 }
 
-Vue.createApp(App4).mount('#app-4')
+Vue.createApp(ListRenderingApp).mount('#list-rendering')
 ```
 
-<intro-4/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="mdJLVXq" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="List rendering">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/mdJLVXq">
+  List rendering</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Handling User Input
 
 To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
 
 ```html
-<div id="app-5">
+<div id="event-handling">
   <p>{{ message }}</p>
   <button v-on:click="reverseMessage">Reverse Message</button>
 </div>
 ```
 
 ```js
-const App5 = {
+const EventHandlingApp = {
   data() {
     return {
       message: 'Hello Vue.js!'
@@ -160,24 +181,29 @@ const App5 = {
   }
 }
 
-Vue.createApp(App5).mount('#app-5')
+Vue.createApp(EventHandlingApp).mount('#event-handling')
 ```
 
-<intro-5/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="dyoeGjW" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/dyoeGjW">
+  Event handling</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Note that in this method we update the state of our app without touching the DOM - all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.
 
 Vue also provides the `v-model` directive that makes two-way binding between form input and app state a breeze:
 
 ```html
-<div id="app-6">
+<div id="two-way-binding">
   <p>{{ message }}</p>
   <input v-model="message" />
 </div>
 ```
 
 ```js
-const App6 = {
+const TwoWayBindingApp = {
   data() {
     return {
       message: 'Hello Vue!'
@@ -185,10 +211,15 @@ const App6 = {
   }
 }
 
-Vue.createApp(App6).mount('#app-6')
+Vue.createApp(TwoWayBindingApp).mount('#two-way-binding')
 ```
 
-<intro-6/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="poJVgZm" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Two-way binding">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/poJVgZm">
+  Two-way binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Composing with Components
 
@@ -220,7 +251,7 @@ Now you can compose it in another component's template:
 </ol>
 ```
 
-But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](TODO:components.html#Props):
+But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](component-basics.html#passing-data-to-child-components-with-props):
 
 ```js
 app.component('todo-item', {
@@ -232,7 +263,7 @@ app.component('todo-item', {
 Now we can pass the todo into each repeated component using `v-bind`:
 
 ```html
-<div id="app-7">
+<div id="components-app">
   <ol>
     <!--
       Now we provide each todo-item with the todo object
@@ -250,7 +281,7 @@ Now we can pass the todo into each repeated component using `v-bind`:
 ```
 
 ```js
-const App7 = {
+const ComponentsApp = {
   data() {
     return {
       groceryList: [
@@ -262,21 +293,26 @@ const App7 = {
   }
 }
 
-const app = Vue.createApp(App7)
+const app = Vue.createApp(ComponentsApp)
 
 app.component('todo-item', {
   props: ['todo'],
   template: `<li>{{ todo.text }}</li>`
 })
 
-app.mount('#app-7')
+app.mount('#components-app')
 ```
 
-<intro-7/>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="VwLxeEz" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-Components-1">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/VwLxeEz">
+  Intro-Components-1</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 This is a contrived example, but we have managed to separate our app into two smaller units, and the child is reasonably well-decoupled from the parent via the props interface. We can now further improve our `<todo-item>` component with more complex template and logic without affecting the parent app.
 
-In a large application, it is necessary to divide the whole app into components to make development manageable. We will talk a lot more about components [later in the guide](TODO:components.md), but here's an (imaginary) example of what an app's template might look like with components:
+In a large application, it is necessary to divide the whole app into components to make development manageable. We will talk a lot more about components [later in the guide](component-basics.md), but here's an (imaginary) example of what an app's template might look like with components:
 
 ```html
 <div id="app">
