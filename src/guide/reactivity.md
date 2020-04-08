@@ -13,7 +13,7 @@ This term comes up in programming quite a bit these days! But what do people mea
 
 If you put the number two in the first cell, and the number 3 in the second and asked for the SUM, the spreadsheet would give it to you. No surprises there. But if you update that first number, the SUM automagically updates too!
 
-JavaScript doesn’t usually work like this-- If we were to write something comparable in JavaScript:
+JavaScript doesn’t usually work like this -- If we were to write something comparable in JavaScript:
 
 ```js
 var val1 = 2
