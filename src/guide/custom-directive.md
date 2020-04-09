@@ -52,7 +52,7 @@ A directive definition object can provide several hook functions (all optional):
 
 - `mounted`: called when the bound element's parent component is mounted.
 
-- `beforeUpdate`: called before the the containing component's VNode is updated
+- `beforeUpdate`: called before the containing component's VNode is updated
 
 :::tip Note
 We'll cover VNodes in more detail [later](TODO:/render-function.html#The-Virtual-DOM), when we discuss [render functions](TODO:./render-function.html).
