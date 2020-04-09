@@ -80,7 +80,7 @@ An object containing the following properties.
 
 - `instance`: The instance of the component where directive is used.
 - `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-- `oldValue`: The previous value, only available in `update` and `componentUpdated`. It is available whether or not the value has changed.
+- `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
 - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
 - `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
 - `dir`: an object, passed as a parameter to the directive. For example, in the our first directive
