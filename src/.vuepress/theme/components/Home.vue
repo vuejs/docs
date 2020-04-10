@@ -1,7 +1,7 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
-      <div style="padding-right: 60px">
+      <div class="hero-logo-container">
         <img
           v-if="data.heroImage"
           :src="$withBase(data.heroImage)"
@@ -18,11 +18,14 @@
           {{ data.tagline || $description || 'Welcome to your VuePress site' }}
         </p>
 
-        <a href="#" class="button is-uppercase">Why Vue.js</a>
+        <a href="#" class="button is-primary is-uppercase">Why Vue.js</a>
 
-        <NavLink class="button is-outlined is-uppercase" :item="actionLink" />
+        <NavLink
+          class="button is-primary is-outlined is-uppercase"
+          :item="actionLink"
+        />
 
-        <a href="#" class="button is-uppercase is-gray">GitHub</a>
+        <a href="#" class="button is-primary is-uppercase is-gray">GitHub</a>
       </div>
     </header>
 
@@ -77,10 +80,8 @@ export default {
   border-radius: 2em;
   display: inline-block;
   color: #fff;
-  background-color: #4fc08d;
   transition: all 0.15s ease;
   box-sizing: border-box;
-  border: 1px solid #4fc08d;
   margin: 1em 0;
   font-size: 1.05em;
   font-weight: 600;
@@ -88,15 +89,20 @@ export default {
   min-width: 8em;
   text-align: center;
 
-  &.is-gray {
-    background-color: #f6f6f6;
-    color: #4f5959;
-    border-color: #f6f6f6;
+  &.is-primary {
+    background-color: $green;
+    border: 1px solid $green;
+
+    &.is-outlined {
+      background-color: #fff;
+      color: $green;
+    }
   }
 
-  &.is-outlined {
-    background-color: #fff;
-    color: #42b983;
+  &.is-gray {
+    background-color: $light-gray;
+    color: $gray;
+    border-color: $light-gray;
   }
 }
 
@@ -107,6 +113,11 @@ export default {
 .hero {
   display: flex;
   align-items: center;
+
+  &-logo-container {
+    margin-right: 60px;
+  }
+
   .logo {
     max-width: 100%;
     max-height: 280px;

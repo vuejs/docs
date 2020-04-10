@@ -2,6 +2,11 @@
 $font-primary: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
 
 // colors
+$green: hsl(153, 47%, 53%); // #4fc08d
+$light-gray: hsl(0, 0%, 96%); // #f6f6f6
+$gray: hsl(180, 6%, 33%); // #4f5959
+
+// colors - VuePress default theme
 $accentColor: #3eaf7c;
 $textColor: #2c3e50;
 $borderColor: #eaecef;
