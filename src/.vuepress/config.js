@@ -60,6 +60,7 @@ module.exports = {
       },
     ],
   ],
+  extend: '@vuepress/theme-default',
   themeConfig: {
     nav: [
       {
