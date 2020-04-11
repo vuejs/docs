@@ -11,7 +11,9 @@ In addition to the default set of directives shipped in core (`v-model` and `v-s
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-When the page loads, that element gains focus (note: `autofocus` doesn't work on mobile Safari). In fact, if you haven't clicked on anything else since visiting this page, the input above should be focused now. Now let's build the directive that accomplishes this:
+When the page loads, that element gains focus (note: `autofocus` doesn't work on mobile Safari). In fact, if you haven't clicked on anything else since visiting this page, the input above should be focused now. Also, you can click on the `Rerun` button and input will be focused.
+
+Now let's build the directive that accomplishes this:
 
 ```js
 const app = Vue.createApp({})
@@ -21,7 +23,7 @@ app.directive('focus', {
   mounted(el) {
     // Focus the element
     el.focus()
-  },
+  }
 })
 ```
 
@@ -48,7 +50,7 @@ Then in a template, you can use the new `v-focus` attribute on any element, like
 
 A directive definition object can provide several hook functions (all optional):
 
-- `beforeMount`: called only once, when the directive is first bound to the element and before parent component is mounted. This is where you can do one-time setup work.
+- `beforeMount`: called when the directive is first bound to the element and before parent component is mounted. This is where you can do one-time setup work.
 
 - `mounted`: called when the bound element's parent component is mounted.
 
@@ -64,101 +66,7 @@ We'll cover VNodes in more detail [later](TODO:/render-function.html#The-Virtual
 
 - `unmounted`: called only once, when the directive is unbound from the element and the parent component is unmounted.
 
-We'll explore the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in the next section.
-
-## Directive Hook Arguments
-
-Directive hooks are passed these arguments:
-
-#### el
-
-The element the directive is bound to. This can be used to directly manipulate the DOM.
-
-#### binding
-
-An object containing the following properties.
-
-- `instance`: The instance of the component where directive is used.
-- `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-- `oldValue`: The previous value, only available in `update` and `componentUpdated`. It is available whether or not the value has changed.
-- `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-- `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-- `dir`: an object, passed as a parameter to the directive. For example, in the our first directive
-
-```js
-app.directive('focus', {
-  mounted(el) {
-    el.focus()
-  },
-})
-```
-
-`dir` would be the following object:
-
-```js
-{
-  mounted(el) {
-    el.focus()
-  }
-}
-```
-
-#### vnode
-
-The virtual node produced by Vue's compiler. See the [VNode API](TODO:../api/#VNode-Interface) for full details.
-
-#### prevNode
-
-The previous virtual node, only available in the `update` and `componentUpdated` hooks.
-
-:::tip Note
-Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
-:::
-
-An example of a custom directive using some of these properties:
-
-```vue-html
-<div id="hook-arguments-example" class="demo">
-  <span v-demo:foo.a.b="message"></span>
-</div>
-```
-
-```js
-const app = Vue.createApp({
-  data() {
-    return {
-      message: 'hello!',
-    }
-  },
-})
-
-app.directive('demo', {
-  mounted(el, binding, vnode) {
-    const s = JSON.stringify
-    el.innerHTML =
-      'value: ' +
-      s(binding.value) +
-      '<br>' +
-      'argument: ' +
-      s(binding.arg) +
-      '<br>' +
-      'modifiers: ' +
-      s(binding.modifiers) +
-      '<br>' +
-      'vnode keys: ' +
-      Object.keys(vnode).join(', ')
-  },
-})
-
-app.mount('#hook-arguments-example')
-```
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="KKpJxJp" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: example with arguments">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpJxJp">
-  Custom directives: example with arguments</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](TODO)
 
 ### Dynamic Directive Arguments
 
@@ -177,10 +85,11 @@ Let's say you want to make a custom directive that allows you to pin elements to
 const app = Vue.createApp({})
 
 app.directive('pin', {
-  mounted(el, binding, vnode) {
+  mounted(el, binding) {
     el.style.position = 'fixed'
+    // binding.value is the value we pass to directive - in this case, it's 200
     el.style.top = binding.value + 'px'
-  },
+  }
 })
 
 app.mount('#dynamic-arguments-example')
@@ -199,17 +108,18 @@ This would pin the element 200px from the top of the page. But what happens if w
 const app = Vue.createApp({
   data() {
     return {
-      direction: 'right',
+      direction: 'right'
     }
-  },
+  }
 })
 
 app.directive('pin', {
-  mounted(el, binding, vnode) {
+  mounted(el, binding) {
     el.style.position = 'fixed'
+    // binding.arg is an argument we pass to directive
     const s = binding.arg || 'top'
     el.style[s] = binding.value + 'px'
-  },
+  }
 })
 
 app.mount('#dynamic-arguments-example')
@@ -224,15 +134,61 @@ Result:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Our custom directive is now flexible enough to support a few different use cases.
+Our custom directive is now flexible enough to support a few different use cases. To make it even more dynamic, we can also allow to modify a bound value. Let's create an additional property `pinPadding` and bind it to the `<input type="range">`
+
+```vue-html{4}
+<div id="dynamicexample">
+  <h2>Scroll down the page</h2>
+  <input type="range" min="0" max="500" v-model="pinPadding">
+  <p v-pin:[direction]="pinPadding">Stick me 200px from the {{ direction }} of the page</p>
+</div>
+```
+
+```js{5}
+const app = Vue.createApp({
+  data() {
+    return {
+      direction: 'right',
+      pinPadding: 200
+    }
+  }
+})
+```
+
+Now let's extend our directive logic to recalculate the distance to pin on component update:
+
+```js{7-10}
+app.directive('pin', {
+  mounted(el, binding) {
+    el.style.position = 'fixed'
+    const s = binding.arg || 'top'
+    el.style[s] = binding.value + 'px'
+  },
+  updated(el, binding) {
+    const s = binding.arg || 'top'
+    el.style[s] = binding.value + 'px'
+  }
+})
+```
+
+Result:
+
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="rNOaZpj" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: dynamic arguments + dynamic binding">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNOaZpj">
+  Custom directives: dynamic arguments + dynamic binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Function Shorthand
 
-In many cases, you may want the same behavior on `mounted` and `updated`, but don't care about the other hooks. You can do it by passing the callback to directive:
+In previous example, you may want the same behavior on `mounted` and `updated`, but don't care about the other hooks. You can do it by passing the callback to directive:
 
 ```js
-app.directive('color-swatch', (el, binding) => {
-  el.style.backgroundColor = binding.value
+app.directive('pin', (el, binding) => {
+  el.style.position = 'fixed'
+  const s = binding.arg || 'top'
+  el.style[s] = binding.value + 'px'
 })
 ```
 
