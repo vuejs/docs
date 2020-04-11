@@ -2,7 +2,7 @@
 
 ## Intro
 
-In addition to the default set of directives shipped in core (`v-model` and `v-show`), Vue also allows you to register your own custom directives. Note that in Vue, the primary form of code reuse and abstraction is components - however there may be cases where you need some low-level DOM access on plain elements, and this is where custom directives would still be useful. An example would be focusing on an input element, like this one:
+In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives. Note that in Vue, the primary form of code reuse and abstraction is components - however, there may be cases where you need some low-level DOM access on plain elements, and this is where custom directives would still be useful. An example would be focusing on an input element, like this one:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="JjdxaJW" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: basic example">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/JjdxaJW">
@@ -54,7 +54,7 @@ A directive definition object can provide several hook functions (all optional):
 
 - `mounted`: called when the bound element's parent component is mounted.
 
-- `beforeUpdate`: called before the the containing component's VNode is updated
+- `beforeUpdate`: called before the containing component's VNode is updated
 
 :::tip Note
 We'll cover VNodes in more detail [later](TODO:/render-function.html#The-Virtual-DOM), when we discuss [render functions](TODO:./render-function.html).
