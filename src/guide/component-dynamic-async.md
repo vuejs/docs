@@ -2,7 +2,7 @@
 
 > This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
 
-## `keep-alive` with Dynamic Components
+## Dynamic Components with `keep-alive`
 
 Earlier, we used the `is` attribute to switch between components in a tabbed interface:
 
@@ -42,7 +42,7 @@ Check out the result below:
 Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered.
 
 :::tip Note
-Note that `<keep-alive>` requires the components being switched between to all have names, either using the `name` option on a component, or through local/global registration
+When you're switching between components, `<keep-alive>` requires them all to have names. This should be done either using the `name` option on a component, or through local/global registration
 :::
 
 Check out more details on `<keep-alive>` in the [API reference](TODO:../api/#keep-alive).
@@ -58,7 +58,7 @@ const AsyncComp = Vue.defineAsyncComponent(
   () =>
     new Promise((resolve, reject) => {
       resolve({
-        template: '<div>I am async!</div>',
+        template: '<div>I am async!</div>'
       })
     })
 )
@@ -91,9 +91,9 @@ createApp({
     components: {
       AsyncComponent: defineAsyncComponent(() =>
         import('./components/AsyncComponent.vue')
-      ),
-    },
-  },
+      )
+    }
+  }
 })
 ```
 
