@@ -80,7 +80,7 @@ const AsyncComp = defineAsyncComponent(() =>
 app.component('async-component', AsyncComp)
 ```
 
-When using [local registration](components-registration.html#Local-Registration), you can also directly provide a function that returns a `Promise`:
+You can also use `defineAsyncComponent` when [registering a component locally](components-registration.html#Local-Registration):
 
 ```js
 import { createApp, defineAsyncComponent } from 'vue'
@@ -88,11 +88,9 @@ import { createApp, defineAsyncComponent } from 'vue'
 createApp({
   // ...
   components: {
-    components: {
-      AsyncComponent: defineAsyncComponent(() =>
-        import('./components/AsyncComponent.vue')
-      )
-    }
+    AsyncComponent: defineAsyncComponent(() =>
+      import('./components/AsyncComponent.vue')
+    )
   }
 })
 ```
