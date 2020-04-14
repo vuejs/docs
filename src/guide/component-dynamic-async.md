@@ -95,34 +95,10 @@ createApp({
 })
 ```
 
-### Advanced usage
-
-The `defineAsyncComponent` method can also return an object of the following format:
-
-```js
-import { defineAsyncComponent } from 'vue'
-
-const AsyncComp = defineAsyncComponent({
-  // The factory function
-  loader: () => import('./Foo.vue')
-  // A component to use while the async component is loading
-  loadingComponent: LoadingComponent,
-  // A component to use if the load fails
-  errorComponent: ErrorComponent,
-  // Delay before showing the loading component. Default: 200ms.
-  delay: 200,
-  // The error component will be displayed if a timeout is
-  // provided and exceeded. Default: Infinity.
-  timeout: 3000,
-  // A function that returns a boolean indicating whether the async component should retry when the loader promise rejects
-  retryWhen: error => error.code !== 404,
-  // Maximum allowed retries number
-  maxRetries: 3,
-  // Defining if component is suspensible
-  suspensible: false
-})
-```
+### Using with Suspense
 
 Async components are _suspensible_ by default. This means if it has a [`<Suspense>`](TODO) in the parent chain, it will be treated as an async dependency of that `<Suspense>`. In this case, the loading state will be controlled by the `<Suspense>`, and the component's own loading, error, delay and timeout options will be ignored.
 
 The async component can opt-out of `Suspense` control and let the component always control its own loading state by specifying `suspensible: false` in its options.
+
+You can check the list of available options in the [API Reference](TODO)
