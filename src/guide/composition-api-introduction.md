@@ -50,7 +50,7 @@ As you can see, this component has several responsibilities:
 
 The above way of building components, enforces code that is organized by option types within the component itself (data, computed, methods, watch), which is OK in most cases. However, usually when our components grow the list of **logical concerns** is also growing. This can lead to components that are hard to read and understand, especially to someone that hasn’t originally written it.
 
-![Composition%20API%20Introduction/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png](Composition%20API%20Introduction/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png)
+![Vue Option API: Code grouped by option type](https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png)
 
 Please consider this colourful example on the side for second or two as it presents a larger component with its **logical concerns** grouped by colours.
 
@@ -145,7 +145,7 @@ console.log(counter.value) // 1
 
 Wrapping any values inside an object might seem unnecessary at first, but is required to keep the behaviour unified across different data types in JavaScript. That’s because in JavaScript, primitive types like `Number` or `String` are passed by value, not by reference:
 
-![Composition%20API%20Introduction/pass-by-reference-vs-pass-by-value-animation.gif](Composition%20API%20Introduction/pass-by-reference-vs-pass-by-value-animation.gif)
+![Pass by reference vs pass by value](https://blog.penjee.com/wp-content/uploads/2015/02/pass-by-reference-vs-pass-by-value-animation.gif)
 
 Having a wrapper object around any value allows us to safely pass it across our whole app without worrying about losing its reactivity somewhere along the way.
 
