@@ -2,7 +2,9 @@
 
 ## Why Composition API?
 
+::: tip Note
 Reaching this far in the documentation, we are assuming that you are already familiar with both the basics of writing Vue code as well as the basics of creating components. If you’re not, you might want to first read through [Vue Introduction](introduction.md) and [Components Basics](component-basics.md) first before reading further.
+:::
 
 Creating Vue components is a powerful technique that allows us to extract repeatable parts of the interface coupled with its functionality into reusable pieces of code. This alone can get our application pretty far in terms of maintainability and flexibility. However, our collective experience has proved that this alone might not be enough, especially when your application is getting really big – think several hundreds of components. When dealing with such large applications, sharing and reusing code becomes especially important.
 
@@ -66,7 +68,9 @@ Now that we know the **why** we can get to the **how**. To start working with th
 
 The `setup` component option is completely **new** and is executed **before** the component is created, once the `props` have been resolved. It serves as the entry point for when we want to use the Compositon API.
 
+::: warning
 Because the component instance is not yet created when `setup` is executed, there is no `this` context that you might have expected. This means that you are **not** able to access any properties declared in the component like **local state**, **computed properties** or **methods**. The exception here are `props`.
+:::
 
 The `setup` option should be a function that accepts `props` and `context` which we will talk about later. Additionally, everything that we return from `setup` will be exposed to the rest of our component as well as the component's template. This means that any property that we return will be accessible within the components **computed properties**, **methods,** **lifecycle hooks,** and other places.
 
@@ -149,7 +153,9 @@ Wrapping any values inside an object might seem unnecessary at first, but is req
 
 Having a wrapper object around any value allows us to safely pass it across our whole app without worrying about losing its reactivity somewhere along the way.
 
+::: tip Note
 In other words, `ref` is creating a **Reactive Reference** to our value. The concept of working with **References** will be used often throughout the Composition API.
+:::
 
 Back to our example, lets update our code to create a reactive `repositories` variable.
 
@@ -174,7 +180,7 @@ setup (props) {
 
 Done! Now once we call `getUserRepositories` our `repositories` list will update and that change will be reflected in our view. Let’s take a look at the whole component after those changes:
 
-```
+```js
 // src/components/UserRepositories.vue
 import { fetchUserRepositories } from '@/api/repositories'
 import { ref } from 'vue'
@@ -227,8 +233,8 @@ To make the Composition API feature complete compared to the Options API we also
 
 **Here’s a list of how existing lifecycle hooks map into the new functions:**
 
-- `~~beforeCreate~~` -> use `setup()`
-- `~~created~~` -> use `setup()`
+- ~~`beforeCreate`~~ -> use `setup()`
+- ~~`created`~~ -> use `setup()`
 - `beforeMount` -> `onBeforeMount`
 - `mounted` -> `onMounted`
 - `beforeUpdate` -> `onBeforeUpdate`
