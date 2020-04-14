@@ -68,7 +68,7 @@ app.component('async-example', AsyncComp)
 
 As you can see, this method accepts a factory function returning a `Promise`. Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
 
-You can also return a `Promise` in the factory function, so with Webpack 2 and ES2015 syntax you can do:
+You can also return a `Promise` in the factory function, so with Webpack 2 or later and ES2015 syntax you can do:
 
 ```js
 import { defineAsyncComponent } from 'vue'
