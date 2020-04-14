@@ -41,10 +41,6 @@ Check out the result below:
 
 Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered.
 
-:::tip Note
-When you're switching between components, `<keep-alive>` requires them all to have names. This should be done either using the `name` option on a component, or through local/global registration
-:::
-
 Check out more details on `<keep-alive>` in the [API reference](TODO:../api/#keep-alive).
 
 ## Async Components
