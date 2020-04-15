@@ -14,8 +14,8 @@ const sidebar = {
         '/guide/list',
         '/guide/events',
         '/guide/forms',
-        '/guide/component-basics'
-      ]
+        '/guide/component-basics',
+      ],
     },
     {
       title: 'Components In-Depth',
@@ -25,8 +25,9 @@ const sidebar = {
         '/guide/component-props',
         '/guide/component-custom-events',
         '/guide/component-slots',
-        '/guide/component-provide-inject'
-      ]
+        '/guide/component-provide-inject',
+        '/guide/component-dynamic-async',
+      ],
     },
     {
       title: 'Reusability & Composition',
@@ -36,14 +37,14 @@ const sidebar = {
     {
       title: 'Migration to Vue 3',
       collapsable: true,
-      children: ['migration']
+      children: ['migration'],
     },
     {
       title: 'Contribute to the Docs',
       collapsable: true,
-      children: ['writing-guide']
-    }
-  ]
+      children: ['writing-guide'],
+    },
+  ],
 }
 
 module.exports = {
@@ -55,9 +56,9 @@ module.exports = {
       {
         href:
           'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-        rel: 'stylesheet'
-      }
-    ]
+        rel: 'stylesheet',
+      },
+    ],
   ],
   themeConfig: {
     nav: [
@@ -67,8 +68,8 @@ module.exports = {
         items: [
           { text: 'Guide', link: '/guide/introduction' },
           { text: 'Style Guide', link: '/style-guide/' },
-          { text: 'Tooling', link: '/tooling/' }
-        ]
+          { text: 'Tooling', link: '/tooling/' },
+        ],
       },
       { text: 'API Reference', link: '/api/' },
       {
@@ -76,8 +77,8 @@ module.exports = {
         ariaLabel: 'Examples Menu',
         items: [
           { text: 'Examples', link: '/examples/' },
-          { text: 'Cookbook', link: '/cookbook/' }
-        ]
+          { text: 'Cookbook', link: '/cookbook/' },
+        ],
       },
       {
         text: 'Community',
@@ -85,16 +86,16 @@ module.exports = {
         items: [
           { text: 'Team', link: '/community/team/' },
           { text: 'Partners', link: '/community/partners/' },
-          { text: 'Themes', link: '/community/themes/' }
-        ]
-      }
+          { text: 'Themes', link: '/community/themes/' },
+        ],
+      },
     ],
     sidebarDepth: 2,
     sidebar: {
       '/guide/': sidebar.guide,
-      '/community/': sidebar.guide
+      '/community/': sidebar.guide,
     },
-    smoothScroll: false
+    smoothScroll: false,
   },
   plugins: {
     '@vuepress/pwa': {
@@ -102,17 +103,17 @@ module.exports = {
       updatePopup: {
         '/': {
           message: 'New content is available.',
-          buttonText: 'Refresh'
-        }
-      }
-    }
+          buttonText: 'Refresh',
+        },
+      },
+    },
   },
   markdown: {
     /** @param {import('markdown-it')} md */
-    extendMarkdown: md => {
+    extendMarkdown: (md) => {
       md.options.highlight = require('./markdown/highlight')(
         md.options.highlight
       )
-    }
-  }
+    },
+  },
 }
