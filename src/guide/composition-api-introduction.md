@@ -3,10 +3,10 @@
 ## Why Composition API?
 
 ::: tip Note
-Reaching this far in the documentation, we are assuming that you are already familiar with both the basics of writing Vue code as well as the basics of creating components. If you’re not, you might want to first read through [Vue Introduction](introduction.md) and [Components Basics](component-basics.md) first before reading further.
+Reaching this far in the documentation, you should already be familiar with both [the basics of Vue](introduction.md) and [creating components](component-basics.md).
 :::
 
-Creating Vue components is a powerful technique that allows us to extract repeatable parts of the interface coupled with its functionality into reusable pieces of code. This alone can get our application pretty far in terms of maintainability and flexibility. However, our collective experience has proved that this alone might not be enough, especially when your application is getting really big – think several hundreds of components. When dealing with such large applications, sharing and reusing code becomes especially important.
+Creating Vue components allows us to extract repeatable parts of the interface coupled with its functionality into reusable pieces of code. This alone can get our application pretty far in terms of maintainability and flexibility. However, our collective experience has proved that this alone might not be enough, especially when your application is getting really big – think several hundreds of components. When dealing with such large applications, sharing and reusing code becomes especially important.
 
 Let’s imagine that in our app, we have a view to show a list of repositories of a certain user. On top of that, we want to apply search and filter capabilities. Our component handling this view could look like this:
 
@@ -54,7 +54,7 @@ Organizing logics with component's options (`data`, `computed`, `methods`, `watc
 
 ![Vue Option API: Code grouped by option type](https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png)
 
-Please consider this colourful example on the side for second or two as it presents a larger component with its **logical concerns** grouped by colours.
+Example presenting a large component where its **logical concerns** are grouped by colors.
 
 Such fragmentation is what makes it difficult to understand and maintain a complex component. The separation of options obscures the underlying logical concerns. In addition, when working on a single logical concern, we have to constantly "jump" around option blocks for the relevant code.
 
@@ -64,7 +64,7 @@ It would be much nicer if we could collocate code related to the same logical co
 
 Now that we know the **why** we can get to the **how**. To start working with the Compsition API we first need a place where we can actually use it. In a Vue component, we call this place the `setup`.
 
-### Introducing `setup`
+### `setup` Component Option
 
 The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
 
@@ -123,9 +123,9 @@ setup (props) {
 
 This is our starting point, except it's not working yet because our `repositories` variable is not reactive. This means from a user's perspective, the repository list would remain empty. Let's fix that!
 
-### Introducing `ref`
+### Reactive Variables with `ref`
 
-In Vue 3.0 we can make any variable reactive anywhere we want with a new `ref` function, like this:
+In Vue 3.0 we can make any variable reactive anywhere with a new `ref` function, like this:
 
 ```js
 import { ref } from 'vue'
@@ -133,7 +133,7 @@ import { ref } from 'vue'
 const counter = ref(0)
 ```
 
-`ref` takes the argument and returns it wrapped within an object with a `value` property. This property is what we would use to access or mutate the value of the reactive variable:
+`ref` takes the argument and returns it wrapped within an object with a `value` property, which can then be used to access or mutate the value of the reactive variable:
 
 ```js
 import { ref } from 'vue'
@@ -178,7 +178,7 @@ setup (props) {
 }
 ```
 
-Done! Now whenever we call `getUserRepositories`, `repositories` will be updated and the view will be updated to reflect the change. Our component should now look like this:
+Done! Now whenever we call `getUserRepositories`, `repositories` will be mutated and the view will be updated to reflect the change. Our component should now look like this:
 
 ```js
 // src/components/UserRepositories.vue
@@ -271,7 +271,7 @@ setup (props) {
 
 Now we need to react to the changes made to the `user` prop. For that we will use the standalone `watch` function.
 
-### Introducing standalone `watch`
+### Reacting to Changes with `watch`
 
 Just like how we set up a watcher on the `user` property inside our component using the `watch` option, we can do the same using the `watch` function imported from Vue. It accepts 3 arguments:
 
@@ -360,7 +360,7 @@ console.log(counter.value) // 1
 console.log(twiceTheCounter.value) // 2
 ```
 
-As you probably noticed, the `computed` function returns a _read-only_ **Reactive Reference** to the output of the getter-like callback passed as the first argument to `computed`. In order to access the **value** of the newly-created computed variable, we need to use the `.value` property just like when using `ref`.
+Here, the `computed` function returns a _read-only_ **Reactive Reference** to the output of the getter-like callback passed as the first argument to `computed`. In order to access the **value** of the newly-created computed variable, we need to use the `.value` property just like with `ref`.
 
 Let’s move our search functionality into `setup`:
 
