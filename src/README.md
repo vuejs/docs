@@ -1,5 +1,5 @@
 ---
-home: true
+layout: Home
 heroImage: /logo.png
 heroText: Vue.js
 tagline: The Progressive JavaScript Framework
