@@ -29,16 +29,14 @@
       </div>
     </header>
 
-    <div v-if="data.features && data.features.length" class="features">
-      <div
+    <section v-if="data.features && data.features.length" class="features">
+      <Feature
         v-for="(feature, index) in data.features"
+        :title="feature.title"
+        :details="feature.details"
         :key="index"
-        class="feature"
-      >
-        <h2>{{ feature.title }}</h2>
-        <p>{{ feature.details }}</p>
-      </div>
-    </div>
+      />
+    </section>
 
     <Content class="theme-default-content custom" />
 
@@ -49,12 +47,13 @@
 </template>
 
 <script>
+import Feature from '@theme/components/Feature.vue'
 import NavLink from '@theme/components/NavLink.vue'
 
 export default {
   name: 'Home',
 
-  components: { NavLink },
+  components: { Feature, NavLink },
 
   computed: {
     data() {
@@ -147,36 +146,22 @@ export default {
   }
 }
 
+.features {
+  border-top: 1px solid $borderColor;
+  padding: 1.2rem 0;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: stretch;
+  justify-content: space-between;
+}
+
 .home {
   padding: $navbarHeight 2rem 0;
   max-width: $homePageWidth;
   margin: 0px auto;
   display: block;
-  .features {
-    border-top: 1px solid $borderColor;
-    padding: 1.2rem 0;
-    margin-top: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: stretch;
-    justify-content: space-between;
-  }
-  .feature {
-    flex-grow: 1;
-    flex-basis: 30%;
-    max-width: 30%;
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 500;
-      border-bottom: none;
-      padding-bottom: 0;
-      color: lighten($textColor, 10%);
-    }
-    p {
-      color: lighten($textColor, 25%);
-    }
-  }
   .footer {
     padding: 2.5rem;
     border-top: 1px solid $borderColor;
