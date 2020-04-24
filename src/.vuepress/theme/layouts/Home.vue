@@ -268,6 +268,7 @@ export default {
 .home {
   max-width: $homePageWidth;
   margin: 0px auto;
+  margin-top: $navbarHeight;
   display: block;
 }
 
