@@ -86,6 +86,7 @@ module.exports = {
         items: [
           { text: 'Team', link: '/community/team/' },
           { text: 'Partners', link: '/community/partners/' },
+          { text: 'Join', link: '/community/join/' },
           { text: 'Themes', link: '/community/themes/' },
         ],
       },
