@@ -17,3 +17,33 @@ features:
       Minimal Optimization Efforts
 footer: Released under the MIT License | Copyright © 2014-2019 Evan You
 ---
+
+<div style="max-width: 80%; margin: 0 auto 3rem;">
+
+## Custom Container Demo
+
+### Tip
+
+::: tip Custom Tip Title
+This is my tip text!
+:::
+
+### Warning
+
+::: warning Custom Warning Title
+This is my warning text!
+:::
+
+### Danger
+
+::: danger Custom Danger Title
+This is my danger text!
+:::
+
+### Info
+
+::: info Custom Info Title
+This is my info text!
+:::
+
+</div>
