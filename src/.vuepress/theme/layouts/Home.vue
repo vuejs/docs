@@ -20,37 +20,41 @@
 
     <main class="home" aria-labelledby="main-title">
       <header class="hero">
-        <div class="hero-logo-container">
-          <img
-            v-if="data.heroImage"
-            :src="$withBase(data.heroImage)"
-            :alt="data.heroAlt || 'hero'"
-            class="logo"
-          />
-        </div>
-        <div>
-          <h1
-            v-if="data.heroText !== null"
-            id="main-title"
-            style="display: none"
-          >
-            {{ data.heroText || $title || 'Hello' }}
-          </h1>
+        <div class="hero-inner">
+          <div class="hero-logo-container">
+            <img
+              v-if="data.heroImage"
+              :src="$withBase(data.heroImage)"
+              :alt="data.heroAlt || 'hero'"
+              class="logo"
+            />
+          </div>
+          <div>
+            <h1
+              v-if="data.heroText !== null"
+              id="main-title"
+              style="display: none"
+            >
+              {{ data.heroText || $title || 'Hello' }}
+            </h1>
 
-          <p v-if="data.tagline !== null" class="description">
-            {{
-              data.tagline || $description || 'Welcome to your VuePress site'
-            }}
-          </p>
+            <p v-if="data.tagline !== null" class="description">
+              {{
+                data.tagline || $description || 'Welcome to your VuePress site'
+              }}
+            </p>
 
-          <a href="#" class="button is-primary is-uppercase">Why Vue.js</a>
+            <a href="#" class="button is-primary is-uppercase">Why Vue.js</a>
 
-          <NavLink
-            class="button is-primary is-outlined is-uppercase"
-            :item="actionLink"
-          />
+            <NavLink
+              class="button is-primary is-outlined is-uppercase"
+              :item="actionLink"
+            />
 
-          <a href="#" class="button is-primary is-uppercase is-gray">GitHub</a>
+            <a href="#" class="button is-primary is-uppercase is-gray"
+              >GitHub</a
+            >
+          </div>
         </div>
       </header>
 
@@ -208,8 +212,14 @@ export default {
 }
 
 .hero {
-  display: flex;
-  align-items: center;
+  padding: 40px 40px 30px;
+
+  &-inner {
+    display: flex;
+    align-items: center;
+    max-width: 1260px;
+    margin: 0 auto;
+  }
 
   &-logo-container {
     margin-right: 60px;
@@ -256,7 +266,6 @@ export default {
 }
 
 .home {
-  padding: $navbarHeight 0;
   max-width: $homePageWidth;
   margin: 0px auto;
   display: block;
