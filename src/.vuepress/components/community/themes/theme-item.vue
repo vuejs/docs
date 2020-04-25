@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../styles/_settings";
+@import "@theme/styles/_settings";
 
 .item-preview {
   width: 290px;
