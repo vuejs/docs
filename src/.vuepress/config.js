@@ -45,7 +45,7 @@ const sidebar = {
       children: ['writing-guide']
     }
   ],
-  api: ['/api/global-config']
+  api: ['/api/global-config', '/api/global-api']
 }
 
 module.exports = {
