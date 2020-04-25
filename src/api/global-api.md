@@ -91,11 +91,11 @@ const myDirective = app.directive('my-directive')
 
 Directive hooks are passed these arguments:
 
-### el
+#### el
 
 The element the directive is bound to. This can be used to directly manipulate the DOM.
 
-### binding
+#### binding
 
 An object containing the following properties.
 
@@ -124,11 +124,11 @@ app.directive('focus', {
 }
 ```
 
-### vnode
+#### vnode
 
 A blueprint of the real DOM element received as el argument above. See the [VNode API](TODO) for full details.
 
-### prevNode
+#### prevNode
 
 The previous virtual node, only available in the `beforeUpdate` and `updated` hooks.
 
@@ -137,3 +137,14 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 :::
 
 - **See also:** [Custom Directives](../guide/custom-directive.html)
+
+## mixin
+
+- **Arguments:**
+  - `{ComponentOptions} mixin`
+
+- **Usage:**
+
+  Apply a mixin globally, which will affect **every** Vue instance created afterwards in the given app (for example, child components). This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+
+- **See also:** [Global Mixin](../guide/mixins.html#global-mixin)
