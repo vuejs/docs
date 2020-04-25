@@ -22,6 +22,8 @@ Calling `createApp` returns an application instance. This instance provides an a
 
   Register or retrieve a global component. Registration also automatically sets the component's `name` with the given `name` parameter.
 
+- **Example:**
+
 ``` js
 import { createApp } from 'vue'
 
@@ -38,9 +40,11 @@ const MyComponent = app.component('my-component', {})
 
 ## config
 
+- **Usage:**
+
 An object containing application configurations.
 
-- **Usage:**
+- **Example:**
 
 ```js
 import { createApp } from 'vue'
@@ -60,6 +64,8 @@ app.config = {...}
 - **Usage:**
 
   Register or retrieve a global directive.
+
+- **Example:**
 
 ``` js
 import { createApp } from 'vue'
@@ -162,6 +168,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
   Mounts a root component of the application instance on the provided DOM element.
 
 - **Example:**
+
 ```html
 <body>
   <div id="my-app"></div>
@@ -176,3 +183,86 @@ createApp({}).mount('#my-app')
 
 - **See also:**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+
+## provide
+
+- **Arguments:**
+  - `{InjectionKey<T> | string} key`
+  - `{T} value`
+
+- **Details:**
+
+  This option is used together with [`inject`](TODO:inject) are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain.
+
+  The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
+
+  > Note: the `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+
+- **Example:**
+
+``` js
+import { createApp } from 'vue'
+
+const app = createApp({
+  provide: {
+    user: 'John Doe'
+  }
+})
+
+app.component('user-card', {
+  inject: ['user'],
+    template: `
+    <div>
+      {{ user }}
+    </div>
+  `
+})
+```
+
+- **See also:**
+  - [Provide / Inject](../guide/component-provide-inject.md)
+
+## unmount
+
+- **Arguments:**
+  - `{HostElement | string} rootContainer`
+
+- **Usage:**
+
+  Unmounts a root component of the application instance on the provided DOM element.
+
+- **Example:**
+
+```html
+<body>
+  <div id="my-app"></div>
+</body>
+```
+
+```js
+import { createApp } from 'vue'
+
+createApp({}).mount('#my-app')
+
+// Application will be unmounted 5 seconds after mount
+setTimeout(() => app.unmount('#my-app'), 5000)
+```
+
+## use
+
+- **Arguments:**
+  - `{Object | Function} plugin`
+
+- **Usage:**
+
+  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.
+
+  When this method is called on the same plugin multiple times, the plugin will be installed only once.
+
+- **See also:** [Plugins](TODO)
+
+
+
+
+
+
