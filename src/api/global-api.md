@@ -10,6 +10,8 @@ const app = createApp({})
 
 Calling `createApp` returns an application instance. This instance provides an application context. The entire component tree mounted by the application instance share the same context, which provides the configurations that were previously "global" in Vue 2.x.
 
+`createApp` method returns the application instance itself so you can chain other methods after it.
+
 ## component
 
 - **Arguments:**
@@ -148,3 +150,29 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
   Apply a mixin globally, which will affect **every** Vue instance created afterwards in the given app (for example, child components). This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
 
 - **See also:** [Global Mixin](../guide/mixins.html#global-mixin)
+
+## mount
+
+- **Arguments:**
+  - `{HostElement | string} rootContainer`
+  - `{boolean} isHydrate`
+
+- **Usage:**
+
+  Mounts a root component of the application instance on the provided DOM element.
+
+- **Example:**
+```html
+<body>
+  <div id="my-app"></div>
+</body>
+```
+
+```js
+import { createApp } from 'vue'
+
+createApp({}).mount('#my-app')
+```
+
+- **See also:**
+  - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
