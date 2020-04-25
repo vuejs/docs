@@ -395,7 +395,7 @@ See [this sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) to experiment with t
 
 Keep in mind that this attribute can be used with regular HTML elements, however they will be treated as components, which means all attributes **will be bound as DOM attributes**. For some properties such as `value` to work as you would expect, you will need to bind them using the [`.prop` modifier](TODO:../api/#v-bind).
 
-That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](TODO:components-dynamic-async.html).
+That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](components-dynamic-async).
 
 ## DOM Template Parsing Caveats
 
@@ -444,4 +444,4 @@ It should be noted that **these limitations does _not_ apply if you are using st
 
 That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
 
-Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](TODO:components-dynamic-async.html), as well as the other pages in the Components In-Depth section of the sidebar.
+Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](components-dynamic-async), as well as the other pages in the Components In-Depth section of the sidebar.
