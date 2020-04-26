@@ -130,7 +130,7 @@ app.mixin({
 // 'Hello, Vue
 ```
 
-Define custom merging strategies for options.
+Define merging strategies for custom options.
 
 The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context Vue instance is passed as the third argument.
 
