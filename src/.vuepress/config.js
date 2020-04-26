@@ -32,6 +32,13 @@ const sidebar = {
       title: 'Internals',
       collapsable: false,
       children: ['/guide/reactivity'],
+        '/guide/component-dynamic-async',
+      ],
+    },
+    {
+      title: 'Reusability & Composition',
+      collapsable: false,
+      children: ['/guide/mixins', '/guide/custom-directive']
     },
     {
       title: 'Migration to Vue 3',
@@ -85,6 +92,7 @@ module.exports = {
         items: [
           { text: 'Team', link: '/community/team/' },
           { text: 'Partners', link: '/community/partners/' },
+          { text: 'Join', link: '/community/join/' },
           { text: 'Themes', link: '/community/themes/' },
         ],
       },

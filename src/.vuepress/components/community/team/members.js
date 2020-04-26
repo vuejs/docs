@@ -65,20 +65,15 @@ const members = [
   },
   {
     name: 'Jinjiang',
-    title: 'Mobile Extrapolator',
-    city: 'Hangzhou, China',
+    city: 'Singapore',
     languages: ['zh', 'en'],
     github: 'jinjiang',
     twitter: 'zhaojinjiang',
-    work: {
-      org: 'Alibaba',
-      orgUrl: 'https://www.alibaba.com/'
-    },
     reposOfficial: [
-      'cn.vuejs.org'
+      'cn.vuejs.org', 'vue-docs-zh-cn'
     ],
     reposPersonal: [
-      'apache/incubator-weex'
+      'vue-a11y-utils', 'vue-mark-display', 'mark2slides', 'vue-keyboard-over'
     ]
   },
   {
@@ -129,8 +124,8 @@ const members = [
     languages: ['hi', 'en'],
     work: {
       role: 'Software Engineer',
-      org: 'Myntra',
-      orgUrl: 'https://www.myntra.com/'
+      org: 'Agritask',
+      orgUrl: 'https://www.agritask.com/'
     },
     github: 'znck',
     twitter: 'znck0',
@@ -138,10 +133,10 @@ const members = [
       'rollup-plugin-vue', 'vue-issue-helper'
     ],
     reposPersonal: [
-      'keynote', 'bootstrap-for-vue', 'vue-interop'
+     'vue-developer-experience', 'prop-types', 'virtualized',  'lazy-hydration', 'vue-slides'
     ],
     links: [
-      'https://znck.me', 'https://www.codementor.io/znck'
+      'https://znck.me'
     ]
   },
   {
