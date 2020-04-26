@@ -2,7 +2,11 @@
   <div class="special-sponsors">
     <h3>{{ heading }}</h3>
     <div class="blocks">
-      <SponsorBlock v-for="sponsor in sponsors" :sponsor="sponsor"/>
+      <SponsorBlock
+        v-for="sponsor in sponsors"
+        :sponsor="sponsor"
+        :key="sponsor.name"
+      />
     </div>
   </div>
 </template>

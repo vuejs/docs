@@ -36,6 +36,7 @@
               v-for="item in data.actionButtons"
               :item="item"
               :extra-class="item.extraClass"
+              :key="item.link"
             />
           </div>
         </div>
@@ -79,6 +80,7 @@
           v-for="icon in data.socialIcons"
           :type="icon.type"
           :link="icon.link"
+          :key="icon.link"
           extra-class="inverted"
         />
       </p>

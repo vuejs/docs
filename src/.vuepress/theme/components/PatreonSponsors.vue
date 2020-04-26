@@ -9,6 +9,7 @@
           target="_blank"
           rel="sponsored noopener"
           v-for="sponsor in sponsors.platinum_sponsors"
+          :key="sponsor.name"
         >
           <img :src="`/images/sponsors/${sponsor.img}`" width="160" :alt="sponsor.name">
         </a>
@@ -19,6 +20,7 @@
           target="_blank"
           rel="sponsored noopener"
           v-for="sponsor in sponsors.gold_sponsors"
+          :key="sponsor.name"
         >
           <img :src="`/images/sponsors/${sponsor.img}`" width="120" :alt="sponsor.name">
         </a>

@@ -9,6 +9,7 @@
         rel="sponsored noopener"
         target="_blank"
         v-for="(_, i) in new Array(featuredCount.platinum)"
+        :key="i"
       >
         <img
           :src="`https://opencollective.com/vuejs/tiers/platinum-sponsors/${i}/avatar.svg`"
@@ -22,6 +23,7 @@
         rel="sponsored noopener"
         target="_blank"
         v-for="(_, i) in new Array(featuredCount.gold)"
+        :key="i"
       >
         <img
           :src="`https://opencollective.com/vuejs/tiers/gold-sponsors/${i}/avatar.svg`"
