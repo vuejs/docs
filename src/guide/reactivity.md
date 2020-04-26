@@ -166,6 +166,49 @@ Remember this list from a few paragraphs ago? Now we have some answers to how Vu
 
 The proxied object is invisible to the user, but under the hood they enable Vue to perform dependency-tracking and change-notification when properties are accessed or modified. As of Vue 3, our reactivity is now available in a [separate package](https://github.com/vuejs/vue-next/tree/master/packages/reactivity). One caveat is that browser consoles format differently when converted data objects are logged, so you may want to install [vue-devtools](https://github.com/vuejs/vue-devtools) for a more inspection-friendly interface.
 
+### Proxied Objects
+
+Vue internally tracks all objects that have been made reactive, so it always returns the same proxy for the same object.
+
+When a nested object is accessed from a reactive proxy, that object is _also_ converted into a proxy before being returned:
+
+```js
+const handler = {
+  get(target, prop, receiver) {
+    track(target, key)
+    const value = Reflect.get(...arguments)
+    if (isObject(value)) {
+      return reactive(value)
+    } else {
+      return value
+    }
+  }
+  // ...
+}
+```
+
+### Proxy vs. original identity
+
+The use of Proxy does introduce a new caveat to be aware with: the proxied object is not equal to the original object in terms of identity comparison (`===`). For example:
+
+```js
+const obj = {}
+const wrapped = new Proxy(obj, handlers)
+
+console.log(obj === wrapped) // false
+```
+
+The original and the wrapped version will behave the same in most cases, but be aware that they will fail
+operations that rely on strong identity comparisons, such as `Array.filter()` or `Array.map()`. This caveat is unlikely to come up when using the options API, because all reactive state is accessed from `this` and guaranteed to already be proxies.
+
+However, when using the composition API to explicitly create reactive objects, the best practice is to never hold a reference to the original raw object and only work with the reactive version:
+
+```js
+const obj = reactive({
+  count: 0
+}) // no reference to original
+```
+
 ## Watchers
 
 Every component instance has a corresponding watcher instance, which records any properties "touched" during the component’s render as dependencies. Later on when a dependency’s setter is triggered, it notifies the watcher, which in turn causes the component to re-render.
