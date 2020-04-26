@@ -137,7 +137,7 @@
 
 - **See also:** [Computed Properties](../guide/computed.html)
 
-### methods
+## methods
 
 - **Type:** `{ [key: string]: Function }`
 
@@ -171,7 +171,7 @@
 
 - **See also:** [Event Handling](../guide/events.html)
 
-### watch
+## watch
 
 - **Type:** `{ [key: string]: string | Function | Object | Array}`
 
@@ -182,58 +182,69 @@
 - **Example:**
 
   ```js
-  var vm = new Vue({
-    data: {
-      a: 1,
-      b: 2,
-      c: 3,
-      d: 4,
-      e: {
-        f: {
-          g: 5
-        }
+  const app = Vue.createApp({
+    data() {
+      return {
+        a: 1,
+        b: 2,
+        c: {
+          d: 4
+        },
+        e: 'test',
+        f: 5
       }
     },
     watch: {
-      a: function(val, oldVal) {
-        console.log('new: %s, old: %s', val, oldVal)
+      a(val, oldVal) {
+        console.log(`new: ${val}, old: ${oldVal}`)
       },
       // string method name
       b: 'someMethod',
       // the callback will be called whenever any of the watched object properties change regardless of their nested depth
       c: {
-        handler: function(val, oldVal) {
-          /* ... */
+        handler(val, oldVal) {
+          console.log('c changed')
         },
         deep: true
       },
       // the callback will be called immediately after the start of the observation
-      d: {
-        handler: 'someMethod',
+      e: {
+        handler(val, oldVal) {
+          console.log('e changed')
+        },
         immediate: true
       },
       // you can pass array of callbacks, they will be called one-by-one
-      e: [
+      f: [
         'handle1',
         function handle2(val, oldVal) {
-          /* ... */
+          console.log('handle2 triggered')
         },
         {
           handler: function handle3(val, oldVal) {
-            /* ... */
+            console.log('handle3 triggered')
           }
           /* ... */
         }
-      ],
-      // watch vm.e.f's value: {g: 5}
-      'e.f': function(val, oldVal) {
-        /* ... */
+      ]
+    },
+    methods: {
+      someMethod() {
+        console.log('b changed')
+      },
+      handle1() {
+        console.log('handle 1 triggered')
       }
     }
   })
-  vm.a = 2 // => new: 2, old: 1
+
+  const vm = app.mount('#app')
+
+  vm.a = 3 // => new: 3, old: 1
   ```
 
-  <p class="tip">Note that __you should not use an arrow function to define a watcher__ (e.g. `searchQuery: newValue => this.updateAutocomplete(newValue)`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.updateAutocomplete` will be undefined.</p>
+  ::: tip Note
+  Note that _you should not use an arrow function to define a watcher_ (e.g. `searchQuery: newValue => this.updateAutocomplete(newValue)`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.updateAutocomplete` will be undefined.
+  :::
 
-- **See also:** [Instance Methods / Data - vm.\$watch](#vm-watch)
+- **See also:** [Watchers](../guide/computed.html#watchers)
