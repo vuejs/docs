@@ -15,6 +15,7 @@ Calling `createApp` returns an application instance. This instance provides an a
 ## component
 
 - **Arguments:**
+
   - `{string} name`
   - `{PublicAPIComponent} [definition]`
 
@@ -24,13 +25,15 @@ Calling `createApp` returns an application instance. This instance provides an a
 
 - **Example:**
 
-``` js
+```js
 import { createApp } from 'vue'
 
 const app = createApp({})
 
 // register an options object
-app.component('my-component', { /* ... */ })
+app.component('my-component', {
+  /* ... */
+})
 
 // retrieve a registered component (always return constructor)
 const MyComponent = app.component('my-component', {})
@@ -58,6 +61,7 @@ app.config = {...}
 ## directive
 
 - **Arguments:**
+
   - `{string} name`
   - `{Directive} [definition]`
 
@@ -67,7 +71,7 @@ app.config = {...}
 
 - **Example:**
 
-``` js
+```js
 import { createApp } from 'vue'
 const app = createApp({})
 
@@ -118,7 +122,7 @@ An object containing the following properties.
 app.directive('focus', {
   mounted(el) {
     el.focus()
-  },
+  }
 })
 ```
 
@@ -149,6 +153,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 ## mixin
 
 - **Arguments:**
+
   - `{ComponentOptions} mixin`
 
 - **Usage:**
@@ -160,6 +165,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 ## mount
 
 - **Arguments:**
+
   - `{HostElement | string} rootContainer`
   - `{boolean} isHydrate`
 
@@ -178,7 +184,9 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 ```js
 import { createApp } from 'vue'
 
-createApp({}).mount('#my-app')
+const app = createApp({})
+// do some necessary preparations
+app.mount('#my-app')
 ```
 
 - **See also:**
@@ -187,6 +195,7 @@ createApp({}).mount('#my-app')
 ## provide
 
 - **Arguments:**
+
   - `{InjectionKey<T> | string} key`
   - `{T} value`
 
@@ -200,7 +209,7 @@ createApp({}).mount('#my-app')
 
 - **Example:**
 
-``` js
+```js
 import { createApp } from 'vue'
 
 const app = createApp({
@@ -211,7 +220,7 @@ const app = createApp({
 
 app.component('user-card', {
   inject: ['user'],
-    template: `
+  template: `
     <div>
       {{ user }}
     </div>
@@ -225,6 +234,7 @@ app.component('user-card', {
 ## unmount
 
 - **Arguments:**
+
   - `{HostElement | string} rootContainer`
 
 - **Usage:**
@@ -242,7 +252,9 @@ app.component('user-card', {
 ```js
 import { createApp } from 'vue'
 
-createApp({}).mount('#my-app')
+const app = createApp({})
+// do some necessary preparations
+app.mount('#my-app')
 
 // Application will be unmounted 5 seconds after mount
 setTimeout(() => app.unmount('#my-app'), 5000)
@@ -251,6 +263,7 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 ## use
 
 - **Arguments:**
+
   - `{Object | Function} plugin`
 
 - **Usage:**
@@ -260,8 +273,3 @@ setTimeout(() => app.unmount('#my-app'), 5000)
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
 
 - **See also:** [Plugins](TODO)
-
-
-
-
-

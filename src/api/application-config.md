@@ -24,7 +24,7 @@ Configure whether to allow [vue-devtools](https://github.com/vuejs/vue-devtools)
 
 ## errorHandler
 
-- **Type:** `(err: unknown, instance: ComponentPublicInstance | null, info: string) => void`
+- **Type:** `Function`
 
 - **Default:** `undefined`
 
@@ -44,7 +44,7 @@ Assign a handler for uncaught errors during component render function and watche
 
 ## warnHandler
 
-- **Type:** `(msg: string, instance: ComponentPublicInstance | null, trace: string) => void`
+- **Type:** `Function`
 
 - **Default:** `undefined`
 
@@ -60,7 +60,7 @@ Assign a custom handler for runtime Vue warnings. Note this only works during de
 
 ## globalProperties
 
-- **Type:** `Record<string, any>`
+- **Type:** `[key: string]: any`
 
 - **Default:** `undefined`
 
@@ -106,7 +106,7 @@ Specifies a method to recognize custom elements defined outside of Vue (e.g., us
 
 ## optionMergeStrategies
 
-- **Type:** `Record<string, OptionMergeFunction>`
+- **Type:** `{ [key: string]: Function }`
 
 - **Default:** `{}`
 
