@@ -1,4 +1,4 @@
-# Global API
+# Application API
 
 In Vue 3, global APIs that globally mutate Vue's behavior are now moved to application instances created by the new `createApp` method, and their effects are now scoped to that application instance only:
 
