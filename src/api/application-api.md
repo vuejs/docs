@@ -17,7 +17,7 @@ Calling `createApp` returns an application instance. This instance provides an a
 - **Arguments:**
 
   - `{string} name`
-  - `{PublicAPIComponent} [definition]`
+  - `{Function | Object} [definition]`
 
 - **Usage:**
 
@@ -63,7 +63,7 @@ app.config = {...}
 - **Arguments:**
 
   - `{string} name`
-  - `{Directive} [definition]`
+  - `{Function | Object} [definition]`
 
 - **Usage:**
 
@@ -154,7 +154,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Arguments:**
 
-  - `{ComponentOptions} mixin`
+  - `{Object} mixin`
 
 - **Usage:**
 
@@ -166,7 +166,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Arguments:**
 
-  - `{HostElement | string} rootContainer`
+  - `{Element | string} rootContainer`
   - `{boolean} isHydrate`
 
 - **Usage:**
@@ -194,10 +194,9 @@ app.mount('#my-app')
 
 ## provide
 
-- **Arguments:**
+- **Type:**
 
-  - `{InjectionKey<T> | string} key`
-  - `{T} value`
+  - `Object | () => Object`
 
 - **Details:**
 
@@ -235,7 +234,7 @@ app.component('user-card', {
 
 - **Arguments:**
 
-  - `{HostElement | string} rootContainer`
+  - `{Element | string} rootContainer`
 
 - **Usage:**
 
