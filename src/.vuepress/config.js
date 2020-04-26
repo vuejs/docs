@@ -45,7 +45,15 @@ const sidebar = {
       children: ['writing-guide']
     }
   ],
-  api: ['/api/application-config', '/api/application-api']
+  api: [
+    '/api/application-config',
+    '/api/application-api',
+    {
+      title: 'Options',
+      collapsable: false,
+      children: ['/api/options-data']
+    }
+  ]
 }
 
 module.exports = {
@@ -89,9 +97,9 @@ module.exports = {
           { text: 'Team', link: '/community/team/' },
           { text: 'Partners', link: '/community/partners/' },
           { text: 'Join', link: '/community/join/' },
-          { text: 'Themes', link: '/community/themes/' },
-        ],
-      },
+          { text: 'Themes', link: '/community/themes/' }
+        ]
+      }
     ],
     sidebarDepth: 2,
     sidebar: {
