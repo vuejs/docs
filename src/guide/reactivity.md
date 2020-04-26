@@ -160,7 +160,7 @@ console.log(proxy.meal)
 
 Remember this list from a few paragraphs ago? Now we have some answers to how Vue handles these changes:
 
-- ~Detect when there’s a change in one of the values~: we no longer have to do this, as Proxies allow us to intercept it
+- <strike>Detect when there’s a change in one of the values</strike>: we no longer have to do this, as Proxies allow us to intercept it
 - **Track the function that changes it**: We do this in a getter within the proxy, called `effect`
 - **Trigger the function so it can update the final value**: We do in a setter within the proxy, called `trigger`
 
@@ -199,7 +199,7 @@ console.log(obj === wrapped) // false
 ```
 
 The original and the wrapped version will behave the same in most cases, but be aware that they will fail
-operations that rely on strong identity comparisons, such as `Array.filter()` or `Array.map()`. This caveat is unlikely to come up when using the options API, because all reactive state is accessed from `this` and guaranteed to already be proxies.
+operations that rely on strong identity comparisons, such as `.filter()` or `.map()`. This caveat is unlikely to come up when using the options API, because all reactive state is accessed from `this` and guaranteed to already be proxies.
 
 However, when using the composition API to explicitly create reactive objects, the best practice is to never hold a reference to the original raw object and only work with the reactive version:
 
