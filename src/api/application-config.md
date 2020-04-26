@@ -104,6 +104,8 @@ app.config.isCustomElement = tag => tag.startsWith('ion-')
 
 Specifies a method to recognize custom elements defined outside of Vue (e.g., using the Web Components APIs). If component matches this condition, it won't need local or global registration and Vue won't throw a warning about an `Unknown custom element`.
 
+> Note that all native HTML and SVG tags don't need to be matched in this function - Vue parser performs this check automatically
+
 ## optionMergeStrategies
 
 - **Type:** `{ [key: string]: Function }`
