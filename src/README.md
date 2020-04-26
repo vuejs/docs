@@ -37,4 +37,4 @@ socialIcons:
   link: https://medium.com/the-vue-point
 ---
 
-<common-vuemaster-video-modal/>
+<common-vuemastery-video-modal/>
