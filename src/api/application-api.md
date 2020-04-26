@@ -153,7 +153,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Usage:**
 
-  Apply a mixin globally, which will affect **every** Vue instance created afterwards in the given app (for example, child components). This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+  Apply a mixin in the whole application scope, which will affect **every** Vue instance created afterwards in the given app (for example, child components). This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
 
 - **See also:** [Global Mixin](../guide/mixins.html#global-mixin)
 
@@ -260,7 +260,6 @@ setTimeout(() => app.unmount('#my-app'), 5000)
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
 
 - **See also:** [Plugins](TODO)
-
 
 
 
