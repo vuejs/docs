@@ -10,7 +10,7 @@ const app = createApp({})
 
 Calling `createApp` returns an application instance. This instance provides an application context. The entire component tree mounted by the application instance share the same context, which provides the configurations that were previously "global" in Vue 2.x.
 
-`createApp` method returns the application instance itself so you can chain other methods after it.
+In addition, since the `createApp` method returns the application instance itself, you can chain other methods after it which can be found in the following sections.
 
 ## component
 
