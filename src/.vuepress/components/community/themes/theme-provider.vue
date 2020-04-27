@@ -33,7 +33,7 @@ export default {
   },
 
   computed: {
-    description: function () {
+    description () {
       return (new showdown.Converter()).makeHtml(this.provider.description)
     }
   }
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@theme/styles/_settings";
+@import "@theme/styles/_settings.scss";
 
 .themes-grid {
   display: flex;
