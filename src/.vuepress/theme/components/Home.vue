@@ -24,8 +24,8 @@
 
           <h2
             class="tagline"
-            v-if="data.tagline !== null"
-            v-html="data.tagline || $description || 'The Progressive JavaScript Framework'"
+            v-if="tagline"
+            v-html="tagline"
           ></h2>
 
           <div
@@ -115,6 +115,10 @@ export default {
   computed: {
     data () {
       return this.$page.frontmatter
+    },
+
+    tagline () {
+      return this.data.tagline || this.$description || 'The Progressive JavaScript Framework'
     }
   },
 
