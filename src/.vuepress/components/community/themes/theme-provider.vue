@@ -9,9 +9,9 @@
     </div>
 
     <div class="see-more-container">
-      <a :href="provider.seeMoreUrl" class="see-more-button">
+      <RoundedButton :url="provider.seeMoreUrl">
         See More Themes from {{ provider.name }}
-      </a>
+      </RoundedButton>
     </div>
   </section>
 </template>
@@ -28,11 +28,12 @@ export default {
   },
 
   components: {
-    ThemeItem: () => import('./theme-item')
+    ThemeItem: () => import('./theme-item.vue'),
+    RoundedButton: () => import('@theme/components/ui/RoundedButton.vue')
   },
 
   computed: {
-    description: function () {
+    description () {
       return (new showdown.Converter()).makeHtml(this.provider.description)
     }
   }
@@ -40,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../styles/_settings";
+@import "@theme/styles/_settings.scss";
 
 .themes-grid {
   display: flex;
@@ -60,22 +61,6 @@ export default {
   &-container {
     text-align: center;
     width: 100%;
-  }
-
-  &-button {
-    color: $green;
-    display: inline-block;
-    width: auto;
-    border-radius: 2em;
-    transition: all 0.15s ease;
-    border: 1px solid $green;
-    padding: 12px 24px;
-    text-decoration: none !important;
-
-    &:hover {
-      background: $green;
-      color: #fff;
-    }
   }
 }
 </style>

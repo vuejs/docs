@@ -1,6 +1,6 @@
 <template>
-  <a :href="url" :title="type">
-    <i class="fa" :class="extraClass"/>
+  <a class="social-icon" :href="link" :title="type" :class="extraClass">
+    <i class="fab" :class="iconClass"/>
     <span class="sr-only">{{ type }}</span>
   </a>
 </template>
@@ -9,17 +9,18 @@
 const SOCIAL_ICON_CLASS_MAP = {
   Email: 'fa-envelope',
   GitHub: 'fa-github',
-  Twitter: 'fa-twitter-square',
+  Twitter: 'fa-twitter',
   LinkedIn: 'fa-linkedin-square',
   YouTube: 'fa-youtube-square',
   Facebook: 'fa-facebook-square',
   Instagram: 'fa-instagram',
-  CodePen: 'fa-codepen'
+  CodePen: 'fa-codepen',
+  Medium: 'fa-medium-m'
 }
 
 export default {
   props: {
-    url: {
+    link: {
       type: String,
       required: true
     },
@@ -28,11 +29,15 @@ export default {
       type: String,
       required: true,
       validator: value => Object.keys(SOCIAL_ICON_CLASS_MAP).includes(value)
+    },
+
+    extraClass: {
+      type: String
     }
   },
 
   computed: {
-    extraClass () {
+    iconClass () {
       return SOCIAL_ICON_CLASS_MAP[this.type]
     }
   }
@@ -63,6 +68,10 @@ export default {
 
   &-instagram {
     color: #c13584;
+  }
+
+  &-medium {
+    color: #000;
   }
 }
 </style>

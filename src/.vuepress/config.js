@@ -54,11 +54,23 @@ module.exports = {
     [
       'link',
       {
-        href:
-          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        href: 'https://use.fontawesome.com/releases/v5.13.0/css/all.css',
         rel: 'stylesheet',
       },
     ],
+    [
+      'script',
+      {
+        src: 'https://player.vimeo.com/api/player.js',
+      },
+    ],
+    [
+      'script',
+      {
+        src: 'https://extend.vimeocdn.com/ga/72160148.js',
+        defer: 'defer',
+      },
+    ]
   ],
   themeConfig: {
     nav: [

@@ -98,10 +98,10 @@
           </dd>
         </template>
         <footer v-if="hasSocialLinks" class="social">
-          <SocialIcon type="GitHub" v-if="profile.github" :url="generateGithubUrl(profile.github)"/>
-          <SocialIcon type="Twitter" v-if="profile.twitter" :url="`https://twitter.com/${profile.twitter}`"/>
-          <SocialIcon type="CodePen" v-if="profile.codepen" :url="`https://codepen.io/${profile.codepen}`"/>
-          <SocialIcon type="LinkedIn" v-if="profile.linkedin" :url="`https://www.linkedin.com/in/${profile.linkedin}`"/>
+          <SocialIcon type="GitHub" v-if="profile.github" :link="generateGithubUrl(profile.github)"/>
+          <SocialIcon type="Twitter" v-if="profile.twitter" :link="`https://twitter.com/${profile.twitter}`"/>
+          <SocialIcon type="CodePen" v-if="profile.codepen" :link="`https://codepen.io/${profile.codepen}`"/>
+          <SocialIcon type="LinkedIn" v-if="profile.linkedin" :link="`https://www.linkedin.com/in/${profile.linkedin}`"/>
         </footer>
       </dl>
     </div>
@@ -114,7 +114,7 @@ import { minimizeLink, generateGithubUrl, kmToMi, roundDistance } from './utils'
 export default {
   components: {
     VuerLanguage: () => import('./vuer-language'),
-    SocialIcon: () => import('../../common/social-icon')
+    SocialIcon: () => import('@theme/components/ui/SocialIcon.vue')
   },
 
   props: {
