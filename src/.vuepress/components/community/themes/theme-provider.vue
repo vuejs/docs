@@ -29,7 +29,7 @@ export default {
 
   components: {
     ThemeItem: () => import('./theme-item.vue'),
-    RoundedButton: () => import('@theme/components/RoundedButton.vue')
+    RoundedButton: () => import('@theme/components/ui/RoundedButton.vue')
   },
 
   computed: {

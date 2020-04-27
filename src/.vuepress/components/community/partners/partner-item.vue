@@ -63,7 +63,7 @@ export default {
   },
 
   components: {
-    SocialIcon: () => import('@theme/components/SocialIcon.vue')
+    SocialIcon: () => import('@theme/components/ui/SocialIcon.vue')
   },
 
   computed: {

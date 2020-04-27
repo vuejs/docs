@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import SponsorsLayout from './SponsorsLayout.vue'
-import RoundedButton from './RoundedButton.vue'
+import SponsorsLayout from '@theme/components/sponsors/SponsorsLayout.vue'
+import RoundedButton from '@theme/components/ui/RoundedButton.vue'
 
 export default {
   components: {

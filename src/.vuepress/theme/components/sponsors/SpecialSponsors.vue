@@ -14,7 +14,7 @@
 <script>
 export default {
   components: {
-    SponsorBlock: () => import('./SpecialSponsorBlock.vue')
+    SponsorBlock: () => import('@theme/components/sponsors/SpecialSponsorBlock.vue')
   },
 
   props: {

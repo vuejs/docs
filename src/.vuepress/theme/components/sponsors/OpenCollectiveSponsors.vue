@@ -5,28 +5,26 @@
     <template #content>
       <h4>Platinum</h4>
       <a
-        :href="`https://opencollective.com/vuejs/tiers/platinum-sponsors/${i}/website`"
+        :href="`https://opencollective.com/vuejs/tiers/platinum-sponsors/${index}/website`"
         rel="sponsored noopener"
         target="_blank"
-        v-for="(_, i) in new Array(featuredCount.platinum)"
-        :key="i"
+        v-for="(_, index) in new Array(featuredCount.platinum)"
       >
         <img
-          :src="`https://opencollective.com/vuejs/tiers/platinum-sponsors/${i}/avatar.svg`"
+          :src="`https://opencollective.com/vuejs/tiers/platinum-sponsors/${index}/avatar.svg`"
           alt="Vue.JS platinum sponsor"
         >
       </a>
 
       <h4>Gold</h4>
       <a
-        :href="`https://opencollective.com/vuejs/tiers/gold-sponsors/${i}/website`"
+        :href="`https://opencollective.com/vuejs/tiers/gold-sponsors/${index}/website`"
         rel="sponsored noopener"
         target="_blank"
-        v-for="(_, i) in new Array(featuredCount.gold)"
-        :key="i"
+        v-for="(_, index) in new Array(featuredCount.gold)"
       >
         <img
-          :src="`https://opencollective.com/vuejs/tiers/gold-sponsors/${i}/avatar.svg`"
+          :src="`https://opencollective.com/vuejs/tiers/gold-sponsors/${index}/avatar.svg`"
           alt="Vue.JS gold sponsor"
         >
       </a>
@@ -35,7 +33,7 @@
 </template>
 
 <script>
-import SponsorsLayout from './SponsorsLayout.vue'
+import SponsorsLayout from '@theme/components/sponsors/SponsorsLayout.vue'
 
 export default {
   components: {

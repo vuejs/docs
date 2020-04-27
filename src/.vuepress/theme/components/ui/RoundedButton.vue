@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_settings.scss";
+@import "@theme/styles/_settings.scss";
 
 a {
   color: $green;

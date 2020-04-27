@@ -90,13 +90,13 @@
 </template>
 
 <script>
-import sponsors from '../data/patreon-sponsors.js'
-import HomeActionLink from './HomeActionLink.vue'
-import SocialIcon from './SocialIcon.vue'
-import SpecialSponsors from './SpecialSponsors.vue'
-import PatreonSponsors from './PatreonSponsors.vue'
-import OpenCollectiveSponsors from './OpenCollectiveSponsors.vue'
-import Newsletter from './Newsletter.vue'
+import sponsors from '@theme/data/patreon-sponsors.js'
+import HomeActionLink from '@theme/components/ui/HomeActionLink.vue'
+import SocialIcon from '@theme/components/ui/SocialIcon.vue'
+import SpecialSponsors from '@theme/components/sponsors/SpecialSponsors.vue'
+import PatreonSponsors from '@theme/components/sponsors/PatreonSponsors.vue'
+import OpenCollectiveSponsors from '@theme/components/sponsors/OpenCollectiveSponsors.vue'
+import Newsletter from '@theme/components/Newsletter.vue'
 
 export default {
   components: {

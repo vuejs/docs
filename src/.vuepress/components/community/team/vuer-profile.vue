@@ -114,7 +114,7 @@ import { minimizeLink, generateGithubUrl, kmToMi, roundDistance } from './utils'
 export default {
   components: {
     VuerLanguage: () => import('./vuer-language'),
-    SocialIcon: () => import('@theme/components/SocialIcon.vue')
+    SocialIcon: () => import('@theme/components/ui/SocialIcon.vue')
   },
 
   props: {
