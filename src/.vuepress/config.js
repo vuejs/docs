@@ -25,8 +25,17 @@ const sidebar = {
         '/guide/component-props',
         '/guide/component-custom-events',
         '/guide/component-slots',
-        '/guide/component-provide-inject',
-        '/guide/component-dynamic-async'
+        '/guide/component-provide-inject'
+      ]
+    },
+    {
+      title: 'Internals',
+      collapsable: false,
+      children: [
+        '/guide/reactivity',
+        '/guide/component-dynamic-async',
+        '/guide/optimizations',
+        '/guide/change-detection'
       ]
     },
     {
@@ -55,12 +64,24 @@ module.exports = {
     [
       'link',
       {
-        href:
-          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-        rel: 'stylesheet'
-      }
+        href: 'https://use.fontawesome.com/releases/v5.13.0/css/all.css',
+        rel: 'stylesheet',
+      },
     ],
-    ['link', { rel: 'icon', href: '/logo.png' }]
+    ['link', { rel: 'icon', href: '/logo.png' }],
+    [
+      'script',
+      {
+        src: 'https://player.vimeo.com/api/player.js',
+      },
+    ],
+    [
+      'script',
+      {
+        src: 'https://extend.vimeocdn.com/ga/72160148.js',
+        defer: 'defer',
+      },
+    ]
   ],
   themeConfig: {
     nav: [
@@ -89,9 +110,9 @@ module.exports = {
           { text: 'Team', link: '/community/team/' },
           { text: 'Partners', link: '/community/partners/' },
           { text: 'Join', link: '/community/join/' },
-          { text: 'Themes', link: '/community/themes/' },
-        ],
-      },
+          { text: 'Themes', link: '/community/themes/' }
+        ]
+      }
     ],
     sidebarDepth: 2,
     sidebar: {
