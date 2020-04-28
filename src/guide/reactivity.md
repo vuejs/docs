@@ -20,7 +20,7 @@ var val1 = 2
 var val2 = 3
 var sum = val1 + val2
 
-//sum
+// sum
 // 5
 
 val1 = 3
