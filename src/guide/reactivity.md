@@ -25,7 +25,7 @@ var sum = val1 + val2
 
 val1 = 3
 
-//sum
+// sum
 //5
 ```
 
