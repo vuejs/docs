@@ -174,7 +174,7 @@ h(
 With this knowledge, we can now finish the component we started:
 
 ```js
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 function getChildrenTextContent(children) {
   return children
@@ -190,8 +190,8 @@ app.component('anchored-heading', {
     // create kebab-case id
     const headingId = getChildrenTextContent(this.$slots.default())
       .toLowerCase()
-      .replace(/\W+/g, '-')
-      .replace(/(^-|-$)/g, '')
+      .replace(/\W+/g, '-') // replace non-word characters with dash
+      .replace(/(^-|-$)/g, '') // remove leading and trailing dashes
 
     return Vue.h('h' + this.level, [
       Vue.h(
@@ -220,8 +220,8 @@ app.component('anchored-heading', {
 All VNodes in the component tree must be unique. That means the following render function is invalid:
 
 ```js
-render: function () {
-  var myParagraphVNode = Vue.h('p', 'hi')
+render() {
+  const myParagraphVNode = Vue.h('p', 'hi')
   return Vue.h('div', [
     // Yikes - duplicate VNodes!
     myParagraphVNode, myParagraphVNode
@@ -232,7 +232,7 @@ render: function () {
 If you really want to duplicate the same element/component many times, you can do so with a factory function. For example, the following render function is a perfectly valid way of rendering 20 identical paragraphs:
 
 ```js
-render: function () {
+render() {
   return Vue.h('div',
     Array.apply(null, { length: 20 }).map(() => {
       return Vue.h('p', 'hi')
@@ -258,9 +258,9 @@ This could be rewritten with JavaScript's `if`/`else` and `map` in a render func
 
 ```js
 props: ['items'],
-render: function () {
+render() {
   if (this.items.length) {
-    return Vue.h('ul', this.items.map(function (item) {
+    return Vue.h('ul', this.items.map((item) => {
       return Vue.h('li', item.name)
     }))
   } else {
@@ -277,7 +277,7 @@ TODO: This section requires update.
 
 ```js
 props: ['modalValue'],
-render: function () {
+render() {
   return Vue.withDirectives(
     Vue.h('input', {
       'onUpdate:modelValue': value => this.$emit('onUpdate:modelValue', value)
