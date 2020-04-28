@@ -26,7 +26,7 @@ var sum = val1 + val2
 val1 = 3
 
 // sum
-//5
+// 5
 ```
 
 If we update the first value, the sum is not adjusted.
