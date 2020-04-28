@@ -154,7 +154,7 @@ app.component('test-component', {
   myOption: 'hello from component!'
 })
 
-app.mount('##mixins-global')
+app.mount('#mixins-global')
 
 // => "hello!"
 // => "hello from component!"
@@ -169,7 +169,7 @@ When custom options are merged, they use the default strategy which overwrites t
 ```js
 const app = Vue.createApp({})
 
-app.config.optionMergeStrategies.customOption = (toVal, fromVal) {
+app.config.optionMergeStrategies.customOption = (toVal, fromVal) => {
   // return mergedVal
 }
 ```

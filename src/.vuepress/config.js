@@ -53,7 +53,8 @@ const sidebar = {
       collapsable: true,
       children: ['writing-guide']
     }
-  ]
+  ],
+  api: ['/api/application-config', '/api/application-api']
 }
 
 module.exports = {
@@ -67,6 +68,7 @@ module.exports = {
         rel: 'stylesheet',
       },
     ],
+    ['link', { rel: 'icon', href: '/logo.png' }],
     [
       'script',
       {
@@ -92,7 +94,7 @@ module.exports = {
           { text: 'Tooling', link: '/tooling/' }
         ]
       },
-      { text: 'API Reference', link: '/api/' },
+      { text: 'API Reference', link: '/api/application-config' },
       {
         text: 'Examples',
         ariaLabel: 'Examples Menu',
@@ -114,8 +116,10 @@ module.exports = {
     ],
     sidebarDepth: 2,
     sidebar: {
+      collapsable: false,
       '/guide/': sidebar.guide,
-      '/community/': sidebar.guide
+      '/community/': sidebar.guide,
+      '/api/': sidebar.api
     },
     smoothScroll: false
   },

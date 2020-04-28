@@ -66,7 +66,7 @@ We'll cover VNodes in more detail [later](TODO:/render-function.html#The-Virtual
 
 - `unmounted`: called only once, when the directive is unbound from the element and the parent component is unmounted.
 
-You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](TODO)
+You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](../api/global-api.html#directive)
 
 ### Dynamic Directive Arguments
 
