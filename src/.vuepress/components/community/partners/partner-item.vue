@@ -48,8 +48,8 @@
         </dd>
 
         <dd class="social">
-          <SocialIcon v-if="partner.email" type="Email" :url="mailHref"/>
-          <SocialIcon v-for="link in partner.socialLinks" :key="link.name" :type="link.name" :url="link.url"/>
+          <SocialIcon v-if="partner.email" type="Email" :link="mailHref"/>
+          <SocialIcon v-for="link in partner.socialLinks" :key="link.name" :type="link.name" :link="link.url"/>
         </dd>
       </dl>
     </div>
@@ -63,7 +63,7 @@ export default {
   },
 
   components: {
-    SocialIcon: () => import('../../common/social-icon')
+    SocialIcon: () => import('@theme/components/ui/SocialIcon.vue')
   },
 
   computed: {
