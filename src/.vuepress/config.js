@@ -60,7 +60,11 @@ const sidebar = {
     {
       title: 'Options',
       collapsable: false,
-      children: ['/api/options-data', '/api/options-dom']
+      children: [
+        '/api/options-data',
+        '/api/options-dom',
+        '/api/options-lifecycle-hooks'
+      ]
     }
   ]
 }
