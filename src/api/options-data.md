@@ -248,3 +248,45 @@
   :::
 
 - **See also:** [Watchers](../guide/computed.html#watchers)
+
+## emits
+
+- **Type:** `Array<string> | Object`
+
+- **Details:**
+
+  A list/hash of custom events that can be emitted from the component. It has an Array-based simple syntax and an alternative Object-based syntax that allows to configure an event validation.
+
+  In Object-based syntax, the value of each property can either be `null` or a validator function. The validation function will receive the additional arguments passed to the `$emit` call. For example, if `this.$emit('foo', 1)` is called, the corresponding validator for `foo` will receive the argument `1`. The validator function should return a boolean to indicate whether the event arguments are valid.
+
+- **Usage:**
+
+  ```js
+  const app = Vue.createApp({})
+
+  // Array syntax
+  app.component('todo-item', {
+    emits: ['check'],
+    created() {
+      this.$emit('check')
+    }
+  })
+
+  // Object syntax
+  app.component('reply-form', {
+    emits: {
+      // no validation
+      click: null,
+
+      // with validation
+      submit: payload => {
+        if (payload.email && payload.password) {
+          return true
+        } else {
+          console.warn(`Invalid submit event payload!`)
+          return false
+        }
+      }
+    }
+  })
+  ```
