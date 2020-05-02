@@ -169,3 +169,95 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
   - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to the global `config.errorHandler`.
 
   - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or the global `config.errorHandler` from being invoked for this error.
+
+## renderTracked
+
+- **Type:** `(e: DebuggerEvent) => void`
+
+- **Details:**
+
+  Called when virtual DOM re-render is tracked. The hook receives a `debugger event` as an argument. This event tells you what operation tracked the component and the target object and key of that operation.
+
+- **Usage:**
+
+  ```html
+  <div id="app">
+    <button v-on:click="addToCart">Add to cart</button>
+    <p>Cart({{ cart }})</p>
+  </div>
+  ```
+
+  ```js
+  const app = Vue.createApp({
+    data() {
+      return {
+        cart: 0
+      }
+    },
+    renderTracked({ key, target, type }) {
+      console.log({ key, target, type })
+      /* This will be logged when component is rendered for the first time:
+      {
+        key: "cart",
+        target: {
+          cart: 0
+        },
+        type: "get"
+      }
+      */
+    },
+    methods: {
+      addToCart() {
+        this.cart += 1
+      }
+    }
+  })
+
+  app.mount('#app')
+  ```
+
+## renderTriggered
+
+- **Type:** `(e: DebuggerEvent) => void`
+
+- **Details:**
+
+  Called when virtual DOM re-render is triggered.Similarly to [`renderTracked`](#rendertracked), receives a `debugger event` as an argument. This event tells you what operation triggered the re-rendering and the target object and key of that operation.
+
+- **Usage:**
+
+  ```html
+  <div id="app">
+    <button v-on:click="addToCart">Add to cart</button>
+    <p>Cart({{ cart }})</p>
+  </div>
+  ```
+
+  ```js
+  const app = Vue.createApp({
+    data() {
+      return {
+        cart: 0
+      }
+    },
+    renderTracked({ key, target, type }) {
+      console.log({ key, target, type })
+    },
+    methods: {
+      addToCart() {
+        this.cart += 1
+        /* This will cause renderTriggered call
+          {
+            key: "cart",
+            target: {
+              cart: 1
+            },
+            type: "set"
+          }
+        */
+      }
+    }
+  })
+
+  app.mount('#app')
+  ```
