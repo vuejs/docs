@@ -36,7 +36,7 @@
   data: vm => ({ a: vm.myProp })
   ```
 
-- **See also:** [Reactivity in Depth](TODO:../guide/reactivity.html)
+- **See also:** [Reactivity in Depth](../guide/reactivity.html)
 
 ## props
 

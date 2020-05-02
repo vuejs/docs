@@ -1,7 +1,5 @@
 # Conditional Rendering
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-conditionals?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how conditional rendering works with Vue School">Learn how conditional rendering works with a free lesson on Vue School</a></div>
-
 ## `v-if`
 
 The directive `v-if` is used to conditionally render a block. The block will only be rendered if the directive's expression returns a truthy value.
@@ -90,7 +88,7 @@ Generally speaking, `v-if` has higher toggle costs while `v-show` has higher ini
 ## `v-if` with `v-for`
 
 ::: tip Note
-Using `v-if` and `v-for` together is **not recommended**. See the [style guide](TODO:/v2/style-guide/#Avoid-v-if-with-v-for-essential) for further information.
+Using `v-if` and `v-for` together is **not recommended**. See the [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for further information.
 :::
 
 When used together with `v-if`, `v-for` has a higher priority than `v-if`. See the [list rendering guide](list#v-for-with-v-if) for details.
