@@ -64,7 +64,8 @@ const sidebar = {
         '/api/options-data',
         '/api/options-dom',
         '/api/options-lifecycle-hooks',
-        '/api/options-assets'
+        '/api/options-assets',
+        '/api/options-composition'
       ]
     }
   ]
