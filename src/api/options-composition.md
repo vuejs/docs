@@ -182,6 +182,8 @@
   }
   ```
 
+- **See also:** [Provide / Inject](../guide/component-provide-inject.html)
+
 ## setup
 
 - **Type:** `Function`
@@ -315,3 +317,5 @@ The `setup` function is a new component option. It serves as the entry point for
   - It's much more common for a component to use `props` than the other properties, and very often a component uses only `props`.
 
   - Having `props` as a separate argument makes it easier to type it individually without messing up the types of other properties on the context. It also makes it possible to keep a consistent signature across `setup`, `render` and plain functional components with TSX support.
+
+- **See also:** [Composition API](TODO)
