@@ -135,7 +135,7 @@ And another for the index:
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 :::tip Note
-When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which is **not** guaranteed to be consistent across JavaScript engine implementations.
+When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which isn't guaranteed to be consistent across JavaScript engine implementations.
 :::
 
 ## Maintaining State
@@ -147,7 +147,7 @@ This default mode is efficient, but **only suitable when your list render output
 To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item:
 
 ```html
-<div v-for="item in items" v-bind:key="item.id">
+<div v-for="item in items" :key="item.id">
   <!-- content -->
 </div>
 ```
@@ -298,7 +298,7 @@ If instead, your intent is to conditionally skip execution of the loop, you can 
 You can directly use `v-for` on a custom component, like any normal element:
 
 ```html
-<my-component v-for="item in items" v-bind:key="item.id"></my-component>
+<my-component v-for="item in items" :key="item.id"></my-component>
 ```
 
 However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
@@ -306,9 +306,9 @@ However, this won't automatically pass any data to the component, because compon
 ```html
 <my-component
   v-for="(item, index) in items"
-  v-bind:item="item"
-  v-bind:index="index"
-  v-bind:key="item.id"
+  :item="item"
+  :index="index"
+  :key="item.id"
 ></my-component>
 ```
 
@@ -330,9 +330,9 @@ Here's a complete example of a simple todo list:
   <ul>
     <todo-item
       v-for="(todo, index) in todos"
-      v-bind:key="todo.id"
-      v-bind:title="todo.title"
-      v-on:remove="todos.splice(index, 1)"
+      :key="todo.id"
+      :title="todo.title"
+      @remove="todos.splice(index, 1)"
     ></todo-item>
   </ul>
 </div>
@@ -373,11 +373,11 @@ const app = Vue.createApp({
 
 app.component('todo-item', {
   template: `
-          <li>
-            {{ title }}
-            <button v-on:click="$emit('remove')">Remove</button>
-          </li>
-        `,
+    <li>
+      {{ title }}
+      <button @click="$emit('remove')">Remove</button>
+    </li>
+  `,
   props: ['title']
 })
 
