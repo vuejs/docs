@@ -4,13 +4,13 @@
 
 ## Listening to Events
 
-We can use the `v-on` directive to listen to DOM events and run some JavaScript when they're triggered.
+We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="methodName"` or with the shortcut, `@click="methodName"`
 
 For example:
 
 ```html
 <div id="basic-event">
-  <button v-on:click="counter += 1">Add 1</button>
+  <button @click="counter += 1">Add 1</button>
   <p>The button above has been clicked {{ counter }} times.</p>
 </div>
 ```
@@ -43,7 +43,7 @@ For example:
 ```html
 <div id="event-with-method">
   <!-- `greet` is the name of a method defined below -->
-  <button v-on:click="greet">Greet</button>
+  <button @click="greet">Greet</button>
 </div>
 ```
 
@@ -82,8 +82,8 @@ Instead of binding directly to a method name, we can also use methods in an inli
 
 ```html
 <div id="inline-handler">
-  <button v-on:click="say('hi')">Say hi</button>
-  <button v-on:click="say('what')">Say what</button>
+  <button @click="say('hi')">Say hi</button>
+  <button @click="say('what')">Say what</button>
 </div>
 ```
 
@@ -109,7 +109,7 @@ Result:
 Sometimes we also need to access the original DOM event in an inline statement handler. You can pass it into a method using the special `$event` variable:
 
 ```html
-<button v-on:click="warn('Form cannot be submitted yet.', $event)">
+<button @click="warn('Form cannot be submitted yet.', $event)">
   Submit
 </button>
 ```
@@ -142,33 +142,33 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 
 ```html
 <!-- the click event's propagation will be stopped -->
-<a v-on:click.stop="doThis"></a>
+<a @click.stop="doThis"></a>
 
 <!-- the submit event will no longer reload the page -->
-<form v-on:submit.prevent="onSubmit"></form>
+<form @submit.prevent="onSubmit"></form>
 
 <!-- modifiers can be chained -->
-<a v-on:click.stop.prevent="doThat"></a>
+<a @click.stop.prevent="doThat"></a>
 
 <!-- just the modifier -->
-<form v-on:submit.prevent></form>
+<form @submit.prevent></form>
 
 <!-- use capture mode when adding the event listener -->
 <!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
-<div v-on:click.capture="doThis">...</div>
+<div @click.capture="doThis">...</div>
 
 <!-- only trigger handler if event.target is the element itself -->
 <!-- i.e. not from a child element -->
-<div v-on:click.self="doThat">...</div>
+<div @click.self="doThat">...</div>
 ```
 
 ::: tip
-Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `v-on:click.prevent.self` will prevent **all clicks** while `v-on:click.self.prevent` will only prevent clicks on the element itself.
+Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **all clicks** while `@click.self.prevent` will only prevent clicks on the element itself.
 :::
 
 ```html
 <!-- the click event will be triggered at most once -->
-<a v-on:click.once="doThis"></a>
+<a @click.once="doThis"></a>
 ```
 
 Unlike the other modifiers, which are exclusive to native DOM events, the `.once` modifier can also be used on [component events](component-custom-events.html). If you haven't read about components yet, don't worry about this for now.
@@ -179,7 +179,7 @@ Vue also offers the `.passive` modifier, corresponding to [`addEventListener`'s 
 <!-- the scroll event's default behavior (scrolling) will happen -->
 <!-- immediately, instead of waiting for `onScroll` to complete  -->
 <!-- in case it contains `event.preventDefault()`                -->
-<div v-on:scroll.passive="onScroll">...</div>
+<div @scroll.passive="onScroll">...</div>
 ```
 
 The `.passive` modifier is especially useful for improving performance on mobile devices.
@@ -190,17 +190,17 @@ Don't use `.passive` and `.prevent` together, because `.prevent` will be ignored
 
 ## Key Modifiers
 
-When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` when listening for key events:
+When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` or `@` when listening for key events:
 
 ```html
 <!-- only call `vm.submit()` when the `key` is `Enter` -->
-<input v-on:keyup.enter="submit" />
+<input @keyup.enter="submit" />
 ```
 
 You can directly use any valid key names exposed via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case.
 
 ```html
-<input v-on:keyup.page-down="onPageDown" />
+<input @keyup.page-down="onPageDown" />
 ```
 
 In the above example, the handler will only be called if `$event.key` is equal to `'PageDown'`.
@@ -214,7 +214,7 @@ The use of `keyCode` events [is deprecated](https://developer.mozilla.org/en-US/
 Using `keyCode` attributes is also permitted:
 
 ```html
-<input v-on:keyup.13="submit" />
+<input @keyup.13="submit" />
 ```
 
 Vue provides aliases for the most commonly used key codes when necessary for legacy browser support:
@@ -255,10 +255,10 @@ For example:
 
 ```html
 <!-- Alt + C -->
-<input v-on:keyup.alt.67="clear" />
+<input @keyup.alt.67="clear" />
 
 <!-- Ctrl + Click -->
-<div v-on:click.ctrl="doSomething">Do something</div>
+<div @click.ctrl="doSomething">Do something</div>
 ```
 
 ::: tip Tip
@@ -271,13 +271,13 @@ The `.exact` modifier allows control of the exact combination of system modifier
 
 ```html
 <!-- this will fire even if Alt or Shift is also pressed -->
-<button v-on:click.ctrl="onClick">A</button>
+<button @click.ctrl="onClick">A</button>
 
 <!-- this will only fire when Ctrl and no other keys are pressed -->
-<button v-on:click.ctrl.exact="onCtrlClick">A</button>
+<button @click.ctrl.exact="onCtrlClick">A</button>
 
 <!-- this will only fire when no system modifiers are pressed -->
-<button v-on:click.exact="onClick">A</button>
+<button @click.exact="onClick">A</button>
 ```
 
 ### Mouse Button Modifiers
@@ -290,7 +290,7 @@ These modifiers restrict the handler to events triggered by a specific mouse but
 
 ## Why Listeners in HTML?
 
-You might be concerned that this whole event listening approach violates the good old rules about "separation of concerns". Rest assured - since all Vue handler functions and expressions are strictly bound to the ViewModel that's handling the current view, it won't cause any maintenance difficulty. In fact, there are several benefits in using `v-on`:
+You might be concerned that this whole event listening approach violates the good old rules about "separation of concerns". Rest assured - since all Vue handler functions and expressions are strictly bound to the ViewModel that's handling the current view, it won't cause any maintenance difficulty. In fact, there are several benefits in using `v-on` or `@`:
 
 1. It's easier to locate the handler function implementations within your JS code by skimming the HTML template.
 
