@@ -69,7 +69,7 @@ Now that we know the **why** we can get to the **how**. To start working with th
 The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
 
 ::: warning
-Because the component instance is not yet created when `setup` is executed, there is no `this` inside a `setup` option. This means, with the exception of `props`, you won't be able to access any properties declared in the component – **local state**, **computed properties** or **methods**. 
+Because the component instance is not yet created when `setup` is executed, there is no `this` inside a `setup` option. This means, with the exception of `props`, you won't be able to access any properties declared in the component – **local state**, **computed properties** or **methods**.
 :::
 
 The `setup` option should be a function that accepts `props` and `context` which we will talk about later. Additionally, everything that we return from `setup` will be exposed to the rest of our component (computed properties, methods, lifecycle hooks and so on) as well as to the component's template.
@@ -81,15 +81,15 @@ Let’s add `setup` to our component:
 
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
-	props: {
-		user: { type: String }
-	},
-	setup (props) {
-		console.log(props) // { user: '' }
+  props: {
+    user: { type: String }
+  },
+  setup (props) {
+    console.log(props) // { user: '' }
 
-		return {} // anything returned here will be available for the rest of the component
-	},
-	// the "rest" of the component
+    return {} // anything returned here will be available for the rest of the component
+  },
+  // the "rest" of the component
 }
 ```
 
@@ -109,15 +109,15 @@ import { fetchUserRepositories } from '@/api/repositories'
 
 // inside our component
 setup (props) {
-	let repositories = []
-	const getUserRepositories = async () => {
-		repositories = await fetchUserRepositories(props.user)
-	}
+  let repositories = []
+  const getUserRepositories = async () => {
+    repositories = await fetchUserRepositories(props.user)
+  }
 
-	return {
+  return {
     repositories,
     getUserRepositories // functions returned behave the same as methods
-	}
+  }
 }
 ```
 
@@ -166,15 +166,15 @@ import { ref } from 'vue'
 
 // in our component
 setup (props) {
-	const repositories = ref([])
-	const getUserRepositories = async () => {
-		repositories.value = await fetchUserRepositories(props.user)
-	}
+  const repositories = ref([])
+  const getUserRepositories = async () => {
+    repositories.value = await fetchUserRepositories(props.user)
+  }
 
-	return {
+  return {
     repositories,
-		getUserRepositories
-	}
+  getUserRepositories
+  }
 }
 ```
 
@@ -187,37 +187,37 @@ import { ref } from 'vue'
 
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
-	props: {
-		user: { type: String }
-	},
-	setup (props) {
-		const repositories = ref([])
-		const getUserRepositories = async () => {
-			repositories.value = await fetchUserRepositories(props.user)
-		}
+  props: {
+    user: { type: String }
+  },
+  setup (props) {
+    const repositories = ref([])
+    const getUserRepositories = async () => {
+      repositories.value = await fetchUserRepositories(props.user)
+    }
 
-		return {
-	    repositories,
-			getUserRepositories
-		}
-	},
-	data () {
-		return {
-			filters: { ... }, // 3
-			searchQuery: '' // 2
-		}
-	},
-	computed: {
-		filteredRepositories () { ... }, // 3
-		repositoriesMatchingSearchQuery () { ... }, // 2
-	},
-	watch: {
+    return {
+      repositories,
+      getUserRepositories
+    }
+  },
+  data () {
+    return {
+      filters: { ... }, // 3
+      searchQuery: '' // 2
+    }
+  },
+  computed: {
+    filteredRepositories () { ... }, // 3
+    repositoriesMatchingSearchQuery () { ... }, // 2
+  },
+  watch: {
     user: 'getUserRepositories' // 1
-	},
-	methods: {
-		updateFilters () { ... }, // 3
-	},
-	mounted () {
+  },
+  methods: {
+    updateFilters () { ... }, // 3
+  },
+  mounted () {
     this.getUserRepositories() // 1
   }
 }
@@ -255,17 +255,17 @@ import { ref, onMounted } from 'vue'
 
 // in our component
 setup (props) {
-	const repositories = ref([])
-	const getUserRepositories = async () => {
-		repositories.value = await fetchUserRepositories(props.user)
-	}
+  const repositories = ref([])
+  const getUserRepositories = async () => {
+    repositories.value = await fetchUserRepositories(props.user)
+  }
 
-	onMounted(getUserRepositories) // on `mounted` call `getUserRepositories`
+  onMounted(getUserRepositories) // on `mounted` call `getUserRepositories`
 
-	return {
+  return {
     repositories,
-		getUserRepositories
-	}
+    getUserRepositories
+  }
 }
 ```
 
@@ -301,11 +301,11 @@ export default {
       counter: 0
     }
   },
-	watch: {
+  watch: {
     counter (newValue, oldValue) {
-			console.log('The new counter value is: ' + this.counter)
-		}
-	}
+      console.log('The new counter value is: ' + this.counter)
+    }
+  }
 }
 ```
 
@@ -320,24 +320,24 @@ import { ref, onMounted, watch, toRefs } from 'vue'
 
 // in our component
 setup (props) {
-	// using `toRefs` to create a Reactive Reference to the `user` property of props
-	const { user } = toRefs(props)
+  // using `toRefs` to create a Reactive Reference to the `user` property of props
+  const { user } = toRefs(props)
 
-	const repositories = ref([])
-	const getUserRepositories = async () => {
-		// update `props.user` to `user.value` to access the Reference value
-		repositories.value = await fetchUserRepositories(user.value)
-	}
+  const repositories = ref([])
+  const getUserRepositories = async () => {
+    // update `props.user` to `user.value` to access the Reference value
+    repositories.value = await fetchUserRepositories(user.value)
+  }
 
-	onMounted(getUserRepositories)
+  onMounted(getUserRepositories)
 
-	// set a watcher on the Reactive Reference to user prop
-	watch(user, getUserRepositories)
+  // set a watcher on the Reactive Reference to user prop
+  watch(user, getUserRepositories)
 
-	return {
+  return {
     repositories,
-		getUserRepositories
-	}
+    getUserRepositories
+  }
 }
 ```
 
@@ -390,14 +390,14 @@ setup (props) {
     return repositories.value.filter(
       repository => repository.name.includes(searchQuery.value)
     )
-	})
+  })
 
-	return {
+  return {
     repositories,
-	  getUserRepositories,
+    getUserRepositories,
     searchQuery,
     repositoriesMatchingSearchQuery
-	}
+  }
 }
 ```
 
@@ -438,7 +438,7 @@ export default function useRepositoryNameSearch (repositories) {
     return repositories.value.filter(repository => {
       return repository.name.includes(searchQuery.value)
     })
-	})
+  })
 
   return {
     searchQuery,
@@ -457,10 +457,10 @@ import { toRefs } from 'vue'
 
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
-	props: {
-		user: { type: String }
-	},
-	setup (props) {
+  props: {
+    user: { type: String }
+  },
+  setup (props) {
     const { user } = toRefs(props)
 
     const { repositories, getUserRepositories } = useUserRepositories(user)
@@ -470,25 +470,25 @@ export default {
       repositoriesMatchingSearchQuery
     } = useRepositoryNameSearch(repositories)
 
-		return {
+    return {
       // Since we don’t really care about the unfiltered repositories
       // we can expose the filtered results under the `repositories` name
-	    repositories: repositoriesMatchingSearchQuery,
-			getUserRepositories,
+      repositories: repositoriesMatchingSearchQuery,
+      getUserRepositories,
       searchQuery,
-		}
-	},
-	data () {
-		return {
-			filters: { ... }, // 3
-		}
-	},
-	computed: {
-		filteredRepositories () { ... }, // 3
-	},
-	methods: {
-		updateFilters () { ... }, // 3
-	}
+    }
+  },
+  data () {
+    return {
+      filters: { ... }, // 3
+    }
+  },
+  computed: {
+    filteredRepositories () { ... }, // 3
+  },
+  methods: {
+    updateFilters () { ... }, // 3
+  }
 }
 ```
 
@@ -503,10 +503,10 @@ import useRepositoryFilters from '@/composables/useRepositoryFilters'
 
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
-	props: {
-		user: { type: String }
-	},
-	setup (props) {
+  props: {
+    user: { type: String }
+  },
+  setup (props) {
     const { user } = toRefs(props)
 
     const { repositories, getUserRepositories } = useUserRepositories(user)
@@ -522,16 +522,16 @@ export default {
       filteredRepositories
     } = useRepositoryFilters(repositoriesMatchingSearchQuery)
 
-		return {
+    return {
       // Since we don’t really care about the unfiltered repositories
       // we can expose the end results under the `repositories` name
-	    repositories: filteredRepositories,
-			getUserRepositories,
+      repositories: filteredRepositories,
+      getUserRepositories,
       searchQuery,
       filters,
       updateFilters,
-		}
-	}
+    }
+  }
 }
 ```
 
