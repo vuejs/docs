@@ -8,7 +8,7 @@ Every Vue application starts by creating a new **Vue instance** with the `create
 Vue.createApp(/* options */)
 ```
 
-After the Vue instance is created, we can _mount_ it, passing a container to `.mount` method. For example, if we want to mount a Vue application on `<div id="app"></div>`, we should pass `#app`:
+After the Vue instance is created, we can _mount_ it, passing a container to `mount` method. For example, if we want to mount a Vue application on `<div id="app"></div>`, we should pass `#app`:
 
 ```js
 Vue.createApp(/* options */).mount('#app')

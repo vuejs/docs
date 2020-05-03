@@ -97,55 +97,7 @@ computed: {
 
 In comparison, a method invocation will **always** run the function whenever a re-render happens.
 
-Why do we need caching? Imagine we have an expensive computed property **A**, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on **A**. Without caching, we would be executing **A**’s getter many more times than necessary! In cases where you do not want caching, use a method instead.
-
-### Computed vs Watched Property
-
-Vue does provide a more generic way to observe and react to data changes on a Vue instance: **watch properties**. When you have some data that needs to change based on some other data, it is tempting to overuse `watch` - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative `watch` callback. Consider this example:
-
-```html
-<div id="demo">{{ fullName }}</div>
-```
-
-```js
-const vm = Vue.createApp({
-  data() {
-    return {
-      firstName: 'Foo',
-      lastName: 'Bar',
-      fullName: 'Foo Bar'
-    }
-  },
-  watch: {
-    firstName(val) {
-      this.fullName = val + ' ' + this.lastName
-    },
-    lastName(val) {
-      this.fullName = this.firstName + ' ' + val
-    }
-  }
-}).mount('#demo')
-```
-
-The above code is imperative and repetitive. Compare it with a computed property version:
-
-```js
-const vm = Vue.createApp({
-  data() {
-    return {
-      firstName: 'Foo',
-      lastName: 'Bar'
-    }
-  },
-  computed: {
-    fullName() {
-      return this.firstName + ' ' + this.lastName
-    }
-  }
-}).mount('#demo')
-```
-
-Much better, isn't it?
+Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a `method` instead.
 
 ### Computed Setter
 
@@ -239,3 +191,51 @@ Result:
 In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API) and sets a condition for performing this operation. None of that would be possible with a computed property.
 
 In addition to the `watch` option, you can also use the imperative [vm.\$watch API](TODO:../api/#vm-watch).
+
+### Computed vs Watched Property
+
+Vue does provide a more generic way to observe and react to data changes on a Vue instance: **watch properties**. When you have some data that needs to change based on some other data, it is tempting to overuse `watch` - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative `watch` callback. Consider this example:
+
+```html
+<div id="demo">{{ fullName }}</div>
+```
+
+```js
+const vm = Vue.createApp({
+  data() {
+    return {
+      firstName: 'Foo',
+      lastName: 'Bar',
+      fullName: 'Foo Bar'
+    }
+  },
+  watch: {
+    firstName(val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName(val) {
+      this.fullName = this.firstName + ' ' + val
+    }
+  }
+}).mount('#demo')
+```
+
+The above code is imperative and repetitive. Compare it with a computed property version:
+
+```js
+const vm = Vue.createApp({
+  data() {
+    return {
+      firstName: 'Foo',
+      lastName: 'Bar'
+    }
+  },
+  computed: {
+    fullName() {
+      return this.firstName + ' ' + this.lastName
+    }
+  }
+}).mount('#demo')
+```
+
+Much better, isn't it?
