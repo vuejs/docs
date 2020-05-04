@@ -54,7 +54,22 @@ const sidebar = {
       children: ['writing-guide']
     }
   ],
-  api: ['/api/application-config', '/api/application-api']
+  api: [
+    '/api/application-config',
+    '/api/application-api',
+    {
+      title: 'Options',
+      collapsable: false,
+      children: [
+        '/api/options-data',
+        '/api/options-dom',
+        '/api/options-lifecycle-hooks',
+        '/api/options-assets',
+        '/api/options-composition',
+        '/api/options-misc'
+      ]
+    }
+  ]
 }
 
 module.exports = {
@@ -65,22 +80,22 @@ module.exports = {
       'link',
       {
         href: 'https://use.fontawesome.com/releases/v5.13.0/css/all.css',
-        rel: 'stylesheet',
-      },
+        rel: 'stylesheet'
+      }
     ],
     ['link', { rel: 'icon', href: '/logo.png' }],
     [
       'script',
       {
-        src: 'https://player.vimeo.com/api/player.js',
-      },
+        src: 'https://player.vimeo.com/api/player.js'
+      }
     ],
     [
       'script',
       {
         src: 'https://extend.vimeocdn.com/ga/72160148.js',
-        defer: 'defer',
-      },
+        defer: 'defer'
+      }
     ]
   ],
   themeConfig: {

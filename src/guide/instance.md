@@ -16,7 +16,7 @@ Vue.createApp(/* options */).mount('#app')
 
 Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our Vue instance.
 
-When you create a Vue instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](TODO:../api/#Options-Data).
+When you create a Vue instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/options-data.html).
 
 A Vue application consists of a **root Vue instance** created with `createApp`, optionally organized into a tree of nested, reusable components. For example, a todo app's component tree might look like this:
 
@@ -31,7 +31,7 @@ Root Instance
       └─ TodoListStatistics
 ```
 
-We'll talk about [the component system](TODO:components.html) in detail later. For now, just know that all Vue components are also Vue instances, and so accept the same options object (except for a few root-specific options).
+We'll talk about [the component system](component-basics.html) in detail later. For now, just know that all Vue components are also Vue instances, and so accept the same options object (except for a few root-specific options).
 
 ## Data and Methods
 
@@ -123,11 +123,9 @@ In the future, you can consult the [API reference](TODO:../api/#Instance-Propert
 
 ## Instance Lifecycle Hooks
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/understanding-the-vuejs-lifecycle-hooks?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Lifecycle Hooks Lesson">Watch a free lesson on Vue School</a></div>
-
 Each Vue instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
 
-For example, the [`created`](TODO:../api/#created) hook can be used to run code after an instance is created:
+For example, the [created](../api/options-lifecycle-hooks.html#created) hook can be used to run code after an instance is created:
 
 ```js
 Vue.createApp({
@@ -143,7 +141,7 @@ Vue.createApp({
 })
 ```
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, such as [`mounted`](TODO:../api/#mounted), [`updated`](TODO:../api/#updated), and [`destroyed`](TODO:../api/#destroyed). All lifecycle hooks are called with their `this` context pointing to the Vue instance invoking it.
+There are also other hooks which will be called at different stages of the instance's lifecycle, such as [mounted](../api/options-lifecycle-hooks.html#mounted), [updated](../api/options-lifecycle-hooks.html#updated), and [unmounted](../api/options-lifecycle-hooks.html#unmounted). All lifecycle hooks are called with their `this` context pointing to the Vue instance invoking it.
 
 ::: tip
 Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) on an options property or callback, such as `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Since an arrow function doesn't have a `this`, `this` will be treated as any other variable and lexically looked up through parent scopes until found, often resulting in errors such as `Uncaught TypeError: Cannot read property of undefined` or `Uncaught TypeError: this.myMethod is not a function`.
@@ -152,5 +150,7 @@ Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript
 ## Lifecycle Diagram
 
 Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+
+> TODO: Diagram should be changed in order to replace `beforeDestroy` and `destroyed` with `beforeUnmount` and `unmounted` respectively
 
 <img src="/images/lifecycle.png" width="500" style="margin: 0px auto;display: block;" />

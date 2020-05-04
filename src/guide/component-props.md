@@ -311,7 +311,7 @@ app.component('my-component', {
 })
 ```
 
-With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](TODO:../style-guide/#Base-component-names-strongly-recommended):
+With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](../style-guide/#base-component-names-strongly-recommended):
 
 ```js
 app.component('base-input', {
