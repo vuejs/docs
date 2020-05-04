@@ -119,3 +119,121 @@
     { immediate: true }
   )
   ```
+
+- **See also:** [Watchers](../guide/computed.html#watchers)
+
+## \$emit
+
+- **Arguments:**
+
+  - `{string} eventName`
+  - `[...args]`
+
+  Trigger an event on the current instance. Any additional arguments will be passed into the listener's callback function.
+
+- **Examples:**
+
+  Using `$emit` with only an event name:
+
+  ```html
+  <div id="emit-example-simple">
+    <welcome-button v-on:welcome="sayHi"></welcome-button>
+  </div>
+  ```
+
+  ```js
+  const app = Vue.createApp({
+    methods: {
+      sayHi() {
+        console.log('Hi!')
+      }
+    }
+  })
+
+  app.component('welcome-button', {
+    template: `
+      <button v-on:click="$emit('welcome')">
+        Click me to be welcomed
+      </button>
+    `
+  })
+
+  app.mount('#emit-example-simple')
+  ```
+
+  Using `$emit` with additional arguments:
+
+  ```html
+  <div id="emit-example-argument">
+    <advice-component v-on:give-advice="showAdvice"></advice-component>
+  </div>
+  ```
+
+  ```js
+  const app = Vue.createApp({
+    methods: {
+      showAdvice(advice) {
+        alert(advice)
+      }
+    }
+  })
+
+  app.component('advice-component', {
+    data() {
+      return {
+        adviceText: 'Some advice'
+      }
+    },
+    template: `
+      <div>
+        <input type="text" v-model="adviceText">
+        <button v-on:click="$emit('give-advice', adviceText)">
+          Click me for sending advice
+        </button>
+      </div>
+    `
+  })
+  ```
+
+- **See also:**
+  - [`emits` option](./options-data.html#emits)
+  - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
+
+## \$forceUpdate
+
+- **Usage:**
+
+  Force the Vue instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
+
+## \$nextTick
+
+- **Arguments:**
+
+  - `{Function} [callback]`
+
+- **Usage:**
+
+  Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update. This is the same as the global `Vue.nextTick`, except that the callback's `this` context is automatically bound to the instance calling this method.
+
+- **Example:**
+
+  ```js
+  Vue.createApp({
+    // ...
+    methods: {
+      // ...
+      example() {
+        // modify data
+        this.message = 'changed'
+        // DOM is not updated yet
+        this.$nextTick(function() {
+          // DOM is now updated
+          // `this` is bound to the current instance
+          this.doSomethingElse()
+        })
+      }
+    }
+  })
+  ```
+
+- **See also:** [Vue.nextTick](TODO)
