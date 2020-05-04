@@ -68,7 +68,8 @@ const sidebar = {
         '/api/options-composition',
         '/api/options-misc'
       ]
-    }
+    },
+    '/api/instance-properties.md'
   ]
 }
 
