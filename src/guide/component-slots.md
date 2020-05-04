@@ -239,7 +239,7 @@ app.component('todo-list', {
   },
   template: `
     <ul>
-      <li v-for="(todo, index) in items" v-bind:key="index">
+      <li v-for="(item, index) in items">
         {{ item }}
       </li>
     </ul>
@@ -262,7 +262,7 @@ To make `item` available to the slot content provided by the parent, we can add 
 
 ```html
 <ul>
-  <li v-for="( item, index ) in items" v-bind:key="`${item}-${index}`">
+  <li v-for="( item, index ) in items">
     <slot v-bind:item="item"></slot>
   </li>
 </ul>
@@ -392,8 +392,10 @@ Similar to `v-on` and `v-bind`, `v-slot` also has a shorthand, replacing everyth
     <h1>Here might be a page title</h1>
   </template>
 
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <template #default>
+    <p>A paragraph for the main content.</p>
+    <p>And another one.</p>
+  </template>
 
   <template #footer>
     <p>Here's some contact info</p>
@@ -405,6 +407,7 @@ However, just as with other directives, the shorthand is only available when an 
 
 ```html
 <!-- This will trigger a warning -->
+
 <todo-list #="{ item }">
   <i class="fas fa-check"></i>
   <span class="green">{{ item }}<span>
