@@ -16,10 +16,6 @@
 
   Watch an expression or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value. The expression only accepts dot-delimited paths. For more complex expressions, use a function instead.
 
-  :::tip Note
-  When mutating (rather than replacing) an Object or an Array, the old value will be the same as new value because they reference the same Object/Array. Vue doesn't keep a copy of the pre-mutate value.
-  :::
-
 - **Example:**
 
   ```js
@@ -46,6 +42,48 @@
           // do something
         }
       )
+    }
+  })
+  ```
+
+  When watched value is an Object or Array, any changes to its properties or elements won't trigger the watcher because they reference the same Object/Array:
+
+  ```js
+  const app = Vue.createApp({
+    data() {
+      return {
+        article: {
+          text: 'Vue is awesome!'
+        },
+        comments: ['Indeed!', 'I agree']
+      }
+    },
+    created() {
+      this.$watch('article', () => {
+        console.log('Article changed!')
+      })
+
+      this.$watch('comments', () => {
+        console.log('Comments changed!')
+      })
+    },
+    methods: {
+      // These methods won't trigger a watcher because we changed only a property of Object/Array,
+      // not the Object/Array itself
+      changeArticleText() {
+        this.article.text = 'Vue 3 is awesome'
+      },
+      addComment() {
+        this.comments.push('New comment')
+      },
+
+      // These methods will trigger a watcher because we replaced Object/Array completely
+      changeWholeArticle() {
+        this.article = { text: 'Vue 3 is awesome' }
+      },
+      clearComments() {
+        this.comments = []
+      }
     }
   })
   ```
@@ -95,7 +133,7 @@
 
   ```js
   // This will cause an error
-  var unwatch = vm.$watch(
+  const unwatch = vm.$watch(
     'value',
     function() {
       doSomething()
