@@ -83,10 +83,6 @@ These expressions will be evaluated as JavaScript in the data scope of the owner
 {{ if (ok) { return message } }}
 ```
 
-::: tip
-Template expressions are sandboxed and only have access to a [whitelist of globals](TODO:https://github.com/vuejs/vue/blob/v2.6.10/src/core/instance/proxy.js#L9) such as `Math` and `Date`. You should not attempt to access user defined globals in template expressions.</p>
-:::
-
 ## Directives
 
 Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be **a single JavaScript expression** (with the exception of `v-for`, which will be discussed later). A directive's job is to reactively apply side effects to the DOM when the value of its expression changes. Let's review the example we saw in the introduction:
@@ -137,31 +133,6 @@ Similarly, you can use dynamic arguments to bind a handler to a dynamic event na
 
 In this example, when `eventName`'s value is `"focus"`, `v-on:[eventName]` will be equivalent to `v-on:focus`.
 
-#### Dynamic Argument Value Constraints
-
-Dynamic arguments are expected to evaluate to a string, with the exception of `null`. The special value `null` can be used to explicitly remove the binding. Any other non-string value will trigger a warning.
-
-#### Dynamic Argument Expression Constraints
-
-Dynamic argument expressions have some syntax constraints because certain characters, such as spaces and quotes, are invalid inside HTML attribute names. For example, the following is invalid:
-
-```html
-<!-- This will trigger a compiler warning. -->
-<a v-bind:['foo' + bar]="value"> ... </a>
-```
-
-The workaround is to either use expressions without spaces or quotes, or replace the complex expression with a computed property.
-
-When using in-DOM templates (templates directly written in an HTML file), you should also avoid naming keys with uppercase characters, as browsers will coerce attribute names into lowercase:
-
-```html
-<!--
-This will be converted to v-bind:[someattr] in in-DOM templates.
-Unless you have a "someattr" property in your instance, your code won't work.
--->
-<a v-bind:[someAttr]="value"> ... </a>
-```
-
 ### Modifiers
 
 Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
@@ -203,3 +174,34 @@ The `v-` prefix serves as a visual cue for identifying Vue-specific attributes i
 ```
 
 They may look a bit different from normal HTML, but `:` and `@` are valid characters for attribute names and all Vue-supported browsers can parse it correctly. In addition, they do not appear in the final rendered markup. The shorthand syntax is totally optional, but you will likely appreciate it when you learn more about its usage later.
+
+### Caveats
+
+#### Dynamic Argument Value Constraints
+
+Dynamic arguments are expected to evaluate to a string, with the exception of `null`. The special value `null` can be used to explicitly remove the binding. Any other non-string value will trigger a warning.
+
+#### Dynamic Argument Expression Constraints
+
+Dynamic argument expressions have some syntax constraints because certain characters, such as spaces and quotes, are invalid inside HTML attribute names. For example, the following is invalid:
+
+```html
+<!-- This will trigger a compiler warning. -->
+<a v-bind:['foo' + bar]="value"> ... </a>
+```
+
+We recommend replacing any complex expressions with a [computed property](computed.html), one of the most fundamental pieces of Vue, which we'll cover shortly.
+
+When using in-DOM templates (templates directly written in an HTML file), you should also avoid naming keys with uppercase characters, as browsers will coerce attribute names into lowercase:
+
+```html
+<!--
+This will be converted to v-bind:[someattr] in in-DOM templates.
+Unless you have a "someattr" property in your instance, your code won't work.
+-->
+<a v-bind:[someAttr]="value"> ... </a>
+```
+
+#### JavaScript Expressions
+
+Template expressions are sandboxed and only have access to a [whitelist of globals](TODO:https://github.com/vuejs/vue/blob/v2.6.10/src/core/instance/proxy.js#L9) such as `Math` and `Date`. You should not attempt to access user defined globals in template expressions.
