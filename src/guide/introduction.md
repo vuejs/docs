@@ -83,7 +83,7 @@ Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
+Here we're encountering something new. The `v-bind` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here we are basically saying "_keep this element's `title` attribute up-to-date with the `message` property on the Vue instance._"
 
 ## Conditionals and Loops
 
@@ -109,7 +109,7 @@ Vue.createApp(ConditionalRenderingApp).mount('#conditional-rendering')
 
 This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](TODO) when elements are inserted/updated/removed by Vue.
 
-You can change `seen` from `true` to `false` in the sandbox below to check the effect
+You can change `seen` from `true` to `false` in the sandbox below to check the effect:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="oNXdbpB" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Conditional rendering">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXdbpB">
@@ -118,7 +118,7 @@ You can change `seen` from `true` to `false` in the sandbox below to check the e
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
+There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used to display a list of items using the data from an Array:
 
 ```html
 <div id="list-rendering">
