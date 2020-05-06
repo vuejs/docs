@@ -9,7 +9,7 @@ The W3C have published a list of guidelines for making websites accessible, call
 There are a huge range of disabilities, which can be divided roughly into four categories:
 
 - _Visual impairments_, such as being blind, having low vision, or colourblindness. These people may make text bigger, increase the contrast of their screen, or use a screen reader or braille display.
-- _Motor impairments_—a huge category of impairments—can include people who browse using only the keyboard, use voice recognition software, or use [Switch technology].
+- _Motor impairments_—a huge category of impairments—can include people who browse using only the keyboard, use voice recognition software, or use [Switch technology](https://en.wikipedia.org/wiki/Switch_access).
 - _Hearing impairments_, from being partially deaf to profoundly deaf.
 - _Cognitive impairments_, such as dyslexia, epilepsy, intellectual disabilities, and ADHD (very much not a complete list).
 
@@ -205,24 +205,12 @@ The `sr-only` class means that the checkbox is visible only to screen readers, a
 
 #### ARIA attributes
 
-[switch technology]: https://en.wikipedia.org/wiki/Switch_access
-[wai-aria]: https://www.w3.org/WAI/standards-guidelines/aria/
-[aria mdn]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/An_overview_of_accessible_web_applications_and_widgets
-[using aria]: https://www.w3.org/TR/using-aria/
-[aria roles]: https://www.w3.org/TR/using-aria/#x2-14-1-aria-roles
-[aria states and properties]: https://www.w3.org/TR/using-aria/#x2-14-2-aria-states-and-properties-aria-attributes
+We saw an ARIA (short for [Accessible Rich Internet Applications](https://www.w3.org/WAI/standards-guidelines/aria/)) attribute in the previous example to hide the custom HTML from the screen reader. aria-hidden is one of a tonne of attributes that you can add to elements to tell assistive technology such as screen readers what things on the page are.
 
-We saw an ARIA (short for [Accessible Rich Internet Applications][wai-aria]) attribute in the previous example to hide the custom HTML from the screen reader. aria-hidden is one of a tonne of attributes that you can add to elements to tell assistive technology such as screen readers what things on the page are.
+Check out MDN for a longer read on ARIA: [An overview of accessible web applications and widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/An_overview_of_accessible_web_applications_and_widgets).
 
-Check out MDN for a longer read on ARIA: [An overview of accessible web applications and widgets][aria mdn].
+Additionally, the W3C keeps a detailed guide of usage and examples for ARIA: [Using Aria - W3C Working Draft](https://www.w3.org/TR/using-aria/). This also includes a handy list of [ARIA roles](https://www.w3.org/TR/using-aria/#x2-14-1-aria-roles) and [ARIA states and properties (or attributes)](https://www.w3.org/TR/using-aria/#x2-14-2-aria-states-and-properties-aria-attributes).
 
-Additionally, the W3C keeps a detailed guide of usage and examples for ARIA: [Using Aria - W3C Working Draft][using aria]. This also includes a handy list of [ARIA roles][aria roles] and [ARIA states and properties (or attributes)][aria states and properties].
-
-@Jinjiang
-Jinjiang on Nov 7, 2018 Member
-I highly recommend adding the W3C aria practices page to guide developers to learn and follow. Because it supplies so many code cases that we can just copy-paste to start. Actually that's my very beginning way about supporting a11y in my personal project.
-
-@sdras Reply…
 To make first example accessible using ARIA, we have to set the role to "checkbox" and use the `aria-checked` attribute:
 
 ```html
