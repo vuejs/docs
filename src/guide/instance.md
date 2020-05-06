@@ -119,7 +119,7 @@ const vm = Vue.createApp().mount(
 vm.$data.a // => 1
 ```
 
-In the future, you can consult the [API reference](TODO:../api/#Instance-Properties) for a full list of instance properties and methods.
+In the future, you can consult the [API reference](../api/instance-properties.html) for a full list of instance properties and methods.
 
 ## Instance Lifecycle Hooks
 

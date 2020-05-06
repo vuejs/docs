@@ -226,7 +226,7 @@ When we click on the button, we need to communicate to the parent that it should
 <blog-post ... v-on:enlarge-text="postFontSize += 0.1"></blog-post>
 ```
 
-Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](TODO:../api/#vm-emit), passing the name of the event:
+Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/instance-methods.html#emit), passing the name of the event:
 
 ```html
 <button v-on:click="$emit('enlarge-text')">

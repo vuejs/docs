@@ -69,7 +69,8 @@ const sidebar = {
         '/api/options-misc'
       ]
     },
-    '/api/instance-properties.md'
+    '/api/instance-properties.md',
+    '/api/instance-methods.md'
   ]
 }
 
