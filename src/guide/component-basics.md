@@ -153,8 +153,8 @@ Then want to render a component for each one:
 <div id="blog-posts-demo">
   <blog-post
     v-for="post in posts"
-    v-bind:key="post.id"
-    v-bind:title="post.title"
+    :key="post.id"
+    :title="post.title"
   ></blog-post>
 </div>
 ```
@@ -187,11 +187,7 @@ Which can be used in the template to control the font size of all blog posts:
 ```html
 <div id="blog-posts-events-demo">
   <div v-bind:style="{ fontSize: postFontSize + 'em' }">
-    <blog-post
-      v-for="post in posts"
-      v-bind:key="post.id"
-      v-bind:title="title"
-    ></blog-post>
+    <blog-post v-for="post in posts" :key="post.id" :title="title"></blog-post>
   </div>
 </div>
 ```
@@ -220,16 +216,16 @@ The problem is, this button doesn't do anything:
 </button>
 ```
 
-When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. Fortunately, Vue instances provide a custom events system to solve this problem. The parent can choose to listen to any event on the child component instance with `v-on`, just as we would with a native DOM event:
+When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. Fortunately, Vue instances provide a custom events system to solve this problem. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
 
 ```html
-<blog-post ... v-on:enlarge-text="postFontSize += 0.1"></blog-post>
+<blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
 ```
 
 Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/instance-methods.html#emit), passing the name of the event:
 
 ```html
-<button v-on:click="$emit('enlarge-text')">
+<button @click="$emit('enlarge-text')">
   Enlarge text
 </button>
 ```
@@ -248,7 +244,7 @@ Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent wil
 It's sometimes useful to emit a specific value with an event. For example, we may want the `<blog-post>` component to be in charge of how much to enlarge the text by. In those cases, we can use `$emit`'s 2nd parameter to provide this value:
 
 ```html
-<button v-on:click="$emit('enlarge-text', 0.1)">
+<button @click="$emit('enlarge-text', 0.1)">
   Enlarge text
 </button>
 ```
@@ -256,13 +252,13 @@ It's sometimes useful to emit a specific value with an event. For example, we ma
 Then when we listen to the event in the parent, we can access the emitted event's value with `$event`:
 
 ```html
-<blog-post ... v-on:enlarge-text="postFontSize += $event"></blog-post>
+<blog-post ... @enlarge-text="postFontSize += $event"></blog-post>
 ```
 
 Or, if the event handler is a method:
 
 ```html
-<blog-post ... v-on:enlarge-text="onEnlargeText"></blog-post>
+<blog-post ... @enlarge-text="onEnlargeText"></blog-post>
 ```
 
 Then the value will be passed as the first parameter of that method:
@@ -286,18 +282,15 @@ Custom events can also be used to create custom inputs that work with `v-model`.
 does the same thing as:
 
 ```html
-<input
-  v-bind:value="searchText"
-  v-on:input="searchText = $event.target.value"
-/>
+<input :value="searchText" @input="searchText = $event.target.value" />
 ```
 
 When used on a component, `v-model` instead does this:
 
 ```html
 <custom-input
-  v-bind:model-value="searchText"
-  v-on:update:model-value="searchText = $event"
+  :model-value="searchText"
+  @update:model-value="searchText = $event"
 ></custom-input>
 ```
 
@@ -317,8 +310,8 @@ app.component('custom-input', {
   props: ['modelValue'],
   template: `
     <input
-      v-bind:value="modelValue"
-      v-on:input="$emit('update:modelValue', $event.target.value)"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     >
   `
 })

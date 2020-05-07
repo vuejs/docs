@@ -199,7 +199,7 @@ Dynamic options rendered with `v-for`:
 ```html
 <div id="v-model-select-dynamic" class="demo">
   <select v-model="selected">
-    <option v-for="option in options" v-bind:value="option.value">
+    <option v-for="option in options" :value="option.value">
       {{ option.text }}
     </option>
   </select>
@@ -281,7 +281,7 @@ vm.pick === vm.a
 ```html
 <select v-model="selected">
   <!-- inline object literal -->
-  <option v-bind:value="{ number: 123 }">123</option>
+  <option :value="{ number: 123 }">123</option>
 </select>
 ```
 

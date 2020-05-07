@@ -8,20 +8,20 @@ A common need for data binding is manipulating an element's class list and its i
 
 ### Object Syntax
 
-We can pass an object to `v-bind:class` to dynamically toggle classes:
+We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
 
 ```html
-<div v-bind:class="{ active: isActive }"></div>
+<div :class="{ active: isActive }"></div>
 ```
 
 The above syntax means the presence of the `active` class will be determined by the [truthiness](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) of the data property `isActive`.
 
-You can have multiple classes toggled by having more fields in the object. In addition, the `v-bind:class` directive can also co-exist with the plain `class` attribute. So given the following template:
+You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following template:
 
 ```html
 <div
   class="static"
-  v-bind:class="{ active: isActive, 'text-danger': hasError }"
+  :class="{ active: isActive, 'text-danger': hasError }"
 ></div>
 ```
 
@@ -47,7 +47,7 @@ When `isActive` or `hasError` changes, the class list will be updated accordingl
 The bound object doesn't have to be inline:
 
 ```html
-<div v-bind:class="classObject"></div>
+<div :class="classObject"></div>
 ```
 
 ```js
@@ -64,7 +64,7 @@ data() {
 This will render the same result. We can also bind to a [computed property](computed.md) that returns an object. This is a common and powerful pattern:
 
 ```html
-<div v-bind:class="classObject"></div>
+<div :class="classObject"></div>
 ```
 
 ```js
@@ -86,10 +86,10 @@ computed: {
 
 ### Array Syntax
 
-We can pass an array to `v-bind:class` to apply a list of classes:
+We can pass an array to `:class` to apply a list of classes:
 
 ```html
-<div v-bind:class="[activeClass, errorClass]"></div>
+<div :class="[activeClass, errorClass]"></div>
 ```
 
 ```js
@@ -110,7 +110,7 @@ Which will render:
 If you would like to also toggle a class in the list conditionally, you can do it with a ternary expression:
 
 ```html
-<div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+<div :class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
 This will always apply `errorClass`, but will only apply `activeClass` when `isActive` is truthy.
@@ -118,7 +118,7 @@ This will always apply `errorClass`, but will only apply `activeClass` when `isA
 However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
 
 ```html
-<div v-bind:class="[{ active: isActive }, errorClass]"></div>
+<div :class="[{ active: isActive }, errorClass]"></div>
 ```
 
 ### With Components
@@ -158,7 +158,7 @@ The rendered HTML will be:
 The same is true for class bindings:
 
 ```html
-<my-component v-bind:class="{ active: isActive }"></my-component>
+<my-component :class="{ active: isActive }"></my-component>
 ```
 
 When `isActive` is truthy, the rendered HTML will be:
@@ -171,10 +171,10 @@ When `isActive` is truthy, the rendered HTML will be:
 
 ### Object Syntax
 
-The object syntax for `v-bind:style` is pretty straightforward - it looks almost like CSS, except it's a JavaScript object. You can use either camelCase or kebab-case (use quotes with kebab-case) for the CSS property names:
+The object syntax for `:style` is pretty straightforward - it looks almost like CSS, except it's a JavaScript object. You can use either camelCase or kebab-case (use quotes with kebab-case) for the CSS property names:
 
 ```html
-<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+<div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
 
 ```js
@@ -189,7 +189,7 @@ data() {
 It is often a good idea to bind to a style object directly so that the template is cleaner:
 
 ```html
-<div v-bind:style="styleObject"></div>
+<div :style="styleObject"></div>
 ```
 
 ```js
@@ -207,22 +207,22 @@ Again, the object syntax is often used in conjunction with computed properties t
 
 ### Array Syntax
 
-The array syntax for `v-bind:style` allows you to apply multiple style objects to the same element:
+The array syntax for `:style` allows you to apply multiple style objects to the same element:
 
 ```html
-<div v-bind:style="[baseStyles, overridingStyles]"></div>
+<div :style="[baseStyles, overridingStyles]"></div>
 ```
 
 ### Auto-prefixing
 
-When you use a CSS property that requires [vendor prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `v-bind:style`, for example `transform`, Vue will automatically detect and add appropriate prefixes to the applied styles.
+When you use a CSS property that requires [vendor prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, for example `transform`, Vue will automatically detect and add appropriate prefixes to the applied styles.
 
 ### Multiple Values
 
 You can provide an array of multiple (prefixed) values to a style property, for example:
 
 ```html
-<div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
+<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
 This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
