@@ -1,12 +1,8 @@
-# Render Functions & JSX
+# Render Functions
 
-> This section is incomplete which means some information could be missing or outdated.
+Vue recommends using templates to build applications in the vast majority of cases. However, there are situations where we really need the full programmatic power of JavaScript. That's where we can use the **render function**.
 
-## Basics
-
-Vue recommends using templates to build your HTML in the vast majority of cases. There are situations however, where you really need the full programmatic power of JavaScript. That's where you can use the **render function**, a closer-to-the-compiler alternative to templates.
-
-Let's dive into a simple example where a `render` function would be practical. Say you want to generate anchored headings:
+Let's dive into an example where a `render()` function would be practical. Say we want to generate anchored headings:
 
 ```html
 <h1>
@@ -16,13 +12,13 @@ Let's dive into a simple example where a `render` function would be practical. S
 </h1>
 ```
 
-For the HTML above, you decide you want this component interface:
+Anchored headings are used very frequently, we should create a component:
 
 ```vue-html
 <anchored-heading :level="1">Hello world!</anchored-heading>
 ```
 
-When you get started with a component that only generates a heading based on the `level` prop, you quickly arrive at this:
+The component must generate a heading based on the `level` prop and we quickly arrive at this:
 
 ```js
 const app = Vue.createApp({})
@@ -57,9 +53,9 @@ app.component('anchored-heading', {
 })
 ```
 
-That template doesn't feel great. It's not only verbose, but we're duplicating `<slot></slot>` for every heading level and will have to do the same when we add the anchor element.
+This template doesn't feel great. It's not only verbose, but we're duplicating `<slot></slot>` for every heading level.And when we add the anchor element, we have to again duplicate it in every `v-if/v-else-if` branch.
 
-While templates work great for most components, it's clear that this isn't one of them. So let's try rewriting it with a `render` function:
+While templates work great for most components, it's clear that this isn't one of them. So let's try rewriting it with a `render()` function:
 
 ```js
 const app = Vue.createApp({})
@@ -70,6 +66,7 @@ app.component('anchored-heading', {
 
     return h(
       'h' + this.level, // tag name
+      {}, // props/attributes
       this.$slots.default() // array of children
     )
   },
@@ -82,11 +79,9 @@ app.component('anchored-heading', {
 })
 ```
 
-<!-- TODO: Reword following section because "familiarity with instance properties" is misleading as `setup()` function does not have direct access to the instance.  -->
+The `render()` function implementation is much simpler, but also requires greater familiarity with Vue instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default()`. If you haven't already, **it's recommended to read through the [instance properties API](#TODO-add-link) before diving into render functions.**
 
-Much simpler! The code is shorter, but also requires greater familiarity with Vue instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default`. If you haven't already, **it's recommended to read through the [instance properties API](#TODO-add-link) before diving into render functions.**
-
-## Nodes, Trees, and the Virtual DOM
+## The DOM tree
 
 Before we dive into render functions, it’s important to know a little about how browsers work. Take this HTML for example:
 
@@ -98,63 +93,67 @@ Before we dive into render functions, it’s important to know a little about ho
 </div>
 ```
 
-When a browser reads this code, it builds a [tree of "DOM nodes"](https://javascript.info/dom-nodes) to help it keep track of everything, just as you might build a family tree to keep track of your extended family.
+When a browser reads this code, it builds a [tree of "DOM nodes"](https://javascript.info/dom-nodes) to help it keep track of everything.
 
 The tree of DOM nodes for the HTML above looks like this:
 
 ![DOM Tree Visualization](/images/dom-tree.png)
 
-Every element is a node. Every piece of text is a node. Even comments are nodes! A node is just a piece of the page. And as in a family tree, each node can have children (i.e. each piece can contain other pieces).
+Every element is a node. Every piece of text is a node. Even comments are nodes! Each node can have children (i.e. each node can contain other nodes). This is DOM tree.
 
-Updating all these nodes efficiently can be difficult, but thankfully, you never have to do it manually. Instead, you tell Vue what HTML you want on the page, in a template:
+Updating all these nodes efficiently can be difficult, but thankfully, we never have to do it manually. Instead, we tell Vue what HTML we want on the page, in a template:
 
 ```html
 <h1>{{ blogTitle }}</h1>
 ```
 
-Or a render function:
+Or in a render function:
 
 ```js
 render() {
-  return Vue.h('h1', this.blogTitle)
+  return Vue.h('h1', {}, this.blogTitle)
 }
 ```
 
 And in both cases, Vue automatically keeps the page updated, even when `blogTitle` changes.
 
-### The Virtual DOM
+## The Virtual DOM tree
 
-Vue accomplishes this by building a **virtual DOM** to keep track of the changes it needs to make to the real DOM. Taking a closer look at this line:
+Vue keep the page updated by building a **virtual DOM** to keep track of the changes it needs to make to the real DOM. Taking a closer look at this line:
 
 ```js
-return Vue.h('h1', this.blogTitle)
+return Vue.h('h1', {}, this.blogTitle)
 ```
 
-What is `h()` actually returning? It's not _exactly_ a real DOM element. It could perhaps more accurately be named `createNodeDescription`, as it contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. We call this node description a "virtual node", usually abbreviated to **VNode**. "Virtual DOM" is what we call the entire tree of VNodes, built by a tree of Vue components.
+What is the `h()` function actually returning? It's not _exactly_ a real DOM element. It returns a plain object which contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. We call this node description a "virtual node", usually abbreviated to **VNode**. "Virtual DOM" is what we call the entire tree of VNodes, built by a tree of Vue components.
 
 ## `h()` Arguments
 
-The next thing you'll have to become familiar with is how to use template features in the `h()` function. Here are the arguments that `h()` accepts:
+The `h()` function is a utility to create VNodes. It could perhaps more accurately be named `createVNode()`, but it's called `h()` due to frequent use and for brevity. It accepts three arguments:
 
 ```js
 // @returns {VNode}
 h(
-  // {String | Object | Function}
-  // An HTML tag name, component options, or async
-  // function resolving to one of these. Required.
+  // {String | Object | Function | null} tag
+  // An HTML tag name, a component, an async component or null.
+  // Using null would render a comment.
+  //
+  // Required.
   'div',
 
-  // {Object}
-  // An object corresponding to the attributes
-  // you would use in a template. Optional.
-  {
-    // (see details in the next section below)
-  },
+  // {Object} props
+  // An object corresponding to the attributes, props and events
+  // we would use in a template.
+  //
+  // Optional.
+  {},
 
-  // {String | Array | Object}
+  // {String | Array | Object} children
   // Children VNodes, built using `h()`,
   // or using strings to get 'text VNodes' or
-  // an object with slots. Optional.
+  // an object with slots.
+  //
+  // Optional.
   [
     'Some text comes first.',
     h('h1', 'A headline'),
@@ -165,29 +164,29 @@ h(
 )
 ```
 
-### The Data Object In-Depth
-
-> TODO: This section is entirely new and would be done in a separate PR.
-
-### Complete Example
+## Complete Example
 
 With this knowledge, we can now finish the component we started:
 
 ```js
 const app = Vue.createApp({})
 
+/** Recursively get text from children nodes */
 function getChildrenTextContent(children) {
   return children
     .map(node => {
-      // TODO: Check new vnode API.
-      return node.children ? getChildrenTextContent(node.children) : node.text
+      return typeof node.children === 'string'
+        ? node.children
+        : Array.isArray(node.children)
+        ? getChildrenTextContent(node.children)
+        : ''
     })
     .join('')
 }
 
 app.component('anchored-heading', {
   render() {
-    // create kebab-case id
+    // create kebab-case id from the text contents of the children
     const headingId = getChildrenTextContent(this.$slots.default())
       .toLowerCase()
       .replace(/\W+/g, '-') // replace non-word characters with dash
@@ -213,9 +212,9 @@ app.component('anchored-heading', {
 })
 ```
 
-### Constraints
+## Constraints
 
-#### VNodes Must Be Unique
+### VNodes Must Be Unique
 
 All VNodes in the component tree must be unique. That means the following render function is invalid:
 
@@ -254,7 +253,7 @@ Wherever something can be easily accomplished in plain JavaScript, Vue render fu
 <p v-else>No items found.</p>
 ```
 
-This could be rewritten with JavaScript's `if`/`else` and `map` in a render function:
+This could be rewritten with JavaScript's `if`/`else` and `map()` in a render function:
 
 ```js
 props: ['items'],
@@ -271,41 +270,57 @@ render() {
 
 ### `v-model`
 
-~~There is no direct `v-model` counterpart in render functions - you will have to implement the logic yourself:~~
-
-TODO: This section requires update.
+The `v-model` directive is expanded to `modelValue` and `onUpdate:modelValue` props during template compilation—we will have to provide these props ourselves:
 
 ```js
-props: ['modalValue'],
+props: ['modelValue'],
 render() {
-  return Vue.withDirectives(
-    Vue.h('input', {
-      'onUpdate:modelValue': value => this.$emit('onUpdate:modelValue', value)
-    }),
-    [Vue.vModelDynamic, this.modelValue]
-  )
+  return Vue.h('input', {
+    modelValue: this.modelValue,
+    'onUpdate:modelValue': value => this.$emit('onUpdate:modelValue', value)
+  })
 }
 ```
 
-~~This is the cost of going lower-level, but it also gives you much more control over the interaction details compared to `v-model`.~~
+### `v-on`
 
-### Event & Key Modifiers
+We have to provide proper prop name for event handler. e.g. to handle `click` events, the prop name would be `onClick`.
 
-> TODO: This section requires an update.
+```js
+render() {
+  return Vue.h('div', {
+    onClick: $event => console.log('clicked', $event.target)
+  })
+}
+```
 
-~~For the `.passive`, `.capture` and `.once` event modifiers, Vue offers prefixes that can be used with `on`:~~
+#### Event Modifiers
+
+For the `.passive`, `.capture` and `.once` event modifiers, Vue offers object syntax of the handler:
 
 For example:
 
 ```javascript
-on: {
-  '!click': this.doThisInCapturingMode,
-  '~keyup': this.doThisOnce,
-  '~!mouseover': this.doThisOnceInCapturingMode
+render() {
+  return Vue.h('input', {
+    onClick: {
+      handler: this.doThisInCapturingMode,
+      capture: true
+    },
+    onKeyUp: {
+      handler: this.doThisOnce,
+      once: true
+    },
+    onMouseOver: {
+      handler: this.doThisOnceInCapturingMode,
+      once: true,
+      capture: true
+    },
+  })
 }
 ```
 
-For all other event and key modifiers, no proprietary prefix is necessary, because you can use event methods in the handler:
+For all other event and key modifiers, no special API is necessary, because we can use event methods in the handler:
 
 | Modifier(s)                                           | Equivalent in Handler                                                                                                |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -317,31 +332,35 @@ For all other event and key modifiers, no proprietary prefix is necessary, becau
 
 Here's an example with all of these modifiers used together:
 
-```javascript
-onKeyup: function (event) {
-  // Abort if the element emitting the event is not
-  // the element the event is bound to
-  if (event.target !== event.currentTarget) return
-  // Abort if the key that went up is not the enter
-  // key (13) and the shift key was not held down
-  // at the same time
-  if (!event.shiftKey || event.keyCode !== 13) return
-  // Stop event propagation
-  event.stopPropagation()
-  // Prevent the default keyup handler for this element
-  event.preventDefault()
-  // ...
+```js
+render() {
+  return Vue.h('input', {
+    onKeyUp: event => {
+      // Abort if the element emitting the event is not
+      // the element the event is bound to
+      if (event.target !== event.currentTarget) return
+      // Abort if the key that went up is not the enter
+      // key (13) and the shift key was not held down
+      // at the same time
+      if (!event.shiftKey || event.keyCode !== 13) return
+      // Stop event propagation
+      event.stopPropagation()
+      // Prevent the default keyup handler for this element
+      event.preventDefault()
+      // ...
+    }
+  })
 }
 ```
 
 ### Slots
 
-You can access static slot contents as Arrays of VNodes from [`this.$slots`](../api/#vm-slots):
+You can access slot contents as Arrays of VNodes from [`this.$slots`](../api/#vm-slots):
 
 ```js
 render() {
   // `<div><slot></slot></div>`
-  return Vue.h('div', null, this.$slots.default())
+  return Vue.h('div', {}, this.$slots.default())
 }
 ```
 
@@ -349,7 +368,7 @@ render() {
 props: ['message'],
 render() {
   // `<div><slot :text="message"></slot></div>`
-  return Vue.h('div', null, this.$slots.default({
+  return Vue.h('div', {}, this.$slots.default({
     text: this.message
   }))
 }
@@ -361,8 +380,8 @@ To pass slots to a child component using render functions:
 render() {
   // `<div><child v-slot="props"><span>{{ props.text }}</span></child></div>`
   return Vue.('div', [
-    Vue.('child', null, {
-      // pass `scopedSlots` in the data object
+    Vue.('child', {}, {
+      // pass `slots` as the children object
       // in the form of { name: props => VNode | Array<VNode> }
       default: (props) => Vue.h('span', props.text)
     })
@@ -372,7 +391,7 @@ render() {
 
 ## JSX
 
-If you're writing a lot of `render` functions, it might feel painful to write something like this:
+If we're writing a lot of `render` functions, it might feel painful to write something like this:
 
 ```js
 Vue.h(
@@ -384,7 +403,7 @@ Vue.h(
 )
 ```
 
-Especially when the template version is so simple in comparison:
+Especially when the template version is so concise in comparison:
 
 ```vue-html
 <anchored-heading :level="1"> <span>Hello</span> world! </anchored-heading>
