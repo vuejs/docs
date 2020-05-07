@@ -267,7 +267,7 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 ## `v-for` with `v-if`
 
 :::tip
-Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](TODO) for details.
+Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for details.
 :::
 
 When they exist on the same node, `v-for` has a higher priority than `v-if`. That means the `v-if` will be run on each iteration of the loop separately. This can be useful when you want to render nodes for only _some_ items, like below:

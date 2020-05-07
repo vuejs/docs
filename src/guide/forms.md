@@ -324,4 +324,4 @@ If you want whitespace from user input to be trimmed automatically, you can add 
 
 > If you're not yet familiar with Vue's components, you can skip this for now.
 
-HTML's built-in input types won't always meet your needs. Fortunately, Vue components allow you to build reusable inputs with completely customized behavior. These inputs even work with `v-model`! To learn more, read about [custom inputs](TODO:components.html#Using-v-model-on-Components) in the Components guide.
+HTML's built-in input types won't always meet your needs. Fortunately, Vue components allow you to build reusable inputs with completely customized behavior. These inputs even work with `v-model`! To learn more, read about [custom inputs](./component-basics.html#using-v-model-on-components) in the Components guide.
