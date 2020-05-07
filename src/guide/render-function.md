@@ -432,4 +432,4 @@ For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/
 
 You may be interested to know that Vue's templates actually compile to render functions. This is an implementation detail you usually don't need to know about, but if you'd like to see how specific template features are compiled, you may find it interesting. Below is a little demo using `Vue.compile` to live-compile a template string:
 
-<iframe src="https://vue-next-template-explorer.netlify.com/" width="100%" height="420"></iframe>
+<iframe src="https://vue-next-template-explorer.netlify.app/" width="100%" height="420"></iframe>
