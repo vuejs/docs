@@ -1,6 +1,6 @@
 # Render Functions
 
-Vue recommends using templates to build applications in the vast majority of cases. However, there are situations where we really need the full programmatic power of JavaScript. That's where we can use the **render function**.
+Vue recommends using templates to build applications in the vast majority of cases. However, there are situations where we need the full programmatic power of JavaScript. That's where we can use the **render function**.
 
 Let's dive into an example where a `render()` function would be practical. Say we want to generate anchored headings:
 
@@ -18,7 +18,7 @@ Anchored headings are used very frequently, we should create a component:
 <anchored-heading :level="1">Hello world!</anchored-heading>
 ```
 
-The component must generate a heading based on the `level` prop and we quickly arrive at this:
+The component must generate a heading based on the `level` prop, and we quickly arrive at this:
 
 ```js
 const app = Vue.createApp({})
@@ -53,7 +53,7 @@ app.component('anchored-heading', {
 })
 ```
 
-This template doesn't feel great. It's not only verbose, but we're duplicating `<slot></slot>` for every heading level.And when we add the anchor element, we have to again duplicate it in every `v-if/v-else-if` branch.
+This template doesn't feel great. It's not only verbose, but we're duplicating `<slot></slot>` for every heading level. And when we add the anchor element, we have to again duplicate it in every `v-if/v-else-if` branch.
 
 While templates work great for most components, it's clear that this isn't one of them. So let's try rewriting it with a `render()` function:
 
@@ -99,7 +99,7 @@ The tree of DOM nodes for the HTML above looks like this:
 
 ![DOM Tree Visualization](/images/dom-tree.png)
 
-Every element is a node. Every piece of text is a node. Even comments are nodes! Each node can have children (i.e. each node can contain other nodes). This is DOM tree.
+Every element is a node. Every piece of text is a node. Even comments are nodes! Each node can have children (i.e. each node can contain other nodes).
 
 Updating all these nodes efficiently can be difficult, but thankfully, we never have to do it manually. Instead, we tell Vue what HTML we want on the page, in a template:
 
@@ -119,13 +119,13 @@ And in both cases, Vue automatically keeps the page updated, even when `blogTitl
 
 ## The Virtual DOM tree
 
-Vue keep the page updated by building a **virtual DOM** to keep track of the changes it needs to make to the real DOM. Taking a closer look at this line:
+Vue keeps the page updated by building a **virtual DOM** to keep track of the changes it needs to make to the real DOM. Taking a closer look at this line:
 
 ```js
 return Vue.h('h1', {}, this.blogTitle)
 ```
 
-What is the `h()` function actually returning? It's not _exactly_ a real DOM element. It returns a plain object which contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. We call this node description a "virtual node", usually abbreviated to **VNode**. "Virtual DOM" is what we call the entire tree of VNodes, built by a tree of Vue components.
+What is the `h()` function returning? It's not _exactly_ a real DOM element. It returns a plain object which contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. We call this node description a "virtual node", usually abbreviated to **VNode**. "Virtual DOM" is what we call the entire tree of VNodes, built by a tree of Vue components.
 
 ## `h()` Arguments
 
@@ -284,7 +284,7 @@ render() {
 
 ### `v-on`
 
-We have to provide proper prop name for event handler. e.g. to handle `click` events, the prop name would be `onClick`.
+We have to provide a proper prop name for the event handler, e.g., to handle `click` events, the prop name would be `onClick`.
 
 ```js
 render() {
