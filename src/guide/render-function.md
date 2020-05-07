@@ -296,7 +296,7 @@ render() {
 
 #### Event Modifiers
 
-For the `.passive`, `.capture` and `.once` event modifiers, Vue offers object syntax of the handler:
+For the `.passive`, `.capture`, and `.once` event modifiers, Vue offers object syntax of the handler:
 
 For example:
 
