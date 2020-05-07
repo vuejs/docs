@@ -41,7 +41,15 @@ const sidebar = {
     {
       title: 'Reusability & Composition',
       collapsable: false,
-      children: ['/guide/mixins', '/guide/custom-directive']
+      children: [
+        '/guide/mixins',
+        '/guide/custom-directive'
+      ]
+    },
+    {
+      title: 'Scaling Up',
+      collapsable: false,
+      children: ['/guide/routing']
     },
     {
       title: 'Migration to Vue 3',
