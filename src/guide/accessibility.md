@@ -1,8 +1,12 @@
-An accessible website is a website that can be used by anyone — be that a person with a disability, someone on a slow connection, or someone whose hardware is dated or broken. It's easy to make a website assuming that all our users are using a keyboard, mouse, and screen, and have a way of hearing the sound produced by our websites, but that often isn't true: millions of people around the world have disabilities and are unable to use all the functionality of a computer in the same way most developers do. While they often have tooling to help them, they're relying on the people building the websites to make them accessible and work well with the tooling.
+An accessible website is a website that can be used by anyone — be that a person with a disability, someone on a slow connection, or someone whose hardware is dated or broken. It's easy to make a website assuming that all our users are using a keyboard, mouse, and screen, and have a way of hearing the sound produced by our websites, but that often isn't true: millions of people around the world have disabilities and are unable to use all the functionality of a computer in the same way most developers do.
+
+While many people with permanent disabilities might have tooling to help them, they're also relying on the people building the websites to make them accessible and work well with the tooling.
 
 The World Health Organization estimate that 15% of the world's population has some form of disability, 2-4% of them severely so.
 
 In addition to helping users with disabilities, making a website accessible will help the rest of your users, too. Adding subtitles to a video will help both your deaf and hard-of-hearing users and your users who are in a loud environment and can't hear their phone. Similarly, making sure your text isn't too low contrast will help both your low-vision users and your users who are trying to use their phone in bright sunlight.
+
+Creating inclusive products means that the experiences we make are open to more people. It also reflects how people really are. Accessbility is a spectrum, and can even shift within a user's lifetime. For instance, while someone might have lost the use of a limb permanently, another might be regularly holding an infant, or another might have a sprained wrist. By building sites for all use cases, we support people in a variety of situations.
 
 The W3C have published a list of guidelines for making websites accessible, called the [Web Content Accessibility Guidelines [WCAG](https://www.w3.org/TR/WCAG20/). It's worth a read, but you might find it a bit dry, and it's out of date - it was written before Single Page Applications and libraries like Vue existed so there are no specific guidelines for that.
 
@@ -13,7 +17,7 @@ There are a huge range of disabilities, which can be divided roughly into four c
 - _Hearing impairments_, from being partially deaf to profoundly deaf.
 - _Cognitive impairments_, such as dyslexia, epilepsy, intellectual disabilities, and ADHD (very much not a complete list).
 
-There's a lot of technology that people with disabilities utilise to use their computers, but often that technology isn't useful unless we take measures to ensure it works. For example, low vision users, blind users and users with dyslexia may use screen readers to read out what's on the screen—but if there are images on the page the screen reader won't know what to read out unless we tell it using alt text. This guide will outline a number of common problems people with disabilities have when browsing websites and explain what we can do to help.
+There's a lot of technology that people with disabilities utilise to use their computers, but often that technology isn't useful unless we take measures to ensure it works. For example, low vision users, blind users and users with dyslexia may use screen readers to read out what's on the screen, but if there are images on the page the screen reader won't know what to read out unless we tell it using `alt` text. This guide will outline a number of common problems people with disabilities have when browsing websites and explain what we can do to help.
 
 ## Basic accessibility
 
@@ -50,11 +54,11 @@ Some common examples of parts of sites that can't be access without a mouse incl
 - Controls that appear on mouseover.
 - Anything else that relies on the mouse hovering over anything.
 
-@todo: bad example
+TODO: bad example
 
-It's better to make content display on click instead of on hover - or both. For example, a menu that appears on hover and closes when the mouse moves away could continue doing that, but also open or close when clicked, whether with the mouse or the keyboard.
+It's better to make content display on click instead of on hover, or both. For example, a menu that appears on hover and closes when the mouse moves away could continue doing that, but also open or close when clicked, whether with the mouse or the keyboard.
 
-@todo: good example
+TODO: good example
 
 ### Extended input elements
 
@@ -83,70 +87,12 @@ You can't just style a checkbox to look like that! You have to create your own c
 
 Once styled with a bit of CSS, this works fine - clicking on the component toggles the `toggle-button--checked` class and we can move the position of the handle using CSS. Here it is:
 
-```html
-<div id="example-1" class="demo">
-  <div
-    :class="['toggle-button', { 'toggle-button--checked': checked }]"
-    @click="checked = !checked"
-  >
-    <div class="toggle-button__handle"></div>
-  </div>
-
-  <pre>{ checked: {{ checked }} }</pre>
-</div>
-```
-
-```js
-<script>
-var example1 = new Vue({
-  el: '#example-1',
-  data: {
-    checked: false,
-  },
-})
-</script>
-```
-
-```css
-<style>
-.toggle-button {
-  position: relative;
-
-  width: 60px;
-  height: 30px;
-
-  border-radius: 15px;
-  background-color: hsl(0, 75%, 75%);
-
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.toggle-button--checked {
-  background-color: hsl(240, 75%, 75%);
-}
-
-.toggle-button__handle {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-
-  width: 24px;
-  height: 24px;
-
-  border-radius: 50%;
-  background-color: hsl(0, 75%, 35%);
-
-  transition: all 0.3s;
-}
-
-.toggle-button--checked .toggle-button__handle {
-  transform: translateX(30px);
-
-  background-color: hsl(240, 75%, 35%);
-}
-</style>
-```
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="PoPQKoM" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="accessibility demo 1">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoPQKoM">
+  accessibility demo 1</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 If you click on the toggle button, it seems to work fine. The variable has changed, and the handle has moved - it's obvious what the state of the toggle button is.
 
@@ -177,31 +123,16 @@ For example, with the previous demo, we could have a hidden checkbox input bound
 </div>
 ```
 
-{% raw %}
-
-<div id="example-2" class="demo">
-  <input v-model="checked" class="sr-only" type="checkbox">
-  <div
-    aria-hidden="true"
-    tabindex="0"
-    :class="['toggle-button', { 'toggle-button--checked': checked }]"
-    @click="checked = !checked">
-    <div class="toggle-button__handle"></div>
-  </div>
-
-  <pre>{ checked: {{ checked }} }</pre>
-</div>
-<script>
-var example1 = new Vue({
-  el: '#example-2',
-  data: {
-    checked: false,
-  },
-})
-</script>
-{% endraw %}
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="css,result" data-user="Vue" data-slug-hash="XWmZabz" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="accessibility demo 2">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/XWmZabz">
+  accessibility demo 2</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 The `sr-only` class means that the checkbox is visible only to screen readers, and `aria-hidden="true"` on the toggle button means that it is hidden to screen readers. Screen readers read out the checkbox, and your sighted users see the toggle button as intended—it works for both parties.
+
+This `.sr-only` class is in particular is used through a [utility from Bootstrap](https://getbootstrap.com/docs/4.0/utilities/screenreaders/), you can roll your own class to hide and show content from screenreaders, and many libraries also offer these handy utilities.
 
 #### ARIA attributes
 
@@ -211,7 +142,7 @@ Check out MDN for a longer read on ARIA: [An overview of accessible web applicat
 
 Additionally, the W3C keeps a detailed guide of usage and examples for ARIA: [Using Aria - W3C Working Draft](https://www.w3.org/TR/using-aria/). This also includes a handy list of [ARIA roles](https://www.w3.org/TR/using-aria/#x2-14-1-aria-roles) and [ARIA states and properties (or attributes)](https://www.w3.org/TR/using-aria/#x2-14-2-aria-states-and-properties-aria-attributes).
 
-To make first example accessible using ARIA, we have to set the role to "checkbox" and use the `aria-checked` attribute:
+To make the first example accessible using ARIA, we have to set the role to "checkbox" and use the `aria-checked` attribute:
 
 ```html
 <div
@@ -225,49 +156,30 @@ To make first example accessible using ARIA, we have to set the role to "checkbo
 </div>
 ```
 
-{% raw %}
-
-<div id="example-3" class="demo">
-  <div
-    role="checkbox"
-    tabindex="0"
-    :aria-checked="checked"
-    :class="['toggle-button', { 'toggle-button--checked': checked }]"
-    @click="checked = !checked">
-    <div class="toggle-button__handle"></div>
-  </div>
-
-  <pre>{ checked: {{ checked }} }</pre>
-</div>
-<script>
-var example1 = new Vue({
-  el: '#example-3',
-  data: {
-    checked: false,
-  },
-})
-</script>
-{% endraw %}
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="bGVLKra" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="accessibility demo 3">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/bGVLKra">
+  accessibility demo 3</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Either method of making the custom input element accessible works fine and isn't too difficult to implement.
 
 ### Dynamic content
 
-when content is updated, screen readers don't know it has been updated
+When content is updated, screen readers don't always know it has been updated. Some examples of this are:
 
-examples:
+- Error messages on forms
+- New information (eg news, notifications) from server
+- Requested information finished downloading
 
-- error messages on forms
-- new information (eg news, notifications) from server
-- requested information finished downloading
-
-you can use aria-live to let the user know that stuff has changed
+To let the user know something has been changed, you can [use the `aria-live` property](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
 
 ### Page navigation with client-side routing
 
-when you click a link in a website with server-side routing, the browser knows the page has changed. on a website with client-side routing, the browser doesn't know, so it isn't announced to the user - it just announces that the link has been clicked, not that navigation has occured or what is displayed has changed.
+When you click a link in a website with server-side routing, the browser knows the page has changed. On a site with client-side routing, the browser doesn't know so it isn't announced to the user, it merely announces that the link has been clicked, but not that navigation has occured or what is displayed has changed.
 
-the solution is to announce to the user when the route has changed using a hidden aria-live element.
+The solution is to announce to the user when the route has changed using a hidden `aria-live` element.
 
 ## Testing accessibility
 
@@ -284,4 +196,3 @@ Don't stop there! While automated tools will help you meet guidelines, testing w
 - [The 6 Simplest Web Accessibility Tests Anyone Can Do](http://www.karlgroves.com/2013/09/05/the-6-simplest-web-accessibility-tests-anyone-can-do/)
 
 By far, the best method to help the widest range of users to access your application is to test with real people!
-@todo: recommended testing contract services?
