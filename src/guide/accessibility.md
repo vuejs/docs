@@ -136,7 +136,7 @@ This `.sr-only` class is in particular is used through a [utility from Bootstrap
 
 #### ARIA attributes
 
-We saw an ARIA (short for [Accessible Rich Internet Applications](https://www.w3.org/WAI/standards-guidelines/aria/)) attribute in the previous example to hide the custom HTML from the screen reader. aria-hidden is one of a tonne of attributes that you can add to elements to tell assistive technology such as screen readers what things on the page are.
+We used an ARIA (short for [Accessible Rich Internet Applications](https://www.w3.org/WAI/standards-guidelines/aria/)) attribute in the previous example to hide the custom HTML from the screen reader. `aria-hidden` is one of a tonne of attributes that you can add to elements to tell assistive technology such as screen readers what things on the page are.
 
 Check out MDN for a longer read on ARIA: [An overview of accessible web applications and widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/An_overview_of_accessible_web_applications_and_widgets).
 
