@@ -14,7 +14,8 @@ const sidebar = {
         '/guide/list',
         '/guide/events',
         '/guide/forms',
-        '/guide/component-basics'
+        '/guide/component-basics',
+        '/guide/accessibility'
       ]
     },
     {
