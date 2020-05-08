@@ -89,6 +89,7 @@ Before we dive into render functions, it’s important to know a little about ho
 <div>
   <h1>My title</h1>
   Some text content
+  <!-- TODO: Add tagline -->
 </div>
 ```
 
