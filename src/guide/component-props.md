@@ -240,67 +240,43 @@ to validate that the value of the `author` prop was created with `new Person`.
 
 ## Non-Prop Attributes
 
-A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined.
+A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined. Common examples of this include `class`, `style`, and `id` attributes.
 
-While explicitly defined props are preferred for passing information to a child component, authors of component libraries can't always foresee the contexts in which their components might be used. That's why components can accept arbitrary attributes.
+### Attribute Inheritance
 
-> TODO: revise this after attrs fallthrough RFC is merged
-
-When the component returns a single root node, attributes will be implicitly added to the root node's props. For example, imagine we're using a 3rd-party `bootstrap-date-input` component with a Bootstrap plugin that requires a `data-date-picker` attribute on the `input`. We can add this attribute to our component instance:
+When a component returns a single root node, non-prop attributes will automatically be added to the root node's props. For example, in the instance of a date-picker component:
 
 ```html
-<bootstrap-date-input data-date-picker="activated"></bootstrap-date-input>
+<template>
+  <div class="date-picker">
+    <input type="datetime" />
+  </div>
+</template>
 ```
 
-And the `data-date-picker="activated"` attribute will automatically be added to the root element of `bootstrap-date-input`.
-
-If the component receives extraneous attrs, but returns multiple root nodes (a [fragment](TODO:fragment.md)), an automatic merge cannot be performed. In this case you need to select an element to apply the passed attributes via `v-bind="$attrs"`:
+In the event we need to define the status of the date-picker component via a `data-status` property, it will be applied to the root node (i.e., `div.date-picker`).
 
 ```html
-<!-- child component -->
-
-<span>Select a date:</span>
-<input v-bind="$attrs" type="date" class="form-control" />
+<date-picker data-status="activated"></date-picker>
 ```
-
-`$attrs` instance property contains the attribute names and values passed to a component, such as:
-
-```js
-{
-  required: true,
-  placeholder: 'Enter your username'
-}
-```
-
-If you did not apply `this.$attrs` in a multi-root component explicitly, a runtime warning will be emitted. You can suppress this warning with [Disabling Attribute Inheritance](#disabling-attribute-inheritance).
-
-### Replacing/Merging with Existing Attributes
-
-Imagine this is the template for `bootstrap-date-input`:
 
 ```html
-<input type="date" class="form-control" />
+<!-- Rendered DatePicker Component -->
+<template>
+  <div class="date-picker" data-status="activated">
+    <input type="datetime" />
+  </div>
+</template>
 ```
-
-To specify a theme for our date picker plugin, we might need to add a specific class, like this:
-
-```html
-<bootstrap-date-input
-  data-date-picker="activated"
-  class="date-picker-theme-dark"
-></bootstrap-date-input>
-```
-
-In this case, two different values for `class` are defined:
-
-- `form-control`, which is set by the component in its template
-- `date-picker-theme-dark`, which is passed to the component by its parent
-
-For most attributes, the value provided to the component will replace the value set by the component. So for example, passing `type="text"` will replace `type="date"` and probably break it! Fortunately, the `class` and `style` attributes are a little smarter, so both values are merged, making the final value: `form-control date-picker-theme-dark`.
 
 ### Disabling Attribute Inheritance
 
-If you do **not** want the single root element of a component to inherit attributes, you can set `inheritAttrs: false` in the component's options. For example:
+There are two common scenarios when attribute inheritance needs to be disabled:
+
+1. When attributes need to be applied to other elements besides the root node
+1. When a component has multiple root nodes (i.e., a [fragment](TODO:fragment.md))
+
+To disable automatic attribute inheritance, you can set `inheritAttrs: false` in the component's options. For example:
 
 ```js
 const app = Vue.createApp({})
@@ -311,7 +287,7 @@ app.component('my-component', {
 })
 ```
 
-With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](../style-guide/#base-component-names-strongly-recommended):
+When you disable `inheritAttrs`, this gives you to access the `$attrs` property, which includes all non-prop attributes (e.g., `class`, `style`, `v-on` listeners, etc.). With `inheritAttrs: false` and `$attrs`, you can explicitly determine which element you want to forward attributes to, which is often desirable for [base components](../style-guide/#base-component-names-strongly-recommended):
 
 ```js
 app.component('base-input', {
@@ -339,6 +315,32 @@ This pattern allows you to use base components more like raw HTML elements, with
   placeholder="Enter your username"
 ></base-input>
 ```
+
+If you did not apply `this.$attrs` in a multi-root component explicitly, a runtime warning will be emitted. You can suppress this warning with [Disabling Attribute Inheritance](#disabling-attribute-inheritance).
+
+### Replacing/Merging with Existing Attributes
+
+Imagine this is the template for `bootstrap-date-input`:
+
+```html
+<input type="date" class="form-control" />
+```
+
+To specify a theme for our date picker plugin, we might need to add a specific class, like this:
+
+```html
+<bootstrap-date-input
+  data-date-picker="activated"
+  class="date-picker-theme-dark"
+></bootstrap-date-input>
+```
+
+In this case, two different values for `class` are defined:
+
+- `form-control`, which is set by the component in its template
+- `date-picker-theme-dark`, which is passed to the component by its parent
+
+For most attributes, the value provided to the component will replace the value set by the component. So for example, passing `type="text"` will replace `type="date"` and probably break it! Fortunately, the `class` and `style` attributes are a little smarter, so both values are merged, making the final value: `form-control date-picker-theme-dark`.
 
 ## Prop Casing (camelCase vs kebab-case)
 
