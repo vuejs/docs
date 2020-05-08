@@ -44,7 +44,8 @@ const sidebar = {
       collapsable: false,
       children: [
         '/guide/mixins',
-        '/guide/custom-directive'
+        '/guide/custom-directive',
+        '/guide/render-function'
       ]
     },
     {
