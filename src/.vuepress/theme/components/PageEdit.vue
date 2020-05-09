@@ -8,6 +8,10 @@
       <OutboundLink />
     </div>
 
+    <div>
+      Deployed on <a href="https://url.netlify.com/HJ8X2mxP8">Netlify</a>
+    </div>
+
     <div v-if="lastUpdated" class="last-updated">
       <span class="prefix">{{ lastUpdatedText }}:</span>
       <span class="time">{{ lastUpdated }}</span>
@@ -99,3 +103,22 @@ export default {
   }
 }
 </script>
+
+<style>
+/*
+  This entire style block is MVP style wise and will likely
+  be changed with the new atomic theme. Changes are welcome!
+ */
+.edit-link {
+  margin-bottom: 0.5rem;
+}
+
+.page-edit {
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 740px;
+  margin: 0 auto;
+}
+</style>
