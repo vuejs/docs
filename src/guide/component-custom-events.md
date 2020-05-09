@@ -50,7 +50,7 @@ app.component('custom-form', {
     click: null,
 
     // Validate submit event
-    submit: { email, password } => {
+    submit: ({ email, password }) => {
       if (email && password) {
         return true
       } else {
