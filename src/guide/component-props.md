@@ -304,47 +304,9 @@ With this new configuration, our `data-status` attribute will be applied to our 
 </div>
 ```
 
-For example:
-
-```js
-const app = Vue.createApp({})
-
-app.component('my-component', {
-  inheritAttrs: false
-  // ...
-})
-```
-
-With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](../style-guide/#base-component-names-strongly-recommended):
-
-```js
-app.component('base-input', {
-  inheritAttrs: false,
-  props: ['label', 'value'],
-  template: `
-    <label>
-      {{ label }}
-      <input
-        v-bind="$attrs"
-        v-bind:value="value"
-        v-on:input="$emit('input', $event.target.value)"
-      >
-    </label>
-  `
-})
-```
-
-This pattern allows you to use base components more like raw HTML elements, without having to care about which element is actually at its root:
-
-```html
-<base-input
-  v-model="username"
-  required
-  placeholder="Enter your username"
-></base-input>
-```
-
-If you did not apply `this.$attrs` in a multi-root component explicitly, a runtime warning will be emitted. You can suppress this warning with [Disabling Attribute Inheritance](#disabling-attribute-inheritance).
+::: warning
+If you do not explicitly define `this.$attrs` in a multi-root component, a runtime warning will be emitted. You can suppress this warning with [Disabling Attribute Inheritance](TODO:#disabling-attribute-inheritance).
+:::
 
 ## Prop Casing (camelCase vs kebab-case)
 
