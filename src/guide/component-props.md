@@ -244,7 +244,7 @@ A non-prop attribute is an attribute that is passed to a component, but does not
 
 ### Attribute Inheritance
 
-When a component returns a single root node, non-prop attributes will automatically be added to the root node's props. For example, in the instance of a date-picker component:
+When a component returns a single root node, non-prop attributes will automatically be added to the root node's attributes. For example, in the instance of a date-picker component:
 
 ```js
 app.component('date-picker', {
