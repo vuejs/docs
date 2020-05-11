@@ -45,7 +45,8 @@ const sidebar = {
       children: [
         '/guide/mixins',
         '/guide/custom-directive',
-        '/guide/render-function'
+        '/guide/render-function',
+        '/guide/plugins'
       ]
     },
     {
