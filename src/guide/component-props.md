@@ -279,6 +279,8 @@ There are two common scenarios when attribute inheritance needs to be disabled:
 
 By setting the `inheritAttrs` option to `false`, this gives you access to the component's `$attrs` property, which includes all attributes not included to component `props` and `emits` properties (e.g., `class`, `style`, `v-on` listeners, etc.).
 
+#### Single Root Node
+
 Using our date-picker component example from the [previous section]('#attribute-inheritance), in the event we need to apply all non-prop attributes to the `input` element rather than the root `div` element, this can be accomplished by using the `v-bind` shortcut.
 
 ```js{5}
@@ -304,9 +306,20 @@ With this new configuration, our `data-status` attribute will be applied to our 
 </div>
 ```
 
-::: warning
-If you do not explicitly define `this.$attrs` in a multi-root component, a runtime warning will be emitted. You can suppress this warning with [Disabling Attribute Inheritance](TODO:#disabling-attribute-inheritance).
-:::
+#### Multiple Root Nodes
+
+Unlike single root node components, components with multiple root nodes do not have an automatic attribute fallthrough behavior if `inheritAttrs` and `$attrs` are not defined. A runtime warning will be issued if this is left off
+
+```js{2, 5}
+app.component('custom-layout', {
+  inheritAttrs: false,
+  template: `
+    <header>...</header>
+    <main v-bind="$attrs">...</main>
+    <footer...></footer>
+  `
+})
+```
 
 ## Prop Casing (camelCase vs kebab-case)
 
