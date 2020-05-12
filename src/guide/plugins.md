@@ -14,7 +14,7 @@ Plugins usually add global-level functionality to Vue. There is no strictly defi
 
 ## Using a Plugin
 
-You can add a plugin to your application by calling the `use` method. This has to be done after you created your app with `createApp`:
+After a Vue app has been initialized with `createApp`, you can add a plugin to your application by calling the `use` method:
 
 ```js
 // calls `MyPlugin.install(Vue)`
