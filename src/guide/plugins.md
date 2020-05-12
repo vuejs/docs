@@ -1,6 +1,6 @@
 ﻿# Plugins
 
-Plugins usually add global-level functionality to Vue. There is no strictly defined scope for a plugin - there are typically several types of plugins:
+Plugins usually add global-level functionality to Vue. There is no strictly defined scope for a plugin, but common scenarios where plugins are useful include:
 
 1. Add some global methods or properties, e.g. [vue-custom-element](https://github.com/karol-f/vue-custom-element).
 
