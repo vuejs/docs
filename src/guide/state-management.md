@@ -22,7 +22,7 @@ const sourceOfTruth = {
 
 const appA = Vue.createApp({
   data: () => sourceOfTruth
-}).mount('#appA')
+}).mount('#app-a')
 
 const appB = Vue.createApp({
   data: () => sourceOfTruth
