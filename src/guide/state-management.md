@@ -69,7 +69,7 @@ const appA = Vue.createApp({
     privateState: {},
     sharedState: store.state
   })
-}).mount('#appA')
+}).mount('#app-a')
 
 const appB = Vue.createApp({
   data: () => ({
