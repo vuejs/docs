@@ -22,7 +22,7 @@ const app = Vue.createApp({})
 app.use(MyPlugin)
 ```
 
-You can optionally pass in some options:
+If you need to define configuration for a plugin, you can pass a config object as the second argument:
 
 ```js
 app.use(MyPlugin, { someOption: true })
