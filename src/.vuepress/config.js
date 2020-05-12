@@ -71,7 +71,8 @@ const sidebar = {
     },
     '/api/instance-properties.md',
     '/api/instance-methods.md',
-    '/api/directives.md'
+    '/api/directives.md',
+    '/api/special-attributes.md'
   ]
 }
 
