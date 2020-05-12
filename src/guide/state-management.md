@@ -21,11 +21,15 @@ const sourceOfTruth = {
 }
 
 const appA = Vue.createApp({
-  data: () => sourceOfTruth
+  data () {
+    return sourceOfTruth
+  }
 }).mount('#app-a')
 
 const appB = Vue.createApp({
-  data: () => sourceOfTruth
+  data () {
+    return sourceOfTruth
+  }
 }).mount('#app-b')
 ```
 
@@ -65,17 +69,21 @@ In addition, each instance/component can still own and manage its own private st
 
 ``` js
 const appA = Vue.createApp({
-  data: () => ({
-    privateState: {},
-    sharedState: store.state
-  })
+  data () {
+    return {
+      privateState: {},
+      sharedState: store.state
+    }
+  }
 }).mount('#app-a')
 
 const appB = Vue.createApp({
-  data: () => ({
-    privateState: {},
-    sharedState: store.state
-  })
+  data () {
+    return {
+      privateState: {},
+      sharedState: store.state
+    }
+  }
 }).mount('#app-b')
 ```
 
