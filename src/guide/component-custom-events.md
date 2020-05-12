@@ -17,9 +17,55 @@ Listening to the kebab-cased version will have no effect:
 <my-component v-on:my-event="doSomething"></my-component>
 ```
 
-Unlike components and props, event names will never be used as variable or property names in JavaScript, so there's no reason to use camelCase or PascalCase. Additionally, `v-on` event listeners inside DOM templates will be automatically transformed to lowercase (due to HTML's case-insensitivity), so `v-on:myEvent` would become `v-on:myevent` -- making `myEvent` impossible to listen to.
+Since event names will never be used as variable or property names in JavaScript, there is no reason to use camelCase or PascalCase. Additionally, `v-on` event listeners inside DOM templates will be automatically transformed to lowercase (due to HTML's case-insensitivity), so `v-on:myEvent` would become `v-on:myevent` -- making `myEvent` impossible to listen to.
 
 For these reasons, we recommend you **always use kebab-case for event names**.
+
+## Defining Custom Events
+
+Emitted events can be defined on the component via the `emits` option.
+
+```js
+app.component('custom-form', {
+  emits: ['in-focus', 'submit']
+})
+```
+
+In the event a native event (e.g., `click`) is defined in the `emits` option, it will be overwritten by the event in the component instead of being treated as a native listener.
+
+::: tip
+It is recommended to define all emitted events in order to better document how a component should work.
+:::
+
+### Validate Emitted Events
+
+Similar to prop type validation, an emitted event can be validated if it is defined with the Object syntax instead of the Array syntax.
+
+To add validation, the event is assigned a function that receives the arguments passed to the `$emit` call and returns a boolean to indicate whether the event is valid or not.
+
+```js
+app.component('custom-form', {
+  emits: {
+    // No validation
+    click: null,
+
+    // Validate submit event
+    submit: ({ email, password }) => {
+      if (email && password) {
+        return true
+      } else {
+        console.warn('Invalid submit event payload!')
+        return false
+      }
+    }
+  },
+  methods: {
+    submitForm() {
+      this.$emit('submit', { email, password })
+    }
+  }
+})
+```
 
 ## `v-model` arguments
 
