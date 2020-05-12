@@ -38,11 +38,11 @@ A Vue.js plugin should expose an `install` method. The method will be called wit
 
 ```js
 MyPlugin.install = (app, options) => {
-  // 1. add a global provided function/attribute
-  app.provide('myProvdedAttribute', 'foo')
+  // 1. add a global provided function/attribute (this would require using an 'inject' in components where we want to access 'myProvidedAttribute')
+  app.provide('myProvidedAttribute', 'foo')
 
-  // 2. add global method or property
-  app.myGlobalMethod = () => {
+  // 2. add an instance method (this will be available in every component)
+  app.config.globalProperties.$myMethod = (methodOptions) => {
     // some logic ...
   }
 
@@ -61,10 +61,5 @@ MyPlugin.install = (app, options) => {
     }
     ...
   })
-
-  // 5. add an instance method (this will be available in every component)
-  app.config.globalProperties.$myMethod = (methodOptions) => {
-    // some logic ...
-  }
 }
 ```
