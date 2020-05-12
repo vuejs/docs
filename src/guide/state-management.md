@@ -76,7 +76,7 @@ const appB = Vue.createApp({
     privateState: {},
     sharedState: store.state
   })
-}).mount('#appB')
+}).mount('#app-b')
 ```
 
 ![State Management](/images/state.png)
