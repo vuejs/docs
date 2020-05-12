@@ -240,104 +240,85 @@ to validate that the value of the `author` prop was created with `new Person`.
 
 ## Non-Prop Attributes
 
-A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined.
+A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined. Common examples of this include `class`, `style`, and `id` attributes.
 
-While explicitly defined props are preferred for passing information to a child component, authors of component libraries can't always foresee the contexts in which their components might be used. That's why components can accept arbitrary attributes.
+### Attribute Inheritance
 
-> TODO: revise this after attrs fallthrough RFC is merged
-
-When the component returns a single root node, attributes will be implicitly added to the root node's props. For example, imagine we're using a 3rd-party `bootstrap-date-input` component with a Bootstrap plugin that requires a `data-date-picker` attribute on the `input`. We can add this attribute to our component instance:
-
-```html
-<bootstrap-date-input data-date-picker="activated"></bootstrap-date-input>
-```
-
-And the `data-date-picker="activated"` attribute will automatically be added to the root element of `bootstrap-date-input`.
-
-If the component receives extraneous attrs, but returns multiple root nodes (a [fragment](TODO:fragment.md)), an automatic merge cannot be performed. In this case you need to select an element to apply the passed attributes via `v-bind="$attrs"`:
-
-```html
-<!-- child component -->
-
-<span>Select a date:</span>
-<input v-bind="$attrs" type="date" class="form-control" />
-```
-
-`$attrs` instance property contains the attribute names and values passed to a component, such as:
+When a component returns a single root node, non-prop attributes will automatically be added to the root node's attributes. For example, in the instance of a date-picker component:
 
 ```js
-{
-  required: true,
-  placeholder: 'Enter your username'
-}
-```
-
-If you did not apply `this.$attrs` in a multi-root component explicitly, a runtime warning will be emitted. You can suppress this warning with [Disabling Attribute Inheritance](#disabling-attribute-inheritance).
-
-### Replacing/Merging with Existing Attributes
-
-Imagine this is the template for `bootstrap-date-input`:
-
-```html
-<input type="date" class="form-control" />
-```
-
-To specify a theme for our date picker plugin, we might need to add a specific class, like this:
-
-```html
-<bootstrap-date-input
-  data-date-picker="activated"
-  class="date-picker-theme-dark"
-></bootstrap-date-input>
-```
-
-In this case, two different values for `class` are defined:
-
-- `form-control`, which is set by the component in its template
-- `date-picker-theme-dark`, which is passed to the component by its parent
-
-For most attributes, the value provided to the component will replace the value set by the component. So for example, passing `type="text"` will replace `type="date"` and probably break it! Fortunately, the `class` and `style` attributes are a little smarter, so both values are merged, making the final value: `form-control date-picker-theme-dark`.
-
-### Disabling Attribute Inheritance
-
-If you do **not** want the single root element of a component to inherit attributes, you can set `inheritAttrs: false` in the component's options. For example:
-
-```js
-const app = Vue.createApp({})
-
-app.component('my-component', {
-  inheritAttrs: false
-  // ...
-})
-```
-
-With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](../style-guide/#base-component-names-strongly-recommended):
-
-```js
-app.component('base-input', {
-  inheritAttrs: false,
-  props: ['label', 'value'],
+app.component('date-picker', {
   template: `
-    <label>
-      {{ label }}
-      <input
-        v-bind="$attrs"
-        v-bind:value="value"
-        v-on:input="$emit('input', $event.target.value)"
-      >
-    </label>
+    <div class="date-picker">
+      <input type="datetime" />
+    </div>
   `
 })
 ```
 
-This pattern allows you to use base components more like raw HTML elements, without having to care about which element is actually at its root:
+In the event we need to define the status of the date-picker component via a `data-status` property, it will be applied to the root node (i.e., `div.date-picker`).
 
 ```html
-<base-input
-  v-model="username"
-  required
-  placeholder="Enter your username"
-></base-input>
+<!-- Date-picker component with a non-prop attribute -->
+<date-picker data-status="activated"></date-picker>
+
+<!-- Rendered date-picker component -->
+<div class="date-picker" data-status="activated">
+  <input type="datetime" />
+</div>
+```
+
+### Disabling Attribute Inheritance
+
+If you do **not** want the a component to automatically inherit attributes, you can set `inheritAttrs: false` in the component's options.
+
+There are two common scenarios when attribute inheritance needs to be disabled:
+
+1. When attributes need to be applied to other elements besides the root node
+1. When a component has multiple root nodes (i.e., a [fragment](TODO:fragment.md))
+
+By setting the `inheritAttrs` option to `false`, this gives you access to the component's `$attrs` property, which includes all attributes not included to component `props` and `emits` properties (e.g., `class`, `style`, `v-on` listeners, etc.).
+
+#### Single Root Node
+
+Using our date-picker component example from the [previous section]('#attribute-inheritance), in the event we need to apply all non-prop attributes to the `input` element rather than the root `div` element, this can be accomplished by using the `v-bind` shortcut.
+
+```js{5}
+app.component('date-picker', {
+  inheritAttrs: false,
+  template: `
+    <div class="date-picker">
+      <input type="datetime" v-bind="$attrs" />
+    </div>
+  `
+})
+```
+
+With this new configuration, our `data-status` attribute will be applied to our `input` element!
+
+```html
+<!-- Date-picker component with a non-prop attribute -->
+<date-picker data-status="activated"></date-picker>
+
+<!-- Rendered date-picker component -->
+<div class="date-picker">
+  <input type="datetime" data-status="activated" />
+</div>
+```
+
+#### Multiple Root Nodes
+
+Unlike single root node components, components with multiple root nodes do not have an automatic attribute fallthrough behavior if `inheritAttrs` and `$attrs` are not defined. A runtime warning will be issued if this is left off
+
+```js{2, 5}
+app.component('custom-layout', {
+  inheritAttrs: false,
+  template: `
+    <header>...</header>
+    <main v-bind="$attrs">...</main>
+    <footer...></footer>
+  `
+})
 ```
 
 ## Prop Casing (camelCase vs kebab-case)
