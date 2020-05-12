@@ -51,7 +51,10 @@ const sidebar = {
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: ['/guide/routing']
+      children: [
+        '/guide/routing',
+        '/guide/state-management'
+      ]
     },
     {
       title: 'Migration to Vue 3',
