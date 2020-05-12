@@ -26,7 +26,7 @@ const appA = Vue.createApp({
 
 const appB = Vue.createApp({
   data: () => sourceOfTruth
-}).mount('#appB')
+}).mount('#app-b')
 ```
 
 Now whenever `sourceOfTruth` is mutated, both `appA` and `appB` will update their views automatically. Subcomponents within each of these instances would also have access via `this.$root.$data`. We have a single source of truth now, but debugging would be a nightmare. Any piece of data could be changed by any part of our app at any time, without leaving a trace.
