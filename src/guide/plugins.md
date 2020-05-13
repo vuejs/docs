@@ -14,7 +14,7 @@ Plugins usually add global-level functionality to Vue. There is no strictly defi
 
 ## Using a Plugin
 
-After a Vue app has been initialized with `createApp`, you can add a plugin to your application by calling the `use` method:
+After a Vue app has been initialized with `createApp()`, you can add a plugin to your application by calling the `use()` method:
 
 ```js
 // calls `MyPlugin.install(Vue)`
@@ -28,13 +28,13 @@ If you need to define configuration for a plugin, you can pass a config object a
 app.use(MyPlugin, { someOption: true })
 ```
 
-`app.use` automatically prevents you from using the same plugin more than once, so calling it multiple times on the same plugin will install the plugin only once.
+`app.use()` automatically prevents you from using the same plugin more than once, so calling it multiple times on the same plugin will install the plugin only once.
 
 Checkout [awesome-vue](https://github.com/vuejs/awesome-vue#components--libraries) for a huge collection of community-contributed plugins and libraries.
 
 ## Writing a Plugin
 
-A Vue.js plugin should expose an `install` method. The method will be called with the application instance as the first argument, along with possible options:
+A Vue.js plugin should expose an `install()` method. The method will be called with the application instance as the first argument, along with possible options:
 
 ```js
 MyPlugin.install = (app, options) => {
