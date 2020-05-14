@@ -131,7 +131,7 @@
   ``` html
   <div v-for="(item, index) in items"></div>
   <div v-for="(value, key) in object"></div>
-  <div v-for="(val, name, index) in object"></div>
+  <div v-for="(value, name, index) in object"></div>
   ```
 
   The default behavior of `v-for` will try to patch the elements in-place without moving them. To force it to reorder elements, you should provide an ordering hint with the `key` special attribute:
