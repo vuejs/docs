@@ -45,7 +45,8 @@ const sidebar = {
       children: [
         '/guide/mixins',
         '/guide/custom-directive',
-        '/guide/render-function'
+        '/guide/render-function',
+        '/guide/plugins'
       ]
     },
     {
@@ -53,6 +54,7 @@ const sidebar = {
       collapsable: false,
       children: [
         '/guide/routing',
+        '/guide/state-management',
         '/guide/ssr'
       ]
     },
