@@ -52,11 +52,7 @@ const sidebar = {
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: [
-        '/guide/routing',
-        '/guide/state-management',
-        '/guide/ssr'
-      ]
+      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
     },
     {
       title: 'Migration to Vue 3',
@@ -87,7 +83,8 @@ const sidebar = {
     '/api/instance-properties.md',
     '/api/instance-methods.md',
     '/api/directives.md',
-    '/api/special-attributes.md'
+    '/api/special-attributes.md',
+    '/api/built-in-components.md'
   ]
 }
 
