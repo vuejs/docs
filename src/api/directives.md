@@ -130,7 +130,7 @@
 
   ``` html
   <div v-for="(item, index) in items"></div>
-  <div v-for="(val, key) in object"></div>
+  <div v-for="(value, key) in object"></div>
   <div v-for="(val, name, index) in object"></div>
   ```
 
