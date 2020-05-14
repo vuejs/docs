@@ -75,9 +75,9 @@
 
 - **Details:**
 
-  Used to programmatically access content [distributed by slots](../guide/component-basics.html#content-distribution-with-slots). Each [named slot](../guide/component-slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `vm.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
+  Used to programmatically access content [distributed by slots](../guide/component-basics.html#content-distribution-with-slots). Each [named slot](../guide/component-slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `this.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
 
-  Accessing `vm.$slots` is most useful when writing a component with a [render function](TODO).
+  Accessing `this.$slots` is most useful when writing a component with a [render function](../guide/render-function.html).
 
 - **Example:**
 
@@ -89,7 +89,7 @@
 
     <template v-slot:default>
       <p>
-        Here's some page content, which will be included in vm.$slots.default.
+        Here's some page content, which will be included in $slots.default.
       </p>
     </template>
 
@@ -116,7 +116,7 @@
 - **See also:**
   - [`<slot>` Component](TODO)
   - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
-  - [Render Functions - Slots](TODO)
+  - [Render Functions - Slots](..guide/render-function.html#slots)
 
 ## $refs
 
@@ -130,7 +130,7 @@ An object of DOM elements and component instances, registered with [`ref` attrib
 
 - **See also:**
   - [Child Component Refs](TODO:refs)
-  - [Special Attributes - ref](TODO)
+  - [Special Attributes - ref](./special-attributes.md#ref)
 
 ## $attrs
 
