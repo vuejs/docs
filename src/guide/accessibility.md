@@ -1,3 +1,5 @@
+# Accessiblity
+
 An accessible website is a website that can be used by anyone — be that a person with a disability, someone on a slow connection, or someone whose hardware is dated or broken. It's easy to make a website assuming that all our users are using a keyboard, mouse, and screen, and have a way of hearing the sound produced by our websites, but that often isn't true: millions of people around the world have disabilities and are unable to use all the functionality of a computer in the same way most developers do.
 
 While many people with permanent disabilities might have tooling to help them, they're also relying on the people building the websites to make them accessible and work well with the tooling.
