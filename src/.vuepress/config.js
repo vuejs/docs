@@ -54,7 +54,8 @@ const sidebar = {
       collapsable: false,
       children: [
         '/guide/routing',
-        '/guide/state-management'
+        '/guide/state-management',
+        '/guide/ssr'
       ]
     },
     {
