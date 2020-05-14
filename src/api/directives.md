@@ -26,8 +26,8 @@
 
   Updates the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML). **Note that the contents are inserted as plain HTML - they will not be compiled as Vue templates**. If you find yourself trying to compose templates using `v-html`, try to rethink the solution by using components instead.
 
-::: warning
-  Please note that dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
+  ::: warning
+  Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
   :::
 
   In [single-file components](TODO:../guide/single-file-components.html), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules.html) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
@@ -122,7 +122,7 @@
 
   Render the element or template block multiple times based on the source data. The directive's value must use the special syntax `alias in expression` to provide an alias for the current element being iterated on:
 
-  ``` html
+  ```html
   <div v-for="item in items">
     {{ item.text }}
   </div>
@@ -130,7 +130,7 @@
 
   Alternatively, you can also specify an alias for the index (or the key if used on an Object):
 
-  ``` html
+  ```html
   <div v-for="(item, index) in items"></div>
   <div v-for="(value, key) in object"></div>
   <div v-for="(value, name, index) in object"></div>
@@ -138,7 +138,7 @@
 
   The default behavior of `v-for` will try to patch the elements in-place without moving them. To force it to reorder elements, you should provide an ordering hint with the `key` special attribute:
 
-  ``` html
+  ```html
   <div v-for="item in items" :key="item.id">
     {{ item.text }}
   </div>
@@ -160,6 +160,7 @@
 - **Argument:** `event`
 
 - **Modifiers:**
+
   - `.stop` - call `event.stopPropagation()`.
   - `.prevent` - call `event.preventDefault()`.
   - `.capture` - add event listener in capture mode.
@@ -212,10 +213,10 @@
   <button @click.stop.prevent="doThis"></button>
 
   <!-- key modifier using keyAlias -->
-  <input @keyup.enter="onEnter">
+  <input @keyup.enter="onEnter" />
 
   <!-- key modifier using keyCode -->
-  <input @keyup.13="onEnter">
+  <input @keyup.13="onEnter" />
 
   <!-- the click event will be triggered at most once -->
   <button v-on:click.once="doThis"></button>
@@ -246,6 +247,7 @@
 - **Argument:** `attrOrProp (optional)`
 
 - **Modifiers:**
+
   - `.camel` - transform the kebab-case attribute name into camelCase.
 
 - **Usage:**
@@ -262,45 +264,45 @@
 
   ```html
   <!-- bind an attribute -->
-  <img v-bind:src="imageSrc">
+  <img v-bind:src="imageSrc" />
 
   <!-- dynamic attribute name -->
   <button v-bind:[key]="value"></button>
 
   <!-- shorthand -->
-  <img :src="imageSrc">
+  <img :src="imageSrc" />
 
   <!-- shorthand dynamic attribute name -->
   <button :[key]="value"></button>
 
   <!-- with inline string concatenation -->
-  <img :src="'/path/to/images/' + fileName">
+  <img :src="'/path/to/images/' + fileName" />
 
   <!-- class binding -->
   <div :class="{ red: isRed }"></div>
   <div :class="[classA, classB]"></div>
   <div :class="[classA, { classB: isB, classC: isC }]">
+    <!-- style binding -->
+    <div :style="{ fontSize: size + 'px' }"></div>
+    <div :style="[styleObjectA, styleObjectB]"></div>
 
-  <!-- style binding -->
-  <div :style="{ fontSize: size + 'px' }"></div>
-  <div :style="[styleObjectA, styleObjectB]"></div>
+    <!-- binding an object of attributes -->
+    <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
-  <!-- binding an object of attributes -->
-  <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+    <!-- prop binding. "prop" must be declared in my-component. -->
+    <my-component :prop="someThing"></my-component>
 
-  <!-- prop binding. "prop" must be declared in my-component. -->
-  <my-component :prop="someThing"></my-component>
+    <!-- pass down parent props in common with a child component -->
+    <child-component v-bind="$props"></child-component>
 
-  <!-- pass down parent props in common with a child component -->
-  <child-component v-bind="$props"></child-component>
-
-  <!-- XLink -->
-  <svg><a :xlink:special="foo"></a></svg>
+    <!-- XLink -->
+    <svg><a :xlink:special="foo"></a></svg>
+  </div>
   ```
 
   The `.camel` modifier allows camelizing a `v-bind` attribute name when using in-DOM templates, e.g. the SVG `viewBox` attribute:
 
-  ``` html
+  ```html
   <svg :view-box.camel="viewBox"></svg>
   ```
 
@@ -315,12 +317,14 @@
 - **Expects:** varies based on value of form inputs element or output of components
 
 - **Limited to:**
+
   - `<input>`
   - `<select>`
   - `<textarea>`
   - components
 
 - **Modifiers:**
+
   - [`.lazy`](../guide/forms.html#lazy) - listen to `change` events instead of `input`
   - [`.number`](../guide/forms.html#number) - cast valid input string to numbers
   - [`.trim`](../guide/forms.html#trim) - trim input
@@ -342,6 +346,7 @@
 - **Argument:** slot name (optional, defaults to `default`)
 
 - **Limited to:**
+
   - `<template>`
   - [components](../guide/component-slots.html#abbreviated-syntax-for-lone-default-slots) (for a lone default slot with props)
 
@@ -399,7 +404,7 @@
 
   ```html
   <span v-pre>{{ this will not be compiled }}</span>
-   ```
+  ```
 
 ## v-cloak
 

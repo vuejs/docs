@@ -31,7 +31,7 @@
 
   When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
 
-### ref
+## ref
 
 - **Expects:** `string`
 
@@ -51,7 +51,7 @@
 
 - **See also:** [Child Component Refs](TODO-handling-edge-cases)
 
-### is
+## is
 
 - **Expects:** `string | Object (component’s options object)`
 
