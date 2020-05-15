@@ -157,17 +157,29 @@ module.exports = {
     },
     smoothScroll: false
   },
-  plugins: {
-    '@vuepress/pwa': {
-      serviceWorker: true,
-      updatePopup: {
-        '/': {
-          message: 'New content is available.',
-          buttonText: 'Refresh'
+  plugins: [
+    [
+      '@vuepress/pwa',
+      {
+        serviceWorker: true,
+        updatePopup: {
+          '/': {
+            message: 'New content is available.',
+            buttonText: 'Refresh'
+          }
         }
       }
-    }
-  },
+    ],
+    [
+      'vuepress-plugin-container',
+      {
+        type: 'info',
+        before: info =>
+          `<div class="custom-block info"><p class="custom-block-title">${info}</p>`,
+        after: '</div>'
+      }
+    ]
+  ],
   markdown: {
     /** @param {import('markdown-it')} md */
     extendMarkdown: md => {
