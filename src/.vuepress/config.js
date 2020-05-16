@@ -100,11 +100,12 @@ module.exports = {
       }
     ],
     [
-      ('link',
+      'link',
       {
-        href: 'https://use.fontawesome.com/releases/v5.13.0/css/all.css',
+        href:
+          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         rel: 'stylesheet'
-      })
+      }
     ],
     ['link', { rel: 'icon', href: '/logo.png' }],
     [

@@ -121,7 +121,7 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   margin-right: 10px;
-  padding: 7px 28px;
+  padding: 0.5rem 0.75rem;
   white-space: nowrap;
 
   &.has-icon {
