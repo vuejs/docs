@@ -7,11 +7,7 @@
     :exact="exact"
     @focusout.native="focusoutAction"
   >
-    <i
-      v-if="item.icon"
-      class="icon"
-      :class="item.icon"
-    ></i>
+    <i v-if="item.icon" class="icon" :class="item.icon"></i>
     {{ item.text }}
   </RouterLink>
   <a
@@ -23,18 +19,14 @@
     :rel="rel"
     @focusout="focusoutAction"
   >
-    <i
-      v-if="item.icon"
-      class="icon"
-      :class="item.icon"
-    ></i>
+    <i v-if="item.icon" class="icon" :class="item.icon"></i>
     {{ item.text }}
     <OutboundLink v-if="isBlankTarget" />
   </a>
 </template>
 
 <script>
-import { isExternal, isMailto, isTel, ensureExt } from '@parent-theme/util'
+import { isExternal, isMailto, isTel, ensureExt } from '../../util'
 
 export default {
   props: {
@@ -50,31 +42,33 @@ export default {
   },
 
   computed: {
-    link () {
+    link() {
       return ensureExt(this.item.link)
     },
 
-    exact () {
+    exact() {
       if (this.$site.locales) {
-        return Object.keys(this.$site.locales).some(rootLink => rootLink === this.link)
+        return Object.keys(this.$site.locales).some(
+          rootLink => rootLink === this.link
+        )
       }
 
       return this.link === '/'
     },
 
-    isNonHttpURI () {
+    isNonHttpURI() {
       return isMailto(this.link) || isTel(this.link)
     },
 
-    isBlankTarget () {
+    isBlankTarget() {
       return this.target === '_blank'
     },
 
-    isInternal () {
+    isInternal() {
       return !isExternal(this.link) && !this.isBlankTarget
     },
 
-    target () {
+    target() {
       if (this.isNonHttpURI) {
         return null
       }
@@ -86,7 +80,7 @@ export default {
       return isExternal(this.link) ? '_blank' : ''
     },
 
-    rel () {
+    rel() {
       if (this.isNonHttpURI) {
         return null
       }
@@ -98,13 +92,13 @@ export default {
       return this.isBlankTarget ? 'noopener noreferrer' : ''
     },
 
-    combinedClasses () {
-      return `${this.extraClass} ${ this.item.icon ? 'has-icon' : '' }`
+    combinedClasses() {
+      return `${this.extraClass} ${this.item.icon ? 'has-icon' : ''}`
     }
   },
 
   methods: {
-    focusoutAction () {
+    focusoutAction() {
       this.$emit('focusout')
     }
   }
@@ -112,7 +106,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@theme/styles/_settings.scss";
+@import '@theme/styles/_settings.scss';
 
 a {
   color: $green;
@@ -150,7 +144,7 @@ a {
     border-color: #f6f6f6;
 
     i.icon {
-      opacity: .7; // wash out a bit to reduce contrast
+      opacity: 0.7; // wash out a bit to reduce contrast
     }
   }
 
