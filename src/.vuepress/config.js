@@ -52,11 +52,7 @@ const sidebar = {
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: [
-        '/guide/routing',
-        '/guide/state-management',
-        '/guide/ssr'
-      ]
+      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
     },
     {
       title: 'Migration to Vue 3',
@@ -98,9 +94,17 @@ module.exports = {
     [
       'link',
       {
-        href: 'https://use.fontawesome.com/releases/v5.13.0/css/all.css',
+        href:
+          'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&amp;display=swap',
         rel: 'stylesheet'
       }
+    ],
+    [
+      ('link',
+      {
+        href: 'https://use.fontawesome.com/releases/v5.13.0/css/all.css',
+        rel: 'stylesheet'
+      })
     ],
     ['link', { rel: 'icon', href: '/logo.png' }],
     [
