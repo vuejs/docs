@@ -1,7 +1,7 @@
 {
-  "name": "@vuepress/theme-default",
-  "version": "1.3.1",
-  "description": "Default theme for VuePress",
+  "name": "vuejs-org-theme",
+  "version": "0.1.0-alpha",
+  "description": "Vuejs.org v2.0 VuePress Theme",
   "keywords": [
     "documentation",
     "generator",
@@ -18,7 +18,7 @@
     "directory": "packages/@vuepress/theme-default"
   },
   "license": "MIT",
-  "author": "Evan You",
+  "author": "Ben Hong",
   "main": "index.js",
   "dependencies": {
     "@vuepress/plugin-active-header-links": "^1.3.1",
@@ -36,9 +36,8 @@
   },
   "maintainers": [
     {
-      "name": "ULIVZ",
-      "email": "chl814@foxmail.com"
+      "name": "Ben Hong",
+      "email": "ben@bencodezen.io"
     }
-  ],
-  "gitHead": "eef0d2fcc4b45fd8c0ca86d8525e69eb30f9bbb5"
+  ]
 }
