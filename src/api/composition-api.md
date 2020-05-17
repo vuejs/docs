@@ -157,7 +157,7 @@ The `setup` function is a new component option. It serves as the entry point for
   ```
 
   ::: tip
-  To get type inference for the arguments passed to `setup()`, the use of [`defineComponent`](#defineComponent) is needed.
+  To get type inference for the arguments passed to `setup()`, the use of [`defineComponent`](TODO) is needed.
   :::
 
 ## Reactivity APIs
