@@ -81,10 +81,11 @@ const sidebar = {
         '/api/options-misc'
       ]
     },
-    '/api/instance-properties.md',
-    '/api/instance-methods.md',
-    '/api/directives.md',
-    '/api/special-attributes.md'
+    '/api/instance-properties',
+    '/api/instance-methods',
+    '/api/directives',
+    '/api/special-attributes',
+    '/api/composition-api'
   ]
 }
 
