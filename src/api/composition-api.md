@@ -134,6 +134,10 @@ The `setup` function is a new component option. It serves as the entry point for
 
   ```js
   setup() {
+    const that = this
+    function onClick() {
+        console.log(this !== that) // not the `this` you'd expect!
+    }
     function onClick() {
       this // not the `this` you'd expect!
     }
