@@ -737,7 +737,7 @@ Here we are exposing `root` on the render context and binding it to the div as i
 
 Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
 
-- **Usage with Render Function / JSX**
+- **Usage with JSX**
 
   ```js
   export default {
