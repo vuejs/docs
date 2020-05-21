@@ -8,7 +8,11 @@ If you’d like to learn more about Vue before diving in, we <a id="modal-player
 
 If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](TODO:comparison.html).
 
-<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="sponsored noopener" title="Free Vue.js Course">Watch a free video course on Vue Mastery</a></div>
+<div>
+  <VideoBanner title="Free Vue.js Course" url="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/">
+    Watch a free video course on Vue Mastery
+  </VideoBanner>
+</div>
 
 ## Getting Started
 
