@@ -123,6 +123,7 @@ module.exports = {
     ]
   ],
   themeConfig: {
+    logo: '/logo.png',
     nav: [
       {
         text: 'Docs',
