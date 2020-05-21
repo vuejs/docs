@@ -121,8 +121,9 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   margin-right: 10px;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1.5rem;
   white-space: nowrap;
+  font-weight: bold;
 
   &.has-icon {
     padding-left: 7px;
