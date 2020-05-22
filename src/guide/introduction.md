@@ -8,8 +8,6 @@ If you’d like to learn more about Vue before diving in, we <a id="modal-player
 
 If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](TODO:comparison.html).
 
-<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="sponsored noopener" title="Free Vue.js Course">Watch a free video course on Vue Mastery</a></div>
-
 ## Getting Started
 
 [Installation](installation.md)
@@ -46,7 +44,7 @@ Vue.createApp(HelloVueApp).mount('#hello-vue')
 
 We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Change the `message` property in the code snippet below to a different value and the rendered example will update accordingly:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="KKpRVpx" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-1">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="KKpRVpx" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-1">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpRVpx">
   Intro-1</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -111,7 +109,7 @@ This example demonstrates that we can bind data to not only text and attributes,
 
 You can change `seen` from `true` to `false` in the sandbox below to check the effect:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="oNXdbpB" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Conditional rendering">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="oNXdbpB" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Conditional rendering">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXdbpB">
   Conditional rendering</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
