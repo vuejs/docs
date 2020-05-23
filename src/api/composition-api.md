@@ -1079,7 +1079,7 @@ Identity hazards are in general rare. But to properly utilize these APIs while s
 
 ### `shallowReactive`
 
-Create a reactive proxy that tracks reactivity of its own properties, but does not perform deep reactive conversion of nested objects (exposes raw values).
+Create a reactive proxy that tracks reactivity of its own properties, but does not perform deep reactive conversion of nested objects.
 
 ```js
 const state = shallowReactive({
