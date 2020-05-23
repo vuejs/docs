@@ -165,7 +165,7 @@
   - `.prevent` - call `event.preventDefault()`.
   - `.capture` - add event listener in capture mode.
   - `.self` - only trigger handler if event was dispatched from this element.
-  - `.{keyCode | keyAlias}` - only trigger handler on certain keys.
+  - `.{keyAlias}` - only trigger handler on certain keys.
   - `.once` - trigger handler at most once.
   - `.left` - only trigger handler for left button mouse events.
   - `.right` - only trigger handler for right button mouse events.
@@ -214,9 +214,6 @@
 
   <!-- key modifier using keyAlias -->
   <input @keyup.enter="onEnter" />
-
-  <!-- key modifier using keyCode -->
-  <input @keyup.13="onEnter" />
 
   <!-- the click event will be triggered at most once -->
   <button v-on:click.once="doThis"></button>
