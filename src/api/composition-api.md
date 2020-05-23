@@ -10,52 +10,6 @@ The `setup` function is a new component option. It serves as the entry point for
 
   `setup` is called right after the initial props resolution when a component instance is created. Lifecycle-wise, it is called before the `beforeCreate` hook.
 
-- **Usage with Templates**
-
-  If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
-
-  ```html
-  <template>
-    <div>{{ count }} {{ object.foo }}</div>
-  </template>
-
-  <script>
-    import { ref, reactive } from 'vue'
-
-    export default {
-      setup() {
-        const count = ref(0)
-        const object = reactive({ foo: 'bar' })
-
-        // expose to template
-        return {
-          count,
-          object
-        }
-      }
-    }
-  </script>
-  ```
-
-  Note that refs returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
-
-- **Usage with Render Functions / JSX**
-
-  `setup` can also return a render function, which can directly make use of reactive state declared in the same scope:
-
-  ```js
-  import { h, ref, reactive } from 'vue'
-
-  export default {
-    setup() {
-      const count = ref(0)
-      const object = reactive({ foo: 'bar' })
-
-      return () => h('div', [count.value, object.foo])
-    }
-  }
-  ```
-
 - **Arguments**
 
   The function receives the resolved props as its first argument:
@@ -124,6 +78,52 @@ The `setup` function is a new component option. It serves as the entry point for
       function onClick() {
         console.log(attrs.foo) // guaranteed to be the latest reference
       }
+    }
+  }
+  ```
+
+- **Usage with Templates**
+
+  If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
+
+  ```html
+  <template>
+    <div>{{ count }} {{ object.foo }}</div>
+  </template>
+
+  <script>
+    import { ref, reactive } from 'vue'
+
+    export default {
+      setup() {
+        const count = ref(0)
+        const object = reactive({ foo: 'bar' })
+
+        // expose to template
+        return {
+          count,
+          object
+        }
+      }
+    }
+  </script>
+  ```
+
+  Note that refs returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
+
+- **Usage with Render Functions**
+
+  `setup` can also return a render function, which can directly make use of reactive state declared in the same scope:
+
+  ```js
+  import { h, ref, reactive } from 'vue'
+
+  export default {
+    setup() {
+      const count = ref(0)
+      const object = reactive({ foo: 'bar' })
+
+      return () => h('div', [count.value, object.foo])
     }
   }
   ```
