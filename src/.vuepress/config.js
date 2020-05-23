@@ -88,7 +88,11 @@ const sidebar = {
     {
       title: 'Reactivity-related API',
       collapsable: false,
-      children: ['/api/reactivity-api', '/api/reactivity-utilities']
+      children: [
+        '/api/reactivity-api',
+        '/api/reactivity-utilities',
+        '/api/advanced-reactivity-api'
+      ]
     },
     '/api/composition-api'
   ]
