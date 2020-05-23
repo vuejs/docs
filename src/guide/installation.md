@@ -1,6 +1,6 @@
 # Installation
 
-### Release Notes
+## Release Notes
 
 Latest beta version: 3.0.0-beta.14
 
@@ -12,7 +12,7 @@ Detailed release notes for each version are available on [GitHub](https://github
 
 When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
 
-### CDN
+## CDN
 
 For prototyping or learning purposes, you can use the latest version with:
 
