@@ -69,7 +69,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  `attrs` and `slots` are proxies to the corresponding values on the internal component instance. This ensures they always expose the latest values even after updates so that we can destructure them without worrying accessing a stale reference:
+  Unlike `props`, `context` argument can be destructured safely so `attrs` and `slots` would always expose the latest values even after updates:
 
   ```js
   const MyComponent = {
@@ -82,34 +82,46 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-- **Usage with Templates**
+  However, `attrs` and `slots` themselves cannot be destructured without losing reactivity:
 
-  If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
-
-  ```html
-  <template>
-    <div>{{ count }} {{ object.foo }}</div>
-  </template>
-
-  <script>
-    import { ref, reactive } from 'vue'
-
-    export default {
-      setup() {
-        const count = ref(0)
-        const object = reactive({ foo: 'bar' })
-
-        // expose to template
-        return {
-          count,
-          object
-        }
+  ```js
+  const MyComponent = {
+    setup(props, { attrs: { foo } }) {
+      function onClick() {
+        console.log(foo) // won't be the latest reference as we lost `attrs` reactivity with destructuring
       }
     }
-  </script>
+  }
   ```
 
-  Note that refs returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
+**Usage with Templates**
+
+If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
+
+```html
+<template>
+  <div>{{ count }} {{ object.foo }}</div>
+</template>
+
+<script>
+  import { ref, reactive } from 'vue'
+
+  export default {
+    setup() {
+      const count = ref(0)
+      const object = reactive({ foo: 'bar' })
+
+      // expose to template
+      return {
+        count,
+        object
+      }
+    }
+  }
+</script>
+```
+
+Note that refs returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
 
 - **Usage with Render Functions**
 
