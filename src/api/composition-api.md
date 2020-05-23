@@ -134,8 +134,9 @@ The `setup` function is a new component option. It serves as the entry point for
 
   ```js
   setup() {
+    const that = this
     function onClick() {
-      this // not the `this` you'd expect!
+        console.log(this !== that) // not the `this` you'd expect!
     }
   }
   ```
@@ -737,7 +738,7 @@ Here we are exposing `root` on the render context and binding it to the div as i
 
 Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
 
-- **Usage with Render Function / JSX**
+- **Usage with JSX**
 
   ```js
   export default {
