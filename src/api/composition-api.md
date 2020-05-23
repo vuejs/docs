@@ -8,7 +8,7 @@ The `setup` function is a new component option. It serves as the entry point for
 
 - **Invocation Timing**
 
-  `setup` is called right after the initial props resolution when a component instance is created. Lifecycle-wise, it is called before the `beforeCreate` hook.
+  `setup` is called right after the initial props resolution when a component instance is created. [Lifecycle-wise](/guide/instance.html#instance-lifecycle-hooks), it is called before the `beforeCreate` hook.
 
 - **Arguments**
 
@@ -25,7 +25,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  Note this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using `watchEffect` or `watch`:
+  Note that this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using `watchEffect` or `watch`:
 
   ```js
   export default {
@@ -40,7 +40,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  However, **do NOT destructure** the `props` object, as it will lose reactivity:
+  However, **do NOT destructure** the `props` object! If you do so, the unpacked values won't have reactivity:
 
   ```js
   export default {
@@ -55,9 +55,9 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  The `props` object is immutable during development (will emit warning if user code attempts to mutate it).
+  The `props` object is immutable during development. Vue will emit a warning if there's an attempt to mutate it.
 
-  The second argument provides a context object which exposes a selective list of properties that were previously exposed on `this` in 2.x APIs:
+  The second argument of `setup` provides a context object which exposes a selective list of the properties that were previously exposed on `this` in 2.x APIs:
 
   ```js
   const MyComponent = {
@@ -125,7 +125,7 @@ Note that refs returned from `setup` are automatically unwrapped when accessed i
 
 - **Usage with Render Functions**
 
-  `setup` can also return a render function, which can directly make use of the reactive state declared in the same scope:
+  `setup` can also return a render function which can directly make use of the reactive state declared in the same scope:
 
   ```js
   import { h, ref, reactive } from 'vue'
@@ -183,7 +183,7 @@ Takes an object and returns a reactive proxy of the original.
 const obj = reactive({ count: 0 })
 ```
 
-The reactive conversion is "deep": it affects all nested properties. In the [ES2015 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) based implementation, the returned proxy is **not** equal to the original object. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.
+The reactive conversion is "deep"—it affects all nested properties. In the [ES2015 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) based implementation, the returned proxy is **not** equal to the original object. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.
 
 - **Typing**
 
@@ -273,7 +273,7 @@ If an object is assigned as a ref's value, the object is made deeply reactive by
   console.log(count.value) // 1
   ```
 
-  Note that if a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
+  If a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
 
   ```js
   const otherCount = ref(2)
@@ -283,7 +283,7 @@ If an object is assigned as a ref's value, the object is made deeply reactive by
   console.log(count.value) // 1
   ```
 
-  Note that ref unwrapping only happens when nested inside a reactive `Object`. There is no unwrapping performed when the ref is accessed from an `Array` or a native collection type like `Map`:
+  Ref unwrapping only happens when nested inside a reactive `Object`. There is no unwrapping performed when the ref is accessed from an `Array` or a native collection type like `Map`:
 
   ```js
   const arr = reactive([ref(0)])
@@ -377,7 +377,7 @@ copy.count++ // warning!
 
 ### `watchEffect`
 
-Run a function immediately while reactively tracking its dependencies, and re-run it whenever the dependencies have changed.
+Runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
 
 ```js
 const count = ref(0)
@@ -393,7 +393,7 @@ setTimeout(() => {
 
 #### Stopping the Watcher
 
-When `watchEffect` is called during a component's `setup()` function or lifecycle hooks, the watcher is linked to the component's lifecycle, and will be automatically stopped when the component is unmounted.
+When `watchEffect` is called during a component's `setup()` function or lifecycle hooks, the watcher is linked to the component's lifecycle and will be automatically stopped when the component is unmounted.
 
 In other cases, it returns a stop handle which can be called to explicitly stop the watcher:
 
@@ -408,7 +408,7 @@ stop()
 
 #### Side Effect Invalidation
 
-Sometimes the watched effect function will perform async side effects that need to be cleaned up when it is invalidated (i.e state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register a invalidation callback. The invalidation callback is called when:
+Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
 
 - the effect is about to re-run
 - the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
@@ -437,7 +437,7 @@ An async function implicitly returns a Promise, but the cleanup function needs t
 
 #### Effect Flush Timing
 
-Vue's reactivity system buffers invalidated effects and flush them asynchronously to avoid unnecessary duplicate invocation when there are many state mutations happening in the same "tick". Internally, a component's update function is also a watched effect. When a user effect is queued, it is always invoked after all component update effects:
+Vue's reactivity system buffers invalidated effects and flushes them asynchronously to avoid unnecessary duplicate invocation when there are many state mutations happening in the same "tick". Internally, a component's `update` function is also a watched effect. When a user effect is queued, it is always invoked after all component `update` effects:
 
 ```html
 <template>
@@ -476,7 +476,7 @@ onMounted(() => {
 })
 ```
 
-In cases where a watcher effect needs to be re-run synchronously or before component updates, we can pass an additional options object with the `flush` option (default is `'post'`):
+In cases where a watcher effect needs to be re-run synchronously or before component updates, we can pass an additional `options` object with the `flush` option (default is `'post'`):
 
 ```js
 // fire synchronously
@@ -522,7 +522,7 @@ watchEffect(
 )
 ```
 
-`onTrack` and `onTrigger` only works in development mode.
+`onTrack` and `onTrigger` only work in development mode.
 
 - **Typing**
 
@@ -552,7 +552,7 @@ watchEffect(
 
 ### `watch`
 
-The `watch` API is the exact equivalent of the Options API [`this.$watch`](./instance-methods.html#watch) (and the corresponding `watch` option). `watch` requires watching a specific data source, and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
+The `watch` API is the exact equivalent of the Options API [`this.$watch`](./instance-methods.html#watch) (and the corresponding `watch` option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
 
 - Compared to `watchEffect`, `watch` allows us to:
 
@@ -583,7 +583,7 @@ The `watch` API is the exact equivalent of the Options API [`this.$watch`](./ins
 
 - **Watching Multiple Sources**
 
-  A watcher can also watch multiple sources at the same time using an Array:
+  A watcher can also watch multiple sources at the same time using an array:
 
   ```js
   watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
@@ -635,7 +635,7 @@ The `watch` API is the exact equivalent of the Options API [`this.$watch`](./ins
 
 ## Lifecycle Hooks
 
-Lifecycle hooks can be registered with directly imported `onXXX` functions:
+Lifecycle hooks can be registered with directly-imported `onX` functions:
 
 ```js
 import { onMounted, onUpdated, onUnmounted } from 'vue'
@@ -702,7 +702,7 @@ const Descendent = {
 
 - **Injection Reactivity**
 
-  To retain reactivity between provided and injected values, a ref can be used:
+  To retain reactivity between provided and injected values, we can use a ref:
 
   ```js
   // in provider
@@ -731,7 +731,7 @@ const Descendent = {
   function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
   ```
 
-  Vue provides a `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
+  Vue provides an `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
 
   ```ts
   import { InjectionKey, provide, inject } from 'vue'
@@ -778,7 +778,7 @@ When using the Composition API, the concept of _reactive refs_ and [template ref
 </script>
 ```
 
-Here we are exposing `root` on the render context and binding it to the div as its ref via `ref="root"`. In the Virtual DOM patching algorithm, if a VNode's `ref` key corresponds to a ref on the render context, then the VNode's corresponding element or component instance will be assigned to the value of that ref. This is performed during the Virtual DOM mount / patch process, so template refs will only get assigned values after the initial render.
+Here we are exposing `root` on the render context and binding it to the div as its ref via `ref="root"`. In the Virtual DOM patching algorithm, if a VNode's `ref` key corresponds to a ref on the render context, the VNode's corresponding element or component instance will be assigned to the value of that ref. This is performed during the Virtual DOM mount / patch process, so template refs will only get assigned values after the initial render.
 
 Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
 
@@ -851,7 +851,7 @@ function useFoo(x: number | Ref<number>) {
 
 ### `toRef`
 
-`toRef` can be used to create a ref for a property on a source reactive object. The ref can then be passed around and retains the reactive connection to its source property.
+Can be used to create a ref for a property on a source reactive object. The ref can then be passed around, retaining the reactive connection to its source property.
 
 ```js
 const state = reactive({
@@ -880,7 +880,7 @@ export default {
 
 ### `toRefs`
 
-Convert a reactive object to a plain object, where each property on the resulting object is a ref pointing to the corresponding property in the original object.
+Converts a reactive object to a plain object where each property of the resulting object is a ref pointing to the corresponding property of the original object.
 
 ```js
 const state = reactive({
@@ -906,7 +906,7 @@ stateAsRefs.foo.value++
 console.log(state.foo) // 3
 ```
 
-`toRefs` is useful when returning a reactive object from a composition function so that the consuming component can destructure / spread the returned object without losing reactivity:
+`toRefs` is useful when returning a reactive object from a composition function so that the consuming component can destructure/spread the returned object without losing reactivity:
 
 ```js
 function useFeatureX() {
@@ -936,15 +936,15 @@ export default {
 
 ### `isRef`
 
-Check if a value is a ref object.
+Checks if a value is a ref object.
 
 ### `isProxy`
 
-Check if an object is a proxy created by `reactive` or `readonly`.
+Checks if an object is a proxy created by `reactive` or `readonly`.
 
 ### `isReactive`
 
-Check if an object is a reactive proxy created by `reactive`.
+Checks if an object is a reactive proxy created by `reactive`.
 
 ```js
 import { reactive, isReactive } from 'vue'
@@ -982,13 +982,13 @@ export default {
 
 ### `isReadonly`
 
-Check if an object is a readonly proxy created by `readonly`.
+Checks if an object is a readonly proxy created by `readonly`.
 
 ## Advanced Reactivity APIs
 
 ### `customRef`
 
-Create a customized ref with explicit control over its dependency tracking and update triggering. It expects a factory function. The factory function receives `track` and `trigger` functions as arguments and should return an object with `get` and `set`.
+Creates a customized ref with explicit control over its dependency tracking and updates triggering. It expects a factory function, which receives `track` and `trigger` functions as arguments and should return an object with `get` and `set`.
 
 - Example using a custom ref to implement debounce with `v-model`:
 
@@ -1041,7 +1041,7 @@ Create a customized ref with explicit control over its dependency tracking and u
 
 ### `markRaw`
 
-Mark an object so that it will never be converted to a proxy. Returns the object itself.
+Marks an object so that it will never be converted to a proxy. Returns the object itself.
 
 ```js
 const foo = markRaw({})
@@ -1053,7 +1053,7 @@ console.log(isReactive(bar.foo)) // false
 ```
 
 ::: warning
-`markRaw` and the shallowXXX APIs below allow you to selectively opt-out of the default deep reactive / readonly conversion and embed raw, non-proxied objects in your state graph. They can be used for various reasons:
+`markRaw` and the shallowXXX APIs below allow you to selectively opt-out of the default deep reactive/readonly conversion and embed raw, non-proxied objects in your state graph. They can be used for various reasons:
 
 - Some values simply should not be made reactive, for example a complex 3rd party class instance, or a Vue component object.
 
@@ -1074,12 +1074,12 @@ const bar = reactive({
 console.log(foo.nested === bar.nested) // false
 ```
 
-Identity hazards are in general rare. But to properly utilize these APIs while safely avoiding identity hazards requires a solid understanding of how the reactivity system works.
+Identity hazards are in general rare. However, to properly utilize these APIs while safely avoiding identity hazards requires a solid understanding of how the reactivity system works.
 :::
 
 ### `shallowReactive`
 
-Create a reactive proxy that tracks reactivity of its own properties, but does not perform deep reactive conversion of nested objects.
+Creates a reactive proxy that tracks reactivity of its own properties but does not perform deep reactive conversion of nested objects (exposes raw values).
 
 ```js
 const state = shallowReactive({
@@ -1098,7 +1098,7 @@ state.nested.bar++ // non-reactive
 
 ### `shallowReadonly`
 
-Create a proxy that makes its own properties readonly, but does not perform deep readonly conversion of nested objects (exposes raw values).
+Creates a proxy that makes its own properties readonly, but does not perform deep readonly conversion of nested objects (exposes raw values).
 
 ```js
 const state = shallowReadonly({
@@ -1117,7 +1117,7 @@ state.nested.bar++ // works
 
 ### `shallowRef`
 
-Create a ref that tracks its own `.value` mutation but doesn't make its value reactive.
+Creates a ref that tracks its own `.value` mutation but doesn't make its value reactive.
 
 ```js
 const foo = shallowRef({})
@@ -1129,7 +1129,7 @@ isReactive(foo.value) // false
 
 ### `toRaw`
 
-Return the raw, original object of a `reactive` or `readonly` proxy. This is an escape hatch that can be used to temporarily read without incurring proxy access / tracking overhead or write without triggering changes. It is **not** recommended to hold a persistent reference to the original object. Use with caution.
+Returns the raw, original object of a `reactive` or `readonly` proxy. This is an escape hatch that can be used to temporarily read without incurring proxy access/tracking overhead or write without triggering changes. It is **not** recommended to hold a persistent reference to the original object. Use with caution.
 
 ```js
 const foo = {}
