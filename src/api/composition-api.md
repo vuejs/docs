@@ -142,7 +142,7 @@ Note that refs returned from `setup` are automatically unwrapped when accessed i
 
 - **Usage of `this`**
 
-  **`this` is not available inside `setup()`.** Since `setup()` is called before other component options are resolved, `this` inside `setup()` (if made available) will behave quite differently from `this` in other options. Making it available will likely cause confusions when using `setup()` along other 2.x options. Another reason for avoiding `this` in `setup()` is a very common pitfall for beginners:
+  **Inside `setup()`, `this` won't be a reference to Vue instance** Since `setup()` is called before other component options are resolved, `this` inside `setup()` will behave quite differently from `this` in other options. This might cause confusions when using `setup()` along other Options API. Another reason for avoiding `this` in `setup()` is a very common pitfall for beginners:
 
   ```js
   setup() {
