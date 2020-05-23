@@ -6,95 +6,95 @@
 
 The `setup` function is a new component option. It serves as the entry point for using the Composition API inside components.
 
-- **Invocation Timing**
+### Invocation Timing
 
-  `setup` is called right after the initial props resolution when a component instance is created. [Lifecycle-wise](/guide/instance.html#instance-lifecycle-hooks), it is called before the `beforeCreate` hook.
+`setup` is called right after the initial props resolution when a component instance is created. [Lifecycle-wise](../guide/instance.html#instance-lifecycle-hooks), it is called before the `beforeCreate` hook.
 
-- **Arguments**
+### Arguments
 
-  The function receives the resolved props as its first argument:
+The function receives the resolved props as its first argument:
 
-  ```js
-  export default {
-    props: {
-      name: String
-    },
-    setup(props) {
-      console.log(props.name)
+```js
+export default {
+  props: {
+    name: String
+  },
+  setup(props) {
+    console.log(props.name)
+  }
+}
+```
+
+Note that this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using `watchEffect` or `watch`:
+
+```js
+export default {
+  props: {
+    name: String
+  },
+  setup(props) {
+    watchEffect(() => {
+      console.log(`name is: ` + props.name)
+    })
+  }
+}
+```
+
+However, **do NOT destructure** the `props` object! If you do so, the unpacked values won't have reactivity:
+
+```js
+export default {
+  props: {
+    name: String
+  },
+  setup({ name }) {
+    watchEffect(() => {
+      console.log(`name is: ` + name) // Will not be reactive!
+    })
+  }
+}
+```
+
+The `props` object is immutable during development. Vue will emit a warning if there's an attempt to mutate it.
+
+The second argument of `setup` provides a context object which exposes a selective list of the properties that were previously exposed on `this` in 2.x APIs:
+
+```js
+const MyComponent = {
+  setup(props, context) {
+    context.attrs
+    context.slots
+    context.emit
+  }
+}
+```
+
+Unlike `props`, `context` argument can be destructured safely so `attrs` and `slots` would always expose the latest values even after updates:
+
+```js
+const MyComponent = {
+  setup(props, { attrs }) {
+    // a function that may get called at a later stage
+    function onClick() {
+      console.log(attrs.foo) // guaranteed to be the latest reference
     }
   }
-  ```
+}
+```
 
-  Note that this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using `watchEffect` or `watch`:
+However, `attrs` and `slots` themselves cannot be destructured without losing reactivity:
 
-  ```js
-  export default {
-    props: {
-      name: String
-    },
-    setup(props) {
-      watchEffect(() => {
-        console.log(`name is: ` + props.name)
-      })
+```js
+const MyComponent = {
+  setup(props, { attrs: { foo } }) {
+    function onClick() {
+      console.log(foo) // won't be the latest reference as we lost `attrs` reactivity with destructuring
     }
   }
-  ```
+}
+```
 
-  However, **do NOT destructure** the `props` object! If you do so, the unpacked values won't have reactivity:
-
-  ```js
-  export default {
-    props: {
-      name: String
-    },
-    setup({ name }) {
-      watchEffect(() => {
-        console.log(`name is: ` + name) // Will not be reactive!
-      })
-    }
-  }
-  ```
-
-  The `props` object is immutable during development. Vue will emit a warning if there's an attempt to mutate it.
-
-  The second argument of `setup` provides a context object which exposes a selective list of the properties that were previously exposed on `this` in 2.x APIs:
-
-  ```js
-  const MyComponent = {
-    setup(props, context) {
-      context.attrs
-      context.slots
-      context.emit
-    }
-  }
-  ```
-
-  Unlike `props`, `context` argument can be destructured safely so `attrs` and `slots` would always expose the latest values even after updates:
-
-  ```js
-  const MyComponent = {
-    setup(props, { attrs }) {
-      // a function that may get called at a later stage
-      function onClick() {
-        console.log(attrs.foo) // guaranteed to be the latest reference
-      }
-    }
-  }
-  ```
-
-  However, `attrs` and `slots` themselves cannot be destructured without losing reactivity:
-
-  ```js
-  const MyComponent = {
-    setup(props, { attrs: { foo } }) {
-      function onClick() {
-        console.log(foo) // won't be the latest reference as we lost `attrs` reactivity with destructuring
-      }
-    }
-  }
-  ```
-
-**Usage with Templates**
+### Usage with Templates
 
 If `setup` returns an object, the properties on the object will be merged into the render context of the component's template:
 
@@ -123,55 +123,55 @@ If `setup` returns an object, the properties on the object will be merged into t
 
 Note that refs returned from `setup` are automatically unwrapped when accessed in the template so you shouldn't use `.value` in templates.
 
-- **Usage with Render Functions**
+### Usage with Render Functions
 
-  `setup` can also return a render function which can directly make use of the reactive state declared in the same scope:
+`setup` can also return a render function which can directly make use of the reactive state declared in the same scope:
 
-  ```js
-  import { h, ref, reactive } from 'vue'
+```js
+import { h, ref, reactive } from 'vue'
 
-  export default {
-    setup() {
-      const count = ref(0)
-      const object = reactive({ foo: 'bar' })
-
-      return () => h('div', [count.value, object.foo])
-    }
-  }
-  ```
-
-- **Usage of `this`**
-
-  **Inside `setup()`, `this` won't be a reference to Vue instance** Since `setup()` is called before other component options are resolved, `this` inside `setup()` will behave quite differently from `this` in other options. This might cause confusions when using `setup()` along other Options API. Another reason for avoiding `this` in `setup()` is a very common pitfall for beginners:
-
-  ```js
+export default {
   setup() {
-    const that = this
-    function onClick() {
-        console.log(this !== that) // not the `this` you'd expect!
-    }
+    const count = ref(0)
+    const object = reactive({ foo: 'bar' })
+
+    return () => h('div', [count.value, object.foo])
   }
-  ```
+}
+```
 
-- **Typing**
+### Usage of `this`
 
-  ```ts
-  interface Data {
-    [key: string]: unknown
+**Inside `setup()`, `this` won't be a reference to Vue instance** Since `setup()` is called before other component options are resolved, `this` inside `setup()` will behave quite differently from `this` in other options. This might cause confusions when using `setup()` along other Options API. Another reason for avoiding `this` in `setup()` is a very common pitfall for beginners:
+
+```js
+setup() {
+  const that = this
+  function onClick() {
+      console.log(this !== that) // not the `this` you'd expect!
   }
+}
+```
 
-  interface SetupContext {
-    attrs: Data
-    slots: Slots
-    emit: (event: string, ...args: unknown[]) => void
-  }
+### Typing
 
-  function setup(props: Data, context: SetupContext): Data
-  ```
+```ts
+interface Data {
+  [key: string]: unknown
+}
 
-  ::: tip
-  To get type inference for the arguments passed to `setup()`, the use of [`defineComponent`](TODO) is needed.
-  :::
+interface SetupContext {
+  attrs: Data
+  slots: Slots
+  emit: (event: string, ...args: unknown[]) => void
+}
+
+function setup(props: Data, context: SetupContext): Data
+```
+
+::: tip
+To get type inference for the arguments passed to `setup()`, the use of [`defineComponent`](TODO) is needed.
+:::
 
 ## Lifecycle Hooks
 
@@ -240,54 +240,54 @@ const Descendent = {
 
 `inject` accepts an optional default value as the 2nd argument. If a default value is not provided and the property is not found on the provide context, `inject` returns `undefined`.
 
-- **Injection Reactivity**
+### Injection Reactivity
 
-  To retain reactivity between provided and injected values, we can use a ref:
+To retain reactivity between provided and injected values, we can use a ref:
 
-  ```js
-  // in provider
-  const themeRef = ref('dark')
-  provide(ThemeSymbol, themeRef)
+```js
+// in provider
+const themeRef = ref('dark')
+provide(ThemeSymbol, themeRef)
 
-  // in consumer
-  const theme = inject(ThemeSymbol, ref('light'))
-  watchEffect(() => {
-    console.log(`theme set to: ${theme.value}`)
-  })
-  ```
+// in consumer
+const theme = inject(ThemeSymbol, ref('light'))
+watchEffect(() => {
+  console.log(`theme set to: ${theme.value}`)
+})
+```
 
-  If a reactive object is injected, it can also be reactively observed.
+If a reactive object is injected, it can also be reactively observed.
 
-- **Typing**
+### Typing
 
-  ```ts
-  interface InjectionKey<T> extends Symbol {}
+```ts
+interface InjectionKey<T> extends Symbol {}
 
-  function provide<T>(key: InjectionKey<T> | string, value: T): void
+function provide<T>(key: InjectionKey<T> | string, value: T): void
 
-  // without default value
-  function inject<T>(key: InjectionKey<T> | string): T | undefined
-  // with default value
-  function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
-  ```
+// without default value
+function inject<T>(key: InjectionKey<T> | string): T | undefined
+// with default value
+function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
+```
 
-  Vue provides an `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
+Vue provides an `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
 
-  ```ts
-  import { InjectionKey, provide, inject } from 'vue'
+```ts
+import { InjectionKey, provide, inject } from 'vue'
 
-  const key: InjectionKey<string> = Symbol()
+const key: InjectionKey<string> = Symbol()
 
-  provide(key, 'foo') // providing non-string value will result in error
+provide(key, 'foo') // providing non-string value will result in error
 
-  const foo = inject(key) // type of foo: string | undefined
-  ```
+const foo = inject(key) // type of foo: string | undefined
+```
 
-  If using string keys or non-typed symbols, the type of the injected value will need to be explicitly declared:
+If using string keys or non-typed symbols, the type of the injected value will need to be explicitly declared:
 
-  ```ts
-  const foo = inject<string>('foo') // string | undefined
-  ```
+```ts
+const foo = inject<string>('foo') // string | undefined
+```
 
 ## Template Refs
 
@@ -326,203 +326,56 @@ Refs used as templates refs behave just like any other refs: they are reactive a
 Please note that `ref` will behave differently when used with `v-bind` directive. `ref="root"` would be equivalent to `:ref="el => root = el"`
 :::
 
-- **Usage with JSX**
+### Usage with JSX
 
-  ```js
+```js
+export default {
+  setup() {
+    const root = ref(null)
+
+    return () =>
+      h('div', {
+        ref: root
+      })
+
+    // with JSX
+    return () => <div ref={root} />
+  }
+}
+```
+
+### Usage inside `v-for`
+
+Composition API template refs do not have special handling when used inside `v-for`. Instead, use function refs to perform custom handling:
+
+```html
+<template>
+  <div v-for="(item, i) in list" :ref="el => { divs[i] = el }">
+    {{ item }}
+  </div>
+</template>
+
+<script>
+  import { ref, reactive, onBeforeUpdate } from 'vue'
+
   export default {
     setup() {
-      const root = ref(null)
+      const list = reactive([1, 2, 3])
+      const divs = ref([])
 
-      return () =>
-        h('div', {
-          ref: root
-        })
+      // make sure to reset the refs before each update
+      onBeforeUpdate(() => {
+        divs.value = []
+      })
 
-      // with JSX
-      return () => <div ref={root} />
-    }
-  }
-  ```
-
-- **Usage inside `v-for`**
-
-  Composition API template refs do not have special handling when used inside `v-for`. Instead, use function refs to perform custom handling:
-
-  ```html
-  <template>
-    <div v-for="(item, i) in list" :ref="el => { divs[i] = el }">
-      {{ item }}
-    </div>
-  </template>
-
-  <script>
-    import { ref, reactive, onBeforeUpdate } from 'vue'
-
-    export default {
-      setup() {
-        const list = reactive([1, 2, 3])
-        const divs = ref([])
-
-        // make sure to reset the refs before each update
-        onBeforeUpdate(() => {
-          divs.value = []
-        })
-
-        return {
-          list,
-          divs
-        }
+      return {
+        list,
+        divs
       }
     }
-  </script>
-  ```
-
-## Reactivity Utilities
-
-### `unref`
-
-Returns the inner value if the argument is a ref, otherwise return the argument itself. This is a sugar function for `val = isRef(val) ? val.value : val`.
-
-```js
-function useFoo(x: number | Ref<number>) {
-  const unwrapped = unref(x) // unwrapped is guaranteed to be number now
-}
-```
-
-### `toRef`
-
-Can be used to create a ref for a property on a source reactive object. The ref can then be passed around, retaining the reactive connection to its source property.
-
-```js
-const state = reactive({
-  foo: 1,
-  bar: 2
-})
-
-const fooRef = toRef(state, 'foo')
-
-fooRef.value++
-console.log(state.foo) // 2
-
-state.foo++
-console.log(fooRef.value) // 3
-```
-
-`toRef` is useful when you want to pass the ref of a prop to a composition function:
-
-```js
-export default {
-  setup(props) {
-    useSomeFeature(toRef(props, 'foo'))
   }
-}
+</script>
 ```
-
-### `toRefs`
-
-Converts a reactive object to a plain object where each property of the resulting object is a ref pointing to the corresponding property of the original object.
-
-```js
-const state = reactive({
-  foo: 1,
-  bar: 2
-})
-
-const stateAsRefs = toRefs(state)
-/*
-Type of stateAsRefs:
-
-{
-  foo: Ref<number>,
-  bar: Ref<number>
-}
-*/
-
-// The ref and the original property is "linked"
-state.foo++
-console.log(stateAsRefs.foo) // 2
-
-stateAsRefs.foo.value++
-console.log(state.foo) // 3
-```
-
-`toRefs` is useful when returning a reactive object from a composition function so that the consuming component can destructure/spread the returned object without losing reactivity:
-
-```js
-function useFeatureX() {
-  const state = reactive({
-    foo: 1,
-    bar: 2
-  })
-
-  // logic operating on state
-
-  // convert to refs when returning
-  return toRefs(state)
-}
-
-export default {
-  setup() {
-    // can destructure without losing reactivity
-    const { foo, bar } = useFeatureX()
-
-    return {
-      foo,
-      bar
-    }
-  }
-}
-```
-
-### `isRef`
-
-Checks if a value is a ref object.
-
-### `isProxy`
-
-Checks if an object is a proxy created by `reactive` or `readonly`.
-
-### `isReactive`
-
-Checks if an object is a reactive proxy created by `reactive`.
-
-```js
-import { reactive, isReactive } from 'vue'
-export default {
-  setup() {
-    const state = reactive({
-      name: 'John'
-    })
-    console.log(isReactive(state)) // -> true
-  }
-}
-```
-
-It also returns `true` if the proxy is created by `readonly`, but is wrapping another proxy created by `reactive`.
-
-```js{7-15}
-import { reactive, isReactive, readonly } from 'vue'
-export default {
-  setup() {
-    const state = reactive({
-      name: 'John'
-    })
-    // readonly proxy created from plain object
-    const plain = readonly({
-      name: 'Mary'
-    })
-    console.log(isReactive(plain)) // -> false
-
-    // readonly proxy created from reactive proxy
-    const stateCopy = readonly(state)
-    console.log(isReactive(stateCopy)) // -> true
-  }
-}
-```
-
-### `isReadonly`
-
-Checks if an object is a readonly proxy created by `readonly`.
 
 ## Advanced Reactivity APIs
 
