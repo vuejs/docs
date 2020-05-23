@@ -96,7 +96,7 @@ The `setup` function is a new component option. It serves as the entry point for
 
 **Usage with Templates**
 
-If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
+If `setup` returns an object, the properties on the object will be merged into the render context of the component's template:
 
 ```html
 <template>
