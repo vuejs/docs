@@ -211,21 +211,53 @@ If an object is assigned as a ref's value, the object is made deeply reactive by
 
   ```html
   <template>
-    <div>{{ count }}</div>
+    <div>
+      <span>{{ count }}</span>
+      <button @click="count ++">Increment count</button>
+    </div>
   </template>
 
   <script>
+    import { ref } from 'vue'
     export default {
       setup() {
+        const count = ref(0)
         return {
-          count: ref(0)
+          count
         }
       }
     }
   </script>
   ```
 
-- **Access in Reactive Objects**
+  However, if we decide to change the inline event handler on button click to the component method declared in `setup`, we need to remember that `ref` is not unwrapped there:
+
+  ```html
+  <template>
+    <div>
+      <span>{{ count }}</span>
+      <button @click="increment">Increment count</button>
+    </div>
+  </template>
+
+  <script>
+    import { ref } from 'vue'
+    export default {
+      setup() {
+        const count = ref(0)
+        function increment() {
+          count.value++ // ref is not unwrapped outside the template, so we need to use .value here
+        }
+        return {
+          count,
+          increment
+        }
+      }
+    }
+  </script>
+  ```
+
+* **Access in Reactive Objects**
 
   When a ref is accessed or mutated as a property of a reactive object, it automatically unwraps to the inner value so it behaves like a normal property:
 
@@ -263,7 +295,7 @@ If an object is assigned as a ref's value, the object is made deeply reactive by
   console.log(map.get('foo').value)
   ```
 
-- **Typing**
+* **Typing**
 
   ```ts
   interface Ref<T> {
