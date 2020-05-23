@@ -43,15 +43,15 @@ When a ref is returned as a property on the render context (the object returned 
 </template>
 
 <script>
-  import { ref } from 'vue'
-  export default {
-    setup() {
-      const count = ref(0)
-      return {
-        count
-      }
+import { ref } from 'vue'
+export default {
+  setup() {
+    const count = ref(0)
+    return {
+      count
     }
   }
+}
 </script>
 ```
 
@@ -66,19 +66,19 @@ However, if we decide to change the inline event handler on button click to the 
 </template>
 
 <script>
-  import { ref } from 'vue'
-  export default {
-    setup() {
-      const count = ref(0)
-      function increment() {
-        count.value++ // ref is not unwrapped outside the template
-      }
-      return {
-        count,
-        increment
-      }
+import { ref } from 'vue'
+export default {
+  setup() {
+    const count = ref(0)
+    function increment() {
+      count.value++ // ref is not unwrapped outside the template
+    }
+    return {
+      count,
+      increment
     }
   }
+}
 </script>
 ```
 
@@ -267,19 +267,19 @@ Vue's reactivity system buffers invalidated effects and flushes them asynchronou
 </template>
 
 <script>
-  export default {
-    setup() {
-      const count = ref(0)
+export default {
+  setup() {
+    const count = ref(0)
 
-      watchEffect(() => {
-        console.log(count.value)
-      })
+    watchEffect(() => {
+      console.log(count.value)
+    })
 
-      return {
-        count
-      }
+    return {
+      count
     }
   }
+}
 </script>
 ```
 

@@ -1,5 +1,7 @@
 # Advanced Reactivity APIs
 
+> This section uses [single-file component](TODO: SFC) syntax for code examples
+
 ## `customRef`
 
 Creates a customized ref with explicit control over its dependency tracking and updates triggering. It expects a factory function, which receives `track` and `trigger` functions as arguments and should return an object with `get` and `set`.
@@ -39,19 +41,19 @@ Creates a customized ref with explicit control over its dependency tracking and 
   }
   ```
 
-- **Typing**
+### Typing
 
-  ```ts
-  function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
+```ts
+function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
 
-  type CustomRefFactory<T> = (
-    track: () => void,
-    trigger: () => void
-  ) => {
-    get: () => T
-    set: (value: T) => void
-  }
-  ```
+type CustomRefFactory<T> = (
+  track: () => void,
+  trigger: () => void
+) => {
+  get: () => T
+  set: (value: T) => void
+}
+```
 
 ## `markRaw`
 
