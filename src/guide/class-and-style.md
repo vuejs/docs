@@ -4,8 +4,6 @@ A common need for data binding is manipulating an element's class list and its i
 
 ## Binding HTML Classes
 
-[Watch a free video lesson on Vue School](https://vueschool.io/lessons/vuejs-dynamic-classes?friend=vuejs)
-
 ### Object Syntax
 
 We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:

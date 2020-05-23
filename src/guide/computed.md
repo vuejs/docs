@@ -2,8 +2,6 @@
 
 ## Computed Properties
 
-[Learn how computed properties work with a free lesson on Vue School](https://vueschool.io/lessons/vuejs-computed-properties?friend=vuejs)
-
 In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example:
 
 ```html
@@ -190,7 +188,7 @@ Result:
 
 In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API) and sets a condition for performing this operation. None of that would be possible with a computed property.
 
-In addition to the `watch` option, you can also use the imperative [vm.$watch API](../api/instance-methods.html#watch).
+In addition to the `watch` option, you can also use the imperative [vm.\$watch API](../api/instance-methods.html#watch).
 
 ### Computed vs Watched Property
 
