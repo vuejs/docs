@@ -121,11 +121,11 @@ If `setup` returns an object, the properties on the object will be merged into t
 </script>
 ```
 
-Note that refs returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
+Note that refs returned from `setup` are automatically unwrapped when accessed in the template so you shouldn't use `.value` in templates.
 
 - **Usage with Render Functions**
 
-  `setup` can also return a render function, which can directly make use of reactive state declared in the same scope:
+  `setup` can also return a render function, which can directly make use of the reactive state declared in the same scope:
 
   ```js
   import { h, ref, reactive } from 'vue'
