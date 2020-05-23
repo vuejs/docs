@@ -85,6 +85,11 @@ const sidebar = {
     '/api/instance-methods',
     '/api/directives',
     '/api/special-attributes',
+    {
+      title: 'Reactivity-related API',
+      collapsable: false,
+      children: ['/api/reactivity-api', '/api/reactivity-utilities']
+    },
     '/api/composition-api'
   ]
 }
