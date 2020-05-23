@@ -782,6 +782,10 @@ Here we are exposing `root` on the render context and binding it to the div as i
 
 Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
 
+:::warning
+Please note that `ref` will behave differently when used with `v-bind` directive. `ref="root"` would be equivalent to `:ref="el => root = el"`
+:::
+
 - **Usage with JSX**
 
   ```js
@@ -942,7 +946,39 @@ Check if an object is a proxy created by `reactive` or `readonly`.
 
 Check if an object is a reactive proxy created by `reactive`.
 
+```js
+import { reactive, isReactive } from 'vue'
+export default {
+  setup() {
+    const state = reactive({
+      name: 'John'
+    })
+    console.log(isReactive(state)) // -> true
+  }
+}
+```
+
 It also returns `true` if the proxy is created by `readonly`, but is wrapping another proxy created by `reactive`.
+
+```js{7-15}
+import { reactive, isReactive, readonly } from 'vue'
+export default {
+  setup() {
+    const state = reactive({
+      name: 'John'
+    })
+    // readonly proxy created from plain object
+    const plain = readonly({
+      name: 'Mary'
+    })
+    console.log(isReactive(plain)) // -> false
+
+    // readonly proxy created from reactive proxy
+    const stateCopy = readonly(state)
+    console.log(isReactive(stateCopy)) // -> true
+  }
+}
+```
 
 ### `isReadonly`
 
