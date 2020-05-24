@@ -86,12 +86,12 @@ const sidebar = {
     '/api/directives',
     '/api/special-attributes',
     {
-      title: 'Reactivity-related API',
+      title: 'Reactivity API',
       collapsable: false,
       children: [
-        '/api/reactivity-api',
-        '/api/reactivity-utilities',
-        '/api/advanced-reactivity-api'
+        '/api/proxy-api',
+        '/api/refs-api',
+        '/api/computed-watch-api'
       ]
     },
     '/api/composition-api'
