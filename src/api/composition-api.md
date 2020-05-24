@@ -12,7 +12,7 @@ The `setup` function is a new component option. It serves as the entry point for
 
 ### Arguments
 
-The function receives the resolved props as its first argument:
+The function receives the resolved [props](../guide/component-props.html) as its first argument:
 
 ```js
 export default {
@@ -25,7 +25,7 @@ export default {
 }
 ```
 
-Note that this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using `watchEffect` or `watch`:
+Note that this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using [watchEffect](./computed-watch-api.html#watcheffect) or [watch](./computed-watch-api.html#watch):
 
 ```js
 export default {
@@ -69,7 +69,7 @@ const MyComponent = {
 }
 ```
 
-Unlike `props`, `context` argument can be destructured safely so `attrs` and `slots` would always expose the latest values even after updates:
+Unlike `props`, `context` argument can be destructured safely so [attrs](./instance-properties.html#attrs) and [slots](./instance-properties.html#slots) would always expose the latest values even after updates:
 
 ```js
 const MyComponent = {
@@ -121,7 +121,7 @@ export default {
 </script>
 ```
 
-Note that refs returned from `setup` are automatically unwrapped when accessed in the template so you shouldn't use `.value` in templates.
+Note that [refs](./refs-api.html#ref) returned from `setup` are automatically unwrapped when accessed in the template so you shouldn't use `.value` in templates.
 
 ### Usage with Render Functions
 
@@ -195,7 +195,7 @@ const MyComponent = {
 }
 ```
 
-These lifecycle hook registration functions can only be used synchronously during `setup()`, since they rely on internal global state to locate the current active instance (the component instance whose `setup()` is being called right now). Calling them without a current active instance will result in an error.
+These lifecycle hook registration functions can only be used synchronously during [`setup()`](#setup), since they rely on internal global state to locate the current active instance (the component instance whose `setup()` is being called right now). Calling them without a current active instance will result in an error.
 
 The component instance context is also set during the synchronous execution of lifecycle hooks, so watchers and computed properties created inside synchronously inside lifecycle hooks are also automatically tore down when the component unmounts.
 
@@ -215,7 +215,7 @@ The component instance context is also set during the synchronous execution of l
 
 ## Dependency Injection
 
-`provide` and `inject` enables dependency injection. Both can only be called during `setup()` with a current active instance.
+`provide` and `inject` enables dependency injection. Both can only be called during [`setup()`](#setup) with a current active instance.
 
 ```js
 import { provide, inject } from 'vue'
@@ -242,7 +242,7 @@ const Descendent = {
 
 ### Injection Reactivity
 
-To retain reactivity between provided and injected values, we can use a ref:
+To retain reactivity between provided and injected values, we can use a [ref](./refs-api.html#ref):
 
 ```js
 // in provider
@@ -291,7 +291,7 @@ const foo = inject<string>('foo') // string | undefined
 
 ## Template Refs
 
-When using the Composition API, the concept of _reactive refs_ and [template refs](TODO) are unified. In order to obtain a reference to an in-template element or component instance, we can declare a ref as usual and return it from `setup()`:
+When using the Composition API, the concept of [reactive refs](./refs-api.html#ref) and [template refs](TODO) are unified. In order to obtain a reference to an in-template element or component instance, we can declare a ref as usual and return it from `setup()`:
 
 ```html
 <template>
