@@ -1,4 +1,4 @@
-# Proxy-related APIs
+# Basic Reactivity APIs
 
 > This section uses [single-file component](TODO: SFC) syntax for code examples
 

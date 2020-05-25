@@ -89,7 +89,7 @@ const sidebar = {
       title: 'Reactivity API',
       collapsable: false,
       children: [
-        '/api/proxy-api',
+        '/api/basic-reactivity',
         '/api/refs-api',
         '/api/computed-watch-api'
       ]
