@@ -55,6 +55,11 @@ const sidebar = {
       children: ['/guide/routing', '/guide/state-management', '/guide/ssr', '/guide/accessibility']
     },
     {
+      title: 'Meta',
+      collapsable: true,
+      children: ['/guide/comparison']
+    },
+    {
       title: 'Migration to Vue 3',
       collapsable: true,
       children: ['migration']
