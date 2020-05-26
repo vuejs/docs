@@ -121,7 +121,7 @@ export default {
 </script>
 ```
 
-Note that [refs](./refs-api.html#ref) returned from `setup` are [automatically unwrapped](./refs-api.html#access-in-templates) when accessed in the template so you shouldn't use `.value` in templates.
+Note that [refs](./refs-api.html#ref) returned from `setup` are [automatically unwrapped](./refs-api.html#access-in-templates ) when accessed in the template so you shouldn't use `.value` in templates.
 
 ### Usage with Render Functions
 

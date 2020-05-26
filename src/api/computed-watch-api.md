@@ -93,8 +93,9 @@ We are registering the invalidation callback via a passed-in function instead of
 
 ```js
 const data = ref(null)
-watchEffect(async () => {
+watchEffect(async onInvalidate => {
   data.value = await fetchData(props.id)
+  onInvalidate(() => {...})
 })
 ```
 
