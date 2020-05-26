@@ -80,7 +80,7 @@ Lastly, the styling in Vue's single-file components is very flexible. Through [v
 
 ### React Hooks vs. Vue Composition API
 
-The new [Composition API](/guide/composition-api-introduction.html) introduced in Vue 3 is inspired by [React Hooks](https://reactjs.org/docs/hooks-intro.html) and provides the same level of logic composition capabilities, but with some important differences. Unlike React Hooks, the `setup()` in Vue Composition API function is called only once. This means code using Vue's Composition API is:
+The new [Composition API](/guide/composition-api-introduction.html) introduced in Vue 3 is inspired by [React Hooks](https://reactjs.org/docs/hooks-intro.html) and provides the same level of logic composition capabilities, but with some important differences. Unlike React Hooks, the `setup()` function in Vue Composition API is called only once. This means code using Vue's Composition API is:
 
 * In general more aligned with the intuitions of idiomatic JavaScript code;
 * Not sensitive to call order and can be conditional;
