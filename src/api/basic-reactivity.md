@@ -15,7 +15,7 @@ The reactive conversion is "deep"—it affects all nested properties. In the [ES
 ### Typing
 
 ```ts
-function reactive<T extends object>(raw: T): T
+function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
 ```
 
 ## `readonly`
