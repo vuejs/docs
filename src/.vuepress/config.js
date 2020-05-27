@@ -66,6 +66,16 @@ const sidebar = {
       ]
     },
     {
+      title: 'Accessibility',
+      collapsable: false,
+      children: [
+        '/guide/a11y-basics',
+        '/guide/a11y-semantics',
+        '/guide/a11y-standards',
+        '/guide/a11y-resources',
+      ]
+    },
+    {
       title: 'Migration to Vue 3',
       collapsable: true,
       children: ['migration']
