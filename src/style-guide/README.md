@@ -44,7 +44,7 @@ This [prevents conflicts](http://w3c.github.io/webcomponents/spec/custom/#valid-
 <h4>Bad</h4>
 
 ``` js
-Vue.component('todo', {
+app.component('todo', {
   // ...
 })
 ```
@@ -61,7 +61,7 @@ export default {
 <h4>Good</h4>
 
 ``` js
-Vue.component('todo-item', {
+app.component('todo-item', {
   // ...
 })
 ```
@@ -111,13 +111,14 @@ props: {
   status: {
     type: String,
     required: true,
-    validator: function (value) {
+
+    validator: value => {
       return [
         'syncing',
         'synced',
         'version-conflict',
         'error'
-      ].indexOf(value) !== -1
+      ].includes(value)
     }
   }
 }
@@ -134,7 +135,7 @@ props: {
 Let's say you have a list of todos:
 
 ``` js
-data: function () {
+data() {
   return {
     todos: [
       {
@@ -212,7 +213,7 @@ When Vue processes directives, `v-for` has a higher priority than `v-if`, so tha
 Will be evaluated similar to:
 
 ``` js
-this.users.map(function (user) {
+this.users.map(user => {
   if (user.isActive) {
     return user.name
   }
@@ -225,10 +226,8 @@ By iterating over a computed property instead, like this:
 
 ``` js
 computed: {
-  activeUsers: function () {
-    return this.users.filter(function (user) {
-      return user.isActive
-    })
+  activeUsers() {
+    return this.users.filter(user => user.isActive)
   }
 }
 ```
@@ -355,7 +354,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 
 ``` html
 <template>
-  <button class="btn btn-close">X</button>
+  <button class="btn btn-close">×</button>
 </template>
 
 <style>
@@ -371,7 +370,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 
 ``` html
 <template>
-  <button class="button button-close">X</button>
+  <button class="button button-close">×</button>
 </template>
 
 <!-- Using the `scoped` attribute -->
@@ -389,7 +388,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 
 ``` html
 <template>
-  <button :class="[$style.button, $style.buttonClose]">X</button>
+  <button :class="[$style.button, $style.buttonClose]">×</button>
 </template>
 
 <!-- Using CSS modules -->
@@ -407,7 +406,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 
 ``` html
 <template>
-  <button class="c-Button c-Button--close">X</button>
+  <button class="c-Button c-Button--close">×</button>
 </template>
 
 <!-- Using the BEM convention -->
@@ -440,10 +439,10 @@ Instead, we recommend combining the two prefixes into `$_`, as a convention for 
 <h4>Bad</h4>
 
 ``` js
-var myGreatMixin = {
+const myGreatMixin = {
   // ...
   methods: {
-    update: function () {
+    update() {
       // ...
     }
   }
@@ -451,10 +450,10 @@ var myGreatMixin = {
 ```
 
 ``` js
-var myGreatMixin = {
+const myGreatMixin = {
   // ...
   methods: {
-    _update: function () {
+    _update() {
       // ...
     }
   }
@@ -462,10 +461,10 @@ var myGreatMixin = {
 ```
 
 ``` js
-var myGreatMixin = {
+const myGreatMixin = {
   // ...
   methods: {
-    $update: function () {
+    $update() {
       // ...
     }
   }
@@ -473,10 +472,10 @@ var myGreatMixin = {
 ```
 
 ``` js
-var myGreatMixin = {
+const myGreatMixin = {
   // ...
   methods: {
-    $_update: function () {
+    $_update() {
       // ...
     }
   }
@@ -489,10 +488,10 @@ var myGreatMixin = {
 <h4>Good</h4>
 
 ``` js
-var myGreatMixin = {
+const myGreatMixin = {
   // ...
   methods: {
-    $_myGreatMixin_update: function () {
+    $_myGreatMixin_update() {
       // ...
     }
   }
@@ -501,7 +500,7 @@ var myGreatMixin = {
 
 ``` js
 // Even better!
-var myGreatMixin = {
+const myGreatMixin = {
   // ...
   methods: {
     publicMethod() {
@@ -531,11 +530,11 @@ This helps you to more quickly find a component when you need to edit it or revi
 <h4>Bad</h4>
 
 ``` js
-Vue.component('TodoList', {
+app.component('TodoList', {
   // ...
 })
 
-Vue.component('TodoItem', {
+app.component('TodoItem', {
   // ...
 })
 ```
@@ -615,16 +614,16 @@ Some advantages of this convention:
 - Since these components are so frequently used, you may want to simply make them global instead of importing them everywhere. A prefix makes this possible with Webpack:
 
   ``` js
-  var requireComponent = require.context("./src", true, /Base[A-Z]\w+\.(vue|js)$/)
+  const requireComponent = require.context("./src", true, /Base[A-Z]\w+\.(vue|js)$/)
   requireComponent.keys().forEach(function (fileName) {
-    var baseComponentConfig = requireComponent(fileName)
+    let baseComponentConfig = requireComponent(fileName)
     baseComponentConfig = baseComponentConfig.default || baseComponentConfig
-    var baseComponentName = baseComponentConfig.name || (
+    const baseComponentName = baseComponentConfig.name || (
       fileName
         .replace(/^.+\//, '')
         .replace(/\.\w+$/, '')
     )
-    Vue.component(baseComponentName, baseComponentConfig)
+    app.component(baseComponentName, baseComponentConfig)
   })
   ```
 :::
@@ -930,12 +929,12 @@ OR
 
 ### Component name casing in JS/JSX <sup data-p="b">strongly recommended</sup>
 
-**Component names in JS/[JSX](../guide/render-function.html#JSX) should always be PascalCase, though they may be kebab-case inside strings for simpler applications that only use global component registration through `Vue.component`.**
+**Component names in JS/[JSX](../guide/render-function.html#JSX) should always be PascalCase, though they may be kebab-case inside strings for simpler applications that only use global component registration through `app.component`.**
 
 ::: details Detailed Explanation
 In JavaScript, PascalCase is the convention for classes and prototype constructors - essentially, anything that can have distinct instances. Vue components also have instances, so it makes sense to also use PascalCase. As an added benefit, using PascalCase within JSX (and templates) allows readers of the code to more easily distinguish between components and HTML elements.
 
-However, for applications that use **only** global component definitions via `Vue.component`, we recommend kebab-case instead. The reasons are:
+However, for applications that use **only** global component definitions via `app.component`, we recommend kebab-case instead. The reasons are:
 
 - It's rare that global components are ever referenced in JavaScript, so following a convention for JavaScript makes less sense.
 - These applications always include many in-DOM templates, where [kebab-case **must** be used](#Component-name-casing-in-templates-strongly-recommended).
@@ -945,7 +944,7 @@ However, for applications that use **only** global component definitions via `Vu
 <h4>Bad</h4>
 
 ``` js
-Vue.component('myComponent', {
+app.component('myComponent', {
   // ...
 })
 ```
@@ -973,13 +972,13 @@ export default {
 <h4>Good</h4>
 
 ``` js
-Vue.component('MyComponent', {
+app.component('MyComponent', {
   // ...
 })
 ```
 
 ``` js
-Vue.component('my-component', {
+app.component('my-component', {
   // ...
 })
 ```
@@ -1104,7 +1103,7 @@ Complex expressions in your templates make them less declarative. We should stri
 
 ``` html
 {{
-  fullName.split(' ').map(function (word) {
+  fullName.split(' ').map((word) => {
     return word[0].toUpperCase() + word.slice(1)
   }).join(' ')
 }}
@@ -1122,10 +1121,10 @@ Complex expressions in your templates make them less declarative. We should stri
 ``` js
 // The complex expression has been moved to a computed property
 computed: {
-  normalizedFullName: function () {
-    return this.fullName.split(' ').map(function (word) {
-      return word[0].toUpperCase() + word.slice(1)
-    }).join(' ')
+  normalizedFullName() {
+    return this.fullName.split(' ')
+      .map(word => word[0].toUpperCase() + word.slice(1))
+      .join(' ')
   }
 }
 ```
@@ -1158,8 +1157,8 @@ Simpler, well-named computed properties are:
 
 ``` js
 computed: {
-  price: function () {
-    var basePrice = this.manufactureCost / (1 - this.profitMargin)
+  price() {
+    const basePrice = this.manufactureCost / (1 - this.profitMargin)
     return (
       basePrice -
       basePrice * (this.discountPercent || 0)
@@ -1174,13 +1173,15 @@ computed: {
 
 ``` js
 computed: {
-  basePrice: function () {
+  basePrice() {
     return this.manufactureCost / (1 - this.profitMargin)
   },
-  discount: function () {
+
+  discount() {
     return this.basePrice * (this.discountPercent || 0)
   },
-  finalPrice: function () {
+
+  finalPrice() {
     return this.basePrice - this.discount
   }
 }
@@ -1431,11 +1432,11 @@ props: {
 },
 
 computed: {
-  formattedValue: function () {
+  formattedValue() {
     // ...
   },
 
-  inputClasses: function () {
+  inputClasses() {
     // ...
   }
 }
@@ -1449,18 +1450,22 @@ props: {
     type: String,
     required: true
   },
+
   focused: {
     type: Boolean,
     default: false
   },
+
   label: String,
   icon: String
 },
+
 computed: {
-  formattedValue: function () {
+  formattedValue() {
     // ...
   },
-  inputClasses: function () {
+
+  inputClasses() {
     // ...
   }
 }
@@ -1578,7 +1583,7 @@ The problem is that large numbers of [element-attribute selectors](http://steves
 
 ``` html
 <template>
-  <button>X</button>
+  <button>×</button>
 </template>
 
 <style scoped>
@@ -1594,7 +1599,7 @@ button {
 
 ``` html
 <template>
-  <button class="btn btn-close">X</button>
+  <button class="btn btn-close">×</button>
 </template>
 
 <style scoped>
@@ -1617,38 +1622,38 @@ The problem is, there are also many _simple_ cases where these patterns may offe
 <h4>Bad</h4>
 
 ``` js
-Vue.component('TodoItem', {
+app.component('TodoItem', {
   props: {
     todo: {
       type: Object,
       required: true
     }
   },
+
   template: '<input v-model="todo.text">'
 })
 ```
 
 ``` js
-Vue.component('TodoItem', {
+app.component('TodoItem', {
   props: {
     todo: {
       type: Object,
       required: true
     }
   },
+
   methods: {
-    removeTodo () {
-      var vm = this
-      vm.$parent.todos = vm.$parent.todos.filter(function (todo) {
-        return todo.id !== vm.todo.id
-      })
+    removeTodo() {
+      this.$parent.todos = this.$parent.todos.filter(todo => todo.id !== vm.todo.id)
     }
   },
+
   template: `
     <span>
       {{ todo.text }}
       <button @click="removeTodo">
-        X
+        ×
       </button>
     </span>
   `
@@ -1660,13 +1665,14 @@ Vue.component('TodoItem', {
 <h4>Good</h4>
 
 ``` js
-Vue.component('TodoItem', {
+app.component('TodoItem', {
   props: {
     todo: {
       type: Object,
       required: true
     }
   },
+
   template: `
     <input
       :value="todo.text"
@@ -1677,18 +1683,19 @@ Vue.component('TodoItem', {
 ```
 
 ``` js
-Vue.component('TodoItem', {
+app.component('TodoItem', {
   props: {
     todo: {
       type: Object,
       required: true
     }
   },
+
   template: `
     <span>
       {{ todo.text }}
       <button @click="$emit('delete')">
-        X
+        ×
       </button>
     </span>
   `
@@ -1710,19 +1717,21 @@ Vuex is the [official flux-like implementation](https://vuejs.org/v2/guide/state
 
 ``` js
 // main.js
-new Vue({
-  data: {
-    todos: []
+const app = Vue.createApp({
+  data() {
+    return {
+      todos: []
+    }
   },
-  created: function () {
+
+  created() {
     this.$on('remove-todo', this.removeTodo)
   },
+
   methods: {
-    removeTodo: function (todo) {
-      var todoIdToRemove = todo.id
-      this.todos = this.todos.filter(function (todo) {
-        return todo.id !== todoIdToRemove
-      })
+    removeTodo(todo) {
+      const todoIdToRemove = todo.id
+      this.todos = this.todos.filter(todo => todo.id !== todoIdToRemove)
     }
   }
 })
@@ -1738,11 +1747,13 @@ export default {
   state: {
     list: []
   },
+
   mutations: {
     REMOVE_TODO (state, todoId) {
       state.list = state.list.filter(todo => todo.id !== todoId)
     }
   },
+
   actions: {
     removeTodo ({ commit, state }, todo) {
       commit('REMOVE_TODO', todo.id)
@@ -1772,6 +1783,7 @@ export default {
       required: true
     }
   },
+
   methods: mapActions(['removeTodo'])
 }
 </script>
