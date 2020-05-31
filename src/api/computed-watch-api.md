@@ -94,8 +94,8 @@ We are registering the invalidation callback via a passed-in function instead of
 ```js
 const data = ref(null)
 watchEffect(async onInvalidate => {
+  onInvalidate(() => {...}) // we register cleanup function before Promise resolves
   data.value = await fetchData(props.id)
-  onInvalidate(() => {...})
 })
 ```
 

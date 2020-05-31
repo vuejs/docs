@@ -322,10 +322,6 @@ Here we are exposing `root` on the render context and binding it to the div as i
 
 Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
 
-:::warning
-Please note that `ref` will behave differently when used with `v-bind` directive. `ref="root"` would be equivalent to `:ref="el => root = el"`
-:::
-
 ### Usage with JSX
 
 ```js
