@@ -45,7 +45,7 @@ Jest is a JavaScript test framework that is focused on simplicity. One of its un
 
 #### Mocha
 
-Mocha is a JavaScript test framework that runs on Node.js and in the browser. It aims to provide functionality for testing both synchronous and asynchronous code with a simple interface. Unlike Jest, it usually pairs with other libraries for functionality such as spying (e.g., SinonJS) and test expectations (e.g., ChaiJS).
+Mocha is a JavaScript test framework that is focused on being flexible. Because of this flexibility, it allows you to choose different libraries to fulfill other common features such as spying (e.g., Sinon) and assertions (e.g., Chai). Another unique feature of Mocha is that it can also execute tests in the browser in addition to Node.js.
 
 **Resources:**
 
