@@ -41,7 +41,7 @@ Jest is a JavaScript test framework that is focused on simplicity. One of its un
 **Resources:**
 
 - [Official Jest Website](https://jestjs.io)
-- [Official Vue CLI Plugin - Jest](https://cli.vuejs.org/core-plugins/unit-jest.html)
+- [Official Vue 2 CLI Plugin - Jest](https://cli.vuejs.org/core-plugins/unit-jest.html)
 
 #### Mocha
 
