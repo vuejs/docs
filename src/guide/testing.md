@@ -64,7 +64,7 @@ The following section provides guidelines on things to keep in mind when evaluat
 
 #### Optimal compatibility with the Vue ecosystem
 
-It should be no surprise that one of the first criteria is that a component testing library should have is being as compatible with the Vue ecosystem as possible. While this may seem comprehensive, some key integration areas to keep in mind include single file components (SFCs), Vuex, Vue Router and any other Vue specific plugins that your application relies on. 
+It should be no surprise that one of the first criteria is that a component testing library should have is being as compatible with the Vue ecosystem as possible. While this may seem comprehensive, some key integration areas to keep in mind include single file components (SFCs), Vuex, Vue Router, and any other Vue specific plugins that your application relies on. 
 
 #### First-class error reporting
 
