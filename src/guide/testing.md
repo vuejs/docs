@@ -135,6 +135,7 @@ Cypress.io is a testing framework that aims to enhance developer productivity by
 
 - [Cypress' Official Website](https://www.cypress.io)
 - [Official Vue CLI Cypress Plugin](https://cli.vuejs.org/core-plugins/e2e-cypress.html)
+- [Cypress Testing Library](https://github.com/testing-library/cypress-testing-library)
 
 #### Nightwatch.js
 
