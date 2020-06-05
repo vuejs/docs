@@ -56,7 +56,7 @@ Mocha is a JavaScript test framework that runs on Node.js and in the browser. It
 
 ### Introduction
 
-When testing Vue components, they need to be mounted to the DOM (either virtual or real) in order to fully assert that they are working. As a result, component testing frameworks were created to give users the ability to do this in a reliable way while also providing conveniences such as integrations for Vuex, Vue Router, and other Vue plugins.
+To test most Vue components, they must be mounted to the DOM (either virtual or real) in order to fully assert that they are working. This is another framework-agnostic concept. As a result, component testing frameworks were created to give users the ability to do this in a reliable way while also providing Vue-specific conveniences such as integrations for Vuex, Vue Router, and other Vue plugins.
 
 ### Choosing Your Framework
 
