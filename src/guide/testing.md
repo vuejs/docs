@@ -74,7 +74,9 @@ When tests fail, it is critical that your component testing framework provides u
 
 #### Vue Testing Library (@testing-library/vue)
 
-Vue Testing Library was created to promote writing testing that would interact with your components the way your users would while also keeping accessibility in mind. 
+Vue Testing Library is a set of tools focused on testing components without relying on implementation details. Built with accessibility in mind, its approach also makes refactoring a breeze.
+
+Its guiding principle is that the more tests resemble the way software is used, the more confidence they can provide.
 
 **Resources:**
 
