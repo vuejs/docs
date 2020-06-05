@@ -143,7 +143,7 @@ Nightwatch.js is an end-to-end testing framework that can be used to test web ap
 
 **Resources:**
 
-- [Nightwatch's Official Website](https://nightwatchjs.org\)
+- [Nightwatch's Official Website](https://nightwatchjs.org)
 - [Official Vue CLI Nightwatch Plugin](https://cli.vuejs.org/core-plugins/e2e-nightwatch.html)
 
 #### Puppeteer
