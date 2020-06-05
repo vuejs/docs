@@ -24,7 +24,9 @@ Since unit testing advice is often framework-agnostic, here are some basic guide
 
 #### First-class error reporting
 
-When tests fail, it is critical that your unit testing framework provides useful error logs that help to minimize the amount of time it takes to debug the problem. In addition to simply telling you what test fails, modern unit testing libraries also provides context for why a test fails, e.g., what is expected vs what was received.
+When tests fail, it is critical that your unit testing framework provides useful errors. This is the job of the assertion library. An assertion with high-quality error messages helps minimize the amount of time it takes to debug the problem. In addition to simply telling you what test is failing, assertion libraries provide context for why a test fails, e.g., what is expected vs what was received.
+
+Some unit testing frameworks, like Jest, include assertion libraries. Others, like Mocha, require you to install assertion libraries separately (usually Chai).
 
 #### Active community and team
 
