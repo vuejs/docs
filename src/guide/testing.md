@@ -14,7 +14,9 @@ This section aims to provide guidance to navigating the testing ecosystem and ch
 
 ### Introduction
 
-Unit tests allows you to test individual units of a codebase in isolation. While there are many schools of thought with how this should be done, at its core, unit testing can provide developers with confidence that parts of an application are stable as new features are built, code is refactored, to prevent bugs from recurring, etc. 
+Unit tests allow you to test individual units of code in isolation. The purpose of unit testing is to provide developers with confidence in their code. By writing thorough, meaningful tests, you achieve the confidence that as new features are built or your code is refactored your application will remain functional and stable.
+
+Unit testing a Vue application does not significantly differ from testing other types of applications.
 
 ### Choosing Your Framework
 
