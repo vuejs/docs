@@ -194,9 +194,10 @@ app.component('my-component', {
         return ['success', 'warning', 'danger'].indexOf(value) !== -1
       }
     },
-    // Type function, the default will be the default function
+    // Function with a default value
     propG: {
       type: Function,
+      // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
       default: function () {
         return 'Default function'
       },
