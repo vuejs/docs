@@ -108,10 +108,96 @@ Accepts three arguments: tag, props and children
 
 ## defineComponent
 
+Implementation-wise `defineComponent` returns the object passed to it. However, in terms of typing, the returned value has a synthetic type of a constructor for manual render function, TSX and IDE tooling support.
+
+### Arguments
+
+An object with component options
+
+```js
+import { defineComponent } from 'vue'
+
+const MyComponent = defineComponent({
+  data() {
+    return { count: 1 }
+  },
+  methods: {
+    increment() {
+      this.count++
+    }
+  }
+})
+```
+
 ## defineAsyncComponent
 
-## createRenderer
+Creates an async component that will be loaded only when it's necessary.
 
-## getCurrentInstance
+### Arguments
+
+For basic usage, `defineAsyncComponent` can accept a a factory function returning a `Promise`. Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
+
+```js
+import { defineAsyncComponent } from 'vue'
+
+const AsyncComp = defineAsyncComponent(() =>
+  import('./components/AsyncComponent.vue')
+)
+
+app.component('async-component', AsyncComp)
+```
+
+When using [local registration](../guide/component-registration.html#local-registration), you can also directly provide a function that returns a `Promise`:
+
+```js
+import { createApp, defineAsyncComponent } from 'vue'
+
+createApp({
+  // ...
+  components: {
+    components: {
+      AsyncComponent: defineAsyncComponent(() =>
+        import('./components/AsyncComponent.vue')
+      )
+    }
+  }
+})
+```
+
+For advanced usage, `defineAsyncComponent` can accept an object:
+
+The `defineAsyncComponent` method can also return an object of the following format:
+
+```js
+import { defineAsyncComponent } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  // The factory function
+  loader: () => import('./Foo.vue')
+  // A component to use while the async component is loading
+  loadingComponent: LoadingComponent,
+  // A component to use if the load fails
+  errorComponent: ErrorComponent,
+  // Delay before showing the loading component. Default: 200ms.
+  delay: 200,
+  // The error component will be displayed if a timeout is
+  // provided and exceeded. Default: Infinity.
+  timeout: 3000,
+  // A function that returns a boolean indicating whether the async component should retry when the loader promise rejects
+  retryWhen: error => error.code !== 404,
+  // Maximum allowed retries number
+  maxRetries: 3,
+  // Defining if component is suspensible
+  suspensible: false
+})
+```
+
+**See also**: [Dynamic and Async components](../guide/component-dynamic-async.html)
 
 ## nextTick
+
+Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.
+
+```js
+import { createApp, nextTick } from 'vue'
+```

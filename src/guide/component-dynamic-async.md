@@ -76,7 +76,7 @@ const AsyncComp = defineAsyncComponent(() =>
 app.component('async-component', AsyncComp)
 ```
 
-You can also use `defineAsyncComponent` when [registering a component locally](components-registration.html#Local-Registration):
+You can also use `defineAsyncComponent` when [registering a component locally](component-registration.html#local-registration):
 
 ```js
 import { createApp, defineAsyncComponent } from 'vue'
