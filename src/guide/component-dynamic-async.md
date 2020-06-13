@@ -97,4 +97,4 @@ Async components are _suspensible_ by default. This means if it has a [`<Suspens
 
 The async component can opt-out of `Suspense` control and let the component always control its own loading state by specifying `suspensible: false` in its options.
 
-You can check the list of available options in the [API Reference](TODO)
+You can check the list of available options in the [API Reference](../api/global-api.html#arguments-4)

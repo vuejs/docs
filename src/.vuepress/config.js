@@ -14,7 +14,7 @@ const sidebar = {
         '/guide/list',
         '/guide/events',
         '/guide/forms',
-        '/guide/component-basics',
+        '/guide/component-basics'
       ]
     },
     {
@@ -25,7 +25,8 @@ const sidebar = {
         '/guide/component-props',
         '/guide/component-custom-events',
         '/guide/component-slots',
-        '/guide/component-provide-inject'
+        '/guide/component-provide-inject',
+        '/guide/component-dynamic-async',
       ]
     },
     {
@@ -33,7 +34,6 @@ const sidebar = {
       collapsable: false,
       children: [
         '/guide/reactivity',
-        '/guide/component-dynamic-async',
         '/guide/optimizations',
         '/guide/change-detection'
       ]
@@ -52,7 +52,12 @@ const sidebar = {
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: ['/guide/routing', '/guide/state-management', '/guide/ssr', '/guide/accessibility']
+      children: [
+        '/guide/routing',
+        '/guide/state-management',
+        '/guide/ssr',
+        '/guide/accessibility'
+      ]
     },
     {
       title: 'Migration to Vue 3',
@@ -68,6 +73,7 @@ const sidebar = {
   api: [
     '/api/application-config',
     '/api/application-api',
+    '/api/global-api',
     {
       title: 'Options',
       collapsable: false,

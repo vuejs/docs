@@ -108,7 +108,7 @@ Accepts three arguments: tag, props and children
 
 ## defineComponent
 
-Implementation-wise `defineComponent` returns the object passed to it. However, in terms of typing, the returned value has a synthetic type of a constructor for manual render function, TSX and IDE tooling support.
+Implementation-wise `defineComponent` does nothing but return the object passed to it. However, in terms of typing, the returned value has a synthetic type of a constructor for manual render function, TSX and IDE tooling support.
 
 ### Arguments
 
@@ -200,4 +200,17 @@ Defer the callback to be executed after the next DOM update cycle. Use it immedi
 
 ```js
 import { createApp, nextTick } from 'vue'
+
+const app = createApp({
+  setup() {
+    const message = ref('Hello!')
+    const changeMessage = async newMessage => {
+      message.value = newMessage
+      await nextTick()
+      console.log('Now DOM is updated')
+    }
+  }
+})
 ```
+
+**See also**: [`$nextTick` instance method](instance-methods.html#nexttick)

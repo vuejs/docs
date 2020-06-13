@@ -170,7 +170,7 @@ function setup(props: Data, context: SetupContext): Data
 ```
 
 ::: tip
-To get type inference for the arguments passed to `setup()`, the use of [`defineComponent`](TODO) is needed.
+To get type inference for the arguments passed to `setup()`, the use of [defineComponent](global-api.html#definecomponent) is needed.
 :::
 
 ## Lifecycle Hooks
