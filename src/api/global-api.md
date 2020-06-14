@@ -70,7 +70,7 @@ render() {
 
 ### Arguments
 
-Accepts three arguments: tag, props and children
+Accepts three arguments: `tag`, `props` and `children`
 
 #### tag
 
