@@ -94,7 +94,7 @@ Accepts three arguments: `tag`, `props` and `children`
 
 - **Details:**
 
-  Children VNodes, built using `h()`, or using strings to get 'text VNodes' or an object with slots. Optional
+  Children VNodes, built using `h()`, or using strings to get "text VNodes" or an object with slots. Optional
 
   ```js
   h('div', {}, [
