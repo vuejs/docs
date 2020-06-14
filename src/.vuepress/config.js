@@ -27,6 +27,7 @@ const sidebar = {
         '/guide/component-slots',
         '/guide/component-provide-inject',
         '/guide/component-dynamic-async',
+        '/guide/component-edge-cases'
       ]
     },
     {

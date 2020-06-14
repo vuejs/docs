@@ -193,7 +193,15 @@ app.component('my-component', {
         // The value must match one of these strings
         return ['success', 'warning', 'danger'].indexOf(value) !== -1
       }
-    }
+    },
+    // Function with a default value
+    propG: {
+      type: Function,
+      // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+      default: function () {
+        return 'Default function'
+      },
+    },
   }
 })
 ```
