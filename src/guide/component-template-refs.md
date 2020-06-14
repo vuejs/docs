@@ -14,7 +14,7 @@ Now in the component where you've defined this `ref`, you can use:
 this.$refs.usernameInput
 ```
 
-to access the `<base-input>` instance. This may be useful when you want to, for example, programmatically focus this input from a parent. In that case, the `<base-input>` component may similarly use a `ref` to provide access to specific elements inside it, such as:
+to access the `<base-input>` instance. This may be useful when you want to, for example, programmatically set focus on this input from a parent. In that case, the `<base-input>` component may similarly use a `ref` to provide access to specific elements inside it, such as:
 
 ```html
 <input ref="input">
