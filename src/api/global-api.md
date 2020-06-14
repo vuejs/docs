@@ -29,13 +29,6 @@ const app = Vue.createApp({
 
 With the second parameter, we can pass root props to the application:
 
-```html
-<div id="app">
-  <!-- Will display 'Evan' -->
-  {{ username }}
-</div>
-```
-
 ```js
 const app = Vue.createApp(
   {
@@ -43,6 +36,14 @@ const app = Vue.createApp(
   },
   { username: 'Evan' }
 )
+```
+
+
+```html
+<div id="app">
+  <!-- Will display 'Evan' -->
+  {{ username }}
+</div>
 ```
 
 ### Typing
