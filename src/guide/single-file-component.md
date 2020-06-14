@@ -60,10 +60,10 @@ With `.vue` components, we're entering the realm of advanced JavaScript applicat
 
 - **Modern JavaScript with ES2015/16**: Read through Babel's [Learn ES2015 guide](https://babeljs.io/docs/en/learn). You don't have to memorize every feature right now, but keep this page as a reference you can come back to.
 
-After you've taken a day to dive into these resources, we recommend checking out [Vue CLI](https://cli.vuejs.org/). Follow the instructions and you should have a Vue project with `.vue` components, ES2015, Webpack and hot-reloading in no time!
+After you've taken a day to dive into these resources, we recommend checking out [Vue CLI](https://cli.vuejs.org/). Follow the instructions and you should have a Vue project with `.vue` components, ES2015, webpack and hot-reloading in no time!
 
 ### For Advanced Users
 
 The CLI takes care of most of the tooling configurations for you, but also allows fine-grained customization through its own [config options](https://cli.vuejs.org/config/).
 
-In case you prefer setting up your own build setup from scratch, you will need to manually configure webpack with [vue-loader](https://vue-loader.vuejs.org). To learn more about webpack itself, check out [their official docs](https://webpack.js.org/configuration/) and [Webpack Academy](https://webpack.academy/p/the-core-concepts).
+In case you prefer setting up your own build setup from scratch, you will need to manually configure webpack with [vue-loader](https://vue-loader.vuejs.org). To learn more about webpack itself, check out [their official docs](https://webpack.js.org/configuration/) and [webpack learning academy](https://webpack.academy/p/the-core-concepts).
