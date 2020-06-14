@@ -64,7 +64,7 @@ Returns a returns "virtual node", usually abbreviated to **VNode**: a plain obje
 
 ```js
 render() {
-  return Vue.h('h1', {},'Some title')
+  return Vue.h('h1', {}, 'Some title')
 }
 ```
 
