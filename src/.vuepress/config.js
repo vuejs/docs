@@ -25,7 +25,9 @@ const sidebar = {
         '/guide/component-props',
         '/guide/component-custom-events',
         '/guide/component-slots',
-        '/guide/component-provide-inject'
+        '/guide/component-provide-inject',
+        '/guide/component-dynamic-async',
+        '/guide/component-edge-cases'
       ]
     },
     {
@@ -33,7 +35,6 @@ const sidebar = {
       collapsable: false,
       children: [
         '/guide/reactivity',
-        '/guide/component-dynamic-async',
         '/guide/optimizations',
         '/guide/change-detection'
       ]
