@@ -65,13 +65,13 @@ Returns a returns "virtual node", usually abbreviated to **VNode**: a plain obje
 
 ```js
 render() {
-  return Vue.h('h1', {},'Some title')
+  return Vue.h('h1', {}, 'Some title')
 }
 ```
 
 ### Arguments
 
-Accepts three arguments: tag, props and children
+Accepts three arguments: `tag`, `props` and `children`
 
 #### tag
 
@@ -95,7 +95,7 @@ Accepts three arguments: tag, props and children
 
 - **Details:**
 
-  Children VNodes, built using `h()`, or using strings to get 'text VNodes' or an object with slots. Optional
+  Children VNodes, built using `h()`, or using strings to get "text VNodes" or an object with slots. Optional
 
   ```js
   h('div', {}, [
