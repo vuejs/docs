@@ -12,7 +12,7 @@ Thanks to Vue's Reactivity system, it always knows when to update (if you use it
 
 ### Forcing an Update
 
-If you find yourself needing to force an update in Vue, in 99.99% of cases, you've made a mistake somewhere For example, you may be relying on state that isn't tracked by Vue's reactivity system, e.g. with `data` property added after component creation.
+If you find yourself needing to force an update in Vue, in 99.99% of cases, you've made a mistake somewhere. For example, you may be relying on state that isn't tracked by Vue's reactivity system, e.g. with `data` property added after component creation.
 
 However, if you've ruled out the above and find yourself in this extremely rare situation of having to manually force an update, you can do so with [`$forceUpdate`](../api/instance-methods.html#forceupdate).
 
