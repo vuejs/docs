@@ -218,7 +218,7 @@ type StopHandle = () => void
 
 ## `watch`
 
-The `watch` API is the exact equivalent of the Options API [this.\$watch](./instance-methods.html#watch) (and the corresponding [watch](./options-data.html#watch) option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
+The `watch` API is the exact equivalent of the Options API [this.$watch](./instance-methods.html#watch) (and the corresponding [watch](./options-data.html#watch) option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
 
 - Compared to [watchEffect](#watcheffect), `watch` allows us to:
 

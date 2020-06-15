@@ -14,7 +14,7 @@ const sidebar = {
         '/guide/list',
         '/guide/events',
         '/guide/forms',
-        '/guide/component-basics',
+        '/guide/component-basics'
       ]
     },
     {
@@ -53,7 +53,12 @@ const sidebar = {
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: ['/guide/routing', '/guide/state-management', '/guide/ssr', '/guide/accessibility']
+      children: [
+        '/guide/routing',
+        '/guide/state-management',
+        '/guide/ssr',
+        '/guide/accessibility'
+      ]
     },
     {
       title: 'Migration to Vue 3',
@@ -69,6 +74,7 @@ const sidebar = {
   api: [
     '/api/application-config',
     '/api/application-api',
+    '/api/global-api',
     {
       title: 'Options',
       collapsable: false,

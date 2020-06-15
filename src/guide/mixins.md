@@ -160,7 +160,7 @@ app.mount('#mixins-global')
 // => "hello from component!"
 ```
 
-In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](TODO) to avoid duplicate application.
+In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.html) to avoid duplicate application.
 
 ## Custom Option Merge Strategies
 

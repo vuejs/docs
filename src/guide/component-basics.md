@@ -75,7 +75,7 @@ For example, you might have components for a header, sidebar, and content area, 
 To use these components in templates, they must be registered so that Vue knows about them. There are two types of component registration: **global** and **local**. So far, we've only registered components globally, using `component` method of created app:
 
 ```js
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('my-component-name', {
   // ... options ...

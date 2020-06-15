@@ -57,7 +57,7 @@ A directive definition object can provide several hook functions (all optional):
 - `beforeUpdate`: called before the containing component's VNode is updated
 
 :::tip Note
-We'll cover VNodes in more detail [later](TODO:/render-function.html#The-Virtual-DOM), when we discuss [render functions](TODO:./render-function.html).
+We'll cover VNodes in more detail [later](render-function.html#the-virtual-dom-tree), when we discuss render functions.
 :::
 
 - `updated`: called after the containing component's VNode **and the VNodes of its children** have updated.
@@ -66,7 +66,7 @@ We'll cover VNodes in more detail [later](TODO:/render-function.html#The-Virtual
 
 - `unmounted`: called only once, when the directive is unbound from the element and the parent component is unmounted.
 
-You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](../api/global-api.html#directive)
+You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](../api/application-api.html#directive)
 
 ### Dynamic Directive Arguments
 
@@ -227,7 +227,7 @@ return withDirectives(h('div'), [[vDemo, test]])
 
 Where `vDemo` will be the directive object written by the user, which contains hooks like `mounted` and `updated`.
 
-`withDirectives` returns a cloned VNode with the user hooks wrapped and injected as VNode lifecycle hooks (see [Render Function](TODO:Render-functions) for more details):
+`withDirectives` returns a cloned VNode with the user hooks wrapped and injected as VNode lifecycle hooks (see [Render Function](render-function.html) for more details):
 
 ```js
 {

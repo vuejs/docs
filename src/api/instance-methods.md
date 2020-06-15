@@ -251,7 +251,7 @@
 
 - **Usage:**
 
-  Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update. This is the same as the global `Vue.nextTick`, except that the callback's `this` context is automatically bound to the instance calling this method.
+  Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update. This is the same as the global `nextTick`, except that the callback's `this` context is automatically bound to the instance calling this method.
 
 - **Example:**
 
@@ -274,4 +274,4 @@
   })
   ```
 
-- **See also:** [Vue.nextTick](TODO)
+- **See also:** [nextTick](global-api.html#nexttick)
