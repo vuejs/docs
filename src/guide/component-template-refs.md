@@ -2,39 +2,40 @@
 
 > This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
-Despite the existence of props and events, sometimes you might still need to directly access a child component in JavaScript. To achieve this you can assign a reference ID to the child component using the `ref` attribute. For example:
+Despite the existence of props and events, sometimes you might still need to directly access a child component in JavaScript. To achieve this you can assign a reference ID to the child component or HTML element using the `ref` attribute. For example:
+
+```html
+<input ref="input" />
+```
+
+This may be useful when you want to, for example, programmatically focus this input on component mount:
+
+```js
+const app = Vue.createApp({})
+
+app.component('base-input', {
+  template: `
+    <input ref="input" />
+  `,
+  methods: {
+    focusInput() {
+      this.$refs.input.focus()
+    }
+  },
+  mounted() {
+    this.focusInput()
+  }
+})
+```
+
+Also, you can add another `ref` to the component itself and use it to trigger `focusInput` event from the parent component:
 
 ```html
 <base-input ref="usernameInput"></base-input>
 ```
 
-Now in the component where you've defined this `ref`, you can use:
-
 ```js
-this.$refs.usernameInput
-```
-
-to access the `<base-input>` instance. This may be useful when you want to, for example, programmatically focus this input from a parent. In that case, the `<base-input>` component may similarly use a `ref` to provide access to specific elements inside it, such as:
-
-```html
-<input ref="input">
-```
-
-And even define methods for use by the parent:
-
-```js
-methods: {
-  // Used to focus the input from the parent
-  focus() {
-    this.$refs.input.focus()
-  }
-}
-```
-
-Thus allowing the parent component to focus the input inside `<base-input>` with:
-
-```js
-this.$refs.usernameInput.focus()
+this.$refs.usernameInput.focusInput()
 ```
 
 When `ref` is used together with `v-for`, the ref you get will be an array containing the child components mirroring the data source.
