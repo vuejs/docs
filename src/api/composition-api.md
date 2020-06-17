@@ -291,7 +291,7 @@ const foo = inject<string>('foo') // string | undefined
 
 ## Template Refs
 
-When using the Composition API, the concept of [reactive refs](./refs-api.html#ref) and [template refs](TODO) are unified. In order to obtain a reference to an in-template element or component instance, we can declare a ref as usual and return it from `setup()`:
+When using the Composition API, the concept of [reactive refs](./refs-api.html#ref) and [template refs](../guide/component-template-refs.html) are unified. In order to obtain a reference to an in-template element or component instance, we can declare a ref as usual and return it from `setup()`:
 
 ```html
 <template>

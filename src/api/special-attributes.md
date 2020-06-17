@@ -49,7 +49,7 @@
 
   An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
-- **See also:** [Child Component Refs](TODO-handling-edge-cases)
+- **See also:** [Child Component Refs](../guide/component-template-refs.html)
 
 ## is
 

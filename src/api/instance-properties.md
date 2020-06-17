@@ -126,10 +126,10 @@
 
 - **Details:**
 
-An object of DOM elements and component instances, registered with [`ref` attributes](TODO).
+An object of DOM elements and component instances, registered with [`ref` attributes](../guide/component-template-refs.html).
 
 - **See also:**
-  - [Child Component Refs](TODO:refs)
+  - [Template refs](../guide/component-template-refs.html)
   - [Special Attributes - ref](./special-attributes.md#ref)
 
 ## $attrs
