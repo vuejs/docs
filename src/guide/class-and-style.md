@@ -180,7 +180,7 @@ app.component('my-component', {
 })
 ```
 
-You can learn more about component attribute inheritance in [Component Props](component-props.html#non-prop-attributes) section
+You can learn more about component attribute inheritance in [Component Props](component-props.html#non-prop-attributes) section.
 
 ## Binding Inline Styles
 
