@@ -432,7 +432,7 @@ app.component('blog-post', {
 It should be noted that **these limitations does _not_ apply if you are using string templates from one of the following sources**:
 
 - String templates (e.g. `template: '...'`)
-- [Single-file (`.vue`) components](TODO:single-file-components.html)
+- [Single-file (`.vue`) components](../guide/single-file-component.html)
 - `<script type="text/x-template">`
 
 That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.

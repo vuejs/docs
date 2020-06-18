@@ -1,6 +1,6 @@
 # Composition API
 
-> This section uses [single-file component](TODO: SFC) syntax for code examples
+> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
 
 ## `setup`
 
@@ -104,24 +104,24 @@ If `setup` returns an object, the properties on the object will be merged into t
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
+  import { ref, reactive } from 'vue'
 
-export default {
-  setup() {
-    const count = ref(0)
-    const object = reactive({ foo: 'bar' })
+  export default {
+    setup() {
+      const count = ref(0)
+      const object = reactive({ foo: 'bar' })
 
-    // expose to template
-    return {
-      count,
-      object
+      // expose to template
+      return {
+        count,
+        object
+      }
     }
   }
-}
 </script>
 ```
 
-Note that [refs](./refs-api.html#ref) returned from `setup` are [automatically unwrapped](./refs-api.html#access-in-templates ) when accessed in the template so you shouldn't use `.value` in templates.
+Note that [refs](./refs-api.html#ref) returned from `setup` are [automatically unwrapped](./refs-api.html#access-in-templates) when accessed in the template so you shouldn't use `.value` in templates.
 
 ### Usage with Render Functions
 
@@ -299,22 +299,22 @@ When using the Composition API, the concept of [reactive refs](./refs-api.html#r
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+  import { ref, onMounted } from 'vue'
 
-export default {
-  setup() {
-    const root = ref(null)
+  export default {
+    setup() {
+      const root = ref(null)
 
-    onMounted(() => {
-      // the DOM element will be assigned to the ref after initial render
-      console.log(root.value) // <div/>
-    })
+      onMounted(() => {
+        // the DOM element will be assigned to the ref after initial render
+        console.log(root.value) // <div/>
+      })
 
-    return {
-      root
+      return {
+        root
+      }
     }
   }
-}
 </script>
 ```
 
@@ -352,23 +352,23 @@ Composition API template refs do not have special handling when used inside `v-f
 </template>
 
 <script>
-import { ref, reactive, onBeforeUpdate } from 'vue'
+  import { ref, reactive, onBeforeUpdate } from 'vue'
 
-export default {
-  setup() {
-    const list = reactive([1, 2, 3])
-    const divs = ref([])
+  export default {
+    setup() {
+      const list = reactive([1, 2, 3])
+      const divs = ref([])
 
-    // make sure to reset the refs before each update
-    onBeforeUpdate(() => {
-      divs.value = []
-    })
+      // make sure to reset the refs before each update
+      onBeforeUpdate(() => {
+        divs.value = []
+      })
 
-    return {
-      list,
-      divs
+      return {
+        list,
+        divs
+      }
     }
   }
-}
 </script>
 ```

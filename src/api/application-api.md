@@ -138,7 +138,7 @@ app.directive('focus', {
 
 #### vnode
 
-A blueprint of the real DOM element received as el argument above. See the [VNode API](TODO) for full details.
+A blueprint of the real DOM element received as el argument above.
 
 #### prevNode
 

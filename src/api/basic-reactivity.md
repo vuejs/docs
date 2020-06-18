@@ -1,6 +1,6 @@
 # Basic Reactivity APIs
 
-> This section uses [single-file component](TODO: SFC) syntax for code examples
+> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
 
 ## `reactive`
 

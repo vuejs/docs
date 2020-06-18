@@ -29,7 +29,7 @@ version** in your published site, replacing `vue.js` with `vue.min.js`. This is 
 
 > Currently not available for Vue 3
 
-NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/). Vue also provides accompanying tools for authoring [Single File Components](TODO:single-file-components.html).
+NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/). Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html).
 
 ```bash
 # latest stable
