@@ -52,6 +52,13 @@ const sidebar = {
       ]
     },
     {
+      title: 'Tooling',
+      collapsable: false,
+      children: [
+        '/guide/single-file-component'
+      ]
+    },
+    {
       title: 'Scaling Up',
       collapsable: false,
       children: [
@@ -138,8 +145,7 @@ module.exports = {
         ariaLabel: 'Documentation Menu',
         items: [
           { text: 'Guide', link: '/guide/introduction' },
-          { text: 'Style Guide', link: '/style-guide/' },
-          { text: 'Tooling', link: '/tooling/' }
+          { text: 'Style Guide', link: '/style-guide/' }
         ]
       },
       { text: 'API Reference', link: '/api/application-config' },

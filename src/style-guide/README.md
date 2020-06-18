@@ -1810,7 +1810,7 @@ $color-priority-d: #3f536d;
     margin-top: 0;
 
     &::before {
-      font-family: FontAwesome;
+      font-family: 'Font Awesome 5 Free';
       margin-right: .4em;
     }
   }

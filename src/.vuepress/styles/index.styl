@@ -1,88 +1,99 @@
-.demo {
-  font-family: sans-serif;
-  border: 1px solid #eee;
-  border-radius: 2px;
-  padding: 20px 30px;
-  margin-top: 1em;
-  margin-bottom: 40px;
-  user-select: none;
-  overflow-x: auto;
-}
+.demo
+  font-family sans-serif
+  border 1px solid #eee
+  border-radius 2px
+  padding 20px 30px
+  margin-top 1em
+  margin-bottom 40px
+  user-select none
+  overflow-x auto
 
-.custom-block {
-  padding: 0.1rem 1.5rem;
-  margin: 2em 0;
-  border-left-width: 0.5rem;
-  border-left-style: solid;
-  background-color: #f8f8f8;
-  position: relative;
-  border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
-  margin: 1rem 0;
+.custom-block
+  padding 0.1rem 1.5rem
+  margin 2em 0
+  border-left-width 0.5rem
+  border-left-style solid
+  background-color #f8f8f8
+  position relative
+  border-bottom-right-radius 2px
+  border-top-right-radius 2px
+  margin 1rem 0
 
-  &::before {
-    position: absolute;
-    top: 14px;
-    left: -14px;
-    color: #fff;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    text-align: center;
-    line-height: 20px;
-    font-weight: bold;
-    font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 14px;
-  }
+  &::before
+    position absolute
+    top 14px
+    left -14px
+    color #fff
+    width 20px
+    height 20px
+    border-radius 100%
+    text-align center
+    line-height 20px
+    font-weight bold
+    font-family 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif
+    font-size 14px
 
-  .custom-block-title {
-    font-weight: 600;
-    margin-bottom: -0.4rem;
-  }
+  .custom-block-title
+    font-weight 600
+    margin-bottom -0.4rem
 
-  &.info {
-    border-color: #007bff;
-  }
+  &.info
+    border-color #007bff
 
-  &.tip {
-    border-color: #42b983;
-  }
+  &.tip
+    border-color #42b983
 
-  &.warning {
-    border-color: #dcbc1e;
-    background-color: #f8f8f8;
-  }
+  &.warning
+    border-color #dcbc1e
+    background-color #f8f8f8
 
-  &.danger {
-    border-color: #f66;
-    background-color: #f8f8f8;
+  &.danger
+    border-color #f66
+    background-color #f8f8f8
 
-    &::before {
-      content: '!';
-      background-color: #f66;
-    }
-  }
+    &::before
+      content '!'
+      background-color #f66
 
-  &.details {
-    display: block;
-    position: relative;
-    border-radius: 2px;
-    margin: 1.6em 0;
-    padding: 1.6em;
-    background-color: #eee;
-    h4 {
-      margin-top: 0;
-    }
+  &.details
+    display block
+    position relative
+    border-radius 2px
+    margin 1.6em 0
+    padding 1.6em
+    background-color #eee
+
+    h4
+      margin-top 0
+
     figure,
-    p {
-      &:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-    }
-    summary {
-      outline: none;
-      cursor: pointer;
-    }
-  }
-}
+    p
+      &:last-child
+        margin-bottom 0
+        padding-bottom 0
+
+    summary
+      outline none
+      cursor pointer
+
+.scrimba,
+.vueschool
+  background-color #e7ecf3
+  padding 1em 1.25em
+  border-radius 2px
+  color #486491
+  position relative
+  margin 24px 0
+
+  a
+    color: #486491
+    position relative
+    padding-left 16px
+
+  &::before
+    content "\f144"
+    font-family 'Font Awesome 5 Free'
+    font-size 2em
+    display inline-block
+    color #73abfe
+    vertical-align middle
