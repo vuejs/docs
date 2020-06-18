@@ -123,9 +123,7 @@ However, this can be a bit verbose if you have multiple conditional classes. Tha
 
 > This section assumes knowledge of [Vue Components](component-basics.md). Feel free to skip it and come back later.
 
-> TODO: revise this with multi-root components
-
-When you use the `class` attribute on a custom component, those classes will be added to the component's root element. Existing classes on this element will not be overwritten.
+When you use the `class` attribute on a custom component with a single root element, those classes will be added to this element. Existing classes on this element will not be overwritten.
 
 For example, if you declare this component:
 
@@ -151,8 +149,6 @@ The rendered HTML will be:
 <p class="foo bar baz boo">Hi</p>
 ```
 
-> TODO: needs a check after https://github.com/vuejs/rfcs/blob/attr-fallthrough/active-rfcs/0000-attr-fallthrough.md is merged
-
 The same is true for class bindings:
 
 ```html
@@ -164,6 +160,27 @@ When `isActive` is truthy, the rendered HTML will be:
 ```html
 <p class="foo bar active">Hi</p>
 ```
+
+If your component has multiple root elements, you would need to define which component will receive this class. You can do this using `$attrs` component property:
+
+```html
+<div id="app">
+  <my-component class="baz"></my-component>
+</div>
+```
+
+```js
+const app = Vue.createApp()
+
+app.component('my-component', {
+  template: `
+    <p :class="$attrs.class">Hi!</p>
+    <span>This is a child component</span>
+  `
+})
+```
+
+You can learn more about component attribute inheritance in [Component Props](component-props.html#non-prop-attributes) section
 
 ## Binding Inline Styles
 
