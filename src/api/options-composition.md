@@ -221,7 +221,7 @@ The `setup` function is a new component option. It serves as the entry point for
   </script>
   ```
 
-  Note that [refs](TODO) returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
+  Note that [refs](refs-api.html#ref) returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
 
 - **Usage with Render Functions / JSX**
 
@@ -318,4 +318,4 @@ The `setup` function is a new component option. It serves as the entry point for
 
   - Having `props` as a separate argument makes it easier to type it individually without messing up the types of other properties on the context. It also makes it possible to keep a consistent signature across `setup`, `render` and plain functional components with TSX support.
 
-- **See also:** [Composition API](TODO)
+- **See also:** [Composition API](composition-api.html)
