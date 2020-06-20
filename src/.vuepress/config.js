@@ -69,6 +69,13 @@ const sidebar = {
       ]
     },
     {
+      title: 'Tooling',
+      collapsable: false,
+      children: [
+        '/guide/testing'
+      ]
+    },
+    {
       title: 'Migration to Vue 3',
       collapsable: true,
       children: ['migration']
