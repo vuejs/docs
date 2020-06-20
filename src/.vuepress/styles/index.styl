@@ -43,15 +43,39 @@
 
   &.info {
     border-color: #007bff;
+
+    &::before {
+      content: url('/images/icons/info.svg');
+      width: 25px;
+      height: 25px;
+      left: -16px;
+      box-sizing: border-box;
+    }
   }
 
   &.tip {
     border-color: #42b983;
+
+    &::before {
+      content: url('/images/icons/bulb.svg');
+      width: 25px;
+      height: 25px;
+      left: -16px;
+    }
   }
 
   &.warning {
-    border-color: #dcbc1e;
+    border-color: #f4cd00;
     background-color: #f8f8f8;
+    color: #836e03;
+
+    &::before {
+      content: url('/images/icons/danger.svg');
+      width: 25px;
+      height: 25px;
+      left: -16px;
+      box-sizing: border-box;
+    }
   }
 
   &.danger {
@@ -59,8 +83,10 @@
     background-color: #f8f8f8;
 
     &::before {
-      content: '!';
-      background-color: #f66;
+      content: url('/images/icons/stop.svg');
+      width: 25px;
+      height: 25px;
+      left: -16px;
     }
   }
 
