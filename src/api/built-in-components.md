@@ -126,7 +126,7 @@
 
 - **Props:**
 
-  - `include` - string or RegExp or Array. Only components with matching names will be cached.
+  - `include` - `string | RegExp | Array`. Only components with matching names will be cached.
   - `exclude` - string or RegExp or Array. Any component with a matching name will not be cached.
   - `max` - number or string. The maximum number of component instances to cache.
 
