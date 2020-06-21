@@ -41,7 +41,7 @@ Check out the result below:
 
 Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered.
 
-Check out more details on `<keep-alive>` in the [API reference](TODO:../api/#keep-alive).
+Check out more details on `<keep-alive>` in the [API reference](../api/built-in-components.html#keep-alive).
 
 ## Async Components
 

@@ -4,7 +4,7 @@
 
 - **Props:**
 
-  - `is` - string | ComponentDefinition | ComponentConstructor
+  - `is` - `string | ComponentDefinition | ComponentConstructor`
 
 - **Usage:**
 
@@ -25,22 +25,22 @@
 
 - **Props:**
 
-  - `name` - string, Used to automatically generate transition CSS class names. e.g. `name: 'fade'` will auto expand to `.fade-enter`, `.fade-enter-active`, etc.
-  - `appear` - boolean, Whether to apply transition on initial render. Defaults to `false`.
-  - `persisted` - boolean, If true, indicates this is a transition that doesn't actually insert/remove the element, but toggles the show / hidden status instead. The transition hooks are injected, but will be skipped by the renderer. Instead, a custom directive can control the transition by calling the injected hooks (e.g. `v-show`).
-  - `css` - boolean, Whether to apply CSS transition classes. Defaults to `true`. If set to `false`, will only trigger JavaScript hooks registered via component events.
-  - `type` - string, Specifies the type of transition events to wait for to determine transition end timing. Available values are `"transition"` and `"animation"`. By default, it will automatically detect the type that has a longer duration.
-  - `mode` - string, Controls the timing sequence of leaving/entering transitions. Available modes are `"out-in"` and `"in-out"`; defaults to simultaneous.
-  - `duration` - number | { `enter`: number, `leave`: number }, Specifies the duration of transition. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element.
-  - `enter-from-class` - string
-  - `leave-from-class` - string
-  - `appear-class` - string
-  - `enter-to-class` - string
-  - `leave-to-class` - string
-  - `appear-to-class` - string
-  - `enter-active-class` - string
-  - `leave-active-class` - string
-  - `appear-active-class` - string
+  - `name` - `string` Used to automatically generate transition CSS class names. e.g. `name: 'fade'` will auto expand to `.fade-enter`, `.fade-enter-active`, etc.
+  - `appear` - `boolean`, Whether to apply transition on initial render. Defaults to `false`.
+  - `persisted` - `boolean`. If true, indicates this is a transition that doesn't actually insert/remove the element, but toggles the show / hidden status instead. The transition hooks are injected, but will be skipped by the renderer. Instead, a custom directive can control the transition by calling the injected hooks (e.g. `v-show`).
+  - `css` - `boolean`. Whether to apply CSS transition classes. Defaults to `true`. If set to `false`, will only trigger JavaScript hooks registered via component events.
+  - `type` - `string`. Specifies the type of transition events to wait for to determine transition end timing. Available values are `"transition"` and `"animation"`. By default, it will automatically detect the type that has a longer duration.
+  - `mode` - `wtring` Controls the timing sequence of leaving/entering transitions. Available modes are `"out-in"` and `"in-out"`; defaults to simultaneous.
+  - `duration` - `number | {`enter`: number,`leave`: number }`. Specifies the duration of transition. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element.
+  - `enter-from-class` - `string`
+  - `leave-from-class` - `string`
+  - `appear-class` - `string`
+  - `enter-to-class` - `string`
+  - `leave-to-class` - `string`
+  - `appear-to-class` - `string`
+  - `enter-active-class` - `string`
+  - `leave-active-class` - `string`
+  - `appear-active-class` - `string`
 
 - **Events:**
 
@@ -96,7 +96,7 @@
 
 - **Props:**
 
-  - `tag` - string, defaults to `span`.
+  - `tag` - `string`, defaults to `span`.
   - `move-class` - overwrite CSS class applied during moving transition.
   - exposes the same props as `<transition>` except `mode`.
 
@@ -127,8 +127,8 @@
 - **Props:**
 
   - `include` - `string | RegExp | Array`. Only components with matching names will be cached.
-  - `exclude` - string or RegExp or Array. Any component with a matching name will not be cached.
-  - `max` - number or string. The maximum number of component instances to cache.
+  - `exclude` - `string | RegExp | Array`. Any component with a matching name will not be cached.
+  - `max` - `number | string`. The maximum number of component instances to cache.
 
 - **Usage:**
 
@@ -203,7 +203,7 @@
 
 - **Props:**
 
-  - `name` - string, Used for named slot.
+  - `name` - `string`, Used for named slot.
 
 - **Usage:**
 
