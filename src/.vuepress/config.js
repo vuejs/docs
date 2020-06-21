@@ -106,6 +106,7 @@ const sidebar = {
     '/api/instance-methods',
     '/api/directives',
     '/api/special-attributes',
+    '/api/built-in-components.md',
     {
       title: 'Reactivity API',
       collapsable: false,

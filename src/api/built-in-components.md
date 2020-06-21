@@ -1,0 +1,214 @@
+# Built-In Components
+
+## component
+
+- **Props:**
+
+  - `is` - `string | ComponentDefinition | ComponentConstructor`
+
+- **Usage:**
+
+  A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop:
+
+  ```html
+  <!-- a dynamic component controlled by -->
+  <!-- the `componentId` property on the vm -->
+  <component :is="componentId"></component>
+
+  <!-- can also render registered component or component passed as prop -->
+  <component :is="$options.components.child"></component>
+  ```
+
+- **See also:** [Dynamic Components](../guide/component-dynamic-async.html)
+
+## transition
+
+- **Props:**
+
+  - `name` - `string` Used to automatically generate transition CSS class names. e.g. `name: 'fade'` will auto expand to `.fade-enter`, `.fade-enter-active`, etc.
+  - `appear` - `boolean`, Whether to apply transition on initial render. Defaults to `false`.
+  - `persisted` - `boolean`. If true, indicates this is a transition that doesn't actually insert/remove the element, but toggles the show / hidden status instead. The transition hooks are injected, but will be skipped by the renderer. Instead, a custom directive can control the transition by calling the injected hooks (e.g. `v-show`).
+  - `css` - `boolean`. Whether to apply CSS transition classes. Defaults to `true`. If set to `false`, will only trigger JavaScript hooks registered via component events.
+  - `type` - `string`. Specifies the type of transition events to wait for to determine transition end timing. Available values are `"transition"` and `"animation"`. By default, it will automatically detect the type that has a longer duration.
+  - `mode` - `wtring` Controls the timing sequence of leaving/entering transitions. Available modes are `"out-in"` and `"in-out"`; defaults to simultaneous.
+  - `duration` - `number | {`enter`: number,`leave`: number }`. Specifies the duration of transition. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element.
+  - `enter-from-class` - `string`
+  - `leave-from-class` - `string`
+  - `appear-class` - `string`
+  - `enter-to-class` - `string`
+  - `leave-to-class` - `string`
+  - `appear-to-class` - `string`
+  - `enter-active-class` - `string`
+  - `leave-active-class` - `string`
+  - `appear-active-class` - `string`
+
+- **Events:**
+
+  - `before-enter`
+  - `before-leave`
+  - `enter`
+  - `leave`
+  - `after-enter`
+  - `after-leave`
+  - `enter-cancelled`
+  - `leave-cancelled` (`v-show` only)
+
+- **Usage:**
+
+  `<transition>` serve as transition effects for **single** element/component. The `<transition>` only applies the transition behavior to the wrapped content inside; it doesn't render an extra DOM element, or show up in the inspected component hierarchy.
+
+  ```html
+  <!-- simple element -->
+  <transition>
+    <div v-if="ok">toggled content</div>
+  </transition>
+
+  <!-- dynamic component -->
+  <transition name="fade" mode="out-in" appear>
+    <component :is="view"></component>
+  </transition>
+
+  <!-- event hooking -->
+  <div id="transition-demo">
+    <transition @after-enter="transitionComplete">
+      <div v-show="ok">toggled content</div>
+    </transition>
+  </div>
+  ```
+
+  ```js
+  const app = Vue.createApp({
+    ...
+    methods: {
+      transitionComplete (el) {
+        // for passed 'el' that DOM element as the argument, something ...
+      }
+    }
+    ...
+  })
+
+  app.mount('#transition-demo')
+  ```
+
+- **See also:** [Transitions: Entering, Leaving, and Lists](TODO)
+
+## transition-group
+
+- **Props:**
+
+  - `tag` - `string`, defaults to `span`.
+  - `move-class` - overwrite CSS class applied during moving transition.
+  - exposes the same props as `<transition>` except `mode`.
+
+- **Events:**
+
+  - exposes the same events as `<transition>`.
+
+- **Usage:**
+
+  `<transition-group>` serve as transition effects for **multiple** elements/components. The `<transition-group>` renders a real DOM element. By default it renders a `<span>`, and you can configure what element it should render via the `tag` attribute.
+
+  Note that every child in a `<transition-group>` must be [**uniquely keyed**](./special-attributes.html#key) for the animations to work properly.
+
+  `<transition-group>` supports moving transitions via CSS transform. When a child's position on screen has changed after an update, it will get applied a moving CSS class (auto generated from the `name` attribute or configured with the `move-class` attribute). If the CSS `transform` property is "transition-able" when the moving class is applied, the element will be smoothly animated to its destination using the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
+
+  ```html
+  <transition-group tag="ul" name="slide">
+    <li v-for="item in items" :key="item.id">
+      {{ item.text }}
+    </li>
+  </transition-group>
+  ```
+
+- **See also:** [Transitions: Entering, Leaving, and Lists](TODO)
+
+## keep-alive
+
+- **Props:**
+
+  - `include` - `string | RegExp | Array`. Only components with matching names will be cached.
+  - `exclude` - `string | RegExp | Array`. Any component with a matching name will not be cached.
+  - `max` - `number | string`. The maximum number of component instances to cache.
+
+- **Usage:**
+
+  When wrapped around a dynamic component, `<keep-alive>` caches the inactive component instances without destroying them. Similar to `<transition>`, `<keep-alive>` is an abstract component: it doesn't render a DOM element itself, and doesn't show up in the component parent chain.
+
+  When a component is toggled inside `<keep-alive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly.
+
+  Primarily used to preserve component state or avoid re-rendering.
+
+  ```html
+  <!-- basic -->
+  <keep-alive>
+    <component :is="view"></component>
+  </keep-alive>
+
+  <!-- multiple conditional children -->
+  <keep-alive>
+    <comp-a v-if="a > 1"></comp-a>
+    <comp-b v-else></comp-b>
+  </keep-alive>
+
+  <!-- used together with `<transition>` -->
+  <transition>
+    <keep-alive>
+      <component :is="view"></component>
+    </keep-alive>
+  </transition>
+  ```
+
+  Note, `<keep-alive>` is designed for the case where it has one direct child component that is being toggled. It does not work if you have `v-for` inside it. When there are multiple conditional children, as above, `<keep-alive>` requires that only one child is rendered at a time.
+
+- **`include` and `exclude`**
+
+  The `include` and `exclude` props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an Array:
+
+  ```html
+  <!-- comma-delimited string -->
+  <keep-alive include="a,b">
+    <component :is="view"></component>
+  </keep-alive>
+
+  <!-- regex (use `v-bind`) -->
+  <keep-alive :include="/a|b/">
+    <component :is="view"></component>
+  </keep-alive>
+
+  <!-- Array (use `v-bind`) -->
+  <keep-alive :include="['a', 'b']">
+    <component :is="view"></component>
+  </keep-alive>
+  ```
+
+  The match is first checked on the component's own `name` option, then its local registration name (the key in the parent's `components` option) if the `name` option is not available. Anonymous components cannot be matched against.
+
+- **`max`**
+
+  The maximum number of component instances to cache. Once this number is reached, the cached component instance that was least recently accessed will be destroyed before creating a new instance.
+
+  ```html
+  <keep-alive :max="10">
+    <component :is="view"></component>
+  </keep-alive>
+  ```
+
+  ::: warning
+  `<keep-alive>` does not work with functional components because they do not have instances to be cached.
+  :::
+
+- **See also:** [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+
+## slot
+
+- **Props:**
+
+  - `name` - `string`, Used for named slot.
+
+- **Usage:**
+
+  `<slot>` serve as content distribution outlets in component templates. `<slot>` itself will be replaced.
+
+  For detailed usage, see the guide section linked below.
+
+- **See also:** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
