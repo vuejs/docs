@@ -35,9 +35,9 @@ const sidebar = {
       title: 'Transitions & Animation',
       collapsable: false,
       children: [
+        '/guide/transitions-overview',
         '/guide/transitions-enterleave',
-        '/guide/transitions-state',
-        '/guide/transitions-more'
+        '/guide/transitions-state'
       ]
     },
     {
