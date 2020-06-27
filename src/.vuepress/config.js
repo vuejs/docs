@@ -32,6 +32,15 @@ const sidebar = {
       ]
     },
     {
+      title: 'Transitions & Animation',
+      collapsable: false,
+      children: [
+        '/guide/transitions-enterleave',
+        '/guide/transitions-state',
+        '/guide/transitions-more'
+      ]
+    },
+    {
       title: 'Internals',
       collapsable: false,
       children: [
@@ -54,9 +63,7 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: [
-        '/guide/single-file-component'
-      ]
+      children: ['/guide/single-file-component']
     },
     {
       title: 'Scaling Up',
@@ -71,9 +78,7 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: [
-        '/guide/testing'
-      ]
+      children: ['/guide/testing']
     },
     {
       title: 'Migration to Vue 3',
