@@ -7,7 +7,7 @@ Vue provides a variety of ways to apply transition effects when items are insert
 - use JavaScript to directly manipulate the DOM during transition hooks
 - integrate 3rd-party JavaScript animation libraries, such as Velocity.js
 
-On this page, we'll only cover entering, leaving, and list transitions, but you can see the next section for [managing state transitions](TODO: transitioning-state.html).
+On this page, we'll only cover entering, leaving, and list transitions, but you can see the next section for [managing state transitions](transitions-state.md).
 
 ## Transitioning Single Elements/Components
 
@@ -22,9 +22,10 @@ This is what an example looks like in action:
 
 ```html
 <div id="demo">
-  <button v-on:click="show = !show">
+  <button @click="show = !show">
     Toggle
   </button>
+
   <transition name="fade">
     <p v-if="show">hello</p>
   </transition>
@@ -32,12 +33,15 @@ This is what an example looks like in action:
 ```
 
 ```js
-new Vue({
-  el: '#demo',
-  data: {
-    show: true
+const Demo = {
+  data() {
+    return {
+      show: true
+    }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#demo')
 ```
 
 ```css
@@ -45,12 +49,19 @@ new Vue({
 .fade-leave-active {
   transition: opacity 0.5s ease;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 ```
 
-TODO: add example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="3466d06fb252a53c5bc0a0edb0f1588a" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Simple Transition Component">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/3466d06fb252a53c5bc0a0edb0f1588a">
+  Simple Transition Component</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 When an element wrapped in a `transition` component is inserted or removed, this is what happens:
 
@@ -89,10 +100,11 @@ Each of these classes will be prefixed with the name of the transition. Here the
 One of the most common transition types uses CSS transitions. Here's an example:
 
 ```html
-<div id="example-1">
+<div id="demo">
   <button @click="show = !show">
     Toggle render
   </button>
+
   <transition name="slide-fade">
     <p v-if="show">hello</p>
   </transition>
@@ -100,26 +112,31 @@ One of the most common transition types uses CSS transitions. Here's an example:
 ```
 
 ```js
-new Vue({
-  el: '#example-1',
-  data: {
-    show: true
+const Demo = {
+  data() {
+    return {
+      show: true
+    }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#demo')
 ```
 
 ```css
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .slide-fade-enter-active {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-out;
 }
+
 .slide-fade-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(20px);
   opacity: 0;
 }
 ```
