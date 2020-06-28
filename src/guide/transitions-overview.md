@@ -31,17 +31,24 @@ If we were to apply these states to a transition, it would look something like t
 
 ```css
 .button {
-  background: purple;
+  background: #1b8f5a;
   /* applied to the initial state, so this transition will be applied to the return state */
   transition: background 0.25s ease-in;
 }
 
 .button:hover {
-  background: magenta;
+  background: #3eaf7c;
   /* applied to the hover state, so this trnaisition will be applied when a hover is triggered */
   transition: background 0.35s ease-out;
 }
 ```
+
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="css,result" data-user="Vue" data-slug-hash="996a9665131e7902327d350ca8a655ac" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Ease Example">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/996a9665131e7902327d350ca8a655ac">
+  Transition Ease Example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Whereas for an animation it would look like this:
 
@@ -52,4 +59,5 @@ We'll be using [GreenSock (GSAP)](https://greensock.com/) in some of the example
 
 ## Further Reading
 
-- [Designing Interface Animation: Improving the User Experience Through Animation](https://www.amazon.com/dp/B01J4NKSZA/)
+- [Designing Interface Animation: Improving the User Experience Through Animation by Val Head](https://www.amazon.com/dp/B01J4NKSZA/)
+- [Animation at Work by Rachel Nabors](https://abookapart.com/products/animation-at-work)
