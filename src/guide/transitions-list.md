@@ -8,7 +8,7 @@ So far, we've managed transitions for:
 So what about for when we have a whole list of items we want to render simultaneously, for example with `v-for`? In this case, we'll use the `<transition-group>` component. Before we dive into an example though, there are a few things that are important to know about this component:
 
 - Unlike `<transition>`, it renders an actual element: a `<span>` by default. You can change the element that's rendered with the `tag` attribute.
-- [Transition modes](#Transition-Modes) are not available, because we are no longer alternating between mutually exclusive elements.
+- [Transition modes](/guide/transitions-enterleave#Transition-Modes) are not available, because we are no longer alternating between mutually exclusive elements.
 - Elements inside are **always required** to have a unique `key` attribute.
 - CSS transition classes will be applied to inner elements and not to the group/container itself.
 
@@ -29,11 +29,12 @@ Now let's dive into an example, transitioning entering and leaving using the sam
 ```
 
 ```js
-new Vue({
-  el: '#list-demo',
-  data: {
-    items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    nextNum: 10
+const Demo = {
+  data() {
+    return {
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      nextNum: 10
+    }
   },
   methods: {
     randomIndex() {
@@ -46,7 +47,9 @@ new Vue({
       this.items.splice(this.randomIndex(), 1)
     }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#list-demo')
 ```
 
 ```css
@@ -56,7 +59,7 @@ new Vue({
 }
 .list-enter-active,
 .list-leave-active {
-  transition: all 1s;
+  transition: all 1s ease;
 }
 .list-enter,
 .list-leave-to {
@@ -65,7 +68,12 @@ new Vue({
 }
 ```
 
-TODO: example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="e1cea580e91d6952eb0ae17bfb7c379d" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition List">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/e1cea580e91d6952eb0ae17bfb7c379d">
+  Transition List</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 There's one problem with this example. When you add or remove an item, the ones around it instantly snap into their new place instead of smoothly transitioning. We'll fix that later.
 
@@ -79,9 +87,9 @@ This class is mostly useful for specifying the transition timing and easing curv
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 
 <div id="flip-list-demo" class="demo">
-  <button v-on:click="shuffle">Shuffle</button>
+  <button @click="shuffle">Shuffle</button>
   <transition-group name="flip-list" tag="ul">
-    <li v-for="item in items" v-bind:key="item">
+    <li v-for="item in items" :key="item">
       {{ item }}
     </li>
   </transition-group>
@@ -97,7 +105,7 @@ new Vue({
     }
   },
   methods: {
-    shuffle: function() {
+    shuffle() {
       this.items = _.shuffle(this.items)
     }
   }
