@@ -293,6 +293,7 @@ You can also define JavaScript hooks in attributes:
   @leave="leave"
   @after-leave="afterLeave"
   @leave-cancelled="leaveCancelled"
+  :css="false"
 >
   <!-- ... -->
 </transition>
@@ -346,19 +347,18 @@ methods: {
 
 These hooks can be used in combination with CSS transitions/animations or on their own.
 
-<p class="tip">When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, the hooks will be called synchronously and the transition will finish immediately.</p>
+When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, the hooks will be called synchronously and the transition will finish immediately. Adding `:css="false"` will also let know Vue to skip CSS detection. Aside from being slightly more performant, this also prevents CSS rules from accidentally interfering with the transition.
 
-<p class="tip">It's also a good idea to explicitly add `:css="false"` for JavaScript-only transitions so that Vue can skip the CSS detection. This also prevents CSS rules from accidentally interfering with the transition.</p>
-
-Now let's dive into an example. Here's a JavaScript transition using Velocity.js:
+Now let's dive into an example. Here's a JavaScript transition using GreenSock:
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
 
-<div id="example-4">
+<div id="demo">
   <button @click="show = !show">
     Toggle
   </button>
+
   <transition
     @before-enter="beforeEnter"
     @enter="enter"
@@ -373,8 +373,7 @@ Now let's dive into an example. Here's a JavaScript transition using Velocity.js
 ```
 
 ```js
-new Vue({
-  el: '#example-4',
+const Demo = {
   data: {
     show: false
   },
@@ -402,10 +401,12 @@ new Vue({
       )
     }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#demo')
 ```
 
-TODO: redo example
+TODO: redo example https://codepen.io/team/Vue/pen/68ce1b8c41d0a6e71ff58df80fd85ae5
 
 ## Transitions on Initial Render
 
@@ -416,36 +417,6 @@ If you also want to apply a transition on the initial render of a node, you can 
   <!-- ... -->
 </transition>
 ```
-
-By default, this will use the transitions specified for entering and leaving. If you'd like however, you can also specify custom CSS classes:
-
-```html
-<transition
-  appear
-  appear-class="custom-appear-class"
-  appear-to-class="custom-appear-to-class"
-  (2.1.8+)
-  appear-active-class="custom-appear-active-class"
->
-  <!-- ... -->
-</transition>
-```
-
-and custom JavaScript hooks:
-
-```html
-<transition
-  appear
-  @before-appear="customBeforeAppearHook"
-  @appear="customAppearHook"
-  @after-appear="customAfterAppearHook"
-  @appear-cancelled="customAppearCancelledHook"
->
-  <!-- ... -->
-</transition>
-```
-
-In the example above, either `appear` attribute or `@appear` hook will cause an appear transition.
 
 ## Transitioning Between Elements
 
@@ -507,7 +478,7 @@ Which could also be written as:
 
 ```html
 <transition>
-  <button v-bind:key="docState">
+  <button :key="docState">
     {{ buttonMessage }}
   </button>
 </transition>
@@ -516,7 +487,7 @@ Which could also be written as:
 ```js
 // ...
 computed: {
-  buttonMessage: function () {
+  buttonMessage() {
     switch (this.docState) {
       case 'saved': return 'Edit'
       case 'edited': return 'Save'
@@ -626,10 +597,10 @@ Now let's dive into an example, transitioning entering and leaving using the sam
 
 ```html
 <div id="list-demo">
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
+  <button @click="add">Add</button>
+  <button @click="remove">Remove</button>
   <transition-group name="list" tag="p">
-    <span v-for="item in items" v-bind:key="item" class="list-item">
+    <span v-for="item in items" :key="item" class="list-item">
       {{ item }}
     </span>
   </transition-group>
@@ -644,13 +615,13 @@ new Vue({
     nextNum: 10
   },
   methods: {
-    randomIndex: function() {
+    randomIndex() {
       return Math.floor(Math.random() * this.items.length)
     },
-    add: function() {
+    add() {
       this.items.splice(this.randomIndex(), 0, this.nextNum++)
     },
-    remove: function() {
+    remove() {
       this.items.splice(this.randomIndex(), 1)
     }
   }
@@ -666,7 +637,8 @@ new Vue({
 .list-leave-active {
   transition: all 1s;
 }
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+.list-enter,
+.list-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
@@ -698,8 +670,10 @@ This class is mostly useful for specifying the transition timing and easing curv
 ```js
 new Vue({
   el: '#flip-list-demo',
-  data: {
-    items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  data() {
+    return {
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    }
   },
   methods: {
     shuffle: function() {
@@ -711,7 +685,7 @@ new Vue({
 
 ```css
 .flip-list-move {
-  transition: transform 1s;
+  transition: transform 1s ease;
 }
 ```
 
@@ -725,11 +699,11 @@ We can combine this technique with our previous implementation to animate every 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 
 <div id="list-complete-demo" class="demo">
-  <button v-on:click="shuffle">Shuffle</button>
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
+  <button @click="shuffle">Shuffle</button>
+  <button @click="add">Add</button>
+  <button @click="remove">Remove</button>
   <transition-group name="list-complete" tag="p">
-    <span v-for="item in items" v-bind:key="item" class="list-complete-item">
+    <span v-for="item in items" :key="item" class="list-complete-item">
       {{ item }}
     </span>
   </transition-group>
@@ -739,21 +713,23 @@ We can combine this technique with our previous implementation to animate every 
 ```js
 new Vue({
   el: '#list-complete-demo',
-  data: {
-    items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    nextNum: 10
+  data() {
+    return {
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      nextNum: 10
+    }
   },
   methods: {
-    randomIndex: function() {
+    randomIndex() {
       return Math.floor(Math.random() * this.items.length)
     },
-    add: function() {
+    add() {
       this.items.splice(this.randomIndex(), 0, this.nextNum++)
     },
-    remove: function() {
+    remove() {
       this.items.splice(this.randomIndex(), 1)
     },
-    shuffle: function() {
+    shuffle() {
       this.items = _.shuffle(this.items)
     }
   }
@@ -762,12 +738,12 @@ new Vue({
 
 ```css
 .list-complete-item {
-  transition: all 1s;
+  transition: all 1s ease;
   display: inline-block;
   margin-right: 10px;
 }
-.list-complete-enter, .list-complete-leave-to
-/* .list-complete-leave-active below version 2.1.8 */ {
+.list-complete-enter,
+.list-complete-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
@@ -796,15 +772,15 @@ By communicating with JavaScript transitions through data attributes, it's also 
   <transition-group
     name="staggered-fade"
     tag="ul"
-    v-bind:css="false"
-    v-on:before-enter="beforeEnter"
-    v-on:enter="enter"
-    v-on:leave="leave"
+    :css="false"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @eave="leave"
   >
     <li
       v-for="(item, index) in computedList"
-      v-bind:key="item.msg"
-      v-bind:data-index="index"
+      :key="item.msg"
+      :data-index="index"
     >
       {{ item.msg }}
     </li>
