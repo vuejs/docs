@@ -84,9 +84,9 @@ The `<transition-group>` component has another trick up its sleeve. It can not o
 This class is mostly useful for specifying the transition timing and easing curve, as you'll see below:
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
 
-<div id="flip-list-demo" class="demo">
+<div id="flip-list-demo">
   <button @click="shuffle">Shuffle</button>
   <transition-group name="flip-list" tag="ul">
     <li v-for="item in items" :key="item">
@@ -97,8 +97,7 @@ This class is mostly useful for specifying the transition timing and easing curv
 ```
 
 ```js
-new Vue({
-  el: '#flip-list-demo',
+const Demo = {
   data() {
     return {
       items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -109,16 +108,23 @@ new Vue({
       this.items = _.shuffle(this.items)
     }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#flip-list-demo')
 ```
 
 ```css
 .flip-list-move {
-  transition: transform 1s ease;
+  transition: transform 0.8s ease;
 }
 ```
 
-TODO: example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="049211673d3c185fde6b6eceb8baebec" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition-group example">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/049211673d3c185fde6b6eceb8baebec">
+  Transition-group example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 This might seem like magic, but under the hood, Vue is using an animation technique called [FLIP](https://aerotwist.com/blog/flip-your-animations/) to smoothly transition elements from their old position to their new position using transforms.
 
