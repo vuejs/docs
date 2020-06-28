@@ -9,7 +9,7 @@ Vue offers some abstractions that can help work with transitions and animations,
 
 We will cover all of these and more in the next two sections in this Guide. However, aside from these useful API offerings, it's worth mentioning that the class and style declarations we covered earlier can be used to apply animations and transitions as well, for more simple use cases.
 
-In this next section, we'll go over some web animation and transitions basics, for those who are just learning, as well as linking off to some good resources. If you're already familiar with web animation and how those principles might work with some of Vue's directives, feel free to skip this next section. For anyone else looking to learn a little more about web animation basics before diving in, read on.
+In this next section, we'll go over some web animation and transitions basics, and link off to some resources for further exploration. If you're already familiar with web animation and how those principles might work with some of Vue's directives, feel free to skip this next section. For anyone else looking to learn a little more about web animation basics before diving in, read on.
 
 ## Class-based Animations & Transitions
 
@@ -24,6 +24,27 @@ For simple UI transitions, meaning from just one state to another with no interm
 ## Easing
 
 Easing is an important way to convey depth in an animation. One of the most common mistakes newcomers to animation have is to use `ease-in` for entrances, and `ease-out` for exits. You'll actually need the opposite.
+
+If we were to apply these states to a transition, it would look something like this:
+
+```css
+.button {
+  background: purple;
+  /* applied to the initial state, so this transition will be applied to the return state */
+  transition: background 0.25s ease-in;
+}
+
+.button:hover {
+  background: magenta;
+  /* applied to the hover state, so this trnaisition will be applied when a hover is triggered */
+  transition: background 0.35s ease-out;
+}
+```
+
+Whereas for an animation it would look like this:
+
+```css
+```
 
 We'll be using [GreenSock (GSAP)](https://greensock.com/) in some of the examples in the sections following, they have a great [ease visualizer](https://greensock.com/ease-visualizer) that will help you build nicely crafted eases.
 
