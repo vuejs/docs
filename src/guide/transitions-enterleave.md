@@ -305,19 +305,19 @@ methods: {
   // ENTERING
   // --------
 
-  beforeEnter: function (el) {
+  beforeEnter(el) {
     // ...
   },
   // the done callback is optional when
   // used in combination with CSS
-  enter: function (el, done) {
+  enter(el, done) {
     // ...
     done()
   },
-  afterEnter: function (el) {
+  afterEnter(el) {
     // ...
   },
-  enterCancelled: function (el) {
+  enterCancelled(el) {
     // ...
   },
 
@@ -325,20 +325,20 @@ methods: {
   // LEAVING
   // --------
 
-  beforeLeave: function (el) {
+  beforeLeave(el) {
     // ...
   },
   // the done callback is optional when
   // used in combination with CSS
-  leave: function (el, done) {
+  leave(el, done) {
     // ...
     done()
   },
-  afterLeave: function (el) {
+  afterLeave(el) {
     // ...
   },
   // leaveCancelled only available with v-show
-  leaveCancelled: function (el) {
+  leaveCancelled(el) {
     // ...
   }
 }
@@ -348,15 +348,11 @@ These hooks can be used in combination with CSS transitions/animations or on the
 
 <p class="tip">When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, the hooks will be called synchronously and the transition will finish immediately.</p>
 
-<p class="tip">It's also a good idea to explicitly add `v-bind:css="false"` for JavaScript-only transitions so that Vue can skip the CSS detection. This also prevents CSS rules from accidentally interfering with the transition.</p>
+<p class="tip">It's also a good idea to explicitly add `:css="false"` for JavaScript-only transitions so that Vue can skip the CSS detection. This also prevents CSS rules from accidentally interfering with the transition.</p>
 
 Now let's dive into an example. Here's a JavaScript transition using Velocity.js:
 
 ```html
-<!--
-Velocity works very much like jQuery.animate and is
-a great option for JavaScript animations
--->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 
 <div id="example-4">
@@ -364,10 +360,10 @@ a great option for JavaScript animations
     Toggle
   </button>
   <transition
-    v-on:before-enter="beforeEnter"
-    v-on:enter="enter"
-    v-on:leave="leave"
-    v-bind:css="false"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @leave="leave"
+    :css="false"
   >
     <p v-if="show">
       Demo
@@ -383,15 +379,15 @@ new Vue({
     show: false
   },
   methods: {
-    beforeEnter: function(el) {
+    beforeEnter(el) {
       el.style.opacity = 0
       el.style.transformOrigin = 'left'
     },
-    enter: function(el, done) {
+    enter(el, done) {
       Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
       Velocity(el, { fontSize: '1em' }, { complete: done })
     },
-    leave: function(el, done) {
+    leave(el, done) {
       Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
       Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
       Velocity(
