@@ -11,7 +11,11 @@ We will cover all of these and more in the next two sections in this Guide. Howe
 
 In this next section, we'll go over some web animation and transitions basics, for those who are just learning, as well as linking off to some good resources. If you're already familiar with web animation and how those principles might work with some of Vue's directives, feel free to skip this next section. For anyone else looking to learn a little more about web animation basics before diving in, read on.
 
-## Animations vs Transitions
+## Class-based Animations & Transitions
+
+Though the `<transition>` component can be wonderful for components entering and leaving, you can also activate an animation from the
+
+# Transitions with Style Bindings
 
 ## Timing
 
