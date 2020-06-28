@@ -23,26 +23,34 @@ Watchers allow us to animate changes of any numerical property into another prop
 ```
 
 ```js
-new Vue({
-  el: '#animated-number-demo',
-  data: {
-    number: 0,
-    tweenedNumber: 0
+const Demo = {
+  data() {
+    return {
+      number: 0,
+      tweenedNumber: 0
+    }
   },
   computed: {
-    animatedNumber: function() {
+    animatedNumber() {
       return this.tweenedNumber.toFixed(0)
     }
   },
   watch: {
-    number: function(newValue) {
+    number(newValue) {
       gsap.to(this.$data, { duration: 0.5, tweenedNumber: newValue })
     }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#animated-number-demo')
 ```
 
-TODO: put in example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="22903bc3b53eb5b7817378ecb985ce96" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transitioning State 1">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/22903bc3b53eb5b7817378ecb985ce96">
+  Transitioning State 1</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 When you update the number, the change is animated below the input. This makes for a nice demo, but what about something that isn't directly stored as a number, like any valid CSS color for example? Here's how we could accomplish this with [Tween.js](https://github.com/tweenjs/tween.js) and [Color.js](https://github.com/brehaut/color-js):
 
