@@ -791,18 +791,20 @@ By communicating with JavaScript transitions through data attributes, it's also 
 ```js
 new Vue({
   el: '#staggered-list-demo',
-  data: {
-    query: '',
-    list: [
-      { msg: 'Bruce Lee' },
-      { msg: 'Jackie Chan' },
-      { msg: 'Chuck Norris' },
-      { msg: 'Jet Li' },
-      { msg: 'Kung Fury' }
-    ]
+  data() {
+    return {
+      query: '',
+      list: [
+        { msg: 'Bruce Lee' },
+        { msg: 'Jackie Chan' },
+        { msg: 'Chuck Norris' },
+        { msg: 'Jet Li' },
+        { msg: 'Kung Fury' }
+      ]
+    }
   },
   computed: {
-    computedList: function() {
+    computedList() {
       var vm = this
       return this.list.filter(function(item) {
         return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
@@ -810,17 +812,17 @@ new Vue({
     }
   },
   methods: {
-    beforeEnter: function(el) {
+    beforeEnter(el) {
       el.style.opacity = 0
       el.style.height = 0
     },
-    enter: function(el, done) {
+    enter(el, done) {
       var delay = el.dataset.index * 150
       setTimeout(function() {
         Velocity(el, { opacity: 1, height: '1.6em' }, { complete: done })
       }, delay)
     },
-    leave: function(el, done) {
+    leave(el, done) {
       var delay = el.dataset.index * 150
       setTimeout(function() {
         Velocity(el, { opacity: 0, height: 0 }, { complete: done })
@@ -844,17 +846,17 @@ Vue.component('my-special-transition', {
     <transition\
       name="very-special-transition"\
       mode="out-in"\
-      v-on:before-enter="beforeEnter"\
-      v-on:after-enter="afterEnter"\
+      @before-enter="beforeEnter"\
+      @after-enter="afterEnter"\
     >\
       <slot></slot>\
     </transition>\
   ',
   methods: {
-    beforeEnter: function(el) {
+    beforeEnter(el) {
       // ...
     },
-    afterEnter: function(el) {
+    afterEnter(el) {
       // ...
     }
   }
@@ -873,10 +875,10 @@ Vue.component('my-special-transition', {
         mode: 'out-in'
       },
       on: {
-        beforeEnter: function(el) {
+        beforeEnter(el) {
           // ...
         },
-        afterEnter: function(el) {
+        afterEnter(el) {
           // ...
         }
       }
@@ -891,7 +893,7 @@ Vue.component('my-special-transition', {
 Yes, even transitions in Vue are data-driven! The most basic example of a dynamic transition binds the `name` attribute to a dynamic property.
 
 ```html
-<transition v-bind:name="transitionName">
+<transition :name="transitionName">
   <!-- ... -->
 </transition>
 ```
@@ -905,31 +907,26 @@ Really though, any transition attribute can be dynamically bound. And it's not o
 
 <div id="dynamic-fade-demo" class="demo">
   Fade In:
-  <input
-    type="range"
-    v-model="fadeInDuration"
-    min="0"
-    v-bind:max="maxFadeDuration"
-  />
+  <input type="range" v-model="fadeInDuration" min="0" :max="maxFadeDuration" />
   Fade Out:
   <input
     type="range"
     v-model="fadeOutDuration"
     min="0"
-    v-bind:max="maxFadeDuration"
+    :max="maxFadeDuration"
   />
   <transition
-    v-bind:css="false"
-    v-on:before-enter="beforeEnter"
-    v-on:enter="enter"
-    v-on:leave="leave"
+    :css="false"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @leave="leave"
   >
     <p v-if="show">hello</p>
   </transition>
-  <button v-if="stop" v-on:click="stop = false; show = false">
+  <button v-if="stop" @click="stop = false; show = false">
     Start animating
   </button>
-  <button v-else v-on:click="stop = true">Stop it!</button>
+  <button v-else @click="stop = true">Stop it!</button>
 </div>
 ```
 
