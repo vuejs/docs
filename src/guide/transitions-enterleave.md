@@ -50,7 +50,7 @@ Vue.createApp(Demo).mount('#demo')
   transition: opacity 0.5s ease;
 }
 
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
@@ -88,6 +88,7 @@ There are six classes applied for enter/leave transitions.
 6. `v-leave-to`: **Only available in versions 2.1.8+.** Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave` is removed), removed when the transition/animation finishes.
 
 ![Transition Diagram](/images/transition.png)
+TODO: update diagram
 
 Each of these classes will be prefixed with the name of the transition. Here the `v-` prefix is the default when you use a `<transition>` element with no name. If you use `<transition name="my-transition">` for example, then the `v-enter` class would instead be `my-transition-enter`.
 
