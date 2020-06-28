@@ -153,9 +153,9 @@ Managing many state transitions can quickly increase the complexity of a Vue ins
   <input v-model.number="firstNumber" type="number" step="20" /> +
   <input v-model.number="secondNumber" type="number" step="20" /> = {{ result }}
   <p>
-    <animated-integer v-bind:value="firstNumber"></animated-integer> +
-    <animated-integer v-bind:value="secondNumber"></animated-integer> =
-    <animated-integer v-bind:value="result"></animated-integer>
+    <animated-integer :value="firstNumber"></animated-integer> +
+    <animated-integer :value="secondNumber"></animated-integer> =
+    <animated-integer :value="result"></animated-integer>
   </p>
 </div>
 ```
@@ -174,21 +174,21 @@ Vue.component('animated-integer', {
       required: true
     }
   },
-  data: function() {
+  data() {
     return {
       tweeningValue: 0
     }
   },
   watch: {
-    value: function(newValue, oldValue) {
+    value(newValue, oldValue) {
       this.tween(oldValue, newValue)
     }
   },
-  mounted: function() {
+  mounted() {
     this.tween(0, this.value)
   },
   methods: {
-    tween: function(startValue, endValue) {
+    tween(startValue, endValue) {
       var vm = this
       function animate() {
         if (TWEEN.update()) {
@@ -211,12 +211,14 @@ Vue.component('animated-integer', {
 // All complexity has now been removed from the main Vue instance!
 new Vue({
   el: '#example-8',
-  data: {
-    firstNumber: 20,
-    secondNumber: 40
+  data() {
+    return {
+      firstNumber: 20,
+      secondNumber: 40
+    }
   },
   computed: {
-    result: function() {
+    result() {
       return this.firstNumber + this.secondNumber
     }
   }
