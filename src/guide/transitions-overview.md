@@ -50,10 +50,15 @@ If we were to apply these states to a transition, it would look something like t
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Whereas for an animation it would look like this:
+You can get a lot of unique effects and make your animation very stylish by adjusting your easing. CSS allows you to modify this by adjusting a cubic bezier property, [this playground](https://cubic-bezier.com/#.17,.67,.83,.67) by Lea Verou is very helpful for exploring this.
 
-```css
-```
+Though you can achieve great effects for simple animation with the two handles the cubic-bezier ease offers, JavaScript allows multiple handles, and therefore, allows for much more variance.
+
+TODO: add graphic
+
+Take this bounce, for instance. In CSS we have to declare each keyframe, up and down. In JavaScript, we can express all of that movement within the ease, by declaring `bounce` in the GreenSock API (other JS libraries have other types of easing defaults).
+
+TODO: add example
 
 We'll be using [GreenSock (GSAP)](https://greensock.com/) in some of the examples in the sections following, they have a great [ease visualizer](https://greensock.com/ease-visualizer) that will help you build nicely crafted eases.
 
