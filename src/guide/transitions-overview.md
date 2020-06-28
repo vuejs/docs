@@ -13,9 +13,15 @@ In this next section, we'll go over some web animation and transitions basics, a
 
 ## Class-based Animations & Transitions
 
-Though the `<transition>` component can be wonderful for components entering and leaving, you can also activate an animation from the
+Though the `<transition>` component can be wonderful for components entering and leaving, you can also activate an animation without mounting a component, by adding a conditional class.
+
+TODO: add example
 
 # Transitions with Style Bindings
+
+Some transition affects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
+
+TODO: use example
 
 ## Timing
 
