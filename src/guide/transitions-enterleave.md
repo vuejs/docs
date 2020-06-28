@@ -168,12 +168,15 @@ Here's an example, omitting prefixed CSS rules for the sake of brevity:
 ```
 
 ```js
-new Vue({
-  el: '#example-2',
-  data: {
-    show: true
+const Demo = {
+  data() {
+    return {
+      show: true
+    }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#demo')
 ```
 
 ```css
@@ -220,19 +223,20 @@ Here's an example:
 
 ```html
 <link
-  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
   rel="stylesheet"
   type="text/css"
 />
 
-<div id="example-3">
+<div id="demo">
   <button @click="show = !show">
     Toggle render
   </button>
+
   <transition
     name="custom-classes-transition"
-    enter-active-class="animated tada"
-    leave-active-class="animated bounceOutRight"
+    enter-active-class="animate__animated animate__tada"
+    leave-active-class="animate__animated animate__bounceOutRight"
   >
     <p v-if="show">hello</p>
   </transition>
@@ -240,15 +244,16 @@ Here's an example:
 ```
 
 ```js
-new Vue({
-  el: '#example-3',
-  data: {
-    show: true
+const Demo = {
+  data() {
+    return {
+      show: true
+    }
   }
-})
-```
+}
 
-TODO: add example
+Vue.createApp(Demo).mount('#demo')
+```
 
 ### Using Transitions and Animations Together
 
