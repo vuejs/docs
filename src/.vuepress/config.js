@@ -37,6 +37,7 @@ const sidebar = {
       children: [
         '/guide/transitions-overview',
         '/guide/transitions-enterleave',
+        '/guide/transitions-list',
         '/guide/transitions-state'
       ]
     },
