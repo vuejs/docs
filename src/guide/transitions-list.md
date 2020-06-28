@@ -146,8 +146,7 @@ We can combine this technique with our previous implementation to animate every 
 ```
 
 ```js
-new Vue({
-  el: '#list-complete-demo',
+const Demo = {
   data() {
     return {
       items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -168,26 +167,35 @@ new Vue({
       this.items = _.shuffle(this.items)
     }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#list-complete-demo')
 ```
 
 ```css
 .list-complete-item {
-  transition: all 1s ease;
+  transition: all 0.8s ease;
   display: inline-block;
   margin-right: 10px;
 }
+
 .list-complete-enter,
 .list-complete-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
+
 .list-complete-leave-active {
   position: absolute;
 }
 ```
 
-TODO: example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="373b4429eb5769ae2e6d097fd954fd08" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition-group example">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/373b4429eb5769ae2e6d097fd954fd08">
+  Transition-group example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <p class="tip">One important note is that these FLIP transitions do not work with elements set to `display: inline`. As an alternative, you can use `display: inline-block` or place elements in a flex context.</p>
 
