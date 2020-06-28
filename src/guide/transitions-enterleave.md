@@ -374,31 +374,43 @@ Now let's dive into an example. Here's a JavaScript transition using GreenSock:
 
 ```js
 const Demo = {
-  data: {
-    show: false
+  data() {
+    return {
+      show: false
+    }
   },
   methods: {
     beforeEnter(el) {
-      el.style.opacity = 0
-      el.style.transformOrigin = 'left'
+      gsap.set(el, {
+        scaleX: 0.8,
+        scaleY: 1.2
+      })
     },
     enter(el, done) {
-      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
-      Velocity(el, { fontSize: '1em' }, { complete: done })
+      gsap.to(el, {
+        duration: 1,
+        scaleX: 1.5,
+        scaleY: 0.7,
+        opacity: 1,
+        x: 150,
+        ease: 'elastic.inOut(2.5, 1)',
+        onComplete: done
+      })
     },
     leave(el, done) {
-      Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
-      Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
-      Velocity(
-        el,
-        {
-          rotateZ: '45deg',
-          translateY: '30px',
-          translateX: '30px',
-          opacity: 0
-        },
-        { complete: done }
-      )
+      gsap.to(el, {
+        duration: 0.7,
+        scaleX: 1,
+        scaleY: 1,
+        x: 300,
+        ease: 'elastic.inOut(2.5, 1)'
+      })
+      gsap.to(el, {
+        duration: 0.2,
+        delay: 0.5,
+        opacity: 0,
+        onComplete: done
+      })
     }
   }
 }
@@ -406,7 +418,12 @@ const Demo = {
 Vue.createApp(Demo).mount('#demo')
 ```
 
-TODO: redo example https://codepen.io/team/Vue/pen/68ce1b8c41d0a6e71ff58df80fd85ae5
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="68ce1b8c41d0a6e71ff58df80fd85ae5" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JavaScript Hooks Transition">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/68ce1b8c41d0a6e71ff58df80fd85ae5">
+  JavaScript Hooks Transition</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Transitions on Initial Render
 
@@ -452,7 +469,7 @@ In these cases, you can also use the `key` attribute to transition between diffe
 
 ```html
 <transition>
-  <button v-bind:key="isEditing">
+  <button :key="isEditing">
     {{ isEditing ? 'Save' : 'Edit' }}
   </button>
 </transition>
