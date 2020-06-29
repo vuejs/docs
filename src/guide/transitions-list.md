@@ -208,9 +208,9 @@ TODO: example
 By communicating with JavaScript transitions through data attributes, it's also possible to stagger transitions in a list:
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
 
-<div id="staggered-list-demo">
+<div id="demo">
   <input v-model="query" />
   <transition-group
     name="staggered-fade"
@@ -218,7 +218,7 @@ By communicating with JavaScript transitions through data attributes, it's also 
     :css="false"
     @before-enter="beforeEnter"
     @enter="enter"
-    @eave="leave"
+    @leave="leave"
   >
     <li
       v-for="(item, index) in computedList"
@@ -232,8 +232,7 @@ By communicating with JavaScript transitions through data attributes, it's also 
 ```
 
 ```js
-new Vue({
-  el: '#staggered-list-demo',
+const Demo = {
   data() {
     return {
       query: '',
@@ -249,7 +248,7 @@ new Vue({
   computed: {
     computedList() {
       var vm = this
-      return this.list.filter(function(item) {
+      return this.list.filter(item => {
         return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
       })
     }
@@ -260,22 +259,33 @@ new Vue({
       el.style.height = 0
     },
     enter(el, done) {
-      var delay = el.dataset.index * 150
-      setTimeout(function() {
-        Velocity(el, { opacity: 1, height: '1.6em' }, { complete: done })
-      }, delay)
+      gsap.to(el, {
+        opacity: 1,
+        height: '1.6em',
+        delay: el.dataset.index * 0.15,
+        onComplete: done
+      })
     },
     leave(el, done) {
-      var delay = el.dataset.index * 150
-      setTimeout(function() {
-        Velocity(el, { opacity: 0, height: 0 }, { complete: done })
-      }, delay)
+      gsap.to(el, {
+        opacity: 0,
+        height: 0,
+        delay: el.dataset.index * 0.15,
+        onComplete: done
+      })
     }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#demo')
 ```
 
-TODO: example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="c2fc5107bd3025ceadea049b3ee44ec0" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Staggered Lists">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/c2fc5107bd3025ceadea049b3ee44ec0">
+  Staggered Lists</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Reusable Transitions
 
