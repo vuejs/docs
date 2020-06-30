@@ -48,10 +48,13 @@
   - `before-leave`
   - `enter`
   - `leave`
+  - `appear`
   - `after-enter`
   - `after-leave`
+  - `after-appear`
   - `enter-cancelled`
   - `leave-cancelled` (`v-show` only)
+  - `appear-cancelled`
 
 - **Usage:**
 
