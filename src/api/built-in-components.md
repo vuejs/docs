@@ -212,3 +212,32 @@
   For detailed usage, see the guide section linked below.
 
 - **See also:** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+
+## teleport
+
+- **Props:**
+
+  - `to` - `string`. Required prop, has to be a valid query selector, or an HTMLElement (if used in a browser environment). Specifies a target element where `<teleport>` content will be moved
+
+  ```html
+  <!-- ok -->
+  <teleport to="#some-id" />
+  <teleport to=".some-class" />
+  <teleport to="[data-portal]" />
+  <!--
+  probably too unspecific, but technically valid
+  -->
+  <teleport to="h1" />
+  <!-- Wrong -->
+  <teleport to="some-string" />
+  ```
+
+  - `disabled` - `boolean`. This optional prop can be used to disable the portal's functionality, which means that its slot content will not be moved anywhere and instead be rendered where you specified the `<teleport>` in the surrounding parent component.
+
+  ```html
+  <teleport to="#popup" :disabled="displayVideoInline">
+    <video src="./my-movie.mp4">
+  </teleport>
+  ```
+
+- **See also:** [Teleport component](..//guide/teleport.html#teleport)

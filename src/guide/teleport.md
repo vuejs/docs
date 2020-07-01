@@ -1,7 +1,5 @@
 # Teleport
 
-> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
-
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
 However, sometimes a part of a component's template belongs into this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of Vue app. For example, due to styling requirements, we want to move `<p id="content">` from it's deeply nested position to the `<div>` with `id="endofbody"`
@@ -101,4 +99,4 @@ A common use case scenario would be a reusable `<Modal>` component of which ther
 </div>
 ```
 
-You can check `<teleport>` component options in the [API reference]()
+You can check `<teleport>` component options in the [API reference](../api/built-in-components.html#teleport)
