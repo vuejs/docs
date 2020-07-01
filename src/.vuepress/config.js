@@ -28,6 +28,7 @@ const sidebar = {
         '/guide/component-provide-inject',
         '/guide/component-dynamic-async',
         '/guide/component-template-refs',
+        '/guide/component-teleport',
         '/guide/component-edge-cases'
       ]
     },
@@ -54,9 +55,7 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: [
-        '/guide/single-file-component'
-      ]
+      children: ['/guide/single-file-component']
     },
     {
       title: 'Scaling Up',
@@ -71,9 +70,7 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: [
-        '/guide/testing'
-      ]
+      children: ['/guide/testing']
     },
     {
       title: 'Migration to Vue 3',
