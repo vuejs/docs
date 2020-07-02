@@ -1,6 +1,6 @@
 # Global API Changes
 
-Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to [create a global component](/guide/components.html), you would use the `Vue.component` API like this:
+Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to create a global component, you would use the `Vue.component` API like this:
 
 ``` js
 Vue.component('button-counter', {
