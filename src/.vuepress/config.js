@@ -55,7 +55,8 @@ const sidebar = {
       title: 'Tooling',
       collapsable: false,
       children: [
-        '/guide/single-file-component'
+        '/guide/single-file-component',
+        '/guide/testing'
       ]
     },
     {
@@ -66,13 +67,6 @@ const sidebar = {
         '/guide/state-management',
         '/guide/ssr',
         '/guide/accessibility'
-      ]
-    },
-    {
-      title: 'Tooling',
-      collapsable: false,
-      children: [
-        '/guide/testing'
       ]
     },
     {
