@@ -78,7 +78,10 @@ const sidebar = {
     {
       title: 'Migration to Vue 3',
       collapsable: true,
-      children: ['migration']
+      children: [
+        'migration/global-api',
+        'migration/treeshaking'
+      ]
     },
     {
       title: 'Contribute to the Docs',
