@@ -51,7 +51,7 @@ As you can see, all of the children of `<teleport>` will be appended to `<div id
 
 ## Using with Vue components
 
-If `teleport` contains a Vue component, it will remain a child component of the `<teleport>`'s parent:
+If `<teleport>` contains a Vue component, it will remain a logical child component of the `<teleport>`'s parent:
 
 ```js
 const app = Vue.createApp({
