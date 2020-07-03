@@ -19,7 +19,7 @@ However, sometimes a part of a component's template belongs into this component 
 </body>
 ```
 
-To do so, we can use Vue built-in `<teleport>` component:
+To do so, we can use Vue's built-in `<teleport>` component:
 
 ```html
 <body>
