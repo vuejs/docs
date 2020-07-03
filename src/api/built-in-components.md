@@ -232,7 +232,7 @@
   <teleport to="some-string" />
   ```
 
-  - `disabled` - `boolean`. This optional prop can be used to disable the portal's functionality, which means that its slot content will not be moved anywhere and instead be rendered where you specified the `<teleport>` in the surrounding parent component.
+  - `disabled` - `boolean`. This optional prop can be used to disable the `<teleport>`'s functionality, which means that its slot content will not be moved anywhere and instead be rendered where you specified the `<teleport>` in the surrounding parent component.
 
   ```html
   <teleport to="#popup" :disabled="displayVideoInline">
