@@ -240,4 +240,4 @@
 
   Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
 
-- **See also:** [Teleport component](..//guide/teleport.html#teleport)
+- **See also:** [Teleport component](../guide/teleport.html#teleport)
