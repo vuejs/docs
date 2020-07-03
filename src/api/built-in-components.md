@@ -224,11 +224,9 @@
   <teleport to="#some-id" />
   <teleport to=".some-class" />
   <teleport to="[data-teleport]" />
-  <!--
-  probably too unspecific, but technically valid
-  -->
-  <teleport to="h1" />
+
   <!-- Wrong -->
+  <teleport to="h1" />
   <teleport to="some-string" />
   ```
 
@@ -239,5 +237,7 @@
     <video src="./my-movie.mp4">
   </teleport>
   ```
-Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
+
+  Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
+
 - **See also:** [Teleport component](..//guide/teleport.html#teleport)
