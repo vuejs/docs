@@ -223,7 +223,7 @@
   <!-- ok -->
   <teleport to="#some-id" />
   <teleport to=".some-class" />
-  <teleport to="[data-portal]" />
+  <teleport to="[data-teleport]" />
   <!--
   probably too unspecific, but technically valid
   -->
