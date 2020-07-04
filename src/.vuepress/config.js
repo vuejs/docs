@@ -32,15 +32,6 @@ const sidebar = {
       ]
     },
     {
-      title: 'Internals',
-      collapsable: false,
-      children: [
-        '/guide/reactivity',
-        '/guide/optimizations',
-        '/guide/change-detection'
-      ]
-    },
-    {
       title: 'Reusability & Composition',
       collapsable: false,
       children: [
@@ -54,10 +45,16 @@ const sidebar = {
       title: 'Advanced Techniques',
       collapsable: false,
       children: [
-        '/guide/reactivity',
+        {
+          title: 'Reactivity',
+          children: ['/guide/reactivity']
+        },
+        {
+          title: 'Composition API',
+          children: ['/guide/composition-api-introduction']
+        },
         '/guide/optimizations',
-        '/guide/change-detection',
-        '/guide/composition-api-introduction'
+        '/guide/change-detection'
       ]
     },
     {
@@ -180,7 +177,7 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Edit this on GitHub!',
     docsDir: 'src',
-    sidebarDepth: 2,
+    sidebarDepth: 3,
     sidebar: {
       collapsable: false,
       '/guide/': sidebar.guide,
