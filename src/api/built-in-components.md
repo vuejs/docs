@@ -215,3 +215,32 @@
   For detailed usage, see the guide section linked below.
 
 - **See also:** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+
+## teleport
+
+- **Props:**
+
+  - `to` - `string`. Required prop, has to be a valid query selector, or an HTMLElement (if used in a browser environment). Specifies a target element where `<teleport>` content will be moved
+
+  ```html
+  <!-- ok -->
+  <teleport to="#some-id" />
+  <teleport to=".some-class" />
+  <teleport to="[data-teleport]" />
+
+  <!-- Wrong -->
+  <teleport to="h1" />
+  <teleport to="some-string" />
+  ```
+
+  - `disabled` - `boolean`. This optional prop can be used to disable the `<teleport>`'s functionality, which means that its slot content will not be moved anywhere and instead be rendered where you specified the `<teleport>` in the surrounding parent component.
+
+  ```html
+  <teleport to="#popup" :disabled="displayVideoInline">
+    <video src="./my-movie.mp4">
+  </teleport>
+  ```
+
+  Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
+
+- **See also:** [Teleport component](../guide/teleport.html#teleport)

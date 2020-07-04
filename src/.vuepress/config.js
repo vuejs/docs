@@ -46,6 +46,7 @@ const sidebar = {
       children: [
         '/guide/mixins',
         '/guide/custom-directive',
+        '/guide/teleport',
         '/guide/render-function',
         '/guide/plugins',
         '/guide/composition-api-introduction'
@@ -54,9 +55,7 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: [
-        '/guide/single-file-component'
-      ]
+      children: ['/guide/single-file-component']
     },
     {
       title: 'Scaling Up',
@@ -71,9 +70,7 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: [
-        '/guide/testing'
-      ]
+      children: ['/guide/testing']
     },
     {
       title: 'Migration to Vue 3',
