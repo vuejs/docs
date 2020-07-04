@@ -47,16 +47,23 @@ const sidebar = {
         '/guide/mixins',
         '/guide/custom-directive',
         '/guide/render-function',
-        '/guide/plugins',
+        '/guide/plugins'
+      ]
+    },
+    {
+      title: 'Advanced Techniques',
+      collapsable: false,
+      children: [
+        '/guide/reactivity',
+        '/guide/optimizations',
+        '/guide/change-detection',
         '/guide/composition-api-introduction'
       ]
     },
     {
       title: 'Tooling',
       collapsable: false,
-      children: [
-        '/guide/single-file-component'
-      ]
+      children: ['/guide/single-file-component', '/guide/testing']
     },
     {
       title: 'Scaling Up',
@@ -66,13 +73,6 @@ const sidebar = {
         '/guide/state-management',
         '/guide/ssr',
         '/guide/accessibility'
-      ]
-    },
-    {
-      title: 'Tooling',
-      collapsable: false,
-      children: [
-        '/guide/testing'
       ]
     },
     {
