@@ -51,7 +51,10 @@ const sidebar = {
         },
         {
           title: 'Composition API',
-          children: ['/guide/composition-api-introduction']
+          children: [
+            '/guide/composition-api-introduction',
+            '/guide/composition-api-setup'
+          ]
         },
         '/guide/optimizations',
         '/guide/change-detection'

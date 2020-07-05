@@ -1,0 +1,180 @@
+# setup()
+
+> This section uses [single-file component](single-file-component.html) syntax for code examples
+
+> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Basics](TODO). Read that first if you are new to Composition API.
+
+## Arguments
+
+When using the `setup` function, it will take two arguments:
+
+1. `props`
+2. `context`
+
+Let's dive deeper into how each argument can be used.
+
+### Props
+
+The first argument in the `setup` function is the `props` argument. Just as you would expect in a standard component, `props` inside of a `setup` function are reactive and will be updated when new props are passed in.
+
+```js
+// MyBook.vue
+
+export default {
+  props: {
+    title: String
+  },
+  setup(props) {
+    console.log(props.title)
+  }
+}
+```
+
+:::warning
+However, because `props` are reactive, you **cannot use ES6 destructuring** because it will remove props reactivity.
+:::
+
+If you need to destructure your props, you can do this safely by utilizing the [toRefs](TODO) inside of the `setup` function.
+
+```js
+// MyBook.vue
+
+import { toRefs } from 'vue'
+
+setup(props) {
+	const { title } = toRefs(props)
+
+	console.log(title.value)
+}
+```
+
+### Context
+
+The second argument passed to the `setup` function is the `context`. The `context` is a normal JavaScript object that exposes three component properties:
+
+```js
+// MyBook.vue
+
+export default {
+  setup(props, context) {
+    // Attributes (Reactive Property)
+    console.log(context.attrs)
+
+    // Slots (Reactive Property)
+    console.log(context.slots)
+
+    // Emit Events (Method)
+    console.log(context.emit)
+  }
+}
+```
+
+Because it is a normal JavaScript object, i.e., it is not reactive, this means you can safely use ES6 destructuring on `context`.
+
+```js
+// MyBook.vue
+export default {
+	setup(props, { attrs, slots, emit }) {
+		...
+	}
+}
+```
+
+As a result, similar to `props`, if you need to destructure either of these properties, you can utilize the `toRefs` method to create a similar effects.
+
+```jsx
+// MyBook.vue
+
+import { toRefs } from 'vue'
+
+export default {
+	setup(props, { attrs }) {
+		const { id } = toRefs(attrs)
+		console.log(id.value)
+	}
+)
+```
+
+## Accessing Component Properties
+
+When `setup` is executed, the component instance has not been created yet. As a result, you will only be able to access the following properties:
+
+- `props`
+- `attrs`
+- `slots`
+- `emit`
+
+In other words, you **will not have access** to the following component options:
+
+- `data`
+- `computed`
+- `methods`
+
+## Lifecycle Hooks
+
+You can access a component's lifecycle hook by prefixing the lifecycle hook with "on".
+
+The following table contains how the lifecycle hooks are invoked inside of `setup()`:
+
+| Options API       | Hook inside inside `setup` |
+| ----------------- | -------------------------- |
+| `beforeCreate`    | Not needed\*               |
+| `created`         | Not needed\*               |
+| `beforeMount`     | `onBeforeMount`            |
+| `mounted`         | `onMounted`                |
+| `beforeUpdate`    | `onBeforeUpdate`           |
+| `updated`         | `onUpdated`                |
+| `beforeUnmount`   | `onBeforeUnmount`          |
+| `unmounted`       | `onUnmounted`              |
+| `errorCaptured`   | `onErrorCaptured`          |
+| `renderTracked`   | `onRenderTracked`          |
+| `renderTriggered` | `onRenderTriggered`        |
+
+:::tip
+Because `setup` is run around the `beforeCreate` and `created` lifecycle hooks, you do not need to explicitly define the,. In other words, any code that would be written inside those hooks should be written directly in the `setup` function.
+:::
+
+These functions accept a callback that will be executed when the hook is called by the component:
+
+```js
+// MyBook.vue
+
+export default {
+  setup() {
+    // mounted
+    onMounted(() => {
+      console.log('Component is mounted!)
+    })
+  }
+}
+```
+
+### Usage with Templates
+
+If `setup` returns an object, the properties on the object can be accessed in the component's template:
+
+```vue-html
+<!-- MyBook.vue -->
+<template>
+  <div>{{ readersNumber }} {{ book.title }}</div>
+</template>
+
+<script>
+  import { ref, reactive } from 'vue'
+
+  export default {
+    setup() {
+      const readersNumber = ref(0)
+      const book = reactive({ title: 'Vue 3 Guide' })
+
+      // expose to template
+      return {
+        readersNumber,
+        book
+      }
+    }
+  }
+</script>
+```
+
+Note that [refs](../api/refs-api.html#ref) returned from `setup` are [automatically unwrapped](../api/refs-api.html#access-in-templates) when accessed in the template so you shouldn't use `.value` in templates.
