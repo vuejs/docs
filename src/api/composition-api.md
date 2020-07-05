@@ -4,156 +4,14 @@
 
 ## `setup`
 
-The `setup` function is a new component option. It serves as the entry point for using the Composition API inside components.
+A component option that is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's
 
-### Invocation Timing
+- **Arguments:**
 
-`setup` is called right after the initial props resolution when a component instance is created. [Lifecycle-wise](../guide/instance.html#instance-lifecycle-hooks), it is called before the `beforeCreate` hook.
+  - `{Data} props`
+  - `{SetupContext} context`
 
-### Arguments
-
-The function receives the resolved [props](../guide/component-props.html) as its first argument:
-
-```js
-export default {
-  props: {
-    name: String
-  },
-  setup(props) {
-    console.log(props.name)
-  }
-}
-```
-
-Note that this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using [watchEffect](./computed-watch-api.html#watcheffect) or [watch](./computed-watch-api.html#watch):
-
-```js
-export default {
-  props: {
-    name: String
-  },
-  setup(props) {
-    watchEffect(() => {
-      console.log(`name is: ` + props.name)
-    })
-  }
-}
-```
-
-However, **do NOT destructure** the `props` object! If you do so, the unpacked values won't have reactivity:
-
-```js
-export default {
-  props: {
-    name: String
-  },
-  setup({ name }) {
-    watchEffect(() => {
-      console.log(`name is: ` + name) // Will not be reactive!
-    })
-  }
-}
-```
-
-The `props` object is immutable during development. Vue will emit a warning if there's an attempt to mutate it.
-
-The second argument of `setup` provides a context object which exposes a selective list of the properties that were previously exposed on `this` in 2.x APIs:
-
-```js
-const MyComponent = {
-  setup(props, context) {
-    context.attrs
-    context.slots
-    context.emit
-  }
-}
-```
-
-Unlike `props`, `context` argument can be destructured safely so [attrs](./instance-properties.html#attrs) and [slots](./instance-properties.html#slots) would always expose the latest values even after updates:
-
-```js
-const MyComponent = {
-  setup(props, { attrs }) {
-    // a function that may get called at a later stage
-    function onClick() {
-      console.log(attrs.foo) // guaranteed to be the latest reference
-    }
-  }
-}
-```
-
-However, `attrs` and `slots` themselves cannot be destructured without losing reactivity:
-
-```js
-const MyComponent = {
-  setup(props, { attrs: { foo } }) {
-    function onClick() {
-      console.log(foo) // won't be the latest reference as we lost `attrs` reactivity with destructuring
-    }
-  }
-}
-```
-
-### Usage with Templates
-
-If `setup` returns an object, the properties on the object will be merged into the render context of the component's template:
-
-```html
-<template>
-  <div>{{ count }} {{ object.foo }}</div>
-</template>
-
-<script>
-  import { ref, reactive } from 'vue'
-
-  export default {
-    setup() {
-      const count = ref(0)
-      const object = reactive({ foo: 'bar' })
-
-      // expose to template
-      return {
-        count,
-        object
-      }
-    }
-  }
-</script>
-```
-
-Note that [refs](./refs-api.html#ref) returned from `setup` are [automatically unwrapped](./refs-api.html#access-in-templates) when accessed in the template so you shouldn't use `.value` in templates.
-
-### Usage with Render Functions
-
-`setup` can also return a render function which can directly make use of the reactive state declared in the same scope:
-
-```js
-import { h, ref, reactive } from 'vue'
-
-export default {
-  setup() {
-    const count = ref(0)
-    const object = reactive({ foo: 'bar' })
-
-    return () => h('div', [count.value, object.foo])
-  }
-}
-```
-
-### Usage of `this`
-
-**Inside `setup()`, `this` won't be a reference to Vue instance** Since `setup()` is called before other component options are resolved, `this` inside `setup()` will behave quite differently from `this` in other options. This might cause confusions when using `setup()` along other Options API. Another reason for avoiding `this` in `setup()` is a very common pitfall for beginners:
-
-```js
-setup() {
-  const that = this
-  function onClick() {
-      console.log(this !== that) // not the `this` you'd expect!
-  }
-}
-```
-
-### Typing
+- **Typing**:
 
 ```ts
 interface Data {
@@ -172,6 +30,53 @@ function setup(props: Data, context: SetupContext): Data
 ::: tip
 To get type inference for the arguments passed to `setup()`, the use of [defineComponent](global-api.html#definecomponent) is needed.
 :::
+
+- **Example**
+
+  With remplate:
+
+  ```vue-html
+  <!-- MyBook.vue -->
+  <template>
+    <div>{{ readersNumber }} {{ book.title }}</div>
+  </template>
+
+  <script>
+    import { ref, reactive } from 'vue'
+
+    export default {
+      setup() {
+        const readersNumber = ref(0)
+        const book = reactive({ title: 'Vue 3 Guide' })
+
+        // expose to template
+        return {
+          readersNumber,
+          book
+        }
+      }
+    }
+  </script>
+  ```
+
+  With render function:
+
+  ```js
+  // MyBook.vue
+
+  import { h, ref, reactive } from 'vue'
+
+  export default {
+    setup() {
+      const readersNumber = ref(0)
+      const book = reactive({ title: 'Vue 3 Guide' })
+      // Please note that we need to explicitly expose ref value here
+      return () => h('div', [readersNumber.value, book.title])
+    }
+  }
+  ```
+
+- **See also**: [Composition API `setup`](,,/guide/composition-api-setup.html)
 
 ## Lifecycle Hooks
 

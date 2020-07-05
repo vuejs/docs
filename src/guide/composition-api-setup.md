@@ -1,4 +1,4 @@
-# setup()
+# setup
 
 > This section uses [single-file component](single-file-component.html) syntax for code examples
 
@@ -178,3 +178,26 @@ If `setup` returns an object, the properties on the object can be accessed in th
 ```
 
 Note that [refs](../api/refs-api.html#ref) returned from `setup` are [automatically unwrapped](../api/refs-api.html#access-in-templates) when accessed in the template so you shouldn't use `.value` in templates.
+
+### Usage with Render Functions
+
+`setup` can also return a render function which can directly make use of the reactive state declared in the same scope:
+
+```js
+// MyBook.vue
+
+import { h, ref, reactive } from 'vue'
+
+export default {
+  setup() {
+    const readersNumber = ref(0)
+    const book = reactive({ title: 'Vue 3 Guide' })
+    // Please note that we need to explicitly expose ref value here
+    return () => h('div', [readersNumber.value, book.title])
+  }
+}
+```
+
+### Usage of `this`
+
+**Inside `setup()`, `this` won't be a reference to Vue instance** Since `setup()` is called before other component options are resolved, `this` inside `setup()` will behave quite differently from `this` in other options. This might cause confusions when using `setup()` along other Options API.
