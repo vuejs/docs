@@ -28,6 +28,8 @@ const MyBook = {
 }
 ```
 
+`inject` accepts an optional default value as the 2nd argument. If a default value is not provided and the property is not found on the provide context, `inject` returns `undefined`.
+
 If we need to provide or inject multiple values, we can do this with a subsequent call of `provide` or `inject` respectively:
 
 ```js{5-6,12-16}

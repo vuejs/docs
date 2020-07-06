@@ -33,7 +33,7 @@ To get type inference for the arguments passed to `setup()`, the use of [defineC
 
 - **Example**
 
-  With remplate:
+  With the template:
 
   ```vue-html
   <!-- MyBook.vue -->
@@ -118,52 +118,13 @@ The component instance context is also set during the synchronous execution of l
   - `renderTracked` -> `onRenderTracked`
   - `renderTriggered` -> `onRenderTriggered`
 
-## Dependency Injection
+- **See also**: [Composition API lifecycle hooks](../guide/composition-api-lifecycle-hooks.html)
+
+## Provide / Inject
 
 `provide` and `inject` enables dependency injection. Both can only be called during [`setup()`](#setup) with a current active instance.
 
-```js
-import { provide, inject } from 'vue'
-
-const ThemeSymbol = Symbol()
-
-const Ancestor = {
-  setup() {
-    provide(ThemeSymbol, 'dark')
-  }
-}
-
-const Descendent = {
-  setup() {
-    const theme = inject(ThemeSymbol, 'light' /* optional default value */)
-    return {
-      theme
-    }
-  }
-}
-```
-
-`inject` accepts an optional default value as the 2nd argument. If a default value is not provided and the property is not found on the provide context, `inject` returns `undefined`.
-
-### Injection Reactivity
-
-To retain reactivity between provided and injected values, we can use a [ref](./refs-api.html#ref):
-
-```js
-// in provider
-const themeRef = ref('dark')
-provide(ThemeSymbol, themeRef)
-
-// in consumer
-const theme = inject(ThemeSymbol, ref('light'))
-watchEffect(() => {
-  console.log(`theme set to: ${theme.value}`)
-})
-```
-
-If a reactive object is injected, it can also be reactively observed.
-
-### Typing
+- **Typing**:
 
 ```ts
 interface InjectionKey<T> extends Symbol {}
@@ -193,6 +154,10 @@ If using string keys or non-typed symbols, the type of the injected value will n
 ```ts
 const foo = inject<string>('foo') // string | undefined
 ```
+
+- **See also**:
+  - [Provide / Inject](../guide/component-provide-inject.html)
+  - [Composition API Provide / Inject](../guide/composition-api-provide-inject.html)
 
 ## Template Refs
 
