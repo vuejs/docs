@@ -110,45 +110,6 @@ In other words, you **will not have access** to the following component options:
 - `computed`
 - `methods`
 
-## Lifecycle Hooks
-
-You can access a component's lifecycle hook by prefixing the lifecycle hook with "on".
-
-The following table contains how the lifecycle hooks are invoked inside of `setup()`:
-
-| Options API       | Hook inside inside `setup` |
-| ----------------- | -------------------------- |
-| `beforeCreate`    | Not needed\*               |
-| `created`         | Not needed\*               |
-| `beforeMount`     | `onBeforeMount`            |
-| `mounted`         | `onMounted`                |
-| `beforeUpdate`    | `onBeforeUpdate`           |
-| `updated`         | `onUpdated`                |
-| `beforeUnmount`   | `onBeforeUnmount`          |
-| `unmounted`       | `onUnmounted`              |
-| `errorCaptured`   | `onErrorCaptured`          |
-| `renderTracked`   | `onRenderTracked`          |
-| `renderTriggered` | `onRenderTriggered`        |
-
-:::tip
-Because `setup` is run around the `beforeCreate` and `created` lifecycle hooks, you do not need to explicitly define the,. In other words, any code that would be written inside those hooks should be written directly in the `setup` function.
-:::
-
-These functions accept a callback that will be executed when the hook is called by the component:
-
-```js
-// MyBook.vue
-
-export default {
-  setup() {
-    // mounted
-    onMounted(() => {
-      console.log('Component is mounted!)
-    })
-  }
-}
-```
-
 ## Usage with Templates
 
 If `setup` returns an object, the properties on the object can be accessed in the component's template:
