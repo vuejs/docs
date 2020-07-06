@@ -55,7 +55,8 @@ const sidebar = {
             '/guide/composition-api-introduction',
             '/guide/composition-api-setup',
             '/guide/composition-api-lifecycle-hooks',
-            '/guide/composition-api-provide-inject'
+            '/guide/composition-api-provide-inject',
+            '/guide/composition-api-template-refs'
           ]
         },
         '/guide/optimizations',
