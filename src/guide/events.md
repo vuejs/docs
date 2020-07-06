@@ -205,19 +205,9 @@ You can directly use any valid key names exposed via [`KeyboardEvent.key`](https
 
 In the above example, the handler will only be called if `$event.key` is equal to `'PageDown'`.
 
-### Key Codes
+### Key Aliases
 
-::: tip
-The use of `keyCode` events [is deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) and may not be supported in new browsers.
-:::
-
-Using `keyCode` attributes is also permitted:
-
-```html
-<input @keyup.13="submit" />
-```
-
-Vue provides aliases for the most commonly used key codes when necessary for legacy browser support:
+Vue provides aliases for the most commonly used keys:
 
 - `.enter`
 - `.tab`
@@ -228,15 +218,6 @@ Vue provides aliases for the most commonly used key codes when necessary for leg
 - `.down`
 - `.left`
 - `.right`
-
-A few keys (`.esc` and all arrow keys) have inconsistent `key` values in IE9, so these built-in aliases should be preferred if you need to support IE9.
-
-You can also [define custom key modifier aliases](TODO:../api/#keyCodes) via the global `config.keyCodes` object:
-
-```js
-// enable `v-on:keyup.f1`
-Vue.config.keyCodes.f1 = 112
-```
 
 ## System Modifier Keys
 
@@ -254,15 +235,15 @@ On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, met
 For example:
 
 ```html
-<!-- Alt + C -->
-<input @keyup.alt.67="clear" />
+<!-- Alt + Enter -->
+<input @keyup.alt.enter="clear" />
 
 <!-- Ctrl + Click -->
 <div @click.ctrl="doSomething">Do something</div>
 ```
 
-::: tip Tip
-Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone. If you do want such behaviour, use the `keyCode` for `ctrl` instead: `keyup.17`.
+::: tip
+Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone
 :::
 
 ### `.exact` Modifier

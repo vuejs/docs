@@ -138,7 +138,7 @@ app.directive('focus', {
 
 #### vnode
 
-A blueprint of the real DOM element received as el argument above. See the [VNode API](TODO) for full details.
+A blueprint of the real DOM element received as el argument above.
 
 #### prevNode
 
@@ -271,4 +271,4 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
 
-- **See also:** [Plugins](TODO)
+- **See also:** [Plugins](../guide/plugins.html)

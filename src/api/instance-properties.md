@@ -114,7 +114,7 @@
   ```
 
 - **See also:**
-  - [`<slot>` Component](TODO)
+  - [`<slot>` Component](built-in-components.html#slot)
   - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
   - [Render Functions - Slots](..guide/render-function.html#slots)
 
@@ -126,10 +126,10 @@
 
 - **Details:**
 
-An object of DOM elements and component instances, registered with [`ref` attributes](TODO).
+An object of DOM elements and component instances, registered with [`ref` attributes](../guide/component-template-refs.html).
 
 - **See also:**
-  - [Child Component Refs](TODO:refs)
+  - [Template refs](../guide/component-template-refs.html)
   - [Special Attributes - ref](./special-attributes.md#ref)
 
 ## $attrs

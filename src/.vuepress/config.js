@@ -14,8 +14,7 @@ const sidebar = {
         '/guide/list',
         '/guide/events',
         '/guide/forms',
-        '/guide/component-basics',
-        '/guide/accessibility'
+        '/guide/component-basics'
       ]
     },
     {
@@ -26,7 +25,10 @@ const sidebar = {
         '/guide/component-props',
         '/guide/component-custom-events',
         '/guide/component-slots',
-        '/guide/component-provide-inject'
+        '/guide/component-provide-inject',
+        '/guide/component-dynamic-async',
+        '/guide/component-template-refs',
+        '/guide/component-edge-cases'
       ]
     },
     {
@@ -34,7 +36,6 @@ const sidebar = {
       collapsable: false,
       children: [
         '/guide/reactivity',
-        '/guide/component-dynamic-async',
         '/guide/optimizations',
         '/guide/change-detection'
       ]
@@ -45,14 +46,31 @@ const sidebar = {
       children: [
         '/guide/mixins',
         '/guide/custom-directive',
+        '/guide/teleport',
         '/guide/render-function',
-        '/guide/plugins'
+        '/guide/plugins',
+        '/guide/composition-api-introduction'
       ]
+    },
+    {
+      title: 'Tooling',
+      collapsable: false,
+      children: ['/guide/single-file-component']
     },
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
+      children: [
+        '/guide/routing',
+        '/guide/state-management',
+        '/guide/ssr',
+        '/guide/accessibility'
+      ]
+    },
+    {
+      title: 'Tooling',
+      collapsable: false,
+      children: ['/guide/testing']
     },
     {
       title: 'Migration to Vue 3',
@@ -68,6 +86,7 @@ const sidebar = {
   api: [
     '/api/application-config',
     '/api/application-api',
+    '/api/global-api',
     {
       title: 'Options',
       collapsable: false,
@@ -80,10 +99,21 @@ const sidebar = {
         '/api/options-misc'
       ]
     },
-    '/api/instance-properties.md',
-    '/api/instance-methods.md',
-    '/api/directives.md',
-    '/api/special-attributes.md'
+    '/api/instance-properties',
+    '/api/instance-methods',
+    '/api/directives',
+    '/api/special-attributes',
+    '/api/built-in-components.md',
+    {
+      title: 'Reactivity API',
+      collapsable: false,
+      children: [
+        '/api/basic-reactivity',
+        '/api/refs-api',
+        '/api/computed-watch-api'
+      ]
+    },
+    '/api/composition-api'
   ]
 }
 
@@ -130,8 +160,7 @@ module.exports = {
         ariaLabel: 'Documentation Menu',
         items: [
           { text: 'Guide', link: '/guide/introduction' },
-          { text: 'Style Guide', link: '/style-guide/' },
-          { text: 'Tooling', link: '/tooling/' }
+          { text: 'Style Guide', link: '/style-guide/' }
         ]
       },
       { text: 'API Reference', link: '/api/application-config' },
@@ -157,6 +186,7 @@ module.exports = {
     repo: 'vuejs/docs-next',
     editLinks: true,
     editLinkText: 'Edit this on GitHub!',
+    docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {
       collapsable: false,

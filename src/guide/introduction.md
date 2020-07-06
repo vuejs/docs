@@ -2,17 +2,11 @@
 
 ## What is Vue.js?
 
-Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with [modern tooling](TODO:single-file-components.html) and [supporting libraries](https://github.com/vuejs/awesome-vue#components--libraries).
+Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with [modern tooling](../guide/single-file-component.html) and [supporting libraries](https://github.com/vuejs/awesome-vue#components--libraries).
 
 If you’d like to learn more about Vue before diving in, we <a id="modal-player"  href="#">created a video</a> walking through the core principles and a sample project.
 
 If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](TODO:comparison.html).
-
-<div>
-  <VideoBanner title="Free Vue.js Course" url="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/">
-    Watch a free video course on Vue Mastery
-  </VideoBanner>
-</div>
 
 ## Getting Started
 
@@ -54,7 +48,7 @@ Vue.createApp(HelloVueApp).mount('#hello-vue')
 
 We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Change the `message` property in the code snippet below to a different value and the rendered example will update accordingly:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="KKpRVpx" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-1">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="KKpRVpx" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-1">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpRVpx">
   Intro-1</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -84,7 +78,7 @@ const AttributeBindingApp = {
 Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpRVvJ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Attribute dynamic binding">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpRVvJ" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Attribute dynamic binding">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpRVvJ">
   Attribute dynamic binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -119,7 +113,7 @@ This example demonstrates that we can bind data to not only text and attributes,
 
 You can change `seen` from `true` to `false` in the sandbox below to check the effect:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="oNXdbpB" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Conditional rendering">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="oNXdbpB" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Conditional rendering">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXdbpB">
   Conditional rendering</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -154,7 +148,7 @@ const ListRenderingApp = {
 Vue.createApp(ListRenderingApp).mount('#list-rendering')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="mdJLVXq" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="List rendering">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="mdJLVXq" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="List rendering">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/mdJLVXq">
   List rendering</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -192,7 +186,7 @@ const EventHandlingApp = {
 Vue.createApp(EventHandlingApp).mount('#event-handling')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="dyoeGjW" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="dyoeGjW" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/dyoeGjW">
   Event handling</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -222,7 +216,7 @@ const TwoWayBindingApp = {
 Vue.createApp(TwoWayBindingApp).mount('#two-way-binding')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="poJVgZm" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Two-way binding">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="poJVgZm" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Two-way binding">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/poJVgZm">
   Two-way binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -311,7 +305,7 @@ app.component('todo-item', {
 app.mount('#components-app')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="VwLxeEz" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-Components-1">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="VwLxeEz" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-Components-1">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/VwLxeEz">
   Intro-Components-1</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
