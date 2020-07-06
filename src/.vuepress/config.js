@@ -46,6 +46,7 @@ const sidebar = {
       children: [
         '/guide/mixins',
         '/guide/custom-directive',
+        '/guide/teleport',
         '/guide/render-function',
         '/guide/plugins',
         '/guide/composition-api-introduction'
