@@ -149,7 +149,7 @@ export default {
 }
 ```
 
-### Usage with Templates
+## Usage with Templates
 
 If `setup` returns an object, the properties on the object can be accessed in the component's template:
 
@@ -179,7 +179,7 @@ If `setup` returns an object, the properties on the object can be accessed in th
 
 Note that [refs](../api/refs-api.html#ref) returned from `setup` are [automatically unwrapped](../api/refs-api.html#access-in-templates) when accessed in the template so you shouldn't use `.value` in templates.
 
-### Usage with Render Functions
+## Usage with Render Functions
 
 `setup` can also return a render function which can directly make use of the reactive state declared in the same scope:
 
@@ -198,6 +198,6 @@ export default {
 }
 ```
 
-### Usage of `this`
+## Usage of `this`
 
 **Inside `setup()`, `this` won't be a reference to Vue instance** Since `setup()` is called before other component options are resolved, `this` inside `setup()` will behave quite differently from `this` in other options. This might cause confusions when using `setup()` along other Options API.

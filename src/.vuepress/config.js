@@ -42,7 +42,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Advanced Techniques',
+      title: 'Advanced Guides',
       collapsable: false,
       children: [
         {
