@@ -4,7 +4,11 @@
 
 In terms of what has changed, at a high level:
 
-For more context, be sure to read the rest of the guide.
+- Performance gains from v2 for functional components are now negligible in v3, so we recommend just using stateful components
+- `functional` attribute on single-file component `<template>` is deprecated
+- Functional components can only be created using a plain function that receives `props` and `context` (i.e., `slots`, `attrs`, `emit`)
+
+For a more in-depth explanation, please continue reading on!
 
 ## Introduction
 
