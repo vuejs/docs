@@ -182,7 +182,7 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Edit this on GitHub!',
     docsDir: 'src',
-    sidebarDepth: 3,
+    sidebarDepth: 2,
     sidebar: {
       collapsable: false,
       '/guide/': sidebar.guide,

@@ -1,4 +1,4 @@
-## Lifecycle Hooks
+# Lifecycle Hooks
 
 > This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Basics](TODO). Read that first if you are new to Composition API.
 
