@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>danger</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="danger" transform="translate(1.000000, 1.000000)" fill-rule="nonzero">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="2" fill="#f4cd00" cx="15" cy="15" r="15"></circle>
+            <g transform="translate(13.000000, 7.000000)" fill="#FFFFFF" id="Path">
+                <path d="M1.28125,10.15625 C1.5625,10.0625 1.875,10.03125 2.1875,10.03125 C2.5,10.03125 2.84375,10.09375 3.125,10.15625 L4.0625,2.21875 C4.0625,2.125 4.0625,2.0625 4.0625,1.96875 C4.0625,0.90625 3.1875,0.0625 2.15625,0.0625 C1.625,0.0625 1.09375,0.3125 0.71875,0.71875 C0.34375,1.15625 0.1875,1.6875 0.25,2.21875 L1.28125,10.15625 Z"></path>
+                <path d="M2.15625,11.625 C1.09375,11.625 0.21875,12.5 0.21875,13.5625 C0.21875,14.625 1.09375,15.5 2.15625,15.5 C3.21875,15.5 4.09375,14.625 4.09375,13.5625 C4.09375,12.46875 3.25,11.625 2.15625,11.625 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>
