@@ -75,7 +75,7 @@ const sidebar = {
     {
       title: 'Migration to Vue 3',
       collapsable: true,
-      children: ['migration']
+      children: ['migration', 'migration/async-components']
     },
     {
       title: 'Contribute to the Docs',
