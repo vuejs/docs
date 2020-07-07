@@ -8,7 +8,7 @@ In terms of what has changed, at a high level:
 - `functional` attribute on single-file component `<template>` is deprecated
 - Functional components can only be created using a plain function that receives `props` and `context` (i.e., `slots`, `attrs`, `emit`)
 
-For a more in-depth explanation, please continue reading on!
+For a more in-depth explanation, read on!
 
 ## Introduction
 
