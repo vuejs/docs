@@ -30,7 +30,7 @@ plusOne.value = 1
 console.log(count.value) // 0
 ```
 
-### Typing
+**Typing:**
 
 ```ts
 // read-only
@@ -56,7 +56,7 @@ setTimeout(() => {
 }, 100)
 ```
 
-### Typing
+**Typing:**
 
 ```ts
 function watchEffect(
@@ -129,7 +129,7 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 
 `watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](#stopping-the-watcher), [side effect invalidation](#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument instead), [flush timing](#effect-flush-timing) and [debugging](#watcher-debugging).
 
-### Typing
+**Typing:**
 
 ```ts
 // wacthing single source

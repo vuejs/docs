@@ -6,6 +6,8 @@
 
 Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property `.value` that points to the inner value.
 
+**Example:**
+
 ```js
 const count = ref(0)
 console.log(count.value) // 0
@@ -16,7 +18,7 @@ console.log(count.value) // 1
 
 If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./proxy-api.html#reactive) method.
 
-### Typing
+**Typing:**
 
 ```ts
 interface Ref<T> {
@@ -181,7 +183,7 @@ Creates a customized ref with explicit control over its dependency tracking and 
   }
   ```
 
-### Typing
+**Typing:**
 
 ```ts
 function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
