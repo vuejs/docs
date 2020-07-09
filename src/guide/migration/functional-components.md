@@ -60,7 +60,7 @@ export default {
 
 ### Components Created by Functions
 
-Now in Vue 3, all functional components are created with a plain function. In other words, no need to define the `{ functional: true }` option.
+Now in Vue 3, all functional components are created with a plain function. In other words, there is no need to define the `{ functional: true }` component option.
 
 They will receive two arguments: `props` and `context`. The `context` argument is an object that contains a component's `attrs`, `slots`, and `emit` properties.
 
