@@ -1,4 +1,4 @@
-# setup
+# Setup
 
 > This section uses [single-file component](single-file-component.html) syntax for code examples
 
