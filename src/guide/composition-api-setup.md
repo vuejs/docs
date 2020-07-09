@@ -2,7 +2,7 @@
 
 > This section uses [single-file component](single-file-component.html) syntax for code examples
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Basics](TODO). Read that first if you are new to Composition API.
+> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
 
 ## Arguments
 
@@ -34,7 +34,7 @@ export default {
 However, because `props` are reactive, you **cannot use ES6 destructuring** because it will remove props reactivity.
 :::
 
-If you need to destructure your props, you can do this safely by utilizing the [toRefs](TODO) inside of the `setup` function.
+If you need to destructure your props, you can do this safely by utilizing the [toRefs](reactivity-fundamentals.html#destructuring-reactive-state) inside of the `setup` function.
 
 ```js
 // MyBook.vue

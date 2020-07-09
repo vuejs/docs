@@ -47,7 +47,7 @@ const sidebar = {
       children: [
         {
           title: 'Reactivity',
-          children: ['/guide/reactivity', '/guide/reactivity-fundamentals']
+          children: ['/guide/reactivity', '/guide/reactivity-fundamentals', '/guide/reactivity-computed-watchers']
         },
         {
           title: 'Composition API',

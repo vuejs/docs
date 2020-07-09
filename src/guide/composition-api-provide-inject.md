@@ -1,6 +1,6 @@
 # Provide / Inject
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Basics](TODO). Read that first if you are new to Composition API.
+> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
 
 We can use [provide / inject](component-provide-inject.html) with the Composition API as well. Both can only be called during [`setup()`](composition-api-setup.html) with a current active instance.
 
@@ -60,7 +60,7 @@ const MyBook = {
 
 ## Injection Reactivity
 
-To retain reactivity between provided and injected values, we can use a [ref](./refs-api.html#ref) or [reactive](TODO) when providing a value:
+To retain reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.html#declaring-reactive-state) when providing a value:
 
 ```js
 import { ref, reactive } from 'vue'
