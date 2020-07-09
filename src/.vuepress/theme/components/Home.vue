@@ -1,9 +1,5 @@
-
 <template>
-  <main
-    class="home"
-    aria-labelledby="main-title"
-  >
+  <main class="home" aria-labelledby="main-title">
     <header class="hero">
       <div class="inner">
         <div class="left">
@@ -11,27 +7,17 @@
             v-if="data.heroImage"
             :src="$withBase(data.heroImage)"
             :alt="data.heroAlt || 'hero'"
-          >
+          />
         </div>
 
         <div class="right">
-          <h1
-            v-if="data.heroText !== null"
-            id="main-title"
-          >
+          <h1 v-if="data.heroText !== null" id="main-title">
             {{ data.heroText || $title || 'Vue.js' }}
           </h1>
 
-          <h2
-            class="tagline"
-            v-if="tagline"
-            v-html="tagline"
-          ></h2>
+          <h2 class="tagline" v-if="tagline" v-html="tagline"></h2>
 
-          <div
-            v-if="data.actionButtons.length"
-            class="actions"
-          >
+          <div v-if="data.actionButtons.length" class="actions">
             <HomeActionLink
               v-for="item in data.actionButtons"
               :item="item"
@@ -43,7 +29,7 @@
       </div>
     </header>
 
-    <SpecialSponsors :sponsors="sponsors.special_sponsors"/>
+    <SpecialSponsors :sponsors="sponsors.special_sponsors" />
 
     <section
       v-if="data.features && data.features.length"
@@ -65,13 +51,13 @@
 
     <section class="section-sponsors" ref="sponsors">
       <div class="inner">
-        <PatreonSponsors :sponsors="sponsors"/>
-        <OpenCollectiveSponsors/>
+        <PatreonSponsors :sponsors="sponsors" />
+        <OpenCollectiveSponsors />
       </div>
     </section>
 
     <section class="section-newsletter">
-      <Newsletter/>
+      <Newsletter />
     </section>
 
     <footer class="main-footer">
@@ -113,16 +99,20 @@ export default {
   }),
 
   computed: {
-    data () {
+    data() {
       return this.$page.frontmatter
     },
 
-    tagline () {
-      return this.data.tagline || this.$description || 'The Progressive JavaScript Framework'
+    tagline() {
+      return (
+        this.data.tagline ||
+        this.$description ||
+        'The Progressive JavaScript Framework'
+      )
     }
   },
 
-  mounted () {
+  mounted() {
     if (!window) {
       return
     }
@@ -151,7 +141,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/_settings.scss";
+@import '@theme/styles/_settings.scss';
 
 .hero {
   padding: 100px 40px 30px;
@@ -208,7 +198,8 @@ export default {
       }
     }
 
-    .left, .right {
+    .left,
+    .right {
       width: 100%;
       text-align: center;
     }
@@ -269,7 +260,7 @@ export default {
       width: 100%;
 
       &::before {
-        content: "—";
+        content: '—';
         color: $green;
       }
     }
@@ -293,7 +284,7 @@ export default {
     margin: 0 auto;
   }
 
-  .sponsors+.sponsors {
+  .sponsors + .sponsors {
     margin-top: 5rem;
   }
 
@@ -307,7 +298,7 @@ export default {
   img {
     transition: all 0.3s ease;
     filter: grayscale(100%);
-    opacity: .6;
+    opacity: 0.6;
 
     &:hover {
       filter: none;
@@ -321,7 +312,7 @@ footer.main-footer {
   text-align: center;
   color: #fff;
   padding: 40px 0;
-  font-size: .9rem;
+  font-size: 0.9rem;
 
   a {
     color: #fff;
