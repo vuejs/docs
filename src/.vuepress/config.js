@@ -55,7 +55,10 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: ['/guide/single-file-component']
+      children: [
+        '/guide/single-file-component',
+        '/guide/testing'
+      ]
     },
     {
       title: 'Scaling Up',
@@ -68,14 +71,13 @@ const sidebar = {
       ]
     },
     {
-      title: 'Tooling',
-      collapsable: false,
-      children: ['/guide/testing']
-    },
-    {
       title: 'Migration to Vue 3',
       collapsable: true,
-      children: ['migration', 'migration/functional-components']
+      children: [
+        'migration/global-api',
+        'migration/treeshaking',
+        'migration/functional-components'
+      ]
     },
     {
       title: 'Contribute to the Docs',
