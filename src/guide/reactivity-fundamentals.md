@@ -19,6 +19,8 @@ The essential use case for reactive state in Vue is that we can use it during re
 
 This is the very essence of Vue's reactivity system. When you return an object from `data()` in a component, it is internally made reactive by `reactive()`. The template is compiled into a [render function](render-function.html) that makes use of these reactive properties.
 
+You can learn more about `reactive` in the [Basic Reactivity API's](../api/basic-reactivity.html) section
+
 ## Creating Standalone Reactive Values as `refs`
 
 Imagine the case where we have a standalone primitive value (for example, a string) and we want to make it reactive. Of course, we could make am object with a single property equal to our string, and pass it to `reactive`. Vue has a method that will do the same for us - it's a `ref`:
@@ -106,4 +108,55 @@ console.log(map.get('count').value)
 
 ## Destructuring Reactive State
 
+When we want to use a few properties of the large reactive object, it could be tempting to use [ES6 destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to get properties we want:
+
+```js
+import { reactive } from 'vue'
+
+const book = reactive({
+  author: 'Vue Team',
+  year: '2020',
+  title: 'Vue 3 Guide',
+  description: 'You are reading this book right now ;)',
+  price: 'free'
+})
+
+let { author, title } = book
+```
+
+Unfortunately, with such a destructuring the reactivity for both properties would be lost. For such case, we need to convert our reactive object to a set of `refs`. These refs will retaining the reactive connection to the source object:
+
+```js
+import { reactive, toRefs } from 'vue'
+
+const book = reactive({
+  author: 'Vue Team',
+  year: '2020',
+  title: 'Vue 3 Guide',
+  description: 'You are reading this book right now ;)',
+  price: 'free'
+})
+
+let { author, title } = toRefs(book)
+
+title.value = 'Vue 3 Detailed Guide' // we need to use .value as title is a ref now
+console.log(book.title) // 'Vue 3 Detailed Guide'
+```
+
+You can learn more about `refs` in the [Refs API](../api/refs-api.html#ref) section
+
 ## Prevent Mutating Reactive Objects with `readonly`
+
+Sometimes we want to track changes of the reactive object (`ref` or `reactive`) but we also want prevent changing it from a certain place of the application. For example, when we have a [provided](component-provide-inject.html) reactive object, we want to prevent mutating it where it's injected. To do so, we can create a readonly proxy to the original object:
+
+```js
+const original = reactive({ count: 0 })
+
+const copy = readonly(original)
+
+// mutating original will trigger watchers relying on the copy
+original.count++
+
+// mutating the copy will fail and result in a warning
+copy.count++ // warning: "Set operation on key 'count' failed: target is readonly."
+```
