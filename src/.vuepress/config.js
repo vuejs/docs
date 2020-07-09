@@ -222,6 +222,7 @@ module.exports = {
     ]
   ],
   markdown: {
+    lineNumbers: true,
     /** @param {import('markdown-it')} md */
     extendMarkdown: md => {
       md.options.highlight = require('./markdown/highlight')(
