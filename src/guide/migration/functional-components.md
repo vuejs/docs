@@ -64,7 +64,7 @@ Now in Vue 3, all functional components are created with a plain function. In ot
 
 They will receive two arguments: `props` and `context`. The `context` argument is an object that contains a component's `attrs`, `slots`, and `emit` properties.
 
-In addition, rather than implicitly provide provide `h` in a `render` function, `h` is now a imported globally.
+In addition, rather than implicitly provide provide `h` in a `render` function, `h` is now imported globally.
 
 Using the previously mentioned example of a `<dynamic-heading>` component, here is how it looks now.
 
