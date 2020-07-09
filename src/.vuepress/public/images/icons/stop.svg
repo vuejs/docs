@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>stop</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="stop" transform="translate(1.000000, 1.000000)" fill-rule="nonzero">
+            <path d="M11.5,0 C5.15907273,0 0,5.15893955 0,11.5 C0,17.8410605 5.15907273,23 11.5,23 C17.8409273,23 23,17.8410605 23,11.5 C23,5.15893955 17.8409273,0 11.5,0 Z" id="Shape" stroke="#FFFFFF" stroke-width="2" fill="#FF6666"></path>
+            <rect id="Rectangle" fill="#FFFFFF" x="6" y="10" width="11" height="3"></rect>
+        </g>
+    </g>
+</svg>

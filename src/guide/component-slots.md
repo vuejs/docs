@@ -81,7 +81,7 @@ When you want to use data inside a slot, such as in:
 
 That slot has access to the same instance properties (i.e. the same "scope") as the rest of the template.
 
-![Slot explanation](/images/slot.png)
+<img src="/images/slot.png" width="447" height="auto" style="display: block; margin: 0 auto; max-width: 100%" loading="lazy" alt="Slot explanation diagram">
 
 The slot does **not** have access to `<todo-button>`'s scope. For example, trying to access `action` would not work:
 
@@ -279,7 +279,7 @@ Attributes bound to a `<slot>` element are called **slot props**. Now, in the pa
 </todo-list>
 ```
 
-![Scoped Slot Example](/images/scoped-slot.png)
+<img src="/images/scoped-slot.png" width="611" height="auto" style="display: block; margin: 0 auto; max-width: 100%;" loading="lazy" alt="Scoped slot diagram"> 
 
 In this example, we've chosen to name the object containing all our slot props `slotProps`, but you can use any name you like.
 

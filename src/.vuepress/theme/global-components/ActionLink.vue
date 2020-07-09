@@ -2,36 +2,32 @@
   <RouterLink
     v-if="isInternal"
     class="nav-link"
-    :class="combinedClasses"
     :to="link"
     :exact="exact"
     @focusout.native="focusoutAction"
   >
-    <i v-if="item.icon" class="icon" :class="item.icon"></i>
-    {{ item.text }}
+    <slot />
   </RouterLink>
   <a
     v-else
     :href="link"
     class="nav-link external"
-    :class="combinedClasses"
     :target="target"
     :rel="rel"
     @focusout="focusoutAction"
   >
-    <i v-if="item.icon" class="icon" :class="item.icon"></i>
-    {{ item.text }}
+    <slot />
     <OutboundLink v-if="isBlankTarget" />
   </a>
 </template>
 
 <script>
-import { isExternal, isMailto, isTel, ensureExt } from '../../util'
+import { isExternal, isMailto, isTel, ensureExt } from '../util'
 
 export default {
   props: {
-    item: {
-      type: Object,
+    url: {
+      type: String,
       required: true
     },
 
@@ -43,7 +39,7 @@ export default {
 
   computed: {
     link() {
-      return ensureExt(this.item.link)
+      return ensureExt(this.url)
     },
 
     exact() {
@@ -73,10 +69,6 @@ export default {
         return null
       }
 
-      if (this.item.target) {
-        return this.item.target
-      }
-
       return isExternal(this.link) ? '_blank' : ''
     },
 
@@ -85,15 +77,7 @@ export default {
         return null
       }
 
-      if (this.item.rel) {
-        return this.item.rel
-      }
-
       return this.isBlankTarget ? 'noopener noreferrer' : ''
-    },
-
-    combinedClasses() {
-      return `${this.extraClass} ${this.item.icon ? 'has-icon' : ''}`
     }
   },
 
@@ -115,42 +99,20 @@ a {
   place-items: center;
   width: fit-content;
   display: flex;
-  border-radius: 9999px;
+  border-radius: 2rem;
   letter-spacing: 0.05em;
   border: 1px solid $green;
   text-decoration: none;
-  text-transform: uppercase;
   margin-right: 10px;
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 0.5rem;
   white-space: nowrap;
   font-weight: bold;
-
-  &.has-icon {
-    padding-left: 7px;
-  }
-
-  i.icon {
-    font-size: 2rem;
-    margin-right: 14px;
-  }
+  font-size: 1rem;
+  min-width: 175px;
 
   &.primary {
     background: $green;
     color: #fff;
-  }
-
-  &.grey {
-    background-color: #f6f6f6;
-    color: #4f5959;
-    border-color: #f6f6f6;
-
-    i.icon {
-      opacity: 0.7; // wash out a bit to reduce contrast
-    }
-  }
-
-  .icon.outbound {
-    display: none;
   }
 }
 </style>
