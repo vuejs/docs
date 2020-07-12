@@ -85,7 +85,8 @@ const sidebar = {
       children: [
         'migration/global-api',
         'migration/treeshaking',
-        'migration/functional-components'
+        'migration/functional-components',
+        'migration/v-model'
       ]
     },
     {
