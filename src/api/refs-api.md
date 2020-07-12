@@ -6,6 +6,8 @@
 
 Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property `.value` that points to the inner value.
 
+**Example:**
+
 ```js
 const count = ref(0)
 console.log(count.value) // 0
@@ -16,97 +18,7 @@ console.log(count.value) // 1
 
 If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./proxy-api.html#reactive) method.
 
-### Access in Templates
-
-When a ref is returned as a property on the render context (the object returned from [setup()](./composition-api.html#setup)) and accessed in the template, it automatically unwraps to the inner value. There is no need to append `.value` in the template:
-
-```html
-<template>
-  <div>
-    <span>{{ count }}</span>
-    <button @click="count ++">Increment count</button>
-  </div>
-</template>
-
-<script>
-  import { ref } from 'vue'
-  export default {
-    setup() {
-      const count = ref(0)
-      return {
-        count
-      }
-    }
-  }
-</script>
-```
-
-However, if we decide to change the inline event handler on button click to the component method declared in `setup`, we need to remember that `ref` is not unwrapped there:
-
-```html
-<template>
-  <div>
-    <span>{{ count }}</span>
-    <button @click="increment">Increment count</button>
-  </div>
-</template>
-
-<script>
-  import { ref } from 'vue'
-  export default {
-    setup() {
-      const count = ref(0)
-      function increment() {
-        count.value++ // ref is not unwrapped outside the template
-      }
-      return {
-        count,
-        increment
-      }
-    }
-  }
-</script>
-```
-
-### Access in Reactive Objects
-
-When a ref is accessed or mutated as a property of a reactive object, it automatically unwraps to the inner value so it behaves like a normal property:
-
-```js
-const count = ref(0)
-const state = reactive({
-  count
-})
-
-console.log(state.count) // 0
-
-state.count = 1
-console.log(count.value) // 1
-```
-
-If a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
-
-```js
-const otherCount = ref(2)
-
-state.count = otherCount
-console.log(state.count) // 2
-console.log(count.value) // 1
-```
-
-Ref unwrapping only happens when nested inside a reactive `Object`. There is no unwrapping performed when the ref is accessed from an `Array` or a native collection type like [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map):
-
-```js
-const arr = reactive([ref(0)])
-// need .value here
-console.log(arr[0].value)
-
-const map = reactive(new Map([['foo', ref(0)]]))
-// need .value here
-console.log(map.get('foo').value)
-```
-
-### Typing
+**Typing:**
 
 ```ts
 interface Ref<T> {
@@ -271,7 +183,7 @@ Creates a customized ref with explicit control over its dependency tracking and 
   }
   ```
 
-### Typing
+**Typing:**
 
 ```ts
 function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
@@ -296,3 +208,5 @@ foo.value = {}
 // but the value will not be converted.
 isReactive(foo.value) // false
 ```
+
+**See also**: [Creating Standalone Reactive Values as `refs`](http://localhost:8080/guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)

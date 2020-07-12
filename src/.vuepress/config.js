@@ -32,15 +32,6 @@ const sidebar = {
       ]
     },
     {
-      title: 'Internals',
-      collapsable: false,
-      children: [
-        '/guide/reactivity',
-        '/guide/optimizations',
-        '/guide/change-detection'
-      ]
-    },
-    {
       title: 'Reusability & Composition',
       collapsable: false,
       children: [
@@ -48,17 +39,35 @@ const sidebar = {
         '/guide/custom-directive',
         '/guide/teleport',
         '/guide/render-function',
-        '/guide/plugins',
-        '/guide/composition-api-introduction'
+        '/guide/plugins'
+      ]
+    },
+    {
+      title: 'Advanced Guides',
+      collapsable: false,
+      children: [
+        {
+          title: 'Reactivity',
+          children: ['/guide/reactivity', '/guide/reactivity-fundamentals', '/guide/reactivity-computed-watchers']
+        },
+        {
+          title: 'Composition API',
+          children: [
+            '/guide/composition-api-introduction',
+            '/guide/composition-api-setup',
+            '/guide/composition-api-lifecycle-hooks',
+            '/guide/composition-api-provide-inject',
+            '/guide/composition-api-template-refs'
+          ]
+        },
+        '/guide/optimizations',
+        '/guide/change-detection'
       ]
     },
     {
       title: 'Tooling',
       collapsable: false,
-      children: [
-        '/guide/single-file-component',
-        '/guide/testing'
-      ]
+      children: ['/guide/single-file-component', '/guide/testing']
     },
     {
       title: 'Scaling Up',

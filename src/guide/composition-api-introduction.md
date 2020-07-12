@@ -1,4 +1,4 @@
-# Composition API: Introduction
+# Introduction
 
 ## Why Composition API?
 
@@ -72,7 +72,7 @@ The new `setup` component option is executed **before** the component is created
 Because the component instance is not yet created when `setup` is executed, there is no `this` inside a `setup` option. This means, with the exception of `props`, you won't be able to access any properties declared in the component – **local state**, **computed properties** or **methods**.
 :::
 
-The `setup` option should be a function that accepts `props` and `context` which we will talk about later. Additionally, everything that we return from `setup` will be exposed to the rest of our component (computed properties, methods, lifecycle hooks and so on) as well as to the component's template.
+The `setup` option should be a function that accepts `props` and `context` which we will talk about [later](composition-api-setup.html#arguments). Additionally, everything that we return from `setup` will be exposed to the rest of our component (computed properties, methods, lifecycle hooks and so on) as well as to the component's template.
 
 Let’s add `setup` to our component:
 
@@ -84,11 +84,11 @@ export default {
   props: {
     user: { type: String }
   },
-  setup (props) {
+  setup(props) {
     console.log(props) // { user: '' }
 
     return {} // anything returned here will be available for the rest of the component
-  },
+  }
   // the "rest" of the component
 }
 ```
@@ -229,20 +229,7 @@ We will start with the lifecycle hook.
 
 ### Lifecycle Hook Registration Inside `setup`
 
-To make Composition API feature-complete compared to Options API, we also need a way to register lifecycle hooks inside `setup`. This is possible thanks to several new functions exported from Vue. Below is a list of Options API's functions and how they're mapped into the Composition API.
-
-
-
-- ~~`beforeCreate`~~ -> use `setup()`
-- ~~`created`~~ -> use `setup()`
-- `beforeMount` -> `onBeforeMount`
-- `mounted` -> `onMounted`
-- `beforeUpdate` -> `onBeforeUpdate`
-- `updated` -> `onUpdated`
-- `beforeDestroy` -> `onBeforeUnmount`
-- `destroyed` -> `onUnmounted`
-- `errorCaptured` -> `onErrorCaptured`
-
+To make Composition API feature-complete compared to Options API, we also need a way to register lifecycle hooks inside `setup`. This is possible thanks to several new functions exported from Vue. Lifecycle hooks on composition API have the same name as for Options API but are prefixed with `on`: i.e. `mounted` would look like `onMounted`.
 
 These functions accept a callback that will be executed when the hook is called by the component.
 
@@ -296,13 +283,13 @@ Whenever `counter` is modified, for example `counter.value = 5`, the watch will 
 
 ```js
 export default {
-  data () {
+  data() {
     return {
       counter: 0
     }
   },
   watch: {
-    counter (newValue, oldValue) {
+    counter(newValue, oldValue) {
       console.log('The new counter value is: ' + this.counter)
     }
   }
@@ -401,7 +388,7 @@ setup (props) {
 }
 ```
 
-We could do the same for other **logical concerns** but you might be already asking the question – *Isn’t this just moving the code to the `setup` option and making it extremely big?* Well, that’s true. That’s why before moving on with the other responsibilities, we will first extract the above code into a standalone **composition function**. Let's start with creating `useUserRepositories`:
+We could do the same for other **logical concerns** but you might be already asking the question – _Isn’t this just moving the code to the `setup` option and making it extremely big?_ Well, that’s true. That’s why before moving on with the other responsibilities, we will first extract the above code into a standalone **composition function**. Let's start with creating `useUserRepositories`:
 
 ```js
 // src/composables/useUserRepositories.js
@@ -409,7 +396,7 @@ We could do the same for other **logical concerns** but you might be already ask
 import { fetchUserRepositories } from '@/api/repositories'
 import { ref, onMounted, watch, toRefs } from 'vue'
 
-export default function useUserRepositories (user) {
+export default function useUserRepositories(user) {
   const repositories = ref([])
   const getUserRepositories = async () => {
     repositories.value = await fetchUserRepositories(user.value)
@@ -432,7 +419,7 @@ And then the searching functionality:
 
 import { ref, onMounted, watch, toRefs } from 'vue'
 
-export default function useRepositoryNameSearch (repositories) {
+export default function useRepositoryNameSearch(repositories) {
   const searchQuery = ref('')
   const repositoriesMatchingSearchQuery = computed(() => {
     return repositories.value.filter(repository => {
@@ -506,7 +493,7 @@ export default {
   props: {
     user: { type: String }
   },
-  setup (props) {
+  setup(props) {
     const { user } = toRefs(props)
 
     const { repositories, getUserRepositories } = useUserRepositories(user)
@@ -529,7 +516,7 @@ export default {
       getUserRepositories,
       searchQuery,
       filters,
-      updateFilters,
+      updateFilters
     }
   }
 }

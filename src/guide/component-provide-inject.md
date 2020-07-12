@@ -96,7 +96,7 @@ In fact, you can think of dependency injection as sort of “long-range props”
 
 ## Working with reactivity
 
-In the example above, if we change the list of `todos`, this change won't be reflected in the injected `todoLength` property. This is because `provide/inject` bindings are _not_ reactive by default. We can change this behavior by passing a `ref` property or `reactive` object to `provide`. In our case, if we want to react to changes in the ancestor component, we need to assign a Composition API `computed` property to our provided `todoLength`:
+In the example above, if we change the list of `todos`, this change won't be reflected in the injected `todoLength` property. This is because `provide/inject` bindings are _not_ reactive by default. We can change this behavior by passing a `ref` property or `reactive` object to `provide`. In our case, if we wanted to react to changes in the ancestor component, we would need to assign a Composition API `computed` property to our provided `todoLength`:
 
 ```js
 app.component('todo-list', {
@@ -109,4 +109,4 @@ app.component('todo-list', {
 })
 ```
 
-In this, any change to `todos.length` will be reflected correctly in the components, where `todoLength` is injected. Read more about `reactive` provide/inject in the [Composition API section](TODO)
+In this, any change to `todos.length` will be reflected correctly in the components, where `todoLength` is injected. Read more about `reactive` provide/inject in the [Composition API section](composition-api-provide-inject.html#injection-reactivity)
