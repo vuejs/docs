@@ -5,14 +5,15 @@
 In terms of what has changed, at a high level:
 
 - Performance gains from v2 for functional components are now negligible in v3, so we recommend just using stateful components
-- `functional` attribute on single-file component `<template>` is deprecated
 - Functional components can only be created using a plain function that receives `props` and `context` (i.e., `slots`, `attrs`, `emit`)
+- **DEPRECATED:** `functional` attribute on single-file component (SFC) `<template>` is deprecated
+- **DEPRECATED:** `{ functional: true }` option in components created by functions is deprecated
 
-For a more in-depth explanation, read on!
+For more information, read on!
 
 ## Introduction
 
-In Vue 2, functional components had primary use cases:
+In Vue 2, functional components had two primary use cases:
 
 - as a performance optimization, because they initialized much faster than stateful components
 - to return multiple root nodes
@@ -53,12 +54,19 @@ export default {
   props: ['level']
 }
 </script>
-
 ```
 
 ## Current Syntax
 
-Now in Vue 3, the only way to create a functional component is with a plain function that receives `props` and a `context` object that contains `attrs`, `slots`, and `emit` options:
+### Components Created by Functions
+
+Now in Vue 3, all functional components are created with a plain function. In other words, there is no need to define the `{ functional: true }` component option.
+
+They will receive two arguments: `props` and `context`. The `context` argument is an object that contains a component's `attrs`, `slots`, and `emit` properties.
+
+In addition, rather than implicitly provide provide `h` in a `render` function, `h` is now imported globally.
+
+Using the previously mentioned example of a `<dynamic-heading>` component, here is how it looks now.
 
 ```js
 import { h } from 'vue'
@@ -71,6 +79,34 @@ DynamicHeading.props = ['level']
 
 export default GreetingMessage
 ```
+
+### Single File Components (SFCs)
+
+In v3, the performance difference between stateful and functional components has been drastically reduced and will be insignificant in most use cases. As a result, the migration path for developers using `functional` on SFCs is to remove the attribute. No additional work required.
+
+Using our `<dynamic-heading>` example from before, here is how it would look now.
+
+```js{1}
+<template>
+  <component
+    v-bind:is="`h${props.level}`"
+    v-bind="$attrs"
+  />
+</template>
+
+<script>
+export default {
+  props: ['level']
+}
+</script>
+```
+
+The main differences are that:
+
+1. `functional` attribute removed on `<template>`
+1. `listeners` are now passed as part of `$attrs` and can be removed
+
+## Next Steps
 
 For more information on the usage of the new functional components and the changes to render functions in general, see:
 
