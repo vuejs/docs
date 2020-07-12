@@ -48,7 +48,11 @@ const sidebar = {
       children: [
         {
           title: 'Reactivity',
-          children: ['/guide/reactivity', '/guide/reactivity-fundamentals', '/guide/reactivity-computed-watchers']
+          children: [
+            '/guide/reactivity',
+            '/guide/reactivity-fundamentals',
+            '/guide/reactivity-computed-watchers'
+          ]
         },
         {
           title: 'Composition API',
@@ -83,10 +87,20 @@ const sidebar = {
       title: 'Migration to Vue 3',
       collapsable: true,
       children: [
-        'migration/global-api',
-        'migration/treeshaking',
-        'migration/functional-components',
-        'migration/v-model'
+        {
+          title: 'Critical',
+          collapsable: false,
+          children: [
+            'migration/global-api',
+            'migration/treeshaking',
+            'migration/v-model'
+          ]
+        },
+        {
+          title: 'High',
+          collapsable: false,
+          children: ['migration/functional-components']
+        }
       ]
     },
     {
