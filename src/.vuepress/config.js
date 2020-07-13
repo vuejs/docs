@@ -92,6 +92,7 @@ const sidebar = {
         'migration/treeshaking',
         'migration/functional-components',
         'migration/async-components',
+        'migration/custom-directives',
         'migration/keycode-modifiers'
       ]
     },
