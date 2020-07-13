@@ -93,7 +93,8 @@ const sidebar = {
         'migration/v-model',
         'migration/functional-components',
         'migration/async-components',
-        'migration/custom-directives'
+        'migration/custom-directives',
+        'migration/slots-unification'
       ]
     },
     {
