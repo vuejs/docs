@@ -92,7 +92,7 @@ In Vue 3, we're now supporting fragments, which allow us to return more than one
 </template>
 ```
 
-As wonderfully flexible as this is, we can potentially encounter a problem with a custom directive that could potentially have multiple root nodes.
+As wonderfully flexible as this is, we can potentially encounter a problem with a custom directive that could have multiple root nodes.
 
 As a result, custom directives are now included as part of a virtual DOM node’s data. When a custom directive is used on a component, hooks are passed down to the component as extraneous props and end up in `this.$attrs`.
 
