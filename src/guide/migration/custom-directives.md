@@ -9,13 +9,9 @@ Here is a quick summary of what has changed:
 
 For more information, read on!
 
-## Introduction
-
-Abstractions can be incredibly powerful to development, but they tend to break down when there is no escape hatch or extension beyond the original implementation. Custom directives allow us to create directives that are unique to our application.
-
 ## Previous Syntax
 
-Previously, we constructed these directives by using the hooks listed below to target an element’s lifecycle, all of which are optional:
+In Vue 2, custom directives were created by using the hooks listed below to target an element’s lifecycle, all of which are optional:
 
 - **bind** - Occurs once the directive is bound to the element. Occurs only once.
 - **inserted** - Occurs once the element is inserted into the parent DOM.
