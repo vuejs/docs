@@ -1,11 +1,11 @@
-# Remove keyCode support in v-on
+# KeyCode Modifiers
 
 ## Overview
 
 Here is a quick summary of what has changed:
 
-- **DEPRECATED**: Using numbers, i.e. keyCodes, as `v-on` modifiers
-- **DEPRECATED**: Support for `config.keyCodes`
+- **BREAKING**: Using numbers, i.e. keyCodes, as `v-on` modifiers are no longer supported
+- **BREAKING**: `config.keyCodes` is no longer supported
 
 ## Previous Syntax
 
