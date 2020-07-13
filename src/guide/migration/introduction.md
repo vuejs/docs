@@ -40,6 +40,12 @@ It depends on a few factors:
 
 ## Overview
 
+### Deprecated
+
+The following features are now deprecated from v2:
+
+- **keyCode support as `v-on` modifiers.** For more information, [see in-depth explanation](/guides/migration/keycodes.html)
+
 ## Built-in Directives
 
 ### `v-model` API Change
