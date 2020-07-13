@@ -1,5 +1,7 @@
 # Global API Treeshaking
 
+### Vue 2.x Syntax
+
 If you’ve ever had to manually manipulate DOM in Vue, you might have come across this pattern:
 
 ```js
@@ -17,11 +19,11 @@ import { shallowMount } from '@vue/test-utils'
 import { MyComponent } from './MyComponent.vue'
 
 test('an async feature', async () => {
-  const vm = shallowMount(MyComponent)
+  const wrapper = shallowMount(MyComponent)
   
   // execute some DOM-related tasks
 
-  await vm.$nextTick()
+  await wrapper.vm.$nextTick()
 
 // run your assertions
 })
@@ -32,6 +34,8 @@ test('an async feature', async () => {
 But what if you’ve never had to deal with manual DOM manipulation, nor are you using or testing async components in our app? Or, what if, for whatever reason, you prefer to use the good old `window.setTimeout()` instead? In such a case, the code for `nextTick()` will become dead code – that is, code that’s written but never used. And dead code is hardly a good thing, especially in our client-side context where every kilobyte matters. 
 
 Module bundlers like [webpack](https://webpack.js.org/) support [tree-shaking](https://webpack.js.org/guides/tree-shaking/), which is a fancy term for “dead code elimination.” Unfortunately, due to how the code is written in previous Vue versions, global APIs like `Vue.nextTick()` are not tree-shakeable and will be included in the final bundle regardless of where they are actually used or not. 
+
+### Vue 3 Syntax
 
 In Vue 3, the global and internal APIs have been restructured with tree-shaking support in mind. As a result, the global APIs can now only be accessed as named exports for the ES Modules build. For example, our previous snippets should now look like this:
 
@@ -51,7 +55,7 @@ import { MyComponent } from './MyComponent.vue'
 import { nextTick } from 'vue'
 
 test('an async feature', async () => {
-  const vm = shallowMount(MyComponent)
+  const wrapper = shallowMount(MyComponent)
 
   // execute some DOM-related tasks
 
@@ -147,7 +151,7 @@ module.exports = {
 }
 ```
 
-This will tell webpack “Hey, treat this Vue module as an external library and don’t bother bundling it.” 
+This will tell webpack to treat the Vue module as an external library and not bundle it.
 
 If your module bundler of choice happens to be [Rollup](https://rollupjs.org/), you basically get the same effect for free, as by default Rollup will treat absolute module IDs (`'vue'` in our case) as external dependencies and not include them in the final bundle. During bundling though, it might emit a [“Treating vue as external dependency”](https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency) warning, which can be suppressed with the `external` option: 
 
