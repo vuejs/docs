@@ -12,7 +12,7 @@ const obj = reactive({ count: 0 })
 
 The reactive conversion is "deep"—it affects all nested properties. In the [ES2015 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) based implementation, the returned proxy is **not** equal to the original object. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.
 
-### Typing
+**Typing:**
 
 ```ts
 function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
