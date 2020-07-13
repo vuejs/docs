@@ -101,7 +101,7 @@ In v3 `v-model` on the custom component is an equivalent of passing a `modelValu
 
 ### `v-model` arguments
 
-To change a model name, instead of `model` component option, now we can pass an _argument_ to `v-model`:
+To change a model name, instead of a `model` component option, now we can pass an _argument_ to `v-model`:
 
 ```html
 <ChildComponent v-model:title="pageTitle" />
