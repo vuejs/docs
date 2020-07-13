@@ -74,7 +74,7 @@ With this change, provided the module bundler supports tree-shaking, global APIs
 These global APIs in Vue 2.x are affected by this change:
 
 * `Vue.nextTick`
-* `Vue.observable`
+* `Vue.observable` (replaced by `Vue.reactive`)
 * `Vue.version`
 * `Vue.compile` (only in full builds)
 * `Vue.set` (only in compat builds)
