@@ -48,7 +48,11 @@ const sidebar = {
       children: [
         {
           title: 'Reactivity',
-          children: ['/guide/reactivity', '/guide/reactivity-fundamentals', '/guide/reactivity-computed-watchers']
+          children: [
+            '/guide/reactivity',
+            '/guide/reactivity-fundamentals',
+            '/guide/reactivity-computed-watchers'
+          ]
         },
         {
           title: 'Composition API',
@@ -85,7 +89,8 @@ const sidebar = {
       children: [
         'migration/global-api',
         'migration/treeshaking',
-        'migration/functional-components'
+        'migration/functional-components',
+        'migration/custom-directives'
       ]
     },
     {
