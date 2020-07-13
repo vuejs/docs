@@ -46,3 +46,4 @@ Some of the new features to keep an eye on in Vue 3 include:
 - [Teleport](/guide/teleport)
 - Fragments
 - [Emits Component Option](/guide/component-custom-events.html)
+- `createRenderer` API from `@vue/runtime-core` to create custom renderers
