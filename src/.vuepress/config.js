@@ -91,7 +91,8 @@ const sidebar = {
         'migration/global-api',
         'migration/treeshaking',
         'migration/functional-components',
-        'migration/async-components'
+        'migration/async-components',
+        'migration/custom-directives'
       ]
     },
     {
