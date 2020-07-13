@@ -67,7 +67,9 @@ The resulting API could be used like this, mirroring the example from earlier:
 ```
 
 ```js
-Vue.directive('highlight', {
+const app = Vue.createApp({})
+
+app.directive('highlight', {
   beforeMount(el, binding, vnode) {
     el.style.background = binding.value
   }
