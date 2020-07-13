@@ -15,54 +15,47 @@ For more information, read on!
 
 ## Introduction
 
-In Vue 2, `v-model="foo"` on components roughly compiled to the following:
+In Vue 2, the `v-model` directive required developers to always use the `value` prop. And if developers required different props for different purposes, they would have to resort to using `v-bind.sync`. In addition, this hard-coded relationship between `v-model` and `value` led to issues with how native elements and custom elements were handled.
 
-```js
-h(Comp, {
-  value: foo,
-  onInput: value => {
-    foo = value
-  }
-})
-```
+In 2.2 we introduced the `model` component option that allows the component to customize the prop and event to use for `v-model`. However, this still only allowed a single `v-model` to be used on the component.
 
-However, this required the component to always use the `value` prop for binding with `v-model` when the component may want to expose the value prop for a different purpose.
-
-In 2.2 we introduced the `model` component option that allows the component to customize the prop and event to use for `v-model`. However, this still only allowed a single `v-model` to be used on the component. In practice we are seeing some components that need to sync multiple values, and the other values have to use `v-bind.sync`. We noticed that `v-model` and `v-bind.sync` are fundamentally doing the same thing and can be combined into a single construct by allowing `v-model` to accept arguments.
+With Vue 3, the API for two-way data binding is being standardized in order to reduce confusion and to allow developers more flexibility with the `v-model` directive.
 
 ## Previous Syntax
 
 In v2, using a `v-model` on a component was an equivalent of passing a `value` prop and emitting an `input` event:
 
 ```html
-<MyBook v-model="readersCount" />
+<ChildComponent v-model="pageTitle" />
 
 <!-- would be shorthand for: -->
 
-<MyBook :value="readersCount" @input="readersCount = $event" />
+<ChildComponent :value="pageTitle" @input="pageTitle = $event" />
 ```
 
-If we wanted to change prop or event names to something different, we would need to add a `model` option to `MyBook` component:
+If we wanted to change prop or event names to something different, we would need to add a `model` option to `ChildComponent` component:
 
 ```html
-<MyBook v-model="readersCount" />
+<!-- ParentComponent.vue -->
+
+<ChildComponent v-model="pageTitle" />
 ```
 
 ```js
-// MyBook.vue
+// ChildComponent.vue
 
 export default {
   model: {
-    prop: 'readers',
+    prop: 'title',
     event: 'change'
   },
   props: {
     // this allows using the `value` prop for a different purpose
     value: String,
-    // use `checked` as the prop which take the place of `value`
-    readers: {
-      type: Number,
-      default: 0
+    // use `title` as the prop which take the place of `value`
+    title: {
+      type: String,
+      default: 'Default title'
     }
   }
 }
@@ -71,42 +64,39 @@ export default {
 So, `v-model` in this case would be a shorthand to
 
 ```html
-<MyBook :readers="readersCount" @change="readersCount = $event" />
+<ChildComponent :title="pageTitle" @change="pageTitle = $event" />
 ```
 
 ### Using `v-bind.sync`
 
-In some cases, we might need "two-way binding" for a prop (sometimes in addition to existing `v-model` for the different prop). To do so, we recommended emitting events in the pattern of `update:myPropName`. For example, for `MyBook` component from the previous example with the `readers` prop, we could communicate the intent of assigning a new value with:
+In some cases, we might need "two-way binding" for a prop (sometimes in addition to existing `v-model` for the different prop). To do so, we recommended emitting events in the pattern of `update:myPropName`. For example, for `ChildComponent` from the previous example with the `title` prop, we could communicate the intent of assigning a new value with:
 
 ```js
-this.$emit('update:readers', newValue)
+this.$emit('update:title', newValue)
 ```
 
 Then the parent could listen to that event and update a local data property, if it wants to. For example:
 
 ```html
-<MyBook :readers="readersCount" @update:readers="readersCount = $event" />
+<ChildComponent :title="pageTitle" @update:title="pageTitle = $event" />
 ```
 
 For convenience, we had a shorthand for this pattern with the .sync modifier:
 
 ```html
-<MyBook :readers.sync="readersCount" />
+<ChildComponent :title.sync="pageTitle" />
 ```
 
 ## Current Syntax
 
-Now, `v-model` on the custom component is an equivalent of passing a `modelValue` prop and emitting an `update:modelValue` event:
+In v3 `v-model` on the custom component is an equivalent of passing a `modelValue` prop and emitting an `update:modelValue` event:
 
 ```html
-<MyBook v-model="readersCount" />
+<ChildComponent v-model="pageTitle" />
 
 <!-- would be shorthand for: -->
 
-<MyBook
-  :modelValue="readersCount"
-  @update:modelValue="readersCount = $event"
-/>
+<MyBook :modelValue="pageTitle" @update:modelValue="pageTitle = $event" />
 ```
 
 ### `v-model` arguments
@@ -114,28 +104,27 @@ Now, `v-model` on the custom component is an equivalent of passing a `modelValue
 To change a model name, instead of `model` component option, now we can pass an _argument_ to `v-model`:
 
 ```html
-<MyBook v-model:readers="readersCount" />
+<ChildComponent v-model:title="pageTitle" />
 
 <!-- would be shorthand for: -->
 
-<MyBook
-  :readers="readersCount"
-  @update:readers="readersCount = $event"
-/>
+<ChildComponent :title="pageTitle" @update:title="pageTitle = $event" />
 ```
+
+![v-bind anatomy](/images/v-bind-instead-of-sync.png)
 
 This also serves as a replacement to `.sync` modifier and allows us to have multiple `v-model`s on the custom component.
 
 ```html
-<MyBook v-model:readers="readersCount" v-model:title="book.title" />
+<ChildComponent v-model:title="pageTitle" v-model:content="pageContent" />
 
 <!-- would be shorthand for: -->
 
-<MyBook
-  :readers="readersCount"
-  @update:readers="readersCount = $event"
-  :title="book.title"
-  @update:title="book.title = $event"
+<ChildComponent
+  :title="pageTitle"
+  @update:title="pageTitle = $event"
+  :content="pageContent"
+  @update:content="pageContent = $event"
 />
 ```
 
@@ -144,7 +133,7 @@ This also serves as a replacement to `.sync` modifier and allows us to have mult
 In addition to v2 hard-coded `v-model` modifiers like `.trim`, now v3 supports custom modifiers:
 
 ```html
-<MyBook v-model.capitalize="book.title" />
+<ChildComponent v-model.capitalize="pageTitle" />
 ```
 
 Read more about custom `v-model` modifiers in the [Custom Events](../component-custom-events.html#handling-v-model-modifiers) section.

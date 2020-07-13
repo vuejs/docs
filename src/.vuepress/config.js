@@ -87,20 +87,10 @@ const sidebar = {
       title: 'Migration to Vue 3',
       collapsable: true,
       children: [
-        {
-          title: 'Critical',
-          collapsable: false,
-          children: [
-            'migration/global-api',
-            'migration/treeshaking',
-            'migration/v-model'
-          ]
-        },
-        {
-          title: 'High',
-          collapsable: false,
-          children: ['migration/functional-components']
-        }
+        'migration/global-api',
+        'migration/treeshaking',
+        'migration/v-model',
+        'migration/functional-components'
       ]
     },
     {
