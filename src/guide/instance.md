@@ -105,16 +105,13 @@ const vm = Vue.createApp({
 In addition to data properties, Vue instances expose a number of useful instance properties and methods. These are prefixed with `$` to differentiate them from user-defined properties. For example:
 
 ```js
-const vm = Vue.createApp().mount(
-  {
-    data() {
-      return {
-        a: 1
-      }
+const vm = Vue.createApp({
+  data() {
+    return {
+      a: 1
     }
-  },
-  '#example'
-)
+  }
+}).mount('#example')
 
 vm.$data.a // => 1
 ```
