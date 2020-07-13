@@ -92,7 +92,8 @@ const sidebar = {
         'migration/treeshaking',
         'migration/v-model',
         'migration/functional-components',
-        'migration/async-components'
+        'migration/async-components',
+        'migration/custom-directives'
       ]
     },
     {
