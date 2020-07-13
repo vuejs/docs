@@ -9,7 +9,7 @@ Here is a quick summary of what has changed:
 
 ## Previous Syntax
 
-In Vue 2, keyCodes were supported as a way to modify a `v-on` method.
+In Vue 2, `keyCodes` were supported as a way to modify a `v-on` method.
 
 ```html
 <!-- keyCode version -->
