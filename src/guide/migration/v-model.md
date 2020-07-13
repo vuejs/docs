@@ -9,7 +9,7 @@ In terms of what has changed, at a high level:
   - event: `input` -> `update:modelValue`;
 - Multiple `v-model` bindings on the same component are possible now;
 - **BREAKING:** `v-bind`'s `.sync` modifier and component `model` option are removed and replaced with an argument on `v-model`;
-- **NEW:** Added a possibility to create custom `v-model` modifiers.
+- **NEW:** Added the ability to create custom `v-model` modifiers.
 
 For more information, read on!
 
