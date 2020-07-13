@@ -1,4 +1,4 @@
-# Migration
+# Introduction
 
 > There's so much here! Does that mean 3.0 is completely different, I'll have to learn the basics all over again, and migrating will be practically impossible?
 
@@ -37,6 +37,8 @@ It depends on a few factors:
 > If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
 
 [//]: # 'TODO: still need to see where this lands'
+
+## Overview
 
 ## Built-in Directives
 
