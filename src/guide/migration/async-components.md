@@ -30,7 +30,7 @@ const asyncPage = {
 }
 ```
 
-## Current Syntax
+## 3.x Syntax
 
 Now, in Vue 3, since functional components are defined as pure functions, async components definitions need to be explicitly defined by wrapping it in a new `defineAsyncComponent` helper:
 

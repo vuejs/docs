@@ -9,7 +9,7 @@ Here is a quick summary of what has changed:
 
 For more information, read on!
 
-## Previous Syntax
+## 2.x Syntax
 
 In Vue 2, custom directives were created by using the hooks listed below to target an element’s lifecycle, all of which are optional:
 
@@ -35,7 +35,7 @@ Vue.directive('highlight', {
 
 Here, in the initial setup for this element, the directive binds a style by passing in a value, that can be updated to different values through the application.
 
-## Current Syntax
+## 3.x Syntax
 
 In Vue 3, however, we’ve created a more cohesive API for custom directives. As you can see, they differ greatly from our component lifecycle methods even though we’re hooking into similar events. We’ve now unified them like so:
 

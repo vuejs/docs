@@ -22,7 +22,7 @@ However, in Vue 3, the performance of stateful components has improved to the po
 
 As a result, the only remaining use case for functional components is simple components, such as a component to create a dynamic heading. Otherwise, it is recommended to use stateful components as you normally would.
 
-## Previous Syntax
+## 2.x Syntax
 
 Using the `<dynamic-heading>` component, which is responsible for rendering out the appropriate heading (i.e., `h1`, `h2`, `h3`, etc.), this could have been written as a single-file component in v2 as:
 
@@ -56,7 +56,7 @@ export default {
 </script>
 ```
 
-## Current Syntax
+## 3.x Syntax
 
 ### Components Created by Functions
 

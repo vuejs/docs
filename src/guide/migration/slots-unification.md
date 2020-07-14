@@ -11,7 +11,7 @@ Here is a quick summary of what has changed:
 
 For more information, read on!
 
-## Previous Syntax
+## 2.x Syntax
 
 When using the render function, i.e., `h`, v2 used to define the `slot` data property on the content nodes.
 
@@ -30,7 +30,7 @@ In addition, when referencing scoped slots, they could be referenced using the f
 this.$scopedSlots.header
 ```
 
-## Current Syntax
+## 3.x Syntax
 
 In v3, render functions will have a `slots` option where they can be defined instead.
 
