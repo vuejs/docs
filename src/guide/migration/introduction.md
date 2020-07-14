@@ -8,6 +8,24 @@ We're glad you asked! The answer is no. We've gone to great lengths to ensure mo
 
 Possibly the biggest change is our new Composition API, which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
 
+## Overview
+
+### New Features
+
+Some of the new features to keep an eye on in Vue 3 include:
+
+- [Composition API](/guide/composition-api-introduction.html)
+- [Teleport](/guide/teleport)
+- [Fragments](/guide/migration/fragments)
+- [Emits Component Option](/guide/component-custom-events.html)
+- `createRenderer` API from `@vue/runtime-core` to create custom renderers
+
+### Breaking
+
+The following consists a list of breaking changes from v2:
+
+- **keyCode support as `v-on` modifiers.** For more information, [see in-depth explanation](/guides/migration/keycodes.html)
+
 ## FAQ
 
 > Where should I start in a migration?
@@ -37,21 +55,3 @@ It depends on a few factors:
 > If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
 
 [//]: # 'TODO: still need to see where this lands'
-
-## Overview
-
-### New Features
-
-Some of the new features to keep an eye on in Vue 3 include:
-
-- [Composition API](/guide/composition-api-introduction.html)
-- [Teleport](/guide/teleport)
-- Fragments
-- [Emits Component Option](/guide/component-custom-events.html)
-- `createRenderer` API from `@vue/runtime-core` to create custom renderers
-
-### Breaking
-
-The following consists a list of breaking changes from v2:
-
-- **keyCode support as `v-on` modifiers.** For more information, [see in-depth explanation](/guides/migration/keycodes.html)
