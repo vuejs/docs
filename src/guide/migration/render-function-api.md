@@ -75,15 +75,13 @@ export default {
     }
 
     // return the render function
-    return () => {
-      return h(
-        'div',
-        {
-          onClick: increment
-        },
-        state.count
-      )
-    }
+    return () =>  h(
+      'div',
+      {
+        onClick: increment
+      },
+      state.count
+    )
   }
 }
 ```
