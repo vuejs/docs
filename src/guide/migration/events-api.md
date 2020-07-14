@@ -57,7 +57,7 @@ export default {
 
 We removed `$on`, `$off` and `$once` methods from Vue instance completely. `$emit` is still a part of the existing API as it's used to trigger event handlers declaratively attached by a parent component
 
-## How to Migrate
+## Migration Strategy
 
 Existing event hubs can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt).
 
