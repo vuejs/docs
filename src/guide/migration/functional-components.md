@@ -4,7 +4,7 @@
 
 In terms of what has changed, at a high level:
 
-- Performance gains from v2 for functional components are now negligible in v3, so we recommend just using stateful components
+- Performance gains from 2.x for functional components are now negligible in 3.x, so we recommend just using stateful components
 - Functional components can only be created using a plain function that receives `props` and `context` (i.e., `slots`, `attrs`, `emit`)
 - **DEPRECATED:** `functional` attribute on single-file component (SFC) `<template>` is deprecated
 - **DEPRECATED:** `{ functional: true }` option in components created by functions is deprecated
@@ -24,7 +24,7 @@ As a result, the only remaining use case for functional components is simple com
 
 ## 2.x Syntax
 
-Using the `<dynamic-heading>` component, which is responsible for rendering out the appropriate heading (i.e., `h1`, `h2`, `h3`, etc.), this could have been written as a single-file component in v2 as:
+Using the `<dynamic-heading>` component, which is responsible for rendering out the appropriate heading (i.e., `h1`, `h2`, `h3`, etc.), this could have been written as a single-file component in 2.x as:
 
 ```js
 // Vue 2 Functional Component Example
@@ -82,7 +82,7 @@ export default GreetingMessage
 
 ### Single File Components (SFCs)
 
-In v3, the performance difference between stateful and functional components has been drastically reduced and will be insignificant in most use cases. As a result, the migration path for developers using `functional` on SFCs is to remove the attribute. No additional work required.
+In 3.x, the performance difference between stateful and functional components has been drastically reduced and will be insignificant in most use cases. As a result, the migration path for developers using `functional` on SFCs is to remove the attribute. No additional work required.
 
 Using our `<dynamic-heading>` example from before, here is how it would look now.
 

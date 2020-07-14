@@ -52,7 +52,7 @@ const asyncPageWithOptions = defineAsyncComponent({
 })
 ```
 
-Another change that has been made from v2 is that the `component` option is now renamed to `loader` in order to accurately communicate that a component definition cannot be provided directly.
+Another change that has been made from 2.x is that the `component` option is now renamed to `loader` in order to accurately communicate that a component definition cannot be provided directly.
 
 ```js{4}
 import { defineAsyncComponent } from 'vue'
