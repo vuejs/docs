@@ -46,6 +46,6 @@ Since [`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.or
 
 As a result, this means that `config.keyCodes` is now also deprecated and will no longer be supported.
 
-## How to Migrate
+## Migration Strategy
 
 For those using `keyCode` in their codbase, we recommend converting them to their kebab-cased named equivalents.

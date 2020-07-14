@@ -70,6 +70,6 @@ Using the example above, here is one example of how it could be implemented.
 </script>
 ```
 
-## How to Migrate
+## Migration Strategy
 
 Instead of using filters, we recommend replacing them with computed properties or methods.
