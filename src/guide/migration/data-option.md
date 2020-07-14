@@ -50,16 +50,13 @@ Using the example above, there would only be one possible implementation of the 
 <script>
   import { createApp } from 'vue'
 
-  createApp().mount(
-    {
-      data() {
-        return {
-          apiKey: 'a1b2c3'
-        }
-      }
-    },
-    '#app'
-  )
+createApp({
+  data() {
+    return {
+      apiKey: 'a1b2c3'
+    }
+  }
+}).mount('#app')
 </script>
 ```
 
