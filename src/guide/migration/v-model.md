@@ -138,7 +138,7 @@ In addition to v2 hard-coded `v-model` modifiers like `.trim`, now v3 supports c
 
 Read more about custom `v-model` modifiers in the [Custom Events](../component-custom-events.html#handling-v-model-modifiers) section.
 
-## How to Migrate
+## Migration Strategy
 
 We recommend:
 

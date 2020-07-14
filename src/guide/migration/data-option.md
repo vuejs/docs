@@ -59,7 +59,7 @@ Using the example above, there would only be one possible implementation of the 
 </script>
 ```
 
-## How to Migrate
+## Migration Strategy
 
 For users relying on the object declaration, we recommend:
 

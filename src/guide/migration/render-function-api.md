@@ -75,7 +75,7 @@ export default {
     }
 
     // return the render function
-    return () =>  h(
+    return () => h(
       'div',
       {
         onClick: increment
@@ -122,7 +122,7 @@ In 3.x, the entire VNode props structure is flattened. Using the example from ab
 }
 ```
 
-## How to Migrate
+## Migration Strategy
 
 ### Library Authors
 
