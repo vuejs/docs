@@ -1,4 +1,4 @@
-# Migration
+# Introduction
 
 > There's so much here! Does that mean 3.0 is completely different, I'll have to learn the basics all over again, and migrating will be practically impossible?
 
@@ -37,3 +37,21 @@ It depends on a few factors:
 > If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
 
 [//]: # 'TODO: still need to see where this lands'
+
+## Overview
+
+### New Features
+
+Some of the new features to keep an eye on in Vue 3 include:
+
+- [Composition API](/guide/composition-api-introduction.html)
+- [Teleport](/guide/teleport)
+- Fragments
+- [Emits Component Option](/guide/component-custom-events.html)
+- `createRenderer` API from `@vue/runtime-core` to create custom renderers
+
+### Breaking
+
+The following consists a list of breaking changes from v2:
+
+- **keyCode support as `v-on` modifiers.** For more information, [see in-depth explanation](/guides/migration/keycodes.html)
