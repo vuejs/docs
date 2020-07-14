@@ -376,7 +376,7 @@ The above is made possible by Vue's `<component>` element with the `is` special 
 
 ```html
 <!-- Component changes when currentTabComponent changes -->
-<component v-bind:is="currentTabComponent"></component>
+<component :is="currentTabComponent"></component>
 ```
 
 In the example above, `currentTabComponent` can contain either:
@@ -402,13 +402,26 @@ This will lead to issues when using components with elements that have such rest
 </table>
 ```
 
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. Fortunately, the `is` special attribute offers a workaround:
+The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. Fortunately, we can use `v-is` special directive as a workaround:
 
 ```html
 <table>
-  <tr is="blog-post-row"></tr>
+  <tr v-is="'blog-post-row'"></tr>
 </table>
 ```
+
+:::warning
+`v-is` value should be a JavaScript string literal:
+
+```html
+<!-- Incorrect, nothing will be rendered -->
+<tr v-is="blog-post-row"></tr>
+
+<!-- Correct -->
+<tr v-is="'blog-post-row'"></tr>
+```
+
+:::
 
 Also, HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, camelCased prop names and event handler parameters need to use their kebab-cased (hyphen-delimited) equivalents:
 
