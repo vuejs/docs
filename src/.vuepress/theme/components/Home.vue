@@ -144,7 +144,7 @@ export default {
 @import '@theme/styles/_settings.scss';
 
 .hero {
-  padding: 100px 40px 30px;
+  padding: calc(100px + 3rem) 40px 30px; // add $betaBannerHeight
 
   .inner {
     max-width: 1260px;
