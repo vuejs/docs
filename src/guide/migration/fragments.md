@@ -30,12 +30,6 @@ In 3.x, components now can have multiple root nodes! However, this does require 
   <main v-bind="$attrs">...</main>
   <footer>...</footer>
 </template>
-
-<script>
-  export default {
-    inheritAttrs: false
-  }
-</script>
 ```
 
 For more information on how attribute inheritance works, see [Non-Prop Attributes](/guide/component-props.html#disabling-attribute-inheritance).
