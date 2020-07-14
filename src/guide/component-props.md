@@ -278,7 +278,7 @@ In the event we need to define the status of the date-picker component via a `da
 
 ### Disabling Attribute Inheritance
 
-If you do **not** want the a component to automatically inherit attributes, you can set `inheritAttrs: false` in the component's options.
+If you do **not** want a component to automatically inherit attributes, you can set `inheritAttrs: false` in the component's options.
 
 There are two common scenarios when attribute inheritance needs to be disabled:
 
@@ -318,7 +318,7 @@ With this new configuration, our `data-status` attribute will be applied to our 
 
 Unlike single root node components, components with multiple root nodes do not have an automatic attribute fallthrough behavior if `inheritAttrs` and `$attrs` are not defined. A runtime warning will be issued if this is left off
 
-```js{2, 5}
+```js{2,5}
 app.component('custom-layout', {
   inheritAttrs: false,
   template: `

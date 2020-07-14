@@ -40,8 +40,18 @@ It depends on a few factors:
 
 ## Overview
 
-### Deprecated
+### New Features
 
-The following features are now deprecated from v2:
+Some of the new features to keep an eye on in Vue 3 include:
+
+- [Composition API](/guide/composition-api-introduction.html)
+- [Teleport](/guide/teleport)
+- Fragments
+- [Emits Component Option](/guide/component-custom-events.html)
+- `createRenderer` API from `@vue/runtime-core` to create custom renderers
+
+### Breaking
+
+The following consists a list of breaking changes from v2:
 
 - **keyCode support as `v-on` modifiers.** For more information, [see in-depth explanation](/guides/migration/keycodes.html)
