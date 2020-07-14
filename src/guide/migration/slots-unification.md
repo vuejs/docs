@@ -44,7 +44,7 @@ h(LayoutComponent, {
 })
 ```
 
-And when you need to reference scoped slots programatically, they are now unified into the `$slots` option.
+And when you need to reference scoped slots programmatically, they are now unified into the `$slots` option.
 
 ```js
 // 2.x Syntax
