@@ -456,6 +456,8 @@
 
 ## v-is
 
+> Note: this section only affects cases where Vue templates are directly written in the page's HTML.
+
 - **Expects:** string literal
 
 - **Limited to:** native HTML elements
