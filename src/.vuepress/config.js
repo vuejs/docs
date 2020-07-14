@@ -94,6 +94,7 @@ const sidebar = {
         'migration/functional-components',
         'migration/async-components',
         'migration/custom-directives',
+        'migration/data-option',
         'migration/filters',
         'migration/fragments',
         'migration/render-function-api',
