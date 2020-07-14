@@ -8,7 +8,7 @@ types:
 
 ## Overview
 
-- **BREAKING**: `data` option declaration no longer accepts a plain JavaScript `object` and expects a `function` declaration.
+- **BREAKING**: `data` component option declaration no longer accepts a plain JavaScript `object` and expects a `function` declaration.
 
 ## 2.x Syntax
 
