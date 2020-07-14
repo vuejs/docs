@@ -4,7 +4,7 @@ export default {}
 
 <template>
   <aside class="beta-banner">
-    <p>⚠️ Beta Version: Docs are still in progress and may change. ⚠️</p>
+    <p>⚠️ Beta Version: Docs are still under development and may change. ⚠️</p>
   </aside>
 </template>
 
