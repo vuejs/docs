@@ -1,6 +1,5 @@
 ---
 types:
-  - removed
   - breaking
 ---
 
@@ -50,13 +49,13 @@ Using the example above, there would only be one possible implementation of the 
 <script>
   import { createApp } from 'vue'
 
-createApp({
-  data() {
-    return {
-      apiKey: 'a1b2c3'
+  createApp({
+    data() {
+      return {
+        apiKey: 'a1b2c3'
+      }
     }
-  }
-}).mount('#app')
+  }).mount('#app')
 </script>
 ```
 
