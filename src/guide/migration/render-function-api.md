@@ -16,7 +16,7 @@ For more information, read on!
 
 ### Previous Syntax
 
-In 2.x, the `render` function would automatically receive the `h` function (which is a conventional alias for `createElement`).
+In 2.x, the `render` function would automatically receive the `h` function (which is a conventional alias for `createElement`) as an argument:
 
 ```js
 // Vue 2 Render Function Example
