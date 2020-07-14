@@ -138,6 +138,41 @@ In addition to v2 hard-coded `v-model` modifiers like `.trim`, now v3 supports c
 
 Read more about custom `v-model` modifiers in the [Custom Events](../component-custom-events.html#handling-v-model-modifiers) section.
 
+## How to Migrate
+
+We recommend:
+
+- checking your codebase for `.sync` usage and replace it with `v-model`:
+
+  ```html
+  <ChildComponent :title.sync="pageTitle" />
+
+  <!-- to be replaced with -->
+
+  <ChildComponent v-model:title="pageTitle" />
+  ```
+
+- for all `v-model`s without arguments, make sure to change props and events name to `modelValue` and `update:modelValue` respectively
+
+  ```html
+  <ChildComponent v-model="pageTitle" />
+  ```
+
+  ```js
+  // ChildComponent.vue
+
+  export default {
+    props: {
+      modelValue: String // previously was `value: String`
+    },
+    methods: {
+      changePageTitle(title) {
+        this.$emit('update:modelValue', title) // previously was `this.$emit('input', title)`
+      }
+    }
+  }
+  ```
+
 ## Next Steps
 
 For more information on the new `v-model` syntax, see:
