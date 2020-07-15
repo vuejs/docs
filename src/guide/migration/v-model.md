@@ -1,10 +1,10 @@
-# Changes to `v-model` on custom components
+# `v-model`
 
 ## Overview
 
 In terms of what has changed, at a high level:
 
-- **BREAKING:**When used on custom components, `v-model` prop and event default names are changed:
+- **BREAKING:** When used on custom components, `v-model` prop and event default names are changed:
   - prop: `value` -> `modelValue`;
   - event: `input` -> `update:modelValue`;
 - **BREAKING:** `v-bind`'s `.sync` modifier and component `model` option are removed and replaced with an argument on `v-model`;

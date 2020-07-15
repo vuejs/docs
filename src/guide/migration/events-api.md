@@ -4,7 +4,7 @@ types:
   - breaking
 ---
 
-# `$on`, `$off` and `$once` methods removal <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# Events API <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
 
 ## Overview
 
