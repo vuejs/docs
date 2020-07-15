@@ -21,9 +21,9 @@ In 2.2 we introduced the `model` component option that allows the component to c
 
 With Vue 3, the API for two-way data binding is being standardized in order to reduce confusion and to allow developers more flexibility with the `v-model` directive.
 
-## Previous Syntax
+## 2.x Syntax
 
-In v2, using a `v-model` on a component was an equivalent of passing a `value` prop and emitting an `input` event:
+In 2.x, using a `v-model` on a component was an equivalent of passing a `value` prop and emitting an `input` event:
 
 ```html
 <ChildComponent v-model="pageTitle" />
@@ -87,9 +87,9 @@ For convenience, we had a shorthand for this pattern with the .sync modifier:
 <ChildComponent :title.sync="pageTitle" />
 ```
 
-## Current Syntax
+## 3.x Syntax
 
-In v3 `v-model` on the custom component is an equivalent of passing a `modelValue` prop and emitting an `update:modelValue` event:
+In 3.x `v-model` on the custom component is an equivalent of passing a `modelValue` prop and emitting an `update:modelValue` event:
 
 ```html
 <ChildComponent v-model="pageTitle" />
@@ -130,7 +130,7 @@ This also serves as a replacement to `.sync` modifier and allows us to have mult
 
 ### `v-model` modifiers
 
-In addition to v2 hard-coded `v-model` modifiers like `.trim`, now v3 supports custom modifiers:
+In addition to 2.x hard-coded `v-model` modifiers like `.trim`, now 3.x supports custom modifiers:
 
 ```html
 <ChildComponent v-model.capitalize="pageTitle" />

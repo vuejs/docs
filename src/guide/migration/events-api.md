@@ -10,9 +10,9 @@ types:
 
 `$on`, `$off` and `$once` instance methods are removed. Vue instances no longer implement the event emitter interface.
 
-## Previous Syntax
+## 2.x Syntax
 
-In v2, Vue instance could be used to trigger handlers attached imperatively via the event emitter API (`$on`, `$off` and `$once`). This was used to create _event hubs_ to create global event listeners used across the whole application:
+In 2.x, Vue instance could be used to trigger handlers attached imperatively via the event emitter API (`$on`, `$off` and `$once`). This was used to create _event hubs_ to create global event listeners used across the whole application:
 
 ```js
 // eventHub.js

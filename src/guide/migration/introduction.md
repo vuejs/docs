@@ -22,7 +22,7 @@ Some of the new features to keep an eye on in Vue 3 include:
 
 ### Breaking
 
-The following consists a list of breaking changes from v2:
+The following consists a list of breaking changes from 2.x:
 
 - **keyCode support as `v-on` modifiers.** For more information, [see in-depth explanation](/guides/migration/keycodes.html)
 
