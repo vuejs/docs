@@ -28,6 +28,8 @@ The following consists a list of breaking changes from v2:
 - [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
 - [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
 - [Component data option should always be declared as a function](/guide/migration/data-option.html)
+- [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.html)
+- [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.html)
 
 ### Removed
 
