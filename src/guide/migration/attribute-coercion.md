@@ -27,7 +27,7 @@ In 2.x, we had the following strategies for coercing `v-bind` values:
 
 The following table describes how Vue coerce "enumerated attributes" differently with normal non-boolean attributes:
 
-| Binding expr.       | `foo` <sup>normal</sup> | `draggable` <sup>enumerated</sup> |
+| Binding expression       | `foo` <sup>normal</sup> | `draggable` <sup>enumerated</sup> |
 | ------------------- | ----------------------- | --------------------------------- |
 | `:attr="null"`      | /                       | `draggable="false"`               |
 | `:attr="undefined"` | /                       | /                                 |
