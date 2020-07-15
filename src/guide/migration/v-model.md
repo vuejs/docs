@@ -1,4 +1,13 @@
+---
+types:
+  - core
+  - breaking
+  - directives
+---
+
 # Changes to `v-model` on custom components
+
+<MigrationBadges :badges="$frontmatter.types" />
 
 ## Overview
 

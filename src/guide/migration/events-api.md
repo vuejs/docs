@@ -4,7 +4,9 @@ types:
   - breaking
 ---
 
-# `$on`, `$off` and `$once` methods removal <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# `$on`, `$off` and `$once` methods
+
+<MigrationBadges :badges="$frontmatter.types" />
 
 ## Overview
 

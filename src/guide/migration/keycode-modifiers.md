@@ -1,4 +1,11 @@
+---
+types:
+  - breaking
+---
+
 # KeyCode Modifiers
+
+<MigrationBadges :badges="$frontmatter.types" />
 
 ## Overview
 

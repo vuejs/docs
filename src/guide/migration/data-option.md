@@ -1,9 +1,12 @@
 ---
+title: Data Option
 types:
   - breaking
 ---
 
-# Data Option <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# {{ $frontmatter.title }}
+
+<MigrationBadges :badges="$frontmatter.types" />
 
 ## Overview
 

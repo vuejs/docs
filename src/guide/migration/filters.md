@@ -4,7 +4,9 @@ types:
   - breaking
 ---
 
-# Filters <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# Filters
+
+<MigrationBadges :badges="$frontmatter.types" />
 
 ## Overview
 
