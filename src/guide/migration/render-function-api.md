@@ -14,7 +14,7 @@ For more information, read on!
 
 ## Render Function Argument
 
-### Previous Syntax
+### 2.x Syntax
 
 In 2.x, the `render` function would automatically receive the `h` function (which is a conventional alias for `createElement`) as an argument:
 
@@ -27,7 +27,7 @@ export default {
 }
 ```
 
-### Current Syntax
+### 3.x Syntax
 
 In 3.x, `h` is now globally imported instead of being automatically passed as an argument.
 
@@ -44,7 +44,7 @@ export default {
 
 ## Render Function Signature Change
 
-### Previous Syntax
+### 2.x Syntax
 
 In 2.x, the `render` function automatically received arguments such as `h`.
 
@@ -57,7 +57,7 @@ export default {
 }
 ```
 
-### Current Syntax
+### 3.x Syntax
 
 In 3.x, since the `render` function no longer receives any arguments, it will primarily be used inside of the `setup()` function. This has the added benefit of gaining access to reactive state and functions declared in scope, as well as the arguments passed to `setup()`.
 
@@ -75,13 +75,14 @@ export default {
     }
 
     // return the render function
-    return () => h(
-      'div',
-      {
-        onClick: increment
-      },
-      state.count
-    )
+    return () =>
+      h(
+        'div',
+        {
+          onClick: increment
+        },
+        state.count
+      )
   }
 }
 ```
@@ -90,7 +91,7 @@ For more information on how `setup()` works, see our [Composition API Guide](/gu
 
 ## VNode Props Format
 
-### Previous Syntax
+### 2.x Syntax
 
 In 2.x, `domProps` contained a nested list within the VNode props:
 
@@ -106,7 +107,7 @@ In 2.x, `domProps` contained a nested list within the VNode props:
 }
 ```
 
-### Current Syntax
+### 3.x Syntax
 
 In 3.x, the entire VNode props structure is flattened. Using the example from above, here is what it would look like now.
 

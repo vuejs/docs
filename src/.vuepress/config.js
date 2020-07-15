@@ -93,21 +93,21 @@ const sidebar = {
       collapsable: true,
       children: [
         'migration/introduction',
-        'migration/global-api',
-        'migration/treeshaking',
-        'migration/v-model',
-        'migration/functional-components',
         'migration/async-components',
         'migration/custom-directives',
-        'migration/events-api',
+        'migration/custom-elements-interop',
         'migration/data-option',
+        'migration/events-api',
         'migration/filters',
         'migration/fragments',
+        'migration/functional-components',
+        'migration/global-api',
+        'migration/global-api-treeshaking',
+        'migration/inline-template-attribute',
+        'migration/keycode-modifiers',
         'migration/render-function-api',
         'migration/slots-unification',
-        'migration/keycode-modifiers',
-        'migration/inline-template-attribute',
-        'migration/custom-elements-interop'
+        'migration/v-model'
       ]
     },
     {
@@ -197,14 +197,6 @@ module.exports = {
         ]
       },
       { text: 'API Reference', link: '/api/application-config' },
-      {
-        text: 'Examples',
-        ariaLabel: 'Examples Menu',
-        items: [
-          { text: 'Examples', link: '/examples/' },
-          { text: 'Cookbook', link: '/cookbook/' }
-        ]
-      },
       {
         text: 'Community',
         ariaLabel: 'Community Menu',
