@@ -85,7 +85,7 @@ const sidebar = {
         '/guide/a11y-basics',
         '/guide/a11y-semantics',
         '/guide/a11y-standards',
-        '/guide/a11y-resources',
+        '/guide/a11y-resources'
       ]
     },
     {
@@ -93,20 +93,20 @@ const sidebar = {
       collapsable: true,
       children: [
         'migration/introduction',
-        'migration/global-api',
-        'migration/treeshaking',
-        'migration/v-model',
-        'migration/functional-components',
         'migration/async-components',
         'migration/custom-directives',
-        'migration/events-api',
+        'migration/custom-elements-interop',
         'migration/data-option',
+        'migration/events-api',
         'migration/filters',
         'migration/fragments',
+        'migration/functional-components',
+        'migration/global-api',
+        'migration/global-api-treeshaking',
+        'migration/keycode-modifiers',
         'migration/render-function-api',
         'migration/slots-unification',
-        'migration/keycode-modifiers',
-        'migration/custom-elements-interop'
+        'migration/v-model'
       ]
     },
     {
