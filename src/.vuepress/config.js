@@ -94,6 +94,7 @@ const sidebar = {
       children: [
         'migration/introduction',
         'migration/async-components',
+        'migration/attribute-coercion',
         'migration/custom-directives',
         'migration/custom-elements-interop',
         'migration/data-option',
