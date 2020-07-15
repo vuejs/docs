@@ -25,7 +25,7 @@ In 2.x, we had the following strategies for coercing `v-bind` values:
 
 - For other attributes, we remove “falsy” values (`undefined`, `null`, or `false`) and set other values as-is (see [here](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/runtime/modules/attrs.js#L92-L113)).
 
-The following table describes how Vue coerce “enumerated attributes” differently with normal non-boolean attributes:
+The following table describes how Vue coerce "enumerated attributes" differently with normal non-boolean attributes:
 
 | Binding expr.       | `foo` <sup>normal</sup> | `draggable` <sup>enumerated</sup> |
 | ------------------- | ----------------------- | --------------------------------- |
