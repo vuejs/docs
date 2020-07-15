@@ -59,7 +59,7 @@ Vue.config.ignoredElements = ['plastic-button']
   app.config.isCustomElement = tag => tag === 'plastic-button'
   ```
 
-  Note the runtime config only affects runtime template compilation - it won't affect pre-compiled templates.
+  It's important to note the runtime config only affects runtime template compilation - it won't affect pre-compiled templates.
 
 ## Customized Built-in Elements
 
