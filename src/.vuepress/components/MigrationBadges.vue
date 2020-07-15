@@ -1,0 +1,71 @@
+<script>
+const validBadges = {
+  breaking: 'breaking change',
+  core: 'core',
+  directives: 'directives',
+  removal: 'feature removal'
+}
+
+export default {
+  props: {
+    badges: {
+      type: Array,
+      default: () => []
+    }
+  }
+}
+</script>
+
+<template>
+  <div class="migration-badge-wrapper">
+    <span
+      v-for="badgeType in badges"
+      :class="`migration-badge is-${badgeType}`"
+      :key="`badge-type-${badgeType}`"
+    >
+      {{ badgeType }}
+    </span>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.migration-badge {
+  background-color: #ccc;
+  font-size: 0.8rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+  color: #222;
+  padding: 0.25rem 0.25rem;
+  font-weight: bold;
+
+  &.is-core {
+    background-color: #228740;
+    border-color: #228740;
+    color: #fff;
+  }
+
+  &.is-breaking {
+    background-color: #b00000;
+    border-color: #b00000;
+    color: #fff;
+  }
+
+  &.is-directives {
+    background-color: #fcff44;
+    border-color: #fcff44;
+    color: #222;
+  }
+
+  &.is-removed {
+    background-color: #cf8700;
+    border-color: #cf8700;
+    color: #fff;
+  }
+}
+
+.migration-badge-wrapper {
+  display: flex;
+  margin-top: -0.5rem;
+}
+</style>
