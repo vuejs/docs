@@ -31,15 +31,15 @@ The following consists a list of breaking changes from v2:
 
 ### Removed
 
-- [`keyCode` support as `v-on` modifiers](/guides/migration/keycodes.html)
+- [`keyCode` support as `v-on` modifiers](/guide/migration/keycodes.html)
 - [$on, $off and $once instance methods](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
 
 ## FAQ
 
-> Where should I start in a migration?
+### Where should I start in a migration?
 
-[//]: # 'TODO: update this link when we have a migration helper'
+> Migration helper is still under development
 
 1. Start by running the [migration helper](https://github.com/vuejs/vue-migration-helper) on a current project. We've carefully minified and compressed a senior Vue dev into a simple command line interface. Whenever they recognize an obsolete feature, they'll let you know, offer suggestions, and provide links to more info.
 
@@ -49,7 +49,7 @@ The following consists a list of breaking changes from v2:
 
 4. By now, your app should be fully migrated. If you're still hungry for more though, you can read the rest of this page - or dive in to the new and improved guide from [the beginning](index.html). Many parts will be skimmable, since you're already familiar with the core concepts.
 
-> How long will it take to migrate a Vue 2.x app to 3.0?
+### How long will it take to migrate a Vue 2.x app to 3.0?
 
 It depends on a few factors:
 
@@ -57,10 +57,8 @@ It depends on a few factors:
 
 - How many times you get distracted and start playing with a cool new feature. 😉 &nbsp;Not judging, it also happened to us while building 3.0!
 
-[//]: # 'TODO: update this with link to styleguide'
+- Which obsolete features you're using. Most can be upgraded with find-and-replace, but others might take a few minutes. If you're not currently following best practices according to [our styleguide](/style-guide/README.html), Vue 3.0 will also try harder to force you to. This is a good thing in the long run, but could also mean a significant (though possibly overdue) refactor.
 
-- Which obsolete features you're using. Most can be upgraded with find-and-replace, but others might take a few minutes. If you're not currently following best practices according to our styleguide, Vue 3.0 will also try harder to force you to. This is a good thing in the long run, but could also mean a significant (though possibly overdue) refactor.
+### If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
 
-> If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
-
-[//]: # 'TODO: still need to see where this lands'
+Yes, currently both [Vuex](https://github.com/vuejs/vuex/tree/4.0#vuex-4) and [Vue Router](https://github.com/vuejs/vue-router-next) are in beta
