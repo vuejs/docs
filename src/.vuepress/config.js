@@ -106,7 +106,8 @@ const sidebar = {
         'migration/render-function-api',
         'migration/slots-unification',
         'migration/keycode-modifiers',
-        'migration/inline-template-attribute'
+        'migration/inline-template-attribute',
+        'migration/custom-elements-interop'
       ]
     },
     {

@@ -43,7 +43,7 @@ Or, for those who preferred the `<template>` in a single-file component:
 // Vue 2 Functional Component Example with <template>
 <template functional>
   <component
-    v-bind:is="`h${props.level}`"
+    :is="`h${props.level}`"
     v-bind="attrs"
     v-on="listeners"
   />
