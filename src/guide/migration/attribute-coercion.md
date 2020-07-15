@@ -53,7 +53,7 @@ For non-boolean attributes, Vue will stop removing them if they are `false` and 
 
 The following table describes the new behavior:
 
-| Binding expr.       | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
+| Binding expression       | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
 | ------------------- | -------------------------- | --------------------------------- |
 | `:attr="null"`      | /                          | / <sup>†</sup>                    |
 | `:attr="undefined"` | /                          | /                                 |
