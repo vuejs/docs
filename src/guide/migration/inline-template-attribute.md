@@ -68,7 +68,7 @@ A component previously using `inline-template` can also be refactored using the 
 </my-comp>
 ```
 
-The child, instead of providing no template, should now render the default slot\*:
+The child, instead of providing no template, should now render the default slot*:
 
 ```html
 <!--
