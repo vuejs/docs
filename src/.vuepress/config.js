@@ -103,6 +103,7 @@ const sidebar = {
         'migration/functional-components',
         'migration/global-api',
         'migration/global-api-treeshaking',
+        'migration/inline-template-attribute',
         'migration/keycode-modifiers',
         'migration/render-function-api',
         'migration/slots-unification',
