@@ -76,11 +76,16 @@ const sidebar = {
     {
       title: 'Scaling Up',
       collapsable: false,
+      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
+    },
+    {
+      title: 'Accessibility',
+      collapsable: false,
       children: [
-        '/guide/routing',
-        '/guide/state-management',
-        '/guide/ssr',
-        '/guide/accessibility'
+        '/guide/a11y-basics',
+        '/guide/a11y-semantics',
+        '/guide/a11y-standards',
+        '/guide/a11y-resources',
       ]
     },
     {
@@ -101,7 +106,8 @@ const sidebar = {
         'migration/render-function-api',
         'migration/slots-unification',
         'migration/keycode-modifiers',
-        'migration/attribute-coercion'
+        'migration/attribute-coercion',
+        'migration/custom-elements-interop'
       ]
     },
     {
