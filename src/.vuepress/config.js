@@ -85,7 +85,7 @@ const sidebar = {
         '/guide/a11y-basics',
         '/guide/a11y-semantics',
         '/guide/a11y-standards',
-        '/guide/a11y-resources',
+        '/guide/a11y-resources'
       ]
     },
     {
@@ -105,7 +105,8 @@ const sidebar = {
         'migration/fragments',
         'migration/render-function-api',
         'migration/slots-unification',
-        'migration/keycode-modifiers'
+        'migration/keycode-modifiers',
+        'migration/inline-template-attribute'
       ]
     },
     {
