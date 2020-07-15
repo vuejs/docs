@@ -197,14 +197,6 @@ module.exports = {
       },
       { text: 'API Reference', link: '/api/application-config' },
       {
-        text: 'Examples',
-        ariaLabel: 'Examples Menu',
-        items: [
-          { text: 'Examples', link: '/examples/' },
-          { text: 'Cookbook', link: '/cookbook/' }
-        ]
-      },
-      {
         text: 'Community',
         ariaLabel: 'Community Menu',
         items: [
