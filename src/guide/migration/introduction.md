@@ -4,9 +4,7 @@
 
 We're glad you asked! The answer is no. We've gone to great lengths to ensure most of the API is the same and the core concepts haven't changed. It's long because we like to offer very detailed explanations and include a lot of examples. Rest assured, **this is not something you have to read from top to bottom!**
 
-[//]: # 'TODO: update composition API with a link'
-
-Possibly the biggest change is our new Composition API, which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
+Possibly the biggest change is our new [Composition API](/guide/composition-api-introduction.html), which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
 
 ## Overview
 
@@ -15,8 +13,8 @@ Possibly the biggest change is our new Composition API, which is entirely additi
 Some of the new features to keep an eye on in Vue 3 include:
 
 - [Composition API](/guide/composition-api-introduction.html)
-- [Teleport](/guide/teleport)
-- [Fragments](/guide/migration/fragments)
+- [Teleport](/guide/teleport.html)
+- [Fragments](/guide/migration/fragments.html)
 - [Emits Component Option](/guide/component-custom-events.html)
 - `createRenderer` API from `@vue/runtime-core` to create custom renderers
 
@@ -24,7 +22,18 @@ Some of the new features to keep an eye on in Vue 3 include:
 
 The following consists a list of breaking changes from v2:
 
-- **keyCode support as `v-on` modifiers.** For more information, [see in-depth explanation](/guides/migration/keycodes.html)
+- [Global Vue API is changed to use an application instance](/guide/migration/global-api.html)
+- [Global and internal APIs have been restructured to be tree-shakable](/guide/migration/treeshaking.html)
+- [`model` component option and `v-bind`'s `sync` modifier are removed in favor of `v-model` arguments](/guide/migration/v-model.html)
+- [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
+- [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
+- [Component data option should always be declared as a function](/guide/migration/data-option.html)
+
+### Removed
+
+- [`keyCode` support as `v-on` modifiers](/guides/migration/keycodes.html)
+- [$on, $off and $once instance methods](/guide/migration/events-api.html)
+- [Filters](/guide/migration/filters.html)
 
 ## FAQ
 
