@@ -44,7 +44,7 @@ The following consists a list of breaking changes from 2.x:
 - [`keyCode` support as `v-on` modifiers](/guide/migration/keycodes.html)
 - [$on, $off and $once instance methods](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
-- [Inline templates](/guide/migration/inline-template-attribute.html)
+- [Inline templates attributes](/guide/migration/inline-template-attribute.html)
 
 ## FAQ
 
