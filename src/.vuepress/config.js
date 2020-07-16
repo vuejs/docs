@@ -210,7 +210,7 @@ module.exports = {
       }
     ],
     repo: 'vuejs/docs-next',
-    editLinks: true,
+    editLinks: false,
     editLinkText: 'Edit this on GitHub!',
     docsDir: 'src',
     sidebarDepth: 2,
