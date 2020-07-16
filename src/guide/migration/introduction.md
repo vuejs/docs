@@ -25,17 +25,26 @@ The following consists a list of breaking changes from 2.x:
 - [Global Vue API is changed to use an application instance](/guide/migration/global-api.html)
 - [Global and internal APIs have been restructured to be tree-shakable](/guide/migration/treeshaking.html)
 - [`model` component option and `v-bind`'s `sync` modifier are removed in favor of `v-model` arguments](/guide/migration/v-model.html)
+- [Render function API changed](/guide/migration/render-function-api.html)
 - [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
+- [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
 - [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
 - [Component data option should always be declared as a function](/guide/migration/data-option.html)
 - [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.html)
 - [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.html)
+- [`$scopedSlots` property is removed and need to be replaced with `$slots`](/guide/migration/slots-unification.html)
+- [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
+- [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
+- Some transition classes got a rename:
+  - `v-enter` -> `v-enter-from`
+  - `v-leave` -> `v-leave-from`
 
 ### Removed
 
 - [`keyCode` support as `v-on` modifiers](/guide/migration/keycodes.html)
 - [$on, $off and $once instance methods](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
+- [Inline templates attributes](/guide/migration/inline-template-attribute.html)
 
 ## FAQ
 
