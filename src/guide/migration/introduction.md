@@ -32,6 +32,8 @@ The following consists a list of breaking changes from 2.x:
 - [Component data option should always be declared as a function](/guide/migration/data-option.html)
 - [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.html)
 - [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.html)
+- [`$scopedSlots` property is removed and need to be replaced with `$slots`](/guide/migration/slots-unification.html)
+- [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
 - [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
 - Some transition classes got a rename:
   - `v-enter` -> `v-enter-from`

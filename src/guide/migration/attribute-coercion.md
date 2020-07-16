@@ -9,7 +9,7 @@ This is a low-level internal API change and does not affect most developers.
 Here is a high level summary of the changes:
 
 - Drop the internal concept of enumerated attributes and treat those attributes the same as normal non-boolean attributes
-- **BREAKING**: No longer removes attribute if value is boolean false. Instead, it's set as attr="false" instead. To remove the attribute, use null or undefined.
+- **BREAKING**: No longer removes attribute if value is boolean `false`. Instead, it's set as attr="false" instead. To remove the attribute, use `null` or `undefined`.
 
 For more information, read on!
 
