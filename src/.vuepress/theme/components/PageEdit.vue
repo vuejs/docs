@@ -1,20 +1,26 @@
 <template>
   <footer class="page-edit">
-    <div v-if="editLink" class="edit-link">
-      Caught a mistake or want to contribute to the documentation?
-      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{
-        editLinkText
-      }}</a>
-      <OutboundLink />
-    </div>
-
-    <div>
-      Deployed on <a href="https://url.netlify.com/HJ8X2mxP8">Netlify</a>
-    </div>
-
-    <div v-if="lastUpdated" class="last-updated">
-      <span class="prefix">{{ lastUpdatedText }}:</span>
-      <span class="time">{{ lastUpdated }}</span>
+    <div class="container">
+      <p>
+        Deployed on
+        <a href="https://url.netlify.com/HJ8X2mxP8">Netlify</a>.
+        <span v-if="editLink" class="edit-link">
+          Caught a mistake or want to contribute to the documentation?
+          <a
+            :href="editLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ editLinkText }}
+            <OutboundLink />
+          </a>
+        </span>
+        <template v-if="lastUpdated" class="last-updated">
+          <br />
+          <span class="prefix">{{ lastUpdatedText }}:</span>
+          <span class="time">{{ lastUpdated }}</span>
+        </template>
+      </p>
     </div>
   </footer>
 </template>
@@ -104,7 +110,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '@theme/styles/_settings.scss';
+
 /*
   This entire style block is MVP style wise and will likely
   be changed with the new atomic theme. Changes are welcome!
@@ -115,10 +123,20 @@ export default {
 
 .page-edit {
   padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   max-width: 740px;
   margin: 0 auto;
+  font-size: 0.95em;
+  color: $light;
+  text-align: center;
+
+  p {
+    margin: 0.8rem auto;
+  }
+
+  .container {
+    border: 1px solid #eaecef;
+    border-radius: 5px;
+    padding: 0 1.5rem;
+  }
 }
 </style>
