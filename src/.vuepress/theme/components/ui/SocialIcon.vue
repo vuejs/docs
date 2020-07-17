@@ -1,6 +1,6 @@
 <template>
   <a class="social-icon" :href="link" :title="type" :class="extraClass">
-    <i class="fab" :class="iconClass"/>
+    <i class="fa" :class="iconClass" />
     <span class="sr-only">{{ type }}</span>
   </a>
 </template>
@@ -15,7 +15,7 @@ const SOCIAL_ICON_CLASS_MAP = {
   Facebook: 'fa-facebook-square',
   Instagram: 'fa-instagram',
   CodePen: 'fa-codepen',
-  Medium: 'fa-medium-m'
+  Medium: 'fa-medium'
 }
 
 export default {
@@ -37,7 +37,7 @@ export default {
   },
 
   computed: {
-    iconClass () {
+    iconClass() {
       return SOCIAL_ICON_CLASS_MAP[this.type]
     }
   }
@@ -46,23 +46,30 @@ export default {
 
 <style lang="scss" scoped>
 .fa {
-  &-github, &-codepen, &-envelope {
+  &-github,
+  &-codepen,
+  &-envelope {
     color: #000;
   }
 
-  &-twitter, &-twitter-square {
+  &-twitter,
+  &-twitter-square {
     color: #1da1f3;
   }
 
-  &-linkedin, &-linkedin-square {
+  &-linkedin,
+  &-linkedin-square {
     color: #0077b5;
   }
 
-  &-facebook, &-facebook-square {
+  &-facebook,
+  &-facebook-square {
     color: #3b5998;
   }
 
-  &-youtube, &-youtube-play, &-youtube-square {
+  &-youtube,
+  &-youtube-play,
+  &-youtube-square {
     color: #f00;
   }
 

@@ -159,7 +159,7 @@ module.exports = {
       'link',
       {
         href:
-          'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&amp;display=swap',
+          'https://fonts.googleapis.com/css?family=Inter:300,400,600|Open+Sans:400,600;display=swap',
         rel: 'stylesheet'
       }
     ],
@@ -210,7 +210,7 @@ module.exports = {
       }
     ],
     repo: 'vuejs/docs-next',
-    editLinks: true,
+    editLinks: false,
     editLinkText: 'Edit this on GitHub!',
     docsDir: 'src',
     sidebarDepth: 2,
