@@ -159,7 +159,7 @@ module.exports = {
       'link',
       {
         href:
-          'https://fonts.googleapis.com/css?family=Inter:300,400,600|Open+Sans:400,600;display=swap',
+          'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
         rel: 'stylesheet'
       }
     ],
@@ -199,13 +199,35 @@ module.exports = {
       },
       { text: 'API Reference', link: '/api/application-config' },
       {
-        text: 'Community',
-        ariaLabel: 'Community Menu',
+        text: 'Ecosystem',
         items: [
-          { text: 'Team', link: '/community/team/' },
-          { text: 'Partners', link: '/community/partners/' },
-          { text: 'Join', link: '/community/join/' },
-          { text: 'Themes', link: '/community/themes/' }
+          {
+            text: 'Community',
+            ariaLabel: 'Community Menu',
+            items: [
+              { text: 'Team', link: '/community/team/' },
+              { text: 'Partners', link: '/community/partners/' },
+              { text: 'Join', link: '/community/join/' },
+              { text: 'Themes', link: '/community/themes/' }
+            ]
+          },
+          {
+            text: 'Official Projects',
+            items: [
+              { text: 'Vue Router', link: 'https://router.vuejs.org/' },
+              { text: 'Vuex', link: 'https://vuex.vuejs.org/' },
+              { text: 'Vue CLI', link: 'https://cli.vuejs.org/' },
+              {
+                text: 'Vue Test Utils',
+                link: 'https://vue-test-utils.vuejs.org/'
+              },
+              {
+                text: 'Devtools',
+                link: 'https://github.com/vuejs/vue-devtools'
+              },
+              { text: 'Weekly news', link: 'https://news.vuejs.org/' }
+            ]
+          }
         ]
       }
     ],

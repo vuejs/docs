@@ -1,8 +1,14 @@
-# vuejs.org next
+# v3.vuejs.org
 
-This repo contains the code for the future VuePress version of the vuejs.org docs. A continuously deployed live preview is available at https://vue-docs-next-preview.netlify.com/.
+This site is built with [VuePress](https://vuepress.vuejs.org/). Site content is written in Markdown format located in `src`.
 
-## Getting Setup
+## Writing
+
+See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) for our rules and recommendations on writing and maintaining documentation.
+
+> The docs are in beta: The team is currently in the midst of changes and we are not ready for additional contributions yet. All content is subject to change. If you see a problem that you would like to bring to our attention, please [create an issue](https://github.com/vuejs/docs-next/issues/new) and we will get to it when we can. You may want to wait until the content is finalized, though.
+
+## Developing
 
 1. Clone repository
 
@@ -21,3 +27,7 @@ yarn # or npm install
 ```bash
 yarn serve
 ```
+
+## Deploying
+
+The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
