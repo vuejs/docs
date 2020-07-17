@@ -23,7 +23,7 @@ Some of the new features to keep an eye on in Vue 3 include:
 The following consists a list of breaking changes from 2.x:
 
 - [Global Vue API is changed to use an application instance](/guide/migration/global-api.html)
-- [Global and internal APIs have been restructured to be tree-shakable](/guide/migration/treeshaking.html)
+- [Global and internal APIs have been restructured to be tree-shakable](/src/guide/migration/global-api-treeshaking.html)
 - [`model` component option and `v-bind`'s `sync` modifier are removed in favor of `v-model` arguments](/guide/migration/v-model.html)
 - [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
 - [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
@@ -33,8 +33,8 @@ The following consists a list of breaking changes from 2.x:
 
 ### Removed
 
-- [`keyCode` support as `v-on` modifiers](/guide/migration/keycodes.html)
-- [$on, $off and $once instance methods](/guide/migration/events-api.html)
+- [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.html)
+- [$on, $off and \$once instance methods](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
 
 ## FAQ

@@ -23,8 +23,7 @@ While this approach is convenient, it leads to a couple of problems. Technically
 
 - Global configuration makes it easy to accidentally pollute other test cases during testing. Users need to carefully store original global configuration and restore it after each test (e.g. resetting `Vue.config.errorHandler`). Some APIs like `Vue.use` and `Vue.mixin` don't even have a way to revert their effects. This makes tests involving plugins particularly tricky. In fact, vue-test-utils has to implement a special API `createLocalVue` to deal with this:
 
-      	``` js
-
+  ```js
   import { createLocalVue, mount } from '@vue/test-utils'
 
   // create an extended `Vue` constructor
