@@ -122,7 +122,7 @@ export default {
     line-height 1.4rem
     background transparent
     border none
-    font-weight 500
+    font-weight 600
     color $textColor
     &:hover
       border-color transparent

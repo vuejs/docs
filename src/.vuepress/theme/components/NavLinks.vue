@@ -128,6 +128,7 @@ export default {
   a
     line-height 1.4rem
     color inherit
+    font-weight 600
     &:hover, &.router-link-active
       color $accentColor
   .nav-item
