@@ -93,6 +93,8 @@ There are ways that we can create buttery smooth animations on the web by being 
 
 If you'd like to
 
+TODO: finish writing
+
 ## Timing
 
 For simple UI transitions, meaning from just one state to another with no intermediary states, it's common to use timings between 0.1s and 0.4s, and most folks find that _0.25s_ tends to be a sweet spot. Can you use that timing for everything? No, not really. If you have something that needs to move a greater distance or has more steps or state changes, 0.25s is not going to work as well and you will have to be much more intentional, and the timing will need to be more unique. That doesn't mean you can't have nice defaults that you repeat within your application, though.
