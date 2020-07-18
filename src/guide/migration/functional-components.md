@@ -77,7 +77,7 @@ const DynamicHeading = (props, context) => {
 
 DynamicHeading.props = ['level']
 
-export default GreetingMessage
+export default DynamicHeading
 ```
 
 ### Single File Components (SFCs)

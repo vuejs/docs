@@ -122,28 +122,20 @@ app.use(VueRouter)
 
 ## Mounting App Instance
 
-After being initialized with `createApp()`, the app instance `app` can be used to mount a Vue root instance with `app.mount(VueInstance, domTarget)`:
+After being initialized with `createApp(VueInstance)`, the app instance `app` can be used to mount a Vue root instance with `app.mount(domTarget)`:
 
 ```js
 import { createApp } from 'vue'
 import MyApp from './MyApp.vue'
 
-const app = createApp()
-app.mount(MyApp, ‘#app’)
-```
-
-The `mount` method can also accept props to be passed to the root component via a third argument:
-
-```js
-app.mount(MyApp, '#app', {
-  // props to be passed to root component
-})
+const app = createApp(MyApp)
+app.mount('#app')
 ```
 
 With all these changes, the component and directive we have at the beginning of the guide will be rewritten into something like this:
 
 ```js
-const app = createApp()
+const app = createApp(MyApp)
 
 app.component('button-counter', {
   data: () => ({
@@ -159,7 +151,7 @@ app.directive('focus', {
 // now every Vue instance mounted with app.mount(), along with its
 // component tree, will have the same “button-counter” component
 // and “focus” directive without polluting the global environment
-app.mount(MyApp, '#app')
+app.mount('#app')
 ```
 
 ## Provide / Inject
@@ -192,15 +184,15 @@ import { createApp } from 'vue'
 import Foo from './Foo.vue'
 import Bar from './Bar.vue'
 
-const createMyApp = () => {
-  const app = createApp({})
+const createMyApp = (VueInstance) => {
+  const app = createApp(VueInstance)
   app.directive('focus' /* ... */)
 
   return app
 }
 
-createMyApp().mount(Foo, '#foo')
-createMyApp().mount(Bar, '#bar')
+createMyApp(Foo).mount('#foo')
+createMyApp(Bar).mount('#bar')
 ```
 
 Now the `focus` directive will be available in both Foo and Bar instances and their descendants.
