@@ -36,6 +36,7 @@ We want to make a function to translate keys available to the whole application,
 This function will receive a `key` string, which we will use to look up the translated string in the user-provided options.
 
 ```js
+// plugins/i18n.js
 export default {
   install: (app, options) => {
     app.config.globalProperties.$translate = (key) => {
@@ -58,6 +59,7 @@ greetings: {
 Plugins also allow us to use `inject` to provide a function or attribute to the plugin's users. For example, we can allow the application to have access to the `options` parameter to be able to use the translations object.
 
 ```js
+// plugins/i18n.js
 export default {
   install: (app, options) => {
     app.config.globalProperties.$translate = (key) => {
@@ -75,6 +77,7 @@ Plugin users will now be able to `inject['i18n']` into their components and acce
 Additionally, since we have access to the `app` object, all other capabilities like using `mixin` and `directive` are available to the plugin. To learn more about `createApp` and the application instance, check out the [Application API documentation](/api/application-api.html).
 
 ```js
+// plugins/i18n.js
 export default {
   install: (app, options) => {
     app.config.globalProperties.$translate = (key) => {
