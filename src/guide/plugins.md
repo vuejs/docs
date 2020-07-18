@@ -1,6 +1,8 @@
 ﻿# Plugins
 
-Plugins usually add global-level functionality to Vue. There is no strictly defined scope for a plugin, but common scenarios where plugins are useful include:
+Plugins are self-contained code that usually add global-level functionality to Vue. It is either an `object` that exposes an `install()` method, or a `function`.
+
+There is no strictly defined scope for a plugin, but common scenarios where plugins are useful include:
 
 1. Add some global methods or properties, e.g. [vue-custom-element](https://github.com/karol-f/vue-custom-element).
 
@@ -16,15 +18,16 @@ Plugins usually add global-level functionality to Vue. There is no strictly defi
 
 In order to better understand how to create your own Vue.js plugins, we will create a very simplified version of a plugin that displays `i18n` ready strings. 
 
-A Vue.js plugin is either an `object` that should expose an `install()` method, or a `function`. 
-
 Whenever this plugin is added to an application, the `install` method will be called if it is an object. If it is a `function`, the function itself will be called. In both cases, it will receive two parameters - the `app` object resulting from Vue's `createApp`, and the options passed in by the user.
 
-Let's begin by setting up the plugin object.
+Let's begin by setting up the plugin object. It is recommended to create it in a separate file and export it, as shown below to keep the logic contained and separate.
 
 ```js
-i18nPlugin.install = (app, options) => {
+// plugins/i18n.js
+export default {
+  install: (app, options) => {
   // Plugin code goes here
+  }
 }
 ```
 
@@ -33,10 +36,12 @@ We want to make a function to translate keys available to the whole application,
 This function will receive a `key` string, which we will use to look up the translated string in the user-provided options.
 
 ```js
-i18nPlugin.install = (app, options) => {
-  app.config.globalProperties.$translate = (key) => {
-    return key.split('.')
-      .reduce((o, i) => { if (o) return o[i] }, i18n)
+export default {
+  install: (app, options) => {
+    app.config.globalProperties.$translate = (key) => {
+      return key.split('.')
+        .reduce((o, i) => { if (o) return o[i] }, i18n)
+    }
   }
 }
 ```
@@ -53,13 +58,15 @@ greetings: {
 Plugins also allow us to use `inject` to provide a function or attribute to the plugin's users. For example, we can allow the application to have access to the `options` parameter to be able to use the translations object.
 
 ```js
-i18nPlugin.install = (app, options) => {
-  app.config.globalProperties.$translate = (key) => {
-    return key.split('.')
-      .reduce((o, i) => { if (o) return o[i] }, i18n)
-  }
+export default {
+  install: (app, options) => {
+    app.config.globalProperties.$translate = (key) => {
+      return key.split('.')
+        .reduce((o, i) => { if (o) return o[i] }, i18n)
+    }
 
-  app.provide('i18n', options)
+    app.provide('i18n', options)
+  }
 }
 ```
 
@@ -68,27 +75,29 @@ Plugin users will now be able to `inject['i18n']` into their components and acce
 Additionally, since we have access to the `app` object, all other capabilities like using `mixin` and `directive` are available to the plugin. To learn more about `createApp` and the application instance, check out the [Application API documentation](/api/application-api.html).
 
 ```js
-i18nPlugin.install = (app, options) => {
-  app.config.globalProperties.$translate = (key) => {
-    return key.split('.')
-      .reduce((o, i) => { if (o) return o[i] }, i18n)
+export default {
+  install: (app, options) => {
+    app.config.globalProperties.$translate = (key) => {
+      return key.split('.')
+        .reduce((o, i) => { if (o) return o[i] }, i18n)
+    }
+
+    app.provide('i18n', options)
+
+    app.directive('my-directive', {
+      bind (el, binding, vnode, oldVnode) {
+        // some logic ...
+      }
+      ...
+    })
+
+    app.mixin({
+      created() {
+        // some logic ...
+      }
+      ...
+    })
   }
-
-  app.provide('i18n', options)
-
-  app.directive('my-directive', {
-    bind (el, binding, vnode, oldVnode) {
-      // some logic ...
-    }
-    ...
-  })
-
-  app.mixin({
-    created() {
-      // some logic ...
-    }
-    ...
-  })
 }
 ```
 
@@ -100,15 +109,18 @@ We will use the `i18nPlugin` we created in the [Writing a Plugin](#writing-a-plu
 
 The `use()` method takes two parameters. The first one is the plugin to be installed, in this case `i18nPlugin`. 
 
+It also automatically prevents you from using the same plugin more than once, so calling it multiple times on the same plugin will install the plugin only once.
+
 The second parameter is optional, and depends on each particular plugin. In the case of the demo `i18nPlugin`, it is an object with the translated strings.
 
-:::tip
+:::info
 If you are using third party plugins such as `Vuex` or `Vue Router`, always check the documentation to know what that particular plugin expects to receive as a second parameter.
 :::
 
 ```js
 import { createApp } from 'vue'
 import App from './App.vue'
+import i18nPlugin from './plugins/i18n'
 
 const app = createApp(App)
 const i18nStrings = {
@@ -120,7 +132,5 @@ const i18nStrings = {
 app.use(i18nPlugin, i18nStrings)
 app.mount('#app')
 ```
-
-`app.use()` automatically prevents you from using the same plugin more than once, so calling it multiple times on the same plugin will install the plugin only once.
 
 Checkout [awesome-vue](https://github.com/vuejs/awesome-vue#components--libraries) for a huge collection of community-contributed plugins and libraries.
