@@ -72,7 +72,7 @@ Using the previously mentioned example of a `<dynamic-heading>` component, here 
 import { h } from 'vue'
 
 const DynamicHeading = (props, context) => {
-  return h(`h${level}`, context.attrs, context.slots)
+  return h(`h${props.level}`, context.attrs, context.slots)
 }
 
 DynamicHeading.props = ['level']
