@@ -74,7 +74,7 @@ setup() {
   const year = ref('2020')
 
   provide('book', book)
-  provide('year', book)
+  provide('year', year)
 }
 
 // in consumer
