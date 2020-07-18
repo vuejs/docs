@@ -58,7 +58,7 @@ Another change that has been made from 2.x is that the `component` option is now
 import { defineAsyncComponent } from 'vue'
 
 const asyncPageWithOptions = defineAsyncComponent({
-  loader: () => import('./NextPAge.vue'),
+  loader: () => import('./NextPage.vue'),
   delay: 200,
   timeout: 3000,
   error: ErrorComponent,
