@@ -93,11 +93,13 @@ In addition to public APIs, many of the internal components/helpers are now expo
 is compiled into something similar to the following:
 
 ```js
-import { h, Transition, applyDirectives, vShow } from 'vue'
+import { h, Transition, withDirectives, vShow } from 'vue'
 
 export function render() {
   return h(Transition, [
-    applyDirectives(h('div', 'hello'), this, [vShow, this.ok])
+    withDirectives(h('div', 'hello'), [
+      [vShow, this.ok]
+    ])
   ])
 }
 ```
