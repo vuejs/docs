@@ -116,9 +116,9 @@ In 3.x, the entire VNode props structure is flattened. Using the example from ab
 {
   class: ['button', 'is-outlined'],
   style: { color: '#34495E' },
-  attrs: { id: 'submit' },
+  id: 'submit',
   innerHTML: '',
-  on: { click: submitForm },
+  onClick: submitForm,
   key: 'submit-button'
 }
 ```
