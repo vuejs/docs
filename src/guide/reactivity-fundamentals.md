@@ -23,7 +23,7 @@ You can learn more about `reactive` in the [Basic Reactivity API's](../api/basic
 
 ## Creating Standalone Reactive Values as `refs`
 
-Imagine the case where we have a standalone primitive value (for example, a string) and we want to make it reactive. Of course, we could make am object with a single property equal to our string, and pass it to `reactive`. Vue has a method that will do the same for us - it's a `ref`:
+Imagine the case where we have a standalone primitive value (for example, a string) and we want to make it reactive. Of course, we could make an object with a single property equal to our string, and pass it to `reactive`. Vue has a method that will do the same for us - it's a `ref`:
 
 ```js
 import { ref } from 'vue'
