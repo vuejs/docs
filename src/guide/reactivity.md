@@ -121,7 +121,7 @@ const dinner = {
 
 const handler = {
   get(target, prop, receiver) {
-    track(target, key)
+    track(target, prop)
     return Reflect.get(...arguments)
   }
 }
@@ -142,7 +142,7 @@ const dinner = {
 
 const handler = {
   get(target, prop, receiver) {
-    track(target, key)
+    track(target, prop)
     return Reflect.get(...arguments)
   },
   set(target, key, value, receiver) {
@@ -175,7 +175,7 @@ When a nested object is accessed from a reactive proxy, that object is _also_ co
 ```js
 const handler = {
   get(target, prop, receiver) {
-    track(target, key)
+    track(target, prop)
     const value = Reflect.get(...arguments)
     if (isObject(value)) {
       return reactive(value)
