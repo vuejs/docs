@@ -193,14 +193,14 @@ import Foo from './Foo.vue'
 import Bar from './Bar.vue'
 
 const createMyApp = () => {
-  const app = createApp()
+  const app = createApp({})
   app.directive('focus' /* ... */)
 
   return app
 }
 
-createApp().mount(Foo, '#foo')
-createApp().mount(Bar, '#bar')
+createMyApp().mount(Foo, '#foo')
+createMyApp().mount(Bar, '#bar')
 ```
 
 Now the `focus` directive will be available in both Foo and Bar instances and their descendants.
