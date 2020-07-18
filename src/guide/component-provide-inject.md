@@ -42,7 +42,7 @@ app.component('todo-list', {
 })
 
 app.component('todo-list-statistics', {
-  inject: ['foo'],
+  inject: ['user'],
   created() {
     console.log(`Injected property: ${this.user}`) // > Injected property: John Doe
   }
