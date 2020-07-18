@@ -52,7 +52,7 @@ We use it like this: `new Proxy(target, handler)`
 
 ```js
 const dinner = {
-  meal: ‘tacos’
+  meal: 'tacos'
 }
 
 const handler = {
@@ -71,7 +71,7 @@ Ok, so far, we’re just wrapping that object and returning it. Cool, but not th
 
 ```js
 const dinner = {
-  meal: ‘tacos’
+  meal: 'tacos'
 }
 
 const handler = {
@@ -96,7 +96,7 @@ Furthermore, there’s another feature Proxies offer us. Rather than just return
 
 ```js
 const dinner = {
-  meal: ‘tacos’
+  meal: 'tacos'
 }
 
 const handler = {
@@ -116,7 +116,7 @@ We mentioned before that in order to have an API that updates a final value when
 
 ```js
 const dinner = {
-  meal: ‘tacos’
+  meal: 'tacos'
 }
 
 const handler = {
@@ -137,7 +137,7 @@ Finally, we also set new values when something changes. For this, we’re going 
 
 ```js
 const dinner = {
-  meal: ‘tacos’
+  meal: 'tacos'
 }
 
 const handler = {
