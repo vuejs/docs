@@ -4,8 +4,8 @@ const sidebar = {
       title: 'Essentials',
       collapsable: false,
       children: [
+        '/guide/',
         '/guide/installation',
-        '/guide/introduction',
         '/guide/instance',
         '/guide/template-syntax',
         '/guide/computed',
@@ -193,7 +193,7 @@ module.exports = {
         text: 'Docs',
         ariaLabel: 'Documentation Menu',
         items: [
-          { text: 'Guide', link: '/guide/introduction' },
+          { text: 'Guide', link: '/guide/' },
           { text: 'Style Guide', link: '/style-guide/' }
         ]
       },
