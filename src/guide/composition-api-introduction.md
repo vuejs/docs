@@ -173,7 +173,7 @@ setup (props) {
 
   return {
     repositories,
-  getUserRepositories
+    getUserRepositories
   }
 }
 ```
