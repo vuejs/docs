@@ -23,13 +23,17 @@ body
 .navbar
   position fixed
   z-index 20
-  top 37px
+  top 0
   left 0
   right 0
   height $navbarHeight
   background-color #fff
   box-sizing border-box
   border-bottom 1px solid $borderColor
+
+html.with-beta-banner
+  .navbar
+    top 37px
 
 .sidebar-mask
   position fixed
@@ -47,12 +51,16 @@ body
   position fixed
   z-index 10
   margin 0
-  top 6.6rem // $navbarHeight + $betaBannerHeight
+  top 3.6rem
   left 0
   bottom 0
   box-sizing border-box
   border-right 1px solid $borderColor
   overflow-y auto
+
+html.with-beta-banner
+  .sidebar
+    top 6.6rem // $navbarHeight + $betaBannerHeight
 
 {$contentClass}:not(.custom)
   @extend $wrapper
