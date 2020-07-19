@@ -75,7 +75,7 @@ When an element wrapped in a `transition` component is inserted or removed, this
 
 There are six classes applied for enter/leave transitions.
 
-1. `v-enter`: Starting state for enter. Added before element is inserted, removed one frame after element is inserted.
+1. `v-enter-from`: Starting state for enter. Added before element is inserted, removed one frame after element is inserted.
 
 2. `v-enter-active`: Active state for enter. Applied during the entire entering phase. Added before element is inserted, removed when transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.
 
