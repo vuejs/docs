@@ -155,19 +155,19 @@ const members = [
       city: 'Denver, CO, USA',
       languages: ['en'],
       work: {
-        role: 'Head of Developer Experience',
+        role: 'VP of Developer Experience',
         org: 'Netlify',
-        orgUrl: 'https://www.netlify.com/'
+        orgUrl: 'https://url.netlify.com/HJ8X2mxP8'
       },
       github: 'sdras',
       twitter: 'sarah_edo',
       codepen: 'sdras',
       reposOfficial: ['vuejs.org'],
       reposPersonal: [
-        'intro-to-vue',
         'vue-vscode-snippets',
+        'intro-to-vue',
         'vue-vscode-extensionpack',
-        'sample-vue-shop'
+        'ecommerce-netlify'
       ],
       links: ['https://sarah.dev/']
     },
