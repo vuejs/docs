@@ -538,7 +538,9 @@ Now let's update the transition for our on/off buttons with `out-in`:
 
 With one attribute addition, we've fixed that original transition without having to add any special styling.
 
-We can use this to coordinate more expressive
+We can use this to coordinate more expressive movement, such as a folding card. This is demonstrated below. It's actually two elements transitioning between eachother, but since the beginning and end states are scaling the same, it appears like one fluid movement. This type of slight-of-hand can be very useful for realistic UI microinteractions:
+
+TODO: insert codepen
 
 ## Transitioning Between Components
 
