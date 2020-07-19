@@ -293,6 +293,8 @@ Vue.createApp(Demo).mount('#demo')
 
 Transitions can be reused through Vue's component system. To create a reusable transition, all you have to do is place a `<transition>` or `<transition-group>` component at the root, then pass any children into the transition component.
 
+TODO: refactor to Vue 3
+
 Here's an example using a template component:
 
 ```js
@@ -356,6 +358,8 @@ Yes, even transitions in Vue are data-driven! The most basic example of a dynami
 This can be useful when you've defined CSS transitions/animations using Vue's transition class conventions and want to switch between them.
 
 Really though, any transition attribute can be dynamically bound. And it's not only attributes. Since event hooks are methods, they have access to any data in the context. That means depending on the state of your component, your JavaScript transitions can behave differently.
+
+TODO: refactor to Vue 3
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
