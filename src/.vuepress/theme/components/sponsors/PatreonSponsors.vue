@@ -26,7 +26,7 @@
         </a>
       </div>
 
-      <RoundedButton url="/support-vuejs/">Become a Sponsor!</RoundedButton>
+      <RoundedButton url="https://vuejs.org/support-vuejs/">Become a Sponsor!</RoundedButton>
     </template>
   </SponsorsLayout>
 </template>

@@ -82,6 +82,14 @@ Writing documentation is an exercise in empathy. We're not describing an objecti
   - **Use a lot of positive and empathetic emojis.** It's always better to seem a little strange than mean or impatient.
   - **Kindly communicate rules/boundaries.** If someone behaves in a way that's abusive/inappropriate, respond only with kindness and maturity, but also make it clear that this behavior is not acceptable and what will happen (according to the code of conduct) if they continue behaving poorly.
 
+### Tips, Callouts, Alerts, and Line Highlights
+
+We have some dedicated styles to denote something that's worth highlighting in a particular way. These are captured [on this page](https://v3.vuejs.org/guide/doc-style-guide.html#alerts). **They are to be used sparingly.**
+
+There is a certain temptation to abuse these styles, as one can simply add a change inside a callout. However, this breaks up the flow of reading for the user, and thus, should only be used in special circumstances. Wherever possible, we should attempt to create a narrative and flow within the page to respect the readers cognitive load.
+
+Under no circumstances should 2 alerts be used next to one another, it's a sign that we're not able to explain context well enough.
+
 ### Contributing
 
 We appreciate small, focused PRs. If you'd like to make an extremely large change, please communicate with team members prior to a pull request. Here's a [writeup that details why this is so critical](https://www.netlify.com/blog/2020/03/31/how-to-scope-down-prs/) for us to work well on this team. Please understand that though we always appreciate contributions, ultamitely we have to prioritize what works best for the project as a whole.

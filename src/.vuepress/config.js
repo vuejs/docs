@@ -56,40 +56,84 @@ const sidebar = {
       children: [
         '/guide/mixins',
         '/guide/custom-directive',
+        '/guide/teleport',
         '/guide/render-function',
-        '/guide/plugins',
-        '/guide/composition-api-introduction'
+        '/guide/plugins'
+      ]
+    },
+    {
+      title: 'Advanced Guides',
+      collapsable: false,
+      children: [
+        {
+          title: 'Reactivity',
+          children: [
+            '/guide/reactivity',
+            '/guide/reactivity-fundamentals',
+            '/guide/reactivity-computed-watchers'
+          ]
+        },
+        {
+          title: 'Composition API',
+          children: [
+            '/guide/composition-api-introduction',
+            '/guide/composition-api-setup',
+            '/guide/composition-api-lifecycle-hooks',
+            '/guide/composition-api-provide-inject',
+            '/guide/composition-api-template-refs'
+          ]
+        },
+        '/guide/optimizations',
+        '/guide/change-detection'
       ]
     },
     {
       title: 'Tooling',
       collapsable: false,
-      children: ['/guide/single-file-component']
+      children: ['/guide/single-file-component', '/guide/testing']
     },
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: [
-        '/guide/routing',
-        '/guide/state-management',
-        '/guide/ssr',
-        '/guide/accessibility'
-      ]
+      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
     },
     {
-      title: 'Tooling',
+      title: 'Accessibility',
       collapsable: false,
-      children: ['/guide/testing']
+      children: [
+        '/guide/a11y-basics',
+        '/guide/a11y-semantics',
+        '/guide/a11y-standards',
+        '/guide/a11y-resources'
+      ]
     },
     {
       title: 'Migration to Vue 3',
       collapsable: true,
-      children: ['migration']
+      children: [
+        'migration/introduction',
+        'migration/async-components',
+        'migration/attribute-coercion',
+        'migration/custom-directives',
+        'migration/custom-elements-interop',
+        'migration/data-option',
+        'migration/events-api',
+        'migration/filters',
+        'migration/fragments',
+        'migration/functional-components',
+        'migration/global-api',
+        'migration/global-api-treeshaking',
+        'migration/inline-template-attribute',
+        'migration/keycode-modifiers',
+        'migration/render-function-api',
+        'migration/slots-unification',
+        'migration/v-model'
+      ]
     },
     {
       title: 'Contribute to the Docs',
       collapsable: true,
-      children: ['writing-guide']
+      children: ['writing-guide', 'doc-style-guide']
     }
   ],
   api: [
@@ -133,7 +177,16 @@ module.exports = {
     [
       'link',
       {
-        href: 'https://use.fontawesome.com/releases/v5.13.0/css/all.css',
+        href:
+          'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
+        rel: 'stylesheet'
+      }
+    ],
+    [
+      'link',
+      {
+        href:
+          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         rel: 'stylesheet'
       }
     ],
@@ -153,6 +206,7 @@ module.exports = {
     ]
   ],
   themeConfig: {
+    logo: '/logo.png',
     nav: [
       {
         text: 'Docs',
@@ -164,27 +218,42 @@ module.exports = {
       },
       { text: 'API Reference', link: '/api/application-config' },
       {
-        text: 'Examples',
-        ariaLabel: 'Examples Menu',
+        text: 'Ecosystem',
         items: [
-          { text: 'Examples', link: '/examples/' },
-          { text: 'Cookbook', link: '/cookbook/' }
-        ]
-      },
-      {
-        text: 'Community',
-        ariaLabel: 'Community Menu',
-        items: [
-          { text: 'Team', link: '/community/team/' },
-          { text: 'Partners', link: '/community/partners/' },
-          { text: 'Join', link: '/community/join/' },
-          { text: 'Themes', link: '/community/themes/' }
+          {
+            text: 'Community',
+            ariaLabel: 'Community Menu',
+            items: [
+              { text: 'Team', link: '/community/team/' },
+              { text: 'Partners', link: '/community/partners/' },
+              { text: 'Join', link: '/community/join/' },
+              { text: 'Themes', link: '/community/themes/' }
+            ]
+          },
+          {
+            text: 'Official Projects',
+            items: [
+              { text: 'Vue Router', link: 'https://router.vuejs.org/' },
+              { text: 'Vuex', link: 'https://vuex.vuejs.org/' },
+              { text: 'Vue CLI', link: 'https://cli.vuejs.org/' },
+              {
+                text: 'Vue Test Utils',
+                link: 'https://vue-test-utils.vuejs.org/'
+              },
+              {
+                text: 'Devtools',
+                link: 'https://github.com/vuejs/vue-devtools'
+              },
+              { text: 'Weekly news', link: 'https://news.vuejs.org/' }
+            ]
+          }
         ]
       }
     ],
     repo: 'vuejs/docs-next',
-    editLinks: true,
+    editLinks: false,
     editLinkText: 'Edit this on GitHub!',
+    lastUpdated: 'Last updated',
     docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {
@@ -219,6 +288,7 @@ module.exports = {
     ]
   ],
   markdown: {
+    lineNumbers: true,
     /** @param {import('markdown-it')} md */
     extendMarkdown: md => {
       md.options.highlight = require('./markdown/highlight')(

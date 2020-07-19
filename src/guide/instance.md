@@ -105,16 +105,13 @@ const vm = Vue.createApp({
 In addition to data properties, Vue instances expose a number of useful instance properties and methods. These are prefixed with `$` to differentiate them from user-defined properties. For example:
 
 ```js
-const vm = Vue.createApp().mount(
-  {
-    data() {
-      return {
-        a: 1
-      }
+const vm = Vue.createApp({
+  data() {
+    return {
+      a: 1
     }
-  },
-  '#example'
-)
+  }
+}).mount('#example')
 
 vm.$data.a // => 1
 ```
@@ -151,6 +148,4 @@ Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript
 
 Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
 
-> TODO: Diagram should be changed in order to replace `beforeDestroy` and `destroyed` with `beforeUnmount` and `unmounted` respectively
-
-<img src="/images/lifecycle.png" width="500" style="margin: 0px auto;display: block;" />
+<img src="/images/lifecycle.png" width="840" height="auto" style="margin: 0px auto; display: block; max-width: 100%;" loading="lazy" alt="Vue instance lifecycle">

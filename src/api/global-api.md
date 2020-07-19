@@ -156,11 +156,9 @@ import { createApp, defineAsyncComponent } from 'vue'
 createApp({
   // ...
   components: {
-    components: {
-      AsyncComponent: defineAsyncComponent(() =>
-        import('./components/AsyncComponent.vue')
-      )
-    }
+    AsyncComponent: defineAsyncComponent(() =>
+      import('./components/AsyncComponent.vue')
+    )
   }
 })
 ```

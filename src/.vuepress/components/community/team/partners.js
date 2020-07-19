@@ -2,6 +2,19 @@ import { shuffle } from 'lodash'
 
 export default shuffle([
   {
+    name: 'Maria Lamardo',
+    title: 'Front End Engineer at Pendo',
+    city: 'Raleigh, NC, USA',
+    languages: ['en', 'es'],
+    work: {
+      role: 'Front End Engineer',
+      org: 'Pendo'
+    },
+    github: 'mlama007',
+    twitter: 'MariaLamardo',
+    reposPersonal: ['vuejs/events']
+  },
+  {
     name: 'Pratik Patel',
     title: 'Organizer of VueConf US',
     city: 'Atlanta, GA, USA',
@@ -11,9 +24,7 @@ export default shuffle([
       org: 'VueConf US'
     },
     twitter: 'prpatel',
-    links: [
-      'https://us.vuejs.org/'
-    ]
+    links: ['https://us.vuejs.org/']
   },
   {
     name: 'Vincent Mayers',
@@ -25,9 +36,7 @@ export default shuffle([
       org: 'VueConf US'
     },
     twitter: 'vincentmayers',
-    links: [
-      'https://us.vuejs.org/'
-    ]
+    links: ['https://us.vuejs.org/']
   },
   {
     name: 'Luke Thomas',
@@ -40,9 +49,7 @@ export default shuffle([
     },
     twitter: 'lukevscostas',
     linkedin: 'luke-kenneth-thomas-578b3916a',
-    links: [
-      'https://vuejs.amsterdam'
-    ]
+    links: ['https://vuejs.amsterdam']
   },
   {
     name: 'Jos Gerards',
@@ -55,9 +62,7 @@ export default shuffle([
     },
     twitter: 'josgerards88',
     linkedin: 'josgerards',
-    links: [
-      'https://vuejs.amsterdam'
-    ]
+    links: ['https://vuejs.amsterdam']
   },
   {
     name: 'Jen Looper',
@@ -70,10 +75,7 @@ export default shuffle([
     },
     github: 'jlooper',
     twitter: 'jenlooper',
-    links: [
-      'https://vuevixens.org/',
-      'https://nativescript-vue.org/'
-    ]
+    links: ['https://vuevixens.org/', 'https://nativescript-vue.org/']
   },
   {
     name: 'Alex Jover',
@@ -86,12 +88,8 @@ export default shuffle([
     },
     github: 'alexjoverm',
     twitter: 'alexjoverm',
-    reposPersonal: [
-      'v-runtime-template', 'v-lazy-image', 'vue-testing-series'
-    ],
-    links: [
-      'https://alexjover.com'
-    ]
+    reposPersonal: ['v-runtime-template', 'v-lazy-image', 'vue-testing-series'],
+    links: ['https://alexjover.com']
   },
   {
     name: 'Sebastien Chopin',
@@ -104,9 +102,7 @@ export default shuffle([
       org: 'NuxtJS',
       orgUrl: 'https://nuxtjs.org'
     },
-    reposPersonal: [
-      'nuxt/*', 'nuxt-community/*', 'nuxt/vue-meta'
-    ]
+    reposPersonal: ['nuxt/*', 'nuxt-community/*', 'nuxt/vue-meta']
   },
   {
     name: 'Alexandre Chopin',
@@ -119,9 +115,7 @@ export default shuffle([
       org: 'NuxtJS',
       orgUrl: 'https://nuxtjs.org'
     },
-    reposPersonal: [
-      'nuxt/*', 'nuxt-community/*', 'vue-flexboxgrid'
-    ]
+    reposPersonal: ['nuxt/*', 'nuxt-community/*', 'vue-flexboxgrid']
   },
   {
     name: 'Khary Sharpe',
@@ -130,10 +124,7 @@ export default shuffle([
     languages: ['en'],
     github: 'kharysharpe',
     twitter: 'kharysharpe',
-    links: [
-      'https://twitter.com/VueJsNews',
-      'http://www.kharysharpe.com/'
-    ]
+    links: ['https://twitter.com/VueJsNews', 'http://www.kharysharpe.com/']
   },
   {
     name: 'Pooya Parsa',
@@ -147,9 +138,7 @@ export default shuffle([
       org: 'Fandogh (AUT University)',
       orgUrl: 'https://fandogh.org'
     },
-    reposPersonal: [
-      'nuxt/*', 'nuxt-community/*', 'bootstrap-vue/*'
-    ]
+    reposPersonal: ['nuxt/*', 'nuxt-community/*', 'bootstrap-vue/*']
   },
   {
     name: 'Xin Du',
@@ -158,9 +147,7 @@ export default shuffle([
     languages: ['zh', 'en'],
     github: 'clarkdo',
     twitter: 'ClarkDu_',
-    reposPersonal: [
-      'nuxt/*', 'nuxt-community/*'
-    ]
+    reposPersonal: ['nuxt/*', 'nuxt-community/*']
   },
   {
     name: 'Yi Yang',
@@ -170,11 +157,9 @@ export default shuffle([
     github: 'Leopoldthecoder',
     work: {
       org: 'ele.me',
-      orgUrl: 'https://www.ele.me',
+      orgUrl: 'https://www.ele.me'
     },
-    reposPersonal: [
-      'elemefe/element', 'elemefe/mint-ui'
-    ]
+    reposPersonal: ['elemefe/element', 'elemefe/mint-ui']
   },
   {
     name: 'Bruno Lesieur',
@@ -188,12 +173,8 @@ export default shuffle([
       org: 'Orchard ID',
       orgUrl: 'https://www.orchard-id.com/'
     },
-    reposPersonal: [
-      'vuejs-fr/*', 'Haeresis/node-atlas-hello-vue'
-    ],
-    links: [
-      'https://node-atlas.js.org/', 'https://blog.lesieur.name/'
-    ]
+    reposPersonal: ['vuejs-fr/*', 'Haeresis/node-atlas-hello-vue'],
+    links: ['https://node-atlas.js.org/', 'https://blog.lesieur.name/']
   },
   {
     name: 'ChangJoo Park',
@@ -203,12 +184,10 @@ export default shuffle([
     github: 'changjoo-park',
     twitter: 'pcjpcj2',
     reposPersonal: [
-      'vuejs-kr/kr.vuejs.org', 'ChangJoo-Park/vue-component-generator'
+      'vuejs-kr/kr.vuejs.org',
+      'ChangJoo-Park/vue-component-generator'
     ],
-    links: [
-      'https://vuejs-kr.github.io',
-      'https://twitter.com/pcjpcj2'
-    ]
+    links: ['https://vuejs-kr.github.io', 'https://twitter.com/pcjpcj2']
   },
   {
     name: 'Erick Petrucelli',
@@ -222,9 +201,7 @@ export default shuffle([
       org: 'Fatec Taquaritinga',
       orgUrl: 'http://www.fatectq.edu.br/'
     },
-    reposPersonal: [
-      'vuejs-br/br.vuejs.org', 'ErickPetru/vue-feathers-chat'
-    ]
+    reposPersonal: ['vuejs-br/br.vuejs.org', 'ErickPetru/vue-feathers-chat']
   },
   {
     name: 'Razvan Stoenescu',
@@ -239,7 +216,9 @@ export default shuffle([
       orgUrl: 'http://quasar-framework.org/'
     },
     reposPersonal: [
-      'quasarframework/quasar', 'quasarframework/quasar-cli', 'quasarframework/quasar-play'
+      'quasarframework/quasar',
+      'quasarframework/quasar-cli',
+      'quasarframework/quasar-play'
     ]
   },
   {
@@ -254,9 +233,7 @@ export default shuffle([
       org: 'Nominator',
       orgUrl: 'https://nominator.com/'
     },
-    links: [
-      'https://vuejobs.com'
-    ]
+    links: ['https://vuejobs.com']
   },
   {
     name: 'Israel Ortuño',
@@ -269,9 +246,7 @@ export default shuffle([
       role: 'Full Stack Web Developer',
       org: 'Freelance'
     },
-    links: [
-      'https://vuejobs.com'
-    ]
+    links: ['https://vuejobs.com']
   },
   {
     name: 'John Leider',
@@ -285,9 +260,7 @@ export default shuffle([
       org: 'Vuetify LLC',
       orgUrl: 'https://vuetifyjs.com'
     },
-    reposPersonal: [
-      'vuetifyjs/vuetify'
-    ]
+    reposPersonal: ['vuetifyjs/vuetify']
   },
   {
     name: 'Grigoriy Beziuk',
@@ -300,9 +273,7 @@ export default shuffle([
       org: 'Self Employed',
       orgUrl: 'http://gbezyuk.ru'
     },
-    reposPersonal: [
-      'translation-gang/ru.vuejs.org'
-    ]
+    reposPersonal: ['translation-gang/ru.vuejs.org']
   },
   {
     name: 'Alexander Sokolov',
@@ -310,9 +281,7 @@ export default shuffle([
     city: 'Krasnodar, Russia',
     languages: ['ru', 'en'],
     github: 'Alex-Sokolov',
-    reposPersonal: [
-      'translation-gang/ru.vuejs.org'
-    ]
+    reposPersonal: ['translation-gang/ru.vuejs.org']
   },
   {
     name: 'Anthony Gore',
@@ -326,9 +295,7 @@ export default shuffle([
       org: 'Vue.js Developers',
       orgUrl: 'https://vuejsdevelopers.com/'
     },
-    links: [
-      'https://vuejsdevelopers.com'
-    ]
+    links: ['https://vuejsdevelopers.com']
   },
   {
     name: 'EGOIST',
@@ -337,9 +304,7 @@ export default shuffle([
     languages: ['zh', 'en'],
     github: 'egoist',
     twitter: '_egoistlily',
-    reposPersonal: [
-      'poi', 'ream', 'vue-play'
-    ]
+    reposPersonal: ['poi', 'ream', 'vue-play']
   },
   {
     name: 'Alex Kyriakidis',
@@ -351,12 +316,8 @@ export default shuffle([
     work: {
       role: 'Consultant / Author'
     },
-    reposPersonal: [
-      'vuejs-paginator', 'vuedo/vuedo', 'the-majesty-of-vuejs-2'
-    ],
-    links: [
-      'https://vuejsfeed.com/', 'https://vueschool.io/'
-    ]
+    reposPersonal: ['vuejs-paginator', 'vuedo/vuedo', 'the-majesty-of-vuejs-2'],
+    links: ['https://vuejsfeed.com/', 'https://vueschool.io/']
   },
   {
     name: 'Rolf Haug',
@@ -370,9 +331,7 @@ export default shuffle([
       org: 'Vue School',
       orgUrl: 'https://vueschool.io/'
     },
-    links: [
-      'https://vueschool.io/', 'https://rah.no'
-    ]
+    links: ['https://vueschool.io/', 'https://rah.no']
   },
   {
     name: 'Andrew Tomaka',
@@ -381,16 +340,12 @@ export default shuffle([
     languages: ['en'],
     github: 'atomaka',
     twitter: 'atomaka',
-    reposOfficial: [
-      'vuejs/*'
-    ],
+    reposOfficial: ['vuejs/*'],
     work: {
       org: 'Michigan State University',
       orgUrl: 'https://msu.edu/'
     },
-    links: [
-      'https://atomaka.com/'
-    ]
+    links: ['https://atomaka.com/']
   },
   {
     name: 'Blake Newman',
@@ -404,9 +359,7 @@ export default shuffle([
     },
     github: 'blake-newman',
     twitter: 'blakenewman',
-    links: [
-      'https://vuejs.london'
-    ]
+    links: ['https://vuejs.london']
   },
   {
     name: 'Filip Rakowski',
@@ -420,13 +373,8 @@ export default shuffle([
       org: 'Divante',
       orgUrl: 'https://divante.co/'
     },
-    reposPersonal: [
-      'DivanteLtd/vue-storefront', 'DivanteLtd/storefront-ui'
-    ],
-    links: [
-      'https://vuestorefront.io',
-      'https://storefrontui.io'
-    ]
+    reposPersonal: ['DivanteLtd/vue-storefront', 'DivanteLtd/storefront-ui'],
+    links: ['https://vuestorefront.io', 'https://storefrontui.io']
   },
   {
     name: 'Gregg Pollack',
@@ -440,10 +388,7 @@ export default shuffle([
       org: 'Vue Mastery',
       orgUrl: 'https://www.vuemastery.com/'
     },
-    links: [
-      'https://www.vuemastery.com',
-      'https://news.vuejs.org/'
-    ]
+    links: ['https://www.vuemastery.com', 'https://news.vuejs.org/']
   },
   {
     name: 'Adam Jahr',
@@ -457,9 +402,6 @@ export default shuffle([
       org: 'Vue Mastery',
       orgUrl: 'https://www.vuemastery.com/'
     },
-    links: [
-      'https://www.vuemastery.com',
-      'https://news.vuejs.org/'
-    ]
+    links: ['https://www.vuemastery.com', 'https://news.vuejs.org/']
   }
 ])

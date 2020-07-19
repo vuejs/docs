@@ -55,7 +55,7 @@
 
 - **Expects:** `string | Object (component’s options object)`
 
-  Used for [dynamic components](../guide/component-dynamic-async.html) and to work around [limitations of in-DOM templates](../guide/component-basics.html#dom-template-parsing-caveats).
+  Used for [dynamic components](../guide/component-dynamic-async.html).
 
   For example:
 
@@ -63,14 +63,8 @@
   <!-- component changes when currentView changes -->
   <component :is="currentView"></component>
 
-  <!-- necessary because `<my-row>` would be invalid inside -->
-  <!-- a `<table>` element and so would be hoisted out      -->
-  <table>
-    <tr is="my-row"></tr>
-  </table>
-  ```
-
   For detailed usage, follow the links in the description above.
+  ```
 
 - **See also:**
   - [Dynamic Components](../guide/component-dynamic-async.html)
