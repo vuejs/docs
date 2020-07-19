@@ -81,7 +81,50 @@ Vue.createApp(Demo).mount('#demo')
 
 Some transition affects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
 
-TODO: use example
+```html
+<div id="demo">
+  <div
+    @mousemove="xCoordinate"
+    :style="{ backgroundColor: `hsl(${x}, 80%, 50%)` }"
+    class="movearea"
+  >
+    <h3>Move your mouse across the screen...</h3>
+    <p>x: {{x}}</p>
+  </div>
+</div>
+```
+
+```css
+.movearea {
+  transition: 0.2s background-color ease;
+}
+```
+
+```js
+const Demo = {
+  data() {
+    return {
+      x: 0
+    }
+  },
+  methods: {
+    xCoordinate(e) {
+      this.x = e.clientX
+    }
+  }
+}
+
+Vue.createApp(Demo).mount('#demo')
+```
+
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="JjGezQY" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Interpolation with style bindings">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/JjGezQY">
+  Interpolation with style bindings</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+In this example, we are creating animation through the use of interpolation, attached to the mouse movement. The CSS transition is applied to the element as well, to let the element know what kind of easing to use while it's updating.
 
 ## Performance
 
