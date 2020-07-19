@@ -332,7 +332,7 @@
 
 - **See also:**
   - [Form Input Bindings](../guide/forms.html)
-  - [Components - Form Input Components using Custom Events](../http://localhost:8080/guide/component-custom-events.html#v-model-arguments)
+  - [Components - Form Input Components using Custom Events](../guide/component-custom-events.html#v-model-arguments)
 
 ## v-slot
 

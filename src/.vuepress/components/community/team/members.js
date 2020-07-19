@@ -41,12 +41,12 @@ const members = [
     },
     {
       name: 'Pine Wu',
+      city: 'Shanghai, China',
       languages: ['zh', 'en', 'jp'],
       github: 'octref',
       twitter: 'octref',
       work: {
-        role: 'Engineer on VSCode',
-        org: 'Microsoft'
+        role: 'Nomad'
       },
       reposOfficial: ['vetur']
     },
@@ -109,20 +109,14 @@ const members = [
       languages: ['hi', 'en'],
       work: {
         role: 'Software Engineer',
-        org: 'Agritask',
-        orgUrl: 'https://www.agritask.com/'
+        org: 'Myntra',
+        orgUrl: 'https://www.myntra.com/'
       },
       github: 'znck',
       twitter: 'znck0',
       reposOfficial: ['rollup-plugin-vue', 'vue-issue-helper'],
-      reposPersonal: [
-        'vue-developer-experience',
-        'prop-types',
-        'virtualized',
-        'lazy-hydration',
-        'vue-slides'
-      ],
-      links: ['https://znck.me']
+      reposPersonal: ['keynote', 'bootstrap-for-vue', 'vue-interop'],
+      links: ['https://znck.me', 'https://www.codementor.io/znck']
     },
     {
       name: 'Linusborg',
@@ -236,14 +230,6 @@ const members = [
       reposOfficial: ['vuepress']
     },
     {
-      name: 'Darek Gusto Wędrychowski',
-      title: 'Google Search Virtuoso',
-      city: 'Kraków, Poland',
-      languages: ['pl', 'en'],
-      github: 'gustojs',
-      twitter: 'gustojs'
-    },
-    {
       name: 'Phan An',
       title: 'Backend Designer & Process Poet',
       city: 'Munich, Germany',
@@ -288,12 +274,11 @@ const members = [
     },
     {
       name: 'Ben Hong',
-      title: 'Proud Ravenclaw Dragon',
       city: 'Washington, DC, USA',
       languages: ['en', 'zh'],
       work: {
-        role: 'Senior Frontend Engineer',
-        org: 'GitLab (Meltano)'
+        role: 'Developer Experience (DX) Engineer',
+        org: 'Cypress.io'
       },
       reposOfficial: ['vuejs.org', 'vuepress', 'vuejs/events'],
       github: 'bencodezen',
