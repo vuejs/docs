@@ -209,4 +209,4 @@ foo.value = {}
 isReactive(foo.value) // false
 ```
 
-**See also**: [Creating Standalone Reactive Values as `refs`](http://localhost:8080/guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
+**See also**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
