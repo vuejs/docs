@@ -378,8 +378,8 @@ To pass slots to a child component using render functions:
 ```js
 render() {
   // `<div><child v-slot="props"><span>{{ props.text }}</span></child></div>`
-  return Vue.('div', [
-    Vue.('child', {}, {
+  return Vue.h('div', [
+    Vue.h('child', {}, {
       // pass `slots` as the children object
       // in the form of { name: props => VNode | Array<VNode> }
       default: (props) => Vue.h('span', props.text)
