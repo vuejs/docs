@@ -287,6 +287,29 @@ Accepts two arguments: `vnode` and `directives`.
   - `[directive, value, arg]` - The above, plus a `String` argument, ie. `click` in `v-on:click`
   - `[directive, value, arg, modifiers]` - The above, plus a `key: value` pair `Object` defining any modifiers. 
 
+## createRenderer
+
+The createRenderer function accepts two generic arguments:
+`HostNode` and `HostElement`, corresponding to Node and Element types in the
+host environment. 
+ 
+For example, for runtime-dom, HostNode would be the DOM
+`Node` interface and HostElement would be the DOM `Element` interface.
+  
+Custom renderers can pass in the platform specific types like this:
+``` js
+import { createRenderer } from 'vue'
+const { render, createApp } = createRenderer<Node, Element>({
+  patchProp,
+  ...nodeOps
+})
+```
+
+#### Arguments
+
+- `{Node} HostNode`
+- `{Element} HostElement`
+
 ## nextTick
 
 Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.
