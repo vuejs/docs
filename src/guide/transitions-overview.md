@@ -159,7 +159,7 @@ Though you can achieve great effects for simple animation with the two handles t
 
 ![Ease Comparison](/images/css-vs-js-ease.svg)
 
-Take a bounce, for instance. In CSS we have to declare each keyframe, up and down. In JavaScript, we can express all of that movement within the ease, by declaring `bounce` in the GreenSock API (other JS libraries have other types of easing defaults).
+Take a bounce, for instance. In CSS we have to declare each keyframe, up and down. In JavaScript, we can express all of that movement within the ease, by declaring `bounce` in the [GreenSock API (GSAP)](https://greensock.com/) (other JS libraries have other types of easing defaults).
 
 Here is the code used for a bounce in CSS (example from animate.css):
 
@@ -201,7 +201,7 @@ Here is the code used for a bounce in CSS (example from animate.css):
 }
 ```
 
-And here is the same bounce in JS using [GreenSock (GSAP)](https://greensock.com/):
+And here is the same bounce in JS using GreenSock:
 
 ```js
 gsap.from(element, { duration: 1, ease: 'bounce.out', y: -500 })
