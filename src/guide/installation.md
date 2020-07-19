@@ -8,7 +8,7 @@ Detailed release notes for each version are available on [GitHub](https://github
 
 ## Vue Devtools
 
-> Currently not available for Vue 3
+> Currently in Beta
 
 When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
 
