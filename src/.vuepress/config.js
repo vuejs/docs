@@ -32,6 +32,25 @@ const sidebar = {
       ]
     },
     {
+      title: 'Transitions & Animation',
+      collapsable: false,
+      children: [
+        '/guide/transitions-overview',
+        '/guide/transitions-enterleave',
+        '/guide/transitions-list',
+        '/guide/transitions-state'
+      ]
+    },
+    {
+      title: 'Internals',
+      collapsable: false,
+      children: [
+        '/guide/reactivity',
+        '/guide/optimizations',
+        '/guide/change-detection'
+      ]
+    },
+    {
       title: 'Reusability & Composition',
       collapsable: false,
       children: [
