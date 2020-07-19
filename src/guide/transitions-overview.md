@@ -148,7 +148,7 @@ You can get a lot of unique effects and make your animation very stylish by adju
 
 Though you can achieve great effects for simple animation with the two handles the cubic-bezier ease offers, JavaScript allows multiple handles, and therefore, allows for much more variance.
 
-TODO: add graphic
+![Ease Comparison](/images/css-vs-js-ease.svg)
 
 Take this bounce, for instance. In CSS we have to declare each keyframe, up and down. In JavaScript, we can express all of that movement within the ease, by declaring `bounce` in the GreenSock API (other JS libraries have other types of easing defaults).
 
