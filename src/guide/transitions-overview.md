@@ -109,7 +109,7 @@ backface-visibility: hidden;
 transform: translateZ(0);
 ```
 
-Many JS libraries like GreenSock will assume you want hardware acceleration and will apply them by default, you do not need to set them manually.
+Many JS libraries like GreenSock will assume you want hardware acceleration and will apply them by default, so you do not need to set them manually.
 
 ## Timing
 
