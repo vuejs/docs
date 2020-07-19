@@ -212,7 +212,7 @@ You can also specify custom transition classes by providing the following attrib
 - `enter-from-class`
 - `enter-active-class`
 - `enter-to-class` (2.1.8+)
-- `leave-class`
+- `leave-from-class`
 - `leave-active-class`
 - `leave-to-class` (2.1.8+)
 
