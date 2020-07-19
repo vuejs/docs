@@ -264,6 +264,8 @@ However, in some cases you may want to have both on the same element, for exampl
 
 > New in 2.2.0+
 
+TODO: validate and provide an example
+
 In most cases, Vue can automatically figure out when the transition has finished. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element. However, this may not always be desired - for example, we may have a choreographed transition sequence where some nested inner elements have a delayed transition or a longer transition duration than the root transition element.
 
 In such cases you can specify an explicit transition duration (in milliseconds) using the `duration` prop on the `<transition>` component:
