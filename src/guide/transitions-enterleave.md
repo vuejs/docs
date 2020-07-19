@@ -494,23 +494,32 @@ computed: {
 
 There's still one problem though. Try clicking the button below:
 
-TODO: redo the example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="Rwrqzpr" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Button Problem">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/Rwrqzpr">
+  Transition Modes Button Problem</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 As it's transitioning between the "on" button and the "off" button, both buttons are rendered - one transitioning out while the other transitions in. This is the default behavior of `<transition>` - entering and leaving happens simultaneously.
 
 Sometimes this works great, like when transitioning items are absolutely positioned on top of each other:
 
-TODO: redo the example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="abdQgLr" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Button Problem- positioning">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abdQgLr">
+  Transition Modes Button Problem- positioning</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-And then maybe also translated so that they look like slide transitions:
-
-TODO: redo the example
-
-Simultaneous entering and leaving transitions aren't always desirable though, so Vue offers some alternative **transition modes**:
+Sometimes this isn't an option, though, or we're dealing with more complex movement where in and out states need to be coordinated, so Vue offers an extremely useful utlity called **transition modes**:
 
 - `in-out`: New element transitions in first, then when complete, the current element transitions out.
-
 - `out-in`: Current element transitions out first, then when complete, the new element transitions in.
+
+::: tip
+You'll find very quickly that `out-in` is the state you will want most of the time :)
+:::
 
 Now let's update the transition for our on/off buttons with `out-in`:
 
@@ -520,15 +529,16 @@ Now let's update the transition for our on/off buttons with `out-in`:
 </transition>
 ```
 
-TODO: example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="ZEQmdvq" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Button Problem- solved">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/ZEQmdvq">
+  Transition Modes Button Problem- solved</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 With one attribute addition, we've fixed that original transition without having to add any special styling.
 
-The `in-out` mode isn't used as often, but can sometimes be useful for a slightly different transition effect. Let's try combining it with the slide-fade transition we worked on earlier:
-
-TODO: redo the example
-
-Pretty cool, right?
+We can use this to coordinate more expressive
 
 ## Transitioning Between Components
 
