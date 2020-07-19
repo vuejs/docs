@@ -8,6 +8,7 @@ Detailed release notes for each version are available on [GitHub](https://github
 
 ## Vue Devtools
 
+> Currently in Beta
 > Vue Devtools for Vue 3 requires at least `vue@^3.0.0-rc.1`
 
 When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
