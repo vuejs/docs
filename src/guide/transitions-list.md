@@ -179,7 +179,7 @@ Vue.createApp(Demo).mount('#list-complete-demo')
   margin-right: 10px;
 }
 
-.list-complete-enter,
+.list-complete-enter-from,
 .list-complete-leave-to {
   opacity: 0;
   transform: translateY(30px);
