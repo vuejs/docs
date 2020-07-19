@@ -534,7 +534,7 @@ Transitioning between components is even simpler - we don't even need the `key` 
 
 ```html
 <transition name="component-fade" mode="out-in">
-  <component v-bind:is="view"></component>
+  <component :is="view"></component>
 </transition>
 ```
 
