@@ -1,9 +1,12 @@
 $wrapper
   max-width $contentWidth
   margin 0 auto
-  padding calc(2rem + 3rem) 2.5rem // added $betaBannerHeight
+  padding 2rem 2.5rem
   @media (max-width: $MQNarrow)
-    padding calc(2rem + 3rem) 2rem // added $betaBannerHeight
+    padding 2rem 2rem
   @media (max-width: $MQMobileNarrow)
-    padding calc(2rem + 3rem) 1.5rem // added $betaBannerHeight
+    padding 2rem 1.5rem
+
+  html.with-beta-banner &
+    padding-top calc(2rem + 3rem)
 
