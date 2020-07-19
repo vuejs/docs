@@ -217,6 +217,18 @@ render() {
 }
 ```
 
+### Arguments
+
+Accepts one argument: `component`
+
+#### component
+
+- **Type:** `String`
+
+- **Details:**
+
+  The name of a loaded component.
+
 ## resolveDirective
 
 :::warning
@@ -239,9 +251,17 @@ render () {
 }
 ```
 
-#### Arguments
+### Arguments
 
-- `{ String } name`
+Accepts one argument: `name`
+
+#### name
+
+- **Type:** `String`
+
+- **Details:**
+
+  The name of a loaded directive.
 
 ## withDirectives
 
@@ -262,11 +282,11 @@ return withDirectives(h('div'), [
 ])
 ```
 
-#### Arguments
+### Arguments
 
 Accepts two arguments: `vnode` and `directives`.
 
-##### vnode
+#### vnode
 
 - **Type:** `vnode`
 
@@ -274,18 +294,55 @@ Accepts two arguments: `vnode` and `directives`.
 
   A virtual node, usually created with `h()`.
 
-##### directives
+#### directives
 
 - **Type:** `Array`
 
 - **Details:**
 
-  An array of directives. Each directive itself is an array, which allows for up to 4 indexes to be defined as follows.
+  An array of directives. 
+  
+  Each directive itself is an array, which allows for up to 4 indexes to be defined as seen in the following examples.
 
   - `[directive]` - The directive by itself. Required.
-  - `[directive, value]` - The above, plus a value to be assigned to the directive
+
+  ```js
+  const MyDirective = resolveDirective('MyDirective')
+  const nodeWithDirectives = withDirectives(
+    h('div'), 
+    [ [MyDirective] ]
+  )
+  ```
+
+  - `[directive, value]` - The above, plus a value of type `any` to be assigned to the directive
+
+  ```js
+  const MyDirective = resolveDirective('MyDirective')
+  const nodeWithDirectives = withDirectives(
+    h('div'), 
+    [ [MyDirective, 100] ]
+  )
+  ```
+
   - `[directive, value, arg]` - The above, plus a `String` argument, ie. `click` in `v-on:click`
+
+  ```js
+  const MyDirective = resolveDirective('MyDirective')
+  const nodeWithDirectives = withDirectives(
+    h('div'), 
+    [ [MyDirective, 100, 'click'] ]
+  )
+  ```
+
   - `[directive, value, arg, modifiers]` - The above, plus a `key: value` pair `Object` defining any modifiers. 
+
+  ```js
+  const MyDirective = resolveDirective('MyDirective')
+  const nodeWithDirectives = withDirectives(
+    h('div'), 
+    [ [MyDirective, 100, 'click', { prevent: true }] ]
+  )
+  ```
 
 ## createRenderer
 
@@ -305,10 +362,25 @@ const { render, createApp } = createRenderer<Node, Element>({
 })
 ```
 
-#### Arguments
+### Arguments
 
-- `{Node} HostNode`
-- `{Element} HostElement`
+Accepts two arguments: `HostNode` and `HostElement`
+
+#### HostNode
+
+- **Type:** `Node`
+
+- **Details:**
+
+  The node in the host environment.
+
+#### HostElement
+
+- **Type:** `Element`
+
+- **Details:**
+
+  The element in the host environment.
 
 ## nextTick
 
