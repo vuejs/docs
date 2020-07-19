@@ -67,7 +67,7 @@ When an element wrapped in a `transition` component is inserted or removed, this
 
 1. Vue will automatically sniff whether the target element has CSS transitions or animations applied. If it does, CSS transition classes will be added/removed at appropriate timings.
 
-2. If the transition component provided [JavaScript hooks](#JavaScript-Hooks), these hooks will be called at appropriate timings.
+2. If the transition component provided [JavaScript hooks](#javascript-hooks), these hooks will be called at appropriate timings.
 
 3. If no CSS transitions/animations are detected and no JavaScript hooks are provided, the DOM operations for insertion and/or removal will be executed immediately on next frame (Note: this is a browser animation frame, different from Vue's concept of `nextTick`).
 
