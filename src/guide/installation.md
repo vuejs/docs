@@ -47,7 +47,11 @@ Vue provides an [official CLI](https://github.com/vuejs/vue-cli) for quickly sca
 The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through <a href="./">the guide</a> without any build tools before using the CLI.
 :::
 
-For beta, Vue CLI now has experimental support via [vue-cli-plugin-vue-next](https://github.com/vuejs/vue-cli-plugin-vue-next).
+For beta, Vue CLI now has experimental support via [vue-cli-plugin-vue-next](https://github.com/vuejs/vue-cli-plugin-vue-next). To upgrade your existing Vue CLI project with Vue 2 to Vue 3, you would need to run:
+
+```bash
+vue add vue-next
+```
 
 ## Vite
 
