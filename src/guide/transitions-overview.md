@@ -124,7 +124,7 @@ Vue.createApp(Demo).mount('#demo')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-In this example, you can see that we are creating animation through the use of interpolation, attached to the mouse movement. The css transition is applied to the element as well, to let the element know what kind of easing to use while it's updating.
+In this example, we are creating animation through the use of interpolation, attached to the mouse movement. The CSS transition is applied to the element as well, to let the element know what kind of easing to use while it's updating.
 
 ## Performance
 
