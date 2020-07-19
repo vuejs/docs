@@ -1,31 +1,34 @@
 <template>
-  <aside class="beta-banner" v-if="shouldShow">
-    <p>
-      <span class="hide-sm">⚠️ Beta Version:</span>
-      Docs
-      <span class="hide-sm">are</span> in development and subject to change.
-    </p>
-    <button ref="closeButton" @click="close">Close</button>
-  </aside>
+  <ClientOnly>
+    <aside class="beta-banner" v-if="shouldShow">
+      <p>
+        <span class="hide-sm">⚠️ Beta Version:</span>
+        Docs
+        <span class="hide-sm">are</span> in development and subject to change.
+      </p>
+      <button ref="closeButton" @click="close">Close</button>
+    </aside>
+  </ClientOnly>
 </template>
 
 <script>
 export default {
   computed: {
     shouldShow() {
-      return localStorage.getItem('beta-banner-discarded') === null
+      if (typeof window === 'undefined') return true
+      return window.localStorage.getItem('beta-banner-discarded') === null
     }
   },
 
   methods: {
     close() {
-      localStorage.setItem('beta-banner-discarded', true)
+      window.localStorage.setItem('beta-banner-discarded', true)
       this.$el.remove()
       document.querySelector('html').classList.remove('with-beta-banner')
     }
   },
 
-  created() {
+  beforeMount() {
     if (this.shouldShow) {
       document.querySelector('html').classList.add('with-beta-banner')
     }
