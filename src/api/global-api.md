@@ -212,7 +212,7 @@ app.component('MyComponent', {
 
 ```js
 import { resolveComponent } from 'vue'
-setup() {
+render() {
   const MyComponent = resolveComponent('MyComponent')
 }
 ```
@@ -234,7 +234,7 @@ app.directive('highlight', {})
 
 ```js
 import { resolveDirective } from 'vue'
-setup () {
+render () {
   const highlightDirective = resolveDirective('highlight')
 }
 ```
