@@ -60,7 +60,7 @@ In the case of boolean attributes, where their mere existence implies `true`, `v
 <button v-bind:disabled="isButtonDisabled">Button</button>
 ```
 
-If `isButtonDisabled` has the value of `null`, `undefined`, or `false`, the `disabled` attribute will not even be included in the rendered `<button>` element.
+If `isButtonDisabled` has the value of `null` or `undefined`, the `disabled` attribute will not even be included in the rendered `<button>` element.
 
 ### Using JavaScript Expressions
 
