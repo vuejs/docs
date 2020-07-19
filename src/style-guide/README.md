@@ -1520,46 +1520,6 @@ computed: {
 ```
 </div>
 
-## Priority D Rules: Use with Caution <span class="hide-from-sidebar">(Potentially Dangerous Patterns)</span>
-
-### `v-if`/`v-else-if`/`v-else` without `key` <sup data-p="d">use with caution</sup>
-
-**It's usually best to use `key` with `v-if` + `v-else`, if they are the same element type (e.g. both `<div>` elements).**
-
-By default, Vue updates the DOM as efficiently as possible. That means when switching between elements of the same type, it simply patches the existing element, rather than removing it and adding a new one in its place. This can have [unintended consequences](https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-priority-d-rules-unintended-consequences) if these elements should not actually be considered the same.
-
-<div class="style-example style-example-bad">
-<h4>Bad</h4>
-
-``` html
-<div v-if="error">
-  Error: {{ error }}
-</div>
-<div v-else>
-  {{ results }}
-</div>
-```
-</div>
-
-<div class="style-example style-example-good">
-<h4>Good</h4>
-
-``` html
-<div
-  v-if="error"
-  key="search-status"
->
-  Error: {{ error }}
-</div>
-<div
-  v-else
-  key="search-results"
->
-  {{ results }}
-</div>
-```
-</div>
-
 ### Element selectors with `scoped` <sup data-p="d">use with caution</sup>
 
 **Element selectors should be avoided with `scoped`.**
