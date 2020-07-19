@@ -87,13 +87,29 @@ TODO: use example
 
 You may notice that the animations shown above are using things like `transforms`, and applying strange properties like `perspective`- why were they built that way instead of just using `margin` and `top` etc?
 
-There are ways that we can create buttery smooth animations on the web by being aware of performance. We want to hardware accelerate elements when we can, and use properties that don't trigger repaints. Let's go over some of how we can accomplish this.
+We can create extremely smooth animations on the web by being aware of performance. We want to hardware accelerate elements when we can, and use properties that don't trigger repaints. Let's go over some of how we can accomplish this.
+
+### Transform and Opacity
+
+We can check resources like [CSS-Triggers](https://csstriggers.com/) to see which properties will trigger repaints if we animate them. Here, if you look under `transform`, you will see:
+
+> Changing transform does not trigger any geometry changes or painting, which is very good. This means that the operation can likely be carried out by the compositor thread with the help of the GPU.
+
+Opacity behaves similarly. Thus, they are ideal candidates for movement on the web.
 
 ### Hardware Acceleration
 
-If you'd like to
+Properties such as `perspective`, `backface-visibility`, and `transform: translateZ(x)` will allow the browser to know you need hardware acceleration.
 
-TODO: finish writing
+If you wish to hardware-accelerate an element, you can apply any of these properties (not all are necessary, only one):
+
+```css
+perspective: 1000px;
+backface-visibility: hidden;
+transform: translateZ(0);
+```
+
+Many JS libraries like GreenSock will assume you want hardware acceleration and will apply them by default, so you do not need to set them manually.
 
 ## Timing
 
@@ -128,17 +144,70 @@ If we were to apply these states to a transition, it would look something like t
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+Easing can also convey the quality of material being animated. Take this pen for example, which ball do you think is hard and which is soft?
+
+<p class="codepen" data-height="500" data-theme-id="39028" data-default-tab="result" data-user="sdras" data-slug-hash="zxJWBJ" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Bouncing Ball Demo">
+  <span>See the Pen <a href="https://codepen.io/sdras/pen/zxJWBJ">
+  Bouncing Ball Demo</a> by Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
 You can get a lot of unique effects and make your animation very stylish by adjusting your easing. CSS allows you to modify this by adjusting a cubic bezier property, [this playground](https://cubic-bezier.com/#.17,.67,.83,.67) by Lea Verou is very helpful for exploring this.
 
 Though you can achieve great effects for simple animation with the two handles the cubic-bezier ease offers, JavaScript allows multiple handles, and therefore, allows for much more variance.
 
-TODO: add graphic
+![Ease Comparison](/images/css-vs-js-ease.svg)
 
-Take this bounce, for instance. In CSS we have to declare each keyframe, up and down. In JavaScript, we can express all of that movement within the ease, by declaring `bounce` in the GreenSock API (other JS libraries have other types of easing defaults).
+Take a bounce, for instance. In CSS we have to declare each keyframe, up and down. In JavaScript, we can express all of that movement within the ease, by declaring `bounce` in the [GreenSock API (GSAP)](https://greensock.com/) (other JS libraries have other types of easing defaults).
 
-TODO: add example
+Here is the code used for a bounce in CSS (example from animate.css):
 
-We'll be using [GreenSock (GSAP)](https://greensock.com/) in some of the examples in the sections following, they have a great [ease visualizer](https://greensock.com/ease-visualizer) that will help you build nicely crafted eases.
+```css
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0) scaleY(3);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0) scaleY(0.9);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0) scaleY(0.95);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0) scaleY(0.985);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}
+```
+
+And here is the same bounce in JS using GreenSock:
+
+```js
+gsap.from(element, { duration: 1, ease: 'bounce.out', y: -500 })
+```
+
+We'll be using GreenSock in some of the examples in the sections following. They have a great [ease visualizer](https://greensock.com/ease-visualizer) that will help you build nicely crafted eases.
 
 ## Further Reading
 
