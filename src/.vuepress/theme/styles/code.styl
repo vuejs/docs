@@ -31,6 +31,8 @@ div[class*="language-"]
   background-color #f6f6f6
   border-radius 6px
   .highlight-lines
+    background-color #f6f6f6
+    color #3a385d
     user-select none
     padding-top 1.3rem
     position absolute
@@ -39,7 +41,7 @@ div[class*="language-"]
     width 100%
     line-height 1.4
     .highlighted
-      background-color rgba(0, 0, 0, 66%)
+      background-color rgba(255, 255, 255, 90%)
   pre, pre[class*="language-"]
     background transparent
     position relative
@@ -163,3 +165,7 @@ div.reactivecontent
 
 .token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata
   color #848486
+
+div[class*=language-].line-numbers-mode .line-numbers-wrapper
+  background-color #f6f6f6
+  color #3a385d
