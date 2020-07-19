@@ -209,7 +209,7 @@ Vue.createApp(Demo).mount('#demo')
 
 You can also specify custom transition classes by providing the following attributes:
 
-- `enter-class`
+- `enter-from-class`
 - `enter-active-class`
 - `enter-to-class` (2.1.8+)
 - `leave-class`
