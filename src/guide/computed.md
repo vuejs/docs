@@ -93,6 +93,10 @@ computed: {
 }
 ```
 
+::: tip 
+To learn why `Date.now()` is not reactive please refer to [**Reactivity in Depth**](reactivity.html).
+:::
+
 In comparison, a method invocation will **always** run the function whenever a re-render happens.
 
 Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a `method` instead.
