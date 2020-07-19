@@ -70,9 +70,9 @@ As with Vue's transition components, the data backing state transitions can be u
 Managing many state transitions can quickly increase the complexity of a Vue instance or component. Fortunately, many animations can be extracted out into dedicated child components. Let's do this with the animated integer from our earlier example:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
 
-<div id="example-8">
+<div id="app">
   <input v-model.number="firstNumber" type="number" step="20" /> +
   <input v-model.number="secondNumber" type="number" step="20" /> = {{ result }}
   <p>
@@ -84,56 +84,7 @@ Managing many state transitions can quickly increase the complexity of a Vue ins
 ```
 
 ```js
-// This complex tweening logic can now be reused between
-// any integers we may wish to animate in our application.
-// Components also offer a clean interface for configuring
-// more dynamic transitions and complex transition
-// strategies.
-Vue.component('animated-integer', {
-  template: '<span>{{ tweeningValue }}</span>',
-  props: {
-    value: {
-      type: Number,
-      required: true
-    }
-  },
-  data() {
-    return {
-      tweeningValue: 0
-    }
-  },
-  watch: {
-    value(newValue, oldValue) {
-      this.tween(oldValue, newValue)
-    }
-  },
-  mounted() {
-    this.tween(0, this.value)
-  },
-  methods: {
-    tween(startValue, endValue) {
-      var vm = this
-      function animate() {
-        if (TWEEN.update()) {
-          requestAnimationFrame(animate)
-        }
-      }
-
-      new TWEEN.Tween({ tweeningValue: startValue })
-        .to({ tweeningValue: endValue }, 500)
-        .onUpdate(function() {
-          vm.tweeningValue = this.tweeningValue.toFixed(0)
-        })
-        .start()
-
-      animate()
-    }
-  }
-})
-
-// All complexity has now been removed from the main Vue instance!
-new Vue({
-  el: '#example-8',
+const app = Vue.createApp({
   data() {
     return {
       firstNumber: 20,
@@ -146,11 +97,57 @@ new Vue({
     }
   }
 })
+
+app.component('animated-integer', {
+  template: '<span>{{ fullVal }}</span>',
+  props: {
+    value: {
+      type: Number,
+      required: true
+    }
+  },
+  data() {
+    return {
+      tweeningValue: 0
+    }
+  },
+  computed: {
+    fullVal() {
+      return Math.floor(this.tweeningValue)
+    }
+  },
+  methods: {
+    tween(newValue, oldValue) {
+      gsap.to(this.$data, {
+        duration: 0.5,
+        tweeningValue: newValue,
+        ease: 'sine'
+      })
+    }
+  },
+  watch: {
+    value(newValue, oldValue) {
+      this.tween(newValue, oldValue)
+    }
+  },
+  mounted() {
+    this.tween(this.value, 0)
+  }
+})
+
+app.mount('#app')
 ```
 
-TODO: put in example
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="e9ef8ac7e32e0d0337e03d20949b4d17" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="State Transition Components">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/e9ef8ac7e32e0d0337e03d20949b4d17">
+  State Transition Components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Within child components, we can use any combination of transition strategies that have been covered on this page, along with those offered by Vue's [built-in transition system](transitions.html). Together, there are very few limits to what can be accomplished.
+Now we can compose multiple states with these child components. It's exciting- we can use any combination of transition strategies that have been covered on this page, along with those offered by Vue's [built-in transition system](transitions.html). Together, there are very few limits to what can be accomplished.
+
+You can see how we could use this for data visualization, for physics effects, for character animations and interactions, the sky's the limit.
 
 ## Bringing Designs to Life
 
