@@ -90,7 +90,7 @@ There are six classes applied for enter/leave transitions.
 ![Transition Diagram](/images/transition.png)
 TODO: update diagram
 
-Each of these classes will be prefixed with the name of the transition. Here the `v-` prefix is the default when you use a `<transition>` element with no name. If you use `<transition name="my-transition">` for example, then the `v-enter` class would instead be `my-transition-enter`.
+Each of these classes will be prefixed with the name of the transition. Here the `v-` prefix is the default when you use a `<transition>` element with no name. If you use `<transition name="my-transition">` for example, then the `v-enter-from` class would instead be `my-transition-enter-from`.
 
 `v-enter-active` and `v-leave-active` give you the ability to specify different easing curves for enter/leave transitions, which you'll see an example of in the following section.
 
