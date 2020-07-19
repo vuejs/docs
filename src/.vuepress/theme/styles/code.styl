@@ -17,18 +17,18 @@
     line-height 1.4
     padding 1.25rem 1.5rem
     margin 0.85rem 0
-    background-color $codeBgColor
+    background-color #f6f6f6
     border-radius 6px
     overflow auto
     code
-      color #fff
+      color #3a385d
       padding 0
       background-color transparent
       border-radius 0
 
 div[class*="language-"]
   position relative
-  background-color $codeBgColor
+  background-color #f6f6f6
   border-radius 6px
   .highlight-lines
     user-select none
@@ -138,4 +138,11 @@ div.reactivecontent
   width 1000px
   margin-left -100px
 
-@import '~prismjs/themes/prism-tomorrow.css'
+// @import '~prismjs/themes/prism-tomorrow.css'
+
+.token.punctuation 
+  color #a8a9cc
+
+.token.tag, .token.attr-name, .token.namespace, .token.deleted
+  color #b2085f
+
