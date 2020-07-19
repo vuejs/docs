@@ -436,7 +436,7 @@ If you also want to apply a transition on the initial render of a node, you can 
 
 ## Transitioning Between Elements
 
-We discuss [transitioning between components](#Transitioning-Between-Components) later, but you can also transition between raw elements using `v-if`/`v-else`. One of the most common two-element transitions is between a list container and a message describing an empty list:
+We discuss [transitioning between components](#transitioning-between-components) later, but you can also transition between raw elements using `v-if`/`v-else`. One of the most common two-element transitions is between a list container and a message describing an empty list:
 
 ```html
 <transition>
