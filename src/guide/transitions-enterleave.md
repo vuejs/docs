@@ -538,9 +538,14 @@ Now let's update the transition for our on/off buttons with `out-in`:
 
 With one attribute addition, we've fixed that original transition without having to add any special styling.
 
-We can use this to coordinate more expressive movement, such as a folding card. This is demonstrated below. It's actually two elements transitioning between eachother, but since the beginning and end states are scaling the same, it appears like one fluid movement. This type of slight-of-hand can be very useful for realistic UI microinteractions:
+We can use this to coordinate more expressive movement, such as a folding card, as demonstrated below. It's actually two elements transitioning between eachother, but since the beginning and end states are scaling the same: horizontally to 0, it appears like one fluid movement. This type of slight-of-hand can be very useful for realistic UI microinteractions:
 
-TODO: insert codepen
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="76e344bf057bd58b5936bba260b787a8" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Flip Cards">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/76e344bf057bd58b5936bba260b787a8">
+  Transition Modes Flip Cards</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Transitioning Between Components
 
