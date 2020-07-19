@@ -87,13 +87,29 @@ TODO: use example
 
 You may notice that the animations shown above are using things like `transforms`, and applying strange properties like `perspective`- why were they built that way instead of just using `margin` and `top` etc?
 
-There are ways that we can create buttery smooth animations on the web by being aware of performance. We want to hardware accelerate elements when we can, and use properties that don't trigger repaints. Let's go over some of how we can accomplish this.
+We can create extremely smooth animations on the web by being aware of performance. We want to hardware accelerate elements when we can, and use properties that don't trigger repaints. Let's go over some of how we can accomplish this.
+
+### Transform and Opacity
+
+We can check resources like [CSS-Triggers](https://csstriggers.com/) to see which properties will trigger repaints if we animate them. Here, if you look under `transform`, you will see:
+
+> Changing transform does not trigger any geometry changes or painting, which is very good. This means that the operation can likely be carried out by the compositor thread with the help of the GPU.
+
+Opacity behaves similarly. Thus, they are ideal candidates for movement on the web.
 
 ### Hardware Acceleration
 
-If you'd like to
+Properties such as `perspective`, `backface-visibility`, and `transform: translateZ(x)` will allow the browser to know you need hardware acceleration.
 
-TODO: finish writing
+If you wish to hardware accelerate an element you can apply any of these properties (not all are necessary, only one):
+
+```css
+perspective: 1000px;
+backface-visibility: hidden;
+transform: translateZ(0);
+```
+
+Many JS libraries like GreenSock will assume you want hardware acceleration and will apply them by default, you do not need to set them manually.
 
 ## Timing
 
