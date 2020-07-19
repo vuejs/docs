@@ -85,7 +85,7 @@ In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue@3
 
 #### `vue(.runtime).global(.prod).js`:
 
-- For direct use via `<script src="...">` in the browser. Exposes the Vue global.
+- For direct use via `<script src="...">` in the browser, exposes the Vue global.
 - In-browser template compilation:
   - `vue.global.js` is the "full" build that includes both the compiler and the runtime so it supports compiling templates on the fly.
   - `vue.runtime.global.js` contains only the runtime and requires templates to be pre-compiled during a build step.
