@@ -8,9 +8,15 @@ Detailed release notes for each version are available on [GitHub](https://github
 
 ## Vue Devtools
 
-> Currently not available for Vue 3
+> Vue Devtools for Vue 3 requires at least `vue@^3.0.0-rc.1`
 
 When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
+
+[Get the Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
+
+[Get the Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+
+[Get the standalone Electron app](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
 
 ## CDN
 
@@ -40,3 +46,27 @@ The CLI assumes prior knowledge of Node.js and the associated build tools. If yo
 :::
 
 For beta, Vue CLI now has experimental support via [vue-cli-plugin-vue-next](https://github.com/vuejs/vue-cli-plugin-vue-next).
+
+## Vite
+
+[Vite](https://github.com/vitejs/vite) is a web development build tool that allows for lighting fast serving of code due its native ES Module import approach. 
+
+Vue projects can quickly be set up with Vite by running the following commands in your terminal.
+
+With NPM:
+
+```bash
+$ npm init vite-app <project-name>
+$ cd <project-name>
+$ npm install
+$ npm run dev
+```
+
+Or with Yarn:
+
+```bash
+$ yarn create vite-app <project-name>
+$ cd <project-name>
+$ yarn
+$ yarn dev
+```
