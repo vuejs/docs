@@ -112,7 +112,7 @@ app.component('animated-integer', {
     }
   },
   computed: {
-    fullVal() {
+    fullValue() {
       return Math.floor(this.tweeningValue)
     }
   },
