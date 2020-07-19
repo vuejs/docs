@@ -447,34 +447,9 @@ We discuss [transitioning between components](#transitioning-between-components)
 </transition>
 ```
 
-This works well, but there's one caveat to be aware of:
-
-<p class="tip">When toggling between elements that have **the same tag name**, you must tell Vue that they are distinct elements by giving them unique `key` attributes. Otherwise, Vue's compiler will only replace the content of the element for efficiency. Even when technically unnecessary though, **it's considered good practice to always key multiple items within a `transition` component.**</p>
-
-For example:
-
-```html
-<transition>
-  <button v-if="isEditing" key="save">
-    Save
-  </button>
-  <button v-else key="edit">
-    Edit
-  </button>
-</transition>
-```
-
-In these cases, you can also use the `key` attribute to transition between different states of the same element. Instead of using `v-if` and `v-else`, the above example could be rewritten as:
-
-```html
-<transition>
-  <button :key="isEditing">
-    {{ isEditing ? 'Save' : 'Edit' }}
-  </button>
-</transition>
-```
-
 It's actually possible to transition between any number of elements, either by using multiple `v-if`s or binding a single element to a dynamic property. For example:
+
+TODO: rewrite example and put in codepen example
 
 ```html
 <transition>
