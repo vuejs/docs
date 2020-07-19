@@ -99,7 +99,7 @@ const app = Vue.createApp({
 })
 
 app.component('animated-integer', {
-  template: '<span>{{ fullVal }}</span>',
+  template: '<span>{{ fullValue }}</span>',
   props: {
     value: {
       type: Number,
