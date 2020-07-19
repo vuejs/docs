@@ -149,7 +149,7 @@ Vue.createApp(Demo).mount('#demo')
 
 ### CSS Animations
 
-CSS animations are applied in the same way as CSS transitions, the difference being that `v-enter` is not removed immediately after the element is inserted, but on an `animationend` event.
+CSS animations are applied in the same way as CSS transitions, the difference being that `v-enter-from` is not removed immediately after the element is inserted, but on an `animationend` event.
 
 Here's an example, omitting prefixed CSS rules for the sake of brevity:
 
