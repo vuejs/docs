@@ -7,7 +7,7 @@ Vue provides a variety of ways to apply transition effects when items are insert
 - use JavaScript to directly manipulate the DOM during transition hooks
 - integrate 3rd-party JavaScript animation libraries, such as Velocity.js
 
-On this page, we'll only cover entering, leaving, and list transitions, but you can see the next section for [managing state transitions](transitions-state.md).
+On this page, we'll only cover entering, leaving, and list transitions, but you can see the next section for [managing state transitions](transitions-state.html).
 
 ## Transitioning Single Elements/Components
 
