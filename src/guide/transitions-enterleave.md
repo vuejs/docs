@@ -262,9 +262,9 @@ However, in some cases you may want to have both on the same element, for exampl
 
 ### Explicit Transition Durations
 
-> New in 2.2.0+
-
 TODO: validate and provide an example
+
+> New in 2.2.0+
 
 In most cases, Vue can automatically figure out when the transition has finished. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element. However, this may not always be desired - for example, we may have a choreographed transition sequence where some nested inner elements have a delayed transition or a longer transition duration than the root transition element.
 
