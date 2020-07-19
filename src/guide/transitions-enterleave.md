@@ -348,7 +348,7 @@ These hooks can be used in combination with CSS transitions/animations or on the
 
 When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, the hooks will be called synchronously and the transition will finish immediately. Adding `:css="false"` will also let know Vue to skip CSS detection. Aside from being slightly more performant, this also prevents CSS rules from accidentally interfering with the transition.
 
-Now let's dive into an example. Here's a JavaScript transition using GreenSock:
+Now let's dive into an example. Here's a JavaScript transition using [GreenSock](https://greensock.com/):
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
