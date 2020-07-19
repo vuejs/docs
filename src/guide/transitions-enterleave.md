@@ -3,7 +3,7 @@
 Vue provides a variety of ways to apply transition effects when items are inserted, updated, or removed from the DOM. This includes tools to:
 
 - automatically apply classes for CSS transitions and animations
-- integrate 3rd-party CSS animation libraries, such as Animate.css
+- integrate 3rd-party CSS animation libraries, such as [Animate.css](https://animate.style/)
 - use JavaScript to directly manipulate the DOM during transition hooks
 - integrate 3rd-party JavaScript animation libraries, such as Velocity.js
 
