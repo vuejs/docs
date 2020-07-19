@@ -101,7 +101,7 @@ Opacity behaves similarly. Thus, they are ideal candidates for movement on the w
 
 Properties such as `perspective`, `backface-visibility`, and `transform: translateZ(x)` will allow the browser to know you need hardware acceleration.
 
-If you wish to hardware accelerate an element you can apply any of these properties (not all are necessary, only one):
+If you wish to hardware-accelerate an element, you can apply any of these properties (not all are necessary, only one):
 
 ```css
 perspective: 1000px;
