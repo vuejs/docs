@@ -117,8 +117,8 @@ const Demo = {
 Vue.createApp(Demo).mount('#demo')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="882c11534d01fd9cf757f24ef882ca6e" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Interpolation with style bindings">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/882c11534d01fd9cf757f24ef882ca6e">
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="JjGezQY" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Interpolation with style bindings">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/JjGezQY">
   Interpolation with style bindings</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
