@@ -532,6 +532,8 @@ Pretty cool, right?
 
 Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](components.html#Dynamic-Components):
 
+TODO: update to Vue 3
+
 ```html
 <transition name="component-fade" mode="out-in">
   <component :is="view"></component>
