@@ -13,7 +13,7 @@ Vue.createApp({
         books: [
           'Vue 2 - Advanced Guide',
           'Vue 3 - Basic Guide',
-          'Vue 4 - the Mystery'
+          'Vue 4 - The Mystery'
         ]
       }
     }
