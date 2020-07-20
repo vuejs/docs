@@ -14,10 +14,10 @@ Listening to the kebab-cased version will have no effect:
 
 ```html
 <!-- Won't work -->
-<my-component v-on:my-event="doSomething"></my-component>
+<my-component @my-event="doSomething"></my-component>
 ```
 
-Since event names will never be used as variable or property names in JavaScript, there is no reason to use camelCase or PascalCase. Additionally, `v-on` event listeners inside DOM templates will be automatically transformed to lowercase (due to HTML's case-insensitivity), so `v-on:myEvent` would become `v-on:myevent` -- making `myEvent` impossible to listen to.
+Since event names will never be used as variable or property names in JavaScript, there is no reason to use camelCase or PascalCase. Additionally, `v-on` event listeners inside DOM templates will be automatically transformed to lowercase (due to HTML's case-insensitivity), so `@myEvent` would become `@myevent` -- making `myEvent` impossible to listen to.
 
 For these reasons, we recommend you **always use kebab-case for event names**.
 
@@ -87,8 +87,8 @@ app.component('my-component', {
   template: `
     <input 
       type="text"
-      v-bind:value="foo"
-      v-on:input="$emit('update:foo', $event.target.value)">
+      :value="foo"
+      @input="$emit('update:foo', $event.target.value)">
   `
 })
 ```
@@ -114,19 +114,22 @@ app.component('user-name', {
   template: `
     <input 
       type="text"
-      v-bind:value="firstName"
-      v-on:input="$emit('update:firstName', $event.target.value)">
+      :value="firstName"
+      @input="$emit('update:firstName', $event.target.value)">
 
     <input
       type="text"
-      v-bind:value="lastName"
-      v-on:input="$emit('update:lastName', $event.target.value)">
+      :value="lastName"
+      @input="$emit('update:lastName', $event.target.value)">
   `
 })
 ```
 
 ```html
-<user-name v-model:firstName="firstName" v-model:lastName="lastName"></user-name>
+<user-name
+  v-model:firstName="firstName"
+  v-model:lastName="lastName"
+></user-name>
 ```
 
 ## Handling `v-model` modifiers
@@ -147,8 +150,8 @@ app.component('my-component', {
   },
   template: `
     <input type="text" 
-      v-bind:value="modelValue"
-      v-on:input="$emit('update:modelValue', $event.target.value)">
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)">
   `,
   created() {
     console.log(this.modelModifiers) // { capitalize: true }
@@ -192,8 +195,8 @@ app.component('my-component', {
   },
   template: `<input
     type="text"
-    v-bind:value="modelValue"
-    v-on:input="emitValue">`
+    :value="modelValue"
+    :input="emitValue">`
 })
 
 app.mount('#app')
@@ -210,8 +213,8 @@ app.component('my-component', {
   props: ['foo', 'fooModifiers'],
   template: `
     <input type="text" 
-      v-bind:value="foo"
-      v-on:input="$emit('update:foo', $event.target.value)">
+      :value="foo"
+      @input="$emit('update:foo', $event.target.value)">
   `,
   created() {
     console.log(this.fooModifiers) // { capitalize: true }
