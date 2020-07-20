@@ -181,7 +181,7 @@ You can open the console and play with the previous examples' `items` array by c
 Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, you can replace the old array with the new one:
 
 ```js
-example1.items = example1.items.filter(item => return item.message.match(/Foo/))
+example1.items = example1.items.filter(item => item.message.match(/Foo/))
 ```
 
 You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
