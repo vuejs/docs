@@ -16,11 +16,15 @@ app.component('button-counter', {
     }
   },
   template: `
-    <button v-on:click="count++">
+    <button @click="count++">
       You clicked me {{ count }} times.
     </button>`
 })
 ```
+
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
 
 Components are reusable Vue instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root Vue instance:
 
