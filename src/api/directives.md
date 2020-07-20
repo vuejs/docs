@@ -328,7 +328,25 @@
 
 - **Usage:**
 
-  Create a two-way binding on a form input element or a component. For detailed usage and other notes, see the Guide section linked below.
+  Create a two-way binding on a form input element or a component.
+
+- **Example:**
+
+  ```html
+  <!-- Form element model -->
+  <input v-model="message">
+
+  <!-- Component model -->
+  <text-input v-model="message" />
+
+  <!-- Named model -->
+  <text-input v-model:active="active" />
+
+  <!-- Model with modifier -->
+  <text-input v-model.trim="message" />
+  ```
+
+  For detailed usage and other notes, see the Guide sections linked below.
 
 - **See also:**
   - [Form Input Bindings](../guide/forms.html)
