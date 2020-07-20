@@ -232,4 +232,4 @@ shallow.value.greet = 'Hello, universe'
 triggerRef(shallow)
 ```
 
-**See also:** [Computed and Watch - watchEffect](computed-watch-api.html#watcheffect)
+**See also:** [Computed and Watch - watchEffect](./computed-watch-api.html#watcheffect)
