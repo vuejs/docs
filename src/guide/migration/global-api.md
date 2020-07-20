@@ -145,7 +145,7 @@ app.component('button-counter', {
 })
 
 app.directive('focus', {
-  inserted: el => el.focus()
+  mounted: el => el.focus()
 })
 
 // now every Vue instance mounted with app.mount(), along with its
