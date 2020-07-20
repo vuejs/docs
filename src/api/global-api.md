@@ -196,7 +196,7 @@ const AsyncComp = defineAsyncComponent({
 ## resolveComponent
 
 :::warning
-`resolveComponent` can only be used within render functions.
+`resolveComponent` can only be used within `render` or `setup` functions.
 :::
 
 Allows resolving a `component` by its name, if it is available in the current application instance.
@@ -229,10 +229,39 @@ Accepts one argument: `component`
 
   The name of a loaded component.
 
+## resolveDynamicComponent
+
+:::warning
+`resolveDynamicComponent` can only be used within `render` or `setup` functions.
+:::
+
+Allows resolving a `component` by the same mechanism that `<component :is="">` employs.
+
+Returns the resolved `Component` or a newly created `VNode` with the component name as the node tag. Will raise a warning if the `Component` was not found.
+
+```js
+import { resolveDynamicComponent } from 'vue'
+render () {
+  const MyComponent = resolveDynamicComponent('MyComponent')
+}
+```
+
+### Arguments
+
+Accepts one argument: `component`
+
+#### component
+
+- **Type:** `String | Object (component’s options object)`
+
+- **Details:**
+
+  For more details, refer to the documentation on [Dynamic Components](../guide/component-dynamic-async.html).
+
 ## resolveDirective
 
 :::warning
-`resolveDirective` can only be used within render functions.
+`resolveDirective` can only be used within `render` or `setup` functions.
 :::
 
 Allows resolving a `directive` by its name, if it is available in the current application instance.
@@ -266,7 +295,7 @@ Accepts one argument: `name`
 ## withDirectives
 
 :::warning
-`withDirectives` can only be used within render functions.
+`withDirectives` can only be used within `render` or `setup` functions.
 :::
 
 Allows applying directives to a **VNode**. Returns a VNode with the applied directives.
