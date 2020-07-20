@@ -40,7 +40,7 @@
     template: `<div>Foo</div>`
   }
   
-  const App = Vue.createApp({
+  const app = Vue.createApp({
     components: {
       Foo
     },
