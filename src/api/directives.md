@@ -155,7 +155,7 @@
 
 - **Shorthand:** `@`
 
-- **Expects:** `Function | Inline Statement | Object`
+- **Expects:** `Function | Inline Statement | Comma separated expressions | Object`
 
 - **Argument:** `event`
 
@@ -174,7 +174,7 @@
 
 - **Usage:**
 
-  Attaches an event listener to the element. The event type is denoted by the argument. The expression can be a method name, an inline statement, or omitted if there are modifiers present.
+  Attaches an event listener to the element. The event type is denoted by the argument. The expression can be a method name, an inline statement, a comma separated inline statement list, or omitted if there are modifiers present.
 
   When used on a normal element, it listens to [**native DOM events**](https://developer.mozilla.org/en-US/docs/Web/Events) only. When used on a custom element component, it listens to **custom events** emitted on that child component.
 
@@ -197,7 +197,7 @@
   <!-- shorthand -->
   <button @click="doThis"></button>
 
-  <!-- shorthand dynamic event (2.6.0+) -->
+  <!-- shorthand dynamic event -->
   <button @[event]="doThis"></button>
 
   <!-- stop propagation -->
@@ -217,6 +217,9 @@
 
   <!-- the click event will be triggered at most once -->
   <button v-on:click.once="doThis"></button>
+
+  <!-- comma separated list of expressions, both methods will execute -->
+  <button @click="doThis($event), doThat($event)"></button>
 
   <!-- object syntax -->
   <button v-on="{ mousedown: doThis, mouseup: doThat }"></button>
