@@ -213,7 +213,7 @@ isReactive(foo.value) // false
 
 ## `triggerRef`
 
-Calls the `trigger` of a shallowRef manually.
+Calls the `trigger` of a [`shallowRef`](#shallowref) manually.
 
 ```js
 const shallow = shallowRef({
