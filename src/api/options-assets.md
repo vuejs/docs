@@ -10,7 +10,7 @@
 
 - **Usage:**
   ```js
-  const App = Vue.createApp()
+  const app = Vue.createApp({})
   
   app.component('focused-input', {
     directives: {
