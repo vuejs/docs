@@ -65,7 +65,7 @@ An app instance exposes a subset of the current global APIs. The rule of thumb i
 | 2.x Global API             | 3.x Instance API (`app`)                                                                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------- |
 | Vue.config                 | app.config                                                                                      |
-| Vue.config.productionTip   | _removed_ ([see below](config-productiontip-removed))                                           |
+| Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                           |
 | Vue.config.ignoredElements | app.config.isCustomElement ([see below](#config-ignoredelements-is-now-config-iscustomelement)) |
 | Vue.component              | app.component                                                                                   |
 | Vue.directive              | app.directive                                                                                   |
