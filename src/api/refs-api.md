@@ -220,6 +220,7 @@ const shallow = shallowRef({
   greet: 'Hello, world'
 })
 
+// Logs "Hello, world" once for the first run-through
 watchEffect(() => {
   console.log(shallow.value.greet)
 })
@@ -230,3 +231,5 @@ shallow.value.greet = 'Hello, universe'
 // Logs "Hello, universe"
 triggerRef(shallow)
 ```
+
+**See also:** [Computed and Watch - watchEffect](computed-watch-api.html#watcheffect)
