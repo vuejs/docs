@@ -2,45 +2,69 @@
 
 ## Computed Properties
 
-In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example:
+In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
+
+```js
+Vue.createApp({
+  data() {
+    return {
+      author: {
+        name: 'John Doe',
+        books: [
+          'Vue 2 - Advanced Guide',
+          'Vue 3 - Basic Guide',
+          'Vue 4 - The Mystery'
+        ]
+      }
+    }
+  }
+})
+```
+
+And we want to display different messages depending on if `author` already has some books or not
 
 ```html
-<div id="example">
-  {{ message.split('').reverse().join('') }}
+<div id="computed-basics">
+  <p>Has published books:</p>
+  <span>{{ author.books.length > 0 ? 'Yes' : 'No' }}</span>
 </div>
 ```
 
-At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it displays `message` in reverse. The problem is made worse when you want to include the reversed message in your template more than once.
+At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it performs a calculation depending on `author.books`. The problem is made worse when you want to include this calculation in your template more than once.
 
 That's why for complex logic that includes reactive data, you should use a **computed property**.
 
 ### Basic Example
 
 ```html
-<div id="computed-basic">
-  <p>Original message: "{{ message }}"</p>
-  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+<div id="computed-basics">
+  <p>Has published books:</p>
+  <span>{{ publishedBooksMessage }}</span>
 </div>
 ```
 
 ```js
-const vm = Vue.createApp({
+Vue.createApp({
   data() {
     return {
-      message: 'Hello'
+      author: {
+        name: 'John Doe',
+        books: [
+          'Vue 2 - Advanced Guide',
+          'Vue 3 - Basic Guide',
+          'Vue 4 - The Mystery'
+        ]
+      }
     }
   },
   computed: {
     // a computed getter
-    reversedMessage() {
+    publishedBooksMessage() {
       // `this` points to the vm instance
-      return this.message
-        .split('')
-        .reverse()
-        .join('')
+      return this.author.books.length > 0 ? 'Yes' : 'No'
     }
   }
-}).mount('#computed-basic')
+}).mount('#computed-basics')
 ```
 
 Result:
@@ -52,36 +76,30 @@ Result:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Here we have declared a computed property `reversedMessage`. The function we provided will be used as the getter function for the property `vm.reversedMessage`:
+Here we have declared a computed property `publishedBooksMessage`.
 
-```js
-console.log(vm.reversedMessage) // => 'olleH'
-vm.message = 'Goodbye'
-console.log(vm.reversedMessage) // => 'eybdooG'
-```
+Try to change the value of `books` array in the application `data` and you will see how `publishedBooksMessage` is changing accordingly.
 
-Try to change the value of `message` in the application `data` and you will see how `reversedMessage` is changing accordingly.
-
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `vm.reversedMessage` depends on `vm.message`, so it will update any bindings that depend on `vm.reversedMessage` when `vm.message` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
+You can data-bind to computed properties in templates just like a normal property. Vue is aware that `vm.publishedBooksMessage` depends on `vm.author.books`, so it will update any bindings that depend on `vm.publishedBooksMessage` when `vm.author.books` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
 
 ### Computed Caching vs Methods
 
 You may have noticed we can achieve the same result by invoking a method in the expression:
 
 ```html
-<p>Reversed message: "{{ reverseMessage() }}"</p>
+<p>{{ calculateBooksMessage() }}</p>
 ```
 
 ```js
 // in component
 methods: {
-  reverseMessage() {
-    return this.message.split('').reverse().join('')
+  calculateBooksMessage()() {
+    return this.author.books.length > 0 ? 'Yes' : 'No'
   }
 }
 ```
 
-Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `message` has not changed, multiple access to the `reversedMessage` computed property will immediately return the previously computed result without having to run the function again.
+Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to the `publishedBooksMessage` computed property will immediately return the previously computed result without having to run the function again.
 
 This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
 
