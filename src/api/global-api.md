@@ -256,7 +256,7 @@ Accepts one argument: `component`
 
 - **Details:**
 
-  For more details, refer to the documentation on [dynamic components](../guide/component-dynamic-async.html).
+  For more details, refer to the documentation on [Dynamic Components](../guide/component-dynamic-async.html).
 
 ## resolveDirective
 
