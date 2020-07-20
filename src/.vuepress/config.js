@@ -133,7 +133,11 @@ const sidebar = {
     {
       title: 'Contribute to the Docs',
       collapsable: true,
-      children: ['writing-guide', 'doc-style-guide']
+      children: [
+        'contributing/writing-guide',
+        'contributing/doc-style-guide',
+        'contributing/translations'
+      ]
     }
   ],
   api: [
