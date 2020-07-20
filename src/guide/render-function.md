@@ -295,27 +295,32 @@ render() {
 
 #### Event Modifiers
 
-For the `.passive`, `.capture`, and `.once` event modifiers, Vue offers object syntax of the handler:
+For the `.passive`, `.capture`, and `.once` event modifiers, Vue offers a special JSX-friendly syntax - no dots and the prop name has to be in the camelCase notation.
+We can also combine multiple event modifiers, e.g., to use both `.capture` and `.once` event modifiers, the prop name would be `onMouseOverCaptureOnce`.
 
 For example:
 
 ```javascript
 render() {
-  return Vue.h('input', {
-    onClick: {
-      handler: this.doThisInCapturingMode,
-      capture: true
+  return Vue.h(
+    'div',
+    {
+      // `.passive` modifier
+      onScrollPassive: this.doThisInPassiveMode,
     },
-    onKeyUp: {
-      handler: this.doThisOnce,
-      once: true
-    },
-    onMouseOver: {
-      handler: this.doThisOnceInCapturingMode,
-      once: true,
-      capture: true
-    },
-  })
+    [
+      Vue.h('input', {
+        // `.capture` modifier
+        onClickCapture: this.doThisInCapturingMode,
+
+        // `.once` modifier
+        onKeyUpOnce: this.doThisOnce,
+
+        // Both `.capture` and `.once` modifier
+        onMouseOverCaptureOnce: this.doThisOnceInCapturingMode,
+      })
+    ]
+  )
 }
 ```
 
