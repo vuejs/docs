@@ -93,10 +93,40 @@ app.component('my-component', {
 })
 ```
 
-Note that this enables multiple v-model bindings on the same component, each syncing a different prop, without the need for extra options in the component:
+```html
+<my-component v-model:foo="bar"></my-component>
+```
+
+## Multiple `v-model` bindings
+
+By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple v-model bindings on a single component instance.
+
+Each v-model will sync to a different prop, without the need for extra options in the component:
+
+```js
+const app = Vue.createApp({})
+
+app.component('user-name', {
+  props: {
+    firstName: String,
+    lastName: String
+  },
+  template: `
+    <input 
+      type="text"
+      v-bind:value="firstName"
+      v-on:input="$emit('update:firstName', $event.target.value)">
+
+    <input
+      type="text"
+      v-bind:value="lastName"
+      v-on:input="$emit('update:lastName', $event.target.value)">
+  `
+})
+```
 
 ```html
-<my-component v-model:foo="bar" v-model:name="userName"></my-component>
+<user-name v-model:firstName="firstName" v-model:lastName="lastName"></user-name>
 ```
 
 ## Handling `v-model` modifiers
