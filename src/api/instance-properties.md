@@ -26,7 +26,7 @@
 
 - **Details:**
 
-  The root DOM element that the Vue instance is managing.
+  The root DOM element that the Vue instance is managing. Will return a `#text` node if component has multiple root elements.
 
 ## $options
 
