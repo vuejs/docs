@@ -97,9 +97,9 @@ app.component('my-component', {
 <my-component v-model:foo="bar"></my-component>
 ```
 
-## multiple `v-model` bindings
+## Multiple `v-model` bindings
 
-By leveraging the ability to target a particular prop and event as we learned before on [`v-model` arguments](#v-model-arguments) we can now create multiple v-model bindings on a single component instance.
+By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple v-model bindings on a single component instance.
 
 Each v-model will sync to a different prop, without the need for extra options in the component:
 
