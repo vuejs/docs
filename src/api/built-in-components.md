@@ -93,7 +93,7 @@
   app.mount('#transition-demo')
   ```
 
-- **See also:** [Transitions: Entering, Leaving, and Lists](TODO)
+- **See also:** [Enter & Leave Transitions](/guide/transitions-enterleave.html#transitioning-single-elements-components)
 
 ## transition-group
 
@@ -123,7 +123,7 @@
   </transition-group>
   ```
 
-- **See also:** [Transitions: Entering, Leaving, and Lists](TODO)
+- **See also:** [List Transitions](/guide/transitions-list.html)
 
 ## keep-alive
 
