@@ -15,7 +15,30 @@ All of these are solved by **single-file components** with a `.vue` extension, m
 
 Here's an example of a file we'll call `Hello.vue`:
 
-<a href="https://codepen.io/team/Vue/pen/3de13b5cd0133df4ecf307b6cf2c5f94" target="_blank" rel="noopener noreferrer"><img src="/images/sfc.png" width="403" alt="Single-file component example (click for code as text)" style="display: block; margin: 15px auto; max-width: 100%"></a>
+```html
+<template>
+  <p>{{ greeting }} World!</p>
+</template>
+
+<script>
+module.exports = {
+  data() {
+    return {
+      greeting: "Hello"
+    };
+  }
+};
+</script>
+
+<style scoped>
+p {
+  font-size: 2em;
+  text-align: center;
+}
+</style>
+```
+
+[Open in Codepen](https://codepen.io/team/Vue/pen/3de13b5cd0133df4ecf307b6cf2c5f94)
 
 Now we get:
 
@@ -25,7 +48,36 @@ Now we get:
 
 As promised, we can also use preprocessors such as Pug, Babel (with ES2015 modules), and Stylus for cleaner and more feature-rich components.
 
-<a href="https://codesandbox.io/s/vue-single-file-component-with-pre-processors-mr3ik?file=/src/App.vue" target="_blank" rel="noopener noreferrer"><img src="/images/sfc-with-preprocessors.png" width="563" alt="Single-file component with pre-processors example (click for code as text)" style="display: block; margin: 15px auto; max-width: 100%"></a>
+```html
+<template lang="pug">
+p {{ greeting }} World!
+other-component
+</template>
+
+<script>
+import OtherComponent from "./OtherComponent.vue"
+
+export default {
+  components: {
+    OtherComponent
+  },
+
+  data() {
+    return {
+      greeting: "Hello"
+    }
+  }
+}
+</script>
+
+<style lang="stylus">
+p
+  font-size 2em
+  text-align center
+</style>
+```
+
+[Open in Codesandbox](https://codesandbox.io/s/vue-single-file-component-with-pre-processors-mr3ik?file=/src/App.vue)
 
 These specific languages are only examples. You could as easily use TypeScript, SCSS, PostCSS, or whatever other preprocessors that help you be productive. If using Webpack with `vue-loader`, it also has first-class support for CSS Modules.
 
