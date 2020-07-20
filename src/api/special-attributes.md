@@ -33,7 +33,7 @@
 
 ## ref
 
-- **Expects:** `string`
+- **Expects:** `String | Function | Inline statement`
 
   `ref` is used to register a reference to an element or a child component. The reference will be registered under the parent component's `$refs` object. If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be component instance:
 
@@ -43,6 +43,12 @@
 
   <!-- vm.$refs.child will be the child component instance -->
   <child-component ref="child"></child-component>
+
+  <!-- ref used as a callback, vm.$refs.child will be the child component instance -->
+  <child-component v-for="(el, index) in elements" :ref="(ref) => child = ref"></child-component>
+
+  <!-- ref callback used in v-for, refs will be an array of child components instances -->
+  <child-component v-for="(el, index) in elements" :ref="(ref) => refs[index] = ref"></child-component>
   ```
 
   When used on elements/components with `v-for`, the registered reference will be an Array containing DOM nodes or component instances.
