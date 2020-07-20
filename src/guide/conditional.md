@@ -1,5 +1,7 @@
 # Conditional Rendering
 
+<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-conditionals?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how conditional rendering works with Vue School">Learn how conditional rendering works with a free lesson on Vue School</a></div>
+
 ## `v-if`
 
 The directive `v-if` is used to conditionally render a block. The block will only be rendered if the directive's expression returns a truthy value.
