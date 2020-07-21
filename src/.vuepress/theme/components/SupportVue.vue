@@ -6,11 +6,13 @@
     However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support Vue.js development via the following methods:
     </p>
 
-    <h2 id="One-time-Donations">One-time Donations</h2>
+    <section>
+      <h2 id="One-time-Donations">One-time Donations</h2>
 
-    <p>We accept donations through these channels:</p>
+      <p>We accept donations through these channels:</p>
 
-    <Coins />
+      <Coins />
+    </section>
   </main>
 </template>
 
