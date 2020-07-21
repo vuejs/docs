@@ -59,3 +59,37 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+#one-time-donations {
+  a, svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  a {
+    margin: 20px;
+    color: $medium;
+  }
+
+  svg {
+    margin-right: 5px;
+  }
+}
+
+#coin-details {
+  text-align: center;
+  border-radius: 4px;
+  padding: 30px;
+  font-weight: bold;
+
+  img {
+    width: 200px;
+  }
+
+  p {
+    padding: 0;
+    margin: 0 0 20px;
+  }
+}
+</style>
