@@ -42,15 +42,6 @@ const sidebar = {
       ]
     },
     {
-      title: 'Internals',
-      collapsable: false,
-      children: [
-        '/guide/reactivity',
-        '/guide/optimizations',
-        '/guide/change-detection'
-      ]
-    },
-    {
       title: 'Reusability & Composition',
       collapsable: false,
       children: [
