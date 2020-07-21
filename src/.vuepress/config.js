@@ -108,7 +108,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Migration to Vue 3',
+      title: 'Migration from Vue 2',
       collapsable: true,
       children: [
         'migration/introduction',
