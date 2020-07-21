@@ -252,6 +252,15 @@ module.exports = {
             ]
           }
         ]
+      },
+      {
+        text: 'Support Vue',
+        link: '/support-vuejs/',
+        items: [
+          { text: 'One-time Donations', link: '/support-vuejs/#One-time-Donations' },
+          { text: 'Recurring Pledges', link: '/support-vuejs/#Recurring-pledges' },
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+        ]
       }
     ],
     repo: 'vuejs/docs-next',
