@@ -55,7 +55,7 @@ vue add vue-next
 
 ## Vite
 
-[Vite](https://github.com/vitejs/vite) is a web development build tool that allows for lighting fast serving of code due its native ES Module import approach. 
+[Vite](https://github.com/vitejs/vite) is a web development build tool that allows for lighting fast serving of code due its native ES Module import approach.
 
 Vue projects can quickly be set up with Vite by running the following commands in your terminal.
 
@@ -92,7 +92,7 @@ In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue@3
 - Inlines all Vue core internal packages - i.e. it's a single file with no dependencies on other files. This means you must import everything from this file and this file only to ensure you are getting the same instance of code.
 - Contains hard-coded prod/dev branches, and the prod build is pre-minified. Use the `*.prod.js` files for production.
 
-:::Note
+:::tip Note
 Global builds are not [UMD](https://github.com/umdjs/umd) builds. They are built as [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and are only meant for direct use via `<script src="...">`.
 :::
 
