@@ -32,7 +32,7 @@
 <script>
 export default {
   data: () => ({
-    type: window.location.hash.slice(1),
+    type: null,
     coins: {
       btc: {
         name: 'Bitcoin',
@@ -53,6 +53,9 @@ export default {
     }
   }),
   created () {
+    if (typeof window === 'undefined') return
+
+    this.type = window.location.hash.slice(1)
     window.addEventListener('hashchange', function () {
       this.type = window.location.hash.slice(1)
     })
