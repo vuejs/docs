@@ -512,7 +512,7 @@ Sometimes this works great, like when transitioning items are absolutely positio
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Sometimes this isn't an option, though, or we're dealing with more complex movement where in and out states need to be coordinated, so Vue offers an extremely useful utlity called **transition modes**:
+Sometimes this isn't an option, though, or we're dealing with more complex movement where in and out states need to be coordinated, so Vue offers an extremely useful utility called **transition modes**:
 
 - `in-out`: New element transitions in first, then when complete, the current element transitions out.
 - `out-in`: Current element transitions out first, then when complete, the new element transitions in.
