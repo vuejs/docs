@@ -20,7 +20,7 @@
     </Sidebar>
 
     <Home v-if="$page.frontmatter.home" />
-    <SupportVue v-if="$page.frontmatter.support_vue" />
+    <SupportVue v-if="$page.frontmatter.supportvue" />
 
     <Page v-else :sidebar-items="sidebarItems">
       <template #top>
@@ -78,6 +78,7 @@ export default {
       const { frontmatter } = this.$page
       return (
         !frontmatter.home &&
+        !frontmatter.supportvue &&
         frontmatter.sidebar !== false &&
         this.sidebarItems.length
       )
