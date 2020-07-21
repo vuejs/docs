@@ -25,7 +25,8 @@
         a: 1,
         b: 2,
         c: {
-          d: 3
+          d: 3,
+          e: 4
         }
       }
     },
@@ -37,6 +38,8 @@
 
       // function for watching a deep path
       this.$watch(
+        // Only `this.c.d` will be watched
+        // `this.c.e` will not be watched
         () => this.c.d,
         (newVal, oldVal) => {
           // do something
