@@ -14,7 +14,7 @@
 
 - **Usage:**
 
-  Watch an expression or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value. The expression only accepts top-level data and component property names. For more complex expressions, use a function instead.
+  Watch a string expression or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value. The string expression only accepts top-level data and component property names. For more complex expressions, use a function instead.
 
 - **Example:**
 
