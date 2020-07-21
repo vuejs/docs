@@ -23,7 +23,10 @@
     data() {
       return {
         a: 1,
-        b: 2
+        b: 2,
+        c: {
+          d: 3
+        }
       }
     },
     created() {
@@ -32,7 +35,15 @@
         // do something
       })
 
-      // function
+      // function for watching a deep path
+      this.$watch(
+        () => this.c.d,
+        (newVal, oldVal) => {
+          // do something
+        }
+      )
+
+      // function for watching a complex expression
       this.$watch(
         // every time the expression `this.a + this.b` yields a different result,
         // the handler will be called. It's as if we were watching a computed
