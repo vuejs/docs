@@ -103,6 +103,13 @@ By leveraging the ability to target a particular prop and event as we learned be
 
 Each v-model will sync to a different prop, without the need for extra options in the component:
 
+```html
+<user-name
+  v-model:first-name="firstName"
+  v-model:last-name="lastName"
+></user-name>
+```
+
 ```js
 const app = Vue.createApp({})
 
@@ -125,12 +132,12 @@ app.component('user-name', {
 })
 ```
 
-```html
-<user-name
-  v-model:firstName="firstName"
-  v-model:lastName="lastName"
-></user-name>
-```
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="GRoPPrM" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Multiple v-models">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/GRoPPrM">
+  Multiple v-models</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Handling `v-model` modifiers
 
