@@ -33,7 +33,7 @@
 
 ## ref
 
-- **Expects:** `string`
+- **Expects:** `string | Function`
 
   `ref` is used to register a reference to an element or a child component. The reference will be registered under the parent component's `$refs` object. If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be component instance:
 
@@ -43,11 +43,14 @@
 
   <!-- vm.$refs.child will be the child component instance -->
   <child-component ref="child"></child-component>
+
+  <!-- When bound dynamically, we can define ref as a callback function, passing the element or component instance explicitly -->
+  <child-component :ref="(el) => child = el"></child-component>
   ```
 
-  When used on elements/components with `v-for`, the registered reference will be an Array containing DOM nodes or component instances.
+When used on elements/components with `v-for`, the registered reference will be an Array containing DOM nodes or component instances.
 
-  An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
+An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
 - **See also:** [Child Component Refs](../guide/component-template-refs.html)
 
@@ -55,16 +58,16 @@
 
 - **Expects:** `string | Object (component’s options object)`
 
-  Used for [dynamic components](../guide/component-dynamic-async.html).
+Used for [dynamic components](../guide/component-dynamic-async.html).
 
-  For example:
+For example:
 
-  ```html
-  <!-- component changes when currentView changes -->
-  <component :is="currentView"></component>
+```html
+<!-- component changes when currentView changes -->
+<component :is="currentView"></component>
 
-  For detailed usage, follow the links in the description above.
-  ```
+For detailed usage, follow the links in the description above.
+```
 
 - **See also:**
   - [Dynamic Components](../guide/component-dynamic-async.html)
