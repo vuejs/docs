@@ -210,3 +210,26 @@ isReactive(foo.value) // false
 ```
 
 **See also**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
+
+## `triggerRef`
+
+Execute any effects tied to a  [`shallowRef`](#shallowref) manually.
+
+```js
+const shallow = shallowRef({
+  greet: 'Hello, world'
+})
+
+// Logs "Hello, world" once for the first run-through
+watchEffect(() => {
+  console.log(shallow.value.greet)
+})
+
+// This won't trigger the effect because the ref is shallow
+shallow.value.greet = 'Hello, universe'
+
+// Logs "Hello, universe"
+triggerRef(shallow)
+```
+
+**See also:** [Computed and Watch - watchEffect](./computed-watch-api.html#watcheffect)
