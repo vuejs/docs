@@ -56,7 +56,7 @@ const app = createApp({})
 app.config = {...}
 ```
 
-- **See also:** [Global Config Properties](./global-config.html)
+- **See also:** [Application Config](./application-config.html)
 
 ## directive
 
