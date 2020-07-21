@@ -292,7 +292,7 @@
   ```
   
   ::: tip Note
-  Events listed in the `emits` option **will not** be inherited by the root element of the component and also will be exlcluded from the `$attrs` property.
+  Events listed in the `emits` option **will not** be inherited by the root element of the component and also will be excluded from the `$attrs` property.
   :::
   
 

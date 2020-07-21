@@ -19,7 +19,7 @@ const MyBook = {
   setup() {
     const book = inject(
       'book',
-      'Eloquent Javasctipt' /* optional default value */
+      'Eloquent Javascript' /* optional default value */
     )
     return {
       book
@@ -46,7 +46,7 @@ const MyBook = {
   setup() {
     const book = inject(
       'book',
-      'Eloquent Javasctipt' /* optional default value */
+      'Eloquent Javascript' /* optional default value */
     )
     const year = inject('year')
 

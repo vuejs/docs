@@ -49,7 +49,7 @@ We intend to drop this internal concept of "enumerated attributes" and treat the
 
 For non-boolean attributes, Vue will stop removing them if they are `false` and coerce them to `'false'` instead.
 
-- This solves the inconsistency between `true` and `false` and makes outputing `aria-*` attributes easier
+- This solves the inconsistency between `true` and `false` and makes outputting `aria-*` attributes easier
 
 The following table describes the new behavior:
 
