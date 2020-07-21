@@ -276,7 +276,7 @@ props: ['modelValue'],
 render() {
   return Vue.h(SomeComponent, {
     modelValue: this.modelValue,
-    'onUpdate:modelValue': value => this.$emit('onUpdate:modelValue', value)
+    'onUpdate:modelValue': value => this.$emit('update:modelValue', value)
   })
 }
 ```
