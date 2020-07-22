@@ -42,15 +42,6 @@ const sidebar = {
       ]
     },
     {
-      title: 'Internals',
-      collapsable: false,
-      children: [
-        '/guide/reactivity',
-        '/guide/optimizations',
-        '/guide/change-detection'
-      ]
-    },
-    {
       title: 'Reusability & Composition',
       collapsable: false,
       children: [
@@ -108,7 +99,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Migration to Vue 3',
+      title: 'Migration from Vue 2',
       collapsable: true,
       children: [
         'migration/introduction',
