@@ -206,4 +206,4 @@ Unless you have a "someattr" property in your instance, your code won't work.
 
 #### JavaScript Expressions
 
-Template expressions are sandboxed and only have access to a [whitelist of globals](TODO:https://github.com/vuejs/vue/blob/v2.6.10/src/core/instance/proxy.js#L9) such as `Math` and `Date`. You should not attempt to access user defined globals in template expressions.
+Template expressions are sandboxed and only have access to a [whitelist of globals](https://github.com/vuejs/vue-next/blob/master/packages/shared/src/globalsWhitelist.ts#L3) such as `Math` and `Date`. You should not attempt to access user defined globals in template expressions.
