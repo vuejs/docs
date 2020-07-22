@@ -90,7 +90,11 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: ['/guide/single-file-component', '/guide/testing']
+      children: [
+        '/guide/single-file-component',
+        '/guide/testing',
+        '/guide/typescript-support  '
+      ]
     },
     {
       title: 'Scaling Up',
