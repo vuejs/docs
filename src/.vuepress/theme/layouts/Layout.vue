@@ -20,7 +20,6 @@
     </Sidebar>
 
     <Home v-if="$page.frontmatter.home" />
-    <SupportVue v-if="$page.frontmatter.supportvue" />
 
     <Page v-else :sidebar-items="sidebarItems">
       <template #top>
@@ -35,7 +34,6 @@
 
 <script>
 import Home from '@theme/components/Home.vue'
-import SupportVue from '@theme/components/SupportVue.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
@@ -46,7 +44,6 @@ export default {
 
   components: {
     Home,
-    SupportVue,
     Page,
     Sidebar,
     Navbar
@@ -78,7 +75,6 @@ export default {
       const { frontmatter } = this.$page
       return (
         !frontmatter.home &&
-        !frontmatter.supportvue &&
         frontmatter.sidebar !== false &&
         this.sidebarItems.length
       )
