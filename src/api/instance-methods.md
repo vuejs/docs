@@ -38,8 +38,6 @@
 
       // function for watching a single nested property
       this.$watch(
-        // Only `this.c.d` will be watched
-        // `this.c.e` will not be watched
         () => this.c.d,
         (newVal, oldVal) => {
           // do something
