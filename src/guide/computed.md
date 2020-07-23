@@ -93,7 +93,7 @@ You may have noticed we can achieve the same result by invoking a method in the 
 ```js
 // in component
 methods: {
-  calculateBooksMessage()() {
+  calculateBooksMessage() {
     return this.author.books.length > 0 ? 'Yes' : 'No'
   }
 }

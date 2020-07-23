@@ -38,6 +38,7 @@ The following consists a list of breaking changes from 2.x:
 - Some transition classes got a rename:
   - `v-enter` -> `v-enter-from`
   - `v-leave` -> `v-leave-from`
+- [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
 
 ### Removed
 
