@@ -86,7 +86,7 @@ Its guiding principle is that the more tests resemble the way software is used, 
 
 #### Vue Test Utils
 
-Vue Test Utils is the official low-level component testing library that was written to provide users access to Vue specific APIs. If you are starting testing Vue applications, we would recommend using Vue Testing Library, which is an abstraction over Vue Test Utils. 
+Vue Test Utils is the official low-level component testing library that was written to provide users access to Vue specific APIs. If you are new to testing Vue applications, we would recommend using Vue Testing Library, which is an abstraction over Vue Test Utils. 
 
 **Resources**
 
