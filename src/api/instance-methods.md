@@ -31,7 +31,7 @@
       }
     },
     created() {
-      // keypath
+      // top-level property name
       this.$watch('a', (newVal, oldVal) => {
         // do something
       })
