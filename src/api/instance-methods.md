@@ -14,7 +14,7 @@
 
 - **Usage:**
 
-  Watch a string expression or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value. The string expression only accepts top-level data and component property names. For more complex expressions, use a function instead.
+  Watch a reactive property or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `prop`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
 
 - **Example:**
 
@@ -36,7 +36,7 @@
         // do something
       })
 
-      // function for watching a deep path
+      // function for watching a single nested property
       this.$watch(
         // Only `this.c.d` will be watched
         // `this.c.e` will not be watched
