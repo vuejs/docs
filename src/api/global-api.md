@@ -136,7 +136,7 @@ Creates an async component that will be loaded only when it's necessary.
 
 ### Arguments
 
-For basic usage, `defineAsyncComponent` can accept a a factory function returning a `Promise`. Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
+For basic usage, `defineAsyncComponent` can accept a factory function returning a `Promise`. Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
 
 ```js
 import { defineAsyncComponent } from 'vue'
