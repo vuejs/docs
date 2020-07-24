@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .links {
   a, svg {
     display: inline-block;
