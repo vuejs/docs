@@ -213,3 +213,42 @@ th, td
       padding-left 0
 
 @require 'mobile.styl'
+
+.sponsor-group
+  padding: 0 40px;
+
+  &.platinum
+    text-align: center;
+
+    a
+      display: inline-block;
+      margin: 20px;
+    img
+      width: 250px;
+      vertical-align: middle;
+
+  &.sponsor-section
+    margin-top: 0;
+    margin-bottom: 60px;
+
+  &.patreon-sponsors,
+  &.open-collective-sponsors
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+
+  &.patreon-sponsors
+    a
+      display: inline-block;
+      margin: 10px 20px;
+    img
+      width: 140px;
+
+  &.open-collective-sponsors
+    img
+      max-width: 140px;
+      max-height: 60px;
+
+
