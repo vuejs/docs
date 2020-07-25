@@ -128,10 +128,10 @@ const Component = defineComponent({
 
     // in a computed with a setter, getter needs to be annotated
     greetingUppercased: {
-      get(): number {
-        return this.greeting.length;
+      get(): string {
+        return this.greeting.toUpperCase();
       },
-      set(newValue) {
+      set(newValue: string) {
         this.message = newValue.toUpperCase();
       },
     },
@@ -251,7 +251,7 @@ export default defineComponent({
 For computed, we could specify a type with getter only, or with getter and setter:
 
 ```ts
-import { defineComponent, ref, rcomputed } from "vue";
+import { defineComponent, ref, computed } from "vue";
 
 export default defineComponent({
   name: "HelloWorld",
@@ -264,7 +264,7 @@ export default defineComponent({
     // writable
     const triple = computed<number>({
       get: () => count.value * 3,
-      set: (value: number) => value,
+      set: (value) => (count.value = value),
     });
   },
 ```
