@@ -173,7 +173,7 @@ If you find validator not getting type inference or member completion isn’t wo
 
 ## Using with Composition API
 
-On `setup()` function, you don't need pass a typing to `props` parameter as it will infer types from `props` component option.
+On `setup()` function, you don't need to pass a typing to `props` parameter as it will infer types from `props` component option.
 
 ```ts
 import { defineComponent } from 'vue'
@@ -187,11 +187,8 @@ const Component = defineComponent({
   },
 
   setup(props) {
-    /* props will be typed as
-    (parameter) props: Readonly<{
-      msg: number;
-    } & {}>
-    */
+    const result = props.message.split('') // correct, 'message' is typed as a string
+    const filtered = props.message.filter(p => p.value) // an error will be thrown: Property 'filter' does not exist on type 'string'
   }
 })
 ```
@@ -261,10 +258,10 @@ export default defineComponent({
   setup() {
     let count = ref<number>(0);
 
-    // read-only, will have a type of Readonly<Ref<Readonly<number>>>
+    // read-only
     const double = computed<number>(() => count.value * 2);
 
-    // writable, will have a type of Ref<T>
+    // writable
     const triple = computed<number>({
       get: () => count.value * 3,
       set: (value: number) => value,
