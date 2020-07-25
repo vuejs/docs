@@ -207,7 +207,7 @@ const Component = defineComponent({
 })
 ```
 
-Sometimes we may need to specify complex types for a ref's inner value. We can do that succinctly by passing a generics argument when calling ref to override the default inference:
+Sometimes we may need to specify complex types for a ref's inner value. We can do that simply passing a generic argument when calling ref to override the default inference:
 
 ```ts
 const year = ref<string | number>('2020') // year's type: Ref<string | number>
