@@ -141,6 +141,8 @@ const Component = defineComponent({
 
 ### Annotating Props
 
+Vue does a runtime validation on props with a `type` defined. To provide these types to TypeScript, we need to cast the constructor with `PropType`:
+
 ```ts
 import { defineComponent, PropType } from 'vue'
 
