@@ -106,7 +106,7 @@ Type of stateAsRefs:
 
 // The ref and the original property is "linked"
 state.foo++
-console.log(stateAsRefs.foo) // 2
+console.log(stateAsRefs.foo.value) // 2
 
 stateAsRefs.foo.value++
 console.log(state.foo) // 3
