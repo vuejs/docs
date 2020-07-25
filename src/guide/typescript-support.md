@@ -70,14 +70,13 @@ const Component = defineComponent({
 
 ## Using with Options API
 
-You can type your `data` properties using type assertions:
+TypeScript should be able to infer most of the types without defining types explicitly. For example, if you have a component with a number `count` property, you will have an error if you try to call a string-specific method on it:
 
-```js
+```ts
 const Component = defineComponent({
   data() {
     return {
-      message: 'Hello!' as string,
-      count: 0 as number
+      count: 0
     }
   },
   mounted() {
@@ -86,7 +85,7 @@ const Component = defineComponent({
 })
 ```
 
-If you need a complex type, you can create an interface:
+If you have a complex type or interface, you can cast it using [type assertion](https://www.typescriptlang.org/docs/handbook/basic-types.html#type-assertions):
 
 ```ts
 interface Book {
@@ -98,13 +97,11 @@ interface Book {
 const Component = defineComponent({
   data() {
     return {
-      message: 'Hello!' as string,
-      count: 0 as number,
-      book: <Book>{
+      book: {
         title: 'Vue 3 Guide',
         author: 'Vue Team',
         year: 2020
-      }
+      } as Book
     }
   }
 })
@@ -112,7 +109,7 @@ const Component = defineComponent({
 
 ### Annotating Return Types
 
-Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of certain methods. For this reason, you may need to annotate the return type on methods like render and those in computed.
+Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type computed properties.
 
 ```ts
 import { defineComponent } from 'vue'
@@ -123,14 +120,8 @@ const Component = defineComponent({
       message: 'Hello!' as string
     }
   },
-  methods: {
-    // need annotation due to `this` in return type
-    greet(): string {
-      return this.message + ' world'
-    }
-  },
   computed: {
-    // need annotation
+    // needs an annotation
     greeting(): string {
       return this.message + '!'
     }
