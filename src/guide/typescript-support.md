@@ -10,12 +10,10 @@ A static type system can help prevent many potential runtime errors, especially 
 // tsconfig.json
 {
   "compilerOptions": {
-    // this aligns with Vue's browser support
-    "target": "es2015",
+    "target": "esnext",
+    "module": "esnext",
     // this enables stricter inference for data properties on `this`
     "strict": true,
-    // if using webpack 2+ or rollup, to leverage tree shaking:
-    "module": "es2015",
     "moduleResolution": "node"
   }
 }
@@ -169,3 +167,102 @@ const Component = defineComponent({
 If you find validator not getting type inference or member completion isn’t working, annotating the argument with the expected type may help address these problems.
 
 ## Using with Composition API
+
+On `setup()` function, you don't need ass a typing to `props` parameter as it will infer types from `props` component option.
+
+```ts
+import { defineComponent } from 'vue'
+
+const Component = defineComponent({
+  props: {
+    message: {
+      type: String,
+      required: true
+    }
+  },
+
+  setup(props) {
+    /* props will be typed as
+    (parameter) props: Readonly<{
+      msg: number;
+    } & {}>
+    */
+  }
+})
+```
+
+### Typing `ref`s
+
+To type a ref, we need to specify a type when calling `ref()` method:
+
+```ts
+import { defineComponent, ref } from 'vue'
+
+const Component = defineComponent({
+  setup() {
+    const year = ref<number>(2020)
+  }
+})
+```
+
+Sometimes we may need to specify complex types for a ref's inner value. We can do that succinctly by passing a generics argument when calling ref to override the default inference:
+
+```ts
+const year = ref<string | number>('2020') // year's type: Ref<string | number>
+
+year.value = 2020 // ok!
+```
+
+If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`:
+
+```ts
+function useState<State extends string>(initial: State) {
+  const state = ref(initial) as Ref<State> // state.value -> State extends string
+  return state
+}
+```
+
+### Typing `reactive`
+
+Similarly to `ref`, we can define a `reactive` type on method call:
+
+```ts
+import { defineComponent, reactive } from 'vue'
+
+interface Book {
+  title: string
+  year?: number
+}
+
+export default defineComponent({
+  name: 'HelloWorld',
+  setup() {
+    const book = reactive<Book>({
+      title: 'Vue 3 Guide'
+    })
+  }
+})
+```
+
+### Typing `computed`
+
+For computed, we could specify a type with getter only, or with getter and setter:
+
+```ts
+import { defineComponent, ref, rcomputed } from "vue";
+
+export default defineComponent({
+  name: "HelloWorld",
+  setup() {
+    let count = ref<number>(0);
+
+    // read-only, will have a type of Readonly<Ref<Readonly<number>>>
+    const double = computed<number>(() => count.value * 2);
+
+    // writable, will have a type of Ref<T>
+    const triple = computed<number>({
+      get: () => count.value * 3,
+      set: (value: number) => value,
+    });
+  },
+```
