@@ -132,7 +132,7 @@ const Component = defineComponent({
 ### Annotating Props
 
 ```ts
-{ defineComponent, PropType } from 'vue'
+import { defineComponent, PropType } from 'vue'
 
 interface ComplexMessage {
   title: string
