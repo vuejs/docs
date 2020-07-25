@@ -171,7 +171,7 @@ If you find validator not getting type inference or member completion isn’t wo
 
 ## Using with Composition API
 
-On `setup()` function, you don't need ass a typing to `props` parameter as it will infer types from `props` component option.
+On `setup()` function, you don't need pass a typing to `props` parameter as it will infer types from `props` component option.
 
 ```ts
 import { defineComponent } from 'vue'
