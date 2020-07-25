@@ -117,7 +117,7 @@ import { defineComponent } from 'vue'
 const Component = defineComponent({
   data() {
     return {
-      message: 'Hello!' as string
+      message: 'Hello!'
     }
   },
   computed: {
@@ -125,6 +125,16 @@ const Component = defineComponent({
     greeting(): string {
       return this.message + '!'
     }
+
+    // in a computed with a setter, getter needs to be annotated
+    greetingUppercased: {
+      get(): number {
+        return this.greeting.length;
+      },
+      set(newValue) {
+        this.message = newValue.toUpperCase();
+      },
+    },
   }
 })
 ```
