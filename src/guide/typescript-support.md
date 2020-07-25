@@ -42,6 +42,14 @@ vue create my-project-name
 vue add typescript
 ```
 
+Make sure that `script` part of the component has TypeScript set as a language:
+
+```html
+<script lang="ts">
+  ...
+</script>
+```
+
 ### Editor Support
 
 For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-components.html) (SFCs), get the awesome [Vetur extension](https://github.com/vuejs/vetur), which provides TypeScript inference inside SFCs and many other great features.
@@ -62,6 +70,102 @@ const Component = defineComponent({
 
 ## Using with Options API
 
-## Using with Composition API
+You can type your `data` properties using type assertions:
 
-## Annotating Props
+```js
+const Component = defineComponent({
+  data() {
+    return {
+      message: 'Hello!' as string,
+      count: 0 as number
+    }
+  },
+  mounted() {
+    const result = this.count.split('') // => Property 'split' does not exist on type 'number'
+  }
+})
+```
+
+If you need a complex type, you can create an interface:
+
+```ts
+interface Book {
+  title: string
+  author: string
+  year: number
+}
+
+const Component = defineComponent({
+  data() {
+    return {
+      message: 'Hello!' as string,
+      count: 0 as number,
+      book: <Book>{
+        title: 'Vue 3 Guide',
+        author: 'Vue Team',
+        year: 2020
+      }
+    }
+  }
+})
+```
+
+### Annotating Return Types
+
+Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of certain methods. For this reason, you may need to annotate the return type on methods like render and those in computed.
+
+```ts
+import { defineComponent } from 'vue'
+
+const Component = defineComponent({
+  data() {
+    return {
+      message: 'Hello!' as string
+    }
+  },
+  methods: {
+    // need annotation due to `this` in return type
+    greet(): string {
+      return this.message + ' world'
+    }
+  },
+  computed: {
+    // need annotation
+    greeting(): string {
+      return this.message + '!'
+    }
+  }
+})
+```
+
+### Annotating Props
+
+```ts
+{ defineComponent, PropType } from 'vue'
+
+interface ComplexMessage {
+  title: string
+  okMessage: string
+  cancelMessage: string
+}
+const Component = defineComponent({
+  props: {
+    name: String,
+    success: { type: String },
+    callback: {
+      type: Function as PropType<() => void>
+    },
+    message: {
+      type: Object as PropType<ComplexMessage>,
+      required: true,
+      validator(message: ComplexMessage) {
+        return !!message.title
+      }
+    }
+  }
+})
+```
+
+If you find validator not getting type inference or member completion isn’t working, annotating the argument with the expected type may help address these problems.
+
+## Using with Composition API
