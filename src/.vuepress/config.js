@@ -84,7 +84,7 @@ const sidebar = {
       children: [
         '/guide/single-file-component',
         '/guide/testing',
-        '/guide/typescript-support  '
+        '/guide/typescript-support'
       ]
     },
     {
@@ -224,7 +224,7 @@ module.exports = {
             ariaLabel: 'Community Menu',
             items: [
               { text: 'Team', link: '/community/team/' },
-              { text: 'Partners', link: '/community/partners/' },
+              { text: 'Partners', link: '/community/partners' },
               { text: 'Join', link: '/community/join/' },
               { text: 'Themes', link: '/community/themes/' }
             ]
@@ -252,8 +252,14 @@ module.exports = {
         text: 'Support Vue',
         link: '/support-vuejs/',
         items: [
-          { text: 'One-time Donations', link: '/support-vuejs/#one-time-donations' },
-          { text: 'Recurring Pledges', link: '/support-vuejs/#recurring-pledges' },
+          {
+            text: 'One-time Donations',
+            link: '/support-vuejs/#one-time-donations'
+          },
+          {
+            text: 'Recurring Pledges',
+            link: '/support-vuejs/#recurring-pledges'
+          },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
         ]
       }
