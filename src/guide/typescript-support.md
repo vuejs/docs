@@ -195,14 +195,16 @@ const Component = defineComponent({
 
 ### Typing `ref`s
 
-To type a ref, we need to specify a type when calling `ref()` method:
+Refs infer the type from the initial value:
 
 ```ts
 import { defineComponent, ref } from 'vue'
 
 const Component = defineComponent({
   setup() {
-    const year = ref<number>(2020)
+    const year = ref(2020)
+
+    const result = year.value.split('') // => Property 'filter' does not exist on type 'number'
   }
 })
 ```
@@ -215,18 +217,13 @@ const year = ref<string | number>('2020') // year's type: Ref<string | number>
 year.value = 2020 // ok!
 ```
 
-If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`:
-
-```ts
-function useState<State extends string>(initial: State) {
-  const state = ref(initial) as Ref<State> // state.value -> State extends string
-  return state
-}
-```
+::: tip Note
+If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`.
+:::
 
 ### Typing `reactive`
 
-Similarly to `ref`, we can define a `reactive` type on method call:
+When typing a `reactive` property, we can use use interfaces:
 
 ```ts
 import { defineComponent, reactive } from 'vue'
@@ -239,9 +236,22 @@ interface Book {
 export default defineComponent({
   name: 'HelloWorld',
   setup() {
-    const book = reactive<Book>({
-      title: 'Vue 3 Guide'
-    })
+    const book: Book = reactive({ title: 'Vue 3 Guide' })
+    // or
+    const book = reactive({ title: 'Vue 3 Guide' }) as Book
+  }
+})
+```
+
+Reactive should have the same type as the argument passed to `reactive` method. If there's an unwrapped `ref`, within `reactive` object, the types will differ:
+
+```ts
+export default defineComponent({
+  name: 'HelloWorld',
+  setup() {
+    const book: Book = reactive({ title: 'Vue 3 Guide' })
+
+    book.year = ref(2020) // 'Ref<number>' is not assignable to type 'number'
   }
 })
 ```
@@ -256,7 +266,7 @@ import { defineComponent, ref, computed } from "vue";
 export default defineComponent({
   name: "HelloWorld",
   setup() {
-    let count = ref<number>(0);
+    let count = ref(0);
 
     // read-only
     const double = computed<number>(() => count.value * 2);
