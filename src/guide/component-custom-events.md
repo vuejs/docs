@@ -141,7 +141,13 @@ app.component('user-name', {
 
 ## Handling `v-model` modifiers
 
-In 2.x, we have hard-coded support for modifiers like `.trim` on component `v-model`. However, it would be more useful if the component can support custom modifiers. In 3.x, modifiers added to a component `v-model` will be provided to the component via the modelModifiers prop:
+In Vue 2.x, we had hard-coded support for modifiers like `.trim` or `.native` on component `v-model` bindings. And even though Vue 3.x also supports [out of the box modifiers](https://v3.vuejs.org/guide/forms.html#modifiers), it would be more useful if our components could support custom modifiers of our own. 
+
+Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding.
+
+In 3.x, modifiers added to a component `v-model` will be provided to the component via the `modelModifiers` prop. In the below example, we have created a component that contains a `modelModifiers` prop and defaults to an empty object.
+
+Notice that when the component's `created` lifecycle hook triggers, the `modelModifiers` prop contains `capitalize` and it's value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="bar"`.
 
 ```html
 <my-component v-model.capitalize="bar"></my-component>
@@ -166,7 +172,7 @@ app.component('my-component', {
 })
 ```
 
-We can check `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string:
+Now that we have our prop set up, we can check the `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string whenever the `<input />` element fires an `input` event.
 
 ```html
 <div id="app">
@@ -209,7 +215,7 @@ app.component('my-component', {
 app.mount('#app')
 ```
 
-For `v-model` with arguments, the generated prop name will be `arg + "Modifiers"`:
+For `v-model` bindings with arguments, the generated prop name will be `arg + "Modifiers"`:
 
 ```html
 <my-component v-model:foo.capitalize="bar"></my-component>
