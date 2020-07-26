@@ -44,6 +44,38 @@ app.component('date-picker', {
 })
 ```
 
+This might be helpful when we have an HTML element with `change` event as a root element of `date-picker`.
+
+```js
+app.component('date-picker', {
+  template: `
+    <select>
+      <option value="1">Yesterday</option>
+      <option value="2">Today</option>
+      <option value="3">Tomorrow</option>
+    </select>
+  `
+})
+```
+
+In this case, `change` event listener is passed from the parent component to the child and it will be triggered on native `<select>` `change` event. We won't need to emit an event from the `date-picker` explicitly:
+
+```html
+<div id="date-picker" class="demo">
+  <date-picker @change="showChange"></date-picker>
+</div>
+```
+
+```js
+const app = Vue.createApp({
+  methods: {
+    showChange(event) {
+      console.log(event.target.value) // will log a value of the selected option
+    }
+  }
+})
+```
+
 ## Disabling Attribute Inheritance
 
 If you do **not** want a component to automatically inherit attributes, you can set `inheritAttrs: false` in the component's options.
