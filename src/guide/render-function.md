@@ -275,9 +275,9 @@ The `v-model` directive is expanded to `modelValue` and `onUpdate:modelValue` pr
 ```js
 props: ['modelValue'],
 render() {
-  return Vue.h('input', {
+  return Vue.h(SomeComponent, {
     modelValue: this.modelValue,
-    'onUpdate:modelValue': value => this.$emit('onUpdate:modelValue', value)
+    'onUpdate:modelValue': value => this.$emit('update:modelValue', value)
   })
 }
 ```
