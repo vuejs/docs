@@ -243,7 +243,7 @@ Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent wil
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-We can list emitted events in the component's `emits` option:
+We can list emitted events in the component's `emits` option.
 
 ```js
 app.component('blog-post', {
@@ -251,6 +251,8 @@ app.component('blog-post', {
   emits: ['enlarge-text']
 })
 ```
+
+This will allow you to check all the events component emits and optionally [validate them](component-custom-events.html#validate-emitted-events)
 
 ### Emitting a Value With an Event
 
