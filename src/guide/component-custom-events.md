@@ -141,13 +141,13 @@ app.component('user-name', {
 
 ## Handling `v-model` modifiers
 
-In Vue 2.x, we had hard-coded support for modifiers like `.trim` or `.native` on component `v-model` bindings. And even though Vue 3.x also supports [out of the box modifiers](/guide/forms.html#modifiers), it would be more useful if our components could support custom modifiers of our own. 
+When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/forms.html#modifiers) like `.trim` or `.native`. In some cases, however, you might also want to add your own custom modifiers.
 
 Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding.
 
-In 3.x, modifiers added to a component `v-model` will be provided to the component via the `modelModifiers` prop. In the below example, we have created a component that contains a `modelModifiers` prop and defaults to an empty object.
+Modifiers added to a component `v-model` will be provided to the component via the `modelModifiers` prop. In the below example, we have created a component that contains a `modelModifiers` prop that defaults to an empty object.
 
-Notice that when the component's `created` lifecycle hook triggers, the `modelModifiers` prop contains `capitalize` and it's value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="bar"`.
+Notice that when the component's `created` lifecycle hook triggers, the `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="bar"`.
 
 ```html
 <my-component v-model.capitalize="bar"></my-component>
