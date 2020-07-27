@@ -243,19 +243,6 @@ export default defineComponent({
 })
 ```
 
-Reactive should have the same type as the argument passed to `reactive` method. If there's an unwrapped `ref`, within `reactive` object, the types will differ:
-
-```ts
-export default defineComponent({
-  name: 'HelloWorld',
-  setup() {
-    const book: Book = reactive({ title: 'Vue 3 Guide' })
-
-    book.year = ref(2020) // 'Ref<number>' is not assignable to type 'number'
-  }
-})
-```
-
 ### Typing `computed`
 
 For computed, we could specify a type with getter only, or with getter and setter:
