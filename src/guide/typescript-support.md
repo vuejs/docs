@@ -245,23 +245,20 @@ export default defineComponent({
 
 ### Typing `computed`
 
-For computed, we could specify a type with getter only, or with getter and setter:
+Computed values will automatically infer the type from returned value
 
 ```ts
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent, ref, computed } from 'vue'
 
 export default defineComponent({
-  name: "HelloWorld",
+  name: 'HelloWorld',
   setup() {
-    let count = ref(0);
+    let count = ref(0)
 
     // read-only
-    const double = computed<number>(() => count.value * 2);
+    const double = computed(() => count.value)
 
-    // writable
-    const triple = computed<number>({
-      get: () => count.value * 3,
-      set: (value) => (count.value = value),
-    });
-  },
+    const result = double.value.split('') // => Property 'split' does not exist on type 'number'
+  }
+})
 ```
