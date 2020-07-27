@@ -82,7 +82,11 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: ['/guide/single-file-component', '/guide/testing']
+      children: [
+        '/guide/single-file-component',
+        '/guide/testing',
+        '/guide/typescript-support'
+      ]
     },
     {
       title: 'Scaling Up',
@@ -221,7 +225,7 @@ module.exports = {
             ariaLabel: 'Community Menu',
             items: [
               { text: 'Team', link: '/community/team/' },
-              { text: 'Partners', link: '/community/partners/' },
+              { text: 'Partners', link: '/community/partners' },
               { text: 'Join', link: '/community/join/' },
               { text: 'Themes', link: '/community/themes/' }
             ]
