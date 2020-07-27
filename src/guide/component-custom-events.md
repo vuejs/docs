@@ -141,7 +141,13 @@ app.component('user-name', {
 
 ## Handling `v-model` modifiers
 
-In 2.x, we have hard-coded support for modifiers like `.trim` on component `v-model`. However, it would be more useful if the component can support custom modifiers. In 3.x, modifiers added to a component `v-model` will be provided to the component via the modelModifiers prop:
+When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, however, you might also want to add your own custom modifiers.
+
+Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding.
+
+Modifiers added to a component `v-model` will be provided to the component via the `modelModifiers` prop. In the below example, we have created a component that contains a `modelModifiers` prop that defaults to an empty object.
+
+Notice that when the component's `created` lifecycle hook triggers, the `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="bar"`.
 
 ```html
 <my-component v-model.capitalize="bar"></my-component>
@@ -166,7 +172,7 @@ app.component('my-component', {
 })
 ```
 
-We can check `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string:
+Now that we have our prop set up, we can check the `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string whenever the `<input />` element fires an `input` event.
 
 ```html
 <div id="app">
@@ -209,7 +215,7 @@ app.component('my-component', {
 app.mount('#app')
 ```
 
-For `v-model` with arguments, the generated prop name will be `arg + "Modifiers"`:
+For `v-model` bindings with arguments, the generated prop name will be `arg + "Modifiers"`:
 
 ```html
 <my-component v-model:foo.capitalize="bar"></my-component>
