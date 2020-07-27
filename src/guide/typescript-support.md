@@ -236,6 +236,8 @@ interface Book {
 export default defineComponent({
   name: 'HelloWorld',
   setup() {
+    const book = reactive<Book>({ title: 'Vue 3 Guide' })
+    // or
     const book: Book = reactive({ title: 'Vue 3 Guide' })
     // or
     const book = reactive({ title: 'Vue 3 Guide' }) as Book
