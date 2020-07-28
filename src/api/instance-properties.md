@@ -116,7 +116,7 @@
 - **See also:**
   - [`<slot>` Component](built-in-components.html#slot)
   - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
-  - [Render Functions - Slots](..guide/render-function.html#slots)
+  - [Render Functions - Slots](../guide/render-function.html#slots)
 
 ## $refs
 
