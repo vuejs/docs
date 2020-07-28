@@ -33,7 +33,7 @@ export default {
   setup() {
     // mounted
     onMounted(() => {
-      console.log('Component is mounted!)
+      console.log('Component is mounted!')
     })
   }
 }
