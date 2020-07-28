@@ -141,7 +141,7 @@ const App = {
   }
 }
 
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('blog-post', {
   props: ['title'],

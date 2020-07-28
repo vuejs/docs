@@ -128,7 +128,7 @@ When you use the `class` attribute on a custom component with a single root elem
 For example, if you declare this component:
 
 ```js
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('my-component', {
   template: `<p class="foo bar">Hi!</p>`
@@ -170,7 +170,7 @@ If your component has multiple root elements, you would need to define which com
 ```
 
 ```js
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('my-component', {
   template: `

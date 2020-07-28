@@ -7,7 +7,7 @@
 When registering a component, it will always be given a name. For example, in the global registration we've seen so far:
 
 ```js
-const app = createApp({...})
+const app = Vue.createApp({...})
 
 app.component('my-component-name', {
   /* ... */
