@@ -161,17 +161,17 @@ Similar to using the `provide` option in a 2.x root instance, a Vue 3 app instan
 ```js
 // in the entry
 app.provide({
-  [ThemeSymbol]: theme
+  guide: 'Vue 3 Guide'
 })
 
 // in a child component
 export default {
   inject: {
-    theme: {
-      from: ThemeSymbol
+    book: {
+      from: guide
     }
   },
-  template: `<div :style="{ color: theme.textColor }" />`
+  template: `<div>{{ book }}</div>`
 }
 ```
 
