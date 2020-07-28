@@ -2,27 +2,24 @@
 
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
-However, sometimes a part of a component's template belongs into this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of the Vue app. 
+However, sometimes a part of a component's template belongs to this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of the Vue app. 
 
-A common scenario for this, is creating a component that includes a full-screen modal. In most cases, you'd want the modal's logic to live within the component, but the positioning of the modal quickly becomes a CSS nightmare due to the positioning of the parent elements. 
+A common scenario for this is creating a component that includes a full-screen modal. In most cases, you'd want the modal's logic to live within the component, but the positioning of the modal quickly becomes difficult to solve through CSS, or requires a change in component composition.
 
-Consider the following HTML structure. The main `div#app` holds a class of `.demo`, which makes it have a `position: relative`. 
-
-Nested deeper inside, we have yet another wrapping `div` that holds two Vue components: `modal-button` and `modal-button-teleport` which we will look at later on.
+Consider the following HTML structure.
 
 ```html
 <body>
-  <div id="app" class="demo">
+  <div style="position: relative;">
     <h3>Tooltips with Vue 3 Teleport</h3>
     <div>
       <modal-button></modal-button>
-      <modal-button-teleport></modal-button-teleport>
     </div>
   </div>
 </body>
 ```
 
-Let's take a look first at `modal-button`. 
+Let's take a look at `modal-button`. 
 
 The component will have a `button` element to trigger the opening of the modal, and a `div` element with a class of `.modal`, which will contain the modal's content and a button to self-close.
 
@@ -38,7 +35,6 @@ app.component('modal-button', {
     <div v-if="modalOpen" class="modal">
       <div>
         I'm a modal! 
-        (My parent is ".demo")
         <button @click="modalOpen = false">
           Close
         </button>
@@ -53,14 +49,14 @@ app.component('modal-button', {
 })
 ```
 
-When using this component inside the initial HTML structure, we can quickly see the problem - the modal is being rendered inside the deeply nested `div` and the `position: absolute` of the modal takes the nested `div` as a parent reference.
+When using this component inside the initial HTML structure, we can see a problem - the modal is being rendered inside the deeply nested `div` and the `position: absolute` of the modal takes the parent relatively positioned `div` as reference.
 
-Teleport provides a clean way to allow us to control under which parent in our DOM we want a piece of HTML to be rendered at.
+Teleport provides a clean way to allow us to control under which parent in our DOM we want a piece of HTML to be rendered at, without having to resort to global state or splitting this into two components.
 
-In the following component, `modal-button-teleport`, we use `<teleport>` to tell Vue "**teleport** this HTML **to** the "**body**" tag". 
+Let's modify our `modal-button` to use `<teleport>` and tell Vue "**teleport** this HTML **to** the "**body**" tag". 
 
 ```js
-app.component('modal-button-teleport', {
+app.component('modal-button', {
   template: `
     <button @click="modalOpen = true">
         Open full screen modal! (With teleport!)
