@@ -158,7 +158,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Usage:**
 
-  Apply a mixin in the whole application scope, which will affect **every** Vue instance created afterwards in the given app (for example, child components). This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+  Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
 
 - **See also:** [Global Mixin](../guide/mixins.html#global-mixin)
 
