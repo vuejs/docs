@@ -56,7 +56,7 @@ Vue.createApp({
   },
   methods: {
     greet(event) {
-      // `this` inside methods points to the Vue instance
+      // `this` inside methods points to the current active instance
       alert('Hello ' + this.name + '!')
       // `event` is the native DOM event
       if (event) {

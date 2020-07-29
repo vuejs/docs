@@ -148,7 +148,7 @@ app.directive('focus', {
   mounted: el => el.focus()
 })
 
-// now every Vue instance mounted with app.mount(), along with its
+// now every application instance mounted with app.mount(), along with its
 // component tree, will have the same “button-counter” component
 // and “focus” directive without polluting the global environment
 app.mount('#app')

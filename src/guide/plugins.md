@@ -10,7 +10,7 @@ There is no strictly defined scope for a plugin, but common scenarios where plug
 
 3. Add some component options by global mixin (e.g. [vue-router](https://github.com/vuejs/vue-router)).
 
-4. Add some Vue instance methods by attaching them to `config.globalProperties`.
+4. Add some global instance methods by attaching them to `config.globalProperties`.
 
 5. A library that provides an API of its own, while at the same time injecting some combination of the above (e.g. [vue-router](https://github.com/vuejs/vue-router)).
 

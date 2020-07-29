@@ -67,7 +67,7 @@ As with Vue's transition components, the data backing state transitions can be u
 
 ## Organizing Transitions into Components
 
-Managing many state transitions can quickly increase the complexity of a Vue instance or component. Fortunately, many animations can be extracted out into dedicated child components. Let's do this with the animated integer from our earlier example:
+Managing many state transitions can quickly increase the complexity of a component instance. Fortunately, many animations can be extracted out into dedicated child components. Let's do this with the animated integer from our earlier example:
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
