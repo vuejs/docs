@@ -89,6 +89,7 @@ Before we dive into render functions, it’s important to know a little about ho
 <div>
   <h1>My title</h1>
   Some text content
+  <!-- TODO: Add tagline -->
 </div>
 ```
 
@@ -274,9 +275,9 @@ The `v-model` directive is expanded to `modelValue` and `onUpdate:modelValue` pr
 ```js
 props: ['modelValue'],
 render() {
-  return Vue.h('input', {
+  return Vue.h(SomeComponent, {
     modelValue: this.modelValue,
-    'onUpdate:modelValue': value => this.$emit('onUpdate:modelValue', value)
+    'onUpdate:modelValue': value => this.$emit('update:modelValue', value)
   })
 }
 ```
@@ -378,8 +379,8 @@ To pass slots to a child component using render functions:
 ```js
 render() {
   // `<div><child v-slot="props"><span>{{ props.text }}</span></child></div>`
-  return Vue.('div', [
-    Vue.('child', {}, {
+  return Vue.h('div', [
+    Vue.h('child', {}, {
       // pass `slots` as the children object
       // in the form of { name: props => VNode | Array<VNode> }
       default: (props) => Vue.h('span', props.text)

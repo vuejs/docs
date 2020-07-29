@@ -31,6 +31,10 @@ body
   box-sizing border-box
   border-bottom 1px solid $borderColor
 
+html.with-beta-banner
+  .navbar
+    top 37px
+
 .sidebar-mask
   position fixed
   z-index 9
@@ -47,12 +51,16 @@ body
   position fixed
   z-index 10
   margin 0
-  top $navbarHeight
+  top 3.6rem
   left 0
   bottom 0
   box-sizing border-box
   border-right 1px solid $borderColor
   overflow-y auto
+
+html.with-beta-banner
+  .sidebar
+    top calc(3.6rem + 37px)
 
 {$contentClass}:not(.custom)
   @extend $wrapper
@@ -107,11 +115,11 @@ ul, ol
   padding-left 1.2em
 
 strong
-  font-weight 600
+  font-weight 500
 
 h1, h2, h3, h4, h5, h6
-  font-weight 600
-  line-height 1.25
+  font-weight 500
+  line-height 1.45
 
   {$contentClass}:not(.custom) > &
     margin-top (0.5rem - $navbarHeight)
@@ -136,6 +144,7 @@ h1, h2, h3, h4, h5, h6
 
 h1
   font-size 2.2rem
+  font-weight 600
 
 h2
   font-size 1.65rem
@@ -205,3 +214,42 @@ th, td
       padding-left 0
 
 @require 'mobile.styl'
+
+.sponsor-group
+  padding: 0 40px;
+
+  &.platinum
+    text-align: center;
+
+    a
+      display: inline-block;
+      margin: 20px;
+    img
+      width: 250px;
+      vertical-align: middle;
+
+  &.sponsor-section
+    margin-top: 0;
+    margin-bottom: 60px;
+
+  &.patreon-sponsors,
+  &.open-collective-sponsors
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+
+  &.patreon-sponsors
+    a
+      display: inline-block;
+      margin: 10px 20px;
+    img
+      width: 140px;
+
+  &.open-collective-sponsors
+    img
+      max-width: 140px;
+      max-height: 60px;
+
+

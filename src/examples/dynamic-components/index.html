@@ -26,7 +26,19 @@
     </div>
   </body>
   <script>
-    const app = Vue.createApp()
+    const app = Vue.createApp({
+      data() {
+        return {
+          currentTab: 'Home',
+          tabs: ['Home', 'Posts', 'Archive']
+        }
+      },
+      computed: {
+        currentTabComponent() {
+          return 'tab-' + this.currentTab.toLowerCase()
+        }
+      }
+    })
 
     app.component('tab-home', {
       template: `<div>Home component</div>`
@@ -38,21 +50,6 @@
       template: `<div>Archive component</div>`
     })
 
-    app.mount(
-      {
-        data() {
-          return {
-            currentTab: 'Home',
-            tabs: ['Home', 'Posts', 'Archive']
-          }
-        },
-        computed: {
-          currentTabComponent() {
-            return 'tab-' + this.currentTab.toLowerCase()
-          }
-        }
-      },
-      '#dynamic-component-demo'
-    )
+    app.mount('#dynamic-component-demo')
   </script>
 </html>

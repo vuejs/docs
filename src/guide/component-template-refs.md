@@ -44,4 +44,4 @@ When `ref` is used together with `v-for`, the ref you get will be an array conta
 `$refs` are only populated after the component has been rendered. It is only meant as an escape hatch for direct child manipulation - you should avoid accessing `$refs` from within templates or computed properties.
 :::
 
-**See also**: [Using template refs in Composition API](../api/composition-api.html#template-refs)
+**See also**: [Using template refs in Composition API](/guide/composition-api-template-refs.html#template-refs)

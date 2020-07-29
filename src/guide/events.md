@@ -127,6 +127,29 @@ methods: {
 }
 ```
 
+## Multiple Event Handlers
+
+You can have multiple methods in an event handler separated by a comma operator like this:
+
+```html
+<!-- both one() and two() will execute on button click -->
+<button @click="one($event), two($event)">
+  Submit
+</button>
+```
+
+```js
+// ...
+methods: {
+  one(event) {
+    // first handler logic...
+  },
+  two(event) {
+    // second handler logic...
+  }
+}
+```
+
 ## Event Modifiers
 
 It is a very common need to call `event.preventDefault()` or `event.stopPropagation()` inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.

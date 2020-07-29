@@ -105,7 +105,7 @@ export default {
 #### Group of Lines
 
 ````
-```js{4-7}
+```js{4-5}
 export default {
   name: 'MyComponent',
   props: {

@@ -1,13 +1,7 @@
 <template>
-  <div
-    v-if="prev || next"
-    class="page-nav"
-  >
+  <div v-if="prev || next" class="page-nav">
     <p class="inner">
-      <span
-        v-if="prev"
-        class="prev"
-      >
+      <span v-if="prev" class="prev">
         ←
         <a
           v-if="prev.type === 'external'"
@@ -17,23 +11,13 @@
           rel="noopener noreferrer"
         >
           {{ prev.title || prev.path }}
-
           <OutboundLink />
         </a>
 
-        <RouterLink
-          v-else
-          class="prev"
-          :to="prev.path"
-        >
-          {{ prev.title || prev.path }}
-        </RouterLink>
+        <RouterLink v-else class="prev" :to="prev.path">{{ prev.title || prev.path }}</RouterLink>
       </span>
 
-      <span
-        v-if="next"
-        class="next"
-      >
+      <span v-if="next" class="next">
         <a
           v-if="next.type === 'external'"
           :href="next.path"
@@ -41,17 +25,10 @@
           rel="noopener noreferrer"
         >
           {{ next.title || next.path }}
-
           <OutboundLink />
         </a>
 
-        <RouterLink
-          v-else
-          :to="next.path"
-        >
-          {{ next.title || next.path }}
-        </RouterLink>
-        →
+        <RouterLink v-else :to="next.path">{{ next.title || next.path }}</RouterLink>→
       </span>
     </p>
   </div>
@@ -68,21 +45,21 @@ export default {
   props: ['sidebarItems'],
 
   computed: {
-    prev () {
+    prev() {
       return resolvePageLink(LINK_TYPES.PREV, this)
     },
 
-    next () {
+    next() {
       return resolvePageLink(LINK_TYPES.NEXT, this)
     }
   }
 }
 
-function resolvePrev (page, items) {
+function resolvePrev(page, items) {
   return find(page, items, -1)
 }
 
-function resolveNext (page, items) {
+function resolveNext(page, items) {
   return find(page, items, 1)
 }
 
@@ -99,7 +76,7 @@ const LINK_TYPES = {
   }
 }
 
-function resolvePageLink (
+function resolvePageLink(
   linkType,
   { $themeConfig, $page, $route, $site, sidebarItems }
 ) {
@@ -123,7 +100,7 @@ function resolvePageLink (
   }
 }
 
-function find (page, items, offset) {
+function find(page, items, offset) {
   const res = []
   flatten(items, res)
   for (let i = 0; i < res.length; i++) {
@@ -134,7 +111,7 @@ function find (page, items, offset) {
   }
 }
 
-function flatten (items, res) {
+function flatten(items, res) {
   for (let i = 0, l = items.length; i < l; i++) {
     if (items[i].type === 'group') {
       flatten(items[i].children || [], res)
@@ -146,18 +123,22 @@ function flatten (items, res) {
 </script>
 
 <style lang="stylus">
-@require '../styles/wrapper.styl'
+@require '../styles/wrapper.styl';
 
-.page-nav
-  @extend $wrapper
-  padding-top 1rem
-  padding-bottom 0
-  .inner
-    min-height 2rem
-    margin-top 0
-    border-top 1px solid $borderColor
-    padding-top 1rem
-    overflow auto // clear float
-  .next
-    float right
+.page-nav {
+  @extend $wrapper;
+  padding-top: 1rem;
+  padding-bottom: 0;
+
+  .inner {
+    min-height: 2rem;
+    margin-top: 0;
+    padding-top: 1rem;
+    overflow: auto; // clear float
+  }
+
+  .next {
+    float: right;
+  }
+}
 </style>

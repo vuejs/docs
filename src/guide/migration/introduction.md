@@ -4,9 +4,7 @@
 
 We're glad you asked! The answer is no. We've gone to great lengths to ensure most of the API is the same and the core concepts haven't changed. It's long because we like to offer very detailed explanations and include a lot of examples. Rest assured, **this is not something you have to read from top to bottom!**
 
-[//]: # 'TODO: update composition API with a link'
-
-Possibly the biggest change is our new Composition API, which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
+Possibly the biggest change is our new [Composition API](/guide/composition-api-introduction.html), which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
 
 ## Overview
 
@@ -15,22 +13,45 @@ Possibly the biggest change is our new Composition API, which is entirely additi
 Some of the new features to keep an eye on in Vue 3 include:
 
 - [Composition API](/guide/composition-api-introduction.html)
-- [Teleport](/guide/teleport)
-- [Fragments](/guide/migration/fragments)
+- [Teleport](/guide/teleport.html)
+- [Fragments](/guide/migration/fragments.html)
 - [Emits Component Option](/guide/component-custom-events.html)
 - `createRenderer` API from `@vue/runtime-core` to create custom renderers
 
 ### Breaking
 
-The following consists a list of breaking changes from v2:
+The following consists a list of breaking changes from 2.x:
 
-- **keyCode support as `v-on` modifiers.** For more information, [see in-depth explanation](/guides/migration/keycodes.html)
+- [Global Vue API is changed to use an application instance](/guide/migration/global-api.html)
+- [Global and internal APIs have been restructured to be tree-shakable](/guide/migration/global-api-treeshaking.html)
+- [`model` component option and `v-bind`'s `sync` modifier are removed in favor of `v-model` arguments](/guide/migration/v-model.html)
+- [Render function API changed](/guide/migration/render-function-api.html)
+- [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
+- [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
+- [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
+- [Component data option should always be declared as a function](/guide/migration/data-option.html)
+- [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.html)
+- [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.html)
+- [`$scopedSlots` property is removed and need to be replaced with `$slots`](/guide/migration/slots-unification.html)
+- [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
+- [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
+- Some transition classes got a rename:
+  - `v-enter` -> `v-enter-from`
+  - `v-leave` -> `v-leave-from`
+- [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
+
+### Removed
+
+- [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.html)
+- [$on, $off and \$once instance methods](/guide/migration/events-api.html)
+- [Filters](/guide/migration/filters.html)
+- [Inline templates attributes](/guide/migration/inline-template-attribute.html)
 
 ## FAQ
 
-> Where should I start in a migration?
+### Where should I start in a migration?
 
-[//]: # 'TODO: update this link when we have a migration helper'
+> Migration helper is still under development
 
 1. Start by running the [migration helper](https://github.com/vuejs/vue-migration-helper) on a current project. We've carefully minified and compressed a senior Vue dev into a simple command line interface. Whenever they recognize an obsolete feature, they'll let you know, offer suggestions, and provide links to more info.
 
@@ -38,9 +59,9 @@ The following consists a list of breaking changes from v2:
 
 3. If you have any tests, run them and see what still fails. If you don't have tests, just open the app in your browser and keep an eye out for warnings or errors as you navigate around.
 
-4. By now, your app should be fully migrated. If you're still hungry for more though, you can read the rest of this page - or dive in to the new and improved guide from [the beginning](index.html). Many parts will be skimmable, since you're already familiar with the core concepts.
+4. By now, your app should be fully migrated. If you're still hungry for more though, you can read the rest of this page - or dive in to the new and improved guide from [the beginning](#overview). Many parts will be skimmable, since you're already familiar with the core concepts.
 
-> How long will it take to migrate a Vue 2.x app to 3.0?
+### How long will it take to migrate a Vue 2.x app to 3.0?
 
 It depends on a few factors:
 
@@ -48,10 +69,8 @@ It depends on a few factors:
 
 - How many times you get distracted and start playing with a cool new feature. 😉 &nbsp;Not judging, it also happened to us while building 3.0!
 
-[//]: # 'TODO: update this with link to styleguide'
+- Which obsolete features you're using. Most can be upgraded with find-and-replace, but others might take a few minutes. If you're not currently following best practices according to [our styleguide](/style-guide/), Vue 3.0 will also try harder to force you to. This is a good thing in the long run, but could also mean a significant (though possibly overdue) refactor.
 
-- Which obsolete features you're using. Most can be upgraded with find-and-replace, but others might take a few minutes. If you're not currently following best practices according to our styleguide, Vue 3.0 will also try harder to force you to. This is a good thing in the long run, but could also mean a significant (though possibly overdue) refactor.
+### If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
 
-> If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
-
-[//]: # 'TODO: still need to see where this lands'
+Yes, currently both [Vuex](https://github.com/vuejs/vuex/tree/4.0#vuex-4) and [Vue Router](https://github.com/vuejs/vue-router-next) are in beta

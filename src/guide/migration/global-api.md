@@ -4,7 +4,7 @@ types:
   - breaking
 ---
 
-# Global API Changes
+# Global API
 
 <MigrationBadges :badges="$frontmatter.types" />
 
@@ -31,22 +31,18 @@ While this approach is convenient, it leads to a couple of problems. Technically
 
 - Global configuration makes it easy to accidentally pollute other test cases during testing. Users need to carefully store original global configuration and restore it after each test (e.g. resetting `Vue.config.errorHandler`). Some APIs like `Vue.use` and `Vue.mixin` don't even have a way to revert their effects. This makes tests involving plugins particularly tricky. In fact, vue-test-utils has to implement a special API `createLocalVue` to deal with this:
 
-      	``` js
+```js
+import { createLocalVue, mount } from '@vue/test-utils'
 
-  import { createLocalVue, mount } from '@vue/test-utils'
+// create an extended `Vue` constructor
+const localVue = createLocalVue()
 
-  // create an extended `Vue` constructor
-  const localVue = createLocalVue()
+// install a plugin “globally” on the “local” Vue constructor
+localVue.use(MyPlugin)
 
-  // install a plugin “globally” on the “local” Vue constructor
-  localVue.use(MyPlugin)
-
-  // pass the `localVue` to the mount options
-  mount(Component, { localVue })
-
-  ```
-
-  ```
+// pass the `localVue` to the mount options
+mount(Component, { localVue })
+```
 
 - Global configuration makes it difficult to share the same copy of Vue between multiple "apps" on the same page, but with different global configurations.
 
@@ -77,14 +73,14 @@ An app instance exposes a subset of the current global APIs. The rule of thumb i
 | 2.x Global API             | 3.x Instance API (`app`)                                                                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------- |
 | Vue.config                 | app.config                                                                                      |
-| Vue.config.productionTip   | _removed_ ([see below](config-productiontip-removed))                                           |
+| Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                          |
 | Vue.config.ignoredElements | app.config.isCustomElement ([see below](#config-ignoredelements-is-now-config-iscustomelement)) |
 | Vue.component              | app.component                                                                                   |
 | Vue.directive              | app.directive                                                                                   |
 | Vue.mixin                  | app.mixin                                                                                       |
 | Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                               |
 
-All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./treeshaking.html).
+All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./global-api-treeshaking.html).
 
 ### `config.productionTip` Removed
 
@@ -134,28 +130,20 @@ app.use(VueRouter)
 
 ## Mounting App Instance
 
-After being initialized with `createApp()`, the app instance `app` can be used to mount a Vue root instance with `app.mount(VueInstance, domTarget)`:
+After being initialized with `createApp(VueInstance)`, the app instance `app` can be used to mount a Vue root instance with `app.mount(domTarget)`:
 
 ```js
 import { createApp } from 'vue'
 import MyApp from './MyApp.vue'
 
-const app = createApp()
-app.mount(MyApp, ‘#app’)
-```
-
-The `mount` method can also accept props to be passed to the root component via a third argument:
-
-```js
-app.mount(MyApp, '#app', {
-  // props to be passed to root component
-})
+const app = createApp(MyApp)
+app.mount('#app')
 ```
 
 With all these changes, the component and directive we have at the beginning of the guide will be rewritten into something like this:
 
 ```js
-const app = createApp()
+const app = createApp(MyApp)
 
 app.component('button-counter', {
   data: () => ({
@@ -165,13 +153,13 @@ app.component('button-counter', {
 })
 
 app.directive('focus', {
-  inserted: el => el.focus()
+  mounted: el => el.focus()
 })
 
 // now every Vue instance mounted with app.mount(), along with its
 // component tree, will have the same “button-counter” component
 // and “focus” directive without polluting the global environment
-app.mount(MyApp, '#app')
+app.mount('#app')
 ```
 
 ## Provide / Inject
@@ -204,15 +192,15 @@ import { createApp } from 'vue'
 import Foo from './Foo.vue'
 import Bar from './Bar.vue'
 
-const createMyApp = () => {
-  const app = createApp()
+const createMyApp = VueInstance => {
+  const app = createApp(VueInstance)
   app.directive('focus' /* ... */)
 
   return app
 }
 
-createApp().mount(Foo, '#foo')
-createApp().mount(Bar, '#bar')
+createMyApp(Foo).mount('#foo')
+createMyApp(Bar).mount('#bar')
 ```
 
 Now the `focus` directive will be available in both Foo and Bar instances and their descendants.

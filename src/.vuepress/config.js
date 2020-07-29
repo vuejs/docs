@@ -23,12 +23,23 @@ const sidebar = {
       children: [
         '/guide/component-registration',
         '/guide/component-props',
+        '/guide/component-attrs',
         '/guide/component-custom-events',
         '/guide/component-slots',
         '/guide/component-provide-inject',
         '/guide/component-dynamic-async',
         '/guide/component-template-refs',
         '/guide/component-edge-cases'
+      ]
+    },
+    {
+      title: 'Transitions & Animation',
+      collapsable: false,
+      children: [
+        '/guide/transitions-overview',
+        '/guide/transitions-enterleave',
+        '/guide/transitions-list',
+        '/guide/transitions-state'
       ]
     },
     {
@@ -71,42 +82,58 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: ['/guide/single-file-component', '/guide/testing']
+      children: [
+        '/guide/single-file-component',
+        '/guide/testing',
+        '/guide/typescript-support'
+      ]
     },
     {
       title: 'Scaling Up',
       collapsable: false,
+      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
+    },
+    {
+      title: 'Accessibility',
+      collapsable: false,
       children: [
-        '/guide/routing',
-        '/guide/state-management',
-        '/guide/ssr',
-        '/guide/accessibility'
+        '/guide/a11y-basics',
+        '/guide/a11y-semantics',
+        '/guide/a11y-standards',
+        '/guide/a11y-resources'
       ]
     },
     {
-      title: 'Migration to Vue 3',
+      title: 'Migration from Vue 2',
       collapsable: true,
       children: [
         'migration/introduction',
-        'migration/global-api',
-        'migration/treeshaking',
-        'migration/v-model',
-        'migration/functional-components',
         'migration/async-components',
+        'migration/attribute-coercion',
         'migration/custom-directives',
-        'migration/events-api',
+        'migration/custom-elements-interop',
         'migration/data-option',
+        'migration/events-api',
         'migration/filters',
         'migration/fragments',
+        'migration/functional-components',
+        'migration/global-api',
+        'migration/global-api-treeshaking',
+        'migration/inline-template-attribute',
+        'migration/keycode-modifiers',
         'migration/render-function-api',
         'migration/slots-unification',
-        'migration/keycode-modifiers'
+        'migration/v-model'
       ]
     },
     {
       title: 'Contribute to the Docs',
       collapsable: true,
-      children: ['writing-guide', 'doc-style-guide']
+      children: [
+        'contributing/writing-guide',
+        'contributing/doc-style-guide',
+        'contributing/translations'
+      ]
     }
   ],
   api: [
@@ -151,7 +178,7 @@ module.exports = {
       'link',
       {
         href:
-          'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&amp;display=swap',
+          'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
         rel: 'stylesheet'
       }
     ],
@@ -191,27 +218,57 @@ module.exports = {
       },
       { text: 'API Reference', link: '/api/application-config' },
       {
-        text: 'Examples',
-        ariaLabel: 'Examples Menu',
+        text: 'Ecosystem',
         items: [
-          { text: 'Examples', link: '/examples/' },
-          { text: 'Cookbook', link: '/cookbook/' }
+          {
+            text: 'Community',
+            ariaLabel: 'Community Menu',
+            items: [
+              { text: 'Team', link: '/community/team/' },
+              { text: 'Partners', link: '/community/partners' },
+              { text: 'Join', link: '/community/join/' },
+              { text: 'Themes', link: '/community/themes/' }
+            ]
+          },
+          {
+            text: 'Official Projects',
+            items: [
+              { text: 'Vue Router', link: 'https://router.vuejs.org/' },
+              { text: 'Vuex', link: 'https://vuex.vuejs.org/' },
+              { text: 'Vue CLI', link: 'https://cli.vuejs.org/' },
+              {
+                text: 'Vue Test Utils',
+                link: 'https://vue-test-utils.vuejs.org/'
+              },
+              {
+                text: 'Devtools',
+                link: 'https://github.com/vuejs/vue-devtools'
+              },
+              { text: 'Weekly news', link: 'https://news.vuejs.org/' }
+            ]
+          }
         ]
       },
       {
-        text: 'Community',
-        ariaLabel: 'Community Menu',
+        text: 'Support Vue',
+        link: '/support-vuejs/',
         items: [
-          { text: 'Team', link: '/community/team/' },
-          { text: 'Partners', link: '/community/partners/' },
-          { text: 'Join', link: '/community/join/' },
-          { text: 'Themes', link: '/community/themes/' }
+          {
+            text: 'One-time Donations',
+            link: '/support-vuejs/#one-time-donations'
+          },
+          {
+            text: 'Recurring Pledges',
+            link: '/support-vuejs/#recurring-pledges'
+          },
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
         ]
       }
     ],
     repo: 'vuejs/docs-next',
-    editLinks: true,
+    editLinks: false,
     editLinkText: 'Edit this on GitHub!',
+    lastUpdated: 'Last updated',
     docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {

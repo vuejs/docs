@@ -16,11 +16,15 @@ app.component('button-counter', {
     }
   },
   template: `
-    <button v-on:click="count++">
+    <button @click="count++">
       You clicked me {{ count }} times.
     </button>`
 })
 ```
+
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
 
 Components are reusable Vue instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root Vue instance:
 
@@ -239,6 +243,17 @@ Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent wil
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+We can list emitted events in the component's `emits` option.
+
+```js
+app.component('blog-post', {
+  props: ['title'],
+  emits: ['enlarge-text']
+})
+```
+
+This will allow you to check all the events component emits and optionally [validate them](component-custom-events.html#validate-emitted-events)
+
 ### Emitting a Value With an Event
 
 It's sometimes useful to emit a specific value with an event. For example, we may want the `<blog-post>` component to be in charge of how much to enlarge the text by. In those cases, we can use `$emit`'s 2nd parameter to provide this value:
@@ -376,7 +391,7 @@ The above is made possible by Vue's `<component>` element with the `is` special 
 
 ```html
 <!-- Component changes when currentTabComponent changes -->
-<component v-bind:is="currentTabComponent"></component>
+<component :is="currentTabComponent"></component>
 ```
 
 In the example above, `currentTabComponent` can contain either:
@@ -402,13 +417,26 @@ This will lead to issues when using components with elements that have such rest
 </table>
 ```
 
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. Fortunately, the `is` special attribute offers a workaround:
+The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. Fortunately, we can use `v-is` special directive as a workaround:
 
 ```html
 <table>
-  <tr is="blog-post-row"></tr>
+  <tr v-is="'blog-post-row'"></tr>
 </table>
 ```
+
+:::warning
+`v-is` value should be a JavaScript string literal:
+
+```html
+<!-- Incorrect, nothing will be rendered -->
+<tr v-is="blog-post-row"></tr>
+
+<!-- Correct -->
+<tr v-is="'blog-post-row'"></tr>
+```
+
+:::
 
 Also, HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, camelCased prop names and event handler parameters need to use their kebab-cased (hyphen-delimited) equivalents:
 
@@ -432,9 +460,9 @@ app.component('blog-post', {
 It should be noted that **these limitations does _not_ apply if you are using string templates from one of the following sources**:
 
 - String templates (e.g. `template: '...'`)
-- [Single-file (`.vue`) components](../guide/single-file-component.html)
+- [Single-file (`.vue`) components](single-file-component.html)
 - `<script type="text/x-template">`
 
 That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
 
-Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](components-dynamic-async), as well as the other pages in the Components In-Depth section of the sidebar.
+Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](component-dynamic-async.html), as well as the other pages in the Components In-Depth section of the sidebar.

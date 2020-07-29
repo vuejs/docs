@@ -8,7 +8,7 @@ types:
 
 <MigrationBadges :badges="$frontmatter.types" />
 
-## Previous Syntax
+## 2.x Syntax
 
 If you’ve ever had to manually manipulate DOM in Vue, you might have come across this pattern:
 
@@ -43,7 +43,7 @@ But what if you’ve never had to deal with manual DOM manipulation, nor are you
 
 Module bundlers like [webpack](https://webpack.js.org/) support [tree-shaking](https://webpack.js.org/guides/tree-shaking/), which is a fancy term for “dead code elimination.” Unfortunately, due to how the code is written in previous Vue versions, global APIs like `Vue.nextTick()` are not tree-shakeable and will be included in the final bundle regardless of where they are actually used or not.
 
-## Current Syntax
+## 3.x Syntax
 
 In Vue 3, the global and internal APIs have been restructured with tree-shaking support in mind. As a result, the global APIs can now only be accessed as named exports for the ES Modules build. For example, our previous snippets should now look like this:
 
@@ -101,12 +101,10 @@ In addition to public APIs, many of the internal components/helpers are now expo
 is compiled into something similar to the following:
 
 ```js
-import { h, Transition, applyDirectives, vShow } from 'vue'
+import { h, Transition, withDirectives, vShow } from 'vue'
 
 export function render() {
-  return h(Transition, [
-    applyDirectives(h('div', 'hello'), this, [vShow, this.ok])
-  ])
+  return h(Transition, [withDirectives(h('div', 'hello'), [[vShow, this.ok]])])
 }
 ```
 

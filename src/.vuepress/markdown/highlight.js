@@ -61,7 +61,7 @@ module.exports = fancyHighlight => {
           'directive-expression': {
             pattern: /^=(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,
             inside: {
-              puntuation: [/^=/, /^["']|["']$/],
+              punctuation: [/^=/, /^["']|["']$/],
               'inline-js language-js': {
                 pattern: /.*/,
                 inside: prism.languages.javascript

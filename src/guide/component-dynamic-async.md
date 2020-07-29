@@ -7,7 +7,7 @@
 Earlier, we used the `is` attribute to switch between components in a tabbed interface:
 
 ```vue-html
-<component v-bind:is="currentTabComponent"></component>
+<component :is="currentTabComponent"></component>
 ```
 
 When switching between these components though, you'll sometimes want to maintain their state or avoid re-rendering for performance reasons. For example, when expanding our tabbed interface a little:
@@ -26,7 +26,7 @@ Recreating dynamic components is normally useful behavior, but in this case, we'
 ```vue-html
 <!-- Inactive components will be cached! -->
 <keep-alive>
-  <component v-bind:is="currentTabComponent"></component>
+  <component :is="currentTabComponent"></component>
 </keep-alive>
 ```
 
