@@ -57,10 +57,10 @@ The second argument passed to the `setup` function is the `context`. The `contex
 
 export default {
   setup(props, context) {
-    // Attributes (Reactive Property)
+    // Attributes (Non-reactive object)
     console.log(context.attrs)
 
-    // Slots (Reactive Property)
+    // Slots (Non-reactive object)
     console.log(context.slots)
 
     // Emit Events (Method)
@@ -69,31 +69,18 @@ export default {
 }
 ```
 
-Because it is a normal JavaScript object, i.e., it is not reactive, this means you can safely use ES6 destructuring on `context`.
+The `context` object is a normal JavaScript object, i.e., it is not reactive, this means you can safely use ES6 destructuring on `context`.
 
 ```js
 // MyBook.vue
 export default {
-	setup(props, { attrs, slots, emit }) {
-		...
-	}
+  setup(props, { attrs, slots, emit }) {
+    ...
+  }
 }
 ```
 
-As a result, similar to `props`, if you need to destructure either of these properties, you can utilize the `toRefs` method to create a similar effects.
-
-```jsx
-// MyBook.vue
-
-import { toRefs } from 'vue'
-
-export default {
-	setup(props, { attrs }) {
-		const { id } = toRefs(attrs)
-		console.log(id.value)
-	}
-)
-```
+`attrs` and `slots` are stateful objects that are always updated when the component itself is updated. This means you should avoid destructuring them and always reference properties as `attrs.x` or `slots.x`. Also note that unlike `props`, `attrs` and `slots` are **not** reactive. If you intend to apply side effects based on `attrs` or `slots` changes, you should do so inside an `onUpdated` lifecycle hook.
 
 ## Accessing Component Properties
 
