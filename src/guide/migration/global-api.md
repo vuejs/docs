@@ -1,12 +1,9 @@
 ---
-types:
-  - core
+badges:
   - breaking
 ---
 
-# Global API
-
-<MigrationBadges :badges="$frontmatter.types" />
+# Global API <MigrationBadges :badges="$frontmatter.badges" />
 
 Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to create a global component, you would use the `Vue.component` API like this:
 

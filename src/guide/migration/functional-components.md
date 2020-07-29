@@ -1,11 +1,9 @@
 ---
-types:
+badges:
   - breaking
 ---
 
-# Functional Components
-
-<MigrationBadges :badges="$frontmatter.types" />
+# Functional Components <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

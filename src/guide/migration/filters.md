@@ -1,12 +1,9 @@
 ---
-types:
+badges:
   - removed
-  - breaking
 ---
 
-# Filters
-
-<MigrationBadges :badges="$frontmatter.types" />
+# Filters <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

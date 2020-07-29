@@ -1,4 +1,9 @@
-# Custom Directives
+---
+badges:
+  - breaking
+---
+
+# Custom Directives <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

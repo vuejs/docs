@@ -1,12 +1,9 @@
 ---
-types:
-  - core
+badges:
   - breaking
 ---
 
-# Global API Treeshaking
-
-<MigrationBadges :badges="$frontmatter.types" />
+# Global API Treeshaking <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 2.x Syntax
 

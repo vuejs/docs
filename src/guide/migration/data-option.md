@@ -1,12 +1,10 @@
 ---
 title: Data Option
-types:
+badges:
   - breaking
 ---
 
-# {{ $frontmatter.title }}
-
-<MigrationBadges :badges="$frontmatter.types" />
+# {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

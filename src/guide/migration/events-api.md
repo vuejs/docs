@@ -1,12 +1,9 @@
 ---
-types:
-  - removed
+badges:
   - breaking
 ---
 
-# Events API
-
-<MigrationBadges :badges="$frontmatter.types" />
+# Events API <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

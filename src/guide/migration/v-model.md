@@ -1,13 +1,9 @@
 ---
-types:
-  - core
+badges:
   - breaking
-  - directives
 ---
 
-# `v-model`
-
-<MigrationBadges :badges="$frontmatter.types" />
+# `v-model` <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 
