@@ -51,7 +51,7 @@ app.component('modal-button', {
 
 When using this component inside the initial HTML structure, we can see a problem - the modal is being rendered inside the deeply nested `div` and the `position: absolute` of the modal takes the parent relatively positioned `div` as reference.
 
-Teleport provides a clean way to allow us to control under which parent in our DOM we want a piece of HTML to be rendered at, without having to resort to global state or splitting this into two components.
+Teleport provides a clean way to allow us to control under which parent in our DOM we want a piece of HTML to be rendered, without having to resort to global state or splitting this into two components.
 
 Let's modify our `modal-button` to use `<teleport>` and tell Vue "**teleport** this HTML **to** the "**body**" tag". 
 
