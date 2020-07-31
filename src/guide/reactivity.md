@@ -114,7 +114,7 @@ console.log(proxy.meal)
 // tacos
 ```
 
-We mentioned before that in order to have an API that updates a final value when something changes, we’re going to have to set new values when something changes. We do this in the handler, in a function called `track`, where pass in the `target` and `key`.
+We mentioned before that in order to have an API that updates a final value when something changes, we’re going to have to set new values when something changes. We do this in the handler, in a function called `track`, where we pass in the `target` and `key`.
 
 ```js
 const dinner = {
