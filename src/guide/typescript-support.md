@@ -223,7 +223,7 @@ If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>
 
 ### Typing `reactive`
 
-When typing a `reactive` property, we can use use interfaces:
+When typing a `reactive` property, we can use interfaces:
 
 ```ts
 import { defineComponent, reactive } from 'vue'
