@@ -204,7 +204,7 @@ const Component = defineComponent({
   setup() {
     const year = ref(2020)
 
-    const result = year.value.split('') // => Property 'filter' does not exist on type 'number'
+    const result = year.value.split('') // => Property 'split' does not exist on type 'number'
   }
 })
 ```
