@@ -6,7 +6,7 @@
 
 - **Details:**
 
-  The data object that the Vue instance is observing. The Vue instance proxies access to the properties on its data object.
+  The data object that the component instance is observing. The component instance proxies access to the properties on its data object.
 
 - **See also:** [Options / Data - data](./options-data.html#data-2)
 
@@ -16,7 +16,7 @@
 
 - **Details:**
 
-  An object representing the current props a component has received. The Vue instance proxies access to the properties on its props object.
+  An object representing the current props a component has received. The component instance proxies access to the properties on its props object.
 
 ## $el
 
@@ -26,7 +26,7 @@
 
 - **Details:**
 
-  The root DOM element that the Vue instance is managing.
+  The root DOM element that the component instance is managing.
 
 ## $options
 
@@ -36,7 +36,7 @@
 
 - **Details:**
 
-  The instantiation options used for the current Vue instance. This is useful when you want to include custom properties in the options:
+  The instantiation options used for the current component instance. This is useful when you want to include custom properties in the options:
 
   ```js
   const app = Vue.createApp({
@@ -49,7 +49,7 @@
 
 ## $parent
 
-- **Type:** `Vue instance`
+- **Type:** `Component instance`
 
 - **Read only**
 
@@ -59,13 +59,13 @@
 
 ## $root
 
-- **Type:** `Vue instance`
+- **Type:** `Component instance`
 
 - **Read only**
 
 - **Details:**
 
-  The root Vue instance of the current component tree. If the current instance has no parents this value will be itself.
+  The root component instance of the current component tree. If the current instance has no parents this value will be itself.
 
 ## $slots
 

@@ -26,7 +26,7 @@ app.component('button-counter', {
 We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
 :::
 
-Components are reusable Vue instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root Vue instance:
+Components are reusable instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root instance:
 
 ```html
 <div id="components-demo">
@@ -45,7 +45,7 @@ app.mount('#components-demo')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Since components are reusable Vue instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
+Since components are reusable instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
 
 ## Reusing Components
 
@@ -86,7 +86,7 @@ app.component('my-component-name', {
 })
 ```
 
-Globally registered components can be used in the template of `app` instance created afterwards - and even inside all subcomponents of that Vue instance's component tree.
+Globally registered components can be used in the template of `app` instance created afterwards - and even inside all subcomponents of that root instance's component tree.
 
 That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](component-registration.md).
 
@@ -141,7 +141,7 @@ const App = {
   }
 }
 
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('blog-post', {
   props: ['title'],
@@ -220,7 +220,7 @@ The problem is, this button doesn't do anything:
 </button>
 ```
 
-When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. Fortunately, Vue instances provide a custom events system to solve this problem. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
+When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. Fortunately, component instances provide a custom events system to solve this problem. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
