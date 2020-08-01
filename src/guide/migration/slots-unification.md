@@ -32,15 +32,13 @@ this.$scopedSlots.header
 
 ## 3.x Syntax
 
-In 3.x, render functions will have a `slots` option where they can be defined instead.
+In 3.x, slots are defined as children of the current node as an object:
 
 ```js
 // 3.x Syntax
-h(LayoutComponent, {
-  slots: {
-    header: () => h('div', this.header),
-    content: () => h('div', this.content)
-  }
+h(LayoutComponent, {}, {
+  header: () => h('div', this.header),
+  content: () => h('div', this.content)
 })
 ```
 
