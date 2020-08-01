@@ -94,9 +94,7 @@ Beyond a console log, we could do anything here we wish. We could even _not_ ret
 
 Furthermore, there’s another feature Proxies offer us. Rather than just returning the value like this: `target[prop]`, we could take this a step further and use a feature called `Reflect`, which allows us to do proper `this` binding. It looks like this:
 
-[//]: # 'TODO: line highlighting?'
-
-```js
+```js{7}
 const dinner = {
   meal: 'tacos'
 }
@@ -114,9 +112,9 @@ console.log(proxy.meal)
 // tacos
 ```
 
-We mentioned before that in order to have an API that updates a final value when something changes, we’re going to have to set new values when something changes. We do this in the handler, in a function called `track`, where pass in the `target` and `key`.
+We mentioned before that in order to have an API that updates a final value when something changes, we’re going to have to set new values when something changes. We do this in the handler, in a function called `track`, where we pass in the `target` and `key`.
 
-```js
+```js{7}
 const dinner = {
   meal: 'tacos'
 }
