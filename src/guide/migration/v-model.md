@@ -96,7 +96,10 @@ In 3.x `v-model` on the custom component is an equivalent of passing a `modelVal
 
 <!-- would be shorthand for: -->
 
-<MyBook :modelValue="pageTitle" @update:modelValue="pageTitle = $event" />
+<ChildComponent
+  :modelValue="pageTitle"
+  @update:modelValue="pageTitle = $event"
+/>
 ```
 
 ### `v-model` arguments

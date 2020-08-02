@@ -43,7 +43,7 @@ While this seems like a convenience, it requires a custom syntax that breaks the
 
 ## 3.x Update
 
-In 3.x, filters are removed and no longer supported. Instead, we recommend replacing with method calls or computed properties instead.
+In 3.x, filters are removed and no longer supported. Instead, we recommend replacing them with method calls or computed properties.
 
 Using the example above, here is one example of how it could be implemented.
 

@@ -110,5 +110,5 @@ The main differences are that:
 
 For more information on the usage of the new functional components and the changes to render functions in general, see:
 
-- [Migration: Render Functions](TODO)
+- [Migration: Render Functions](/guide/migration/render-function-api.html)
 - [Guide: Render Functions](/guide/render-function.html)

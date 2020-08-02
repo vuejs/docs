@@ -1,6 +1,6 @@
 # Instance Methods
 
-## $watch
+## \$watch
 
 - **Arguments:**
 
@@ -14,7 +14,7 @@
 
 - **Usage:**
 
-  Watch an expression or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value. The expression only accepts dot-delimited paths. For more complex expressions, use a function instead.
+  Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `prop`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
 
 - **Example:**
 
@@ -23,16 +23,28 @@
     data() {
       return {
         a: 1,
-        b: 2
+        b: 2,
+        c: {
+          d: 3,
+          e: 4
+        }
       }
     },
     created() {
-      // keypath
+      // top-level property name
       this.$watch('a', (newVal, oldVal) => {
         // do something
       })
 
-      // function
+      // function for watching a single nested property
+      this.$watch(
+        () => this.c.d,
+        (newVal, oldVal) => {
+          // do something
+        }
+      )
+
+      // function for watching a complex expression
       this.$watch(
         // every time the expression `this.a + this.b` yields a different result,
         // the handler will be called. It's as if we were watching a computed
@@ -160,7 +172,7 @@
 
 - **See also:** [Watchers](../guide/computed.html#watchers)
 
-## $emit
+## \$emit
 
 - **Arguments:**
 
@@ -237,13 +249,13 @@
   - [`emits` option](./options-data.html#emits)
   - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
 
-## $forceUpdate
+## \$forceUpdate
 
 - **Usage:**
 
-  Force the Vue instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
+  Force the component instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
 
-## $nextTick
+## \$nextTick
 
 - **Arguments:**
 

@@ -76,7 +76,7 @@ To get type inference for the arguments passed to `setup()`, the use of [defineC
   }
   ```
 
-- **See also**: [Composition API `setup`](,,/guide/composition-api-setup.html)
+- **See also**: [Composition API `setup`](../guide/composition-api-setup.html)
 
 ## Lifecycle Hooks
 

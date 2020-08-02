@@ -6,7 +6,7 @@
 
 - **Details:**
 
-  A hash of directives to be made available to the Vue instance.
+  A hash of directives to be made available to the component instance.
 
 - **See also:** [Custom Directives](../guide/custom-directive.html)
 
@@ -16,6 +16,6 @@
 
 - **Details:**
 
-  A hash of components to be made available to the Vue instance.
+  A hash of components to be made available to the component instance.
 
 - **See also:** [Components](../guide/component-basics.html)

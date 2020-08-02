@@ -23,12 +23,23 @@ const sidebar = {
       children: [
         '/guide/component-registration',
         '/guide/component-props',
+        '/guide/component-attrs',
         '/guide/component-custom-events',
         '/guide/component-slots',
         '/guide/component-provide-inject',
         '/guide/component-dynamic-async',
         '/guide/component-template-refs',
         '/guide/component-edge-cases'
+      ]
+    },
+    {
+      title: 'Transitions & Animation',
+      collapsable: false,
+      children: [
+        '/guide/transitions-overview',
+        '/guide/transitions-enterleave',
+        '/guide/transitions-list',
+        '/guide/transitions-state'
       ]
     },
     {
@@ -71,7 +82,11 @@ const sidebar = {
     {
       title: 'Tooling',
       collapsable: false,
-      children: ['/guide/single-file-component', '/guide/testing']
+      children: [
+        '/guide/single-file-component',
+        '/guide/testing',
+        '/guide/typescript-support'
+      ]
     },
     {
       title: 'Scaling Up',
@@ -89,7 +104,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Migration to Vue 3',
+      title: 'Migration from Vue 2',
       collapsable: true,
       children: [
         'migration/introduction',
@@ -114,7 +129,11 @@ const sidebar = {
     {
       title: 'Contribute to the Docs',
       collapsable: true,
-      children: ['writing-guide', 'doc-style-guide']
+      children: [
+        'contributing/writing-guide',
+        'contributing/doc-style-guide',
+        'contributing/translations'
+      ]
     }
   ],
   api: [
@@ -206,7 +225,7 @@ module.exports = {
             ariaLabel: 'Community Menu',
             items: [
               { text: 'Team', link: '/community/team/' },
-              { text: 'Partners', link: '/community/partners/' },
+              { text: 'Partners', link: '/community/partners' },
               { text: 'Join', link: '/community/join/' },
               { text: 'Themes', link: '/community/themes/' }
             ]
@@ -228,6 +247,21 @@ module.exports = {
               { text: 'Weekly news', link: 'https://news.vuejs.org/' }
             ]
           }
+        ]
+      },
+      {
+        text: 'Support Vue',
+        link: '/support-vuejs/',
+        items: [
+          {
+            text: 'One-time Donations',
+            link: '/support-vuejs/#one-time-donations'
+          },
+          {
+            text: 'Recurring Pledges',
+            link: '/support-vuejs/#recurring-pledges'
+          },
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
         ]
       }
     ],

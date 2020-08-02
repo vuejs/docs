@@ -79,7 +79,7 @@ app.component('anchored-heading', {
 })
 ```
 
-The `render()` function implementation is much simpler, but also requires greater familiarity with Vue instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default()`. If you haven't already, **it's recommended to read through the [instance properties API](../api/instance-properties.html) before diving into render functions.**
+The `render()` function implementation is much simpler, but also requires greater familiarity with component instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default()`. If you haven't already, **it's recommended to read through the [instance properties API](../api/instance-properties.html) before diving into render functions.**
 
 ## The DOM tree
 
@@ -89,6 +89,7 @@ Before we dive into render functions, it’s important to know a little about ho
 <div>
   <h1>My title</h1>
   Some text content
+  <!-- TODO: Add tagline -->
 </div>
 ```
 
@@ -274,9 +275,9 @@ The `v-model` directive is expanded to `modelValue` and `onUpdate:modelValue` pr
 ```js
 props: ['modelValue'],
 render() {
-  return Vue.h('input', {
+  return Vue.h(SomeComponent, {
     modelValue: this.modelValue,
-    'onUpdate:modelValue': value => this.$emit('onUpdate:modelValue', value)
+    'onUpdate:modelValue': value => this.$emit('update:modelValue', value)
   })
 }
 ```

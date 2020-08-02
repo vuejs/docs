@@ -56,7 +56,7 @@ Vue.createApp({
   },
   methods: {
     greet(event) {
-      // `this` inside methods points to the Vue instance
+      // `this` inside methods points to the current active instance
       alert('Hello ' + this.name + '!')
       // `event` is the native DOM event
       if (event) {
@@ -123,6 +123,29 @@ methods: {
       event.preventDefault()
     }
     alert(message)
+  }
+}
+```
+
+## Multiple Event Handlers
+
+You can have multiple methods in an event handler separated by a comma operator like this:
+
+```html
+<!-- both one() and two() will execute on button click -->
+<button @click="one($event), two($event)">
+  Submit
+</button>
+```
+
+```js
+// ...
+methods: {
+  one(event) {
+    // first handler logic...
+  },
+  two(event) {
+    // second handler logic...
   }
 }
 ```

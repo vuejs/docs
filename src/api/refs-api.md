@@ -16,7 +16,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./proxy-api.html#reactive) method.
+If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.html#reactive) method.
 
 **Typing:**
 
@@ -106,7 +106,7 @@ Type of stateAsRefs:
 
 // The ref and the original property is "linked"
 state.foo++
-console.log(stateAsRefs.foo) // 2
+console.log(stateAsRefs.foo.value) // 2
 
 stateAsRefs.foo.value++
 console.log(state.foo) // 3
@@ -210,3 +210,26 @@ isReactive(foo.value) // false
 ```
 
 **See also**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
+
+## `triggerRef`
+
+Execute any effects tied to a  [`shallowRef`](#shallowref) manually.
+
+```js
+const shallow = shallowRef({
+  greet: 'Hello, world'
+})
+
+// Logs "Hello, world" once for the first run-through
+watchEffect(() => {
+  console.log(shallow.value.greet)
+})
+
+// This won't trigger the effect because the ref is shallow
+shallow.value.greet = 'Hello, universe'
+
+// Logs "Hello, universe"
+triggerRef(shallow)
+```
+
+**See also:** [Computed and Watch - watchEffect](./computed-watch-api.html#watcheffect)

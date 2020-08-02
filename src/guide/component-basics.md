@@ -16,13 +16,17 @@ app.component('button-counter', {
     }
   },
   template: `
-    <button v-on:click="count++">
+    <button @click="count++">
       You clicked me {{ count }} times.
     </button>`
 })
 ```
 
-Components are reusable Vue instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root Vue instance:
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
+
+Components are reusable instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root instance:
 
 ```html
 <div id="components-demo">
@@ -41,7 +45,7 @@ app.mount('#components-demo')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Since components are reusable Vue instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
+Since components are reusable instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
 
 ## Reusing Components
 
@@ -82,7 +86,7 @@ app.component('my-component-name', {
 })
 ```
 
-Globally registered components can be used in the template of `app` instance created afterwards - and even inside all subcomponents of that Vue instance's component tree.
+Globally registered components can be used in the template of `app` instance created afterwards - and even inside all subcomponents of that root instance's component tree.
 
 That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](component-registration.md).
 
@@ -137,7 +141,7 @@ const App = {
   }
 }
 
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('blog-post', {
   props: ['title'],
@@ -216,7 +220,7 @@ The problem is, this button doesn't do anything:
 </button>
 ```
 
-When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. Fortunately, Vue instances provide a custom events system to solve this problem. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
+When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. Fortunately, component instances provide a custom events system to solve this problem. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
@@ -238,6 +242,17 @@ Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent wil
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+We can list emitted events in the component's `emits` option.
+
+```js
+app.component('blog-post', {
+  props: ['title'],
+  emits: ['enlarge-text']
+})
+```
+
+This will allow you to check all the events component emits and optionally [validate them](component-custom-events.html#validate-emitted-events)
 
 ### Emitting a Value With an Event
 
@@ -321,6 +336,30 @@ Now `v-model` should work perfectly with this component:
 
 ```html
 <custom-input v-model="searchText"></custom-input>
+```
+
+Another way of creating the `v-model` capability within a custom component is to use the ability of `computed` properties' to define a getter and setter.
+
+In the following example, we refactor the `custom-input` component using a computed property. 
+
+Keep in mind, the `get` method should return the `modelValue` property, or whichever property is being using for binding, and the `set` method should fire off the corresponding `$emit` for that property.
+
+```js
+app.component('custom-input', {
+  props: ['modelValue'],
+  template: `
+    <input v-model="value">
+  `,
+  computed: {
+    value: {
+      get() {
+        return this.modelValue
+      },
+      set(value) { this.$emit('update:modelValue', value)
+      }
+    }
+  }
+})
 ```
 
 That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](component-custom-events.md).
@@ -445,9 +484,9 @@ app.component('blog-post', {
 It should be noted that **these limitations does _not_ apply if you are using string templates from one of the following sources**:
 
 - String templates (e.g. `template: '...'`)
-- [Single-file (`.vue`) components](../guide/single-file-component.html)
+- [Single-file (`.vue`) components](single-file-component.html)
 - `<script type="text/x-template">`
 
 That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
 
-Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](components-dynamic-async), as well as the other pages in the Components In-Depth section of the sidebar.
+Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](component-dynamic-async.html), as well as the other pages in the Components In-Depth section of the sidebar.

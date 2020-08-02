@@ -38,6 +38,7 @@ The following consists a list of breaking changes from 2.x:
 - Some transition classes got a rename:
   - `v-enter` -> `v-enter-from`
   - `v-leave` -> `v-leave-from`
+- [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
 
 ### Removed
 
@@ -50,9 +51,7 @@ The following consists a list of breaking changes from 2.x:
 
 ### Where should I start in a migration?
 
-> Migration helper is still under development
-
-1. Start by running the [migration helper](https://github.com/vuejs/vue-migration-helper) on a current project. We've carefully minified and compressed a senior Vue dev into a simple command line interface. Whenever they recognize an obsolete feature, they'll let you know, offer suggestions, and provide links to more info.
+1. Start by running the migration helper (still under development) on a current project. We've carefully minified and compressed a senior Vue dev into a simple command line interface. Whenever they recognize an obsolete feature, they'll let you know, offer suggestions, and provide links to more info.
 
 2. After that, browse through the table of contents for this page in the sidebar. If you see a topic you may be affected by, but the migration helper didn't catch, check it out.
 

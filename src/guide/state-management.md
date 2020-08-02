@@ -10,7 +10,7 @@ If you're coming from React, you may be wondering how vuex compares to [redux](h
 
 ## Simple State Management from Scratch
 
-It is often overlooked that the source of truth in Vue applications is the raw `data` object - a Vue instance only proxies access to it. Therefore, if you have a piece of state that should be shared by multiple instances, you can share it by identity:
+It is often overlooked that the source of truth in Vue applications is the raw `data` object - a component instance only proxies access to it. Therefore, if you have a piece of state that should be shared by multiple instances, you can share it by identity:
 
 ``` js
 const sourceOfTruth = {

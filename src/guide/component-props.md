@@ -34,14 +34,14 @@ So far, you've seen props passed a static value, like in:
 <blog-post title="My journey with Vue"></blog-post>
 ```
 
-You've also seen props assigned dynamically with `v-bind`, such as in:
+You've also seen props assigned dynamically with `v-bind` or its shortcut, the `:` character, such as in:
 
 ```html
 <!-- Dynamically assign the value of a variable -->
-<blog-post v-bind:title="post.title"></blog-post>
+<blog-post :title="post.title"></blog-post>
 
 <!-- Dynamically assign the value of a complex expression -->
-<blog-post v-bind:title="post.title + ' by ' + post.author.name"></blog-post>
+<blog-post :title="post.title + ' by ' + post.author.name"></blog-post>
 ```
 
 In the two examples above, we happen to pass string values, but _any_ type of value can actually be passed to a prop.
@@ -51,10 +51,10 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 ```html
 <!-- Even though `42` is static, we need v-bind to tell Vue that -->
 <!-- this is a JavaScript expression rather than a string.       -->
-<blog-post v-bind:likes="42"></blog-post>
+<blog-post :likes="42"></blog-post>
 
 <!-- Dynamically assign to the value of a variable. -->
-<blog-post v-bind:likes="post.likes"></blog-post>
+<blog-post :likes="post.likes"></blog-post>
 ```
 
 ### Passing a Boolean
@@ -65,10 +65,10 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 
 <!-- Even though `false` is static, we need v-bind to tell Vue that -->
 <!-- this is a JavaScript expression rather than a string.          -->
-<blog-post v-bind:is-published="false"></blog-post>
+<blog-post :is-published="false"></blog-post>
 
 <!-- Dynamically assign to the value of a variable. -->
-<blog-post v-bind:is-published="post.isPublished"></blog-post>
+<blog-post :is-published="post.isPublished"></blog-post>
 ```
 
 ### Passing an Array
@@ -76,10 +76,10 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 ```html
 <!-- Even though the array is static, we need v-bind to tell Vue that -->
 <!-- this is a JavaScript expression rather than a string.            -->
-<blog-post v-bind:comment-ids="[234, 266, 273]"></blog-post>
+<blog-post :comment-ids="[234, 266, 273]"></blog-post>
 
 <!-- Dynamically assign to the value of a variable. -->
-<blog-post v-bind:comment-ids="post.commentIds"></blog-post>
+<blog-post :comment-ids="post.commentIds"></blog-post>
 ```
 
 ### Passing an Object
@@ -88,19 +88,19 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <!-- Even though the object is static, we need v-bind to tell Vue that -->
 <!-- this is a JavaScript expression rather than a string.             -->
 <blog-post
-  v-bind:author="{
+  :author="{
     name: 'Veronica',
     company: 'Veridian Dynamics'
   }"
 ></blog-post>
 
 <!-- Dynamically assign to the value of a variable. -->
-<blog-post v-bind:author="post.author"></blog-post>
+<blog-post :author="post.author"></blog-post>
 ```
 
 ### Passing the Properties of an Object
 
-If you want to pass all the properties of an object as props, you can use `v-bind` without an argument (`v-bind` instead of `v-bind:prop-name`). For example, given a `post` object:
+If you want to pass all the properties of an object as props, you can use `v-bind` without an argument (`v-bind` instead of `:prop-name`). For example, given a `post` object:
 
 ```js
 post: {
@@ -245,89 +245,6 @@ app.component('blog-post', {
 ```
 
 to validate that the value of the `author` prop was created with `new Person`.
-
-## Non-Prop Attributes
-
-A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined. Common examples of this include `class`, `style`, and `id` attributes.
-
-### Attribute Inheritance
-
-When a component returns a single root node, non-prop attributes will automatically be added to the root node's attributes. For example, in the instance of a date-picker component:
-
-```js
-app.component('date-picker', {
-  template: `
-    <div class="date-picker">
-      <input type="datetime" />
-    </div>
-  `
-})
-```
-
-In the event we need to define the status of the date-picker component via a `data-status` property, it will be applied to the root node (i.e., `div.date-picker`).
-
-```html
-<!-- Date-picker component with a non-prop attribute -->
-<date-picker data-status="activated"></date-picker>
-
-<!-- Rendered date-picker component -->
-<div class="date-picker" data-status="activated">
-  <input type="datetime" />
-</div>
-```
-
-### Disabling Attribute Inheritance
-
-If you do **not** want a component to automatically inherit attributes, you can set `inheritAttrs: false` in the component's options.
-
-There are two common scenarios when attribute inheritance needs to be disabled:
-
-1. When attributes need to be applied to other elements besides the root node
-1. When a component has multiple root nodes
-
-By setting the `inheritAttrs` option to `false`, this gives you access to the component's `$attrs` property, which includes all attributes not included to component `props` and `emits` properties (e.g., `class`, `style`, `v-on` listeners, etc.).
-
-#### Single Root Node
-
-Using our date-picker component example from the [previous section]('#attribute-inheritance), in the event we need to apply all non-prop attributes to the `input` element rather than the root `div` element, this can be accomplished by using the `v-bind` shortcut.
-
-```js{5}
-app.component('date-picker', {
-  inheritAttrs: false,
-  template: `
-    <div class="date-picker">
-      <input type="datetime" v-bind="$attrs" />
-    </div>
-  `
-})
-```
-
-With this new configuration, our `data-status` attribute will be applied to our `input` element!
-
-```html
-<!-- Date-picker component with a non-prop attribute -->
-<date-picker data-status="activated"></date-picker>
-
-<!-- Rendered date-picker component -->
-<div class="date-picker">
-  <input type="datetime" data-status="activated" />
-</div>
-```
-
-#### Multiple Root Nodes
-
-Unlike single root node components, components with multiple root nodes do not have an automatic attribute fallthrough behavior if `inheritAttrs` and `$attrs` are not defined. A runtime warning will be issued if this is left off
-
-```js{2,5}
-app.component('custom-layout', {
-  inheritAttrs: false,
-  template: `
-    <header>...</header>
-    <main v-bind="$attrs">...</main>
-    <footer>...</footer>
-  `
-})
-```
 
 ## Prop Casing (camelCase vs kebab-case)
 
