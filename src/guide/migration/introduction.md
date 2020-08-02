@@ -39,6 +39,7 @@ The following consists a list of breaking changes from 2.x:
   - `v-enter` -> `v-enter-from`
   - `v-leave` -> `v-leave-from`
 - [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
+- In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead.
 
 ### Removed
 
