@@ -338,6 +338,30 @@ Now `v-model` should work perfectly with this component:
 <custom-input v-model="searchText"></custom-input>
 ```
 
+Another way of creating the `v-model` capability within a custom component is to use the ability of `computed` properties' to define a getter and setter.
+
+In the following example, we refactor the `custom-input` component using a computed property. 
+
+Keep in mind, the `get` method should return the `modelValue` property, or whichever property is being using for binding, and the `set` method should fire off the corresponding `$emit` for that property.
+
+```js
+app.component('custom-input', {
+  props: ['modelValue'],
+  template: `
+    <input v-model="value">
+  `,
+  computed: {
+    value: {
+      get() {
+        return this.modelValue
+      },
+      set(value) { this.$emit('update:modelValue', value)
+      }
+    }
+  }
+})
+```
+
 That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](component-custom-events.md).
 
 ## Content Distribution with Slots
