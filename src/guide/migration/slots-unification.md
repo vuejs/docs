@@ -1,4 +1,9 @@
-# Slots Unification
+---
+badges:
+  - breaking
+---
+
+# Slots Unification <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

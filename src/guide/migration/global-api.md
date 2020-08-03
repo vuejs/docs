@@ -1,4 +1,9 @@
-# Global API
+---
+badges:
+  - breaking
+---
+
+# Global API <MigrationBadges :badges="$frontmatter.badges" />
 
 Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to create a global component, you would use the `Vue.component` API like this:
 
@@ -23,18 +28,18 @@ While this approach is convenient, it leads to a couple of problems. Technically
 
 - Global configuration makes it easy to accidentally pollute other test cases during testing. Users need to carefully store original global configuration and restore it after each test (e.g. resetting `Vue.config.errorHandler`). Some APIs like `Vue.use` and `Vue.mixin` don't even have a way to revert their effects. This makes tests involving plugins particularly tricky. In fact, vue-test-utils has to implement a special API `createLocalVue` to deal with this:
 
-  ```js
-  import { createLocalVue, mount } from '@vue/test-utils'
+```js
+import { createLocalVue, mount } from '@vue/test-utils'
 
-  // create an extended `Vue` constructor
-  const localVue = createLocalVue()
+// create an extended `Vue` constructor
+const localVue = createLocalVue()
 
-  // install a plugin “globally” on the “local” Vue constructor
-  localVue.use(MyPlugin)
+// install a plugin “globally” on the “local” Vue constructor
+localVue.use(MyPlugin)
 
-  // pass the `localVue` to the mount options
-  mount(Component, { localVue })
-  ```
+// pass the `localVue` to the mount options
+mount(Component, { localVue })
+```
 
 - Global configuration makes it difficult to share the same copy of Vue between multiple "apps" on the same page, but with different global configurations.
 
