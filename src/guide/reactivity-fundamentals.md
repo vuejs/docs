@@ -124,7 +124,7 @@ const book = reactive({
 let { author, title } = book
 ```
 
-Unfortunately, with such a destructuring the reactivity for both properties would be lost. For such case, we need to convert our reactive object to a set of `refs`. These refs will retaining the reactive connection to the source object:
+Unfortunately, with such a destructuring the reactivity for both properties would be lost. For such a case, we need to convert our reactive object to a set of refs. These refs will retain the reactive connection to the source object:
 
 ```js
 import { reactive, toRefs } from 'vue'

@@ -209,7 +209,7 @@ app.component('my-component', {
   template: `<input
     type="text"
     :value="modelValue"
-    :input="emitValue">`
+    @input="emitValue">`
 })
 
 app.mount('#app')

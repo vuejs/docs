@@ -7,7 +7,7 @@ badges:
 
 ## Overview
 
-`$on`, `$off` and `$once` instance methods are removed. Vue instances no longer implement the event emitter interface.
+`$on`, `$off` and `$once` instance methods are removed. Application instances no longer implement the event emitter interface.
 
 ## 2.x Syntax
 
@@ -54,7 +54,7 @@ export default {
 
 ## 3.x Update
 
-We removed `$on`, `$off` and `$once` methods from Vue instance completely. `$emit` is still a part of the existing API as it's used to trigger event handlers declaratively attached by a parent component
+We removed `$on`, `$off` and `$once` methods from the instance completely. `$emit` is still a part of the existing API as it's used to trigger event handlers declaratively attached by a parent component
 
 ## Migration Strategy
 

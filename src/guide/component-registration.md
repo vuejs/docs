@@ -7,7 +7,7 @@
 When registering a component, it will always be given a name. For example, in the global registration we've seen so far:
 
 ```js
-const app = createApp({...})
+const app = Vue.createApp({...})
 
 app.component('my-component-name', {
   /* ... */
@@ -51,7 +51,7 @@ When defining a component with PascalCase, you can use either case when referenc
 
 ## Global Registration
 
-So far, we've only created components using `Vue.component`:
+So far, we've only created components using `app.component`:
 
 ```js
 Vue.createApp({...}).component('my-component-name', {
@@ -59,7 +59,7 @@ Vue.createApp({...}).component('my-component-name', {
 })
 ```
 
-These components are **globally registered**. That means they can be used in the template of any root Vue instance created after registration. For example:
+These components are **globally registered** for the application. That means they can be used in the template of any component instance within this application:
 
 ```js
 const app = Vue.createApp({})

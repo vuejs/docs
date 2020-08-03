@@ -132,7 +132,7 @@ app.mixin({
 app.mount('#mixins-global') // => "hello!"
 ```
 
-Use with caution! Once you apply a mixin globally, it will affect **every** Vue instance created afterwards in the given app (for example, child components):
+Use with caution! Once you apply a mixin globally, it will affect **every** component instance created afterwards in the given app (for example, child components):
 
 ```js
 const app = Vue.createApp({

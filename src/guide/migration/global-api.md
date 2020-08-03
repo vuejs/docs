@@ -62,7 +62,7 @@ Calling `createApp` returns an _app instance_, a new concept in Vue 3.
 ```js
 import { createApp } from 'vue'
 
-const app = createApp()
+const app = createApp({})
 ```
 
 An app instance exposes a subset of the current global APIs. The rule of thumb is _any APIs that globally mutate Vue's behavior are now moved to the app instance_. Here is a table of the current global APIs and their corresponding instance APIs:
@@ -94,7 +94,7 @@ This config option was introduced with the intention to support native custom el
 Vue.config.ignoredElements = ['my-el', /^ion-/]
 
 // after
-const app = Vue.createApp()
+const app = Vue.createApp({})
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
@@ -127,7 +127,7 @@ app.use(VueRouter)
 
 ## Mounting App Instance
 
-After being initialized with `createApp(VueInstance)`, the app instance `app` can be used to mount a Vue root instance with `app.mount(domTarget)`:
+After being initialized with `createApp(/* options */)`, the app instance `app` can be used to mount a Vue root instance with `app.mount(domTarget)`:
 
 ```js
 import { createApp } from 'vue'
@@ -153,7 +153,7 @@ app.directive('focus', {
   mounted: el => el.focus()
 })
 
-// now every Vue instance mounted with app.mount(), along with its
+// now every application instance mounted with app.mount(), along with its
 // component tree, will have the same “button-counter” component
 // and “focus” directive without polluting the global environment
 app.mount('#app')
@@ -166,17 +166,17 @@ Similar to using the `provide` option in a 2.x root instance, a Vue 3 app instan
 ```js
 // in the entry
 app.provide({
-  [ThemeSymbol]: theme
+  guide: 'Vue 3 Guide'
 })
 
 // in a child component
 export default {
   inject: {
-    theme: {
-      from: ThemeSymbol
+    book: {
+      from: guide
     }
   },
-  template: `<div :style="{ color: theme.textColor }" />`
+  template: `<div>{{ book }}</div>`
 }
 ```
 
@@ -189,8 +189,8 @@ import { createApp } from 'vue'
 import Foo from './Foo.vue'
 import Bar from './Bar.vue'
 
-const createMyApp = VueInstance => {
-  const app = createApp(VueInstance)
+const createMyApp = options => {
+  const app = createApp(options)
   app.directive('focus' /* ... */)
 
   return app
