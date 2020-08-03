@@ -28,7 +28,8 @@
           <OutboundLink />
         </a>
 
-        <RouterLink v-else :to="next.path">{{ next.title || next.path }}</RouterLink>→
+        <RouterLink v-else :to="next.path">{{ next.title || next.path }}</RouterLink>
+        →
       </span>
     </p>
   </div>
