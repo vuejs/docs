@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-Latest beta version: 3.0.0-rc.1
+Latest beta version: 3.0.0-rc.5
 
 Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue-next/releases).
 
