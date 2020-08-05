@@ -49,7 +49,7 @@ app.component('todo-list-statistics', {
 })
 ```
 
-However, this won't work if we try to provide some Vue instance property here:
+However, this won't work if we try to provide some component instance property here:
 
 ```js
 app.component('todo-list', {
@@ -67,7 +67,7 @@ app.component('todo-list', {
 })
 ```
 
-To access Vue instance properties, we need to convert `provide` to be a function returning an object
+To access component instance properties, we need to convert `provide` to be a function returning an object
 
 ```js
 app.component('todo-list', {

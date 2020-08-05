@@ -38,7 +38,7 @@ app.config.errorHandler = (err, vm, info) => {
 }
 ```
 
-Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the Vue instance.
+Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the application instance.
 
 > Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
 
@@ -134,7 +134,7 @@ app.mixin({
 
 Define merging strategies for custom options.
 
-The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context Vue instance is passed as the third argument.
+The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context application instance is passed as the third argument.
 
 - **See also:** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
 

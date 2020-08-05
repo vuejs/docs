@@ -2,52 +2,94 @@
 
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
-However, sometimes a part of a component's template belongs into this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of Vue app. For example, due to styling requirements, we want to move `<p id="content">` from it's deeply nested position to the `<div>` with `id="endofbody"`
+However, sometimes a part of a component's template belongs to this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of the Vue app. 
+
+A common scenario for this is creating a component that includes a full-screen modal. In most cases, you'd want the modal's logic to live within the component, but the positioning of the modal quickly becomes difficult to solve through CSS, or requires a change in component composition.
+
+Consider the following HTML structure.
 
 ```html
 <body>
-  <div id="app" class="demo">
-    <h3>Move the #content with the portal component</h3>
+  <div style="position: relative;">
+    <h3>Tooltips with Vue 3 Teleport</h3>
     <div>
-      <p id="content">
-        This should be moved to #endofbody.
-      </p>
-      <span>This content should be nested</span>
+      <modal-button></modal-button>
     </div>
   </div>
-  <div id="endofbody"></div>
 </body>
 ```
 
-To do so, we can use Vue's built-in `<teleport>` component:
+Let's take a look at `modal-button`. 
 
-```html
-<body>
-  <div id="app" class="demo">
-    <h3>Move the #content with the portal component</h3>
-    <div>
-      <teleport to="#endofbody">
-        <p id="content">
-          This should be moved to #endofbody.
-        </p>
-      </teleport>
-      <span>This content should be nested</span>
+The component will have a `button` element to trigger the opening of the modal, and a `div` element with a class of `.modal`, which will contain the modal's content and a button to self-close.
+
+```js
+const app = Vue.createApp({});
+
+app.component('modal-button', {
+  template: `
+    <button @click="modalOpen = true">
+        Open full screen modal!
+    </button>
+
+    <div v-if="modalOpen" class="modal">
+      <div>
+        I'm a modal! 
+        <button @click="modalOpen = false">
+          Close
+        </button>
+      </div>
     </div>
-  </div>
-  <div id="endofbody"></div>
-</body>
+  `,
+  data() {
+    return { 
+      modalOpen: false
+    }
+  }
+})
 ```
 
-As a result, we will have `teleport` content moved in the rendered DOM tree:
+When using this component inside the initial HTML structure, we can see a problem - the modal is being rendered inside the deeply nested `div` and the `position: absolute` of the modal takes the parent relatively positioned `div` as reference.
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNrXYXd" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Teleport">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNrXYXd">
-  Teleport</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
+Teleport provides a clean way to allow us to control under which parent in our DOM we want a piece of HTML to be rendered, without having to resort to global state or splitting this into two components.
+
+Let's modify our `modal-button` to use `<teleport>` and tell Vue "**teleport** this HTML **to** the "**body**" tag". 
+
+```js
+app.component('modal-button', {
+  template: `
+    <button @click="modalOpen = true">
+        Open full screen modal! (With teleport!)
+    </button>
+
+    <teleport to="body">
+      <div v-if="modalOpen" class="modal">
+        <div>
+          I'm a teleported modal! 
+          (My parent is "body")
+          <button @click="modalOpen = false">
+            Close
+          </button>
+        </div>
+      </div>
+    </teleport>
+  `,
+  data() {
+    return { 
+      modalOpen: false
+    }
+  }
+})
+```
+
+As a result, once we click the button to open the modal, Vue will correctly render the modal's content as a child of the `body` tag.
+
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="gOPNvjR" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Vue 3 Teleport">
+  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/gOPNvjR">
+  Vue 3 Teleport</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-As you can see, all of the children of `<teleport>` will be appended to `<div id="endofbody">`.
 
 ## Using with Vue components
 

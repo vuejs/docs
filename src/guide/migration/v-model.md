@@ -1,4 +1,9 @@
-# `v-model`
+---
+badges:
+  - breaking
+---
+
+# `v-model` <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

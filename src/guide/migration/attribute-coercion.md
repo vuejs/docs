@@ -1,4 +1,9 @@
-# Attribute Coercion Behavior
+---
+badges:
+  - breaking
+---
+
+# Attribute Coercion Behavior <MigrationBadges :badges="$frontmatter.badges" />
 
 ::: info Info
 This is a low-level internal API change and does not affect most developers.
@@ -27,7 +32,7 @@ In 2.x, we had the following strategies for coercing `v-bind` values:
 
 The following table describes how Vue coerce "enumerated attributes" differently with normal non-boolean attributes:
 
-| Binding expression       | `foo` <sup>normal</sup> | `draggable` <sup>enumerated</sup> |
+| Binding expression  | `foo` <sup>normal</sup> | `draggable` <sup>enumerated</sup> |
 | ------------------- | ----------------------- | --------------------------------- |
 | `:attr="null"`      | /                       | `draggable="false"`               |
 | `:attr="undefined"` | /                       | /                                 |
@@ -53,7 +58,7 @@ For non-boolean attributes, Vue will stop removing them if they are `false` and 
 
 The following table describes the new behavior:
 
-| Binding expression       | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
+| Binding expression  | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
 | ------------------- | -------------------------- | --------------------------------- |
 | `:attr="null"`      | /                          | / <sup>†</sup>                    |
 | `:attr="undefined"` | /                          | /                                 |

@@ -35,7 +35,7 @@ At the core of Vue.js is a system that enables us to declaratively render data t
 ```
 
 ```js
-const CounterApp = {
+const Counter = {
   data() {
     return {
       counter: 0
@@ -43,7 +43,7 @@ const CounterApp = {
   }
 }
 
-Vue.createApp(CounterApp).mount('#counter')
+Vue.createApp(Counter).mount('#counter')
 ```
 
 We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Take a look at the example below where `counter` property increments every second and you will see how rendered DOM changes:
@@ -77,7 +77,7 @@ In addition to text interpolation, we can also bind element attributes like this
 ```
 
 ```js
-const AttributeBindingApp = {
+const AttributeBinding = {
   data() {
     return {
       message: 'You loaded this page on ' + new Date().toLocaleString()
@@ -85,7 +85,7 @@ const AttributeBindingApp = {
   }
 }
 
-Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
+Vue.createApp(AttributeBinding).mount('#bind-attribute')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpRVvJ" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Attribute dynamic binding">
@@ -95,11 +95,11 @@ Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Here we're encountering something new. The `v-bind` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here we are basically saying "_keep this element's `title` attribute up-to-date with the `message` property on the Vue instance._"
+Here we're encountering something new. The `v-bind` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here we are basically saying "_keep this element's `title` attribute up-to-date with the `message` property on the current active instance._"
 
 ## Handling User Input
 
-To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
+To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our instances:
 
 ```html
 <div id="event-handling">
@@ -109,7 +109,7 @@ To let users interact with your app, we can use the `v-on` directive to attach e
 ```
 
 ```js
-const EventHandlingApp = {
+const EventHandling = {
   data() {
     return {
       message: 'Hello Vue.js!'
@@ -125,7 +125,7 @@ const EventHandlingApp = {
   }
 }
 
-Vue.createApp(EventHandlingApp).mount('#event-handling')
+Vue.createApp(EventHandling).mount('#event-handling')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="dyoeGjW" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling">
@@ -147,7 +147,7 @@ Vue also provides the `v-model` directive that makes two-way binding between for
 ```
 
 ```js
-const TwoWayBindingApp = {
+const TwoWayBinding = {
   data() {
     return {
       message: 'Hello Vue!'
@@ -155,7 +155,7 @@ const TwoWayBindingApp = {
   }
 }
 
-Vue.createApp(TwoWayBindingApp).mount('#two-way-binding')
+Vue.createApp(TwoWayBinding).mount('#two-way-binding')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="poJVgZm" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Two-way binding">
@@ -176,7 +176,7 @@ It's easy to toggle the presence of an element, too:
 ```
 
 ```js
-const ConditionalRenderingApp = {
+const ConditionalRendering = {
   data() {
     return {
       seen: true
@@ -184,7 +184,7 @@ const ConditionalRenderingApp = {
   }
 }
 
-Vue.createApp(ConditionalRenderingApp).mount('#conditional-rendering')
+Vue.createApp(ConditionalRendering).mount('#conditional-rendering')
 ```
 
 This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](TODO) when elements are inserted/updated/removed by Vue.
@@ -211,7 +211,7 @@ There are quite a few other directives, each with its own special functionality.
 ```
 
 ```js
-const ListRenderingApp = {
+const ListRendering = {
   data() {
     return {
       todos: [
@@ -223,7 +223,7 @@ const ListRenderingApp = {
   }
 }
 
-Vue.createApp(ListRenderingApp).mount('#list-rendering')
+Vue.createApp(ListRendering).mount('#list-rendering')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="mdJLVXq" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="List rendering">
@@ -239,7 +239,7 @@ The component system is another important concept in Vue, because it's an abstra
 
 ![Component Tree](/images/components.png)
 
-In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward: we create a component object as we did with `App` objects and we define it in parent's `components` option:
+In Vue, a component is essentially an instance with pre-defined options. Registering a component in Vue is straightforward: we create a component object as we did with `App` objects and we define it in parent's `components` option:
 
 ```js
 // Create Vue application
@@ -275,7 +275,7 @@ app.component('todo-item', {
 Now we can pass the todo into each repeated component using `v-bind`:
 
 ```html
-<div id="components-app">
+<div id="todo-list-app">
   <ol>
     <!--
       Now we provide each todo-item with the todo object
@@ -293,7 +293,7 @@ Now we can pass the todo into each repeated component using `v-bind`:
 ```
 
 ```js
-const ComponentsApp = {
+const TodoList = {
   data() {
     return {
       groceryList: [
@@ -305,14 +305,14 @@ const ComponentsApp = {
   }
 }
 
-const app = Vue.createApp(ComponentsApp)
+const app = Vue.createApp(TodoList)
 
 app.component('todo-item', {
   props: ['todo'],
   template: `<li>{{ todo.text }}</li>`
 })
 
-app.mount('#components-app')
+app.mount('#todo-list-app')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="VwLxeEz" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-Components-1">

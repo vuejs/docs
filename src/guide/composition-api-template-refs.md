@@ -59,7 +59,7 @@ Composition API template refs do not have special handling when used inside `v-f
 
 ```html
 <template>
-  <div v-for="(item, i) in list" :ref="el => { divs[i] = el }">
+  <div v-for="(item, i) in list" :ref="el => { if (el) divs[i] = el }">
     {{ item }}
   </div>
 </template>

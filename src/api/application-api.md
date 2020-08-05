@@ -158,7 +158,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Usage:**
 
-  Apply a mixin in the whole application scope, which will affect **every** Vue instance created afterwards in the given app (for example, child components). This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+  Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
 
 - **See also:** [Global Mixin](../guide/mixins.html#global-mixin)
 
@@ -191,44 +191,6 @@ app.mount('#my-app')
 
 - **See also:**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
-
-## provide
-
-- **Type:**
-
-  - `Object | () => Object`
-
-- **Details:**
-
-  This option is [used together with `inject`](../api/options-composition.html#provide-inject) to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain.
-
-  The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
-
-  > Note: the `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
-
-- **Example:**
-
-```js
-import { createApp } from 'vue'
-
-const app = createApp({
-  provide: {
-    user: 'John Doe'
-  }
-})
-
-app.component('user-card', {
-  inject: ['user'],
-  template: `
-    <div>
-      {{ user }}
-    </div>
-  `
-})
-```
-
-- **See also:**
-  - [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
 
