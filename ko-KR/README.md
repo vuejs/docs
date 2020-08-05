@@ -1,12 +1,12 @@
 # v3.vuejs.org
 
-이 사이트는 [VuePres](https://vuepress.vuejs.org/)s 로 구축 되었습니다 . 사이트 컨텐츠는에 `src` 위치한 마크 다운 형식으로 작성됩니다
+이 사이트는 [VuePress](https://vuepress.vuejs.org/) 로 구축 되었습니다 . 사이트 컨텐츠는에 `src` 위치한 마크 다운 형식으로 작성됩니다
 
 ## 문서 작성
 
 문서 작성 및 유지 관리에 대한 규칙 및 권장 사항 은 [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) 를 참조하십시오 .
 
-> The docs are in beta: The team is currently in the midst of changes and we are not ready for additional contributions yet. All content is subject to change. If you see a problem that you would like to bring to our attention, please [create an issue](https://github.com/vuejs/docs-next/issues/new) and we will get to it when we can. You may want to wait until the content is finalized, though.
+> 문서는 베타 버전입니다 : 팀은 현재 수정 중에 있으며, 아직 추가 공헌 준비하지 않습니다. 모든 컨텐츠는 변경 될 수 있습니다. 신경 쓰이는 문제가 있으시면, [이슈](https://github.com/vuejs/docs-next/issues/new)로 등록해주세요. 가능한 한 대응하겠습니다. 그러나 콘텐츠가 완성 될 때까지 기다리는 것이 좋습니다.
 
 ## 개발하기
 
@@ -25,9 +25,9 @@ yarn # or npm install
 1. 로컬 개발환경을 시작합니다.
 
 ```bash
-yarn serve
+yarn serve # or npm run serve
 ```
 
 ## 배포하기
 
-The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
+`master`에 커밋을 하면 [Netlify](https://www.netlify.com/)를 통하여 자동배포 됩니다
