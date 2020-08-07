@@ -44,10 +44,10 @@ import { defineAsyncComponent } from 'vue'
 import ErrorComponent from './components/ErrorComponent.vue'
 import LoadingComponent from './components/LoadingComponent.vue'
 
-// Async component without options
+// 옵션이 없는 비동기 컴포넌트
 const asyncPage = defineAsyncComponent(() => import('./NextPage.vue'))
 
-// Async component with options
+// 옵션이 있는 비동기 컴포넌트
 const asyncPageWithOptions = defineAsyncComponent({
   loader: () => import('./NextPage.vue'),
   delay: 200,
@@ -74,12 +74,12 @@ const asyncPageWithOptions = defineAsyncComponent({
 또한, 2.x와 달리 로더 함수는 `resolve`와 `reject` 인수를 받지 않으며 항상 Promise를 반환해야 합니다.
 
 ```js
-// 2.x version
+// 2.x 버전
 const oldAsyncComponent = (resolve, reject) => {
   /* ... */
 }
 
-// 3.x version
+// 3.x 버전
 const asyncComponent = defineAsyncComponent(
   () =>
     new Promise((resolve, reject) => {
