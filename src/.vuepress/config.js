@@ -167,6 +167,15 @@ const sidebar = {
       ]
     },
     '/api/composition-api'
+  ],
+  examples: [
+    {
+      title: 'Examples',
+      collapsable: false,
+      children: [
+        '/examples/markdown'
+      ]
+    }
   ]
 }
 
@@ -213,7 +222,8 @@ module.exports = {
         ariaLabel: 'Documentation Menu',
         items: [
           { text: 'Guide', link: '/guide/introduction' },
-          { text: 'Style Guide', link: '/style-guide/' }
+          { text: 'Style Guide', link: '/style-guide/' },
+          { text: 'Examples', link: '/examples/markdown' }
         ]
       },
       { text: 'API Reference', link: '/api/application-config' },
@@ -275,7 +285,8 @@ module.exports = {
       collapsable: false,
       '/guide/': sidebar.guide,
       '/community/': sidebar.guide,
-      '/api/': sidebar.api
+      '/api/': sidebar.api,
+      '/examples/': sidebar.examples
     },
     smoothScroll: false
   },
