@@ -175,7 +175,8 @@ const sidebar = {
       children: [
         '/examples/markdown',
         '/examples/commits',
-        '/examples/grid-component'
+        '/examples/grid-component',
+        '/examples/tree-view'
       ]
     }
   ]
