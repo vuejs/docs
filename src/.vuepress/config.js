@@ -174,7 +174,8 @@ const sidebar = {
       collapsable: false,
       children: [
         '/examples/markdown',
-        '/examples/commits'
+        '/examples/commits',
+        '/examples/grid-component'
       ]
     }
   ]
