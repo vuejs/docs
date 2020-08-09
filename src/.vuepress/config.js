@@ -173,7 +173,8 @@ const sidebar = {
       title: 'Examples',
       collapsable: false,
       children: [
-        '/examples/markdown'
+        '/examples/markdown',
+        '/examples/commits'
       ]
     }
   ]
