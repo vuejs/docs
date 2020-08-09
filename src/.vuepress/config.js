@@ -176,7 +176,8 @@ const sidebar = {
         '/examples/markdown',
         '/examples/commits',
         '/examples/grid-component',
-        '/examples/tree-view'
+        '/examples/tree-view',
+        '/examples/svg'
       ]
     }
   ]
