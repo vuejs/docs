@@ -107,7 +107,9 @@ export default {
 </script>
 ```
 
-## Adding Reactivity
+## Reactivity
+
+### Adding Reactivity
 
 To add reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.html#declaring-reactive-state) when providing a value.
 
@@ -143,41 +145,117 @@ export default {
 
 Now, if anything changes in either property, the `MyMarker` component will automatically be updated as well!
 
-::: warning
-We don't recommend mutating a reactive property where it's injected as this breaks the best practice of one-direction data flow. For more information, read the next section.
-:::
+### Mutating Reactive Properties
 
-##
+When using reactive provide / inject values, **it is recommended to keep any mutations to reactive properties inside of the _provider_ whenever possible**.
 
-# IGNORE
+For example, in the event we needed to change the user's location, we would ideally do this inside of our `MyMap` component.
 
-::: warning
-We don't recommend mutating a reactive property where it's injected as it's breaking Vue one-direction data flow. Instead, try to either mutate values where they are _provided_ or provide a method to mutate them
+```vue{28-32}
+<!-- src/components/MyMap.vue -->
+<template>
+  <MyMarker />
+</template>
+
+<script>
+import { provide, reactive, ref } from 'vue'
+import MyMarker from './MyMarker.vue
+
+export default {
+  components: {
+    MyMarker
+  },
+  setup() {
+    const location = ref('North Pole')
+    const geolocation = reactive({
+      longitude: 90,
+      latitude: 135
+    })
+
+    provide('location', location)
+    provide('geolocation', geolocation)
+
+    return {
+      location
+    }
+  },
+  methods: {
+    updateLocation() {
+      this.location = 'South Pole'
+    }
+  }
+}
+</script>
+```
+
+However, there are times where we need to update the data inside of the component where the data is injected. In this scenario, we recommend providing a method that is responsible for mutating the reactive property.
+
+```vue{21-23,27}
+<!-- src/components/MyMap.vue -->
+<template>
+  <MyMarker />
+</template>
+
+<script>
+import { provide, reactive, ref } from 'vue'
+import MyMarker from './MyMarker.vue
+
+export default {
+  components: {
+    MyMarker
+  },
+  setup() {
+    const location = ref('North Pole')
+    const geolocation = reactive({
+      longitude: 90,
+      latitude: 135
+    })
+
+    const updateLocation = () => {
+      location.value = 'South Pole'
+    }
+
+    provide('location', location)
+    provide('geolocation', geolocation)
+    provide('updateLocation', updateLocation)
+  }
+}
+</script>
+```
+
+```vue{9,14}
+<!-- src/components/MyMarker.vue -->
+<script>
+import { inject } from 'vue'
+
+export default {
+  setup() {
+    const userLocation = inject('location', 'The Universe')
+    const userGeolocation = inject('geolocation')
+    const updateUserLocation = inject('updateUserLocation')
+
+    return {
+      userLocation,
+      userGeolocation,
+      updateUserLocation
+    }
+  }
+}
+</script>
+```
+
+:::tip
+If you want to ensure that data passed through `provide` cannot be mutated by its injected component, we recommend using `readonly`.
 
 ```js
-import { ref, reactive } from 'vue'
+import { readonly } from 'vue'
 
-// in provider
-setup() {
-  const book = reactive({
-    title: 'Vue 3 Guide',
-    author: 'Vue Team'
-  })
+export default {
+  setup() {
+    const location = ref('North Pole')
 
-  function changeBookName() {
-    book.title = 'Vue 3 Advanced Guide'
+    provide('location', readonly(location))
   }
-
-  provide('book', book)
-  provide('changeBookName', changeBookName)
-}
-
-// in consumer
-setup() {
-  const book = inject('book')
-  const changeBookName = inject('changeBookName')
-
-  return { book, changeBookName }
 }
 ```
 
