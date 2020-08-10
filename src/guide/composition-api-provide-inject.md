@@ -23,8 +23,10 @@ export default {
   },
   provide: {
     location: 'North Pole',
-    longitude: 90,
-    latitude: 135
+    geolocation: {
+      longitude: 90,
+      latitude: 135
+    }
   }
 }
 </script>
@@ -50,7 +52,7 @@ The `provide` function allows you to define the property through two parameters:
 
 Using our `MyMap` component, our provided values can be refactored as the following:
 
-```vue{7,14-18}
+```vue{7,14-20}
 <!-- src/components/MyMap.vue -->
 <template>
   <MyMarker />
@@ -66,8 +68,10 @@ export default {
   },
   setup() {
     provide('location', 'North Pole')
-    provide('longitude', 90)
-    provide('latitude', 135)
+    provide('geolocation', {
+      longitude: 90,
+      latitude: 135
+    })
   }
 }
 </script>
@@ -84,7 +88,7 @@ The `inject` function takes two parameters:
 
 Using our `MyMarker` component from earlier, we can refactor it with the following code:
 
-```vue{3,6-16}
+```vue{3,6-14}
 <!-- src/components/MyMarker.vue -->
 <script>
 import { inject } from 'vue'
@@ -92,50 +96,60 @@ import { inject } from 'vue'
 export default {
   setup() {
     const userLocation = inject('location', 'The Universe')
-    const userLongitude = inject('longitude')
-    const userLatitude = inject('latitude')
+    const userGeolocation = inject('geolocation')
 
     return {
       userLocation,
-      userLongitude,
-      userLatitude
+      userGeolocation
     }
   }
 }
 </script>
 ```
 
-BREAKING POINT
+## Adding Reactivity
 
-## Injection Reactivity
+To add reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.html#declaring-reactive-state) when providing a value.
 
-To retain reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.html#declaring-reactive-state) when providing a value:
+Using our `MyMap` component, our code can be updated as follows:
 
-```js
-import { ref, reactive } from 'vue'
+```vue{7,15-22}
+<!-- src/components/MyMap.vue -->
+<template>
+  <MyMarker />
+</template>
 
-// in provider
-setup() {
-  const book = reactive({
-    title: 'Vue 3 Guide',
-    author: 'Vue Team'
-  })
-  const year = ref('2020')
+<script>
+import { provide, reactive, ref } from 'vue'
+import MyMarker from './MyMarker.vue
 
-  provide('book', book)
-  provide('year', year)
+export default {
+  components: {
+    MyMarker
+  },
+  setup() {
+    const location = ref('North Pole')
+    const geolocation = reactive({
+      longitude: 90,
+      latitude: 135
+    })
+
+    provide('location', location)
+    provide('geolocation', geolocation)
+  }
 }
-
-// in consumer
-setup() {
-  const book = inject('book')
-  const year = inject('year')
-
-  return { book, year }
-}
+</script>
 ```
 
-Now, when either `book` or `year` are changed on the _provider_ component, we can observe them changing on the component where they are injected.
+Now, if anything changes in either property, the `MyMarker` component will automatically be updated as well!
+
+::: warning
+We don't recommend mutating a reactive property where it's injected as this breaks the best practice of one-direction data flow. For more information, read the next section.
+:::
+
+##
+
+# IGNORE
 
 ::: warning
 We don't recommend mutating a reactive property where it's injected as it's breaking Vue one-direction data flow. Instead, try to either mutate values where they are _provided_ or provide a method to mutate them
