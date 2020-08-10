@@ -248,7 +248,7 @@ export default {
 If you want to ensure that data passed through `provide` cannot be mutated by its injected component, we recommend using `readonly`.
 
 ```js
-import { readonly } from 'vue'
+import { provide, readonly, ref } from 'vue'
 
 export default {
   setup() {
