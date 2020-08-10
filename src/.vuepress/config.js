@@ -178,7 +178,8 @@ const sidebar = {
         '/examples/grid-component',
         '/examples/tree-view',
         '/examples/svg',
-        '/examples/modal'
+        '/examples/modal',
+        '/examples/elastic-header'
       ]
     }
   ]
