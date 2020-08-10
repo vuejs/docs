@@ -244,19 +244,37 @@ export default {
 </script>
 ```
 
-:::tip
-If you want to ensure that data passed through `provide` cannot be mutated by its injected component, we recommend using `readonly`.
+Finally, we recommend using `readonly` on provdided property if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
 
-```js
-import { provide, readonly, ref } from 'vue'
+```vue{7,25-26}
+<!-- src/components/MyMap.vue -->
+<template>
+  <MyMarker />
+</template>
+
+<script>
+import { provide, reactive, readonly, ref } from 'vue'
+import MyMarker from './MyMarker.vue
 
 export default {
+  components: {
+    MyMarker
+  },
   setup() {
     const location = ref('North Pole')
+    const geolocation = reactive({
+      longitude: 90,
+      latitude: 135
+    })
+
+    const updateLocation = () => {
+      location.value = 'South Pole'
+    }
 
     provide('location', readonly(location))
+    provide('geolocation', readonly(geolocation))
+    provide('updateLocation', updateLocation)
   }
 }
+</script>
 ```
-
-:::
