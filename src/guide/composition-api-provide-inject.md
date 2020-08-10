@@ -86,7 +86,7 @@ The `inject` function takes two parameters:
 1. The name of the property to inject
 2. A default value (**Optional**)
 
-Using our `MyMarker` component from earlier, we can refactor it with the following code:
+Using our `MyMarker` component, we can refactor it with the following code:
 
 ```vue{3,6-14}
 <!-- src/components/MyMarker.vue -->
