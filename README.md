@@ -25,7 +25,7 @@ yarn # or npm install
 3. Start local development environment
 
 ```bash
-yarn serve
+yarn serve # or npm run serve
 ```
 
 ## Deploying
