@@ -4,59 +4,108 @@
 
 We can use [provide / inject](component-provide-inject.html) with the Composition API as well. Both can only be called during [`setup()`](composition-api-setup.html) with a current active instance.
 
-For example, if we want to provide a book name on the root component and inject it on the child component:
+## Scenario Background
 
-```js
-import { provide, inject } from 'vue'
+Let's assume that we want to rewrite the following code, which contains a `MyMap` component that provides a `MyMarker` component with the user's location, using the Composition API.
 
-const RootComponent = {
-  setup() {
-    provide('book', 'Vue 3 guide')
+```vue
+<!-- src/components/MyMap.vue -->
+<template>
+  <MyMarker />
+</template>
+
+<script>
+import MyMarker from './MyMarker.vue'
+
+export default {
+  components: {
+    MyMarker
+  },
+  provide: {
+    location: 'North Pole',
+    longitude: 90,
+    latitude: 135
   }
 }
+</script>
+```
 
-const MyBook = {
+```vue
+<!-- src/components/MyMarker.vue -->
+<script>
+export default {
+  inject: ['location', 'longitude', 'latitude']
+}
+</script>
+```
+
+## Using Provide
+
+When using `provide` in `setup()`, we start by explicitly importing the method from `vue`. This allows us to define each property with its own invocation of `provide`.
+
+The `provide` function allows you to define the property through two parameters:
+
+1. The property's name (`<String>` type)
+2. The property's value
+
+Using our `MyMap` component, our provided values can be refactored as the following:
+
+```vue{7,14-18}
+<!-- src/components/MyMap.vue -->
+<template>
+  <MyMarker />
+</template>
+
+<script>
+import { provide } from 'vue'
+import MyMarker from './MyMarker.vue
+
+export default {
+  components: {
+    MyMarker
+  },
   setup() {
-    const book = inject(
-      'book',
-      'Eloquent Javascript' /* optional default value */
-    )
+    provide('location', 'North Pole')
+    provide('longitude', 90)
+    provide('latitude', 135)
+  }
+}
+</script>
+```
+
+## Using Inject
+
+When using `inject` in `setup()`, we also need to explicitly import it from `vue`. Once we do so, this allows us to invoke it to define how we want to expose it to our component.
+
+The `inject` function takes two parameters:
+
+1. The name of the property to inject
+2. A default value (**Optional**)
+
+Using our `MyMarker` component from earlier, we can refactor it with the following code:
+
+```vue{3,6-16}
+<!-- src/components/MyMarker.vue -->
+<script>
+import { inject } from 'vue'
+
+export default {
+  setup() {
+    const userLocation = inject('location', 'The Universe')
+    const userLongitude = inject('longitude')
+    const userLatitude = inject('latitude')
+
     return {
-      book
+      userLocation,
+      userLongitude,
+      userLatitude
     }
   }
 }
+</script>
 ```
 
-`inject` accepts an optional default value as the 2nd argument. If a default value is not provided and the property is not found on the provide context, `inject` returns `undefined`.
-
-If we need to provide or inject multiple values, we can do this with a subsequent call of `provide` or `inject` respectively:
-
-```js{5-6,12-16}
-import { provide, inject } from 'vue'
-
-const RootComponent = {
-  setup() {
-    provide('book', 'Vue 3 guide')
-    provide('year', '2020')
-  }
-}
-
-const MyBook = {
-  setup() {
-    const book = inject(
-      'book',
-      'Eloquent Javascript' /* optional default value */
-    )
-    const year = inject('year')
-
-    return {
-      book,
-      year
-    }
-  }
-}
-```
+BREAKING POINT
 
 ## Injection Reactivity
 
