@@ -180,7 +180,8 @@ const sidebar = {
         '/examples/svg',
         '/examples/modal',
         '/examples/elastic-header',
-        '/examples/select2'
+        '/examples/select2',
+        '/examples/todomvc'
       ]
     }
   ]
