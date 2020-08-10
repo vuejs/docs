@@ -1,9 +1,9 @@
 ---
-types:
+badges:
   - breaking
 ---
 
-# Custom Elements Interop changes <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# Custom Elements Interop changes <MigrationBadges :badges="$frontmatter.badges" />
 
 # Overview
 

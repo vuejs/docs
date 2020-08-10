@@ -253,14 +253,14 @@ Computed values will automatically infer the type from returned value
 import { defineComponent, ref, computed } from 'vue'
 
 export default defineComponent({
-  name: 'HelloWorld',
+  name: 'CounterButton',
   setup() {
     let count = ref(0)
 
     // read-only
-    const double = computed(() => count.value)
+    const doubleCount = computed(() => count.value * 2)
 
-    const result = double.value.split('') // => Property 'split' does not exist on type 'number'
+    const result = doubleCount.value.split('') // => Property 'split' does not exist on type 'number'
   }
 })
 ```

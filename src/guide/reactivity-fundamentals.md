@@ -150,6 +150,8 @@ You can learn more about `refs` in the [Refs API](../api/refs-api.html#ref) sect
 Sometimes we want to track changes of the reactive object (`ref` or `reactive`) but we also want prevent changing it from a certain place of the application. For example, when we have a [provided](component-provide-inject.html) reactive object, we want to prevent mutating it where it's injected. To do so, we can create a readonly proxy to the original object:
 
 ```js
+import { reactive, readonly } from 'vue'
+
 const original = reactive({ count: 0 })
 
 const copy = readonly(original)

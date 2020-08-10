@@ -1,10 +1,9 @@
 ---
-types:
-  - removed
+badges:
   - breaking
 ---
 
-# Events API <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# Events API <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

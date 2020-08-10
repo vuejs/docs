@@ -220,7 +220,7 @@ To explain the details of how custom directives will work on components in 3.0, 
 Will roughly compile into this:
 
 ```js
-const vFoo = resolveDirective('demo')
+const vDemo = resolveDirective('demo')
 
 return withDirectives(h('div'), [[vDemo, test]])
 ```
