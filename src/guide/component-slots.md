@@ -366,7 +366,7 @@ You can even define fallbacks, to be used in case a slot prop is undefined:
 ```html
 <todo-list v-slot="{ item = 'Placeholder' }">
   <i class="fas fa-check"></i>
-  <span class="green">{{ todo }}<span>
+  <span class="green">{{ item }}<span>
 </todo-list>
 ```
 
