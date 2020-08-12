@@ -244,7 +244,7 @@ export default {
 </script>
 ```
 
-Finally, we recommend using `readonly` on provdided property if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
+Finally, we recommend using `readonly` on provided property if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
 
 ```vue{7,25-26}
 <!-- src/components/MyMap.vue -->
