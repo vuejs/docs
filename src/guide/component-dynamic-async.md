@@ -1,6 +1,6 @@
 # Dynamic & Async Components
 
-> This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
 ## Dynamic Components with `keep-alive`
 
