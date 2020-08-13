@@ -8,6 +8,11 @@ Possibly the biggest change is our new [Composition API](/guide/composition-api-
 
 ## Overview
 
+<br>
+<iframe src="https://player.vimeo.com/video/440868720" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vue3).
+
 ### New Features
 
 Some of the new features to keep an eye on in Vue 3 include:
