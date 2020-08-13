@@ -295,4 +295,4 @@
   Events listed in the `emits` option **will not** be inherited by the root element of the component and also will be excluded from the `$attrs` property.
   :::
 
-* **See also:** [Attribute Inheritance](../guide/component-props.html#non-prop-attributes)
+* **See also:** [Attribute Inheritance](../guide/component-attrs.html#attribute-inheritance)
