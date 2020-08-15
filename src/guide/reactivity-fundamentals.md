@@ -124,7 +124,7 @@ const book = reactive({
 let { author, title } = book
 ```
 
-Unfortunately, with such a destructuring the reactivity for both properties would be lost. For such case, we need to convert our reactive object to a set of `refs`. These refs will retaining the reactive connection to the source object:
+Unfortunately, with such a destructuring the reactivity for both properties would be lost. For such a case, we need to convert our reactive object to a set of refs. These refs will retain the reactive connection to the source object:
 
 ```js
 import { reactive, toRefs } from 'vue'
@@ -150,6 +150,8 @@ You can learn more about `refs` in the [Refs API](../api/refs-api.html#ref) sect
 Sometimes we want to track changes of the reactive object (`ref` or `reactive`) but we also want prevent changing it from a certain place of the application. For example, when we have a [provided](component-provide-inject.html) reactive object, we want to prevent mutating it where it's injected. To do so, we can create a readonly proxy to the original object:
 
 ```js
+import { reactive, readonly } from 'vue'
+
 const original = reactive({ count: 0 })
 
 const copy = readonly(original)

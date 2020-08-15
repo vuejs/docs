@@ -1,4 +1,9 @@
-# Fragments
+---
+badges:
+  - new
+---
+
+# Fragments <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 
@@ -32,4 +37,4 @@ In 3.x, components now can have multiple root nodes! However, this does require 
 </template>
 ```
 
-For more information on how attribute inheritance works, see [Non-Prop Attributes](/guide/component-props.html#disabling-attribute-inheritance).
+For more information on how attribute inheritance works, see [Non-Prop Attributes](/guide/component-attrs.html).

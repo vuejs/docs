@@ -1,4 +1,9 @@
-# Async Components
+---
+badges:
+  - new
+---
+
+# Async Components <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 

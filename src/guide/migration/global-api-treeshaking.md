@@ -1,4 +1,9 @@
-# Global API Treeshaking
+---
+badges:
+  - breaking
+---
+
+# Global API Treeshaking <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 2.x Syntax
 
@@ -29,7 +34,7 @@ test('an async feature', async () => {
 })
 ```
 
-`Vue.nextTick()` is a global API exposed directly on a single Vue object – in fact, the instance method `$nextTick()` is just a handy wrapper around `Vue.nextTick()` with the callback’s `this` context automatically bound to the current Vue instance for convenience.
+`Vue.nextTick()` is a global API exposed directly on a single Vue object – in fact, the instance method `$nextTick()` is just a handy wrapper around `Vue.nextTick()` with the callback’s `this` context automatically bound to the current instance for convenience.
 
 But what if you’ve never had to deal with manual DOM manipulation, nor are you using or testing async components in our app? Or, what if, for whatever reason, you prefer to use the good old `window.setTimeout()` instead? In such a case, the code for `nextTick()` will become dead code – that is, code that’s written but never used. And dead code is hardly a good thing, especially in our client-side context where every kilobyte matters.
 
@@ -96,11 +101,7 @@ is compiled into something similar to the following:
 import { h, Transition, withDirectives, vShow } from 'vue'
 
 export function render() {
-  return h(Transition, [
-    withDirectives(h('div', 'hello'), [
-      [vShow, this.ok]
-    ])
-  ])
+  return h(Transition, [withDirectives(h('div', 'hello'), [[vShow, this.ok]])])
 }
 ```
 

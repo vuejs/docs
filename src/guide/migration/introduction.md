@@ -8,6 +8,11 @@ Possibly the biggest change is our new [Composition API](/guide/composition-api-
 
 ## Overview
 
+<br>
+<iframe src="https://player.vimeo.com/video/440868720" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vue3).
+
 ### New Features
 
 Some of the new features to keep an eye on in Vue 3 include:
@@ -39,6 +44,7 @@ The following consists a list of breaking changes from 2.x:
   - `v-enter` -> `v-enter-from`
   - `v-leave` -> `v-leave-from`
 - [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
+- In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead.
 
 ### Removed
 
@@ -51,9 +57,7 @@ The following consists a list of breaking changes from 2.x:
 
 ### Where should I start in a migration?
 
-> Migration helper is still under development
-
-1. Start by running the [migration helper](https://github.com/vuejs/vue-migration-helper) on a current project. We've carefully minified and compressed a senior Vue dev into a simple command line interface. Whenever they recognize an obsolete feature, they'll let you know, offer suggestions, and provide links to more info.
+1. Start by running the migration helper (still under development) on a current project. We've carefully minified and compressed a senior Vue dev into a simple command line interface. Whenever they recognize an obsolete feature, they'll let you know, offer suggestions, and provide links to more info.
 
 2. After that, browse through the table of contents for this page in the sidebar. If you see a topic you may be affected by, but the migration helper didn't catch, check it out.
 

@@ -1,4 +1,9 @@
-# Global API
+---
+badges:
+  - breaking
+---
+
+# Global API <MigrationBadges :badges="$frontmatter.badges" />
 
 Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to create a global component, you would use the `Vue.component` API like this:
 
@@ -23,18 +28,18 @@ While this approach is convenient, it leads to a couple of problems. Technically
 
 - Global configuration makes it easy to accidentally pollute other test cases during testing. Users need to carefully store original global configuration and restore it after each test (e.g. resetting `Vue.config.errorHandler`). Some APIs like `Vue.use` and `Vue.mixin` don't even have a way to revert their effects. This makes tests involving plugins particularly tricky. In fact, vue-test-utils has to implement a special API `createLocalVue` to deal with this:
 
-  ```js
-  import { createLocalVue, mount } from '@vue/test-utils'
+```js
+import { createLocalVue, mount } from '@vue/test-utils'
 
-  // create an extended `Vue` constructor
-  const localVue = createLocalVue()
+// create an extended `Vue` constructor
+const localVue = createLocalVue()
 
-  // install a plugin “globally” on the “local” Vue constructor
-  localVue.use(MyPlugin)
+// install a plugin “globally” on the “local” Vue constructor
+localVue.use(MyPlugin)
 
-  // pass the `localVue` to the mount options
-  mount(Component, { localVue })
-  ```
+// pass the `localVue` to the mount options
+mount(Component, { localVue })
+```
 
 - Global configuration makes it difficult to share the same copy of Vue between multiple "apps" on the same page, but with different global configurations.
 
@@ -57,7 +62,7 @@ Calling `createApp` returns an _app instance_, a new concept in Vue 3.
 ```js
 import { createApp } from 'vue'
 
-const app = createApp()
+const app = createApp({})
 ```
 
 An app instance exposes a subset of the current global APIs. The rule of thumb is _any APIs that globally mutate Vue's behavior are now moved to the app instance_. Here is a table of the current global APIs and their corresponding instance APIs:
@@ -65,7 +70,7 @@ An app instance exposes a subset of the current global APIs. The rule of thumb i
 | 2.x Global API             | 3.x Instance API (`app`)                                                                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------- |
 | Vue.config                 | app.config                                                                                      |
-| Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                           |
+| Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                          |
 | Vue.config.ignoredElements | app.config.isCustomElement ([see below](#config-ignoredelements-is-now-config-iscustomelement)) |
 | Vue.component              | app.component                                                                                   |
 | Vue.directive              | app.directive                                                                                   |
@@ -89,7 +94,7 @@ This config option was introduced with the intention to support native custom el
 Vue.config.ignoredElements = ['my-el', /^ion-/]
 
 // after
-const app = Vue.createApp()
+const app = Vue.createApp({})
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
@@ -122,7 +127,7 @@ app.use(VueRouter)
 
 ## Mounting App Instance
 
-After being initialized with `createApp(VueInstance)`, the app instance `app` can be used to mount a Vue root instance with `app.mount(domTarget)`:
+After being initialized with `createApp(/* options */)`, the app instance `app` can be used to mount a Vue root instance with `app.mount(domTarget)`:
 
 ```js
 import { createApp } from 'vue'
@@ -148,7 +153,7 @@ app.directive('focus', {
   mounted: el => el.focus()
 })
 
-// now every Vue instance mounted with app.mount(), along with its
+// now every application instance mounted with app.mount(), along with its
 // component tree, will have the same “button-counter” component
 // and “focus” directive without polluting the global environment
 app.mount('#app')
@@ -161,17 +166,17 @@ Similar to using the `provide` option in a 2.x root instance, a Vue 3 app instan
 ```js
 // in the entry
 app.provide({
-  [ThemeSymbol]: theme
+  guide: 'Vue 3 Guide'
 })
 
 // in a child component
 export default {
   inject: {
-    theme: {
-      from: ThemeSymbol
+    book: {
+      from: guide
     }
   },
-  template: `<div :style="{ color: theme.textColor }" />`
+  template: `<div>{{ book }}</div>`
 }
 ```
 
@@ -184,8 +189,8 @@ import { createApp } from 'vue'
 import Foo from './Foo.vue'
 import Bar from './Bar.vue'
 
-const createMyApp = (VueInstance) => {
-  const app = createApp(VueInstance)
+const createMyApp = options => {
+  const app = createApp(options)
   app.directive('focus' /* ... */)
 
   return app
