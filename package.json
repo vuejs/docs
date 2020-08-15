@@ -14,5 +14,6 @@
     "@docsearch/js": "^1.0.0-alpha.26",
     "@docsearch/css": "^1.0.0-alpha.26",
     "intersection-observer": "^0.11.0",
+    "docsearch.js": "^2.5.2"
   }
 }
