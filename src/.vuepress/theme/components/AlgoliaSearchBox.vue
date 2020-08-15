@@ -19,34 +19,30 @@ export default {
   props: ['options'],
 
   watch: {
-    $lang (newValue) {
+    $lang(newValue) {
       this.update(this.options, newValue)
     },
 
-    options (newValue) {
+    options(newValue) {
       this.update(newValue, this.$lang)
     }
   },
 
-  mounted () {
+  mounted() {
     this.initialize(this.options, this.$lang)
   },
 
   methods: {
-    getRelativePath (absoluteUrl) {
+    getRelativePath(absoluteUrl) {
       const { pathname, hash } = new URL(absoluteUrl)
       const url = pathname.replace(this.$site.base, '/') + hash
 
       return url
     },
-    initialize (userOptions, lang) {
+    initialize(userOptions, lang) {
       Promise.all([
-        import(
-          /* webpackChunkName: "docsearch" */ '../node_modules/@docsearch/js'
-        ),
-        import(
-          /* webpackChunkName: "docsearch" */ '../node_modules/@docsearch/css'
-        )
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/css')
       ]).then(([docsearch]) => {
         docsearch = docsearch.default
 

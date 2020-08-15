@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "axios": "^0.19.1",
-    "showdown": "^1.9.1"
+    "showdown": "^1.9.1",
+    "@docsearch/js": "^1.0.0-alpha.26",
+    "@docsearch/css": "^1.0.0-alpha.26"
   }
 }
