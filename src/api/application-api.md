@@ -192,6 +192,51 @@ app.mount('#my-app')
 - **See also:**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
+## provide
+
+- **Arguments:**
+
+  - `{string | Symbol} key`
+  - `value`
+
+- **Usage:**
+
+  Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
+   
+  From a `provide`/`inject` perspective, the application can be thought of as the root-level ancestor, with the root component as its only child.
+
+  This method should not be confused with the [provide component option](options-composition.html#provide-inject) or the [provide function](composition-api.html#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application. 
+
+  Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.html#globalproperties).
+
+  Returns the application instance, allowing calls to be chained.
+
+  :::tip Note
+  The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+  :::
+
+- **Example:**
+
+  Injecting a property into the root component, with a value provided by the application:
+
+```js
+import { createApp } from 'vue'
+
+const app = createApp({
+  inject: ['user'],
+  template: `
+    <div>
+      {{ user }}
+    </div>
+  `
+})
+
+app.provide('user', 'administrator')
+```
+
+- **See also:**
+  - [Provide / Inject](../guide/component-provide-inject.md)
+
 ## unmount
 
 - **Arguments:**
