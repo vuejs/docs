@@ -1,4 +1,11 @@
 const sidebar = {
+  cookbook: [
+    {
+      title: 'Cookbook',
+      collapsable: false,
+      children: ['/cookbook/', '/cookbook/editable-svg-icons']
+    }
+  ],
   guide: [
     {
       title: 'Essentials',
@@ -293,6 +300,7 @@ module.exports = {
       collapsable: false,
       '/guide/': sidebar.guide,
       '/community/': sidebar.guide,
+      '/cookbook/': sidebar.cookbook,
       '/api/': sidebar.api,
       '/examples/': sidebar.examples
     },
