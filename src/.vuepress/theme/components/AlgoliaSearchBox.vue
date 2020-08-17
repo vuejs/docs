@@ -1,28 +1,22 @@
 <template>
-  <form
-    id="search-form"
-    class="algolia-search-wrapper search-box"
-    role="search"
-  >
-    <input
-      id="algolia-search-input"
-      class="search-query"
-      :placeholder="placeholder"
-    >
-  </form>
+  <div id="docsearch"></div>
 </template>
 
 <script>
+function isSpecialClick(event) {
+  return (
+    event.button === 1 ||
+    event.altKey ||
+    event.ctrlKey ||
+    event.metaKey ||
+    event.shiftKey
+  )
+}
+
 export default {
   name: 'AlgoliaSearchBox',
 
   props: ['options'],
-
-  data () {
-    return {
-      placeholder: undefined
-    }
-  },
 
   watch: {
     $lang (newValue) {
@@ -36,135 +30,120 @@ export default {
 
   mounted () {
     this.initialize(this.options, this.$lang)
-    this.placeholder = this.$site.themeConfig.searchPlaceholder || ''
   },
 
   methods: {
+    getRelativePath (absoluteUrl) {
+      const { pathname, hash } = new URL(absoluteUrl)
+      const url = pathname.replace(this.$site.base, '/') + hash
+
+      return url
+    },
     initialize (userOptions, lang) {
       Promise.all([
-        import(/* webpackChunkName: "docsearch" */ 'docsearch.js/dist/cdn/docsearch.min.js'),
-        import(/* webpackChunkName: "docsearch" */ 'docsearch.js/dist/cdn/docsearch.min.css')
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/css')
       ]).then(([docsearch]) => {
         docsearch = docsearch.default
-        const { algoliaOptions = {}} = userOptions
-        docsearch(Object.assign(
-          {},
-          userOptions,
-          {
-            inputSelector: '#algolia-search-input',
-            // #697 Make docsearch work well at i18n mode.
-            algoliaOptions: Object.assign({
-              'facetFilters': [`lang:${lang}`].concat(algoliaOptions.facetFilters || [])
-            }, algoliaOptions),
-            handleSelected: (input, event, suggestion) => {
-              const { pathname, hash } = new URL(suggestion.url)
-              const routepath = pathname.replace(this.$site.base, '/')
-              this.$router.push(`${routepath}${hash}`)
+
+        docsearch(
+          Object.assign(
+            {
+              placeholder: this.$site.themeConfig.searchPlaceholder
+            },
+            userOptions,
+            {
+              container: '#docsearch',
+              // #697 Make DocSearch work well in i18n mode.
+              searchParameters: Object.assign(
+                {},
+                // lang && {
+                //   facetFilters: [`lang:${lang}`].concat(
+                //     userOptions.facetFilters || []
+                //   )
+                // },
+                userOptions.searchParameters
+              ),
+              navigator: {
+                navigate: ({ suggestionUrl }) => {
+                  const { pathname: hitPathname } = new URL(
+                    window.location.origin + suggestionUrl
+                  )
+
+                  // Vue Router doesn't handle same-page navigation so we use
+                  // the native browser location API for anchor navigation.
+                  if (this.$router.history.current.path === hitPathname) {
+                    window.location.assign(
+                      window.location.origin + suggestionUrl
+                    )
+                  } else {
+                    this.$router.push(suggestionUrl)
+                  }
+                }
+              },
+              transformItems: items => {
+                return items.map(item => {
+                  return Object.assign({}, item, {
+                    url: this.getRelativePath(item.url)
+                  })
+                })
+              },
+              hitComponent: ({ hit, children }) => {
+                return {
+                  type: 'a',
+                  ref: undefined,
+                  constructor: undefined,
+                  key: undefined,
+                  props: {
+                    href: hit.url,
+                    onClick: event => {
+                      if (isSpecialClick(event)) {
+                        return
+                      }
+
+                      // We rely on the native link scrolling when user is
+                      // already on the right anchor because Vue Router doesn't
+                      // support duplicated history entries.
+                      if (this.$router.history.current.fullPath === hit.url) {
+                        return
+                      }
+
+                      const { pathname: hitPathname } = new URL(
+                        window.location.origin + hit.url
+                      )
+
+                      // If the hits goes to another page, we prevent the native link behavior
+                      // to leverage the Vue Router loading feature.
+                      if (this.$router.history.current.path !== hitPathname) {
+                        event.preventDefault()
+                      }
+
+                      this.$router.push(hit.url)
+                    },
+                    children
+                  }
+                }
+              }
             }
-          }
-        ))
+          )
+        )
       })
     },
 
-    update (options, lang) {
-      this.$el.innerHTML = '<input id="algolia-search-input" class="search-query">'
+    update(options, lang) {
+      this.$el.innerHTML = '<div id="docsearch"></div>'
       this.initialize(options, lang)
     }
   }
 }
 </script>
 
-<style lang="stylus">
-.algolia-search-wrapper
-  & > span
-    vertical-align middle
-  .algolia-autocomplete
-    line-height normal
-    .ds-dropdown-menu
-      background-color #fff
-      border 1px solid #999
-      border-radius 4px
-      font-size 16px
-      margin 6px 0 0
-      padding 4px
-      text-align left
-      &:before
-        border-color #999
-      [class*=ds-dataset-]
-        border none
-        padding 0
-      .ds-suggestions
-        margin-top 0
-      .ds-suggestion
-        border-bottom 1px solid $borderColor
-    .algolia-docsearch-suggestion--highlight
-      color #2c815b
-    .algolia-docsearch-suggestion
-      border-color $borderColor
-      padding 0
-      .algolia-docsearch-suggestion--category-header
-        padding 5px 10px
-        margin-top 0
-        background $accentColor
-        color #fff
-        font-weight 600
-        .algolia-docsearch-suggestion--highlight
-          background rgba(255, 255, 255, 0.6)
-      .algolia-docsearch-suggestion--wrapper
-        padding 0
-      .algolia-docsearch-suggestion--title
-        font-weight 600
-        margin-bottom 0
-        color $textColor
-      .algolia-docsearch-suggestion--subcategory-column
-        vertical-align top
-        padding 5px 7px 5px 5px
-        border-color $borderColor
-        background #f1f3f5
-        &:after
-          display none
-      .algolia-docsearch-suggestion--subcategory-column-text
-        color #555
-    .algolia-docsearch-footer
-      border-color $borderColor
-    .ds-cursor .algolia-docsearch-suggestion--content
-      background-color #e7edf3 !important
-      color $textColor
+<style lang="scss">
+@import '@theme/styles/_settings.scss';
 
-@media (min-width: $MQMobile)
-  .algolia-search-wrapper
-    .algolia-autocomplete
-      .algolia-docsearch-suggestion
-        .algolia-docsearch-suggestion--subcategory-column
-          float none
-          width 150px
-          min-width 150px
-          display table-cell
-        .algolia-docsearch-suggestion--content
-          float none
-          display table-cell
-          width 100%
-          vertical-align top
-        .ds-dropdown-menu
-          min-width 515px !important
-
-@media (max-width: $MQMobile)
-  .algolia-search-wrapper
-    .ds-dropdown-menu
-      min-width calc(100vw - 4rem) !important
-      max-width calc(100vw - 4rem) !important
-    .algolia-docsearch-suggestion--wrapper
-      padding 5px 7px 5px 5px !important
-    .algolia-docsearch-suggestion--subcategory-column
-      padding 0 !important
-      background white !important
-    .algolia-docsearch-suggestion--subcategory-column-text:after
-      content " > "
-      font-size 10px
-      line-height 14.4px
-      display inline-block
-      width 5px
-      margin -3px 3px 0
-      vertical-align middle
-
+.DocSearch {
+  --docsearch-primary-color: #{$green};
+  --docsearch-highlight-color: var(--docsearch-primary-color);
+  --docsearch-searchbox-shadow: inset 0 0 0 2px var(--docsearch-primary-color);
+}
 </style>
