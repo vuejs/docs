@@ -238,6 +238,7 @@ module.exports = {
         items: [
           { text: 'Guide', link: '/guide/introduction' },
           { text: 'Style Guide', link: '/style-guide/' },
+          { text: 'Cookbook', link: '/cookbook/' },
           { text: 'Examples', link: '/examples/markdown' }
         ]
       },
