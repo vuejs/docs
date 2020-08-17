@@ -41,12 +41,8 @@ export default {
     },
     initialize (userOptions, lang) {
       Promise.all([
-        import(
-          /* webpackChunkName: "docsearch" */ '../node_modules/@docsearch/js'
-        ),
-        import(
-          /* webpackChunkName: "docsearch" */ '../node_modules/@docsearch/css'
-        )
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
+        import(/* webpackChunkName: "docsearch" */ '@docsearch/css')
       ]).then(([docsearch]) => {
         docsearch = docsearch.default
 
@@ -58,7 +54,7 @@ export default {
             userOptions,
             {
               container: '#docsearch',
-              // #697 Make docsearch work well at i18n mode.
+              // #697 Make DocSearch work well in i18n mode.
               searchParameters: Object.assign(
                 {},
                 // lang && {
