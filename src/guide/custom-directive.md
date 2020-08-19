@@ -245,4 +245,4 @@ This also means it's possible to directly hook into an element's lifecycle like 
 <div @vnodeMounted="myHook" />
 ```
 
-This is consistent with the [attribute fallthrough behavior](component-props.html#non-prop-attributes). So, the rule for custom directives on a component will be the same as other extraneous attributes: it is up to the child component to decide where and whether to apply it. When the child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.
+This is consistent with the [attribute fallthrough behavior](component-attrs.html). So, the rule for custom directives on a component will be the same as other extraneous attributes: it is up to the child component to decide where and whether to apply it. When the child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.

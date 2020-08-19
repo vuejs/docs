@@ -1,4 +1,4 @@
-# Transition & Animations Overview
+# Overview
 
 Vue offers some abstractions that can help work with transitions and animations, particularly in response to something changing. Some of these abstractions include:
 

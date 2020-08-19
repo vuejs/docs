@@ -9,6 +9,8 @@
     "build": "vuepress build src"
   },
   "dependencies": {
+    "@docsearch/js": "^1.0.0-alpha.27",
+    "@docsearch/css": "^1.0.0-alpha.27",
     "axios": "^0.19.1",
     "intersection-observer": "^0.11.0",
     "showdown": "^1.9.1"
