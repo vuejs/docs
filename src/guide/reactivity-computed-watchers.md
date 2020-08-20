@@ -8,7 +8,7 @@ Sometimes we need state that depends on other state - in Vue this is handled wit
 
 ```js
 const count = ref(1)
-const plusOne = computed(() => count.value++)
+const plusOne = computed(() => count.value + 1)
 
 console.log(plusOne.value) // 2
 
