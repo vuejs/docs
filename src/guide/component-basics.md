@@ -141,7 +141,7 @@ const App = {
   }
 }
 
-const app = Vue.createApp({})
+const app = Vue.createApp(App)
 
 app.component('blog-post', {
   props: ['title'],
@@ -340,7 +340,7 @@ Now `v-model` should work perfectly with this component:
 
 Another way of creating the `v-model` capability within a custom component is to use the ability of `computed` properties' to define a getter and setter.
 
-In the following example, we refactor the `custom-input` component using a computed property. 
+In the following example, we refactor the `custom-input` component using a computed property.
 
 Keep in mind, the `get` method should return the `modelValue` property, or whichever property is being using for binding, and the `set` method should fire off the corresponding `$emit` for that property.
 
@@ -355,7 +355,8 @@ app.component('custom-input', {
       get() {
         return this.modelValue
       },
-      set(value) { this.$emit('update:modelValue', value)
+      set(value) {
+        this.$emit('update:modelValue', value)
       }
     }
   }
