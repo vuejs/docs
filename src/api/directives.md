@@ -6,7 +6,7 @@
 
 - **Details:**
 
-  Updates the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent). If you need to update the part of `textContent`, you should use `{{ mustache }}` interpolations.
+  Updates the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent). If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/template-syntax.html#text) instead
 
 - **Example:**
 
