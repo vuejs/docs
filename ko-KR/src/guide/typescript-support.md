@@ -4,7 +4,7 @@
 
 ## NPM 패키지 공식 선언
 
-A static type system can help prevent many potential runtime errors as applications grow, which is why Vue 3 is written in TypeScript. This means you don't need any additional tooling to use TypeScript with Vue - it has a first-class citizen support.
+정적 타입 시스템은 애플리케이션이 커지면서 발생할 수 있는 런타임 에러를 방지 할 수 있습니다. 그렇기 때문에 Vue 3는 TypeScript를 사용했습니다. TypeScript를  Vue와 함께 사용하면 추가적인 도구화가 필요 없습니다. TypeScript는 vue에서 최우선적으로 지원하고 있습니다.
 
 ## 권장 설정
 
