@@ -9,7 +9,7 @@
 
 - `<transition>`, 과 달리, 실제 요소인 `<span>`을 렌더링합니다. `tag` 속성으로 렌더링 된 요소를 변경할 수 있습니다.
 - [트랜지션 모드](/guide/transitions-enterleave#transition-modes)를 사용할 수 없습니다. 더 이상 상호 배타적인 엘리먼트를 번갈아 사용하지 않습니다.
-- Elements inside are **always required** to have a unique `key` attribute.
+- 내부의 엘리먼트는  고유한 `key` 속성을 **항상 가져야 합니다 **
 - CSS 트랜지션 클래스는 그룹 / 컨테이너 자체가 아닌 내부 엘리먼트에 적용됩니다.
 
 ### 리스트의 진입 / 진출 트랜지션
@@ -74,7 +74,7 @@ Vue.createApp(Demo).mount('#list-demo')
 
 ### 리스트 이동 트랜지션
 
-The `<transition-group>` component has another trick up its sleeve. It can not only animate entering and leaving, but also changes in position. The only new concept you need to know to use this feature is the addition of **the `v-move` class**, which is added when items are changing positions. Like the other classes, its prefix will match the value of a provided `name` attribute and you can also manually specify a class with the `move-class` attribute.
+`<transition-group>` 컴포넌트는 멋진 기능을 제공합니다. 리스트에 항목이 추가 제어될때의  진입과 진출 트랜지션 뿐만이 아니라, 목록상에서 위치가 변경될때에도 트랜지션을 제공합니다. 단지 아이템이 이동할때 사용될 **&nbsp;`v-move`클래스**만  추가하면 됩니다. 다른 클래스와 마찬가지로 접두어는 제공된 `name` 속성 값과 일치하며 `move-class` 속성을 사용하여 클래스를 수동으로 지정할 수도 있습니다.
 
 이 클래스는 다음과 같이 트랜지션 타이밍과 easing curve을 지정하는 데 유용합니다.
 
