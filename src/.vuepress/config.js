@@ -1,13 +1,10 @@
 const sidebar = {
-  cookbook: [
-    {
-      title: 'Cookbook',
-      collapsable: false,
-      children: ['/cookbook/', '/cookbook/editable-svg-icons']
-    }
-  ],
-  guide: [
-    {
+  cookbook: [{
+    title: 'Cookbook',
+    collapsable: false,
+    children: ['/cookbook/', '/cookbook/editable-svg-icons']
+  }],
+  guide: [{
       title: 'Essentials',
       collapsable: false,
       children: [
@@ -63,8 +60,7 @@ const sidebar = {
     {
       title: 'Advanced Guides',
       collapsable: false,
-      children: [
-        {
+      children: [{
           title: 'Reactivity',
           children: [
             '/guide/reactivity',
@@ -130,6 +126,7 @@ const sidebar = {
         'migration/keycode-modifiers',
         'migration/render-function-api',
         'migration/slots-unification',
+        'migration/transition',
         'migration/v-model'
       ]
     },
@@ -175,23 +172,21 @@ const sidebar = {
     },
     '/api/composition-api'
   ],
-  examples: [
-    {
-      title: 'Examples',
-      collapsable: false,
-      children: [
-        '/examples/markdown',
-        '/examples/commits',
-        '/examples/grid-component',
-        '/examples/tree-view',
-        '/examples/svg',
-        '/examples/modal',
-        '/examples/elastic-header',
-        '/examples/select2',
-        '/examples/todomvc'
-      ]
-    }
-  ]
+  examples: [{
+    title: 'Examples',
+    collapsable: false,
+    children: [
+      '/examples/markdown',
+      '/examples/commits',
+      '/examples/grid-component',
+      '/examples/tree-view',
+      '/examples/svg',
+      '/examples/modal',
+      '/examples/elastic-header',
+      '/examples/select2',
+      '/examples/todomvc'
+    ]
+  }]
 }
 
 module.exports = {
@@ -201,20 +196,21 @@ module.exports = {
     [
       'link',
       {
-        href:
-          'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
+        href: 'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
         rel: 'stylesheet'
       }
     ],
     [
       'link',
       {
-        href:
-          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        href: 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         rel: 'stylesheet'
       }
     ],
-    ['link', { rel: 'icon', href: '/logo.png' }],
+    ['link', {
+      rel: 'icon',
+      href: '/logo.png'
+    }],
     [
       'script',
       {
@@ -231,37 +227,68 @@ module.exports = {
   ],
   themeConfig: {
     logo: '/logo.png',
-    nav: [
-      {
+    nav: [{
         text: 'Docs',
         ariaLabel: 'Documentation Menu',
-        items: [
-          { text: 'Guide', link: '/guide/introduction' },
-          { text: 'Style Guide', link: '/style-guide/' },
-          { text: 'Cookbook', link: '/cookbook/' },
-          { text: 'Examples', link: '/examples/markdown' }
+        items: [{
+            text: 'Guide',
+            link: '/guide/introduction'
+          },
+          {
+            text: 'Style Guide',
+            link: '/style-guide/'
+          },
+          {
+            text: 'Cookbook',
+            link: '/cookbook/'
+          },
+          {
+            text: 'Examples',
+            link: '/examples/markdown'
+          }
         ]
       },
-      { text: 'API Reference', link: '/api/application-config' },
+      {
+        text: 'API Reference',
+        link: '/api/application-config'
+      },
       {
         text: 'Ecosystem',
-        items: [
-          {
+        items: [{
             text: 'Community',
             ariaLabel: 'Community Menu',
-            items: [
-              { text: 'Team', link: '/community/team/' },
-              { text: 'Partners', link: '/community/partners' },
-              { text: 'Join', link: '/community/join/' },
-              { text: 'Themes', link: '/community/themes/' }
+            items: [{
+                text: 'Team',
+                link: '/community/team/'
+              },
+              {
+                text: 'Partners',
+                link: '/community/partners'
+              },
+              {
+                text: 'Join',
+                link: '/community/join/'
+              },
+              {
+                text: 'Themes',
+                link: '/community/themes/'
+              }
             ]
           },
           {
             text: 'Official Projects',
-            items: [
-              { text: 'Vue Router', link: 'https://router.vuejs.org/' },
-              { text: 'Vuex', link: 'https://vuex.vuejs.org/' },
-              { text: 'Vue CLI', link: 'https://cli.vuejs.org/' },
+            items: [{
+                text: 'Vue Router',
+                link: 'https://router.vuejs.org/'
+              },
+              {
+                text: 'Vuex',
+                link: 'https://vuex.vuejs.org/'
+              },
+              {
+                text: 'Vue CLI',
+                link: 'https://cli.vuejs.org/'
+              },
               {
                 text: 'Vue Test Utils',
                 link: 'https://vue-test-utils.vuejs.org/'
@@ -270,7 +297,10 @@ module.exports = {
                 text: 'Devtools',
                 link: 'https://github.com/vuejs/vue-devtools'
               },
-              { text: 'Weekly news', link: 'https://news.vuejs.org/' }
+              {
+                text: 'Weekly news',
+                link: 'https://news.vuejs.org/'
+              }
             ]
           }
         ]
@@ -278,8 +308,7 @@ module.exports = {
       {
         text: 'Support Vue',
         link: '/support-vuejs/',
-        items: [
-          {
+        items: [{
             text: 'One-time Donations',
             link: '/support-vuejs/#one-time-donations'
           },
@@ -287,7 +316,10 @@ module.exports = {
             text: 'Recurring Pledges',
             link: '/support-vuejs/#recurring-pledges'
           },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+          {
+            text: 'T-Shirt Shop',
+            link: 'https://vue.threadless.com/'
+          }
         ]
       }
     ],
