@@ -50,8 +50,8 @@ It's now much clearer what the difference between these states is.
 
 The `<transition>` component's related prop names are also changed:
 
-- `leave-class` is renamed to `leave-from-class` (in render functions or JSX, can be written as `leaveFromClass`)
-- `enter-class` is renamed to `enter-from-class` (in render functions or JSX, can be written as `enterFromClass`)
+- `leave-class` is renamed to `leave-from-class` (can be written as `leaveFromClass` in render functions or JSX)
+- `enter-class` is renamed to `enter-from-class` (can be written as `enterFromClass` in render functions or JSX)
 
 ## Migration Strategy
 
