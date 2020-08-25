@@ -46,7 +46,7 @@ In order to be more explicit and legible, we have now renamed these initial stat
 }
 ```
 
-It's now much clearer what the difference between these states are.
+It's now much clearer what the difference between these states is.
 
 The `<transition>` component's related prop names are also changed:
 
