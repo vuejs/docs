@@ -8,7 +8,7 @@ badges:
 
 ## Overview
 
-The `v-enter` transition class has been renamed to `v-enter-from` and the `v-leave` transition class is renamed to `v-leave-from`.
+The `v-enter` transition class has been renamed to `v-enter-from` and the `v-leave` transition class has been renamed to `v-leave-from`.
 
 ## 2.x Syntax
 
