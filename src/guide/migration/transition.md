@@ -14,7 +14,7 @@ The `v-enter` transition class has been renamed to `v-enter-from` and the `v-lea
 
 Before v2.1.8, we had two transition classes for each transition direction: initial and active states.
 
-In v2.1.8, we introduced `v-enter-to` to address the timing gap between enter/leave transitions, however, for backwards compatibility the v-enter name was untouched:
+In v2.1.8, we introduced `v-enter-to` to address the timing gap between enter/leave transitions. However, for backward compatibility, the `v-enter` name was untouched:
 
 ```css
 .v-enter,
