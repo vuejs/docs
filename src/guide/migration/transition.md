@@ -39,6 +39,7 @@ In order to be more explicit and legible, we have now renamed these initial stat
 .v-leave-to {
   opacity: 0;
 }
+
 .v-leave-from,
 .v-enter-to {
   opacity: 1;
