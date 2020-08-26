@@ -291,6 +291,7 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 - **Arguments:**
 
   - `{Object | Function} plugin`
+  - `[...options]`
 
 - **Returns:**
 
@@ -298,7 +299,9 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 
 - **Usage:**
 
-  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.
+  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method.
+  
+  The install method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
 
