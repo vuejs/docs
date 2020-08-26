@@ -181,7 +181,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 - **Arguments:**
 
   - `{Element | string} rootContainer`
-  - `{boolean} isHydrate`
+  - `{boolean} [isHydrate]`
 
 - **Returns:**
 
