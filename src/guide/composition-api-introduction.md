@@ -394,7 +394,7 @@ We could do the same for other **logical concerns** but you might be already ask
 // src/composables/useUserRepositories.js
 
 import { fetchUserRepositories } from '@/api/repositories'
-import { ref, onMounted, watch, toRefs } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 export default function useUserRepositories(user) {
   const repositories = ref([])
@@ -417,7 +417,7 @@ And then the searching functionality:
 ```js
 // src/composables/useRepositoryNameSearch.js
 
-import { ref, onMounted, watch, toRefs } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 export default function useRepositoryNameSearch(repositories) {
   const searchQuery = ref('')
