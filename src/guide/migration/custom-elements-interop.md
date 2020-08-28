@@ -101,7 +101,7 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
 > Note: this section only affects cases where Vue templates are directly written in the page's HTML.
 > When using in-DOM templates, the template is subject to native HTML parsing rules. Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
 
-### 2x Syntax
+### 2.x Syntax
 
 In Vue 2 we recommended working around with these restrictions by using the `is` prop on a native tag:
 
