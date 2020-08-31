@@ -6,7 +6,7 @@
 
   - `{string | Function} source`
   - `{Function | Object} callback`
-  - `{Object} [options]`
+  - `{Object} options (optional)`
     - `{boolean} deep`
     - `{boolean} immediate`
 
@@ -177,7 +177,7 @@
 - **Arguments:**
 
   - `{string} eventName`
-  - `[...args]`
+  - `...args (optional)`
 
   Trigger an event on the current instance. Any additional arguments will be passed into the listener's callback function.
 
@@ -259,7 +259,7 @@
 
 - **Arguments:**
 
-  - `{Function} [callback]`
+  - `{Function} callback (optional)`
 
 - **Usage:**
 
