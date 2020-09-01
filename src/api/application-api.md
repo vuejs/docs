@@ -17,7 +17,7 @@ In addition, since the `createApp` method returns the application instance itsel
 - **Arguments:**
 
   - `{string} name`
-  - `{Function | Object} [definition]`
+  - `{Function | Object} definition (optional)`
 
 - **Returns:**
 
@@ -68,7 +68,7 @@ app.config = {...}
 - **Arguments:**
 
   - `{string} name`
-  - `{Function | Object} [definition]`
+  - `{Function | Object} definition (optional)`
 
 - **Returns:**
 
@@ -181,7 +181,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 - **Arguments:**
 
   - `{Element | string} rootContainer`
-  - `{boolean} isHydrate`
+  - `{boolean} isHydrate (optional)`
 
 - **Returns:**
 
@@ -291,7 +291,7 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 - **Arguments:**
 
   - `{Object | Function} plugin`
-  - `[...options]`
+  - `...options (optional)`
 
 - **Returns:**
 
