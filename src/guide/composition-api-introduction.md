@@ -417,7 +417,7 @@ And then the searching functionality:
 ```js
 // src/composables/useRepositoryNameSearch.js
 
-import { ref, onMounted, watch } from 'vue'
+import { ref, computed } from 'vue'
 
 export default function useRepositoryNameSearch(repositories) {
   const searchQuery = ref('')
