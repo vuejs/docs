@@ -91,7 +91,7 @@ export default {
     app.provide('i18n', options)
 
     app.directive('my-directive', {
-      bind (el, binding, vnode, oldVnode) {
+      mounted (el, binding, vnode, oldVnode) {
         // some logic ...
       }
       ...

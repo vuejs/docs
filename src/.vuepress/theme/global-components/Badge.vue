@@ -12,13 +12,17 @@ export default {
       default: 'top'
     }
   },
-  render (h, { props, slots }) {
-    return h('span', {
-      class: ['badge', props.type],
-      style: {
-        verticalAlign: props.vertical
-      }
-    }, props.text || slots().default)
+  render(h, { props, slots }) {
+    return h(
+      'span',
+      {
+        class: ['badge', props.type],
+        style: {
+          verticalAlign: props.vertical
+        }
+      },
+      props.text || slots().default
+    )
   }
 }
 </script>
@@ -35,10 +39,13 @@ export default {
   background-color #42b983
   &.tip, &.green
     background-color $badgeTipColor
+    border-color $badgeTipColor
   &.error
     background-color $badgeErrorColor
+    border-color $badgeErrorColor
   &.warning, &.warn, &.yellow
     background-color $badgeWarningColor
+    border-color $badgeWarningColor
   & + &
     margin-left 5px
 </style>

@@ -30,7 +30,7 @@ import { createApp } from 'vue'
 
 const app = createApp({})
 
-// register an options object
+// 옵션 객체(options object)를 등록합니다.
 app.component('my-component', {
   /* ... */
 })
@@ -77,29 +77,34 @@ app.config = {...}
 import { createApp } from 'vue'
 const app = createApp({})
 
-// register
+// 디렉티브 등록
 app.directive('my-directive', {
-  // Directive has a set of lifecycle hooks:
-  // called before bound element's parent component is mounted
+  // 디렉티브에는 생명주기 hooks 세트 가 있습니다.
+  // 바인딩 된 엘리먼트의 부모 컴포넌트가 마운트되기 전에 호출
   beforeMount() {},
-  // called when bound element's parent component is mounted
+
+  // 바인딩 된 엘리먼트의 부모 컴포넌트가 마운트 될 때 호출
   mounted() {},
-  // called before the containing component's VNode is updated
+
+  // 포함하는 컴포넌트의 VNode 가 업데이트되기 전에 호출
   beforeUpdate() {},
-  // called after the containing component's VNode and the VNodes of its children // have updated
+
+  // 포함하는 컴포넌트의 VNode 와 자식 VNode 가 업데이트 된 후 호출
   updated() {},
-  // called before the bound element's parent component is unmounted
+
+  // 바인딩 된 엘리먼트의 부모 컴포넌트가 마운트 해제되기 전에 호출
   beforeUnmount() {},
-  // called when the bound element's parent component is unmounted
+
+  // 바인딩 된 엘리먼트의 부모 컴포넌트가 마운트 해제 될 때 호출
   unmounted() {}
 })
 
-// register (function directive)
+// 디렉티브 등록 (함수 디렉티브(function directive))
 app.directive('my-directive', () => {
   // this will be called as `mounted` and `updated`
 })
 
-// getter, return the directive definition if registered
+// 게터(getter), 등록된 경우 디렉티브 정의를 반환
 const myDirective = app.directive('my-directive')
 ```
 
@@ -146,7 +151,7 @@ app.directive('focus', {
 
 이전 가상 노드 입니다. `beforeUpdate` 와 `updated` hook 에서만 사용할 수 있습니다.
 
-::: tip `el` 인자와는 별도로, 이러한 인자들은 읽기전용이므로 절대 수정하지 마세요. 만약 hooks 간에 정보를 공유해야 한다면, 엘리먼트의 [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) 을 이용하여 공유하는 것이 좋습니다. :::
+::: 팁 `el` 인자와는 별도로, 이러한 인자들은 읽기전용이므로 절대 수정하지 마세요. 만약 hooks 간에 정보를 공유해야 한다면, 엘리먼트의 [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) 을 이용하여 공유하는 것이 좋습니다. :::
 
 - **참고:**
     [Custom Directives](../guide/custom-directive.html)
@@ -186,12 +191,55 @@ app.directive('focus', {
 import { createApp } from 'vue'
 
 const app = createApp({})
-// do some necessary preparations
+// 필요한 준비를 합니다.
 app.mount('#my-app')
 ```
 
 - **참고:**
     - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+
+## provide
+
+- **전달인자:**
+
+    - `{string | Symbol} key`
+    - `value`
+
+- **사용방법:**
+
+    애플리케이션내의 모든 컴포넌트에 주입할 수 있는 값을 설정하십시오. 컴포넌트는 제공된 값을 수신하려면 `inject`을(를) 사용해야 합니다.
+
+    `provide`/`inject`의 관점에서 애플리케이션은 루트 수준(root-level)의 조상이며 루트 컴포넌트는 유일한 하위 항목으로 간주됩니다.
+
+    이 메서드는 composition API 에서 [provide component option](options-composition.html#provide-inject) 또는 [provide function](composition-api.html#provide-inject) 과 혼동해서는 안됩니다. 또한 동일한`provide`/`inject` 메커니즘에 속하지만, 애플리케이션보다는 컴포넌트에서 제공하는 값을 구성하는데 사용합니다.
+
+    플러그인은 일반적으로 컴포넌트를 사용하여 값을 제공할 수 없기 때문에 애플리케이션을 통해 값을 제공하는 것이 특히 유용합니다. [ globalProperties](application-config.html#globalproperties) 를 사용하는 대신 사용할 수 있습니다.
+
+    호출 체인을 허용하여 애플리케이션 인스턴스를 반환합니다.
+
+    :::팁 참고 `provide` 및 `inject` 바인딩은 반응적이지 않습니다. 이것은 의도된 것입니다. 그러나 관찰된 객체(observed object)를 전달하면 해당 객체의 속성은 반응성을 유지합니다. :::
+
+- **예시:**
+
+    애플리케이션에서 제공하는 값으로 속성을 루트 컴포넌트에 주입합니다:
+
+```js
+import { createApp } from 'vue'
+
+const app = createApp({
+  inject: ['user'],
+  template: `
+    <div>
+      {{ user }}
+    </div>
+  `
+})
+
+app.provide('user', 'administrator')
+```
+
+- **참고:**
+    - [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
 
@@ -215,10 +263,10 @@ app.mount('#my-app')
 import { createApp } from 'vue'
 
 const app = createApp({})
-// do some necessary preparations
+// 필요한 준비를 합니다.
 app.mount('#my-app')
 
-// Application will be unmounted 5 seconds after mount
+// 마운트된 후 5초 후에 애플리케이션이 마운트 해제됩니다.
 setTimeout(() => app.unmount('#my-app'), 5000)
 ```
 
