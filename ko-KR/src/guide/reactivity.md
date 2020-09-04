@@ -43,10 +43,7 @@ val1 = 3
 
 일반 JavaScript 객체를 `data`옵션으로 어플리케이션이나 컴포넌트 인스턴스에 전달할 때, Vue는 모든 속성을 살펴보고, getter와 setter가 있는 핸들러를 사용하여 [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)로 변환합니다. Proxy는 ES6 전용 기능이지만, IE 브라우저를 지원하기 위해, 이전의 `Object.defineProperty`(Vue2의 반응성 방식)를 사용하는 Vue3 버전을 제공합니다. 둘 다 동일한 API를 가지고 있지만, Proxy 버전은 더 가볍고 향상된 성능을 제공합니다.
 
-<div class="reactivecontent">   <iframe height="500" style="width: 100%;" scrolling="no" title="Proxies and Vue's Reactivity Explained Visually" src="https://codepen.io/sdras/embed/zYYzjBg?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-    See the Pen <a href="https://codepen.io/sdras/pen/zYYzjBg">Proxies and Vue's Reactivity Explained Visually</a> by Sarah Drasner
-    (<a href="https://codepen.io/sdras">@sdras</a>) on <a href="https://codepen.io">CodePen</a>.
-  </iframe> </div>
+<div class="reactivecontent">   <iframe height="500" style="width: 100%;" scrolling="no" title="Proxies and Vue's Reactivity Explained Visually" src="https://codepen.io/sdras/embed/zYYzjBg?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"><br>    See the Pen &lt;a href="https://codepen.io/sdras/pen/zYYzjBg"&gt;Proxies and Vue's Reactivity Explained Visually&lt;/a&gt; by Sarah Drasner<br>    (&lt;a href="https://codepen.io/sdras"&gt;@sdras&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.<br>  </iframe></div>
 
 위의 예시는 다소 빠르고, 해당 내용을 이해하려면 [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)에 대한 약간의 지식이 필요합니다. 그럼 잠깐 들어가 보겠습니다. Proxy에 대한 많은 문헌이 있지만, 실제로 알아야할 것은 **Proxy는 다른 객체나 함수를 감싸는 객체이며, 원본으로의 호출을 가로채서 처리할 수 있게 합니다.**
 
@@ -212,13 +209,12 @@ const obj = reactive({
 
 모든 컴포넌트 인스턴스는 해당 감시자 인스턴스가 있으며, 이는 컴포넌트가 종속적으로 렌더링되는 동안 "영향을 받은(touched)" 모든 속성을 기록합니다. 나중에 종속성의 setter가 트리거되면, 감시자에게 알리고 컴포넌트는 다시 렌더링됩니다.
 
-<div class="reactivecontent">   <iframe height="500" style="width: 100%;" scrolling="no" title="Second Reactivity with Proxies in Vue 3 Explainer" src="https://codepen.io/sdras/embed/GRJZddR?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-    See the Pen <a href="https://codepen.io/sdras/pen/GRJZddR">Second Reactivity with Proxies in Vue 3 Explainer</a> by Sarah Drasner
-    (<a href="https://codepen.io/sdras">@sdras</a>) on <a href="https://codepen.io">CodePen</a>.
-  </iframe> </div>
+<div class="reactivecontent">   <iframe height="500" style="width: 100%;" scrolling="no" title="Second Reactivity with Proxies in Vue 3 Explainer" src="https://codepen.io/sdras/embed/GRJZddR?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"><br>    See the Pen &lt;a href="https://codepen.io/sdras/pen/GRJZddR"&gt;Second Reactivity with Proxies in Vue 3 Explainer&lt;/a&gt; by Sarah Drasner<br>    (&lt;a href="https://codepen.io/sdras"&gt;@sdras&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.<br>  </iframe></div>
 
 객체를 컴포넌트 인스턴스에 data(option)로 전달하면, Vue는 이것을 proxy로 변환합니다. 이 proxy를 사용하면, Vue가 속성에 접근하거나 수정할 때 종속성 추적 및 변경 알림을 수행할 수 있습니다. 각 속성은 종속성으로 간주됩니다.
 
 첫번째 렌더링 이후, 컴포넌트는 종속성 목록(렌더링 중에 접근한 속성들)을 추적했을 것입니다. 반대로, 컴포넌트는 이러한 각 속성들에 대한 구독자(subscriber)가 됩니다. proxy가 set operation을 가로채면, 속성은 구독된 모든 컴포넌트에 다시 렌더링하도록 알립니다.
 
 > Vue 2.x 이하를 사용하는 경우 해당 버전에 존재하는 변경 감지 주의사항 중 일부에 관심이 있을 수 있습니다. [여기에서 자세히 살펴보겠습니다](change-detection.md).
+
+
