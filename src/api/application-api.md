@@ -17,7 +17,12 @@ In addition, since the `createApp` method returns the application instance itsel
 - **Arguments:**
 
   - `{string} name`
-  - `{Function | Object} [definition]`
+  - `{Function | Object} definition (optional)`
+
+- **Returns:**
+
+  - The application instance if a `definition` argument was passed
+  - The component definition if a `definition` argument was not passed 
 
 - **Usage:**
 
@@ -35,8 +40,8 @@ app.component('my-component', {
   /* ... */
 })
 
-// retrieve a registered component (always return constructor)
-const MyComponent = app.component('my-component', {})
+// retrieve a registered component
+const MyComponent = app.component('my-component')
 ```
 
 - **See also:** [Components](../guide/component-basics.html)
@@ -63,7 +68,12 @@ app.config = {...}
 - **Arguments:**
 
   - `{string} name`
-  - `{Function | Object} [definition]`
+  - `{Function | Object} definition (optional)`
+
+- **Returns:**
+
+  - The application instance if a `definition` argument was passed
+  - The directive definition if a `definition` argument was not passed 
 
 - **Usage:**
 
@@ -156,6 +166,10 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
   - `{Object} mixin`
 
+- **Returns:**
+
+  - The application instance 
+
 - **Usage:**
 
   Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
@@ -167,7 +181,11 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 - **Arguments:**
 
   - `{Element | string} rootContainer`
-  - `{boolean} isHydrate`
+  - `{boolean} isHydrate (optional)`
+
+- **Returns:**
+
+  - The root component instance
 
 - **Usage:**
 
@@ -199,6 +217,10 @@ app.mount('#my-app')
   - `{string | Symbol} key`
   - `value`
 
+- **Returns:**
+
+  - The application instance
+
 - **Usage:**
 
   Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
@@ -208,8 +230,6 @@ app.mount('#my-app')
   This method should not be confused with the [provide component option](options-composition.html#provide-inject) or the [provide function](composition-api.html#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application. 
 
   Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.html#globalproperties).
-
-  Returns the application instance, allowing calls to be chained.
 
   :::tip Note
   The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
@@ -271,10 +291,17 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 - **Arguments:**
 
   - `{Object | Function} plugin`
+  - `...options (optional)`
+
+- **Returns:**
+
+  - The application instance
 
 - **Usage:**
 
-  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.
+  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method.
+  
+  The install method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
 
