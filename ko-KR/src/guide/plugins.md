@@ -1,6 +1,6 @@
 # 플러그인
 
-Plugins are self-contained code that usually add global-level functionality to Vue. It is either an `object` that exposes an `install()` method, or a `function`.
+플러그인은 일반적으로 Vue에 전역 수준의 기능을 추가하는 self-contained 코드입니다.  `객체` 또는`함수`를 `install()`메소드를 통해 제공합니다.
 
 플러그인에 대해 엄격하게 정의 된 범위는 없습니다. 일반적으로 플러그인이 유용한 시나리오는 다음과 같습니다.
 
