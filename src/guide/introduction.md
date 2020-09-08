@@ -187,7 +187,7 @@ const ConditionalRendering = {
 Vue.createApp(ConditionalRendering).mount('#conditional-rendering')
 ```
 
-This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](TODO) when elements are inserted/updated/removed by Vue.
+This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](transitions-enterleave.md) when elements are inserted/updated/removed by Vue.
 
 You can change `seen` from `true` to `false` in the sandbox below to check the effect:
 
