@@ -1,6 +1,6 @@
 # Instance Methods
 
-## \$watch
+## $watch
 
 - **Arguments:**
 
