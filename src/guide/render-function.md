@@ -355,7 +355,7 @@ render() {
 
 ### Slots
 
-You can access slot contents as Arrays of VNodes from [`this.$slots`](../api/#vm-slots):
+You can access slot contents as Arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
 
 ```js
 render() {
