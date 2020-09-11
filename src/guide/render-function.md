@@ -409,7 +409,7 @@ Especially when the template version is so concise in comparison:
 <anchored-heading :level="1"> <span>Hello</span> world! </anchored-heading>
 ```
 
-That's why there's a [Babel plugin](https://github.com/vuejs/jsx) to use JSX with Vue, getting us back to a syntax that's closer to templates:
+That's why there's a [Babel plugin](https://github.com/vuejs/jsx-next) to use JSX with Vue, getting us back to a syntax that's closer to templates:
 
 ```jsx
 import AnchoredHeading from './AnchoredHeading.vue'
@@ -426,7 +426,7 @@ new Vue({
 })
 ```
 
-For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/vuejs/jsx#installation).
+For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/vuejs/jsx-next#installation).
 
 ## Template Compilation
 
