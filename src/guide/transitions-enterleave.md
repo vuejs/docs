@@ -548,7 +548,7 @@ We can use this to coordinate more expressive movement, such as a folding card, 
 
 ## Transitioning Between Components
 
-Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](components.html#Dynamic-Components):
+Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](component-basics.html#dynamic-components):
 
 TODO: update to Vue 3
 
