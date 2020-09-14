@@ -134,9 +134,9 @@ The `h()` function is a utility to create VNodes. It could perhaps more accurate
 ```js
 // @returns {VNode}
 h(
-  // {String | Object | Function | null} tag
-  // An HTML tag name, a component, an async component or null.
-  // Using null would render a comment.
+  // {String | Object | Function } tag
+  // An HTML tag name, a component or an async component.
+  // Using function returning null would render a comment.
   //
   // Required.
   'div',

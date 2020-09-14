@@ -38,7 +38,6 @@ const app = Vue.createApp(
 )
 ```
 
-
 ```html
 <div id="app">
   <!-- Will display 'Evan' -->
@@ -75,11 +74,11 @@ Accepts three arguments: `type`, `props` and `children`
 
 #### type
 
-- **Type:** `String | Object | Function | null`
+- **Type:** `String | Object | Function`
 
 - **Details:**
 
-  An HTML tag name, a component, an async component or null. Using null would render a comment. This parameter is required
+  An HTML tag name, a component or an async component. Using function returning null would render a comment. This parameter is required
 
 #### props
 
@@ -330,7 +329,7 @@ Accepts two arguments: `vnode` and `directives`.
 
 - **Type:** `vnode`
 
-- **Details:** 
+- **Details:**
 
   A virtual node, usually created with `h()`.
 
@@ -340,61 +339,54 @@ Accepts two arguments: `vnode` and `directives`.
 
 - **Details:**
 
-  An array of directives. 
-  
+  An array of directives.
+
   Each directive itself is an array, which allows for up to 4 indexes to be defined as seen in the following examples.
 
   - `[directive]` - The directive by itself. Required.
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(
-    h('div'), 
-    [ [MyDirective] ]
-  )
+  const nodeWithDirectives = withDirectives(h('div'), [[MyDirective]])
   ```
 
   - `[directive, value]` - The above, plus a value of type `any` to be assigned to the directive
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(
-    h('div'), 
-    [ [MyDirective, 100] ]
-  )
+  const nodeWithDirectives = withDirectives(h('div'), [[MyDirective, 100]])
   ```
 
   - `[directive, value, arg]` - The above, plus a `String` argument, ie. `click` in `v-on:click`
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(
-    h('div'), 
-    [ [MyDirective, 100, 'click'] ]
-  )
+  const nodeWithDirectives = withDirectives(h('div'), [
+    [MyDirective, 100, 'click']
+  ])
   ```
 
-  - `[directive, value, arg, modifiers]` - The above, plus a `key: value` pair `Object` defining any modifiers. 
+  - `[directive, value, arg, modifiers]` - The above, plus a `key: value` pair `Object` defining any modifiers.
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(
-    h('div'), 
-    [ [MyDirective, 100, 'click', { prevent: true }] ]
-  )
+  const nodeWithDirectives = withDirectives(h('div'), [
+    [MyDirective, 100, 'click', { prevent: true }]
+  ])
   ```
 
 ## createRenderer
 
 The createRenderer function accepts two generic arguments:
 `HostNode` and `HostElement`, corresponding to Node and Element types in the
-host environment. 
- 
+host environment.
+
 For example, for runtime-dom, HostNode would be the DOM
 `Node` interface and HostElement would be the DOM `Element` interface.
-  
+
 Custom renderers can pass in the platform specific types like this:
-``` js
+
+```js
 import { createRenderer } from 'vue'
 const { render, createApp } = createRenderer<Node, Element>({
   patchProp,
