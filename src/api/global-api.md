@@ -130,6 +130,17 @@ const MyComponent = defineComponent({
 })
 ```
 
+Or a `setup` function, function name will be used as component name
+
+```js
+import { defineComponent, ref } from 'vue'
+
+const HelloWorld = defineComponent(function HelloWorld() {
+  const count = ref(0)
+  return { count }
+})
+```
+
 ## defineAsyncComponent
 
 Creates an async component that will be loaded only when it's necessary.
