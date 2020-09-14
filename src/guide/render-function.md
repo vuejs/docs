@@ -414,8 +414,7 @@ That's why there's a [Babel plugin](https://github.com/vuejs/jsx-next) to use JS
 ```jsx
 import AnchoredHeading from './AnchoredHeading.vue'
 
-new Vue({
-  el: '#demo',
+const app = createApp({
   render() {
     return (
       <AnchoredHeading level={1}>
@@ -424,6 +423,8 @@ new Vue({
     )
   }
 })
+
+app.mount('#demo')
 ```
 
 For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/vuejs/jsx-next#installation).
