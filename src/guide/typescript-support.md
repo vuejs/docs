@@ -16,6 +16,7 @@ A static type system can help prevent many potential runtime errors as applicati
     "module": "esnext",
     // this enables stricter inference for data properties on `this`
     "strict": true,
+    "jsx": "preserve",
     "moduleResolution": "node"
   }
 }
