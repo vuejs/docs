@@ -307,11 +307,11 @@ render() {
       handler: this.doThisInCapturingMode,
       capture: true
     },
-    onKeyUp: {
+    onKeyup: {
       handler: this.doThisOnce,
       once: true
     },
-    onMouseOver: {
+    onMouseover: {
       handler: this.doThisOnceInCapturingMode,
       once: true,
       capture: true
