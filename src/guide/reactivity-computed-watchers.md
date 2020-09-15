@@ -122,7 +122,7 @@ In this example:
 - The count will be logged synchronously on initial run.
 - When `count` is mutated, the callback will be called **after** the component has updated.
 
-Note the first run is executed before the component is mounted. So if you wish to access the DOM (or template refs) in a watched effect, do it in the mounted hook:
+Note the first run is executed before the component is mounted. So if you wish to access the DOM (or template refs) in a watched effect, do it in the `onMounted` hook:
 
 ```js
 onMounted(() => {
