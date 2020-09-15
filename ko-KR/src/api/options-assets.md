@@ -1,21 +1,21 @@
-# Assets
+# 자산(Assets)
 
 ## directives
 
-- **Type:** `Object`
+- **유형:** `Object`
 
-- **Details:**
+- **설명:**
 
-  A hash of directives to be made available to the component instance.
+    컴포넌트 인스턴스에서 사용할 수 있는 디렉티브의 해시입니다.
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+- [커스텀 디렉티브(Custom Directives)](../guide/custom-directive.html)
 
 ## components
 
-- **Type:** `Object`
+- **유형:** `Object`
 
-- **Details:**
+- **설명:**
 
-  A hash of components to be made available to the component instance.
+    컴포넌트 인스턴스에서 사용할 수 있는 컴포넌트의 해시입니다.
 
-- **See also:** [Components](../guide/component-basics.html)
+- [컴포넌트(Components)](../guide/component-basics.html)
