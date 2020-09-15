@@ -1,6 +1,6 @@
 # Application API
 
-In Vue 3, APIs that globally mutate Vue's behavior are now moved to application instances created by the new `createApp` method. In addition, their effects are now scoped to that specific application's instance:
+Vue3 에서는, Vue 의 동작을 전역적으로 변이시키는 API 는 이제 새로운 `createApp` 메서드로 생성된 애플리케이션 인스턴스로 옮겨졌습니다. 또한, 그 영향은 이제 해당 특정 애플리케이션의 인스턴스로 범위가 지정됩니다:
 
 ```js
 import { createApp } from 'vue'
@@ -8,51 +8,52 @@ import { createApp } from 'vue'
 const app = createApp({})
 ```
 
-Calling `createApp` returns an application instance. This instance provides an application context. The entire component tree mounted by the application instance share the same context, which provides the configurations that were previously "global" in Vue 2.x.
+`createApp` 을 호출하면 애플리케이션 인스턴스를 반환합니다. 이 인스턴스는 애플리케이션 컨텍스트를 제공합니다. 애플리케이션 인스턴스에 의해 마운트 된 전체 컴포넌트 트리는 Vue 2.x 에서 이전에 "글로벌(global)" 이었던 구성을 제공하는 동일한 컨텍스트를 공유합니다.
 
-In addition, since the `createApp` method returns the application instance itself, you can chain other methods after it which can be found in the following sections.
+또한, `createApp` 메서드는 애플리케이션 인스턴스 자체를 반환하므로, 다음 섹션에서 확인할 수 있는 다른 메서드들을 인스턴스에 연결할 수 있습니다.
 
 ## component
 
-- **Arguments:**
+- **전달인자:**
 
-  - `{string} name`
-  - `{Function | Object} definition (optional)`
+    - `{string} name`
+    - `{Function | Object} definition (optional)`
 
-- **Returns:**
+- **반환값:**
 
-  - The application instance if a `definition` argument was passed
-  - The component definition if a `definition` argument was not passed 
+    - `definition` 인자가 전달 된 경우 애플리케이션 인스턴스 반환
+    - `definition` 인자가 전달되지 않은 경우 컴포넌트 정의 반환
 
-- **Usage:**
+- **사용방법:**
 
-  Register or retrieve a global component. Registration also automatically sets the component's `name` with the given `name` parameter.
+    전역 컴포넌트를 등록하거나 검색합니다. 주어진 `name` 매개 변수로 컴포넌트의 `name` 을 자동으로 설정합니다.
 
-- **Example:**
+- **예시:**
 
 ```js
 import { createApp } from 'vue'
 
 const app = createApp({})
 
-// register an options object
+// 옵션 객체(options object)를 등록
 app.component('my-component', {
   /* ... */
 })
 
-// retrieve a registered component
+// 등록된 컴포넌트를 검색
 const MyComponent = app.component('my-component')
 ```
 
-- **See also:** [Components](../guide/component-basics.html)
+- **참고:**
+    [컴포넌트(Components)](../guide/component-basics.html)
 
 ## config
 
-- **Usage:**
+- **사용방법:**
 
-An object containing application configurations.
+애플리케이션 구성을 포함하는 객체 입니다.
 
-- **Example:**
+- **예시:**
 
 ```js
 import { createApp } from 'vue'
@@ -61,72 +62,78 @@ const app = createApp({})
 app.config = {...}
 ```
 
-- **See also:** [Application Config](./application-config.html)
+- **참고:**
+    [애플리케이션 구성(Application Config)](./application-config.html)
 
 ## directive
 
-- **Arguments:**
+- **전달인자:**
 
-  - `{string} name`
-  - `{Function | Object} definition (optional)`
+    - `{string} name`
+    - `{Function | Object} [definition]`
 
-- **Returns:**
+- **반환값:**
 
-  - The application instance if a `definition` argument was passed
-  - The directive definition if a `definition` argument was not passed 
+    - `definition` 인자가 전달 된 경우 애플리케이션 인스턴스 반환
+    - `definition` 인자가 전달되지 않은 경우 디렉티브 정의 반환
 
-- **Usage:**
+- **사용방법:**
 
-  Register or retrieve a global directive.
+    전역 디렉티브를 등록하거나 검색합니다.
 
-- **Example:**
+- **예시:**
 
 ```js
 import { createApp } from 'vue'
 const app = createApp({})
 
-// register
+// 디렉티브 등록
 app.directive('my-directive', {
-  // Directive has a set of lifecycle hooks:
-  // called before bound element's parent component is mounted
+  // 디렉티브에는 생명주기 hooks 세트 가 있습니다.
+  // 바인딩 된 엘리먼트의 부모 컴포넌트가 마운트되기 전에 호출
   beforeMount() {},
-  // called when bound element's parent component is mounted
+
+  // 바인딩 된 엘리먼트의 부모 컴포넌트가 마운트 될 때 호출
   mounted() {},
-  // called before the containing component's VNode is updated
+
+  // 포함하는 컴포넌트의 VNode 가 업데이트되기 전에 호출
   beforeUpdate() {},
-  // called after the containing component's VNode and the VNodes of its children // have updated
+
+  // 포함하는 컴포넌트의 VNode 와 자식 VNode 가 업데이트 된 후 호출
   updated() {},
-  // called before the bound element's parent component is unmounted
+
+  // 바인딩 된 엘리먼트의 부모 컴포넌트가 마운트 해제되기 전에 호출
   beforeUnmount() {},
-  // called when the bound element's parent component is unmounted
+
+  // 바인딩 된 엘리먼트의 부모 컴포넌트가 마운트 해제 될 때 호출
   unmounted() {}
 })
 
-// register (function directive)
+// 디렉티브 등록 (함수 디렉티브(function directive))
 app.directive('my-directive', () => {
   // this will be called as `mounted` and `updated`
 })
 
-// getter, return the directive definition if registered
+// 게터(getter), 등록된 경우 디렉티브 정의를 반환
 const myDirective = app.directive('my-directive')
 ```
 
-Directive hooks are passed these arguments:
+디렉티브 hooks 에는 다음과 같은 인자들이 전달됩니다:
 
 #### el
 
-The element the directive is bound to. This can be used to directly manipulate the DOM.
+디렉티브에 바인딩 된 엘리먼트를 나타냅니다. 이 엘리먼트를 이용하여 DOM 을 직접 조작하는데 사용할 수 있습니다.
 
 #### binding
 
-An object containing the following properties.
+바인딩 객체는 다음과 같은 속성들을 포함하고 있습니다.
 
-- `instance`: The instance of the component where directive is used.
-- `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-- `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
-- `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-- `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-- `dir`: an object, passed as a parameter when directive is registered. For example, in the directive
+- `instance`: 디렉티브가 사용되는 컴포넌트의 인스턴스
+- `value`: 디렉티브에 전달된 값. 예를 들어 `v-my-directive="1 + 1"`, 에서 전달된 값은 `2` 가 됩니다.
+- `oldValue`: 이전 값이며,  `beforeUpdate` 와 `updated` 에서만 사용이 가능합니다. 값 변경에 관계없이 사용할 수 있습니다.
+- `arg`: 디렉티브에 전달된 인자. 예를 들어 `v-my-directive:foo` 에서, 전달된 인자는 `"foo"` 가 됩니다.
+- `modifiers`: 수식어를 포함하는 객체. 예를 들어 `v-my-directive.foo.bar` 에서, 수식어 객체는 `{ foo: true, bar: true }` 가 됩니다.
+- `dir`: 디렉티브가 등록 될 때 매개 변수로 전달되는 객체. 예를 들어, 아래 디렉티브에서
 
 ```js
 app.directive('focus', {
@@ -136,7 +143,7 @@ app.directive('focus', {
 })
 ```
 
-`dir` would be the following object:
+`dir` 객체는 다음과 같습니다:
 
 ```js
 {
@@ -148,50 +155,49 @@ app.directive('focus', {
 
 #### vnode
 
-A blueprint of the real DOM element received as el argument above.
+위의 el 인자로 받은 실제 DOM 엘리먼트의 청사진 입니다.<br>vnode 는 가상 DOM 노드를 의미합니다.
 
 #### prevNode
 
-The previous virtual node, only available in the `beforeUpdate` and `updated` hooks.
+이전 가상 노드 입니다. `beforeUpdate` 와 `updated` hook 에서만 사용할 수 있습니다.
 
-:::tip Note
-Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
-:::
+:::팁 `el` 인자와는 별도로, 이러한 인자들은 읽기전용(read-only)이므로 절대 수정하지 마세요. 만약 hooks 간에 정보를 공유해야 한다면, 엘리먼트의 [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) 을 이용하여 공유하는 것이 좋습니다. :::
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+- **참고:**
+    [커스텀 디렉티브(Custom Directives)](../guide/custom-directive.html)
 
 ## mixin
 
-- **Arguments:**
+- **전달인자:**
 
-  - `{Object} mixin`
+    - `{Object} mixin`
 
-- **Returns:**
+- **반환값:**
 
-  - The application instance 
+    - 애플리케이션 인스턴스 반환
 
-- **Usage:**
+- **사용방법:**
 
-  Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+    애플리케이션 전역에 믹스인을 등록합니다. 일단 등록되면 믹스인은 현재 애플리케이션 내 모든 컴포넌트 템플릿에서 사용할 수 있습니다. 이것은 플러그인 작성자가 컴포넌트에 사용자 정의 기능을 주입하는 데 사용할 수 있습니다. **애플리케이션 코드에서 권장되지 않음.**
 
-- **See also:** [Global Mixin](../guide/mixins.html#global-mixin)
+- [전역 믹스인(Global Mixin)](../guide/mixins.html#global-mixin)
 
 ## mount
 
-- **Arguments:**
+- **전달인자:**
 
-  - `{Element | string} rootContainer`
-  - `{boolean} isHydrate (optional)`
+    - `{Element | string} rootContainer`
+    - `{boolean} isHydrate (optional)`
 
-- **Returns:**
+- **반환값:**
 
-  - The root component instance
+    - 루트 컴포넌트 인스턴스 반환
 
-- **Usage:**
+- **사용방법:**
 
-  Mounts a root component of the application instance on the provided DOM element.
+    제공된 DOM 엘리먼트에 애플리케이션 인스턴스의 루트 컴포넌트를 마운트합니다.
 
-- **Example:**
+- **예시:**
 
 ```html
 <body>
@@ -203,41 +209,39 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 import { createApp } from 'vue'
 
 const app = createApp({})
-// do some necessary preparations
+// 필요한 준비를 합니다.
 app.mount('#my-app')
 ```
 
-- **See also:**
-  - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **참고:**
+    - [생명주기 도표(Lifecycle Diagram)](../guide/instance.html#lifecycle-diagram)
 
 ## provide
 
-- **Arguments:**
+- **전달인자:**
 
-  - `{string | Symbol} key`
-  - `value`
+    - `{string | Symbol} key`
+    - `value`
 
-- **Returns:**
+- **반환값:**
 
-  - The application instance
+    - 애플리케이션 인스턴스 반환
 
-- **Usage:**
+- **사용방법:**
 
-  Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
-   
-  From a `provide`/`inject` perspective, the application can be thought of as the root-level ancestor, with the root component as its only child.
+    애플리케이션 내의 모든 컴포넌트에 삽입 할 수있는 값을 설정합니다. 컴포넌트는 제공된 값을 수신하기 위해 `inject` 를 사용해야합니다.
 
-  This method should not be confused with the [provide component option](options-composition.html#provide-inject) or the [provide function](composition-api.html#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application. 
+    `provide`/`inject` 의 관점에서 애플리케이션은 루트 수준 상위 항목으로 생각할 수 있으며 루트 컴포넌트는 유일한 하위 항목으로 생각할 수 있다.
 
-  Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.html#globalproperties).
+    이 메소드를 composition API 의 [provide component option](options-composition.html#provide-inject) 또는 [provide function](composition-api.html#provide-inject) 과 혼동해서는 안됩니다. 이들은 동일한 `provide`/`inject` 메커니즘의 일부이기도하지만 애플리케이션이 아닌 컴포넌트에서 제공하는 값을 구성하는 데 사용됩니다.
 
-  :::tip Note
-  The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
-  :::
+    일반적으로 플러그인은 컴포넌트를 사용하여 값을 제공 할 수 없기 때문에 애플리케이션을 통해 값을 제공하는 것은 플러그인을 작성할 때 특히 유용합니다. [globalProperties](application-config.html#globalproperties) 를 사용하는 대신 사용할 수 있습니다.
 
-- **Example:**
+    :::팁 참고 `provides` 및 `inject` 바인딩은 반응성(reactive)이 없습니다. 이것은 의도적인 것이다. 그러나 관찰된 객체(observed object)를 전달하면 해당 객체의 속성은 반응성(reactive)은 유지됩니다. :::
 
-  Injecting a property into the root component, with a value provided by the application:
+- **예시:**
+
+    애플리케이션이 제공하는 값을 사용하여 루트 컴포넌트에 속성 주입:
 
 ```js
 import { createApp } from 'vue'
@@ -254,20 +258,20 @@ const app = createApp({
 app.provide('user', 'administrator')
 ```
 
-- **See also:**
-  - [Provide / Inject](../guide/component-provide-inject.md)
+- **참고:**
+    - [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
 
-- **Arguments:**
+- **전달인자:**
 
-  - `{Element | string} rootContainer`
+    - `{Element | string} rootContainer`
 
-- **Usage:**
+- **사용방법:**
 
-  Unmounts a root component of the application instance on the provided DOM element.
+    제공된 DOM 엘리먼트에서 애플리케이션 인스턴스의 루트 컴포넌트를 마운트 해제합니다.
 
-- **Example:**
+- **예시:**
 
 ```html
 <body>
@@ -279,30 +283,30 @@ app.provide('user', 'administrator')
 import { createApp } from 'vue'
 
 const app = createApp({})
-// do some necessary preparations
+// 필요한 준비를 합니다.
 app.mount('#my-app')
 
-// Application will be unmounted 5 seconds after mount
+// 마운트된 후 5초 후에 애플리케이션이 마운트 해제(unmount)됩니다.
 setTimeout(() => app.unmount('#my-app'), 5000)
 ```
 
 ## use
 
-- **Arguments:**
+- **전달인자:**
 
-  - `{Object | Function} plugin`
-  - `...options (optional)`
+    - `{Object | Function} plugin`
+    - `...options (optional)`
 
-- **Returns:**
+- **반환값:**
 
-  - The application instance
+    - 애플리케이션 인스턴스 반환
 
-- **Usage:**
+- **사용방법:**
 
-  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method.
-  
-  The install method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
+    Vue.js 플러그인을 설치하세요. 플러그인이 객체인 경우에는 `install` 메서드를 노출해야합니다. 함수인 경우, install 메서드로 처리됩니다.
 
-  When this method is called on the same plugin multiple times, the plugin will be installed only once.
+    애플리케이션을 첫 번째 인자로 사용하여 install 메서드가 호출됩니다. `use` 에 전달 된 모든 `options`는 후속 인자로 전달됩니다.
 
-- **See also:** [Plugins](../guide/plugins.html)
+    동일한 플러그인에서 이 메서드를 여러번 호출하면 플러그인은 한 번만 설치됩니다.
+
+- [플러그인(Plugins)](../guide/plugins.html)
