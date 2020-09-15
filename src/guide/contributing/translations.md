@@ -8,4 +8,4 @@ Yes! We are ready for translation!
 
 ## How can I get involved with translations?
 
-The best way to get started is to check out [this pinned issue for Vuejs.org](https://github.com/vuejs/vuejs.org/issues/2015) that contains active discussions on the various initiatives happening in the community.
+The best way to get started is to check out [this pinned issue](https://github.com/vuejs/docs-next/issues/478) that contains active discussions on the various initiatives happening in the community.
