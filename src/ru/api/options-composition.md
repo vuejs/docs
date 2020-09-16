@@ -30,7 +30,7 @@
   // => 2
   ```
 
-- **См. также:** [Mixins](../guide/mixins.html)
+- **См. также:** [Mixins](../guide/mixins.md)
 
 ## extends
 
@@ -182,7 +182,7 @@
   }
   ```
 
-- **См. также:** [Provide / Inject](../guide/component-provide-inject.html)
+- **См. также:** [Provide / Inject](../guide/component-provide-inject.md)
 
 ## setup
 
@@ -192,7 +192,7 @@ The `setup` function is a new component option. It serves as the entry point for
 
 - **Invocation Timing**
 
-  `setup` is called right after the initial props resolution when a component instance is created. Lifecycle-wise, it is called before the [beforeCreate](./options-lifecycle-hooks.html#beforecreate) hook.
+  `setup` is called right after the initial props resolution when a component instance is created. Lifecycle-wise, it is called before the [beforeCreate](./options-lifecycle-hooks.md#beforecreate) hook.
 
 - **Usage with Templates**
 
@@ -221,7 +221,7 @@ The `setup` function is a new component option. It serves as the entry point for
   </script>
   ```
 
-  Note that [refs](refs-api.html#ref) returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
+  Note that [refs](refs-api.md#ref) returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
 
 - **Usage with Render Functions / JSX**
 
@@ -318,4 +318,4 @@ The `setup` function is a new component option. It serves as the entry point for
 
   - Having `props` as a separate argument makes it easier to type it individually without messing up the types of other properties on the context. It also makes it possible to keep a consistent signature across `setup`, `render` and plain functional components with TSX support.
 
-- **См. также:** [Composition API](composition-api.html)
+- **См. также:** [Composition API](composition-api.md)

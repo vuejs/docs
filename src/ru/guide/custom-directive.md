@@ -57,7 +57,7 @@ A directive definition object can provide several hook functions (all optional):
 - `beforeUpdate`: called before the containing component's VNode is updated
 
 :::tip Примечание
-We'll cover VNodes in more detail [later](render-function.html#the-virtual-dom-tree), when we discuss render functions.
+We'll cover VNodes in more detail [later](render-function.md#the-virtual-dom-tree), when we discuss render functions.
 :::
 
 - `updated`: called after the containing component's VNode **and the VNodes of its children** have updated.
@@ -66,7 +66,7 @@ We'll cover VNodes in more detail [later](render-function.html#the-virtual-dom-t
 
 - `unmounted`: called only once, when the directive is unbound from the element and the parent component is unmounted.
 
-You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](../api/application-api.html#directive)
+You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](../api/application-api.md#directive)
 
 ### Dynamic Directive Arguments
 
@@ -227,7 +227,7 @@ return withDirectives(h('div'), [[vDemo, test]])
 
 Where `vDemo` will be the directive object written by the user, which contains hooks like `mounted` and `updated`.
 
-`withDirectives` returns a cloned VNode with the user hooks wrapped and injected as VNode lifecycle hooks (see [Render Function](render-function.html) for more details):
+`withDirectives` returns a cloned VNode with the user hooks wrapped and injected as VNode lifecycle hooks (see [Render Function](render-function.md) for more details):
 
 ```js
 {
@@ -245,4 +245,4 @@ This also means it's possible to directly hook into an element's lifecycle like 
 <div @vnodeMounted="myHook" />
 ```
 
-This is consistent with the [attribute fallthrough behavior](component-attrs.html). So, the rule for custom directives on a component will be the same as other extraneous attributes: it is up to the child component to decide where and whether to apply it. When the child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.
+This is consistent with the [attribute fallthrough behavior](component-attrs.md). So, the rule for custom directives on a component will be the same as other extraneous attributes: it is up to the child component to decide where and whether to apply it. When the child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.

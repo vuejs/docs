@@ -136,7 +136,7 @@ Define merging strategies for custom options.
 
 The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context application instance is passed as the third argument.
 
-- **См. также:** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
+- **См. также:** [Custom Option Merging Strategies](../guide/mixins.md#custom-option-merge-strategies)
 
 ## performance
 

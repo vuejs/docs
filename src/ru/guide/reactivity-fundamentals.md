@@ -17,9 +17,9 @@ const state = reactive({
 
 The essential use case for reactive state in Vue is that we can use it during render. Thanks to dependency tracking, the view automatically updates when reactive state changes.
 
-This is the very essence of Vue's reactivity system. When you return an object from `data()` in a component, it is internally made reactive by `reactive()`. The template is compiled into a [render function](render-function.html) that makes use of these reactive properties.
+This is the very essence of Vue's reactivity system. When you return an object from `data()` in a component, it is internally made reactive by `reactive()`. The template is compiled into a [render function](render-function.md) that makes use of these reactive properties.
 
-You can learn more about `reactive` in the [Basic Reactivity API's](../api/basic-reactivity.html) section
+You can learn more about `reactive` in the [Basic Reactivity API's](../api/basic-reactivity.md) section
 
 ## Creating Standalone Reactive Values as `refs`
 
@@ -45,7 +45,7 @@ console.log(count.value) // 1
 
 ### Ref Unwrapping
 
-When a ref is returned as a property on the render context (the object returned from [setup()](composition-api-setup.html)) and accessed in the template, it automatically unwraps to the inner value. There is no need to append `.value` in the template:
+When a ref is returned as a property on the render context (the object returned from [setup()](composition-api-setup.md)) and accessed in the template, it automatically unwraps to the inner value. There is no need to append `.value` in the template:
 
 ```vue-html
 <template>
@@ -143,11 +143,11 @@ title.value = 'Vue 3 Detailed Guide' // we need to use .value as title is a ref 
 console.log(book.title) // 'Vue 3 Detailed Guide'
 ```
 
-You can learn more about `refs` in the [Refs API](../api/refs-api.html#ref) section
+You can learn more about `refs` in the [Refs API](../api/refs-api.md#ref) section
 
 ## Prevent Mutating Reactive Objects with `readonly`
 
-Sometimes we want to track changes of the reactive object (`ref` or `reactive`) but we also want prevent changing it from a certain place of the application. For example, when we have a [provided](component-provide-inject.html) reactive object, we want to prevent mutating it where it's injected. To do so, we can create a readonly proxy to the original object:
+Sometimes we want to track changes of the reactive object (`ref` or `reactive`) but we also want prevent changing it from a certain place of the application. For example, when we have a [provided](component-provide-inject.md) reactive object, we want to prevent mutating it where it's injected. To do so, we can create a readonly proxy to the original object:
 
 ```js
 import { reactive, readonly } from 'vue'

@@ -143,4 +143,4 @@ A common use case scenario would be a reusable `<Modal>` component of which ther
 </div>
 ```
 
-You can check `<teleport>` component options in the [API reference](../api/built-in-components.html#teleport)
+You can check `<teleport>` component options in the [API reference](../api/built-in-components.md#teleport)

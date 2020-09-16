@@ -4,7 +4,7 @@ Vue.js uses an HTML-based template syntax that allows you to declaratively bind 
 
 Under the hood, Vue compiles the templates into Virtual DOM render functions. Combined with the reactivity system, Vue is able to intelligently figure out the minimal number of components to re-render and apply the minimal amount of DOM manipulations when the app state changes.
 
-If you are familiar with Virtual DOM concepts and prefer the raw power of JavaScript, you can also [directly write render functions](render-function.html) instead of templates, with optional JSX support.
+If you are familiar with Virtual DOM concepts and prefer the raw power of JavaScript, you can also [directly write render functions](render-function.md) instead of templates, with optional JSX support.
 
 ## Interpolations
 
@@ -18,7 +18,7 @@ The most basic form of data binding is text interpolation using the "Mustache" s
 
 The mustache tag will be replaced with the value of the `msg` property on the corresponding data object. It will also be updated whenever the data object's `msg` property changes.
 
-You can also perform one-time interpolations that do not update on data change by using the [v-once directive](../api/directives.html#v-once), but keep in mind this will also affect any other bindings on the same node:
+You can also perform one-time interpolations that do not update on data change by using the [v-once directive](../api/directives.md#v-once), but keep in mind this will also affect any other bindings on the same node:
 
 ```html
 <span v-once>This will never change: {{ msg }}</span>
@@ -26,7 +26,7 @@ You can also perform one-time interpolations that do not update on data change b
 
 ### Raw HTML
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](../api/directives.html#v-html):
+The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](../api/directives.md#v-html):
 
 ```html
 <p>Using mustaches: {{ rawHtml }}</p>
@@ -192,7 +192,7 @@ Dynamic argument expressions have some syntax constraints because certain charac
 <a v-bind:['foo' + bar]="value"> ... </a>
 ```
 
-We recommend replacing any complex expressions with a [computed property](computed.html), one of the most fundamental pieces of Vue, which we'll cover shortly.
+We recommend replacing any complex expressions with a [computed property](computed.md), one of the most fundamental pieces of Vue, which we'll cover shortly.
 
 When using in-DOM templates (templates directly written in an HTML file), you should also avoid naming keys with uppercase characters, as browsers will coerce attribute names into lowercase:
 

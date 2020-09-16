@@ -1,6 +1,6 @@
 # Composition API
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> This section uses [single-file component](../guide/single-file-component.md) syntax for code examples
 
 ## `setup`
 
@@ -28,7 +28,7 @@ function setup(props: Data, context: SetupContext): Data
 ```
 
 :::tip Совет
-To get type inference for the arguments passed to `setup()`, the use of [defineComponent](global-api.html#definecomponent) is needed.
+To get type inference for the arguments passed to `setup()`, the use of [defineComponent](global-api.md#definecomponent) is needed.
 :::
 
 - **Example**
@@ -76,7 +76,7 @@ To get type inference for the arguments passed to `setup()`, the use of [defineC
   }
   ```
 
-- **See also**: [Composition API `setup`](../guide/composition-api-setup.html)
+- **See also**: [Composition API `setup`](../guide/composition-api-setup.md)
 
 ## Lifecycle Hooks
 
@@ -118,7 +118,7 @@ The component instance context is also set during the synchronous execution of l
   - `renderTracked` -> `onRenderTracked`
   - `renderTriggered` -> `onRenderTriggered`
 
-- **See also**: [Composition API lifecycle hooks](../guide/composition-api-lifecycle-hooks.html)
+- **See also**: [Composition API lifecycle hooks](../guide/composition-api-lifecycle-hooks.md)
 
 ## Provide / Inject
 
@@ -156,5 +156,5 @@ const foo = inject<string>('foo') // string | undefined
 ```
 
 - **See also**:
-  - [Provide / Inject](../guide/component-provide-inject.html)
-  - [Composition API Provide / Inject](../guide/composition-api-provide-inject.html)
+  - [Provide / Inject](../guide/component-provide-inject.md)
+  - [Composition API Provide / Inject](../guide/composition-api-provide-inject.md)

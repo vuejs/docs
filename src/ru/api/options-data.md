@@ -36,7 +36,7 @@
   data: vm => ({ a: vm.myProp })
   ```
 
-- **См. также:** [Reactivity in Depth](../guide/reactivity.html)
+- **См. также:** [Reactivity in Depth](../guide/reactivity.md)
 
 ## props
 
@@ -48,13 +48,13 @@
 
   With Object-based syntax, you can use following options:
 
-  - `type`: can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. Will check if a prop has a given type, and will throw a warning if it doesn't. [More information](../guide/component-props.html#prop-types) on prop types.
+  - `type`: can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. Will check if a prop has a given type, and will throw a warning if it doesn't. [More information](../guide/component-props.md#prop-types) on prop types.
   - `default`: `any`
     Specifies a default value for the prop. If the prop is not passed, this value will be used instead. Object or array defaults must be returned from a factory function.
   - `required`: `Boolean`
     Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
   - `validator`: `Function`
-    Custom validator function that takes the prop value as the sole argument. In a non-production environment, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails). You can read more about prop validation [here](../guide/component-props.html#prop-validation).
+    Custom validator function that takes the prop value as the sole argument. In a non-production environment, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails). You can read more about prop validation [here](../guide/component-props.md#prop-validation).
 
 - **Пример:**
 
@@ -84,7 +84,7 @@
   })
   ```
 
-- **См. также:** [Props](../guide/component-props.html)
+- **См. также:** [Props](../guide/component-props.md)
 
 ## computed
 
@@ -135,7 +135,7 @@
   console.log(vm.aDouble) // => 4
   ```
 
-- **См. также:** [Computed Properties](../guide/computed.html)
+- **См. также:** [Computed Properties](../guide/computed.md)
 
 ## methods
 
@@ -169,7 +169,7 @@
   console.log(vm.a) // => 2
   ```
 
-- **См. также:** [Event Handling](../guide/events.html)
+- **См. также:** [Event Handling](../guide/events.md)
 
 ## watch
 
@@ -247,7 +247,7 @@
   Note that _you should not use an arrow function to define a watcher_ (e.g. `searchQuery: newValue => this.updateAutocomplete(newValue)`). The reason is arrow functions bind the parent context, so `this` will not be the component instance as you expect and `this.updateAutocomplete` will be undefined.
   :::
 
-- **См. также:** [Watchers](../guide/computed.html#watchers)
+- **См. также:** [Watchers](../guide/computed.md#watchers)
 
 ## emits
 
@@ -295,4 +295,4 @@
   Events listed in the `emits` option **will not** be inherited by the root element of the component and also will be excluded from the `$attrs` property.
   :::
 
-* **See also:** [Attribute Inheritance](../guide/component-attrs.html#attribute-inheritance)
+* **See also:** [Attribute Inheritance](../guide/component-attrs.md#attribute-inheritance)

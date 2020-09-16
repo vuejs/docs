@@ -44,7 +44,7 @@ app.component('my-component', {
 const MyComponent = app.component('my-component')
 ```
 
-- **См. также:** [Components](../guide/component-basics.html)
+- **См. также:** [Components](../guide/component-basics.md)
 
 ## config
 
@@ -61,7 +61,7 @@ const app = createApp({})
 app.config = {...}
 ```
 
-- **См. также:** [Application Config](./application-config.html)
+- **См. также:** [Application Config](./application-config.md)
 
 ## directive
 
@@ -158,7 +158,7 @@ The previous virtual node, only available in the `beforeUpdate` and `updated` ho
 Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 
-- **См. также:** [Custom Directives](../guide/custom-directive.html)
+- **См. также:** [Custom Directives](../guide/custom-directive.md)
 
 ## mixin
 
@@ -174,7 +174,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
   Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
 
-- **См. также:** [Global Mixin](../guide/mixins.html#global-mixin)
+- **См. также:** [Global Mixin](../guide/mixins.md#global-mixin)
 
 ## mount
 
@@ -208,7 +208,7 @@ app.mount('#my-app')
 ```
 
 - **См. также:**
-  - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+  - [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## provide
 
@@ -227,9 +227,9 @@ app.mount('#my-app')
    
   From a `provide`/`inject` perspective, the application can be thought of as the root-level ancestor, with the root component as its only child.
 
-  This method should not be confused with the [provide component option](options-composition.html#provide-inject) or the [provide function](composition-api.html#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application. 
+  This method should not be confused with the [provide component option](options-composition.md#provide-inject) or the [provide function](composition-api.md#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application. 
 
-  Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.html#globalproperties).
+  Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.md#globalproperties).
 
   :::tip Примечание
   The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
@@ -305,4 +305,4 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
 
-- **См. также:** [Plugins](../guide/plugins.html)
+- **См. также:** [Plugins](../guide/plugins.md)

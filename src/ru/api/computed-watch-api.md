@@ -1,10 +1,10 @@
 # Computed and watch
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> This section uses [single-file component](../guide/single-file-component.md) syntax for code examples
 
 ## `computed`
 
-Takes a getter function and returns an immutable reactive [ref](./refs-api.html#ref) object for the returned value from the getter.
+Takes a getter function and returns an immutable reactive [ref](./refs-api.md#ref) object for the returned value from the getter.
 
 ```js
 const count = ref(1)
@@ -82,11 +82,11 @@ type InvalidateCbRegistrator = (invalidate: () => void) => void
 type StopHandle = () => void
 ```
 
-**See also**: [`watchEffect` guide](../guide/reactivity-computed-watchers.html#watcheffect)
+**See also**: [`watchEffect` guide](../guide/reactivity-computed-watchers.md#watcheffect)
 
 ## `watch`
 
-The `watch` API is the exact equivalent of the Options API [this.$watch](./instance-methods.html#watch) (and the corresponding [watch](./options-data.html#watch) option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
+The `watch` API is the exact equivalent of the Options API [this.$watch](./instance-methods.md#watch) (and the corresponding [watch](./options-data.md#watch) option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
 
 - Compared to [watchEffect](#watcheffect), `watch` allows us to:
 
@@ -96,7 +96,7 @@ The `watch` API is the exact equivalent of the Options API [this.$watch](./insta
 
 ### Watching a Single Source
 
-A watcher data source can either be a getter function that returns a value, or directly a [ref](./refs-api.html#ref):
+A watcher data source can either be a getter function that returns a value, or directly a [ref](./refs-api.md#ref):
 
 ```js
 // watching a getter
@@ -127,7 +127,7 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 
 ### Shared Behavior with `watchEffect`
 
-`watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](../guide/reactivity-computed-watchers.html#stopping-the-watcher), [side effect invalidation](../guide/reactivity-computed-watchers.html#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument instead), [flush timing](../guide/reactivity-computed-watchers.html#effect-flush-timing) and [debugging](../guide/reactivity-computed-watchers.html#watcher-debugging).
+`watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](../guide/reactivity-computed-watchers.md#stopping-the-watcher), [side effect invalidation](../guide/reactivity-computed-watchers.md#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument instead), [flush timing](../guide/reactivity-computed-watchers.md#effect-flush-timing) and [debugging](../guide/reactivity-computed-watchers.md#watcher-debugging).
 
 **Typing:**
 
@@ -167,4 +167,4 @@ interface WatchOptions extends WatchEffectOptions {
 }
 ```
 
-**See also**: [`watch` guide](../guide/reactivity-computed-watchers.html#watch)
+**See also**: [`watch` guide](../guide/reactivity-computed-watchers.md#watch)

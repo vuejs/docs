@@ -50,13 +50,13 @@
 
   An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
-- **См. также:** [Child Component Refs](../guide/component-template-refs.html)
+- **См. также:** [Child Component Refs](../guide/component-template-refs.md)
 
 ## is
 
 - **Ожидает:** `string | Object (component’s options object)`
 
-Used for [dynamic components](../guide/component-dynamic-async.html).
+Used for [dynamic components](../guide/component-dynamic-async.md).
 
 For example:
 
@@ -68,5 +68,5 @@ For detailed usage, follow the links in the description above.
 ```
 
 - **См. также:**
-  - [Dynamic Components](../guide/component-dynamic-async.html)
-  - [DOM Template Parsing Caveats](../guide/component-basics.html#dom-template-parsing-caveats)
+  - [Dynamic Components](../guide/component-dynamic-async.md)
+  - [DOM Template Parsing Caveats](../guide/component-basics.md#dom-template-parsing-caveats)

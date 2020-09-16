@@ -12,7 +12,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called synchronously immediately after the instance has been initialized, before data observation and event/watcher setup.
 
-- **См. также:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **См. также:** [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## created
 
@@ -22,7 +22,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following have been set up: data observation, computed properties, methods, watch/event callbacks. However, the mounting phase has not been started, and the `$el` property will not be available yet.
 
-- **См. также:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **См. также:** [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## beforeMount
 
@@ -34,7 +34,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **См. также:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **См. также:** [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## mounted
 
@@ -44,7 +44,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called after the instance has been mounted, where element, passed to `Vue.createApp({}).mount()` is replaced by the newly created `vm.$el`. If the root instance is mounted to an in-document element, `vm.$el` will also be in-document when `mounted` is called.
 
-  Note that `mounted` does **not** guarantee that all child components have also been mounted. If you want to wait until the entire view has been rendered, you can use [vm.\$nextTick](../api/instance-methods.html#nexttick) inside of `mounted`:
+  Note that `mounted` does **not** guarantee that all child components have also been mounted. If you want to wait until the entire view has been rendered, you can use [vm.\$nextTick](../api/instance-methods.md#nexttick) inside of `mounted`:
 
   ```js
   mounted() {
@@ -57,7 +57,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **См. также:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **См. также:** [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## beforeUpdate
 
@@ -69,7 +69,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering, because only the initial render is performed server-side.**
 
-- **См. также:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **См. также:** [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## updated
 
@@ -79,9 +79,9 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called after a data change causes the virtual DOM to be re-rendered and patched.
 
-  The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](./options-data.html#computed) or [watcher](./options-data.html#watch) instead.
+  The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](./options-data.md#computed) or [watcher](./options-data.md#watch) instead.
 
-  Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.\$nextTick](../api/instance-methods.html#nexttick) inside of `updated`:
+  Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.\$nextTick](../api/instance-methods.md#nexttick) inside of `updated`:
 
   ```js
   updated() {
@@ -94,7 +94,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **См. также:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **См. также:** [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## activated
 
@@ -107,7 +107,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
   **This hook is not called during server-side rendering.**
 
 - **См. также:**
-  - [Dynamic Components - keep-alive](../guide/component-basics.html#keep-alive)
+  - [Dynamic Components - keep-alive](../guide/component-basics.md#keep-alive)
 
 ## deactivated
 
@@ -120,7 +120,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
   **This hook is not called during server-side rendering.**
 
 - **См. также:**
-  - [Dynamic Components - keep-alive](../guide/component-basics.html#keep-alive)
+  - [Dynamic Components - keep-alive](../guide/component-basics.md#keep-alive)
 
 ## beforeUnmount
 
@@ -132,7 +132,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **См. также:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **См. также:** [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## unmounted
 
@@ -144,7 +144,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **См. также:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **См. также:** [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
 
 ## errorCaptured
 

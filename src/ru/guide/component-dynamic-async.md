@@ -41,7 +41,7 @@ Check out the result below:
 
 Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered.
 
-Check out more details on `<keep-alive>` in the [API reference](../api/built-in-components.html#keep-alive).
+Check out more details on `<keep-alive>` in the [API reference](../api/built-in-components.md#keep-alive).
 
 ## Async Components
 
@@ -76,7 +76,7 @@ const AsyncComp = defineAsyncComponent(() =>
 app.component('async-component', AsyncComp)
 ```
 
-You can also use `defineAsyncComponent` when [registering a component locally](component-registration.html#local-registration):
+You can also use `defineAsyncComponent` when [registering a component locally](component-registration.md#local-registration):
 
 ```js
 import { createApp, defineAsyncComponent } from 'vue'
@@ -97,4 +97,4 @@ Async components are _suspensible_ by default. This means if it has a [`<Suspens
 
 The async component can opt-out of `Suspense` control and let the component always control its own loading state by specifying `suspensible: false` in its options.
 
-You can check the list of available options in the [API Reference](../api/global-api.html#arguments-4)
+You can check the list of available options in the [API Reference](../api/global-api.md#arguments-4)

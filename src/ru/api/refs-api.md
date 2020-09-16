@@ -1,6 +1,6 @@
 # Refs
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> This section uses [single-file component](../guide/single-file-component.md) syntax for code examples
 
 ## `ref`
 
@@ -16,7 +16,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.html#reactive) method.
+If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.md#reactive) method.
 
 **Typing:**
 
@@ -209,7 +209,7 @@ foo.value = {}
 isReactive(foo.value) // false
 ```
 
-**See also**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
+**See also**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.md#creating-standalone-reactive-values-as-refs)
 
 ## `triggerRef`
 
@@ -232,4 +232,4 @@ shallow.value.greet = 'Hello, universe'
 triggerRef(shallow)
 ```
 
-**See also:** [Computed and Watch - watchEffect](./computed-watch-api.html#watcheffect)
+**See also:** [Computed and Watch - watchEffect](./computed-watch-api.md#watcheffect)

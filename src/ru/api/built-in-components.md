@@ -19,7 +19,7 @@
   <component :is="$options.components.child"></component>
   ```
 
-- **См. также:** [Dynamic Components](../guide/component-dynamic-async.html)
+- **См. также:** [Dynamic Components](../guide/component-dynamic-async.md)
 
 ## transition
 
@@ -93,7 +93,7 @@
   app.mount('#transition-demo')
   ```
 
-- **См. также:** [Enter & Leave Transitions](/guide/transitions-enterleave.html#transitioning-single-elements-components)
+- **См. также:** [Enter & Leave Transitions](/guide/transitions-enterleave.md#transitioning-single-elements-components)
 
 ## transition-group
 
@@ -111,7 +111,7 @@
 
   `<transition-group>` serve as transition effects for **multiple** elements/components. The `<transition-group>` renders a real DOM element. By default it renders a `<span>`, and you can configure what element it should render via the `tag` attribute.
 
-  Note that every child in a `<transition-group>` must be [**uniquely keyed**](./special-attributes.html#key) for the animations to work properly.
+  Note that every child in a `<transition-group>` must be [**uniquely keyed**](./special-attributes.md#key) for the animations to work properly.
 
   `<transition-group>` supports moving transitions via CSS transform. When a child's position on screen has changed after an update, it will get applied a moving CSS class (auto generated from the `name` attribute or configured with the `move-class` attribute). If the CSS `transform` property is "transition-able" when the moving class is applied, the element will be smoothly animated to its destination using the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
 
@@ -123,7 +123,7 @@
   </transition-group>
   ```
 
-- **См. также:** [List Transitions](/guide/transitions-list.html)
+- **См. также:** [List Transitions](/guide/transitions-list.md)
 
 ## keep-alive
 
@@ -200,7 +200,7 @@
   `<keep-alive>` does not work with functional components because they do not have instances to be cached.
   :::
 
-- **См. также:** [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+- **См. также:** [Dynamic Components - keep-alive](../guide/component-dynamic-async.md#dynamic-components-with-keep-alive)
 
 ## slot
 
@@ -214,7 +214,7 @@
 
   For detailed usage, see the guide section linked below.
 
-- **См. также:** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+- **См. также:** [Content Distribution with Slots](../guide/component-basics.md#content-distribution-with-slots)
 
 ## teleport
 
@@ -243,4 +243,4 @@
 
   Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
 
-- **См. также:** [Teleport component](../guide/teleport.html#teleport)
+- **См. также:** [Teleport component](../guide/teleport.md#teleport)

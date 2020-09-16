@@ -1,10 +1,10 @@
 # Lifecycle Hooks
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
+> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.md) and [Reactivity Fundamentals](reactivity-fundamentals.md). Read that first if you are new to Composition API.
 
 You can access a component's lifecycle hook by prefixing the lifecycle hook with "on".
 
-The following table contains how the lifecycle hooks are invoked inside of [setup()](composition-api-setup.html):
+The following table contains how the lifecycle hooks are invoked inside of [setup()](composition-api-setup.md):
 
 | Options API       | Hook inside inside `setup` |
 | ----------------- | -------------------------- |

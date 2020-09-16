@@ -23,7 +23,7 @@ app.component('button-counter', {
 ```
 
 :::info Информация
-We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.md).
 :::
 
 Components are reusable instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root instance:
@@ -165,7 +165,7 @@ Then want to render a component for each one:
 
 Above, you'll see that we can use `v-bind` to dynamically pass props. This is especially useful when you don't know the exact content you're going to render ahead of time.
 
-That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](component-props.html).
+That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](component-props.md).
 
 ## Listening to Child Components Events
 
@@ -226,7 +226,7 @@ When we click on the button, we need to communicate to the parent that it should
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
 ```
 
-Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/instance-methods.html#emit), passing the name of the event:
+Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/instance-methods.md#emit), passing the name of the event:
 
 ```html
 <button @click="$emit('enlarge-text')">
@@ -252,7 +252,7 @@ app.component('blog-post', {
 })
 ```
 
-This will allow you to check all the events component emits and optionally [validate them](component-custom-events.html#validate-emitted-events)
+This will allow you to check all the events component emits and optionally [validate them](component-custom-events.md#validate-emitted-events)
 
 ### Emitting a Value With an Event
 
@@ -426,9 +426,9 @@ In the example above, `currentTabComponent` can contain either:
 
 See [this sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) to experiment with the full code, or [this version](https://codepen.io/team/Vue/pen/oNXapXM) for an example binding to a component's options object, instead of its registered name.
 
-Keep in mind that this attribute can be used with regular HTML elements, however they will be treated as components, which means all attributes **will be bound as DOM attributes**. For some properties such as `value` to work as you would expect, you will need to bind them using the [`.prop` modifier](../api/directives.html#v-bind).
+Keep in mind that this attribute can be used with regular HTML elements, however they will be treated as components, which means all attributes **will be bound as DOM attributes**. For some properties such as `value` to work as you would expect, you will need to bind them using the [`.prop` modifier](../api/directives.md#v-bind).
 
-That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](./component-dynamic-async.html).
+That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](./component-dynamic-async.md).
 
 ## DOM Template Parsing Caveats
 
@@ -485,9 +485,9 @@ app.component('blog-post', {
 It should be noted that **these limitations does _not_ apply if you are using string templates from one of the following sources**:
 
 - String templates (e.g. `template: '...'`)
-- [Single-file (`.vue`) components](single-file-component.html)
+- [Single-file (`.vue`) components](single-file-component.md)
 - `<script type="text/x-template">`
 
 That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
 
-Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](component-dynamic-async.html), as well as the other pages in the Components In-Depth section of the sidebar.
+Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](component-dynamic-async.md), as well as the other pages in the Components In-Depth section of the sidebar.

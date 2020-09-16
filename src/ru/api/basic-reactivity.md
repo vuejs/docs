@@ -1,6 +1,6 @@
 # Basic Reactivity APIs
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> This section uses [single-file component](../guide/single-file-component.md) syntax for code examples
 
 ## `reactive`
 
@@ -20,7 +20,7 @@ function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
 
 ## `readonly`
 
-Takes an object (reactive or plain) or a [ref](./refs-api.html#ref) and returns a readonly proxy to the original. A readonly proxy is deep: any nested property accessed will be readonly as well.
+Takes an object (reactive or plain) or a [ref](./refs-api.md#ref) and returns a readonly proxy to the original. A readonly proxy is deep: any nested property accessed will be readonly as well.
 
 ```js
 const original = reactive({ count: 0 })

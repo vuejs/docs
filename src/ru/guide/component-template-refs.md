@@ -42,4 +42,4 @@ this.$refs.usernameInput.focusInput()
 `$refs` are only populated after the component has been rendered. It is only meant as an escape hatch for direct child manipulation - you should avoid accessing `$refs` from within templates or computed properties.
 :::
 
-**See also**: [Using template refs in Composition API](/guide/composition-api-template-refs.html#template-refs)
+**See also**: [Using template refs in Composition API](/guide/composition-api-template-refs.md#template-refs)

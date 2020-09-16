@@ -18,8 +18,8 @@
   If render function is present in the Vue option, the template will be ignored.:::
 
 - **См. также:**
-  - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
-  - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+  - [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
+  - [Content Distribution with Slots](../guide/component-basics.md#content-distribution-with-slots)
 
 ## render
 
@@ -62,4 +62,4 @@
   The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element
   :::
 
-- **См. также:** [Render Functions](../guide/render-function.html)
+- **См. также:** [Render Functions](../guide/render-function.md)

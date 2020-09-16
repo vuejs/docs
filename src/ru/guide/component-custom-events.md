@@ -141,7 +141,7 @@ app.component('user-name', {
 
 ## Handling `v-model` modifiers
 
-When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, however, you might also want to add your own custom modifiers.
+When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/forms.md#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, however, you might also want to add your own custom modifiers.
 
 Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding.
 

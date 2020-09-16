@@ -43,4 +43,4 @@
   })
   ```
 
-- **См. также:** [Disabling Attribute Inheritance](../guide/component-props.html#disabling-attribute-inheritance)
+- **См. также:** [Disabling Attribute Inheritance](../guide/component-props.md#disabling-attribute-inheritance)

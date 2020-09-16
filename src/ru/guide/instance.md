@@ -16,7 +16,7 @@ Vue.createApp(/* options */).mount('#app')
 
 Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our instance.
 
-When you create an instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/options-data.html).
+When you create an instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/options-data.md).
 
 A Vue application consists of a **root instance** created with `createApp`, optionally organized into a tree of nested, reusable components. For example, a `todo` app's component tree might look like this:
 
@@ -31,11 +31,11 @@ Root Instance
       └─ TodoListStatistics
 ```
 
-We'll talk about [the component system](component-basics.html) in detail later. For now, just know that all Vue components are also instances, and so accept the same options object.
+We'll talk about [the component system](component-basics.md) in detail later. For now, just know that all Vue components are also instances, and so accept the same options object.
 
 ## Data and Methods
 
-When an instance is created, it adds all the properties found in its `data` to [Vue's **reactivity system**](reactivity.html). When the values of those properties change, the view will "react", updating to match the new values.
+When an instance is created, it adds all the properties found in its `data` to [Vue's **reactivity system**](reactivity.md). When the values of those properties change, the view will "react", updating to match the new values.
 
 ```js
 // Our data object
@@ -116,13 +116,13 @@ const vm = Vue.createApp({
 vm.$data.a // => 1
 ```
 
-In the future, you can consult the [API reference](../api/instance-properties.html) for a full list of instance properties and methods.
+In the future, you can consult the [API reference](../api/instance-properties.md) for a full list of instance properties and methods.
 
 ## Instance Lifecycle Hooks
 
 Each instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
 
-For example, the [created](../api/options-lifecycle-hooks.html#created) hook can be used to run code after an instance is created:
+For example, the [created](../api/options-lifecycle-hooks.md#created) hook can be used to run code after an instance is created:
 
 ```js
 Vue.createApp({
@@ -138,7 +138,7 @@ Vue.createApp({
 })
 ```
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, such as [mounted](../api/options-lifecycle-hooks.html#mounted), [updated](../api/options-lifecycle-hooks.html#updated), and [unmounted](../api/options-lifecycle-hooks.html#unmounted). All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it.
+There are also other hooks which will be called at different stages of the instance's lifecycle, such as [mounted](../api/options-lifecycle-hooks.md#mounted), [updated](../api/options-lifecycle-hooks.md#updated), and [unmounted](../api/options-lifecycle-hooks.md#unmounted). All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it.
 
 :::tip Совет
 Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) on an options property or callback, such as `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Since an arrow function doesn't have a `this`, `this` will be treated as any other variable and lexically looked up through parent scopes until found, often resulting in errors such as `Uncaught TypeError: Cannot read property of undefined` or `Uncaught TypeError: this.myMethod is not a function`.

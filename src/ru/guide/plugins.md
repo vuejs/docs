@@ -77,7 +77,7 @@ export default {
 
 Plugin users will now be able to `inject['i18n']` into their components and access the object.
 
-Additionally, since we have access to the `app` object, all other capabilities like using `mixin` and `directive` are available to the plugin. To learn more about `createApp` and the application instance, check out the [Application API documentation](/api/application-api.html).
+Additionally, since we have access to the `app` object, all other capabilities like using `mixin` and `directive` are available to the plugin. To learn more about `createApp` and the application instance, check out the [Application API documentation](/api/application-api.md).
 
 ```js
 // plugins/i18n.js

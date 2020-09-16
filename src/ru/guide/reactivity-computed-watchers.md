@@ -1,10 +1,10 @@
 # Computed and Watch
 
-> This section uses [single-file component](single-file-component.html) syntax for code examples
+> This section uses [single-file component](single-file-component.md) syntax for code examples
 
 ## Computed values
 
-Sometimes we need state that depends on other state - in Vue this is handled with component [computed properties](computed.html#computed-properties). To directly create a computed value, we can use the `computed` method: it takes a getter function and returns an immutable reactive [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) object for the returned value from the getter.
+Sometimes we need state that depends on other state - in Vue this is handled with component [computed properties](computed.md#computed-properties). To directly create a computed value, we can use the `computed` method: it takes a getter function and returns an immutable reactive [ref](reactivity-fundamentals.md#creating-standalone-reactive-values-as-refs) object for the returned value from the getter.
 
 ```js
 const count = ref(1)
@@ -48,7 +48,7 @@ setTimeout(() => {
 
 ### Stopping the Watcher
 
-When `watchEffect` is called during a component's [setup()](composition-api-setup.html) function or [lifecycle hooks](composition-api-lifecycle-hooks.html), the watcher is linked to the component's lifecycle and will be automatically stopped when the component is unmounted.
+When `watchEffect` is called during a component's [setup()](composition-api-setup.md) function or [lifecycle hooks](composition-api-lifecycle-hooks.md), the watcher is linked to the component's lifecycle and will be automatically stopped when the component is unmounted.
 
 In other cases, it returns a stop handle which can be called to explicitly stop the watcher:
 
@@ -182,7 +182,7 @@ watchEffect(
 
 ## `watch`
 
-The `watch` API is the exact equivalent of the component [watch](computed.html#watchers) property. `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
+The `watch` API is the exact equivalent of the component [watch](computed.md#watchers) property. `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
 
 - Compared to [watchEffect](#watcheffect), `watch` allows us to:
 

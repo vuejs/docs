@@ -170,7 +170,7 @@
   )
   ```
 
-- **См. также:** [Watchers](../guide/computed.html#watchers)
+- **См. также:** [Watchers](../guide/computed.md#watchers)
 
 ## $emit
 
@@ -246,8 +246,8 @@
   ```
 
 - **См. также:**
-  - [`emits` option](./options-data.html#emits)
-  - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
+  - [`emits` option](./options-data.md#emits)
+  - [Emitting a Value With an Event](../guide/component-basics.md#emitting-a-value-with-an-event)
 
 ## $forceUpdate
 
@@ -286,4 +286,4 @@
   })
   ```
 
-- **См. также:** [nextTick](global-api.html#nexttick)
+- **См. также:** [nextTick](global-api.md#nexttick)

@@ -1,8 +1,8 @@
 # Provide / Inject
 
-> This guide assumes that you have already read [Provide / Inject](component-provide-inject.html), [Composition API Introduction](composition-api-introduction.html), and [Reactivity Fundamentals](reactivity-fundamentals.html).
+> This guide assumes that you have already read [Provide / Inject](component-provide-inject.md), [Composition API Introduction](composition-api-introduction.md), and [Reactivity Fundamentals](reactivity-fundamentals.md).
 
-We can use [provide / inject](component-provide-inject.html) with the Composition API as well. Both can only be called during [`setup()`](composition-api-setup.html) with a current active instance.
+We can use [provide / inject](component-provide-inject.md) with the Composition API as well. Both can only be called during [`setup()`](composition-api-setup.md) with a current active instance.
 
 ## Scenario Background
 
@@ -111,7 +111,7 @@ export default {
 
 ### Adding Reactivity
 
-To add reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.html#declaring-reactive-state) when providing a value.
+To add reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.md#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.md#declaring-reactive-state) when providing a value.
 
 Using our `MyMap` component, our code can be updated as follows:
 

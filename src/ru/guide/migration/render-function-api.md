@@ -92,7 +92,7 @@ export default {
 }
 ```
 
-For more information on how `setup()` works, see our [Composition API Guide](/guide/composition-api-introduction.html).
+For more information on how `setup()` works, see our [Composition API Guide](/guide/composition-api-introduction.md).
 
 ## VNode Props Format
 

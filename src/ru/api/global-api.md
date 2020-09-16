@@ -8,7 +8,7 @@ Returns an application instance which provides an application context. The entir
 const app = Vue.createApp({})
 ```
 
-You can chain other methods after `createApp`, they can be found in [Application API](./application-api.html)
+You can chain other methods after `createApp`, they can be found in [Application API](./application-api.md)
 
 ### Аргументы
 
@@ -158,7 +158,7 @@ const AsyncComp = defineAsyncComponent(() =>
 app.component('async-component', AsyncComp)
 ```
 
-When using [local registration](../guide/component-registration.html#local-registration), you can also directly provide a function that returns a `Promise`:
+When using [local registration](../guide/component-registration.md#local-registration), you can also directly provide a function that returns a `Promise`:
 
 ```js
 import { createApp, defineAsyncComponent } from 'vue'
@@ -201,7 +201,7 @@ const AsyncComp = defineAsyncComponent({
 })
 ```
 
-**See also**: [Dynamic and Async components](../guide/component-dynamic-async.html)
+**See also**: [Dynamic and Async components](../guide/component-dynamic-async.md)
 
 ## resolveComponent
 
@@ -266,7 +266,7 @@ Accepts one argument: `component`
 
 - **Подробности:**
 
-  For more details, refer to the documentation on [Dynamic Components](../guide/component-dynamic-async.html).
+  For more details, refer to the documentation on [Dynamic Components](../guide/component-dynamic-async.md).
 
 ## resolveDirective
 
@@ -433,4 +433,4 @@ const app = createApp({
 })
 ```
 
-**See also**: [`$nextTick` instance method](instance-methods.html#nexttick)
+**See also**: [`$nextTick` instance method](instance-methods.md#nexttick)

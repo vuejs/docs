@@ -6,7 +6,7 @@
 
 - **Подробности:**
 
-  Updates the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent). If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/template-syntax.html#text) instead
+  Updates the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent). If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/template-syntax.md#text) instead
 
 - **Пример:**
 
@@ -16,7 +16,7 @@
   <span>{{msg}}</span>
   ```
 
-- **См. также:** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#text)
+- **См. также:** [Data Binding Syntax - Interpolations](../guide/template-syntax.md#text)
 
 ## v-html
 
@@ -30,7 +30,7 @@
   Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
   :::
 
-  In [single-file components](../guide/single-file-component.html), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](https://vue-loader.vuejs.org/ru/features/css-modules.html) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
+  In [single-file components](../guide/single-file-component.md), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](https://vue-loader.vuejs.org/ru/features/css-modules.html) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
 
 - **Пример:**
 
@@ -38,7 +38,7 @@
   <div v-html="html"></div>
   ```
 
-- **См. также:** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#raw-html)
+- **См. также:** [Data Binding Syntax - Interpolations](../guide/template-syntax.md#raw-html)
 
 ## v-show
 
@@ -50,7 +50,7 @@
 
   This directive triggers transitions when its condition changes.
 
-- **См. также:** [Conditional Rendering - v-show](../guide/conditional.html#v-show)
+- **См. также:** [Conditional Rendering - v-show](../guide/conditional.md#v-show)
 
 ## v-if
 
@@ -62,9 +62,9 @@
 
   This directive triggers transitions when its condition changes.
 
-  When used together with `v-if`, `v-for` has a higher priority than v-if. See the [list rendering guide](../guide/list.html#v-for-with-v-if) for details.
+  When used together with `v-if`, `v-for` has a higher priority than v-if. See the [list rendering guide](../guide/list.md#v-for-with-v-if) for details.
 
-- **См. также:** [Conditional Rendering - v-if](../guide/conditional.html#v-if)
+- **См. также:** [Conditional Rendering - v-if](../guide/conditional.md#v-if)
 
 ## v-else
 
@@ -85,7 +85,7 @@
   </div>
   ```
 
-- **См. также:** [Conditional Rendering - v-else](../guide/conditional.html#v-else)
+- **См. также:** [Conditional Rendering - v-else](../guide/conditional.md#v-else)
 
 ## v-else-if
 
@@ -112,7 +112,7 @@
   </div>
   ```
 
-- **См. также:** [Conditional Rendering - v-else-if](../guide/conditional.html#v-else-if)
+- **См. также:** [Conditional Rendering - v-else-if](../guide/conditional.md#v-else-if)
 
 ## v-for
 
@@ -149,7 +149,7 @@
   The detailed usage for `v-for` is explained in the guide section linked below.
 
 - **См. также:**
-  - [List Rendering](../guide/list.html)
+  - [List Rendering](../guide/list.md)
 
 ## v-on
 
@@ -232,8 +232,8 @@
   ```
 
 - **См. также:**
-  - [Event Handling](../guide/events.html)
-  - [Components - Custom Events](../guide/component-basics.html#listening-to-child-components-events)
+  - [Event Handling](../guide/events.md)
+  - [Components - Custom Events](../guide/component-basics.md#listening-to-child-components-events)
 
 ## v-bind
 
@@ -306,8 +306,8 @@
   `.camel` is not needed if you are using string templates, or compiling with `vue-loader`/`vueify`.
 
 - **См. также:**
-  - [Class and Style Bindings](../guide/class-and-style.html)
-  - [Components - Props](../guide/component-basics.html#passing-data-to-child-components-with-props)
+  - [Class and Style Bindings](../guide/class-and-style.md)
+  - [Components - Props](../guide/component-basics.md#passing-data-to-child-components-with-props)
 
 ## v-model
 
@@ -322,30 +322,30 @@
 
 - **Modifiers:**
 
-  - [`.lazy`](../guide/forms.html#lazy) - listen to `change` events instead of `input`
-  - [`.number`](../guide/forms.html#number) - cast valid input string to numbers
-  - [`.trim`](../guide/forms.html#trim) - trim input
+  - [`.lazy`](../guide/forms.md#lazy) - listen to `change` events instead of `input`
+  - [`.number`](../guide/forms.md#number) - cast valid input string to numbers
+  - [`.trim`](../guide/forms.md#trim) - trim input
 
 - **Использование:**
 
   Create a two-way binding on a form input element or a component. For detailed usage and other notes, see the Guide section linked below.
 
 - **См. также:**
-  - [Form Input Bindings](../guide/forms.html)
-  - [Components - Form Input Components using Custom Events](../guide/component-custom-events.html#v-model-arguments)
+  - [Form Input Bindings](../guide/forms.md)
+  - [Components - Form Input Components using Custom Events](../guide/component-custom-events.md#v-model-arguments)
 
 ## v-slot
 
 - **Shorthand:** `#`
 
-- **Ожидает:** JavaScript expression that is valid in a function argument position (supports destructuring in [supported environments](../guide/component-slots.html#destructuring-slot-props)). Optional - only needed if expecting props to be passed to the slot.
+- **Ожидает:** JavaScript expression that is valid in a function argument position (supports destructuring in [supported environments](../guide/component-slots.md#destructuring-slot-props)). Optional - only needed if expecting props to be passed to the slot.
 
 - **Argument:** slot name (optional, defaults to `default`)
 
 - **Limited to:**
 
   - `<template>`
-  - [components](../guide/component-slots.html#abbreviated-syntax-for-lone-default-slots) (for a lone default slot with props)
+  - [components](../guide/component-slots.md#abbreviated-syntax-for-lone-default-slots) (for a lone default slot with props)
 
 - **Использование:**
 
@@ -387,7 +387,7 @@
   For more details, see the links below.
 
 - **См. также:**
-  - [Components - Slots](../guide/component-slots.html)
+  - [Components - Slots](../guide/component-slots.md)
 
 ## v-pre
 
@@ -452,7 +452,7 @@
   ```
 
 - **См. также:**
-  - [Data Binding Syntax - interpolations](../guide/template-syntax.html#text)
+  - [Data Binding Syntax - interpolations](../guide/template-syntax.md#text)
 
 ## v-is
 

@@ -4,7 +4,7 @@
 
 We're glad you asked! The answer is no. We've gone to great lengths to ensure most of the API is the same and the core concepts haven't changed. It's long because we like to offer very detailed explanations and include a lot of examples. Rest assured, **this is not something you have to read from top to bottom!**
 
-Possibly the biggest change is our new [Composition API](/guide/composition-api-introduction.html), which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
+Possibly the biggest change is our new [Composition API](/guide/composition-api-introduction.md), which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
 
 ## Overview
 
@@ -17,40 +17,40 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
 
 Some of the new features to keep an eye on in Vue 3 include:
 
-- [Composition API](/guide/composition-api-introduction.html)
-- [Teleport](/guide/teleport.html)
-- [Fragments](/guide/migration/fragments.html)
-- [Emits Component Option](/guide/component-custom-events.html)
+- [Composition API](/guide/composition-api-introduction.md)
+- [Teleport](/guide/teleport.md)
+- [Fragments](/guide/migration/fragments.md)
+- [Emits Component Option](/guide/component-custom-events.md)
 - `createRenderer` API from `@vue/runtime-core` to create custom renderers
 
 ### Breaking
 
 The following consists a list of breaking changes from 2.x:
 
-- [Global Vue API is changed to use an application instance](/guide/migration/global-api.html)
-- [Global and internal APIs have been restructured to be tree-shakable](/guide/migration/global-api-treeshaking.html)
-- [`model` component option and `v-bind`'s `sync` modifier are removed in favor of `v-model` arguments](/guide/migration/v-model.html)
-- [Render function API changed](/guide/migration/render-function-api.html)
-- [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
-- [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
-- [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
-- [Component data option should always be declared as a function](/guide/migration/data-option.html)
-- [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.html)
-- [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.html)
-- [`$scopedSlots` property is removed and need to be replaced with `$slots`](/guide/migration/slots-unification.html)
-- [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
-- [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
+- [Global Vue API is changed to use an application instance](/guide/migration/global-api.md)
+- [Global and internal APIs have been restructured to be tree-shakable](/guide/migration/global-api-treeshaking.md)
+- [`model` component option and `v-bind`'s `sync` modifier are removed in favor of `v-model` arguments](/guide/migration/v-model.md)
+- [Render function API changed](/guide/migration/render-function-api.md)
+- [Functional components can only be created using a plain function](/guide/migration/functional-components.md)
+- [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.md)
+- [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.md)
+- [Component data option should always be declared as a function](/guide/migration/data-option.md)
+- [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.md)
+- [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.md)
+- [`$scopedSlots` property is removed and need to be replaced with `$slots`](/guide/migration/slots-unification.md)
+- [Attributes coercion strategy changed](/guide/migration/attribute-coercion.md)
+- [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.md)
 - [Some transition classes got a rename](/guide/migration/transition.md)
-- [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
+- [Component watch option](/api/options-data.md#watch) and [instance method `$watch`](/api/instance-methods.md#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
 - [Changes in `key` attribute usage with `v-if` and `<template v-for>`](/guide/migration/key-attribute.md)
 - In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead.
 
 ### Removed
 
-- [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.html)
-- [$on, $off and \$once instance methods](/guide/migration/events-api.html)
-- [Filters](/guide/migration/filters.html)
-- [Inline templates attributes](/guide/migration/inline-template-attribute.html)
+- [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.md)
+- [$on, $off and \$once instance methods](/guide/migration/events-api.md)
+- [Filters](/guide/migration/filters.md)
+- [Inline templates attributes](/guide/migration/inline-template-attribute.md)
 
 ## FAQ
 
