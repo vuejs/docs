@@ -12,7 +12,7 @@ You should add a link at the top of each page that goes directly to the main con
 
 Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
 
-``` html
+```html
 <ul class="skip-links">
   <li>
     <a href="#main" ref="skipLink">Skip to main content</a>
@@ -22,7 +22,7 @@ Typically this is done on the top of `App.vue` as it will be the first focusable
 
 To hide the link unless it is focused, you can add the following style:
 
-``` css
+```css
 .skipLink {
   white-space: nowrap;
   margin: 1em auto;
@@ -42,7 +42,7 @@ To hide the link unless it is focused, you can add the following style:
 
 Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus to the `ref` provided below:
 
-``` vue
+```vue
 <script>
 export default {
   watch: {

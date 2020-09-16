@@ -35,7 +35,7 @@ One important thing to note is that **separation of concerns is not equal to sep
 
 Even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files:
 
-``` html
+```html
 <!-- my-component.vue -->
 <template>
   <div>This will be pre-compiled</div>
