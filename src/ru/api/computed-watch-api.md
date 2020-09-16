@@ -82,7 +82,7 @@ type InvalidateCbRegistrator = (invalidate: () => void) => void
 type StopHandle = () => void
 ```
 
-**See also**: [`watchEffect` guide](../guide/reactivity-computed-watchers.md#watcheffect)
+**См. также**: [`watchEffect` guide](../guide/reactivity-computed-watchers.md#watcheffect)
 
 ## `watch`
 
@@ -167,4 +167,4 @@ interface WatchOptions extends WatchEffectOptions {
 }
 ```
 
-**See also**: [`watch` guide](../guide/reactivity-computed-watchers.md#watch)
+**См. также**: [`watch` guide](../guide/reactivity-computed-watchers.md#watch)

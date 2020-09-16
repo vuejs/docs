@@ -201,7 +201,7 @@ const AsyncComp = defineAsyncComponent({
 })
 ```
 
-**See also**: [Dynamic and Async components](../guide/component-dynamic-async.md)
+**См. также**: [Dynamic and Async components](../guide/component-dynamic-async.md)
 
 ## resolveComponent
 
@@ -433,4 +433,4 @@ const app = createApp({
 })
 ```
 
-**See also**: [`$nextTick` instance method](instance-methods.md#nexttick)
+**См. также**: [`$nextTick` instance method](instance-methods.md#nexttick)

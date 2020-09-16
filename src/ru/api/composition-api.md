@@ -76,7 +76,7 @@ To get type inference for the arguments passed to `setup()`, the use of [defineC
   }
   ```
 
-- **See also**: [Composition API `setup`](../guide/composition-api-setup.md)
+- **См. также**: [Composition API `setup`](../guide/composition-api-setup.md)
 
 ## Lifecycle Hooks
 
@@ -118,7 +118,7 @@ The component instance context is also set during the synchronous execution of l
   - `renderTracked` -> `onRenderTracked`
   - `renderTriggered` -> `onRenderTriggered`
 
-- **See also**: [Composition API lifecycle hooks](../guide/composition-api-lifecycle-hooks.md)
+- **См. также**: [Composition API lifecycle hooks](../guide/composition-api-lifecycle-hooks.md)
 
 ## Provide / Inject
 
@@ -155,6 +155,6 @@ If using string keys or non-typed symbols, the type of the injected value will n
 const foo = inject<string>('foo') // string | undefined
 ```
 
-- **See also**:
+- **См. также**:
   - [Provide / Inject](../guide/component-provide-inject.md)
   - [Composition API Provide / Inject](../guide/composition-api-provide-inject.md)

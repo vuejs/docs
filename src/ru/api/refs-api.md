@@ -209,7 +209,7 @@ foo.value = {}
 isReactive(foo.value) // false
 ```
 
-**See also**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.md#creating-standalone-reactive-values-as-refs)
+**См. также**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.md#creating-standalone-reactive-values-as-refs)
 
 ## `triggerRef`
 
