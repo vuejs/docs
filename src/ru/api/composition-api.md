@@ -11,7 +11,7 @@ A component option that is executed **before** the component is created, once th
   - `{Data} props`
   - `{SetupContext} context`
 
-- **Typing**:
+- **Типы**:
 
 ```ts
 interface Data {
@@ -124,7 +124,7 @@ The component instance context is also set during the synchronous execution of l
 
 `provide` and `inject` enables dependency injection. Both can only be called during [`setup()`](#setup) with a current active instance.
 
-- **Typing**:
+- **Типы**:
 
 ```ts
 interface InjectionKey<T> extends Symbol {}
