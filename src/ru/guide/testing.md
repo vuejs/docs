@@ -43,7 +43,7 @@ Jest is a JavaScript test framework that is focused on simplicity. One of its un
 **Resources:**
 
 - [Official Jest Website](https://jestjs.io)
-- [Official Vue 2 CLI Plugin - Jest](https://cli.vuejs.org/core-plugins/unit-jest.html)
+- [Official Vue 2 CLI Plugin - Jest](https://cli.vuejs.org/ru/core-plugins/unit-jest.html)
 
 #### Mocha
 
@@ -52,7 +52,7 @@ Mocha is a JavaScript test framework that is focused on being flexible. Because 
 **Resources:**
 
 - [Official Mocha Website](https://mochajs.org)
-- [Official Vue CLI Plugin - Mocha](https://cli.vuejs.org/core-plugins/unit-mocha.html)
+- [Official Vue CLI Plugin - Mocha](https://cli.vuejs.org/ru/core-plugins/unit-mocha.html)
 
 ## Component Testing
 
@@ -136,7 +136,7 @@ Cypress.io is a testing framework that aims to enhance developer productivity by
 **Resources**
 
 - [Cypress' Official Website](https://www.cypress.io)
-- [Official Vue CLI Cypress Plugin](https://cli.vuejs.org/core-plugins/e2e-cypress.html)
+- [Official Vue CLI Cypress Plugin](https://cli.vuejs.org/ru/core-plugins/e2e-cypress.html)
 - [Cypress Testing Library](https://github.com/testing-library/cypress-testing-library)
 
 #### Nightwatch.js
@@ -146,7 +146,7 @@ Nightwatch.js is an end-to-end testing framework that can be used to test web ap
 **Resources:**
 
 - [Nightwatch's Official Website](https://nightwatchjs.org)
-- [Official Vue CLI Nightwatch Plugin](https://cli.vuejs.org/core-plugins/e2e-nightwatch.html)
+- [Official Vue CLI Nightwatch Plugin](https://cli.vuejs.org/ru/core-plugins/e2e-nightwatch.html)
 
 #### Puppeteer
 

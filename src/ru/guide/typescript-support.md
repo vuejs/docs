@@ -1,6 +1,6 @@
 # TypeScript Support
 
-> [Vue CLI](https://cli.vuejs.org) provides built-in TypeScript tooling support.
+> [Vue CLI](https://cli.vuejs.org/ru/) provides built-in TypeScript tooling support.
 
 ## Official Declaration in NPM Packages
 
