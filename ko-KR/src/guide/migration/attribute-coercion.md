@@ -89,7 +89,7 @@ badges:
 
 ### 속성을 삭제하는 대신 `false`를 `'false'`로 강제
 
-In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
+3.x에서는 `null` 또는 `undefined` 를 사용하여 속성을 제거합니다.
 
 ### 2.x & 3.x 동작 비교
 
