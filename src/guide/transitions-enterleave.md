@@ -87,8 +87,7 @@ There are six classes applied for enter/leave transitions.
 
 6. `v-leave-to`: **Only available in versions 2.1.8+.** Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave` is removed), removed when the transition/animation finishes.
 
-![Transition Diagram](/images/transition.png)
-TODO: update diagram
+![Transition Diagram](/images/transitions.svg)
 
 Each of these classes will be prefixed with the name of the transition. Here the `v-` prefix is the default when you use a `<transition>` element with no name. If you use `<transition name="my-transition">` for example, then the `v-enter-from` class would instead be `my-transition-enter-from`.
 
@@ -549,7 +548,7 @@ We can use this to coordinate more expressive movement, such as a folding card, 
 
 ## Transitioning Between Components
 
-Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](components.html#Dynamic-Components):
+Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](component-basics.html#dynamic-components):
 
 TODO: update to Vue 3
 

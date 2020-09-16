@@ -48,6 +48,8 @@ In order to be more explicit and legible, we have now renamed these initial stat
 
 It's now much clearer what the difference between these states is.
 
+![Transition Diagram](/images/transitions.svg)
+
 The `<transition>` component's related prop names are also changed:
 
 - `leave-class` is renamed to `leave-from-class` (can be written as `leaveFromClass` in render functions or JSX)
