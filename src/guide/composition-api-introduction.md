@@ -6,7 +6,7 @@
 Reaching this far in the documentation, you should already be familiar with both [the basics of Vue](introduction.md) and [creating components](component-basics.md).
 :::
 
-[Watch a Video Explanation on Vue Mastery](https://www.vuemastery.com/courses/vue-3-essentials/why-the-composition-api)
+[Watch a free video about the Composition API on Vue Mastery](https://www.vuemastery.com/courses/vue-3-essentials/why-the-composition-api)
 
 Creating Vue components allows us to extract repeatable parts of the interface coupled with its functionality into reusable pieces of code. This alone can get our application pretty far in terms of maintainability and flexibility. However, our collective experience has proved that this alone might not be enough, especially when your application is getting really big – think several hundreds of components. When dealing with such large applications, sharing and reusing code becomes especially important.
 
@@ -68,7 +68,7 @@ Now that we know the **why** we can get to the **how**. To start working with th
 
 ### `setup` Component Option
 
-[Watch a Video Explanation on Vue Mastery](https://www.vuemastery.com/courses/vue-3-essentials/setup-and-reactive-references)
+[Watch a free video about setup on Vue Mastery](https://www.vuemastery.com/courses/vue-3-essentials/setup-and-reactive-references)
 
 The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
 

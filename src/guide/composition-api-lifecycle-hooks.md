@@ -2,7 +2,7 @@
 
 > This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
 
-[Watch a Video Explanation on Vue Mastery](https://www.vuemastery.com/courses/vue-3-essentials/lifecycle-hooks)
+[Watch a free video about Lifecycle Hooks on Vue Mastery](https://www.vuemastery.com/courses/vue-3-essentials/lifecycle-hooks)
 
 You can access a component's lifecycle hook by prefixing the lifecycle hook with "on".
 
