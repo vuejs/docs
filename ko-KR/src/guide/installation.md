@@ -2,7 +2,7 @@
 
 ## 릴리즈 노트
 
-최신 베타 버전: 3.0.0-rc.5
+Latest beta version: ![beta](https://img.shields.io/npm/v/vue/next.svg)
 
 각 버전에 대한 자세한 릴리즈 정보는 [GitHub](https://github.com/vuejs/vue-next/releases)에서 보실 수 있습니다.
 
@@ -121,22 +121,23 @@ $ yarn dev
 
 ### 서버사이드 렌더링
 
-- `vue.cjs(.prod).js`:
-    - `require()`를 통하여 Node.js 서버측 렌더링에 사용
-    - 앱을 `target: 'node'`로 webpack에 번들 하고 `vue`를 적절하게 구체화하는 빌드입니다. 이것이 로드될 빌드 입니다.
-    - dev/prod 파일은 미리 빌드되어 있지만  `process.env.NODE_ENV`에 따라 자동으로 적절한 파일이 필요합니다.
+#### `vue.cjs(.prod).js`:
+
+- `require()`를 통하여 Node.js 서버측 렌더링에 사용
+- 앱을 `target: 'node'`로 webpack에 번들 하고 `vue`를 적절하게 구체화하는 빌드입니다. 이것이 로드될 빌드 입니다.
+- dev/prod 파일은 미리 빌드되어 있지만  `process.env.NODE_ENV`에 따라 자동으로 적절한 파일이 필요합니다.
 
 ## 런타임 + 컴파일러와 런타임(Runtime-only)의 차이
 
 클라이언트에서 템플릿을 컴파일해야 하는 경우 (예를 들어, 템플릿 옵션에 문자열을 전달하거나 해당 DOM의 HTML을 템플릿으로 사용하여 요소에 마운트하는 경우) 컴파일러가 필요하므로 전체빌드가 필요합니다.
 
 ```js
-// 이건 컴파일러가 필요합니다.
+// 이 소스는 컴파일러가 필요합니다.
 Vue.createApp({
   template: '<div>{{ hi }}</div>'
 })
 
-// 이건 작동하지 않습니다.
+// 이 소스는 컴파일러가 필요하지 않습니다.
 Vue.createApp({
   render() {
     return Vue.h('div', {}, this.hi)
