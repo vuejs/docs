@@ -2,7 +2,8 @@
 
 ## Release Notes
 
-Latest beta version: 3.0.0-rc.5
+Latest beta version: ![beta](https://img.shields.io/npm/v/vue/next.svg)
+
 
 Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue-next/releases).
 
