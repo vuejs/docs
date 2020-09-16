@@ -14,6 +14,8 @@ After the instance is created, we can _mount_ it, passing a container to `mount`
 Vue.createApp(/* options */).mount('#app')
 ```
 
+[Watch a free video on creating a Vue application Vue Mastery](https://www.vuemastery.com/courses/intro-to-vue-3/creating-the-vue-app-vue3)
+
 Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our instance.
 
 When you create an instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/options-data.html).

@@ -8,6 +8,8 @@ If you’d like to learn more about Vue before diving in, we <a id="modal-player
 
 If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](TODO:comparison.html).
 
+[Watch a free video course on Vue Mastery](https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3)
+
 ## Getting Started
 
 <p>

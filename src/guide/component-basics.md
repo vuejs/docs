@@ -1,5 +1,7 @@
 # Components Basics
 
+[Watch a free video about component basics on Vue Mastery](https://www.vuemastery.com/courses/intro-to-vue-3/components-and-props-vue3)
+
 ## Base Example
 
 Here's an example of a Vue component:

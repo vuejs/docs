@@ -1,5 +1,7 @@
 # State Management
 
+[Watch a free video about Vuex on Vue Mastery](https://www.vuemastery.com/courses/mastering-vuex/intro-to-vuex)
+
 ## Official Flux-Like Implementation
 
 Large applications can often grow in complexity, due to multiple pieces of state scattered across many components and the interactions between them. To solve this problem, Vue offers [vuex](https://github.com/vuejs/vuex), our own Elm-inspired state management library. It even integrates into [vue-devtools](https://github.com/vuejs/vue-devtools), providing zero-setup access to [time travel debugging](https://raw.githubusercontent.com/vuejs/vue-devtools/master/media/demo.gif).

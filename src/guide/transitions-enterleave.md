@@ -1,5 +1,7 @@
 # Enter & Leave Transitions
 
+[Watch a free video about transitions on Vue Mastery](https://www.vuemastery.com/courses/animating-vue/transitions)
+
 Vue provides a variety of ways to apply transition effects when items are inserted, updated, or removed from the DOM. This includes tools to:
 
 - automatically apply classes for CSS transitions and animations

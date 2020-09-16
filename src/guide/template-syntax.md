@@ -48,6 +48,8 @@ Dynamically rendering arbitrary HTML on your website can be very dangerous becau
 
 ### Attributes
 
+[Watch a free video about attributes on Vue Mastery](https://www.vuemastery.com/courses/intro-to-vue-3/attribute-binding-vue3)
+
 Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](../api/#v-bind):
 
 ```html
