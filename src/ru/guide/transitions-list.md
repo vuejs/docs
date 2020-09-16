@@ -197,7 +197,7 @@ Vue.createApp(Demo).mount('#list-complete-demo')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-::: tip
+:::tip Совет
 One important note is that these FLIP transitions do not work with elements set to `display: inline`. As an alternative, you can use `display: inline-block` or place elements in a flex context.
 :::
 

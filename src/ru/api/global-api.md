@@ -74,25 +74,25 @@ Accepts three arguments: `type`, `props` and `children`
 
 #### type
 
-- **Type:** `String | Object | Function`
+- **Тип:** `String | Object | Function`
 
-- **Details:**
+- **Подробности:**
 
   An HTML tag name, a component or an async component. Using function returning null would render a comment. This parameter is required
 
 #### props
 
-- **Type:** `Object`
+- **Тип:** `Object`
 
-- **Details:**
+- **Подробности:**
 
   An object corresponding to the attributes, props and events we would use in a template. Optional
 
 #### children
 
-- **Type:** `String | Array | Object`
+- **Тип:** `String | Array | Object`
 
-- **Details:**
+- **Подробности:**
 
   Children VNodes, built using `h()`, or using strings to get "text VNodes" or an object with slots. Optional
 
@@ -205,7 +205,7 @@ const AsyncComp = defineAsyncComponent({
 
 ## resolveComponent
 
-:::warning
+:::warning ВНИМАНИЕ
 `resolveComponent` can only be used within `render` or `setup` functions.
 :::
 
@@ -233,15 +233,15 @@ Accepts one argument: `component`
 
 #### component
 
-- **Type:** `String`
+- **Тип:** `String`
 
-- **Details:**
+- **Подробности:**
 
   The name of a loaded component.
 
 ## resolveDynamicComponent
 
-:::warning
+:::warning ВНИМАНИЕ
 `resolveDynamicComponent` can only be used within `render` or `setup` functions.
 :::
 
@@ -262,15 +262,15 @@ Accepts one argument: `component`
 
 #### component
 
-- **Type:** `String | Object (component’s options object)`
+- **Тип:** `String | Object (component’s options object)`
 
-- **Details:**
+- **Подробности:**
 
   For more details, refer to the documentation on [Dynamic Components](../guide/component-dynamic-async.html).
 
 ## resolveDirective
 
-:::warning
+:::warning ВНИМАНИЕ
 `resolveDirective` can only be used within `render` or `setup` functions.
 :::
 
@@ -296,15 +296,15 @@ Accepts one argument: `name`
 
 #### name
 
-- **Type:** `String`
+- **Тип:** `String`
 
-- **Details:**
+- **Подробности:**
 
   The name of a loaded directive.
 
 ## withDirectives
 
-:::warning
+:::warning ВНИМАНИЕ
 `withDirectives` can only be used within `render` or `setup` functions.
 :::
 
@@ -327,17 +327,17 @@ Accepts two arguments: `vnode` and `directives`.
 
 #### vnode
 
-- **Type:** `vnode`
+- **Тип:** `vnode`
 
-- **Details:**
+- **Подробности:**
 
   A virtual node, usually created with `h()`.
 
 #### directives
 
-- **Type:** `Array`
+- **Тип:** `Array`
 
-- **Details:**
+- **Подробности:**
 
   An array of directives.
 
@@ -400,17 +400,17 @@ Accepts two arguments: `HostNode` and `HostElement`
 
 #### HostNode
 
-- **Type:** `Node`
+- **Тип:** `Node`
 
-- **Details:**
+- **Подробности:**
 
   The node in the host environment.
 
 #### HostElement
 
-- **Type:** `Element`
+- **Тип:** `Element`
 
-- **Details:**
+- **Подробности:**
 
   The element in the host environment.
 

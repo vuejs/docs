@@ -33,7 +33,7 @@ app.component('custom-form', {
 
 In the event a native event (e.g., `click`) is defined in the `emits` option, it will be overwritten by the event in the component instead of being treated as a native listener.
 
-::: tip
+:::tip Совет
 It is recommended to define all emitted events in order to better document how a component should work.
 :::
 

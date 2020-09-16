@@ -10,11 +10,11 @@ app.config = {...}
 
 ## devtools
 
-- **Type:** `boolean`
+- **Тип:** `boolean`
 
-- **Default:** `true` (`false` in production builds)
+- **По умолчанию:** `true` (`false` in production builds)
 
-- **Usage:**
+- **Использование:**
 
 ```js
 app.config.devtools = true
@@ -24,11 +24,11 @@ Configure whether to allow [vue-devtools](https://github.com/vuejs/vue-devtools)
 
 ## errorHandler
 
-- **Type:** `Function`
+- **Тип:** `Function`
 
-- **Default:** `undefined`
+- **По умолчанию:** `undefined`
 
-- **Usage:**
+- **Использование:**
 
 ```js
 app.config.errorHandler = (err, vm, info) => {
@@ -44,11 +44,11 @@ Assign a handler for uncaught errors during component render function and watche
 
 ## warnHandler
 
-- **Type:** `Function`
+- **Тип:** `Function`
 
-- **Default:** `undefined`
+- **По умолчанию:** `undefined`
 
-- **Usage:**
+- **Использование:**
 
 ```js
 app.config.warnHandler = function(msg, vm, trace) {
@@ -60,11 +60,11 @@ Assign a custom handler for runtime Vue warnings. Note this only works during de
 
 ## globalProperties
 
-- **Type:** `[key: string]: any`
+- **Тип:** `[key: string]: any`
 
-- **Default:** `undefined`
+- **По умолчанию:** `undefined`
 
-- **Usage:**
+- **Использование:**
 
 ```js
 app.config.globalProperties.foo = 'bar'
@@ -91,11 +91,11 @@ app.config.globalProperties.$http = () => {}
 
 ## isCustomElement
 
-- **Type:** `(tag: string) => boolean`
+- **Тип:** `(tag: string) => boolean`
 
-- **Default:** `undefined`
+- **По умолчанию:** `undefined`
 
-- **Usage:**
+- **Использование:**
 
 ```js
 // any element starting with 'ion-' will be recognized as a custom one
@@ -108,11 +108,11 @@ Specifies a method to recognize custom elements defined outside of Vue (e.g., us
 
 ## optionMergeStrategies
 
-- **Type:** `{ [key: string]: Function }`
+- **Тип:** `{ [key: string]: Function }`
 
-- **Default:** `{}`
+- **По умолчанию:** `{}`
 
-- **Usage:**
+- **Использование:**
 
 ```js
 const app = Vue.createApp({
@@ -136,13 +136,13 @@ Define merging strategies for custom options.
 
 The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context application instance is passed as the third argument.
 
-- **See also:** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
+- **См. также:** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
 
 ## performance
 
-- **Type:** `boolean`
+- **Тип:** `boolean`
 
-- **Default:** `false`
+- **По умолчанию:** `false`
 
 - **Usage**:
 

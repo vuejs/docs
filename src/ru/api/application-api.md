@@ -14,21 +14,21 @@ In addition, since the `createApp` method returns the application instance itsel
 
 ## component
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{string} name`
   - `{Function | Object} definition (optional)`
 
-- **Returns:**
+- **Возвращает:**
 
   - The application instance if a `definition` argument was passed
   - The component definition if a `definition` argument was not passed 
 
-- **Usage:**
+- **Использование:**
 
   Register or retrieve a global component. Registration also automatically sets the component's `name` with the given `name` parameter.
 
-- **Example:**
+- **Пример:**
 
 ```js
 import { createApp } from 'vue'
@@ -44,15 +44,15 @@ app.component('my-component', {
 const MyComponent = app.component('my-component')
 ```
 
-- **See also:** [Components](../guide/component-basics.html)
+- **См. также:** [Components](../guide/component-basics.html)
 
 ## config
 
-- **Usage:**
+- **Использование:**
 
 An object containing application configurations.
 
-- **Example:**
+- **Пример:**
 
 ```js
 import { createApp } from 'vue'
@@ -61,25 +61,25 @@ const app = createApp({})
 app.config = {...}
 ```
 
-- **See also:** [Application Config](./application-config.html)
+- **См. также:** [Application Config](./application-config.html)
 
 ## directive
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{string} name`
   - `{Function | Object} definition (optional)`
 
-- **Returns:**
+- **Возвращает:**
 
   - The application instance if a `definition` argument was passed
   - The directive definition if a `definition` argument was not passed 
 
-- **Usage:**
+- **Использование:**
 
   Register or retrieve a global directive.
 
-- **Example:**
+- **Пример:**
 
 ```js
 import { createApp } from 'vue'
@@ -154,44 +154,44 @@ A blueprint of the real DOM element received as el argument above.
 
 The previous virtual node, only available in the `beforeUpdate` and `updated` hooks.
 
-:::tip Note
+:::tip Примечание
 Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+- **См. также:** [Custom Directives](../guide/custom-directive.html)
 
 ## mixin
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{Object} mixin`
 
-- **Returns:**
+- **Возвращает:**
 
   - The application instance 
 
-- **Usage:**
+- **Использование:**
 
   Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
 
-- **See also:** [Global Mixin](../guide/mixins.html#global-mixin)
+- **См. также:** [Global Mixin](../guide/mixins.html#global-mixin)
 
 ## mount
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{Element | string} rootContainer`
   - `{boolean} isHydrate (optional)`
 
-- **Returns:**
+- **Возвращает:**
 
   - The root component instance
 
-- **Usage:**
+- **Использование:**
 
   Mounts a root component of the application instance on the provided DOM element.
 
-- **Example:**
+- **Пример:**
 
 ```html
 <body>
@@ -207,21 +207,21 @@ const app = createApp({})
 app.mount('#my-app')
 ```
 
-- **See also:**
+- **См. также:**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## provide
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{string | Symbol} key`
   - `value`
 
-- **Returns:**
+- **Возвращает:**
 
   - The application instance
 
-- **Usage:**
+- **Использование:**
 
   Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
    
@@ -231,11 +231,11 @@ app.mount('#my-app')
 
   Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.html#globalproperties).
 
-  :::tip Note
+  :::tip Примечание
   The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
   :::
 
-- **Example:**
+- **Пример:**
 
   Injecting a property into the root component, with a value provided by the application:
 
@@ -254,20 +254,20 @@ const app = createApp({
 app.provide('user', 'administrator')
 ```
 
-- **See also:**
+- **См. также:**
   - [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{Element | string} rootContainer`
 
-- **Usage:**
+- **Использование:**
 
   Unmounts a root component of the application instance on the provided DOM element.
 
-- **Example:**
+- **Пример:**
 
 ```html
 <body>
@@ -288,16 +288,16 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 
 ## use
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{Object | Function} plugin`
   - `...options (optional)`
 
-- **Returns:**
+- **Возвращает:**
 
   - The application instance
 
-- **Usage:**
+- **Использование:**
 
   Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method.
   
@@ -305,4 +305,4 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
 
-- **See also:** [Plugins](../guide/plugins.html)
+- **См. также:** [Plugins](../guide/plugins.html)

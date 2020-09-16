@@ -112,7 +112,7 @@ const appB = Vue.createApp({
 
 ![State Management](/images/state.png)
 
-::: tip
+:::tip Совет
 You should never replace the original state object in your actions - the components and the store need to share reference to the same object in order for mutations to be observed.
 :::
 

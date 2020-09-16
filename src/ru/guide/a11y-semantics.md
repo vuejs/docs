@@ -50,7 +50,7 @@ If you inspect this element in your chrome developer tools and open the Accessib
 
 ![Chrome Developer Tools showing input accessible name from label](/images/AccessibleLabelChromeDevTools.png)
 
-:::warning Warning:
+:::warning ВНИМАНИЕ Warning:
 Though you might have seen labels wrapping the input fields like this:
 
 ```html

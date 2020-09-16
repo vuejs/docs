@@ -119,7 +119,7 @@ It also automatically prevents you from using the same plugin more than once, so
 
 The second parameter is optional, and depends on each particular plugin. In the case of the demo `i18nPlugin`, it is an object with the translated strings.
 
-:::info
+:::info Информация
 If you are using third party plugins such as `Vuex` or `Vue Router`, always check the documentation to know what that particular plugin expects to receive as a second parameter.
 :::
 

@@ -38,7 +38,7 @@ Also, you can add another `ref` to the component itself and use it to trigger `f
 this.$refs.usernameInput.focusInput()
 ```
 
-::: warning
+:::warning ВНИМАНИЕ
 `$refs` are only populated after the component has been rendered. It is only meant as an escape hatch for direct child manipulation - you should avoid accessing `$refs` from within templates or computed properties.
 :::
 

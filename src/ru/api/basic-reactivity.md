@@ -109,7 +109,7 @@ const bar = reactive({ foo })
 console.log(isReactive(bar.foo)) // false
 ```
 
-::: warning
+:::warning ВНИМАНИЕ
 `markRaw` and the shallowXXX APIs below allow you to selectively opt-out of the default deep reactive/readonly conversion and embed raw, non-proxied objects in your state graph. They can be used for various reasons:
 
 - Some values simply should not be made reactive, for example a complex 3rd party class instance, or a Vue component object.

@@ -151,7 +151,7 @@ computed: {
 }
 ```
 
-::: tip Note
+:::tip Примечание
 Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child component **will** affect parent state.
 :::
 
@@ -208,7 +208,7 @@ app.component('my-component', {
 
 When prop validation fails, Vue will produce a console warning (if using the development build).
 
-::: tip Note
+:::tip Примечание
 Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc) will not be available inside `default` or `validator` functions.
 :::
 

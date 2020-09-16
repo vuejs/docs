@@ -2,34 +2,34 @@
 
 ## template
 
-- **Type:** `string`
+- **Тип:** `string`
 
-- **Details:**
+- **Подробности:**
 
   A string template to be used as the markup for the component instance. The template will **replace** the mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.
 
   If the string starts with `#` it will be used as a `querySelector` and use the selected element's innerHTML as the template string. This allows the use of the common `<script type="x-template">` trick to include templates.
 
-  :::tip Note
+  :::tip Примечание
   From a security perspective, you should only use Vue templates that you can trust. Never use user-generated content as your template.
   :::
 
-  :::tip Note
+  :::tip Примечание
   If render function is present in the Vue option, the template will be ignored.:::
 
-- **See also:**
+- **См. также:**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
   - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
 
 ## render
 
-- **Type:** `Function`
+- **Тип:** `Function`
 
-- **Details:**
+- **Подробности:**
 
   An alternative to string templates allowing you to leverage the full programmatic power of JavaScript.
 
-- **Usage:**
+- **Использование:**
 
   ```html
   <div id="app" class="demo">
@@ -58,8 +58,8 @@
   app.mount('#app')
   ```
 
-  :::tip Note
+  :::tip Примечание
   The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element
   :::
 
-- **See also:** [Render Functions](../guide/render-function.html)
+- **См. также:** [Render Functions](../guide/render-function.html)

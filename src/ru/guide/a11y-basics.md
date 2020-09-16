@@ -110,7 +110,7 @@ Landmarks provide programmatic access to sections within an application. Users w
 | form            | role="form"                                                       | Collection of form-associated elements                                                 |
 | section         | role="region"  | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element                |
 
-:::tip Tip:
+:::tip Совет
 It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).
 :::
 

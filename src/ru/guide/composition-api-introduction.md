@@ -2,7 +2,7 @@
 
 ## Why Composition API?
 
-::: tip Note
+:::tip Примечание
 Reaching this far in the documentation, you should already be familiar with both [the basics of Vue](introduction.md) and [creating components](component-basics.md).
 :::
 
@@ -68,7 +68,7 @@ Now that we know the **why** we can get to the **how**. To start working with th
 
 The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
 
-::: warning
+:::warning ВНИМАНИЕ
 Because the component instance is not yet created when `setup` is executed, there is no `this` inside a `setup` option. This means, with the exception of `props`, you won't be able to access any properties declared in the component – **local state**, **computed properties** or **methods**.
 :::
 
@@ -153,7 +153,7 @@ Wrapping values inside an object might seem unnecessary but is required to keep 
 
 Having a wrapper object around any value allows us to safely pass it across our whole app without worrying about losing its reactivity somewhere along the way.
 
-::: tip Note
+:::tip Примечание
 In other words, `ref` creates a **Reactive Reference** to our value. The concept of working with **References** will be used often throughout the Composition API.
 :::
 

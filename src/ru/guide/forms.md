@@ -4,7 +4,7 @@
 
 You can use the `v-model` directive to create two-way data bindings on form input, textarea, and select elements. It automatically picks the correct way to update the element based on the input type. Although a bit magical, `v-model` is essentially syntax sugar for updating data on user input events, plus special care for some edge cases.
 
-::: tip Note
+:::tip Примечание
 `v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current active instance data as the source of truth. You should declare the initial value on the JavaScript side, inside the `data` option of your component.
 :::
 
@@ -15,7 +15,7 @@ You can use the `v-model` directive to create two-way data bindings on form inpu
 - select fields use `value` as a prop and `change` as an event.
 
 <span id="vmodel-ime-tip"></span>
-::: tip Note
+:::tip Примечание
 For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to cater for these updates as well, use `input` event instead.
 :::
 
@@ -171,7 +171,7 @@ Vue.createApp({
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-:::tip Note
+:::tip Примечание
 If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
 :::
 
@@ -261,7 +261,7 @@ vm.toggle === 'yes'
 vm.toggle === 'no'
 ```
 
-:::tip Tip
+:::tip Совет
 The `true-value` and `false-value` attributes don't affect the input's `value` attribute, because browsers don't include unchecked boxes in form submissions. To guarantee that one of two values is submitted in a form (e.g. "yes" or "no"), use radio inputs instead.
 :::
 

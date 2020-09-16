@@ -109,7 +109,7 @@ This essentially means the `Transition` component only gets imported when the ap
 
 With global tree-shaking, the user only “pay” for the features they actually use. Even better, knowing that optional features won't increase the bundle size for applications not using them, framework size has become much less a concern for additional core features in the future, if at all.
 
-::: warning Important
+:::warning ВНИМАНИЕ Important
 The above only applies to the [ES Modules builds](/guide/installation.html#explanation-of-different-builds) for use with tree-shaking capable bundlers - the UMD build still includes all features and exposes everything on the Vue global variable (and the compiler will produce appropriate output to use APIs off the global instead of importing).
 :::
 

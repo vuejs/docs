@@ -2,7 +2,7 @@
 
 ## $watch
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{string | Function} source`
   - `{Function | Object} callback`
@@ -10,13 +10,13 @@
     - `{boolean} deep`
     - `{boolean} immediate`
 
-- **Returns:** `{Function} unwatch`
+- **Возвращает:** `{Function} unwatch`
 
-- **Usage:**
+- **Использование:**
 
   Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `prop`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
 
-- **Example:**
+- **Пример:**
 
   ```js
   const app = Vue.createApp({
@@ -170,11 +170,11 @@
   )
   ```
 
-- **See also:** [Watchers](../guide/computed.html#watchers)
+- **См. также:** [Watchers](../guide/computed.html#watchers)
 
 ## $emit
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{string} eventName`
   - `...args (optional)`
@@ -245,27 +245,27 @@
   })
   ```
 
-- **See also:**
+- **См. также:**
   - [`emits` option](./options-data.html#emits)
   - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
 
 ## $forceUpdate
 
-- **Usage:**
+- **Использование:**
 
   Force the component instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
 
 ## $nextTick
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{Function} callback (optional)`
 
-- **Usage:**
+- **Использование:**
 
   Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update. This is the same as the global `nextTick`, except that the callback's `this` context is automatically bound to the instance calling this method.
 
-- **Example:**
+- **Пример:**
 
   ```js
   Vue.createApp({
@@ -286,4 +286,4 @@
   })
   ```
 
-- **See also:** [nextTick](global-api.html#nexttick)
+- **См. также:** [nextTick](global-api.html#nexttick)

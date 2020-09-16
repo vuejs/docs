@@ -185,7 +185,7 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 <div @click.self="doThat">...</div>
 ```
 
-::: tip
+:::tip Совет
 Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **all clicks** while `@click.self.prevent` will only prevent clicks on the element itself.
 :::
 
@@ -207,7 +207,7 @@ Vue also offers the `.passive` modifier, corresponding to [`addEventListener`'s 
 
 The `.passive` modifier is especially useful for improving performance on mobile devices.
 
-::: tip
+:::tip Совет
 Don't use `.passive` and `.prevent` together, because `.prevent` will be ignored and your browser will probably show you a warning. Remember, `.passive` communicates to the browser that you _don't_ want to prevent the event's default behavior.
 :::
 
@@ -251,7 +251,7 @@ You can use the following modifiers to trigger mouse or keyboard event listeners
 - `.shift`
 - `.meta`
 
-::: tip Note
+:::tip Примечание
 On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the Windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
 :::
 
@@ -265,7 +265,7 @@ For example:
 <div @click.ctrl="doSomething">Do something</div>
 ```
 
-::: tip
+:::tip Совет
 Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone
 :::
 

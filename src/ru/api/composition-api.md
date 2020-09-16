@@ -6,7 +6,7 @@
 
 A component option that is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's
 
-- **Arguments:**
+- **Аргументы:**
 
   - `{Data} props`
   - `{SetupContext} context`
@@ -27,7 +27,7 @@ interface SetupContext {
 function setup(props: Data, context: SetupContext): Data
 ```
 
-::: tip
+:::tip Совет
 To get type inference for the arguments passed to `setup()`, the use of [defineComponent](global-api.html#definecomponent) is needed.
 :::
 

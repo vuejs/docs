@@ -121,7 +121,7 @@ With the behavior change of `is`, we introduce a new directive `v-is` for workin
 </table>
 ```
 
-:::warning
+:::warning ВНИМАНИЕ
 `v-is` functions like a dynamic 2.x `:is` binding - so to render a component by its registered name, its value should be a JavaScript string literal:
 
 ```html

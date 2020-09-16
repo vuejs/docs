@@ -80,7 +80,7 @@ export default {
 
 In committed code, prop definitions should always be as detailed as possible, specifying at least type(s).
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 Detailed [prop definitions](https://vuejs.org/v2/guide/components.html#Prop-Validation) have two advantages:
 
 - They document the API of the component, so that it's easy to see how the component is meant to be used.
@@ -131,7 +131,7 @@ props: {
 
 `key` with `v-for` is _always_ required on components, in order to maintain internal component state down the subtree. Even for elements though, it's a good practice to maintain predictable behavior, such as [object constancy](https://bost.ocks.org/mike/constancy/) in animations.
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 Let's say you have a list of todos:
 
 ``` js
@@ -195,7 +195,7 @@ There are two common cases where this can be tempting:
 
 - To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 When Vue processes directives, `v-for` has a higher priority than `v-if`, so that this template:
 
 ``` html
@@ -343,7 +343,7 @@ This is only relevant for [single-file components](../guide/single-file-componen
 
 This makes overriding internal styles easier, with human-readable class names that don't have too high specificity, but are still very unlikely to result in a conflict.
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 If you are developing a large project, working with other developers, or sometimes include 3rd-party HTML/CSS (e.g. from Auth0), consistent scoping will ensure that your styles only apply to the components they are meant for.
 
 Beyond the `scoped` attribute, using unique class names can help ensure that 3rd-party CSS does not apply to your own HTML. For example, many projects use the `button`, `btn`, or `icon` class names, so even if not using a strategy such as BEM, adding an app-specific and/or component-specific prefix (e.g. `ButtonClose-icon`) can provide some protection.
@@ -427,7 +427,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 
 **Use module scoping to keep private functions inaccessible from the outside. If that's not possible, always use the `$_` prefix for custom private properties in a plugin, mixin, etc that should not be considered public API. Then to avoid conflicts with code by other authors, also include a named scope (e.g. `$_yourPluginName_`).**
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 Vue uses the `_` prefix to define its own private properties, so using the same prefix (e.g. `_update`) risks overwriting an instance property. Even if you check and Vue is not currently using a particular property name, there is no guarantee a conflict won't arise in a later version.
 
 As for the `$` prefix, its purpose within the Vue ecosystem is special instance properties that are exposed to the user, so using it for _private_ properties would not be appropriate.
@@ -594,7 +594,7 @@ components/
 
 **Base components (a.k.a. presentational, dumb, or pure components) that apply app-specific styling and conventions should all begin with a specific prefix, such as `Base`, `App`, or `V`.**
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 These components lay the foundation for consistent styling and behavior in your application. They may **only** contain:
 
 - HTML elements,
@@ -696,7 +696,7 @@ components/
 
 If a component only makes sense in the context of a single parent component, that relationship should be evident in its name. Since editors typically organize files alphabetically, this also keeps these related files next to each other.
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 You might be tempted to solve this problem by nesting child components in directories named after their parent. For example:
 
 ```
@@ -763,7 +763,7 @@ components/
 
 **Component names should start with the highest-level (often most general) words and end with descriptive modifying words.**
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 You may be wondering:
 
 > "Why would we force component names to use less natural language?"
@@ -931,7 +931,7 @@ OR
 
 **Component names in JS/[JSX](../guide/render-function.html#JSX) should always be PascalCase, though they may be kebab-case inside strings for simpler applications that only use global component registration through `app.component`.**
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 In JavaScript, PascalCase is the convention for classes and prototype constructors - essentially, anything that can have distinct instances. Vue components also have instances, so it makes sense to also use PascalCase. As an added benefit, using PascalCase within JSX (and templates) allows readers of the code to more easily distinguish between components and HTML elements.
 
 However, for applications that use **only** global component definitions via `app.component`, we recommend kebab-case instead. The reasons are:
@@ -1134,7 +1134,7 @@ computed: {
 
 **Complex computed properties should be split into as many simpler properties as possible.**
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 Simpler, well-named computed properties are:
 
 - __Easier to test__
@@ -1526,7 +1526,7 @@ computed: {
 
 Prefer class selectors over element selectors in `scoped` styles, because large numbers of element selectors are slow.
 
-::: details Detailed Explanation
+:::details Detailed Explanation
 To scope styles, Vue adds a unique attribute to component elements, such as `data-v-f3f3eg9`. Then selectors are modified so that only matching elements with this attribute are selected (e.g. `button[data-v-f3f3eg9]`).
 
 The problem is that large numbers of [element-attribute selectors](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `button[data-v-f3f3eg9]`) will be considerably slower than [class-attribute selectors](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `.btn-close[data-v-f3f3eg9]`), so class selectors should be preferred whenever possible.

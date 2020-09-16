@@ -56,7 +56,7 @@ A directive definition object can provide several hook functions (all optional):
 
 - `beforeUpdate`: called before the containing component's VNode is updated
 
-:::tip Note
+:::tip Примечание
 We'll cover VNodes in more detail [later](render-function.html#the-virtual-dom-tree), when we discuss render functions.
 :::
 

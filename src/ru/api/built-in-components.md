@@ -6,7 +6,7 @@
 
   - `is` - `string | ComponentDefinition | ComponentConstructor`
 
-- **Usage:**
+- **Использование:**
 
   A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop:
 
@@ -19,7 +19,7 @@
   <component :is="$options.components.child"></component>
   ```
 
-- **See also:** [Dynamic Components](../guide/component-dynamic-async.html)
+- **См. также:** [Dynamic Components](../guide/component-dynamic-async.html)
 
 ## transition
 
@@ -56,7 +56,7 @@
   - `leave-cancelled` (`v-show` only)
   - `appear-cancelled`
 
-- **Usage:**
+- **Использование:**
 
   `<transition>` serve as transition effects for **single** element/component. The `<transition>` only applies the transition behavior to the wrapped content inside; it doesn't render an extra DOM element, or show up in the inspected component hierarchy.
 
@@ -93,7 +93,7 @@
   app.mount('#transition-demo')
   ```
 
-- **See also:** [Enter & Leave Transitions](/guide/transitions-enterleave.html#transitioning-single-elements-components)
+- **См. также:** [Enter & Leave Transitions](/guide/transitions-enterleave.html#transitioning-single-elements-components)
 
 ## transition-group
 
@@ -107,7 +107,7 @@
 
   - exposes the same events as `<transition>`.
 
-- **Usage:**
+- **Использование:**
 
   `<transition-group>` serve as transition effects for **multiple** elements/components. The `<transition-group>` renders a real DOM element. By default it renders a `<span>`, and you can configure what element it should render via the `tag` attribute.
 
@@ -123,7 +123,7 @@
   </transition-group>
   ```
 
-- **See also:** [List Transitions](/guide/transitions-list.html)
+- **См. также:** [List Transitions](/guide/transitions-list.html)
 
 ## keep-alive
 
@@ -133,7 +133,7 @@
   - `exclude` - `string | RegExp | Array`. Any component with a matching name will not be cached.
   - `max` - `number | string`. The maximum number of component instances to cache.
 
-- **Usage:**
+- **Использование:**
 
   When wrapped around a dynamic component, `<keep-alive>` caches the inactive component instances without destroying them. Similar to `<transition>`, `<keep-alive>` is an abstract component: it doesn't render a DOM element itself, and doesn't show up in the component parent chain.
 
@@ -196,11 +196,11 @@
   </keep-alive>
   ```
 
-  ::: warning
+  :::warning ВНИМАНИЕ
   `<keep-alive>` does not work with functional components because they do not have instances to be cached.
   :::
 
-- **See also:** [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+- **См. также:** [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
 
 ## slot
 
@@ -208,13 +208,13 @@
 
   - `name` - `string`, Used for named slot.
 
-- **Usage:**
+- **Использование:**
 
   `<slot>` serve as content distribution outlets in component templates. `<slot>` itself will be replaced.
 
   For detailed usage, see the guide section linked below.
 
-- **See also:** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+- **См. также:** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
 
 ## teleport
 
@@ -243,4 +243,4 @@
 
   Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
 
-- **See also:** [Teleport component](../guide/teleport.html#teleport)
+- **См. также:** [Teleport component](../guide/teleport.html#teleport)

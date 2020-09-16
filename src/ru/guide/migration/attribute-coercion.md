@@ -5,7 +5,7 @@ badges:
 
 # Attribute Coercion Behavior <MigrationBadges :badges="$frontmatter.badges" />
 
-::: info Info
+:::info Информация
 This is a low-level internal API change and does not affect most developers.
 :::
 

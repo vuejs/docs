@@ -30,7 +30,7 @@ export default {
 }
 ```
 
-:::warning
+:::warning ВНИМАНИЕ
 However, because `props` are reactive, you **cannot use ES6 destructuring** because it will remove props reactivity.
 :::
 

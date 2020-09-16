@@ -22,7 +22,7 @@ app.component('button-counter', {
 })
 ```
 
-::: info
+:::info Информация
 We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
 :::
 
@@ -309,7 +309,7 @@ When used on a component, `v-model` instead does this:
 ></custom-input>
 ```
 
-::: warning
+:::warning ВНИМАНИЕ
 Please note we used `model-value` with kebab-case here because we are working with in-DOM template. You can find a detailed explanation on kebab-cased vs camelCased attributes in the [DOM Template Parsing Caveats](#dom-template-parsing-caveats) section
 :::
 
@@ -450,7 +450,7 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 </table>
 ```
 
-:::warning
+:::warning ВНИМАНИЕ
 `v-is` value should be a JavaScript string literal:
 
 ```html

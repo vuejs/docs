@@ -14,38 +14,38 @@ VuePress provides a custom container plugin to create alert boxes. There are fou
 **Markdown Examples**
 
 ```
-::: info
+:::info Информация
 You can find more information at this site.
 :::
 
-::: tip
+:::tip Совет
 This is a great tip to remember!
 :::
 
-::: warning
+:::warning ВНИМАНИЕ
 This is something to be cautious of.
 :::
 
-::: danger DANGER
+:::danger ПРЕДУПРЕЖДЕНИЕ
 This is something we do not recommend. Use at your own risk.
 :::
 ```
 
 **Rendered Markdown**
 
-::: info
+:::info Информация
 You can find more information at this site.
 :::
 
-::: tip
+:::tip Совет
 This is a great tip to remember!
 :::
 
-::: warning
+:::warning ВНИМАНИЕ
 This is something to be cautious of.
 :::
 
-::: danger DANGER
+:::danger ПРЕДУПРЕЖДЕНИЕ
 This is something we do not recommend. Use at your own risk.
 :::
 

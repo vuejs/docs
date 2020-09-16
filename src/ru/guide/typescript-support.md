@@ -218,7 +218,7 @@ const year = ref<string | number>('2020') // year's type: Ref<string | number>
 year.value = 2020 // ok!
 ```
 
-::: tip Note
+:::tip Примечание
 If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`.
 :::
 

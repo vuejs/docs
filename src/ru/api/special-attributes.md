@@ -2,7 +2,7 @@
 
 ## key
 
-- **Expects:** `number | string`
+- **Ожидает:** `number | string`
 
   The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify VNodes when diffing the new list of nodes against the old list. Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed/destroyed.
 
@@ -33,7 +33,7 @@
 
 ## ref
 
-- **Expects:** `string | Function`
+- **Ожидает:** `string | Function`
 
   `ref` is used to register a reference to an element or a child component. The reference will be registered under the parent component's `$refs` object. If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be component instance:
 
@@ -50,11 +50,11 @@
 
   An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
-- **See also:** [Child Component Refs](../guide/component-template-refs.html)
+- **См. также:** [Child Component Refs](../guide/component-template-refs.html)
 
 ## is
 
-- **Expects:** `string | Object (component’s options object)`
+- **Ожидает:** `string | Object (component’s options object)`
 
 Used for [dynamic components](../guide/component-dynamic-async.html).
 
@@ -67,6 +67,6 @@ For example:
 For detailed usage, follow the links in the description above.
 ```
 
-- **See also:**
+- **См. также:**
   - [Dynamic Components](../guide/component-dynamic-async.html)
   - [DOM Template Parsing Caveats](../guide/component-basics.html#dom-template-parsing-caveats)

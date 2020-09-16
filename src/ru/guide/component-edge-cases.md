@@ -2,7 +2,7 @@
 
 > This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
 
-:::tip Note
+:::tip Примечание
 All the features on this page document the handling of edge cases, meaning unusual situations that sometimes require bending Vue's rules a little. Note however, that they all have disadvantages or situations where they could be dangerous. These are noted in each case, so keep them in mind when deciding to use each feature.
 :::
 
@@ -31,6 +31,6 @@ app.component('terms-of-service', {
 })
 ```
 
-:::tip
+:::tip Совет
 Once again, try not to overuse this pattern. While convenient in those rare cases when you have to render a lot of static content, it's simply not necessary unless you actually notice slow rendering - plus, it could cause a lot of confusion later. For example, imagine another developer who's not familiar with `v-once` or simply misses it in the template. They might spend hours trying to figure out why the template isn't updating correctly.
 :::

@@ -132,7 +132,7 @@ And another for the index:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-:::tip Note
+:::tip Примечание
 When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which isn't guaranteed to be consistent across JavaScript engine implementations.
 :::
 
@@ -154,7 +154,7 @@ It is recommended to provide a `key` attribute with `v-for` whenever possible, u
 
 Since it's a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
 
-:::tip Note
+:::tip Примечание
 Don't use non-primitive values like objects and arrays as `v-for` keys. Use string or numeric values instead.
 :::
 
@@ -264,7 +264,7 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 
 ## `v-for` with `v-if`
 
-:::tip
+:::tip Совет
 Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for details.
 :::
 
