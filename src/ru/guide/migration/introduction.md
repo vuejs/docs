@@ -42,6 +42,7 @@ The following consists a list of breaking changes from 2.x:
 - [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
 - [Some transition classes got a rename](/guide/migration/transition.md)
 - [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
+- [Changes in `key` attribute usage with `v-if` and `<template v-for>`](/guide/migration/key-attribute.md)
 - In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead.
 
 ### Removed

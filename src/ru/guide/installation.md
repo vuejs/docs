@@ -2,7 +2,7 @@
 
 ## История изменений
 
-Последняя бета-версия: 3.0.0-rc.11
+Последняя бета-версия: ![beta](https://img.shields.io/npm/v/vue/next.svg)
 
 Подробная информация об изменениях в каждой версии доступна на [GitHub](https://github.com/vuejs/vue-next/releases).
 

@@ -315,6 +315,7 @@ const sidebarRU = {
         '/ru/guide/migration/global-api',
         '/ru/guide/migration/global-api-treeshaking',
         '/ru/guide/migration/inline-template-attribute',
+        '/ru/guide/migration/key-attribute',
         '/ru/guide/migration/keycode-modifiers',
         '/ru/guide/migration/render-function-api',
         '/ru/guide/migration/slots-unification',
