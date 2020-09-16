@@ -189,9 +189,209 @@ const sidebar = {
   }]
 }
 
+const sidebarRU = {
+  cookbook: [{
+    title: 'Книга рецептов',
+    collapsable: false,
+    children: ['/ru/cookbook/', '/ru/cookbook/editable-svg-icons']
+  }],
+  guide: [{
+      title: 'Основы',
+      collapsable: false,
+      children: [
+        '/ru/guide/installation',
+        '/ru/guide/introduction',
+        '/ru/guide/instance',
+        '/ru/guide/template-syntax',
+        '/ru/guide/computed',
+        '/ru/guide/class-and-style',
+        '/ru/guide/conditional',
+        '/ru/guide/list',
+        '/ru/guide/events',
+        '/ru/guide/forms',
+        '/ru/guide/component-basics'
+      ]
+    },
+    {
+      title: 'Продвинутые компоненты',
+      collapsable: false,
+      children: [
+        '/ru/guide/component-registration',
+        '/ru/guide/component-props',
+        '/ru/guide/component-attrs',
+        '/guide/component-custom-events',
+        '/ru/guide/component-slots',
+        '/ru/guide/component-provide-inject',
+        '/ru/guide/component-dynamic-async',
+        '/ru/guide/component-template-refs',
+        '/ru/guide/component-edge-cases'
+      ]
+    },
+    {
+      title: 'Переходы и анимации',
+      collapsable: false,
+      children: [
+        '/ru/guide/transitions-overview',
+        '/ru/guide/transitions-enterleave',
+        '/ru/guide/transitions-list',
+        '/ru/guide/transitions-state'
+      ]
+    },
+    {
+      title: 'Переиспользование и композиция',
+      collapsable: false,
+      children: [
+        '/ru/guide/mixins',
+        '/ru/guide/custom-directive',
+        '/ru/guide/teleport',
+        '/ru/guide/render-function',
+        '/ru/guide/plugins'
+      ]
+    },
+    {
+      title: 'Продвинутые руководства',
+      collapsable: false,
+      children: [{
+          title: 'Reactivity',
+          children: [
+            '/ru/guide/reactivity',
+            '/ru/guide/reactivity-fundamentals',
+            '/ru/guide/reactivity-computed-watchers'
+          ]
+        },
+        {
+          title: 'Composition API',
+          children: [
+            '/ru/guide/composition-api-introduction',
+            '/ru/guide/composition-api-setup',
+            '/ru/guide/composition-api-lifecycle-hooks',
+            '/ru/guide/composition-api-provide-inject',
+            '/ru/guide/composition-api-template-refs'
+          ]
+        },
+        '/ru/guide/optimizations',
+        '/ru/guide/change-detection'
+      ]
+    },
+    {
+      title: 'Инструментарий',
+      collapsable: false,
+      children: [
+        '/ru/guide/single-file-component',
+        '/ru/guide/testing',
+        '/ru/guide/typescript-support'
+      ]
+    },
+    {
+      title: 'Масштабирование',
+      collapsable: false,
+      children: ['/ru/guide/routing', '/ru/guide/state-management', '/ru/guide/ssr']
+    },
+    {
+      title: 'Accessibility',
+      collapsable: false,
+      children: [
+        '/ru/guide/a11y-basics',
+        '/ru/guide/a11y-semantics',
+        '/ru/guide/a11y-standards',
+        '/ru/guide/a11y-resources'
+      ]
+    },
+    {
+      title: 'Миграция с Vue 2',
+      collapsable: true,
+      children: [
+        '/ru/guide/migration/introduction',
+        '/ru/guide/migration/async-components',
+        '/ru/guide/migration/attribute-coercion',
+        '/ru/guide/migration/custom-directives',
+        '/ru/guide/migration/custom-elements-interop',
+        '/ru/guide/migration/data-option',
+        '/ru/guide/migration/events-api',
+        '/ru/guide/migration/filters',
+        '/ru/guide/migration/fragments',
+        '/ru/guide/migration/functional-components',
+        '/ru/guide/migration/global-api',
+        '/ru/guide/migration/global-api-treeshaking',
+        '/ru/guide/migration/inline-template-attribute',
+        '/ru/guide/migration/keycode-modifiers',
+        '/ru/guide/migration/render-function-api',
+        '/ru/guide/migration/slots-unification',
+        '/ru/guide/migration/transition',
+        '/ru/guide/migration/v-model'
+      ]
+    },
+    {
+      title: 'Внести вклад в документацию',
+      collapsable: true,
+      children: [
+        '/ru/guide/contributing/doc-style-guide',
+        '/ru/guide/contributing/translations'
+      ]
+    }
+  ],
+  api: [
+    '/ru/api/application-config',
+    '/ru/api/application-api',
+    '/ru/api/global-api',
+    {
+      title: 'Options',
+      collapsable: false,
+      children: [
+        '/ru/api/options-data',
+        '/ru/api/options-dom',
+        '/ru/api/options-lifecycle-hooks',
+        '/ru/api/options-assets',
+        '/ru/api/options-composition',
+        '/ru/api/options-misc'
+      ]
+    },
+    '/ru/api/instance-properties',
+    '/ru/api/instance-methods',
+    '/ru/api/directives',
+    '/ru/api/special-attributes',
+    '/ru/api/built-in-components.md',
+    {
+      title: 'Reactivity API',
+      collapsable: false,
+      children: [
+        '/ru/api/basic-reactivity',
+        '/ru/api/refs-api',
+        '/ru/api/computed-watch-api'
+      ]
+    },
+    '/ru/api/composition-api'
+  ],
+  examples: [{
+    title: 'Примеры',
+    collapsable: false,
+    children: [
+      '/ru/examples/markdown',
+      '/ru/examples/commits',
+      '/ru/examples/grid-component',
+      '/ru/examples/tree-view',
+      '/ru/examples/svg',
+      '/ru/examples/modal',
+      '/ru/examples/elastic-header',
+      '/ru/examples/select2',
+      '/ru/examples/todomvc'
+    ]
+  }]
+}
+
 module.exports = {
-  title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  locales: {
+    '/': {
+      lang: 'en-US',
+      title: 'Vue.js',
+      description: 'Vue.js - The Progressive JavaScript Framework',
+    },
+    '/ru/': {
+      lang: 'ru',
+      title: 'Vue.js',
+      description: 'Vue.js - Прогрессивный JavaScript-фреймворк'
+    },
+  },
   head: [
     [
       'link',
@@ -227,120 +427,236 @@ module.exports = {
   ],
   themeConfig: {
     logo: '/logo.png',
-    nav: [{
-        text: 'Docs',
-        ariaLabel: 'Documentation Menu',
-        items: [{
-            text: 'Guide',
-            link: '/guide/introduction'
-          },
-          {
-            text: 'Style Guide',
-            link: '/style-guide/'
-          },
-          {
-            text: 'Cookbook',
-            link: '/cookbook/'
-          },
-          {
-            text: 'Examples',
-            link: '/examples/markdown'
-          }
-        ]
-      },
-      {
-        text: 'API Reference',
-        link: '/api/application-config'
-      },
-      {
-        text: 'Ecosystem',
-        items: [{
-            text: 'Community',
-            ariaLabel: 'Community Menu',
-            items: [{
-                text: 'Team',
-                link: '/community/team/'
-              },
-              {
-                text: 'Partners',
-                link: '/community/partners'
-              },
-              {
-                text: 'Join',
-                link: '/community/join/'
-              },
-              {
-                text: 'Themes',
-                link: '/community/themes/'
-              }
-            ]
-          },
-          {
-            text: 'Official Projects',
-            items: [{
-                text: 'Vue Router',
-                link: 'https://router.vuejs.org/'
-              },
-              {
-                text: 'Vuex',
-                link: 'https://vuex.vuejs.org/'
-              },
-              {
-                text: 'Vue CLI',
-                link: 'https://cli.vuejs.org/'
-              },
-              {
-                text: 'Vue Test Utils',
-                link: 'https://vue-test-utils.vuejs.org/'
-              },
-              {
-                text: 'Devtools',
-                link: 'https://github.com/vuejs/vue-devtools'
-              },
-              {
-                text: 'Weekly news',
-                link: 'https://news.vuejs.org/'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        text: 'Support Vue',
-        link: '/support-vuejs/',
-        items: [{
-            text: 'One-time Donations',
-            link: '/support-vuejs/#one-time-donations'
-          },
-          {
-            text: 'Recurring Pledges',
-            link: '/support-vuejs/#recurring-pledges'
-          },
-          {
-            text: 'T-Shirt Shop',
-            link: 'https://vue.threadless.com/'
-          }
-        ]
-      }
-    ],
     repo: 'vuejs/docs-next',
     editLinks: false,
-    editLinkText: 'Edit this on GitHub!',
-    lastUpdated: 'Last updated',
     docsDir: 'src',
     sidebarDepth: 2,
-    sidebar: {
-      collapsable: false,
-      '/guide/': sidebar.guide,
-      '/community/': sidebar.guide,
-      '/cookbook/': sidebar.cookbook,
-      '/api/': sidebar.api,
-      '/examples/': sidebar.examples
-    },
     smoothScroll: false,
     algolia: {
       indexName: 'vuejs-v3',
       apiKey: 'bc6e8acb44ed4179c30d0a45d6140d3f'
+    },
+    locales: {
+      '/': {
+        label: 'English',
+        selectText: 'Languages',
+        editLinkText: 'Edit this on GitHub!',
+        lastUpdated: 'Last updated',
+        nav: [{
+          text: 'Docs',
+          ariaLabel: 'Documentation Menu',
+          items: [{
+              text: 'Guide',
+              link: '/guide/introduction'
+            },
+            {
+              text: 'Style Guide',
+              link: '/style-guide/'
+            },
+            {
+              text: 'Cookbook',
+              link: '/cookbook/'
+            },
+            {
+              text: 'Examples',
+              link: '/examples/markdown'
+            }
+          ]
+        },
+        {
+          text: 'API Reference',
+          link: '/api/application-config'
+        },
+        {
+          text: 'Ecosystem',
+          items: [{
+              text: 'Community',
+              ariaLabel: 'Community Menu',
+              items: [{
+                  text: 'Team',
+                  link: '/community/team/'
+                },
+                {
+                  text: 'Partners',
+                  link: '/community/partners'
+                },
+                {
+                  text: 'Join',
+                  link: '/community/join/'
+                },
+                {
+                  text: 'Themes',
+                  link: '/community/themes/'
+                }
+              ]
+            },
+            {
+              text: 'Official Projects',
+              items: [{
+                  text: 'Vue Router',
+                  link: 'https://router.vuejs.org/'
+                },
+                {
+                  text: 'Vuex',
+                  link: 'https://vuex.vuejs.org/'
+                },
+                {
+                  text: 'Vue CLI',
+                  link: 'https://cli.vuejs.org/'
+                },
+                {
+                  text: 'Vue Test Utils',
+                  link: 'https://vue-test-utils.vuejs.org/'
+                },
+                {
+                  text: 'Devtools',
+                  link: 'https://github.com/vuejs/vue-devtools'
+                },
+                {
+                  text: 'Weekly news',
+                  link: 'https://news.vuejs.org/'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Support Vue',
+          link: '/support-vuejs/',
+          items: [{
+              text: 'One-time Donations',
+              link: '/support-vuejs/#one-time-donations'
+            },
+            {
+              text: 'Recurring Pledges',
+              link: '/support-vuejs/#recurring-pledges'
+            },
+            {
+              text: 'T-Shirt Shop',
+              link: 'https://vue.threadless.com/'
+            }
+          ]
+        }
+        ],
+        sidebar: {
+          collapsable: false,
+          '/guide/': sidebar.guide,
+          '/community/': sidebar.guide,
+          '/cookbook/': sidebar.cookbook,
+          '/api/': sidebar.api,
+          '/examples/': sidebar.examples
+        },
+      },
+      '/ru/': {
+        label: 'Русский',
+        selectText: 'Переводы',
+        editLinkText: 'Изменить эту страницу на GitHub',
+        lastUpdated: 'Последнее обновление',
+        nav: [{
+          text: 'Документация',
+          ariaLabel: 'Меню документации',
+          items: [{
+              text: 'Руководство',
+              link: '/ru/guide/introduction'
+            },
+            {
+              text: 'Рекомендации',
+              link: '/ru/style-guide/'
+            },
+            {
+              text: 'Книга рецептов',
+              link: '/ru/cookbook/'
+            },
+            {
+              text: 'Примеры',
+              link: '/ru/examples/markdown'
+            }
+          ]
+        },
+        {
+          text: 'Справочник API',
+          link: '/ru/api/application-config'
+        },
+        {
+          text: 'Экосистема',
+          items: [{
+              text: 'Сообщество',
+              ariaLabel: 'Меню сообщества',
+              items: [{
+                  text: 'Команда',
+                  link: '/ru/community/team/'
+                },
+                {
+                  text: 'Партнёры',
+                  link: '/ru/community/partners'
+                },
+                {
+                  text: 'Join',
+                  link: '/ru/community/join/'
+                },
+                {
+                  text: 'Темы',
+                  link: '/ru/community/themes/'
+                }
+              ]
+            },
+            {
+              text: 'Официальные проекты',
+              items: [{
+                  text: 'Vue Router',
+                  link: 'https://router.vuejs.org/'
+                },
+                {
+                  text: 'Vuex',
+                  link: 'https://vuex.vuejs.org/'
+                },
+                {
+                  text: 'Vue CLI',
+                  link: 'https://cli.vuejs.org/'
+                },
+                {
+                  text: 'Vue Test Utils',
+                  link: 'https://vue-test-utils.vuejs.org/'
+                },
+                {
+                  text: 'Devtools',
+                  link: 'https://github.com/vuejs/vue-devtools'
+                },
+                {
+                  text: 'Weekly news',
+                  link: 'https://news.vuejs.org/'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Поддержать Vue',
+          link: '/ru/support-vuejs/',
+          items: [{
+              text: 'Единоразовые пожертвования',
+              link: '/support-vuejs/#one-time-donations'
+            },
+            {
+              text: 'Повторяющиеся взносы',
+              link: '/support-vuejs/#recurring-pledges'
+            },
+            {
+              text: 'Магазин футболок',
+              link: 'https://vue.threadless.com/'
+            }
+          ]
+        }
+        ],
+        sidebar: {
+          collapsable: false,
+          '/ru/guide/': sidebarRU.guide,
+          '/ru/community/': sidebarRU.guide,
+          '/ru/cookbook/': sidebarRU.cookbook,
+          '/ru/api/': sidebarRU.api,
+          '/ru/examples/': sidebarRU.examples
+        },
+      },
     }
   },
   plugins: [
