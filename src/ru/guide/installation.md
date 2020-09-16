@@ -22,17 +22,17 @@
 
 ## CDN
 
-Для прототипирования и изучения можно использовать последнюю версию с CDN:
+Для прототипирования и в целях изучения можно использовать последнюю версию с CDN:
 
 ```html
 <script src="https://unpkg.com/vue@next"></script>
 ```
 
-Для production рекомендуем указывать конкретную версию и сборку, чтобы избежать неожиданных поломок при выходе новых версий:
+Для production рекомендуем указывать конкретную версию и сборку, чтобы избежать неожиданных поломок при выходе новых версий.
 
 ## NPM
 
-NPM — рекомендованный способ установки при создании больших приложений на Vue. Он прекрасно сочетается с системами сборки, такими как [Webpack](https://webpack.js.org/) или [Browserify](http://browserify.org/). Vue также предоставляет сопутствующие инструменты для создания [однофайловых компонентов](../guide/single-file-component.md).
+NPM — рекомендованный способ установки при создании больших приложений на Vue. Он прекрасно сочетается с системами сборки, такими как [Webpack](https://webpack.js.org/) или [Browserify](http://browserify.org/). Кроме того, Vue также предоставляет инструменты для создания [однофайловых компонентов](../guide/single-file-component.md).
 
 ```bash
 # установка последней стабильной сборки
@@ -41,13 +41,13 @@ $ npm install vue@next
 
 ## CLI
 
-Vue предоставляет [официальный CLI](https://github.com/vuejs/vue-cli) для быстрого создания каркаса одностраничных приложений. Предлагаемые шаблоны содержат всё необходимое для организации современной фронтенд-разработки. За несколько минут можно получить работающую конфигурацию с горячей перезагрузкой модулей, линтингом кода при сохранении и настроенной конфигурацией production-сборки. Подробнее в [документации Vue CLI](https://cli.vuejs.org/ru/).
+Vue предоставляет [официальный CLI](https://github.com/vuejs/vue-cli) для быстрого создания каркаса одностраничных приложений (SPA). Предлагаемые шаблоны содержат всё необходимое для организации современной фронтенд-разработки. За несколько минут можно получить работающую конфигурацию с горячей перезагрузкой модулей, линтингом кода при сохранении и настроенной конфигурацией production-сборки. Подробнее в [документации Vue CLI](https://cli.vuejs.org/ru/).
 
 :::tip Совет
-Использование CLI предполагает наличие знаний о Node.js и связанных с ней инструментов сборки. Если вы новичок во Vue или в инструментах для сборки фронтенда, то настоятельно рекомендуем сначала изучить <a href="./">руководство</a> без применения каких-либо системы сборки, прежде чем начинать использовать CLI.
+Использование CLI предполагает наличие знаний о Node.js и связанных с ней инструментов сборки. Если вы новичок во Vue или в инструментах для сборки фронтенда, то настоятельно рекомендуем сначала изучить <a href="./">руководство</a> без применения каких-либо систем сборки прежде чем начинать использовать CLI.
 :::
 
-Для Vue 3 требуется использовать Vue CLI v4.5, доступная в `npm` через `@vue/cli@next`. Для обновления необходимо переустановить последнюю версию `@vue/cli` глобально:
+Для Vue 3 требуется Vue CLI v4.5, доступная в `npm` через `@vue/cli@next`. Для обновления необходимо переустановить глобально последнюю версию `@vue/cli`:
 
 ```bash
 yarn global add @vue/cli@next
@@ -63,7 +63,7 @@ vue upgrade --next
 
 ## Vite
 
-[Vite](https://github.com/vitejs/vite) — это инструмент для создания сборок веб-приложений, предоставляющий исключительно быструю обработку кода, благодаря применяемому подходу по использованию нативных импортов ES-модулей.
+[Vite](https://github.com/vitejs/vite) — инструмент для сборки веб-приложений, предлагающий исключительно быструю обработку кода, благодаря применяемому подходу по использованию нативных импортов ES-модулей.
 
 Развернуть проект на Vue используя Vite можно с помощью следующих команд.
 
@@ -87,53 +87,53 @@ $ yarn dev
 
 ## Объяснение различий сборок
 
-В [папке `dist/` NPM-пакета](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.11/dist/) можно обнаружить несколько различных сборок Vue.js. Ниже краткое объяснение какой файл из `dist` и для каких случаев должен использоваться.
+В [папке `dist/` NPM-пакета](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.11/dist/) можно обнаружить несколько различных сборок Vue.js. Рассмотрим подробнее какой файл из `dist` и для каких случаев должен использоваться.
 
 ### Из CDN или без систем сборки
 
 #### `vue(.runtime).global(.prod).js`:
 
-- For direct use via `<script src="...">` in the browser, exposes the Vue global.
-- In-browser template compilation:
-  - `vue.global.js` is the "full" build that includes both the compiler and the runtime so it supports compiling templates on the fly.
-  - `vue.runtime.global.js` contains only the runtime and requires templates to be pre-compiled during a build step.
-- Inlines all Vue core internal packages - i.e. it's a single file with no dependencies on other files. This means you must import everything from this file and this file only to ensure you are getting the same instance of code.
-- Contains hard-coded prod/dev branches, and the prod build is pre-minified. Use the `*.prod.js` files for production.
+- Для использования через `<script src="...">` в браузере, предоставляет глобальный доступ к Vue.
+- Компиляция шаблонов в браузере:
+  - `vue.global.js` — это «полная» сборка, которая включает в себя и компилятор шаблонов и runtime, поэтому поддерживает компиляцию шаблонов «на лету».
+  - `vue.runtime.global.js` содержит только runtime и требует чтобы шаблоны были предварительно скомпилированы на этапе сборки.
+- Содержит все внутренние зависимости Vue — т.е. это один файл без зависимостей от других файлов. Это означает, что необходимо импортировать всё из этого файла и этот файл только для того, чтобы убедиться, что получаете тот же самый экземпляр кода.
+- Содержит отдельные ветви для production/разработки, а сборка для production предварительно минифицирована. Используйте файлы `*.prod.js` для production.
 
 :::tip Примечание
-Global builds are not [UMD](https://github.com/umdjs/umd) builds. They are built as [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and are only meant for direct use via `<script src="...">`.
+Глобальные сборки не являются [UMD](https://github.com/umdjs/umd) сборками. Они собраны как [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) и предназначены только для использования через `<script src="...">`.
 :::
 
-#### vue(.runtime).esm-browser(.prod).js:
+#### `vue(.runtime).esm-browser(.prod).js`:
 
-- For usage via native ES modules imports (in browser via `<script type="module">`.
-- Shares the same runtime compilation, dependency inlining and hard-coded prod/dev behavior with the global build.
+- Для использования в импортах ES-модулей (в браузере через `<script type="module">`).
+- Предоставляет ту же компиляцию в runtime, внедрение всех внутренних зависимостей и жёстко заданное поведение в production/разработке глобальной сборки.
 
 ### С системой сборки
 
-#### vue(.runtime).esm-bundler.js:
+#### `vue(.runtime).esm-bundler.js`:
 
-- For use with bundlers like `webpack`, `rollup` and `parcel`.
-- Leaves prod/dev branches with `process.env.NODE_ENV guards` (must be replaced by bundler)
-- Does not ship minified builds (to be done together with the rest of the code after bundling)
-- Imports dependencies (e.g. `@vue/runtime-core`, `@vue/runtime-compiler`)
-  - Imported dependencies are also esm-bundler builds and will in turn import their dependencies (e.g. @vue/runtime-core imports @vue/reactivity)
-  - This means you **can** install/import these deps individually without ending up with different instances of these dependencies, but you must make sure they all resolve to the same version.
-- In-browser template compilation:
-  - `vue.runtime.esm-bundler.js` **(default)** is runtime only, and requires all templates to be pre-compiled. This is the default entry for bundlers (via module field in `package.json`) because when using a bundler templates are typically pre-compiled (e.g. in `*.vue` files).
-  - `vue.esm-bundler.js`: includes the runtime compiler. Use this if you are using a bundler but still want runtime template compilation (e.g. in-DOM templates or templates via inline JavaScript strings). You will need to configure your bundler to alias vue to this file.
+- Для использования с системами сборки, такими как `webpack`, `rollup` и `parcel`.
+- Определение ветвления production/разработка через `process.env.NODE_ENV` (значение должно подставляться системой сборки)
+- Нет подготовленных минифицированных сборок (минификация должна выполняться наравне с остальным кодом системой сборки)
+- Импорт зависимостей (например, `@vue/runtime-core`, `@vue/runtime-compiler`)
+  - Импортируемые зависимости также являются esm-сборками и, в свою очередь, будут импортировать свои зависимости (например, `@vue/runtime-core` импортирует `@vue/reactivity`)
+  - Это означает, что **можно** устанавливать/импортировать зависимости по-отдельности и не оказаться в ситуации с разными экземплярами этих зависимостей, но необходимо убедиться, что все они разрешаются одной и той же версией.
+- Компиляция шаблонов в браузере:
+  - `vue.runtime.esm-bundler.js` **(по умолчанию)** содержит только runtime и требует чтобы все шаблоны были предварительно скомпилированы. Это стандартная точка входа для систем сборки (через поле `module` в `package.json`), потому что при их использовании шаблоны обычно компилируются на этапе сборки (например в файлах `*.vue`).
+  - `vue.esm-bundler.js` включает в себя компилятор шаблонов. Когда используется система сборки, но всё равно необходима компиляция шаблонов «на лету» (например шаблоны в DOM или шаблоны в виде инлайн-строк JavaScript). Дополнительно нужно сконфигурировать систему сборки, чтобы псевдоним `vue` указывал на этот файл.
 
 ### Для рендеринга на стороне сервера (SSR)
 
 #### `vue.cjs(.prod).js`:
 
-- For use in Node.js server-side rendering via `require()`.
-- If you bundle your app with webpack with `target: 'node'` and properly externalize `vue`, this is the build that will be loaded.
-- The dev/prod files are pre-built, but the appropriate file is automatically required based on `process.env.NODE_ENV`.
+- Для использования рендеринга на стороне сервера в Node.js через `require()`.
+- Когда собираете приложение с помощью webpack с опцией `target: 'node'` и правильно экстернализируете `vue`, то это та сборка, которая будет загружена.
+- Файлы для разработки/production уже предварительно собраны, но соответствующий файл будет автоматически выбираться на основе `process.env.NODE_ENV`.
 
 ## Runtime + Компилятор vs. Runtime-only
 
-Если необходимо компилировать шаблоны на клиенте (например, передаёте строку в опцию `template` или монтируете к элементу DOM, используя его HTML в качестве шаблона), то потребуется компилятор шаблонов, а с ним и подключение полной сборки:
+Если необходимо компилировать шаблоны на клиенте (например, когда передаёте строку в опцию `template` или монтируетесь к элементу DOM, используя его HTML в качестве шаблона), то потребуется компилятор шаблонов, а с ним и подключение полной сборки:
 
 ```js
 // для такого требуется компилятор шаблонов
