@@ -194,7 +194,7 @@ const Component = defineComponent({
 })
 ```
 
-### Typing `ref`s
+### Типы `ref`s
 
 Refs infer the type from the initial value:
 
@@ -222,7 +222,7 @@ year.value = 2020 // ok!
 If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`.
 :::
 
-### Typing `reactive`
+### Типы `reactive`
 
 When typing a `reactive` property, we can use interfaces:
 
@@ -246,7 +246,7 @@ export default defineComponent({
 })
 ```
 
-### Typing `computed`
+### Типы `computed`
 
 Computed values will automatically infer the type from returned value
 

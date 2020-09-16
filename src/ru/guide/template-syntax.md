@@ -93,7 +93,7 @@ Directives are special attributes with the `v-` prefix. Directive attribute valu
 
 Here, the `v-if` directive would remove/insert the `<p>` element based on the truthiness of the value of the expression `seen`.
 
-### Arguments
+### Аргументы
 
 Some directives can take an "argument", denoted by a colon after the directive name. For example, the `v-bind` directive is used to reactively update an HTML attribute:
 

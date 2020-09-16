@@ -335,7 +335,7 @@ const sidebarRU = {
     '/ru/api/application-api',
     '/ru/api/global-api',
     {
-      title: 'Options',
+      title: 'Опции',
       collapsable: false,
       children: [
         '/ru/api/options-data',

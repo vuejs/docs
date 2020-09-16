@@ -1,4 +1,4 @@
-# Built-In Components
+# Встроенные компоненты
 
 ## component
 

@@ -1,4 +1,4 @@
-# Instance Methods
+# Методы экземпляра
 
 ## $watch
 

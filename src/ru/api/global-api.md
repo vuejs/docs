@@ -1,4 +1,4 @@
-# Global API
+# Глобальное API
 
 ## createApp
 
@@ -10,7 +10,7 @@ const app = Vue.createApp({})
 
 You can chain other methods after `createApp`, they can be found in [Application API](./application-api.html)
 
-### Arguments
+### Аргументы
 
 The function receives a root component options object as a first parameter:
 
@@ -45,7 +45,7 @@ const app = Vue.createApp(
 </div>
 ```
 
-### Typing
+### Типы
 
 ```ts
 interface Data {
@@ -68,7 +68,7 @@ render() {
 }
 ```
 
-### Arguments
+### Аргументы
 
 Accepts three arguments: `type`, `props` and `children`
 
@@ -110,7 +110,7 @@ Accepts three arguments: `type`, `props` and `children`
 
 Implementation-wise `defineComponent` does nothing but return the object passed to it. However, in terms of typing, the returned value has a synthetic type of a constructor for manual render function, TSX and IDE tooling support.
 
-### Arguments
+### Аргументы
 
 An object with component options
 
@@ -144,7 +144,7 @@ const HelloWorld = defineComponent(function HelloWorld() {
 
 Creates an async component that will be loaded only when it's necessary.
 
-### Arguments
+### Аргументы
 
 For basic usage, `defineAsyncComponent` can accept a factory function returning a `Promise`. Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
 
@@ -227,7 +227,7 @@ render() {
 }
 ```
 
-### Arguments
+### Аргументы
 
 Accepts one argument: `component`
 
@@ -256,7 +256,7 @@ render () {
 }
 ```
 
-### Arguments
+### Аргументы
 
 Accepts one argument: `component`
 
@@ -290,7 +290,7 @@ render () {
 }
 ```
 
-### Arguments
+### Аргументы
 
 Accepts one argument: `name`
 
@@ -321,7 +321,7 @@ return withDirectives(h('div'), [
 ])
 ```
 
-### Arguments
+### Аргументы
 
 Accepts two arguments: `vnode` and `directives`.
 
@@ -394,7 +394,7 @@ const { render, createApp } = createRenderer<Node, Element>({
 })
 ```
 
-### Arguments
+### Аргументы
 
 Accepts two arguments: `HostNode` and `HostElement`
 

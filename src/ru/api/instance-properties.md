@@ -1,4 +1,4 @@
-# Instance Properties
+# Свойства экземпляра
 
 ## $data
 

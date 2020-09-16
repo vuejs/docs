@@ -1,4 +1,4 @@
-# Directives
+# Директивы
 
 ## v-text
 

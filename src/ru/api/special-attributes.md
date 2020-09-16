@@ -1,4 +1,4 @@
-# Special Attributes
+# Специальные атрибуты
 
 ## key
 
