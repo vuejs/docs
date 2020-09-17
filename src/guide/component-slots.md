@@ -252,7 +252,7 @@ We might want to replace the slot to customize it on parent component:
 ```html
 <todo-list>
   <i class="fas fa-check"></i>
-  <span class="green">{{ item }}<span>
+  <span class="green">{{ item }}</span>
 </todo-list>
 ```
 
@@ -279,7 +279,7 @@ Attributes bound to a `<slot>` element are called **slot props**. Now, in the pa
 </todo-list>
 ```
 
-<img src="/images/scoped-slot.png" width="611" height="auto" style="display: block; margin: 0 auto; max-width: 100%;" loading="lazy" alt="Scoped slot diagram"> 
+<img src="/images/scoped-slot.png" width="611" height="auto" style="display: block; margin: 0 auto; max-width: 100%;" loading="lazy" alt="Scoped slot diagram">
 
 In this example, we've chosen to name the object containing all our slot props `slotProps`, but you can use any name you like.
 
@@ -348,7 +348,7 @@ That means the value of `v-slot` can actually accept any valid JavaScript expres
 ```html
 <todo-list v-slot="{ item }">
   <i class="fas fa-check"></i>
-  <span class="green">{{ item }}<span>
+  <span class="green">{{ item }}</span>
 </todo-list>
 ```
 
@@ -366,7 +366,7 @@ You can even define fallbacks, to be used in case a slot prop is undefined:
 ```html
 <todo-list v-slot="{ item = 'Placeholder' }">
   <i class="fas fa-check"></i>
-  <span class="green">{{ item }}<span>
+  <span class="green">{{ item }}</span>
 </todo-list>
 ```
 
@@ -410,7 +410,7 @@ However, just as with other directives, the shorthand is only available when an 
 
 <todo-list #="{ item }">
   <i class="fas fa-check"></i>
-  <span class="green">{{ item }}<span>
+  <span class="green">{{ item }}</span>
 </todo-list>
 ```
 
@@ -419,6 +419,6 @@ Instead, you must always specify the name of the slot if you wish to use the sho
 ```html
 <todo-list #default="{ item }">
   <i class="fas fa-check"></i>
-  <span class="green">{{ item }}<span>
+  <span class="green">{{ item }}</span>
 </todo-list>
 ```
