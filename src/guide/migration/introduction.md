@@ -84,8 +84,8 @@ The following consists a list of breaking changes from 2.x:
 
 ### Other Minor Changes
 
-- The ~~`destroyed`~~ lifecycle option has been renamed to `unmounted`
-- The ~~`beforeDestroy`~~ lifecycle option has been renamed to `beforeUnmount`
+- The `destroyed` lifecycle option has been renamed to `unmounted`
+- The `beforeDestroy` lifecycle option has been renamed to `beforeUnmount`
 - [Props `default` factory function no longer has access to `this` context](/guide/migration/props-default-this.html)
 - [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
 - [The `data` option should always be declared as a function](/guide/migration/data-option.html)
