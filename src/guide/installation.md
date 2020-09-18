@@ -2,16 +2,13 @@
 
 ## Release Notes
 
-Latest beta version: ![beta](https://img.shields.io/npm/v/vue/next.svg)
+Latest version: ![npm](https://img.shields.io/npm/v/vue/next.svg)
 
-
-Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue-next/releases).
+Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md).
 
 ## Vue Devtools
 
-> Currently in Beta
-
-> Vue Devtools for Vue 3 requires at least `vue@^3.0.0-rc.1`
+> Currently in Beta - Vuex and Router integration is still WIP
 
 When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
 

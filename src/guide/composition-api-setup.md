@@ -99,19 +99,19 @@ In other words, you **will not have access** to the following component options:
 
 ## Usage with Templates
 
-If `setup` returns an object, the properties on the object can be accessed in the component's template:
+If `setup` returns an object, the properties on the object can be accessed in the component's template, as well as the properties of the `props` passed into `setup`:
 
 ```vue-html
 <!-- MyBook.vue -->
 <template>
-  <div>{{ readersNumber }} {{ book.title }}</div>
+  <div>{{ props.collectionName }}: {{ readersNumber }} {{ book.title }}</div>
 </template>
 
 <script>
   import { ref, reactive } from 'vue'
 
   export default {
-    setup() {
+    setup(props) {
       const readersNumber = ref(0)
       const book = reactive({ title: 'Vue 3 Guide' })
 

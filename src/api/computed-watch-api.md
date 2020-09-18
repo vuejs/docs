@@ -65,7 +65,7 @@ function watchEffect(
 ): StopHandle
 
 interface WatchEffectOptions {
-  flush?: 'pre' | 'post' | 'sync'
+  flush?: 'pre' | 'post' | 'sync' // default: 'pre'
   onTrack?: (event: DebuggerEvent) => void
   onTrigger?: (event: DebuggerEvent) => void
 }
