@@ -2,7 +2,7 @@
 
 Now it’s time to take a deep dive! One of Vue’s most distinct features is the unobtrusive reactivity system. Models are proxied JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
 
-[Watch a free video about Reactivity on Vue Mastery](https://www.vuemastery.com/courses/vue-3-reactivity/vue3-reactivity)
+<VideoLesson href="https://www.vuemastery.com/courses/vue-3-reactivity/vue3-reactivity" title="Learn how how reactivity works in depth with Vue Mastery">Watch a free video on Reactivity in Depth on Vue Mastery</VideoLesson>
 
 ## What is Reactivity?
 
