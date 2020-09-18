@@ -23,6 +23,8 @@ For these reasons, we recommend you **always use kebab-case for event names**.
 
 ## Defining Custom Events
 
+<div class="vueschool"><a href="https://vueschool.io/lessons/defining-custom-events-emits?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how to define which events a component can emit with Vue School">Learn how to define emitted events with a free lesson on Vue School</a></div>
+
 Emitted events can be defined on the component via the `emits` option.
 
 ```js
