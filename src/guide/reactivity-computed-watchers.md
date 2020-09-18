@@ -122,29 +122,9 @@ In this example:
 - The count will be logged synchronously on initial run.
 - When `count` is mutated, the callback will be called **before** the component has updated.
 
-Note the first run is executed before the component is mounted. So if you wish to access the DOM (or template refs) in a watched effect, do it in the `onMounted` hook:
+In cases where a watcher effect needs to be re-run **after** component updates, we can pass an additional `options` object with the `flush` option (default is `'pre'`):
 
 ```js
-onMounted(() => {
-  watchEffect(() => {
-    // access the DOM or template refs
-  })
-})
-```
-
-In cases where a watcher effect needs to be re-run synchronously or after component updates, we can pass an additional `options` object with the `flush` option (default is `'pre'`):
-
-```js
-// fire synchronously
-watchEffect(
-  () => {
-    /* ... */
-  },
-  {
-    flush: 'sync'
-  }
-)
-
 // fire after component updates so you can access the updated DOM
 // Note: this will also defer the initial run of the effect until the
 // component's first render is finished.
@@ -157,6 +137,8 @@ watchEffect(
   }
 )
 ```
+
+The `flush` option also accepts `'sync'`, which forces the effect to always trigger synchronously. This is however inefficient and should be rarely needed.
 
 ### Watcher Debugging
 
