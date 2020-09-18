@@ -47,7 +47,7 @@ Some of the new features to keep an eye on in Vue 3 include:
 
 ## Breaking Changes
 
-::: tip NOTE
+::: info INFO
 We are still working on a dedicated Migration Build of Vue 3 with Vue 2 compatible behavior and runtime warnings of incompatible usage. If you are planning to migrate a non-trivial Vue 2 app, we strongly recommend waiting for the Migration Build for a smoother experience.
 :::
 
@@ -84,15 +84,15 @@ The following consists a list of breaking changes from 2.x:
 
 ### Other Minor Changes
 
-- The ~~`destroyed`~~ lifecycle option has been renamed to `unmounted`
-- The ~~`beforeDestroy`~~ lifecycle option has been renamed to `beforeUnmount`
+- The `destroyed` lifecycle option has been renamed to `unmounted`
+- The `beforeDestroy` lifecycle option has been renamed to `beforeUnmount`
 - [Props `default` factory function no longer has access to `this` context](/guide/migration/props-default-this.html)
 - [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
 - [The `data` option should always be declared as a function](/guide/migration/data-option.html)
 - [The `data` option from mixins is now merged shallowly](/guide/migration/data-option.html#mixin-merge-behavior-change)
 - [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
 - [Some transition classes got a rename](/guide/migration/transition.html)
-- When using [the `watch` option](/api/options-data.html#watch) to watch an array, the callback will only trigger when the array is replaced, and no longer trigger on array mutation. To trigger on mutation, the `deep` option must be specified. This is a side effect of more precise dependency tracking in Vue 3.
+- [When watching an array, the callback will only trigger when the array is replaced. If you need to to trigger on mutation, the `deep` option must be specified.](/guide/migration/watch.html)
 - `<template>` tags with no special directives (`v-if/else-if/else`, `v-for`, or `v-slot`) are now treated as plain elements and will result in a native `<template>` element instead of rendering its inner content.
 - In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead - this means the container itself is no longer considered part of the template.
 

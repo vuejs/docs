@@ -107,7 +107,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Migration from Vue 2',
+      title: 'Migration Guide',
       collapsable: true,
       children: [
         'migration/introduction',
@@ -240,7 +240,7 @@ module.exports = {
             link: '/guide/introduction'
           },
           {
-            text: 'v3 Migration Guide',
+            text: 'Migration Guide',
             link: '/guide/migration/introduction'
           },
           {
