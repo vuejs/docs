@@ -1,5 +1,7 @@
 # Teleport
 
+[Watch a free video about Teleport on Vue Mastery](https://www.vuemastery.com/courses/vue-3-essentials/teleport)
+
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
 However, sometimes a part of a component's template belongs to this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of the Vue app. 
