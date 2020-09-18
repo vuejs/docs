@@ -3,7 +3,7 @@
 This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. The lists may look long, but it is because we want to be as thorough as possible and provide detailed examples for every documented change. **This is not something you have to read from top to bottom before trying out Vue 3.**
 
 - [Quickstart](#quickstart)
-- [New Features](#new-features)
+- [Notable New Features](#notable-new-features)
 - [Breaking Changes](#breaking-changes)
 - [Supporting Libraries](#supporting-libraries)
 
