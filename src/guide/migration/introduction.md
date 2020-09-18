@@ -47,7 +47,7 @@ Some of the new features to keep an eye on in Vue 3 include:
 
 ## Breaking Changes
 
-::: tip NOTE
+::: info INFO
 We are still working on a dedicated Migration Build of Vue 3 with Vue 2 compatible behavior and runtime warnings of incompatible usage. If you are planning to migrate a non-trivial Vue 2 app, we strongly recommend waiting for the Migration Build for a smoother experience.
 :::
 
