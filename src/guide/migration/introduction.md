@@ -32,7 +32,7 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
   # select vue 3 preset
   ```
 
-## New Features
+## Notable New Features
 
 Some of the new features to keep an eye on in Vue 3 include:
 
@@ -43,10 +43,11 @@ Some of the new features to keep an eye on in Vue 3 include:
 - [`createRenderer` API from `@vue/runtime-core`](https://github.com/vuejs/vue-next/tree/master/packages/runtime-core) to create custom renderers
 - [SFC Composition API Syntax Sugar (`<script setup>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-script-setup.md) <Badge text="experimental" type="warning" />
 - [SFC State-driven CSS Variables (`<style vars>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-style-variables.md) <Badge text="experimental" type="warning" />
+- [SFC `<style scoped>` can now include global rules or rules that target only slotted content](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0023-scoped-styles-changes.md)
 
 ## Breaking Changes
 
-::: tip
+::: tip NOTE
 We are still working on a dedicated Migration Build of Vue 3 with Vue 2 compatible behavior and runtime warnings of incompatible usage. If you are planning to migrate a non-trivial Vue 2 app, we strongly recommend waiting for the Migration Build for a smoother experience.
 :::
 
@@ -74,7 +75,7 @@ The following consists a list of breaking changes from 2.x:
 ### Render Function
 
 - [Render function API changed](/guide/migration/render-function-api.html)
-- [`$scopedSlots` property is removed and need to be replaced with `$slots`](/guide/migration/slots-unification.html)
+- [`$scopedSlots` property is removed and all slots are exposed via `$slots` as functions](/guide/migration/slots-unification.html)
 
 ### Custom Elements
 

@@ -240,6 +240,10 @@ module.exports = {
             link: '/guide/introduction'
           },
           {
+            text: 'v3 Migration Guide',
+            link: '/guide/migration/introduction'
+          },
+          {
             text: 'Style Guide',
             link: '/style-guide/'
           },
@@ -284,7 +288,7 @@ module.exports = {
             text: 'Official Projects',
             items: [{
                 text: 'Vue Router',
-                link: 'https://router.vuejs.org/'
+                link: 'https://next.router.vuejs.org/'
               },
               {
                 text: 'Vuex',
@@ -296,7 +300,7 @@ module.exports = {
               },
               {
                 text: 'Vue Test Utils',
-                link: 'https://vue-test-utils.vuejs.org/'
+                link: 'https://vuejs.github.io/vue-test-utils-next-docs/guide/introduction.html'
               },
               {
                 text: 'Devtools',
