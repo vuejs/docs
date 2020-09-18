@@ -111,6 +111,7 @@ const sidebar = {
       collapsable: true,
       children: [
         'migration/introduction',
+        'migration/array-refs',
         'migration/async-components',
         'migration/attribute-coercion',
         'migration/custom-directives',
@@ -125,10 +126,13 @@ const sidebar = {
         'migration/inline-template-attribute',
         'migration/key-attribute',
         'migration/keycode-modifiers',
+        'migration/props-default-this',
         'migration/render-function-api',
         'migration/slots-unification',
         'migration/transition',
-        'migration/v-model'
+        'migration/v-model',
+        'migration/v-if-v-for',
+        'migration/v-bind'
       ]
     },
     {
