@@ -240,7 +240,7 @@ module.exports = {
             link: '/guide/introduction'
           },
           {
-            text: 'v3 Migration Guide',
+            text: 'Migration Guide (v3)',
             link: '/guide/migration/introduction'
           },
           {
