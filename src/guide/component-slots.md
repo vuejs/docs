@@ -274,7 +274,7 @@ Attributes bound to a `<slot>` element are called **slot props**. Now, in the pa
 <todo-list>
   <template v-slot:default="slotProps">
     <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}<span>
+    <span class="green">{{ slotProps.item }}</span>
   </template>
 </todo-list>
 ```
@@ -290,7 +290,7 @@ In cases like above, when _only_ the default slot is provided content, the compo
 ```html
 <todo-list v-slot:default="slotProps">
   <i class="fas fa-check"></i>
-  <span class="green">{{ slotProps.item }}<span>
+  <span class="green">{{ slotProps.item }}</span>
 </todo-list>
 ```
 
@@ -299,7 +299,7 @@ This can be shortened even further. Just as non-specified content is assumed to 
 ```html
 <todo-list v-slot="slotProps">
   <i class="fas fa-check"></i>
-  <span class="green">{{ slotProps.item }}<span>
+  <span class="green">{{ slotProps.item }}</span>
 </todo-list>
 ```
 
@@ -310,7 +310,7 @@ Note that the abbreviated syntax for default slot **cannot** be mixed with named
 <todo-list v-slot="slotProps">
   <todo-list v-slot:default="slotProps">
     <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}<span>
+    <span class="green">{{ slotProps.item }}</span>
   </todo-list>
   <template v-slot:other="otherSlotProps">
     slotProps is NOT available here
@@ -324,7 +324,7 @@ Whenever there are multiple slots, use the full `<template>` based syntax for _a
 <todo-list>
   <template v-slot:default="slotProps">
     <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}<span>
+    <span class="green">{{ slotProps.item }}</span>
   </template>
 
   <template v-slot:other="otherSlotProps">
@@ -357,7 +357,7 @@ This can make the template much cleaner, especially when the slot provides many 
 ```html
 <todo-list v-slot="{ item: todo }">
   <i class="fas fa-check"></i>
-  <span class="green">{{ todo }}<span>
+  <span class="green">{{ todo }}</span>
 </todo-list>
 ```
 
