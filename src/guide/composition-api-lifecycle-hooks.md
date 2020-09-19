@@ -8,7 +8,7 @@ You can access a component's lifecycle hook by prefixing the lifecycle hook with
 
 The following table contains how the lifecycle hooks are invoked inside of [setup()](composition-api-setup.html):
 
-| Options API       | Hook inside inside `setup` |
+| Options API       | Hook inside `setup` |
 | ----------------- | -------------------------- |
 | `beforeCreate`    | Not needed\*               |
 | `created`         | Not needed\*               |
