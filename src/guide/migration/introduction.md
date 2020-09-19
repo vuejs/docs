@@ -110,22 +110,29 @@ All of our official libraries and tools now support Vue 3, but most of them are 
 
 ### Vue CLI
 
+<a href="https://www.npmjs.com/package/@vue/cli" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/@vue/cli"></a>
+
 As of v4.5.0, `vue-cli` now provides built-in option to choose Vue 3 preset when creating a new project. You can upgrade `vue-cli` and run `vue create` to create a Vue 3 project today.
+
+- [Documentation](https://cli.vuejs.org/)
+- [GitHub](https://github.com/vuejs/vue-cli)
 
 ### Vue Router
 
+<a href="https://www.npmjs.com/package/vue-router/v/next" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/vue-router/next.svg"></a>
+
 Vue Router 4.0 provides Vue 3 support and has a number of breaking changes of its own. Check out its [README](https://github.com/vuejs/vue-router-next#vue-router-next-) for full details.
 
-- [![beta](https://img.shields.io/npm/v/vue-router/next.svg)](https://www.npmjs.com/package/vue-router/v/next)
-- [Github](https://github.com/vuejs/vue-router-next)
+- [GitHub](https://github.com/vuejs/vue-router-next)
 - [RFCs](https://github.com/vuejs/rfcs/pulls?q=is%3Apr+is%3Amerged+label%3Arouter)
 
 ### Vuex
 
+<a href="https://www.npmjs.com/package/vuex/v/next" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/vuex/next.svg"></a>
+
 Vuex 4.0 provides Vue 3 support with largely the same API as 3.x. The only breaking change is [how the plugin is installed](https://github.com/vuejs/vuex/tree/4.0#breaking-changes).
 
-- [![beta](https://img.shields.io/npm/v/vuex/next.svg)](https://www.npmjs.com/package/vuex/v/next)
-- [Github](https://github.com/vuejs/vuex/tree/4.0)
+- [GitHub](https://github.com/vuejs/vuex/tree/4.0)
 
 ### Devtools Extension
 
@@ -143,43 +150,36 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 
 ### Other Projects
 
-| Project               | NPM | Repo |
-| -------------------   | --- | ---- |
-| @vue/babel-plugin-jsx | [![rc][jsx-badge]][jsx-npm] | [[Github][jsx-code]] |
-| eslint-plugin-vue     | [![beta][epv-badge]][epv-npm] | [[Github][epv-code]] |
-| @vue/test-utils       | [![beta][vtu-badge]][vtu-npm] | [[Github][vtu-code]] |
-| vue-class-component   | [![beta][vcc-badge]][vcc-npm] | [[Github][vcc-code]] |
-| vue-loader            | [![beta][vl-badge]][vl-npm] | [[Github][vl-code]] |
-| rollup-plugin-vue     | [![beta][rpv-badge]][rpv-npm] | [[Github][rpv-code]] |
+| Project               | NPM                           | Repo                 |
+| --------------------- | ----------------------------- | -------------------- |
+| @vue/babel-plugin-jsx | [![rc][jsx-badge]][jsx-npm]   | [[GitHub][jsx-code]] |
+| eslint-plugin-vue     | [![beta][epv-badge]][epv-npm] | [[GitHub][epv-code]] |
+| @vue/test-utils       | [![beta][vtu-badge]][vtu-npm] | [[GitHub][vtu-code]] |
+| vue-class-component   | [![beta][vcc-badge]][vcc-npm] | [[GitHub][vcc-code]] |
+| vue-loader            | [![beta][vl-badge]][vl-npm]   | [[GitHub][vl-code]]  |
+| rollup-plugin-vue     | [![beta][rpv-badge]][rpv-npm] | [[GitHub][rpv-code]] |
 
 [jsx-badge]: https://img.shields.io/npm/v/@vue/babel-plugin-jsx.svg
 [jsx-npm]: https://www.npmjs.com/package/@vue/babel-plugin-jsx
 [jsx-code]: https://github.com/vuejs/jsx-next
-
 [vd-badge]: https://img.shields.io/npm/v/@vue/devtools/beta.svg
 [vd-npm]: https://www.npmjs.com/package/@vue/devtools/v/beta
 [vd-code]: https://github.com/vuejs/vue-devtools/tree/next
-
 [epv-badge]: https://img.shields.io/npm/v/eslint-plugin-vue/next.svg
 [epv-npm]: https://www.npmjs.com/package/eslint-plugin-vue/v/next
 [epv-code]: https://github.com/vuejs/eslint-plugin-vue
-
 [vtu-badge]: https://img.shields.io/npm/v/@vue/test-utils/next.svg
 [vtu-npm]: https://www.npmjs.com/package/@vue/test-utils/v/next
 [vtu-code]: https://github.com/vuejs/vue-test-utils-next
-
 [jsx-badge]: https://img.shields.io/npm/v/@ant-design-vue/babel-plugin-jsx.svg
 [jsx-npm]: https://www.npmjs.com/package/@ant-design-vue/babel-plugin-jsx
 [jsx-code]: https://github.com/vueComponent/jsx
-
 [vcc-badge]: https://img.shields.io/npm/v/vue-class-component/next.svg
 [vcc-npm]: https://www.npmjs.com/package/vue-class-component/v/next
 [vcc-code]: https://github.com/vuejs/vue-class-component/tree/next
-
 [vl-badge]: https://img.shields.io/npm/v/vue-loader/next.svg
 [vl-npm]: https://www.npmjs.com/package/vue-loader/v/next
 [vl-code]: https://github.com/vuejs/vue-loader/tree/next
-
 [rpv-badge]: https://img.shields.io/npm/v/rollup-plugin-vue/next.svg
 [rpv-npm]: https://www.npmjs.com/package/rollup-plugin-vue/v/next
 [rpv-code]: https://github.com/vuejs/rollup-plugin-vue/tree/next
