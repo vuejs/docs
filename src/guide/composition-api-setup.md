@@ -111,6 +111,9 @@ If `setup` returns an object, the properties on the object can be accessed in th
   import { ref, reactive } from 'vue'
 
   export default {
+    props: {
+      collectionName: String
+    },
     setup(props) {
       const readersNumber = ref(0)
       const book = reactive({ title: 'Vue 3 Guide' })
@@ -118,7 +121,8 @@ If `setup` returns an object, the properties on the object can be accessed in th
       // expose to template
       return {
         readersNumber,
-        book
+        book,
+        props
       }
     }
   }
