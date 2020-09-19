@@ -194,7 +194,7 @@ const Component = defineComponent({
 })
 ```
 
-### Typing `ref`
+### Typing `ref`s
 
 Refs infer the type from the initial value:
 
