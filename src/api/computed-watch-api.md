@@ -132,7 +132,7 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 **Typing:**
 
 ```ts
-// wacthing single source
+// watching single source
 function watch<T>(
   source: WatcherSource<T>,
   callback: (
