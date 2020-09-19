@@ -2,6 +2,7 @@
   "devDependencies": {
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
+    "@babel/compat-data": "7.9.0",
     "vuepress": "^1.5.4"
   },
   "scripts": {
