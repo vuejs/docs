@@ -43,4 +43,4 @@ In 3x, if an element has both `v-bind="object"` and an identical individual prop
 
 ## Migration Strategy
 
-If you are relying on this override functionality for `v-bind`, we currently recommending ensuring that your 
+If you are relying on this override functionality for `v-bind`, we currently recommend ensuring that your `v-bind` attribute is defined before individual properties.
