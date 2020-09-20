@@ -1,77 +1,77 @@
-# Introduction
+# Введение
 
-## The Cookbook vs the Guide
+## Книга рецептов vs Руководство
 
-How is the cookbook different from the guide? Why is this necessary?
+Чем книга рецептов отличается от раздела «Руководство»? В чем её необходимость?
 
-- **Greater Focus**: In the guide, we're essentially telling a story. Each section builds on and assumes knowledge from each previous section. In the cookbook, each recipe can and should stand on its own. This means recipes can focus on one specific aspect of Vue, rather than having to give a general overview.
+* **Бо́льший фокус**: В руководстве мы, по сути, рассказываем историю. Каждый раздел основывается на знаниях из предыдущего. В книге рецептов, каждый рецепт может и должен быть независимым. Это значит, что каждый рецепт может сосредоточиться на каком-то одном, конкретном аспекте Vue, а не на том, чтобы предоставить общий обзор.
 
-- **Greater Depth**: To avoid making the guide too long, we try to include only the simplest possible examples to help you understand each feature. Then we move on. In the cookbook, we can include more complex examples, combining features in interesting ways. Each recipe can also be as long and detailed as it needs to be, in order to fully explore its niche.
+* **Больше подробностей**: Чтобы не сделать руководство слишком большим, мы постарались включать только самые простые примеры, которые помогут разобраться с каждой возможностью. Затем мы пошли дальше. В книге рецептов могут описываться более сложные примеры, сочетая вместе разные особенности. Каждый рецепт может быть таким же длинным и подробным, каким ему нужно быть, чтобы вы смогли подробно изучить каждый его аспект.
 
-- **Teaching JavaScript**: In the guide, we assume at least intermediate familiarity with ES5 JavaScript. For example, we won't explain how `Array.prototype.filter` works in a computed property that filters a list. In the cookbook however, essential JavaScript features (including ES6/2015+) can be explored and explained in the context of how they help us build better Vue applications.
+* **Изучение JavaScript**: В руководстве мы предполагаем, что вы знакомы с JavaScript ES5. Например, мы не будем объяснять, как `Array.prototype.filter` работает в вычисляемом свойстве, которое фильтрует список. Однако, в книге рецептов основные возможности JavaScript (включая ES6/2015+) можно изучить и объяснить в контексте того, как они помогают нам создавать лучшие приложения Vue.
 
-- **Exploring the Ecosystem**: For advanced features, we assume some ecosystem knowledge. For example, if you want to use single-file components in Webpack, we don't explain how to configure the non-Vue parts of the Webpack config. In the cookbook, we have the space to explore these ecosystem libraries in more depth - at least to the extent that is universally useful for Vue developers.
+* **Изучение экосистемы**: Для продвинутых возможностей предполагается, что у вас есть некоторые знания об экосистеме. Например, если вы хотите использовать однофайловые компоненты с Webpack, мы не станем объяснять как настраивается Webpack. В книге рецептов у нас есть пространство для изучения экосистемы различных библиотек подробнее — по крайней мере, в том виде, в котором это будет полезно для разработчиков Vue.
 
 :::tip Совет
-With all these differences, please note that the cookbook is still _not_ a step-by-step manual. For most of its content, you are expected to have a basic understanding of concepts like HTML, CSS, JavaScript, npm/yarn, etc.
+Обратите внимание, что при всех этих отличиях книга рецептов _не является_ пошаговым руководством. Предполагается, что для большей части содержимого у вас должны быть базовые знания о таких понятиях как HTML, CSS, JavaScript, npm/yarn, и т.д.
 :::
 
-## Cookbook Contributions
+## Участие в книге рецептов
 
-### What we're looking for
+### Что мы ищем
 
-The Cookbook gives developers examples to work off of that both cover common or interesting use cases, and also progressively explain more complex detail. Our goal is to move beyond a simple introductory example, and demonstrate concepts that are more widely applicable, as well as some caveats to the approach.
+Книга рецептов показывает разработчикам примеры или интересные сценарии использования, а также постепенно объясняет более сложные детали. Наша цель — выйти за рамки простого вводного примера и продемонстрировать концепции, которые применимы более широко, а также недостатки того или иного подхода.
 
-If you're interested in contributing, please initiate collaboration by filing an issue under the tag **cookbook idea** with your concept so that we can help guide you to a successful pull request. After your idea has been approved, please follow the template below as much as possible. Some sections are required, and some are optional. Following the numerical order is strongly suggested, but not required.
+Если вам интересно сделать свой вклад, создавайте ишью с тегом **cookbook idea** с вашей идеей, чтобы мы обсудили с вами детали для успешного добавления вашего нового рецепта. После того, как ваша идея будет одобрена, пожалуйста, следуйте нижеприведённому шаблону. Некоторые разделы необходимы, другие нет. Настоятельно рекомендуем выполнять действия по порядку.
 
-Recipes should generally:
+Рецепт в целом должен:
 
-- Solve a specific, common problem
-- Start with the simplest possible example
-- Introduce complexities one at a time
-- Link to other docs, rather than re-explaining concepts
-- Describe the problem, rather than assuming familiarity
-- Explain the process, rather than just the end result
-- Explain the pros and cons of your strategy, including when it is and isn't appropriate
-- Mention alternative solutions, if relevant, but leave in-depth explorations to a separate recipe
+- Решать конкретную распространённую проблему
+- Начинаться с простейшего примера
+- Постепенно увеличивать сложность
+- Ссылаться на другие документы, вместо повторного объяснения
+- Чётко описывать проблему, а не рассчитывать на осведомлённость
+- Объяснять процесс, а не конечный результат
+- Описывать плюсы и минусы вашего подхода, в том числе случаи, когда он не уместен
+- Упомянуть альтернативные решения, если они есть, но описывать подробности в отдельном рецепте
 
-We request that you follow the template below. We understand, however, that there are times when you may necessarily need to deviate for clarity or flow. Either way, all recipes should at some point discuss the nuance of the choice made using this pattern, preferably in the form of the alternative patterns section.
+Просим вас следовать приведённому ниже шаблону. Мы понимаем, что бывают моменты, когда может потребоваться отклониться от него для большей ясности. В любом случае, все рецепты должны в какой-то момент обсудить нюансы выбора, сделанного с использованием этого шаблона, например в форме альтернативного варианта в соответствующем разделе.
 
-### Base Example <Badge text="required" type="error" />
+### Простой пример <Badge text="required" type="error" />
 
-1.  Articulate the problem in a sentence or two.
-2.  Explain the simplest possible solution in a sentence or two.
-3.  Show a small code sample.
-4.  Explain what this accomplishes in a sentence.
+1.  Опишите проблему парой предложений.
+2.  Объясните простое доступное решение.
+3.  Покажите небольшой пример кода.
+4.  Объясните, что выполняет данный код.
 
-### Details about the Value <Badge text="required" type="error" />
+### Подробная информация <Badge text="required" type="error" />
 
-1.  Address common questions that one might have while looking at the example. (Blockquotes are great for this)
-2.  Show examples of common missteps and how they can be avoided.
-3.  Show very simple code samples of good and bad patterns.
-4.  Discuss why this may be a compelling pattern. Links for reference are not required but encouraged.
+1. Обращайтесь к общим вопросам, которые могут возникнуть при просмотре примера (отлично подходят цитаты).
+2. Покажите примеры распространённых ошибок и как можно их избежать.
+3. Покажите примеры кода с использованием хороших и плохих практик.
+4. Обсудите, почему это может быть подходящим шаблоном. Ссылки для справки не требуются, но поощряются.
 
-### Real-World Example <Badge text="required" type="error" />
+### Реальный пример <Badge text="required" type="error" />
 
-Demonstrate the code that would power a common or interesting use case, either by:
+Продемонстрируйте код, который будет использовать распространённый или интересный подход решения, либо путём:
 
-1.  Walking through a few terse examples of setup, or
-2.  Embedding a codepen/jsfiddle example
+1. Описания кратких примеров настройки
+2. Предоставления примера на codepen/jsfiddle
 
-If you choose to do the latter, you should still talk through what it is and does.
+Если вы решите сделать последнее, вы всё равно должны описать, что это и как это работает.
 
-### Additional Context <Badge text="optional" />
+### Дополнительный контекст <Badge text="optional" />
 
-It's extremely helpful to write a bit about this pattern, where else it would apply, why it works well, and run through a bit of code as you do so or give people further reading materials here.
+Очень полезным будет небольшое описание этого шаблона, где ещё он может использоваться, за счёт чего он хорошо работает. Также вы можете указать здесь дополнительные материалы для изучения.
 
-### When To Avoid This Pattern <Badge text="optional" />
+### Когда избегать этого шаблона <Badge text="optional" />
 
-This section is not required, but heavily recommended. It won't make sense to write it for something very simple such as toggling classes based on state change, but for more advanced patterns like mixins it's vital. The answer to most questions about development is ["It depends!"](https://codepen.io/rachsmith/pen/YweZbG), this section embraces that. Here, we'll take an honest look at when the pattern is useful and when it should be avoided, or when something else makes more sense.
+Хоть этот раздел необязательный, но настоятельно рекомендуется его добавлять. Нет смысла писать его для чего-то очень простого, например, для переключения классов, основанных на изменении состояния, но для более продвинутых шаблонов, таких как примеси, это жизненно необходимо. Ответ на большинство вопросов разработки — [«Как посмотреть!»] (https://codepen.io/rachsmith/pen/YweZbG), этот раздел предназначен для этого. Здесь мы будем честно смотреть, когда шаблон полезен и когда его следует избегать, или когда что-то ещё имеет смысл.
 
-### Alternative Patterns <Badge text="required with avoidance section" type="warning" />
+### Альтернативные варианты <Badge text="required with avoidance section" type="warning" />
 
-This section is required when you've provided the section above about avoidance. It's important to explore other methods so that people told that something is an antipattern in certain situations are not left wondering. In doing so, consider that the web is a big tent and that many people have different codebase structures and are solving different goals. Is the app large or small? Are they integrating Vue into an existing project, or are they building from scratch? Are their users only trying to achieve one goal or many? Is there a lot of asynchronous data? All of these concerns will impact alternative implementations. A good cookbook recipe gives developers this context.
+Этот раздел необходим, если вы указали раздел со случаями, когда следует избегать. Важно изучить другие подходы, чтобы люди, которые скажут: «что-то является антипаттерном в определённых ситуациях», не оставались в недоумении. При этом не забывайте, что многие люди имеют разную структуру кода и решают разные цели. Приложение маленькое или большое? Интегрируется ли Vue в существующий проект или создаётся с нуля? Их пользователи пытаются достичь одной цели или разных? Много ли асинхронных данных? Все эти проблемы будут влиять на альтернативные решения. Хороший рецепт даёт разработчикам ответы на все вопросы.
 
-## Thank you
+## Спасибо
 
-It takes time to contribute to documentation, and if you spend the time to submit a PR to this section of our docs, you do so with our gratitude.
+Требуется время, чтобы внести свой вклад в документацию, и если вы тратите время на отправку PR в этот раздел нашей документации, мы вам очень благодарны.
