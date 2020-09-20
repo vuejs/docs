@@ -26,7 +26,7 @@
       <SearchBox
         v-if="
           isAlgoliaSearch === false &&
-            !(
+            (
               $site.themeConfig.search !== false &&
               $page.frontmatter.search !== false
             )
