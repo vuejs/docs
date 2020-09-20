@@ -1,27 +1,27 @@
-# The Application Instance
+# Экземпляр приложения
 
-## Creating an Instance
+## Создание экземпляра
 
-Every Vue application starts by creating a new **application instance** with the `createApp` function:
-
-```js
-Vue.createApp(/* options */)
-```
-
-After the instance is created, we can _mount_ it, passing a container to `mount` method. For example, if we want to mount a Vue application on `<div id="app"></div>`, we should pass `#app`:
+Каждое приложение начинается с создания нового **экземпляра приложения** с помощью функции `createApp`:
 
 ```js
-Vue.createApp(/* options */).mount('#app')
+Vue.createApp(/* опции */)
 ```
 
-Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our instance.
+После создания экземпляра мы можем _примонтировать_ его, передав элемент-контейнер в метод `mount`. Например, если мы хотим примонтировать приложение Vue в `<div id="app"></div>`, необходимо передать `#app`:
 
-When you create an instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/options-data.md).
+```js
+Vue.createApp(/* опции */).mount('#app')
+```
 
-A Vue application consists of a **root instance** created with `createApp`, optionally organized into a tree of nested, reusable components. For example, a `todo` app's component tree might look like this:
+Хоть Vue и не реализует [паттерн MVVM](https://ru.wikipedia.org/wiki/Model-View-ViewModel) в полной мере, архитектура фреймворка им во многом вдохновлена. Поэтому переменную с экземпляром приложения традиционно именуют `vm` (сокращённо от ViewModel).
+
+При создании экземпляра необходимо передать **объект опций**. Большая часть этого руководства посвящена описанию, как можно использовать эти опции для достижения желаемого поведения. Полный список опций можно посмотреть в [справочнике API](../api/options-data.md).
+
+Приложение Vue состоит из **корневого экземпляра**, создаваемого с помощью `createApp`, опционально организованного в дерево вложенных, повторно используемых компонентов. Например, дерево компонентов для приложения TODO-списка может выглядеть так:
 
 ```
-Root Instance
+Корневой экземпляр
 └─ TodoList
    ├─ TodoItem
    │  ├─ DeleteTodoButton
@@ -31,40 +31,40 @@ Root Instance
       └─ TodoListStatistics
 ```
 
-We'll talk about [the component system](component-basics.md) in detail later. For now, just know that all Vue components are also instances, and so accept the same options object.
+Подробнее о [системе компонентов](component-basics.md) мы поговорим позднее. А сейчас запомните, что все компоненты Vue также являются экземплярами и поэтому принимают такой же объект опций.
 
-## Data and Methods
+## Данные и методы
 
-When an instance is created, it adds all the properties found in its `data` to [Vue's **reactivity system**](reactivity.md). When the values of those properties change, the view will "react", updating to match the new values.
+Когда экземпляр создан, он добавляет все свойства, найденные в опции `data`, в [**систему реактивности** Vue](reactivity.md). Поэтому представление будет «реагировать» на их изменения, обновляясь в соответствии с новыми значениями.
 
 ```js
-// Our data object
+// Наш объект data
 const data = { a: 1 }
 
-// The object is added to the root instance
+// Объект добавляется в корневой экземпляр
 const vm = Vue.createApp({
   data() {
     return data
   }
 }).mount('#app')
 
-// Getting the property on the instance
-// returns the one from the original data
+// Получение свойства из экземпляра
+// возвращает то же значение из исходных данных
 vm.a === data.a // => true
 
-// Setting the property on the instance
-// also affects the original data
+// Изменение свойства экземпляра
+// влияет на оригинальные данные
 vm.a = 2
 data.a // => 2
 ```
 
-When this data changes, the view will re-render. It should be noted that properties in `data` are only **reactive** if they existed when the instance was created. That means if you add a new property, like:
+Когда значения изменяются, представление будет отрисовано заново. Но обратите внимание, свойства в `data` будут **реактивными**, только если они существовали при создании экземпляра. Это значит, если добавить новое свойство, например:
 
 ```js
 vm.b = 'hi'
 ```
 
-Then changes to `b` will not trigger any view updates. If you know you'll need a property later, but it starts out empty or non-existent, you'll need to set some initial value. For example:
+То изменения в `b` не будут вызывать никаких обновлений. Если вы знаете, что свойство вам понадобится позже, но изначально оно пустое или несуществующее, нужно просто установить начальное значение. Например:
 
 ```js
 data() {
@@ -78,7 +78,7 @@ data() {
 }
 ```
 
-The only exception to this being the use of `Object.freeze()`, which prevents existing properties from being changed, which also means the reactivity system can't _track_ changes.
+Единственным исключением здесь является использование `Object.freeze()`, который предотвращает изменение существующих свойств, что также означает невозможность _отслеживать_ изменения системой реактивности.
 
 ```js
 const obj = {
@@ -97,12 +97,12 @@ const vm = Vue.createApp({
 ```html
 <div id="app">
   <p>{{ foo }}</p>
-  <!-- this will no longer update `foo`! -->
-  <button v-on:click="foo = 'baz'">Change it</button>
+  <!-- мы теперь не можем обновить `foo`! -->
+  <button v-on:click="foo = 'baz'">Изменить</button>
 </div>
 ```
 
-In addition to data properties, instances expose a number of useful instance properties and methods. These are prefixed with `$` to differentiate them from user-defined properties. For example:
+Кроме свойств объекта `data`, экземпляры предоставляют ряд служебных свойств и методов экземпляра. Их имена начинаются с префикса `$`, чтобы отличаться от пользовательских свойств. Например:
 
 ```js
 const vm = Vue.createApp({
@@ -116,13 +116,13 @@ const vm = Vue.createApp({
 vm.$data.a // => 1
 ```
 
-In the future, you can consult the [API reference](../api/instance-properties.md) for a full list of instance properties and methods.
+С полным списком свойств и методов экземпляра можно ознакомиться в [справочнике API](../api/instance-properties.md).
 
-## Instance Lifecycle Hooks
+## Хуки жизненного цикла экземпляра
 
-Each instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
+Каждый экземпляр при создании проходит через последовательность шагов инициализации — например, настраивает наблюдение за данными, компилирует шаблон, монтирует экземпляр в DOM, обновляет DOM при изменении данных. Между этими шагами вызываются функции, называемые **хуками жизненного цикла**, с помощью которых можно выполнять свой код на определённых этапах.
 
-For example, the [created](../api/options-lifecycle-hooks.md#created) hook can be used to run code after an instance is created:
+Например, хук [`created`](../api/options-lifecycle-hooks.md#created) можно использовать для выполнения кода после создания экземпляра:
 
 ```js
 Vue.createApp({
@@ -132,20 +132,20 @@ Vue.createApp({
     }
   },
   created() {
-    // `this` points to the vm instance
+    // `this` указывает на экземпляра vm
     console.log('a is: ' + this.a) // => "a is: 1"
   }
 })
 ```
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, such as [mounted](../api/options-lifecycle-hooks.md#mounted), [updated](../api/options-lifecycle-hooks.md#updated), and [unmounted](../api/options-lifecycle-hooks.md#unmounted). All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it.
+Существуют и другие хуки, вызываемые на различных стадиях жизненного цикла экземпляра, например [`mounted`](../api/options-lifecycle-hooks.md#mounted), [`updated`](../api/options-lifecycle-hooks.md#updated) и [`destroyed`](../api/options-lifecycle-hooks.md#destroyed). Все хуки вызываются с контекстной переменной `this`, ссылающейся на текущий активный экземпляр вызывающий его.
 
 :::tip Совет
-Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) on an options property or callback, such as `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Since an arrow function doesn't have a `this`, `this` will be treated as any other variable and lexically looked up through parent scopes until found, often resulting in errors such as `Uncaught TypeError: Cannot read property of undefined` or `Uncaught TypeError: this.myMethod is not a function`.
+Не используйте [стрелочные функции](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions) в свойствах экземпляра и в коллбэках, например `created: () => console.log(this.a)` или `vm.$watch('a', newVal => this.myMethod())`. Так как стрелочные функции не имеют собственного `this`, то `this` в коде будет обрабатываться как любая другая переменная и её поиск будет производиться в областях видимости выше до тех пор пока не будет найдена, часто приводя к таким ошибкам, как `Uncaught TypeError: Cannot read property of undefined` или `Uncaught TypeError: this.myMethod is not a function`.
 :::
 
-## Lifecycle Diagram
+## Диаграмма жизненного цикла
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+Ниже представлена диаграмма жизненного цикла экземпляра. Необязательно понимать её полностью прямо сейчас, но по мере изучения и практики разработки к ней полезно будет обращаться.
 
-<img src="/images/lifecycle.png" width="840" height="auto" style="margin: 0px auto; display: block; max-width: 100%;" loading="lazy" alt="Instance lifecycle hooks">
+<img src="/images/lifecycle.png" width="840" height="auto" style="margin: 0px auto; display: block; max-width: 100%;" loading="lazy" alt="Хуки жизненного цикла экземпляра">
