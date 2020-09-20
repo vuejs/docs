@@ -1,16 +1,16 @@
-# State Management
+# Управление состоянием приложения
 
-## Official Flux-Like Implementation
+## Официальная Flux-подобная библиотека
 
-Large applications can often grow in complexity, due to multiple pieces of state scattered across many components and the interactions between them. To solve this problem, Vue offers [vuex](https://github.com/vuejs/vuex), our own Elm-inspired state management library. It even integrates into [vue-devtools](https://github.com/vuejs/vue-devtools), providing zero-setup access to [time travel debugging](https://raw.githubusercontent.com/vuejs/vue-devtools/master/media/demo.gif).
+Сложность больших приложений нередко возрастает из-за распределения кусочков состояния по многим компонентам и связям между ними. Для решения этой проблемы, Vue предлагает [Vuex](https://github.com/vuejs/vuex), нашу собственную библиотеку управления состоянием, вдохновлённую языком Elm. Она даже интегрируется с [Vue-devtools](https://github.com/vuejs/vue-devtools), из коробки давая доступ к функциональности ["машины времени"](https://raw.githubusercontent.com/vuejs/vue-devtools/master/media/demo.gif).
 
-### Information for React Developers
+### Информация для React-разработчиков
 
-If you're coming from React, you may be wondering how vuex compares to [redux](https://github.com/reactjs/redux), the most popular Flux implementation in that ecosystem. Redux is actually view-layer agnostic, so it can easily be used with Vue via [simple bindings](https://classic.yarnpkg.com/en/packages?q=redux%20vue&p=1). Vuex is different in that it _knows_ it's in a Vue app. This allows it to better integrate with Vue, offering a more intuitive API and improved development experience.
+Если вы переходите на Vue с React, может быть интересно, как связаны Vuex и [Redux](https://github.com/reactjs/redux), являющийся наиболее популярной имплементацией Flux в React-экосистеме. Redux агностичен по отношению к слою представления, так что его можно напрямую использовать с Vue, применив [простые биндинги](https://classic.yarnpkg.com/en/packages?q=redux%20vue&p=1). Vuex же _знает_, что работает с приложением Vue, что позволяет достичь лучшей интеграции, использовать более интуитивно-понятный API и в результате делает разработку приятнее.
 
-## Simple State Management from Scratch
+## Простой контейнер состояния с нуля
 
-It is often overlooked that the source of truth in Vue applications is the reactive `data` object - a component instance only proxies access to it. Therefore, if you have a piece of state that should be shared by multiple instances, you can use a [reactive](/guide/reactivity-fundamentals.md#declaring-reactive-state) method to make an object reactive:
+Часто упускается из виду тот факт, что «источником истины» во Vue-приложениях является реактивный объект `data` — экземпляры компонентов всего лишь проксируют доступ к нему. Поэтому состояние, которым должны совместно владеть несколько экземпляров, может использовать метод [reactive](/guide/reactivity-fundamentals.md#declaring-reactive-state) для создания реактивного объекта:
 
 ```js
 const sourceOfTruth = Vue.reactive({
@@ -36,7 +36,7 @@ const appB = Vue.createApp({
 <div id="app-b">App B: {{ message }}</div>
 ```
 
-Now whenever `sourceOfTruth` is mutated, both `appA` and `appB` will update their views automatically. We have a single source of truth now, but debugging would be a nightmare. Any piece of data could be changed by any part of our app at any time, without leaving a trace.
+Теперь при любых изменениях `sourceOfTruth` обновится и `appA`, и `appВ`. Эффект «единого источника истины» достигнут, но отладка превратится в сущее мучение: любая часть данных может быть изменена любой частью приложения в любой момент и без каких-либо следов.
 
 ```js
 const appB = Vue.createApp({
@@ -44,12 +44,12 @@ const appB = Vue.createApp({
     return sourceOfTruth
   },
   mounted() {
-    sourceOfTruth.message = 'Goodbye' // both apps will render 'Goodbye' message now
+    sourceOfTruth.message = 'Goodbye' // оба приложения теперь показывают сообщение 'Goodbye'
   }
 }).mount('#app-b')
 ```
 
-To help solve this problem, we can adopt a **store pattern**:
+Для решения этой проблемы, мы можем использовать простое **хранилище**:
 
 ```js
 const store = {
@@ -77,9 +77,9 @@ const store = {
 }
 ```
 
-Notice all actions that mutate the store's state are put inside the store itself. This type of centralized state management makes it easier to understand what type of mutations could happen and how they are triggered. Now when something goes wrong, we'll also have a log of what happened leading up to the bug.
+Обратите внимание, что все действия, изменяющие состояние хранилища, сами помещены в него. Такой подход к глобальному управлению состоянием приложения облегчает понимание возможных изменений и источников их появления. Кроме того, если что-то пойдёт не так — у нас будет лог, по которому можно отследить последовательность действий, приводящую к возникновению бага.
 
-In addition, each instance/component can still own and manage its own private state:
+Каждый экземпляр/компонент по-прежнему может иметь собственное, частное состояние:
 
 ```html
 <div id="app-a">{{sharedState.message}}</div>
@@ -110,12 +110,12 @@ const appB = Vue.createApp({
 }).mount('#app-b')
 ```
 
-![State Management](/images/state.png)
+![Управление состоянием](/images/state.png)
 
 :::tip Совет
-You should never replace the original state object in your actions - the components and the store need to share reference to the same object in order for mutations to be observed.
+Важно заметить, что никогда не стоит заменять оригинальный объект состояния в действиях — компоненты и хранилище должны ссылаться на один и тот же объект, иначе отследить изменения будет невозможно.
 :::
 
-As we continue developing the convention where components are never allowed to directly mutate state that belongs to a store, but should instead dispatch events that notify the store to perform actions, we eventually arrive at the [Flux](https://facebook.github.io/flux/) architecture. The benefit of this convention is we can record all state mutations happening to the store and implement advanced debugging helpers such as mutation logs, snapshots, and history re-rolls / time travel.
+Если мы продолжим развивать концепцию, при которой компонентам запрещается прямое изменение состояния хранилища, а вместо этого предполагается обработка событий, указывающих хранилищу на необходимость выполнения тех или иных действий, мы можем прийти к архитектуре [Flux](https://facebook.github.io/flux/). Плюсом такого подхода является возможность записи всех происходящих с хранилищем изменений, что позволяет применять продвинутые техники отладки, такие как логи изменений, слепки данных и «машину времени».
 
-This brings us full circle back to [Vuex](https://github.com/vuejs/vuex), so if you've read this far it's probably time to try it out!
+Это вновь приводит нас к [Vuex](https://vuex.vuejs.org/ru/), так что если вы дочитали до этого места — пожалуй, пора его попробовать!
