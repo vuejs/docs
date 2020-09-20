@@ -107,37 +107,41 @@ const sidebar = {
       ]
     },
     {
-      title: 'Migration from Vue 2',
+      title: 'Migration Guide',
       collapsable: true,
       children: [
-        'migration/introduction',
-        'migration/async-components',
-        'migration/attribute-coercion',
-        'migration/custom-directives',
-        'migration/custom-elements-interop',
-        'migration/data-option',
-        'migration/events-api',
-        'migration/filters',
-        'migration/fragments',
-        'migration/functional-components',
-        'migration/global-api',
-        'migration/global-api-treeshaking',
-        'migration/inline-template-attribute',
-        'migration/key-attribute',
-        'migration/keycode-modifiers',
-        'migration/render-function-api',
-        'migration/slots-unification',
-        'migration/transition',
-        'migration/v-model'
+        '/guide/migration/introduction',
+        '/guide/migration/array-refs',
+        '/guide/migration/async-components',
+        '/guide/migration/attribute-coercion',
+        '/guide/migration/custom-directives',
+        '/guide/migration/custom-elements-interop',
+        '/guide/migration/data-option',
+        '/guide/migration/events-api',
+        '/guide/migration/filters',
+        '/guide/migration/fragments',
+        '/guide/migration/functional-components',
+        '/guide/migration/global-api',
+        '/guide/migration/global-api-treeshaking',
+        '/guide/migration/inline-template-attribute',
+        '/guide/migration/key-attribute',
+        '/guide/migration/keycode-modifiers',
+        '/guide/migration/props-default-this',
+        '/guide/migration/render-function-api',
+        '/guide/migration/slots-unification',
+        '/guide/migration/transition',
+        '/guide/migration/v-model',
+        '/guide/migration/v-if-v-for',
+        '/guide/migration/v-bind'
       ]
     },
     {
       title: 'Contribute to the Docs',
       collapsable: true,
       children: [
-        'contributing/writing-guide',
-        'contributing/doc-style-guide',
-        'contributing/translations'
+        '/guide/contributing/writing-guide',
+        '/guide/contributing/doc-style-guide',
+        '/guide/contributing/translations'
       ]
     }
   ],
@@ -450,6 +454,10 @@ module.exports = {
           items: [{
               text: 'Guide',
               link: '/guide/introduction'
+            },
+            {
+              text: 'Migration Guide',
+              link: '/guide/migration/introduction'
             },
             {
               text: 'Style Guide',

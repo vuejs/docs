@@ -110,7 +110,7 @@ const Component = defineComponent({
 
 ### Annotating Return Types
 
-Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type computed properties.
+Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type of computed properties.
 
 ```ts
 import { defineComponent } from 'vue'
@@ -210,7 +210,7 @@ const Component = defineComponent({
 })
 ```
 
-Sometimes we may need to specify complex types for a ref's inner value. We can do that simply passing a generic argument when calling ref to override the default inference:
+Sometimes we may need to specify complex types for a ref's inner value. We can do that by simply passing a generic argument when calling ref to override the default inference:
 
 ```ts
 const year = ref<string | number>('2020') // year's type: Ref<string | number>

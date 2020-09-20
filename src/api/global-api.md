@@ -192,12 +192,16 @@ const AsyncComp = defineAsyncComponent({
   // The error component will be displayed if a timeout is
   // provided and exceeded. Default: Infinity.
   timeout: 3000,
-  // A function that returns a boolean indicating whether the async component should retry when the loader promise rejects
-  retryWhen: error => error.code !== 404,
-  // Maximum allowed retries number
-  maxRetries: 3,
   // Defining if component is suspensible
-  suspensible: false
+  suspensible: false,
+  /**
+   *
+   * @param {*} error Error message object
+   * @param {*} retry A function that indicating whether the async component should retry when the loader promise rejects
+   * @param {*} fail  End of failure
+   * @param {*} attempts Maximum allowed retries number
+   */
+  onError(error, retry, fail, attempts) {},
 })
 ```
 

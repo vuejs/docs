@@ -1,14 +1,18 @@
 <template>
   <div class="overlay" v-show="isOpen">
     <div ref="modal" class="modal" :class="{ open: isOpen }">
-      <div class="video-space" style="padding: 56.25% 0 0 0; position: relative;">
+      <div
+        class="video-space"
+        style="padding: 56.25% 0 0 0; position: relative;"
+      >
         <iframe
-          src="https://player.vimeo.com/video/247494684?dnt=1"
+          src="https://player.vimeo.com/video/455611549?dnt=1"
           style="height: 100%; left: 0; position: absolute; top: 0; width: 100%; margin: 0"
           frameborder="0"
           webkitallowfullscreen
           mozallowfullscreen
           allowfullscreen
+          allow="autoplay"
           ref="videoIframe"
         ></iframe>
       </div>
@@ -20,14 +24,15 @@
           target="_blank"
           rel="sponsored noopener"
           title="Vue.js Courses on Vue Mastery"
-        >Vue Mastery</a>.
-        Watch Vue Mastery’s free
+          >Vue Mastery</a
+        >. Watch Vue Mastery’s free
         <a
-          href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/"
+          href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3"
           target="_blank"
           rel="sponsored noopener"
           title="Vue.js Courses on Vue Mastery"
-        >Intro to Vue course</a>.
+          >Intro to Vue course</a
+        >.
       </p>
     </div>
   </div>
@@ -47,7 +52,7 @@ export default {
   }),
 
   methods: {
-    initVideoModal () {
+    initVideoModal() {
       const modalButton = document.querySelector(this.triggerSelector)
       const player = new Vimeo.Player(this.$refs.videoIframe)
 
@@ -59,7 +64,11 @@ export default {
       })
 
       document.body.addEventListener('click', event => {
-        if (this.isOpen && event.target !== modalButton && !this.$refs.modal.contains(event.target)) {
+        if (
+          this.isOpen &&
+          event.target !== modalButton &&
+          !this.$refs.modal.contains(event.target)
+        ) {
           this.isOpen = false
           document.body.classList.remove('stop-scroll')
           player.pause()
@@ -68,7 +77,7 @@ export default {
     }
   },
 
-  mounted () {
+  mounted() {
     if (typeof window !== 'undefined') {
       this.initVideoModal()
     }
@@ -77,7 +86,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/_settings.scss";
+@import '@theme/styles/_settings.scss';
 
 .modal {
   box-sizing: border-box;

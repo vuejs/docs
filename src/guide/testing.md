@@ -88,7 +88,7 @@ Its guiding principle is that the more tests resemble the way software is used, 
 
 Vue Test Utils is the official low-level component testing library that was written to provide users access to Vue specific APIs. If you are new to testing Vue applications, we would recommend using Vue Testing Library, which is an abstraction over Vue Test Utils. 
 
-**Resources**
+**Resources:**
 
 - [Official Vue Test Utils Documentation](https://vue-test-utils.vuejs.org)
 - [Vue Testing Handbook](https://lmiller1990.github.io/vue-testing-handbook/v3/#what-is-this-guide) by Lachlan Miller
@@ -133,7 +133,7 @@ While there are many tools in the ecosystem, here are some common end-to-end (E2
 
 Cypress.io is a testing framework that aims to enhance developer productivity by enabling developers to reliably test their applications while providing a first class developer experience.
 
-**Resources**
+**Resources:**
 
 - [Cypress' Official Website](https://www.cypress.io)
 - [Official Vue CLI Cypress Plugin](https://cli.vuejs.org/core-plugins/e2e-cypress.html)
