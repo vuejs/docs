@@ -1,6 +1,6 @@
 # Конфигурация приложения
 
-`config` is an object containing Vue application global configurations. You can modify its properties listed below before mounting your application:
+`config` это объект, содержащий глобальные параметры Vue. Можно изменять эти свойства, описанные ниже, перед загрузкой приложения:
 
 ```js
 const app = Vue.createApp({})
@@ -12,7 +12,7 @@ app.config = {...}
 
 - **Тип:** `boolean`
 
-- **По умолчанию:** `true` (`false` in production builds)
+- **По умолчанию:** `true` (`false` в production-сборках)
 
 - **Использование:**
 
@@ -20,7 +20,7 @@ app.config = {...}
 app.config.devtools = true
 ```
 
-Configure whether to allow [vue-devtools](https://github.com/vuejs/vue-devtools) inspection. This option's default value is `true` in development builds and `false` in production builds. You can set it to `true` to enable inspection for production builds.
+Конфигурация доступа vue-devtools для инспекций приложения. Определяет, должен ли Vue разрешать [vue-devtools](https://github.com/vuejs/vue-devtools) проводить проверку. Значение по умолчанию для разработки `true` и `false` для production. Установите `true` чтобы работало и в production.
 
 ## errorHandler
 
@@ -32,15 +32,15 @@ Configure whether to allow [vue-devtools](https://github.com/vuejs/vue-devtools)
 
 ```js
 app.config.errorHandler = (err, vm, info) => {
-  // handle error
-  // `info` is a Vue-specific error info, e.g. which lifecycle hook
-  // the error was found in
+  // Обработка ошибки
+  // `info` это Vue-специфичная ошибка
+  // например в каком хуке жизненного цикла была найдена ошибка
 }
 ```
 
-Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the application instance.
+Добавление обработчика для отловленных ошибок во время функции рендеринга компонентов и наблюдателя. Обработчик получает аргументами ошибку и экземпляр приложения.
 
-> Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
+> Сервисы отслеживания ошибок [Sentry](https://sentry.io/for/vue/) и [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) предлагают официальную интеграцию с использованием этого свойства.
 
 ## warnHandler
 
@@ -52,11 +52,11 @@ Assign a handler for uncaught errors during component render function and watche
 
 ```js
 app.config.warnHandler = function(msg, vm, trace) {
-  // `trace` is the component hierarchy trace
+  // `trace` это трассировка иерархии компонентов
 }
 ```
 
-Assign a custom handler for runtime Vue warnings. Note this only works during development and is ignored in production.
+Определение пользовательского обработчика для предупреждений Vue во время выполнения. Работает в режиме разработки и игнорируется в production.
 
 ## globalProperties
 
@@ -76,15 +76,15 @@ app.component('child-component', {
 })
 ```
 
-Adds a global property that can be accessed in any component instance inside the application. The component’s property will take priority when there are conflicting keys.
+Добавляет глобальное свойство, к которому можно обратиться из любого компонента в приложении. Свойства компонента имеют приоритет, в случае совпадения имен.
 
-This can replace Vue 2.x `Vue.prototype` extending:
+Этот подход заменяет расширение `Vue.prototype` во Vue 2.x:
 
 ```js
-// Before
+// Раньше
 Vue.prototype.$http = () => {}
 
-// After
+// Сейчас
 const app = Vue.createApp({})
 app.config.globalProperties.$http = () => {}
 ```
@@ -98,13 +98,13 @@ app.config.globalProperties.$http = () => {}
 - **Использование:**
 
 ```js
-// any element starting with 'ion-' will be recognized as a custom one
+// любой элемент, начинающийся с 'ion-' будет распознаваться как пользовательский
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
-Specifies a method to recognize custom elements defined outside of Vue (e.g., using the Web Components APIs). If component matches this condition, it won't need local or global registration and Vue won't throw a warning about an `Unknown custom element`.
+Указывает метод распознавания пользовательских элементов, определенных извне Vue (например, использование Web Components API). Если компонент совпадает с условием, то его не нужно регистрировать и Vue не выдаст предупреждения `Unknown custom element`.
 
-> Note that all native HTML and SVG tags don't need to be matched in this function - Vue parser performs this check automatically
+> Обратите внимание, нет необходимости указывать HTML и SVG тэги - парсер Vue проверяет их автоматически
 
 ## optionMergeStrategies
 
@@ -132,11 +132,12 @@ app.mixin({
 // 'Hello, Vue
 ```
 
-Define merging strategies for custom options.
+Определение пользовательской функции слияния опций.
 
-The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context application instance is passed as the third argument.
+Функция слияния получает первым аргументом значения опций родительского элемента, вторым дочернего элемента
+и третьим контекст действующего экземпляра Vue.
 
-- **См. также:** [Custom Option Merging Strategies](../guide/mixins.md#custom-option-merge-strategies)
+- **См. также:** [Пользовательские функции слияния](../guide/mixins.md#custom-option-merge-strategies)
 
 ## performance
 
@@ -144,6 +145,6 @@ The merge strategy receives the value of that option defined on the parent and c
 
 - **По умолчанию:** `false`
 
-- **Usage**:
+- **Использование**:
 
-Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
+Установите значение `true`, чтобы включить отслеживание производительности во время инициализации, компиляции, отрисовки и обновления компонента в инструментах разработчика браузера. Работает только в режиме разработки в браузерах, которые поддерживают [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
