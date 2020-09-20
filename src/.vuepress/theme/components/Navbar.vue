@@ -68,7 +68,7 @@ export default {
     },
 
     isAlgoliaSearch() {
-      return this.algolia && this.algolia.apiKey && this.algolia.indexName
+      return !!(this.algolia && this.algolia.apiKey && this.algolia.indexName)
     }
   },
 
