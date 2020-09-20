@@ -1,16 +1,16 @@
-# Props
+# Входные параметры
 
-> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
+> Подразумевается, что вы уже изучили и разобрались с разделом [Основы компонентов](component-basics.md). Если нет — прочитайте его сначала.
 
-## Prop Types
+## Указание типа входных параметров
 
-So far, we've only seen props listed as an array of strings:
+До сих пор мы видели только входные параметры, перечисленные в виде массива строк:
 
 ```js
 props: ['title', 'likes', 'isPublished', 'commentIds', 'author']
 ```
 
-Usually though, you'll want every prop to be a specific type of value. In these cases, you can list props as an object, where the properties' names and values contain the prop names and types, respectively:
+Однако лучше, когда каждый входной параметр будет определённого типа. В этих случаях вы можете перечислить входные параметры объектом, где свойство и значение будут содержать информацию об имени входного параметра и его типе, соответственно:
 
 ```js
 props: {
@@ -20,87 +20,84 @@ props: {
   commentIds: Array,
   author: Object,
   callback: Function,
-  contactsPromise: Promise // or any other constructor
+  contactsPromise: Promise // или любой другой конструктор
 }
 ```
 
-This not only documents your component, but will also warn users in the browser's JavaScript console if they pass the wrong type. You'll learn much more about [type checks and other prop validations](#prop-validation) further down this page.
+Это не только документирует ваш компонент, но также предупреждает пользователей в консоли JavaScript браузера, если они передают неправильный тип. Вы узнаете гораздо больше о [проверках типов и других валидациях входных параметров](#prop-validation) дальше на этой странице.
 
-## Passing Static or Dynamic Props
+## Передача статических и динамических входных параметров
 
-So far, you've seen props passed a static value, like in:
+До сих пор вы встречали, что во входные параметры передавались статические значения, например:
 
 ```html
 <blog-post title="My journey with Vue"></blog-post>
 ```
 
-You've also seen props assigned dynamically with `v-bind` or its shortcut, the `:` character, such as in:
+Вы также встречали входные параметры, присваивающие динамическое значение с помощью `v-bind` или сокращения `:`, например:
 
 ```html
-<!-- Dynamically assign the value of a variable -->
+<!-- Динамически присваиваем значение переменной -->
 <blog-post :title="post.title"></blog-post>
 
-<!-- Dynamically assign the value of a complex expression -->
+<!-- Динамически присваиваем значение комплексного выражения -->
 <blog-post :title="post.title + ' by ' + post.author.name"></blog-post>
 ```
 
-In the two examples above, we happen to pass string values, but _any_ type of value can actually be passed to a prop.
+В этих двух примерах мы передаём строковые значения, но могут передаваться значения _любого типа_ во входной параметр.
 
-### Passing a Number
+### Передача чисел
 
 ```html
-<!-- Even though `42` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.       -->
+<!-- Несмотря на то, что `42` статическое значение, нам нужен v-bind, -->
+<!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   -->
 <blog-post :likes="42"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамическое присвоение значения переменной. -->
 <blog-post :likes="post.likes"></blog-post>
 ```
 
-### Passing a Boolean
+### Передача булевых значений
 
 ```html
-<!-- Including the prop with no value will imply `true`. -->
+<!-- Указание входного параметра без значения будет означать `true`. -->
 <blog-post is-published></blog-post>
 
-<!-- Even though `false` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.          -->
+<!-- Несмотря на то, что `false` статическое значение, нам нужен v-bind -->
+<!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.     -->
 <blog-post :is-published="false"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
-<blog-post :is-published="post.isPublished"></blog-post>
+<!-- Динамическое присвоение значения переменной. -->
+<blog-post :is-published="post.currentUserFavorited"></blog-post>
 ```
 
-### Passing an Array
+### Передача массивов
 
 ```html
-<!-- Even though the array is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.            -->
+<!-- Несмотря на то, что указан статический массив, нам нужен v-bind, -->
+<!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   -->
 <blog-post :comment-ids="[234, 266, 273]"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамическое присвоение значения переменной. -->
 <blog-post :comment-ids="post.commentIds"></blog-post>
 ```
 
-### Passing an Object
+### Передача объектов
 
 ```html
-<!-- Even though the object is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.             -->
+<!-- Несмотря на то, что указан статический объект, нам нужен v-bind, -->
+<!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   -->
 <blog-post
-  :author="{
-    name: 'Veronica',
-    company: 'Veridian Dynamics'
-  }"
+  :author="{ name: 'Veronica', company: 'Veridian Dynamics' }"
 ></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамическое присвоение значения переменной. -->
 <blog-post :author="post.author"></blog-post>
 ```
 
-### Passing the Properties of an Object
+### Передача свойств объекта
 
-If you want to pass all the properties of an object as props, you can use `v-bind` without an argument (`v-bind` instead of `:prop-name`). For example, given a `post` object:
+Если вы хотите передать все свойства объекта в качестве входных параметров, вы можете использовать `v-bind` без аргументов (`v-bind` вместо `v-bind:prop-name`). Например, для объекта `post`:
 
 ```js
 post: {
@@ -109,27 +106,27 @@ post: {
 }
 ```
 
-The following template:
+Следующий шаблон:
 
 ```html
 <blog-post v-bind="post"></blog-post>
 ```
 
-Will be equivalent to:
+Будет аналогичен:
 
 ```html
 <blog-post v-bind:id="post.id" v-bind:title="post.title"></blog-post>
 ```
 
-## One-Way Data Flow
+## Однонаправленный поток данных
 
-All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
+Все входные параметры образуют **одностороннюю привязку** между дочерним свойством и родительским: когда родительское свойство обновляется — оно будет передаваться дочернему, но не наоборот. Это предотвращает случайное изменение дочерними компонентами родительского состояния, что может затруднить понимание потока данных вашего приложения.
 
-In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console.
+Кроме того, каждый раз, когда обновляется родительский компонент, все входные параметры дочернего компонента будут обновлены актуальными значениями. Это означает, что вы **не должны** пытаться изменять входной параметр внутри дочернего компонента. Если вы это сделаете, Vue отобразит предупреждение в консоли.
 
-There are usually two cases where it's tempting to mutate a prop:
+Обычно встречаются два случая, когда возникает соблазн изменять входной параметр:
 
-1. **The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.** In this case, it's best to define a local data property that uses the prop as its initial value:
+1. **Входной параметр используется для передачи начального значения; дочерний компонент хочет использовать его как локальное свойство данных в дальнейшем.** В этом случае лучше всего определить локальное свойство в данных, которое использует значение входного параметра в качестве начального:
 
 ```js
 props: ['initialCounter'],
@@ -140,7 +137,7 @@ data() {
 }
 ```
 
-2. **The prop is passed in as a raw value that needs to be transformed.** In this case, it's best to define a computed property using the prop's value:
+2. **Входной параметр передаётся как необработанное значение, которое необходимо преобразовать.** В этом случае лучше всего определить вычисляемое свойство с использованием входного параметра:
 
 ```js
 props: ['size'],
@@ -151,70 +148,70 @@ computed: {
 }
 ```
 
-:::tip Примечание
-Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child component **will** affect parent state.
+:::tip Совет
+Обратите внимание, что объекты и массивы в JavaScript передаются по ссылке, поэтому если входной параметр является массивом или объектом, то изменение объекта или массива внутри дочернего компонента **будет влиять** на состояние родителя.
 :::
 
-## Prop Validation
+## Валидация входных параметров
 
-Components can specify requirements for their props, such as the types you've already seen. If a requirement isn't met, Vue will warn you in the browser's JavaScript console. This is especially useful when developing a component that's intended to be used by others.
+Компоненты могут указывать требования к своим входным параметрам, такие как определение типа, которые вы уже видели. Если эти требования не выполнены — Vue предупредит вас сообщением в JavaScript-консоли браузера. Это особенно полезно при разработке компонента, который предназначен для использования другими.
 
-To specify prop validations, you can provide an object with validation requirements to the value of `props`, instead of an array of strings. For example:
+Чтобы указать валидации входного параметра, вы можете предоставить в `props` объект с валидациями для проверки значения, вместо массива строк. Например:
 
 ```js
 app.component('my-component', {
   props: {
-    // Basic type check (`null` and `undefined` values will pass any type validation)
+    // Просто проверка типа (`null` и `undefined` проходят проверку для любого типа)
     propA: Number,
-    // Multiple possible types
+    // Несколько допустимых типов
     propB: [String, Number],
-    // Required string
+    // Обязательное значение строкового типа
     propC: {
       type: String,
       required: true
     },
-    // Number with a default value
+    // Число со значением по умолчанию
     propD: {
       type: Number,
       default: 100
     },
-    // Object with a default value
+    // Объект со значением по умолчанию
     propE: {
       type: Object,
-      // Object or array defaults must be returned from
-      // a factory function
+      // Для объектов или массивов значения по умолчанию
+      // должны возвращаться из функции
       default: function() {
         return { message: 'hello' }
       }
     },
-    // Custom validator function
+    // Пользовательская функция для валидации
     propF: {
       validator: function(value) {
-        // The value must match one of these strings
+        // Значение должно соответствовать одной из этих строк
         return ['success', 'warning', 'danger'].indexOf(value) !== -1
       }
     },
-    // Function with a default value
+    // Функция с значением по умолчанию
     propG: {
       type: Function,
-      // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+      // В отличие от объекта или массива по умолчанию, это не фабричная функция — это функция, служащая в качестве значения по умолчанию
       default: function() {
-        return 'Default function'
+        return 'Функция по умолчанию'
       }
     }
   }
 })
 ```
 
-When prop validation fails, Vue will produce a console warning (if using the development build).
+Когда валидация входного параметра заканчивается ошибкой — Vue выдаст предупреждение в консоли (если используется сборка для разработки).
 
-:::tip Примечание
-Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc) will not be available inside `default` or `validator` functions.
+:::tip Совет
+Обратите внимание, что входные параметры валидируются **перед** созданием экземпляра компонента, поэтому свойства экземпляра (например, `data`, `computed` и т.д.) не будут доступны внутри `default` или функций `validator`.
 :::
 
-### Type Checks
+### Проверка типа
 
-The `type` can be one of the following native constructors:
+Значением `type` может быть один из следующих нативных конструкторов:
 
 - String
 - Number
@@ -225,7 +222,7 @@ The `type` can be one of the following native constructors:
 - Function
 - Symbol
 
-In addition, `type` can also be a custom constructor function and the assertion will be made with an `instanceof` check. For example, given the following constructor function exists:
+Кроме того, `type` также может быть пользовательской функцией-конструктором и валидация будет выполняться проверкой с помощью `instanceof`. Например, если существует следующая функция-конструктор:
 
 ```js
 function Person(firstName, lastName) {
@@ -234,7 +231,7 @@ function Person(firstName, lastName) {
 }
 ```
 
-You could use:
+Вы можете использовать:
 
 ```js
 app.component('blog-post', {
@@ -244,25 +241,25 @@ app.component('blog-post', {
 })
 ```
 
-to validate that the value of the `author` prop was created with `new Person`.
+чтобы проверить, что значение входного параметра `author` было создано с помощью `new Person`.
 
-## Prop Casing (camelCase vs kebab-case)
+## Регистр в именах входных параметров (camelCase vs kebab-case)
 
-HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you're using in-DOM templates, camelCased prop names need to use their kebab-cased (hyphen-delimited) equivalents:
+Имена HTML-атрибутов не чувствительны к регистру, поэтому любые заглавные символы браузеры будут интерпретировать как строчные. Это значит, что при использовании шаблонов в DOM, входные параметры в camelCase должны быть указаны в kebab-case (разделённые дефисом) эквиваленте:
 
 ```js
 const app = Vue.createApp({})
 
 app.component('blog-post', {
-  // camelCase in JavaScript
+  // camelCase в JavaScript
   props: ['postTitle'],
   template: '<h3>{{ postTitle }}</h3>'
 })
 ```
 
 ```html
-<!-- kebab-case in HTML -->
+<!-- kebab-case в HTML -->
 <blog-post post-title="hello!"></blog-post>
 ```
 
-Again, if you're using string templates, this limitation does not apply.
+Опять же, при использовании строковых шаблонов это ограничение не применяется.
