@@ -2,7 +2,7 @@
 
 ## Basics
 
-Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be "mixed" into the component's own options.
+Mixins distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be "mixed" into the component's own options.
 
 Example:
 
@@ -160,7 +160,7 @@ app.mount('#mixins-global')
 // => "hello from component!"
 ```
 
-In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.md) to avoid duplicate application.
+In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.html) to avoid duplicate application.
 
 ## Custom Option Merge Strategies
 
@@ -213,10 +213,12 @@ app.mixin({
 })
 ```
 
+## Precautions
+
 In Vue 2, mixins were the primary tool to abstract parts of component logic into reusable chunks. However, they have a few issues:
 
 - Mixins are conflict-prone: Since properties from each feature are merged into the same component, you still have to know about every other feature to avoid property name conflicts and for debugging.
 
 - Reusability is limited: we cannot pass any parameters to the mixin to change its logic which reduces their flexibility in terms of abstracting logic
 
-To address these issues, we added a new way to organize code by logical concerns: the [Composition API](composition-api-introduction.md).
+To address these issues, we added a new way to organize code by logical concerns: the [Composition API](composition-api-introduction.html).

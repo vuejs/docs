@@ -570,6 +570,10 @@ module.exports = {
               link: '/ru/guide/introduction'
             },
             {
+              text: 'Руководство по миграции',
+              link: '/ru/guide/migration/introduction'
+            },
+            {
               text: 'Рекомендации',
               link: '/ru/style-guide/'
             },
