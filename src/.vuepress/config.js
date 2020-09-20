@@ -11,6 +11,7 @@ const sidebar = {
         '/guide/installation',
         '/guide/introduction',
         '/guide/instance',
+        '/guide/data-methods',
         '/guide/template-syntax',
         '/guide/computed',
         '/guide/class-and-style',

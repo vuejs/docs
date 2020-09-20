@@ -1,27 +1,53 @@
-# The Application Instance
+# Application & Component Instances
 
-## Creating an Instance
+## Creating an Application Instance
 
-Every Vue application starts by creating a new **application instance** with the `createApp` function:
-
-```js
-Vue.createApp(/* options */)
-```
-
-After the instance is created, we can _mount_ it, passing a container to `mount` method. For example, if we want to mount a Vue application on `<div id="app"></div>`, we should pass `#app`:
+Every Vue application starts by creating a new _application instance_ with the `createApp` function:
 
 ```js
-Vue.createApp(/* options */).mount('#app')
+const app = Vue.createApp({ /* options */ })
 ```
 
-Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our instance.
+The application instance is used to register 'globals' that can then be used by components within that application. We'll discuss that in detail later in the guide but as a quick example:
 
-When you create an instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/options-data.html).
+```js
+const app = Vue.createApp({})
+app.component('SearchInput', SearchInputComponent)
+app.directive('focus', FocusDirective)
+app.use(LocalePlugin)
+```
 
-A Vue application consists of a **root instance** created with `createApp`, optionally organized into a tree of nested, reusable components. For example, a `todo` app's component tree might look like this:
+Most of the methods exposed by the application instance return that same instance, allowing for chaining:
+
+```js
+Vue.createApp({})
+  .component('SearchInput', SearchInputComponent)
+  .directive('focus', FocusDirective)
+  .use(LocalePlugin)
+```
+
+You can browse the full application API in the [API reference](../api/application-api.html).
+
+## The Root Component
+
+The options passed to `createApp` are used to configure the root component. That component is used as the starting point for rendering when we _mount_ the application.
+
+An application needs to be mounted into a DOM element. For example, if we want to mount a Vue application into `<div id="app"></div>`, we should pass `#app`:
+
+```js
+const RootComponent = { /* options */ }
+const app = Vue.createApp(RootComponent)
+const vm = app.mount('#app')
+```
+
+Unlike most of the application methods, `mount` does not return the application. Instead it returns the root component instance.
+
+Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to a component instance.
+
+While all the examples on this page only need a single component, most real applications are organized into a tree of nested, reusable components. For example, a Todo application's component tree might look like this:
 
 ```
-Root Instance
+Root Component
 └─ TodoList
    ├─ TodoItem
    │  ├─ DeleteTodoButton
@@ -31,109 +57,75 @@ Root Instance
       └─ TodoListStatistics
 ```
 
-We'll talk about [the component system](component-basics.html) in detail later. For now, just know that all Vue components are also instances, and so accept the same options object.
+Each component will have its own component instance, `vm`. For some components, such as `TodoItem`, there will likely be multiple instances rendered at any one time. All of the component instances in this application will share the same application instance.
 
-## Data and Methods
+We'll talk about [the component system](component-basics.html) in detail later. For now, just be aware that the root component isn't really any different from any other component. The configuration options are the same, as is the behavior of the corresponding component instance.
 
-When an instance is created, it adds all the properties found in its `data` to [Vue's **reactivity system**](reactivity.html). When the values of those properties change, the view will "react", updating to match the new values.
+## Component Instance Properties
+
+Earlier in the guide we met `data` properties:
 
 ```js
-// Our data object
-const data = { a: 1 }
-
-// The object is added to the root instance
-const vm = Vue.createApp({
+const app = Vue.createApp({
   data() {
-    return data
+    return { count: 4 }
   }
-}).mount('#app')
+})
 
-// Getting the property on the instance
-// returns the one from the original data
-vm.a === data.a // => true
+const vm = app.mount('#app')
 
-// Setting the property on the instance
-// also affects the original data
-vm.a = 2
-data.a // => 2
+console.log(vm.count) // => 4
+
+// Assign a new value
+vm.count = 5
 ```
 
-When this data changes, the view will re-render. It should be noted that properties in `data` are only **reactive** if they existed when the instance was created. That means if you add a new property, like:
+As shown above, properties defined in `data` are exposed via the component instance, `vm`. Vue's reactivity system will track when those properties are used and updates will be triggered if a new value is assigned.
+
+To define methods on a component instance we would usually use the `methods` option:
 
 ```js
-vm.b = 'hi'
-```
-
-Then changes to `b` will not trigger any view updates. If you know you'll need a property later, but it starts out empty or non-existent, you'll need to set some initial value. For example:
-
-```js
-data() {
-  return {
-    newTodoText: '',
-    visitCount: 0,
-    hideCompletedTodos: false,
-    todos: [],
-    error: null
-  }
-}
-```
-
-The only exception to this being the use of `Object.freeze()`, which prevents existing properties from being changed, which also means the reactivity system can't _track_ changes.
-
-```js
-const obj = {
-  foo: 'bar'
-}
-
-Object.freeze(obj)
-
-const vm = Vue.createApp({
+const app = Vue.createApp({
   data() {
-    return obj
-  }
-}).mount('#app')
-```
-
-```html
-<div id="app">
-  <p>{{ foo }}</p>
-  <!-- this will no longer update `foo`! -->
-  <button v-on:click="foo = 'baz'">Change it</button>
-</div>
-```
-
-In addition to data properties, instances expose a number of useful instance properties and methods. These are prefixed with `$` to differentiate them from user-defined properties. For example:
-
-```js
-const vm = Vue.createApp({
-  data() {
-    return {
-      a: 1
+    return { count: 4 }
+  },
+  methods: {
+    increment() {
+      // `this` refers to the same object as vm
+      this.count++
     }
   }
-}).mount('#example')
+})
 
-vm.$data.a // => 1
+const vm = app.mount('#app')
+
+console.log(vm.count) // => 4
+
+vm.increment()
+
+console.log(vm.count) // => 5
 ```
 
-In the future, you can consult the [API reference](../api/instance-properties.html) for a full list of instance properties and methods.
+Inside the methods of a component, the `this` value will be bound to the component instance.
 
-## Instance Lifecycle Hooks
+There are various other Vue features that add user-defined properties to the component instance, such as `props`, `computed`, `inject` and `setup`. We'll discuss each of these in depth later in the guide. All of the properties of the component instance, no matter how they are defined, will be accessible in the component's template.
 
-Each instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
+Vue also exposes some built-in properties via the component instance, such as `$attrs` and `$emit`. These properties all have a `$` prefix to avoid conflicting with user-defined property names.
+
+## Lifecycle Hooks
+
+Each component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
 
 For example, the [created](../api/options-lifecycle-hooks.html#created) hook can be used to run code after an instance is created:
 
 ```js
 Vue.createApp({
   data() {
-    return {
-      a: 1
-    }
+    return { count: 1 }
   },
   created() {
     // `this` points to the vm instance
-    console.log('a is: ' + this.a) // => "a is: 1"
+    console.log('count is: ' + this.count) // => "count is: 1"
   }
 })
 ```
