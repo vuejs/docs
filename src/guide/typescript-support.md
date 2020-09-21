@@ -34,7 +34,7 @@ See [TypeScript compiler options docs](https://www.typescriptlang.org/docs/handb
 
 ```bash
 # 1. Install Vue CLI, if it's not already installed
-npm install --global @vue/cli@next
+npm install --global @vue/cli
 
 # 2. Create a new project, then choose the "Manually select features" option
 vue create my-project-name
