@@ -4,8 +4,6 @@
 
 - **Type:** `string`
 
-- **Restriction:** only respected when used as a component option.
-
 - **Details:**
 
   Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with `Vue.createApp({}).component({})`, the global ID is automatically set as its name.
