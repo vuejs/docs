@@ -104,7 +104,7 @@ If `setup` returns an object, the properties on the object can be accessed in th
 ```vue-html
 <!-- MyBook.vue -->
 <template>
-  <div>{{ props.collectionName }}: {{ readersNumber }} {{ book.title }}</div>
+  <div>{{ collectionName }}: {{ readersNumber }} {{ book.title }}</div>
 </template>
 
 <script>
@@ -121,8 +121,7 @@ If `setup` returns an object, the properties on the object can be accessed in th
       // expose to template
       return {
         readersNumber,
-        book,
-        props
+        book
       }
     }
   }
