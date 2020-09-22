@@ -43,14 +43,13 @@
 
   By default, parent scope attribute bindings that are not recognized as props will "fallthrough". This means that when we have a single-root component, these bindings will be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting `inheritAttrs` to `false`, this default behavior can be disabled. The attributes are available via the `$attrs` instance property and can be explicitly bound to a non-root element using `v-bind`.
 
-  Note: this option does **not** affect `class` and `style` bindings.
-
 - **Usage:**
 
   ```js
   app.component('base-input', {
     inheritAttrs: false,
     props: ['label', 'value'],
+    emits: ['input'],
     template: `
       <label>
         {{ label }}
