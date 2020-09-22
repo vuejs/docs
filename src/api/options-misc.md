@@ -10,6 +10,29 @@
 
   Another benefit of specifying a `name` option is debugging. Named components result in more helpful warning messages. Also, when inspecting an app in the [vue-devtools](https://github.com/vuejs/vue-devtools), unnamed components will show up as `<AnonymousComponent>`, which isn't very informative. By providing the `name` option, you will get a much more informative component tree.
 
+## delimiters
+
+- **Type:** `Array<string>`
+
+- **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}` 
+
+- **Restrictions:** This option is only available in the full build, with in-browser template compilation.
+
+- **Details:**
+
+  Sets the delimiters used for text interpolation within the template.
+
+  Typically this is used to avoid conflicting with server-side frameworks that also use mustache syntax.
+
+- **Example:**
+
+  ```js
+  Vue.createApp({
+    // Delimiters changed to ES6 template string style
+    delimiters: ['${', '}']
+  })
+  ```
+
 ## inheritAttrs
 
 - **Type:** `boolean`
