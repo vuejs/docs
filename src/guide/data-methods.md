@@ -133,5 +133,5 @@ const app = Vue.createApp({
 This is using the `created` lifecycle hook to create a debounced method on the current component instance. As all instance properties are accessible in the component's template, `debouncedClick` can be used as an event listener:
 
 ```html
-<button v-on:click="debouncedClick">Save</button>
+<button @click="debouncedClick">Save</button>
 ```
