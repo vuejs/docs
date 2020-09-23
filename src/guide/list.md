@@ -280,7 +280,7 @@ When they exist on the same node, `v-if` has a higher priority than `v-for`. Tha
 This can be fixed with moving `v-for` to the wrapping <template> tag:
 
 ```html
-<template> v-for="todo in todos"
+<template v-for="todo in todos">
   <li v-if="!todo.isComplete">
     {{ todo }}
   </li>
