@@ -63,7 +63,7 @@ We'll talk about [the component system](component-basics.html) in detail later. 
 
 ## Component Instance Properties
 
-Earlier in the guide we met `data` properties:
+Earlier in the guide we met `data` properties. Properties defined in `data` are exposed via the component instance:
 
 ```js
 const app = Vue.createApp({
@@ -75,40 +75,9 @@ const app = Vue.createApp({
 const vm = app.mount('#app')
 
 console.log(vm.count) // => 4
-
-// Assign a new value
-vm.count = 5
 ```
 
-As shown above, properties defined in `data` are exposed via the component instance, `vm`. Vue's reactivity system will track when those properties are used and updates will be triggered if a new value is assigned.
-
-To define methods on a component instance we would usually use the `methods` option:
-
-```js
-const app = Vue.createApp({
-  data() {
-    return { count: 4 }
-  },
-  methods: {
-    increment() {
-      // `this` refers to the same object as vm
-      this.count++
-    }
-  }
-})
-
-const vm = app.mount('#app')
-
-console.log(vm.count) // => 4
-
-vm.increment()
-
-console.log(vm.count) // => 5
-```
-
-Inside the methods of a component, the `this` value will be bound to the component instance.
-
-There are various other Vue features that add user-defined properties to the component instance, such as `props`, `computed`, `inject` and `setup`. We'll discuss each of these in depth later in the guide. All of the properties of the component instance, no matter how they are defined, will be accessible in the component's template.
+There are various other component options that add user-defined properties to the component instance, such as `methods`, `props`, `computed`, `inject` and `setup`. We'll discuss each of these in depth later in the guide. All of the properties of the component instance, no matter how they are defined, will be accessible in the component's template.
 
 Vue also exposes some built-in properties via the component instance, such as `$attrs` and `$emit`. These properties all have a `$` prefix to avoid conflicting with user-defined property names.
 
