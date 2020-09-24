@@ -4,11 +4,13 @@
 
 - **Props:**
 
-  - `is` - `string | ComponentDefinition | ComponentConstructor`
+  - `is` - `string | Component`
 
 - **Использование:**
 
-  A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop:
+  A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop. An `is` prop as a string could be either an HTML tag name or a Component name.
+
+- **Пример:**
 
   ```html
   <!-- a dynamic component controlled by -->
@@ -17,6 +19,12 @@
 
   <!-- can also render registered component or component passed as prop -->
   <component :is="$options.components.child"></component>
+
+  <!-- can reference components by string -->
+  <component :is="condition ? 'FooComponent' : 'BarComponent'"></component>
+
+  <!-- can be used to render native HTML elements -->
+  <component :is="href ? 'a' : 'span'"></component>
   ```
 
 - **См. также:** [Dynamic Components](../guide/component-dynamic-async.md)
@@ -127,7 +135,7 @@
 
 ## keep-alive
 
-- **Props:**
+- **Входные параметры:**
 
   - `include` - `string | RegExp | Array`. Only components with matching names will be cached.
   - `exclude` - `string | RegExp | Array`. Any component with a matching name will not be cached.
@@ -163,7 +171,7 @@
 
   Note, `<keep-alive>` is designed for the case where it has one direct child component that is being toggled. It does not work if you have `v-for` inside it. When there are multiple conditional children, as above, `<keep-alive>` requires that only one child is rendered at a time.
 
-- **`include` and `exclude`**
+- **`include` и `exclude`**
 
   The `include` and `exclude` props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an Array:
 

@@ -99,19 +99,22 @@ In other words, you **will not have access** to the following component options:
 
 ## Usage with Templates
 
-If `setup` returns an object, the properties on the object can be accessed in the component's template:
+If `setup` returns an object, the properties on the object can be accessed in the component's template, as well as the properties of the `props` passed into `setup`:
 
 ```vue-html
 <!-- MyBook.vue -->
 <template>
-  <div>{{ readersNumber }} {{ book.title }}</div>
+  <div>{{ collectionName }}: {{ readersNumber }} {{ book.title }}</div>
 </template>
 
 <script>
   import { ref, reactive } from 'vue'
 
   export default {
-    setup() {
+    props: {
+      collectionName: String
+    },
+    setup(props) {
       const readersNumber = ref(0)
       const book = reactive({ title: 'Vue 3 Guide' })
 
@@ -125,7 +128,7 @@ If `setup` returns an object, the properties on the object can be accessed in th
 </script>
 ```
 
-Note that [refs](../api/refs-api.md#ref) returned from `setup` are [automatically unwrapped](../api/refs-api.md#access-in-templates) when accessed in the template so you shouldn't use `.value` in templates.
+Note that [refs](../api/refs-api.md#ref) returned from `setup` are [automatically unwrapped](/guide/reactivity-fundamentals.md#ref-unwrapping) when accessed in the template so you shouldn't use `.value` in templates.
 
 ## Usage with Render Functions
 

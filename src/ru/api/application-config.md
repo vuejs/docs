@@ -8,20 +8,6 @@ const app = Vue.createApp({})
 app.config = {...}
 ```
 
-## devtools
-
-- **Тип:** `boolean`
-
-- **По умолчанию:** `true` (`false` в production-сборках)
-
-- **Использование:**
-
-```js
-app.config.devtools = true
-```
-
-Конфигурация доступа vue-devtools для инспекций приложения. Определяет, должен ли Vue разрешать [vue-devtools](https://github.com/vuejs/vue-devtools) проводить проверку. Значение по умолчанию для разработки `true` и `false` для production. Установите `true` чтобы работало и в production.
-
 ## errorHandler
 
 - **Тип:** `Function`
