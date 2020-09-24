@@ -192,7 +192,7 @@ const AsyncComp = defineAsyncComponent({
   // The error component will be displayed if a timeout is
   // provided and exceeded. Default: Infinity.
   timeout: 3000,
-  // Defining if component is suspensible
+  // Defining if component is suspensible. Default: true.
   suspensible: false,
   /**
    *
@@ -201,7 +201,16 @@ const AsyncComp = defineAsyncComponent({
    * @param {*} fail  End of failure
    * @param {*} attempts Maximum allowed retries number
    */
-  onError(error, retry, fail, attempts) {},
+  onError(error, retry, fail, attempts) {
+    if (error.message.match(/fetch/) && attempts <= 3) {
+      // retry on fetch errors, 3 max attempts
+      retry()
+    } else {
+      // Note that retry/fail are like resolve/reject of a promise:
+      // one of them must be called for the error handling to continue.
+      fail()
+    }
+  },
 })
 ```
 
@@ -233,9 +242,9 @@ render() {
 
 ### Arguments
 
-Accepts one argument: `component`
+Accepts one argument: `name`
 
-#### component
+#### name
 
 - **Type:** `String`
 

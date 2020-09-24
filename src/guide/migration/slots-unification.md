@@ -62,4 +62,4 @@ this.$slots.header()
 A majority of the change has already been shipped in 2.6. As a result, the migration can happen in one step:
 
 1. Replace all `this.$scopedSlots` occurrences with `this.$slots` in 3.x.
-2. Replace all occurences of `this.$slots.mySlot` with `this.$slots.mySlot()`
+2. Replace all occurrences of `this.$slots.mySlot` with `this.$slots.mySlot()`

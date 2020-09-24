@@ -1314,28 +1314,31 @@ This is the default order we recommend for component options. They're split into
 1. **Global Awareness** (requires knowledge beyond the component)
     - `name`
 
-2. **Template Dependencies** (assets used in the template)
+2. **Template Modifiers** (changes the way templates are compiled)
+    - `delimiters`
+
+3. **Template Dependencies** (assets used in the template)
     - `components`
     - `directives`
 
-3. **Composition** (merges properties into the options)
+4. **Composition** (merges properties into the options)
     - `extends`
     - `mixins`
     - `provide`/`inject`
 
-4. **Interface** (the interface to the component)
+5. **Interface** (the interface to the component)
     - `inheritAttrs`
     - `props`
     - `emits`
 
-5. **Composition API** (the entry point for using the Composition API)
+6. **Composition API** (the entry point for using the Composition API)
     - `setup`
 
-6. **Local State** (local reactive properties)
+7. **Local State** (local reactive properties)
     - `data`
     - `computed`
 
-7. **Events** (callbacks triggered by reactive events)
+8. **Events** (callbacks triggered by reactive events)
     - `watch`
     - Lifecycle Events (in the order they are called)
         - `beforeCreate`
@@ -1352,10 +1355,10 @@ This is the default order we recommend for component options. They're split into
         - `renderTracked`
         - `renderTriggered`
 
-8.  **Non-Reactive Properties** (instance properties independent of the reactivity system)
+9.  **Non-Reactive Properties** (instance properties independent of the reactivity system)
     - `methods`
 
-9. **Rendering** (the declarative description of the component output)
+10. **Rendering** (the declarative description of the component output)
     - `template`/`render`
 
 ### Element attribute order <sup data-p="c">recommended</sup>

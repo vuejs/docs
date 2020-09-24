@@ -7,7 +7,7 @@ badges:
 
 ## Overview
 
-Filters are removed from Vue 3.0 and no longer be supported.
+Filters are removed from Vue 3.0 and no longer supported.
 
 ## 2.x Syntax
 
