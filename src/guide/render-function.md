@@ -394,8 +394,10 @@ render() {
 If we're writing a lot of `render` functions, it might feel painful to write something like this:
 
 ```js
+import { resolveComponent } from 'vue'
+
 Vue.h(
-  'anchored-heading',
+  resolveComponent('anchored-heading'),
   {
     level: 1
   },
