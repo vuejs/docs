@@ -1,6 +1,6 @@
 # API приложения
 
-In Vue 3, APIs that globally mutate Vue's behavior are now moved to application instances created by the new `createApp` method. In addition, their effects are now scoped to that specific application's instance:
+Во Vue 3 все API, глобально мутировавшие поведение Vue, были перенесены в экземпляры приложения, создаваемые с помощью нового метода `createApp`. Кроме того, теперь их эффекты ограничены конкретным экземпляром приложения:
 
 ```js
 import { createApp } from 'vue'
@@ -8,25 +8,25 @@ import { createApp } from 'vue'
 const app = createApp({})
 ```
 
-Calling `createApp` returns an application instance. This instance provides an application context. The entire component tree mounted by the application instance share the same context, which provides the configurations that were previously "global" in Vue 2.x.
+Вызов `createApp` возвращает экземпляр приложения. Этот экземпляр предоставляет доступ к контексту приложения. Всё дерево компонентов, смонтированных экземпляром приложения, имеет один и тот же контекст, который предоставляет конфигурации, которые ранее были «глобальными» во Vue 2.x.
 
-In addition, since the `createApp` method returns the application instance itself, you can chain other methods after it which can be found in the following sections.
+Кроме того, так как метод `createApp` возвращает экземпляр приложения, теперь можно составлять цепочкой вызовы других методов, которые можно найти в следующих разделах.
 
 ## component
 
 - **Аргументы:**
 
   - `{string} name`
-  - `{Function | Object} definition (optional)`
+  - `{Function | Object} definition (опционально)`
 
 - **Возвращает:**
 
-  - The application instance if a `definition` argument was passed
-  - The component definition if a `definition` argument was not passed 
+  - Экземпляр приложения, если аргумент `definition` передавался
+  - Экземпляр компонента, если аргумент `definition` не передавался
 
 - **Использование:**
 
-  Register or retrieve a global component. Registration also automatically sets the component's `name` with the given `name` parameter.
+  Регистрация или получение глобального компонента. Регистрация также автоматически устанавливает `name` компонента в соответствии с полученным параметром `name`.
 
 - **Пример:**
 
@@ -35,22 +35,22 @@ import { createApp } from 'vue'
 
 const app = createApp({})
 
-// register an options object
+// регистрация с объектом настроек
 app.component('my-component', {
   /* ... */
 })
 
-// retrieve a registered component
+// получение зарегистрированного компонента
 const MyComponent = app.component('my-component')
 ```
 
-- **См. также:** [Components](../guide/component-basics.md)
+- **См. также:** [Компоненты](../guide/component-basics.md)
 
 ## config
 
 - **Использование:**
 
-An object containing application configurations.
+Объект, содержащий конфигурацию приложения.
 
 - **Пример:**
 
@@ -61,23 +61,23 @@ const app = createApp({})
 app.config = {...}
 ```
 
-- **См. также:** [Application Config](./application-config.md)
+- **См. также:** [Конфигурация приложения](./application-config.md)
 
 ## directive
 
 - **Аргументы:**
 
   - `{string} name`
-  - `{Function | Object} definition (optional)`
+  - `{Function | Object} definition (опционально)`
 
 - **Возвращает:**
 
-  - The application instance if a `definition` argument was passed
-  - The directive definition if a `definition` argument was not passed 
+  - Экземпляр приложения, если аргумент `definition` передавался
+  - Экземпляр компонента, если аргумент `definition` не передавался
 
 - **Использование:**
 
-  Register or retrieve a global directive.
+  Регистрация или получение глобальной директивы.
 
 - **Пример:**
 
@@ -85,48 +85,48 @@ app.config = {...}
 import { createApp } from 'vue'
 const app = createApp({})
 
-// register
+// регистрация
 app.directive('my-directive', {
-  // Directive has a set of lifecycle hooks:
-  // called before bound element's parent component is mounted
+  // Директива имеет набор хуков жизненного цикла:
+  // вызывается перед монтированием элемента родительским компонентом
   beforeMount() {},
-  // called when bound element's parent component is mounted
+  // вызывается после монтирования элемента родительским компонентом
   mounted() {},
-  // called before the containing component's VNode is updated
+  // вызывается перед обновлением VNode, содержащего компонента
   beforeUpdate() {},
-  // called after the containing component's VNode and the VNodes of its children // have updated
+  // вызывается после того, как VNode содержащего компонента и VNodes его дочерних элементов были обновлены
   updated() {},
-  // called before the bound element's parent component is unmounted
+  // вызывается перед тем, как родительский компонент элемента будет размонтирован
   beforeUnmount() {},
-  // called when the bound element's parent component is unmounted
+  // вызывается после того, как родительский компонент элемента размонтирован
   unmounted() {}
 })
 
-// register (function directive)
+// регистрация (определение директивы функцией)
 app.directive('my-directive', () => {
-  // this will be called as `mounted` and `updated`
+  // будет вызываться для хуков `mounted` и `updated`
 })
 
-// getter, return the directive definition if registered
+// получение, возвращение определения директивы если уже зарегистрирована
 const myDirective = app.directive('my-directive')
 ```
 
-Directive hooks are passed these arguments:
+Хуки директивы принимают следующие аргументы:
 
 #### el
 
-The element the directive is bound to. This can be used to directly manipulate the DOM.
+Элемент, к которому привязывается директива. Можно использовать для прямого манипулирования DOM.
 
 #### binding
 
-An object containing the following properties.
+Объект, содержащий следующие свойства.
 
-- `instance`: The instance of the component where directive is used.
-- `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-- `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
-- `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-- `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-- `dir`: an object, passed as a parameter when directive is registered. For example, in the directive
+- `instance`: Экземпляр компонента, где используется директива.
+- `value`: Значение, переданное в директиву. Например для `v-my-directive="1 + 1"` значение будет `2`.
+- `oldValue`: Предыдущее значение, доступно только в `beforeUpdate` и `updated`. Доступно независимо от того, изменялось ли значение.
+- `arg`: Аргумент, переданный в директиву, если таковой имелся. Например для `v-my-directive:foo` аргумент будет `"foo"`.
+- `modifiers`: Объект, содержащий модификаторы, если таковые были указаны. Например для `v-my-directive.foo.bar` объект будет таким `{ foo: true, bar: true }`.
+- `dir`: объект, передаваемый в качестве параметра при регистрации директивы. Например для директивы
 
 ```js
 app.directive('focus', {
@@ -136,7 +136,7 @@ app.directive('focus', {
 })
 ```
 
-`dir` would be the following object:
+`dir` будет следующим объектом:
 
 ```js
 {
@@ -148,17 +148,17 @@ app.directive('focus', {
 
 #### vnode
 
-A blueprint of the real DOM element received as el argument above.
+Схема реального DOM-элемента, полученного в качестве аргумента `el` выше.
 
 #### prevNode
 
-The previous virtual node, only available in the `beforeUpdate` and `updated` hooks.
+Предыдущая виртуальная нода, доступна только в хуках `beforeUpdate` и `updated`.
 
 :::tip Примечание
-Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+Кроме `el`, следует относиться к этим аргументам как к доступным «только для чтения» и никогда не изменять их. При необходимости передавать данные между хуками рекомендуем воспользоваться [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) элемента.
 :::
 
-- **См. также:** [Custom Directives](../guide/custom-directive.md)
+- **См. также:** [Пользовательские директивы](../guide/custom-directive.md)
 
 ## mixin
 
@@ -168,13 +168,13 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Возвращает:**
 
-  - The application instance 
+  - Экземпляр приложения
 
 - **Использование:**
 
-  Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+  Добавляет примесь (mixin) ко всей области приложения. После регистрации они могут использоваться в шаблоне любого компонента текущего приложении. Это может быть полезно разработчикам плагинов для добавления собственного пользовательского поведения в компоненты. **Не рекомендуется использовать в коде приложения**.
 
-- **См. также:** [Global Mixin](../guide/mixins.md#global-mixin)
+- **См. также:** [Глобальные примеси](../guide/mixins.md#global-mixin)
 
 ## mount
 
@@ -185,11 +185,11 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Возвращает:**
 
-  - The root component instance
+  - Экземпляр корневого компонента
 
 - **Использование:**
 
-  Mounts a root component of the application instance on the provided DOM element.
+  Смонтирует корневой компонент экземпляра приложения в указанный элемент DOM.
 
 - **Пример:**
 
@@ -203,12 +203,11 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 import { createApp } from 'vue'
 
 const app = createApp({})
-// do some necessary preparations
+// выполнение необходимых приготовлений
 app.mount('#my-app')
 ```
 
-- **См. также:**
-  - [Lifecycle Diagram](../guide/instance.md#lifecycle-diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.md#lifecycle-diagram)
 
 ## provide
 
@@ -219,25 +218,25 @@ app.mount('#my-app')
 
 - **Возвращает:**
 
-  - The application instance
+  - Экземпляр приложения
 
 - **Использование:**
 
-  Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
+  Устанавливает значение, которое будет внедрено во все компоненты внутри приложения. Компоненты должны использовать `inject` для получения этих установленных значений.
    
-  From a `provide`/`inject` perspective, the application can be thought of as the root-level ancestor, with the root component as its only child.
+  С точки зрения `provide`/`inject`, приложение может рассматриваться как предок на корневом уровне, а корневой компонент — как его единственный дочерний элемент.
 
-  This method should not be confused with the [provide component option](options-composition.md#provide-inject) or the [provide function](composition-api.md#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application. 
+  Не следует путать этот метод с [предоставлением опций компоненту](options-composition.md#provide-inject) или [предоставлением функции](composition-api.md#provide-inject) в composition API. Хотя они также являются частью того же механизма `provide`/`inject`, они используются для конфигурирования значений, предоставляемых компонентов, а не приложением. 
 
-  Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.md#globalproperties).
+  Предоставление значений через приложение полезно при разработке плагинов, так как плагины обычно не могут предоставлять значения, используемые компонентами. Это альтернатива использованию [globalProperties](application-config.md#globalproperties).
 
   :::tip Примечание
-  The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+  Привязки `provide` и `inject` **НЕ ЯВЛЯЮТСЯ РЕАКТИВНЫМИ**. Так и задумано. Однако, при передаче объекта, его свойства остаются реактивными.
   :::
 
 - **Пример:**
 
-  Injecting a property into the root component, with a value provided by the application:
+  Внедрение свойства в корневой компонент со значением, предоставленным приложением:
 
 ```js
 import { createApp } from 'vue'
@@ -254,8 +253,7 @@ const app = createApp({
 app.provide('user', 'administrator')
 ```
 
-- **См. также:**
-  - [Provide / Inject](../guide/component-provide-inject.md)
+- **См. также:** [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
 
@@ -265,7 +263,7 @@ app.provide('user', 'administrator')
 
 - **Использование:**
 
-  Unmounts a root component of the application instance on the provided DOM element.
+  Размонтирует корневой компонент экземпляра приложения от указанного элемента DOM.
 
 - **Пример:**
 
@@ -279,10 +277,10 @@ app.provide('user', 'administrator')
 import { createApp } from 'vue'
 
 const app = createApp({})
-// do some necessary preparations
+// некоторые необходимые приготовления
 app.mount('#my-app')
 
-// Application will be unmounted 5 seconds after mount
+// приложение будет размонтировано через 5 секунд после монтирования
 setTimeout(() => app.unmount('#my-app'), 5000)
 ```
 
@@ -291,18 +289,18 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 - **Аргументы:**
 
   - `{Object | Function} plugin`
-  - `...options (optional)`
+  - `...options (опционально)`
 
 - **Возвращает:**
 
-  - The application instance
+  - Экземпляр приложения
 
 - **Использование:**
 
-  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method.
+  Установка плагина Vue.js. Если передаётся объект, то он должен предоставлять метод `install`. Если указывается функция, то она сама рассматривается как метод для установки.
   
-  The install method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
+  Метод установки будет вызван с передачей приложения первым аргументом. Любые настройки `options` переданные в `use` будут передаваться в последующих аргументах.
 
-  When this method is called on the same plugin multiple times, the plugin will be installed only once.
+  При многократном вызове метода одного и того же плагина, установка будет выполнена только один раз.
 
-- **См. также:** [Plugins](../guide/plugins.md)
+- **См. также:** [Плагины](../guide/plugins.md)
