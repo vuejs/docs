@@ -58,6 +58,6 @@ We removed `$on`, `$off` and `$once` methods from the instance completely. `$emi
 
 ## Migration Strategy
 
-Existing event hubs can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt).
+Existing event hubs can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt) or [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
 
 These methods can also be supported in compatibility builds.

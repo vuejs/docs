@@ -13,7 +13,7 @@ If you’ve ever had to manually manipulate DOM in Vue, you might have come acro
 import Vue from 'vue'
 
 Vue.nextTick(() => {
-  // something something DOM-related
+  // something DOM-related
 })
 ```
 
@@ -48,7 +48,7 @@ In Vue 3, the global and internal APIs have been restructured with tree-shaking 
 import { nextTick } from 'vue'
 
 nextTick(() => {
-  // something something DOM-related
+  // something DOM-related
 })
 ```
 
