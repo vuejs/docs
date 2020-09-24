@@ -132,7 +132,7 @@ In 3.x, the entire VNode props structure is flattened. Using the example from ab
 
 ### 2.x Syntax
 
-In 2.x, when a component has been registered, the render function will work well when passing the component's name as string to the first arguments:
+In 2.x, when a component has been registered, the render function would work well when passing the component's name as a string to the first argument:
 
 ```js
 // 2.x
@@ -140,7 +140,11 @@ Vue.component('button-counter', {
   data: () => ({
     count: 0
   }),
-  template: '<button @click="count++">Clicked {{ count }} times.</button>'
+  template: `
+    <button @click="count++">
+          Clicked {{ count }} times.
+    </button>
+  `
 })
 
 export default {
@@ -152,7 +156,7 @@ export default {
 
 ### 3.x Syntax
 
-In 3.x, with VNodes being context-free, we can no longer use a string ID to implicitly lookup registered components. Instead, we need to use an imported API:
+In 3.x, with VNodes being context-free, we can no longer use a string ID to implicitly lookup registered components. Instead, we need to use an imported `resolveComponent` method:
 
 ```js
 // 3.x
