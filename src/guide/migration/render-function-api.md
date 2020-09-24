@@ -162,10 +162,9 @@ In 3.x, with VNodes being context-free, we can no longer use a string ID to impl
 // 3.x
 import { h, resolveComponent } from 'vue'
 
-const ButtonCounter = resolveComponent('button-counter')
-
 export default {
   setup() {
+    const ButtonCounter = resolveComponent('button-counter')
     return () => h(ButtonCounter)
   }
 }
