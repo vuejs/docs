@@ -278,7 +278,7 @@ When they exist on the same node, `v-if` has a higher priority than `v-for`. Tha
 </li>
 ```
 
-This can be fixed with moving `v-for` to the wrapping <template> tag:
+This can be fixed by moving `v-for` to a wrapping `<template>` tag:
 
 ```html
 <template v-for="todo in todos">
