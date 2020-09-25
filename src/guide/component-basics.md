@@ -482,7 +482,7 @@ app.component('blog-post', {
 <blog-post post-title="hello!"></blog-post>
 ```
 
-It should be noted that **these limitations does _not_ apply if you are using string templates from one of the following sources**:
+It should be noted that **these limitations do _not_ apply if you are using string templates from one of the following sources**:
 
 - String templates (e.g. `template: '...'`)
 - [Single-file (`.vue`) components](single-file-component.html)
