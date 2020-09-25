@@ -395,7 +395,7 @@ If we're writing a lot of `render` functions, it might feel painful to write som
 
 ```js
 Vue.h(
-  'anchored-heading',
+  Vue.resolveComponent('anchored-heading'),
   {
     level: 1
   },
