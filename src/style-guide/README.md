@@ -233,7 +233,7 @@ computed: {
 </ul>
 ```
 
-Alternatively, we can use a `<template>` tag with `v-for` to wrap `li` element:
+Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` element:
 
 ```html
 <ul>
