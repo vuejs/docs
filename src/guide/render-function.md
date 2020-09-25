@@ -134,9 +134,9 @@ The `h()` function is a utility to create VNodes. It could perhaps more accurate
 ```js
 // @returns {VNode}
 h(
-  // {String | Object | Function | null} tag
-  // An HTML tag name, a component, an async component or null.
-  // Using null would render a comment.
+  // {String | Object | Function } tag
+  // An HTML tag name, a component or an async component.
+  // Using function returning null would render a comment.
   //
   // Required.
   'div',
@@ -307,11 +307,11 @@ render() {
       handler: this.doThisInCapturingMode,
       capture: true
     },
-    onKeyUp: {
+    onKeyup: {
       handler: this.doThisOnce,
       once: true
     },
-    onMouseOver: {
+    onMouseover: {
       handler: this.doThisOnceInCapturingMode,
       once: true,
       capture: true
@@ -355,7 +355,7 @@ render() {
 
 ### Slots
 
-You can access slot contents as Arrays of VNodes from [`this.$slots`](../api/#vm-slots):
+You can access slot contents as Arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
 
 ```js
 render() {
@@ -395,7 +395,7 @@ If we're writing a lot of `render` functions, it might feel painful to write som
 
 ```js
 Vue.h(
-  'anchored-heading',
+  Vue.resolveComponent('anchored-heading'),
   {
     level: 1
   },
@@ -409,13 +409,12 @@ Especially when the template version is so concise in comparison:
 <anchored-heading :level="1"> <span>Hello</span> world! </anchored-heading>
 ```
 
-That's why there's a [Babel plugin](https://github.com/vuejs/jsx) to use JSX with Vue, getting us back to a syntax that's closer to templates:
+That's why there's a [Babel plugin](https://github.com/vuejs/jsx-next) to use JSX with Vue, getting us back to a syntax that's closer to templates:
 
 ```jsx
 import AnchoredHeading from './AnchoredHeading.vue'
 
-new Vue({
-  el: '#demo',
+const app = createApp({
   render() {
     return (
       <AnchoredHeading level={1}>
@@ -424,9 +423,11 @@ new Vue({
     )
   }
 })
+
+app.mount('#demo')
 ```
 
-For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/vuejs/jsx#installation).
+For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/vuejs/jsx-next#installation).
 
 ## Template Compilation
 

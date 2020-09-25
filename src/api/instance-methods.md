@@ -1,6 +1,6 @@
 # Instance Methods
 
-## \$watch
+## $watch
 
 - **Arguments:**
 
@@ -172,7 +172,7 @@
 
 - **See also:** [Watchers](../guide/computed.html#watchers)
 
-## \$emit
+## $emit
 
 - **Arguments:**
 
@@ -249,13 +249,13 @@
   - [`emits` option](./options-data.html#emits)
   - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
 
-## \$forceUpdate
+## $forceUpdate
 
 - **Usage:**
 
   Force the component instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
 
-## \$nextTick
+## $nextTick
 
 - **Arguments:**
 

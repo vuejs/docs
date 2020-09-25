@@ -60,7 +60,7 @@ Though you might have seen labels wrapping the input fields like this:
 </label>
 ```
 
-Explicitly setting the labels with an matching id is better supported by assistive technology.
+Explicitly setting the labels with a matching id is better supported by assistive technology.
 :::
 
 #### aria-label
@@ -159,7 +159,7 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-You can see the description by instecting Chrome DevTools:
+You can see the description by inspecting Chrome DevTools:
 
 ![Chrome Developer Tools showing input accessible name from aria-labelledby and description with aria-describedby](/images/AccessibleARIAdescribedby.png)
 

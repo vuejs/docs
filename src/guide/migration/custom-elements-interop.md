@@ -3,7 +3,7 @@ badges:
   - breaking
 ---
 
-# Custom Elements Interop changes <MigrationBadges :badges="$frontmatter.badges" />
+# Custom Elements Interop <MigrationBadges :badges="$frontmatter.badges" />
 
 # Overview
 

@@ -2,11 +2,13 @@
 
 > This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
 
+<VideoLesson href="https://www.vuemastery.com/courses/vue-3-essentials/lifecycle-hooks" title="Learn about how Lifecycle Hooks work with Vue Mastery">Watch a free video about Lifecycle Hooks on Vue Mastery</VideoLesson>
+
 You can access a component's lifecycle hook by prefixing the lifecycle hook with "on".
 
 The following table contains how the lifecycle hooks are invoked inside of [setup()](composition-api-setup.html):
 
-| Options API       | Hook inside inside `setup` |
+| Options API       | Hook inside `setup` |
 | ----------------- | -------------------------- |
 | `beforeCreate`    | Not needed\*               |
 | `created`         | Not needed\*               |

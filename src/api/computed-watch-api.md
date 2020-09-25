@@ -65,7 +65,7 @@ function watchEffect(
 ): StopHandle
 
 interface WatchEffectOptions {
-  flush?: 'pre' | 'post' | 'sync'
+  flush?: 'pre' | 'post' | 'sync' // default: 'pre'
   onTrack?: (event: DebuggerEvent) => void
   onTrigger?: (event: DebuggerEvent) => void
 }
@@ -132,7 +132,7 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 **Typing:**
 
 ```ts
-// wacthing single source
+// watching single source
 function watch<T>(
   source: WatcherSource<T>,
   callback: (
