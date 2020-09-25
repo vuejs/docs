@@ -210,7 +210,7 @@ When Vue processes directives, `v-if` has a higher priority than `v-for`, so tha
 </ul>
 ```
 
-Will throw an error, because `v-if` directive will be evaluated first and property `user` does not exist at this moment.
+Will throw an error, because the `v-if` directive will be evaluated first and the iteration variable `user` does not exist at this moment.
 
 This could be fixed by iterating over a computed property instead, like this:
 
