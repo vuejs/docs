@@ -2,7 +2,7 @@
 
 ## Basics
 
-Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be "mixed" into the component's own options.
+Mixins distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be "mixed" into the component's own options.
 
 Example:
 
@@ -212,6 +212,8 @@ app.mixin({
   }
 })
 ```
+
+## Precautions
 
 In Vue 2, mixins were the primary tool to abstract parts of component logic into reusable chunks. However, they have a few issues:
 

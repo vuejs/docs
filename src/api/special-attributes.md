@@ -63,8 +63,6 @@ For example:
 ```html
 <!-- component changes when currentView changes -->
 <component :is="currentView"></component>
-
-For detailed usage, follow the links in the description above.
 ```
 
 - **See also:**
