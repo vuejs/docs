@@ -196,7 +196,7 @@ There are two common cases where this can be tempting:
 - To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
 
 ::: details Detailed Explanation
-When Vue processes directives, `v-for` has a higher priority than `v-if`, so that this template:
+When Vue processes directives, `v-if` has a higher priority than `v-for`, so that this template:
 
 ``` html
 <ul>
@@ -210,19 +210,9 @@ When Vue processes directives, `v-for` has a higher priority than `v-if`, so tha
 </ul>
 ```
 
-Will be evaluated similar to:
+Will throw an error, because the `v-if` directive will be evaluated first and the iteration variable `user` does not exist at this moment.
 
-``` js
-this.users.map(user => {
-  if (user.isActive) {
-    return user.name
-  }
-})
-```
-
-So even if we only render elements for a small fraction of users, we have to iterate over the entire list every time we re-render, whether or not the set of active users has changed.
-
-By iterating over a computed property instead, like this:
+This could be fixed by iterating over a computed property instead, like this:
 
 ``` js
 computed: {
@@ -243,40 +233,18 @@ computed: {
 </ul>
 ```
 
-We get the following benefits:
+Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` element:
 
-- The filtered list will _only_ be re-evaluated if there are relevant changes to the `users` array, making filtering much more efficient.
-- Using `v-for="user in activeUsers"`, we _only_ iterate over active users during render, making rendering much more efficient.
-- Logic is now decoupled from the presentation layer, making maintenance (change/extension of logic) much easier.
-
-We get similar benefits from updating:
-
-``` html
+```html
 <ul>
-  <li
-    v-for="user in users"
-    v-if="shouldShowUsers"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
+  <template v-for="user in users" :key="user.id">
+    <li v-if="user.isActive">
+      {{ user.name }}
+    </li>
+  </template>
 </ul>
 ```
 
-to:
-
-``` html
-<ul v-if="shouldShowUsers">
-  <li
-    v-for="user in users"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
-</ul>
-```
-
-By moving the `v-if` to a container element, we're no longer checking `shouldShowUsers` for _every_ user in the list. Instead, we check it once and don't even evaluate the `v-for` if `shouldShowUsers` is false.
 :::
 
 <div class="style-example style-example-bad">
@@ -287,18 +255,6 @@ By moving the `v-if` to a container element, we're no longer checking `shouldSho
   <li
     v-for="user in users"
     v-if="user.isActive"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
-</ul>
-```
-
-``` html
-<ul>
-  <li
-    v-for="user in users"
-    v-if="shouldShowUsers"
     :key="user.id"
   >
     {{ user.name }}
@@ -321,14 +277,13 @@ By moving the `v-if` to a container element, we're no longer checking `shouldSho
 </ul>
 ```
 
-``` html
-<ul v-if="shouldShowUsers">
-  <li
-    v-for="user in users"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
+```html
+<ul>
+  <template v-for="user in users" :key="user.id">
+    <li v-if="user.isActive">
+      {{ user.name }}
+    </li>
+  </template>
 </ul>
 ```
 </div>
