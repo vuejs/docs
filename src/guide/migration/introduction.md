@@ -22,6 +22,7 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
 
 - Via CDN: `<script src="https://unpkg.com/vue@next"></script>`
 - In-browser playground on [Codepen](https://codepen.io/yyx990803/pen/OJNoaZL)
+- In-browser Sandbox on [CodeSandbox](https://v3.vue.new)
 - Scaffold via [Vite](https://github.com/vitejs/vite):
 
   ```bash
