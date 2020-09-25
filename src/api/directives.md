@@ -62,7 +62,7 @@
 
   This directive triggers transitions when its condition changes.
 
-  When used together with `v-for`, `v-if` has a higher priority than v-if. We don't recommend using two these directives together on one element, see the [list rendering guide](../guide/list.html#v-for-with-v-if) for details.
+  When used together with `v-for`, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element, see the [list rendering guide](../guide/list.html#v-for-with-v-if) for details.
 
 - **See also:** [Conditional Rendering - v-if](../guide/conditional.html#v-if)
 
