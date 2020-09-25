@@ -76,7 +76,7 @@ render() {
 
 #### tag
 
-- **Type:** `String | Object | Function | null`
+- **Type:** `String | Object | Function`
 
 - **Details:**
 
@@ -131,6 +131,17 @@ const MyComponent = defineComponent({
 })
 ```
 
+또는 `setup` function, function 이름이 component 이름으로 사용됩니다.
+
+```js
+import { defineComponent, ref } from 'vue'
+
+const HelloWorld = defineComponent(function HelloWorld() {
+  const count = ref(0)
+  return { count }
+})
+```
+
 ## defineAsyncComponent
 
 필요한 경우에만 로드되는 비동기 컴포넌트를 만듭니다.
@@ -182,12 +193,25 @@ const AsyncComp = defineAsyncComponent({
   delay: 200,
   // 지정된 시간이 초과한경우 오류 컴포넌트를 표시합니다.(기본값:무한정)
   timeout: 3000,
-  // 로더 promise가 rejects 될 때 비동기 컴포넌트가 다시 시도 할지를 boolean 값으로 반환하는 함수
-  retryWhen: error => error.code !== 404,
-  // 최대 재시도 횟수
-  maxRetries: 3,
-  // 컴포넌트가 사용 가능한지 지정
-  suspensible: false
+  // 컴포넌트가 사용 가능한지 지정. (기본값: true)
+  suspensible: false,
+  /**
+   *
+   * @param {*} error 에러메시지 오브젝트
+   * @param {*} retry A로더 promise가 rejects 될 때 비동기 컴포넌트가 다시 시도 할지를 boolean 값으로 반환하는 함수
+   * @param {*} fail  실패후 처리
+   * @param {*} attempts 최대 재시도 횟수
+   */
+  onError(error, retry, fail, attempts) {
+    if (error.message.match(/fetch/) && attempts <= 3) {
+      // fetch에러가 발생시 최대 3회 재시도
+      retry()
+    } else {
+      // Note retry/fail은 resolve/reject와 같습니다.
+      // 오류처리를 위해서 그 중 하나를 호출해야합니다.
+      fail()
+    }
+  },
 })
 ```
 
@@ -219,9 +243,9 @@ render() {
 
 ### 전달인자
 
-허용되는 인자: `component`
+허용되는 인자: `name`
 
-#### component
+#### name
 
 - **Type:** `String`
 
@@ -337,40 +361,32 @@ return withDirectives(h('div'), [
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(
-    h('div'), 
-    [ [MyDirective] ]
-  )
+  const nodeWithDirectives = withDirectives(h('div'), [[MyDirective]])
   ```
 
   - `[directive, value]` - 지시문에 할당 할 `any` 유형의 값
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(
-    h('div'), 
-    [ [MyDirective, 100] ]
-  )
+  const nodeWithDirectives = withDirectives(h('div'), [[MyDirective, 100]])
   ```
 
   - `[directive, value, arg]` - 플러스 `String` 인수, `v-on:click`에서 `click`
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(
-    h('div'), 
-    [ [MyDirective, 100, 'click'] ]
-  )
+  const nodeWithDirectives = withDirectives(h('div'), [
+    [MyDirective, 100, 'click']
+  ])
   ```
 
   - `[directive, value, arg, modifiers]` - `key: value` 쌍 `오브젝트(Object)`는 수정자를 정의합니다.
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(
-    h('div'), 
-    [ [MyDirective, 100, 'click', { prevent: true }] ]
-  )
+  const nodeWithDirectives = withDirectives(h('div'), [
+    [MyDirective, 100, 'click', { prevent: true }]
+  ])
   ```
 
 ## createRenderer
