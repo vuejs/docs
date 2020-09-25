@@ -137,12 +137,14 @@ In 2.x, when a component has been registered, the render function would work wel
 ```js
 // 2.x
 Vue.component('button-counter', {
-  data: () => ({
-    count: 0
-  }),
+  data() {
+    return {
+      count: 0
+    }
+  }
   template: `
     <button @click="count++">
-          Clicked {{ count }} times.
+      Clicked {{ count }} times.
     </button>
   `
 })
