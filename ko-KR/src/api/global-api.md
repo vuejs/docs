@@ -131,6 +131,17 @@ const MyComponent = defineComponent({
 })
 ```
 
+Or a `setup` function, function name will be used as component name
+
+```js
+import { defineComponent, ref } from 'vue'
+
+const HelloWorld = defineComponent(function HelloWorld() {
+  const count = ref(0)
+  return { count }
+})
+```
+
 ## defineAsyncComponent
 
 필요한 경우에만 로드되는 비동기 컴포넌트를 만듭니다.
