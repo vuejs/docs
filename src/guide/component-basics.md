@@ -38,7 +38,7 @@ Components are reusable instances with a name: in this case, `<button-counter>`.
 app.mount('#components-demo')
 ```
 
-<common-codepen-snippet title="Component basics" slug="abORVEJ" tab="js,result" />
+<common-codepen-snippet title="Component basics" slug="abORVEJ" tab="js,result" :preview="false" />
 
 Since components are reusable instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
 
@@ -54,7 +54,7 @@ Components can be reused as many times as you want:
 </div>
 ```
 
-<common-codepen-snippet title="Component basics: reusing components" slug="rNVqYvM" tab="html,result" />
+<common-codepen-snippet title="Component basics: reusing components" slug="rNVqYvM" tab="html,result" :preview="false" />
 
 Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
 
@@ -109,7 +109,7 @@ Once a prop is registered, you can pass data to it as a custom attribute, like t
 </div>
 ```
 
-<common-codepen-snippet title="Component basics: passing props" slug="PoqyOaX" tab="html,result" />
+<common-codepen-snippet title="Component basics: passing props" slug="PoqyOaX" tab="html,result" :preview="false" />
 
 In a typical app, however, you'll likely have an array of posts in `data`:
 
@@ -221,7 +221,7 @@ Then the child component can emit an event on itself by calling the built-in [**
 
 Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update `postFontSize` value.
 
-<common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="html,result" />
+<common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="html,result" :preview="false" />
 
 We can list emitted events in the component's `emits` option.
 
@@ -357,7 +357,7 @@ Just like with HTML elements, it's often useful to be able to pass content to a 
 
 Which might render something like:
 
-<common-codepen-snippet title="Component basics: slots" slug="jOPeaob" />
+<common-codepen-snippet title="Component basics: slots" slug="jOPeaob" :preview="false" />
 
 Fortunately, this task is made very simple by Vue's custom `<slot>` element:
 
@@ -380,7 +380,7 @@ That's all you need to know about slots for now, but once you've finished readin
 
 Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
 
-<common-codepen-snippet title="Component basics: dynamic components" slug="oNXaoKy" />
+<common-codepen-snippet title="Component basics: dynamic components" slug="oNXaoKy" :preview="false" />
 
 The above is made possible by Vue's `<component>` element with the `is` special attribute:
 

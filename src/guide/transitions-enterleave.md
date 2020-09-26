@@ -56,7 +56,7 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<common-codepen-snippet title="Simple Transition Component" slug="3466d06fb252a53c5bc0a0edb0f1588a" tab="html,result" />
+<common-codepen-snippet title="Simple Transition Component" slug="3466d06fb252a53c5bc0a0edb0f1588a" tab="html,result" :editable="false" />
 
 When an element wrapped in a `transition` component is inserted or removed, this is what happens:
 
@@ -134,7 +134,7 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<common-codepen-snippet title="Different Enter and Leave 0dfa7869450ef43d6f7bd99022bc53e2" slug="3466d06fb252a53c5bc0a0edb0f1588a" tab="css,result" />
+<common-codepen-snippet title="Different Enter and Leave" slug="3466d06fb252a53c5bc0a0edb0f1588a" tab="css,result" :editable="false" />
 
 ### CSS Animations
 
@@ -187,7 +187,7 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<common-codepen-snippet title="CSS Animation Transition Example" slug="8627c50c5514752acd73d19f5e33a781" tab="html,result" />
+<common-codepen-snippet title="CSS Animation Transition Example" slug="8627c50c5514752acd73d19f5e33a781" tab="html,result" :editable="false" />
 
 ### Custom Transition Classes
 
@@ -403,7 +403,7 @@ const Demo = {
 Vue.createApp(Demo).mount('#demo')
 ```
 
-<common-codepen-snippet title="JavaScript Hooks Transition" slug="68ce1b8c41d0a6e71ff58df80fd85ae5" tab="js,result" />
+<common-codepen-snippet title="JavaScript Hooks Transition" slug="68ce1b8c41d0a6e71ff58df80fd85ae5" tab="js,result" :editable="false" />
 
 ## Transitions on Initial Render
 
@@ -473,13 +473,13 @@ computed: {
 
 There's still one problem though. Try clicking the button below:
 
-<common-codepen-snippet title="Transition Modes Button Problem" slug="Rwrqzpr" />
+<common-codepen-snippet title="Transition Modes Button Problem" slug="Rwrqzpr" :editable="false" />
 
 As it's transitioning between the "on" button and the "off" button, both buttons are rendered - one transitioning out while the other transitions in. This is the default behavior of `<transition>` - entering and leaving happens simultaneously.
 
 Sometimes this works great, like when transitioning items are absolutely positioned on top of each other:
 
-<common-codepen-snippet title="Transition Modes Button Problem- positioning" slug="abdQgLr" />
+<common-codepen-snippet title="Transition Modes Button Problem- positioning" slug="abdQgLr" :editable="false" />
 
 Sometimes this isn't an option, though, or we're dealing with more complex movement where in and out states need to be coordinated, so Vue offers an extremely useful utility called **transition modes**:
 
@@ -498,13 +498,13 @@ Now let's update the transition for our on/off buttons with `out-in`:
 </transition>
 ```
 
-<common-codepen-snippet title="Transition Modes Button Problem- solved" slug="ZEQmdvq" />
+<common-codepen-snippet title="Transition Modes Button Problem- solved" slug="ZEQmdvq" :editable="false" />
 
 With one attribute addition, we've fixed that original transition without having to add any special styling.
 
 We can use this to coordinate more expressive movement, such as a folding card, as demonstrated below. It's actually two elements transitioning between eachother, but since the beginning and end states are scaling the same: horizontally to 0, it appears like one fluid movement. This type of slight-of-hand can be very useful for realistic UI microinteractions:
 
-<common-codepen-snippet title="Transition Modes Flip Cards" slug="76e344bf057bd58b5936bba260b787a8" />
+<common-codepen-snippet title="Transition Modes Flip Cards" slug="76e344bf057bd58b5936bba260b787a8" :editable="false" />
 
 ## Transitioning Between Components
 

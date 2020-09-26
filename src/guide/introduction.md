@@ -180,7 +180,7 @@ This example demonstrates that we can bind data to not only text and attributes,
 
 You can change `seen` from `true` to `false` in the sandbox below to check the effect:
 
-<common-codepen-snippet title="Conditional rendering" slug="oNXdbpB" />
+<common-codepen-snippet title="Conditional rendering" slug="oNXdbpB" tab="js,result" />
 
 There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used to display a list of items using the data from an Array:
 
