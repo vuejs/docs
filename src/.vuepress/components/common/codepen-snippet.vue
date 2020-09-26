@@ -1,17 +1,18 @@
 <template>
   <p
     class="codepen"
-    data-theme-id="39028"
-    data-preview="true"
-    data-editable="true"
+    :data-theme-id="theme"
+    :data-preview="preview || null"
+    :data-editable="editable || null"
     :data-height="height"
     :data-default-tab="tab"
     :data-user="user"
     :data-slug-hash="slug"
     :data-pen-title="title"
+    :data-embed-version="version"
     :style="`height: ${height}px`">
     <span>See the Pen <a :href="href">{{ title }}</a>
-    by {{ name ? name : user }} (<a :href="`https://codepen.io/${user}`">@{{user}}</a>)
+    by {{ name || user }} (<a :href="`https://codepen.io/${user}`">@{{user}}</a>)
     on <a href="https://codepen.io">CodePen</a>.</span>
   </p>
 </template>
@@ -19,6 +20,23 @@
 <script>
 export default {
   props: {
+    title: {
+      type: String,
+      default: null,
+      required: true,
+    },
+
+    slug: {
+      type: String,
+      default: null,
+      required: true,
+    },
+
+    tab: {
+      type: String,
+      default: 'result',
+    },
+
     team: {
       type: Boolean,
       default: true,
@@ -34,25 +52,30 @@ export default {
       default: null,
     },
 
-    title: {
-      type: String,
-      default: null,
-    },
-
-    slug: {
-      type: String,
-      default: null,
-    },
-
-    tab: {
-      type: String,
-      default: 'result',
-    },
-
     height: {
       type: Number,
       default: 300,
     },
+
+    theme: {
+      type: String,
+      default: '39028',
+    },
+
+    preview: {
+      type: Boolean,
+      default: true,
+    },
+
+    editable: {
+      type: Boolean,
+      default: true,
+    },
+
+    version: {
+      type: String,
+      default: null,
+    }
   },
   mounted() {
     const codepenScript = document.createElement('script')
