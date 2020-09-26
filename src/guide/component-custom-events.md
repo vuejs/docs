@@ -74,29 +74,29 @@ app.component('custom-form', {
 By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
 
 ```html
-<my-component v-model:foo="bar"></my-component>
+<my-component v-model:title="bookTitle"></my-component>
 ```
 
-In this case, child component will expect a `foo` prop and emits `update:foo` event to sync:
+In this case, child component will expect a `title` prop and emits `update:title` event to sync:
 
 ```js
 const app = Vue.createApp({})
 
 app.component('my-component', {
   props: {
-    foo: String
+    title: String
   },
   template: `
     <input 
       type="text"
-      :value="foo"
-      @input="$emit('update:foo', $event.target.value)">
+      :value="title"
+      @input="$emit('update:title', $event.target.value)">
   `
 })
 ```
 
 ```html
-<my-component v-model:foo="bar"></my-component>
+<my-component v-model:title="bookTitle"></my-component>
 ```
 
 ## Multiple `v-model` bindings
