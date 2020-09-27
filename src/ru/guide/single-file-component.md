@@ -1,67 +1,67 @@
-# Single File Components
+# Однофайловые компоненты
 
-## Introduction
+## Введение
 
-In many Vue projects, global components will be defined using `app.component()`, followed by `app.mount('#app')` to target a container element in the body of every page.
+Во многих проектах, глобальные компоненты определяются посредством `app.component`, с последующим `app.mount('#app')` для указания элемента-контейнера в теле каждой страницы.
 
-This can work very well for small to medium-sized projects, where JavaScript is only used to enhance certain views. In more complex projects however, or when your frontend is entirely driven by JavaScript, these disadvantages become apparent:
+Для проектов малого и среднего размера, в которых JavaScript используется лишь для некоторых страниц, этот подход может прекрасно работать. В более же сложных проектах или в случаях, когда весь ваш фронтенд управляется JavaScript, явными становятся следующие недостатки:
 
-- **Global definitions** force unique names for every component
-- **String templates** lack syntax highlighting and require ugly slashes for multiline HTML
-- **No CSS support** means that while HTML and JavaScript are modularized into components, CSS is conspicuously left out
-- **No build step** restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel
+- **Глобальное определение** заставляет давать уникальное имя каждому компоненту
+- **Строковым шаблонам** не хватает подсветки синтаксиса. Кроме того, приходится использовать уродливые слэши для многострочного HTML.
+- **Нет модульной поддержки CSS** — в то время как HTML и JavaScript разбиваются на модули-компоненты, CSS оказывается за бортом.
+- **Отсутствие шага сборки** ограничивает нас только HTML и ES5 JavaScript, не позволяя использовать препроцессоры вроде Pug (бывший Jade) и Babel
 
-All of these are solved by **single-file components** with a `.vue` extension, made possible with build tools such as Webpack or Browserify.
+Все эти недостатки решаются **однофайловыми компонентами** с расширением `.vue`, использование которых позволяют такие инструменты как Webpack и Browserify.
 
-Here's an example of a file we'll call `Hello.vue`:
+Вот простой пример файла, который мы назовём `Hello.vue`:
 
 <a href="https://codepen.io/team/Vue/pen/3de13b5cd0133df4ecf307b6cf2c5f94" target="_blank" rel="noopener noreferrer"><img src="/images/sfc.png" width="403" alt="Single-file component example (click for code as text)" style="display: block; margin: 15px auto; max-width: 100%"></a>
 
-Now we get:
+Мы получили:
 
-- [Complete syntax highlighting](https://github.com/vuejs/awesome-vue#source-code-editing)
-- [CommonJS modules](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
-- [Component-scoped CSS](https://vue-loader.vuejs.org/ru/features/scoped-css.html)
+- [полную подсветку синтаксиса](https://github.com/vuejs/awesome-vue#source-code-editing)
+- [модули CommonJS](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
+- [модульный CSS](https://vue-loader.vuejs.org/ru/features/scoped-css.html)
 
-As promised, we can also use preprocessors such as Pug, Babel (with ES2015 modules), and Stylus for cleaner and more feature-rich components.
+Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.
 
 <a href="https://codesandbox.io/s/vue-single-file-component-with-pre-processors-mr3ik?file=/src/App.vue" target="_blank" rel="noopener noreferrer"><img src="/images/sfc-with-preprocessors.png" width="563" alt="Single-file component with pre-processors example (click for code as text)" style="display: block; margin: 15px auto; max-width: 100%"></a>
 
-These specific languages are only examples. You could as easily use TypeScript, SCSS, PostCSS, or whatever other preprocessors that help you be productive. If using Webpack with `vue-loader`, it also has first-class support for CSS Modules.
+Перечисленные языки даны только для примера. С тем же успехом можно использовать TypeScript, SCSS, PostCSS, или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с `vue-loader`, вы также получаете прекрасную поддержку CSS-модулей.
 
-### What About Separation of Concerns?
+### Что насчёт разделения ответственности?
 
-One important thing to note is that **separation of concerns is not equal to separation of file types.** In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable.
+Одна важная вещь, что следует отметить — **разделение ответственности это не то же самое, что разделение на файлы по типу.** В современной разработке UI мы обнаружили, что вместо разделения кодовой базы на три огромных слоя, что тесно переплетаются друг с другом, имеет больше смысла делить их на слабо связанные компоненты и компоновать уже их. Внутри компонента, его шаблон, логика и стили неразрывно связаны между собой, что позволяет сделать компонент более сплочённым и удобным в поддержке.
 
-Even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files:
+Если вам не нравится идея однофайловых компонентов, вы также можете пользоваться возможностями горячей замены модулей и прекомпиляцией, выделив JavaScript и CSS в отдельные файлы:
 
 ```html
 <!-- my-component.vue -->
 <template>
-  <div>This will be pre-compiled</div>
+  <div>Это будет предварительно скомпилировано</div>
 </template>
 <script src="./my-component.js"></script>
 <style src="./my-component.css"></style>
 ```
 
-## Getting Started
+## Начало работы
 
-### Example Sandbox
+### Песочница с примером
 
-If you want to dive right in and start playing with single-file components, check out [this simple todo app](https://codesandbox.io/s/vue-todo-list-app-with-single-file-component-vzkl3?file=/src/App.vue) on CodeSandbox.
+Если вы хотите прямо сейчас поиграть с однофайловыми компонентами — начните с этого [простого todo приложения](https://codesandbox.io/s/vue-todo-list-app-with-single-file-component-vzkl3?file=/src/App.vue) на CodeSandbox.
 
-### For Users New to Module Build Systems in JavaScript
+### Для новичков в модульных системах сборки JavaScript
 
-With `.vue` components, we're entering the realm of advanced JavaScript applications. That means learning to use a few additional tools if you haven't already:
+С `.vue`-компонентами, мы входим во вселенную продвинутых JavaScript-приложений. Это значит, что если вы этого ещё не сделали, нужно будет освоить некоторые дополнительные инструменты:
 
-- **Node Package Manager (NPM)**: Read the [Getting Started guide](https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry) section about how to get packages from the registry.
+- **Node Package Manager (NPM)**: Прочитайте [руководство по началу работы](https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry) о том как устанавливать пакеты.
 
-- **Modern JavaScript with ES2015/16**: Read through Babel's [Learn ES2015 guide](https://babeljs.io/docs/en/learn). You don't have to memorize every feature right now, but keep this page as a reference you can come back to.
+- **Современный JavaScript стандартов ES2015/16**: Прочитайте [руководство по ES2015](https://babeljs.io/docs/en/learn) от Babel. Нет необходимости запоминать все новые возможности, но держите эту страничку под рукой в качестве справочника.
 
-After you've taken a day to dive into these resources, we recommend checking out [Vue CLI](https://cli.vuejs.org/ru/). Follow the instructions and you should have a Vue project with `.vue` components, ES2015, webpack and hot-reloading in no time!
+После того как вы уделили время этим ресурсам, мы советуем вам посмотреть на [Vue CLI](https://cli.vuejs.org/ru/). Следуйте инструкциям, и очень скоро у вас будет рабочий проект с `.vue`-компонентами, ES2015, webpack и горячей перезагрузкой модулей.
 
-### For Advanced Users
+### Для продвинутых пользователей
 
-The CLI takes care of most of the tooling configurations for you, but also allows fine-grained customization through its own [config options](https://cli.vuejs.org/ru/config/).
+CLI позаботится о большинстве настроек конфигурации сборки для вас, но при необходимости позволяет настроить любые детали через [опции конфигурации](https://cli.vuejs.org/ru/config/).
 
-In case you prefer setting up your own build setup from scratch, you will need to manually configure webpack with [vue-loader](https://vue-loader.vuejs.org/ru/). To learn more about webpack itself, check out [their official docs](https://webpack.js.org/configuration/) and [webpack learning academy](https://webpack.academy/p/the-core-concepts).
+Если вы предпочитаете создавать конфигурацию сборки с нуля, то необходимо вручную настроить webpack для работы с [vue-loader](https://vue-loader.vuejs.org/ru/). Чтобы узнать больше о webpack, обратитесь к [его официальной документации](https://webpack.js.org/configuration/) и [webpack learning academy](https://webpack.academy/p/the-core-concepts).
