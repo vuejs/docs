@@ -1,10 +1,13 @@
 const sidebar = {
-  cookbook: [{
-    title: 'Cookbook',
-    collapsable: false,
-    children: ['/cookbook/', '/cookbook/editable-svg-icons']
-  }],
-  guide: [{
+  cookbook: [
+    {
+      title: 'Cookbook',
+      collapsable: false,
+      children: ['/cookbook/', '/cookbook/editable-svg-icons']
+    }
+  ],
+  guide: [
+    {
       title: 'Essentials',
       collapsable: false,
       children: [
@@ -60,7 +63,8 @@ const sidebar = {
     {
       title: 'Advanced Guides',
       collapsable: false,
-      children: [{
+      children: [
+        {
           title: 'Reactivity',
           children: [
             '/guide/reactivity',
@@ -88,7 +92,8 @@ const sidebar = {
       children: [
         '/guide/single-file-component',
         '/guide/testing',
-        '/guide/typescript-support'
+        '/guide/typescript-support',
+        '/guide/mobile'
       ]
     },
     {
@@ -177,21 +182,23 @@ const sidebar = {
     },
     '/api/composition-api'
   ],
-  examples: [{
-    title: 'Examples',
-    collapsable: false,
-    children: [
-      '/examples/markdown',
-      '/examples/commits',
-      '/examples/grid-component',
-      '/examples/tree-view',
-      '/examples/svg',
-      '/examples/modal',
-      '/examples/elastic-header',
-      '/examples/select2',
-      '/examples/todomvc'
-    ]
-  }]
+  examples: [
+    {
+      title: 'Examples',
+      collapsable: false,
+      children: [
+        '/examples/markdown',
+        '/examples/commits',
+        '/examples/grid-component',
+        '/examples/tree-view',
+        '/examples/svg',
+        '/examples/modal',
+        '/examples/elastic-header',
+        '/examples/select2',
+        '/examples/todomvc'
+      ]
+    }
+  ]
 }
 
 const sidebarRU = {
@@ -402,26 +409,53 @@ module.exports = {
     [
       'link',
       {
-        href: 'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
+        href:
+          'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
         rel: 'stylesheet'
       }
     ],
     [
       'link',
       {
-        href: 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        href:
+          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         rel: 'stylesheet'
       }
     ],
-    ['link', {
-      rel: 'icon',
-      href: '/logo.png'
-    }],
     [
-      'script',
+      'link',
+      {
+        rel: 'icon',
+        href: '/logo.png'
+      }
+    ],
+    ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    [
+      'meta',
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }
+    ],
+    [
+      'link',
+      {
+        rel: 'apple-touch-icon',
+        href: '/images/icons/apple-icon-152x152.png'
+      }
+    ],
+    [
+      'meta',
+      {
+        name: 'msapplication-TileImage',
+        content: '/images/icons/ms-icon-144x144.png'
+      }
+    ],
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+    [
+      ('script',
       {
         src: 'https://player.vimeo.com/api/player.js'
-      }
+      })
     ],
     [
       'script',
@@ -504,7 +538,7 @@ module.exports = {
               text: 'Official Projects',
               items: [{
                   text: 'Vue Router',
-                  link: 'https://router.vuejs.org/'
+                  link: 'https://next.router.vuejs.org/'
                 },
                 {
                   text: 'Vuex',
@@ -516,7 +550,7 @@ module.exports = {
                 },
                 {
                   text: 'Vue Test Utils',
-                  link: 'https://vue-test-utils.vuejs.org/'
+                  link: 'https://vuejs.github.io/vue-test-utils-next-docs/guide/introduction.html'
                 },
                 {
                   text: 'Devtools',
@@ -618,19 +652,19 @@ module.exports = {
               text: 'Официальные проекты',
               items: [{
                   text: 'Vue Router',
-                  link: 'https://router.vuejs.org/'
+                  link: 'https://next.router.vuejs.org/'
                 },
                 {
                   text: 'Vuex',
-                  link: 'https://vuex.vuejs.org/'
+                  link: 'https://vuex.vuejs.org/ru/'
                 },
                 {
                   text: 'Vue CLI',
-                  link: 'https://cli.vuejs.org/'
+                  link: 'https://cli.vuejs.org/ru/'
                 },
                 {
                   text: 'Vue Test Utils',
-                  link: 'https://vue-test-utils.vuejs.org/'
+                  link: 'https://vuejs.github.io/vue-test-utils-next-docs/guide/introduction.html'
                 },
                 {
                   text: 'Devtools',
