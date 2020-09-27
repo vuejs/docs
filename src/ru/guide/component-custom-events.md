@@ -23,6 +23,8 @@ For these reasons, we recommend you **always use kebab-case for event names**.
 
 ## Defining Custom Events
 
+<VideoLesson href="https://vueschool.io/lessons/defining-custom-events-emits?friend=vuejs" title="Learn how to define which events a component can emit with Vue School">Watch a free video about Defining Custom Events on Vue School</VideoLesson>
+
 Emitted events can be defined on the component via the `emits` option.
 
 ```js
@@ -33,7 +35,7 @@ app.component('custom-form', {
 
 In the event a native event (e.g., `click`) is defined in the `emits` option, it will be overwritten by the event in the component instead of being treated as a native listener.
 
-:::tip Совет
+::: tip
 It is recommended to define all emitted events in order to better document how a component should work.
 :::
 
@@ -72,29 +74,29 @@ app.component('custom-form', {
 By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
 
 ```html
-<my-component v-model:foo="bar"></my-component>
+<my-component v-model:title="bookTitle"></my-component>
 ```
 
-In this case, child component will expect a `foo` prop and emits `update:foo` event to sync:
+In this case, child component will expect a `title` prop and emits `update:title` event to sync:
 
 ```js
 const app = Vue.createApp({})
 
 app.component('my-component', {
   props: {
-    foo: String
+    title: String
   },
   template: `
     <input 
       type="text"
-      :value="foo"
-      @input="$emit('update:foo', $event.target.value)">
+      :value="title"
+      @input="$emit('update:title', $event.target.value)">
   `
 })
 ```
 
 ```html
-<my-component v-model:foo="bar"></my-component>
+<my-component v-model:title="bookTitle"></my-component>
 ```
 
 ## Multiple `v-model` bindings
@@ -141,7 +143,7 @@ app.component('user-name', {
 
 ## Handling `v-model` modifiers
 
-When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/forms.md#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, however, you might also want to add your own custom modifiers.
+When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, however, you might also want to add your own custom modifiers.
 
 Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding.
 

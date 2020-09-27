@@ -291,7 +291,8 @@ const sidebarRU = {
       children: [
         '/ru/guide/single-file-component',
         '/ru/guide/testing',
-        '/ru/guide/typescript-support'
+        '/ru/guide/typescript-support',
+        '/ru/guide/mobile'
       ]
     },
     {

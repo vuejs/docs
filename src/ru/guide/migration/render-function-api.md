@@ -92,7 +92,7 @@ export default {
 }
 ```
 
-For more information on how `setup()` works, see our [Composition API Guide](/guide/composition-api-introduction.md).
+For more information on how `setup()` works, see our [Composition API Guide](/guide/composition-api-introduction.html).
 
 ## VNode Props Format
 
@@ -127,6 +127,52 @@ In 3.x, the entire VNode props structure is flattened. Using the example from ab
   key: 'submit-button'
 }
 ```
+
+## Registered Component
+
+### 2.x Syntax
+
+In 2.x, when a component has been registered, the render function would work well when passing the component's name as a string to the first argument:
+
+```js
+// 2.x
+Vue.component('button-counter', {
+  data() {
+    return {
+      count: 0
+    }
+  }
+  template: `
+    <button @click="count++">
+      Clicked {{ count }} times.
+    </button>
+  `
+})
+
+export default {
+  render(h) {
+    return h('button-counter')
+  }
+}
+```
+
+### 3.x Syntax
+
+In 3.x, with VNodes being context-free, we can no longer use a string ID to implicitly lookup registered components. Instead, we need to use an imported `resolveComponent` method:
+
+```js
+// 3.x
+import { h, resolveComponent } from 'vue'
+
+export default {
+  setup() {
+    const ButtonCounter = resolveComponent('button-counter')
+    return () => h(ButtonCounter)
+  }
+}
+```
+
+For more information, see [The Render Function Api Change RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0008-render-function-api-change.md#context-free-vnodes).
 
 ## Migration Strategy
 

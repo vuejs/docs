@@ -268,25 +268,24 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for details.
 :::
 
-When they exist on the same node, `v-for` has a higher priority than `v-if`. That means the `v-if` will be run on each iteration of the loop separately. This can be useful when you want to render nodes for only _some_ items, like below:
+When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
 
 ```html
+<!-- This will throw an error because property "todo" is not defined on instance. -->
+
 <li v-for="todo in todos" v-if="!todo.isComplete">
   {{ todo }}
 </li>
 ```
 
-The above only renders the todos that are not complete.
-
-If instead, your intent is to conditionally skip execution of the loop, you can place the `v-if` on a wrapper element (or [`<template>`](conditional#conditional-groups-with-v-if-on-lt-template-gt)). For example:
+This can be fixed by moving `v-for` to a wrapping `<template>` tag:
 
 ```html
-<ul v-if="todos.length">
-  <li v-for="todo in todos">
+<template v-for="todo in todos">
+  <li v-if="!todo.isComplete">
     {{ todo }}
   </li>
-</ul>
-<p v-else>No todos left!</p>
+</template>
 ```
 
 ## `v-for` with a Component

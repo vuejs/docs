@@ -79,7 +79,7 @@ app.component('anchored-heading', {
 })
 ```
 
-The `render()` function implementation is much simpler, but also requires greater familiarity with component instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default()`. If you haven't already, **it's recommended to read through the [instance properties API](../api/instance-properties.md) before diving into render functions.**
+The `render()` function implementation is much simpler, but also requires greater familiarity with component instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default()`. If you haven't already, **it's recommended to read through the [instance properties API](../api/instance-properties.html) before diving into render functions.**
 
 ## The DOM tree
 
@@ -296,26 +296,16 @@ render() {
 
 #### Event Modifiers
 
-For the `.passive`, `.capture`, and `.once` event modifiers, Vue offers object syntax of the handler:
+For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after event name using camel case.
 
 For example:
 
 ```javascript
 render() {
   return Vue.h('input', {
-    onClick: {
-      handler: this.doThisInCapturingMode,
-      capture: true
-    },
-    onKeyup: {
-      handler: this.doThisOnce,
-      once: true
-    },
-    onMouseover: {
-      handler: this.doThisOnceInCapturingMode,
-      once: true,
-      capture: true
-    },
+    onClickCapture: this.doThisInCapturingMode,
+    onKeyupOnce: this.doThisOnce,
+    onMouseoverOnceCapture: this.doThisOnceInCapturingMode,
   })
 }
 ```
@@ -355,7 +345,7 @@ render() {
 
 ### Slots
 
-You can access slot contents as Arrays of VNodes from [`this.$slots`](../api/instance-properties.md#slots):
+You can access slot contents as Arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
 
 ```js
 render() {
@@ -395,7 +385,7 @@ If we're writing a lot of `render` functions, it might feel painful to write som
 
 ```js
 Vue.h(
-  'anchored-heading',
+  Vue.resolveComponent('anchored-heading'),
   {
     level: 1
   },
