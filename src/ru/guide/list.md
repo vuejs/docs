@@ -22,7 +22,7 @@ Vue.createApp({
 }).mount('#array-rendering')
 ```
 
-Result:
+Результат:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="VwLGbwa" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Array">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/VwLGbwa">
@@ -52,7 +52,7 @@ Vue.createApp({
 }).mount('#array-with-index')
 ```
 
-Result:
+Результат:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="wvaEdBP" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Array and index">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/wvaEdBP">
@@ -93,7 +93,7 @@ Vue.createApp({
 }).mount('#v-for-object')
 ```
 
-Result:
+Результат:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="NWqLjqy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Object">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/NWqLjqy">
@@ -240,7 +240,7 @@ methods: {
 </div>
 ```
 
-Result:
+Результат:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="NWqLjNY" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with a range">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/NWqLjNY">

@@ -25,7 +25,7 @@ Vue.createApp({
 }).mount('#basic-event')
 ```
 
-Result:
+Результат:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="xxGadPZ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: basic">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/xxGadPZ">
@@ -67,7 +67,7 @@ Vue.createApp({
 }).mount('#event-with-method')
 ```
 
-Result:
+Результат:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="jOPvmaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: with a method">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPvmaX">
@@ -97,7 +97,7 @@ Vue.createApp({
 }).mount('#inline-handler')
 ```
 
-Result:
+Результат:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNvgjda" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: with an inline handler">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNvgjda">
