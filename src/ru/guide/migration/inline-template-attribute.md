@@ -5,11 +5,11 @@ badges:
 
 # Inline Template Attribute <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 Support for the [inline-template feature](https://ru.vuejs.org/v2/guide/components-edge-cases.html#Inline-Templates) has been removed.
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In 2.x, Vue provided the `inline-template` attribute on child components to use its inner content as its template instead of treating it as distributed content.
 
@@ -22,11 +22,11 @@ In 2.x, Vue provided the `inline-template` attribute on child components to use 
 </my-component>
 ```
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 This feature will no longer be supported.
 
-## Migration Strategy
+## Стратегия миграции
 
 Most of the use cases for `inline-template` assumes a no-build-tool setup, where all templates are written directly inside the HTML page.
 

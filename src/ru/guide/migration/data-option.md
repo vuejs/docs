@@ -6,11 +6,11 @@ badges:
 
 # {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 - **BREAKING**: `data` component option declaration no longer accepts a plain JavaScript `object` and expects a `function` declaration.
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In 2.x, developers could define the `data` option with either an `object` or a `function`.
 
@@ -40,7 +40,7 @@ For example:
 
 Though this provided some convenience in terms of root instances having a shared state, this has led to confusion due to the fact that its only possible on the root instance.
 
-## 3.x Update
+## Что изменилось в 3.x
 
 In 3.x, the `data` option has been standardized to only accept a `function` that returns an `object`.
 
@@ -60,7 +60,7 @@ Using the example above, there would only be one possible implementation of the 
 </script>
 ```
 
-## Migration Strategy
+## Стратегия миграции
 
 For users relying on the object declaration, we recommend:
 

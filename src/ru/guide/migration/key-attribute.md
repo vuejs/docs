@@ -5,7 +5,7 @@ badges:
 
 # `key` attribute <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 - **NEW:** `key`s are no longer necessary on `v-if`/`v-else`/`v-else-if` branches, since Vue now automatically generates unique `key`s.
   - **BREAKING:** If you manually provide `key`s, then each branch must use a unique `key`.

@@ -5,7 +5,7 @@ badges:
 
 # `v-model` <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 In terms of what has changed, at a high level:
 
@@ -18,7 +18,7 @@ In terms of what has changed, at a high level:
 
 For more information, read on!
 
-## Introduction
+## Введение
 
 When Vue 2.0 was released, the `v-model` directive required developers to always use the `value` prop. And if developers required different props for different purposes, they would have to resort to using `v-bind.sync`. In addition, this hard-coded relationship between `v-model` and `value` led to issues with how native elements and custom elements were handled.
 
@@ -26,7 +26,7 @@ In 2.2 we introduced the `model` component option that allows the component to c
 
 With Vue 3, the API for two-way data binding is being standardized in order to reduce confusion and to allow developers more flexibility with the `v-model` directive.
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In 2.x, using a `v-model` on a component was an equivalent of passing a `value` prop and emitting an `input` event:
 
@@ -92,7 +92,7 @@ For convenience, we had a shorthand for this pattern with the .sync modifier:
 <ChildComponent :title.sync="pageTitle" />
 ```
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 In 3.x `v-model` on the custom component is an equivalent of passing a `modelValue` prop and emitting an `update:modelValue` event:
 
@@ -146,7 +146,7 @@ In addition to 2.x hard-coded `v-model` modifiers like `.trim`, now 3.x supports
 
 Read more about custom `v-model` modifiers in the [Custom Events](../component-custom-events.md#handling-v-model-modifiers) section.
 
-## Migration Strategy
+## Стратегия миграции
 
 We recommend:
 
@@ -181,7 +181,7 @@ We recommend:
   }
   ```
 
-## Next Steps
+## Дальнейшие шаги
 
 For more information on the new `v-model` syntax, see:
 

@@ -5,7 +5,7 @@ badges:
 
 # Slots Unification <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 This change unifies normal and scoped slots in 3.x.
 
@@ -16,7 +16,7 @@ Here is a quick summary of what has changed:
 
 For more information, read on!
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 When using the render function, i.e., `h`, 2.x used to define the `slot` data property on the content nodes.
 
@@ -35,7 +35,7 @@ In addition, when referencing scoped slots, they could be referenced using the f
 this.$scopedSlots.header
 ```
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 In 3.x, slots are defined as children of the current node as an object:
 
@@ -57,7 +57,7 @@ this.$scopedSlots.header
 this.$slots.header()
 ```
 
-## Migration Strategy
+## Стратегия миграции
 
 A majority of the change has already been shipped in 2.6. As a result, the migration can happen in one step:
 

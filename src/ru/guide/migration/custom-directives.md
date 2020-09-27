@@ -5,7 +5,7 @@ badges:
 
 # Custom Directives <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 Here is a quick summary of what has changed:
 
@@ -14,7 +14,7 @@ Here is a quick summary of what has changed:
 
 For more information, read on!
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In Vue 2, custom directives were created by using the hooks listed below to target an element’s lifecycle, all of which are optional:
 
@@ -40,7 +40,7 @@ Vue.directive('highlight', {
 
 Here, in the initial setup for this element, the directive binds a style by passing in a value, that can be updated to different values through the application.
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 In Vue 3, however, we’ve created a more cohesive API for custom directives. As you can see, they differ greatly from our component lifecycle methods even though we’re hooking into similar events. We’ve now unified them like so:
 
@@ -83,7 +83,7 @@ app.directive('highlight', {
 
 Now that the custom directive lifecycle hooks mirror those of the components themselves, they become easier to reason about and remember!
 
-## Implementation Details
+## Детали реализации
 
 In Vue 3, we're now supporting fragments, which allow us to return more than one DOM node per component. You can imagine how handy that is for something like a component with multiple lis or the children elements of a table:
 

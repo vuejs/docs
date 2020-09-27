@@ -5,7 +5,7 @@ badges:
 
 # Functional Components <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 In terms of what has changed, at a high level:
 
@@ -16,7 +16,7 @@ In terms of what has changed, at a high level:
 
 For more information, read on!
 
-## Introduction
+## Введение
 
 In Vue 2, functional components had two primary use cases:
 
@@ -27,7 +27,7 @@ However, in Vue 3, the performance of stateful components has improved to the po
 
 As a result, the only remaining use case for functional components is simple components, such as a component to create a dynamic heading. Otherwise, it is recommended to use stateful components as you normally would.
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 Using the `<dynamic-heading>` component, which is responsible for rendering out the appropriate heading (i.e., `h1`, `h2`, `h3`, etc.), this could have been written as a single-file component in 2.x as:
 
@@ -61,7 +61,7 @@ export default {
 </script>
 ```
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 ### Components Created by Functions
 
@@ -111,7 +111,7 @@ The main differences are that:
 1. `functional` attribute removed on `<template>`
 1. `listeners` are now passed as part of `$attrs` and can be removed
 
-## Next Steps
+## Дальнейшие шаги
 
 For more information on the usage of the new functional components and the changes to render functions in general, see:
 

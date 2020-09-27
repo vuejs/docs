@@ -5,7 +5,7 @@ badges:
 
 # Global API Treeshaking <MigrationBadges :badges="$frontmatter.badges" />
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 If you’ve ever had to manually manipulate DOM in Vue, you might have come across this pattern:
 
@@ -40,7 +40,7 @@ But what if you’ve never had to deal with manual DOM manipulation, nor are you
 
 Module bundlers like [webpack](https://webpack.js.org/) support [tree-shaking](https://webpack.js.org/guides/tree-shaking/), which is a fancy term for “dead code elimination.” Unfortunately, due to how the code is written in previous Vue versions, global APIs like `Vue.nextTick()` are not tree-shakeable and will be included in the final bundle regardless of where they are actually used or not.
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 In Vue 3, the global and internal APIs have been restructured with tree-shaking support in mind. As a result, the global APIs can now only be accessed as named exports for the ES Modules build. For example, our previous snippets should now look like this:
 

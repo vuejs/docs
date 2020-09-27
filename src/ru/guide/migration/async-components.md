@@ -5,7 +5,7 @@ badges:
 
 # Async Components <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 Here is a high level overview of what has changed:
 
@@ -15,7 +15,7 @@ Here is a high level overview of what has changed:
 
 For a more in-depth explanation, read on!
 
-## Introduction
+## Введение
 
 Previously, async components were created by simply defining a component as a function that returned a promise, such as:
 
@@ -35,7 +35,7 @@ const asyncPage = {
 }
 ```
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 Now, in Vue 3, since functional components are defined as pure functions, async components definitions need to be explicitly defined by wrapping it in a new `defineAsyncComponent` helper:
 

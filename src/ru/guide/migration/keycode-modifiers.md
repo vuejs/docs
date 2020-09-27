@@ -5,14 +5,14 @@ badges:
 
 # KeyCode Modifiers <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 Here is a quick summary of what has changed:
 
 - **BREAKING**: Using numbers, i.e. keyCodes, as `v-on` modifiers is no longer supported
 - **BREAKING**: `config.keyCodes` is no longer supported
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In Vue 2, `keyCodes` were supported as a way to modify a `v-on` method.
 
@@ -40,7 +40,7 @@ Vue.config.keyCodes = {
 <input v-on:keyup.f1="showHelpText" />
 ```
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 Since [`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode), it no longer makes sense for Vue 3 to continue supporting this as well. As a result, it is now recommended to use the kebab-case name for any key you want to use as a modifier.
 
@@ -51,6 +51,6 @@ Since [`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.or
 
 As a result, this means that `config.keyCodes` is now also deprecated and will no longer be supported.
 
-## Migration Strategy
+## Стратегия миграции
 
 For those using `keyCode` in their codebase, we recommend converting them to their kebab-cased named equivalents.

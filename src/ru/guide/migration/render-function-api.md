@@ -5,7 +5,7 @@ badges:
 
 # Render Function API <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 This change will not affect `<template>` users.
 
@@ -19,7 +19,7 @@ For more information, read on!
 
 ## Render Function Argument
 
-### 2.x Syntax
+### Синтаксис в 2.x
 
 In 2.x, the `render` function would automatically receive the `h` function (which is a conventional alias for `createElement`) as an argument:
 
@@ -32,7 +32,7 @@ export default {
 }
 ```
 
-### 3.x Syntax
+### Синтаксис в 3.x
 
 In 3.x, `h` is now globally imported instead of being automatically passed as an argument.
 
@@ -49,7 +49,7 @@ export default {
 
 ## Render Function Signature Change
 
-### 2.x Syntax
+### Синтаксис в 2.x
 
 In 2.x, the `render` function automatically received arguments such as `h`.
 
@@ -62,7 +62,7 @@ export default {
 }
 ```
 
-### 3.x Syntax
+### Синтаксис в 3.x
 
 In 3.x, since the `render` function no longer receives any arguments, it will primarily be used inside of the `setup()` function. This has the added benefit of gaining access to reactive state and functions declared in scope, as well as the arguments passed to `setup()`.
 
@@ -96,7 +96,7 @@ For more information on how `setup()` works, see our [Composition API Guide](/gu
 
 ## VNode Props Format
 
-### 2.x Syntax
+### Синтаксис в 2.x
 
 In 2.x, `domProps` contained a nested list within the VNode props:
 
@@ -112,7 +112,7 @@ In 2.x, `domProps` contained a nested list within the VNode props:
 }
 ```
 
-### 3.x Syntax
+### Синтаксис в 3.x
 
 In 3.x, the entire VNode props structure is flattened. Using the example from above, here is what it would look like now.
 
@@ -130,7 +130,7 @@ In 3.x, the entire VNode props structure is flattened. Using the example from ab
 
 ## Registered Component
 
-### 2.x Syntax
+### Синтаксис в 2.x
 
 In 2.x, when a component has been registered, the render function would work well when passing the component's name as a string to the first argument:
 
@@ -156,7 +156,7 @@ export default {
 }
 ```
 
-### 3.x Syntax
+### Синтаксис в 3.x
 
 In 3.x, with VNodes being context-free, we can no longer use a string ID to implicitly lookup registered components. Instead, we need to use an imported `resolveComponent` method:
 
@@ -174,7 +174,7 @@ export default {
 
 For more information, see [The Render Function Api Change RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0008-render-function-api-change.md#context-free-vnodes).
 
-## Migration Strategy
+## Стратегия миграции
 
 ### Library Authors
 
@@ -184,6 +184,6 @@ For more information, see [The Render Function Api Change RFC](https://github.co
 - For module builds, the import should be left alone and be handled by the end user bundler
 - For UMD / browser builds, it should try the global Vue.h first and fallback to require calls
 
-## Next Steps
+## Дальнейшие шаги
 
 See [Render Function Guide](/guide/render-function) for more detailed documentation!

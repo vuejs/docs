@@ -9,7 +9,7 @@ badges:
 This is a low-level internal API change and does not affect most developers.
 :::
 
-## Overview
+## Обзор
 
 Here is a high level summary of the changes:
 
@@ -18,7 +18,7 @@ Here is a high level summary of the changes:
 
 For more information, read on!
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In 2.x, we had the following strategies for coercing `v-bind` values:
 
@@ -45,7 +45,7 @@ The following table describes how Vue coerce "enumerated attributes" differently
 
 We can see from the table above, current implementation coerces `true` to `'true'` but removes the attribute if it's `false`. This also led to inconsistency and required users to manually coerce boolean values to string in very common use cases like `aria-*` attributes like `aria-selected`, `aria-hidden`, etc.
 
-## 3.x Syntax
+## Синтаксис в 3.x
 
 We intend to drop this internal concept of "enumerated attributes" and treat them as normal non-boolean HTML attributes.
 
@@ -73,7 +73,7 @@ The following table describes the new behavior:
 
 Coercion for boolean attributes is left untouched.
 
-## Migration Strategy
+## Стратегия миграции
 
 ### Enumerated attributes
 
@@ -93,7 +93,7 @@ In 2.x, invalid values were coerced to `'true'` for enumerated attributes. This 
 
 In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
 
-### Comparison between 2.x & 3.x behavior
+### Сравнение поведения 2.x & 3.x
 
 <table>
   <thead>

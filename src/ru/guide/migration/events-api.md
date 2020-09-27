@@ -5,11 +5,11 @@ badges:
 
 # Events API <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 `$on`, `$off` and `$once` instance methods are removed. Application instances no longer implement the event emitter interface.
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In 2.x, Vue instance could be used to trigger handlers attached imperatively via the event emitter API (`$on`, `$off` and `$once`). This was used to create _event hubs_ to create global event listeners used across the whole application:
 
@@ -52,11 +52,11 @@ export default {
 }
 ```
 
-## 3.x Update
+## Что изменилось в 3.x
 
 We removed `$on`, `$off` and `$once` methods from the instance completely. `$emit` is still a part of the existing API as it's used to trigger event handlers declaratively attached by a parent component
 
-## Migration Strategy
+## Стратегия миграции
 
 Existing event hubs can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt).
 

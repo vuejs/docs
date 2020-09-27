@@ -19,7 +19,7 @@ If we want to add a custom element defined outside of Vue (e.g. using the Web Co
 <plastic-button></plastic-button>
 ```
 
-### 2.x Syntax
+### Синтаксис в 2.x
 
 In Vue 2.x, whitelisting tags as custom elements was done via `Vue.config.ignoredElements`:
 
@@ -30,7 +30,7 @@ In Vue 2.x, whitelisting tags as custom elements was done via `Vue.config.ignore
 Vue.config.ignoredElements = ['plastic-button']
 ```
 
-### 3.x Syntax
+### Синтаксис в 3.x
 
 **In Vue 3.0, this check is performed during template compilation.** To instruct the compiler to treat `<plastic-button>` as a custom element:
 
@@ -101,7 +101,7 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
 > Note: this section only affects cases where Vue templates are directly written in the page's HTML.
 > When using in-DOM templates, the template is subject to native HTML parsing rules. Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
 
-### 2.x Syntax
+### Синтаксис в 2.x
 
 In Vue 2 we recommended working around with these restrictions by using the `is` prop on a native tag:
 
@@ -111,7 +111,7 @@ In Vue 2 we recommended working around with these restrictions by using the `is`
 </table>
 ```
 
-### 3.x Syntax
+### Синтаксис в 3.x
 
 With the behavior change of `is`, we introduce a new directive `v-is` for working around these cases:
 
@@ -134,7 +134,7 @@ With the behavior change of `is`, we introduce a new directive `v-is` for workin
 
 :::
 
-## Migration Strategy
+## Стратегия миграции
 
 - Replace `config.ignoredElements` with either `vue-loader`'s `compilerOptions` (with the build step) or `app.config.isCustomElement` (with on-the-fly template compilation)
 
