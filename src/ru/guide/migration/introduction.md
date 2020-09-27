@@ -1,6 +1,6 @@
 # Introduction
 
-::: info 
+:::info Информация
 New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started. 
 :::
 
@@ -52,7 +52,7 @@ Some of the new features to keep an eye on in Vue 3 include:
 
 ## Breaking Changes
 
-::: info INFO
+:::info Информация
 We are still working on a dedicated Migration Build of Vue 3 with Vue 2 compatible behavior and runtime warnings of incompatible usage. If you are planning to migrate a non-trivial Vue 2 app, we strongly recommend waiting for the Migration Build for a smoother experience.
 :::
 
