@@ -2,15 +2,13 @@
 
 ## 릴리즈 노트
 
-Latest beta version: ![beta](https://img.shields.io/npm/v/vue/next.svg)
+Latest version: ![beta](https://img.shields.io/npm/v/vue/next.svg)
 
 각 버전에 대한 자세한 릴리즈 정보는 [GitHub](https://github.com/vuejs/vue-next/releases)에서 보실 수 있습니다.
 
 ## Vue Devtools
 
-> 현재 베타 버전
-
-> Vue 3 용 Vue Devtools를 사용하기 위해서는 최소 `vue@^3.0.0-rc.1`이 필요합니다.
+> 현재 Beta - Vuex및 라우터는 여전히 WIP입니다.
 
 Vue를 사용할 때, 브라우저에 [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) 를 설치 하는것이 좋습니다. Vue 앱을 보다 사용자 친화적인 인터페이스에서 검사하고 디버깅할 수 있습니다.
 
@@ -45,12 +43,12 @@ Vue.js는 단일 페이지 애플리케이션를 빠르게 구축할 수 있는 
 
 ::: tip CLI는 Node.js 및 관련 빌드 도구에 대한 사전 지식을 전제로 하고 있습니다. Vue 또는 프런트엔드 빌드 도구를 처음 사용하는 경우 CLI를 사용하기 전에 빌드 도구없이 <a href="./">가이드</a>를 읽어 보시기 바랍니다. :::
 
-Vue 3의 경우 `npm`에서`@vue/cli@next`로 제공되는 Vue CLI v4.5를 사용해야 합니다. 업그레이드하려면 최신 버전의 `@vue/cli`를 전역으로 다시 설치해야 합니다.
+Vue 3의 경우 `npm`에서 `@vue/cli`로 제공되는 Vue CLI v4.5를 이용해야합니다. 업그레이드를 하려면 최신버전의 `@vue/cli`를 전역으로 다시 설치해야됩니다.
 
 ```bash
-yarn global add @vue/cli@next
+yarn global add @vue/cli
 # OR
-npm install -g @vue/cli@next
+npm install -g @vue/cli
 ```
 
 그런 다음 프로젝트에서 입력하세요.
