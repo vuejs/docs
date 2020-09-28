@@ -1257,6 +1257,47 @@ While attribute values without any spaces are not required to have quotes in HTM
 ```
 </div>
 
+### Avoid toRefs with props <sup data-p="b">strongly recommended</sup>
+
+**Access props using props.propName inside `setup`.**
+
+When using the Composition API, you may consider using [`toRefs`](../guide/reactivity-fundamentals.html#destructuring-reactive-state) and destructuring `props` to have a consistent way to access reactive values.
+
+This can lead to subtle bugs when a prop is optional. When a prop is not provided, `toRefs` will not return a key for the prop. Destructuring will give you `undefined` and the following code will not be reactive.
+
+<div class="style-example style-example-bad">
+<h4>Bad</h4>
+
+``` js
+{
+  props: {
+    myNumber: Number
+  },
+  setup(props) {
+    const { myNumber } = toRefs(props);
+    const myNumberPlusOne = computed(() => (myNumber?.value ?? 0) + 1);
+    // ...
+  }
+}
+```
+</div>
+
+<div class="style-example style-example-good">
+<h4>Good</h4>
+
+``` js
+{
+  props: {
+    myNumber: Number
+  },
+  setup(props) {
+    const myNumberPlusOne = computed(() => (props.myNumber?.value ?? 0) + 1);
+    // ...
+  }
+}
+```
+</div>
+
 
 ## Priority C Rules: Recommended <span class="hide-from-sidebar">(Minimizing Arbitrary Choices and Cognitive Overhead)</span>
 
