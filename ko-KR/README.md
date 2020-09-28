@@ -6,8 +6,6 @@
 
 문서 작성 및 유지 관리에 대한 규칙 및 권장 사항 은 [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) 를 참조하십시오 .
 
-> 문서는 베타 버전입니다 : 팀은 현재 수정 중에 있으며, 아직 추가 공헌 준비하지 않습니다. 모든 컨텐츠는 변경 될 수 있습니다. 신경 쓰이는 문제가 있으시면, [이슈](https://github.com/vuejs/docs-next/issues/new)로 등록해주세요. 가능한 한 대응하겠습니다. 그러나 콘텐츠가 완성 될 때까지 기다리는 것이 좋습니다.
-
 ## 개발하기
 
 1. 저장소를 복제합니다
