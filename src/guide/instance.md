@@ -2,7 +2,7 @@
 
 ## Creating an Application Instance
 
-Every Vue application starts by creating a new _application instance_ with the `createApp` function:
+Every Vue application starts by creating a new **application instance** with the `createApp` function:
 
 ```js
 const app = Vue.createApp({ /* options */ })
@@ -30,7 +30,7 @@ You can browse the full application API in the [API reference](../api/applicatio
 
 ## The Root Component
 
-The options passed to `createApp` are used to configure the root component. That component is used as the starting point for rendering when we _mount_ the application.
+The options passed to `createApp` are used to configure the **root component**. That component is used as the starting point for rendering when we **mount** the application.
 
 An application needs to be mounted into a DOM element. For example, if we want to mount a Vue application into `<div id="app"></div>`, we should pass `#app`:
 
