@@ -2,7 +2,7 @@
 
 ## Data Properties
 
-The `data` function for a component is called as part of creating a new component instance. It should return an object, which Vue wraps in its reactivity system and stores on the instance as `$data`. For convenience, any top-level properties of that object are also exposed directly via the component instance:
+The `data` option for a component is a function. Vue calls this function as part of creating a new component instance. It should return an object, which Vue will then wrap in its reactivity system and store on the component instance as `$data`. For convenience, any top-level properties of that object are also exposed directly via the component instance:
 
 ```js
 const app = Vue.createApp({
@@ -27,24 +27,23 @@ console.log(vm.count) // => 6
 
 These instance properties are only added when the instance is first created, so you need to ensure they are all present in the object returned by the `data` function. Where necessary, use `null`, `undefined` or some other placeholder value for properties where the desired value isn't yet available.
 
-It is possible to add a new property directly to the component instance without including it in `data`. However, because this property isn't backed by the reactive `$data` object it won't automatically be tracked by [Vue's reactivity system](reactivity.html).
+It is possible to add a new property directly to the component instance without including it in `data`. However, because this property isn't backed by the reactive `$data` object, it won't automatically be tracked by [Vue's reactivity system](reactivity.html).
 
-Vue uses a `$` prefix when exposing its own built-in APIs via the component instance, e.g. `$emit`. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
+Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
 
 ## Methods
 
-You might be tempted to put functions in your `data` so that you can use them as methods:
+To add methods to a component instance we use the `methods` option. This should be an object containing the desired methods:
 
 ```js
 const app = Vue.createApp({
   data() {
-    return {
-      count: 4,
-
-      // Don't do this
-      increment() {
-        this.count++
-      }
+    return { count: 4 }
+  },
+  methods: {
+    increment() {
+      // `this` will refer to the component instance
+      this.count++
     }
   }
 })
@@ -58,64 +57,54 @@ vm.increment()
 console.log(vm.count) // => 5
 ```
 
-This does work but there are a few problems with it:
+Vue automatically binds the `this` value for `methods` so that it always refers to the component instance. This ensures that a method retains the correct `this` value if it's used as an event listener or callback. You should avoid using arrow functions when defining `methods`, as that prevents Vue from binding the appropriate `this` value.
 
-1. Methods typically aren't reassigned after creation, so there's no need for Vue's reactivity system to track them.
-2. If a function becomes detached from its object it will lose its `this` binding. This frequently happens when methods are used as event listeners.
-3. For components with several methods they will quickly clutter up the `data` function.
+Just like all other properties of the component instance, the `methods` are accessible from within the component's template. Inside a template they are most commonly used as event listeners:
 
-To solve these problems, Vue has a separate configuration option especially for `methods`:
-
-```js
-const app = Vue.createApp({
-  data() {
-    return { count: 4 }
-  },
-  methods: {
-    increment() {
-      this.count++
-    }
-  }
-})
-
-const vm = app.mount('#app')
-
-console.log(vm.count) // => 4
-
-// Detach the function from `vm`
-const inc = vm.increment
-
-// Vue automatically binds the functions in `methods`,
-// so the `this` value inside the function will still
-// refer to the correct component instance
-inc()
-
-console.log(vm.count) // => 5
+```html
+<button @click="increment">Up vote</button>
 ```
 
-Just like all other properties of the component instance, the `methods` are accessible from within the component's template. If a method is called by a component's template, any reactive data it uses will be tracked and added as a rendering dependency.
+In the example above, the method `increment` will be called when the `<button>` is clicked.
+
+It is also possible to call a method directly from a template. As we'll see shortly, it's usually better to use a [computed property](computed.html) instead. However, using a method can be useful in scenarios where computed properties aren't a viable option. You can call a method anywhere that a template supports JavaScript expressions:
+
+```html
+<span :title="toTitleDate(date)">
+  {{ formatDate(date) }}
+</span>
+```
+
+If the methods `toTitleDate` or `formatDate` access any reactive data then it will be tracked as a rendering dependency, just as if it had been used in the template directly.
+
+Methods called from a template should not have any side effects, such as changing data or triggering asynchronous processes. If you find yourself tempted to do that you should probably use a [lifecycle hook](instance.html#lifecycle-hooks) instead.
 
 ### Debouncing and Throttling
 
-Vue doesn't include built-in support for debouncing or throttling but it can be implemented using libraries such as lodash.
+Vue doesn't include built-in support for debouncing or throttling but it can be implemented using libraries such as [Lodash](https://lodash.com/).
 
 In cases where a component is only used once, the debouncing can be applied directly within `methods`:
 
-```js
-const app = Vue.createApp({
-  methods: {
-    click: _.debounce(function() {
-      // ... respond to click ...
-    }, 500)
-  }
-})
+```html
+<script src="https://unpkg.com/lodash@4.17.20/lodash.min.js"></script>
+<script>
+  Vue.createApp({
+    methods: {
+      // Debouncing with Lodash
+      click: _.debounce(function() {
+        // ... respond to click ...
+      }, 500)
+    }
+  }).mount('#app')
+</script>
 ```
 
-However, this won't work for components that are reused because they'll all share the same debounced function. Instead it can be implemented like this:
+However, this approach is potentially problematic for components that are reused because they'll all share the same debounced function. To keep the component instances independent from each other, we can add the debounced function in the `created` lifecycle hook:
 
 ```js
-const app = Vue.createApp({
+app.component('save-button', {
   created() {
+    // Debouncing with Lodash
     this.debouncedClick = _.debounce(this.click, 500)
   },
   unmounted() {
@@ -126,12 +115,11 @@ const app = Vue.createApp({
     click() {
       // ... respond to click ...
     }
-  }
+  },
+  template: `
+    <button @click="debouncedClick">
+      Save
+    </button>
+  `
 })
-```
-
-This is using the `created` lifecycle hook to create a debounced method on the current component instance. As all instance properties are accessible in the component's template, `debouncedClick` can be used as an event listener:
-
-```html
-<button @click="debouncedClick">Save</button>
 ```
