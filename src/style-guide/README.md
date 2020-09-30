@@ -1402,21 +1402,17 @@ props: {
     type: String,
     required: true
   },
-
   focused: {
     type: Boolean,
     default: false
   },
-
   label: String,
   icon: String
 },
-
 computed: {
   formattedValue() {
     // ...
   },
-
   inputClasses() {
     // ...
   }
