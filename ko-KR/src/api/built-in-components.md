@@ -2,7 +2,6 @@
 
 ## component
 
-
 - **Props:**
 
   - `is` - `string | Component`
