@@ -85,7 +85,7 @@ Now that the custom directive lifecycle hooks mirror those of the components the
 
 ## Implementation Details
 
-In Vue 3, we're now supporting fragments, which allow us to return more than one DOM node per component. You can imagine how handy that is for something like a component with multiple lis or the children elements of a table:
+In Vue 3, we're now supporting fragments, which allow us to return more than one DOM node per component. You can imagine how handy that is for something like a component with multiple `<li>` elements or the children elements of a table:
 
 ```html
 <template>
