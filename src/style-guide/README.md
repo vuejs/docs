@@ -1474,6 +1474,8 @@ computed: {
 ```
 </div>
 
+## Priority D Rules: Use with Caution <span class="hide-from-sidebar">(Potentially Dangerous Patterns)</span>
+
 ### Element selectors with `scoped` <sup data-p="d">use with caution</sup>
 
 **Element selectors should be avoided with `scoped`.**
