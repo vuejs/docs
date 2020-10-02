@@ -1,10 +1,6 @@
 ---
-
-
 badges:
-
-- yeni
-
+  - yeni
 ---
 
 
@@ -31,7 +27,7 @@ Versiyon 2.x’da, çok köklü komponentler desteklenmiyordu ve kullanıcı kaz
 
 ## 3.x Sentaksı
 
-Versiyon 3.x’de, komponentler birden fazla kök noda sahip olabilecek! Ancak bu durumda programcı komponent niteliklerinin nereye ait olduğunu açıkça belirtmesi gerekecek.
+Versiyon 3.x’de, komponentler birden fazla kök noda sahip olabilecek! Ancak bu durumda programcının komponent niteliklerinin nereye ait olduğunu açıkça belirtmesi gerekecek.
 
 ```html
 <!-- Layout.vue -->
