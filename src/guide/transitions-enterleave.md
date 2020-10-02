@@ -153,7 +153,7 @@ CSS animations are applied in the same way as CSS transitions, the difference be
 Here's an example, omitting prefixed CSS rules for the sake of brevity:
 
 ```html
-<div id="example-2">
+<div id="demo">
   <button @click="show = !show">Toggle show</button>
   <transition name="bounce">
     <p v-if="show">
@@ -189,7 +189,7 @@ Vue.createApp(Demo).mount('#demo')
     transform: scale(0);
   }
   50% {
-    transform: scale(1.5);
+    transform: scale(1.25);
   }
   100% {
     transform: scale(1);
