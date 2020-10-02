@@ -261,7 +261,7 @@ However, in some cases you may want to have both on the same element, for exampl
 
 ### Explicit Transition Durations
 
-TODO: validate and provide an example
+<!-- TODO: validate and provide an example -->
 
 In most cases, Vue can automatically figure out when the transition has finished. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element. However, this may not always be desired - for example, we may have a choreographed transition sequence where some nested inner elements have a delayed transition or a longer transition duration than the root transition element.
 
@@ -448,7 +448,7 @@ We discuss [transitioning between components](#transitioning-between-components)
 
 It's actually possible to transition between any number of elements, either by using multiple `v-if`s or binding a single element to a dynamic property. For example:
 
-TODO: rewrite example and put in codepen example
+<!-- TODO: rewrite example and put in codepen example -->
 
 ```html
 <transition>
@@ -548,7 +548,7 @@ We can use this to coordinate more expressive movement, such as a folding card, 
 
 Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](component-basics.html#dynamic-components):
 
-TODO: update to Vue 3
+<!-- TODO: update to Vue 3 -->
 
 ```html
 <transition name="component-fade" mode="out-in">
@@ -583,4 +583,4 @@ new Vue({
 }
 ```
 
-TODO: example
+<!-- TODO: codepen -->
