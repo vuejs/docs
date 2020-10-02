@@ -79,13 +79,13 @@ There are six classes applied for enter/leave transitions.
 
 2. `v-enter-active`: Active state for enter. Applied during the entire entering phase. Added before element is inserted, removed when transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.
 
-3. `v-enter-to`: **Only available in versions 2.1.8+.** Ending state for enter. Added one frame after element is inserted (at the same time `v-enter` is removed), removed when transition/animation finishes.
+3. `v-enter-to`: Ending state for enter. Added one frame after element is inserted (at the same time `v-enter` is removed), removed when transition/animation finishes.
 
 4. `v-leave-from`: Starting state for leave. Added immediately when a leaving transition is triggered, removed after one frame.
 
 5. `v-leave-active`: Active state for leave. Applied during the entire leaving phase. Added immediately when leave transition is triggered, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the leaving transition.
 
-6. `v-leave-to`: **Only available in versions 2.1.8+.** Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave` is removed), removed when the transition/animation finishes.
+6. `v-leave-to`: Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave` is removed), removed when the transition/animation finishes.
 
 ![Transition Diagram](/images/transitions.svg)
 
@@ -210,10 +210,10 @@ You can also specify custom transition classes by providing the following attrib
 
 - `enter-from-class`
 - `enter-active-class`
-- `enter-to-class` (2.1.8+)
+- `enter-to-class`
 - `leave-from-class`
 - `leave-active-class`
-- `leave-to-class` (2.1.8+)
+- `leave-to-class`
 
 These will override the conventional class names. This is especially useful when you want to combine Vue's transition system with an existing CSS animation library, such as [Animate.css](https://daneden.github.io/animate.css/).
 
@@ -262,8 +262,6 @@ However, in some cases you may want to have both on the same element, for exampl
 ### Explicit Transition Durations
 
 TODO: validate and provide an example
-
-> New in 2.2.0+
 
 In most cases, Vue can automatically figure out when the transition has finished. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element. However, this may not always be desired - for example, we may have a choreographed transition sequence where some nested inner elements have a delayed transition or a longer transition duration than the root transition element.
 
@@ -580,8 +578,7 @@ new Vue({
 .component-fade-leave-active {
   transition: opacity 0.3s ease;
 }
-.component-fade-enter, .component-fade-leave-to
-/* .component-fade-leave-active below version 2.1.8 */ {
+.component-fade-enter, .component-fade-leave-to {
   opacity: 0;
 }
 ```
