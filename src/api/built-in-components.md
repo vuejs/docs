@@ -4,11 +4,13 @@
 
 - **Props:**
 
-  - `is` - `string | ComponentDefinition | ComponentConstructor`
+  - `is` - `string | Component`
 
 - **Usage:**
 
-  A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop:
+  A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop. An `is` prop as a string could be either an HTML tag name or a Component name.
+
+- **Example:**
 
   ```html
   <!-- a dynamic component controlled by -->
@@ -17,6 +19,12 @@
 
   <!-- can also render registered component or component passed as prop -->
   <component :is="$options.components.child"></component>
+
+  <!-- can reference components by string -->
+  <component :is="condition ? 'FooComponent' : 'BarComponent'"></component>
+
+  <!-- can be used to render native HTML elements -->
+  <component :is="href ? 'a' : 'span'"></component>
   ```
 
 - **See also:** [Dynamic Components](../guide/component-dynamic-async.html)

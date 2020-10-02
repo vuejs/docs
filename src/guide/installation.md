@@ -30,7 +30,7 @@ For production, we recommend linking to a specific version number and build to a
 
 ## NPM
 
-NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/). Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html).
+NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/). Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html).
 
 ```bash
 # latest stable
@@ -45,12 +45,12 @@ Vue provides an [official CLI](https://github.com/vuejs/vue-cli) for quickly sca
 The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through <a href="./">the guide</a> without any build tools before using the CLI.
 :::
 
-For Vue 3, you should use Vue CLI v4.5 available on `npm` as `@vue/cli@next`. To upgrade, you need to reinstall the latest version of `@vue/cli` globally:
+For Vue 3, you should use Vue CLI v4.5 available on `npm` as `@vue/cli`. To upgrade, you need to reinstall the latest version of `@vue/cli` globally:
 
 ```bash
-yarn global add @vue/cli@next
+yarn global add @vue/cli
 # OR
-npm install -g @vue/cli@next
+npm install -g @vue/cli
 ```
 
 Then in the Vue projects, run

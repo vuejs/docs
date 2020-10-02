@@ -8,20 +8,6 @@ const app = Vue.createApp({})
 app.config = {...}
 ```
 
-## devtools
-
-- **Type:** `boolean`
-
-- **Default:** `true` (`false` in production builds)
-
-- **Usage:**
-
-```js
-app.config.devtools = true
-```
-
-Configure whether to allow [vue-devtools](https://github.com/vuejs/vue-devtools) inspection. This option's default value is `true` in development builds and `false` in production builds. You can set it to `true` to enable inspection for production builds.
-
 ## errorHandler
 
 - **Type:** `Function`

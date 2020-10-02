@@ -1,6 +1,10 @@
 # Introduction
 
-This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. The lists may look long, but it is because we want to be as thorough as possible and provide detailed examples for every documented change. **This is not something you have to read from top to bottom before trying out Vue 3.**
+::: info 
+New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started. 
+:::
+
+This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. **This is not something you have to read from top to bottom before trying out Vue 3.** While it looks like a lot has changed, a lot of what you know and love about Vue is still the same; but we wanted to be as thorough as possible and provide detailed explanations and examples for every documented change. 
 
 - [Quickstart](#quickstart)
 - [Notable New Features](#notable-new-features)
@@ -18,6 +22,7 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
 
 - Via CDN: `<script src="https://unpkg.com/vue@next"></script>`
 - In-browser playground on [Codepen](https://codepen.io/yyx990803/pen/OJNoaZL)
+- In-browser Sandbox on [CodeSandbox](https://v3.vue.new)
 - Scaffold via [Vite](https://github.com/vitejs/vite):
 
   ```bash
@@ -92,7 +97,7 @@ The following consists a list of breaking changes from 2.x:
 - [The `data` option from mixins is now merged shallowly](/guide/migration/data-option.html#mixin-merge-behavior-change)
 - [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
 - [Some transition classes got a rename](/guide/migration/transition.html)
-- [When watching an array, the callback will only trigger when the array is replaced. If you need to to trigger on mutation, the `deep` option must be specified.](/guide/migration/watch.html)
+- [When watching an array, the callback will only trigger when the array is replaced. If you need to trigger on mutation, the `deep` option must be specified.](/guide/migration/watch.html)
 - `<template>` tags with no special directives (`v-if/else-if/else`, `v-for`, or `v-slot`) are now treated as plain elements and will result in a native `<template>` element instead of rendering its inner content.
 - In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead - this means the container itself is no longer considered part of the template.
 
@@ -153,7 +158,7 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 | Project               | NPM                           | Repo                 |
 | --------------------- | ----------------------------- | -------------------- |
 | @vue/babel-plugin-jsx | [![rc][jsx-badge]][jsx-npm]   | [[GitHub][jsx-code]] |
-| eslint-plugin-vue     | [![beta][epv-badge]][epv-npm] | [[GitHub][epv-code]] |
+| eslint-plugin-vue     | [![ga][epv-badge]][epv-npm]   | [[GitHub][epv-code]] |
 | @vue/test-utils       | [![beta][vtu-badge]][vtu-npm] | [[GitHub][vtu-code]] |
 | vue-class-component   | [![beta][vcc-badge]][vcc-npm] | [[GitHub][vcc-code]] |
 | vue-loader            | [![beta][vl-badge]][vl-npm]   | [[GitHub][vl-code]]  |
@@ -165,8 +170,8 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 [vd-badge]: https://img.shields.io/npm/v/@vue/devtools/beta.svg
 [vd-npm]: https://www.npmjs.com/package/@vue/devtools/v/beta
 [vd-code]: https://github.com/vuejs/vue-devtools/tree/next
-[epv-badge]: https://img.shields.io/npm/v/eslint-plugin-vue/next.svg
-[epv-npm]: https://www.npmjs.com/package/eslint-plugin-vue/v/next
+[epv-badge]: https://img.shields.io/npm/v/eslint-plugin-vue.svg
+[epv-npm]: https://www.npmjs.com/package/eslint-plugin-vue
 [epv-code]: https://github.com/vuejs/eslint-plugin-vue
 [vtu-badge]: https://img.shields.io/npm/v/@vue/test-utils/next.svg
 [vtu-npm]: https://www.npmjs.com/package/@vue/test-utils/v/next

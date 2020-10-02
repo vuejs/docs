@@ -104,13 +104,16 @@ If `setup` returns an object, the properties on the object can be accessed in th
 ```vue-html
 <!-- MyBook.vue -->
 <template>
-  <div>{{ props.collectionName }}: {{ readersNumber }} {{ book.title }}</div>
+  <div>{{ collectionName }}: {{ readersNumber }} {{ book.title }}</div>
 </template>
 
 <script>
   import { ref, reactive } from 'vue'
 
   export default {
+    props: {
+      collectionName: String
+    },
     setup(props) {
       const readersNumber = ref(0)
       const book = reactive({ title: 'Vue 3 Guide' })

@@ -196,7 +196,7 @@ There are two common cases where this can be tempting:
 - To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
 
 ::: details Detailed Explanation
-When Vue processes directives, `v-for` has a higher priority than `v-if`, so that this template:
+When Vue processes directives, `v-if` has a higher priority than `v-for`, so that this template:
 
 ``` html
 <ul>
@@ -210,19 +210,9 @@ When Vue processes directives, `v-for` has a higher priority than `v-if`, so tha
 </ul>
 ```
 
-Will be evaluated similar to:
+Will throw an error, because the `v-if` directive will be evaluated first and the iteration variable `user` does not exist at this moment.
 
-``` js
-this.users.map(user => {
-  if (user.isActive) {
-    return user.name
-  }
-})
-```
-
-So even if we only render elements for a small fraction of users, we have to iterate over the entire list every time we re-render, whether or not the set of active users has changed.
-
-By iterating over a computed property instead, like this:
+This could be fixed by iterating over a computed property instead, like this:
 
 ``` js
 computed: {
@@ -243,40 +233,18 @@ computed: {
 </ul>
 ```
 
-We get the following benefits:
+Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` element:
 
-- The filtered list will _only_ be re-evaluated if there are relevant changes to the `users` array, making filtering much more efficient.
-- Using `v-for="user in activeUsers"`, we _only_ iterate over active users during render, making rendering much more efficient.
-- Logic is now decoupled from the presentation layer, making maintenance (change/extension of logic) much easier.
-
-We get similar benefits from updating:
-
-``` html
+```html
 <ul>
-  <li
-    v-for="user in users"
-    v-if="shouldShowUsers"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
+  <template v-for="user in users" :key="user.id">
+    <li v-if="user.isActive">
+      {{ user.name }}
+    </li>
+  </template>
 </ul>
 ```
 
-to:
-
-``` html
-<ul v-if="shouldShowUsers">
-  <li
-    v-for="user in users"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
-</ul>
-```
-
-By moving the `v-if` to a container element, we're no longer checking `shouldShowUsers` for _every_ user in the list. Instead, we check it once and don't even evaluate the `v-for` if `shouldShowUsers` is false.
 :::
 
 <div class="style-example style-example-bad">
@@ -287,18 +255,6 @@ By moving the `v-if` to a container element, we're no longer checking `shouldSho
   <li
     v-for="user in users"
     v-if="user.isActive"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
-</ul>
-```
-
-``` html
-<ul>
-  <li
-    v-for="user in users"
-    v-if="shouldShowUsers"
     :key="user.id"
   >
     {{ user.name }}
@@ -321,14 +277,13 @@ By moving the `v-if` to a container element, we're no longer checking `shouldSho
 </ul>
 ```
 
-``` html
-<ul v-if="shouldShowUsers">
-  <li
-    v-for="user in users"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
+```html
+<ul>
+  <template v-for="user in users" :key="user.id">
+    <li v-if="user.isActive">
+      {{ user.name }}
+    </li>
+  </template>
 </ul>
 ```
 </div>
@@ -1314,28 +1269,31 @@ This is the default order we recommend for component options. They're split into
 1. **Global Awareness** (requires knowledge beyond the component)
     - `name`
 
-2. **Template Dependencies** (assets used in the template)
+2. **Template Modifiers** (changes the way templates are compiled)
+    - `delimiters`
+
+3. **Template Dependencies** (assets used in the template)
     - `components`
     - `directives`
 
-3. **Composition** (merges properties into the options)
+4. **Composition** (merges properties into the options)
     - `extends`
     - `mixins`
     - `provide`/`inject`
 
-4. **Interface** (the interface to the component)
+5. **Interface** (the interface to the component)
     - `inheritAttrs`
     - `props`
     - `emits`
 
-5. **Composition API** (the entry point for using the Composition API)
+6. **Composition API** (the entry point for using the Composition API)
     - `setup`
 
-6. **Local State** (local reactive properties)
+7. **Local State** (local reactive properties)
     - `data`
     - `computed`
 
-7. **Events** (callbacks triggered by reactive events)
+8. **Events** (callbacks triggered by reactive events)
     - `watch`
     - Lifecycle Events (in the order they are called)
         - `beforeCreate`
@@ -1352,10 +1310,10 @@ This is the default order we recommend for component options. They're split into
         - `renderTracked`
         - `renderTriggered`
 
-8.  **Non-Reactive Properties** (instance properties independent of the reactivity system)
+9.  **Non-Reactive Properties** (instance properties independent of the reactivity system)
     - `methods`
 
-9. **Rendering** (the declarative description of the component output)
+10. **Rendering** (the declarative description of the component output)
     - `template`/`render`
 
 ### Element attribute order <sup data-p="c">recommended</sup>
@@ -1444,21 +1402,17 @@ props: {
     type: String,
     required: true
   },
-
   focused: {
     type: Boolean,
     default: false
   },
-
   label: String,
   icon: String
 },
-
 computed: {
   formattedValue() {
     // ...
   },
-
   inputClasses() {
     // ...
   }
@@ -1519,6 +1473,8 @@ computed: {
 <style>/* ... */</style>
 ```
 </div>
+
+## Priority D Rules: Use with Caution <span class="hide-from-sidebar">(Potentially Dangerous Patterns)</span>
 
 ### Element selectors with `scoped` <sup data-p="d">use with caution</sup>
 
