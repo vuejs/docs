@@ -1,17 +1,22 @@
 ---
+
+
 badges:
-  - new
+
+- yeni
+
 ---
 
-# Fragments <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+# Fragmanlar <MigrationBadges :badges="$frontmatter.badges" />
 
-In Vue 3, components now have official support for multi-root node components, i.e., fragments!
+## Genel bakış
 
-## 2.x Syntax
+Vue 3’de komponentler artık çok sayıda kök noda, yani fragmana sahip olabilecek!
 
-In 2.x, multi-root components were not supported and would emit a warning when a user accidentally created one. As a result, many components are wrapped in a single `<div>` in order to fix this error.
+## 2.x Sentaksı
+
+Versiyon 2.x’da, çok köklü komponentler desteklenmiyordu ve kullanıcı kaza eseri birden fazla kök oluşturduğunda bir uyarı mesajı gösteriliyordu. Sonuç olarak birçok komponent bu hata uyarısını engellemek için ekstra bir `<div>` içerisine yerleştiriliyordu.
 
 ```html
 <!-- Layout.vue -->
@@ -24,9 +29,9 @@ In 2.x, multi-root components were not supported and would emit a warning when a
 </template>
 ```
 
-## 3.x Syntax
+## 3.x Sentaksı
 
-In 3.x, components now can have multiple root nodes! However, this does require developers to explicitly define where attributes should be distributed.
+Versiyon 3.x’de, komponentler birden fazla kök noda sahip olabilecek! Ancak bu durumda programcı komponent niteliklerinin nereye ait olduğunu açıkça belirtmesi gerekecek.
 
 ```html
 <!-- Layout.vue -->
@@ -37,4 +42,4 @@ In 3.x, components now can have multiple root nodes! However, this does require 
 </template>
 ```
 
-For more information on how attribute inheritance works, see [Non-Prop Attributes](/guide/component-attrs.html).
+Niteliklerin miras ilişkisi hakkında daha fazla bilgi için [Prop-Olmayan Nitelikler](/guide/component-attrs.html) yazısına göz atabilirsiniz.
