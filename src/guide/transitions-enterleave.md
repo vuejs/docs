@@ -345,7 +345,7 @@ methods: {
 
 These hooks can be used in combination with CSS transitions/animations or on their own.
 
-When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, the hooks will be called synchronously and the transition will finish immediately. Adding `:css="false"` will also let know Vue to skip CSS detection. Aside from being slightly more performant, this also prevents CSS rules from accidentally interfering with the transition.
+When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, the hooks will be called synchronously and the transition will finish immediately. Adding `:css="false"` will also let Vue know to skip CSS detection. Aside from being slightly more performant, this also prevents CSS rules from accidentally interfering with the transition.
 
 Now let's dive into an example. Here's a JavaScript transition using [GreenSock](https://greensock.com/):
 
@@ -535,7 +535,7 @@ Now let's update the transition for our on/off buttons with `out-in`:
 
 With one attribute addition, we've fixed that original transition without having to add any special styling.
 
-We can use this to coordinate more expressive movement, such as a folding card, as demonstrated below. It's actually two elements transitioning between eachother, but since the beginning and end states are scaling the same: horizontally to 0, it appears like one fluid movement. This type of slight-of-hand can be very useful for realistic UI microinteractions:
+We can use this to coordinate more expressive movement, such as a folding card, as demonstrated below. It's actually two elements transitioning between each other, but since the beginning and end states are scaling the same: horizontally to 0, it appears like one fluid movement. This type of sleight-of-hand can be very useful for realistic UI microinteractions:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="76e344bf057bd58b5936bba260b787a8" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Flip Cards">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/76e344bf057bd58b5936bba260b787a8">
