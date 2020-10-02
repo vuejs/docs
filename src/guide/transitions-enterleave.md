@@ -548,19 +548,22 @@ We can use this to coordinate more expressive movement, such as a folding card, 
 
 Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](component-basics.html#dynamic-components):
 
-<!-- TODO: update to Vue 3 -->
-
 ```html
-<transition name="component-fade" mode="out-in">
-  <component :is="view"></component>
-</transition>
+<div id="demo">
+  <input v-model="view" type="radio" value="v-a" id="a"><label for="a">A</label>
+  <input v-model="view" type="radio" value="v-b" id="b"><label for="b">B</label>
+  <transition name="component-fade" mode="out-in">
+    <component :is="view"></component>
+  </transition>
+</div>
 ```
 
 ```js
-new Vue({
-  el: '#transition-components-demo',
-  data: {
-    view: 'v-a'
+const Demo = {
+  data() {
+    return {
+      view: 'v-a'
+    }
   },
   components: {
     'v-a': {
@@ -570,7 +573,9 @@ new Vue({
       template: '<div>Component B</div>'
     }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#demo')
 ```
 
 ```css
@@ -578,7 +583,9 @@ new Vue({
 .component-fade-leave-active {
   transition: opacity 0.3s ease;
 }
-.component-fade-enter, .component-fade-leave-to {
+
+.component-fade-enter-from,
+.component-fade-leave-to {
   opacity: 0;
 }
 ```
