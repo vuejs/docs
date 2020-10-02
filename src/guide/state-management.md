@@ -116,6 +116,6 @@ const appB = Vue.createApp({
 You should never replace the original state object in your actions - the components and the store need to share reference to the same object in order for mutations to be observed.
 :::
 
-As we continue developing the convention where components are never allowed to directly mutate state that belongs to a store, but should instead dispatch events that notify the store to perform actions, we eventually arrive at the [Flux](https://facebook.github.io/flux/) architecture. The benefit of this convention is we can record all state mutations happening to the store and implement advanced debugging helpers such as mutation logs, snapshots, and history re-rolls / time travel.
+As we continue developing the convention, where components are never allowed to directly mutate state that belongs to a store but should instead dispatch events that notify the store to perform actions, we eventually arrive at the [Flux](https://facebook.github.io/flux/) architecture. The benefit of this convention is we can record all state mutations happening to the store and implement advanced debugging helpers such as mutation logs, snapshots, and history re-rolls / time travel.
 
 This brings us full circle back to [Vuex](https://github.com/vuejs/vuex), so if you've read this far it's probably time to try it out!
