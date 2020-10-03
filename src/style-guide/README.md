@@ -1402,21 +1402,17 @@ props: {
     type: String,
     required: true
   },
-
   focused: {
     type: Boolean,
     default: false
   },
-
   label: String,
   icon: String
 },
-
 computed: {
   formattedValue() {
     // ...
   },
-
   inputClasses() {
     // ...
   }
@@ -1477,6 +1473,8 @@ computed: {
 <style>/* ... */</style>
 ```
 </div>
+
+## Priority D Rules: Use with Caution <span class="hide-from-sidebar">(Potentially Dangerous Patterns)</span>
 
 ### Element selectors with `scoped` <sup data-p="d">use with caution</sup>
 
