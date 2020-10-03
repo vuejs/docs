@@ -197,7 +197,7 @@
   <!-- shorthand -->
   <button @click="doThis"></button>
 
-  <!-- shorthand dynamic event (2.6.0+) -->
+  <!-- shorthand dynamic event -->
   <button @[event]="doThis"></button>
 
   <!-- stop propagation -->
