@@ -1385,12 +1385,10 @@ props: {
     type: String,
     required: true
   },
-
   focused: {
     type: Boolean,
     default: false
   },
-
   label: String,
   icon: String
 },
@@ -1458,6 +1456,8 @@ computed: {
 <style>/* ... */</style>
 ```
 </div>
+
+## Правила приоритета D: Использовать с осторожностью <span class="hide-from-sidebar">(Потенциально опасные паттерны)</span>
 
 ### Селекторы элементов при использовании `scoped` <sup data-p="d">используйте с осторожностью</sup>
 

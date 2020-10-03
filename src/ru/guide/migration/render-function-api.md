@@ -103,8 +103,10 @@ In 2.x, `domProps` contained a nested list within the VNode props:
 ```js
 // 2.x
 {
-  class: ['button', 'is-outlined'],
-  style: { color: '#34495E' },
+  staticClass: 'button',
+  class: {'is-outlined': isOutlined },
+  staticStyle: { color: '#34495E' },
+  style: { backgroundColor: buttonColor },
   attrs: { id: 'submit' },
   domProps: { innerHTML: '' },
   on: { click: submitForm },
@@ -119,8 +121,8 @@ In 3.x, the entire VNode props structure is flattened. Using the example from ab
 ```js
 // 3.x Syntax
 {
-  class: ['button', 'is-outlined'],
-  style: { color: '#34495E' },
+  class: ['button', { 'is-outlined': isOutlined }],
+  style: [{ color: '#34495E' }, { backgroundColor: buttonColor }],
   id: 'submit',
   innerHTML: '',
   onClick: submitForm,
