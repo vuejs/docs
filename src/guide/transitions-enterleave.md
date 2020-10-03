@@ -75,17 +75,17 @@ When an element wrapped in a `transition` component is inserted or removed, this
 
 There are six classes applied for enter/leave transitions.
 
-1. `v-enter-from`: Starting state for enter. Added before element is inserted, removed one frame after element is inserted.
+1. `v-enter-from`: Starting state for enter. Added before the element is inserted, removed one frame after the element is inserted.
 
-2. `v-enter-active`: Active state for enter. Applied during the entire entering phase. Added before element is inserted, removed when transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.
+2. `v-enter-active`: Active state for enter. Applied during the entire entering phase. Added before the element is inserted, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.
 
-3. `v-enter-to`: **Only available in versions 2.1.8+.** Ending state for enter. Added one frame after element is inserted (at the same time `v-enter` is removed), removed when transition/animation finishes.
+3. `v-enter-to`: Ending state for enter. Added one frame after the element is inserted (at the same time `v-enter-from` is removed), removed when the transition/animation finishes.
 
 4. `v-leave-from`: Starting state for leave. Added immediately when a leaving transition is triggered, removed after one frame.
 
-5. `v-leave-active`: Active state for leave. Applied during the entire leaving phase. Added immediately when leave transition is triggered, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the leaving transition.
+5. `v-leave-active`: Active state for leave. Applied during the entire leaving phase. Added immediately when a leave transition is triggered, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the leaving transition.
 
-6. `v-leave-to`: **Only available in versions 2.1.8+.** Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave` is removed), removed when the transition/animation finishes.
+6. `v-leave-to`: Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave-from` is removed), removed when the transition/animation finishes.
 
 ![Transition Diagram](/images/transitions.svg)
 
@@ -153,7 +153,7 @@ CSS animations are applied in the same way as CSS transitions, the difference be
 Here's an example, omitting prefixed CSS rules for the sake of brevity:
 
 ```html
-<div id="example-2">
+<div id="demo">
   <button @click="show = !show">Toggle show</button>
   <transition name="bounce">
     <p v-if="show">
@@ -189,7 +189,7 @@ Vue.createApp(Demo).mount('#demo')
     transform: scale(0);
   }
   50% {
-    transform: scale(1.5);
+    transform: scale(1.25);
   }
   100% {
     transform: scale(1);
@@ -210,10 +210,10 @@ You can also specify custom transition classes by providing the following attrib
 
 - `enter-from-class`
 - `enter-active-class`
-- `enter-to-class` (2.1.8+)
+- `enter-to-class`
 - `leave-from-class`
 - `leave-active-class`
-- `leave-to-class` (2.1.8+)
+- `leave-to-class`
 
 These will override the conventional class names. This is especially useful when you want to combine Vue's transition system with an existing CSS animation library, such as [Animate.css](https://daneden.github.io/animate.css/).
 
@@ -261,9 +261,7 @@ However, in some cases you may want to have both on the same element, for exampl
 
 ### Explicit Transition Durations
 
-TODO: validate and provide an example
-
-> New in 2.2.0+
+<!-- TODO: validate and provide an example -->
 
 In most cases, Vue can automatically figure out when the transition has finished. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element. However, this may not always be desired - for example, we may have a choreographed transition sequence where some nested inner elements have a delayed transition or a longer transition duration than the root transition element.
 
@@ -347,7 +345,7 @@ methods: {
 
 These hooks can be used in combination with CSS transitions/animations or on their own.
 
-When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, the hooks will be called synchronously and the transition will finish immediately. Adding `:css="false"` will also let know Vue to skip CSS detection. Aside from being slightly more performant, this also prevents CSS rules from accidentally interfering with the transition.
+When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, the hooks will be called synchronously and the transition will finish immediately. Adding `:css="false"` will also let Vue know to skip CSS detection. Aside from being slightly more performant, this also prevents CSS rules from accidentally interfering with the transition.
 
 Now let's dive into an example. Here's a JavaScript transition using [GreenSock](https://greensock.com/):
 
@@ -450,7 +448,7 @@ We discuss [transitioning between components](#transitioning-between-components)
 
 It's actually possible to transition between any number of elements, either by using multiple `v-if`s or binding a single element to a dynamic property. For example:
 
-TODO: rewrite example and put in codepen example
+<!-- TODO: rewrite example and put in codepen example -->
 
 ```html
 <transition>
@@ -537,7 +535,7 @@ Now let's update the transition for our on/off buttons with `out-in`:
 
 With one attribute addition, we've fixed that original transition without having to add any special styling.
 
-We can use this to coordinate more expressive movement, such as a folding card, as demonstrated below. It's actually two elements transitioning between eachother, but since the beginning and end states are scaling the same: horizontally to 0, it appears like one fluid movement. This type of slight-of-hand can be very useful for realistic UI microinteractions:
+We can use this to coordinate more expressive movement, such as a folding card, as demonstrated below. It's actually two elements transitioning between each other, but since the beginning and end states are scaling the same: horizontally to 0, it appears like one fluid movement. This type of sleight-of-hand can be very useful for realistic UI microinteractions:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="76e344bf057bd58b5936bba260b787a8" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Flip Cards">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/76e344bf057bd58b5936bba260b787a8">
@@ -550,19 +548,22 @@ We can use this to coordinate more expressive movement, such as a folding card, 
 
 Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](component-basics.html#dynamic-components):
 
-TODO: update to Vue 3
-
 ```html
-<transition name="component-fade" mode="out-in">
-  <component :is="view"></component>
-</transition>
+<div id="demo">
+  <input v-model="view" type="radio" value="v-a" id="a"><label for="a">A</label>
+  <input v-model="view" type="radio" value="v-b" id="b"><label for="b">B</label>
+  <transition name="component-fade" mode="out-in">
+    <component :is="view"></component>
+  </transition>
+</div>
 ```
 
 ```js
-new Vue({
-  el: '#transition-components-demo',
-  data: {
-    view: 'v-a'
+const Demo = {
+  data() {
+    return {
+      view: 'v-a'
+    }
   },
   components: {
     'v-a': {
@@ -572,7 +573,9 @@ new Vue({
       template: '<div>Component B</div>'
     }
   }
-})
+}
+
+Vue.createApp(Demo).mount('#demo')
 ```
 
 ```css
@@ -580,10 +583,11 @@ new Vue({
 .component-fade-leave-active {
   transition: opacity 0.3s ease;
 }
-.component-fade-enter, .component-fade-leave-to
-/* .component-fade-leave-active below version 2.1.8 */ {
+
+.component-fade-enter-from,
+.component-fade-leave-to {
   opacity: 0;
 }
 ```
 
-TODO: example
+<!-- TODO: codepen -->
