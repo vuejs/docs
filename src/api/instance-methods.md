@@ -158,7 +158,9 @@
   If you still want to call an unwatch function inside the callback, you should check its availability first:
 
   ```js
-  const unwatch = vm.$watch(
+  let unwatch = null
+  
+  unwatch = vm.$watch(
     'value',
     function() {
       doSomething()
