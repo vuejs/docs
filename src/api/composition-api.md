@@ -161,7 +161,7 @@ const foo = inject<string>('foo') // string | undefined
 
 ## `getCurrentInstance`
 
-`getCurrentInstance` enables access to internal component intance usefull for advanced usages or for library creators.
+`getCurrentInstance` enables access to an internal component instance useful for advanced usages or for library creators.
 
 ```ts
 import { getCurrentIntance } from 'vue'
