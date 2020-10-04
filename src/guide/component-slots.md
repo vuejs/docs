@@ -330,7 +330,7 @@ Whenever there are multiple slots, use the full `<template>` based syntax for _a
   <template v-slot:other="otherSlotProps">
     ...
   </template>
-</current-user>
+</todo-list>
 ```
 
 ### Destructuring Slot Props
