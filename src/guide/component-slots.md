@@ -48,7 +48,7 @@ Or even other components:
 <todo-button>
   <!-- Use a component to add an icon -->
   <font-awesome-icon name="plus"></font-awesome-icon>
-  Your Profile
+  Add todo
 </todo-button>
 ```
 
@@ -263,7 +263,7 @@ To make `item` available to the slot content provided by the parent, we can add 
 ```html
 <ul>
   <li v-for="( item, index ) in items">
-    <slot v-bind:item="item"></slot>
+    <slot :item="item"></slot>
   </li>
 </ul>
 ```
@@ -330,7 +330,7 @@ Whenever there are multiple slots, use the full `<template>` based syntax for _a
   <template v-slot:other="otherSlotProps">
     ...
   </template>
-</current-user>
+</todo-list>
 ```
 
 ### Destructuring Slot Props
