@@ -231,7 +231,7 @@ const sidebarRU = {
         '/ru/guide/component-registration',
         '/ru/guide/component-props',
         '/ru/guide/component-attrs',
-        '/guide/component-custom-events',
+        '/ru/guide/component-custom-events',
         '/ru/guide/component-slots',
         '/ru/guide/component-provide-inject',
         '/ru/guide/component-dynamic-async',
