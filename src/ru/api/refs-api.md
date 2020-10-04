@@ -18,7 +18,7 @@ console.log(count.value) // 1
 
 If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.md#reactive) method.
 
-**Typing:**
+**Типы:**
 
 ```ts
 interface Ref<T> {
@@ -183,7 +183,7 @@ Creates a customized ref with explicit control over its dependency tracking and 
   }
   ```
 
-**Typing:**
+**Типы:**
 
 ```ts
 function customRef<T>(factory: CustomRefFactory<T>): Ref<T>

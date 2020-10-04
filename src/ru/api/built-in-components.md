@@ -2,7 +2,7 @@
 
 ## component
 
-- **Props:**
+- **Входные параметры**
 
   - `is` - `string | Component`
 
@@ -31,7 +31,7 @@
 
 ## transition
 
-- **Props:**
+- **Входные параметры**
 
   - `name` - `string` Used to automatically generate transition CSS class names. e.g. `name: 'fade'` will auto expand to `.fade-enter`, `.fade-enter-active`, etc.
   - `appear` - `boolean`, Whether to apply transition on initial render. Defaults to `false`.
@@ -105,7 +105,7 @@
 
 ## transition-group
 
-- **Props:**
+- **Входные параметры**
 
   - `tag` - `string`, defaults to `span`.
   - `move-class` - overwrite CSS class applied during moving transition.
@@ -212,7 +212,7 @@
 
 ## slot
 
-- **Props:**
+- **Входные параметры**
 
   - `name` - `string`, Used for named slot.
 
@@ -226,7 +226,7 @@
 
 ## teleport
 
-- **Props:**
+- **Входные параметры**
 
   - `to` - `string`. Required prop, has to be a valid query selector, or an HTMLElement (if used in a browser environment). Specifies a target element where `<teleport>` content will be moved
 

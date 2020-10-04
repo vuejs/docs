@@ -30,7 +30,7 @@ plusOne.value = 1
 console.log(count.value) // 0
 ```
 
-**Typing:**
+**Типы:**
 
 ```ts
 // read-only
@@ -56,7 +56,7 @@ setTimeout(() => {
 }, 100)
 ```
 
-**Typing:**
+**Типы:**
 
 ```ts
 function watchEffect(
@@ -129,7 +129,7 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 
 `watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](../guide/reactivity-computed-watchers.md#stopping-the-watcher), [side effect invalidation](../guide/reactivity-computed-watchers.md#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument instead), [flush timing](../guide/reactivity-computed-watchers.md#effect-flush-timing) and [debugging](../guide/reactivity-computed-watchers.md#watcher-debugging).
 
-**Typing:**
+**Типы:**
 
 ```ts
 // watching single source
