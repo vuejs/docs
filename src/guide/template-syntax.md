@@ -169,7 +169,7 @@ The `v-` prefix serves as a visual cue for identifying Vue-specific attributes i
 <!-- shorthand -->
 <a @click="doSomething"> ... </a>
 
-<!-- shorthand with dynamic argument (2.6.0+) -->
+<!-- shorthand with dynamic argument -->
 <a @[event]="doSomething"> ... </a>
 ```
 
