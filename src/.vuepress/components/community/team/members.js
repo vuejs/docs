@@ -307,7 +307,8 @@ const members = [
       github: 'antfu',
       twitter: 'antfu7',
       reposOfficial: ['composition-api'],
-      reposPersonal: ['antfu/vueuse', 'antfu/vue-demi', 'vue-reactivity/*']
+      reposPersonal: ['antfu/vueuse', 'antfu/vue-demi', 'vue-reactivity/*'],
+      links: ['https://antfu.me/']
     }
   ])
 )
