@@ -263,7 +263,7 @@ To make `item` available to the slot content provided by the parent, we can add 
 ```html
 <ul>
   <li v-for="( item, index ) in items">
-    <slot v-bind:item="item"></slot>
+    <slot :item="item"></slot>
   </li>
 </ul>
 ```
