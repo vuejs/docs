@@ -48,7 +48,7 @@ Or even other components:
 <todo-button>
   <!-- Use a component to add an icon -->
   <font-awesome-icon name="plus"></font-awesome-icon>
-  Your Profile
+  Add todo
 </todo-button>
 ```
 
