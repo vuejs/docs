@@ -158,3 +158,58 @@ const foo = inject<string>('foo') // string | undefined
 - **См. также**:
   - [Provide / Inject](../guide/component-provide-inject.md)
   - [Composition API Provide / Inject](../guide/composition-api-provide-inject.md)
+
+## `getCurrentInstance`
+
+`getCurrentInstance` enables access to an internal component instance useful for advanced usages or for library creators.
+
+```ts
+import { getCurrentInstance } from 'vue'
+
+const MyComponent = {
+  setup() {
+    const internalInstance = getCurrentInstance()
+
+    internalInstance.appContext.config.globalProperties // access to globalProperties
+  }
+}
+```
+
+`getCurrentInstance` **only** works during [setup](#setup) or [Lifecycle Hooks](#lifecycle-hooks)
+
+> When using outside of [setup](#setup) or [Lifecycle Hooks](#lifecycle-hooks), please call `getCurrentInstance()` on `setup` and use the instance instead.
+
+```ts
+const MyComponent = {
+  setup() {
+    const internalInstance = getCurrentInstance() // works
+
+    const id = useComponentId() // works
+
+    const handleClick = () => {
+      getCurrentInstance() // doesn't work
+      useComponentId() // doesn't work
+
+      internalInstance // works
+    }
+
+    onMounted(() => {
+      getCurrentInstance() // works
+    })
+
+    return () =>
+      h(
+        'button',
+        {
+          onClick: handleClick
+        },
+        `uid: ${id}`
+      )
+  }
+}
+
+// also works if called on a composable
+function useComponentId() {
+  return getCurrentInstance().uid
+}
+```

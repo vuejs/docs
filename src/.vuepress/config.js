@@ -216,6 +216,7 @@ const sidebarRU = {
         '/ru/guide/introduction',
         '/ru/guide/instance',
         '/ru/guide/template-syntax',
+        '/ru/guide/data-methods',
         '/ru/guide/computed',
         '/ru/guide/class-and-style',
         '/ru/guide/conditional',
