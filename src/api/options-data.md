@@ -92,7 +92,7 @@
 
 - **Details:**
 
-  Computed properties to be mixed into the Vcomponent instance. All getters and setters have their `this` context automatically bound to the component instance.
+  Computed properties to be mixed into the component instance. All getters and setters have their `this` context automatically bound to the component instance.
 
   Note that if you use an arrow function with a computed property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
 
