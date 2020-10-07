@@ -1,6 +1,6 @@
 # Options API
 
-The Options API contains the following:
+The Options API contains the following sections:
 
 - [Data](/api/options-data.html)
 - [DOM](/api/options-dom.html)
