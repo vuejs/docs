@@ -9,6 +9,7 @@
   - `{Object} options (optional)`
     - `{boolean} deep`
     - `{boolean} immediate`
+    - `{string} flush`
 
 - **Returns:** `{Function} unwatch`
 
@@ -171,6 +172,24 @@
     { immediate: true }
   )
   ```
+
+- **Option: flush**
+
+  The `flush` option allows for greater control over the timing of the callback. It can be set to `'pre'`, `'post'` or `'sync'`.
+  
+  The default value is `'pre'`, which specifies that the callback should be invoked before rendering. This allows the callback to update other values before the template runs.
+  
+  The value `'post'` can be used to defer the callback until after rendering. This should be used if the callback needs access to the updated DOM or child components via `$refs`.
+
+  If `flush` is set to `'sync'`, the callback will be called synchronously, as soon as the value changes.
+
+  For both `'pre'` and `'post'`, the callback is buffered using a queue. The callback will only be added to the queue once, even if the watched value changes multiple times. The interim values will be skipped and won't be passed to the callback.
+  
+  Buffering the callback not only improves performance but also helps to ensure data consistency. The watchers won't be triggered until the code performing the data updates has finished.
+  
+  `'sync'` watchers should be used sparingly, as they don't have these benefits.
+
+  For more information about `flush` see [Effect Flush Timing](../guide/reactivity-computed-watchers.html#effect-flush-timing).
 
 - **See also:** [Watchers](../guide/computed.html#watchers)
 
