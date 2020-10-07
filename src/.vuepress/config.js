@@ -120,6 +120,7 @@ const sidebar = {
         '/guide/migration/array-refs',
         '/guide/migration/async-components',
         '/guide/migration/attribute-coercion',
+        '/guide/migration/attrs-includes-class-style.md',
         '/guide/migration/custom-directives',
         '/guide/migration/custom-elements-interop',
         '/guide/migration/data-option',

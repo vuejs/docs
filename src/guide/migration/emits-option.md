@@ -1,5 +1,5 @@
 ---
-title: \`emits\` option
+title: emits Option
 badges:
   - new
 ---
@@ -10,7 +10,7 @@ badges:
 
 Vue 3 now offers an `emits` option similar to the existing `props` option. This option can be used to define the events that a component can emit to its parent.
 
-## 2.x Syntax
+## 2.x Behavior
 
 In Vue 2, you can define the props that a component received, but you can't define which ebents it can emit:
 
@@ -26,7 +26,7 @@ In Vue 2, you can define the props that a component received, but you can't defi
 </script>
 ```
 
-## 3.x Syntax
+## 3.x Behavior
 
 Similar to props, the events that the component emit can now be defined with the `emits` option.
 
@@ -56,6 +56,7 @@ All events not defined with `emits` are now added as DOM event listeners to the 
 ## See also
 
 - [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0030-emits-option.md)
-- [Migration guide - `$listeners` removed](/.listeners-removed.md)
 - [Migration guide - `.native` modifier removed](./native-modifier-removed.md)
+- [Migration guide - `$listeners` removed](/.listeners-removed.md)
+- [Migration guide - `$attrs`includes `class` & `style` ](./attrs-included-class-style.md)
 - [Migration guide - Changes in the Render Functions API](./render-functions.md)

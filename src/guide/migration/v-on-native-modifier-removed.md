@@ -61,6 +61,6 @@ Consequently, Vue will now add all event listeners that are _not_ defined as com
 ## See also
 
 - [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md#v-on-listener-fallthrough)
-- [Migration guide - Changes in the Render Functions API](./render-functions.md)
 - [Migration guide - New Emits Option](/.emits-option.md)
 - [Migration guide - `$listeners` removed](/.listeners-removed.md)
+- [Migration guide - Changes in the Render Functions API](./render-functions.md)
