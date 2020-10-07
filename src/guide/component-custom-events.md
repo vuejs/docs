@@ -33,7 +33,7 @@ app.component('custom-form', {
 })
 ```
 
-When a native event (e.g., `click`) is defined in the `emits` option, the component event will be used __instead__ of the native one.
+When a native event (e.g., `click`) is defined in the `emits` option, the component event will be used __instead__ of a native event listener.
 
 ::: tip
 It is recommended to define all emitted events in order to better document how a component should work.
