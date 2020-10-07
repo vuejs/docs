@@ -157,6 +157,7 @@ const sidebar = {
     '/api/global-api',
     {
       title: 'Options',
+      path: '/api/options-api',
       collapsable: false,
       children: [
         '/api/options-data',
@@ -174,6 +175,7 @@ const sidebar = {
     '/api/built-in-components.md',
     {
       title: 'Reactivity API',
+      path: '/api/reactivity-api',
       collapsable: false,
       children: [
         '/api/basic-reactivity',
@@ -296,7 +298,7 @@ module.exports = {
       },
       {
         text: 'API Reference',
-        link: '/api/application-config'
+        link: '/api/'
       },
       {
         text: 'Ecosystem',
