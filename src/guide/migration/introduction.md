@@ -1,10 +1,10 @@
 # Introduction
 
-::: info 
-New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started. 
+::: info
+New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started.
 :::
 
-This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. **This is not something you have to read from top to bottom before trying out Vue 3.** While it looks like a lot has changed, a lot of what you know and love about Vue is still the same; but we wanted to be as thorough as possible and provide detailed explanations and examples for every documented change. 
+This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. **This is not something you have to read from top to bottom before trying out Vue 3.** While it looks like a lot has changed, a lot of what you know and love about Vue is still the same; but we wanted to be as thorough as possible and provide detailed explanations and examples for every documented change.
 
 - [Quickstart](#quickstart)
 - [Notable New Features](#notable-new-features)
@@ -69,6 +69,7 @@ The following consists a list of breaking changes from 2.x:
 - [`key` usage on `<template v-for>` and non-`v-for` nodes has changed](/guide/migration/key-attribute.html)
 - [`v-if` and `v-for` precedence when used on the same element has changed](/guide/migration/v-if-v-for.html)
 - [`v-bind="object"` is now order-sensitive](/guide/migration/v-bind.html)
+- [`v-on:event.native` modifier has been removed](./native-modifier-removed.md)
 - [`ref` inside `v-for` no longer register an array of refs](/guide/migration/array-refs.html)
 
 ### Components
@@ -76,11 +77,13 @@ The following consists a list of breaking changes from 2.x:
 - [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
 - [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
 - [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
+- [Component events should now be documented `emits` option]('./emits-option.md)
 
 ### Render Function
 
 - [Render function API changed](/guide/migration/render-function-api.html)
 - [`$scopedSlots` property is removed and all slots are exposed via `$slots` as functions](/guide/migration/slots-unification.html)
+- [`$listeners` has been removed / merged into `$attrs`](./listeners-removed)
 
 ### Custom Elements
 
