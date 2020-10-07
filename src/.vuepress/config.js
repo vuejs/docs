@@ -175,6 +175,7 @@ const sidebar = {
     '/api/built-in-components.md',
     {
       title: 'Reactivity API',
+      path: '/api/reactivity-api',
       collapsable: false,
       children: [
         '/api/basic-reactivity',
