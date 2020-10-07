@@ -157,6 +157,7 @@ const sidebar = {
     '/api/global-api',
     {
       title: 'Options',
+      path: '/api/options-api',
       collapsable: false,
       children: [
         '/api/options-data',
@@ -296,7 +297,7 @@ module.exports = {
       },
       {
         text: 'API Reference',
-        link: '/api/application-config'
+        link: '/api/'
       },
       {
         text: 'Ecosystem',
