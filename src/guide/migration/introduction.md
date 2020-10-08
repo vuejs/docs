@@ -77,14 +77,14 @@ The following consists a list of breaking changes from 2.x:
 - [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
 - [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
 - [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
-- [Component events should now be documented `emits` option]('./emits-option.md)
+- [Component events should now be declared with the `emits` option]('./emits-option.md)
 
 ### Render Function
 
 - [Render function API changed](/guide/migration/render-function-api.html)
 - [`$scopedSlots` property is removed and all slots are exposed via `$slots` as functions](/guide/migration/slots-unification.html)
 - [`$listeners` has been removed / merged into `$attrs`](./listeners-removed)
-- [`$attrs` now includes `class` and `style` attributes](./attrs-inlcuded-class-style.md)
+- [`$attrs` now includes `class` and `style` attributes](./attrs-included-class-style.md)
 
 ### Custom Elements
 

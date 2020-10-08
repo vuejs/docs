@@ -4,19 +4,19 @@ badges:
   - breaking
 ---
 
-# `$attrs`includes `class` & `style` <MigrationBadges :badges="$frontmatter.badges" />
+# `$attrs` includes `class` & `style` <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 
-`$attrs` now contains _all_ attributes passed to a component, including `class` and `style.`
+`$attrs` now contains _all_ attributes passed to a component, including `class` and `style`.
 
 ## 2.x Behavior
 
-`class` and `style` attributes get some special handling in the Vue 2 VirtualDOM implementation. For that reason, they are _not_ included in `$attrs`, while all other attributes are.
+`class` and `style` attributes get some special handling in the Vue 2 virtual DOM implementation. For that reason, they are _not_ included in `$attrs`, while all other attributes are.
 
 A side effect of this manifests when using `inheritAttrs: false`:
 
-- Attributes in `$attrs` are no longer automatically added to the root element, leaving it the developer to decide where to add them.
+- Attributes in `$attrs` are no longer automatically added to the root element, leaving it to the developer to decide where to add them.
 - But `class` and `style`, not being part of `$attrs`, will still be applied to the component's root element:
 
 ```html
@@ -65,5 +65,5 @@ In components that use `inheritAttrs: false`, make sure that styling still works
 - [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md)
 - [Migration guide - `$listeners` removed](/.listeners-removed.md)
 - [Migration guide - New Emits Option](/.emits-option.md)
-- [Migration guide - `.native` modifier removed](./native-modifier-removed.md)
+- [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
 - [Migration guide - Changes in the Render Functions API](./render-functions.md)

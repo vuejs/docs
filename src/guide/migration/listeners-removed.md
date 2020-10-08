@@ -8,11 +8,10 @@ badges:
 
 ## Overview
 
-the `$listeners` object has been removed in Vue 3. Event Listeners are now part of `$attrs`.
+The `$listeners` object has been removed in Vue 3. Event listeners are now part of `$attrs`.
 
 ```javascript
 {
-
   text: 'this is a prop',
   onClose: () => console.log('close Event triggered')
 }
@@ -21,13 +20,12 @@ the `$listeners` object has been removed in Vue 3. Event Listeners are now part 
 ## 2.x Syntax
 
 In Vue 2, you can access attributes passed to your components with `this.$attrs`, and event listeners with `this.$listeners`.
-
-These are usually Used in components that receive the attributes and listeners from its parents passed them on to and distinct element, usually in combination with `inheritAttrs: false`:
+In combination with `inheritAttrs: false`, they allow the developer to apply these attributes and listeners to some other element instead of the root element:
 
 ```html
 <template>
   <label>
-    <input type="text" v-bind="$attrs" v-bind="$listeners" />
+    <input type="text" v-bind="$attrs" v-on="$listeners" />
   </label>
 </template>
 <script>
@@ -58,7 +56,6 @@ If this component received an `id` attribute and a `v-on:close` listener, the `$
 
 ```javascript
 {
-
   id: 'my-input',
   onClose: () => console.log('close Event triggered')
 }
@@ -74,4 +71,4 @@ Remove all usages of `$listeners`.
 - [Migration guide - `$attrs`includes `class` & `style` ](./attrs-included-class-style.md)
 - [Migration guide - Changes in the Render Functions API](./render-functions.md)
 - [Migration guide - New Emits Option](/.emits-option.md)
-- [Migration guide - `.native` modifier removed](./native-modifier-removed.md)
+- [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
