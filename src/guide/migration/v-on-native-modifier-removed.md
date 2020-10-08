@@ -12,7 +12,7 @@ The `.native` modifier for `v-on` has been removed.
 
 ## 2.x Syntax
 
-Event Listeners passed to a component with `v-on` are by default only triggered by emitting an event with `this.$emit`. To add a native DOM listener to the child component's root element instead, the `.native` modifier can be used:
+Event listeners passed to a component with `v-on` are by default only triggered by emitting an event with `this.$emit`. To add a native DOM listener to the child component's root element instead, the `.native` modifier can be used:
 
 ```html
 <my-component
@@ -21,20 +21,11 @@ Event Listeners passed to a component with `v-on` are by default only triggered 
 />
 ```
 
-`MyComponent.vue`
-
-```html
-<script>
-  export // ...
-  {}
-</script>
-```
-
 ## 3.x Syntax
 
 The `.native` modifier for `v-on` has been removed. At the same time, the [new `emits` option](/.emits-option.md) allows the child to define which events it does indeed emit.
 
-Consequently, Vue will now add all event listeners that are _not_ defined as component-emitted events in the child as native event listeners to the child's root element (unless `inheritAttrs: false`) has been set in the child's options).
+Consequently, Vue will now add all event listeners that are _not_ defined as component-emitted events in the child as native event listeners to the child's root element (unless `inheritAttrs: false`)has been set in the child's options).
 
 ```html
 <my-component
@@ -47,7 +38,7 @@ Consequently, Vue will now add all event listeners that are _not_ defined as com
 
 ```html
 <script>
-  export {
+  export default {
     emits: ['close']
   }
 </script>
@@ -56,7 +47,7 @@ Consequently, Vue will now add all event listeners that are _not_ defined as com
 ## Migration Strategy
 
 - remove all instances of the `.native` modifier.
-- ensure that all your components document their events with the emits option.
+- ensure that all your components document their events with the `emits` option.
 
 ## See also
 
