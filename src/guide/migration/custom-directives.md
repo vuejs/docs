@@ -83,6 +83,26 @@ app.directive('highlight', {
 
 Now that the custom directive lifecycle hooks mirror those of the components themselves, they become easier to reason about and remember!
 
+### Edge Case: Accessing the component instance
+
+It's generally recommended to keep directives independent of the component instance they are used in. Accessing the instance from within a custom directive is often a sign that the directive should rather be a component itself. However, there are situations where this actually makes sense.
+
+In Vue 2, the component instance had to be accessed through the `vnode` argument:
+
+```javascript
+bind(el, binding, vnode) {
+  const vm = vnode.context
+}
+```
+
+In Vue 3, the instance is now part of the `binding`:
+
+```javascript
+mounted(el, binding, vnode) {
+  const vm = binding.instance
+}
+```
+
 ## Implementation Details
 
 In Vue 3, we're now supporting fragments, which allow us to return more than one DOM node per component. You can imagine how handy that is for something like a component with multiple `<li>` elements or the children elements of a table:
