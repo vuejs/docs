@@ -145,7 +145,7 @@ app.mount('#app')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Now we can compose multiple states with these child components. It's exciting- we can use any combination of transition strategies that have been covered on this page, along with those offered by Vue's [built-in transition system](transitions.html). Together, there are very few limits to what can be accomplished.
+Now we can compose multiple states with these child components. It's exciting- we can use any combination of transition strategies that have been covered on this page, along with those offered by Vue's [built-in transition system](transitions-enterleave.html). Together, there are very few limits to what can be accomplished.
 
 You can see how we could use this for data visualization, for physics effects, for character animations and interactions, the sky's the limit.
 
