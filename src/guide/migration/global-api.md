@@ -34,7 +34,7 @@ import { createLocalVue, mount } from '@vue/test-utils'
 // create an extended `Vue` constructor
 const localVue = createLocalVue()
 
-// install a plugin “globally” on the “local” Vue constructor
+// install a plugin “globally” on the “localVue” constructor
 localVue.use(MyPlugin)
 
 // pass the `localVue` to the mount options
