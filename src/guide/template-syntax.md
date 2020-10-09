@@ -48,7 +48,7 @@ Dynamically rendering arbitrary HTML on your website can be very dangerous becau
 
 ### Attributes
 
-Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](../api/#v-bind):
+Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](../api/directives.html#v-bind):
 
 ```html
 <div v-bind:id="dynamicId"></div>
