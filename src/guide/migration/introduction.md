@@ -1,10 +1,10 @@
 # Introduction
 
-::: info 
-New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started. 
+::: info
+New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started.
 :::
 
-This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. **This is not something you have to read from top to bottom before trying out Vue 3.** While it looks like a lot has changed, a lot of what you know and love about Vue is still the same; but we wanted to be as thorough as possible and provide detailed explanations and examples for every documented change. 
+This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. **This is not something you have to read from top to bottom before trying out Vue 3.** While it looks like a lot has changed, a lot of what you know and love about Vue is still the same; but we wanted to be as thorough as possible and provide detailed explanations and examples for every documented change.
 
 - [Quickstart](#quickstart)
 - [Notable New Features](#notable-new-features)
@@ -111,7 +111,7 @@ The following consists a list of breaking changes from 2.x:
 
 ## Supporting Libraries
 
-All of our official libraries and tools now support Vue 3, but most of them are still in beta status and distributed under the `next` dist tag on NPM. **We are planning to stabilize and switch all projects to use the `latest` dist tag by end of 2020.**
+All of our official libraries and tools now support Vue 3, but most of them are still in beta status and distributed under the `next` dist tag on npm. **We are planning to stabilize and switch all projects to use the `latest` dist tag by end of 2020.**
 
 ### Vue CLI
 
@@ -155,7 +155,7 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 
 ### Other Projects
 
-| Project               | NPM                           | Repo                 |
+| Project               | npm                           | Repo                 |
 | --------------------- | ----------------------------- | -------------------- |
 | @vue/babel-plugin-jsx | [![rc][jsx-badge]][jsx-npm]   | [[GitHub][jsx-code]] |
 | eslint-plugin-vue     | [![ga][epv-badge]][epv-npm]   | [[GitHub][epv-code]] |
