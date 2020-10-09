@@ -2,7 +2,7 @@
 
 Vue.js is built by design to be incrementally adoptable. This means that it can be integrated into a project multiple ways depending on the requirements.
 
-There are two primary ways of adding Vue.js to a project:
+There are three primary ways of adding Vue.js to a project:
 
 1. Import it as a [CDN package](#cdn) on the page
 2. Install it using [npm](#npm)
@@ -73,7 +73,7 @@ vue upgrade --next
 
 Vue projects can quickly be set up with Vite by running the following commands in your terminal.
 
-With NPM:
+With npm:
 
 ```bash
 $ npm init vite-app <project-name>
@@ -93,7 +93,7 @@ $ yarn dev
 
 ## Explanation of Different Builds
 
-In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
+In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
 
 ### From CDN or without a Bundler
 
