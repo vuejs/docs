@@ -1,5 +1,13 @@
 # Installation
 
+Vue.js is built by design to be incrementally adoptable. This means that it can be integrated into a project multiple ways depending on the requirements.
+
+There are two primary ways of adding Vue.js to a project:
+
+1. Import it as a [CDN package](#cdn) on the page
+2. Install it using [npm](#npm)
+3. Use the official [CLI](#cli) to scaffold a project, which provides batteries-included build setups for a modern frontend workflow (e.g., hot-reload, lint-on-save, and much more)
+
 ## Release Notes
 
 Latest version: ![npm](https://img.shields.io/npm/v/vue/next.svg)
