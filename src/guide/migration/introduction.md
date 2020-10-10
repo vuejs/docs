@@ -77,7 +77,7 @@ The following consists a list of breaking changes from 2.x:
 - [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
 - [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
 - [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
-- [Component events should now be declared with the `emits` option]('./emits-option.md)
+- [Component events should now be declared with the `emits` option](./emits-option.md)
 
 ### Render Function
 
