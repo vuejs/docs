@@ -1,4 +1,16 @@
 const sidebar = {
+  locales: {
+    // The key is the path for the locale to be nested under.
+    // As a special case, the default locale can use '/' as its path.
+    '/': {
+      lang: 'en-US', // this will be set as the lang attribute on <html>
+      title: 'English',
+    },
+    'https://v3.vuejs.org.ua': {
+      lang: 'uk-UA',
+      title: 'Українська',
+    }
+  },
   cookbook: [
     {
       title: 'Книга рецептів',
