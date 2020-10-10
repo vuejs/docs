@@ -234,7 +234,7 @@ Then the child component can emit an event on itself by calling the built-in [**
 </button>
 ```
 
-Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update `postFontSize` value.
+Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update `postFontSize` value.
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="KKpGyrp" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: emitting events">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpGyrp">
@@ -482,7 +482,7 @@ app.component('blog-post', {
 <blog-post post-title="hello!"></blog-post>
 ```
 
-It should be noted that **these limitations does _not_ apply if you are using string templates from one of the following sources**:
+It should be noted that **these limitations do _not_ apply if you are using string templates from one of the following sources**:
 
 - String templates (e.g. `template: '...'`)
 - [Single-file (`.vue`) components](single-file-component.html)

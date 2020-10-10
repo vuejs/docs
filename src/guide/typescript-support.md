@@ -4,7 +4,7 @@
 
 ## Official Declaration in NPM Packages
 
-A static type system can help prevent many potential runtime errors as applications grow, which is why Vue 3 is written in TypeScript. This means you don't need any additional tooling to use TypeScript with Vue - it has a first-class citizen support.
+A static type system can help prevent many potential runtime errors as applications grow, which is why Vue 3 is written in TypeScript. This means you don't need any additional tooling to use TypeScript with Vue - it has first-class citizen support.
 
 ## Recommended Configuration
 
@@ -34,7 +34,7 @@ See [TypeScript compiler options docs](https://www.typescriptlang.org/docs/handb
 
 ```bash
 # 1. Install Vue CLI, if it's not already installed
-npm install --global @vue/cli@next
+npm install --global @vue/cli
 
 # 2. Create a new project, then choose the "Manually select features" option
 vue create my-project-name
@@ -53,7 +53,7 @@ Make sure that `script` part of the component has TypeScript set as a language:
 
 ### Editor Support
 
-For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-components.html) (SFCs), get the awesome [Vetur extension](https://github.com/vuejs/vetur), which provides TypeScript inference inside SFCs and many other great features.
+For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-component.html) (SFCs), get the awesome [Vetur extension](https://github.com/vuejs/vetur), which provides TypeScript inference inside SFCs and many other great features.
 
 [WebStorm](https://www.jetbrains.com/webstorm/) also provides out-of-the-box support for both TypeScript and Vue.
 
@@ -110,7 +110,7 @@ const Component = defineComponent({
 
 ### Annotating Return Types
 
-Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type computed properties.
+Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type of computed properties.
 
 ```ts
 import { defineComponent } from 'vue'
@@ -210,7 +210,7 @@ const Component = defineComponent({
 })
 ```
 
-Sometimes we may need to specify complex types for a ref's inner value. We can do that simply passing a generic argument when calling ref to override the default inference:
+Sometimes we may need to specify complex types for a ref's inner value. We can do that by simply passing a generic argument when calling ref to override the default inference:
 
 ```ts
 const year = ref<string | number>('2020') // year's type: Ref<string | number>

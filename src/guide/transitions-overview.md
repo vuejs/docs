@@ -175,7 +175,7 @@ If we were to apply these states to a transition, it would look something like t
 
 .button:hover {
   background: #3eaf7c;
-  /* applied to the hover state, so this trnaisition will be applied when a hover is triggered */
+  /* applied to the hover state, so this transition will be applied when a hover is triggered */
   transition: background 0.35s ease-out;
 }
 ```

@@ -62,7 +62,7 @@
 
   This directive triggers transitions when its condition changes.
 
-  When used together with `v-if`, `v-for` has a higher priority than v-if. See the [list rendering guide](../guide/list.html#v-for-with-v-if) for details.
+  When used together, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element — see the [list rendering guide](../guide/list.html#v-for-with-v-if) for details.
 
 - **See also:** [Conditional Rendering - v-if](../guide/conditional.html#v-if)
 
@@ -197,7 +197,7 @@
   <!-- shorthand -->
   <button @click="doThis"></button>
 
-  <!-- shorthand dynamic event (2.6.0+) -->
+  <!-- shorthand dynamic event -->
   <button @[event]="doThis"></button>
 
   <!-- stop propagation -->

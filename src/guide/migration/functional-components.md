@@ -87,14 +87,14 @@ export default DynamicHeading
 
 ### Single File Components (SFCs)
 
-In 3.x, the performance difference between stateful and functional components has been drastically reduced and will be insignificant in most use cases. As a result, the migration path for developers using `functional` on SFCs is to remove the attribute. No additional work required.
+In 3.x, the performance difference between stateful and functional components has been drastically reduced and will be insignificant in most use cases. As a result, the migration path for developers using `functional` on SFCs is to remove the attribute and rename all references of `props` to `$props` and `attrs` to `$attrs`.
 
 Using our `<dynamic-heading>` example from before, here is how it would look now.
 
 ```js{1}
 <template>
   <component
-    v-bind:is="`h${props.level}`"
+    v-bind:is="`h${$props.level}`"
     v-bind="$attrs"
   />
 </template>
