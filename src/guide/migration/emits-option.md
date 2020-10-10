@@ -49,7 +49,7 @@ For more information on this, please read the [API documentation for this featur
 
 ## Migration Strategy
 
-It is highly recommended that you document all of the emitted events of your components this way because of the [removal of the `.native` modifier](./native-modifier-removed.md).
+It is highly recommended that you document all of the emitted events of your components this way because of the [removal of the `.native` modifier](./v-on-native-modifier-removed.md).
 
 All events not defined with `emits` are now added as DOM event listeners to the components root node (unless `inheritAttrs: false` has been set).
 
