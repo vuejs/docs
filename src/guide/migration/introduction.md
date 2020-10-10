@@ -84,7 +84,7 @@ The following consists a list of breaking changes from 2.x:
 - [Render function API changed](/guide/migration/render-function-api.html)
 - [`$scopedSlots` property is removed and all slots are exposed via `$slots` as functions](/guide/migration/slots-unification.html)
 - [`$listeners` has been removed / merged into `$attrs`](./listeners-removed)
-- [`$attrs` now includes `class` and `style` attributes](./attrs-included-class-style.md)
+- [`$attrs` now includes `class` and `style` attributes](./attrs-include-class-style.md)
 
 ### Custom Elements
 
