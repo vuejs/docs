@@ -1,14 +1,14 @@
 const sidebar = {
   cookbook: [
     {
-      title: 'Cookbook',
+      title: 'Книга рецептів',
       collapsable: false,
       children: ['/cookbook/', '/cookbook/editable-svg-icons']
     }
   ],
   guide: [
     {
-      title: 'Essentials',
+      title: 'Основи',
       collapsable: false,
       children: [
         '/guide/installation',
@@ -26,7 +26,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Components In-Depth',
+      title: 'Компоненти поглиблено',
       collapsable: false,
       children: [
         '/guide/component-registration',
@@ -41,7 +41,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Transitions & Animation',
+      title: 'Переходи та анімації',
       collapsable: false,
       children: [
         '/guide/transitions-overview',
@@ -51,7 +51,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Reusability & Composition',
+      title: 'Повторне використання та композиція',
       collapsable: false,
       children: [
         '/guide/mixins',
@@ -62,7 +62,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Advanced Guides',
+      title: 'Розширені посібники',
       collapsable: false,
       children: [
         {
@@ -88,7 +88,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Tooling',
+      title: 'Інструменти',
       collapsable: false,
       children: [
         '/guide/single-file-component',
@@ -98,12 +98,12 @@ const sidebar = {
       ]
     },
     {
-      title: 'Scaling Up',
+      title: 'Масштабування',
       collapsable: false,
       children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
     },
     {
-      title: 'Accessibility',
+      title: 'Доступність',
       collapsable: false,
       children: [
         '/guide/a11y-basics',
@@ -113,7 +113,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Migration Guide',
+      title: 'Міграція',
       collapsable: true,
       children: [
         '/guide/migration/introduction',
@@ -142,7 +142,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Contribute to the Docs',
+      title: 'Долучитися до перекладу',
       collapsable: true,
       children: [
         '/guide/contributing/writing-guide',
@@ -156,7 +156,7 @@ const sidebar = {
     '/api/application-api',
     '/api/global-api',
     {
-      title: 'Options',
+      title: 'Опції',
       path: '/api/options-api',
       collapsable: false,
       children: [
@@ -174,7 +174,7 @@ const sidebar = {
     '/api/special-attributes',
     '/api/built-in-components.md',
     {
-      title: 'Reactivity API',
+      title: 'Реактивність',
       path: '/api/reactivity-api',
       collapsable: false,
       children: [
@@ -187,7 +187,7 @@ const sidebar = {
   ],
   examples: [
     {
-      title: 'Examples',
+      title: 'Приклади',
       collapsable: false,
       children: [
         '/examples/markdown',
@@ -206,7 +206,7 @@ const sidebar = {
 
 module.exports = {
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - Прогресивний JavaScript фреймворк',
   head: [
     [
       'link',
@@ -271,62 +271,62 @@ module.exports = {
     logo: '/logo.png',
     nav: [
       {
-        text: 'Docs',
+        text: 'Документація',
         ariaLabel: 'Documentation Menu',
         items: [
           {
-            text: 'Guide',
+            text: 'Посібник',
             link: '/guide/introduction'
           },
           {
-            text: 'Migration Guide',
+            text: 'Міграція',
             link: '/guide/migration/introduction'
           },
           {
-            text: 'Style Guide',
+            text: 'Посібник по стилях',
             link: '/style-guide/'
           },
           {
-            text: 'Cookbook',
+            text: 'Книга рецептів',
             link: '/cookbook/'
           },
           {
-            text: 'Examples',
+            text: 'Приклади',
             link: '/examples/markdown'
           }
         ]
       },
       {
-        text: 'API Reference',
+        text: 'Довідка по API',
         link: '/api/'
       },
       {
-        text: 'Ecosystem',
+        text: 'Екосистема',
         items: [
           {
-            text: 'Community',
+            text: 'Спільнота',
             ariaLabel: 'Community Menu',
             items: [
               {
-                text: 'Team',
+                text: 'Команда',
                 link: '/community/team/'
               },
               {
-                text: 'Partners',
+                text: 'Партнери',
                 link: '/community/partners'
               },
               {
-                text: 'Join',
+                text: 'Долучитися',
                 link: '/community/join/'
               },
               {
-                text: 'Themes',
+                text: 'Теми',
                 link: '/community/themes/'
               }
             ]
           },
           {
-            text: 'Official Projects',
+            text: 'Офіційні проекти',
             items: [
               {
                 text: 'Vue Router',
@@ -350,7 +350,7 @@ module.exports = {
                 link: 'https://github.com/vuejs/vue-devtools'
               },
               {
-                text: 'Weekly news',
+                text: 'Щотижневі новини',
                 link: 'https://news.vuejs.org/'
               }
             ]
@@ -358,19 +358,19 @@ module.exports = {
         ]
       },
       {
-        text: 'Support Vue',
+        text: 'Підтримати Vue',
         link: '/support-vuejs/',
         items: [
           {
-            text: 'One-time Donations',
+            text: 'Одноразові пожертвування',
             link: '/support-vuejs/#one-time-donations'
           },
           {
-            text: 'Recurring Pledges',
+            text: 'Повторювані внески',
             link: '/support-vuejs/#recurring-pledges'
           },
           {
-            text: 'T-Shirt Shop',
+            text: 'Магазин футболок',
             link: 'https://vue.threadless.com/'
           }
         ]
@@ -378,8 +378,8 @@ module.exports = {
     ],
     repo: 'vuejs/docs-next',
     editLinks: false,
-    editLinkText: 'Edit this on GitHub!',
-    lastUpdated: 'Last updated',
+    editLinkText: 'Відредагувати це на GitHub!',
+    lastUpdated: 'Востаннє оновлено',
     docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {
@@ -403,8 +403,8 @@ module.exports = {
         serviceWorker: true,
         updatePopup: {
           '/': {
-            message: 'New content is available.',
-            buttonText: 'Refresh'
+            message: 'Доступна нова версія сторінки.',
+            buttonText: 'Оновити'
           }
         }
       }

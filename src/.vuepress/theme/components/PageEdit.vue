@@ -2,10 +2,10 @@
   <footer class="page-edit">
     <div class="container">
       <p>
-        Deployed on
+        Сайт розміщено на платформі
         <a href="https://url.netlify.com/HJ8X2mxP8">Netlify</a>.
         <span v-if="editLink" class="edit-link">
-          Caught a mistake or want to contribute to the documentation?
+          Знайшли помилку або бажаєте долучитися до перекладу?
           <a
             :href="editLink"
             target="_blank"
@@ -44,7 +44,7 @@ export default {
       if (typeof this.$site.themeConfig.lastUpdated === 'string') {
         return this.$site.themeConfig.lastUpdated
       }
-      return 'Last Updated'
+      return 'Востаннє оновлено'
     },
 
     editLink() {
@@ -75,7 +75,7 @@ export default {
       return (
         this.$themeLocaleConfig.editLinkText ||
         this.$site.themeConfig.editLinkText ||
-        `Edit this page`
+        `Відредагуйте сторінку`
       )
     }
   },
