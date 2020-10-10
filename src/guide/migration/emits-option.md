@@ -83,7 +83,7 @@ it would now be triggered _twice_:
 Here you have two options:
 
 1. Properly declare the `click` event. This is useful if you actually do add some logic to that event handler in `<my-button>`
-2. remove the re-emitting of the event, since the parent can now listen for the native event easily, without adding `.native`. Suitable when you really only re-emit the event anyway.
+2. Remove the re-emitting of the event, since the parent can now listen for the native event easily, without adding `.native`. Suitable when you really only re-emit the event anyway.
 
 ## See also
 
