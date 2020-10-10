@@ -12,7 +12,7 @@ The `$listeners` object has been removed in Vue 3. Event listeners are now part 
 
 ```javascript
 {
-  text: 'this is a prop',
+  text: 'this is an attribute',
   onClose: () => console.log('close Event triggered')
 }
 ```
