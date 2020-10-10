@@ -8,7 +8,7 @@ badges:
 
 ## Overview
 
-The `$listeners` object has been removed in Vue 3. Event listeners are now part of `$attrs`.
+The `$listeners` object has been removed in Vue 3. Event listeners are now part of `$attrs`:
 
 ```javascript
 {
