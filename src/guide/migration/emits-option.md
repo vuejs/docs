@@ -91,4 +91,4 @@ Here you have two options:
 - [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
 - [Migration guide - `$listeners` removed](./listeners-removed.md)
 - [Migration guide - `$attrs` includes `class` & `style` ](./attrs-includes-class-style.md)
-- [Migration guide - Changes in the Render Functions API](./render-functions.md)
+- [Migration guide - Changes in the Render Functions API](./render-function-api.md)
