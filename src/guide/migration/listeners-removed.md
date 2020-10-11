@@ -39,16 +39,16 @@ In combination with `inheritAttrs: false`, they allow the developer to apply the
 
 In Vue 3's virtual DOM, event listeners are now just attributes, prefixed with `on`, and as such are part of the `$attrs` object, so `$listeners` has been removed.
 
-```html
+```vue
 <template>
   <label>
     <input type="text" v-bind="$attrs" />
   </label>
 </template>
 <script>
-  export default {
-    inheritAttrs: false
-  }
+export default {
+  inheritAttrs: false
+}
 </script>
 ```
 

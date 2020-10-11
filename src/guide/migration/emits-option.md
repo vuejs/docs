@@ -59,15 +59,15 @@ All events not defined with `emits` are now added as DOM event listeners to the 
 
 For components that re-emit native events to their parent, this would now lead to two events being fired:
 
-```html
+```vue
 <template>
   <button v-on:click="$emit('click', $event)">OK</button>
 </template>
 <script>
-  export default {
-    props: ['text'],
-    emits: [] // without declared event
-  }
+export default {
+  props: ['text'],
+  emits: [] // without declared event
+}
 </script>
 ```
 

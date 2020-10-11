@@ -19,16 +19,16 @@ A side effect of this manifests when using `inheritAttrs: false`:
 - Attributes in `$attrs` are no longer automatically added to the root element, leaving it to the developer to decide where to add them.
 - But `class` and `style`, not being part of `$attrs`, will still be applied to the component's root element:
 
-```html
+```vue
 <template>
   <label>
     <input type="text" v-bind="$attrs" />
   </label>
 </template>
 <script>
-  export default {
-    inheritAttrs: false
-  }
+export default {
+  inheritAttrs: false
+}
 </script>
 ```
 
