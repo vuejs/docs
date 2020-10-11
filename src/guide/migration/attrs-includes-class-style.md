@@ -63,7 +63,7 @@ In components that use `inheritAttrs: false`, make sure that styling still works
 ## See also
 
 - [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md)
-- [Migration guide - `$listeners` removed](/.listeners-removed.md)
-- [Migration guide - New Emits Option](/.emits-option.md)
+- [Migration guide - `$listeners` removed](./listeners-removed.md)
+- [Migration guide - New Emits Option](./emits-option.md)
 - [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
-- [Migration guide - Changes in the Render Functions API](./render-functions.md)
+- [Migration guide - Changes in the Render Functions API](./render-function-api.md)

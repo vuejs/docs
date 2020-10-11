@@ -16,8 +16,10 @@ In Vue 2, you can define the props that a component received, but you can't decl
 
 ```html
 <template>
-  <p>{{ text }}</p>
-  <button v-on:click="$emit('accepted')">OK</button>
+  <div>
+    <p>{{ text }}</p>
+    <button v-on:click="$emit('accepted')">OK</button>
+  </div>
 </template>
 <script>
   export default {
@@ -28,9 +30,9 @@ In Vue 2, you can define the props that a component received, but you can't decl
 
 ## 3.x Behavior
 
-Similar to props, the events that the component emit can now be defined with the `emits` option.
+Similar to props, the events that the component emits can now be defined with the `emits` option.
 
-```javascript
+```html
 <template>
   <p>{{ text }}</p>
   <button v-on:click="$emit('accepted')">OK</button>
@@ -45,7 +47,7 @@ Similar to props, the events that the component emit can now be defined with the
 
 The option also accepts an object notation, which allows the developer to define validators for the arguments that are passed with the emitted event, similar to validators in props definitions.
 
-For more information on this, please read the [API documentation for this feature](../api/options-data.md#emits).
+For more information on this, please read the [API documentation for this feature](../api/options-data.md).
 
 ## Migration Strategy
 
@@ -53,13 +55,13 @@ It is highly recommended that you document all of the emitted events of your com
 
 All events not defined with `emits` are now added as DOM event listeners to the components root node (unless `inheritAttrs: false` has been set).
 
-### Examnple
+### Example
 
-If ou have components that re-emit native events to their parent, this would now lead to two events being fired:
+For components that re-emit native events to their parent, this would now lead to two events being fired:
 
 ```html
 <template>
-  <button v-on:click="$emit('click', event)">OK</button>
+  <button v-on:click="$emit('click', $event)">OK</button>
 </template>
 <script>
   export default {
