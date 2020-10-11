@@ -51,7 +51,7 @@ For more information on this, please read the [API documentation for this featur
 
 ## Migration Strategy
 
-It is highly recommended that you document all of the emitted events of your components this way because of the [removal of the `.native` modifier](./native-modifier-removed.md).
+It is highly recommended that you document all of the emitted events of your components this way because of the [removal of the `.native` modifier](./v-on-native-modifier-removed.md).
 
 All events not defined with `emits` are now added as DOM event listeners to the components root node (unless `inheritAttrs: false` has been set).
 
@@ -85,7 +85,7 @@ it would now be triggered _twice_:
 Here you have two options:
 
 1. Properly declare the `click` event. This is useful if you actually do add some logic to that event handler in `<my-button>`
-2. remove the re-emitting of the event, since the parent can now listen for the native event easily, without adding `.native`. Suitable when you really only re-emit the event anyway.
+2. Remove the re-emitting of the event, since the parent can now listen for the native event easily, without adding `.native`. Suitable when you really only re-emit the event anyway.
 
 ## See also
 
@@ -93,4 +93,4 @@ Here you have two options:
 - [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
 - [Migration guide - `$listeners` removed](./listeners-removed.md)
 - [Migration guide - `$attrs` includes `class` & `style` ](./attrs-includes-class-style.md)
-- [Migration guide - Changes in the Render Functions API](./render-functions.md)
+- [Migration guide - Changes in the Render Functions API](./render-function-api.md)
