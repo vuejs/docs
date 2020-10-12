@@ -8,7 +8,7 @@
 
     컴포넌트 인스턴스에서 사용할 수 있는 디렉티브들을 묶어서 제공하는 해시객체를 정의합니다.
 
-- **Usage:**
+- **사용방법:**
 
     ```js
     const app = Vue.createApp({})
@@ -21,7 +21,7 @@
           }
         }
       },
-      template: `<input v-focus>`
+      template: ``
     })
     ```
 
@@ -35,18 +35,18 @@
 
     컴포넌트 인스턴스에서 사용할 수 있는 컴포넌트들을 묶어서 제공하는 해시 객체를 정의합니다.
 
-- **Usage:**
+- **사용방법:**
 
     ```js
     const Foo = {
-      template: `<div>Foo</div>`
+      template: `Foo`
     }
 
     const app = Vue.createApp({
       components: {
         Foo
       },
-      template: `<Foo />`
+      template: ``
     })
     ```
 
