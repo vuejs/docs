@@ -168,7 +168,7 @@ app.directive('pin', {
 
 ## 함수 약어
 
-In previous example, you may want the same behavior on `mounted` and `updated`, but don't care about the other hooks. You can do it by passing the callback to directive:
+위에 예제에서 `mounted`와 `updated` 두개의 훅에서 같은 동작을 하며, 다른 훅은 필요하지 않을때도 있습니다. 이럴때는 단순히 콜백을 디렉티브에 전달하여 해결 할 수 있습니다.
 
 ```js
 app.directive('pin', (el, binding) =&gt; {
@@ -223,7 +223,7 @@ return withDirectives(h('div'), [[vDemo, test]])
 }
 ```
 
-**As a result, custom directives are fully included as part of a VNode's data. When a custom directive is used on a component, these `onVnodeXXX` hooks are passed down to the component as extraneous props and end up in `this.$attrs`.**
+**결과적으로, 커스텀 디렉티브는 VNode의 데이터의 일부로 완전히 포함됩니다. 컴포넌트에서 커스텀 디렉티브가 사용될때, `onVnodeXXX` 훅이 관련없는 props로써 컴포넌트에 전달되어 `this.$attrs`가 됩니다.**
 
 이는 또한 템플릿에서와 같이 요소의 라이프사이클에 직접 연결할 수 있다는 것을 의미하여, 커스텀 디렉티브가 너무 많이 관련되었을때 유용할 수 있습니다.
 
@@ -231,4 +231,4 @@ return withDirectives(h('div'), [[vDemo, test]])
 <div @vnodeMounted="myHook" />
 ```
 
-This is consistent with the [attribute fallthrough behavior](component-attrs.html). So, the rule for custom directives on a component will be the same as other extraneous attributes: it is up to the child component to decide where and whether to apply it. When the child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.
+이것은 [attribute fallthrough behavior](component-attrs.html)과 일치합니다. <br>따라서 컴포넌트에 대한 커스텀 디렉티브의 규칙은 다른 관련없는 속성과 동일합니다. : 어디에 적용할 것인지를 결정하는 것은 자식 컴포넌트에 달려있습니다.<br>자식 컴포넌트에서 내부 엘리먼트에 <code>v-bind="$attrs"</code> 사용할 경우, 컴포넌트에 사용된 커스텀 디렉티브도 적용됩니다.
