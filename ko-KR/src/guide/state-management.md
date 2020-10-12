@@ -110,9 +110,9 @@ const appB = Vue.createApp({
 }).mount('#app-b')
 ```
 
-![State Management](/images/state.png)
+![State Management](https://github.com/narusas/docs-next/blob/master/images/state.png?raw=true)
 
-::: 액션에서 원래 상태 객체를 절대 교체하면 안 된다는 점에 유의해야 합니다. 컴포넌트와 store는 변이를 관찰하기 위해 같은 객체에 대한 참조를 공유해야 합니다. :::
+::: tip 액션에서 원래 상태 객체를 절대 교체하면 안 된다는 점에 유의해야 합니다. 컴포넌트와 store는 변이를 관찰하기 위해 같은 객체에 대한 참조를 공유해야 합니다. :::
 
 컴포넌트가 store에 속한 상태를 직접 변경하는 것을 절대 허용하지 않는 반면, 해당 작업을 수행하라는 이벤트를 store에 대신 보내는 방식으로 개발을 진행하다 보면, 결국 [Flux](https://facebook.github.io/flux/) 아키텍처에 다다르게 됩니다. 이 방식의 이점은 store에서 발생하는 모든 상태 변이를 기록하고, 변이 로그, 스냅샷 및 히스토리 되돌리기/시간 여행과 같은 고급 디버깅 도우미를 구현할 수 있다는 것입니다.
 
