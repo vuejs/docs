@@ -65,7 +65,7 @@ function watchEffect(
 ): StopHandle
 
 interface WatchEffectOptions {
-  flush?: 'pre' | 'post' | 'sync'
+  flush?: 'pre' | 'post' | 'sync' // default: 'pre'
   onTrack?: (event: DebuggerEvent) => void
   onTrigger?: (event: DebuggerEvent) => void
 }
@@ -132,9 +132,9 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 **작성법:**
 
 ```ts
-// 단일 소스 wacthing
-function watch<T>(
-  source: WatcherSource<T>,
+// watching 단일 소스
+function watch(
+  source: WatcherSource,
   callback: (
     value: T,
     oldValue: T,
@@ -143,24 +143,24 @@ function watch<T>(
   options?: WatchOptions
 ): StopHandle
 
-// 여러 소스 watching
-function watch<T extends WatcherSource<unknown>[]>(
+// watching 다중 소스
+function watch[]>(
   sources: T
   callback: (
-    values: MapSources<T>,
-    oldValues: MapSources<T>,
+    values: MapSources,
+    oldValues: MapSources,
     onInvalidate: InvalidateCbRegistrator
   ) => void,
   options? : WatchOptions
 ): StopHandle
 
-type WatcherSource<T> = Ref<T> | (() => T)
+type WatcherSource = Ref | (() => T)
 
-type MapSources<T> = {
-  [K in keyof T]: T[K] extends WatcherSource<infer V> ? V : never
+type MapSources = {
+  [K in keyof T]: T[K] extends WatcherSource ? V : never
 }
 
-// see `watchEffect` typing for shared options
+// 공유 옵션은 `watchEffect` 입력 참조
 interface WatchOptions extends WatchEffectOptions {
   immediate?: boolean // default: false
   deep?: boolean
