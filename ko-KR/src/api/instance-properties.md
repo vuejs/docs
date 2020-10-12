@@ -1,8 +1,8 @@
-# 인스턴스 프로퍼티
+# 인스턴스 속성(Instance Properties)
 
 ## $data
 
-- **타입** `Object`
+- **타입:** `Object`
 
 - **상세:**
 
@@ -12,7 +12,7 @@
 
 ## $props
 
-- **타입** `Object`
+- **타입:** `Object`
 
 - **상세:**
 
