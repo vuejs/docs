@@ -1,0 +1,23 @@
+name: Create trello cards for new upstream commits
+
+on:
+  schedule:
+    - cron: '0 5 * * *' # at 5am every day
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+        with:
+          repository: maurocen/mira-de-quien-te-burlaste-barney
+          token: ${{ secrets.GH_TOKEN }}
+          path: 'upstream'
+
+      - uses: tintef/upstream-trello-card-creator@0.1.0
+        with:
+          TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+          TRELLO_OAUTH_TOKEN: ${{ secrets.TRELLO_OAUTH_TOKEN }}
+          TRELLO_LIST_ID: ${{ secrets.TRELLO_LIST_ID }}
+          UPSTREAM: https://github.com/vuejs/docs-next
