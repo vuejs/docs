@@ -1,5 +1,13 @@
 # Installation
 
+Vue.js is built by design to be incrementally adoptable. This means that it can be integrated into a project multiple ways depending on the requirements.
+
+There are three primary ways of adding Vue.js to a project:
+
+1. Import it as a [CDN package](#cdn) on the page
+2. Install it using [npm](#npm)
+3. Use the official [CLI](#cli) to scaffold a project, which provides batteries-included build setups for a modern frontend workflow (e.g., hot-reload, lint-on-save, and much more)
+
 ## Release Notes
 
 Latest version: ![npm](https://img.shields.io/npm/v/vue/next.svg)
@@ -28,9 +36,9 @@ For prototyping or learning purposes, you can use the latest version with:
 
 For production, we recommend linking to a specific version number and build to avoid unexpected breakage from newer versions.
 
-## NPM
+## npm
 
-NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/). Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html).
+npm is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/). Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html).
 
 ```bash
 # latest stable
@@ -42,7 +50,7 @@ $ npm install vue@next
 Vue provides an [official CLI](https://github.com/vuejs/vue-cli) for quickly scaffolding ambitious Single Page Applications. It provides batteries-included build setups for a modern frontend workflow. It takes only a few minutes to get up and running with hot-reload, lint-on-save, and production-ready builds. See [the Vue CLI docs](https://cli.vuejs.org) for more details.
 
 ::: tip
-The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through <a href="./">the guide</a> without any build tools before using the CLI.
+The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through [the guide](./introduction.html) without any build tools before using the CLI.
 :::
 
 For Vue 3, you should use Vue CLI v4.5 available on `npm` as `@vue/cli`. To upgrade, you need to reinstall the latest version of `@vue/cli` globally:
@@ -61,11 +69,11 @@ vue upgrade --next
 
 ## Vite
 
-[Vite](https://github.com/vitejs/vite) is a web development build tool that allows for lighting fast serving of code due its native ES Module import approach.
+[Vite](https://github.com/vitejs/vite) is a web development build tool that allows for lightning fast serving of code due its native ES Module import approach.
 
 Vue projects can quickly be set up with Vite by running the following commands in your terminal.
 
-With NPM:
+With npm:
 
 ```bash
 $ npm init vite-app <project-name>
@@ -85,7 +93,7 @@ $ yarn dev
 
 ## Explanation of Different Builds
 
-In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
+In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
 
 ### From CDN or without a Bundler
 

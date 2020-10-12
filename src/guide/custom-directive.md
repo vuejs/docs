@@ -140,7 +140,7 @@ Our custom directive is now flexible enough to support a few different use cases
 <div id="dynamicexample">
   <h2>Scroll down the page</h2>
   <input type="range" min="0" max="500" v-model="pinPadding">
-  <p v-pin:[direction]="pinPadding">Stick me 200px from the {{ direction }} of the page</p>
+  <p v-pin:[direction]="pinPadding">Stick me {{ pinPadding + 'px' }} from the {{ direction }} of the page</p>
 </div>
 ```
 

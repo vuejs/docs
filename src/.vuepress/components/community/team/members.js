@@ -252,7 +252,7 @@ const members = [
       languages: ['uk', 'ru', 'en'],
       reposOfficial: ['vuejs.org', 'vue-cli'],
       work: {
-        role: 'Senior Frontend Engineer',
+        role: 'Staff Frontend Engineer',
         org: 'GitLab',
         orgUrl: 'https://gitlab.com/'
       },

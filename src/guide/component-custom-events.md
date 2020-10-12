@@ -33,7 +33,7 @@ app.component('custom-form', {
 })
 ```
 
-In the event a native event (e.g., `click`) is defined in the `emits` option, it will be overwritten by the event in the component instead of being treated as a native listener.
+When a native event (e.g., `click`) is defined in the `emits` option, the component event will be used __instead__ of a native event listener.
 
 ::: tip
 It is recommended to define all emitted events in order to better document how a component should work.
@@ -74,29 +74,29 @@ app.component('custom-form', {
 By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
 
 ```html
-<my-component v-model:foo="bar"></my-component>
+<my-component v-model:title="bookTitle"></my-component>
 ```
 
-In this case, child component will expect a `foo` prop and emits `update:foo` event to sync:
+In this case, child component will expect a `title` prop and emits `update:title` event to sync:
 
 ```js
 const app = Vue.createApp({})
 
 app.component('my-component', {
   props: {
-    foo: String
+    title: String
   },
   template: `
     <input 
       type="text"
-      :value="foo"
-      @input="$emit('update:foo', $event.target.value)">
+      :value="title"
+      @input="$emit('update:title', $event.target.value)">
   `
 })
 ```
 
 ```html
-<my-component v-model:foo="bar"></my-component>
+<my-component v-model:title="bookTitle"></my-component>
 ```
 
 ## Multiple `v-model` bindings

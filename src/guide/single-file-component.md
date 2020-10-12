@@ -35,7 +35,7 @@ One important thing to note is that **separation of concerns is not equal to sep
 
 Even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files:
 
-``` html
+```html
 <!-- my-component.vue -->
 <template>
   <div>This will be pre-compiled</div>
@@ -54,7 +54,7 @@ If you want to dive right in and start playing with single-file components, chec
 
 With `.vue` components, we're entering the realm of advanced JavaScript applications. That means learning to use a few additional tools if you haven't already:
 
-- **Node Package Manager (NPM)**: Read the [Getting Started guide](https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry) section about how to get packages from the registry.
+- **Node Package Manager (npm)**: Read the [Getting Started guide](https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry) section about how to get packages from the registry.
 
 - **Modern JavaScript with ES2015/16**: Read through Babel's [Learn ES2015 guide](https://babeljs.io/docs/en/learn). You don't have to memorize every feature right now, but keep this page as a reference you can come back to.
 
