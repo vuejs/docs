@@ -28,6 +28,8 @@
 
   The root DOM element that the component instance is managing.
 
+  For components using [fragments](../guide/migration/fragments), `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM. It is recommended to use [template refs](../guide/component-template-refs.html) for direct access to DOM elements instead of relying on `$el`.
+
 ## $options
 
 - **Type:** `Object`

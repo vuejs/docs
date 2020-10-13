@@ -219,7 +219,7 @@ Then the child component can emit an event on itself by calling the built-in [**
 </button>
 ```
 
-Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update `postFontSize` value.
+Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update `postFontSize` value.
 
 <common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="html,result" :preview="false" />
 

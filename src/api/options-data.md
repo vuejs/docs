@@ -92,7 +92,7 @@
 
 - **Details:**
 
-  Computed properties to be mixed into the Vcomponent instance. All getters and setters have their `this` context automatically bound to the component instance.
+  Computed properties to be mixed into the component instance. All getters and setters have their `this` context automatically bound to the component instance.
 
   Note that if you use an arrow function with a computed property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
 
@@ -177,7 +177,7 @@
 
 - **Details:**
 
-  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation.
+  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation. See [$watch](instance-methods.html#watch) for more information about the `deep`, `immediate` and `flush` options.
 
 - **Example:**
 
