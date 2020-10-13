@@ -254,10 +254,10 @@ module.exports = {
     ],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
     [
-      ('script',
+      'script',
       {
         src: 'https://player.vimeo.com/api/player.js'
-      })
+      }
     ],
     [
       'script',
