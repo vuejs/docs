@@ -143,7 +143,7 @@ export default {
 
 We're applying `refs` to the groups of paths we need to move, and as both sides of the scissors have to move in tandem, we'll create a function we can reuse where we'll pass in the `refs`. The use of GreenSock helps resolve animation support and `transform-origin` issues across browser.
 
-<common-codepen-snippet title="Editable SVG Icon System: Animated icon" slug="dJRpgY" :preview="false" :editable="false" version="2" />
+<common-codepen-snippet title="Editable SVG Icon System: Animated icon" slug="dJRpgY" :preview="false" :editable="false" version="2" theme="0" />
 
 <p style="margin-top:-30px">Pretty easily accomplished! And easy to update on the fly.</p>
 

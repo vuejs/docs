@@ -134,7 +134,7 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<common-codepen-snippet title="Different Enter and Leave" slug="3466d06fb252a53c5bc0a0edb0f1588a" tab="css,result" :editable="false" />
+<common-codepen-snippet title="Different Enter and Leave Transitions" slug="0dfa7869450ef43d6f7bd99022bc53e2" tab="css,result" :editable="false" />
 
 ### CSS Animations
 

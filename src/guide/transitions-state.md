@@ -53,7 +53,7 @@ When you update the number, the change is animated below the input.
 
 As with Vue's transition components, the data backing state transitions can be updated in real time, which is especially useful for prototyping! Even using a simple SVG polygon, you can achieve many effects that would be difficult to conceive of until you've played with the variables a little.
 
-<common-codepen-snippet title="Updating SVG" slug="a8e00648d4df6baa1b19fb6c31c8d17e" :height="493" tab="js,result" :editable="false" />
+<common-codepen-snippet title="Updating SVG" slug="a8e00648d4df6baa1b19fb6c31c8d17e" :height="500" tab="js,result" :editable="false" />
 
 ## Organizing Transitions into Components
 
@@ -142,4 +142,4 @@ Vue can help. Since SVGs are just data, we only need examples of what these crea
 
 Sarah Drasner demonstrates this in the demo below, using a combination of timed and interactivity-driven state changes:
 
-<common-codepen-snippet title="Vue-controlled Wall-E" slug="YZBGNp" :height="400" :team="false" user="sdras" name="Sarah Drasner" :editable="false" :preview="false" version="2" />
+<common-codepen-snippet title="Vue-controlled Wall-E" slug="YZBGNp" :height="400" :team="false" user="sdras" name="Sarah Drasner" :editable="false" :preview="false" version="2" theme="light" />

@@ -62,7 +62,7 @@ Vue.createApp({
 
 Result:
 
-<common-codepen-snippet title="Event handling: with a method" slug="jOPvmaX" tab="js,result" />
+<common-codepen-snippet title="Event handling: with a method" slug="jOPvmaX" tab="js,result" :preview="false" />
 
 ## Methods in Inline Handlers
 
