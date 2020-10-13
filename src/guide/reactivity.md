@@ -80,7 +80,7 @@ const dinner = {
 
 const handler = {
   get(target, prop) {
-    console.log(‘intercepted!’)
+    console.log('intercepted!')
     return target[prop]
   }
 }
@@ -96,13 +96,14 @@ Beyond a console log, we could do anything here we wish. We could even _not_ ret
 
 Furthermore, there’s another feature Proxies offer us. Rather than just returning the value like this: `target[prop]`, we could take this a step further and use a feature called `Reflect`, which allows us to do proper `this` binding. It looks like this:
 
-```js{7}
+```js
 const dinner = {
   meal: 'tacos'
 }
 
 const handler = {
   get(target, prop, receiver) {
+    console.log('intercepted!')
     return Reflect.get(...arguments)
   }
 }
@@ -116,13 +117,14 @@ console.log(proxy.meal)
 
 We mentioned before that in order to have an API that updates a final value when something changes, we’re going to have to set new values when something changes. We do this in the handler, in a function called `track`, where we pass in the `target` and `key`.
 
-```js{7}
+```js
 const dinner = {
   meal: 'tacos'
 }
 
 const handler = {
   get(target, prop, receiver) {
+    console.log('intercepted!')
     track(target, prop)
     return Reflect.get(...arguments)
   }
@@ -144,6 +146,7 @@ const dinner = {
 
 const handler = {
   get(target, prop, receiver) {
+    console.log('intercepted!')
     track(target, prop)
     return Reflect.get(...arguments)
   },
