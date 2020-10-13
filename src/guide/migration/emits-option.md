@@ -61,6 +61,7 @@ For components that re-emit native events to their parent, this would now lead t
 
 ```vue
 <template>
+  <p>{{ text }}</p>
   <button v-on:click="$emit('click', $event)">OK</button>
 </template>
 <script>
