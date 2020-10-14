@@ -71,7 +71,7 @@
     position: absolute;
     padding: 4px 20px;
     margin: 0;
-    height: calc(100% - 8px);
+    min-height: calc(100% - 8px);
     right: 4px;
     top: 4px;
     font-size: 1.05em;
