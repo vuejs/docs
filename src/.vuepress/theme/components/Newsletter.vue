@@ -71,7 +71,7 @@
     position: absolute;
     padding: 4px 20px;
     margin: 0;
-    min-height: calc(100% - 8px);
+    height: calc(100% - 8px);
     right: 4px;
     top: 4px;
     font-size: 1.05em;
@@ -84,6 +84,7 @@
     transition: all 0.15s ease;
     box-sizing: border-box;
     border: 1px solid currentColor;
+    appearance: none;
   }
 }
 </style>
