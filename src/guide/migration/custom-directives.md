@@ -27,7 +27,7 @@ In Vue 2, custom directives were created by using the hooks listed below to targ
 Here’s an example of this:
 
 ```html
-<p v-highlight="yellow">Highlight this text bright yellow</p>
+<p v-highlight="'yellow'">Highlight this text bright yellow</p>
 ```
 
 ```js
@@ -68,7 +68,7 @@ const MyDirective = {
 The resulting API could be used like this, mirroring the example from earlier:
 
 ```html
-<p v-highlight="yellow">Highlight this text bright yellow</p>
+<p v-highlight="'yellow'">Highlight this text bright yellow</p>
 ```
 
 ```js
