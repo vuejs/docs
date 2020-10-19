@@ -10,6 +10,8 @@ Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for build
 
 If you’d like to learn more about Vue before diving in, we <a id="modal-player" class="vuemastery-trigger"  href="#">created a video</a> walking through the core principles and a sample project.
 
+<VideoLesson href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3" title="Watch a free video course on Vue Mastery">Watch a free video course on Vue Mastery</VideoLesson>
+
 <common-vuemastery-video-modal/>
 
 ## Getting Started
