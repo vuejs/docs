@@ -1,4 +1,4 @@
-## Template Refs
+# Template Refs
 
 > This section uses [single-file component](single-file-component.html) syntax for code examples
 
@@ -35,7 +35,7 @@ Here we are exposing `root` on the render context and binding it to the div as i
 
 Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
 
-### Usage with JSX
+## Usage with JSX
 
 ```js
 export default {
@@ -53,7 +53,7 @@ export default {
 }
 ```
 
-### Usage inside `v-for`
+## Usage inside `v-for`
 
 Composition API template refs do not have special handling when used inside `v-for`. Instead, use function refs to perform custom handling:
 
