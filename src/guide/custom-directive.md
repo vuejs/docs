@@ -209,40 +209,22 @@ app.directive('demo', (el, binding) => {
 
 ## Usage on Components
 
-In 3.0, with fragments support, components can potentially have more than one root nodes. This creates an issue when a custom directive is used on a component with multiple root nodes.
-
-To explain the details of how custom directives will work on components in 3.0, we need to first understand how custom directives are compiled in 3.0. For a directive like this:
+When used on components, custom directive will always apply to component's root node, similarly to [non-prop attributes](component-attrs.html).
 
 ```vue-html
-<div v-demo="test"></div>
+<my-component v-demo="test"></my-component>
 ```
-
-Will roughly compile into this:
 
 ```js
-const vDemo = resolveDirective('demo')
-
-return withDirectives(h('div'), [[vDemo, test]])
+app.component('my-component', {
+  template: `
+    <div> // v-demo directive will be applied here
+      <span>My component content</span>
+    </div>
+  `
+})
 ```
 
-Where `vDemo` will be the directive object written by the user, which contains hooks like `mounted` and `updated`.
+Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`.
 
-`withDirectives` returns a cloned VNode with the user hooks wrapped and injected as VNode lifecycle hooks (see [Render Function](render-function.html) for more details):
-
-```js
-{
-  onVnodeMounted(vnode) {
-    // call vDemo.mounted(...)
-  }
-}
-```
-
-**As a result, custom directives are fully included as part of a VNode's data. When a custom directive is used on a component, these `onVnodeXXX` hooks are passed down to the component as extraneous props and end up in `this.$attrs`.**
-
-This also means it's possible to directly hook into an element's lifecycle like this in the template, which can be handy when a custom directive is too involved:
-
-```vue-html
-<div @vnodeMounted="myHook" />
-```
-
-This is consistent with the [attribute fallthrough behavior](component-attrs.html). So, the rule for custom directives on a component will be the same as other extraneous attributes: it is up to the child component to decide where and whether to apply it. When the child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.
+With [fragments](/guide/migration/fragments.html#overview) support, components can potentially have more than one root nodes. When applied to a multi-root component, directive will be ignored and the warning will be thrown.
