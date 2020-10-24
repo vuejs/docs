@@ -27,7 +27,7 @@ In Vue 2, custom directives were created by using the hooks listed below to targ
 Here’s an example of this:
 
 ```html
-<p v-highlight="yellow">Highlight this text bright yellow</p>
+<p v-highlight="'yellow'">Highlight this text bright yellow</p>
 ```
 
 ```js
@@ -49,7 +49,7 @@ In Vue 3, however, we’ve created a more cohesive API for custom directives. As
 - **beforeUpdate**: new! this is called before the element itself is updated, much like the component lifecycle hooks.
 - update → removed! There were too many similarities to updated, so this is redundant. Please use updated instead.
 - componentUpdated → **updated**
-- **beforeUnmount** new! similar to component lifecycle hooks, this will be called right before an element is unmounted.
+- **beforeUnmount**: new! similar to component lifecycle hooks, this will be called right before an element is unmounted.
 - unbind -> **unmounted**
 
 The final API is as follows:
@@ -68,7 +68,7 @@ const MyDirective = {
 The resulting API could be used like this, mirroring the example from earlier:
 
 ```html
-<p v-highlight="yellow">Highlight this text bright yellow</p>
+<p v-highlight="'yellow'">Highlight this text bright yellow</p>
 ```
 
 ```js
@@ -82,6 +82,26 @@ app.directive('highlight', {
 ```
 
 Now that the custom directive lifecycle hooks mirror those of the components themselves, they become easier to reason about and remember!
+
+### Edge Case: Accessing the component instance
+
+It's generally recommended to keep directives independent of the component instance they are used in. Accessing the instance from within a custom directive is often a sign that the directive should rather be a component itself. However, there are situations where this actually makes sense.
+
+In Vue 2, the component instance had to be accessed through the `vnode` argument:
+
+```javascript
+bind(el, binding, vnode) {
+  const vm = vnode.context
+}
+```
+
+In Vue 3, the instance is now part of the `binding`:
+
+```javascript
+mounted(el, binding, vnode) {
+  const vm = binding.instance
+}
+```
 
 ## Implementation Details
 

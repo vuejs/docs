@@ -164,11 +164,11 @@ const foo = inject<string>('foo') // string | undefined
 `getCurrentInstance` enables access to an internal component instance useful for advanced usages or for library creators.
 
 ```ts
-import { getCurrentIntance } from 'vue'
+import { getCurrentInstance } from 'vue'
 
 const MyComponent = {
   setup() {
-    const internalIntance = getCurrentInstance()
+    const internalInstance = getCurrentInstance()
 
     internalInstance.appContext.config.globalProperties // access to globalProperties
   }
@@ -182,7 +182,7 @@ const MyComponent = {
 ```ts
 const MyComponent = {
   setup() {
-    const internalIntance = getCurrentInstance() // works
+    const internalInstance = getCurrentInstance() // works
 
     const id = useComponentId() // works
 
@@ -190,7 +190,7 @@ const MyComponent = {
       getCurrentInstance() // doesn't work
       useComponentId() // doesn't work
 
-      internalIntance // works
+      internalInstance // works
     }
 
     onMounted(() => {

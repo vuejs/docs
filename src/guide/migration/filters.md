@@ -75,17 +75,17 @@ Instead of using filters, we recommend replacing them with computed properties o
 
 ### Global Filters
 
-If you are using filters that were globally registered and then used throughout our app, it's likely not convenient to replace them with computed props or methods in each individual component.
+If you are using filters that were globally registered and then used throughout your app, it's likely not convenient to replace them with computed properties or methods in each individual component.
 
-Instead, you can make your global filters available to all components through `app.globalProperties`:
+Instead, you can make your global filters available to all components through [globalProperties](../../api/application-config.html#globalproperties):
 
 ```javascript
 // main.js
 const app = createApp(App)
 
 app.config.globalProperties.$filters = {
-  accountInUSD(num) {
-    return '$' + num
+  currencyUSD(value) {
+    return '$' + value
   }
 }
 ```
@@ -95,7 +95,7 @@ Then you can fix all templates using this `$filters` object like this:
 ```html
 <template>
   <h1>Bank Account Balance</h1>
-  <p>{{ $filters.accountInUSD(accountInUSD) }}</p>
+  <p>{{ $filters.currencyUSD(accountBalance) }}</p>
 </template>
 ```
 

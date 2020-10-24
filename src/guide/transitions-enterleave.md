@@ -446,7 +446,7 @@ We discuss [transitioning between components](#transitioning-between-components)
 </transition>
 ```
 
-It's actually possible to transition between any number of elements, either by using multiple `v-if`s or binding a single element to a dynamic property. For example:
+It's actually possible to transition between any number of elements, either by using `v-if`/`v-else-if`/`v-else` or binding a single element to a dynamic property. For example:
 
 <!-- TODO: rewrite example and put in codepen example -->
 
@@ -455,10 +455,10 @@ It's actually possible to transition between any number of elements, either by u
   <button v-if="docState === 'saved'" key="saved">
     Edit
   </button>
-  <button v-if="docState === 'edited'" key="edited">
+  <button v-else-if="docState === 'edited'" key="edited">
     Save
   </button>
-  <button v-if="docState === 'editing'" key="editing">
+  <button v-else-if="docState === 'editing'" key="editing">
     Cancel
   </button>
 </transition>

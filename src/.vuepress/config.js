@@ -120,9 +120,11 @@ const sidebar = {
         '/guide/migration/array-refs',
         '/guide/migration/async-components',
         '/guide/migration/attribute-coercion',
+        '/guide/migration/attrs-includes-class-style',
         '/guide/migration/custom-directives',
         '/guide/migration/custom-elements-interop',
         '/guide/migration/data-option',
+        '/guide/migration/emits-option',
         '/guide/migration/events-api',
         '/guide/migration/filters',
         '/guide/migration/fragments',
@@ -132,10 +134,12 @@ const sidebar = {
         '/guide/migration/inline-template-attribute',
         '/guide/migration/key-attribute',
         '/guide/migration/keycode-modifiers',
+        '/guide/migration/listeners-removed',
         '/guide/migration/props-default-this',
         '/guide/migration/render-function-api',
         '/guide/migration/slots-unification',
         '/guide/migration/transition',
+        '/guide/migration/v-on-native-modifier-removed',
         '/guide/migration/v-model',
         '/guide/migration/v-if-v-for',
         '/guide/migration/v-bind'
@@ -157,6 +161,7 @@ const sidebar = {
     '/api/global-api',
     {
       title: 'Options',
+      path: '/api/options-api',
       collapsable: false,
       children: [
         '/api/options-data',
@@ -174,6 +179,7 @@ const sidebar = {
     '/api/built-in-components.md',
     {
       title: 'Reactivity API',
+      path: '/api/reactivity-api',
       collapsable: false,
       children: [
         '/api/basic-reactivity',
@@ -455,10 +461,10 @@ module.exports = {
     ],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
     [
-      ('script',
+      'script',
       {
         src: 'https://player.vimeo.com/api/player.js'
-      })
+      }
     ],
     [
       'script',
@@ -512,7 +518,7 @@ module.exports = {
         },
         {
           text: 'API Reference',
-          link: '/api/application-config'
+          link: '/api/'
         },
         {
           text: 'Ecosystem',
@@ -626,7 +632,7 @@ module.exports = {
         },
         {
           text: 'Справочник API',
-          link: '/ru/api/application-config'
+          link: '/ru/api/'
         },
         {
           text: 'Экосистема',

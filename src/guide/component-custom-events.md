@@ -4,7 +4,17 @@
 
 ## Event Names
 
-Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event. For example, if emitting a camelCased event name:
+Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event.
+
+```js
+this.$emit('my-event')
+```
+
+```html
+<my-component @my-event="doSomething"></my-component>
+```
+
+If we're emitting a camelCased event name:
 
 ```js
 this.$emit('myEvent')
@@ -33,7 +43,7 @@ app.component('custom-form', {
 })
 ```
 
-In the event a native event (e.g., `click`) is defined in the `emits` option, it will be overwritten by the event in the component instead of being treated as a native listener.
+When a native event (e.g., `click`) is defined in the `emits` option, the component event will be used **instead** of a native event listener.
 
 ::: tip
 It is recommended to define all emitted events in order to better document how a component should work.
