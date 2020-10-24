@@ -4,10 +4,20 @@
 
 ## Event Names
 
-Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event. For example, if emitting a camelCased event name:
+Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event.
 
 ```js
 this.$emit('my-event')
+```
+
+```html
+<my-component @my-event="doSomething"></my-component>
+```
+
+If we're emitting a camelCased event name:
+
+```js
+this.$emit('myEvent')
 ```
 
 Listening to the kebab-cased version will have no effect:
