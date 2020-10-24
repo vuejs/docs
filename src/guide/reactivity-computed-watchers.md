@@ -144,8 +144,8 @@ The `flush` option also accepts `'sync'`, which forces the effect to always trig
 
 The `onTrack` and `onTrigger` options can be used to debug a watcher's behavior.
 
-- `onTrack` will be called when a reactive property or ref is tracked as a dependency
-- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency
+- `onTrack` will be called when a reactive property or ref is tracked as a dependency.
+- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency.
 
 Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in these callbacks to interactively inspect the dependency:
 
