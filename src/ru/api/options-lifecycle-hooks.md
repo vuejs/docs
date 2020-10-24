@@ -107,7 +107,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
   **This hook is not called during server-side rendering.**
 
 - **См. также:**
-  - [Dynamic Components - keep-alive](../guide/component-basics.md#keep-alive)
+  - [Dynamic Components - keep-alive](.../guide/component-dynamic-async.md#dynamic-components-with-keep-alive)
 
 ## deactivated
 
@@ -120,7 +120,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
   **This hook is not called during server-side rendering.**
 
 - **См. также:**
-  - [Dynamic Components - keep-alive](../guide/component-basics.md#keep-alive)
+  - [Dynamic Components - keep-alive](../guide/component-dynamic-async.md#dynamic-components-with-keep-alive)
 
 ## beforeUnmount
 
