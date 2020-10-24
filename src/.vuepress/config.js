@@ -323,11 +323,14 @@ const sidebarRU = {
       collapsable: true,
       children: [
         '/ru/guide/migration/introduction',
+        '/ru/guide/migration/array-refs',
         '/ru/guide/migration/async-components',
         '/ru/guide/migration/attribute-coercion',
+        '/ru/guide/migration/attrs-includes-class-style',
         '/ru/guide/migration/custom-directives',
         '/ru/guide/migration/custom-elements-interop',
         '/ru/guide/migration/data-option',
+        '/ru/guide/migration/emits-option',
         '/ru/guide/migration/events-api',
         '/ru/guide/migration/filters',
         '/ru/guide/migration/fragments',
@@ -337,10 +340,15 @@ const sidebarRU = {
         '/ru/guide/migration/inline-template-attribute',
         '/ru/guide/migration/key-attribute',
         '/ru/guide/migration/keycode-modifiers',
+        '/ru/guide/migration/listeners-removed',
+        '/ru/guide/migration/props-default-this',
         '/ru/guide/migration/render-function-api',
         '/ru/guide/migration/slots-unification',
         '/ru/guide/migration/transition',
-        '/ru/guide/migration/v-model'
+        '/ru/guide/migration/v-on-native-modifier-removed',
+        '/ru/guide/migration/v-model',
+        '/ru/guide/migration/v-if-v-for',
+        '/ru/guide/migration/v-bind'
       ]
     },
     {
