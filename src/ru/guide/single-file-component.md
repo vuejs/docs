@@ -54,7 +54,7 @@
 
 С `.vue`-компонентами, мы входим во вселенную продвинутых JavaScript-приложений. Это значит, что если вы этого ещё не сделали, нужно будет освоить некоторые дополнительные инструменты:
 
-- **Node Package Manager (NPM)**: Прочитайте [руководство по началу работы](https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry) о том как устанавливать пакеты.
+- **Node Package Manager (npm)**: Прочитайте [руководство по началу работы](https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry) о том как устанавливать пакеты.
 
 - **Современный JavaScript стандартов ES2015/16**: Прочитайте [руководство по ES2015](https://babeljs.io/docs/en/learn) от Babel. Нет необходимости запоминать все новые возможности, но держите эту страничку под рукой в качестве справочника.
 
