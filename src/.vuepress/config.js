@@ -358,6 +358,7 @@ const sidebarRU = {
     '/ru/api/global-api',
     {
       title: 'Опции',
+      path: '/ru/api/options-api',
       collapsable: false,
       children: [
         '/ru/api/options-data',
@@ -375,6 +376,7 @@ const sidebarRU = {
     '/ru/api/built-in-components.md',
     {
       title: 'Reactivity API',
+      path: '/ru/api/reactivity-api',
       collapsable: false,
       children: [
         '/ru/api/basic-reactivity',
