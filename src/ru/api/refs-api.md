@@ -6,7 +6,7 @@
 
 Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property `.value` that points to the inner value.
 
-**Example:**
+**Пример:**
 
 ```js
 const count = ref(0)
@@ -84,6 +84,8 @@ export default {
 }
 ```
 
+`toRef` will return a usable ref even if the source property doesn't currently exist. This makes it especially useful when working with optional props, which wouldn't be picked up by [`toRefs`](#torefs).
+
 ## `toRefs`
 
 Converts a reactive object to a plain object where each property of the resulting object is a [`ref`](#ref) pointing to the corresponding property of the original object.
@@ -139,6 +141,8 @@ export default {
   }
 }
 ```
+
+`toRefs` will only generate refs for properties that are included in the source object. To create a ref for a specific property use [`toRef`](#toref) instead.
 
 ## `isRef`
 
@@ -232,4 +236,4 @@ shallow.value.greet = 'Hello, universe'
 triggerRef(shallow)
 ```
 
-**See also:** [Computed and Watch - watchEffect](./computed-watch-api.md#watcheffect)
+**См. также:** [Computed and Watch - watchEffect](./computed-watch-api.md#watcheffect)
