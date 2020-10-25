@@ -1,6 +1,6 @@
-# Introduction
+# Введение
 
-::: info
+:::info Информация
 New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started.
 :::
 
@@ -52,7 +52,7 @@ Some of the new features to keep an eye on in Vue 3 include:
 
 ## Breaking Changes
 
-::: info INFO
+:::info Информация
 We are still working on a dedicated Migration Build of Vue 3 with Vue 2 compatible behavior and runtime warnings of incompatible usage. If you are planning to migrate a non-trivial Vue 2 app, we strongly recommend waiting for the Migration Build for a smoother experience.
 :::
 
@@ -153,13 +153,13 @@ We are working on a new version of the Devtools with a new UI and refactored int
 
 - For Firefox: [Download the signed extension](https://github.com/vuejs/vue-devtools/releases/tag/v6.0.0-beta.2) (`.xpi` file under Assets)
 
-### IDE Support
+### Поддержка IDE
 
 It is recommended to use [VSCode](https://code.visualstudio.com/) with our official extension [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), which provides comprehensive IDE support for Vue 3.
 
-### Other Projects
+### Другие проекты
 
-| Project               | npm                           | Repo                 |
+| Проект                | npm                           | Репозиторий          |
 | --------------------- | ----------------------------- | -------------------- |
 | @vue/babel-plugin-jsx | [![rc][jsx-badge]][jsx-npm]   | [[GitHub][jsx-code]] |
 | eslint-plugin-vue     | [![ga][epv-badge]][epv-npm]   | [[GitHub][epv-code]] |
@@ -193,6 +193,6 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 [rpv-npm]: https://www.npmjs.com/package/rollup-plugin-vue/v/next
 [rpv-code]: https://github.com/vuejs/rollup-plugin-vue/tree/next
 
-::: info
+:::info Информация
 For additional information on Vue 3 compatibility with libraries and plugins, be sure to check out [this issue in awesome-vue](https://github.com/vuejs/awesome-vue/issues/3544).
 :::

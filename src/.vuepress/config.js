@@ -623,7 +623,7 @@ module.exports = {
               link: '/ru/guide/introduction'
             },
             {
-              text: 'Руководство по миграции',
+              text: 'Миграция с Vue 2',
               link: '/ru/guide/migration/introduction'
             },
             {

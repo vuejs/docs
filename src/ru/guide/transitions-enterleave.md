@@ -514,7 +514,7 @@ Sometimes this isn't an option, though, or we're dealing with more complex movem
 - `in-out`: New element transitions in first, then when complete, the current element transitions out.
 - `out-in`: Current element transitions out first, then when complete, the new element transitions in.
 
-::: tip
+:::tip Совет
 You'll find very quickly that `out-in` is the state you will want most of the time :)
 :::
 
@@ -522,7 +522,7 @@ Now let's update the transition for our on/off buttons with `out-in`:
 
 ```html
 <transition name="fade" mode="out-in">
-  <!-- ... the buttons ... -->
+  <!-- ... кнопки ... -->
 </transition>
 ```
 

@@ -1,6 +1,6 @@
-# Introduction
+# Введение
 
-::: tip Примечание
+:::tip Примечание
 Already know Vue 2 and just want to learn about what's new in Vue 3? Check out the [Migration Guide](/guide/migration/introduction.html)!
 :::
 
@@ -22,7 +22,7 @@ If you’d like to learn more about Vue before diving in, we <a id="modal-player
   </ActionLink>
 </p>
 
-::: tip
+:::tip Совет
 The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
 :::
 
