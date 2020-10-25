@@ -1,7 +1,7 @@
 # Reactivity API
 
-The Reactivity API contains the following sections:
+Reactivity API разделяется на несколько категорий:
 
-- [Basic Reactivity APIs](/api/basic-reactivity.html)
-- [Refs](/api/refs-api.html)
-- [Computed and watch](/api/computed-watch-api.html)
+- [Basic Reactivity APIs](./basic-reactivity.md)
+- [Refs](./refs-api.md)
+- [Computed and watch](./computed-watch-api.md)

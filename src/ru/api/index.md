@@ -1,15 +1,15 @@
 # API
 
-The Vue.js API contains the following categories:
+API Vue.js разделяется на несколько категорий:
 
-- [Application Config](/api/application-config.html)
-- [Application API](/api/application-api.html)
-- [Global API](/api/global-api.html)
-- [Options API](/api/options-api.html)
-- [Instance Properties](/api/instance-properties.html)
-- [Instance Methods](/api/instance-methods.html)
-- [Directives](/api/directives.html)
-- [Special Attributes](/api/special-attributes.html)
-- [Built-in Components](/api/built-in-components.html)
-- [Reactivity API](/api/reactivity-api.html)
-- [Composition API](/api/composition-api.html)
+- [Конфигурация приложения](./application-config.md)
+- [API приложения](./application-api.md)
+- [Глобальное API](./global-api.md)
+- [Options API](./options-api.md)
+- [Свойства экземпляра](./instance-properties.md)
+- [Методы экземпляра](./instance-methods.md)
+- [Директивы](./directives.md)
+- [Специальные атрибуты](./special-attributes.md)
+- [Встроенные компоненты](./built-in-components.md)
+- [Reactivity API](./reactivity-api.md)
+- [Composition API](./composition-api.md)
