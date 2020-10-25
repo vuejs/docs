@@ -6,7 +6,7 @@ badges:
 
 # `emits` Option <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 Vue 3 now offers an `emits` option similar to the existing `props` option. This option can be used to define the events that a component can emit to its parent.
 
@@ -49,9 +49,9 @@ The option also accepts an object notation, which allows the developer to define
 
 For more information on this, please read the [API documentation for this feature](../../api/options-data.md#emits).
 
-## Migration Strategy
+## Стратегия миграции
 
-It is highly recommended that you document all of the emitted events by your each of components this way because of the [removal of the `.native` modifier](./v-on-native-modifier-removed.md).
+It is highly recommended that you document all of the emitted events by your each of components this way because of the [removal of the `.native` modifier](v-on-native-modifier-removed.md).
 
 All events not defined with `emits` are now added as DOM event listeners to the component's root node (unless `inheritAttrs: false` has been set).
 
@@ -91,7 +91,7 @@ Here you have two options:
 ## See also
 
 - [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0030-emits-option.md)
-- [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
-- [Migration guide - `$listeners` removed](./listeners-removed.md)
-- [Migration guide - `$attrs` includes `class` & `style` ](./attrs-includes-class-style.md)
-- [Migration guide - Changes in the Render Functions API](./render-function-api.md)
+- [Migration guide - `.native` modifier removed](v-on-native-modifier-removed.md)
+- [Migration guide - `$listeners` removed](listeners-removed.md)
+- [Migration guide - `$attrs` includes `class` & `style` ](attrs-includes-class-style.md)
+- [Migration guide - Changes in the Render Functions API](render-function-api.md)

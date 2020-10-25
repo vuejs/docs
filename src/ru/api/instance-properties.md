@@ -8,7 +8,7 @@
 
   The data object that the component instance is observing. The component instance proxies access to the properties on its data object.
 
-- **См. также:** [Options / Data - data](./options-data.md#data-2)
+- **См. также:** [Options / Data - data](options-data.md#data-2)
 
 ## $props
 
@@ -132,7 +132,7 @@ An object of DOM elements and component instances, registered with [`ref` attrib
 
 - **См. также:**
   - [Template refs](../guide/component-template-refs.md)
-  - [Special Attributes - ref](./special-attributes.md#ref)
+  - [Special Attributes - ref](special-attributes.md#ref)
 
 ## $attrs
 
@@ -142,7 +142,7 @@ An object of DOM elements and component instances, registered with [`ref` attrib
 
 - **Подробности:**
 
-Contains parent-scope attribute bindings and events that are not recognized (and extracted) as component [props](./options-data.md#props) or [custom events](./options-data.md#emits). When a component doesn't have any declared props or custom events, this essentially contains all parent-scope bindings, and can be passed down to an inner component via `v-bind="$attrs"` - useful when creating higher-order components.
+Contains parent-scope attribute bindings and events that are not recognized (and extracted) as component [props](options-data.md#props) or [custom events](options-data.md#emits). When a component doesn't have any declared props or custom events, this essentially contains all parent-scope bindings, and can be passed down to an inner component via `v-bind="$attrs"` - useful when creating higher-order components.
 
 - **См. также:**
   - [Non-Prop Attributes](../guide/component-attrs.md)

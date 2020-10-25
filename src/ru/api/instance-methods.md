@@ -267,7 +267,7 @@
   ```
 
 - **См. также:**
-  - [`emits` option](./options-data.md#emits)
+  - [`emits` option](options-data.md#emits)
   - [Emitting a Value With an Event](../guide/component-basics.md#emitting-a-value-with-an-event)
 
 ## $forceUpdate

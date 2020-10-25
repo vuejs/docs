@@ -61,7 +61,7 @@ const app = createApp({})
 app.config = {...}
 ```
 
-- **См. также:** [Конфигурация приложения](./application-config.md)
+- **См. также:** [Конфигурация приложения](application-config.md)
 
 ## directive
 

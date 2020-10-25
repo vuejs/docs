@@ -79,7 +79,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called after a data change causes the virtual DOM to be re-rendered and patched.
 
-  The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](./options-data.md#computed) or [watcher](./options-data.md#watch) instead.
+  The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](options-data.md#computed) or [watcher](options-data.md#watch) instead.
 
   Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.\$nextTick](../api/instance-methods.md#nexttick) inside of `updated`:
 

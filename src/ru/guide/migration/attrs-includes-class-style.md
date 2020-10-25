@@ -6,7 +6,7 @@ badges:
 
 # `$attrs` includes `class` & `style` <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 `$attrs` now contains _all_ attributes passed to a component, including `class` and `style`.
 
@@ -56,14 +56,14 @@ when used like this:
 </label>
 ```
 
-## Migration Strategy
+## Стратегия миграции
 
 In components that use `inheritAttrs: false`, make sure that styling still works as intended. If you previously relied on the special behavior of `class` and `style`, some visuals might be broken as these attributes might now be applied to another element.
 
 ## See also
 
 - [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md)
-- [Migration guide - `$listeners` removed](./listeners-removed.md)
-- [Migration guide - New Emits Option](./emits-option.md)
-- [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
-- [Migration guide - Changes in the Render Functions API](./render-function-api.md)
+- [Migration guide - `$listeners` removed](listeners-removed.md)
+- [Migration guide - New Emits Option](emits-option.md)
+- [Migration guide - `.native` modifier removed](v-on-native-modifier-removed.md)
+- [Migration guide - Changes in the Render Functions API](render-function-api.md)

@@ -16,7 +16,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.md#reactive) method.
+If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](basic-reactivity.md#reactive) method.
 
 **Типы:**
 
@@ -236,4 +236,4 @@ shallow.value.greet = 'Hello, universe'
 triggerRef(shallow)
 ```
 
-**См. также:** [Computed and Watch - watchEffect](./computed-watch-api.md#watcheffect)
+**См. также:** [Computed and Watch - watchEffect](computed-watch-api.md#watcheffect)

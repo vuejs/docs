@@ -6,23 +6,23 @@ badges:
 
 # {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 - **BREAKING**: If used on the same element, `v-if` will have higher precedence than `v-for`
 
-## Introduction
+## Введение
 
 Two of the most commonly used directives in Vue.js are `v-if` and `v-for`. So it's no surprise that there comes a time when developers want to use both together. While this is not a recommended practice, there may be times when this is necessary, so we wanted to provide guidance for how it works.
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In 2.x, when using `v-if` and `v-for` on the same element, `v-for` would take precedence.
 
-## 3.x Syntax
+## Что изменилось в 3.x
 
 In 3.x, `v-if` will always have the higher precedence than `v-for`.
 
-## Migration Strategy
+## Стратегия миграции
 
 It is recommended to avoid using both on the same element due to the syntax ambiguity.
 

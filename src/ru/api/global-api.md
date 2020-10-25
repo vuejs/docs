@@ -12,7 +12,7 @@ Returns an application instance which provides an application context. The entir
 const app = Vue.createApp({})
 ```
 
-You can chain other methods after `createApp`, they can be found in [Application API](./application-api.md)
+You can chain other methods after `createApp`, they can be found in [Application API](application-api.md)
 
 ### Аргументы
 

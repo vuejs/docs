@@ -4,7 +4,7 @@
 
 ## `computed`
 
-Takes a getter function and returns an immutable reactive [ref](./refs-api.md#ref) object for the returned value from the getter.
+Takes a getter function and returns an immutable reactive [ref](refs-api.md#ref) object for the returned value from the getter.
 
 ```js
 const count = ref(1)
@@ -86,7 +86,7 @@ type StopHandle = () => void
 
 ## `watch`
 
-The `watch` API is the exact equivalent of the Options API [this.$watch](./instance-methods.md#watch) (and the corresponding [watch](./options-data.md#watch) option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
+The `watch` API is the exact equivalent of the Options API [this.$watch](instance-methods.md#watch) (and the corresponding [watch](options-data.md#watch) option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
 
 - Compared to [watchEffect](#watcheffect), `watch` allows us to:
 
@@ -96,7 +96,7 @@ The `watch` API is the exact equivalent of the Options API [this.$watch](./insta
 
 ### Watching a Single Source
 
-A watcher data source can either be a getter function that returns a value, or directly a [ref](./refs-api.md#ref):
+A watcher data source can either be a getter function that returns a value, or directly a [ref](refs-api.md#ref):
 
 ```js
 // watching a getter

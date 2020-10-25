@@ -6,15 +6,15 @@ badges:
 
 # {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Обзор
 
 - **BREAKING**: Order of bindings for v-bind will affect the rendering result.
 
-## Introduction
+## Введение
 
 When dynamically binding attributes on an element, a common scenario involves using both the `v-bind="object"` syntax as well as individual properties in the same element. However, this raises questions as far as the priority of merging.
 
-## 2.x Syntax
+## Синтаксис в 2.x
 
 In 2.x, if an element has both `v-bind="object"` and an identical individual property defined, the individual property would always overwrite bindings in the `object`. 
 
@@ -25,7 +25,7 @@ In 2.x, if an element has both `v-bind="object"` and an identical individual pro
 <div id="red"></div>
 ```
 
-## 3.x Syntax
+## Что изменилось в 3.x
 
 In 3x, if an element has both `v-bind="object"` and an identical individual property defined, the order of how the bindings are declared determines how they are merged. In other words, rather than assuming developers want the individual property to always override what is defined in the `object`, developers now have more control over the desired merging behavior.
 
@@ -41,6 +41,6 @@ In 3x, if an element has both `v-bind="object"` and an identical individual prop
 <div id="red"></div>
 ```
 
-## Migration Strategy
+## Стратегия миграции
 
 If you are relying on this override functionality for `v-bind`, we currently recommend ensuring that your `v-bind` attribute is defined before individual properties.
