@@ -2,29 +2,29 @@
 home: true
 heroImage: /logo.png
 heroText: Vue.js
-tagline: The Progressive<br> JavaScript Framework
+tagline: Прогрессивный<br> JavaScript-фреймворк
 actionButtons:
-  - text: Why Vue.js?
-    link: /
+  - text: Почему Vue.js?
+    link: /ru/
     extraClass: vuemastery-trigger primary
     icon: fa fa-play-circle
-  - text: Get Started
-    link: /guide/introduction
+  - text: Начать знакомство
+    link: /ru/guide/introduction
   - text: GitHub
     link: https://github.com/vuejs/vue
     extraClass: github grey
     icon: fa fa-github
     target: _blank
 features:
-  - title: Approachable
-    details: Already know HTML, CSS and JavaScript? Read the guide and start building things in no time!
-  - title: Versatile
-    details: An incrementally adoptable ecosystem that scales between a library and a full-featured framework.
-  - title: Performant
+  - title: Доступный
+    details: Уже знаете HTML, CSS и JavaScript? Освойте короткое руководство — и вперёд!
+  - title: Разносторонний
+    details: Постепенно внедряемая экосистема, которая масштабируется из библиотеки в полнофункциональный фреймворк.
+  - title: Производительный
     details: |
-      20KB min+gzip Runtime<br>
-      Blazing Fast Virtual DOM<br>
-      Minimal Optimization Efforts
+      Всего 20KB (min+gzip)<br>
+      Быстрый виртуальный DOM<br>
+      Оптимизация без сложностей
 footer: |
   Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a><br>
   Copyright © 2014-2020 Evan You
