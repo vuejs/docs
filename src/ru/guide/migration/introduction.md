@@ -123,7 +123,7 @@ All of our official libraries and tools now support Vue 3, but most of them are 
 
 As of v4.5.0, `vue-cli` now provides built-in option to choose Vue 3 preset when creating a new project. You can upgrade `vue-cli` and run `vue create` to create a Vue 3 project today.
 
-- [Documentation](https://cli.vuejs.org/)
+- [Документация](https://cli.vuejs.org/ru/)
 - [GitHub](https://github.com/vuejs/vue-cli)
 
 ### Vue Router
