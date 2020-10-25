@@ -160,7 +160,7 @@ app.mount('#mixins-global')
 // => "hello from component!"
 ```
 
-In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.html) to avoid duplicate application.
+In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.md) to avoid duplicate application.
 
 ## Custom Option Merge Strategies
 
@@ -221,4 +221,4 @@ In Vue 2, mixins were the primary tool to abstract parts of component logic into
 
 - Reusability is limited: we cannot pass any parameters to the mixin to change its logic which reduces their flexibility in terms of abstracting logic
 
-To address these issues, we added a new way to organize code by logical concerns: the [Composition API](composition-api-introduction.html).
+To address these issues, we added a new way to organize code by logical concerns: the [Composition API](composition-api-introduction.md).

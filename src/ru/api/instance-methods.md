@@ -189,7 +189,7 @@
   
   `'sync'` watchers should be used sparingly, as they don't have these benefits.
 
-  For more information about `flush` see [Effect Flush Timing](../guide/reactivity-computed-watchers.html#effect-flush-timing).
+  For more information about `flush` see [Effect Flush Timing](../guide/reactivity-computed-watchers.md#effect-flush-timing).
 
 - **См. также:** [Watchers](../guide/computed.md#watchers)
 

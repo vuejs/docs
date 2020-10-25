@@ -177,7 +177,7 @@
 
 - **Подробности:**
 
-  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation. See [$watch](instance-methods.html#watch) for more information about the `deep`, `immediate` and `flush` options.
+  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation. See [$watch](instance-methods.md#watch) for more information about the `deep`, `immediate` and `flush` options.
 
 - **Пример:**
 
@@ -295,4 +295,4 @@
   Events listed in the `emits` option **will not** be inherited by the root element of the component and also will be excluded from the `$attrs` property.
   :::
 
-* **See also:** [Attribute Inheritance](../guide/component-attrs.md#attribute-inheritance)
+* **См. также:** [Attribute Inheritance](../guide/component-attrs.md#attribute-inheritance)

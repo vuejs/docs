@@ -209,7 +209,7 @@ app.directive('demo', (el, binding) => {
 
 ## Usage on Components
 
-When used on components, custom directive will always apply to component's root node, similarly to [non-prop attributes](component-attrs.html).
+When used on components, custom directive will always apply to component's root node, similarly to [non-prop attributes](component-attrs.md).
 
 ```vue-html
 <my-component v-demo="test"></my-component>
@@ -227,4 +227,4 @@ app.component('my-component', {
 
 Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`.
 
-With [fragments](/guide/migration/fragments.html#overview) support, components can potentially have more than one root nodes. When applied to a multi-root component, directive will be ignored and the warning will be thrown.
+With [fragments](./migration/fragments.md#overview) support, components can potentially have more than one root nodes. When applied to a multi-root component, directive will be ignored and the warning will be thrown.
