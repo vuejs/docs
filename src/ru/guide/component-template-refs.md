@@ -1,6 +1,6 @@
 # Template refs
 
-> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
+> Подразумевается, что вы уже изучили и разобрались с разделом [Основы компонентов](component-basics.md). Если нет — прочитайте его сначала.
 
 Despite the existence of props and events, sometimes you might still need to directly access a child component in JavaScript. To achieve this you can assign a reference ID to the child component or HTML element using the `ref` attribute. For example:
 
