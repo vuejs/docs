@@ -1,7 +1,7 @@
 # Введение
 
 :::tip Примечание
-Already know Vue 2 and just want to learn about what's new in Vue 3? Check out the [Migration Guide](migration/introduction.md)!
+Уже изучили Vue 2 и хотите узнать что нового во Vue 3? Посмотрите [руководство по миграции](migration/introduction.md)!
 :::
 
 ## What is Vue.js?

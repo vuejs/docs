@@ -1,15 +1,15 @@
 # Введение
 
 :::info Информация
-New to Vue.js? Check out our [Essentials Guide](introduction.md) to get started.
+Новичок в Vue.js? Начать изучение лучше с [руководства](../introduction.md).
 :::
 
 This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. **This is not something you have to read from top to bottom before trying out Vue 3.** While it looks like a lot has changed, a lot of what you know and love about Vue is still the same; but we wanted to be as thorough as possible and provide detailed explanations and examples for every documented change.
 
-- [Quickstart](#quickstart)
-- [Notable New Features](#notable-new-features)
-- [Breaking Changes](#breaking-changes)
-- [Supporting Libraries](#supporting-libraries)
+- [Быстрый старт](#быстрыи-старт)
+- [Важные новые возможности](#важные-новые-возможности)
+- [Кардинальные изменения](#кардинальные-изменения)
+- [Поддержка библиотек](#поддержка-библиотек)
 
 ## Обзор
 
@@ -18,7 +18,7 @@ This guide is primarily for users with prior Vue 2 experience who want to learn 
 
 Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vue3).
 
-## Quickstart
+## Быстрый старт
 
 - Via CDN: `<script src="https://unpkg.com/vue@next"></script>`
 - In-browser playground on [Codepen](https://codepen.io/yyx990803/pen/OJNoaZL)
@@ -29,7 +29,7 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
   npm init vite-app hello-vue3 # OR yarn create vite-app hello-vue3
   ```
 
-- Scaffold via [vue-cli](https://cli.vuejs.org/):
+- Scaffold via [vue-cli](https://cli.vuejs.org/ru/):
 
   ```bash
   npm install -g @vue/cli # OR yarn global add @vue/cli
@@ -37,7 +37,7 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
   # select vue 3 preset
   ```
 
-## Notable New Features
+## Важные новые возможности
 
 Some of the new features to keep an eye on in Vue 3 include:
 
@@ -46,11 +46,11 @@ Some of the new features to keep an eye on in Vue 3 include:
 - [Fragments](fragments.md)
 - [Emits Component Option](../component-custom-events.md)
 - [`createRenderer` API from `@vue/runtime-core`](https://github.com/vuejs/vue-next/tree/master/packages/runtime-core) to create custom renderers
-- [SFC Composition API Syntax Sugar (`<script setup>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-script-setup.md) <Badge text="experimental" type="warning" />
-- [SFC State-driven CSS Variables (`<style vars>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-style-variables.md) <Badge text="experimental" type="warning" />
+- [SFC Composition API Syntax Sugar (`<script setup>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-script-setup.md) <Badge text="экспериментально" type="warning" />
+- [SFC State-driven CSS Variables (`<style vars>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-style-variables.md) <Badge text="экспериментально" type="warning" />
 - [SFC `<style scoped>` can now include global rules or rules that target only slotted content](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0023-scoped-styles-changes.md)
 
-## Breaking Changes
+## Кардинальные изменения
 
 :::info Информация
 We are still working on a dedicated Migration Build of Vue 3 with Vue 2 compatible behavior and runtime warnings of incompatible usage. If you are planning to migrate a non-trivial Vue 2 app, we strongly recommend waiting for the Migration Build for a smoother experience.
@@ -91,7 +91,7 @@ The following consists a list of breaking changes from 2.x:
 - [Custom elements whitelisting is now performed during template compilation](custom-elements-interop.md)
 - [Special `is` prop usage is restricted to the reserved `<component>` tag only](custom-elements-interop.md#customized-built-in-elements)
 
-### Other Minor Changes
+### Другие незначительные изменения
 
 - The `destroyed` lifecycle option has been renamed to `unmounted`
 - The `beforeDestroy` lifecycle option has been renamed to `beforeUnmount`
@@ -105,7 +105,7 @@ The following consists a list of breaking changes from 2.x:
 - `<template>` tags with no special directives (`v-if/else-if/else`, `v-for`, or `v-slot`) are now treated as plain elements and will result in a native `<template>` element instead of rendering its inner content.
 - In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead - this means the container itself is no longer considered part of the template.
 
-### Removed APIs
+### Удалённые API
 
 - [`keyCode` support as `v-on` modifiers](keycode-modifiers.md)
 - [$on, $off and \$once instance methods](events-api.md)
@@ -113,7 +113,7 @@ The following consists a list of breaking changes from 2.x:
 - [Inline templates attributes](inline-template-attribute.md)
 - `$destroy` instance method. Users should no longer manually manage the lifecycle of individual Vue components.
 
-## Supporting Libraries
+## Поддержка библиотек
 
 All of our official libraries and tools now support Vue 3, but most of them are still in beta status and distributed under the `next` dist tag on npm. **We are planning to stabilize and switch all projects to use the `latest` dist tag by end of 2020.**
 
@@ -143,19 +143,19 @@ Vuex 4.0 provides Vue 3 support with largely the same API as 3.x. The only break
 
 - [GitHub](https://github.com/vuejs/vuex/tree/4.0)
 
-### Devtools Extension
+### Расширение инструментов для разработчика
 
 We are working on a new version of the Devtools with a new UI and refactored internals to support multiple Vue versions. The new version is currently in beta and only supports Vue 3 (for now). Vuex and Router integration is also work in progress.
 
-- For Chrome: [Install from Chrome web store](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg?hl=en)
+- Для Chrome: [Установить из магазина приложений Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg?hl=en)
 
-  - Note: the beta channel may conflict with the stable version of devtools so you may need to temporarily disable the stable version for the beta channel to work properly.
+  - Примечание: the beta channel may conflict with the stable version of devtools so you may need to temporarily disable the stable version for the beta channel to work properly.
 
-- For Firefox: [Download the signed extension](https://github.com/vuejs/vue-devtools/releases/tag/v6.0.0-beta.2) (`.xpi` file under Assets)
+- Для Firefox: [Скачать подписанное расширение](https://github.com/vuejs/vue-devtools/releases/tag/v6.0.0-beta.2) (файл `.xpi` в Assets)
 
 ### Поддержка IDE
 
-It is recommended to use [VSCode](https://code.visualstudio.com/) with our official extension [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), which provides comprehensive IDE support for Vue 3.
+Рекомендуется использовать [VSCode](https://code.visualstudio.com/) с нашим официальным расширением [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), которое обеспечивает IDE всестороннюю поддержку Vue 3.
 
 ### Другие проекты
 
@@ -194,5 +194,5 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 [rpv-code]: https://github.com/vuejs/rollup-plugin-vue/tree/next
 
 :::info Информация
-For additional information on Vue 3 compatibility with libraries and plugins, be sure to check out [this issue in awesome-vue](https://github.com/vuejs/awesome-vue/issues/3544).
+Для получения дополнительной информации о совместимости библиотек и плагинов с Vue 3, обязательно ознакомьтесь с [этим issue в awesome-vue](https://github.com/vuejs/awesome-vue/issues/3544).
 :::
