@@ -119,7 +119,7 @@ To change a model name, instead of a `model` component option, now we can pass a
 <ChildComponent :title="pageTitle" @update:title="pageTitle = $event" />
 ```
 
-![v-bind anatomy](/images/v-bind-instead-of-sync.png)
+![Анатомия v-bind](/images/v-bind-instead-of-sync.png)
 
 This also serves as a replacement to `.sync` modifier and allows us to have multiple `v-model`s on the custom component.
 

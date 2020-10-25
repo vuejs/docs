@@ -101,7 +101,7 @@
   app.mount('#transition-demo')
   ```
 
-- **См. также:** [Enter & Leave Transitions](/guide/transitions-enterleave.md#transitioning-single-elements-components)
+- **См. также:** [Enter & Leave Transitions](../guide/transitions-enterleave.md#transitioning-single-elements-components)
 
 ## transition-group
 
@@ -131,7 +131,7 @@
   </transition-group>
   ```
 
-- **См. также:** [List Transitions](/guide/transitions-list.md)
+- **См. также:** [List Transitions](../guide/transitions-list.md)
 
 ## keep-alive
 

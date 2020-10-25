@@ -243,7 +243,7 @@ Vue.createApp(ListRendering).mount('#list-rendering')
 
 The component system is another important concept in Vue, because it's an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components. If we think about it, almost any type of application interface can be abstracted into a tree of components:
 
-![Component Tree](/images/components.png)
+![Дерево компонентов](/images/components.png)
 
 In Vue, a component is essentially an instance with pre-defined options. Registering a component in Vue is straightforward: we create a component object as we did with `App` objects and we define it in parent's `components` option:
 

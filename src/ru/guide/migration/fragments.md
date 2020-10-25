@@ -37,4 +37,4 @@ In 3.x, components now can have multiple root nodes! However, this does require 
 </template>
 ```
 
-For more information on how attribute inheritance works, see [Non-Prop Attributes](/guide/component-attrs.md).
+For more information on how attribute inheritance works, see [Non-Prop Attributes](../component-attrs.md).

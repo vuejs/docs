@@ -1,7 +1,7 @@
 # Введение
 
 :::info Информация
-New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started.
+New to Vue.js? Check out our [Essentials Guide](introduction.md) to get started.
 :::
 
 This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. **This is not something you have to read from top to bottom before trying out Vue 3.** While it looks like a lot has changed, a lot of what you know and love about Vue is still the same; but we wanted to be as thorough as possible and provide detailed explanations and examples for every documented change.
@@ -41,10 +41,10 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
 
 Some of the new features to keep an eye on in Vue 3 include:
 
-- [Composition API](/guide/composition-api-introduction.html)
-- [Teleport](/guide/teleport.html)
-- [Fragments](/guide/migration/fragments.html)
-- [Emits Component Option](/guide/component-custom-events.html)
+- [Composition API](../composition-api-introduction.md)
+- [Teleport](../teleport.md)
+- [Fragments](fragments.md)
+- [Emits Component Option](../component-custom-events.md)
 - [`createRenderer` API from `@vue/runtime-core`](https://github.com/vuejs/vue-next/tree/master/packages/runtime-core) to create custom renderers
 - [SFC Composition API Syntax Sugar (`<script setup>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-script-setup.md) <Badge text="experimental" type="warning" />
 - [SFC State-driven CSS Variables (`<style vars>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-style-variables.md) <Badge text="experimental" type="warning" />
@@ -60,57 +60,57 @@ The following consists a list of breaking changes from 2.x:
 
 ### Global API
 
-- [Global Vue API is changed to use an application instance](/guide/migration/global-api.html)
-- [Global and internal APIs have been restructured to be tree-shakable](/guide/migration/global-api-treeshaking.html)
+- [Global Vue API is changed to use an application instance](global-api.md)
+- [Global and internal APIs have been restructured to be tree-shakable](global-api-treeshaking.md)
 
 ### Template Directives
 
-- [`v-model` usage on components has been reworked](/guide/migration/v-model.html)
-- [`key` usage on `<template v-for>` and non-`v-for` nodes has changed](/guide/migration/key-attribute.html)
-- [`v-if` and `v-for` precedence when used on the same element has changed](/guide/migration/v-if-v-for.html)
-- [`v-bind="object"` is now order-sensitive](/guide/migration/v-bind.html)
-- [`v-on:event.native` modifier has been removed](./v-on-native-modifier-removed.md)
-- [`ref` inside `v-for` no longer register an array of refs](/guide/migration/array-refs.html)
+- [`v-model` usage on components has been reworked](v-model.md)
+- [`key` usage on `<template v-for>` and non-`v-for` nodes has changed](key-attribute.md)
+- [`v-if` and `v-for` precedence when used on the same element has changed](v-if-v-for.md)
+- [`v-bind="object"` is now order-sensitive](v-bind.md)
+- [`v-on:event.native` modifier has been removed](v-on-native-modifier-removed.md)
+- [`ref` inside `v-for` no longer register an array of refs](array-refs.md)
 
 ### Components
 
-- [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
-- [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
-- [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
-- [Component events should now be declared with the `emits` option](./emits-option.md)
+- [Functional components can only be created using a plain function](functional-components.md)
+- [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](functional-components.md)
+- [Async components now require `defineAsyncComponent` method to be created](async-components.md)
+- [Component events should now be declared with the `emits` option](emits-option.md)
 
 ### Render Function
 
-- [Render function API changed](/guide/migration/render-function-api.html)
-- [`$scopedSlots` property is removed and all slots are exposed via `$slots` as functions](/guide/migration/slots-unification.html)
-- [`$listeners` has been removed / merged into `$attrs`](./listeners-removed)
-- [`$attrs` now includes `class` and `style` attributes](./attrs-includes-class-style.md)
+- [Render function API changed](render-function-api.md)
+- [`$scopedSlots` property is removed and all slots are exposed via `$slots` as functions](slots-unification.md)
+- [`$listeners` has been removed / merged into `$attrs`](listeners-removed.md)
+- [`$attrs` now includes `class` and `style` attributes](attrs-includes-class-style.md)
 
 ### Custom Elements
 
-- [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.html)
-- [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.html#customized-built-in-elements)
+- [Custom elements whitelisting is now performed during template compilation](custom-elements-interop.md)
+- [Special `is` prop usage is restricted to the reserved `<component>` tag only](custom-elements-interop.md#customized-built-in-elements)
 
 ### Other Minor Changes
 
 - The `destroyed` lifecycle option has been renamed to `unmounted`
 - The `beforeDestroy` lifecycle option has been renamed to `beforeUnmount`
-- [Props `default` factory function no longer has access to `this` context](/guide/migration/props-default-this.html)
-- [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
-- [The `data` option should always be declared as a function](/guide/migration/data-option.html)
-- [The `data` option from mixins is now merged shallowly](/guide/migration/data-option.html#mixin-merge-behavior-change)
-- [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
-- [Some transition classes got a rename](/guide/migration/transition.html)
-- [When watching an array, the callback will only trigger when the array is replaced. If you need to trigger on mutation, the `deep` option must be specified.](/guide/migration/watch.html)
+- [Props `default` factory function no longer has access to `this` context](props-default-this.md)
+- [Custom directive API changed to align with component lifecycle](custom-directives.md)
+- [The `data` option should always be declared as a function](data-option.md)
+- [The `data` option from mixins is now merged shallowly](data-option.md#mixin-merge-behavior-change)
+- [Attributes coercion strategy changed](attribute-coercion.md)
+- [Some transition classes got a rename](transition.md)
+- [When watching an array, the callback will only trigger when the array is replaced. If you need to trigger on mutation, the `deep` option must be specified.](watch.md)
 - `<template>` tags with no special directives (`v-if/else-if/else`, `v-for`, or `v-slot`) are now treated as plain elements and will result in a native `<template>` element instead of rendering its inner content.
 - In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead - this means the container itself is no longer considered part of the template.
 
 ### Removed APIs
 
-- [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.html)
-- [$on, $off and \$once instance methods](/guide/migration/events-api.html)
-- [Filters](/guide/migration/filters.html)
-- [Inline templates attributes](/guide/migration/inline-template-attribute.html)
+- [`keyCode` support as `v-on` modifiers](keycode-modifiers.md)
+- [$on, $off and \$once instance methods](events-api.md)
+- [Filters](filters.md)
+- [Inline templates attributes](inline-template-attribute.md)
 - `$destroy` instance method. Users should no longer manually manage the lifecycle of individual Vue components.
 
 ## Supporting Libraries

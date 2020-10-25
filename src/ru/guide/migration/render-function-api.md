@@ -188,4 +188,4 @@ For more information, see [The Render Function Api Change RFC](https://github.co
 
 ## Дальнейшие шаги
 
-See [Render Function Guide](/guide/render-function) for more detailed documentation!
+See [Render Function Guide](../render-function.md) for more detailed documentation!

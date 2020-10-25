@@ -97,7 +97,7 @@ When a browser reads this code, it builds a [tree of "DOM nodes"](https://javasc
 
 The tree of DOM nodes for the HTML above looks like this:
 
-![DOM Tree Visualization](/images/dom-tree.png)
+![Визуализация дерева DOM](/images/dom-tree.png)
 
 Every element is a node. Every piece of text is a node. Even comments are nodes! Each node can have children (i.e. each node can contain other nodes).
 

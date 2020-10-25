@@ -79,4 +79,4 @@ The child, instead of providing no template, should now render the default slot\
 </template>
 ```
 
-> - Note: In 3.x, slots can be rendered as the root with native [fragments](/guide/migration/fragments) support!
+> - Note: In 3.x, slots can be rendered as the root with native [fragments](fragments.md) support!

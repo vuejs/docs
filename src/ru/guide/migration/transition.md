@@ -48,7 +48,7 @@ In order to be more explicit and legible, we have now renamed these initial stat
 
 It's now much clearer what the difference between these states is.
 
-![Transition Diagram](/images/transitions.svg)
+![Диаграмма переходов](/images/transitions.svg)
 
 The `<transition>` component's related prop names are also changed:
 
