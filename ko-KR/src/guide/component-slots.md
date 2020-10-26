@@ -36,19 +36,19 @@ Vue는 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-
 
 ```html
 <todo-button>
-  <!-- Add a Font Awesome icon -->
+  <comment></comment>
   <i class="fas fa-plus">
   Add todo
-</todo-button>
+</i></todo-button>
 ```
 
 심지어는 컴포넌트를 포함시킬 수도 있습니다:
 
 ```html
 <todo-button>
-  <!-- 아이콘 추가를 위해 컴포넌트 사용 -->
-  <font-awesome-icon name="plus">
-  Your Profile
+  <!-- 아이콘을 추가하기 위해 컴포넌트를 사용 -->
+  <font-awesome-icon name="plus"></font-awesome-icon>
+  Add todo
 </todo-button>
 ```
 
@@ -71,7 +71,7 @@ Vue는 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-
 
 ## 렌더 스코프
 
-다음과 같이 슬롯 내부에 데이터를 사용하고 싶은 경우:
+다음과 같이 slot 내부에 데이터를 사용하고 싶은 경우:
 
 ```html
 <todo-button>
@@ -83,13 +83,15 @@ Vue는 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-
 
  <img src="https://github.com/narusas/docs-next/blob/master/images/slot.png?raw=true" alt="Slot explanation diagram" class="">
 
-
 이 slot은 `<todo-button>` 의 스코프에 접근할 수 **없습니다**. 예를 들어, 아래와 같이 `action`에 접근하고자 하는 경우, 코드가 정상적으로 동작하지 않습니다.
 
 ```html
-
+&lt;todo-button action="delete"&gt;
   Clicking here will {{ action }} an item
-  
+  &lt;!--
+    `action`은 &lt;todo-button&gt; 내부에서 정의된 것이 아니라 전달받은 것이기 때문에 위의 `action`은 undefined가 됩니다.
+  --&gt;
+&lt;/todo-button&gt;
 ```
 
 아래와 같은 규칙을 기억하세요:
@@ -257,11 +259,11 @@ app.component('todo-list', {
 이 경우, `item`을 부모 요소로부터 제공받는 slot 컨텐츠에 사용 가능하도록 하기 위해서 `<slot>` 요소에 매개변수로써 bind 시킬 수 있습니다.
 
 ```html
-<ul>
-  <li v-for="( item, index ) in items">
-    <slot v-bind:item="item"></slot>
-  </li>
-</ul>
+&lt; ul&gt;
+  &lt; li v-for="( item, index ) in items"&gt;
+    &lt; slot :item="item"&gt;&lt; /slot&gt;
+  &lt; /li&gt;
+&lt; /ul&gt;
 ```
 
 `<slot>` 엘리먼트에 연결된 매개변수를 **slot props**라고 부릅니다. 이제 부모 스코프에서 `v-slot`를 정의한 이름을 이용해 사용할 수 있습니다.
@@ -318,16 +320,16 @@ app.component('todo-list', {
 여러 개의 slot이 존재하는 경우에는 *모든* slot에 대해 `<template>` 코드를 전부 작성하세요:
 
 ```html
-<todo-list>
-  <template v-slot:default="slotProps">
-    <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}</span>
-  </template>
+&lt; todo-list&gt;
+  &lt; template v-slot:default="slotProps"&gt;
+    &lt; i class="fas fa-check"&gt;
+    &lt; span class="green"&gt;{{ slotProps.item }}&lt; /span&gt;
+  &lt; /template&gt;
 
-  <template v-slot:other="otherSlotProps">
+  &lt; template v-slot:other="otherSlotProps"&gt;
     ...
-  </template>
-</current-user>
+  &lt; /template&gt;
+&lt; /todo-list&gt;
 ```
 
 ### Slot Props 비구조화 할당
