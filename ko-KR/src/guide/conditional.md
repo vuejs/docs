@@ -89,4 +89,4 @@
 
 ::: tip `v-if`와 `v-for`를 함께 쓰는 것은 **권장하지 않습니다**. 자세한 내용은 [스타일 가이드](../style-guide/#avoid-v-if-with-v-for-essential)를 참고하세요. :::
 
-`v-if`와 `v-for`를 함께 쓸 때, `v-for`가 `v-if` 보다 더 높은 우선 순위를 가집니다. 자세한 내용은 [리스트 렌더링 가이드](list#v-for-with-v-if)를 참고하세요.
+동일한 엘리먼트에 `v-if`와 `v-for`를 함께 사용할 때, `v-if`가 더 높은 우선순위를 갖습니다. 자세한 내용은 [리스트 렌더링 가이드](list#v-for-with-v-if)를 참고하세요.
