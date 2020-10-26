@@ -1,6 +1,6 @@
 # 템플릿 문법
 
-Vue.js는 렌더링 된 DOM을 기본 Vue 인스턴스의 데이터에 선언적으로 바인딩할 수 있는 HTML 기반 템플릿 구문을 사용합니다. 모든 Vue.js 템플릿은 스펙을 호환하는 브라우저 및 HTML 파서로 구문 분석할 수 있는 유효한 HTML입니다.
+Vue.js는 렌더링 된 DOM을 컴포넌트 인스턴스의 데이터에 선언적으로 바인딩할 수 있는 HTML 기반 템플릿 구문을 사용합니다. 모든 Vue.js 템플릿은 스펙을 호환하는 브라우저 및 HTML 파서로 구문 분석할 수 있는 유효한 HTML입니다.
 
 내부적으로 Vue는 템플릿을 가상 DOM 렌더링 함수로 컴파일합니다. 반응형 시스템과 결합된 Vue는 앱 상태가 변경될 때 다시 렌더링할 최소한의 컴포넌트를 지능적으로 파악하여 DOM 조작을 최소화합니다.
 
@@ -16,7 +16,7 @@ Vue.js는 렌더링 된 DOM을 기본 Vue 인스턴스의 데이터에 선언적
 <span>메시지: {{ msg }}</span>
 ```
 
-Mustache 태그는 해당 데이터 객체의 `msg` 속성 값으로 대체됩니다. 또한 데이터 객체의 `msg` 속성이 변경될 때 마다 갱신됩니다.
+Mustache 태그는 해당 컴포넌트 인스턴스의 `msg` 속성 값으로 대체됩니다. 또한 `msg` 속성이 변경될 때 마다 갱신됩니다.
 
 [v-once 디렉티브](../api/directives.html#v-once)를 사용하여 데이터가 변경되어도 갱신되지 않는 일회성 보간을 수행할 수 있습니다. 다만, 이런 경우 같은 노드의 바인딩에도 영향을 미친다는 점을 유의해야 합니다.
 
@@ -29,11 +29,12 @@ Mustache 태그는 해당 데이터 객체의 `msg` 속성 값으로 대체됩�
 이중 중괄호는 데이터를 HTML이 아닌 일반 텍스트로 해석합니다. 실제 HTML을 출력하려면 [`v-html` 디렉티브](../api/directives.html#v-html)를 사용해야 합니다.
 
 ```html
-<p>Using mustaches: {{ rawHtml }}</p>
-<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+<p>이중 중괄호 사용: {{ rawHtml }}</p>
+<p>v-html 디렉티브 사용: <span v-html="rawHtml"></span></p>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="yLNEJJM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Rendering v-html">   <span>아래 Pen을 참고하세요. <a href="https://codepen.io/team/Vue/pen/yLNEJJM">   Rendering v-html</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="yLNEJJM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Rendering v-html">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/yLNEJJM">   Rendering v-html</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
 
 `span`의 내용은 일반 HTML로 해석되는 `rawHtml` 속성 값으로 대체됩니다. 이 때 데이터 바인딩은 무시됩니다. Vue는 문자열 기반 템플릿 엔진이 아니기 때문에 템플릿을 구성하는 데에 `v-html` 디렉티브를 사용할 수 없다는 점을 유의해야 합니다. UI 재사용 및 구성의 기본 단위로 <code>v-html</code> 디렉티브 대신 컴포넌트를 사용하는 것을 추천합니다.
 
@@ -60,11 +61,8 @@ Mustaches(이중 중괄호 구문)는 HTML 속성에 사용할 수 없습니다.
 지금까지는 간단한 속성 키들을 템플릿에 바인딩했습니다. 그러나 실제로 Vue.js는 모든 데이터 바인딩 내에서 JavaScript 표현식 기능을 전부 지원합니다.
 
 ```html
-{{ number + 1 }}
-
-{{ ok ? 'YES' : 'NO' }}
-
-{{ message.split('').reverse().join('') }}
+{{ number + 1 }} {{ ok ? 'YES' : 'NO' }} {{ message.split('').reverse().join('')
+}}
 
 <div v-bind:id="'list-' + id"></div>
 ```
@@ -84,7 +82,7 @@ Mustaches(이중 중괄호 구문)는 HTML 속성에 사용할 수 없습니다.
 디렉티브는 `v-`로 시작하는 특수한 속성입니다. 디렉티브 속성 값은 단일 **JavaScript 표현식**이 됩니다. (나중에 설명할 `v-for`와 `v-on`은 예외입니다.) 디렉티브의 역할은 표현식의 값이 변경될 때 발생하는 부수 효과(side effects)들을 반응적으로 DOM에 적용하는 것입니다. 아래 예제에서 살펴보겠습니다.
 
 ```html
-<p v-if="seen">Now you see me</p>
+<p v-if="seen">이제 저를 볼 수 있어요.</p>
 ```
 
 여기서 `v-if` 디렉티브는 표현식 `seen` 값의 참, 거짓 여부를 바탕으로 `<p>` 엘리먼트를 삽입하거나 제거합니다.
@@ -118,7 +116,7 @@ JavaScript 표현식을 대괄호로 묶어 디렉티브 전달인자로 사용�
 <a v-bind:[attributeName]="url"> ... </a>
 ```
 
-여기서 `attributeName`은 JavaScript 표현식으로 동적 변환되며, 변환된 결과는 전달인자의 최종값으로 사용됩니다. 예를 들어, 여러분의 Vue 인스턴스에 값이 `"href"`인 데이터 속성 `attributeName`이 있다면, 이 바인딩은 `v-bind:href`와 같습니다.
+여기서 `attributeName`은 JavaScript 표현식으로 동적 변환되며, 변환된 결과는 전달인자의 최종값으로 사용됩니다. 예를 들어, 여러분의 컴포넌트 인스턴스에 값이 `"href"`인 데이터 속성 `attributeName`이 있다면, 이 바인딩은 `v-bind:href`와 같습니다.
 
 이와 유사하게, 동적인 이벤트명에 핸들러를 바인딩할 때 동적 전달인자를 활용할 수 있습니다.
 
@@ -164,11 +162,11 @@ JavaScript 표현식을 대괄호로 묶어 디렉티브 전달인자로 사용�
 <!-- 약어 -->
 <a @click="doSomething"> ... </a>
 
-<!-- 동적 전달인자와 함께 쓴 약어 (2.6.0+) -->
+<!-- 동적 전달인자와 함께 쓴 약어 -->
 <a @[event]="doSomething"> ... </a>
 ```
 
-위 예제들이 일반적인 HTML과 조금 다르게 보일 수 있으나, 속성명에 쓴 `:`과 `@`은 유효한 문자이며 Vue를 지원하는 모든 브라우저가 이를 올바르게 구문 분석할 수 있습니다. 또한 최종 렌더링 된 마크업에는 나타나지 않습니다. 약어는 전적으로 선택사항이지만, 사용법에 점차 익숙해지면 편할 것입니다.
+위 예제들이 일반적인 HTML과 조금 다르게 보일 수 있으나, 속성명에 쓴 `:`과 `@`은 유효한 문자이며, Vue를 지원하는 모든 브라우저가 이를 올바르게 구문 분석할 수 있습니다. 또한 최종 렌더링 된 마크업에는 나타나지 않습니다. 약어는 전적으로 선택사항이지만, 사용법에 점차 익숙해지면 편할 것입니다.
 
 > 다음 페이지부터 예제에 약어를 쓸 것입니다. Vue 개발자 여러분의 보편적인 사용법이기 때문입니다.
 
@@ -183,18 +181,17 @@ JavaScript 표현식을 대괄호로 묶어 디렉티브 전달인자로 사용�
 동적 전달인자 형식에는 일부 문자상의 제약이 있습니다. HTML 속성명에 공백이나 따옴표와 같은 특정 문자가 유효하지 않기 때문입니다. 다음 예시는 잘못된 경우입니다.
 
 ```html
-<!-- 컴파일러 경고를 불러옵니다. -->
+<!-- 컴파일러 경고가 발생합니다. -->
 <a v-bind:['foo' + bar]="value"> ... </a>
 ```
 
-복잡한 표현식은 Vue의 가장 기본적인 부분 중 하나인 [computed](computed.html)로 대체하는 것이 좋습니다. [computed](computed.html)는 곧 다룰 것입니다.
+복잡한 표현식은 Vue의 가장 기본적인 부분 중 하나인 [computed 속성](computed.html)으로 대체하는 것이 좋습니다. [computed 속성](computed.html)은 곧 다룰 것입니다.
 
 in-DOM 템플릿(HTML 파일 내에 템플릿을 직접 작성한 경우)을 쓰면 브라우저가 강제로 속성명을 소문자로 만들어 버리므로 속성명에 대문자를 넣지 않도록 합니다.
 
 ```html
 <!--
-in-DOM 템플릿에서는 이 부분이 v-bind:[someattr]로 변환됩니다.
-인스턴스에 "someattr"속성이 없는 경우, 이 코드는 동작하지 않습니다.
+in-DOM 템플릿에서는 이 부분이 v-bind:[someattr]로 변환됩니다. 인스턴스에 "someattr" 속성이 없는 경우, 이 코드는 동작하지 않습니다.
 -->
 <a v-bind:[someAttr]="value"> ... </a>
 ```
