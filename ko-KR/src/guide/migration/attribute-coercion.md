@@ -97,50 +97,37 @@ badges:
   <thead>
     <tr>
       <th>속성</th>
-      <th> <code>v-bind</code> 값 <sup>2.x</sup>
-</th>
-      <th> <code>v-bind</code> 값 <sup>3.x</sup>
-</th>
+      <th> <code>v-bind</code> 값 <sup>2.x</sup> </th>
+      <th> <code>v-bind</code> 값 <sup>3.x</sup> </th>
       <th>HTML 출력</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3">2.x "열거된 속성(*Enumerated attrs)"<br><small><code>contenteditable</code>, <code>draggable</code>, <code>spellcheck</code></small>
-</td>
-      <td> <code>undefined</code>, <code>false</code>
-</td>
-      <td> <code>undefined</code>, <code>null</code>
-</td>
+      <td rowspan="3">2.x "열거된 속성(*Enumerated attrs)"<br><small><code>contenteditable</code>, <code>draggable</code>, <code>spellcheck</code></small> </td>
+      <td> <code>undefined</code>, <code>false</code> </td>
+      <td> <code>undefined</code>, <code>null</code> </td>
       <td><i>제거</i></td>
     </tr>
     <tr>
-      <td>         <code>true</code>, <code>'true'</code>, <code>''</code>, <code>1</code>,         <code>'foo'</code>
-</td>
-      <td> <code>true</code>, <code>'true'</code>
-</td>
+      <td>         <code>true</code>, <code>'true'</code>, <code>''</code>, <code>1</code>,         <code>'foo'</code> </td>
+      <td> <code>true</code>, <code>'true'</code> </td>
       <td><code>"true"</code></td>
     </tr>
     <tr>
-      <td> <code>null</code>, <code>'false'</code>
-</td>
-      <td> <code>false</code>, <code>'false'</code>
-</td>
+      <td> <code>null</code>, <code>'false'</code> </td>
+      <td> <code>false</code>, <code>'false'</code> </td>
       <td><code>"false"</code></td>
     </tr>
     <tr>
-      <td rowspan="2">기타 non-boolean 속성(*Other non-boolean attrs)<br><small>예. <code>aria-checked</code>, <code>tabindex</code>, <code>alt</code>, 등.</small>
-</td>
-      <td> <code>undefined</code>, <code>null</code>, <code>false</code>
-</td>
-      <td> <code>undefined</code>, <code>null</code>
-</td>
+      <td rowspan="2">기타 non-boolean 속성(*Other non-boolean attrs)<br><small>예. <code>aria-checked</code>, <code>tabindex</code>, <code>alt</code>, 등.</small> </td>
+      <td> <code>undefined</code>, <code>null</code>, <code>false</code> </td>
+      <td> <code>undefined</code>, <code>null</code> </td>
       <td><i>제거</i></td>
     </tr>
     <tr>
       <td><code>'false'</code></td>
-      <td> <code>false</code>, <code>'false'</code>
-</td>
+      <td> <code>false</code>, <code>'false'</code> </td>
       <td><code>"false"</code></td>
     </tr>
   </tbody>
