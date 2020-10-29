@@ -41,7 +41,7 @@
 ```html
 <label>
   Name:
-  <input type="text" name="name" id="name" v-model="name" />
+  <input type="text" name="name" id="name" v-model="name">
 </label>
 ```
 
@@ -79,23 +79,11 @@ See the Pen <a href="https://codepen.io/mlama007/pen/jOWGqgz">   Form ARIA label
 [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute)는 `aria-labelledby`의 예상과 동일한 방식으로 사용되며, 사용자가 필요로 할 수 있는 추가적인 정보가 담긴 설명을 제공합니다. 이것은 입력에 대한 기준을 설명하는 데 사용될 수 있습니다.
 
 ```html
-<form
-  class="demo"
-  action="/dataCollectionLocation"
-  method="post"
-  autocomplete="on"
->
+<form class="demo" action="/dataCollectionLocation" method="post" autocomplete="on">
   <h1 id="billing">Billing</h1>
   <div class="form-item">
     <label for="name">Full Name:</label>
-    <input
-      type="text"
-      name="name"
-      id="name"
-      v-model="name"
-      aria-labelledby="billing name"
-      aria-describedby="nameDescription"
-    />
+    <input type="text" name="name" id="name" v-model="name" aria-labelledby="billing name" aria-describedby="nameDescription">
     <p id="nameDescription">Please provide first and last name.</p>
   </div>
   <button type="submit">Submit</button>
