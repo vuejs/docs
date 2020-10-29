@@ -4,7 +4,7 @@
 
 폼을 생성할 때, 다음과 같은 요소를 사용할 수 있습니다: `<form>`, `<label>`, `<input>`, `<textarea>`, and `<button>`
 
-Labels are typically placed on top or to the left of the form fields:
+레이블 요소는 일반적으로 입력 필드의 상단 또는 왼쪽에 배치됩니다.
 
 ```html
 <form action="/dataCollectionLocation" method="post" autocomplete="on">
