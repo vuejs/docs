@@ -57,4 +57,60 @@ And it was being used in a modal component in `components/modal.vue`:
 </script>
 ```
 
-We could refactor this by creating a `composables` folder and create `composables/toggle.js` instead. We suggest using a directory named composables so that you can communicate that this is being used slightly differently from a component, it's reusable logic that you can consume.
+We could refactor this by creating a `composables` folder and create `composables/useToggle.js` instead. We suggest using a directory named composables so that you can communicate that this is being used slightly differently from a component, it's reusable logic that you can consume.
+
+```js
+import { ref, onMounted } from '@vue/composition-api'
+
+export function useToggle() {
+  const isShowing = ref(false)
+
+  function toggleShow() {
+    isShowing.value = !this.isShowing.value
+  }
+
+  return {
+    isShowing,
+    toggleShow
+  }
+}
+```
+
+And we can refactor our component as follows:
+
+```html
+<template>
+  <div>
+    <h3>Let's trigger this here modal!</h3>
+
+    <button @click="toggleShow">
+      <span v-if="isShowing">Hide child</span>
+      <span v-else>Show child</span>
+    </button>
+
+    <div v-if="isShowing" class="modal">
+      <h2>Here I am!</h2>
+      <button @click="toggleShow">Close</button>
+    </div>
+  </div>
+</template>
+```
+
+```js
+<script>
+  import { useToggle } from "@/composables/useToggle.js";
+
+  export default {
+    setup() {
+      const { isShowing, toggleShow } = useToggle();
+
+      return {
+        isShowing,
+        toggleShow
+      };
+    },
+  }
+</script>
+```
+
+Note that the template stays the same, but we've extracted the logic to use in our script section differently. If, from here, we wanted to use `isShowing` in the Options API, we could access it with `this.isShowing`, just as we normally do with a data property, and similarly, we can access `this.toggleShow` like we would a method.
