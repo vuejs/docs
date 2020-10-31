@@ -139,6 +139,7 @@ const sidebar = {
         '/guide/migration/render-function-api',
         '/guide/migration/slots-unification',
         '/guide/migration/transition',
+        '/guide/migration/transition-group',
         '/guide/migration/v-on-native-modifier-removed',
         '/guide/migration/v-model',
         '/guide/migration/v-if-v-for',
