@@ -1,5 +1,5 @@
 ---
-title: Transition Group root Element
+title: Transition Group Root Element
 badges:
   - breaking
 ---
