@@ -6,7 +6,7 @@ Most of the tips below are enabled by default if you are using [Vue CLI](https:/
 
 ## Turn on Production Mode
 
-During development, Vue provides a lot of warnings to help you with common errors and pitfalls. However, these warning strings become useless in production and bloat your app's payload size. In addition, some of these warning checks have small runtime costs that can be avoided in production mode.
+During development, Vue provides a lot of warnings to help you with common errors and pitfalls. However, these warning strings become useless in production and bloat your app's payload size. In addition, some of these warning checks have small runtime costs that can be avoided in [production mode](https://cli.vuejs.org/guide/mode-and-env.html#modes).
 
 ### Without Build Tools
 
