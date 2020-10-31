@@ -4,14 +4,12 @@ Every application reaches a point where it's necessary to understand failures, s
 
 This recipe shows how to debug [Vue CLI](https://github.com/vuejs/vue-cli) applications in VS Code as they run in the browser.
 
-<p class="tip">Note: This recipe covers Chrome and Firefox. If you know how to setup VS Code debugging with other browsers, please consider sharing your insights (see bottom of the page).</p>
-
 ## Prerequisites
 
 Make sure you have VS Code and the browser of your choice installed, and the latest version of the corresponding Debugger extension installed and enabled:
 
-* [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-* [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug)
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+- [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug)
 
 Install and create a project with the [vue-cli](https://github.com/vuejs/vue-cli), following the instructions in the [Vue CLI Guide](https://cli.vuejs.org/). Change into the newly created application directory and open VS Code.
 
@@ -30,14 +28,16 @@ If you use Vue CLI 3, set or update the `devtool` property inside `vue.config.js
 ```js
 module.exports = {
   configureWebpack: {
-    devtool: 'source-map'
-  }
+    devtool: 'source-map',
+  },
 }
 ```
 
 ### Launching the Application from VS Code
 
-<p class="tip">We're assuming the port to be `8080` here. If it's not the case (for instance, if `8080` has been taken and Vue CLI automatically picks another port for you), just modify the configuration accordingly.</p>
+::: info
+We're assuming the port to be `8080` here. If it's not the case (for instance, if `8080` has been taken and Vue CLI automatically picks another port for you), just modify the configuration accordingly.
+:::
 
 Click on the Debugging icon in the Activity Bar to bring up the Debug view, then click on the gear icon to configure a launch.json file, selecting **Chrome/Firefox: Launch** as the environment. Replace content of the generated launch.json with the corresponding configuration:
 
@@ -74,19 +74,19 @@ Click on the Debugging icon in the Activity Bar to bring up the Debug view, then
 
 1.  Set a breakpoint in **src/components/HelloWorld.vue** on `line 90` where the `data` function returns a string.
 
-  ![Breakpoint Renderer](/images/breakpoint_set.png)
+![Breakpoint Renderer](/images/breakpoint_set.png)
 
 2.  Open your favorite terminal at the root folder and serve the app using Vue CLI:
 
-  ```
-  npm run serve
-  ```
+```
+npm run serve
+```
 
 3.  Go to the Debug view, select the **'vuejs: chrome/firefox'** configuration, then press F5 or click the green play button.
 
 4.  Your breakpoint should now be hit as a new browser instance opens `http://localhost:8080`.
 
-  ![Breakpoint Hit](/images/breakpoint_hit.png)
+![Breakpoint Hit](/images/breakpoint_hit.png)
 
 ## Alternative Patterns
 
@@ -96,7 +96,7 @@ There are other methods of debugging, varying in complexity. The most popular an
 
 ![Devtools Timetravel Debugger](/images/devtools-timetravel.gif)
 
-<p class="tip">Please note that if the page uses a production/minified build of Vue.js (such as the standard link from a CDN), devtools inspection is disabled by default so the Vue pane won't show up. If you switch to an unminified version, you may have to give the page a hard refresh to see them.</p>
+Please note that if the page uses a production/minified build of Vue.js (such as the standard link from a CDN), devtools inspection is disabled by default so the Vue pane won't show up. If you switch to an unminified version, you may have to give the page a hard refresh to see them.
 
 ### Simple Debugger Statement
 
