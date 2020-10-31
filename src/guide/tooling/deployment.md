@@ -72,7 +72,7 @@ module.exports = {
 
   ```js
   // Use the envify custom module to specify environment variables
-  var envify = require('envify/custom')
+  const envify = require('envify/custom')
 
   browserify: {
     dist: {
