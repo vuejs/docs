@@ -26,7 +26,7 @@ In Vue 2, `<transition-group>`, like other custom components, needed a root elem
 
 In Vue 3, we have [fragment support](/guide/migration/fragments.html), so components no longer _need_ a root node. Consequently, `<transition-group>` no longer renders one by default.
 
-- If you already have `tag` prop defined in your Vue 2 code, like in the example above, everything will work as before
+- If you already have the `tag` prop defined in your Vue 2 code, like in the example above, everything will work as before
 - If you didn't have one defined _and_ your styling or other behaviors relied in the presence of the `<span>` root element to work properly, simply add `tag="span"` to the `<transition-group>`:
 
 ```html
