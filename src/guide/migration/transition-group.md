@@ -8,7 +8,7 @@ badges:
 
 ## Overview
 
-`<transition-group>` no longer renders a root element by default, but can still create one with the `tag` prop
+`<transition-group>` no longer renders a root element by default, but can still create one with the `tag` prop.
 
 ## 2.x Syntax
 
