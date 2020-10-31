@@ -94,7 +94,8 @@ const sidebar = {
         '/guide/single-file-component',
         '/guide/testing',
         '/guide/typescript-support',
-        '/guide/mobile'
+        '/guide/mobile',
+        '/guide/tooling/deployment'
       ]
     },
     {
