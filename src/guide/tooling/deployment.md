@@ -26,22 +26,6 @@ module.exports = {
 }
 ```
 
-But in Webpack 3 and earlier, you'll need to use [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
-
-```js
-var webpack = require('webpack')
-
-module.exports = {
-  // ...
-  plugins: [
-    // ...
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
-  ]
-}
-```
-
 #### Browserify
 
 - Run your bundling command with the actual `NODE_ENV` environment variable set to `"production"`. This tells `vueify` to avoid including hot-reload and development related code.
@@ -78,7 +62,7 @@ module.exports = {
     dist: {
       options: {
         // Function to deviate from grunt-browserify's default order
-        configure: b =>
+        configure: (b) =>
           b
             .transform('vueify')
             .transform(
