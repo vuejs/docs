@@ -94,12 +94,7 @@ const AttributeBinding = {
 Vue.createApp(AttributeBinding).mount('#bind-attribute')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpRVvJ" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Attribute dynamic binding">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpRVvJ">
-  Attribute dynamic binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Attribute dynamic binding" slug="KKpRVvJ" />
 
 Here we're encountering something new. The `v-bind` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here we are basically saying "_keep this element's `title` attribute up-to-date with the `message` property on the current active instance._"
 
@@ -134,12 +129,7 @@ const EventHandling = {
 Vue.createApp(EventHandling).mount('#event-handling')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="dyoeGjW" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/dyoeGjW">
-  Event handling</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Event handling" slug="dyoeGjW" />
 
 Note that in this method we update the state of our app without touching the DOM - all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.
 
@@ -164,12 +154,7 @@ const TwoWayBinding = {
 Vue.createApp(TwoWayBinding).mount('#two-way-binding')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="poJVgZm" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Two-way binding">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/poJVgZm">
-  Two-way binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Two-way binding" slug="poJVgZm" />
 
 ## Conditionals and Loops
 
@@ -197,12 +182,7 @@ This example demonstrates that we can bind data to not only text and attributes,
 
 You can change `seen` from `true` to `false` in the sandbox below to check the effect:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="oNXdbpB" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Conditional rendering">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXdbpB">
-  Conditional rendering</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Conditional rendering" slug="oNXdbpB" tab="js,result" />
 
 There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used to display a list of items using the data from an Array:
 
@@ -232,12 +212,7 @@ const ListRendering = {
 Vue.createApp(ListRendering).mount('#list-rendering')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="mdJLVXq" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="List rendering">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/mdJLVXq">
-  List rendering</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="List rendering" slug="mdJLVXq" />
 
 ## Composing with Components
 
@@ -321,12 +296,7 @@ app.component('todo-item', {
 app.mount('#todo-list-app')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="VwLxeEz" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-Components-1">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/VwLxeEz">
-  Intro-Components-1</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Intro-Components-1" slug="VwLxeEz" />
 
 This is a contrived example, but we have managed to separate our app into two smaller units, and the child is reasonably well-decoupled from the parent via the props interface. We can now further improve our `<todo-item>` component with more complex template and logic without affecting the parent app.
 

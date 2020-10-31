@@ -38,12 +38,7 @@ Components are reusable instances with a name: in this case, `<button-counter>`.
 app.mount('#components-demo')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abORVEJ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abORVEJ">
-  Component basics</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics" slug="abORVEJ" tab="js,result" :preview="false" />
 
 Since components are reusable instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
 
@@ -59,12 +54,7 @@ Components can be reused as many times as you want:
 </div>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="rNVqYvM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: reusing components">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNVqYvM">
-  Component basics: reusing components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: reusing components" slug="rNVqYvM" tab="html,result" :preview="false" />
 
 Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
 
@@ -119,12 +109,7 @@ Once a prop is registered, you can pass data to it as a custom attribute, like t
 </div>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="PoqyOaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: passing props">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyOaX">
-  Component basics: passing props</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: passing props" slug="PoqyOaX" tab="html,result" :preview="false" />
 
 In a typical app, however, you'll likely have an array of posts in `data`:
 
@@ -191,7 +176,7 @@ Which can be used in the template to control the font size of all blog posts:
 ```html
 <div id="blog-posts-events-demo">
   <div v-bind:style="{ fontSize: postFontSize + 'em' }">
-    <blog-post v-for="post in posts" :key="post.id" :title="title"></blog-post>
+    <blog-post v-for="post in posts" :key="post.id" :title="post.title"></blog-post>
   </div>
 </div>
 ```
@@ -236,12 +221,7 @@ Then the child component can emit an event on itself by calling the built-in [**
 
 Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update `postFontSize` value.
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="KKpGyrp" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: emitting events">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpGyrp">
-  Component basics: emitting events</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="html,result" :preview="false" />
 
 We can list emitted events in the component's `emits` option.
 
@@ -377,12 +357,7 @@ Just like with HTML elements, it's often useful to be able to pass content to a 
 
 Which might render something like:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="jOPeaob" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: slots">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPeaob">
-  Component basics: slots</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: slots" slug="jOPeaob" :preview="false" />
 
 Fortunately, this task is made very simple by Vue's custom `<slot>` element:
 
@@ -405,12 +380,7 @@ That's all you need to know about slots for now, but once you've finished readin
 
 Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="oNXaoKy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: dynamic components">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXaoKy">
-  Component basics: dynamic components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: dynamic components" slug="oNXaoKy" :preview="false" />
 
 The above is made possible by Vue's `<component>` element with the `is` special attribute:
 
