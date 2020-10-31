@@ -10,7 +10,7 @@ During development, Vue provides a lot of warnings to help you with common error
 
 ### Without Build Tools
 
-If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version for production. Both versions can be found in the [Installation guide](installation.html#Direct-lt-script-gt-Include).
+If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version for production. This can be found in the [Installation guide](installation.html#cdn).
 
 ### With Build Tools
 
