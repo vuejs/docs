@@ -4,8 +4,6 @@
 
 :::warning
 Note that if your web browser is configured to block 3rd-party data/cookies, the example below will not work, as the **localStorage** data will fail to be saved.
-
-Additionally, due to limitations on CodePen, hashtag navigation will not work.
 :::
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="Yzqyozj" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Vue 3 TodoMVC">
