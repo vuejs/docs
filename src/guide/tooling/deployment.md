@@ -6,15 +6,15 @@ Most of the tips below are enabled by default if you are using [Vue CLI](https:/
 
 ## Turn on Production Mode
 
-During development, Vue provides a lot of warnings to help you with common errors and pitfalls. However, these warning strings become useless in production and bloat your app's payload size. In addition, some of these warning checks have small runtime costs that can be avoided in production mode.
+During development, Vue provides a lot of warnings to help you with common errors and pitfalls. However, these warning strings become useless in production and bloat your app's payload size. In addition, some of these warning checks have small runtime costs that can be avoided in [production mode](https://cli.vuejs.org/guide/mode-and-env.html#modes).
 
 ### Without Build Tools
 
-If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version for production. Both versions can be found in the [Installation guide](installation.html#Direct-lt-script-gt-Include).
+If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version for production. This can be found in the [Installation guide](installation.html#cdn).
 
 ### With Build Tools
 
-When using a build tool like Webpack or Browserify, the production mode will be determined by `process.env.NODE_ENV` inside Vue's source code, and it will be in development mode by default. Both build tools provide ways to overwrite this variable to enable Vue's production mode, and warnings will be stripped by minifiers during the build. All `vue-cli` templates have these pre-configured for you, but it would be beneficial to know how it is done:
+When using a build tool like Webpack or Browserify, the production mode will be determined by `process.env.NODE_ENV` inside Vue's source code, and it will be in development mode by default. Both build tools provide ways to overwrite this variable to enable Vue's production mode, and warnings will be stripped by minifiers during the build. Vue CLI has this pre-configured for you, but it would be beneficial to know how it is done:
 
 #### Webpack
 
@@ -40,7 +40,7 @@ module.exports = {
 
   ```js
   // Use the envify custom module to specify environment variables
-  var envify = require('envify/custom')
+  const envify = require('envify/custom')
 
   browserify(browserifyOptions)
     .transform(vueify)
@@ -56,7 +56,7 @@ module.exports = {
 
   ```js
   // Use the envify custom module to specify environment variables
-  var envify = require('envify/custom')
+  const envify = require('envify/custom')
 
   browserify: {
     dist: {
@@ -97,7 +97,7 @@ rollup({
 
 When using in-DOM templates or in-JavaScript template strings, the template-to-render-function compilation is performed on the fly. This is usually fast enough in most cases, but is best avoided if your application is performance-sensitive.
 
-The easiest way to pre-compile templates is using [Single-File Components](single-file-components.html) - the associated build setups automatically performs pre-compilation for you, so the built code contains the already compiled render functions instead of raw template strings.
+The easiest way to pre-compile templates is using [Single-File Components](single-file-component.html) - the associated build setups automatically performs pre-compilation for you, so the built code contains the already compiled render functions instead of raw template strings.
 
 If you are using Webpack, and prefer separating JavaScript and template files, you can use [vue-template-loader](https://github.com/ktsn/vue-template-loader), which also transforms the template files into JavaScript render functions during the build step.
 
@@ -109,7 +109,7 @@ Refer to the respective build tool documentations to see how it's done:
 
 - [Webpack + vue-loader](https://vue-loader.vuejs.org/en/configurations/extract-css.html) (the `vue-cli` webpack template has this pre-configured)
 - [Browserify + vueify](https://github.com/vuejs/vueify#css-extraction)
-- [Rollup + rollup-plugin-vue](https://vuejs.github.io/rollup-plugin-vue/#/en/2.3/?id=custom-handler)
+- [Rollup + rollup-plugin-vue](https://rollup-plugin-vue.vuejs.org/)
 
 ## Tracking Runtime Errors
 
