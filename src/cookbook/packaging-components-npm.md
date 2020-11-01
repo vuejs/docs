@@ -184,7 +184,7 @@ export default {
 
 This sample config file contains the minimum settings to package your SFC for npm. There is room for customization, such as extracting CSS to a separate file, using a CSS preprocessor, uglifying the JS output, etc.
 
-Also, it is worth noting the `name` given the component here. This is a PascalCase name that the component will be given, and should correspond with the kebab-case name used elsewhere throughout this recipe.
+Also, it is worth noting the `name` given to the component. This is a PascalCase name that the component will be given, and should correspond with the kebab-case name used elsewhere throughout this recipe.
 
 ## When to avoid this pattern
 
