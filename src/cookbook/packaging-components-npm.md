@@ -69,7 +69,7 @@ The `package.json` file used by npm really only requires one version (`main`), b
 }
 ```
 
-When build tools are used, they will pick up on the `module` build. Legacy applications would use the `main` build, and the `unpkg` build can be used directly in browsers. In fact, the [unpkg](https://unpkg.com) cdn automatically uses this when someone enters the URL for your module into their service!
+When build tools are used, they will pick up on the `module` build. Legacy applications would use the `main` build, and the `unpkg` build can be used directly in browsers. In fact, the [unpkg](https://unpkg.com) CDN automatically uses this when someone enters the URL for your module into their service!
 
 ### SSR Usage
 
