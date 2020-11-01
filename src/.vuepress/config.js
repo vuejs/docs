@@ -3,7 +3,12 @@ const sidebar = {
     {
       title: 'Cookbook',
       collapsable: false,
-      children: ['/cookbook/', '/cookbook/editable-svg-icons', '/cookbook/packaging-components-npm']
+      children: [
+        '/cookbook/',
+        '/cookbook/editable-svg-icons',
+        '/cookbook/debugging-in-vscode',
+        '/cookbook/packaging-components-npm'
+      ]
     }
   ],
   guide: [
