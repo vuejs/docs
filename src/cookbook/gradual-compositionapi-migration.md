@@ -240,7 +240,7 @@ export default {
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
 
-The second example is reusable throughout the application across multiple components, not just for the gitHub API as the first example shows.
+The second example is reusable throughout the application across multiple components, while the first example would only work for the GitHub API.
 
 [VueUse](https://vueuse.js.org/) is a great resource to explore that covers many of these encapsulated use cases, ready to use in your application.
 
