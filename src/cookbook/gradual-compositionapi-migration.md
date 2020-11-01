@@ -183,13 +183,13 @@ export function useFetchAPI(api) {
   })
 
   const apiCall = async () => {
-    isLoading.value = true
+    state.isLoading = true
     try {
-      response.value = await fetch(api).then(res => res.json())
+      state.response = await fetch(api).then(res => res.json())
     } catch (error) {
-      error.value = error
+      state.error = error
     } finally {
-      isLoading.value = false
+      state.isLoading = false
     }
   }
 
@@ -202,7 +202,7 @@ export function useFetchAPI(api) {
 
 The second example is reusable throughout the application across multiple components, not just for the gitHub API as the first example shows.
 
-[VueUse](https://vueuse.js.org/) is a great resource to explore that covers many of these encapsulated use cases.
+[VueUse](https://vueuse.js.org/) is a great resource to explore that covers many of these encapsulated use cases, ready to use in your application.
 
 ## Alternative Patterns
 
