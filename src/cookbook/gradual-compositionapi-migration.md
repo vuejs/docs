@@ -13,7 +13,7 @@ If you've made use of mixins for reusable logic across components, it's recommen
 Let's say we had this very small toggle mixin in `mixins/toggle.js`:
 
 ```js
-const toggle = {
+export const toggle = {
   data() {
     return {
       isShowing: false
@@ -31,15 +31,11 @@ And it was being used in a modal component in `components/AppModal.vue`:
 
 ```vue
 <template>
-  <div>
-    <h3>Let's trigger this here modal!</h3>
-
-    <button @click="toggleShow">{{ isShowing ? 'Hide' : 'Show' }} Child</button>
-
-    <div v-if="isShowing" class="modal">
-      <h2>Here I am!</h2>
-      <button @click="toggleShow">Close</button>
-    </div>
+  <div id="app">
+    <h2>Togglin'</h2>
+    <p>This is `isShowing`:</p>
+    <p>{{ isShowing }}</p>
+    <button @click="toggleShow">Toggle It</button>
   </div>
 </template>
 
@@ -75,15 +71,11 @@ And we can refactor our component as follows:
 
 ```vue
 <template>
-  <div>
-    <h3>Let's trigger this here modal!</h3>
-
-    <button @click="toggleShow">{{ isShowing ? 'Hide' : 'Show' }} Child</button>
-
-    <div v-if="isShowing" class="modal">
-      <h2>Here I am!</h2>
-      <button @click="toggleShow">Close</button>
-    </div>
+  <div id="app">
+    <h2>Togglin'</h2>
+    <p>This is `isShowing`:</p>
+    <p>{{ isShowing }}</p>
+    <button @click="toggleShow">Toggle It</button>
   </div>
 </template>
 
@@ -112,7 +104,7 @@ export default {
 
 Note that the template stays the same, but we've extracted the logic to use in our script section differently. If, from here, we wanted to use `isShowing` in the Options API, we could access it with `this.isShowing` now, just as we normally do with a data property, and similarly, we can access `this.toggleShow` like we would a method.
 
-You may notice we used `reactive` here instead of `refs`. This is intentional- if you're refactoring a codebase, potentially full of many many values, `reactive` translates faster and more directly as the API is closer to Options, you're still using that same object notation.
+You may notice we used `reactive` here instead of `refs`. This is intentional- though this example is slim, if you're refactoring a codebase, potentially full of **many** values, `reactive` translates faster and more directly as the API is closer to Options, you're still using that same object notation. We are using `toRefs` here for the purposes of destructuring.
 
 ## In Place of Vuex
 
@@ -198,7 +190,7 @@ export function useFetchAPI(api, options) {
 And now we can refactor our earlier component like this:
 
 ```js
-import { useFetchAPI } from '@/composables/useFetchAPI.js'
+import { useFetchAPI } from '@/features/useFetchAPI.js'
 
 export default {
   data() {
@@ -245,4 +237,4 @@ Remember: the strength of the Composition API is in:
 - Explicitly stating what's being returned
 - Flexibility
 
-These same flexible traits that make it easy to compose them mean they can be used for many purposes, so it takes some vigilance to provide clarity those who are reading the code what the purpose may be. We suggest refactoring with that type of organization in mind.
+The same traits that make the Composition API flexible also mean we should provide some clarity surrounding intentions of its usage. We suggest refactoring with that type of organization in mind.
