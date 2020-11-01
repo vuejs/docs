@@ -79,7 +79,7 @@ You might have noticed something interesting - browsers aren't going to be using
 import MyComponent from 'my-component/sfc' // Note the '/sfc'
 ```
 
-Compatible bundlers see the `browser` definition in package.json and translate requests for `my-component/sfc` into `my-component/src/my-component.vue`, resulting in the original `.vue` file being used instead. Now the SSR process can use the string concatenation optimizations it needs to for a boost in performance.
+Compatible bundlers see the `browser` definition in package.json and translate requests for `my-component/sfc` into `my-component/src/my-component.vue`, resulting in the original `.vue` file being used instead. Now the SSR process can use the string concatenation optimizations to boost performance.
 
 ::: warning
 Note: When using `.vue` components directly, pay attention to any type of pre-processing required by `script` and `style` tags. These dependencies will be passed on to users. Consider providing 'plain' SFCs to keep things as light as possible.
