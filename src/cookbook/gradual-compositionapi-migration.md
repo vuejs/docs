@@ -27,17 +27,14 @@ const toggle = {
 }
 ```
 
-And it was being used in a modal component in `components/modal.vue`:
+And it was being used in a modal component in `components/AppModal.vue`:
 
-```html
+```vue
 <template>
   <div>
     <h3>Let's trigger this here modal!</h3>
 
-    <button @click="toggleShow">
-      <span v-if="isShowing">Hide child</span>
-      <span v-else>Show child</span>
-    </button>
+    <button @click="toggleShow">{{ isShowing ? 'Hide' : 'Show' }} Child</button>
 
     <div v-if="isShowing" class="modal">
       <h2>Here I am!</h2>
@@ -45,19 +42,17 @@ And it was being used in a modal component in `components/modal.vue`:
     </div>
   </div>
 </template>
-```
 
-```js
 <script>
-  import { toggle } from '@/mixins/toggle';
+import { toggle } from '@/mixins/toggle'
 
-  export default {
-    mixins: [toggle]
-  }
+export default {
+  mixins: [toggle]
+}
 </script>
 ```
 
-We could refactor this by creating a `composables` folder and create `composables/useToggle.js` instead. We suggest using a directory named `composables` so that you can communicate that this is being used slightly differently from a component, it's reusable logic that you can consume.
+We could refactor this by creating a `features` folder and create `features/useToggle.js` instead. We suggest using a directory named `features` so that you can communicate that this is being used slightly differently from a component, it's reusable logic that you can consume.
 
 ```js
 export function useToggle() {
@@ -78,15 +73,12 @@ export function useToggle() {
 
 And we can refactor our component as follows:
 
-```html
+```vue
 <template>
   <div>
     <h3>Let's trigger this here modal!</h3>
 
-    <button @click="toggleShow">
-      <span v-if="isShowing">Hide child</span>
-      <span v-else>Show child</span>
-    </button>
+    <button @click="toggleShow">{{ isShowing ? 'Hide' : 'Show' }} Child</button>
 
     <div v-if="isShowing" class="modal">
       <h2>Here I am!</h2>
@@ -94,22 +86,20 @@ And we can refactor our component as follows:
     </div>
   </div>
 </template>
-```
 
-```js
 <script>
-  import { useToggle } from "@/composables/useToggle.js";
+import { useToggle } from '@/features/useToggle.js'
 
-  export default {
-    setup() {
-      const { isShowing, toggleShow } = useToggle();
+export default {
+  setup() {
+    const { isShowing, toggleShow } = useToggle()
 
-      return {
-        isShowing,
-        toggleShow
-      };
-    },
+    return {
+      isShowing,
+      toggleShow
+    }
   }
+}
 </script>
 ```
 
