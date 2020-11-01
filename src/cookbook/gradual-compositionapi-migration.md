@@ -60,8 +60,6 @@ And it was being used in a modal component in `components/modal.vue`:
 We could refactor this by creating a `composables` folder and create `composables/useToggle.js` instead. We suggest using a directory named `composables` so that you can communicate that this is being used slightly differently from a component, it's reusable logic that you can consume.
 
 ```js
-import { reactive, toRefs } from '@vue/composition-api'
-
 export function useToggle() {
   const state = reactive({
     isShowing: false
@@ -153,16 +151,56 @@ For the purposes of demonstration, here's how that one method refactor might loo
 
 ```js
 methods: {
-  gitHubAPI() {
+  async getGitHubProjects() {
+    try {
+      this.isLoading = true
+      let projects = await fetch(
+        `https://api.github.com/users/sdras/repos?page=1&per_page=100`
+      ).then(res => res.json());
 
+      this.gitHubProjects = projects
+    } catch (error) {
+      this.error = error
+      console.error(error);
+    } finally {
+      this.isLoading = false;
+    }
   }
+},
+created() {
+  this.getGitHubProjects()
 }
 ```
 
 ### After, with Composition API
 
 ```js
+export function useFetchAPI(api) {
+  const state = reactive({
+    response: null,
+    isLoading: false,
+    error: null
+  })
+
+  const apiCall = async () => {
+    isLoading.value = true
+    try {
+      response.value = await fetch(api).then(res => res.json())
+    } catch (error) {
+      error.value = error
+    } finally {
+      isLoading.value = false
+    }
+  }
+
+  return {
+    ...toRefs(state),
+    apiCall
+  }
+}
 ```
+
+The second example is reusable throughout the application across multiple components, not just for the gitHub API as the first example shows.
 
 [VueUse](https://vueuse.js.org/) is a great resource to explore that covers many of these encapsulated use cases.
 
