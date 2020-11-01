@@ -186,7 +186,7 @@ This sample config file contains the minimum settings to package your SFC for np
 
 Also, it is worth noting the `name` given the component here. This is a PascalCase name that the component will be given, and should correspond with the kebab-case name used elsewhere throughout this recipe.
 
-## When to Avoid this Pattern
+## When to avoid this pattern
 
 Packaging SFCs in this manner might not be a good idea in certain scenarios. This recipe doesn't go into detail on how the components themselves are written. Some components might provide side effects like directives, or extend other libraries with additional functionality. In those cases, you will need to evaluate whether or not the changes required to this recipe are too extensive.
 
