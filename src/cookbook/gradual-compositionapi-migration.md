@@ -145,6 +145,16 @@ For instance, if you have a component has the following methods:
 - one that uses the input to call out to an API
 - one that does something with that API response
 
-You may find that the one component has a lot of responsibility, and it may make more sense to break this apart more.
+You may find that the one component has a lot of responsibility, and it may make sense to break this apart more.
 
-Not everything needs to be refactored, though. Use judgement to guide you and not hype.
+## Alternative Patterns
+
+Not everything needs to be refactored, though. Use judgement to guide you and not hype. The Options API can support a lot of use cases, and it's absolutely fine to keep your components in the Options API, and move reusable logic and/or state management to Composition API, depending on your needs.
+
+Remember: the strength of the Composition API is in:
+
+- Reuse
+- Explicitly stating what's being returned
+- Flexibility
+
+These same flexible traits that make it easy to compose them mean they can be used for many purposes, so it takes some vigilance to provide clarity those who are reading the code what the purpose may be. We suggest refactoring with that type of organization in mind.
