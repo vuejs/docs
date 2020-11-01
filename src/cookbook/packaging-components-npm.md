@@ -71,7 +71,7 @@ The `package.json` file used by npm really only requires one version (`main`), b
 
 When build tools are used, they will pick up on the `module` build. Legacy applications would use the `main` build, and the `unpkg` build can be used directly in browsers. In fact, the [unpkg](https://unpkg.com) CDN automatically uses this when someone enters the URL for your module into their service!
 
-### SSR Usage
+### How do we use this for SSR?
 
 You might have noticed something interesting - browsers aren't going to be using the `browser` version. That's because this field is actually intended to allow authors to provide [hints to bundlers](https://github.com/defunctzombie/package-browser-field-spec#spec), which in turn create their own packages for client-side use. With a little creativity, this field allows us to map an alias to the `.vue` file itself. For example:
 
