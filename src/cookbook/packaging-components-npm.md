@@ -159,7 +159,7 @@ Notice the first line directly imports your SFC, and the last line exports it un
 
 ### How do I configure the Rollup build?
 
-With the package.json `scripts` section ready and the SFC wrapper in place, all that is left is to ensure Rollup is properly configured. Fortunately, this can be done with a small 16 line rollup.config.js file:
+With the `package.json` `scripts` section ready and the SFC wrapper in place, all that is left is to ensure Rollup is properly configured. Fortunately, this can be done with a small, 18 line rollup.config.js file:
 
 ```js
 import commonjs from '@rollup/plugin-commonjs' // Convert CommonJS modules to ES6
