@@ -128,7 +128,7 @@ You may notice we used `reactive` here instead of `refs`. This is intentional- i
 
 It is possible to use the Composition API in place of Vuex, and save yourself a dependency. That said, it's not exactly necessary, and like many approaches, there are tradeoffs.
 
-If you're using Vuex, it's very clear exactly what centralized state is being used across the application. Composition API is very flexible, but you may lose that implicit declaration in communication to fellow maintainers. Our suggestion that if you do use it as a centralized state management store, that you place it in a `store` folder, or something similarly named, so that responsibilities are clear.
+If you're using Vuex, it's very clear exactly what centralized state is being used across the application. Composition API is very flexible, but you may lose that implicit declaration in communication to fellow maintainers. Our suggestion that if you do use it as a centralized state management store, that you place it in a `stateManagement` folder, or something similarly named, so that responsibilities are clear.
 
 ## Components
 
@@ -175,19 +175,22 @@ created() {
 ### After, with Composition API
 
 ```js
-export function useFetchAPI(api) {
+import { reactive, toRefs } from '@vue/composition-api'
+
+export function useFetchAPI(api, options) {
   const state = reactive({
     response: null,
     isLoading: false,
-    error: null
+    hasErrors: null
   })
 
   const apiCall = async () => {
     state.isLoading = true
     try {
-      state.response = await fetch(api).then(res => res.json())
+      let res = await fetch(api, options)
+      state.response = await res.json()
     } catch (error) {
-      state.error = error
+      state.hasErrors = error
     } finally {
       state.isLoading = false
     }
@@ -199,6 +202,41 @@ export function useFetchAPI(api) {
   }
 }
 ```
+
+And now we can refactor our earlier component like this:
+
+```js
+import { useFetchAPI } from '@/composables/useFetchAPI.js'
+
+export default {
+  data() {
+    return {
+      gitHubData: [],
+      errors: null,
+      loading: false
+    }
+  },
+  methods: {
+    async callGitHub() {
+      const { hasErrors, isLoading, response, apiCall } = useFetchAPI(
+        `https://api.github.com/users/sdras/repos?page=1&per_page=100`,
+        {}
+      )
+      apiCall()
+      this.gitHubData = response
+      this.errors = hasErrors
+      this.loading = isLoading
+    }
+  }
+}
+```
+
+<iframe src="https://codesandbox.io/embed/refactor-fetch-with-composition-api-klyji?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Refactor Fetch with Composition API"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 
 The second example is reusable throughout the application across multiple components, not just for the gitHub API as the first example shows.
 
