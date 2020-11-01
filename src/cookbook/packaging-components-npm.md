@@ -33,7 +33,7 @@ Vue already allows components to be written as a single file. Because a Single F
 
 > "Why can't people use my `.vue` file directly? Isn't that the simplest way to share components?"
 
-It's true, you can share `.vue` files directly, and anyone using a [Vue build](/installation.html#explanation-of-different-builds) containing the Vue compiler can consume it immediately. Also, the SSR build uses string concatenation as an optimization, so the `.vue` file might be preferred in this scenario (see [Packaging Components for npm > SSR Usage](#SSR-Usage) for details). However, this excludes anyone who wishes to use the component directly in a browser via `<script>` tag, anyone who uses a runtime-only build, or build processes which don't understand what to do with `.vue` files.
+It's true, you can share `.vue` files directly, and anyone using a [Vue build](/guide/installation.html#explanation-of-different-builds) containing the Vue compiler can consume it immediately. Also, the SSR build uses string concatenation as an optimization, so the `.vue` file might be preferred in this scenario (see [Packaging Components for npm > SSR Usage](#SSR-Usage) for details). However, this excludes anyone who wishes to use the component directly in a browser via `<script>` tag, anyone who uses a runtime-only build, or build processes which don't understand what to do with `.vue` files.
 
 Properly packaging your SFC for distribution via npm enables your component to be shared in a way which is ready to use everywhere!
 
