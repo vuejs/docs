@@ -7,7 +7,7 @@ const sidebar = {
         '/cookbook/',
         '/cookbook/editable-svg-icons',
         '/cookbook/debugging-in-vscode',
-        '/cookbook/gradual-compositionapi-migration'
+        '/cookbook/gradual-composition-api-migration'
       ]
     }
   ],
