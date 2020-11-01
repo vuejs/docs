@@ -4,7 +4,7 @@ The [Composition API](/guide/composition-api-introduction.html) is an advanced f
 
 Due to the flexibility of the Composition API, you may need to be more explicit about organization so that future maintainers can quickly understand intended purpose of pieces of the application.
 
-## Refactor your Mixins
+## Refactor Your Mixins
 
 If you've made use of mixins for reusable logic across components, it's recommended that you start your refactor here. Mixins translate very directly.
 
