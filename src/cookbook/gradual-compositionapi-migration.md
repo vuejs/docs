@@ -246,7 +246,7 @@ The second example is reusable throughout the application across multiple compon
 
 ## Alternative Patterns
 
-Not everything needs to be refactored, though. Use judgement to guide you and not hype. The Options API can support quite a lot of use cases, and it's absolutely fine to keep your components in the Options API, and move reusable logic and/or state management to Composition API, depending on your needs.
+Not everything needs to be refactored, though. Use data driven refactoring to guide you and avoid pre-optimizing when it's not necessary. The Options API is still a valid approach that will still allow you to build powerful applications. And in the event you find there's a lot of reusable logics and/or state amongst your application, that might be a good time to consider the Composition API to enhance your application!
 
 Remember: the strength of the Composition API is in:
 
