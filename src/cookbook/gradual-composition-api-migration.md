@@ -140,9 +140,8 @@ methods: {
       this.isLoading = true
       let projects = await fetch(
         `https://api.github.com/users/sdras/repos?page=1&per_page=100`
-      ).then(res => res.json());
-
-      this.gitHubProjects = projects
+      )
+      this.gitHubProjects = await projects.json()
     } catch (error) {
       this.error = error
       console.error(error);
