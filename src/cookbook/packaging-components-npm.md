@@ -73,7 +73,7 @@ When build tools are used, they will pick up on the `module` build. Legacy appli
 
 ### SSR Usage
 
-You might have noticed something interesting - browsers aren't going to be using the `browser` version. That's because this field is actually intended to allow authors to provide [hints to bundlers](https://github.com/defunctzombie/package-browser-field-spec#spec) which in turn create their own packages for client side use. With a little creativity, this field allows us to map an alias to the `.vue` file itself. For example:
+You might have noticed something interesting - browsers aren't going to be using the `browser` version. That's because this field is actually intended to allow authors to provide [hints to bundlers](https://github.com/defunctzombie/package-browser-field-spec#spec), which in turn create their own packages for client-side use. With a little creativity, this field allows us to map an alias to the `.vue` file itself. For example:
 
 ```js
 import MyComponent from 'my-component/sfc' // Note the '/sfc'
