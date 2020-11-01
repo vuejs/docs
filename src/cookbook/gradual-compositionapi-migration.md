@@ -60,17 +60,19 @@ And it was being used in a modal component in `components/modal.vue`:
 We could refactor this by creating a `composables` folder and create `composables/useToggle.js` instead. We suggest using a directory named composables so that you can communicate that this is being used slightly differently from a component, it's reusable logic that you can consume.
 
 ```js
-import { ref, onMounted } from '@vue/composition-api'
+import { reactive, toRefs } from '@vue/composition-api'
 
 export function useToggle() {
-  const isShowing = ref(false)
+  const state = reactive({
+    isShowing: false
+  })
 
   function toggleShow() {
-    isShowing.value = !this.isShowing.value
+    state.isShowing = !state.isShowing
   }
 
   return {
-    isShowing,
+    ...toRefs(state),
     toggleShow
   }
 }
@@ -113,4 +115,19 @@ And we can refactor our component as follows:
 </script>
 ```
 
+<iframe src="https://codesandbox.io/embed/refactor-mixin-to-composition-api-hnloh?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Refactor Mixin to Composition API"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
 Note that the template stays the same, but we've extracted the logic to use in our script section differently. If, from here, we wanted to use `isShowing` in the Options API, we could access it with `this.isShowing`, just as we normally do with a data property, and similarly, we can access `this.toggleShow` like we would a method.
+
+You may notice we used `reactive` here instead of `refs`. This is intentional- if you're refactoring a codebase, potentially full of many many values, `reactive` translates faster and more directly as the API is closer to Options, you're still using that same object notation.
+
+## In Place of Vuex
+
+It is possible to use the Composition API in place of Vuex and save yourself a dependency. That said, it's not exactly necessary, either. And there are some tradeoffs.
+
+If you're using Vuex, it's very clear exactly what centralized state is being used across the application. Composition API is very flexible, but you may lose that implicit declaration in communication to other fellow maintainers. Our suggestion that if you do use it as a centralized state management store, that you place it in a `store` folder, or something similarly named, so that responsabilities are clear.
