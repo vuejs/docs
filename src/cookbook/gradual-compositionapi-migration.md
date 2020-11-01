@@ -120,7 +120,7 @@ It is possible at this point to start to move your components to the Composition
 
 Our suggestion is to use this opportunity to think through the architecture and refactor any larger components that have too much responsibility on their own.
 
-For instance, if you have a component has the following methods:
+For instance, if you have a component that has the following methods:
 
 - one that gathers input from a form
 - one that validates that input
