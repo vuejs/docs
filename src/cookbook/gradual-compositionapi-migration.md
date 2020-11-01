@@ -251,6 +251,7 @@ Not everything needs to be refactored, though. Use judgement to guide you and no
 Remember: the strength of the Composition API is in:
 
 - Reuse
+- Organization
 - Explicitly stating what's being returned
 - Flexibility
 
