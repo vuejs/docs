@@ -147,6 +147,23 @@ For instance, if you have a component has the following methods:
 
 You may find that you can potentially create a reusable component for the API call, as on a large application there's a fairly high chance you will need to make another.
 
+For the purposes of demonstration, here's how that one method refactor might look.
+
+### Before, with a Tightly Coupled Method
+
+```js
+methods: {
+  gitHubAPI() {
+
+  }
+}
+```
+
+### After, with Composition API
+
+```js
+```
+
 [VueUse](https://vueuse.js.org/) is a great resource to explore that covers many of these encapsulated use cases.
 
 ## Alternative Patterns
