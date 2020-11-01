@@ -2,7 +2,7 @@
 
 The [Composition API](/guide/composition-api-introduction.html) is an advanced feature introduced in Vue 3. It is purely additive, and the Options API is not legacy. You may find, however, that the Composition API can be a useful feature for more flexible large-scale architectures. So how would we go about introducing it in a larger system, gradually? What follows is merely a recommendation, there are many potential ways forward.
 
-Due to the flexibility of the Composition API, you may need to be more explicit about organization so that future maintainers can quickly understand intended purpose of pieces of the application.
+Due to the flexibility of the Composition API, you may need to be more explicit about organization so that future maintainers can quickly understand the intended purpose of pieces of the application.
 
 ## Refactor Your Mixins
 
