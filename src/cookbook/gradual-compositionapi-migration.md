@@ -246,7 +246,7 @@ The second example is reusable throughout the application across multiple compon
 
 ## Alternative Patterns
 
-Not everything needs to be refactored, though. Use data driven refactoring to guide you and avoid pre-optimizing when it's not necessary. The Options API is still a valid approach that will still allow you to build powerful applications. And in the event you find there's a lot of reusable logics and/or state amongst your application, that might be a good time to consider the Composition API to enhance your application!
+Not everything needs to be refactored, though. Use data-driven refactoring to guide you and avoid pre-optimizing when it's not necessary. The Options API is still a valid approach that will still allow you to build powerful applications. And in the event you find there's a lot of reusable logic and/or state amongst your application, that might be a good time to consider the Composition API to enhance your application!
 
 Remember: the strength of the Composition API is in:
 
