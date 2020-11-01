@@ -174,7 +174,7 @@ created() {
 }
 ```
 
-### After, with Composition API
+### After, with the Composition API
 
 ```js
 import { reactive, toRefs } from '@vue/composition-api'
