@@ -122,7 +122,7 @@ Our changes to `package.json` are complete. Next, we need a small wrapper to exp
 
 ### What does my packaged component look like?
 
-Depending on how your component is being used, it needs to be exposed as either a [CommonJS/UMD](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a) javascript module, an [ES6 javascript](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e) module so it's immediately available to the page. This is accomplished by a `wrapper.js` file which handles the module export and auto-install. That wrapper, in its entirety, looks like this:
+Depending on how your component is being used, it needs to be exposed as either a [CommonJS/UMD](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a) JavaScript module, an [ES6 JavaScript](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e) module so it's immediately available to the page. This is accomplished by a `wrapper.js` file which handles the module export and auto-install. That wrapper, in its entirety, looks like this:
 
 ```js
 // Import vue component
