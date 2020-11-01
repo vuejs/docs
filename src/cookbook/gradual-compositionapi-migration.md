@@ -1,10 +1,10 @@
 # Gradual Composition API Migration
 
-The Composition API is an advanced feature introduced in Vue 3. It is purely addititive, the Options API is not legacy, however you may find that the Composition API can be a useful feature for more flexible large-scale architectures. So how would we go about introducing it in a larger system, gradually? The following is merely a recommendation, there are many ways of going about this.
+The Composition API is an advanced feature introduced in Vue 3. It is purely additive, the Options API is not legacy, however you may find that the Composition API can be a useful feature for more flexible large-scale architectures. So how would we go about introducing it in a larger system, gradually? The following is merely a recommendation, there are many ways of going about this.
 
-Due to the flexbility of the Composition API, you may need to be more explicit about organization so that future maintainers can quickly understand intended purpose of pieces of the application.
+Due to the flexibility of the Composition API, you may need to be more explicit about organization so that future maintainers can quickly understand intended purpose of pieces of the application.
 
-## Step One: Refactor your Mixins
+## Refactor your Mixins
 
 If you've made use of mixins for reusable logic across components, it's recommended that you start your refactor here. Mixins translate very directly.
 
@@ -57,7 +57,7 @@ And it was being used in a modal component in `components/modal.vue`:
 </script>
 ```
 
-We could refactor this by creating a `composables` folder and create `composables/useToggle.js` instead. We suggest using a directory named composables so that you can communicate that this is being used slightly differently from a component, it's reusable logic that you can consume.
+We could refactor this by creating a `composables` folder and create `composables/useToggle.js` instead. We suggest using a directory named `composables` so that you can communicate that this is being used slightly differently from a component, it's reusable logic that you can consume.
 
 ```js
 import { reactive, toRefs } from '@vue/composition-api'
@@ -128,6 +128,23 @@ You may notice we used `reactive` here instead of `refs`. This is intentional- i
 
 ## In Place of Vuex
 
-It is possible to use the Composition API in place of Vuex and save yourself a dependency. That said, it's not exactly necessary, either. And there are some tradeoffs.
+It is possible to use the Composition API in place of Vuex, and save yourself a dependency. That said, it's not exactly necessary, either. And there are some tradeoffs.
 
-If you're using Vuex, it's very clear exactly what centralized state is being used across the application. Composition API is very flexible, but you may lose that implicit declaration in communication to other fellow maintainers. Our suggestion that if you do use it as a centralized state management store, that you place it in a `store` folder, or something similarly named, so that responsabilities are clear.
+If you're using Vuex, it's very clear exactly what centralized state is being used across the application. Composition API is very flexible, but you may lose that implicit declaration in communication to other fellow maintainers. Our suggestion that if you do use it as a centralized state management store, that you place it in a `store` folder, or something similarly named, so that responsibilities are clear.
+
+## Components
+
+It is possible at this point to start to move your components to the Composition API, however, for larger code bases, you may not see immediate need or good reason to, as the Options API still works nicely.
+
+Our suggestion is to use this opportunity to instead refactor any larger components that have too much responsibility on their own.
+
+For instance, if you have a component has the following methods:
+
+- one that gathers input from a form
+- one that validates that input
+- one that uses the input to call out to an API
+- one that does something with that API response
+
+You may find that the one component has a lot of responsibility, and it may make more sense to break this apart more.
+
+Not everything needs to be refactored, though. Use judgement to guide you and not hype.
