@@ -33,7 +33,7 @@ And it was being used in a modal component in `components/AppModal.vue`:
 <template>
   <div id="app">
     <h2>Togglin'</h2>
-    <p>This is `isShowing`:</p>
+    <p>This is isShowing:</p>
     <p>{{ isShowing }}</p>
     <button @click="toggleShow">Toggle It</button>
   </div>
@@ -73,7 +73,7 @@ And we can refactor our component as follows:
 <template>
   <div id="app">
     <h2>Togglin'</h2>
-    <p>This is `isShowing`:</p>
+    <p>This is isShowing:</p>
     <p>{{ isShowing }}</p>
     <button @click="toggleShow">Toggle It</button>
   </div>
@@ -149,9 +149,6 @@ methods: {
       this.isLoading = false;
     }
   }
-},
-created() {
-  this.getGitHubProjects()
 }
 ```
 
