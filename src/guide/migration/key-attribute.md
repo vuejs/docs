@@ -10,6 +10,7 @@ badges:
 - **NEW:** `key`s are no longer necessary on `v-if`/`v-else`/`v-else-if` branches, since Vue now automatically generates unique `key`s.
   - **BREAKING:** If you manually provide `key`s, then each branch must use a unique `key`. You can no longer intentionally use the same `key` to force branch reuse.
 - **BREAKING:** `<template v-for>` `key` should be placed on the `<template>` tag (rather than on its children).
+- **BREAKING:** `key` should be placed on a `<slot>` tag with a dynamic name.
 
 ## Background
 
@@ -87,5 +88,25 @@ Similarly, when using `<template v-for>` with a child that uses `v-if`, the `key
 <template v-for="item in list" :key="item.id">
   <div v-if="item.isVisible">...</div>
   <span v-else>...</span>
+</template>
+```
+
+## Dynamic Slots
+
+In Vue 2.x a `<slot>` tag with a dynamic name didn't require a `key` attribute.
+
+```html
+<!-- Vue 2.x -->
+<template>
+  <slot :name="dynamicName">...</slot>
+</template>
+```
+
+In Vue 3.x a `key` attribute is required for the slot contents to update dynamically.
+
+```html
+<!-- Vue 3.x -->
+<template>
+  <slot :name="dynamicName" :key="dynamicName">...</slot>
 </template>
 ```
