@@ -196,16 +196,25 @@ export default {
       loading: false
     }
   },
+  setup() {
+    const { hasErrors, isLoading, response, apiCall } = useFetchAPI(
+      `https://api.github.com/users/sdras/repos?page=1&per_page=100`,
+      {}
+    )
+
+    return {
+      hasErrors,
+      isLoading,
+      response,
+      apiCall
+    }
+  },
   methods: {
     async callGitHub() {
-      const { hasErrors, isLoading, response, apiCall } = useFetchAPI(
-        `https://api.github.com/users/sdras/repos?page=1&per_page=100`,
-        {}
-      )
-      await apiCall()
-      this.gitHubData = response
-      this.errors = hasErrors
-      this.loading = isLoading
+      await this.apiCall()
+      this.gitHubData = this.response
+      this.errors = this.hasErrors
+      this.loading = this.isLoading
     }
   }
 }
