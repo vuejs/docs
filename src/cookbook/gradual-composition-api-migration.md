@@ -110,7 +110,7 @@ You may notice we used `reactive` here instead of `refs`. This is intentional- t
 
 It is possible to use the Composition API in place of Vuex, and save yourself a dependency. That said, it's not exactly necessary, and like many approaches, there are tradeoffs.
 
-If you're using Vuex, it's very clear exactly what centralized state is being used across the application. In addition, you gain the benefit of using a standardized pattern that comes with officially supported tooling in the DevTools which can make a big difference when it comes to debugging code.
+If you're using Vuex, it's very clear exactly what centralized state is being used across the application. In addition, you gain the benefit of using a standardized pattern that comes with officially supported tooling in the DevTools. This can make a big difference when it comes to debugging code.
 
 The Composition API is very flexible, but you may lose that implicit declaration in communication to fellow maintainers. Our suggestion is that if you do use it as a centralized state management store, that you place it in a `stateManagement` folder, or something similarly named, so that responsibilities are clear.
 
