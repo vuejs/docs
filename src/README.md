@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 heroText: Vue.js
-tagline: The Progressive<br> JavaScript Framework
+tagline: Kerangka Kerja JavaScript<br>nan Progresif
 actionButtons:
   - text: Why Vue.js?
     link: /
