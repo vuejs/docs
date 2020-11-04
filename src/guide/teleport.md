@@ -1,6 +1,6 @@
 # Teleport
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vue-3-teleport?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how to use teleport with Vue School">Learn how to use teleport with a free lesson on Vue School</a></div>
+<VideoLesson href="https://vueschool.io/lessons/vue-3-teleport?friend=vuejs" title="Learn how to use teleport with Vue School">Learn how to use teleport with a free lesson on Vue School</VideoLesson>
 
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
@@ -140,4 +140,4 @@ A common use case scenario would be a reusable `<Modal>` component of which ther
 </div>
 ```
 
-You can check `<teleport>` component options in the [API reference](../api/built-in-components.html#teleport)
+You can check `<teleport>` component options in the [API reference](../api/built-in-components.html#teleport).
