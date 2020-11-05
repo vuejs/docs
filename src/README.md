@@ -11,7 +11,7 @@ actionButtons:
   - text: Get Started
     link: /guide/introduction
   - text: GitHub
-    link: https://github.com/vuejs/vue
+    link: https://github.com/vuejs/vue-next
     extraClass: github grey
     icon: fa fa-github
     target: _blank
@@ -30,7 +30,7 @@ footer: |
   Copyright © 2014-2020 Evan You
 socialIcons:
   - type: GitHub
-    link: https://github.com/vuejs/vue
+    link: https://github.com/vuejs/vue-next
   - type: Twitter
     link: https://twitter.com/vuejs
   - type: Medium
