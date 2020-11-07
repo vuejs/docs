@@ -72,9 +72,9 @@ Vue.createApp(Demo).mount('#demo')
 
 <common-codepen-snippet title="Create animation with a class" slug="ff45b91caf7a98c8c9077ad8ab539260" tab="css,result" :editable="false" :preview="false" />
 
-# Transitions with Style Bindings
+## Transitions with Style Bindings
 
-Some transition affects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
+Some transition effects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
 
 ```html
 <div id="demo">
@@ -152,7 +152,7 @@ You may also find that entrances look better with slightly more time than an exi
 
 ## Easing
 
-Easing is an important way to convey depth in an animation. One of the most common mistakes newcomers to animation have is to use `ease-in` for entrances, and `ease-out` for exits. You'll actually need the opposite.
+Easing is an important way to convey depth in an animation. One of the most common mistakes newcomers to animation make is to use `ease-in` for entrances, and `ease-out` for exits. You'll actually need the opposite.
 
 If we were to apply these states to a transition, it would look something like this:
 
