@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "mandaputtra",
+      "name": "Manda Putra",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/23342943?v=4",
+      "profile": "http://mandaputtra.github.io",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "docs-next",
+  "projectOwner": "vuejs-id",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
