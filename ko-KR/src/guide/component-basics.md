@@ -112,7 +112,7 @@ app.mount('#blog-post-demo')
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="PoqyOaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: passing props">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyOaX">   Component basics: passing props</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
 
-In a typical app, however, you'll likely have an array of posts in :<br>전형적인 앱에서는 다음과 같이 포스트 배열을 `data`로 넘겨주게 됩니다:
+전형적인 앱에서는 다음과 같이 포스트 배열을 `data`로 넘겨주게 됩니다:
 
 ```js
 const App = {
@@ -241,7 +241,7 @@ app.component('blog-post', {
 이벤트가 값을 가지고 발신되는것이 유용할때가 있습니다. 예를 들자면, 우리가 만든 `$emit` 컴포넌트에서 글자 크기를 얼마만큼 크게 바꿀것인가를 들수 있습니다. 이 경우에 우리는 `$emit`메소드의 두번짹 값으로 값을 넘길수 있습니다.
 
 ```html
-<button>
+<button @click="$emit('enlarge-text', 0.1)">
   Enlarge text
 </button>
 ```
@@ -285,7 +285,10 @@ methods: {
 `v-model`는 컴포넌트에서 조금 다르게 동작합니다:
 
 ```html
-<custom-input :model-value="searchText"></custom-input>
+<custom-input
+  :model-value="searchText"
+  @update:model-value="searchText = $event"
+></custom-input>
 ```
 
 ::: 경고  우리가 `model-value`에서 케밥 케이스(kebab-case)를 사용한 이유는 DOM 템플릿을 사용하고 있어서 입니다. 여기에 대해 더 자세히 알고 싶으시면   [DOM Template Parsing Caveats](#dom-template-parsing-caveats) 섹션을 참고 하시기 바랍니다.  :::
@@ -301,7 +304,10 @@ v-model이 정상적으로 동작 하기 위해서는 컴포넌트 내의 `<inpu
 app.component('custom-input', {
   props: ['modelValue'],
   template: `
-    <input :value="modelValue">
+    <input
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    >
   `
 })
 ```
