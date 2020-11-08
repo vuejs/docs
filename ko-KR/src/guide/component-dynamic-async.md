@@ -85,7 +85,7 @@ createApp({
 
 ### Suspense와 함께 사용하기
 
-비동기 컴포넌트는 기본적으로 *suspensible* 합니다. 이는 부모 <br>체인 중에 [`<Suspense>`](TODO)가 있는 경우 해당 `<Suspense>`에 비동기 종속성이 존재하는 것으로 취급된다는 의미입니다. 이 경우 로딩 상태는 `<Suspense>`에 의해 제어되며, 컴포넌트 자체의 로딩, 오류, delay 및 timeout 옵션은 무시됩니다.
+비동기 컴포넌트는 기본적으로 *suspensible* 합니다. 이는 부모 체인 중에 [`<Suspense>`](TODO)가 있는 경우 해당 `<Suspense>`에 비동기 종속성이 존재하는 것으로 취급된다는 의미입니다. 이 경우 로딩 상태는 `<Suspense>`에 의해 제어되며, 컴포넌트 자체의 로딩, 오류, delay 및 timeout 옵션은 무시됩니다.
 
 비동기 컴포넌트는 `suspensible: false` 옵션을 명시함으로써 `Suspense`에 의한 로딩 상태 제어를 해제하고 항상 컴포넌트 스스로 옵션을 제어하도록 할 수 있습니다.
 
