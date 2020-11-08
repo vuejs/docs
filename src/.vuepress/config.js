@@ -126,6 +126,7 @@ const sidebar = {
         '/guide/migration/async-components',
         '/guide/migration/attribute-coercion',
         '/guide/migration/attrs-includes-class-style',
+        '/guide/migration/children',
         '/guide/migration/custom-directives',
         '/guide/migration/custom-elements-interop',
         '/guide/migration/data-option',
@@ -148,7 +149,8 @@ const sidebar = {
         '/guide/migration/v-on-native-modifier-removed',
         '/guide/migration/v-model',
         '/guide/migration/v-if-v-for',
-        '/guide/migration/v-bind'
+        '/guide/migration/v-bind',
+        '/guide/migration/watch'
       ]
     },
     {
