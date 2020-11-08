@@ -42,7 +42,7 @@ Situs akan otomatis diperbaharui saat ada _commit_ baru pada branch `indonesian`
 
 ### Kamus Perbendaharaan Istilah
 
-Silakan lihat di halaman [Kamus Perbendaharaan Istilah](https://github.com/vuejs-id/docs/blob/master/GLOSARIUM.md)
+Silakan lihat di halaman [Kamus Perbendaharaan Istilah](https://github.com/vuejs-id/docs/blob/master/GLOSARIUM.md) atau [Glosarium Frontend Indonesia](https://github.com/frontend-id/glosarium)
 
 ### Roadmap
 
