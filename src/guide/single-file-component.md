@@ -65,3 +65,108 @@ After you've taken a day to dive into these resources, we recommend checking out
 The CLI takes care of most of the tooling configurations for you, but also allows fine-grained customization through its own [config options](https://cli.vuejs.org/config/).
 
 In case you prefer setting up your own build setup from scratch, you will need to manually configure webpack with [vue-loader](https://vue-loader.vuejs.org). To learn more about webpack itself, check out [their official docs](https://webpack.js.org/configuration/) and [webpack learning academy](https://webpack.academy/p/the-core-concepts).
+
+### Building with rollup
+
+Most of the time when developing a third party library we want to build it in a way that allows the consumers of the library to [tree shake it](https://webpack.js.org/guides/tree-shaking/) to achieve so we need to build along with `commonjs` and `umd/iife` modules also `esm` modules. Since webpack and in turn vue-cli do not support building `esm` modules we need to rely on [rollup](https://rollupjs.org/).
+
+#### Installing rollup
+
+We will need to install rollup and a few dependencies:
+
+```bash
+npm install --save-dev rollup rollup-plugin-commonjs rollup-plugin-vue 
+```
+
+The command above will install [rollup](https://webpack.js.org), [rollup-plugin-commonjs](https://github.com/rollup/plugins/tree/master/packages/commonjs) and 
+https://github.com/rollup/plugins) and [rollup-plugin-vue](https://github.com/vuejs/rollup-plugin-vue) note that this is the minimal amount of rollup plugins that we need to use to compile the code in an `esm` module, users may want to also add [rollup-plugin-babel](https://github.com/rollup/plugins/tree/master/packages/babel) to transpile their code and [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) if they use dependencies that they want to bundle with the library.
+
+#### Configuring rollup
+
+To configure our build with rollup we will need to create a `rollup.config.js` file in the root of our project:
+
+```bash
+touch rollup.config.js
+```
+
+Once the file is created we will need to open it with our editor of choice and add the following code
+
+```javascript
+// import our third party plugins
+import commonjs from "rollup-plugin-commonjs";
+import VuePlugin from "rollup-plugin-vue";
+import pkg from './package.json'; // import our package.json file to re-use the naming
+
+export default {
+  // this is the file containing all our exported components/functions
+  input: 'src/index.js' 
+  // this is an array of outputed formats
+  output: [ 
+    {
+      file: pkg.module, // the name of our esm librry
+      format: "es", // the format of choice
+      sourcemap: true, // ask rollup to include sourcemaps
+    },
+  ],
+  // this is an array of the plugins that we are including
+  plugins: [
+    commonjs(),
+    VuePlugin(),
+  ],
+  // ask rollup to not bundle Vue in the library
+  external: ["vue"]
+}
+```
+
+#### Configuring package.json
+
+To take advantage of our newly created `esm` module we need to add a few fields in our `package.json` file:
+
+```json
+ "scripts": {
+   ...
+   "build": "rollup -c rollup.config.js",
+   ...
+ },
+ "module": "dist/my-library-name.esm.js",
+ "files": [
+   "dist/",
+ ],
+ ```
+ 
+Here we are specifying:
+
+- how to build our package
+- what files we want to bundle in our package
+- what file represents our esm module
+
+#### Bundling `umd` and `cjs` modules
+
+To build along with `esm` modules also `umd` and `cjs` ones we can simply add a few lines of configuration to our `rollup.config.js` and `package.json`
+
+##### rollup.config.js 
+```javasript
+output: [
+  ...
+   {
+      file: pkg.main,
+      format: "cjs",
+      sourcemap: true,
+    },
+    {
+      file: pkg.unpkg,
+      format: "umd",
+      name: "MyLibraryName",
+      sourcemap: true,
+      globals: {
+        vue: "vue",
+      },
+    },
+]
+```
+##### package.json
+```json
+"module": "dist/my-library-name.esm.js",
+"main": "dist/my-library-name.cjs.js",
+"unpkg": "dist/my-library-name.global.js",
+```
