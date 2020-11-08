@@ -183,7 +183,7 @@
 
 ### 지시 사항(Instructions)
 
-입력 필드에 대한 지시 사항을 추가할 때는, 입력 요소에 올바르게 연결하세요. 추가 지시 사항을 제공하고 [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) 내에 여러 ID를 연결할 수 있습니다. 이를 따르면 유연한 설계를 할 수 있습니다.<br><fieldset>   <legend>Using aria-labelledby</legend>   <label id="date-label" for="date">Current Date:</label>   <input     type="date"     name="date"     id="date"     aria-labelledby="date-label date-instructions"   />   <p id="date-instructions">MM/DD/YYYY</p> </fieldset>
+입력 필드에 대한 지시 사항을 추가할 때는, 입력 요소에 올바르게 연결하세요. 추가 지시 사항을 제공하고 [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) 내에 여러 ID를 연결할 수 있습니다. 이를 따르면 유연한 설계를 할 수 있습니다.
 
 ```html
 <fieldset>
