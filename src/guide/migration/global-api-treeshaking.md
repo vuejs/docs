@@ -36,7 +36,7 @@ test('an async feature', async () => {
 
 `Vue.nextTick()` is a global API exposed directly on a single Vue object – in fact, the instance method `$nextTick()` is just a handy wrapper around `Vue.nextTick()` with the callback’s `this` context automatically bound to the current instance for convenience.
 
-But what if you’ve never had to deal with manual DOM manipulation, nor are you using or testing async components in our app? Or, what if, for whatever reason, you prefer to use the good old `window.setTimeout()` instead? In such a case, the code for `nextTick()` will become dead code – that is, code that’s written but never used. And dead code is hardly a good thing, especially in our client-side context where every kilobyte matters.
+But what if you’ve never had to deal with manual DOM manipulation, nor are you using or testing async components in your app? Or, what if, for whatever reason, you prefer to use the good old `window.setTimeout()` instead? In such a case, the code for `nextTick()` will become dead code – that is, code that’s written but never used. And dead code is hardly a good thing, especially in our client-side context where every kilobyte matters.
 
 Module bundlers like [webpack](https://webpack.js.org/) support [tree-shaking](https://webpack.js.org/guides/tree-shaking/), which is a fancy term for “dead code elimination.” Unfortunately, due to how the code is written in previous Vue versions, global APIs like `Vue.nextTick()` are not tree-shakeable and will be included in the final bundle regardless of where they are actually used or not.
 
