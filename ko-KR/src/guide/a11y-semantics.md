@@ -10,7 +10,12 @@
 <form action="/dataCollectionLocation" method="post" autocomplete="on">
   <div v-for="item in formItems" :key="item.id" class="form-item">
     <label :for="item.id">{{ item.label }}: </label>
-    <input :type="item.type" :id="item.id" :name="item.id" v-model="item.value">
+    <input
+      :type="item.type"
+      :id="item.id"
+      :name="item.id"
+      v-model="item.value"
+    />
   </div>
   <button type="submit">Submit</button>
 </form>
@@ -64,7 +69,13 @@
 
 ```html
 <label for="name">Name</label>
-<input type="text" name="name" id="name" v-model="name" :aria-label="nameLabel">
+<input
+  type="text"
+  name="name"
+  id="name"
+  v-model="name"
+  :aria-label="nameLabel"
+/>
 ```
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="jOWGqgz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form ARIA label">
@@ -83,7 +94,25 @@
 <a><code>aria-labelledby</code></a>를 사용하는 것은 `aria-label`의 사용과 유사하며, 화면에 레이블 텍스트가 보이는 경우 사용할 것으로 예상합니다. 다른 요소들의 <br><code>id</code>에 의해 구성되며, 여러 `id`를 연결할 수 있습니다:
 
 ```html
-<img src="/images/AccessibleARIAlabelledbyDevTools.png" alt="Chrome Developer Tools showing input accessible name from aria-labelledby" data-md-type="image">
+<form
+  class="demo"
+  action="/dataCollectionLocation"
+  method="post"
+  autocomplete="on"
+>
+  <h1 id="billing">Billing</h1>
+  <div class="form-item">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      v-model="name"
+      aria-labelledby="billing name"
+    />
+  </div>
+  <button type="submit">Submit</button>
+</form>
 ```
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="ZEQXOLP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form ARIA labelledby">
@@ -101,11 +130,23 @@
 [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute)는 `aria-labelledby`의 예상과 동일한 방식으로 사용되며, 사용자가 필요로 할 수 있는 추가적인 정보가 담긴 설명을 제공합니다. 이것은 입력에 대한 기준을 설명하는 데 사용될 수 있습니다.
 
 ```html
-<form class="demo" action="/dataCollectionLocation" method="post" autocomplete="on">
+<form
+  class="demo"
+  action="/dataCollectionLocation"
+  method="post"
+  autocomplete="on"
+>
   <h1 id="billing">Billing</h1>
   <div class="form-item">
     <label for="name">Full Name:</label>
-    <input type="text" name="name" id="name" v-model="name" aria-labelledby="billing name" aria-describedby="nameDescription">
+    <input
+      type="text"
+      name="name"
+      id="name"
+      v-model="name"
+      aria-labelledby="billing name"
+      aria-describedby="nameDescription"
+    />
     <p id="nameDescription">Please provide first and last name.</p>
   </div>
   <button type="submit">Submit</button>
