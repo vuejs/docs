@@ -36,8 +36,7 @@ app.component('button-counter', {
 app.mount('#components-demo')
 ```
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abORVEJ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abORVEJ">   Component basics</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abORVEJ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abORVEJ">   Component basics</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 컴포넌트가 재사용 가능한 인스턴스이기 때문에, 루트 인스턴스와 같은 옵션을 받게 됩니다. `data`, `computed`, `watch`, `methods` 와 라이프사이클 후킹등이죠 . 루트 인스턴스는 지원하지만 컴포넌트에서 지원하지 않는 옵션은 `el`이 대표적입니다.
 
@@ -53,8 +52,7 @@ app.mount('#components-demo')
 </div>
 ```
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="rNVqYvM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: reusing components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNVqYvM">   Component basics: reusing components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="rNVqYvM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: reusing components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNVqYvM">   Component basics: reusing components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 버튼을 클릭하면, 각각 자신만의 독립된 `count` 를 가진다는것을 알수 있습니다. 컴포넌트를 사용할때마다, 새로운 **instance**가 만들어지기 때문이죠.
 
@@ -109,8 +107,7 @@ app.mount('#blog-post-demo')
 </div>
 ```
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="PoqyOaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: passing props">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyOaX">   Component basics: passing props</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="PoqyOaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: passing props">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyOaX">   Component basics: passing props</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 전형적인 앱에서는 다음과 같이 포스트 배열을 `data`로 넘겨주게 됩니다:
 
@@ -206,7 +203,7 @@ app.component('blog-post', {
 </button>
 ```
 
-이 버튼을 눌렀을때, 부모 컴포넌트와 통신하여 모든 글자의 크기를 키워야 합니다. 다행히 컴포넌트 인스턴스는이 문제를 해결하기위한 사용자 정의 이벤트 시스템을 제공합니다. 부모 컴포넌트는  기본 DOM 이벤트의 경우와 마찬가지로 ` v-on ` 또는 ` @ `을 사용하여 하위 컴포넌트 인스턴스의 이벤트를 수신하도록 선택할 수 있습니다.
+이 버튼을 눌렀을때, 부모 컴포넌트와 통신하여 모든 글자의 크기를 키워야 합니다. 다행히 컴포넌트 인스턴스는이 문제를 해결하기위한 사용자 정의 이벤트 시스템을 제공합니다. 부모 컴포넌트는  기본 DOM 이벤트의 경우와 마찬가지로 `v-on` 또는 `@`을 사용하여 하위 컴포넌트 인스턴스의 이벤트를 수신하도록 선택할 수 있습니다.
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
@@ -222,8 +219,7 @@ app.component('blog-post', {
 
 `@enlarge-text="postFontSize += 0.1"` 리스너 덕분어, 부모는 이벤트를 받아 `postFontSize` 의 값을 갱신합니다.
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="KKpGyrp" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: emitting events">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpGyrp">   Component basics: emitting events</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="KKpGyrp" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: emitting events">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpGyrp">   Component basics: emitting events</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 컴포넌트의 옵션 `emits` 에 발신할수 있는 이벤트 목록을 나열 할수 있습니다.
 
@@ -318,11 +314,11 @@ app.component('custom-input', {
 <custom-input v-model="searchText"></custom-input>
 ```
 
-커스텀 컴포넌트에 ` v-model ` 기능을 작성하는 또 다른 방법은 ` 계산 된 (computed)` 속성 기능을 사용하여 getter 및 setter를 정의하는 것입니다
+커스텀 컴포넌트에 `v-model` 기능을 작성하는 또 다른 방법은 ` 계산 된 (computed)` 속성 기능을 사용하여 getter 및 setter를 정의하는 것입니다
 
-다음 예제에서는 계산 된 속성을 사용하여 ` custom-input ` 컴포넌트를 리팩토링합니다.
+다음 예제에서는 계산 된 속성을 사용하여 `custom-input` 컴포넌트를 리팩토링합니다.
 
-` get ` 메소드는 ` modelValue ` 속성을 반환해야 합니다. 그리고 바인딩에 사용되는 프로퍼티를 위한  ` set ` 메소드는 해당 프로퍼티에 해당하는  이벤트를 발행하는 ` $ emit `를 호출해야 합니다.
+`get` 메소드는 `modelValue` 속성을 반환해야 합니다. 그리고 바인딩에 사용되는 프로퍼티를 위한  `set` 메소드는 해당 프로퍼티에 해당하는  이벤트를 발행하는 `$ emit`를 호출해야 합니다.
 
 ```js
 app.component('custom-input', {
@@ -356,8 +352,7 @@ HTML  앨리먼트처럼 컴포넌트에 컨텐츠를 제공할수 있으면 유
 
 다음처럼 렌더링 될겁니다:
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="jOPeaob" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: slots">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPeaob">   Component basics: slots</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="jOPeaob" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: slots">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPeaob">   Component basics: slots</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 다행이, vue에서는 `<slot>` 앨리먼트를 이용해 쉽게 만들수 있습니다:
 
@@ -380,8 +375,7 @@ app.component('alert-box', {
 
 탭기반 인터페이스처럼 컴포넌트를 동적으로 전환할수 있으면 유용합니다:
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="oNXaoKy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: dynamic components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXaoKy">   Component basics: dynamic components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="oNXaoKy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: dynamic components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXaoKy">   Component basics: dynamic components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Vue에서 제공하는 `is`  라는 특별한 속성을 이용해 `<component>` 를 전환할수 있습니다.
 
