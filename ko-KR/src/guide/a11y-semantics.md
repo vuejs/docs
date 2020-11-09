@@ -22,13 +22,7 @@
 ```
 
 
-<p class="codepen" data-height="368" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="YzwpPYZ" style="height: 368px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Simple Form">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/YzwpPYZ">
-  Simple Form</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
+<p class="codepen" data-height="368" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="YzwpPYZ" style="height: 368px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Simple Form">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/YzwpPYZ">   Simple Form</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 폼 요소 속성에 `autocomplete='on'`을 포함하면, 폼의 모든 입력 요소에 해당 속성이 적용됩니다. 또한 각각의 입력 요소에 [자동 완성 속성 값](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)을 다르게 설정할 수도 있습니다.
 
@@ -41,12 +35,8 @@
 <input type="text" name="name" id="name" v-model="name" />
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="wvMrGqz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Label">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/wvMrGqz">
-  Form Label</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="wvMrGqz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Label">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/wvMrGqz">   Form Label</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 크롬 개발자 도구에서 이 요소를 검사하고 요소 탭 내의 접근성 탭을 열면,  입력 요소가 이 레이블에서 이름에 어떻게 접근하는지 알 수 있습니다.
 
@@ -69,21 +59,10 @@
 
 ```html
 <label for="name">Name</label>
-<input
-  type="text"
-  name="name"
-  id="name"
-  v-model="name"
-  :aria-label="nameLabel"
-/>
+<input type="text" name="name" id="name" v-model="name" :aria-label="nameLabel">
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="jOWGqgz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form ARIA label">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/jOWGqgz">
-  Form ARIA label</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+See the Pen <a href="https://codepen.io/mlama007/pen/jOWGqgz">   Form ARIA label</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.
 
 크롬 개발자 도구에서 이 요소를 검사하여 <a><code>aria-label</code></a>이 어떻게 변경되었는지 확인해보세요:
 
@@ -115,13 +94,8 @@
 </form>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="ZEQXOLP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form ARIA labelledby">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/ZEQXOLP">
-  Form ARIA labelledby</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="ZEQXOLP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form ARIA labelledby">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/ZEQXOLP">   Form ARIA labelledby</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ![Chrome Developer Tools showing input accessible name from aria-label](/images/AccessibleARIAlabelDevTools.png)
 
@@ -153,13 +127,8 @@
 </form>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="JjGrKyY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form ARIA describedby">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/JjGrKyY">
-  Form ARIA describedby</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="JjGrKyY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form ARIA describedby">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/JjGrKyY">   Form ARIA describedby</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 크롬 개발자 도구 검사를 통해서 해당 설명을 확인할 수 있습니다:
 
@@ -171,13 +140,8 @@
 
 자리 표시자의 문제 중 하나는 기본적인 [색 대비 기준](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)을 충족하지 못한다는 것입니다. 색 대비를 수정하면 자리 표시자가 입력 필드에 미리 입력된 데이터처럼 보이게 됩니다. 다음 예제를 살펴 보면, 색 대비 기준을 충족하는 Last Name 자리 표시자는 미리 입력된 데이터처럼 보이는 것을 확인할 수 있습니다.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="PoZJzeQ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Placeholder">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/PoZJzeQ">
-  Form Placeholder</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="PoZJzeQ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Placeholder">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/PoZJzeQ">   Form Placeholder</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 사용자가 폼을 채우기 위해 필요한 모든 정보를 입력 요소 밖에서 제공하는 것이 가장 좋은 방법입니다.
 
@@ -210,12 +174,8 @@
 </fieldset>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="GRoMqYy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Instructions">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/GRoMqYy">
-  Form Instructions</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="GRoMqYy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Instructions">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/GRoMqYy">   Form Instructions</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### 내용 감추기(Hiding Content)
 
@@ -250,12 +210,7 @@
 ```
 
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="qBbpQwB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Search">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/qBbpQwB">
-  Form Search</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="qBbpQwB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Search">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/qBbpQwB">   Form Search</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 #### aria-hidden="true"
 
@@ -282,12 +237,8 @@
 </form>
 ```
 
-<p class="codepen" data-height="467" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="PoZEXoj" style="height: 467px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Buttons">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/PoZEXoj">
-  Form Buttons</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p class="codepen" data-height="467" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="PoZEXoj" style="height: 467px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Buttons">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/PoZEXoj">   Form Buttons</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 #### 기능적인 이미지(Functional Images)
 
@@ -323,9 +274,5 @@
 </form>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="NWxXeqY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Functional Images">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/NWxXeqY">
-  Functional Images</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="NWxXeqY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Functional Images">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/NWxXeqY">   Functional Images</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script> 
