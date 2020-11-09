@@ -8,7 +8,7 @@ Vue는 코어에 포함된 기본 디렉티브 (`v-model` 과`v-show`와 같은)
 
 페이지가 로드되면 해당 엘리먼트는 포커스를 얻습니다. (참고: `autofocus`는 모바일 사파리에서 작동하지 않습니다.) 사실, 이 페이지를 방문한 이후, 다른것을 클릭하지 않았다면, 이 input 엘리먼트에 포커스가 되어 있어야 합니다. 또한, `Rerun` 버튼을 클릭하면 input 엘리먼트에 포커스가 됩니다.<br />이제 이 작업을 수행하는 디렉티브를 작성하겠습니다.
 
-Now let's build the directive that accomplishes this:
+지금 이를 수행하는 지시문을 작성해 보겠습니다:
 
 ```js
 const app = Vue.createApp({})
