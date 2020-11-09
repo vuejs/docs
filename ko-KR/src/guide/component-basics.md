@@ -107,7 +107,7 @@ app.mount('#blog-post-demo')
 </div>
 ```
 
-See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyOaX">   Component basics: passing props</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="PoqyOaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: passing props">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyOaX">   Component basics: passing props</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 전형적인 앱에서는 다음과 같이 포스트 배열을 `data`로 넘겨주게 됩니다:
 
@@ -375,7 +375,7 @@ app.component('alert-box', {
 
 탭기반 인터페이스처럼 컴포넌트를 동적으로 전환할수 있으면 유용합니다:
 
-See the Pen <a href="https://codepen.io/team/Vue/pen/oNXaoKy">   Component basics: dynamic components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="oNXaoKy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: dynamic components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXaoKy">   Component basics: dynamic components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Vue에서 제공하는 `is`  라는 특별한 속성을 이용해 `<component>` 를 전환할수 있습니다.
 
