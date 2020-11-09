@@ -74,15 +74,15 @@ Vue.createApp(Demo).mount('#demo')
 
 2. `v-enter-active`: enter의 활성 상태. 전체 진입 단계 동안 적용됩니다. 엘리먼트가 삽입되기 전에 적용됩니다. 트랜지션 / 애니메이션이 완료되면 제거됩니다. 이 클래스는 진입 트랜지션에서 duration, delay, easing curve를 정의 하는데 사용 될 수 있습니다.
 
-3. `v-enter-to`: **2.1.8 이상 버전에서 지원합니다.**진입 상태의 끝에서 실행됩니다. 엘리먼트가 삽입된 후(동시에`v-enter` 가 제거됨) 트랜지션/애니메이션이 끝나면 제거되는 하나의 프레임을 추가했습니다.
+3. `v-enter-to`: **2.1.8 이상 버전에서 지원합니다.**진입 상태의 끝에서 실행됩니다. 엘리먼트가 삽입된 후(동시에`v-enter-from` 가 제거됨) 트랜지션/애니메이션이 끝나면 제거되는 하나의 프레임을 추가했습니다.
 
 4. `v-leave-from`: leave를 위한 시작 상태. 진출 트랜지션이 트리거 될 때 적용되고 한 프레임 후에 제거됩니다.
 
 5. `v-leave-active`: leave의 활성 상태. 전체 진출 상태에서 적용됩니다. 진출 트랜지션이 트리거되면 적용되고 트랜지션 / 애니메이션이 완료되면 제거됩니다. 이 클래스는 진출 트랜지션에서 duration, delay, easing curve를 정의 하는데 사용 될 수 있습니다.
 
-6. `v-leave-to`: **2.1.8 이상 버전에서 지원합니다.** 진출 상태 끝에서 실행됩니다. 진출 트랜지션이 트리거되고  (동시에 `v-leave` 가 제거됨) 트랜지션 / 애니메이션이 끝나면 제거되는 하나의 프레임을 추가 했습니다.
+6. `v-leave-to`: **2.1.8 이상 버전에서 지원합니다.** 진출 상태 끝에서 실행됩니다. 진출 트랜지션이 트리거되고  (동시에 `v-leave-from` 가 제거됨) 트랜지션 / 애니메이션이 끝나면 제거되는 하나의 프레임을 추가 했습니다.
 
-![Transition Diagram](/images/transition.png) TODO: update diagram
+![Transition Diagram](/images/transition.png)
 
 각 클래스에는 트랜지션 이름이 접두어로 붙습니다. 여기서 `v-` 접두어는 이름없이 `<transition>` 를 사용할 때의 기본 값 입니다. 예를 들어 `<transition name="my-transition">` 을 사용하면, `v-enter-from` 클래스는 `my-transition-enter-from` 클래스로 대체됩니다.
 
@@ -195,10 +195,10 @@ Vue.createApp(Demo).mount('#demo')
 
 - `enter-from-class`
 - `enter-active-class`
-- `enter-to-class` (2.1.8+)
+- ``enter-to-class` (2.1.8+)`
 - `leave-from-class`
 - `leave-active-class`
-- `leave-to-class` (2.1.8+)
+- ``leave-to-class` (2.1.8+)`
 
 이것들은 원본 클래스 명을 오버라이드 합니다. 이는 Vue의 트랜지션 시스템을 [Animate.css](https://daneden.github.io/animate.css/)와 같은 기존 CSS 애니메이션 라이브러리와 결합하려는 경우 특히 유용합니다.
 
@@ -246,9 +246,7 @@ Vue는 트랜지션이 종료 된 시점을 알기 위해 이벤트 리스너를
 
 ### 명시적 트랜지션 지속 시간
 
-TODO: validate and provide an example
-
-> 2.2.0 버전에서 추가됨
+<!-- TODO: validate and provide an example -->
 
 대부분의 경우 Vue는 트랜지션이 완료를 자동으로 감지할 수 있습니다. 기본적으로 Vue는 루트 트랜지션 엘리먼트에서 첫 번째 `transitionend` 또는 `animationend`  이벤트를 기다립니다. 그러나 이것은 항상 이상적인 것은 아닙니다. 예를 들어, 중첩 된 내부 엘리먼트가 루트 트랜지션 엘리먼트보다 지연된 트랜지션 또는 더 긴 트랜지션 기간을 갖는 다른 엘리먼트와 함께 진행하는 트랜지션 시퀀스를 가질 수 있습니다.
 
@@ -428,7 +426,7 @@ Vue.createApp(Demo).mount('#demo')
 
 `v-if`를 사용하거나 단일 엘리먼트를 동적 속성에 바인딩하여 원하는 만큼의 엘리먼트 간에 트랜지션이 가능합니다. 예를 들어:
 
-TODO: rewrite example and put in codepen example
+<!-- TODO: rewrite example and put in codepen example -->
 
 ```html
 <transition>
@@ -548,9 +546,4 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNwVxZw" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transitioning between components">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNwVxZw">
-  Transitioning between components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNwVxZw" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transitioning between components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNwVxZw">   Transitioning between components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
