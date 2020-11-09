@@ -4,12 +4,11 @@
 
 Vue는 코어에 포함된 기본 디렉티브 (`v-model` 과`v-show`와 같은) 외에도 커스텀 디렉티브를 등록할 수 있습니다. Vue에서 코드 재사용 및 추상화의 기본 형식은 컴포넌트입니다. 그러나 일반 엘리먼트에 하위 수준의 DOM 액세스가 필요한 경우가 있을 수 있으며 이 경우 커스텀 디렉티브가 여전히 유용할 수 있습니다. 다음은 input 엘리먼트와 focusing에 대한 예제입니다.
 
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="JjdxaJW" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: basic example">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/JjdxaJW">   Custom directives: basic example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="JjdxaJW" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: basic example">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/JjdxaJW">   Custom directives: basic example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+페이지가 로드되면 해당 엘리먼트는 포커스를 얻습니다. (참고: `autofocus`는 모바일 사파리에서 작동하지 않습니다.) 사실, 이 페이지를 방문한 이후, 다른것을 클릭하지 않았다면, 이 input 엘리먼트에 포커스가 되어 있어야 합니다. 또한, `Rerun` 버튼을 클릭하면 input 엘리먼트에 포커스가 됩니다.<br />이제 이 작업을 수행하는 디렉티브를 작성하겠습니다.
 
-페이지가 로드되면 해당 엘리먼트는 포커스를 얻습니다. (참고: `autofocus`는 모바일 사파리에서 작동하지 않습니다.) 사실, 이 페이지를 방문한 이후, 다른것을 클릭하지 않았다면, 이 input 엘리먼트에 포커스가 되어 있어야 합니다. 또한, `Rerun` 버튼을 클릭하면 input 엘리먼트에 포커스가 됩니다.
-
-이제 이 작업을 수행하는 디렉티브를 작성하겠습니다.
+지금 이를 수행하는 지시문을 작성해 보겠습니다:
 
 ```js
 const app = Vue.createApp({})
@@ -121,8 +120,7 @@ app.mount('#dynamic-arguments-example')
 
 결과:
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="YzXgGmv" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: dynamic arguments">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/YzXgGmv">   Custom directives: dynamic arguments</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="YzXgGmv" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: dynamic arguments">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/YzXgGmv">   Custom directives: dynamic arguments</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 이제 커스텀 디렉티브는 몇 가지 다른 사용 사례를 지원할 수 있을 정도로 유연합니다. 조금 더 동적으로 만들려면, 바운드 값을 수정하는 것을 허락할 수 있습니다. 추가로 `pinPadding` 프로퍼티를 만들고 `<input type="range">`에 바인딩을 합니다.
 
@@ -130,7 +128,7 @@ app.mount('#dynamic-arguments-example')
 <div id="dynamicexample">
   <h2>Scroll down the page</h2>
   <input type="range" min="0" max="500" v-model="pinPadding">
-  <p v-pin:>Stick me 200px from the {{ direction }} of the page</p>
+  <p v-pin:[direction]="pinPadding">Stick me {{ pinPadding + 'px' }} from the {{ direction }} of the page</p>
 </div>
 ```
 
@@ -163,15 +161,14 @@ app.directive('pin', {
 
 결과:
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="rNOaZpj" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: dynamic arguments + dynamic binding">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNOaZpj">   Custom directives: dynamic arguments + dynamic binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="rNOaZpj" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: dynamic arguments + dynamic binding">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNOaZpj">   Custom directives: dynamic arguments + dynamic binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## 함수 약어
 
 위에 예제에서 `mounted`와 `updated` 두개의 훅에서 같은 동작을 하며, 다른 훅은 필요하지 않을때도 있습니다. 이럴때는 단순히 콜백을 디렉티브에 전달하여 해결 할 수 있습니다.
 
 ```js
-app.directive('pin', (el, binding) =&gt; {
+app.directive('pin', (el, binding) => {
   el.style.position = 'fixed'
   const s = binding.arg || 'top'
   el.style[s] = binding.value + 'px'
@@ -187,9 +184,9 @@ app.directive('pin', (el, binding) =&gt; {
 ```
 
 ```js
-app.directive('demo', (el, binding) =&gt; {
-  console.log(binding.value.color) // =&gt; "white"
-  console.log(binding.value.text) // =&gt; "hello!"
+app.directive('demo', (el, binding) => {
+  console.log(binding.value.color) // => "white"
+  console.log(binding.value.text) // => "hello!"
 })
 ```
 
