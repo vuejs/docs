@@ -89,7 +89,7 @@ Supaya perilaku lama tetap dapat dijalankan, dan karena Anda akan menngubah nila
 
 Pada Vue versi 2.x, nilai yang tidak valid diubah menjadi `'true'` untuk atribut yang dapat dienumerasi. Perilaku tersebut biasanya tidak diharapkan dan tidak diinginkan pada kasus skala besar. Pada Vue versi 3.x `true` atau `'true'` harus dinyatakan secara eksplisit.
 
-### Mengubah `false` menjadi `'false'`
+### Mengubah `false` menjadi `'false'`, bukan menghilangkan atribut tersebut
 
 Pada Vue versi 3.x, penghapusan atribut harus dinyatakan secara eksplisit dengan menetapkan nilai pada atribut tersebut sebagai `null` atau `undefined`.
 
