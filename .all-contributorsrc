@@ -23,6 +23,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Namchee",
+      "name": "Cristopher",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/32661241?v=4",
+      "profile": "http://namchee.netlify.app",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
