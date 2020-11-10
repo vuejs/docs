@@ -91,13 +91,13 @@ Vue 3에서 주목할 만한 새로운 기능 중 일부는 다음과 같습니�
 - `beforeDestroy` 생명주기 옵션의 명칭이 `beforeUnmount`로 변경되었습니다.
 - <a>Props <code>default</code> 팩토리 함수는 더이상 <code>this</code>에 접근할 수 없습니다.</a>
 - [컴포넌트 라이프사이클에 맞게 사용자 지정 디렉티브 API가 변경 되었습니다.](/guide/migration/custom-directives.html)
-- [The `data` option should always be declared as a function](/guide/migration/data-option.html)
+- [`data`옵션은 항상 함수로 선언되어야 합니다.](/guide/migration/data-option.html)
 - [이제 mixins의 `data` 옵션은 얕게 병합됩니다.](/guide/migration/data-option.html#mixin-merge-behavior-change)
 - [속성 강제 방법이 변경되었습니다.](/guide/migration/attribute-coercion.html)
 - [몇몇 Transition 클래스의 명칭이 변경되었습니다.](/guide/migration/transition.html)
 - [배열에서 watch 콜백은 배열이 교체될 때만 발생합니다. <br>배열의 변경 사항에 대해 watch 콜백을 실행하려면, 반드시 `deep` 옵션을 설정해야 합니다.](/guide/migration/watch.html)
 - 특수 디렉티브(`v-if / else-if / else`, `v-for` 또는 `v-slot`)이 없는 `<template>` 태그는 이제 일반 요소로 처리되며 내부 콘텐츠를 렌더링하는 대신 native `<template>` 요소가 됩니다
-- In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead - this means the container itself is no longer considered part of the template.
+- Vue 2.x에서 애플리케이션 루트 컨테이너의 `outerHTML`은 루트 컴포넌트 템플릿으로 대체됩니다. (또는 루트 컴포넌트에 템플릿/렌더링 옵션이 없는 경우 최종적으로 템플릿에 컴파일됩니다.) Vue 3.x는 이제 애플리케이션 컨테이너의 `innerHTML`을 대신 사용합니다. 이는 컨테이너 자체가 더이상 템플릿의 일부로서 고려되지 않음을 의미합니다.
 
 ### 제거된 APIs
 
@@ -155,9 +155,27 @@ Vuex 4.0는 3.x와 거의 동일한 API로 Vue3 지원합니다. 유일하게 �
 
 프로젝트 | npm | Repo
 --- | --- | ---
-@vue/babel-plugin-jsx | [](https://www.npmjs.com/package/@vue/babel-plugin-jsx)![rc](https://img.shields.io/npm/v/@vue/babel-plugin-jsx.svg) | [[GitHub](https://github.com/vuejs/jsx-next)]
-eslint-plugin-vue | [](https://www.npmjs.com/package/eslint-plugin-vue/v/next)![beta](https://img.shields.io/npm/v/eslint-plugin-vue/next.svg) | [[GitHub](https://github.com/vuejs/eslint-plugin-vue)]
-@vue/test-utils | [](https://www.npmjs.com/package/@vue/test-utils/v/next)![beta](https://img.shields.io/npm/v/@vue/test-utils/next.svg) | [[GitHub](https://github.com/vuejs/vue-test-utils-next)]
-vue-class-component | [](https://www.npmjs.com/package/vue-class-component/v/next)![beta](https://img.shields.io/npm/v/vue-class-component/next.svg) | [[GitHub](https://github.com/vuejs/vue-class-component/tree/next)]
-vue-loader | [](https://www.npmjs.com/package/vue-loader/v/next)![beta](https://img.shields.io/npm/v/vue-loader/next.svg) | [[GitHub](https://github.com/vuejs/vue-loader/tree/next)]
-rollup-plugin-vue | [](https://www.npmjs.com/package/rollup-plugin-vue/v/next)![beta](https://img.shields.io/npm/v/rollup-plugin-vue/next.svg) | [[GitHub](https://github.com/vuejs/rollup-plugin-vue/tree/next)]
+@vue/babel-plugin-jsx | []![rc] | [[GitHub]]
+eslint-plugin-vue | [](https://www.npmjs.com/package/eslint-plugin-vue/v/next)![beta](https://img.shields.io/npm/v/eslint-plugin-vue/next.svg) | [[GitHub]]
+@vue/test-utils | []![beta] | [[GitHub]]
+vue-class-component | []![beta] | [[GitHub]]
+vue-loader | []![beta] | [[GitHub]]
+rollup-plugin-vue | []![beta] | [[GitHub]]
+
+
+[rc]: https://img.shields.io/npm/v/@vue/babel-plugin-jsx.svg
+[]: https://www.npmjs.com/package/@vue/babel-plugin-jsx
+[GitHub]: https://github.com/vuejs/jsx-next
+[GitHub]: https://img.shields.io/npm/v/@vue/devtools/beta.svg
+[beta]: https://www.npmjs.com/package/@vue/devtools/v/beta
+[]: https://github.com/vuejs/vue-devtools/tree/next
+[GitHub]: https://img.shields.io/npm/v/eslint-plugin-vue.svg
+[beta]: https://www.npmjs.com/package/eslint-plugin-vue
+[]: https://github.com/vuejs/eslint-plugin-vue
+[GitHub]: https://img.shields.io/npm/v/@vue/test-utils/next.svg
+[beta]: https://www.npmjs.com/package/@vue/test-utils/v/next
+[]: https://github.com/vuejs/vue-test-utils-next
+[GitHub]: https://img.shields.io/npm/v/@ant-design-vue/babel-plugin-jsx.svg
+[beta]: https://www.npmjs.com/package/@ant-design-vue/babel-plugin-jsx
+[]: https://github.com/vueComponent/jsx
+[GitHub]: https://img.shields.io/npm/v/vue-class-component/next.svg
