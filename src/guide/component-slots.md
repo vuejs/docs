@@ -308,10 +308,8 @@ Note that the abbreviated syntax for default slot **cannot** be mixed with named
 ```html
 <!-- INVALID, will result in warning -->
 <todo-list v-slot="slotProps">
-  <template v-slot:default="slotProps">
-    <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}</span>
-  </template>
+  <i class="fas fa-check"></i>
+  <span class="green">{{ slotProps.item }}</span>
   
   <template v-slot:other="otherSlotProps">
     slotProps is NOT available here
