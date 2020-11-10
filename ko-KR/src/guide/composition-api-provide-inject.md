@@ -36,7 +36,7 @@ export default {
 <!-- src/components/MyMarker.vue -->
 <script>
 export default {
-  inject: ['location', 'longitude', 'latitude']
+  inject: ['location', 'geolocation']
 }
 </script>
 ```
