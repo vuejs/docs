@@ -16,7 +16,7 @@ Berikut merupakan gambaran umum tentang perubahan yang terjadi:
 - Menghapus konsep internal tentang atribut yang dapat dienumerasi dan memperlakukan atribut tersebut sama seperti atribut bukan _boolean_ biasa
 - **MERUSAK**: Tidak menghapus atribut bila nilainya merupakan `false`, melainkan menetapkannya sebagai `attr=false`. Untuk menghapus atribut, gunakan `null` atau `undefined`.
 
-Silahkan membaca untuk penjelasan lebih lanjut
+Lanjutkan membaca untuk penjelasan lebih lanjut
 
 ## Sintaks Vue versi 2.x
 

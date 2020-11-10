@@ -13,7 +13,7 @@ Berikut merupakan gambaran umum tentang perubahan yang terjadi:
 - Opsi `component` diubah menjadi `loader`
 - Fungsi pemuat tidak lagi memiliki argumen `resolve` dan `reject` dan harus mengembalikan sebuah `Promise`
 
-Silahkan membaca untuk penjelasan lebih lanjut
+Lanjutkan membaca untuk penjelasan lebih lanjut
 
 ## Perkenalan
 
