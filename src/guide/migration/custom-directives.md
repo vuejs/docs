@@ -7,11 +7,7 @@ badges:
 
 ## Overview
 
-Here is a quick summary of what has changed:
-
-- API has been renamed to better align with component lifecycle
-
-For more information, read on!
+The hook functions for directives have been renamed to better align with the component lifecycle.
 
 ## 2.x Syntax
 
@@ -45,10 +41,10 @@ In Vue 3, however, we’ve created a more cohesive API for custom directives. As
 
 - bind → **beforeMount**
 - inserted → **mounted**
-- **beforeUpdate**: new! this is called before the element itself is updated, much like the component lifecycle hooks.
+- **beforeUpdate**: new! This is called before the element itself is updated, much like the component lifecycle hooks.
 - update → removed! There were too many similarities to updated, so this is redundant. Please use updated instead.
 - componentUpdated → **updated**
-- **beforeUnmount**: new! similar to component lifecycle hooks, this will be called right before an element is unmounted.
+- **beforeUnmount**: new! Similar to component lifecycle hooks, this will be called right before an element is unmounted.
 - unbind -> **unmounted**
 
 The final API is as follows:
@@ -57,7 +53,7 @@ The final API is as follows:
 const MyDirective = {
   beforeMount(el, binding, vnode, prevVnode) {},
   mounted() {},
-  beforeUpdate() {},
+  beforeUpdate() {}, // new
   updated() {},
   beforeUnmount() {}, // new
   unmounted() {}
@@ -103,5 +99,5 @@ mounted(el, binding, vnode) {
 ```
 
 :::warning
-With [fragments](/guide/migration/fragments.html#overview) support, components can potentially have more than one root nodes. When applied to a multi-root component, directive will be ignored and the warning will be thrown.
+With [fragments](/guide/migration/fragments.html#overview) support, components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be logged.
 :::
