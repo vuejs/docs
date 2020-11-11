@@ -93,7 +93,7 @@ $ yarn dev
 
 ## Explanation of Different Builds
 
-In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
+In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
 
 ### From CDN or without a Bundler
 
