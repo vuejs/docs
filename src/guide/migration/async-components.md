@@ -3,31 +3,31 @@ badges:
   - new
 ---
 
-# Async Components <MigrationBadges :badges="$frontmatter.badges" />
+# Komponen Asinkron <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-Here is a high level overview of what has changed:
+Berikut merupakan gambaran umum tentang perubahan yang terjadi:
 
-- New `defineAsyncComponent` helper method that explicitly defines async components
-- `component` option renamed to `loader`
-- Loader function does not inherently receive `resolve` and `reject` arguments and must return a Promise
+- Fungsi bantuan baru bernama `defineAsyncComponent` yang secara eksplisit menyatakan komponen asinkron
+- Opsi `component` diubah menjadi `loader`
+- Fungsi pemuat tidak lagi memiliki argumen `resolve` dan `reject` dan harus mengembalikan sebuah `Promise`
 
-For a more in-depth explanation, read on!
+Lanjutkan membaca untuk penjelasan lebih lanjut
 
-## Introduction
+## Perkenalan
 
-Previously, async components were created by simply defining a component as a function that returned a promise, such as:
+Sebelumnya, komponen asinkron dibuat dengan menyatakan sebuah komponen sebagai sebuah fungsi yang mengembalikan sebuah `Promise`, seperti:
 
 ```js
-const asyncPage = () => import('./NextPage.vue')
+const halamanAsinkron = () => import('./HalamanSelanjutnya.vue')
 ```
 
-Or, for the more advanced component syntax with options:
+Atau, dengan sintaks komponen yang lebih rumit yang memiliki opsi:
 
 ```js
-const asyncPage = {
-  component: () => import('./NextPage.vue'),
+const halamanAsinkron = {
+  component: () => import('./HalamanSelanjutnya.vue'),
   delay: 200,
   timeout: 3000,
   error: ErrorComponent,
@@ -35,21 +35,21 @@ const asyncPage = {
 }
 ```
 
-## 3.x Syntax
+## Sintaks Pada Versi 3.x
 
-Now, in Vue 3, since functional components are defined as pure functions, async components definitions need to be explicitly defined by wrapping it in a new `defineAsyncComponent` helper:
+Sekarang di Vue versi 3 karena komponen fungsional dinyatakan sebagai fungsi murni, pernyataan komponen asinkron harus dinyatakan secara eksplisit dengan membungkus komponen dengan sebuah fungsi bantuan bernama `defineAsyncComponent`:
 
 ```js
 import { defineAsyncComponent } from 'vue'
 import ErrorComponent from './components/ErrorComponent.vue'
 import LoadingComponent from './components/LoadingComponent.vue'
 
-// Async component without options
-const asyncPage = defineAsyncComponent(() => import('./NextPage.vue'))
+// Komponen asinkron tanpa opsi
+const halamanAsinkron = defineAsyncComponent(() => import('./HalamanSelanjutnya.vue'))
 
-// Async component with options
-const asyncPageWithOptions = defineAsyncComponent({
-  loader: () => import('./NextPage.vue'),
+// Komponen asinkron yang memiliki opsi
+const halamanAsinkronDenganOpsi = defineAsyncComponent({
+  loader: () => import('./HalamanSelanjutnya.vue'),
   delay: 200,
   timeout: 3000,
   errorComponent: ErrorComponent,
@@ -57,13 +57,13 @@ const asyncPageWithOptions = defineAsyncComponent({
 })
 ```
 
-Another change that has been made from 2.x is that the `component` option is now renamed to `loader` in order to accurately communicate that a component definition cannot be provided directly.
+Perubahan lain yang terjadi dari Vue versi 2 adalah opsi `component` yang diubah menjadi `loader` yang bertujuan untuk menyampaikan bahwa pernyataan komponen tidak dapat disediakan secara langsung.
 
 ```js{4}
 import { defineAsyncComponent } from 'vue'
 
-const asyncPageWithOptions = defineAsyncComponent({
-  loader: () => import('./NextPage.vue'),
+const halamanAsinkronDenganOpsi = defineAsyncComponent({
+  loader: () => import('./HalamanSelanjutnya.vue'),
   delay: 200,
   timeout: 3000,
   error: ErrorComponent,
@@ -71,16 +71,16 @@ const asyncPageWithOptions = defineAsyncComponent({
 })
 ```
 
-In addition, unlike 2.x, the loader function no longer receives the `resolve` and `reject` arguments and must always return a Promise.
+Selain itu, tidak sepert pada Vue versi 2, fungsi pemuat tidak lagi memiliki argumen `resolve` dan `reject` dan harus selalu mengembalikan sebuah `Promise`
 
 ```js
-// 2.x version
-const oldAsyncComponent = (resolve, reject) => {
+// Pada Vue versi 2.0
+const komponenAsinkronLama = (resolve, reject) => {
   /* ... */
 }
 
-// 3.x version
-const asyncComponent = defineAsyncComponent(
+// Pada Vue versi 3.0
+const komponenAsinkron = defineAsyncComponent(
   () =>
     new Promise((resolve, reject) => {
       /* ... */
@@ -88,6 +88,6 @@ const asyncComponent = defineAsyncComponent(
 )
 ```
 
-For more information on the usage of async components, see:
+Anda dapat mempelajari lebih lanjut tentang penggunaan komponen asinknron pada:
 
-- [Guide: Dynamic & Async Components](/guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+- [Panduan: Komponen Dinamis dan Asinkron](/guide/component-dynamic-async.html#dynamic-components-with-keep-alive)

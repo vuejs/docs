@@ -8,6 +8,12 @@ badges:
 ## Overview
 
 The hook functions for directives have been renamed to better align with the component lifecycle.
+Here is a quick summary of what has changed:
+
+- API has been renamed to better align with component lifecycle
+
+For more information, read on!
+
 
 ## 2.x Syntax
 
