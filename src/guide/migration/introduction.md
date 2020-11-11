@@ -123,7 +123,7 @@ All of our official libraries and tools now support Vue 3, but most of them are 
 
 <a href="https://www.npmjs.com/package/@vue/cli" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/@vue/cli"></a>
 
-As of v4.5.0, `vue-cli` now provides built-in option to choose Vue 3 preset when creating a new project. You can upgrade `vue-cli` and run `vue create` to create a Vue 3 project today.
+As of v4.5.0, `vue-cli` now provides the built-in option to choose Vue 3 when creating a new project. You can upgrade `vue-cli` and run `vue create` to create a Vue 3 project today.
 
 - [Documentation](https://cli.vuejs.org/)
 - [GitHub](https://github.com/vuejs/vue-cli)
@@ -132,8 +132,9 @@ As of v4.5.0, `vue-cli` now provides built-in option to choose Vue 3 preset when
 
 <a href="https://www.npmjs.com/package/vue-router/v/next" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/vue-router/next.svg"></a>
 
-Vue Router 4.0 provides Vue 3 support and has a number of breaking changes of its own. Check out its [README](https://github.com/vuejs/vue-router-next#vue-router-next-) for full details.
+Vue Router 4.0 provides Vue 3 support and has a number of breaking changes of its own. Check out its [migration guide](https://next.router.vuejs.org/guide/migration/) for full details.
 
+- [Documentation](https://next.router.vuejs.org/)
 - [GitHub](https://github.com/vuejs/vue-router-next)
 - [RFCs](https://github.com/vuejs/rfcs/pulls?q=is%3Apr+is%3Amerged+label%3Arouter)
 
@@ -141,8 +142,9 @@ Vue Router 4.0 provides Vue 3 support and has a number of breaking changes of it
 
 <a href="https://www.npmjs.com/package/vuex/v/next" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/vuex/next.svg"></a>
 
-Vuex 4.0 provides Vue 3 support with largely the same API as 3.x. The only breaking change is [how the plugin is installed](https://github.com/vuejs/vuex/tree/4.0#breaking-changes).
+Vuex 4.0 provides Vue 3 support with largely the same API as 3.x. The only breaking change is [how the plugin is installed](https://next.vuex.vuejs.org/guide/migrating-to-4-0-from-3-x.html#breaking-changes).
 
+- [Documentation](https://next.vuex.vuejs.org/)
 - [GitHub](https://github.com/vuejs/vuex/tree/4.0)
 
 ### Devtools Extension
@@ -167,7 +169,7 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 | eslint-plugin-vue     | [![ga][epv-badge]][epv-npm]   | [[GitHub][epv-code]] |
 | @vue/test-utils       | [![beta][vtu-badge]][vtu-npm] | [[GitHub][vtu-code]] |
 | vue-class-component   | [![beta][vcc-badge]][vcc-npm] | [[GitHub][vcc-code]] |
-| vue-loader            | [![beta][vl-badge]][vl-npm]   | [[GitHub][vl-code]]  |
+| vue-loader            | [![rc][vl-badge]][vl-npm]     | [[GitHub][vl-code]]  |
 | rollup-plugin-vue     | [![beta][rpv-badge]][rpv-npm] | [[GitHub][rpv-code]] |
 
 [jsx-badge]: https://img.shields.io/npm/v/@vue/babel-plugin-jsx.svg
