@@ -14,62 +14,62 @@
 
 ::: tip 이러한 모든 차이점이 있지만 쿡북(cookbook)은 여전히 ​​단계별 설명서가 *아닌* 것을 명심하세요. 대부분의 콘텐츠에서 HTML, CSS, JavaScript, npm / yarn 등과 같은 개념에 대한 기본적인 이해가 필요합니다. etc. :::
 
-## Cookbook Contributions
+## 쿡북 기여
 
-### What we're looking for
+### 우리가 찾고 있는 것
 
-The Cookbook gives developers examples to work off of that both cover common or interesting use cases, and also progressively explain more complex detail. Our goal is to move beyond a simple introductory example, and demonstrate concepts that are more widely applicable, as well as some caveats to the approach.
+쿡북은 개발자에게 공통적이거나 흥미로운 사용 사례를 모두 다루고 더 복잡한 세부 사항을 점진적으로 설명하는 예제를 제공합니다. 우리의 목표는 간단한 소개 예제를 넘어서 더 광범위하게 적용할 수 있는 개념과 접근 방식에 대한 몇 가지 주의사항을 보여주는 것입니다.
 
-If you're interested in contributing, please initiate collaboration by filing an issue under the tag **cookbook idea** with your concept so that we can help guide you to a successful pull request. After your idea has been approved, please follow the template below as much as possible. Some sections are required, and some are optional. Following the numerical order is strongly suggested, but not required.
+기여에 관심이 있는 경우 성공적인 pull 요청으로 안내할 수 있도록 개념과 함께 **쿡북 아이디어** 태그 아래에 문제를 제출하여 협업을 시작하세요. 아이디어가 승인된 후 가능한 한 아래 템플릿을 따르십시오. 일부 섹션은 필수이고 일부는 선택사항입니다. 숫자 순서를 따르는 것이 강력하게 제안되지만 필수는 아닙니다.
 
-Recipes should generally:
+일반적으로 레시피는 다음과 같아야합니다:
 
-- Solve a specific, common problem
-- Start with the simplest possible example
-- Introduce complexities one at a time
-- Link to other docs, rather than re-explaining concepts
-- Describe the problem, rather than assuming familiarity
-- Explain the process, rather than just the end result
-- Explain the pros and cons of your strategy, including when it is and isn't appropriate
-- Mention alternative solutions, if relevant, but leave in-depth explorations to a separate recipe
+- 구체적이고 일반적인 문제 해결
+- 가능한 가장 간단한 예제로 시작
+- 복잡성을 한번에 하나씩 소개
+- 개념을 다시 설명하는 대신, 다른 문서에 연결
+- 익숙하다고 가정하지 말고 문제를 설명
+- 최종 결과가 아닌 프로세스를 설명
+- 적절한 또는 적절하지 않은 시기를 포함하여, 전략의 장단점을 설명
+- 관련이 있는 경우 대체 솔루션을 언급하되 별도의 레시피에 대한 심층 탐색을 남김
 
-We request that you follow the template below. We understand, however, that there are times when you may necessarily need to deviate for clarity or flow. Either way, all recipes should at some point discuss the nuance of the choice made using this pattern, preferably in the form of the alternative patterns section.
+아래 템플릿을 따르시기 바랍니다. 그러나 명확성과 흐름을 위해 반드시 따르지 않는 경우가 있음을 이해합니다. 어느 방식이든, 모든 레시피는 어느 시점에서 이 패턴을 사용하여 선택한 뉘앙스를 논의해야하며, 가급적이면 대체 패턴 섹션의 형태로 이루어져야 합니다.
 
-### Base Example <badge text="required" type="error"></badge>
+### 기본 예제 <badge text="required" type="error"></badge>
 
-1. Articulate the problem in a sentence or two.
-2. Explain the simplest possible solution in a sentence or two.
-3. Show a small code sample.
-4. Explain what this accomplishes in a sentence.
+1. 문제를 한두 문장으로 표현하십시오.
+2. 한두 문장으로 가능한 가장 간단한 해결책을 설명하십시오.
+3. 작은 코드 샘플을 보여줍니다.
+4. 이것이 무엇을 해내는지 한 문장으로 설명하십시오.
 
-### Details about the Value <badge text="required" type="error"></badge>
+### 값에 대한 세부정보 <badge text="required" type="error"></badge>
 
-1. Address common questions that one might have while looking at the example. (Blockquotes are great for this)
-2. Show examples of common missteps and how they can be avoided.
-3. Show very simple code samples of good and bad patterns.
-4. Discuss why this may be a compelling pattern. Links for reference are not required but encouraged.
+1. 예제를 보면서 가잘 수 있는 일반적인 질문에 대해 설명합니다. (블록따옴표는 이것에 좋습니다)
+2. 일반적인 실수의 예제와 이를 방지할 수 있는 방법을 보여줍니다.
+3. 좋고 나쁜 패턴의 매우 간단한 코드 샘플을 보여줍니다.
+4. 이것이 왜 설득력있는 패턴인지 토론하십시오. 참조 링크는 필수는 아니지만 권장입니다.
 
-### Real-World Example <badge text="required" type="error"></badge>
+### 실제 사례 <badge text="required" type="error"></badge>
 
-Demonstrate the code that would power a common or interesting use case, either by:
+다음과 같은 방법으로 일반적이거나 흥미로운 사용 사례를 강화하는 코드를 보여줍니다:
 
-1. Walking through a few terse examples of setup, or
-2. Embedding a codepen/jsfiddle example
+1. 몇 가지 간단한 설정 예를 살펴보거나,
+2. codepen/jsfiddle 예제를 포함합니다.
 
-If you choose to do the latter, you should still talk through what it is and does.
+후자를 선택하는 경우에도, 당신은 여전히 그것이 무엇인지 그리고 무엇을 하는지를 이야기해야합니다.
 
-### Additional Context <badge text="optional"></badge>
+### 추가 컨텍스트 <badge text="optional"></badge>
 
-It's extremely helpful to write a bit about this pattern, where else it would apply, why it works well, and run through a bit of code as you do so or give people further reading materials here.
+이 패턴에 대한 약간의 글을 쓰는 것은 매우 도움이 됩니다. 다른 곳에 적용할 수 있고, 왜 잘 작동되는지, 그렇게하면서 약간의 코드를 실행하거나 여기에서 사람들에게 더 많은 자료를 제공하는 것이 좋습니다.
 
-### When To Avoid This Pattern <badge text="optional"></badge>
+### 이 패턴을 피해야하는 경우 <badge text="optional"></badge>
 
-This section is not required, but heavily recommended. It won't make sense to write it for something very simple such as toggling classes based on state change, but for more advanced patterns like mixins it's vital. The answer to most questions about development is ["It depends!"](https://codepen.io/rachsmith/pen/YweZbG), this section embraces that. Here, we'll take an honest look at when the pattern is useful and when it should be avoided, or when something else makes more sense.
+이 섹션은 필수는 아니지만 적극 권장합니다. 상태 변경을 기반으로 클래스를 토글하는 것과 같이 매우 간단한 것으로 작성하는 것은 이치에 맞지 않지만, mixin과 같은 고급 패턴의 경우 중요합니다. 개발에 대한 대부분의 질문에 대한 대답은 ["상황에 따라 다릅니다!"](https://codepen.io/rachsmith/pen/YweZbG)이며, 이 섹션에서는 이를 포함합니다. 여기서 우리는 패턴이 유용할 때와 피해야할 때 또는 다른 패턴이 더 합리적일 때 정직하게 살펴볼 것입니다.
 
-### Alternative Patterns <badge text="required with avoidance section" type="warning"></badge>
+### 대체 패턴 <badge text="required with avoidance section" type="warning"></badge>
 
-This section is required when you've provided the section above about avoidance. It's important to explore other methods so that people told that something is an antipattern in certain situations are not left wondering. In doing so, consider that the web is a big tent and that many people have different codebase structures and are solving different goals. Is the app large or small? Are they integrating Vue into an existing project, or are they building from scratch? Are their users only trying to achieve one goal or many? Is there a lot of asynchronous data? All of these concerns will impact alternative implementations. A good cookbook recipe gives developers this context.
+이 섹션은 위에서 언급한 회피에 대한 섹션을 제공할 때 필요합니다. 특정 상황에서 무언가 안티패턴이라고 사람들이 궁금해하지 않도록 다른 방법을 탐색하는 것이 중요합니다. 그렇게할 때, 웹은 큰 텐트(big tent, 다양한 그룹이나 아이디어를 포함하는 그룹)이며, 많은 사람들이 서로 다른 코드베이스 구조를 가지고 있으며, 서로 다른 목표를 해결하고 있다는 것을 고려하십시오. 앱이 크거나 작습니까? Vue를 기존 프로젝트에 통합하고 있습니까? 아니면 처음부터 구축하고 있습니까? 사용자가 하나의 목표만 달성하려고 합니까? 비동기 데이터가 많습니까? 이러한 모든 고려사항은 대체 구현(alternative implementations)에 영향을 미칩니다. 좋은 쿡북 레시피는 개발자에게 이러한 맥락을 제공합니다.
 
-## Thank you
+## 감사합니다
 
-It takes time to contribute to documentation, and if you spend the time to submit a PR to this section of our docs, you do so with our gratitude.
+문서화에 기여하는 데는 시간이 걸리며, 우리 문서의 이 섹션에 PR을 제출하는데 시간을 할애한다면 감사합니다.
