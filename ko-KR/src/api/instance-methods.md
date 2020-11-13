@@ -59,7 +59,7 @@
     })
     ```
 
-    When watched value is an Object or Array, any changes to its properties or elements won't trigger the watcher because they reference the same Object/Array:
+    watch된 값이 객체 또는 배열인 경우, 속성 또는 요소에 대한 변경사항은 동일한 객체/배열을 참조하기 때문에 감시자(watcher)를 트리거하지 않습니다:
 
     ```js
     const app = Vue.createApp({
@@ -175,23 +175,23 @@
 
 - **Option: flush**
 
-    The `flush` option allows for greater control over the timing of the callback. It can be set to `'pre'`, `'post'` or `'sync'`.
+    `flush`옵션을 사용하면, 콜백 타이밍을 더 잘 제어할 수 있습니다. `'pre'`, `'post'` 또는 `'sync'`로 설정할 수 있습니다.
 
-    The default value is `'pre'`, which specifies that the callback should be invoked before rendering. This allows the callback to update other values before the template runs.
+    기본 값은 `'pre'`이며, 렌더링 전에 콜백을 호출해야 함을 지정합니다. 이렇게하면 템플릿이 실행되기 전에 콜백이 다른 값을 업데이트 할 수 있습니다.
 
-    The value `'post'` can be used to defer the callback until after rendering. This should be used if the callback needs access to the updated DOM or child components via `$refs`.
+    `'post'` 값은 렌더링이 끝날 때까지 콜백을 연기하는데 사용할 수 있습니다. 콜백이 `$refs`를 통해 업데이트 된 DOM 또는 하위 컴포넌트에 접근해야하는 경우에 사용해야 합니다.
 
-    If `flush` is set to `'sync'`, the callback will be called synchronously, as soon as the value changes.
+    만약 `flush`가 `'sync'`로 설정되면, 콜백은 값이 변경되는 즉시 동기적으로 호출됩니다.
 
-    For both `'pre'` and `'post'`, the callback is buffered using a queue. The callback will only be added to the queue once, even if the watched value changes multiple times. The interim values will be skipped and won't be passed to the callback.
+    `'pre'`와 `'post'`의 경우 콜백은 큐(queue)를 사용하여 버퍼링됩니다. watched된 값이 여러 번 변경되더라도 콜백은 큐에 한번만 추가됩니다. 중간 값은 건너뛰고 콜백으로 전달되지 않습니다.
 
-    Buffering the callback not only improves performance but also helps to ensure data consistency. The watchers won't be triggered until the code performing the data updates has finished.
+    콜백을 버퍼링하면 성능이 향상될 뿐만 아니라 데이터 일관성을 보장하는데 도움이 됩니다. 감시자(watcher)는 데이터 업데이트를 수행하는 코드가 완료될 때까지 트리거되지 않습니다.
 
-    `'sync'` watchers should be used sparingly, as they don't have these benefits.
+    `'sync'` 감시자(watcher)는 이러한 이점이 없으므로, 절약하여(sparingly) 사용해야합니다.
 
-    For more information about `flush` see [Effect Flush Timing](../guide/reactivity-computed-watchers.html#effect-flush-timing).
+    `flush`에 대한 자세한 사항은 [Effect Flush Timing](../guide/reactivity-computed-watchers.html#effect-flush-timing)를 참조하세요.
 
-- [Watchers](../guide/computed.html#watchers)
+- 감시자(Watchers)
 
 ## $emit
 
