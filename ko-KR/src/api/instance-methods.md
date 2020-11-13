@@ -13,7 +13,7 @@
 
 - **반환값:** `{Function} unwatch`
 
-- **Usage:**
+- **사용방법:**
 
     컴포넌트 인스턴스의 반응 속성(reactive property) 또는 계산 된 함수(computed function)에서 변경 사항을 확인합니다. 콜백은 주어진 속성에 대한 새 값과 이전 값으로 호출됩니다. 최상위 `data`, `prop` 또는 `computed` 속성 이름만 문자열로 전달할 수 있습니다. 더 복잡한 표현식이나 중첩 된 속성의 경우 함수를 사용하세요.
 
@@ -101,7 +101,7 @@
     })
     ```
 
-    `$watch` returns an unwatch function that stops firing the callback:
+    `$watch`는 콜백을 호출하지 않는 unwatch 함수를 반환합니다:
 
     ```js
     const app = Vue.createApp({
@@ -121,7 +121,7 @@
 
 - **Option: deep**
 
-    To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. Note that you don't need to do so to listen for Array mutations.
+    Objects 내부의 중첩된 값 변경을 감지하려면 options 인자에`deep: true`를 전달해야 합니다. Array 변이를 수신하기 위해 그렇게 할 필요는 없습니다.
 
     ```js
     vm.$watch('someObject', callback, {
@@ -133,7 +133,7 @@
 
 - **Option: immediate**
 
-    Passing in `immediate: true` in the option will trigger the callback immediately with the current value of the expression:
+    옵션에서 `immediate: true`를 전달하면 표현식의 현재 값으로 즉시 콜백을 호출합니다:
 
     ```js
     vm.$watch('a', callback, {
@@ -142,7 +142,7 @@
     // `callback` is fired immediately with current value of `a`
     ```
 
-    Note that with `immediate` option you won't be able to unwatch the given property on the first callback call.
+    옵션에서 `immediate`는 주어진 프로퍼티에서 콜백을 처음 호출할 때 unwatch함수를 사용할 수 없습니다.
 
     ```js
     // This will cause an error
@@ -156,7 +156,7 @@
     )
     ```
 
-    If you still want to call an unwatch function inside the callback, you should check its availability first:
+    unwatch 함수를 콜백에 사용한다면, 유효성부터 체크하십시오:
 
     ```js
     let unwatch = null
@@ -200,11 +200,11 @@
     - `{string} eventName`
     - `...args (optional)`
 
-    Trigger an event on the current instance. Any additional arguments will be passed into the listener's callback function.
+    현재 인스턴스에서 이벤트를 트리거합니다. 부가적인 추가인자 리스너의 콜백함수로 전해집니다.
 
-- **Examples:**
+- **예시:**
 
-    Using `$emit` with only an event name:
+    이벤트 이름으로 `$emit`이 사용될 때:
 
     ```html
     <div id="emit-example-simple">
@@ -232,7 +232,7 @@
     app.mount('#emit-example-simple')
     ```
 
-    Using `$emit` with additional arguments:
+    `$emit` 부가인자로 사용될 때:
 
     ```html
     <div id="emit-example-argument">
@@ -287,7 +287,7 @@
 
     다음 DOM 업데이트 사이클 이후 실행될 콜백을 연기합니다. DOM 업데이트를 기다리기 위해 일부 데이터를 변경한 직후 사용하십시오. 이것은 콜백의 `this` 컨텍스트가 이 메소드를 호출하는 인스턴스에 자동으로 바인딩 되는 점을 제외하고 전역 `nextTick`과 같습니다.
 
-- **Example:**
+- **예시:**
 
     ```js
     Vue.createApp({
