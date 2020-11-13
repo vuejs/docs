@@ -159,13 +159,13 @@ Easing은 애니메이션에서 깊이를 전달하는 중요한 방법입니다
 ```css
 .button {
   background: #1b8f5a;
-  /* 초기 상태에 적용, 트랜지션은 반환 상태에 적용 됩니다. */
+  /* applied to the initial state, so this transition will be applied to the return state */
   transition: background 0.25s ease-in;
 }
 
 .button:hover {
   background: #3eaf7c;
-  /* 호버 상태에 적용, 호버가 트리거 될 때 트랜지션이 적용 됩니다. */
+  /* applied to the hover state, so this transition will be applied when a hover is triggered */
   transition: background 0.35s ease-out;
 }
 ```
