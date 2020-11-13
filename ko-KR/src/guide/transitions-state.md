@@ -142,4 +142,5 @@ Vue가 도와줄 수 있습니다. SVG는 단순한 데이터일 뿐이므로 �
 
 Sarah Drasner는 타이밍과 인터랙션 중심의 상태 변화를 조합하여 아래의 데모를 만들었습니다.
 
-<p data-height="400" data-theme-id="light" data-slug-hash="YZBGNp" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Vue-controlled Wall-E" class="codepen">See the Pen <a href="https://codepen.io/sdras/pen/YZBGNp/">Vue-controlled Wall-E</a> by Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>) on <a href="https://codepen.io">CodePen</a>.</p> <script async="" src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p data-height="400" data-theme-id="light" data-slug-hash="YZBGNp" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Vue-controlled Wall-E" class="codepen">See the Pen <a href="https://codepen.io/sdras/pen/YZBGNp/">Vue-controlled Wall-E</a> by Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>) on <a href="https://codepen.io">CodePen</a>.</p> <script async="" src="https://production-assets.codepen.io/assets/embed/ei.js"></script> 
