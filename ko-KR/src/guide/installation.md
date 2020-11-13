@@ -1,5 +1,13 @@
 # 설치방법
 
+Vue.js는 점진적으로 적용할 수 있도록 설계되었습니다. 이는 요구사항에 따라 여러 방법으로 프로젝트에 통합될 수 있음을 의미합니다.
+
+프로젝트에 Vue.js를 추가하는 3가지 주요방법이 있습니다:
+
+1. 페이지에 [CDN package](#cdn)로 import하기
+2. [npm](#npm) 사용하여 import하기
+3. 공식 [CLI](#cli)를 사용하여 프로젝트를 scaffold(개발을 용이하게 시작할 수 있는 발판을 제공해줌.)하고, 최신 프론트엔드 워크플로우(예. hot-reload, lint-on-save 등)를 위한 batteries-included(개발하고 싶은 거의 모든것을 개발하는데 도움을 줌) build를 제공합니다.
+
 ## 릴리즈 노트
 
 Latest version: ![beta](https://img.shields.io/npm/v/vue/next.svg)
@@ -28,7 +36,7 @@ Vue를 사용할 때, 브라우저에 [Vue Devtools](https://github.com/vuejs/vu
 
 프로덕션 환경인 경우 새 버전에서 예상치 못한 오류를 방지하려면 특정 버전의 빌드 파일을 추가하는것을 추천합니다.
 
-## NPM
+## npm
 
 Vue를 사용하여 대규모 애플리케이션을 구축할 때 NPM를 이용한 설치를 권장하고 있습니다. NPM은 [Webpack](https://webpack.js.org/) 또는 [Browserify](http://browserify.org/)와 같은 모듈 번들러와 잘 작동합니다. Vue는 [싱글 파일 컴포넌트](../guide/single-file-component.html)를 만들기 위한 도구도 제공합니다.
 
@@ -63,7 +71,7 @@ vue upgrade --next
 
 Vue 프로젝트에서 터미널에 다음 명령을 실행하여 Vite로 빠르게 설정할 수 있습니다.
 
-NPM:
+npm 방식:
 
 ```bash
 $ npm init vite-app <project-name>
