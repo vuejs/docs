@@ -145,23 +145,23 @@ Vue는 감시중인 배열의 변이 메소드를 래핑하여 뷰 갱신을 트
 - `sort()`
 - `reverse()`
 
-You can open the console and play with the previous examples' `items` array by calling their mutation methods. For example: `example1.items.push({ message: 'Baz' })`.
+콘솔을 열고 변형 메소드를 호출하여 이전의 예제의 `items` 배열로 사용할 수 있습니다.<br>예: `example1.items.push({ message: 'Baz' })`.
 
-### Replacing an Array
+### 배열 교체
 
-Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, you can replace the old array with the new one:
+이름에서 알 수 있듯이 변이 메소드는 호출된 원래 배열을 변경합니다. 이에 비해 `filter()`, `concat()` and `slice()`와 같은 원래 배열을 변경하지는 않지만 **항상 새 배열을 반환**하는 비-변이 메소드도 있습니다. 비-변이 메소드로 작업할 때 이전 배열을 새 배열로 바꿀 수 있습니다:
 
 ```js
 example1.items = example1.items.filter(item => item.message.match(/Foo/))
 ```
 
-You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
+이로 인해 Vue가 기존 DOM을 버리고 전체 목록을 다시 렌더링할 것이라고 생각할 수 있습니다. 다행히도 그렇지 않습니다. Vue는 DOM 요소 재사용을 최대화하기 위해 몇 가지 smart heuristics(스마트 휴리스틱, 과학적인 조건보다는 경험이나 직관에 의해 똑똑하게 의사결정을 하는 방식)을 구현하므로, 배열을 겹치는 객체를 포함하는 다른 배열로 교체하는 것은 매우 효율적인 작업입니다.
 
-## Displaying Filtered/Sorted Results
+## 필터링/졍렬된 결과 표시
 
-Sometimes we want to display a filtered or sorted version of an array without actually mutating or resetting the original data. In this case, you can create a computed property that returns the filtered or sorted array.
+때때로 우리는 원래 데이터를 실제로 변경하거나 재설정하지 않고, 배열의 필터링되거나 정렬된 버전을 표시하려고 합니다. 이 경우 필터링되거나 정렬된 배열을 반환하는 computed 속성을 만들 수 있습니다.
 
-For example:
+예시:
 
 ```html
 <li v-for="n in evenNumbers">{{ n }}</li>
@@ -180,7 +180,7 @@ computed: {
 }
 ```
 
-In situations where computed properties are not feasible (e.g. inside nested `v-for` loops), you can use a method:
+computed 속성이 실행 가능하지 않은 상황 (예. 중접된 `v-for` 루프 내부)에서는 다음 메소드를 사용할 수 있습니다:
 
 ```html
 <ul v-for="numbers in sets">
@@ -201,9 +201,9 @@ methods: {
 }
 ```
 
-## `v-for` with a Range
+## 범위가 있는 `v-for`
 
-`v-for` can also take an integer. In this case it will repeat the template that many times.
+`v-for`도 정수를 사용할 수 있습니다. 이 경우 템플릿을 여러 번 반복합니다.
 
 ```html
 <div id="range" class="demo">
@@ -211,13 +211,13 @@ methods: {
 </div>
 ```
 
-Result:
+결과:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="NWqLjNY" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with a range">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/NWqLjNY">   v-for with a range</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## `v-for` on a `<template>`
+## `<template>`에서의 `v-for`
 
-Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
+템플릿의 `v-if`와 마찬가지로, `v-for`와 함께 `<template>`태그를 사용하여 여러 요소의 블록을 렌더링 할 수도 있습니다. 예를들어:
 
 ```html
 <ul>
@@ -228,11 +228,11 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 </ul>
 ```
 
-## `v-for` with `v-if`
+## `v-if`가 있는 `v-for`
 
-:::tip Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for details. :::
+:::팁 `v-if`와 `v-for`를 함께 사용하는 것은 권장되지 **않습니다.** 자세한 내용은 [스타일 가이드](../style-guide/#avoid-v-if-with-v-for-essential)를 참조하세요. :::
 
-When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
+동일한 노드에 있는 경우, `v-if`는 `v-for`보다 우선 순위가 높습니다. 즉, `v-if` 조건은 `v-for` 범위의 변수에 접근할 수 없습니다:
 
 ```html
 <!-- This will throw an error because property "todo" is not defined on instance. -->
@@ -242,7 +242,7 @@ When they exist on the same node, `v-if` has a higher priority than `v-for`. Tha
 </li>
 ```
 
-This can be fixed by moving `v-for` to a wrapping `<template>` tag:
+`v-for`를 래핑(wrapping)하는 `<template>`태그를 사용하면 문제를 해결할 수 있습니다:
 
 ```html
 <template v-for="todo in todos">
@@ -252,7 +252,7 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag:
 </template>
 ```
 
-## `v-for` with a Component
+## 컴포넌트의 `v-for`
 
 > 이 섹션에서는 [컴포넌트](component-basics.md)를 안다고 가정합니다. 부담없이 건너뛰어도 됩니다.
 
@@ -273,9 +273,9 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag:
 ></my-component>
 ```
 
-The reason for not automatically injecting `item` into the component is because that makes the component tightly coupled to how `v-for` works. Being explicit about where its data comes from makes the component reusable in other situations.
+`item`을 컴포넌트에 자동으로 삽입하지 않는 이유는 컴포넌트가 `v-for` 작동방식과 밀접하게 연결되어 있기 때문입니다. 데이터의 출처를 명시하면 다른 상황에서 컴포넌트를 재사용할 수 있습니다.
 
-Here's a complete example of a simple todo list:
+다음은 간단한 todo list의 완전한 예입니다:
 
 ```html
 <div id="todo-list-example">
