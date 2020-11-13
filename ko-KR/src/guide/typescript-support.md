@@ -222,7 +222,7 @@ year.value = 2020 // ok!
 
 ### `reactive` 작성
 
-When typing a `reactive` property, we can use interfaces:
+`reactive` 프로퍼티를 입력할 때, 다음과 같은 인터페이스를 사용할 수 있습니다:
 
 ```ts
 import { defineComponent, reactive } from 'vue'
