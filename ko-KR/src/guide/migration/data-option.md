@@ -8,15 +8,15 @@ badges:
 
 ## 개요
 
-- **BREAKING**: `data` component option declaration no longer accepts a plain JavaScript `object` and expects a `function` declaration.
+- **BREAKING**: `data` 컴포넌트 옵션 선언은 더이상 일반 자바스크립트 `object`를 허용하지 않으며, `function` 선언을 예상합니다.
 
-- **BREAKING**: when merging multiple `data` return values from mixins or extends, the merge is now shallow instead of deep (only root-level properties are merged).
+- **BREAKING**: mixin 또는 extends에서 여러 `data` 반환 값을 병합할 때, 병합은 deep이 아니라 shallow입니다. (root-level의 속성만 병합됨.)
 
-## 2.x Syntax
+## 2.x 구문
 
-In 2.x, developers could define the `data` option with either an `object` or a `function`.
+2.x에서 개발자는 `object`또는 `function`을 사용하여 `data`옵션을 정의할 수 있습니다.
 
-For example:
+예시:
 
 ```html
 <!-- Object Declaration -->
@@ -40,13 +40,13 @@ For example:
 </script>
 ```
 
-Though this provided some convenience in terms of root instances having a shared state, this has led to confusion due to the fact that its only possible on the root instance.
+이것은 공유 상태를 갖는 루트 인스턴스 측면에서 약간의 편의를 제공하였지만, 루트 인스턴스에서만 가능하다는 사실로 인해 혼란을 야기하였습니다.
 
-## 3.x Update
+## 3.x 변경점
 
-In 3.x, the `data` option has been standardized to only accept a `function` that returns an `object`.
+3.x에서 `data`옵션은 `object`를 반환하는 `function`만 허용하도록 표준화되었습니다.
 
-Using the example above, there would only be one possible implementation of the code:
+위의 예제를 사용하면 가능한 코드 구현이 하나뿐입니다:
 
 ```html
 <script>
@@ -62,9 +62,9 @@ Using the example above, there would only be one possible implementation of the 
 </script>
 ```
 
-## Mixin Merge Behavior Change
+## Mixin 병합 동작 변경
 
-In addition, when `data()` from a component and its mixins or extends base are merged, the merge is now performed *shallowly*:
+또한, 컴포넌트의 `data()`와 해당 mixin 또는 extends 기반이 병합되면, 병합은 *shallowly(얕게)* 수행됩니다:
 
 ```js
 const Mixin = {
@@ -90,7 +90,7 @@ const CompA = {
 }
 ```
 
-In Vue 2.x, the resulting `$data` is:
+Vue 2.x에서 `$data` 결과는 다음과 같습니다:
 
 ```json
 {
@@ -101,7 +101,7 @@ In Vue 2.x, the resulting `$data` is:
 }
 ```
 
-In 3.0, the result will be:
+3.0에서 결과는 다음과 같습니다:
 
 ```json
 {
@@ -111,11 +111,11 @@ In 3.0, the result will be:
 }
 ```
 
-## Migration Strategy
+## 마이그레이션 방법
 
-For users relying on the object declaration, we recommend:
+객체 선언에 의존하는 사용자의 경우 다음을 권장합니다:
 
-- Extracting the shared data into an external object and using it as a property in `data`
-- Rewrite references to the shared data to point to a new shared object
+- 공유 데이터를 외부 객체에서 추출하여 `data`의 속성으로 사용
+- 새 공유 객체를 가리키도록 공유 데이터에 대한 참조를 다시 작성
 
-For users relying on the deep merge behavior from mixins, we recommend refactoring your code to avoid such reliance altogether, since deep merges from mixins are very implicit and can make the code logic more difficult to understand and debug.
+mixin의 깊은 병합(deep merge)에 의존하는 사용자의 경우, mixin의 깊은 병합이 매우 암시적이고 코드 로직의 이해도와 디버깅이 더 어렵게 만들 수 있기 때문에, 이러한 의존성을 피하기 위해 코드를 리펙토링하는 것이 좋습니다.
