@@ -7,7 +7,7 @@
 예시:
 
 ```js
-// define a mixin object
+// mixin 객체 정의
 const myMixin = {
   created() {
     this.hello()
@@ -19,7 +19,7 @@ const myMixin = {
   }
 }
 
-// define an app that uses this mixin
+// mixin을 사용할 어플리케이션 정의
 const app = Vue.createApp({
   mixins: [myMixin]
 })
