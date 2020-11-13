@@ -8,7 +8,6 @@
 const app = Vue.createApp({})
 ```
 
-You can chain other methods after `createApp`, they can be found in [Application API](./application-api.html)
 `createApp` 이후에 다른 메서드를 연결할 수 있으며 [Application API](./application-api.html)에서 찾을 수 있습니다.
 
 ### 전달인자
@@ -38,7 +37,6 @@ const app = Vue.createApp(
   { username: 'Evan' }
 )
 ```
-
 
 ```html
 <div id="app">
@@ -80,7 +78,7 @@ render() {
 
 - **Details:**
 
-  HTML 태그 이름, 컴포넌트, 비동기 컴포넌트 또는 null입니다. null을 사용하면 주석이 표시됩니다. 이 매개변수는 필수입니다.
+    HTML 태그 이름, 컴포넌트, 비동기 컴포넌트 또는 null입니다. null을 사용하면 주석이 표시됩니다. 이 매개변수는 필수입니다.
 
 #### props
 
@@ -88,7 +86,7 @@ render() {
 
 - **Details:**
 
-  템플릿에서 사용하는 attributes, props, events에 해당하는 개체입니다. (선택사항)
+    템플릿에서 사용하는 attributes, props, events에 해당하는 개체입니다. (선택사항)
 
 #### children
 
@@ -96,17 +94,17 @@ render() {
 
 - **Details:**
 
-  `h()`를 사용하여 빌드하거나 문자열을 사용하여 "text VNodes" 또는 슬롯이 있는 객체를 가져옵니다. (선택사항)
+    `h()`를 사용하여 빌드하거나 문자열을 사용하여 "text VNodes" 또는 슬롯이 있는 객체를 가져옵니다. (선택사항)
 
-  ```js
-  h('div', {}, [
-    'Some text comes first.',
-    h('h1', 'A headline'),
-    h(MyComponent, {
-      someProp: 'foobar'
-    })
-  ])
-  ```
+    ```js
+    h('div', {}, [
+      'Some text comes first.',
+      h('h1', 'A headline'),
+      h(MyComponent, {
+        someProp: 'foobar'
+      })
+    ])
+    ```
 
 ## defineComponent
 
@@ -193,25 +191,12 @@ const AsyncComp = defineAsyncComponent({
   delay: 200,
   // 지정된 시간이 초과한경우 오류 컴포넌트를 표시합니다.(기본값:무한정)
   timeout: 3000,
-  // 컴포넌트가 사용 가능한지 지정. (기본값: true)
-  suspensible: false,
-  /**
-   *
-   * @param {*} error 에러메시지 오브젝트
-   * @param {*} retry A로더 promise가 rejects 될 때 비동기 컴포넌트가 다시 시도 할지를 boolean 값으로 반환하는 함수
-   * @param {*} fail  실패후 처리
-   * @param {*} attempts 최대 재시도 횟수
-   */
-  onError(error, retry, fail, attempts) {
-    if (error.message.match(/fetch/) && attempts <= 3) {
-      // fetch에러가 발생시 최대 3회 재시도
-      retry()
-    } else {
-      // Note retry/fail은 resolve/reject와 같습니다.
-      // 오류처리를 위해서 그 중 하나를 호출해야합니다.
-      fail()
-    }
-  },
+  // 로더 promise가 rejects 될 때 비동기 컴포넌트가 다시 시도 할지를 boolean 값으로 반환하는 함수
+  retryWhen: error => error.code !== 404,
+  // 최대 재시도 횟수
+  maxRetries: 3,
+  // 컴포넌트가 사용 가능한지 지정
+  suspensible: false
 })
 ```
 
@@ -219,9 +204,7 @@ const AsyncComp = defineAsyncComponent({
 
 ## resolveComponent
 
-:::warning
-`resolveComponent`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다.
-:::
+:::warning `resolveComponent`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
 
 현재 응용 프로그램 인스턴스에서 사용 가능한 경우 이름으로 `component`를 확인할 수 있습니다.
 
@@ -251,13 +234,11 @@ render() {
 
 - **Details:**
 
-  로드된 component 이름입니다.
+    로드된 component 이름입니다.
 
 ## resolveDynamicComponent
 
-:::warning
-`resolveDynamicComponent`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다.
-:::
+:::warning `resolveDynamicComponent`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
 
 `<component :is="">`가 사용하는 것과 같은 메커니즘으로 `component`를 해결할 수 있습니다.
 
@@ -280,13 +261,11 @@ render () {
 
 - **Details:**
 
-  자세한 내용은 [동적 컴포넌트](../guide/component-dynamic-async.html) 문서를 참조하세요.
+    자세한 내용은 [동적 컴포넌트](../guide/component-dynamic-async.html) 문서를 참조하세요.
 
 ## resolveDirective
 
-:::warning
-`resolveDirective`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다.
-:::
+:::warning `resolveDirective`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
 
 현재 애플리케이션 인스턴스에서 사용할 수 있는 경우 해당 이름으로 `directive`를 확인할 수 있습니다.
 
@@ -314,13 +293,11 @@ render () {
 
 - **Details:**
 
-  로드된 directive 이름입니다.
+    로드된 directive 이름입니다.
 
 ## withDirectives
 
-:::warning
-`withDirectives`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다.
-:::
+:::warning `withDirectives`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
 
 지시문(directives)을 **VNode**에 적용할 수 있습니다. 적용된 지시문(directives)을 가진 VNode를 돌려줍니다.
 
@@ -343,9 +320,9 @@ return withDirectives(h('div'), [
 
 - **Type:** `vnode`
 
-- **Details:** 
+- **Details:**
 
-  일반적으로 `h()`로 생성되는 가상노드
+    일반적으로 `h()`로 생성되는 가상노드
 
 #### directives
 
@@ -353,51 +330,54 @@ return withDirectives(h('div'), [
 
 - **Details:**
 
-  지시문(directives)의 배열(Array)입니다. 
+    지시문(directives)의 배열(Array)입니다.
 
-  각 지시문 자체는 배열이며, 다음의 예와 같이 최대 4 개의 인덱스를 정의 할 수 있습니다.
+    각 지시문 자체는 배열이며, 다음의 예와 같이 최대 4 개의 인덱스를 정의 할 수 있습니다.
 
-  - `[directive]` - 지시문 자체 (필수)
+    - `[directive]` - 지시문 자체 (필수)
 
-  ```js
-  const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(h('div'), [[MyDirective]])
-  ```
+    ```js
+    const MyDirective = resolveDirective('MyDirective')
+    const nodeWithDirectives = withDirectives(
+      h('div'),
+      [ [MyDirective] ]
+    )
+    ```
 
-  - `[directive, value]` - 지시문에 할당 할 `any` 유형의 값
+    - `[directive, value]` - 지시문에 할당 할 `any` 유형의 값
 
-  ```js
-  const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(h('div'), [[MyDirective, 100]])
-  ```
+    ```js
+    const MyDirective = resolveDirective('MyDirective')
+    const nodeWithDirectives = withDirectives(h('div'), [[MyDirective, 100]])
+    ```
 
-  - `[directive, value, arg]` - 플러스 `String` 인수, `v-on:click`에서 `click`
+    - `[directive, value, arg]` - 플러스 `String` 인수, `v-on:click`에서 `click`
 
-  ```js
-  const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(h('div'), [
-    [MyDirective, 100, 'click']
-  ])
-  ```
+    ```js
+    const MyDirective = resolveDirective('MyDirective')
+    const nodeWithDirectives = withDirectives(h('div'), [
+      [MyDirective, 100, 'click']
+    ])
+    ```
 
-  - `[directive, value, arg, modifiers]` - `key: value` 쌍 `오브젝트(Object)`는 수정자를 정의합니다.
+    - `[directive, value, arg, modifiers]` - `key: value` 쌍 `오브젝트(Object)`는 수정자를 정의합니다.
 
-  ```js
-  const MyDirective = resolveDirective('MyDirective')
-  const nodeWithDirectives = withDirectives(h('div'), [
-    [MyDirective, 100, 'click', { prevent: true }]
-  ])
-  ```
+    ```js
+    const MyDirective = resolveDirective('MyDirective')
+    const nodeWithDirectives = withDirectives(h('div'), [
+      [MyDirective, 100, 'click', { prevent: true }]
+    ])
+    ```
 
 ## createRenderer
 
-createRenderer 함수는 `HostNode`과 `HostElement` 두 가지 일반적인 인수를 받아들입니다. 
-이 호스트 환경의 노드 유형과 요소 유형에 대응하고 있습니다. 
-  
+createRenderer 함수는 `HostNode`과 `HostElement` 두 가지 일반적인 인수를 받아들입니다. 이 호스트 환경의 노드 유형과 요소 유형에 대응하고 있습니다.
+
 예를 들어, runtime-dom의 경우 HostNode는 DOM `Node` 인터페이스를 제공, HostElement는 DOM `Element` 인터페이스입니다.
-  
+
 커스텀 렌더러는 다음과 같은 플랫폼 특정 유형을 전달할 수 있습니다.
-``` js
+
+```js
 import { createRenderer } from 'vue'
 const { render, createApp } = createRenderer<Node, Element>({
   patchProp,
@@ -415,7 +395,7 @@ const { render, createApp } = createRenderer<Node, Element>({
 
 - **Details:**
 
-  호스트 환경의 노드입니다.
+    호스트 환경의 노드입니다.
 
 #### HostElement
 
@@ -423,7 +403,7 @@ const { render, createApp } = createRenderer<Node, Element>({
 
 - **Details:**
 
-  호스트 환경의 요소입니다.
+    호스트 환경의 요소입니다.
 
 ## nextTick
 

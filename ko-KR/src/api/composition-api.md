@@ -156,3 +156,58 @@ const foo = inject<string>('foo') // string | undefined
 - **참고**:
     - [Provide / Inject](../guide/component-provide-inject.html)
     - [Composition API Provide / Inject](../guide/composition-api-provide-inject.html)
+
+## `getCurrentInstance`
+
+`getCurrentInstance`를 사용하면 고급 사용이나 라이브러리를 생성하는 이에게 유용한 내부 컴포넌트 인스턴스에 접근할 수 있습니다.
+
+```ts
+import { getCurrentInstance } from 'vue'
+
+const MyComponent = {
+  setup() {
+    const internalInstance = getCurrentInstance()
+
+    internalInstance.appContext.config.globalProperties // access to globalProperties
+  }
+}
+```
+
+`getCurrentInstance`는 **오직 ** [setup](#setup) 이나 [Lifecycle Hooks](#lifecycle-hooks)에서만 작동합니다.
+
+> [setup](#setup)이나 [Lifecycle Hooks](#lifecycle-hooks) 외부에서 사용하는 경우, `setup`에서 `getCurrentInstance()`를 호출하고 대신 인스턴스를 사용하십시오.
+
+```ts
+const MyComponent = {
+  setup() {
+    const internalInstance = getCurrentInstance() // works
+
+    const id = useComponentId() // works
+
+    const handleClick = () => {
+      getCurrentInstance() // doesn't work
+      useComponentId() // doesn't work
+
+      internalInstance // works
+    }
+
+    onMounted(() => {
+      getCurrentInstance() // works
+    })
+
+    return () =>
+      h(
+        'button',
+        {
+          onClick: handleClick
+        },
+        `uid: ${id}`
+      )
+  }
+}
+
+// also works if called on a composable
+function useComponentId() {
+  return getCurrentInstance().uid
+}
+```
