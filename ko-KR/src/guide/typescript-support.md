@@ -4,7 +4,7 @@
 
 ## NPM 패키지 공식 선언
 
-정적 타입 시스템은 애플리케이션이 커지면서 발생할 수 있는 런타임 에러를 방지 할 수 있습니다. 그렇기 때문에 Vue 3는 TypeScript를 사용했습니다. TypeScript를  Vue와 함께 사용하면 추가적인 도구화가 필요 없습니다. TypeScript는 vue에서 최우선적으로 지원하고 있습니다.
+정적 타입 시스템은 어플리케이션이 증가함에 따라 잠재적인 런타임 오류를 방지하는데 도움이 될 수 있습니다. 이것이 바로 Vue 3이 TypeScript로 작성된 이유입니다. 이것은 Vue와 함께 TypeScript를 사용하기 위해 추가 도구가 필요하지 않다는 것을 의미합니다.
 
 ## 권장 설정
 
@@ -14,8 +14,9 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    // 이러면 `this`의 데이터 속성에 대한 더 엄격한 추측이 가능 합니다.
+    // this enables stricter inference for data properties on `this`
     "strict": true,
+    "jsx": "preserve",
     "moduleResolution": "node"
   }
 }
@@ -32,13 +33,13 @@ component 메소드에서 `this`의 타입 체크를 활용하려면 `strict: tr
 [Vue CLI](https://github.com/vuejs/vue-cli)는 TypeScript를 사용하여 새로운 프로젝트를 생성할 수 있습니다. 시작하려면:
 
 ```bash
-# 1. 설치되어 있지 않다면, Vue CLI를 설치합니다.
-npm install --global @vue/cli@next
+# 1. Install Vue CLI, if it's not already installed
+npm install --global @vue/cli
 
-# 2. 새로운 프로젝트를 생성하며, "Manually select features" 옵션을 선택합니다.
+# 2. Create a new project, then choose the "Manually select features" option
 vue create my-project-name
 
-# 만약 이미 TypeScript가 없는 Vue CLI 프로젝트가 있다면, 정확한 Vue CLI 플러그인을 추가합니다:
+# If you already have a Vue CLI project without TypeScript, please add a proper Vue CLI plugin:
 vue add typescript
 ```
 
@@ -64,7 +65,7 @@ TypeScript에서 Vue component내의 타입을 올바르게 추론하려면, 전
 import { defineComponent } from 'vue'
 
 const Component = defineComponent({
-  // 타입을 사용할 수 있는 형식
+  // type inference enabled
 })
 ```
 
@@ -109,7 +110,7 @@ const Component = defineComponent({
 
 ### 반환 타입 어노테이팅
 
-Vue의 선언 파일의 순환 특성 때문에 TypeScript는 computed의 타입을 추론하는데 어려움이 있을 수 있습니다. 이런 이유로, computed 프로퍼티의 반환 타입에 어노테이팅이 필요합니다.
+Vue의 선언 파일의 순환 특성(circular nature)때문에 TypeScript는 computed를 추론하는데 어려움을 겪을 수 있습니다. 이러한 이유로 computed 속성의 반환 유형에 주석을 추가해야합니다.
 
 ```ts
 import { defineComponent } from 'vue'
@@ -209,19 +210,19 @@ const Component = defineComponent({
 })
 ```
 
-때때로 ref의 내부 값을 위해 복잡한 타입을 세분화 할 필요가 있습니다. 기본 추론을 재정의 하기위해 ref를 호출할 때, 다음과 같이 제너릭 전달인자만 보내면 됩니다:
+때때로 우리는 ref의 내부 값을 복잡한 유형을 정해야할 수도 있습니다. ref를 호출하여 기본적인 추론을 재정의할 때, 단순히 일반적인 전달인자를 전달하여 이를 수행할 수 있습니다.
 
 ```ts
 const year = ref<string | number>('2020') // year's type: Ref<string | number>
 
-year.value = 2020 // 좋아요!
+year.value = 2020 // ok!
 ```
 
 ::: tip 제너릭 타입을 알 수 없는 경우,  `ref`를 `Ref<T>`으로 캐스팅 하는 것을 권장합니다 :::
 
 ### `reactive` 작성
 
-`reactive` 프로퍼티를 입력할 때, 다음과 같은 인터페이스를 사용할 수 있습니다:
+When typing a `reactive` property, we can use interfaces:
 
 ```ts
 import { defineComponent, reactive } from 'vue'
@@ -235,9 +236,9 @@ export default defineComponent({
   name: 'HelloWorld',
   setup() {
     const book = reactive<Book>({ title: 'Vue 3 Guide' })
-    // 또는
+    // or
     const book: Book = reactive({ title: 'Vue 3 Guide' })
-    // 또는
+    // or
     const book = reactive({ title: 'Vue 3 Guide' }) as Book
   }
 })
@@ -255,7 +256,7 @@ export default defineComponent({
   setup() {
     let count = ref(0)
 
-    // 읽기전용
+    // read-only
     const doubleCount = computed(() => count.value * 2)
 
     const result = doubleCount.value.split('') // => Property 'split' does not exist on type 'number'
