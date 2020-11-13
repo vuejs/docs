@@ -45,7 +45,7 @@ export default {
 혹은 단일 파일 컴포넌트에서의 `<template>`을 사용해서 함수형 컴포넌트를 만들 수 있었습니다.
 
 ```js
-// Vue 2 <template>를 사용한 함수형 컴포넌트 예시
+// Vue 2 Functional Component Example with <template>
 <template functional>
   <component
     :is="`h${props.level}`"
@@ -87,14 +87,14 @@ export default DynamicHeading
 
 ### 단일파일 컴포넌트 (SFCs)
 
-3.x에서 상태 저장 컴포넌트와 함수형 컴포넌트 사이의 성능 차이가 대폭 감소하여 대부분의 사용사례에서 성능차이가 무시할 정도가 되었습니다. 그 결과 싱글 파일 컴포넌트에서 `functional`을 사용하는 개발자의 마이그레이션 방법은 해당 속성을 지우는 것입니다. 추가 작업이 필요 없습니다.
+3.x에서는 상태저장 컴포넌트와 함수형 컴포넌트 사이의 성능 차이가 대폭 감소하여 대부분의 사용사례에서 성능차이가 무시할 정도가 되었습니다. 그 결과 단일파일 컴포넌트(SFCs)에서 `functional`을 사용하는 개발자의 마이그레이션 방법은 해당 속성을 제거하고, `props`를 `$props`로, `attrs`를 `$attrs`로 모든 참조명을 바꾸는 것입니다.
 
 위에서 만든 template을 사용한 `<dynamic-heading>` 예시가 Vue 3에서는 다음과 같이 바뀌었습니다.
 
 ```js{1}
 <template>
   <component
-    v-bind:is="`h${props.level}`"
+    v-bind:is="`h${$props.level}`"
     v-bind="$attrs"
   />
 </template>
