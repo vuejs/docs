@@ -6,9 +6,10 @@
 
 ## Vue.js가 무엇인가요?
 
-vue에 대해 깊게 들어가기전에, 여러분게제 주요 원칙과 샘플을 제공하는 <a id="modal-player" class="vuemastery-trigger"  href="#">비디오를 만들었으니</a> 한번 보시기 바랍니다. 
 
 Vue(/vjuː/ 로 발음, ***view*** 와 발음이 같습니다.)는 사용자 인터페이스를 만들기 위한 ***프로그레시브 프레임워크*** 입니다. 다른 단일형 프레임워크와 달리 Vue는 점진적으로 채택할 수 있도록 설계하였습니다. 핵심 라이브러리는 뷰 레이어만 초점을 맞추어 다른 라이브러리나 기존 프로젝트와의 통합이 매우 쉽습니다. 그리고 Vue는  [현대적 도구](../guide/single-file-component.html) 및  [지원 라이브러리](https://github.com/vuejs/awesome-vue#components--libraries) 와 함께 사용한다면 정교한 단일 페이지 응용프로그램을 완벽하게 지원할 수 있습니다.
+
+vue에 대해 깊게 들어가기전에, 여러분게제 주요 원칙과 샘플을 제공하는 <a id="modal-player" class="vuemastery-trigger"  href="#">비디오를 만들었으니</a> 한번 보시기 바랍니다. 
 
 <common-vuemastery-video-modal/>
 
