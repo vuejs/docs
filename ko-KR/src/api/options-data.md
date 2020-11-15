@@ -297,4 +297,4 @@
   `emits` 에 나열된 이벤트는 컴포넌트의 루트 요소에 의해 ***상속되지 않으며***, `$attrs` 속성에서도 제외됩니다
   :::
 
-**더 알아보기:** [Attribute Inheritance](../guide/component-attrs.html#attribute-inheritance)
+- **더 알아보기:** [Attribute Inheritance](../guide/component-attrs.html#attribute-inheritance)
