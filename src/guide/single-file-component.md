@@ -75,11 +75,10 @@ Most of the time when developing a third party library we want to build it in a 
 We will need to install rollup and a few dependencies:
 
 ```bash
-npm install --save-dev rollup rollup-plugin-commonjs rollup-plugin-vue 
+npm install --save-dev rollup @rollup/plugin-commonjs rollup-plugin-vue 
 ```
 
-The command above will install [rollup](https://webpack.js.org), [rollup-plugin-commonjs](https://github.com/rollup/plugins/tree/master/packages/commonjs) and 
-https://github.com/rollup/plugins) and [rollup-plugin-vue](https://github.com/vuejs/rollup-plugin-vue) note that this is the minimal amount of rollup plugins that we need to use to compile the code in an `esm` module, users may want to also add [rollup-plugin-babel](https://github.com/rollup/plugins/tree/master/packages/babel) to transpile their code and [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) if they use dependencies that they want to bundle with the library.
+These are the minimal amount of rollup plugins that we need to use to compile the code in an `esm` module, users may want to also add [rollup-plugin-babel](https://github.com/rollup/plugins/tree/master/packages/babel) to transpile their code and [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) if they use dependencies that they want to bundle with the library.
 
 #### Configuring rollup
 
@@ -104,7 +103,7 @@ export default {
   output: [ 
     {
       file: pkg.module, // the name of our esm librry
-      format: "es", // the format of choice
+      format: "esm", // the format of choice
       sourcemap: true, // ask rollup to include sourcemaps
     },
   ],
@@ -159,7 +158,7 @@ output: [
       name: "MyLibraryName",
       sourcemap: true,
       globals: {
-        vue: "vue",
+        vue: "Vue",
       },
     },
 ]
