@@ -3,38 +3,38 @@ badges:
 - breaking
 ---
 
-# Custom Elements Interop <migrationbadges badges="$frontmatter.badges"></migrationbadges>
+# 사용자 지정 요소 Interop(Custom Elements Interop) <migrationbadges badges="$frontmatter.badges"></migrationbadges>
 
 # 개요
 
-- **BREAKING:** Custom elements whitelisting is now performed during template compilation, and should be configured via compiler options instead of runtime config.
-- **BREAKING:** Special `is` prop usage is restricted to the reserved `<component>` tag only.
-- **NEW:** There is new `v-is` directive to support 2.x use cases where `is` was used on native elements to work around native HTML parsing restrictions.
+- **중단(BREAKING):** 사용자 지정 요소 화이트리스트는 이제 템플릿 컴파일 중에 수행되며, 런타임 구성 대신 컴파일러 옵션을 통해 구성해야 합니다.
+- **중단(BREAKING):** 특별한 `is` prop 사용은 예약된 `<component>` 태그로만 제한됩니다.
+- **신규(NEW):** 네이티브 요소에서 `is`가 사용된 2.x 사용사례를 지원하는 새로운 `v-is` 디렉티브가 있습니다.
 
-## Autonomous Custom Elements
+## 자율 사용자지정 요소(Autonomous Custom Elements)
 
-If we want to add a custom element defined outside of Vue (e.g. using the Web Components API), we need to 'instruct' Vue to treat it as a custom element. Let's use the following template as an example.
+Vue 외부에서 정의된 사용자지정 요소를 추가하려면 (예: Web Components API 사용), Vue에 이를 사용자지정 요소로 취급하도록 '지시(instruct)'해야 합니다. 다음 템플릿을 예로 들어보겠습니다.
 
 ```html
 <plastic-button></plastic-button>
 ```
 
-### 2.x Syntax
+### 2.x 문법
 
-In Vue 2.x, whitelisting tags as custom elements was done via `Vue.config.ignoredElements`:
+Vue 2.x에서는 `Vue.config.ignoredElements`를 통해 태그를 사용자지정 요소로 허용목록에 추가하였습니다:
 
 ```js
-// This will make Vue ignore custom element defined outside of Vue
-// (e.g., using the Web Components APIs)
+// Vue가 Vue외부에서 정의된 사용자지정 요소를 무시하게 됩니다.
+// (예: Web Components APIs 사용)
 
 Vue.config.ignoredElements = ['plastic-button']
 ```
 
-### 3.x Syntax
+### 3.x 문법
 
-**In Vue 3.0, this check is performed during template compilation.** To instruct the compiler to treat `<plastic-button>` as a custom element:
+**Vue 3.0에서는 템플릿 컴파일 중에 수행됩니다.** `<plastic-button>`을 사용자지정 요소로 처리하도록 컴파일러에 지시하려면 다음과 같습니다:
 
-- If using a build step: pass the `isCustomElement` option to the Vue template compiler. If using `vue-loader`, this should be passed via `vue-loader`'s `compilerOptions` option:
+- 빌드 단계를 사용하는 경우: `isCustomElement`옵션을 Vue 템플릿 컴파일러에 전달합니다. `vue-loader`를 사용하는 경우, `vue-loader`의 `compilerOptions`옵션을 통해 전달해야 합니다:
 
     ```js
     // in webpack config
@@ -52,59 +52,59 @@ Vue.config.ignoredElements = ['plastic-button']
     ]
     ```
 
-- If using on-the-fly template compilation, pass it via `app.config.isCustomElement`:
+- 즉석(on-the-fly) 템플릿 컴파일을 사용하는 경우, `app.config.isCustomElement`를 통해 전달합니다.
 
     ```js
     const app = Vue.createApp({})
     app.config.isCustomElement = tag => tag === 'plastic-button'
     ```
 
-    It's important to note the runtime config only affects runtime template compilation - it won't affect pre-compiled templates.
+    런타임 구성은 런타임 템플릿 컴파일에만 영향을 미칩니다. 사전 컴파일된 템플릿에는 영향을 주지 않습니다.
 
-## Customized Built-in Elements
+## 사용자 지정 내장 요소(Customized Built-in Elements)
 
-The Custom Elements specification provides a way to use custom elements as [Customized Built-in Element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example) by adding the `is` attribute to a built-in element:
+사용자 지정 요소의 사양은 내장된 요소에 `is` 속성을 추가하여 [사용자 지정 내장 요소(Customized Built-in Element)](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example)로 사용하는 방법을 제공합니다.
 
 ```html
 <button is="plastic-button">Click Me!</button>
 ```
 
-Vue's usage of the `is` special prop was simulating what the native attribute does before it was made universally available in browsers. However, in 2.x it was interpreted as rendering a Vue component with the name `plastic-button`. This blocks the native usage of Customized Built-in Element mentioned above.
+Vue의 특별한 `is` props는 브라우저에서 보편적으로 사용할 수 있게 되기 전에, 기본 속성(native attribute)이 수행하는 작업을 시뮬레이션하는 것입니다. 그러나 2.x에서는 `plastic-button`이라는 이름의 Vue 컴포넌트를 렌더링하는 것으로 해석되었습니다. 이것은 위에서 언급한 사용자 정의된 내장 요소의 기본 사용법을 차단합니다.
 
-In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<component>` tag only.
+3.0에서는 `is` prop에 대한 Vue의 특수한 처리를 `<component>`태그로만 제한합니다.
 
-- When used on the reserved `<component>` tag, it will behave exactly the same as in 2.x;
+- `<component>`태그에 사용하면 2.x에서와 정확히 동일하게 작동합니다.
 
-- When used on normal components, it will behave like a normal prop:
+- 일반 컴포넌트에서 사용하면, 일반 prop처럼 작동합니다:
 
     ```html
     <foo is="bar" />
     ```
 
-    - 2.x behavior: renders the `bar` component.
-    - 3.x behavior: renders the `foo` component and passing the `is` prop.
+    - 2.x 동작: `bar` 컴포넌트를 렌더링합니다.
+    - 3.x 동작: `foo` 컴포넌트를 렌더링하고 `is` prop를 전달합니다.
 
-- When used on plain elements, it will be passed to the `createElement` call as the `is` option, and also rendered as a native attribute. This supports the usage of customized built-in elements.
+- 일반 요소(plain element)에서 사용되는 경우 `is`옵션으로 `createElement` 호출에 전달되고 기본 속성(native attribute)으로 렌더링됩니다. 이것은 사용자 정의된 내장 요소(customized built-in elements)의 사용을 지원합니다.
 
     ```html
     <button is="plastic-button">Click Me!</button>
     ```
 
-    - 2.x behavior: renders the `plastic-button` component.
+    - 2.x 동작: `plastic-button` 컴포넌트를 렌더링합니다.
 
-    - 3.x behavior: renders a native button by calling
+    - 3.x 동작: 호출하여 네이티브 버튼(native button)을 렌더링합니다.
 
         ```js
         document.createElement('button', { is: 'plastic-button' })
         ```
 
-## `v-is` for In-DOM Template Parsing Workarounds
+## In-DOM 템플릿 파싱 해결방법을 위한 `v-is`
 
-> Note: this section only affects cases where Vue templates are directly written in the page's HTML. When using in-DOM templates, the template is subject to native HTML parsing rules. Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
+> Note: 이 섹션은 Vue 템플릿이 페이지의 HTML에 직접 작성된 경우에만 영향을 줍니다. in-DOM 템플릿을 사용할 때, 템플릿은 기본 HTML 구문분석 규칙을 따릅니다. `<ul>`, `<ol>`, `<table>` 및 `<select>`와 같은 일부 HTML 요소에는 내부에 표시할 수 있는 요소에 대한 제한이 있으며, `<li>`, `<tr>` 및 `<option>`과 같은 일부요소는 다른 특정 요소안에 나타납니다.
 
-### 2.x Syntax
+### 2.x 문법
 
-In Vue 2 we recommended working around with these restrictions by using the `is` prop on a native tag:
+Vue2에서는 네이티브 태그(native tag)에 `is` prop를 사용하여, 이러한 제한사항을 해결하는 것이 좋습니다:
 
 ```html
 <table>
@@ -112,9 +112,9 @@ In Vue 2 we recommended working around with these restrictions by using the `is`
 </table>
 ```
 
-### 3.x Syntax
+### 3.x 문법
 
-With the behavior change of `is`, we introduce a new directive `v-is` for working around these cases:
+`is`의 동작 변경으로, 다음과 같은 경우를 해결하기 위한 새로운 디렉티브 `v-is`를 소개합니다:
 
 ```html
 <table>
@@ -122,19 +122,19 @@ With the behavior change of `is`, we introduce a new directive `v-is` for workin
 </table>
 ```
 
-:::warning `v-is` functions like a dynamic 2.x `:is` binding - so to render a component by its registered name, its value should be a JavaScript string literal:
+::: 경고 `v-is` 는 동적 2.x `:is` 바인딩과 같은 기능을 합니다. 따라서 등록된 이름으로 컴포넌트를 렌더링하려면 해당 값이 자바스크립트 문자열 리터럴이어야합니다:
 
 ```html
-<!-- Incorrect, nothing will be rendered -->
+<!-- 올바르지 않은 사용법, 아무것도 렌더링 되지 않습니다. -->
 <tr v-is="blog-post-row"></tr>
 
-<!-- Correct -->
+<!-- 올바른 사용법 -->
 <tr v-is="'blog-post-row'"></tr>
 ```
 
 :::
 
-## Migration Strategy
+## 마이그레이션 방법
 
-- Replace `config.ignoredElements` with either `vue-loader`'s `compilerOptions` (with the build step) or `app.config.isCustomElement` (with on-the-fly template compilation)
-- Change all non-`<component>` tags with `is` usage to `<component is="...">` (for SFC templates) or `v-is` (for in-DOM templates).
+- `config.ignoredElements`를 `vue-loader`의 `compilerOptions`(빌드 단계 포함) 또는 `app.config.isCustomElement`(즉석 템플릿 컴파일 포함)로 대체합니다.
+- `is` 사용이 있는 모든 비-`<component>` 태그를 `<component is="...">` (SFC 템플릿의 경우) 또는 `v-is`(in-DOM 템플릿의 경우)로 변경합니다.
