@@ -872,12 +872,12 @@ Self-close 처리된 컴포넌트는 내용이 없을 뿐만 아니라 **문자 
 
 **JS/[JSX](../guide/render-function.html#jsx) 안의 컴포넌트 이름은 항상 파스칼 케이스(PascalCase)여야 하지만, 단순히 `app.component`로 등록한 전역 컴포넌트만을 사용하는 간단한 애플리케이션이라면 내부 문자열이 케밥 케이스(kebab-case)일 수 있습니다.**
 
-::: details Detailed Explanation In JavaScript, PascalCase is the convention for classes and prototype constructors - essentially, anything that can have distinct instances. Vue components also have instances, so it makes sense to also use PascalCase. As an added benefit, using PascalCase within JSX (and templates) allows readers of the code to more easily distinguish between components and HTML elements.
+::: 세부사항 JavaScript에서 PascalCase는 클래스 및 프로토타입 생성자에 대한 규칙입니다. 본질적으로 별개의 인스턴스를 가질 수 있는 모든 것입니다. Vue 컴포넌트도 또한 인스턴스를 가지고 있으므로, PascalCase를 사용하는 것이 좋습니다. 추가적인 이점으로, JSX (또는 템플릿)내에서 PascalCase를 사용하면 코드를 읽는 사람에게 컴포넌트와 HTML 요소를 보다 쉽게 구분할 수 있습니다.
 
 그러나, `app.component`를 통해 정의된 **전역 컴포넌트만을** 사용하는 애플리케이션에서는 아래와 같은 이유로 케밥 케이스(kebab-case)를 권장합니다.
 
-- It's rare that global components are ever referenced in JavaScript, so following a convention for JavaScript makes less sense.
-- These applications always include many in-DOM templates, where [kebab-case **must** be used](#component-name-casing-in-templates-strongly-recommended). :::
+- 전역 컴포넌트가 JavaScript를 참조되는 경우가 거의 없으므로, JavaScript에 대한 규칙을 따르는 것은 의미가 없습니다.
+- 이러한 어플리케이션에는 항상 [kebab-case를 **반드시** 사용해야](#component-name-casing-in-templates-strongly-recommended) 하는 많은 DOM 템플릿이 포함됩니다. :::
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -934,11 +934,11 @@ export default {
 
 
 
-### Full-word component names <sup data-p="b">strongly recommended</sup>
+### 컴포넌트 전체(Full-word) 이름을 <sup data-p="b">적극 권장합니다</sup>
 
-**Component names should prefer full words over abbreviations.**
+**컴포넌트명은 약어보다 전체 단어를 선호해야합니다.**
 
-The autocompletion in editors make the cost of writing longer names very low, while the clarity they provide is invaluable. Uncommon abbreviations, in particular, should always be avoided.
+에디터의 자동완성기능(autocompletion)은 긴 이름을 작성하는데 드는 비용을 매우 낮게 만들고, 컴포넌트 이름이 제공하는 명확성은 매우 중요합니다. 특히 일반적이지 않은 약어는 항상 피해야합니다.
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -960,11 +960,11 @@ components/
 
 
 
-### Prop name casing <sup data-p="b">strongly recommended</sup>
+### prop명 대소문자 <sup data-p="b">적극 권장</sup>
 
-**Prop names should always use camelCase during declaration, but kebab-case in templates and [JSX](../guide/render-function.html#jsx).**
+**prop명은 선언 중에는 항상 camelCase를 사용해야하지만, 템플릿 및 [JSX](../guide/render-function.html#jsx)에서는 kebab-case를 사용해야 합니다.**
 
-We're simply following the conventions of each language. Within JavaScript, camelCase is more natural. Within HTML, kebab-case is.
+우리는 단순히 각 언어의 규칙을 따르고 있습니다. JavaScript 내에서 camelCase가 더 자연스럽습니다. HTML내에서 kebab-case는 존재합니다.
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -994,11 +994,11 @@ props: {
 
 
 
-### Multi-attribute elements <sup data-p="b">strongly recommended</sup>
+### 다중-속성 요소(Multi-attribute elements) <sup data-p="b">적극 권장</sup>
 
-**Elements with multiple attributes should span multiple lines, with one attribute per line.**
+**여러 속성이 있는 요소는 한 줄에 하나의 속성으로 여러 줄에 걸쳐 있어야합니다.**
 
-In JavaScript, splitting objects with multiple properties over multiple lines is widely considered a good convention, because it's much easier to read. Our templates and [JSX](../guide/render-function.html#jsx) deserve the same consideration.
+JavaScript에서 여러 속성을 가진 객체를 여러 줄에 걸쳐 분할하는 것은 훨씬 읽기 쉽기 때문에, 많이 사용되는 좋은 규칙입니다. 템플릿과 [JSX](../guide/render-function.html#jsx)는 동일한 고려사항을 갖습니다.
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -1031,11 +1031,11 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
 
 
 
-### Simple expressions in templates <sup data-p="b">strongly recommended</sup>
+### 템플릿의 간단한 표현 <sup data-p="b">적극 권장</sup>
 
-**Component templates should only include simple expressions, with more complex expressions refactored into computed properties or methods.**
+**컴포넌트 템플릿에는 computed나 methods로 리펙토링된 더 복잡한 표현식과 함께 간단한 표현식만 포함되어야합니다.**
 
-Complex expressions in your templates make them less declarative. We should strive to describe *what* should appear, not *how* we're computing that value. Computed properties and methods also allow the code to be reused.
+템플릿의 복잡한 식은 선언적이지 않습니다. 그 값을 계산하는 *방법*이 아니라 *무엇을* 표시해야 하는지 설명하려고 노력해야합니다. computed 및 methods를 사용하면 코드를 재사용할 수 있습니다.
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -1069,25 +1069,25 @@ computed: {
 
 
 
-### Simple computed properties <sup data-p="b">strongly recommended</sup>
+### 간단한 computed 속성 <sup data-p="b">적극 권장</sup>
 
-**Complex computed properties should be split into as many simpler properties as possible.**
+**복잡한 computed 속성은 가능한 한 여러 개의 간단한 속성으로 분할해야합니다.**
 
-::: details Detailed Explanation Simpler, well-named computed properties are:
+::: 세부사항 더 간단하고 잘 명명된 computed의 자세한 설명을 다음과 같습니다:
 
-- **Easier to test**
+- **테스트 하기 쉬움(Easier to test)**
 
-    When each computed property contains only a very simple expression, with very few dependencies, it's much easier to write tests confirming that it works correctly.
+    각각의 computed 속성에 종속성이 거의 없는 매우 간단한 표현식만 포함되어 있으면, 올바른 작동여부를 확인하는 테스트를 작성하기 쉽습니다.
 
-- **Easier to read**
+- **읽기 쉬움(Easier to read)**
 
-    Simplifying computed properties forces you to give each value a descriptive name, even if it's not reused. This makes it much easier for other developers (and future you) to focus in on the code they care about and figure out what's going on.
+    computed 속성을 단순화하면 다시 사용하지 않더라도 각 값에 설명이 포함된 이름을 지정해야합니다. 이렇게하면 다른 개발자 (그리고 미래의 당신)가 관심있는 코드에 집중하고 무슨 일이 일어나고 있는지 파악하는 것이 훨씬 쉬워집니다.
 
-- **More adaptable to changing requirements**
+- **변화하는 요구사항에 더 적응(adaptable)하기 좋음**
 
-    Any value that can be named might be useful to the view. For example, we might decide to display a message telling the user how much money they saved. We might also decide to calculate sales tax, but perhaps display it separately, rather than as part of the final price.
+    이름을 지정할 수 있는 값은 화면에 유용할 수 있습니다. 예를 들어 사용자가 절약한 금액을 알려주는 메시지를 표시할 수 있습니다. 판매 세금을 계산하기로 결정할 수도 있지만, 최종 가격의 일부가 아닌 별도로 표시할 수도 있습니다.
 
-    Small, focused computed properties make fewer assumptions about how information will be used, so require less refactoring as requirements change. :::
+    작고 집중된 computed 속성은 정보가 어떻게 사용될지에 따라 가정을 적게하므로 요구사항 변경에 따라 리펙토링이 덜 필요합니다. :::
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -1125,11 +1125,11 @@ computed: {
 
 
 
-### Quoted attribute values <sup data-p="b">strongly recommended</sup>
+### 인용된 속성 값(Quoted attribute values) <sup data-p="b">적극 권장</sup>
 
-**Non-empty HTML attribute values should always be inside quotes (single or double, whichever is not used in JS).**
+**비어있지 않은 HTML 속성 값은 항상 따옴표 안에 있어야 합니다 (JS에서 사용되지 않는 작은 따옴표 또는 큰 따옴표).**
 
-While attribute values without any spaces are not required to have quotes in HTML, this practice often leads to *avoiding* spaces, making attribute values less readable.
+공백이 없는 속성 값은 HTML에서 따옴표를 사용할 필요가 없지만, 이 방법은 종종 공백을 *피하여* 속성 값을 읽기 어렵게 만듭니다.
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -1155,9 +1155,9 @@ While attribute values without any spaces are not required to have quotes in HTM
 
 
 
-### Directive shorthands <sup data-p="b">strongly recommended</sup>
+### 디렉티브 약어(Directive shorthands) <sup data-p="b">적극 권장</sup>
 
-**Directive shorthands (`:` for `v-bind:`, `@` for `v-on:` and `#` for `v-slot`) should be used always or never.**
+**디렉티브 약어는 모두 통일해서 사용하거나 전부 사용하지 않아야 합니다. (`:` 는 `v-bind:`, `@` 는 `v-on:`, `#` 는 `v-slot`)**
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -1247,44 +1247,44 @@ While attribute values without any spaces are not required to have quotes in HTM
 
 다음은 컴포넌트 옵션에 권장되는 기본 순서입니다. 유형별로 나누어 놓았으므로 플러그인에서 추가한 속성들 역시 이에 맞추어 정렬하면 됩니다.
 
-1. **Global Awareness** (requires knowledge beyond the component)
+1. **전역 인지(Global Awareness)** (컴포넌트 바깥의 지식을 필요로 하는 옵션)
 
     - `name`
 
-2. **Template Modifiers** (changes the way templates are compiled)
+2. **템플릿 변경자(Template Modifiers)** (템플릿 컴파일 방식 변경)
 
     - `delimiters`
 
-3. **Template Dependencies** (assets used in the template)
+3. **템플릿 종속성(Template Dependencies)** (템플릿에서 사용된 에셋)
 
     - `components`
     - `directives`
 
-4. **Composition** (merges properties into the options)
+4. **구성, 합성(Composition)** (속성들을 옵션에 병합)
 
     - `extends`
     - `mixins`
     - `provide`/`inject`
 
-5. **Interface** (the interface to the component)
+5. **인터페이스(Interface)** (컴포넌트에 대한 인터페이스)
 
     - `inheritAttrs`
     - `props`
     - `emits`
 
-6. **Composition API** (the entry point for using the Composition API)
+6. **컴포지션 API(Composition API)** (Composition API 사용을 위한 진입점)
 
     - `setup`
 
-7. **Local State** (local reactive properties)
+7. **로컬 상태(Local State)** (로컬 반응형 속성)
 
     - `data`
     - `computed`
 
-8. **Events** (callbacks triggered by reactive events)
+8. **이벤트(Events)** (반응형 이벤트에 의해 트리거된 콜백)
 
     - `watch`
-    - Lifecycle Events (in the order they are called)
+    - 라이프사이클 이벤트들 (호출된 순서)
         - `beforeCreate`
         - `created`
         - `beforeMount`
@@ -1299,29 +1299,29 @@ While attribute values without any spaces are not required to have quotes in HTM
         - `renderTracked`
         - `renderTriggered`
 
-9. **Non-Reactive Properties** (instance properties independent of the reactivity system)
+9. **비-반응형 속성(Non-Reactive Properties)** (반응성 시스템과 무관한 인스턴스 속성)
 
     - `methods`
 
-10. **Rendering** (the declarative description of the component output)
+10. **렌더링(Rendering)** (컴포넌트 출력에 대한 선언적 설명)
 
     - `template`/`render`
 
-### Element attribute order <sup data-p="c">recommended</sup>
+### 요소 속성 순서 <sup data-p="c">권장</sup>
 
-**The attributes of elements (including components) should be ordered consistently.**
+**요소(컴포넌트 포함)의 속성은 일관되게 정렬되어야 합니다.**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add custom attributes and directives.
+다음은 컴포넌트 옵션에 권장되는 기본 순서입니다. 유형별로 나누어져 있으므로, 사용자지정 속성 및 디렉티브을 추가할 위치를 알 수 있습니다.
 
-1. **Definition** (provides the component options)
+1. **정의(Definition)** (컴포넌트 옵션 제공)
 
     - `is`
 
-2. **List Rendering** (creates multiple variations of the same element)
+2. **리스트 렌더링(List Rendering)** (동일한 요소의 여러 변형 생성)
 
     - `v-for`
 
-3. **Conditionals** (whether the element is rendered/shown)
+3. **조건(Conditionals)** (요소가 렌더링/표시될 지 여부)
 
     - `v-if`
     - `v-else-if`
@@ -1329,40 +1329,40 @@ This is the default order we recommend for component options. They're split into
     - `v-show`
     - `v-cloak`
 
-4. **Render Modifiers** (changes the way the element renders)
+4. **렌더 수식어(Render Modifiers)** (요소 렌더링 방식 변경)
 
     - `v-pre`
     - `v-once`
 
-5. **Global Awareness** (requires knowledge beyond the component)
+5. **전역 인지(Global Awareness)** (컴포넌트 바깥의 지식을 필요로 하는 옵션)
 
     - `id`
 
-6. **Unique Attributes** (attributes that require unique values)
+6. **고유 속성(Unique Attributes)** (고유 값이 필요한 속성)
 
     - `ref`
     - `key`
 
-7. **Two-Way Binding** (combining binding and events)
+7. **양방향 바인딩(Two-Way Binding)** (바인딩 및 이벤트 결합)
 
     - `v-model`
 
-8. **Other Attributes** (all unspecified bound & unbound attributes)
+8. **기타 속성(Other Attributes)** (모든 지정되지 않은 바인딩, 언바인딩 속성)
 
-9. **Events** (component event listeners)
+9. **이벤트(Events)** (컴포넌트 이벤트 리스너)
 
     - `v-on`
 
-10. **Content** (overrides the content of the element)
+10. **컨텐츠(Content)** (요소의 컨텐츠를 재정의함)
 
     - `v-html`
     - `v-text`
 
-### Empty lines in component/instance options <sup data-p="c">recommended</sup>
+### 컴포넌트/인스턴스 옵션의 빈 줄(empty lines) <sup data-p="c">권장</sup>
 
-**You may want to add one empty line between multi-line properties, particularly if the options can no longer fit on your screen without scrolling.**
+**특히 스크롤없이 옵션이 화면에 더이상 맞지않는 경우, 여러 줄 속성 사이에 빈 줄 하나를 추가할 수 있습니다.**
 
-When components begin to feel cramped or difficult to read, adding spaces between multi-line properties can make them easier to skim again. In some editors, such as Vim, formatting options like this can also make them easier to navigate with the keyboard.
+컴포넌트가 비좁거나 읽기 어려운 느낌이 들기 시작하면 여러 줄 속성 사이에 공백을 추가하면 다시 쉽게 훑어 볼 수 있습니다. Vim과 같은 일부 편집기에서 이와 같은 서식옵션을 사용하면 키보드로 쉽게 탐색할 수 있습니다.
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
 
@@ -1476,15 +1476,15 @@ computed: {
 
 ## 우선순위 D 규칙: 주의 필요 <span class="hide-from-sidebar">(잠재적 위험을 지닌 패턴)</span>
 
-### Element selectors with `scoped` <sup data-p="d">use with caution</sup>
+### `scoped`가 지정된 요소 선택기 <sup data-p="d">조심해서 사용</sup>
 
-**Element selectors should be avoided with `scoped`.**
+**요소 선택자는 `scoped`로 피해야합니다.**
 
-Prefer class selectors over element selectors in `scoped` styles, because large numbers of element selectors are slow.
+많은 수의 요소 선택자가 느리기 때문에, `scoped` 스타일의 요소 선택자보다 클래스 선택자를 선호합니다.
 
-::: details Detailed Explanation To scope styles, Vue adds a unique attribute to component elements, such as `data-v-f3f3eg9`. Then selectors are modified so that only matching elements with this attribute are selected (e.g. `button[data-v-f3f3eg9]`).
+::: 세부 사항 scope style를 지정하기 위해서 Vue는 `data-v-f3f3eg9`와 같은 컴포넌트 요소에 고유한 속성을 추가합니다. 그런 다음이 속성과 일치하는 요소만 선택되도록 선택자가 수정됩니다 (예 : `button[data-v-f3f3eg9]`).
 
-The problem is that large numbers of [element-attribute selectors](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `button[data-v-f3f3eg9]`) will be considerably slower than [class-attribute selectors](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `.btn-close[data-v-f3f3eg9]`), so class selectors should be preferred whenever possible. :::
+많은 수의 [요소-속성 선택자](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (예: `button[data-v-f3f3eg9]`)가 [클래스-속성 선택자](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000)(예: `.btn-close[data-v-f3f3eg9]`)보다 상당히 느리다는 것이 문제입니다. 그래서 기능한 한 클래스 선택자를 선호해야 합니다. :::
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -1518,13 +1518,13 @@ button {
 
 
 
-### Implicit parent-child communication <sup data-p="d">use with caution</sup>
+### 암시적 부모-자식 통신 <sup data-p="d">주의해서 사용</sup>
 
-**Props and events should be preferred for parent-child component communication, instead of `this.$parent` or mutating props.**
+**`this.$parent`나 변경되는 props 대신에 부모-자식 컴포넌트 통신에 props와 event가 선호되어야 합니다.**
 
-An ideal Vue application is props down, events up. Sticking to this convention makes your components much easier to understand. However, there are edge cases where prop mutation or `this.$parent` can simplify two components that are already deeply coupled.
+이상적인 Vue 애플리케이션은 props down, events up입니다. 이 규칙을 고수하면 컴포넌트를 훨씬 더 쉽게 이해할 수 있습니다. 그러나 prop 변경 또는 `this.$parent`가 이미 깊이 결합된 두 컴포넌트를 단순화할 수 있는 경우가 있습니다.
 
-The problem is, there are also many *simple* cases where these patterns may offer convenience. Beware: do not be seduced into trading simplicity (being able to understand the flow of your state) for short-term convenience (writing less code).
+문제는 이러한 패턴이 편리함을 제공할 수 있는 *단순* 사례도 많다는 것입니다. 주의: 단기적인 편의(코드 작성 감소)를 위해 거래 단순성(trading simplicity, 상태의 흐름을 이해할 수 있음)에 유혹되지 마십시오.
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -1611,13 +1611,13 @@ app.component('TodoItem', {
 
 
 
-### Non-flux state management <sup data-p="d">use with caution</sup>
+### 비 플럭스(Non-flux)(역주: flux는 부모컴포넌트에서 자식으로 속성을 통한 단방향 데이터 흐름) 상태 관리 <sup data-p="d">주의해서 사용</sup>
 
-**[Vuex](https://github.com/vuejs/vuex) should be preferred for global state management, instead of `this.$root` or a global event bus.**
+**[Vuex](https://github.com/vuejs/vuex)는 `this.$root` 또는 글로벌 이벤트 버스 대신에 글로벌 상태 관리에서 선호되어야 합니다.**
 
-Managing state on `this.$root` and/or using a [global event bus](https://vuejs.org/v2/guide/migration.html#dispatch-and-broadcast-replaced) can be convenient for very simple cases, but it is not appropriate for most applications.
+`this.$root`에서 상태를 관리하거나 [전역 이벤트 버스](https://vuejs.org/v2/guide/migration.html#dispatch-and-broadcast-replaced)를 사용하는 것은 매우 간단한 경우에는 편리할 수 있지만, 대부분의 애플리케이션에는 적합하지 않습니다.
 
-Vuex is the [official flux-like implementation](https://vuejs.org/v2/guide/state-management.html#Official-Flux-Like-Implementation) for Vue, and offers not only a central place to manage state, but also tools for organizing, tracking, and debugging state changes. It integrates well in the Vue ecosystem (including full [Vue DevTools](https://vuejs.org/v2/guide/installation.html#Vue-Devtools) support).
+Vuex는 Vue의 [공식적인 플럭스와 유사한 구현](https://vuejs.org/v2/guide/state-management.html#Official-Flux-Like-Implementation)이며, 상태를 관리할 수 있는 중앙 위치일 뿐만 아니라 상태 변경을 구성, 추적, 디버깅하기 위한 도구도 제공합니다. Vue 에코시스템에 잘 통합됩니다 (전체 [Vue DevTools](https://vuejs.org/v2/guide/installation.html#Vue-Devtools) 지원 포함).
 
 <div class="style-example style-example-bad"><h4>나쁨</h4></div>
 
@@ -1700,95 +1700,4 @@ export default {
 
 
 
-<style lang="scss" scoped="">
-$color-bgr-good: #d7efd7;
-$color-bgr-bad: #f7e8e8;
-$color-priority-a: #6b2a2a;
-$color-priority-b: #8c480a;
-$color-priority-c: #2b5a99;
-$color-priority-d: #3f536d;
-
-.style-example {
-  border-radius: 7px;
-  margin: 1.6em 0;
-  padding: 1.6em 1.6em 1em;
-  position: relative;
-  border: 1px solid transparent;
-  border-top-width: 5px;
-
-  h4 {
-    margin-top: 0;
-
-    &::before {
-      font-family: 'FontAwesome';
-      margin-right: .4em;
-    }
-  }
-
-  &-bad {
-    background: $color-bgr-bad;
-    border-color: darken($color-bgr-bad, 20%);
-    
-    h4 {
-      color: darken($color-bgr-bad, 50%);
-    }
-
-    h4::before {
-      content: '\f057';
-    }
-  }
-
-  &-good {
-    background: $color-bgr-good;
-    border-color: darken($color-bgr-good, 20%);
-    
-    h4 {
-      color: darken($color-bgr-good, 50%);
-    }
-
-    h4::before {
-      content: '\f058';
-    }
-  }
-}
-
-.details summary {
-  font-weight: bold !important;
-}
-
-h3 {
-  a.header-anchor {
-    // as we have too many h3 elements on this page, set the anchor to be always visible
-    // to make them stand out more from paragraph texts.
-    opacity: 1;
-  }
-
-  sup {
-    text-transform: uppercase;
-    font-size: 0.5em;
-    padding: 2px 4px;
-    border-radius: 3px;
-    margin-left: 0.5em;
-
-    &[data-p=a] {
-      color: $color-priority-a;
-      border: 1px solid $color-priority-a;
-    }
-
-    &[data-p=b] {
-      color: $color-priority-b;
-      border: 1px solid $color-priority-b;
-    }
-
-    &[data-p=c] {
-      color: $color-priority-c;
-      border: 1px solid $color-priority-c;
-    }
-
-    &[data-p=d] {
-      color: $color-priority-d;
-      border: 1px solid $color-priority-d;
-    }
-  }
-}
-</style> 
+<style lang="scss" scoped=""> $color-bgr-good: #d7efd7; $color-bgr-bad: #f7e8e8; $color-priority-a: #6b2a2a; $color-priority-b: #8c480a; $color-priority-c: #2b5a99; $color-priority-d: #3f536d;  .style-example {   border-radius: 7px;   margin: 1.6em 0;   padding: 1.6em 1.6em 1em;   position: relative;   border: 1px solid transparent;   border-top-width: 5px;    h4 {     margin-top: 0;      &amp;amp;::before {       font-family: 'FontAwesome';       margin-right: .4em;     }   }    &amp;amp;-bad {     background: $color-bgr-bad;     border-color: darken($color-bgr-bad, 20%);          h4 {       color: darken($color-bgr-bad, 50%);     }      h4::before {       content: '\f057';     }   }    &amp;amp;-good {     background: $color-bgr-good;     border-color: darken($color-bgr-good, 20%);          h4 {       color: darken($color-bgr-good, 50%);     }      h4::before {       content: '\f058';     }   } }  .details summary {   font-weight: bold !important; }  h3 {   a.header-anchor {     // as we have too many h3 elements on this page, set the anchor to be always visible     // to make them stand out more from paragraph texts.     opacity: 1;    }    sup {     text-transform: uppercase;     font-size: 0.5em;     padding: 2px 4px;     border-radius: 3px;     margin-left: 0.5em;      &amp;amp;[data-p=a] {       color: $color-priority-a;       border: 1px solid $color-priority-a;     }      &amp;amp;[data-p=b] {       color: $color-priority-b;       border: 1px solid $color-priority-b;     }      &amp;amp;[data-p=c] {       color: $color-priority-c;       border: 1px solid $color-priority-c;     }      &amp;amp;[data-p=d] {       color: $color-priority-d;       border: 1px solid $color-priority-d;     }   } } </style>
