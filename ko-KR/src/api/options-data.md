@@ -36,7 +36,7 @@
   data: vm => ({ a: vm.myProp })
   ```
 
-- **더 읽어 보기:** [깊은 반응성(Reactivity in Depth)](../guide/reactivity.html)
+- **See also:** [깊은 반응성(Reactivity in Depth)](../guide/reactivity.html)
 
 ## props
 
@@ -85,7 +85,7 @@
   ```
 
 
-- **더 알아보기:** [Props](../guide/component-props.html)
+- **See also:** [Props](../guide/component-props.html)
 
 
 ## computed
@@ -137,7 +137,7 @@
   console.log(vm.aDouble) // => 4
   ```
 
-- **더 알아보기:** [Computed Properties](../guide/computed.html)
+- **See also:** [Computed Properties](../guide/computed.html)
 
 ## methods
 
@@ -171,7 +171,7 @@
   console.log(vm.a) // => 2
   ```
 
-- **더 알아보기:** [Event Handling](../guide/events.html)
+- **See also:** [Event Handling](../guide/events.html)
 
 ## watch
 
@@ -249,7 +249,7 @@
   감시자(watcher)를 정의할 때, 화살표 함수를 {em0}사용하면 안됩니다{/em0} (예. `searchQuery: newValue => this.updateAutocomplete(newValue)`).  화살표 함수는 상위 컨텍스트에 바인딩되므로 `this` 는 예상한 컴포넌트 인스턴트가 아닐 것이고, `this.updateAutocomplete` 는 undefined일 것입니다
   :::
 
-- **더 알아보기:** [Watchers](../guide/computed.html#watchers)
+- **See also:** [Watchers](../guide/computed.html#watchers)
 
 ## emits
 
@@ -297,4 +297,4 @@
   `emits` 에 나열된 이벤트는 컴포넌트의 루트 요소에 의해 ***상속되지 않으며***, `$attrs` 속성에서도 제외됩니다
   :::
 
-- **더 알아보기:** [Attribute Inheritance](../guide/component-attrs.html#attribute-inheritance)
+- **See also:** [Attribute Inheritance](../guide/component-attrs.html#attribute-inheritance)
