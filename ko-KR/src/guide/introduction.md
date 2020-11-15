@@ -268,8 +268,6 @@ app.component('todo-item', {
 })
 ```
 
-Now we can pass the todo into each repeated component using `v-bind`:
-
 이제 `v-bind` 를 사용하여 할일을 개별  todo-item 컴포넌트에 전달할 수 있습니다.
 
 ```html
