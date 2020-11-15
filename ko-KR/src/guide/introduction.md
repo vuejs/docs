@@ -133,10 +133,6 @@ Vue.createApp(EventHandling).mount('#event-handling')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="dyoeGjW" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/dyoeGjW">
-  Event handling</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-
   <span>Pen에 작성된  Vue (<a href="https://codepen.io/Vue">@Vue</a>) 로 하는  <a href="https://codepen.io/team/Vue/pen/dyoeGjW"> 이벤트 처리(Event handling)</a> 예제를 확인하세요</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
