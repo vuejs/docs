@@ -84,7 +84,9 @@
   })
   ```
 
+
 - **더 알아보기:** [Props](../guide/component-props.html)
+
 
 ## computed
 
