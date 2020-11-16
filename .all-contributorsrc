@@ -32,6 +32,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "RezaZR",
+      "name": "Reza Z. Ramadan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9331014?v=4",
+      "profile": "http://website-reza.vercel.app",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,

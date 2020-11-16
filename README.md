@@ -1,6 +1,6 @@
 # Translasi dokumentasi Vue 3
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Repositori berikut berisi translasi dokumentasi bahasa Indonesia Vue 3 (vue-next). Teman - teman dapat berkontibusi dalam repositori berikut. Rencana (Roadmap) translasi bisa dilihat dibawah halaman ini.
@@ -69,6 +69,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://mandaputtra.github.io"><img src="https://avatars1.githubusercontent.com/u/23342943?v=4" width="100px;" alt=""/><br /><sub><b>Manda Putra</b></sub></a><br /><a href="https://github.com/vuejs-id/docs-next/commits?author=mandaputtra" title="Code">💻</a> <a href="https://github.com/vuejs-id/docs-next/commits?author=mandaputtra" title="Documentation">📖</a></td>
     <td align="center"><a href="https://jefrydco.id"><img src="https://avatars0.githubusercontent.com/u/20434351?v=4" width="100px;" alt=""/><br /><sub><b>Jefry Dewangga</b></sub></a><br /><a href="https://github.com/vuejs-id/docs-next/commits?author=jefrydco" title="Documentation">📖</a></td>
     <td align="center"><a href="http://namchee.netlify.app"><img src="https://avatars1.githubusercontent.com/u/32661241?v=4" width="100px;" alt=""/><br /><sub><b>Cristopher</b></sub></a><br /><a href="#translation-Namchee" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://website-reza.vercel.app"><img src="https://avatars3.githubusercontent.com/u/9331014?v=4" width="100px;" alt=""/><br /><sub><b>Reza Z. Ramadan</b></sub></a><br /><a href="#translation-RezaZR" title="Translation">🌍</a></td>
   </tr>
 </table>
 
