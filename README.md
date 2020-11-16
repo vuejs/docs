@@ -44,13 +44,6 @@ Situs akan otomatis diperbaharui saat ada _commit_ baru pada branch `indonesian`
 
 Silakan lihat di halaman [Kamus Perbendaharaan Istilah](https://github.com/vuejs-id/docs/blob/master/GLOSARIUM.md) atau [Glosarium Frontend Indonesia](https://github.com/frontend-id/glosarium)
 
-### Roadmap
-
-- [x] Sinkronasi dengan repositori _upstream_
-- [ ] Bot [apresiasi kontributor](https://github.com/all-contributors/all-contributors-bot)
-- [ ] Issue tracking halaman mana saja yang perlu di translasi
-- [ ] Pasang [franc](https://github.com/wooorm/franc) untuk mempermudah monitoring translasi
-
 ### Bagaimana repo ini bisa sinkron dengan repo _upstream_
 
 Kita menggunakan bot [wei/pull](https://github.com/wei/pull) dengan konfigurasi bisa dibaca [disini](https://github.com/vuejs-id/docs-next/blob/indonesian/.github/pull.yml). Kita tetap menyimpan dan mensinkronasi repo _upstream_ pada _branch master_ yang pada nantinya bisa digunakan sebagai referensi jika bot _wei/pull_ mengalami _merge conflict_ pada saat PR ke _branch indonesian_.
