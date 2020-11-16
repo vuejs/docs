@@ -90,7 +90,7 @@ Pengguna dapat menavigasi aplikasi melalui judul. Memiliki judul yang deskriptif
 </main>
 ```
 
-### Landmark
+### _Landmark_
 
 Landmark menyediakan akses programatik ke bagian dalam aplikasi. Pengguna yang mengandalkan teknologi pendukung dapat melakukan navigasi ke setiap bagian aplikasi dan melewati konten. Kamu dapat menggunakan [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) untuk informasi lebih lanjut.
 
