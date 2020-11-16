@@ -222,7 +222,7 @@ app.component('anchored-heading', {
 render() {
   const myParagraphVNode = Vue.h('p', 'hi')
   return Vue.h('div', [
-    // 악! 중복된 VNode입니다!
+    // Yikes - duplicate VNodes!
     myParagraphVNode, myParagraphVNode
   ])
 }
@@ -298,7 +298,7 @@ render() {
 
 `.passive`, `.capture`와 `.once`  이벤트 수식어의 경우, 카멜케이스(camelCase)를 사용하여 이벤트명 뒤에 연결할 수 있습니다.
 
-예 :
+예시:
 
 ```javascript
 render() {
@@ -312,13 +312,13 @@ render() {
 
 모든 이벤트와 키 수식어를 처리하기 위한 별도의 API가 필요하지 않습니다. 그저 이벤트 처리를 위한 메소드를 사용하시면 됩니다.
 
-수식어 | 동일기능을 하는 핸들러 r
+수식어 | 핸들러와 동일
 --- | ---
 `.stop` | `event.stopPropagation()`
 `.prevent` | `event.preventDefault()`
 `.self` | `if (event.target !== event.currentTarget) return`
-Keys:<br>`.enter`, `.13` | `if (event.keyCode !== 13) return` (change `13` to [another key code](http://keycode.info/) for other key modifiers)
-Modifiers Keys:<br>`.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return` (change `ctrlKey` to `altKey`, `shiftKey`, or `metaKey`, respectively)
+Keys:<br>`.enter`, `.13` | `if (event.keyCode !== 13) return` (다른 키 수정자를 위해 <br> `13`을 [또 다른 키 코드](http://keycode.info/)로 변경하십시오.)
+Modifiers Keys:<br>`.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return` (`ctrlKey`를 각각 `altKey`, `shiftKey`, 또는 `metaKey`로 변경합니다.)
 
 다음은 이러한 모든 수식어를 함께 사용하는 예입니다:
 
