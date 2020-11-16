@@ -119,17 +119,17 @@ render() {
 
 ## 가상 DOM 트리
 
-Vue는 실제 DOM에서의 변경사항을 추적하기 위해 **가상(Virtual) DOM**을 만들어 페이지를 갱신합니다. 이를 자세히 살펴보면 아래와 같습니다"
+Vue는 실제 DOM에서의 변경사항을 추적하기 위해 **가상(Virtual) DOM**을 만들어 페이지를 갱신합니다. 이를 자세히 살펴보면 아래와 같습니다.
 
 ```js
 return Vue.h('h1', {}, this.blogTitle)
 ```
 
-위의 코드에서 `h()` 함수가 반환하는 것은 무엇일까요? DOM 같은 것을 반환하는 것으로 보이지만 *정확히*  실제의 DOM은 아닙니다. 여기에서 반환되는 객체는  모든 하위 노드의 설명을 포함하여, 페이지에 렌더링해야하는 노드의 정보를 Vue에 설명하는 정보를 가집니다. 우리는 이 노드 기술(Description)을 "가상노드(Virtual node)"라고 부르며, 약어로써 **VNode** 를 사용합니다. 가상 DOM"은 Vue 컴포넌트의 트리로 구축된 VNodes 전체트리를 말합니다.
+`h()`함수가 반환하는것이 무엇일까요? DOM 같은 것을 반환하는 것으로 보이지만 *정확히*  실제의 DOM은 아닙니다. 여기에서 반환되는 객체는  모든 하위 노드의 설명을 포함하여, 페이지에 렌더링해야하는 노드의 정보를 Vue에 설명하는 정보를 가집니다. 우리는 이 노드 기술(Description)을 "가상노드(Virtual node)"라고 부르며, 약어로써 **VNode** 를 사용합니다. 가상 DOM"은 Vue 컴포넌트의 트리로 구축된 VNodes 전체트리를 말합니다.
 
 ## `h()` 전달인자
 
-`h()`는  VNode를 생성하는 유틸리티 함수입니다. 아마 더 정확한 이름은 `createVNode()` 이 맞겠지만, 매우 자주 사용되기 때문에 간결하게 하기 위해 `h()`  라고 이름 지었습니다.  이 함수는 3개의 인자를 받습니다.
+`h()`는  VNode를 생성하는 유틸리티 함수입니다. 아마 더 정확한 이름은 `createVNode()` 이 맞겠지만, 아주 자주 사용되기 때문에 간결하게 하기 위해 `h()`  라고 이름 지었습니다.  이 함수는 3개의 인자를 받습니다.
 
 ```js
 // @returns {VNode}
@@ -244,7 +244,7 @@ render() {
 
 ### `v-if` 와 `v-for`
 
-if든, for든 자바스크립트에서 쉽게 해낼수 있는 것이기 때문에 vue 렌더 함수에서 별달리 제공 하는것은 없습니다. `v-if`와  `v-for` 를 사용하는 템플릿을 예로 들어보겠습니다:
+if든, for든 자바스크립트에서 쉽게 해낼수 있는 것이기 때문에 vue 렌더 함수가 별다른것을 제공하지는 않습니다. `v-if`와  `v-for`를 사용하는 템플릿을 예로 들어보겠습니다:
 
 ```html
 <ul v-if="items.length">
@@ -253,7 +253,7 @@ if든, for든 자바스크립트에서 쉽게 해낼수 있는 것이기 때문�
 <p v-else>No items found.</p>
 ```
 
-위 내용을 JS의 `if`/`else`과 `map` 를 사용하는 렌더 함수로 만들어 보겠습니다:
+위 내용을 JS의 `if`/`else`과 `map()`를 사용하는 렌더 함수로 만들어 보겠습니다:
 
 ```js
 props: ['items'],
@@ -270,7 +270,7 @@ render() {
 
 ### `v-model`
 
-`v-model` 디렉티브는 `modelValue`와  `onUpdate:modelValue` prop들을 이용하여 확장되는데, 템플릿 컴파일 과정에서  우리가 직접 제공해주어야 합니다.
+`v-model` 디렉티브는 `modelValue`로 확장되고, 템플릿 컴파일 과정에 필요한  `onUpdate:modelValue` props는 우리가 직접 제공해주어야 합니다.
 
 ```js
 props: ['modelValue'],
@@ -310,7 +310,7 @@ render() {
 }
 ```
 
-For all other event and key modifiers, no special API is necessary, because we can use event methods in the handler: 다른 이벤트와 키 수식어를 처리하기 위해 별도의 API가 필요하지는 않습니다. 그저 이벤트 처리를 위한 메소드를 사용하시면 됩니다.
+모든 이벤트와 키 수식어를 처리하기 위한 별도의 API가 필요하지 않습니다. 그저 이벤트 처리를 위한 메소드를 사용하시면 됩니다.
 
 수식어 | 동일기능을 하는 핸들러 r
 --- | ---
@@ -399,7 +399,7 @@ Vue.h(
 <anchored-heading :level="1"> <span>Hello</span> world! </anchored-heading>
 ```
 
-바로 이런 경우를 위해 JSX를 뷰와 함게 사용하기 위해 [Babel plugin](https://github.com/vuejs/jsx-next) 를 적용해서, 좀더 템플릿 코드와 비슷하게 만들수 있게됩니다:
+바로 이런 경우를 위해 JSX를 뷰와 함게 사용하기 위해 [Babel plugin](https://github.com/vuejs/jsx-next) 를 적용해서, 좀더 템플릿 코드와 비슷하게 만들수 있게됩니다.
 
 ```jsx
 import AnchoredHeading from './AnchoredHeading.vue'
