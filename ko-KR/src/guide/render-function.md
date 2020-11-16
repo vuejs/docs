@@ -2,8 +2,7 @@
 
 Vue는 대부분의 경우 템플릿을 사용하여 애플리케이션을 구축할 것을 권장합니다. 그러나 JavaScript가 완전히 필요한 상황이 있습니다. 그럴 땐 **render 함수**를 사용할 수 있습니다.
 
-Let's dive into an example where a `render()` function would be practical. Say we want to generate anchored headings:
-{code0}render(){/code0} 함수가 실용적일 수 있는지 예제를 봅시다. 링크가 달린 헤드라인(Anchored Heading) 을 만들고 싶다면: 
+어디에서 `render()` 함수가 실용적일 수 있는지 예제를 봅시다. 우리는 Anchored Heading 을 만들고 싶다고 가정하세요.
 
 ```html
 <h1>
@@ -13,12 +12,13 @@ Let's dive into an example where a `render()` function would be practical. Say w
 </h1>
 ```
 
-링크가 달린 헤드라인은 매우 자주 사용되기 때문에 컴포넌트로 만들어 둘수 있습니다:
+Anchored Heading 는 매우 자주 사용되므로, 컴포넌트를 만들어야 합니다.
 
 ```vue-html
 <anchored-heading :level="1">Hello world!</anchored-heading>
 ```
-헤더라인은 `level` prop을 가지고 만들어야 하기 때문에 금방 이런 형태로 가게 됩니다: 
+
+`level` 이 컴포넌트는 level prop 기반으로 제목을 생성해야 합니다. 우리는 빠르게 이렇게 만들었습니다.
 
 ```js
 const app = Vue.createApp({})
@@ -53,11 +53,9 @@ app.component('anchored-heading', {
 })
 ```
 
-This template doesn't feel great. It's not only verbose, but we're duplicating `<slot></slot>` for every heading level. And when we add the anchor element, we have to again duplicate it in every `v-if/v-else-if` branch.
-이 템플릿은 그다지 맘에 들지 않습니다. 장황할 뿐만 아니라, 머리말 레벨마다 `<slot></slot>`을 중복해서 사용하고 있습니다. 여기에 링크(Anchor)를 추가해야 하는데, `v-if/v-else-if` 분기 마다 또 중복된 코드를 추가해야 하죠. 
+이 템플릿은 좋지 못합니다. 장황할 뿐만 아니라, 모든 heading level 에서 `<slot></slot>`을 중복으로 사용합니다. 그리고 Anchor 를 추가한다면, 우리는 또 다시 `v-if/v-else-if`를 모든 분기에 반복 해야합니다.
 
-While templates work great for most components, it's clear that this isn't one of them. So let's try rewriting it with a `render()` function:
-템플릿은 대부분의 컴포넌트를 만들때 잘 적용되지만, 여기에서는 그렇지 못하네요.  `render()` 함수를 이용해서 다시 작성해 봅시다:
+템플릿은 대부분의 컴포넌트에서 잘 작동하지만, 이것은 잘 작동하는 것이 아닙니다. `render()` 함수로 다시 작성해봅시다.
 
 ```js
 const app = Vue.createApp({})
@@ -67,9 +65,9 @@ app.component('anchored-heading', {
     const { h } = Vue
 
     return h(
-      'h' + this.level, // 태그명
-      {}, // props와 속성props/attributes
-      this.$slots.default() // 하위 컴포넌트 배열
+      'h' + this.level, // tag name
+      {}, // props/attributes
+      this.$slots.default() // array of children
     )
   },
   props: {
@@ -81,7 +79,7 @@ app.component('anchored-heading', {
 })
 ```
 
-`render()` 함수로 구현할때 훨신 단순해집니다. 하지만 컴포넌트 인스턴트 프로퍼티에 대해 훨씬 더 잘 알아야만 하죠. 여기에서 `Hello world!` 를 `anchored-heading` 안에 전달하는 것처럼, `v-slot` 지시문(directive)이 없는 자식 컴포넌트를 컴포넌트에 전달하면, 그 자식 컴포넌트는 `$slots.default()`를 이용해 접근할수 있습니다. **잘 모르겠다면, `instance properties API` 를 render 함수를 살펴보기 전에 읽어 보는 것이 좋습니다.**
+`render()` 함수 구현은 훨씬 간단하지만 컴포넌트 인스턴트 프로퍼티에 대해 더 잘 알고 있어야 합니다. 이경우 `v-slot` 디렉티브가 없는 자식을 `anchored-heading` 내부에 `Hello world!`를  컴포넌트에 전달할 때 해당 자식은 `$slots.default()` 컴포넌트 인스턴트에 위치하는 것을 알아야 합니다. 잘모르 겠다면, **[instance properties API](../api/instance-properties.html) 를 render 함수를 살펴보기 전에 읽어 보는 것이 좋습니다.**
 
 ## DOM 트리
 
@@ -89,8 +87,8 @@ app.component('anchored-heading', {
 
 ```html
 <div>
-  <h1>제목</h1>
-  문장이 여기에 들어갑니다.
+  <h1>My title</h1>
+  Some text content
   <!-- TODO: Add tagline -->
 </div>
 ```
@@ -103,8 +101,7 @@ app.component('anchored-heading', {
 
 모든 엘리먼트는 노드(Node)입니다. 모든 텍스트도 하나의 노드입니다. 심지어 주석도 노드입니다! 각 노드는 자식을 가질 수 있습니다. (즉, 각 노드는 다른 노드를 포함할 수 있습니다).
 
-Updating all these nodes efficiently can be difficult, but thankfully, we never have to do it manually. Instead, we tell Vue what HTML we want on the page, in a template:
-모든 노드를 효율적으로 갱신하는 것은 어려습니다만, 다행히 우리는 수동으로 업데이트할 필요가 없습니다. 페이지에서 수정하고 싶은 HTML을 템플릿에 작성하면 Vue가 대신 해줍니다.
+Updating all these nodes efficiently can be difficult, but thankfully, we never have to do it manually. Instead, we tell Vue what HTML we want on the page, in a template: 모든 노드를 효율적으로 갱신하는 것은 어려습니다만, 다행히 우리는 수동으로 업데이트할 필요가 없습니다. 페이지에서 수정하고 싶은 HTML을 템플릿에 작성하면 Vue가 대신 해줍니다.
 
 ```html
 <h1>{{ blogTitle }}</h1>
@@ -118,7 +115,7 @@ render() {
 }
 ```
 
-두가지 경우 모두, Vue는 페이지를 최신버전으로 갱신하며,   `blogTitle`이 바뀌어도 마찬가지입니다. 
+두가지 경우 모두, Vue는 페이지를 최신버전으로 갱신하며,   `blogTitle`이 바뀌어도 마찬가지입니다.
 
 ## 가상 DOM 트리
 
@@ -128,7 +125,7 @@ Vue는 실제 DOM에서의 변경사항을 추적하기 위해 **가상(Virtual)
 return Vue.h('h1', {}, this.blogTitle)
 ```
 
-위의 코드에서 `h()` 함수가 반환하는 것은 무엇일까요? DOM 같은 것을 반환하는 것으로 보이지만 _정확히_  실제의 DOM은 아닙니다. 여기에서 반환되는 객체는  모든 하위 노드의 설명을 포함하여, 페이지에 렌더링해야하는 노드의 정보를 Vue에 설명하는 정보를 가집니다. 우리는 이 노드 기술(Description)을 "가상노드(Virtual node)"라고 부르며, 약어로써 **VNode** 를 사용합니다. 가상 DOM"은 Vue 컴포넌트의 트리로 구축된 VNodes 전체트리를 말합니다.
+위의 코드에서 `h()` 함수가 반환하는 것은 무엇일까요? DOM 같은 것을 반환하는 것으로 보이지만 *정확히*  실제의 DOM은 아닙니다. 여기에서 반환되는 객체는  모든 하위 노드의 설명을 포함하여, 페이지에 렌더링해야하는 노드의 정보를 Vue에 설명하는 정보를 가집니다. 우리는 이 노드 기술(Description)을 "가상노드(Virtual node)"라고 부르며, 약어로써 **VNode** 를 사용합니다. 가상 DOM"은 Vue 컴포넌트의 트리로 구축된 VNodes 전체트리를 말합니다.
 
 ## `h()` 전달인자(Argument)
 
@@ -137,26 +134,26 @@ return Vue.h('h1', {}, this.blogTitle)
 ```js
 // @returns {VNode}
 h(
-  // {String | Object | Function } 태그
-  // HTML 태그명 또는 컴포넌트, 비동기 컴포넌트
-  // null을 반환하면 주석이 됩니다. 
+  // {String | Object | Function } tag
+  // An HTML tag name, a component or an async component.
+  // Using function returning null would render a comment.
   //
-  // 필수.
+  // Required.
   'div',
 
   // {Object} props
-  // 속성, 프로퍼티,이벤트에 해당하는 객체.
-  // 템플릿에서 사용합니다. 
+  // An object corresponding to the attributes, props and events
+  // we would use in a template.
   //
-  // 옵션.
+  // Optional.
   {},
 
-  // {String | Array | Object} 하위 vnode
-  // `h ()`를 사용하여 만들어졌거나, 
-  // 'text VNodes'를 만들어내는 문자열,  
-  // 슬롯이있는 객체를 가져 오는 하위 VNode.
+  // {String | Array | Object} children
+  // Children VNodes, built using `h()`,
+  // or using strings to get 'text VNodes' or
+  // an object with slots.
   //
-  // 옵션
+  // Optional.
   [
     'Some text comes first.',
     h('h1', 'A headline'),
@@ -174,7 +171,7 @@ h(
 ```js
 const app = Vue.createApp({})
 
-/** 하위 노드에서 재귀적으로 문자열을 가져옵니다.  */
+/** Recursively get text from children nodes */
 function getChildrenTextContent(children) {
   return children
     .map(node => {
@@ -189,7 +186,7 @@ function getChildrenTextContent(children) {
 
 app.component('anchored-heading', {
   render() {
-    // 하위 노드의 문자열 컨텐츠를 기반으로 kebab-case 형태의 id를 만듭니다. 
+    // create kebab-case id from the text contents of the children
     const headingId = getChildrenTextContent(this.$slots.default())
       .toLowerCase()
       .replace(/\W+/g, '-') // replace non-word characters with dash
@@ -230,7 +227,6 @@ render() {
   ])
 }
 ```
-
 
 같은 엘리먼트/컴포넌트를 여러 개 만들려면 팩토리 함수를 사용해서 복제할 수 있습니다. 예를 들어, 다음의 렌더 함수는 20개의 동일한 p태그를 렌더링하는 완벽한 방법입니다:
 
@@ -314,19 +310,17 @@ render() {
 }
 ```
 
-For all other event and key modifiers, no special API is necessary, because we can use event methods in the handler:
-다른 이벤트와 키 수식어를 처리하기 위해 별도의 API가 필요하지는 않습니다. 그저 이벤트 처리를 위한 메소드를 사용하시면 됩니다.
+For all other event and key modifiers, no special API is necessary, because we can use event methods in the handler: 다른 이벤트와 키 수식어를 처리하기 위해 별도의 API가 필요하지는 않습니다. 그저 이벤트 처리를 위한 메소드를 사용하시면 됩니다.
 
-| 수식어                                           | 동일기능을 하는 핸들러 r                                                                                                |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `.stop`                                               | `event.stopPropagation()`                                                                                            |
-| `.prevent`                                            | `event.preventDefault()`                                                                                             |
-| `.self`                                               | `if (event.target !== event.currentTarget) return`                                                                   |
-| Keys:<br>`.enter`, `.13`                              | `if (event.keyCode !== 13) return` (change `13` to [another key code](http://keycode.info/) for other key modifiers) |
-| Modifiers Keys:<br>`.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return` (change `ctrlKey` to `altKey`, `shiftKey`, or `metaKey`, respectively)                  |
+수식어 | 동일기능을 하는 핸들러 r
+--- | ---
+`.stop` | `event.stopPropagation()`
+`.prevent` | `event.preventDefault()`
+`.self` | `if (event.target !== event.currentTarget) return`
+Keys:<br>`.enter`, `.13` | `if (event.keyCode !== 13) return` (change `13` to [another key code](http://keycode.info/) for other key modifiers)
+Modifiers Keys:<br>`.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return` (change `ctrlKey` to `altKey`, `shiftKey`, or `metaKey`, respectively)
 
 다음은 이러한 모든 수식어를 함께 사용하는 예입니다:
-
 
 ```js
 render() {
@@ -429,4 +423,5 @@ JSX가 JavaScript에 매핑하는 방법에 대한 자세한 내용은 [사용 �
 
 Vue의 템플릿이 실제로 render 함수로 컴파일 되는지 알고 싶을 것입니다. 이는 일반적으로 알 필요가 없는 내부 구현 사항이지만, 특정 템플릿 기능이 어떻게 컴파일 되는지 알고 싶다면, 흥미로울 수 있습니다. 다음은 `Vue.compile` 을 사용하여 템플릿 문자열을 라이브 컴파일하는 데모입니다.
 
-<iframe src="https://vue-next-template-explorer.netlify.app/" width="100%" height="420"></iframe>
+
+<iframe src="https://vue-next-template-explorer.netlify.app/" width="100%" height="420"></iframe> 
