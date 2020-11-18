@@ -116,15 +116,6 @@ const sidebar = {
         '/guide/a11y-standards',
         '/guide/a11y-resources'
       ]
-    },
-    {
-      title: 'Contribute to the Docs',
-      collapsable: true,
-      children: [
-        '/guide/contributing/writing-guide',
-        '/guide/contributing/doc-style-guide',
-        '/guide/contributing/translations'
-      ]
     }
   ],
   api: [
@@ -213,6 +204,17 @@ const sidebar = {
         '/guide/migration/v-if-v-for',
         '/guide/migration/v-bind',
         '/guide/migration/watch'
+      ]
+    }
+  ],
+  contributing: [
+    {
+      title: 'Contribute to the Docs',
+      collapsable: false,
+      children: [
+        '/guide/contributing/writing-guide',
+        '/guide/contributing/doc-style-guide',
+        '/guide/contributing/translations'
       ]
     }
   ]
@@ -403,6 +405,7 @@ module.exports = {
     sidebar: {
       collapsable: false,
       '/guide/migration/': sidebar.migration,
+      '/guide/contributing/': sidebar.contributing,
       '/guide/': sidebar.guide,
       '/community/': sidebar.guide,
       '/cookbook/': sidebar.cookbook,
