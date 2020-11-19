@@ -1,25 +1,25 @@
 ---
-title: Data Option
+title: Opsi Data
 badges:
   - breaking
 ---
 
 # {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-- **BREAKING**: `data` component option declaration no longer accepts a plain JavaScript `object` and expects a `function` declaration.
+- **MERUSAK**: deklarasi opsi `data` pada komponen tidak lagi menerima objek JavaScript murni dan mengharapkan sebuah deklarasi fungsi.
 
-- **BREAKING**: when merging multiple `data` return values from mixins or extends, the merge is now shallow instead of deep (only root-level properties are merged).
+- **MERUSAK**: ketika menggabungkan nilai kembalian `data` dari _mixins_ atau _extends_, penggabungan sekarang akan dilakukan secara dangkal, bukan dalam (hanya properti inti yang akan digabungkan).
 
-## 2.x Syntax
+## Sintaks Vue versi 2.x
 
-In 2.x, developers could define the `data` option with either an `object` or a `function`.
+Pada Vue versi 2.x, pengembang dapat mendefinisikan opsi `data` dengan sebuah objek atau sebuah fungsi.
 
-For example:
+Sebagai contoh:
 
 ```html
-<!-- Object Declaration -->
+<!-- Deklarasi Objek -->
 <script>
   const app = new Vue({
     data: {
@@ -28,7 +28,7 @@ For example:
   })
 </script>
 
-<!-- Function Declaration -->
+<!-- Deklarasi Fungsi -->
 <script>
   const app = new Vue({
     data() {
@@ -40,13 +40,13 @@ For example:
 </script>
 ```
 
-Though this provided some convenience in terms of root instances having a shared state, this has led to confusion due to the fact that its only possible on the root instance.
+Walaupun hal tersebut memberi kemudahan dalam hal komponen inti yang mempunyai _state_ bersama, namun kemampuan tersebut membingungkan karena hanya dapat digunakan pada komponen inti.
 
-## 3.x Update
+## Pembaruan pada Vue versi 3.x
 
-In 3.x, the `data` option has been standardized to only accept a `function` that returns an `object`.
+Pada Vue versi 3.x, opsi `data` telah distandarisasikan supaya hanya menerima sebuah fungsi yang mengembalikan sebuah objek.
 
-Using the example above, there would only be one possible implementation of the code:
+Berdasarkan contoh di atas, hanya akan ada satu implementasi yang mungkin untuk kode tersebut:
 
 ```html
 <script>
@@ -62,16 +62,16 @@ Using the example above, there would only be one possible implementation of the 
 </script>
 ```
 
-## Mixin Merge Behavior Change
+## Perubahan Perilaku Penggabungan Mixin
 
-In addition, when `data()` from a component and its mixins or extends base are merged, the merge is now performed *shallowly*:
+Sebagai tambahan, ketika `data()` dari sebuah komponen dan basis _mixins_ atau _extends_ digabungkan, penggabungan akan dilakukan secara *dangkal*:
 
 ```js
 const Mixin = {
   data() {
     return {
-      user: {
-        name: 'Jack',
+      pengguna: {
+        nama: 'Jack',
         id: 1
       }
     }
@@ -82,7 +82,7 @@ const CompA = {
   mixins: [Mixin],
   data() {
     return {
-      user: {
+      pengguna: {
         id: 2
       }
     }
@@ -90,32 +90,34 @@ const CompA = {
 }
 ```
 
-In Vue 2.x, the resulting `$data` is:
+Pada Vue versi 2.x, `$data` yang dihasilkan adalah:
 
 ```json
 {
-  user: {
+  pengguna: {
     id: 2,
-    name: 'Jack'
+    nama: 'Jack'
   }
 }
 ```
 
-In 3.0, the result will be:
+Pada Vue versi 3.0, hasilnya adalah:
 
 ```json
 {
-  user: {
+  pengguna: {
     id: 2
   }
 }
 ```
 
-## Migration Strategy
+## Strategi Migrasi
 
-For users relying on the object declaration, we recommend:
+Untuk pengguna yang bergantung pada deklarasi objek, kami menyarankan:
 
-- Extracting the shared data into an external object and using it as a property in `data`
-- Rewrite references to the shared data to point to a new shared object
+- Mengekstrak data bersama pada sebuah objek eksternal dan menggunakan objek tersebut sebagai sebuah properti pada `data`
+- Menulis ulang acuan pada data bersama untuk menunjuk pada objek bersama baru
+
+Untuk pengguna yang bergantung pada perilaku penggabungan _mixin_ yang dalam, kami menyarankan Anda untuk menstruktur ulang kode program Anda untuk menghindari ketergantungan tersebut, karena penggabungan _mixin_ yang dalam merupakan sesuatu yang sangat implisit dan mampu menyebabkan logika dalam kode program menjadi lebih sulit untuk dipahami dan di*debug*.
 
 For users relying on the deep merge behavior from mixins, we recommend refactoring your code to avoid such reliance altogether, since deep merges from mixins are very implicit and can make the code logic more difficult to understand and debug.

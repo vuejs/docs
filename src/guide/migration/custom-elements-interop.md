@@ -136,5 +136,5 @@ Fungsi `v-is` mengharapkan sebuah ikatan dinamis `:is` seperti pada Vue versi 2.
 
 ## Strategi Migrasi
 
-- Ganti `config.ignoredElements` dengan entah `compilerOptions` milik `vue-loader` (dengan langkah pembangunan kode program) atau `app.config.isCustomElement` (dengan kompilasi _template_ secara _on-the-fly_).
+- Ganti `config.ignoredElements` dengan `compilerOptions` milik `vue-loader` (dengan langkah pembangunan kode program) atau `app.config.isCustomElement` (dengan kompilasi _template_ secara _on-the-fly_).
 - Ganti seluruh penggunaan `is` pada _tag_ yang bukan `<component>` dengan `<component is="...">` (untuk _template_ SFC) atau `v-is` (untuk _template_ dalam DOM). 
