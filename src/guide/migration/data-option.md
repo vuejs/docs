@@ -78,7 +78,7 @@ const Mixin = {
   }
 }
 
-const CompA = {
+const KomponenA = {
   mixins: [Mixin],
   data() {
     return {
