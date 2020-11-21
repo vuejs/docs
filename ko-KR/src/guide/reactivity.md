@@ -1,10 +1,9 @@
 # 깊은 반응성
 
-이제 심층 분석을 할 시간입니다! Vue의 가장 뚜렷한 기능 중 하나는 눈에 잘 띄지 않는 반응성 시스템입니다. Model은 proxy된 JavaScript 객체입니다. 객체를 수정하면 화면(view)이 업데이트됩니다. 반응성 시스템은 상태관리를 간단하고 직관적으로 만듭니다. 하지만, 일반적인 문제를 피하기 위해 어떻게 작동하는지 이해하는 것도 중요합니다. 이 섹션에서는, Vue의 반응성 시스템에 대한 낮은 수준의 세부정보 중 일부를 파헤질 것입니다.
+이제 좀더 깊게 들어가 볼까요! vue를 다른 기술과 구분짓는 것은 비간섭적인 반응성 시스템(unobtrusive reactivity system)입니다. vue에서 모델은 Model은 프록시로 감싸진 자바스크립트 객체입니다.  모델을 변경하면, 화면이 바뀝니다. 반응성 시스템은 어플리케이션의 상태관리를 단순하고 직관적으로 만듭니다. 하지만, 쉽게 저지르는 실수를 피하기 위해서는, 반응성 시스템이 어떻게 작동하는지 이해해야합니다.  이 섹션에서는, Vue의 반응성 시스템에 저수준의 상세 정보를 다뤄보겠습니다. 
 
-## 반응성이란?
-
-이 용어는 요즘 프로그래밍에서 꽤 많이 등장합니다만, 사람들이 말하는 반응성이란 무엇일까요? 반응성은 선언적 방식으로 변화에 적응할 수 있는 프로그래밍 패러다임입니다. 일반적으로 보여줄 수 있는 예는 Excel 스프레드 시트입니다.
+## 반응성(reactivity)이란?
+반응성은 최근 프로그래밍 트렌드에서 주요하게 다루어지는 용어입니다. 그럼 이 반응성이란 무엇을 의미할까요? 반응성이란 "변경"에 대한 제어를 선언적으로 수행하는 프로그래밍 패러다임입니다. 이 반응성을 잘 보여주는 사례는 여러분도 잘 알고 계실 Excel 스프레드 시트입니다.
 
 ```html
 <video width="550" height="400" controls>
@@ -13,9 +12,9 @@
 </video>
 ```
 
-첫 번째 셀에 숫자 2를, 두 번째 셀에 숫자 3을 입력하고 SUM을 요청하면, 스프레드시트가 결과를 제공합니다. 놀라울게 없습니다. 그러나 첫 번째 숫자를 변경하면, SUM 결과 값도 자동으로 변경됩니다.
+비디오를 보시면, 첫 번째 셀에 숫자 2를, 두 번째 셀에 숫자 3을 입력하고 SUM을 요청하면, 스프레드시트가 결과를 제공합니다. 계산기 프로그램이니 당연하겠지요. 그러나 첫 번째 숫자를 변경하면, SUM 결과 값도 자동적으로 변경됩니다.
 
-JavaScript는 일반적으로 이와 같이 작동하지 않지만, 비슷한 것을 작성해보겠습니다:
+자바스크립트는 이렇게 동작하지 않습니다. 위 비디오와 비슷한 과정을 코드로 수행해보면 - 
 
 ```js
 var val1 = 2
@@ -33,19 +32,19 @@ val1 = 3
 
 첫번째 값(val1)을 변경해도 sum 값이 변경되지 않습니다.
 
-그렇다면 JavaScript에서 어떻게 해야할까요?
+그렇다면 자바스크립트에서 이런 반응을 하게 하려면 어떻게 해야할까요?
 
-- 값 중 하나에 변화가 있을 때 감지합니다.
-- 값을 변경하는 펑션을 추적합니다.
-- 최종 값을 변경할 수 있도록 펑션을 트리거합니다.
+- 값 중 하나라도 변경되는지 여부를 감지합니다.
+- 값을 변경하는 함수가 호출되는지 추적합니다.
+- 함수를 호출하여 변경을 발생시켜 최종 값을 갱신합니다.
 
 ## Vue가 이러한 변경 사항을 추적하는 방법
 
-일반 JavaScript 객체를 `data`옵션으로 어플리케이션이나 컴포넌트 인스턴스에 전달할 때, Vue는 모든 속성을 살펴보고, getter와 setter가 있는 핸들러를 사용하여 [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)로 변환합니다. Proxy는 ES6 전용 기능이지만, IE 브라우저를 지원하기 위해, 이전의 `Object.defineProperty`(Vue2의 반응성 방식)를 사용하는 Vue3 버전을 제공합니다. 둘 다 동일한 API를 가지고 있지만, Proxy 버전은 더 가볍고 향상된 성능을 제공합니다.
+자바스트립크 객체를 `data`옵션으로 어플리케이션이나 컴포넌트 인스턴스에 전달하면, Vue는 주어진 객체의 모든 프로퍼티를  [프락시(Proxy)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)로 변환합니다. 이 프락시는  ES6이상에서만 지원하는 기능이지만, IE에서도 Vue3를 사용할수 있게 하기 위해  `Object.defineProperty`(Vue2의 반응성 방식)를 사용하는 버전을 제공합니다. 두가지 버전 모두 겉으로 볼때는 동일한 API를 가지고 있지만, Proxy 버전쪽이 더 가볍게 동작하고, 더 나은  성능을 제공합니다.
 
 <div class="reactivecontent">   <iframe height="500" style="width: 100%;" scrolling="no" title="Proxies and Vue's Reactivity Explained Visually" src="https://codepen.io/sdras/embed/zYYzjBg?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"><br>    See the Pen &lt;a href="https://codepen.io/sdras/pen/zYYzjBg"&gt;Proxies and Vue's Reactivity Explained Visually&lt;/a&gt; by Sarah Drasner<br>    (&lt;a href="https://codepen.io/sdras"&gt;@sdras&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.<br>  </iframe></div>
 
-위의 예시는 다소 빠르고, 해당 내용을 이해하려면 [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)에 대한 약간의 지식이 필요합니다. 그럼 잠깐 들어가 보겠습니다. Proxy에 대한 많은 문헌이 있지만, 실제로 알아야할 것은 **Proxy는 다른 객체나 함수를 감싸는 객체이며, 원본으로의 호출을 가로채서 처리할 수 있게 합니다.**
+위의 예시를 바로 이해하기에는 좀 어려울수 있습니다. 위 예제를 이해하려면 [프락시(Proxy)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)에 대한 지식이  어느정도는 필요합니다. 여기에서는 살짝 맛보기정도만 해보겠습니다.  프락시(Proxy)에 대한 많은 글들이 있지만,  정말 알아두어야 할것은  **프락시(Proxy)는 다른 객체나 함수를 감싸는 객체이며, 원본으로의 호출을 중간에 가로채서 처리할 수 있게 합니다.**
 
 다음과 같이 사용합니다: `new Proxy(target, handler)`
 
