@@ -345,7 +345,8 @@ app.component('todo-item', {
       <button @click="$emit('remove')">Remove</button>
     </li>
   `,
-  props: ['title']
+  props: ['title'],
+  emits: ['remove']
 })
 
 app.mount('#todo-list-example')
