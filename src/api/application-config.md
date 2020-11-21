@@ -6,6 +6,8 @@
 const app = Vue.createApp({})
 
 app.config = {...}
+
+app.mount(...);
 ```
 
 ## errorHandler

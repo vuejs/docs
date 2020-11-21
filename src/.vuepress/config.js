@@ -116,51 +116,6 @@ const sidebar = {
         '/guide/a11y-standards',
         '/guide/a11y-resources'
       ]
-    },
-    {
-      title: 'Migration Guide',
-      collapsable: true,
-      children: [
-        '/guide/migration/introduction',
-        '/guide/migration/array-refs',
-        '/guide/migration/async-components',
-        '/guide/migration/attribute-coercion',
-        '/guide/migration/attrs-includes-class-style',
-        '/guide/migration/children',
-        '/guide/migration/custom-directives',
-        '/guide/migration/custom-elements-interop',
-        '/guide/migration/data-option',
-        '/guide/migration/emits-option',
-        '/guide/migration/events-api',
-        '/guide/migration/filters',
-        '/guide/migration/fragments',
-        '/guide/migration/functional-components',
-        '/guide/migration/global-api',
-        '/guide/migration/global-api-treeshaking',
-        '/guide/migration/inline-template-attribute',
-        '/guide/migration/key-attribute',
-        '/guide/migration/keycode-modifiers',
-        '/guide/migration/listeners-removed',
-        '/guide/migration/props-default-this',
-        '/guide/migration/render-function-api',
-        '/guide/migration/slots-unification',
-        '/guide/migration/transition',
-        '/guide/migration/transition-group',
-        '/guide/migration/v-on-native-modifier-removed',
-        '/guide/migration/v-model',
-        '/guide/migration/v-if-v-for',
-        '/guide/migration/v-bind',
-        '/guide/migration/watch'
-      ]
-    },
-    {
-      title: 'Contribute to the Docs',
-      collapsable: true,
-      children: [
-        '/guide/contributing/writing-guide',
-        '/guide/contributing/doc-style-guide',
-        '/guide/contributing/translations'
-      ]
     }
   ],
   api: [
@@ -211,6 +166,55 @@ const sidebar = {
         '/examples/elastic-header',
         '/examples/select2',
         '/examples/todomvc'
+      ]
+    }
+  ],
+  migration: [
+    '/guide/migration/introduction',
+    {
+      title: 'Details',
+      collapsable: false,
+      children: [
+        '/guide/migration/array-refs',
+        '/guide/migration/async-components',
+        '/guide/migration/attribute-coercion',
+        '/guide/migration/attrs-includes-class-style',
+        '/guide/migration/children',
+        '/guide/migration/custom-directives',
+        '/guide/migration/custom-elements-interop',
+        '/guide/migration/data-option',
+        '/guide/migration/emits-option',
+        '/guide/migration/events-api',
+        '/guide/migration/filters',
+        '/guide/migration/fragments',
+        '/guide/migration/functional-components',
+        '/guide/migration/global-api',
+        '/guide/migration/global-api-treeshaking',
+        '/guide/migration/inline-template-attribute',
+        '/guide/migration/key-attribute',
+        '/guide/migration/keycode-modifiers',
+        '/guide/migration/listeners-removed',
+        '/guide/migration/props-default-this',
+        '/guide/migration/render-function-api',
+        '/guide/migration/slots-unification',
+        '/guide/migration/transition',
+        '/guide/migration/transition-group',
+        '/guide/migration/v-on-native-modifier-removed',
+        '/guide/migration/v-model',
+        '/guide/migration/v-if-v-for',
+        '/guide/migration/v-bind',
+        '/guide/migration/watch'
+      ]
+    }
+  ],
+  contributing: [
+    {
+      title: 'Contribute to the Docs',
+      collapsable: false,
+      children: [
+        '/guide/contributing/writing-guide',
+        '/guide/contributing/doc-style-guide',
+        '/guide/contributing/translations'
       ]
     }
   ]
@@ -291,10 +295,6 @@ module.exports = {
             link: '/guide/introduction'
           },
           {
-            text: 'Migration Guide',
-            link: '/guide/migration/introduction'
-          },
-          {
             text: 'Style Guide',
             link: '/style-guide/'
           },
@@ -305,6 +305,14 @@ module.exports = {
           {
             text: 'Examples',
             link: '/examples/markdown'
+          },
+          {
+            text: 'Contribute',
+            link: '/guide/contributing/writing-guide'
+          },
+          {
+            text: 'Migration from Vue 2',
+            link: '/guide/migration/introduction'
           }
         ]
       },
@@ -396,6 +404,8 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: {
       collapsable: false,
+      '/guide/migration/': sidebar.migration,
+      '/guide/contributing/': sidebar.contributing,
       '/guide/': sidebar.guide,
       '/community/': sidebar.guide,
       '/cookbook/': sidebar.cookbook,
