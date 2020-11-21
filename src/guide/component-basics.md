@@ -303,6 +303,7 @@ Here's that in action:
 ```js
 app.component('custom-input', {
   props: ['modelValue'],
+  emits: ['update:modelValue'],
   template: `
     <input
       :value="modelValue"
@@ -327,6 +328,7 @@ Keep in mind, the `get` method should return the `modelValue` property, or which
 ```js
 app.component('custom-input', {
   props: ['modelValue'],
+  emits: ['update:modelValue'],
   template: `
     <input v-model="value">
   `,
