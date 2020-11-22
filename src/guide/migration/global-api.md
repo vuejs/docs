@@ -111,7 +111,7 @@ In 3.0, the check of whether an element is a component or not has been moved to 
 
 In Vue 2, `Vue.prototype` was commonly used to add properties that would be accessible in all components.
 
-The equivalent in Vue 3 is `config.globalProperties`. These properties will be copied across as part of instantiating a component within the application:
+The equivalent in Vue 3 is [`config.globalProperties`](/api/application-config.html#globalproperties). These properties will be copied across as part of instantiating a component within the application:
 
 ```js
 // before - Vue 2
