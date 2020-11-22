@@ -90,12 +90,11 @@ By default, `v-model` on a component uses `modelValue` as the prop and `update:m
 In this case, child component will expect a `title` prop and emits `update:title` event to sync:
 
 ```js
-const app = Vue.createApp({})
-
 app.component('my-component', {
   props: {
     title: String
   },
+  emits: ['update:title'],
   template: `
     <input 
       type="text"
@@ -123,13 +122,12 @@ Each v-model will sync to a different prop, without the need for extra options i
 ```
 
 ```js
-const app = Vue.createApp({})
-
 app.component('user-name', {
   props: {
     firstName: String,
     lastName: String
   },
+  emits: ['update:firstName', 'update:lastName'],
   template: `
     <input 
       type="text"
@@ -157,7 +155,7 @@ Modifiers added to a component `v-model` will be provided to the component via t
 Notice that when the component's `created` lifecycle hook triggers, the `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="bar"`.
 
 ```html
-<my-component v-model.capitalize="bar"></my-component>
+<my-component v-model.capitalize="myText"></my-component>
 ```
 
 ```js
@@ -168,6 +166,7 @@ app.component('my-component', {
       default: () => ({})
     }
   },
+  emits: ['update:modelValue'],
   template: `
     <input type="text" 
       :value="modelValue"
@@ -204,6 +203,7 @@ app.component('my-component', {
       default: () => ({})
     }
   },
+  emits: ['update:modelValue'],
   methods: {
     emitValue(e) {
       let value = e.target.value
@@ -225,19 +225,20 @@ app.mount('#app')
 For `v-model` bindings with arguments, the generated prop name will be `arg + "Modifiers"`:
 
 ```html
-<my-component v-model:foo.capitalize="bar"></my-component>
+<my-component v-model:description.capitalize="myText"></my-component>
 ```
 
 ```js
 app.component('my-component', {
-  props: ['foo', 'fooModifiers'],
+  props: ['description', 'descriptionModifiers'],
+  emits: ['update:description'],
   template: `
     <input type="text" 
-      :value="foo"
-      @input="$emit('update:foo', $event.target.value)">
+      :value="description"
+      @input="$emit('update:description', $event.target.value)">
   `,
   created() {
-    console.log(this.fooModifiers) // { capitalize: true }
+    console.log(this.descriptionModifiers) // { capitalize: true }
   }
 })
 ```
