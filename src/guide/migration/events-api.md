@@ -11,7 +11,7 @@ _Method_ `$on`, `$off` dan `$once` dihapus. Objek aplikasi tidak perlu lagi untu
 
 ## Sintaks Vue versi 2.x
 
-Pada Vue versi 2.x, objek Vue dapat digunakan untuk memicu penangan kejadian yang dipasang secara imperatif melalui API _event emitter_ (`$on`, `$off`, dan `$once`). Hal tersebut dapat digunakan untuk membuat _event hub_ yang dapat membuat penangan kejadian global yang dapat digunakan diseluruh bagian pada aplikasi:
+Pada Vue versi 2.x, objek Vue dapat digunakan untuk memicu _event handler_ yang dipasang secara imperatif melalui API _event emitter_ (`$on`, `$off`, dan `$once`). Hal tersebut dapat digunakan untuk membuat _event hub_ yang dapat membuat _event handler_ global yang dapat digunakan diseluruh bagian pada aplikasi:
 
 ```js
 // eventHub.js
@@ -27,14 +27,14 @@ import eventHub from './eventHub'
 
 export default {
   mounted() {
-    // menambahkan penangan eventHub
-    eventHub.$on('kejadian-kustom', () => {
-      console.log('Kejadian kustom terjadi!')
+    // menambahkan _handler_ eventHub
+    eventHub.$on('event-kustom', () => {
+      console.log('Event kustom terjadi!')
     })
   },
   beforeDestroy() {
-    // menghapus penangan kejadianKustom
-    eventHub.$off('kejadian kustom')
+    // menghapus _handler_ kejadianKustom
+    eventHub.$off('event-kustom')
   }
 }
 ```
@@ -46,7 +46,7 @@ import eventHub from './eventHub'
 export default {
   methods: {
     callGlobalCustomEvent() {
-      eventHub.$emit('kejadian-kustom') // jika KomponenAnak telah masuk ke dalam DOM, Anda dapat mlihat sebuah pesan pada console.
+      eventHub.$emit('event-kustom') // jika KomponenAnak telah masuk ke dalam DOM, Anda dapat mlihat sebuah pesan pada console.
     }
   }
 }
@@ -54,7 +54,7 @@ export default {
 
 ## Pembaruan Vue versi 3.x
 
-Kami menghapus _method_ `$on`, `$off` dan `$once` dari objek Vue sepenuhnya. `$emit` tidak dihapus dan tetap merupakan bagian dari API karena `$emit` digunakan untuk memicu penangan kejadian yang dipasang secara deklaratif pada sebuah komponen induk.
+Kami menghapus _method_ `$on`, `$off` dan `$once` dari objek Vue sepenuhnya. `$emit` tidak dihapus dan tetap merupakan bagian dari API karena `$emit` digunakan untuk memicu _event handler_ yang dipasang secara deklaratif pada sebuah komponen induk.
 
 ## Strategi Migrase
 

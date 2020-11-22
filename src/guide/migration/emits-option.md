@@ -47,19 +47,19 @@ Mirip dengan properti, kejadian yang dapat diteruskan oleh komponen dapat didefi
 </script>
 ```
 
-Opsi tersebut juga menerima sebuah objek, yang memperbolehkan pengembang untuk menetapkan pemeriksa untuk argumen yang diberikan pada kejadian yang diteruskan, mirip dengan pemeriksa pada definisi `props`. 
+Opsi tersebut juga menerima sebuah objek, yang memperbolehkan pengembang untuk menetapkan pemeriksa untuk argumen yang diberikan pada _event_ yang diteruskan, mirip dengan pemeriksa pada definisi `props`. 
 
 Untuk informasi lebih lanjut mengenai hal ini, silahkan baca [dokumentasi API untuk fitur ini](../../api/options-data.md#emits).
 
 ## Strategi Migrasi
 
-Sangat disarankan bagi Anda untuk mendokumentasikan seluruh kejadian yang diteruskan oleh setiap komponen yang Anda buat menggunakan `emits`.
+Sangat disarankan bagi Anda untuk mendokumentasikan seluruh _event_ yang diteruskan oleh setiap komponen yang Anda buat menggunakan `emits`.
 
-Hal tersebut menjadi sangat penting karena [penghapusan pengubah .native](./v-on-native-modifier-removed.md). Setiap _listener_ untuk kejadian yang tidak dideklarasikan menggunakan `emits` akan diikutsertakan pada `$attrs` milik komponen, yang secara umum akan terikat pada _node_ inti dari komponen. 
+Hal tersebut menjadi sangat penting karena [penghapusan pengubah .native](./v-on-native-modifier-removed.md). Setiap _listener_ untuk _event_ yang tidak dideklarasikan menggunakan `emits` akan diikutsertakan pada `$attrs` milik komponen, yang secara umum akan terikat pada _node_ inti dari komponen. 
 
 ### Contoh
 
-Untuk komponen-komponen yang meneruskan ulang kejadian bawaan pada komponen induk, perubahan tersebut akan menyebabkan adanya dua kejadian yang terjadi sekaligus:
+Untuk komponen-komponen yang meneruskan ulang _event_ bawaan pada komponen induk, perubahan tersebut akan menyebabkan adanya dua _event_ yang terjadi sekaligus:
 
 ```vue
 <template>
@@ -67,25 +67,25 @@ Untuk komponen-komponen yang meneruskan ulang kejadian bawaan pada komponen indu
 </template>
 <script>
 export default {
-  emits: [] // tanpa deklarasi kejadian
+  emits: [] // tanpa deklarasi event
 }
 </script>
 ```
 
-Ketika sebuah komponen induk mendengar kejadian `click` pada komponen:
+Ketika sebuah komponen induk mendengar _event_ `click` pada komponen:
 
 ```html
 <tombol-ku v-on:click="tanganiKlik"></tombol-ku>
 ```
 
-Kejadian tersebut akan terjadi sebanyak dua kali:
+_Event_ tersebut akan terjadi sebanyak dua kali:
 - Sekali dari `$emit()`
-- Sekali dari _listener_ kejadian bawaan yang ada pada elemen inti.
+- Sekali dari _event listener_ bawaan yang ada pada elemen inti.
 
 Disini Anda memiliki dua pilihan:
 
-1. Mendeklarasikan kejadian `click` dengan jelas. Pilihan ini akan membantu jika Anda menambahkan beberapa logika pada responden kejadian di `<tombol-ku>`.
-2. Hapus penerusan ulang kejadian, karena sekarang elemen induk dapat mendengarkan kejadian bawaan dengan mudah, tanpa menambahkan `.native`. Cocok digunakan bila Anda hanya akan meneruskan ulang kejadian tersebut.
+1. Mendeklarasikan _event_ `click` dengan jelas. Pilihan ini akan membantu jika Anda menambahkan beberapa logika pada responden _event_ di `<tombol-ku>`.
+2. Hapus penerusan ulang _event_, karena sekarang elemen induk dapat mendengarkan _event_ bawaan dengan mudah, tanpa menambahkan `.native`. Cocok digunakan bila Anda hanya akan meneruskan ulang _event_ tersebut.
 
 ## Lihat Juga
 
