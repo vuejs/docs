@@ -233,7 +233,7 @@ If you really want to duplicate the same element/component many times, you can d
 ```js
 render() {
   return Vue.h('div',
-    Array.apply(null, { length: 20 }).map(() => {
+    Array.from({ length: 20 }).map(() => {
       return Vue.h('p', 'hi')
     })
   )
