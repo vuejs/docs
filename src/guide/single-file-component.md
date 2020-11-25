@@ -78,7 +78,7 @@ We will need to install Rollup and a few dependencies:
 npm install --save-dev rollup @rollup/plugin-commonjs rollup-plugin-vue 
 ```
 
-These are the minimal amount of rollup plugins that we need to use to compile the code in an `esm` module. Users may want to also add [rollup-plugin-babel](https://github.com/rollup/plugins/tree/master/packages/babel) to transpile their code and [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) if they use dependencies that they want to bundle with the library.
+These are the minimal amount of rollup plugins that we need to use to compile the code in an `esm` module. We may want to also add [rollup-plugin-babel](https://github.com/rollup/plugins/tree/master/packages/babel) to transpile their code and [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) if we use dependencies that we want to bundle with our library.
 
 #### Configuring Rollup
 
