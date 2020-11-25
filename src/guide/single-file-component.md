@@ -68,7 +68,7 @@ In case you prefer setting up your own build setup from scratch, you will need t
 
 ### Building with rollup
 
-Most of the time when developing a third-party library we want to build it in a way that allows the consumers of the library to [tree shake](https://webpack.js.org/guides/tree-shaking/) it. To enable three-shaking we need to build along with `commonjs` and `umd/iife` modules also `esm` modules. Since webpack and in turn vue-cli do not support building `esm` modules we need to rely on [rollup](https://rollupjs.org/).
+Most of the time when developing a third-party library we want to build it in a way that allows the consumers of the library to [tree shake](https://webpack.js.org/guides/tree-shaking/) it. To enable tree-shaking we need to build `esm` modules. Since webpack and, in turn, vue-cli do not support building `esm` modules we need to rely on [rollup](https://rollupjs.org/).
 
 #### Installing Rollup
 
