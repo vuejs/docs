@@ -438,7 +438,7 @@ render() {
     Button,
     null,
     {
-      // Using an arrow function to preserve the `this` value
+      // Use an arrow function to preserve the `this` value
       default: (props) => {
         // Reactive properties should be read inside the slot function
         // so that they become dependencies of the child's rendering
