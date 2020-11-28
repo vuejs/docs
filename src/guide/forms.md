@@ -233,7 +233,7 @@ The `true-value` and `false-value` attributes don't affect the input's `value` a
 
 ```js
 // when checked:
-vm.pick === vm.a
+vm.pick === 'a'
 ```
 
 ### Select Options
