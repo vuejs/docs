@@ -62,9 +62,7 @@ const app = Vue.createApp({})
 
 app.component('anchored-heading', {
   render() {
-    const { h } = Vue
-
-    return h(
+    return Vue.h(
       'h' + this.level, // tag name
       {}, // props/attributes
       this.$slots.default() // array of children
@@ -164,6 +162,8 @@ h(
 )
 ```
 
+If there are no props then the children can usually be passed as the second argument. In cases where that would be ambiguous, `null` can be passed as the second argument to keep the children as the third argument.
+
 ## Complete Example
 
 With this knowledge, we can now finish the component we started:
@@ -240,6 +240,47 @@ render() {
 }
 ```
 
+## Creating Component VNodes
+
+To create a VNode for a component, the first argument passed to `h` should be the component itself:
+
+```js
+render() {
+  return Vue.h(ButtonCounter)
+}
+```
+
+If we need to resolve a component by name then we can call `resolveComponent`:
+
+```js
+render() {
+  const ButtonCounter = Vue.resolveComponent('ButtonCounter')
+  return Vue.h(ButtonCounter)
+}
+```
+
+`resolveComponent` is the same function that templates use internally to resolve components by name.
+
+A `render` function will normally only need to use `resolveComponent` for components that are [registered globally](/guide/component-registration.html#global-registration). [Local component registration](/guide/component-registration.html#local-registration) can usually be skipped altogether. Consider the following example:
+
+```js
+// We can simplify this
+components: {
+  ButtonCounter
+},
+render() {
+  return Vue.h(Vue.resolveComponent('ButtonCounter'))
+}
+```
+
+Rather than registering a component by name and then looking it up we can use it directly instead:
+
+```js
+render() {
+  return Vue.h(ButtonCounter)
+}
+```
+
 ## Replacing Template Features with Plain JavaScript
 
 ### `v-if` and `v-for`
@@ -267,6 +308,8 @@ render() {
   }
 }
 ```
+
+In a template it can be useful to use a `<template>` tag to hold a `v-if` or `v-for` directive. When migrating to a `render` function, the `<template>` tag is no longer required and can be discarded.
 
 ### `v-model`
 
@@ -297,7 +340,7 @@ render() {
 
 #### Event Modifiers
 
-For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after event name using camel case.
+For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after the event name using camel case.
 
 For example:
 
@@ -306,7 +349,7 @@ render() {
   return Vue.h('input', {
     onClickCapture: this.doThisInCapturingMode,
     onKeyupOnce: this.doThisOnce,
-    onMouseoverOnceCapture: this.doThisOnceInCapturingMode,
+    onMouseoverOnceCapture: this.doThisOnceInCapturingMode
   })
 }
 ```
@@ -346,12 +389,12 @@ render() {
 
 ### Slots
 
-You can access slot contents as Arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
+We can access slot contents as Arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
 
 ```js
 render() {
   // `<div><slot></slot></div>`
-  return Vue.h('div', {}, this.$slots.default())
+  return Vue.h('div', this.$slots.default())
 }
 ```
 
@@ -359,13 +402,13 @@ render() {
 props: ['message'],
 render() {
   // `<div><slot :text="message"></slot></div>`
-  return Vue.h('div', {}, this.$slots.default({
+  return Vue.h('div', this.$slots.default({
     text: this.message
   }))
 }
 ```
 
-To pass slots to a child component using render functions:
+For component VNodes, we need to pass the children to `h` as an Object rather than an Array. Each property is used to populate the slot of the same name:
 
 ```js
 render() {
@@ -373,7 +416,7 @@ render() {
   return Vue.h('div', [
     Vue.h(
       Vue.resolveComponent('child'),
-      {},
+      null,
       // pass `slots` as the children object
       // in the form of { name: props => VNode | Array<VNode> }
       {
@@ -383,6 +426,95 @@ render() {
   ])
 }
 ```
+
+The slots are passed as functions, allowing the child component to control the creation of each slot's contents. Any reactive data should be accessed within the slot function to ensure that it's registered as a dependency of the child component and not the parent. Conversely, calls to `resolveComponent` should be made outside the slot function, otherwise they'll resolve relative to the wrong component:
+
+```js
+// `<MyButton><MyIcon :name="icon" />{{ text }}</MyButton>`
+render() {
+  // Calls to resolveComponent should be outside the slot function
+  const Button = Vue.resolveComponent('MyButton')
+  const Icon = Vue.resolveComponent('MyIcon')
+  
+  return Vue.h(
+    Button,
+    null,
+    {
+      // Use an arrow function to preserve the `this` value
+      default: (props) => {
+        // Reactive properties should be read inside the slot function
+        // so that they become dependencies of the child's rendering
+        return [
+          Vue.h(Icon, { name: this.icon }),
+          this.text
+        ]
+      }
+    } 
+  )
+}
+```
+
+If a component receives slots from its parent, they can be passed on directly to a child component:
+
+```js
+render() {
+  return Vue.h(Panel, null, this.$slots)
+}
+```
+
+They can also be passed individually or wrapped as appropriate:
+
+```js
+render() {
+  return Vue.h(
+    Panel,
+    null,
+    {
+      // If we want to pass on a slot function we can
+      header: this.$slots.header,
+      
+      // If we need to manipulate the slot in some way
+      // then we need to wrap it in a new function
+      default: (props) => {
+        const children = this.$slots.default ? this.$slots.default(props) : []
+        
+        return children.concat(Vue.h('div', 'Extra child'))
+      }
+    } 
+  )
+}
+```
+
+### `<component>` and `is`
+
+Behind the scenes, templates use `resolveDynamicComponent` to implement the `is` attribute. We can use the same function if we need all the flexibility provided by `is` in our `render` function:
+
+```js
+// `<component :is="name"></component>`
+render() {
+  const Component = Vue.resolveDynamicComponent(this.name)
+  return Vue.h(Component)
+}
+```
+
+Just like `is`, `resolveDynamicComponent` supports passing a component name, an HTML element name, or a component options object.
+
+However, that level of flexibility is usually not required. It's often possible to replace `resolveDynamicComponent` with a more direct alternative.
+
+For example, if we only need to support component names then `resolveComponent` can be used instead.
+
+If the VNode is always an HTML element then we can pass its name directly to `h`:
+
+```js
+// `<component :is="bold ? 'strong' : 'em'"></component>`
+render() {
+  return Vue.h(this.bold ? 'strong' : 'em')
+}
+```
+
+Similarly, if the value passed to `is` is a component options object then there's no need to resolve anything, it can be passed directly as the first argument of `h`.
+
+Much like a `<template>` tag, a `<component>` tag is only required in templates as a syntactical placeholder and should be discarded when migrating to a `render` function.
 
 ## JSX
 
