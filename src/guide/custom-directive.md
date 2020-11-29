@@ -45,6 +45,8 @@ Then in a template, you can use the new `v-focus` attribute on any element, like
 
 A directive definition object can provide several hook functions (all optional):
 
+- `created`: called before bound element's parent component props are applied. This is useful in cases where the directive needs to attach event listeners before parent component's prop or template listeners.
+
 - `beforeMount`: called when the directive is first bound to the element and before parent component is mounted. This is where you can do one-time setup work.
 
 - `mounted`: called when the bound element's parent component is mounted.
