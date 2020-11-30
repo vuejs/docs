@@ -1,10 +1,10 @@
 # Composition API
 
-> 이 섹션에서는 코드 예제에 [싱글파일 컴포넌트(SFC)](../guide/single-file-component.html) 구문을 사용합니다.
+> 이 섹션에서는 코드 예제에 [싱글 파일 컴포넌트(SFC)](../guide/single-file-component.html) 구문을 사용합니다.
 
 ## `setup`
 
-컴포넌트가 생성되기 <strong>전에(before)</strong> 실행되는 컴포넌트 옵션이며, <code>props</code> 를 환원하며, 컴포넌트 API의 진입점 역할을 합니다.
+컴포넌트가 생성되기 <strong>전에</strong> <code>props</code>를 반환(resolved)되면 실행되는 컴포넌트 옵션으로 composition API의 진입점 역할을 합니다.
 
 - **전달인자:**
 
@@ -27,7 +27,7 @@ interface SetupContext {
 function setup(props: Data, context: SetupContext): Data
 ```
 
-::: 팁 `setup()` 메서드에 전달된 인자에 타입을 추론하려면, [defineComponent](global-api.html#definecomponent) 를 사용해야합니다. :::
+::: tip `setup()`에 전달된 인자에 대한 타입을 추론하려면, [defineComponent](global-api.html#definecomponent) 를 사용해야합니다. :::
 
 - **예시**
 
@@ -68,7 +68,7 @@ function setup(props: Data, context: SetupContext): Data
       setup() {
         const readersNumber = ref(0)
         const book = reactive({ title: 'Vue 3 Guide' })
-        // 참조값(ref value)을 명시적으로 노출해야합니다. 주의해주세요.
+        // 참조값(ref value)을 명시적으로 노출해야합니다.
         return () => h('div', [readersNumber.value, book.title])
       }
     }
@@ -76,9 +76,9 @@ function setup(props: Data, context: SetupContext): Data
 
 - **참고**: [Composition API `setup`](../guide/composition-api-setup.html)
 
-## 생명주기 Hooks
+## 라이프사이클 훅(Lifecycle Hooks)
 
-생명주기 hooks 는 직접 포함시킨 `onX` 함수에 등록이 가능:
+라이프사이클 훅은 import를 사용하여 직접적으로 `onX` 함수에 등록할 수 있습니다:
 
 ```js
 import { onMounted, onUpdated, onUnmounted } from 'vue'
@@ -98,14 +98,14 @@ const MyComponent = {
 }
 ```
 
-이러한 생명주기 hooks 등록 함수는 내부 전역 상태에 의존하여 현재 활성 인스턴스(`setup()` 메서드가 호출되는 컴포넌트 인스턴스)를 찾기 때문에 <a data-md-type="raw_html" href="#setup">`setup()`</a> 메서드 호출동안 동기식으로만 사용할 수 있습니다. 현재 활성 인스턴스없이 호출하면 오류가 발생합니다.
+이러한 라이프사이클 훅 등록 함수는 내부 전역 상태에 의존하여 현재 활성 인스턴스(`setup()`이 지금 호출되는 컴포넌트 인스턴스)를 찾기 때문에 <a data-md-type="raw_html" href="#setup">`setup()`</a>중에 동기식으로만 사용할 수 있습니다. 현재 활성 인스턴스없이 호출하면 오류가 발생합니다.
 
-컴포넌트 인스턴스 컨텍스트는 생명주기 hooks 의 동기 실행 중에도 설정됩니다. 결론적으로 생명주기 hooks 내에서 동기적으로 생성된 감시자( watchers)와 계산된 속성(computed properties)도 컴포넌트가 마운트 해제 될 때 자동으로 해제됩니다.
+컴포넌트 인스턴스 컨텍스트는 라이프사이클 훅의 동기 실행 중에도 설정됩니다. 결론적으로 라이프사이클 훅 내에서 동기적으로 생성된 감시자(watchers)와 계산된 속성(computed properties)도 컴포넌트가 마운트 해제될 때 자동으로 해제됩니다.
 
-- **옵션 API 생명주기 옵션과 Composition API 간의 매핑**
+- **옵션 API 라이프사이클 옵션과 Composition API 간의 매핑**
 
-    - ~~`beforeCreate`~~ -> `setup()` 메서드를 사용
-    - ~~`created`~~ -> `setup()` 메서드를 사용
+    - ~~`beforeCreate`~~ -> `setup()` 사용
+    - ~~`created`~~ -> `setup()`  사용
     - `beforeMount` -> `onBeforeMount`
     - `mounted` -> `onMounted`
     - `beforeUpdate` -> `onBeforeUpdate`
@@ -120,7 +120,7 @@ const MyComponent = {
 
 ## Provide / Inject
 
-`provide` 및 <code>inject</code> 는 종속성 주입을 활성화합니다. 둘 다 현재 활성 인스턴스에서 <a><code>setup()</code></a> 메서드 실행 동안에만 호출 할 수 있습니다.
+`provide` 및 <code>inject</code> 는 종속성 주입을 활성화합니다. 둘 다 현재 활성 인스턴스로 <a><code>setup()</code></a>동안만 호출 할 수 있습니다.
 
 - **작성법**:
 
@@ -135,19 +135,19 @@ function inject<T>(key: InjectionKey<T> | string): T | undefined
 function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
 ```
 
-Vue는 `Symbol`을 확장하는 일반유형인 `InjectionKey` 인터페이스를 제공합니다. 공급자(provider)와 소비자(consumer)간에 삽입된 값의 유형을 동기화하는 데 사용할 수 있습니다.
+Vue는 `Symbol`을 확장하는 일반유형인 `InjectionKey` 인터페이스를 제공합니다. 공급자(provider)와 소비자(consumer)간에 삽입된 값의 유형을 동기화하는데 사용할 수 있습니다.
 
 ```ts
 import { InjectionKey, provide, inject } from 'vue'
 
 const key: InjectionKey<string> = Symbol()
 
-provide(key, 'foo') // providing non-string value will result in error
+provide(key, 'foo') // 문자열이 아닌 값을 제공하면 오류가 발생합니다
 
-const foo = inject(key) // type of foo: string | undefined
+const foo = inject(key) // foo의 타입: string | undefined
 ```
 
-문자열 키(string keys) 또는 형식화되지 않은 기호(non-typed symbols)를 사용하는 경우 삽입된 값의 타입을 명시적으로 선언해야합니다:
+문자열 키(string keys) 또는 형식화되지 않은 심볼(non-typed symbols)을 사용하는 경우 삽입된 값의 타입을 명시적으로 선언해야합니다:
 
 ```ts
 const foo = inject<string>('foo') // string | undefined
@@ -168,7 +168,7 @@ const MyComponent = {
   setup() {
     const internalInstance = getCurrentInstance()
 
-    internalInstance.appContext.config.globalProperties // access to globalProperties
+    internalInstance.appContext.config.globalProperties // globalProperties에 접근
   }
 }
 ```
@@ -180,19 +180,19 @@ const MyComponent = {
 ```ts
 const MyComponent = {
   setup() {
-    const internalInstance = getCurrentInstance() // works
+    const internalInstance = getCurrentInstance() // 작동함
 
-    const id = useComponentId() // works
+    const id = useComponentId() // 작동함
 
     const handleClick = () => {
-      getCurrentInstance() // doesn't work
-      useComponentId() // doesn't work
+      getCurrentInstance() // 작동안함
+      useComponentId() // 작동안함
 
-      internalInstance // works
+      internalInstance // 작동함
     }
 
     onMounted(() => {
-      getCurrentInstance() // works
+      getCurrentInstance() // 작동함
     })
 
     return () =>
@@ -206,7 +206,7 @@ const MyComponent = {
   }
 }
 
-// also works if called on a composable
+// 컴포저블(composable)에서 호출되는 경우에도 작동합니다
 function useComponentId() {
   return getCurrentInstance().uid
 }
