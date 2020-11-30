@@ -3,11 +3,11 @@ badges:
 - breaking
 ---
 
-# 전역 API 트리쉐이킹(*Global API Treeshaking) <migrationbadges badges="$frontmatter.badges"></migrationbadges>
+# 전역 API 트리쉐이킹(Global API Treeshaking) <migrationbadges badges="$frontmatter.badges"></migrationbadges>
 
 ## 2.x 구문
 
-Vue에서 DOM을 수동으로 조작해야 했을 때, 다음과 같은 패턴을 본 적이 있을 겁니다.
+Vue에서 DOM을 수동으로 조작해야 했을 경우, 다음과 같은 패턴을 본 적이 있을 겁니다.
 
 ```js
 import Vue from 'vue'
@@ -48,7 +48,7 @@ Vue 3에서는 트리 쉐이킹 지원을 염두에 두고 글로벌 및 내부 
 import { nextTick } from 'vue'
 
 nextTick(() => {
-  // DOM 관련된 일
+  // something DOM-related
 })
 ```
 
@@ -62,11 +62,11 @@ import { nextTick } from 'vue'
 test('an async feature', async () => {
   const wrapper = shallowMount(MyComponent)
 
-  // DOM 관련 작업 실행
+  // execute some DOM-related tasks
 
   await nextTick()
 
-  // 코드 실행
+  // run your assertions
 })
 ```
 
