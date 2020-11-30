@@ -352,7 +352,10 @@ return withDirectives(h('div'), [
 
     ```js
     const MyDirective = resolveDirective('MyDirective')
-    const nodeWithDirectives = withDirectives(h('div'), [[MyDirective]])
+    const nodeWithDirectives = withDirectives(
+      h('div'),
+      [ [MyDirective] ]
+    )
     ```
 
     - `[directive, value]` - 디렉티브에 할당 할 `any` 유형의 값
