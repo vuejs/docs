@@ -8,7 +8,7 @@ badges:
 
 Props default 팩토리 함수는 더이상 `this`에 접근할 수 없습니다.
 
-대안
+대안:
 
 - default 함수의 인자로 컴포넌트로부터 받은 원시 props가 전달됩니다.
 
