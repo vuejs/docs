@@ -24,7 +24,7 @@ badges:
 2.x에서 `render` 함수는 `h` 함수(`createElement`의 일반적인 별칭)를 자동적으로 전달인자로 받습니다.
 
 ```js
-// Vue 2 렌더 함수 예제
+// Vue 2 렌더 함수 예시
 export default {
   render(h) {
     return h('div')
@@ -37,7 +37,7 @@ export default {
 3.x에서 `h`는 자동으로 전달인자로 받는 대신에 전역 import로 가져옵니다.
 
 ```js
-// Vue 3 렌더 함수 예제
+// Vue 3 렌더 함수 예시
 import { h } from 'vue'
 
 export default {
@@ -47,11 +47,11 @@ export default {
 }
 ```
 
-## 렌더 함수 시그니쳐(signature) 변경
+## 렌더 함수 기호(signature) 변경
 
 ### 2.x 문법
 
-2.x에서 `render`함수는 `h`와 같은 전달인자를 자동으로 받았습니다.
+2.x에서 `render`함수는 `h`와 같은 전달인자를 자동으로 받습니다.
 
 ```js
 // Vue 2 렌더 함수 예제
