@@ -1,5 +1,5 @@
 ---
-title: v-for 배열 Refs
+title: v-for Array Refs
 badges:
 - breaking
 ---
