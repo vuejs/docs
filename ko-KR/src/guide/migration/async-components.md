@@ -44,10 +44,10 @@ import { defineAsyncComponent } from 'vue'
 import ErrorComponent from './components/ErrorComponent.vue'
 import LoadingComponent from './components/LoadingComponent.vue'
 
-// 옵션이 없는 비동기 컴포넌트
+// Async component without options
 const asyncPage = defineAsyncComponent(() => import('./NextPage.vue'))
 
-// 옵션이 있는 비동기 컴포넌트
+// Async component with options
 const asyncPageWithOptions = defineAsyncComponent({
   loader: () => import('./NextPage.vue'),
   delay: 200,
@@ -74,12 +74,12 @@ const asyncPageWithOptions = defineAsyncComponent({
 또한, 2.x와 달리 로더 함수는 `resolve`와 `reject` 인수를 받지 않으며 항상 Promise를 반환해야 합니다.
 
 ```js
-// 2.x 버전
+// 2.x version
 const oldAsyncComponent = (resolve, reject) => {
   /* ... */
 }
 
-// 3.x 버전
+// 3.x version
 const asyncComponent = defineAsyncComponent(
   () =>
     new Promise((resolve, reject) => {
@@ -90,4 +90,4 @@ const asyncComponent = defineAsyncComponent(
 
 비동기 컴포넌트 사용에 대한 자세한 내용은 다음을 참조하십시오.
 
-- [가이드 : 동적 & 비동기 컴포넌트](/guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+- [가이드: 동적 & 비동기 컴포넌트](/guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
