@@ -12,10 +12,10 @@ Vue의 커뮤니티는 엄청나게 빠르게 성장하고 있으며 이 글을 
 
 ### 도움받기
 
-- [포럼](https://forum.vuejs.org/): Vue와 그 생태계에 대해 질문하고 답변을 얻을 수 있는 최고의 장소입니다.
-- [채팅](https://chat.vuejs.org/): Vue 개발자가 실시간으로 만나고 채팅 할 수있는 공간입니다.
-- [모임](https://events.vuejs.org/meetups): 자신과 같은 지역 Vue.js 매니아를 찾기 원하십니까? 커뮤니티 리더가 되고 싶으십니까? 여기에 필요한 도움과 지원이 있습니다!
-- [GitHub](https://github.com/vuejs): 보고 할 버그가 있거나 요청할 기능이 있는 경우 GitHub 문제가 있습니다. 풀 리퀘스트도 환영합니다!
+- [포럼(Forum)](https://forum.vuejs.org/): Vue와 그 생태계에 대해 질문하고 답변을 얻을 수 있는 최고의 장소입니다.
+- [채팅(Chat)](https://chat.vuejs.org/): Vue 개발자가 실시간으로 만나고 채팅 할 수있는 공간입니다.
+- [모임(Meetups)](https://events.vuejs.org/meetups): 자신과 같은 지역 Vue.js 매니아를 찾기 원하십니까? 커뮤니티 리더가 되고 싶으십니까? 여기에 필요한 도움과 지원이 있습니다!
+- [깃허브(GitHub)](https://github.com/vuejs): 보고 할 버그가 있거나 요청할 기능이 있는 경우 GitHub Issue를 사용하십시오. 풀 리퀘스트도 환영합니다!
 
 ### 생태계 탐색
 
