@@ -56,7 +56,7 @@
 ### 문법
 
 - API에서 약어를 구체적으로 언급하지 않는 한(예: `$attrs`) 작성 및 코드 예제에서 약어를 사용하지 마십시오(예: `attribute` 가 `attr`보다 낫고, `message`가 `msg`보다 낫습니다). 표준 키보드에 포함된 약어 기호는(예: `@`, `#`, `&`) 괜찮습니다.
-- **다음 예를 직접 참조할 때 마침표 (`.`) 대신 콜론 (`:`)을 사용하여 문장을 끝냅니다.**
+- 다음 예를 직접 참조할 때 마침표 (`.`) 대신 콜론 (`:`)을 사용하여 문장을 끝냅니다.
 - **Oxford comma 사용** (예. "a, b, and c" 대신 "a, b and c"). ![Why the Oxford comma is important](https://raw.githubusercontent.com/vuejs/vuejs.org/master/src/images/oxford-comma.jpg)
     - 출처: [The Serial (옥스포드) Comma: When and Why To Use It](https://www.inkonhand.com/2015/10/the-serial-oxford-comma-when-and-why-to-use-it/)
 - **프로젝트 이름을 참조할 때, 프로젝트가 자신을 가리키는 이름을 사용하십시오.** 예를들어 "webpack" 및 "npm"은 문서에서 참조하는 방식이므로 모두 소문자를 사용해야 합니다.
