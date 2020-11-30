@@ -229,7 +229,7 @@ function Person(firstName, lastName) {
 }
 ```
 
-아래와 같이 사용하면:
+아래와 같이 작성하면:
 
 ```js
 app.component('blog-post', {
