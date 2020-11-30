@@ -1,6 +1,6 @@
 # 시작하기
 
-::: Vue.js의 새로운 기능에 대한 정보가 필요하신가요? 그렇다면 [필수가이드](/guide/introduction.html)를 확인하세요 :::
+::: info Vue.js의 새로운 기능에 대한 정보가 필요하신가요? 그렇다면 [필수가이드](/guide/introduction.html)를 확인하세요. :::
 
  이번 가이드는 Vue 2 경험이 있으면서, Vue 3 변경사항 및 새로운 기능을 배우고 싶은 사용자를 주요 독자로 삼았습니다.**&nbsp;이 문서는 Vue 3를 시도하기 전 꼭 읽어야 하는 것은 아닙니다. ** 변한 것이 많아 보이지만, Vue에 관해서 알고 좋아하던 것들은 여전히 같습니다.; 그렇지만 우리는 문서화 된 변경 점에 대한 예제들과 자세한 설명을 가능한 철저하게 제공하고 싶었습니다.
 
@@ -17,7 +17,7 @@
 
 ## <a>시작하기</a>
 
-- CDN을 통해 시작: `<script src="https://unpkg.com/vue@next"></script>`
+- CDN을 통해 시작: <code><script src="https://unpkg.com/vue@next"></script></code>
 
 - [Codepen](https://codepen.io/yyx990803/pen/OJNoaZL)의 인브라우저 플레이그라운드에서 시작
 
@@ -42,7 +42,7 @@
 Vue 3에서 주목할 만한 새로운 기능 중 일부는 다음과 같습니다.
 
 - [Composition API](/guide/composition-api-introduction.html)
-- [텔레포트(Teleport)](/guide/teleport.html)
+- [Teleport](/guide/teleport.html)
 - [Fragments](/guide/migration/fragments.html)
 - [Emits 컴포넌트 옵션](/guide/component-custom-events.html)
 - 커스텀 렌더들(custom renderers)을 생성하기 위한 [`@vue/runtime-core`의 `createRenderer` API ](https://github.com/vuejs/vue-next/tree/master/packages/runtime-core)
@@ -52,7 +52,7 @@ Vue 3에서 주목할 만한 새로운 기능 중 일부는 다음과 같습니�
 
 ## 주의해야 할 변경사항들
 
-::: INFO 우리는 Vue 2 호환 동작과 호환되지 않는 사용에 대한 런타임 경고가있는 Vue 3용 마이그레이션 빌드 작업 중입니다. 중요한 Vue 2 앱을 마이그레이션 할 계획이라면, 원활한 환경을 위해 마이그레이션 빌드를 기다리는 것이 좋습니다. :::
+::: info INFO 우리는 Vue 2 호환 동작과 호환되지 않는 사용에 대한 런타임 경고가있는 Vue 3용 마이그레이션 빌드 작업 중입니다. 중요한 Vue 2 앱을 마이그레이션 할 계획이라면, 원활한 환경을 위해 마이그레이션 빌드를 기다리는 것이 좋습니다. :::
 
 다음은 2.x의 사용자가 주의해야 할 변경사항들로 구성됩니다.
 
@@ -101,7 +101,7 @@ Vue 3에서 주목할 만한 새로운 기능 중 일부는 다음과 같습니�
 
 ### 제거된 APIs
 
-- [`v-on` 수정자로서의 `키 입력` 지원](/guide/migration/keycode-modifiers.html)
+- [`v-on` 수정자로서의 `키코드(keyCode)` 지원](/guide/migration/keycode-modifiers.html)
 - [$on, $off 그리고 $once 인스턴스 메소드](/guide/migration/events-api.html)
 - [필터](/guide/migration/filters.html)
 - [인라인 템플릿 속성](/guide/migration/inline-template-attribute.html)
@@ -143,7 +143,7 @@ Vuex 4.0는 3.x와 거의 동일한 API로 Vue3 지원합니다. 유일하게 �
 
 - Chrome: [Chrome web store에서 설치](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg?hl=en)
 
-    - 노트: 베타 채널이 정식 버전의 devtools과 충돌 할 수 있으므로 베타 채널이 제대로 작동하려면 정식 버전을 일시적으로 비활성화해야 할 수 있습니다.
+    - Note: 베타 채널이 정식 버전의 devtools과 충돌 할 수 있으므로 베타 채널이 제대로 작동하려면 정식 버전을 일시적으로 비활성화해야 할 수 있습니다.
 
 - Firefox: [서명된 부가기능 다운로드](https://github.com/vuejs/vue-devtools/releases/tag/v6.0.0-beta.2) (Assets의 `.xpi`파일)
 
@@ -156,7 +156,7 @@ Vuex 4.0는 3.x와 거의 동일한 API로 Vue3 지원합니다. 유일하게 �
 프로젝트 | npm | Repo
 --- | --- | ---
 @vue/babel-plugin-jsx | []![rc] | [[GitHub]]
-eslint-plugin-vue | [](https://www.npmjs.com/package/eslint-plugin-vue/v/next)![beta](https://img.shields.io/npm/v/eslint-plugin-vue/next.svg) | [[GitHub]]
+eslint-plugin-vue | []![beta] | [[GitHub]]
 @vue/test-utils | []![beta] | [[GitHub]]
 vue-class-component | []![beta] | [[GitHub]]
 vue-loader | []![beta] | [[GitHub]]
@@ -166,16 +166,18 @@ rollup-plugin-vue | []![beta] | [[GitHub]]
 [rc]: https://img.shields.io/npm/v/@vue/babel-plugin-jsx.svg
 []: https://www.npmjs.com/package/@vue/babel-plugin-jsx
 [GitHub]: https://github.com/vuejs/jsx-next
-[GitHub]: https://img.shields.io/npm/v/@vue/devtools/beta.svg
-[beta]: https://www.npmjs.com/package/@vue/devtools/v/beta
-[]: https://github.com/vuejs/vue-devtools/tree/next
-[GitHub]: https://img.shields.io/npm/v/eslint-plugin-vue.svg
-[beta]: https://www.npmjs.com/package/eslint-plugin-vue
-[]: https://github.com/vuejs/eslint-plugin-vue
-[GitHub]: https://img.shields.io/npm/v/@vue/test-utils/next.svg
-[beta]: https://www.npmjs.com/package/@vue/test-utils/v/next
-[]: https://github.com/vuejs/vue-test-utils-next
-[GitHub]: https://img.shields.io/npm/v/@ant-design-vue/babel-plugin-jsx.svg
-[beta]: https://www.npmjs.com/package/@ant-design-vue/babel-plugin-jsx
-[]: https://github.com/vueComponent/jsx
-[GitHub]: https://img.shields.io/npm/v/vue-class-component/next.svg
+[beta]: https://img.shields.io/npm/v/@vue/devtools/beta.svg
+[]: https://www.npmjs.com/package/@vue/devtools/v/beta
+[GitHub]: https://github.com/vuejs/vue-devtools/tree/next
+[beta]: https://img.shields.io/npm/v/eslint-plugin-vue.svg
+[]: https://www.npmjs.com/package/eslint-plugin-vue
+[GitHub]: https://github.com/vuejs/eslint-plugin-vue
+[beta]: https://img.shields.io/npm/v/@vue/test-utils/next.svg
+[]: https://www.npmjs.com/package/@vue/test-utils/v/next
+[GitHub]: https://github.com/vuejs/vue-test-utils-next
+[beta]: https://img.shields.io/npm/v/@ant-design-vue/babel-plugin-jsx.svg
+[]: https://www.npmjs.com/package/@ant-design-vue/babel-plugin-jsx
+[GitHub]: https://github.com/vueComponent/jsx
+[beta]: https://img.shields.io/npm/v/vue-class-component/next.svg
+[]: https://www.npmjs.com/package/vue-class-component/v/next
+[GitHub]: https://github.com/vuejs/vue-class-component/tree/next

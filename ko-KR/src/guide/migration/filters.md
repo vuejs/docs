@@ -38,13 +38,13 @@ Filters는 Vue 3.0에서 제거되며 더 이상 지원되지 않습니다.
 </script>
 ```
 
-위의 방식은 편리해 보이지만, 중괄호 보간법 안의 표현식이 "그냥 자바스크립트"라는 전제를 깨는 맞춤형 구문이 필요하고, 이는 filters를 배우고 적용하는데에 비용이 들게 합니다.
+위의 방식은 편리해 보이지만, 중괄호 보간법 안의 표현식이 "그냥 자바스크립트"라는 전제를 깨는 커스텀 구문이 필요하고, 이는 filters를 배우고 적용하는데에 비용이 들게 합니다.
 
-## 3.x 변경
+## 3.x 변경점
 
-3.x 버전에서는 filter는 삭제되었고 더 이상 지원되지 않습니다. 대신에 method 호출이나 computed properties로 대체하는 것이 권장됩니다.
+3.x 버전에서는 filter는 삭제되었고 더 이상 지원되지 않습니다. 대신에 method 호출이나 computed 속성으로 대체하도록 권장합니다.
 
-다음은 filters대신에 computed properties를 적용해 구현한 예시입니다.
+다음은 filters대신에 computed 속성을 적용해 구현한 예시입니다.
 
 ```html
 <template>
@@ -71,11 +71,11 @@ Filters는 Vue 3.0에서 제거되며 더 이상 지원되지 않습니다.
 
 ## 마이그레이션 방법
 
-filters 대신 methods나 computed properties를 사용하는 것을 권장합니다.
+filters 대신 methods나 computed 속성 사용을 권장합니다.
 
 ### 전역 Filters
 
-전역적으로 등록되고 앱 전역에서 사용되는 filters를 사용하는 경우, 각각의 컴포넌트에서 computed 속성이나 methods로 대체하는 것은 불편할 수 있습니다.
+애플리케이션에 filters를 전역적으로 등록하고 사용하는 경우, 각각의 컴포넌트에서 computed 속성이나 methods로 대체하는 것은 불편할 수 있습니다.
 
 대신, [globalProperties](../../api/application-config.html#globalproperties)를 통해 모든 컴포넌트에 전역 filters를 사용할 수 있습니다:
 

@@ -90,4 +90,4 @@ const asyncComponent = defineAsyncComponent(
 
 비동기 컴포넌트 사용에 대한 자세한 내용은 다음을 참조하십시오.
 
-- [가이드 : 동적 & 비동기 컴포넌트](/guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+- [가이드: 동적 & 비동기 컴포넌트](/guide/component-dynamic-async.html#dynamic-components-with-keep-alive)

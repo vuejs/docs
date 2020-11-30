@@ -107,8 +107,7 @@ export default {
   }
 }
 ```
-
-```js{4-5}
+```
 
 ```js{4-5}
 export default {
@@ -132,8 +131,7 @@ export default {
   }
 }
 ```
-
-```js{2,4-5}
+```
 
 ```js{2,4-5}
 export default {

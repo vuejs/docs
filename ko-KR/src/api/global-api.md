@@ -2,7 +2,7 @@
 
 ## createApp
 
-컨텍스트를 제공하는 응용 프로그램 인스턴스를 반환합니다. 응용 프로그램 인스턴스에 의해 마운트 된 컴포넌트 트리 전체가 동일한 컨텍스트를 공유합니다.
+애플리케이션 컨텍스트를 제공하는 애플리케이션 인스턴스를 반환합니다. 애플리케이션 인스턴스에 의해 마운트된 컴포넌트 트리 전체가 동일한 컨텍스트를 공유합니다.
 
 ```js
 const app = Vue.createApp({})
@@ -12,7 +12,7 @@ const app = Vue.createApp({})
 
 ### 전달인자
 
-이 함수는 첫 번째 매개변수로 루트 컴포넌트 옵션 개체를 받습니다.
+이 함수는 첫 번째 매개변수로 루트 컴포넌트 옵션 객체를 받습니다.
 
 ```js
 const app = Vue.createApp({
@@ -27,7 +27,7 @@ const app = Vue.createApp({
 })
 ```
 
-두 번째 매개 변수를 사용하면 루트 props를 응용 프로그램에 전달할 수 있습니다.
+두 번째 매개 변수를 사용하면 루트 props를 애플리케이션에 전달할 수 있습니다.
 
 ```js
 const app = Vue.createApp(
@@ -60,7 +60,7 @@ export type CreateAppFunction<HostElement> = (
 
 ## h
 
-일반적으로 **VNode**로 축약되는 "가상 노드(virtual node)"를 반환합니다. 이는 모든 하위 노드에 대한 설명을 포함하여 페이지에서 어떤 종류의 노드를 렌더링해야 하는지 Vue에 설명하는 정보를 포함하는 일반 개체입니다. 수동으로 작성된 [렌더링 함수](../guide/render-function.md)를 대상으로하고 있습니다.
+일반적으로 **VNode**로 축약되는 "가상 노드(virtual node)"를 반환합니다. 이는 모든 하위 노드에 대한 설명을 포함하여 페이지에서 어떤 종류의 노드를 렌더링해야 하는지 Vue에 설명하는 정보가 포함된 일반 객체입니다. 수동으로 작성된 [렌더 함수](../guide/render-function.md)를 위한 것입니다.
 
 ```js
 render() {
@@ -78,7 +78,7 @@ render() {
 
 - **Details:**
 
-    HTML 태그 이름, 컴포넌트, 비동기 컴포넌트 또는 null입니다. null을 사용하면 주석이 표시됩니다. 이 매개변수는 필수입니다.
+    HTML 태그 이름, 컴포넌트, 비동기 컴포넌트입니다. null을 반환하는 함수를 사용하면 주석이 렌더링됩니다. 이 매개변수는 필수입니다.
 
 #### props
 
@@ -86,7 +86,7 @@ render() {
 
 - **Details:**
 
-    템플릿에서 사용하는 attributes, props, events에 해당하는 개체입니다. (선택사항)
+    템플릿에서 사용하는 attributes, props, events에 해당하는 객체입니다. (선택사항)
 
 #### children
 
@@ -94,7 +94,7 @@ render() {
 
 - **Details:**
 
-    `h()`를 사용하여 빌드하거나 문자열을 사용하여 "text VNodes" 또는 슬롯이 있는 객체를 가져옵니다. (선택사항)
+    `h()`를 사용하여 빌드하거나 문자열을 사용하여 "text VNodes"나 슬롯이 있는 객체를 가져오는 하위 VNode입니다. (선택사항)
 
     ```js
     h('div', {}, [
@@ -108,7 +108,7 @@ render() {
 
 ## defineComponent
 
-구현 측면에서 `defineComponent`는 전달된 객체를 반환하는 것 외에는 아무것도 하지 않습니다. 그러나 입력 측에서 반환된 값에는 수동 렌더링 함수, TSX 및 IDE 도구의 지원을 위한 생성자의 합성 유형이 있습니다.
+구현 측면에서 `defineComponent`는 전달된 객체를 반환하는 것 외에는 아무것도 하지 않습니다. 그러나 입력에 관해서는, 반환된 값에는 수동 렌더링 함수, TSX 및 IDE 도구의 지원을 위한 생성자의 합성 유형(synthetic type)이 있습니다.
 
 ### 전달인자
 
@@ -129,7 +129,7 @@ const MyComponent = defineComponent({
 })
 ```
 
-또는 `setup` function, function 이름이 component 이름으로 사용됩니다.
+또는 `setup` 함수 사용 시에는 함수명이 컴포넌트명으로 사용됩니다.
 
 ```js
 import { defineComponent, ref } from 'vue'
@@ -146,7 +146,7 @@ const HelloWorld = defineComponent(function HelloWorld() {
 
 ### 전달인자
 
-기본적인 사용법을 위해 `defineAsyncComponent`는 `Promise`를 반환하는 팩토리 함수를 받아들일 수 있습니다. Promise의 `resolve` 콜백은 서버에서 컴포넌트 정의를 검색할 때 호출되어야 합니다. 또한 `reject(reason)`를 호출하여 로드가 실패했음을 나타낼 수 있습니다.
+기본적인 사용법을 위해 `defineAsyncComponent`는 `Promise`를 반환하는 팩토리 함수를 허용할 수 있습니다. Promise의 `resolve` 콜백은 서버에서 컴포넌트 정의를 검색할 때 호출되어야 합니다. 또한 `reject(reason)`를 호출하여 로드가 실패했음을 나타낼 수도 있습니다.
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -175,7 +175,7 @@ createApp({
 
 고급 사용을 위해 `defineAsyncComponent`는 객체를 허용할 수 있습니다.
 
-`defineAsyncComponent` 메서드는 다음과 같은 형식의 개체를 반환할 수 있습니다.
+`defineAsyncComponent` 메서드는 다음과 같은 형식의 객체를 반환할 수 있습니다.
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -185,18 +185,32 @@ const AsyncComp = defineAsyncComponent({
   loader: () => import('./Foo.vue')
   // 비동기 컴포넌트가 로드되는 동안 사용할 컴포넌트
   loadingComponent: LoadingComponent,
-  // 로드가 실패 할 경우 사용할 컴포넌트
+  // 로드가 실패할 경우 사용할 컴포넌트
   errorComponent: ErrorComponent,
-  // 로딩 컴포넌트 지연시간(기본값:200ms)
+  // 로딩 컴포넌트가 보여지기 전 지연시간. 기본값: 200ms.
   delay: 200,
-  // 지정된 시간이 초과한경우 오류 컴포넌트를 표시합니다.(기본값:무한정)
+  // 주어진 시간이 초과되면 오류 컴포넌트가 표시됩니다.
+  // 기본값: Infinity.
   timeout: 3000,
-  // 로더 promise가 rejects 될 때 비동기 컴포넌트가 다시 시도 할지를 boolean 값으로 반환하는 함수
-  retryWhen: error => error.code !== 404,
-  // 최대 재시도 횟수
-  maxRetries: 3,
-  // 컴포넌트가 사용 가능한지 지정
-  suspensible: false
+  // 컴포넌트가 사용 가능한지 정의합니다. 기본값: true.
+  suspensible: false,
+  /**
+   *
+   * @param {*} error 에러 메시지 객체
+   * @param {*} retry 로더 프로미스가 reject될 때, 비동기 컴포넌트가 재시도하는지에 대한 여부를 나타내는 함수
+   * @param {*} fail  실패의 끝
+   * @param {*} attempts 허용되는 최대 재시도 수
+   */
+  onError(error, retry, fail, attempts) {
+    if (error.message.match(/fetch/) && attempts <= 3) {
+      // fetch 에러시 재시도, 최대 3회 시도
+      retry()
+    } else {
+      // retry/fail는 promise의 resolve/reject와 같습니다:
+      // 오류 처리를 계속하려면 그 중 하나를 호출해야 합니다.
+      fail()
+    }
+  },
 })
 ```
 
@@ -204,9 +218,9 @@ const AsyncComp = defineAsyncComponent({
 
 ## resolveComponent
 
-:::warning `resolveComponent`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
+:::warning `resolveComponent`는 `render`나 `setup` 함수 내에서만 사용할 수 있습니다. :::
 
-현재 응용 프로그램 인스턴스에서 사용 가능한 경우 이름으로 `component`를 확인할 수 있습니다.
+현재 애플리케이션 인스턴스에서 사용 가능한 경우 이름으로 `component`를 확인할 수 있습니다.
 
 찾을 수 없는 경우 `Component` 또는 `undefined`를 반환합니다.
 
@@ -240,9 +254,9 @@ render() {
 
 :::warning `resolveDynamicComponent`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
 
-`<component :is="">`가 사용하는 것과 같은 메커니즘으로 `component`를 해결할 수 있습니다.
+`<component :is="">`로 사용하는 것과 동일한 메커니즘으로 `component`를 resolve할 수 있습니다.
 
-해결된 `Component` 또는 컴포넌트 이름을 노드 태그로 사용하여 새로 생성된 `VNode`를 반환합니다. `Component`를 찾을 수 없는 경우 경고를 발생시킵니다.
+resolve된 `Component` 또는 컴포넌트 이름을 노드 태그로 사용하여 새로 생성된 `VNode`를 반환합니다. `Component`를 찾을 수 없는 경우 경고를 발생시킵니다.
 
 ```js
 import { resolveDynamicComponent } from 'vue'
@@ -267,7 +281,7 @@ render () {
 
 :::warning `resolveDirective`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
 
-현재 애플리케이션 인스턴스에서 사용할 수 있는 경우 해당 이름으로 `directive`를 확인할 수 있습니다.
+현재 애플리케이션 인스턴스에서 사용가능한 경우 해당 이름으로 `directive`를 확인할 수 있습니다.
 
 찾을 수 없는 경우 `Directive` 또는 `undefined`를 반환합니다.
 
@@ -299,7 +313,7 @@ render () {
 
 :::warning `withDirectives`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
 
-지시문(directives)을 **VNode**에 적용할 수 있습니다. 적용된 지시문(directives)을 가진 VNode를 돌려줍니다.
+디렉티브를 **VNode**에 적용할 수 있습니다. 적용된 디렉티브를 가진 VNode를 돌려줍니다.
 
 ```js
 import { withDirectives, resolveDirective } from 'vue'
@@ -330,11 +344,11 @@ return withDirectives(h('div'), [
 
 - **Details:**
 
-    지시문(directives)의 배열(Array)입니다.
+    디렉티브의 배열입니다.
 
-    각 지시문 자체는 배열이며, 다음의 예와 같이 최대 4 개의 인덱스를 정의 할 수 있습니다.
+    각각의 디렉티브 자체는 배열이며, 다음의 예제와 같이 최대 4 개의 인덱스를 정의 할 수 있습니다.
 
-    - `[directive]` - 지시문 자체 (필수)
+    - `[directive]` - 디렉티브 자체 (필수)
 
     ```js
     const MyDirective = resolveDirective('MyDirective')
@@ -344,14 +358,14 @@ return withDirectives(h('div'), [
     )
     ```
 
-    - `[directive, value]` - 지시문에 할당 할 `any` 유형의 값
+    - `[directive, value]` - 디렉티브에 할당 할 `any` 유형의 값
 
     ```js
     const MyDirective = resolveDirective('MyDirective')
     const nodeWithDirectives = withDirectives(h('div'), [[MyDirective, 100]])
     ```
 
-    - `[directive, value, arg]` - 플러스 `String` 인수, `v-on:click`에서 `click`
+    - `[directive, value, arg]` - `문자열` 인수, `v-on:click`에서 `click`
 
     ```js
     const MyDirective = resolveDirective('MyDirective')
@@ -360,7 +374,7 @@ return withDirectives(h('div'), [
     ])
     ```
 
-    - `[directive, value, arg, modifiers]` - `key: value` 쌍 `오브젝트(Object)`는 수정자를 정의합니다.
+    - `[directive, value, arg, modifiers]` - 모든 수식어를 정의하는 `key: value`형태의 `객체(Object)`
 
     ```js
     const MyDirective = resolveDirective('MyDirective')
@@ -371,9 +385,9 @@ return withDirectives(h('div'), [
 
 ## createRenderer
 
-createRenderer 함수는 `HostNode`과 `HostElement` 두 가지 일반적인 인수를 받아들입니다. 이 호스트 환경의 노드 유형과 요소 유형에 대응하고 있습니다.
+createRenderer 함수는 호스트 환경의 노드 및 엘레멘트 타입에 해당하는 두가지 일반 전달인자인 `HostNode`과 `HostElement`를 허용합니다.
 
-예를 들어, runtime-dom의 경우 HostNode는 DOM `Node` 인터페이스를 제공, HostElement는 DOM `Element` 인터페이스입니다.
+예를 들어, runtime-dom의 경우 HostNode는 DOM `Node` 인터페이스가 되고, HostElement는 DOM `Element` 인터페이스가 됩니다.
 
 커스텀 렌더러는 다음과 같은 플랫폼 특정 유형을 전달할 수 있습니다.
 
@@ -407,7 +421,7 @@ const { render, createApp } = createRenderer<Node, Element>({
 
 ## nextTick
 
-다음 DOM 업데이트 주기 후에 콜백을 연기합니다. DOM 업데이트를 기다리는 데이터를 변경한 직후에 사용합니다.
+다음 DOM 업데이트 주기 후에 콜백이 실행되도록 연기합니다. DOM 업데이트를 기다리는 위해 일부 데이터를 변경한 후에 즉시 사용합니다.
 
 ```js
 import { createApp, nextTick } from 'vue'

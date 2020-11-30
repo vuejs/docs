@@ -20,15 +20,15 @@ badges:
 
 ## 서론
 
-Vue 2.0이 출시되었을때 `v-model` 디렉티브는 개발자들에게  `value` 사용자 지정 속성으로 사용하도록 하였습니다. 개발자들이 다른 목적을 위해 다른 사용자 지정 속성이 필요할때는 `v-bind.sync`를 사용해야만 했습니다. 또한 `v-model`과 `value` 사이에 데이터를 쉽게 변경할 수 없는 관계는 네이티브 요소와 사용자 지정 요소의 처리 방식에 문제가 발생했습니다.
+Vue 2.0이 출시되었을때, `v-model` 디렉티브는 개발자들에게  `value` prop로 사용하도록 하였습니다. 개발자들이 다른 목적을 위해 다른 prop가 필요할 때는 `v-bind.sync`를 사용해야만 했습니다. 또한 `v-model`과 `value` 사이에 하드코딩된(hard-coded) 관계는 네이티브 엘리먼트와 커스텀 엘리먼트의 처리 방식에 문제가 발생했습니다.
 
-2.2에서는 컴포넌트가 `v-model`에 사용할 사용자 지정 속성 및 이벤트를 사용자가 지정할 수 있도록 `model` 컴포넌트 옵션이 도입되었습니다. 그러나 여전히 컴포넌트에 단일`v-model`만 사용가능 합니다.
+2.2버전에서는 컴포넌트가 `v-model`에 사용할 prop와 이벤트를 사용자가 설정할 수 있도록 `model` 컴포넌트 옵션이 도입되었습니다. 그러나 여전히 컴포넌트에 단일`v-model`만 사용가능 합니다.
 
 Vue 3에서는 혼동을 줄이고 개발자가 `v-model` 디렉티브를 보다 유연하게 사용할 수 있도록 양방향 데이터 바인딩을 위한 API가 표준화되고 있습니다.
 
 ## 2.x 문법
 
-2.x에서, 컴포넌트가 `v-model`을 사용하는 것은 `value`사용자 지정 속성을 전달하고 <code>input</code> 이벤트를 emit 하는 것과 같습니다.
+2.x에서 컴포넌트에 `v-model`을 사용하는 것은 `value` prop를 전달하고 <code>input</code> 이벤트를 emit 하는 것과 같습니다.
 
 ```html
 <ChildComponent v-model="pageTitle" />
@@ -38,7 +38,7 @@ Vue 3에서는 혼동을 줄이고 개발자가 `v-model` 디렉티브를 보다
 <ChildComponent :value="pageTitle" @input="pageTitle = $event" />
 ```
 
-사용자 지정 속성 또는 이벤트명을 다른이름으로 변경하려는 경우에는 `ChildComponent`에 `model` 옵션 추가가 필요 합니다:
+prop 또는 이벤트명을 다른 이름으로 변경하려면 `ChildComponent` 컴포넌트에 `model` 옵션 추가가 필요 합니다:
 
 ```html
 <!-- ParentComponent.vue -->
@@ -74,19 +74,19 @@ export default {
 
 ### `v-bind.sync` 사용
 
-경우에 따라 우리는 사용자 지정 속성에 양방향 바인딩이 필요할 수 있다. (가끔은 `v-model` 외에 추가적으로 다른 사용자 지정 속성에 대하여). 이를 위해, `update:myPropName` 패턴으로 이벤트를 emit 하는 것이 좋습니다. 예를 들면, 이전 예제에서 `title` 사용자 지정 속성을 사용한 `ChildComponent`의 경우, 새로운 값을 할당 하려는 의도를 다음과 같이 전달할 수 있습니다:
+경우에 따라서 prop에 양방향 바인딩이 필요할 수 있습니다다. (가끔은 `v-model` 외에 추가적으로 다른 prop에 양방향 바인딩을 사용할 수 있습니다). 이를 위해, `update:myPropName` 패턴으로 이벤트를 emit 하는 것이 좋습니다. 예를 들면, 이전 예제에서 `title` prop를 사용한 `ChildComponent`의 경우, 새로운 값을 할당 하려는 의도를 다음과 같이 전달할 수 있습니다:
 
 ```js
 this.$emit('update:title', newValue)
 ```
 
-그런 다음 부모가 원한다면 이벤트를 수신하고 로컬 데이터 속성을 업데이트 할 수 있습니다. 예를 들면 다음과 같습니다:
+그런 다음 부모가 원한다면, 해당 이벤트를 수신하고 로컬 데이터 속성을 업데이트 할 수 있습니다. 예를 들면 다음과 같습니다:
 
 ```html
 <ChildComponent :title="pageTitle" @update:title="pageTitle = $event" />
 ```
 
-편의를 위해, .sync 수식어를 이용하여 다음과 같이 축약할 수 있습니다.
+편의를 위해 .sync 수식어를 이용하여 다음과 같이 축약할 수 있습니다.
 
 ```html
 <ChildComponent :title.sync="pageTitle" />
@@ -94,7 +94,7 @@ this.$emit('update:title', newValue)
 
 ## 3.x 문법
 
-3.x에서 커스텀 컴포넌트의 `v-model`은 사용자 지정 옵션으로 `modelValue`를 전달하고 `update:modelValue` 이벤트를 emit 하는 것과 같습니다:
+3.x에서 커스텀 컴포넌트의 `v-model`은 `modelValue` prop를 전달하고 `update:modelValue` 이벤트를 emit 하는 것과 같습니다:
 
 ```html
 <ChildComponent v-model="pageTitle" />
@@ -109,7 +109,7 @@ this.$emit('update:title', newValue)
 
 ### `v-model` 인자
 
-모델명을 변경하려면 `model` 컴포넌트 옵션 대신에 앞으로는 *argument*를 `v-model`에 전달할 수 있습니다:
+모델명을 변경하려면 `model` 컴포넌트 옵션 대신에 이제 *전달인자*를 `v-model`에 전달할 수 있습니다:
 
 ```html
 <ChildComponent v-model:title="pageTitle" />
@@ -121,7 +121,7 @@ this.$emit('update:title', newValue)
 
 ![v-bind anatomy](https://github.com/narusas/docs-next/blob/master/images/v-bind-instead-of-sync.png?raw=true)
 
-이는 또한 `.sync` 수식어를 대체하는 역할을 하며 커스텀 컴포넌트에 여러 개의 `v-model`를 가질 수 있게 한다.
+또한 `.sync` 수식어를 대체하는 역할을 하며, 커스텀 컴포넌트에 여러 개의 `v-model`를 가질 수 있습니다.
 
 ```html
 <ChildComponent v-model:title="pageTitle" v-model:content="pageContent" />
@@ -138,7 +138,7 @@ this.$emit('update:title', newValue)
 
 ### `v-model` 수식어
 
-2.x에서 하드 코딩된 `v-model` 외에 `.trim` 같은 수식어들은, 3.x에서는 커스텀 수식어들로 지원한다:
+2.x에서 하드 코딩된 `v-model` 수식어 (예:`.trim`) 외에도 이제 3.x에서 커스텀 수식어를 지원합니다:
 
 ```html
 <ChildComponent v-model.capitalize="pageTitle" />
@@ -160,7 +160,7 @@ this.$emit('update:title', newValue)
     <ChildComponent v-model:title="pageTitle" />
     ```
 
-- 인수가 없는 모든 `v-model`에 대해 사용자 지정 속성 및 이벤트명을 각각 `modelValue` 와 `update:modelValue`로 변경하십시오
+- 전달인자가 없는 모든 `v-model`의 경우, prop와 이벤트명을 각각 `modelValue` 와 `update:modelValue`로 변경해야 합니다.
 
     ```html
     <ChildComponent v-model="pageTitle" />
@@ -186,5 +186,5 @@ this.$emit('update:title', newValue)
 새로운 `v-model` 문법에 대한 자세한 내용은 아래를 참고하세요:
 
 - [Using `v-model` on Components](../component-basics.html#using-v-model-on-components)
-- <a><code>v-model</code> arguments</a>
+- [`v-model` arguments](../component-custom-events.html#v-model-arguments)
 - [Handling `v-model` modifiers](../component-custom-events.html#v-model-arguments)

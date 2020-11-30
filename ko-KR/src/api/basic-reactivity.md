@@ -1,4 +1,4 @@
-# 기본 반응형 API 들
+# 기본 반응형 API
 
 > 이 섹션에서는 코드 예제에 [싱글파일 컴포넌트(SFC)](../guide/single-file-component.html) 구문을 사용합니다.
 
@@ -10,7 +10,7 @@
 const obj = reactive({ count: 0 })
 ```
 
-반응형 변화는 깊게(deep) 적용됩니다. 모든 중첩된 속성의 변화를 감지합니다. [ES2015 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 기반 구현에서는, 반환된 프록시와 원본 객체는 **동일 하지 않습니다.** 반응형 프록시로만 작업하고 원본 객체에 의존하지 않는 것이 좋습니다.
+반응형 변화는 깊게(deep) 적용됩니다. 모든 중첩된 속성의 변화를 감지합니다. [ES2015 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 기반 구현에서는, 반환된 프록시와 원본 객체는 **동일하지 않습니다.** 반응형 프록시로만 작업하고 원본 객체에 의존하지 않는 것이 좋습니다.
 
 **작성법:**
 
@@ -28,15 +28,15 @@ const original = reactive({ count: 0 })
 const copy = readonly(original)
 
 watchEffect(() => {
-  // works for reactivity tracking
+  // 반응성 추적을 위해 작성
   console.log(copy.count)
 })
 
-// mutating original will trigger watchers relying on the copy
+// 원본을 변경하면 복사본에 의존하는 감시자가 트리거됩니다.
 original.count++
 
-// mutating the copy will fail and result in a warning
-copy.count++ // warning!
+// 복사본은 변경이 되지 않고, 경고가 발생합니다
+copy.count++ // 경고!
 ```
 
 ## `isProxy`
@@ -68,13 +68,13 @@ export default {
     const state = reactive({
       name: 'John'
     })
-    // readonly proxy created from plain object
+    // 일반 객체에서 생성된 읽기전용 프록시
     const plain = readonly({
       name: 'Mary'
     })
     console.log(isReactive(plain)) // -> false
 
-    // readonly proxy created from reactive proxy
+    // 반응형 프록시에서 생성된 읽기전용 프록시
     const stateCopy = readonly(state)
     console.log(isReactive(stateCopy)) // -> true
   }
@@ -87,7 +87,7 @@ export default {
 
 ## `toRaw`
 
-[`반응형(reactive)`](#reactive) 또는 [`읽기전용(readonly)`](#readonly) 프록시의 원시(raw) 원본 객체를 반환합니다. 프록시 접근/추적 오버헤드 없이 일시적으로 읽거나 변경을 트리거하지 않고 쓸 수 있는 이스케이프 해치다. 원래 객체에 대한 영구 참조를 유지하는 것은 **권장되지 않습니다.** 주의해서 사용하십시오.
+[`반응형(reactive)`](#reactive) 또는 [`읽기전용(readonly)`](#readonly) 프록시의 원시(raw) 원본 객체를 반환합니다. 프록시 접근/추적 오버헤드 없이 일시적으로 읽거나, 변경을 트리거하지 않고 쓸 수 있는 도피 수단(escape hatch)입니다. 원래 객체에 대한 영구 참조를 유지하는 것은 **권장되지 않습니다.** 주의해서 사용하십시오.
 
 ```js
 const foo = {}
@@ -104,18 +104,18 @@ console.log(toRaw(reactiveFoo) === foo) // true
 const foo = markRaw({})
 console.log(isReactive(reactive(foo))) // false
 
-// also works when nested inside other reactive objects
+// 다른 반응형 객체 안에 중첩될 때도 작동합니다
 const bar = reactive({ foo })
 console.log(isReactive(bar.foo)) // false
 ```
 
-::: warning `markRaw` 및 아래의 shallowXXX API를 사용하면 기본 깊은 반응성/읽기전용 변환을 선택적으로 해제하고 상태 그래프에 프록시되지 않은 원시(raw) 객체를 포함 할 수 있습니다. 다양한 이유로 사용할 수 있습니다:
+::: warning `markRaw` 및 아래의 shallowXXX API를 사용하면 기본 깊은 반응성/읽기전용 변환을 선택적으로 해제할 수 있으며, 상태 그래프에 프록시되지 않은 원시(raw) 객체를 선택적으로 포함 할 수 있습니다. 다양한 이유로 사용할 수 있습니다:
 
-- 복잡한 제3자(서드파티) 클래스 인스턴스 또는 Vue 컴포넌트 객체와 같이 일부 값은 단순히 반응성으로 만들어서는 안됩니다.
+- 복잡한 제3자(서드파티) 클래스 인스턴스나 Vue 컴포넌트 객체와 같이 일부 값은 단순히 반응성으로 만들어서는 안됩니다.
 
-- 프록시 변환을 건너뛰면 불변의(immutable) 데이터 소스로 큰 목록을 렌더링 할 때 성능이 향상될 수 있습니다.
+- 프록시 변환을 건너뛰면 변경 불가능한(immutable) 데이터 소스로 큰 목록을 렌더링 할 때 성능이 향상될 수 있습니다.
 
-원시(raw) 선택적 해제는 최상위 수준에만 있기때문에, 고급으로 간주됩니다. 따라서 중첩된 표시되지 않은 원시(raw) 객체를 반응성 객체로 설정 한 다음 다시 접근하면 프록시 버전을 다시 가져옵니다. 이것은 **오용 위험**을 초래할 수 있습니다. - 즉, 객체 ID에 의존하지만 동일한 객체의 원시(raw) 버전과 프록시 버전을 모두 사용하는 작업을 수행합니다.
+원시 선택적 해제(raw opt-out)는 최상위 수준에만 있기 때문에, 고급으로 간주됩니다. 따라서 중첩되고 표시되지 않은(nested, non-marked) 원시 객체를 반응성 객체로 설정한 다음에 다시 접근하면 프록시된 버전을 다시 가져옵니다. 이것은 **오용 위험(identity hazards)**을 초래할 수 있습니다. 즉, 객체 ID에 의존하지만 동일한 객체의 원시(raw) 버전과 프록시 버전을 모두 사용하는 작업을 수행합니다.
 
 ```js
 const foo = markRaw({
@@ -123,7 +123,7 @@ const foo = markRaw({
 })
 
 const bar = reactive({
-  // although `foo` is marked as raw, foo.nested is not.
+  // `foo`는 raw로 표시되지만, foo.nested는 그렇지 않습니다.
   nested: foo.nested
 })
 
@@ -144,11 +144,11 @@ const state = shallowReactive({
   }
 })
 
-// mutating state's own properties is reactive
+// 변경 상태의 자체적인 속성은 반응적입니다
 state.foo++
-// ...but does not convert nested objects
+// 하지만 중첩된 객체는 변환하지 않습니다.
 isReactive(state.nested) // false
-state.nested.bar++ // non-reactive
+state.nested.bar++ // 무반응
 ```
 
 ## `shallowReadonly`
@@ -163,9 +163,9 @@ const state = shallowReadonly({
   }
 })
 
-// mutating state's own properties will fail
+// 변경 상태의 자체적인 속성 변경이 안됩니다
 state.foo++
-// ...but works on nested objects
+// 하지만 중첩된 객체에서 작동합니다
 isReadonly(state.nested) // false
-state.nested.bar++ // works
+state.nested.bar++ // 반응
 ```

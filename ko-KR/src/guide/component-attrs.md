@@ -18,7 +18,7 @@ app.component('date-picker', {
 })
 ```
 
-`data-status` 속성을 통해 date-picker 컴포넌트 상태를 정의할 때, 해당 속성은 컴포넌트의 루트 노드에 적용됩니다. (즉, `div.date-picker`)
+`data-status` 속성을 통해 date-picker 컴포넌트 상태를 정의할 때, 해당 속성은 컴포넌트의 루트 노드에 적용됩니다. (예: `div.date-picker`)
 
 ```html
 <!-- non-prop 속성과 Date-picker 컴포넌트 -->
@@ -33,13 +33,13 @@ app.component('date-picker', {
 이벤트 리스너에도 동일한 규칙이 적용됩니다.
 
 ```html
-&lt;date-picker @change="submitChange"&gt;&lt;/date-picker&gt;
+<date-picker @change="submitChange"></date-picker>
 ```
 
 ```js
 app.component('date-picker', {
   created() {
-    console.log(this.$attrs) // { onChange: () =&gt; {}  }
+    console.log(this.$attrs) // { onChange: () => {}  }
   }
 })
 ```
@@ -58,11 +58,11 @@ app.component('date-picker', {
 })
 ```
 
-이 경우, `change` 이벤트 리스너가 부모 컴포넌트에서 자식 컴포넌트로 전달되며, `<select>`의 `change`는 네이티브 이벤트로 처리됩니다. `date-picker`에서 명시적으로 이벤트를 내보낼 필요가 없을 것입니다.
+이 경우, `change` 이벤트 리스너는 부모 컴포넌트에서 자식 컴포넌트로 전달되며, `<select>`의 `change`는 네이티브 이벤트로 처리됩니다. `date-picker`에서 명시적으로 이벤트를 emit할 필요가 없습니다.
 
 ```html
 <div id="date-picker" class="demo">
-  &lt;date-picker @change="showChange"&gt;&lt;/date-picker&gt;
+  <date-picker @change="showChange"></date-picker>
 </div>
 ```
 
@@ -82,7 +82,7 @@ const app = Vue.createApp({
 
 속성 상속을 비활성화하는 일반적인 시나리오는 속성을 루트 노드 이외의 다른 엘리먼트들에 적용해야 하는 경우입니다.
 
-`inheritAttrs` 옵션을 `false`로 설정하면, 컴포넌트 `props`와 `emits` 프로퍼티에 포함되지 않은 모든 속성(`class`, `style`, `v-on` 리스너 등)을 담은 `$attrs` 프로퍼티를 사용하여 다른 엘리먼트에 속성을 적용하도록 제어할 수 있습니다.
+`inheritAttrs` 옵션을 `false`로 설정하면, `props`와 `emits` 속성에 포함되지 않은 모든 속성(예: `class`, `style`, `v-on` 리스너 등)을 포함하고 있는 컴포넌트의 `$attrs` 속성을 사용하여 다른 엘리먼트에 속성을 적용하도록 제어할 수 있습니다.
 
 [이전 섹션]('#attribute-inheritance)의 date-picker 컴포넌트 예제에서 루트 `div` 엘리먼트 대신 `input` 엘리먼트에 모든 non-prop 속성을 적용해야 하는 경우, `v-bind`를 사용하여 작업을 수행할 수 있습니다.
 
@@ -111,10 +111,10 @@ app.component('date-picker', {
 
 ## 다중 루트 노드의 속성 상속
 
-단일 루트 노드 컴포넌트와 달리 다중 루트 노드 컴포넌트는 속성 흘러내림 동작(fallthrough behavior)을 갖지 않습니다.<br>`$attrs`가 명시적으로 바인딩되지 않은 경우, 런타임 경고가 발생합니다.
+단일 루트 노드 컴포넌트와 달리 다중 루트 노드 컴포넌트는 자동으로 속성을 아래로 전달하는 동작(fallthrough behavior)을 하지 않습니다. `$attrs`가 명시적으로 바인딩되지 않으면, 런타임 경고가 발생합니다.
 
 ```html
-&lt;custom-layout id="custom-layout" @click="changeValue"&gt;&lt;/custom-layout&gt;
+<custom-layout id="custom-layout" @click="changeValue"></custom-layout>
 ```
 
 ```js

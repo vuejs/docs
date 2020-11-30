@@ -3,7 +3,7 @@ badges:
 - breaking
 ---
 
-# Slots 통합 <migrationbadges badges="$frontmatter.badges"></migrationbadges>
+# 슬롯 통합(Slots Unification) <migrationbadges badges="$frontmatter.badges"></migrationbadges>
 
 ## 개요
 
@@ -12,7 +12,7 @@ badges:
 업데이트 되면서 무엇이 바뀌었는지 한눈에 보여줍니다:
 
 - 이제 `this.$slots`가 슬롯을 함수로 표현합니다.
-- **BREAKING**: `this.$scopedSlots` 가 삭제되었습니다.
+- **BREAKING**: `this.$scopedSlots`가 삭제되었습니다.
 
 더 많은 정보를 알고 싶다면, 읽으십시오!
 

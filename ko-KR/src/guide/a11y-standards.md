@@ -22,7 +22,7 @@ W3C(World Wide Web Consortium) 웹 접근성 발의(Web Accessibility Initiative
 - [이해 가능한(Understandable)](https://www.w3.org/TR/WCAG21/#understandable)
     - 정보 및 사용자 인터페이스 작동은 모든 사용자가 이해할 수 있어야 합니다.
 - [견고한(Robust)](https://www.w3.org/TR/WCAG21/#robust)
-    - 사용자는 발전한 기술로 컨텐츠에 액세스할 수 있어야 합니다.
+    - 사용자는 발전한 기술로 컨텐츠에 접근할 수 있어야 합니다.
 
 ### Web Accessibility Initiative – Accessible Rich Internet Applications (WAI-ARIA)
 
