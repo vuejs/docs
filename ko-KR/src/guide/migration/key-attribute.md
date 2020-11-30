@@ -7,7 +7,7 @@ badges:
 
 ## 개요
 
-- **NEW:** Vue가 고유한 `key`를 자동으로 생성하기 때문에 `v-if`/`v-else`/`v-else-if` 분기에 더이상 `key`가 필요하지 않습니다.
+- **NEW:** Vue가 고유한 `key`를 자동으로 생성하기 때문에 `v-if`/`v-else`/`v-else-if`에서 더이상 `key`가 필요하지 않습니다.
     - **BREAKING:** 수동으로 `key`를 정할 경우, 각 분기는 반드시 고유한 `key`를 사용해야 합니다. 더이상 의도적으로 동일한 `key`를 사용하여 분기를 강제로 재사용할 수 없습니다.
 - **BREAKING:** `<template v-for>`의 `key`는 자식이 아닌 `<template>` 태그에 있어야 합니다.
 
