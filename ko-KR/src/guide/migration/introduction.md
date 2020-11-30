@@ -2,7 +2,7 @@
 
 ::: info Vue.js의 새로운 기능에 대한 정보가 필요하신가요? 그렇다면 [필수가이드](/guide/introduction.html)를 확인하세요. :::
 
-이번 가이드는 Vue 2 경험이 있으면서, Vue 3 변경사항 및 새로운 기능을 배우고 싶은 사용자를 주요 독자로 삼았습니다.**&nbsp;이 문서는 Vue 3를 시도하기 전 꼭 읽어야 하는 것은 아닙니다. ** 변한 것이 많아 보이지만, Vue에 관해서 알고 좋아하던 것들은 여전히 같습니다.; 그렇지만 우리는 문서화 된 변경 점에 대한 예제들과 자세한 설명을 가능한 철저하게 제공하고 싶었습니다.
+ 이번 가이드는 Vue 2 경험이 있으면서, Vue 3 변경사항 및 새로운 기능을 배우고 싶은 사용자를 주요 독자로 삼았습니다.**&nbsp;이 문서는 Vue 3를 시도하기 전 꼭 읽어야 하는 것은 아닙니다. ** 변한 것이 많아 보이지만, Vue에 관해서 알고 좋아하던 것들은 여전히 같습니다.; 그렇지만 우리는 문서화 된 변경 점에 대한 예제들과 자세한 설명을 가능한 철저하게 제공하고 싶었습니다.
 
 - [시작하기](#quickstart)
 - [주목할 만한 새로운 기능들](#notable-new-features)
@@ -155,9 +155,29 @@ Vuex 4.0는 3.x와 거의 동일한 API로 Vue3 지원합니다. 유일하게 �
 
 프로젝트 | npm | Repo
 --- | --- | ---
-@vue/babel-plugin-jsx | []![rc](https://img.shields.io/npm/v/@vue/babel-plugin-jsx.svg) | [[GitHub]]
-eslint-plugin-vue | [](https://www.npmjs.com/package/eslint-plugin-vue)![beta](https://img.shields.io/npm/v/eslint-plugin-vue.svg) | [[GitHub]]
+@vue/babel-plugin-jsx | []![rc] | [[GitHub]]
+eslint-plugin-vue | []![beta] | [[GitHub]]
 @vue/test-utils | []![beta] | [[GitHub]]
 vue-class-component | []![beta] | [[GitHub]]
 vue-loader | []![beta] | [[GitHub]]
 rollup-plugin-vue | []![beta] | [[GitHub]]
+
+
+[rc]: https://img.shields.io/npm/v/@vue/babel-plugin-jsx.svg
+[]: https://www.npmjs.com/package/@vue/babel-plugin-jsx
+[GitHub]: https://github.com/vuejs/jsx-next
+[beta]: https://img.shields.io/npm/v/@vue/devtools/beta.svg
+[]: https://www.npmjs.com/package/@vue/devtools/v/beta
+[GitHub]: https://github.com/vuejs/vue-devtools/tree/next
+[beta]: https://img.shields.io/npm/v/eslint-plugin-vue.svg
+[]: https://www.npmjs.com/package/eslint-plugin-vue
+[GitHub]: https://github.com/vuejs/eslint-plugin-vue
+[beta]: https://img.shields.io/npm/v/@vue/test-utils/next.svg
+[]: https://www.npmjs.com/package/@vue/test-utils/v/next
+[GitHub]: https://github.com/vuejs/vue-test-utils-next
+[beta]: https://img.shields.io/npm/v/@ant-design-vue/babel-plugin-jsx.svg
+[]: https://www.npmjs.com/package/@ant-design-vue/babel-plugin-jsx
+[GitHub]: https://github.com/vueComponent/jsx
+[beta]: https://img.shields.io/npm/v/vue-class-component/next.svg
+[]: https://www.npmjs.com/package/vue-class-component/v/next
+[GitHub]: https://github.com/vuejs/vue-class-component/tree/next
