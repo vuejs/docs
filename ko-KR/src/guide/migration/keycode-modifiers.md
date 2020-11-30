@@ -3,14 +3,14 @@ badges:
 - breaking
 ---
 
-# 키 입력 수식어 <migrationbadges badges="$frontmatter.badges"></migrationbadges>
+# 키 코드 수식어(KeyCode Modifiers) <migrationbadges badges="$frontmatter.badges"></migrationbadges>
 
 ## 개요
 
 변경내용:
 
-- **주의**: `v-on`에 숫자를 사용한 키 입력 수식어는 더이상 지원되지 않습니다.
-- **주의**: `config.keyCodes`는 더이상 지원되지 않습니다.
+- **BREAKING**: `v-on`에 숫자를 사용한 키 입력 수식어는 더이상 지원되지 않습니다.
+- **BREAKING**: `config.keyCodes`는 더이상 지원되지 않습니다.
 
 ## 2.x 구문
 
@@ -36,7 +36,7 @@ Vue.config.keyCodes = {
 <!-- 키 코드(keyCode) 사용 -->
 <input v-on:keyup.112="showHelpText" />
 
-<!-- 사용자 정의 별칭 사용 -->
+<!-- 커스텀 별칭 사용 -->
 <input v-on:keyup.f1="showHelpText" />
 ```
 
