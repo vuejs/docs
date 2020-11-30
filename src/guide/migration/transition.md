@@ -60,3 +60,7 @@ The `<transition>` component's related prop names are also changed:
 1. Replace instances of `.v-enter` to `.v-enter-from`
 2. Replace instances of `.v-leave` to `.v-leave-from`
 3. Replace instances of related prop names, as above.
+
+## See also
+
+- [`<TransitionGroup>` now renders no wrapper element by default](/guide/migration/transition-group.html)

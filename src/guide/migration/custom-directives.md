@@ -7,12 +7,7 @@ badges:
 
 ## Overview
 
-Here is a quick summary of what has changed:
-
-- API has been renamed to better align with component lifecycle
-- Custom directives will be controlled by child component via `v-bind="$attrs"`
-
-For more information, read on!
+The hook functions for directives have been renamed to better align with the component lifecycle.
 
 ## 2.x Syntax
 
@@ -27,7 +22,7 @@ In Vue 2, custom directives were created by using the hooks listed below to targ
 Here’s an example of this:
 
 ```html
-<p v-highlight="yellow">Highlight this text bright yellow</p>
+<p v-highlight="'yellow'">Highlight this text bright yellow</p>
 ```
 
 ```js
@@ -46,10 +41,10 @@ In Vue 3, however, we’ve created a more cohesive API for custom directives. As
 
 - bind → **beforeMount**
 - inserted → **mounted**
-- **beforeUpdate**: new! this is called before the element itself is updated, much like the component lifecycle hooks.
+- **beforeUpdate**: new! This is called before the element itself is updated, much like the component lifecycle hooks.
 - update → removed! There were too many similarities to updated, so this is redundant. Please use updated instead.
 - componentUpdated → **updated**
-- **beforeUnmount** new! similar to component lifecycle hooks, this will be called right before an element is unmounted.
+- **beforeUnmount**: new! Similar to component lifecycle hooks, this will be called right before an element is unmounted.
 - unbind -> **unmounted**
 
 The final API is as follows:
@@ -58,7 +53,7 @@ The final API is as follows:
 const MyDirective = {
   beforeMount(el, binding, vnode, prevVnode) {},
   mounted() {},
-  beforeUpdate() {},
+  beforeUpdate() {}, // new
   updated() {},
   beforeUnmount() {}, // new
   unmounted() {}
@@ -68,7 +63,7 @@ const MyDirective = {
 The resulting API could be used like this, mirroring the example from earlier:
 
 ```html
-<p v-highlight="yellow">Highlight this text bright yellow</p>
+<p v-highlight="'yellow'">Highlight this text bright yellow</p>
 ```
 
 ```js
@@ -103,26 +98,6 @@ mounted(el, binding, vnode) {
 }
 ```
 
-## Implementation Details
-
-In Vue 3, we're now supporting fragments, which allow us to return more than one DOM node per component. You can imagine how handy that is for something like a component with multiple `<li>` elements or the children elements of a table:
-
-```html
-<template>
-  <li>Hello</li>
-  <li>Vue</li>
-  <li>Devs!</li>
-</template>
-```
-
-As wonderfully flexible as this is, we can potentially encounter a problem with a custom directive that could have multiple root nodes.
-
-As a result, custom directives are now included as part of a virtual DOM node’s data. When a custom directive is used on a component, hooks are passed down to the component as extraneous props and end up in `this.$attrs`.
-
-This also means it's possible to directly hook into an element's lifecycle like this in the template, which can be handy when a custom directive is too involved:
-
-```html
-<div @vnodeMounted="myHook" />
-```
-
-This is consistent with the attribute fallthrough behavior, so when a child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.
+:::warning
+With [fragments](/guide/migration/fragments.html#overview) support, components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be logged.
+:::

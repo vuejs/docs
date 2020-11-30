@@ -69,6 +69,7 @@ The following consists a list of breaking changes from 2.x:
 - [`key` usage on `<template v-for>` and non-`v-for` nodes has changed](/guide/migration/key-attribute.html)
 - [`v-if` and `v-for` precedence when used on the same element has changed](/guide/migration/v-if-v-for.html)
 - [`v-bind="object"` is now order-sensitive](/guide/migration/v-bind.html)
+- [`v-on:event.native` modifier has been removed](./v-on-native-modifier-removed.md)
 - [`ref` inside `v-for` no longer register an array of refs](/guide/migration/array-refs.html)
 
 ### Components
@@ -76,11 +77,14 @@ The following consists a list of breaking changes from 2.x:
 - [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
 - [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
 - [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
+- [Component events should now be declared with the `emits` option](./emits-option.md)
 
 ### Render Function
 
 - [Render function API changed](/guide/migration/render-function-api.html)
 - [`$scopedSlots` property is removed and all slots are exposed via `$slots` as functions](/guide/migration/slots-unification.html)
+- [`$listeners` has been removed / merged into `$attrs`](./listeners-removed)
+- [`$attrs` now includes `class` and `style` attributes](./attrs-includes-class-style.md)
 
 ### Custom Elements
 
@@ -97,6 +101,7 @@ The following consists a list of breaking changes from 2.x:
 - [The `data` option from mixins is now merged shallowly](/guide/migration/data-option.html#mixin-merge-behavior-change)
 - [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
 - [Some transition classes got a rename](/guide/migration/transition.html)
+- [`<TransitionGroup>` now renders no wrapper element by default](/guide/migration/transition-group.html)
 - [When watching an array, the callback will only trigger when the array is replaced. If you need to trigger on mutation, the `deep` option must be specified.](/guide/migration/watch.html)
 - `<template>` tags with no special directives (`v-if/else-if/else`, `v-for`, or `v-slot`) are now treated as plain elements and will result in a native `<template>` element instead of rendering its inner content.
 - In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead - this means the container itself is no longer considered part of the template.
@@ -104,9 +109,10 @@ The following consists a list of breaking changes from 2.x:
 ### Removed APIs
 
 - [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.html)
-- [$on, $off and \$once instance methods](/guide/migration/events-api.html)
+- [$on, $off and $once instance methods](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
 - [Inline templates attributes](/guide/migration/inline-template-attribute.html)
+- [`$children` instance property](/guide/migration/children.md)
 - `$destroy` instance method. Users should no longer manually manage the lifecycle of individual Vue components.
 
 ## Supporting Libraries
@@ -117,7 +123,7 @@ All of our official libraries and tools now support Vue 3, but most of them are 
 
 <a href="https://www.npmjs.com/package/@vue/cli" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/@vue/cli"></a>
 
-As of v4.5.0, `vue-cli` now provides built-in option to choose Vue 3 preset when creating a new project. You can upgrade `vue-cli` and run `vue create` to create a Vue 3 project today.
+As of v4.5.0, `vue-cli` now provides the built-in option to choose Vue 3 when creating a new project. You can upgrade `vue-cli` and run `vue create` to create a Vue 3 project today.
 
 - [Documentation](https://cli.vuejs.org/)
 - [GitHub](https://github.com/vuejs/vue-cli)
@@ -126,8 +132,9 @@ As of v4.5.0, `vue-cli` now provides built-in option to choose Vue 3 preset when
 
 <a href="https://www.npmjs.com/package/vue-router/v/next" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/vue-router/next.svg"></a>
 
-Vue Router 4.0 provides Vue 3 support and has a number of breaking changes of its own. Check out its [README](https://github.com/vuejs/vue-router-next#vue-router-next-) for full details.
+Vue Router 4.0 provides Vue 3 support and has a number of breaking changes of its own. Check out its [migration guide](https://next.router.vuejs.org/guide/migration/) for full details.
 
+- [Documentation](https://next.router.vuejs.org/)
 - [GitHub](https://github.com/vuejs/vue-router-next)
 - [RFCs](https://github.com/vuejs/rfcs/pulls?q=is%3Apr+is%3Amerged+label%3Arouter)
 
@@ -135,8 +142,9 @@ Vue Router 4.0 provides Vue 3 support and has a number of breaking changes of it
 
 <a href="https://www.npmjs.com/package/vuex/v/next" target="_blank" noopener noreferrer><img src="https://img.shields.io/npm/v/vuex/next.svg"></a>
 
-Vuex 4.0 provides Vue 3 support with largely the same API as 3.x. The only breaking change is [how the plugin is installed](https://github.com/vuejs/vuex/tree/4.0#breaking-changes).
+Vuex 4.0 provides Vue 3 support with largely the same API as 3.x. The only breaking change is [how the plugin is installed](https://next.vuex.vuejs.org/guide/migrating-to-4-0-from-3-x.html#breaking-changes).
 
+- [Documentation](https://next.vuex.vuejs.org/)
 - [GitHub](https://github.com/vuejs/vuex/tree/4.0)
 
 ### Devtools Extension
@@ -161,7 +169,7 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 | eslint-plugin-vue     | [![ga][epv-badge]][epv-npm]   | [[GitHub][epv-code]] |
 | @vue/test-utils       | [![beta][vtu-badge]][vtu-npm] | [[GitHub][vtu-code]] |
 | vue-class-component   | [![beta][vcc-badge]][vcc-npm] | [[GitHub][vcc-code]] |
-| vue-loader            | [![beta][vl-badge]][vl-npm]   | [[GitHub][vl-code]]  |
+| vue-loader            | [![rc][vl-badge]][vl-npm]     | [[GitHub][vl-code]]  |
 | rollup-plugin-vue     | [![beta][rpv-badge]][rpv-npm] | [[GitHub][rpv-code]] |
 
 [jsx-badge]: https://img.shields.io/npm/v/@vue/babel-plugin-jsx.svg
@@ -188,3 +196,7 @@ It is recommended to use [VSCode](https://code.visualstudio.com/) with our offic
 [rpv-badge]: https://img.shields.io/npm/v/rollup-plugin-vue/next.svg
 [rpv-npm]: https://www.npmjs.com/package/rollup-plugin-vue/v/next
 [rpv-code]: https://github.com/vuejs/rollup-plugin-vue/tree/next
+
+::: info
+For additional information on Vue 3 compatibility with libraries and plugins, be sure to check out [this issue in awesome-vue](https://github.com/vuejs/awesome-vue/issues/3544).
+:::

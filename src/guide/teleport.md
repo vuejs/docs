@@ -1,6 +1,6 @@
 # Teleport
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vue-3-teleport?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how to use teleport with Vue School">Learn how to use teleport with a free lesson on Vue School</a></div>
+<VideoLesson href="https://vueschool.io/lessons/vue-3-teleport?friend=vuejs" title="Learn how to use teleport with Vue School">Learn how to use teleport with a free lesson on Vue School</VideoLesson>
 
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
@@ -86,12 +86,7 @@ app.component('modal-button', {
 
 As a result, once we click the button to open the modal, Vue will correctly render the modal's content as a child of the `body` tag.
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="gOPNvjR" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Vue 3 Teleport">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/gOPNvjR">
-  Vue 3 Teleport</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Vue 3 Teleport" slug="gOPNvjR" tab="js,result" />
 
 ## Using with Vue components
 
@@ -145,4 +140,4 @@ A common use case scenario would be a reusable `<Modal>` component of which ther
 </div>
 ```
 
-You can check `<teleport>` component options in the [API reference](../api/built-in-components.html#teleport)
+You can check `<teleport>` component options in the [API reference](../api/built-in-components.html#teleport).

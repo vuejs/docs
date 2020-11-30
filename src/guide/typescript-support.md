@@ -26,6 +26,31 @@ Note that you have to include `strict: true` (or at least `noImplicitThis: true`
 
 See [TypeScript compiler options docs](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for more details.
 
+## Webpack Configuration
+
+If you are using a custom Webpack configuration `ts-loader` needs to be configured to parse `<script lang="ts">` blocks in `.vue` files:
+
+```js{10}
+// webpack.config.js
+module.exports = {
+  ...
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      }
+      ...
+```
+
 ## Development Tooling
 
 ### Project Creation
@@ -194,7 +219,7 @@ const Component = defineComponent({
 })
 ```
 
-### Typing `ref`s
+### Typing `refs`
 
 Refs infer the type from the initial value:
 

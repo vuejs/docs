@@ -18,7 +18,10 @@ Let’s imagine that in our app, we have a view to show a list of repositories o
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   data () {
     return {
@@ -86,7 +89,10 @@ Let’s add `setup` to our component:
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   setup(props) {
     console.log(props) // { user: '' }
@@ -192,7 +198,10 @@ import { ref } from 'vue'
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   setup (props) {
     const repositories = ref([])
@@ -449,7 +458,10 @@ import { toRefs } from 'vue'
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   setup (props) {
     const { user } = toRefs(props)
@@ -495,7 +507,10 @@ import useRepositoryFilters from '@/composables/useRepositoryFilters'
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   setup(props) {
     const { user } = toRefs(props)

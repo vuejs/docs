@@ -135,6 +135,12 @@ function provide<T>(key: InjectionKey<T> | string, value: T): void
 function inject<T>(key: InjectionKey<T> | string): T | undefined
 // with default value
 function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
+// with factory
+function inject<T>(
+  key: InjectionKey<T> | string,
+  defaultValue: () => T,
+  treatDefaultAsFactory: true
+): T
 ```
 
 Vue provides an `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:

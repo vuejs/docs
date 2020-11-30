@@ -76,6 +76,7 @@ An app instance exposes a subset of the current global APIs. The rule of thumb i
 | Vue.directive              | app.directive                                                                                   |
 | Vue.mixin                  | app.mixin                                                                                       |
 | Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                               |
+| Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))   |                                                                     |
 
 All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./global-api-treeshaking.html).
 
@@ -105,6 +106,25 @@ In 3.0, the check of whether an element is a component or not has been moved to 
 - If `config.isCustomElement` is assigned to when using a runtime-only build, a warning will be emitted instructing the user to pass the option in the build setup instead;
 - This will be a new top-level option in the Vue CLI config.
   :::
+
+### `Vue.prototype` Replaced by `config.globalProperties`
+
+In Vue 2, `Vue.prototype` was commonly used to add properties that would be accessible in all components.
+
+The equivalent in Vue 3 is [`config.globalProperties`](/api/application-config.html#globalproperties). These properties will be copied across as part of instantiating a component within the application:
+
+```js
+// before - Vue 2
+Vue.prototype.$http = () => {}
+```
+
+```js
+// after - Vue 3
+const app = Vue.createApp({})
+app.config.globalProperties.$http = () => {}
+```
+
+Using `provide` (discussed [below](#provide-inject)) should also be considered as an alternative to `globalProperties`.
 
 ### A Note for Plugin Authors
 
@@ -177,6 +197,8 @@ export default {
   template: `<div>{{ book }}</div>`
 }
 ```
+
+Using `provide` is especially useful when writing a plugin, as an alternative to `globalProperties`. 
 
 ## Share Configurations Among Apps
 

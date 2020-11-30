@@ -107,7 +107,7 @@
 
 - **Props:**
 
-  - `tag` - `string`, defaults to `span`.
+  - `tag` - `string`, if not defined, renders without a root element.
   - `move-class` - overwrite CSS class applied during moving transition.
   - exposes the same props as `<transition>` except `mode`.
 
@@ -117,7 +117,7 @@
 
 - **Usage:**
 
-  `<transition-group>` serve as transition effects for **multiple** elements/components. The `<transition-group>` renders a real DOM element. By default it renders a `<span>`, and you can configure what element it should render via the `tag` attribute.
+  `<transition-group>` provides transition effects for **multiple** elements/components. By default it doesn't render a wrapper DOM element, but one can be defined via the `tag` attribute.
 
   Note that every child in a `<transition-group>` must be [**uniquely keyed**](./special-attributes.html#key) for the animations to work properly.
 

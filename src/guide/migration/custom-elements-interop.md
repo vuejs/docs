@@ -5,7 +5,7 @@ badges:
 
 # Custom Elements Interop <MigrationBadges :badges="$frontmatter.badges" />
 
-# Overview
+## Overview
 
 - **BREAKING:** Custom elements whitelisting is now performed during template compilation, and should be configured via compiler options instead of runtime config.
 - **BREAKING:** Special `is` prop usage is restricted to the reserved `<component>` tag only.

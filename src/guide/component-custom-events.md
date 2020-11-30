@@ -4,7 +4,17 @@
 
 ## Event Names
 
-Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event. For example, if emitting a camelCased event name:
+Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event.
+
+```js
+this.$emit('my-event')
+```
+
+```html
+<my-component @my-event="doSomething"></my-component>
+```
+
+If we're emitting a camelCased event name:
 
 ```js
 this.$emit('myEvent')
@@ -33,7 +43,7 @@ app.component('custom-form', {
 })
 ```
 
-When a native event (e.g., `click`) is defined in the `emits` option, the component event will be used __instead__ of a native event listener.
+When a native event (e.g., `click`) is defined in the `emits` option, the component event will be used **instead** of a native event listener.
 
 ::: tip
 It is recommended to define all emitted events in order to better document how a component should work.
@@ -80,12 +90,11 @@ By default, `v-model` on a component uses `modelValue` as the prop and `update:m
 In this case, child component will expect a `title` prop and emits `update:title` event to sync:
 
 ```js
-const app = Vue.createApp({})
-
 app.component('my-component', {
   props: {
     title: String
   },
+  emits: ['update:title'],
   template: `
     <input 
       type="text"
@@ -113,13 +122,12 @@ Each v-model will sync to a different prop, without the need for extra options i
 ```
 
 ```js
-const app = Vue.createApp({})
-
 app.component('user-name', {
   props: {
     firstName: String,
     lastName: String
   },
+  emits: ['update:firstName', 'update:lastName'],
   template: `
     <input 
       type="text"
@@ -134,12 +142,7 @@ app.component('user-name', {
 })
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="GRoPPrM" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Multiple v-models">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/GRoPPrM">
-  Multiple v-models</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Multiple v-models" slug="GRoPPrM" tab="html,result" />
 
 ## Handling `v-model` modifiers
 
@@ -149,10 +152,10 @@ Let's create an example custom modifier, `capitalize`, that capitalizes the firs
 
 Modifiers added to a component `v-model` will be provided to the component via the `modelModifiers` prop. In the below example, we have created a component that contains a `modelModifiers` prop that defaults to an empty object.
 
-Notice that when the component's `created` lifecycle hook triggers, the `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="bar"`.
+Notice that when the component's `created` lifecycle hook triggers, the `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="myText"`.
 
 ```html
-<my-component v-model.capitalize="bar"></my-component>
+<my-component v-model.capitalize="myText"></my-component>
 ```
 
 ```js
@@ -163,6 +166,7 @@ app.component('my-component', {
       default: () => ({})
     }
   },
+  emits: ['update:modelValue'],
   template: `
     <input type="text" 
       :value="modelValue"
@@ -199,6 +203,7 @@ app.component('my-component', {
       default: () => ({})
     }
   },
+  emits: ['update:modelValue'],
   methods: {
     emitValue(e) {
       let value = e.target.value
@@ -220,19 +225,20 @@ app.mount('#app')
 For `v-model` bindings with arguments, the generated prop name will be `arg + "Modifiers"`:
 
 ```html
-<my-component v-model:foo.capitalize="bar"></my-component>
+<my-component v-model:description.capitalize="myText"></my-component>
 ```
 
 ```js
 app.component('my-component', {
-  props: ['foo', 'fooModifiers'],
+  props: ['description', 'descriptionModifiers'],
+  emits: ['update:description'],
   template: `
     <input type="text" 
-      :value="foo"
-      @input="$emit('update:foo', $event.target.value)">
+      :value="description"
+      @input="$emit('update:description', $event.target.value)">
   `,
   created() {
-    console.log(this.fooModifiers) // { capitalize: true }
+    console.log(this.descriptionModifiers) // { capitalize: true }
   }
 })
 ```

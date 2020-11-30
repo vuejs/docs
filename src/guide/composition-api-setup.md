@@ -34,7 +34,7 @@ export default {
 However, because `props` are reactive, you **cannot use ES6 destructuring** because it will remove props reactivity.
 :::
 
-If you need to destructure your props, you can do this safely by utilizing the [toRefs](reactivity-fundamentals.html#destructuring-reactive-state) inside of the `setup` function.
+If you need to destructure your props, you can do this by utilizing the [toRefs](reactivity-fundamentals.html#destructuring-reactive-state) inside of the `setup` function:
 
 ```js
 // MyBook.vue
@@ -43,6 +43,20 @@ import { toRefs } from 'vue'
 
 setup(props) {
 	const { title } = toRefs(props)
+
+	console.log(title.value)
+}
+```
+
+If `title` is an optional prop, it could be missing from `props`. In that case, `toRefs` won't create a ref for `title`. Instead you'd need to use `toRef`:
+
+```js
+// MyBook.vue
+
+import { toRef } from 'vue'
+
+setup(props) {
+	const title = toRef(props, 'title')
 
 	console.log(title.value)
 }
