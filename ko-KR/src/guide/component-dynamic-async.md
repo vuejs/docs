@@ -12,7 +12,7 @@
 
 하지만 컴포넌트를 전환할 때 컴포넌트의 상태를 유지하거나 혹은 성능상의 이유로 다시 렌더링되는 것을 방지하고 싶을 수 있습니다. 예를 들어, 탭 인터페이스를 조금만 확장할 때:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="jOPjZOe" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Dynamic components: without keep-alive">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPjZOe">   Dynamic components: without keep-alive</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+See the Pen <a href="https://codepen.io/team/Vue/pen/jOPjZOe">   Dynamic components: without keep-alive</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.
 
 게시물을 선택하고 *Archive* 탭으로 갔다가 다시 *Posts* 탭으로 돌아오면 원래 보고 있던 게시물이 표시되지 않는 것을 알 수 있습니다. 이는 Vue가 새 탭으로 전환할 때마다 Vue가 `currentTabComponent`의 새로운 인스턴스를 생성하기 때문입니다.
 
@@ -27,7 +27,7 @@
 
 아래 결과를 확인 해 보세요:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="VwLJQvP" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Dynamic components: with keep-alive">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/VwLJQvP">   Dynamic components: with keep-alive</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+See the Pen <a href="https://codepen.io/team/Vue/pen/VwLJQvP">   Dynamic components: with keep-alive</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.
 
 이제 *Posts*탭은 렌더링되지 않은 경우에도 상태(선택된 게시물)를 유지합니다.
 
