@@ -1,6 +1,6 @@
 # Semantics
 
-## 폼(Forms)
+## Forms
 
 폼을 생성할 때, 다음과 같은 요소를 사용할 수 있습니다: `<form>`, `<label>`, `<input>`, `<textarea>`, and `<button>`
 
@@ -26,7 +26,7 @@
 
 폼 요소 속성에 `autocomplete='on'`을 포함하면, 폼의 모든 입력 요소에 해당 속성이 적용됩니다. 또한 각각의 입력 요소에 [자동 완성 속성 값](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)을 다르게 설정할 수도 있습니다.
 
-### 레이블(Labels)
+### Labels
 
 모든 폼 입력 요소의 목적을 설명하는 레이블을 제공해야 합니다. `for` 와 `id` 를 연결하여 제공:
 
@@ -275,4 +275,4 @@ See the Pen <a href="https://codepen.io/mlama007/pen/jOWGqgz">   Form ARIA label
 ```
 
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="NWxXeqY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Functional Images">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/NWxXeqY">   Functional Images</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script> 
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="NWxXeqY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Functional Images">   <span>See the Pen <a href="https://codepen.io/mlama007/pen/NWxXeqY">   Functional Images</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>  
