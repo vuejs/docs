@@ -5,7 +5,7 @@ badges:
 
 # 글로벌 API(Global API) <migrationbadges badges="$frontmatter.badges"></migrationbadges>
 
-Vue 2.x에는 Vue의 동작을 전체적으로 변경하는 여러 글로벌 API 및 구성이 있습니다. 예를들어 전역 컴포넌트를 만들려면, 다음과 같이 `Vue.component` API를 사용합니다:
+Vue 2.x에는 Vue의 동작을 전체적으로 변경하는 여러 글로벌 API 및 구성이 있습니다. 예를 들어 전역 컴포넌트를 만들려면, 다음과 같이 `Vue.component` API를 사용합니다:
 
 ```js
 Vue.component('button-counter', {
@@ -26,7 +26,7 @@ Vue.directive('focus', {
 
 이 접근방식은 편리하지만 몇 가지 문제가 발생합니다. 기술적으로 Vue 2에는 "앱(app)"이라는 개념이 없습니다. 앱으로 정의하는 것은 `new Vue()`를 통해 생성된 루트 Vue 인스턴스입니다. 동일한 Vue 생성자에서 생성된 모든 루트 인스턴스는 **동일한 전역 구성을 공유**합니다. 그 결과:
 
-- 글로벌 구성을 사용하면 테스트 중에 실수로 다른 테스트 케이스를 쉽게 오염시킬 수 있습니다. 사용자는 원래 전역 구성을 신중하게 저장하고 각자 테스트 후에 복원해야 합니다(예: `Vue.config.errorHandler` 재설정). `Vue.use` 및`Vue.mixin`과 같은 일부 API에는 효과를 되돌릴 방법도 없습니다. 이로인해 플러그인과 관련된 테스트가 특히 까다로워집니다. 실제로 vue-test-utils는 이를 처리하기 위해 특수 API `createLocalVue`를 구현해야합니다:
+- 글로벌 구성을 사용하면 테스트 중에 실수로 다른 테스트 케이스를 쉽게 오염시킬 수 있습니다. 사용자는 원래 전역 구성을 신중하게 저장하고 각자 테스트 후에 복원해야 합니다(예: `Vue.config.errorHandler` 재설정). `Vue.use` 및`Vue.mixin`과 같은 일부 API에는 효과를 되돌릴 방법도 없습니다. 이로 인해 플러그인과 관련된 테스트가 특히 까다로워집니다. 실제로 vue-test-utils는 이를 처리하기 위해 특수 API `createLocalVue`를 구현해야합니다:
 
 ```js
 import { createLocalVue, mount } from '@vue/test-utils'
@@ -70,7 +70,7 @@ const app = createApp({})
 2.x Global API | 3.x Instance API (`app`)
 --- | ---
 Vue.config | app.config
-Vue.config.productionTip | *제거됨* ([see below](#config-productiontip-removed))
+Vue.config.productionTip | *removed* ([see below](#config-productiontip-removed))
 Vue.config.ignoredElements | app.config.isCustomElement ([see below](#config-ignoredelements-is-now-config-iscustomelement))
 Vue.component | app.component
 Vue.directive | app.directive
@@ -87,7 +87,7 @@ ES 모듈 빌드의 경우 번들러와 함께 사용되며, 대부분의 경우
 
 ### 이제 `config.ignoredElements`가 `config.isCustomElement`입니다.
 
-이 구성옵션은 기본 사용자정의 요소를 지원하기위해 도입되었으므로, 이름을 바꾸면 수행하는 작업이 더 잘 전달됩니다. 새 옵션은 또한 이전 문자열/RegExp 접근 방식보다 더 많은 유연성을 제공하는 기능을 기대합니다:
+이 구성 옵션은 기본 커스텀 요소를 지원하기 위해 도입되었으므로, 이름을 바꾸면 수행하는 작업이 더 잘 전달됩니다. 새 옵션은 또한 이전 문자열/RegExp 접근 방식보다 더 많은 유연성을 제공하는 기능을 기대합니다:
 
 ```js
 // 이전
@@ -98,7 +98,7 @@ const app = Vue.createApp({})
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
-::: tip 중요
+::: tip Important
 
 3.0에서는 요소가 컴포넌트인지 아닌지 여부는 템플릿 컴파일 단계로 이동되었으므로, 이 구성 옵션은 런타임 컴파일러를 사용할 때만 적용됩니다. 런타임 전용 빌드를 사용하는 경우, 빌드 설정에서 `isCustomElement`를 `@vue/compiler-dom`으로 대신 전달해야 합니다. (예: [vue-loader의 `compilerOptions` 옵션을 통해](https://vue-loader.vuejs.org/options.html#compileroptions))
 
@@ -107,7 +107,7 @@ app.config.isCustomElement = tag => tag.startsWith('ion-')
 
 ### 플러그인 작성자를 위한 참고사항(A Note for Plugin Authors)
 
-플로그인 작성자는 `Vue.use`를 사용하여 UMD 빌드에 플러그인을 자동으로 설치하는 것이 일반적입니다. 예를들어 공식 `vue-router` 플러그인이 브라우저 환경에 설치되는 방법은 다음과 같습니다:
+플로그인 작성자는 `Vue.use`를 사용하여 UMD 빌드에 플러그인을 자동으로 설치하는 것이 일반적입니다. 예를 들어 공식 `vue-router` 플러그인이 브라우저 환경에 설치되는 방법은 다음과 같습니다:
 
 ```js
 var inBrowser = typeof window !== 'undefined'
