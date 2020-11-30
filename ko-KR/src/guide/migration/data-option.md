@@ -8,18 +8,18 @@ badges:
 
 ## 개요
 
-- **BREAKING**: `data` 컴포넌트 옵션 선언은 더이상 일반 자바스크립트 `object`를 허용하지 않으며, `function` 선언을 예상합니다.
+- **BREAKING**: `data` 컴포넌트 옵션 선언은 더이상 일반 자바스크립트 `object`를 허용하지 않으며, `function` 선언을 해야합니다.
 
 - **BREAKING**: mixin 또는 extends에서 여러 `data` 반환 값을 병합할 때, 병합은 deep이 아니라 shallow입니다. (root-level의 속성만 병합됨.)
 
 ## 2.x 구문
 
-2.x에서 개발자는 `object`또는 `function`을 사용하여 `data`옵션을 정의할 수 있습니다.
+2.x에서 개발자는 `object` 또는 `function`을 사용하여 `data`옵션을 정의할 수 있습니다.
 
 예시:
 
 ```html
-<!-- Object Declaration -->
+<!-- 객체 선언 -->
 <script>
   const app = new Vue({
     data: {
@@ -28,7 +28,7 @@ badges:
   })
 </script>
 
-<!-- Function Declaration -->
+<!-- 함수 선언 -->
 <script>
   const app = new Vue({
     data() {
@@ -40,7 +40,7 @@ badges:
 </script>
 ```
 
-이것은 공유 상태를 갖는 루트 인스턴스 측면에서 약간의 편의를 제공하였지만, 루트 인스턴스에서만 가능하다는 사실로 인해 혼란을 야기하였습니다.
+이는 공유 상태를 갖는 루트 인스턴스 측면에서 약간의 편의를 제공하였지만, 루트 인스턴스에서만 가능하다는 사실로 인해 혼란을 야기하였습니다.
 
 ## 3.x 변경점
 
