@@ -40,9 +40,7 @@ val1 = 3
 
 ## Vue가 이러한 변경 사항을 추적하는 방법
 
-자바스트립크 객체를 `data`옵션으로 어플리케이션이나 컴포넌트 인스턴스에 전달하면, Vue는 주어진 객체의 모든 프로퍼티를  [프락시(Proxy)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)로 변환합니다. 이 프락시는  ES6이상에서만 지원하는 기능이지만, IE에서도 Vue3를 사용할수 있게 하기 위해  `Object.defineProperty`(Vue2의 반응성 방식)를 사용하는 버전을 제공합니다. 두가지 버전 모두 겉으로 볼때는 동일한 API를 가지고 있지만, Proxy 버전쪽이 더 가볍게 동작하고, 더 나은  성능을 제공합니다.
-
-<div class="reactivecontent">   <iframe height="500" style="width: 100%;" scrolling="no" title="Proxies and Vue's Reactivity Explained Visually" src="https://codepen.io/sdras/embed/zYYzjBg?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"><br>    See the Pen &lt;a href="https://codepen.io/sdras/pen/zYYzjBg"&gt;Proxies and Vue's Reactivity Explained Visually&lt;/a&gt; by Sarah Drasner<br>    (&lt;a href="https://codepen.io/sdras"&gt;@sdras&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.<br>  </iframe></div>
+자바스트립크 객체를 `data`옵션으로 어플리케이션이나 컴포넌트 인스턴스에 전달하면, Vue는 주어진 객체의 모든 프로퍼티를  [프락시(Proxy)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)로 변환합니다. 이 프락시는  ES6이상에서만 지원하는 기능이지만, IE에서도 Vue3를 사용할수 있게 하기 위해  `Object.defineProperty`(Vue2의 반응성 방식)를 사용하는 버전을 제공합니다. 두가지 버전 모두 겉으로 볼때는 동일한 API를 가지고 있지만, Proxy 버전쪽이 더 가볍게 동작하고, 더 나은 성능을 제공합니다.
 
 위의 예시를 바로 이해하기에는 좀 어려울수 있습니다. 위 예제를 이해하려면 [프락시(Proxy)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)에 대한 지식이  어느정도는 필요합니다. 여기에서는 살짝 맛보기정도만 해보겠습니다.  프락시(Proxy)에 대한 많은 글들이 있지만,  정말 알아두어야 할것은  **프락시(Proxy)는 다른 객체나 함수를 감싸는 객체이며, 원본으로의 호출을 중간에 가로채서 처리할 수 있게 합니다.**
 
