@@ -122,7 +122,7 @@ app.mixin({
 
 병합 전략은 부모 및 자식 인스턴스에 정의된 해당 옵션의 값을 각각 첫 번째(parent)와 두 번째(child) 인수로 받습니다. 컨텍스트 애플리케이션 인스턴스는 세 번째(vm) 인수로 전달됩니다.
 
-- **See also:**
+- **참고:**
     [커스텀 병합 전략(Custom Option Merging Strategies)](../guide/mixins.html#custom-option-merge-strategies)
 
 ## performance
