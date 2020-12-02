@@ -17,12 +17,6 @@
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <template #top>
         <slot name="sidebar-top" />
-        <!-- <CarbonAds
-          v-if="$site.themeConfig.carbonAds"
-          :key="'ca:' + $page.path"
-          :code="$site.themeConfig.carbonAds.carbon"
-          :placement="$site.themeConfig.carbonAds.placement"
-        /> -->
       </template>
       <template #bottom>
         <slot name="sidebar-bottom" />
@@ -33,16 +27,22 @@
 
     <Page v-else :sidebar-items="sidebarItems">
       <template #top>
+        <CarbonAds
+          v-if="adsConfig"
+          :key="'ca:' + $page.path"
+          :code="adsConfig.carbon"
+          :placement="adsConfig.placement"
+        />
         <slot name="page-top" />
       </template>
       <template #bottom>
-        <slot name="page-bottom" />
-        <!-- <BuySellAds
-          v-if="$site.themeConfig.carbonAds"
+        <BuySellAds
+          v-if="adsConfig"
           :key="'bsa:' + $page.path"
-          :code="$site.themeConfig.carbonAds.custom"
-          :placement="$site.themeConfig.carbonAds.placement"
-        /> -->
+          :code="adsConfig.custom"
+          :placement="adsConfig.placement"
+        />
+        <slot name="page-bottom" />
       </template>
     </Page>
   </div>
@@ -127,6 +127,10 @@ export default {
         },
         userPageClass
       ]
+    },
+
+    adsConfig() {
+      return this.$site.themeConfig.carbonAds
     }
   },
 

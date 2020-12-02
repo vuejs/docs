@@ -419,9 +419,9 @@ module.exports = {
       apiKey: 'bc6e8acb44ed4179c30d0a45d6140d3f'
     },
     carbonAds: {
-      carbon: 'CEBICK3I',
-      custom: 'CEBICK3M',
-      placement: 'routervuejsorg'
+      carbon: 'CEBDT27Y',
+      custom: 'CKYD62QM',
+      placement: 'vuejsorg'
     }
   },
   plugins: [
