@@ -133,6 +133,39 @@ const Component = defineComponent({
 })
 ```
 
+### Augmenting Types for Use with Plugins or User Definitions
+
+Vue 3 provides `globalProperties` property for [plugins](./plugins.html#writing-a-plugin) to add to Vue’s global properties in each component instance. In some cases, we also need to [do it by ourselves](../api/application-config.html#globalproperties):
+
+```typescript
+// User Definition
+const app = Vue.createApp()
+app.config.globalProperties.foo = 'bar'
+
+// Plugin
+export default {
+    install(app, options) {
+        app.config.globalProperties.foo = 'bar'
+    }
+}
+```
+
+In order to let TypeScript know the attributes we (or plugins) added and their types, the [Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) feature can help us.
+
+For the above example, we (or plugins) can add the following code of type definition:
+
+```typescript
+declare module '@vue/runtime-core' {
+    export interface ComponentCustomProperties {
+        foo: string
+    }
+}
+```
+
+Then you can use it in TypeScript by correct type inference.
+
+The `ComponentCustomProperties` type can help us define the custom options, see the code of [definition](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/src/componentOptions.ts#L63-L79), [use](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/src/componentOptions.ts#L97) and [unit test](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) in `@vue/runtime-core` to learn more.
+
 ### Annotating Return Types
 
 Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type of computed properties.
@@ -150,7 +183,7 @@ const Component = defineComponent({
     // needs an annotation
     greeting(): string {
       return this.message + '!'
-    }
+    },
 
     // in a computed with a setter, getter needs to be annotated
     greetingUppercased: {
