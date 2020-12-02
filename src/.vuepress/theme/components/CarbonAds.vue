@@ -38,8 +38,9 @@ export default {
   bottom: 22px;
   right: 14px;
   padding: 10px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
   /* background-color: #fff; */
-  /* border-radius: 3px; */
   /* font-size: 13px; */
 }
 
