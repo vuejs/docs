@@ -5,7 +5,11 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
-    <VueMasteryBanner v-if="isBannerOpen" @close-banner="closeBanner" ref='vueMasteryBanner'/>
+    <VueMasteryBanner
+      v-if="isBannerOpen"
+      @close-banner="closeBanner"
+      ref="vueMasteryBanner"
+    />
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
     <div class="sidebar-mask" @click="toggleSidebar(false)" />
@@ -13,6 +17,12 @@
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <template #top>
         <slot name="sidebar-top" />
+        <!-- <CarbonAds
+          v-if="$site.themeConfig.carbonAds"
+          :key="'ca:' + $page.path"
+          :code="$site.themeConfig.carbonAds.carbon"
+          :placement="$site.themeConfig.carbonAds.placement"
+        /> -->
       </template>
       <template #bottom>
         <slot name="sidebar-bottom" />
@@ -27,6 +37,12 @@
       </template>
       <template #bottom>
         <slot name="page-bottom" />
+        <!-- <BuySellAds
+          v-if="$site.themeConfig.carbonAds"
+          :key="'bsa:' + $page.path"
+          :code="$site.themeConfig.carbonAds.custom"
+          :placement="$site.themeConfig.carbonAds.placement"
+        /> -->
       </template>
     </Page>
   </div>
@@ -38,6 +54,8 @@ import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import VueMasteryBanner from '@theme/components/sponsors/VueMasteryBanner.vue'
+import BuySellAds from '@theme/components/BuySellAds.vue'
+import CarbonAds from '@theme/components/CarbonAds.vue'
 import { resolveSidebarItems } from '../util'
 
 export default {
@@ -48,13 +66,15 @@ export default {
     Page,
     Sidebar,
     Navbar,
-    VueMasteryBanner
+    VueMasteryBanner,
+    BuySellAds,
+    CarbonAds
   },
 
-  data () {
+  data() {
     return {
       isSidebarOpen: false,
-      isBannerOpen:  true,
+      isBannerOpen: true,
       isMenuFixed: false,
       nameStorage: 'vuemastery-black-firday-2020-banner',
       menuPosition: 0
@@ -62,7 +82,7 @@ export default {
   },
 
   computed: {
-    shouldShowNavbar () {
+    shouldShowNavbar() {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
       if (frontmatter.navbar === false || themeConfig.navbar === false) {
@@ -77,7 +97,7 @@ export default {
       )
     },
 
-    shouldShowSidebar () {
+    shouldShowSidebar() {
       const { frontmatter } = this.$page
       return (
         !frontmatter.home &&
@@ -86,7 +106,7 @@ export default {
       )
     },
 
-    sidebarItems () {
+    sidebarItems() {
       return resolveSidebarItems(
         this.$page,
         this.$page.regularPath,
@@ -95,7 +115,7 @@ export default {
       )
     },
 
-    pageClasses () {
+    pageClasses() {
       const userPageClass = this.$page.frontmatter.pageClass
       return [
         {
@@ -110,7 +130,7 @@ export default {
     }
   },
 
-  mounted () {
+  mounted() {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
@@ -124,20 +144,20 @@ export default {
   },
 
   methods: {
-    toggleSidebar (to) {
+    toggleSidebar(to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
 
     // side swipe
-    onTouchStart (e) {
+    onTouchStart(e) {
       this.touchStart = {
         x: e.changedTouches[0].clientX,
         y: e.changedTouches[0].clientY
       }
     },
 
-    onTouchEnd (e) {
+    onTouchEnd(e) {
       const dx = e.changedTouches[0].clientX - this.touchStart.x
       const dy = e.changedTouches[0].clientY - this.touchStart.y
       if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
@@ -161,7 +181,7 @@ export default {
       this.isMenuFixed = this.isUnderBanner()
     },
 
-    closeBanner (e) {
+    closeBanner(e) {
       // Remove events
       this.toggleBannerEvents(false)
       // Hide the banner
@@ -192,9 +212,9 @@ export default {
 
     toggleBannerEvents(on) {
       // Add or remove event listerners attached to the DOM
-      let method = on ? "addEventListener" : "removeEventListener"
-      window[method]("resize", this.getMenuPosition)
-      window[method]("scroll", this.fixMenuAfterBanner)
+      let method = on ? 'addEventListener' : 'removeEventListener'
+      window[method]('resize', this.getMenuPosition)
+      window[method]('scroll', this.fixMenuAfterBanner)
     }
   }
 }

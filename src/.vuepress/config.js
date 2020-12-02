@@ -417,6 +417,11 @@ module.exports = {
       indexName: 'vuejs-v3',
       appId: 'BH4D9OD16A',
       apiKey: 'bc6e8acb44ed4179c30d0a45d6140d3f'
+    },
+    carbonAds: {
+      carbon: 'CEBICK3I',
+      custom: 'CEBICK3M',
+      placement: 'routervuejsorg'
     }
   },
   plugins: [
