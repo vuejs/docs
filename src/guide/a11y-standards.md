@@ -1,32 +1,32 @@
-# Standards
+# Standar
 
-The World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI) develops web accessibility standards for the different components:
+Inisiatif Aksesibilitas Web (Web Accessibility Initiative atau WAI) World Wide Web Consortium (W3C) mengembangkan standar aksesibilitas web untuk berbagai komponen:
 
 - [User Agent Accessibility Guidelines (UAAG)](https://www.w3.org/WAI/standards-guidelines/uaag/)
-  - web browsers and media players, including some aspects of assistive technologies
+  - peramban web dan pemutar media, termasuk beberapa aspek teknologi pendukung
 - [Authoring Tool Accessibility Guidelines (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
-  - authoring tools
+  - alat penulisan
 - [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-  - web content - used by developers, authoring tools, and accessibility evaluation tools
+  - konten web - digunakan oleh pengembang, alat pembuatan, dan alat evaluasi aksesibilitas
 
-## Web Content Accessibility Guidelines (WCAG)
+## Panduan Aksesibilitas Konten Web (Web Content Accessibility Guidelines atau WCAG)
 
-[WCAG 2.1](https://www.w3.org/TR/WCAG21/) extends on [WCAG 2.0](https://www.w3.org/TR/WCAG20/) and allows implementation of new technologies by addressing changes to the web. The W3C encourages use of the most current version of WCAG when developing or updating Web accessibility policies.
+[WCAG 2.1](https://www.w3.org/TR/WCAG21/) meluas dari [WCAG 2.0](https://www.w3.org/TR/WCAG20/) dan memungkinkan penerapan teknologi baru dengan menangani perubahan ke web. W3C mendorong penggunaan versi terbaru WCAG saat mengembangkan atau memperbarui kebijakan aksesibilitas web.
 
-### WCAG 2.1 Four Main Guiding Principles (abbreviated as POUR):
+### Empat Prinsip Panduan Utama WCAG 2.1 (disingkat dengan POUR):
 
-- [Perceivable](https://www.w3.org/TR/WCAG21/#perceivable)
-  - Users must be able to perceive the information being presented
-- [Operable](https://www.w3.org/TR/WCAG21/#operable)
-  - Interface forms, controls, and navigation are operable
-- [Understandable](https://www.w3.org/TR/WCAG21/#understandable)
-  - Information and the operation of user interface must be understandable to all users
-- [Robust](https://www.w3.org/TR/WCAG21/#robust)
-  - Users must be able to access the content as technologies advance
+- [Dapat Dilihat (Perceivable)](https://www.w3.org/TR/WCAG21/#perceivable)
+  - Pengguna harus dapat melihat informasi yang disajikan
+- [Dapat Dioperasikan (Operable)](https://www.w3.org/TR/WCAG21/#operable)
+  - Bentuk antar muka, kontrol, dan navigasi dapat dioperasikan
+- [Dapat Dimengerti (Understandable)](https://www.w3.org/TR/WCAG21/#understandable)
+  - Informasi dan pengoperasian antarmuka pengguna harus dapat dimengerti oleh semua pengguna
+- [Kuat (Robust)](https://www.w3.org/TR/WCAG21/#robust)
+  - Pengguna harus dapat mengakses konten seiring kemajuan teknologi
 
-### Web Accessibility Initiative – Accessible Rich Internet Applications (WAI-ARIA)
+### Inisiatif Aksesibilitas Web - Aplikasi Kaya Internet yang Dapat Diakses (WAI-ARIA)
 
-W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced user interface controls.
+WAI-ARIA W3C memberikan panduan tentang cara membuat konten dinamis dan kontrol antarmuka pengguna tingkat lanjut.
 
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
 - [WAI-ARIA Authoring Practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/)
