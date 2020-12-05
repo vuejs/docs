@@ -186,7 +186,7 @@ const Component = defineComponent({
       type: Function as PropType<() => void>
     },
     message: {
-      type: Object as PropType<ComplexMessage>
+      type: Object as PropType<ComplexMessage>,
       required: true
     },
     numbers: {
