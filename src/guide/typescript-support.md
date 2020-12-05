@@ -188,6 +188,9 @@ const Component = defineComponent({
     message: {
       type: Object as PropType<ComplexMessage>
       required: true
+    },
+    numbers: {
+      type: Array as PropType<number[]>
     }
   }
 })
