@@ -61,7 +61,7 @@ export default {
 
 It also returns `true` if the proxy is created by [`readonly`](#readonly), but is wrapping another proxy created by [`reactive`](#reactive).
 
-```js{7-15}
+```js
 import { reactive, isReactive, readonly } from 'vue'
 export default {
   setup() {
