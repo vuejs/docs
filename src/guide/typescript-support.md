@@ -177,6 +177,7 @@ interface ComplexMessage {
   okMessage: string
   cancelMessage: string
 }
+
 const Component = defineComponent({
   props: {
     name: String,
@@ -185,17 +186,43 @@ const Component = defineComponent({
       type: Function as PropType<() => void>
     },
     message: {
-      type: Object as PropType<ComplexMessage>,
-      required: true,
-      validator(message: ComplexMessage) {
-        return !!message.title
-      }
+      type: Object as PropType<ComplexMessage>
+      required: true
     }
   }
 })
 ```
 
-If you find validator not getting type inference or member completion isn’t working, annotating the argument with the expected type may help address these problems.
+::: warning
+Because of a [design limitation](https://github.com/microsoft/TypeScript/issues/38845) in TypeScript when it comes
+to type inference of function expressions, you have to be careful with `validators` and `default` values for objects and arrays:
+:::
+
+```ts
+import { defineComponent, PropType } from 'vue'
+
+const Component = defineComponent({
+  props: {
+    numbersA: {
+      type: Array as PropType<number[]>,
+      // Make sure to use arrow functions
+      default: () => [],
+      validator: (numbers: number[]) =>
+        numbers.every(x => typeof x === 'number')
+    },
+    numbersB: {
+      type: Array as PropType<number[]>,
+      // Or provide an explicit this parameter
+      default(this: void) {
+        return []
+      },
+      validator(this: void, numbers: number[]) {
+        return numbers.every(x => typeof x === 'number')
+      }
+    }
+  }
+})
+```
 
 ## Using with Composition API
 
