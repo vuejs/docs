@@ -172,10 +172,10 @@ Vue does a runtime validation on props with a `type` defined. To provide these t
 ```ts
 import { defineComponent, PropType } from 'vue'
 
-interface ComplexMessage {
+interface Book {
   title: string
-  okMessage: string
-  cancelMessage: string
+  author: string
+  year: number
 }
 
 const Component = defineComponent({
@@ -185,12 +185,9 @@ const Component = defineComponent({
     callback: {
       type: Function as PropType<() => void>
     },
-    message: {
-      type: Object as PropType<ComplexMessage>,
+    book: {
+      type: Object as PropType<Book>,
       required: true
-    },
-    numbers: {
-      type: Array as PropType<number[]>
     }
   }
 })
@@ -204,23 +201,31 @@ to type inference of function expressions, you have to be careful with `validato
 ```ts
 import { defineComponent, PropType } from 'vue'
 
+interface Book {
+  title: string
+  year?: number
+}
+
 const Component = defineComponent({
   props: {
-    numbersA: {
-      type: Array as PropType<number[]>,
+    bookA: {
+      type: Object as PropType<Book>,
       // Make sure to use arrow functions
-      default: () => [],
-      validator: (numbers: number[]) =>
-        numbers.every(x => typeof x === 'number')
+      default: () => ({
+        title: "Arrow Function Expression"
+      }),
+      validator: (book: Book) => !!book.title
     },
-    numbersB: {
-      type: Array as PropType<number[]>,
+    bookB: {
+      type: Object as PropType<Book>,
       // Or provide an explicit this parameter
       default(this: void) {
-        return []
+        return {
+          title: "Function Expression"
+        }
       },
-      validator(this: void, numbers: number[]) {
-        return numbers.every(x => typeof x === 'number')
+      validator(this: void, book: Book) {
+        return !!book.title
       }
     }
   }
