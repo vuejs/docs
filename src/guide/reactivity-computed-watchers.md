@@ -211,6 +211,24 @@ firstName.value = "John"; // logs: ["John",""] ["", ""]
 lastName.value = "Smith"; // logs: ["John", "Smith"] ["John", ""]
 ```
 
+### Watching Reactive Objects
+
+Using a watcher to compare values of an Array or Object that are reactive requires that it has a copy made of just the values.
+
+```js
+const numbers = reactive([1,2,3,4])
+
+watch(
+  () => [...numbers],
+  (numbers, prevNumbers) =>{
+    console.log(numbers, prevNumbers);
+})
+
+numbers.push(5) // logs: [1,2,3,4,5] [1,2,3,4]
+```
+
+For deeply nested object and arrays, a deep copy of values may be required. This can be achieved with a utility such as `lodash.cloneDeep` 
+
 ### Shared Behavior with `watchEffect`
 
 `watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](#stopping-the-watcher), [side effect invalidation](#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument instead), [flush timing](#effect-flush-timing) and [debugging](#watcher-debugging).
