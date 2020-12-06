@@ -227,7 +227,7 @@ watch(
 numbers.push(5) // logs: [1,2,3,4,5] [1,2,3,4]
 ```
 
-For deeply nested object and arrays, a deep copy of values may be required. This can be achieved with a utility such as `lodash.cloneDeep` 
+For deeply nested object and arrays, a deep copy of values may be required. This can be achieved with a utility such as [lodash.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
 
 ### Shared Behavior with `watchEffect`
 
