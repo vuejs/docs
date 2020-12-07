@@ -88,7 +88,7 @@ const app = createApp({})
 // register
 app.directive('my-directive', {
   // Directive has a set of lifecycle hooks:
-  // called before bound element's parent component props are applied
+  // called before bound element's attributes or event listeners are applied
   created() {},
   // called before bound element's parent component is mounted
   beforeMount() {},
