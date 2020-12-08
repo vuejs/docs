@@ -22,7 +22,7 @@ In addition, since the `createApp` method returns the application instance itsel
 - **Returns:**
 
   - The application instance if a `definition` argument was passed
-  - The component definition if a `definition` argument was not passed 
+  - The component definition if a `definition` argument was not passed
 
 - **Usage:**
 
@@ -73,7 +73,7 @@ app.config = {...}
 - **Returns:**
 
   - The application instance if a `definition` argument was passed
-  - The directive definition if a `definition` argument was not passed 
+  - The directive definition if a `definition` argument was not passed
 
 - **Usage:**
 
@@ -88,6 +88,8 @@ const app = createApp({})
 // register
 app.directive('my-directive', {
   // Directive has a set of lifecycle hooks:
+  // called before bound element's attributes or event listeners are applied
+  created() {},
   // called before bound element's parent component is mounted
   beforeMount() {},
   // called when bound element's parent component is mounted
@@ -168,7 +170,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Returns:**
 
-  - The application instance 
+  - The application instance
 
 - **Usage:**
 
@@ -224,10 +226,10 @@ app.mount('#my-app')
 - **Usage:**
 
   Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
-   
+
   From a `provide`/`inject` perspective, the application can be thought of as the root-level ancestor, with the root component as its only child.
 
-  This method should not be confused with the [provide component option](options-composition.html#provide-inject) or the [provide function](composition-api.html#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application. 
+  This method should not be confused with the [provide component option](options-composition.html#provide-inject) or the [provide function](composition-api.html#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application.
 
   Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.html#globalproperties).
 
@@ -300,7 +302,7 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 - **Usage:**
 
   Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method.
-  
+
   The install method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.

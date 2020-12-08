@@ -39,6 +39,7 @@ Here, in the initial setup for this element, the directive binds a style by pass
 
 In Vue 3, however, we’ve created a more cohesive API for custom directives. As you can see, they differ greatly from our component lifecycle methods even though we’re hooking into similar events. We’ve now unified them like so:
 
+- **created** - new! This is called before the element's attributes or event listeners are applied.
 - bind → **beforeMount**
 - inserted → **mounted**
 - **beforeUpdate**: new! This is called before the element itself is updated, much like the component lifecycle hooks.
