@@ -139,14 +139,18 @@ Vue 3 provides `globalProperties` property for [plugins](./plugins.html#writing-
 
 ```typescript
 // User Definition
-const app = Vue.createApp()
-app.config.globalProperties.foo = 'bar'
+import axios from 'axios'
 
-// Plugin
+const app = Vue.createApp()
+app.config.globalProperties.$http = axios
+
+// Plugin for validate some data
 export default {
-    install(app, options) {
-        app.config.globalProperties.foo = 'bar'
+  install(app, options) {
+    app.config.globalProperties.$validate = (data: object, rule: object) => {
+      // check whether the object meets certain rules
     }
+  }
 }
 ```
 
@@ -155,16 +159,20 @@ In order to let TypeScript know the attributes we (or plugins) added and their t
 For the above example, we (or plugins) can add the following code of type definition:
 
 ```typescript
+import axios from 'axios'
+
 declare module '@vue/runtime-core' {
-    export interface ComponentCustomProperties {
-        foo: string
-    }
+  export interface ComponentCustomProperties {
+    axios: typeof axios
+  }
 }
 ```
 
-Then you can use it in TypeScript by correct type inference.
+We should put the above code wherever it can be loaded, such as `main.js` where you define these properties, or the `*.d.ts` file in `src/typings` folder automatically loaded by TypeScript. For plugins, it locates in the location specified by the `types` property in `package.json`. 
 
-The `ComponentCustomProperties` type can help us define the custom options, see the code of [definition](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/src/componentOptions.ts#L63-L79), [use](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/src/componentOptions.ts#L97) and [unit test](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) in `@vue/runtime-core` to learn more.
+After TypeScript loaded them, we can use it in TypeScript by correct type inference.
+
+The `ComponentCustomProperties` type can help us define the custom options, see the code of [definition in `@vue/runtime-core`](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/src/componentOptions.ts#L63-L111) and [unit tests for Typescript types](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) to learn more.
 
 ### Annotating Return Types
 
