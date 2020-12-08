@@ -43,6 +43,7 @@ Pada penyetelan awal untuk komponen di atas, _directive_ mengikat sebuah _style_
 
 Namun pada Vue versi 3, kami telah membuat API yang lebih kohesif untuk _custom directives_. Seperti yang dapat Anda lihat, API pada versi sebelumnya berbeda jauh dengan siklus hidup komponen Vue walaupun sama-sama dihubungkan pada kejadian yang sejenis. Sekarang kami telah menyatukan kedua hal tersebut menjadi:
 
+- **created** - new! This is called before the element's attributes or event listeners are applied.
 - bind → **beforeMount**
 - inserted → **mounted**
 - **beforeUpdate**: Baru! _Hook_ ini akan dipanggil sebelum elemen diperbarui, mirip dengan _hook_ pada siklus hidup komponen.
