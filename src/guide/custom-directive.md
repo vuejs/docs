@@ -47,7 +47,7 @@ A directive definition object can provide several hook functions (all optional):
 
 - `created`: called before the bound element's attributes or event listeners are applied. This is useful in cases where the directive needs to attach event listeners that must be called before normal `v-on` event listeners.
 
-- `beforeMount`: called when the directive is first bound to the element and before parent component is mounted. This is where you can do one-time setup work.
+- `beforeMount`: called when the directive is first bound to the element and before parent component is mounted.
 
 - `mounted`: called when the bound element's parent component is mounted.
 
