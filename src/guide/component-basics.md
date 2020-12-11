@@ -97,7 +97,7 @@ app.component('blog-post', {
 app.mount('#blog-post-demo')
 ```
 
-When a value is passed to a prop attribute, it becomes a property on that component instance. The value of that property is accessible within the template, just like any other property of the component instance.
+When a value is passed to a prop attribute, it becomes a property on that component instance. The value of that property is accessible within the template, just like any other component property.
 
 A component can have as many props as you like and, by default, any value can be passed to any prop.
 
