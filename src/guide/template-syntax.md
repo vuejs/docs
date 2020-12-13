@@ -49,13 +49,15 @@ Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` direct
 <div v-bind:id="dynamicId"></div>
 ```
 
-In the case of boolean attributes, where their mere existence implies `true`, `v-bind` works a little differently. In this example:
+If the bound value is `null` or `undefined` then the attribute will not be included on the rendered element.
+
+In the case of boolean attributes, where their mere existence implies `true`, `v-bind` works a little differently. For example:
 
 ```html
 <button v-bind:disabled="isButtonDisabled">Button</button>
 ```
 
-If `isButtonDisabled` has the value of `null` or `undefined`, the `disabled` attribute will not even be included in the rendered `<button>` element.
+The `disabled` attribute will be included if `isButtonDisabled` has a truthy value. It will also be included if the value is an empty string, maintaining consistency with `<button disabled="">`. For other falsy values the attribute will be omitted.
 
 ### Using JavaScript Expressions
 
