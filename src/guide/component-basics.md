@@ -40,7 +40,7 @@ app.mount('#components-demo')
 
 <common-codepen-snippet title="Component basics" slug="abORVEJ" tab="js,result" :preview="false" />
 
-Since components are reusable instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
+Since components are reusable instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks.
 
 ## Reusing Components
 
@@ -66,7 +66,7 @@ It's common for an app to be organized into a tree of nested components:
 
 For example, you might have components for a header, sidebar, and content area, each typically containing other components for navigation links, blog posts, etc.
 
-To use these components in templates, they must be registered so that Vue knows about them. There are two types of component registration: **global** and **local**. So far, we've only registered components globally, using `component` method of created app:
+To use these components in templates, they must be registered so that Vue knows about them. There are two types of component registration: **global** and **local**. So far, we've only registered components globally, using the `component` method of our app:
 
 ```js
 const app = Vue.createApp({})
@@ -76,7 +76,7 @@ app.component('my-component-name', {
 })
 ```
 
-Globally registered components can be used in the template of `app` instance created afterwards - and even inside all subcomponents of that root instance's component tree.
+Globally registered components can be used in the template of any component within the app.
 
 That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](component-registration.md).
 
@@ -84,7 +84,7 @@ That's all you need to know about registration for now, but once you've finished
 
 Earlier, we mentioned creating a component for blog posts. The problem is, that component won't be useful unless you can pass data to it, such as the title and content of the specific post we want to display. That's where props come in.
 
-Props are custom attributes you can register on a component. When a value is passed to a prop attribute, it becomes a property on that component instance. To pass a title to our blog post component, we can include it in the list of props this component accepts, using a `props` option:
+Props are custom attributes you can register on a component. To pass a title to our blog post component, we can include it in the list of props this component accepts, using the `props` option:
 
 ```js
 const app = Vue.createApp({})
@@ -97,7 +97,9 @@ app.component('blog-post', {
 app.mount('#blog-post-demo')
 ```
 
-A component can have as many props as you'd like and by default, any value can be passed to any prop. In the template above, you'll see that we can access this value on the component instance, just like with `data`.
+When a value is passed to a prop attribute, it becomes a property on that component instance. The value of that property is accessible within the template, just like any other component property.
+
+A component can have as many props as you like and, by default, any value can be passed to any prop.
 
 Once a prop is registered, you can pass data to it as a custom attribute, like this:
 
@@ -175,7 +177,7 @@ Which can be used in the template to control the font size of all blog posts:
 
 ```html
 <div id="blog-posts-events-demo">
-  <div v-bind:style="{ fontSize: postFontSize + 'em' }">
+  <div :style="{ fontSize: postFontSize + 'em' }">
     <blog-post v-for="post in posts" :key="post.id" :title="post.title"></blog-post>
   </div>
 </div>
@@ -205,7 +207,7 @@ The problem is, this button doesn't do anything:
 </button>
 ```
 
-When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. Fortunately, component instances provide a custom events system to solve this problem. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
+When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. To solve this problem, component instances provide a custom events system. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
@@ -219,11 +221,11 @@ Then the child component can emit an event on itself by calling the built-in [**
 </button>
 ```
 
-Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update `postFontSize` value.
+Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update the value of `postFontSize`.
 
 <common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="html,result" :preview="false" />
 
-We can list emitted events in the component's `emits` option.
+We can list emitted events in the component's `emits` option:
 
 ```js
 app.component('blog-post', {
@@ -232,11 +234,11 @@ app.component('blog-post', {
 })
 ```
 
-This will allow you to check all the events component emits and optionally [validate them](component-custom-events.html#validate-emitted-events)
+This will allow you to check all the events that a component emits and optionally [validate them](component-custom-events.html#validate-emitted-events).
 
 ### Emitting a Value With an Event
 
-It's sometimes useful to emit a specific value with an event. For example, we may want the `<blog-post>` component to be in charge of how much to enlarge the text by. In those cases, we can use `$emit`'s 2nd parameter to provide this value:
+It's sometimes useful to emit a specific value with an event. For example, we may want the `<blog-post>` component to be in charge of how much to enlarge the text by. In those cases, we can pass a second parameter to `$emit` to provide this value:
 
 ```html
 <button @click="$emit('enlarge-text', 0.1)">
@@ -290,12 +292,12 @@ When used on a component, `v-model` instead does this:
 ```
 
 ::: warning
-Please note we used `model-value` with kebab-case here because we are working with in-DOM template. You can find a detailed explanation on kebab-cased vs camelCased attributes in the [DOM Template Parsing Caveats](#dom-template-parsing-caveats) section
+Please note we used `model-value` with kebab-case here because we are working with in-DOM templates. You can find a detailed explanation on kebab-cased vs camelCased attributes in the [DOM Template Parsing Caveats](#dom-template-parsing-caveats) section
 :::
 
 For this to actually work though, the `<input>` inside the component must:
 
-- Bind the `value` attribute to a `modelValue` prop
+- Bind the `value` attribute to the `modelValue` prop
 - On `input`, emit an `update:modelValue` event with the new value
 
 Here's that in action:
@@ -319,11 +321,7 @@ Now `v-model` should work perfectly with this component:
 <custom-input v-model="searchText"></custom-input>
 ```
 
-Another way of creating the `v-model` capability within a custom component is to use the ability of `computed` properties' to define a getter and setter.
-
-In the following example, we refactor the `custom-input` component using a computed property.
-
-Keep in mind, the `get` method should return the `modelValue` property, or whichever property is being using for binding, and the `set` method should fire off the corresponding `$emit` for that property.
+Another way of implementing `v-model` within this component is to use the ability of `computed` properties to define a getter and setter. The `get` method should return the `modelValue` property and the `set` method should emit the corresponding event:
 
 ```js
 app.component('custom-input', {
@@ -361,7 +359,7 @@ Which might render something like:
 
 <common-codepen-snippet title="Component basics: slots" slug="jOPeaob" :preview="false" />
 
-Fortunately, this task is made very simple by Vue's custom `<slot>` element:
+This can be achieved using Vue's custom `<slot>` element:
 
 ```js
 app.component('alert-box', {
@@ -374,7 +372,7 @@ app.component('alert-box', {
 })
 ```
 
-As you'll see above, we just add the slot where we want it to go -- and that's it. We're done!
+As you'll see above, we use the `<slot>` as a placeholder where we want the content to go – and that's it. We're done!
 
 That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](component-slots.md).
 
@@ -384,7 +382,7 @@ Sometimes, it's useful to dynamically switch between components, like in a tabbe
 
 <common-codepen-snippet title="Component basics: dynamic components" slug="oNXaoKy" :preview="false" />
 
-The above is made possible by Vue's `<component>` element with the `is` special attribute:
+The above is made possible by Vue's `<component>` element with the special `is` attribute:
 
 ```html
 <!-- Component changes when currentTabComponent changes -->
@@ -398,7 +396,7 @@ In the example above, `currentTabComponent` can contain either:
 
 See [this sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) to experiment with the full code, or [this version](https://codepen.io/team/Vue/pen/oNXapXM) for an example binding to a component's options object, instead of its registered name.
 
-Keep in mind that this attribute can be used with regular HTML elements, however they will be treated as components, which means all attributes **will be bound as DOM attributes**. For some properties such as `value` to work as you would expect, you will need to bind them using the [`.prop` modifier](../api/directives.html#v-bind).
+You can also use the `is` attribute to create regular HTML elements.
 
 That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](./component-dynamic-async.html).
 
@@ -414,7 +412,7 @@ This will lead to issues when using components with elements that have such rest
 </table>
 ```
 
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. Fortunately, we can use `v-is` special directive as a workaround:
+The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special `v-is` directive as a workaround:
 
 ```html
 <table>
@@ -423,7 +421,7 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 ```
 
 :::warning
-`v-is` value should be a JavaScript string literal:
+The `v-is` value is treated as a JavaScript expression, so we need to wrap the component name in quotes:
 
 ```html
 <!-- Incorrect, nothing will be rendered -->
