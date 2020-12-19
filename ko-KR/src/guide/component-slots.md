@@ -46,7 +46,7 @@ Vue는 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-
 
 ```html
 <todo-button>
-  <!-- Use a component to add an icon -->
+  <!-- 아이콘을 추가하기 위해 컴포넌트를 사용 -->
   <font-awesome-icon name="plus"></font-awesome-icon>
   Add todo
 </todo-button>
