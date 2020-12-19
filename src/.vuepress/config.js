@@ -833,13 +833,13 @@ module.exports = {
     // As a special case, the default locale can use '/' as its path.
     '/': {
       lang: 'en-US', // this will be set as the lang attribute on <html>
-      title: 'VuePress',
+      title: 'Vue.js',
       description: 'Vue-powered Static Site Generator'
     },
     '/ko-KR/': {
       lang: 'ko-KR',
-      title: 'VuePress',
-      description: 'Vue 적적 페이지 생성기'
+      title: 'Vue.js',
+      description: '프로그레시브 JavaScript 프레임워크'
     }
   }
 }
