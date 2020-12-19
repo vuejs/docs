@@ -54,7 +54,7 @@ export default {
   // ...
 }
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -71,7 +71,7 @@ export default {
   // ...
 }
 ```
-
+</div>
 
 
 ### Prop 정의 <sup data-p="a">필수</sup>
@@ -120,7 +120,7 @@ props: {
   }
 }
 ```
-
+</div>
 
 
 ### `v-for`에 key 지정 <sup data-p="a">필수</sup>
@@ -163,7 +163,7 @@ data() {
   </li>
 </ul>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -178,7 +178,7 @@ data() {
   </li>
 </ul>
 ```
-
+</div>
 
 
 ### `v-if`와 `v-for` 동시 사용 피하기 <sup data-p="a">필수</sup>
@@ -255,7 +255,7 @@ computed: {
   </li>
 </ul>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -280,7 +280,7 @@ computed: {
   </template>
 </ul>
 ```
-
+</div>
 
 
 ### 컴포넌트 스타일 범위 지정 <sup data-p="a">필수</sup>
@@ -310,7 +310,7 @@ computed: {
 }
 </style>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -368,7 +368,7 @@ computed: {
 }
 </style>
 ```
-
+</div>
 
 
 ### 비공개 속성 이름 <sup data-p="a">필수</sup>
@@ -426,7 +426,7 @@ const myGreatMixin = {
   }
 }
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -460,7 +460,7 @@ function myPrivateFunction() {
 
 export default myGreatMixin
 ```
-
+</div>
 
 
 ## 우선순위 B 규칙: 적극 권장 <span class="hide-from-sidebar">(가독성 향상을 위함)</span>
@@ -482,7 +482,7 @@ app.component('TodoItem', {
   // ...
 })
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -498,7 +498,7 @@ components/
 |- TodoList.vue
 |- TodoItem.vue
 ```
-
+</div>
 
 
 ### 싱글 파일 컴포넌트 파일 명명 규칙 <sup data-p="b">적극 권장</sup>
@@ -518,7 +518,7 @@ components/
 components/
 |- myComponent.vue
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -532,7 +532,7 @@ components/
 components/
 |- my-component.vue
 ```
-
+</div>
 
 
 ### 베이스 컴포넌트 이름 <sup data-p="b">적극 권장</sup>
@@ -581,7 +581,7 @@ components/
 |- VueTable.vue
 |- Icon.vue
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -606,7 +606,7 @@ components/
 |- VTable.vue
 |- VIcon.vue
 ```
-
+</div>
 
 
 ### 싱글 인스턴스 컴포넌트 이름 <sup data-p="b">적극 권장</sup>
@@ -622,7 +622,7 @@ components/
 |- Heading.vue
 |- MySidebar.vue
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -632,7 +632,7 @@ components/
 |- TheHeading.vue
 |- TheSidebar.vue
 ```
-
+</div>
 
 
 ### 밀접하게 연관된 컴포넌트 이름 <sup data-p="b">적극 권장</sup>
@@ -682,7 +682,7 @@ components/
 |- SearchSidebar.vue
 |- NavigationForSearchSidebar.vue
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -699,7 +699,7 @@ components/
 |- SearchSidebar.vue
 |- SearchSidebarNavigation.vue
 ```
-
+</div>
 
 
 ### 컴포넌트 이름의 단어 순서 <sup data-p="b">적극 권장</sup>
@@ -761,7 +761,7 @@ components/
 |- SearchInput.vue
 |- TermsCheckbox.vue
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -775,7 +775,7 @@ components/
 |- SettingsCheckboxTerms.vue
 |- SettingsCheckboxLaunchOnStartup.vue
 ```
-
+</div>
 
 
 ### Self-closing 컴포넌트 <sup data-p="b">적극 권장</sup>
@@ -797,7 +797,7 @@ Self-close 처리된 컴포넌트는 내용이 없을 뿐만 아니라 **문자 
 <!-- DOM 템플릿에서 -->
 <my-component/>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -811,7 +811,7 @@ Self-close 처리된 컴포넌트는 내용이 없을 뿐만 아니라 **문자 
 <!-- DOM 템플릿에서 -->
 <my-component></my-component>
 ```
-
+</div>
 
 
 ### 템플릿 내부 컴포넌트 명명 규칙 <sup data-p="b">적극 권장</sup>
@@ -844,7 +844,7 @@ Self-close 처리된 컴포넌트는 내용이 없을 뿐만 아니라 **문자 
 <!-- DOM 템플릿에서 -->
 <MyComponent></MyComponent>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -865,7 +865,7 @@ Self-close 처리된 컴포넌트는 내용이 없을 뿐만 아니라 **문자 
 <!-- 어디서나 -->
 <my-component></my-component>
 ```
-
+</div>
 
 
 ### JS/JSX 내부 컴포넌트 명명 규칙 <sup data-p="b">적극 권장</sup>
@@ -904,7 +904,7 @@ export default {
   // ...
 }
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -931,7 +931,7 @@ export default {
   // ...
 }
 ```
-
+</div>
 
 
 ### 컴포넌트 전체(Full-word) 이름을 <sup data-p="b">적극 권장합니다</sup>
@@ -957,7 +957,7 @@ components/
 |- StudentDashboardSettings.vue
 |- UserProfileOptions.vue
 ```
-
+</div>
 
 
 ### prop명 대소문자 <sup data-p="b">적극 권장</sup>
@@ -977,7 +977,7 @@ props: {
 ```html
 <WelcomeMessage greetingText="hi"/>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -991,7 +991,7 @@ props: {
 ```html
 <WelcomeMessage greeting-text="hi"/>
 ```
-
+</div>
 
 
 ### 다중-속성 요소(Multi-attribute elements) <sup data-p="b">적극 권장</sup>
@@ -1009,7 +1009,7 @@ JavaScript에서 여러 속성을 가진 객체를 여러 줄에 걸쳐 분할�
 ```html
 <MyComponent foo="a" bar="b" baz="c"/>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1028,7 +1028,7 @@ JavaScript에서 여러 속성을 가진 객체를 여러 줄에 걸쳐 분할�
   baz="c"
 />
 ```
-
+</div>
 
 
 ### 템플릿의 간단한 표현 <sup data-p="b">적극 권장</sup>
@@ -1046,7 +1046,7 @@ JavaScript에서 여러 속성을 가진 객체를 여러 줄에 걸쳐 분할�
   }).join(' ')
 }}
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1066,7 +1066,7 @@ computed: {
   }
 }
 ```
-
+</div>
 
 
 ### 간단한 computed 속성 <sup data-p="b">적극 권장</sup>
@@ -1102,7 +1102,7 @@ computed: {
   }
 }
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1122,7 +1122,7 @@ computed: {
   }
 }
 ```
-
+</div>
 
 
 ### 인용된 속성 값(Quoted attribute values) <sup data-p="b">적극 권장</sup>
@@ -1140,7 +1140,7 @@ computed: {
 ```html
 <AppSidebar :style={width:sidebarWidth+'px'}>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1152,7 +1152,7 @@ computed: {
 ```html
 <AppSidebar :style="{ width: sidebarWidth + 'px' }">
 ```
-
+</div>
 
 
 ### 디렉티브 약어(Directive shorthands) <sup data-p="b">적극 권장</sup>
@@ -1184,7 +1184,7 @@ computed: {
   <p>Here's some contact info</p>
 </template>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1236,7 +1236,7 @@ computed: {
   <p>Here's some contact info</p>
 </template>
 ```
-
+</div>
 
 
 ## 우선순위 C 규칙: 권장 <span class="hide-from-sidebar">(임의 선택과 인지 오버헤드 최소화)</span>
@@ -1245,44 +1245,45 @@ computed: {
 
 **컴포넌트와 인스턴스 옵션의 순서는 일관성 있게 정렬되어야 합니다.**
 
+
+
+
+
+
 다음은 컴포넌트 옵션에 권장되는 기본 순서입니다. 유형별로 나누어 놓았으므로 플러그인에서 추가한 속성들 역시 이에 맞추어 정렬하면 됩니다.
 
-1. **전역 인지(Global Awareness)** (컴포넌트 바깥의 지식을 필요로 하는 옵션)
 
+
+
+
+1. **전역 인지(Global Awareness)** (컴포넌트 바깥의 지식을 필요로 하는 옵션)
     - `name`
 
 2. **템플릿 변경자(Template Modifiers)** (템플릿 컴파일 방식 변경)
-
     - `delimiters`
 
 3. **템플릿 종속성(Template Dependencies)** (템플릿에서 사용된 에셋)
-
     - `components`
     - `directives`
 
 4. **구성, 합성(Composition)** (속성들을 옵션에 병합)
-
     - `extends`
     - `mixins`
     - `provide`/`inject`
 
 5. **인터페이스(Interface)** (컴포넌트에 대한 인터페이스)
-
     - `inheritAttrs`
     - `props`
     - `emits`
 
 6. **컴포지션 API(Composition API)** (Composition API 사용을 위한 진입점)
-
     - `setup`
 
 7. **로컬 상태(Local State)** (로컬 반응형 속성)
-
     - `data`
     - `computed`
 
 8. **이벤트(Events)** (반응형 이벤트에 의해 트리거된 콜백)
-
     - `watch`
     - 라이프사이클 이벤트들 (호출된 순서)
         - `beforeCreate`
@@ -1300,11 +1301,9 @@ computed: {
         - `renderTriggered`
 
 9. **비-반응형 속성(Non-Reactive Properties)** (반응성 시스템과 무관한 인스턴스 속성)
-
     - `methods`
 
 10. **렌더링(Rendering)** (컴포넌트 출력에 대한 선언적 설명)
-
     - `template`/`render`
 
 ### 요소 속성 순서 <sup data-p="c">권장</sup>
@@ -1314,15 +1313,12 @@ computed: {
 다음은 컴포넌트 옵션에 권장되는 기본 순서입니다. 유형별로 나누어져 있으므로, 사용자지정 속성 및 디렉티브을 추가할 위치를 알 수 있습니다.
 
 1. **정의(Definition)** (컴포넌트 옵션 제공)
-
     - `is`
 
 2. **리스트 렌더링(List Rendering)** (동일한 요소의 여러 변형 생성)
-
     - `v-for`
 
 3. **조건(Conditionals)** (요소가 렌더링/표시될 지 여부)
-
     - `v-if`
     - `v-else-if`
     - `v-else`
@@ -1330,31 +1326,25 @@ computed: {
     - `v-cloak`
 
 4. **렌더 수식어(Render Modifiers)** (요소 렌더링 방식 변경)
-
     - `v-pre`
     - `v-once`
 
 5. **전역 인지(Global Awareness)** (컴포넌트 바깥의 지식을 필요로 하는 옵션)
-
     - `id`
 
 6. **고유 속성(Unique Attributes)** (고유 값이 필요한 속성)
-
     - `ref`
     - `key`
 
 7. **양방향 바인딩(Two-Way Binding)** (바인딩 및 이벤트 결합)
-
     - `v-model`
 
 8. **기타 속성(Other Attributes)** (모든 지정되지 않은 바인딩, 언바인딩 속성)
 
 9. **이벤트(Events)** (컴포넌트 이벤트 리스너)
-
     - `v-on`
 
 10. **컨텐츠(Content)** (요소의 컨텐츠를 재정의함)
-
     - `v-html`
     - `v-text`
 
@@ -1418,7 +1408,7 @@ computed: {
 }
 ```
 
-
+</div>
 
 ### 싱글 파일 컴포넌트 최상위 엘리먼트 순서 <sup data-p="c">권장</sup>
 
@@ -1443,7 +1433,7 @@ computed: {
 <script>/* ... */</script>
 <style>/* ... */</style>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1471,7 +1461,7 @@ computed: {
 <script>/* ... */</script>
 <style>/* ... */</style>
 ```
-
+</div>
 
 
 ## 우선순위 D 규칙: 주의 필요 <span class="hide-from-sidebar">(잠재적 위험을 지닌 패턴)</span>
@@ -1499,7 +1489,7 @@ button {
 }
 </style>
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1515,7 +1505,7 @@ button {
 }
 </style>
 ```
-
+</div>
 
 
 ### 암시적 부모-자식 통신 <sup data-p="d">주의해서 사용</sup>
@@ -1566,7 +1556,7 @@ app.component('TodoItem', {
   `
 })
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1608,7 +1598,7 @@ app.component('TodoItem', {
   `
 })
 ```
-
+</div>
 
 
 ### 비 플럭스(Non-flux)(역주: flux는 부모컴포넌트에서 자식으로 속성을 통한 단방향 데이터 흐름) 상태 관리 <sup data-p="d">주의해서 사용</sup>
@@ -1645,7 +1635,7 @@ const app = createApp({
   }
 })
 ```
-
+</div>
 
 
 <div class="style-example style-example-good"><h4>좋음</h4></div>
@@ -1697,7 +1687,98 @@ export default {
 }
 </script>
 ```
+</div>
 
 
+<style lang="scss" scoped>
+$color-bgr-good: #d7efd7;
+$color-bgr-bad: #f7e8e8;
+$color-priority-a: #6b2a2a;
+$color-priority-b: #8c480a;
+$color-priority-c: #2b5a99;
+$color-priority-d: #3f536d;
 
-<style lang="scss" scoped=""> $color-bgr-good: #d7efd7; $color-bgr-bad: #f7e8e8; $color-priority-a: #6b2a2a; $color-priority-b: #8c480a; $color-priority-c: #2b5a99; $color-priority-d: #3f536d;  .style-example {   border-radius: 7px;   margin: 1.6em 0;   padding: 1.6em 1.6em 1em;   position: relative;   border: 1px solid transparent;   border-top-width: 5px;    h4 {     margin-top: 0;      &amp;amp;::before {       font-family: 'FontAwesome';       margin-right: .4em;     }   }    &amp;amp;-bad {     background: $color-bgr-bad;     border-color: darken($color-bgr-bad, 20%);          h4 {       color: darken($color-bgr-bad, 50%);     }      h4::before {       content: '\f057';     }   }    &amp;amp;-good {     background: $color-bgr-good;     border-color: darken($color-bgr-good, 20%);          h4 {       color: darken($color-bgr-good, 50%);     }      h4::before {       content: '\f058';     }   } }  .details summary {   font-weight: bold !important; }  h3 {   a.header-anchor {     // as we have too many h3 elements on this page, set the anchor to be always visible     // to make them stand out more from paragraph texts.     opacity: 1;    }    sup {     text-transform: uppercase;     font-size: 0.5em;     padding: 2px 4px;     border-radius: 3px;     margin-left: 0.5em;      &amp;amp;[data-p=a] {       color: $color-priority-a;       border: 1px solid $color-priority-a;     }      &amp;amp;[data-p=b] {       color: $color-priority-b;       border: 1px solid $color-priority-b;     }      &amp;amp;[data-p=c] {       color: $color-priority-c;       border: 1px solid $color-priority-c;     }      &amp;amp;[data-p=d] {       color: $color-priority-d;       border: 1px solid $color-priority-d;     }   } } </style>
+.style-example {
+  border-radius: 7px;
+  margin: 1.6em 0;
+  padding: 1.6em 1.6em 1em;
+  position: relative;
+  border: 1px solid transparent;
+  border-top-width: 5px;
+
+  h4 {
+    margin-top: 0;
+
+    &::before {
+      font-family: 'FontAwesome';
+      margin-right: .4em;
+    }
+  }
+
+  &-bad {
+    background: $color-bgr-bad;
+    border-color: darken($color-bgr-bad, 20%);
+    
+    h4 {
+      color: darken($color-bgr-bad, 50%);
+    }
+
+    h4::before {
+      content: '\f057';
+    }
+  }
+
+  &-good {
+    background: $color-bgr-good;
+    border-color: darken($color-bgr-good, 20%);
+    
+    h4 {
+      color: darken($color-bgr-good, 50%);
+    }
+
+    h4::before {
+      content: '\f058';
+    }
+  }
+}
+
+.details summary {
+  font-weight: bold !important;
+}
+
+h3 {
+  a.header-anchor {
+    // as we have too many h3 elements on this page, set the anchor to be always visible
+    // to make them stand out more from paragraph texts.
+    opacity: 1; 
+  }
+
+  sup {
+    text-transform: uppercase;
+    font-size: 0.5em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin-left: 0.5em;
+
+    &[data-p=a] {
+      color: $color-priority-a;
+      border: 1px solid $color-priority-a;
+    }
+
+    &[data-p=b] {
+      color: $color-priority-b;
+      border: 1px solid $color-priority-b;
+    }
+
+    &[data-p=c] {
+      color: $color-priority-c;
+      border: 1px solid $color-priority-c;
+    }
+
+    &[data-p=d] {
+      color: $color-priority-d;
+      border: 1px solid $color-priority-d;
+    }
+  }
+}
+</style>

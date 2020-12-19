@@ -10,7 +10,7 @@ Vue(/vjuː/ 로 발음, ***view*** 와 발음이 같습니다.)는 사용자 인
 
 vue에 대해 깊게 들어가기전에, 여러분게제 주요 원칙과 샘플을 제공하는 <a id="modal-player" class="vuemastery-trigger" href="#">비디오를 만들었으니</a> 한번 보시기 바랍니다.
 
-<common-vuemastery-video-modal></common-vuemastery-video-modal>
+<VideoLesson href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3" title="Watch a free video course on Vue Mastery">Watch a free video course on Vue Mastery</VideoLesson>
 
 ## 시작하기
 
@@ -18,7 +18,7 @@ vue에 대해 깊게 들어가기전에, 여러분게제 주요 원칙과 샘플
   <actionlink class="primary" url="installation.html">     설치   </actionlink>
 </p>
 
-::: tip NOTE
+::: tip 
 공식 가이드는 HTML, CSS 및 JavaScript에 대한 중간 수준의 지식을 전제로 하고 있습니다. 이제 막 프론트 엔드 개발에 대해 배우기 시작했다면 첫 번째 단계로 프레임워크를 시작하는 것은 좋은 생각이 아닙니다. 기본을 파악한 다음 다시 해보세요! 다른 프레임워크에 대한 사전 경험이 도움될 수 있지만 반드시 필요한것은 아닙니다. 
 :::
 
@@ -48,7 +48,7 @@ const Counter = {
 Vue.createApp(Counter).mount('#counter')
 ```
 
-첫 Vue app을 만들었습니다! 이것은 문자열 템플릿을 렌더링하는 것과 매우 유사하지만, Vue.JS 내부에서는 더 많은 작업을 하고 있습니다. 이제 데이터와 DOM이 연결되었으며 모든 것이 ***반응형*** 이 되었습니다. 우리는 그것을 어떻게 확인할 수 있을까요? 아래 예제 코드에서 `counter` 속성은 매 초마다 증가하고 우리는 DOM이 변경될때 어떻게 렌더 되는지 볼 수 있습니다.
+첫 Vue app을 만들었습니다! 이것은 문자열 템플릿을 렌더링하는 것과 매우 유사하지만, Vue.JS 내부에서는 더 많은 작업을 하고 있습니다. 이제 데이터와 DOM이 연결되었으며 모든 것이 ***반응형(reactive)*** 이 되었습니다. 우리는 그것을 어떻게 확인할 수 있을까요? 아래 예제 코드에서 `counter` 속성은 매 초마다 증가하고 우리는 DOM이 변경될때 어떻게 렌더 되는지 볼 수 있습니다.
 
 ```js{8-10}
 const CounterApp = {
@@ -65,15 +65,14 @@ const CounterApp = {
 }
 ```
 
-<firstexample></firstexample>
+<FirstExample />
 
 텍스트 보간 이외에도 다음과 같은 엘리먼트 속성을 바인딩할 수 있습니다.
 
 ```html
 <div id="bind-attribute">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound
-    title!
+    여기에 마우스를 올려두고 잠시 기다리면 제목이 동적으로 바뀝니다!
   </span>
 </div>
 ```
@@ -82,7 +81,7 @@ const CounterApp = {
 const AttributeBinding = {
   data() {
     return {
-      message: 'You loaded this page on ' + new Date().toLocaleString()
+      message: '이 페이지를 다음 시간에 열었습니다. ' + new Date().toLocaleString()
     }
   }
 }
@@ -91,7 +90,7 @@ Vue.createApp(AttributeBinding).mount('#bind-attribute')
 ```
 
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpRVvJ" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Attribute dynamic binding">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpRVvJ">   Attribute dynamic binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<common-codepen-snippet title="Attribute dynamic binding" slug="KKpRVvJ" />
 
 여기서 우리는 새로운 것을 만났습니다. `v-bind` 속성은 ***디렉티브*** 이라고 합니다. 디렉티브는 Vue에서 제공하는 특수 속성임을 나타내는 `v-` 접두어가 붙어있으며 사용자가 짐작할 수 있듯 렌더링 된 DOM에 특수한 반응형 동작을 합니다. 기본적으로 “이 요소의 `title`  속성을 Vue 인스턴스의 `message` 프로퍼티로 최신 상태를 유지 합니다.”
 
@@ -126,8 +125,7 @@ const EventHandling = {
 Vue.createApp(EventHandling).mount('#event-handling')
 ```
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="dyoeGjW" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling">   <span>Pen에 작성된  Vue (<a href="https://codepen.io/Vue">@Vue</a>) 로 하는  <a href="https://codepen.io/team/Vue/pen/dyoeGjW"> 이벤트 처리(Event handling)</a> 예제를 확인하세요</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Event handling" slug="dyoeGjW" />
 
 이 방법은 직접적으로 DOM을 건드리지 않고 앱의 상태만을 업데이트합니다. 모든 DOM 조작은 Vue에 의해 처리되며 작성한 코드는 기본 로직에만 초점을 맞춥니다.
 
@@ -153,7 +151,7 @@ Vue.createApp(TwoWayBinding).mount('#two-way-binding')
 ```
 
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="poJVgZm" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Two-way binding">   <span>Pen에 작성된  Vue (<a href="https://codepen.io/Vue">@Vue</a>) 로 하는 <a href="https://codepen.io/team/Vue/pen/poJVgZm">양방향 바인딩(Two-way binding)</a> 예제를 확인하세요</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Two-way binding" slug="poJVgZm" />
 
 ## 조건문과 반복문
 
@@ -182,7 +180,7 @@ Vue.createApp(ConditionalRendering).mount('#conditional-rendering')
 우리는 효과를 확인하기 위해서 위 코드 블록의 `seen` 을 `true`에서 `false`로 바꿀 수 있습니다.
 
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="oNXdbpB" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Conditional rendering">   <span>Pen에 작성된  Vue (<a href="https://codepen.io/Vue">@Vue</a>) 로 하는  <a href="https://codepen.io/team/Vue/pen/oNXdbpB">조건에 따른 렌더링(Conditional rendering)</a> 예제를 확인하세요</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Conditional rendering" slug="oNXdbpB" tab="js,result" />
 
 Vue에서 제공하는 특별한 기능을 제공하는 디렉티브들이 있습니다. 예를 들어 `v-for` 디렉티브는 배열에서 데이터를 가져와 아이템 목록을 표시하는데 사용할수 있습니다.
 
@@ -212,8 +210,7 @@ const ListRendering = {
 Vue.createApp(ListRendering).mount('#list-rendering')
 ```
 
-
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="mdJLVXq" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="List rendering">   <span>Pen에 작성된  Vue (<a href="https://codepen.io/Vue">@Vue</a>) 로 하는 <a href="https://codepen.io/team/Vue/pen/mdJLVXq">목록 렌더링(List rendering)</a> 예제를 확인하세요</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="List rendering" slug="mdJLVXq" />
 
 ## 컴포넌트로 조립하기
 
@@ -298,7 +295,7 @@ app.mount('#todo-list-app')
 ```
 
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="VwLxeEz" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-Components-1">   <span>Pen에 작성된  Vue (<a href="https://codepen.io/Vue">@Vue</a>) 로 하는 <a href="https://codepen.io/team/Vue/pen/VwLxeEz">컴포넌트 소개 1(Intro-Components-1)</a> 예제를 확인하세요</span> </p> <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Intro-Components-1" slug="VwLxeEz" />
 
 이것은 인위적으로 만든 예시이지만, 우리는 앱을 두 개의 더 작은 단위로 나눌 수 있었고, 자식을 props 인터페이스를 통하여 부모로부터 합리적인 수준으로 분리할 수 있었습니다. 이제 앞으로는 부모 앱에 영향을 주지 않으면서  `<todo-item>` 컴포넌트를 더 복잡한 템플릿과 로직으로 더욱 향상시킬 수 있을 것입니다.
 
