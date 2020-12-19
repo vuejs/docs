@@ -4,9 +4,9 @@
 
 Vue는 코어에 포함된 기본 디렉티브 (`v-model` 과`v-show`와 같은) 외에도 커스텀 디렉티브를 등록할 수 있습니다. Vue에서 코드 재사용 및 추상화의 기본 형식은 컴포넌트입니다. 그러나 일반 엘리먼트에 하위 수준의 DOM 액세스가 필요한 경우가 있을 수 있으며 이 경우 커스텀 디렉티브가 여전히 유용할 수 있습니다. 다음은 input 엘리먼트와 focusing에 대한 예제입니다.
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="JjdxaJW" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: basic example">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/JjdxaJW">   Custom directives: basic example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Custom directives: basic example" slug="JjdxaJW" :preview="false"></common-codepen-snippet>
 
-페이지가 로드되면 해당 엘리먼트는 포커스를 얻습니다. (참고: `autofocus`는 모바일 사파리에서 작동하지 않습니다.) 사실, 이 페이지를 방문한 이후, 다른것을 클릭하지 않았다면, 이 input 엘리먼트에 포커스가 되어 있어야 합니다. 또한, `Rerun` 버튼을 클릭하면 input 엘리먼트에 포커스가 됩니다.<br />이제 이 작업을 수행하는 디렉티브를 작성하겠습니다.
+페이지가 로드되면 해당 엘리먼트는 포커스를 얻습니다. (참고: `autofocus`는 모바일 사파리에서 작동하지 않습니다.) 사실, 이 페이지를 방문한 이후, 다른것을 클릭하지 않았다면, 이 input 엘리먼트에 포커스가 되어 있어야 합니다. 또한, `Rerun` 버튼을 클릭하면 input 엘리먼트에 포커스가 됩니다.<br>이제 이 작업을 수행하는 디렉티브를 작성하겠습니다.
 
 지금 이를 수행하는 지시문을 작성해 보겠습니다:
 
@@ -120,7 +120,7 @@ app.mount('#dynamic-arguments-example')
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="YzXgGmv" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: dynamic arguments">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/YzXgGmv">   Custom directives: dynamic arguments</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Custom directives: dynamic arguments" slug="YzXgGmv" :preview="false"></common-codepen-snippet>
 
 이제 커스텀 디렉티브는 몇 가지 다른 사용 사례를 지원할 수 있을 정도로 유연합니다. 조금 더 동적으로 만들려면, 바운드 값을 수정하는 것을 허락할 수 있습니다. 추가로 `pinPadding` 프로퍼티를 만들고 `<input type="range">`에 바인딩을 합니다.
 
@@ -161,7 +161,7 @@ app.directive('pin', {
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="rNOaZpj" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: dynamic arguments + dynamic binding">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNOaZpj">   Custom directives: dynamic arguments + dynamic binding</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Custom directives: dynamic arguments + dynamic binding" slug="rNOaZpj" :preview="false"></common-codepen-snippet>
 
 ## 함수 약어
 
@@ -192,40 +192,22 @@ app.directive('demo', (el, binding) => {
 
 ## 컴포넌트 사용
 
-fragments을 지원하는 3.0에서 컴포넌트는 잠재적으로 둘 이상의 루트 노드를 가질 수 있습니다. 이로 인해 다수의 루트 노드를 가지고 있는 컴포넌트에서 커스텀 디렉티브가 사용될때 이슈가 발생합니다.
-
-3.0에서 커스텀 디렉티브가 컴포넌트에서 어떻게 작동되는지 자세히 설명하려면 우선 3.0에서 커스텀 디렉티브가 어떻게 컴파일 되는지 이해가 필요합니다. 이와 같은 디렉티브의 경우:
+컴포넌트에서 사용되는 경우, 커스텀 디렉티브는 [non-prop 속성](component-attrs.html)과 유사하게 항상 컴포넌트의 루트 노드에 적용됩니다.
 
 ```vue-html
-<div v-demo="test"></div>
+<my-component v-demo="test"></my-component>
 ```
-
-대략 다음과 같이 컴파일합니다.
 
 ```js
-const vDemo = resolveDirective('demo')
-
-return withDirectives(h('div'), [[vDemo, test]])
+app.component('my-component', {
+  template: `
+    <div> // v-demo 디렉티브가 여기에 적용됩니다
+      <span>My component content</span>
+    </div>
+  `
+})
 ```
 
-`vDemo`는 사용자가 작성한 디렉티브 객체가 되며, `mounted`와 `updated`와 같은 훅들이 포함합니다.
+속성과 달리, 디렉티브는 `v-bind="$attrs"`를 사용하여 다른 엘리먼트에 전달할 수 없습니다.
 
-`withDirectives`은 사용자 훅을 감싸고 VNode 라이프 사이클 훅으로 주입한 복제된 VNode를 반환합니다.(자세한 내용은 [Render Function](render-function.html) 참조):
-
-```js
-{
-  onVnodeMounted(vnode) {
-    // call vDemo.mounted(...)
-  }
-}
-```
-
-**결과적으로, 커스텀 디렉티브는 VNode의 데이터의 일부로 완전히 포함됩니다. 컴포넌트에서 커스텀 디렉티브가 사용될때, `onVnodeXXX` 훅이 관련없는 props로써 컴포넌트에 전달되어 `this.$attrs`가 됩니다.**
-
-이는 또한 템플릿에서와 같이 요소의 라이프사이클에 직접 연결할 수 있다는 것을 의미하여, 커스텀 디렉티브가 너무 많이 관련되었을때 유용할 수 있습니다.
-
-```vue-html
-<div @vnodeMounted="myHook" />
-```
-
-이것은 [attribute fallthrough behavior](component-attrs.html)과 일치합니다. <br>따라서 컴포넌트에 대한 커스텀 디렉티브의 규칙은 다른 관련없는 속성과 동일합니다. : 어디에 적용할 것인지를 결정하는 것은 자식 컴포넌트에 달려있습니다.<br>자식 컴포넌트에서 내부 엘리먼트에 <code>v-bind="$attrs"</code> 사용할 경우, 컴포넌트에 사용된 커스텀 디렉티브도 적용됩니다.
+[fragments](/guide/migration/fragments.html#overview) 지원을 통해, 컴포넌트는 잠재적으로 둘 이상의 루트 노드를 가질 수 있습니다. 다중 루트 컴포넌트에 적용되면 디렉티브가 무시되고 경고가 발생합니다.
