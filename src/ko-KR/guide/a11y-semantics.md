@@ -40,7 +40,8 @@ form 엘리먼트에 `autocomplete='on'`을 포함할 수 있으며, form의 모
 
 ![Chrome Developer Tools showing input accessible name from label](/images/AccessibleLabelChromeDevTools.png)
 
-:::warning Warning: 이와 같이 input 필드를 감싸는 label을 보았을 수도 있지만:
+:::warning Warning: 
+이와 같이 input 필드를 감싸는 label을 보았을 수도 있지만:
 
 ```html
 <label>
@@ -49,7 +50,8 @@ form 엘리먼트에 `autocomplete='on'`을 포함할 수 있으며, form의 모
 </label>
 ```
 
-일치하는 id로 label을 명시적으로 설정하는 것이 보조 기술에 의해 더 잘 지원됩니다. :::
+일치하는 id로 label을 명시적으로 설정하는 것이 보조 기술에 의해 더 잘 지원됩니다. 
+:::
 
 #### aria-label
 

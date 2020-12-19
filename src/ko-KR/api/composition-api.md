@@ -27,7 +27,9 @@ interface SetupContext {
 function setup(props: Data, context: SetupContext): Data
 ```
 
-::: tip `setup()`에 전달된 인자에 대한 타입을 추론하려면, [defineComponent](global-api.html#definecomponent) 를 사용해야합니다. :::
+::: tip 
+`setup()`에 전달된 인자에 대한 타입을 추론하려면, [defineComponent](global-api.html#definecomponent) 를 사용해야합니다. 
+:::
 
 - **예시**
 

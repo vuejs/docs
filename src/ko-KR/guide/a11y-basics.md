@@ -105,6 +105,8 @@ aside | role="complementary" | 주요 콘텐츠를 지원하지만 자체 콘텐
 form | role="form" | 양식 관련 요소 모음
 section | role="region" | 관련성이 있고 사용자가 탐색하기를 원하는 콘텐츠입니다. 이 요소에 대한 레이블을 제공해야합니다.
 
-:::tip Tip: 레거시한 [ HTML5 시멘틱 엘리멘트를 지원하지 않는 브라우저](https://caniuse.com/#feat=html5semantic)와의 호환성을 최대화하려면 중복된 랜드마크 역할 속성이 있는 랜드마크 HTML 엘리멘트를 사용하는 것이 좋습니다. :::
+:::tip Tip: 
+레거시한 [ HTML5 시멘틱 엘리멘트를 지원하지 않는 브라우저](https://caniuse.com/#feat=html5semantic)와의 호환성을 최대화하려면 중복된 랜드마크 역할 속성이 있는 랜드마크 HTML 엘리멘트를 사용하는 것이 좋습니다. 
+:::
 
 [랜드마크에 대해 자세히 알아보기](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)

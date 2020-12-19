@@ -5,7 +5,9 @@ badges:
 
 # 속성 강제 규칙(Attribute Coercion Behavior)<migrationbadges badges="$frontmatter.badges"></migrationbadges>
 
-::: info Info 낮은 수준의 API 변경으로 개발자 대부분에게 영향을 주지 않습니다. :::
+::: info Info 
+낮은 수준의 API 변경으로 개발자 대부분에게 영향을 주지 않습니다. 
+:::
 
 ## 개요
 

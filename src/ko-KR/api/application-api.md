@@ -161,7 +161,9 @@ app.directive('focus', {
 
 이전 가상 노드 입니다. `beforeUpdate` 와 `updated` 훅에서만 사용할 수 있습니다.
 
-:::tip Note `el` 인자와는 별도로, 이러한 인자들은 읽기전용(read-only)이므로 절대 수정하지 마세요. 만약 훅 간에 정보를 공유해야 한다면, 엘리먼트의 [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) 을 이용하여 공유하는 것이 좋습니다. :::
+:::tip Note 
+`el` 인자와는 별도로, 이러한 인자들은 읽기전용(read-only)이므로 절대 수정하지 마세요. 만약 훅 간에 정보를 공유해야 한다면, 엘리먼트의 [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) 을 이용하여 공유하는 것이 좋습니다. 
+:::
 
 - **참고:**
     [커스텀 디렉티브(Custom Directives)](../guide/custom-directive.html)
@@ -237,7 +239,9 @@ app.mount('#my-app')
 
     일반적으로 플러그인은 컴포넌트를 사용하여 값을 제공할 수 없기 때문에, 애플리케이션을 통해 값을 제공하는 것은 플러그인을 작성할 때 특히 유용합니다. [globalProperties](application-config.html#globalproperties) 대신에 사용할 수 있습니다.
 
-    :::tip Note `provides` 및 `inject` 바인딩은 반응성(reactive)이 없습니다. 이것은 의도적입니다. 그러나 관찰된 객체(observed object)를 전달하면 해당 객체의 속성은 반응성(reactive)은 유지됩니다. :::
+    :::tip Note 
+    `provides` 및 `inject` 바인딩은 반응성(reactive)이 없습니다. 이것은 의도적입니다. 그러나 관찰된 객체(observed object)를 전달하면 해당 객체의 속성은 반응성(reactive)은 유지됩니다. 
+    :::
 
 - **예시:**
 

@@ -26,7 +26,9 @@
 
     요소의 [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) 을 업데이트 합니다. **컨텐츠는 일반 HTML 로 삽입됩니다 - Vue 템플릿으로 컴파일 되지 않습니다.** `v-html` 을 사용하여 템플릿을 작성하려는 경우에, 컴포넌트를 사용하는 해결법으로 다시 생각해보세요.
 
-    ::: 경고 웹 사이트에서 임의의 HTML 을 동적으로 렌더링 하면 [XSS 공격](https://en.wikipedia.org/wiki/Cross-site_scripting) 을 쉽게 발생시킬 수 있으므로 매우 위험합니다. 신뢰할 수 있는 컨텐츠에는 `v-html` 을 사용하고 사용자가 제공한 컨텐츠에는 **절대로 사용하지 마세요.** :::
+::: warning 
+웹 사이트에서 임의의 HTML 을 동적으로 렌더링 하면 [XSS 공격](https://en.wikipedia.org/wiki/Cross-site_scripting) 을 쉽게 발생시킬 수 있으므로 매우 위험합니다. 신뢰할 수 있는 컨텐츠에는 `v-html` 을 사용하고 사용자가 제공한 컨텐츠에는 **절대로 사용하지 마세요.** 
+:::
 
     [싱글파일컴포넌트(SFC)](../guide/single-file-component.html) 에서, `scoped` 스타일은 `v-html` 내부의 컨텐츠에 적용되지 않습니다. 해당 HTML 은 Vue 의 템플릿 컴파일러에서 처리되지 않기 때문입니다. scoped CSS 를 사용하여 `v-html` 컨테츠를 대상으로 지정하려면, [CSS modeuls](https://vue-loader.vuejs.org/en/features/css-modules.html) 또는 BEM 과 같은 수동 범위 지정 전략과 함께 추가 글로벌 `<style>` 요소를 사용해야 합니다.
 
@@ -475,7 +477,8 @@
 </table>
 ```
 
-::: 경고 `v-is` 는 동적 2.x `:is` 바인딩과 같은 기능을 합니다. 따라서 등록된 이름으로 컴포넌트를 렌더링하려면 해당 값이 자바스크립트 문자열 리터럴이어야합니다. :
+::: warning 
+`v-is` 는 동적 2.x `:is` 바인딩과 같은 기능을 합니다. 따라서 등록된 이름으로 컴포넌트를 렌더링하려면 해당 값이 자바스크립트 문자열 리터럴이어야합니다. :
 
 ```html
 <!-- 올바르지 않은 사용법, 아무것도 렌더링 되지 않습니다. -->

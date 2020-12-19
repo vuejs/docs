@@ -103,7 +103,8 @@ app.config.isCustomElement = tag => tag.startsWith('ion-')
 3.0에서는 요소가 컴포넌트인지 아닌지 여부는 템플릿 컴파일 단계로 이동되었으므로, 이 구성 옵션은 런타임 컴파일러를 사용할 때만 적용됩니다. 런타임 전용 빌드를 사용하는 경우, 빌드 설정에서 `isCustomElement`를 `@vue/compiler-dom`으로 대신 전달해야 합니다. (예: [vue-loader의 `compilerOptions` 옵션을 통해](https://vue-loader.vuejs.org/options.html#compileroptions))
 
 - 런타임 전용 빌드를 사용할 때 `config.isCustomElement`가 할당되면 사용자에게 빌드 설정에서 옵션을 대신 전달하도록 지시하는 경고가 표시됩니다.
-- 이것은 Vue CLI 구성의 새로운 최상위 옵션입니다. :::
+- 이것은 Vue CLI 구성의 새로운 최상위 옵션입니다. 
+:::
 
 ### 플러그인 작성자를 위한 참고사항(A Note for Plugin Authors)
 

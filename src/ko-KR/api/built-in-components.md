@@ -203,7 +203,9 @@
     </keep-alive>
     ```
 
-    ::: warning `<keep-alive>`는 캐시할 인스턴스가 없기 때문에, 함수형 컴포넌트와 함께 작동하지 않습니다. :::
+::: warning 
+`<keep-alive>`는 캐시할 인스턴스가 없기 때문에, 함수형 컴포넌트와 함께 작동하지 않습니다. 
+:::
 
 - [동적 컴포넌트(Dynamic Components) - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
 

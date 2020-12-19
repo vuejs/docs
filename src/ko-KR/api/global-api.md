@@ -218,7 +218,9 @@ const AsyncComp = defineAsyncComponent({
 
 ## resolveComponent
 
-:::warning `resolveComponent`는 `render`나 `setup` 함수 내에서만 사용할 수 있습니다. :::
+:::warning 
+`resolveComponent`는 `render`나 `setup` 함수 내에서만 사용할 수 있습니다. 
+:::
 
 현재 애플리케이션 인스턴스에서 사용 가능한 경우 이름으로 `component`를 확인할 수 있습니다.
 
@@ -252,7 +254,9 @@ render() {
 
 ## resolveDynamicComponent
 
-:::warning `resolveDynamicComponent`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
+:::warning 
+`resolveDynamicComponent`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. 
+:::
 
 `<component :is="">`로 사용하는 것과 동일한 메커니즘으로 `component`를 resolve할 수 있습니다.
 
@@ -279,7 +283,9 @@ render () {
 
 ## resolveDirective
 
-:::warning `resolveDirective`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
+:::warning 
+`resolveDirective`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. 
+:::
 
 현재 애플리케이션 인스턴스에서 사용가능한 경우 해당 이름으로 `directive`를 확인할 수 있습니다.
 
@@ -311,7 +317,9 @@ render () {
 
 ## withDirectives
 
-:::warning `withDirectives`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. :::
+
+warning `withDirectives`는 `render` 또는 `setup` 함수 내에서만 사용할 수 있습니다. 
+:::
 
 디렉티브를 **VNode**에 적용할 수 있습니다. 적용된 디렉티브를 가진 VNode를 돌려줍니다.
 

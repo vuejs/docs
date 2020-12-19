@@ -14,7 +14,11 @@
 - 체크박스들과 라디오버튼들은 `checked` 속성과 `change` 이벤트를 사용합니다.
 - Select 태그는 `value` 를 prop으로, `change`를 이벤트로 사용합니다.
 
-<span id="vmodel-ime-tip"></span> ::: tip Note [IME](https://en.wikipedia.org/wiki/Input_method) (중국어, 일본어, 한국어 등)가 필요한 언어의 경우 IME 중 `v-model`이 업데이트 되지 않습니다. 이러한 업데이트를 처리하려면 `input` 이벤트를 대신 사용하십시오. :::
+<span id="vmodel-ime-tip"></span> 
+
+::: tip Note 
+[IME](https://en.wikipedia.org/wiki/Input_method) (중국어, 일본어, 한국어 등)가 필요한 언어의 경우 IME 중 `v-model`이 업데이트 되지 않습니다. 이러한 업데이트를 처리하려면 `input` 이벤트를 대신 사용하십시오. 
+:::
 
 ### 문자열
 

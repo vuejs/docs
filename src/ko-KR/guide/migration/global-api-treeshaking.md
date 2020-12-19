@@ -109,7 +109,9 @@ export function render() {
 
 글로벌 트리 쉐이킹을 사용하면, 사용자는 실제로 사용하는 기능에 대해서만 "지불(pay)"합니다. 더 좋은 점은 사용하지 않는 선택적인 기능은 애플리케이션의 번들 크기를 늘리지 않는다는 사실을 알고 있기 때문에, 향후 추가 핵심 기능에 대한 프레임워크 크기의 우려가 훨씬 적어졌습니다.
 
-::: warning Important 위의 내용은 트리 쉐이킹 가능한 번들러와 함께 사용하기 위한 [ES 모듈 빌드(ES Modules builds)](/guide/installation.html#explanation-of-different-builds)에만 적용됩니다. UMD 빌드는 여전히 모든기능을 포함하고 Vue 전역 변수에 모든 것을 노출합니다. (컴파일러는 import 대신 전역에서 API를 사용하기 위한 적절한 출력을 생성합니다). :::
+::: warning Important 
+위의 내용은 트리 쉐이킹 가능한 번들러와 함께 사용하기 위한 [ES 모듈 빌드(ES Modules builds)](/guide/installation.html#explanation-of-different-builds)에만 적용됩니다. UMD 빌드는 여전히 모든기능을 포함하고 Vue 전역 변수에 모든 것을 노출합니다. (컴파일러는 import 대신 전역에서 API를 사용하기 위한 적절한 출력을 생성합니다). 
+:::
 
 ## 플러그인에서 사용법
 
