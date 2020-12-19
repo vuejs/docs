@@ -22,7 +22,9 @@ app.component('button-counter', {
 })
 ```
 
-::: info 여기에서는 간단한 예제를 보여드리지만, 일반적인 Vue 애플리케이션은 문자열 템플릿 대신 단일 파일 컴포넌트를 사용하고 있습니다. 단일 파일 컴포넌트에 대한 자세한 내용은 [이 섹션](single-file-component.html)에서 확인할 수 있습니다. :::
+::: info 
+여기에서는 간단한 예제를 보여드리지만, 일반적인 Vue 애플리케이션은 문자열 템플릿 대신 단일 파일 컴포넌트를 사용하고 있습니다. 단일 파일 컴포넌트에 대한 자세한 내용은 [이 섹션](single-file-component.html)에서 확인할 수 있습니다. 
+:::
 
 컴포넌트는 이름이 있는 재사용 가능한 인스턴스입니다(이 경우에서는 `<button-counter>`). 이 컴포넌트를 루트 인스턴스 안에서 커스텀 엘리먼트처럼 사용할 수 있습니다:
 
@@ -36,7 +38,8 @@ app.component('button-counter', {
 app.mount('#components-demo')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abORVEJ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abORVEJ">   Component basics</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics" slug="abORVEJ" tab="js,result" :preview="false" />
+
 
 컴포넌트는 재사용 가능한 인스턴스이므로, `data`, `computed`, `watch`, `methods`와 라이프사이클 훅과 같은 루트 인스턴스와 같은 옵션을 허용합니다. 유일한 예외는 `el`과 같은 몇 가지 루트만의 옵션(root-specific options)입니다.
 
@@ -52,7 +55,7 @@ app.mount('#components-demo')
 </div>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="rNVqYvM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: reusing components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/rNVqYvM">   Component basics: reusing components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: reusing components" slug="rNVqYvM" tab="html,result" :preview="false" />
 
 버튼을 클릭할 때 각 버튼은 별도의 `count`를 유지합니다. 컴포넌트를 사용할 때 마다 새로운 **인스턴스**가 만들어지기 때문입니다.
 
@@ -107,7 +110,7 @@ app.mount('#blog-post-demo')
 </div>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="PoqyOaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: passing props">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/PoqyOaX">   Component basics: passing props</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: passing props" slug="PoqyOaX" tab="html,result" :preview="false" />
 
 그러나 일반적인 앱에서는 `data`에 posts 배열이 있을 수 있습니다.
 
@@ -219,7 +222,7 @@ app.component('blog-post', {
 
 `@enlarge-text="postFontSize += 0.1"` 리스너 덕분에, 부모는 이벤트를 받아 `postFontSize`의 값을 업데이트합니다.
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="KKpGyrp" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: emitting events">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpGyrp">   Component basics: emitting events</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="html,result" :preview="false" />
 
 컴포넌트의 `emits`옵션에서 생성된 이벤트를 나열할 수 있습니다.
 
@@ -287,7 +290,9 @@ methods: {
 ></custom-input>
 ```
 
-::: warning in-DOM 템플릿으로 작업하고 있기 때문에, 여기서는 kebab-case와 함께 `model-value`를 사용했습니다. [DOM Template Parsing Caveats](#dom-template-parsing-caveats) 섹션에서 kebab-case와 camelCase 속성에 대한 자세한 설명을 볼 수 있습니다. :::
+::: warning 
+in-DOM 템플릿으로 작업하고 있기 때문에, 여기서는 kebab-case와 함께 `model-value`를 사용했습니다. [DOM Template Parsing Caveats](#dom-template-parsing-caveats) 섹션에서 kebab-case와 camelCase 속성에 대한 자세한 설명을 볼 수 있습니다. 
+:::
 
 v-model이 실제로 작동하려면 컴포넌트 내의 `<input>`이 반드시 다음 규칙을 따라야 합니다:
 
@@ -352,7 +357,7 @@ HTML 엘리먼트와 마찬가지로 다음과 같이 컨텐츠를 컴포넌트�
 
 다음처럼 렌더링 될겁니다:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="jOPeaob" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: slots">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPeaob">   Component basics: slots</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: slots" slug="jOPeaob" :preview="false" />
 
 다행히 이 작업은 Vue의 커스텀 `<slot>` 엘리먼트로 매우 간단하게 만들 수 있습니다.
 
@@ -375,7 +380,7 @@ app.component('alert-box', {
 
 때로는 탭 인터페이스에서와 같이 컴포넌트 간의 동적으로 전환하는 것이 유용합니다:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="oNXaoKy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: dynamic components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXaoKy">   Component basics: dynamic components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Component basics: dynamic components" slug="oNXaoKy" :preview="false" />
 
 위는 Vue의 `is`라는 특별한 속성을 가진 `<component>` 엘리먼트에 의해 만들 수 있습니다.
 
@@ -413,7 +418,8 @@ app.component('alert-box', {
 </table>
 ```
 
-:::warning `v-is` 값은 자바스크립트 문자열 리터럴이어야 합니다:
+:::warning 
+`v-is` 값은 자바스크립트 문자열 리터럴이어야 합니다:
 
 ```html
 <!-- 잘못됨. 아무것도 렌더링 되지 않음 -->
@@ -423,7 +429,9 @@ app.component('alert-box', {
 <tr v-is="'blog-post-row'"></tr>
 ```
 
-::: 또한, HTML 속성명은 대소문자를 구분하지 않으므로, 브라우저는 모든 대문자를 소문자로 해석합니다. 즉, DOM내 템플릿을 사용할 때 camelCase된 prop명과 이벤트 핸들러 파라미터는 kebab-case(하이픈으로 구분)된 해당 항목을 사용해야 합니다:
+::: 
+
+또한, HTML 속성명은 대소문자를 구분하지 않으므로, 브라우저는 모든 대문자를 소문자로 해석합니다. 즉, DOM내 템플릿을 사용할 때 camelCase된 prop명과 이벤트 핸들러 파라미터는 kebab-case(하이픈으로 구분)된 해당 항목을 사용해야 합니다:
 
 ```js
 // 자바스크립트 내 camelCase

@@ -4,7 +4,9 @@
 
 `v-model` 디렉티브를 사용하여 input, textarea, select 요소들에 양방향 데이터 바인딩을 생성할 수 있습니다. v-model 디렉티브는 `input type` 요소를 변경하는 올바른 방법을 자동으로 선택합니다. 약간 이상하지만, `v-model`은 기본적으로 사용자 입력 이벤트에 대한 데이터를 업데이트하는 “syntax sugar”이며, 일부 경우에는 특별한 주의를 해야합니다.
 
-::: tip Note `v-model`은 모든 form 엘리먼트의 초기 `value`와 `checked` 그리고 `selected` 속성을 무시합니다. 항상 Vue 인스턴스 데이터를 원본 소스로 취급합니다. 컴포넌트의 `data` 옵션 안에 있는 JavaScript에서 초기값을 선언해야합니다. :::
+::: tip Note 
+`v-model`은 모든 form 엘리먼트의 초기 `value`와 `checked` 그리고 `selected` 속성을 무시합니다. 항상 Vue 인스턴스 데이터를 원본 소스로 취급합니다. 컴포넌트의 `data` 옵션 안에 있는 JavaScript에서 초기값을 선언해야합니다. 
+:::
 
 `v-model`은 내부적으로 서로 다른 속성을 사용하고 서로 다른 입력 요소에 대해 서로 다른 이벤트를 전송합니다 :
 
@@ -21,7 +23,8 @@
 <p>메시지: {{ message }}</p>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="eYNPEqj" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: basic v-model">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/eYNPEqj">   Handling forms: basic v-model</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Handling forms: basic v-model" slug="eYNPEqj" :preview="false" />
+
 
 ### 여러 줄을 가진 문장
 
@@ -32,7 +35,8 @@
 <textarea v-model="message" placeholder="여러줄을 입력해보세요"></textarea>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="xxGyXaG" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: textarea">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/xxGyXaG">   Handling forms: textarea</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Handling forms: textarea" slug="xxGyXaG" :preview="false" />
+
 
 textarea의 텍스트 보간은 작동하지 않습니다. 대신 `v-model`를 사용하십시오.
 
@@ -80,7 +84,8 @@ Vue.createApp({
 }).mount('#v-model-multiple-checkboxes')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="bGdmoyj" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: multiple checkboxes">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/bGdmoyj">   Handling forms: multiple checkboxes</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Handling forms: multiple checkboxes" slug="bGdmoyj" :preview="false" />
+
 
 ### 라디오
 
@@ -106,7 +111,8 @@ Vue.createApp({
 }).mount('#v-model-radiobutton')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="MWwPEMM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: radiobutton">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/MWwPEMM">   Handling forms: radiobutton</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Handling forms: radiobutton" slug="MWwPEMM" :preview="false" />
+
 
 ### 셀렉트
 
@@ -134,9 +140,12 @@ Vue.createApp({
 }).mount('#v-model-select')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpGydL" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: select">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpGydL">   Handling forms: select</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Handling forms: select" slug="KKpGydL" :preview="false" />
 
-:::tip Note `v-model` 표현식의 초기 값이 어떤 옵션에도 없으면, `<select>` 엘리먼트는 "선택없음"("unselected") 상태로 렌더링됩니다. iOS에서는 이 경우 변경 이벤트가 발생하지 않아 사용자가 첫 번째 항목을 선택할 수 없게됩니다. 따라서 위 예제처럼 사용하지 않는 옵션에 빈 값을 넣는 것이 좋습니다. :::
+
+:::tip Note 
+`v-model` 표현식의 초기 값이 어떤 옵션에도 없으면, `<select>` 엘리먼트는 "선택없음"("unselected") 상태로 렌더링됩니다. iOS에서는 이 경우 변경 이벤트가 발생하지 않아 사용자가 첫 번째 항목을 선택할 수 없게됩니다. 따라서 위 예제처럼 사용하지 않는 옵션에 빈 값을 넣는 것이 좋습니다. 
+:::
 
 다중 셀렉트 (배열이 바인딩됨):
 
@@ -150,7 +159,7 @@ Vue.createApp({
 <span>Selected: {{ selected }}</span>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="gOpBXPz" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: select bound to array">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/gOpBXPz">   Handling forms: select bound to array</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Handling forms: select bound to array" slug="gOpBXPz" tab="html,result" :preview="false" />
 
 `v-for` 를 이용한 동적 옵션 렌더링:
 
@@ -180,7 +189,7 @@ Vue.createApp({
 }).mount('#v-model-select-dynamic')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="abORVZm" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Handling forms: select with dynamic options">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abORVZm">   Handling forms: select with dynamic options</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Handling forms: select with dynamic options" slug="abORVZm" :preview="false" />
 
 ## 값 바인딩하기
 
@@ -214,7 +223,9 @@ vm.toggle === 'yes'
 vm.toggle === 'no'
 ```
 
-:::tip Tip 브라우저는 폼 전송(form submission) 시 체크되지 않은 박스를 포함하지 않기 때문에, `true-value` 와 `false-value` 속성은 입력의 `value` 특성에 영향을 주지 않습니다. 두 값("예" 또는 "아니오") 중 하나가 폼을 통해 전송되려면 라디오를 대신 사용하십시오. :::
+:::tip Tip 
+브라우저는 폼 전송(form submission) 시 체크되지 않은 박스를 포함하지 않기 때문에, `true-value` 와 `false-value` 속성은 입력의 `value` 특성에 영향을 주지 않습니다. 두 값("예" 또는 "아니오") 중 하나가 폼을 통해 전송되려면 라디오를 대신 사용하십시오. 
+:::
 
 ### 라디오
 

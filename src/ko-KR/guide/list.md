@@ -24,7 +24,8 @@ Vue.createApp({
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="VwLGbwa" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Array">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/VwLGbwa">   v-for with Array</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="v-for with Array" slug="VwLGbwa" tab="js,result" :preview="false" />
+
 
 `v-for` 블록 안에는 부모 범위 속성에 대한 모든 권한이 있습니다. `v-for`는 또한 현재 항목의 인덱스에 대한 두 번째 전달인자 옵션을 제공합니다.
 
@@ -49,7 +50,8 @@ Vue.createApp({
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="wvaEdBP" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Array and index">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/wvaEdBP">   v-for with Array and index</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="v-for with Array and index" slug="wvaEdBP" tab="js,result" :preview="false" />
+
 
 `in` 대신에 `of`를 구분자로 사용할 수 있습니다. 이는 JavaScript의 이터레이터 구문과 유사합니다.
 
@@ -85,7 +87,7 @@ Vue.createApp({
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="NWqLjqy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Object">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/NWqLjqy">   v-for with Object</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="v-for with Object" slug="NWqLjqy" tab="js,result" :preview="false" />
 
 키에 대한 두번째 전달 인자를 제공할 수도 있습니다.
 
@@ -95,7 +97,8 @@ Vue.createApp({
 </li>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="poJOPjx" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Object and key">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/poJOPjx">   v-for with Object and key</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="v-for with Object and key" slug="poJOPjx" tab="js,result" :preview="false" />
+
 
 그리고 인덱스도 제공합니다.
 
@@ -105,9 +108,11 @@ Vue.createApp({
 </li>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abOaWdo" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with Object key and index">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abOaWdo">   v-for with Object key and index</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="v-for with Object key and index" slug="abOaWdo" tab="js,result" :preview="false" />
 
-:::tip 객체를 반복할 때 순서는 `Object.keys()`의 키 나열 순서에 따라 결정됩니다. 이 순서는 JavaScript 엔진 구현간에 일관적이지는 않습니다. :::
+:::tip Note
+객체를 반복할 때 순서는 `Object.keys()`의 키 나열 순서에 따라 결정됩니다. 이 순서는 JavaScript 엔진 구현간에 일관적이지는 않습니다. 
+:::
 
 ## 상태 유지
 
@@ -127,7 +132,9 @@ Vue가 `v-for`에서 렌더링된 엘리먼트 목록을 갱신할 때 기본적
 
 <code>key</code>는 Vue가 노드를 식별하는 일반적인 메커니즘이기 때문에 <code>v-for</code>와 특별히 연관되지 않는 다른 용도로도 사용됩니다. 뒤에서 이와 관련된 내용이 나올 것입니다.
 
-:::tip 객체나 배열처럼, 기본 타입(Primitive value)이 아닌 값을 `v-for`의 키로 사용해서는 안됩니다. 대신 문자열이나 숫자를 사용하세요. :::
+:::tip Note
+객체나 배열처럼, 기본 타입(Primitive value)이 아닌 값을 `v-for`의 키로 사용해서는 안됩니다. 대신 문자열이나 숫자를 사용하세요. 
+:::
 
 `key` 속성에 대한 더 많은 사용법은 <a href="../api/special-attributes.html#key" data-md-type="link">`key` API documentation</a>를 참고하세요.
 
@@ -213,7 +220,8 @@ methods: {
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="NWqLjNY" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with a range">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/NWqLjNY">   v-for with a range</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="v-for with a range" slug="NWqLjNY" tab="html,result" :preview="false" />
+
 
 ## `<template>`에서의 `v-for`
 
@@ -230,7 +238,9 @@ methods: {
 
 ## `v-if`가 있는 `v-for`
 
-:::팁 `v-if`와 `v-for`를 함께 사용하는 것은 권장되지 **않습니다.** 자세한 내용은 [스타일 가이드](../style-guide/#avoid-v-if-with-v-for-essential)를 참조하세요. :::
+:::tip
+`v-if`와 `v-for`를 함께 사용하는 것은 권장되지 **않습니다.** 자세한 내용은 [스타일 가이드](../style-guide/#avoid-v-if-with-v-for-essential)를 참조하세요. 
+:::
 
 동일한 노드에 있는 경우, `v-if`는 `v-for`보다 우선 순위가 높습니다. 즉, `v-if` 조건은 `v-for` 범위의 변수에 접근할 수 없습니다:
 
@@ -345,4 +355,5 @@ app.component('todo-item', {
 app.mount('#todo-list-example')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="abOaWpz" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="v-for with components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abOaWpz">   v-for with components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="v-for with components" slug="abOaWpz" tab="js,result" :preview="false" />
+

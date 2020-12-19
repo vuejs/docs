@@ -34,11 +34,14 @@ Mustache 태그는 해당 컴포넌트 인스턴스의 `msg` 속성 값으로 �
 ```
 
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="yLNEJJM" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Rendering v-html">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/yLNEJJM">   Rendering v-html</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<common-codepen-snippet title="Rendering v-html" slug="yLNEJJM" :preview="false" />
+
 
 `span`의 내용은 일반 HTML로 해석되는 `rawHtml` 속성 값으로 대체됩니다. 이 때 데이터 바인딩은 무시됩니다. Vue는 문자열 기반 템플릿 엔진이 아니기 때문에 템플릿을 구성하는 데에 `v-html` 디렉티브를 사용할 수 없다는 점을 유의해야 합니다. UI 재사용 및 구성의 기본 단위로 <code>v-html</code> 디렉티브 대신 컴포넌트를 사용하는 것을 추천합니다.
 
-::: tip 웹사이트에서 임의의 HTML을 동적으로 렌더링하면 [XSS 취약점](https://en.wikipedia.org/wiki/Cross-site_scripting)(https://en.wikipedia.org/wiki/Cross-site_scripting)으로 쉽게 이어질 수 있고 이는 매우 위험할 소지가 있습니다. HTML 보간법은 반드시 신뢰할 수 있는 콘텐츠에서만 사용하고 사용자가 제공한 콘텐츠에서는 **절대** 사용하면 안 됩니다. :::
+::: tip 
+웹사이트에서 임의의 HTML을 동적으로 렌더링하면 [XSS 취약점](https://en.wikipedia.org/wiki/Cross-site_scripting)(https://en.wikipedia.org/wiki/Cross-site_scripting)으로 쉽게 이어질 수 있고 이는 매우 위험할 소지가 있습니다. HTML 보간법은 반드시 신뢰할 수 있는 콘텐츠에서만 사용하고 사용자가 제공한 콘텐츠에서는 **절대** 사용하면 안 됩니다. 
+:::
 
 ### 속성
 

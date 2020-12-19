@@ -1,7 +1,5 @@
 # 이벤트 핸들링
 
-<div class="vueschool"><a target="_blank" rel="sponsored noopener" title="Learn how to handle events on Vue School" href="https://vueschool.io/lessons/vuejs-user-events?friend=vuejs">어떻게 이벤트 핸들링을 다루는지 배웁니다</a></div>
-
 ## 이벤트 청취
 
 `v-on`디렉티브는 `@`기호로, DOM 이벤트를 듣고 트리거 될 때와 JavaScript를 실행할 때 사용합니다. <br>`v-on:click="methodName"` 나 줄여서 `@click="methodName"`으로 사용합니다.
@@ -27,7 +25,7 @@ Vue.createApp({
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="xxGadPZ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: basic">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/xxGadPZ">   Event handling: basic</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Event handling: basic" slug="xxGadPZ" tab="html,result" :preview="false" />
 
 ## 메소드 이벤트 핸들러
 
@@ -64,7 +62,8 @@ Vue.createApp({
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="jOPvmaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: with a method">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPvmaX">   Event handling: with a method</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Event handling: with a method" slug="jOPvmaX" tab="js,result" :preview="false" />
+
 
 ## 인라인 메소드 핸들러
 
@@ -89,7 +88,7 @@ Vue.createApp({
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNvgjda" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: with an inline handler">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNvgjda">   Event handling: with an inline handler</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Event handling: with an inline handler" slug="WNvgjda" tab="html,result" :preview="false" />
 
 때로 인라인 명령문 핸들러에서 원본 DOM 이벤트에 액세스 해야할 수도 있습니다.  특별한 `$event`를 사용해 메소드에 전달할 수 있습니다:
 
@@ -142,11 +141,11 @@ methods: {
 이 문제를 해결하기 위하여, Vue는 `v-on`이벤트에 <strong>이벤트 수식어</strong>를 제공합니다. 수식어는 점으로 된 접미사 입니다.
 
 - `.stop`
-- `.prevent<code></code>`
-- `.capture<code></code>`
-- `.self<code></code>`
-- `.once<code></code>`
-- `.passive<code></code>`
+- `.prevent`
+- `.capture`
+- `.self`
+- `.once`
+- `.passive`
 
 ```html
 <!-- 클릭 이벤트 전파가 중단되었습니다. -->
@@ -232,7 +231,9 @@ Vue는 가장흔히 사용되는 키에서 명령어를 제공합니다:
 - `.shift`
 - `.meta`
 
-::: 참고<br>메칸토시 키보드에서, meta는 command key(⌘)입니다. 윈도우 키보드에서, meta는 윈도우키 (⊞)입니다. 마이크로시스템 키보드에서 meta는 단색의 다이아몬드(◆)로 표시됩니다. 특정 키보드의 경우,특히 MIT와 Lisp 시스템 키보드와 후속작들,Knight 키보드, space-cadet 키보드와 같은 제품에는 Meta레이블이 지정됩니다. Symbolics 키보드에서 메타는 “META” 또는 “Meta”로 표시됩니다. :::
+::: tip Note
+참고<br>메칸토시 키보드에서, meta는 command key(⌘)입니다. 윈도우 키보드에서, meta는 윈도우키 (⊞)입니다. 마이크로시스템 키보드에서 meta는 단색의 다이아몬드(◆)로 표시됩니다. 특정 키보드의 경우,특히 MIT와 Lisp 시스템 키보드와 후속작들,Knight 키보드, space-cadet 키보드와 같은 제품에는 Meta레이블이 지정됩니다. Symbolics 키보드에서 메타는 “META” 또는 “Meta”로 표시됩니다. 
+:::
 
 예시:
 
@@ -244,7 +245,9 @@ Vue는 가장흔히 사용되는 키에서 명령어를 제공합니다:
 <div @click.ctrl="doSomething">Do something</div>
 ```
 
-::: 참고<br> <br>수식어 키는 일반 키와 다르며 `keyup` 이벤트와 함께 사용되면 이벤트가 발생할 때 수식어 키가 눌려있어야 합니다. <br>즉,`keyup.ctrl`은 `ctrl`을 누른 상태에서 키를 놓으면 트리거됩니다. `ctrl`키만 놓으면 트리거되지 않습니다.
+::: tip
+수식어 키는 일반 키와 다르며 `keyup` 이벤트와 함께 사용되면 이벤트가 발생할 때 수식어 키가 눌려있어야 합니다. 즉,`keyup.ctrl`은 `ctrl`을 누른 상태에서 키를 놓으면 트리거됩니다. `ctrl`키만 놓으면 트리거되지 않습니다.
+:::
 
 ### `.exact`수식어
 

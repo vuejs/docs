@@ -69,7 +69,7 @@ Vue.createApp({
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="NWqzrjr" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Computed basic example">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/NWqzrjr">   Computed basic example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Computed basic example" slug="NWqzrjr" tab="js,result" :preview="false" />
 
 우리는 여기서 `publishedBooksMessage` 라는 computed 속성을 선언했습니다.
 
@@ -191,7 +191,7 @@ computed: {
 
 결과:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="GRJGqXp" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Watch basic example">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/GRJGqXp">   Watch basic example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Watch basic example" slug="GRJGqXp" tab="result" :preview="false" />
 
 이 경우 `watch` 옵션을 사용하면 비동기 작업 (API 접근)을 수행하고, 이 작업을 수행하기 위한 조건을 설정할 수 있습니다. computed 속성은 이러한 기능을 수행할 수 없습니다.
 
