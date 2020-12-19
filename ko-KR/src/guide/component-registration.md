@@ -1,6 +1,6 @@
 # 컴포넌트 등록
 
-> 이 페이지는 여러분이 이미 [컴포넌트 기초](component-basics.md)를 읽었다고 가정하고 쓴 내용입니다. 컴포넌트가 처음이라면 기초 문서를 먼저 읽으시기 바랍니다.
+> 이 페이지는 여러분이 이미 [컴포넌트 기초](component-basics.md)를 읽었다고 가정하고 쓴 내용입니다. 컴포넌트가 처음이라면 기초 문서를 먼저 읽어주시기 바랍니다.
 
 ## 컴포넌트 이름
 
@@ -16,7 +16,7 @@ app.component('my-component-name', {
 
 컴포넌트의 이름은 `app.component`의 첫 번째 인자입니다. 위 예시의 경우 컴포넌트 이름은 "my-component-name" 입니다.
 
-컴포넌트의 이름은 사용하고자 하는 의도에 따라서 정해져야 할 수 있습니다. 만약 컴포넌트를 DOM에 직접 사용하고자 하는 경우(string template이나 [single-file component](../guide/single-file-component.html)을 사용하지 않는 경우), 커스텀 태그의 이름을 지을 때 다음 [W3C 규칙](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)을 따르기를 강력히 권장합니다:
+컴포넌트의 이름은 사용하고자 하는 의도에 따라서 정해져야 할 수 있습니다. 만약 컴포넌트를 DOM에 직접 사용하고자 하는 경우(string template이나 [single-file component](../guide/single-file-component.html)을 사용하지 않는 경우), 커스텀 태그의 이름을 지을 때 다음 [W3C 규칙](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)을 따르기를 강력히 권장합니다.
 
 1. 영문 소문자만 사용
 2. 하이픈 이용(여러 단어를 하이픈으로 연결해 사용)
@@ -39,7 +39,7 @@ app.component('my-component-name', {
 
 컴포넌트를 kebab-case로 정의하는 경우, 커스텀 엘리먼트로써 컴포넌트를 참조하는 경우에도 kebab-case를 사용하여야 합니다. 즉,  `<my-component-name>`의 형태로 사용하여야 합니다.
 
-#### PascalCase로 정의하기
+#### 파스칼케이스로 정의하기
 
 ```js
 app.component('MyComponentName', {
@@ -59,7 +59,7 @@ Vue.createApp({...}).component('my-component-name', {
 })
 ```
 
-이 컴포넌트들은 어플리케이션에 **전역 등록** 됩니다. 이는 모든 컴포넌트 인스턴스의 템플릿 내부에 사용될 수 있다는 뜻입니다.
+이 컴포넌트들은 애플리케이션에 **전역 등록** 됩니다. 이는 모든 컴포넌트 인스턴스의 템플릿 내부에 사용될 수 있다는 뜻입니다.
 
 ```js
 const app = Vue.createApp({})
@@ -89,9 +89,9 @@ app.mount('#app')
 
 ## 지역 등록
 
-전역 등록은 보통 이상적이지 않습니다. 예를 들어 Webpack과 같은 빌드 시스템을 사용하는 경우 컴포넌트를 전역 등록하는 것은 컴포넌트를 사용하지 않더라도 계속해서 최종 빌드에 해당 컴포넌트가 포함되는 것을 의미합니다. 이는 유저가 다운로드하는 자바스크립트 파일의 크기를 불필요하게 증가시킵니다.
+전역 등록은 보통 이상적이지 않습니다. 예를 들어 Webpack과 같은 빌드 시스템을 사용하는 경우 컴포넌트를 전역 등록하는 것은 컴포넌트를 사용하지 않더라도 계속해서 최종 빌드에 해당 컴포넌트가 포함되는 것을 의미합니다. 이는 사용자가 다운로드하는 자바스크립트 파일의 크기를 불필요하게 증가시킵니다.
 
-이러한 경우, 컴포넌트를 순수한 자바스크립트 오브젝트로써 정의할 수 있습니다:
+이러한 경우, 컴포넌트를 순수한 자바스크립트 객체로써 정의할 수 있습니다:
 
 ```js
 const ComponentA = {
@@ -116,7 +116,7 @@ const app = Vue.createApp({
 })
 ```
 
-`components` 오브젝트 내에 있는 각 속성의 키는 커스텀 엘리먼트의 이름이 되고, 값은 컴포넌트 오브젝트를 포함하게 됩니다.
+`components` 객체 내에 있는 각 속성의 키는 커스텀 객체의 이름이 되고, 값은 컴포넌트 오브젝트를 포함하게 됩니다.
 
 이 때,  **지역적으로 등록된 컴포넌트는 서브 컴포넌트에서의 사용이 *불가*하다는 점을 기억하세요**. 예를 들어, `ComponentA`가 `ComponentB` 내부에서 사용될 수 있게 하려면 아래와 같이 사용하여야 합니다:
 
@@ -146,7 +146,7 @@ export default {
 }
 ```
 
-ES2015+ 에서 `ComponentA`와 같은 변수 이름을 오브젝트에 그대로 사용하는 것은 `ComponentA: ComponentA`와 같이 사용하는 것이 됩니다. 즉, 아래 두 개의 의미를 갖게 됩니다:
+ES2015+ 에서 `ComponentA`와 같은 변수 이름을 객체에 그대로 사용하는 것은 `ComponentA: ComponentA`와 같이 사용하는 것이 됩니다. 즉, 아래 두 개의 의미를 갖게 됩니다:
 
 - 템플릿에 사용한 커스텀 엘리먼트의 이름
 - 컴포넌트 옵션이 될 변수의 이름
