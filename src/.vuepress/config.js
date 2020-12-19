@@ -252,7 +252,7 @@ const sidebar_ko_KR = {
       ]
     },
     {
-      title: '컴포넌트 깊게 들어가기',
+      title: '컴포넌트 톺아보기',
       collapsable: false,
       children: [
         '/ko-KR/guide/component-registration',
@@ -267,7 +267,7 @@ const sidebar_ko_KR = {
       ]
     },
     {
-      title: '전환효과 & 애니메이션',
+      title: '트랜지션 & 애니메이션',
       collapsable: false,
       children: [
         '/ko-KR/guide/transitions-overview',
@@ -277,7 +277,7 @@ const sidebar_ko_KR = {
       ]
     },
     {
-      title: '재사용성 & 합성(Composition)',
+      title: '재사용성 & 컴포지션',
       collapsable: false,
       children: [
         '/ko-KR/guide/mixins',
@@ -314,7 +314,7 @@ const sidebar_ko_KR = {
       ]
     },
     {
-      title: 'Tooling',
+      title: '도구',
       collapsable: false,
       children: [
         '/ko-KR/guide/single-file-component',
@@ -325,7 +325,7 @@ const sidebar_ko_KR = {
       ]
     },
     {
-      title: '확장하기',
+      title: '스케일 업',
       collapsable: false,
       children: ['/ko-KR/guide/routing', '/ko-KR/guide/state-management', '/ko-KR/guide/ssr']
     },
