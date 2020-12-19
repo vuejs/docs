@@ -20,11 +20,11 @@ Latest version: ![beta](https://img.shields.io/npm/v/vue/next.svg)
 
 Vue를 사용할 때, 브라우저에 [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) 를 설치 하는것이 좋습니다. Vue 앱을 보다 사용자 친화적인 인터페이스에서 검사하고 디버깅할 수 있습니다.
 
-[크롬 확장 프로그램](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
+[Get the Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
 
-[파이어폭스 애드온](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+[Get the Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
 
-[독립형 일렉트론 앱](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
+[Get the standalone Electron app](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
 
 ## CDN
 
@@ -138,12 +138,12 @@ $ yarn dev
 클라이언트에서 템플릿을 컴파일해야 하는 경우 (예를 들어, 템플릿 옵션에 문자열을 전달하거나 해당 DOM의 HTML을 템플릿으로 사용하여 요소에 마운트하는 경우) 컴파일러가 필요하므로 전체빌드가 필요합니다.
 
 ```js
-// 이 소스는 컴파일러가 필요합니다.
+// this requires the compiler
 Vue.createApp({
   template: '<div>{{ hi }}</div>'
 })
 
-// 이 소스는 컴파일러가 필요하지 않습니다.
+// this does not
 Vue.createApp({
   render() {
     return Vue.h('div', {}, this.hi)
