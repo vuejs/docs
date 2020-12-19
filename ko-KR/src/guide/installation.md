@@ -2,11 +2,11 @@
 
 Vue.js는 점진적으로 적용할 수 있도록 설계되었습니다. 이는 요구사항에 따라 여러 방법으로 프로젝트에 통합될 수 있음을 의미합니다.
 
-프로젝트에 Vue.js를 추가하는 3가지 주요방법이 있습니다:
+프로젝트에 Vue.js를 추가하는 3가지 주요방법이 있습니다.
 
 1. 페이지에 [CDN package](#cdn)로 import하기
 2. [npm](#npm) 사용하여 import하기
-3. 공식 [CLI](#cli)를 사용하여 프로젝트를 scaffold(개발을 용이하게 시작할 수 있는 발판을 제공해줌.)하고, 최신 프론트엔드 워크플로우(예. hot-reload, lint-on-save 등)를 위한 batteries-included(개발하고 싶은 거의 모든것을 개발하는데 도움을 줌) build를 제공합니다.
+3. 공식 [CLI](#cli)를 사용하여 프로젝트를 scaffold(개발을 용이하게 시작할 수 있는 발판을 제공해줌.)하고, 최신 프론트엔드 워크플로우(예. hot-reload, lint-on-save 등)를 위한 batteries-included build를 제공합니다.
 
 ## 릴리즈 노트
 
@@ -55,7 +55,7 @@ Vue 3의 경우 `npm`에서 `@vue/cli`로 제공되는 Vue CLI v4.5를 이용해
 
 ```bash
 yarn global add @vue/cli
-# OR
+# 또는
 npm install -g @vue/cli
 ```
 
@@ -71,7 +71,7 @@ vue upgrade --next
 
 Vue 프로젝트에서 터미널에 다음 명령을 실행하여 Vite로 빠르게 설정할 수 있습니다.
 
-npm 방식:
+npm:
 
 ```bash
 $ npm init vite-app <project-name>
@@ -138,12 +138,12 @@ $ yarn dev
 클라이언트에서 템플릿을 컴파일해야 하는 경우 (예를 들어, 템플릿 옵션에 문자열을 전달하거나 해당 DOM의 HTML을 템플릿으로 사용하여 요소에 마운트하는 경우) 컴파일러가 필요하므로 전체빌드가 필요합니다.
 
 ```js
-// 이 소스는 컴파일러가 필요합니다.
+// 컴파일러가 필요합니다.
 Vue.createApp({
   template: '<div>{{ hi }}</div>'
 })
 
-// 이 소스는 컴파일러가 필요하지 않습니다.
+// 컴파일러가 필요하지 않습니다.
 Vue.createApp({
   render() {
     return Vue.h('div', {}, this.hi)

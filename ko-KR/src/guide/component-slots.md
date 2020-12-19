@@ -1,12 +1,12 @@
 # Slots
 
-> 이 페이지는 여러분이 이미 [컴포넌트 기초](component-basics.md)를 읽었다고 가정하고 쓴 내용입니다. 컴포넌트가 처음이라면 기초 문서를 먼저 읽으시기 바랍니다.
+> 이 페이지는 여러분이 이미 [컴포넌트 기초](component-basics.md)를 읽었다고 가정하고 쓴 내용입니다. 컴포넌트가 처음이라면 기초 문서를 먼저 읽어주시기 바랍니다.
 
 ## Slot 컨텐츠
 
 Vue는 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md)에서 영감을 받아 만든 컨텐츠 배포 API인 `<slot>`을 이용해 컨텐츠를 각 요소에 배포할 수 있도록 했습니다.
 
-이를 이용하면 아래와 같이 컴포넌트를 구성할 수 있습니다:
+이를 이용하면 아래와 같이 컴포넌트를 구성할 수 있습니다.
 
 ```html
 <todo-button>
@@ -14,35 +14,35 @@ Vue는 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-
 </todo-button>
 ```
 
-이 경우, `<todo-button>`의 템플릿 안에는 아래와 같은 코드가 필요합니다:
+이 경우, `<todo-button>`의 템플릿 안에는 아래와 같은 코드가 필요합니다.
 
 ```html
-<!-- todo-button component template -->
+<!-- todo-button 컴포넌트 템플릿 -->
 <button class="btn-primary">
   <slot></slot>
 </button>
 ```
 
-이제 컴포넌트가 렌더될 때 `<slot></slot>` 부분이 "Add Todo"로 대치됩니다.
+이제 컴포넌트가 렌더될 때 `<slot></slot>` 부분이 "Add Todo"로 대체됩니다.
 
 ```html
-<!-- todo-button component template -->
+<!-- HTML 렌더링 -->
 <button class="btn-primary">
   Add todo
 </button>
 ```
 
-문자열은 시작일 뿐입니다! 슬롯은 HTML을 포함한 어떠한 템플릿 코드라도 포함할 수 있습니다:
+문자열은 시작일 뿐입니다! 슬롯은 HTML을 포함한 어떠한 템플릿 코드라도 포함할 수 있습니다.
 
 ```html
 <todo-button>
-  <comment></comment>
-  <i class="fas fa-plus">
+  <!-- 폰트어썸 아이콘 추가 -->
+  <i class="fas fa-plus"></i>
   Add todo
-</i></todo-button>
+</todo-button>
 ```
 
-심지어는 컴포넌트를 포함시킬 수도 있습니다:
+심지어는 컴포넌트를 포함시킬 수도 있습니다.
 
 ```html
 <todo-button>
@@ -71,7 +71,7 @@ Vue는 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-
 
 ## 렌더 스코프
 
-다음과 같이 slot 내부에 데이터를 사용하고 싶은 경우:
+다음과 같이 slot 내부에 데이터를 사용하고 싶은 경우
 
 ```html
 <todo-button>
@@ -86,15 +86,17 @@ Vue는 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-
 이 slot은 `<todo-button>` 의 스코프에 접근할 수 **없습니다**. 예를 들어, 아래와 같이 `action`에 접근하고자 하는 경우, 코드가 정상적으로 동작하지 않습니다.
 
 ```html
-&lt;todo-button action="delete"&gt;
+<todo-button action="delete">
   Clicking here will {{ action }} an item
-  &lt;!--
-    `action`은 &lt;todo-button&gt; 내부에서 정의된 것이 아니라 전달받은 것이기 때문에 위의 `action`은 undefined가 됩니다.
-  --&gt;
-&lt;/todo-button&gt;
+  <!--
+  The `action` will be undefined, because this content is passed
+  _to_ <todo-button>, rather than defined _inside_ the
+  <todo-button> component.
+  -->
+</todo-button>
 ```
 
-아래와 같은 규칙을 기억하세요:
+아래와 같은 규칙을 기억하세요.
 
 > 부모 템플릿에 있는 모든 요소는 부모 스코프에서 컴파일되고, 자식 템플릿에 있는 모든 요소는 자식 스코프에서 컴파일됩니다.
 
@@ -116,13 +118,13 @@ Slot에 컨텐츠가 주어지지 않는 경우, (default 같은) fallback을 �
 </button>
 ```
 
-이제 `<submit-button>` 내부의 slot에 아무런 컨텐츠도 제공하지 않는 경우에:
+이제 `<submit-button>` 내부의 slot에 아무런 컨텐츠도 제공하지 않는 경우에
 
 ```html
 <submit-button></submit-button>
 ```
 
-아래와 같이 fallback 컨텐츠로써 "Submit"을 렌더합니다:
+아래와 같이 fallback 컨텐츠로써 "Submit"을 렌더합니다.
 
 ```html
 <button type="submit">
@@ -130,7 +132,7 @@ Slot에 컨텐츠가 주어지지 않는 경우, (default 같은) fallback을 �
 </button>
 ```
 
-하지만 컨텐츠를 제공하는 경우에는:
+하지만 컨텐츠를 제공하는 경우에는
 
 ```html
 <submit-button>
@@ -164,7 +166,7 @@ Fallback 컨텐츠 대신 입력한 컴포넌트가 들어갑니다.
 </div>
 ```
 
-이 경우, `<slot>` 엘리먼트가 특별한 attribute인 `name`을 갖도록 할 수 있습니다. 이는 각 slot의 특정한 ID로써, 각각의 컨텐츠가 원하는 곳에 렌더링되도록 하는데 사용될 수 있습니다:
+이 경우, `<slot>` 엘리먼트가 특별한 attribute인 `name`을 갖도록 할 수 있습니다. 이는 각 slot의 특정한 ID로써, 각각의 컨텐츠가 원하는 곳에 렌더링되도록 하는데 사용될 수 있습니다.
 
 ```html
 <div class="container">
@@ -203,7 +205,7 @@ Fallback 컨텐츠 대신 입력한 컴포넌트가 들어갑니다.
 
 이제 각 `<template>` 안의 요소들은 대응되는 slot으로 전달됩니다.
 
-렌더링된 HTML은 다음과 같습니다:
+렌더링된 HTML은 다음과 같습니다.
 
 ```html
 <div class="container">
@@ -220,7 +222,7 @@ Fallback 컨텐츠 대신 입력한 컴포넌트가 들어갑니다.
 </div>
 ```
 
-([한가지 경우](#abbreviated-syntax-for-lone-default-slots)를 제외하고) **`v-slot` 은 `<template>`에만 사용할 수 있음을 참고하세요.**
+**`v-slot` 은 `<template>`에만 사용할 수 있음을 참고하세요.** (제외 된 [한가지 경우](#abbreviated-syntax-for-lone-default-slots))
 
 ## 스코프를 갖는 Slot
 
@@ -232,7 +234,7 @@ Fallback 컨텐츠 대신 입력한 컴포넌트가 들어갑니다.
 app.component('todo-list', {
   data() {
     return {
-      items: ['고양이 밥 주기', '우유 사기']
+      items: ['Feed a cat', 'Buy milk']
     }
   },
   template: `
@@ -245,7 +247,7 @@ app.component('todo-list', {
 })
 ```
 
-이 때, 부모 컴포넌트에서 slot을 변경하길 원할 수 있습니다:
+이 때, 부모 컴포넌트에서 slot을 변경하길 원할 수 있습니다.
 
 ```html
 <todo-list>
@@ -259,11 +261,11 @@ app.component('todo-list', {
 이 경우, `item`을 부모 요소로부터 제공받는 slot 컨텐츠에 사용 가능하도록 하기 위해서 `<slot>` 요소에 매개변수로써 bind 시킬 수 있습니다.
 
 ```html
-&lt; ul&gt;
-  &lt; li v-for="( item, index ) in items"&gt;
-    &lt; slot :item="item"&gt;&lt; /slot&gt;
-  &lt; /li&gt;
-&lt; /ul&gt;
+<ul>
+  <li v-for="( item, index ) in items">
+    <slot :item="item"></slot>
+  </li>
+</ul>
 ```
 
 `<slot>` 엘리먼트에 연결된 매개변수를 **slot props**라고 부릅니다. 이제 부모 스코프에서 `v-slot`를 정의한 이름을 이용해 사용할 수 있습니다.
@@ -276,7 +278,6 @@ app.component('todo-list', {
   </template>
 </todo-list>
 ```
-
 
 <img src="/images/scoped-slot.png" width="611" height="auto" style="display: block; margin: 0 auto; max-width: 100%;" loading="lazy" alt="Scoped slot diagram">
 
@@ -293,7 +294,7 @@ app.component('todo-list', {
 </todo-list>
 ```
 
-즉, 위 코드를 좀 더 줄여 쓸 수 있습니다. 특정되지 않은 컨텐츠가 기본 슬롯에 할당된 경우, 매개변수가 없는 `v-slot`은 기본 슬롯을 참조합니다:
+즉, 위 코드를 좀 더 줄여 쓸 수 있습니다. 특정되지 않은 컨텐츠가 기본 슬롯에 할당된 경우, 매개변수가 없는 `v-slot`은 기본 슬롯을 참조합니다.
 
 ```html
 <todo-list v-slot="slotProps">
@@ -302,43 +303,42 @@ app.component('todo-list', {
 </todo-list>
 ```
 
-이러한 축약형 문법은 이름을 갖는 슬롯과 함께 **사용할 수 없음을** 기억하세요. 이름을 갖는 슬롯과 혼용되는 경우 스코프가 모호해지게 됩니다:
+이러한 축약형 문법은 이름을 갖는 슬롯과 함께 **사용할 수 없음을** 기억하세요. 이름을 갖는 슬롯과 혼용되는 경우 스코프가 모호해지게 됩니다.
 
 ```html
-<!-- INVALID, will result in warning -->
+<!-- 유효하지 않음, 경고가 발생합니다 -->
 <todo-list v-slot="slotProps">
-  <todo-list v-slot:default="slotProps">
-    <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}</span>
-  </todo-list>
+  <i class="fas fa-check"></i>
+  <span class="green">{{ slotProps.item }}</span>
+  
   <template v-slot:other="otherSlotProps">
     slotProps is NOT available here
   </template>
 </todo-list>
 ```
 
-여러 개의 slot이 존재하는 경우에는 *모든* slot에 대해 `<template>` 코드를 전부 작성하세요:
+여러 개의 slot이 존재하는 경우에는 *모든* slot에 대해 `<template>` 코드를 전부 작성하세요.
 
 ```html
-&lt; todo-list&gt;
-  &lt; template v-slot:default="slotProps"&gt;
-    &lt; i class="fas fa-check"&gt;
-    &lt; span class="green"&gt;{{ slotProps.item }}&lt; /span&gt;
-  &lt; /template&gt;
+<todo-list>
+  <template v-slot:default="slotProps">
+    <i class="fas fa-check"></i>
+    <span class="green">{{ slotProps.item }}</span>
+  </template>
 
-  &lt; template v-slot:other="otherSlotProps"&gt;
+  <template v-slot:other="otherSlotProps">
     ...
-  &lt; /template&gt;
-&lt; /todo-list&gt;
+  </template>
+</todo-list>
 ```
 
 ### Slot Props 비구조화 할당
 
-내부적으로 스코프를 갖는 slot은 slot의 컨텐츠를 하나로 감싸 함수의 매개변수로 전달합니다:
+내부적으로 스코프를 갖는 slot은 slot의 컨텐츠를 하나로 감싸 함수의 매개변수로 전달합니다.
 
 ```js
 function (slotProps) {
-  // ... slot content ...
+  // ... slot 컨텐츠 ...
 }
 ```
 
@@ -351,7 +351,7 @@ function (slotProps) {
 </todo-list>
 ```
 
-이는 곧 `v-slot`의 값이 함수 정의에 들어갈 수 있는 모든 유효한 JavaScript 표현식을 수용할 수 있음을 뜻합니다. 따라서 <a>ES2015의 비구조화 할당</a>을 활용해 특정 slot props를 사용하는 것이 가능합니다.
+이것은 특히 슬롯이 많은 소품을 제공 할 때 템플릿을 훨씬 더 깔끔하게 만들 수 있습니다. 또한 소품 이름 변경과 같은 다른 가능성을 엽니다. 예를 들어 <code>todo</code>의 `item`:
 
 ```html
 <todo-list v-slot="{ item: todo }">
@@ -360,7 +360,7 @@ function (slotProps) {
 </todo-list>
 ```
 
-추가로, fallback을 정의하고 slot prop이 undefined일 때 활용하도록 할 수도 있습니다:
+추가로, fallback을 정의하고 slot prop이 undefined일 때 활용하도록 할 수도 있습니다.
 
 ```html
 <todo-list v-slot="{ item = 'Placeholder' }">
@@ -371,7 +371,7 @@ function (slotProps) {
 
 ## 동적인 이름을 갖는 Slot
 
-[Dynamic directive arguments](template-syntax.md#dynamic-arguments)는 `v-slot`, 에서도 활용이 가능하며, slot이 동적으로 이름을 갖도록 할 수 있습니다:
+[Dynamic directive arguments](template-syntax.md#dynamic-arguments)는 `v-slot`, 에서도 활용이 가능하며, slot이 동적으로 이름을 갖도록 할 수 있습니다.
 
 ```html
 <base-layout>
@@ -383,7 +383,7 @@ function (slotProps) {
 
 ## 이름을 갖는 Slot의 축약형
 
-`v-on`나 `v-bind`처럼, `v-slot`도 매개변수 앞에 오는 것(`v-slot:`)을 `#`을 이용해 축약할 수 있습니다. 예를 들어, `v-slot:header`는 `#header`로 작성할 수 있습니다:
+`v-on`나 `v-bind`처럼, `v-slot`도 매개변수 앞에 오는 것(`v-slot:`)을 `#`을 이용해 축약할 수 있습니다. 예를 들어, `v-slot:header`는 `#header`로 작성할 수 있습니다.
 
 ```html
 <base-layout>
@@ -402,10 +402,10 @@ function (slotProps) {
 </base-layout>
 ```
 
-하지만 다른 지시자들과 같이 축약형은 매개변수가 주어진 경우에만 유효합니다. 즉, 다음과 같은 문법은 유효하지 않습니다:
+하지만 다른 지시자들과 같이 축약형은 매개변수가 주어진 경우에만 유효합니다. 즉, 다음과 같은 문법은 유효하지 않습니다.
 
 ```html
-<!-- This will trigger a warning -->
+<!-- 이것은 경고를 발생시킵니다. -->
 
 <todo-list #="{ item }">
   <i class="fas fa-check"></i>
