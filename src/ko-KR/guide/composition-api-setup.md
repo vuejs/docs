@@ -30,7 +30,9 @@ export default {
 }
 ```
 
-:::warning `props`는 반응성이 있습니다. 그러나 **ES6의 구조분해할당**을 사용한다면 props의 반응성이 제거됩니다. :::
+:::warning 
+`props`는 반응성이 있습니다. 그러나 **ES6의 구조분해할당**을 사용한다면 props의 반응성이 제거됩니다. 
+:::
 
 props의 구조분해할당이 필요한 경우, `setup`펑션의 [toRefs](reactivity-fundamentals.html#destructuring-reactive-state)를 사용하여 반응성을 유지할 수 있습니다.
 

@@ -119,7 +119,9 @@ export default {
 
 두 번째 매개 변수는 선택 사항이며 각 플러그인에 따라 다릅니다. 데모 `i18nPlugin`의 경우 translate 된 문자열이있는 객체입니다.
 
-::: info `Vuex` 또는 `Vue Router`와 같은 써드파티 플러그인을 사용하는 경우 항상 설명서를 확인하여 특정 플러그인이 두 번째 매개 변수내용을 확인하세요 :::
+::: info 
+`Vuex` 또는 `Vue Router`와 같은 써드파티 플러그인을 사용하는 경우 항상 설명서를 확인하여 특정 플러그인이 두 번째 매개 변수내용을 확인하세요 
+:::
 
 ```js
 import { createApp } from 'vue'

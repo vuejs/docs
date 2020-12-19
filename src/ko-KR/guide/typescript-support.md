@@ -218,7 +218,9 @@ const year = ref<string | number>('2020') // year's type: Ref<string | number>
 year.value = 2020 // ok!
 ```
 
-::: tip 제너릭 타입을 알 수 없는 경우,  `ref`를 `Ref<T>`으로 캐스팅 하는 것을 권장합니다 :::
+::: tip 
+제너릭 타입을 알 수 없는 경우,  `ref`를 `Ref<T>`으로 캐스팅 하는 것을 권장합니다 
+:::
 
 ### `reactive` 작성
 

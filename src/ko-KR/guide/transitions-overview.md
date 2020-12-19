@@ -70,7 +70,7 @@ const Demo = {
 Vue.createApp(Demo).mount('#demo')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="css,result" data-user="Vue" data-slug-hash="ff45b91caf7a98c8c9077ad8ab539260" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Create animation with a class">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/ff45b91caf7a98c8c9077ad8ab539260">   Create animation with a class</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Create animation with a class" slug="ff45b91caf7a98c8c9077ad8ab539260" tab="css,result" :editable="false" :preview="false" />
 
 # 스타일 바인딩과 트랜지션
 
@@ -112,7 +112,7 @@ const Demo = {
 Vue.createApp(Demo).mount('#demo')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="JjGezQY" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Interpolation with style bindings">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/JjGezQY">   Interpolation with style bindings</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Interpolation with style bindings" slug="JjGezQY" :editable="false" />
 
 이 예제에서는 마우스 움직임에 포함 된 보간법(interpolation)을 사용하여 애니메이션을 만듭니다. CSS 트랜지션은 엘리먼트에도 적용되어 엘리먼트가 업데이트하는 동안 사용할 easing의 종류를 알 수 있습니다.
 
@@ -170,11 +170,11 @@ Easing은 애니메이션에서 깊이를 전달하는 중요한 방법입니다
 }
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="css,result" data-user="Vue" data-slug-hash="996a9665131e7902327d350ca8a655ac" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Ease Example">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/996a9665131e7902327d350ca8a655ac">   Transition Ease Example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Transition Ease Example" slug="996a9665131e7902327d350ca8a655ac" tab="css,result" :editable="false" :preview="false" />
 
 Easing은 애니메이션되는 머티리얼(material)의 질감을 전달 할 수 있습니다. 아래의 예제에서, 어떤 공이 딱딱하고 어떤 공이 부드럽다고 느끼시나요?
 
-<p class="codepen" data-height="500" data-theme-id="39028" data-default-tab="result" data-user="sdras" data-slug-hash="zxJWBJ" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Bouncing Ball Demo">   <span>See the Pen <a href="https://codepen.io/sdras/pen/zxJWBJ">   Bouncing Ball Demo</a> by Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Bouncing Ball Demo" slug="zxJWBJ" :height="500" :team="false" user="sdras" name="Sarah Drasner" :editable="false" />
 
 easing을 조정하여 많은 유니크한 효과를 얻고 애니메이션을 세련되게 만들 수 있습니다. CSS를 사용하면 cubic bezier 속성을 조정하여 수정 할 수 있습니다. Lea Verou의 [this playground](https://cubic-bezier.com/#.17,.67,.83,.67)에서 확인 할 수 있습니다.
 

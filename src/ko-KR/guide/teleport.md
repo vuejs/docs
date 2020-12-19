@@ -1,6 +1,6 @@
 # Teleport
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vue-3-teleport?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how to use teleport with Vue School">Vue School에서 무료로 teleport 사용법을 배워보세요.</a></div>
+<VideoLesson href="https://vueschool.io/lessons/vue-3-teleport?friend=vuejs" title="Learn how to use teleport with Vue School">Learn how to use teleport with a free lesson on Vue School</VideoLesson>
 
 Vue는 UI 및 관련 동작을 컴포넌트로 캡슐화하여 UI를 구축하도록 권장합니다. 우리는 애플리케이션 UI 구성 트리를 만들기 위해 컴포넌트를 서로 중첩할 수 있습니다.
 
@@ -87,7 +87,7 @@ app.component('modal-button', {
 결과적으로, 모달을 열기 위해 버튼을 클릭하면 Vue는 `body` 태그의 자식으로 모달 컨텐츠를 올바르게 렌더링할 것입니다.
 
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="gOPNvjR" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Vue 3 Teleport">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/gOPNvjR">   Vue 3 Teleport</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p>
+<common-codepen-snippet title="Vue 3 Teleport" slug="gOPNvjR" tab="js,result" />
 
 ## Vue 컴포넌트와 함께 사용
 

@@ -22,7 +22,7 @@ app.component('button-counter', {
 })
 ```
 
-::: info 
+::: info
 여기에서는 간단한 예제를 보여드리지만, 일반적인 Vue 애플리케이션은 문자열 템플릿 대신 단일 파일 컴포넌트를 사용하고 있습니다. 단일 파일 컴포넌트에 대한 자세한 내용은 [이 섹션](single-file-component.html)에서 확인할 수 있습니다. 
 :::
 

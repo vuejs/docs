@@ -20,7 +20,9 @@ Options API | `setup` 내부의 훅
 `renderTracked` | `onRenderTracked`
 `renderTriggered` | `onRenderTriggered`
 
-:::tip `setup`은 `beforeCreate`, `created` 라이프사이클 훅 사이에 실행되는 시점이므로([역주]beforeCreate()가 setup() 직전에 호출되고 created()가 setup() 직후에 호출되는 타이밍을 가짐), 명시적으로 정의할 필요가 없습니다. 다시말해, 위 두 훅에서 작성되는 모든 코드는 `setup`펑션 내부에 직접 작성해야합니다. :::
+:::tip 
+`setup`은 `beforeCreate`, `created` 라이프사이클 훅 사이에 실행되는 시점이므로([역주]beforeCreate()가 setup() 직전에 호출되고 created()가 setup() 직후에 호출되는 타이밍을 가짐), 명시적으로 정의할 필요가 없습니다. 다시말해, 위 두 훅에서 작성되는 모든 코드는 `setup`펑션 내부에 직접 작성해야합니다. 
+:::
 
 이 펑션은 컴포넌트에 의해 훅이 호출될 때, 실행될 콜백을 받습니다:
 

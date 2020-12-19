@@ -234,7 +234,7 @@ const sidebar_ko_KR = {
   ],
   guide: [
     {
-      title: '핵심',
+      title: '필수요소',
       collapsable: false,
       children: [
         '/ko-KR/guide/installation',
@@ -688,7 +688,7 @@ module.exports = {
             link: '/ko-KR/api/'
           },
           {
-            text: '에코시스템',
+            text: '생태계',
             items: [
               {
                 text: '커뮤니티',

@@ -51,7 +51,9 @@ directives: {
 
 - `beforeUpdate`: 포함된 컴포넌트의 VNode가 갱신되기 전에 호출이 됩니다.
 
-:::tip 렌더링 함수(render fucntions)을 설명 할 때 [나중에](render-function.html#the-virtual-dom-tree) VNode에 대해 자세히 설명합니다.
+:::tip 
+렌더링 함수(render fucntions)을 설명 할 때 [나중에](render-function.html#the-virtual-dom-tree) VNode에 대해 자세히 설명합니다.
+:::
 
 - `updated`: 포함된 컴포넌트의 VNode 그리고 **컴포넌트의 자식들의 VNodes들**이 업데이트 되고 난뒤에 호출됩니다.
 
@@ -120,7 +122,7 @@ app.mount('#dynamic-arguments-example')
 
 결과:
 
-<common-codepen-snippet title="Custom directives: dynamic arguments" slug="YzXgGmv" :preview="false"></common-codepen-snippet>
+<common-codepen-snippet title="Custom directives: dynamic arguments" slug="YzXgGmv" :preview="false" />
 
 이제 커스텀 디렉티브는 몇 가지 다른 사용 사례를 지원할 수 있을 정도로 유연합니다. 조금 더 동적으로 만들려면, 바운드 값을 수정하는 것을 허락할 수 있습니다. 추가로 `pinPadding` 프로퍼티를 만들고 `<input type="range">`에 바인딩을 합니다.
 
@@ -161,7 +163,7 @@ app.directive('pin', {
 
 결과:
 
-<common-codepen-snippet title="Custom directives: dynamic arguments + dynamic binding" slug="rNOaZpj" :preview="false"></common-codepen-snippet>
+<common-codepen-snippet title="Custom directives: dynamic arguments + dynamic binding" slug="rNOaZpj" :preview="false" />
 
 ## 함수 약어
 

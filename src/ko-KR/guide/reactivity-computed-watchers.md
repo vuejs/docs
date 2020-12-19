@@ -1,10 +1,12 @@
-# Computed and Watch
+# Computed 와 Watch
 
-> This section uses [single-file component](single-file-component.html) syntax for code examples
+> 이 섹션에서는 예제에서 [싱글 파일 컴포넌트](single-file-component.html) 문법을 사용합니다. 
 
-## Computed values
+## 계산된 값
 
 Sometimes we need state that depends on other state - in Vue this is handled with component [computed properties](computed.html#computed-properties). To directly create a computed value, we can use the `computed` method: it takes a getter function and returns an immutable reactive [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) object for the returned value from the getter.
+
+가끔 어떤 상태가 다른 상태가 바뀌면 따라 바뀌었으면 할때가 있습니다. Vue에서는 이 기능이 컴포넌트의 [계산된 속성(computed properties)](computed.html#computed-properties) 로 다룰수 있습니다. 
 
 ```js
 const count = ref(1)

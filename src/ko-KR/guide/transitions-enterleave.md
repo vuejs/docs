@@ -56,7 +56,7 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="3466d06fb252a53c5bc0a0edb0f1588a" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Simple Transition Component">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/3466d06fb252a53c5bc0a0edb0f1588a">   Simple Transition Component</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Simple Transition Component" slug="3466d06fb252a53c5bc0a0edb0f1588a" tab="html,result" :editable="false" />
 
 `transition` 컴포넌트로 싸여진 엘리먼트가 삽입되거나 제거 될 때 발생합니다.
 
@@ -134,7 +134,7 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-preview="true" data-default-tab="css,result" data-user="Vue" data-slug-hash="0dfa7869450ef43d6f7bd99022bc53e2" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Different Enter and Leave Transitions">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/0dfa7869450ef43d6f7bd99022bc53e2">   Different Enter and Leave Transitions</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Different Enter and Leave Transitions" slug="0dfa7869450ef43d6f7bd99022bc53e2" tab="css,result" :editable="false" />
 
 ### CSS 애니메이션
 
@@ -187,7 +187,7 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-preview="true" data-default-tab="html,result" data-user="Vue" data-slug-hash="8627c50c5514752acd73d19f5e33a781" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="CSS Animation Transition Example">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/8627c50c5514752acd73d19f5e33a781">   CSS Animation Transition Example</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="CSS Animation Transition Example" slug="8627c50c5514752acd73d19f5e33a781" tab="html,result" :editable="false" />
 
 ### 사용자 지정 트랜지션 클래스
 
@@ -399,7 +399,7 @@ const Demo = {
 Vue.createApp(Demo).mount('#demo')
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-preview="true" data-default-tab="js,result" data-user="Vue" data-slug-hash="68ce1b8c41d0a6e71ff58df80fd85ae5" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JavaScript Hooks Transition">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/68ce1b8c41d0a6e71ff58df80fd85ae5">   JavaScript Hooks Transition</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="JavaScript Hooks Transition" slug="68ce1b8c41d0a6e71ff58df80fd85ae5" tab="js,result" :editable="false" />
 
 ## 최초 렌더링 시 트랜지션
 
@@ -469,20 +469,22 @@ computed: {
 
 아직 한 가지 문제가 있습니다. 아래 버튼을 클릭 해보십시오:
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="Rwrqzpr" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Button Problem">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/Rwrqzpr">   Transition Modes Button Problem</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Transition Modes Button Problem" slug="Rwrqzpr" :editable="false" />
 
 “on”버튼과 “off”버튼 사이를 트랜지션 할 때 두 버튼이 렌더링됩니다 - 다른 트랜지션이 진행되는 동안 하나의 트랜지션이 트랜지션됩니다. 이것은 `<transition>`의 기본 동작입니다 - 진입 / 진출이 동시에 발생합니다.
 
 트랜지션 항목이 서로의 위에 절대적으로 배치되는 경우 훌륭하게 작동합니다
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="abdQgLr" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Button Problem- positioning">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/abdQgLr">   Transition Modes Button Problem- positioning</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Transition Modes Button Problem- positioning" slug="abdQgLr" :editable="false" />
 
 가끔 동시에 진입 / 진출 되는 것이 필요한 것이 아니거나, 복잡한 진입 / 진출 상태를 조정해야 할 때가 있습니다. 그래서 Vue는 **트랜지션 모드** 라는 유용한 도구를 제공합니다.
 
 - `in-out`: 처음에는 새로운 엘리먼트가 트랜지션되고, 완료되면 현재 엘리먼트가 트랜지션됩니다.
 - `out-in`: 현재 엘리먼트가 먼저 트랜지션되고, 완료되면 새로운 요소가 바뀝니다.
 
-::: 팁 `out-in`은 대부분의 경우에 사용 되는 상태 라는 것을 깨닫게 될 것 입니다 :) :::
+::: tip 
+`out-in`은 대부분의 경우에 사용 되는 상태 라는 것을 깨닫게 될 것 입니다 :) 
+:::
 
 이제 `out-in` 으로 on/off 버튼의 트랜지션을 업데이트 해 보겠습니다.
 
@@ -492,13 +494,13 @@ computed: {
 </transition>
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="ZEQmdvq" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Button Problem- solved">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/ZEQmdvq">   Transition Modes Button Problem- solved</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Transition Modes Button Problem- solved" slug="ZEQmdvq" :editable="false" />
 
 단순한 속성 추가를 통해 특수 스타일을 추가하지 않고 원래의 트랜지션을 수정했습니다.
 
 이 기능을 사용하여 아래 예제의 카드들 보다 더 다양한 움직임을 만들 수 있습니다. 실제로 진입 / 진출간에 트랜지션되는 두 엘리먼트 이지만, 시작 상태와 끝 상태가 도일하게 크기가 조정 되기 때문에 수평적으로 0이 되어 보입니다. 하나의 fluid한 이동처럼 보일 수 있습니다. 이런 유형의 수정은 현실감 있는 UI microinteractions에 매우 유용할 수 있습니다.
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="76e344bf057bd58b5936bba260b787a8" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transition Modes Flip Cards">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/76e344bf057bd58b5936bba260b787a8">   Transition Modes Flip Cards</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Transition Modes Flip Cards" slug="76e344bf057bd58b5936bba260b787a8" :editable="false" />
 
 ## 컴포넌트 간 트랜지션
 
@@ -546,4 +548,4 @@ Vue.createApp(Demo).mount('#demo')
 }
 ```
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNwVxZw" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Transitioning between components">   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNwVxZw">   Transitioning between components</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.</span> </p> <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Transitioning between components" slug="WNwVxZw" tab="html,result" theme="39028" />

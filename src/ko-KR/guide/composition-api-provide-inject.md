@@ -80,7 +80,9 @@ setup() {
 
 이제, *provider* 컴포넌트에서 `book` 이나 `year` 가 변경되면, inject하는 컴포넌트에서 변경사항을 감지할 수 있습니다.
 
-::: warning injected된 반응형 속성을 변경하는 것은 Vue의 단방향 데이터 흐름을 깨기 때문에 추천하지 않습니다. 대신, *provide된* 값을 변경하거나 변경하는 메소드를 provide하세요.
+::: warning 
+injected된 반응형 속성을 변경하는 것은 Vue의 단방향 데이터 흐름을 깨기 때문에 추천하지 않습니다. 대신, *provide된* 값을 변경하거나 변경하는 메소드를 provide하세요.
+:::
 
 1. inject할 속성명
 2. 기본값 (**선택사항**)

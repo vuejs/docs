@@ -38,6 +38,8 @@ app.component('base-input', {
 this.$refs.usernameInput.focusInput()
 ```
 
-::: warning - `$refs`는 컴포넌트가 렌더링 된 후에 존재하게 됩니다. 해당 속성은 자식 요소에 직접 접근하기 위해서만 사용되어야 합니다. 즉, 템플릿이나 computed 속성에서 `$refs`에 접근해서는 안됩니다. :::
+::: warning 
+`$refs`는 컴포넌트가 렌더링 된 후에 존재하게 됩니다. 해당 속성은 자식 요소에 직접 접근하기 위해서만 사용되어야 합니다. 즉, 템플릿이나 computed 속성에서 `$refs`에 접근해서는 안됩니다. 
+:::
 
 **참고 자료**: [Using template refs in Composition API](/guide/composition-api-template-refs.html#template-refs)

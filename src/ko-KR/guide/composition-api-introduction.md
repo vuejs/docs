@@ -2,7 +2,9 @@
 
 ## 컴포지션 API가 필요한 이유
 
-::: tip Note 해당 문서에서 여기까지 읽으셨다면, [Vue의 기초](introduction.md)와 [컴포넌트 생성하기](component-basics.md)에 익숙해야합니다. :::
+::: tip Note 
+해당 문서에서 여기까지 읽으셨다면, [Vue의 기초](introduction.md)와 [컴포넌트 생성하기](component-basics.md)에 익숙해야합니다. 
+:::
 
 Vue 컴포넌트를 만들면 재사용 가능한 코드 조각으로 결합되어진 인터페이스의 반복가능한 부분들을 추출할 수 있습니다. 이것만으로도 어플리케이션에서 유지관리성과 유연성을 얻을 수 있습니다. 그러나, 우리들은 어플리케이션이 엄청 커서 수 백개의 컴포넌트를 생각하면 충분하지 않다는 것을 경험적으로 느꼈습니다. 이러한 대규모 어플리케이션을 다룰 때는 코드 공유와 재사용이 특히 중요합니다.
 
@@ -66,7 +68,9 @@ export default {
 
 새로운 `setup` 컴포넌트 옵션은 컴포넌트가 생성되기 **전**에, `props`가 한번 resolved될 때 실행됩니다. 그리고 composition API의 진입점 역할을 합니다.
 
-::: warning `setup`이 실행될 때, 컴포넌트 인스턴스가 아직 생성되지않아 `setup`옵션 내에 `this`가 존재하지 않습니다. 즉, `props`를 제외하고, 컴포넌트 내 다른 속성에 접근할 수 없습니다 – **local state**, **computed properties** 또는 **methods**. :::
+::: warning 
+`setup`이 실행될 때, 컴포넌트 인스턴스가 아직 생성되지않아 `setup`옵션 내에 `this`가 존재하지 않습니다. 즉, `props`를 제외하고, 컴포넌트 내 다른 속성에 접근할 수 없습니다 – **local state**, **computed properties** 또는 **methods**. 
+:::
 
 `setup` 옵션은 [나중에](composition-api-setup.html#arguments) 언급할 `props` 와 `context`에 접근하는 펑션이어야합니다. 또한, `setup`에서 반환된 모든 것은 컴포넌트의 템플릿뿐만 아니라 나머지 컴포넌트 (computed properties, methods, 라이프사이클 훅 등)에 노출됩니다.
 
@@ -149,7 +153,9 @@ console.log(counter.value) // 1
 
 모든 값을 감싸는 래퍼 객체(wrapper object)를 가지고 있으면 어딘가에서 반응성을 잃어버릴 염려없이 전체 앱에서 안전하게 전달할 수 있습니다.
 
-::: tip Note 다시말해, `ref` 는 값에 **반응형 참조**를 만듭니다. **참조** 작업의 개념은 Composition API 전체에서 종종 사용될 것입니다. :::
+::: tip Note 
+다시말해, `ref` 는 값에 **반응형 참조**를 만듭니다. **참조** 작업의 개념은 Composition API 전체에서 종종 사용될 것입니다. 
+:::
 
 예시로 넘어와서, 반응성이 있는 `repositories` 변수를 생성해봅시다:
 

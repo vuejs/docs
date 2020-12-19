@@ -12,7 +12,8 @@
 
 하지만 컴포넌트를 전환할 때 컴포넌트의 상태를 유지하거나 혹은 성능상의 이유로 다시 렌더링되는 것을 방지하고 싶을 수 있습니다. 예를 들어, 탭 인터페이스를 조금만 확장할 때:
 
-See the Pen <a href="https://codepen.io/team/Vue/pen/jOPjZOe">   Dynamic components: without keep-alive</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.
+<common-codepen-snippet title="Dynamic components: without keep-alive" slug="jOPjZOe" tab="html,result" :preview="false" />
+
 
 게시물을 선택하고 *Archive* 탭으로 갔다가 다시 *Posts* 탭으로 돌아오면 원래 보고 있던 게시물이 표시되지 않는 것을 알 수 있습니다. 이는 Vue가 새 탭으로 전환할 때마다 Vue가 `currentTabComponent`의 새로운 인스턴스를 생성하기 때문입니다.
 
@@ -27,7 +28,7 @@ See the Pen <a href="https://codepen.io/team/Vue/pen/jOPjZOe">   Dynamic compone
 
 아래 결과를 확인 해 보세요:
 
-See the Pen <a href="https://codepen.io/team/Vue/pen/VwLJQvP">   Dynamic components: with keep-alive</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)   on <a href="https://codepen.io">CodePen</a>.
+<common-codepen-snippet title="Dynamic components: with keep-alive" slug="VwLJQvP" tab="html,result" :preview="false" />
 
 이제 *Posts*탭은 렌더링되지 않은 경우에도 상태(선택된 게시물)를 유지합니다.
 
@@ -83,7 +84,7 @@ createApp({
 
 ### Suspense와 함께 사용하기
 
-비동기 컴포넌트는 기본적으로 *suspensible*합니다. 즉, 상위 체인에 [`<Suspense>`](TODO)가 있는경우 해당 `<Suspense>`의 비동기 종속성으로 처리됩니다. 이 경우 로딩 상태는 `<Suspense>`에 의해 제어되며, 컴포넌트 자체의 loading, error, delay 및 timeout 옵션은 무시됩니다.
+비동기 컴포넌트는 기본적으로 _suspensible_ 합니다. 즉, 상위 체인에 `<Suspense>`가 있는경우 해당 `<Suspense>`의 비동기 종속성으로 처리됩니다. 이 경우 로딩 상태는 `<Suspense>`에 의해 제어되며, 컴포넌트 자체의 loading, error, delay 및 timeout 옵션은 무시됩니다.
 
 비동기 컴포넌트는 `suspensible: false` 옵션을 명시함으로써 `Suspense`에 의한 로딩 상태 제어를 해제하고 항상 컴포넌트 스스로 옵션을 제어하도록 할 수 있습니다.
 
