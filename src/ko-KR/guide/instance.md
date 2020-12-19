@@ -57,7 +57,7 @@ Root Instance
       └─ TodoListStatistics
 ```
 
-각 컴포넌트에는 고유한 컴포넌트 인스턴스 `vm{/code0이 있습니다. <code data-md-type="codespan">TodoItem`과 같은 일부 컴포넌트의 경우 한 번에 여러 인스턴스가 렌더링 될 수 있습니다. 이 어플리케이션의 모든 컴포넌트 인스턴스는 동일한 어플리케이션 인스턴스를 공유합니다.
+각 컴포넌트에는 고유한 컴포넌트 인스턴스 `vm`이 있습니다. `TodoItem`과 같은 일부 컴포넌트의 경우 한 번에 여러 인스턴스가 렌더링 될 수 있습니다. 이 어플리케이션의 모든 컴포넌트 인스턴스는 동일한 어플리케이션 인스턴스를 공유합니다.
 
 [컴포넌트 시스템](component-basics.html)에 대해서는 나중에 자세히 설명하겠습니다. 지금은 루트 컴포넌트가 다른 컴포넌트와 실제로 다르지 않다는 점에 유의하십시오. 구성 옵션은 해당 컴포넌트 인스턴스의 동작과 동일합니다.
 
@@ -101,7 +101,9 @@ Vue.createApp({
 
 인스턴스 라이프사이클에는 [mounted](../api/options-lifecycle-hooks.html#mounted), [updated](../api/options-lifecycle-hooks.html#updated), [unmounted](../api/options-lifecycle-hooks.html#unmounted) 과 같은 다른 훅도 존재합니다. 모든 라이프사이클 훅에서는 Vue인스턴스를 가리키는 `this` 컨텍스트와 함께 호출됩니다.
 
-::: tip options 속성이나 콜백에서 `created: () => console.log(this.a)`이나 `vm.$watch('a', newValue => this.myMethod())` 과 같은 [화살표 함수](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)를 사용하지 마세요. 화살표함수는 `this`가 없기 때문에, `this`는 다른 변수로 취급되거나 호출한 변수를 발견할 때까지 부모 스코프에서 해당 변수를 찾을것입니다. 이 때문에 `Uncaught TypeError: Cannot read property of undefined` 또는 <br>`Uncaught TypeError: this.myMethod is not a function`와 같은 오류가 발생하게 됩니다. :::
+::: tip 
+options 속성이나 콜백에서 `created: () => console.log(this.a)`이나 `vm.$watch('a', newValue => this.myMethod())` 과 같은 [화살표 함수](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)를 사용하지 마세요. 화살표함수는 `this`가 없기 때문에, `this`는 다른 변수로 취급되거나 호출한 변수를 발견할 때까지 부모 스코프에서 해당 변수를 찾을것입니다. 이 때문에 `Uncaught TypeError: Cannot read property of undefined` 또는  `Uncaught TypeError: this.myMethod is not a function`와 같은 오류가 발생하게 됩니다. 
+:::
 
 ## 라이프사이클 다이어그램
 
