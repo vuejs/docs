@@ -138,12 +138,12 @@ $ yarn dev
 클라이언트에서 템플릿을 컴파일해야 하는 경우 (예를 들어, 템플릿 옵션에 문자열을 전달하거나 해당 DOM의 HTML을 템플릿으로 사용하여 요소에 마운트하는 경우) 컴파일러가 필요하므로 전체빌드가 필요합니다.
 
 ```js
-// this requires the compiler
+// 컴파일러가 필요합니다.
 Vue.createApp({
   template: '<div>{{ hi }}</div>'
 })
 
-// this does not
+// 컴파일러가 필요하지 않습니다.
 Vue.createApp({
   render() {
     return Vue.h('div', {}, this.hi)
