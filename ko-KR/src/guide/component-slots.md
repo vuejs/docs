@@ -279,7 +279,6 @@ app.component('todo-list', {
 </todo-list>
 ```
 
-
 <img src="/images/scoped-slot.png" width="611" height="auto" style="display: block; margin: 0 auto; max-width: 100%;" loading="lazy" alt="Scoped slot diagram">
 
 이 예제에서는 모든 slot props를 포함하는 오브젝트의 이름을 `slotProps`로 사용한 것이며, 이름은 원하는 대로 변경할 수 있습니다.
@@ -307,7 +306,7 @@ app.component('todo-list', {
 이러한 축약형 문법은 이름을 갖는 슬롯과 함께 **사용할 수 없음을** 기억하세요. 이름을 갖는 슬롯과 혼용되는 경우 스코프가 모호해지게 됩니다.
 
 ```html
-<!-- INVALID, will result in warning -->
+<!-- 유효하지 않음, 경고가 발생합니다 -->
 <todo-list v-slot="slotProps">
   <i class="fas fa-check"></i>
   <span class="green">{{ slotProps.item }}</span>
@@ -406,7 +405,7 @@ function (slotProps) {
 하지만 다른 지시자들과 같이 축약형은 매개변수가 주어진 경우에만 유효합니다. 즉, 다음과 같은 문법은 유효하지 않습니다.
 
 ```html
-<!-- This will trigger a warning -->
+<!-- 이것은 경고를 발생시킵니다. -->
 
 <todo-list #="{ item }">
   <i class="fas fa-check"></i>
