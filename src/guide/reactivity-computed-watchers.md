@@ -63,7 +63,7 @@ stop()
 
 ### Side Effect Invalidation
 
-Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
+Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
 
 - the effect is about to re-run
 - the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
@@ -83,8 +83,8 @@ We are registering the invalidation callback via a passed-in function instead of
 
 ```js
 const data = ref(null)
-watchEffect(async onInvalidate => {
-  onInvalidate(() => {...}) // we register cleanup function before Promise resolves
+watchEffect(async (onInvalidate) => {
+  onInvalidate(() => { /* ... */ }) // we register cleanup function before Promise resolves
   data.value = await fetchData(props.id)
 })
 ```
@@ -200,9 +200,15 @@ watch(count, (count, prevCount) => {
 A watcher can also watch multiple sources at the same time using an array:
 
 ```js
-watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
-  /* ... */
+const firstName = ref('');
+const lastName= ref('');
+
+watch([firstName, lastName], (newValues, prevValues) => {
+  console.log(newValues, prevValues);
 })
+
+firstName.value = "John"; // logs: ["John",""] ["", ""]
+lastName.value = "Smith"; // logs: ["John", "Smith"] ["John", ""]
 ```
 
 ### Shared Behavior with `watchEffect`
