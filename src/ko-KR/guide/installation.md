@@ -49,7 +49,9 @@ $ npm install vue@next
 
 Vue.js는 단일 페이지 애플리케이션를 빠르게 구축할 수 있는 [공식 CLI](https://github.com/vuejs/vue-cli)를 제공합니다. 최신 프론트엔드 워크 플로우를 위해 사전 구성된 빌드 설정을 제공합니다. 핫 리로드, 저장시 린트 체크 및 프로덕션 준비가 된 빌드로 시작하고 실행하는데 몇 분 밖에 걸리지 않습니다. 상세한 내용은 [Vue CLI 문서](https://cli.vuejs.org)에서 찾아보실 수 있습니다.
 
-::: tip CLI는 Node.js 및 관련 빌드 도구에 대한 사전 지식을 전제로 하고 있습니다. Vue 또는 프런트엔드 빌드 도구를 처음 사용하는 경우 CLI를 사용하기 전에 빌드 도구없이 <a href="./">가이드</a>를 읽어 보시기 바랍니다. :::
+::: tip 
+CLI는 Node.js 및 관련 빌드 도구에 대한 사전 지식을 전제로 하고 있습니다. Vue 또는 프런트엔드 빌드 도구를 처음 사용하는 경우 CLI를 사용하기 전에 빌드 도구없이 <a href="./">가이드</a>를 읽어 보시기 바랍니다. 
+:::
 
 Vue 3의 경우 `npm`에서 `@vue/cli`로 제공되는 Vue CLI v4.5를 이용해야합니다. 업그레이드를 하려면 최신버전의 `@vue/cli`를 전역으로 다시 설치해야됩니다.
 
@@ -104,7 +106,9 @@ $ yarn dev
 - Vue의 내부 코어 패키지를 인라인합니다. 즉, 다른 파일에 의존하지 않는 단일 파일입니다. 동일한 코드 인스턴스를 확보하기 위해서 파일에서 연관된 모든 파일을 가져와야 합니다.
 - 하드코딩 된 prod/dev 브랜치를 포함하고 있으며 prod 은 미리 압축되어있습니다. 프로덕션 작업 시 `*.prod.js`를 사용합니다.
 
-::: tip Note 전역 빌드는 [UMD](https://github.com/umdjs/umd) 빌드가 아닙니다. [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)로 구축되어있으며 `<script src="...">`를 통해 직접 사용하기 위한 것입니다. :::
+::: tip Note 
+전역 빌드는 [UMD](https://github.com/umdjs/umd) 빌드가 아닙니다. [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)로 구축되어있으며 `<script src="...">`를 통해 직접 사용하기 위한 것입니다. 
+:::
 
 #### vue(.runtime).esm-browser(.prod).js:
 
