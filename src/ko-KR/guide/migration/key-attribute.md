@@ -15,8 +15,8 @@ badges:
 
 특수한 속성인 `key`는 주로 Vue의 가상 DOM 알고리즘이 노드의 ID를 식별하기 위한 힌트로 사용됩니다. 이를 통해 Vue는 어느 시점에 기존 노드를 가져오고 재사용할 수 있는지, 또 재정렬과 재생성이 필요한 때가 언제인지 파악합니다. 자세한 내용은 다음 섹션을 참고하세요.
 
-- [리스트 렌더링: 상태 유지](/guide/list.html#maintaining-state)
-- [API Reference: 특별한 속성들 - `key`](/api/special-attributes.html#key)
+- [리스트 렌더링: 상태 유지](/ko-KR/guide/list.html#maintaining-state)
+- [API Reference: 특별한 속성들 - `key`](/ko-KR/api/special-attributes.html#key)
 
 ## 조건부 분기에서의 key
 

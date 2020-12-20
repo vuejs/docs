@@ -651,10 +651,10 @@ module.exports = {
       },
       '/ko-KR/': {
         label: '한국어',
-        selectText: '언어',
+        selectText: '다른 언어로 보기',
         nav: [
           {
-            text: '문서',
+            text: '배우기',
             ariaLabel: '문서 메뉴',
             items: [
               {

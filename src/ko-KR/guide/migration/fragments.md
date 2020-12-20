@@ -37,4 +37,4 @@ Vue 3에서 컴포넌트는 다중 루트 노드(multi-root nodes) 컴포넌트�
 </template>
 ```
 
-속성 상속이 어떻게 작동하는지 더 알고 싶다면, [Non-Prop Attributes](/guide/component-attrs.html)을 확인하세요.
+속성 상속이 어떻게 작동하는지 더 알고 싶다면, [Non-Prop Attributes](/ko-KR/guide/component-attrs.html)을 확인하세요.

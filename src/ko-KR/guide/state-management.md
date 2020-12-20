@@ -10,7 +10,7 @@
 
 ## 간단한 상태 관리 시작하기
 
-때때로 Vue 애플리케이션에서 가장 근본이 되는 것은 반응형 `data` 객체임을 지나치곤 합니다. 컴포넌트 인스턴스는 단지 해당 객체로의 접근을 프록시 처리할 뿐입니다. 그러므로 여러 인스턴스에서 상태를 공유해야 하는 경우, 아래와 같이 [reactive](/guide/reactivity-fundamentals.html#declaring-reactive-state) 메서드를 사용하여 객체를 반응형으로 만들 수 있습니다.
+때때로 Vue 애플리케이션에서 가장 근본이 되는 것은 반응형 `data` 객체임을 지나치곤 합니다. 컴포넌트 인스턴스는 단지 해당 객체로의 접근을 프록시 처리할 뿐입니다. 그러므로 여러 인스턴스에서 상태를 공유해야 하는 경우, 아래와 같이 [reactive](/ko-KR/guide/reactivity-fundamentals.html#declaring-reactive-state) 메서드를 사용하여 객체를 반응형으로 만들 수 있습니다.
 
 ```js
 const sourceOfTruth = Vue.reactive({

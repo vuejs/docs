@@ -115,5 +115,5 @@ export default {
 
 새로운 함수형 컴포넌트의 사용 방법과 일반적인 렌더 함수의 바뀐 점에 대한 정보를 더 알고 싶다면 다음 문서를 보세요.
 
-- [Migration: Render Functions](/guide/migration/render-function-api.html)
-- [Guide: Render Functions](/guide/render-function.html)
+- [Migration: Render Functions](/ko-KR/guide/migration/render-function-api.html)
+- [Guide: Render Functions](/ko-KR/guide/render-function.html)

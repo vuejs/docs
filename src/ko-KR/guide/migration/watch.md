@@ -12,7 +12,7 @@ badges:
 
 ## 3.x 구문
 
-[`watch` 옵션](/api/options-data.html#watch)을 사용하여 배열을 감시할 때, watch 콜백은 배열이 교체될 때만 발생합니다. 즉, 배열의 변경 사항에 대해 더이상 watch 콜백이 발생하지 않음을 의미합니다. 배열의 변경 사항에 대해 watch 콜백을 실행하려면, 반드시 `deep` 옵션을 설정해야 합니다.
+[`watch` 옵션](/ko-KR/api/options-data.html#watch)을 사용하여 배열을 감시할 때, watch 콜백은 배열이 교체될 때만 발생합니다. 즉, 배열의 변경 사항에 대해 더이상 watch 콜백이 발생하지 않음을 의미합니다. 배열의 변경 사항에 대해 watch 콜백을 실행하려면, 반드시 `deep` 옵션을 설정해야 합니다.
 
 ```js
 watch: {

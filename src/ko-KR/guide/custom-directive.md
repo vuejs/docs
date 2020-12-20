@@ -212,4 +212,4 @@ app.component('my-component', {
 
 속성과 달리, 디렉티브는 `v-bind="$attrs"`를 사용하여 다른 엘리먼트에 전달할 수 없습니다.
 
-[fragments](/guide/migration/fragments.html#overview) 지원을 통해, 컴포넌트는 잠재적으로 둘 이상의 루트 노드를 가질 수 있습니다. 다중 루트 컴포넌트에 적용되면 디렉티브가 무시되고 경고가 발생합니다.
+[fragments](/ko-KR/guide/migration/fragments.html#overview) 지원을 통해, 컴포넌트는 잠재적으로 둘 이상의 루트 노드를 가질 수 있습니다. 다중 루트 컴포넌트에 적용되면 디렉티브가 무시되고 경고가 발생합니다.

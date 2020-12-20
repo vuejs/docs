@@ -77,7 +77,7 @@ export default {
 
 플러그인 사용자는 이제 컴포넌트에 `inject['i18n']`을 수행하고 객체에 액세스 할 수 있습니다.
 
-또한 `app` 객체에 접근 할 수 있으므로 `mixin` 및 `directive` 사용과 같은 다른 모든 기능을 플러그인에서 사용할 수 있습니다. `createApp` 및 애플리케이션 인스턴스에 대해 자세히 알아 보려면 [Application API 문서](/api/application-api.html)를 확인하세요.
+또한 `app` 객체에 접근 할 수 있으므로 `mixin` 및 `directive` 사용과 같은 다른 모든 기능을 플러그인에서 사용할 수 있습니다. `createApp` 및 애플리케이션 인스턴스에 대해 자세히 알아 보려면 [Application API 문서](/ko-KR/api/application-api.html)를 확인하세요.
 
 ```js
 // plugins/i18n.js

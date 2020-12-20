@@ -78,4 +78,4 @@ const MyComp = {
 </template>
 ```
 
-> - 참고: 3.x에서는 기본 [fragments](/guide/migration/fragments) 지원을 통해 슬롯을 루트로 렌더링할 수 있습니다!
+> - 참고: 3.x에서는 기본 [fragments](/ko-KR/guide/migration/fragments) 지원을 통해 슬롯을 루트로 렌더링할 수 있습니다!

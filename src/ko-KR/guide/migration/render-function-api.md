@@ -92,7 +92,7 @@ export default {
 }
 ```
 
-`setup()` 작동 방식에 대한 자세한 내용은 [Composition API 가이드](/guide/composition-api-introduction.html)를 참조하세요.
+`setup()` 작동 방식에 대한 자세한 내용은 [Composition API 가이드](/ko-KR/guide/composition-api-introduction.html)를 참조하세요.
 
 ## VNode Props 형태
 
@@ -188,4 +188,4 @@ export default {
 
 ## 다음 단계
 
-자세한 문서는 [Render Function Guide](/guide/render-function)를 참조하세요!
+자세한 문서는 [Render Function Guide](/ko-KR/guide/render-function)를 참조하세요!

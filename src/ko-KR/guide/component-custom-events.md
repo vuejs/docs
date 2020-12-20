@@ -138,7 +138,7 @@ app.component('user-name', {
 
 ## `v-model` 수식어 핸들링
 
-폼 인풋 바인딩에서 보았던 것 처럼, `v-model`은<br>`.trim`, `.number`, `.lazy` 등의 [빌트인 수식어](/guide/forms.html#modifiers) 를 가지고 있습니다. 상황에 따라서 이러한 커스텀 수식어를 만들어 추가하는 것이 가능합니다.
+폼 인풋 바인딩에서 보았던 것 처럼, `v-model`은<br>`.trim`, `.number`, `.lazy` 등의 [빌트인 수식어](/ko-KR/guide/forms.html#modifiers) 를 가지고 있습니다. 상황에 따라서 이러한 커스텀 수식어를 만들어 추가하는 것이 가능합니다.
 
 예제로써, `v-model` 바인딩을 통해 전달된 문자열의 첫 글자를 대문자로 바꾸는 `capitalize`, 수식어를 만들어 봅시다.
 
