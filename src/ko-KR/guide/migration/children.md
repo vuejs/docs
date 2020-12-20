@@ -5,13 +5,13 @@ badges:
 
 # $children <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## 개요
 
-The `$children` instance property has been removed from Vue 3.0 and is no longer supported.
+`$children` 인스턴스 속성은 Vue 3.0에서 제거되었으며 더 이상 지원되지 않습니다.
 
-## 2.x Syntax
+## 2.x 문법
 
-In 2.x, developers could access direct child components of the current instance with `this.$children`:
+2.x에서 개발자는`this.$children`을 사용하여 현재 인스턴스의 하위 컴포넌트에 대해 직접 접근 할수 있었습니다. 
 
 ```vue
 <template>
@@ -35,6 +35,6 @@ export default {
 </script>
 ```
 
-## 3.x Update
+## 3.x 업데이트
 
-In 3.x, the `$children` property is removed and no longer supported. Instead, if you need to access a child component instance, we recommend using [$refs](/ko-KR/guide/component-template-refs.html#template-refs).
+3.x에서는 `$children` 속성이 제거되어 더 이상 지원되지 않습니다. 대신 하위 컴포넌트 인스턴스에 접근 해야하는 경우 [$refs](/ko-KR/guide/component-template-refs.html#template-refs)를 사용하는 것이 좋습니다.
