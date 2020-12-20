@@ -1,24 +1,25 @@
 # 운영 배포
 
 ::: info
-Most of the tips below are enabled by default if you are using [Vue CLI](https://cli.vuejs.org). This section is only relevant if you are using a custom build setup.
+다음에 소개하는 팁들은 모두 [Vue CLI](https://cli.vuejs.org)를 사용하면 모두 적용되어 있습니다. 이 섹션은 직접 빌드를 설정할때만 필요한 내용입니다. 
 :::
 
-## Turn on Production Mode
+## 운영 모드 활성화 하기 
 
-During development, Vue provides a lot of warnings to help you with common errors and pitfalls. However, these warning strings become useless in production and bloat your app's payload size. In addition, some of these warning checks have small runtime costs that can be avoided in [production mode](https://cli.vuejs.org/guide/mode-and-env.html#modes).
+개발 중에 Vue는 흔한 오류와 함정을 피하는데 도움이되는 많은 경고를 제공합니다. 그러나 이러한 경고 문자열은 운영에서 필요없고, 앱 자체의 크기도 커지게 합니다. 또한 이러한 경고 확인 중 일부는 [운영 모드](https://cli.vuejs.org/guide/mode-and-env.html#modes) 에서 불필요한  런타임 비용이 발생하기도 합니다. 
 
-### Without Build Tools
+### 빌드 도구 없이 
 
-If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version for production. This can be found in the [Installation guide](/guide/installation.html#cdn).
+빌드 도구없이 스크립트 태그를 통해 Vue를 직접 포함하는 전체 빌드(Full build)시에는 minified된 운영 버전을 사용해야합니다. [Installation guide](/ko-KR/guide/installation.html#cdn)에서 확인해 보세요 
 
-### With Build Tools
 
-When using a build tool like Webpack or Browserify, the production mode will be determined by `process.env.NODE_ENV` inside Vue's source code, and it will be in development mode by default. Both build tools provide ways to overwrite this variable to enable Vue's production mode, and warnings will be stripped by minifiers during the build. Vue CLI has this pre-configured for you, but it would be beneficial to know how it is done:
+### 빌드 도구를 사용할때 
+
+Webpack 또는 Browserify와 같은 빌드 도구를 사용할 때 운영 모드는 Vue의 소스 코드 내의 `process.env.NODE_ENV` 에 의해 결정되며 기본 상태는 개발 모드입니다. 두 빌드 도구 모두 Vue의 운영 모드를 활성화하기 위해 이 변수를 덮어 쓰는 방법을 제공하며 빌드 중에 경고가 minifier에 의해 제거됩니다. Vue CLI에는이 기능이 미리 구성되어 있지만 수행 방법을 아는 것이 좋습니다:
 
 #### Webpack
+Webpack 4 이상에서는  `mode` 옵션을 사용할수 있습니다:
 
-In Webpack 4+, you can use the `mode` option:
 
 ```js
 module.exports = {
@@ -28,15 +29,14 @@ module.exports = {
 
 #### Browserify
 
-- Run your bundling command with the actual `NODE_ENV` environment variable set to `"production"`. This tells `vueify` to avoid including hot-reload and development related code.
+- `NODE_ENV` 환경 변수를` "production"`으로 설정하고, 번들링 명령을 실행하십시오. 이 옵션은  `vueify`에게 hot-reload 및 개발 관련 코드를 포함하지 않도록 지시합니다.
 
-- Apply a global [envify](https://github.com/hughsk/envify) transform to your bundle. This allows the minifier to strip out all the warnings in Vue's source code wrapped in env variable conditional blocks. For example:
-
+- 번들에 전역 [envify] (https://github.com/hughsk/envify) 변환을 적용합니다. 이를 통해 minifier는 env 변수 조건 블록에 래핑 된 Vue의 소스 코드에서 모든 경고를 제거 할 수 있습니다.
   ```bash
   NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
   ```
 
-- Or, using [envify](https://github.com/hughsk/envify) with Gulp:
+- 또는 gulp에서 [envify](https://github.com/hughsk/envify) 를 사용하세요: 
 
   ```js
   // Use the envify custom module to specify environment variables
@@ -52,7 +52,7 @@ module.exports = {
     .bundle()
   ```
 
-- Or, using [envify](https://github.com/hughsk/envify) with Grunt and [grunt-browserify](https://github.com/jmreidy/grunt-browserify):
+- 또는 grunt와 [grunt-browserify](https://github.com/jmreidy/grunt-browserify), [envify](https://github.com/hughsk/envify) 를 사용하세요:
 
   ```js
   // Use the envify custom module to specify environment variables
@@ -78,7 +78,7 @@ module.exports = {
 
 #### Rollup
 
-Use [@rollup/plugin-replace](https://github.com/rollup/plugins/tree/master/packages/replace):
+다음 플러그인을 사용하세요 [@rollup/plugin-replace](https://github.com/rollup/plugins/tree/master/packages/replace):
 
 ```js
 const replace = require('@rollup/plugin-replace')
@@ -93,24 +93,27 @@ rollup({
 }).then(...)
 ```
 
-## Pre-Compiling Templates
+## 사전 템플릿 컴파일 
 
-When using in-DOM templates or in-JavaScript template strings, the template-to-render-function compilation is performed on the fly. This is usually fast enough in most cases, but is best avoided if your application is performance-sensitive.
+in-DOM 템플릿 또는 in-JavaScript 템플릿 문자열을 사용하는 경우 템플릿에서 렌더링 기능으로의 컴파일이 그때 그때  수행됩니다. 이는 일반적으로 대부분의 경우 충분히 빠르지만 애플리케이션이 성능에 민감한 경우에는 피하는 것이 좋습니다.
 
-The easiest way to pre-compile templates is using [Single-File Components](/guide/single-file-component.html) - the associated build setups automatically performs pre-compilation for you, so the built code contains the already compiled render functions instead of raw template strings.
+The easiest way to pre-compile templates is using [Single-File Components](/ko-KR/guide/single-file-component.html) - the associated build setups automatically performs pre-compilation for you, so the built code contains the already compiled render functions instead of raw template strings.
 
-If you are using Webpack, and prefer separating JavaScript and template files, you can use [vue-template-loader](https://github.com/ktsn/vue-template-loader), which also transforms the template files into JavaScript render functions during the build step.
+템플릿을 사전 컴파일하는 가장 쉬운 방법은 [싱글 파일 컴포넌트](/ko-KR/guide/single-file-component.html)를 사용하는 것입니다. 관련 빌드 설정이 자동으로 사전 컴파일을 수행하므로 빌드된 코드에는 Raw 템플릿 문자열 대신 이미 컴파일 된 렌더링 함수를 포함합니다. 
 
-## Extracting Component CSS
+Webpack을 사용 중이고 JavaScript와 템플릿 파일을 분리하는 것을 선호하는 경우 [vue-template-loader](https://github.com/ktsn/vue-template-loader)를 사용하면 템플릿 파일도 JavaScript로 변환됩니다. 빌드 단계에서 함수를 렌더링합니다.
 
-When using Single-File Components, the CSS inside components are injected dynamically as `<style>` tags via JavaScript. This has a small runtime cost, and if you are using server-side rendering it will cause a "flash of unstyled content". Extracting the CSS across all components into the same file will avoid these issues, and also result in better CSS minification and caching.
+## 컴포넌트 CSS 추출하기
 
-Refer to the respective build tool documentations to see how it's done:
+싱글 파일 컴포넌트를 사용하는 경우 컴포넌트 내부의 CSS는 JavaScript를 통해 `<style>` 태그로 동적으로 삽입됩니다. 이는 런타임 비용이 적게 나마 발생하고, 서버측 렌더링을 사용하는 경우 "스타일이 지정되지 않은 콘텐츠 반짝임"이  발생합니다. 모든 컴포넌트의 CSS를 별도의 단일 파일로 추출하면 이러한 문제를 피할 수 있으며 CSS 축소(minification) 및 캐싱도 향상됩니다.
 
-- [Webpack + vue-loader](https://vue-loader.vuejs.org/en/configurations/extract-css.html) (the `vue-cli` webpack template has this pre-configured)
+
+수행 방법을 보려면 각 빌드 도구 설명서를 참조하십시오:
+
+- [Webpack + vue-loader](https://vue-loader.vuejs.org/en/configurations/extract-css.html) (`vue-cli` 웹펙 템플릿이 이 방식으로 설정되어 있습니다)
 - [Browserify + vueify](https://github.com/vuejs/vueify#css-extraction)
 - [Rollup + rollup-plugin-vue](https://rollup-plugin-vue.vuejs.org/)
 
-## Tracking Runtime Errors
+## 런타임 에러 추적
 
-If a runtime error occurs during a component's render, it will be passed to the global `app.config.errorHandler` config function if it has been set. It might be a good idea to leverage this hook together with an error-tracking service like [Sentry](https://sentry.io), which provides [an official integration](https://sentry.io/for/vue/) for Vue.
+컴포넌트 런타임 오류가 발생하면 전역 `app.config.errorHandler` config 함수로 (설정된 경우)로 전달됩니다.  Vue를 위한 [공식 통합](https://sentry.io/for/vue)을 제공하는 [Sentry](https://sentry.io)와 같은 오류 추적 서비스와 함께 이 후크를 활용하는 것이 좋습니다.
