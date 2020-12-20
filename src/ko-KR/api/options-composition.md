@@ -1,16 +1,16 @@
-# Composition
+# 컴포지션(Composition)
 
 ## mixins
 
-- **Type:** `Array<Object>`
+- **타입:** `Array<Object>`
 
-- **Details:**
+- **상세:**
 
-  The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the certain option merging logic. For example, if your mixin contains a `created` hook and the component itself also has one, both functions will be called.
+  `mixins` 옵션은 믹스인 객체의 배열을 허용합니다. 이러한 믹스인 객체는 일반 인스턴스 객체와 같은 인스턴스 옵션을 포함 할수 있습니다. 또한, 특정 옵션 병합 로직을 사용하여 최종 옵션에 대해 병합됩니다. 예를 들어, 믹스인에 `created` 훅이 포함되어 있고 컴포넌트 자체에도 하나가 있는 경우 두 함수가 모두 호출됩니다.
 
-  Mixin hooks are called in the order they are provided, and called before the component's own hooks.
+  Mixin 훅은 제공된 순서대로 호출되며, 컴포넌트의 자체 훅보다 머저 호출됩니다.
 
-- **Example:**
+- **예시:**
 
   ```js
   const mixin = {
@@ -30,24 +30,24 @@
   // => 2
   ```
 
-- **See also:** [Mixins](../guide/mixins.html)
+- **참고:** [Mixins](../guide/mixins.html)
 
 ## extends
 
-- **Type:** `Object | Function`
+- **타입:** `Object | Function`
 
-- **Details:**
+- **상세:**
 
-  Allows declaratively extending another component (could be either a plain options object or a constructor). This is primarily intended to make it easier to extend between single file components.
+  다른 컴포넌트를 선언적으로 확장 할 수 있습니다 (일반 옵션 객체 또는 생성자 일 수 있음). extends는 주로 싱글파일 컴포넌트(SFC)간에 쉽게 확장하기 위해서 사용됩니다.	.
 
-  This is similar to `mixins`.
+  `mixins`과 유사.
 
-- **Example:**
+- **예시:**
 
   ```js
   const CompA = { ... }
 
-  // extend CompA without having to call `Vue.extend` on either
+  // `Vue.extend` 호출할 필요없이 CompA 를 확장
   const CompB = {
     extends: CompA,
     ...
@@ -56,32 +56,31 @@
 
 ## provide / inject
 
-- **Type:**
+- **타입:**
 
   - **provide:** `Object | () => Object`
   - **inject:** `Array<string> | { [key: string]: string | Symbol | Object }`
 
-- **Details:**
+- **상세:**
 
-  This pair of options are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain. If you are familiar with React, this is very similar to React's `context` feature.
+  이 옵션 쌍은 상위 컴포넌트가 동일한 상위 체인에 있는동안, 컴포넌트 계층 구조의 깊이에 관계없이 모든 하위 항목에 대한 종속성 주입기(dependency injector) 역할을 할 수 있습니다. React에 익숙하다면 React의 `context` 기능과 매우 유사합니다.
 
-  The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
+  `provide` 옵션은 객체 또는 객체를 반환하는 함수여야합니다. 이 객체에는 하위 항목에 삽입 할 수 있는 속성이 포함되어 있습니다. 이 객체에서 ES2015 Symbol을 키로 사용할 수 있지만, 기본적으로 `Symbol` 및 `Reflect.ownKeys`를 지원하는 환경에서만 사용할 수 있습니다.
+  `inject` 옵션은 다음 중 하나여야합니다:
 
-  The `inject` option should be either:
+  - 문자열의 배열, 또는
+  - 키가 로컬 바인딩 이름이고 값이 다음 중 하나인 객체:
+    - 사용 가능한 주입(injections)에서 검색할 키(문자열 또는 Symbol), 또는
+    - 객체는 다음과 같습니다:
+      - `from` 속성은 사용 가능한 주입(injections)에서 검색 할 키(문자열 또는 Symbol)입니다.
+      - `default` 속성이 대체 값으로 사용됩니다.
 
-  - an array of strings, or
-  - an object where the keys are the local binding name and the value is either:
-    - the key (string or Symbol) to search for in available injections, or
-    - an object where:
-      - the `from` property is the key (string or Symbol) to search for in available injections, and
-      - the `default` property is used as fallback value
-
-  > Note: the `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down a reactive object, properties on that object do remain reactive.
+  > Note: `provide` 및 `inject` 바인딩은 반응성이 없습니다. 이것은 의도적입니다. 그러나 반응성 객체를 전달하면, 해당 객체의 속성은 반응성을 유지합니다.
 
 - **Example:**
 
   ```js
-  // parent component providing 'foo'
+  // 'foo'를 provide하는 부모 컴포넌트
   const Provider = {
     provide: {
       foo: 'bar'
@@ -89,7 +88,7 @@
     // ...
   }
 
-  // child component injecting 'foo'
+  // 'foo'를 inject하는 자식 컴포넌트
   const Child = {
     inject: ['foo'],
     created() {
@@ -99,7 +98,7 @@
   }
   ```
 
-  With ES2015 Symbols, function `provide` and object `inject`:
+  ES2015 Symbols와 함께, 함수 `provide` 및 객체 `inject`:
 
   ```js
   const s = Symbol()
@@ -118,7 +117,7 @@
   }
   ```
 
-  Using an injected value as the default for a prop:
+  inject된 값을 prop 의 기본값으로 사용:
 
   ```js
   const Child = {
@@ -133,7 +132,7 @@
   }
   ```
 
-  Using an injected value as data entry:
+  inject된 값을 데이터 항목으로 사용:
 
   ```js
   const Child = {
@@ -146,7 +145,7 @@
   }
   ```
 
-  Injections can be optional with default value:
+  inject는 default 값을 선택적으로 사용할 수 있습니다.:
 
   ```js
   const Child = {
@@ -156,7 +155,7 @@
   }
   ```
 
-  If it needs to be injected from a property with a different name, use `from` to denote the source property:
+  다른 이름의 속성에서 inject해야하는 경우 `from`을 사용하여 소스 속성을 나타냅니다.:
 
   ```js
   const Child = {
@@ -169,7 +168,7 @@
   }
   ```
 
-  Similar to prop defaults, you need to use a factory function for non-primitive values:
+  prop 기본값과 유사하게 원시값이 아닌(non-primitive values) 경우 팩토리 함수를 사용해야합니다:
 
   ```js
   const Child = {
@@ -182,21 +181,21 @@
   }
   ```
 
-- **See also:** [Provide / Inject](../guide/component-provide-inject.html)
+- **참고:** [Provide / Inject](../guide/component-provide-inject.html)
 
 ## setup
 
-- **Type:** `Function`
+- **타입:** `Function`
 
-The `setup` function is a new component option. It serves as the entry point for using the Composition API inside components.
+`setup` 함수는 새로운 컴포넌트 옵션입니다. 컴포넌트 내에서 Composition API를 사용하기 위한 진입점 역할을 합니다..
 
-- **Invocation Timing**
+- **호출 타이밍**
 
-  `setup` is called right after the initial props resolution when a component instance is created. Lifecycle-wise, it is called before the [beforeCreate](./options-lifecycle-hooks.html#beforecreate) hook.
+  `setup`은 컴포넌트 인스턴스가 생성 될 때 초기 props 확인 직후에 호출됩니다. 수명주기에 따라 [beforeCreate](./options-lifecycle-hooks.html#beforecreate) 훅 전에 호출됩니다.
 
-- **Usage with Templates**
+- **Template과 사용**
 
-  If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
+  `setup`이 객체를 반환하면 객체의 속성이 컴포넌트 템플릿의 렌더링 컨텍스트에 병합됩니다:
 
   ```html
   <template>
@@ -221,11 +220,11 @@ The `setup` function is a new component option. It serves as the entry point for
   </script>
   ```
 
-  Note that [refs](refs-api.html#ref) returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
+  `setup` 에서 반환된 [refs](refs-api.html#ref)는 템플릿에서 접근할 때 자동으로 래핑 해제(unwrap)되므로 템플릿에서 `.value`가 필요하지 않습니다.
 
-- **Usage with Render Functions / JSX**
+- **Render Functions / JSX와 사용**
 
-  `setup` can also return a render function, which can directly make use of reactive state declared in the same scope:
+  `setup`은 동일한 범위에서 선언된 반응성 상태를 직접 사용할 수 있는 렌더 함수를 반환 할 수도 있습니다:
 
   ```js
   import { h, ref, reactive } from 'vue'
@@ -240,9 +239,9 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-- **Arguments**
+- **전달인자**
 
-  The function receives the resolved props as its first argument:
+  이 함수는 resolve된 props를 첫 번째 전달인자로 받습니다.:
 
   ```js
   export default {
@@ -255,7 +254,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  Note this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using `watchEffect` or `watch`:
+  	이 `props` 객체는 반응적(reactive)입니다. 즉, 새 props가 전달 될 때 업데이트되며, `watchEffect` 또는 `watch`를 사용하여 관찰하고 반응 할 수 있습니다:
 
   ```js
   export default {
@@ -270,7 +269,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  However, do NOT destructure the `props` object, as it will lose reactivity:
+  	그러나, 구조화하지 마십시오. `props` 객체는 반응성을 잃게됩니다.:
 
   ```js
   export default {
@@ -285,9 +284,9 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  The `props` object is immutable for userland code during development (will emit warning if user code attempts to mutate it).
+  `props` 객체는 개발 중에 사용자 영역 코드에 대해 변경이 불가능(immutable)합니다 (사용자 코드가 변경하려고하면 경고를 내보냄).
 
-  The second argument provides a context object which exposes a selective list of properties that were previously exposed on `this`:
+  두 번째 전달인자는 이전에 `this` 에 노출된 속성의 선택적인 목록을 노출하는 컨텍스트 객체를 제공합니다.:
 
   ```js
   const MyComponent = {
@@ -299,7 +298,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  `attrs` and `slots` are proxies to the corresponding values on the internal component instance. This ensures they always expose the latest values even after updates so that we can destructure them without worrying accessing a stale reference:
+  `attrs` 및 `slots` 은 내부 컴포넌트 인스턴스의 해당 값에 대한 프록시입니다. 이렇게하면 업데이트 후에도 항상 최신 값이 노출되므로 오래된 참조에 접근하지 않고도 구조를 해제 할 수 있습니다:
 
   ```js
   const MyComponent = {
@@ -312,10 +311,10 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  There are a number of reasons for placing `props` as a separate first argument instead of including it in the context:
+  컨텍스트에 포함하는 대신 `props` 를 별도의 첫 번째 인자로 배치하는 데는 여러 가지 이유가 있습니다.
 
-  - It's much more common for a component to use `props` than the other properties, and very often a component uses only `props`.
+  - 컴포넌트가 다른 속성보다 `props`를 사용하는 것이 훨씬 더 일반적이며, 컴포넌트는 `props`만 사용하는 경우가 매우 많습니다.
 
-  - Having `props` as a separate argument makes it easier to type it individually without messing up the types of other properties on the context. It also makes it possible to keep a consistent signature across `setup`, `render` and plain functional components with TSX support.
+  - `props`를 별도의 전달인자로 사용하면 컨텍스트에서 다른 속성의 유형을 엉망으로 만들지 않고 개별적으로 쉽게 입력 할 수 있습니다. 또한, TSX 를 지원하는 `setup`, `render` 및 일반 기능 컴포넌트에서 일관된 특징을 유지할 수 있습니다.
 
-- **See also:** [Composition API](composition-api.html)
+- **참고:** [Composition API](composition-api.html)
