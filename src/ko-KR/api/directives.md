@@ -6,7 +6,7 @@
 
 - **설명:**
 
-    엘리먼트의 [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) 를 업데이트합니다. `textContent` 의 일부를 업데이트해야하는 경우 [머스태시 보간법(mustache interpolations)](/guide/template-syntax.html#text)을 사용해야합니다.
+    엘리먼트의 [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) 를 업데이트합니다. `textContent` 의 일부를 업데이트해야하는 경우 [머스태시 보간법(mustache interpolations)](/ko-KR/guide/template-syntax.html#text)을 사용해야합니다.
 
 - **예시:**
 

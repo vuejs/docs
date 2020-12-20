@@ -100,7 +100,7 @@
     app.mount('#transition-demo')
     ```
 
-- [진입&이탈 트랜지션(Enter & Leave Transitions)](/guide/transitions-enterleave.html#transitioning-single-elements-components)
+- [진입&이탈 트랜지션(Enter & Leave Transitions)](/ko-KR/guide/transitions-enterleave.html#transitioning-single-elements-components)
 
 ## transition-group
 
@@ -130,7 +130,7 @@
     </transition-group>
     ```
 
-- [리스트 트랜지션(List Transitions)](/guide/transitions-list.html)
+- [리스트 트랜지션(List Transitions)](/ko-KR/guide/transitions-list.html)
 
 ## keep-alive
 

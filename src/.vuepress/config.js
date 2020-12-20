@@ -215,6 +215,7 @@ const sidebar = {
         '/guide/contributing/writing-guide',
         '/guide/contributing/doc-style-guide',
         '/guide/contributing/translations'
+
       ]
     }
   ]
@@ -436,7 +437,9 @@ const sidebar_ko_KR = {
       children: [
         '/ko-KR/guide/contributing/writing-guide',
         '/ko-KR/guide/contributing/doc-style-guide',
-        '/ko-KR/guide/contributing/translations'
+        '/ko-KR/guide/contributing/translations',
+        '/ko-KR/guide/contributing/contributors-ko-KR',
+
       ]
     }
   ]
