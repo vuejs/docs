@@ -22,5 +22,5 @@
 - [Terrorboy](https://github.com/Terrorboy)
 - [yooseongsil](https://github.com/yooseongsil)
 - [yu1222](https://github.com/yu1222)
-- [zero86](https://github.com/katanazero86)
+- [katanazero86](https://github.com/katanazero86)
 
