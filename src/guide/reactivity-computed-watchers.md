@@ -63,11 +63,10 @@ stop()
 
 ### Side Effect Invalidation
 
-Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate`function that can be used to register an invalidation callback. This invalidation callback is called when:
+Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
 
 - the effect is about to re-run
-- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle
-  hooks)
+- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
 
 ```js
 watchEffect(onInvalidate => {
@@ -85,8 +84,7 @@ We are registering the invalidation callback via a passed-in function instead of
 ```js
 const data = ref(null)
 watchEffect(async (onInvalidate) => {
-  onInvalidate(() => { /* ... */
-  }) // we register cleanup function before Promise resolves
+  onInvalidate(() => { /* ... */ }) // we register cleanup function before Promise resolves
   data.value = await fetchData(props.id)
 })
 ```
@@ -95,7 +93,7 @@ An async function implicitly returns a Promise, but the cleanup function needs t
 
 ### Effect Flush Timing
 
-Vue's reactivity system buffers invalidated effects and flushes them asynchronously to avoid unnecessary duplicate invocation when there are many state mutations happening in the same "tick". Internally, a component's `update` function is also a watched effect. When a user effect is queued, it is by default invoked **before** all component `update`effects:
+Vue's reactivity system buffers invalidated effects and flushes them asynchronously to avoid unnecessary duplicate invocation when there are many state mutations happening in the same "tick". Internally, a component's `update` function is also a watched effect. When a user effect is queued, it is by default invoked **before** all component `update` effects:
 
 ```html
 
