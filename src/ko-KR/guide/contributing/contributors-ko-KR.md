@@ -10,7 +10,6 @@
 - [haneulcho](https://github.com/haneulcho)
 - [homekeeper89](https://github.com/homekeeper89)
 - [imseongtae](https://github.com/imseongtae)
-- [katanazero86](https://github.com/katanazero86)
 - [kdeun1](https://github.com/kdeun1)
 - [kmin-jeong](https://github.com/kmin-jeong)
 - [narusas](https://github.com/narusas)
@@ -23,5 +22,5 @@
 - [Terrorboy](https://github.com/Terrorboy)
 - [yooseongsil](https://github.com/yooseongsil)
 - [yu1222](https://github.com/yu1222)
-- [zero86](https://github.com/zero86)
+- [zero86](https://github.com/katanazero86)
 
