@@ -4,7 +4,11 @@
 
 ## Computed values
 
-Sometimes we need state that depends on other state - in Vue this is handled with component [computed properties](computed.html#computed-properties). To directly create a computed value, we can use the `computed` method: it takes a getter function and returns an immutable reactive [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) object for the returned value from the getter.
+Sometimes we need state that depends on other state - in Vue this is handled with
+component [computed properties](computed.html#computed-properties). To directly create a computed value, we can use
+the `computed` method: it takes a getter function and returns an immutable
+reactive [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) object for the returned value
+from the getter.
 
 ```js
 const count = ref(1)
@@ -32,7 +36,9 @@ console.log(count.value) // 0
 
 ## `watchEffect`
 
-To apply and _automatically re-apply_ a side effect based on reactive state, we can use the `watchEffect` method. It runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
+To apply and _automatically re-apply_ a side effect based on reactive state, we can use the `watchEffect` method. It
+runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are
+changed.
 
 ```js
 const count = ref(0)
@@ -48,7 +54,9 @@ setTimeout(() => {
 
 ### Stopping the Watcher
 
-When `watchEffect` is called during a component's [setup()](composition-api-setup.html) function or [lifecycle hooks](composition-api-lifecycle-hooks.html), the watcher is linked to the component's lifecycle and will be automatically stopped when the component is unmounted.
+When `watchEffect` is called during a component's [setup()](composition-api-setup.html) function
+or [lifecycle hooks](composition-api-lifecycle-hooks.html), the watcher is linked to the component's lifecycle and will
+be automatically stopped when the component is unmounted.
 
 In other cases, it returns a stop handle which can be called to explicitly stop the watcher:
 
@@ -63,10 +71,13 @@ stop()
 
 ### Side Effect Invalidation
 
-Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
+Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is
+invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate`
+function that can be used to register an invalidation callback. This invalidation callback is called when:
 
 - the effect is about to re-run
-- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
+- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle
+  hooks)
 
 ```js
 watchEffect(onInvalidate => {
@@ -79,23 +90,32 @@ watchEffect(onInvalidate => {
 })
 ```
 
-We are registering the invalidation callback via a passed-in function instead of returning it from the callback because the return value is important for async error handling. It is very common for the effect function to be an async function when performing data fetching:
+We are registering the invalidation callback via a passed-in function instead of returning it from the callback because
+the return value is important for async error handling. It is very common for the effect function to be an async
+function when performing data fetching:
 
 ```js
 const data = ref(null)
 watchEffect(async (onInvalidate) => {
-  onInvalidate(() => { /* ... */ }) // we register cleanup function before Promise resolves
+  onInvalidate(() => { /* ... */
+  }) // we register cleanup function before Promise resolves
   data.value = await fetchData(props.id)
 })
 ```
 
-An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the Promise chain.
+An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the
+Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the
+Promise chain.
 
 ### Effect Flush Timing
 
-Vue's reactivity system buffers invalidated effects and flushes them asynchronously to avoid unnecessary duplicate invocation when there are many state mutations happening in the same "tick". Internally, a component's `update` function is also a watched effect. When a user effect is queued, it is by default invoked **before** all component `update` effects:
+Vue's reactivity system buffers invalidated effects and flushes them asynchronously to avoid unnecessary duplicate
+invocation when there are many state mutations happening in the same "tick". Internally, a component's `update` function
+is also a watched effect. When a user effect is queued, it is by default invoked **before** all component `update`
+effects:
 
 ```html
+
 <template>
   <div>{{ count }}</div>
 </template>
@@ -122,7 +142,8 @@ In this example:
 - The count will be logged synchronously on initial run.
 - When `count` is mutated, the callback will be called **before** the component has updated.
 
-In cases where a watcher effect needs to be re-run **after** component updates, we can pass an additional `options` object with the `flush` option (default is `'pre'`):
+In cases where a watcher effect needs to be re-run **after** component updates, we can pass an additional `options`
+object with the `flush` option (default is `'pre'`):
 
 ```js
 // fire after component updates so you can access the updated DOM
@@ -138,7 +159,8 @@ watchEffect(
 )
 ```
 
-The `flush` option also accepts `'sync'`, which forces the effect to always trigger synchronously. This is however inefficient and should be rarely needed.
+The `flush` option also accepts `'sync'`, which forces the effect to always trigger synchronously. This is however
+inefficient and should be rarely needed.
 
 ### Watcher Debugging
 
@@ -147,7 +169,8 @@ The `onTrack` and `onTrigger` options can be used to debug a watcher's behavior.
 - `onTrack` will be called when a reactive property or ref is tracked as a dependency.
 - `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency.
 
-Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in these callbacks to interactively inspect the dependency:
+Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended
+to place a `debugger` statement in these callbacks to interactively inspect the dependency:
 
 ```js
 watchEffect(
@@ -166,7 +189,9 @@ watchEffect(
 
 ## `watch`
 
-The `watch` API is the exact equivalent of the component [watch](computed.html#watchers) property. `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
+The `watch` API is the exact equivalent of the component [watch](computed.html#watchers) property. `watch` requires
+watching a specific data source and applies side effects in a separate callback function. It also is lazy by default -
+i.e. the callback is only called when the watched source has changed.
 
 - Compared to [watchEffect](#watcheffect), `watch` allows us to:
 
@@ -201,7 +226,7 @@ A watcher can also watch multiple sources at the same time using an array:
 
 ```js
 const firstName = ref('');
-const lastName= ref('');
+const lastName = ref('');
 
 watch([firstName, lastName], (newValues, prevValues) => {
   console.log(newValues, prevValues);
@@ -213,22 +238,83 @@ lastName.value = "Smith"; // logs: ["John", "Smith"] ["John", ""]
 
 ### Watching Reactive Objects
 
-Using a watcher to compare values of an Array or Object that are reactive requires that it has a copy made of just the values.
+Using a watcher to compare values of an Array or Object that are reactive requires that it has a copy made of just the
+values.
 
 ```js
-const numbers = reactive([1,2,3,4])
+const numbers = reactive([1, 2, 3, 4])
 
 watch(
   () => [...numbers],
-  (numbers, prevNumbers) =>{
+  (numbers, prevNumbers) => {
     console.log(numbers, prevNumbers);
-})
+  })
 
 numbers.push(5) // logs: [1,2,3,4,5] [1,2,3,4]
 ```
 
-For deeply nested object and arrays, a deep copy of values may be required. This can be achieved with a utility such as [lodash.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
+Attempting to check for changes of properties in a deeply nested Object or Array will 
+still require the `deep` option to be true, if watching an Object or Array.
+
+```js
+const state = reactive([
+  { attributes: { name: "" }, id: 1 },
+  { attributes: { name: "" }, id: 2 },
+]);
+
+watch(
+  () => state.map((e) => e.attributes),
+  (attrs, prevAttrs) => {
+    console.log(
+      'not deep ', 
+      attrs.map((e) => e.name), 
+      prevAttrs.map((e) => e.name)
+    );
+  }
+);
+
+watch(
+  () => state.map((e) => e.attributes),
+  (attrs, prevAttrs) => {
+    console.log(
+      'deep ', 
+      attrs.map((e) => e.name), 
+      prevAttrs.map((e) => e.name)
+    );
+  },
+  { deep: true }
+)
+
+state[0].attributes.name = "Alex"; // Logs: "deep " ["Alex", ""] ["Alex", ""]
+```
+
+However, watching a reactive Object or Array will always return a reference to the current value of that Object. 
+To fully watch deeply nested Objects and Arrays, a deep copy of values may be required. This can be achieved with a utility such
+as [lodash.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
+
+```js
+import _ from 'lodash';
+
+const state = reactive([
+  { attributes: { name: "" }, id: 1 },
+  { attributes: { name: "" }, id: 2 },
+]);
+
+watch(
+  () => state.map((e) => (_.cloneDeep(e.attributes))),
+  (attrs, prevAttrs) => {
+    console.log(
+      attrs.map((e) => e.name), 
+      prevAttrs.map((e) => e.name)
+    );
+  }
+);
+
+state[0].attributes.name = "Alex"; // Logs: ["Alex", ""] ["", ""]
+```
 
 ### Shared Behavior with `watchEffect`
 
-`watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](#stopping-the-watcher), [side effect invalidation](#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument instead), [flush timing](#effect-flush-timing) and [debugging](#watcher-debugging).
+`watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](#stopping-the-watcher)
+, [side effect invalidation](#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument
+instead), [flush timing](#effect-flush-timing) and [debugging](#watcher-debugging).
