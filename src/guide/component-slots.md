@@ -240,7 +240,7 @@ app.component('todo-list', {
   template: `
     <ul>
       <li v-for="(item, index) in items">
-        {{ item }}
+        <slot>{{ item }}</slot>
       </li>
     </ul>
   `
