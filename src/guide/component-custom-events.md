@@ -14,7 +14,7 @@ this.$emit('myEvent')
 <my-component @my-event="doSomething"></my-component>
 ```
 
-Similarly to [props casing](/guide/component-props.html#prop-casing-camelcase-vs-kebab-case), we recommend using kebab-cased event listeners when you are using in-DOM templates. If you're using string templates, this limitation does not apply.
+As with [props casing](/guide/component-props.html#prop-casing-camelcase-vs-kebab-case), we recommend using kebab-cased event listeners when you are using in-DOM templates. If you're using string templates, this limitation does not apply.
 
 ## Defining Custom Events
 
