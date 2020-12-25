@@ -4,32 +4,17 @@
 
 ## Event Names
 
-Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event.
-
-```js
-this.$emit('my-event')
-```
-
-```html
-<my-component @my-event="doSomething"></my-component>
-```
-
-If we're emitting a camelCased event name:
+Like components and props, event names provide an automatic case transformation. If you emit an event from the child component in camel case, you will be able to add a kebab-cased listener in the parent:
 
 ```js
 this.$emit('myEvent')
 ```
 
-Listening to the kebab-cased version will have no effect:
-
 ```html
-<!-- Won't work -->
 <my-component @my-event="doSomething"></my-component>
 ```
 
-Since event names will never be used as variable or property names in JavaScript, there is no reason to use camelCase or PascalCase. Additionally, `v-on` event listeners inside DOM templates will be automatically transformed to lowercase (due to HTML's case-insensitivity), so `@myEvent` would become `@myevent` -- making `myEvent` impossible to listen to.
-
-For these reasons, we recommend you **always use kebab-case for event names**.
+As with [props casing](/guide/component-props.html#prop-casing-camelcase-vs-kebab-case), we recommend using kebab-cased event listeners when you are using in-DOM templates. If you're using string templates, this limitation does not apply.
 
 ## Defining Custom Events
 
@@ -39,7 +24,7 @@ Emitted events can be defined on the component via the `emits` option.
 
 ```js
 app.component('custom-form', {
-  emits: ['in-focus', 'submit']
+  emits: ['inFocus', 'submit']
 })
 ```
 
