@@ -214,7 +214,7 @@ lastName.value = "Smith"; // logs: ["John", "Smith"] ["John", ""]
 
 ### Watching Reactive Objects
 
-Using a watcher to compare values of an Array or Object that are reactive requires that it has a copy made of just the values.
+Using a watcher to compare values of an array or object that are reactive requires that it has a copy made of just the values.
 
 ```js
 const numbers = reactive([1, 2, 3, 4])
