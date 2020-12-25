@@ -173,7 +173,7 @@
 
 - **`include` and `exclude`**
 
-  The `include` and `exclude` props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an Array:
+  The `include` and `exclude` props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an array:
 
   ```html
   <!-- comma-delimited string -->

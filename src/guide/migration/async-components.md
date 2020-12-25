@@ -66,8 +66,8 @@ const halamanAsinkronDenganOpsi = defineAsyncComponent({
   loader: () => import('./HalamanSelanjutnya.vue'),
   delay: 200,
   timeout: 3000,
-  error: ErrorComponent,
-  loading: LoadingComponent
+  errorComponent: ErrorComponent,
+  loadingComponent: LoadingComponent
 })
 ```
 
