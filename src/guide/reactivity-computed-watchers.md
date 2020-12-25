@@ -228,7 +228,7 @@ watch(
 numbers.push(5) // logs: [1,2,3,4,5] [1,2,3,4]
 ```
 
-Attempting to check for changes of properties in a deeply nested Object or Array will still require the `deep` option to be true, if watching an Object or Array.
+Attempting to check for changes of properties in a deeply nested object or array will still require the `deep` option to be true:
 
 ```js
 const state = reactive([
