@@ -60,7 +60,7 @@ Single checkbox, boolean value:
 
 <common-codepen-snippet title="Handling forms: checkbox" slug="PoqyJVE" :preview="false" />
 
-Multiple checkboxes, bound to the same Array:
+Multiple checkboxes, bound to the same array:
 
 ```html
 <div id="v-model-multiple-checkboxes">
@@ -145,7 +145,7 @@ Vue.createApp({
 If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
 :::
 
-Multiple select (bound to Array):
+Multiple select (bound to array):
 
 ```html
 <select v-model="selected" multiple>

@@ -51,7 +51,7 @@ It is recommended to define all emitted events in order to better document how a
 
 ### Validate Emitted Events
 
-Similar to prop type validation, an emitted event can be validated if it is defined with the Object syntax instead of the Array syntax.
+Similar to prop type validation, an emitted event can be validated if it is defined with the Object syntax instead of the array syntax.
 
 To add validation, the event is assigned a function that receives the arguments passed to the `$emit` call and returns a boolean to indicate whether the event is valid or not.
 

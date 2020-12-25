@@ -177,7 +177,7 @@
 
 - **Details:**
 
-  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation. See [$watch](instance-methods.html#watch) for more information about the `deep`, `immediate` and `flush` options.
+  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation. See [\$watch](instance-methods.html#watch) for more information about the `deep`, `immediate` and `flush` options.
 
 - **Example:**
 
@@ -255,7 +255,7 @@
 
 - **Details:**
 
-  A list/hash of custom events that can be emitted from the component. It has an Array-based simple syntax and an alternative Object-based syntax that allows to configure an event validation.
+  A list/hash of custom events that can be emitted from the component. It has an array-based simple syntax and an alternative Object-based syntax that allows to configure an event validation.
 
   In Object-based syntax, the value of each property can either be `null` or a validator function. The validation function will receive the additional arguments passed to the `$emit` call. For example, if `this.$emit('foo', 1)` is called, the corresponding validator for `foo` will receive the argument `1`. The validator function should return a boolean to indicate whether the event arguments are valid.
 
