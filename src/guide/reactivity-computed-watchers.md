@@ -262,7 +262,7 @@ watch(
 state[0].attributes.name = "Alex"; // Logs: "deep " ["Alex", ""] ["Alex", ""]
 ```
 
-However, watching a reactive Object or Array will always return a reference to the current value of that Object. To fully watch deeply nested Objects and Arrays, a deep copy of values may be required. This can be achieved with a utility such as [lodash.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
+However, watching a reactive object or array will always return a reference to the current value of that object. To fully watch deeply nested objects and arrays, a deep copy of values may be required. This can be achieved with a utility such as [lodash.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
 
 ```js
 import _ from 'lodash';
