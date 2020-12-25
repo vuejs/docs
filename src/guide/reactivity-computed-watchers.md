@@ -231,58 +231,62 @@ numbers.push(5) // logs: [1,2,3,4,5] [1,2,3,4]
 Attempting to check for changes of properties in a deeply nested object or array will still require the `deep` option to be true:
 
 ```js
-const state = reactive([
-  { attributes: { name: "" }, id: 1 },
-  { attributes: { name: "" }, id: 2 },
-]);
+const state = reactive({ 
+  id: 1, 
+  attributes: { 
+    name: "",
+  },
+});
 
 watch(
-  () => state.map((e) => e.attributes),
-  (attrs, prevAttrs) => {
+  () => state,
+  (state, prevState) => {
     console.log(
-      'not deep ', 
-      attrs.map((e) => e.name), 
-      prevAttrs.map((e) => e.name)
+      "not deep ",
+      state.attributes.name,
+      prevState.attributes.name
     );
   }
 );
 
 watch(
-  () => state.map((e) => e.attributes),
-  (attrs, prevAttrs) => {
+  () => state,
+  (state, prevState) => {
     console.log(
-      'deep ', 
-      attrs.map((e) => e.name), 
-      prevAttrs.map((e) => e.name)
+      "deep ",
+      state.attributes.name,
+      prevState.attributes.name
     );
   },
   { deep: true }
-)
+);
 
-state[0].attributes.name = "Alex"; // Logs: "deep " ["Alex", ""] ["Alex", ""]
+state.attributes.name = "Alex"; // Logs: "deep " "Alex" "Alex"
 ```
 
-However, watching a reactive object or array will always return a reference to the current value of that object. To fully watch deeply nested objects and arrays, a deep copy of values may be required. This can be achieved with a utility such as [lodash.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
+However, watching a reactive object or array will always return a reference to the current value of that object for both the current and previous value of the state. To fully watch deeply nested objects and arrays, a deep copy of values may be required. This can be achieved with a utility such as [lodash.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
 
 ```js
 import _ from 'lodash';
 
-const state = reactive([
-  { attributes: { name: "" }, id: 1 },
-  { attributes: { name: "" }, id: 2 },
-]);
+const state = reactive({
+  id: 1,
+  attributes: {
+    name: "",
+  },
+});
 
 watch(
-  () => state.map((e) => (_.cloneDeep(e.attributes))),
-  (attrs, prevAttrs) => {
+  () => _.cloneDeep(state),
+  (state, prevState) => {
     console.log(
-      attrs.map((e) => e.name), 
-      prevAttrs.map((e) => e.name)
+      state.attributes.name, 
+      prevState.attributes.name
     );
   }
 );
 
-state[0].attributes.name = "Alex"; // Logs: ["Alex", ""] ["", ""]
+state.attributes.name = "Alex"; // Logs: "Alex" ""
 ```
 
 ### Shared Behavior with `watchEffect`
