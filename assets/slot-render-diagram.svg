@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="447px" height="498px" viewBox="0 0 447 498" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Slot Render Scope</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="236" height="105" rx="8"></rect>
+        <rect id="path-3" x="58" y="54" width="329" height="390" rx="8"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-2" y="-2" width="333" height="394">
+            <rect x="56" y="52" width="333" height="394" fill="white"></rect>
+            <use xlink:href="#path-3" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Diagrams" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Slot-Render-Scope">
+            <g id="TodoButton-Component" transform="translate(105.000000, 312.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Rectangle" fill="#FF8228" xlink:href="#path-1"></use>
+                <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-2)" x="72" y="49" width="92" height="36" rx="3"></rect>
+                <text id="Data" mask="url(#mask-2)" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="103.713867" y="72">Data</tspan>
+                </text>
+                <text id="TodoButton" mask="url(#mask-2)" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="80.0830078" y="31">TodoButton</tspan>
+                </text>
+            </g>
+            <use id="Rectangle" stroke="#23AC70" mask="url(#mask-4)" stroke-width="4" stroke-dasharray="4,4" xlink:href="#path-3"></use>
+            <text id="Parent-Component" font-family="Helvetica" font-size="16" font-weight="normal" fill="#23AC70">
+                <tspan x="155.347656" y="90">Parent Component</tspan>
+            </text>
+            <g id="HTML" transform="translate(105.000000, 193.000000)">
+                <rect id="Rectangle" fill="#3E6B94" x="0" y="0" width="236" height="88" rx="2"></rect>
+                <text id="&lt;todo-button&gt;-Delete" font-family="Helvetica" font-size="14" font-weight="normal">
+                    <tspan x="24" y="26" fill="#FFFFFF">&lt;todo-button&gt;</tspan>
+                    <tspan x="24" y="46" fill="#FFFFFF">  Delete </tspan>
+                    <tspan x="76.1376953" y="46" fill="#39DD95">{{ item }}</tspan>
+                    <tspan x="129.068359" y="46" fill="#FFFFFF"></tspan>
+                    <tspan x="24" y="66" fill="#FFFFFF">&lt;/todo-button&gt;</tspan>
+                </text>
+            </g>
+            <g id="Data" transform="translate(105.000000, 110.000000)">
+                <rect id="Rectangle" fill="#21BD79" x="0" y="0" width="236" height="71" rx="8"></rect>
+                <text font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="102.713867" y="28">Data</tspan>
+                </text>
+                <text id="{-item:-'First-Item'" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="60.4824219" y="53">{ </tspan>
+                    <tspan x="69.0478516" y="53">item: 'First Item' }</tspan>
+                </text>
+            </g>
+            <g id="Arrow" transform="translate(297.000000, 158.000000)">
+                <line x1="71" y1="78" x2="45" y2="78" id="Line" stroke="#9AA9B2" stroke-width="2" stroke-linecap="square"></line>
+                <path id="Line-Copy" d="M14,71 L14,77 L44,77 L44,79 L14,79 L14,85 L0,78 L14,71 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <line x1="70" y1="1" x2="45" y2="1" id="Line" stroke="#9AA9B2" stroke-width="2" stroke-linecap="square"></line>
+                <line x1="43" y1="1" x2="21" y2="1" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></line>
+                <line x1="71" y1="1" x2="71" y2="78" id="Line" stroke="#9AA9B2" stroke-width="2" stroke-linecap="square"></line>
+            </g>
+        </g>
+    </g>
+</svg>
