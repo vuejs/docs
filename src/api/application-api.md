@@ -132,7 +132,8 @@ An object containing the following properties.
 
 ```js
 app.directive('focus', {
-  mounted(el) {
+  mounted(el, binding) {
+    console.log(binding);
     el.focus()
   }
 })
