@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@vuepress/plugin-pwa": "^1.5.4",
-    "node-sass": "^4.13.1",
+    "sass": "^1.32.0",
     "sass-loader": "^8.0.2",
     "vuepress": "^1.5.4"
   },
