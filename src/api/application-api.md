@@ -263,7 +263,7 @@ app.provide('user', 'administrator')
 
 - **Usage:**
 
-  Unmounts a root component of the application instance on the provided DOM element.
+  Unmounts a root component of the application instance.
 
 - **Example:**
 
