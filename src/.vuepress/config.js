@@ -58,6 +58,16 @@ const sidebar = {
       title: 'Reusability & Composition',
       collapsable: false,
       children: [
+        {
+          title: 'Composition API',
+          children: [
+            '/guide/composition-api-introduction',
+            '/guide/composition-api-setup',
+            '/guide/composition-api-lifecycle-hooks',
+            '/guide/composition-api-provide-inject',
+            '/guide/composition-api-template-refs'
+          ]
+        },
         '/guide/mixins',
         '/guide/custom-directive',
         '/guide/teleport',
@@ -75,16 +85,6 @@ const sidebar = {
             '/guide/reactivity',
             '/guide/reactivity-fundamentals',
             '/guide/reactivity-computed-watchers'
-          ]
-        },
-        {
-          title: 'Composition API',
-          children: [
-            '/guide/composition-api-introduction',
-            '/guide/composition-api-setup',
-            '/guide/composition-api-lifecycle-hooks',
-            '/guide/composition-api-provide-inject',
-            '/guide/composition-api-template-refs'
           ]
         },
         '/guide/optimizations',
