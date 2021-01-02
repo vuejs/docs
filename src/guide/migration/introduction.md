@@ -65,7 +65,7 @@ The following consists a list of breaking changes from 2.x:
 
 ### Template Directives
 
-- [`v-model` usage on components has been reworked](/guide/migration/v-model.html)
+- [`v-model` usage on components has been reworked, replacing `v-bind.sync`](/guide/migration/v-model.html)
 - [`key` usage on `<template v-for>` and non-`v-for` nodes has changed](/guide/migration/key-attribute.html)
 - [`v-if` and `v-for` precedence when used on the same element has changed](/guide/migration/v-if-v-for.html)
 - [`v-bind="object"` is now order-sensitive](/guide/migration/v-bind.html)
