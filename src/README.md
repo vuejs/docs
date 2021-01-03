@@ -27,7 +27,7 @@ features:
       Tối ưu dễ dàng
 footer: |
   Phát hành với giấy phép <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a><br>
-  Bản quyền © 2014-2020 Evan You
+  Bản quyền © 2014-2021 Evan You
 socialIcons:
   - type: GitHub
     link: https://github.com/vuejs/vue
