@@ -1,6 +1,6 @@
 <template>
   <SponsorsLayout extra-classes="sponsors__open-collective">
-    <template #heading>Tài trợ trên Open Collective</template>
+    <template #heading>Nhà tài trợ trên Open Collective</template>
 
     <template #content>
       <h4>Bạch kim</h4>
