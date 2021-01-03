@@ -2,13 +2,13 @@
 home: true
 heroImage: /logo.png
 heroText: Vue.js
-tagline: The Progressive<br> JavaScript Framework
+tagline: Framework JavaScript<br> linh động
 actionButtons:
-  - text: Why Vue.js?
+  - text: Tại sao chọn Vue.js
     link: /
     extraClass: vuemastery-trigger primary
     icon: fa fa-play-circle
-  - text: Get Started
+  - text: Bắt đầu
     link: /guide/introduction
   - text: GitHub
     link: https://github.com/vuejs/vue-next
@@ -16,18 +16,18 @@ actionButtons:
     icon: fa fa-github
     target: _blank
 features:
-  - title: Approachable
-    details: Already know HTML, CSS and JavaScript? Read the guide and start building things in no time!
-  - title: Versatile
-    details: An incrementally adoptable ecosystem that scales between a library and a full-featured framework.
-  - title: Performant
+  - title: Gần gũi
+    details: Bạn đã biết HTML, CSS và JavaScript? Hãy đọc hướng dẫn và bắt đầu lập trình ứng dụng một cách nhanh chóng với Vue.js!
+  - title: Đa năng
+    details: Một hệ sinh thái linh hoạt với các thành phần từ căn bản đến nâng cao, từ một thư viện đơn giản đến một framewrok đầy đủ tính năng.
+  - title: Mạnh mẽ
     details: |
-      20KB min+gzip Runtime<br>
-      Blazing Fast Virtual DOM<br>
-      Minimal Optimization Efforts
+      Chỉ 20KB min+gzip<br>
+      Xử lý cực nhanh với Virtual DOM<br>
+      Tối ưu dễ dàng
 footer: |
-  Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a><br>
-  Copyright © 2014-2020 Evan You
+  Phát hành với giấy phép <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a><br>
+  Bản quyền © 2014-2021 Evan You
 socialIcons:
   - type: GitHub
     link: https://github.com/vuejs/vue-next

@@ -1,7 +1,7 @@
 <template>
   <div class="newsletter">
     <div class="inner">
-      <h3><label for="member_email">Subscribe to our Weekly Newsletter</label></h3>
+      <h3><label for="member_email">Đăng ký nhận bản tin hàng tuần của chúng tôi</label></h3>
       <form
         class="newsletter-form"
         id="revue-form"
@@ -17,18 +17,18 @@
           name="member[email]"
           id="member_email"
           required
-          placeholder="Email address"
+          placeholder="Địa chỉ email"
         >
         <input
           class="button newsletter-button"
           type="submit"
-          value="Subscribe"
+          value="Đăng ký"
           name="member[subscribe]"
           id="member_submit"
         >
       </form>
       <p>
-        You can read the previous issues and listen to our podcast at <a href="https://news.vuejs.org" target="_blank" rel="noopener">news.vuejs.org</a>.
+        Bạn có thể đọc các số trước và nghe podcast của chúng tôi tại <a href="https://news.vuejs.org" target="_blank" rel="noopener">news.vuejs.org</a>.
       </p>
     </div>
   </div>

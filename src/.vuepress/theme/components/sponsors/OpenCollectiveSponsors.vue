@@ -1,9 +1,9 @@
 <template>
   <SponsorsLayout extra-classes="sponsors__open-collective">
-    <template #heading>Open Collective Sponsors</template>
+    <template #heading>Nhà tài trợ trên Open Collective</template>
 
     <template #content>
-      <h4>Platinum</h4>
+      <h4>Bạch kim</h4>
       <a
         :href="`https://opencollective.com/vuejs/tiers/platinum-sponsors/${index}/website`"
         rel="sponsored noopener"
@@ -16,7 +16,7 @@
         >
       </a>
 
-      <h4>Gold</h4>
+      <h4>Vàng</h4>
       <a
         :href="`https://opencollective.com/vuejs/tiers/gold-sponsors/${index}/website`"
         rel="sponsored noopener"
