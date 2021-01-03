@@ -398,9 +398,10 @@ module.exports = {
       {
         text: 'Translations',
         link: '#',
-        items: [{
+        items: [
+          {
             text: '中文',
-            link: 'https://v3.cn.vuejs.org'
+            link: 'https://v3.cn.vuejs.org/'
           }
         ]
       }
