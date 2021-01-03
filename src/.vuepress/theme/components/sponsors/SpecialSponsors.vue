@@ -26,7 +26,7 @@ export default {
 
   computed: {
     heading () {
-      return 'Tài trợ đặt biệt'
+      return 'Nhà tài trợ đặc biệt'
     }
   }
 }
