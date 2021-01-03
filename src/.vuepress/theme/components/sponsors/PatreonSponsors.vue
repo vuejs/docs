@@ -1,6 +1,6 @@
 <template>
   <SponsorsLayout extra-classes="sponsors__patreon">
-    <template #heading>Tài trợ trên Patreon</template>
+    <template #heading>Nhà tài trợ trên Patreon</template>
 
     <template #content>
       <div class="platinum">
