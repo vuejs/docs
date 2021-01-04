@@ -94,6 +94,10 @@ Specifies a method to recognize custom elements defined outside of Vue (e.g., us
 
 > Note that all native HTML and SVG tags don't need to be matched in this function - Vue parser performs this check automatically
 
+::: tip Important
+This config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
+:::
+
 ## optionMergeStrategies
 
 - **Type:** `{ [key: string]: Function }`
