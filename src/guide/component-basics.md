@@ -1,5 +1,7 @@
 # Components Basics
 
+<VideoLesson href="https://vueschool.io/courses/vuejs-components-fundamentals?friend=vuejs" title="Free Vue.js Components Fundamentals Course">Watch a free video course on Vue School</VideoLesson>
+
 ## Base Example
 
 Here's an example of a Vue component:
