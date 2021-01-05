@@ -2,7 +2,7 @@
 
 ## Computed Properties
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-computed-properties?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how computed properties work with Vue School">Learn how computed properties work with a free lesson on Vue School</a></div>
+<VideoLesson href="https://vueschool.io/lessons/vuejs-computed-properties?friend=vuejs" title="Learn how computed properties work with Vue School">Learn how computed properties work with a free lesson on Vue School</VideoLesson>
 
 In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
 

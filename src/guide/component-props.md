@@ -2,7 +2,7 @@
 
 > This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/reusable-components-with-props?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how component props work with Vue School">Learn how component props work with a free lesson on Vue School</a></div>
+<VideoLesson href="https://vueschool.io/lessons/reusable-components-with-props?friend=vuejs" title="Learn how component props work with Vue School">Learn how component props work with a free lesson on Vue School</VideoLesson>
 
 ## Prop Types
 

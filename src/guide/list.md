@@ -1,6 +1,6 @@
 # List Rendering
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-loops?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how to render lists on Vue School">Learn how to render list with a free Vue School lesson</a></div>
+<VideoLesson href="https://vueschool.io/lessons/vuejs-loops?friend=vuejs" title="Learn how to render lists on Vue School">Learn how to render list with a free Vue School lesson</VideoLesson>
 
 ## Mapping an Array to Elements with `v-for`
 

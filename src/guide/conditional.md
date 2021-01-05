@@ -1,6 +1,6 @@
 # Conditional Rendering
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-conditionals?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how conditional rendering works with Vue School">Learn how conditional rendering works with a free lesson on Vue School</a></div>
+<VideoLesson href="https://vueschool.io/lessons/vuejs-conditionals?friend=vuejs" title="Learn how conditional rendering works with Vue School">Learn how conditional rendering works with a free lesson on Vue School</VideoLesson>
 
 ## `v-if`
 
