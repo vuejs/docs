@@ -403,7 +403,7 @@ For example, for runtime-dom, HostNode would be the DOM
 
 Custom renderers can pass in the platform specific types like this:
 
-```js
+```ts
 import { createRenderer } from 'vue'
 const { render, createApp } = createRenderer<Node, Element>({
   patchProp,

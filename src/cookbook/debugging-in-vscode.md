@@ -102,7 +102,7 @@ Please note that if the page uses a production/minified build of Vue.js (such as
 
 The example above has a great workflow. However, there is an alternative option where you can use the [native debugger statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger) directly in your code. If you choose to work this way, it's important that you remember to remove the statements when you're done.
 
-```js
+```vue
 <script>
 export default {
   data() {
