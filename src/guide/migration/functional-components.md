@@ -91,7 +91,7 @@ In 3.x, the performance difference between stateful and functional components ha
 
 Using our `<dynamic-heading>` example from before, here is how it would look now.
 
-```js{1}
+```js{1,3,4}
 <template>
   <component
     v-bind:is="`h${$props.level}`"
