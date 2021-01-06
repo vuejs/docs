@@ -44,8 +44,8 @@ export default {
 
 Or, for those who preferred the `<template>` in a single-file component:
 
-```js
-// Vue 2 Functional Component Example with <template>
+```vue
+<!-- Vue 2 Functional Component Example with <template> -->
 <template functional>
   <component
     :is="`h${props.level}`"
@@ -91,7 +91,7 @@ In 3.x, the performance difference between stateful and functional components ha
 
 Using our `<dynamic-heading>` example from before, here is how it would look now.
 
-```js{1,3,4}
+```vue{1,3,4}
 <template>
   <component
     v-bind:is="`h${$props.level}`"
