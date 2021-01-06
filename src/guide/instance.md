@@ -87,6 +87,8 @@ Vue also exposes some built-in properties via the component instance, such as `$
 
 ## Lifecycle Hooks
 
+<VideoLesson href="https://vueschool.io/lessons/understanding-the-vuejs-lifecycle-hooks?friend=vuejs" title="Free Vue.js Lifecycle Hooks Lesson">Watch a free lesson on Vue School</VideoLesson>
+
 Each component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
 
 For example, the [created](../api/options-lifecycle-hooks.html#created) hook can be used to run code after an instance is created:
