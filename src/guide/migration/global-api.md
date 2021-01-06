@@ -65,6 +65,14 @@ import { createApp } from 'vue'
 const app = createApp({})
 ```
 
+If you're using a [CDN](/guide/installation.html#cdn) build of Vue then `createApp` is exposed via the global `Vue` object:
+
+```js
+const { createApp } = Vue
+
+const app = createApp({})
+```
+
 An app instance exposes a subset of the current global APIs. The rule of thumb is _any APIs that globally mutate Vue's behavior are now moved to the app instance_. Here is a table of the current global APIs and their corresponding instance APIs:
 
 | 2.x Global API             | 3.x Instance API (`app`)                                                                        |
@@ -198,7 +206,7 @@ export default {
 }
 ```
 
-Using `provide` is especially useful when writing a plugin, as an alternative to `globalProperties`. 
+Using `provide` is especially useful when writing a plugin, as an alternative to `globalProperties`.
 
 ## Share Configurations Among Apps
 
