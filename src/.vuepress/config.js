@@ -394,6 +394,16 @@ module.exports = {
             link: 'https://vue.threadless.com/'
           }
         ]
+      },
+      {
+        text: 'Translations',
+        link: '#',
+        items: [
+          {
+            text: '中文',
+            link: 'https://v3.cn.vuejs.org/'
+          }
+        ]
       }
     ],
     repo: 'vuejs/docs-next',
