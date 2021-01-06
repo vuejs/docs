@@ -44,7 +44,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called after the instance has been mounted, where element, passed to `Vue.createApp({}).mount()` is replaced by the newly created `vm.$el`. If the root instance is mounted to an in-document element, `vm.$el` will also be in-document when `mounted` is called.
 
-  Note that `mounted` does **not** guarantee that all child components have also been mounted. If you want to wait until the entire view has been rendered, you can use [vm.\$nextTick](../api/instance-methods.html#nexttick) inside of `mounted`:
+  Note that `mounted` does **not** guarantee that all child components have also been mounted. If you want to wait until the entire view has been rendered, you can use [vm.$nextTick](../api/instance-methods.html#nexttick) inside of `mounted`:
 
   ```js
   mounted() {
@@ -81,7 +81,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](./options-data.html#computed) or [watcher](./options-data.html#watch) instead.
 
-  Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.\$nextTick](../api/instance-methods.html#nexttick) inside of `updated`:
+  Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.$nextTick](../api/instance-methods.html#nexttick) inside of `updated`:
 
   ```js
   updated() {
