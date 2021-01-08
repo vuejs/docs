@@ -268,6 +268,16 @@ To make `item` available to the slot content provided by the parent, we can add 
 </ul>
 ```
 
+You can bind as many attributes to the `slot` as you need:
+
+```html
+<ul>
+  <li v-for="( item, index ) in items">
+    <slot :item="item" :index="index" :another-attribute="anotherAttribute"></slot>
+  </li>
+</ul>
+```
+
 Attributes bound to a `<slot>` element are called **slot props**. Now, in the parent scope, we can use `v-slot` with a value to define a name for the slot props we've been provided:
 
 ```html
