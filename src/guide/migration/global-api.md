@@ -5,7 +5,7 @@ badges:
 
 # Global API <MigrationBadges :badges="$frontmatter.badges" />
 
-Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to create a global component, you would use the `Vue.component` API like this:
+Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to register a global component, you would use the `Vue.component` API like this:
 
 ```js
 Vue.component('button-counter', {
@@ -28,18 +28,18 @@ While this approach is convenient, it leads to a couple of problems. Technically
 
 - Global configuration makes it easy to accidentally pollute other test cases during testing. Users need to carefully store original global configuration and restore it after each test (e.g. resetting `Vue.config.errorHandler`). Some APIs like `Vue.use` and `Vue.mixin` don't even have a way to revert their effects. This makes tests involving plugins particularly tricky. In fact, vue-test-utils has to implement a special API `createLocalVue` to deal with this:
 
-```js
-import { createLocalVue, mount } from '@vue/test-utils'
+  ```js
+  import { createLocalVue, mount } from '@vue/test-utils'
 
-// create an extended `Vue` constructor
-const localVue = createLocalVue()
+  // create an extended `Vue` constructor
+  const localVue = createLocalVue()
 
-// install a plugin “globally” on the “local” Vue constructor
-localVue.use(MyPlugin)
+  // install a plugin “globally” on the “local” Vue constructor
+  localVue.use(MyPlugin)
 
-// pass the `localVue` to the mount options
-mount(Component, { localVue })
-```
+  // pass the `localVue` to the mount options
+  mount(Component, { localVue })
+  ```
 
 - Global configuration makes it difficult to share the same copy of Vue between multiple "apps" on the same page, but with different global configurations.
 
@@ -73,7 +73,7 @@ const { createApp } = Vue
 const app = createApp({})
 ```
 
-An app instance exposes a subset of the current global APIs. The rule of thumb is _any APIs that globally mutate Vue's behavior are now moved to the app instance_. Here is a table of the current global APIs and their corresponding instance APIs:
+An app instance exposes a subset of the Vue 2 global APIs. The rule of thumb is _any APIs that globally mutate Vue's behavior are now moved to the app instance_. Here is a table of the Vue 2 global APIs and their corresponding instance APIs:
 
 | 2.x Global API             | 3.x Instance API (`app`)                                                                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -103,17 +103,17 @@ This config option was introduced with the intention to support native custom el
 Vue.config.ignoredElements = ['my-el', /^ion-/]
 
 // after
-const app = Vue.createApp({})
+const app = createApp({})
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
 ::: tip Important
 
-In 3.0, the check of whether an element is a component or not has been moved to the template compilation phase, therefore this config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
+In Vue 3, the check of whether an element is a component or not has been moved to the template compilation phase, therefore this config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
 
 - If `config.isCustomElement` is assigned to when using a runtime-only build, a warning will be emitted instructing the user to pass the option in the build setup instead;
 - This will be a new top-level option in the Vue CLI config.
-  :::
+:::
 
 ### `Vue.prototype` Replaced by `config.globalProperties`
 
@@ -128,7 +128,7 @@ Vue.prototype.$http = () => {}
 
 ```js
 // after - Vue 3
-const app = Vue.createApp({})
+const app = createApp({})
 app.config.globalProperties.$http = () => {}
 ```
 
@@ -155,7 +155,7 @@ app.use(VueRouter)
 
 ## Mounting App Instance
 
-After being initialized with `createApp(/* options */)`, the app instance `app` can be used to mount a Vue root instance with `app.mount(domTarget)`:
+After being initialized with `createApp(/* options */)`, the app instance `app` can be used to mount a root component instance with `app.mount(domTarget)`:
 
 ```js
 import { createApp } from 'vue'
@@ -219,7 +219,7 @@ import Bar from './Bar.vue'
 
 const createMyApp = options => {
   const app = createApp(options)
-  app.directive('focus' /* ... */)
+  app.directive('focus', /* ... */)
 
   return app
 }
@@ -228,4 +228,4 @@ createMyApp(Foo).mount('#foo')
 createMyApp(Bar).mount('#bar')
 ```
 
-Now the `focus` directive will be available in both Foo and Bar instances and their descendants.
+Now the `focus` directive will be available in both `Foo` and `Bar` instances and their descendants.
