@@ -1,14 +1,14 @@
 # Application Config
 
-`config` is an object containing Vue application global configurations. You can modify its properties listed below before mounting your application:
+Every Vue application exposes a `config` object that contains the configuration settings for that application:
 
 ```js
 const app = Vue.createApp({})
 
-app.config = {...}
-
-app.mount(...);
+console.log(app.config)
 ```
+
+You can modify its properties, listed below, before mounting your application.
 
 ## errorHandler
 
