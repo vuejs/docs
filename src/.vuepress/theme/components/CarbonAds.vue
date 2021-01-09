@@ -28,29 +28,28 @@ export default {
 <style>
 .carbon-ads {
   min-height: 102px;
-  padding: 1.5rem 1.5rem 0;
-  margin-bottom: -0.5rem;
   font-size: 0.75rem;
 
   width: 125px;
   position: fixed;
   z-index: 1;
-  bottom: 22px;
+  bottom: 14px;
   right: 14px;
   padding: 10px;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.8);
-  /* background-color: #fff; */
-  /* font-size: 13px; */
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1376px) {
   .carbon-ads {
     position: relative;
-    top: 87px;
-    right: 12px;
+    bottom: auto;
+    right: auto;
+
     float: right;
-    padding: 0 0 20px 30px;
+    margin: 71px 12px 0 15px;
+    padding: 0 0 10px 10px;
+    z-index: 5;
   }
 }
 
@@ -60,14 +59,9 @@ export default {
   display: inline;
 }
 
-.carbon-ads .carbon-img {
-  float: left;
-  margin-right: 1rem;
-  border: 1px solid var(--border-color);
-}
-
 .carbon-ads .carbon-img img {
   display: block;
+  width: 125px;
 }
 
 .carbon-ads .carbon-poweredby {
