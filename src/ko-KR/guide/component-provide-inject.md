@@ -6,7 +6,7 @@
 
 이러한 경우 `provide`와 `inject` 쌍을 사용할 수 있습니다. 부모 컴포넌트는 컴포넌트 계층 구조의 깊이와 상관없이 모든 자식에 대한 종속성 제공자 역할을 할 수 있습니다. 이 기능은 2개의 부분으로 구성됩니다: 부모 컴포넌트는 데이터 제공을 위해 `provide` 옵션을 사용하며, 자식 요소는 데이터 사용을 위해 `inject` 옵션을 사용합니다.
 
-![Provide/inject scheme](https://github.com/narusas/docs-next/blob/master/images/components_provide.png?raw=true)
+![Provide/inject scheme](/images/components_provide.png)
 
 예를, 들어, 아래와 같은 구조를 가지고 있는 경우:
 
