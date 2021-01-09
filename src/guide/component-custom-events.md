@@ -24,7 +24,7 @@ Emitted events can be defined on the component via the `emits` option.
 
 ```js
 app.component('custom-form', {
-  emits: ['inFocus', 'submit']
+  emits: ['in-focus', 'submit']
 })
 ```
 
@@ -81,7 +81,7 @@ app.component('my-component', {
   },
   emits: ['update:title'],
   template: `
-    <input 
+    <input
       type="text"
       :value="title"
       @input="$emit('update:title', $event.target.value)">
@@ -114,7 +114,7 @@ app.component('user-name', {
   },
   emits: ['update:firstName', 'update:lastName'],
   template: `
-    <input 
+    <input
       type="text"
       :value="firstName"
       @input="$emit('update:firstName', $event.target.value)">
@@ -153,7 +153,7 @@ app.component('my-component', {
   },
   emits: ['update:modelValue'],
   template: `
-    <input type="text" 
+    <input type="text"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)">
   `,
@@ -218,7 +218,7 @@ app.component('my-component', {
   props: ['description', 'descriptionModifiers'],
   emits: ['update:description'],
   template: `
-    <input type="text" 
+    <input type="text"
       :value="description"
       @input="$emit('update:description', $event.target.value)">
   `,
