@@ -18,7 +18,7 @@ As with [props casing](/guide/component-props.html#prop-casing-camelcase-vs-keba
 
 ## Defining Custom Events
 
-<VideoLesson href="https://vueschool.io/lessons/defining-custom-events-emits?friend=vuejs" title="Learn how to define which events a component can emit with Vue School">Watch a free video about Defining Custom Events on Vue School</VideoLesson>
+<VideoLesson href="https://vueschool.io/lessons/defining-custom-events-emits?friend=vuejs" title="Learn how to define which events a component can emit with Vue School">Watch a free video on how to define custom events on Vue School</VideoLesson>
 
 Emitted events can be defined on the component via the `emits` option.
 
@@ -81,7 +81,7 @@ app.component('my-component', {
   },
   emits: ['update:title'],
   template: `
-    <input 
+    <input
       type="text"
       :value="title"
       @input="$emit('update:title', $event.target.value)">
@@ -114,7 +114,7 @@ app.component('user-name', {
   },
   emits: ['update:firstName', 'update:lastName'],
   template: `
-    <input 
+    <input
       type="text"
       :value="firstName"
       @input="$emit('update:firstName', $event.target.value)">
@@ -153,7 +153,7 @@ app.component('my-component', {
   },
   emits: ['update:modelValue'],
   template: `
-    <input type="text" 
+    <input type="text"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)">
   `,
@@ -218,7 +218,7 @@ app.component('my-component', {
   props: ['description', 'descriptionModifiers'],
   emits: ['update:description'],
   template: `
-    <input type="text" 
+    <input type="text"
       :value="description"
       @input="$emit('update:description', $event.target.value)">
   `,
