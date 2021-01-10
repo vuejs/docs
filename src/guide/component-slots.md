@@ -240,14 +240,14 @@ app.component('todo-list', {
   template: `
     <ul>
       <li v-for="(item, index) in items">
-        <slot>{{ item }}</slot>
+        {{ item }}
       </li>
     </ul>
   `
 })
 ```
 
-We might want to replace the slot to customize it on parent component:
+We might want to replace the `{{ item }}` with a `<slot>` to customize it on parent component:
 
 ```html
 <todo-list>
