@@ -247,7 +247,7 @@ app.component('todo-list', {
 })
 ```
 
-We might want to replace the slot to customize it on parent component:
+We might want to replace the `{{ item }}` with a `<slot>` to customize it on parent component:
 
 ```html
 <todo-list>
