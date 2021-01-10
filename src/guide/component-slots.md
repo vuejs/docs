@@ -247,7 +247,7 @@ app.component('todo-list', {
 })
 ```
 
-We might want to replace the `{{ item }}` with a `<slot>` to customize it on parent component:
+We might want to replace the <span v-pre>`{{ item }}`</span> with a `<slot>` to customize it on parent component:
 
 ```html
 <todo-list>
@@ -320,7 +320,7 @@ Note that the abbreviated syntax for default slot **cannot** be mixed with named
 <todo-list v-slot="slotProps">
   <i class="fas fa-check"></i>
   <span class="green">{{ slotProps.item }}</span>
-  
+
   <template v-slot:other="otherSlotProps">
     slotProps is NOT available here
   </template>
