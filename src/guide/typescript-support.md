@@ -239,7 +239,7 @@ We can annotate a payload for the emitted event. Also, all non-declared emitted 
 ```ts
 const Component = defineComponent({
   emits: {
-    addBook: (payload: { bookName: string }) => {
+    addBook(payload: { bookName: string }) {
       // perform runtime validation
       return payload.bookName.length > 0
     }
