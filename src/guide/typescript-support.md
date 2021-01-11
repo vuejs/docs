@@ -212,7 +212,7 @@ const Component = defineComponent({
       type: Object as PropType<Book>,
       // Make sure to use arrow functions
       default: () => ({
-        title: "Arrow Function Expression"
+        title: 'Arrow Function Expression'
       }),
       validator: (book: Book) => !!book.title
     },
@@ -221,12 +221,36 @@ const Component = defineComponent({
       // Or provide an explicit this parameter
       default(this: void) {
         return {
-          title: "Function Expression"
+          title: 'Function Expression'
         }
       },
       validator(this: void, book: Book) {
         return !!book.title
       }
+    }
+  }
+})
+```
+
+## Annotating emits
+
+We can annotate a payload for the emitted event. Also, all non-declared emitted events will throw a type error when called:
+
+```ts
+const Component = defineComponent({
+  emits: {
+    addBook(payload: { bookName: string }) {
+      // perform runtime validation
+      return payload.bookName.length > 0
+    }
+  },
+  methods: {
+    onSubmit() {
+      this.$emit('addBook', {
+        bookName: 123 // Type error!
+      })
+
+      this.$emit('non-declared-event') // Type error!
     }
   }
 })
