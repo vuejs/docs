@@ -622,8 +622,23 @@ module.exports = {
                 link: 'https://vue.threadless.com/'
               }
             ]
+          },
+          {
+            text: 'Translations',
+            link: '#',
+            items: [
+              {
+                text: '中文',
+                link: 'https://v3.cn.vuejs.org/'
+              },
+              {
+                text: '한국어',
+                link: 'https://v3.vuejs.org/ko-KR/'
+              }
+            ]
           }
         ],
+        
         repo: 'vuejs/docs-next',
         editLinks: false,
         editLinkText: 'Edit this on GitHub!',
@@ -762,6 +777,20 @@ module.exports = {
               {
                 text: 'T-Shirt Shop',
                 link: 'https://vue.threadless.com/'
+              }
+            ]
+          },
+          {
+            text: 'Translations',
+            link: '#',
+            items: [
+              {
+                text: '中文',
+                link: 'https://v3.cn.vuejs.org/'
+              },
+              {
+                text: '한국어',
+                link: 'https://v3.vuejs.org/ko-KR/'
               }
             ]
           }

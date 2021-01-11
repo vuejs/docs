@@ -389,7 +389,7 @@ render() {
 
 ### Slots
 
-We can access slot contents as Arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
+We can access slot contents as arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
 
 ```js
 render() {
@@ -408,7 +408,7 @@ render() {
 }
 ```
 
-For component VNodes, we need to pass the children to `h` as an Object rather than an Array. Each property is used to populate the slot of the same name:
+For component VNodes, we need to pass the children to `h` as an object rather than an array. Each property is used to populate the slot of the same name:
 
 ```js
 render() {
@@ -435,7 +435,7 @@ render() {
   // Calls to resolveComponent should be outside the slot function
   const Button = Vue.resolveComponent('MyButton')
   const Icon = Vue.resolveComponent('MyIcon')
-  
+
   return Vue.h(
     Button,
     null,
@@ -449,7 +449,7 @@ render() {
           this.text
         ]
       }
-    } 
+    }
   )
 }
 ```
@@ -472,15 +472,15 @@ render() {
     {
       // If we want to pass on a slot function we can
       header: this.$slots.header,
-      
+
       // If we need to manipulate the slot in some way
       // then we need to wrap it in a new function
       default: (props) => {
         const children = this.$slots.default ? this.$slots.default(props) : []
-        
+
         return children.concat(Vue.h('div', 'Extra child'))
       }
-    } 
+    }
   )
 }
 ```

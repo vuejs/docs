@@ -96,6 +96,7 @@ An async function implicitly returns a Promise, but the cleanup function needs t
 Vue's reactivity system buffers invalidated effects and flushes them asynchronously to avoid unnecessary duplicate invocation when there are many state mutations happening in the same "tick". Internally, a component's `update` function is also a watched effect. When a user effect is queued, it is by default invoked **before** all component `update` effects:
 
 ```html
+
 <template>
   <div>{{ count }}</div>
 </template>
@@ -201,7 +202,7 @@ A watcher can also watch multiple sources at the same time using an array:
 
 ```js
 const firstName = ref('');
-const lastName= ref('');
+const lastName = ref('');
 
 watch([firstName, lastName], (newValues, prevValues) => {
   console.log(newValues, prevValues);
@@ -209,6 +210,83 @@ watch([firstName, lastName], (newValues, prevValues) => {
 
 firstName.value = "John"; // logs: ["John",""] ["", ""]
 lastName.value = "Smith"; // logs: ["John", "Smith"] ["John", ""]
+```
+
+### Watching Reactive Objects
+
+Using a watcher to compare values of an array or object that are reactive requires that it has a copy made of just the values.
+
+```js
+const numbers = reactive([1, 2, 3, 4])
+
+watch(
+  () => [...numbers],
+  (numbers, prevNumbers) => {
+    console.log(numbers, prevNumbers);
+  })
+
+numbers.push(5) // logs: [1,2,3,4,5] [1,2,3,4]
+```
+
+Attempting to check for changes of properties in a deeply nested object or array will still require the `deep` option to be true:
+
+```js
+const state = reactive({ 
+  id: 1, 
+  attributes: { 
+    name: "",
+  },
+});
+
+watch(
+  () => state,
+  (state, prevState) => {
+    console.log(
+      "not deep ",
+      state.attributes.name,
+      prevState.attributes.name
+    );
+  }
+);
+
+watch(
+  () => state,
+  (state, prevState) => {
+    console.log(
+      "deep ",
+      state.attributes.name,
+      prevState.attributes.name
+    );
+  },
+  { deep: true }
+);
+
+state.attributes.name = "Alex"; // Logs: "deep " "Alex" "Alex"
+```
+
+However, watching a reactive object or array will always return a reference to the current value of that object for both the current and previous value of the state. To fully watch deeply nested objects and arrays, a deep copy of values may be required. This can be achieved with a utility such as [lodash.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
+
+```js
+import _ from 'lodash';
+
+const state = reactive({
+  id: 1,
+  attributes: {
+    name: "",
+  },
+});
+
+watch(
+  () => _.cloneDeep(state),
+  (state, prevState) => {
+    console.log(
+      state.attributes.name, 
+      prevState.attributes.name
+    );
+  }
+);
+
+state.attributes.name = "Alex"; // Logs: "Alex" ""
 ```
 
 ### Shared Behavior with `watchEffect`

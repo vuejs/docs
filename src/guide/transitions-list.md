@@ -12,7 +12,7 @@ So what about for when we have a whole list of items we want to render simultane
 - Elements inside are **always required** to have a unique `key` attribute.
 - CSS transition classes will be applied to inner elements and not to the group/container itself.
 
-### List Entering/Leaving Transitions
+## List Entering/Leaving Transitions
 
 Now let's dive into an example, transitioning entering and leaving using the same CSS classes we've used previously:
 
@@ -72,7 +72,7 @@ Vue.createApp(Demo).mount('#list-demo')
 
 There's one problem with this example. When you add or remove an item, the ones around it instantly snap into their new place instead of smoothly transitioning. We'll fix that later.
 
-### List Move Transitions
+## List Move Transitions
 
 The `<transition-group>` component has another trick up its sleeve. It can not only animate entering and leaving, but also changes in position. The only new concept you need to know to use this feature is the addition of **the `v-move` class**, which is added when items are changing positions. Like the other classes, its prefix will match the value of a provided `name` attribute and you can also manually specify a class with the `move-class` attribute.
 
@@ -190,7 +190,7 @@ These FLIP animations are also not limited to a single axis. Items in a multidim
 
 TODO: example
 
-### Staggering List Transitions
+## Staggering List Transitions
 
 By communicating with JavaScript transitions through data attributes, it's also possible to stagger transitions in a list:
 

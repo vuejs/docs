@@ -34,7 +34,7 @@ Most of the use cases for `inline-template` assumes a no-build-tool setup, where
 
 The most straightforward workaround in such cases is using `<script>` with an alternative type:
 
-```js
+```html
 <script type="text/html" id="my-comp-template">
   <div>{{ hello }}</div>
 </script>
