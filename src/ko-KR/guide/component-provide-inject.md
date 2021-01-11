@@ -44,7 +44,7 @@ app.component('todo-list', {
 app.component('todo-list-statistics', {
   inject: ['user'],
   created() {
-    console.log(`Injected property: ${this.user}`) // > Injected property: John Doe
+    console.log(`Injected property: ${this.user}`) // > 주입된 프로퍼티 : John Doe
   }
 })
 ```
