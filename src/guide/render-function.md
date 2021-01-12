@@ -21,7 +21,9 @@ Anchored headings are used very frequently, we should create a component:
 The component must generate a heading based on the `level` prop, and we quickly arrive at this:
 
 ```js
-const app = Vue.createApp({})
+const { createApp } = Vue
+
+const app = createApp({})
 
 app.component('anchored-heading', {
   template: `
@@ -58,11 +60,13 @@ This template doesn't feel great. It's not only verbose, but we're duplicating `
 While templates work great for most components, it's clear that this isn't one of them. So let's try rewriting it with a `render()` function:
 
 ```js
-const app = Vue.createApp({})
+const { createApp, h } = Vue
+
+const app = createApp({})
 
 app.component('anchored-heading', {
   render() {
-    return Vue.h(
+    return h(
       'h' + this.level, // tag name
       {}, // props/attributes
       this.$slots.default() // array of children
@@ -109,7 +113,7 @@ Or in a render function:
 
 ```js
 render() {
-  return Vue.h('h1', {}, this.blogTitle)
+  return h('h1', {}, this.blogTitle)
 }
 ```
 
@@ -120,7 +124,7 @@ And in both cases, Vue automatically keeps the page updated, even when `blogTitl
 Vue keeps the page updated by building a **virtual DOM** to keep track of the changes it needs to make to the real DOM. Taking a closer look at this line:
 
 ```js
-return Vue.h('h1', {}, this.blogTitle)
+return h('h1', {}, this.blogTitle)
 ```
 
 What is the `h()` function returning? It's not _exactly_ a real DOM element. It returns a plain object which contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. We call this node description a "virtual node", usually abbreviated to **VNode**. "Virtual DOM" is what we call the entire tree of VNodes, built by a tree of Vue components.
@@ -169,7 +173,9 @@ If there are no props then the children can usually be passed as the second argu
 With this knowledge, we can now finish the component we started:
 
 ```js
-const app = Vue.createApp({})
+const { createApp, h } = Vue
+
+const app = createApp({})
 
 /** Recursively get text from children nodes */
 function getChildrenTextContent(children) {
@@ -192,8 +198,8 @@ app.component('anchored-heading', {
       .replace(/\W+/g, '-') // replace non-word characters with dash
       .replace(/(^-|-$)/g, '') // remove leading and trailing dashes
 
-    return Vue.h('h' + this.level, [
-      Vue.h(
+    return h('h' + this.level, [
+      h(
         'a',
         {
           name: headingId,
@@ -220,8 +226,8 @@ All VNodes in the component tree must be unique. That means the following render
 
 ```js
 render() {
-  const myParagraphVNode = Vue.h('p', 'hi')
-  return Vue.h('div', [
+  const myParagraphVNode = h('p', 'hi')
+  return h('div', [
     // Yikes - duplicate VNodes!
     myParagraphVNode, myParagraphVNode
   ])
@@ -232,9 +238,9 @@ If you really want to duplicate the same element/component many times, you can d
 
 ```js
 render() {
-  return Vue.h('div',
+  return h('div',
     Array.from({ length: 20 }).map(() => {
-      return Vue.h('p', 'hi')
+      return h('p', 'hi')
     })
   )
 }
@@ -246,16 +252,20 @@ To create a VNode for a component, the first argument passed to `h` should be th
 
 ```js
 render() {
-  return Vue.h(ButtonCounter)
+  return h(ButtonCounter)
 }
 ```
 
 If we need to resolve a component by name then we can call `resolveComponent`:
 
 ```js
+const { h, resolveComponent } = Vue
+
+// ...
+
 render() {
-  const ButtonCounter = Vue.resolveComponent('ButtonCounter')
-  return Vue.h(ButtonCounter)
+  const ButtonCounter = resolveComponent('ButtonCounter')
+  return h(ButtonCounter)
 }
 ```
 
@@ -269,7 +279,7 @@ components: {
   ButtonCounter
 },
 render() {
-  return Vue.h(Vue.resolveComponent('ButtonCounter'))
+  return h(resolveComponent('ButtonCounter'))
 }
 ```
 
@@ -277,7 +287,7 @@ Rather than registering a component by name and then looking it up we can use it
 
 ```js
 render() {
-  return Vue.h(ButtonCounter)
+  return h(ButtonCounter)
 }
 ```
 
@@ -300,11 +310,11 @@ This could be rewritten with JavaScript's `if`/`else` and `map()` in a render fu
 props: ['items'],
 render() {
   if (this.items.length) {
-    return Vue.h('ul', this.items.map((item) => {
-      return Vue.h('li', item.name)
+    return h('ul', this.items.map((item) => {
+      return h('li', item.name)
     }))
   } else {
-    return Vue.h('p', 'No items found.')
+    return h('p', 'No items found.')
   }
 }
 ```
@@ -319,7 +329,7 @@ The `v-model` directive is expanded to `modelValue` and `onUpdate:modelValue` pr
 props: ['modelValue'],
 emits: ['update:modelValue'],
 render() {
-  return Vue.h(SomeComponent, {
+  return h(SomeComponent, {
     modelValue: this.modelValue,
     'onUpdate:modelValue': value => this.$emit('update:modelValue', value)
   })
@@ -332,7 +342,7 @@ We have to provide a proper prop name for the event handler, e.g., to handle `cl
 
 ```js
 render() {
-  return Vue.h('div', {
+  return h('div', {
     onClick: $event => console.log('clicked', $event.target)
   })
 }
@@ -346,7 +356,7 @@ For example:
 
 ```javascript
 render() {
-  return Vue.h('input', {
+  return h('input', {
     onClickCapture: this.doThisInCapturingMode,
     onKeyupOnce: this.doThisOnce,
     onMouseoverOnceCapture: this.doThisOnceInCapturingMode
@@ -368,7 +378,7 @@ Here's an example with all of these modifiers used together:
 
 ```js
 render() {
-  return Vue.h('input', {
+  return h('input', {
     onKeyUp: event => {
       // Abort if the element emitting the event is not
       // the element the event is bound to
@@ -394,7 +404,7 @@ We can access slot contents as arrays of VNodes from [`this.$slots`](../api/inst
 ```js
 render() {
   // `<div><slot></slot></div>`
-  return Vue.h('div', this.$slots.default())
+  return h('div', this.$slots.default())
 }
 ```
 
@@ -402,7 +412,7 @@ render() {
 props: ['message'],
 render() {
   // `<div><slot :text="message"></slot></div>`
-  return Vue.h('div', this.$slots.default({
+  return h('div', this.$slots.default({
     text: this.message
   }))
 }
@@ -413,14 +423,14 @@ For component VNodes, we need to pass the children to `h` as an object rather th
 ```js
 render() {
   // `<div><child v-slot="props"><span>{{ props.text }}</span></child></div>`
-  return Vue.h('div', [
-    Vue.h(
-      Vue.resolveComponent('child'),
+  return h('div', [
+    h(
+      resolveComponent('child'),
       null,
       // pass `slots` as the children object
       // in the form of { name: props => VNode | Array<VNode> }
       {
-        default: (props) => Vue.h('span', props.text)
+        default: (props) => h('span', props.text)
       }
     )
   ])
@@ -433,10 +443,10 @@ The slots are passed as functions, allowing the child component to control the c
 // `<MyButton><MyIcon :name="icon" />{{ text }}</MyButton>`
 render() {
   // Calls to resolveComponent should be outside the slot function
-  const Button = Vue.resolveComponent('MyButton')
-  const Icon = Vue.resolveComponent('MyIcon')
+  const Button = resolveComponent('MyButton')
+  const Icon = resolveComponent('MyIcon')
 
-  return Vue.h(
+  return h(
     Button,
     null,
     {
@@ -445,7 +455,7 @@ render() {
         // Reactive properties should be read inside the slot function
         // so that they become dependencies of the child's rendering
         return [
-          Vue.h(Icon, { name: this.icon }),
+          h(Icon, { name: this.icon }),
           this.text
         ]
       }
@@ -458,7 +468,7 @@ If a component receives slots from its parent, they can be passed on directly to
 
 ```js
 render() {
-  return Vue.h(Panel, null, this.$slots)
+  return h(Panel, null, this.$slots)
 }
 ```
 
@@ -466,7 +476,7 @@ They can also be passed individually or wrapped as appropriate:
 
 ```js
 render() {
-  return Vue.h(
+  return h(
     Panel,
     null,
     {
@@ -478,7 +488,7 @@ render() {
       default: (props) => {
         const children = this.$slots.default ? this.$slots.default(props) : []
 
-        return children.concat(Vue.h('div', 'Extra child'))
+        return children.concat(h('div', 'Extra child'))
       }
     }
   )
@@ -490,10 +500,14 @@ render() {
 Behind the scenes, templates use `resolveDynamicComponent` to implement the `is` attribute. We can use the same function if we need all the flexibility provided by `is` in our `render` function:
 
 ```js
+const { h, resolveDynamicComponent } = Vue
+
+// ...
+
 // `<component :is="name"></component>`
 render() {
-  const Component = Vue.resolveDynamicComponent(this.name)
-  return Vue.h(Component)
+  const Component = resolveDynamicComponent(this.name)
+  return h(Component)
 }
 ```
 
@@ -508,7 +522,7 @@ If the VNode is always an HTML element then we can pass its name directly to `h`
 ```js
 // `<component :is="bold ? 'strong' : 'em'"></component>`
 render() {
-  return Vue.h(this.bold ? 'strong' : 'em')
+  return h(this.bold ? 'strong' : 'em')
 }
 ```
 
@@ -521,13 +535,13 @@ Much like a `<template>` tag, a `<component>` tag is only required in templates 
 If we're writing a lot of `render` functions, it might feel painful to write something like this:
 
 ```js
-Vue.h(
-  Vue.resolveComponent('anchored-heading'),
+h(
+  resolveComponent('anchored-heading'),
   {
     level: 1
   },
   {
-    default: () => [Vue.h('span', 'Hello'), ' world!']
+    default: () => [h('span', 'Hello'), ' world!']
   }
 )
 ```
