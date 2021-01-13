@@ -305,15 +305,15 @@ setTimeout(() => app.unmount(), 5000)
 
 - **Example:**
 
-```js
-import { createApp } from 'vue'
-import MyPlugin from './plugins/MyPlugin'
+  ```js
+  import { createApp } from 'vue'
+  import MyPlugin from './plugins/MyPlugin'
 
-const app = createApp({})
-const i18nStrings = {
+  const app = createApp({})
+  const i18nStrings = {
 
-app.use(MyPlugin)
-app.mount('#app')
-```
+  app.use(MyPlugin)
+  app.mount('#app')
+  ```
 
 - **See also:** [Plugins](../guide/plugins.html)
