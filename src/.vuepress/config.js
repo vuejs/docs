@@ -400,6 +400,10 @@ module.exports = {
         link: '#',
         items: [
           {
+            text: '한국어',
+            link: 'https://v3.vuejs-korea.org/'
+          },
+          {
             text: '中文',
             link: 'https://v3.cn.vuejs.org/'
           }
