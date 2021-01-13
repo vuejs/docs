@@ -310,7 +310,6 @@ setTimeout(() => app.unmount(), 5000)
   import MyPlugin from './plugins/MyPlugin'
 
   const app = createApp({})
-  const i18nStrings = {
 
   app.use(MyPlugin)
   app.mount('#app')
