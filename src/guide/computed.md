@@ -196,7 +196,7 @@ Result:
 
 In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API) and sets a condition for performing this operation. None of that would be possible with a computed property.
 
-In addition to the `watch` option, you can also use the imperative [vm.\$watch API](../api/instance-methods.html#watch).
+In addition to the `watch` option, you can also use the imperative [vm.$watch API](../api/instance-methods.html#watch).
 
 ### Computed vs Watched Property
 

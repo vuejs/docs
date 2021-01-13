@@ -1,14 +1,14 @@
 # Application Config
 
-`config` is an object containing Vue application global configurations. You can modify its properties listed below before mounting your application:
+Every Vue application exposes a `config` object that contains the configuration settings for that application:
 
 ```js
 const app = Vue.createApp({})
 
-app.config = {...}
-
-app.mount(...);
+console.log(app.config)
 ```
+
+You can modify its properties, listed below, before mounting your application.
 
 ## errorHandler
 
@@ -93,6 +93,10 @@ app.config.isCustomElement = tag => tag.startsWith('ion-')
 Specifies a method to recognize custom elements defined outside of Vue (e.g., using the Web Components APIs). If component matches this condition, it won't need local or global registration and Vue won't throw a warning about an `Unknown custom element`.
 
 > Note that all native HTML and SVG tags don't need to be matched in this function - Vue parser performs this check automatically
+
+::: tip Important
+This config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
+:::
 
 ## optionMergeStrategies
 

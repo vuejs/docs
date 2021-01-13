@@ -261,13 +261,9 @@ app.provide('user', 'administrator')
 
 ## unmount
 
-- **Arguments:**
-
-  - `{Element | string} rootContainer`
-
 - **Usage:**
 
-  Unmounts a root component of the application instance on the provided DOM element.
+  Unmounts a root component of the application instance.
 
 - **Example:**
 
@@ -285,7 +281,7 @@ const app = createApp({})
 app.mount('#my-app')
 
 // Application will be unmounted 5 seconds after mount
-setTimeout(() => app.unmount('#my-app'), 5000)
+setTimeout(() => app.unmount(), 5000)
 ```
 
 ## use
