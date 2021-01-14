@@ -366,13 +366,13 @@ render() {
 
 For all other event and key modifiers, no special API is necessary, because we can use event methods in the handler:
 
-| Modifier(s)                                           | Equivalent in Handler                                                                                                |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `.stop`                                               | `event.stopPropagation()`                                                                                            |
-| `.prevent`                                            | `event.preventDefault()`                                                                                             |
-| `.self`                                               | `if (event.target !== event.currentTarget) return`                                                                   |
-| Keys:<br>`.enter`, `.13`                              | `if (event.keyCode !== 13) return` (change `13` to [another key code](http://keycode.info/) for other key modifiers) |
-| Modifiers Keys:<br>`.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return` (change `ctrlKey` to `altKey`, `shiftKey`, or `metaKey`, respectively)                  |
+| Modifier(s)                                          | Equivalent in Handler                                                                                      |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `.stop`                                              | `event.stopPropagation()`                                                                                  |
+| `.prevent`                                           | `event.preventDefault()`                                                                                   |
+| `.self`                                              | `if (event.target !== event.currentTarget) return`                                                         |
+| Keys:<br>e.g. `.enter`                               | `if (event.key !== 'Enter') return`<br><br>Change `'Enter'` to the appropriate [key](http://keycode.info/) |
+| Modifier Keys:<br>`.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return`<br><br>Likewise for `altKey`, `shiftKey`, and `metaKey`                       |
 
 Here's an example with all of these modifiers used together:
 
@@ -384,9 +384,9 @@ render() {
       // the element the event is bound to
       if (event.target !== event.currentTarget) return
       // Abort if the key that went up is not the enter
-      // key (13) and the shift key was not held down
-      // at the same time
-      if (!event.shiftKey || event.keyCode !== 13) return
+      // key and the shift key was not held down at the
+      // same time
+      if (!event.shiftKey || event.key !== 'Enter') return
       // Stop event propagation
       event.stopPropagation()
       // Prevent the default keyup handler for this element
