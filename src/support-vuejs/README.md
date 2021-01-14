@@ -3,58 +3,58 @@ supportvue: true
 sidebar: auto
 ---
 
-# Sponsor Vue.js Development
+# Soyez Un Sponsor Du Developpement Vue.js
 
-Vue.js is an MIT licensed open source project and completely free to use.
-However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support Vue.js development via the following methods:
+Vue.js est un projet open source sous licence MIT dont l'utilisation est totalement gratuite.
+Cependant, les efforts nécessaires pour maintenir et développer de nouvelles fonctionnalités pour le projet ne sont pas durables sans un soutien financier approprié. Vous pouvez soutenir le développement de Vue.js et en devenir un sponsor via les méthodes suivantes:
 
-## One-time Donations
+## Dons Uniques
 
-We accept donations through these channels:
+Nous acceptons les dons via ces canaux:
 
 <support-Coins />
 
-## Recurring Pledges
+## Engagements récurrents
 
-Recurring pledges come with exclusive perks, e.g. having your name listed in the Vue GitHub repository, or have your company logo placed on this website.
+Les Engagements récurrents s'accompagnent de contreparties exclusifs, par exemple avoir votre nom répertorié dans le répository de Vue sur GitHub, ou placer le logo de votre entreprise sur ce site Web.
 
-- [Become a backer or sponsor via Patreon](https://www.patreon.com/evanyou) (goes directly to support Evan You's full-time work on Vue)
-- [Become a backer or sponsor via OpenCollective](https://opencollective.com/vuejs) (goes into a fund with transparent expense models supporting community efforts and events)
+- [Devenez un soutien ou un sponsor via patreon](https://www.patreon.com/evanyou) (Soutien direct à Evan You pour son travail à plein temps sur Vue)
+- [Devenez un soutien ou un sponsor via OpenCollective](https://opencollective.com/vuejs) (Va dans un fonds avec des modèles de dépenses transparents soutenant les efforts de la communauté et les événements)
 
-## Current Premium Sponsors
+## Sponsors Premium actuels
 
-### Special Sponsors
+### Sponsors Special
 
 <support-SponsorGroup group="special_sponsors" class="platinum" />
 
-### Platinum
+### Platine
 
 <support-SponsorGroup group="platinum_sponsors" class="platinum" />
 
-### OpenCollective Platinum
+### OpenCollective Platine
 
 <support-OpenCollectiveGroup group="platinum" />
 
-### Special Sponsors (China)
+### Sponsors Special (Chine)
 
 <support-SponsorGroup group="platinum_sponsors_china" class="platinum" />
 
-### Patreon Gold
+### Patreon Or
 
 <support-SponsorGroup group="gold_sponsors" class="patreon-sponsors sponsor-section" />
 
-### OpenCollective Gold
+### OpenCollective Or
 
 <support-OpenCollectiveGroup group="gold" />
 
-### Patreon Silver
+### Patreon Argent
 
 <support-SponsorGroup group="silver_sponsors" class="patreon-sponsors sponsor-section" />
 
-### OpenCollective Silver
+### OpenCollective Argent
 
 <support-OpenCollectiveGroup group="silver" />
 
-If you run a business and are using Vue in a revenue-generating product, it makes business sense to sponsor Vue development: **it ensures the project that your product relies on stays healthy and actively maintained.** It can also help your exposure in the Vue community and makes it easier to attract Vue developers.
+Si vous dirigez une entreprise et que vous utilisez Vue dans un produit générateur de revenus, il serait judicieux de parrainer le développement de Vue: ** cela garantit que le projet sur lequel repose votre produit reste sain et activement maintenu. ** Cela peut également aider votre exposition dans la communauté Vue et facilite l'attrait des développeurs Vue.
 
-If you are an individual user and have enjoyed the productivity of using Vue, consider donating as a sign of appreciation - like buying me coffee once in a while.
+Si vous utilisez Vue à titre individuel et que vous appréciez la productivité de l'utilisation de Vue, pensez à faire un don comme un signe d'appréciation - comme m'acheter du café de temps en temps.

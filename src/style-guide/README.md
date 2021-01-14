@@ -4,109 +4,112 @@ sidebar: auto
 
 # Style Guide
 
-This is the official style guide for Vue-specific code. If you use Vue in a project, it's a great reference to avoid errors, bikeshedding, and anti-patterns. However, we don't believe that any style guide is ideal for all teams or projects, so mindful deviations are encouraged based on past experience, the surrounding tech stack, and personal values.
+Ceci est le guide de style officiel pour du code spécifique à Vue. Si vous utilisez Vue dans un projet, c'est une excellente référence pour éviter les erreurs, les anti-patterns et les comportements inattendus. Cependant, nous ne pensons pas qu'un guide de style soit idéal pour toutes les équipes ou tous les projets. Par conséquent, libre à vous de faire différemment en fonction de votre expérience, de votre stack technologique et de vos valeurs personnelles.
 
-For the most part, we also avoid suggestions about JavaScript or HTML in general. We don't mind whether you use semicolons or trailing commas. We don't mind whether your HTML uses single-quotes or double-quotes for attribute values. Some exceptions will exist however, where we've found that a particular pattern is helpful in the context of Vue.
+La plupart du temps, nous évitons également les suggestions sur JavaScript ou HTML en général. Peu importe que vous utilisiez des points-virgules ou des virgules de fin. Votre HTML peut utiliser des guillemets simples ou doubles pour les valeurs d'attribut. Certaines exceptions existeront cependant, où nous avons constaté qu'un modèle particulier est utile dans le contexte de Vue.
 
-Finally, we've split rules into four categories:
+Pour en finir donc, nous avons séparé les règles en quatre catégories:
 
-## Rule Categories
+## Catégoties de Règles
 
-### Priority A: Essential
+### Priorité A: Essentielle
 
-These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
+Ces règles aident à éviter les erreurs, alors apprenez-les et respectez-les à tout prix. Des exceptions peuvent exister, mais devraient être très rares et être réservées à des personnes ayant une connaissance approfondie de JavaScript et de Vue.
 
-### Priority B: Strongly Recommended
+### Priorité B: Fortement Récommandée
 
-These rules have been found to improve readability and/or developer experience in most projects. Your code will still run if you violate them, but violations should be rare and well-justified.
+Ces règles améliorent la lisibilité et/ou l'expérience des développeurs dans la plupart des projets. Votre code fonctionnera toujours si vous les enfreignez, mais les violations doivent être rares et bien justifiées.
 
-### Priority C: Recommended
+### Priorité C: Récommandée
 
-Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
+Lorsqu'il existe plusieurs options tout aussi bonnes les unes que les autres, un choix arbitraire peut être fait pour assurer une certaine cohérence. Dans ces règles, nous décrivons chaque option acceptable et suggérons un choix par défaut. Cela signifie que vous pouvez vous sentir libre de faire un choix différent dans votre propre code base, tant que vous êtes cohérent et que vous avez une bonne raison. Veuillez cependant avoir une bonne raison! En vous adaptant au standard de la communauté, vous allez:
 
-1. train your brain to more easily parse most of the community code you encounter
-2. be able to copy and paste most community code examples without modification
-3. often find new hires are already accustomed to your preferred coding style, at least in regards to Vue
+1. entraîner votre cerveau à analyser plus facilement la plupart des codes d'autres développeurs que vous rencontrez
+2. être capable de copier et coller la plupart des exemples de code d'autres développeurs sans modification
+3. trouver souvent que les nouveaux collegues sont déjà habitués à votre style de code préféré, du moins en ce qui concerne Vue
 
-### Priority D: Use with Caution
+### Priorité D: Utiliser Avec Précaution
 
-Some features of Vue exist to accommodate rare edge cases or smoother migrations from a legacy code base. When overused however, they can make your code more difficult to maintain or even become a source of bugs. These rules shine a light on potentially risky features, describing when and why they should be avoided.
+Certaines fonctionnalités de Vue existent pour prendre en charge des cas marginaux rares ou des migrations plus fluides à partir d'une code base héritée. Cependant, lorsqu'ils sont surutilisés, ils peuvent rendre votre code plus difficile à maintenir ou même devenir une source de bugs. Ces règles mettent en lumière les caractéristiques potentiellement risquées, décrivant quand et pourquoi elles doivent être évitées.
 
-## Priority A Rules: Essential <span class="hide-from-sidebar">(Error Prevention)</span>
+## Règles de Priorité A : Essentielle <span class="hide-from-sidebar">(Prevention d'Erreur)</span>
 
-### Multi-word component names <sup data-p="a">essential</sup>
+### Noms des composants en mots-composés<sup data-p="a">essentielle</sup>
 
-**Component names should always be multi-word, except for root `App` components, and built-in components provided by Vue, such as `<transition>` or `<component>`.**
+**Les noms des Composants doivent toujours être des mots-composés, sauf pour le composant racine `App`, et les composants intégrés qui viennent avec Vue, tels que `<transition>` ou `<component>`.**
 
-This [prevents conflicts](http://w3c.github.io/webcomponents/spec/custom/#valid-custom-element-name) with existing and future HTML elements, since all HTML elements are a single word.
+Ceci afin d' [éviter des conflits](http://w3c.github.io/webcomponents/spec/custom/#valid-custom-element-name) avec des élements HTML existants ou future, puisque tous les élements HTML sont des mots simples.
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
-``` js
+```js
 app.component('todo', {
   // ...
 })
 ```
 
-``` js
+```js
 export default {
   name: 'Todo',
   // ...
 }
 ```
+
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
-``` js
+```js
 app.component('todo-item', {
   // ...
 })
 ```
 
-``` js
+```js
 export default {
   name: 'TodoItem',
   // ...
 }
 ```
+
 </div>
 
-### Prop definitions <sup data-p="a">essential</sup>
+### Définition des props <sup data-p="a">essentielle</sup>
 
-**Prop definitions should be as detailed as possible.**
+**La definition des props doivent être détaillées autant que possible.**
 
-In committed code, prop definitions should always be as detailed as possible, specifying at least type(s).
+Dans un code commité, la definition des props doivent toujours être détaillé autant que possible, en spécifiant au moins le(s) type(s).
 
-::: details Detailed Explanation
-Detailed [prop definitions](/guide/component-props.html#prop-validation) have two advantages:
+::: details Explications détaillés
+Detailler les [definitions des props](/guide/component-props.html#prop-validation) ont deux avantages:
 
-- They document the API of the component, so that it's easy to see how the component is meant to be used.
-- In development, Vue will warn you if a component is ever provided incorrectly formatted props, helping you catch potential sources of error.
-:::
+- Elles documentent l'API du composant, de sorte qu'il soit facile de voir comment le composant est censé être utilisé.
+- En développement, Vue vous enverra un avertissement si des props aux formats incorrect sont fournis à un composant, vous aidant ainsi à détecter les potentielles sources d'erreurs.
+  :::
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
-``` js
-// This is only OK when prototyping
+```js
+// Ceci est OK seulement en prototyping
 props: ['status']
 ```
+
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
-``` js
+```js
 props: {
   status: String
 }
 ```
 
-``` js
-// Even better!
+```js
+// Encore mieux!
 props: {
   status: {
     type: String,
@@ -123,98 +126,90 @@ props: {
   }
 }
 ```
+
 </div>
 
-### Keyed `v-for` <sup data-p="a">essential</sup>
+### `v-for` avec key <sup data-p="a">essentielle</sup>
 
-**Always use `key` with `v-for`.**
+**Toujours utiliser `key` avec `v-for`.**
 
-`key` with `v-for` is _always_ required on components, in order to maintain internal component state down the subtree. Even for elements though, it's a good practice to maintain predictable behavior, such as [object constancy](https://bost.ocks.org/mike/constancy/) in animations.
+`key` avec `v-for` est _toujours_ requis sur les composants, dans le but de maintenir l'état des composants internes sous la hiérarchie. Même pour les éléments, il est recommandé de conserver un comportement prévisible, tel que la [constance des objets](https://bost.ocks.org/mike/constancy/) dans les animations.
 
-::: details Detailed Explanation
-Let's say you have a list of todos:
+::: details Explication Détaillée
+Disons que vous avez une liste de todos:
 
-``` js
+```js
 data() {
   return {
     todos: [
       {
         id: 1,
-        text: 'Learn to use v-for'
+        text: 'Apprendre à utiliser v-for'
       },
       {
         id: 2,
-        text: 'Learn to use key'
+        text: 'Apprendre à utiliser key'
       }
     ]
   }
 }
 ```
 
-Then you sort them alphabetically. When updating the DOM, Vue will optimize rendering to perform the cheapest DOM mutations possible. That might mean deleting the first todo element, then adding it again at the end of the list.
+Ensuite, vous les trier par ordre alphabetique. Lorsque le DOM est mis à jour, Vue optimisera le rendu en effectuant les mutations necessitant le moins de ressources. Cela peut vouloir dire supprimer le premier élément todo pour ensuite le rajouter è la fin de la liste.
 
-The problem is, there are cases where it's important not to delete elements that will remain in the DOM. For example, you may want to use `<transition-group>` to animate list sorting, or maintain focus if the rendered element is an `<input>`. In these cases, adding a unique key for each item (e.g. `:key="todo.id"`) will tell Vue how to behave more predictably.
+Le problème est qu'ils existent des cas où il est important de ne pas supprimer des éléments qui resteront dans le DOM. Par example, Vous voudriez peut-être utiliser `<transition-group>` pour animer la liste, ou garder le focus sur un élément `<input>`. Dans ces cas, ajouter une clé (key) unique à chaque item (e.g. `:key="todo.id"`) fera comprendre à Vue comment se comporter de façon plus prédictible.
 
-In our experience, it's better to _always_ add a unique key, so that you and your team simply never have to worry about these edge cases. Then in the rare, performance-critical scenarios where object constancy isn't necessary, you can make a conscious exception.
+Dans notre exemple, il est _toujours_ préférable d'ajouter une clé (key) unique, de sorte que vous et votre équipe n'aurez jamais à vous soucier de ces cas rares. Cependant, dans les rares scénarios critiques pour les performances où la constance des objets n'est pas nécessaire, vous pouvez faire une exception en connaissance de cause.
 :::
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
-``` html
+```html
 <ul>
-  <li v-for="todo in todos">
-    {{ todo.text }}
-  </li>
+  <li v-for="todo in todos">{{ todo.text }}</li>
 </ul>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
-``` html
+```html
 <ul>
-  <li
-    v-for="todo in todos"
-    :key="todo.id"
-  >
-    {{ todo.text }}
-  </li>
+  <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
 </ul>
 ```
+
 </div>
 
-### Avoid `v-if` with `v-for` <sup data-p="a">essential</sup>
+### Eviter `v-if` avec v-for `v-for` <sup data-p="a">essentielle</sup>
 
-**Never use `v-if` on the same element as `v-for`.**
+**N'utilisez jamais `v-if` sur le même élément que `v-for`.**
 
-There are two common cases where this can be tempting:
+Il existe deux cas courants où cela pourrait être tentant:
 
-- To filter items in a list (e.g. `v-for="user in users" v-if="user.isActive"`). In these cases, replace `users` with a new computed property that returns your filtered list (e.g. `activeUsers`).
+- Filtrer des items dans une liste (e.g. `v-for="user in users" v-if="user.isActive"`). Dans ce cas, remplacez `users` avec une nouvelle propriété computed qui retourne la liste des items filtrés (e.g. `activeUsers`).
 
-- To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
+- Pour eviter d'adficher une liste alors qu'elle devraitêtre masquée (e.g. `v-for="user in users" v-if="shouldShowUsers"`). Dans ce cas, déplacez le `v-if` dans un éleément container (e.g. `ul`, `ol`).
 
-::: details Detailed Explanation
-When Vue processes directives, `v-if` has a higher priority than `v-for`, so that this template:
+::: details Explication détaillée
+Lorsque Vue exécute les directives, `v-if` a une priorité plus haute que `v-for`, ainsi ce template:
 
-``` html
+```html
 <ul>
-  <li
-    v-for="user in users"
-    v-if="user.isActive"
-    :key="user.id"
-  >
+  <li v-for="user in users" v-if="user.isActive" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
 ```
 
-Will throw an error, because the `v-if` directive will be evaluated first and the iteration variable `user` does not exist at this moment.
+Retournera une erreur, car la directive `v-if` sera évalué en premier alors que la variable d'itération `user` n'existe pas encore.t.
 
-This could be fixed by iterating over a computed property instead, like this:
+On pourrait corriger cela en itérant sur une propriété computed comme ceci:
 
-``` js
+```js
 computed: {
   activeUsers() {
     return this.users.filter(user => user.isActive)
@@ -222,25 +217,18 @@ computed: {
 }
 ```
 
-``` html
+```html
 <ul>
-  <li
-    v-for="user in activeUsers"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
+  <li v-for="user in activeUsers" :key="user.id">{{ user.name }}</li>
 </ul>
 ```
 
-Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` element:
+Alternativement, on pourrait utiliser un tag `<template>` avec `v-for` pour englober les éléments `<li>`:
 
 ```html
 <ul>
   <template v-for="user in users" :key="user.id">
-    <li v-if="user.isActive">
-      {{ user.name }}
-    </li>
+    <li v-if="user.isActive">{{ user.name }}</li>
   </template>
 </ul>
 ```
@@ -248,49 +236,40 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 :::
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
-``` html
+```html
 <ul>
-  <li
-    v-for="user in users"
-    v-if="user.isActive"
-    :key="user.id"
-  >
+  <li v-for="user in users" v-if="user.isActive" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
-``` html
+```html
 <ul>
-  <li
-    v-for="user in activeUsers"
-    :key="user.id"
-  >
-    {{ user.name }}
-  </li>
+  <li v-for="user in activeUsers" :key="user.id">{{ user.name }}</li>
 </ul>
 ```
 
 ```html
 <ul>
   <template v-for="user in users" :key="user.id">
-    <li v-if="user.isActive">
-      {{ user.name }}
-    </li>
+    <li v-if="user.isActive">{{ user.name }}</li>
   </template>
 </ul>
 ```
+
 </div>
 
-### Component style scoping <sup data-p="a">essential</sup>
+### Scoper les styles des composants <sup data-p="a">essentielle</sup>
 
-**For applications, styles in a top-level `App` component and in layout components may be global, but all other components should always be scoped.**
+**Pour les applications, les styles dans un composant App de niveau supérieur et dans les composants de mise en page (layout) peuvent être globaux, mais tous les autres composants doivent toujours être scopés.**
 
 This is only relevant for [single-file components](../guide/single-file-component.html). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
 
@@ -307,75 +286,77 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
+```html
 <template>
   <button class="btn btn-close">×</button>
 </template>
 
 <style>
-.btn-close {
-  background-color: red;
-}
+  .btn-close {
+    background-color: red;
+  }
 </style>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
+```html
 <template>
   <button class="button button-close">×</button>
 </template>
 
 <!-- Using the `scoped` attribute -->
 <style scoped>
-.button {
-  border: none;
-  border-radius: 2px;
-}
+  .button {
+    border: none;
+    border-radius: 2px;
+  }
 
-.button-close {
-  background-color: red;
-}
+  .button-close {
+    background-color: red;
+  }
 </style>
 ```
 
-``` html
+```html
 <template>
   <button :class="[$style.button, $style.buttonClose]">×</button>
 </template>
 
 <!-- Using CSS modules -->
 <style module>
-.button {
-  border: none;
-  border-radius: 2px;
-}
+  .button {
+    border: none;
+    border-radius: 2px;
+  }
 
-.buttonClose {
-  background-color: red;
-}
+  .buttonClose {
+    background-color: red;
+  }
 </style>
 ```
 
-``` html
+```html
 <template>
   <button class="c-Button c-Button--close">×</button>
 </template>
 
 <!-- Using the BEM convention -->
 <style>
-.c-Button {
-  border: none;
-  border-radius: 2px;
-}
+  .c-Button {
+    border: none;
+    border-radius: 2px;
+  }
 
-.c-Button--close {
-  background-color: red;
-}
+  .c-Button--close {
+    background-color: red;
+  }
 </style>
 ```
+
 </div>
 
 ### Private property names <sup data-p="a">essential</sup>
@@ -393,47 +374,47 @@ Instead, we recommend combining the two prefixes into `$_`, as a convention for 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` js
+```js
 const myGreatMixin = {
   // ...
   methods: {
     update() {
       // ...
-    }
-  }
+    },
+  },
 }
 ```
 
-``` js
+```js
 const myGreatMixin = {
   // ...
   methods: {
     _update() {
       // ...
-    }
-  }
+    },
+  },
 }
 ```
 
-``` js
+```js
 const myGreatMixin = {
   // ...
   methods: {
     $update() {
       // ...
-    }
-  }
+    },
+  },
 }
 ```
 
-``` js
+```js
 const myGreatMixin = {
   // ...
   methods: {
     $_update() {
       // ...
-    }
-  }
+    },
+  },
 }
 ```
 
@@ -442,18 +423,18 @@ const myGreatMixin = {
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` js
+```js
 const myGreatMixin = {
   // ...
   methods: {
     $_myGreatMixin_update() {
       // ...
-    }
-  }
+    },
+  },
 }
 ```
 
-``` js
+```js
 // Even better!
 const myGreatMixin = {
   // ...
@@ -461,8 +442,8 @@ const myGreatMixin = {
     publicMethod() {
       // ...
       myPrivateFunction()
-    }
-  }
+    },
+  },
 }
 
 function myPrivateFunction() {
@@ -471,6 +452,7 @@ function myPrivateFunction() {
 
 export default myGreatMixin
 ```
+
 </div>
 
 ## Priority B Rules: Strongly Recommended <span class="hide-from-sidebar">(Improving Readability)</span>
@@ -484,7 +466,7 @@ This helps you to more quickly find a component when you need to edit it or revi
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` js
+```js
 app.component('TodoList', {
   // ...
 })
@@ -493,6 +475,7 @@ app.component('TodoItem', {
   // ...
 })
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -509,6 +492,7 @@ components/
 |- TodoList.vue
 |- TodoItem.vue
 ```
+
 </div>
 
 ### Single-file component filename casing <sup data-p="b">strongly recommended</sup>
@@ -529,6 +513,7 @@ components/
 components/
 |- myComponent.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -543,6 +528,7 @@ components/
 components/
 |- my-component.vue
 ```
+
 </div>
 
 ### Base component names <sup data-p="b">strongly recommended</sup>
@@ -568,20 +554,23 @@ Some advantages of this convention:
 
 - Since these components are so frequently used, you may want to simply make them global instead of importing them everywhere. A prefix makes this possible with Webpack:
 
-  ``` js
-  const requireComponent = require.context("./src", true, /Base[A-Z]\w+\.(vue|js)$/)
+  ```js
+  const requireComponent = require.context(
+    './src',
+    true,
+    /Base[A-Z]\w+\.(vue|js)$/
+  )
   requireComponent.keys().forEach(function (fileName) {
     let baseComponentConfig = requireComponent(fileName)
     baseComponentConfig = baseComponentConfig.default || baseComponentConfig
-    const baseComponentName = baseComponentConfig.name || (
-      fileName
-        .replace(/^.+\//, '')
-        .replace(/\.\w+$/, '')
-    )
+    const baseComponentName =
+      baseComponentConfig.name ||
+      fileName.replace(/^.+\//, '').replace(/\.\w+$/, '')
     app.component(baseComponentName, baseComponentConfig)
   })
   ```
-:::
+
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -592,6 +581,7 @@ components/
 |- VueTable.vue
 |- Icon.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -617,6 +607,7 @@ components/
 |- VTable.vue
 |- VIcon.vue
 ```
+
 </div>
 
 ### Single-instance component names <sup data-p="b">strongly recommended</sup>
@@ -633,6 +624,7 @@ components/
 |- Heading.vue
 |- MySidebar.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -643,6 +635,7 @@ components/
 |- TheHeading.vue
 |- TheSidebar.vue
 ```
+
 </div>
 
 ### Tightly coupled component names <sup data-p="b">strongly recommended</sup>
@@ -678,7 +671,7 @@ This isn't recommended, as it results in:
 
 - Many files with similar names, making rapid file switching in code editors more difficult.
 - Many nested sub-directories, which increases the time it takes to browse components in an editor's sidebar.
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -695,6 +688,7 @@ components/
 |- SearchSidebar.vue
 |- NavigationForSearchSidebar.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -712,6 +706,7 @@ components/
 |- SearchSidebar.vue
 |- SearchSidebarNavigation.vue
 ```
+
 </div>
 
 ### Order of words in component names <sup data-p="b">strongly recommended</sup>
@@ -762,7 +757,7 @@ You might be tempted to solve this problem differently, nesting all the search c
 - It generally takes more time to navigate through nested sub-directories, than scrolling through a single `components` directory.
 - Name conflicts (e.g. multiple `ButtonDelete.vue` components) make it more difficult to quickly navigate to a specific component in a code editor.
 - Refactoring becomes more difficult, because find-and-replace often isn't sufficient to update relative references to a moved component.
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -776,6 +771,7 @@ components/
 |- SearchInput.vue
 |- TermsCheckbox.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -790,6 +786,7 @@ components/
 |- SettingsCheckboxTerms.vue
 |- SettingsCheckboxLaunchOnStartup.vue
 ```
+
 </div>
 
 ### Self-closing components <sup data-p="b">strongly recommended</sup>
@@ -803,29 +800,31 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
+```html
 <!-- In single-file components, string templates, and JSX -->
 <MyComponent></MyComponent>
 ```
 
-``` html
+```html
 <!-- In DOM templates -->
-<my-component/>
+<my-component />
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
+```html
 <!-- In single-file components, string templates, and JSX -->
-<MyComponent/>
+<MyComponent />
 ```
 
-``` html
+```html
 <!-- In DOM templates -->
 <my-component></my-component>
 ```
+
 </div>
 
 ### Component name casing in templates <sup data-p="b">strongly recommended</sup>
@@ -845,41 +844,43 @@ Also note that if you've already invested heavily in kebab-case, consistency wit
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
+```html
 <!-- In single-file components and string templates -->
-<mycomponent/>
+<mycomponent />
 ```
 
-``` html
+```html
 <!-- In single-file components and string templates -->
-<myComponent/>
+<myComponent />
 ```
 
-``` html
+```html
 <!-- In DOM templates -->
 <MyComponent></MyComponent>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
+```html
 <!-- In single-file components and string templates -->
-<MyComponent/>
+<MyComponent />
 ```
 
-``` html
+```html
 <!-- In DOM templates -->
 <my-component></my-component>
 ```
 
 OR
 
-``` html
+```html
 <!-- Everywhere -->
 <my-component></my-component>
 ```
+
 </div>
 
 ### Component name casing in JS/JSX <sup data-p="b">strongly recommended</sup>
@@ -893,61 +894,63 @@ However, for applications that use **only** global component definitions via `ap
 
 - It's rare that global components are ever referenced in JavaScript, so following a convention for JavaScript makes less sense.
 - These applications always include many in-DOM templates, where [kebab-case **must** be used](#component-name-casing-in-templates-strongly-recommended).
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` js
+```js
 app.component('myComponent', {
   // ...
 })
 ```
 
-``` js
+```js
 import myComponent from './MyComponent.vue'
 ```
 
-``` js
+```js
 export default {
   name: 'myComponent',
   // ...
 }
 ```
 
-``` js
+```js
 export default {
   name: 'my-component',
   // ...
 }
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` js
+```js
 app.component('MyComponent', {
   // ...
 })
 ```
 
-``` js
+```js
 app.component('my-component', {
   // ...
 })
 ```
 
-``` js
+```js
 import MyComponent from './MyComponent.vue'
 ```
 
-``` js
+```js
 export default {
   name: 'MyComponent',
   // ...
 }
 ```
+
 </div>
 
 ### Full-word component names <sup data-p="b">strongly recommended</sup>
@@ -964,6 +967,7 @@ components/
 |- SdSettings.vue
 |- UProfOpts.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -974,6 +978,7 @@ components/
 |- StudentDashboardSettings.vue
 |- UserProfileOptions.vue
 ```
+
 </div>
 
 ### Prop name casing <sup data-p="b">strongly recommended</sup>
@@ -985,29 +990,31 @@ We're simply following the conventions of each language. Within JavaScript, came
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` js
+```js
 props: {
   'greeting-text': String
 }
 ```
 
-``` html
-<WelcomeMessage greetingText="hi"/>
+```html
+<WelcomeMessage greetingText="hi" />
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` js
+```js
 props: {
   greetingText: String
 }
 ```
 
-``` html
-<WelcomeMessage greeting-text="hi"/>
+```html
+<WelcomeMessage greeting-text="hi" />
 ```
+
 </div>
 
 ### Multi-attribute elements <sup data-p="b">strongly recommended</sup>
@@ -1019,32 +1026,27 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
-<img src="https://vuejs.org/images/logo.png" alt="Vue Logo">
+```html
+<img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
 ```
 
-``` html
-<MyComponent foo="a" bar="b" baz="c"/>
+```html
+<MyComponent foo="a" bar="b" baz="c" />
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
-<img
-  src="https://vuejs.org/images/logo.png"
-  alt="Vue Logo"
->
+```html
+<img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
 ```
 
-``` html
-<MyComponent
-  foo="a"
-  bar="b"
-  baz="c"
-/>
+```html
+<MyComponent foo="a" bar="b" baz="c" />
 ```
+
 </div>
 
 ### Simple expressions in templates <sup data-p="b">strongly recommended</sup>
@@ -1056,24 +1058,22 @@ Complex expressions in your templates make them less declarative. We should stri
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
-{{
-  fullName.split(' ').map((word) => {
-    return word[0].toUpperCase() + word.slice(1)
-  }).join(' ')
-}}
+```html
+{{ fullName.split(' ').map((word) => { return word[0].toUpperCase() +
+word.slice(1) }).join(' ') }}
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
+```html
 <!-- In a template -->
 {{ normalizedFullName }}
 ```
 
-``` js
+```js
 // The complex expression has been moved to a computed property
 computed: {
   normalizedFullName() {
@@ -1083,6 +1083,7 @@ computed: {
   }
 }
 ```
+
 </div>
 
 ### Simple computed properties <sup data-p="b">strongly recommended</sup>
@@ -1092,25 +1093,25 @@ computed: {
 ::: details Detailed Explanation
 Simpler, well-named computed properties are:
 
-- __Easier to test__
+- **Easier to test**
 
   When each computed property contains only a very simple expression, with very few dependencies, it's much easier to write tests confirming that it works correctly.
 
-- __Easier to read__
+- **Easier to read**
 
   Simplifying computed properties forces you to give each value a descriptive name, even if it's not reused. This makes it much easier for other developers (and future you) to focus in on the code they care about and figure out what's going on.
 
-- __More adaptable to changing requirements__
+- **More adaptable to changing requirements**
 
   Any value that can be named might be useful to the view. For example, we might decide to display a message telling the user how much money they saved. We might also decide to calculate sales tax, but perhaps display it separately, rather than as part of the final price.
 
   Small, focused computed properties make fewer assumptions about how information will be used, so require less refactoring as requirements change.
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` js
+```js
 computed: {
   price() {
     const basePrice = this.manufactureCost / (1 - this.profitMargin)
@@ -1121,12 +1122,13 @@ computed: {
   }
 }
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` js
+```js
 computed: {
   basePrice() {
     return this.manufactureCost / (1 - this.profitMargin)
@@ -1141,6 +1143,7 @@ computed: {
   }
 }
 ```
+
 </div>
 
 ### Quoted attribute values <sup data-p="b">strongly recommended</sup>
@@ -1152,25 +1155,27 @@ While attribute values without any spaces are not required to have quotes in HTM
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
-<input type=text>
+```html
+<input type="text" />
 ```
 
-``` html
+```html
 <AppSidebar :style={width:sidebarWidth+'px'}>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
-<input type="text">
+```html
+<input type="text" />
 ```
 
-``` html
-<AppSidebar :style="{ width: sidebarWidth + 'px' }">
+```html
+<AppSidebar :style="{ width: sidebarWidth + 'px' }"></AppSidebar>
 ```
+
 </div>
 
 ### Directive shorthands <sup data-p="b">strongly recommended</sup>
@@ -1180,21 +1185,15 @@ While attribute values without any spaces are not required to have quotes in HTM
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
-<input
-  v-bind:value="newTodoText"
-  :placeholder="newTodoInstructions"
->
+```html
+<input v-bind:value="newTodoText" :placeholder="newTodoInstructions" />
 ```
 
-``` html
-<input
-  v-on:input="onInput"
-  @focus="onFocus"
->
+```html
+<input v-on:input="onInput" @focus="onFocus" />
 ```
 
-``` html
+```html
 <template v-slot:header>
   <h1>Here might be a page title</h1>
 </template>
@@ -1203,40 +1202,29 @@ While attribute values without any spaces are not required to have quotes in HTM
   <p>Here's some contact info</p>
 </template>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
-<input
-  :value="newTodoText"
-  :placeholder="newTodoInstructions"
->
+```html
+<input :value="newTodoText" :placeholder="newTodoInstructions" />
 ```
 
-``` html
-<input
-  v-bind:value="newTodoText"
-  v-bind:placeholder="newTodoInstructions"
->
+```html
+<input v-bind:value="newTodoText" v-bind:placeholder="newTodoInstructions" />
 ```
 
-``` html
-<input
-  @input="onInput"
-  @focus="onFocus"
->
+```html
+<input @input="onInput" @focus="onFocus" />
 ```
 
-``` html
-<input
-  v-on:input="onInput"
-  v-on:focus="onFocus"
->
+```html
+<input v-on:input="onInput" v-on:focus="onFocus" />
 ```
 
-``` html
+```html
 <template v-slot:header>
   <h1>Here might be a page title</h1>
 </template>
@@ -1246,7 +1234,7 @@ While attribute values without any spaces are not required to have quotes in HTM
 </template>
 ```
 
-``` html
+```html
 <template #header>
   <h1>Here might be a page title</h1>
 </template>
@@ -1255,8 +1243,8 @@ While attribute values without any spaces are not required to have quotes in HTM
   <p>Here's some contact info</p>
 </template>
 ```
-</div>
 
+</div>
 
 ## Priority C Rules: Recommended <span class="hide-from-sidebar">(Minimizing Arbitrary Choices and Cognitive Overhead)</span>
 
@@ -1267,51 +1255,60 @@ While attribute values without any spaces are not required to have quotes in HTM
 This is the default order we recommend for component options. They're split into categories, so you'll know where to add new properties from plugins.
 
 1. **Global Awareness** (requires knowledge beyond the component)
-    - `name`
+
+   - `name`
 
 2. **Template Modifiers** (changes the way templates are compiled)
-    - `delimiters`
+
+   - `delimiters`
 
 3. **Template Dependencies** (assets used in the template)
-    - `components`
-    - `directives`
+
+   - `components`
+   - `directives`
 
 4. **Composition** (merges properties into the options)
-    - `extends`
-    - `mixins`
-    - `provide`/`inject`
+
+   - `extends`
+   - `mixins`
+   - `provide`/`inject`
 
 5. **Interface** (the interface to the component)
-    - `inheritAttrs`
-    - `props`
-    - `emits`
+
+   - `inheritAttrs`
+   - `props`
+   - `emits`
 
 6. **Composition API** (the entry point for using the Composition API)
-    - `setup`
+
+   - `setup`
 
 7. **Local State** (local reactive properties)
-    - `data`
-    - `computed`
+
+   - `data`
+   - `computed`
 
 8. **Events** (callbacks triggered by reactive events)
-    - `watch`
-    - Lifecycle Events (in the order they are called)
-        - `beforeCreate`
-        - `created`
-        - `beforeMount`
-        - `mounted`
-        - `beforeUpdate`
-        - `updated`
-        - `activated`
-        - `deactivated`
-        - `beforeUnmount`
-        - `unmounted`
-        - `errorCaptured`
-        - `renderTracked`
-        - `renderTriggered`
 
-9.  **Non-Reactive Properties** (instance properties independent of the reactivity system)
-    - `methods`
+   - `watch`
+   - Lifecycle Events (in the order they are called)
+     - `beforeCreate`
+     - `created`
+     - `beforeMount`
+     - `mounted`
+     - `beforeUpdate`
+     - `updated`
+     - `activated`
+     - `deactivated`
+     - `beforeUnmount`
+     - `unmounted`
+     - `errorCaptured`
+     - `renderTracked`
+     - `renderTriggered`
+
+9. **Non-Reactive Properties** (instance properties independent of the reactivity system)
+
+   - `methods`
 
 10. **Rendering** (the declarative description of the component output)
     - `template`/`render`
@@ -1323,36 +1320,44 @@ This is the default order we recommend for component options. They're split into
 This is the default order we recommend for component options. They're split into categories, so you'll know where to add custom attributes and directives.
 
 1. **Definition** (provides the component options)
-    - `is`
+
+   - `is`
 
 2. **List Rendering** (creates multiple variations of the same element)
-    - `v-for`
+
+   - `v-for`
 
 3. **Conditionals** (whether the element is rendered/shown)
-    - `v-if`
-    - `v-else-if`
-    - `v-else`
-    - `v-show`
-    - `v-cloak`
+
+   - `v-if`
+   - `v-else-if`
+   - `v-else`
+   - `v-show`
+   - `v-cloak`
 
 4. **Render Modifiers** (changes the way the element renders)
-    - `v-pre`
-    - `v-once`
+
+   - `v-pre`
+   - `v-once`
 
 5. **Global Awareness** (requires knowledge beyond the component)
-    - `id`
+
+   - `id`
 
 6. **Unique Attributes** (attributes that require unique values)
-    - `ref`
-    - `key`
+
+   - `ref`
+   - `key`
 
 7. **Two-Way Binding** (combining binding and events)
-    - `v-model`
+
+   - `v-model`
 
 8. **Other Attributes** (all unspecified bound & unbound attributes)
 
 9. **Events** (component event listeners)
-    - `v-on`
+
+   - `v-on`
 
 10. **Content** (overrides the content of the element)
     - `v-html`
@@ -1367,7 +1372,7 @@ When components begin to feel cramped or difficult to read, adding spaces betwee
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` js
+```js
 props: {
   value: {
     type: String,
@@ -1394,7 +1399,7 @@ computed: {
 }
 ```
 
-``` js
+```js
 // No spaces are also fine, as long as the component
 // is still easy to read and navigate.
 props: {
@@ -1418,6 +1423,7 @@ computed: {
   }
 }
 ```
+
 </div>
 
 ### Single-file component top-level element order <sup data-p="c">recommended</sup>
@@ -1427,51 +1433,81 @@ computed: {
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
-<style>/* ... */</style>
-<script>/* ... */</script>
+```html
+<style>
+  /* ... */
+</style>
+<script>
+  /* ... */
+</script>
 <template>...</template>
 ```
 
-``` html
+```html
 <!-- ComponentA.vue -->
-<script>/* ... */</script>
+<script>
+  /* ... */
+</script>
 <template>...</template>
-<style>/* ... */</style>
+<style>
+  /* ... */
+</style>
 
 <!-- ComponentB.vue -->
 <template>...</template>
-<script>/* ... */</script>
-<style>/* ... */</style>
+<script>
+  /* ... */
+</script>
+<style>
+  /* ... */
+</style>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
+```html
 <!-- ComponentA.vue -->
-<script>/* ... */</script>
+<script>
+  /* ... */
+</script>
 <template>...</template>
-<style>/* ... */</style>
+<style>
+  /* ... */
+</style>
 
 <!-- ComponentB.vue -->
-<script>/* ... */</script>
+<script>
+  /* ... */
+</script>
 <template>...</template>
-<style>/* ... */</style>
+<style>
+  /* ... */
+</style>
 ```
 
-``` html
+```html
 <!-- ComponentA.vue -->
 <template>...</template>
-<script>/* ... */</script>
-<style>/* ... */</style>
+<script>
+  /* ... */
+</script>
+<style>
+  /* ... */
+</style>
 
 <!-- ComponentB.vue -->
 <template>...</template>
-<script>/* ... */</script>
-<style>/* ... */</style>
+<script>
+  /* ... */
+</script>
+<style>
+  /* ... */
+</style>
 ```
+
 </div>
 
 ## Priority D Rules: Use with Caution <span class="hide-from-sidebar">(Potentially Dangerous Patterns)</span>
@@ -1491,33 +1527,35 @@ The problem is that large numbers of [element-attribute selectors](http://steves
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` html
+```html
 <template>
   <button>×</button>
 </template>
 
 <style scoped>
-button {
-  background-color: red;
-}
+  button {
+    background-color: red;
+  }
 </style>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` html
+```html
 <template>
   <button class="btn btn-close">×</button>
 </template>
 
 <style scoped>
-.btn-close {
-  background-color: red;
-}
+  .btn-close {
+    background-color: red;
+  }
 </style>
 ```
+
 </div>
 
 ### Implicit parent-child communication <sup data-p="d">use with caution</sup>
@@ -1531,32 +1569,34 @@ The problem is, there are also many _simple_ cases where these patterns may offe
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` js
+```js
 app.component('TodoItem', {
   props: {
     todo: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
-  template: '<input v-model="todo.text">'
+  template: '<input v-model="todo.text">',
 })
 ```
 
-``` js
+```js
 app.component('TodoItem', {
   props: {
     todo: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   methods: {
     removeTodo() {
-      this.$parent.todos = this.$parent.todos.filter(todo => todo.id !== vm.todo.id)
-    }
+      this.$parent.todos = this.$parent.todos.filter(
+        (todo) => todo.id !== vm.todo.id
+      )
+    },
   },
 
   template: `
@@ -1566,21 +1606,22 @@ app.component('TodoItem', {
         ×
       </button>
     </span>
-  `
+  `,
 })
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` js
+```js
 app.component('TodoItem', {
   props: {
     todo: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   template: `
@@ -1588,17 +1629,17 @@ app.component('TodoItem', {
       :value="todo.text"
       @input="$emit('input', $event.target.value)"
     >
-  `
+  `,
 })
 ```
 
-``` js
+```js
 app.component('TodoItem', {
   props: {
     todo: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   template: `
@@ -1608,9 +1649,10 @@ app.component('TodoItem', {
         ×
       </button>
     </span>
-  `
+  `,
 })
 ```
+
 </div>
 
 ### Non-flux state management <sup data-p="d">use with caution</sup>
@@ -1624,7 +1666,7 @@ Vuex is the [official flux-like implementation](/guide/state-management.html#off
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-``` js
+```js
 // main.js
 import { createApp } from 'vue'
 import mitt from 'mitt'
@@ -1632,7 +1674,7 @@ const app = createApp({
   data() {
     return {
       todos: [],
-      emitter: mitt()
+      emitter: mitt(),
     }
   },
 
@@ -1643,63 +1685,63 @@ const app = createApp({
   methods: {
     removeTodo(todo) {
       const todoIdToRemove = todo.id
-      this.todos = this.todos.filter(todo => todo.id !== todoIdToRemove)
-    }
-  }
+      this.todos = this.todos.filter((todo) => todo.id !== todoIdToRemove)
+    },
+  },
 })
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-``` js
+```js
 // store/modules/todos.js
 export default {
   state: {
-    list: []
+    list: [],
   },
 
   mutations: {
-    REMOVE_TODO (state, todoId) {
-      state.list = state.list.filter(todo => todo.id !== todoId)
-    }
+    REMOVE_TODO(state, todoId) {
+      state.list = state.list.filter((todo) => todo.id !== todoId)
+    },
   },
 
   actions: {
-    removeTodo ({ commit, state }, todo) {
+    removeTodo({ commit, state }, todo) {
       commit('REMOVE_TODO', todo.id)
-    }
-  }
+    },
+  },
 }
 ```
 
-``` html
+```html
 <!-- TodoItem.vue -->
 <template>
   <span>
     {{ todo.text }}
-    <button @click="removeTodo(todo)">
-      X
-    </button>
+    <button @click="removeTodo(todo)">X</button>
   </span>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex'
 
-export default {
-  props: {
-    todo: {
-      type: Object,
-      required: true
-    }
-  },
+  export default {
+    props: {
+      todo: {
+        type: Object,
+        required: true,
+      },
+    },
 
-  methods: mapActions(['removeTodo'])
-}
+    methods: mapActions(['removeTodo']),
+  }
 </script>
 ```
+
 </div>
 
 <style lang="scss" scoped>
