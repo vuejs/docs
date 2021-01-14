@@ -372,6 +372,10 @@ module.exports = {
               {
                 text: 'Weekly news',
                 link: 'https://news.vuejs.org/'
+              },
+              {
+                text: 'Blog',
+                link: 'https://blog.vuejs.org/'
               }
             ]
           }
