@@ -401,7 +401,7 @@ module.exports = {
         items: [
           {
             text: '한국어',
-            link: 'https://v3.vuejs-korea.org/'
+            link: 'https://v3.ko.vuejs.org/'
           },
           {
             text: '中文',
