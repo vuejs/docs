@@ -189,7 +189,7 @@ There are quite a few other directives, each with its own special functionality.
 ```html
 <div id="list-rendering">
   <ol>
-    <li v-for="todo in todos">
+    <li v-for="todo in todos" v-bind:key="todo.text">
       {{ todo.text }}
     </li>
   </ol>
