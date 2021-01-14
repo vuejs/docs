@@ -232,7 +232,7 @@ const Component = defineComponent({
 })
 ```
 
-## Annotating emits
+### Annotating emits
 
 We can annotate a payload for the emitted event. Also, all non-declared emitted events will throw a type error when called:
 
