@@ -27,7 +27,7 @@ features:
       Efforts d'optimisation minimaux
 footer: |
   Déployé sous <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">License MIT</a><br>
-  Copyright © 2014-2020 Evan You
+  Copyright © 2014-2021 Evan You
 socialIcons:
   - type: GitHub
     link: https://github.com/vuejs/vue-next
