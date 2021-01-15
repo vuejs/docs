@@ -168,7 +168,7 @@ Sometimes we want to display a filtered or sorted version of an array without ac
 For example:
 
 ```html
-<li v-for="n in evenNumbers">{{ n }}</li>
+<li v-for="n in evenNumbers" :key="n">{{ n }}</li>
 ```
 
 ```js
@@ -188,7 +188,7 @@ In situations where computed properties are not feasible (e.g. inside nested `v-
 
 ```html
 <ul v-for="numbers in sets">
-  <li v-for="n in even(numbers)">{{ n }}</li>
+  <li v-for="n in even(numbers)" :key="n">{{ n }}</li>
 </ul>
 ```
 
@@ -211,7 +211,7 @@ methods: {
 
 ```html
 <div id="range" class="demo">
-  <span v-for="n in 10">{{ n }} </span>
+  <span v-for="n in 10" :key="n">{{ n }} </span>
 </div>
 ```
 
@@ -225,7 +225,7 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 
 ```html
 <ul>
-  <template v-for="item in items">
+  <template v-for="item in items" :key="item.msg">
     <li>{{ item.msg }}</li>
     <li class="divider" role="presentation"></li>
   </template>
@@ -251,7 +251,7 @@ When they exist on the same node, `v-if` has a higher priority than `v-for`. Tha
 This can be fixed by moving `v-for` to a wrapping `<template>` tag:
 
 ```html
-<template v-for="todo in todos">
+<template v-for="todo in todos" :key="todo.name">
   <li v-if="!todo.isComplete">
     {{ todo }}
   </li>
