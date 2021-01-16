@@ -18,33 +18,31 @@ The reactive conversion is "deep"—it affects all nested properties. In the [ES
 function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
 ```
 
-::: tip
-`reactive` will unwrap all the deep [ref](./refs-api.html#ref), while maintaining the [ref](./refs-api.html#ref) reactivity
+::: tip Note
+`reactive` will unwrap all the deep [refs](./refs-api.html#ref), while maintaining the ref reactivity
 
 ```ts
 const count = ref(1)
 const obj = reactive({ count })
 
 // ref will be unwrapped
-obj.count === count.value
+console.log(obj.count === count.value) // true
 
 // it will update `obj.value`
 count.value++
-
-// same value
-obj.count === count.value
+console.log(count.value) // 2
+console.log(obj.count) // 2
 
 // it will also update `count` ref
 obj.count++
-
-// same value
-obj.count === count.value
+console.log(obj.count) // 3
+console.log(count.value) // 3
 ```
 
 :::
 
-::: warning
-When assiging a [ref](./refs-api.html#ref) to a `reactive` property, that [ref](./refs-api.html#ref) will be automatically unwrapped.
+::: warning Important
+When assigning a [ref](./refs-api.html#ref) to a `reactive` property, that ref will be automatically unwrapped.
 
 ```ts
 const count = ref(1)
@@ -52,10 +50,8 @@ const obj = reactive({})
 
 obj.count = count
 
-obj.count // 1
-
-// ref will be unwrapped
-obj.count === count.value
+console.log(obj.count) // 1
+console.log(obj.count === count.value) // true
 ```
 
 :::
