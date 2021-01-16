@@ -6,7 +6,7 @@ sidebar: auto
 
 Ceci est le guide de style officiel pour du code spécifique à Vue. Si vous utilisez Vue dans un projet, c'est une excellente référence pour éviter les erreurs, les anti-patterns et les comportements inattendus. Cependant, nous ne pensons pas qu'un guide de style soit idéal pour toutes les équipes ou tous les projets. Par conséquent, libre à vous de faire différemment en fonction de votre expérience, de votre stack technologique et de vos valeurs personnelles.
 
-La plupart du temps, nous évitons également les suggestions sur JavaScript ou HTML en général. Peu importe que vous utilisiez des points-virgules ou des virgules de fin. Votre HTML peut utiliser des guillemets simples ou doubles pour les valeurs d'attribut. Certaines exceptions existeront cependant, où nous avons constaté qu'un modèle particulier est utile dans le contexte de Vue.
+La plupart du temps, nous évitons également les suggestions sur JavaScript ou HTML en général. Peu importe que vous utilisiez des points-virgules ou des virgules de fin. Votre HTML peut utiliser des guillemets simples ou doubles pour les valeurs d'attribut. Certaines exceptions existeront cependant, où nous avons constaté qu'un patern particulier est utile dans le contexte de Vue.
 
 Pour en finir donc, nous avons séparé les règles en quatre catégories:
 
@@ -496,11 +496,11 @@ components/
 
 </div>
 
-### Typographie des Noms de composants <sup data-p="b">Fortement Récommandée</sup>
+### La Casse des Noms de composants <sup data-p="b">Fortement Récommandée</sup>
 
 **Les noms des [single-components](../guide/single-file-component.html) doivent toujours être soit en PascalCase ou kebab-case.**
 
-Le PascalCase fonctionne mieux avec l'autocomplétion dans les éditeurs de code, car il est cohérent avec la façon dont nous référençons les composants dans JS(X) et les modèles. Cependant, les noms de fichiers avec des lettres mixtes peuvent parfois créer des problèmes sur les systèmes de fichiers insensibles à la casse, c'est pourquoi kebab-case est également parfaitement acceptable.
+Le PascalCase fonctionne mieux avec l'autocomplétion dans les éditeurs de code, car il est cohérent avec la façon dont nous référençons les composants dans JS(X) et les templates. Cependant, les noms de fichiers avec des lettres mixtes peuvent parfois créer des problèmes sur les systèmes de fichiers insensibles à la casse, c'est pourquoi kebab-case est également parfaitement acceptable.
 
 <div class="style-example style-example-bad">
 <h4>Mauvais</h4>
@@ -791,115 +791,117 @@ components/
 
 </div>
 
-### Self-closing components <sup data-p="b">fortement recommandée</sup>
+### Composants auto-fermants <sup data-p="b">fortement recommandée</sup>
 
-**Components with no content should be self-closing in [single-file components](../guide/single-file-component.html), string templates, and [JSX](../guide/render-function.html#jsx) - but never in DOM templates.**
+**Les composants sans contenu doivent être auto-fermantes dans les [composants à fichier unique](../guide/single-file-component.html), dans les templates, et [JSX](../guide/render-function.html#jsx) - mais jamais dans les templates du DOM.**
 
-Components that self-close communicate that they not only have no content, but are **meant** to have no content. It's the difference between a blank page in a book and one labeled "This page intentionally left blank." Your code is also cleaner without the unnecessary closing tag.
+Les composants auto-fermants indiquent qu'ils n'ont pas seulement de contenu, mais qu'ils sont **censés** n'avoir aucun contenu. C'est la différence entre une page blanche dans un livre et une autre intitulée «Cette page est laissée vierge intentionnellement». Votre code est également plus propre sans la balise de fermeture inutile.
 
-Unfortunately, HTML doesn't allow custom elements to be self-closing - only [official "void" elements](https://www.w3.org/TR/html/syntax.html#void-elements). That's why the strategy is only possible when Vue's template compiler can reach the template before the DOM, then serve the DOM spec-compliant HTML.
+Malheuresement, HTML n'autorise pas que les éléments personnalisés soient auto-fermantes - seulement les [official "void" elements](https://www.w3.org/TR/html/syntax.html#void-elements). C'est pourquoi la stratégie n'est possible que lorsque le compilateur de templates de Vue peut atteindre le template avant le DOM, puis servir le HTML conforme aux spécifications.
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```html
-<!-- In single-file components, string templates, and JSX -->
+<!-- composants à fichier unique, string templates, et JSX -->
 <MyComponent></MyComponent>
 ```
 
 ```html
-<!-- In DOM templates -->
+<!-- Dans les templates du DOM  -->
 <my-component />
 ```
 
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```html
-<!-- In single-file components, string templates, and JSX -->
+<!-- composants à fichier unique, string templates, et JSX -->
 <MyComponent />
 ```
 
 ```html
-<!-- In DOM templates -->
+<!-- Dans les templates du DOM -->
 <my-component></my-component>
 ```
 
 </div>
 
-### Component name casing in templates <sup data-p="b">fortement recommandée</sup>
+### La Casse des noms des composants dans les templates <sup data-p="b">fortement recommandée</sup>
 
-**In most projects, component names should always be PascalCase in [single-file components](../guide/single-file-component.html) and string templates - but kebab-case in DOM templates.**
+**Dans la plupart des projets, les noms de composants doivent toujours être en PascalCase dans les [composants à fichier unique](../guide/single-file-component.html) et dans les string templates - mais en kebab-case dans les templates du DOM.**
 
-PascalCase has a few advantages over kebab-case:
+PascalCase a quelques avantages par rapport au kebab-case:
 
-- Editors can autocomplete component names in templates, because PascalCase is also used in JavaScript.
-- `<MyComponent>` is more visually distinct from a single-word HTML element than `<my-component>`, because there are two character differences (the two capitals), rather than just one (a hyphen).
-- If you use any non-Vue custom elements in your templates, such as a web component, PascalCase ensures that your Vue components remain distinctly visible.
+- Les éditeurs peuvent compléter automatiquement les noms de composants dans les templates, car le PascalCase est également utilisé en JavaScript.
+- `<MyComponent>` est visuellement plus distinct d'un élément HTML que `<my-component>`, car il y a deux différences de caractères (les deux majuscules), plutôt qu'une seule (un trait d'union).
+- Si vous utilisez des éléments personnalisés non-Vue dans vos templates, tels qu'un composant Web, le PascalCase garantit que vos composants Vue restent clairement visibles.
 
-Unfortunately, due to HTML's case insensitivity, DOM templates must still use kebab-case.
+Malheureusement, en raison de l'insensibilité à la casse de HTML, les templates du DOM doivent toujours utiliser le kebab-case.
 
-Also note that if you've already invested heavily in kebab-case, consistency with HTML conventions and being able to use the same casing across all your projects may be more important than the advantages listed above. In those cases, **using kebab-case everywhere is also acceptable.**
+Notez également que si vous êtes déjà beaucoup investi dans l'usage du kebab-case, la cohérence avec les conventions HTML et la possibilité d'utiliser la même casse dans tous vos projets peuvent être plus importants que les avantages énumérés ci-dessus. Dans ces cas, **l'utilisation de kebab-case partout est également acceptable.**
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```html
-<!-- In single-file components and string templates -->
+<!-- composants à fichier unique et string templates -->
 <mycomponent />
 ```
 
 ```html
-<!-- In single-file components and string templates -->
+<!-- composants à fichier unique et string templates -->
 <myComponent />
 ```
 
 ```html
-<!-- In DOM templates -->
+<!-- Dans les templates du DOM -->
 <MyComponent></MyComponent>
 ```
 
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```html
-<!-- In single-file components and string templates -->
+<!-- composants à fichier unique et string templates -->
 <MyComponent />
 ```
 
 ```html
-<!-- In DOM templates -->
+<!-- Dans les templates du DOM -->
 <my-component></my-component>
 ```
 
-OR
+OU
 
 ```html
-<!-- Everywhere -->
+<!-- Partout -->
 <my-component></my-component>
 ```
 
 </div>
 
-### Component name casing in JS/JSX <sup data-p="b">fortement recommandée</sup>
+### La Casse des noms de composants en JS/JSX <sup data-p="b">fortement recommandée</sup>
 
-**Component names in JS/[JSX](../guide/render-function.html#jsx) should always be PascalCase, though they may be kebab-case inside strings for simpler applications that only use global component registration through `app.component`.**
+**Les noms de composants en JS/[JSX](../guide/render-function.html#jsx) devrait toujours être en PascalCase, quoiqu'il puisse être en kebab-case dans des strings pour des applications plus simples qui n'utilisent que l'enregistrement global des composants via `app.component`.**
 
 ::: details Explication Détaillée
-In JavaScript, PascalCase is the convention for classes and prototype constructors - essentially, anything that can have distinct instances. Vue components also have instances, so it makes sense to also use PascalCase. As an added benefit, using PascalCase within JSX (and templates) allows readers of the code to more easily distinguish between components and HTML elements.
+En JavaScript, le PascalCase est la convention pour les classes et les constructeurs de prototypes - essentiellement, tout ce qui peut avoir des instances distinctes. Les composants Vue ont également des instances, il est donc logique d'utiliser également PascalCase.
 
-However, for applications that use **only** global component definitions via `app.component`, we recommend kebab-case instead. The reasons are:
+Comme avantage supplémentaire, l'utilisation de PascalCase dans JSX (et les templates) permet aux gens qui lisent le code de distinguer plus facilement les composants et les éléments HTML.
 
-- It's rare that global components are ever referenced in JavaScript, so following a convention for JavaScript makes less sense.
-- These applications always include many in-DOM templates, where [kebab-case **must** be used](#component-name-casing-in-templates-strongly-recommended).
+Cependant, pour les applications qui utilisent **uniquement** les définitions de composants globales via `app.component`, nous recommandons plutôt le kebab-case. Les raisons sont:
+
+- Il est rare que des composants globaux soient référencés en JavaScript, donc suivre une convention pour JavaScript a peu de sens.
+- Ces applications incluent toujours de nombreux templates du DOM, où [kebab-case **doit** être utilisé](#component-name-casing-in-templates-strongly-recommended).
   :::
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```js
 app.component('myComponent', {
@@ -928,7 +930,7 @@ export default {
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```js
 app.component('MyComponent', {
@@ -955,14 +957,14 @@ export default {
 
 </div>
 
-### Full-word component names <sup data-p="b">fortement recommandée</sup>
+### Nom des composants en mot entier <sup data-p="b">fortement recommandée</sup>
 
-**Component names should prefer full words over abbreviations.**
+**Les noms des composants devraient être écrit avec des mots entiers plutôt ques des abbréviations.**
 
-The autocompletion in editors make the cost of writing longer names very low, while the clarity they provide is invaluable. Uncommon abbreviations, in particular, should always be avoided.
+L'autocompletion dans les éditeurs de code font gagner énormement de temps, tandis que la clarté qu'ils fournissent est inestimable. Les abréviations peu courantes, en particulier, doivent toujours être évitées.
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```
 components/
@@ -973,7 +975,7 @@ components/
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```
 components/
@@ -983,14 +985,14 @@ components/
 
 </div>
 
-### Prop name casing <sup data-p="b">fortement recommandée</sup>
+### La Casse des noms des props <sup data-p="b">fortement recommandée</sup>
 
-**Prop names should always use camelCase during declaration, but kebab-case in templates and [JSX](../guide/render-function.html#jsx).**
+**Les noms de props doivent toujours utiliser camelCase lors des déclarations, mais kebab-case dans les templates et [JSX](../guide/render-function.html#jsx).**
 
-We're simply following the conventions of each language. Within JavaScript, camelCase is more natural. Within HTML, kebab-case is.
+Nous suivons simplement les conventions de chaque langue. Dans JavaScript, camelCase est plus naturel. Dans HTML, kebab-case l'est.
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```js
 props: {
@@ -1005,7 +1007,7 @@ props: {
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```js
 props: {
@@ -1019,14 +1021,14 @@ props: {
 
 </div>
 
-### Multi-attribute elements <sup data-p="b">fortement recommandée</sup>
+### Éléments à attributs multiples <sup data-p="b">fortement recommandée</sup>
 
-**Elements with multiple attributes should span multiple lines, with one attribute per line.**
+**Les éléments avec plusieurs attributs doivent s'étendre sur plusieurs lignes, avec un attribut par ligne.**
 
-In JavaScript, splitting objects with multiple properties over multiple lines is widely considered a good convention, because it's much easier to read. Our templates and [JSX](../guide/render-function.html#jsx) deserve the same consideration.
+En JavaScript, étendre des objets avec plusieurs propriétés sur plusieurs lignes est largement considéré comme une bonne convention, car il est beaucoup plus facile à lire. Notre templates et [JSX](../guide/render-function.html#jsx) mérite la même considération.
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```html
 <img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
@@ -1039,26 +1041,30 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```html
 <img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
 ```
 
 ```html
-<MyComponent foo="a" bar="b" baz="c" />
+<MyComponent 
+  foo="a" 
+  bar="b" 
+  baz="c" 
+/>
 ```
 
 </div>
 
-### Simple expressions in templates <sup data-p="b">fortement recommandée</sup>
+### Expressions simples dans les templates <sup data-p="b">fortement recommandée</sup>
 
-**Component templates should only include simple expressions, with more complex expressions refactored into computed properties or methods.**
+**Les templates de composants ne doivent inclure que des expressions simples, avec des expressions plus complexes refactorisées en propriétés computed ou en méthodes.**
 
-Complex expressions in your templates make them less declarative. We should strive to describe _what_ should appear, not _how_ we're computing that value. Computed properties and methods also allow the code to be reused.
+Les expressions complexes dans vos templates les rendent moins déclaratifs. Nous devons nous efforcer de décrire _ce qui devrait_ apparaître, et non _comment_ nous calculons cette valeur. Les propriétés computed et les méthodes permettent également de réutiliser le code.
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```html
 {{ fullName.split(' ').map((word) => { return word[0].toUpperCase() +
@@ -1068,15 +1074,15 @@ word.slice(1) }).join(' ') }}
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```html
-<!-- In a template -->
+<!-- Dans un template -->
 {{ normalizedFullName }}
 ```
 
 ```js
-// The complex expression has been moved to a computed property
+// L'expression complexe a été déplacée vers une propriété computed
 computed: {
   normalizedFullName() {
     return this.fullName.split(' ')
@@ -1088,30 +1094,30 @@ computed: {
 
 </div>
 
-### Simple computed properties <sup data-p="b">fortement recommandée</sup>
+### Propriétés computed simple <sup data-p="b">fortement recommandée</sup>
 
-**Complex computed properties should be split into as many simpler properties as possible.**
+**Les propriétés computed complexes doivent être divisées en propriétés plus simples.**
 
 ::: details Explication Détaillée
-Simpler, well-named computed properties are:
+Les propriétés computed plus simples et bien nommées sont:
 
-- **Easier to test**
+- **Plus facile à tester**
 
-  When each computed property contains only a very simple expression, with very few dependencies, it's much easier to write tests confirming that it works correctly.
+  Lorsque chaque propriété computed ne contient qu'une expression très simple, avec très peu de dépendances, il est beaucoup plus facile d'écrire des tests qui vérifient leur bon fonctionnement.
 
-- **Easier to read**
+- **Plus facile à lire**
 
-  Simplifying computed properties forces you to give each value a descriptive name, even if it's not reused. This makes it much easier for other developers (and future you) to focus in on the code they care about and figure out what's going on.
+  Simplifier les propriétés computed vous oblige à donner à chaque valeur un nom descriptif, même si elle n'est pas réutilisée. Cela permet aux autres développeurs (et à vous-même) de se concentrer beaucoup plus facilement sur le code qui leur tient à cœur et de comprendre ce qui se passe.
 
-- **More adaptable to changing requirements**
+- **Plus adaptable à l'évolution des besoins**
 
-  Any value that can be named might be useful to the view. For example, we might decide to display a message telling the user how much money they saved. We might also decide to calculate sales tax, but perhaps display it separately, rather than as part of the final price.
+  Toute valeur pouvant être nommée peut être utile pour la vue. Par exemple, nous pourrions décider d'afficher un message indiquant à l'utilisateur combien d'argent il a économisé. Nous pourrions également décider de calculer la taxe de vente, mais peut-être l'afficher séparément, plutôt que dans le cadre du prix final.
 
-  Small, focused computed properties make fewer assumptions about how information will be used, so require less refactoring as requirements change.
+  Les propriétés computed simples et ciblées font réduit le nombre d'hypothèses sur la façon dont les informations seront utilisées, elles nécessitent donc moins de refactoring à mesure que les exigences changent.
   :::
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```js
 computed: {
@@ -1128,7 +1134,7 @@ computed: {
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```js
 computed: {
@@ -1148,14 +1154,14 @@ computed: {
 
 </div>
 
-### Quoted attribute values <sup data-p="b">fortement recommandée</sup>
+### Les valeurs des attributs entres guillemets (" ") <sup data-p="b">fortement recommandée</sup>
 
-**Non-empty HTML attribute values should always be inside quotes (single or double, whichever is not used in JS).**
+**Les valeurs des attributs HTML non-vide doivent toujours être entre des guillemets (simple (' ') ou double (" "), celui qui n'est pas utilisé dans votre JS).**
 
-While attribute values without any spaces are not required to have quotes in HTML, this practice often leads to _avoiding_ spaces, making attribute values less readable.
+Bien que les valeurs d'attribut sans espace ne soient pas obligées d'avoir des guillemets en HTML, cette pratique conduit souvent à éviter les espaces, ce qui rend les valeurs d'attribut moins lisibles.
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```html
 <input type="text" />
@@ -1168,7 +1174,7 @@ While attribute values without any spaces are not required to have quotes in HTM
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```html
 <input type="text" />
@@ -1180,12 +1186,12 @@ While attribute values without any spaces are not required to have quotes in HTM
 
 </div>
 
-### Directive shorthands <sup data-p="b">fortement recommandée</sup>
+### Les raccourcis de directives <sup data-p="b">fortement recommandée</sup>
 
-**Directive shorthands (`:` for `v-bind:`, `@` for `v-on:` and `#` for `v-slot`) should be used always or never.**
+**Les raccourcis de directives (`:` pour `v-bind:`, `@` pour `v-on:` et `#` pour `v-slot`) doivent toujours être utilisés ou ne jamais l'être.**
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```html
 <input v-bind:value="newTodoText" :placeholder="newTodoInstructions" />
@@ -1197,18 +1203,18 @@ While attribute values without any spaces are not required to have quotes in HTM
 
 ```html
 <template v-slot:header>
-  <h1>Here might be a page title</h1>
+  <h1>Ceci est le titre de la page</h1>
 </template>
 
 <template #footer>
-  <p>Here's some contact info</p>
+  <p>Ici quelques infos contacts</p>
 </template>
 ```
 
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```html
 <input :value="newTodoText" :placeholder="newTodoInstructions" />
@@ -1228,21 +1234,21 @@ While attribute values without any spaces are not required to have quotes in HTM
 
 ```html
 <template v-slot:header>
-  <h1>Here might be a page title</h1>
+  <h1>Ceci est le titre de la page</h1>
 </template>
 
 <template v-slot:footer>
-  <p>Here's some contact info</p>
+  <p>Ici quelques infos contacts</p>
 </template>
 ```
 
 ```html
 <template #header>
-  <h1>Here might be a page title</h1>
+  <h1>Ceci est le titre de la page</h1>
 </template>
 
 <template #footer>
-  <p>Here's some contact info</p>
+  <p>Ici quelques infos contacts</p>
 </template>
 ```
 
