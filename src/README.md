@@ -23,7 +23,7 @@ features:
   - title: Performant
     details: |
       20KB min+gzip Runtime <br>
-      DOM Virtual Ultra Rapide<br>
+      DOM Virtuel Ultra Rapide<br>
       Efforts d'optimisation minimaux
 footer: |
   Déployé sous <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">License MIT</a><br>
