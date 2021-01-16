@@ -897,7 +897,7 @@ Comme avantage supplémentaire, l'utilisation de PascalCase dans JSX (et les tem
 Cependant, pour les applications qui utilisent **uniquement** les définitions de composants globales via `app.component`, nous recommandons plutôt le kebab-case. Les raisons sont:
 
 - Il est rare que des composants globaux soient référencés en JavaScript, donc suivre une convention pour JavaScript a peu de sens.
-- Ces applications incluent toujours de nombreux templates du DOM, où [kebab-case **doit** être utilisé](#component-name-casing-in-templates-strongly-recommended).
+- Ces applications incluent toujours de nombreux templates du DOM, où [kebab-case **doit** être utilisé](#component-name-casing-in-templates-strongly-recommandée).
   :::
 
 <div class="style-example style-example-bad">
@@ -961,7 +961,7 @@ export default {
 
 **Les noms des composants devraient être écrit avec des mots entiers plutôt ques des abbréviations.**
 
-L'autocompletion dans les éditeurs de code font gagner énormement de temps, tandis que la clarté qu'ils fournissent est inestimable. Les abréviations peu courantes, en particulier, doivent toujours être évitées.
+L'autocomplétion dans les éditeurs de code font gagner énormement de temps, tandis que la clarté qu'ils fournissent est inestimable. Les abréviations peu courantes, en particulier, doivent toujours être évitées.
 
 <div class="style-example style-example-bad">
 <h4>Mauvais</h4>
@@ -1254,52 +1254,52 @@ Bien que les valeurs d'attribut sans espace ne soient pas obligées d'avoir des 
 
 </div>
 
-## Priority C Rules: Recommended <span class="hide-from-sidebar">(Minimizing Arbitrary Choices and Cognitive Overhead)</span>
+## Règles de priorité C: recommandées <span class="hide-from-sidebar">(Minimiser les choix arbitraires et les biais cognitifs)</span>
 
-### Component/instance options order <sup data-p="c">recommended</sup>
+### Ordre des options de composant/instance <sup data-p="c">recommandée</sup>
 
-**Component/instance options should be ordered consistently.**
+**Les options des composants/instances doivent être ordonnées de manière cohérente.**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add new properties from plugins.
+Il s'agit de l'ordre par défaut que nous recommandons pour les options des composants. Ils sont divisés en catégories, vous saurez donc où ajouter de nouvelles propriétés à partir de plugins.
 
-1. **Global Awareness** (requires knowledge beyond the component)
+1. **Conscience Globale** (nécessite des connaissances au-delà du composant)
 
    - `name`
 
-2. **Template Modifiers** (changes the way templates are compiled)
+2. **Modificateurs de Template** (change la façon dont les templates sont compilés)
 
    - `delimiters`
 
-3. **Template Dependencies** (assets used in the template)
+3. **Les Dépendances des Template** (assets utilisés dans le template)
 
    - `components`
    - `directives`
 
-4. **Composition** (merges properties into the options)
+4. **Composition** (fusionne les propriétés dans les options)
 
    - `extends`
    - `mixins`
    - `provide`/`inject`
 
-5. **Interface** (the interface to the component)
+5. **Interface** (l'interface avec le composant)
 
    - `inheritAttrs`
    - `props`
    - `emits`
 
-6. **Composition API** (the entry point for using the Composition API)
+6. **Composition API** (le point d'entrée pour utiliser le composition API)
 
    - `setup`
 
-7. **Local State** (local reactive properties)
+7. **Local State** (propriétés locales reactive)
 
    - `data`
    - `computed`
 
-8. **Events** (callbacks triggered by reactive events)
+8. **Événements** (callbacks déclenchés par des événements réactifs)
 
    - `watch`
-   - Lifecycle Events (in the order they are called)
+   - Lifecycle Events (dans l'ordre où ils sont appelés)
      - `beforeCreate`
      - `created`
      - `beforeMount`
@@ -1314,28 +1314,28 @@ This is the default order we recommend for component options. They're split into
      - `renderTracked`
      - `renderTriggered`
 
-9. **Non-Reactive Properties** (instance properties independent of the reactivity system)
+9. **Propriétés non réactives** (propriétés d'instance indépendantes du système de réactivité)
 
    - `methods`
 
-10. **Rendering** (the declarative description of the component output)
+10. **Le Rendu** (la description déclarative de la sortie du composant)
     - `template`/`render`
 
-### Element attribute order <sup data-p="c">recommended</sup>
+### L'ordre des attributs d'un élément <sup data-p="c">recommandée</sup>
 
-**The attributes of elements (including components) should be ordered consistently.**
+**Les attributs d'un élément (incluant les composants) doit être ordonnés de manière cohérente.**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add custom attributes and directives.
+Il s'agit de l'ordre par défaut que nous recommandons pour les options des composants. Ils sont divisés en catégories, vous saurez donc où ajouter des attributs et des directives personnalisés.
 
-1. **Definition** (provides the component options)
+1. **Définition** (fournit les options des composants)
 
    - `is`
 
-2. **List Rendering** (creates multiple variations of the same element)
+2. **Afficher une Liste** (crée plusieurs variations du même élément)
 
    - `v-for`
 
-3. **Conditionals** (whether the element is rendered/shown)
+3. **Conditionelle** (si l'élément est rendu/montré)
 
    - `v-if`
    - `v-else-if`
@@ -1343,42 +1343,42 @@ This is the default order we recommend for component options. They're split into
    - `v-show`
    - `v-cloak`
 
-4. **Render Modifiers** (changes the way the element renders)
+4. **Modificateurs de Rendu** (changes la façon dont l'élément est rendu)
 
    - `v-pre`
    - `v-once`
 
-5. **Global Awareness** (requires knowledge beyond the component)
+5. **Conscience Globale** (nécessite des connaissances au-delà du composant)
 
    - `id`
 
-6. **Unique Attributes** (attributes that require unique values)
+6. **Unique Attributs** (attributs qui requierent une unique valeur)
 
    - `ref`
    - `key`
 
-7. **Two-Way Binding** (combining binding and events)
+7. **Liaison bidirectionnelle** (combinant liaison et événements)
 
    - `v-model`
 
-8. **Other Attributes** (all unspecified bound & unbound attributes)
+8. **Autres Attributs** (tous les attributs liés et non liés non spécifiés)
 
-9. **Events** (component event listeners)
+9. **Événements** (écouteurs d'événements de composant)
 
    - `v-on`
 
-10. **Content** (overrides the content of the element)
+10. **Contenu** (remplace le contenu de l'élément)
     - `v-html`
     - `v-text`
 
-### Empty lines in component/instance options <sup data-p="c">recommended</sup>
+### Lignes vides dans les options de composant/instance <sup data-p="c">recommandée</sup>
 
-**You may want to add one empty line between multi-line properties, particularly if the options can no longer fit on your screen without scrolling.**
+**Vous voudrez peut-être ajouter une ligne vide entre les propriétés multilignes, en particulier si les options ne peuvent plus tenir sur votre écran sans défilement.**
 
-When components begin to feel cramped or difficult to read, adding spaces between multi-line properties can make them easier to skim again. In some editors, such as Vim, formatting options like this can also make them easier to navigate with the keyboard.
+Lorsque les composants commencent à se sentir à l'étroit ou difficiles à lire, l'ajout d'espaces entre les propriétés multilignes peut les rendre plus faciles à parcourir à nouveau. Dans certains éditeurs, tels que Vim, des options de formatage comme celle-ci peuvent également faciliter la navigation avec le clavier.
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```js
 props: {
@@ -1408,8 +1408,8 @@ computed: {
 ```
 
 ```js
-// No spaces are also fine, as long as the component
-// is still easy to read and navigate.
+// Aucun espace reste aussi acceptable tant que
+// le composant reste lisible et navigable
 props: {
   value: {
     type: String,
@@ -1434,12 +1434,12 @@ computed: {
 
 </div>
 
-### Single-file component top-level element order <sup data-p="c">recommended</sup>
+### Ordre des éléments de premier niveau des composants à fichier unique <sup data-p="c">recommandée</sup>
 
-**[Single-file components](../guide/single-file-component.html) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
+**Les [composants à fichier unique](../guide/single-file-component.html) doivent toujours ordonnés les tags `<script>`, `<template>`, et `<style>` de manière consistente, avec `<style>` en dernier, car au moins l'un des deux autres est toujours nécessaire.**
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```html
 <style>
@@ -1452,7 +1452,7 @@ computed: {
 ```
 
 ```html
-<!-- ComponentA.vue -->
+<!-- ComposantA.vue -->
 <script>
   /* ... */
 </script>
@@ -1461,7 +1461,7 @@ computed: {
   /* ... */
 </style>
 
-<!-- ComponentB.vue -->
+<!-- ComposantB.vue -->
 <template>...</template>
 <script>
   /* ... */
@@ -1474,10 +1474,10 @@ computed: {
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```html
-<!-- ComponentA.vue -->
+<!-- ComposantA.vue -->
 <script>
   /* ... */
 </script>
@@ -1486,7 +1486,7 @@ computed: {
   /* ... */
 </style>
 
-<!-- ComponentB.vue -->
+<!-- ComposantB.vue -->
 <script>
   /* ... */
 </script>
@@ -1497,7 +1497,7 @@ computed: {
 ```
 
 ```html
-<!-- ComponentA.vue -->
+<!-- ComposantA.vue -->
 <template>...</template>
 <script>
   /* ... */
@@ -1506,7 +1506,7 @@ computed: {
   /* ... */
 </style>
 
-<!-- ComponentB.vue -->
+<!-- ComposantB.vue -->
 <template>...</template>
 <script>
   /* ... */
@@ -1518,22 +1518,22 @@ computed: {
 
 </div>
 
-## Priority D Rules: Use with Caution <span class="hide-from-sidebar">(Potentially Dangerous Patterns)</span>
+## Priorité D: à Utiliser avec Précaution <span class="hide-from-sidebar">(Patterns Potentiellement Dangereux)</span>
 
-### Element selectors with `scoped` <sup data-p="d">use with caution</sup>
+### Sélecteurs d'éléments avec `scoped` <sup data-p="d">avec précaution</sup>
 
-**Element selectors should be avoided with `scoped`.**
+**Les sélecteurs d'éléments doivent être évités avec `scoped`.**
 
-Prefer class selectors over element selectors in `scoped` styles, because large numbers of element selectors are slow.
+Préférez les sélecteurs de classe aux sélecteurs d'élément dans les styles qui sont `scoped`, car un grand nombre de sélecteurs d'éléments sont lents.
 
 ::: details Explication Détaillée
-To scope styles, Vue adds a unique attribute to component elements, such as `data-v-f3f3eg9`. Then selectors are modified so that only matching elements with this attribute are selected (e.g. `button[data-v-f3f3eg9]`).
+Pour définir les styles, Vue ajoute un attribut unique aux éléments du composant, tel que `data-v-f3f3eg9`. Ensuite, les sélecteurs sont modifiés pour que seuls les éléments correspondants avec cet attribut soient sélectionnés (e.g. `button[data-v-f3f3eg9]`).
 
-The problem is that large numbers of [element-attribute selectors](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `button[data-v-f3f3eg9]`) will be considerably slower than [class-attribute selectors](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `.btn-close[data-v-f3f3eg9]`), so class selectors should be preferred whenever possible.
+Le problème est qu'un grand nombre de [sélecteurs d'attributs d'élément](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `button[data-v-f3f3eg9]`) sera considérablement plus lent que les [sélecteurs d’attributs de classe](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `.btn-close[data-v-f3f3eg9]`), les sélecteurs de classe doivent donc être préférés chaque fois que possible.
 :::
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```html
 <template>
@@ -1550,7 +1550,7 @@ The problem is that large numbers of [element-attribute selectors](http://steves
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```html
 <template>
@@ -1566,16 +1566,16 @@ The problem is that large numbers of [element-attribute selectors](http://steves
 
 </div>
 
-### Implicit parent-child communication <sup data-p="d">use with caution</sup>
+### Communication implicite parent-enfant <sup data-p="d">avec précaution</sup>
 
-**Props and events should be preferred for parent-child component communication, instead of `this.$parent` or mutating props.**
+**Les props et événements doivent être préférés pour la communication des composants parent-enfant, au lieu de `this.$parent` ou de props changeant.**
 
-An ideal Vue application is props down, events up. Sticking to this convention makes your components much easier to understand. However, there are edge cases where prop mutation or `this.$parent` can simplify two components that are already deeply coupled.
+Une application Vue idéale est: les props descendent (props down), les événements montet (events up). Le respect de cette convention rend vos composants beaucoup plus faciles à comprendre. Cependant, il existe des cas rares où la mutation des props ou `this.$parent` peut simplifier deux composants déjà profondément couplés.
 
-The problem is, there are also many _simple_ cases where these patterns may offer convenience. Beware: do not be seduced into trading simplicity (being able to understand the flow of your state) for short-term convenience (writing less code).
+Le problème est qu'il existe également de nombreux cas simples où ces paterns peuvent être pratiques. Attention: ne vous laissez pas séduire par la simplicité du trading (être capable de comprendre le flux de votre état) pour une commodité à court terme (écrire moins de code).
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```js
 app.component('TodoItem', {
@@ -1621,7 +1621,7 @@ app.component('TodoItem', {
 </div>
 
 <div class="style-example style-example-good">
-<h4>Good</h4>
+<h4>Bon</h4>
 
 ```js
 app.component('TodoItem', {
@@ -1663,16 +1663,16 @@ app.component('TodoItem', {
 
 </div>
 
-### Non-flux state management <sup data-p="d">use with caution</sup>
+### Gestion des états sans flux <sup data-p="d">avec précaution</sup>
 
-**[Vuex](https://next.vuex.vuejs.org/) should be preferred for global state management, instead of `this.$root` or a global event bus.**
+**[Vuex](https://next.vuex.vuejs.org/) devrait être préféré pour le global state management, plutôt que `this.$root` ou un bus événementiel global.**
 
-Managing state on `this.$root` and/or using a global event bus can be convenient for very simple cases, but it is not appropriate for most applications.
+Gerer les differents états avec `this.$root` et/ou utiliser un bus d'événements global peut être pratique pour des cas très simples, mais ce n'est pas appropriée pour la plupart des applications.
 
-Vuex is the [official flux-like implementation](/guide/state-management.html#official-flux-like-implementation) for Vue, and offers not only a central place to manage state, but also tools for organizing, tracking, and debugging state changes. It integrates well in the Vue ecosystem (including full [Vue DevTools](/guide/installation.html#vue-devtools) support).
+Vuex est l' [implémentation officielle des flux-like](/guide/state-management.html#official-flux-like-implementation) pour Vue, et offre non seulement un emplacement central pour gérer l'état, mais également des outils pour organiser, suivre et déboguer les changements d'état. Il s'intègre bien dans l'écosystème Vue (y compris le support complet de [Vue DevTools] (/ guide / installation.html # vue-devtools)).
 
 <div class="style-example style-example-bad">
-<h4>Bad</h4>
+<h4>Mauvais</h4>
 
 ```js
 // main.js
