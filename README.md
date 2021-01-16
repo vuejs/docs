@@ -1,31 +1,33 @@
 # v3.vuejs.org
 
-This site is built with [VuePress](https://vuepress.vuejs.org/). Site content is written in Markdown format located in `src`.
+## vue3-fr.netlify.app
 
-## Writing
+Ce site est construit avec [VuePress](https://vuepress.vuejs.org/). Le contenu du site est écrit au format Markdown situé dans `src`. Il s'agit de la version française du site officiel de la documentation de Vue 3.
 
-See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) for our rules and recommendations on writing and maintaining documentation.
+## Écriture
 
-## Developing
+Voir [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) pour les règles et recommandations sur la rédaction et la maintenance de la documentation.
 
-1. Clone repository
+## Dévéloppement
 
-```bash
-git clone git@github.com:vuejs/docs-next.git
-```
-
-2. Install dependencies
+1. Cloner ce repository
 
 ```bash
-yarn # or npm install
+git clone https://github.com/demahom18/docs-next.git
 ```
 
-3. Start local development environment
+2. Installer les dépendences
+
+```bash
+yarn # ou npm install
+```
+
+3. Démarrer un environnement de dévéloppement local
 
 ```bash
 yarn serve # or npm run serve
 ```
 
-## Deploying
+## Deploiement
 
-The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
+Le site est automatiquement déployé lorsque les commits atterrissent dans `master`, via [Netlify](https://www.netlify.com/).
