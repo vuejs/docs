@@ -12,7 +12,7 @@ const sidebar = {
   ],
   guide: [
     {
-      title: 'Essentials',
+      title: 'Essentielles',
       collapsable: false,
       children: [
         '/guide/installation',
@@ -30,7 +30,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Components In-Depth',
+      title: 'Composants en profondeur',
       collapsable: false,
       children: [
         '/guide/component-registration',
@@ -55,7 +55,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Reusability & Composition',
+      title: 'Réutilisabilité et composition',
       collapsable: false,
       children: [
         {
@@ -76,11 +76,11 @@ const sidebar = {
       ]
     },
     {
-      title: 'Advanced Guides',
+      title: 'Guides Avancés',
       collapsable: false,
       children: [
         {
-          title: 'Reactivity',
+          title: 'Réactivité',
           children: [
             '/guide/reactivity',
             '/guide/reactivity-fundamentals',
@@ -92,7 +92,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Tooling',
+      title: 'Outillage',
       collapsable: false,
       children: [
         '/guide/single-file-component',
@@ -103,12 +103,12 @@ const sidebar = {
       ]
     },
     {
-      title: 'Scaling Up',
+      title: 'Monter en charge',
       collapsable: false,
       children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
     },
     {
-      title: 'Accessibility',
+      title: 'Accessibilité',
       collapsable: false,
       children: [
         '/guide/a11y-basics',
@@ -152,9 +152,9 @@ const sidebar = {
     },
     '/api/composition-api'
   ],
-  examples: [
+  exemples: [
     {
-      title: 'Examples',
+      title: 'Exemples',
       collapsable: false,
       children: [
         '/examples/markdown',
@@ -172,7 +172,7 @@ const sidebar = {
   migration: [
     '/guide/migration/introduction',
     {
-      title: 'Details',
+      title: 'Détails',
       collapsable: false,
       children: [
         '/guide/migration/array-refs',
@@ -207,9 +207,9 @@ const sidebar = {
       ]
     }
   ],
-  contributing: [
+  contributions: [
     {
-      title: 'Contribute to the Docs',
+      title: 'Contribuer à la documentation',
       collapsable: false,
       children: [
         '/guide/contributing/writing-guide',
@@ -222,7 +222,7 @@ const sidebar = {
 
 module.exports = {
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - Le Framework Progressif Javascript',
   head: [
     [
       'link',
@@ -295,7 +295,7 @@ module.exports = {
             link: '/guide/introduction'
           },
           {
-            text: 'Style Guide',
+            text: 'Guide de Style',
             link: '/style-guide/'
           },
           {
@@ -303,40 +303,40 @@ module.exports = {
             link: '/cookbook/'
           },
           {
-            text: 'Examples',
+            text: 'Exemples',
             link: '/examples/markdown'
           },
           {
-            text: 'Contribute',
+            text: 'Contribuer',
             link: '/guide/contributing/writing-guide'
           },
           {
-            text: 'Migration from Vue 2',
+            text: 'Migration à partir de Vue 2',
             link: '/guide/migration/introduction'
           }
         ]
       },
       {
-        text: 'API Reference',
+        text: 'Reference API',
         link: '/api/'
       },
       {
-        text: 'Ecosystem',
+        text: 'Écosystem',
         items: [
           {
-            text: 'Community',
+            text: 'Communauté',
             ariaLabel: 'Community Menu',
             items: [
               {
-                text: 'Team',
+                text: 'Équipe',
                 link: '/community/team/'
               },
               {
-                text: 'Partners',
+                text: 'Partenaires',
                 link: '/community/partners'
               },
               {
-                text: 'Join',
+                text: 'Se joindre',
                 link: '/community/join/'
               },
               {
@@ -346,7 +346,7 @@ module.exports = {
             ]
           },
           {
-            text: 'Official Projects',
+            text: 'Projets Officiels',
             items: [
               {
                 text: 'Vue Router',
@@ -378,16 +378,16 @@ module.exports = {
         ]
       },
       {
-        text: 'Support Vue',
+        text: 'Soutenir Vue',
         link: '/support-vuejs/',
         items: [
           {
-            text: 'One-time Donations',
-            link: '/support-vuejs/#one-time-donations'
+            text: 'Dons Uniques',
+            link: '/support-vuejs/#dons-uniques' /**To be checked */
           },
           {
-            text: 'Recurring Pledges',
-            link: '/support-vuejs/#recurring-pledges'
+            text: 'Engagements Récurrents',
+            link: '/support-vuejs/#engagements-récurrents'
           },
           {
             text: 'T-Shirt Shop',
@@ -396,20 +396,24 @@ module.exports = {
         ]
       },
       {
-        text: 'Translations',
+        text: 'Traduction',
         link: '#',
         items: [
           {
             text: '中文',
             link: 'https://v3.cn.vuejs.org/'
+          },
+          {
+            text: 'EN',
+            link: 'https://v3.vuejs.org/'
           }
         ]
       }
     ],
-    repo: 'vuejs/docs-next',
+    repo: 'demahom18/docs-next',
     editLinks: false,
-    editLinkText: 'Edit this on GitHub!',
-    lastUpdated: 'Last updated',
+    editLinkText: 'Éditer dans GitHub!',
+    lastUpdated: 'Dernière Mise-à-jour',
     docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {
