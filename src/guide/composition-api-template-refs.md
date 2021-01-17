@@ -147,4 +147,4 @@ Therefore, watchers that use template refs should be defined with the `flush: 'p
 </script>
 ```
 
-* See also: [Computed and Watchers](./computed-and-watchers.md#effect-flush-timing)
+* See also: [Computed and Watchers](./reactivity-computed-watchers.html#effect-flush-timing)
