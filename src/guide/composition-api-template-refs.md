@@ -92,7 +92,7 @@ Watching a template ref for changes can be an alternative to the use of lifecycl
 
 But a key difference to lifecycle hooks is that `watch()` and `watchEffect()` effects are run *before* the DOM is mounted or updated so the template ref hasn't been updated when the watcher runs the effect:
 
-```js
+```vue
 <template>
   <div ref="root">This is a root element</div>
 </template>
