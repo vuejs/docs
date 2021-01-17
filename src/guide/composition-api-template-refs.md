@@ -136,7 +136,7 @@ Therefore, watchers that use template refs should be defined with the `flush: 'p
         console.log(root.value) // => <div></div>
       }, 
       {
-        flush:'post'
+        flush: 'post'
       })
 
       return {
