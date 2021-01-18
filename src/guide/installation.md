@@ -76,7 +76,7 @@ Vue projects can quickly be set up with Vite by running the following commands i
 With npm:
 
 ```bash
-$ npm init vite-app <project-name>
+$ npm init @vitejs/app <project-name>
 $ cd <project-name>
 $ npm install
 $ npm run dev
@@ -85,7 +85,7 @@ $ npm run dev
 Or with Yarn:
 
 ```bash
-$ yarn create vite-app <project-name>
+$ yarn create @vitejs/app <project-name>
 $ cd <project-name>
 $ yarn
 $ yarn dev
