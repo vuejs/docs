@@ -29,3 +29,10 @@ yarn serve # or npm run serve
 ## Deploying
 
 The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
+
+## 브랜치 설명 관련 
+* master 브랜치는 vuejs/docs-next 와 싱크용으로 사용됩니다. 
+* upMaster는 vuejs/docs-next 로 PR 생성용으로 사용됩니다. 
+* rootKoKr은 v3.vuejs-korea.org 사이트 소스로 사용됩니다. 
+
+따라서 번역을 하실 분들은 rootKoKr로 PR을 보내주시면 됩니다. 
