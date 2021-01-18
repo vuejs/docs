@@ -18,6 +18,44 @@ The reactive conversion is "deep"—it affects all nested properties. In the [ES
 function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
 ```
 
+::: tip Note
+`reactive` will unwrap all the deep [refs](./refs-api.html#ref), while maintaining the ref reactivity
+
+```ts
+const count = ref(1)
+const obj = reactive({ count })
+
+// ref will be unwrapped
+console.log(obj.count === count.value) // true
+
+// it will update `obj.value`
+count.value++
+console.log(count.value) // 2
+console.log(obj.count) // 2
+
+// it will also update `count` ref
+obj.count++
+console.log(obj.count) // 3
+console.log(count.value) // 3
+```
+
+:::
+
+::: warning Important
+When assigning a [ref](./refs-api.html#ref) to a `reactive` property, that ref will be automatically unwrapped.
+
+```ts
+const count = ref(1)
+const obj = reactive({})
+
+obj.count = count
+
+console.log(obj.count) // 1
+console.log(obj.count === count.value) // true
+```
+
+:::
+
 ## `readonly`
 
 Takes an object (reactive or plain) or a [ref](./refs-api.html#ref) and returns a readonly proxy to the original. A readonly proxy is deep: any nested property accessed will be readonly as well.
