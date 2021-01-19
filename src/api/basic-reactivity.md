@@ -1,16 +1,16 @@
 # Basic Reactivity APIs
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> Cette section utilise la syntaxe des [composant à fichier unique](../guide/single-file-component.html) pour les examples
 
 ## `reactive`
 
-Returns a reactive copy of the object.
+Retourne une copie réactive de l'objet.
 
 ```js
 const obj = reactive({ count: 0 })
 ```
 
-The reactive conversion is "deep"—it affects all nested properties. In the [ES2015 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) based implementation, the returned proxy is **not** equal to the original object. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.
+La conversion ractive est "profonde"—elle affecte toutes les propriétés imbriquées. Dans l'implémentation basée sur le [Proxy ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), le proxy renvoyé n'est **pas** égal à l'objet d'origine. Il est recommandé de travailler exclusivement avec le proxy réactif et d'éviter de s'appuyer sur l'objet original.
 
 **Typing:**
 
@@ -20,7 +20,8 @@ function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
 
 ## `readonly`
 
-Takes an object (reactive or plain) or a [ref](./refs-api.html#ref) and returns a readonly proxy to the original. A readonly proxy is deep: any nested property accessed will be readonly as well.
+Prend un objet (réactif ou non) ou un [ref](./refs-api.html#ref) et renvoie un proxy en lecture seule à l'original. Un proxy en lecture seule est profond: toute propriété imbriquée accédée sera également en lecture seule.
+
 
 ```js
 const original = reactive({ count: 0 })
@@ -28,24 +29,24 @@ const original = reactive({ count: 0 })
 const copy = readonly(original)
 
 watchEffect(() => {
-  // works for reactivity tracking
+  // fonctionne pour le suivi de la réactivité
   console.log(copy.count)
 })
 
-// mutating original will trigger watchers relying on the copy
+// la mutation de l'original déclenchera les observateurs se basant sur la copie
 original.count++
 
-// mutating the copy will fail and result in a warning
-copy.count++ // warning!
+// la mutation de la copie échouera et vous aurez un message d'avertissement
+copy.count++ // Attention!
 ```
 
 ## `isProxy`
 
-Checks if an object is a proxy created by [`reactive`](#reactive) or [`readonly`](#readonly).
+Vérifie si un objet est un proxy créé par [`reactive`](#reactive) ou [`readonly`](#readonly).
 
 ## `isReactive`
 
-Checks if an object is a reactive proxy created by [`reactive`](#reactive).
+Vérifie si un objet est un proxy reactif créé par [`reactive`](#reactive).
 
 ```js
 import { reactive, isReactive } from 'vue'
@@ -59,7 +60,7 @@ export default {
 }
 ```
 
-It also returns `true` if the proxy is created by [`readonly`](#readonly), but is wrapping another proxy created by [`reactive`](#reactive).
+Il renvoie également `true` si le proxy est créé par [`readonly`](#readonly), mais encapsule un autre proxy créé par [`reactive`](#reactive).
 
 ```js{7-15}
 import { reactive, isReactive, readonly } from 'vue'
@@ -68,13 +69,13 @@ export default {
     const state = reactive({
       name: 'John'
     })
-    // readonly proxy created from plain object
+    // readonly proxy créé à partir d'un objet simple
     const plain = readonly({
       name: 'Mary'
     })
     console.log(isReactive(plain)) // -> false
 
-    // readonly proxy created from reactive proxy
+    // readonly proxy crée à partir d'un proxy reactif
     const stateCopy = readonly(state)
     console.log(isReactive(stateCopy)) // -> true
   }
@@ -83,11 +84,12 @@ export default {
 
 ## `isReadonly`
 
-Checks if an object is a readonly proxy created by [`readonly`](#readonly).
+Vérifie si un objet est un proxy en lecture seule créé par[`readonly`](#readonly).
 
 ## `toRaw`
 
-Returns the raw, original object of a [`reactive`](#reactive) or [`readonly`](#readonly) proxy. This is an escape hatch that can be used to temporarily read without incurring proxy access/tracking overhead or write without triggering changes. It is **not** recommended to hold a persistent reference to the original object. Use with caution.
+Renvoie l'objet brut (raw) et original d'un proxy [`reactive`](#reactive) ou [`readonly`](#readonly). Il s'agit d'un moyen qui peut être utilisé pour lire temporairement sans entraîner de surcharge d'accès/suivi du proxy ou d'écrire sans déclencher de modifications. Il n'est **pas** recommandé de conserver une référence persistante à l'objet d'origine. Utiliser avec précaution.
+
 
 ```js
 const foo = {}
@@ -98,25 +100,25 @@ console.log(toRaw(reactiveFoo) === foo) // true
 
 ## `markRaw`
 
-Marks an object so that it will never be converted to a proxy. Returns the object itself.
+Marque un objet pour qu'il ne soit jamais converti en proxy. Renvoie l'objet lui-même.
 
 ```js
 const foo = markRaw({})
 console.log(isReactive(reactive(foo))) // false
 
-// also works when nested inside other reactive objects
+// fonctionne également lorsqu'il est imbriqué dans d'autres objets réactifs
 const bar = reactive({ foo })
 console.log(isReactive(bar.foo)) // false
 ```
 
 ::: warning
-`markRaw` and the shallowXXX APIs below allow you to selectively opt-out of the default deep reactive/readonly conversion and embed raw, non-proxied objects in your state graph. They can be used for various reasons:
+`markRaw` et les API shallowXXX ci-dessous vous permettent de désactiver de manière sélective la conversion reactive/readonly profonde par défaut et d'incorporer des objets bruts (raw) sans proxy dans votre graphe d'état. Ils peuvent être utilisés pour diverses raisons:
 
-- Some values simply should not be made reactive, for example a complex 3rd party class instance, or a Vue component object.
+- Certaines valeurs ne doivent tout simplement pas être rendues réactives, par exemple une instance de classe tierce complexe ou un objet composant Vue.
 
-- Skipping proxy conversion can provide performance improvements when rendering large lists with immutable data sources.
+- Ignorer la conversion de proxy peut améliorer les performances lors du rendu de grandes listes avec des sources de données immuables.
 
-They are considered advanced because the raw opt-out is only at the root level, so if you set a nested, non-marked raw object into a reactive object and then access it again, you get the proxied version back. This can lead to **identity hazards** - i.e. performing an operation that relies on object identity but using both the raw and the proxied version of the same object:
+Ils sont considérés comme avancés car la désactivation brute est uniquement au niveau de la racine, donc si vous définissez un objet raw imbriqué et non marqué dans un objet réactif, puis y accédez à nouveau, vous récupérez la version proxy. Cela peut conduire à des **risques d'identité** - c'est-à-dire effectuer une opération qui repose sur l'identité d'objet mais en utilisant à la fois la version raw et la version proxy du même objet:
 
 ```js
 const foo = markRaw({
@@ -124,19 +126,20 @@ const foo = markRaw({
 })
 
 const bar = reactive({
-  // although `foo` is marked as raw, foo.nested is not.
+  // bien que `foo` soit marqué raw, foo.nested ne l'est pas
   nested: foo.nested
 })
 
 console.log(foo.nested === bar.nested) // false
 ```
 
-Identity hazards are in general rare. However, to properly utilize these APIs while safely avoiding identity hazards requires a solid understanding of how the reactivity system works.
+Les risques d'identité sont en général rares. Cependant, pour utiliser correctement ces API tout en évitant en toute sécurité les risques d'identité, il faut une solide compréhension du fonctionnement du système de réactivité.
 :::
 
 ## `shallowReactive`
 
-Creates a reactive proxy that tracks reactivity of its own properties but does not perform deep reactive conversion of nested objects (exposes raw values).
+
+Crée un proxy réactif qui suit la réactivité de ses propres propriétés mais n'effectue pas de conversion réactive profonde des objets imbriqués (expose les valeurs raw).
 
 ```js
 const state = shallowReactive({
@@ -146,16 +149,16 @@ const state = shallowReactive({
   }
 })
 
-// mutating state's own properties is reactive
+// la mutation des propres propriétés de state est reactive
 state.foo++
-// ...but does not convert nested objects
+// ...mais ne convertis pas les objets imbriqués
 isReactive(state.nested) // false
 state.nested.bar++ // non-reactive
 ```
 
 ## `shallowReadonly`
 
-Creates a proxy that makes its own properties readonly, but does not perform deep readonly conversion of nested objects (exposes raw values).
+Crée un proxy qui crée ses propres propriétés en lecture seule, mais n'effectue pas de conversion profonde en lecture seule des objets imbriqués (expose les valeurs brutes)
 
 ```js
 const state = shallowReadonly({
@@ -165,9 +168,9 @@ const state = shallowReadonly({
   }
 })
 
-// mutating state's own properties will fail
+// Tenter de muter les propres propriétés de state echouera
 state.foo++
-// ...but works on nested objects
+// ...mais fonctionne sur des objets imbriqués
 isReadonly(state.nested) // false
 state.nested.bar++ // works
 ```

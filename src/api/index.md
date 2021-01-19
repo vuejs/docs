@@ -1,6 +1,6 @@
 # API
 
-The Vue.js API contains the following categories:
+L'API de Vue.js contient les catégories suivantes:
 
 - [Application Config](/api/application-config.html)
 - [Application API](/api/application-api.html)

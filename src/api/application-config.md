@@ -1,6 +1,6 @@
 # Application Config
 
-Every Vue application exposes a `config` object that contains the configuration settings for that application:
+Chaque application Vue expose un objet `config` qui contient les paramètres de configuration de cette application:
 
 ```js
 const app = Vue.createApp({})
@@ -8,7 +8,7 @@ const app = Vue.createApp({})
 console.log(app.config)
 ```
 
-You can modify its properties, listed below, before mounting your application.
+Vous pouvez modifier ses propriétés, répertoriées ci-dessous, avant de monter votre application.
 
 ## errorHandler
 
@@ -20,15 +20,15 @@ You can modify its properties, listed below, before mounting your application.
 
 ```js
 app.config.errorHandler = (err, vm, info) => {
-  // handle error
-  // `info` is a Vue-specific error info, e.g. which lifecycle hook
-  // the error was found in
+  // Traitement des erreurs
+  // `info` contient les informations sur les erreurs spécifiques à Vue, 
+  // par ex dans quel lifecycle hook l'erreur a été trouvée
 }
 ```
 
-Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the application instance.
+Attribuez un handler pour les erreurs non captées durant le rendu des composants par les fonctions et les "watchers". Le handler est appelé avec l'erreur et l'instance de l'application.
 
-> Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
+> Service de traque des erreurs [Sentry](https://sentry.io/for/vue/) et [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) fournissent des intégrations officielles en utilisant cette option.
 
 ## warnHandler
 
@@ -40,11 +40,11 @@ Assign a handler for uncaught errors during component render function and watche
 
 ```js
 app.config.warnHandler = function(msg, vm, trace) {
-  // `trace` is the component hierarchy trace
+  // `trace` est la trace de la hierarchie du composant
 }
 ```
 
-Assign a custom handler for runtime Vue warnings. Note this only works during development and is ignored in production.
+Attribuer un gestionnaire personnalisé pour les avertissements durant l'exécution de Vue. Notez que cela ne fonctionne que pendant le développement et est ignoré en production.
 
 ## globalProperties
 
@@ -64,15 +64,15 @@ app.component('child-component', {
 })
 ```
 
-Adds a global property that can be accessed in any component instance inside the application. The component’s property will take priority when there are conflicting keys.
+Ajoute une propriété globale accessible dans n'importe quelle instance de composant à l'intérieur de l'application. La propriété du composant sera prioritaire en cas de conflit de clés.
 
-This can replace Vue 2.x `Vue.prototype` extending:
+Ceci peut remplacer `Vue.prototype` de Vue 2.x  étendant:
 
 ```js
-// Before
+// Avant
 Vue.prototype.$http = () => {}
 
-// After
+// Après
 const app = Vue.createApp({})
 app.config.globalProperties.$http = () => {}
 ```
@@ -86,16 +86,16 @@ app.config.globalProperties.$http = () => {}
 - **Usage:**
 
 ```js
-// any element starting with 'ion-' will be recognized as a custom one
+// tout élément commençant par 'ion-' sera reconnu comme un custom élément
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
+Spécifie une méthode pour reconnaître les custom éléments définis en dehors de Vue (par exemple, à l'aide des API des composants Web). Si le composant remplit cette condition, il n'aura pas besoin d'un enregistrement local ou global et Vue ne lancera pas d'avertissement du type `Unknown custom element`.
 
-Specifies a method to recognize custom elements defined outside of Vue (e.g., using the Web Components APIs). If component matches this condition, it won't need local or global registration and Vue won't throw a warning about an `Unknown custom element`.
+> Notez que toutes les balises HTML et SVG natives n'ont pas besoin d'être définies dans cette fonction - Le parser de Vue effectue cette vérification automatiquement.
 
-> Note that all native HTML and SVG tags don't need to be matched in this function - Vue parser performs this check automatically
 
 ::: tip Important
-This config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
+Cette option de configuration n'est respectée que lors de l'utilisation du compilateur d'exécution. Si vous utilisez la version exécutable uniquement, `isCustomElement` doit être passé à` @vue/compiler-dom` dans la configuration de build - par exemple, via l'option [`compilerOptions` dans vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
 :::
 
 ## optionMergeStrategies
@@ -124,11 +124,12 @@ app.mixin({
 // 'Hello, Vue'
 ```
 
-Define merging strategies for custom options.
+Définir des stratégies de fusion pour les options personnalisées.
 
-The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context application instance is passed as the third argument.
+La stratégie de fusion reçoit la valeur de cette option définie sur les instances parent et enfant comme premier et deuxième arguments, respectivement. Le contexte de l'instance de l'application est transmise comme troisième argument.
 
-- **See also:** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
+
+- **Voir aussi:** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
 
 ## performance
 
@@ -138,4 +139,4 @@ The merge strategy receives the value of that option defined on the parent and c
 
 - **Usage**:
 
-Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
+Definir à `true` pour activer le traçage des performances d'initialisation, de compilation, de rendu et de patch des composants dans le panneau performance/timeline du devtool du navigateur. Fonctionne uniquement en mode développement et dans les navigateurs prenant en charge l'API [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark).

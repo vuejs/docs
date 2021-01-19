@@ -1,12 +1,12 @@
 # Refs
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> Cette section utilise la syntaxe des [composant à fichier unique](../guide/single-file-component.html) pour les examples
 
 ## `ref`
 
-Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property `.value` that points to the inner value.
+Prend une valeur interne et renvoie un objet ref réactif et modifiable. L'objet ref a une seule propriété `.value` qui pointe vers la valeur interne.
 
-**Example:**
+**Exemple:**
 
 ```js
 const count = ref(0)
@@ -16,7 +16,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.html#reactive) method.
+Si un objet est assigné comme une valeur ref, l'objet est rendu profondément réactif par la méthode [reactive](./basic-reactivity.html#reactive).
 
 **Typing:**
 
@@ -28,15 +28,15 @@ interface Ref<T> {
 function ref<T>(value: T): Ref<T>
 ```
 
-Sometimes we may need to specify complex types for a ref's inner value. We can do that succinctly by passing a generics argument when calling `ref` to override the default inference:
+Parfois, nous pouvons avoir besoin de spécifier des types complexes pour la valeur interne d'une ref. Nous pouvons le faire de manière succincte en passant un argument générique lors de l'appel de `ref` pour remplacer l'inférence par défaut:
 
 ```ts
-const foo = ref<string | number>('foo') // foo's type: Ref<string | number>
+const foo = ref<string | number>('foo') // le type de foo: Ref<string | number>
 
 foo.value = 123 // ok!
 ```
 
-If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`:
+Si le type du générique est inconnu, il est recommandé d'effectuer un cast `ref` à `Ref<T>`:
 
 ```ts
 function useState<State extends string>(initial: State) {
@@ -47,17 +47,17 @@ function useState<State extends string>(initial: State) {
 
 ## `unref`
 
-Returns the inner value if the argument is a [`ref`](#ref), otherwise return the argument itself. This is a sugar function for `val = isRef(val) ? val.value : val`.
+Renvoie la valeur interne si l'argument est une [`ref`](#ref), sinon renvoie l'argument lui-même. Ceci est une "sugar function" pour `val = isRef(val) ? val.value : val`.
 
 ```ts
 function useFoo(x: number | Ref<number>) {
-  const unwrapped = unref(x) // unwrapped is guaranteed to be number now
+  const unwrapped = unref(x) // unwrapped est garanti d'être un number maintenant
 }
 ```
 
 ## `toRef`
 
-Can be used to create a [`ref`](#ref) for a property on a source reactive object. The ref can then be passed around, retaining the reactive connection to its source property.
+Peut être utilisé pour créer une [`ref`](#ref) pour une propriété sur un objet réactif source. La référence peut ensuite être transmise, en conservant la connexion réactive à sa propriété source.
 
 ```js
 const state = reactive({
@@ -74,7 +74,7 @@ state.foo++
 console.log(fooRef.value) // 3
 ```
 
-`toRef` is useful when you want to pass the ref of a prop to a composition function:
+`toRef` est utile lorsque vous souhaitez passer la ref d'un prop à une fonction de composition:
 
 ```js
 export default {
@@ -84,11 +84,11 @@ export default {
 }
 ```
 
-`toRef` will return a usable ref even if the source property doesn't currently exist. This makes it especially useful when working with optional props, which wouldn't be picked up by [`toRefs`](#torefs).
+`toRef` retournera une ref utilisable  même si la propriété source n'existe pas encore.  Cela le rend particulièrement utile lorsque vous travaillez avec des props optionnels, qui ne seraient pas repris par [`toRefs`](#torefs).
 
 ## `toRefs`
 
-Converts a reactive object to a plain object where each property of the resulting object is a [`ref`](#ref) pointing to the corresponding property of the original object.
+Convertit un objet réactif en un objet simple où chaque propriété de l'objet résultant est une [`ref`](#ref) pointant vers la propriété correspondante de l'objet d'origine.
 
 ```js
 const state = reactive({
@@ -98,7 +98,7 @@ const state = reactive({
 
 const stateAsRefs = toRefs(state)
 /*
-Type of stateAsRefs:
+Type de stateAsRefs:
 
 {
   foo: Ref<number>,
@@ -106,7 +106,7 @@ Type of stateAsRefs:
 }
 */
 
-// The ref and the original property is "linked"
+// La ref et la propriété originale sont "liés"
 state.foo++
 console.log(stateAsRefs.foo.value) // 2
 
@@ -114,7 +114,7 @@ stateAsRefs.foo.value++
 console.log(state.foo) // 3
 ```
 
-`toRefs` is useful when returning a reactive object from a composition function so that the consuming component can destructure/spread the returned object without losing reactivity:
+`toRefs` est utile lorsqu'on retourne un objet réactif depuis une fonction de composition afin que le composant qui l'utilise puisse déstructurer/spread l'objet retourné sans perdre la réactivité:
 
 ```js
 function useFeatureX() {
@@ -123,15 +123,15 @@ function useFeatureX() {
     bar: 2
   })
 
-  // logic operating on state
+  // opération logique sur state
 
-  // convert to refs when returning
+  // convertir en refs quand on le retourne
   return toRefs(state)
 }
 
 export default {
   setup() {
-    // can destructure without losing reactivity
+    // Peut destructurer sans perdre la reactivité
     const { foo, bar } = useFeatureX()
 
     return {
@@ -142,17 +142,17 @@ export default {
 }
 ```
 
-`toRefs` will only generate refs for properties that are included in the source object. To create a ref for a specific property use [`toRef`](#toref) instead.
+`toRefs` ne générera des refs que pour les propriétés incluses dans l'objet source. Pour créer une ref pour une propriété spécifique, utilisez plutôt [`toRef`](#toref).
 
 ## `isRef`
 
-Checks if a value is a ref object.
+Vérifie si une valeur est un objet ref.
 
 ## `customRef`
 
-Creates a customized ref with explicit control over its dependency tracking and updates triggering. It expects a factory function, which receives `track` and `trigger` functions as arguments and should return an object with `get` and `set`.
+Crée une ref personnalisée avec un contrôle explicite sur le suivi de ses dépendances et le déclenchement des mises à jour. Il attend une _factory function_ qui reçoit les fonctions `track` et` trigger` comme arguments et doit retourner un objet avec `get` et` set`.
 
-- Example using a custom ref to implement debounce with `v-model`:
+- Exemple utilisant un custom ref pour implémenter debounce avec `v-model`:
 
   ```html
   <input v-model="text" />
@@ -203,37 +203,37 @@ type CustomRefFactory<T> = (
 
 ## `shallowRef`
 
-Creates a ref that tracks its own `.value` mutation but doesn't make its value reactive.
+Crée une ref qui traque sa propre mutation `.value` mais ne rend pas sa valeur réactive.
 
 ```js
 const foo = shallowRef({})
-// mutating the ref's value is reactive
+// la mutation de la valeur de ref est reactive
 foo.value = {}
-// but the value will not be converted.
+// mais la valeur ne sera pas convertie.
 isReactive(foo.value) // false
 ```
 
-**See also**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
+**Voir aussi**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
 
 ## `triggerRef`
 
-Execute any effects tied to a  [`shallowRef`](#shallowref) manually.
+Exécute manuellement n'importe quel effet lié à [`shallowRef`](#shallowref).
 
 ```js
 const shallow = shallowRef({
   greet: 'Hello, world'
 })
 
-// Logs "Hello, world" once for the first run-through
+// La console affiche "Hello, world" une seule fois au 1er passage
 watchEffect(() => {
   console.log(shallow.value.greet)
 })
 
-// This won't trigger the effect because the ref is shallow
+// Ceci ne déclenchera pas l'effet car la ref est shallow
 shallow.value.greet = 'Hello, universe'
 
-// Logs "Hello, universe"
+// Dans la console "Hello, universe"
 triggerRef(shallow)
 ```
 
-**See also:** [Computed and Watch - watchEffect](./computed-watch-api.html#watcheffect)
+**Voir aussi:** [Computed et Watch - watchEffect](./computed-watch-api.html#watcheffect)
