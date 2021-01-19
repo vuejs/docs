@@ -1,4 +1,4 @@
-# Computed and watch
+# Computed et watch
 
 > Cette section utilise la syntaxe des [composant à fichier unique](../guide/single-file-component.html) pour les examples
 
