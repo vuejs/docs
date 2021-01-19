@@ -76,7 +76,7 @@ Pour obtenir une inférence de type pour les arguments passés à `setup ()`, l'
   }
   ```
 
-- **Voir**: [Composition API `setup`](../guide/composition-api-setup.html)
+- **Voir aussi**: [Composition API `setup`](../guide/composition-api-setup.html)
 
 ## Lifecycle Hooks
 

@@ -6,17 +6,17 @@ sidebarDepth: 1
 
 ## createApp
 
-Returns an application instance which provides an application context. The entire component tree mounted by the application instance share the same context.
+Retourne une instance d'application qui fournit un contexte d'application. L'ensemble de l'arborescence des composants montée par l'instance d'application partage le même contexte.
 
 ```js
 const app = Vue.createApp({})
 ```
 
-You can chain other methods after `createApp`, they can be found in [Application API](./application-api.html)
+Vous pouvez enchaîner d'autres méthodes après `createApp`, elles peuvent être trouvées dans  [Application API](./application-api.html)
 
 ### Arguments
 
-The function receives a root component options object as a first parameter:
+La fonction reçoit comme premier argument un objet avec les options du composant racine:
 
 ```js
 const app = Vue.createApp({
@@ -31,7 +31,7 @@ const app = Vue.createApp({
 })
 ```
 
-With the second parameter, we can pass root props to the application:
+Avec le deuxième paramètre, nous pouvons passer des props à l'application:
 
 ```js
 const app = Vue.createApp(
@@ -44,7 +44,7 @@ const app = Vue.createApp(
 
 ```html
 <div id="app">
-  <!-- Will display 'Evan' -->
+  <!-- Affichera 'Evan' -->
   {{ username }}
 </div>
 ```
@@ -64,7 +64,7 @@ export type CreateAppFunction<HostElement> = (
 
 ## h
 
-Returns a returns "virtual node", usually abbreviated to **VNode**: a plain object which contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. It is intended for manually written [render functions](../guide/render-function.md):
+Renvoie un "nœud virtuel", généralement abrégé en **VNode**: un objet qui contient des informations décrivant à Vue quel type de nœud il doit afficher sur la page, y compris des descriptions de tous les nœuds enfants. Il est destiné aux [fonctions render](../guide/render-function.md) écrites manuellement:
 
 ```js
 render() {
@@ -74,15 +74,15 @@ render() {
 
 ### Arguments
 
-Accepts three arguments: `type`, `props` and `children`
+Accepte trois arguments: `type`, `props` et `children`
 
 #### type
 
 - **Type:** `String | Object | Function`
 
-- **Details:**
+- **Détails:**
 
-  An HTML tag name, a component or an async component. Using function returning null would render a comment. This parameter is required
+  Une balise HTML, un composant ou un composant asynchrone. L'utilisation de la fonction retournant null rendrait un commentaire. Cet argument est obligatoire
 
 #### props
 
@@ -90,7 +90,7 @@ Accepts three arguments: `type`, `props` and `children`
 
 - **Details:**
 
-  An object corresponding to the attributes, props and events we would use in a template. Optional
+  Un objet correspondant aux props, attributs et événements que nous utiliserions dans un modèle. Optionnel
 
 #### children
 
@@ -98,7 +98,7 @@ Accepts three arguments: `type`, `props` and `children`
 
 - **Details:**
 
-  Children VNodes, built using `h()`, or using strings to get "text VNodes" or an object with slots. Optional
+  Des VNodes enfants, construit en utilisant `h()`, ou en utilisant des chaînes de caractères pour avoir des "textes VNodes" ou un objet avec des slots. Optionnel
 
   ```js
   h('div', {}, [
@@ -112,11 +112,11 @@ Accepts three arguments: `type`, `props` and `children`
 
 ## defineComponent
 
-Implementation-wise `defineComponent` does nothing but return the object passed to it. However, in terms of typing, the returned value has a synthetic type of a constructor for manual render function, TSX and IDE tooling support.
+En ce qui concerne l'implémentation, `defineComponent` ne fait rien d'autre que renvoyer l'objet qui lui est passé. Cependant, en termes de typage, la valeur renvoyée a un type synthétique de constructeur pour la fonction de rendu manuel, TSX et la prise en charge des outils des IDE.
 
 ### Arguments
 
-An object with component options
+Un objet avec les options du composant
 
 ```js
 import { defineComponent } from 'vue'
@@ -133,7 +133,7 @@ const MyComponent = defineComponent({
 })
 ```
 
-Or a `setup` function, function name will be used as component name
+Ou une fonction `setup`, le nom de la fonction sera utilisé comme le nom du composant
 
 ```js
 import { defineComponent, ref } from 'vue'
@@ -146,11 +146,11 @@ const HelloWorld = defineComponent(function HelloWorld() {
 
 ## defineAsyncComponent
 
-Creates an async component that will be loaded only when it's necessary.
+Crée un composant asynchrone qui sera chargé uniquement lorsque cela est nécessaire.
 
 ### Arguments
 
-For basic usage, `defineAsyncComponent` can accept a factory function returning a `Promise`. Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
+Pour une utilisation basique, `defineAsyncComponent` peut accepter une "factory function" qui retourne une `Promise`. Le callback du `resolve` de la Promise doit être appelé lorsque vous avez récupéré la définition de votre composant sur le serveur. Vous pouvez également appeler `reject(raison)` pour indiquer que la chargement a échoué.
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -162,7 +162,7 @@ const AsyncComp = defineAsyncComponent(() =>
 app.component('async-component', AsyncComp)
 ```
 
-When using [local registration](../guide/component-registration.html#local-registration), you can also directly provide a function that returns a `Promise`:
+Lorsque vous utilisez [enregistrement local](../guide/component-registration.html#local-registration), vous pouvez également fournir directement une fonction qui renvoie une `Promise`:
 
 ```js
 import { createApp, defineAsyncComponent } from 'vue'
@@ -177,58 +177,59 @@ createApp({
 })
 ```
 
-For advanced usage, `defineAsyncComponent` can accept an object:
+Pour une utilisation avancée, `defineAsyncComponent` peut accepter un objet:
 
-The `defineAsyncComponent` method can also return an object of the following format:
+La méthode `defineAsyncComponent` peut également renvoyer un objet au format suivant:
 
 ```js
 import { defineAsyncComponent } from 'vue'
 
 const AsyncComp = defineAsyncComponent({
-  // The factory function
+  // La factory function
   loader: () => import('./Foo.vue')
-  // A component to use while the async component is loading
+  // Un composant à utiliser pendant le chargement du composant asynchrone
   loadingComponent: LoadingComponent,
-  // A component to use if the load fails
+  // Un composant à utiliser si le chargement échoue
   errorComponent: ErrorComponent,
-  // Delay before showing the loading component. Default: 200ms.
+  // Délai avant d'afficher le composant de chargement. Par défaut: 200 ms.
   delay: 200,
-  // The error component will be displayed if a timeout is
-  // provided and exceeded. Default: Infinity.
+  // Le composant d'erreur sera affiché si un timeout est
+  // fourni et dépassé. Par défaut: Infinity.
   timeout: 3000,
-  // Defining if component is suspensible. Default: true.
+  // Définir si le composant est suspensible. Par défaut: vrai.
   suspensible: false,
   /**
    *
-   * @param {*} error Error message object
-   * @param {*} retry A function that indicating whether the async component should retry when the loader promise rejects
-   * @param {*} fail  End of failure
-   * @param {*} attempts Maximum allowed retries number
+   * @param {*} error Objet de message d'erreur
+   * @param {*} retry Une fonction qui indique si le composant asynchrone doit réessayer lorsque la promesse du loader est rejetée
+   * @param {*} fail Fin de l'échec
+   * @param {*} attempts Nombre max de tentatives autorisées
    */
   onError(error, retry, fail, attempts) {
     if (error.message.match(/fetch/) && attempts <= 3) {
-      // retry on fetch errors, 3 max attempts
+      // réessayer en cas d'erreurs de récupération, 
+      // 3 tentatives max
       retry()
     } else {
-      // Note that retry/fail are like resolve/reject of a promise:
-      // one of them must be called for the error handling to continue.
+      // Notez que retry/fail sont comme resolve/reject d'une promesse:
+      // l'un d'eux doit être appelé pour que la gestion des erreurs se poursuive.
       fail()
     }
   },
 })
 ```
 
-**See also**: [Dynamic and Async components](../guide/component-dynamic-async.html)
+**Voir aussi**: [Dynamic and Async components](../guide/component-dynamic-async.html)
 
 ## resolveComponent
 
 :::warning
-`resolveComponent` can only be used within `render` or `setup` functions.
+`resolveComponent` ne peut être utilisé que dans les fonctions `render` ou` setup`.
 :::
 
-Allows resolving a `component` by its name, if it is available in the current application instance.
+Permet de résoudre un `composant` par son nom, s'il est disponible dans l'instance d'application courante.
 
-Returns a `Component` or `undefined` when not found.
+Renvoie un `Composant`ou `undefined` lorsqu'il est introuvable.
 
 ```js
 const app = Vue.createApp({})
@@ -246,7 +247,7 @@ render() {
 
 ### Arguments
 
-Accepts one argument: `name`
+Accepte un argument: `name`
 
 #### name
 
@@ -254,17 +255,17 @@ Accepts one argument: `name`
 
 - **Details:**
 
-  The name of a loaded component.
+  Le nom du composant chargé.
 
 ## resolveDynamicComponent
 
 :::warning
-`resolveDynamicComponent` can only be used within `render` or `setup` functions.
+`resolveDynamicComponent` ne peut être utilisé que dans les fonctions `render` ou` setup`
 :::
 
-Allows resolving a `component` by the same mechanism that `<component :is="">` employs.
+Permet de résoudre un `composant` par le même mécanisme que `<component: is="">` utilise.
 
-Returns the resolved `Component` or a newly created `VNode` with the component name as the node tag. Will raise a warning if the `Component` was not found.
+Retourne le `composant` résolu ou un` VNode` nouvellement créé avec le nom du composant comme balise de nœud. Déclenche un avertissement si le `composant` n'a pas été trouvé.
 
 ```js
 import { resolveDynamicComponent } from 'vue'
@@ -275,25 +276,25 @@ render () {
 
 ### Arguments
 
-Accepts one argument: `component`
+Accepte un argument: `component`
 
 #### component
 
-- **Type:** `String | Object (component’s options object)`
+- **Type:** `String | Object (objet d'options du composant)`
 
-- **Details:**
+- **Détails:**
 
-  For more details, refer to the documentation on [Dynamic Components](../guide/component-dynamic-async.html).
+  Pour plus de détails, reportez-vous à la documentation sur [Dynamic Components](../guide/component-dynamic-async.html).
 
 ## resolveDirective
 
 :::warning
-`resolveDirective` can only be used within `render` or `setup` functions.
+`resolveDirective` ne peut être utilisé que dans les fonctions `render` ou `setup`
 :::
 
-Allows resolving a `directive` by its name, if it is available in the current application instance.
+Permet de résoudre une `directive` par son nom, si elle est disponible dans l'instance d'application actuelle.
 
-Returns a `Directive` or `undefined` when not found.
+Retourne une `Directive` ou `undefined` si introuvable.
 
 ```js
 const app = Vue.createApp({})
@@ -309,23 +310,23 @@ render () {
 
 ### Arguments
 
-Accepts one argument: `name`
+Accepte un argument: `name`
 
 #### name
 
 - **Type:** `String`
 
-- **Details:**
+- **Détails:**
 
-  The name of a loaded directive.
+  Le nom de la directive chargée.
 
 ## withDirectives
 
 :::warning
-`withDirectives` can only be used within `render` or `setup` functions.
+`withDirectives` ne peut être utilisé que dans les fonctions `render` ou `setup`
 :::
 
-Allows applying directives to a **VNode**. Returns a VNode with the applied directives.
+Permet d'appliquer des directives à un **VNode**. Retourne un VNode avec les directives appliquées.
 
 ```js
 import { withDirectives, resolveDirective } from 'vue'
@@ -340,15 +341,15 @@ return withDirectives(h('div'), [
 
 ### Arguments
 
-Accepts two arguments: `vnode` and `directives`.
+Accepte deux arguments: `vnode` et `directives`.
 
 #### vnode
 
 - **Type:** `vnode`
 
-- **Details:**
+- **Détails:**
 
-  A virtual node, usually created with `h()`.
+  Un nœud virtuel, généralement créé avec `h()`.
 
 #### directives
 
@@ -356,25 +357,25 @@ Accepts two arguments: `vnode` and `directives`.
 
 - **Details:**
 
-  An array of directives.
+  Un tableau de directives.
 
-  Each directive itself is an array, which allows for up to 4 indexes to be defined as seen in the following examples.
+  Chacune des directives est un tableau, ce qui permet de définir jusqu'à 4 index comme indiqué dans les exemples suivants.
 
-  - `[directive]` - The directive by itself. Required.
+  - `[directive]` - La directive en elle-même. Obligatoire.
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
   const nodeWithDirectives = withDirectives(h('div'), [[MyDirective]])
   ```
 
-  - `[directive, value]` - The above, plus a value of type `any` to be assigned to the directive
+  - `[directive, value]` - Ce qui précède, plus une valeur de type `any` à affecter à la directive
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
   const nodeWithDirectives = withDirectives(h('div'), [[MyDirective, 100]])
   ```
 
-  - `[directive, value, arg]` - The above, plus a `String` argument, ie. `click` in `v-on:click`
+  - `[directive, value, arg]` -  Ce qui précède, plus un argument de type `String`, par exemple `click` dans `v-on:click`
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
@@ -383,7 +384,7 @@ Accepts two arguments: `vnode` and `directives`.
   ])
   ```
 
-  - `[directive, value, arg, modifiers]` - The above, plus a `key: value` pair `Object` defining any modifiers.
+  - `[directive, value, arg, modifiers]` - Ce qui précède, plus un objet pair `key: value` de type `Object` définissant tous les modificateurs.
 
   ```js
   const MyDirective = resolveDirective('MyDirective')
@@ -394,14 +395,12 @@ Accepts two arguments: `vnode` and `directives`.
 
 ## createRenderer
 
-The createRenderer function accepts two generic arguments:
-`HostNode` and `HostElement`, corresponding to Node and Element types in the
-host environment.
+La fonction createRenderer accepte deux arguments génériques:
+`HostNode` et `HostElement`, correspondant aux types de nœud et d'élément dans l'environnement hôte.
 
-For example, for runtime-dom, HostNode would be the DOM
-`Node` interface and HostElement would be the DOM `Element` interface.
+Par exemple, pour le runtime-dom, HostNode serait l'interface `Node` du DOM  et HostElement seraient l'interface `Element` du DOM.
 
-Custom renderers can pass in the platform specific types like this:
+Les fonctions de rendu personnalisées peuvent transmettre des types spécifiques à la plate-forme comme celle-ci:
 
 ```ts
 import { createRenderer } from 'vue'
@@ -413,27 +412,27 @@ const { render, createApp } = createRenderer<Node, Element>({
 
 ### Arguments
 
-Accepts two arguments: `HostNode` and `HostElement`
+Accepte deux arguments: `HostNode` et `HostElement`
 
 #### HostNode
 
 - **Type:** `Node`
 
-- **Details:**
+- **Détails:**
 
-  The node in the host environment.
+  Le nœud dans l'environnement hôte.
 
 #### HostElement
 
 - **Type:** `Element`
 
-- **Details:**
+- **Détails:**
 
-  The element in the host environment.
+  L'élément dans l'environnement hôte
 
 ## nextTick
 
-Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.
+Reporter le callback à exécuter après le prochain cycle de mise à jour du DOM. Utilisez-le immédiatement après avoir modifié certaines données pour attendre la mise à jour du DOM.
 
 ```js
 import { createApp, nextTick } from 'vue'
@@ -444,10 +443,10 @@ const app = createApp({
     const changeMessage = async newMessage => {
       message.value = newMessage
       await nextTick()
-      console.log('Now DOM is updated')
+      console.log('Le DOM est mis à jour maintenant!')
     }
   }
 })
 ```
 
-**See also**: [`$nextTick` instance method](instance-methods.html#nexttick)
+**Voir aussi**: [`$nextTick` instance method](instance-methods.html#nexttick)
