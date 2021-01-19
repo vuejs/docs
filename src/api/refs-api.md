@@ -232,7 +232,7 @@ watchEffect(() => {
 // Ceci ne déclenchera pas l'effet car la ref est shallow
 shallow.value.greet = 'Hello, universe'
 
-// Dna la console "Hello, universe"
+// Dans la console "Hello, universe"
 triggerRef(shallow)
 ```
 
