@@ -6,7 +6,7 @@
 
   - `{string | Function} source`
   - `{Function | Object} callback`
-  - `{Object} options (optional)`
+  - `{Object} options (optionnel)`
     - `{boolean} deep`
     - `{boolean} immediate`
     - `{string} flush`

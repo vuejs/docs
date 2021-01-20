@@ -1,44 +1,44 @@
-# Instance Properties
+# Propriétés d'Instance
 
 ## $data
 
 - **Type:** `Object`
 
-- **Details:**
+- **Détails:**
 
-  The data object that the component instance is observing. The component instance proxies access to the properties on its data object.
+  Objet de données que l'instance de composant observe. Les proxys de l'instance du composant accèdent aux propriétés qui sont dans l'objet data.
 
-- **See also:** [Options / Data - data](./options-data.html#data-2)
+- **Voir aussi:** [Options / Data - data](./options-data.html#data-2)
 
 ## $props
 
 - **Type:** `Object`
 
-- **Details:**
+- **Détails:**
 
-  An object representing the current props a component has received. The component instance proxies access to the properties on its props object.
+  Un objet représentant les propriétés actuelles qu'un composant a reçues.Les proxys de l'instance du composant accèdent aux propriétés qui sont dans l'objet props. 
 
 ## $el
 
 - **Type:** `any`
 
-- **Read only**
+- **Lecture seulement**
 
-- **Details:**
+- **Détails:**
 
-  The root DOM element that the component instance is managing.
+  L'élément racine du DOM  que l'instance de composant gère.
 
-  For components using [fragments](../guide/migration/fragments), `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM. It is recommended to use [template refs](../guide/component-template-refs.html) for direct access to DOM elements instead of relying on `$el`.
+  Pour les composants utilisant [fragments](../guide/migration/fragments), `$el` sera l'espace réservé dans le nœud du DOM que Vue utilise pour garder une trace de la position du composant dans le DOM. Il est recommandé d'utiliser [template refs](../guide/component-template-refs.html) pour un accès direct aux éléments du DOM au lieu de s'appuyer sur `$el`.
 
 ## $options
 
 - **Type:** `Object`
 
-- **Read only**
+- **Lecture seulement**
 
-- **Details:**
+- **Détails:**
 
-  The instantiation options used for the current component instance. This is useful when you want to include custom properties in the options:
+  Les options d'instanciation utilisées pour l'instance de composant actuelle. Ceci est utile lorsque vous souhaitez inclure des propriétés personnalisées dans les options:
 
   ```js
   const app = Vue.createApp({
@@ -51,47 +51,47 @@
 
 ## $parent
 
-- **Type:** `Component instance`
+- **Type:** `Instance de Composant`
 
-- **Read only**
+- **Lecture seulement**
 
-- **Details:**
+- **Détails:**
 
-  The parent instance, if the current instance has one.
+  L'instance parente, si l'instance actuelle en a une.
 
 ## $root
 
-- **Type:** `Component instance`
+- **Type:** `Instance de Composant`
 
-- **Read only**
+- **Lecture seulement**
 
-- **Details:**
+- **Détails:**
 
-  The root component instance of the current component tree. If the current instance has no parents this value will be itself.
+  Instance du composant racine de l'arborescence du composant actuel. Si l'instance actuelle n'a pas de parents, cette valeur sera elle-même.
 
 ## $slots
 
 - **Type:** `{ [name: string]: (...args: any[]) => Array<VNode> | undefined }`
 
-- **Read only**
+- **Lecture seulement**
 
-- **Details:**
+- **Détails:**
 
-  Used to programmatically access content [distributed by slots](../guide/component-basics.html#content-distribution-with-slots). Each [named slot](../guide/component-slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `this.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
+  Utilisé pour accéder automatiquement au contenu [distribué par slots](../guide/component-basics.html#content-distribution-with-slots). Chaque [slot nommé](../guide/component-slots.html#named-slots) a sa propre propriété correspondante (par exemple, le contenu de `v-slot:foo` sera trouvé à `this.$slots.foo()`). La propriété `default` contient soit des nœuds non inclus dans un slot nommé soit le contenu de `v-slot:default`.
 
-  Accessing `this.$slots` is most useful when writing a component with a [render function](../guide/render-function.html).
+  L'accès à `this.$Slots` est plus utile lors de l'écriture d'un composant avec une [fonction render](../guide/render-function.html).
 
-- **Example:**
+- **Exemple:**
 
   ```html
   <blog-post>
     <template v-slot:header>
-      <h1>About Me</h1>
+      <h1>À Propos de moi</h1>
     </template>
 
     <template v-slot:default>
       <p>
-        Here's some page content, which will be included in $slots.default.
+        Voici un contenu de page, qui sera inclus dans $slots.default.
       </p>
     </template>
 
@@ -115,8 +115,8 @@
   })
   ```
 
-- **See also:**
-  - [`<slot>` Component](built-in-components.html#slot)
+- **Voir aussi:**
+  - [Composant `<slot>`](built-in-components.html#slot)
   - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
   - [Render Functions - Slots](../guide/render-function.html#slots)
 
@@ -124,26 +124,26 @@
 
 - **Type:** `Object`
 
-- **Read only**
+- **Lecture seulement**
 
-- **Details:**
+- **Détails:**
 
-An object of DOM elements and component instances, registered with [`ref` attributes](../guide/component-template-refs.html).
+Un objet d'éléments du DOM et d'instances de composants, enregistré avec l'[attributs `ref`](../guide/component-template-refs.html).
 
-- **See also:**
+- **Voir aussi:**
   - [Template refs](../guide/component-template-refs.html)
-  - [Special Attributes - ref](./special-attributes.md#ref)
+  - [Attributs spéciaux - ref](./special-attributes.md#ref)
 
 ## $attrs
 
 - **Type:** `Object`
 
-- **Read only**
+- **Lecture seulement**
 
-- **Details:**
+- **Détails:**
 
-Contains parent-scope attribute bindings and events that are not recognized (and extracted) as component [props](./options-data.html#props) or [custom events](./options-data.html#emits). When a component doesn't have any declared props or custom events, this essentially contains all parent-scope bindings, and can be passed down to an inner component via `v-bind="$attrs"` - useful when creating higher-order components.
+Contient des liaisons d'attributs et des événements du scope parent qui ne sont pas reconnus (et extraits) en tant que [props](./options-data.html#props) du composant ou un [custom events](./options-data.html#emits). Lorsqu'un composant n'a aucune props ou custom events déclarés, il contient essentiellement toute les liaisons du scope parent, et peut être transmis à un composant interne via `v-bind="$attrs"` - utile lors de la création de Composants d'ordre supérieur.
 
-- **See also:**
+- **Voir aussi:**
   - [Non-Prop Attributes](../guide/component-attrs.html)
   - [Options / Misc - inheritAttrs](./options-misc.html#inheritattrs)
