@@ -8,7 +8,7 @@ sidebar: auto
 Vue.js est un projet open source sous licence MIT dont l'utilisation est totalement gratuite.
 Cependant, les efforts nécessaires pour maintenir et développer de nouvelles fonctionnalités pour le projet ne sont pas durables sans un soutien financier approprié. Vous pouvez soutenir le développement de Vue.js et en devenir un sponsor via les méthodes suivantes:
 
-## Dons Uniques
+## Dons Ponctuels
 
 Nous acceptons les dons via ces canaux:
 

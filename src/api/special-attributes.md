@@ -1,4 +1,4 @@
-# Les Attributs Spéciaux
+# Attributs Spéciaux
 
 ## key
 

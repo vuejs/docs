@@ -382,8 +382,8 @@ module.exports = {
         link: '/support-vuejs/',
         items: [
           {
-            text: 'Dons Uniques',
-            link: '/support-vuejs/#dons-uniques' /**To be checked */
+            text: 'Dons Ponctuels',
+            link: '/support-vuejs/#dons-ponctuels' 
           },
           {
             text: 'Engagements Récurrents',
