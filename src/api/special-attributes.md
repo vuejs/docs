@@ -1,14 +1,14 @@
-# Special Attributes
+# Les Attributs Spéciaux
 
 ## key
 
-- **Expects:** `number | string`
+- **Devrait être:** `number | string`
 
-  The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify VNodes when diffing the new list of nodes against the old list. Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed/destroyed.
+  L'attribut spécial `key` est principalement utilisé comme un indice pour l'algorithme du DOM virtuel de Vue pour identifier les VNodes lors de la comparaison de la nouvelle liste de nœuds avec l'ancienne. Sans clés, Vue utilise un algorithme qui minimise le mouvement des éléments et essaie de patcher/réutiliser les éléments du même type sur place autant que possible. Avec les clés, il réorganisera les éléments en fonction du changement d'ordre des clés, et les éléments avec des clés qui ne sont plus présentes seront toujours supprimés/détruits.
 
-  Children of the same common parent must have **unique keys**. Duplicate keys will cause render errors.
-
-  The most common use case is combined with `v-for`:
+  Les enfants du même parent commun doivent avoir des **clés uniques**. Les clés dupliquées entraîneront des erreurs de rendu.
+  
+  Le cas d'utilisation le plus courant est de le combiné avec `v-for`:
 
   ```html
   <ul>
@@ -16,12 +16,12 @@
   </ul>
   ```
 
-  It can also be used to force replacement of an element/component instead of reusing it. This can be useful when you want to:
+  Il peut également être utilisé pour forcer le remplacement d'un élément/composant au lieu de le réutiliser. Cela peut être utile lorsque vous souhaitez:
 
-  - Properly trigger lifecycle hooks of a component
-  - Trigger transitions
+  - Déclenchez correctement les hooks de cycle de vie d'un composant
+  - Déclencher les transitions
 
-  For example:
+  Par exemple:
 
   ```html
   <transition>
@@ -29,42 +29,42 @@
   </transition>
   ```
 
-  When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
+  Lorsque `text` change, le `<span> `sera toujours remplacé au lieu d'être corrigé, donc une transition sera déclenchée.
 
 ## ref
 
-- **Expects:** `string | Function`
+- **Devrait être:** `string | Function`
 
-  `ref` is used to register a reference to an element or a child component. The reference will be registered under the parent component's `$refs` object. If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be component instance:
+  `ref` est utilisé pour enregistrer une référence à un élément ou à un composant enfant. La référence sera enregistrée sous l'objet `$refs` du composant parent. S'il est utilisé sur un élément simple du DOM, la référence sera cet élément; s'il est utilisé sur un composant enfant, la référence sera l'instance du composant:
 
   ```html
-  <!-- vm.$refs.p will be the DOM node -->
+  <!-- vm.$refs.p sera le nœud DOM -->
   <p ref="p">hello</p>
 
-  <!-- vm.$refs.child will be the child component instance -->
+  <!-- vm.$refs.child sera l'instance du composant enfant -->
   <child-component ref="child"></child-component>
 
-  <!-- When bound dynamically, we can define ref as a callback function, passing the element or component instance explicitly -->
+  <!-- Lorsqu'il est lié dynamiquement, nous pouvons définir ref comme une fonction de callback, en passant l'élément ou l'instance de composant explicitement -->
   <child-component :ref="(el) => child = el"></child-component>
   ```
 
-  An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
+  Une note importante sur le timing d'enregistrement des ref: parce que les refs eux-mêmes sont créés à la suite de la fonction de rendu, vous ne pouvez pas y accéder sur le rendu initial - ils n'existent pas encore! `$refs` est également non réactif, vous ne devez donc pas essayer de l'utiliser dans des modèles pour la liaison de données.
 
-- **See also:** [Child Component Refs](../guide/component-template-refs.html)
+- **Voir aussi:** [Child Component Refs](../guide/component-template-refs.html)
 
 ## is
 
-- **Expects:** `string | Object (component’s options object)`
+- **Devrait être:** `string | Object (objet d'options du composant)`
 
-Used for [dynamic components](../guide/component-dynamic-async.html).
+Utiliser pour les [composants dynamique](../guide/component-dynamic-async.html).
 
-For example:
+Par exemple:
 
 ```html
-<!-- component changes when currentView changes -->
+<!-- Le composant change quand currentView change -->
 <component :is="currentView"></component>
 ```
 
-- **See also:**
+- **Voir aussi:**
   - [Dynamic Components](../guide/component-dynamic-async.html)
   - [DOM Template Parsing Caveats](../guide/component-basics.html#dom-template-parsing-caveats)
