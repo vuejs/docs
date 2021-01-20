@@ -4,37 +4,37 @@
 
 - **Type:** `string`
 
-- **Details:**
+- **Détails:**
 
-  A string template to be used as the markup for the component instance. The template will **replace** the mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.
+  Un template de chaîne de caractères (string template) à utiliser comme balisage pour l'instance de composant. Le template **remplacera** l'élément monté. Tout balisage existant à l'intérieur de l'élément monté sera ignoré, sauf si des slots de "distribution de contenu" sont présents dans le template.
 
-  If the string starts with `#` it will be used as a `querySelector` and use the selected element's innerHTML as the template string. This allows the use of the common `<script type="x-template">` trick to include templates.
+  Si la chaîne de caractère commence par `#`, elle sera utilisée comme `querySelector` et utilisera le innerHTML de l'élément sélectionné comme string template. Cela permet d'utiliser l'astuce courante `<script type="x-template">` pour inclure des templates.
 
   :::tip Note
-  From a security perspective, you should only use Vue templates that you can trust. Never use user-generated content as your template.
+  D'un point de vue de sécurité, vous ne devez utiliser que des templates Vue auxquels vous pouvez faire confiance. N'utilisez jamais de contenu généré par l'utilisateur comme template.
   :::
 
   :::tip Note
-  If render function is present in the Vue option, the template will be ignored.
+  Si la fonction de rendu est présente dans l'option Vue, le template sera ignoré.
   :::
 
-- **See also:**
-  - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
-  - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+- **Voir aussi:**
+  - [Diagramme de cycle de vie](../guide/instance.html#lifecycle-diagram)
+  - [Distribution de Contenu avec Slots](../guide/component-basics.html#content-distribution-with-slots)
 
 ## render
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  An alternative to string templates allowing you to leverage the full programmatic power of JavaScript.
+  Une alternative aux string templates qui vous permet d'exploiter toute la puissance programmatique de JavaScript.
 
 - **Usage:**
 
   ```html
   <div id="app" class="demo">
-    <my-title blog-title="A Perfect Vue"></my-title>
+    <my-title blog-title="Une Vue Parfaite"></my-title>
   </div>
   ```
 
@@ -44,8 +44,8 @@
   app.component('my-title', {
     render() {
       return Vue.h(
-        'h1', // tag name,
-        this.blogTitle // tag content
+        'h1', // nom du tag,
+        this.blogTitle // contenu du tag
       )
     },
     props: {
@@ -60,7 +60,7 @@
   ```
 
   :::tip Note
-  The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element
+    La fonction `render` a la priorité sur la fonction render compilée à partir de l'option `template` ou du template HTML dans le DOM de l'élément monté.
   :::
 
-- **See also:** [Render Functions](../guide/render-function.html)
+- **Voir aussi:** [Render Functions](../guide/render-function.html)

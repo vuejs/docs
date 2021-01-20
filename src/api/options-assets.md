@@ -4,10 +4,10 @@
 
 - **Type:** `Object`
 
-- **Details:**
+- **Détails:**
 
-  A hash of directives to be made available to the component instance.
-
+  Un hachage de directives à mettre à la disposition de l'instance de composant.
+  
 - **Usage:**
   ```js
   const app = Vue.createApp({})
@@ -24,15 +24,15 @@
   })
   ```
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+- **Voir aussi:** [Custom Directives](../guide/custom-directive.html)
 
 ## components
 
 - **Type:** `Object`
 
-- **Details:**
+- **Détails:**
 
-  A hash of components to be made available to the component instance.
+  Un hachage de composants à mettre à disposition de l'instance de composant.
 
 - **Usage:**
   ```js
@@ -48,4 +48,4 @@
   })
   ```
 
-- **See also:** [Components](../guide/component-basics.html)
+- **Voir aussi:** [Components](../guide/component-basics.html)

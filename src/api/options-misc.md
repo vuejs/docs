@@ -4,11 +4,11 @@
 
 - **Type:** `string`
 
-- **Details:**
+- **Détails:**
 
-  Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with `Vue.createApp({}).component({})`, the global ID is automatically set as its name.
+  Autorise le composant à s’appeler de manière récursive dans son template. Notez que lorsqu'un composant est enregistré globalement avec `Vue.createApp({}).component({})`, l'ID global est automatiquement défini comme son nom.
 
-  Another benefit of specifying a `name` option is debugging. Named components result in more helpful warning messages. Also, when inspecting an app in the [vue-devtools](https://github.com/vuejs/vue-devtools), unnamed components will show up as `<AnonymousComponent>`, which isn't very informative. By providing the `name` option, you will get a much more informative component tree.
+  Un autre avantage de spécifier une option `name` est le débogage. Les composants nommés génèrent des messages d'avertissement plus utiles. De plus, lors de l'inspection d'une application dans [vue-devtools](https://github.com/vuejs/vue-devtools),  les composants sans nom apparaîtront sous la forme  `<AnonymousComponent>`, ce qui n'est pas très informatif. En fournissant l'option `name`, vous obtiendrez une arborescence de composants beaucoup plus informative.
 
 ## delimiters
 
@@ -16,19 +16,19 @@
 
 - **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}` 
 
-- **Restrictions:** This option is only available in the full build, with in-browser template compilation.
+- **Restrictions:** Cette option n'est disponible que dans le build complet, avec la compilation des templates dans le navigateur.
 
-- **Details:**
+- **Détails:**
 
-  Sets the delimiters used for text interpolation within the template.
+  Définit les délimiteurs utilisés pour l'interpolation de texte dans le modèle.
 
-  Typically this is used to avoid conflicting with server-side frameworks that also use mustache syntax.
+  En règle générale, cela est utilisé pour éviter les conflits avec les frameworks côté serveur qui utilisent également la syntaxe moustache.
 
-- **Example:**
+- **Exemple:**
 
   ```js
   Vue.createApp({
-    // Delimiters changed to ES6 template string style
+    // Délimiteurs modifiés en style de template string ES6
     delimiters: ['${', '}']
   })
   ```
@@ -39,9 +39,9 @@
 
 - **Default:** `true`
 
-- **Details:**
+- **Détails:**
 
-  By default, parent scope attribute bindings that are not recognized as props will "fallthrough". This means that when we have a single-root component, these bindings will be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting `inheritAttrs` to `false`, this default behavior can be disabled. The attributes are available via the `$attrs` instance property and can be explicitly bound to a non-root element using `v-bind`.
+  Par défaut, les liaisons d'attributs dans le scope parent qui ne sont pas reconnues comme des props seront "échouées". Cela signifie que lorsque nous avons un composant racine unique, ces liaisons seront appliquées à l'élément racine du composant enfant en tant qu'attributs HTML normaux. Lors de la création d'un composant qui encapsule un élément cible ou un autre composant, cela peut ne pas toujours être le comportement souhaité. En définissant `inheritAttrs` sur `false`, ce comportement par défaut peut être désactivé. Les attributs sont disponibles via la propriété d'instance `$attrs` et peuvent être explicitement liés à un élément non racine en utilisant `v-bind`.
 
 - **Usage:**
 
@@ -63,4 +63,4 @@
   })
   ```
 
-- **See also:** [Disabling Attribute Inheritance](../guide/component-attrs.html#disabling-attribute-inheritance)
+- **Voir aussi:** [Disabling Attribute Inheritance](../guide/component-attrs.html#disabling-attribute-inheritance)
