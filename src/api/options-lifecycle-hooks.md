@@ -1,187 +1,187 @@
 # Lifecycle hooks
 
 :::tip Note
-All lifecycle hooks automatically have their `this` context bound to the instance, so that you can access data, computed properties, and methods. This means **you should not use an arrow function to define a lifecycle method** (e.g. `created: () => this.fetchTodos()`). The reason is arrow functions bind the parent context, so `this` will not be the component instance as you expect and `this.fetchTodos` will be undefined.
+Tous les lifecycle hooks ont automatiquement leur contexte `this` lié à l'instance, afin que vous puissiez accéder aux data, aux propriétés computed et aux méthodes. Cela signifie que **vous ne devez pas utiliser une fonction fléchée pour définir un lifecycle hook** (c-à-d. `created: () => this.fetchTodos()`). La raison est que les fonctions fléchées lient le contexte parent, donc `this` ne sera pas l'instance de composant comme prévu et `this.fetchTodos` sera "undefined".
 :::
 
 ## beforeCreate
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called synchronously immediately after the instance has been initialized, before data observation and event/watcher setup.
+Appelé de manière synchrone immédiatement après l'initialisation de l'instance, avant l'observation des datas et la configuration des événements/observateurs.
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## created
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following have been set up: data observation, computed properties, methods, watch/event callbacks. However, the mounting phase has not been started, and the `$el` property will not be available yet.
+  Appelé de manière synchrone après la création de l'instance. À ce stade, l'instance a terminé le traitement des options, ce qui signifie que les éléments suivants ont été configurés: observation des datas, propriétés computed, méthodes, callbacks des observateurs/événements. Cependant, la phase de montage n'a pas été lancée et la propriété `$el` ne sera pas encore disponible.
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## beforeMount
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called right before the mounting begins: the `render` function is about to be called for the first time.
+  Appelée juste avant le début du montage: la fonction `render` est sur le point d'être appelée pour la première fois.
 
-  **This hook is not called during server-side rendering.**
+  **Ce hook n'est pas appelé lors du rendu côté serveur (SSR).**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## mounted
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called after the instance has been mounted, where element, passed to `Vue.createApp({}).mount()` is replaced by the newly created `vm.$el`. If the root instance is mounted to an in-document element, `vm.$el` will also be in-document when `mounted` is called.
+  Appelé après le montage de l'instance, où l'élément passé à `Vue.createApp({}).mount()` est remplacé par le nouvellement créé `vm.$el`. Si l'instance racine est montée sur un élément dans le document, `vm.$el` sera également dans le document lorsque `mounted` est appelé.
 
-  Note that `mounted` does **not** guarantee that all child components have also been mounted. If you want to wait until the entire view has been rendered, you can use [vm.$nextTick](../api/instance-methods.html#nexttick) inside of `mounted`:
+  Notez que `mounted` ne garantit **pas** que tous les composants enfants ont également été montés. Si vous voulez attendre que la vue entière soit rendue, vous pouvez utiliser [vm.$nextTick](../api/instance-methods.html#nexttick) à l'intérieur de `mounted`:
 
   ```js
   mounted() {
     this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been rendered
+      // Code qui ne fonctionnera qu'après que
+      // la vue entière ait été rendue
     })
   }
   ```
 
-  **This hook is not called during server-side rendering.**
+  **Ce hook n'est pas appelé lors du rendu côté serveur (SSR).**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## beforeUpdate
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called when data changes, before the DOM is patched. This is a good place to access the existing DOM before an update, e.g. to remove manually added event listeners.
+  Appelé lorsque les datas changent, avant que le DOM ne soit patché. C'est un bon endroit pour accéder au DOM existant avant une mise à jour, par exemple pour supprimer les écouteurs d'événements ajoutés manuellement.
 
-  **This hook is not called during server-side rendering, because only the initial render is performed server-side.**
+  **Ce hook n'est pas appelé lors du rendu côté serveur (SSR), car seul le rendu initial est effectué côté serveur.**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## updated
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called after a data change causes the virtual DOM to be re-rendered and patched.
+  Appelé après une modification de données, le DOM virtuel est à nouveau rendu et corrigé.
 
-  The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](./options-data.html#computed) or [watcher](./options-data.html#watch) instead.
+  Le DOM du composant aura été mis à jour lorsque ce hook sera appelé, vous pouvez donc effectuer des opérations dépendant du DOM ici. Cependant, dans la plupart des cas, vous devez éviter de changer d'état à l'intérieur du hook. Pour réagir aux changements d'état, il est généralement préférable d'utiliser une propriété [computed](./options-data.html#computed) ou un [watcher](./options-data.html#watch).
 
-  Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.$nextTick](../api/instance-methods.html#nexttick) inside of `updated`:
+  Notez que `updated` ne garantit **pas** que tous les composants enfants ont également été rendus. Si vous voulez attendre que la vue entière soit de nouveau rendue, vous pouvez utiliser [vm.$nextTick](../api/instance-methods.html#nexttick) à l'intérieur de de `updated`:
 
   ```js
   updated() {
     this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been re-rendered
+      // Code qui ne fonctionnera qu'après que
+      // la vue entière ait été rendue
     })
   }
   ```
 
-  **This hook is not called during server-side rendering.**
+  **Ce hook n'est pas appelé lors du rendu côté serveur (SSR).**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## activated
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called when a kept-alive component is activated.
+  Appelé lorsqu'un composant "keep-alive" est activé.
 
-  **This hook is not called during server-side rendering.**
+  **Ce hook n'est pas appelé lors du rendu côté serveur (SSR).**
 
-- **See also:**
+- **Voir aussi:**
   - [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
 
 ## deactivated
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called when a kept-alive component is deactivated.
+  Appelé lorsqu'un composant "keep-alive" est désactivé.
 
-  **This hook is not called during server-side rendering.**
+  **Ce hook n'est pas appelé lors du rendu côté serveur (SSR).**
 
-- **See also:**
+- **Voir aussi:**
   - [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
 
 ## beforeUnmount
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called right before a component instance is unmounted. At this stage the instance is still fully functional.
+  Appelé juste avant qu'une instance de composant ne soit démontée. À ce stade, l'instance est toujours pleinement fonctionnelle.
 
-  **This hook is not called during server-side rendering.**
+  **Ce hook n'est pas appelé lors du rendu côté serveur (SSR).**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## unmounted
 
 - **Type:** `Function`
 
-- **Details:**
+- **Détails:**
 
-  Called after a component instance has been unmounted. When this hook is called, all directives of the component instance have been unbound, all event listeners have been removed, and all child component instance have also been unmounted.
+  Appelé après qu'une instance de composant a été démontée. Lorsque ce hook est appelé, toutes les directives de l'instance de composant ont été dissociées, tous les écouteurs d'événements ont été supprimés et toutes les instances de composant enfant ont également été démontées.
 
-  **This hook is not called during server-side rendering.**
+  **Ce hook n'est pas appelé lors du rendu côté serveur (SSR).**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+- **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## errorCaptured
 
 - **Type:** `(err: Error, instance: Component, info: string) => ?boolean`
 
-- **Details:**
+- **Détails:**
 
-  Called when an error from any descendent component is captured. The hook receives three arguments: the error, the component instance that triggered the error, and a string containing information on where the error was captured. The hook can return `false` to stop the error from propagating further.
+  Appelé lorsqu'une erreur venant d'un composant descendant est capturée. Le hook reçoit trois arguments: l'erreur, l'instance de composant qui a déclenché l'erreur et un "string" contenant des informations sur l'endroit où l'erreur a été capturée. Le hook peut retourner `false` pour empêcher l'erreur de se propager davantage.
 
   :::tip
-  You can modify component state in this hook. However, it is important to have conditionals in your template or render function that short circuits other content when an error has been captured; otherwise the component will be thrown into an infinite render loop.
+  Vous pouvez modifier l'état du composant dans ce hook. Cependant, il est important d'avoir des conditions dans votre template ou votre fonction de rendu qui court-circuitent les autres contenus lorsqu'une erreur a été capturée; sinon le composant sera projeté dans une boucle de rendu infinie.
   :::
 
-  **Error Propagation Rules**
+  **Règles de propagation des erreurs**
 
-  - By default, all errors are still sent to the global `config.errorHandler` if it is defined, so that these errors can still be reported to an analytics service in a single place.
+  - Par défaut, toutes les erreurs sont toujours envoyées au`config.errorHandler` global s'il est défini, afin que ces erreurs puissent toujours être signalées à un service d'analyse centralisé.
 
-  - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error.
+  - Si plusieurs hooks `errorCaptured` existent sur l'arborescence d'un composant parent, ils seront tousinvoqués sur la même erreur.
 
-  - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to the global `config.errorHandler`.
+  - Si le hook `errorCaptured` génère lui-même une erreur, cette erreur et l'erreur capturée d'origine sont envoyées au fichier global` config.errorHandler`.
 
-  - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or the global `config.errorHandler` from being invoked for this error.
+  - Un hook `errorCaptured` peut retourner` false` pour empêcher l'erreur de se propager davantage. Cela signifie essentiellement que "cette erreur a été gérée et doit être ignorée". Cela empêchera tout hooks `errorCaptured` supplémentaire ou le `config.errorHandler` global d'être invoqué pour cette erreur.
 
 ## renderTracked
 
 - **Type:** `(e: DebuggerEvent) => void`
 
-- **Details:**
+- **Détails:**
 
-  Called when virtual DOM re-render is tracked. The hook receives a `debugger event` as an argument. This event tells you what operation tracked the component and the target object and key of that operation.
+  Appelé lorsque le rendu du DOM virtuel est traqué. Le hook reçoit un `événement de débogage` comme argument. Cet événement vous indique quelle opération le composant a traqué, l'objet cible et la clé de cette opération.
 
 - **Usage:**
 
   ```html
   <div id="app">
-    <button v-on:click="addToCart">Add to cart</button>
-    <p>Cart({{ cart }})</p>
+    <button v-on:click="addToCart">Ajouter au panier</button>
+    <p>Panier({{ cart }})</p>
   </div>
   ```
 
@@ -194,7 +194,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
     },
     renderTracked({ key, target, type }) {
       console.log({ key, target, type })
-      /* This will be logged when component is rendered for the first time:
+      /* La console affiche ceci lorsque le composant est rendu pour la première:
       {
         key: "cart",
         target: {
@@ -218,16 +218,16 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **Type:** `(e: DebuggerEvent) => void`
 
-- **Details:**
+- **Détails:**
 
-  Called when virtual DOM re-render is triggered.Similarly to [`renderTracked`](#rendertracked), receives a `debugger event` as an argument. This event tells you what operation triggered the re-rendering and the target object and key of that operation.
+  Appelé lorsque le rendu du DOM virtuel est déclenché.Similaire à [`renderTracked`](#rendertracked), reçoit un` événement de débogage` comme argument. Cet événement vous indique quelle opération a déclenché le nouveau rendu, l'objet cible et la clé de cette opération.
 
 - **Usage:**
 
   ```html
   <div id="app">
-    <button v-on:click="addToCart">Add to cart</button>
-    <p>Cart({{ cart }})</p>
+    <button v-on:click="addToCart">Ajouter au panier</button>
+    <p>Panier({{ cart }})</p>
   </div>
   ```
 
@@ -244,7 +244,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
     methods: {
       addToCart() {
         this.cart += 1
-        /* This will cause renderTriggered call
+        /* Ceci provoquera l'invocation de renderTriggered
           {
             key: "cart",
             target: {
