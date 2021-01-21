@@ -1,7 +1,7 @@
 # Lifecycle hooks
 
 :::tip Note
-Tous les lifecycle hooks ont automatiquement leur contexte `this` lié à l'instance, afin que vous puissiez accéder aux data, aux propriétés computed et aux méthodes. Cela signifie que **vous ne devez pas utiliser une fonction fléchée pour définir un lifecycle hook** (c-à-d. `created: () => this.fetchTodos()`). La raison est que les fonctions fléchées lient le contexte parent, donc `this` ne sera pas l'instance de composant comme prévu et `this.fetchTodos` sera "undefined".
+Tous les lifecycle hooks ont automatiquement leur contexte `this` lié à l'instance, afin que vous puissiez accéder aux données, aux propriétés computed et aux méthodes. Cela signifie que **vous ne devez pas utiliser une fonction fléchée pour définir un lifecycle hook** (c-à-d. `created: () => this.fetchTodos()`). La raison est que les fonctions fléchées lient le contexte parent, donc `this` ne sera pas l'instance de composant comme prévu et `this.fetchTodos` sera "undefined".
 :::
 
 ## beforeCreate
@@ -10,7 +10,7 @@ Tous les lifecycle hooks ont automatiquement leur contexte `this` lié à l'inst
 
 - **Détails:**
 
-Appelé de manière synchrone immédiatement après l'initialisation de l'instance, avant l'observation des datas et la configuration des événements/observateurs.
+Appelé de manière synchrone immédiatement après l'initialisation de l'instance, avant l'observation des donnéess et la configuration des événements/observateurs.
 
 - **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
@@ -20,7 +20,7 @@ Appelé de manière synchrone immédiatement après l'initialisation de l'instan
 
 - **Détails:**
 
-  Appelé de manière synchrone après la création de l'instance. À ce stade, l'instance a terminé le traitement des options, ce qui signifie que les éléments suivants ont été configurés: observation des datas, propriétés computed, méthodes, callbacks des observateurs/événements. Cependant, la phase de montage n'a pas été lancée et la propriété `$el` ne sera pas encore disponible.
+  Appelé de manière synchrone après la création de l'instance. À ce stade, l'instance a terminé le traitement des options, ce qui signifie que les éléments suivants ont été configurés: observation des donnéess, propriétés computed, méthodes, callbacks des observateurs/événements. Cependant, la phase de montage n'a pas été lancée et la propriété `$el` ne sera pas encore disponible.
 
 - **Voir aussi:** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
@@ -65,7 +65,7 @@ Appelé de manière synchrone immédiatement après l'initialisation de l'instan
 
 - **Détails:**
 
-  Appelé lorsque les datas changent, avant que le DOM ne soit patché. C'est un bon endroit pour accéder au DOM existant avant une mise à jour, par exemple pour supprimer les écouteurs d'événements ajoutés manuellement.
+  Appelé lorsque les donnéess changent, avant que le DOM ne soit patché. C'est un bon endroit pour accéder au DOM existant avant une mise à jour, par exemple pour supprimer les écouteurs d'événements ajoutés manuellement.
 
   **Ce hook n'est pas appelé lors du rendu côté serveur (SSR), car seul le rendu initial est effectué côté serveur.**
 
