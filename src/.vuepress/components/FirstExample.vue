@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <p>Counter: {{ counter }}</p>
+    <p>Compteur: {{ counter }}</p>
     <button @click="clearInterval">Stop timer</button>
   </div>
 </template>
