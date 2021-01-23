@@ -1,7 +1,7 @@
 <svg width="840" height="1388" xmlns="http://www.w3.org/2000/svg">
   <g fill="none" fill-rule="evenodd">
     <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#848484">
-      <tspan x="231.593" y="1303">* Template compilation is performed ahead-of-time if using</tspan> <tspan x="270.756" y="1321.5">a build step, e.g., with single-file components.</tspan>
+      <tspan x="231.593" y="1303">* La compilation du template est effectuée à l'avance si vous utilisez</tspan> <tspan x="270.756" y="1321.5">une étape de build, par exemple avec des composants à fichier unique..</tspan>
     </text>
     <g transform="translate(72 1056)">
       <path d="M160 18v14l-14-7 14-7zm180 6v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3z" fill="#DB5B62" fill-rule="nonzero"/>
@@ -13,7 +13,7 @@
     <path stroke="#9AA9B2" stroke-width="2" fill="#9AA9B2" stroke-linecap="square" stroke-dasharray="1,6" d="M413 947v40"/>
     <path d="M414 1104v2h6l-7 14-7-14h6v-2h2zm0-7v3h-2v-3h2zm0-7v3h-2v-3h2zm0-7v3h-2v-3h2zm0-7v3h-2v-3h2zm0-7v3h-2v-3h2zm0-7v3h-2v-3h2zm0-7v3h-2v-3h2z" fill="#9AA9B2" fill-rule="nonzero"/>
     <text font-family="Inter, Roboto, sans-serif" font-size="14" transform="translate(355 947)">
-      <tspan x="39.766" y="60" fill="#8E9EA9">when </tspan> <tspan x="3.973" y="77" fill="#8E9EA9">app.</tspan> <tspan x="31.221" y="77" fill="#DB5B62">unmount</tspan> <tspan x="85.703" y="77" fill="#8E9EA9">() is </tspan> <tspan x="38.21" y="94" fill="#8E9EA9">called</tspan>
+      <tspan x="39.766" y="60" fill="#8E9EA9">quand </tspan> <tspan x="3.973" y="77" fill="#8E9EA9">app.</tspan> <tspan x="31.221" y="77" fill="#DB5B62">unmount</tspan> <tspan x="85.703" y="77" fill="#8E9EA9">() est </tspan> <tspan x="38.21" y="94" fill="#8E9EA9">appelé</tspan>
     </text>
     <g transform="translate(72 238)">
       <path d="M160.676 17.036l-.037 14L146.657 24l14.019-6.964zm176.231 6.459l2 .005 1 .003-.005 2-1-.003-1-.003-1-.002.005-2zm-7-.018l1 .002 1 .003 1 .002-.005 2-1-.002-1-.003-1-.002.005-2zm-7-.019l1 .003 2 .005-.005 2-2-.005-1-.003.005-2zm-7-.018l1 .003 1 .002 1 .003-.005 2-1-.003-1-.002-1-.003.005-2zm-7-.018l2 .005 1 .003-.005 2-1-.003-2-.005.005-2zm-7-.018l1 .002 1 .003 1 .003-.005 2-1-.003-1-.003-1-.002.005-2zm-7-.018l1 .002 1 .003 1 .002-.005 2-1-.002-1-.003-1-.002.005-2zm-7-.019l1 .003 2 .005-.005 2-2-.005-1-.003.005-2zm-7-.018l1 .003 1 .002 1 .003-.005 2-1-.003-1-.002-1-.003.005-2zm-7-.018l2 .005 1 .003-.005 2-1-.003-2-.005.005-2zm-7-.018l1 .002 1 .003 1 .003-.005 2-1-.003-1-.003-1-.002.005-2zm-7-.018l1 .002 1 .003 1 .002-.005 2-1-.002-1-.003-1-.002.005-2zm-7-.019l1 .003 2 .005-.005 2-2-.005-1-.003.005-2zm-7-.018l1 .003 1 .002 1 .003-.005 2-1-.003-1-.002-1-.003.005-2zm-7-.018l2 .005 1 .003-.005 2-1-.003-2-.005.005-2zm-7-.018l1 .002 1 .003 1 .003-.005 2-1-.003-1-.003-1-.002.005-2zm-7-.018l1 .002 1 .003 1 .002-.005 2-1-.002-1-.003-1-.002.005-2zm-7-.019l1 .003 2 .005-.005 2-2-.005-1-.003.005-2zm-7-.018l1 .003 1 .002 1 .003-.005 2-1-.003-1-.002-1-.003.005-2zm-7-.018l2 .005 1 .003-.005 2-1-.003-2-.005.005-2zm-7-.018l1 .002 1 .003 1 .002-.005 2-1-.002-1-.003-1-.002.005-2zm-7-.019l1 .003 1 .003 1 .002-.005 2-1-.002-1-.003-1-.003.005-2zm-7-.018l1 .003 2 .005-.005 2-2-.005-1-.003.005-2zm-7-.018l1 .003 1 .002 1 .003-.005 2-1-.003-1-.002-1-.003.006-2zm-7-.018l2 .005 1 .003-.005 2-1-.003-2-.005.006-2zm-7-.018l1 .002 1 .003 1 .002-.005 2-1-.002-1-.003-1-.002.006-2z" fill="#DB5B62" fill-rule="nonzero"/>
@@ -39,24 +39,24 @@
     <g transform="translate(169 535)">
       <rect stroke="#23AC70" fill="#3AB881" x="-.5" y="-.5" width="207" height="58" rx="8"/>
       <text font-family="Inter, Roboto, sans-serif" font-size="14">
-        <tspan x="49.695" y="23.918" fill="#FFF">Compile template</tspan> <tspan x="39.568" y="42.418" fill="#FFF">into render function </tspan> <tspan x="163.312" y="42.418" fill="#F6DA72">*</tspan>
+        <tspan x="49.695" y="23.918" fill="#FFF">Compile le template</tspan> <tspan x="39.568" y="42.418" fill="#FFF">en une fonction de rendu </tspan> <tspan x="163.312" y="42.418" fill="#F6DA72">*</tspan>
       </text>
     </g>
     <g transform="translate(451 535)">
       <rect stroke="#23AC70" fill="#3AB881" x="-.5" y="-.5" width="207" height="58" rx="8"/>
       <text font-family="Inter, Roboto, sans-serif" font-size="14">
-        <tspan x="29.016" y="23.918" fill="#FFF">Compile el’s innerHTML</tspan> <tspan x="62.727" y="42.418" fill="#FFF">as template </tspan> <tspan x="138.989" y="42.418" fill="#F6DA72">*</tspan>
+        <tspan x="29.016" y="23.918" fill="#FFF">Compile le innerHTML d'el</tspan> <tspan x="62.727" y="42.418" fill="#FFF">en tant que template </tspan> <tspan x="138.989" y="42.418" fill="#F6DA72">*</tspan>
       </text>
     </g>
     <path d="M413 415.433L509.057 467 413 518.567 316.943 467 413 415.433z" stroke="#F2781E" fill="#FF8228"/>
     <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#FFF" transform="translate(318 416)">
-      <tspan x="82.052" y="37.727">Has</tspan> <tspan x="38.08" y="56.227">“template” option?</tspan>
+      <tspan x="82.052" y="37.727">A</tspan> <tspan x="38.08" y="56.227"> l'option“template”?</tspan>
     </text>
     <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#8E9EA9" transform="translate(169 416)">
-      <tspan x="61.662" y="69">YES</tspan>
+      <tspan x="61.662" y="69">OUI</tspan>
     </text>
     <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#8E9EA9" transform="translate(169 416)">
-      <tspan x="405.5" y="69">NO</tspan>
+      <tspan x="405.5" y="69">NON</tspan>
     </text>
     <g transform="translate(72 354)">
       <path d="M160 17v14l-14-7 14-7zm180 6v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3zm-7 0v2h-3v-2h3z" fill="#DB5B62" fill-rule="nonzero"/>
@@ -103,32 +103,32 @@
       <g transform="translate(519 863)">
         <rect stroke="#23AC70" fill="#3AB881" x="20.5" y="-.5" width="139.833" height="78" rx="8"/>
         <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#FFF">
-          <tspan x="53.006" y="25.333">Virtual DOM</tspan> <tspan x="54.424" y="43.833">re-rendered</tspan> <tspan x="60.252" y="62.333">and patch</tspan>
+          <tspan x="53.006" y="25.333">DOM Virtuel</tspan> <tspan x="54.424" y="43.833">re-rendu</tspan> <tspan x="60.252" y="62.333">et patch</tspan>
         </text>
       </g>
       <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#8E9EA9" transform="translate(431 749)">
-        <tspan x="62.197" y="58">when data </tspan> <tspan x="71.535" y="75">changes</tspan>
+        <tspan x="62.197" y="58">quand data </tspan> <tspan x="71.535" y="75">change</tspan>
       </text>
     </g>
     <g transform="translate(316 179)">
       <path d="M98 57v46h6l-7 14-7-14h6V57h2z" fill="#9AA9B2" fill-rule="nonzero"/>
       <rect stroke="#23AC70" fill="#3AB881" x="-.5" y="-.5" width="192" height="58" rx="8"/>
       <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#FFF">
-        <tspan x="87.162" y="24">Init </tspan> <tspan x="42.421" y="42.5">events &amp; lifecycle</tspan>
+        <tspan x="87.162" y="24">Initialisation </tspan> <tspan x="42.421" y="42.5">événements &amp; lifecycle</tspan>
       </text>
     </g>
     <g transform="translate(316 297)">
       <path d="M98 57v47h6l-7 14-7-14h6V57h2z" fill="#9AA9B2" fill-rule="nonzero"/>
       <rect stroke="#23AC70" fill="#3AB881" x="-.5" y="-.5" width="192" height="58" rx="8"/>
       <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#FFF">
-        <tspan x="87.162" y="24">Init </tspan> <tspan x="31.142" y="42.5">injections &amp; reactivity </tspan>
+        <tspan x="87.162" y="24">Initialisation </tspan> <tspan x="31.142" y="42.5">injections &amp; reactivité </tspan>
       </text>
     </g>
     <g transform="translate(317 707)">
       <path d="M96.494 56.399l.01 1 .81 75.583 6-.064-6.85 14.074-7.15-13.924 6-.064-.81-75.584-.01-1 2-.021z" fill="#9AA9B2" fill-rule="nonzero"/>
       <rect stroke="#23AC70" fill="#3AB881" x="-.5" y="-.5" width="192" height="58" rx="8"/>
       <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#FFF">
-        <tspan x="36.456" y="24">Create app.$el and</tspan> <tspan x="41.148" y="42.5">replace “el” with it</tspan>
+        <tspan x="36.456" y="24">Crée app.$el et</tspan> <tspan x="41.148" y="42.5">remplace “el” avec</tspan>
       </text>
     </g>
     <g transform="translate(367 855)">
