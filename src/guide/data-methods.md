@@ -1,8 +1,9 @@
-# Data Properties and Methods
+# Propriétés data et methods
 
-## Data Properties
 
-The `data` option for a component is a function. Vue calls this function as part of creating a new component instance. It should return an object, which Vue will then wrap in its reactivity system and store on the component instance as `$data`. For convenience, any top-level properties of that object are also exposed directly via the component instance:
+## data
+
+L'option `data` d'un composant est une fonction. Vue appelle cette fonction dans le cadre de la création d'une nouvelle instance de composant. Il doit retourner un objet, que Vue encapsulera ensuite dans son système de réactivité et le stockera sur l'instance du composant en tant que `$data`. Pour plus de commodité, toutes les propriétés de niveau supérieur de cet objet sont également exposées directement via l'instance de composant:
 
 ```js
 const app = Vue.createApp({
@@ -16,24 +17,24 @@ const vm = app.mount('#app')
 console.log(vm.$data.count) // => 4
 console.log(vm.count)       // => 4
 
-// Assigning a value to vm.count will also update $data.count
+// Attribuer une valeur à vm.count mettra également à jour $data.count
 vm.count = 5
 console.log(vm.$data.count) // => 5
 
-// ... and vice-versa
+// ... et vice-versa
 vm.$data.count = 6
 console.log(vm.count) // => 6
 ```
 
-These instance properties are only added when the instance is first created, so you need to ensure they are all present in the object returned by the `data` function. Where necessary, use `null`, `undefined` or some other placeholder value for properties where the desired value isn't yet available.
+Ces propriétés d'instance ne sont ajoutées que lorsque l'instance est créée pour la première fois, vous devez donc vous assurer qu'elles sont toutes présentes dans l'objet retourné par la fonction `data`. Si nécessaire, utilisez `null`, `undefined` ou un placeholder pour les propriétés où la valeur souhaitée n'est pas encore disponible.
 
-It is possible to add a new property directly to the component instance without including it in `data`. However, because this property isn't backed by the reactive `$data` object, it won't automatically be tracked by [Vue's reactivity system](reactivity.html).
+Il est possible d'ajouter une nouvelle propriété directement à l'instance du composant sans l'inclure dans `data`. Cependant, comme cette propriété n'est pas sauvegardée par l'objet réactif `$data`, elle ne sera pas automatiquement suivie par [le système de réactivité de Vue](reactivity.html).
 
-Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
+Vue utilise un préfixe `$` lors de l'exposition de ses propres API intégrées via l'instance de composant. Il réserve également le préfixe `_` pour les propriétés internes. Vous devez éviter d'utiliser des noms pour les propriétés `data` de niveau supérieur commençant par l'un de ces caractères.
 
-## Methods
+## methods
 
-To add methods to a component instance we use the `methods` option. This should be an object containing the desired methods:
+Pour ajouter des méthodes à une instance de composant, nous utilisons l'option `methods`. Cela doit être un objet contenant les méthodes souhaitées:
 
 ```js
 const app = Vue.createApp({
@@ -42,7 +43,7 @@ const app = Vue.createApp({
   },
   methods: {
     increment() {
-      // `this` will refer to the component instance
+      // `this` fera référence à l'instance de composant
       this.count++
     }
   }
@@ -57,17 +58,17 @@ vm.increment()
 console.log(vm.count) // => 5
 ```
 
-Vue automatically binds the `this` value for `methods` so that it always refers to the component instance. This ensures that a method retains the correct `this` value if it's used as an event listener or callback. You should avoid using arrow functions when defining `methods`, as that prevents Vue from binding the appropriate `this` value.
+Vue lie automatiquement la valeur `this` pour les `methods` afin qu'elles fassent toujours référence à l'instance du composant. Cela garantit qu'une méthode conserve la valeur correcte `this` si elle est utilisée comme écouteur d'événement ou callback. Vous devriez éviter d'utiliser les fonctions fléchées lors de la définition des `methods`, car cela empêche Vue de lier la valeur `this` appropriée.
 
-Just like all other properties of the component instance, the `methods` are accessible from within the component's template. Inside a template they are most commonly used as event listeners:
+Tout comme toutes les autres propriétés de l'instance de composant, les `methods` sont accessibles depuis le template du composant. Dans un template, ils sont le plus souvent utilisés comme écouteurs d'événements:
 
 ```html
 <button @click="increment">Up vote</button>
 ```
 
-In the example above, the method `increment` will be called when the `<button>` is clicked.
+Dans l'exemple ci-dessus, la méthode `increment` sera invoqué lorsque le `<button> `sera cliqué.
 
-It is also possible to call a method directly from a template. As we'll see shortly, it's usually better to use a [computed property](computed.html) instead. However, using a method can be useful in scenarios where computed properties aren't a viable option. You can call a method anywhere that a template supports JavaScript expressions:
+Il est également possible d'appeler une méthode directement à partir d'un template. Comme nous le verrons bientôt, il est généralement préférable d'utiliser une [propriété _computed_](computed.html). Cependant, l'utilisation d'une méthode peut être utile dans les scénarios où les propriétés _computed_ ne sont pas une option viable. Vous pouvez appeler une méthode partout où un template prend en charge les expressions JavaScript:
 
 ```html
 <span :title="toTitleDate(date)">
@@ -75,45 +76,45 @@ It is also possible to call a method directly from a template. As we'll see shor
 </span>
 ```
 
-If the methods `toTitleDate` or `formatDate` access any reactive data then it will be tracked as a rendering dependency, just as if it had been used in the template directly.
+Si les méthodes `toTitleDate` ou `formatDate` accèdent à des données réactives, elles seront suivies en tant que dépendance de rendu, comme si elles avaient été utilisées directement dans le template.
 
-Methods called from a template should not have any side effects, such as changing data or triggering asynchronous processes. If you find yourself tempted to do that you should probably use a [lifecycle hook](instance.html#lifecycle-hooks) instead.
+Les méthodes appelées à partir d'un modèle ne doivent pas avoir d'effets secondaires, tels que la modification des données ou le déclenchement de processus asynchrones. Si vous êtes tenté de faire cela, vous devriez probablement utiliser un [hook de cycle de vie](instance.html#lifecycle-hooks).
 
-### Debouncing and Throttling
+### Debouncing et Throttling
 
-Vue doesn't include built-in support for debouncing or throttling but it can be implemented using libraries such as [Lodash](https://lodash.com/).
+Vue n'inclut pas de support intégré pour le _debouncing_(anti-rebondissement) ou le _throttling_ (limitation), mais ils peuvent être implémenté à l'aide de librairies telles que [Lodash](https://lodash.com/).
 
-In cases where a component is only used once, the debouncing can be applied directly within `methods`:
+Dans les cas où un composant n'est utilisé qu'une seule fois, le _debouncing_ peut être appliqué directement dans les `methods`:
 
 ```html
 <script src="https://unpkg.com/lodash@4.17.20/lodash.min.js"></script>
 <script>
   Vue.createApp({
     methods: {
-      // Debouncing with Lodash
+      // Debouncing avec Lodash
       click: _.debounce(function() {
-        // ... respond to click ...
+        // ... repond au click ...
       }, 500)
     }
   }).mount('#app')
 </script>
 ```
 
-However, this approach is potentially problematic for components that are reused because they'll all share the same debounced function. To keep the component instances independent from each other, we can add the debounced function in the `created` lifecycle hook:
+Cependant, cette approche est potentiellement problématique pour les composants qui sont réutilisés car ils partageront tous la même fonction anti-rebond. Pour que les instances de composants restent indépendantes les unes des autres, nous pouvons ajouter la fonction debounce dans le hook de cycle de vie `created`:
 
 ```js
 app.component('save-button', {
   created() {
-    // Debouncing with Lodash
+    // Debouncing avec Lodash
     this.debouncedClick = _.debounce(this.click, 500)
   },
   unmounted() {
-    // Cancel the timer when the component is removed
+    // Annule le timer lorsque le composant est retiré
     this.debouncedClick.cancel()
   },
   methods: {
     click() {
-      // ... respond to click ...
+      // ... repond au click ...
     }
   },
   template: `
