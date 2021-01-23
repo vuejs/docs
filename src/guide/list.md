@@ -1,8 +1,8 @@
-# List Rendering
+# Rendu de liste
 
-## Mapping an Array to Elements with `v-for`
+## Mappage d'un tableau sur des éléments avec `v-for`
 
-We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
+Nous pouvons utiliser la directive `v-for` pour rendre une liste d'éléments basée sur un tableau. La directive `v-for` nécessite une syntaxe spéciale sous la forme de `item in items`, où `items` est le tableau de données source et `item` est un **alias** pour l'élément du tableau en cours d'itération:
 
 ```html
 <ul id="array-rendering">
@@ -22,11 +22,11 @@ Vue.createApp({
 }).mount('#array-rendering')
 ```
 
-Result:
+Résultat:
 
 <common-codepen-snippet title="v-for with Array" slug="VwLGbwa" tab="js,result" :preview="false" />
 
-Inside `v-for` blocks we have full access to parent scope properties. `v-for` also supports an optional second argument for the index of the current item.
+Dans les blocs `v-for`, nous avons un accès complet aux propriétés de la portée parente. `v-for` accepte également un deuxième argument facultatif pour l'index de l'élément courant.
 
 ```html
 <ul id="array-with-index">
@@ -47,19 +47,19 @@ Vue.createApp({
 }).mount('#array-with-index')
 ```
 
-Result:
+Résultat:
 
 <common-codepen-snippet title="v-for with Array and index" slug="wvaEdBP" tab="js,result" :preview="false" />
 
-You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
+Vous pouvez également utiliser `of` comme délimiteur au lieu de `in`, afin qu'il soit plus proche de la syntaxe de JavaScript pour les itérateurs:
 
 ```html
 <div v-for="item of items"></div>
 ```
 
-## `v-for` with an Object
+## `v-for` avec un Objet
 
-You can also use `v-for` to iterate through the properties of an object.
+Vous pouvez également utiliser `v-for` pour parcourir les propriétés d'un objet.
 
 ```html
 <ul id="v-for-object" class="demo">
@@ -74,7 +74,7 @@ Vue.createApp({
   data() {
     return {
       myObject: {
-        title: 'How to do lists in Vue',
+        title: 'Comment faire des listes dans Vue',
         author: 'Jane Doe',
         publishedAt: '2016-04-10'
       }
@@ -83,11 +83,11 @@ Vue.createApp({
 }).mount('#v-for-object')
 ```
 
-Result:
+Résultat:
 
 <common-codepen-snippet title="v-for with Object" slug="NWqLjqy" tab="js,result" :preview="false" />
 
-You can also provide a second argument for the property's name (a.k.a. key):
+Vous pouvez également fournir un deuxième argument pour le nom de la propriété (a.k.a. key):
 
 ```html
 <li v-for="(value, name) in myObject">
@@ -97,7 +97,7 @@ You can also provide a second argument for the property's name (a.k.a. key):
 
 <common-codepen-snippet title="v-for with Object and key" slug="poJOPjx" tab="js,result" :preview="false" />
 
-And another for the index:
+Et un autre pour l'index
 
 ```html
 <li v-for="(value, name, index) in myObject">
@@ -108,38 +108,38 @@ And another for the index:
 <common-codepen-snippet title="v-for with Object key and index" slug="abOaWdo" tab="js,result" :preview="false" />
 
 :::tip Note
-When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which isn't guaranteed to be consistent across JavaScript engine implementations.
+Lors de l'itération sur un objet, l'ordre est basé sur l'ordre d'énumération de `Object.keys()`, qui n'est pas garanti d'être cohérent entre les différentes implémentations du moteur JavaScript.
 :::
 
-## Maintaining State
+## Maintien de l'état
 
-When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index.
+Lorsque Vue met à jour une liste d'éléments rendus avec `v-for`, il utilise par défaut une stratégie dite de "in-place patch". Si l'ordre des éléments de données a changé, au lieu de déplacer les éléments DOM pour correspondre à l'ordre des éléments, Vue corrigera chaque élément sur place et s'assurera qu'il reflète ce qui doit être rendu à cet index particulier.
 
-This default mode is efficient, but **only suitable when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)**.
+Ce mode par défaut est efficace, mais **ne convient que lorsque la sortie de rendu de votre liste ne repose pas sur l'état du composant enfant ou l'état temporaire du DOM (par exemple, les valeurs d'entrée de formulaire)**.
 
-To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item:
+Pour donner à Vue un indice afin qu'il puisse suivre l'identité de chaque nœud, et ainsi réutiliser et réorganiser les éléments existants, vous devez fournir un attribut `key` unique pour chaque élément:
 
 ```html
 <div v-for="item in items" :key="item.id">
-  <!-- content -->
+  <!-- contenu -->
 </div>
 ```
 
-It is recommended to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple, or you are intentionally relying on the default behavior for performance gains.
+Il est recommandé de fournir un attribut `key` avec `v-for` chaque fois que possible, à moins que le contenu du DOM itéré ne soit simple, ou que vous vous fiez intentionnellement au comportement par défaut pour des gains de performances.
 
-Since it's a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
+Puisqu'il s'agit d'un mécanisme générique permettant à Vue d'identifier les nœuds, la `key` a également d'autres utilisations qui ne sont pas spécifiquement liées à `v-for`, comme nous le verrons plus loin dans le guide.
 
 :::tip Note
-Don't use non-primitive values like objects and arrays as `v-for` keys. Use string or numeric values instead.
+N'utilisez pas de valeurs non primitives telles que des objets et des tableaux comme clés pour `v-for`. Utilisez plutôt des chaînes de caractères ou des valeurs numériques.
 :::
 
-For detailed usage of the `key` attribute, please see the [`key` API documentation](../api/special-attributes.html#key).
+Pour une utilisation détaillée de l'attribut `key`, veuillez consulter la [documentation de l'API `key`](../api/special-attributes.html#key).
 
-## Array Change Detection
+## Détection de changement d'un Array
 
-### Mutation Methods
+### Méthodes de mutation
 
-Vue wraps an observed array's mutation methods so they will also trigger view updates. The wrapped methods are:
+Vue encapsule les méthodes de mutation d'un tableau observé afin qu'elles déclenchent également des mises à jour de vue. Les méthodes encapsulées sont:
 
 - `push()`
 - `pop()`
@@ -149,23 +149,23 @@ Vue wraps an observed array's mutation methods so they will also trigger view up
 - `sort()`
 - `reverse()`
 
-You can open the console and play with the previous examples' `items` array by calling their mutation methods. For example: `example1.items.push({ message: 'Baz' })`.
+Vous pouvez ouvrir la console et jouer avec le tableau `items` des exemples précédents en appelant leurs méthodes de mutation. Par exemple: `example1.items.push({ message: 'Baz' })`.
 
-### Replacing an Array
+### Remplacement d'un Array
 
-Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, you can replace the old array with the new one:
+Les méthodes de mutation, comme leur nom l'indique, mutent le tableau d'origine sur lequel elles sont appelées. En comparaison, il existe également des méthodes non mutantes, par ex. `filter()`, `concat()` et `slice()`, qui ne mutent pas le tableau d'origine mais **renvoient toujours un nouveau tableau**. Lorsque vous travaillez avec des méthodes sans mutation, vous pouvez remplacer l'ancien tableau par le nouveau:
 
 ```js
 example1.items = example1.items.filter(item => item.message.match(/Foo/))
 ```
 
-You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
+Vous pourriez penser que cela amènera Vue à jeter le DOM existant et à restituer la liste entière - heureusement, ce n'est pas le cas. Vue implémente des heuristiques intelligentes pour maximiser la réutilisation des éléments DOM, donc le remplacement d'un tableau par un autre tableau contenant des objets qui se chevauchent est une opération très efficace.
 
-## Displaying Filtered/Sorted Results
+## Affichage des résultats filtrés / triés
 
-Sometimes we want to display a filtered or sorted version of an array without actually mutating or resetting the original data. In this case, you can create a computed property that returns the filtered or sorted array.
+Parfois, nous voulons afficher une version filtrée ou triée d'un tableau sans réellement muter ou réinitialiser les données d'origine. Dans ce cas, vous pouvez créer une propriété _computed_ qui renvoie le tableau filtré ou trié.
 
-For example:
+Par exemple
 
 ```html
 <li v-for="n in evenNumbers">{{ n }}</li>
@@ -184,7 +184,7 @@ computed: {
 }
 ```
 
-In situations where computed properties are not feasible (e.g. inside nested `v-for` loops), you can use a method:
+Dans les situations où les propriétés calculées ne sont pas réalisables (par exemple à l'intérieur de boucles `v-for` imbriquées), vous pouvez utiliser une méthode:
 
 ```html
 <ul v-for="numbers in sets">
@@ -205,9 +205,9 @@ methods: {
 }
 ```
 
-## `v-for` with a Range
+## `v-for` avec un Intervalle
 
-`v-for` can also take an integer. In this case it will repeat the template that many times.
+`v-for` peut également prendre un nombre entier. Dans ce cas, il répétera le modèle ce tant de fois.
 
 ```html
 <div id="range" class="demo">
@@ -215,13 +215,13 @@ methods: {
 </div>
 ```
 
-Result:
+Résultat:
 
 <common-codepen-snippet title="v-for with a range" slug="NWqLjNY" tab="html,result" :preview="false" />
 
-## `v-for` on a `<template>`
+## `v-for` sur un `<template>`
 
-Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
+Similaire au template `v-if`, vous pouvez également utiliser une balise `<template> `  avec `v-for` pour rendre un bloc de plusieurs éléments. Par exemple:
 
 ```html
 <ul>
@@ -232,23 +232,23 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 </ul>
 ```
 
-## `v-for` with `v-if`
+## `v-for` avec `v-if`
 
 :::tip
-Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for details.
+Notez qu'il n'est **pas** recommandé d'utiliser `v-if` et` v-for` ensemble. Reportez-vous au [guide de style](../style-guide/#avoid-v-if-with-v-for-essential) pour plus de détails.
 :::
 
 When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
 
 ```html
-<!-- This will throw an error because property "todo" is not defined on instance. -->
+<!-- Ceci déclenchera une erreur car la propriété "todo" n'est pas définie sur l'instance. -->
 
 <li v-for="todo in todos" v-if="!todo.isComplete">
   {{ todo }}
 </li>
 ```
 
-This can be fixed by moving `v-for` to a wrapping `<template>` tag:
+Cela peut être corrigé en déplaçant `v-for` vers une balise d'encapsulation `<template>`:
 
 ```html
 <template v-for="todo in todos">
@@ -258,17 +258,17 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag:
 </template>
 ```
 
-## `v-for` with a Component
+## `v-for` avec un Composant
 
-> This section assumes knowledge of [Components](component-basics.md). Feel free to skip it and come back later.
+> Cette section suppose la connaissance des [Composants](component-basics.md). N'hésitez pas à l'ignorer et à revenir plus tard.
 
-You can directly use `v-for` on a custom component, like any normal element:
+Vous pouvez utiliser directement `v-for` sur un composant personnalisé, comme n'importe quel élément normal:
 
 ```html
 <my-component v-for="item in items" :key="item.id"></my-component>
 ```
 
-However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
+Cependant, cela ne transmettra automatiquement aucune donnée au composant, car les composants ont leurs propres scopes isolées. Afin de passer les données itérées dans le composant, nous devons également utiliser des props:
 
 ```html
 <my-component
@@ -279,9 +279,9 @@ However, this won't automatically pass any data to the component, because compon
 ></my-component>
 ```
 
-The reason for not automatically injecting `item` into the component is because that makes the component tightly coupled to how `v-for` works. Being explicit about where its data comes from makes the component reusable in other situations.
+La raison pour laquelle `item`" n'est pas automatiquement injecté dans le composant est que cela rend le composant étroitement lié au fonctionnement de `v-for`. Le fait d'être explicite sur l'origine de ses données rend le composant réutilisable dans d'autres situations.
 
-Here's a complete example of a simple todo list:
+Voici un exemple complet d'une simple liste de tâches:
 
 ```html
 <div id="todo-list-example">

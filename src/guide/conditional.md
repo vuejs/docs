@@ -85,7 +85,7 @@ En comparaison, `v-show` est beaucoup plus simple - l'élément est toujours ren
 
 De manière générale, `v-if` a des coûts de basculement plus élevés tandis que `v-show` a des coûts de rendu initiaux plus élevés. Préférez donc `v-show` si vous avez besoin de basculer quelque chose très souvent, et préférez `v-if` si la condition est peu susceptible de changer à l'exécution.
 
-## `v-if` with `v-for`
+## `v-if` avec `v-for`
 
 ::: tip Note
 L'utilisation conjointe de `v-if` et` v-for` n'est **pas recommandée**. oir le [guide de style](../style-guide/#avoid-v-if-with-v-for-essential) pour plus d'informations.
