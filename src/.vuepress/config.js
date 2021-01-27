@@ -406,6 +406,9 @@ module.exports = {
           {
             text: '中文',
             link: 'https://v3.cn.vuejs.org/'
+          }, {
+            text: 'More Translations',
+            link: '/guide/contributing/translations#community-translations'
           }
         ]
       }
