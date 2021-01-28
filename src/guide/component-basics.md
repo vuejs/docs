@@ -1,6 +1,6 @@
-# Les Bases des Composants
+# Les Principes de base des Composants
 
-## Exemple de base
+## Exemple basique
 
 Ceci est un exemple de composant Vue:
 
