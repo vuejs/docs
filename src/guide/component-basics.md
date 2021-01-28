@@ -1,14 +1,14 @@
-# Components Basics
+# Les Bases des Composants
 
-## Base Example
+## Exemple de base
 
-Here's an example of a Vue component:
+Ceci est un exemple de composant Vue:
 
 ```js
-// Create a Vue application
+// Créer une application Vue
 const app = Vue.createApp({})
 
-// Define a new global component called button-counter
+// Définir un nouveau composant global appelé button-counter
 app.component('button-counter', {
   data() {
     return {
@@ -23,10 +23,10 @@ app.component('button-counter', {
 ```
 
 ::: info
-We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+Nous vous montrons un exemple simple ici, mais dans une application Vue typique, on utilise des composants à fichier unique au lieu d'un template de string. Vous pouvez trouver plus d'informations à leur sujet [dans cette section](single-file-component.html).
 :::
 
-Components are reusable instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root instance:
+Les composants sont des instances réutilisables avec un nom: dans ce cas, `<button-counter>`. Nous pouvons utiliser ce composant comme élément personnalisé dans une instance racine:
 
 ```html
 <div id="components-demo">
@@ -40,11 +40,11 @@ app.mount('#components-demo')
 
 <common-codepen-snippet title="Component basics" slug="abORVEJ" tab="js,result" :preview="false" />
 
-Since components are reusable instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks.
+Les composants étant des instances réutilisables, ils acceptent les mêmes options qu'une instance racine, telles que `data`, `computed`, `watch`, `methods`, et les lifecycles hooks.
 
-## Reusing Components
+## Réutilisation des composants
 
-Components can be reused as many times as you want:
+Les composants peuvent être réutilisés autant de fois que vous le souhaitez:
 
 ```html
 <div id="components-demo">
@@ -56,17 +56,17 @@ Components can be reused as many times as you want:
 
 <common-codepen-snippet title="Component basics: reusing components" slug="rNVqYvM" tab="html,result" :preview="false" />
 
-Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
+Notez que lorsque vous cliquez sur les boutons, chacun maintient son propre `count` séparé. En effet, chaque fois que vous utilisez un composant, une nouvelle **instance** de celui-ci est créée.
 
-## Organizing Components
+## Organiser les composants
 
-It's common for an app to be organized into a tree of nested components:
+Il est courant qu'une application soit organisée en une arborescence de composants imbriqués:
 
 ![Component Tree](/images/components.png)
 
-For example, you might have components for a header, sidebar, and content area, each typically containing other components for navigation links, blog posts, etc.
+Par exemple, vous pouvez avoir des composants pour un header, une sidebar, et une zone de contenu, chacun contenant généralement d'autres composants pour les liens de navigation, les articles de blog, etc.
 
-To use these components in templates, they must be registered so that Vue knows about them. There are two types of component registration: **global** and **local**. So far, we've only registered components globally, using the `component` method of our app:
+Pour utiliser ces composants dans des templates, ils doivent être enregistrés afin que Vue les reconnaisse. Il existe deux types d'enregistrement de composants: **global** et **local**. Jusqu'à présent, nous n'avons enregistré que les composants globalement, en utilisant la méthode `component` de notre application:
 
 ```js
 const app = Vue.createApp({})
@@ -76,15 +76,15 @@ app.component('my-component-name', {
 })
 ```
 
-Globally registered components can be used in the template of any component within the app.
+Les composants enregistrés globalement peuvent être utilisés dans le template de n'importe quel composant de l'application.
 
-That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](component-registration.md).
+C'est tout ce que vous devez savoir sur l'enregistrement pour le moment, mais une fois que vous avez fini de lire cette page et que vous vous sentez à l'aise avec son contenu, nous vous recommandons de revenir plus tard pour lire le guide complet sur l'[Enregistrement des composants](component-registration.md).
 
-## Passing Data to Child Components with Props
+## Transmission de données aux composants enfants avec des props
 
-Earlier, we mentioned creating a component for blog posts. The problem is, that component won't be useful unless you can pass data to it, such as the title and content of the specific post we want to display. That's where props come in.
+Plus tôt, nous avons mentionné la création d'un composant pour les articles de blog. Le problème est que ce composant ne sera utile que si vous pouvez lui transmettre des données, telles que le titre et le contenu de l'article spécifique que nous voulons afficher. C'est là que les props entrent en jeu.
 
-Props are custom attributes you can register on a component. To pass a title to our blog post component, we can include it in the list of props this component accepts, using the `props` option:
+Les props sont des attributs personnalisés que vous pouvez enrégistrer sur un composant. Pour passer un titre à notre composant d'article de blog, nous pouvons l'inclure dans la liste des props que ce composant accepte, en utilisant l'option `props`:
 
 ```js
 const app = Vue.createApp({})
@@ -97,11 +97,11 @@ app.component('blog-post', {
 app.mount('#blog-post-demo')
 ```
 
-When a value is passed to a prop attribute, it becomes a property on that component instance. The value of that property is accessible within the template, just like any other component property.
+Lorsqu'une valeur est transmise à un attribut prop, elle devient une propriété sur cette instance de composant. La valeur de cette propriété est accessible dans le template, comme toute autre propriété de composant.
 
-A component can have as many props as you like and, by default, any value can be passed to any prop.
+Un composant peut avoir autant de props que vous le voulez et par default, toute valeur peut être passée à n'importe quel prop.
 
-Once a prop is registered, you can pass data to it as a custom attribute, like this:
+Une fois qu'un prop est enrégistré, vous pouvez lui transmettre des données en tant qu'attribut personnalisé, comm ceci:
 
 ```html
 <div id="blog-post-demo" class="demo">
@@ -113,7 +113,7 @@ Once a prop is registered, you can pass data to it as a custom attribute, like t
 
 <common-codepen-snippet title="Component basics: passing props" slug="PoqyOaX" tab="html,result" :preview="false" />
 
-In a typical app, however, you'll likely have an array of posts in `data`:
+Dans une application typique, cependant, vous aurez probablement un tableau d'articles (posts) dans `data`:
 
 ```js
 const App = {
@@ -138,7 +138,7 @@ app.component('blog-post', {
 app.mount('#blog-posts-demo')
 ```
 
-Then want to render a component for each one:
+Vous voulez ensuite génerer un composant pour chacun d'eux:
 
 ```html
 <div id="blog-posts-demo">
@@ -150,15 +150,15 @@ Then want to render a component for each one:
 </div>
 ```
 
-Above, you'll see that we can use `v-bind` to dynamically pass props. This is especially useful when you don't know the exact content you're going to render ahead of time.
+Ci-dessus, vous verrez que nous pouvons utiliser `v-bind` pour passer dynamiquement des props. Ceci est particulièrement utile lorsque vous ne connaissez pas le contenu exact que vous allez afficher à l'avance.
 
-That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](component-props.html).
+C'est tout ce que vous devez savoir sur les props pour le moment, mais une fois que vous avez fini de lire cette page et que vous vous sentez à l'aise avec son contenu, nous vous recommandons de revenir plus tard pour lire le guide complet sur les [Props](component-props.html).
 
-## Listening to Child Components Events
+## Écoute des événements sur les composants enfants
 
-As we develop our `<blog-post>` component, some features may require communicating back up to the parent. For example, we may decide to include an accessibility feature to enlarge the text of blog posts, while leaving the rest of the page its default size.
+Au fur et à mesure que nous développons notre composant `<blog-post>`, certaines fonctionnalités peuvent nécessiter une communication de retour avec le composant parent. Par exemple, nous pouvons décider d'inclure une fonctionnalité d'accessibilité pour agrandir le texte des articles de blog, tout en laissant le reste de la page à sa taille par défaut.
 
-In the parent, we can support this feature by adding a `postFontSize` data property:
+Dans le parent, nous pouvons prendre en charge cette fonctionnalité en ajoutant une propriété de données `postFontSize`:
 
 ```js
 const App = {
@@ -173,7 +173,7 @@ const App = {
 }
 ```
 
-Which can be used in the template to control the font size of all blog posts:
+Qui peut être utilisé dans le template pour contrôler la taille de la police de tous les articles de blog:
 
 ```html
 <div id="blog-posts-events-demo">
@@ -187,7 +187,7 @@ Which can be used in the template to control the font size of all blog posts:
 </div>
 ```
 
-Now let's add a button to enlarge the text right before the content of every post:
+Ajoutons maintenant un bouton pour agrandir le texte juste avant le contenu de chaque article:
 
 ```js
 app.component('blog-post', {
@@ -196,40 +196,40 @@ app.component('blog-post', {
     <div class="blog-post">
       <h4>{{ title }}</h4>
       <button>
-        Enlarge text
+        Agrandir le texte
       </button>
     </div>
   `
 })
 ```
 
-The problem is, this button doesn't do anything:
+Le problème est que ce bouton ne fait rien:
 
 ```html
 <button>
-  Enlarge text
+  Agrandir le texte
 </button>
 ```
 
-When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. To solve this problem, component instances provide a custom events system. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
+Lorsque nous cliquons sur le bouton, nous devons communiquer au parent qu'il doit agrandir le texte de tous les messages. Pour résoudre ce problème, les instances de composant fournissent un système d'événements personnalisé. Le parent peut choisir d'écouter n'importe quel événement sur l'instance de composant enfant avec `v-on` ou`@`, comme nous le ferions avec un événement DOM natif:
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
 ```
 
-Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/instance-methods.html#emit), passing the name of the event:
+Ensuite, le composant enfant peut émettre un événement sur lui-même en appelant la méthode intégrée [**`$emit`**](../api/instance-methods.html#emit), en passant le nom de l'événement:
 
 ```html
 <button @click="$emit('enlargeText')">
-  Enlarge text
+  Agrandir le texte
 </button>
 ```
 
-Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update the value of `postFontSize`.
+Grâce à l'écouteur`@enlarge-text="postFontSize += 0.1"`, le parent recevra l'événement et mettra à jour la valeur de `postFontSize`.
 
 <common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="html,result" :preview="false" />
 
-We can list emitted events in the component's `emits` option:
+Nous pouvons lister les événements émis dans l'option `emits` du composant:
 
 ```js
 app.component('blog-post', {
@@ -238,11 +238,11 @@ app.component('blog-post', {
 })
 ```
 
-This will allow you to check all the events that a component emits and optionally [validate them](component-custom-events.html#validate-emitted-events).
+Cela vous permettra de vérifier tous les événements qu'un composant émet et éventuellement de [les valider](component-custom-events.html#validate-emitted-events).
 
-### Emitting a Value With an Event
+### Emission d'une valeur avec un événement
 
-It's sometimes useful to emit a specific value with an event. For example, we may want the `<blog-post>` component to be in charge of how much to enlarge the text by. In those cases, we can pass a second parameter to `$emit` to provide this value:
+Il est parfois utile d'émettre une valeur spécifique avec un événement. Par exemple, nous pouvons souhaiter que le composant `<blog-post>` soit en charge de l'agrandissement du texte. Dans ces cas, nous pouvons passer un deuxième paramètre à `$emit` pour fournir cette valeur:
 
 ```html
 <button @click="$emit('enlargeText', 0.1)">
@@ -250,19 +250,19 @@ It's sometimes useful to emit a specific value with an event. For example, we ma
 </button>
 ```
 
-Then when we listen to the event in the parent, we can access the emitted event's value with `$event`:
+Ensuite, lorsque nous écoutons l'événement dans le parent, nous pouvons accéder à la valeur de l'événement émis avec `$event`:
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += $event"></blog-post>
 ```
 
-Or, if the event handler is a method:
+Ou si le handler est une méthode:
 
 ```html
 <blog-post ... @enlarge-text="onEnlargeText"></blog-post>
 ```
 
-Then the value will be passed as the first parameter of that method:
+Ensuite, la valeur sera transmise comme premier paramètre de cette méthode:
 
 ```js
 methods: {
@@ -272,21 +272,21 @@ methods: {
 }
 ```
 
-### Using `v-model` on Components
+### Utilisation de `v-model` sur les composants
 
-Custom events can also be used to create custom inputs that work with `v-model`. Remember that:
+Les événements personnalisés peuvent également être utilisés pour créer des "input" personnalisées qui fonctionnent avec `v-model`. Souvenez-vous que:
 
 ```html
 <input v-model="searchText" />
 ```
 
-does the same thing as:
+fait la même chose que:
 
 ```html
 <input :value="searchText" @input="searchText = $event.target.value" />
 ```
 
-When used on a component, `v-model` instead does this:
+Lorsqu'il est utilisé sur un composant, `v-model`, fait plutôt ceci:
 
 ```html
 <custom-input
@@ -296,15 +296,15 @@ When used on a component, `v-model` instead does this:
 ```
 
 ::: warning
-Please note we used `model-value` with kebab-case here because we are working with in-DOM templates. You can find a detailed explanation on kebab-cased vs camelCased attributes in the [DOM Template Parsing Caveats](#dom-template-parsing-caveats) section
+Veuillez noter que nous avons utilisé `model-value` avec kebab-case ici car nous travaillons avec des templates in-DOM. Vous pouvez trouver une explication détaillée sur les attributs kebab-case vs camelCase dans la section des [Mises en garde sur l'analyse des templates DOM](#mises-en-garde-concernant-le-parsing-des-templates-dom)
 :::
 
-For this to actually work though, the `<input>` inside the component must:
+Pour que cela fonctionne réellement, le `<input>` à l'intérieur du composant doit:
 
-- Bind the `value` attribute to the `modelValue` prop
-- On `input`, emit an `update:modelValue` event with the new value
+- Lier l'attribut `value` au prop `modelValue`
+- Sur `input`, émettre un événement`update: modelValue` avec la nouvelle valeur
 
-Here's that in action:
+Voici ça en action:
 
 ```js
 app.component('custom-input', {
@@ -319,13 +319,13 @@ app.component('custom-input', {
 })
 ```
 
-Now `v-model` should work perfectly with this component:
+Maintenant, `v-model` devrait fonctionner parfaitement avec ce composant:
 
 ```html
 <custom-input v-model="searchText"></custom-input>
 ```
 
-Another way of implementing `v-model` within this component is to use the ability of `computed` properties to define a getter and setter. The `get` method should return the `modelValue` property and the `set` method should emit the corresponding event:
+Une autre façon d'implémenter `v-model` dans ce composant est d'utiliser la capacité des propriétés `computed` pour définir un getter et un setter. La méthode `get` doit renvoyer la propriété `modelValue` et la méthode `set` doit émettre l'événement correspondant:
 
 ```js
 app.component('custom-input', {
@@ -347,11 +347,11 @@ app.component('custom-input', {
 })
 ```
 
-That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](component-custom-events.md).
+C'est tout ce que vous devez savoir sur les événements de composants personnalisés pour le moment, mais une fois que vous avez fini de lire cette page et que vous vous sentez à l'aise avec son contenu, nous vous recommandons de revenir plus tard pour lire le guide complet sur [Événements personnalisés](component-custom-events.md).
 
-## Content Distribution with Slots
+## Distribution de contenu avec des slots
 
-Just like with HTML elements, it's often useful to be able to pass content to a component, like this:
+Tout comme avec les éléments HTML, il est souvent utile de pouvoir transmettre du contenu à un composant, comme ceci:
 
 ```html
 <alert-box>
@@ -359,11 +359,11 @@ Just like with HTML elements, it's often useful to be able to pass content to a 
 </alert-box>
 ```
 
-Which might render something like:
+Ce qui devrait génerer quelque chose comme ceci:
 
 <common-codepen-snippet title="Component basics: slots" slug="jOPeaob" :preview="false" />
 
-This can be achieved using Vue's custom `<slot>` element:
+Ceci peut être réalisé en utilisant l'élément personnalisé `<slot>` de Vue:
 
 ```js
 app.component('alert-box', {
@@ -376,39 +376,39 @@ app.component('alert-box', {
 })
 ```
 
-As you'll see above, we use the `<slot>` as a placeholder where we want the content to go – and that's it. We're done!
+Comme vous le verrez ci-dessus, nous utilisons le `<slot>` comme espace réservé où nous voulons que le contenu aille - et c'est tout. Nous avons fini!
 
-That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](component-slots.md).
+C'est tout ce que vous devez savoir sur les slots pour le moment, mais une fois que vous avez fini de lire cette page et que vous vous sentez à l'aise avec son contenu, nous vous recommandons de revenir plus tard pour lire le guide complet sur les [slots](component-slots.md).
 
-## Dynamic Components
+## Composants Dynamiques
 
-Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
+Parfois, il est utile de basculer dynamiquement entre les composants, comme dans une interface à onglets:
 
 <common-codepen-snippet title="Component basics: dynamic components" slug="oNXaoKy" :preview="false" />
 
-The above is made possible by Vue's `<component>` element with the special `is` attribute:
+Ce qui précède est rendu possible par l'élément `<component>` de Vue avec l'attribut spécial `is`:
 
 ```html
-<!-- Component changes when currentTabComponent changes -->
+<!-- Le composant change lorsque currentTabComponent change -->
 <component :is="currentTabComponent"></component>
 ```
 
-In the example above, `currentTabComponent` can contain either:
+Dans l'exemple ci-dessus, `currentTabComponent` peut contenir soit:
 
-- the name of a registered component, or
-- a component's options object
+- le nom d'un composant enregistré, ou
+- un objet d'options d'un composant
 
-See [this sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) to experiment with the full code, or [this version](https://codepen.io/team/Vue/pen/oNXapXM) for an example binding to a component's options object, instead of its registered name.
+Voir ce [sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) pour expérimenter avec le code complet, ou [cette version](https://codepen.io/team/Vue/pen/oNXapXM) pour un exemple de liaison à l'objet d'options d'un composant, au lieu de son nom enregistré.
 
-You can also use the `is` attribute to create regular HTML elements.
+Vous pouvez également utiliser l'attribut `is` pour créer des éléments HTML normaux
 
-That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](./component-dynamic-async.html).
+C'est tout ce que vous devez savoir sur les composants dynamiques pour le moment, mais une fois que vous avez fini de lire cette page et que vous vous sentez à l'aise avec son contenu, nous vous recommandons de revenir plus tard pour lire le guide complet sur les [Composants dynamiques et asynchrones](./component-dynamic-async.html).
 
-## DOM Template Parsing Caveats
+## Mises en garde concernant le parsing des templates DOM
 
-Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
+Certains éléments HTML, tels que `<ul>`, `<ol>`, `<table>` et `<select>` ont des restrictions sur les éléments pouvant apparaître à l'intérieur, et certains éléments tels que `<li>`, `<tr>` et `<option>` ne peuvent apparaître qu'à l'intérieur de certains autres éléments.
 
-This will lead to issues when using components with elements that have such restrictions. For example:
+Cela entraînera des problèmes lors de l'utilisation de composants avec des éléments qui ont de telles restrictions. Par exemple:
 
 ```html
 <table>
@@ -416,7 +416,7 @@ This will lead to issues when using components with elements that have such rest
 </table>
 ```
 
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special `v-is` directive as a workaround:
+Le composant personnalisé `<blog-post-row>` sera hissé comme contenu non valide, provoquant des erreurs dans la sortie de rendu finale. Nous pouvons utiliser la directive spéciale `v-is` comme solution de contournement:
 
 ```html
 <table>
@@ -425,10 +425,10 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 ```
 
 :::warning
-The `v-is` value is treated as a JavaScript expression, so we need to wrap the component name in quotes:
+La valeur `v-is` est traitée comme une expression JavaScript, nous devons donc mettre le nom du composant entre guillemets:
 
 ```html
-<!-- Incorrect, nothing will be rendered -->
+<!-- Incorrect, rien ne sera rendu -->
 <tr v-is="blog-post-row"></tr>
 
 <!-- Correct -->
@@ -437,10 +437,10 @@ The `v-is` value is treated as a JavaScript expression, so we need to wrap the c
 
 :::
 
-Also, HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, camelCased prop names and event handler parameters need to use their kebab-cased (hyphen-delimited) equivalents:
+De plus, les noms d'attributs HTML ne sont pas sensibles à la casse, de sorte que les navigateurs interpréteront tous les caractères majuscules comme des minuscules. Cela signifie que lorsque vous utilisez des templates dans le DOM, les noms de prop en camelCase et les paramètres du gestionnaire d'événements doivent utiliser leurs équivalents en kebab-case(délimités par des tirets):
 
 ```js
-// camelCase in JavaScript
+// camelCase en JavaScript
 
 app.component('blog-post', {
   props: ['postTitle'],
@@ -451,17 +451,17 @@ app.component('blog-post', {
 ```
 
 ```html
-<!-- kebab-case in HTML -->
+<!-- kebab-case en HTML -->
 
 <blog-post post-title="hello!"></blog-post>
 ```
 
-It should be noted that **these limitations do _not_ apply if you are using string templates from one of the following sources**:
+Il faut noter que **ces limitations ne s'appliquent _pas_ si vous utilisez des string templates provenant de l'une des sources suivantes**:
 
 - String templates (e.g. `template: '...'`)
-- [Single-file (`.vue`) components](single-file-component.html)
+- [Composant à fichier unique (`.vue`)](single-file-component.html)
 - `<script type="text/x-template">`
 
-That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
+C'est tout ce que vous devez savoir sur les mises en garde de parsing des templates DOM pour le moment - et en fait, la fin des _Essentielles_ de Vue. Toutes nos félicitations! Il y a encore plus à apprendre, mais d'abord, nous vous recommandons de faire une pause pour jouer vous-même avec Vue et créer quelque chose d'amusant.
 
-Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](component-dynamic-async.html), as well as the other pages in the Components In-Depth section of the sidebar.
+Une fois que vous vous sentez à l'aise avec les connaissances que vous venez de digérer, nous vous recommandons de revenir pour lire le guide complet sur les [Composants dynamiques et asynchrones](component-dynamic-async.html), ainsi que les autres pages de la section Composants en profondeur de la barre latérale.

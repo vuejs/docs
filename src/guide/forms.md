@@ -87,7 +87,7 @@ Vue.createApp({
 
 <common-codepen-snippet title="Handling forms: multiple checkboxes" slug="bGdmoyj" :preview="false" />
 
-### Radio
+### Bouton Radio
 
 ```html
 <div id="v-model-radiobutton">
@@ -113,9 +113,9 @@ Vue.createApp({
 
 <common-codepen-snippet title="Handling forms: radiobutton" slug="MWwPEMM" :preview="false" />
 
-### Select
+### Bouton Select
 
-Simple select:
+select à choix unique:
 
 ```html
 <div id="v-model-select" class="demo">
@@ -142,10 +142,10 @@ Vue.createApp({
 <common-codepen-snippet title="Handling forms: select" slug="KKpGydL" :preview="false" />
 
 :::tip Note
-Si la valeur initiale de votre expression `v-model` ne correspond à aucune des options, l'élément `<select> `sera rendu dans un état "non sélectionné". Sur iOS, cela empêchera l'utilisateur de sélectionner le premier élément car iOS ne déclenche pas d'événement de modification dans ce cas. Il est donc recommandé de fournir une option désactivée avec une valeur vide, comme illustré dans l'exemple ci-dessus.
+Si la valeur initiale de votre expression `v-model` ne correspond à aucune des options, l'élément `<select>`sera rendu dans un état "non sélectionné". Sur iOS, cela empêchera l'utilisateur de sélectionner le premier élément car iOS ne déclenche pas d'événement de modification dans ce cas. Il est donc recommandé de fournir une option désactivée avec une valeur vide, comme illustré dans l'exemple ci-dessus.
 :::
 
-Select multiple (liés à un tableau):
+select à choix multiples (liés à un tableau):
 
 ```html
 <select v-model="selected" multiple>
@@ -159,7 +159,7 @@ Select multiple (liés à un tableau):
 
 <common-codepen-snippet title="Handling forms: select bound to array" slug="gOpBXPz" tab="html,result" :preview="false" />
 
-Options dynamiques rendues avec `v-for`:
+Options dynamiques générés avec `v-for`:
 
 ```html
 <div id="v-model-select-dynamic" class="demo">
@@ -236,7 +236,7 @@ Les attributs `true-value` et `false-value` n'affectent pas l'attribut `value`, 
 vm.pick === vm.a
 ```
 
-### Options de select 
+### Options de select
 
 ```html
 <select v-model="selected">
@@ -255,7 +255,7 @@ vm.selected.number // => 123
 
 ### `.lazy`
 
-Par défaut, `v-model` synchronise l'entrée avec les données après chaque événement` input` (à l'exception de la composition IME comme [indiqué ci-dessus](#vmodel-ime-tip)). Vous pouvez ajouter le modificateur `lazy` à la place pour synchroniser après les événements `change`:
+Par défaut, `v-model` synchronise l'entrée avec les données après chaque événement`input` (à l'exception de la composition IME comme [indiqué ci-dessus](#vmodel-ime-tip)). Vous pouvez ajouter le modificateur `lazy` à la place pour synchroniser après les événements `change`:
 
 ```html
 <!-- synchronisé après "change" au lieu de "input" -->
@@ -280,7 +280,7 @@ Si vous voulez que les espaces blancs de l'entrée utilisateur soient supprimés
 <input v-model.trim="msg" />
 ```
 
-## `v-model` with Components
+## `v-model` avec les composants
 
 > Si vous n'êtes pas encore familiarisé avec les composants de Vue, vous pouvez ignorer cela pour le moment
 
