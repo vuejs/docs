@@ -1,14 +1,14 @@
 # Provide / inject
 
-> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
+> Cette page suppose que vous avez déjà lu les [Principes de base des composants](component-basics.md). Lisez-le d'abord si vous n'êtes pas familier avec les composants.
 
-Usually, when we need to pass data from the parent to child component, we use [props](component-props.md). Imagine the structure where you have some deeply nested components and you only need something from the parent component in the deep nested child. In this case, you still need to pass the prop down the whole component chain which might be annoying.
+Habituellement, lorsque nous devons passer des données du composant parent au composant enfant, nous utilisons les [props](component-props.md). Imaginez la structure dans laquelle vous avez des composants profondément imbriqués et vous n'avez besoin que de quelque chose du composant parent dans l'enfant profondément imbriqué. Dans ce cas, vous devez toujours faire passer la prop le long de la chaîne de composants, ce qui peut être gênant.
 
-For such cases, we can use the `provide` and `inject` pair. Parent components can serve as dependency provider for all its children, regardless how deep the component hierarchy is. This feature works on two parts: parent component has a `provide` option to provide data and child component has an `inject` option to start using this data.
+Pour de tels cas, nous pouvons utiliser la paire `provide` et `inject`. Les composants parents peuvent servir de fournisseur de dépendances pour tous ses enfants, quelle que soit la profondeur de la hiérarchie des composants. Cette fonctionnalité fonctionne en deux parties: le composant parent a une option `provide` pour fournir des données et le composant enfant a une option`inject` pour commencer à utiliser ces données.
 
 ![Provide/inject scheme](/images/components_provide.png)
 
-For example, if we have a hierarchy like this:
+Par exemple, si nous avons une hiérarchie comme celle-ci:
 
 ```
 Root
@@ -19,7 +19,7 @@ Root
       └─ TodoListStatistics
 ```
 
-If we want to pass the length of todo-items directly to `TodoListStatistics`, we would pass the prop down the hierarchy: `TodoList` -> `TodoListFooter` -> `TodoListStatistics`. With provide/inject approach, we can do this directly:
+Si nous voulons passer la longueur des todo-items directement à `TodoListStatistics`, nous passerons la prop dans la hiérarchie: `TodoList` -> `TodoListFooter` -> `TodoListStatistics`. Avec l'approche provide/inject, nous pouvons le faire directement:
 
 ```js
 const app = Vue.createApp({})
@@ -44,12 +44,12 @@ app.component('todo-list', {
 app.component('todo-list-statistics', {
   inject: ['user'],
   created() {
-    console.log(`Injected property: ${this.user}`) // > Injected property: John Doe
+    console.log(`Injected property: ${this.user}`) // > Propriété injectée: John Doe
   }
 })
 ```
 
-However, this won't work if we try to provide some component instance property here:
+Cependant, cela ne fonctionnera pas si nous essayons de fournir une propriété d'instance de composant ici:
 
 ```js
 app.component('todo-list', {
@@ -59,7 +59,7 @@ app.component('todo-list', {
     }
   },
   provide: {
-    todoLength: this.todos.length // this will result in error `Cannot read property 'length' of undefined`
+    todoLength: this.todos.length // cela entraînera l'erreur `Cannot read property 'length' of undefined`
   },
   template: `
     ...
@@ -67,7 +67,7 @@ app.component('todo-list', {
 })
 ```
 
-To access component instance properties, we need to convert `provide` to be a function returning an object
+Pour accéder aux propriétés des instances de composants, nous devons convertir `provide` en une fonction renvoyant un objet
 
 ```js
 app.component('todo-list', {
@@ -87,16 +87,16 @@ app.component('todo-list', {
 })
 ```
 
-This allows us to more safely keep developing that component, without fear that we might change/remove something that a child component is relying on. The interface between these components remains clearly defined, just as with props.
+Cela nous permet de continuer à développer ce composant de manière plus sûre, sans craindre de changer/supprimer quelque chose sur lequel un composant enfant s'appuie. L'interface entre ces composants reste clairement définie, tout comme avec les props.
 
-In fact, you can think of dependency injection as sort of “long-range props”, except:
+En fait, vous pouvez considérer l'injection de dépendances comme une sorte «de props à longue portée», excepté que:
 
-- parent components don’t need to know which descendants use the properties it provides
-- child components don’t need to know where injected properties are coming from
+- les composants parents n'ont pas besoin de savoir quels descendants utilisent les propriétés qu'ils fournissent
+- les composants enfants n'ont pas besoin de savoir d'où proviennent les propriétés injectées
 
-## Working with reactivity
+## Travailler avec la réactivité
 
-In the example above, if we change the list of `todos`, this change won't be reflected in the injected `todoLength` property. This is because `provide/inject` bindings are _not_ reactive by default. We can change this behavior by passing a `ref` property or `reactive` object to `provide`. In our case, if we wanted to react to changes in the ancestor component, we would need to assign a Composition API `computed` property to our provided `todoLength`:
+Dans l'exemple ci-dessus, si nous modifions la liste de `todos`, ce changement ne sera pas reflété dans la propriété`todoLength` injectée. Ceci est dû au fait que les liaisons `provide/inject` ne sont _pas_ réactives par défaut. Nous pouvons changer ce comportement en passant une propriété `ref` ou un objet `reactive` à `provide`. Dans notre cas, si nous voulions réagir aux changements dans le composant ancêtre, nous aurions besoin d'attribuer une propriété `computed` du Composition API à notre `todoLength` fournie:
 
 ```js
 app.component('todo-list', {
@@ -111,9 +111,9 @@ app.component('todo-list', {
 app.component('todo-list-statistics', {
   inject: ['todoLength'],
   created() {
-    console.log(`Injected property: ${this.todoLength.value}`) // > Injected property: 5
+    console.log(`Propriété injéctée: ${this.todoLength.value}`) // > Propriété injéctée: 5
   }
 })
 ```
 
-In this, any change to `todos.length` will be reflected correctly in the components, where `todoLength` is injected. Read more about `computed` in the [Computed and Watch section](reactivity-computed-watchers.html#computed-values) and `reactive` provide/inject in the [Composition API section](composition-api-provide-inject.html#reactivity).
+Dans ce cas, tout changement de `todos.length` sera correctement reflété dans les composants, où `todoLength` est injecté. En savoir plus sur `computed` dans la [section Computed et Watch](reactivity-computed-watchers.html#computed-values) et `reactive` provide/inject dans la [section du Composition API](composition-api-provide-inject.html#reactivity).
