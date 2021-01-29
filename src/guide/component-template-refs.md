@@ -1,14 +1,14 @@
-# Template refs
+# Refs de template
 
-> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
+> Cette page suppose que vous avez déjà lu les [Principes de base des composants](component-basics.md). Lisez-le d'abord si vous n'êtes pas familier avec les composants.
 
-Despite the existence of props and events, sometimes you might still need to directly access a child component in JavaScript. To achieve this you can assign a reference ID to the child component or HTML element using the `ref` attribute. For example:
+Malgré l'existence des props et événements, , il se peut que vous deviez parfois accéder directement à un composant enfant en JavaScript. Pour ce faire, vous pouvez attribuer un ID de référence au composant enfant ou à l'élément HTML à l'aide de l'attribut `ref`. Par exemple:
 
 ```html
 <input ref="input" />
 ```
 
-This may be useful when you want to, for example, programmatically focus this input on component mount:
+Cela peut être utile lorsque vous souhaitez, par exemple, metre le focus de façon programmatique sur l'élément input au montage du composant:
 
 ```js
 const app = Vue.createApp({})
@@ -28,7 +28,7 @@ app.component('base-input', {
 })
 ```
 
-Also, you can add another `ref` to the component itself and use it to trigger `focusInput` event from the parent component:
+De plus, vous pouvez ajouter un autre `ref` au composant lui-même et l'utiliser pour déclencher l'événement `focusInput` à partir du composant parent:
 
 ```html
 <base-input ref="usernameInput"></base-input>
@@ -39,7 +39,7 @@ this.$refs.usernameInput.focusInput()
 ```
 
 ::: warning
-`$refs` are only populated after the component has been rendered. It is only meant as an escape hatch for direct child manipulation - you should avoid accessing `$refs` from within templates or computed properties.
+Les `$refs` ne sont recupérés qu'après le rendu du composant. Il est uniquement conçu comme un moyen détourné pour la manipulation directe des enfants - vous devez éviter d'accéder à `$refs` à partir de templates ou de propriétés computed.
 :::
 
-**See also**: [Using template refs in Composition API](/guide/composition-api-template-refs.html#template-refs)
+**Voir aussi**: [Utilisation des refs de template dans le Composition API](/guide/composition-api-template-refs.html#template-refs)

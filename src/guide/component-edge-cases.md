@@ -1,26 +1,26 @@
-# Handling Edge Cases
+# Gestion des cas limites
 
-> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
+> Cette page suppose que vous avez déjà lu les [Principes de base des composants](component-basics.md). Lisez-le d'abord si vous n'êtes pas familier avec les composants.
 
 :::tip Note
-All the features on this page document the handling of edge cases, meaning unusual situations that sometimes require bending Vue's rules a little. Note however, that they all have disadvantages or situations where they could be dangerous. These are noted in each case, so keep them in mind when deciding to use each feature.
+Toutes les fonctionnalités de cette page documentent la gestion des cas rares, c'est-à-dire des situations inhabituelles qui nécessitent parfois de contourner un peu les règles de Vue. Notez cependant qu'ils présentent tous des inconvénients ou des situations où ils pourraient être dangereux. Celles-ci sont notées dans chaque cas, alors gardez-les à l'esprit lorsque vous décidez d'utiliser chaque fonctionnalité.
 :::
 
-## Controlling Updates
+## Contrôle des mises à jour
 
-Thanks to Vue's Reactivity system, it always knows when to update (if you use it correctly). There are edge cases, however, when you might want to force an update, despite the fact that no reactive data has changed. Then there are other cases when you might want to prevent unnecessary updates.
+Grâce au système Reactivity de Vue, il sait toujours quand mettre à jour (si vous l'utilisez correctement). Cependant, il existe des cas extrêmes où vous voudrez peut-être forcer une mise à jour, malgré le fait qu'aucune donnée réactive n'a changé. Ensuite, il existe d'autres cas où vous voudrez peut-être empêcher les mises à jour inutiles.
 
-### Forcing an Update
+### Forcer une mise à jour
 
-If you find yourself needing to force an update in Vue, in 99.99% of cases, you've made a mistake somewhere. For example, you may be relying on state that isn't tracked by Vue's reactivity system, e.g. with `data` property added after component creation.
+Si vous avez besoin de forcer une mise à jour dans Vue, dans 99,99% des cas, vous avez fait une erreur quelque part. Par exemple, vous avez besoin d'un un état qui n'est pas suivi par le système de réactivité de Vue, par exemple avec une propriété `data` ajoutée après la création du composant.
 
-However, if you've ruled out the above and find yourself in this extremely rare situation of having to manually force an update, you can do so with [`$forceUpdate`](../api/instance-methods.html#forceupdate).
+Cependant, si vous avez exclu ce qui précède et que vous vous trouvez dans cette situation extrêmement rare de devoir forcer manuellement une mise à jour, vous pouvez le faire avec [`$ forceUpdate`](../api/instance-methods.html#forceupdate).
 
-### Cheap Static Components with `v-once`
+### Composants statiques économe avec `v-once`
 
-Rendering plain HTML elements is very fast in Vue, but sometimes you might have a component that contains **a lot** of static content. In these cases, you can ensure that it's only evaluated once and then cached by adding the `v-once` directive to the root element, like this:
+Le rendu des éléments HTML simples est très rapide dans Vue, mais vous pouvez parfois avoir un composant contenant ** beaucoup ** de contenu statique. Dans ces cas, vous pouvez vous assurer qu'il n'est évalué qu'une seule fois puis mis en cache en ajoutant la directive `v-once` à l'élément racine, comme ceci:
 
-``` js
+```js
 app.component('terms-of-service', {
   template: `
     <div v-once>
@@ -32,5 +32,5 @@ app.component('terms-of-service', {
 ```
 
 :::tip
-Once again, try not to overuse this pattern. While convenient in those rare cases when you have to render a lot of static content, it's simply not necessary unless you actually notice slow rendering - plus, it could cause a lot of confusion later. For example, imagine another developer who's not familiar with `v-once` or simply misses it in the template. They might spend hours trying to figure out why the template isn't updating correctly.
+Encore une fois, essayez de ne pas abuser de ce pattern. Bien que pratique dans ces rares cas où vous devez afficher beaucoup de contenu statique, ce n'est tout simplement pas nécessaire à moins que vous ne remarquiez réellement un rendu lent - en plus, cela pourrait causer beaucoup de confusion plus tard. Par exemple, imaginez un autre développeur qui n'est pas familier avec `v-once` ou qui le manque simplement dans le template. Ils peuvent passer des heures à essayer de comprendre pourquoi le template ne se met pas à jour correctement.
 :::
