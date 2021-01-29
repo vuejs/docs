@@ -2,11 +2,11 @@
 
 ## vue3-fr.netlify.app
 
-Ce site est construit avec [VuePress](https://vuepress.vuejs.org/). Le contenu du site est écrit au format Markdown situé dans `src`. Il s'agit de la version française (Non officiel) du site officiel de la documentation de Vue 3.
+Ce site est construit avec [VuePress](https://vuepress.vuejs.org/). Le contenu du site est écrit au format Markdown situé dans `src`. Il s'agit de la version française (Non officiel) du site officiel de la documentation de Vue 3. Vous pouvez le visualiser sur ce lien [vue3-fr.netlify.app](https://vue3-fr.netlify.app)
 
 ## Écriture
 
-Voir [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) pour les règles et recommandations sur la rédaction et la maintenance de la documentation.
+Voir le [Guide de rédaction de Vue Docs](https://v3.vuejs.org/guide/writing-guide.html) pour les règles et recommandations sur la rédaction et la maintenance de la documentation.
 
 ## Dévéloppement
 
