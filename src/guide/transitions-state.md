@@ -1,17 +1,17 @@
-# State Transitions
+# Transitions d'état
 
-Vue's transition system offers many simple ways to animate entering, leaving, and lists, but what about animating your data itself? For example:
+Le système de transition de Vue offre de nombreuses façons simples d'animer les entrées, les sorties et les listes, mais qu'en est-il de l'animation de vos données elles-mêmes? Par exemple:
 
-- numbers and calculations
-- colors displayed
-- the positions of SVG nodes
-- the sizes and other properties of elements
+- les nombres et les calculs
+- les couleurs affichées
+- la position des noeuds SVG
+- la taille et autre propriétés des éléments
 
-All of these are either already stored as raw numbers or can be converted into numbers. Once we do that, we can animate these state changes using 3rd-party libraries to tween state, in combination with Vue's reactivity and component systems.
+Tous ces éléments sont déjà stockés sous forme de nombres bruts ou peuvent être convertis en nombres. Une fois que nous faisons cela, nous pouvons animer ces changements d'état à l'aide de librairies tierces pour interpoler l'état, en combinaison avec la réactivité de Vue et les systèmes de composants.
 
-## Animating State with Watchers
+## Animation de l'état avec les observateurs
 
-Watchers allow us to animate changes of any numerical property into another property. That may sound complicated in the abstract, so let's dive into an example using [GreenSock](https://greensock.com/):
+Les observateurs nous permettent d'animer les changements de toute propriété numérique dans une autre propriété. Cela peut sembler compliqué dans l'abstrait, alors plongeons-nous dans un exemple utilisant [GreenSock](https://greensock.com/):
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
@@ -47,17 +47,17 @@ Vue.createApp(Demo).mount('#animated-number-demo')
 
 <common-codepen-snippet title="Transitioning State 1" slug="22903bc3b53eb5b7817378ecb985ce96" tab="js,result" :editable="false" :preview="false" />
 
-When you update the number, the change is animated below the input.
+Lorsque vous mettez à jour le numéro, la modification est animée sous l'entrée de formulaire.
 
-## Dynamic State Transitions
+## Transitions d'états dynamiques
 
-As with Vue's transition components, the data backing state transitions can be updated in real time, which is especially useful for prototyping! Even using a simple SVG polygon, you can achieve many effects that would be difficult to conceive of until you've played with the variables a little.
+Comme pour les composants de transition de Vue, les transitions d'état de sauvegarde des données peuvent être mises à jour en temps réel, ce qui est particulièrement utile pour le prototypage! Même en utilisant un simple polygone SVG, vous pouvez obtenir de nombreux effets qui seraient difficiles à concevoir jusqu'à ce que vous ayez un peu joué avec les variables.
 
 <common-codepen-snippet title="Updating SVG" slug="a8e00648d4df6baa1b19fb6c31c8d17e" :height="500" tab="js,result" :editable="false" />
 
-## Organizing Transitions into Components
+## Organisation des transitions en composants
 
-Managing many state transitions can quickly increase the complexity of a component instance. Fortunately, many animations can be extracted out into dedicated child components. Let's do this with the animated integer from our earlier example:
+La gestion de nombreuses transitions d'état peut rapidement augmenter la complexité d'une instance de composant. Heureusement, de nombreuses animations peuvent être extraites dans des composants enfants dédiés. Faisons cela avec le nombre entier animé de notre exemple précédent:
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
@@ -130,16 +130,16 @@ app.mount('#app')
 
 <common-codepen-snippet title="State Transition Components" slug="e9ef8ac7e32e0d0337e03d20949b4d17" tab="js,result" :editable="false" />
 
-Now we can compose multiple states with these child components. It's exciting- we can use any combination of transition strategies that have been covered on this page, along with those offered by Vue's [built-in transition system](transitions-enterleave.html). Together, there are very few limits to what can be accomplished.
+Nous pouvons maintenant composer plusieurs états avec ces composants enfants. C'est passionnant - nous pouvons utiliser n'importe quelle combinaison de stratégies de transition qui ont été couvertes sur cette page, avec celles offertes par le [système de transition intégré](transitions-enterleave.html) de Vue. Ensemble, il y a très peu de limites à ce qui peut être accompli.
 
-You can see how we could use this for data visualization, for physics effects, for character animations and interactions, the sky's the limit.
+Vous pouvez voir comment nous pourrions l'utiliser pour la visualisation des données, pour les effets physiques, pour les animations et les interactions de personnages, comme on le dit the sky's the limit.
 
-## Bringing Designs to Life
+## Donner vie aux designs
 
-To animate, by one definition, means to bring to life. Unfortunately, when designers create icons, logos, and mascots, they're usually delivered as images or static SVGs. So although GitHub's octocat, Twitter's bird, and many other logos resemble living creatures, they don't really seem alive.
+Animer, par définition, signifie donner vie. Malheureusement, lorsque les concepteurs créent des icônes, des logos et des mascottes, ils sont généralement livrés sous forme d'images ou de SVG statiques. Ainsi, bien que l'octocat de GitHub, l'oiseau de Twitter et de nombreux autres logos ressemblent à des créatures vivantes, ils ne semblent pas vraiment vivants..
 
-Vue can help. Since SVGs are just data, we only need examples of what these creatures look like when excited, thinking, or alarmed. Then Vue can help transition between these states, making your welcome pages, loading indicators, and notifications more emotionally compelling.
+Vue peut vous aider. Puisque les SVG ne sont que des données, nous n'avons besoin que d'exemples de ce à quoi ces créatures ressemblent lorsqu'elles sont excitées, réfléchies ou alarmées. Ensuite, Vue peut vous aider à faire la transition entre ces états, rendant vos pages d'accueil, vos indicateurs de chargement et vos notifications plus attrayants sur le plan émotionnel.
 
-Sarah Drasner demonstrates this in the demo below, using a combination of timed and interactivity-driven state changes:
+Sarah Drasner le démontre dans la démo ci-dessous, en utilisant une combinaison de changements d'état chronométrés et basés sur l'interactivité::
 
 <common-codepen-snippet title="Vue-controlled Wall-E" slug="YZBGNp" :height="400" :team="false" user="sdras" name="Sarah Drasner" :editable="false" :preview="false" version="2" theme="light" />
