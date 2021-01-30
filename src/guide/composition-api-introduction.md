@@ -309,7 +309,7 @@ export default {
 }
 ```
 
-For more details on `watch`, refer to our [in-depth guide]().
+For more details on `watch`, refer to our [in-depth guide](reactivity-computed-watchers.md#watch).
 
 **Let’s now apply it to our example:**
 
