@@ -1,13 +1,13 @@
 # Mixins
 
-## Basics
+## Les bases
 
-Mixins distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be "mixed" into the component's own options.
+Les mixins distribuent des fonctionnalités réutilisables pour les composants Vue. Un objet mixin peut contenir toutes les options de composant. Lorsqu'un composant utilise un mixin, toutes les options du mixin seront "mélangées" dans les propres options du composant.
 
 Example:
 
 ```js
-// define a mixin object
+// definir un objet mixin
 const myMixin = {
   created() {
     this.hello()
@@ -19,7 +19,7 @@ const myMixin = {
   }
 }
 
-// define an app that uses this mixin
+// definir une application qui l'utilise
 const app = Vue.createApp({
   mixins: [myMixin]
 })
@@ -27,11 +27,11 @@ const app = Vue.createApp({
 app.mount('#mixins-basic') // => "hello from mixin!"
 ```
 
-## Option Merging
+## Fusion d'options
 
-When a mixin and the component itself contain overlapping options, they will be "merged" using appropriate strategies.
+Lorsqu'un mixin et le composant lui-même contiennent des options qui se chevauchent, ils seront "fusionnés" en utilisant des stratégies appropriées.
 
-For example, data objects undergo a recursive merge, with the component's data taking priority in cases of conflicts.
+Par exemple, les objets de données subissent une fusion récursive, les données du composant ayant la priorité en cas de conflits
 
 ```js
 const myMixin = {
@@ -57,27 +57,27 @@ const app = Vue.createApp({
 })
 ```
 
-Hook functions with the same name are merged into an array so that all of them will be called. Mixin hooks will be called **before** the component's own hooks.
+Les fonctions hook avec le même nom sont fusionnées dans un tableau afin qu'elles soient toutes appelées. Les hooks de Mixin seront appelés **avant** les hooks du composant.
 
 ```js
 const myMixin = {
   created() {
-    console.log('mixin hook called')
+    console.log('hook de mixin appelé')
   }
 }
 
 const app = Vue.createApp({
   mixins: [myMixin],
   created() {
-    console.log('component hook called')
+    console.log('hook du composant appelé')
   }
 })
 
-// => "mixin hook called"
-// => "component hook called"
+// => "hook de mixin appelé"
+// => "hook du composant appelé"
 ```
 
-Options that expect object values, for example `methods`, `components` and `directives`, will be merged into the same object. The component's options will take priority when there are conflicting keys in these objects:
+Les options qui attendent des valeurs d'objet, par exemple `methods`, `components` et `directives`, seront fusionnées dans le même objet. Les options du composant seront prioritaires en cas de conflit de clés dans ces objets:
 
 ```js
 const myMixin = {
@@ -110,16 +110,16 @@ vm.bar() // => "bar"
 vm.conflicting() // => "from self"
 ```
 
-## Global Mixin
+## Mixin Global
 
-You can also apply a mixin globally for a Vue application:
+Vous pouvez également appliquer un mixin globalement pour une application Vue:
 
 ```js
 const app = Vue.createApp({
   myOption: 'hello!'
 })
 
-// inject a handler for `myOption` custom option
+// injecte un gestionnaire pour l'option personnalisée myOption
 app.mixin({
   created() {
     const myOption = this.$options.myOption
@@ -132,14 +132,14 @@ app.mixin({
 app.mount('#mixins-global') // => "hello!"
 ```
 
-Use with caution! Once you apply a mixin globally, it will affect **every** component instance created afterwards in the given app (for example, child components):
+Utiliser avec précaution! Une fois que vous avez appliqué un mixin globalement, cela affectera **chaque** instance de composant créée par la suite dans l'application donnée (par exemple, les composants enfants):
 
 ```js
 const app = Vue.createApp({
   myOption: 'hello!'
 })
 
-// inject a handler for `myOption` custom option
+// injecte un gestionnaire pour l'option personnalisée myOption
 app.mixin({
   created() {
     const myOption = this.$options.myOption
@@ -149,7 +149,7 @@ app.mixin({
   }
 })
 
-// add myOption also to child component
+// ajoute myOption également au composant enfant
 app.component('test-component', {
   myOption: 'hello from component!'
 })
@@ -160,11 +160,11 @@ app.mount('#mixins-global')
 // => "hello from component!"
 ```
 
-In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.html) to avoid duplicate application.
+Dans la plupart des cas, vous ne devez l'utiliser que pour la gestion des options personnalisées, comme illustré dans l'exemple ci-dessus. C'est aussi une bonne idée de les expédier en tant que [Plugins](plugins.html) pour éviter la duplication d'application.
 
-## Custom Option Merge Strategies
+## Stratégies de fusion d'options personnalisées
 
-When custom options are merged, they use the default strategy which overwrites the existing value. If you want a custom option to be merged using custom logic, you need to attach a function to `app.config.optionMergeStrategies`:
+Lorsque les options personnalisées sont fusionnées, elles utilisent la stratégie par défaut qui écrase la valeur existante. Si vous voulez qu'une option personnalisée soit fusionnée à l'aide d'une logique personnalisée, vous devez attacher une fonction à `app.config.optionMergeStrategies`:
 
 ```js
 const app = Vue.createApp({})
@@ -174,7 +174,7 @@ app.config.optionMergeStrategies.customOption = (toVal, fromVal) => {
 }
 ```
 
-The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. Let's try to check what do we have in these parameters when we use a mixin:
+La stratégie de fusion reçoit la valeur de cette option définie sur les instances parent et enfant comme premier et deuxième arguments, respectivement. Essayons de vérifier ce que nous avons dans ces paramètres lorsque nous utilisons un mixin:
 
 ```js
 const app = Vue.createApp({
@@ -196,7 +196,7 @@ app.mixin({
 })
 ```
 
-As you can see, in the console we have `toVal` and `fromVal` printed first from the mixin and then from the `app`. We always return `fromVal` if it exists, that's why `this.$options.custom` is set to `hello!` in the end. Let's try to change a strategy to _always return a value from the child instance_:
+Comme vous pouvez le voir, dans la console, nous avons `toVal` et`fromVal` imprimés d'abord à partir du mixin, puis de `l'application`. Nous retournons toujours `fromVal` s'il existe, c'est pourquoi `this.$options.custom` est réglé sur `hello!` À la fin. Essayons de changer une stratégie pour _toujours renvoyer une valeur de l'instance enfant_ :
 
 ```js
 const app = Vue.createApp({
@@ -213,12 +213,12 @@ app.mixin({
 })
 ```
 
-## Precautions
+## Précautions
 
-In Vue 2, mixins were the primary tool to abstract parts of component logic into reusable chunks. However, they have a few issues:
+Dans Vue 2, les mixins étaient le principal outil pour résumer des parties de la logique des composants en blocs réutilisables. Cependant, ils ont quelques problèmes:
 
-- Mixins are conflict-prone: Since properties from each feature are merged into the same component, you still have to know about every other feature to avoid property name conflicts and for debugging.
+- Les mixins sont sujets aux conflits: puisque les propriétés de chaque fonctionnalité sont fusionnées dans le même composant, vous devez toujours connaître toutes les autres fonctionnalités pour éviter les conflits de nom de propriété et pour le débogage.
 
-- Reusability is limited: we cannot pass any parameters to the mixin to change its logic which reduces their flexibility in terms of abstracting logic
+- La réutilisabilité est limitée: on ne peut pas passer de paramètres au mixin pour changer sa logique ce qui réduit leur flexibilité en termes de logique abstraite
 
-To address these issues, we added a new way to organize code by logical concerns: the [Composition API](composition-api-introduction.html).
+Pour résoudre ces problèmes, nous avons ajouté une nouvelle façon d'organiser le code par souci logique: le [Composition API](composition-api-introduction.html).
