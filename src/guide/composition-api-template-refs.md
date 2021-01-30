@@ -1,14 +1,14 @@
 # Template Refs
 
-> This section uses [single-file component](single-file-component.html) syntax for code examples
+> Cette section utilise la syntaxe des [composants à fichier unique](single-file-component.html) pour les exemples de code
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
+> Ce guide suppose que vous avez déjà lu l '[introduction du Composition API](composition-api-introduction.html) et les [Fondamentaux de la réactivité](reactivity-fundamentals.html). Lisez cela d'abord si vous êtes nouveau dans le composition API.
 
-When using the Composition API, the concept of [reactive refs](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) and [template refs](component-template-refs.html) are unified. In order to obtain a reference to an in-template element or component instance, we can declare a ref as usual and return it from [setup()](composition-api-setup.html):
+Lors de l'utilisation du Composition API, le concept de [refs réactifs](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) et [template refs](component-template-refs.html) sont unifiés. Afin d'obtenir une référence à un élément dans le template ou à une instance de composant, nous pouvons déclarer une ref comme d'habitude et la retourner depuis [setup ()](composition-api-setup.html):
 
 ```html
 <template>
-  <div ref="root">This is a root element</div>
+  <div ref="root">Ceci est un élément racine</div>
 </template>
 
 <script>
@@ -19,8 +19,8 @@ When using the Composition API, the concept of [reactive refs](reactivity-fundam
       const root = ref(null)
 
       onMounted(() => {
-        // the DOM element will be assigned to the ref after initial render
-        console.log(root.value) // <div>This is a root element</div>
+        // l'élément DOM sera affecté à la référence après le rendu initial
+        console.log(root.value) // <div>eci est un élément racine</div>
       })
 
       return {
@@ -31,11 +31,11 @@ When using the Composition API, the concept of [reactive refs](reactivity-fundam
 </script>
 ```
 
-Here we are exposing `root` on the render context and binding it to the div as its ref via `ref="root"`. In the Virtual DOM patching algorithm, if a VNode's `ref` key corresponds to a ref on the render context, the VNode's corresponding element or component instance will be assigned to the value of that ref. This is performed during the Virtual DOM mount / patch process, so template refs will only get assigned values after the initial render.
+Ici, nous exposons `root` sur le contexte de rendu et le lions à la div comme sa référence via `ref="root"`. Dans l'algorithme de correction du DOM virtuel, si la clé `ref` d'un VNode correspond à une référence dans le contexte de rendu, l'élément ou l'instance de composant correspondant du VNode sera affecté à la valeur de cette référence. Ceci est effectué pendant le processus de montage/patch du DOM virtuel, de sorte que les refs de template ne recevront des valeurs assignées qu'après le rendu
 
 Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
 
-## Usage with JSX
+## Usage avec JSX
 
 ```js
 export default {
@@ -47,15 +47,15 @@ export default {
         ref: root
       })
 
-    // with JSX
+    // avec JSX
     return () => <div ref={root} />
   }
 }
 ```
 
-## Usage inside `v-for`
+## Usage à l'interieur de `v-for`
 
-Composition API template refs do not have special handling when used inside `v-for`. Instead, use function refs to perform custom handling:
+Les refs de template du composition API n'ont pas de traitement spécial lorsqu'elles sont utilisées à l'intérieur de `v-for`. Au lieu de cela, utilisez des refs de fonction pour effectuer une gestion personnalisée:
 
 ```html
 <template>
@@ -72,7 +72,7 @@ Composition API template refs do not have special handling when used inside `v-f
       const list = reactive([1, 2, 3])
       const divs = ref([])
 
-      // make sure to reset the refs before each update
+      // assurez-vous de réinitialiser les refs avant chaque mise à jour
       onBeforeUpdate(() => {
         divs.value = []
       })

@@ -1,12 +1,12 @@
 # Provide / Inject
 
-> This guide assumes that you have already read [Provide / Inject](component-provide-inject.html), [Composition API Introduction](composition-api-introduction.html), and [Reactivity Fundamentals](reactivity-fundamentals.html).
+> Ce guide suppose que vous avez déjà lu l '[introduction du Composition API](composition-api-introduction.html) et les [Fondamentaux de la réactivité](reactivity-fundamentals.html). Lisez cela d'abord si vous êtes nouveau dans le composition API.
 
-We can use [provide / inject](component-provide-inject.html) with the Composition API as well. Both can only be called during [`setup()`](composition-api-setup.html) with a current active instance.
+Nous pouvons également utiliser [provide/inject](component-provide-inject.html) avec le Composition API. Les deux ne peuvent être appelés que pendant [`setup ()`](composition-api-setup.html) avec une instance active courante.
 
-## Scenario Background
+## Contexte du scénario
 
-Let's assume that we want to rewrite the following code, which contains a `MyMap` component that provides a `MyMarker` component with the user's location, using the Composition API.
+Supposons que nous voulions réécrire le code suivant, qui contient un composant `MyMap` qui fournit un composant`MyMarker` avec l'emplacement de l'utilisateur, en utilisant le composition API.
 
 ```vue
 <!-- src/components/MyMap.vue -->
@@ -41,16 +41,16 @@ export default {
 </script>
 ```
 
-## Using Provide
+## Utiliser provide
 
-When using `provide` in `setup()`, we start by explicitly importing the method from `vue`. This allows us to define each property with its own invocation of `provide`.
+Lorsqu'on utilise `provide` dans `setup ()`, on commence par importer explicitement la méthode depuis`vue`. Cela nous permet de définir chaque propriété avec sa propre invocation de `provide`.
 
-The `provide` function allows you to define the property through two parameters:
+La fonction `provide` vous permet de définir la propriété à travers deux paramètres:
 
-1. The property's name (`<String>` type)
-2. The property's value
+1. Le nom de la propriété (type `<String>`)
+2. La valeur de la propriété
 
-Using our `MyMap` component, our provided values can be refactored as the following:
+En utilisant notre composant `MyMap`, les valeurs fournies peuvent être refactorisées comme suit:
 
 ```vue{7,14-20}
 <!-- src/components/MyMap.vue -->
@@ -77,16 +77,16 @@ export default {
 </script>
 ```
 
-## Using Inject
+## Utiliser inject
 
-When using `inject` in `setup()`, we also need to explicitly import it from `vue`. Once we do so, this allows us to invoke it to define how we want to expose it to our component.
+Lorsque vous utilisez `inject` dans `setup ()`, nous devons également l'importer explicitement depuis `vue`. Une fois que nous le faisons, cela nous permet de l'invoquer pour définir comment nous voulons l'exposer à notre composant.
 
 The `inject` function takes two parameters:
 
-1. The name of the property to inject
-2. A default value (**Optional**)
+1. Le nom de la propriété à injecté
+2. Une valeur par defaut (**Optionelle**)
 
-Using our `MyMarker` component, we can refactor it with the following code:
+En utilisant notre composant `MyMarker`, nous pouvons le refactoriser avec le code suivant:
 
 ```vue{3,6-14}
 <!-- src/components/MyMarker.vue -->
@@ -107,13 +107,13 @@ export default {
 </script>
 ```
 
-## Reactivity
+## Réactivité
 
-### Adding Reactivity
+### Ajouter de la réactivité
 
-To add reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.html#declaring-reactive-state) when providing a value.
+Pour ajouter de la réactivité entre les valeurs provide et inject, nous pouvons utiliser un [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) ou [reactive](reactivity-fundamentals.html#declaring-reactive-state) lorsqu'on fournit une valeur.
 
-Using our `MyMap` component, our code can be updated as follows:
+En utilisant notre composant `MyMap`, notre code peut être mis à jour comme suit:
 
 ```vue{7,15-22}
 <!-- src/components/MyMap.vue -->
@@ -143,13 +143,13 @@ export default {
 </script>
 ```
 
-Now, if anything changes in either property, the `MyMarker` component will automatically be updated as well!
+Maintenant, si quelque chose change dans l'une ou l'autre des propriétés, le composant `MyMarker` sera également mis à jour automatiquement!
 
-### Mutating Reactive Properties
+### Muter des propriétés réactives
 
-When using reactive provide / inject values, **it is recommended to keep any mutations to reactive properties inside of the _provider_ whenever possible**.
+Lorsque vous utilisez des valeurs provide / inject, **il est recommandé de conserver toutes les mutations des propriétés réactives à l'intérieur du _provider_ chaque fois que possible**.
 
-For example, in the event we needed to change the user's location, we would ideally do this inside of our `MyMap` component.
+Par exemple, dans le cas où nous devions changer l'emplacement de l'utilisateur, nous le ferions idéalement à l'intérieur de notre composant `MyMap`.
 
 ```vue{28-32}
 <!-- src/components/MyMap.vue -->
@@ -188,7 +188,7 @@ export default {
 </script>
 ```
 
-However, there are times where we need to update the data inside of the component where the data is injected. In this scenario, we recommend providing a method that is responsible for mutating the reactive property.
+Cependant, il y a des moments où nous devons mettre à jour les données à l'intérieur du composant où les données sont injectées. Dans ce scénario, nous vous recommandons de fournir une méthode responsable de la mutation de la propriété réactive.
 
 ```vue{21-23,27}
 <!-- src/components/MyMap.vue -->
@@ -244,7 +244,7 @@ export default {
 </script>
 ```
 
-Finally, we recommend using `readonly` on provided property if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
+Enfin, nous vous recommandons d'utiliser `readonly` sur la propriété fournie si vous voulez vous assurer que les données transmises via `provide` ne peuvent pas être mutées par le composant injecté.
 
 ```vue{7,25-26}
 <!-- src/components/MyMap.vue -->
