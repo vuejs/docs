@@ -26,7 +26,7 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
 - Scaffold via [Vite](https://github.com/vitejs/vite):
 
   ```bash
-  npm init vite-app hello-vue3 # OR yarn create vite-app hello-vue3
+  npm init @vitejs/app hello-vue3 # OR yarn create @vitejs/appp hello-vue3
   ```
 
 - Scaffold via [vue-cli](https://cli.vuejs.org/):
