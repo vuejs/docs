@@ -474,3 +474,47 @@ export default {
   }
 }
 ```
+
+## useCssModule
+
+:::warning
+`useCssModule` can only be used within `render` or `setup` functions.
+:::
+
+Allows CSS modules to be accessed within the [`setup`](/api/composition-api.html#setup) function of a [single-file component](/guide/single-file-component.html):
+
+```vue
+<script>
+import { h, useCssModule } from 'vue'
+
+export default {
+  setup () {
+    const style = useCssModule()
+
+    return () => h('div', {
+      class: style.success
+    }, 'Task complete!')
+  }
+}
+</script>
+
+<style module>
+.success {
+  color: #090;
+}
+</style>
+```
+
+For more information about using CSS modules, see [Vue Loader - CSS Modules](https://vue-loader.vuejs.org/guide/css-modules.html).
+
+### Arguments
+
+Accepts one argument: `name`
+
+#### name
+
+- **Type:** `String`
+
+- **Details:**
+
+  The name of the CSS module. Defaults to `'$style'`.
