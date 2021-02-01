@@ -53,7 +53,7 @@ Lorsque vous utilisez ce composant dans la structure HTML initiale, nous pouvons
 
 Teleport fournit un moyen propre de nous permettre de contrôler sous quel parent dans notre DOM nous voulons qu'un morceau de HTML soit rendu, sans avoir à recourir à l'état global ou à le diviser en deux composants.
 
-Modifions notre `bouton-modal` pour utiliser `<teleport>`et disons à Vue "**téléporte** ce HTML **dans** la balise "**body**" ".
+Modifions notre `button-modal` pour utiliser `<teleport>`et disons à Vue "**téléporte** ce HTML **dans** la balise "**body**" ".
 
 ```js
 app.component('modal-button', {

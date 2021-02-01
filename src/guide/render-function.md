@@ -1,8 +1,8 @@
-# Render Functions
+# Fonctions de rendu
 
-Vue recommends using templates to build applications in the vast majority of cases. However, there are situations where we need the full programmatic power of JavaScript. That's where we can use the **render function**.
+Vue recommande d'utiliser des templates pour créer des applications dans la grande majorité des cas. Cependant, dans certaines situations, nous avons besoin de toute la puissance programmatique de JavaScript. C'est là que nous pouvons utiliser la** fonction _render_**.
 
-Let's dive into an example where a `render()` function would be practical. Say we want to generate anchored headings:
+Plongeons dans un exemple où une fonction `render()` serait pratique. Disons que nous voulons générer des en-têtes ancrés:
 
 ```html
 <h1>
@@ -12,13 +12,13 @@ Let's dive into an example where a `render()` function would be practical. Say w
 </h1>
 ```
 
-Anchored headings are used very frequently, we should create a component:
+Les en-têtes ancrés sont utilisés très fréquemment, nous créons un composant:
 
 ```vue-html
 <anchored-heading :level="1">Hello world!</anchored-heading>
 ```
 
-The component must generate a heading based on the `level` prop, and we quickly arrive at this:
+Le composant doit générer un en-tête basé sur la prop `level`, et nous arrivons rapidement à ceci:
 
 ```js
 const { createApp } = Vue
@@ -55,9 +55,9 @@ app.component('anchored-heading', {
 })
 ```
 
-This template doesn't feel great. It's not only verbose, but we're duplicating `<slot></slot>` for every heading level. And when we add the anchor element, we have to again duplicate it in every `v-if/v-else-if` branch.
+Ce template ne se sent pas bien. Non seulement ce n'est pas détaillé, mais nous dupliquons `<slot></slot>` pour chaque niveau de titre. Et lorsque nous ajoutons l'élément d'ancrage, nous devons à nouveau le dupliquer dans chaque branche `v-if / v-else-if`.
 
-While templates work great for most components, it's clear that this isn't one of them. So let's try rewriting it with a `render()` function:
+Bien que les templates fonctionnent très bien pour la plupart des composants, il est clair que ce n'est pas l'un d'entre eux. Essayons donc de le réécrire avec une fonction `render()`:
 
 ```js
 const { createApp, h } = Vue
@@ -67,9 +67,9 @@ const app = createApp({})
 app.component('anchored-heading', {
   render() {
     return h(
-      'h' + this.level, // tag name
-      {}, // props/attributes
-      this.$slots.default() // array of children
+      'h' + this.level, // nom du tag
+      {}, // props/attributs
+      this.$slots.default() // tableau de ses enfants
     )
   },
   props: {
@@ -81,11 +81,11 @@ app.component('anchored-heading', {
 })
 ```
 
-The `render()` function implementation is much simpler, but also requires greater familiarity with component instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default()`. If you haven't already, **it's recommended to read through the [instance properties API](../api/instance-properties.html) before diving into render functions.**
+L'implémentation de la fonction `render()` est beaucoup plus simple, mais nécessite également une plus grande familiarité avec les propriétés des instances de composants. Dans ce cas, vous devez savoir que lorsque vous passez des enfants sans directive `v-slot` dans un composant, comme le`Hello world!`À l'intérieur de `anchored-header`, ces enfants sont stockés sur l'instance du composant à `$ slots.default ()`. Si vous ne l'avez pas déjà fait, **il est recommandé de lire l '[API des propriétés d'instance](../api/instance-properties.html) avant de plonger dans les fonctions de rendu.**
 
-## The DOM tree
+## L'arborescence du DOM
 
-Before we dive into render functions, it’s important to know a little about how browsers work. Take this HTML for example:
+Avant de plonger dans les fonctions de rendu, il est important de connaître un peu le fonctionnement des navigateurs. Prenez ce HTML par exemple:
 
 ```html
 <div>
@@ -95,21 +95,21 @@ Before we dive into render functions, it’s important to know a little about ho
 </div>
 ```
 
-When a browser reads this code, it builds a [tree of "DOM nodes"](https://javascript.info/dom-nodes) to help it keep track of everything.
+Lorsqu'un navigateur lit ce code, il construit une [arborescence de "nœuds du DOM"](https://javascript.info/dom-nodes) pour l'aider à garder une trace de tout.
 
-The tree of DOM nodes for the HTML above looks like this:
+L'arbre des nœuds du DOM pour le HTML ci-dessus ressemble à ceci:
 
 ![DOM Tree Visualization](/images/dom-tree.png)
 
-Every element is a node. Every piece of text is a node. Even comments are nodes! Each node can have children (i.e. each node can contain other nodes).
+Chaque élément est un nœud. Chaque morceau de texte est un nœud. Même les commentaires sont des nœuds! Chaque nœud peut avoir des enfants (c'est-à-dire que chaque nœud peut contenir d'autres nœuds).
 
-Updating all these nodes efficiently can be difficult, but thankfully, we never have to do it manually. Instead, we tell Vue what HTML we want on the page, in a template:
+La mise à jour efficace de tous ces nœuds peut être difficile, mais heureusement, nous n'avons jamais à le faire manuellement. Au lieu de cela, nous disons à Vue quel HTML nous voulons sur la page, dans un template:
 
 ```html
 <h1>{{ blogTitle }}</h1>
 ```
 
-Or in a render function:
+Ou dans une fonction de rendu:
 
 ```js
 render() {
@@ -117,45 +117,45 @@ render() {
 }
 ```
 
-And in both cases, Vue automatically keeps the page updated, even when `blogTitle` changes.
+Et dans les deux cas, Vue maintient automatiquement la page à jour, même lorsque `blogTitle` change.
 
-## The Virtual DOM tree
+## L'arborescence du DOM virtuel
 
-Vue keeps the page updated by building a **virtual DOM** to keep track of the changes it needs to make to the real DOM. Taking a closer look at this line:
+Vue maintient la page à jour en créant un **DOM virtuel** pour suivre les changements qu'il doit apporter au DOM réel. En regardant de plus près cette ligne:
 
 ```js
 return h('h1', {}, this.blogTitle)
 ```
 
-What is the `h()` function returning? It's not _exactly_ a real DOM element. It returns a plain object which contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. We call this node description a "virtual node", usually abbreviated to **VNode**. "Virtual DOM" is what we call the entire tree of VNodes, built by a tree of Vue components.
+Que retourne la fonction `h()`? Ce n'est pas _exactement_ un véritable élément DOM. Il renvoie un objet simple qui contient des informations décrivant à Vue le type de nœud qu'il doit afficher sur la page, y compris des descriptions de tous les nœuds enfants. Nous appelons cette description de nœud un "nœud virtuel", généralement abrégé en **VNode**. Le DOM Virtuel est ce que nous appelons l'arborescence entière des VNodes, construit par une arborescence de composants Vue.
 
 ## `h()` Arguments
 
-The `h()` function is a utility to create VNodes. It could perhaps more accurately be named `createVNode()`, but it's called `h()` due to frequent use and for brevity. It accepts three arguments:
+La fonction `h()` est un utilitaire pour créer des VNodes. Il pourrait peut-être plus précisément être nommé `createVNode()`, mais il s'appelle `h()` en raison d'une utilisation fréquente et par souci de concision. Il accepte trois arguments:
 
 ```js
 // @returns {VNode}
 h(
   // {String | Object | Function } tag
-  // An HTML tag name, a component or an async component.
-  // Using function returning null would render a comment.
+  // Un nom de balise HTML, un composant ou un composant asynchrone.
+  // L'utilisation de la fonction retournant null générerais un commentaire.
   //
-  // Required.
+  // Requis.
   'div',
 
   // {Object} props
-  // An object corresponding to the attributes, props and events
-  // we would use in a template.
+  // Un objet correspondant aux attributs, props et événements
+  // qui seront utilisés dans le template
   //
-  // Optional.
+  // Optionnel.
   {},
 
   // {String | Array | Object} children
-  // Children VNodes, built using `h()`,
-  // or using strings to get 'text VNodes' or
-  // an object with slots.
+  // VNodes enfants, construits avec `h()`,
+  // ou en utilisant des chaînes pour obtenir des 'text VNodes' ou
+  // un objet avec des slots.
   //
-  // Optional.
+  // Optionnel.
   [
     'Some text comes first.',
     h('h1', 'A headline'),
@@ -166,18 +166,18 @@ h(
 )
 ```
 
-If there are no props then the children can usually be passed as the second argument. In cases where that would be ambiguous, `null` can be passed as the second argument to keep the children as the third argument.
+S'il n'y a pas de props, les enfants peuvent généralement être passés comme deuxième argument. Dans les cas où cela serait ambigu, `null` peut être passé comme deuxième argument pour conserver les enfants comme troisième argument.
 
-## Complete Example
+## Exemple complet
 
-With this knowledge, we can now finish the component we started:
+Avec ces connaissances, nous pouvons maintenant terminer le composant que nous avons commencé:
 
 ```js
 const { createApp, h } = Vue
 
 const app = createApp({})
 
-/** Recursively get text from children nodes */
+/** Récupérer récursivement le texte des nœuds enfants */
 function getChildrenTextContent(children) {
   return children
     .map(node => {
@@ -192,11 +192,11 @@ function getChildrenTextContent(children) {
 
 app.component('anchored-heading', {
   render() {
-    // create kebab-case id from the text contents of the children
+    // créer un id kebab-case à partir du contenu textuel des enfants
     const headingId = getChildrenTextContent(this.$slots.default())
       .toLowerCase()
-      .replace(/\W+/g, '-') // replace non-word characters with dash
-      .replace(/(^-|-$)/g, '') // remove leading and trailing dashes
+      .replace(/\W+/g, '-') // remplacer les "non-mots" par un tiret
+      .replace(/(^-|-$)/g, '') // supprimer les tirets de début et de fin
 
     return h('h' + this.level, [
       h(
@@ -218,23 +218,23 @@ app.component('anchored-heading', {
 })
 ```
 
-## Constraints
+## Contraintes
 
-### VNodes Must Be Unique
+### Les VNodes doivent être uniques
 
-All VNodes in the component tree must be unique. That means the following render function is invalid:
+Tous les VNodes de l'arborescence des composants doivent être uniques. Cela signifie que la fonction de rendu suivante n'est pas valide:
 
 ```js
 render() {
   const myParagraphVNode = h('p', 'hi')
   return h('div', [
-    // Yikes - duplicate VNodes!
+    // Oups - VNodes dupliqués!
     myParagraphVNode, myParagraphVNode
   ])
 }
 ```
 
-If you really want to duplicate the same element/component many times, you can do so with a factory function. For example, the following render function is a perfectly valid way of rendering 20 identical paragraphs:
+Si vous voulez vraiment dupliquer le même élément / composant plusieurs fois, vous pouvez le faire avec une factory function. Par exemple, la fonction render suivante est un moyen parfaitement valide de généré 20 paragraphes identiques:
 
 ```js
 render() {
@@ -246,9 +246,9 @@ render() {
 }
 ```
 
-## Creating Component VNodes
+## Création de composant VNodes
 
-To create a VNode for a component, the first argument passed to `h` should be the component itself:
+Pour créer un VNode pour un composant, le premier argument passé à `h` doit être le composant lui-même:
 
 ```js
 render() {
@@ -256,7 +256,7 @@ render() {
 }
 ```
 
-If we need to resolve a component by name then we can call `resolveComponent`:
+Si nous avons besoin de rétrouver un composant par son nom, nous pouvons appeler `resolveComponent`:
 
 ```js
 const { h, resolveComponent } = Vue
@@ -269,12 +269,12 @@ render() {
 }
 ```
 
-`resolveComponent` is the same function that templates use internally to resolve components by name.
+`resolveComponent` est la même fonction que les templates utilisent en interne pour résoudre les composants par nom.
 
-A `render` function will normally only need to use `resolveComponent` for components that are [registered globally](/guide/component-registration.html#global-registration). [Local component registration](/guide/component-registration.html#local-registration) can usually be skipped altogether. Consider the following example:
+Une fonction `render` n'aura normalement besoin d'utiliser `resolveComponent` que pour les composants qui sont [enregistrés globalement](/guide/component-registration.html#global-registration). L'[Enregistrement de composant local](/guide/component-registration.html#local-registration) peut généralement être complètement ignoré. Prenons l'exemple suivant:
 
 ```js
-// We can simplify this
+// On peut simplifier ceci
 components: {
   ButtonCounter
 },
@@ -283,7 +283,7 @@ render() {
 }
 ```
 
-Rather than registering a component by name and then looking it up we can use it directly instead:
+Plutôt que d'enregistrer un composant par son nom et de le rechercher, nous pouvons l'utiliser directement à la place:
 
 ```js
 render() {
@@ -291,11 +291,11 @@ render() {
 }
 ```
 
-## Replacing Template Features with Plain JavaScript
+## Remplacer des fonctionnalités du template par du pur JS
 
-### `v-if` and `v-for`
+### `v-if` et `v-for`
 
-Wherever something can be easily accomplished in plain JavaScript, Vue render functions do not provide a proprietary alternative. For example, in a template using `v-if` and `v-for`:
+Partout où quelque chose peut être facilement accompli en JavaScript brut, les fonctions de rendu Vue ne fournissent pas d'alternative propriétaire. Par exemple, dans un template utilisant `v-if` et `v-for`:
 
 ```html
 <ul v-if="items.length">
@@ -304,7 +304,7 @@ Wherever something can be easily accomplished in plain JavaScript, Vue render fu
 <p v-else>No items found.</p>
 ```
 
-This could be rewritten with JavaScript's `if`/`else` and `map()` in a render function:
+Cela pourrait être réécrit avec `if`/`else` et `map()` de JavaScript dans une fonction render:
 
 ```js
 props: ['items'],
@@ -319,11 +319,11 @@ render() {
 }
 ```
 
-In a template it can be useful to use a `<template>` tag to hold a `v-if` or `v-for` directive. When migrating to a `render` function, the `<template>` tag is no longer required and can be discarded.
+Dans un template, il peut être utile d'utiliser une balise `<template>` pour contenir une directive `v-if` ou `v-for`. Lors de la migration vers une fonction `render`, la balise `<template>` n'est plus nécessaire et peut être supprimée.
 
 ### `v-model`
 
-The `v-model` directive is expanded to `modelValue` and `onUpdate:modelValue` props during template compilation—we will have to provide these props ourselves:
+La directive `v-model` est étendue aux props `modelValue` et `onUpdate:modelValue` lors de la compilation du template - nous devrons fournir ces props nous-mêmes:
 
 ```js
 props: ['modelValue'],
@@ -338,7 +338,7 @@ render() {
 
 ### `v-on`
 
-We have to provide a proper prop name for the event handler, e.g., to handle `click` events, the prop name would be `onClick`.
+Nous devons fournir un nom prop correct pour le gestionnaire d'événements, par exemple, pour gérer les événements `click`, le nom prop serait `onClick`.
 
 ```js
 render() {
@@ -348,11 +348,11 @@ render() {
 }
 ```
 
-#### Event Modifiers
+#### Modificateurs d'événement
 
-For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after the event name using camel case.
+Pour les modificateurs d'événement `.passive`, `.capture`, et `.once` ils peuvent être concaténés après le nom de l'événement en utilisant la casse camel.
 
-For example:
+Par exemple:
 
 ```javascript
 render() {
@@ -364,32 +364,33 @@ render() {
 }
 ```
 
-For all other event and key modifiers, no special API is necessary, because we can use event methods in the handler:
+Pour tous les autres modificateurs d'événement et de clé, aucune API spéciale n'est nécessaire, car nous pouvons utiliser des méthodes d'événement dans le gestionnaire:
 
-| Modifier(s)                                          | Equivalent in Handler                                                                                      |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `.stop`                                              | `event.stopPropagation()`                                                                                  |
-| `.prevent`                                           | `event.preventDefault()`                                                                                   |
-| `.self`                                              | `if (event.target !== event.currentTarget) return`                                                         |
-| Keys:<br>e.g. `.enter`                               | `if (event.key !== 'Enter') return`<br><br>Change `'Enter'` to the appropriate [key](http://keycode.info/) |
-| Modifier Keys:<br>`.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return`<br><br>Likewise for `altKey`, `shiftKey`, and `metaKey`                       |
+| Modificateur(s)                                             | Équivalent dans le gestionnaire                                                                             |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `.stop`                                                     | `event.stopPropagation()`                                                                                   |
+| `.prevent`                                                  | `event.preventDefault()`                                                                                    |
+| `.self`                                                     | `if (event.target !== event.currentTarget) return`                                                          |
+| Clés:<br>e.g. `.enter`                                      | `if (event.key !== 'Enter') return`<br><br>Changer `'Enter'` pour la [clé](http://keycode.info/) appropriée |
+| Clés de modificateur:<br>`.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return`<br><br>Pareil pour `altKey`, `shiftKey`, et `metaKey`                          |
 
-Here's an example with all of these modifiers used together:
+Voici un exemple avec tous ces modificateurs utilisés ensemble:
 
 ```js
 render() {
   return h('input', {
     onKeyUp: event => {
-      // Abort if the element emitting the event is not
-      // the element the event is bound to
+      // Annuler si l'élément émettant l'événement n'est pas
+      // l'élément auquel l'événement est lié
       if (event.target !== event.currentTarget) return
-      // Abort if the key that went up is not the enter
-      // key and the shift key was not held down at the
-      // same time
+      // Annuler si la touche lévée n'est pas la touche Entrée
+      // et la touche Maj n'a pas été maintenue enfoncée
+      // en même temps
       if (!event.shiftKey || event.key !== 'Enter') return
-      // Stop event propagation
+      // Arrêter la propagation des événements
       event.stopPropagation()
-      // Prevent the default keyup handler for this element
+      // Empêcher le gestionnaire de saisie par défaut pour cet élément
+
       event.preventDefault()
       // ...
     }
@@ -399,7 +400,7 @@ render() {
 
 ### Slots
 
-We can access slot contents as arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
+Nous pouvons accéder au contenu des slots en tant que tableaux de VNodes à partir de [`this.$slots`](../api/instance-properties.html#slots):
 
 ```js
 render() {
@@ -418,7 +419,7 @@ render() {
 }
 ```
 
-For component VNodes, we need to pass the children to `h` as an object rather than an array. Each property is used to populate the slot of the same name:
+Pour les VNodes de composant, nous devons passer les enfants à `h` en tant qu'objet plutôt qu'en tableau. Chaque propriété est utilisée pour remplir la slot du même nom:
 
 ```js
 render() {
@@ -427,8 +428,8 @@ render() {
     h(
       resolveComponent('child'),
       null,
-      // pass `slots` as the children object
-      // in the form of { name: props => VNode | Array<VNode> }
+      // passer `slots` comme l'objet enfants
+      // sous la forme { name: props => VNode | Array<VNode> }
       {
         default: (props) => h('span', props.text)
       }
@@ -437,12 +438,12 @@ render() {
 }
 ```
 
-The slots are passed as functions, allowing the child component to control the creation of each slot's contents. Any reactive data should be accessed within the slot function to ensure that it's registered as a dependency of the child component and not the parent. Conversely, calls to `resolveComponent` should be made outside the slot function, otherwise they'll resolve relative to the wrong component:
+Les slots sont passés en tant que fonctions, permettant au composant enfant de contrôler la création du contenu de chaque slot. Toutes les données réactives doivent être accessibles dans la fonction slot pour s'assurer qu'elles sont enregistrées en tant que dépendance du composant enfant et non du parent. Inversement, les appels à `resolveComponent` doivent être effectués en dehors de la fonction slot, sinon ils seront résolus par rapport au mauvais composant:
 
 ```js
 // `<MyButton><MyIcon :name="icon" />{{ text }}</MyButton>`
 render() {
-  // Calls to resolveComponent should be outside the slot function
+  // Appels à `resolveComponent` doit être en dehors de la fonction de slot
   const Button = resolveComponent('MyButton')
   const Icon = resolveComponent('MyIcon')
 
@@ -450,10 +451,10 @@ render() {
     Button,
     null,
     {
-      // Use an arrow function to preserve the `this` value
+      // Utilisez une fonction fléchée pour conserver la valeur `this`
       default: (props) => {
-        // Reactive properties should be read inside the slot function
-        // so that they become dependencies of the child's rendering
+        // Les propriétés réactives doivent être lues dans la fonction slot
+        // afin qu'ils deviennent des dépendances pour le rendu du composant enfant
         return [
           h(Icon, { name: this.icon }),
           this.text
@@ -464,7 +465,7 @@ render() {
 }
 ```
 
-If a component receives slots from its parent, they can be passed on directly to a child component:
+Si un composant reçoit des slots de son parent, ils peuvent être transmis directement à un composant enfant:
 
 ```js
 render() {
@@ -472,7 +473,7 @@ render() {
 }
 ```
 
-They can also be passed individually or wrapped as appropriate:
+Ils peuvent également être passés individuellement ou emballés selon le cas:
 
 ```js
 render() {
@@ -480,11 +481,11 @@ render() {
     Panel,
     null,
     {
-      // If we want to pass on a slot function we can
+      // Si nous voulons transmettre une fonction slot, nous pouvons
       header: this.$slots.header,
 
-      // If we need to manipulate the slot in some way
-      // then we need to wrap it in a new function
+      // Si nous devons manipuler le slot d'une manière ou d'une autre
+      // alors nous devons l'envelopper dans une nouvelle fonction
       default: (props) => {
         const children = this.$slots.default ? this.$slots.default(props) : []
 
@@ -495,9 +496,9 @@ render() {
 }
 ```
 
-### `<component>` and `is`
+### `<component>` et `is`
 
-Behind the scenes, templates use `resolveDynamicComponent` to implement the `is` attribute. We can use the same function if we need all the flexibility provided by `is` in our `render` function:
+Dans les coulisses, les templates utilisent `resolveDynamicComponent` pour implémenter l'attribut `is`. Nous pouvons utiliser la même fonction si nous avons besoin de toute la flexibilité fournie par `is` dans notre fonction `render`:
 
 ```js
 const { h, resolveDynamicComponent } = Vue
@@ -511,13 +512,13 @@ render() {
 }
 ```
 
-Just like `is`, `resolveDynamicComponent` supports passing a component name, an HTML element name, or a component options object.
+Tout comme `is`, `resolveDynamicComponent` prend en charge la transmission d'un nom de composant, d'un nom d'élément HTML ou d'un objet d'options de composant.
 
-However, that level of flexibility is usually not required. It's often possible to replace `resolveDynamicComponent` with a more direct alternative.
+Cependant, ce niveau de flexibilité n'est généralement pas nécessaire. Il est souvent possible de remplacer `resolveDynamicComponent` par une alternative plus directe.
 
-For example, if we only need to support component names then `resolveComponent` can be used instead.
+Par exemple, si nous avons seulement besoin de prendre en charge les noms de composants, alors `resolveComponent` peut être utilisé à la place.
 
-If the VNode is always an HTML element then we can pass its name directly to `h`:
+Si le VNode est toujours un élément HTML, nous pouvons passer son nom directement à `h`:
 
 ```js
 // `<component :is="bold ? 'strong' : 'em'"></component>`
@@ -526,13 +527,13 @@ render() {
 }
 ```
 
-Similarly, if the value passed to `is` is a component options object then there's no need to resolve anything, it can be passed directly as the first argument of `h`.
+De même, si la valeur passée à `is` est un objet d'options de composant alors il n'y a pas besoin de résoudre quoi que ce soit, elle peut être passée directement comme premier argument de`h`.
 
-Much like a `<template>` tag, a `<component>` tag is only required in templates as a syntactical placeholder and should be discarded when migrating to a `render` function.
+Tout comme une balise `<template>`, une balise `<component>` n'est requise que dans les templates comme espace syntaxique réservé et doit être supprimée lors de la migration vers une fonction `render`.
 
 ## JSX
 
-If we're writing a lot of `render` functions, it might feel painful to write something like this:
+Si nous écrivons beaucoup de fonctions `render`, cela peut être pénible d'écrire quelque chose comme ceci:
 
 ```js
 h(
@@ -546,13 +547,13 @@ h(
 )
 ```
 
-Especially when the template version is so concise in comparison:
+Surtout lorsque la version du template est si concise en comparaison:
 
 ```vue-html
 <anchored-heading :level="1"> <span>Hello</span> world! </anchored-heading>
 ```
 
-That's why there's a [Babel plugin](https://github.com/vuejs/jsx-next) to use JSX with Vue, getting us back to a syntax that's closer to templates:
+C'est pourquoi il existe un [plugin Babel](https://github.com/vuejs/jsx-next) pour utiliser JSX avec Vue, nous ramenant à une syntaxe plus proche des templates:
 
 ```jsx
 import AnchoredHeading from './AnchoredHeading.vue'
@@ -570,10 +571,10 @@ const app = createApp({
 app.mount('#demo')
 ```
 
-For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/vuejs/jsx-next#installation).
+Pour plus d'informations sur la correspondance entre JSX et JavaScript, consultez la [doc sur l'utilisation](https://github.com/vuejs/jsx-next#installation).
 
-## Template Compilation
+## Compilation de template
 
-You may be interested to know that Vue's templates actually compile to render functions. This is an implementation detail you usually don't need to know about, but if you'd like to see how specific template features are compiled, you may find it interesting. Below is a little demo using `Vue.compile` to live-compile a template string:
+Vous serez peut-être intéressé de savoir que les templates de Vue se compilent réellement pour rendre les fonctions. Il s'agit d'un détail d'implémentation que vous n'avez généralement pas besoin de connaître, mais si vous souhaitez voir comment les fonctionnalités spécifiques du template sont compilées, vous pouvez le trouver intéressant. Voici une petite démonstration utilisant `Vue.compile` pour compiler en direct une chaîne de template:
 
 <iframe src="https://vue-next-template-explorer.netlify.app/" width="100%" height="420"></iframe>
