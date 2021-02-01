@@ -28,7 +28,7 @@ const obj = reactive({ count })
 // ref will be unwrapped
 console.log(obj.count === count.value) // true
 
-// it will update `obj.value`
+// it will update `obj.count`
 count.value++
 console.log(count.value) // 2
 console.log(obj.count) // 2
