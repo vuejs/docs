@@ -76,6 +76,14 @@ Make sure that `script` part of the component has TypeScript set as a language:
 </script>
 ```
 
+Or, if you want to combine TypeScript with a [JSX `render` function](/guide/render-function.html#jsx):
+
+```html
+<script lang="tsx">
+  ...
+</script>
+```
+
 ### Editor Support
 
 For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-component.html) (SFCs), get the awesome [Vetur extension](https://github.com/vuejs/vetur), which provides TypeScript inference inside SFCs and many other great features.
