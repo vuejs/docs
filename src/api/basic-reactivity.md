@@ -77,6 +77,19 @@ original.count++
 copy.count++ // warning!
 ```
 
+As with [`reactive`](#reactive), if any property uses a `ref` it will be automatically unwrapped when it is accessed via the proxy:
+
+```js
+const raw = {
+  count: ref(123)
+}
+
+const copy = readonly(raw)
+
+console.log(raw.count.value) // 123
+console.log(copy.count) // 123
+```
+
 ## `isProxy`
 
 Checks if an object is a proxy created by [`reactive`](#reactive) or [`readonly`](#readonly).
@@ -191,6 +204,8 @@ isReactive(state.nested) // false
 state.nested.bar++ // non-reactive
 ```
 
+Unlike [`reactive`](#reactive), any property that uses a [`ref`](/api/refs-api.html#ref) will **not** be automatically unwrapped by the proxy.
+
 ## `shallowReadonly`
 
 Creates a proxy that makes its own properties readonly, but does not perform deep readonly conversion of nested objects (exposes raw values).
@@ -209,3 +224,5 @@ state.foo++
 isReadonly(state.nested) // false
 state.nested.bar++ // works
 ```
+
+Unlike [`readonly`](#readonly), any property that uses a [`ref`](/api/refs-api.html#ref) will **not** be automatically unwrapped by the proxy.
