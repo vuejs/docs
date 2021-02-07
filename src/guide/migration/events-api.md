@@ -58,6 +58,24 @@ We removed `$on`, `$off` and `$once` methods from the instance completely. `$emi
 
 ## Migration Strategy
 
-Existing event hubs can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt) or [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
+In Vue 3, it is no longer possible to use these APIs to listen to a component's own emitted events from within a component, there is no migration path for that use case.
 
-These methods can also be supported in compatibility builds.
+But the eventHub pattern can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt) or [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
+
+Example:
+
+```js
+//eventHub.js
+import emitter from 'tiny-emitter/instance'
+
+export default {
+  $on: (...args) => emitter.on(...args),
+  $once: (...args) => emitter.once(...args),
+  $off: (...args) => emitter.off(...args),
+  $emit: (...args) => emitter.emit(...args),
+}
+```
+
+This provides the same event emitter API as in Vue 2.
+
+These methods may also be supported in a future compatibility build of Vue 3.
