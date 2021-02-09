@@ -73,15 +73,15 @@ When a ref is returned as a property on the render context (the object returned 
 </script>
 ```
 
-::tip
-  If you don't need to access the actual object instance, you can wrap it in a reactive:
+:::tip
+If you don't need to access the actual object instance, you can wrap it in a `reactive`:
 
-  ```js
-  rested: reactive({
-    count
-  })
-  ```
-::
+```js
+nested: reactive({
+  count
+})
+```
+:::
 
 ### Access in Reactive Objects
 
