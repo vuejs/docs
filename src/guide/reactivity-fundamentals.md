@@ -45,13 +45,14 @@ console.log(count.value) // 1
 
 ### Ref Unwrapping
 
-When a ref is returned as a property on the render context (the object returned from [setup()](composition-api-setup.html)) and accessed in the template, it automatically unwraps to the inner value. There is no need to append `.value` in the template:
+When a ref is returned as a property on the render context (the object returned from [setup()](composition-api-setup.html)) and accessed in the template, it automatically shallow unwraps the inner value. Only the nested ref will require `.value` in the template:
 
 ```vue-html
 <template>
   <div>
     <span>{{ count }}</span>
     <button @click="count ++">Increment count</button>
+    <button @click="nested.count.value ++">Nested Increment count</button>
   </div>
 </template>
 
@@ -61,12 +62,26 @@ When a ref is returned as a property on the render context (the object returned 
     setup() {
       const count = ref(0)
       return {
-        count
+        count,
+
+        nested: {
+          count
+        }
       }
     }
   }
 </script>
 ```
+
+::tip
+  If you don't need to access the actual object instance, you can wrap it in a reactive:
+
+  ```js
+  rested: reactive({
+    count
+  })
+  ```
+::
 
 ### Access in Reactive Objects
 
