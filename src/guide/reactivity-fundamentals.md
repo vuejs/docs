@@ -73,7 +73,7 @@ When a ref is returned as a property on the render context (the object returned 
 </script>
 ```
 
-::tip
+:::tip
   If you don't need to access the actual object instance, you can wrap it in a reactive:
 
   ```js
@@ -81,7 +81,7 @@ When a ref is returned as a property on the render context (the object returned 
     count
   })
   ```
-::
+:::
 
 ### Access in Reactive Objects
 
