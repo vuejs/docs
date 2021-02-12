@@ -26,7 +26,7 @@ app.config.errorHandler = (err, vm, info) => {
 }
 ```
 
-Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the application instance.
+Assign a handler for uncaught errors during component render function and watchers (but **not** those coming from instance methods). The handler gets called with the error, the application instance and Vue specific error info.
 
 > Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
 
