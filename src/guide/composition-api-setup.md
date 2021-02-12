@@ -42,9 +42,9 @@ If you need to destructure your props, you can do this by utilizing the [toRefs]
 import { toRefs } from 'vue'
 
 setup(props) {
-	const { title } = toRefs(props)
+  const { title } = toRefs(props)
 
-	console.log(title.value)
+  console.log(title.value)
 }
 ```
 
@@ -56,9 +56,9 @@ If `title` is an optional prop, it could be missing from `props`. In that case, 
 import { toRef } from 'vue'
 
 setup(props) {
-	const title = toRef(props, 'title')
+  const title = toRef(props, 'title')
 
-	console.log(title.value)
+  console.log(title.value)
 }
 ```
 
