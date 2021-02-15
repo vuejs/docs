@@ -6,7 +6,7 @@
 
 - **Details:**
 
-  Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with `Vue.createApp({}).component({})`, the global ID is automatically set as its name.
+  Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with [`app.component`](/api/application-api.html#component), the global ID is automatically set as its name.
 
   Another benefit of specifying a `name` option is debugging. Named components result in more helpful warning messages. Also, when inspecting an app in the [vue-devtools](https://github.com/vuejs/vue-devtools), unnamed components will show up as `<AnonymousComponent>`, which isn't very informative. By providing the `name` option, you will get a much more informative component tree.
 
@@ -27,7 +27,7 @@
 - **Example:**
 
   ```js
-  Vue.createApp({
+  createApp({
     // Delimiters changed to ES6 template string style
     delimiters: ['${', '}']
   })

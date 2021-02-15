@@ -4,12 +4,26 @@ sidebarDepth: 1
 
 # Global API
 
+If you're using a CDN build then the functions of the global API are accessible via the global `Vue` object. e.g.:
+
+```js
+const { createApp, h, nextTick } = Vue
+```
+
+If you're using ES modules then they can be imported directly:
+
+```js
+import { createApp, h, nextTick } from 'vue'
+```
+
+Global functions that handle reactivity, such as `reactive` and `ref`, are documented separately. See [Reactivity API](/api/reactivity-api.html) for those functions.
+
 ## createApp
 
 Returns an application instance which provides an application context. The entire component tree mounted by the application instance share the same context.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 ```
 
 You can chain other methods after `createApp`, they can be found in [Application API](./application-api.html)
@@ -19,7 +33,7 @@ You can chain other methods after `createApp`, they can be found in [Application
 The function receives a root component options object as a first parameter:
 
 ```js
-const app = Vue.createApp({
+const app = createApp({
   data() {
     return {
       ...
@@ -34,7 +48,7 @@ const app = Vue.createApp({
 With the second parameter, we can pass root props to the application:
 
 ```js
-const app = Vue.createApp(
+const app = createApp(
   {
     props: ['username']
   },
@@ -68,7 +82,7 @@ Returns a returns "virtual node", usually abbreviated to **VNode**: a plain obje
 
 ```js
 render() {
-  return Vue.h('h1', {}, 'Some title')
+  return h('h1', {}, 'Some title')
 }
 ```
 
@@ -231,7 +245,7 @@ Allows resolving a `component` by its name, if it is available in the current ap
 Returns a `Component` or `undefined` when not found.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 app.component('MyComponent', {
   /* ... */
 })
@@ -296,7 +310,7 @@ Allows resolving a `directive` by its name, if it is available in the current ap
 Returns a `Directive` or `undefined` when not found.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 app.directive('highlight', {})
 ```
 
