@@ -207,7 +207,7 @@ const sidebar = {
       ]
     }
   ],
-  ssr: ['/guide/ssr/introduction'],
+  ssr: [['/guide/ssr/introduction', 'Introduction']],
   contributing: [
     {
       title: 'Contribute to the Docs',
@@ -421,6 +421,7 @@ module.exports = {
       collapsable: false,
       '/guide/migration/': sidebar.migration,
       '/guide/contributing/': sidebar.contributing,
+      '/guide/ssr/': sidebar.ssr,
       '/guide/': sidebar.guide,
       '/community/': sidebar.guide,
       '/cookbook/': sidebar.cookbook,
