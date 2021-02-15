@@ -207,6 +207,7 @@ const sidebar = {
       ]
     }
   ],
+  ssr: ['/guide/ssr/introduction'],
   contributing: [
     {
       title: 'Contribute to the Docs',
