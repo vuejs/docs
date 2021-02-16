@@ -19,7 +19,7 @@
     }
   }
 
-  Vue.createApp({
+  createApp({
     created() {
       console.log(2)
     },

@@ -39,11 +39,12 @@
   ```
 
   ```js
-  const app = Vue.createApp({})
+  const { createApp, h } = Vue
+  const app = createApp({})
 
   app.component('my-title', {
     render() {
-      return Vue.h(
+      return h(
         'h1', // tag name,
         this.blogTitle // tag content
       )

@@ -20,7 +20,7 @@
 - **Example:**
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         a: 1,
@@ -62,7 +62,7 @@
   When watched value is an object or array, any changes to its properties or elements won't trigger the watcher because they reference the same object/array:
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         article: {
@@ -104,7 +104,7 @@
   `$watch` returns an unwatch function that stops firing the callback:
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         a: 1
@@ -213,7 +213,7 @@
   ```
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     methods: {
       sayHi() {
         console.log('Hi!')
@@ -242,7 +242,7 @@
   ```
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     methods: {
       showAdvice(advice) {
         alert(advice)
@@ -293,7 +293,7 @@
 - **Example:**
 
   ```js
-  Vue.createApp({
+  createApp({
     // ...
     methods: {
       // ...
