@@ -530,6 +530,27 @@ Similarly, if the value passed to `is` is a component options object then there'
 
 Much like a `<template>` tag, a `<component>` tag is only required in templates as a syntactical placeholder and should be discarded when migrating to a `render` function.
 
+### Custom Directives
+
+Custom directives can be applied to a VNode using [`withDirectives`](/api/global-api.html#withdirectives):
+
+```js
+const { h, resolveDirective, withDirectives } = Vue
+
+// ...
+
+// <div v-pin:top.animate="200"></div>
+render () {
+  const pin = resolveDirective('pin')
+
+  return withDirectives(h('div'), [
+    [pin, 200, 'top', { animate: true }]
+  ])
+}
+```
+
+[`resolveDirective`](/api/global-api.html#resolvedirective) is the same function that templates use internally to resolve directives by name. That is only necessary if you don't already have direct access to the directive's definition object.
+
 ## JSX
 
 If we're writing a lot of `render` functions, it might feel painful to write something like this:
