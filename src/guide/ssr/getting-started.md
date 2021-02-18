@@ -92,35 +92,3 @@ server.get('*', async (req, res) => {
 
 server.listen(8080)
 ```
-
-## Using a Page Template
-
-When you render a Vue app, the renderer only generates the markup of the app. In the example we had to wrap the output with an extra HTML page shell.
-
-To simplify this, you can directly provide a page template when creating the renderer. Most of the time we will put the page template in its own file, e.g. `index.template.html`:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Hello</title>
-  </head>
-  <body>
-    <!--vue-ssr-outlet-->
-  </body>
-</html>
-```
-
-Notice the `<!--vue-ssr-outlet-->` comment -- this is where your app's markup will be injected.
-
-We can then read and pass the file to the Vue renderer:
-
-```js
-const renderer = require('vue-server-renderer').createRenderer({
-  template: require('fs').readFileSync('./index.template.html', 'utf-8')
-})
-
-renderer.renderToString(app, (err, html) => {
-  console.log(html) // will be the full page with app content injected.
-})
-```
