@@ -209,7 +209,7 @@ const sidebar = {
   ],
   ssr: [
     ['/guide/ssr/introduction', 'Introduction'],
-    '/guide/ssr/getting started'
+    '/guide/ssr/getting-started'
   ],
   contributing: [
     {
