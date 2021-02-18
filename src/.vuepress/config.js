@@ -207,7 +207,10 @@ const sidebar = {
       ]
     }
   ],
-  ssr: [['/guide/ssr/introduction', 'Introduction']],
+  ssr: [
+    ['/guide/ssr/introduction', 'Introduction'],
+    '/guide/ssr/getting started'
+  ],
   contributing: [
     {
       title: 'Contribute to the Docs',
