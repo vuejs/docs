@@ -18,7 +18,7 @@ yarn add @vue/server-renderer
 
 ## Rendering a Vue Application
 
-Unlike Vue client-only application, SSR one should use a different method for creating an application instance: instead of `createApp` we need to use `createSSRApp`.
+Unlike a client-only Vue application, which is created using `createApp`, an SSR application needs to be created using `createSSRApp`:
 
 ```js
 // server.js
