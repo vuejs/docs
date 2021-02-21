@@ -34,7 +34,7 @@ const app = createSSRApp({
 })
 ```
 
-Now, we can use `renderToString` method to render an application instance to string. This method returns a Promise which resolves to the rendered HTML.
+Now, we can use the `renderToString` function to render our application instance to a string. This function returns a Promise which resolves to the rendered HTML.
 
 ```js{2,13}
 const { createSSRApp } = require('vue')
