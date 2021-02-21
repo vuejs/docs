@@ -2,7 +2,7 @@
 
 ## Installation
 
-In order to create a server-side rendered application, we need to install `@vue/server-renderer` package:
+In order to create a server-side rendered application, we need to install the `@vue/server-renderer` package:
 
 ```bash
 npm install @vue/server-renderer
