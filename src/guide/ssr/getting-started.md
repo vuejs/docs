@@ -16,7 +16,7 @@ yarn add @vue/server-renderer
 - `@vue/server-renderer` and `vue` must have matching versions.
 - `@vue/server-renderer` relies on some Node.js native modules and therefore can only be used in Node.js. We may provide a simpler build that can be run in other JavaScript runtimes in the future.
 
-## Rendering a Vue Instance
+## Rendering a Vue Application
 
 Unlike Vue client-only application, SSR one should use a different method for creating an application instance: instead of `createApp` we need to use `createSSRApp`.
 
