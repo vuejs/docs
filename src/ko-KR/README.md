@@ -17,7 +17,7 @@ actionButtons:
     target: _blank
 features:
   - title: 접근성
-    details: HTML, CSS, JaavaScript를 아시죠? 가이드를 읽고, 지금 바로 만들어보세요!
+    details: HTML, CSS, JavaScript를 아시죠? 가이드를 읽고, 지금 바로 만들어보세요!
   - title: 유연성
     details: 라이브러리와 모든 기능을 담은 프레임워크의 사이에서 서서히 스케일 업 하여 적용할 수 있습니다.
   - title: 고성능
