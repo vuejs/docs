@@ -23,7 +23,6 @@ yarn add @vue/server-renderer
 Unlike a client-only Vue application, which is created using `createApp`, an SSR application needs to be created using `createSSRApp`:
 
 ```js
-// server.js
 const { createSSRApp } = require('vue')
 
 const app = createSSRApp({
@@ -56,7 +55,7 @@ const appContent = await renderToString(app)
 
 ## Integrating with a Server
 
-To run an application, [Express](https://expressjs.com/):
+To run an application, in this example we will use [Express](https://expressjs.com/):
 
 ```bash
 npm install express
