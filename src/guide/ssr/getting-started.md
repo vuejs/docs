@@ -4,7 +4,7 @@
 
 ## Installation
 
-In order to create a server-side rendered application, we need to install `@vue/server-renderer` package:
+In order to create a server-side rendered application, we need to install the `@vue/server-renderer` package:
 
 ```bash
 npm install @vue/server-renderer
@@ -18,9 +18,9 @@ yarn add @vue/server-renderer
 - `@vue/server-renderer` and `vue` must have matching versions.
 - `@vue/server-renderer` relies on some Node.js native modules and therefore can only be used in Node.js. We may provide a simpler build that can be run in other JavaScript runtimes in the future.
 
-## Rendering a Vue Instance
+## Rendering a Vue Application
 
-Unlike Vue client-only application, SSR one should use a different method for creating an application instance: instead of `createApp` we need to use `createSSRApp`.
+Unlike a client-only Vue application, which is created using `createApp`, an SSR application needs to be created using `createSSRApp`:
 
 ```js
 // server.js
@@ -36,7 +36,7 @@ const app = createSSRApp({
 })
 ```
 
-Now, we can use `renderToString` method to render an application instance to string. This method returns a Promise which resolves to the rendered HTML.
+Now, we can use the `renderToString` function to render our application instance to a string. This function returns a Promise which resolves to the rendered HTML.
 
 ```js{2,13}
 const { createSSRApp } = require('vue')
