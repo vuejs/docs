@@ -1,5 +1,7 @@
 # Getting Started
 
+> This guide is currently under active development
+
 ## Installation
 
 In order to create a server-side rendered application, we need to install `@vue/server-renderer` package:

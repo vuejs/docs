@@ -1,5 +1,7 @@
 # Server-Side Rendering Guide
 
+> This guide is currently under active development
+
 ## What is Server-Side Rendering (SSR)?
 
 Vue.js is a framework for building client-side applications. By default, Vue components produce and manipulate DOM in the browser as output. However, it is also possible to render the same components into HTML strings on the server, send them directly to the browser, and finally "hydrate" the static markup into a fully interactive application on the client.
@@ -36,7 +38,9 @@ If you're using [webpack](https://webpack.js.org/), you can add prerendering wit
 
 [//]: # 'TODO: This guide is focused on server-rendered Single-Page Applications using Node.js as the server. Mixing Vue SSR with other backend setups is a topic of its own and briefly discussed in a [dedicated section].'
 
-This guide will be very in-depth and assumes you are already familiar with Vue.js itself, and have a decent working knowledge of Node.js and webpack. If you prefer a higher-level solution that provides a smooth out-of-the-box experience, you should probably give [Nuxt.js](https://nuxtjs.org/) a try. It's built upon the same Vue stack but abstracts away a lot of the boilerplate, and provides some extra features such as static site generation. However, it may not suit your use case if you need more direct control of your app's structure. Regardless, it would still be beneficial to read through this guide to understand better how things work together.
+This guide will be very in-depth and assumes you are already familiar with Vue.js itself, and have a decent working knowledge of Node.js and webpack.
+
+[//]: # 'If you prefer a higher-level solution that provides a smooth out-of-the-box experience, you should probably give [Nuxt.js](https://nuxtjs.org/) a try. It's built upon the same Vue stack but abstracts away a lot of the boilerplate, and provides some extra features such as static site generation. However, it may not suit your use case if you need more direct control of your app's structure. Regardless, it would still be beneficial to read through this guide to understand better how things work together.'
 
 [//]: # 'TODO: As you read along, it would be helpful to refer to the official [HackerNews Demo](https://github.com/vuejs/vue-hackernews-2.0/), which makes use of most of the techniques covered in this guide'
 
