@@ -102,6 +102,18 @@ const Component = defineComponent({
 })
 ```
 
+If you're using [single-file components](/guide/single-file-component.html) then this would typically be written as:
+
+```vue
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  // type inference enabled
+})
+</script>
+```
+
 ## Using with Options API
 
 TypeScript should be able to infer most of the types without defining types explicitly. For example, if you have a component with a number `count` property, you will have an error if you try to call a string-specific method on it:
