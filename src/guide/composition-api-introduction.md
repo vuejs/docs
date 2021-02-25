@@ -57,7 +57,7 @@ This component has several responsibilities:
 
 Organizing logics with component's options (`data`, `computed`, `methods`, `watch`) works in most cases. However, when our components get bigger, the list of **logical concerns** also grows. This can lead to components that are hard to read and understand, especially for people who didn't write them in the first place.
 
-![Vue Option API: Code grouped by option type](https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png)
+![Vue Options API: Code grouped by option type](/images/options-api.png)
 
 Example presenting a large component where its **logical concerns** are grouped by colors.
 
