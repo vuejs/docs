@@ -1,9 +1,9 @@
 ---
 badges:
-  - breaking
+  - removed
 ---
 
-# `propsData` passed on instance creation <MigrationBadges :badges="$frontmatter.badges" />
+# `propsData` <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 
