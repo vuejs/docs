@@ -90,7 +90,8 @@ $ cd <project-name>
 $ yarn
 $ yarn dev
 ```
-It might occur, that when your username has a space in it like 'Mike Baker' that vite cannot succeed. Have a try with 
+
+It might occur, that when your username has a space in it like 'Mike Baker' that vite cannot succeed. Have a try with
 
 ```bash
 $ create-vite-app <project-name>
