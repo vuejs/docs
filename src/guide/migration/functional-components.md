@@ -44,7 +44,7 @@ export default {
 
 Atau, bagi Anda yang lebih suka menggunakan `<template>` dalam _single-file component_:
 
-```js
+```vue
 // Contoh komponen fungsional Vue versi 2 menggunakan <template>
 <template functional>
   <component
@@ -91,7 +91,7 @@ Pada Vue versi 2.x, perbedaan performa antara komponen _stateful_ dan fungsional
 
 Mengacu pada contoh `<dynamic-heading>` sebelumnya, berikut merupakan cara penulisan komponen tersebut sekarang:
 
-```js{1}
+```vue{1,3,4}
 <template>
   <component
     v-bind:is="`h${$props.level}`"

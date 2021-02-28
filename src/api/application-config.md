@@ -1,14 +1,14 @@
 # Application Config
 
-`config` is an object containing Vue application global configurations. You can modify its properties listed below before mounting your application:
+Every Vue application exposes a `config` object that contains the configuration settings for that application:
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 
-app.config = {...}
-
-app.mount(...);
+console.log(app.config)
 ```
+
+You can modify its properties, listed below, before mounting your application.
 
 ## errorHandler
 
@@ -73,7 +73,7 @@ This can replace Vue 2.x `Vue.prototype` extending:
 Vue.prototype.$http = () => {}
 
 // After
-const app = Vue.createApp({})
+const app = createApp({})
 app.config.globalProperties.$http = () => {}
 ```
 
@@ -94,6 +94,10 @@ Specifies a method to recognize custom elements defined outside of Vue (e.g., us
 
 > Note that all native HTML and SVG tags don't need to be matched in this function - Vue parser performs this check automatically
 
+::: tip Important
+This config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
+:::
+
 ## optionMergeStrategies
 
 - **Type:** `{ [key: string]: Function }`
@@ -103,7 +107,7 @@ Specifies a method to recognize custom elements defined outside of Vue (e.g., us
 - **Usage:**
 
 ```js
-const app = Vue.createApp({
+const app = createApp({
   mounted() {
     console.log(this.$options.hello)
   }

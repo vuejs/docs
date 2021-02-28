@@ -4,12 +4,26 @@ sidebarDepth: 1
 
 # Global API
 
+If you're using a CDN build then the functions of the global API are accessible via the global `Vue` object. e.g.:
+
+```js
+const { createApp, h, nextTick } = Vue
+```
+
+If you're using ES modules then they can be imported directly:
+
+```js
+import { createApp, h, nextTick } from 'vue'
+```
+
+Global functions that handle reactivity, such as `reactive` and `ref`, are documented separately. See [Reactivity API](/api/reactivity-api.html) for those functions.
+
 ## createApp
 
 Returns an application instance which provides an application context. The entire component tree mounted by the application instance share the same context.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 ```
 
 You can chain other methods after `createApp`, they can be found in [Application API](./application-api.html)
@@ -19,7 +33,7 @@ You can chain other methods after `createApp`, they can be found in [Application
 The function receives a root component options object as a first parameter:
 
 ```js
-const app = Vue.createApp({
+const app = createApp({
   data() {
     return {
       ...
@@ -34,7 +48,7 @@ const app = Vue.createApp({
 With the second parameter, we can pass root props to the application:
 
 ```js
-const app = Vue.createApp(
+const app = createApp(
   {
     props: ['username']
   },
@@ -68,7 +82,7 @@ Returns a returns "virtual node", usually abbreviated to **VNode**: a plain obje
 
 ```js
 render() {
-  return Vue.h('h1', {}, 'Some title')
+  return h('h1', {}, 'Some title')
 }
 ```
 
@@ -231,7 +245,7 @@ Allows resolving a `component` by its name, if it is available in the current ap
 Returns a `Component` or `undefined` when not found.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 app.component('MyComponent', {
   /* ... */
 })
@@ -296,7 +310,7 @@ Allows resolving a `directive` by its name, if it is available in the current ap
 Returns a `Directive` or `undefined` when not found.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 app.directive('highlight', {})
 ```
 
@@ -403,7 +417,7 @@ For example, for runtime-dom, HostNode would be the DOM
 
 Custom renderers can pass in the platform specific types like this:
 
-```js
+```ts
 import { createRenderer } from 'vue'
 const { render, createApp } = createRenderer<Node, Element>({
   patchProp,
@@ -451,3 +465,70 @@ const app = createApp({
 ```
 
 **See also**: [`$nextTick` instance method](instance-methods.html#nexttick)
+
+## mergeProps
+
+Takes multiple objects containing VNode props and merges them into a single object. A newly created object is returned, the objects passed as arguments are not modified.
+
+Any number of objects can be passed, with properties from later arguments taking precedence. Event listeners are handled specially, as are `class` and `style`, with the values of these properties being merged rather than overwritten.
+
+```js
+import { h, mergeProps } from 'vue'
+
+export default {
+  inheritAttrs: false,
+
+  render() {
+    const props = mergeProps({
+      // The class will be merged with any class from $attrs
+      class: 'active'
+    }, this.$attrs)
+
+    return h('div', props)
+  }
+}
+```
+
+## useCssModule
+
+:::warning
+`useCssModule` can only be used within `render` or `setup` functions.
+:::
+
+Allows CSS modules to be accessed within the [`setup`](/api/composition-api.html#setup) function of a [single-file component](/guide/single-file-component.html):
+
+```vue
+<script>
+import { h, useCssModule } from 'vue'
+
+export default {
+  setup () {
+    const style = useCssModule()
+
+    return () => h('div', {
+      class: style.success
+    }, 'Task complete!')
+  }
+}
+</script>
+
+<style module>
+.success {
+  color: #090;
+}
+</style>
+```
+
+For more information about using CSS modules, see [Vue Loader - CSS Modules](https://vue-loader.vuejs.org/guide/css-modules.html).
+
+### Arguments
+
+Accepts one argument: `name`
+
+#### name
+
+- **Type:** `String`
+
+- **Details:**
+
+  The name of the CSS module. Defaults to `'$style'`.

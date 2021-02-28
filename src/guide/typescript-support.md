@@ -76,6 +76,14 @@ Make sure that `script` part of the component has TypeScript set as a language:
 </script>
 ```
 
+Or, if you want to combine TypeScript with a [JSX `render` function](/guide/render-function.html#jsx):
+
+```html
+<script lang="tsx">
+  ...
+</script>
+```
+
 ### Editor Support
 
 For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-component.html) (SFCs), get the awesome [Vetur extension](https://github.com/vuejs/vetur), which provides TypeScript inference inside SFCs and many other great features.
@@ -92,6 +100,18 @@ import { defineComponent } from 'vue'
 const Component = defineComponent({
   // type inference enabled
 })
+```
+
+If you're using [single-file components](/guide/single-file-component.html) then this would typically be written as:
+
+```vue
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  // type inference enabled
+})
+</script>
 ```
 
 ## Using with Options API
@@ -212,7 +232,7 @@ const Component = defineComponent({
       type: Object as PropType<Book>,
       // Make sure to use arrow functions
       default: () => ({
-        title: "Arrow Function Expression"
+        title: 'Arrow Function Expression'
       }),
       validator: (book: Book) => !!book.title
     },
@@ -221,12 +241,36 @@ const Component = defineComponent({
       // Or provide an explicit this parameter
       default(this: void) {
         return {
-          title: "Function Expression"
+          title: 'Function Expression'
         }
       },
       validator(this: void, book: Book) {
         return !!book.title
       }
+    }
+  }
+})
+```
+
+### Annotating emits
+
+We can annotate a payload for the emitted event. Also, all non-declared emitted events will throw a type error when called:
+
+```ts
+const Component = defineComponent({
+  emits: {
+    addBook(payload: { bookName: string }) {
+      // perform runtime validation
+      return payload.bookName.length > 0
+    }
+  },
+  methods: {
+    onSubmit() {
+      this.$emit('addBook', {
+        bookName: 123 // Type error!
+      })
+
+      this.$emit('non-declared-event') // Type error!
     }
   }
 })
