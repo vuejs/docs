@@ -247,7 +247,7 @@ app.component('todo-list', {
 })
 ```
 
-We might want to replace the slot to customize it on parent component:
+We might want to replace the <span v-pre>`{{ item }}`</span> with a `<slot>` to customize it on parent component:
 
 ```html
 <todo-list>
@@ -264,6 +264,16 @@ To make `item` available to the slot content provided by the parent, we can add 
 <ul>
   <li v-for="( item, index ) in items">
     <slot :item="item"></slot>
+  </li>
+</ul>
+```
+
+You can bind as many attributes to the `slot` as you need:
+
+```html
+<ul>
+  <li v-for="( item, index ) in items">
+    <slot :item="item" :index="index" :another-attribute="anotherAttribute"></slot>
   </li>
 </ul>
 ```
@@ -310,7 +320,7 @@ Note that the abbreviated syntax for default slot **cannot** be mixed with named
 <todo-list v-slot="slotProps">
   <i class="fas fa-check"></i>
   <span class="green">{{ slotProps.item }}</span>
-  
+
   <template v-slot:other="otherSlotProps">
     slotProps is NOT available here
   </template>

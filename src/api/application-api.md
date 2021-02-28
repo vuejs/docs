@@ -261,13 +261,9 @@ app.provide('user', 'administrator')
 
 ## unmount
 
-- **Arguments:**
-
-  - `{Element | string} rootContainer`
-
 - **Usage:**
 
-  Unmounts a root component of the application instance on the provided DOM element.
+  Unmounts a root component of the application instance.
 
 - **Example:**
 
@@ -285,7 +281,7 @@ const app = createApp({})
 app.mount('#my-app')
 
 // Application will be unmounted 5 seconds after mount
-setTimeout(() => app.unmount('#my-app'), 5000)
+setTimeout(() => app.unmount(), 5000)
 ```
 
 ## use
@@ -306,5 +302,17 @@ setTimeout(() => app.unmount('#my-app'), 5000)
   The install method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
+
+- **Example:**
+
+  ```js
+  import { createApp } from 'vue'
+  import MyPlugin from './plugins/MyPlugin'
+
+  const app = createApp({})
+
+  app.use(MyPlugin)
+  app.mount('#app')
+  ```
 
 - **See also:** [Plugins](../guide/plugins.html)

@@ -155,19 +155,3 @@ export default {
   }
 }
 </script>
-
-<style>
-/* add a placeholder to give space to ads so they don't overlap with content */
-@media screen and (max-width: 1376px) {
-  .content__default::before {
-    content: '';
-    position: relative;
-    display: block;
-    float: right;
-    height: 221px;
-    padding: 0 0 20px 30px;
-    margin-top: 20px;
-    margin-right: -24px;
-  }
-}
-</style>

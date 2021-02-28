@@ -28,13 +28,13 @@ Walaupun cara di atas cenderung praktis, namun cara tersebut menimbulkan beberap
 
 - Konfigurasi global mempermudah adanya intervensi pada kasus uji lain selama proses pengujian secara tidak sengaja. Pengguna harus berhati-hati dalam menyimpan konfigurasi global yang asli dan mengembalikan konfigurasi tersebut setelah setiap kasus uji dijalankan (sebagai contoh, mengembalikan `Vue.config.errorHandler` seperti sedia kala). Bahkan, beberapa API seperti `Vue.use` dan `Vue.mixin` tidak memiliki cara untuk mengembalikan perubahan yang mereka lakukan. Hal tersebut membuat pengujian yang melibatkan _plugin_ menjadi rumit. Nyatanya, `vue-test-utils` harus mengimplementasikan sebuah API khusus bernama `createLocalVue` untuk mengatasi masalah tersebut:
 
-```js
-import { createLocalVue, mount } from '@vue/test-utils'
+  ```js
+  import { createLocalVue, mount } from '@vue/test-utils'
 
 // buat sebuah konstruktor `Vue` khusus
 const vueLokal = createLocalVue()
 
-// tambahkan sebuah _plugin_ secara global pada konstruktor Vue lokas
+// tambahkan sebuah _plugin_ secara global pada konstruktor Vue lokal
 vueLokal.use(PluginKu)
 
 // teruskan `localVue` pada opsi _mount_
@@ -61,6 +61,14 @@ _Method_ `createApp` akan mengembalikan sebuah objek aplikasi, sebuah konsep bar
 
 ```js
 import { createApp } from 'vue'
+
+const app = createApp({})
+```
+
+Jika Anda menggunakan versi [CDN](/guide/installation.html#cdn) Vue, fungsi `createApp` dapat diakses melalui objek global `Vue`:
+
+```js
+const { createApp } = Vue
 
 const app = createApp({})
 ```
@@ -95,7 +103,7 @@ Opsi ini diperkenalkan dengan tujuan untuk menyediakan dukungan pada elemen kust
 Vue.config.ignoredElements = ['my-el', /^ion-/]
 
 // sesudah
-const app = Vue.createApp({})
+const app = createApp({})
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
@@ -120,7 +128,7 @@ Vue.prototype.$http = () => {}
 
 ```js
 // sesudah - Vue versi 3
-const app = Vue.createApp({})
+const app = createApp({})
 app.config.globalProperties.$http = () => {}
 ```
 
@@ -198,7 +206,7 @@ export default {
 }
 ```
 
-`provide` akan sangat berguna ketika sedang membangun sebuah _plugin_, sebagai alternatif dari `globalProperties`.
+Menggunakan `provide` akan sangat berguna ketika sedang membangun sebuah _plugin_, sebagai alternatif dari `globalProperties`.
 
 ## Mendistribusikan Konfigurasi Antar Aplikasi
 
@@ -211,7 +219,7 @@ import Bar from './Bar.vue'
 
 const buatAplikasi = opsi => {
   const app = createApp(options)
-  app.directive('focus' /* ... */)
+  app.directive('focus', /* ... */)
 
   return app
 }

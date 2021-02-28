@@ -27,3 +27,8 @@ In 3.x, `v-if` will always have the higher precedence than `v-for`.
 It is recommended to avoid using both on the same element due to the syntax ambiguity.
 
 Rather than managing this at the template level, one method for accomplishing this is to create a computed property that filters out a list for the visible elements.
+
+## See also
+
+- [List Rendering - Displaying Filtered/Sorted Results](/guide/list.html#displaying-filtered-sorted-results)
+- [List Rendering - `v-for` with `v-if`](/guide/list.html#v-for-with-v-if)

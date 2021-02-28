@@ -19,7 +19,7 @@
     }
   }
 
-  Vue.createApp({
+  createApp({
     created() {
       console.log(2)
     },
@@ -299,7 +299,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  `attrs` and `slots` are proxies to the corresponding values on the internal component instance. This ensures they always expose the latest values even after updates so that we can destructure them without worrying accessing a stale reference:
+  `attrs` and `slots` are proxies to the corresponding values on the internal component instance. This ensures they always expose the latest values even after updates so that we can destructure them without worrying about accessing a stale reference:
 
   ```js
   const MyComponent = {

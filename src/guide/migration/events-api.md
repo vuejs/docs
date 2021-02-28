@@ -56,8 +56,26 @@ export default {
 
 Kami menghapus _method_ `$on`, `$off` dan `$once` dari objek Vue sepenuhnya. `$emit` tidak dihapus dan tetap merupakan bagian dari API karena `$emit` digunakan untuk memicu _event handler_ yang dipasang secara deklaratif pada sebuah komponen induk.
 
-## Strategi Migrase
+## Strategi Migrasi
 
-Anda dapat mengganti _event hub_ yang sudah ada menggunakan sebuah pustaka eksternal yang mengimplementasikan antarmuka _event emitter_, seperti [mitt](https://github.com/developit/mitt) atau [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
+Di Vue 3, tidak memungkinkan lagi menggunakan API ini untuk me-_listen_ _event_ komponen yang dihasilkan oleh dirinya sendiri, tidak ada cara migrasi untuk kasus tersebut.
 
-Cara-cara di atas juga dapat dilakukan pada _compatibility builds_.
+Tetapi pola eventHub dapat diganti dengan pustaka eksternal yang mengimplementasi antarmuka _event emitter_, sebagai contoh [mitt](https://github.com/developit/mitt) atau [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
+
+Contoh:
+
+```js
+//eventHub.js
+import emitter from 'tiny-emitter/instance'
+
+export default {
+  $on: (...args) => emitter.on(...args),
+  $once: (...args) => emitter.once(...args),
+  $off: (...args) => emitter.off(...args),
+  $emit: (...args) => emitter.emit(...args),
+}
+```
+
+Cara tersebut menghasilkan API _event emitter_ yang sama seperti pada Vue 2.
+
+Cara tersebut mungkin akan didukung juga pada _build_ kompatibel dari Vue 3.

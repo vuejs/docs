@@ -64,8 +64,11 @@ The `disabled` attribute will be included if `isButtonDisabled` has a truthy val
 So far we've only been binding to simple property keys in our templates. But Vue.js actually supports the full power of JavaScript expressions inside all data bindings:
 
 ```html
-{{ number + 1 }} {{ ok ? 'YES' : 'NO' }} {{ message.split('').reverse().join('')
-}}
+{{ number + 1 }}
+
+{{ ok ? 'YES' : 'NO' }}
+
+{{ message.split('').reverse().join('') }}
 
 <div v-bind:id="'list-' + id"></div>
 ```

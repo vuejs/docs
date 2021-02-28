@@ -25,7 +25,9 @@ export default {
   },
   methods: {
     tetapkanRefBarang(el) {
-      this.refBarang.push(el)
+      if (el) {
+        this.refBarang.push(el)
+      }
     }
   },
   beforeUpdate() {
@@ -40,13 +42,15 @@ export default {
 Penggunaan dengan Composition API:
 
 ```js
-import { ref, onBeforeUpdate, onUpdated } from 'vue'
+import { onBeforeUpdate, onUpdated } from 'vue'
 
 export default {
   setup() {
     let refBarang = []
     const tetapkanRefBarang = el => {
-      refBarang.push(el)
+      if (el) {
+        refBarang.push(el)
+      }
     }
     onBeforeUpdate(() => {
       refBarang = []
@@ -55,7 +59,6 @@ export default {
       console.log(refBarang)
     })
     return {
-      refBarang,
       tetapkanRefBarang
     }
   }

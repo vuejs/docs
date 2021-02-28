@@ -38,7 +38,7 @@ foo.value = 123 // ok!
 
 If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`:
 
-```js
+```ts
 function useState<State extends string>(initial: State) {
   const state = ref(initial) as Ref<State> // state.value -> State extends string
   return state
@@ -49,7 +49,7 @@ function useState<State extends string>(initial: State) {
 
 Returns the inner value if the argument is a [`ref`](#ref), otherwise return the argument itself. This is a sugar function for `val = isRef(val) ? val.value : val`.
 
-```js
+```ts
 function useFoo(x: number | Ref<number>) {
   const unwrapped = unref(x) // unwrapped is guaranteed to be number now
 }

@@ -58,6 +58,16 @@ const sidebar = {
       title: 'Reusability & Composition',
       collapsable: false,
       children: [
+        {
+          title: 'Composition API',
+          children: [
+            '/guide/composition-api-introduction',
+            '/guide/composition-api-setup',
+            '/guide/composition-api-lifecycle-hooks',
+            '/guide/composition-api-provide-inject',
+            '/guide/composition-api-template-refs'
+          ]
+        },
         '/guide/mixins',
         '/guide/custom-directive',
         '/guide/teleport',
@@ -75,16 +85,6 @@ const sidebar = {
             '/guide/reactivity',
             '/guide/reactivity-fundamentals',
             '/guide/reactivity-computed-watchers'
-          ]
-        },
-        {
-          title: 'Composition API',
-          children: [
-            '/guide/composition-api-introduction',
-            '/guide/composition-api-setup',
-            '/guide/composition-api-lifecycle-hooks',
-            '/guide/composition-api-provide-inject',
-            '/guide/composition-api-template-refs'
           ]
         },
         '/guide/optimizations',
@@ -203,9 +203,14 @@ const sidebar = {
         '/guide/migration/v-model',
         '/guide/migration/v-if-v-for',
         '/guide/migration/v-bind',
+        '/guide/migration/vnode-lifecycle-events',
         '/guide/migration/watch'
       ]
     }
+  ],
+  ssr: [
+    ['/guide/ssr/introduction', 'Introduction'],
+    '/guide/ssr/getting-started'
   ],
   contributing: [
     {
@@ -363,7 +368,7 @@ module.exports = {
               {
                 text: 'Vue Test Utils',
                 link:
-                  'https://vuejs.github.io/vue-test-utils-next-docs/guide/introduction.html'
+                  'https://next.vue-test-utils.vuejs.org/v2/guide/introduction.html'
               },
               {
                 text: 'Devtools',
@@ -372,6 +377,10 @@ module.exports = {
               {
                 text: 'Weekly news',
                 link: 'https://news.vuejs.org/'
+              },
+              {
+                text: 'Blog',
+                link: 'https://blog.vuejs.org/'
               }
             ]
           }
@@ -394,6 +403,16 @@ module.exports = {
             link: 'https://vue.threadless.com/'
           }
         ]
+      },
+      {
+        text: 'Translations',
+        link: '#',
+        items: [
+          {
+            text: '中文',
+            link: 'https://v3.cn.vuejs.org/'
+          }
+        ]
       }
     ],
     repo: 'vuejs/docs-next',
@@ -406,6 +425,7 @@ module.exports = {
       collapsable: false,
       '/guide/migration/': sidebar.migration,
       '/guide/contributing/': sidebar.contributing,
+      '/guide/ssr/': sidebar.ssr,
       '/guide/': sidebar.guide,
       '/community/': sidebar.guide,
       '/cookbook/': sidebar.cookbook,

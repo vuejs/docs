@@ -99,7 +99,7 @@ import pkg from './package.json' // import our package.json file to re-use the n
 export default {
   // this is the file containing all our exported components/functions
   input: 'src/index.js',
-  // this is an array of outputed formats
+  // this is an array of outputted formats
   output: [ 
     {
       file: pkg.module, // the name of our esm library
