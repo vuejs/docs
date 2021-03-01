@@ -79,7 +79,11 @@ The events could be used, for example, to show a loading indicator in front of t
 
 ## Combining with Other Components
 
-The following example shows how to combine `<router-view>`, `<transition>`, `<keep-alive>`, and `<suspense>`. For simpler combinations you can remove the components that you don't need:
+It is common to want to use `<suspense>` in combination with the [`<transition>`](/api/built-in-components.html#transition) and [`<keep-alive>`](/api/built-in-components.html#keep-alive) components. The nesting order of these components is important to get them all working correctly.
+
+In addition, these components are often used in conjunction with the `<router-view>` component from [Vue Router](https://next.router.vuejs.org/).
+
+The following example shows how to nest these components so that they all behave as expected. For simpler combinations you can remove the components that you don't need:
 
 ```html
 <router-view v-slot="{ Component }">
