@@ -15,7 +15,7 @@
 
 - **Usage:**
 
-  Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `prop`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
+  Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `props`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
 
 - **Example:**
 
