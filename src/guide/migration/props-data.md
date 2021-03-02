@@ -7,7 +7,7 @@ badges:
 
 ## Overview
 
-`propsData` option to pass props to Vue instance during its creation is removed. To pass props to the root of Vue application, use a second argument of [createApp](/api/global-api.html#createapp)
+The `propsData` option, used to pass props to the Vue instance during its creation, is removed. To pass props to the root component of a Vue 3 application, use the second argument of [createApp](/api/global-api.html#createapp).
 
 ## 2.x Syntax
 
