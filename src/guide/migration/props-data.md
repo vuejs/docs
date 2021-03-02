@@ -33,15 +33,9 @@ The `propsData` option has been removed. If you need to pass props to the root c
 ```js
 const app = createApp(
   {
-    props: ['username']
+    props: ['username'],
+    template: '<div>{{ username }}</div>'
   },
   { username: 'Evan' }
 )
-```
-
-```html
-<div id="app">
-  <!-- Will display 'Evan' -->
-  {{ username }}
-</div>
 ```
