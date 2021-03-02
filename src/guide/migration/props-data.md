@@ -11,7 +11,7 @@ The `propsData` option, used to pass props to the Vue instance during its creati
 
 ## 2.x Syntax
 
-In 2.x, we were able to pass props to Vue instance during its creation:
+In 2.x, we were able to pass props to a Vue instance during its creation:
 
 ```js
 const Comp = Vue.extend({
