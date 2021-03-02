@@ -28,7 +28,7 @@ new Comp({
 
 ## 3.x Update
 
-`propsData` option was removed. If you need to pass props to the application instance during its creation, you should use `createApp` second argument:
+The `propsData` option has been removed. If you need to pass props to the root component instance during its creation, you should use the second argument of `createApp`:
 
 ```js
 const app = createApp(
