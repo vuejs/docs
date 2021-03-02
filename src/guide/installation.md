@@ -90,7 +90,8 @@ $ cd <project-name>
 $ yarn
 $ yarn dev
 ```
-It might occur, that when your username has a space in it like 'Mike Baker' that vite cannot succeed. Have a try with 
+
+It might occur, that when your username has a space in it like 'Mike Baker' that vite cannot succeed. Have a try with
 
 ```bash
 $ create-vite-app <project-name>
@@ -115,14 +116,14 @@ In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3
 Global builds are not [UMD](https://github.com/umdjs/umd) builds. They are built as [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and are only meant for direct use via `<script src="...">`.
 :::
 
-#### vue(.runtime).esm-browser(.prod).js:
+#### `vue(.runtime).esm-browser(.prod).js`:
 
 - For usage via native ES modules imports (in browser via `<script type="module">`.
 - Shares the same runtime compilation, dependency inlining and hard-coded prod/dev behavior with the global build.
 
 ### With a Bundler
 
-#### vue(.runtime).esm-bundler.js:
+#### `vue(.runtime).esm-bundler.js`:
 
 - For use with bundlers like `webpack`, `rollup` and `parcel`.
 - Leaves prod/dev branches with `process.env.NODE_ENV guards` (must be replaced by bundler)
