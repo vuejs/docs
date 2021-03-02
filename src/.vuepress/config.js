@@ -194,6 +194,7 @@ const sidebar = {
         '/guide/migration/key-attribute',
         '/guide/migration/keycode-modifiers',
         '/guide/migration/listeners-removed',
+        '/guide/migration/props-data',
         '/guide/migration/props-default-this',
         '/guide/migration/render-function-api',
         '/guide/migration/slots-unification',

@@ -113,7 +113,8 @@ The following consists a list of breaking changes from 2.x:
 - [$on, $off and $once instance methods](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
 - [Inline templates attributes](/guide/migration/inline-template-attribute.html)
-- [`$children` instance property](/guide/migration/children.md)
+- [`$children` instance property](/guide/migration/children.html)
+- [`propsData` option](/guide/migration/props-data.html)
 - `$destroy` instance method. Users should no longer manually manage the lifecycle of individual Vue components.
 
 ## Supporting Libraries
