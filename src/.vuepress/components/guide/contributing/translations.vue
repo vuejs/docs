@@ -12,14 +12,14 @@
       <tr v-for="({ lang, owner, repo, url, count, date }, index) in merged">
         <td>
           <a v-if="url" :href="url" target="_blank">
-            {{ lang }}
+            {{ lang }} <OutboundLink />
           </a>
           <template v-else>
             {{ lang }}
           </template>
         </td>
         <td>
-          <a :href="`https://github.com/${owner}/${repo}/`" target="_blank">{{ owner }}/{{ repo }}</a>
+          <a :href="`https://github.com/${owner}/${repo}/`" target="_blank">{{ owner }}/{{ repo }} <OutboundLink /></a>
         </td>
         <template v-if="showLoadButton">
           <td v-if="index === 0" colspan="2" :rowspan="merged.length" class="load-cell">
