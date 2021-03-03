@@ -194,6 +194,7 @@ const sidebar = {
         '/guide/migration/key-attribute',
         '/guide/migration/keycode-modifiers',
         '/guide/migration/listeners-removed',
+        '/guide/migration/props-data',
         '/guide/migration/props-default-this',
         '/guide/migration/render-function-api',
         '/guide/migration/slots-unification',
@@ -203,9 +204,14 @@ const sidebar = {
         '/guide/migration/v-model',
         '/guide/migration/v-if-v-for',
         '/guide/migration/v-bind',
+        '/guide/migration/vnode-lifecycle-events',
         '/guide/migration/watch'
       ]
     }
+  ],
+  ssr: [
+    ['/guide/ssr/introduction', 'Introduction'],
+    '/guide/ssr/getting-started'
   ],
   contributing: [
     {
@@ -363,7 +369,7 @@ module.exports = {
               {
                 text: 'Vue Test Utils',
                 link:
-                  'https://vuejs.github.io/vue-test-utils-next-docs/guide/introduction.html'
+                  'https://next.vue-test-utils.vuejs.org/v2/guide/introduction.html'
               },
               {
                 text: 'Devtools',
@@ -404,6 +410,10 @@ module.exports = {
         link: '#',
         items: [
           {
+            text: '한국어',
+            link: 'https://v3.ko.vuejs.org/'
+          },
+          {
             text: '中文',
             link: 'https://v3.cn.vuejs.org/'
           }, {
@@ -423,6 +433,7 @@ module.exports = {
       collapsable: false,
       '/guide/migration/': sidebar.migration,
       '/guide/contributing/': sidebar.contributing,
+      '/guide/ssr/': sidebar.ssr,
       '/guide/': sidebar.guide,
       '/community/': sidebar.guide,
       '/cookbook/': sidebar.cookbook,

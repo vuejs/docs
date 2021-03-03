@@ -10,8 +10,8 @@
 
 - **Usage:**
   ```js
-  const app = Vue.createApp({})
-  
+  const app = createApp({})
+
   app.component('focused-input', {
     directives: {
       focus: {
@@ -39,8 +39,8 @@
   const Foo = {
     template: `<div>Foo</div>`
   }
-  
-  const app = Vue.createApp({
+
+  const app = createApp({
     components: {
       Foo
     },

@@ -26,7 +26,7 @@ Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vu
 - Scaffold via [Vite](https://github.com/vitejs/vite):
 
   ```bash
-  npm init vite-app hello-vue3 # OR yarn create vite-app hello-vue3
+  npm init @vitejs/app hello-vue3 # OR yarn create @vitejs/app hello-vue3
   ```
 
 - Scaffold via [vue-cli](https://cli.vuejs.org/):
@@ -47,7 +47,7 @@ Some of the new features to keep an eye on in Vue 3 include:
 - [Emits Component Option](/guide/component-custom-events.html)
 - [`createRenderer` API from `@vue/runtime-core`](https://github.com/vuejs/vue-next/tree/master/packages/runtime-core) to create custom renderers
 - [SFC Composition API Syntax Sugar (`<script setup>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-script-setup.md) <Badge text="experimental" type="warning" />
-- [SFC State-driven CSS Variables (`<style vars>`)](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-style-variables.md) <Badge text="experimental" type="warning" />
+- [SFC State-driven CSS Variables (`v-bind` in `<style>`)](https://github.com/vuejs/rfcs/blob/style-vars-2/active-rfcs/0000-sfc-style-variables.md) <Badge text="experimental" type="warning" />
 - [SFC `<style scoped>` can now include global rules or rules that target only slotted content](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0023-scoped-styles-changes.md)
 
 ## Breaking Changes
@@ -105,6 +105,7 @@ The following consists a list of breaking changes from 2.x:
 - [When watching an array, the callback will only trigger when the array is replaced. If you need to trigger on mutation, the `deep` option must be specified.](/guide/migration/watch.html)
 - `<template>` tags with no special directives (`v-if/else-if/else`, `v-for`, or `v-slot`) are now treated as plain elements and will result in a native `<template>` element instead of rendering its inner content.
 - In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead - this means the container itself is no longer considered part of the template.
+- [Lifecycle `hook:` events prefix changed to `vnode-`](/guide/migration/vnode-lifecycle-events.html)
 
 ### Removed APIs
 
@@ -112,7 +113,8 @@ The following consists a list of breaking changes from 2.x:
 - [$on, $off and $once instance methods](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
 - [Inline templates attributes](/guide/migration/inline-template-attribute.html)
-- [`$children` instance property](/guide/migration/children.md)
+- [`$children` instance property](/guide/migration/children.html)
+- [`propsData` option](/guide/migration/props-data.html)
 - `$destroy` instance method. Users should no longer manually manage the lifecycle of individual Vue components.
 
 ## Supporting Libraries
