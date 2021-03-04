@@ -157,7 +157,7 @@ console.log(proxy.meal)
 Remember this list from a few paragraphs ago? Now we have some answers to how Vue handles these changes:
 
 - <strike>Detect when there’s a change in one of the values</strike>: we no longer have to do this, as Proxies allow us to intercept it
-- **Track the function that changes it**: We do this in a getter within the proxy, called `effect`
+- **Track the function that changes it**: We do this in a getter within the proxy, called `track`
 - **Trigger the function so it can update the final value**: We do in a setter within the proxy, called `trigger`
 
 The proxied object is invisible to the user, but under the hood they enable Vue to perform dependency-tracking and change-notification when properties are accessed or modified. As of Vue 3, our reactivity is now available in a [separate package](https://github.com/vuejs/vue-next/tree/master/packages/reactivity). One caveat is that browser consoles format differently when converted data objects are logged, so you may want to install [vue-devtools](https://github.com/vuejs/vue-devtools) for a more inspection-friendly interface.
