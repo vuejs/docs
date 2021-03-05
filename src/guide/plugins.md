@@ -66,7 +66,7 @@ export default {
   install: (app, options) => {
     app.config.globalProperties.$translate = key => {
       return key.split('.').reduce((o, i) => {
-        if (o) return o[i]
+        if (o) return o.greetings[i]
       }, options)
     }
 
@@ -85,7 +85,7 @@ export default {
   install: (app, options) => {
     app.config.globalProperties.$translate = (key) => {
       return key.split('.')
-        .reduce((o, i) => { if (o) return o[i] }, options)
+        .reduce((o, i) => { if (o) return o.greetings[i] }, options)
     }
 
     app.provide('i18n', options)
