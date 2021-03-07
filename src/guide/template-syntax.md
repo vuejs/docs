@@ -177,13 +177,13 @@ They may look a bit different from normal HTML, but `:` and `@` are valid charac
 
 > From the next page on, we'll use the shorthand in our examples, as that's the most common usage for Vue developers.
 
-### Caveats
+## Caveats
 
-#### Dynamic Argument Value Constraints
+### Dynamic Argument Value Constraints
 
 Dynamic arguments are expected to evaluate to a string, with the exception of `null`. The special value `null` can be used to explicitly remove the binding. Any other non-string value will trigger a warning.
 
-#### Dynamic Argument Expression Constraints
+### Dynamic Argument Expression Constraints
 
 Dynamic argument expressions have some syntax constraints because certain characters, such as spaces and quotes, are invalid inside HTML attribute names. For example, the following is invalid:
 
@@ -204,6 +204,6 @@ Unless you have a "someattr" property in your instance, your code won't work.
 <a v-bind:[someAttr]="value"> ... </a>
 ```
 
-#### JavaScript Expressions
+### JavaScript Expressions
 
 Template expressions are sandboxed and only have access to a [whitelist of globals](https://github.com/vuejs/vue-next/blob/master/packages/shared/src/globalsWhitelist.ts#L3) such as `Math` and `Date`. You should not attempt to access user defined globals in template expressions.
