@@ -198,6 +198,7 @@ const sidebar = {
         '/guide/migration/props-default-this',
         '/guide/migration/render-function-api',
         '/guide/migration/slots-unification',
+        '/guide/migration/suspense',
         '/guide/migration/transition',
         '/guide/migration/transition-group',
         '/guide/migration/v-on-native-modifier-removed',

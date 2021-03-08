@@ -5,8 +5,9 @@ Vue.js secara desain dibangun untuk dapat diadopsi secara bertahap. Hal tersebut
 Ada tiga cara utama untuk menambahkan Vue.js ke dalam suatu proyek:
 
 1. Mengimpor Vue sebagai [paket CDN](#cdn) di dalam halaman
-2. Memasang Vue menggunakan [npm](#npm)
-3. Menggunakan [Antarmuka Perintah Sebaris](#cli) untuk membangun proyek, yang menyediakan susunan lengkap untuk alur kerja frontend modern (contohnya: hot-reload, lint-saat-disimpan, dan masih banyak lagi)
+2. Download berkas JavaScript dan [_host_ sendiri](#download-and-self-host)
+3. Memasang Vue menggunakan [npm](#npm)
+4. Menggunakan [Antarmuka Perintah Sebaris](#cli) untuk membangun proyek, yang menyediakan susunan lengkap untuk alur kerja frontend modern (contohnya: hot-reload, lint-saat-disimpan, dan masih banyak lagi)
 
 ## Catatan Rilis
 
@@ -35,6 +36,12 @@ Untuk tujuan pembuatan prototipe atau pembelajaran, Anda dapat menggunakan versi
 ```
 
 Untuk produksi, kami merekomendasikan untuk menggunakan versi angka spesifik dan _build_ tertentu untuk mencegah kerusakan pada versi terbaru.
+
+## Download and Self Host
+
+If you want to avoid using build tools but can't use a CDN in production then you can download the relevant `.js` file and host it using your own web server. You can then include it using a `<script>` tag, just like with the CDN approach.
+
+The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg.com/browse/vue@next/dist/) or [jsDelivr](https://cdn.jsdelivr.net/npm/vue@next/dist/). The various different files are [explained later](#explanation-of-different-builds) but you would typically want to download both a development build and a production build.
 
 ## npm
 
