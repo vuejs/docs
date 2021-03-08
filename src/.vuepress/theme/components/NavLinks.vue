@@ -45,8 +45,8 @@ export default {
         const routes = this.$router.options.routes
         const themeLocales = this.$site.themeConfig.locales || {}
         const languageDropdown = {
-          text: this.$themeLocaleConfig.selectText || 'Languages',
-          ariaLabel: this.$themeLocaleConfig.ariaLabel || 'Select language',
+          text: this.$themeLocaleConfig.selectText || 'Bahasa',
+          ariaLabel: this.$themeLocaleConfig.ariaLabel || 'Pilih Bahasa',
           items: Object.keys(locales).map(path => {
             const locale = locales[path]
             const text =
@@ -102,7 +102,7 @@ export default {
         }
       }
 
-      return 'Source'
+      return 'Sumber'
     }
   }
 }

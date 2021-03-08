@@ -1,41 +1,41 @@
-# Installation
+# Instalasi
 
-Vue.js is built by design to be incrementally adoptable. This means that it can be integrated into a project multiple ways depending on the requirements.
+Vue.js secara desain dibangun untuk dapat diadopsi secara bertahap. Hal tersebut berarti Vue dapat diintegrasi menjadi sebuah proyek dengan banyak cara tergantung dari persyaratannya.
 
-There are four primary ways of adding Vue.js to a project:
+Ada tiga cara utama untuk menambahkan Vue.js ke dalam suatu proyek:
 
-1. Import it as a [CDN package](#cdn) on the page
-2. Download the JavaScript files and [host them yourself](#download-and-self-host)
-3. Install it using [npm](#npm)
-4. Use the official [CLI](#cli) to scaffold a project, which provides batteries-included build setups for a modern frontend workflow (e.g., hot-reload, lint-on-save, and much more)
+1. Mengimpor Vue sebagai [paket CDN](#cdn) di dalam halaman
+2. Download berkas JavaScript dan [_host_ sendiri](#download-and-self-host)
+3. Memasang Vue menggunakan [npm](#npm)
+4. Menggunakan [Antarmuka Perintah Sebaris](#cli) untuk membangun proyek, yang menyediakan susunan lengkap untuk alur kerja frontend modern (contohnya: hot-reload, lint-saat-disimpan, dan masih banyak lagi)
 
-## Release Notes
+## Catatan Rilis
 
-Latest version: ![npm](https://img.shields.io/npm/v/vue/next.svg)
+Versi terakhir: ![npm](https://img.shields.io/npm/v/vue/next.svg)
 
-Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md).
+Catatan rilis yang detail untuk setiap versi terdapat pada [GitHub](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md).
 
 ## Vue Devtools
 
-> Currently in Beta - Vuex and Router integration is still WIP
+> Saat ini pada tahap Beta - Integrasi VueX dan Router masih dalam proses pengerjaan
 
-When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
+Ketika menggunakan Vue, kami merekomendasikan juga untuk memasang [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) pada peramban Anda, yang memungkinkan Anda untuk menginspeksi dan mendebug aplikasi Vue dengan antarmuka yang lebih ramah pengguna.
 
-[Get the Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
+[Dapatkan Ekstensi Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
 
-[Get the Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+[Dapatkan Addon Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
 
-[Get the standalone Electron app](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
+[Dapatkan Aplikasi Elektron](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
 
 ## CDN
 
-For prototyping or learning purposes, you can use the latest version with:
+Untuk tujuan pembuatan prototipe atau pembelajaran, Anda dapat menggunakan versi terakhir dengan:
 
 ```html
 <script src="https://unpkg.com/vue@next"></script>
 ```
 
-For production, we recommend linking to a specific version number and build to avoid unexpected breakage from newer versions.
+Untuk produksi, kami merekomendasikan untuk menggunakan versi angka spesifik dan _build_ tertentu untuk mencegah kerusakan pada versi terbaru.
 
 ## Download and Self Host
 
@@ -45,30 +45,30 @@ The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg
 
 ## npm
 
-npm is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/). Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html).
+npm adalah metode pemasangan yang direkomendasikan ketika membangun aplikasi skala besar dengan Vue. npm berpasangan dengan baik dengan _bundler_ modul seperti [Webpack](https://webpack.js.org/) atau [Rollup](https://rollupjs.org/). Vue juga menyediakan peralatan pendukung untuk membuat [Komponen Berkas Tunggal](../guide/single-file-component.html).
 
 ```bash
-# latest stable
+# versi stabil terakhir
 $ npm install vue@next
 ```
 
 ## CLI
 
-Vue provides an [official CLI](https://github.com/vuejs/vue-cli) for quickly scaffolding ambitious Single Page Applications. It provides batteries-included build setups for a modern frontend workflow. It takes only a few minutes to get up and running with hot-reload, lint-on-save, and production-ready builds. See [the Vue CLI docs](https://cli.vuejs.org) for more details.
+Vue menyediakan [Antarmuka Perintah Sebaris (CLI) Resmi](https://github.com/vuejs/vue-cli) untuk perancah cepat Aplikasi Laman Tunggal (_Single Page Applications_). Vue CLI menyediakan alur kerja _frontend_ modern yang lengkap. Hanya membutuhkan beberapa menit untuk bangun dan berjalan dengan _hot-reload_, _lint-ketika-berkas-disimpan_, _build_ siap-produksi. Lihat [dokumentasi Vue CLI](https://cli.vuejs.org) untuk lebih detail.
 
-::: tip
-The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through [the guide](./introduction.html) without any build tools before using the CLI.
+:::tip
+CLI mengasumsikan pengetahuan sebelumnya tentang Node.js dan alat pembangun terkait. Jika Anda baru dalam Vue atau perangkat pembangun _front-end_, kami sangat menyarankan pergi ke [petunjuk](./introduction.html) tanpa perangkat pembangun apapun sebelum menggunakan CLI.
 :::
 
-For Vue 3, you should use Vue CLI v4.5 available on `npm` as `@vue/cli`. To upgrade, you need to reinstall the latest version of `@vue/cli` globally:
+Untuk Vue 3, Anda harus menggunakan Vue CLI v4.5 yang tersedia di `npm` sebagai `@vue/cli`. Untuk memutakhirkan, Anda perlu memasang ulang versi terakhir dari `@vue/cli` secara global:
 
 ```bash
 yarn global add @vue/cli
-# OR
+# Atau
 npm install -g @vue/cli
 ```
 
-Then in the Vue projects, run
+Kemudian di proyek Vue, jalankan
 
 ```bash
 vue upgrade --next
@@ -76,96 +76,96 @@ vue upgrade --next
 
 ## Vite
 
-[Vite](https://github.com/vitejs/vite) is a web development build tool that allows for lightning fast serving of code due its native ES Module import approach.
+[Vite](https://github.com/vitejs/vite) adalah perangkat pembangunan web yang memungkinkan menyediakan kode secara cepat karena pendekatan modul ES asli.
 
-Vue projects can quickly be set up with Vite by running the following commands in your terminal.
+Proyek Vue dapat diatur secara cepat dengan Vite dengan menjalankan perintah berikut di terminal Anda.
 
-With npm:
+Dengan npm:
 
 ```bash
-$ npm init @vitejs/app <project-name>
-$ cd <project-name>
+$ npm init @vitejs/app <nama-proyek>
+$ cd <nama-proyek>
 $ npm install
 $ npm run dev
 ```
 
-Or with Yarn:
+Atau dengan Yarn:
 
 ```bash
-$ yarn create @vitejs/app <project-name>
-$ cd <project-name>
+$ yarn create @vitejs/app <nama-proyek>
+$ cd <nama-proyek>
 $ yarn
 $ yarn dev
 ```
 
-It might occur, that when your username has a space in it like 'Mike Baker' that vite cannot succeed. Have a try with
+Mungkin terjadi, ketika nama pengguna Anda memiliki spasi di dalamnya seperti 'Mike Baker' yang Vite tidak dapat lakukan. Coba lakukan dengan cara
 
 ```bash
-$ create-vite-app <project-name>
+$ create-vite-app <nama-proyek>
 ```
 
-## Explanation of Different Builds
+## Penjelasan dari Berbagai _Build_
 
-In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
+Di dalam [direktori `dist/` dari paket npm](https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/), Anda dapat menemukan beberapa _build_ berbeda dari Vue.js. Berikut gambaran berkas `dist` yang mana yang harus digunakan berdasarkan studi kasus yang Anda miliki.
 
-### From CDN or without a Bundler
+### Dari CDN atau tanpa _Bundler_
 
 #### `vue(.runtime).global(.prod).js`:
 
-- For direct use via `<script src="...">` in the browser, exposes the Vue global.
-- In-browser template compilation:
-  - `vue.global.js` is the "full" build that includes both the compiler and the runtime so it supports compiling templates on the fly.
-  - `vue.runtime.global.js` contains only the runtime and requires templates to be pre-compiled during a build step.
-- Inlines all Vue core internal packages - i.e. it's a single file with no dependencies on other files. This means you must import everything from this file and this file only to ensure you are getting the same instance of code.
-- Contains hard-coded prod/dev branches, and the prod build is pre-minified. Use the `*.prod.js` files for production.
+- Untuk akses secara langsung melalui `<script src="...">` di peramban (_browser_), menyediakan Vue secara global.
+- Kompilasi templat di-peramban:
+  - `vue.global.js` adalah _build_ "penuh" yang menyertakan kompilator dan _runtime_ secara bersamaan sehingga mendukung kompilasi templat secara langsung.
+  - `vue.runtime.global.js` hanya berisi _runtime_ dan membutuhkan templat untuk pra-terkompilasi selama tahap _build_.
+- Menyatukan semua paket internal inti Vue - sebagai contoh: berkas tunggal tanpa dependensi apapun dengan berkas lain. Hal tersebut berarti Anda harus mengimpor semua hal dari berkas ini dan berkas ini hanya memastikan Anda mendapatkan _instance_ kode yang sama.
+- Berisi berkas lingkungan prod/dev yang _hard-coded_, dan _build_ produksi terminifikasi. Gunakan berkas `*.prod.js` untuk tujuan produksi.
 
-:::tip Note
-Global builds are not [UMD](https://github.com/umdjs/umd) builds. They are built as [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and are only meant for direct use via `<script src="...">`.
+:::tip Catatan
+_Build_ global bukanlah _build_ [UMD](https://github.com/umdjs/umd). Mereka di-_build_ sebagai [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) dan hanya dimaksudkan untuk digunakan secara langsung melalui `<script src="...">`.
 :::
 
 #### `vue(.runtime).esm-browser(.prod).js`:
 
-- For usage via native ES modules imports (in browser via `<script type="module">`.
-- Shares the same runtime compilation, dependency inlining and hard-coded prod/dev behavior with the global build.
+- Untuk digunakan melalui impor modul ES asli (di peramban (_browser_) melalui `<script type="module">`).
+- Memiliki kompilasi _runtime_, dependensi yang disatukan dan perilaku prod/dev yang sama seperti _build_ global.
 
-### With a Bundler
+### Dengan _Bundler_
 
 #### `vue(.runtime).esm-bundler.js`:
 
-- For use with bundlers like `webpack`, `rollup` and `parcel`.
-- Leaves prod/dev branches with `process.env.NODE_ENV guards` (must be replaced by bundler)
-- Does not ship minified builds (to be done together with the rest of the code after bundling)
-- Imports dependencies (e.g. `@vue/runtime-core`, `@vue/runtime-compiler`)
-  - Imported dependencies are also esm-bundler builds and will in turn import their dependencies (e.g. @vue/runtime-core imports @vue/reactivity)
-  - This means you **can** install/import these deps individually without ending up with different instances of these dependencies, but you must make sure they all resolve to the same version.
-- In-browser template compilation:
-  - `vue.runtime.esm-bundler.js` **(default)** is runtime only, and requires all templates to be pre-compiled. This is the default entry for bundlers (via module field in `package.json`) because when using a bundler templates are typically pre-compiled (e.g. in `*.vue` files).
-  - `vue.esm-bundler.js`: includes the runtime compiler. Use this if you are using a bundler but still want runtime template compilation (e.g. in-DOM templates or templates via inline JavaScript strings). You will need to configure your bundler to alias vue to this file.
+- Untuk penggunaan dengan _bundlers_ seperti `webpack`, `rollup` dan `parcel`.
+- Meninggalkan bagian prod/dev dengan `process.env.NODE_ENV guards` (harus diganti oleh _bundler_)
+- Tidak menyediakan versi _build_ yang terminifikasi (akan dilakukan bersama bagian kode lainnya setelah proses _bundling_).
+- Mengimpor dependensi (seperti `@vue/runtime-core`, `@vue/runtime-compiler`)
+  - Dependensi yang terimpor juga _build_ versi _esm-buindler_ dan akan mengimpor dependensi mereka sendiri (seperti @vue/runtime-core mengimpor @vue/reactivity)
+  - Hal tersebut berarti Anda **dapat** memasang/mengimpor dependensi tersebut sendiri-sendiri tanpa menghasilkan _instances_ yang berbeda dari dependensi ini, tetapi Anda harus meyakinkan mereka mengacu pada versi yang sama.
+- Kompilasi templat di peramban (_browser_):
+  - `vue.runtime.esm-bundler.js` **(bawaan)** hanyalah _runtime_, dan membutuhkan semua templat untuk terkompilasi dahulu. Berkas ini merupakan entri bawaan untuk _bundlers_ (melalui bagian modul di berkas `package.json`) karena ketika menggunakan _bundler_ templat pada umumnya terkompilasi dahulu (seperti pada berkas `*.vue`).
+  - `vue.esm-bundler.js`: menyertakan kompilator _runtime_. Gunakan berkas ini jika Anda menggunakan _bundler_ tetapi ingin proses kompilasi templat saat _runtime_ (seperti templat di dalam DOM atau templat melalui string JavaScript). Anda perlu mengatur _bundler_ Anda untuk mengalias vue ke berkas ini.
 
-### For Server-Side Rendering
+### Untuk _Server-side Rendering_
 
 #### `vue.cjs(.prod).js`:
 
-- For use in Node.js server-side rendering via `require()`.
-- If you bundle your app with webpack with `target: 'node'` and properly externalize `vue`, this is the build that will be loaded.
-- The dev/prod files are pre-built, but the appropriate file is automatically required based on `process.env.NODE_ENV`.
+- Untuk digunakan pada _server-side rendering_ Node.js melalui `require()`.
+- Jika Anda mem-_bundle_ aplikasi Anda menggunakan webpack dengan `target: 'node'` dan dengan benar tidak menyertakan `vue`, berkas ini merupakan _build_ yang akan termuat.
+- Berkas dev/prod ter-_build_ terlebih dahulu, tetapi berkas yang sesuai akan secara otomatis diimpor berdasarkan `process.env.NODE_ENV`.
 
-## Runtime + Compiler vs. Runtime-only
+## _Runtime_ + Kompilator vs. Hanya-_runtime_
 
-If you need to compile templates on the client (e.g. passing a string to the template option, or mounting to an element using its in-DOM HTML as the template), you will need the compiler and thus the full build:
+Jika Anda perlu untuk mengompilasi templat di klien (seperti melewatkan string di opsi templat, atau _mounting_ ke elemen menggunakan HTML di-dalam-DOM sebagai templat), Anda akan memerlukan kompilator dan juga _bild_ versi penuh:
 
 ```js
-// this requires the compiler
+// Kode ini membutuhkan kompilator (_compiler_)
 Vue.createApp({
-  template: '<div>{{ hi }}</div>'
+  template: '<div>{{ halo }}</div>'
 })
 
-// this does not
+// Kode ini tidak
 Vue.createApp({
   render() {
-    return Vue.h('div', {}, this.hi)
+    return Vue.h('div', {}, this.halo)
   }
 })
 ```
 
-When using `vue-loader`, templates inside `*.vue` files are pre-compiled into JavaScript at build time. You don’t really need the compiler in the final bundle, and can therefore use the runtime-only build.
+Ketika menggunakan `vue-loader`, templat di dalam berkas `*.vue` terkompilasi terlebih dahulu menjadi JavaScript ketika proses _build_. Anda tidak membutuhkan kompilator pada _bundle_ akhir, dan oleh karena itu dapat menggunakan _build_ versi _runtime_ saja.

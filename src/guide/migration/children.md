@@ -5,28 +5,28 @@ badges:
 
 # $children <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-The `$children` instance property has been removed from Vue 3.0 and is no longer supported.
+Properti `$children` telah dihapus dari Vue versi 3.0 dan tidak didukung lagi.
 
-## 2.x Syntax
+## Sintaks Vue versi 2.x
 
-In 2.x, developers could access direct child components of the current instance with `this.$children`:
+Pada Vue versi 2.x, pengembang dapat mengakses komponen turunan langsung dari sebuah objek menggunakan `this.$children`:
 
 ```vue
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <my-button>Change logo</my-button>
+    <img alt="Logo Vue" src="./assets/logo.png">
+    <tombol-ku>Ubah logo</tombol-ku>
   </div>
 </template>
 
 <script>
-import MyButton from './MyButton'
+import TombolKu from './MyButton'
 
 export default {
   components: {
-    MyButton
+    TombolKu
   },
   mounted() {
     console.log(this.$children) // [VueComponent]
@@ -35,6 +35,6 @@ export default {
 </script>
 ```
 
-## 3.x Update
+## Perubahan pada Vue versi 3.x
 
-In 3.x, the `$children` property is removed and no longer supported. Instead, if you need to access a child component instance, we recommend using [$refs](/guide/component-template-refs.html#template-refs).
+Pada Vue versi 3.x, properti `$children` telah dihapus dan tidak didukung lagi. Sebagai gantinya, jika Anda butuh akses pada sebuah komponen turunan, kami menyarankan Anda untuk menggunakan [$refs](/guide/component-template-refs.html#template-refs).
