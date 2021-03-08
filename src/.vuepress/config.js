@@ -194,6 +194,7 @@ const sidebar = {
         '/guide/migration/key-attribute',
         '/guide/migration/keycode-modifiers',
         '/guide/migration/listeners-removed',
+        '/guide/migration/props-data',
         '/guide/migration/props-default-this',
         '/guide/migration/render-function-api',
         '/guide/migration/slots-unification',
@@ -411,6 +412,10 @@ module.exports = {
           {
             text: 'Bahasa Inggris',
             link: 'https://v3.vuejs.org/'
+          },
+          {
+            text: '한국어',
+            link: 'https://v3.ko.vuejs.org/'
           },
           {
             text: '中文',

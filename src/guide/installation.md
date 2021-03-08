@@ -116,14 +116,14 @@ Di dalam [direktori `dist/` dari paket npm](https://cdn.jsdelivr.net/npm/vue@3.0
 _Build_ global bukanlah _build_ [UMD](https://github.com/umdjs/umd). Mereka di-_build_ sebagai [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) dan hanya dimaksudkan untuk digunakan secara langsung melalui `<script src="...">`.
 :::
 
-#### vue(.runtime).esm-browser(.prod).js:
+#### `vue(.runtime).esm-browser(.prod).js`:
 
 - Untuk digunakan melalui impor modul ES asli (di peramban (_browser_) melalui `<script type="module">`).
 - Memiliki kompilasi _runtime_, dependensi yang disatukan dan perilaku prod/dev yang sama seperti _build_ global.
 
 ### Dengan _Bundler_
 
-#### vue(.runtime).esm-bundler.js:
+#### `vue(.runtime).esm-bundler.js`:
 
 - Untuk penggunaan dengan _bundlers_ seperti `webpack`, `rollup` dan `parcel`.
 - Meninggalkan bagian prod/dev dengan `process.env.NODE_ENV guards` (harus diganti oleh _bundler_)

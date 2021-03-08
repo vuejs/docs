@@ -220,7 +220,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **Details:**
 
-  Called when virtual DOM re-render is triggered.Similarly to [`renderTracked`](#rendertracked), receives a `debugger event` as an argument. This event tells you what operation triggered the re-rendering and the target object and key of that operation.
+  Called when virtual DOM re-render is triggered. Similarly to [`renderTracked`](#rendertracked), receives a `debugger event` as an argument. This event tells you what operation triggered the re-rendering and the target object and key of that operation.
 
 - **Usage:**
 
