@@ -410,6 +410,15 @@ module.exports = {
         text: 'Terjemahan',
         link: '#',
         items: [
+          // Translation maintainers: Please include the link below to the English documentation
+          // {
+          //   text: 'English',
+          //   link: 'https://v3.vuejs.org/'
+          // },
+          {
+            text: '中文',
+            link: 'https://v3.cn.vuejs.org/'
+          },
           {
             text: 'Bahasa Inggris',
             link: 'https://v3.vuejs.org/'
@@ -419,8 +428,8 @@ module.exports = {
             link: 'https://v3.ko.vuejs.org/'
           },
           {
-            text: '中文',
-            link: 'https://v3.cn.vuejs.org/'
+            text: 'More Translations',
+            link: '/guide/contributing/translations#community-translations'
           }
         ]
       }
