@@ -8,7 +8,7 @@ badges:
 
 ## Overview
 
-In Vue 2.x, when mounting an application, the rendered result replaces the element we mount to. In Vue 3.x, rendered application is appended as a child of such an element.
+In Vue 2.x, when mounting an application that has a `template`, the rendered content replaces the element we mount to. In Vue 3.x, rendered application is appended as a child of such an element, replacing element's `innerHTML`.
 
 ## 2.x Syntax
 
@@ -42,7 +42,7 @@ const app = new Vue({
 app.$mount('#app')
 ```
 
-When we mount an application to the page that has a `div` with `id="app"`:
+When we mount an application to the page that has a `div` with the passed selector (in our case, it's `id="app"`):
 
 ```html
 <body>
