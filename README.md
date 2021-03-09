@@ -44,11 +44,19 @@ Situs akan otomatis diperbaharui saat ada _commit_ baru pada branch `indonesian`
 
 Silakan lihat di halaman [Kamus Perbendaharaan Istilah](https://github.com/vuejs-id/docs/blob/master/GLOSARIUM.md) atau [Glosarium Frontend Indonesia](https://github.com/frontend-id/glosarium)
 
-### Bagaimana repo ini bisa sinkron dengan repo _upstream_
+### Bagaimana repo ini bisa sinkron dengan repo _upstream_?
 
 Kita menggunakan bot [wei/pull](https://github.com/wei/pull) dengan konfigurasi bisa dibaca [disini](https://github.com/vuejs-id/docs-next/blob/indonesian/.github/pull.yml). Kita tetap menyimpan dan mensinkronasi repo _upstream_ pada _branch master_ yang pada nantinya bisa digunakan sebagai referensi jika bot _wei/pull_ mengalami _merge conflict_ pada saat PR ke _branch indonesian_.
 
 Jikalau ada masukan soal cara sinkronasi ini, kita dengan senang hati akan mengubahnya apabila solusi tersebut lebih baik.
+
+### Apakah contoh kode diterjemahkan juga?
+
+Tidak, karena:
+
+- Terdapat beberapa contoh kode yang memiliki demo interaktif menggunakan CodePen. Jika contoh kode ikut diterjemahkan, hal tersebut akan menambah waktu pembaca untuk memahami contoh kode yang ada pada dokumentasi dengan yang ada pada CodePen. Terkecuali jika kita bisa menyediakan CodePen tersendiri untuk masing-masing demo interaktif.
+- Beberapa hasil translasi dokumentasi Vue.js berbahasa lain tidak mengubah kode menggunakan bahasa mereka sendiri khususnya pada penamaan variabel.
+- Pengecualian untuk komentar pada contoh kode. Karena komentar tersebut juga merupakan penjelasan tentang bagian tertentu pada contoh kode.
 
 ## Contributors ✨
 
