@@ -191,7 +191,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Usage:**
 
-  Mounts a root component of the application instance on the provided DOM element.
+  Mounts a root component of the application instance on the provided DOM element. The `innerHTML` of the DOM element will be replaced with the rendered application.
 
 - **Example:**
 
