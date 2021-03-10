@@ -8,7 +8,7 @@ badges:
 
 ## Overview
 
-In Vue 2.x, when mounting an application that has a `template`, the rendered content replaces the element we mount to. In Vue 3.x, rendered application is appended as a child of such an element, replacing element's `innerHTML`.
+In Vue 2.x, when mounting an application that has a `template`, the rendered content replaces the element we mount to. In Vue 3.x, the rendered application is appended as a child of such an element, replacing element's `innerHTML`.
 
 ## 2.x Syntax
 
