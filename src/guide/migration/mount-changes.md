@@ -42,7 +42,7 @@ const app = new Vue({
 app.$mount('#app')
 ```
 
-When we mount an application to the page that has a `div` with the passed selector (in our case, it's `id="app"`):
+When we mount this application to the page that has a `div` with the passed selector (in our case, it's `id="app"`):
 
 ```html
 <body>
