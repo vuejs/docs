@@ -6,7 +6,7 @@
 
 - **Details:**
 
-  A string template to be used as the markup for the component instance. The template will **replace** the mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.
+  A string template to be used as the markup for the component instance. The template will **replace** the `innerHTML` of mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.
 
   If the string starts with `#` it will be used as a `querySelector` and use the selected element's innerHTML as the template string. This allows the use of the common `<script type="x-template">` trick to include templates.
 
