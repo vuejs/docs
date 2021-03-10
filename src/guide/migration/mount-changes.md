@@ -79,7 +79,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-A code above, when app is mounted to the page that has a `div` with `id="app"`, will result in:
+When this app is mounted to the page that has a `div` with `id="app"`, this will result in:
 
 ```html
 <body>
