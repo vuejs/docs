@@ -211,7 +211,7 @@
       // watching a single nested property:
       'c.d': function (val, oldVal) {
         // do something
-      }
+      },
       // the callback will be called immediately after the start of the observation
       e: {
         handler(val, oldVal) {
