@@ -83,7 +83,7 @@ server.get('*', async (req, res) => {
   <html>
     <body>
       <h1>My First Heading</h1>
-      ${appContent}
+      <div id="app">${appContent}</div>
     </body>
   </html>
   `

@@ -38,7 +38,7 @@ server.get('*', (req, res) => {
   <html>
     <body>
       <h1>My First Heading</h1>
-      ${appContent}
+      <div id="app">${appContent}</div>
     </body>
   </html>
   `
@@ -82,23 +82,27 @@ src
 
 ### `app.js`
 
-`app.js` is the universal entry to our app. In a client-only app, we would create the Vue application instance right in this file and mount directly to DOM. However, for SSR that responsibility is moved into the client-only entry file. `app.js` instead creates an application root component and exports it:
+`app.js` is the universal entry to our app. In a client-only app, we would create the Vue application instance right in this file and mount directly to DOM. However, for SSR that responsibility is moved into the client-only entry file. `app.js` instead creates an application instance and exports it:
 
 ```js
-import { h } from 'vue'
+import { createSSRApp, h } from 'vue'
 import App from './App.vue'
 
 // export a factory function for creating a root component
-export default function(args) {
-  return {
-    rootComponent: {
-      render: () => h(App),
-      components: { App },
-      setup() {
-        // additional application logic here
-      }
+export default function (args) {
+  const rootComponent = {
+    render: () => h(App),
+    components: { App },
+    setup() {
+      // additional application logic here
     }
   }
+
+  const app = createSSRApp(rootComponent);
+
+  return {
+    app,
+  };
 }
 ```
 
@@ -107,8 +111,7 @@ export default function(args) {
 The client entry creates the application using the root component factory and mounts it to the DOM:
 
 ```js
-import { createApp } from 'vue'
-import createRootComponent from './app'
+import createApp from './app'
 
 // client-specific bootstrapping logic...
 
@@ -117,29 +120,26 @@ const { rootComponent } = createRootComponent({
   // for example, to be provided in the `setup()`
 })
 
-const app = createApp(rootComponent)
+const { app, router } = createApp({
+  // here we can pass additional arguments to app factory
+});
 
 // this assumes App.vue template root element has `id="app"`
-app.mount('#app', true)
+app.mount('#app')
 ```
 
 ### `entry-server.js`:
 
-The server entry uses a default export which is a function that can be called repeatedly for each render. At this moment, it doesn't do much other than creating and returning the app instance with `createSSRApp` - but later we will perform server-side route matching and data pre-fetching logic here.
+The server entry uses a default export which is a function that can be called repeatedly for each render. At this moment, it doesn't do much other than returning the app instance - but later we will perform server-side route matching and data pre-fetching logic here.
 
 ```js
-import { createSSRApp } from 'vue'
-import createRootComponent from './app'
-
-export default function() {
-  const { rootComponent } = createRootComponent({
-    /*...*/
-  })
-
-  const app = createSSRApp(rootComponent)
+export default function () {
+  const {
+    app,
+  } = createApp({/*...*/});
 
   return {
-    app
-  }
+    app,
+  };
 }
 ```
