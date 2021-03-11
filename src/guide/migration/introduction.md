@@ -105,13 +105,13 @@ The following consists a list of breaking changes from 2.x:
 - [`<TransitionGroup>` now renders no wrapper element by default](/guide/migration/transition-group.html)
 - [When watching an array, the callback will only trigger when the array is replaced. If you need to trigger on mutation, the `deep` option must be specified.](/guide/migration/watch.html)
 - `<template>` tags with no special directives (`v-if/else-if/else`, `v-for`, or `v-slot`) are now treated as plain elements and will result in a native `<template>` element instead of rendering its inner content.
-- In Vue 2.x, application root container's `outerHTML` is replaced with root component template (or eventually compiled to a template, if root component has no template/render option). Vue 3.x now uses application container's `innerHTML` instead - this means the container itself is no longer considered part of the template.
+- [Mounted application does not replace the element it's mounted to](/guide/migration/mount-changes.html)
 - [Lifecycle `hook:` events prefix changed to `vnode-`](/guide/migration/vnode-lifecycle-events.html)
 
 ### Removed APIs
 
 - [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.html)
-- [$on, $off and $once instance methods](/guide/migration/events-api.html)
+- [$on, $off and \$once instance methods](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
 - [Inline templates attributes](/guide/migration/inline-template-attribute.html)
 - [`$children` instance property](/guide/migration/children.html)

@@ -128,7 +128,7 @@
       <path d="M96.494 56.399l.01 1 .81 75.583 6-.064-6.85 14.074-7.15-13.924 6-.064-.81-75.584-.01-1 2-.021z" fill="#9AA9B2" fill-rule="nonzero"/>
       <rect stroke="#23AC70" fill="#3AB881" x="-.5" y="-.5" width="192" height="58" rx="8"/>
       <text font-family="Inter, Roboto, sans-serif" font-size="14" fill="#FFF">
-        <tspan x="36.456" y="24">Create app.$el and</tspan> <tspan x="41.148" y="42.5">replace “el” with it</tspan>
+        <tspan x="36.456" y="24">Create app.$el and</tspan> <tspan x="52.148" y="42.5">append it to el</tspan>
       </text>
     </g>
     <g transform="translate(367 855)">
