@@ -41,6 +41,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "zaiinhs",
+      "name": "Zainal Abidin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53314006?v=4",
+      "profile": "http://zaiinhs.me",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
