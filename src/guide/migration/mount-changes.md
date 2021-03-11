@@ -23,7 +23,7 @@ new Vue({
     }
   },
   template: `
-    <div id="rendered">{{ message }}</div
+    <div id="rendered">{{ message }}</div>
   `
 })
 
@@ -35,7 +35,7 @@ const app = new Vue({
     }
   },
   template: `
-    <div id="rendered">{{ message }}</div
+    <div id="rendered">{{ message }}</div>
   `
 })
 
