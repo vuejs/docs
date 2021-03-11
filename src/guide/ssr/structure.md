@@ -89,7 +89,7 @@ import { createSSRApp, h } from 'vue'
 import App from './App.vue'
 
 // export a factory function for creating a root component
-export default function (args) {
+export default function(args) {
   const rootComponent = {
     render: () => h(App),
     components: { App },
@@ -98,11 +98,11 @@ export default function (args) {
     }
   }
 
-  const app = createSSRApp(rootComponent);
+  const app = createSSRApp(rootComponent)
 
   return {
-    app,
-  };
+    app
+  }
 }
 ```
 
@@ -122,7 +122,7 @@ const { rootComponent } = createRootComponent({
 
 const { app, router } = createApp({
   // here we can pass additional arguments to app factory
-});
+})
 
 // this assumes App.vue template root element has `id="app"`
 app.mount('#app')
@@ -133,13 +133,13 @@ app.mount('#app')
 The server entry uses a default export which is a function that can be called repeatedly for each render. At this moment, it doesn't do much other than returning the app instance - but later we will perform server-side route matching and data pre-fetching logic here.
 
 ```js
-export default function () {
-  const {
-    app,
-  } = createApp({/*...*/});
+export default function() {
+  const { app } = createApp({
+    /*...*/
+  })
 
   return {
-    app,
-  };
+    app
+  }
 }
 ```

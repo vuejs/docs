@@ -57,12 +57,16 @@ export default function (args) {
 
 ```js
 // entry-client.js
-const { app, router } = createApp({/*...*/});
+const { app, router } = createApp({
+  /*...*/
+})
 ```
 
 ```js
 // entry-server.js
-const { app, router } = createApp({/*...*/});
+const { app, router } = createApp({
+  /*...*/
+})
 ```
 
 ## Code-Splitting
@@ -87,7 +91,9 @@ Note that it is still necessary to use `router.isReady` on both server and clien
 import { createApp } from 'vue'
 import createRootComponent from './app'
 
-const { app, router } = createApp({/* ... */});
+const { app, router } = createApp({
+  /* ... */
+})
 
 router.isReady().then(() => {
   app.mount('#app')
@@ -102,12 +108,12 @@ const createApp = require('./app')
 
 server.get('*', async (req, res) => {
   const { app, router } = await createApp()
-  
-  router.push(req.url);
-  await router.isReady();
+
+  router.push(req.url)
+  await router.isReady()
 
   const appContent = await renderToString(app)
-  
+
   const html = `
   <html>
     <body>
