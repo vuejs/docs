@@ -31,28 +31,29 @@ And update our `app.js`, client and server entries:
 
 ```js
 // app.js
-import { createSSRApp,, h } from 'vue'
+import { createSSRApp, h } from 'vue'
 import App from './App.vue'
 import createRouter from './router'
 
-export default function (args) {
+export default function(args) {
   const rootComponent = {
     render: () => h(App),
     components: { App },
-    setup() {/*...*/}
+    setup() {
+      /*...*/
+    }
   }
 
-  const app = createSSRApp(rootComponent);
-  const router = createRouter();
+  const app = createSSRApp(rootComponent)
+  const router = createRouter()
 
-  app.use(router);
+  app.use(router)
 
   return {
     app,
-    router,
-  };
+    router
+  }
 }
-
 ```
 
 ```js

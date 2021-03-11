@@ -115,12 +115,7 @@ import createApp from './app'
 
 // client-specific bootstrapping logic...
 
-const { rootComponent } = createRootComponent({
-  // here we can pass arguments to root component
-  // for example, to be provided in the `setup()`
-})
-
-const { app, router } = createApp({
+const { app } = createApp({
   // here we can pass additional arguments to app factory
 })
 
@@ -133,6 +128,8 @@ app.mount('#app')
 The server entry uses a default export which is a function that can be called repeatedly for each render. At this moment, it doesn't do much other than returning the app instance - but later we will perform server-side route matching and data pre-fetching logic here.
 
 ```js
+import createApp from './app'
+
 export default function() {
   const { app } = createApp({
     /*...*/
