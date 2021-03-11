@@ -1,7 +1,7 @@
 # Proses Produksi
 
 ::: info
-Sebagian besar tips di bawah ini diaktifkan secara _default_ jika Anda menggunakan [Vue CLI](https://cli.vuejs.org). Bagian ini cocok jika Anda membangun penyiapan dengan cara yang berbeda.
+Sebagian besar tips di bawah ini diaktifkan secara bawaan jika Anda menggunakan [Vue CLI](https://cli.vuejs.org). Bagian ini cocok jika Anda membangun penyiapan dengan cara yang berbeda.
 :::
 
 ## Menghidupkan Mode Produksi
@@ -14,7 +14,7 @@ Jika Anda membangun langsung, yaitu menyertakan Vue melalui tag skrip tanpa alat
 
 ### Dengan Alat Bangun
 
-Ketika menggunakan alat Bangun seperti _Webpack_ atau _Browserify_, mode produksi akan ditentukan oleh `process.env.NODE_ENV` di dalam kode sumber Vue dan itu akan berada dalam mode pengembangan secara _default_. Kedua alat bangun menyediakan cara untuk menimpa variabel ini agar mengaktifkan mode produksi Vue, dan peringatan akan dihilangkan oleh _minifiers_ selama proses membangun. Vue CLI memiliki pra-konfigurasi ini untuk Anda, tetapi akan bermanfaat jika mengetahui cara melakukannya:
+Ketika menggunakan alat Bangun seperti _Webpack_ atau _Browserify_, mode produksi akan ditentukan oleh `process.env.NODE_ENV` di dalam kode sumber Vue dan itu akan berada dalam mode pengembangan secara bawaan. Kedua alat bangun menyediakan cara untuk menimpa variabel ini agar mengaktifkan mode produksi Vue, dan peringatan akan dihilangkan oleh _minifiers_ selama proses membangun. Vue CLI memiliki pra-konfigurasi ini untuk Anda, tetapi akan bermanfaat jika mengetahui cara melakukannya:
 
 #### Webpack
 
@@ -61,7 +61,7 @@ module.exports = {
   browserify: {
     dist: {
       options: {
-        // Berfungsi untuk menyimpang dari urutan default grunt-browserify
+        // Berfungsi untuk menyimpang dari urutan bawaan grunt-browserify
         configure: b =>
           b
             .transform('vueify')
