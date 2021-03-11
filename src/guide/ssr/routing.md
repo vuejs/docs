@@ -31,47 +31,38 @@ And update our `app.js`, client and server entries:
 
 ```js
 // app.js
-import { h } from 'vue'
+import { createSSRApp,, h } from 'vue'
 import App from './App.vue'
 import createRouter from './router'
 
-export default function(args) {
-  return {
-    rootComponent: {
-      render: () => h(App),
-      components: { App },
-      setup() {
-        nativeStore.provideStore(args.nativeStore)
-        vuexStore.provideStore(args.vuexStore)
-      }
-    },
-    // create a router instance
-    router: createRouter()
+export default function (args) {
+  const rootComponent = {
+    render: () => h(App),
+    components: { App },
+    setup() {/*...*/}
   }
+
+  const app = createSSRApp(rootComponent);
+  const router = createRouter();
+
+  app.use(router);
+
+  return {
+    app,
+    router,
+  };
 }
+
 ```
 
 ```js
 // entry-client.js
-
-const { rootComponent, router } = createRootComponent({})
-
-const app = createApp(rootComponent)
-app.use(router)
+const { app, router } = createApp({/*...*/});
 ```
 
 ```js
 // entry-server.js
-const { rootComponent, router } = createRootComponent({})
-
-const app = createSSRApp(rootComponent)
-
-app.use(router)
-
-return {
-  app,
-  router
-}
+const { app, router } = createApp({/*...*/});
 ```
 
 ## Code-Splitting
@@ -88,7 +79,7 @@ import User from './User.vue'
 const User = () => import('./User.vue')
 ```
 
-Note that it is still necessary to use `router.isReady` on both server and client before returning / mounting the app, because the router must resolve async route components ahead of time in order to properly invoke in-component hooks. We already did that in our server entry, and now we just need to update the client entry:
+Note that it is still necessary to use `router.isReady` on both server and client before returning / mounting the app, because the router must resolve async route components ahead of time in order to properly invoke in-component hooks. Let's update our client entry:
 
 ```js
 // entry-client.js
@@ -96,14 +87,36 @@ Note that it is still necessary to use `router.isReady` on both server and clien
 import { createApp } from 'vue'
 import createRootComponent from './app'
 
-const { rootComponent, router } = createRootComponent({})
+const { app, router } = createApp({/* ... */});
 
-const app = createApp(rootComponent)
+router.isReady().then(() => {
+  app.mount('#app')
+})
+```
 
-app.use(router)
+For server part, we need to update our `server.js` script:
 
-(async (r, a) => {
-  await r.isReady()
-  a.mount('#app', true)
-})(router, app)
+```js
+// server.js
+const createApp = require('./app')
+
+server.get('*', async (req, res) => {
+  const { app, router } = await createApp()
+  
+  router.push(req.url);
+  await router.isReady();
+
+  const appContent = await renderToString(app)
+  
+  const html = `
+  <html>
+    <body>
+      <h1>My First Heading</h1>
+      <div id="app">${appContent}</div>
+    </body>
+  </html>
+  `
+
+  res.end(html)
+})
 ```
