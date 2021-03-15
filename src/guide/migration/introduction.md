@@ -120,7 +120,7 @@ The following consists a list of breaking changes from 2.x:
 
 ## Supporting Libraries
 
-All of our official libraries and tools now support Vue 3, but most of them are still in beta status and distributed under the `next` dist tag on npm. **We are planning to stabilize and switch all projects to use the `latest` dist tag by end of 2020.**
+All of our official libraries and tools now support Vue 3, but some of them are still in beta or release candidate status. You'll find details for the individual libraries below. Most are currently distributed using the `next` dist tag on npm. We intend to switch to `latest` once all the official libraries have compatible, stable versions.
 
 ### Vue CLI
 

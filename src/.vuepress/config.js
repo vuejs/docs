@@ -371,7 +371,7 @@ module.exports = {
               {
                 text: 'Vue Test Utils',
                 link:
-                  'https://next.vue-test-utils.vuejs.org/v2/guide/introduction.html'
+                  'https://next.vue-test-utils.vuejs.org/guide/'
               },
               {
                 text: 'Devtools',
