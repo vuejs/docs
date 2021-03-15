@@ -462,6 +462,21 @@ module.exports = {
   },
   plugins: [
     [
+      '@vuepress/last-updated',
+      {
+        transformer(timestamp) {
+          const date = new Date(timestamp)
+
+          const digits = [
+            date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate(),
+            date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()
+          ].map(num => String(num).padStart(2, '0'))
+
+          return '{0}-{1}-{2}, {3}:{4}:{5} UTC'.replace(/{(\d)}/g, (_, num) => digits[num])
+        }
+      }
+    ],
+    [
       '@vuepress/pwa',
       {
         serviceWorker: true,
