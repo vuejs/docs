@@ -117,6 +117,7 @@ The following consists a list of breaking changes from 2.x:
 - [`$children` instance property](/guide/migration/children.html)
 - [`propsData` option](/guide/migration/props-data.html)
 - `$destroy` instance method. Users should no longer manually manage the lifecycle of individual Vue components.
+- Global functions `set` and `delete`, and the instance methods `$set` and `$delete`. They are no longer required with proxy-based change detection.
 
 ## Supporting Libraries
 
