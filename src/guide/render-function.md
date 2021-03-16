@@ -173,7 +173,7 @@ If there are no props then the children can usually be passed as the second argu
 With this knowledge, we can now finish the component we started:
 
 ```js
-const { createApp, h } = Vue
+import { createApp, h } from 'vue'
 
 const app = createApp({})
 
