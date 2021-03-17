@@ -94,4 +94,4 @@ server.get('*', async (req, res) => {
 server.listen(8080)
 ```
 
-Now, when running this Node.js script, we can see a static HTML page on `localhost:8080`. However, this code is not _hydrated_: Vue hasn't yet take over the static HTML sent by the server to turn it into dynamic DOM that can react to client-side data changes. This will be covered in the [Client Side Hydration](#) section.
+Now, when running this Node.js script, we can see a static HTML page on `localhost:8080`. However, this code is not _hydrated_: Vue hasn't yet take over the static HTML sent by the server to turn it into dynamic DOM that can react to client-side data changes. This will be covered in the [Client Side Hydration](hydration.html) section.
