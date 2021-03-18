@@ -211,7 +211,12 @@ const sidebar = {
   ],
   ssr: [
     ['/guide/ssr/introduction', 'Introduction'],
-    '/guide/ssr/getting-started'
+    '/guide/ssr/getting-started',
+    '/guide/ssr/universal',
+    '/guide/ssr/structure',
+    '/guide/ssr/routing',
+    '/guide/ssr/hydration',
+    '/guide/ssr/build-config'
   ],
   contributing: [
     {

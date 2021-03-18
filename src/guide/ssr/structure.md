@@ -106,7 +106,7 @@ export default function(args) {
 }
 ```
 
-### `entry-client.js`:
+### `entry-client.js`
 
 The client entry creates the application using the root component factory and mounts it to the DOM:
 
@@ -123,7 +123,7 @@ const { app } = createApp({
 app.mount('#app')
 ```
 
-### `entry-server.js`:
+### `entry-server.js`
 
 The server entry uses a default export which is a function that can be called repeatedly for each render. At this moment, it doesn't do much other than returning the app instance - but later we will perform server-side route matching and data pre-fetching logic here.
 
