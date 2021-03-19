@@ -1,6 +1,6 @@
 # Built-In Components
 
-The built-in components can all be used directly in templates without needing to be registered.
+Built-in components can be used directly in templates without needing to be registered.
 
 The `<keep-alive>`, `<transition>`, `<transition-group>`, and `<teleport>` components can all be tree-shaken by bundlers, so that they are only included in the build if they're used. They can also be imported explicitly if you need direct access to the component itself:
 
