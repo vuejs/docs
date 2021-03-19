@@ -70,7 +70,7 @@ export default {
 
   data() {
     return {
-      showTopBanner: true,
+      showTopBanner: false,
       isSidebarOpen: false
     }
   },
@@ -132,7 +132,7 @@ export default {
       this.isSidebarOpen = false
     })
 
-    if (localStorage.getItem('VS_BANNER_CLOSED')) this.showTopBanner = false
+    this.showTopBanner = !localStorage.getItem('VS_BANNER_CLOSED')
   },
 
   methods: {
