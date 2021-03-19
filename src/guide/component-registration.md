@@ -23,7 +23,7 @@ Le nom que vous donnez à un composant peut dépendre de l'endroit où vous avez
 
 Ce faisant, cela vous aidera à éviter les conflits avec les éléments HTML actuels et futurs.
 
-Vous pouvez voir d’autres recommandations pour les noms de composants dans le [Guide de style](../style-guide/#base-component-names-strongly-recommended).
+Vous pouvez voir d’autres recommandations pour les noms de composants dans le [Guide de style](../style-guide/#nom-des-composants-de-base-extremement-recommandee).
 
 ### Casse des noms
 

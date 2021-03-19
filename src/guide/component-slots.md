@@ -222,7 +222,7 @@ Le HTML rendu sera:
 </div>
 ```
 
-Notez que **`v-slot` ne peut être ajouté qu'à un `<template>`** (avec [une exception](#abbreviated-syntax-for-lone-default-slots))
+Notez que **`v-slot` ne peut être ajouté qu'à un `<template>`** (avec [une exception](#syntaxe-abregee-pour-les-slots-par-defaut-isoles))
 
 ## Slots scopés
 
@@ -385,7 +385,7 @@ Vous pouvez même définir des solutions de secours, à utiliser dans le cas où
 
 ## Noms de slot dynamiques
 
-Les [Arguments de directive dynamique](template-syntax.md#dynamic-arguments) fonctionnent également sur `v-slot`, permettant la définition de noms de slots dynamiques:
+Les [Arguments de directive dynamique](template-syntax.md#arguments-dynamiques) fonctionnent également sur `v-slot`, permettant la définition de noms de slots dynamiques:
 
 ```html
 <base-layout>

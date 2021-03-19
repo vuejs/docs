@@ -238,7 +238,7 @@ app.component('blog-post', {
 })
 ```
 
-Cela vous permettra de vérifier tous les événements qu'un composant émet et éventuellement de [les valider](component-custom-events.html#validate-emitted-events).
+Cela vous permettra de vérifier tous les événements qu'un composant émet et éventuellement de [les valider](component-custom-events.html#valider-les-evenements-emis).
 
 ### Emission d'une valeur avec un événement
 

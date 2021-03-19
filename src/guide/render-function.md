@@ -271,7 +271,7 @@ render() {
 
 `resolveComponent` est la même fonction que les templates utilisent en interne pour résoudre les composants par nom.
 
-Une fonction `render` n'aura normalement besoin d'utiliser `resolveComponent` que pour les composants qui sont [enregistrés globalement](/guide/component-registration.html#global-registration). L'[Enregistrement de composant local](/guide/component-registration.html#local-registration) peut généralement être complètement ignoré. Prenons l'exemple suivant:
+Une fonction `render` n'aura normalement besoin d'utiliser `resolveComponent` que pour les composants qui sont [enregistrés globalement](/guide/component-registration.html#enregistrement-global). L'[Enregistrement de composant local](/guide/component-registration.html#enregistrement-local) peut généralement être complètement ignoré. Prenons l'exemple suivant:
 
 ```js
 // On peut simplifier ceci

@@ -416,7 +416,7 @@ Si vous souhaitez également appliquer une transition sur le rendu initial d'un 
 
 ## Transition entre les éléments
 
-Nous discuterons de la [transition entre les composants](#transitioning-between-components) plus tard, mais vous pouvez également effectuer la transition entre les éléments bruts en utilisant `v-if`/`v-else`. L'une des transitions à deux éléments les plus courantes se situe entre un conteneur de liste et un message décrivant une liste vide:
+Nous discuterons de la [transition entre les composants](#transition-entre-les-composants) plus tard, mais vous pouvez également effectuer la transition entre les éléments bruts en utilisant `v-if`/`v-else`. L'une des transitions à deux éléments les plus courantes se situe entre un conteneur de liste et un message décrivant une liste vide:
 
 ```html
 <transition>
@@ -507,7 +507,7 @@ Nous pouvons l'utiliser pour coordonner des mouvements plus expressifs, comme un
 
 ## Transition entre les composants
 
-La transition entre les composants est encore plus simple - nous n'avons même pas besoin de l'attribut `key`. Au lieu de cela, nous enveloppons un [composant dynamique](component-basics.html#dynamic-components):
+La transition entre les composants est encore plus simple - nous n'avons même pas besoin de l'attribut `key`. Au lieu de cela, nous enveloppons un [composant dynamique](component-basics.html#composants-dynamiques):
 
 ```html
 <div id="demo">

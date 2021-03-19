@@ -284,4 +284,4 @@ Si vous voulez que les espaces blancs de l'entrée utilisateur soient supprimés
 
 > Si vous n'êtes pas encore familiarisé avec les composants de Vue, vous pouvez ignorer cela pour le moment
 
-Les types d'saisie intégrés au HTML ne répondront pas toujours à vos besoins. Heureusement, les composants Vue vous permettent de créer des entrées réutilisables avec un comportement entièrement personnalisé. Ces entrées fonctionnent même avec `v-model`! Pour en savoir plus, lisez la section [entrées personnalisées](./component-basics.html#using-v-model-on-components) dans le guide des composants.
+Les types d'saisie intégrés au HTML ne répondront pas toujours à vos besoins. Heureusement, les composants Vue vous permettent de créer des entrées réutilisables avec un comportement entièrement personnalisé. Ces entrées fonctionnent même avec `v-model`! Pour en savoir plus, lisez la section [entrées personnalisées](./component-basics.html#utilisation-de-v-model-sur-les-composants) dans le guide des composants.

@@ -88,7 +88,7 @@ De manière générale, `v-if` a des coûts de basculement plus élevés tandis 
 ## `v-if` avec `v-for`
 
 ::: tip Note
-L'utilisation conjointe de `v-if` et` v-for` n'est **pas recommandée**. oir le [guide de style](../style-guide/#avoid-v-if-with-v-for-essential) pour plus d'informations.
+L'utilisation conjointe de `v-if` et` v-for` n'est **pas recommandée**. Voir le [guide de style](../style-guide/#eviter-v-if-avec-v-for-essentielle) pour plus d'informations.
 :::
 
-Lorsque `v-if` et `v-for` sont tous deux utilisés sur le même élément, `v-if` sera évalué en premier. Voir le [guide de rendu de liste](list#v-for-with-v-if) pour plus de détails.
+Lorsque `v-if` et `v-for` sont tous deux utilisés sur le même élément, `v-if` sera évalué en premier. Voir le [guide de rendu de liste](list#v-for-avec-v-if) pour plus de détails.

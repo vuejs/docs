@@ -14,7 +14,7 @@ this.$emit('myEvent')
 <my-component @my-event="doSomething"></my-component>
 ```
 
-Comme pour la [casse des props](/guide/component-props.html#prop-casing-camelcase-vs-kebab-case), nous vous recommandons d'utiliser des écouteurs d'événement en kebab-case lorsque vous utilisez des templates dans le DOM. Si vous utilisez des string templates, cette limitation ne s'applique pas.
+Comme pour la [casse des props](/guide/component-props.html#casse-des-noms-de-prop-camelcase-vs-kebab-case), nous vous recommandons d'utiliser des écouteurs d'événement en kebab-case lorsque vous utilisez des templates dans le DOM. Si vous utilisez des string templates, cette limitation ne s'applique pas.
 
 ## Définir des événements personalisés
 

@@ -235,7 +235,7 @@ Similaire au template `v-if`, vous pouvez également utiliser une balise `<templ
 ## `v-for` avec `v-if`
 
 :::tip
-Notez qu'il n'est **pas** recommandé d'utiliser `v-if` et` v-for` ensemble. Reportez-vous au [guide de style](../style-guide/#avoid-v-if-with-v-for-essential) pour plus de détails.
+Notez qu'il n'est **pas** recommandé d'utiliser `v-if` et` v-for` ensemble. Reportez-vous au [guide de style](../style-guide/#eviter-v-if-avec-v-for-essentielle) pour plus de détails.
 :::
 
 When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:

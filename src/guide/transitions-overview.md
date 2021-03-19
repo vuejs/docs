@@ -224,7 +224,7 @@ Voici le code utilisé pour un rebond en CSS (exemple de animate.css):
 }
 ```
 
-And here is the same bounce in JS using GreenSock:
+Et voici la même animation en JS en utilisant GreenSock:
 
 ```js
 gsap.from(element, { duration: 1, ease: 'bounce.out', y: -500 })

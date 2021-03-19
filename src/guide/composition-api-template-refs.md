@@ -4,7 +4,7 @@
 
 > Ce guide suppose que vous avez déjà lu l '[introduction du Composition API](composition-api-introduction.html) et les [Fondamentaux de la réactivité](reactivity-fundamentals.html). Lisez cela d'abord si vous êtes nouveau dans le composition API.
 
-Lors de l'utilisation du Composition API, le concept de [refs réactifs](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) et [template refs](component-template-refs.html) sont unifiés. Afin d'obtenir une référence à un élément dans le template ou à une instance de composant, nous pouvons déclarer une ref comme d'habitude et la retourner depuis [setup ()](composition-api-setup.html):
+Lors de l'utilisation du Composition API, le concept de [refs réactifs](reactivity-fundamentals.html#creation-de-valeurs-reactives-autonomes-en-tant-que-refs) et [template refs](component-template-refs.html) sont unifiés. Afin d'obtenir une référence à un élément dans le template ou à une instance de composant, nous pouvons déclarer une ref comme d'habitude et la retourner depuis [setup ()](composition-api-setup.html):
 
 ```html
 <template>

@@ -4,7 +4,7 @@
 
 ## Valeur computed
 
-Parfois, nous avons besoin d'un état qui dépend d'un autre état - dans Vue, cela est géré avec les [propriétés computed](computed.html#computed-properties). Pour créer directement une valeur computed, nous pouvons utiliser la méthode `computed`: elle prend une fonction getter et renvoie un objet réactif immuable [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) pour la valeur renvoyée par le getter.
+Parfois, nous avons besoin d'un état qui dépend d'un autre état - dans Vue, cela est géré avec les [propriétés computed](computed.html#propriete-computed). Pour créer directement une valeur computed, nous pouvons utiliser la méthode `computed`: elle prend une fonction getter et renvoie un objet réactif immuable [ref](reactivity-fundamentals.html#creation-de-valeurs-reactives-autonomes-en-tant-que-refs) pour la valeur renvoyée par le getter.
 
 ```js
 const count = ref(1)
