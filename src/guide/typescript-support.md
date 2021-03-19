@@ -135,9 +135,9 @@ const Component = defineComponent({
 
 ### Augmenting Types for Use with Plugins or Declarations by User
 
-Vue 3 provides `globalProperties` property for [plugins](./plugins.html#writing-a-plugin) to add to Vue’s global properties in each component instance. In some cases, we also need to [do it by ourselves](../api/application-config.html#globalproperties):
+Vue 3 provides a [`globalProperties` object](../api/application-config.html#globalproperties) that can be used to add a global property that can be accessed in any component instance. For example, a [plugin](./plugins.html#writing-a-plugin) might want to inject a shared global object or function.
 
-```typescript
+```ts
 // User Definition
 import axios from 'axios'
 
@@ -154,11 +154,11 @@ export default {
 }
 ```
 
-In order to let TypeScript know the properties we (or plugins) added and their types, the [Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) feature can help us.
+In order to tell TypeScript about these new properties, we can use [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
 
-For the above example, we (or plugins) can add the following code of type definition:
+In the above example, we could add the following type declaration:
 
-```typescript
+```ts
 import axios from 'axios'
 
 declare module '@vue/runtime-core' {
@@ -168,9 +168,9 @@ declare module '@vue/runtime-core' {
 }
 ```
 
-We should put the above code wherever it can be loaded, such as `main.ts` where you define these properties, or a `*.d.ts` file in `src/typings` folder automatically loaded by TypeScript. For plugins, it should be placed in the location specified by the `types` property in `package.json`. 
+We can put this type declaration in the same file, or in a project-wide `*.d.ts` file (for example, in the `src/typings` folder that is automatically loaded by TypeScript). For library/plugin authors, this file should be specified in the `types` property in `package.json`.
 
-The `ComponentCustomProperties` type can help us define the custom options, see the code of [definition in `@vue/runtime-core`](https://github.com/vuejs/vue-next/blob/2587f36fe311359e2e34f40e8e47d2eebfab7f42/packages/runtime-core/src/componentOptions.ts#L64-L80) and [unit tests for TypeScript types](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) to learn more.
+For more information about the `ComponentCustomProperties` type, see its [definition in `@vue/runtime-core`](https://github.com/vuejs/vue-next/blob/2587f36fe311359e2e34f40e8e47d2eebfab7f42/packages/runtime-core/src/componentOptions.ts#L64-L80) and [the TypeScript unit tests](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) to learn more.
 
 ### Annotating Return Types
 
