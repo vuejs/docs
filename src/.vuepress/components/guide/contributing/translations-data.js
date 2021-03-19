@@ -17,5 +17,6 @@ export const repos = [
   { lang: 'ko', owner: 'vuejs-kr', repo: 'docs-next', branch: 'rootKoKr', url: 'https://v3.ko.vuejs.org/'  },
   { lang: 'pt-br', owner: 'vuejs-br', repo: 'docs-next', branch: 'master', url: 'https://vuejsbr-docs-next.netlify.app/' },
   { lang: 'ru', owner: 'translation-gang', repo: 'docs-next', branch: 'master' },
-  { lang: 'zh-cn', owner: 'vuejs', repo: 'docs-next-zh-cn', branch: 'master', url: 'https://v3.cn.vuejs.org/' }
+  { lang: 'zh-cn', owner: 'vuejs', repo: 'docs-next-zh-cn', branch: 'master', url: 'https://v3.cn.vuejs.org/' },
+  { lang: 'fr', owner: 'demahom18', repo: 'docs-next', branch: 'master', url: 'https://vue3-fr.netlify.app' }
 ]
