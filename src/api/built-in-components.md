@@ -41,7 +41,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   <component :is="href ? 'a' : 'span'"></component>
   ```
 
-  The built-in components `KeepAlive`, `Transition`, `TransitionGroup`, and `Teleport` can all be passed to `is` but you must register them if you want to pass them by name. e.g.: 
+  The built-in components `KeepAlive`, `Transition`, `TransitionGroup`, and `Teleport` can all be passed to `is`, but you must register them if you want to pass them by name. For example:
 
   ```js
   const { Transition, TransitionGroup } = Vue
