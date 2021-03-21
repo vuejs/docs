@@ -43,18 +43,18 @@ $ npm install vue@next
 Vue fornisce una [CLI ufficiale](https://github.com/vuejs/vue-cli) per lo scaffolding rapido di Single Page Applications ambiziose. Fornisce un setup di sviluppo completo per un workflow di sviluppo frontend moderno. È necessario solo qualche minuto per essere pronti e produttivi con l'hot-reload, il linting al salvataggio, e builds pronte per la produzione. Leggi la [docs della Vue CLI](https://cli.vuejs.org) per sapere di più.
 
 ::: tip
-The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through <a href="./">the guide</a> without any build tools before using the CLI.
+La CLI assume conoscenza pregressa di Node.js e degli strumenti di build ad esso associati. Se Vue o gli strumenti di build per il frontend ti sono nuovi, ti suggeriamo fortemente di leggere <a href="./">la guida</a> senza nessuno strumento di build prima di usare la CLI.
 :::
 
-For Vue 3, you should use Vue CLI v4.5 available on `npm` as `@vue/cli`. To upgrade, you need to reinstall the latest version of `@vue/cli` globally:
+Per Vue 3, dovresti usare la Vue CLI v4.5 disponibile su `npm` come `@vue/cli`. Per aggiornare, devi reinstallare l'ultima versione di `@vue/cli` globalmente:
 
 ```bash
 yarn global add @vue/cli
-# OR
+# Oppure
 npm install -g @vue/cli
 ```
 
-Then in the Vue projects, run
+Poi in un progetto Vue, esegui
 
 ```bash
 vue upgrade --next
@@ -62,11 +62,11 @@ vue upgrade --next
 
 ## Vite
 
-[Vite](https://github.com/vitejs/vite) is a web development build tool that allows for lighting fast serving of code due its native ES Module import approach.
+[Vite](https://github.com/vitejs/vite) è uno strumento di build per la programmazione web che permette una compilazione estremamente veloce grazie al suo approccio di import basato sui moduli ES nativi.
 
-Vue projects can quickly be set up with Vite by running the following commands in your terminal.
+I progetti Vue possono essere impostati velocemente con Vite eseguendo i seguenti comandi nel tuo terminale.
 
-With NPM:
+Con NPM:
 
 ```bash
 $ npm init vite-app <project-name>
@@ -75,7 +75,7 @@ $ npm install
 $ npm run dev
 ```
 
-Or with Yarn:
+Oppure con Yarn:
 
 ```bash
 $ yarn create vite-app <project-name>
@@ -84,23 +84,23 @@ $ yarn
 $ yarn dev
 ```
 
-## Explanation of Different Builds
+## Spiegazione delle Diverse Build
 
-In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
+Nella [cartella `dist/` del package NPM](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) troverai diverse build di Vue.js. Qui puoi leggere una panoramica di quale file `dist` dovrebbe essere usato a seconda del caso d'uso.
 
-### From CDN or without a Bundler
+### Da CDN o senza un Bundler
 
 #### `vue(.runtime).global(.prod).js`:
 
-- For direct use via `<script src="...">` in the browser, exposes the Vue global.
-- In-browser template compilation:
-  - `vue.global.js` is the "full" build that includes both the compiler and the runtime so it supports compiling templates on the fly.
-  - `vue.runtime.global.js` contains only the runtime and requires templates to be pre-compiled during a build step.
-- Inlines all Vue core internal packages - i.e. it's a single file with no dependencies on other files. This means you must import everything from this file and this file only to ensure you are getting the same instance of code.
-- Contains hard-coded prod/dev branches, and the prod build is pre-minified. Use the `*.prod.js` files for production.
+- Per utilizzo diretto nel browser tramite `<script src="...">`, espone il Vue globale.
+- Compilazione del template In-browser:
+  - `vue.global.js` è la build "completa" che include sia il compilatore che il runtime quindi supporta la compilazione on the fly.
+  - `vue.runtime.global.js` contiene solo il runtime e richiede che il template sia pre-compilato durante una fase di build.
+- Pacchetti interni del core di Vue tutti inline - es. è un singolo file senza dipendenze su altri file. Questo vuol dire dovrai importare tutto da questo e solo questo file per assicurarti che stai ottenendo la stessa istanza di codice. 
+- Contiene branch prod/dev hard-coded, e la build per production è pre-minimizzata. Usa il file `*.prod.js` per la production.
 
 :::tip Note
-Global builds are not [UMD](https://github.com/umdjs/umd) builds. They are built as [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and are only meant for direct use via `<script src="...">`.
+Le build globali non sono build [UMD](https://github.com/umdjs/umd). Sono sviluppate come [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) e sono pensate solo per l'utilizzo diretto tramite `<script src="...">`.
 :::
 
 #### vue(.runtime).esm-browser(.prod).js:
