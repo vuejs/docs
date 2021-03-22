@@ -7,7 +7,7 @@ badges:
 
 ## Overview
 
-- **BREAKING:** Custom elements allow listing is now performed during template compilation, and should be configured via compiler options instead of runtime config.
+- **BREAKING:** The checks to determine whether tags should be treated as custom elements are now performed during template compilation, and should be configured via compiler options instead of runtime config.
 - **BREAKING:** Special `is` prop usage is restricted to the reserved `<component>` tag only.
 - **NEW:** There is new `v-is` directive to support 2.x use cases where `is` was used on native elements to work around native HTML parsing restrictions.
 
