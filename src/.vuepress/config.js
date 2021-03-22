@@ -458,7 +458,8 @@ module.exports = {
       carbon: 'CEBDT27Y',
       custom: 'CKYD62QM',
       placement: 'vuejsorg'
-    }
+    },
+    topBanner: true
   },
   plugins: [
     [
