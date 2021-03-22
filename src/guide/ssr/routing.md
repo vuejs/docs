@@ -101,7 +101,7 @@ router.isReady().then(() => {
 })
 ```
 
-For server part, we need to update our `server.js` script:
+We also need to update our `server.js` script:
 
 ```js
 // server.js
