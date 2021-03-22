@@ -8,11 +8,11 @@ It is recommended to use the official [vue-router](https://github.com/vuejs/vue-
 
 ```js
 // router.js
-const {
+import {
   createRouter,
   createMemoryHistory,
   createWebHistory
-} = require('vue-router')
+} from 'vue-router'
 
 const isServer = typeof window === 'undefined'
 
