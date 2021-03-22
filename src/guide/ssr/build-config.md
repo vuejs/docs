@@ -1,6 +1,9 @@
 # Build Configuration
 
-We will assume you already know how to configure webpack for a client-only project. The config for an SSR project will be largely similar. This example shows a config for Vue CLI project but can be adapted to be used on any webpack build.
+The webpack config for an SSR project will be similar to a client-only project. If you're not familiar with configuring webpack, you can find more information in the documentation for [Vue CLI](https://cli.vuejs.org/guide/webpack.html#working-with-webpack) or [configuring Vue Loader manually](https://vue-loader.vuejs.org/guide/#manual-setup).
+
+### Example configuration
+Below is a sample `vue.config.js` that adds SSR rendering to a Vue CLI project, but it can be adapted for any webpack build.
 
 ```js
 const ManifestPlugin = require('webpack-manifest-plugin')
