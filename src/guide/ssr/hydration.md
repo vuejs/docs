@@ -13,11 +13,15 @@ Since the server has already rendered the markup, we obviously do not want to th
 
 Vue provides a `createSSRApp` method for use in client-side code (in this case, in our `entry-client.js`) to tell Vue to hydrate the existing static HTML instead of re-creating all the DOM elements.
 
-In development mode, Vue will assert the client-side generated virtual DOM tree matches the DOM structure rendered from the server. If there is a mismatch, it will bail hydration, discard existing DOM and render from scratch. **In production mode, this assertion is disabled for maximum performance.**
-
 ### Hydration Caveats
 
-One thing to be aware of when using SSR + client hydration is some special HTML structures that may be altered by the browser. For example, when you write this in a Vue template:
+In development mode, Vue will assert the client-side generated virtual DOM tree matches the DOM structure rendered from the server. If there is a mismatch, it will bail hydration, discard existing DOM and render from scratch. There will be a warning in the browser console but your site will still work.
+
+However, in production mode, this assertion is disabled for maximum performance, which means that **it is crucial you ensure your client- and server-side DOM trees match**. Otherwise your HTML will remain static and non-reactive.
+
+The first key way to ensure this it to ensuring your application state is the same on client and server. Take special care not to depend on APIs specific to the browser (like window width, device capability or localStorage) or server (such as Node built-ins), and take care where the same code will give different results when run in different places (such as when using timezones, timestamps, normalizing URLs or generating random numbers). See [Writing Universal Code](./universal.md) for more details.
+
+A second key thing to be aware of when using SSR + client hydration is that invalid HTML may be altered by the browser. For example, when you write this in a Vue template:
 
 ```html
 <table>
