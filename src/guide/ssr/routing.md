@@ -16,7 +16,7 @@ import {
 
 const isServer = typeof window === 'undefined'
 
-let history = isServer ? createMemoryHistory() : createWebHistory()
+const history = isServer ? createMemoryHistory() : createWebHistory()
 
 const routes = [
   /* ... */
