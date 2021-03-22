@@ -21,7 +21,7 @@ If we want to add a custom element defined outside of Vue (e.g. using the Web Co
 
 ### 2.x Syntax
 
-In Vue 2.x, allow listing tags as custom elements was done via `Vue.config.ignoredElements`:
+In Vue 2.x, configuring tags as custom elements was done via `Vue.config.ignoredElements`:
 
 ```js
 // This will make Vue ignore custom element defined outside of Vue
