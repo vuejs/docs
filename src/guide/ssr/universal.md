@@ -26,7 +26,7 @@ Note that if a 3rd party library is not written with universal usage in mind, it
 
 ## Custom Directives
 
-Most custom directives directly manipulate the DOM, and therefore will cause error during SSR. There are two ways to work around this:
+Most custom directives directly manipulate the DOM, which will cause errors during SSR. There are two ways to work around this:
 
 1. Prefer using components as the abstraction mechanism and work at the Virtual-DOM level (e.g. using render functions) instead.
 
