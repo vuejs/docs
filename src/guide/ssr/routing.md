@@ -89,8 +89,7 @@ Note that it is still necessary to use `router.isReady` on both server and clien
 ```js
 // entry-client.js
 
-import { createApp } from 'vue'
-import createRootComponent from './app'
+import createApp from './app'
 
 const { app, router } = createApp({
   /* ... */
