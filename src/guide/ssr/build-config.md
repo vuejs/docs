@@ -48,7 +48,7 @@ module.exports = {
     // https://github.com/liady/webpack-node-externals
     // Externalize app dependencies. This makes the server build much faster
     // and generates a smaller bundle file.
-    // do not externalize dependencies that need to be processed by webpack.
+    // Do not externalize dependencies that need to be processed by webpack.
     // you should also whitelist deps that modifies `global` (e.g. polyfills)
     webpackConfig.externals(nodeExternals({ allowlist: /\.(css|vue)$/ }))
 
