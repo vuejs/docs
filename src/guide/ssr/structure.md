@@ -45,7 +45,7 @@ server.get('*', (req, res) => {
 })
 ```
 
-The same rule applies to router and store instances as well. Instead of exporting it directly from a module and importing it across your app, you need to create a fresh instance in `createApp` and inject it from the root Vue instance.
+The same rule applies to other instances as well (such as the router or store). Instead of exporting the router or store directly from a module and importing it across your app, you should create a fresh instance in `createApp` and inject it from the root Vue instance.
 
 ## Introducing a Build Step
 
