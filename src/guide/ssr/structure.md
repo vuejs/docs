@@ -10,9 +10,9 @@ So, instead of directly creating an app instance, we should expose a factory fun
 
 ```js
 // app.js
-const { createSSRApp } = require('vue')
+import { createSSRApp } from 'vue'
 
-module.exports = function createApp() {
+export default function createApp() {
   return createSSRApp({
     data() {
       return {
