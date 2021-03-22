@@ -72,7 +72,7 @@ const { app, router } = createApp({
 
 ## Code-Splitting
 
-Code-splitting, or lazy-loading part of your app, helps reducing the amount of assets that need to be downloaded by the browser for the initial render, and can greatly improve TTI (time-to-interactive) for apps with large bundles. The key is "loading just what is needed" for the initial screen.
+Code-splitting, or lazy-loading part of your app, helps reduce the size of assets that need to be downloaded by the browser for the initial render, and can greatly improve TTI (time-to-interactive) for apps with large bundles. The key is "loading just what is needed" for the initial screen.
 
 Vue provides async components as a first-class concept, combining it with [webpack 2's support for using dynamic import as a code-split point](https://webpack.js.org/guides/code-splitting-async/), all you need to do is:
 
