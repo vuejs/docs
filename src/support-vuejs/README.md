@@ -3,27 +3,27 @@ supportvue: true
 sidebar: auto
 ---
 
-# Sponsor Vue.js Development
+# Sponsori Pengembangan Vue.js
 
-Vue.js is an MIT licensed open source project and completely free to use.
-However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support Vue.js development via the following methods:
+Vue.js merupakan sebuah proyek sumber terbuka berlisensi MIT dan bebas untuk digunakan.
+Bagaimanapun, upaya yang diperlukan untuk memelihara dan mengembangkan fitur-fitur baru untuk proyek tersebut tidak akan bertahan tanpa dukungan finansial yang layak. Kamu dapat mendukung pengembangan Vue.js melalui cara-cara berikut:
 
-## One-time Donations
+## Donasi Sekali Waktu
 
-We accept donations through these channels:
+Kami menerima donasi melalui beberapa kanal di bawah ini:
 
 <support-Coins />
 
-## Recurring Pledges
+## Donasi Berkala
 
-Recurring pledges come with exclusive perks, e.g. having your name listed in the Vue GitHub repository, or have your company logo placed on this website.
+Donasi berkala datang dengan keuntungan eksklusif, misalnya namamu tercantum di repositori GitHub Vue, atau logo perusahaanmu diletakkan pada situs web ini.
 
-- [Become a backer or sponsor via Patreon](https://www.patreon.com/evanyou) (goes directly to support Evan You's full-time work on Vue)
-- [Become a backer or sponsor via OpenCollective](https://opencollective.com/vuejs) (goes into a fund with transparent expense models supporting community efforts and events)
+- [Menjadi pendukung atau sponsor melalui Patreon](https://www.patreon.com/evanyou) (Disalurkan secara langsung untuk mendukung Evan You bekerja penuh pada Vue)
+- [Menjadi pendukung atau sponsor melalui OpenCollective](https://opencollective.com/vuejs) (Disalurkan ke dalam dana dengan model pengeluaran transparan untuk mendukung komunitas dan kegiatan)
 
-## Current Premium Sponsors
+## Sponsor Premium Saat Ini
 
-### Special Sponsors
+### Sponsor Special
 
 <support-SponsorGroup group="special_sponsors" class="platinum" />
 
@@ -35,7 +35,7 @@ Recurring pledges come with exclusive perks, e.g. having your name listed in the
 
 <support-OpenCollectiveGroup group="platinum" />
 
-### Special Sponsors (China)
+### Sponsor Spesial (China)
 
 <support-SponsorGroup group="platinum_sponsors_china" class="platinum" />
 
@@ -55,6 +55,6 @@ Recurring pledges come with exclusive perks, e.g. having your name listed in the
 
 <support-OpenCollectiveGroup group="silver" />
 
-If you run a business and are using Vue in a revenue-generating product, it makes business sense to sponsor Vue development: **it ensures the project that your product relies on stays healthy and actively maintained.** It can also help your exposure in the Vue community and makes it easier to attract Vue developers.
+Jika kamu menjalankan bisnis dan menggunakan Vue dalam produk yang menghasilkan pendapatan (komersil), itu masuk akal untuk mensponsori pengembangan Vue: **Ini memastikan proyek yang kamu andalkan (Vue) dalam keadaan sehat dan dikelola secara aktif.** Ini juga dapat membantu mengembangkan popularitasmu pada komunitas Vue dan mempermudah untuk menarik perhatian pengembang Vue lainnya.
 
-If you are an individual user and have enjoyed the productivity of using Vue, consider donating as a sign of appreciation - like buying me coffee once in a while.
+Jika kamu merupakan seorang individu dan menikmati produktivitas dengan menggunakan Vue, pertimbangkan untuk berdonasi sebagai tanda apresiasi - seperti sesekali membelikanku kopi.

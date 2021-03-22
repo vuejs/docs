@@ -1,8 +1,8 @@
-# Computed Properties and Watchers
+# Properti Terkomputasi (_Computed Properties_) dan _Watcher_
 
-## Computed Properties
+## Properti Terkomputasi (_Computed Property_)
 
-In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
+Ekspresi di dalam templat sangat mudah, tetapi ekspresi tersebut bertujuan untuk operasi sederhana. Meletakkan logika kode yang terlalu kompleks pada templat dapat membuat mereka menjadi membengkak dan lebih susah untuk dirawat. Sebagai contoh, jika kita memiliki objek pada array bersarang:
 
 ```js
 Vue.createApp({
@@ -21,7 +21,7 @@ Vue.createApp({
 })
 ```
 
-And we want to display different messages depending on if `author` already has some books or not
+Dan jika kita ingin untuk menampilkan pesan berbeda tergantung nilai `author` memiliki buku atau tidak
 
 ```html
 <div id="computed-basics">
@@ -30,11 +30,11 @@ And we want to display different messages depending on if `author` already has s
 </div>
 ```
 
-At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it performs a calculation depending on `author.books`. The problem is made worse when you want to include this calculation in your template more than once.
+Pada tahap ini, templat tidak lagi sederhana dan deklaratif. Anda harus melihatnya beberapa waktu sebelum menyadari bahwa kode tersebut melakukan kalkulasi berdasarkan nilai `author.books`. Permasalahan tersebut menjadi lebih buruk jika Anda ingin menyertakan kalkulasi ini pada templat Anda lebih dari sekali.
 
-That's why for complex logic that includes reactive data, you should use a **computed property**.
+Oleh karena itu untuk logika kode yang kompleks yang menyertakan data reaktif, Anda harus menggunakan **properti terkomputasi**.
 
-### Basic Example
+### Contoh Sederhana
 
 ```html
 <div id="computed-basics">
@@ -58,35 +58,35 @@ Vue.createApp({
     }
   },
   computed: {
-    // a computed getter
+    // _getter_ terkomputasi
     publishedBooksMessage() {
-      // `this` points to the vm instance
+      // `this` mengarah ke _instance_ vm
       return this.author.books.length > 0 ? 'Yes' : 'No'
     }
   }
 }).mount('#computed-basics')
 ```
 
-Result:
+Hasilnya:
 
-<common-codepen-snippet title="Computed basic example" slug="NWqzrjr" tab="js,result" :preview="false" />
+<common-codepen-snippet title="Contoh sederhana properti terkomputasi" slug="NWqzrjr" tab="js,result" :preview="false" />
 
-Here we have declared a computed property `publishedBooksMessage`.
+Di sini kita telah mendeklarasikan properti terkomputasi `publishedBooksMessage`.
 
-Try to change the value of `books` array in the application `data` and you will see how `publishedBooksMessage` is changing accordingly.
+Coba mengubah nilai array `books` pada aplikasi `data` dan Anda akan melihat bagaimana `publishedBooksMessage` berubah juga.
 
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `vm.publishedBooksMessage` depends on `vm.author.books`, so it will update any bindings that depend on `vm.publishedBooksMessage` when `vm.author.books` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
+Anda data memasang data ke properti terkomputasi pada templat seperti properti pada umumnya. Vue mengetahui `vm.publishedBooksMessage` bergantung pada `vm.author.books`, sehingga Vue akan memutakhirkan _binding_ yang bergantung pada `vm.publishedBooksMessage` ketika `vm.author.books` berubah. Dan bagian terbaiknya adalah kita telah membuat hubungan dependensi ini secara deklaratif: _getter_ fungsi terkomputasi tidak memiliki efek samping, yang membuatnya lebih mudah untuk diuji dan dipahami.
 
-### Computed Caching vs Methods
+### Tembolok Properti Terkomputasi (Computed Cache) vs Metode/Fungsi
 
-You may have noticed we can achieve the same result by invoking a method in the expression:
+Anda mungkin menyadari kita dapat mendapatkan hasil serupa dengan memanggil metode/fungsi pada ekspresi:
 
 ```html
 <p>{{ calculateBooksMessage() }}</p>
 ```
 
 ```js
-// in component
+// di dalam komponen
 methods: {
   calculateBooksMessage() {
     return this.author.books.length > 0 ? 'Yes' : 'No'
@@ -94,9 +94,9 @@ methods: {
 }
 ```
 
-Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to the `publishedBooksMessage` computed property will immediately return the previously computed result without having to run the function again.
+Sebagai ganti properti terkomputasi, kita dapat mendefinisikan fungsi yang sama sebagai metode/fungsi. Hasil akhirnya, dua pendekatan tersebut memang sama. Namun, perpedaannya adalah **properti terkomputasi akan disimpan sebagai tembolok (_cached_) pada dependensi reaktifnya.** Sebuah properti terkomputasi akan dijalankan kembali ketika dependensi reaktifnya berubah. Hal tersebut berarti selama `author.books` tidak berubah, akses berkali-kali pada properti terkomputasi `publishedBooksMessage` akan mengembalikan hasil komputasi sebelumnya tanpa menjalankan ulang fungsinya.
 
-This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
+Karena hal tersebut, properti terkomputasi berikut tidak akan pernah dimutakhirkan, karena `Date.now()` bukan dependensi reaktif:
 
 ```js
 computed: {
@@ -106,13 +106,15 @@ computed: {
 }
 ```
 
-In comparison, a method invocation will **always** run the function whenever a re-render happens.
+Sebagai perbandingan, sebuah pemanggilan metode/fungsi akan **selalu** dijalankan kapapun proses pe-_render_-an ulang terjadi.
 
 Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a `method` instead.
 
-### Computed Setter
+Mengapa kita membutuhkan tembolok (_caching_)? Bayangkan kita memiliki properti terkomputasi `list` yang kompleks, membutuhkan perulangan array yang besar dan melakukan perhitungan yang banyak. Kemudian kita mungkin memiliki properti terkomputasi yang lain yang bergantung pada `list`. Tanpa adanya tembolok (_caching_), kita akan menjalankan _getter_ `list` berkali-kali walaupun tidak perlu! Pada kasus dimana kita tidak membutuhkan tembolok (_caching_), gunakanlah `method`.
 
-Computed properties are by default getter-only, but you can also provide a setter when you need it:
+### _Setter_ Terkomputasi
+
+Properti terkomputasi secara bawaan hanya memiliki _getter_, tetapi Anda juga dapat memberikan _setter_ ketika Anda membutuhkannya:
 
 ```js
 // ...
@@ -133,13 +135,15 @@ computed: {
 // ...
 ```
 
-Now when you run `vm.fullName = 'John Doe'`, the setter will be invoked and `vm.firstName` and `vm.lastName` will be updated accordingly.
+Sekarang ketika Anda menjalankan `vm.fullName = 'John Doe'`, _setter_ akan dipanggil dan `vm.firstName` dan `vm.lastName` akan dimutakhirkan.
 
-## Watchers
+## _Watchers_
 
 While computed properties are more appropriate in most cases, there are times when a custom watcher is necessary. That's why Vue provides a more generic way to react to data changes through the `watch` option. This is most useful when you want to perform asynchronous or expensive operations in response to changing data.
 
-For example:
+Properti terkomputasi cocok untuk sebagian besar kasus, namun terkadang kita juga membutuhkan _watcher_ kustom. Itulah mengapa Vue menyediakan cara paling umum untuk bereaksi pada perubahan data melalui opsi `watch`. Hal ini akan berguna jika Anda ingin melakukan operasi asinkronus dan kompleks ketika merespon perubahan data.
+
+Sebagai contoh:
 
 ```html
 <div id="watch-example">
@@ -156,6 +160,11 @@ For example:
 <!-- and collections of general-purpose utility methods, Vue core -->
 <!-- is able to remain small by not reinventing them. This also   -->
 <!-- gives you the freedom to use what you're familiar with.      -->
+
+<!-- Karena telah tersedia ekosistem kaya dari pustaka ajax -->
+<!-- dan kumpulan metode/fungsi utilitas yang memiliki tujuan umum, inti Vue -->
+<!-- tetap berukuran kecil dengan tidak membuatnya lagi. Hal tersebut juga -->
+<!-- memberikan Anda kebebasan untuk menggunakan hal apapun yang Anda biasa. -->
 <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
 <script>
   const watchExampleVM = Vue.createApp({
@@ -166,7 +175,7 @@ For example:
       }
     },
     watch: {
-      // whenever question changes, this function will run
+      // kapapun pertanyaan berubah, fungsi ini akan dijalankan
       question(newQuestion, oldQuestion) {
         if (newQuestion.indexOf('?') > -1) {
           this.getAnswer()
@@ -190,17 +199,19 @@ For example:
 </script>
 ```
 
-Result:
+Hasilnya:
 
 <common-codepen-snippet title="Watch basic example" slug="GRJGqXp" tab="result" :preview="false" />
 
 In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API) and sets a condition for performing this operation. None of that would be possible with a computed property.
 
+Dalam kasus ini, gunakan opsi `watch` memungkinkan kita untuk melakukan operasi asinkronus (mengakses API) dan 
+
 In addition to the `watch` option, you can also use the imperative [vm.$watch API](../api/instance-methods.html#watch).
 
-### Computed vs Watched Property
+### Properti Terkomputasi vs Properti _Watch_
 
-Vue does provide a more generic way to observe and react to data changes on a current active instance: **watch properties**. When you have some data that needs to change based on some other data, it is tempting to overuse `watch` - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative `watch` callback. Consider this example:
+Vue menyediakan cara yang lebih umum untuk mengamati dan bereaksi pada perubahan data pada _instance_ aktif sekarang: **properti watch**. Ketika Anda memiliki data yang perlu berubah berdasarkan data lain, sebaiknya jangan menggunakan `watch` secara berlebih juga - khususnya jika Anda dari latar belakang AngularJS. Bagaimanapun, pada umumnya lebih baik untuk menggunakan properti terkomputasi daripada _callback_ `watch` yang imperatif. Pertimbangkan contoh berikut:
 
 ```html
 <div id="demo">{{ fullName }}</div>
@@ -226,7 +237,7 @@ const vm = Vue.createApp({
 }).mount('#demo')
 ```
 
-The above code is imperative and repetitive. Compare it with a computed property version:
+Kode di atas imperatif dan berulang. Bandingkan dengan versi properti terkomputasinya:
 
 ```js
 const vm = Vue.createApp({
@@ -244,4 +255,4 @@ const vm = Vue.createApp({
 }).mount('#demo')
 ```
 
-Much better, isn't it?
+Lebih baik, bukan?

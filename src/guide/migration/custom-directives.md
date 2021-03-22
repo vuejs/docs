@@ -5,24 +5,28 @@ badges:
 
 # Custom Directives <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-The hook functions for directives have been renamed to better align with the component lifecycle.
+Fungsi _hook_ pada _directives_ telah berganti nama agar lebih selaras dengan siklus hidup komponen. Berikut merupakan gambaran singkat mengenai apa yang telah berubah:
 
-## 2.x Syntax
+- API telah berganti nama agar lebih selaras dengan siklus hidup komponen
 
-In Vue 2, custom directives were created by using the hooks listed below to target an element’s lifecycle, all of which are optional:
+Lanjutkan membaca untuk penjelasan lebih lanjut.
 
-- **bind** - Occurs once the directive is bound to the element. Occurs only once.
-- **inserted** - Occurs once the element is inserted into the parent DOM.
-- **update** - This hook is called when the element updates, but children haven't been updated yet.
-- **componentUpdated** - This hook is called once the component and the children have been updated.
-- **unbind** - This hook is called once the directive is removed. Also called only once.
+## Sintaks Vue versi 2.x
 
-Here’s an example of this:
+Pada Vue versi 2, _custom directives_ dibuat menggunakan _hook-hook_ berikut untuk mengacu pada salah satu bagian dari siklus hidup komponen, dimana semuanya opsional:
+
+- **bind** - Dipanggil saat _directive_ terikat dengan elemen. Hanya diapnggil sekali.
+- **inserted** - Dipanggil sesudah elemen ditambahkan pada DOM induk.
+- **update** - _Hook_ ini dipanggil ketika elemen diperbarui, namun turunannya belum diperbarui.
+- **componentUpdated** - _Hook_ ini dipanggil sesudah komponen dan turunannya selesai diperbarui.
+- **unbind** - _Hook_ ini dipanggil sesudah _directive_ dihapus. Hanya dipanggil sekali.
+
+Berikut merupakan contoh dari _directives_:
 
 ```html
-<p v-highlight="'yellow'">Highlight this text bright yellow</p>
+<p v-highlight="'yellow'">Sorot elemen ini supaya berlatar kuning cerah</p>
 ```
 
 ```js
@@ -33,38 +37,38 @@ Vue.directive('highlight', {
 })
 ```
 
-Here, in the initial setup for this element, the directive binds a style by passing in a value, that can be updated to different values through the application.
+Pada penyetelan awal untuk komponen di atas, _directive_ mengikat sebuah _style_ dengan meneruskan sebuah nilai yang dapat diperbarui menjadi nilai lain pada aplikasi.
 
-## 3.x Syntax
+## Sintaks Vue versi 3.x
 
-In Vue 3, however, we’ve created a more cohesive API for custom directives. As you can see, they differ greatly from our component lifecycle methods even though we’re hooking into similar events. We’ve now unified them like so:
+Namun pada Vue versi 3, kami telah membuat API yang lebih kohesif untuk _custom directives_. Seperti yang dapat Anda lihat, API pada versi sebelumnya berbeda jauh dengan siklus hidup komponen Vue walaupun sama-sama dihubungkan pada kejadian yang sejenis. Sekarang kami telah menyatukan kedua hal tersebut menjadi:
 
 - **created** - new! This is called before the element's attributes or event listeners are applied.
 - bind → **beforeMount**
 - inserted → **mounted**
-- **beforeUpdate**: new! This is called before the element itself is updated, much like the component lifecycle hooks.
-- update → removed! There were too many similarities to updated, so this is redundant. Please use updated instead.
+- **beforeUpdate**: Baru! _Hook_ ini akan dipanggil sebelum elemen diperbarui, mirip dengan _hook_ pada siklus hidup komponen.
+- update → Dihapus! Ada terlalu banyak persamaan dengan `updated`, sehingga _hook_ ini berlebihan. Mohon gunakan `updated`.
 - componentUpdated → **updated**
-- **beforeUnmount**: new! Similar to component lifecycle hooks, this will be called right before an element is unmounted.
+- **beforeUnmount**: Baru! Mirip dengan _hook_ pada siklus hidup komponen, _hook_ ini akan dipanggil sebelum elemen dilepaskan dari DOM.
 - unbind -> **unmounted**
 
-The final API is as follows:
+API akhir akan menjadi seperti berikut:
 
 ```js
-const MyDirective = {
+const DirectiveKu = {
   beforeMount(el, binding, vnode, prevVnode) {},
   mounted() {},
-  beforeUpdate() {}, // new
+  beforeUpdate() {}, // baru
   updated() {},
-  beforeUnmount() {}, // new
+  beforeUnmount() {}, // baru
   unmounted() {}
 }
 ```
 
-The resulting API could be used like this, mirroring the example from earlier:
+API yang dihasilkan dapat digunakan seperti berikut, mengikuti contoh sebelumnya:
 
 ```html
-<p v-highlight="'yellow'">Highlight this text bright yellow</p>
+<p v-highlight="'yellow'">Sorot elemen ini supaya berlatar kuning cerah</p>
 ```
 
 ```js
@@ -77,13 +81,13 @@ app.directive('highlight', {
 })
 ```
 
-Now that the custom directive lifecycle hooks mirror those of the components themselves, they become easier to reason about and remember!
+Sekarang _hook_ siklus hidup pada _custom directive_ telah mengikuti _hook_ siklus hidup pada komponen, sehingga _hook_ tersebut dapat lebih mudah diingat dan dibuat!
 
-### Edge Case: Accessing the component instance
+### Kasus Tepi: Mengakses Komponen
 
-It's generally recommended to keep directives independent of the component instance they are used in. Accessing the instance from within a custom directive is often a sign that the directive should rather be a component itself. However, there are situations where this actually makes sense.
+Umumnya, Anda dianjurkan untuk memisahkan _directive_ dengan komponen tempat _directive_ tersebut digunakan. Mengakses komponen melalui sebuah _custom directive_ menunjukkan sebuah tanda bahwa _directive_ tersebut seharusnya merupakan sebuah komponen. Namun, ada beberapa kasus dimana hal tersebut menjadi masuk akal.
 
-In Vue 2, the component instance had to be accessed through the `vnode` argument:
+Pada Vue versi 2, komponen harus diakses melalui argumen `vnode`:
 
 ```javascript
 bind(el, binding, vnode) {
@@ -91,7 +95,7 @@ bind(el, binding, vnode) {
 }
 ```
 
-In Vue 3, the instance is now part of the `binding`:
+Pada Vue versi 3, komponen tersebut merupakan bagian dari argumen `binding`:
 
 ```javascript
 mounted(el, binding, vnode) {
@@ -100,5 +104,5 @@ mounted(el, binding, vnode) {
 ```
 
 :::warning
-With [fragments](/guide/migration/fragments.html#overview) support, components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be logged.
+Dengan dukungan [fragments](/guide/migration/fragments.html#overview), komponen dapat memiliki lebih dari satu _node_ utama. Ketika digunakan pada komponen yang memiliki lebih dari satu _node_ inti, sebuah _directive_ akan dihiraukan dan sebuah peringatan akan dicatat.
 :::

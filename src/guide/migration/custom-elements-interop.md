@@ -3,48 +3,48 @@ badges:
   - breaking
 ---
 
-# Custom Elements Interop <MigrationBadges :badges="$frontmatter.badges" />
+# Interoperabilitas Elemen Kustom <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-- **BREAKING:** Custom elements whitelisting is now performed during template compilation, and should be configured via compiler options instead of runtime config.
-- **BREAKING:** Special `is` prop usage is restricted to the reserved `<component>` tag only.
-- **NEW:** There is new `v-is` directive to support 2.x use cases where `is` was used on native elements to work around native HTML parsing restrictions.
+- **MERUSAK:** _Whitelisting_ pada elemen kustom sekarang dijalankan pada saat kompilasi _template_, dan harus disetel melalui pengaturan kompilator, bukan melalui pengaturan waktu eksekusi.
+- **MERUSAK** Penggunaan properti khusus `is` dibatasi untuk _tag_ `<component>` saja. 
+- **BARU** Terdapat _directive_ baru `v-is` untuk mendukung kasus penggunaan pada Vue versi 2.x dimana `is` digunakan pada elemen bawaan untuk mengatasi masalah batasan penguraian pada elemen bawaan HTML.
 
-## Autonomous Custom Elements
+## Elemen Kustom Otonom
 
-If we want to add a custom element defined outside of Vue (e.g. using the Web Components API), we need to 'instruct' Vue to treat it as a custom element. Let's use the following template as an example.
+Apabila Anda ingin menambahkan sebuah elemen kustom yang didefiniskan di luar Vue (contoh: menggunakan API Web Components), Anda harus mengatur Vue supaya menganggap komponen tersebut sebagai sebuah elemen kustom. _Template_ berikut akan digunakan sebagai contoh untuk penjelasan selanjutnya.
 
 ```html
-<plastic-button></plastic-button>
+<tombol-plastik></tombol-plastik>
 ```
 
-### 2.x Syntax
+### Sintaks Vue versi 2.x
 
-In Vue 2.x, whitelisting tags as custom elements was done via `Vue.config.ignoredElements`:
+Pada Vue versi 2.x, _whitelisting tag_ sebagai elemen kustom dilakukan melalui `Vue.config.ignoredElemets`:
 
 ```js
-// This will make Vue ignore custom element defined outside of Vue
-// (e.g., using the Web Components APIs)
+// Kode di bawah akan membuat Vue menghiraukan elemen kustom yang
+// didefiniskan diluar Vue (contoh: menggunakan API Web Components)
 
-Vue.config.ignoredElements = ['plastic-button']
+Vue.config.ignoredElements = ['tombol-plastik']
 ```
 
-### 3.x Syntax
+### Sintaks Vue versi 3.x
 
-**In Vue 3.0, this check is performed during template compilation.** To instruct the compiler to treat `<plastic-button>` as a custom element:
+**Pada Vue versi 3.0, pemeriksaan elemen kustom akan dilakukan pada saat kompilasi _template_.** Untuk mengatur supaya kompilator menganggap `<tombol-plastik>` sebagai elemen kustom:
 
-- If using a build step: pass the `isCustomElement` option to the Vue template compiler. If using `vue-loader`, this should be passed via `vue-loader`'s `compilerOptions` option:
+- Apabila terdapat sebuah proses pembangunan kode program: teruskan opsi `isCustomElement` pada kompilator _template_ Vue. Apabila Anda menggunakan `vue-loader`, opsi tersebut harus diteruskan melalui opsi `compilerOptions` pada `vue-loader`:
 
   ```js
-  // in webpack config
+  // pada konfigurasi Webpack
   rules: [
     {
       test: /\.vue$/,
       use: 'vue-loader',
       options: {
         compilerOptions: {
-          isCustomElement: tag => tag === 'plastic-button'
+          isCustomElement: tag => tag === 'tombol-plastik'
         }
       }
     }
@@ -52,58 +52,58 @@ Vue.config.ignoredElements = ['plastic-button']
   ]
   ```
 
-- If using on-the-fly template compilation, pass it via `app.config.isCustomElement`:
+- Apabila Anda menggunakan kompilasi _template_ secara _on-the-fly_, teruskan opsi melalui `app.config.isCustomElement`:
 
   ```js
   const app = Vue.createApp({})
-  app.config.isCustomElement = tag => tag === 'plastic-button'
+  app.config.isCustomElement = tag => tag === 'tombol-plastik'
   ```
 
-  It's important to note the runtime config only affects runtime template compilation - it won't affect pre-compiled templates.
+  Perlu diingat bahwa konfigurasi waktu eksekusi hanya mempengaruhi kompilasi _template_ pada waktu eksekusi - konfigurasi tersebut tidak akan mempengaruhi _template_ yang sudah dikompilasi sebelumnya.
 
-## Customized Built-in Elements
+## Elemen Bawaan yang Dikustomisasi
 
-The Custom Elements specification provides a way to use custom elements as [Customized Built-in Element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example) by adding the `is` attribute to a built-in element:
+Spesifikasi elemen kustom menyediakan sebuah cara untuk menggunakan elemen kustom sebagai [Elemen Bawaan yang Dikustomisasi](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example) dengan menambahkan atribut `is` pada pada sebuah elemen bawaan:
 
 ```html
-<button is="plastic-button">Click Me!</button>
+<button is="tombol-plastik">Tekan Aku!</button>
 ```
 
-Vue's usage of the `is` special prop was simulating what the native attribute does before it was made universally available in browsers. However, in 2.x it was interpreted as rendering a Vue component with the name `plastic-button`. This blocks the native usage of Customized Built-in Element mentioned above.
+Penggunaan properti khusus `is` oleh Vue adalah mensimulasikan fungsi atribut bawaan sebelum fungsi tersebut tersedia secara global pada perambah. Namun, pada Vue versi 2.x properti tersebut akan dianggap sebagai sebuah komponen Vue dengan nama `tombol-plastik`. Perilaku tersebut mencegah fungsi bawaan pada Elemen Bawaan yang Dikustomisasi.
 
-In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<component>` tag only.
+Pada Vue versi 3.0, kami membatasi perlakukan khusus Vue pada properti `is` hanya untuk _tag_ `<component>` saja.
 
-- When used on the reserved `<component>` tag, it will behave exactly the same as in 2.x;
-- When used on normal components, it will behave like a normal prop:
+- Ketika digunakan pada _tag_ `<component>`, properti tersebut akan memiliki perilaku yang sama dengan pada Vue versi 2.x;
+- Ketika digunakan pada komponen biasa, properti tersebut akan dianggap sebagai sebuah properti biasa:
 
   ```html
   <foo is="bar" />
   ```
 
-  - 2.x behavior: renders the `bar` component.
-  - 3.x behavior: renders the `foo` component and passing the `is` prop.
+  - Perilaku pada Vue versi 2.x: menampilkan komponen `bar`.
+  - Perilaku pada Vue versi 3.x: menampilkan komponen `foo` dan meneruskan properti `is`.
 
-- When used on plain elements, it will be passed to the `createElement` call as the `is` option, and also rendered as a native attribute. This supports the usage of customized built-in elements.
+- Ketika digunakan pada elemen biasa, properti tersebut akan diteruskan pada pemanggilan fungsi `createElement` sebagai opsi `is`, dan juga ditampilkan sebagai atribut bawaan. Hal tersebut mendukung penggunaan dari elemen bawaan yang dikustomisasi.
 
   ```html
-  <button is="plastic-button">Click Me!</button>
+  <button is="tombol-plastik">Tekan Aku!</button>
   ```
 
-  - 2.x behavior: renders the `plastic-button` component.
-  - 3.x behavior: renders a native button by calling
+  - Perilaku pada Vue versi 2.x: menampilkan komponen `tombol-plastik`.
+  - Perilaku pada Vue versi 3.x: menampilkan komponen tombol bawaan dengan memanggil fungsi
 
     ```js
-    document.createElement('button', { is: 'plastic-button' })
+    document.createElement('button', { is: 'tombol-plastik' })
     ```
 
-## `v-is` for In-DOM Template Parsing Workarounds
+## `v-is` Untuk Menangani Penguraian _Template_ Dalam DOM 
 
-> Note: this section only affects cases where Vue templates are directly written in the page's HTML.
-> When using in-DOM templates, the template is subject to native HTML parsing rules. Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
+> Catatan: bagian ini hanya mempengaruhi kasus-kasus di mana _template_ Vue ditulis secara langsung pada HTML dari halaman web.
+> Ketika menggunakan _template_ dalam DOM, _template_ tersebut akan diuraikan menggunakan aturan penguraian HTML bawaan. Beberapa eleme HTML, seperti `<ul>`, `<ol>`, `<table>`, dan `<select>` memiliki batasan-batasan mengenai elemen yang dapat ditampilkan di dalam elemen tersebut, dan beberapa elemen seperti `<li>`, `<tr>`, dan `<option>` hanya bisa tampil di dalam elemen lain tertentu.
 
-### 2.x Syntax
+### Sintaks Vue versi 2.x
 
-In Vue 2 we recommended working around with these restrictions by using the `is` prop on a native tag:
+Pada Vue versi 2, kami menyarankan untuk mengatasi batasan-batasan tersebut dengan menggunakan properti `is` pada sebuah _tag_ HTML bawaan:
 
 ```html
 <table>
@@ -111,9 +111,9 @@ In Vue 2 we recommended working around with these restrictions by using the `is`
 </table>
 ```
 
-### 3.x Syntax
+### Sintaks Vue versi 3.x
 
-With the behavior change of `is`, we introduce a new directive `v-is` for working around these cases:
+Dengan perubahan perilaki dari `is`, kami memperkenalkan sebuah _directive_ baru `v-is` untuk menangani kasus tersebut:
 
 ```html
 <table>
@@ -122,20 +122,19 @@ With the behavior change of `is`, we introduce a new directive `v-is` for workin
 ```
 
 :::warning
-`v-is` functions like a dynamic 2.x `:is` binding - so to render a component by its registered name, its value should be a JavaScript string literal:
+Fungsi `v-is` mengharapkan sebuah ikatan dinamis `:is` seperti pada Vue versi 2.x - sehingga untuk menampilkan sebuah komponen berdasarkan nama yang sudah didaftarkan, nilai dari `v-is` harus merupakan sebuah _string literal_ JavaScript: 
 
 ```html
-<!-- Incorrect, nothing will be rendered -->
+<!-- Salah, tidak ada yang akan ditampilkan -->
 <tr v-is="blog-post-row"></tr>
 
-<!-- Correct -->
+<!-- Benar -->
 <tr v-is="'blog-post-row'"></tr>
 ```
 
 :::
 
-## Migration Strategy
+## Strategi Migrasi
 
-- Replace `config.ignoredElements` with either `vue-loader`'s `compilerOptions` (with the build step) or `app.config.isCustomElement` (with on-the-fly template compilation)
-
-- Change all non-`<component>` tags with `is` usage to `<component is="...">` (for SFC templates) or `v-is` (for in-DOM templates).
+- Ganti `config.ignoredElements` dengan `compilerOptions` milik `vue-loader` (dengan langkah pembangunan kode program) atau `app.config.isCustomElement` (dengan kompilasi _template_ secara _on-the-fly_).
+- Ganti seluruh penggunaan `is` pada _tag_ yang bukan `<component>` dengan `<component is="...">` (untuk _template_ SFC) atau `v-is` (untuk _template_ dalam DOM). 
