@@ -11,7 +11,7 @@ app.mount('#app')
 
 Since the server has already rendered the markup, we obviously do not want to throw that away and re-create all the DOM elements. Instead, we want to "hydrate" the static markup and make it interactive.
 
-If application is created with `createSSRApp`, Vue will perform a hydration process. Otherwise, DOM elements will be re-created. That's why we used `createSSRApp` in the `entry-client.js`
+Vue provides a `createSSRApp` method for use in client-side code (in this case, in our `entry-client.js`) to tell Vue to hydrate the existing static HTML instead of re-creating all the DOM elements.
 
 In development mode, Vue will assert the client-side generated virtual DOM tree matches the DOM structure rendered from the server. If there is a mismatch, it will bail hydration, discard existing DOM and render from scratch. **In production mode, this assertion is disabled for maximum performance.**
 
