@@ -51,13 +51,13 @@ The same rule applies to router and store instances as well. Instead of exportin
 
 ## Introducing a Build Step
 
-So far, we haven't discussed how to deliver the same Vue app to the client yet. To do that, we need to use webpack to bundle our Vue app. In fact, we probably want to use webpack to bundle the Vue app on the server as well, because:
+So far, we haven't discussed how to deliver the same Vue app to the client yet. To do that, we need to use webpack to bundle our Vue app.
 
-- Typical Vue apps are built with webpack and `vue-loader`, and many webpack-specific features such as importing files via `file-loader`, importing CSS via `css-loader` would not work directly in Node.js.
+* We need to process the server code with webpack. For example, `.vue` files need to be processed with `vue-loader`, and many webpack-specific features such as importing files via `file-loader` or importing CSS via `css-loader` do not work directly in Node.js.
 
-- Although the latest version of Node.js fully supports ES2015 features, we still need to transpile client-side code to cater to older browsers. This again involves a build step.
+* Similarly, we need a separate client-side build because although the latest version of Node.js fully supports ES2015 features, older browsers will require the code to be transpiled.
 
-So the basic idea is we will be using webpack to bundle our app for both client and server - the server bundle will be required by the server and used for SSR, while the client bundle is sent to the browser to hydrate the static markup.
+So the basic idea is that we will use webpack to bundle our app for both client and server. The server bundle will be required on the server and used to render static HTML, while the client bundle will be sent to the browser to hydrate the static markup.
 
 ![architecture](https://cloud.githubusercontent.com/assets/499550/17607895/786a415a-5fee-11e6-9c11-45a2cfdf085c.png)
 
