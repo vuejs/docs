@@ -5,7 +5,6 @@ Hydration refers to the client-side process during which Vue takes over the stat
 In `entry-client.js`, we are simply mounting the app with this line:
 
 ```js
-// this assumes App.vue template root element has `id="app"`
 app.mount('#app')
 ```
 
