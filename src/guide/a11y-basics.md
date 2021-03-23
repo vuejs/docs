@@ -1,26 +1,26 @@
-# Basics
+# Nozioni di base
 
-Web accessibility (also known as a11y) refers to the practice of creating websites that can be used by anyone — be that a person with a disability, a slow connection, outdated or broken hardware or simply someone in an unfavorable environment. For example, adding subtitles to a video would help both your deaf and hard-of-hearing users and your users who are in a loud environment and can't hear their phone. Similarly, making sure your text isn't too low contrast will help both your low-vision users and your users who are trying to use their phone in bright sunlight.
+L'accessibilità Web (nota anche come a11y) si riferisce alla pratica di creare siti Web che possono essere utilizzati da chiunque, ad esempio una persona con disabilità, una connessione lenta, hardware obsoleto o guasto o semplicemente qualcuno in un ambiente sfavorevole. Ad esempio, l'aggiunta di sottotitoli a un video aiuterebbe sia i tuoi utenti sordi e ipoudenti che i tuoi utenti che si trovano in un ambiente rumoroso e non possono sentire il loro telefono. Allo stesso modo, assicurarti che il tuo testo non abbia un contrasto troppo basso aiuterà sia i tuoi utenti ipovedenti che i tuoi utenti che stanno cercando di usare il loro telefono in pieno sole.
 
-Ready to start but aren’t sure where?
+Pronto per iniziare ma non sai da dove?
 
-Checkout the [Planning and managing web accessibility guide](https://www.w3.org/WAI/planning-and-managing/) provided by [World Wide Web Consortium (W3C)](https://www.w3.org/)
+Consulta la [Guida alla pianificazione e alla gestione dell'accessibilità web](https://www.w3.org/WAI/planning-and-managing/) fornita da [World Wide Web Consortium (W3C)](https://www.w3.org/)
 
-## Skip link
+## Salta collegamento
 
-You should add a link at the top of each page that goes directly to the main content area so users can skip content that is repeated on multiple Web pages.
+Dovresti aggiungere un collegamento nella parte superiore di ogni pagina che vada direttamente all'area del contenuto principale in modo che gli utenti possano saltare i contenuti ripetuti su più pagine Web.
 
-Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
+In genere questo viene fatto nella parte superiore di `App.vue` poiché sarà il primo elemento attivabile in tutte le tue pagine:
 
 ``` html
 <ul class="skip-links">
   <li>
-    <a href="#main" ref="skipLink">Skip to main content</a>
+    <a href="#main" ref="skipLink">Vai al contenuto principale</a>
   </li>
 </ul>
 ```
 
-To hide the link unless it is focused, you can add the following style:
+Per nascondere il collegamento a meno che non sia attivo, puoi aggiungere il seguente stile:
 
 ``` css
 .skipLink {
@@ -40,7 +40,7 @@ To hide the link unless it is focused, you can add the following style:
 }
 ```
 
-Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus to the `ref` provided below:
+Quando un utente cambia percorso, riporta lo stato attivo sul collegamento. Puoi farlo richiamando il focus su `ref` come nell'esempio:
 
 ``` vue
 <script>
@@ -54,59 +54,60 @@ export default {
 </script>
 ```
 
-<common-codepen-snippet title="Skip to Main" slug="VwepxJa" :height="350" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Vai al contenuto principale" slug="VwepxJa" :height="350" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
 
-[Read documentation on skip link to main content](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
+[Leggi la documentazione sul salto di collegamento verso il contenuto principale](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
 
-## Structure Your Content
+## Struttura i tuoi contenuti
 
-One of the most important pieces of accessibility is making sure that design can support accessible implementation. Design should consider not only color contrast, font selection, text sizing, and language, but also how the content is structured in the application.
+Uno degli elementi più importanti dell'accessibilità è assicurarsi che il design possa supportare un'implementazione accessibile. Il design dovrebbe considerare non solo il contrasto del colore, la selezione dei caratteri, le dimensioni del testo e la lingua, ma anche il modo in cui il contenuto è strutturato nell'applicazione.
 
-### Headings
+### Titoli
 
-Users can navigate an application through headings. Having descriptive headings for every section of your application makes it easier for users to predict the content of each section. When it comes to headings, there are a couple of recommended accessibility practices:
+Gli utenti possono navigare in un'applicazione attraverso i titoli. La presenza di intestazioni descrittive per ogni sezione dell'applicazione rende più facile per gli utenti prevedere il contenuto di ciascuna sezione. Quando si tratta di titoli, ci sono un paio di pratiche di accessibilità consigliate:
 
-- Nest headings in their ranking order: `<h1>` - `<h6>`
-- Don’t skip headings within a section
-- Use actual heading tags instead of styling text to give the visual appearance of headings
+- Annida le intestazioni nel loro ordine di classifica: `<h1>` - `<h6>`
+- Non saltare i titoli all'interno di una sezione
+- Utilizza i tag di intestazione invece di applicare stili al testo per dare l'aspetto visivo dei titoli
 
-[Read more about headings](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
+[Ulteriori informazioni sui titoli](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
 
 ```html
 <main role="main" aria-labelledby="main-title">
-  <h1 id="main-title">Main title</h1>
-  <section aria-labelledby="section-title">
-    <h2 id="section-title"> Section Title </h2>
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
-  </section>
-  <section aria-labelledby="section-title">
-    <h2 id="section-title"> Section Title </h2>
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
-  </section>
+   <h1 id="main-title"> Titolo principale </h1>
+   <section aria-labelledby="section-title">
+     <h2 id="section-title"> Titolo della sezione </h2>
+     <h3> Sottotitolo sezione </h3>
+     <!-- Contenuto -->
+   </section>
+   <section aria-labelledby="section-title">
+     <h2 id="section-title"> Titolo della sezione </h2>
+     <h3> Sottotitolo sezione </h3>
+     <!-- Contenuto -->
+     <h3> Sottotitolo sezione </h3>
+     <!-- Contenuto -->
+   </section>
 </main>
 ```
 
-### Landmarks
+### Punti di riferimento [Landmarks]
 
-Landmarks provide programmatic access to sections within an application. Users who rely on assistive technology can navigate to each section of the application and skip over content. You can use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) to help you achieve this.
+I punti di riferimento `landmark` forniscono l'accesso a livello di codice alle sezioni all'interno di un'applicazione. Gli utenti che si affidano alla tecnologia assistiva possono navigare in ogni sezione dell'applicazione e saltarne il contenuto. Puoi usare gli [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) per raggiungere questo obiettivo.
 
-| HTML            | ARIA Role                                                         | Landmark Purpose                                                                       |
-| --------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| header          | role="banner"                                                     | Prime heading: title of the page                                                       |
-| nav             | role="navigation"                                                 | Collection of links suitable for use when navigating the document or related documents |
-| main            | role="main"                                                       | The main or central content of the document.                                           |
-| footer          | role="contentinfo"                                                | Information about the parent document: footnotes/copyrights/links to privacy statement |
-| aside           | role="complementary"                                              | Supports the main content, yet is separated and meaningful on its own content            |
-| _Not available_ | role="search"                                                     | This section contains the search functionality for the application                     |
-| form            | role="form"                                                       | Collection of form-associated elements                                                 |
-| section         | role="region"  | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element                |
+| HTML            | ARIA Role                              | Scopo del punto di riferimento                                                                                                                   |
+| --------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| header          | role="banner"                          | Intestazione principale: titolo della pagina                                                                                       |
+| nav             | role="navigation"                      | Raccolta di collegamenti utilizzabili durante la navigazione nel documento o nei documenti correlati                               |
+| main            | role="main"                            | Il contenuto principale o centrale del documento.                                                                                  |
+| footer          | role="contentinfo"                     | Informazioni sul documento principale: note a piè di pagina, copyright, collegamenti alla dichiarazione sulla privacy              |
+| aside           | role="complementary"                   | Relativo al contenuto principale e dal contenuto rilevante, ma comunque separato                                                   |
+| _Not available_   | role="search"                          | Questa sezione contiene la funzionalità di ricerca dell'applicazione                                                               |
+| form            | role="form"                            | Raccolta di elementi associati al form                                                                                             |
+| section         | role="region"                          | Contenuti pertinenti e a cui gli utenti vorranno probabilmente accedere. Una etichetta deve essere fornita per questo elemento     |
 
 :::tip Tip:
-It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).
+Si consiglia di utilizzare elementi HTML di riferimento con attributi `role` ridondanti per massimizzare la compatibilità con i [navigatori che non supportano gli elementi semantici HTML5](https://caniuse.com/#feat=html5semantic).
 :::
 
-[Read more about landmarks](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
+[Ulteriori informazioni sui punti di riferimento [landmark]](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
+
