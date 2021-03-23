@@ -4,15 +4,11 @@
 
 You may have noticed that our server code uses a `*` handler which accepts arbitrary URLs. This allows us to pass the visited URL into our Vue app, and reuse the same routing config for both client and server!
 
-It is recommended to use the official [vue-router](https://github.com/vuejs/vue-router-next) library for this purpose. Let's first create a file where we create the router. Note that similar to `createRootComponent`, we also need a fresh router instance for each request, so the file exports a `createRouter` function:
+It is recommended to use the official [vue-router](https://github.com/vuejs/vue-router-next) library for this purpose. Let's first create a file where we create the router. Note that similar to application instance, we also need a fresh router instance for each request, so the file exports a `createRouter` function:
 
 ```js
 // router.js
-import {
-  createRouter,
-  createMemoryHistory,
-  createWebHistory
-} from 'vue-router'
+import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router'
 
 const isServer = typeof window === 'undefined'
 
@@ -31,20 +27,12 @@ And update our `app.js`, client and server entries:
 
 ```js
 // app.js
-import { createSSRApp, h } from 'vue'
+import { createSSRApp } from 'vue'
 import App from './App.vue'
 import createRouter from './router'
 
 export default function(args) {
-  const rootComponent = {
-    render: () => h(App),
-    components: { App },
-    setup() {
-      /*...*/
-    }
-  }
-
-  const app = createSSRApp(rootComponent)
+  const app = createSSRApp(App)
   const router = createRouter()
 
   app.use(router)
@@ -88,7 +76,6 @@ Note that it is still necessary to use `router.isReady` on both server and clien
 
 ```js
 // entry-client.js
-
 import createApp from './app'
 
 const { app, router } = createApp({
