@@ -1,6 +1,5 @@
 # Installazione
 
-<<<<<<< HEAD
 Vue.js is built by design to be incrementally adoptable. This means that it can be integrated into a project multiple ways depending on the requirements.
 
 There are four primary ways of adding Vue.js to a project:
@@ -33,8 +32,6 @@ Quando si utilizza Vue, raccomandiamo l'installazione di [Vue Devtools](https://
 
 [Installa l'addon di Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
 
-# <<<<<<< HEAD
-
 > > > > > > > fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
 > > > > > > > [Installa l'app Electron separata](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
 
@@ -46,7 +43,6 @@ Per prototipazione o per imparare, puoi ottenere l'ultima versione con:
 <script src="https://unpkg.com/vue@next"></script>
 ```
 
-<<<<<<< HEAD
 In production, raccomanidiamo di puntare a un numero specifico di versione e build per evitare malfunzionamenti inaspettati causati da nuove versioni.
 
 ## Download and Self Host
@@ -59,7 +55,6 @@ In production, raccomanidiamo di puntare a un numero specifico di versione e bui
 
 The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg.com/browse/vue@next/dist/) or [jsDelivr](https://cdn.jsdelivr.net/npm/vue@next/dist/). The various different files are [explained later](#explanation-of-different-builds) but you would typically want to download both a development build and a production build.
 
-<<<<<<< HEAD
 NPM è il metodo di installazione raccomandato per quando si sta sviluppando un'applicazione di larga scala con Vue. Si accoppia bene con bundlers di moduli come [Webpack](https://webpack.js.org/) o [Rollup](https://rollupjs.org/). Vue inoltre fornisce strumenti aggiuntivi per la creazione di [Single File Components](../guide/single-file-component.html).
 =======
 NPM è il metodo di installazione raccomandato per quando si sta sviluppando un'applicazione di larga scala con Vue. Si accoppia bene con bundlers di moduli come [Webpack](https://webpack.js.org/) o [Rollup](https://rollupjs.org/). Vue inoltre fornisce strumenti aggiuntivi per la creazione di [Single File Components](../guide/single-file-component.html).
@@ -76,7 +71,6 @@ $ npm install vue@next
 Vue fornisce una [CLI ufficiale](https://github.com/vuejs/vue-cli) per lo scaffolding rapido di Single Page Applications ambiziose. Fornisce un setup di sviluppo completo per un workflow di sviluppo frontend moderno. È necessario solo qualche minuto per essere pronti e produttivi con l'hot-reload, il linting al salvataggio, e builds pronte per la produzione. Leggi la [docs della Vue CLI](https://cli.vuejs.org) per sapere di più.
 
 ::: tip
-<<<<<<< HEAD
 The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through [the guide](./introduction.html) without any build tools before using the CLI.
 =======
 La CLI assume conoscenza pregressa di Node.js e degli strumenti di build ad esso associati. Se Vue o gli strumenti di build per il frontend ti sono nuovi, ti suggeriamo fortemente di leggere <a href="./">la guida</a> senza nessuno strumento di build prima di usare la CLI.
