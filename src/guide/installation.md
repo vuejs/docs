@@ -15,12 +15,13 @@ There are four primary ways of adding Vue.js to a project:
 Ultima versione: ![npm](https://img.shields.io/npm/v/vue/next.svg)
 
 =======
+
 ## Note di Rilascio
 
 Ultima versione: ![npm](https://img.shields.io/npm/v/vue/next.svg)
 
->>>>>>> fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
-Note di rilascio dettagliate per ogni versione sono disponibili su [GitHub](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md).
+> > > > > > > fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
+> > > > > > > Note di rilascio dettagliate per ogni versione sono disponibili su [GitHub](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md).
 
 ## Vue Devtools
 
@@ -32,11 +33,10 @@ Quando si utilizza Vue, raccomandiamo l'installazione di [Vue Devtools](https://
 
 [Installa l'addon di Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
 
-<<<<<<< HEAD
-=======
+# <<<<<<< HEAD
 
->>>>>>> fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
-[Installa l'app Electron separata](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
+> > > > > > > fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
+> > > > > > > [Installa l'app Electron separata](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
 
 ## CDN
 
@@ -51,18 +51,20 @@ In production, raccomanidiamo di puntare a un numero specifico di versione e bui
 
 ## Download and Self Host
 
-If you want to avoid using build tools but can't use a CDN in production then you can download the relevant `.js` file and host it using your own web server. You can then include it using a `<script>` tag, just like with the CDN approach.
-=======
-In production, raccomanidiamo di puntare a un numero specifico di versione e build per evitare malfunzionamenti inaspettati causati da nuove versioni. 
->>>>>>> fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
+# If you want to avoid using build tools but can't use a CDN in production then you can download the relevant `.js` file and host it using your own web server. You can then include it using a `<script>` tag, just like with the CDN approach.
+
+In production, raccomanidiamo di puntare a un numero specifico di versione e build per evitare malfunzionamenti inaspettati causati da nuove versioni.
+
+> > > > > > > fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
 
 The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg.com/browse/vue@next/dist/) or [jsDelivr](https://cdn.jsdelivr.net/npm/vue@next/dist/). The various different files are [explained later](#explanation-of-different-builds) but you would typically want to download both a development build and a production build.
 
 <<<<<<< HEAD
 NPM è il metodo di installazione raccomandato per quando si sta sviluppando un'applicazione di larga scala con Vue. Si accoppia bene con bundlers di moduli come [Webpack](https://webpack.js.org/) o [Rollup](https://rollupjs.org/). Vue inoltre fornisce strumenti aggiuntivi per la creazione di [Single File Components](../guide/single-file-component.html).
 =======
-NPM è il metodo di installazione raccomandato per quando si sta sviluppando un'applicazione di larga scala con Vue. Si accoppia bene con bundlers di moduli come  [Webpack](https://webpack.js.org/) o [Rollup](https://rollupjs.org/). Vue inoltre fornisce strumenti aggiuntivi per la creazione di [Single File Components](../guide/single-file-component.html).
->>>>>>> fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
+NPM è il metodo di installazione raccomandato per quando si sta sviluppando un'applicazione di larga scala con Vue. Si accoppia bene con bundlers di moduli come [Webpack](https://webpack.js.org/) o [Rollup](https://rollupjs.org/). Vue inoltre fornisce strumenti aggiuntivi per la creazione di [Single File Components](../guide/single-file-component.html).
+
+> > > > > > > fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
 
 ```bash
 # latest stable
@@ -78,8 +80,9 @@ Vue fornisce una [CLI ufficiale](https://github.com/vuejs/vue-cli) per lo scaffo
 The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through [the guide](./introduction.html) without any build tools before using the CLI.
 =======
 La CLI assume conoscenza pregressa di Node.js e degli strumenti di build ad esso associati. Se Vue o gli strumenti di build per il frontend ti sono nuovi, ti suggeriamo fortemente di leggere <a href="./">la guida</a> senza nessuno strumento di build prima di usare la CLI.
->>>>>>> fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
-:::
+
+> > > > > > > fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
+> > > > > > > :::
 
 Per Vue 3, dovresti usare la Vue CLI v4.5 disponibile su `npm` come `@vue/cli`. Per aggiornare, devi reinstallare l'ultima versione di `@vue/cli` globalmente:
 
@@ -97,19 +100,11 @@ vue upgrade --next
 
 ## Vite
 
-<<<<<<< HEAD
-[Vite](https://github.com/vitejs/vite) is a web development build tool that allows for lightning fast serving of code due its native ES Module import approach.
-=======
 [Vite](https://github.com/vitejs/vite) è uno strumento di build per la programmazione web che permette una compilazione estremamente veloce grazie al suo approccio di import basato sui moduli ES nativi.
->>>>>>> fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
 
 I progetti Vue possono essere impostati velocemente con Vite eseguendo i seguenti comandi nel tuo terminale.
 
-<<<<<<< HEAD
-With npm:
-=======
 Con NPM:
->>>>>>> fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
 
 ```bash
 $ npm init @vitejs/app <project-name>
@@ -127,21 +122,9 @@ $ yarn
 $ yarn dev
 ```
 
-<<<<<<< HEAD
-It might occur, that when your username has a space in it like 'Mike Baker', Vite cannot succeed. Have a try with
-
-```bash
-$ create-vite-app <project-name>
-```
-
-## Explanation of Different Builds
-
-In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
-=======
 ## Spiegazione delle Diverse Build
 
 Nella [cartella `dist/` del package NPM](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) troverai diverse build di Vue.js. Qui puoi leggere una panoramica di quale file `dist` dovrebbe essere usato a seconda del caso d'uso.
->>>>>>> fb1e725a5e6a741ae13b13a33ecf36ebf66e5e55
 
 ### Da CDN o senza un Bundler
 
@@ -151,7 +134,7 @@ Nella [cartella `dist/` del package NPM](https://cdn.jsdelivr.net/npm/vue@3.0.0-
 - Compilazione del template In-browser:
   - `vue.global.js` è la build "completa" che include sia il compilatore che il runtime quindi supporta la compilazione on the fly.
   - `vue.runtime.global.js` contiene solo il runtime e richiede che il template sia pre-compilato durante una fase di build.
-- Pacchetti interni del core di Vue tutti inline - es. è un singolo file senza dipendenze su altri file. Questo vuol dire dovrai importare tutto da questo e solo questo file per assicurarti che stai ottenendo la stessa istanza di codice. 
+- Pacchetti interni del core di Vue tutti inline - es. è un singolo file senza dipendenze su altri file. Questo vuol dire dovrai importare tutto da questo e solo questo file per assicurarti che stai ottenendo la stessa istanza di codice.
 - Contiene branch prod/dev hard-coded, e la build per production è pre-minimizzata. Usa il file `*.prod.js` per la production.
 
 :::tip Note
