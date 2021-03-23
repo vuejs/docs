@@ -3,6 +3,7 @@
 The webpack config for an SSR project will be similar to a client-only project. If you're not familiar with configuring webpack, you can find more information in the documentation for [Vue CLI](https://cli.vuejs.org/guide/webpack.html#working-with-webpack) or [configuring Vue Loader manually](https://vue-loader.vuejs.org/guide/#manual-setup).
 
 ### Example configuration
+
 Below is a sample `vue.config.js` that adds SSR rendering to a Vue CLI project, but it can be adapted for any webpack build.
 
 ```js
@@ -12,7 +13,8 @@ const webpack = require('webpack')
 
 module.exports = {
   chainWebpack: webpackConfig => {
-    //
+    // We need to disable cache loader, otherwise the client build
+    // will used cached components from the server build
     webpackConfig.module.rule('vue').uses.delete('cache-loader')
     webpackConfig.module.rule('js').uses.delete('cache-loader')
     webpackConfig.module.rule('ts').uses.delete('cache-loader')
@@ -48,6 +50,7 @@ module.exports = {
     // https://github.com/liady/webpack-node-externals
     // Externalize app dependencies. This makes the server build much faster
     // and generates a smaller bundle file.
+
     // Do not externalize dependencies that need to be processed by webpack.
     // You should also whitelist deps that modify `global` (e.g. polyfills)
     webpackConfig.externals(nodeExternals({ allowlist: /\.(css|vue)$/ }))
