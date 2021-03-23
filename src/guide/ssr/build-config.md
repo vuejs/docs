@@ -80,7 +80,7 @@ If you are using `runInNewContext: 'once'` or `runInNewContext: true`, then you 
 
 ### Generating `clientManifest`
 
-In addition to the server bundle, we can also generate a client build manifest. With the client manifest and the server bundle, the renderer now has information of both the server _and_ client builds, so it can automatically infer and inject [preload / prefetch directives](https://css-tricks.com/prefetching-preloading-prebrowsing/) and css links / script tags into the rendered HTML.
+In addition to the server bundle, we can also generate a client build manifest. With the client manifest and the server bundle, the renderer now has information of both the server _and_ client builds. This way it can automatically infer and inject [preload / prefetch directives](https://css-tricks.com/prefetching-preloading-prebrowsing/), `<link>` and `<script>` tags into the rendered HTML.
 
 The benefits are two-fold:
 
