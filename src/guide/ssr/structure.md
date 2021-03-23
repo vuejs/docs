@@ -51,9 +51,9 @@ The same rule applies to other instances as well (such as the router or store). 
 
 So far, we haven't discussed how to deliver the same Vue app to the client yet. To do that, we need to use webpack to bundle our Vue app.
 
-* We need to process the server code with webpack. For example, `.vue` files need to be processed with `vue-loader`, and many webpack-specific features such as importing files via `file-loader` or importing CSS via `css-loader` do not work directly in Node.js.
+- We need to process the server code with webpack. For example, `.vue` files need to be processed with `vue-loader`, and many webpack-specific features such as importing files via `file-loader` or importing CSS via `css-loader` do not work directly in Node.js.
 
-* Similarly, we need a separate client-side build because although the latest version of Node.js fully supports ES2015 features, older browsers will require the code to be transpiled.
+- Similarly, we need a separate client-side build because although the latest version of Node.js fully supports ES2015 features, older browsers will require the code to be transpiled.
 
 So the basic idea is that we will use webpack to bundle our app for both client and server. The server bundle will be required on the server and used to render static HTML, while the client bundle will be sent to the browser to hydrate the static markup.
 
@@ -83,20 +83,12 @@ src
 `app.js` is the universal entry to our app. In a client-only app, we would create the Vue application instance right in this file and mount directly to DOM. However, for SSR that responsibility is moved into the client-only entry file. `app.js` instead creates an application instance and exports it:
 
 ```js
-import { createSSRApp, h } from 'vue'
+import { createSSRApp } from 'vue'
 import App from './App.vue'
 
 // export a factory function for creating a root component
 export default function(args) {
-  const rootComponent = {
-    render: () => h(App),
-    components: { App },
-    setup() {
-      // additional application logic here
-    }
-  }
-
-  const app = createSSRApp(rootComponent)
+  const app = createSSRApp(App)
 
   return {
     app
