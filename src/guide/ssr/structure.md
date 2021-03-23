@@ -63,7 +63,7 @@ We will discuss the details of the setup in later sections - for now, let's just
 
 ## Code Structure with webpack
 
-Now that we are using webpack to process the app for both server and client, the majority of our source code can be written in a universal fashion, with access to all the webpack-powered features. At the same time, there are [a number of things](./universal.md) you should keep in mind when writing universal code.
+Now that we are using webpack to process the app for both server and client, the majority of our source code can be written in a universal fashion, with access to all the webpack-powered features. At the same time, there are a number of things you should keep in mind when [writing universal code](<(./universal.md)>).
 
 A simple project would look like this:
 
