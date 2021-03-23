@@ -62,14 +62,16 @@ const { app, router } = createApp({
 
 Code-splitting, or lazy-loading part of your app, helps reduce the size of assets that need to be downloaded by the browser for the initial render, and can greatly improve TTI (time-to-interactive) for apps with large bundles. The key is "loading just what is needed" for the initial screen.
 
-Vue provides async components as a first-class concept, allowing [webpack to code-split at that point](https://webpack.js.org/guides/code-splitting-async/). All you need to do is:
+Vue provides async components support with `defineAsyncComponent` method, allowing [webpack to code-split at that point](https://webpack.js.org/guides/code-splitting-async/). All you need to do is:
 
 ```js
 // change this...
 import User from './User.vue'
 
 // to this:
-const User = () => import('./User.vue')
+import { defineAsyncComponent } from 'vue'
+
+const User = defineAsyncComponent(() => import('./User.vue'))
 ```
 
 Note that it is still necessary to use `router.isReady` on both server and client before returning / mounting the app, because the router must resolve async route components ahead of time in order to properly invoke in-component hooks. Let's update our client entry:
