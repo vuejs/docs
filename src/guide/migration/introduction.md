@@ -89,7 +89,7 @@ The following consists a list of breaking changes from 2.x:
 
 ### Custom Elements
 
-- [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.html)
+- [Custom element checks are now performed during template compilation](/guide/migration/custom-elements-interop.html)
 - [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.html#customized-built-in-elements)
 
 ### Other Minor Changes
