@@ -3,17 +3,17 @@ badges:
   - breaking
 ---
 
-# VNode Lifecycle Events <MigrationBadges :badges="$frontmatter.badges" />
+# Eventi del ciclo di vita di VNode <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Panoramica
 
-In Vue 2, it was possible to use events to listen for key stages in a component's lifecycle. These events had names that started with the prefix `hook:`, followed by the name of the corresponding lifecycle hook.
+In Vue 2, era possibile utilizzare gli eventi delle fasi chiave nel ciclo di vita di un componente. Questi eventi avevano nomi che iniziavano con il prefisso `hook:`, seguito dal nome del ciclo di vita corrispondente.
 
-In Vue 3, this prefix has been changed to `vnode-`. In addition, these events are now available for HTML elements as well as components.
+In Vue 3, questo prefisso è stato cambiato in "vnode-". Inoltre, questi eventi sono ora disponibili per gli elementi HTML e per i componenti.
 
-## 2.x Syntax
+## 2.x Sintassi
 
-In Vue 2, the event name is the same as the equivalent lifecycle hook, prefixed with `hook:`:
+In Vue 2, il nome dell'evento è lo stesso dell'hook del ciclo di vita equivalente, preceduto da `hook:`:
 
 ```html
 <template>
@@ -21,9 +21,9 @@ In Vue 2, the event name is the same as the equivalent lifecycle hook, prefixed 
 </template>
 ```
 
-## 3.x Syntax
+## 3.x Sintassi
 
-In Vue 3, the event name is prefixed with `vnode-`:
+In Vue 3, il nome dell'evento è preceduto da `vnode-`:
 
 ```html
 <template>
@@ -31,7 +31,7 @@ In Vue 3, the event name is prefixed with `vnode-`:
 </template>
 ```
 
-Or just `vnode` if you're using camel case:
+O semplicemente `vnode` se stai usando la notazione camel case:
 
 ```html
 <template>
@@ -39,10 +39,10 @@ Or just `vnode` if you're using camel case:
 </template>
 ```
 
-## Migration Strategy
+## Strategia di migrazione
 
-In most cases it should just require changing the prefix. The lifecycle hooks `beforeDestroy` and `destroyed` have been renamed to `beforeUnmount` and `unmounted` respectively, so the corresponding event names will also need to be updated.
+Nella maggior parte dei casi dovrebbe solo richiedere la modifica del prefisso. Gli hook del ciclo di vita `beforeDestroy` e` destroyed` sono stati rinominati rispettivamente in `beforeUnmount` e` unmounted`, quindi anche i nomi degli eventi corrispondenti dovranno essere aggiornati.
 
-## See also
+## Guarda anche
 
-- [Migration guide - Events API](/guide/migration/events-api.html)
+- [Guida alla migrazione - API Eventi](/guide/migration/events-api.html)
