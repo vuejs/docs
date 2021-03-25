@@ -33,7 +33,7 @@ module.exports = {
       webpackConfig
         .entry('app')
         .clear()
-        .add('./src/client-entry.js')
+        .add('./src/entry-client.js')
       return
     }
 
