@@ -96,7 +96,7 @@ We also need to update our `server.js` script:
 const createApp = require('./app')
 
 server.get('*', async (req, res) => {
-  const { app, router } = await createApp()
+  const { app, router } = createApp()
 
   router.push(req.url)
   await router.isReady()
