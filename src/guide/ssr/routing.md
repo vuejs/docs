@@ -93,7 +93,10 @@ We also need to update our `server.js` script:
 
 ```js
 // server.js
-const createApp = require('./app')
+const path = require('path')
+
+const appPath = path.join(__dirname, './dist', 'server', manifest['app.js'])
+const createApp = require(appPath).default
 
 server.get('*', async (req, res) => {
   const { app, router } = await createApp()

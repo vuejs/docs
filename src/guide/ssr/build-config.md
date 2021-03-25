@@ -15,7 +15,7 @@ The webpack config for an SSR project will be similar to a client-only project. 
 Below is a sample `vue.config.js` that adds SSR rendering to a Vue CLI project, but it can be adapted for any webpack build.
 
 ```js
-const ManifestPlugin = require('webpack-manifest-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 const nodeExternals = require('webpack-node-externals')
 const webpack = require('webpack')
 
