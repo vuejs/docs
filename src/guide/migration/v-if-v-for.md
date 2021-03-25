@@ -1,34 +1,34 @@
 ---
-title: v-if vs. v-for Precedence
+title: Precedenza v-if su v-for
 badges:
   - breaking
 ---
 
 # {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Panoramica
 
-- **BREAKING**: If used on the same element, `v-if` will have higher precedence than `v-for`
+- ** BREAKING **: Se usato sullo stesso elemento, `v-if` avrà la precedenza su `v-for`
 
-## Introduction
+## Introduzione
 
-Two of the most commonly used directives in Vue.js are `v-if` and `v-for`. So it's no surprise that there comes a time when developers want to use both together. While this is not a recommended practice, there may be times when this is necessary, so we wanted to provide guidance for how it works.
+Due delle direttive più comunemente usate in Vue.js sono `v-if` e` v-for`. Quindi non sorprende che arrivi un momento in cui gli sviluppatori vogliono usarli entrambi insieme. Sebbene questa non sia una pratica consigliata, a volte potrebbe essere necessario, quindi volevamo fornire una guida su come funziona.
 
-## 2.x Syntax
+## Sintassi 2.x 
 
-In 2.x, when using `v-if` and `v-for` on the same element, `v-for` would take precedence.
+Nella versione 2.x, quando si usano `v-if` e `v-for` sullo stesso elemento, `v-for` ha la precedenza.
 
-## 3.x Syntax
+## Sintassi 3.x 
 
-In 3.x, `v-if` will always have the higher precedence than `v-for`.
+Nella versione 3.x, `v-if` avrà sempre la precedenza su `v-for`.
 
-## Migration Strategy
+## Strategia di migrazione
 
-It is recommended to avoid using both on the same element due to the syntax ambiguity.
+Si consiglia di evitare di utilizzare entrambi sullo stesso elemento a causa dell'ambiguità della sintassi.
 
-Rather than managing this at the template level, one method for accomplishing this is to create a computed property that filters out a list for the visible elements.
+Piuttosto che gestirlo a livello di template, è preferibile creare una `computed property` che filtri gli elementi visibili in un elenco.
 
-## See also
+## Vedi anche
 
-- [List Rendering - Displaying Filtered/Sorted Results](/guide/list.html#displaying-filtered-sorted-results)
-- [List Rendering - `v-for` with `v-if`](/guide/list.html#v-for-with-v-if)
+- [Rappresentazione di un elenco - Visualizzazione dei risultati filtrati/ordinati](/guide/list.html#displaying-filtered-sorted-results)
+- [Rappresentazione di un elenco - `v-for` con `v-if`](/guide/list.html#v-for-with-v-if)
