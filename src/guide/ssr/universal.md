@@ -10,7 +10,7 @@ Because the actual rendering process needs to be deterministic, we will also be 
 
 ## Component Lifecycle Hooks
 
-Since there are no dynamic updates, the only lifecycle hooks that will be called during SSR are `beforeCreate` and `created`. This means any code inside other lifecycle hooks such as `beforeMount` or `mounted` will only be executed on the client.
+Since there are no dynamic updates, the only [lifecycle hooks](/guide/instance.html#lifecycle-hooks) that will be called during SSR are `beforeCreate` and `created`. This means any code inside other lifecycle hooks such as `beforeMount` or `mounted` will only be executed on the client.
 
 Another thing to note is that you should avoid code that produces global side effects in `beforeCreate` and `created`, for example setting up timers with `setInterval`. In client-side only code we may setup a timer and then tear it down in `beforeUnmount` or `unmounted`. However, because the destroy hooks will not be called during SSR, the timers will stay around forever. To avoid this, move your side-effect code into `beforeMount` or `mounted` instead.
 
@@ -26,8 +26,8 @@ Note that if a 3rd party library is not written with universal usage in mind, it
 
 ## Custom Directives
 
-Most custom directives directly manipulate the DOM, which will cause errors during SSR. There are two ways to work around this:
+Most [custom directives](/guide/custom-directive.html#custom-directives) directly manipulate the DOM, which will cause errors during SSR. There are two ways to work around this:
 
-1. Prefer using components as the abstraction mechanism and work at the Virtual-DOM level (e.g. using render functions) instead.
+1. Prefer using components as the abstraction mechanism and work at the Virtual-DOM level (e.g. using [render functions](/guide/render-function.html#the-dom-tree)) instead.
 
-2. If you have a custom directive that cannot be easily replaced by components, you can provide a "server-side version" of it using the `directives`option when creating the server renderer.
+2. If you have a custom directive that cannot be easily replaced by components, you can provide a "server-side version" of it using the `directives` option when creating the server renderer.

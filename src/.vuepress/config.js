@@ -214,9 +214,9 @@ const sidebar = {
     '/guide/ssr/getting-started',
     '/guide/ssr/universal',
     '/guide/ssr/structure',
+    '/guide/ssr/build-config',
     '/guide/ssr/routing',
-    '/guide/ssr/hydration',
-    '/guide/ssr/build-config'
+    '/guide/ssr/hydration'
   ],
   contributing: [
     {

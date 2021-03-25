@@ -74,7 +74,7 @@ import { defineAsyncComponent } from 'vue'
 const User = defineAsyncComponent(() => import('./User.vue'))
 ```
 
-Note that it is still necessary to use `router.isReady` on both server and client before returning / mounting the app, because the router must resolve async route components ahead of time in order to properly invoke in-component hooks. Let's update our client entry:
+On both client and server we need to wait for router to resolve async route components ahead of time in order to properly invoke in-component hooks. For this we will be using [router.isReady](https://next.router.vuejs.org/api/#isready) method Let's update our client entry:
 
 ```js
 // entry-client.js
