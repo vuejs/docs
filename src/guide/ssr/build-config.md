@@ -33,7 +33,7 @@ module.exports = {
       webpackConfig
         .entry('app')
         .clear()
-        .add('./src/client-entry.js')
+        .add('./src/entry-client.js')
       return
     }
 
@@ -41,7 +41,7 @@ module.exports = {
     webpackConfig
       .entry('app')
       .clear()
-      .add('./src/server-entry.js')
+      .add('./src/entry-server.js')
 
     // This allows webpack to handle dynamic imports in a Node-appropriate
     // fashion, and also tells `vue-loader` to emit server-oriented code when

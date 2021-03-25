@@ -99,7 +99,7 @@ const appPath = path.join(__dirname, './dist', 'server', manifest['app.js'])
 const createApp = require(appPath).default
 
 server.get('*', async (req, res) => {
-  const { app, router } = await createApp()
+  const { app, router } = createApp()
 
   router.push(req.url)
   await router.isReady()
