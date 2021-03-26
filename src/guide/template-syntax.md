@@ -206,4 +206,5 @@ Kecuali jika Anda memiliki properti "someattr" pada _instance_ Anda, kode Anda t
 
 #### Ekspresi JavaScript
 
-Ekspresi templat dijalankan di dalam bak pasir dan hanya dapat mengakses pada [daftar putih _global_](https://github.com/vuejs/vue-next/blob/master/packages/shared/src/globalsWhitelist.ts#L3) seperti `Math` dan `Date`. Anda tidak boleh mencoba mengakses _global_ yang didefinisikan oleh pengembang sendiri pada ekspresi templat.
+Ekspresi templat dijalankan di dalam _sandbox_ dan hanya dapat mengakses  [beberapa daftar global](https://github.com/vuejs/vue-next/blob/master/packages/shared/src/globalsWhitelist.ts#L3) seperti `Math` dan `Date`. Anda tidak boleh mencoba mengakses _global_ yang didefinisikan oleh pengembang sendiri pada ekspresi templat.
+

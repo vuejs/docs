@@ -7,6 +7,7 @@ badges:
 
 ## Gambaran Umum
 
+- **MERUSAK:** Pengecekan untuk mengetahui jika _tag_ HTML harus di perlakukan seperti elemen kustom sekarang dilakukan pada saat kompilasi templat, dan harus dilakukan melalui opsi kompiler bukan pada konfigurasi _runtime_
 - **MERUSAK:** _Whitelisting_ pada elemen kustom sekarang dijalankan pada saat kompilasi _template_, dan harus disetel melalui pengaturan kompilator, bukan melalui pengaturan waktu eksekusi.
 - **MERUSAK** Penggunaan properti khusus `is` dibatasi untuk _tag_ `<component>` saja. 
 - **BARU** Terdapat _directive_ baru `v-is` untuk mendukung kasus penggunaan pada Vue versi 2.x dimana `is` digunakan pada elemen bawaan untuk mengatasi masalah batasan penguraian pada elemen bawaan HTML.
@@ -21,7 +22,7 @@ Apabila Anda ingin menambahkan sebuah elemen kustom yang didefiniskan di luar Vu
 
 ### Sintaks Vue versi 2.x
 
-Pada Vue versi 2.x, _whitelisting tag_ sebagai elemen kustom dilakukan melalui `Vue.config.ignoredElemets`:
+Pada Vue versi 2.x, pengaturan untuk menentukan _tag_ HTML kustom dilakukan melalui `Vue.config.ignoredElements`
 
 ```js
 // Kode di bawah akan membuat Vue menghiraukan elemen kustom yang
