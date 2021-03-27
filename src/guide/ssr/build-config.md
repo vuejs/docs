@@ -8,7 +8,17 @@ The webpack config for an SSR project will be similar to a client-only project. 
 
 2. We should [externalize application dependencies](https://webpack.js.org/configuration/externals/). This makes the server build much faster and generates a smaller bundle file. When doing this, we have to exclude dependencies that need to be processed by webpack (like `.css`. or `.vue` files).
 
-3. We need to change webpack [target] to Node.js. This allows webpack to handle dynamic imports in a Node-appropriate fashion, and also tells `vue-loader` to emit server-oriented code when compiling Vue components.
+3. We need to change webpack [target](https://webpack.js.org/concepts/targets/) to Node.js. This allows webpack to handle dynamic imports in a Node-appropriate fashion, and also tells `vue-loader` to emit server-oriented code when compiling Vue components.
+
+4. When building a server entry, we would need to define an environment variable to indicate we are working with SSR. It might be helpful to add a few `scripts` to the project's `package.json`:
+
+```json
+"scripts": {
+  "build:client": "vue-cli-service build --dest dist/client",
+  "build:server": "SSR=1 vue-cli-service build --dest dist/server",
+  "build": "rm -rf ./dist && npm run build:client && npm run build:server",
+}
+```
 
 ## Example Configuration
 

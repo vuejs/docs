@@ -64,6 +64,8 @@ yarn add express
 ```
 
 ```js
+// server.js
+
 const { createSSRApp } = require('vue')
 const { renderToString } = require('@vue/server-renderer')
 const server = require('express')()

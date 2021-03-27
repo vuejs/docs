@@ -8,9 +8,9 @@ Therefore, we need to **create a new root Vue instance for each request.** In or
 
 ```js
 // app.js
-import { createSSRApp } from 'vue'
+const { createSSRApp } = require('vue')
 
-export default function createApp() {
+function createApp() {
   return createSSRApp({
     data() {
       return {
@@ -26,10 +26,19 @@ And our server code now becomes:
 
 ```js
 // server.js
-const createApp = require('./app')
+const { createSSRApp } = require('vue')
+const { renderToString } = require('@vue/server-renderer')
+const server = require('express')()
 
-server.get('*', (req, res) => {
-  const app = createApp()
+server.get('*', async (req, res) => {
+  const app = createSSRApp({
+    data() {
+      return {
+        user: 'John Doe'
+      }
+    },
+    template: `<div>Current user is: {{ user }}</div>`
+  })
 
   const appContent = await renderToString(app)
   const html = `
@@ -43,6 +52,8 @@ server.get('*', (req, res) => {
 
   res.end(html)
 })
+
+server.listen(8080)
 ```
 
 The same rule applies to other instances as well (such as the router or store). Instead of exporting the router or store directly from a module and importing it across your app, you should create a fresh instance in `createApp` and inject it from the root Vue instance.

@@ -215,6 +215,7 @@ const sidebar = {
     '/guide/ssr/universal',
     '/guide/ssr/structure',
     '/guide/ssr/build-config',
+    '/guide/ssr/server',
     '/guide/ssr/routing',
     '/guide/ssr/hydration'
   ],
