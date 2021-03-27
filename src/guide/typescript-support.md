@@ -133,7 +133,7 @@ const Component = defineComponent({
 })
 ```
 
-### Augmenting Types for Use with Plugins or Declarations by User
+### Augmenting Types for `globalProperties`
 
 Vue 3 provides a [`globalProperties` object](../api/application-config.html#globalproperties) that can be used to add a global property that can be accessed in any component instance. For example, a [plugin](./plugins.html#writing-a-plugin) might want to inject a shared global object or function.
 
@@ -163,12 +163,19 @@ import axios from 'axios'
 
 declare module '@vue/runtime-core' {
   export interface ComponentCustomProperties {
-    axios: typeof axios
+    $http: typeof axios
+    $validate: (data: object, rule: object) => boolean
   }
 }
 ```
 
 We can put this type declaration in the same file, or in a project-wide `*.d.ts` file (for example, in the `src/typings` folder that is automatically loaded by TypeScript). For library/plugin authors, this file should be specified in the `types` property in `package.json`.
+
+::: warning Make sure the declaration file is a TypeScript module
+According to the [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/modules.html), any file containing a top-level `import` or `export` is considered a module. Otherwise, it is a script. Only in module, the declarations in an augmentation will be merged, if in script, they will replace the original types, it will make all the default properties missing.
+
+Please make sure there is at least one top-level `import` or `export` in your file -- Especially when you customize the type instead of extending a third-party type in a separate file, at this time, you can add `export {}` to meet the requirements.
+:::
 
 For more information about the `ComponentCustomProperties` type, see its [definition in `@vue/runtime-core`](https://github.com/vuejs/vue-next/blob/2587f36fe311359e2e34f40e8e47d2eebfab7f42/packages/runtime-core/src/componentOptions.ts#L64-L80) and [the TypeScript unit tests](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) to learn more.
 
@@ -198,8 +205,8 @@ const Component = defineComponent({
       },
       set(newValue: string) {
         this.message = newValue.toUpperCase();
-      },
-    },
+      }
+    }
   }
 })
 ```
