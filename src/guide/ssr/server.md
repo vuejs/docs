@@ -37,7 +37,7 @@ A described [code structure](./structure.html) and [webpack configuration](./bui
   ```js
   // server.js
   server.get('*', async (req, res) => {
-    const { app } = await createApp()
+    const { app } = createApp()
 
     let appContent = await renderToString(app)
 

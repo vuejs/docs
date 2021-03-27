@@ -106,15 +106,16 @@ server.get('*', async (req, res) => {
 
   const appContent = await renderToString(app)
 
-  const html = `
-  <html>
-    <body>
-      <h1>My First Heading</h1>
-      <div id="app">${appContent}</div>
-    </body>
-  </html>
-  `
+  fs.readFile(path.join(__dirname, '/dist/client/index.html'), (err, html) => {
+    if (err) {
+      throw err
+    }
 
-  res.end(html)
+    html = html
+      .toString()
+      .replace('<div id="app">', `<div id="app">${appContent}`)
+    res.setHeader('Content-Type', 'text/html')
+    res.send(html)
+  })
 })
 ```
