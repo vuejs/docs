@@ -1,4 +1,4 @@
-# Setting Up a Server with Webpack Build
+# Server Configuration
 
 A described [code structure](./structure.html) and [webpack configuration](./build-config.html) also require some changes done to our Express server code.
 
