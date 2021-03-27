@@ -62,7 +62,7 @@ module.exports = {
 
     webpackConfig
       .plugin('manifest')
-      .use(new ManifestPlugin({ fileName: 'ssr-manifest.json' }))
+      .use(new WebpackManifestPlugin({ fileName: 'ssr-manifest.json' }))
 
     // https://webpack.js.org/configuration/externals/#function
     // https://github.com/liady/webpack-node-externals
