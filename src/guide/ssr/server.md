@@ -36,25 +36,22 @@ A described [code structure](./structure.html) and [webpack configuration](./bui
 
   ```js
   // server.js
+  const indexTemplate = fs.readFileSync(
+    path.join(__dirname, '/dist/client/index.html'),
+    'utf-8'
+  )
+
   server.get('*', async (req, res) => {
     const { app } = createApp()
 
     let appContent = await renderToString(app)
 
-    fs.readFile(
-      path.join(__dirname, '/dist/client/index.html'),
-      (err, html) => {
-        if (err) {
-          throw err
-        }
+    const html = indexTemplate
+      .toString()
+      .replace('<div id="app">', `<div id="app">${appContent}`)
 
-        html = html
-          .toString()
-          .replace('<div id="app">', `<div id="app">${appContent}`)
-        res.setHeader('Content-Type', 'text/html')
-        res.send(html)
-      }
-    )
+    res.setHeader('Content-Type', 'text/html')
+    res.send(html)
   })
   ```
 
