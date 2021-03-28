@@ -26,8 +26,4 @@ Note that if a 3rd party library is not written with universal usage in mind, it
 
 ## Custom Directives
 
-Most [custom directives](/guide/custom-directive.html#custom-directives) directly manipulate the DOM, which will cause errors during SSR. There are two ways to work around this:
-
-1. Prefer using components as the abstraction mechanism instead of directives.
-
-2. If you have a custom directive that cannot be easily replaced by components, you can provide a "server-side version" of it using the `directives` option when creating the server renderer.
+Most [custom directives](/guide/custom-directive.html#custom-directives) directly manipulate the DOM, which will cause errors during SSR. We recommend to prefer using components as the abstraction mechanism instead of directives.
