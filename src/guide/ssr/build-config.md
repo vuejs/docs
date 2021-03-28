@@ -75,7 +75,6 @@ module.exports = {
 
     webpackConfig.optimization.splitChunks(false).minimize(false)
 
-    webpackConfig.plugins.delete('hmr')
     webpackConfig.plugins.delete('preload')
     webpackConfig.plugins.delete('prefetch')
     webpackConfig.plugins.delete('progress')
