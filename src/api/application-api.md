@@ -191,7 +191,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Usage:**
 
-  Mounts a root component of the application instance on the provided DOM element.
+  The `innerHTML` of the provided DOM element will be replaced with the rendered template of the application root component.
 
 - **Example:**
 
@@ -302,5 +302,17 @@ setTimeout(() => app.unmount(), 5000)
   The install method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
+
+- **Example:**
+
+  ```js
+  import { createApp } from 'vue'
+  import MyPlugin from './plugins/MyPlugin'
+
+  const app = createApp({})
+
+  app.use(MyPlugin)
+  app.mount('#app')
+  ```
 
 - **See also:** [Plugins](../guide/plugins.html)
