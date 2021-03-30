@@ -1,5 +1,5 @@
 <template>
-  <a id="vs" href="https://vueschool.io/the-vuejs-master-class/?friend=vuejs#plans" target="_blank" rel="noreferrer">
+  <a id="vs" href="https://vueschool.io/sales/flashsale21/?friend=vuejs" target="_blank" rel="noreferrer">
     <div class="vs-iso">
       <img src="/images/vueschool/vs-iso.svg" alt="Vue School logo">
     </div>
@@ -7,18 +7,14 @@
       <img src="/images/vueschool/vs-logo.svg" alt="Vue School logo">
     </div>
     <div class="vs-core">
+      <div class="vs-illustration">
+        <img src="/images/vueschool/vs-backpack.svg" alt="backpack illustration">
+      </div>
       <div class="vs-slogan">
-        <div class="vs-slogan-up">
-          LEARN VUE AT VUE SCHOOL
-        </div>
-        <div class="vs-slogan-down">
-          Register today and get <strong>20% OFF</strong>
-        </div>
+        <span class="vs-slogan-main">Flash Sale -</span> Less than <span style="color: #1fdb69">48hrs left</span> to get 20% OFF!
       </div>
       <div class="vs-button">
-        <div class="vs-button-inside">
-          <img src="/images/vueschool/learn-more.svg" alt="Learn More">
-        </div>
+        GET OFFER
       </div>
     </div>
     <div
@@ -38,7 +34,7 @@ $topBannerHeightMobile ?= 3.125rem
 // Banner
 #vs
   align-items: center
-  background-color: #1E204D
+  background-color: #202A5A
   background-position: top right
   background-repeat: no-repeat
   background-size: cover
@@ -53,18 +49,13 @@ $topBannerHeightMobile ?= 3.125rem
   right: 0
   top: 0
   z-index: 100
-  background-image: url(/images/vueschool/vs-banner-bg-mobile-2.svg)
   height: $topBannerHeightMobile
   @media (min-width: 680px)
     height: $topBannerHeight
-    background-image: url(/images/vueschool/vs-banner-bg-tablet-2.svg)
-  @media (min-width: 900px)
-    background-image: url(/images/vueschool/vs-banner-bg-desktop-2.svg)
   &:hover
     .vs-core
       .vs-button
-        .vs-button-inside
-          background: linear-gradient(#ed81eb, #d457d0)
+        background-color: #364fde
 
   .vs-iso
       position: absolute
@@ -73,11 +64,6 @@ $topBannerHeightMobile ?= 3.125rem
       img
         height: 26px
       @media (min-width: 680px)
-        left: 40px
-        height: 40px
-        img
-          height: 40px
-      @media (min-width: 900px)
         display: none
 
   .vs-logo
@@ -91,56 +77,51 @@ $topBannerHeightMobile ?= 3.125rem
     display: flex
     align-items: center
 
-    .vs-slogan
-      text-align: center
-
-      .vs-slogan-up
-        color: #47b785
-        font-size: 14px
-        font-weight: bold
-        @media (min-width: 680px)
-          font-size: 18px
-
-      .vs-slogan-down
-        color: #fff
-        font-size: 12px
-        padding-top: 2px
-        @media (min-width: 680px)
-          font-size: 16px
-        strong
-          color: #fff
-          font-weight: bold
-
-    .vs-button
-      margin-left: 43px
-      color: #fff
-      background: linear-gradient(to bottom, #b349b0, #dc61da)
-      padding: 2px
-      border-radius: 40px
+    .vs-illustration
       display: none
       @media (min-width: 680px)
         display: inline-block
-      .vs-button-inside
-        border-radius: 40px
-        background: linear-gradient(#dc61da, #b349b0)
-        transition: all .25s ease-in
-        padding: 12px 24px 8px
-        line-height: 0
+        margin-right: 8px
+      @media (min-width: 900px)
+        margin-right: 20px
+
+    .vs-slogan
+      text-align: center
+      font-size: 14px
+      font-weight: bold
+      @media (min-width: 680px)
+        font-size: 20px
+      @media (min-width: 900px)
+        font-size: 22px
+      .vs-slogan-main
+        display: none
         @media (min-width: 680px)
-          padding: 12px 24px 8px
-      &.vs-button-alt
-        background: linear-gradient(to bottom, #ffcc38, #ffd13d)
-        .vs-button-inside
-          background: linear-gradient(to bottom, #ffe24f, #ffa40e)
+          display: inline
+
+    .vs-button
+      margin-left: 8px
+      color: #fff
+      background: #667dff
+      padding: 2px
+      border-radius: 40px
+      display: none
+      padding: 17px 24px
+      font-weight: bold
+      @media (min-width: 680px)
+        display: inline-block
+      @media (min-width: 900px)
+        margin-left: 20px
 
   .vs-close
-    right: 10px
-    position: absolute
-    padding: 10px
-    @media (min-width: 680px)
-      right: 20px
-    &:hover
-      color: #56D8FF
+      right: 10px
+      position: absolute
+      padding: 10px
+      @media (min-width: 680px)
+        right: 0px
+      @media (min-width: 900px)
+        right: 20px
+      &:hover
+        color: #56D8FF
 
 /************************************/
 
