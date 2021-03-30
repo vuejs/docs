@@ -188,4 +188,4 @@ For more information on the new `v-model` syntax, see:
 
 - [Using `v-model` on Components](../component-basics.html#using-v-model-on-components)
 - [`v-model` arguments](../component-custom-events.html#v-model-arguments)
-- [Handling `v-model` modifiers](../component-custom-events.html#v-model-arguments)
+- [Handling `v-model` modifiers](../component-custom-events.html#handling-v-model-modifiers)

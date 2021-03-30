@@ -18,7 +18,7 @@ First, we'll create a folder for all of the icons, and name them in a standardiz
 
 Here's an example repo to get you going, where you can see the entire setup: [https://github.com/sdras/vue-sample-svg-icons/](https://github.com/sdras/vue-sample-svg-icons/)
 
-![Documentation site](https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/screendocs.jpg 'Docs demo')
+![Documentation site](/images/editable-svg-icons.jpg 'Docs demo')
 
 We'll create a base icon (`IconBase.vue`) component that uses a slot.
 
@@ -88,7 +88,7 @@ Now, if we'd like to make many sizes for the icon, we can do so very easily:
 </p>
 ```
 
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/Screen%20Shot%202018-01-01%20at%204.51.40%20PM.png" width="450" />
+<img src="/images/editable-svg-icons-sizes.png" width="450" />
 
 ## Animatable Icons
 

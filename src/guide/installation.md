@@ -2,11 +2,12 @@
 
 Vue.js is built by design to be incrementally adoptable. This means that it can be integrated into a project multiple ways depending on the requirements.
 
-There are three primary ways of adding Vue.js to a project:
+There are four primary ways of adding Vue.js to a project:
 
 1. Import it as a [CDN package](#cdn) on the page
-2. Install it using [npm](#npm)
-3. Use the official [CLI](#cli) to scaffold a project, which provides batteries-included build setups for a modern frontend workflow (e.g., hot-reload, lint-on-save, and much more)
+2. Download the JavaScript files and [host them yourself](#download-and-self-host)
+3. Install it using [npm](#npm)
+4. Use the official [CLI](#cli) to scaffold a project, which provides batteries-included build setups for a modern frontend workflow (e.g., hot-reload, lint-on-save, and much more)
 
 ## Release Notes
 
@@ -35,6 +36,12 @@ For prototyping or learning purposes, you can use the latest version with:
 ```
 
 For production, we recommend linking to a specific version number and build to avoid unexpected breakage from newer versions.
+
+## Download and Self Host
+
+If you want to avoid using build tools but can't use a CDN in production then you can download the relevant `.js` file and host it using your own web server. You can then include it using a `<script>` tag, just like with the CDN approach.
+
+The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg.com/browse/vue@next/dist/) or [jsDelivr](https://cdn.jsdelivr.net/npm/vue@next/dist/). The various different files are [explained later](#explanation-of-different-builds) but you would typically want to download both a development build and a production build.
 
 ## npm
 
@@ -76,7 +83,7 @@ Vue projects can quickly be set up with Vite by running the following commands i
 With npm:
 
 ```bash
-$ npm init vite-app <project-name>
+$ npm init @vitejs/app <project-name>
 $ cd <project-name>
 $ npm install
 $ npm run dev
@@ -85,10 +92,16 @@ $ npm run dev
 Or with Yarn:
 
 ```bash
-$ yarn create vite-app <project-name>
+$ yarn create @vitejs/app <project-name>
 $ cd <project-name>
 $ yarn
 $ yarn dev
+```
+
+It might occur, that when your username has a space in it like 'Mike Baker', Vite cannot succeed. Have a try with
+
+```bash
+$ create-vite-app <project-name>
 ```
 
 ## Explanation of Different Builds
@@ -110,14 +123,14 @@ In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3
 Global builds are not [UMD](https://github.com/umdjs/umd) builds. They are built as [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and are only meant for direct use via `<script src="...">`.
 :::
 
-#### vue(.runtime).esm-browser(.prod).js:
+#### `vue(.runtime).esm-browser(.prod).js`:
 
 - For usage via native ES modules imports (in browser via `<script type="module">`.
 - Shares the same runtime compilation, dependency inlining and hard-coded prod/dev behavior with the global build.
 
 ### With a Bundler
 
-#### vue(.runtime).esm-bundler.js:
+#### `vue(.runtime).esm-bundler.js`:
 
 - For use with bundlers like `webpack`, `rollup` and `parcel`.
 - Leaves prod/dev branches with `process.env.NODE_ENV guards` (must be replaced by bundler)

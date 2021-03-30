@@ -45,11 +45,9 @@ Apart from answering questions and sharing resources in the forum and chat, ther
 
 ### Translate Docs
 
-Vue has already spread across the globe, with even the core team in at least half a dozen timezones. [The forum](https://forum.vuejs.org/) includes 7 languages and counting and many of our docs have [actively-maintained translations](https://github.com/vuejs?utf8=%E2%9C%93&q=vuejs.org). We're very proud of Vue's international reach, but we can do even better.
-
 I hope that right now, you're reading this sentence in your preferred language. If not, would you like to help us get there?
 
-If so, please feel free to fork the repo for [these docs](https://github.com/vuejs/vuejs.org/) or for any other officially maintained documentation, then start translating. Once you've made some progress, open an issue or pull request in the main repo and we'll put out a call for more contributors to help you out.
+See the [Translations guide](/guide/contributing/translations.html) for more details on how you can get involved.
 
 ### Become a Community Leader
 

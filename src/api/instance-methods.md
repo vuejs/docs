@@ -15,12 +15,12 @@
 
 - **Usage:**
 
-  Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `prop`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
+  Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `props`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
 
 - **Example:**
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         a: 1,
@@ -62,7 +62,7 @@
   When watched value is an object or array, any changes to its properties or elements won't trigger the watcher because they reference the same object/array:
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         article: {
@@ -104,7 +104,7 @@
   `$watch` returns an unwatch function that stops firing the callback:
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         a: 1
@@ -121,7 +121,9 @@
 
 - **Option: deep**
 
-  To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. Note that you don't need to do so to listen for array mutations.
+  To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. This option also can be used to watch array mutations.
+  
+  > Note: when mutating (rather than replacing) an Object or an Array and watch with deep option, the old value will be the same as new value because they reference the same Object/Array. Vue doesn't keep a copy of the pre-mutate value.
 
   ```js
   vm.$watch('someObject', callback, {
@@ -213,7 +215,7 @@
   ```
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     methods: {
       sayHi() {
         console.log('Hi!')
@@ -242,7 +244,7 @@
   ```
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     methods: {
       showAdvice(advice) {
         alert(advice)
@@ -293,7 +295,7 @@
 - **Example:**
 
   ```js
-  Vue.createApp({
+  createApp({
     // ...
     methods: {
       // ...

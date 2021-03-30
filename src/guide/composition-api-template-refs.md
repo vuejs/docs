@@ -85,3 +85,66 @@ Composition API template refs do not have special handling when used inside `v-f
   }
 </script>
 ```
+
+## Watching Template Refs
+
+Watching a template ref for changes can be an alternative to the use of lifecycle hooks that was demonstrated in the previous examples.
+
+But a key difference to lifecycle hooks is that `watch()` and `watchEffect()` effects are run *before* the DOM is mounted or updated so the template ref hasn't been updated when the watcher runs the effect:
+
+```vue
+<template>
+  <div ref="root">This is a root element</div>
+</template>
+
+<script>
+  import { ref, watchEffect } from 'vue'
+
+  export default {
+    setup() {
+      const root = ref(null)
+
+      watchEffect(() => {
+        // This effect runs before the DOM is updated, and consequently, 
+        // the template ref does not hold a reference to the element yet.
+        console.log(root.value) // => null
+      })
+
+      return {
+        root
+      }
+    }
+  }
+</script>
+```
+
+Therefore, watchers that use template refs should be defined with the `flush: 'post'` option. This will run the effect *after* the DOM has been updated and ensure that the template ref stays in sync with the DOM and references the correct element.
+
+```vue
+<template>
+  <div ref="root">This is a root element</div>
+</template>
+
+<script>
+  import { ref, watchEffect } from 'vue'
+
+  export default {
+    setup() {
+      const root = ref(null)
+
+      watchEffect(() => {
+        console.log(root.value) // => <div></div>
+      }, 
+      {
+        flush: 'post'
+      })
+
+      return {
+        root
+      }
+    }
+  }
+</script>
+```
+
+* See also: [Computed and Watchers](./reactivity-computed-watchers.html#effect-flush-timing)

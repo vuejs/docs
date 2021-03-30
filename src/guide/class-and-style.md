@@ -111,7 +111,7 @@ If you would like to also toggle a class in the list conditionally, you can do i
 <div :class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
-This will always apply `errorClass`, but will only apply `activeClass` when `isActive` is truthy.
+This will always apply `errorClass`, but `activeClass` will only be applied when `isActive` is truthy.
 
 However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
 

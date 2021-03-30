@@ -57,7 +57,7 @@ app.component('custom-form', {
     }
   },
   methods: {
-    submitForm() {
+    submitForm(email, password) {
       this.$emit('submit', { email, password })
     }
   }

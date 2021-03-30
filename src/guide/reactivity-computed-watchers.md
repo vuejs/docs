@@ -123,7 +123,7 @@ In this example:
 - The count will be logged synchronously on initial run.
 - When `count` is mutated, the callback will be called **before** the component has updated.
 
-In cases where a watcher effect needs to be re-run **after** component updates, we can pass an additional `options` object with the `flush` option (default is `'pre'`):
+In cases where a watcher effect needs to be re-run **after** component updates (i.e. when working with [Template Refs](./composition-api-template-refs.md#watching-template-refs)), we can pass an additional `options` object with the `flush` option (default is `'pre'`):
 
 ```js
 // fire after component updates so you can access the updated DOM
