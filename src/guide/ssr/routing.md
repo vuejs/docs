@@ -9,14 +9,13 @@ It is recommended to use the official [vue-router](https://github.com/vuejs/vue-
 ```js
 // router.js
 import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router'
+import MyUser from './components/MyUser.vue'
 
 const isServer = typeof window === 'undefined'
 
 const history = isServer ? createMemoryHistory() : createWebHistory()
 
-const routes = [
-  /* ... */
-]
+const routes: [{ path: '/user', component: MyUser }],
 
 export default function() {
   return createRouter({ routes, history })
@@ -62,16 +61,17 @@ const { app, router } = createApp({
 
 Code-splitting, or lazy-loading part of your app, helps reduce the size of assets that need to be downloaded by the browser for the initial render, and can greatly improve TTI (time-to-interactive) for apps with large bundles. The key is "loading just what is needed" for the initial screen.
 
-Vue provides [async components support](/guide/component-dynamic-async.html#async-components) with `defineAsyncComponent` method, allowing [webpack to code-split at that point](https://webpack.js.org/guides/code-splitting-async/). All you need to do is:
+Vue Router provides [lazy-loading support](https://next.router.vuejs.org/guide/advanced/lazy-loading.html), allowing [webpack to code-split at that point](https://webpack.js.org/guides/code-splitting-async/). All you need to do is:
 
 ```js
 // change this...
-import User from './User.vue'
+import MyUser from './components/MyUser.vue'
+const routes: [{ path: '/user', component: MyUser }],
 
 // to this:
-import { defineAsyncComponent } from 'vue'
-
-const User = defineAsyncComponent(() => import('./User.vue'))
+routes: [{
+  { path: '/user', component: () => import('./components/MyUser.vue') }
+}]
 ```
 
 On both client and server we need to wait for router to resolve async route components ahead of time in order to properly invoke in-component hooks. For this we will be using [router.isReady](https://next.router.vuejs.org/api/#isready) method Let's update our client entry:
