@@ -5,19 +5,19 @@ badges:
 
 # Suspense <MigrationBadges :badges="$frontmatter.badges" />
 
-:::warning Experimental
-Suspense is an experimental new feature and the API could change at any time. It is documented here so that the community can provide feedback on the current implementation.
+:::warning Sperimentale
+Suspense è una nuova funzionalità sperimentale e l'API potrebbe cambiare in qualsiasi momento. L'abbiamo comunque documentata in modo che la comunità possa dare un feedback sull'attuale implementazione.
 
-It should not be used in production applications.
+Non dovrebbe essere utilizzato nelle applicazioni in production.
 :::
 
-## Introduction
+## Introduzione
 
-It is common for components to need to perform some kind of asynchronous request before they can be rendered properly. Components often handle this locally and in many cases that is a perfectly good approach.
+È normale che i componenti debbano eseguire un qualche tipo di richiesta asincrona prima di poter essere renderizzati correttamente. I componenti spesso gestiscono queste funzionalità a livello locale e in molti casi si tratta di un approccio perfettamente valido.
 
-The `<suspense>` component provides an alternative, allowing for the waiting to be handled further up the component tree rather than in each individual component.
+Il componente `<suspense>` fornisce un'alternativa, consentendo di gestire l'attesa più in alto nell'albero dei componenti, piuttosto che in ogni singolo componente.
 
-A common use case involves [async components](/guide/component-dynamic-async.html#async-components):
+Un caso d'uso comune riguarda i [componenti asincroni](/guide/component-dynamic-async.html#async-components):
 
 ```vue{2-4,6,17}
 <template>
@@ -42,22 +42,21 @@ export default {
 </script>
 ```
 
-The `<suspense>` component has two slots. Both slots only allow for one immediate child node. The node in the `default` slot is shown if possible. If not, the node in the `fallback` slot will be shown instead.
+Il componente `<suspense>` ha due slot, ognuno dei quali consente di avere un solo nodo figlio diretto. Se possibile, viene mostrato il nodo nello slot `default` e in caso contrario, viene mostrato il nodo nello slot `fallback`.
 
-Importantly, the async component doesn't need to be the immediate child of the `<suspense>`. It can be at any depth within the component tree and doesn't need to appear in the same template as the `<suspense>` itself. The content is only considered resolved once all descendants are ready.
+È importante sottolineare che il componente asincrono non deve essere figlio diretto di `<suspense>`. Può trovarsi ad una qualsiasi profondità all'interno dell'albero dei componenti e non è necessario che appaia nello stesso template di `<suspense>`. Il contenuto è considerato pronto per il rendering solo quando tutti i discendenti sono pronti.
 
-The other way to trigger the `fallback` slot is for a descendant component to return a promise from its `setup` function. This is typically implemented using `async` rather than explicitly returning a promise:
+L'altro modo per attivare lo slot `fallback` è che un componente discendente restituisca una promessa dalla sua funzione `setup`. Questo approccio è tipicamente implementato usando `async` piuttosto che restituendo esplicitamente una promessa:
 
 ```js{2}
 export default {
   async setup() {
-    // Be very careful using `await` inside `setup` as
-    // most Composition API functions will only work
-    // prior to the first `await`
+     // Fai molta attenzione a usare `await` in `setup`,
+     // come la maggior parte delle funzioni della Composition API funzionerà solo
+     // prima del primo `await`
     const data = await loadData()
 
-    // This is implicitly wrapped in a promise because
-    // the function is `async`
+     // Questo è implicitamente racchiuso in una promessa visto che la funzione è asincrona
     return {
       // ...
     }
@@ -65,25 +64,25 @@ export default {
 }
 ```
 
-## Child Updates
+## Aggiornamento dei componenti figli
 
-Once a `<suspense>` has resolved the contents of its `default` slot, it can only be triggered again if the `default` root node is replaced. New components nested deeper in the tree are not sufficient to move the `<suspense>` back into a pending state.
+Una volta che un componente `<suspense>` ha risolto il contenuto del suo slot `default`, può essere riattivato solo se il nodo root `default` viene sostituito. I nuovi componenti annidati più in profondità nell'albero non sono sufficienti per riportare `<suspense>` in uno stato `pending`.
 
-If the root node does change it will trigger the `pending` event. However, by default, it won't update the DOM to show the `fallback` content. Instead, it will continue to show the old DOM until the new components are ready. This can be controlled using the `timeout` prop. This value, expressed in milliseconds, tells the `<suspense>` component how long to wait before showing the `fallback`. A value of `0` will show it immediately when the `<suspense>` enters the pending state.
+Se il nodo root cambia, emetterà l'evento `pending`. Tuttavia, da impostazione predefinita, non aggiornerà il DOM per mostrare il contenuto di `fallback`. Invece, continuerà a mostrare il vecchio DOM fino a quando i nuovi componenti non saranno pronti. Questo comportamento può essere controllato usando la prop `timeout`. Questo valore, espresso in millisecondi, dice al componente `<suspense>` quanto tempo aspettare prima di mostrare il `fallback`. Un valore di `0` lo mostrerà immediatamente quando `<suspense>` entra nello stato `pending`.
 
-## Events
+## Eventi
 
-In addition to the `pending` event, the `<suspense>` component also has `resolve` and `fallback` events. The `resolve` event is emitted when new content has finished resolving in the `default` slot. The `fallback` event is fired when the contents of the `fallback` slot are shown.
+Oltre all'evento `pending`, il componente `<suspense>` possiede anche gli eventi `resolution` e `fallback`. L'evento `resolution` viene emesso quando il nuovo contenuto ha terminato la risoluzione nello slot `default`. L'evento `fallback` viene invece emesso quando vengono mostrati i contenuti dello slot `fallback`.
 
-The events could be used, for example, to show a loading indicator in front of the old DOM while new components are loading.
+Questi eventi potrebbero essere utilizzati, ad esempio, per mostrare un indicatore di caricamento davanti al vecchio DOM durante il caricamento di nuovi componenti.
 
-## Combining with Other Components
+## Combinazione con altri componenti
 
-It is common to want to use `<suspense>` in combination with the [`<transition>`](/api/built-in-components.html#transition) and [`<keep-alive>`](/api/built-in-components.html#keep-alive) components. The nesting order of these components is important to get them all working correctly.
+È piuttosto comune voler usare `<suspense>` in combinazione con i componenti [`<transition>`](/api/built-in-components.html#transition) e [`<keep-alive>`](/api/built-in-components.html#keep-alive). L'ordine di nidificazione di questi componenti è importante perché funzionino correttamente.
 
-In addition, these components are often used in conjunction with the `<router-view>` component from [Vue Router](https://next.router.vuejs.org/).
+Inoltre, questi componenti sono spesso usati insieme al componente `<router-view>` di [Vue Router](https://next.router.vuejs.org/).
 
-The following example shows how to nest these components so that they all behave as expected. For simpler combinations you can remove the components that you don't need:
+L'esempio seguente mostra come annidare questi componenti in modo che si comportino tutti come previsto. Per combinazioni più semplici puoi rimuovere i componenti che non ti servono:
 
 ```html
 <router-view v-slot="{ Component }">
@@ -104,4 +103,4 @@ The following example shows how to nest these components so that they all behave
 </router-view>
 ```
 
-Vue Router has built-in support for [lazily loading components](https://next.router.vuejs.org/guide/advanced/lazy-loading.html) using dynamic imports. These are distinct from async components and currently they will not trigger `<suspense>`. However, they can still have async components as descendants and those can trigger `<suspense>` in the usual way.
+Vue Router integra il supporto per il [lazy loading](https://next.router.vuejs.org/guide/advanced/lazy-loading.html) dei componenti grazie alle importazioni dinamiche. Queste sono distinte dai componenti asincroni e non attivano `<suspense>`. Tuttavia, possono avere componenti asincroni come discendenti e questi ultimi possono a loro volta attivare `<suspense>`.
