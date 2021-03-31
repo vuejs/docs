@@ -44,7 +44,7 @@ A described [code structure](./structure.html) and [webpack configuration](./bui
   server.get('*', async (req, res) => {
     const { app } = createApp()
 
-    let appContent = await renderToString(app)
+    const appContent = await renderToString(app)
 
     const html = indexTemplate
       .toString()
