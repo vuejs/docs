@@ -2,7 +2,7 @@
 
 The [code structure](./structure.html) and [webpack configuration](./build-config.html) we've described also require some changes to our Express server code.
 
-- we need to create an application with a built `app.js` from the resulting bundle. A path to it can be found using webpack manifest:
+- we need to create an application with a built `app.js` from the resulting bundle. A path to it can be found using the webpack manifest:
 
   ```js
   // server.js
