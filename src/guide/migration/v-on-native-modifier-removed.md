@@ -12,7 +12,7 @@ Il modificatore `.native` di `v-on` è stato eliminato.
 
 ## Sintassi 2.x
 
-I listener di eventi passati a un componente con `v-on` vengono attivati per impostazione predefinita solo emettendo un evento con `this.$emit`. Per aggiungere invece un listener DOM nativo all'elemento root del componente figlio, è possibile utilizzare il modificatore `.native`:
+I listener di eventi passati a un componente con `v-on` vengono attivati da impostazione predefinita solo emettendo un evento con `this.$emit`. Per aggiungere invece un listener DOM nativo all'elemento root del componente figlio, è possibile utilizzare il modificatore `.native`:
 
 ```html
 <my-component

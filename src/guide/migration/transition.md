@@ -63,4 +63,4 @@ Anche i nomi delle prop relative al componente `<transition>` sono cambiati:
 
 ## Vedi anche
 
-- [`<TransitionGroup>` non esegue il rendering di alcun elemento wrapper per impostazione predefinita](/guide/migration/transition-group.html)
+- [`<TransitionGroup>` non esegue il rendering di alcun elemento wrapper da impostazione predefinita](/guide/migration/transition-group.html)
