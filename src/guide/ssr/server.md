@@ -1,8 +1,8 @@
 # Server Configuration
 
-A described [code structure](./structure.html) and [webpack configuration](./build-config.html) also require some changes done to our Express server code.
+The [code structure](./structure.html) and [webpack configuration](./build-config.html) we've described also require some changes to our Express server code.
 
-- we need to create an application with a built `app.js` from the resulting bundle. A path to it can be found using webpack manifest:
+- we need to create an application with a built `app.js` from the resulting bundle. A path to it can be found using the webpack manifest:
 
   ```js
   // server.js
@@ -32,7 +32,7 @@ A described [code structure](./structure.html) and [webpack configuration](./bui
   )
   ```
 
-- we need to replace the `index.html` content with out server-side rendered application content:
+- we need to replace the `index.html` content with our server-side rendered application content:
 
   ```js
   // server.js
@@ -44,7 +44,7 @@ A described [code structure](./structure.html) and [webpack configuration](./bui
   server.get('*', async (req, res) => {
     const { app } = createApp()
 
-    let appContent = await renderToString(app)
+    const appContent = await renderToString(app)
 
     const html = indexTemplate
       .toString()
@@ -80,7 +80,7 @@ server.use(
 server.get('*', async (req, res) => {
   const { app } = await createApp()
 
-  let appContent = await renderToString(app)
+  const appContent = await renderToString(app)
 
   fs.readFile(path.join(__dirname, '/dist/client/index.html'), (err, html) => {
     if (err) {
