@@ -80,7 +80,7 @@ server.use(
 server.get('*', async (req, res) => {
   const { app } = await createApp()
 
-  let appContent = await renderToString(app)
+  const appContent = await renderToString(app)
 
   fs.readFile(path.join(__dirname, '/dist/client/index.html'), (err, html) => {
     if (err) {
