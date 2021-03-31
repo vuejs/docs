@@ -16,7 +16,7 @@ The webpack config for an SSR project will be similar to a client-only project. 
 "scripts": {
   "build:client": "vue-cli-service build --dest dist/client",
   "build:server": "SSR=1 vue-cli-service build --dest dist/server",
-  "build": "rm -rf ./dist && npm run build:client && npm run build:server",
+  "build": "npm run build:client && npm run build:server",
 }
 ```
 
