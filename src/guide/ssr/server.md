@@ -32,7 +32,7 @@ A described [code structure](./structure.html) and [webpack configuration](./bui
   )
   ```
 
-- we need to replace the `index.html` content with out server-side rendered application content:
+- we need to replace the `index.html` content with our server-side rendered application content:
 
   ```js
   // server.js
