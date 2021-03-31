@@ -172,9 +172,9 @@ declare module '@vue/runtime-core' {
 We can put this type declaration in the same file, or in a project-wide `*.d.ts` file (for example, in the `src/typings` folder that is automatically loaded by TypeScript). For library/plugin authors, this file should be specified in the `types` property in `package.json`.
 
 ::: warning Make sure the declaration file is a TypeScript module
-According to the [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/modules.html), any file containing a top-level `import` or `export` is considered a module. Otherwise, it is a script. Only in module, the declarations in an augmentation will be merged, if in script, they will replace the original types, it will make all the default properties missing.
+In order to take advantage of module augmentation, you will need to ensure there is at least one top-level `import` or `export` in your file, even if it is just `export {}`.
 
-Please make sure there is at least one top-level `import` or `export` in your file -- Especially when you customize the type instead of extending a third-party type in a separate file, at this time, you can add `export {}` to meet the requirements.
+[In TypeScript](https://www.typescriptlang.org/docs/handbook/modules.html), any file containing a top-level `import` or `export` is considered a 'module'. If type declaration is made outside of a module, it will overwrite the original types rather than augmenting them.
 :::
 
 For more information about the `ComponentCustomProperties` type, see its [definition in `@vue/runtime-core`](https://github.com/vuejs/vue-next/blob/2587f36fe311359e2e34f40e8e47d2eebfab7f42/packages/runtime-core/src/componentOptions.ts#L64-L80) and [the TypeScript unit tests](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) to learn more.
