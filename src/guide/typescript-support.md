@@ -153,6 +153,52 @@ const Component = defineComponent({
 })
 ```
 
+### Augmenting Types for `globalProperties`
+
+Vue 3 provides a [`globalProperties` object](../api/application-config.html#globalproperties) that can be used to add a global property that can be accessed in any component instance. For example, a [plugin](./plugins.html#writing-a-plugin) might want to inject a shared global object or function.
+
+```ts
+// User Definition
+import axios from 'axios'
+
+const app = Vue.createApp({})
+app.config.globalProperties.$http = axios
+
+// Plugin for validating some data
+export default {
+  install(app, options) {
+    app.config.globalProperties.$validate = (data: object, rule: object) => {
+      // check whether the object meets certain rules
+    }
+  }
+}
+```
+
+In order to tell TypeScript about these new properties, we can use [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
+
+In the above example, we could add the following type declaration:
+
+```ts
+import axios from 'axios'
+
+declare module '@vue/runtime-core' {
+  export interface ComponentCustomProperties {
+    $http: typeof axios
+    $validate: (data: object, rule: object) => boolean
+  }
+}
+```
+
+We can put this type declaration in the same file, or in a project-wide `*.d.ts` file (for example, in the `src/typings` folder that is automatically loaded by TypeScript). For library/plugin authors, this file should be specified in the `types` property in `package.json`.
+
+::: warning Make sure the declaration file is a TypeScript module
+In order to take advantage of module augmentation, you will need to ensure there is at least one top-level `import` or `export` in your file, even if it is just `export {}`.
+
+[In TypeScript](https://www.typescriptlang.org/docs/handbook/modules.html), any file containing a top-level `import` or `export` is considered a 'module'. If type declaration is made outside of a module, it will overwrite the original types rather than augmenting them.
+:::
+
+For more information about the `ComponentCustomProperties` type, see its [definition in `@vue/runtime-core`](https://github.com/vuejs/vue-next/blob/2587f36fe311359e2e34f40e8e47d2eebfab7f42/packages/runtime-core/src/componentOptions.ts#L64-L80) and [the TypeScript unit tests](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) to learn more.
+
 ### Annotating Return Types
 
 Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type of computed properties.
@@ -170,7 +216,7 @@ const Component = defineComponent({
     // needs an annotation
     greeting(): string {
       return this.message + '!'
-    }
+    },
 
     // in a computed with a setter, getter needs to be annotated
     greetingUppercased: {
@@ -179,8 +225,8 @@ const Component = defineComponent({
       },
       set(newValue: string) {
         this.message = newValue.toUpperCase();
-      },
-    },
+      }
+    }
   }
 })
 ```
