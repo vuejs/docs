@@ -1,5 +1,21 @@
 # Built-In Components
 
+Built-in components can be used directly in templates without needing to be registered.
+
+The `<keep-alive>`, `<transition>`, `<transition-group>`, and `<teleport>` components can all be tree-shaken by bundlers, so that they are only included in the build if they're used. They can also be imported explicitly if you need direct access to the component itself:
+
+```js
+// CDN build of Vue
+const { KeepAlive, Teleport, Transition, TransitionGroup } = Vue
+```
+
+```js
+// ESM build of Vue
+import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
+```
+
+`<component>` and `<slot>` are component-like features of template syntax. They are not true components and they can't be imported like the components shown above. 
+
 ## component
 
 - **Props:**
@@ -9,8 +25,6 @@
 - **Usage:**
 
   A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop. An `is` prop as a string could be either an HTML tag name or a Component name.
-
-- **Example:**
 
   ```html
   <!-- a dynamic component controlled by -->
@@ -26,6 +40,27 @@
   <!-- can be used to render native HTML elements -->
   <component :is="href ? 'a' : 'span'"></component>
   ```
+
+  The built-in components `KeepAlive`, `Transition`, `TransitionGroup`, and `Teleport` can all be passed to `is`, but you must register them if you want to pass them by name. For example:
+
+  ```js
+  const { Transition, TransitionGroup } = Vue
+  
+  const Component = {
+    components: {
+      Transition,
+      TransitionGroup
+    },
+    
+    template: `
+      <component :is="isGroup ? 'TransitionGroup' : 'Transition'">
+        ...
+      </component>
+    `
+  }
+  ```
+
+  Registration is not required if you pass the component itself to `is` rather than its name.  
 
 - **See also:** [Dynamic Components](../guide/component-dynamic-async.html)
 
