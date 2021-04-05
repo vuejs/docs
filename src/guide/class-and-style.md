@@ -1,20 +1,20 @@
-# Class and Style Bindings
+# _Binding_ Class dan Style
 
-A common need for data binding is manipulating an element's class list and its inline styles. Since they are both attributes, we can use `v-bind` to handle them: we only need to calculate a final string with our expressions. However, meddling with string concatenation is annoying and error-prone. For this reason, Vue provides special enhancements when `v-bind` is used with `class` and `style`. In addition to strings, the expressions can also evaluate to objects or arrays.
+Kebutuhan umum untuk _binding_ data adalah memanipulasi daftar elemen _class_ dan _style_ sebarisnya (_inline styles_). Karena keduanya adalah atribut, kita dapat menggunakan `v-bind` untuk menanganinya: kita hanya perlu menghitung string terakhir dengan ekspresi kita. Namun, berurusan dengan penggabungan string mengjengkelkan dan rawan kesalahan. Karena alasan ini, Vue menyediakan penyempurnaan khusus ketika `v-bind` digunakan dengan `class` dan `style`. Selain string, ekspresi juga dapat dievaluasi menjadi objek atau array.
 
-## Binding HTML Classes
+## _Binding_ Kelas HTML
 
-### Object Syntax
+### Sintaksis Objek
 
-We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
+Kita bisa melewatkan objek ke `:class` (kependekan dari `v-bind:class`) untuk mengubah _class_ secara dinamis:
 
 ```html
 <div :class="{ active: isActive }"></div>
 ```
 
-The above syntax means the presence of the `active` class will be determined by the [truthiness](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) of the data property `isActive`.
+Sintaksis di atas berarti keberadaan _class_ `active` akan ditentukan oleh nalai [_truthy_](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) properti data `isActive`.
 
-You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following template:
+Anda dapat memiliki beberapa _class_ di-_toggle_ dengan memiliki lebih banyak properti di objek. Selain itu, direktif `:class` juga bisa berdampingan dengan atribut `class` biasa. Misalnya templat berikut:
 
 ```html
 <div
@@ -23,7 +23,7 @@ You can have multiple classes toggled by having more fields in the object. In ad
 ></div>
 ```
 
-And the following data:
+Dan data berikut:
 
 ```js
 data() {
@@ -34,15 +34,15 @@ data() {
 }
 ```
 
-It will render:
+Kode tersebut akan me-_render_:
 
 ```html
 <div class="static active"></div>
 ```
 
-When `isActive` or `hasError` changes, the class list will be updated accordingly. For example, if `hasError` becomes `true`, the class list will become `"static active text-danger"`.
+Ketika `isActive` atau `hasError` berubah, daftar _class_ akan diperbarui juga. Misalnya, jika `hasError` menjadi`true`, daftar _class_ akan menjadi `"static active text-danger"`.
 
-The bound object doesn't have to be inline:
+Objek yang di-_bind_ tidak harus diletakkan secara sebaris (_inline_):
 
 ```html
 <div :class="classObject"></div>
@@ -59,7 +59,7 @@ data() {
 }
 ```
 
-This will render the same result. We can also bind to a [computed property](computed.md) that returns an object. This is a common and powerful pattern:
+Kode tersebut akan memberikan hasil yang sama. Kita juga bisa melakukan _binding_ ke [properti terkomputasi](computed.md) yang mengembalikan objek. Cara tersebut adalah pola yang umum dan manjur:
 
 ```html
 <div :class="classObject"></div>
@@ -75,57 +75,57 @@ data() {
 computed: {
   classObject() {
     return {
-      active: this.isActive && !this.error,
+      aktif: this.isActive && !this.error,
       'text-danger': this.error && this.error.type === 'fatal'
     }
   }
 }
 ```
 
-### Array Syntax
+### Sintaksis Array
 
-We can pass an array to `:class` to apply a list of classes:
+Kita bisa memasukkan array ke dalam `:class` untuk menerapkan daftar _class_:
 
 ```html
-<div :class="[activeClass, errorClass]"></div>
+<div :class="[isActive, errorClass]"></div>
 ```
 
 ```js
 data() {
   return {
-    activeClass: 'active',
+    isActive: 'active',
     errorClass: 'text-danger'
   }
 }
 ```
 
-Which will render:
+Yang akan me-_render_:
 
 ```html
 <div class="active text-danger"></div>
 ```
 
-If you would like to also toggle a class in the list conditionally, you can do it with a ternary expression:
+Jika Anda juga ingin mengubah _class_ dalam daftar dengan kondisi tertentu, Anda dapat melakukannya dengan ekspresi _ternary_:
 
 ```html
-<div :class="[isActive ? activeClass : '', errorClass]"></div>
+<div :class="[isActive ? isActive : '', errorClass]"></div>
 ```
 
-This will always apply `errorClass`, but `activeClass` will only be applied when `isActive` is truthy.
+Kode tersebut akan selalu menerapkan `errorClass`, dan hanya akan menerapkan `isActive` jika `isActive` bernilai _truthy_[[1]](#footnote-1).
 
-However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
+Namun, cara tersebut bisa cukup bertele-tele jika Anda memiliki beberapa _class_ dengan kondisinya masing-masing. Oleh karena itu, memungkinkan juga untuk menggunakan sintaksis objek di dalam sintaksis array:
 
 ```html
 <div :class="[{ active: isActive }, errorClass]"></div>
 ```
 
-### With Components
+### Dengan Komponen
 
-> This section assumes knowledge of [Vue Components](component-basics.md). Feel free to skip it and come back later.
+> Bagian ini mengasumsikan pengetahuan tentang [Vue Components](component-basics.md). Jangan ragu untuk melewatinya dan kembali lagi nanti.
 
-When you use the `class` attribute on a custom component with a single root element, those classes will be added to this element. Existing classes on this element will not be overwritten.
+Saat Anda menggunakan atribut `class` pada komponen buatan sendiri (_custom component_) dengan satu elemen _root_, _class_ tersebut akan ditambahkan ke elemen tersebut. Kelas yang ada pada elemen tersebut tidak akan ditimpa.
 
-For example, if you declare this component:
+Misalnya, jika Anda mendeklarasikan komponen berikut:
 
 ```js
 const app = Vue.createApp({})
@@ -135,7 +135,7 @@ app.component('my-component', {
 })
 ```
 
-Then add some classes when using it:
+Kemudian tambahkan beberapa _class_ saat menggunakannya:
 
 ```html
 <div id="app">
@@ -143,25 +143,25 @@ Then add some classes when using it:
 </div>
 ```
 
-The rendered HTML will be:
+HTML yang di-_render_ akan menjadi:
 
 ```html
 <p class="foo bar baz boo">Hi</p>
 ```
 
-The same is true for class bindings:
+Hal yang sama berlaku untuk _binding_ _class_:
 
 ```html
 <my-component :class="{ active: isActive }"></my-component>
 ```
 
-When `isActive` is truthy, the rendered HTML will be:
+Jika `isActive` bernilai _truthy_, HTML yang di-_render_ akan menjadi:
 
 ```html
 <p class="foo bar active">Hi</p>
 ```
 
-If your component has multiple root elements, you would need to define which component will receive this class. You can do this using `$attrs` component property:
+Jika komponen Anda memiliki beberapa elemen _root_, Anda perlu menentukan komponen mana yang akan menerima _class_ ini. Anda juga dapat melakukannya dengan menggunakan properti `$attrs` pada komponen:
 
 ```html
 <div id="app">
@@ -180,13 +180,13 @@ app.component('my-component', {
 })
 ```
 
-You can learn more about component attribute inheritance in [Non-Prop Attributes](component-attrs.html) section.
+Anda dapat mempelajari lebih lanjut tentang pewarisan atribut komponen pada bagian [Atribut Non-Properti](komponen-attrs.html).
 
-## Binding Inline Styles
+## _Binding_ _Style_ Sebaris (_Inline_)
 
-### Object Syntax
+### Sintaksos Objek
 
-The object syntax for `:style` is pretty straightforward - it looks almost like CSS, except it's a JavaScript object. You can use either camelCase or kebab-case (use quotes with kebab-case) for the CSS property names:
+Sintaksis objek untuk `:style` cukup mudah - terlihat hampir seperti CSS, kecuali itu adalah objek JavaScript. Anda dapat menggunakan camelCase atau kebab-case (gunakan tanda kutip dengan kebab-case) untuk nama properti CSS:
 
 ```html
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
@@ -201,7 +201,7 @@ data() {
 }
 ```
 
-It is often a good idea to bind to a style object directly so that the template is cleaner:
+Seringkali cara tersebut adalah cara yang baik untuk me-_bind_ objek _style_ secara langsung agar templatnya lebih bersih:
 
 ```html
 <div :style="styleObject"></div>
@@ -211,33 +211,37 @@ It is often a good idea to bind to a style object directly so that the template 
 data() {
   return {
     styleObject: {
-      color: 'red',
+      activeColor: 'red',
       fontSize: '13px'
     }
   }
 }
 ```
 
-Again, the object syntax is often used in conjunction with computed properties that return objects.
+Sekali lagi, sintaksis objek sering digunakan bersama dengan properti komputasi yang mengembalikan objek.
 
-### Array Syntax
+### Sintaksis Array
 
-The array syntax for `:style` allows you to apply multiple style objects to the same element:
+Sintaksis array untuk `:style` memungkinkan Anda menerapkan beberapa objek _style_ ke elemen yang sama:
 
 ```html
 <div :style="[baseStyles, overridingStyles]"></div>
 ```
 
-### Auto-prefixing
+### Memberi Awalan Secara Otomatis
 
-When you use a CSS property that requires [vendor prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, for example `transform`, Vue will automatically detect and add appropriate prefixes to the applied styles.
+Saat Anda menggunakan properti CSS yang membutuhkan [awalan vendor](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) pada `:style`, misalnya `transform`, Vue akan secara otomatis mendeteksi dan tambahkan prefiks yang sesuai ke _style_ yang diterapkan.
 
-### Multiple Values
+### Beberapa Nilai
 
-You can provide an array of multiple (prefixed) values to a style property, for example:
+Anda dapat memberikan sebuah array dengan beberapa nilai (awalan) ke properti _style_, misalnya:
 
 ```html
 <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
-This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
+Kode tersebut hanya akan me-_render_ nilai terakhir dalam array yang didukung peramban. Dalam kasus ini, contoh tersebut akan me-_render_ `display: flex` untuk peramban yang mendukung versi flexbox yang tidak memiliki awalan.
+
+<small>**Catatan penerjemah**:</small>
+
+<small><a id="footnote-1"></a>[1] _Truthy_ bukanlah bernilai `true`, silahkan memembaca [Mozilla Developer Network - Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) untuk penjelasan lebih lanjut.</small>

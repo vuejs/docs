@@ -1,18 +1,18 @@
 ---
-title: emits Option
+title: Opsi emits
 badges:
   - new
 ---
 
-# `emits` Option <MigrationBadges :badges="$frontmatter.badges" />
+# Opsi `emits` <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambarang Umum
 
-Vue 3 now offers an `emits` option, similar to the existing `props` option. This option can be used to define the events that a component can emit to its parent.
+Vue versi 3 menawarkan opsi `emits`, yang mirip dengan opsi `props` yang sudah ada. Opsi ini dapat digunakan untuk mendefinisikan kejadian yang dapat diteruskan pada komponen induk.
 
-## 2.x Behavior
+## Perilaku Vue versi 2.x
 
-In Vue 2, you can define the props that a component receives, but you can't declare which events it can emit:
+Pada Vue versi 2, Anda dapat mendefinisikan properti-properti yang dapat diterima oleh sebuah komponen, namun Anda tidak dapat menentukan kejadian apa saja yang dapat diteruskan:
 
 ```vue
 <template>
@@ -28,9 +28,9 @@ In Vue 2, you can define the props that a component receives, but you can't decl
 </script>
 ```
 
-## 3.x Behavior
+## Perilaku Vue versi 3.x
 
-Similar to props, the events that the component emits can now be defined with the `emits` option:
+Mirip dengan properti, kejadian yang dapat diteruskan oleh komponen dapat didefinisikan menggunakan opsi `emits`:
 
 ```vue
 <template>
@@ -47,19 +47,19 @@ Similar to props, the events that the component emits can now be defined with th
 </script>
 ```
 
-The option also accepts an object, which allows the developer to define validators for the arguments that are passed with the emitted event, similar to validators in `props` definitions.
+Opsi tersebut juga menerima sebuah objek, yang memperbolehkan pengembang untuk menetapkan pemeriksa untuk argumen yang diberikan pada _event_ yang diteruskan, mirip dengan pemeriksa pada definisi `props`. 
 
-For more information on this, please read the [API documentation for this feature](../../api/options-data.md#emits).
+Untuk informasi lebih lanjut mengenai hal ini, silahkan baca [dokumentasi API untuk fitur ini](../../api/options-data.md#emits).
 
-## Migration Strategy
+## Strategi Migrasi
 
-It is highly recommended that you document all of the events emitted by each of your components using `emits`.
+Sangat disarankan bagi Anda untuk mendokumentasikan seluruh _event_ yang diteruskan oleh setiap komponen yang Anda buat menggunakan `emits`.
 
-This is especially important because of [the removal of the `.native` modifier](./v-on-native-modifier-removed.md). Any listeners for events that aren't declared with `emits` will now be included in the component's `$attrs`, which by default will be bound to the component's root node.
+Hal tersebut menjadi sangat penting karena [penghapusan pengubah .native](./v-on-native-modifier-removed.md). Setiap _listener_ untuk _event_ yang tidak dideklarasikan menggunakan `emits` akan diikutsertakan pada `$attrs` milik komponen, yang secara umum akan terikat pada _node_ inti dari komponen. 
 
-### Example
+### Contoh
 
-For components that re-emit native events to their parent, this would now lead to two events being fired:
+Untuk komponen-komponen yang meneruskan ulang _event_ bawaan pada komponen induk, perubahan tersebut akan menyebabkan adanya dua _event_ yang terjadi sekaligus:
 
 ```vue
 <template>
@@ -67,31 +67,30 @@ For components that re-emit native events to their parent, this would now lead t
 </template>
 <script>
 export default {
-  emits: [] // without declared event
+  emits: [] // tanpa deklarasi event
 }
 </script>
 ```
 
-When a parent listens for the `click` event on the component:
+Ketika sebuah komponen induk mendengar _event_ `click` pada komponen:
 
 ```html
-<my-button v-on:click="handleClick"></my-button>
+<tombol-ku v-on:click="tanganiKlik"></tombol-ku>
 ```
 
-it would now be triggered _twice_:
+_Event_ tersebut akan terjadi sebanyak dua kali:
+- Sekali dari `$emit()`
+- Sekali dari _event listener_ bawaan yang ada pada elemen inti.
 
-- Once from `$emit()`.
-- Once from a native event listener applied to the root element.
+Disini Anda memiliki dua pilihan:
 
-Here you have two options:
+1. Mendeklarasikan _event_ `click` dengan jelas. Pilihan ini akan membantu jika Anda menambahkan beberapa logika pada responden _event_ di `<tombol-ku>`.
+2. Hapus penerusan ulang _event_, karena sekarang elemen induk dapat mendengarkan _event_ bawaan dengan mudah, tanpa menambahkan `.native`. Cocok digunakan bila Anda hanya akan meneruskan ulang _event_ tersebut.
 
-1. Properly declare the `click` event. This is useful if you actually do add some logic to that event handler in `<my-button>`.
-2. Remove the re-emitting of the event, since the parent can now listen for the native event easily, without adding `.native`. Suitable when you really only re-emit the event anyway.
+## Lihat Juga
 
-## See also
-
-- [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0030-emits-option.md)
-- [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
-- [Migration guide - `$listeners` removed](./listeners-removed.md)
-- [Migration guide - `$attrs` includes `class` & `style`](./attrs-includes-class-style.md)
-- [Migration guide - Changes in the Render Functions API](./render-function-api.md)
+- [RFC yang relevan](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0030-emits-option.md)
+- [Panduan migrasi - Pengubah `.native` dihapus](./v-on-native-modifier-removed.md)
+- [Panduan migrasi - `$listeners` dihapus](./listeners-removed.md)
+- [Panduan migrasi - `$attrs` memuat `class` dan `style`](./attrs-includes-class-style.md)
+- [Panduan migrasi - Perubahan pada API fungsi _render_](./render-function-api.md)

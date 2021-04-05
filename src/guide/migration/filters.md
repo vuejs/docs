@@ -3,100 +3,101 @@ badges:
   - removed
 ---
 
-# Filters <MigrationBadges :badges="$frontmatter.badges" />
+# Filter <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-Filters are removed from Vue 3.0 and no longer supported.
+Fitur _filter_ dihapus dari Vue versi 3.0 dan tidak didukung lagi.
 
-## 2.x Syntax
+## Sintaks Vue versi 2.x
 
-In 2.x, developers could use filters in order to apply common text formatting.
+Pada Vue versi 2.x, pengembang dapat menggunakan _filter_ untuk menampilkan teks dalam bentuk tertentu.
 
-For example:
+Sebagai contoh:
 
 ```html
 <template>
-  <h1>Bank Account Balance</h1>
-  <p>{{ accountBalance | currencyUSD }}</p>
+  <h1>Saldo Akun Bank</h1>
+  <p>{{ saldoAkun | mataUangIDR }}</p>
 </template>
 
 <script>
   export default {
     props: {
-      accountBalance: {
+      saldoAkun: {
         type: Number,
         required: true
       }
     },
     filters: {
-      currencyUSD(value) {
-        return '$' + value
+      mataUangIDR(value) {
+        return 'IDR ' + value
       }
     }
   }
 </script>
 ```
 
-While this seems like a convenience, it requires a custom syntax that breaks the assumption of expressions inside of curly braces being "just JavaScript," which has both learning and implementation costs.
+Walaupun terlihat praktis, namun _filter_ membutuhkan sebuah sintaks khusus yang bertentangan dengan asumsi bahwa seluruh ekspresi yang terdapat dalam kurung kurawal merupakan JavaScript murni, dimana hal tersebut akan membutuhkan biaya belajar dan implementasi.
 
-## 3.x Update
+## Pembaruan Vue versi 3.x
 
-In 3.x, filters are removed and no longer supported. Instead, we recommend replacing them with method calls or computed properties.
+Pada Vue versi 3.x, _filter_ dihapus dan tidak didukung lagi. Sebaliknya, kami menyarankan Anda untuk mengganti _filter_ dengan pemanggilan _method_ atau properti _computed_.
 
-Using the example above, here is one example of how it could be implemented.
+Berdasarkan contoh di atas, berikut merupakan sebuah contoh bagaimana cara tersebut dapat diimplementasikan.
 
 ```html
 <template>
-  <h1>Bank Account Balance</h1>
-  <p>{{ accountInUSD }}</p>
+  <h1>Saldo Akun Bank</h1>
+  <p>{{ saldoDalamIDR }}</p>
 </template>
 
 <script>
   export default {
     props: {
-      accountBalance: {
+      saldoAkun: {
         type: Number,
         required: true
       }
     },
     computed: {
-      accountInUSD() {
-        return '$' + this.accountBalance
+      saldoDalamIDR() {
+        return 'IDR ' + this.saldoAkun
       }
     }
   }
 </script>
 ```
 
-## Migration Strategy
+## Strategi Migrasi
 
-Instead of using filters, we recommend replacing them with computed properties or methods.
+Dibandingkan menggunakan _filter_, kami menyarankan Anda untuk mengganti _filter_ dengan properti _computed_ atau _method_.
 
-### Global Filters
+### Filter Global
 
-If you are using filters that were globally registered and then used throughout your app, it's likely not convenient to replace them with computed properties or methods in each individual component.
+Apabila Anda menggunakan _filter_ yang didaftarkan secara global dan menggunakan _filter_ tersebut pada aplikasi Anda, tentunya mengganti _filter_ tersebut dengan properti _computed_ atau _method_ pada setiap komponen merupakan hal yang tidak praktis.
 
-Instead, you can make your global filters available to all components through [globalProperties](../../api/application-config.html#globalproperties):
+Sebaliknya, Anda dapat membuat _filter_ global Anda dapat diakses oleh seluruh komponen menggunakan[globalProperties](../../api/application-config.html#globalproperties):
 
 ```javascript
 // main.js
 const app = createApp(App)
 
 app.config.globalProperties.$filters = {
-  currencyUSD(value) {
-    return '$' + value
+  mataUangIDR(value) {
+    return 'IDR ' + value
   }
 }
 ```
 
-Then you can fix all templates using this `$filters` object like this:
+Kemudian Anda dapat mengganti setiap _template_ menggunakan objek `$filters` tersebut seperti berikut:
 
 ```html
 <template>
-  <h1>Bank Account Balance</h1>
-  <p>{{ $filters.currencyUSD(accountBalance) }}</p>
+  <h1>Saldo Akun Bank</h1>
+  <p>{{ $filters.mataUangIDR(saldoAkun) }}</p>
 </template>
 ```
 
-Note that with this approach, you can only use methods, not computed properties, as the latter only make sense when defined in the context of an individual component.
+Perlu diingat bahwa dengan menggunakan pendekatan ini, Anda tidak dapat menggunakan properti _computed_.
+Anda hanya dapat menggunakan _method_, karena penggunaan _method_ merupakan hal yang masuk akal bila dilihat dalam konteks komponen secara individu.

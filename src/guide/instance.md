@@ -1,16 +1,16 @@
-# Application & Component Instances
+# _Instance_ Komponen & Aplikasi
 
-## Creating an Application Instance
+## Membuat _Instance_ Aplikasi
 
-Every Vue application starts by creating a new **application instance** with the `createApp` function:
+Setiap aplikasi Vue dimulai dengan membuat **_instance_ aplikasi** dengan memanggil fungsi `createApp`:
 
 ```js
 const app = Vue.createApp({
-  /* options */
+  /* pilihan konfigurasi aplikasi */
 })
 ```
 
-The application instance is used to register 'globals' that can then be used by components within that application. We'll discuss that in detail later in the guide but as a quick example:
+_Instance_ aplikasi digunakan untuk mendaftarkan sesuatu secara 'global' sehingga kemudian dapat digunakan oleh komponen di dalam aplikasi tersebut. Kita akan membahasnya secara mendalam nanti tetapi sebagai contoh:
 
 ```js
 const app = Vue.createApp({})
@@ -19,7 +19,7 @@ app.directive('focus', FocusDirective)
 app.use(LocalePlugin)
 ```
 
-Most of the methods exposed by the application instance return that same instance, allowing for chaining:
+Sebagian fungsi/method yang dihasilkan oleh _instance_ aplikasi mengembalikan _instance_ yang sama, sehingga memungkinkan kita untuk melakukan _chaining_:
 
 ```js
 Vue.createApp({})
@@ -28,27 +28,27 @@ Vue.createApp({})
   .use(LocalePlugin)
 ```
 
-You can browse the full application API in the [API reference](../api/application-api.html).
+Anda dapat menelusuri API aplikasi secara menyeluruh pada [referensi API](../api/application-api.html).
 
-## The Root Component
+## Komponen _Root_
 
-The options passed to `createApp` are used to configure the **root component**. That component is used as the starting point for rendering when we **mount** the application.
+Pilihan yang dilewatkan ke `createApp` sebagai parameter digunakan untuk mengatur **komponen _root_**. Komponen tersebut digunakan sebagai titik awal untuk _rendering_ ketika Vue me-**_mount_** aplikasi.
 
-An application needs to be mounted into a DOM element. For example, if we want to mount a Vue application into `<div id="app"></div>`, we should pass `#app`:
+Sebuah aplikasi perlu dipasang (_mounted_) ke sebuah elemen DOM. Sebagai contoh, jika kita ingin memasang aplikasi Vue ke `<div id="app"></div`, kita harus melewatkan `#app` sebagai parameter pada fungsi `mount`:
 
 ```js
 const RootComponent = {
-  /* options */
+  /* pilihan konfigurasi komponen _root_ */
 }
 const app = Vue.createApp(RootComponent)
 const vm = app.mount('#app')
 ```
 
-Unlike most of the application methods, `mount` does not return the application. Instead it returns the root component instance.
+Tidak seperti fungsi/metode lain pada _instance_ aplikasi, fungsi `mount` tidak mengembalikan _instance_ aplikasi. Fungsi tersebut mengembalikan _instance_ komponen _root_ sebagai gantinya.
 
-Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to a component instance.
+Meskipun tidak terkait secara ketat dengan [pola MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel), desain Vue sebagian terinspirasi oleh konsep tersebut. Sebagai ketentuan, kita sering menggunakan variabel `vm` (kependekan dari ViewModel) untuk mengacu pada _instance_ komponen.
 
-While all the examples on this page only need a single component, most real applications are organized into a tree of nested, reusable components. For example, a Todo application's component tree might look like this:
+Walaupun semua contoh pada halaman ini hanya membutuhkan satu komponen saja, sebagian besar aplikasi besar di luar sana diatur menjadi sebuah struktur komponen yang bersarang dan dapat digunakan kembali. Sebagai contoh, struktur komponen aplikasi Todo mungkin akan terlihat seperti berikut:
 
 ```
 Root Component
@@ -61,13 +61,13 @@ Root Component
       └─ TodoListStatistics
 ```
 
-Each component will have its own component instance, `vm`. For some components, such as `TodoItem`, there will likely be multiple instances rendered at any one time. All of the component instances in this application will share the same application instance.
+Setiap komponen memiliki _instance_ komponennya sendiri, `vm`. Pada beberapa komponen, seperti `TodoItem`, kemungkinan ia akan memiliki banyak _instance_ komponen yang di-_render_ secara bersama. Semua _instance_ komponen pada aplikasi ini akan berbagi _instance_ aplikasi yang sama.
 
-We'll talk about [the component system](component-basics.html) in detail later. For now, just be aware that the root component isn't really any different from any other component. The configuration options are the same, as is the behavior of the corresponding component instance.
+Kita akan membicarakan mengenai [sistem komponen](component-basics.html) secara mendalam nantinya. Untuk sekarang, ketahuilah bahwa komponen _root_ tidak jauh berbeda dengan komponen lainnya. Pilihan konfigurasinya sama, sebagaimana perilaku _instance_ komponen pada umumnya.
 
-## Component Instance Properties
+## Properti _Instance_ Komponen
 
-Earlier in the guide we met `data` properties. Properties defined in `data` are exposed via the component instance:
+Pada panduan sebelumnya, kita telah memahami properti `data`. Properti yang didefinisikan pada `data` tersedia melalui _instance_ komponen:
 
 ```js
 const app = Vue.createApp({
@@ -81,15 +81,15 @@ const vm = app.mount('#app')
 console.log(vm.count) // => 4
 ```
 
-There are various other component options that add user-defined properties to the component instance, such as `methods`, `props`, `computed`, `inject` and `setup`. We'll discuss each of these in depth later in the guide. All of the properties of the component instance, no matter how they are defined, will be accessible in the component's template.
+Ada banyak pilihan konfigurasi komponen lainnya yang dapat ditambahkan sendiri oleh pengembang. Konfigurasi tersebut nantinya juga dapat diakses melalui _instance_ komponen. Konfigurasi komponen tersebut seperti `methods`, `props`, `computed`, `inject` dan `setup`. Kita akan membahas masing-masing secara mendalam nanti. Semua properti pada _instance_ komponen, bagaimanapun cara mereka didefinisikan, akan dapat diakses melalui templat komponen.
 
-Vue also exposes some built-in properties via the component instance, such as `$attrs` and `$emit`. These properties all have a `$` prefix to avoid conflicting with user-defined property names.
+Vue juga menyediakan properti bawaan melalui _instance_ komponen, seperti `$attrs` dan `$emit`. Semua properti ini memiliki awalan `$` untuk membedakan nama properti yang didefinisikan sendiri oleh pengembang.
 
-## Lifecycle Hooks
+## _Lifecycle Hook_
 
-Each component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
+Setiap komponen melalui beberapa langkah inisialisasi ketika ia dibuat - sebagai contoh, komponen tersebut perlu memasang observasi data, mengompilasi templat, memasang _instance_ ke DOM, dan memutakhirkan DOM ketika terjadi perubahan data. Selama proses tersebut berlangsung, komponen tersebut juga menjalankan fungsi yang bernama **_lifecycle hooks_**, memberikan kesempatan pada pengembang untuk menambahkan kode mereka sendiri pada tahap tertentu.
 
-For example, the [created](../api/options-lifecycle-hooks.html#created) hook can be used to run code after an instance is created:
+Sebagai contoh _hook_ [created](../api/options-lifecycle-hooks.html#created) dapat digunakan untuk menjalankan kode setelah _instance_ dibuat:
 
 ```js
 Vue.createApp({
@@ -97,20 +97,20 @@ Vue.createApp({
     return { count: 1 }
   },
   created() {
-    // `this` points to the vm instance
-    console.log('count is: ' + this.count) // => "count is: 1"
+    // `this` mengarah ke _instance_ vm
+    console.log('count bernilai: ' + this.count) // => "count bernilai: 1"
   }
 })
 ```
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, such as [mounted](../api/options-lifecycle-hooks.html#mounted), [updated](../api/options-lifecycle-hooks.html#updated), and [unmounted](../api/options-lifecycle-hooks.html#unmounted). All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it.
+Ada juga _hook_ lain yang akan dipanggil pada tahap siklus hidup _instance_ tertentu, seperti [mounted](../api/options-lifecycle-hooks.html#mounted), [updated](../api/options-lifecycle-hooks.html#updated), dan [unmounted](../api/options-lifecycle-hooks.html#unmounted). Semua _lifecycle hooks_ dipanggil dengan konteks `this` yang mengarah ke _instance_ aktif sekarang yang menjalankannya.
 
 ::: tip
-Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) on an options property or callback, such as `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Since an arrow function doesn't have a `this`, `this` will be treated as any other variable and lexically looked up through parent scopes until found, often resulting in errors such as `Uncaught TypeError: Cannot read property of undefined` or `Uncaught TypeError: this.myMethod is not a function`.
+Jangan gunakan [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) pada properti konfigurasi komponen atau _callback_, seperti `created: () => console.log(this.a)` atau ``vm.$watch('a', newValue => this.myMethod())`. Karena _arrow function_ tidak memiliki `this`, `this` akan dianggap sebagai variabel lain dan secara leksikal mencari ke jangkauan _parent_ sampai variabel tersebut ditemukan, hal tersebut sering menyebabkan galat (_error_) seperti `Uncaught TypeError: Cannot read property of undefined` atau `Uncaught TypeError: this.myMethod is not a function`.
 :::
 
-## Lifecycle Diagram
+## Diagram _Lifecycle_
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+Berikut merupakan diagram untuk _lifecycle_ _instance_. Anda tidak perlu memahaminya secara menyeluruh sekarang, tetapi ketika Anda belajar dan membuat lebih banyak aplikasi, diagram berikut dapat menjadi referensi yang berguna.
 
 <img src="/images/lifecycle.svg" width="840" height="auto" style="margin: 0px auto; display: block; max-width: 100%;" loading="lazy" alt="Instance lifecycle hooks">

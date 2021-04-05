@@ -1,23 +1,23 @@
 ---
-title: $attrs includes class & style
+title: $attrs memuat class dan style
 badges:
   - breaking
 ---
 
-# `$attrs` includes `class` & `style` <MigrationBadges :badges="$frontmatter.badges" />
+# `$attrs` memuat `class` dan `style` <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-`$attrs` now contains _all_ attributes passed to a component, including `class` and `style`.
+`$attrs` sekarang memuat seluruh atribut yang diteruskan pada sebuah komponen, termasuk `class` dan `style`.
 
-## 2.x Behavior
+## Perilaku pada Vue versi 2.x
 
-`class` and `style` attributes get some special handling in the Vue 2 virtual DOM implementation. For that reason, they are _not_ included in `$attrs`, while all other attributes are.
+Atribut `class` dan `style` ditangani secara khusus pada implementasi DOM virtual milik Vue versi 2. Oleh karena itu, kedua atribut tersebut tidak dimuat dalam `$attrs`, sementara atribut lainnya dimuat.
 
-A side effect of this manifests when using `inheritAttrs: false`:
+Sebuah efek samping dari penanganan tersebut muncul ketika menggunakan `inheritAttrs: false`:
 
-- Attributes in `$attrs` are no longer automatically added to the root element, leaving it to the developer to decide where to add them.
-- But `class` and `style`, not being part of `$attrs`, will still be applied to the component's root element:
+- Atribut dalam `$attrs` tidak lagi dimuat pada elemen utama secara otomatis, keputusan dikembalikan pada pengembang untuk menentukan tempat atribut dimuat.
+- Namun `class` dan `style`, yang bukan merupakan bagian dari `$attrs`, akan tetap dimuat dalam elemen utama dari komponen:
 
 ```vue
 <template>
@@ -32,38 +32,38 @@ export default {
 </script>
 ```
 
-when used like this:
+Ketika digunakan seperti berikut:
 
 ```html
-<my-component id="my-id" class="my-class"></my-component>
+<my-component id="id-ku" class="kelas-ku"></my-component>
 ```
 
-...will generate this HTML:
+...maka Vue akan menghasilkan HTML berikut:
 
 ```html
-<label class="my-class">
-  <input type="text" id="my-id" />
+<label class="kelas-ku">
+  <input type="text" id="id-ku" />
 </label>
 ```
 
-## 3.x Behavior
+## Perilaku pada Vue versi 3.x
 
-`$attrs` contains _all_ attributes, which makes it easier to apply all of them to a different element. The example from above now generates the following HTML:
+`$attrs` memuat seluruh atribut, dimana hal tersebut mempermudah cara penanganan atribut pada elemen-elemen yang berbeda. Pada Vue versi 3.x, contoh di atas akan menghasilkan HTML berikut:
 
 ```html
 <label>
-  <input type="text" id="my-id" class="my-class" />
+  <input type="text" id="id-ku" class="kelas-ku" />
 </label>
 ```
 
-## Migration Strategy
+## Strategi Migrasi
 
-In components that use `inheritAttrs: false`, make sure that styling still works as intended. If you previously relied on the special behavior of `class` and `style`, some visuals might be broken as these attributes might now be applied to another element.
+Pada komponen-komponen yang menggunakan `inheritAttrs: false`, pastikan bahwa _styling_ tetap berjalan sesuai keinginan Anda. Jika Anda sebelumnya bergantung pada penanganan khusus pada `class` dan `style`, beberapa tampilan mungkin saja akan rusak karena atribut-atribut tersebut mungkin saja sekarang diterapkan pada elemen lain.
 
-## See also
+## Lihat Juga
 
-- [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md)
-- [Migration guide - `$listeners` removed](./listeners-removed.md)
-- [Migration guide - New Emits Option](./emits-option.md)
-- [Migration guide - `.native` modifier removed](./v-on-native-modifier-removed.md)
-- [Migration guide - Changes in the Render Functions API](./render-function-api.md)
+- [RFC Relevan](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md)
+- [Strategi Migrasi - `$listeners` dihapus](./listeners-removed.md)
+- [Strategi Migrasi - Opsi Emit Baru](./emits-option.md)
+- [Strategi Migrasi - Pengubah `.native` dihapus](./v-on-native-modifier-removed.md)
+- [Strategi Migrasi - Perubahan dalam API _render functions_](./render-function-api.md)

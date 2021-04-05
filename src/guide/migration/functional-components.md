@@ -3,36 +3,36 @@ badges:
   - breaking
 ---
 
-# Functional Components <MigrationBadges :badges="$frontmatter.badges" />
+# Komponen Fungsional <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-In terms of what has changed, at a high level:
+Berikut merupakan gambaran umum tentang perubahan yang terjadi:
 
-- Performance gains from 2.x for functional components are now negligible in 3.x, so we recommend just using stateful components
-- Functional components can only be created using a plain function that receives `props` and `context` (i.e., `slots`, `attrs`, `emit`)
-- **BREAKING:** `functional` attribute on single-file component (SFC) `<template>` is removed
-- **BREAKING:** `{ functional: true }` option in components created by functions is removed
+- Peningkatan performa komponen fungsional yang terdapat pada Vue versi 2.x dapat diabaikan pada Vue versi 3.x, sehingga kami menyarankan Anda untuk menggunakan komponen _stateful_.
+- Komponen fungsional hanya dapat dibuat menggunakan sebuah fungsi biasa yang menerima `props` dan `context` (yang di dalamnya terdapat `slots`, `attrs`, dan `emit`) sebagai parameter.
+- **MERUSAK** Atribut `fungsional` pada _tag_ `<template>` milik _single-file component_ (SFC) dihapus.
+- **MERUSAK** Opsi `{ functional: true }` pada komponen yang dibuat dengan fungsi dihapus.
 
-For more information, read on!
+Lanjutkan membaca untuk informasi lebih lanjut.
 
-## Introduction
+## Pengenalan
 
-In Vue 2, functional components had two primary use cases:
+Pada Vue versi 2, komponen fungsional memiliki dua kasus penggunaan yaitu:
 
-- as a performance optimization, because they initialized much faster than stateful components
-- to return multiple root nodes
+- sebagai sebuah bentuk optimisasi performa, karena komponen fungsional akan diinisialisasi lebih cepat dibandingkan dengan komponen _stateful_.
+- agar dapat menghasilkan lebih dari satu _node_ utama.
 
-However, in Vue 3, the performance of stateful components has improved to the point that the difference is negligible. In addition, stateful components now also include the ability to return multiple root nodes.
+Namun, pada Vue versi 3, performa dari komponen _stateful_ telah ditingkatkan sehingga perbedaan performa antara komponen _stateful_ dan komponen fungsional dapat diabaikan. Sebagai tambahan, saat ini komponen _stateful_ juga sudah dapat menghasilkan lebih dari satu _node_ utama.
 
-As a result, the only remaining use case for functional components is simple components, such as a component to create a dynamic heading. Otherwise, it is recommended to use stateful components as you normally would.
+Sehingga, satu-satunya kasus penggunaan dari komponen fungsional adalah komponen-komponen sederhana, seperti sebuah komponen yang menghasilkan _heading_ yang dinamis. Selain itu, kami menyarankan Anda untuk menggunakan komponen _stateful_ seperti biasanya.
 
-## 2.x Syntax
+## Sintaks Vue versi 2.x
 
-Using the `<dynamic-heading>` component, which is responsible for rendering out the appropriate heading (i.e., `h1`, `h2`, `h3`, etc.), this could have been written as a single-file component in 2.x as:
+Pada komponen `<dynamic-heading>`, yang berfungsi untuk menghasilkan _heading_ yang sesuai (entah `h1`, `h2`, `h3`, dan lain-lain), komponen tersebut dapat ditulis dalam sebuah _single-file component_ pada Vue versi 2.x sebagai:
 
 ```js
-// Vue 2 Functional Component Example
+// Contoh komponen fungsional Vue versi 2
 export default {
   functional: true,
   props: ['level'],
@@ -42,10 +42,10 @@ export default {
 }
 ```
 
-Or, for those who preferred the `<template>` in a single-file component:
+Atau, bagi Anda yang lebih suka menggunakan `<template>` dalam _single-file component_:
 
 ```vue
-<!-- Vue 2 Functional Component Example with <template> -->
+// Contoh komponen fungsional Vue versi 2 menggunakan <template>
 <template functional>
   <component
     :is="`h${props.level}`"
@@ -61,17 +61,17 @@ export default {
 </script>
 ```
 
-## 3.x Syntax
+## Sintaks Vue versi 3.x
 
-### Components Created by Functions
+### Komponen yang Dibuat oleh Fungsi
 
-Now in Vue 3, all functional components are created with a plain function. In other words, there is no need to define the `{ functional: true }` component option.
+Sekarang pada Vue versi 3, seluruh komponen fungsional dibuat menggunakan sebuah fungsi biasa. Dengan kata lain, Anda tidak perlu untuk mendefinisikan `{ functional: true }` pada pengaturan komponen.
 
-They will receive two arguments: `props` and `context`. The `context` argument is an object that contains a component's `attrs`, `slots`, and `emit` properties.
+Fungsi tersebut akan menerima dua argumen: `props` dan `context`. Argumen `context` adalah sebuah objek yang memuat properti `attrs`, `slots`, dan `emit` untuk komponen tersebut.
 
-In addition, rather than implicitly provide `h` in a `render` function, `h` is now imported globally.
+Sebagai tambahan, dibandingkan dengan menyediakan `h` dalam fungsi `render` secara implisit, sekarang `h` akan diimpor secara global.
 
-Using the previously mentioned example of a `<dynamic-heading>` component, here is how it looks now.
+Mengacu pada komponen `<dynamic-heading>` sebelumnya, berikut merupakan cara penulisan komponen tersebut sekarang:
 
 ```js
 import { h } from 'vue'
@@ -87,9 +87,9 @@ export default DynamicHeading
 
 ### Single File Components (SFCs)
 
-In 3.x, the performance difference between stateful and functional components has been drastically reduced and will be insignificant in most use cases. As a result, the migration path for developers using `functional` on SFCs is to remove the attribute and rename all references of `props` to `$props` and `attrs` to `$attrs`.
+Pada Vue versi 2.x, perbedaan performa antara komponen _stateful_ dan fungsional berkurang secara drastis dan tidak signifikan untuk sebagian besar kasus penggunaan. Sehingga, cara migrasi bagi pengembang yang menggunakan atribut `functional` pada SFC adalah dengan menghapus atribut tersebut dan menamai ulang segala acuan pada `props` menjadi `$props` dan `attrs` menjadi `$attrs`.
 
-Using our `<dynamic-heading>` example from before, here is how it would look now.
+Mengacu pada contoh `<dynamic-heading>` sebelumnya, berikut merupakan cara penulisan komponen tersebut sekarang:
 
 ```vue{1,3,4}
 <template>
@@ -106,14 +106,14 @@ export default {
 </script>
 ```
 
-The main differences are that:
+Perbedaan utama dari kedua cara penulisan tersebut adalah:
 
-1. `functional` attribute removed on `<template>`
-1. `listeners` are now passed as part of `$attrs` and can be removed
+1. Atribut `functional` dihapus dari `<template>`
+1. Sekarang, `listeners` diteruskan sebagai bagian dari `$attrs` dan dapat dihapus
 
-## Next Steps
+## Langkah Selanjutnya
 
-For more information on the usage of the new functional components and the changes to render functions in general, see:
+Anda dapat memperoleh informasi lebih lanjut mengenai penggunaan komponen fungsional yang baru dan perubahan pada fungsi _render_ melalui:
 
-- [Migration: Render Functions](/guide/migration/render-function-api.html)
-- [Guide: Render Functions](/guide/render-function.html)
+- [Migrasi: Fungsi Render](/guide/migration/render-function-api.html)
+- [Panduan: Fungsi Render](/guide/render-function.html)
