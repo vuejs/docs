@@ -15,7 +15,7 @@ const isServer = typeof window === 'undefined'
 
 const history = isServer ? createMemoryHistory() : createWebHistory()
 
-const routes: [{ path: '/user', component: MyUser }],
+const routes = [{ path: '/user', component: MyUser }]
 
 export default function() {
   return createRouter({ routes, history })
