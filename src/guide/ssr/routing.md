@@ -66,12 +66,12 @@ Vue Router provides [lazy-loading support](https://next.router.vuejs.org/guide/a
 ```js
 // change this...
 import MyUser from './components/MyUser.vue'
-const routes: [{ path: '/user', component: MyUser }],
+const routes = [{ path: '/user', component: MyUser }]
 
 // to this:
-routes: [{
+const routes = [
   { path: '/user', component: () => import('./components/MyUser.vue') }
-}]
+]
 ```
 
 On both client and server we need to wait for router to resolve async route components ahead of time in order to properly invoke in-component hooks. For this we will be using [router.isReady](https://next.router.vuejs.org/api/#isready) method Let's update our client entry:
