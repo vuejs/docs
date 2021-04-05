@@ -177,7 +177,7 @@
 
 - **Details:**
 
-  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation. See [$watch](instance-methods.html#watch) for more information about the `deep`, `immediate` and `flush` options.
+  An object where keys are reactive properties to watch — examples include [data](/api/options-data.html#data-2) or [computed](/api/options-data.html#computed) properties — and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation. See [$watch](instance-methods.html#watch) for more information about the `deep`, `immediate` and `flush` options.
 
 - **Example:**
 

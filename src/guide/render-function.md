@@ -551,6 +551,22 @@ render () {
 
 [`resolveDirective`](/api/global-api.html#resolvedirective) is the same function that templates use internally to resolve directives by name. That is only necessary if you don't already have direct access to the directive's definition object.
 
+### Built-in Components
+
+[Built-in components](/api/built-in-components.html) such as `<keep-alive>`, `<transition>`, `<transition-group>`, and `<teleport>` are not registered globally by default. This allows bundlers to perform tree-shaking, so that the components are only included in the build if they are used. However, that also means we can't access them using `resolveComponent` or `resolveDynamicComponent`.
+
+Templates have special handling for those components, automatically importing them when they are used. When we're writing our own `render` functions, we need to import them ourselves:
+
+```js
+const { h, KeepAlive, Teleport, Transition, TransitionGroup } = Vue
+
+// ...
+
+render () {
+  return h(Transition, { mode: 'out-in' }, /* ... */)
+}
+```
+
 ## JSX
 
 If we're writing a lot of `render` functions, it might feel painful to write something like this:
