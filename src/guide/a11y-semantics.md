@@ -16,7 +16,7 @@ Label biasanya ditempatkan di atas atau di sebelah kiri:
 </form>
 ```
 
-<common-codepen-snippet title="Simple Form" slug="YzwpPYZ" :height="368" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Simple Form" slug="dyNzzWZ" :height="368" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 Perhatikan bagaimana kamu dapat menyertakan `autocomplete="on"`pada elemen formulir dan ini akan berlaku untuk semua masukan (_input_) dalam formulirmu. Kamu juga dapat menyetel [nilai atribut _autocomplete_](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) yang berbeda-beda untuk setiap masukan.
 
@@ -29,7 +29,7 @@ Berikan label untuk mendeskripsikan tujuan dari semua kontrol formulir; dengan c
 <input type="text" name="nama" id="nama" v-model="nama" />
 ```
 
-<common-codepen-snippet title="Form Label" slug="wvMrGqz" :height="265" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Form Label" slug="XWpaaaj" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 Jika kamu memeriksa elemen tersebut di dalam alat pengembang chrome-mu dan membuka tab aksesibilitas di dalam tab elemen, kamu akan melihat bagaimana masukan mendapatkan namanya dari label:
 
@@ -63,7 +63,7 @@ Kamu juga dapat memberi masukan dengan nama yang dapat diakses dengan [`aria-lab
 />
 ```
 
-<common-codepen-snippet title="Form ARIA label" slug="jOWGqgz" :height="265" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Form ARIA label" slug="NWdvvYQ" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 Jangan ragu untuk memeriksa elemen tersebut di Alat Pengembang Chrome untuk melihat bagaimana nama yang dapat diakses telah berubah:
 
@@ -95,7 +95,7 @@ Penggunaan [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Acce
 </form>
 ```
 
-<common-codepen-snippet title="Form ARIA labelledby" slug="ZEQXOLP" :height="265" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Form ARIA labelledby" slug="MWJvvBe" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 ![Alat Pengembang Chrome menampilkan masukan nama yang dapat diakses dari aria-labelledby](/images/AccessibleARIAlabelledbyDevTools.png)
 
@@ -127,7 +127,7 @@ Penggunaan [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Acce
 </form>
 ```
 
-<common-codepen-snippet title="Form ARIA describedby" slug="JjGrKyY" :height="265" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Form ARIA describedby" slug="gOgxxQE" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 Kamu dapat melihat deskripsinya dengan memeriksa Alat Pengembang Chrome:
 
@@ -139,7 +139,7 @@ Hindari menggunakan placeholder karena dapat membingunkan banyak pengguna.
 
 Salah satu masalah placeholder adalah mereka tidak memenuhi [kriteria kontras warna](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) secara default; memperbaiki kontras warna membuat placeholder terlihat seperti data yang sudah terisi sebelumnya di bidang masukan. Melihat pada contoh berikut, kamu dapat melihat bahwa placeholder _Last Name_ yang memenuhi kriteria kontras warna tampak seperti data yang sudah terisi sebelumnya:
 
-<common-codepen-snippet title="Form Placeholder" slug="PoZJzeQ" :height="265" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Form Placeholder" slug="ExZvvMw" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 Cara terbaik adalah memberikan semua informasi yang dibutuhkan pengguna untuk mengisi formulir di luar masukan apapun.
 
@@ -178,7 +178,7 @@ Selain itu, kamu juga dapat melampirkan petunjuk ke masukan dengan [`aria-descri
 </fieldset>
 ```
 
-<common-codepen-snippet title="Form Instructions" slug="GRoMqYy" :height="265" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Form Instructions" slug="WNREEqv" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 ### Menyembunyikan Konten
 
@@ -212,7 +212,7 @@ Kita dapat menggunakan CSS untuk menyembunyikan elemen secara visual tetapi memb
 }
 ```
 
-<common-codepen-snippet title="Form Search" slug="qBbpQwB" :height="265" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Form Search" slug="QWdMqWy" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 #### aria-hidden="true"
 
@@ -240,7 +240,7 @@ Kamu juga dapat menggunakan masukan untuk membuat tombol:
 </form>
 ```
 
-<common-codepen-snippet title="Form Buttons" slug="PoZEXoj" :height="467" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Form Buttons" slug="JjEyrYZ" :height="467" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 #### Gambar Fungsional
 
@@ -281,4 +281,4 @@ Kamu dapat menggunakan teknik ini untuk membuat gambar fungsional.
 </form>
 ```
 
-<common-codepen-snippet title="Functional Images" slug="NWxXeqY" :height="265" tab="js,result" :team="false" user="mlama007" name="Maria" theme="light" :preview="false" :editable="false" />
+<common-codepen-snippet title="Functional Images" slug="jOyLGqM" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
