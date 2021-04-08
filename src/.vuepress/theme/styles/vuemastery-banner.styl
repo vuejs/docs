@@ -1,166 +1,113 @@
-// Screen sizes
-tiny    = 330px
-small   = 465px
-phone   = 700px
-tablet  = 900px
-desktop = 1000px
-
-// Media queries mixins
-mqMax(val)
-  @media all and (max-width: val)
-    {block}
-mqMin(val)
-  @media all and (min-width: val + 1px)
-    {block}
-
-// Animations easing
-animIn  = all cubic-bezier(0.34, 0.06, 0.01, 1) 2s
-animOut = all cubic-bezier(0.34, 0.06, 0.01, 1) 1s
-
 .vuemastery-banner
-  background #071532
+  background: url(/images/vuemastery/background-vuemastery.svg) center center no-repeat
+  background-size 100% auto
   overflow hidden
   position relative
-  transition animIn
-  cursor pointer
-  z-index 11
+  transition all .3s ease-out .1s
 
-  &:after,
   &:before
     content ''
+    background: url(/images/vuemastery/background-bubbles-vuemastery.svg) left center no-repeat
+    background-size cover
     position absolute
-    pointer-events none
-    transition animOut
-    bottom 0
-    
-  &:after
-    width 100%
-    position absolute
-    transition animIn
-    background-image url(/images/vuemastery/background.png)
-    background-position center
-    background-size: 100% auto;
     top 0
+    bottom 0
+    left 0
+    right 0
+    transition all .3s ease-out .1s
+    transform: scale(1.1)
 
-  &:before
-    height 100%
-    width 100%
+  &:after
+    content: ''
+    background: url(/images/vuemastery/lock-vuemastery.svg) right center no-repeat
+    background-size: auto 100%
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    pointer-events: none
 
   &:hover
-    +mqMin(desktop)
-      &:before,
-      &:after
-        transition animIn
+    background-size 150% auto
 
-      &:before
-        transform translateX(50%)
+    &:before
+      transform: scale(1)
 
-      &:after
-        transform scale(1.2)
+    &:after
+      background-image url(/images/vuemastery/unlock-vuemastery.svg)
 
-
-      .vuemastery-planet
-        transform rotate(-35deg) scale(10) translateX(40%)
-        &:after
-          transform translateX(-93px) scale(1.3)
-          opacity 0
-    
-      .vuemastery-banner--close
-        &:before,
-        &:after
-          transform-origin 100%
-
-        &:hover
-          &:before,
-          &:after
-            transition transform .2s ease-in .5s, transform-origin .2s ease-in
-            transform-origin 50%
-
-      .vuemastery-button:after
-        left: 120%;
-        transition: left 1.5s cubic-bezier(.19,1,.22,1);
-
-.vuemastery-banner--link
-  display flex
-  height 80px
-  justify-content center
-  overflow hidden
-  position relative
-  z-index 2
-
-  +mqMax(phone)
-    justify-content start
-    height 65px
-
+  a
+    display flex
+    height 80px
+    justify-content center
+  
 .vuemastery-banner--wrapper
   display flex
   height 100%
   align-items center
+  width: 100%
+  justify-content: center
   position relative
-  color #fff
-  z-index 3
-  transition animIn
 
+  &:before
+    content ''
+    pointer-events none
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    width 0
+    transition width .3s ease-out
+
+  &:hover
+    + .vuemastery-banner--close
+      &:before,
+      &:after
+        transform-origin 100%
+  
   p
     margin -3px 50px 0 20px
-    font-size 1.17rem
-    font-weight 600
-    white-space nowrap
+    font-size 1rem
+    line-height 1.4rem
+    color #fff
     position relative
+    transition-delay .15s
 
   span
-    font-size 1rem
+    font-size 1.17rem
+    font-weight 600
     display block
-
-  +mqMax(phone)
-    flex-direction: column;
-    width: calc(100% - 172px);
-
-    p, span
-      margin: .5rem 0 0rem 0;
-      font-size .8rem
-      color #fff
-
-  +mqMax(phone)
-    span
-      display none
-
-  +mqMax(tiny)
-    p
-      font-size 0.6rem
-      margin -3px 28px 0 0px
+    color #BEFF74
+    background -webkit-linear-gradient(#41E281, #BEFF74)
+    -webkit-background-clip text
+    -webkit-text-fill-color transparent
 
 .vuemastery-banner--logo
   height 102%
-  margin-top -1px
-  margin-left -90px
+  margin-top: -1px
+  margin-left -200px
   position relative
   z-index 2
-  transition animIn
-
-  +mqMax(phone)
-    margin-left: -40px;
-    transform: rotateY(190deg);
-    height: 105%;
   
 .vuemastery-banner--close
-  height 100%
-  width 75px
   position absolute
-  top 0
-  right 0
-  z-index 2
+  top 20px
+  right 25px
+  height 40px
+  width 40px
   -webkit-tap-highlight-color transparent
+  border-radius 50%
   cursor pointer
 
   &:before,
   &:after
     content ''
+    position absolute
+    top 19px
+    left 14px
     width 25px
     height 2px
-    position absolute
-    top 39px
-    right 25px
     background-color #fff
     transform-origin 50%
     transform rotate(-45deg)
@@ -168,83 +115,6 @@ animOut = all cubic-bezier(0.34, 0.06, 0.01, 1) 1s
 
   &:after
     transform rotate(45deg)
-
-  &:hover
-    &:before,
-    &:after
-      transform rotate(180deg)
-
-  +mqMax(phone)
-    &:before,
-    &:after
-      width 15px
-      top 19px
-      right 14px
-
-.vuemastery-promo
-  .navbar
-    position relative
-
-  .sidebar
-    position absolute
-    top 7.60625rem
-
-  &.vuemastery-menu-fixed
-    .sidebar,
-    .navbar
-      position fixed
-
-    .sidebar
-      top 3.6rem
-
-    +mqMax(tablet)
-      .vuemastery-banner
-        margin-bottom 40px
-
-.vuemastery-planet
-  position absolute
-  z-index 2
-  width 100%
-  height 100%
-  transform-origin bottom right
-  transition animIn
-
-  +mqMax(phone)
-    transform translateX(70px)
-
-  &:after,
-  &:before
-    content ''
-    position absolute
-    pointer-events none
-    bottom 0
-    width 100%
-    top 0
-    right 0
-    background-image url(/images/vuemastery/black-hole.png)
-    background-attachment fixed
-    background-size: auto 200px;
-    background-position: top -52px right -24px;
-    background-repeat: no-repeat;
-
-  &:before
-    +mqMax(phone)
-      background-size: auto 200px;
-      background-position: top -81px right -82px;
-
-  &:after
-    background-image: url(/images/vuemastery/planets.png);
-    transition: all cubic-bezier(0.34, 0.06, 0.01, 1) 3s;
-    background-position: left -80px top -80px;
-    background-size: auto 180px;
-
-    +mqMax(phone)
-      display none
-
-@media print
-  .vuemastery-banner
-    display none
-
 
 .vuemastery-button
   display: inline-flex;
@@ -278,3 +148,128 @@ animOut = all cubic-bezier(0.34, 0.06, 0.01, 1) 1s
     top: -50px;
     transform: rotate(35deg);
     width: 100px;
+
+.vuemastery-weekend-promo
+  #mobile-bar,
+  #mobile-bar.top
+    position relative
+    background-color #fff
+  
+  &.docs:not(.vuemastery-menu-fixed)
+    padding-top 0
+    #header
+      position relative
+      width auto
+    #nav
+      position absolute
+
+  &.vuemastery-menu-fixed
+    #mobile-bar
+      position fixed
+
+@media screen and (min-width: 901px)
+  .vuemastery-weekend-promo
+    &.docs:not(.vuemastery-menu-fixed)
+      #main.fix-sidebar .sidebar
+        position absolute
+        top 141px
+      
+      #sidebar-sponsors-platinum-right
+        position absolute
+        top: 170px;
+    
+    &.vuemastery-menu-fixed.docs
+      .vuemastery-banner
+        margin-bottom 0
+
+@media screen and (max-width: 1200px)
+  .vuemastery-banner
+    &,
+    &:hover
+      background-size cover
+
+    &:before
+      transform: scale(1)
+
+    &:hover:before
+      transform: scale(1)
+
+@media screen and (max-width: 1100px)
+    .vuemastery-button
+      display none
+
+@media screen and (max-width: 900px)
+  .vuemastery-weekend-promo
+    &.vuemastery-menu-fixed
+      .vuemastery-banner
+        margin-bottom 40px
+
+
+@media screen and (max-width: 700px)
+  .vuemastery-banner
+    &:after
+      background-position right -2rem center
+    a
+      height 40px
+      overflow hidden
+
+    .vuemastery-banner--logo
+      margin-left 0
+      justify-content flex-start
+
+    p, span
+      font-size .8rem
+      color #fff
+      line-height .9rem
+
+    .vuemastery-banner--close
+      top 0px
+      right 0px
+
+      &:before,
+      &:after
+        top 19px
+        left 14px
+        width 15px
+        height 2px
+
+@media screen and (max-width: 465px)
+  .vuemastery-banner
+    &:after
+      display: none
+    p
+      margin-right 40px
+      margin-left 5px
+
+    &:after
+      background-position right -3rem center
+@media screen and (max-width 330px)
+  .vuemastery-banner p
+    font-size 0.6rem
+    margin-right 20px
+    margin-left 0
+
+@media print
+  .vuemastery-banner
+    display none
+
+
+.vuemastery-promo
+  .navbar
+    position relative
+
+  .sidebar
+    position absolute
+    top 7.60625rem
+
+  &.vuemastery-menu-fixed
+    .sidebar,
+    .navbar
+      position fixed
+
+    .sidebar
+      top 3.6rem
+
+    +mqMax(tablet)
+      .vuemastery-banner
+        margin-bottom 40px
