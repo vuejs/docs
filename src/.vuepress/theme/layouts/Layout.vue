@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
-      isBannerOpen: true,
+      isBannerOpen: false,
       isMenuFixed: false,
       nameStorage: 'vuemastery-free-weekend-2021-banner',
       menuPosition: 0
@@ -134,16 +134,18 @@ export default {
     }
   },
 
+  beforeMount() {
+    this.isBannerOpen = !localStorage.getItem(this.nameStorage)
+  },
+
   mounted() {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
 
     // Load component according to user preferences
-    if (!localStorage.getItem(this.nameStorage)) {
+    if (this.isBannerOpen) {
       this.initBanner()
-    } else {
-      this.isBannerOpen = false
     }
   },
 
@@ -177,8 +179,6 @@ export default {
     initBanner() {
       // Add event listeners
       this.toggleBannerEvents(true)
-      // Add class to the body to push fixed elements
-      this.isBannerOpen = true
       // Get the menu position
       this.getMenuPosition()
       // Check current page offset position
