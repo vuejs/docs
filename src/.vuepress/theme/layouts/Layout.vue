@@ -134,18 +134,16 @@ export default {
     }
   },
 
-  beforeMount() {
-    this.isBannerOpen = !localStorage.getItem(this.nameStorage)
-  },
-
   mounted() {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
 
+    this.isBannerOpen = !localStorage.getItem(this.nameStorage)
+
     // Load component according to user preferences
     if (this.isBannerOpen) {
-      this.initBanner()
+      this.$nextTick(this.initBanner)
     }
   },
 
