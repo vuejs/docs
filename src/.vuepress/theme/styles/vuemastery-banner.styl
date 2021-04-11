@@ -3,7 +3,6 @@
   background-size 100% auto
   overflow hidden
   position relative
-  transition all .3s ease-out .1s
 
   &:before
     content ''
@@ -149,39 +148,6 @@
     transform: rotate(35deg);
     width: 100px;
 
-.vuemastery-weekend-promo
-  #mobile-bar,
-  #mobile-bar.top
-    position relative
-    background-color #fff
-  
-  &.docs:not(.vuemastery-menu-fixed)
-    padding-top 0
-    #header
-      position relative
-      width auto
-    #nav
-      position absolute
-
-  &.vuemastery-menu-fixed
-    #mobile-bar
-      position fixed
-
-@media screen and (min-width: 901px)
-  .vuemastery-weekend-promo
-    &.docs:not(.vuemastery-menu-fixed)
-      #main.fix-sidebar .sidebar
-        position absolute
-        top 141px
-      
-      #sidebar-sponsors-platinum-right
-        position absolute
-        top: 170px;
-    
-    &.vuemastery-menu-fixed.docs
-      .vuemastery-banner
-        margin-bottom 0
-
 @media screen and (max-width: 1200px)
   .vuemastery-banner
     &,
@@ -197,13 +163,6 @@
 @media screen and (max-width: 1100px)
     .vuemastery-button
       display none
-
-@media screen and (max-width: 900px)
-  .vuemastery-weekend-promo
-    &.vuemastery-menu-fixed
-      .vuemastery-banner
-        margin-bottom 40px
-
 
 @media screen and (max-width: 700px)
   .vuemastery-banner
@@ -260,16 +219,22 @@
 
   .sidebar
     position absolute
-    top 7.60625rem
+    top 8.6rem
+    bottom -5rem
+
+    @media screen and (max-width: 700px)
+      top: 98px;
+      bottom: -20px;
 
   &.vuemastery-menu-fixed
+    .vuemastery-banner
+      margin-bottom 56px
+
     .sidebar,
     .navbar
       position fixed
+      top -1px
 
     .sidebar
-      top 3.6rem
-
-    +mqMax(tablet)
-      .vuemastery-banner
-        margin-bottom 40px
+      top 3.5rem
+      bottom 0
