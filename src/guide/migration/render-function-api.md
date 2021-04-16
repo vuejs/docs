@@ -5,26 +5,26 @@ badges:
 
 # Render Function API <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Panoramica
 
-This change will not affect `<template>` users.
+Questa modifica non riguarda gli utilizzatori di `<template>`.
 
-Here is a quick summary of what has changed:
+Ecco un breve riassunto di quello che è cambiato:
 
-- `h` is now globally imported instead of passed to render functions as an arguments
-- render function arguments changed to be more consistent between stateful and functional components
-- VNodes now have a flat props structure
+- `h` è ora importato globalmente invece di essere passato alle funzioni di rendering come argomento
+- gli argomenti della funzione di rendering sono stati modificati per essere più coerenti tra componenti stateful e functional
+- I VNodes hanno ora una struttura di props più lineare
 
-For more information, read on!
+Per ulteriori informazioni, continua a leggere!
 
-## Render Function Argument
+## Argomento della Render Function
 
-### 2.x Syntax
+### Sintassi 2.x
 
-In 2.x, the `render` function would automatically receive the `h` function (which is a conventional alias for `createElement`) as an argument:
+Nella versione 2.x, la funzione `render` riceve automaticamente la funzione `h` (che è un alias convenzionale di `createElement`) come argomento:
 
 ```js
-// Vue 2 Render Function Example
+// Vue 2 esempio di funzione Render
 export default {
   render(h) {
     return h('div')
@@ -32,12 +32,12 @@ export default {
 }
 ```
 
-### 3.x Syntax
+### Sintassi 3.x
 
-In 3.x, `h` is now globally imported instead of being automatically passed as an argument.
+Nella versione 3.x, `h` è importato globalmente invece di essere passato automaticamente come argomento:
 
 ```js
-// Vue 3 Render Function Example
+// Vue 3 esempio di funzione Render
 import { h } from 'vue'
 
 export default {
@@ -47,14 +47,14 @@ export default {
 }
 ```
 
-## Render Function Signature Change
+## Modifica nell'utilizzo della funzione render
 
-### 2.x Syntax
+### Sintassi 2.x
 
-In 2.x, the `render` function automatically received arguments such as `h`.
+Nella versione 2.x, la funzione `render` riceve automaticamente degli argomenti, come ad esempio `h`.
 
 ```js
-// Vue 2 Render Function Example
+// Vue 2 esempio di funzione Render
 export default {
   render(h) {
     return h('div')
@@ -62,9 +62,9 @@ export default {
 }
 ```
 
-### 3.x Syntax
+### Sintassi 3.x
 
-In 3.x, since the `render` function no longer receives any arguments, it will primarily be used inside of the `setup()` function. This has the added benefit of gaining access to reactive state and functions declared in scope, as well as the arguments passed to `setup()`.
+Nella versione 3.x, poiché la funzione `render` non riceve più alcun argomento, viene usata principalmente all'interno della funzione `setup()`. Uno dei vantaggi immediati è ottenere l'accesso allo stato reattivo e alle funzioni dichiarate nello stesso scope, così come l'accesso agli argomenti passati a `setup()`.
 
 ```js
 import { h, reactive } from 'vue'
@@ -79,7 +79,7 @@ export default {
       state.count++
     }
 
-    // return the render function
+    // restituisce una funzione render
     return () =>
       h(
         'div',
@@ -92,13 +92,13 @@ export default {
 }
 ```
 
-For more information on how `setup()` works, see our [Composition API Guide](/guide/composition-api-introduction.html).
+Per altre informazioni su come funziona `setup()`, leggi la guida alla [Composition API](/guide/composition-api-introduction.html).
 
-## VNode Props Format
+## Formato delle Props in VNode
 
-### 2.x Syntax
+### Sintassi 2.x
 
-In 2.x, `domProps` contained a nested list within the VNode props:
+Nella versione 2.x, `domProps` contiene un elenco annidato all'interno delle props di un VNode:
 
 ```js
 // 2.x
@@ -114,12 +114,13 @@ In 2.x, `domProps` contained a nested list within the VNode props:
 }
 ```
 
-### 3.x Syntax
+### Sintassi 3.x
 
-In 3.x, the entire VNode props structure is flattened. Using the example from above, here is what it would look like now.
+Nella vesione 3.x, l'intera struttura delle props di un VNode è più lineare. Eccome come si presenta adesso la stessa struttura nell'esempio della versione 2.x:
+
 
 ```js
-// 3.x Syntax
+// 3.x
 {
   class: ['button', { 'is-outlined': isOutlined }],
   style: [{ color: '#34495E' }, { backgroundColor: buttonColor }],
@@ -132,9 +133,10 @@ In 3.x, the entire VNode props structure is flattened. Using the example from ab
 
 ## Registered Component
 
-### 2.x Syntax
+### Sintassi 2.x
 
-In 2.x, when a component has been registered, the render function would work well when passing the component's name as a string to the first argument:
+Nella vesione 2.x, quando un componente è stato memorizzato, la funzione di rendering funziona a dovere quando gli si passa il nome del componente come stringa come primo argomento:
+
 
 ```js
 // 2.x
@@ -158,9 +160,9 @@ export default {
 }
 ```
 
-### 3.x Syntax
+### Sintassi 3.x
 
-In 3.x, with VNodes being context-free, we can no longer use a string ID to implicitly lookup registered components. Instead, we need to use an imported `resolveComponent` method:
+Nella versione 3.x, visto che i VNodes sono privi di contesto, non possiamo più utilizzare un ID string per cercare i componenti registrati. Invece, abbiamo bisogno di importare ed usare il metodo `resolutionComponent`
 
 ```js
 // 3.x
@@ -174,18 +176,18 @@ export default {
 }
 ```
 
-For more information, see [The Render Function Api Change RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0008-render-function-api-change.md#context-free-vnodes).
+Per informazioni più approfondite, vedi [la RFC del cambio di API della Render Function](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0008-render-function-api-change.md#context-free-vnodes).
 
-## Migration Strategy
+## Strategia di migrazione
 
-### Library Authors
+### Per gli autori di librerie
 
-`h` being globally imported means that any library that contains Vue components will include `import { h } from 'vue'` somewhere. As a result, this creates a bit of overhead since it requires library authors to properly configure the externalization of Vue in their build setup:
+L'importazione globale di `h` significa che qualsiasi libreria che contiene componenti Vue includerà `import {h} from 'vue'` da qualche parte. Questo crea un po' di complicazioni poiché richiede agli autori di librerie di configurare correttamente l'esternalizzazione di Vue nella loro configurazione di build:
 
-- Vue should not be bundled into the library
-- For module builds, the import should be left alone and be handled by the end user bundler
-- For UMD / browser builds, it should try the global Vue.h first and fallback to require calls
+- Vue non dovrebbe essere incluso nella libreria.
+- Per le build di moduli, l'importazione non va toccata perché gestita dal bundler dell'utente finale.
+- Per le build UMD / browser, si dovrebbe prima cercare Vue.h globale e usare `require` solo come ripiego.
 
-## Next Steps
+## Prossimi passi
 
-See [Render Function Guide](/guide/render-function) for more detailed documentation!
+Vedi la guida alla [Render Function](/guide/render-function) per una documentazione ancora più approfondita!
