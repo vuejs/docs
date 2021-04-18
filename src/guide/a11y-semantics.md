@@ -71,7 +71,7 @@ Jangan ragu untuk memeriksa elemen tersebut di Alat Pengembang Chrome untuk meli
 
 #### aria-labelledby
 
-Penggunaan [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) mirip dengan `aria-label`, yaitu mengharapkan jika digunakan teks label terlihat di layar. `aria-labelledby` dipasangkan ke elemen lain dengan menggunakan `id` dan kamu dapat menghubungkan beberapa `id`:
+Penggunaan [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) mirip dengan `aria-label` kecuali teknik ini digunakan jika label pada text terlihat pada layar. Sering digunakan bersama dengan elemen lain melalui `id` dan anda dapat menggunakan `id` berulang kali:
 
 ```html
 <form
