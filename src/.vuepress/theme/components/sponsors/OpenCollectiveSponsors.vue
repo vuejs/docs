@@ -1,6 +1,6 @@
 <template>
   <SponsorsLayout extra-classes="sponsors__open-collective">
-    <template #heading>Open Collective Sponsors</template>
+    <template #heading>Sponsor Open Collective</template>
 
     <template #content>
       <h4>Platinum</h4>

@@ -1,12 +1,12 @@
-# Change Detection Caveats in Vue 2
+# Peringatan Deteksi Perubahan di Vue 2
 
-> This page applies only to Vue 2.x and below, and assumes you've already read the [Reactivity Section](reactivity.md). Please read that section first.
+> Halaman ini hanya berlaku untuk Vue 2.x dan di bawahnya, dan mengasumsikan kamu telah membaca [Bagian Reaktivitas](reactivity.md). Silakan baca bagian itu dulu.
 
-Due to limitations in JavaScript, there are types of changes that Vue **cannot detect**. However, there are ways to circumvent them to preserve reactivity.
+Karena keterbatasan pada JavaScript, ada beberapa jenis perubahan **yang tidak dapat dideteksi** oleh Vue. Namun, ada beberapa cara untuk mengakali untuk menjaga reaktivitas.
 
-### For Objects
+### Untuk Objek
 
-Vue cannot detect property addition or deletion. Since Vue performs the getter/setter conversion process during instance initialization, a property must be present in the `data` object in order for Vue to convert it and make it reactive. For example:
+Vue tidak dapat mendeteksi penambahan atau penghapusan properti. Karena Vue melakukan proses konversi pengambil/penyetel selama inisialisasi _instance_, properti harus ada di objek `data` agar Vue dapat mengubahnya dan membuatnya reaktif. Sebagai contoh:
 
 ```js
 var vm = new Vue({
@@ -14,149 +14,149 @@ var vm = new Vue({
     a: 1
   }
 })
-// `vm.a` is now reactive
+// `vm.a` sekarang menjadi reaktif
 
 vm.b = 2
-// `vm.b` is NOT reactive
+// `vm.b` TIDAK reaktif
 ```
 
-Vue does not allow dynamically adding new root-level reactive properties to an already created instance. However, it's possible to add reactive properties to a nested object using the `Vue.set(object, propertyName, value)` method:
+Vue tidak mengizinkan penambahan properti reaktif level root baru secara dinamis ke dalam _instance_ yang sudah dibuat. Namun, memungkinkan untuk menambahkan properti reaktif ke objek bersarang menggunakan metode `Vue.set(object, propertyName, value)`:
 
 ```js
-Vue.set(vm.someObject, 'b', 2)
+Vue.set(vm.suatuObjek, 'b', 2)
 ```
 
-You can also use the `vm.$set` instance method, which is an alias to the global `Vue.set`:
+Kamu juga dapat menggunakan metode _instance_ `vm.$set`, yang merupakan alias untuk `Vue.set` global:
 
 ```js
-this.$set(this.someObject, 'b', 2)
+this.$set(this.suatuObjek, 'b', 2)
 ```
 
-Sometimes you may want to assign a number of properties to an existing object, for example using `Object.assign()` or `_.extend()`. However, new properties added to the object will not trigger changes. In such cases, create a fresh object with properties from both the original object and the mixin object:
+Terkadang kamu mungkin ingin menetapkan sejumlah properti ke objek yang sudah ada, misalnya menggunakan `Object.assign ()` atau `_.extend ()`. Namun, properti baru yang ditambahkan ke objek tidak akan memicu perubahan. Dalam kasus seperti itu, buat objek baru dengan properti dari objek asli dan objek _mixin_:
 
 ```js
-// instead of `Object.assign(this.someObject, { a: 1, b: 2 })`
-this.someObject = Object.assign({}, this.someObject, { a: 1, b: 2 })
+// Daripada `Object.assign(this.suatuObjek, { a: 1, b: 2 })`
+this.suatuObjek = Object.assign({}, this.suatuObjek, { a: 1, b: 2 })
 ```
 
-### For Arrays
+### Untuk Array
 
-Vue cannot detect the following changes to an array:
+Vue tidak dapat mendeteksi perubahan berikut pada sebuah array:
 
-1. When you directly set an item with the index, e.g. `vm.items[indexOfItem] = newValue`
-2. When you modify the length of the array, e.g. `vm.items.length = newLength`
+1. Ketika kamu langsung mengatur item dengan indeks, contoh: `vm.item[indeksItem] = nilaiBaru`
+2. Ketika kamu mengubah panjang array, contoh: `vm.item.length = panjangBaru`
 
-For example:
+Sebagai contoh:
 
 ```js
 var vm = new Vue({
   data: {
-    items: ['a', 'b', 'c']
+    item: ['a', 'b', 'c']
   }
 })
-vm.items[1] = 'x' // is NOT reactive
-vm.items.length = 2 // is NOT reactive
+vm.item[1] = 'x' // TIDAK reaktif
+vm.item.length = 2 // TIDAK reaktif
 ```
 
-To overcome caveat 1, both of the following will accomplish the same as `vm.items[indexOfItem] = newValue`, but will also trigger state updates in the reactivity system:
+Untuk mengatasi peringatan 1, kedua hal berikut ini akan melakukan hal yang sama seperti `vm.item[indeksItem] = nilaiBaru`, tetapi juga akan memicu pembaruan status dalam sistem reaktivitas:
 
 ```js
 // Vue.set
-Vue.set(vm.items, indexOfItem, newValue)
+Vue.set(vm.item, indeksItem, nilaiBaru)
 ```
 
 ```js
 // Array.prototype.splice
-vm.items.splice(indexOfItem, 1, newValue)
+vm.item.splice(indeksItem, 1, nilaiBaru)
 ```
 
-You can also use the [`vm.$set`](https://vuejs.org/v2/api/#vm-set) instance method, which is an alias for the global `Vue.set`:
+Kamu juga dapat menggunakan metode _instance_ [`vm.$Set`](https://vuejs.org/v2/api/#vm-set), yang merupakan alias untuk `Vue.set` global:
 
 ```js
-vm.$set(vm.items, indexOfItem, newValue)
+vm.$set(vm.item, indeksItem, nilaiBaru)
 ```
 
-To deal with caveat 2, you can use `splice`:
+Untuk menangani peringatan 2, kamu dapat menggunakan `splice`:
 
 ```js
-vm.items.splice(newLength)
+vm.item.splice(panjangBaru)
 ```
 
-## Declaring Reactive Properties
+## Mendeklarasikan Properti-Properti Reaktif
 
-Since Vue doesn't allow dynamically adding root-level reactive properties, you have to initialize component instances by declaring all root-level reactive data properties upfront, even with an empty value:
+Karena Vue tidak mengizinkan penambahan properti reaktif level root secara dinamis, kamu harus menginisialisasi _instance_ komponen dengan mendeklarasikan semua properti data reaktif level root di awal, bahkan dengan nilai kosong:
 
 ```js
 var vm = new Vue({
   data: {
-    // declare message with an empty value
-    message: ''
+    //
+    pesan: ''
   },
-  template: '<div>{{ message }}</div>'
+  template: '<div>{{ pesan }}</div>'
 })
-// set `message` later
-vm.message = 'Hello!'
+// set `pesan` nanti
+vm.pesan = 'Halo!'
 ```
 
-If you don't declare `message` in the data option, Vue will warn you that the render function is trying to access a property that doesn't exist.
+Jika kamu tidak mendeklarasikan `pesan` dalam opsi data, Vue akan memperingatkanmu bahwa fungsi render mencoba mengakses properti yang tidak ada.
 
-There are technical reasons behind this restriction - it eliminates a class of edge cases in the dependency tracking system, and also makes component instances play nicer with type checking systems. But there is also an important consideration in terms of code maintainability: the `data` object is like the schema for your component's state. Declaring all reactive properties upfront makes the component code easier to understand when revisited later or read by another developer.
+Ada alasan teknis di balik pembatasan tersebut - ini menghilangkan kelas kasus tepi dalam sistem pelacakan ketergantungan (_dependency tracking system_), dan juga membuat _instance_ komponen bermain lebih baik dengan sistem pemeriksaan tipe. Namun ada juga pertimbangan penting dalam hal pemeliharaan kode: objek `data` seperti skema untuk status komponenmu. Mendeklarasikan semua properti reaktif di awal membuat kode komponen lebih mudah dipahami saat dikunjungi kembali nanti atau dibaca oleh pengembang lain.
 
 ## Async Update Queue
 
-In case you haven't noticed yet, Vue performs DOM updates **asynchronously**. Whenever a data change is observed, it will open a queue and buffer all the data changes that happen in the same event loop. If the same watcher is triggered multiple times, it will be pushed into the queue only once. This buffered de-duplication is important in avoiding unnecessary calculations and DOM manipulations. Then, in the next event loop "tick", Vue flushes the queue and performs the actual (already de-duped) work. Internally Vue tries native `Promise.then`, `MutationObserver`, and `setImmediate` for the asynchronous queuing and falls back to `setTimeout(fn, 0)`.
+Jika kamu belum menyadarinya, Vue melakukan pembaruan DOM **secara asinkron**. Setiap kali perubahan data diamati, itu akan membuka antrian dan menyangga semua perubahan data yang terjadi pada _event loop_ yang sama. Jika _watcher_ yang sama dipicu beberapa kali, maka akan didorong ke antrean hanya sekali. De-duplikasi yang disangga ini penting untuk menghindari penghitungan yang tidak perlu dan manipulasi DOM. Kemudian, di _event loop_ berikutnya "_tick_", Vue membersihkan antrian dan melakukan pekerjaan yang sebenarnya. Secara internal Vue mencoba _native_ `Promise.then`,`MutationObserver`, dan `setImmediate` untuk antrian asinkron dan _fallback_ ke `setTimeout(fn, 0)`.
 
-For example, when you set `vm.someData = 'new value'`, the component will not re-render immediately. It will update in the next "tick", when the queue is flushed. Most of the time we don't need to care about this, but it can be tricky when you want to do something that depends on the post-update DOM state. Although Vue.js generally encourages developers to think in a "data-driven" fashion and avoid touching the DOM directly, sometimes it might be necessary to get your hands dirty. In order to wait until Vue.js has finished updating the DOM after a data change, you can use `Vue.nextTick(callback)` immediately after the data is changed. The callback will be called after the DOM has been updated. For example:
+Misalnya, saat kamu menyetel `vm.suatuData = 'nilai baru'`, komponen tidak akan langsung dirender ulang. Ini akan diperbarui di "_tick_" berikutnya ketika antrian dibilas. Seringkali kita tidak perlu mempedulikan hal ini, tetapi ini bisa menjadi rumit ketika kamu ingin melakukan sesuatu yang bergantung pada status DOM pasca-pembaruan. Meskipun Vue.js umumnya mendorong pengembang untuk berpikir dengan cara "berdasarkan data" dan menghindari menyentuh DOM secara langsung, terkadang kamu mungkin perlu mengotori tanganmu. Untuk menunggu hingga Vue.js selesai memperbarui DOM setelah perubahan data, kamu dapat menggunakan `Vue.nextTick(callback)` segera setelah data diubah. _Callback_ akan dipanggil setelah DOM diperbarui. Sebagai contoh:
 
 ```html
-<div id="example">{{ message }}</div>
+<div id="contoh">{{ pesan }}</div>
 ```
 
 ```js
 var vm = new Vue({
-  el: '#example',
+  el: '#contoh',
   data: {
-    message: '123'
+    pesan: '123'
   }
 })
-vm.message = 'new message' // change data
-vm.$el.textContent === 'new message' // false
+vm.pesan = 'pesan baru' // ubah data
+vm.$el.textContent === 'pesan baru' // salah
 Vue.nextTick(function() {
-  vm.$el.textContent === 'new message' // true
+  vm.$el.textContent === 'pesan baru' // benar
 })
 ```
 
-There is also the `vm.$nextTick()` instance method, which is especially handy inside components, because it doesn't need global `Vue` and its callback's `this` context will be automatically bound to the current component instance:
+Ada juga metode _instance_ `vm.$nextTick()`, yang sangat berguna di dalam komponen, karena tidak memerlukan `Vue` global dan konteks`this` callbacknya akan otomatis terikat ke instance komponen saat ini:
 
 ```js
-Vue.component('example', {
-  template: '<span>{{ message }}</span>',
+Vue.component('contoh', {
+  template: '<span>{{ pesan }}</span>',
   data: function() {
     return {
-      message: 'not updated'
+      pesan: 'belum terubah'
     }
   },
   methods: {
-    updateMessage: function() {
-      this.message = 'updated'
-      console.log(this.$el.textContent) // => 'not updated'
+    ubahPesan: function() {
+      this.pesan = 'sudah terubah'
+      console.log(this.$el.textContent) // => 'belum terubah'
       this.$nextTick(function() {
-        console.log(this.$el.textContent) // => 'updated'
+        console.log(this.$el.textContent) // => 'sudah terubah'
       })
     }
   }
 })
 ```
 
-Since `$nextTick()` returns a promise, you can achieve the same as the above using the new [ES2017 async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) syntax:
+Karena `$nextTick()` mengembalikan sebuah _promise_, kamu dapat mencapai hal yang sama seperti di atas menggunakan [ES2017 async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) sintaks:
 
 ```js
   methods: {
-    updateMessage: async function () {
-      this.message = 'updated'
-      console.log(this.$el.textContent) // => 'not updated'
+    ubahPesan: async function () {
+      this.pesan = 'sudah terubah'
+      console.log(this.$el.textContent) // => 'belum terubah'
       await this.$nextTick()
-      console.log(this.$el.textContent) // => 'updated'
+      console.log(this.$el.textContent) // => 'sudah terubah'
     }
   }
 ```
