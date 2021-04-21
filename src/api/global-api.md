@@ -532,3 +532,21 @@ Accepts one argument: `name`
 - **Details:**
 
   The name of the CSS module. Defaults to `'$style'`.
+
+## version
+
+Provides the installed version of Vue as a string.
+
+```js
+const version = Number(Vue.version.split('.')[0])
+
+if (version === 3) {
+  // Vue 3
+} else if (version === 2) {
+  // Vue 2
+} else {
+  // Unsupported versions of Vue
+}
+```
+
+**See also**: [Application API - version](/api/application-api.html#version)
