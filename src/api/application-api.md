@@ -316,3 +316,27 @@ setTimeout(() => app.unmount(), 5000)
   ```
 
 - **See also:** [Plugins](../guide/plugins.html)
+
+## version
+
+- **Usage:**
+
+  Provides the installed version of Vue as a string. This is especially useful for community [plugins](/guide/plugins.html), where you might use different strategies for different versions.
+
+- **Example:**
+
+  ```js
+  export default {
+    install(app) {
+      const version = Number(app.version.split('.')[0])
+      
+      if (version < 3) {
+        console.warn('This plugin requires Vue 3')
+      }
+      
+      // ...
+    }
+  }
+  ```
+  
+- **See also**: [Global API - version](/api/global-api.html#version)
