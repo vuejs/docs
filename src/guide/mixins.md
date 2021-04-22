@@ -213,12 +213,14 @@ app.mixin({
 })
 ```
 
-## Precautions
+## Drawbacks
 
 In Vue 2, mixins were the primary tool to abstract parts of component logic into reusable chunks. However, they have a few issues:
 
-- Mixins are conflict-prone: Since properties from each feature are merged into the same component, you still have to know about every other feature to avoid property name conflicts and for debugging.
+- Mixins are conflict-prone: Since properties from each mixin are merged into the same component, you still have to know about every other mixin to avoid property name conflicts.
 
-- Reusability is limited: we cannot pass any parameters to the mixin to change its logic which reduces their flexibility in terms of abstracting logic
+- Properties seem to appear from nowhere: If a component uses multiple mixins it isn't necessarily obvious which properties came from which mixin.
+
+- Reusability is limited: we cannot pass any parameters to the mixin to change its logic, which reduces their flexibility in terms of abstracting logic.
 
 To address these issues, we added a new way to organize code by logical concerns: the [Composition API](composition-api-introduction.html).
