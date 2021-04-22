@@ -31,7 +31,7 @@ app.mount('#mixins-basic') // => "hello from mixin!"
 
 When a mixin and the component itself contain overlapping options, they will be "merged" using appropriate strategies.
 
-For example, data objects undergo a recursive merge, with the component's data taking priority in cases of conflicts.
+For example, each mixin can have its own `data` function. Each of them will be called, with the returned objects being merged. Properties from the component's own data will take priority in cases of conflicts.
 
 ```js
 const myMixin = {
