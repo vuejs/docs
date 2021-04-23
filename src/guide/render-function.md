@@ -136,9 +136,9 @@ The `h()` function is a utility to create VNodes. It could perhaps more accurate
 ```js
 // @returns {VNode}
 h(
-  // {String | Object | Function } tag
-  // An HTML tag name, a component or an async component.
-  // Using function returning null would render a comment.
+  // {String | Object | Function} tag
+  // An HTML tag name, a component, an async component, or a
+  // functional component.
   //
   // Required.
   'div',
@@ -608,6 +608,31 @@ app.mount('#demo')
 ```
 
 For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/vuejs/jsx-next#installation).
+
+## Functional Components
+
+Functional components are an alternative form of component that don't have any state of their own. They are rendered without creating a component instance, bypassing the usual component lifecycle.
+
+To create a functional component we use a plain function, rather than an options object. The function is effectively the `render` function for the component. As there is no `this` reference for a functional component, Vue will pass in the `props` as the first argument:
+
+```js
+const FunctionalComponent = (props, context) => {
+  // ...
+}
+```
+
+The second argument, `context`, contains three properties: `attrs`, `emit`, and `slots`. These are equivalent to the instance properties [`$attrs`](/api/instance-properties.html#attrs), [`$emit`](/api/instance-methods.html#emit), and [`$slots`](/api/instance-properties.html#slots) respectively.
+
+Most of the usual configuration options for components are not available for functional components. However, it is possible to define [`props`](/api/options-data.html#props) and [`emits`](/api/options-data.html#emits) by adding them as properties:
+
+```js
+FunctionalComponent.props = ['value']
+FunctionalComponent.emits = ['click']
+```
+
+If the `props` option is not specified, then the `props` object passed to the function will contain all attributes, the same as `attrs`. The prop names will not be normalized to camelCase unless the `props` option is specified.
+
+Functional components can be registered and consumed just like normal components. If you pass a function as the first argument to `h`, it will be treated as a functional component.
 
 ## Template Compilation
 
