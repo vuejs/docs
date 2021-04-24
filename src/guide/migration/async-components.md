@@ -20,14 +20,14 @@ For a more in-depth explanation, read on!
 Previously, async components were created by simply defining a component as a function that returned a promise, such as:
 
 ```js
-const asyncPage = () => import('./NextPage.vue')
+const asyncPage = () => import('./CartFlyout.vue')
 ```
 
 Or, for the more advanced component syntax with options:
 
 ```js
 const asyncPage = {
-  component: () => import('./NextPage.vue'),
+  component: () => import('./CartFlyout.vue'),
   delay: 200,
   timeout: 3000,
   error: ErrorComponent,
@@ -45,11 +45,11 @@ import ErrorComponent from './components/ErrorComponent.vue'
 import LoadingComponent from './components/LoadingComponent.vue'
 
 // Async component without options
-const asyncPage = defineAsyncComponent(() => import('./NextPage.vue'))
+const asyncPage = defineAsyncComponent(() => import('./CartFlyout.vue'))
 
 // Async component with options
 const asyncPageWithOptions = defineAsyncComponent({
-  loader: () => import('./NextPage.vue'),
+  loader: () => import('./CartFlyout.vue'),
   delay: 200,
   timeout: 3000,
   errorComponent: ErrorComponent,
@@ -57,13 +57,17 @@ const asyncPageWithOptions = defineAsyncComponent({
 })
 ```
 
+::: tip NOTE
+When using the official Vue Router and you want to asynchronously load (lazy load) router components, you should not use `defineAsyncComponent`. You can read more about this in the (Lazy Loading Routes)[https://next.router.vuejs.org/guide/advanced/lazy-loading.html#lazy-loading-routes] section of the Vue Router documentation.
+:::
+
 Another change that has been made from 2.x is that the `component` option is now renamed to `loader` in order to accurately communicate that a component definition cannot be provided directly.
 
 ```js{4}
 import { defineAsyncComponent } from 'vue'
 
 const asyncPageWithOptions = defineAsyncComponent({
-  loader: () => import('./NextPage.vue'),
+  loader: () => import('./CartFlyout.vue'),
   delay: 200,
   timeout: 3000,
   errorComponent: ErrorComponent,
