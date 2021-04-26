@@ -20,14 +20,14 @@ For a more in-depth explanation, read on!
 Previously, async components were created by simply defining a component as a function that returned a promise, such as:
 
 ```js
-const asyncPage = () => import('./CartFlyout.vue')
+const asyncModal = () => import('./Modal.vue')
 ```
 
 Or, for the more advanced component syntax with options:
 
 ```js
-const asyncPage = {
-  component: () => import('./CartFlyout.vue'),
+const asyncModal = {
+  component: () => import('./Modal.vue'),
   delay: 200,
   timeout: 3000,
   error: ErrorComponent,
@@ -45,11 +45,11 @@ import ErrorComponent from './components/ErrorComponent.vue'
 import LoadingComponent from './components/LoadingComponent.vue'
 
 // Async component without options
-const asyncPage = defineAsyncComponent(() => import('./CartFlyout.vue'))
+const asyncModal = defineAsyncComponent(() => import('./Modal.vue'))
 
 // Async component with options
-const asyncPageWithOptions = defineAsyncComponent({
-  loader: () => import('./CartFlyout.vue'),
+const asyncModalWithOptions = defineAsyncComponent({
+  loader: () => import('./Modal.vue'),
   delay: 200,
   timeout: 3000,
   errorComponent: ErrorComponent,
@@ -66,8 +66,8 @@ Another change that has been made from 2.x is that the `component` option is now
 ```js{4}
 import { defineAsyncComponent } from 'vue'
 
-const asyncPageWithOptions = defineAsyncComponent({
-  loader: () => import('./CartFlyout.vue'),
+const asyncModalWithOptions = defineAsyncComponent({
+  loader: () => import('./Modal.vue'),
   delay: 200,
   timeout: 3000,
   errorComponent: ErrorComponent,
