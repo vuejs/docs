@@ -58,7 +58,7 @@ const asyncPageWithOptions = defineAsyncComponent({
 ```
 
 ::: tip NOTE
-When using the official Vue Router and you want to asynchronously load (lazy load) router components, you should not use `defineAsyncComponent`. You can read more about this in the (Lazy Loading Routes)[https://next.router.vuejs.org/guide/advanced/lazy-loading.html#lazy-loading-routes] section of the Vue Router documentation.
+Vue Router supports a similar mechanism for asynchronously loading route components, known as *lazy loading*. Despite the similarities, this feature is distinct from Vue's support for async components. You should **not** use `defineAsyncComponent` when configuring route components with Vue Router. You can read more about this in the [Lazy Loading Routes](https://next.router.vuejs.org/guide/advanced/lazy-loading.html) section of the Vue Router documentation.
 :::
 
 Another change that has been made from 2.x is that the `component` option is now renamed to `loader` in order to accurately communicate that a component definition cannot be provided directly.
