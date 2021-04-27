@@ -90,7 +90,7 @@ touch rollup.config.js
 
 Once the file is created we will need to open it with our editor of choice and add the following code.
 
-```javascript
+```js
 // import our third party plugins
 import commonjs from 'rollup-plugin-commonjs'
 import VuePlugin from 'rollup-plugin-vue'
@@ -144,7 +144,7 @@ Here we are specifying:
 To also build `umd` and `cjs` modules we can simply add a few lines of configuration to our `rollup.config.js` and `package.json`
 
 ##### rollup.config.js 
-```javascript
+```js
 output: [
   ...
    {

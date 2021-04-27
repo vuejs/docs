@@ -85,7 +85,7 @@ It's generally recommended to keep directives independent of the component insta
 
 In Vue 2, the component instance had to be accessed through the `vnode` argument:
 
-```javascript
+```js
 bind(el, binding, vnode) {
   const vm = vnode.context
 }
@@ -93,7 +93,7 @@ bind(el, binding, vnode) {
 
 In Vue 3, the instance is now part of the `binding`:
 
-```javascript
+```js
 mounted(el, binding, vnode) {
   const vm = binding.instance
 }

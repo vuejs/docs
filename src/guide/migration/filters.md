@@ -79,7 +79,7 @@ If you are using filters that were globally registered and then used throughout 
 
 Instead, you can make your global filters available to all components through [globalProperties](../../api/application-config.html#globalproperties):
 
-```javascript
+```js
 // main.js
 const app = createApp(App)
 
