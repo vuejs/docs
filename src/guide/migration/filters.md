@@ -79,7 +79,7 @@ Apabila Anda menggunakan _filter_ yang didaftarkan secara global dan menggunakan
 
 Sebaliknya, Anda dapat membuat _filter_ global Anda dapat diakses oleh seluruh komponen menggunakan[globalProperties](../../api/application-config.html#globalproperties):
 
-```javascript
+```js
 // main.js
 const app = createApp(App)
 

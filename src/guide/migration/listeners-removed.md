@@ -10,7 +10,7 @@ badges:
 
 The `$listeners` object has been removed in Vue 3. Event listeners are now part of `$attrs`:
 
-```javascript
+```js
 {
   text: 'this is an attribute',
   onClose: () => console.log('close Event triggered')
@@ -54,7 +54,7 @@ export default {
 
 If this component received an `id` attribute and a `v-on:close` listener, the `$attrs` object will now look like this:
 
-```javascript
+```js
 {
   id: 'my-input',
   onClose: () => console.log('close Event triggered')

@@ -354,7 +354,7 @@ For the `.passive`, `.capture`, and `.once` event modifiers, they can be concate
 
 For example:
 
-```javascript
+```js
 render() {
   return h('input', {
     onClickCapture: this.doThisInCapturingMode,
@@ -566,6 +566,33 @@ render () {
   return h(Transition, { mode: 'out-in' }, /* ... */)
 }
 ```
+
+## Return Values for Render Functions
+
+In all of the examples we've seen so far, the `render` function has returned a single root VNode. However, there are alternatives.
+
+Returning a string will create a text VNode, without any wrapping element:
+
+```js
+render() {
+  return 'Hello world!'
+}
+```
+
+We can also return an array of children, without wrapping them in a root node. This creates a fragment:
+
+```js
+// Equivalent to a template of `Hello<br>world!`
+render() {
+  return [
+    'Hello',
+    h('br'),
+    'world!'
+  ]
+}
+```
+
+If a component needs to render nothing, perhaps because data is still loading, it can just return `null`. This will be rendered as a comment node in the DOM.
 
 ## JSX
 

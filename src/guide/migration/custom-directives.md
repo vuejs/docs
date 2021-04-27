@@ -89,7 +89,7 @@ Umumnya, Anda dianjurkan untuk memisahkan _directive_ dengan komponen tempat _di
 
 Pada Vue versi 2, komponen harus diakses melalui argumen `vnode`:
 
-```javascript
+```js
 bind(el, binding, vnode) {
   const vm = vnode.context
 }
@@ -97,7 +97,7 @@ bind(el, binding, vnode) {
 
 Pada Vue versi 3, komponen tersebut merupakan bagian dari argumen `binding`:
 
-```javascript
+```js
 mounted(el, binding, vnode) {
   const vm = binding.instance
 }
