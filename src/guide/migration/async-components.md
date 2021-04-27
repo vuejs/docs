@@ -20,14 +20,14 @@ Lanjutkan membaca untuk penjelasan lebih lanjut
 Sebelumnya, komponen asinkron dibuat dengan menyatakan sebuah komponen sebagai sebuah fungsi yang mengembalikan sebuah `Promise`, seperti:
 
 ```js
-const halamanAsinkron = () => import('./HalamanSelanjutnya.vue')
+const asyncModal = () => import('./Modal.vue')
 ```
 
 Atau, dengan sintaks komponen yang lebih rumit yang memiliki opsi:
 
 ```js
-const halamanAsinkron = {
-  component: () => import('./HalamanSelanjutnya.vue'),
+const asyncModal = {
+  component: () => import('./Modal.vue'),
   delay: 200,
   timeout: 3000,
   error: ErrorComponent,
@@ -44,12 +44,12 @@ import { defineAsyncComponent } from 'vue'
 import ErrorComponent from './components/ErrorComponent.vue'
 import LoadingComponent from './components/LoadingComponent.vue'
 
-// Komponen asinkron tanpa opsi
-const halamanAsinkron = defineAsyncComponent(() => import('./HalamanSelanjutnya.vue'))
+// Komponen asingkronus tanpa opsi
+const asyncModal = defineAsyncComponent(() => import('./Modal.vue'))
 
-// Komponen asinkron yang memiliki opsi
-const halamanAsinkronDenganOpsi = defineAsyncComponent({
-  loader: () => import('./HalamanSelanjutnya.vue'),
+// dengan opsi
+const asyncModalWithOptions = defineAsyncComponent({
+  loader: () => import('./Modal.vue'),
   delay: 200,
   timeout: 3000,
   errorComponent: ErrorComponent,
@@ -57,13 +57,20 @@ const halamanAsinkronDenganOpsi = defineAsyncComponent({
 })
 ```
 
+::: tip NOTE
+Vue Router supports a similar mechanism for asynchronously loading route components, known as *lazy loading*. Despite the similarities, this feature is distinct from Vue's support for async components. You should **not** use `defineAsyncComponent` when configuring route components with Vue Router. You can read more about this in the [Lazy Loading Routes](https://next.router.vuejs.org/guide/advanced/lazy-loading.html) section of the Vue Router documentation.
+:::
+
+::: tip NOTE
+Vue router mendukung cara yang sama untuk menggunakan komponen _asynchronously loading route_, yang di ketahui sebagai __lazy loading__. Meskipun hampir sama, fitur ini berbeda dengan Vue komponen _async_. Kamu seharusnya tidak menggunakan `defineAsyncComponent` saat mengkonfigurasi komponen `router` dengan Vue Router. Kamu bisa membaca lebih lanjut tentang [_Lazy Loading Route_](https://next.router.vuejs.org/guide/advanced/lazy-loading.html) disini pada bagian Dokumentasi _Vue Router_.
+:::
 Perubahan lain yang terjadi dari Vue versi 2 adalah opsi `component` yang diubah menjadi `loader` yang bertujuan untuk menyampaikan bahwa pernyataan komponen tidak dapat disediakan secara langsung.
 
 ```js{4}
 import { defineAsyncComponent } from 'vue'
 
-const halamanAsinkronDenganOpsi = defineAsyncComponent({
-  loader: () => import('./HalamanSelanjutnya.vue'),
+const asyncModalWithOptions = defineAsyncComponent({
+  loader: () => import('./Modal.vue'),
   delay: 200,
   timeout: 3000,
   errorComponent: ErrorComponent,
