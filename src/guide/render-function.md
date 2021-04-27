@@ -354,7 +354,7 @@ For the `.passive`, `.capture`, and `.once` event modifiers, they can be concate
 
 For example:
 
-```javascript
+```js
 render() {
   return h('input', {
     onClickCapture: this.doThisInCapturingMode,
