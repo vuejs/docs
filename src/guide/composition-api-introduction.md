@@ -55,11 +55,11 @@ This component has several responsibilities:
 2. Searching for repositories using a `searchQuery` string
 3. Filtering repositories using a `filters` object
 
-Organizing logics with component's options (`data`, `computed`, `methods`, `watch`) works in most cases. However, when our components get bigger, the list of **logical concerns** also grows. This can lead to components that are hard to read and understand, especially for people who didn't write them in the first place.
+Organizing logics with component's options (`data`, `computed`, `methods`, `watch`) works in most cases. However, when our components get bigger, the list of <b>logical concerns</b> also grows. This can lead to components that are hard to read and understand, especially for people who didn't write them in the first place.
 
 ![Vue Options API: Code grouped by option type](/images/options-api.png)
 
-Example presenting a large component where its **logical concerns** are grouped by colors.
+Example presenting a large component where its <b>logical concerns</b> are grouped by colors.
 
 Such fragmentation is what makes it difficult to understand and maintain a complex component. The separation of options obscures the underlying logical concerns. In addition, when working on a single logical concern, we have to constantly "jump" around option blocks for the relevant code.
 
@@ -67,16 +67,16 @@ It would be much nicer if we could collocate code related to the same logical co
 
 ## Basics of Composition API
 
-Now that we know the **why** we can get to the **how**. To start working with the Composition API we first need a place where we can actually use it. In a Vue component, we call this place the `setup`.
+Now that we know the <b>why</b> we can get to the <b>how</b>. To start working with the Composition API we first need a place where we can actually use it. In a Vue component, we call this place the `setup`.
 
 ### `setup` Component Option
 
 <VideoLesson href="https://www.vuemastery.com/courses/vue-3-essentials/setup-and-reactive-references" title="Learn how setup works with Vue Mastery">Watch a free video on setup on Vue Mastery</VideoLesson>
 
-The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
+The new `setup` component option is executed <b>before</b> the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
 
 ::: warning
-Because the component instance is not yet created when `setup` is executed, there is no `this` inside a `setup` option. This means, with the exception of `props`, you won't be able to access any properties declared in the component – **local state**, **computed properties** or **methods**.
+Because the component instance is not yet created when `setup` is executed, there is no `this` inside a `setup` option. This means, with the exception of `props`, you won't be able to access any properties declared in the component – <b>local state</b>, <b>computed properties</b> or <b>methods</b>.
 :::
 
 The `setup` option should be a function that accepts `props` and `context` which we will talk about [later](composition-api-setup.html#arguments). Additionally, everything that we return from `setup` will be exposed to the rest of our component (computed properties, methods, lifecycle hooks and so on) as well as to the component's template.
@@ -164,7 +164,7 @@ Wrapping values inside an object might seem unnecessary but is required to keep 
 Having a wrapper object around any value allows us to safely pass it across our whole app without worrying about losing its reactivity somewhere along the way.
 
 ::: tip Note
-In other words, `ref` creates a **Reactive Reference** to our value. The concept of working with **References** will be used often throughout the Composition API.
+In other words, `ref` creates a <b>Reactive Reference</b> to our value. The concept of working with <b>References</b> will be used often throughout the Composition API.
 :::
 
 Back to our example, let's create a reactive `repositories` variable:
@@ -275,11 +275,11 @@ Now we need to react to the changes made to the `user` prop. For that we will us
 
 Just like how we set up a watcher on the `user` property inside our component using the `watch` option, we can do the same using the `watch` function imported from Vue. It accepts 3 arguments:
 
-- A **Reactive Reference** or getter function that we want to watch
+- A <b>Reactive Reference</b> or getter function that we want to watch
 - A callback
 - Optional configuration options
 
-**Here’s a quick look at how it works.**
+<b>Here’s a quick look at how it works.</b>
 
 ```js
 import { ref, watch } from 'vue'
@@ -292,7 +292,7 @@ watch(counter, (newValue, oldValue) => {
 
 Whenever `counter` is modified, for example `counter.value = 5`, the watch will trigger and execute the callback (second argument) which in this case will log `'The new counter value is: 5'` into our console.
 
-**Below is the Options API equivalent:**
+<b>Below is the Options API equivalent:</b>
 
 ```js
 export default {
@@ -311,7 +311,7 @@ export default {
 
 For more details on `watch`, refer to our [in-depth guide](reactivity-computed-watchers.md#watch).
 
-**Let’s now apply it to our example:**
+<b>Let’s now apply it to our example:</b>
 
 ```js
 // src/components/UserRepositories.vue `setup` function
@@ -360,7 +360,7 @@ console.log(counter.value) // 1
 console.log(twiceTheCounter.value) // 2
 ```
 
-Here, the `computed` function returns a _read-only_ **Reactive Reference** to the output of the getter-like callback passed as the first argument to `computed`. In order to access the **value** of the newly-created computed variable, we need to use the `.value` property just like with `ref`.
+Here, the `computed` function returns a _read-only_ <b>Reactive Reference</b> to the output of the getter-like callback passed as the first argument to `computed`. In order to access the <b>value</b> of the newly-created computed variable, we need to use the `.value` property just like with `ref`.
 
 Let’s move our search functionality into `setup`:
 
@@ -401,7 +401,7 @@ setup (props) {
 }
 ```
 
-We could do the same for other **logical concerns** but you might be already asking the question – _Isn’t this just moving the code to the `setup` option and making it extremely big?_ Well, that’s true. That’s why before moving on with the other responsibilities, we will first extract the above code into a standalone **composition function**. Let's start with creating `useUserRepositories`:
+We could do the same for other <b>logical concerns</b> but you might be already asking the question – _Isn’t this just moving the code to the `setup` option and making it extremely big?_ Well, that’s true. That’s why before moving on with the other responsibilities, we will first extract the above code into a standalone <b>composition function</b>. Let's start with creating `useUserRepositories`:
 
 ```js
 // src/composables/useUserRepositories.js
@@ -447,7 +447,7 @@ export default function useRepositoryNameSearch(repositories) {
 }
 ```
 
-**Now having those two functionalities in separate files, we can start using them in our component. Here’s how this can be done:**
+<b>Now having those two functionalities in separate files, we can start using them in our component. Here’s how this can be done:</b>
 
 ```js
 // src/components/UserRepositories.vue

@@ -2,7 +2,7 @@
 
 ## Mapping an Array to Elements with `v-for`
 
-We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
+We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an <b>alias</b> for the array element being iterated on:
 
 ```html
 <ul id="array-rendering">
@@ -115,7 +115,7 @@ When iterating over an object, the order is based on the enumeration order of `O
 
 When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index.
 
-This default mode is efficient, but **only suitable when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)**.
+This default mode is efficient, but <b>only suitable when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)</b>.
 
 To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item:
 
@@ -153,7 +153,7 @@ You can open the console and play with the previous examples' `items` array by c
 
 ### Replacing an Array
 
-Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, you can replace the old array with the new one:
+Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but <b>always return a new array</b>. When working with non-mutating methods, you can replace the old array with the new one:
 
 ```js
 example1.items = example1.items.filter(item => item.message.match(/Foo/))
@@ -235,7 +235,7 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 ## `v-for` with `v-if`
 
 :::tip
-Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for details.
+Note that it's <b>not</b> recommended to use `v-if` and `v-for` together. Refer to [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for details.
 :::
 
 When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:

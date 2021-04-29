@@ -38,7 +38,7 @@ The double mustaches interprets the data as plain text, not HTML. In order to ou
 The contents of the `span` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
 
 ::: tip
-Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS vulnerabilities](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use HTML interpolation on trusted content and **never** on user-provided content
+Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS vulnerabilities](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use HTML interpolation on trusted content and <b>never</b> on user-provided content
 :::
 
 ### Attributes
@@ -73,7 +73,7 @@ So far we've only been binding to simple property keys in our templates. But Vue
 <div v-bind:id="'list-' + id"></div>
 ```
 
-These expressions will be evaluated as JavaScript in the data scope of the current active instance. One restriction is that each binding can only contain **one single expression**, so the following will **NOT** work:
+These expressions will be evaluated as JavaScript in the data scope of the current active instance. One restriction is that each binding can only contain <b>one single expression</b>, so the following will <b>NOT</b> work:
 
 ```html
 <!-- this is a statement, not an expression: -->
@@ -85,7 +85,7 @@ These expressions will be evaluated as JavaScript in the data scope of the curre
 
 ## Directives
 
-Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be **a single JavaScript expression** (with the exception of `v-for` and `v-on`, which will be discussed later). A directive's job is to reactively apply side effects to the DOM when the value of its expression changes. Let's review the example we saw in the introduction:
+Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be <b>a single JavaScript expression</b> (with the exception of `v-for` and `v-on`, which will be discussed later). A directive's job is to reactively apply side effects to the DOM when the value of its expression changes. Let's review the example we saw in the introduction:
 
 ```html
 <p v-if="seen">Now you see me</p>

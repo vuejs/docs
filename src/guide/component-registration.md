@@ -59,7 +59,7 @@ Vue.createApp({...}).component('my-component-name', {
 })
 ```
 
-These components are **globally registered** for the application. That means they can be used in the template of any component instance within this application:
+These components are <b>globally registered</b> for the application. That means they can be used in the template of any component instance within this application:
 
 ```js
 const app = Vue.createApp({})
@@ -118,7 +118,7 @@ const app = Vue.createApp({
 
 For each property in the `components` object, the key will be the name of the custom element, while the value will contain the options object for the component.
 
-Note that **locally registered components are _not_ also available in subcomponents**. For example, if you wanted `ComponentA` to be available in `ComponentB`, you'd have to use:
+Note that <b>locally registered components are _not_ also available in subcomponents</b>. For example, if you wanted `ComponentA` to be available in `ComponentB`, you'd have to use:
 
 ```js
 const ComponentA = {

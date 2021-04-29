@@ -78,7 +78,7 @@ const app = Vue.createApp({
 
 ## Disabling Attribute Inheritance
 
-If you do **not** want a component to automatically inherit attributes, you can set `inheritAttrs: false` in the component's options.
+If you do <b>not</b> want a component to automatically inherit attributes, you can set `inheritAttrs: false` in the component's options.
 
 The common scenario for disabling an attribute inheritance is when attributes need to be applied to other elements besides the root node.
 

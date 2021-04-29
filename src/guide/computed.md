@@ -32,7 +32,7 @@ And we want to display different messages depending on if `author` already has s
 
 At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it performs a calculation depending on `author.books`. The problem is made worse when you want to include this calculation in your template more than once.
 
-That's why for complex logic that includes reactive data, you should use a **computed property**.
+That's why for complex logic that includes reactive data, you should use a <b>computed property</b>.
 
 ### Basic Example
 
@@ -94,7 +94,7 @@ methods: {
 }
 ```
 
-Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to the `publishedBooksMessage` computed property will immediately return the previously computed result without having to run the function again.
+Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that <b>computed properties are cached based on their reactive dependencies.</b> A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to the `publishedBooksMessage` computed property will immediately return the previously computed result without having to run the function again.
 
 This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
 
@@ -106,7 +106,7 @@ computed: {
 }
 ```
 
-In comparison, a method invocation will **always** run the function whenever a re-render happens.
+In comparison, a method invocation will <b>always</b> run the function whenever a re-render happens.
 
 Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a `method` instead.
 
@@ -200,7 +200,7 @@ In addition to the `watch` option, you can also use the imperative [vm.$watch AP
 
 ### Computed vs Watched Property
 
-Vue does provide a more generic way to observe and react to data changes on a current active instance: **watch properties**. When you have some data that needs to change based on some other data, it is tempting to overuse `watch` - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative `watch` callback. Consider this example:
+Vue does provide a more generic way to observe and react to data changes on a current active instance: <b>watch properties</b>. When you have some data that needs to change based on some other data, it is tempting to overuse `watch` - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative `watch` callback. Consider this example:
 
 ```html
 <div id="demo">{{ fullName }}</div>

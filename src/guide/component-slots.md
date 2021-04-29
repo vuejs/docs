@@ -52,7 +52,7 @@ Or even other components:
 </todo-button>
 ```
 
-If `<todo-button>`'s template did **not** contain a `<slot>` element, any content provided between its opening and closing tag would be discarded.
+If `<todo-button>`'s template did <b>not</b> contain a `<slot>` element, any content provided between its opening and closing tag would be discarded.
 
 ```html
 <!-- todo-button component template -->
@@ -83,7 +83,7 @@ That slot has access to the same instance properties (i.e. the same "scope") as 
 
 <img src="/images/slot.png" width="447" height="auto" style="display: block; margin: 0 auto; max-width: 100%" loading="lazy" alt="Slot explanation diagram">
 
-The slot does **not** have access to `<todo-button>`'s scope. For example, trying to access `action` would not work:
+The slot does <b>not</b> have access to `<todo-button>`'s scope. For example, trying to access `action` would not work:
 
 ```html
 <todo-button action="delete">
@@ -222,7 +222,7 @@ The rendered HTML will be:
 </div>
 ```
 
-Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#abbreviated-syntax-for-lone-default-slots))
+Note that <b>`v-slot` can only be added to a `<template>`</b> (with [one exception](#abbreviated-syntax-for-lone-default-slots))
 
 ## Scoped Slots
 
@@ -278,7 +278,7 @@ You can bind as many attributes to the `slot` as you need:
 </ul>
 ```
 
-Attributes bound to a `<slot>` element are called **slot props**. Now, in the parent scope, we can use `v-slot` with a value to define a name for the slot props we've been provided:
+Attributes bound to a `<slot>` element are called <b>slot props</b>. Now, in the parent scope, we can use `v-slot` with a value to define a name for the slot props we've been provided:
 
 ```html
 <todo-list>
@@ -313,7 +313,7 @@ This can be shortened even further. Just as non-specified content is assumed to 
 </todo-list>
 ```
 
-Note that the abbreviated syntax for default slot **cannot** be mixed with named slots, as it would lead to scope ambiguity:
+Note that the abbreviated syntax for default slot <b>cannot</b> be mixed with named slots, as it would lead to scope ambiguity:
 
 ```html
 <!-- INVALID, will result in warning -->

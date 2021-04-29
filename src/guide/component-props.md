@@ -123,13 +123,13 @@ Will be equivalent to:
 
 ## One-Way Data Flow
 
-All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
+All props form a <b>one-way-down binding</b> between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
 
-In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console.
+In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should <b>not</b> attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console.
 
 There are usually two cases where it's tempting to mutate a prop:
 
-1. **The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.** In this case, it's best to define a local data property that uses the prop as its initial value:
+1. <b>The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.</b> In this case, it's best to define a local data property that uses the prop as its initial value:
 
 ```js
 props: ['initialCounter'],
@@ -140,7 +140,7 @@ data() {
 }
 ```
 
-2. **The prop is passed in as a raw value that needs to be transformed.** In this case, it's best to define a computed property using the prop's value:
+2. <b>The prop is passed in as a raw value that needs to be transformed.</b> In this case, it's best to define a computed property using the prop's value:
 
 ```js
 props: ['size'],
@@ -152,7 +152,7 @@ computed: {
 ```
 
 ::: tip Note
-Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child component **will** affect parent state.
+Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child component <b>will</b> affect parent state.
 :::
 
 ## Prop Validation
@@ -209,7 +209,7 @@ app.component('my-component', {
 When prop validation fails, Vue will produce a console warning (if using the development build).
 
 ::: tip Note
-Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc) will not be available inside `default` or `validator` functions.
+Note that props are validated <b>before</b> a component instance is created, so instance properties (e.g. `data`, `computed`, etc) will not be available inside `default` or `validator` functions.
 :::
 
 ### Type Checks

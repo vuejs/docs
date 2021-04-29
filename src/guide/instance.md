@@ -2,7 +2,7 @@
 
 ## Creating an Application Instance
 
-Every Vue application starts by creating a new **application instance** with the `createApp` function:
+Every Vue application starts by creating a new <b>application instance</b> with the `createApp` function:
 
 ```js
 const app = Vue.createApp({
@@ -32,7 +32,7 @@ You can browse the full application API in the [API reference](../api/applicatio
 
 ## The Root Component
 
-The options passed to `createApp` are used to configure the **root component**. That component is used as the starting point for rendering when we **mount** the application.
+The options passed to `createApp` are used to configure the <b>root component</b>. That component is used as the starting point for rendering when we <b>mount</b> the application.
 
 An application needs to be mounted into a DOM element. For example, if we want to mount a Vue application into `<div id="app"></div>`, we should pass `#app`:
 
@@ -87,7 +87,7 @@ Vue also exposes some built-in properties via the component instance, such as `$
 
 ## Lifecycle Hooks
 
-Each component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
+Each component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called <b>lifecycle hooks</b>, giving users the opportunity to add their own code at specific stages.
 
 For example, the [created](../api/options-lifecycle-hooks.html#created) hook can be used to run code after an instance is created:
 
