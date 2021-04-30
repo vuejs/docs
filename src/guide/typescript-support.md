@@ -379,7 +379,7 @@ Sometimes you might need to annotate a template ref for a child component in ord
 ```ts
 import { defineComponent, ref } from 'vue'
 
-export default defineComponent({
+const MyModal = defineComponent({
   setup() {
     const isContentShown = ref(false)
     const open = () => (isContentShown.value = true)
@@ -396,22 +396,34 @@ We want to call this method via a template ref from the parent component:
 
 ```html
 <template>
-  <div id="app">
-    <button @click="openModal">Open from parent</button>
-    <my-modal ref="modal" />
-  </div>
+  <button @click="openModal">Open from parent</button>
+  <my-modal ref="modal" />
 </template>
 ```
 
 ```ts
 import { defineComponent, ref } from 'vue'
-import MyModal from './components/MyModal.vue'
 
-export default defineComponent({
-  name: 'App',
+const MyModal = defineComponent({
+  setup() {
+    const isContentShown = ref(false)
+    const open = () => (isContentShown.value = true)
+
+    return {
+      isContentShown,
+      open
+    }
+  }
+})
+
+const app = defineComponent({
   components: {
     MyModal
   },
+  template: `
+    <button @click="openModal">Open from parent</button>
+    <my-modal ref="modal" />
+  `,
   setup() {
     const modal = ref()
     const openModal = () => {
@@ -426,18 +438,14 @@ export default defineComponent({
 While this will work, there is no type information about `MyModal` and its available methods. To fix this, you should use `InstanceType` when creating a ref:
 
 ```ts
-import MyModal from './components/MyModal.vue'
-
-export default defineComponent({
-  setup() {
-    const modal = ref<InstanceType<typeof MyModal>>()
-    const openModal = () => {
-      modal.value?.open()
-    }
-
-    return { modal, openModal }
+setup() {
+  const modal = ref<InstanceType<typeof MyModal>>()
+  const openModal = () => {
+    modal.value?.open()
   }
-})
+
+  return { modal, openModal }
+}
 ```
 
 Please note that you would also need to use [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) or any other way to check that `modal.value` is not undefined.
