@@ -4,15 +4,15 @@ badges:
   - breaking
 ---
 
-# Mounted application does not replace the element <MigrationBadges :badges="$frontmatter.badges" />
+# 이제 Mount된 어플리케이션은 엘리먼트를 대체하지 않습니다<MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## 개론
 
-In Vue 2.x, when mounting an application that has a `template`, the rendered content replaces the element we mount to. In Vue 3.x, the rendered application is appended as a child of such an element, replacing element's `innerHTML`.
+Vue 2.x에서는 `template` 을 가진 어플리케이션을 마운트할 때 렌더링되는 컨텐츠가 마운트하는 엘리먼트를 대체하였습니다. 이제 Vue 3.x에서는 렌더링되는 어플리케이션은 엘리먼트의 자식으로써 추가됩니다. 즉, 엘리먼트의 `innerHTML` 를 대치합니다.
 
-## 2.x Syntax
+## 2.x 문법
 
-In Vue 2.x, we pass an HTML element selector to `new Vue()` or `$mount`:
+Vue 2.x에서는 HTML 요소 선택자를 `new Vue()` 나 `$mount`에 전달하였습니다:
 
 ```js
 new Vue({
@@ -42,7 +42,7 @@ const app = new Vue({
 app.$mount('#app')
 ```
 
-When we mount this application to the page that has a `div` with the passed selector (in our case, it's `id="app"`):
+페이지를  `div`  엘리먼트에 전달된 선택자를 이용해 마운트 하는 경우(예시의 경우는 `id="app"` 의 경우):
 
 ```html
 <body>
@@ -52,7 +52,7 @@ When we mount this application to the page that has a `div` with the passed sele
 </body>
 ```
 
-in the rendered result, the mentioned `div` will be replaced with the rendered application content:
+렌더링 결과 해당  `div`  (`id="app"` 인 div)가 렌더링된 어플리케이션 컨텐츠로 대치됩니다.
 
 ```html
 <body>
@@ -62,7 +62,7 @@ in the rendered result, the mentioned `div` will be replaced with the rendered a
 
 ## 3.x Syntax
 
-In Vue 3.x, when we mount an application, its rendered content will replace the `innerHTML` of the element we pass to `mount`:
+ Vue 3.x에서는 어플리케이션을 마운트하는 경우, 렌더링 된 컨텐츠가 `mount`  의 인자로 전달된 요소의 `innerHTML`  을 대치합니다.
 
 ```js
 const app = Vue.createApp({
@@ -79,7 +79,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-When this app is mounted to the page that has a `div` with `id="app"`, this will result in:
+ `id="app"` 을 가진 `div` 에 어플리케이션을 마운트 하는 경우 아래와 같은 결과가 나옵니다:
 
 ```html
 <body>
