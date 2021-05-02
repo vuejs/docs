@@ -394,13 +394,6 @@ const MyModal = defineComponent({
 
 We want to call this method via a template ref from the parent component:
 
-```html
-<template>
-  <button @click="openModal">Open from parent</button>
-  <my-modal ref="modal" />
-</template>
-```
-
 ```ts
 import { defineComponent, ref } from 'vue'
 
