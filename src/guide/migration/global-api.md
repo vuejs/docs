@@ -75,16 +75,16 @@ const app = createApp({})
 
 Sebuah objek aplikasi merupakan bagian dari API global pada versi sebelumnya. Secara praktis, hal tersebut berarti bahwa setiap API yang mengubah perilaku Vue secara global telah dipindahkan pada objek aplikasi. Berikut merupakan tabel perbandingan antara API global saat ini dan API pada objek aplikasi:
 
-| API Global Vue versi 2.x             | API objek Vue versi 3.x (`app`)                                                                        |
+| API Global Vue versi 2.x             | API objek Vue versi 3.x (`app`)                                                       |
 | -------------------------- | ----------------------------------------------------------------------------------------------- |
 | Vue.config                 | app.config                                                                                      |
-| Vue.config.productionTip   | dihapus ([lihat penjelasan](#config-productiontip-removed))                                          |
+| Vue.config.productionTip   | dihapus ([lihat penjelasan](#config-productiontip-removed))                                            |
 | Vue.config.ignoredElements | app.config.isCustomElement ([lihat penjelasan](#config-ignoredelements-is-now-config-iscustomelement)) |
-| Vue.component              | app.component                                                                                   |
-| Vue.directive              | app.directive                                                                                   |
-| Vue.mixin                  | app.mixin                                                                                       |
+| Vue.component              | app.component                                                                                          |
+| Vue.directive              | app.directive                                                                                          |
+| Vue.mixin                  | app.mixin                                                                                              |
 | Vue.use                    | app.use ([lihat penjelasan](#a-note-for-plugin-authors))                                               |
-| Vue.prototype              | app.config.globalProperties ([lihat penjelasan](#vue-prototype-replaced-by-config-globalproperties))   |                                                                     |
+| Vue.prototype              | app.config.globalProperties ([lihat penjelasan](#vue-prototype-replaced-by-config-globalproperties))   |
 
 API global lainnya yang tidak mengubah perilaku Vue secara global telah dipindahkan menjadi _named export_, seperti yang tertera pada [Treeshaking API Global](./global-api-treeshaking.html).
 

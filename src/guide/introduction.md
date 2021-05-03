@@ -55,7 +55,7 @@ Vue.createApp(Counter).mount('#counter')
 Kita telah membuat aplikasi Vue pertama kita! Jika kita perhatikan proses _rendering_ nya masih sama seperti string template yang biasa, tetapi Vue di sini sudah membantu banyak pekerjaan kita secara ajaib. Data yang ditampilkan sudah terhubung dengan DOM, dan semuanya bersifat **reaktif**. Bagaimana kita mengetahuinya? Perhatikan contoh di bawah ini, properti `counter` nilainya bertambah setiap detik dan Anda akan melihat perubahan DOM nya di _render_:
 
 ```js{8-10}
-const CounterApp = {
+const Counter = {
   data() {
     return {
       counter: 0
