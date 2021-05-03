@@ -1,7 +1,7 @@
 const sidebar = {
   cookbook: [
     {
-      title: 'Cookbook',
+      title: 'Buku Petunjuk',
       collapsable: false,
       children: [
         '/cookbook/',
@@ -12,7 +12,7 @@ const sidebar = {
   ],
   guide: [
     {
-      title: 'Essentials',
+      title: 'Esensial',
       collapsable: false,
       children: [
         '/guide/installation',
@@ -30,7 +30,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Components In-Depth',
+      title: 'Komponen secara Mendalam',
       collapsable: false,
       children: [
         '/guide/component-registration',
@@ -45,7 +45,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Transitions & Animation',
+      title: 'Animasi & Translasi',
       collapsable: false,
       children: [
         '/guide/transitions-overview',
@@ -55,7 +55,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Reusability & Composition',
+      title: 'Kebergunaan & Komposisi',
       collapsable: false,
       children: [
         {
@@ -76,11 +76,11 @@ const sidebar = {
       ]
     },
     {
-      title: 'Advanced Guides',
+      title: 'Petunjuk lebih Lanjut',
       collapsable: false,
       children: [
         {
-          title: 'Reactivity',
+          title: 'Reaktivitas',
           children: [
             '/guide/reactivity',
             '/guide/reactivity-fundamentals',
@@ -92,7 +92,7 @@ const sidebar = {
       ]
     },
     {
-      title: 'Tooling',
+      title: 'Peralatan',
       collapsable: false,
       children: [
         '/guide/single-file-component',
@@ -103,12 +103,12 @@ const sidebar = {
       ]
     },
     {
-      title: 'Scaling Up',
+      title: 'Peningkatan',
       collapsable: false,
       children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
     },
     {
-      title: 'Accessibility',
+      title: 'Aksesibilitas',
       collapsable: false,
       children: [
         '/guide/a11y-basics',
@@ -154,7 +154,7 @@ const sidebar = {
   ],
   examples: [
     {
-      title: 'Examples',
+      title: 'Contoh',
       collapsable: false,
       children: [
         '/examples/markdown',
@@ -172,7 +172,7 @@ const sidebar = {
   migration: [
     '/guide/migration/introduction',
     {
-      title: 'Details',
+      title: 'Detail',
       collapsable: false,
       children: [
         '/guide/migration/array-refs',
@@ -223,7 +223,7 @@ const sidebar = {
   ],
   contributing: [
     {
-      title: 'Contribute to the Docs',
+      title: 'Berkontribusi untuk Dokumentasi',
       collapsable: false,
       children: [
         '/guide/contributing/writing-guide',
@@ -236,7 +236,7 @@ const sidebar = {
 
 module.exports = {
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - Kerangka Kerja JavaScript nan Progresif',
   head: [
     [
       'link',
@@ -301,66 +301,66 @@ module.exports = {
     logo: '/logo.png',
     nav: [
       {
-        text: 'Docs',
+        text: 'Dokumentasi',
         ariaLabel: 'Documentation Menu',
         items: [
           {
-            text: 'Guide',
+            text: 'Petunjuk',
             link: '/guide/introduction'
           },
           {
-            text: 'Style Guide',
+            text: 'Petunjuk Gaya',
             link: '/style-guide/'
           },
           {
-            text: 'Cookbook',
+            text: 'Buku Petunjuk',
             link: '/cookbook/'
           },
           {
-            text: 'Examples',
+            text: 'Contoh',
             link: '/examples/markdown'
           },
           {
-            text: 'Contribute',
+            text: 'Berkontribusi',
             link: '/guide/contributing/writing-guide'
           },
           {
-            text: 'Migration from Vue 2',
+            text: 'Migrasi dari Vue 2',
             link: '/guide/migration/introduction'
           }
         ]
       },
       {
-        text: 'API Reference',
+        text: 'Referensi API',
         link: '/api/'
       },
       {
-        text: 'Ecosystem',
+        text: 'Ekosistem',
         items: [
           {
-            text: 'Community',
+            text: 'Komunitas',
             ariaLabel: 'Community Menu',
             items: [
               {
-                text: 'Team',
+                text: 'Tim',
                 link: '/community/team/'
               },
               {
-                text: 'Partners',
+                text: 'Kemitraan',
                 link: '/community/partners'
               },
               {
-                text: 'Join',
+                text: 'Gabung',
                 link: '/community/join/'
               },
               {
-                text: 'Themes',
+                text: 'Tema',
                 link: '/community/themes/'
               }
             ]
           },
           {
-            text: 'Official Projects',
+            text: 'Proyek Resmi',
             items: [
               {
                 text: 'Vue Router',
@@ -384,7 +384,7 @@ module.exports = {
                 link: 'https://github.com/vuejs/vue-devtools'
               },
               {
-                text: 'Weekly news',
+                text: 'Berita Mingguan',
                 link: 'https://news.vuejs.org/'
               },
               {
@@ -396,25 +396,25 @@ module.exports = {
         ]
       },
       {
-        text: 'Support Vue',
+        text: 'Dukung Vue',
         link: '/support-vuejs/',
         items: [
           {
-            text: 'One-time Donations',
+            text: 'Donasi Sekali',
             link: '/support-vuejs/#one-time-donations'
           },
           {
-            text: 'Recurring Pledges',
+            text: 'Donasi Berulang',
             link: '/support-vuejs/#recurring-pledges'
           },
           {
-            text: 'T-Shirt Shop',
+            text: 'Toko Kaos',
             link: 'https://vue.threadless.com/'
           }
         ]
       },
       {
-        text: 'Translations',
+        text: 'Terjemahan',
         link: '#',
         items: [
           // Translation maintainers: Please include the link below to the English documentation
@@ -425,6 +425,10 @@ module.exports = {
           {
             text: '中文',
             link: 'https://v3.cn.vuejs.org/'
+          },
+          {
+            text: 'Bahasa Inggris',
+            link: 'https://v3.vuejs.org/'
           },
           {
             text: '한국어',
@@ -443,8 +447,8 @@ module.exports = {
     ],
     repo: 'vuejs/docs-next',
     editLinks: false,
-    editLinkText: 'Edit this on GitHub!',
-    lastUpdated: 'Last updated',
+    editLinkText: 'Sunting di GitHub!',
+    lastUpdated: 'Pembaruan terakhir',
     docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {

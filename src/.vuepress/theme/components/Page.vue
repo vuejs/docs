@@ -28,4 +28,7 @@ export default {
   padding-bottom 2rem
   display block
 
+  em
+    color: #999
+
 </style>

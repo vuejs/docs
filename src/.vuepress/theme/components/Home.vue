@@ -98,7 +98,7 @@ export default {
       return (
         this.data.tagline ||
         this.$description ||
-        'The Progressive JavaScript Framework'
+        'Kerangka Kerja JavaScript nan Progresif'
       )
     }
   },
