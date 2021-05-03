@@ -261,7 +261,7 @@ const Component = defineComponent({
 
 ::: warning
 Because of a [design limitation](https://github.com/microsoft/TypeScript/issues/38845) in TypeScript when it comes
-to type inference of function expressions, you have to be careful with `validators` and `default` values for objects and arrays:
+to type inference of function expressions, you have to be careful with `validator` and `default` values for objects and arrays:
 :::
 
 ```ts
