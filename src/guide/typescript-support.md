@@ -131,7 +131,7 @@ const Component = defineComponent({
 })
 ```
 
-If you have a complex type or interface, you can cast it using [type assertion](https://www.typescriptlang.org/docs/handbook/basic-types.html#type-assertions):
+If you have a complex type or interface, you can cast it using [type assertion](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions):
 
 ```ts
 interface Book {
