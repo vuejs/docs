@@ -95,6 +95,8 @@ In Vue 3.x, the "use production build" tip will only show up when using the "dev
 
 For ES modules builds, since they are used with bundlers, and in most cases a CLI or boilerplate would have configured the production env properly, this tip will no longer show up.
 
+[**Migration build flag**: `CONFIG_PRODUCTION_TIP`](migration-build.html)
+
 ### `config.ignoredElements` Is Now `config.isCustomElement`
 
 This config option was introduced with the intention to support native custom elements, so the renaming better conveys what it does. The new option also expects a function which provides more flexibility than the old string / RegExp approach:
@@ -116,6 +118,8 @@ In Vue 3, the check of whether an element is a component or not has been moved t
 - This will be a new top-level option in the Vue CLI config.
   :::
 
+[**Migration build flag**: `CONFIG_IGNORED_ELEMENTS`](migration-build.html)
+
 ### `Vue.prototype` Replaced by `config.globalProperties`
 
 In Vue 2, `Vue.prototype` was commonly used to add properties that would be accessible in all components.
@@ -134,6 +138,8 @@ app.config.globalProperties.$http = () => {}
 ```
 
 Using `provide` (discussed [below](#provide-inject)) should also be considered as an alternative to `globalProperties`.
+
+[**Migration build flag**: `GLOBAL_PROTOTYPE`](migration-build.html)
 
 ### `Vue.extend` Replaced by `defineComponent`
 
