@@ -84,7 +84,7 @@ An app instance exposes a subset of the Vue 2 global APIs. The rule of thumb is 
 | Vue.directive              | app.directive                                                                                   |
 | Vue.mixin                  | app.mixin                                                                                       |
 | Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                               |
-| Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))   |                                                                     |
+| Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))   |  |
 
 All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./global-api-treeshaking.html).
 
@@ -113,7 +113,7 @@ In Vue 3, the check of whether an element is a component or not has been moved t
 
 - If `config.isCustomElement` is assigned to when using a runtime-only build, a warning will be emitted instructing the user to pass the option in the build setup instead;
 - This will be a new top-level option in the Vue CLI config.
-:::
+  :::
 
 ### `Vue.prototype` Replaced by `config.globalProperties`
 
@@ -187,6 +187,8 @@ app.directive('focus', {
 app.mount('#app')
 ```
 
+[**Migration build flag**: `GLOBAL_MOUNT`](migration-build.html)
+
 ## Provide / Inject
 
 Similar to using the `provide` option in a 2.x root instance, a Vue 3 app instance can also provide dependencies that can be injected by any component inside the app:
@@ -219,7 +221,7 @@ import Bar from './Bar.vue'
 
 const createMyApp = options => {
   const app = createApp(options)
-  app.directive('focus', /* ... */)
+  app.directive('focus' /* ... */)
 
   return app
 }
