@@ -52,6 +52,37 @@ npm is the recommended installation method when building large scale application
 $ npm install vue@next
 ```
 
+### webpack
+
+Install vue 3 dependencies.
+
+```bash
+
+npm install --save-dev @vue/compiler-sfc vue@next vue-loader@^16.0.0-beta.8
+```
+
+Add vue-loader to the module.rules property and add its plugin to the plugins property.
+
+```js
+const { VueLoaderPlugin } = require("vue-loader");
+
+module.exports = {
+  module: {
+    rules: [
+      // ...
+      {
+        test: /\.vue$/,
+        use: "vue-loader",
+      },
+    ]
+  }
+  plugins: [
+    //...
+    new VueLoaderPlugin(),
+  ]
+}
+```
+
 ## CLI
 
 Vue provides an [official CLI](https://github.com/vuejs/vue-cli) for quickly scaffolding ambitious Single Page Applications. It provides batteries-included build setups for a modern frontend workflow. It takes only a few minutes to get up and running with hot-reload, lint-on-save, and production-ready builds. See [the Vue CLI docs](https://cli.vuejs.org) for more details.
