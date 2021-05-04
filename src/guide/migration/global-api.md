@@ -84,7 +84,8 @@ An app instance exposes a subset of the Vue 2 global APIs. The rule of thumb is 
 | Vue.directive              | app.directive                                                                                   |
 | Vue.mixin                  | app.mixin                                                                                       |
 | Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                               |
-| Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))   |  |
+| Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))   |
+| Vue.extend                 | _removed_ ([see below](#vue-extend-replaced-by-definecomponent))                                |
 
 All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./global-api-treeshaking.html).
 
@@ -133,6 +134,46 @@ app.config.globalProperties.$http = () => {}
 ```
 
 Using `provide` (discussed [below](#provide-inject)) should also be considered as an alternative to `globalProperties`.
+
+### `Vue.extend` Replaced by `defineComponent`
+
+In Vue 2.x, `Vue.extend` was used to create a "subclass" of the base Vue constructor with the argument that should be an object containing component options. Since in Vue 3.x we don't have a base constructor anymore, this functionality can be replaced with `defineComponent`
+
+```js
+// before - Vue 2
+
+// create constructor
+const Profile = Vue.extend({
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data() {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+})
+// create an instance of Profile and mount it on an element
+new Profile().$mount('#mount-point')
+```
+
+```js
+// after - Vue 3
+import { defineComponent } from 'vue'
+
+const Profile = defineComponent({
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data() {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+})
+```
+
+[**Migration build flag**: `GLOBAL_EXTEND`](migration-build.html)
 
 ### A Note for Plugin Authors
 

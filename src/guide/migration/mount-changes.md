@@ -92,3 +92,4 @@ When this app is mounted to the page that has a `div` with `id="app"`, this will
 ## See also
 
 - [`mount` API](/api/application-api.html#mount)
+  [**Migration build flag**: `GLOBAL_MOUNT_CONTAINER`](migration-build.html)
