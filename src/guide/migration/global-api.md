@@ -87,6 +87,7 @@ An app instance exposes a subset of the Vue 2 global APIs. The rule of thumb is 
 | Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))   |
 | Vue.extend                 | _removed_ ([see below](#vue-extend-replaced-by-definecomponent))                                |
 
+
 All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./global-api-treeshaking.html).
 
 ### `config.productionTip` Removed
