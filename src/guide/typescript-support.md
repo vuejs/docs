@@ -90,7 +90,7 @@ For developing Vue applications with TypeScript, we strongly recommend using [Vi
 
 [WebStorm](https://www.jetbrains.com/webstorm/) also provides out-of-the-box support for both TypeScript and Vue.
 
-## Defining Vue components
+## Defining Vue Components
 
 To let TypeScript properly infer types inside Vue component options, you need to define components with `defineComponent` global method:
 
@@ -221,10 +221,10 @@ const Component = defineComponent({
     // in a computed with a setter, getter needs to be annotated
     greetingUppercased: {
       get(): string {
-        return this.greeting.toUpperCase();
+        return this.greeting.toUpperCase()
       },
       set(newValue: string) {
-        this.message = newValue.toUpperCase();
+        this.message = newValue.toUpperCase()
       }
     }
   }
@@ -298,7 +298,7 @@ const Component = defineComponent({
 })
 ```
 
-### Annotating emits
+### Annotating Emits
 
 We can annotate a payload for the emitted event. Also, all non-declared emitted events will throw a type error when called:
 
@@ -371,6 +371,77 @@ year.value = 2020 // ok!
 ::: tip Note
 If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`.
 :::
+
+### Typing Template Refs
+
+Sometimes you might need to annotate a template ref for a child component in order to call its public method. For example, we have a `MyModal` child component with a method that opens the modal:
+
+```ts
+import { defineComponent, ref } from 'vue'
+
+const MyModal = defineComponent({
+  setup() {
+    const isContentShown = ref(false)
+    const open = () => (isContentShown.value = true)
+
+    return {
+      isContentShown,
+      open
+    }
+  }
+})
+```
+
+We want to call this method via a template ref from the parent component:
+
+```ts
+import { defineComponent, ref } from 'vue'
+
+const MyModal = defineComponent({
+  setup() {
+    const isContentShown = ref(false)
+    const open = () => (isContentShown.value = true)
+
+    return {
+      isContentShown,
+      open
+    }
+  }
+})
+
+const app = defineComponent({
+  components: {
+    MyModal
+  },
+  template: `
+    <button @click="openModal">Open from parent</button>
+    <my-modal ref="modal" />
+  `,
+  setup() {
+    const modal = ref()
+    const openModal = () => {
+      modal.value.open()
+    }
+
+    return { modal, openModal }
+  }
+})
+```
+
+While this will work, there is no type information about `MyModal` and its available methods. To fix this, you should use `InstanceType` when creating a ref:
+
+```ts
+setup() {
+  const modal = ref<InstanceType<typeof MyModal>>()
+  const openModal = () => {
+    modal.value?.open()
+  }
+
+  return { modal, openModal }
+}
+```
+
+Please note that you would also need to use [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) or any other way to check that `modal.value` is not undefined.
 
 ### Typing `reactive`
 
