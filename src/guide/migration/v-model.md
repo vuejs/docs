@@ -182,6 +182,8 @@ We recommend:
   }
   ```
 
+[Migration build flag: `COMPONENT_V_MODEL`](migration-build.html)
+
 ## Next Steps
 
 For more information on the new `v-model` syntax, see:
