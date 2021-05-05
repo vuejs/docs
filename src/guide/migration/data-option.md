@@ -64,7 +64,7 @@ Using the example above, there would only be one possible implementation of the 
 
 ## Mixin Merge Behavior Change
 
-In addition, when `data()` from a component and its mixins or extends base are merged, the merge is now performed *shallowly*:
+In addition, when `data()` from a component and its mixins or extends base are merged, the merge is now performed _shallowly_:
 
 ```js
 const Mixin = {
@@ -94,9 +94,9 @@ In Vue 2.x, the resulting `$data` is:
 
 ```json
 {
-  user: {
-    id: 2,
-    name: 'Jack'
+  "user": {
+    "id": 2,
+    "name": "Jack"
   }
 }
 ```
@@ -105,8 +105,8 @@ In 3.0, the result will be:
 
 ```json
 {
-  user: {
-    id: 2
+  "user": {
+    "id": 2
   }
 }
 ```
@@ -119,3 +119,5 @@ For users relying on the object declaration, we recommend:
 - Rewrite references to the shared data to point to a new shared object
 
 For users relying on the deep merge behavior from mixins, we recommend refactoring your code to avoid such reliance altogether, since deep merges from mixins are very implicit and can make the code logic more difficult to understand and debug.
+
+[Migration build flag: `OPTIONS_DATA_FN`](migration-build.html)

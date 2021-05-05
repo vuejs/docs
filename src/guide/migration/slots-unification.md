@@ -41,10 +41,14 @@ In 3.x, slots are defined as children of the current node as an object:
 
 ```js
 // 3.x Syntax
-h(LayoutComponent, {}, {
-  header: () => h('div', this.header),
-  content: () => h('div', this.content)
-})
+h(
+  LayoutComponent,
+  {},
+  {
+    header: () => h('div', this.header),
+    content: () => h('div', this.content)
+  }
+)
 ```
 
 And when you need to reference scoped slots programmatically, they are now unified into the `$slots` option.
@@ -63,3 +67,5 @@ A majority of the change has already been shipped in 2.6. As a result, the migra
 
 1. Replace all `this.$scopedSlots` occurrences with `this.$slots` in 3.x.
 2. Replace all occurrences of `this.$slots.mySlot` with `this.$slots.mySlot()`
+
+[Migration build flag: `INSTANCE_SCOPED_SLOTS`](migration-build.html)

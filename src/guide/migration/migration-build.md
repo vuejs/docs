@@ -72,7 +72,7 @@ Vue detected directives on the mount container. In Vue 3, the container is no lo
 
 `config.ignoredElements` has been removed. If you are using a runtime build, pass the `isCustomElement` option to `@vue/compiler-dom`. Otherwise, use `config.isCustomElement`.
 
-[Learn more](/migration/global-api.html#config-ignoredelements-is-now-config-iscustomelement)
+[Learn more](/guide/migration/global-api.html#config-ignoredelements-is-now-config-iscustomelement)
 
 ### `CONFIG_WHITESPACE`
 
