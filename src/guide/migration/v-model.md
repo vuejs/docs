@@ -182,7 +182,10 @@ We recommend:
   }
   ```
 
-[Migration build flag: `COMPONENT_V_MODEL`](migration-build.html)
+[Migration build flags:](migration-build.html)
+
+- `COMPONENT_V_MODEL`
+- `COMPILER_V_BIND_SYNC`
 
 ## Next Steps
 

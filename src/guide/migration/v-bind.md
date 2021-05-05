@@ -16,7 +16,7 @@ When dynamically binding attributes on an element, a common scenario involves us
 
 ## 2.x Syntax
 
-In 2.x, if an element has both `v-bind="object"` and an identical individual property defined, the individual property would always overwrite bindings in the `object`. 
+In 2.x, if an element has both `v-bind="object"` and an identical individual property defined, the individual property would always overwrite bindings in the `object`.
 
 ```html
 <!-- template -->
@@ -44,3 +44,5 @@ In 3x, if an element has both `v-bind="object"` and an identical individual prop
 ## Migration Strategy
 
 If you are relying on this override functionality for `v-bind`, we currently recommend ensuring that your `v-bind` attribute is defined before individual properties.
+
+[Migration build flag: `COMPILER_V_BIND_OBJECT_ORDER`](migration-build.html)

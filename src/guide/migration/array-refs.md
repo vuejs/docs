@@ -73,4 +73,7 @@ Note that:
 
 ## Migration Strategy
 
-[Migration build flag: `V_FOR_REF`](migration-build.html)
+[Migration build flags:](migration-build.html)
+
+- `V_FOR_REF`
+- `COMPILER_V_FOR_REF`
