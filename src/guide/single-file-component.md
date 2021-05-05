@@ -75,7 +75,7 @@ Most of the time when developing a third-party library we want to build it in a 
 We will need to install Rollup and a few dependencies:
 
 ```bash
-npm install --save-dev rollup @rollup/plugin-commonjs rollup-plugin-vue 
+npm install --save-dev rollup @rollup/plugin-commonjs rollup-plugin-vue
 ```
 
 These are the minimal amount of rollup plugins that we need to use to compile the code in an `esm` module. We may want to also add [rollup-plugin-babel](https://github.com/rollup/plugins/tree/master/packages/babel) to transpile their code and [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) if we use dependencies that we want to bundle with our library.
@@ -100,7 +100,7 @@ export default {
   // this is the file containing all our exported components/functions
   input: 'src/index.js',
   // this is an array of outputted formats
-  output: [ 
+  output: [
     {
       file: pkg.module, // the name of our esm library
       format: 'esm', // the format of choice
@@ -143,7 +143,8 @@ Here we are specifying:
 
 To also build `umd` and `cjs` modules we can simply add a few lines of configuration to our `rollup.config.js` and `package.json`
 
-##### rollup.config.js 
+##### rollup.config.js
+
 ```js
 output: [
   ...
@@ -163,7 +164,9 @@ output: [
     },
 ]
 ```
+
 ##### package.json
+
 ```json
 "module": "dist/my-library-name.esm.js",
 "main": "dist/my-library-name.cjs.js",

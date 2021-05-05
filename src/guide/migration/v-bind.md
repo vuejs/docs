@@ -16,7 +16,7 @@ When dynamically binding attributes on an element, a common scenario involves us
 
 ## 2.x Syntax
 
-In 2.x, if an element has both `v-bind="object"` and an identical individual property defined, the individual property would always overwrite bindings in the `object`. 
+In 2.x, if an element has both `v-bind="object"` and an identical individual property defined, the individual property would always overwrite bindings in the `object`.
 
 ```html
 <!-- template -->

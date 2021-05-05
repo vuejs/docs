@@ -105,7 +105,7 @@ But a key difference to lifecycle hooks is that `watch()` and `watchEffect()` ef
       const root = ref(null)
 
       watchEffect(() => {
-        // This effect runs before the DOM is updated, and consequently, 
+        // This effect runs before the DOM is updated, and consequently,
         // the template ref does not hold a reference to the element yet.
         console.log(root.value) // => null
       })

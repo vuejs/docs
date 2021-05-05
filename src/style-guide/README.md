@@ -1257,7 +1257,6 @@ While attribute values without any spaces are not required to have quotes in HTM
 ```
 </div>
 
-
 ## Priority C Rules: Recommended <span class="hide-from-sidebar">(Minimizing Arbitrary Choices and Cognitive Overhead)</span>
 
 ### Component/instance options order <sup data-p="c">recommended</sup>
