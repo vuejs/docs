@@ -9,18 +9,18 @@ You can access a component's lifecycle hook by prefixing the lifecycle hook with
 The following table contains how the lifecycle hooks are invoked inside of [setup()](composition-api-setup.html):
 
 | Options API       | Hook inside `setup` |
-| ----------------- | -------------------------- |
-| `beforeCreate`    | Not needed\*               |
-| `created`         | Not needed\*               |
-| `beforeMount`     | `onBeforeMount`            |
-| `mounted`         | `onMounted`                |
-| `beforeUpdate`    | `onBeforeUpdate`           |
-| `updated`         | `onUpdated`                |
-| `beforeUnmount`   | `onBeforeUnmount`          |
-| `unmounted`       | `onUnmounted`              |
-| `errorCaptured`   | `onErrorCaptured`          |
-| `renderTracked`   | `onRenderTracked`          |
-| `renderTriggered` | `onRenderTriggered`        |
+| ----------------- | ------------------- |
+| `beforeCreate`    | Not needed\*        |
+| `created`         | Not needed\*        |
+| `beforeMount`     | `onBeforeMount`     |
+| `mounted`         | `onMounted`         |
+| `beforeUpdate`    | `onBeforeUpdate`    |
+| `updated`         | `onUpdated`         |
+| `beforeUnmount`   | `onBeforeUnmount`   |
+| `unmounted`       | `onUnmounted`       |
+| `errorCaptured`   | `onErrorCaptured`   |
+| `renderTracked`   | `onRenderTracked`   |
+| `renderTriggered` | `onRenderTriggered` |
 
 :::tip
 Because `setup` is run around the `beforeCreate` and `created` lifecycle hooks, you do not need to explicitly define them. In other words, any code that would be written inside those hooks should be written directly in the `setup` function.

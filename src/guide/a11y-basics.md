@@ -94,16 +94,16 @@ Users can navigate an application through headings. Having descriptive headings 
 
 Landmarks provide programmatic access to sections within an application. Users who rely on assistive technology can navigate to each section of the application and skip over content. You can use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) to help you achieve this.
 
-| HTML            | ARIA Role                                                         | Landmark Purpose                                                                       |
-| --------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| header          | role="banner"                                                     | Prime heading: title of the page                                                       |
-| nav             | role="navigation"                                                 | Collection of links suitable for use when navigating the document or related documents |
-| main            | role="main"                                                       | The main or central content of the document.                                           |
-| footer          | role="contentinfo"                                                | Information about the parent document: footnotes/copyrights/links to privacy statement |
-| aside           | role="complementary"                                              | Supports the main content, yet is separated and meaningful on its own content            |
-| _Not available_ | role="search"                                                     | This section contains the search functionality for the application                     |
-| form            | role="form"                                                       | Collection of form-associated elements                                                 |
-| section         | role="region"  | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element                |
+| HTML            | ARIA Role            | Landmark Purpose                                                                                                 |
+| --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| header          | role="banner"        | Prime heading: title of the page                                                                                 |
+| nav             | role="navigation"    | Collection of links suitable for use when navigating the document or related documents                           |
+| main            | role="main"          | The main or central content of the document.                                                                     |
+| footer          | role="contentinfo"   | Information about the parent document: footnotes/copyrights/links to privacy statement                           |
+| aside           | role="complementary" | Supports the main content, yet is separated and meaningful on its own content                                    |
+| _Not available_ | role="search"        | This section contains the search functionality for the application                                               |
+| form            | role="form"          | Collection of form-associated elements                                                                           |
+| section         | role="region"        | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element |
 
 :::tip Tip:
 It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).

@@ -131,7 +131,7 @@ const Component = defineComponent({
 })
 ```
 
-If you have a complex type or interface, you can cast it using [type assertion](https://www.typescriptlang.org/docs/handbook/basic-types.html#type-assertions):
+If you have a complex type or interface, you can cast it using [type assertion](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions):
 
 ```ts
 interface Book {
@@ -261,7 +261,7 @@ const Component = defineComponent({
 
 ::: warning
 Because of a [design limitation](https://github.com/microsoft/TypeScript/issues/38845) in TypeScript when it comes
-to type inference of function expressions, you have to be careful with `validators` and `default` values for objects and arrays:
+to type inference of function expressions, you have to be careful with `validator` and `default` values for objects and arrays:
 :::
 
 ```ts
