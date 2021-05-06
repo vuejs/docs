@@ -14,7 +14,7 @@ const { KeepAlive, Teleport, Transition, TransitionGroup } = Vue
 import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 ```
 
-`<component>` and `<slot>` are component-like features of template syntax. They are not true components and they can't be imported like the components shown above. 
+`<component>` and `<slot>` are component-like features of template syntax. They are not true components and they can't be imported like the components shown above.
 
 ## component
 
@@ -45,13 +45,13 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   ```js
   const { Transition, TransitionGroup } = Vue
-  
+
   const Component = {
     components: {
       Transition,
       TransitionGroup
     },
-    
+
     template: `
       <component :is="isGroup ? 'TransitionGroup' : 'Transition'">
         ...
@@ -60,7 +60,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   }
   ```
 
-  Registration is not required if you pass the component itself to `is` rather than its name.  
+  Registration is not required if you pass the component itself to `is` rather than its name.
 
 - **See also:** [Dynamic Components](../guide/component-dynamic-async.html)
 

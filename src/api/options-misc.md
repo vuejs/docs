@@ -14,7 +14,7 @@
 
 - **Type:** `Array<string>`
 
-- **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}` 
+- **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
 
 - **Restrictions:** This option is only available in the full build, with in-browser template compilation.
 

@@ -1,7 +1,7 @@
 ---
 title: v-for Array Refs
 badges:
-- breaking
+  - breaking
 ---
 
 # {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />

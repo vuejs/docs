@@ -9,6 +9,7 @@
   A hash of directives to be made available to the component instance.
 
 - **Usage:**
+
   ```js
   const app = createApp({})
 
@@ -35,6 +36,7 @@
   A hash of components to be made available to the component instance.
 
 - **Usage:**
+
   ```js
   const Foo = {
     template: `<div>Foo</div>`

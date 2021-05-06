@@ -122,7 +122,7 @@
 - **Option: deep**
 
   To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. This option also can be used to watch array mutations.
-  
+
   > Note: when mutating (rather than replacing) an Object or an Array and watch with deep option, the old value will be the same as new value because they reference the same Object/Array. Vue doesn't keep a copy of the pre-mutate value.
 
   ```js
