@@ -4,7 +4,7 @@
 
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
-However, sometimes a part of a component's template belongs to this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of the Vue app. 
+However, sometimes a part of a component's template belongs to this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of the Vue app.
 
 A common scenario for this is creating a component that includes a full-screen modal. In most cases, you'd want the modal's logic to live within the component, but the positioning of the modal quickly becomes difficult to solve through CSS, or requires a change in component composition.
 
@@ -21,7 +21,7 @@ Consider the following HTML structure.
 </body>
 ```
 
-Let's take a look at `modal-button`. 
+Let's take a look at `modal-button`.
 
 The component will have a `button` element to trigger the opening of the modal, and a `div` element with a class of `.modal`, which will contain the modal's content and a button to self-close.
 
@@ -44,7 +44,7 @@ app.component('modal-button', {
     </div>
   `,
   data() {
-    return { 
+    return {
       modalOpen: false
     }
   }
@@ -55,7 +55,7 @@ When using this component inside the initial HTML structure, we can see a proble
 
 Teleport provides a clean way to allow us to control under which parent in our DOM we want a piece of HTML to be rendered, without having to resort to global state or splitting this into two components.
 
-Let's modify our `modal-button` to use `<teleport>` and tell Vue "**teleport** this HTML **to** the "**body**" tag". 
+Let's modify our `modal-button` to use `<teleport>` and tell Vue "**teleport** this HTML **to** the "**body**" tag".
 
 ```js
 app.component('modal-button', {
@@ -77,7 +77,7 @@ app.component('modal-button', {
     </teleport>
   `,
   data() {
-    return { 
+    return {
       modalOpen: false
     }
   }

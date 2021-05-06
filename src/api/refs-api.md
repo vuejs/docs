@@ -217,7 +217,7 @@ isReactive(foo.value) // false
 
 ## `triggerRef`
 
-Execute any effects tied to a  [`shallowRef`](#shallowref) manually.
+Execute any effects tied to a [`shallowRef`](#shallowref) manually.
 
 ```js
 const shallow = shallowRef({
