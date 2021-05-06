@@ -1,205 +1,205 @@
-# Semantics
+# Semantik
 
-## Forms
+## Formulir
 
-When creating a form, you can use the following elements: `<form>`, `<label>`, `<input>`, `<textarea>`, and `<button>`
+Saat membuat formulir, kamu dapat menggunakan elemen-elemen berikut: `<form>`, `<label>`, `<input>`, `<textarea>`, and `<button>`
 
-Labels are typically placed on top or to the left of the form fields:
+Label biasanya ditempatkan di atas atau di sebelah kiri:
 
 ```html
-<form action="/dataCollectionLocation" method="post" autocomplete="on">
-  <div v-for="item in formItems" :key="item.id" class="form-item">
-    <label :for="item.id">{{ item.label }}: </label>
-    <input
-      :type="item.type"
-      :id="item.id"
-      :name="item.id"
-      v-model="item.value"
-    />
+<form action="/lokasiPengumpulanData" method="post" autocomplete="on">
+  <div v-for="isi in IsiFormulir" :key="isi.id" class="isi-formulir">
+    <label :for="isi.id">{{ isi.label }}: </label>
+    <input :type="isi.tipe" :id="isi.id" :name="isi.id" v-model="isi.nilai" />
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit">Kirim</button>
 </form>
 ```
 
 <common-codepen-snippet title="Simple Form" slug="dyNzzWZ" :height="368" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-Notice how you can include `autocomplete='on'` on the form element and it will apply to all inputs in your form. You can also set different [values for autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for each input.
+Perhatikan bagaimana kamu dapat menyertakan `autocomplete="on"`pada elemen formulir dan ini akan berlaku untuk semua masukan (_input_) dalam formulirmu. Kamu juga dapat menyetel [nilai atribut _autocomplete_](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) yang berbeda-beda untuk setiap masukan.
 
-### Labels
+### Label
 
-Provide labels to describe the purpose of all form control; linking `for` and `id`:
+Berikan label untuk mendeskripsikan tujuan dari semua kontrol formulir; dengan cara menghubungkan `for` dan `id`:
 
 ```html
-<label for="name">Name</label>
-<input type="text" name="name" id="name" v-model="name" />
+<label for="nama">Nama</label>
+<input type="text" name="nama" id="nama" v-model="nama" />
 ```
 
 <common-codepen-snippet title="Form Label" slug="XWpaaaj" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-If you inspect this element in your chrome developer tools and open the Accessibility tab inside the Elements tab, you will see how the input gets its name from the label:
+Jika kamu memeriksa elemen tersebut di dalam alat pengembang chrome-mu dan membuka tab aksesibilitas di dalam tab elemen, kamu akan melihat bagaimana masukan mendapatkan namanya dari label:
 
-![Chrome Developer Tools showing input accessible name from label](/images/AccessibleLabelChromeDevTools.png)
+![Alat Pengembang Chrome menampilkan nama masukan dari label](/images/AccessibleLabelChromeDevTools.png)
 
-:::warning Warning:
-Though you might have seen labels wrapping the input fields like this:
+:::warning Peringatan:
+Meskipun kamu mungkin pernah melihat label yang membungkus bidang masukan seperti ini:
 
 ```html
 <label>
-  Name:
-  <input type="text" name="name" id="name" v-model="name" />
+  Nama:
+  <input type="text" name="nama" id="nama" v-model="nama" />
 </label>
 ```
 
-Explicitly setting the labels with a matching id is better supported by assistive technology.
+Pengaturan label secara eksplisit dengan id yang cocok lebih didukung oleh teknologi pendukung.
 :::
 
 #### aria-label
 
-You can also give the input an accessible name with [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute).
+Kamu juga dapat memberi masukan dengan nama yang dapat diakses dengan [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute).
 
 ```html
-<label for="name">Name</label>
+<label for="nama">Nama</label>
 <input
   type="text"
-  name="name"
-  id="name"
-  v-model="name"
-  :aria-label="nameLabel"
+  name="nama"
+  id="nama"
+  v-model="nama"
+  :aria-label="namaLabel"
 />
 ```
 
 <common-codepen-snippet title="Form ARIA label" slug="NWdvvYQ" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-Feel free to inspect this element in Chrome DevTools to see how the accessible name has changed:
+Jangan ragu untuk memeriksa elemen tersebut di Alat Pengembang Chrome untuk melihat bagaimana nama yang dapat diakses telah berubah:
 
-![Chrome Developer Tools showing input accessible name from aria-label](/images/AccessibleARIAlabelDevTools.png)
+![Alat Pengembang Chrome menampilkan masukan dengan nama yang dapat diakses dari aria-label](/images/AccessibleARIAlabelDevTools.png)
 
 #### aria-labelledby
 
-Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) is similar to `aria-label` except it is used if the label text is visible on screen. It is paired to other elements by their `id` and you can link multiple `id`s:
+Penggunaan [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) mirip dengan `aria-label` kecuali teknik ini digunakan jika label pada text terlihat pada layar. Sering digunakan bersama dengan elemen lain melalui `id` dan anda dapat menggunakan `id` berulang kali:
 
 ```html
 <form
   class="demo"
-  action="/dataCollectionLocation"
+  action="/lokasiPengumpulanData"
   method="post"
   autocomplete="on"
 >
-  <h1 id="billing">Billing</h1>
-  <div class="form-item">
-    <label for="name">Name:</label>
+  <h1 id="tagihan">Tagihan</h1>
+  <div class="isi-formulir">
+    <label for="nama">Nama:</label>
     <input
       type="text"
-      name="name"
-      id="name"
-      v-model="name"
-      aria-labelledby="billing name"
+      name="nama"
+      id="nama"
+      v-model="nama"
+      aria-labelledby="tagihan nama"
     />
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit">Kirim</button>
 </form>
 ```
 
 <common-codepen-snippet title="Form ARIA labelledby" slug="MWJvvBe" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-![Chrome Developer Tools showing input accessible name from aria-labelledby](/images/AccessibleARIAlabelledbyDevTools.png)
+![Alat Pengembang Chrome menampilkan masukan nama yang dapat diakses dari aria-labelledby](/images/AccessibleARIAlabelledbyDevTools.png)
 
 #### aria-describedby
 
-[aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute) is used the same way as `aria-labelledby` except provides a description with additional information that the user might need. This can be used to describe the criteria for any input:
+[aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute) digunakan dengan cara yang sama seperti `aria-labelledby`, yaitu mengharapkan memberikan deskripsi dengan informasi tambahan yang mungkin diperlukan pengguna. Ini dapat digunakan untuk mendesripsikan kriteria untuk masukan apapun
 
 ```html
 <form
   class="demo"
-  action="/dataCollectionLocation"
+  action="/lokasiPengumpulanData"
   method="post"
   autocomplete="on"
 >
-  <h1 id="billing">Billing</h1>
-  <div class="form-item">
-    <label for="name">Full Name:</label>
+  <h1 id="tagihan">Tagihan</h1>
+  <div class="isi-formulir">
+    <label for="nama">Nama Lengkap:</label>
     <input
       type="text"
-      name="name"
-      id="name"
-      v-model="name"
-      aria-labelledby="billing name"
-      aria-describedby="nameDescription"
+      name="nama"
+      id="nama"
+      v-model="nama"
+      aria-labelledby="tagihan nama"
+      aria-describedby="deskripsiNama"
     />
-    <p id="nameDescription">Please provide first and last name.</p>
+    <p id="deskripsiNama">Mohon sebutkan nama depan dan nama belakang.</p>
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit">Kirim</button>
 </form>
 ```
 
 <common-codepen-snippet title="Form ARIA describedby" slug="gOgxxQE" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-You can see the description by inspecting Chrome DevTools:
+Kamu dapat melihat deskripsinya dengan memeriksa Alat Pengembang Chrome:
 
-![Chrome Developer Tools showing input accessible name from aria-labelledby and description with aria-describedby](/images/AccessibleARIAdescribedby.png)
+![Alat Pengembang Chrome menampilkan masukan nama yang dapat diakses dari aria-labelledby dan deskripsi dengan aria-describedby](/images/AccessibleARIAdescribedby.png)
 
 ### Placeholder
 
-Avoid using placeholders as they can confuse many users.
+Hindari menggunakan placeholder karena dapat membingunkan banyak pengguna.
 
-One of the issues with placeholders is that they don't meet the [color contrast criteria](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) by default; fixing the color contrast makes the placeholder look like pre-populated data in the input fields. Looking at the following example, you can see that the Last Name placeholder which meets the color contrast criteria looks like pre-populated data:
+Salah satu masalah placeholder adalah mereka tidak memenuhi [kriteria kontras warna](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) secara default; memperbaiki kontras warna membuat placeholder terlihat seperti data yang sudah terisi sebelumnya di bidang masukan. Melihat pada contoh berikut, kamu dapat melihat bahwa placeholder _Last Name_ yang memenuhi kriteria kontras warna tampak seperti data yang sudah terisi sebelumnya:
 
 <common-codepen-snippet title="Form Placeholder" slug="ExZvvMw" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-It is best to provide all the information the user needs to fill out forms outside any inputs.
+Cara terbaik adalah memberikan semua informasi yang dibutuhkan pengguna untuk mengisi formulir di luar masukan apapun.
 
-### Instructions
+### Instruksi
 
-When adding instructions for your input fields, make sure to link it correctly to the input.
-You can provide additional instructions and bind multiple ids inside an [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute). This allows for more flexible design.
+Saat menambahkan instruksi untuk bidang masukan kamu, pastikan untuk menyambungkannya kapada masukan.
+Kamu dapat memberikan petunjuk tambahan dan _bind_ beberapa id ke dalam suatu [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute). Ini memungkinkan desain yang lebih fleksibel.
 
 ```html
 <fieldset>
-  <legend>Using aria-labelledby</legend>
-  <label id="date-label" for="date">Current Date:</label>
+  <legend>Menggunakan aria-labelledby</legend>
+  <label id="label-tanggal" for="tanggal">Tanggal Sekarang:</label>
   <input
     type="date"
-    name="date"
-    id="date"
-    aria-labelledby="date-label date-instructions"
+    name="tanggal"
+    id="tanggal"
+    aria-labelledby="label-tanggal instruksi-tanggal"
   />
-  <p id="date-instructions">MM/DD/YYYY</p>
+  <p id="instruksi-tanggal">MM/DD/YYYY</p>
 </fieldset>
 ```
 
-Alternatively, you can attach the instructions to the input with [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute):
+Selain itu, kamu juga dapat melampirkan petunjuk ke masukan dengan [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute):
 
 ```html
 <fieldset>
-  <legend>Using aria-describedby</legend>
-  <label id="dob" for="dob">Date of Birth:</label>
-  <input type="date" name="dob" id="dob" aria-describedby="dob-instructions" />
-  <p id="dob-instructions">MM/DD/YYYY</p>
+  <legend>Menggunakan aria-describedby</legend>
+  <label id="tanggal-lahir" for="tanggal-lahir">Tanggal Lahir:</label>
+  <input
+    type="date"
+    name="tanggal-lahir"
+    id="tanggal-lahir"
+    aria-describedby="instruksi-tanggal-lahir"
+  />
+  <p id="instruksi-tanggal-lahir">MM/DD/YYYY</p>
 </fieldset>
 ```
 
 <common-codepen-snippet title="Form Instructions" slug="WNREEqv" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-### Hiding Content
+### Menyembunyikan Konten
 
-Usually it is not recommended to visually hide labels, even if the input has an accessible name. However, if the functionality of the input can be understood with surrounding content, then we can hide the visual label.
+Biasanya tidak disarankan untuk menyembunyikan label secara visual, meskipun masukan memiliki nama yang dapat diakses. Namun, jika fungsionalitas masukan dapat dipahami dengan konten di sekitarnya, maka kita dapat menyembunyikan label secara visual.
 
-Let's look at this search field:
+Mari kita lihat bidang pencarian ini:
 
 ```html
 <form role="search">
-  <label for="search" class="hidden-visually">Search: </label>
-  <input type="text" name="search" id="search" v-model="search" />
-  <button type="submit">Search</button>
+  <label for="cari" class="disembunyikan-secara-visual">Cari: </label>
+  <input type="text" name="cari" id="cari" v-model="cari" />
+  <button type="submit">Cari</button>
 </form>
 ```
 
-We can do this because the search button will help visual users identify the purpose of the input field.
+Kita dapat melakukan ini karena tombol pencarian akan membantu pengguna dengan kemampuan visual untuk mengidentifikasi maksud dari bidang input tersebut.
 
-We can use CSS to visually hide elements but keep them available for assistive technology:
+Kita dapat menggunakan CSS untuk menyembunyikan elemen secara visual tetapi membuatnya tetap tersedia untuk teknologi pendukung:
 
 ```css
-.hidden-visually {
+.disembunyikan-secara-visual {
   position: absolute;
   overflow: hidden;
   white-space: nowrap;
@@ -216,62 +216,67 @@ We can use CSS to visually hide elements but keep them available for assistive t
 
 #### aria-hidden="true"
 
-Adding `aria-hidden="true"` will hide the element from assistive technology but leave it visually available for other users. Do not use it on focusable elements, purely on decorative, duplicated or offscreen content.
+Menambahkan `aria-hidden="true"` akan menyembunyikan elemen dari teknologi pendukung tetapi membiarkannya tersedia secara visual kepada pengguna lain. Jangan gunakan pada elemen yang dapat difokuskan, gunakanlah hanya pada elemen dekoratif, duplikat, atau konten rahasia.
 
 ```html
-<p>This is not hidden from screen readers.</p>
-<p aria-hidden="true">This is hidden from screen readers.</p>
+<p>Ini tidak tersembunyi dari pembaca layar.</p>
+<p aria-hidden="true">Ini tersembunyi dari pembaca layar.</p>
 ```
 
-### Buttons
+### Tombol
 
-When using buttons inside a form, you must set the type to prevent submitting the form.
-You can also use an input to create buttons:
+Saat menggunakan tombol di dalam formulir, kamu dapat mengatur jenis untuk mencegah pengiriman formulir.
+Kamu juga dapat menggunakan masukan untuk membuat tombol:
 
 ```html
-<form action="/dataCollectionLocation" method="post" autocomplete="on">
+<form action="/lokasiPengumpulanData" method="post" autocomplete="on">
   <!-- Buttons -->
-  <button type="button">Cancel</button>
-  <button type="submit">Submit</button>
+  <button type="button">Batal</button>
+  <button type="submit">Kirim</button>
 
   <!-- Input buttons -->
-  <input type="button" value="Cancel" />
-  <input type="submit" value="Submit" />
+  <input type="button" value="Batal" />
+  <input type="submit" value="Kirim" />
 </form>
 ```
 
 <common-codepen-snippet title="Form Buttons" slug="JjEyrYZ" :height="467" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-#### Functional Images
+#### Gambar Fungsional
 
-You can use this technique to create functional images.
+Kamu dapat menggunakan teknik ini untuk membuat gambar fungsional.
 
-- Input fields
+- Bidang masukan
 
-  - These images will act as a submit type button on forms
+  - Gambar-gambar ini akan berperan sebagai tombol dengan tipe kirim pada formulir
 
   ```html
   <form role="search">
-    <label for="search" class="hidden-visually">Search: </label>
-    <input type="text" name="search" id="search" v-model="search" />
+    <label for="cari" class="hidden-visually">Cari: </label>
+    <input type="text" name="cari" id="cari" v-model="cari" />
     <input
       type="image"
       class="btnImg"
       src="https://img.icons8.com/search"
-      alt="Search"
+      alt="Cari"
     />
   </form>
   ```
 
-- Icons
+- Ikon
 
 ```html
 <form role="search">
-  <label for="searchIcon" class="hidden-visually">Search: </label>
-  <input type="text" name="searchIcon" id="searchIcon" v-model="searchIcon" />
+  <label for="ikon-pencarian" class="disembunyikan-secara-visual">Cari: </label>
+  <input
+    type="text"
+    name="ikon-pencarian"
+    id="ikon-pencarian"
+    v-model="ikon-pencarian"
+  />
   <button type="submit">
     <i class="fas fa-search" aria-hidden="true"></i>
-    <span class="hidden-visually">Search</span>
+    <span class="disembunyikan-secara-visual">Cari</span>
   </button>
 </form>
 ```

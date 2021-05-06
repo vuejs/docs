@@ -1,72 +1,72 @@
 ---
-title: v-for Array Refs
+title: v-for Pada Array Refs
 badges:
   - breaking
 ---
 
 # {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />
 
-In Vue 2, using the `ref` attribute inside `v-for` will populate the corresponding `$refs` property with an array of refs. This behavior becomes ambiguous and inefficient when there are nested `v-for`s present.
+Pada Vue versi 2, penggunaan atribut `ref` di dalam `v-for` akan mengisi properti `$refs` dengan sebuah `ref` _array_. Perilaku tersebut menjadi ambigu dan tidak efisien ketika dilakukan pada `v-for` bersarang.
 
-In Vue 3, such usage will no longer automatically create an array in `$refs`. To retrieve multiple refs from a single binding, bind `ref` to a function which provides more flexibility (this is a new feature):
+Pada Vue versi 3, penggunaan tersebut tidak akan secara otomatis membuat sebuah _array_ pada `$refs`. Untuk mendapatkan banyak `ref` sekaligus dalam satu _binding_, _bind_ `ref` pada sebuah fungsi dimana hal tersebut memberikan lebih banyak fleskibilitas (hal ini merupakan sebuah fitur baru):
 
 ```html
-<div v-for="item in list" :ref="setItemRef"></div>
+<div v-for="barang in daftar" :ref="tetapkanRefBarang"></div>
 ```
 
-With Options API:
+Penggunaan dengan Options API:
 
 ```js
 export default {
   data() {
     return {
-      itemRefs: []
+      refBarang: []
     }
   },
   methods: {
-    setItemRef(el) {
+    tetapkanRefBarang(el) {
       if (el) {
-        this.itemRefs.push(el)
+        this.refBarang.push(el)
       }
     }
   },
   beforeUpdate() {
-    this.itemRefs = []
+    this.refBarang = []
   },
   updated() {
-    console.log(this.itemRefs)
+    console.log(this.refBarang)
   }
 }
 ```
 
-With Composition API:
+Penggunaan dengan Composition API:
 
 ```js
 import { onBeforeUpdate, onUpdated } from 'vue'
 
 export default {
   setup() {
-    let itemRefs = []
-    const setItemRef = el => {
+    let refBarang = []
+    const tetapkanRefBarang = el => {
       if (el) {
-        itemRefs.push(el)
+        refBarang.push(el)
       }
     }
     onBeforeUpdate(() => {
-      itemRefs = []
+      refBarang = []
     })
     onUpdated(() => {
-      console.log(itemRefs)
+      console.log(refBarang)
     })
     return {
-      setItemRef
+      tetapkanRefBarang
     }
   }
 }
 ```
 
-Note that:
+Ingat bahwa:
 
-- `itemRefs` doesn't have to be an array: it can also be an object where the refs are set by their iteration keys.
+- `refBarang` tidak harus merupakan sebuah _array_: boleh berupa sebuah objek dimana `ref` ditetapkan menggunakan kunci iterasi masing-masing.
 
-- This also allows `itemRefs` to be made reactive and watched, if needed.
+- Cara ini juga memungkinkan `refBarang` untuk dijadikan reaktif dan dapat diawasi, jika dibutuhkan.

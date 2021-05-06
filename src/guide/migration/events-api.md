@@ -3,15 +3,15 @@ badges:
   - breaking
 ---
 
-# Events API <MigrationBadges :badges="$frontmatter.badges" />
+# API Events <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Gambaran Umum
 
-`$on`, `$off` and `$once` instance methods are removed. Application instances no longer implement the event emitter interface.
+_Method_ `$on`, `$off` dan `$once` dihapus. Objek aplikasi tidak perlu lagi untuk mengimplementasikan antarmuka _event emitter_. 
 
-## 2.x Syntax
+## Sintaks Vue versi 2.x
 
-In 2.x, Vue instance could be used to trigger handlers attached imperatively via the event emitter API (`$on`, `$off` and `$once`). This was used to create _event hubs_ to create global event listeners used across the whole application:
+Pada Vue versi 2.x, objek Vue dapat digunakan untuk memicu _event handler_ yang dipasang secara imperatif melalui API _event emitter_ (`$on`, `$off`, dan `$once`). Hal tersebut dapat digunakan untuk membuat _event hub_ yang dapat membuat _event handler_ global yang dapat digunakan diseluruh bagian pada aplikasi:
 
 ```js
 // eventHub.js
@@ -22,47 +22,47 @@ export default eventHub
 ```
 
 ```js
-// ChildComponent.vue
+// KomponenAnak.vue
 import eventHub from './eventHub'
 
 export default {
   mounted() {
-    // adding eventHub listener
-    eventHub.$on('custom-event', () => {
-      console.log('Custom event triggered!')
+    // menambahkan _handler_ eventHub
+    eventHub.$on('event-kustom', () => {
+      console.log('Event kustom terjadi!')
     })
   },
   beforeDestroy() {
-    // removing eventHub listener
-    eventHub.$off('custom-event')
+    // menghapus _handler_ kejadianKustom
+    eventHub.$off('event-kustom')
   }
 }
 ```
 
 ```js
-// ParentComponent.vue
+// KomponenInduk.vue
 import eventHub from './eventHub'
 
 export default {
   methods: {
     callGlobalCustomEvent() {
-      eventHub.$emit('custom-event') // if ChildComponent is mounted, we will have a message in the console
+      eventHub.$emit('event-kustom') // jika KomponenAnak telah masuk ke dalam DOM, Anda dapat mlihat sebuah pesan pada console.
     }
   }
 }
 ```
 
-## 3.x Update
+## Pembaruan Vue versi 3.x
 
-We removed `$on`, `$off` and `$once` methods from the instance completely. `$emit` is still a part of the existing API as it's used to trigger event handlers declaratively attached by a parent component
+Kami menghapus _method_ `$on`, `$off` dan `$once` dari objek Vue sepenuhnya. `$emit` tidak dihapus dan tetap merupakan bagian dari API karena `$emit` digunakan untuk memicu _event handler_ yang dipasang secara deklaratif pada sebuah komponen induk.
 
-## Migration Strategy
+## Strategi Migrasi
 
-In Vue 3, it is no longer possible to use these APIs to listen to a component's own emitted events from within a component, there is no migration path for that use case.
+Di Vue 3, tidak memungkinkan lagi menggunakan API ini untuk me-_listen_ _event_ komponen yang dihasilkan oleh dirinya sendiri, tidak ada cara migrasi untuk kasus tersebut.
 
-But the eventHub pattern can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt) or [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
+Tetapi pola eventHub dapat diganti dengan pustaka eksternal yang mengimplementasi antarmuka _event emitter_, sebagai contoh [mitt](https://github.com/developit/mitt) atau [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
 
-Example:
+Contoh:
 
 ```js
 //eventHub.js
@@ -76,6 +76,6 @@ export default {
 }
 ```
 
-This provides the same event emitter API as in Vue 2.
+Cara tersebut menghasilkan API _event emitter_ yang sama seperti pada Vue 2.
 
-These methods may also be supported in a future compatibility build of Vue 3.
+Cara tersebut mungkin akan didukung juga pada _build_ kompatibel dari Vue 3.

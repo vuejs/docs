@@ -3,119 +3,119 @@ badges:
   - breaking
 ---
 
-# Global API Treeshaking <MigrationBadges :badges="$frontmatter.badges" />
+# Treeshaking API Global <MigrationBadges :badges="$frontmatter.badges" />
 
-## 2.x Syntax
+## Sintaks Vue versi 2.x
 
-If you’ve ever had to manually manipulate DOM in Vue, you might have come across this pattern:
+Apabila Anda pernah melakukan manipulasi DOM secara manual pada Vue, mungkin Anda pernah menggunakan pola berikut:
 
 ```js
 import Vue from 'vue'
 
 Vue.nextTick(() => {
-  // something DOM-related
+  // sesuatu yang berhubungan dengan DOM
 })
 ```
 
-Or, if you’ve been unit-testing an application involving [async components](/guide/component-dynamic-async.html), chances are you’ve written something like this:
+Atau, apabila Anda pernah melakukan _unit testing_ pada sebuah aplikasi yang melibatakan [komponen asinkron](/guide/component-dynamic-async.html), kemungkinan Anda pernah menulis kode program seperti berikut:
 
 ```js
 import { shallowMount } from '@vue/test-utils'
 import { MyComponent } from './MyComponent.vue'
 
-test('an async feature', async () => {
+test('sebuah fitur asinkron', async () => {
   const wrapper = shallowMount(MyComponent)
 
-  // execute some DOM-related tasks
+  // lakukan beberapa hal yang berkaitan dengan DOM
 
   await wrapper.vm.$nextTick()
 
-  // run your assertions
+  // jalankan tuntutan Anda
 })
 ```
 
-`Vue.nextTick()` is a global API exposed directly on a single Vue object – in fact, the instance method `$nextTick()` is just a handy wrapper around `Vue.nextTick()` with the callback’s `this` context automatically bound to the current instance for convenience.
+`Vue.nextTick()` merupakan sebuah API global yang diekspos secara langsung pada sebuah objek Vue – nyatanya, _method_ `$nextTick` merupakan sebuah _wrapper_ untuk fungsi `Vue.nextTick()` dengan konteks `this` pada _callback_ yang diikat secara otomatis pada objek tempat fungsi tersebut dipanggil untuk mempermudah proses pengembangan.
 
-But what if you’ve never had to deal with manual DOM manipulation, nor are you using or testing async components in your app? Or, what if, for whatever reason, you prefer to use the good old `window.setTimeout()` instead? In such a case, the code for `nextTick()` will become dead code – that is, code that’s written but never used. And dead code is hardly a good thing, especially in our client-side context where every kilobyte matters.
+Tapi bagaimana bila Anda tidak pernah berurusan dengan manipulasi DOM secara manual, atau Anda tidak menggunakan atau menguji komponen asinkron pada aplikasi Anda? Atau bagaimana bila, dengan alasan tertentu, Anda lebih suka menggunakan `window.setTimeout()`? Dalam kasus tersebut, kode `nextTick()` akan menjadi kode mati – yang merupakan kode yang sudah ditulis namun tidak pernah dipakai. Ingat bahwa kode mati bukanlah sesuaty yang baik, khususnya dalam konteks sisi klien dimana setiap _kilobyte_ penting. 
 
-Module bundlers like [webpack](https://webpack.js.org/) support [tree-shaking](https://webpack.js.org/guides/tree-shaking/), which is a fancy term for “dead code elimination.” Unfortunately, due to how the code is written in previous Vue versions, global APIs like `Vue.nextTick()` are not tree-shakeable and will be included in the final bundle regardless of where they are actually used or not.
+_Module bundler_ seperti [webpack](https://webpack.js.org/) mendukung fitur [_tree-shaking_](https://webpack.js.org/guides/tree-shaking/), yang merupakan sebuah istilah untuk pemangkasan kode mati. Sayangnya, karena cara kode Vue ditulis pada versi sebelumnya, API global seperti `Vue.nextTick()` tidak dapat dipangkas dan tetap diikutsertakan pada kode akhir terlepas API tersebut digunakan atau tidak.
 
-## 3.x Syntax
+## Sintaks Vue versi 3.x
 
-In Vue 3, the global and internal APIs have been restructured with tree-shaking support in mind. As a result, the global APIs can now only be accessed as named exports for the ES Modules build. For example, our previous snippets should now look like this:
+Pada Vue versi 3, API global dan internal telah ditrusktur ulang supaya mendukung fitur _tree-shaking_. Sehingga, API global sekarang dapat diakses melalui _named export_ untuk pembangunan modul ES. Sebagai contoh, kode program di atas dapat ditulis ulang menjadi seperti berikut:
 
 ```js
 import { nextTick } from 'vue'
 
 nextTick(() => {
-  // something DOM-related
+  // sesuatu yang berkaitan dengan DOM
 })
 ```
 
-and
+dan
 
 ```js
 import { shallowMount } from '@vue/test-utils'
 import { MyComponent } from './MyComponent.vue'
 import { nextTick } from 'vue'
 
-test('an async feature', async () => {
+test('sebuah fitur asinkron', async () => {
   const wrapper = shallowMount(MyComponent)
 
-  // execute some DOM-related tasks
+  // lakukan beberapa hal yang berkaitan dengan DOM
 
-  await nextTick()
+  await wrapper.vm.$nextTick()
 
-  // run your assertions
+  // jalankan tuntutan Anda
 })
 ```
 
-Calling `Vue.nextTick()` directly will now result in the infamous `undefined is not a function` error.
+Memanggil `Vue.nextTick()` secara langsung sekarang akan menghasilkan galat `undefined is not a function`.
 
-With this change, provided the module bundler supports tree-shaking, global APIs that are not used in a Vue application will be eliminated from the final bundle, resulting in an optimal file size.
+Dengan perubahan tersebut, dengan catatan bahwa _bundler_ modul mendukung fitur _tree-shaking_, API global yang tidak digunakan pada aplikasi Vue akan dipangkas dari kode akhir, menghasilkan ukuran berkas yang optimal.
 
-## Affected APIs
+## API yang Terdampak
 
-These global APIs in Vue 2.x are affected by this change:
+Berikut merupakan API global pada Vue versi 2.x yang terdampak oleh perubahan tersebut:
 
 - `Vue.nextTick`
-- `Vue.observable` (replaced by `Vue.reactive`)
+- `Vue.observable` (diganti dengan `Vue.reactive`)
 - `Vue.version`
-- `Vue.compile` (only in full builds)
-- `Vue.set` (only in compat builds)
-- `Vue.delete` (only in compat builds)
+- `Vue.compile` (hanya pada distribusi Vue yang lengkap)
+- `Vue.set` (hanya pada distribusi Vue yang ringkas)
+- `Vue.delete` (hanya pada distribusi Vue yang ringkas)
 
-## Internal Helpers
+## Bantuan INternal
 
-In addition to public APIs, many of the internal components/helpers are now exported as named exports as well. This allows the compiler to output code that only imports features when they are used. For example the following template:
+Selain API publik, banyak komponen atau fungsi bantuan internal yang sekarang diekspor sebagai _named export_. Hal tersebut memungkinkan kompilator untuk menghasilkan kode program yang hanya mengimpor fitur yang dibutuhkan. Sebagai contoh, pada _template_ berikut: 
 
 ```html
 <transition>
-  <div v-show="ok">hello</div>
+  <div v-show="ok">halo</div>
 </transition>
 ```
 
-is compiled into something similar to the following:
+akan dikompilasi menjadi kode berikut:
 
 ```js
 import { h, Transition, withDirectives, vShow } from 'vue'
 
 export function render() {
-  return h(Transition, [withDirectives(h('div', 'hello'), [[vShow, this.ok]])])
+  return h(Transition, [withDirectives(h('div', 'halo'), [[vShow, this.ok]])])
 }
 ```
 
-This essentially means the `Transition` component only gets imported when the application actually makes use of it. In other words, if the application doesn’t have any `<transition>` component, the code supporting this feature will not be present in the final bundle.
+Hal tersebut menandakan bahwa komponen `Transition` hanya akan diimpor apabila aplikasi yang Anda buat menggunakan komponen tersebut. Dengan kata lain, apabila aplikasi yang Anda buat tidak menggunakan komponen `Transition`, kode yang mendukung fitur tersebut tidak akan ada pada kode akhir.
 
-With global tree-shaking, the user only “pay” for the features they actually use. Even better, knowing that optional features won't increase the bundle size for applications not using them, framework size has become much less a concern for additional core features in the future, if at all.
+Dengan _tree-shaking_ global, pengguna hanya akan "membayar" untuk fitur yang benar-benar mereka gunakan. Selain itu, karena fitur yang tidak wajib tidak akan menambah ukuran kode program pada aplikasi yang tidak menggunakan fitur tersebut, ukuran _framework_ tidak lagi menjadi masalah apabila terdapat penambahan fitur utama baru pada versi-versi selanjutnya. 
 
-::: warning Important
-The above only applies to the [ES Modules builds](/guide/installation.html#explanation-of-different-builds) for use with tree-shaking capable bundlers - the UMD build still includes all features and exposes everything on the Vue global variable (and the compiler will produce appropriate output to use APIs off the global instead of importing).
+::: warning Penting
+Keuntungan di atas hanya berlaku bagi kode program yang memanfaatkan [modul ES](/guide/installation.html#explanation-of-different-builds) yang dibangun menggunakan _bundler_ yang mendukung fitur _tree-shaking_ - kode program yang dibangun menggunakan modul UMD tetap memasukkan seluruh fitur dan mengekspos seluruh variabel global dari Vue (dan kompilator tetap akan menghasilkan kode program yang sebisa mungkin menggunakan API global dibandingkan mengimpor API).
 :::
 
-## Usage in Plugins
+## Penggunaan pada Plugin
 
-If your plugin relies on an affected Vue 2.x global API, for instance:
+Apabila _plugin_ Anda bergantung pada API global yang terdampak pada Vue versi 2.x, seperti:
 
 ```js
 const plugin = {
@@ -127,7 +127,7 @@ const plugin = {
 }
 ```
 
-In Vue 3, you’ll have to import it explicitly:
+Pada Vue versi 3, Anda harus mengimpor fitur tersebut secara eksplisit:
 
 ```js
 import { nextTick } from 'vue'
@@ -141,7 +141,7 @@ const plugin = {
 }
 ```
 
-If you use a module bundle like webpack, this may cause Vue’s source code to be bundled into the plugin, and more often than not that’s not what you'd expect. A common practice to prevent this from happening is to configure the module bundler to exclude Vue from the final bundle. In webpack's case, you can use the [`externals`](https://webpack.js.org/configuration/externals/) configuration option:
+Apabila Anda menggunakan _bundler_ modul seperti webpack, _bundler_ tersebut dapat menyebabkan kode sumber Vue diikutsertakan pada _plugin_ tersebut, dimana seringkali Anda tidak mengharapkan perilaku tersebut. Cara yang umum digunakan untuk mencegah perilaku tersebut adalah dengan mengatur _bundler_ untuk tidak mengikutsertakan Vue pada kode akhir. Pada webpack, Anda dapat menggunakna opsi [`externals`](https://webpack.js.org/configuration/externals/):
 
 ```js
 // webpack.config.js
@@ -153,9 +153,9 @@ module.exports = {
 }
 ```
 
-This will tell webpack to treat the Vue module as an external library and not bundle it.
+Konfigurasi tersebut akan menyebabkan webpack mengenali modul Vue sebagai pustaka eksternal dan tidak mengikutsertakannya.
 
-If your module bundler of choice happens to be [Rollup](https://rollupjs.org/), you basically get the same effect for free, as by default Rollup will treat absolute module IDs (`'vue'` in our case) as external dependencies and not include them in the final bundle. During bundling though, it might emit a [“Treating vue as external dependency”](https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency) warning, which can be suppressed with the `external` option:
+Apabila Anda menggunakan [Rollup](https://rollupjs.org/) sebagai _bundler_ modul Anda, Anda dapat mendapatkan fitur yang sama seperti webpack, karena secara bawaan Rollup akan menganggap ID dari modul absolut (`'vue'` dalam kasus ini) sebagai _dependency_ eksternal dan tidak mengikutsertakannya pada kode akhir. Dalam proses pembentukan kode program, Rollup mungkin akan mengeluarkan peringatan [“Treating vue as external dependency”](https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency), yang dapat diabaikan menggunakan opsi `external`:
 
 ```js
 // rollup.config.js

@@ -1,26 +1,26 @@
-# Basics
+# Dasar
 
-Web accessibility (also known as a11y) refers to the practice of creating websites that can be used by anyone — be that a person with a disability, a slow connection, outdated or broken hardware or simply someone in an unfavorable environment. For example, adding subtitles to a video would help both your deaf and hard-of-hearing users and your users who are in a loud environment and can't hear their phone. Similarly, making sure your text isn't too low contrast will help both your low-vision users and your users who are trying to use their phone in bright sunlight.
+Aksesibilitas Web (atau yang dikenal juga dengan _a11y_) mengacu kepada praktik pembuatan situs web yang dapat digunakan oleh siapapun - baik itu penyandang cacat, pengguna dengan koneksi yang lambat, pengguna dengan perangkat keras yang sudah ketinggalan zaman atau rusak, atau pengguna yang sedang tidak pada lingkungan yang mendukung. Contohnya, menambahkan subtitle ke dalam video akan membantu pengguna tuna rungu dan pengguna yang memiliki gangguan pendengaran serta pengguna yang sedang berada di lingkungan yang sangat bising sehingga tidak dapat mendengarkan video tersebut. Selain itu, memastikan subtitle tidak memiliki kontras yang terlalu rendah akan membantu pengguna dengan penglihatan rendah dan pengguna yang sedang menggunakan telepon mereka di bawah terik matahari.
 
-Ready to start but aren’t sure where?
+Siap untuk memulai tetapi tidak yakin dari mana?
 
-Checkout the [Planning and managing web accessibility guide](https://www.w3.org/WAI/planning-and-managing/) provided by [World Wide Web Consortium (W3C)](https://www.w3.org/)
+Lihatlah [Planning and managing web accessibility guide](https://www.w3.org/WAI/planning-and-managing/) yang disediakan oleh [World Wide Web Consortium (W3C)](https://www.w3.org/)
 
-## Skip link
+## Lewati tautan
 
-You should add a link at the top of each page that goes directly to the main content area so users can skip content that is repeated on multiple Web pages.
+Kamu sebaiknya menambahkan tautan di bagian atas setiap halaman yang mengarah langsung ke area konten sehingga pengguna dapat melewatkan konten yang diulang di beberapa halaman web.
 
-Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
+Biasanya ini dilakukan di bagian atas `App.vue` karena ini akan menjadi elemen pertama yang difokuskan di semua halaman kamu:
 
 ```html
 <ul class="skip-links">
   <li>
-    <a href="#main" ref="skipLink">Skip to main content</a>
+    <a href="#main" ref="skipLink">Lewati ke konten utama</a>
   </li>
 </ul>
 ```
 
-To hide the link unless it is focused, you can add the following style:
+Untuk menyembunyikan tautan (kecuali jika difokuskan), kamu dapat menambahkan gaya berikut:
 
 ```css
 .skipLink {
@@ -35,78 +35,78 @@ To hide the link unless it is focused, you can add the following style:
 .skipLink:focus {
   opacity: 1;
   background-color: white;
-  padding: .5em;
+  padding: 0.5em;
   border: 1px solid black;
 }
 ```
 
-Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus to the `ref` provided below:
+Setelah pengguna mengubah _route_, kembalikan fokus kepada lewati tautan. Ini dapat dicapai dengan cara berikut:
 
 ```vue
 <script>
 export default {
   watch: {
     $route() {
-      this.$refs.skipLink.focus();
+      this.$refs.skipLink.focus()
     }
   }
-};
+}
 </script>
 ```
 
 <common-codepen-snippet title="Skip to Main" slug="GRrvQJa" :height="350" tab="js,result" theme="light" :preview="false" :editable="false" />
 
-[Read documentation on skip link to main content](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
+[Baca dokumentasi tentang lewati tautan ke konten utama](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
 
-## Structure Your Content
+## Susun Konten Kamu
 
-One of the most important pieces of accessibility is making sure that design can support accessible implementation. Design should consider not only color contrast, font selection, text sizing, and language, but also how the content is structured in the application.
+Salah satu bagian terpenting dari aksesibilitas adalah memastikan bahwa desain dapat mendukung implementasi aksesibilitas. Desain sebaiknya mempertimbangkan tidak hanya kontras warna, pilihan font, ukuran teks, dan bahasa, tetapi juga bagaimana konten yang disusun di dalam aplikasi.
 
-### Headings
+### Judul
 
-Users can navigate an application through headings. Having descriptive headings for every section of your application makes it easier for users to predict the content of each section. When it comes to headings, there are a couple of recommended accessibility practices:
+Pengguna dapat menavigasi aplikasi melalui judul. Memiliki judul yang deskriptif untuk setiap bagian aplikasimu dapat memudahkan pengguna untuk memprediksi konten yang ada di dalamnya. Terkait judul, berikut adalah beberapa praktik aksesibilitas yang direkomendasikan:
 
-- Nest headings in their ranking order: `<h1>` - `<h6>`
-- Don’t skip headings within a section
-- Use actual heading tags instead of styling text to give the visual appearance of headings
+- Tempatkan judul berdasarkan kepentingannya: `<h1>` - `<h6>`
+- Jangan melewatkan judul dalam suatu bagian
+- Gunakan tanda judul yang sebenarnya, bukan menggunakan teks yang diberi gaya untuk memberikan tampilan visual pada judul.
 
-[Read more about headings](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
+[Baca lebih lanjut mengenai judul](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
 
 ```html
-<main role="main" aria-labelledby="main-title">
-  <h1 id="main-title">Main title</h1>
-  <section aria-labelledby="section-title">
-    <h2 id="section-title"> Section Title </h2>
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
+<main role="main" aria-labelledby="judul-utama">
+  <h1 id="judul-utama">Judul Utama</h1>
+  <section aria-labelledby="judul-bagian">
+    <h2 id="judul-bagian">Judul Bagian</h2>
+    <h3>Subtitle Bagian</h3>
+    <!-- Konten -->
   </section>
-  <section aria-labelledby="section-title">
-    <h2 id="section-title"> Section Title </h2>
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
+  <section aria-labelledby="judul-bagian">
+    <h2 id="judul-bagian">Judul Bagian</h2>
+    <h3>Subtitle Bagian</h3>
+    <!-- Konten -->
+    <h3>Subtitle Bagian</h3>
+    <!-- Konten -->
   </section>
 </main>
 ```
 
-### Landmarks
+### _Landmark_
 
-Landmarks provide programmatic access to sections within an application. Users who rely on assistive technology can navigate to each section of the application and skip over content. You can use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) to help you achieve this.
+_Landmark_ menyediakan akses programatik ke bagian dalam aplikasi. Pengguna yang mengandalkan teknologi pendukung dapat melakukan navigasi ke setiap bagian aplikasi dan melewati konten. Kamu dapat menggunakan [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) untuk informasi lebih lanjut.
 
 | HTML            | ARIA Role            | Landmark Purpose                                                                                                 |
 | --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| header          | role="banner"        | Prime heading: title of the page                                                                                 |
-| nav             | role="navigation"    | Collection of links suitable for use when navigating the document or related documents                           |
-| main            | role="main"          | The main or central content of the document.                                                                     |
-| footer          | role="contentinfo"   | Information about the parent document: footnotes/copyrights/links to privacy statement                           |
-| aside           | role="complementary" | Supports the main content, yet is separated and meaningful on its own content                                    |
-| _Not available_ | role="search"        | This section contains the search functionality for the application                                               |
-| form            | role="form"          | Collection of form-associated elements                                                                           |
-| section         | role="region"        | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element |
+| header          | role="banner"        | Judul utama: judul halaman                                                                                       |
+| nav             | role="navigation"    | Kumpulan link yang cocok digunakan saat menavigasi dokumen atau dokumen terkait                                  |
+| main            | role="main"          | Isi utama atau konten utama dari dokumen                                                                         |
+| footer          | role="contentinfo"   | Informasi tentang dokumen induk: catatan kaki / hak cipta / tautan ke pernyataan privasi                         |
+| aside           | role="complementary" | Mendukung konten utama, namun terpisah dan memiliki makna pada kontennya sendiri                                 |
+| _Not available_ | role="search"        | Bagian ini berisi fungsionalitas pencarian untuk aplikasi                                                        |
+| form            | role="form"          | Kumpulan elemen yang terkait dengan formulir                                                                     |
+| section         | role="region"        | Konten yang relevan dan kemungkinan besar ingin dinavigasi oleh pengguna. Label harus diberikan untuk elemen ini |
 
 :::tip Tip:
-It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).
+Direkomendasikan untuk menggunakan landmark elemen HTML dengan atribut peran (_role attributes_) landmark yang redundan untuk memaksimalkan kompatibilitas dengan [peramban yang tidak mendukung elemen semantik HTML5](https://caniuse.com/#feat=html5semantic)
 :::
 
-[Read more about landmarks](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
+[Baca lebih lanjut mengenai landmark](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
