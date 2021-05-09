@@ -59,8 +59,8 @@ In Vue 2.x, a `<template>` tag could not have a `key`. Instead, you could place 
 ```html
 <!-- Vue 2.x -->
 <template v-for="item in list">
-  <div :key="item.id">...</div>
-  <span :key="item.id">...</span>
+  <div :key="'heading-' + item.id">...</div>
+  <span :key="'content-' + item.id">...</span>
 </template>
 ```
 
@@ -79,8 +79,8 @@ Similarly, when using `<template v-for>` with a child that uses `v-if`, the `key
 ```html
 <!-- Vue 2.x -->
 <template v-for="item in list">
-  <div v-if="item.isVisible" :key="item.id">...</div>
-  <span v-else :key="item.id">...</span>
+  <div v-if="item.isVisible" :key="'heading-' + item.id">...</div>
+  <span v-else :key="'content-' + item.id">...</span>
 </template>
 
 <!-- Vue 3.x -->
