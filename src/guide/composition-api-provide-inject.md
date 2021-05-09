@@ -181,7 +181,7 @@ export default {
   },
   methods: {
     updateLocation() {
-      this.location = 'South Pole'
+      location.value = 'South Pole'
     }
   }
 }
