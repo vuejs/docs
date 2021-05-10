@@ -2,7 +2,7 @@
 
 ## Base Example
 
-Many of your components will be relatively generic, possibly only wrapping an element like an input or a button. We sometimes refer to these as [base components](../style-guide/#Base-component-names-strongly-recommended) and they tend to be used very frequently across your components.
+Many of your components will be relatively generic, possibly only wrapping an element like an input or a button. We sometimes refer to these as [base components](../style-guide/#base-component-names-strongly-recommended) and they tend to be used very frequently across your components.
 
 The result is that many components may include long lists of base components:
 
