@@ -28,7 +28,7 @@ Just to support relatively little markup in a template:
 </BaseButton>
 ```
 
-Fortunately, if you're using Webpack (or [Vue CLI](https://github.com/vuejs/vue-cli), which uses Webpack internally), you can use `require.context` to globally register only these very common base components. Here's an example of the code you might use to globally import base components in your app's entry file (e.g. `src/main.js`):
+Fortunately, if you're using webpack (or [Vue CLI](https://github.com/vuejs/vue-cli), which uses webpack internally), you can use `require.context` to globally register only these very common base components. Here's an example of the code you might use to globally import base components in your app's entry file (e.g. `src/main.js`):
 
 ```js
 import { createApp } from 'vue'
