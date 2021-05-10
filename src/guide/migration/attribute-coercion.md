@@ -60,16 +60,16 @@ The following table describes the new behavior:
 
 | Binding expression  | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
 | ------------------- | -------------------------- | --------------------------------- |
-| `:attr="null"`      | /                          | / <sup>†</sup>                    |
+| `:attr="null"`      | /                          | / <sup>*</sup>                    |
 | `:attr="undefined"` | /                          | /                                 |
 | `:attr="true"`      | `foo="true"`               | `draggable="true"`                |
-| `:attr="false"`     | `foo="false"` <sup>†</sup> | `draggable="false"`               |
-| `:attr="0"`         | `foo="0"`                  | `draggable="0"` <sup>†</sup>      |
-| `attr=""`           | `foo=""`                   | `draggable=""` <sup>†</sup>       |
-| `attr="foo"`        | `foo="foo"`                | `draggable="foo"` <sup>†</sup>    |
-| `attr`              | `foo=""`                   | `draggable=""` <sup>†</sup>       |
+| `:attr="false"`     | `foo="false"` <sup>*</sup> | `draggable="false"`               |
+| `:attr="0"`         | `foo="0"`                  | `draggable="0"` <sup>*</sup>      |
+| `attr=""`           | `foo=""`                   | `draggable=""` <sup>*</sup>       |
+| `attr="foo"`        | `foo="foo"`                | `draggable="foo"` <sup>*</sup>    |
+| `attr`              | `foo=""`                   | `draggable=""` <sup>*</sup>       |
 
-<small>†: changed</small>
+<small>*: changed</small>
 
 Coercion for boolean attributes is left untouched.
 
