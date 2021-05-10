@@ -22,8 +22,8 @@ export default {
 Just to support relatively little markup in a template:
 
 ```html
-<BaseInput v-model="searchText" v-on:keydown.enter="search" />
-<BaseButton v-on:click="search">
+<BaseInput v-model="searchText" @keydown.enter="search" />
+<BaseButton @click="search">
   <BaseIcon name="search" />
 </BaseButton>
 ```
