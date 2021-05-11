@@ -105,4 +105,4 @@ With [fragments](/guide/migration/fragments.html#overview) support, components c
 
 ## Migration Strategy
 
-[Migration build flag: `CUSTOM_DIR`](migration-build.html)
+[Migration build flag: `CUSTOM_DIR`](migration-build.html#compat-configuration)

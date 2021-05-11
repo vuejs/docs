@@ -49,7 +49,7 @@ Consequently, Vue will now add all event listeners that are _not_ defined as com
 - remove all instances of the `.native` modifier.
 - ensure that all your components document their events with the `emits` option.
 
-[Migration build flag: `COMPILER_V_ON_NATIVE`](migration-build.html)
+[Migration build flag: `COMPILER_V_ON_NATIVE`](migration-build.html#compat-configuration)
 
 ## See also
 

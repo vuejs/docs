@@ -41,4 +41,4 @@ In 3.x, the `$children` property is removed and no longer supported. Instead, if
 
 ## Migration Strategy
 
-[Migration build flag: `INSTANCE_CHILDREN`](migration-build.html)
+[Migration build flag: `INSTANCE_CHILDREN`](migration-build.html#compat-configuration)

@@ -178,7 +178,7 @@ For more information, see [The Render Function Api Change RFC](https://github.co
 
 ## Migration Strategy
 
-[Migration build flag: `RENDER_FUNCTION`](migration-build.html)
+[Migration build flag: `RENDER_FUNCTION`](migration-build.html#compat-configuration)
 
 ### Library Authors
 

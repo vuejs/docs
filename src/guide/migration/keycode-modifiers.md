@@ -55,7 +55,7 @@ As a result, this means that `config.keyCodes` is now also deprecated and will n
 
 For those using `keyCode` in their codebase, we recommend converting them to their kebab-cased named equivalents.
 
-[Migration build flags:](migration-build.html)
+[Migration build flags:](migration-build.html#compat-configuration)
 
 - `CONFIG_KEY_CODES`
 - `V_ON_KEYCODE_MODIFIER`

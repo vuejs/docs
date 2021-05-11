@@ -91,7 +91,7 @@ When this app is mounted to the page that has a `div` with `id="app"`, this will
 
 ## Migration Strategy
 
-[Migration build flag: `GLOBAL_MOUNT_CONTAINER`](migration-build.html)
+[Migration build flag: `GLOBAL_MOUNT_CONTAINER`](migration-build.html#compat-configuration)
 
 ## See Also
 

@@ -30,7 +30,7 @@ This feature will no longer be supported.
 
 Most of the use cases for `inline-template` assumes a no-build-tool setup, where all templates are written directly inside the HTML page.
 
-[Migration build flag: `COMPILER_INLINE_TEMPLATE`](migration-build.html)
+[Migration build flag: `COMPILER_INLINE_TEMPLATE`](migration-build.html#compat-configuration)
 
 ### Option #1: Use `<script>` tag
 
