@@ -435,6 +435,10 @@ module.exports = {
             link: 'https://v3.ja.vuejs.org/'
           },
           {
+            text: 'Русский',
+            link: 'https://v3.ru.vuejs.org/'
+          },
+          {
             text: 'More Translations',
             link: '/guide/contributing/translations#community-translations'
           }
