@@ -21,6 +21,9 @@ The following table contains how the lifecycle hooks are invoked inside of [setu
 | `errorCaptured`   | `onErrorCaptured`   |
 | `renderTracked`   | `onRenderTracked`   |
 | `renderTriggered` | `onRenderTriggered` |
+| `activated`       | `onActivated`       |
+| `deactivated`     | `onDeactivated`     |
+
 
 :::tip
 Because `setup` is run around the `beforeCreate` and `created` lifecycle hooks, you do not need to explicitly define them. In other words, any code that would be written inside those hooks should be written directly in the `setup` function.
