@@ -52,6 +52,7 @@ The final API is as follows:
 
 ```js
 const MyDirective = {
+  created() {}, // new
   beforeMount(el, binding, vnode, prevVnode) {},
   mounted() {},
   beforeUpdate() {}, // new
