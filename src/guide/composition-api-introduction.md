@@ -91,14 +91,14 @@ export default {
   props: {
     user: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   setup(props) {
     console.log(props) // { user: '' }
 
     return {} // anything returned here will be available for the rest of the component
-  },
+  }
   // the "rest" of the component
 }
 ```
@@ -298,14 +298,14 @@ Whenever `counter` is modified, for example `counter.value = 5`, the watch will 
 export default {
   data() {
     return {
-      counter: 0,
+      counter: 0
     }
   },
   watch: {
     counter(newValue, oldValue) {
       console.log('The new counter value is: ' + this.counter)
-    },
-  },
+    }
+  }
 }
 ```
 
@@ -420,7 +420,7 @@ export default function useUserRepositories(user) {
 
   return {
     repositories,
-    getUserRepositories,
+    getUserRepositories
   }
 }
 ```
@@ -435,14 +435,14 @@ import { ref, computed } from 'vue'
 export default function useRepositoryNameSearch(repositories) {
   const searchQuery = ref('')
   const repositoriesMatchingSearchQuery = computed(() => {
-    return repositories.value.filter((repository) => {
+    return repositories.value.filter(repository => {
       return repository.name.includes(searchQuery.value)
     })
   })
 
   return {
     searchQuery,
-    repositoriesMatchingSearchQuery,
+    repositoriesMatchingSearchQuery
   }
 }
 ```
@@ -509,19 +509,24 @@ export default {
   props: {
     user: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   setup(props) {
     const { user } = toRefs(props)
 
     const { repositories, getUserRepositories } = useUserRepositories(user)
 
-    const { searchQuery, repositoriesMatchingSearchQuery } =
-      useRepositoryNameSearch(repositories)
+    const {
+      searchQuery,
+      repositoriesMatchingSearchQuery
+    } = useRepositoryNameSearch(repositories)
 
-    const { filters, updateFilters, filteredRepositories } =
-      useRepositoryFilters(repositoriesMatchingSearchQuery)
+    const {
+      filters,
+      updateFilters,
+      filteredRepositories
+    } = useRepositoryFilters(repositoriesMatchingSearchQuery)
 
     return {
       // Since we don’t really care about the unfiltered repositories
@@ -530,9 +535,9 @@ export default {
       getUserRepositories,
       searchQuery,
       filters,
-      updateFilters,
+      updateFilters
     }
-  },
+  }
 }
 ```
 
