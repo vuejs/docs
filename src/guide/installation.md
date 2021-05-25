@@ -45,12 +45,24 @@ The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg
 
 ## npm
 
-npm is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/). Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html).
+npm is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/).
 
 ```bash
 # latest stable
 $ npm install vue@next
 ```
+
+Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html) (SFCs). If you want to use SFCs then you'll also need to install `@vue/compiler-sfc`:
+
+```bash
+$ npm install -D @vue/compiler-sfc
+```
+
+If you're coming from Vue 2 then note that `@vue/compiler-sfc` replaces `vue-template-compiler`.
+
+In addition to `@vue/compiler-sfc`, you'll also need a suitable SFC loader or plugin for your chosen bundler. See the [SFC documentation](../guide/single-file-component.html) for more information.
+
+In most cases, the preferred way to create a webpack build with minimal configuration is to use Vue CLI.
 
 ## CLI
 
