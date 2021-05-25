@@ -63,4 +63,5 @@ The `<transition>` component's related prop names are also changed:
 
 ## See also
 
+- [`<Transition>` as a root can no longer be toggled from the outside](/guide/migration/transition-as-root.html)
 - [`<TransitionGroup>` now renders no wrapper element by default](/guide/migration/transition-group.html)
