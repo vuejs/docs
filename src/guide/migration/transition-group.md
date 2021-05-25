@@ -38,3 +38,4 @@ In Vue 3, we have [fragment support](/guide/migration/fragments.html), so compon
 ## See also
 
 - [Some transition classes got a rename](/guide/migration/transition.html)
+- [`<Transition>` as a root can no longer be toggled from the outside](/guide/migration/transition-as-root.html)
