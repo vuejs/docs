@@ -180,7 +180,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   When wrapped around a dynamic component, `<keep-alive>` caches the inactive component instances without destroying them. Similar to `<transition>`, `<keep-alive>` is an abstract component: it doesn't render a DOM element itself, and doesn't show up in the component parent chain.
 
-  When a component is toggled inside `<keep-alive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly.
+  When a component is toggled inside `<keep-alive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly, providing an alternative to `mounted` and `unmounted`, which are not called. (This applies to the direct child of `<keep-alive>` as well as to all of its descendants.)
 
   Primarily used to preserve component state or avoid re-rendering.
 
