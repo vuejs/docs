@@ -4,12 +4,12 @@
 
 `@vue/compat` (aka "the migration build") is a build of Vue 3 that provides configurable Vue 2 compatible behavior.
 
-The migration build runs in Vue 2 mode by default - most public APIs behave exactly like Vue 2, with only [a few exceptions](#known-limitations). Usage of features that have changed or been deprecated in Vue 3 will emit runtime warnings. A feature's compatibility can be enabled/disabled on a per-component basis.
+The migration build runs in Vue 2 mode by default - most public APIs behave exactly like Vue 2, with only a few exceptions. Usage of features that have changed or been deprecated in Vue 3 will emit runtime warnings. A feature's compatibility can also be enabled/disabled on a per-component basis.
 
 ### Intended Use Cases
 
-- Upgrading a Vue 2 application to Vue 3 (with limitations)
-- Migrate a library to support Vue 3
+- Upgrading a Vue 2 application to Vue 3 (with [limitations](#known-limitations))
+- Migrating a library to support Vue 3
 - For experienced Vue 2 developers who have not tried Vue 3 yet, the migration build can be used in place of Vue 3 to help learn the difference between versions.
 
 ### Known Limitations
@@ -250,7 +250,7 @@ Features that start with `COMPILER_` are compiler-specific: if you are using the
 
 ### Compatibility Types
 
-- ● Fully compatible
+- ✔ Fully compatible
 - ◐ Partially Compatible with caveats
 - ⃠ Incompatible (warning only)
 - ⭘ Compat only (no warning)
@@ -290,43 +290,43 @@ Features that start with `COMPILER_` are compiler-specific: if you are using the
 
 | ID                           | Type | Description                                                           | Docs                                                                                       |
 | ---------------------------- | ---- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| GLOBAL_MOUNT                 | ●    | new Vue() -> createApp                                                | [link](/guide/migration/global-api.html#mounting-app-instance)                             |
-| GLOBAL_EXTEND                | ●    | Vue.extend removed (use `defineComponent` or `extends` option)        | [link](/guide/migration/global-api.html#vue-extend-replaced-by-definecomponent)            |
-| GLOBAL_PROTOTYPE             | ●    | `Vue.prototype` -> `app.config.globalProperties`                      | [link](/guide/migration/global-api.html#vue-prototype-replaced-by-config-globalproperties) |
-| GLOBAL_SET                   | ●    | `Vue.set` removed (no longer needed)                                  |                                                                                            |
-| GLOBAL_DELETE                | ●    | `Vue.delete` removed (no longer needed)                               |                                                                                            |
-| GLOBAL_OBSERVABLE            | ●    | `Vue.observable` removed (use `reactive`)                             | [link](/api/basic-reactivity.html)                                                         |
-| CONFIG_KEY_CODES             | ●    | config.keyCodes removed                                               | [link](/guide/migration/keycode-modifiers.html)                                            |
-| CONFIG_WHITESPACE            | ●    | In Vue 3 whitespace defaults to `"condense"`                          |                                                                                            |
-| INSTANCE_SET                 | ●    | `vm.$set` removed (no longer needed)                                  |                                                                                            |
-| INSTANCE_DELETE              | ●    | `vm.$delete` removed (no longer needed)                               |                                                                                            |
-| INSTANCE_EVENT_EMITTER       | ●    | `vm.$on`, `vm.$off`, `vm.$once` removed                               | [link](/guide/migration/events-api.html)                                                   |
-| INSTANCE_EVENT_HOOKS         | ●    | Instance no longer emits `hook:x` events                              |                                                                                            |
-| INSTANCE_CHILDREN            | ●    | `vm.$children` removed                                                | [link](/guide/migration/children.html)                                                     |
-| INSTANCE_LISTENERS           | ●    | `vm.$listeners` removed                                               | [link](/guide/migration/listeners-removed.html)                                            |
-| INSTANCE_SCOPED_SLOTS        | ●    | `vm.$scopedSlots` removed; `vm.$slots` now exposes functions          | [link](/guide/migration/slots-unification.html)                                            |
-| INSTANCE_ATTRS_CLASS_STYLE   | ●    | `$attrs` now includes `class` and `style`                             | [link](/guide/migration/attrs-includes-class-style.html)                                   |
-| OPTIONS_DATA_FN              | ●    | `data` must be a function in all cases                                | [link](/guide/migration/data-option.html)                                                  |
-| OPTIONS_DATA_MERGE           | ●    | `data` from mixin or extension is now shallow merged                  | [link](/guide/migration/data-option.html)                                                  |
-| OPTIONS_BEFORE_DESTROY       | ●    | `beforeDestroy` -> `beforeUnmount`                                    |                                                                                            |
-| OPTIONS_DESTROYED            | ●    | `destroyed` -> `unmounted`                                            |                                                                                            |
-| WATCH_ARRAY                  | ●    | watching an array no longer triggers on mutation unless deep          | [link](/guide/migration/watch.html)                                                        |
-| V_FOR_REF                    | ●    | `ref` inside `v-for` no longer registers array of refs                | [link](/guide/migration/array-refs.html)                                                   |
-| V_ON_KEYCODE_MODIFIER        | ●    | `v-on` no longer supports keyCode modifiers                           | [link](/guide/migration/keycode-modifiers.html)                                            |
-| CUSTOM_DIR                   | ●    | Custom directive hook names changed                                   | [link](/guide/migration/custom-directives.html)                                            |
-| ATTR_FALSE_VALUE             | ●    | No longer removes attribute if binding value is boolean `false`       | [link](/guide/migration/attribute-coercion.html)                                           |
-| ATTR_ENUMERATED_COERSION     | ●    | No longer special case enumerated attributes                          | [link](/guide/migration/attribute-coercion.html)                                           |
-| TRANSITION_GROUP_ROOT        | ●    | `<transition-group>` no longer renders a root element by default      | [link](/guide/migration/transition-group.html)                                             |
-| COMPONENT_ASYNC              | ●    | Async component API changed (now requires `defineAsyncComponent`)     | [link](/guide/migration/async-components.html)                                             |
-| COMPONENT_FUNCTIONAL         | ●    | Functional component API changed (now must be plain functions)        | [link](/guide/migration/functional-components.html)                                        |
-| COMPONENT_V_MODEL            | ●    | Component v-model reworked                                            | [link](/guide/migration/v-model.html)                                                      |
-| RENDER_FUNCTION              | ●    | Render function API changed                                           | [link](/guide/migration/render-function-api.html)                                          |
-| FILTERS                      | ●    | Filters removed (this option affects only runtime filter APIs)        | [link](/guide/migration/filters.html)                                                      |
-| COMPILER_IS_ON_ELEMENT       | ●    | `is` usage is now restricted to `<component>` only                    | [link](/guide/migration/custom-elements-interop.html)                                      |
-| COMPILER_V_BIND_SYNC         | ●    | `v-bind.sync` replaced by `v-model` with arguments                    | [link](/guide/migration/v-model.html)                                                      |
-| COMPILER_V_BIND_PROP         | ●    | `v-bind.prop` modifier removed                                        |                                                                                            |
-| COMPILER_V_BIND_OBJECT_ORDER | ●    | `v-bind="object"` is now order sensitive                              | [link](/guide/migration/v-bind.html)                                                       |
-| COMPILER_V_ON_NATIVE         | ●    | `v-on.native` modifier removed                                        | [link](/guide/migration/v-on-native-modifier-removed.html)                                 |
-| COMPILER_V_FOR_REF           | ●    | `ref` in `v-for` (compiler support)                                   |                                                                                            |
-| COMPILER_NATIVE_TEMPLATE     | ●    | `<template>` with no special directives now renders as native element |                                                                                            |
-| COMPILER_FILTERS             | ●    | filters (compiler support)                                            |                                                                                            |
+| GLOBAL_MOUNT                 | ✔    | new Vue() -> createApp                                                | [link](/guide/migration/global-api.html#mounting-app-instance)                             |
+| GLOBAL_EXTEND                | ✔    | Vue.extend removed (use `defineComponent` or `extends` option)        | [link](/guide/migration/global-api.html#vue-extend-replaced-by-definecomponent)            |
+| GLOBAL_PROTOTYPE             | ✔    | `Vue.prototype` -> `app.config.globalProperties`                      | [link](/guide/migration/global-api.html#vue-prototype-replaced-by-config-globalproperties) |
+| GLOBAL_SET                   | ✔    | `Vue.set` removed (no longer needed)                                  |                                                                                            |
+| GLOBAL_DELETE                | ✔    | `Vue.delete` removed (no longer needed)                               |                                                                                            |
+| GLOBAL_OBSERVABLE            | ✔    | `Vue.observable` removed (use `reactive`)                             | [link](/api/basic-reactivity.html)                                                         |
+| CONFIG_KEY_CODES             | ✔    | config.keyCodes removed                                               | [link](/guide/migration/keycode-modifiers.html)                                            |
+| CONFIG_WHITESPACE            | ✔    | In Vue 3 whitespace defaults to `"condense"`                          |                                                                                            |
+| INSTANCE_SET                 | ✔    | `vm.$set` removed (no longer needed)                                  |                                                                                            |
+| INSTANCE_DELETE              | ✔    | `vm.$delete` removed (no longer needed)                               |                                                                                            |
+| INSTANCE_EVENT_EMITTER       | ✔    | `vm.$on`, `vm.$off`, `vm.$once` removed                               | [link](/guide/migration/events-api.html)                                                   |
+| INSTANCE_EVENT_HOOKS         | ✔    | Instance no longer emits `hook:x` events                              |                                                                                            |
+| INSTANCE_CHILDREN            | ✔    | `vm.$children` removed                                                | [link](/guide/migration/children.html)                                                     |
+| INSTANCE_LISTENERS           | ✔    | `vm.$listeners` removed                                               | [link](/guide/migration/listeners-removed.html)                                            |
+| INSTANCE_SCOPED_SLOTS        | ✔    | `vm.$scopedSlots` removed; `vm.$slots` now exposes functions          | [link](/guide/migration/slots-unification.html)                                            |
+| INSTANCE_ATTRS_CLASS_STYLE   | ✔    | `$attrs` now includes `class` and `style`                             | [link](/guide/migration/attrs-includes-class-style.html)                                   |
+| OPTIONS_DATA_FN              | ✔    | `data` must be a function in all cases                                | [link](/guide/migration/data-option.html)                                                  |
+| OPTIONS_DATA_MERGE           | ✔    | `data` from mixin or extension is now shallow merged                  | [link](/guide/migration/data-option.html)                                                  |
+| OPTIONS_BEFORE_DESTROY       | ✔    | `beforeDestroy` -> `beforeUnmount`                                    |                                                                                            |
+| OPTIONS_DESTROYED            | ✔    | `destroyed` -> `unmounted`                                            |                                                                                            |
+| WATCH_ARRAY                  | ✔    | watching an array no longer triggers on mutation unless deep          | [link](/guide/migration/watch.html)                                                        |
+| V_FOR_REF                    | ✔    | `ref` inside `v-for` no longer registers array of refs                | [link](/guide/migration/array-refs.html)                                                   |
+| V_ON_KEYCODE_MODIFIER        | ✔    | `v-on` no longer supports keyCode modifiers                           | [link](/guide/migration/keycode-modifiers.html)                                            |
+| CUSTOM_DIR                   | ✔    | Custom directive hook names changed                                   | [link](/guide/migration/custom-directives.html)                                            |
+| ATTR_FALSE_VALUE             | ✔    | No longer removes attribute if binding value is boolean `false`       | [link](/guide/migration/attribute-coercion.html)                                           |
+| ATTR_ENUMERATED_COERSION     | ✔    | No longer special case enumerated attributes                          | [link](/guide/migration/attribute-coercion.html)                                           |
+| TRANSITION_GROUP_ROOT        | ✔    | `<transition-group>` no longer renders a root element by default      | [link](/guide/migration/transition-group.html)                                             |
+| COMPONENT_ASYNC              | ✔    | Async component API changed (now requires `defineAsyncComponent`)     | [link](/guide/migration/async-components.html)                                             |
+| COMPONENT_FUNCTIONAL         | ✔    | Functional component API changed (now must be plain functions)        | [link](/guide/migration/functional-components.html)                                        |
+| COMPONENT_V_MODEL            | ✔    | Component v-model reworked                                            | [link](/guide/migration/v-model.html)                                                      |
+| RENDER_FUNCTION              | ✔    | Render function API changed                                           | [link](/guide/migration/render-function-api.html)                                          |
+| FILTERS                      | ✔    | Filters removed (this option affects only runtime filter APIs)        | [link](/guide/migration/filters.html)                                                      |
+| COMPILER_IS_ON_ELEMENT       | ✔    | `is` usage is now restricted to `<component>` only                    | [link](/guide/migration/custom-elements-interop.html)                                      |
+| COMPILER_V_BIND_SYNC         | ✔    | `v-bind.sync` replaced by `v-model` with arguments                    | [link](/guide/migration/v-model.html)                                                      |
+| COMPILER_V_BIND_PROP         | ✔    | `v-bind.prop` modifier removed                                        |                                                                                            |
+| COMPILER_V_BIND_OBJECT_ORDER | ✔    | `v-bind="object"` is now order sensitive                              | [link](/guide/migration/v-bind.html)                                                       |
+| COMPILER_V_ON_NATIVE         | ✔    | `v-on.native` modifier removed                                        | [link](/guide/migration/v-on-native-modifier-removed.html)                                 |
+| COMPILER_V_FOR_REF           | ✔    | `ref` in `v-for` (compiler support)                                   |                                                                                            |
+| COMPILER_NATIVE_TEMPLATE     | ✔    | `<template>` with no special directives now renders as native element |                                                                                            |
+| COMPILER_FILTERS             | ✔    | filters (compiler support)                                            |                                                                                            |

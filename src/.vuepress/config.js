@@ -171,6 +171,7 @@ const sidebar = {
   ],
   migration: [
     '/guide/migration/introduction',
+    '/guide/migration/migration-build',
     {
       title: 'Details',
       collapsable: false,
