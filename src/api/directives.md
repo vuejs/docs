@@ -454,31 +454,6 @@
 - **See also:**
   - [Data Binding Syntax - interpolations](../guide/template-syntax.html#text)
 
-## v-is
+## v-is <Badge text="deprecated" type="warning" />
 
-> Note: this section only affects cases where Vue templates are directly written in the page's HTML.
-
-- **Expects:** string literal
-
-- **Limited to:** native HTML elements
-
-- **Usage:** When using in-DOM templates, the template is subject to native HTML parsing rules. Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements. As a workaround, we can use `v-is` directive on these elements:
-
-```html
-<table>
-  <tr v-is="'blog-post-row'"></tr>
-</table>
-```
-
-:::warning
-`v-is` functions like a dynamic 2.x `:is` binding - so to render a component by its registered name, its value should be a JavaScript string literal:
-
-```html
-<!-- Incorrect, nothing will be rendered -->
-<tr v-is="blog-post-row"></tr>
-
-<!-- Correct -->
-<tr v-is="'blog-post-row'"></tr>
-```
-
-:::
+Deprecated in 3.1.0. Use [`is` attribute with `vue:` prefix](/api/special-attributes.html#is) instead.
