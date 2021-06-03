@@ -53,17 +53,15 @@ The following workflow walks through the steps of migrating an actual Vue 2 app 
 ```diff
 "dependencies": {
 -  "vue": "^2.6.12",
-+  "vue": "^3.1.0-0",
-+  "@vue/compat": "^3.1.0-0"
++  "vue": "^3.1.0",
++  "@vue/compat": "^3.1.0"
   ...
 },
 "devDependencies": {
 -  "vue-template-compiler": "^2.6.12"
-+  "@vue/compiler-sfc": "^3.1.0-0"
++  "@vue/compiler-sfc": "^3.1.0"
 }
 ```
-
-> Note: the -0 at the end of the version is to account for pre-releases.
 
 [Example commit](https://github.com/vuejs/vue-hackernews-2.0/commit/14f6f1879b43f8610add60342661bf915f5c4b20)
 
