@@ -92,7 +92,7 @@ const app = createApp({
   }
 })
 
-app.config.optionMergeStrategies.hello = (parent, child, vm) => {
+app.config.optionMergeStrategies.hello = (parent, child) => {
   return `Hello, ${child}`
 }
 
@@ -105,7 +105,7 @@ app.mixin({
 
 Define merging strategies for custom options.
 
-The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context application instance is passed as the third argument.
+The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively.
 
 - **See also:** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
 
