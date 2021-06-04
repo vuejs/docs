@@ -123,7 +123,7 @@ Set this to `true` to enable component init, compile, render and patch performan
 
 - **Type:** `Object`
 
-Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affects every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-misc.html#compileroptions).
+Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affect every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-misc.html#compileroptions).
 
 ::: tip Important
 This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). If you are using the runtime-only build with a build setup, compiler options must be passed to `@vue/compiler-dom` via build tool configurations instead.
@@ -131,7 +131,7 @@ This config option is only respected when using the full build (i.e. the standal
 - For `vue-loader`: [pass via the `compilerOptions` loader option](https://vue-loader.vuejs.org/options.html#compileroptions). Also see [how to configure it in `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
 - For `vite`: [pass via `@vitejs/plugin-vue` options](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#example-for-passing-options-to-vuecompiler-dom).
-  :::
+:::
 
 ### compilerOptions.isCustomElement
 
@@ -165,10 +165,10 @@ app.config.compilerOptions.whitespace = 'preserve'
 By default, Vue removes/condenses whitespaces between template elements to produce more efficient compiled output:
 
 1. Leading / ending whitespaces inside an element are condensed into a single space
-2. Whitespaces between elements that contains newlines are removed
-3. Consecutive whitepsaces in text nodes are condensed into a single space
+2. Whitespaces between elements that contain newlines are removed
+3. Consecutive whitespaces in text nodes are condensed into a single space
 
-Setting the value to `'preserve'` will disalbe (2) and (3).
+Setting the value to `'preserve'` will disable (2) and (3).
 
 ### compilerOptions.delimiters
 
@@ -203,7 +203,7 @@ app.config.compilerOptions.comments = true
 
 By default, Vue will remove HTML comments inside templates in production. Setting this option to `true` will force Vue to preserve comments even in production. Comments are always preserved during development.
 
-This options is typically used when Vue is used with other libraries that rely on HTML comments.
+This option is typically used when Vue is used with other libraries that rely on HTML comments.
 
 ## isCustomElement <Badge text="deprecated" type="warning"/>
 

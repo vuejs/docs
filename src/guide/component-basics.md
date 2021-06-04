@@ -406,10 +406,10 @@ That's all you need to know about dynamic components for now, but once you've fi
 
 ## DOM Template Parsing Caveats
 
-If you are writing your Vue templates directly in the DOM, Vue will have to retrieve the template string from the DOM. This leads to some caveats due to browser's native HTML parsing behavior.
+If you are writing your Vue templates directly in the DOM, Vue will have to retrieve the template string from the DOM. This leads to some caveats due to browsers' native HTML parsing behavior.
 
 :::tip
-It should be noted that the limitations discussed below only applies if you are writing your templates directly in the DOM. They do NOT apply if you are using string templates from the following sources:
+It should be noted that the limitations discussed below only apply if you are writing your templates directly in the DOM. They do NOT apply if you are using string templates from the following sources:
 
 - String templates (e.g. `template: '...'`)
 - [Single-file (`.vue`) components](single-file-component.html)
