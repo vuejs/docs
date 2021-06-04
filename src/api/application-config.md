@@ -176,8 +176,6 @@ Setting the value to `'preserve'` will disable (2) and (3).
 
 - **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
 
-- **Restrictions:** This option is only available in the full build, with in-browser template compilation.
-
 - **Usage:**
 
 ```js
