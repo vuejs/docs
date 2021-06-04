@@ -257,14 +257,14 @@ Features that start with `COMPILER_` are compiler-specific: if you are using the
 
 > Should be fixed upfront or will likely lead to errors
 
-| ID                                    | Type | Description                                                         | Docs                                                                                           |
-| ------------------------------------- | ---- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| GLOBAL_MOUNT_CONTAINER                | ⨂    | Mounted application does not replace the element it's mounted to    | [link](/guide/migration/mount-changes.html)                                                    |
-| CONFIG_DEVTOOLS                       | ⨂    | production devtools is now a build-time flag                        | [link](https://github.com/vuejs/vue-next/tree/master/packages/vue#bundler-build-feature-flags) |
-| COMPILER_V_IF_V_FOR_PRECEDENCE        | ⨂    | v-if and v-for precedence when used on the same element has changed | [link](/guide/migration/v-if-v-for.html)                                                       |
-| COMPILER_V_IF_SAME_KEY                | ⨂    | v-if branches can no longer have the same key                       | [link](/guide/migration/key-attribute.html#on-conditional-branches)                            |
-| COMPILER_V_FOR_TEMPLATE_KEY_PLACEMENT | ⨂    | `<template v-for>` key should now be placed on `<template>`         | [link](/guide/migration/key-attribute.html#with-template-v-for)                                |
-| COMPILER_SFC_FUNCTIONAL               | ⨂    | `<template functional>` is no longer supported in SFCs              | [link](/guide/migration/functional-components.html#single-file-components-sfcs)                |  |  |
+| ID                                    | Type | Description                                                             | Docs                                                                                           |
+| ------------------------------------- | ---- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| GLOBAL_MOUNT_CONTAINER                | ⨂    | Mounted application does not replace the element it's mounted to        | [link](/guide/migration/mount-changes.html)                                                    |
+| CONFIG_DEVTOOLS                       | ⨂    | production devtools is now a build-time flag                            | [link](https://github.com/vuejs/vue-next/tree/master/packages/vue#bundler-build-feature-flags) |
+| COMPILER_V_IF_V_FOR_PRECEDENCE        | ⨂    | `v-if` and `v-for` precedence when used on the same element has changed | [link](/guide/migration/v-if-v-for.html)                                                       |
+| COMPILER_V_IF_SAME_KEY                | ⨂    | `v-if` branches can no longer have the same key                         | [link](/guide/migration/key-attribute.html#on-conditional-branches)                            |
+| COMPILER_V_FOR_TEMPLATE_KEY_PLACEMENT | ⨂    | `<template v-for>` key should now be placed on `<template>`             | [link](/guide/migration/key-attribute.html#with-template-v-for)                                |
+| COMPILER_SFC_FUNCTIONAL               | ⨂    | `<template functional>` is no longer supported in SFCs                  | [link](/guide/migration/functional-components.html#single-file-components-sfcs)                |  |  |
 
 ### Partially Compatible with Caveats
 
