@@ -141,9 +141,9 @@ Using `provide` (discussed [below](#provide-inject)) should also be considered a
 
 [Migration build flag: `GLOBAL_PROTOTYPE`](migration-build.html#compat-configuration)
 
-### `Vue.extend` Replaced by `defineComponent`
+### `Vue.extend` Removed
 
-In Vue 2.x, `Vue.extend` was used to create a "subclass" of the base Vue constructor with the argument that should be an object containing component options. Since in Vue 3.x we don't have a base constructor anymore, this functionality can be replaced with `defineComponent`
+In Vue 2.x, `Vue.extend` was used to create a "subclass" of the base Vue constructor with the argument that should be an object containing component options. In Vue 3.x, we don't have the concept of component constructors anymore. Mounting a component should always use the `createApp` global API:
 
 ```js
 // before - Vue 2
@@ -165,9 +165,7 @@ new Profile().$mount('#mount-point')
 
 ```js
 // after - Vue 3
-import { defineComponent } from 'vue'
-
-const Profile = defineComponent({
+const Profile = {
   template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
   data() {
     return {
@@ -176,8 +174,20 @@ const Profile = defineComponent({
       alias: 'Heisenberg'
     }
   }
-})
+}
+
+Vue.createApp(Profile).mount('#mount-point')
 ```
+
+#### Type Inference
+
+In Vue 2, `Vue.extend` was also used for providing TypeScript type inference for the component options. In Vue 3, the `defineComponent` global API can be used in place of `Vue.extend` for the same purpose.
+
+Note that although the return type of `defineComponent` is a constructor-like type, it is only used for TSX inference. At runtime `defineComponent` is largely a noop and will return the options object as-is.
+
+#### Component Inheritance
+
+In Vue 3, we strongly recommend favoring composition via [Composition API](/api/composition-api.html) over inheritance and mixins. If for some reason you still need component inheritance, you can use the [`extends` option](/api/options-composition.html#extends) instead of `Vue.extend`.
 
 [Migration build flag: `GLOBAL_EXTEND`](migration-build.html#compat-configuration)
 
