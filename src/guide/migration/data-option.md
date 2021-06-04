@@ -94,9 +94,9 @@ In Vue 2.x, the resulting `$data` is:
 
 ```json
 {
-  user: {
-    id: 2,
-    name: 'Jack'
+  "user": {
+    "id": 2,
+    "name": "Jack"
   }
 }
 ```
@@ -105,8 +105,8 @@ In 3.0, the result will be:
 
 ```json
 {
-  user: {
-    id: 2
+  "user": {
+    "id": 2
   }
 }
 ```
