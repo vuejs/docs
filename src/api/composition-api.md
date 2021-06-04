@@ -4,32 +4,51 @@
 
 ## `setup`
 
-A component option that is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's
+A component option that is executed **before** the component is created, once the `props` are resolved. It serves as the entry point for composition APIs.
 
 - **Arguments:**
 
   - `{Data} props`
   - `{SetupContext} context`
 
+  Similar to `this.$props` when using Options API, the `props` object will only contain explicitly declared props. Also, all declared prop keys will be present on the `props` object, regardless of whether it was passed by the parent component or not. Absent optional props will have a value of `undefined`.
+
+  If you need to check the absence of an optional prop, you can give it a Symbol as its default value:
+
+  ```js
+  const isAbsent = Symbol()
+
+  export default {
+    props: {
+      foo: { default: isAbsent }
+    },
+    setup(props) {
+      if (props.foo === isAbsent) {
+        // foo was not provided.
+      }
+    }
+  }
+  ```
+
 - **Typing**:
 
-```ts
-interface Data {
-  [key: string]: unknown
-}
+  ```ts
+  interface Data {
+    [key: string]: unknown
+  }
 
-interface SetupContext {
-  attrs: Data
-  slots: Slots
-  emit: (event: string, ...args: unknown[]) => void
-}
+  interface SetupContext {
+    attrs: Data
+    slots: Slots
+    emit: (event: string, ...args: unknown[]) => void
+  }
 
-function setup(props: Data, context: SetupContext): Data
-```
+  function setup(props: Data, context: SetupContext): Data
+  ```
 
-::: tip
-To get type inference for the arguments passed to `setup()`, the use of [defineComponent](global-api.html#definecomponent) is needed.
-:::
+  ::: tip
+  To get type inference for the arguments passed to `setup()`, the use of [defineComponent](global-api.html#definecomponent) is needed.
+  :::
 
 - **Example**
 
@@ -129,40 +148,40 @@ The component instance context is also set during the synchronous execution of l
 
 - **Typing**:
 
-```ts
-interface InjectionKey<T> extends Symbol {}
+  ```ts
+  interface InjectionKey<T> extends Symbol {}
 
-function provide<T>(key: InjectionKey<T> | string, value: T): void
+  function provide<T>(key: InjectionKey<T> | string, value: T): void
 
-// without default value
-function inject<T>(key: InjectionKey<T> | string): T | undefined
-// with default value
-function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
-// with factory
-function inject<T>(
-  key: InjectionKey<T> | string,
-  defaultValue: () => T,
-  treatDefaultAsFactory: true
-): T
-```
+  // without default value
+  function inject<T>(key: InjectionKey<T> | string): T | undefined
+  // with default value
+  function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
+  // with factory
+  function inject<T>(
+    key: InjectionKey<T> | string,
+    defaultValue: () => T,
+    treatDefaultAsFactory: true
+  ): T
+  ```
 
-Vue provides an `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
+  Vue provides an `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
 
-```ts
-import { InjectionKey, provide, inject } from 'vue'
+  ```ts
+  import { InjectionKey, provide, inject } from 'vue'
 
-const key: InjectionKey<string> = Symbol()
+  const key: InjectionKey<string> = Symbol()
 
-provide(key, 'foo') // providing non-string value will result in error
+  provide(key, 'foo') // providing non-string value will result in error
 
-const foo = inject(key) // type of foo: string | undefined
-```
+  const foo = inject(key) // type of foo: string | undefined
+  ```
 
-If using string keys or non-typed symbols, the type of the injected value will need to be explicitly declared:
+  If using string keys or non-typed symbols, the type of the injected value will need to be explicitly declared:
 
-```ts
-const foo = inject<string>('foo') // string | undefined
-```
+  ```ts
+  const foo = inject<string>('foo') // string | undefined
+  ```
 
 - **See also**:
   - [Provide / Inject](../guide/component-provide-inject.html)
@@ -170,7 +189,11 @@ const foo = inject<string>('foo') // string | undefined
 
 ## `getCurrentInstance`
 
-`getCurrentInstance` enables access to an internal component instance useful for advanced usages or for library creators.
+`getCurrentInstance` enables access to an internal component instance.
+
+:::warning
+`getCurrentInstance` is only exposed for advanced use cases, typically in libraries. Usage of `getCurrentInstance` is strongly discouraged in application code. Do **NOT** use it as an escape hatch to get the equivalent of `this` in Composition API.
+:::
 
 ```ts
 import { getCurrentInstance } from 'vue'

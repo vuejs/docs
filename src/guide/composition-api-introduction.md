@@ -73,7 +73,7 @@ Now that we know the **why** we can get to the **how**. To start working with th
 
 <VideoLesson href="https://www.vuemastery.com/courses/vue-3-essentials/setup-and-reactive-references" title="Learn how setup works with Vue Mastery">Watch a free video on setup on Vue Mastery</VideoLesson>
 
-The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
+The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition APIs.
 
 ::: warning
 You should avoid using `this` inside `setup` as it won't refer to the component instance. `setup` is called before `data` properties, `computed` properties or `methods` are resolved, so they won't be available within `setup`.
