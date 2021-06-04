@@ -24,13 +24,13 @@ While we've tried hard to make the migration build mimic Vue 2 behavior as much 
 
 ### Expectations
 
-Please note that the migration build aims to cover only publicly documented Vue 2 APIs and behavior. If your application fails to run under migration build due to reliance on undocumented behavior, it is unlikely for us to tweak the migration build to cater to your specific case. Consider refactoring to remove reliance on the behavior in question instead.
+Please note that the migration build aims to cover only publicly documented Vue 2 APIs and behavior. If your application fails to run under the migration build due to reliance on undocumented behavior, it is unlikely that we'll tweak the migration build to cater to your specific case. Consider refactoring to remove reliance on the behavior in question instead.
 
-A word of caution: if your application is large and complex, migration will likely be a challenge even with the migration build. If your app is unfortunately not suitable for upgrade, do note that we are planning to backport Composition API and some other Vue 3 features to the 2.7 (estimated late Q3 2021).
+A word of caution: if your application is large and complex, migration will likely be a challenge even with the migration build. If your app is unfortunately not suitable for upgrade, do note that we are planning to backport Composition API and some other Vue 3 features to the 2.7 release (estimated late Q3 2021).
 
-If you do get your app running on migration build, you **can** ship it to production before the migration is complete. Although there is a small performance/size overhead, it should not noticeably affect production UX. You may have to do so when you have dependencies that relies on Vue 2 behavior, and cannot be upgraded/replaced.
+If you do get your app running on the migration build, you **can** ship it to production before the migration is complete. Although there is a small performance/size overhead, it should not noticeably affect production UX. You may have to do so when you have dependencies that rely on Vue 2 behavior, and cannot be upgraded/replaced.
 
-The migration build will be provided starting with 3.1, and will continue to be published alongside the 3.2 release line. We do plan to eventually stop publishing migration build in a future minor version (no earlier than EOY 2021), so you should still aim to switch to the standard build before then.
+The migration build will be provided starting with 3.1, and will continue to be published alongside the 3.2 release line. We do plan to eventually stop publishing the migration build in a future minor version (no earlier than EOY 2021), so you should still aim to switch to the standard build before then.
 
 ## Upgrade Workflow
 
@@ -44,26 +44,26 @@ The following workflow walks through the steps of migrating an actual Vue 2 app 
 
 1. Upgrade tooling if applicable.
 
-- If using custom webpack setup: Upgrade `vue-loader` to `^16.0.0`.
-- If using `vue-cli`: upgrade to the latest `@vue/cli-service` with `vue upgrade`
-- (Alternative) migrate to [Vite](https://vitejs.dev/) + [vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2). [[Example commit](https://github.com/vuejs/vue-hackernews-2.0/commit/565b948919eb58f22a32afca7e321b490cb3b074)]
+   - If using custom webpack setup: Upgrade `vue-loader` to `^16.0.0`.
+   - If using `vue-cli`: upgrade to the latest `@vue/cli-service` with `vue upgrade`
+   - (Alternative) migrate to [Vite](https://vitejs.dev/) + [vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2). [[Example commit](https://github.com/vuejs/vue-hackernews-2.0/commit/565b948919eb58f22a32afca7e321b490cb3b074)]
 
 2. In `package.json`, update `vue` to 3.1, install `@vue/compat` of the same version, and replace `vue-template-compiler` (if present) with `@vue/compiler-sfc`:
 
-```diff
-"dependencies": {
--  "vue": "^2.6.12",
-+  "vue": "^3.1.0",
-+  "@vue/compat": "^3.1.0"
-  ...
-},
-"devDependencies": {
--  "vue-template-compiler": "^2.6.12"
-+  "@vue/compiler-sfc": "^3.1.0"
-}
-```
+   ```diff
+   "dependencies": {
+   -  "vue": "^2.6.12",
+   +  "vue": "^3.1.0",
+   +  "@vue/compat": "^3.1.0"
+      ...
+   },
+   "devDependencies": {
+   -  "vue-template-compiler": "^2.6.12"
+   +  "@vue/compiler-sfc": "^3.1.0"
+   }
+   ```
 
-[Example commit](https://github.com/vuejs/vue-hackernews-2.0/commit/14f6f1879b43f8610add60342661bf915f5c4b20)
+   [Example commit](https://github.com/vuejs/vue-hackernews-2.0/commit/14f6f1879b43f8610add60342661bf915f5c4b20)
 
 3. In the build setup, alias `vue` to `@vue/compat` and enable compat mode via Vue compiler options.
 
@@ -164,9 +164,9 @@ The following workflow walks through the steps of migrating an actual Vue 2 app 
 
    - You can filter for specific warnings in the browser console. It's a good idea to use the filter and focus on fixing one item at a time. You can also use negated filters like `-GLOBAL_MOUNT`.
 
-   - You can suppress specific deperecations via [compat configuration](#compat-configuration).
+   - You can suppress specific deprecations via [compat configuration](#compat-configuration).
 
-   - Some warnings maybe caused by a dependency that you use (e.g. `vue-router`). You can check this from the warning's component trace or stack trace (expanded on click). Focus on fixing the warnings that originates from your own source code first.
+   - Some warnings may be caused by a dependency that you use (e.g. `vue-router`). You can check this from the warning's component trace or stack trace (expanded on click). Focus on fixing the warnings that originate from your own source code first.
 
    - If you are using `vue-router`, note `<transition>` and `<keep-alive>` will not work with `<router-view>` until you upgrade to `vue-router` v4.
 
@@ -228,7 +228,7 @@ configureCompat({
 
 ### Per-Component Config
 
-A component can use the `compatConfig` option which expects the same options with the global `configureCompat` method:
+A component can use the `compatConfig` option, which expects the same options as the global `configureCompat` method:
 
 ```js
 export default {
