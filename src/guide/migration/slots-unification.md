@@ -41,14 +41,10 @@ In 3.x, slots are defined as children of the current node as an object:
 
 ```js
 // 3.x Syntax
-h(
-  LayoutComponent,
-  {},
-  {
-    header: () => h('div', this.header),
-    content: () => h('div', this.content)
-  }
-)
+h(LayoutComponent, {}, {
+  header: () => h('div', this.header),
+  content: () => h('div', this.content)
+})
 ```
 
 And when you need to reference scoped slots programmatically, they are now unified into the `$slots` option.

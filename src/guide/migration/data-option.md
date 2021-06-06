@@ -64,7 +64,7 @@ Using the example above, there would only be one possible implementation of the 
 
 ## Mixin Merge Behavior Change
 
-In addition, when `data()` from a component and its mixins or extends base are merged, the merge is now performed _shallowly_:
+In addition, when `data()` from a component and its mixins or extends base are merged, the merge is now performed *shallowly*:
 
 ```js
 const Mixin = {

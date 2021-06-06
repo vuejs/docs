@@ -47,7 +47,11 @@ Or, for those who preferred the `<template>` in a single-file component:
 ```vue
 <!-- Vue 2 Functional Component Example with <template> -->
 <template functional>
-  <component :is="`h${props.level}`" v-bind="attrs" v-on="listeners" />
+  <component
+    :is="`h${props.level}`"
+    v-bind="attrs"
+    v-on="listeners"
+  />
 </template>
 
 <script>
@@ -89,7 +93,10 @@ Using our `<dynamic-heading>` example from before, here is how it would look now
 
 ```vue{1,3,4}
 <template>
-  <component v-bind:is="`h${$props.level}`" v-bind="$attrs" />
+  <component
+    v-bind:is="`h${$props.level}`"
+    v-bind="$attrs"
+  />
 </template>
 
 <script>

@@ -116,7 +116,7 @@ In Vue 3, the check of whether an element is a component or not has been moved t
 
 - If `config.isCustomElement` is assigned to when using a runtime-only build, a warning will be emitted instructing the user to pass the option in the build setup instead;
 - This will be a new top-level option in the Vue CLI config.
-  :::
+:::
 
 [Migration build flag: `CONFIG_IGNORED_ELEMENTS`](migration-build.html#compat-configuration)
 
@@ -278,7 +278,7 @@ import Bar from './Bar.vue'
 
 const createMyApp = options => {
   const app = createApp(options)
-  app.directive('focus' /* ... */)
+  app.directive('focus', /* ... */)
 
   return app
 }

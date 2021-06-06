@@ -20,7 +20,7 @@ import { inject } from 'vue'
 export default {
   props: {
     theme: {
-      default(props) {
+      default (props) {
         // `props` is the raw values passed to the component,
         // before any type / default coercions
         // can also use `inject` to access injected properties
