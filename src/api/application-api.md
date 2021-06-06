@@ -329,14 +329,14 @@ setTimeout(() => app.unmount(), 5000)
   export default {
     install(app) {
       const version = Number(app.version.split('.')[0])
-      
+
       if (version < 3) {
         console.warn('This plugin requires Vue 3')
       }
-      
+
       // ...
     }
   }
   ```
-  
+
 - **See also**: [Global API - version](/api/global-api.html#version)

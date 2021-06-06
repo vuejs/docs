@@ -96,7 +96,7 @@ Accepts three arguments: `type`, `props` and `children`
 
 - **Details:**
 
-  An HTML tag name, a component or an async component. Using function returning null would render a comment. This parameter is required
+  An HTML tag name, a component, an async component, or a functional component. Using function returning null would render a comment. This parameter is required
 
 #### props
 

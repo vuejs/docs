@@ -117,6 +117,9 @@ The component instance context is also set during the synchronous execution of l
   - `errorCaptured` -> `onErrorCaptured`
   - `renderTracked` -> `onRenderTracked`
   - `renderTriggered` -> `onRenderTriggered`
+  - `activated` -> `onActivated`
+  - `deactivated` -> `onDeactivated`
+
 
 - **See also**: [Composition API lifecycle hooks](../guide/composition-api-lifecycle-hooks.html)
 

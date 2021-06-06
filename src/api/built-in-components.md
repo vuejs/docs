@@ -14,7 +14,7 @@ const { KeepAlive, Teleport, Transition, TransitionGroup } = Vue
 import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 ```
 
-`<component>` and `<slot>` are component-like features of template syntax. They are not true components and they can't be imported like the components shown above. 
+`<component>` and `<slot>` are component-like features of template syntax. They are not true components and they can't be imported like the components shown above.
 
 ## component
 
@@ -45,13 +45,13 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   ```js
   const { Transition, TransitionGroup } = Vue
-  
+
   const Component = {
     components: {
       Transition,
       TransitionGroup
     },
-    
+
     template: `
       <component :is="isGroup ? 'TransitionGroup' : 'Transition'">
         ...
@@ -60,7 +60,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   }
   ```
 
-  Registration is not required if you pass the component itself to `is` rather than its name.  
+  Registration is not required if you pass the component itself to `is` rather than its name.
 
 - **See also:** [Dynamic Components](../guide/component-dynamic-async.html)
 
@@ -180,7 +180,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   When wrapped around a dynamic component, `<keep-alive>` caches the inactive component instances without destroying them. Similar to `<transition>`, `<keep-alive>` is an abstract component: it doesn't render a DOM element itself, and doesn't show up in the component parent chain.
 
-  When a component is toggled inside `<keep-alive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly.
+  When a component is toggled inside `<keep-alive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly, providing an alternative to `mounted` and `unmounted`, which are not called. (This applies to the direct child of `<keep-alive>` as well as to all of its descendants.)
 
   Primarily used to preserve component state or avoid re-rendering.
 
