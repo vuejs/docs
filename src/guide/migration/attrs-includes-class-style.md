@@ -60,6 +60,8 @@ when used like this:
 
 In components that use `inheritAttrs: false`, make sure that styling still works as intended. If you previously relied on the special behavior of `class` and `style`, some visuals might be broken as these attributes might now be applied to another element.
 
+[Migration build flag: `INSTANCE_ATTRS_CLASS_STYLE`](migration-build.html#compat-configuration)
+
 ## See also
 
 - [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md)

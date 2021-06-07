@@ -117,3 +117,4 @@ For more information on the usage of the new functional components and the chang
 
 - [Migration: Render Functions](/guide/migration/render-function-api.html)
 - [Guide: Render Functions](/guide/render-function.html)
+- [Migration build flag: `COMPONENT_FUNCTIONAL`](migration-build.html#compat-configuration)

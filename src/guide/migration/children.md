@@ -38,3 +38,7 @@ export default {
 ## 3.x Update
 
 In 3.x, the `$children` property is removed and no longer supported. Instead, if you need to access a child component instance, we recommend using [$refs](/guide/component-template-refs.html#template-refs).
+
+## Migration Strategy
+
+[Migration build flag: `INSTANCE_CHILDREN`](migration-build.html#compat-configuration)

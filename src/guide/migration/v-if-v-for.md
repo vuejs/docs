@@ -28,6 +28,8 @@ It is recommended to avoid using both on the same element due to the syntax ambi
 
 Rather than managing this at the template level, one method for accomplishing this is to create a computed property that filters out a list for the visible elements.
 
+[Migration build flag: `COMPILER_V_IF_V_FOR_PRECEDENCE`](migration-build.html#compat-configuration)
+
 ## See also
 
 - [List Rendering - Displaying Filtered/Sorted Results](/guide/list.html#displaying-filtered-sorted-results)

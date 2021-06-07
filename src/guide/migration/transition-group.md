@@ -35,6 +35,10 @@ In Vue 3, we have [fragment support](/guide/migration/fragments.html), so compon
 </transition-group>
 ```
 
+## Migration Strategy
+
+[Migration build flag: `TRANSITION_GROUP_ROOT`](migration-build.html#compat-configuration)
+
 ## See also
 
 - [Some transition classes got a rename](/guide/migration/transition.html)

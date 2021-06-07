@@ -65,6 +65,8 @@ If this component received an `id` attribute and a `v-on:close` listener, the `$
 
 Remove all usages of `$listeners`.
 
+[Migration build flag: `INSTANCE_LISTENERS`](migration-build.html#compat-configuration)
+
 ## See also
 
 - [Relevant RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md)

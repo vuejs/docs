@@ -79,3 +79,5 @@ export default {
 This provides the same event emitter API as in Vue 2.
 
 These methods may also be supported in a future compatibility build of Vue 3.
+
+[Migration build flag: `INSTANCE_EVENT_EMITTER`](migration-build.html#compat-configuration)
