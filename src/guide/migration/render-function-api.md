@@ -178,6 +178,8 @@ For more information, see [The Render Function Api Change RFC](https://github.co
 
 ## Migration Strategy
 
+[Migration build flag: `RENDER_FUNCTION`](migration-build.html#compat-configuration)
+
 ### Library Authors
 
 `h` being globally imported means that any library that contains Vue components will include `import { h } from 'vue'` somewhere. As a result, this creates a bit of overhead since it requires library authors to properly configure the externalization of Vue in their build setup:

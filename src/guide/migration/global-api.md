@@ -85,6 +85,7 @@ An app instance exposes a subset of the Vue 2 global APIs. The rule of thumb is 
 | Vue.mixin                  | app.mixin                                                                                       |
 | Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                               |
 | Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))   |
+| Vue.extend                 | _removed_ ([see below](#vue-extend-replaced-by-definecomponent))                                |
 
 All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./global-api-treeshaking.html).
 
@@ -93,6 +94,8 @@ All other global APIs that do not globally mutate behavior are now named exports
 In Vue 3.x, the "use production build" tip will only show up when using the "dev + full build" (the build that includes the runtime compiler and has warnings).
 
 For ES modules builds, since they are used with bundlers, and in most cases a CLI or boilerplate would have configured the production env properly, this tip will no longer show up.
+
+[Migration build flag: `CONFIG_PRODUCTION_TIP`](migration-build.html#compat-configuration)
 
 ### `config.ignoredElements` Is Now `config.isCustomElement`
 
@@ -115,6 +118,8 @@ In Vue 3, the check of whether an element is a component or not has been moved t
 - This will be a new top-level option in the Vue CLI config.
 :::
 
+[Migration build flag: `CONFIG_IGNORED_ELEMENTS`](migration-build.html#compat-configuration)
+
 ### `Vue.prototype` Replaced by `config.globalProperties`
 
 In Vue 2, `Vue.prototype` was commonly used to add properties that would be accessible in all components.
@@ -133,6 +138,58 @@ app.config.globalProperties.$http = () => {}
 ```
 
 Using `provide` (discussed [below](#provide-inject)) should also be considered as an alternative to `globalProperties`.
+
+[Migration build flag: `GLOBAL_PROTOTYPE`](migration-build.html#compat-configuration)
+
+### `Vue.extend` Removed
+
+In Vue 2.x, `Vue.extend` was used to create a "subclass" of the base Vue constructor with the argument that should be an object containing component options. In Vue 3.x, we don't have the concept of component constructors anymore. Mounting a component should always use the `createApp` global API:
+
+```js
+// before - Vue 2
+
+// create constructor
+const Profile = Vue.extend({
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data() {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+})
+// create an instance of Profile and mount it on an element
+new Profile().$mount('#mount-point')
+```
+
+```js
+// after - Vue 3
+const Profile = {
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data() {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+}
+
+Vue.createApp(Profile).mount('#mount-point')
+```
+
+#### Type Inference
+
+In Vue 2, `Vue.extend` was also used for providing TypeScript type inference for the component options. In Vue 3, the `defineComponent` global API can be used in place of `Vue.extend` for the same purpose.
+
+Note that although the return type of `defineComponent` is a constructor-like type, it is only used for TSX inference. At runtime `defineComponent` is largely a noop and will return the options object as-is.
+
+#### Component Inheritance
+
+In Vue 3, we strongly recommend favoring composition via [Composition API](/api/composition-api.html) over inheritance and mixins. If for some reason you still need component inheritance, you can use the [`extends` option](/api/options-composition.html#extends) instead of `Vue.extend`.
+
+[Migration build flag: `GLOBAL_EXTEND`](migration-build.html#compat-configuration)
 
 ### A Note for Plugin Authors
 
@@ -186,6 +243,8 @@ app.directive('focus', {
 // and “focus” directive without polluting the global environment
 app.mount('#app')
 ```
+
+[Migration build flag: `GLOBAL_MOUNT`](migration-build.html#compat-configuration)
 
 ## Provide / Inject
 

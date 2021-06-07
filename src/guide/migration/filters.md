@@ -73,6 +73,11 @@ Using the example above, here is one example of how it could be implemented.
 
 Instead of using filters, we recommend replacing them with computed properties or methods.
 
+[Migration build flags:](migration-build.html#compat-configuration)
+
+- `FILTERS`
+- `COMPILER_FILTERS`
+
 ### Global Filters
 
 If you are using filters that were globally registered and then used throughout your app, it's likely not convenient to replace them with computed properties or methods in each individual component.

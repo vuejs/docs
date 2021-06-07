@@ -96,6 +96,8 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
     document.createElement('button', { is: 'plastic-button' })
     ```
 
+[Migration build flag: `COMPILER_IS_ON_ELEMENT`](migration-build.html#compat-configuration)
+
 ## `v-is` for In-DOM Template Parsing Workarounds
 
 > Note: this section only affects cases where Vue templates are directly written in the page's HTML.

@@ -137,3 +137,8 @@ In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
     </tr>
   </tbody>
 </table>
+
+[Migration build flags:](migration-build.html#compat-configuration)
+
+- `ATTR_FALSE_VALUE`
+- `ATTR_ENUMERATED_COERSION`
