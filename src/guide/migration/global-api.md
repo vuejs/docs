@@ -79,7 +79,7 @@ An app instance exposes a subset of the Vue 2 global APIs. The rule of thumb is 
 | -------------------------- | ----------------------------------------------------------------------------------------------- |
 | Vue.config                 | app.config                                                                                      |
 | Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                          |
-| Vue.config.ignoredElements | app.config.isCustomElement ([see below](#config-ignoredelements-is-now-config-iscustomelement)) |
+| Vue.config.ignoredElements | app.config.compilerOptions.isCustomElement ([see below](#config-ignoredelements-is-now-config-compileroptions-iscustomelement)) |
 | Vue.component              | app.component                                                                                   |
 | Vue.directive              | app.directive                                                                                   |
 | Vue.mixin                  | app.mixin                                                                                       |
@@ -97,7 +97,7 @@ For ES modules builds, since they are used with bundlers, and in most cases a CL
 
 [Migration build flag: `CONFIG_PRODUCTION_TIP`](migration-build.html#compat-configuration)
 
-### `config.ignoredElements` Is Now `config.isCustomElement`
+### `config.ignoredElements` Is Now `config.compilerOptions.isCustomElement`
 
 This config option was introduced with the intention to support native custom elements, so the renaming better conveys what it does. The new option also expects a function which provides more flexibility than the old string / RegExp approach:
 
@@ -107,14 +107,14 @@ Vue.config.ignoredElements = ['my-el', /^ion-/]
 
 // after
 const app = createApp({})
-app.config.isCustomElement = tag => tag.startsWith('ion-')
+app.config.compilerOptions.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
 ::: tip Important
 
 In Vue 3, the check of whether an element is a component or not has been moved to the template compilation phase, therefore this config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
 
-- If `config.isCustomElement` is assigned to when using a runtime-only build, a warning will be emitted instructing the user to pass the option in the build setup instead;
+- If `config.compilerOptions.isCustomElement` is assigned to when using a runtime-only build, a warning will be emitted instructing the user to pass the option in the build setup instead;
 - This will be a new top-level option in the Vue CLI config.
 :::
 
@@ -278,7 +278,7 @@ import Bar from './Bar.vue'
 
 const createMyApp = options => {
   const app = createApp(options)
-  app.directive('focus', /* ... */)
+  app.directive('focus' /* ... */)
 
   return app
 }

@@ -9,7 +9,7 @@ badges:
 
 - **BREAKING:** The checks to determine whether tags should be treated as custom elements are now performed during template compilation, and should be configured via compiler options instead of runtime config.
 - **BREAKING:** Special `is` prop usage is restricted to the reserved `<component>` tag only.
-- **NEW:** There is new `v-is` directive to support 2.x use cases where `is` was used on native elements to work around native HTML parsing restrictions.
+- **NEW:** To support 2.x use cases where `is` was used on native elements to work around native HTML parsing restrictions, prefix the value with `vue:` to resolve it as a Vue component.
 
 ## Autonomous Custom Elements
 
@@ -83,7 +83,7 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
   - 2.x behavior: renders the `bar` component.
   - 3.x behavior: renders the `foo` component and passing the `is` prop.
 
-- When used on plain elements, it will be passed to the `createElement` call as the `is` option, and also rendered as a native attribute. This supports the usage of customized built-in elements.
+- When used on plain elements, it will be passed to the `createElement` call as the `is` prop, and also rendered as a native attribute. This supports the usage of customized built-in elements.
 
   ```html
   <button is="plastic-button">Click Me!</button>
@@ -98,7 +98,7 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
 
 [Migration build flag: `COMPILER_IS_ON_ELEMENT`](migration-build.html#compat-configuration)
 
-## `v-is` for In-DOM Template Parsing Workarounds
+## `vue:` Prefix for In-DOM Template Parsing Workarounds
 
 > Note: this section only affects cases where Vue templates are directly written in the page's HTML.
 > When using in-DOM templates, the template is subject to native HTML parsing rules. Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
@@ -115,29 +115,16 @@ In Vue 2 we recommended working around with these restrictions by using the `is`
 
 ### 3.x Syntax
 
-With the behavior change of `is`, we introduce a new directive `v-is` for working around these cases:
+With the behavior change of `is`, a `vue:` prefix is now required to resolve the element as a Vue component:
 
 ```html
 <table>
-  <tr v-is="'blog-post-row'"></tr>
+  <tr is="vue:blog-post-row"></tr>
 </table>
 ```
-
-:::warning
-`v-is` functions like a dynamic 2.x `:is` binding - so to render a component by its registered name, its value should be a JavaScript string literal:
-
-```html
-<!-- Incorrect, nothing will be rendered -->
-<tr v-is="blog-post-row"></tr>
-
-<!-- Correct -->
-<tr v-is="'blog-post-row'"></tr>
-```
-
-:::
 
 ## Migration Strategy
 
 - Replace `config.ignoredElements` with either `vue-loader`'s `compilerOptions` (with the build step) or `app.config.isCustomElement` (with on-the-fly template compilation)
 
-- Change all non-`<component>` tags with `is` usage to `<component is="...">` (for SFC templates) or `v-is` (for in-DOM templates).
+- Change all non-`<component>` tags with `is` usage to `<component is="...">` (for SFC templates) or prefix it with `vue:` (for in-DOM templates).

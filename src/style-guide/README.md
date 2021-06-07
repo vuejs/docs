@@ -1268,8 +1268,8 @@ This is the default order we recommend for component options. They're split into
 1. **Global Awareness** (requires knowledge beyond the component)
     - `name`
 
-2. **Template Modifiers** (changes the way templates are compiled)
-    - `delimiters`
+2. **Template Compiler Options** (changes the way templates are compiled)
+    - `compilerOptions`
 
 3. **Template Dependencies** (assets used in the template)
     - `components`
