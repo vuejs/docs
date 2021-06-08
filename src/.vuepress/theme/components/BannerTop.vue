@@ -37,10 +37,7 @@ $topBannerHeightMobile ?= 3.125rem
 // Banner
 #vs
   align-items: center
-  background-color: #1E204D
-  background-position: top right
-  background-repeat: no-repeat
-  background-size: cover
+  background-color: #202A5A
   box-sizing: border-box
   color: #fff
   display: none
@@ -52,15 +49,13 @@ $topBannerHeightMobile ?= 3.125rem
   right: 0
   top: 0
   z-index: 100
-  background-image: linear-gradient(90deg, #D2ECFF 0%, #4A96E1 100%)
   height: $topBannerHeightMobile
   @media (min-width: 680px)
     height: $topBannerHeight
   &:hover
     .vs-core
       .vs-button
-        .vs-button-inside
-          background: linear-gradient(#ed81eb, #d457d0)
+        background: #f22606
 
   .vs-iso
       display: none
@@ -98,7 +93,7 @@ $topBannerHeightMobile ?= 3.125rem
           height: 74px
 
     .vs-slogan
-      color: #000
+      color: #FFF
       font-weight: bold
       font-size: 14px
       margin-right: 26px
