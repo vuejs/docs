@@ -101,7 +101,7 @@ const createApp = require(appPath).default
 server.get('*', async (req, res) => {
   const { app, router } = createApp()
 
-  router.push(req.url)
+  await router.push(req.url)
   await router.isReady()
 
   const appContent = await renderToString(app)
