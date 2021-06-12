@@ -316,7 +316,7 @@ Dalam aplikasi berskala besar, sangat penting untuk membagi seluruh aplikasi men
 
 Anda mungkin telah menyadari bahwa komponen Vue sangat mirip dengan **ELemen Kustom**, yang mana adalah bagian dari [Spesifikasi _Web Components_](https://www.w3.org/wiki/WebComponents/). Hal tersebut karena sintaks komponen Vue sangatlah fleksibel. Sebagai contoh, komponen Vue menerapkan [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) dan `is` merupakan atribut spesial. Bagaimanapun, terdapat beberapa perbedaan:
 
-1. Spesifikasi _Web Components_ sudah final tetapi belum tersedia di semua peramban (_browser_) secara _native_. Safari 10.1+, Chrome 54+ dan Firefox 63+ sudah mendukung _web components_ secara _native_. Jika dibandingkan, komponen Vue berjalan secara konsisten di semua peramban (_browser_) yang didukung (kecuali Internet Explorer 11 - cek detailnya di [sini](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0038-vue3-ie11-support.md). Ketika dibutuhkan, komponen Vue juga dapat dibungkus ke dalam kustom elemen _native_.
+1. Spesifikasi _Web Components_ sudah final tetapi belum tersedia di semua peramban (_browser_) secara _native_. Safari 10.1+, Chrome 54+ dan Firefox 63+ sudah mendukung _web components_ secara _native_. Jika dibandingkan, komponen Vue berjalan secara konsisten di semua peramban (_browser_) yang didukung (kecuali Internet Explorer 11 - cek detailnya [disini](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0038-vue3-ie11-support.md). Ketika dibutuhkan, komponen Vue juga dapat dibungkus ke dalam kustom elemen _native_.
 
 [//]: # 'TODO: tambahkan pranala ke _build_ versi kompatibilitas'
 
