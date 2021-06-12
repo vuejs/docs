@@ -117,3 +117,4 @@ Anda dapat memperoleh informasi lebih lanjut mengenai penggunaan komponen fungsi
 
 - [Migrasi: Fungsi Render](/guide/migration/render-function-api.html)
 - [Panduan: Fungsi Render](/guide/render-function.html)
+- [_Migration build flag_: `COMPONENT_FUNCTIONAL`](migration-build.html#compat-configuration)

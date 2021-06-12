@@ -7,7 +7,7 @@ badges:
 
 ## Gambaran Umum
 
-_Method_ `$on`, `$off` dan `$once` dihapus. Objek aplikasi tidak perlu lagi untuk mengimplementasikan antarmuka _event emitter_. 
+_Method_ `$on`, `$off` dan `$once` dihapus. Objek aplikasi tidak perlu lagi untuk mengimplementasikan antarmuka _event emitter_.
 
 ## Sintaks Vue versi 2.x
 
@@ -79,3 +79,6 @@ export default {
 Cara tersebut menghasilkan API _event emitter_ yang sama seperti pada Vue 2.
 
 Cara tersebut mungkin akan didukung juga pada _build_ kompatibel dari Vue 3.
+
+[_Migration build flag_: `INSTANCE_EVENT_EMITTER`](migration-build.html#compat-configuration)
+

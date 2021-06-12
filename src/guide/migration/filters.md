@@ -73,7 +73,12 @@ Berdasarkan contoh di atas, berikut merupakan sebuah contoh bagaimana cara terse
 
 Dibandingkan menggunakan _filter_, kami menyarankan Anda untuk mengganti _filter_ dengan properti _computed_ atau _method_.
 
-### Filter Global
+[Migration build flags:](migration-build.html#compat-configuration)
+
+- `FILTERS`
+- `COMPILER_FILTERS`
+
+### Global Filters
 
 Apabila Anda menggunakan _filter_ yang didaftarkan secara global dan menggunakan _filter_ tersebut pada aplikasi Anda, tentunya mengganti _filter_ tersebut dengan properti _computed_ atau _method_ pada setiap komponen merupakan hal yang tidak praktis.
 

@@ -1,5 +1,7 @@
 # Event Handling
 
+<VideoLesson href="https://vueschool.io/lessons/user-events-in-vue-3?friend=vuejs" title="Learn how to handle events on Vue School">Learn how to handle events in a free Vue School lesson</VideoLesson>
+
 ## Listening to Events
 
 We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="methodName"` or with the shortcut, `@click="methodName"`
@@ -25,7 +27,7 @@ Vue.createApp({
 
 Result:
 
-<common-codepen-snippet title="Event handling: basic" slug="xxGadPZ" tab="html,result" :preview="false" />
+<common-codepen-snippet title="Event handling: basic" slug="xxGadPZ" tab="result" :preview="false" />
 
 ## Method Event Handlers
 
@@ -62,7 +64,7 @@ Vue.createApp({
 
 Result:
 
-<common-codepen-snippet title="Event handling: with a method" slug="jOPvmaX" tab="js,result" :preview="false" />
+<common-codepen-snippet title="Event handling: with a method" slug="jOPvmaX" tab="result" :preview="false" />
 
 ## Methods in Inline Handlers
 
@@ -87,7 +89,7 @@ Vue.createApp({
 
 Result:
 
-<common-codepen-snippet title="Event handling: with an inline handler" slug="WNvgjda" tab="html,result" :preview="false" />
+<common-codepen-snippet title="Event handling: with an inline handler" slug="WNvgjda" tab="result" :preview="false" />
 
 Sometimes we also need to access the original DOM event in an inline statement handler. You can pass it into a method using the special `$event` variable:
 

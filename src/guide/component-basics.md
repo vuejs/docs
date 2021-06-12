@@ -54,7 +54,7 @@ Components can be reused as many times as you want:
 </div>
 ```
 
-<common-codepen-snippet title="Component basics: reusing components" slug="rNVqYvM" tab="html,result" :preview="false" />
+<common-codepen-snippet title="Component basics: reusing components" slug="rNVqYvM" tab="result" :preview="false" />
 
 Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
 
@@ -111,7 +111,7 @@ Once a prop is registered, you can pass data to it as a custom attribute, like t
 </div>
 ```
 
-<common-codepen-snippet title="Component basics: passing props" slug="PoqyOaX" tab="html,result" :preview="false" />
+<common-codepen-snippet title="Component basics: passing props" slug="PoqyOaX" tab="result" :preview="false" />
 
 In a typical app, however, you'll likely have an array of posts in `data`:
 
@@ -227,7 +227,7 @@ Then the child component can emit an event on itself by calling the built-in [**
 
 Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update the value of `postFontSize`.
 
-<common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="html,result" :preview="false" />
+<common-codepen-snippet title="Component basics: emitting events" slug="KKpGyrp" tab="result" :preview="false" />
 
 We can list emitted events in the component's `emits` option:
 
@@ -406,6 +406,18 @@ That's all you need to know about dynamic components for now, but once you've fi
 
 ## DOM Template Parsing Caveats
 
+If you are writing your Vue templates directly in the DOM, Vue will have to retrieve the template string from the DOM. This leads to some caveats due to browsers' native HTML parsing behavior.
+
+:::tip
+It should be noted that the limitations discussed below only apply if you are writing your templates directly in the DOM. They do NOT apply if you are using string templates from the following sources:
+
+- String templates (e.g. `template: '...'`)
+- [Single-file (`.vue`) components](single-file-component.html)
+- `<script type="text/x-template">`
+:::
+
+### Element Placement Restrictions
+
 Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
 
 This will lead to issues when using components with elements that have such restrictions. For example:
@@ -416,28 +428,21 @@ This will lead to issues when using components with elements that have such rest
 </table>
 ```
 
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special `v-is` directive as a workaround:
+The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special [`is` attribute](/api/special-attributes.html#is) as a workaround:
 
 ```html
 <table>
-  <tr v-is="'blog-post-row'"></tr>
+  <tr is="vue:blog-post-row"></tr>
 </table>
 ```
 
-:::warning
-The `v-is` value is treated as a JavaScript expression, so we need to wrap the component name in quotes:
-
-```html
-<!-- Incorrect, nothing will be rendered -->
-<tr v-is="blog-post-row"></tr>
-
-<!-- Correct -->
-<tr v-is="'blog-post-row'"></tr>
-```
-
+:::tip
+When used on native HTML elements, the value of `is` must be prefixed with `vue:` in order to be interpreted as a Vue component. This is required to avoid confusion with native [customized built-in elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 
-Also, HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, camelCased prop names and event handler parameters need to use their kebab-cased (hyphen-delimited) equivalents:
+### Case Insensitivity
+
+HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, camelCased prop names and event handler parameters need to use their kebab-cased (hyphen-delimited) equivalents:
 
 ```js
 // camelCase in JavaScript
@@ -455,12 +460,6 @@ app.component('blog-post', {
 
 <blog-post post-title="hello!"></blog-post>
 ```
-
-It should be noted that **these limitations do _not_ apply if you are using string templates from one of the following sources**:
-
-- String templates (e.g. `template: '...'`)
-- [Single-file (`.vue`) components](single-file-component.html)
-- `<script type="text/x-template">`
 
 That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
 

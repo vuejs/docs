@@ -2,6 +2,10 @@
 
 ## Properti Data
 
+<VideoLesson href="https://vueschool.io/lessons/methods-in-vue-3?friend=vuejs" title="Learn how to use methods on Vue School">Belajar cara menggunakan data dan method dari Video gratis milik Vueschool</VideoLesson>
+
+## Data Properties
+
 Properti `data` untuk komponen berbentuk fungsi. Vue memanggil fungsi ini sebagai bagian dari pembuatan _instance_ komponen baru. Properti ini harus mengembalikan nilai objek, yang kemudian Vue akan membungkusnya pada sistem reaktivitasnya dan menyimpan _instance_ komponen sebagai `$data`. Untuk kemudahan Anda, semua properti yang terletak pada level utama objek tersebut tersedia secara langsung melalui _instance_ komponen:
 
 ```js

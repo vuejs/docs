@@ -85,6 +85,7 @@ Sebuah objek aplikasi merupakan bagian dari API global pada versi sebelumnya. Se
 | Vue.mixin                  | app.mixin                                                                                              |
 | Vue.use                    | app.use ([lihat penjelasan](#a-note-for-plugin-authors))                                               |
 | Vue.prototype              | app.config.globalProperties ([lihat penjelasan](#vue-prototype-replaced-by-config-globalproperties))   |
+| Vue.extend                 | dihapus ([lihat penjelasan](#vue-extend-replaced-by-definecomponent))                                |
 
 API global lainnya yang tidak mengubah perilaku Vue secara global telah dipindahkan menjadi _named export_, seperti yang tertera pada [Treeshaking API Global](./global-api-treeshaking.html).
 
@@ -94,7 +95,7 @@ Pada Vue versi 3.x, saran "gunakan produksi build" hanya akan muncul apabila And
 
 Untuk kode Vue yang memanfaatkan modul ES, karena kode tersebut digunakan dengan _bundler_, dan karena kebanyakan sebuah CLI atau _boilerplate_ telah mengatur variabel produksi dengan benar, saran tersebut tidak akan muncul kembali.
 
-### `config.ignoredElements` Sekarang Menjadi `config.isCustomElement`
+### `config.ignoredElements` Sekarang Menjadi `config.compilerOptions.isCustomElement`
 
 Opsi ini diperkenalkan dengan tujuan untuk menyediakan dukungan pada elemen kustom bawaan, sehingga perubahan nama yang dilakukan lebih mencerminkan kegunaan dari opsi ini. Opsi yang baru juga mampu menerima sebuah fungsi sehingga lebih fleksibel dibandingkan cara lama yang hanya menerima string atau RegExp:
 
@@ -104,16 +105,18 @@ Vue.config.ignoredElements = ['my-el', /^ion-/]
 
 // sesudah
 const app = createApp({})
-app.config.isCustomElement = tag => tag.startsWith('ion-')
+app.config.compilerOptions.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
 ::: tip Penting
 
 Pada Vue versi 3.0, pemeriksaan pada elemen untuk memeriksa apakah elemen tersebut merupakan sebuah komponen atau bukan telah dipindahkan pada fase kompilasi _template_, sehingga opsi ini hanya berpengaruh apabila Anda menggunakan kompilator pada waktu eksekusi. Apabila Anda menggunakan kode program yang telah dibangun sepenuhnya, opsi `isCustomElement` harus diteruskan pada `@vue/compiler-dom` pada penyetelan pembangunan kode program - sebagai contoh, melalui [opsi `compilerOptions` pada vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
 
-- Apabila `config.isCustomElement` ditetapkan saat Anda menggunakan kode program yang telah dibangun sepenuhnya, sebuah peringatan akan muncul dan meminta pengguna untuk meneruskan opsi tersebut pada penyetelan pembangunan kode program.
+- Apabila `config.compilerOptions.isCustomElement` ditetapkan saat Anda menggunakan kode program yang telah dibangun sepenuhnya, sebuah peringatan akan muncul dan meminta pengguna untuk meneruskan opsi tersebut pada penyetelan pembangunan kode program.
 - Opsi ini akan menjadi opsi utama baru pada konfigurasi Vue CLI.
   :::
+
+[_Migration build flag_: `CONFIG_IGNORED_ELEMENTS`](migration-build.html#compat-configuration)
 
 ### `Vue.prototype` Diganti Dengan `config.globalProperties`
 
@@ -134,7 +137,59 @@ app.config.globalProperties.$http = () => {}
 
 Opsi `provide` (lihat [penjelasan berikut](#provide-inject)) juga dapat menjadi alternatif dari `globalProperties`.
 
-### Catatan untuk Pengembang Plugin
+[Migration build flag: `GLOBAL_PROTOTYPE`](migration-build.html#compat-configuration)
+
+### `Vue.extend` Removed
+
+In Vue 2.x, `Vue.extend` was used to create a "subclass" of the base Vue constructor with the argument that should be an object containing component options. In Vue 3.x, we don't have the concept of component constructors anymore. Mounting a component should always use the `createApp` global API:
+
+```js
+// before - Vue 2
+
+// create constructor
+const Profile = Vue.extend({
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data() {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+})
+// create an instance of Profile and mount it on an element
+new Profile().$mount('#mount-point')
+```
+
+```js
+// after - Vue 3
+const Profile = {
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data() {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+}
+
+Vue.createApp(Profile).mount('#mount-point')
+```
+
+#### Type Inference
+
+In Vue 2, `Vue.extend` was also used for providing TypeScript type inference for the component options. In Vue 3, the `defineComponent` global API can be used in place of `Vue.extend` for the same purpose.
+
+Note that although the return type of `defineComponent` is a constructor-like type, it is only used for TSX inference. At runtime `defineComponent` is largely a noop and will return the options object as-is.
+
+#### Component Inheritance
+
+In Vue 3, we strongly recommend favoring composition via [Composition API](/api/composition-api.html) over inheritance and mixins. If for some reason you still need component inheritance, you can use the [`extends` option](/api/options-composition.html#extends) instead of `Vue.extend`.
+
+[Migration build flag: `GLOBAL_EXTEND`](migration-build.html#compat-configuration)
+
+### Catatan untuk pengembang plugin
 
 Biasanya, pengembang _plugin_ memilih untuk melakukan instalasi _plugin_ secara otomatis pada kode UMD menggunakan `Vue.use`. Sebagai contoh, berikut merupakan cara _plugin_ resmi `vue-router` melakukan instalasi pada lingkungan perambah:
 
@@ -187,6 +242,8 @@ app.directive('focus', {
 app.mount('#app')
 ```
 
+[Migration build flag: `GLOBAL_MOUNT`](migration-build.html#compat-configuration)
+
 ## Provide / Inject
 
 Mirip dengan penggunaan opsi `provide` pada objek utama Vue versi 2.x, sebuah objek aplikasi yang dibangun menggunakan Vue versi 3 juga dapat menyediakan _dependency_ yang dapat diteruskan oleh segala komponen yang ada pada aplikasi:
@@ -219,7 +276,7 @@ import Bar from './Bar.vue'
 
 const buatAplikasi = opsi => {
   const app = createApp(options)
-  app.directive('focus', /* ... */)
+  app.directive('focus' /* ... */)
 
   return app
 }

@@ -145,7 +145,7 @@ data() {
 ```js
 props: ['size'],
 computed: {
-  normalizedSize: function () {
+  normalizedSize() {
     return this.size.trim().toLowerCase()
   }
 }
@@ -183,22 +183,22 @@ app.component('my-component', {
       type: Object,
       // Object or array defaults must be returned from
       // a factory function
-      default: function() {
+      default() {
         return { message: 'hello' }
       }
     },
     // Custom validator function
     propF: {
-      validator: function(value) {
+      validator(value) {
         // The value must match one of these strings
-        return ['success', 'warning', 'danger'].indexOf(value) !== -1
+        return ['success', 'warning', 'danger'].includes(value)
       }
     },
     // Function with a default value
     propG: {
       type: Function,
       // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
-      default: function() {
+      default() {
         return 'Default function'
       }
     }

@@ -4,6 +4,11 @@
 
 Ekspresi di dalam templat sangat mudah, tetapi ekspresi tersebut bertujuan untuk operasi sederhana. Meletakkan logika kode yang terlalu kompleks pada templat dapat membuat mereka menjadi membengkak dan lebih susah untuk dirawat. Sebagai contoh, jika kita memiliki objek pada array bersarang:
 
+<VideoLesson href="https://vueschool.io/lessons/computed-properties-in-vue-3?friend=vuejs" title="Belajar bagaimanakah caranya properti computed bekerja dengan Vue School</VideoLesson>
+">Belajar bagaimanakah caranya properti _computed_ bekerja dengan Vue School</VideoLesson>
+
+In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
+
 ```js
 Vue.createApp({
   data() {
@@ -205,7 +210,7 @@ Hasilnya:
 
 In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API) and sets a condition for performing this operation. None of that would be possible with a computed property.
 
-Dalam kasus ini, gunakan opsi `watch` memungkinkan kita untuk melakukan operasi asinkronus (mengakses API) dan 
+Dalam kasus ini, gunakan opsi `watch` memungkinkan kita untuk melakukan operasi asinkronus (mengakses API) dan
 
 In addition to the `watch` option, you can also use the imperative [vm.$watch API](../api/instance-methods.html#watch).
 

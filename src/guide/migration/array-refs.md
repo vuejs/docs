@@ -68,5 +68,12 @@ export default {
 Ingat bahwa:
 
 - `refBarang` tidak harus merupakan sebuah _array_: boleh berupa sebuah objek dimana `ref` ditetapkan menggunakan kunci iterasi masing-masing.
-
 - Cara ini juga memungkinkan `refBarang` untuk dijadikan reaktif dan dapat diawasi, jika dibutuhkan.
+- This also allows `itemRefs` to be made reactive and watched, if needed.
+
+## Migration Strategy
+
+[_Migration build flags_:](migration-build.html#compat-configuration)
+
+- `V_FOR_REF`
+- `COMPILER_V_FOR_REF`

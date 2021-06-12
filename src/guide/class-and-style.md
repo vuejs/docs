@@ -4,6 +4,8 @@ Kebutuhan umum untuk _binding_ data adalah memanipulasi daftar elemen _class_ da
 
 ## _Binding_ Kelas HTML
 
+<VideoLesson href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3?friend=vuejs" title="Vue.js keas dinamus">Lihat video tutorial gratis dari Vue School</VideoLesson>
+
 ### Sintaksis Objek
 
 Kita bisa melewatkan objek ke `:class` (kependekan dari `v-bind:class`) untuk mengubah _class_ secara dinamis:
@@ -230,8 +232,7 @@ Sintaksis array untuk `:style` memungkinkan Anda menerapkan beberapa objek _styl
 
 ### Memberi Awalan Secara Otomatis
 
-Saat Anda menggunakan properti CSS yang membutuhkan [awalan vendor](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) pada `:style`, misalnya `transform`, Vue akan secara otomatis mendeteksi dan tambahkan prefiks yang sesuai ke _style_ yang diterapkan.
-
+Saat Anda menggunakan properti CSS yang membutuhkan [awalan vendor](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) pada `:style`, misalnya `transform`, Vue akan secara otomatis mendeteksi dan tambahkan prefiks yang sesuai ke _style_ yang diterapkan. Vue melakukan ini dengan cara mengecek pada saat _runtime_ properti _style_ manakah yang didukung oleh peramban. Jika peramban tidak mendukung properti tersebut maka macam - macam prefiks dengan varian akan di test satu - persatu untuk menememukan properti yang di support peramban tersebut.
 ### Beberapa Nilai
 
 Anda dapat memberikan sebuah array dengan beberapa nilai (awalan) ke properti _style_, misalnya:

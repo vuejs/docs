@@ -60,7 +60,9 @@ Ketika digunakan seperti berikut:
 
 Pada komponen-komponen yang menggunakan `inheritAttrs: false`, pastikan bahwa _styling_ tetap berjalan sesuai keinginan Anda. Jika Anda sebelumnya bergantung pada penanganan khusus pada `class` dan `style`, beberapa tampilan mungkin saja akan rusak karena atribut-atribut tersebut mungkin saja sekarang diterapkan pada elemen lain.
 
-## Lihat Juga
+[_Migration build flag_: `INSTANCE_ATTRS_CLASS_STYLE`](migration-build.html#compat-configuration)
+
+## See also
 
 - [RFC Relevan](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0031-attr-fallthrough.md)
 - [Strategi Migrasi - `$listeners` dihapus](./listeners-removed.md)

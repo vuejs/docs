@@ -5,6 +5,8 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
+    <BannerTop v-if="showTopBanner" @close="closeBannerTop" />
+
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
     <div class="sidebar-mask" @click="toggleSidebar(false)" />
@@ -50,6 +52,7 @@ import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import BuySellAds from '@theme/components/BuySellAds.vue'
 import CarbonAds from '@theme/components/CarbonAds.vue'
+import BannerTop from '@theme/components/BannerTop.vue'
 import { resolveSidebarItems } from '../util'
 
 export default {
@@ -60,12 +63,14 @@ export default {
     Page,
     Sidebar,
     Navbar,
+    BannerTop,
     BuySellAds,
     CarbonAds
   },
 
   data() {
     return {
+      showTopBanner: false,
       isSidebarOpen: false
     }
   },
@@ -110,7 +115,8 @@ export default {
         {
           'no-navbar': !this.shouldShowNavbar,
           'sidebar-open': this.isSidebarOpen,
-          'no-sidebar': !this.shouldShowSidebar
+          'no-sidebar': !this.shouldShowSidebar,
+          'has-top-banner': this.showTopBanner
         },
         userPageClass
       ]
@@ -125,9 +131,16 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
+
+    this.showTopBanner = !localStorage.getItem('VS_SUMMER_BANNER_CLOSED')
   },
 
   methods: {
+    closeBannerTop () {
+      this.showTopBanner = false
+      localStorage.setItem('VS_SUMMER_BANNER_CLOSED', 1)
+    },
+
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)

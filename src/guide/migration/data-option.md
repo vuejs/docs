@@ -111,7 +111,9 @@ Pada Vue versi 3.0, hasilnya adalah:
 }
 ```
 
-## Strategi Migrasi
+[Migration build flag: `OPTIONS_DATA_FN`](migration-build.html#compat-configuration)
+
+## Migration Strategy
 
 Untuk pengguna yang bergantung pada deklarasi objek, kami menyarankan:
 
@@ -121,3 +123,8 @@ Untuk pengguna yang bergantung pada deklarasi objek, kami menyarankan:
 Untuk pengguna yang bergantung pada perilaku penggabungan _mixin_ yang dalam, kami menyarankan Anda untuk menstruktur ulang kode program Anda untuk menghindari ketergantungan tersebut, karena penggabungan _mixin_ yang dalam merupakan sesuatu yang sangat implisit dan mampu menyebabkan logika dalam kode program menjadi lebih sulit untuk dipahami dan di*debug*.
 
 For users relying on the deep merge behavior from mixins, we recommend refactoring your code to avoid such reliance altogether, since deep merges from mixins are very implicit and can make the code logic more difficult to understand and debug.
+
+[Migration build flags:](migration-build.html#compat-configuration)
+
+- `OPTIONS_DATA_FN`
+- `OPTIONS_DATA_MERGE`

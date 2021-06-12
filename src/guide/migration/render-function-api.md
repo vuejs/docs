@@ -11,7 +11,7 @@ This change will not affect `<template>` users.
 
 Here is a quick summary of what has changed:
 
-- `h` is now globally imported instead of passed to render functions as an arguments
+- `h` is now globally imported instead of passed to render functions as an argument
 - render function arguments changed to be more consistent between stateful and functional components
 - VNodes now have a flat props structure
 
@@ -177,6 +177,8 @@ export default {
 For more information, see [The Render Function Api Change RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0008-render-function-api-change.md#context-free-vnodes).
 
 ## Migration Strategy
+
+[Migration build flag: `RENDER_FUNCTION`](migration-build.html#compat-configuration)
 
 ### Library Authors
 

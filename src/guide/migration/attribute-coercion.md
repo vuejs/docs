@@ -60,16 +60,16 @@ Tabel di bawah ini mendeskripsikan perilaku baru tersebut:
 
 | Ekspresi _binding_  | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
 | ------------------- | -------------------------- | --------------------------------- |
-| `:attr="null"`      | /                          | / <sup>†</sup>                    |
+| `:attr="null"`      | /                          | / <sup>*</sup>                    |
 | `:attr="undefined"` | /                          | /                                 |
 | `:attr="true"`      | `foo="true"`               | `draggable="true"`                |
-| `:attr="false"`     | `foo="false"` <sup>†</sup> | `draggable="false"`               |
-| `:attr="0"`         | `foo="0"`                  | `draggable="0"` <sup>†</sup>      |
-| `attr=""`           | `foo=""`                   | `draggable=""` <sup>†</sup>       |
-| `attr="foo"`        | `foo="foo"`                | `draggable="foo"` <sup>†</sup>    |
-| `attr`              | `foo=""`                   | `draggable=""` <sup>†</sup>       |
+| `:attr="false"`     | `foo="false"` <sup>*</sup> | `draggable="false"`               |
+| `:attr="0"`         | `foo="0"`                  | `draggable="0"` <sup>*</sup>      |
+| `attr=""`           | `foo=""`                   | `draggable=""` <sup>*</sup>       |
+| `attr="foo"`        | `foo="foo"`                | `draggable="foo"` <sup>*</sup>    |
+| `attr`              | `foo=""`                   | `draggable=""` <sup>*</sup>       |
 
-<small>†: diubah</small>
+<small>*: diubah</small>
 
 Pengubahan terhadap atribut `boolean` tidak berubah.
 
@@ -137,3 +137,8 @@ Pada Vue versi 3.x, penghapusan atribut harus dinyatakan secara eksplisit dengan
     </tr>
   </tbody>
 </table>
+
+[Migration build flags:](migration-build.html#compat-configuration)
+
+- `ATTR_FALSE_VALUE`
+- `ATTR_ENUMERATED_COERSION`

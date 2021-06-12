@@ -98,3 +98,4 @@ const komponenAsinkron = defineAsyncComponent(
 Anda dapat mempelajari lebih lanjut tentang penggunaan komponen asinknron pada:
 
 - [Panduan: Komponen Dinamis dan Asinkron](/guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+- [_Migration build flag_: `COMPONENT_ASYNC`](migration-build.html#compat-configuration)

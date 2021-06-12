@@ -8,8 +8,7 @@ badges:
 ## Gambaran Umum
 
 - **MERUSAK:** Pengecekan untuk mengetahui jika _tag_ HTML harus di perlakukan seperti elemen kustom sekarang dilakukan pada saat kompilasi templat, dan harus dilakukan melalui opsi kompiler bukan pada konfigurasi _runtime_
-- **MERUSAK:** _Whitelisting_ pada elemen kustom sekarang dijalankan pada saat kompilasi _template_, dan harus disetel melalui pengaturan kompilator, bukan melalui pengaturan waktu eksekusi.
-- **MERUSAK** Penggunaan properti khusus `is` dibatasi untuk _tag_ `<component>` saja. 
+- **MERUSAK** Penggunaan properti khusus `is` dibatasi untuk _tag_ `<component>` saja.
 - **BARU** Terdapat _directive_ baru `v-is` untuk mendukung kasus penggunaan pada Vue versi 2.x dimana `is` digunakan pada elemen bawaan untuk mengatasi masalah batasan penguraian pada elemen bawaan HTML.
 
 ## Elemen Kustom Otonom
@@ -97,7 +96,9 @@ Pada Vue versi 3.0, kami membatasi perlakukan khusus Vue pada properti `is` hany
     document.createElement('button', { is: 'tombol-plastik' })
     ```
 
-## `v-is` Untuk Menangani Penguraian _Template_ Dalam DOM 
+[Migration build flag: `COMPILER_IS_ON_ELEMENT`](migration-build.html#compat-configuration)
+
+## `vue:` Prefix for In-DOM Template Parsing Workarounds
 
 > Catatan: bagian ini hanya mempengaruhi kasus-kasus di mana _template_ Vue ditulis secara langsung pada HTML dari halaman web.
 > Ketika menggunakan _template_ dalam DOM, _template_ tersebut akan diuraikan menggunakan aturan penguraian HTML bawaan. Beberapa eleme HTML, seperti `<ul>`, `<ol>`, `<table>`, dan `<select>` memiliki batasan-batasan mengenai elemen yang dapat ditampilkan di dalam elemen tersebut, dan beberapa elemen seperti `<li>`, `<tr>`, dan `<option>` hanya bisa tampil di dalam elemen lain tertentu.
@@ -114,16 +115,16 @@ Pada Vue versi 2, kami menyarankan untuk mengatasi batasan-batasan tersebut deng
 
 ### Sintaks Vue versi 3.x
 
-Dengan perubahan perilaki dari `is`, kami memperkenalkan sebuah _directive_ baru `v-is` untuk menangani kasus tersebut:
+Dengan perubahan perilaku dari `is`, kami memperkenalkan sebuah _directive_ baru `v-is` untuk menangani kasus tersebut:
 
 ```html
 <table>
-  <tr v-is="'blog-post-row'"></tr>
+  <tr is="vue:blog-post-row"></tr>
 </table>
 ```
 
 :::warning
-Fungsi `v-is` mengharapkan sebuah ikatan dinamis `:is` seperti pada Vue versi 2.x - sehingga untuk menampilkan sebuah komponen berdasarkan nama yang sudah didaftarkan, nilai dari `v-is` harus merupakan sebuah _string literal_ JavaScript: 
+Fungsi `v-is` mengharapkan sebuah ikatan dinamis `:is` seperti pada Vue versi 2.x - sehingga untuk menampilkan sebuah komponen berdasarkan nama yang sudah didaftarkan, nilai dari `v-is` harus merupakan sebuah _string literal_ JavaScript:
 
 ```html
 <!-- Salah, tidak ada yang akan ditampilkan -->
@@ -138,4 +139,4 @@ Fungsi `v-is` mengharapkan sebuah ikatan dinamis `:is` seperti pada Vue versi 2.
 ## Strategi Migrasi
 
 - Ganti `config.ignoredElements` dengan `compilerOptions` milik `vue-loader` (dengan langkah pembangunan kode program) atau `app.config.isCustomElement` (dengan kompilasi _template_ secara _on-the-fly_).
-- Ganti seluruh penggunaan `is` pada _tag_ yang bukan `<component>` dengan `<component is="...">` (untuk _template_ SFC) atau `v-is` (untuk _template_ dalam DOM). 
+- Ganti seluruh penggunaan `is` pada _tag_ yang bukan `<component>` dengan `<component is="...">` (untuk _template_ SFC) atau `v-is` (untuk _template_ dalam DOM).

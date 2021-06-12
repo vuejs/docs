@@ -1,5 +1,7 @@
 # _Rendering_ Bersyarat
 
+<VideoLesson href="https://vueschool.io/lessons/conditional-rendering-in-vue-3?friend=vuejs" title="Learn how conditional rendering works with Vue School">Learn how conditional rendering works with a free lesson on Vue School</VideoLesson>
+
 ## `v-if`
 
 Instruksi `v-if` biasa digunakan untuk melakukan _rendering_ sebuah bagian dengan syarat tertentu. Bagian tersebut akan di-_render_ jika ekspresi instruksi mengembalikan nilai _truthy_.

@@ -55,8 +55,9 @@ Namun pada Vue versi 3, kami telah membuat API yang lebih kohesif untuk _custom 
 API akhir akan menjadi seperti berikut:
 
 ```js
-const DirectiveKu = {
-  beforeMount(el, binding, vnode, prevVnode) {},
+const MyDirective = {
+  created(el, binding, vnode, prevVnode) {}, // new
+  beforeMount() {},
   mounted() {},
   beforeUpdate() {}, // baru
   updated() {},
@@ -106,3 +107,7 @@ mounted(el, binding, vnode) {
 :::warning
 Dengan dukungan [fragments](/guide/migration/fragments.html#overview), komponen dapat memiliki lebih dari satu _node_ utama. Ketika digunakan pada komponen yang memiliki lebih dari satu _node_ inti, sebuah _directive_ akan dihiraukan dan sebuah peringatan akan dicatat.
 :::
+
+## Migration Strategy
+
+[Migration build flag: `CUSTOM_DIR`](migration-build.html#compat-configuration)

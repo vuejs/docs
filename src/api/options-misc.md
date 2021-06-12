@@ -10,29 +10,6 @@
 
   Another benefit of specifying a `name` option is debugging. Named components result in more helpful warning messages. Also, when inspecting an app in the [vue-devtools](https://github.com/vuejs/vue-devtools), unnamed components will show up as `<AnonymousComponent>`, which isn't very informative. By providing the `name` option, you will get a much more informative component tree.
 
-## delimiters
-
-- **Type:** `Array<string>`
-
-- **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
-
-- **Restrictions:** This option is only available in the full build, with in-browser template compilation.
-
-- **Details:**
-
-  Sets the delimiters used for text interpolation within the template.
-
-  Typically this is used to avoid conflicting with server-side frameworks that also use mustache syntax.
-
-- **Example:**
-
-  ```js
-  createApp({
-    // Delimiters changed to ES6 template string style
-    delimiters: ['${', '}']
-  })
-  ```
-
 ## inheritAttrs
 
 - **Type:** `boolean`
@@ -64,3 +41,31 @@
   ```
 
 - **See also:** [Disabling Attribute Inheritance](../guide/component-attrs.html#disabling-attribute-inheritance)
+
+## compilerOptions <Badge text="3.1+" />
+
+- **Type:** `Object`
+
+- **Details:**
+
+  This is the component-level equivalent of the [app-level `compilerOptions` config](/api/application-config.html#compileroptions).
+
+- **Usage:**
+
+  ```js
+  const Foo = {
+    // ...
+    compilerOptions: {
+      delimiters: ['${', '}'],
+      comments: true
+    }
+  }
+  ```
+
+  ::: tip Important
+  Similar to the app-level `compilerOptions` config, this option is only respected when using the full build with in-browser template compilation.
+  :::
+
+## delimiters <Badge text="deprecated" type="warning" />
+
+Deprecated in 3.1.0. Use `compilerOptions.delimiters` instead.

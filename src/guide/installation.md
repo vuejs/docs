@@ -19,6 +19,8 @@ Catatan rilis yang detail untuk setiap versi terdapat pada [GitHub](https://gith
 
 > Saat ini pada tahap Beta - Integrasi VueX dan Router masih dalam proses pengerjaan
 
+<VideoLesson href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3?friend=vuejs" title="Learn how to install Vue Devtools on Vue School">Learn how to install and use Vue Devtools in a free Vue School lesson</VideoLesson>
+
 Ketika menggunakan Vue, kami merekomendasikan juga untuk memasang [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) pada peramban Anda, yang memungkinkan Anda untuk menginspeksi dan mendebug aplikasi Vue dengan antarmuka yang lebih ramah pengguna.
 
 [Dapatkan Ekstensi Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
@@ -45,12 +47,24 @@ The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg
 
 ## npm
 
-npm adalah metode pemasangan yang direkomendasikan ketika membangun aplikasi skala besar dengan Vue. npm berpasangan dengan baik dengan _bundler_ modul seperti [Webpack](https://webpack.js.org/) atau [Rollup](https://rollupjs.org/). Vue juga menyediakan peralatan pendukung untuk membuat [Komponen Berkas Tunggal](../guide/single-file-component.html).
+npm adalah metode pemasangan yang direkomendasikan ketika membangun aplikasi skala besar dengan Vue. npm berpasangan dengan baik dengan _bundler_ modul seperti [Webpack](https://webpack.js.org/) atau [Rollup](https://rollupjs.org/).
 
 ```bash
 # versi stabil terakhir
 $ npm install vue@next
 ```
+
+Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html) (SFCs). If you want to use SFCs then you'll also need to install `@vue/compiler-sfc`:
+
+```bash
+$ npm install -D @vue/compiler-sfc
+```
+
+If you're coming from Vue 2 then note that `@vue/compiler-sfc` replaces `vue-template-compiler`.
+
+In addition to `@vue/compiler-sfc`, you'll also need a suitable SFC loader or plugin for your chosen bundler. See the [SFC documentation](../guide/single-file-component.html) for more information.
+
+In most cases, the preferred way to create a webpack build with minimal configuration is to use Vue CLI.
 
 ## CLI
 
