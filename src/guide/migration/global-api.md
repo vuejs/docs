@@ -75,17 +75,17 @@ const app = createApp({})
 
 An app instance exposes a subset of the Vue 2 global APIs. The rule of thumb is _any APIs that globally mutate Vue's behavior are now moved to the app instance_. Here is a table of the Vue 2 global APIs and their corresponding instance APIs:
 
-| 2.x Global API             | 3.x Instance API (`app`)                                                                        |
-| -------------------------- | ----------------------------------------------------------------------------------------------- |
-| Vue.config                 | app.config                                                                                      |
-| Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                          |
+| 2.x Global API             | 3.x Instance API (`app`)                                                                                                        |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Vue.config                 | app.config                                                                                                                      |
+| Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                                                          |
 | Vue.config.ignoredElements | app.config.compilerOptions.isCustomElement ([see below](#config-ignoredelements-is-now-config-compileroptions-iscustomelement)) |
-| Vue.component              | app.component                                                                                   |
-| Vue.directive              | app.directive                                                                                   |
-| Vue.mixin                  | app.mixin                                                                                       |
-| Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                               |
-| Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))   |
-| Vue.extend                 | _removed_ ([see below](#vue-extend-replaced-by-definecomponent))                                |
+| Vue.component              | app.component                                                                                                                   |
+| Vue.directive              | app.directive                                                                                                                   |
+| Vue.mixin                  | app.mixin                                                                                                                       |
+| Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                                                               |
+| Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))                                   |
+| Vue.extend                 | _removed_ ([see below](#vue-extend-removed))                                                                                    |
 
 All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./global-api-treeshaking.html).
 
