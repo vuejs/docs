@@ -14,7 +14,7 @@ This is a low-level internal API change and does not affect most developers.
 Here is a high level summary of the changes:
 
 - Drop the internal concept of enumerated attributes and treat those attributes the same as normal non-boolean attributes
-- **BREAKING**: No longer removes attribute if value is boolean `false`. Instead, it's set as attr="false" instead. To remove the attribute, use `null` or `undefined`.
+- **BREAKING**: No longer removes attribute if the value is boolean `false`. Instead, it's set as attr="false". To remove the attribute, use `null` or `undefined`.
 
 For more information, read on!
 
@@ -34,10 +34,10 @@ The following table describes how Vue coerce "enumerated attributes" differently
 
 | Binding expression  | `foo` <sup>normal</sup> | `draggable` <sup>enumerated</sup> |
 | ------------------- | ----------------------- | --------------------------------- |
-| `:attr="null"`      | /                       | `draggable="false"`               |
-| `:attr="undefined"` | /                       | /                                 |
+| `:attr="null"`      | -                       | `draggable="false"`               |
+| `:attr="undefined"` | -                       | -                                 |
 | `:attr="true"`      | `foo="true"`            | `draggable="true"`                |
-| `:attr="false"`     | /                       | `draggable="false"`               |
+| `:attr="false"`     | -                       | `draggable="false"`               |
 | `:attr="0"`         | `foo="0"`               | `draggable="true"`                |
 | `attr=""`           | `foo=""`                | `draggable="true"`                |
 | `attr="foo"`        | `foo="foo"`             | `draggable="true"`                |
@@ -60,8 +60,8 @@ The following table describes the new behavior:
 
 | Binding expression  | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
 | ------------------- | -------------------------- | --------------------------------- |
-| `:attr="null"`      | /                          | / <sup>*</sup>                    |
-| `:attr="undefined"` | /                          | /                                 |
+| `:attr="null"`      | -                          | - <sup>*</sup>                    |
+| `:attr="undefined"` | -                          | -                                 |
 | `:attr="true"`      | `foo="true"`               | `draggable="true"`                |
 | `:attr="false"`     | `foo="false"` <sup>*</sup> | `draggable="false"`               |
 | `:attr="0"`         | `foo="0"`                  | `draggable="0"` <sup>*</sup>      |
