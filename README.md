@@ -1,6 +1,6 @@
 # v3.vuejs.org
 
-This site is built with [VitePress](https://github.com/vuejs/vitepress). Site content is written in Markdown format located in `src`.
+This site is built with [VitePress](https://github.com/vuejs/vitepress) and [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`.
 
 ## Writing
 
