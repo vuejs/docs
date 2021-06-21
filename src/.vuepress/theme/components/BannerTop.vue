@@ -11,10 +11,7 @@
         <img src="/images/vueschool/vs-backpack.png" alt="Backpack">
       </div>
       <div class="vs-slogan">
-        3-months Vue School for only $49 <span style="text-decoration: line-through">$75</span>!
-        <span class="vs-slogan-light">
-          Limited Time Offer
-        </span>
+        Less than <span class="vs-slogan-light">48 hours</span> left for the Vue School offer
       </div>
       <div class="vs-button">
         GET ACCESS
@@ -58,19 +55,19 @@ $topBannerHeightMobile ?= 3.125rem
         background: #f22606
 
   .vs-iso
-      display: none
-      position: absolute
-      left: 20px
+    display: none
+    position: absolute
+    left: 20px
+    height: 26px
+    img
       height: 26px
+    @media (min-width: 680px)
+      display: inline-block
+      height: 40px
       img
-        height: 26px
-      @media (min-width: 680px)
-        display: inline-block
         height: 40px
-        img
-          height: 40px
-      @media (min-width: 900px)
-        display: none
+    @media (min-width: 900px)
+      display: none
 
   .vs-logo
     position: absolute
@@ -85,7 +82,9 @@ $topBannerHeightMobile ?= 3.125rem
 
     .vs-backpack
       margin-right: 6px
+      position: absolute
       @media (min-width: 680px)
+        position: static
         margin-right: 14px
       img
         height: 50px
@@ -96,20 +95,23 @@ $topBannerHeightMobile ?= 3.125rem
       color: #FFF
       font-weight: bold
       font-size: 14px
-      margin-right: 26px
+      text-align: center
+      padding: 0 90px
       @media (min-width: 680px)
+        padding: 0
+        text-align: left
+        margin-right: 26px
         margin-right: 0
         font-size: 18px
       > .vs-slogan-light
         color: #ff5338
-        display: block
         text-align: left
         @media (min-width: 900px)
           text-align: center
           display: inline
 
     .vs-button
-      margin-left: 43px
+      margin-left: 13px
       color: #FFF
       padding: 13px 24px
       border-radius: 40px
@@ -120,13 +122,13 @@ $topBannerHeightMobile ?= 3.125rem
         display: inline-block
 
   .vs-close
-      right: 10px
-      position: absolute
-      padding: 10px
-      @media (min-width: 680px)
-        right: 20px
-      &:hover
-        color: #56D8FF
+    right: 10px
+    position: absolute
+    padding: 10px
+    @media (min-width: 680px)
+      right: 20px
+    &:hover
+      color: #56D8FF
 
 /************************************/
 
