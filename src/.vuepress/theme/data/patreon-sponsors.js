@@ -36,7 +36,7 @@ export default {
     },
     {
       "url": "https://www.storyblok.com",
-      "img": "storyblok.png",
+      "img": "storyblok.svg",
       "name": "Storyblok"
     }
   ],
