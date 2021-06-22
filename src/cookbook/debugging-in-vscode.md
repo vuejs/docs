@@ -41,7 +41,7 @@ We're assuming the port to be `8080` here. If it's not the case (for instance, i
 
 Click on the Debugging icon in the Activity Bar to bring up the Debug view, then click on the gear icon to configure a launch.json file, selecting **Chrome/Firefox: Launch** as the environment. Replace content of the generated launch.json with the corresponding configuration:
 
-![Add Chrome Configuration](/images/config_add.png)
+<div style="padding: 10px 25px 30px"><img src="/images/config_add.png" alt="Add Chrome Configuration" style="width: 690px; border-radius: 3px; box-shadow: 0 10px 15px rgb(0 0 0 / 50%)"></div>
 
 ```json
 {
@@ -74,7 +74,8 @@ Click on the Debugging icon in the Activity Bar to bring up the Debug view, then
 
 1.  Set a breakpoint in **src/components/HelloWorld.vue** on `line 90` where the `data` function returns a string.
 
-![Breakpoint Renderer](/images/breakpoint_set.png)
+<div style="padding: 10px 25px 30px"><img src="/images/breakpoint_set.png" alt="Breakpoint Renderer" style="width: 690px; border-radius: 3px; box-shadow: 0 10px 15px rgb(0 0 0 / 50%)"></div>
+
 
 2.  Open your favorite terminal at the root folder and serve the app using Vue CLI:
 
@@ -86,7 +87,7 @@ npm run serve
 
 4.  Your breakpoint should now be hit as a new browser instance opens `http://localhost:8080`.
 
-![Breakpoint Hit](/images/breakpoint_hit.png)
+<div style="padding: 10px 25px 30px"><img src="/images/breakpoint_hit.png" alt="Breakpoint Hit" style="width: 690px; border-radius: 3px; box-shadow: 0 10px 15px rgb(0 0 0 / 50%)"></div>
 
 ## Alternative Patterns
 
