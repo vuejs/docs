@@ -156,14 +156,12 @@ $topBannerHeightMobile ?= 3.125rem
 
 // Adjust titles margin and padding for anchor links
 .theme-container.has-top-banner
-  {$contentClass}:not(.custom)
-    h1, h2, h3
-      margin-top (2rem - $topBannerHeight - $navbarHeight)
-      padding-top ($navbarHeight + $topBannerHeight + 2rem)
-@media (min-width: 680px)
-  .theme-container.has-top-banner
-    {$contentClass}:not(.custom)
-      h1, h2, h3
-        margin-top (2rem - $topBannerHeightMobile - $navbarHeight)
-        padding-top ($navbarHeight + $topBannerHeightMobile + 2rem)
+  {$contentClass}:not(.custom) > h1,
+  {$contentClass}:not(.custom) > h2,
+  {$contentClass}:not(.custom) > h3
+    margin-top (0.5rem - $navbarHeight - $topBannerHeightMobile)
+    padding-top ($navbarHeight + 1rem + $topBannerHeightMobile)
+    @media (min-width: 680px)
+      margin-top (0.5rem - $navbarHeight - $topBannerHeight)
+      padding-top ($navbarHeight + 1rem + $topBannerHeight)
 </style>
