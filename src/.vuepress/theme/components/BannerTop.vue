@@ -11,7 +11,7 @@
         <img src="/images/vueschool/vs-backpack.png" alt="Backpack">
       </div>
       <div class="vs-slogan">
-        Less than <span class="vs-slogan-light">48 hours</span> left for the Vue School offer
+        Extended! <span class="vs-slogan-light">Last few hours</span> for the Vue School offer
       </div>
       <div class="vs-button">
         GET ACCESS
@@ -72,7 +72,7 @@ $topBannerHeightMobile ?= 3.125rem
   .vs-logo
     position: absolute
     display: none
-    left: 40px
+    left: 20px
     @media (min-width: 900px)
       display: block
 
@@ -85,10 +85,12 @@ $topBannerHeightMobile ?= 3.125rem
       position: absolute
       @media (min-width: 680px)
         position: static
-        margin-right: 14px
+        margin-right: 4px
       img
         height: 50px
         @media (min-width: 680px)
+          height: 56px
+        @media (min-width: 900px)
           height: 74px
 
     .vs-slogan
@@ -154,14 +156,12 @@ $topBannerHeightMobile ?= 3.125rem
 
 // Adjust titles margin and padding for anchor links
 .theme-container.has-top-banner
-  {$contentClass}:not(.custom)
-    h1, h2, h3, h4, h5, h6
-      margin-top (0.5rem - $topBannerHeight - $navbarHeight)
-      padding-top ($navbarHeight + $topBannerHeight + 1rem)
-@media (min-width: 680px)
-  .theme-container.has-top-banner
-    {$contentClass}:not(.custom)
-      h1, h2, h3, h4, h5, h6
-        margin-top (0.5rem - $topBannerHeightMobile - $navbarHeight)
-        padding-top ($navbarHeight + $topBannerHeightMobile + 1rem)
+  {$contentClass}:not(.custom) > h1,
+  {$contentClass}:not(.custom) > h2,
+  {$contentClass}:not(.custom) > h3
+    margin-top (0.5rem - $navbarHeight - $topBannerHeightMobile)
+    padding-top ($navbarHeight + 1rem + $topBannerHeightMobile)
+    @media (min-width: 680px)
+      margin-top (0.5rem - $navbarHeight - $topBannerHeight)
+      padding-top ($navbarHeight + 1rem + $topBannerHeight)
 </style>
