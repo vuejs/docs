@@ -8,22 +8,31 @@ See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) 
 
 ## Developing
 
-1. Clone repository
+For now, local development requires cloning both this repo and `vuejs/theme`:
+
+1. Clone repositories
 
 ```bash
 git clone git@github.com:vuejs/docs.git
+git clone git@github.com:vuejs/theme.git
 ```
 
-2. Install dependencies
+2. Link theme into docs repo
 
 ```bash
-yarn # or npm install
+# in ./theme
+yarn link
+
+# in ./docs
+yarn link @vue/theme
 ```
 
-3. Start local development environment
+3. Install deps and start VitePress server
 
 ```bash
-yarn serve # or npm run serve
+# in ./docs
+yarn
+yarn serve
 ```
 
 ## Deploying
