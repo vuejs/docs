@@ -132,15 +132,10 @@ export default {
       this.isSidebarOpen = false
     })
 
-    this.showTopBanner = !localStorage.getItem('VS_SUMMER_BANNER_CLOSED')
+    this.showTopBanner = false
   },
 
   methods: {
-    closeBannerTop () {
-      this.showTopBanner = false
-      localStorage.setItem('VS_SUMMER_BANNER_CLOSED', 1)
-    },
-
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
