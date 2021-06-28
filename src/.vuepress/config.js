@@ -384,7 +384,7 @@ module.exports = {
               },
               {
                 text: 'Devtools',
-                link: 'https://github.com/vuejs/vue-devtools'
+                link: 'https://devtools.vuejs.org'
               },
               {
                 text: 'Weekly news',
