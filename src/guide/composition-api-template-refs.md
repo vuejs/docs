@@ -133,7 +133,7 @@ Therefore, watchers that use template refs should be defined with the `flush: 'p
       const root = ref(null)
 
       watchEffect(() => {
-        console.log(root.value) // => <div></div>
+        console.log(root.value) // => <div>This is a root element</div>
       }, 
       {
         flush: 'post'
