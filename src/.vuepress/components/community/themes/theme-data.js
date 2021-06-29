@@ -127,50 +127,78 @@ export default [
   },
   {
     name: 'PrimeVue',
-    description: `The open-source UI component library [PrimeVue](https://www.primefaces.org/primevue/#/?af_id=4218) offers over 50 flexible components to build your apps with! They have a ton of different component themes and Vue-CLI application templates available to get the look&feel that suits you best.`,
+    description: `The open-source UI component library [PrimeVue](https://www.primefaces.org/primevue/#/?af_id=4218) offers over 80 flexible components to build your apps with! They have a ton of different component themes and Vue-CLI application templates available to get the look&feel that suits you best.`,
     seeMoreUrl: 'https://www.primefaces.org/primevue/#/?af_id=4218',
     products: [
       {
-        name: 'Sapphire',
+        name: 'Freya',
+        price: 59,
+        description: 'Premium Admin Template',
+        url: 'https://www.primefaces.org/layouts/freya-vue?af_id=4218',
+        image: 'https://www.primefaces.org/vue-templates/freya.jpg'
+      },
+      {
+        name: 'Diamond',
+        price: 59,
+        description: 'PrimeOne Design Admin Template',
+        url: 'https://www.primefaces.org/layouts/diamond-vue?af_id=4218',
+        image: 'https://www.primefaces.org/vue-templates/diamond.jpg'
+      },
+      {
+        name: 'Ultima',
         price: 79,
+        description: 'Material Design Admin Template',
+        url: 'https://www.primefaces.org/layouts/ultima-vue?af_id=4218',
+        image: 'https://www.primefaces.org/vue-templates/ultima.jpg'
+      },
+      {
+        name: 'Sapphire',
+        price: 49,
         description: 'Material Design Admin Template',
         url: 'https://www.primefaces.org/layouts/sapphire-vue?af_id=4218',
         image: 'https://www.primefaces.org/vue-templates/sapphire.jpg'
       },
       {
         name: 'Avalon',
-        price: 79,
+        price: 49,
         description: 'Bootstrap Inspired Admin Template',
         url: 'https://www.primefaces.org/layouts/avalon-vue?af_id=4218',
         image: 'https://www.primefaces.org/vue-templates/avalon.jpg'
       },
       {
         name: 'Serenity',
-        price: 79,
+        price: 49,
         description: 'Material Design Admin Template',
         url: 'https://www.primefaces.org/layouts/serenity-vue?af_id=4218',
         image: 'https://www.primefaces.org/vue-templates/serenity.jpg'
       },
       {
         name: 'Apollo',
-        price: 79,
+        price: 49,
         description: 'Admin Template with a Dark Mode',
         url: 'https://www.primefaces.org/layouts/apollo-vue?af_id=4218',
         image: 'https://www.primefaces.org/vue-templates/apollo.jpg'
       },
       {
         name: 'Babylon',
-        price: 79,
+        price: 49,
         description: 'Admin Template with Extensive Options',
         url: 'https://www.primefaces.org/layouts/babylon-vue?af_id=4218',
         image: 'https://www.primefaces.org/vue-templates/babylon.jpg'
       },
       {
         name: 'Roma',
-        price: 59,
+        price: 39,
         description: 'Admin Template with a Clean Design System',
         url: 'https://www.primefaces.org/layouts/roma-vue?af_id=4218',
         image: 'https://www.primefaces.org/vue-templates/roma.jpg'
+      },
+      {
+        name: 'Prestige',
+        price: 39,
+        description: 'Highly Customizable Admin Template',
+        url: 'https://www.primefaces.org/layouts/prestige-vue?af_id=4218',
+        image: 'https://www.primefaces.org/vue-templates/prestige.jpg'
       },
       {
         name: 'Sigma',
