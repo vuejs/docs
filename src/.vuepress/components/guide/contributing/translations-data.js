@@ -11,7 +11,7 @@ export const labels = {
 // Repos are in alphabetical order by the language code
 // You may need to clear your sessionStorage when adding a new item to this list
 export const repos = [
-  { lang: 'en-us', owner: 'vuejs', repo: 'docs-next', branch: 'master', url: 'https://v3.vuejs.org/' },
+  { lang: 'en-us', owner: 'vuejs', repo: 'docs', branch: 'master', url: 'https://v3.vuejs.org/' },
   { lang: 'fr', owner: 'demahom18', repo: 'docs-next', branch: 'master', url: 'https://vue3-fr.netlify.app' },
   { lang: 'id', owner: 'vuejs-id', repo: 'docs-next', branch: 'indonesian' },
   { lang: 'ja', owner: 'vuejs-jp', repo: 'ja.vuejs.org', branch: 'lang-ja', url: 'https://v3.ja.vuejs.org/' },
