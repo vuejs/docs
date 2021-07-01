@@ -20,7 +20,10 @@ git clone git@github.com:vuejs/theme.git
 2. Link theme into docs repo
 
 ```bash
-# in ./theme
+# In ./theme
+# Install dependencies
+yarn
+# Link workspace in ./theme
 yarn link
 
 # in ./docs
