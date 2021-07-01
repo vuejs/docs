@@ -1,5 +1,7 @@
 # Single File Components
 
+<VideoLesson href="https://vueschool.io/courses/vue-3-single-file-components?friend=vuejs" title="Free Vue.js Single File Components Course">Learn about single file components with a free video course on Vue School</VideoLesson>
+
 ## Introduction
 
 In many Vue projects, global components will be defined using `app.component()`, followed by `app.mount('#app')` to target a container element in the body of every page.
