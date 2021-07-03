@@ -514,7 +514,7 @@ export default defineComponent({
 
 As you can see, without annotating the `evt` argument correctly, TypeScript will throw an error when we try to access the value of the `<input>` element. The solution is to cast the event target with a correct type:
 
-```js
+```ts
 const handleChange = (evt: Event) => {
   console.log((evt.target as HTMLInputElement).value)
 }
