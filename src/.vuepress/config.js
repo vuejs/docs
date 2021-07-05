@@ -7,7 +7,8 @@ const sidebar = {
         '/cookbook/',
         '/cookbook/editable-svg-icons',
         '/cookbook/debugging-in-vscode',
-        '/cookbook/automatic-global-registration-of-base-components'
+        '/cookbook/automatic-global-registration-of-base-components',
+        '/cookbook/dockerizing-vue-app'
       ]
     }
   ],
@@ -106,7 +107,12 @@ const sidebar = {
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: ['/guide/routing', '/guide/state-management', '/guide/ssr', '/guide/security']
+      children: [
+        '/guide/routing',
+        '/guide/state-management',
+        '/guide/ssr',
+        '/guide/security'
+      ]
     },
     {
       title: 'Accessibility',
@@ -379,8 +385,7 @@ module.exports = {
               },
               {
                 text: 'Vue Test Utils',
-                link:
-                  'https://next.vue-test-utils.vuejs.org/guide/'
+                link: 'https://next.vue-test-utils.vuejs.org/guide/'
               },
               {
                 text: 'Devtools',
@@ -491,11 +496,18 @@ module.exports = {
           const date = new Date(timestamp)
 
           const digits = [
-            date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate(),
-            date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()
+            date.getUTCFullYear(),
+            date.getUTCMonth() + 1,
+            date.getUTCDate(),
+            date.getUTCHours(),
+            date.getUTCMinutes(),
+            date.getUTCSeconds()
           ].map(num => String(num).padStart(2, '0'))
 
-          return '{0}-{1}-{2}, {3}:{4}:{5} UTC'.replace(/{(\d)}/g, (_, num) => digits[num])
+          return '{0}-{1}-{2}, {3}:{4}:{5} UTC'.replace(
+            /{(\d)}/g,
+            (_, num) => digits[num]
+          )
         }
       }
     ],
