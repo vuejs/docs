@@ -46,7 +46,10 @@ Since [`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.or
 
 ```html
 <!-- Vue 3 Key Modifier on v-on -->
-<input v-on:keyup.delete="confirmDelete" />
+<input v-on:keyup.page-down="nextPage">
+
+<!-- Matches both q and Q -->
+<input v-on:keypress.q="quit">
 ```
 
 As a result, this means that `config.keyCodes` is now also deprecated and will no longer be supported.
@@ -54,6 +57,14 @@ As a result, this means that `config.keyCodes` is now also deprecated and will n
 ## Migration Strategy
 
 For those using `keyCode` in their codebase, we recommend converting them to their kebab-cased named equivalents.
+
+The keys for some punctuation marks can just be included literally. e.g. For the `,` key:
+
+```html
+<input v-on:keypress.,="commaPress">
+```
+
+Limitations of the syntax prevent certain characters from being matched, such as `"`, `'`, `/`, `=`, `>`, and `.`. For those characters you should check `event.key` inside the listener instead.
 
 [Migration build flags:](migration-build.html#compat-configuration)
 
