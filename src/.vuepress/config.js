@@ -7,7 +7,8 @@ const sidebar = {
         '/cookbook/',
         '/cookbook/editable-svg-icons',
         '/cookbook/debugging-in-vscode',
-        '/cookbook/automatic-global-registration-of-base-components'
+        '/cookbook/automatic-global-registration-of-base-components',
+        '/cookbook/serverless-blog'
       ]
     }
   ],
