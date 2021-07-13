@@ -1,6 +1,6 @@
 # Single File Components
 
-<VideoLesson href="https://vueschool.io/courses/vue-3-single-file-components?friend=vuejs" title="Free Vue.js Single File Components Course">Learn about single file components with a free video course on Vue School</VideoLesson>
+<VideoLesson href="https://vueschool.io/lessons/vue-3-introduction-to-single-file-components?friend=vuejs" title="Free Vue.js Single File Components Lesson">Learn about single file components with a free video lesson on Vue School</VideoLesson>
 
 ## Introduction
 
