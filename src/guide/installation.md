@@ -112,12 +112,6 @@ $ yarn
 $ yarn dev
 ```
 
-It might occur, that when your username has a space in it like 'Mike Baker', Vite cannot succeed. Have a try with
-
-```bash
-$ create-vite-app <project-name>
-```
-
 ## Explanation of Different Builds
 
 In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
