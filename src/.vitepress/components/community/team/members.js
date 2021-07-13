@@ -248,7 +248,7 @@ const members = [
     {
       name: 'Natalia Tepluhina',
       title: 'Fox Tech Guru',
-      city: 'Kyiv, Ukraine',
+      city: 'Amsterdam, Netherlands',
       languages: ['uk', 'ru', 'en'],
       reposOfficial: ['vuejs.org', 'vue-cli'],
       work: {
