@@ -16,7 +16,7 @@ Thank you to everyone who has contributed to these translations. Your hard work 
 
 ## How can I get involved with translations?
 
-The first step is to check whether there is an existing translation for the relevant language. In addition to the table above, a good place to start is [this pinned issue](https://github.com/vuejs/docs-next/issues/478), which is used to keep track of the various translation initiatives happening in the community.
+The first step is to check whether there is an existing translation for the relevant language. In addition to the table above, a good place to start is [this pinned issue](https://github.com/vuejs/docs/issues/478), which is used to keep track of the various translation initiatives happening in the community.
 
 If there's already an active translation then there are various ways you can help out. The GitHub repository should be a good place to start gathering information about how a particular translation is managed and who does what. All translation repositories should allow you to file issues and open Pull Requests if you have suggestions for improving the translation.
 
@@ -32,7 +32,7 @@ The documentation is constantly being updated. Many changes are small and don't 
 
 When you first start a translation, you may want to use a personal GitHub repository. That's fine, so long as it's publicly accessible and open to contributions from others. Make sure the *Issues* tab is enabled in the repository's settings. You can migrate the repository to a shared organization at a later stage.
 
-Once you start a translation, be sure to add it to [the pinned issue](https://github.com/vuejs/docs-next/issues/478) so that the rest of the community can find it.
+Once you start a translation, be sure to add it to [the pinned issue](https://github.com/vuejs/docs/issues/478) so that the rest of the community can find it.
 
 We also encourage you to update the root-level `README.md` at an early stage. Most translations add extra information to help potential contributors get involved.
 
