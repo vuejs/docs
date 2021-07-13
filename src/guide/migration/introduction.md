@@ -30,7 +30,7 @@ If you want to quickly try out Vue 3 in a new project:
 - Scaffold via [Vite](https://github.com/vitejs/vite):
 
   ```bash
-  npm init @vitejs/app hello-vue3 # OR yarn create @vitejs/app hello-vue3
+  npm init vite hello-vue3 -- --template vue # OR yarn create vite hello-vue3 --template vue
   ```
 
 - Scaffold via [vue-cli](https://cli.vuejs.org/):
