@@ -97,7 +97,7 @@ Vue projects can quickly be set up with Vite by running the following commands i
 With npm:
 
 ```bash
-$ npm init @vitejs/app <project-name>
+$ npm init vite <project-name> -- --template vue
 $ cd <project-name>
 $ npm install
 $ npm run dev
@@ -106,16 +106,10 @@ $ npm run dev
 Or with Yarn:
 
 ```bash
-$ yarn create @vitejs/app <project-name>
+$ yarn create vite <project-name> --template vue
 $ cd <project-name>
 $ yarn
 $ yarn dev
-```
-
-It might occur, that when your username has a space in it like 'Mike Baker', Vite cannot succeed. Have a try with
-
-```bash
-$ create-vite-app <project-name>
 ```
 
 ## Explanation of Different Builds
