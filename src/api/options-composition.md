@@ -11,7 +11,7 @@
   Mixin hooks are called in the order they are provided, and called before the component's own hooks.
 
   :::info
-  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, the [composition API](/guide/composition-api-introduction.html) is now the preferred approach for code reuse between components.
+  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, the [Composition API](/guide/composition-api-introduction.html) is now the preferred approach for code reuse between components.
   :::
 
 - **Example:**
