@@ -7,12 +7,20 @@
   >
     <BannerTop v-if="showTopBanner" @close="closeBannerTop" />
 
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
+    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar">
+      <template #sidebar-collapse>
+        <CollapseSidebar @toggle-item='toggleSidebar'/>
+      </template>
+    </Navbar>
 
-    <div class="sidebar-mask" @click="toggleSidebar(false)" />
 
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
-      <template #top>
+
+    <Sidebar
+      :items="sidebarItems"
+      @toggle-sidebar="toggleSidebar"
+      v-if="isSidebarOpen"
+    >
+      <template #top-collapse>
         <slot name="sidebar-top" />
       </template>
       <template #bottom>
@@ -22,7 +30,11 @@
 
     <Home v-if="$page.frontmatter.home" />
 
-    <Page v-else :sidebar-items="sidebarItems">
+    <Page
+      v-else
+      :sidebar-items="sidebarItems"
+      :class="isSidebarOpen ? 'addPad' : 'removePad'"
+    >
       <template #top>
         <CarbonAds
           v-if="adsConfig"
@@ -53,6 +65,7 @@ import Sidebar from '@theme/components/Sidebar.vue'
 import BuySellAds from '@theme/components/BuySellAds.vue'
 import CarbonAds from '@theme/components/CarbonAds.vue'
 import BannerTop from '@theme/components/BannerTop.vue'
+import CollapseSidebar from '@theme/components/CollapseSidebar.vue'
 import { resolveSidebarItems } from '../util'
 
 export default {
@@ -65,13 +78,14 @@ export default {
     Navbar,
     BannerTop,
     BuySellAds,
-    CarbonAds
+    CarbonAds,
+    CollapseSidebar
   },
 
   data() {
     return {
       showTopBanner: false,
-      isSidebarOpen: false
+      isSidebarOpen: true
     }
   },
 
@@ -129,7 +143,7 @@ export default {
 
   mounted() {
     this.$router.afterEach(() => {
-      this.isSidebarOpen = false
+      this.isSidebarOpen = true
     })
 
     this.showTopBanner = false
@@ -163,3 +177,11 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.removePad
+  padding-left 0
+
+.addPad
+  padding-left 20rem
+</style>

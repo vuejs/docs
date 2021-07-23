@@ -17,6 +17,8 @@
       >{{ $siteTitle }}</span>
     </RouterLink>
 
+    <slot name="sidebar-collapse" />
+
     <div
       class="links"
       :style="linksWrapMaxWidth ? {
