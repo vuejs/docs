@@ -9,6 +9,8 @@ badges:
 
 The hook functions for directives have been renamed to better align with the component lifecycle.
 
+Additionally, the `expression` string is no longer passed as part of the `binding` object.
+
 ## 2.x Syntax
 
 In Vue 2, custom directives were created by using the hooks listed below to target an element’s lifecycle, all of which are optional:
