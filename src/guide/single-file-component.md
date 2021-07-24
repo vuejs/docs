@@ -92,7 +92,7 @@ Once the file is created we will need to open it with our editor of choice and a
 
 ```js
 // import our third party plugins
-import commonjs from 'rollup-plugin-commonjs'
+import commonjs from '@rollup/plugin-commonjs'
 import VuePlugin from 'rollup-plugin-vue'
 import pkg from './package.json' // import our package.json file to re-use the naming
 
