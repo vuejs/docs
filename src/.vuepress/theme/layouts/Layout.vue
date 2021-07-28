@@ -9,7 +9,7 @@
 
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar">
       <template #sidebar-collapse>
-        <CollapseSidebar @toggle-item='toggleSidebar'/>
+        <CollapseSidebar v-if="!isHomePage" @toggle-item='toggleSidebar'/>
       </template>
     </Navbar>
 
@@ -138,6 +138,9 @@ export default {
 
     adsConfig() {
       return this.$site.themeConfig.carbonAds
+    },
+    isHomePage() {
+      return this.$route.name === 'v-5ad2e4fc'; //homepage
     }
   },
 
