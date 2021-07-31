@@ -202,7 +202,7 @@ import { defineAsyncComponent } from 'vue'
 
 const AsyncComp = defineAsyncComponent({
   // The factory function
-  loader: () => import('./Foo.vue')
+  loader: () => import('./Foo.vue'),
   // A component to use while the async component is loading
   loadingComponent: LoadingComponent,
   // A component to use if the load fails
