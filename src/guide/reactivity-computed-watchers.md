@@ -215,7 +215,7 @@ lastName.value = 'Smith' // logs: ["John", "Smith"] ["John", ""]
 
 However, if you are changing both watched sources simultaneously in the same method, the watcher will be executed only once:
 
-```js{8-11}
+```js{9-13}
 setup() {
   const firstName = ref("");
   const lastName = ref("");
@@ -231,6 +231,16 @@ setup() {
   };
 
   return { changeValues };
+}
+```
+
+If you want watcher to be triggered after every change, make sure to add the [nextTick](/api/global-api.html#nexttick) call between changes:
+
+```js
+const changeValues = async () => {
+  firstName.value = 'John' // logs: ["John", ""] ["", ""]
+  await nextTick()
+  lastName.value = 'Smith' // logs: ["John", "Smith"] ["John", ""]
 }
 ```
 
