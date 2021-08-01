@@ -83,8 +83,10 @@ We are registering the invalidation callback via a passed-in function instead of
 
 ```js
 const data = ref(null)
-watchEffect(async (onInvalidate) => {
-  onInvalidate(() => { /* ... */ }) // we register cleanup function before Promise resolves
+watchEffect(async onInvalidate => {
+  onInvalidate(() => {
+    /* ... */
+  }) // we register cleanup function before Promise resolves
   data.value = await fetchData(props.id)
 })
 ```
@@ -101,19 +103,19 @@ Vue's reactivity system buffers invalidated effects and flushes them asynchronou
 </template>
 
 <script>
-  export default {
-    setup() {
-      const count = ref(0)
+export default {
+  setup() {
+    const count = ref(0)
 
-      watchEffect(() => {
-        console.log(count.value)
-      })
+    watchEffect(() => {
+      console.log(count.value)
+    })
 
-      return {
-        count
-      }
+    return {
+      count
     }
   }
+}
 </script>
 ```
 
@@ -211,6 +213,27 @@ firstName.value = 'John' // logs: ["John", ""] ["", ""]
 lastName.value = 'Smith' // logs: ["John", "Smith"] ["John", ""]
 ```
 
+However, if you are changing both watched sources simultaneously in the same method, the watcher will be executed only once:
+
+```js{8-11}
+setup() {
+  const firstName = ref("");
+  const lastName = ref("");
+
+  watch([firstName, lastName], (newValues, prevValues) => {
+    console.log(newValues, prevValues);
+  });
+
+  const changeValues = () => {
+    firstName.value = "John";
+    lastName.value = "Smith";
+    // logs: ["John", "Smith"] ["", ""]
+  };
+
+  return { changeValues };
+}
+```
+
 ### Watching Reactive Objects
 
 Using a watcher to compare values of an array or object that are reactive requires that it has a copy made of just the values.
@@ -241,22 +264,14 @@ const state = reactive({
 watch(
   () => state,
   (state, prevState) => {
-    console.log(
-      'not deep',
-      state.attributes.name,
-      prevState.attributes.name
-    )
+    console.log('not deep', state.attributes.name, prevState.attributes.name)
   }
 )
 
 watch(
   () => state,
   (state, prevState) => {
-    console.log(
-      'deep',
-      state.attributes.name,
-      prevState.attributes.name
-    )
+    console.log('deep', state.attributes.name, prevState.attributes.name)
   },
   { deep: true }
 )
@@ -279,10 +294,7 @@ const state = reactive({
 watch(
   () => _.cloneDeep(state),
   (state, prevState) => {
-    console.log(
-      state.attributes.name,
-      prevState.attributes.name
-    )
+    console.log(state.attributes.name, prevState.attributes.name)
   }
 )
 
