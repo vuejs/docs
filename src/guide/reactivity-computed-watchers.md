@@ -234,7 +234,9 @@ setup() {
 }
 ```
 
-If you want watcher to be triggered after every change, make sure to add the [nextTick](/api/global-api.html#nexttick) call between changes:
+Note that multiple synchronous changes will only trigger the watcher once.
+
+If you want the watcher to be triggered after every change, make it synchronous (`sync: true`, not recommmended), or make sure to wait a tick  between each change, i.e. by using [nextTick](/api/global-api.html#nexttick):
 
 ```js
 const changeValues = async () => {
