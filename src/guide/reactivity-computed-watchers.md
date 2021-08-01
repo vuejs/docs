@@ -274,14 +274,22 @@ const state = reactive({
 watch(
   () => state,
   (state, prevState) => {
-    console.log('not deep', state.attributes.name, prevState.attributes.name)
+    console.log(
+      'not deep',
+      state.attributes.name,
+      prevState.attributes.name
+    )
   }
 )
 
 watch(
   () => state,
   (state, prevState) => {
-    console.log('deep', state.attributes.name, prevState.attributes.name)
+    console.log(
+      'deep',
+      state.attributes.name,
+      prevState.attributes.name
+    )
   },
   { deep: true }
 )
@@ -304,7 +312,10 @@ const state = reactive({
 watch(
   () => _.cloneDeep(state),
   (state, prevState) => {
-    console.log(state.attributes.name, prevState.attributes.name)
+    console.log(
+      state.attributes.name,
+      prevState.attributes.name
+    )
   }
 )
 
