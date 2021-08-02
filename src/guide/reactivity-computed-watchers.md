@@ -236,7 +236,7 @@ setup() {
 
 Note that multiple synchronous changes will only trigger the watcher once.
 
-If you want the watcher to be triggered after every change, make it synchronous (`sync: true`, not recommmended), or make sure to wait a tick  between each change, i.e. by using [nextTick](/api/global-api.html#nexttick):
+It is possible to force the watcher to trigger after every change by using the setting `flush: 'sync'`, though that isn't usually recommended. Alternatively, [nextTick](/api/global-api.html#nexttick) can be used to wait for the watcher to run before making further changes. e.g.:
 
 ```js
 const changeValues = async () => {
