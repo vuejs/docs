@@ -217,20 +217,20 @@ However, if you are changing both watched sources simultaneously in the same met
 
 ```js{9-13}
 setup() {
-  const firstName = ref("");
-  const lastName = ref("");
+  const firstName = ref('')
+  const lastName = ref('')
 
   watch([firstName, lastName], (newValues, prevValues) => {
-    console.log(newValues, prevValues);
-  });
+    console.log(newValues, prevValues)
+  })
 
   const changeValues = () => {
-    firstName.value = "John";
-    lastName.value = "Smith";
+    firstName.value = 'John'
+    lastName.value = 'Smith'
     // logs: ["John", "Smith"] ["", ""]
-  };
+  }
 
-  return { changeValues };
+  return { changeValues }
 }
 ```
 
