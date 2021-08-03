@@ -454,6 +454,41 @@
 - **See also:**
   - [Data Binding Syntax - interpolations](../guide/template-syntax.html#text)
 
+## v-memo <Badge text="3.2+" />
+
+- **Expects:** `Array`
+
+- **Details:**
+
+  Memoize a sub-tree of the template. Can be used on both elements and components. The directive expects a fixed-length array of dependency values to compare for the memoization. If every value in the array was the same as last render, then updates for the entire sub-tree will be skipped. For example:
+
+  ```html
+  <div v-memo="[valueA, valueB]">
+    ...
+  </div>
+  ```
+
+  When the component re-renders, if both `valueA` and `valueB` remains the same, all updates for this `<div>` and its children will be skipped. In fact, even the Virtual DOM vnode creation will also be skipped since the memoized copy of the sub-tree can be reused.
+
+  It is important to specify the memoization array correctly, otherwise we may skip updates that should indeed be applied.
+
+  This directive is provided solely for micro optimizations in performance-critical scenarios and should be rarely needed. The most common case where this may prove helpful is when rendering large `v-for` lists (where `length > 1000`):
+
+  ```html
+  <div
+    v-for="item in list"
+    :key="itme.id"
+    v-memo="[item.id === selected]"
+  >
+    <p>ID: {{ id }} - selected: {{ item.id === selected }}</p>
+    <p>...more child nodes</p>
+  </div>
+  ```
+
+  When the component's `selected` state changes, a large amount of vnodes will be created even though most of the items remained exactly the same. The `v-memo` usage here is essentially saying "only update this item if it went from non-selected to selected, or the other way around". This allows every unaffected item to reuse its previous vnode and skip diffing entirely. Note we don't need to include `item.id` in the memo dependency array here since Vue automatically infers it from the item's `:key`.
+
+  `v-memo` can also be used on components to manually prevent unwanted updates in certain edge cases where the child component update check has been de-optimized. But again, it is the developer's responsibility to specify correct dependency arrays to avoid skipping necessary updates.
+
 ## v-is <Badge text="deprecated" type="warning" />
 
 Deprecated in 3.1.0. Use [`is` attribute with `vue:` prefix](/api/special-attributes.html#is) instead.
