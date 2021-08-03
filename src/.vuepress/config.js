@@ -154,7 +154,8 @@ const sidebar = {
       children: [
         '/api/basic-reactivity',
         '/api/refs-api',
-        '/api/computed-watch-api'
+        '/api/computed-watch-api',
+        '/api/effect-scope',
       ]
     },
     '/api/composition-api',
