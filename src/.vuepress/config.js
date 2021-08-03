@@ -80,6 +80,7 @@ const sidebar = {
       title: 'Advanced Guides',
       collapsable: false,
       children: [
+        '/guide/web-components',
         {
           title: 'Reactivity',
           children: [
