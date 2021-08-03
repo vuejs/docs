@@ -237,7 +237,7 @@
 
 ## v-bind
 
-- **Shorthand:** `:`
+- **Shorthand:** `:` or `.` (when using `.prop` modifier)
 
 - **Expects:** `any (with argument) | Object (without argument)`
 
@@ -246,6 +246,8 @@
 - **Modifiers:**
 
   - `.camel` - transform the kebab-case attribute name into camelCase.
+  - `.prop` - force a binding to be set as DOM property. <Badge text="3.2+"/>
+  - `.attr` - force a binding to be set as DOM attribute. <Badge text="3.2+"/>
 
 - **Usage:**
 
@@ -278,23 +280,34 @@
   <!-- class binding -->
   <div :class="{ red: isRed }"></div>
   <div :class="[classA, classB]"></div>
-  <div :class="[classA, { classB: isB, classC: isC }]">
-    <!-- style binding -->
-    <div :style="{ fontSize: size + 'px' }"></div>
-    <div :style="[styleObjectA, styleObjectB]"></div>
+  <div :class="[classA, { classB: isB, classC: isC }]"></div>
 
-    <!-- binding an object of attributes -->
-    <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+  <!-- style binding -->
+  <div :style="{ fontSize: size + 'px' }"></div>
+  <div :style="[styleObjectA, styleObjectB]"></div>
 
-    <!-- prop binding. "prop" must be declared in my-component. -->
-    <my-component :prop="someThing"></my-component>
+  <!-- binding an object of attributes -->
+  <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
-    <!-- pass down parent props in common with a child component -->
-    <child-component v-bind="$props"></child-component>
+  <!-- prop binding. "prop" must be declared in my-component. -->
+  <my-component :prop="someThing"></my-component>
 
-    <!-- XLink -->
-    <svg><a :xlink:special="foo"></a></svg>
-  </div>
+  <!-- pass down parent props in common with a child component -->
+  <child-component v-bind="$props"></child-component>
+
+  <!-- XLink -->
+  <svg><a :xlink:special="foo"></a></svg>
+  ```
+
+  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary especially when [working with custom elements](/guide/web-components.html#passing-dom-properties).
+
+  The `.prop` modifier also has a dedicated shorthand, `.`:
+
+  ```html
+  <div :someProperty.prop="someObject"></div>
+
+  <!-- equivalent to -->
+  <div .someProperty="someObject"></div>
   ```
 
   The `.camel` modifier allows camelizing a `v-bind` attribute name when using in-DOM templates, e.g. the SVG `viewBox` attribute:
@@ -475,11 +488,7 @@
   This directive is provided solely for micro optimizations in performance-critical scenarios and should be rarely needed. The most common case where this may prove helpful is when rendering large `v-for` lists (where `length > 1000`):
 
   ```html
-  <div
-    v-for="item in list"
-    :key="itme.id"
-    v-memo="[item.id === selected]"
-  >
+  <div v-for="item in list" :key="itme.id" v-memo="[item.id === selected]">
     <p>ID: {{ id }} - selected: {{ item.id === selected }}</p>
     <p>...more child nodes</p>
   </div>
