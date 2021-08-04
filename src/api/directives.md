@@ -488,7 +488,7 @@
   This directive is provided solely for micro optimizations in performance-critical scenarios and should be rarely needed. The most common case where this may prove helpful is when rendering large `v-for` lists (where `length > 1000`):
 
   ```html
-  <div v-for="item in list" :key="itme.id" v-memo="[item.id === selected]">
+  <div v-for="item in list" :key="item.id" v-memo="[item.id === selected]">
     <p>ID: {{ id }} - selected: {{ item.id === selected }}</p>
     <p>...more child nodes</p>
   </div>

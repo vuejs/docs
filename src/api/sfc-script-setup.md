@@ -4,7 +4,7 @@ sidebarDepth: 1
 
 # SFC `<script setup>`
 
-`<script setup>` is a compile-time syntactic sugar for using [Composition API](https://v3.vuejs.org/api/composition-api.html) inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
+`<script setup>` is a compile-time syntactic sugar for using [Composition API](/api/composition-api.html) inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
 
 - More succinct code with less boilerplate
 - Ability to declare props and emitted events using pure TypeScript
@@ -57,7 +57,7 @@ Imports are exposed in the same fashion. This means you can directly use an impo
 
 ## Reactivity
 
-Reactive state needs to be explicitly created using [Reactivity APIs](https://v3.vuejs.org/api/basic-reactivity.html). Similar to returned values from the `setup()` functions, refs are automatically unwrapped when referenced in templates:
+Reactive state needs to be explicitly created using [Reactivity APIs](/api/basic-reactivity.html). Similar to returned values from the `setup()` functions, refs are automatically unwrapped when referenced in templates:
 
 ```html
 <script setup>

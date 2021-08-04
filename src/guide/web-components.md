@@ -10,7 +10,7 @@ Vue [scores a perfect 100% in the Custom Elements Everywhere tests](https://cust
 
 ### Skipping Component Resolution
 
-By default, Vue will attempt to resolve a non-native HTML tag as a registered Vue component before falling back to rendering it as a custom element. This will cause Vue to emit a "failed to resovle component" warning during development. To let Vue know that certain elements should be treated as custom elements and skip component resolution, we can specify the [`compilerOptions.isCustomElement` option](https://v3.vuejs.org/api/application-config.html#compileroptions).
+By default, Vue will attempt to resolve a non-native HTML tag as a registered Vue component before falling back to rendering it as a custom element. This will cause Vue to emit a "failed to resovle component" warning during development. To let Vue know that certain elements should be treated as custom elements and skip component resolution, we can specify the [`compilerOptions.isCustomElement` option](/api/application-config.html#compileroptions).
 
 If you are using Vue with a build setup, the option should be passed via build configs since it is a compile-time option.
 
