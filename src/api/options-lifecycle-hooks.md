@@ -102,7 +102,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **Details:**
 
-  Called when a kept-alive component is activated.
+  Called when a keep-alive component is activated.
 
   **This hook is not called during server-side rendering.**
 
@@ -115,7 +115,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **Details:**
 
-  Called when a kept-alive component is deactivated.
+  Called when a keep-alive component is deactivated.
 
   **This hook is not called during server-side rendering.**
 
