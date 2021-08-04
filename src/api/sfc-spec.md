@@ -40,7 +40,7 @@ export default {
 
 ### `<script>`
 
-- Each `*.vue` file can contain at most one `<script>` block at a time (excluding [<script setup>](/api/sfc-script-setup.html)).
+- Each `*.vue` file can contain at most one `<script>` block at a time (excluding [`<script setup>`](/api/sfc-script-setup.html)).
 
 - The script is executed as an ES Module.
 
@@ -60,7 +60,13 @@ export default {
 
 ### Custom Blocks
 
-Additional custom blocks can be included in a `*.vue` file for any project specific needs, for example a `<docs>` block. Handling of Custom Blocks will depend on tooling - see [SFC Tooling](/api/sfc-tooling#custom-blocks-integration) for more details.
+Additional custom blocks can be included in a `*.vue` file for any project specific needs, for example a `<docs>` block. Some real-world examples of custom blocks include:
+
+- [Gridsome: `<page-query>`](https://gridsome.org/docs/querying-data/)
+- [vite-plguin-vue-gql: `<gql>`](https://github.com/wheatjs/vite-plugin-vue-gql)
+- [vue-i18n: `<i18n>`](https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n#i18n-custom-block)
+
+Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see [SFC Tooling](/api/sfc-tooling#custom-blocks-integration) for more details.
 
 ## Automatic `name` Inference
 
