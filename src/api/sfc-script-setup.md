@@ -4,7 +4,7 @@ sidebarDepth: 1
 
 # SFC `<script setup>`
 
-`<script setup>` is a compile-time syntacitc sugar for using [Composition API](https://v3.vuejs.org/api/composition-api.html) inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
+`<script setup>` is a compile-time syntactic sugar for using [Composition API](https://v3.vuejs.org/api/composition-api.html) inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
 
 - More succinct code with less boilerplate
 - Ability to declare props and emitted events using pure TypeScript
@@ -85,7 +85,7 @@ Values in the scope of `<script setup>` can also be used directly as custom comp
 </template>
 ```
 
-Think of `MyComponent` as being referenced as a varaible. If you have used JSX before, the mental model is similar here. The kebab-case equivalent `<my-component>` also works in the template - however PascalCase component tags are strongly recommended for consistency. It also helps differentiating from native custom elements.
+Think of `MyComponent` as being referenced as a variable. If you have used JSX before, the mental model is similar here. The kebab-case equivalent `<my-component>` also works in the template - however PascalCase component tags are strongly recommended for consistency. It also helps differentiating from native custom elements.
 
 ### Dynamic Components
 
@@ -179,8 +179,8 @@ Usage of `slots` and `attrs` inside `<script setup>` should be relatively rare, 
 
 `<script setup>` can be used alongside normal `<script>`. A normal `<script>` maybe needed in cases where we need to:
 
-- Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins;
-- Declaring named exports;
+- Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins.
+- Declaring named exports.
 - Run side effects or create objects that should only execute once.
 
 ```html

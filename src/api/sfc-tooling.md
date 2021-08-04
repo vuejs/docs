@@ -9,9 +9,9 @@ You don't need to install anything on your machine to try out Vue SFCs - there a
 - [Vue on CodeSandbox](https://codesandbox.io/s/vue-3)
 - [Vue on Repl.it](https://replit.com/@templates/VueJS-with-Vite)
 - [Vue on Codepen](https://codepen.io/pen/editor/vue)
-- [Vue on StackBlitz](stackblitz.com/fork/vue)
+- [Vue on StackBlitz](https://stackblitz.com/fork/vue)
 
-It is also recommend to use these online playgrounds to provide reproductions when reporting bugs.
+It is also recommended to use these online playgrounds to provide reproductions when reporting bugs.
 
 ## Project Scaffolding
 
@@ -61,7 +61,7 @@ Most other editors have community-created syntax highlighting support for Vue, b
 
 - Vue CLI comes with [Jest](https://jestjs.io/) and [Mocha](https://mochajs.org/) integrations.
 
-- If you are manually confugring Jest to work with Vue SFCs, check out [vue-jest](https://github.com/vuejs/vue-jest) which is the official Jest transform for Vue SFCs.
+- If you are manually configuring Jest to work with Vue SFCs, check out [vue-jest](https://github.com/vuejs/vue-jest) which is the official Jest transform for Vue SFCs.
 
 ## Custom Blocks Integration
 

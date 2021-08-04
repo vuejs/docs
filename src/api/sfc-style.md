@@ -40,7 +40,7 @@ With `scoped`, the parent component's styles will not leak into child components
 
 ### Deep Selectors
 
-If you want a selector in `scoped` styles to be "deep", i.e. affecting child components, you can use the `:deep()` psuedo-class:
+If you want a selector in `scoped` styles to be "deep", i.e. affecting child components, you can use the `:deep()` pseudo-class:
 
 ```vue
 <style scoped>
@@ -76,7 +76,7 @@ By default, scoped styles do not affect contents rendered by `<slot/>`, as they 
 
 ### Global Selectors
 
-If you want just one rule to apply globally, you can use the `:global` pseudo-class:
+If you want just one rule to apply globally, you can use the `:global` pseudo-class rather than creating another `<style>` (see below):
 
 ```vue
 <style scoped>
