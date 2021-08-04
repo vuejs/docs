@@ -15,9 +15,9 @@ sidebarDepth: 1
 
 To opt-in to the syntax, add the `setup` attribute to the `<script>` block:
 
-```html
+```vue
 <script setup>
-  console.log('hello script setup')
+console.log('hello script setup')
 </script>
 ```
 
@@ -27,15 +27,15 @@ The code inside are compiled as the content of the component's `setup()` functio
 
 When using `<script setup>`, any top-level bindings (including variables, function declarations, and imports) declared inside `<script setup>` are directly usable in the template:
 
-```html
+```vue
 <script setup>
-  // variable
-  const msg = 'Hello!'
+// variable
+const msg = 'Hello!'
 
-  // functions
-  function log() {
-    console.log(msg)
-  }
+// functions
+function log() {
+  console.log(msg)
+}
 </script>
 
 <template>
@@ -45,9 +45,9 @@ When using `<script setup>`, any top-level bindings (including variables, functi
 
 Imports are exposed in the same fashion. This means you can directly use an imported helper function in template expressions without having to expose it via the `methods` option:
 
-```html
+```vue
 <script setup>
-  import { capitalize } from './helpers'
+import { capitalize } from './helpers'
 </script>
 
 <template>
@@ -59,11 +59,11 @@ Imports are exposed in the same fashion. This means you can directly use an impo
 
 Reactive state needs to be explicitly created using [Reactivity APIs](/api/basic-reactivity.html). Similar to returned values from the `setup()` functions, refs are automatically unwrapped when referenced in templates:
 
-```html
+```vue
 <script setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  const count = ref(0)
+const count = ref(0)
 </script>
 
 <template>
@@ -75,9 +75,9 @@ Reactive state needs to be explicitly created using [Reactivity APIs](/api/basic
 
 Values in the scope of `<script setup>` can also be used directly as custom component tag names:
 
-```html
+```vue
 <script setup>
-  import MyComponent from './MyComponent.vue'
+import MyComponent from './MyComponent.vue'
 </script>
 
 <template>
@@ -91,10 +91,10 @@ Think of `MyComponent` as being referenced as a variable. If you have used JSX b
 
 Since components are referenced as variables instead of registered under string keys, we should use dynamic `:is` binding when using dynamic components inside `<script setup>`:
 
-```html
+```vue
 <script setup>
-  import Foo from './Foo.vue'
-  import Bar from './Bar.vue'
+import Foo from './Foo.vue'
+import Bar from './Bar.vue'
 </script>
 
 <template>
@@ -119,14 +119,14 @@ import { FooBar as FooBarChild } from './components'
 
 To declare options like `props` and `emits` with full type inference support, we can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
 
-```html
+```vue
 <script setup>
-  const props = defineProps({
-    foo: String
-  })
+const props = defineProps({
+  foo: String
+})
 
-  const emit = defineEmits(['change', 'delete'])
-  // setup code
+const emit = defineEmits(['change', 'delete'])
+// setup code
 </script>
 ```
 
@@ -146,15 +146,15 @@ Components using `<script setup>` are **closed by default** - i.e. the public in
 
 To explicitly expose properties in a `<script setup>` component, use the `defineExpose` compiler macro:
 
-```html
+```vue
 <script setup>
-  const a = 1
-  const b = ref(2)
+const a = 1
+const b = ref(2)
 
-  defineExpose({
-    a,
-    b
-  })
+defineExpose({
+  a,
+  b
+})
 </script>
 ```
 
@@ -164,12 +164,12 @@ When a parent gets an instance of this component via template refs, the retrieve
 
 Usage of `slots` and `attrs` inside `<script setup>` should be relatively rare, since you can access them directly as `$slots` and `$attrs` in the template. In the rare case where you do need them, use the `useSlots` and `useAttrs` helpers respectively:
 
-```html
+```vue
 <script setup>
-  import { useSlots, useAttrs } from 'vue'
+import { useSlots, useAttrs } from 'vue'
 
-  const slots = useSlots()
-  const attrs = useAttrs()
+const slots = useSlots()
+const attrs = useAttrs()
 </script>
 ```
 
@@ -183,20 +183,20 @@ Usage of `slots` and `attrs` inside `<script setup>` should be relatively rare, 
 - Declaring named exports.
 - Run side effects or create objects that should only execute once.
 
-```html
+```vue
 <script>
-  // normal <script>, executed in module scope (only once)
-  runSideEffectOnce()
+// normal <script>, executed in module scope (only once)
+runSideEffectOnce()
 
-  // declare additional options
-  export default {
-    inheritAttrs: false,
-    customOptions: {}
-  }
+// declare additional options
+export default {
+  inheritAttrs: false,
+  customOptions: {}
+}
 </script>
 
 <script setup>
-  // executed in setup() scope (for each instance)
+// executed in setup() scope (for each instance)
 </script>
 ```
 
@@ -204,9 +204,9 @@ Usage of `slots` and `attrs` inside `<script setup>` should be relatively rare, 
 
 Top level `await` can be used inside `<script setup>`. The resulting code will be compiled as `async setup()`:
 
-```html
+```vue
 <script setup>
-  const post = await fetch(`/api/post/1`).then(r => r.json())
+const post = await fetch(`/api/post/1`).then(r => r.json())
 </script>
 ```
 
