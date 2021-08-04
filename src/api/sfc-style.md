@@ -190,4 +190,4 @@ p {
 </style>
 ```
 
-The actual value will be compiled into a hashed CSS custom property so the CSS is still sattic. The custom property and will be applied to component's root element via inline styles and reactively updated if the source value changes.
+The actual value will be compiled into a hashed CSS custom property so the CSS is still sattic. The custom property will be applied to component's root element via inline styles and reactively updated if the source value changes.
