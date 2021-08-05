@@ -270,7 +270,7 @@ document.body.appendChild(new MyVueElement({
 }))
 ```
 
-For more details on building Web Components with Vue, especially with Single File Components, see [Vue and Web Components](/guide/web-components#building-custom-elements-with-vue).
+For more details on building Web Components with Vue, especially with Single File Components, see [Vue and Web Components](/guide/web-components.html#building-custom-elements-with-vue).
 
 ## resolveComponent
 

@@ -246,8 +246,8 @@
 - **Modifiers:**
 
   - `.camel` - transform the kebab-case attribute name into camelCase.
-  - `.prop` - force a binding to be set as DOM property. <Badge text="3.2+"/>
-  - `.attr` - force a binding to be set as DOM attribute. <Badge text="3.2+"/>
+  - `.prop` - force a binding to be set as a DOM property. <Badge text="3.2+"/>
+  - `.attr` - force a binding to be set as a DOM attribute. <Badge text="3.2+"/>
 
 - **Usage:**
 
@@ -299,7 +299,7 @@
   <svg><a :xlink:special="foo"></a></svg>
   ```
 
-  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary especially when [working with custom elements](/guide/web-components.html#passing-dom-properties).
+  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/web-components.html#passing-dom-properties).
 
   The `.prop` modifier also has a dedicated shorthand, `.`:
 
@@ -481,7 +481,7 @@
   </div>
   ```
 
-  When the component re-renders, if both `valueA` and `valueB` remains the same, all updates for this `<div>` and its children will be skipped. In fact, even the Virtual DOM vnode creation will also be skipped since the memoized copy of the sub-tree can be reused.
+  When the component re-renders, if both `valueA` and `valueB` remain the same, all updates for this `<div>` and its children will be skipped. In fact, even the Virtual DOM VNode creation will also be skipped since the memoized copy of the sub-tree can be reused.
 
   It is important to specify the memoization array correctly, otherwise we may skip updates that should indeed be applied.
 
@@ -489,7 +489,7 @@
 
   ```html
   <div v-for="item in list" :key="item.id" v-memo="[item.id === selected]">
-    <p>ID: {{ id }} - selected: {{ item.id === selected }}</p>
+    <p>ID: {{ item.id }} - selected: {{ item.id === selected }}</p>
     <p>...more child nodes</p>
   </div>
   ```

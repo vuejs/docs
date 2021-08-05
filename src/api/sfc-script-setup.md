@@ -8,7 +8,7 @@ sidebarDepth: 1
 
 - More succinct code with less boilerplate
 - Ability to declare props and emitted events using pure TypeScript
-- Better runtime performance (template is compiled into render function in the same scope without an intermediate proxy)
+- Better runtime performance (the template is compiled into a render function in the same scope, without an intermediate proxy)
 - Better IDE type-inference performance (less work for the language server to extract types from code)
 
 ## Basic Syntax
@@ -21,9 +21,9 @@ console.log('hello script setup')
 </script>
 ```
 
-The code inside are compiled as the content of the component's `setup()` function. This means unlike normal `<script>`, which only executes once when the component is first imported, code inside `<script setup>` will **execute every time an instance of the component is created**.
+The code inside is compiled as the content of the component's `setup()` function. This means that unlike normal `<script>`, which only executes once when the component is first imported, code inside `<script setup>` will **execute every time an instance of the component is created**.
 
-### Top level bindings are exposed to template
+### Top-level bindings are exposed to template
 
 When using `<script setup>`, any top-level bindings (including variables, function declarations, and imports) declared inside `<script setup>` are directly usable in the template:
 
@@ -57,7 +57,7 @@ import { capitalize } from './helpers'
 
 ## Reactivity
 
-Reactive state needs to be explicitly created using [Reactivity APIs](/api/basic-reactivity.html). Similar to returned values from the `setup()` functions, refs are automatically unwrapped when referenced in templates:
+Reactive state needs to be explicitly created using [Reactivity APIs](/api/basic-reactivity.html). Similar to values returned from a `setup()` function, refs are automatically unwrapped when referenced in templates:
 
 ```vue
 <script setup>
@@ -85,7 +85,7 @@ import MyComponent from './MyComponent.vue'
 </template>
 ```
 
-Think of `MyComponent` as being referenced as a variable. If you have used JSX before, the mental model is similar here. The kebab-case equivalent `<my-component>` also works in the template - however PascalCase component tags are strongly recommended for consistency. It also helps differentiating from native custom elements.
+Think of `MyComponent` as being referenced as a variable. If you have used JSX, the mental model is similar here. The kebab-case equivalent `<my-component>` also works in the template - however PascalCase component tags are strongly recommended for consistency. It also helps differentiating from native custom elements.
 
 ### Dynamic Components
 
@@ -107,7 +107,7 @@ Note how the components can be used as variables in a ternary expression.
 
 ### Recursive Components
 
-SFCs can implicitly refer to itself via its filename. E.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template.
+An SFC can implicitly refer to itself via its filename. E.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template.
 
 Note this has lower priority than imported components. If you have a named import that conflicts with the component's inferred name, you can alias the import:
 
@@ -177,7 +177,7 @@ const attrs = useAttrs()
 
 ## Usage alongside normal `<script>`
 
-`<script setup>` can be used alongside normal `<script>`. A normal `<script>` maybe needed in cases where we need to:
+`<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where we need to:
 
 - Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins.
 - Declaring named exports.
@@ -200,9 +200,9 @@ export default {
 </script>
 ```
 
-## Top level await
+## Top-level `await`
 
-Top level `await` can be used inside `<script setup>`. The resulting code will be compiled as `async setup()`:
+Top-level `await` can be used inside `<script setup>`. The resulting code will be compiled as `async setup()`:
 
 ```vue
 <script setup>
@@ -232,7 +232,7 @@ const emit = defineEmits<{
 
 - `defineProps` or `defineEmits` can only use either runtime declaration OR type declaration. Using both at the same time will result in a compile error.
 
-- When using type declaration, equivalent runtime declaration is automatically generated from static analysis to remove the need of double declaration and still ensure correct runtime behavior.
+- When using type declaration, the equivalent runtime declaration is automatically generated from static analysis to remove the need for double declaration and still ensure correct runtime behavior.
 
   - In dev mode, the compiler will try to infer corresponding runtime validation from the types. For example here `foo: String` is inferred from the `foo: string` type. If the type is a reference to an imported type, the inferred result will be `foo: null` (equal to `any` type) since the compiler does not have information of external files.
 
@@ -243,7 +243,7 @@ const emit = defineEmits<{
 - As of now, the type declaration argument must be one of the following to ensure correct static analysis:
 
   - A type literal
-  - A reference to a an interface or a type literal in the same file
+  - A reference to an interface or a type literal in the same file
 
   Currently complex types and type imports from other files are not supported. It is theoretically possible to support type imports in the future.
 
@@ -265,4 +265,4 @@ This will be compiled to equivalent runtime props `default` options. In addition
 
 ## Restriction: No Src Imports
 
-Due to the difference in module execution semantics, code inside `<script setup>` relies on the context of an SFC. When moved into external `.js` or `.ts` files, it may lead to confusions for both developers and tools. Therefore, **`<script setup>`** cannot be used with the `src` attribute.
+Due to the difference in module execution semantics, code inside `<script setup>` relies on the context of an SFC. When moved into external `.js` or `.ts` files, it may lead to confusion for both developers and tools. Therefore, **`<script setup>`** cannot be used with the `src` attribute.

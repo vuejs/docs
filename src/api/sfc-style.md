@@ -132,15 +132,15 @@ Refer to the [CSS Modules spec](https://github.com/css-modules/css-modules) for 
 
 You can customize the property key of the injected classes object by giving the `module` attribute a value:
 
-```html
+```vue
 <template>
   <p :class="classes.red">red</p>
 </template>
 
 <style module="classes">
-  .red {
-    color: red;
-  }
+.red {
+  color: red;
+}
 </style>
 ```
 
@@ -190,4 +190,4 @@ p {
 </style>
 ```
 
-The actual value will be compiled into a hashed CSS custom property so the CSS is still static. The custom property will be applied to component's root element via inline styles and reactively updated if the source value changes.
+The actual value will be compiled into a hashed CSS custom property, so the CSS is still static. The custom property will be applied to the component's root element via inline styles and reactively updated if the source value changes.

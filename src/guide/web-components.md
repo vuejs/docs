@@ -10,7 +10,7 @@ Vue [scores a perfect 100% in the Custom Elements Everywhere tests](https://cust
 
 ### Skipping Component Resolution
 
-By default, Vue will attempt to resolve a non-native HTML tag as a registered Vue component before falling back to rendering it as a custom element. This will cause Vue to emit a "failed to resovle component" warning during development. To let Vue know that certain elements should be treated as custom elements and skip component resolution, we can specify the [`compilerOptions.isCustomElement` option](/api/application-config.html#compileroptions).
+By default, Vue will attempt to resolve a non-native HTML tag as a registered Vue component before falling back to rendering it as a custom element. This will cause Vue to emit a "failed to resolve component" warning during development. To let Vue know that certain elements should be treated as custom elements and skip component resolution, we can specify the [`compilerOptions.isCustomElement` option](/api/application-config.html#compileroptions).
 
 If you are using Vue with a build setup, the option should be passed via build configs since it is a compile-time option.
 
@@ -56,9 +56,9 @@ module.exports = {
 
 ### Passing DOM Properties
 
-Since DOM attributes can only be strings, we need to pass complex data to custom elements as DOM properties. When setting props on a custom element, Vue 3 automatically checks DOM property presence using the `in` operator and will prefer setting the value as DOM property if the key is present. This means in most cases, you won't need to think about this if the custom element follows the [recommended best practices](https://developers.google.com/web/fundamentals/web-components/best-practices#aim-to-keep-primitive-data-attributes-and-properties-in-sync,-reflecting-from-property-to-attribute,-and-vice-versa.).
+Since DOM attributes can only be strings, we need to pass complex data to custom elements as DOM properties. When setting props on a custom element, Vue 3 automatically checks DOM-property presence using the `in` operator and will prefer setting the value as a DOM property if the key is present. This means that, in most cases, you won't need to think about this if the custom element follows the [recommended best practices](https://developers.google.com/web/fundamentals/web-components/best-practices#aim-to-keep-primitive-data-attributes-and-properties-in-sync,-reflecting-from-property-to-attribute,-and-vice-versa.).
 
-However, there could be rare cases where the data must be passed as a DOM property, but the custom element does not properly define/reflect the property (causing the `in` check to fail). In this case you can force a `v-bind` binding to be set as DOM property using the `.prop` modifier:
+However, there could be rare cases where the data must be passed as a DOM property, but the custom element does not properly define/reflect the property (causing the `in` check to fail). In this case, you can force a `v-bind` binding to be set as a DOM property using the `.prop` modifier:
 
 ```html
 <my-element :user.prop="{ name: 'jack' }"></my-element>
@@ -93,7 +93,8 @@ const MyVueElement = defineCustomElement({
 })
 
 // Register the custom element.
-// After registration, all `<my-vue-element>` tags on the page will be upgraded.
+// After registration, all `<my-vue-element>` tags
+// on the page will be upgraded.
 customElements.define('my-vue-element', MyVueElement)
 
 // You can also programmatically instantiate the element:
@@ -138,7 +139,7 @@ document.body.appendChild(
   <my-element selected index="1"></my-element>
   ```
 
-  In the component, `selected` will be casted to `true` (booelan) and `index` will be casted to `1` (number).
+  In the component, `selected` will be cast to `true` (boolean) and `index` will be cast to `1` (number).
 
 #### Events
 
@@ -150,7 +151,7 @@ Inside the component, slots can be rendered using the `<slot/>` element as usual
 
 - [Scoped slots](/guide/component-slots.html#scoped-slots) are not supported.
 
-- When passing named slots, use the the `slot` attribute instead of the `v-slot` directive:
+- When passing named slots, use the `slot` attribute instead of the `v-slot` directive:
 
   ```html
   <my-element>
@@ -178,7 +179,7 @@ const myExample = new Example()
 
 When imported as custom elements, `<style>` inside the SFC will be inlined as JavaScript strings and inserted as a native `<style>` tag inside the custom element's shadow root.
 
-If you wish to customize what files should be imported as custom elements (for example treaing _all_ SFCs as custom elements), you can pass the `customElement` option to the respective build plugins:
+If you wish to customize what files should be imported as custom elements (for example treating _all_ SFCs as custom elements), you can pass the `customElement` option to the respective build plugins:
 
 - [@vitejs/plugin-vue](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#using-vue-sfcs-as-custom-elements)
 - [vue-loader](https://github.com/vuejs/vue-loader/tree/next#v16-only-options)
@@ -189,7 +190,7 @@ When building custom elements with Vue, the elements will rely on Vue's runtime.
 
 If the custom elements will be used in an application that is also using Vue, you can choose to externalize Vue from the built bundle so that the elements will be using the same copy of Vue from the host application.
 
-It is recommended to export the individual element constructors to give your users the flexiblity to import them on-demand and register them with desired tag names. You can also export a convenience function to automatically register all elements. Here's an example entry point of a Vue custom element library:
+It is recommended to export the individual element constructors to give your users the flexibility to import them on-demand and register them with desired tag names. You can also export a convenience function to automatically register all elements. Here's an example entry point of a Vue custom element library:
 
 ```js
 import MyFoo from './MyFoo.ce.vue'
@@ -206,9 +207,9 @@ export function register() {
 
 ## Web Components vs. Vue Components
 
-Some developers believe that framework-proprietary compoenent models should be avoided, and that exclusively using Custom Elements makes an application "future-proof". Here we will try to explain why we believe that this is an overly simplistic take on the problem.
+Some developers believe that framework-proprietary component models should be avoided, and that exclusively using Custom Elements makes an application "future-proof". Here we will try to explain why we believe that this is an overly simplistic take on the problem.
 
-There are indeed a certain level of feature overap between Custom Elements and Vue Components: they both allow us to define reusable components with data passing, event emitting, and lifecycle management. However, Web Components APIs are relatively low-level and bare-bones. To build an actual application, we need quite a few additional capabilities which the platform does not cover:
+There is indeed a certain level of feature overlap between Custom Elements and Vue Components: they both allow us to define reusable components with data passing, event emitting, and lifecycle management. However, Web Components APIs are relatively low-level and bare-bones. To build an actual application, we need quite a few additional capabilities which the platform does not cover:
 
 - A declarative and efficient templating system;
 
@@ -218,14 +219,14 @@ There are indeed a certain level of feature overap between Custom Elements and V
 
 Vue's component model is designed with these needs in mind as a coherent system.
 
-With a competent engineering team, you could probably build the equivalent on top of native Custom Elements - but this also means you are taking on the long term maintenance burden of an in-house framework, while losing out on the ecosystem and community benefits of a mature framework like Vue.
+With a competent engineering team, you could probably build the equivalent on top of native Custom Elements - but this also means you are taking on the long-term maintenance burden of an in-house framework, while losing out on the ecosystem and community benefits of a mature framework like Vue.
 
 There are also frameworks built using Custom Elements as the basis of their component model, but they all inevitably have to introduce their proprietary solutions to the problems listed above. Using these frameworks entails buying into their technical decisions on how to solve these problems - which, despite what may be advertised, doesn't automatically insulate you from potential future churns.
 
 There are also some areas where we find custom elements to be limiting:
 
-- Eager slot evaluation hinders component composition. Vue's [scoped slots](/guide/component-slots.html#scoped-slots) is a powerful mechanism for component composition, which can't be supported by custom elements due to native slot's eager nature. Eager slots also means the receiving component cannot control when or whether to render a piece of slot content.
+- Eager slot evaluation hinders component composition. Vue's [scoped slots](/guide/component-slots.html#scoped-slots) are a powerful mechanism for component composition, which can't be supported by custom elements due to native slots' eager nature. Eager slots also mean the receiving component cannot control when or whether to render a piece of slot content.
 
-- Shipping custom elements with shadow DOM scoped CSS today requires embedding the CSS inside JavaScript so that they can be injected into shadow roots at runtime. They also result in duplicated styles in markup in SSR scenarios. There are [platform features](https://github.com/whatwg/html/pull/4898/) being worked on in this area - but as of now they are not yet universally supported, and there are still production performance / SSR concerns to be addressed. In the meanwhile, Vue SFCs provide [CSS scoping mechanisms](/api/sfc-style) that supports extracting the styles into plain CSS files.
+- Shipping custom elements with shadow DOM scoped CSS today requires embedding the CSS inside JavaScript so that they can be injected into shadow roots at runtime. They also result in duplicated styles in markup in SSR scenarios. There are [platform features](https://github.com/whatwg/html/pull/4898/) being worked on in this area - but as of now they are not yet universally supported, and there are still production performance / SSR concerns to be addressed. In the meanwhile, Vue SFCs provide [CSS scoping mechanisms](/api/sfc-style.html) that support extracting the styles into plain CSS files.
 
 Vue will always be staying up to date with the latest standards in the web platform, and we will happily leverage whatever the platform provides if it makes our job easier. However, our goal is to provide solutions that work well and work today. That means we have to incorporate new platform features with a critical mindset - and that involves filling the gaps where the standards fall short while that is still the case.
