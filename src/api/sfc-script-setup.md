@@ -148,6 +148,8 @@ To explicitly expose properties in a `<script setup>` component, use the `define
 
 ```vue
 <script setup>
+import { ref } from 'vue'
+
 const a = 1
 const b = ref(2)
 
@@ -212,6 +214,10 @@ const post = await fetch(`/api/post/1`).then(r => r.json())
 
 In addition, the awaited expression will be automatically compiled in a format that preserves the current component instance context after the `await`.
 
+:::warning Note
+`async setup()` must be used in combination with `Suspense`, which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
+:::
+
 ## TypeScript-only Features
 
 ### Type-only props/emit declarations
@@ -236,7 +242,7 @@ const emit = defineEmits<{
 
   - In dev mode, the compiler will try to infer corresponding runtime validation from the types. For example here `foo: String` is inferred from the `foo: string` type. If the type is a reference to an imported type, the inferred result will be `foo: null` (equal to `any` type) since the compiler does not have information of external files.
 
-  - In prod mode, the compiler will generate the array format declaration to reduce bundle size (the props here will be compiled into `['msg']`)
+  - In prod mode, the compiler will generate the array format declaration to reduce bundle size (the props here will be compiled into `['foo', 'bar']`)
 
   - The emitted code is still TypeScript with valid typing, which can be further processed by other tools.
 
@@ -254,10 +260,12 @@ One drawback of the type-only `defineProps` declaration is that it doesn't have 
 ```ts
 interface Props {
   msg?: string
+  labels?: string[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  msg: 'hello'
+  msg: 'hello',
+  labels: () => ['one', 'two']
 })
 ```
 

@@ -265,9 +265,11 @@ customElements.define('my-vue-element', MyVueElement)
 
 // You can also programmatically instantiate the element:
 // (can only be done after registration)
-document.body.appendChild(new MyVueElement({
-  // initial props (optional)
-}))
+document.body.appendChild(
+  new MyVueElement({
+    // initial props (optional)
+  })
+)
 ```
 
 For more details on building Web Components with Vue, especially with Single File Components, see [Vue and Web Components](/guide/web-components.html#building-custom-elements-with-vue).
@@ -565,7 +567,7 @@ export default {
 </style>
 ```
 
-For more information about using CSS modules, see [Vue Loader - CSS Modules](https://vue-loader.vuejs.org/guide/css-modules.html).
+For more information about using CSS modules, see [SFC Style Features: `<style module>`](/api/sfc-style.html#style-module).
 
 ### Arguments
 

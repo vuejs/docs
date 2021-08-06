@@ -144,6 +144,18 @@ You can customize the property key of the injected classes object by giving the 
 </style>
 ```
 
+### Usage with Composition API
+
+The injected classes can be accessed in `setup()` and `<script setup>` via the [`useCssModule`](/api/global-api.html#usecssmodule) API. For `<style module>` blocks with custom injection names, `useCssModule` accepts the matching `module` attribute value as the first argument:
+
+```js
+// default, returns classes for <style module>
+useCssModule()
+
+// named, returns classes for <style module="classes">
+useCssModule('classes')
+```
+
 ## State-Driven Dynamic CSS
 
 SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function:
