@@ -41,11 +41,21 @@ Both callbacks will receive a debugger event which contains information on the d
 
 ```js
 const plusOne = computed(() => count.value + 1, {
+  onTrack(e) {
+    // triggered when count.value is tracked as a dependency
+    debugger
+  },
   onTrigger(e) {
-    // should be triggered when count.value is mutated
+    // triggered when count.value is mutated
     debugger
   }
 })
+
+// access plusOne, should trigger onTrack
+console.log(plusOne.value)
+
+// mutate count.value, should trigger onTrigger
+count.value++
 ```
 
 `onTrack` and `onTrigger` only work in development mode.
