@@ -83,8 +83,10 @@ We are registering the invalidation callback via a passed-in function instead of
 
 ```js
 const data = ref(null)
-watchEffect(async (onInvalidate) => {
-  onInvalidate(() => { /* ... */ }) // we register cleanup function before Promise resolves
+watchEffect(async onInvalidate => {
+  onInvalidate(() => {
+    /* ... */
+  }) // we register cleanup function before Promise resolves
   data.value = await fetchData(props.id)
 })
 ```
@@ -101,19 +103,19 @@ Vue's reactivity system buffers invalidated effects and flushes them asynchronou
 </template>
 
 <script>
-  export default {
-    setup() {
-      const count = ref(0)
+export default {
+  setup() {
+    const count = ref(0)
 
-      watchEffect(() => {
-        console.log(count.value)
-      })
+    watchEffect(() => {
+      console.log(count.value)
+    })
 
-      return {
-        count
-      }
+    return {
+      count
     }
   }
+}
 </script>
 ```
 
@@ -209,6 +211,39 @@ watch([firstName, lastName], (newValues, prevValues) => {
 
 firstName.value = 'John' // logs: ["John", ""] ["", ""]
 lastName.value = 'Smith' // logs: ["John", "Smith"] ["John", ""]
+```
+
+However, if you are changing both watched sources simultaneously in the same method, the watcher will be executed only once:
+
+```js{9-13}
+setup() {
+  const firstName = ref('')
+  const lastName = ref('')
+
+  watch([firstName, lastName], (newValues, prevValues) => {
+    console.log(newValues, prevValues)
+  })
+
+  const changeValues = () => {
+    firstName.value = 'John'
+    lastName.value = 'Smith'
+    // logs: ["John", "Smith"] ["", ""]
+  }
+
+  return { changeValues }
+}
+```
+
+Note that multiple synchronous changes will only trigger the watcher once.
+
+It is possible to force the watcher to trigger after every change by using the setting `flush: 'sync'`, though that isn't usually recommended. Alternatively, [nextTick](/api/global-api.html#nexttick) can be used to wait for the watcher to run before making further changes. e.g.:
+
+```js
+const changeValues = async () => {
+  firstName.value = 'John' // logs: ["John", ""] ["", ""]
+  await nextTick()
+  lastName.value = 'Smith' // logs: ["John", "Smith"] ["John", ""]
+}
 ```
 
 ### Watching Reactive Objects
