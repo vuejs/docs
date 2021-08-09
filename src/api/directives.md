@@ -237,7 +237,7 @@
 
 ## v-bind
 
-- **Shorthand:** `:`
+- **Shorthand:** `:` or `.` (when using `.prop` modifier)
 
 - **Expects:** `any (with argument) | Object (without argument)`
 
@@ -246,6 +246,8 @@
 - **Modifiers:**
 
   - `.camel` - transform the kebab-case attribute name into camelCase.
+  - `.prop` - force a binding to be set as a DOM property. <Badge text="3.2+"/>
+  - `.attr` - force a binding to be set as a DOM attribute. <Badge text="3.2+"/>
 
 - **Usage:**
 
@@ -278,23 +280,34 @@
   <!-- class binding -->
   <div :class="{ red: isRed }"></div>
   <div :class="[classA, classB]"></div>
-  <div :class="[classA, { classB: isB, classC: isC }]">
-    <!-- style binding -->
-    <div :style="{ fontSize: size + 'px' }"></div>
-    <div :style="[styleObjectA, styleObjectB]"></div>
+  <div :class="[classA, { classB: isB, classC: isC }]"></div>
 
-    <!-- binding an object of attributes -->
-    <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+  <!-- style binding -->
+  <div :style="{ fontSize: size + 'px' }"></div>
+  <div :style="[styleObjectA, styleObjectB]"></div>
 
-    <!-- prop binding. "prop" must be declared in my-component. -->
-    <my-component :prop="someThing"></my-component>
+  <!-- binding an object of attributes -->
+  <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
-    <!-- pass down parent props in common with a child component -->
-    <child-component v-bind="$props"></child-component>
+  <!-- prop binding. "prop" must be declared in my-component. -->
+  <my-component :prop="someThing"></my-component>
 
-    <!-- XLink -->
-    <svg><a :xlink:special="foo"></a></svg>
-  </div>
+  <!-- pass down parent props in common with a child component -->
+  <child-component v-bind="$props"></child-component>
+
+  <!-- XLink -->
+  <svg><a :xlink:special="foo"></a></svg>
+  ```
+
+  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/web-components.html#passing-dom-properties).
+
+  The `.prop` modifier also has a dedicated shorthand, `.`:
+
+  ```html
+  <div :someProperty.prop="someObject"></div>
+
+  <!-- equivalent to -->
+  <div .someProperty="someObject"></div>
   ```
 
   The `.camel` modifier allows camelizing a `v-bind` attribute name when using in-DOM templates, e.g. the SVG `viewBox` attribute:
@@ -451,8 +464,51 @@
   </ul>
   ```
 
+  Since 3.2, you can also memoize part of the template with invalidation conditions using [`v-memo`](#v-memo).
+
 - **See also:**
   - [Data Binding Syntax - interpolations](../guide/template-syntax.html#text)
+  - [v-memo](#v-memo)
+
+## v-memo <Badge text="3.2+" />
+
+- **Expects:** `Array`
+
+- **Details:**
+
+  Memoize a sub-tree of the template. Can be used on both elements and components. The directive expects a fixed-length array of dependency values to compare for the memoization. If every value in the array was the same as last render, then updates for the entire sub-tree will be skipped. For example:
+
+  ```html
+  <div v-memo="[valueA, valueB]">
+    ...
+  </div>
+  ```
+
+  When the component re-renders, if both `valueA` and `valueB` remain the same, all updates for this `<div>` and its children will be skipped. In fact, even the Virtual DOM VNode creation will also be skipped since the memoized copy of the sub-tree can be reused.
+
+  It is important to specify the memoization array correctly, otherwise we may skip updates that should indeed be applied. `v-memo` with an empty dependency array (`v-memo="[]"`) would be functionally equivalent to `v-once`.
+
+  **Usage with `v-for`**
+
+  `v-memo` is provided solely for micro optimizations in performance-critical scenarios and should be rarely needed. The most common case where this may prove helpful is when rendering large `v-for` lists (where `length > 1000`):
+
+  ```html
+  <div v-for="item in list" :key="item.id" v-memo="[item.id === selected]">
+    <p>ID: {{ item.id }} - selected: {{ item.id === selected }}</p>
+    <p>...more child nodes</p>
+  </div>
+  ```
+
+  When the component's `selected` state changes, a large amount of VNodes will be created even though most of the items remained exactly the same. The `v-memo` usage here is essentially saying "only update this item if it went from non-selected to selected, or the other way around". This allows every unaffected item to reuse its previous VNode and skip diffing entirely. Note we don't need to include `item.id` in the memo dependency array here since Vue automatically infers it from the item's `:key`.
+
+  :::warning
+  When using `v-memo` with `v-for`, make sure they are used on the same element. **`v-memo` does not work inside `v-for`.**
+  :::
+
+  `v-memo` can also be used on components to manually prevent unwanted updates in certain edge cases where the child component update check has been de-optimized. But again, it is the developer's responsibility to specify correct dependency arrays to avoid skipping necessary updates.
+
+- **See also:**
+  - [v-once](#v-once)
 
 ## v-is <Badge text="deprecated" type="warning" />
 

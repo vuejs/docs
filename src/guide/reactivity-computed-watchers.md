@@ -30,6 +30,36 @@ plusOne.value = 1
 console.log(count.value) // 0
 ```
 
+### Computed Debugging <Badge text="3.2+" />
+
+`computed` accepts a second argument with `onTrack` and `onTrigger` options:
+
+- `onTrack` will be called when a reactive property or ref is tracked as a dependency.
+- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency.
+
+Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in these callbacks to interactively inspect the dependency:
+
+```js
+const plusOne = computed(() => count.value + 1, {
+  onTrack(e) {
+    // triggered when count.value is tracked as a dependency
+    debugger
+  },
+  onTrigger(e) {
+    // triggered when count.value is mutated
+    debugger
+  }
+})
+
+// access plusOne, should trigger onTrack
+console.log(plusOne.value)
+
+// mutate count.value, should trigger onTrigger
+count.value++
+```
+
+`onTrack` and `onTrigger` only work in development mode.
+
 ## `watchEffect`
 
 To apply and _automatically re-apply_ a side effect based on reactive state, we can use the `watchEffect` method. It runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
@@ -141,6 +171,8 @@ watchEffect(
 ```
 
 The `flush` option also accepts `'sync'`, which forces the effect to always trigger synchronously. This is however inefficient and should be rarely needed.
+
+In Vue >= 3.2.0, `watchPostEffect` and `watchSyncEffect` aliases can also be used to make the code intention more obvious.
 
 ### Watcher Debugging
 
@@ -276,22 +308,14 @@ const state = reactive({
 watch(
   () => state,
   (state, prevState) => {
-    console.log(
-      'not deep',
-      state.attributes.name,
-      prevState.attributes.name
-    )
+    console.log('not deep', state.attributes.name, prevState.attributes.name)
   }
 )
 
 watch(
   () => state,
   (state, prevState) => {
-    console.log(
-      'deep',
-      state.attributes.name,
-      prevState.attributes.name
-    )
+    console.log('deep', state.attributes.name, prevState.attributes.name)
   },
   { deep: true }
 )
@@ -314,10 +338,7 @@ const state = reactive({
 watch(
   () => _.cloneDeep(state),
   (state, prevState) => {
-    console.log(
-      state.attributes.name,
-      prevState.attributes.name
-    )
+    console.log(state.attributes.name, prevState.attributes.name)
   }
 )
 
