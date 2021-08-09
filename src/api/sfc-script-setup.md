@@ -115,6 +115,22 @@ Note this has lower priority than imported components. If you have a named impor
 import { FooBar as FooBarChild } from './components'
 ```
 
+### Namespaced Components
+
+You can use component tags with dots like `<Foo.Bar>` to refer to components nested under object properties. This is useful when you import multiple components from a single file:
+
+```vue
+<script setup>
+import * as Form from './form-components'
+</script>
+
+<template>
+  <Form.Input>
+    <Form.Label>label</Form.Label>
+  </Form.Input>
+</template>
+```
+
 ## `defineProps` and `defineEmits`
 
 To declare options like `props` and `emits` with full type inference support, we can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
