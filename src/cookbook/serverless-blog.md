@@ -189,7 +189,7 @@ Now create `views/BlogPost.vue` which will be your Blog Post page to display pos
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, unref } from "vue"
+import { defineComponent, onMounted, ref } from "vue"
 import { RouterLink, useRoute } from "vue-router"
 import { butter } from "@/buttercms"
 
@@ -211,7 +211,7 @@ export default defineComponent({
             post.value = (
                 await butter.post.retrieve( postSlug )
             ).data
-            document.title = unref( post ).data.title
+            document.title = post.value.data.title
             loaded.value = true
         }
 
@@ -268,7 +268,7 @@ Update `<script>` section in `views/BlogPost.vue`:
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, unref, watch } from "vue"
+import { defineComponent, onMounted, ref, watch } from "vue"
 import { RouterLink, useRoute } from "vue-router"
 import { butter } from "@/buttercms"
 
@@ -292,7 +292,7 @@ export default defineComponent({
             post.value = (
                 await butter.post.retrieve( postSlug )
             ).data
-            document.title = unref( post ).data.title
+            document.title = post.value.data.title
             loaded.value = true
         }
 
