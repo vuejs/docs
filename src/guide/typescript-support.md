@@ -86,7 +86,7 @@ Or, if you want to combine TypeScript with a [JSX `render` function](/guide/rend
 
 ### Editor Support
 
-For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-component.html) (SFCs), get the awesome [Vetur extension](https://github.com/vuejs/vetur), which provides TypeScript inference inside SFCs and many other great features.
+For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-component.html) (SFCs), get the awesome [Volar extension](https://github.com/johnsoncodehk/volar), which provides TypeScript inference inside SFCs and many other great features.
 
 [WebStorm](https://www.jetbrains.com/webstorm/) also provides out-of-the-box support for both TypeScript and Vue.
 

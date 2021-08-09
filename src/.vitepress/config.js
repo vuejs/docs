@@ -287,7 +287,7 @@ module.exports = {
             },
             {
               text: 'Vue and Web Components',
-              link: '/guide/vue-and-web-components'
+              link: '/guide/web-components'
             },
             {
               text: 'Vue for React Devs',

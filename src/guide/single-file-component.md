@@ -2,173 +2,85 @@
 
 ## Introduction
 
-In many Vue projects, global components will be defined using `app.component()`, followed by `app.mount('#app')` to target a container element in the body of every page.
+Vue Single File Components (aka `*.vue` files, abbreviated as **SFC**) is a special file format that allows us to encapsulate the template, logic, **and** styling of a Vue component in a single file. Here's an example SFC:
 
-This can work very well for small to medium-sized projects, where JavaScript is only used to enhance certain views. In more complex projects however, or when your frontend is entirely driven by JavaScript, these disadvantages become apparent:
+```vue
+<script>
+export default {
+  data() {
+    return {
+      greeting: 'Hello World!'
+    }
+  }
+}
+</script>
 
-- **Global definitions** force unique names for every component
-- **String templates** lack syntax highlighting and require ugly slashes for multiline HTML
-- **No CSS support** means that while HTML and JavaScript are modularized into components, CSS is conspicuously left out
-- **No build step** restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel
-
-All of these are solved by **single-file components** with a `.vue` extension, made possible with build tools such as Webpack or Browserify.
-
-Here's an example of a file we'll call `Hello.vue`:
-
-<a href="https://codepen.io/team/Vue/pen/3de13b5cd0133df4ecf307b6cf2c5f94" target="_blank" rel="noopener noreferrer"><img src="/images/sfc.png" width="403" alt="Single-file component example (click for code as text)" style="display: block; margin: 15px auto; max-width: 100%"></a>
-
-Now we get:
-
-- [Complete syntax highlighting](https://github.com/vuejs/awesome-vue#source-code-editing)
-- [CommonJS modules](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
-- [Component-scoped CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
-
-As promised, we can also use preprocessors such as Pug, Babel (with ES2015 modules), and Stylus for cleaner and more feature-rich components.
-
-<a href="https://codesandbox.io/s/vue-single-file-component-with-pre-processors-mr3ik?file=/src/App.vue" target="_blank" rel="noopener noreferrer"><img src="/images/sfc-with-preprocessors.png" width="563" alt="Single-file component with pre-processors example (click for code as text)" style="display: block; margin: 15px auto; max-width: 100%"></a>
-
-These specific languages are only examples. You could as easily use TypeScript, SCSS, PostCSS, or whatever other preprocessors that help you be productive. If using Webpack with `vue-loader`, it also has first-class support for CSS Modules.
-
-### What About Separation of Concerns?
-
-One important thing to note is that **separation of concerns is not equal to separation of file types.** In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable.
-
-Even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files:
-
-```html
-<!-- my-component.vue -->
 <template>
-  <div>This will be pre-compiled</div>
+  <p class="greeting">{{ greeting }}</p>
 </template>
-<script src="./my-component.js"></script>
-<style src="./my-component.css"></style>
+
+<style>
+.greeting {
+  color: red;
+  font-weight: bold;
+}
+</style>
 ```
 
-## Getting Started
+As we can see, Vue SFC is a natural extension of the classic trio of HTML, CSS and JavaScript. Each `*.vue` file consists of three types of top-level language blocks: `<template>`, `<script>`, and `<style>`:
 
-### Example Sandbox
+- The `<script>` section is a standard JavaScript module. It should export a Vue component definition as its default export.
+- The `<template>` section defines the component's template.
+- The `<style>` section defines CSS associated with the component.
 
-If you want to dive right in and start playing with single-file components, check out [this simple todo app](https://codesandbox.io/s/vue-todo-list-app-with-single-file-component-vzkl3?file=/src/App.vue) on CodeSandbox.
+Check out more details in the [SFC Syntax Specification](/api/sfc-spec).
 
-### For Users New to Module Build Systems in JavaScript
+## How It Works
 
-With `.vue` components, we're entering the realm of advanced JavaScript applications. That means learning to use a few additional tools if you haven't already:
-
-- **Node Package Manager (npm)**: Read the [Getting Started guide](https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry) section about how to get packages from the registry.
-
-- **Modern JavaScript with ES2015/16**: Read through Babel's [Learn ES2015 guide](https://babeljs.io/docs/en/learn). You don't have to memorize every feature right now, but keep this page as a reference you can come back to.
-
-After you've taken a day to dive into these resources, we recommend checking out [Vue CLI](https://cli.vuejs.org/). Follow the instructions and you should have a Vue project with `.vue` components, ES2015, webpack and hot-reloading in no time!
-
-### For Advanced Users
-
-The CLI takes care of most of the tooling configurations for you, but also allows fine-grained customization through its own [config options](https://cli.vuejs.org/config/).
-
-In case you prefer setting up your own build setup from scratch, you will need to manually configure webpack with [vue-loader](https://vue-loader.vuejs.org). To learn more about webpack itself, check out [their official docs](https://webpack.js.org/configuration/) and [webpack learning academy](https://webpack.academy/p/the-core-concepts).
-
-### Building with rollup
-
-Most of the time when developing a third-party library we want to build it in a way that allows the consumers of the library to [tree shake](https://webpack.js.org/guides/tree-shaking/) it. To enable tree-shaking we need to build `esm` modules. Since webpack and, in turn, vue-cli do not support building `esm` modules we need to rely on [rollup](https://rollupjs.org/).
-
-#### Installing Rollup
-
-We will need to install Rollup and a few dependencies:
-
-```bash
-npm install --save-dev rollup @rollup/plugin-commonjs rollup-plugin-vue
-```
-
-These are the minimal amount of rollup plugins that we need to use to compile the code in an `esm` module. We may want to also add [rollup-plugin-babel](https://github.com/rollup/plugins/tree/master/packages/babel) to transpile their code and [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) if we use dependencies that we want to bundle with our library.
-
-#### Configuring Rollup
-
-To configure our build with Rollup we will need to create a `rollup.config.js` file in the root of our project:
-
-```bash
-touch rollup.config.js
-```
-
-Once the file is created we will need to open it with our editor of choice and add the following code.
+Vue SFC is a framework-specific file format and must be pre-compiled by [@vue/compiler-sfc](https://github.com/vuejs/vue-next/tree/master/packages/compiler-sfc) into standard JavaScript and CSS. A compiled SFC is a standard JavaScript (ES) module - which means with proper build setup you can import an SFC like a module:
 
 ```js
-// import our third party plugins
-import commonjs from '@rollup/plugin-commonjs'
-import VuePlugin from 'rollup-plugin-vue'
-import pkg from './package.json' // import our package.json file to re-use the naming
+import MyComponent from './MyComponent.vue'
 
 export default {
-  // this is the file containing all our exported components/functions
-  input: 'src/index.js',
-  // this is an array of outputted formats
-  output: [
-    {
-      file: pkg.module, // the name of our esm library
-      format: 'esm', // the format of choice
-      sourcemap: true, // ask rollup to include sourcemaps
-    }
-  ],
-  // this is an array of the plugins that we are including
-  plugins: [
-    commonjs(),
-    VuePlugin()
-  ],
-  // ask rollup to not bundle Vue in the library
-  external: ['vue']
+  components: {
+    MyComponent
+  }
 }
 ```
 
-#### Configuring package.json
+`<style>` tags inside SFCs are typically injected as native `<style>` tags during development to support hot updates. For production they can be extracted and merged into a single CSS file.
 
-To take advantage of our newly created `esm` module we need to add a few fields in our `package.json` file:
+You can play with SFCs and explore how they are compiled in the [Vue SFC Playground](https://sfc.vuejs.org/).
 
-```json
- "scripts": {
-   ...
-   "build": "rollup -c rollup.config.js",
-   ...
- },
- "module": "dist/my-library-name.esm.js",
- "files": [
-   "dist/",
- ],
- ```
- 
-Here we are specifying:
+In actual projects, we typically integrate the SFC compiler with a build tool such as [Vite](https://vitejs.dev/) or [Vue CLI](http://cli.vuejs.org/) (which is based on [webpack](https://webpack.js.org/)), and Vue provides official scaffolding tools to get you started with SFCs as fast as possible. Check out more details in the [SFC Tooling](/api/sfc-tooling) section.
 
-- how to build our package
-- what files we want to bundle in our package
-- what file represents our `esm` module
+## Why SFC
 
-#### Bundling `umd` and `cjs` modules
+While SFCs require a build step, there are numerous benefits in return:
 
-To also build `umd` and `cjs` modules we can simply add a few lines of configuration to our `rollup.config.js` and `package.json`
+- Author modularized components using familiar HTML, CSS and JavaScript syntax
+- Pre-compiled templates
+- [Component-scoped CSS](/api/sfc-style)
+- [More ergonomic syntax when working with Composition API](/api/sfc-script-setup)
+- More compile-time optimizations by cross-analyzing template and script
+- [IDE support](/api/sfc-tooling.html#ide-support) with auto-completion and type-checking for template expressions
+- Out-of-the-box Hot-Module Replacement (HMR) support
 
-##### rollup.config.js
+SFC is a defining feature of Vue as a framework, and is the recommended approach for using Vue in the following scenarios:
 
-```js
-output: [
-  ...
-   {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      file: pkg.unpkg,
-      format: 'umd',
-      name: 'MyLibraryName',
-      sourcemap: true,
-      globals: {
-        vue: 'Vue',
-      },
-    },
-]
-```
+- Single-Page Applications (SPA)
+- Static Site Generation (SSG)
+- Any non-trivial frontends where a build step can be justified for better development experience (DX).
 
-##### package.json
+That said, we do realize there are scenarios where SFCs can feel like overkill. This is why Vue can still be used via plain JavaScript without a build step. If you are just looking for enhancing largely static HTML with light interactions, you can also check out [petite-vue](https://github.com/vuejs/petite-vue), a 5kb subset of Vue optimized for progressive enhancement.
 
-```json
-"module": "dist/my-library-name.esm.js",
-"main": "dist/my-library-name.cjs.js",
-"unpkg": "dist/my-library-name.global.js",
-```
+## What About Separation of Concerns?
+
+Some users coming from a traditional web development background may have the concern that SFCs are mixing different concerns in the same place - which HTML/CSS/JS were supposed to separate!
+
+To answer this question, it is important for us to agree that **separation of concerns is not equal to separation of file types.** The ultimate goal of engineering principles is to improve maintainability of codebases. Separation of concerns, when applied dogmatically as separation of file types, does not help us reach that goal in the context of increasingly complex frontend applications.
+
+In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic, and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable.
+
+Note even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files using [Src Imports](/api/sfc-spec.html#src-imports).

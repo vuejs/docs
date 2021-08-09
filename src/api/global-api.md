@@ -236,6 +236,44 @@ const AsyncComp = defineAsyncComponent({
 
 **See also**: [Dynamic and Async components](../guide/component-dynamic-async.html)
 
+## defineCustomElement <Badge text="3.2+" />
+
+This method accepts the same argument as [`defineComponent`](#definecomponent), but instead returns a native [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) that can be used within any framework, or with no frameworks at all.
+
+Usage example:
+
+```html
+<my-vue-element></my-vue-element>
+```
+
+```js
+import { defineCustomElement } from 'vue'
+
+const MyVueElement = defineCustomElement({
+  // normal Vue component options here
+  props: {},
+  emits: {},
+  template: `...`,
+
+  // defineCustomElement only: CSS to be injected into shadow root
+  styles: [`/* inlined css */`]
+})
+
+// Register the custom element.
+// After registration, all `<my-vue-element>` tags on the page will be upgraded.
+customElements.define('my-vue-element', MyVueElement)
+
+// You can also programmatically instantiate the element:
+// (can only be done after registration)
+document.body.appendChild(
+  new MyVueElement({
+    // initial props (optional)
+  })
+)
+```
+
+For more details on building Web Components with Vue, especially with Single File Components, see [Vue and Web Components](/guide/web-components.html#building-custom-elements-with-vue).
+
 ## resolveComponent
 
 :::warning
@@ -481,10 +519,13 @@ export default {
   inheritAttrs: false,
 
   render() {
-    const props = mergeProps({
-      // The class will be merged with any class from $attrs
-      class: 'active'
-    }, this.$attrs)
+    const props = mergeProps(
+      {
+        // The class will be merged with any class from $attrs
+        class: 'active'
+      },
+      this.$attrs
+    )
 
     return h('div', props)
   }
@@ -504,12 +545,17 @@ Allows CSS modules to be accessed within the [`setup`](/api/composition-api.html
 import { h, useCssModule } from 'vue'
 
 export default {
-  setup () {
+  setup() {
     const style = useCssModule()
 
-    return () => h('div', {
-      class: style.success
-    }, 'Task complete!')
+    return () =>
+      h(
+        'div',
+        {
+          class: style.success
+        },
+        'Task complete!'
+      )
   }
 }
 </script>
@@ -521,7 +567,7 @@ export default {
 </style>
 ```
 
-For more information about using CSS modules, see [Vue Loader - CSS Modules](https://vue-loader.vuejs.org/guide/css-modules.html).
+For more information about using CSS modules, see [SFC Style Features: `<style module>`](/api/sfc-style.html#style-module).
 
 ### Arguments
 
