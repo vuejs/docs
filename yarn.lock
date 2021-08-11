@@ -350,9 +350,9 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.1.1.tgz#2287cfc3dc20e5b20aeb65c2c3a56533bdca801c"
   integrity sha512-g+4pzAw7PYSjARtLBoDq6DmcblX8i9KJHSCnyM5VDDFFifUaUT9iHbFpOF/KOizQ9f7QAqU2JH3Y6aXjzUMhVA==
 
-"@vue/theme@vuejs/vue-theme":
+"@vue/theme@vuejs/theme":
   version "0.1.0"
-  resolved "git+ssh://git@github.com/vuejs/vue-theme.git#ef673fd6e1e69ca8f3382f09309bad7ac70f21e5"
+  resolved "git+ssh://git@github.com/vuejs/theme.git#c8a22dc2d4c5320cefc1e739a4c0331f8abb53b1"
   dependencies:
     "@docsearch/css" "^3.0.0-alpha.36"
     "@docsearch/js" "^3.0.0-alpha.36"

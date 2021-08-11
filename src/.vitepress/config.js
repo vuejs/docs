@@ -35,9 +35,10 @@ module.exports = {
           {
             items: [
               { text: 'Guide', link: '/guide/introduction' },
-              { text: 'Examples', link: '/examples/markdown' },
+              { text: 'Tutorial', link: '/tutorial/' },
+              { text: 'Examples', link: '/examples/' },
               { text: 'Style Guide', link: '/style-guide/' },
-              { text: 'Cookbook', link: '/cookbook/' },
+              { text: 'Release & Versioning', link: '/release/' },
               {
                 text: 'Migration from Vue 2',
                 link: '/guide/migration/introduction'
@@ -55,10 +56,15 @@ module.exports = {
         text: 'Ecosystem',
         items: [
           {
+            text: 'Resources',
             items: [
               { text: 'Partners', link: '/community/partners/' },
               { text: 'Themes', link: '/community/themes/' },
-              { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' }
+              { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
+              {
+                text: 'Awesome Vue',
+                link: 'https://github.com/vuejs/awesome-vue'
+              }
             ]
           },
           {
@@ -89,8 +95,7 @@ module.exports = {
               {
                 text: 'Contribution Guide',
                 link: '/community/contribution-guide'
-              },
-              { text: 'Events', link: 'https://events.vuejs.org/' }
+              }
             ]
           },
           {
@@ -98,7 +103,8 @@ module.exports = {
             items: [
               { text: 'Twitter', link: 'https://twitter.com/vuejs' },
               { text: 'Newsletter', link: 'https://news.vuejs.org/' },
-              { text: 'Blog', link: 'https://blog.vuejs.org/' }
+              { text: 'Blog', link: 'https://blog.vuejs.org/' },
+              { text: 'Events', link: 'https://events.vuejs.org/' }
             ]
           },
           {
@@ -120,17 +126,29 @@ module.exports = {
     sidebar: {
       '/guide/': [
         {
-          text: 'Essentials',
+          text: 'Getting Started',
           items: [
             { text: 'Introduction', link: '/guide/introduction' },
-            { text: 'Installation', link: '/guide/installation' },
             {
-              text: 'Application & Component Instances',
-              link: '/guide/instance'
+              text: 'Pick Your Learning Path',
+              link: '/guide/pick-your-learning-path'
+            },
+            {
+              text: 'Dev Environment Setup',
+              link: '/guide/dev-environment-setup'
+            }
+          ]
+        },
+        {
+          text: 'Essentials',
+          items: [
+            {
+              text: 'Creating a Vue Application',
+              link: '/guide/creating-a-vue-application'
             },
             { text: 'Template Syntax', link: '/guide/template-syntax' },
             {
-              text: 'Data Properties and Methods',
+              text: 'Data and Methods',
               link: '/guide/data-methods'
             },
             {
@@ -145,6 +163,7 @@ module.exports = {
             { text: 'List Rendering', link: '/guide/list' },
             { text: 'Event Handling', link: '/guide/events' },
             { text: 'Form Input Bindings', link: '/guide/forms' },
+            { text: 'Template Refs', link: '/guide/template-refs' },
             { text: 'Components Basics', link: '/guide/component-basics' }
           ]
         },
@@ -164,33 +183,13 @@ module.exports = {
               link: '/guide/component-provide-inject'
             },
             {
-              text: 'Dynamic & Async Components',
-              link: '/guide/component-dynamic-async'
+              text: 'Dynamic Components',
+              link: '/guide/component-dynamic'
             },
-            { text: 'Template refs', link: '/guide/component-template-refs' },
             {
-              text: 'Handling Edge Cases',
-              link: '/guide/component-edge-cases'
+              text: 'Async Components',
+              link: '/guide/component-async'
             }
-          ]
-        },
-        {
-          text: 'Transitions & Animation',
-          items: [
-            { text: 'Overview', link: '/guide/transitions-overview' },
-            {
-              text: 'Enter & Leave Transitions',
-              link: '/guide/transitions-enterleave'
-            },
-            { text: 'List Transitions', link: '/guide/transitions-list' },
-            { text: 'State Transitions', link: '/guide/transitions-state' }
-          ]
-        },
-        {
-          text: 'Reusability',
-          items: [
-            { text: 'Mixins', link: '/guide/mixins' },
-            { text: 'Custom Directives', link: '/guide/custom-directive' }
           ]
         },
         {
@@ -200,7 +199,14 @@ module.exports = {
               text: 'Introduction',
               link: '/guide/composition-api-introduction'
             },
-            { text: 'Setup', link: '/guide/composition-api-setup' },
+            {
+              text: 'Reactivity Fundamentals',
+              link: '/guide/reactivity-fundamentals'
+            },
+            {
+              text: 'Computed and Watch',
+              link: '/guide/reactivity-computed-watchers'
+            },
             {
               text: 'Lifecycle Hooks',
               link: '/guide/composition-api-lifecycle-hooks'
@@ -216,62 +222,77 @@ module.exports = {
           ]
         },
         {
-          text: 'Advanced',
+          text: 'Built-in Components',
           items: [
+            { text: 'Transition', link: '/guide/transition' },
+            { text: 'TransitionGroup', link: '/guide/transition-group' },
             { text: 'Teleport', link: '/guide/teleport' },
-            { text: 'Render Function', link: '/guide/render-function' },
+            { text: 'Suspense', link: '/guide/suspense' },
+            { text: 'KeepAlive', link: '/guide/keep-alive' }
+          ]
+        },
+        {
+          text: 'Reusability',
+          items: [
+            { text: 'Custom Directives', link: '/guide/custom-directive' },
             { text: 'Plugins', link: '/guide/plugins' }
-          ]
-        },
-        {
-          text: 'Digging Deeper',
-          items: [
-            { text: 'Reactivity in Depth', link: '/guide/reactivity' },
-            {
-              text: 'Reactivity Fundamentals',
-              link: '/guide/reactivity-fundamentals'
-            },
-            {
-              text: 'Reactivity in Computed and Watch',
-              link: '/guide/reactivity-computed-watchers'
-            },
-            {
-              text: 'Rendering Mechanisms and Optimizations',
-              link: '/guide/optimizations'
-            }
-          ]
-        },
-        {
-          text: 'Tooling',
-          items: [
-            {
-              text: 'Single File Components',
-              link: '/guide/single-file-component'
-            },
-            { text: 'Testing', link: '/guide/testing' },
-            { text: 'TypeScript Support', link: '/guide/typescript-support' },
-            { text: 'Mobile', link: '/guide/mobile' },
-            {
-              text: 'Production Deployment',
-              link: '/guide/tooling/deployment'
-            }
           ]
         },
         {
           text: 'Scaling Up',
           items: [
+            {
+              text: 'Tooling & Integrations',
+              link: '/guide/tooling'
+            },
+            { text: 'TypeScript', link: '/guide/typescript' },
             { text: 'Routing', link: '/guide/routing' },
             { text: 'State Management', link: '/guide/state-management' },
-            { text: 'Server-Side Rendering', link: '/guide/ssr' }
+            { text: 'Testing', link: '/guide/testing' },
+            {
+              text: 'Performance',
+              link: '/guide/perf'
+            }
           ]
         },
         {
-          text: 'Accessibility',
+          text: 'Advanced Topics',
           items: [
-            { text: 'Basics', link: '/guide/a11y-basics' },
-            { text: 'Semantics', link: '/guide/a11y-semantics' },
-            { text: 'Standards', link: '/guide/a11y-standards' },
-            { text: 'Resources', link: '/guide/a11y-resources' }
+            {
+              text: 'Security',
+              link: '/guide/security'
+            },
+            {
+              text: 'Accessibility',
+              link: '/guide/a11y'
+            },
+            { text: 'Reactivity in Depth', link: '/guide/reactivity' },
+            {
+              text: 'Reactivity Debugging',
+              link: '/guide/debugging'
+            },
+            { text: 'Render Function & JSX', link: '/guide/render-function' },
+            { text: 'Server-Side Rendering', link: '/guide/ssr' },
+            {
+              text: 'State-based Animations',
+              link: '/guide/animation'
+            },
+            {
+              text: 'Render Mechanism & Optimizations',
+              link: '/guide/optimizations'
+            },
+            {
+              text: 'Building a Library for Vue',
+              link: '/guide/building-a-library'
+            },
+            {
+              text: 'Vue and Web Components',
+              link: '/guide/vue-and-web-components'
+            },
+            {
+              text: 'Vue for React Devs',
+              link: '/guide/vue-for-react-devs'
+            }
           ]
         }
       ],
@@ -305,7 +326,7 @@ module.exports = {
           items: [
             { text: 'setup()', link: '/api/composition-setup' },
             { text: 'Reactivity', link: '/api/composition-reactivity' },
-            { text: 'Lifecycle', link: '/api/composition-lifecycle' }
+            { text: 'Lifecycle Hooks', link: '/api/composition-lifecycle' }
           ]
         },
         {
@@ -320,6 +341,7 @@ module.exports = {
           text: 'Single File Component',
           items: [
             { text: 'Specification', link: '/api/sfc-spec' },
+            { text: 'Tooling', link: '/api/sfc-tooling' },
             { text: '<script setup>', link: '/api/sfc-script-setup' },
             { text: '<style> Features', link: '/api/sfc-style' }
           ]
@@ -329,11 +351,11 @@ module.exports = {
           items: [{ text: 'Utility Types', link: '/api/types-utility' }]
         },
         {
-          text: 'Advanced',
+          text: 'Advanced APIs',
           items: [
-            { text: 'Render Function Helpers', link: '/api/render-function' },
-            { text: 'Compiler Transforms', link: '/api/compiler' },
-            { text: 'Server-Side Rendering', link: '/api/ssr' },
+            { text: 'Render Function', link: '/api/render-function' },
+            { text: 'Compiler', link: '/api/compiler' },
+            { text: 'SSR', link: '/api/ssr' },
             { text: 'Custom Renderer', link: '/api/custom-renderer' }
           ]
         }

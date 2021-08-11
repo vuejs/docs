@@ -1,7 +1,7 @@
 # Introduction
 
-::: info
-New to Vue.js? Check out our [Essentials Guide](/guide/introduction.html) to get started.
+::: tip New to Vue.js?
+Check out our [Essentials Guide](/guide/introduction.html) to get started.
 :::
 
 This guide is primarily for users with prior Vue 2 experience who want to learn about the new features and changes in Vue 3. **This is not something you have to read from top to bottom before trying out Vue 3.** While it looks like a lot has changed, a lot of what you know and love about Vue is still the same; but we wanted to be as thorough as possible and provide detailed explanations and examples for every documented change.
@@ -14,8 +14,9 @@ This guide is primarily for users with prior Vue 2 experience who want to learn 
 
 ## Overview
 
-<br>
-<iframe src="https://player.vimeo.com/video/440868720" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<div class="video">
+  <iframe class="video-content" src="https://player.vimeo.com/video/440868720" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 
 Start learning Vue 3 at [Vue Mastery](https://www.vuemastery.com/courses-path/vue3).
 

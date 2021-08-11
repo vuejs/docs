@@ -1,4 +1,9 @@
-# API
+---
+sidebar: false
+aside: false
+---
+
+# API Reference
 
 The Vue.js API contains the following categories:
 
