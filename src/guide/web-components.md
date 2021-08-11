@@ -73,7 +73,7 @@ The primary benefit of custom elements is that they can be used with any framewo
 
 ### defineCustomElement
 
-Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElment`](/api/global-api.html#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/global-api.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
+Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElement`](/api/global-api.html#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/global-api.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
 
 ```html
 <my-vue-element></my-vue-element>
