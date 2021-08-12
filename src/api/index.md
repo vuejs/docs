@@ -1,20 +1,78 @@
 ---
 sidebar: false
-aside: false
+page: true
 ---
 
-# API Reference
+<script setup>
+import { useData } from 'vitepress'
 
-The Vue.js API contains the following categories:
+const { site } = useData()
+</script>
 
-- [Application Config](/api/application-config.html)
-- [Application API](/api/application-api.html)
-- [Global API](/api/global-api.html)
-- [Options API](/api/options-api.html)
-- [Instance Properties](/api/instance-properties.html)
-- [Instance Methods](/api/instance-methods.html)
-- [Directives](/api/directives.html)
-- [Special Attributes](/api/special-attributes.html)
-- [Built-in Components](/api/built-in-components.html)
-- [Reactivity API](/api/reactivity-api.html)
-- [Composition API](/api/composition-api.html)
+<div class="vt-doc">
+  <h1>API Reference</h1>
+  <div class="api-container">
+    <div class="api-group" v-for="section of site.themeConfig.sidebar['/api/']">
+      <h3>{{ section.text }}</h3>
+      <ul>
+        <li v-for="item of section.items">
+          <a :href="item.link + '.html'">{{ item.text }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style scoped>
+.vt-doc {
+  padding: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.api-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.api-group {
+  background-color: var(--vt-c-bg-soft);
+  padding: 28px 36px 12px;
+  margin: 0 10px 10px 0;
+  border-radius: 8px;
+  flex-basis: 100%;
+}
+
+.api-group a {
+  font-size: 15px;
+}
+
+.api-group h3 {
+  margin-top: 0;
+}
+
+
+@media (min-width: 640px) {
+  .api-group {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+@media (min-width: 768px) {
+  .vt-doc {
+    padding-top: 48px;
+  }
+}
+
+@media (min-width: 960px) {
+  .vt-doc {
+    padding-top: 64px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .api-group {
+    flex-basis: calc(33.3% - 10px);
+  }
+}
+</style>

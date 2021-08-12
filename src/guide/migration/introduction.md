@@ -1,6 +1,6 @@
 # Introduction
 
-::: tip New to Vue.js?
+::: info New to Vue.js?
 Check out our [Essentials Guide](/guide/introduction.html) to get started.
 :::
 

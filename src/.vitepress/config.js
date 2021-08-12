@@ -143,17 +143,16 @@ module.exports = {
           text: 'Essentials',
           items: [
             {
-              text: 'Creating a Vue Application',
+              text: 'Creating an Application',
               link: '/guide/creating-a-vue-application'
             },
-            { text: 'Template Syntax', link: '/guide/template-syntax' },
             {
-              text: 'Data and Methods',
-              link: '/guide/data-methods'
+              text: 'Template Syntax Overview',
+              link: '/guide/template-syntax'
             },
             {
-              text: 'Computed Properties and Watchers',
-              link: '/guide/computed'
+              text: 'State and Reactivity',
+              link: '/guide/data-methods'
             },
             {
               text: 'Class and Style Bindings',
@@ -163,16 +162,22 @@ module.exports = {
             { text: 'List Rendering', link: '/guide/list' },
             { text: 'Event Handling', link: '/guide/events' },
             { text: 'Form Input Bindings', link: '/guide/forms' },
-            { text: 'Template Refs', link: '/guide/template-refs' },
-            { text: 'Components Basics', link: '/guide/component-basics' }
+            { text: 'Computed Properties', link: '/guide/computed' },
+            { text: 'Watchers', link: '/guide/watchers' },
+            { text: 'Components Basics', link: '/guide/component-basics' },
+            { text: 'Template Refs', link: '/guide/template-refs' }
           ]
         },
         {
           text: 'Components In-Depth',
           items: [
             {
-              text: 'Component Registration',
+              text: 'Registration',
               link: '/guide/component-registration'
+            },
+            {
+              text: 'Lifecycle',
+              link: '/guide/component-lifecycle'
             },
             { text: 'Props', link: '/guide/component-props' },
             { text: 'Non-Prop Attributes', link: '/guide/component-attrs' },
@@ -242,8 +247,8 @@ module.exports = {
           text: 'Scaling Up',
           items: [
             {
-              text: 'Tooling & Integrations',
-              link: '/guide/tooling'
+              text: 'Single File Components',
+              link: '/guide/single-file-component'
             },
             { text: 'TypeScript', link: '/guide/typescript' },
             { text: 'Routing', link: '/guide/routing' },
@@ -274,7 +279,7 @@ module.exports = {
             { text: 'Render Function & JSX', link: '/guide/render-function' },
             { text: 'Server-Side Rendering', link: '/guide/ssr' },
             {
-              text: 'State-based Animations',
+              text: 'Advanced Animations',
               link: '/guide/animation'
             },
             {
@@ -282,17 +287,17 @@ module.exports = {
               link: '/guide/optimizations'
             },
             {
-              text: 'Building a Library for Vue',
-              link: '/guide/building-a-library'
-            },
-            {
               text: 'Vue and Web Components',
               link: '/guide/web-components'
             },
             {
-              text: 'Vue for React Devs',
-              link: '/guide/vue-for-react-devs'
+              text: 'Building a Library for Vue',
+              link: '/guide/building-a-library'
             }
+            // {
+            //   text: 'Vue for React Devs',
+            //   link: '/guide/vue-for-react-devs'
+            // }
           ]
         }
       ],
