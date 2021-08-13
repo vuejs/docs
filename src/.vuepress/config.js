@@ -482,7 +482,7 @@ module.exports = {
       }
     ],
     repo: 'vuejs/docs',
-    editLinks: false,
+    editLinks: true,
     editLinkText: 'Edit this on GitHub!',
     lastUpdated: 'Last updated',
     docsDir: 'src',
