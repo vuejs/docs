@@ -89,7 +89,7 @@ These global APIs in Vue 2.x are affected by this change:
 
 In addition to public APIs, many of the internal components/helpers are now exported as named exports as well. This allows the compiler to output code that only imports features when they are used. For example the following template:
 
-```html
+```vue-html
 <transition>
   <div v-show="ok">hello</div>
 </transition>

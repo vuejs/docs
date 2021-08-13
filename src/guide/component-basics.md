@@ -28,7 +28,7 @@ We're showing you a simple example here, but in a typical Vue application we use
 
 Components are reusable instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root instance:
 
-```html
+```vue-html
 <div id="components-demo">
   <button-counter></button-counter>
 </div>
@@ -46,7 +46,7 @@ Since components are reusable instances, they accept the same options as a root 
 
 Components can be reused as many times as you want:
 
-```html
+```vue-html
 <div id="components-demo">
   <button-counter></button-counter>
   <button-counter></button-counter>
@@ -103,7 +103,7 @@ A component can have as many props as you like and, by default, any value can be
 
 Once a prop is registered, you can pass data to it as a custom attribute, like this:
 
-```html
+```vue-html
 <div id="blog-post-demo" class="demo">
   <blog-post title="My journey with Vue"></blog-post>
   <blog-post title="Blogging with Vue"></blog-post>
@@ -140,7 +140,7 @@ app.mount('#blog-posts-demo')
 
 Then want to render a component for each one:
 
-```html
+```vue-html
 <div id="blog-posts-demo">
   <blog-post
     v-for="post in posts"
@@ -175,7 +175,7 @@ const App = {
 
 Which can be used in the template to control the font size of all blog posts:
 
-```html
+```vue-html
 <div id="blog-posts-events-demo">
   <div :style="{ fontSize: postFontSize + 'em' }">
     <blog-post
@@ -205,7 +205,7 @@ app.component('blog-post', {
 
 The problem is, this button doesn't do anything:
 
-```html
+```vue-html
 <button>
   Enlarge text
 </button>
@@ -213,13 +213,13 @@ The problem is, this button doesn't do anything:
 
 When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. To solve this problem, component instances provide a custom events system. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
 
-```html
+```vue-html
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
 ```
 
 Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/instance-methods.html#emit), passing the name of the event:
 
-```html
+```vue-html
 <button @click="$emit('enlargeText')">
   Enlarge text
 </button>
@@ -244,7 +244,7 @@ This will allow you to check all the events that a component emits and optionall
 
 It's sometimes useful to emit a specific value with an event. For example, we may want the `<blog-post>` component to be in charge of how much to enlarge the text by. In those cases, we can pass a second parameter to `$emit` to provide this value:
 
-```html
+```vue-html
 <button @click="$emit('enlargeText', 0.1)">
   Enlarge text
 </button>
@@ -252,13 +252,13 @@ It's sometimes useful to emit a specific value with an event. For example, we ma
 
 Then when we listen to the event in the parent, we can access the emitted event's value with `$event`:
 
-```html
+```vue-html
 <blog-post ... @enlarge-text="postFontSize += $event"></blog-post>
 ```
 
 Or, if the event handler is a method:
 
-```html
+```vue-html
 <blog-post ... @enlarge-text="onEnlargeText"></blog-post>
 ```
 
@@ -276,19 +276,19 @@ methods: {
 
 Custom events can also be used to create custom inputs that work with `v-model`. Remember that:
 
-```html
+```vue-html
 <input v-model="searchText" />
 ```
 
 does the same thing as:
 
-```html
+```vue-html
 <input :value="searchText" @input="searchText = $event.target.value" />
 ```
 
 When used on a component, `v-model` instead does this:
 
-```html
+```vue-html
 <custom-input
   :model-value="searchText"
   @update:model-value="searchText = $event"
@@ -321,7 +321,7 @@ app.component('custom-input', {
 
 Now `v-model` should work perfectly with this component:
 
-```html
+```vue-html
 <custom-input v-model="searchText"></custom-input>
 ```
 
@@ -353,7 +353,7 @@ That's all you need to know about custom component events for now, but once you'
 
 Just like with HTML elements, it's often useful to be able to pass content to a component, like this:
 
-```html
+```vue-html
 <alert-box>
   Something bad happened.
 </alert-box>
@@ -388,7 +388,7 @@ Sometimes, it's useful to dynamically switch between components, like in a tabbe
 
 The above is made possible by Vue's `<component>` element with the special `is` attribute:
 
-```html
+```vue-html
 <!-- Component changes when currentTabComponent changes -->
 <component :is="currentTabComponent"></component>
 ```
@@ -422,7 +422,7 @@ Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restri
 
 This will lead to issues when using components with elements that have such restrictions. For example:
 
-```html
+```vue-html
 <table>
   <blog-post-row></blog-post-row>
 </table>
@@ -430,7 +430,7 @@ This will lead to issues when using components with elements that have such rest
 
 The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special [`is` attribute](/api/special-attributes.html#is) as a workaround:
 
-```html
+```vue-html
 <table>
   <tr is="vue:blog-post-row"></tr>
 </table>
@@ -455,7 +455,7 @@ app.component('blog-post', {
 })
 ```
 
-```html
+```vue-html
 <!-- kebab-case in HTML -->
 
 <blog-post post-title="hello!"></blog-post>

@@ -8,7 +8,7 @@ We can use the `v-on` directive, which we typically shorten to the `@` symbol, t
 
 For example:
 
-```html
+```vue-html
 <div id="basic-event">
   <button @click="counter += 1">Add 1</button>
   <p>The button above has been clicked {{ counter }} times.</p>
@@ -35,7 +35,7 @@ The logic for many event handlers will be more complex though, so keeping your J
 
 For example:
 
-```html
+```vue-html
 <div id="event-with-method">
   <!-- `greet` is the name of a method defined below -->
   <button @click="greet">Greet</button>
@@ -70,7 +70,7 @@ Result:
 
 Instead of binding directly to a method name, we can also use methods in an inline JavaScript statement:
 
-```html
+```vue-html
 <div id="inline-handler">
   <button @click="say('hi')">Say hi</button>
   <button @click="say('what')">Say what</button>
@@ -93,7 +93,7 @@ Result:
 
 Sometimes we also need to access the original DOM event in an inline statement handler. You can pass it into a method using the special `$event` variable:
 
-```html
+```vue-html
 <button @click="warn('Form cannot be submitted yet.', $event)">
   Submit
 </button>
@@ -116,7 +116,7 @@ methods: {
 
 You can have multiple methods in an event handler separated by a comma operator like this:
 
-```html
+```vue-html
 <!-- both one() and two() will execute on button click -->
 <button @click="one($event), two($event)">
   Submit
@@ -148,7 +148,7 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 - `.once`
 - `.passive`
 
-```html
+```vue-html
 <!-- the click event's propagation will be stopped -->
 <a @click.stop="doThis"></a>
 
@@ -174,7 +174,7 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **all clicks** while `@click.self.prevent` will only prevent clicks on the element itself.
 :::
 
-```html
+```vue-html
 <!-- the click event will be triggered at most once -->
 <a @click.once="doThis"></a>
 ```
@@ -183,7 +183,7 @@ Unlike the other modifiers, which are exclusive to native DOM events, the `.once
 
 Vue also offers the `.passive` modifier, corresponding to [`addEventListener`'s `passive` option](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters).
 
-```html
+```vue-html
 <!-- the scroll event's default behavior (scrolling) will happen -->
 <!-- immediately, instead of waiting for `onScroll` to complete  -->
 <!-- in case it contains `event.preventDefault()`                -->
@@ -200,14 +200,14 @@ Don't use `.passive` and `.prevent` together, because `.prevent` will be ignored
 
 When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` or `@` when listening for key events:
 
-```html
+```vue-html
 <!-- only call `vm.submit()` when the `key` is `Enter` -->
 <input @keyup.enter="submit" />
 ```
 
 You can directly use any valid key names exposed via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case.
 
-```html
+```vue-html
 <input @keyup.page-down="onPageDown" />
 ```
 
@@ -242,7 +242,7 @@ On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, met
 
 For example:
 
-```html
+```vue-html
 <!-- Alt + Enter -->
 <input @keyup.alt.enter="clear" />
 
@@ -258,7 +258,7 @@ Note that modifier keys are different from regular keys and when used with `keyu
 
 The `.exact` modifier allows control of the exact combination of system modifiers needed to trigger an event.
 
-```html
+```vue-html
 <!-- this will fire even if Alt or Shift is also pressed -->
 <button @click.ctrl="onClick">A</button>
 

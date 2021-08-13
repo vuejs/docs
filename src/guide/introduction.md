@@ -28,10 +28,8 @@ The [Installation](installation.md) page provides more options of installing Vue
 
 At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
 
-```html
-<div id="counter">
-  Counter: {{ counter }}
-</div>
+```vue-html
+<div id="counter">Counter: {{ counter }}</div>
 ```
 
 ```js
@@ -67,7 +65,7 @@ const Counter = {
 
 In addition to text interpolation, we can also bind element attributes like this:
 
-```html
+```vue-html
 <div id="bind-attribute">
   <span v-bind:title="message">
     Hover your mouse over me for a few seconds to see my dynamically bound
@@ -96,7 +94,7 @@ Here we're encountering something new. The `v-bind` attribute you're seeing is c
 
 To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our instances:
 
-```html
+```vue-html
 <div id="event-handling">
   <p>{{ message }}</p>
   <button v-on:click="reverseMessage">Reverse Message</button>
@@ -112,10 +110,7 @@ const EventHandling = {
   },
   methods: {
     reverseMessage() {
-      this.message = this.message
-        .split('')
-        .reverse()
-        .join('')
+      this.message = this.message.split('').reverse().join('')
     }
   }
 }
@@ -129,7 +124,7 @@ Note that in this method we update the state of our app without touching the DOM
 
 Vue also provides the `v-model` directive that makes two-way binding between form input and app state a breeze:
 
-```html
+```vue-html
 <div id="two-way-binding">
   <p>{{ message }}</p>
   <input v-model="message" />
@@ -154,7 +149,7 @@ Vue.createApp(TwoWayBinding).mount('#two-way-binding')
 
 It's easy to toggle the presence of an element, too:
 
-```html
+```vue-html
 <div id="conditional-rendering">
   <span v-if="seen">Now you see me</span>
 </div>
@@ -180,12 +175,10 @@ You can change `seen` from `true` to `false` in the sandbox below to check the e
 
 There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used to display a list of items using the data from an array:
 
-```html
+```vue-html
 <div id="list-rendering">
   <ol>
-    <li v-for="todo in todos">
-      {{ todo.text }}
-    </li>
+    <li v-for="todo in todos">{{ todo.text }}</li>
   </ol>
 </div>
 ```
@@ -231,7 +224,7 @@ app.mount(...)
 
 Now you can compose it in another component's template:
 
-```html
+```vue-html
 <ol>
   <!-- Create an instance of the todo-item component -->
   <todo-item></todo-item>
@@ -249,7 +242,7 @@ app.component('todo-item', {
 
 Now we can pass the todo into each repeated component using `v-bind`:
 
-```html
+```vue-html
 <div id="todo-list-app">
   <ol>
     <!--
@@ -296,7 +289,7 @@ This is a contrived example, but we have managed to separate our app into two sm
 
 In a large application, it is necessary to divide the whole app into components to make development manageable. We will talk a lot more about components [later in the guide](component-basics.html), but here's an (imaginary) example of what an app's template might look like with components:
 
-```html
+```vue-html
 <div id="app">
   <app-nav></app-nav>
   <app-view>

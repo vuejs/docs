@@ -208,7 +208,7 @@
 
   Using `$emit` with only an event name:
 
-  ```html
+  ```vue-html
   <div id="emit-example-simple">
     <welcome-button v-on:welcome="sayHi"></welcome-button>
   </div>
@@ -237,7 +237,7 @@
 
   Using `$emit` with additional arguments:
 
-  ```html
+  ```vue-html
   <div id="emit-example-argument">
     <advice-component v-on:advise="showAdvice"></advice-component>
   </div>

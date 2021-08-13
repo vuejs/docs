@@ -83,7 +83,7 @@
 
 - **Example:**
 
-  ```html
+  ```vue-html
   <blog-post>
     <template v-slot:header>
       <h1>About Me</h1>

@@ -60,7 +60,7 @@ Since DOM attributes can only be strings, we need to pass complex data to custom
 
 However, there could be rare cases where the data must be passed as a DOM property, but the custom element does not properly define/reflect the property (causing the `in` check to fail). In this case, you can force a `v-bind` binding to be set as a DOM property using the `.prop` modifier:
 
-```html
+```vue-html
 <my-element :user.prop="{ name: 'jack' }"></my-element>
 
 <!-- shorthand equivalent -->
@@ -75,7 +75,7 @@ The primary benefit of custom elements is that they can be used with any framewo
 
 Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElment`](/api/global-api.html#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/global-api.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
 
-```html
+```vue-html
 <my-vue-element></my-vue-element>
 ```
 
@@ -135,7 +135,7 @@ document.body.appendChild(
 
   And the custom element usage:
 
-  ```html
+  ```vue-html
   <my-element selected index="1"></my-element>
   ```
 
@@ -153,7 +153,7 @@ Inside the component, slots can be rendered using the `<slot/>` element as usual
 
 - When passing named slots, use the `slot` attribute instead of the `v-slot` directive:
 
-  ```html
+  ```vue-html
   <my-element>
     <div slot="named">hello</div>
   </my-element>

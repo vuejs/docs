@@ -13,7 +13,7 @@ In Vue 3, components now have official support for multi-root node components, i
 
 In 2.x, multi-root components were not supported and would emit a warning when a user accidentally created one. As a result, many components are wrapped in a single `<div>` in order to fix this error.
 
-```html
+```vue-html
 <!-- Layout.vue -->
 <template>
   <div>
@@ -28,7 +28,7 @@ In 2.x, multi-root components were not supported and would emit a warning when a
 
 In 3.x, components now can have multiple root nodes! However, this does require developers to explicitly define where attributes should be distributed.
 
-```html
+```vue-html
 <!-- Layout.vue -->
 <template>
   <header>...</header>

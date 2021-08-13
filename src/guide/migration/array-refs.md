@@ -10,7 +10,7 @@ In Vue 2, using the `ref` attribute inside `v-for` will populate the correspondi
 
 In Vue 3, such usage will no longer automatically create an array in `$refs`. To retrieve multiple refs from a single binding, bind `ref` to a function which provides more flexibility (this is a new feature):
 
-```html
+```vue-html
 <div v-for="item in list" :ref="setItemRef"></div>
 ```
 

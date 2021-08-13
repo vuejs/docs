@@ -20,7 +20,7 @@ Vue provides a `transition` wrapper component, allowing you to add entering/leav
 
 This is what an example looks like in action:
 
-```html
+```vue-html
 <div id="demo">
   <button @click="show = !show">
     Toggle
@@ -92,7 +92,7 @@ Each of these classes will be prefixed with the name of the transition. Here the
 
 One of the most common transition types uses CSS transitions. Here's an example:
 
-```html
+```vue-html
 <div id="demo">
   <button @click="show = !show">
     Toggle render
@@ -142,7 +142,7 @@ CSS animations are applied in the same way as CSS transitions, the difference be
 
 Here's an example, omitting prefixed CSS rules for the sake of brevity:
 
-```html
+```vue-html
 <div id="demo">
   <button @click="show = !show">Toggle show</button>
   <transition name="bounce">
@@ -204,7 +204,7 @@ These will override the conventional class names. This is especially useful when
 
 Here's an example:
 
-```html
+```vue-html
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
   rel="stylesheet"
@@ -252,13 +252,13 @@ In most cases, Vue can automatically figure out when the transition has finished
 
 In such cases you can specify an explicit transition duration (in milliseconds) using the `duration` prop on the `<transition>` component:
 
-```html
+```vue-html
 <transition :duration="1000">...</transition>
 ```
 
 You can also specify separate values for enter and leave durations:
 
-```html
+```vue-html
 <transition :duration="{ enter: 500, leave: 800 }">...</transition>
 ```
 
@@ -266,7 +266,7 @@ You can also specify separate values for enter and leave durations:
 
 You can also define JavaScript hooks in attributes:
 
-```html
+```vue-html
 <transition
   @before-enter="beforeEnter"
   @enter="enter"
@@ -334,7 +334,7 @@ When using JavaScript-only transitions, **the `done` callbacks are required for 
 
 Now let's dive into an example. Here's a JavaScript transition using [GreenSock](https://greensock.com/):
 
-```html
+```vue-html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
 
 <div id="demo">
@@ -407,7 +407,7 @@ Vue.createApp(Demo).mount('#demo')
 
 If you also want to apply a transition on the initial render of a node, you can add the `appear` attribute:
 
-```html
+```vue-html
 <transition appear>
   <!-- ... -->
 </transition>
@@ -417,7 +417,7 @@ If you also want to apply a transition on the initial render of a node, you can 
 
 We discuss [transitioning between components](#transitioning-between-components) later, but you can also transition between raw elements using `v-if`/`v-else`. One of the most common two-element transitions is between a list container and a message describing an empty list:
 
-```html
+```vue-html
 <transition>
   <table v-if="items.length > 0">
     <!-- ... -->
@@ -430,7 +430,7 @@ It's actually possible to transition between any number of elements, either by u
 
 <!-- TODO: rewrite example and put in codepen example -->
 
-```html
+```vue-html
 <transition>
   <button v-if="docState === 'saved'" key="saved">
     Edit
@@ -446,7 +446,7 @@ It's actually possible to transition between any number of elements, either by u
 
 Which could also be written as:
 
-```html
+```vue-html
 <transition>
   <button :key="docState">
     {{ buttonMessage }}
@@ -490,7 +490,7 @@ You'll find very quickly that `out-in` is the state you will want most of the ti
 
 Now let's update the transition for our on/off buttons with `out-in`:
 
-```html
+```vue-html
 <transition name="fade" mode="out-in">
   <!-- ... the buttons ... -->
 </transition>
@@ -508,7 +508,7 @@ We can use this to coordinate more expressive movement, such as a folding card, 
 
 Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](component-basics.html#dynamic-components):
 
-```html
+```vue-html
 <div id="demo">
   <input v-model="view" type="radio" value="v-a" id="a"><label for="a">A</label>
   <input v-model="view" type="radio" value="v-b" id="b"><label for="b">B</label>

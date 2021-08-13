@@ -14,7 +14,7 @@ The `.native` modifier for `v-on` has been removed.
 
 Event listeners passed to a component with `v-on` are by default only triggered by emitting an event with `this.$emit`. To add a native DOM listener to the child component's root element instead, the `.native` modifier can be used:
 
-```html
+```vue-html
 <my-component
   v-on:close="handleComponentEvent"
   v-on:click.native="handleNativeClickEvent"
@@ -27,7 +27,7 @@ The `.native` modifier for `v-on` has been removed. At the same time, the [new `
 
 Consequently, Vue will now add all event listeners that are _not_ defined as component-emitted events in the child as native event listeners to the child's root element (unless `inheritAttrs: false` has been set in the child's options).
 
-```html
+```vue-html
 <my-component
   v-on:close="handleComponentEvent"
   v-on:click="handleNativeClickEvent"
@@ -36,7 +36,7 @@ Consequently, Vue will now add all event listeners that are _not_ defined as com
 
 `MyComponent.vue`
 
-```html
+```vue-html
 <script>
   export default {
     emits: ['close']

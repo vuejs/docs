@@ -85,7 +85,7 @@ In addition, these components are often used in conjunction with the `<router-vi
 
 The following example shows how to nest these components so that they all behave as expected. For simpler combinations you can remove the components that you don't need:
 
-```html
+```vue-html
 <router-view v-slot="{ Component }">
   <template v-if="Component">
     <transition mode="out-in">

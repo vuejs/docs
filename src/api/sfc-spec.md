@@ -80,7 +80,7 @@ An SFC automatically infers the component's name from its **filename** in the fo
 
 Blocks can declare pre-processor languages using the `lang` attribute. The most common case is using TypeScript for the `<script>` block:
 
-```html
+```vue-html
 <script lang="ts">
   // use TypeScript
 </script>
@@ -88,7 +88,7 @@ Blocks can declare pre-processor languages using the `lang` attribute. The most 
 
 `lang` can be applied to any block - for example we can use `<style>` with [SASS](https://sass-lang.com/) and `<template>` with [Pug](https://pugjs.org/api/getting-started.html):
 
-```html
+```vue-html
 <template lang="pug">
 p {{ msg }}
 </template>

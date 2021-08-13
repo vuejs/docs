@@ -77,7 +77,7 @@ app.component('component-c', {
 app.mount('#app')
 ```
 
-```html
+```vue-html
 <div id="app">
   <component-a></component-a>
   <component-b></component-b>

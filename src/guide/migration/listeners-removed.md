@@ -22,7 +22,7 @@ The `$listeners` object has been removed in Vue 3. Event listeners are now part 
 In Vue 2, you can access attributes passed to your components with `this.$attrs`, and event listeners with `this.$listeners`.
 In combination with `inheritAttrs: false`, they allow the developer to apply these attributes and listeners to some other element instead of the root element:
 
-```html
+```vue-html
 <template>
   <label>
     <input type="text" v-bind="$attrs" v-on="$listeners" />

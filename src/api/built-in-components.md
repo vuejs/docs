@@ -26,7 +26,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop. An `is` prop as a string could be either an HTML tag name or a Component name.
 
-  ```html
+  ```vue-html
   <!-- a dynamic component controlled by -->
   <!-- the `componentId` property on the vm -->
   <component :is="componentId"></component>
@@ -103,7 +103,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   `<transition>` serve as transition effects for **single** element/component. The `<transition>` only applies the transition behavior to the wrapped content inside; it doesn't render an extra DOM element, or show up in the inspected component hierarchy.
 
-  ```html
+  ```vue-html
   <!-- simple element -->
   <transition>
     <div v-if="ok">toggled content</div>
@@ -158,7 +158,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   `<transition-group>` supports moving transitions via CSS transform. When a child's position on screen has changed after an update, it will get applied a moving CSS class (auto generated from the `name` attribute or configured with the `move-class` attribute). If the CSS `transform` property is "transition-able" when the moving class is applied, the element will be smoothly animated to its destination using the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
 
-  ```html
+  ```vue-html
   <transition-group tag="ul" name="slide">
     <li v-for="item in items" :key="item.id">
       {{ item.text }}
@@ -184,7 +184,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   Primarily used to preserve component state or avoid re-rendering.
 
-  ```html
+  ```vue-html
   <!-- basic -->
   <keep-alive>
     <component :is="view"></component>
@@ -210,7 +210,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   The `include` and `exclude` props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an array:
 
-  ```html
+  ```vue-html
   <!-- comma-delimited string -->
   <keep-alive include="a,b">
     <component :is="view"></component>
@@ -233,7 +233,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   The maximum number of component instances to cache. Once this number is reached, the cached component instance that was least recently accessed will be destroyed before creating a new instance.
 
-  ```html
+  ```vue-html
   <keep-alive :max="10">
     <component :is="view"></component>
   </keep-alive>
@@ -265,7 +265,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   - `to` - `string`. Required prop, has to be a valid query selector, or an HTMLElement (if used in a browser environment). Specifies a target element where `<teleport>` content will be moved
 
-  ```html
+  ```vue-html
   <!-- ok -->
   <teleport to="#some-id" />
   <teleport to=".some-class" />
@@ -278,7 +278,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   - `disabled` - `boolean`. This optional prop can be used to disable the `<teleport>`'s functionality, which means that its slot content will not be moved anywhere and instead be rendered where you specified the `<teleport>` in the surrounding parent component.
 
-  ```html
+  ```vue-html
   <teleport to="#popup" :disabled="displayVideoInline">
     <video src="./my-movie.mp4">
   </teleport>

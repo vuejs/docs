@@ -154,7 +154,7 @@ Creates a customized ref with explicit control over its dependency tracking and 
 
 - Example using a custom ref to implement debounce with `v-model`:
 
-  ```html
+  ```vue-html
   <input v-model="text" />
   ```
 

@@ -18,7 +18,7 @@ In 2.x, developers could define the `data` option with either an `object` or a `
 
 For example:
 
-```html
+```vue-html
 <!-- Object Declaration -->
 <script>
   const app = new Vue({
@@ -48,7 +48,7 @@ In 3.x, the `data` option has been standardized to only accept a `function` that
 
 Using the example above, there would only be one possible implementation of the code:
 
-```html
+```vue-html
 <script>
   import { createApp } from 'vue'
 

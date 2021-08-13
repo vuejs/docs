@@ -22,7 +22,7 @@ Here's an example repo to get you going, where you can see the entire setup: [ht
 
 We'll create a base icon (`IconBase.vue`) component that uses a slot.
 
-```html
+```vue-html
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -71,13 +71,13 @@ The `currentColor` property that's the default on the fill will make the icon in
 
 We can use it like so, with the only contents of `IconWrite.vue` containing the paths inside the icon:
 
-```html
+```vue-html
 <icon-base icon-name="write"><icon-write /></icon-base>
 ```
 
 Now, if we'd like to make many sizes for the icon, we can do so very easily:
 
-```html
+```vue-html
 <p>
   <!-- you can pass in a smaller `width` and `height` as props -->
   <icon-base width="12" height="12" icon-name="write"><icon-write /></icon-base>
@@ -94,7 +94,7 @@ Now, if we'd like to make many sizes for the icon, we can do so very easily:
 
 Keeping icons in components comes in very handy when you'd like to animate them, especially on an interaction. Inline SVGs have the highest support for interaction of any method. Here's a very basic example of an icon that's animated on click:
 
-```html
+```vue-html
 <template>
   <svg
     @click="startScissors"

@@ -13,7 +13,7 @@ All of these are either already stored as raw numbers or can be converted into n
 
 Watchers allow us to animate changes of any numerical property into another property. That may sound complicated in the abstract, so let's dive into an example using [GreenSock](https://greensock.com/):
 
-```html
+```vue-html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
 
 <div id="animated-number-demo">
@@ -59,7 +59,7 @@ As with Vue's transition components, the data backing state transitions can be u
 
 Managing many state transitions can quickly increase the complexity of a component instance. Fortunately, many animations can be extracted out into dedicated child components. Let's do this with the animated integer from our earlier example:
 
-```html
+```vue-html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
 
 <div id="app">

@@ -6,7 +6,7 @@
 
 When using the Composition API, the concept of [reactive refs](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) and [template refs](component-template-refs.html) are unified. In order to obtain a reference to an in-template element or component instance, we can declare a ref as usual and return it from [setup()](composition-api-setup.html):
 
-```html
+```vue-html
 <template>
   <div ref="root">This is a root element</div>
 </template>
@@ -57,7 +57,7 @@ export default {
 
 Composition API template refs do not have special handling when used inside `v-for`. Instead, use function refs to perform custom handling:
 
-```html
+```vue-html
 <template>
   <div v-for="(item, i) in list" :ref="el => { if (el) divs[i] = el }">
     {{ item }}

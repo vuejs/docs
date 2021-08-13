@@ -34,13 +34,13 @@ export default {
 
 when used like this:
 
-```html
+```vue-html
 <my-component id="my-id" class="my-class"></my-component>
 ```
 
 ...will generate this HTML:
 
-```html
+```vue-html
 <label class="my-class">
   <input type="text" id="my-id" />
 </label>
@@ -50,7 +50,7 @@ when used like this:
 
 `$attrs` contains _all_ attributes, which makes it easier to apply all of them to a different element. The example from above now generates the following HTML:
 
-```html
+```vue-html
 <label>
   <input type="text" id="my-id" class="my-class" />
 </label>

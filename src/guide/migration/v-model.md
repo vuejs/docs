@@ -30,7 +30,7 @@ With Vue 3, the API for two-way data binding is being standardized in order to r
 
 In 2.x, using a `v-model` on a component was an equivalent of passing a `value` prop and emitting an `input` event:
 
-```html
+```vue-html
 <ChildComponent v-model="pageTitle" />
 
 <!-- would be shorthand for: -->
@@ -40,7 +40,7 @@ In 2.x, using a `v-model` on a component was an equivalent of passing a `value` 
 
 If we wanted to change prop or event names to something different, we would need to add a `model` option to `ChildComponent` component:
 
-```html
+```vue-html
 <!-- ParentComponent.vue -->
 
 <ChildComponent v-model="pageTitle" />
@@ -68,7 +68,7 @@ export default {
 
 So, `v-model` in this case would be a shorthand to
 
-```html
+```vue-html
 <ChildComponent :title="pageTitle" @change="pageTitle = $event" />
 ```
 
@@ -82,13 +82,13 @@ this.$emit('update:title', newValue)
 
 Then the parent could listen to that event and update a local data property, if it wants to. For example:
 
-```html
+```vue-html
 <ChildComponent :title="pageTitle" @update:title="pageTitle = $event" />
 ```
 
 For convenience, we had a shorthand for this pattern with the .sync modifier:
 
-```html
+```vue-html
 <ChildComponent :title.sync="pageTitle" />
 ```
 
@@ -96,7 +96,7 @@ For convenience, we had a shorthand for this pattern with the .sync modifier:
 
 In 3.x `v-model` on the custom component is an equivalent of passing a `modelValue` prop and emitting an `update:modelValue` event:
 
-```html
+```vue-html
 <ChildComponent v-model="pageTitle" />
 
 <!-- would be shorthand for: -->
@@ -111,7 +111,7 @@ In 3.x `v-model` on the custom component is an equivalent of passing a `modelVal
 
 To change a model name, instead of a `model` component option, now we can pass an _argument_ to `v-model`:
 
-```html
+```vue-html
 <ChildComponent v-model:title="pageTitle" />
 
 <!-- would be shorthand for: -->
@@ -123,7 +123,7 @@ To change a model name, instead of a `model` component option, now we can pass a
 
 This also serves as a replacement to `.sync` modifier and allows us to have multiple `v-model`s on the custom component.
 
-```html
+```vue-html
 <ChildComponent v-model:title="pageTitle" v-model:content="pageContent" />
 
 <!-- would be shorthand for: -->
@@ -140,7 +140,7 @@ This also serves as a replacement to `.sync` modifier and allows us to have mult
 
 In addition to 2.x hard-coded `v-model` modifiers like `.trim`, now 3.x supports custom modifiers:
 
-```html
+```vue-html
 <ChildComponent v-model.capitalize="pageTitle" />
 ```
 
@@ -152,7 +152,7 @@ We recommend:
 
 - checking your codebase for `.sync` usage and replace it with `v-model`:
 
-  ```html
+  ```vue-html
   <ChildComponent :title.sync="pageTitle" />
 
   <!-- to be replaced with -->
@@ -162,7 +162,7 @@ We recommend:
 
 - for all `v-model`s without arguments, make sure to change props and events name to `modelValue` and `update:modelValue` respectively
 
-  ```html
+  ```vue-html
   <ChildComponent v-model="pageTitle" />
   ```
 

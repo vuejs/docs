@@ -32,7 +32,7 @@
 
 - **Usage:**
 
-  ```html
+  ```vue-html
   <div id="app" class="demo">
     <my-title blog-title="A Perfect Vue"></my-title>
   </div>

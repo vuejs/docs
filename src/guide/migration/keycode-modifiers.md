@@ -16,7 +16,7 @@ Here is a quick summary of what has changed:
 
 In Vue 2, `keyCodes` were supported as a way to modify a `v-on` method.
 
-```html
+```vue-html
 <!-- keyCode version -->
 <input v-on:keyup.13="submit" />
 
@@ -32,7 +32,7 @@ Vue.config.keyCodes = {
 }
 ```
 
-```html
+```vue-html
 <!-- keyCode version -->
 <input v-on:keyup.112="showHelpText" />
 
@@ -44,7 +44,7 @@ Vue.config.keyCodes = {
 
 Since [`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode), it no longer makes sense for Vue 3 to continue supporting this as well. As a result, it is now recommended to use the kebab-case name for any key you want to use as a modifier.
 
-```html
+```vue-html
 <!-- Vue 3 Key Modifier on v-on -->
 <input v-on:keyup.page-down="nextPage">
 
@@ -60,7 +60,7 @@ For those using `keyCode` in their codebase, we recommend converting them to the
 
 The keys for some punctuation marks can just be included literally. e.g. For the `,` key:
 
-```html
+```vue-html
 <input v-on:keypress.,="commaPress">
 ```
 

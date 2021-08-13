@@ -20,7 +20,7 @@ The first key way to ensure that SSR is working to ensuring your application sta
 
 A second key thing to be aware of when using SSR + client hydration is that invalid HTML may be altered by the browser. For example, when you write this in a Vue template:
 
-```html
+```vue-html
 <table>
   <tr>
     <td>hi</td>

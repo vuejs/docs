@@ -23,7 +23,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 
 ### Text
 
-```html
+```vue-html
 <input v-model="message" placeholder="edit me" />
 <p>Message is: {{ message }}</p>
 ```
@@ -32,7 +32,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 
 ### Multiline text
 
-```html
+```vue-html
 <span>Multiline message is:</span>
 <p style="white-space: pre-line;">{{ message }}</p>
 <br />
@@ -43,7 +43,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 
 Interpolation on textareas won't work. Use `v-model` instead.
 
-```html
+```vue-html
 <!-- bad -->
 <textarea>{{ text }}</textarea>
 
@@ -55,7 +55,7 @@ Interpolation on textareas won't work. Use `v-model` instead.
 
 Single checkbox, boolean value:
 
-```html
+```vue-html
 <input type="checkbox" id="checkbox" v-model="checked" />
 <label for="checkbox">{{ checked }}</label>
 ```
@@ -64,7 +64,7 @@ Single checkbox, boolean value:
 
 Multiple checkboxes, bound to the same array:
 
-```html
+```vue-html
 <div id="v-model-multiple-checkboxes">
   <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
   <label for="jack">Jack</label>
@@ -91,7 +91,7 @@ Vue.createApp({
 
 ### Radio
 
-```html
+```vue-html
 <div id="v-model-radiobutton">
   <input type="radio" id="one" value="One" v-model="picked" />
   <label for="one">One</label>
@@ -119,7 +119,7 @@ Vue.createApp({
 
 Single select:
 
-```html
+```vue-html
 <div id="v-model-select" class="demo">
   <select v-model="selected">
     <option disabled value="">Please select one</option>
@@ -149,7 +149,7 @@ If the initial value of your `v-model` expression does not match any of the opti
 
 Multiple select (bound to array):
 
-```html
+```vue-html
 <select v-model="selected" multiple>
   <option>A</option>
   <option>B</option>
@@ -163,7 +163,7 @@ Multiple select (bound to array):
 
 Dynamic options rendered with `v-for`:
 
-```html
+```vue-html
 <div id="v-model-select-dynamic" class="demo">
   <select v-model="selected">
     <option v-for="option in options" :value="option.value">
@@ -195,7 +195,7 @@ Vue.createApp({
 
 For radio, checkbox and select options, the `v-model` binding values are usually static strings (or booleans for checkbox):
 
-```html
+```vue-html
 <!-- `picked` is a string "a" when checked -->
 <input type="radio" v-model="picked" value="a" />
 
@@ -212,7 +212,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
 
 ### Checkbox
 
-```html
+```vue-html
 <input type="checkbox" v-model="toggle" true-value="yes" false-value="no" />
 ```
 
@@ -229,7 +229,7 @@ The `true-value` and `false-value` attributes don't affect the input's `value` a
 
 ### Radio
 
-```html
+```vue-html
 <input type="radio" v-model="pick" v-bind:value="a" />
 ```
 
@@ -240,7 +240,7 @@ vm.pick === vm.a
 
 ### Select Options
 
-```html
+```vue-html
 <select v-model="selected">
   <!-- inline object literal -->
   <option :value="{ number: 123 }">123</option>
@@ -259,7 +259,7 @@ vm.selected.number // => 123
 
 By default, `v-model` syncs the input with the data after each `input` event (with the exception of IME composition as [stated above](#vmodel-ime-tip)). You can add the `lazy` modifier to instead sync after `change` events:
 
-```html
+```vue-html
 <!-- synced after "change" instead of "input" -->
 <input v-model.lazy="msg" />
 ```
@@ -268,7 +268,7 @@ By default, `v-model` syncs the input with the data after each `input` event (wi
 
 If you want user input to be automatically typecast as a number, you can add the `number` modifier to your `v-model` managed inputs:
 
-```html
+```vue-html
 <input v-model.number="age" type="number" />
 ```
 
@@ -278,7 +278,7 @@ This is often useful, because even with `type="number"`, the value of HTML input
 
 If you want whitespace from user input to be trimmed automatically, you can add the `trim` modifier to your `v-model`-managed inputs:
 
-```html
+```vue-html
 <input v-model.trim="msg" />
 ```
 

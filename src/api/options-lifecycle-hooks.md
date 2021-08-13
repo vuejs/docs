@@ -178,7 +178,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **Usage:**
 
-  ```html
+  ```vue-html
   <div id="app">
     <button v-on:click="addToCart">Add to cart</button>
     <p>Cart({{ cart }})</p>
@@ -224,7 +224,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **Usage:**
 
-  ```html
+  ```vue-html
   <div id="app">
     <button v-on:click="addToCart">Add to cart</button>
     <p>Cart({{ cart }})</p>

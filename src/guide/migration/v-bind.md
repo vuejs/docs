@@ -18,7 +18,7 @@ When dynamically binding attributes on an element, a common scenario involves us
 
 In 2.x, if an element has both `v-bind="object"` and an identical individual property defined, the individual property would always overwrite bindings in the `object`.
 
-```html
+```vue-html
 <!-- template -->
 <div id="red" v-bind="{ id: 'blue' }"></div>
 <!-- result -->
@@ -29,7 +29,7 @@ In 2.x, if an element has both `v-bind="object"` and an identical individual pro
 
 In 3x, if an element has both `v-bind="object"` and an identical individual property defined, the order of how the bindings are declared determines how they are merged. In other words, rather than assuming developers want the individual property to always override what is defined in the `object`, developers now have more control over the desired merging behavior.
 
-```html
+```vue-html
 <!-- template -->
 <div id="red" v-bind="{ id: 'blue' }"></div>
 <!-- result -->

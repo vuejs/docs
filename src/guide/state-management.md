@@ -32,7 +32,7 @@ const appB = createApp({
 }).mount('#app-b')
 ```
 
-```html
+```vue-html
 <div id="app-a">App A: {{ message }}</div>
 
 <div id="app-b">App B: {{ message }}</div>
@@ -83,7 +83,7 @@ Notice all actions that mutate the store's state are put inside the store itself
 
 In addition, each instance/component can still own and manage its own private state:
 
-```html
+```vue-html
 <div id="app-a">{{sharedState.message}}</div>
 
 <div id="app-b">{{sharedState.message}}</div>

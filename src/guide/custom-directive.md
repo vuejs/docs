@@ -37,7 +37,7 @@ directives: {
 
 Then in a template, you can use the new `v-focus` attribute on any element, like this:
 
-```html
+```vue-html
 <input v-focus />
 ```
 

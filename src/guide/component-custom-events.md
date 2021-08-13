@@ -10,7 +10,7 @@ Like components and props, event names provide an automatic case transformation.
 this.$emit('myEvent')
 ```
 
-```html
+```vue-html
 <my-component @my-event="doSomething"></my-component>
 ```
 
@@ -68,7 +68,7 @@ app.component('custom-form', {
 
 By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
 
-```html
+```vue-html
 <my-component v-model:title="bookTitle"></my-component>
 ```
 
@@ -89,7 +89,7 @@ app.component('my-component', {
 })
 ```
 
-```html
+```vue-html
 <my-component v-model:title="bookTitle"></my-component>
 ```
 
@@ -99,7 +99,7 @@ By leveraging the ability to target a particular prop and event as we learned be
 
 Each v-model will sync to a different prop, without the need for extra options in the component:
 
-```html
+```vue-html
 <user-name
   v-model:first-name="firstName"
   v-model:last-name="lastName"
@@ -139,7 +139,7 @@ Modifiers added to a component `v-model` will be provided to the component via t
 
 Notice that when the component's `created` lifecycle hook triggers, the `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="myText"`.
 
-```html
+```vue-html
 <my-component v-model.capitalize="myText"></my-component>
 ```
 
@@ -165,7 +165,7 @@ app.component('my-component', {
 
 Now that we have our prop set up, we can check the `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string whenever the `<input />` element fires an `input` event.
 
-```html
+```vue-html
 <div id="app">
   <my-component v-model.capitalize="myText"></my-component>
   {{ myText }}
@@ -209,7 +209,7 @@ app.mount('#app')
 
 For `v-model` bindings with arguments, the generated prop name will be `arg + "Modifiers"`:
 
-```html
+```vue-html
 <my-component v-model:description.capitalize="myText"></my-component>
 ```
 

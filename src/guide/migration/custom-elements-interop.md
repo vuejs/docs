@@ -15,7 +15,7 @@ badges:
 
 If we want to add a custom element defined outside of Vue (e.g. using the Web Components API), we need to 'instruct' Vue to treat it as a custom element. Let's use the following template as an example.
 
-```html
+```vue-html
 <plastic-button></plastic-button>
 ```
 
@@ -65,7 +65,7 @@ Vue.config.ignoredElements = ['plastic-button']
 
 The Custom Elements specification provides a way to use custom elements as [Customized Built-in Element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example) by adding the `is` attribute to a built-in element:
 
-```html
+```vue-html
 <button is="plastic-button">Click Me!</button>
 ```
 
@@ -76,7 +76,7 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
 - When used on the reserved `<component>` tag, it will behave exactly the same as in 2.x;
 - When used on normal components, it will behave like a normal prop:
 
-  ```html
+  ```vue-html
   <foo is="bar" />
   ```
 
@@ -85,7 +85,7 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
 
 - When used on plain elements, it will be passed to the `createElement` call as the `is` prop, and also rendered as a native attribute. This supports the usage of customized built-in elements.
 
-  ```html
+  ```vue-html
   <button is="plastic-button">Click Me!</button>
   ```
 
@@ -107,7 +107,7 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
 
 In Vue 2 we recommended working around with these restrictions by using the `is` prop on a native tag:
 
-```html
+```vue-html
 <table>
   <tr is="blog-post-row"></tr>
 </table>
@@ -117,7 +117,7 @@ In Vue 2 we recommended working around with these restrictions by using the `is`
 
 With the behavior change of `is`, a `vue:` prefix is now required to resolve the element as a Vue component:
 
-```html
+```vue-html
 <table>
   <tr is="vue:blog-post-row"></tr>
 </table>

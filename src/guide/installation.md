@@ -33,7 +33,7 @@ When using Vue, we recommend also installing the [Vue Devtools](https://github.c
 
 For prototyping or learning purposes, you can use the latest version with:
 
-```html
+```vue-html
 <script src="https://unpkg.com/vue@next"></script>
 ```
 

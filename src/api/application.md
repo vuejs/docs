@@ -194,7 +194,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 - **Example:**
 
-```html
+```vue-html
 <body>
   <div id="my-app"></div>
 </body>
@@ -264,7 +264,7 @@ app.provide('user', 'administrator')
 
 - **Example:**
 
-```html
+```vue-html
 <body>
   <div id="my-app"></div>
 </body>

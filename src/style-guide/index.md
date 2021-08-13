@@ -161,7 +161,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <ul>
   <li v-for="todo in todos">
     {{ todo.text }}
@@ -173,7 +173,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <ul>
   <li
     v-for="todo in todos"
@@ -198,7 +198,7 @@ There are two common cases where this can be tempting:
 ::: details Detailed Explanation
 When Vue processes directives, `v-if` has a higher priority than `v-for`, so that this template:
 
-```html
+```vue-html
 <ul>
   <li
     v-for="user in users"
@@ -222,7 +222,7 @@ computed: {
 }
 ```
 
-```html
+```vue-html
 <ul>
   <li
     v-for="user in activeUsers"
@@ -235,7 +235,7 @@ computed: {
 
 Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` element:
 
-```html
+```vue-html
 <ul>
   <template v-for="user in users" :key="user.id">
     <li v-if="user.isActive">
@@ -250,7 +250,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <ul>
   <li
     v-for="user in users"
@@ -266,7 +266,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <ul>
   <li
     v-for="user in activeUsers"
@@ -277,7 +277,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 </ul>
 ```
 
-```html
+```vue-html
 <ul>
   <template v-for="user in users" :key="user.id">
     <li v-if="user.isActive">
@@ -307,7 +307,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <template>
   <button class="btn btn-close">×</button>
 </template>
@@ -323,7 +323,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <template>
   <button class="button button-close">×</button>
 </template>
@@ -341,7 +341,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 </style>
 ```
 
-```html
+```vue-html
 <template>
   <button :class="[$style.button, $style.buttonClose]">×</button>
 </template>
@@ -359,7 +359,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 </style>
 ```
 
-```html
+```vue-html
 <template>
   <button class="c-Button c-Button--close">×</button>
 </template>
@@ -803,12 +803,12 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <!-- In single-file components, string templates, and JSX -->
 <MyComponent></MyComponent>
 ```
 
-```html
+```vue-html
 <!-- In DOM templates -->
 <my-component/>
 ```
@@ -817,12 +817,12 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <!-- In single-file components, string templates, and JSX -->
 <MyComponent/>
 ```
 
-```html
+```vue-html
 <!-- In DOM templates -->
 <my-component></my-component>
 ```
@@ -845,17 +845,17 @@ Also note that if you've already invested heavily in kebab-case, consistency wit
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <!-- In single-file components and string templates -->
 <mycomponent/>
 ```
 
-```html
+```vue-html
 <!-- In single-file components and string templates -->
 <myComponent/>
 ```
 
-```html
+```vue-html
 <!-- In DOM templates -->
 <MyComponent></MyComponent>
 ```
@@ -864,19 +864,19 @@ Also note that if you've already invested heavily in kebab-case, consistency wit
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <!-- In single-file components and string templates -->
 <MyComponent/>
 ```
 
-```html
+```vue-html
 <!-- In DOM templates -->
 <my-component></my-component>
 ```
 
 OR
 
-```html
+```vue-html
 <!-- Everywhere -->
 <my-component></my-component>
 ```
@@ -991,7 +991,7 @@ props: {
 }
 ```
 
-```html
+```vue-html
 <WelcomeMessage greetingText="hi"/>
 ```
 </div>
@@ -1005,7 +1005,7 @@ props: {
 }
 ```
 
-```html
+```vue-html
 <WelcomeMessage greeting-text="hi"/>
 ```
 </div>
@@ -1019,11 +1019,11 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <img src="https://vuejs.org/images/logo.png" alt="Vue Logo">
 ```
 
-```html
+```vue-html
 <MyComponent foo="a" bar="b" baz="c"/>
 ```
 </div>
@@ -1031,14 +1031,14 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <img
   src="https://vuejs.org/images/logo.png"
   alt="Vue Logo"
 >
 ```
 
-```html
+```vue-html
 <MyComponent
   foo="a"
   bar="b"
@@ -1056,7 +1056,7 @@ Complex expressions in your templates make them less declarative. We should stri
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 {{
   fullName.split(' ').map((word) => {
     return word[0].toUpperCase() + word.slice(1)
@@ -1068,7 +1068,7 @@ Complex expressions in your templates make them less declarative. We should stri
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <!-- In a template -->
 {{ normalizedFullName }}
 ```
@@ -1152,11 +1152,11 @@ While attribute values without any spaces are not required to have quotes in HTM
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <input type=text>
 ```
 
-```html
+```vue-html
 <AppSidebar :style={width:sidebarWidth+'px'}>
 ```
 </div>
@@ -1164,11 +1164,11 @@ While attribute values without any spaces are not required to have quotes in HTM
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <input type="text">
 ```
 
-```html
+```vue-html
 <AppSidebar :style="{ width: sidebarWidth + 'px' }">
 ```
 </div>
@@ -1180,21 +1180,21 @@ While attribute values without any spaces are not required to have quotes in HTM
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <input
   v-bind:value="newTodoText"
   :placeholder="newTodoInstructions"
 >
 ```
 
-```html
+```vue-html
 <input
   v-on:input="onInput"
   @focus="onFocus"
 >
 ```
 
-```html
+```vue-html
 <template v-slot:header>
   <h1>Here might be a page title</h1>
 </template>
@@ -1208,35 +1208,35 @@ While attribute values without any spaces are not required to have quotes in HTM
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <input
   :value="newTodoText"
   :placeholder="newTodoInstructions"
 >
 ```
 
-```html
+```vue-html
 <input
   v-bind:value="newTodoText"
   v-bind:placeholder="newTodoInstructions"
 >
 ```
 
-```html
+```vue-html
 <input
   @input="onInput"
   @focus="onFocus"
 >
 ```
 
-```html
+```vue-html
 <input
   v-on:input="onInput"
   v-on:focus="onFocus"
 >
 ```
 
-```html
+```vue-html
 <template v-slot:header>
   <h1>Here might be a page title</h1>
 </template>
@@ -1246,7 +1246,7 @@ While attribute values without any spaces are not required to have quotes in HTM
 </template>
 ```
 
-```html
+```vue-html
 <template #header>
   <h1>Here might be a page title</h1>
 </template>
@@ -1426,13 +1426,13 @@ computed: {
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <style>/* ... */</style>
 <script>/* ... */</script>
 <template>...</template>
 ```
 
-```html
+```vue-html
 <!-- ComponentA.vue -->
 <script>/* ... */</script>
 <template>...</template>
@@ -1448,7 +1448,7 @@ computed: {
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <!-- ComponentA.vue -->
 <script>/* ... */</script>
 <template>...</template>
@@ -1460,7 +1460,7 @@ computed: {
 <style>/* ... */</style>
 ```
 
-```html
+```vue-html
 <!-- ComponentA.vue -->
 <template>...</template>
 <script>/* ... */</script>
@@ -1490,7 +1490,7 @@ The problem is that large numbers of [element-attribute selectors](http://steves
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
 
-```html
+```vue-html
 <template>
   <button>×</button>
 </template>
@@ -1506,7 +1506,7 @@ button {
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
-```html
+```vue-html
 <template>
   <button class="btn btn-close">×</button>
 </template>
@@ -1677,7 +1677,7 @@ export default {
 }
 ```
 
-```html
+```vue-html
 <!-- TodoItem.vue -->
 <template>
   <span>

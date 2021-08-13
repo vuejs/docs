@@ -6,7 +6,7 @@
 
 We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
 
-```html
+```vue-html
 <ul id="array-rendering">
   <li v-for="item in items">
     {{ item.message }}
@@ -30,7 +30,7 @@ Result:
 
 Inside `v-for` blocks we have full access to parent scope properties. `v-for` also supports an optional second argument for the index of the current item.
 
-```html
+```vue-html
 <ul id="array-with-index">
   <li v-for="(item, index) in items">
     {{ parentMessage }} - {{ index }} - {{ item.message }}
@@ -55,7 +55,7 @@ Result:
 
 You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
 
-```html
+```vue-html
 <div v-for="item of items"></div>
 ```
 
@@ -63,7 +63,7 @@ You can also use `of` as the delimiter instead of `in`, so that it is closer to 
 
 You can also use `v-for` to iterate through the properties of an object.
 
-```html
+```vue-html
 <ul id="v-for-object" class="demo">
   <li v-for="value in myObject">
     {{ value }}
@@ -91,7 +91,7 @@ Result:
 
 You can also provide a second argument for the property's name (a.k.a. key):
 
-```html
+```vue-html
 <li v-for="(value, name) in myObject">
   {{ name }}: {{ value }}
 </li>
@@ -101,7 +101,7 @@ You can also provide a second argument for the property's name (a.k.a. key):
 
 And another for the index:
 
-```html
+```vue-html
 <li v-for="(value, name, index) in myObject">
   {{ index }}. {{ name }}: {{ value }}
 </li>
@@ -121,7 +121,7 @@ This default mode is efficient, but **only suitable when your list render output
 
 To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item:
 
-```html
+```vue-html
 <div v-for="item in items" :key="item.id">
   <!-- content -->
 </div>
@@ -169,7 +169,7 @@ Sometimes we want to display a filtered or sorted version of an array without ac
 
 For example:
 
-```html
+```vue-html
 <li v-for="n in evenNumbers" :key="n">{{ n }}</li>
 ```
 
@@ -188,7 +188,7 @@ computed: {
 
 In situations where computed properties are not feasible (e.g. inside nested `v-for` loops), you can use a method:
 
-```html
+```vue-html
 <ul v-for="numbers in sets">
   <li v-for="n in even(numbers)" :key="n">{{ n }}</li>
 </ul>
@@ -211,7 +211,7 @@ methods: {
 
 `v-for` can also take an integer. In this case it will repeat the template that many times.
 
-```html
+```vue-html
 <div id="range" class="demo">
   <span v-for="n in 10" :key="n">{{ n }} </span>
 </div>
@@ -225,7 +225,7 @@ Result:
 
 Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
 
-```html
+```vue-html
 <ul>
   <template v-for="item in items" :key="item.msg">
     <li>{{ item.msg }}</li>
@@ -242,7 +242,7 @@ Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to 
 
 When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
 
-```html
+```vue-html
 <!-- This will throw an error because property "todo" is not defined on instance. -->
 
 <li v-for="todo in todos" v-if="!todo.isComplete">
@@ -252,7 +252,7 @@ When they exist on the same node, `v-if` has a higher priority than `v-for`. Tha
 
 This can be fixed by moving `v-for` to a wrapping `<template>` tag:
 
-```html
+```vue-html
 <template v-for="todo in todos" :key="todo.name">
   <li v-if="!todo.isComplete">
     {{ todo.name }}
@@ -266,13 +266,13 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag:
 
 You can directly use `v-for` on a custom component, like any normal element:
 
-```html
+```vue-html
 <my-component v-for="item in items" :key="item.id"></my-component>
 ```
 
 However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
 
-```html
+```vue-html
 <my-component
   v-for="(item, index) in items"
   :item="item"
@@ -285,7 +285,7 @@ The reason for not automatically injecting `item` into the component is because 
 
 Here's a complete example of a simple todo list:
 
-```html
+```vue-html
 <div id="todo-list-example">
   <form v-on:submit.prevent="addNewTodo">
     <label for="new-todo">Add a todo</label>

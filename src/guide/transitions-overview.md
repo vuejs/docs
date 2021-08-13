@@ -15,7 +15,7 @@ In this next section, we'll go over some web animation and transitions basics, a
 
 Though the `<transition>` component can be wonderful for components entering and leaving, you can also activate an animation without mounting a component, by adding a conditional class.
 
-```html
+```vue-html
 <div id="demo">
   Push this button to do something you shouldn't be doing:<br />
 
@@ -76,7 +76,7 @@ Vue.createApp(Demo).mount('#demo')
 
 Some transition effects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
 
-```html
+```vue-html
 <div id="demo">
   <div
     @mousemove="xCoordinate"

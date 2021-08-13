@@ -16,7 +16,7 @@ So what about for when we have a whole list of items we want to render simultane
 
 Now let's dive into an example, transitioning entering and leaving using the same CSS classes we've used previously:
 
-```html
+```vue-html
 <div id="list-demo">
   <button @click="add">Add</button>
   <button @click="remove">Remove</button>
@@ -78,7 +78,7 @@ The `<transition-group>` component has another trick up its sleeve. It can not o
 
 This class is mostly useful for specifying the transition timing and easing curve, as you'll see below:
 
-```html
+```vue-html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
 
 <div id="flip-list-demo">
@@ -120,7 +120,7 @@ This might seem like magic, but under the hood, Vue is using an animation techni
 
 We can combine this technique with our previous implementation to animate every possible change to our list!
 
-```html
+```vue-html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 
 <div id="list-complete-demo" class="demo">
@@ -194,7 +194,7 @@ TODO: example
 
 By communicating with JavaScript transitions through data attributes, it's also possible to stagger transitions in a list:
 
-```html
+```vue-html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
 
 <div id="demo">
@@ -329,7 +329,7 @@ Vue.component('my-special-transition', {
 
 Yes, even transitions in Vue are data-driven! The most basic example of a dynamic transition binds the `name` attribute to a dynamic property.
 
-```html
+```vue-html
 <transition :name="transitionName">
   <!-- ... -->
 </transition>
@@ -339,7 +339,7 @@ This can be useful when you've defined CSS transitions/animations using Vue's tr
 
 Really though, any transition attribute can be dynamically bound. And it's not only attributes. Since event hooks are methods, they have access to any data in the context. That means depending on the state of your component, your JavaScript transitions can behave differently.
 
-```html
+```vue-html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 
 <div id="dynamic-fade-demo" class="demo">

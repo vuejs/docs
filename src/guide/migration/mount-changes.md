@@ -44,7 +44,7 @@ app.$mount('#app')
 
 When we mount this application to the page that has a `div` with the passed selector (in our case, it's `id="app"`):
 
-```html
+```vue-html
 <body>
   <div id="app">
     Some app content
@@ -54,7 +54,7 @@ When we mount this application to the page that has a `div` with the passed sele
 
 in the rendered result, the mentioned `div` will be replaced with the rendered application content:
 
-```html
+```vue-html
 <body>
   <div id="rendered">Hello Vue!</div>
 </body>
@@ -81,7 +81,7 @@ app.mount('#app')
 
 When this app is mounted to the page that has a `div` with `id="app"`, this will result in:
 
-```html
+```vue-html
 <body>
   <div id="app" data-v-app="">
     <div id="rendered">Hello Vue!</div>

@@ -21,7 +21,7 @@ export default {
 
 Just to support relatively little markup in a template:
 
-```html
+```vue-html
 <BaseInput v-model="searchText" @keydown.enter="search" />
 <BaseButton @click="search">
   <BaseIcon name="search" />

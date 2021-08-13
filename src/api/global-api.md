@@ -56,7 +56,7 @@ const app = createApp(
 )
 ```
 
-```html
+```vue-html
 <div id="app">
   <!-- Will display 'Evan' -->
   {{ username }}
@@ -242,7 +242,7 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
 
 Usage example:
 
-```html
+```vue-html
 <my-vue-element></my-vue-element>
 ```
 

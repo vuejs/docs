@@ -10,7 +10,7 @@
 
   The most common use case is combined with `v-for`:
 
-  ```html
+  ```vue-html
   <ul>
     <li v-for="item in items" :key="item.id">...</li>
   </ul>
@@ -23,7 +23,7 @@
 
   For example:
 
-  ```html
+  ```vue-html
   <transition>
     <span :key="text">{{ text }}</span>
   </transition>
@@ -37,7 +37,7 @@
 
   `ref` is used to register a reference to an element or a child component. The reference will be registered under the parent component's `$refs` object. If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be component instance:
 
-  ```html
+  ```vue-html
   <!-- vm.$refs.p will be the DOM node -->
   <p ref="p">hello</p>
 
@@ -60,7 +60,7 @@
 
   For example:
 
-  ```html
+  ```vue-html
   <!-- component changes when currentView changes -->
   <component :is="currentView"></component>
   ```
@@ -71,7 +71,7 @@
 
   There is, however, a use case where you may need Vue to replace a native element with a Vue component, as explained in [DOM Template Parsing Caveats](/guide/component-basics.html#dom-template-parsing-caveats). You can prefix the value of the `is` attribute with `vue:` so that Vue will render the element as a Vue component instead:
 
-  ```html
+  ```vue-html
   <table>
     <tr is="vue:my-row-component"></tr>
   </table>

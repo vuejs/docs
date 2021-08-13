@@ -4,7 +4,7 @@
 
 Despite the existence of props and events, sometimes you might still need to directly access a child component in JavaScript. To achieve this you can assign a reference ID to the child component or HTML element using the `ref` attribute. For example:
 
-```html
+```vue-html
 <input ref="input" />
 ```
 
@@ -30,7 +30,7 @@ app.component('base-input', {
 
 Also, you can add another `ref` to the component itself and use it to trigger `focusInput` event from the parent component:
 
-```html
+```vue-html
 <base-input ref="usernameInput"></base-input>
 ```
 

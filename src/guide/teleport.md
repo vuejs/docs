@@ -10,7 +10,7 @@ A common scenario for this is creating a component that includes a full-screen m
 
 Consider the following HTML structure.
 
-```html
+```vue-html
 <body>
   <div style="position: relative;">
     <h3>Tooltips with Vue 3 Teleport</h3>
@@ -125,7 +125,7 @@ This also means that injections from a parent component work as expected, and th
 
 A common use case scenario would be a reusable `<Modal>` component of which there might be multiple instances active at the same time. For this kind of scenario, multiple `<teleport>` components can mount their content to the same target element. The order will be a simple append - later mounts will be located after earlier ones within the target element.
 
-```html
+```vue-html
 <teleport to="#modals">
   <div>A</div>
 </teleport>

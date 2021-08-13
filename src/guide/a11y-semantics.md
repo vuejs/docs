@@ -6,7 +6,7 @@ When creating a form, you can use the following elements: `<form>`, `<label>`, `
 
 Labels are typically placed on top or to the left of the form fields:
 
-```html
+```vue-html
 <form action="/dataCollectionLocation" method="post" autocomplete="on">
   <div v-for="item in formItems" :key="item.id" class="form-item">
     <label :for="item.id">{{ item.label }}: </label>
@@ -29,7 +29,7 @@ Notice how you can include `autocomplete='on'` on the form element and it will a
 
 Provide labels to describe the purpose of all form control; linking `for` and `id`:
 
-```html
+```vue-html
 <label for="name">Name</label>
 <input type="text" name="name" id="name" v-model="name" />
 ```
@@ -43,7 +43,7 @@ If you inspect this element in your chrome developer tools and open the Accessib
 :::warning Warning:
 Though you might have seen labels wrapping the input fields like this:
 
-```html
+```vue-html
 <label>
   Name:
   <input type="text" name="name" id="name" v-model="name" />
@@ -57,7 +57,7 @@ Explicitly setting the labels with a matching id is better supported by assistiv
 
 You can also give the input an accessible name with [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute).
 
-```html
+```vue-html
 <label for="name">Name</label>
 <input
   type="text"
@@ -78,7 +78,7 @@ Feel free to inspect this element in Chrome DevTools to see how the accessible n
 
 Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) is similar to `aria-label` except it is used if the label text is visible on screen. It is paired to other elements by their `id` and you can link multiple `id`s:
 
-```html
+```vue-html
 <form
   class="demo"
   action="/dataCollectionLocation"
@@ -108,7 +108,7 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 
 [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute) is used the same way as `aria-labelledby` except provides a description with additional information that the user might need. This can be used to describe the criteria for any input:
 
-```html
+```vue-html
 <form
   class="demo"
   action="/dataCollectionLocation"
@@ -153,7 +153,7 @@ It is best to provide all the information the user needs to fill out forms outsi
 When adding instructions for your input fields, make sure to link it correctly to the input.
 You can provide additional instructions and bind multiple ids inside an [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute). This allows for more flexible design.
 
-```html
+```vue-html
 <fieldset>
   <legend>Using aria-labelledby</legend>
   <label id="date-label" for="date">Current Date:</label>
@@ -169,7 +169,7 @@ You can provide additional instructions and bind multiple ids inside an [`aria-l
 
 Alternatively, you can attach the instructions to the input with [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute):
 
-```html
+```vue-html
 <fieldset>
   <legend>Using aria-describedby</legend>
   <label id="dob" for="dob">Date of Birth:</label>
@@ -186,7 +186,7 @@ Usually it is not recommended to visually hide labels, even if the input has an 
 
 Let's look at this search field:
 
-```html
+```vue-html
 <form role="search">
   <label for="search" class="hidden-visually">Search: </label>
   <input type="text" name="search" id="search" v-model="search" />
@@ -218,7 +218,7 @@ We can use CSS to visually hide elements but keep them available for assistive t
 
 Adding `aria-hidden="true"` will hide the element from assistive technology but leave it visually available for other users. Do not use it on focusable elements, purely on decorative, duplicated or offscreen content.
 
-```html
+```vue-html
 <p>This is not hidden from screen readers.</p>
 <p aria-hidden="true">This is hidden from screen readers.</p>
 ```
@@ -228,7 +228,7 @@ Adding `aria-hidden="true"` will hide the element from assistive technology but 
 When using buttons inside a form, you must set the type to prevent submitting the form.
 You can also use an input to create buttons:
 
-```html
+```vue-html
 <form action="/dataCollectionLocation" method="post" autocomplete="on">
   <!-- Buttons -->
   <button type="button">Cancel</button>
@@ -250,7 +250,7 @@ You can use this technique to create functional images.
 
   - These images will act as a submit type button on forms
 
-  ```html
+  ```vue-html
   <form role="search">
     <label for="search" class="hidden-visually">Search: </label>
     <input type="text" name="search" id="search" v-model="search" />
@@ -265,7 +265,7 @@ You can use this technique to create functional images.
 
 - Icons
 
-```html
+```vue-html
 <form role="search">
   <label for="searchIcon" class="hidden-visually">Search: </label>
   <input type="text" name="searchIcon" id="searchIcon" v-model="searchIcon" />

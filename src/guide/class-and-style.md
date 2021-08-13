@@ -9,7 +9,7 @@ A common need for data binding is manipulating an element's class list and its i
 
 We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
 
-```html
+```vue-html
 <div :class="{ active: isActive }"></div>
 ```
 
@@ -17,7 +17,7 @@ The above syntax means the presence of the `active` class will be determined by 
 
 You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following template:
 
-```html
+```vue-html
 <div
   class="static"
   :class="{ active: isActive, 'text-danger': hasError }"
@@ -37,7 +37,7 @@ data() {
 
 It will render:
 
-```html
+```vue-html
 <div class="static active"></div>
 ```
 
@@ -45,7 +45,7 @@ When `isActive` or `hasError` changes, the class list will be updated accordingl
 
 The bound object doesn't have to be inline:
 
-```html
+```vue-html
 <div :class="classObject"></div>
 ```
 
@@ -62,7 +62,7 @@ data() {
 
 This will render the same result. We can also bind to a [computed property](computed.md) that returns an object. This is a common and powerful pattern:
 
-```html
+```vue-html
 <div :class="classObject"></div>
 ```
 
@@ -87,7 +87,7 @@ computed: {
 
 We can pass an array to `:class` to apply a list of classes:
 
-```html
+```vue-html
 <div :class="[activeClass, errorClass]"></div>
 ```
 
@@ -102,13 +102,13 @@ data() {
 
 Which will render:
 
-```html
+```vue-html
 <div class="active text-danger"></div>
 ```
 
 If you would like to also toggle a class in the list conditionally, you can do it with a ternary expression:
 
-```html
+```vue-html
 <div :class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
@@ -116,7 +116,7 @@ This will always apply `errorClass`, but `activeClass` will only be applied when
 
 However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
 
-```html
+```vue-html
 <div :class="[{ active: isActive }, errorClass]"></div>
 ```
 
@@ -138,7 +138,7 @@ app.component('my-component', {
 
 Then add some classes when using it:
 
-```html
+```vue-html
 <div id="app">
   <my-component class="baz boo"></my-component>
 </div>
@@ -146,25 +146,25 @@ Then add some classes when using it:
 
 The rendered HTML will be:
 
-```html
+```vue-html
 <p class="foo bar baz boo">Hi</p>
 ```
 
 The same is true for class bindings:
 
-```html
+```vue-html
 <my-component :class="{ active: isActive }"></my-component>
 ```
 
 When `isActive` is truthy, the rendered HTML will be:
 
-```html
+```vue-html
 <p class="foo bar active">Hi</p>
 ```
 
 If your component has multiple root elements, you would need to define which component will receive this class. You can do this using `$attrs` component property:
 
-```html
+```vue-html
 <div id="app">
   <my-component class="baz"></my-component>
 </div>
@@ -189,7 +189,7 @@ You can learn more about component attribute inheritance in [Non-Prop Attributes
 
 The object syntax for `:style` is pretty straightforward - it looks almost like CSS, except it's a JavaScript object. You can use either camelCase or kebab-case (use quotes with kebab-case) for the CSS property names:
 
-```html
+```vue-html
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
 
@@ -204,7 +204,7 @@ data() {
 
 It is often a good idea to bind to a style object directly so that the template is cleaner:
 
-```html
+```vue-html
 <div :style="styleObject"></div>
 ```
 
@@ -225,7 +225,7 @@ Again, the object syntax is often used in conjunction with computed properties t
 
 The array syntax for `:style` allows you to apply multiple style objects to the same element:
 
-```html
+```vue-html
 <div :style="[baseStyles, overridingStyles]"></div>
 ```
 
@@ -237,7 +237,7 @@ When you use a CSS property that requires a [vendor prefix](https://developer.mo
 
 You can provide an array of multiple (prefixed) values to a style property, for example:
 
-```html
+```vue-html
 <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 

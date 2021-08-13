@@ -12,7 +12,7 @@ You should add a link at the top of each page that goes directly to the main con
 
 Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
 
-```html
+```vue-html
 <ul class="skip-links">
   <li>
     <a href="#main" ref="skipLink">Skip to main content</a>
@@ -72,7 +72,7 @@ Users can navigate an application through headings. Having descriptive headings 
 
 [Read more about headings](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
 
-```html
+```vue-html
 <main role="main" aria-labelledby="main-title">
   <h1 id="main-title">Main title</h1>
   <section aria-labelledby="section-title">

@@ -24,7 +24,7 @@ Vue templates are compiled into JavaScript, and expressions inside templates wil
 
 Whether using templates or render functions, content is automatically escaped. That means in this template:
 
-```html
+```vue-html
 <h1>{{ userProvidedString }}</h1>
 ```
 
@@ -36,7 +36,7 @@ if `userProvidedString` contained:
 
 then it would be escaped to the following HTML:
 
-```html
+```vue-html
 &lt;script&gt;alert(&quot;hi&quot;)&lt;/script&gt;
 ```
 
@@ -46,7 +46,7 @@ thus preventing the script injection. This escaping is done using native browser
 
 Similarly, dynamic attribute bindings are also automatically escaped. That means in this template:
 
-```html
+```vue-html
 <h1 :title="userProvidedString">
   hello
 </h1>
@@ -60,7 +60,7 @@ if `userProvidedString` contained:
 
 then it would be escaped to the following HTML:
 
-```html
+```vue-html
 &quot; onclick=&quot;alert('hi')
 ```
 
@@ -78,7 +78,7 @@ As you learned earlier, Vue automatically escapes HTML content, preventing you f
 
 - Using a template:
 
-  ```html
+  ```vue-html
   <div v-html="userProvidedHtml"></div>
   ```
 
@@ -104,7 +104,7 @@ Note that user-provided HTML can never be considered 100% safe unless it's in a 
 
 In a URL like this:
 
-```html
+```vue-html
 <a :href="userProvidedUrl">
   click me
 </a>
@@ -120,7 +120,7 @@ If you're ever doing URL sanitization on the frontend, you already have a securi
 
 Looking at this example:
 
-```html
+```vue-html
 <a
   :href="sanitizedUrl"
   :style="userProvidedStyles"
@@ -133,13 +133,13 @@ let's assume that `sanitizedUrl` has been sanitized, so that it's definitely a r
 
 You may be able to imagine how allowing user-provided content for a `<style>` element would create an even greater vulnerability, giving that user full control over how to style the entire page. That's why Vue prevents rendering of style tags inside templates, such as:
 
-```html
+```vue-html
 <style>{{ userProvidedStyles }}</style>
 ```
 
 To keep your users fully safe from click jacking, we recommend only allowing full control over CSS inside a sandboxed iframe. Alternatively, when providing user control through a style binding, we recommend using its [object syntax](class-and-style.html#object-syntax-2) and only allowing users to provide values for specific properties it's safe for them to control, like this:
 
-```html
+```vue-html
 <a
   :href="sanitizedUrl"
   :style="{

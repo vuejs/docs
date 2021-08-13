@@ -25,7 +25,7 @@ Vue.createApp({
 
 And we want to display different messages depending on if `author` already has some books or not
 
-```html
+```vue-html
 <div id="computed-basics">
   <p>Has published books:</p>
   <span>{{ author.books.length > 0 ? 'Yes' : 'No' }}</span>
@@ -38,7 +38,7 @@ That's why for complex logic that includes reactive data, you should use a **com
 
 ### Basic Example
 
-```html
+```vue-html
 <div id="computed-basics">
   <p>Has published books:</p>
   <span>{{ publishedBooksMessage }}</span>
@@ -83,7 +83,7 @@ You can data-bind to computed properties in templates just like a normal propert
 
 You may have noticed we can achieve the same result by invoking a method in the expression:
 
-```html
+```vue-html
 <p>{{ calculateBooksMessage() }}</p>
 ```
 
@@ -143,7 +143,7 @@ While computed properties are more appropriate in most cases, there are times wh
 
 For example:
 
-```html
+```vue-html
 <div id="watch-example">
   <p>
     Ask a yes/no question:
@@ -153,7 +153,7 @@ For example:
 </div>
 ```
 
-```html
+```vue-html
 <!-- Since there is already a rich ecosystem of ajax libraries    -->
 <!-- and collections of general-purpose utility methods, Vue core -->
 <!-- is able to remain small by not reinventing them. This also   -->
@@ -204,7 +204,7 @@ In addition to the `watch` option, you can also use the imperative [vm.$watch AP
 
 Vue does provide a more generic way to observe and react to data changes on a current active instance: **watch properties**. When you have some data that needs to change based on some other data, it is tempting to overuse `watch` - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative `watch` callback. Consider this example:
 
-```html
+```vue-html
 <div id="demo">{{ fullName }}</div>
 ```
 

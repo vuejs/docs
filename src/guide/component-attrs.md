@@ -20,7 +20,7 @@ app.component('date-picker', {
 
 In the event we need to define the status of the date-picker component via a `data-status` property, it will be applied to the root node (i.e., `div.date-picker`).
 
-```html
+```vue-html
 <!-- Date-picker component with a non-prop attribute -->
 <date-picker data-status="activated"></date-picker>
 
@@ -32,7 +32,7 @@ In the event we need to define the status of the date-picker component via a `da
 
 Same rule applies to the event listeners:
 
-```html
+```vue-html
 <date-picker @change="submitChange"></date-picker>
 ```
 
@@ -60,7 +60,7 @@ app.component('date-picker', {
 
 In this case, `change` event listener is passed from the parent component to the child and it will be triggered on native `<select>` `change` event. We won't need to emit an event from the `date-picker` explicitly:
 
-```html
+```vue-html
 <div id="date-picker" class="demo">
   <date-picker @change="showChange"></date-picker>
 </div>
@@ -99,7 +99,7 @@ app.component('date-picker', {
 
 With this new configuration, our `data-status` attribute will be applied to our `input` element!
 
-```html
+```vue-html
 <!-- Date-picker component with a non-prop attribute -->
 <date-picker data-status="activated"></date-picker>
 
@@ -113,7 +113,7 @@ With this new configuration, our `data-status` attribute will be applied to our 
 
 Unlike single root node components, components with multiple root nodes do not have an automatic attribute fallthrough behavior. If `$attrs` are not bound explicitly, a runtime warning will be issued.
 
-```html
+```vue-html
 <custom-layout id="custom-layout" @click="changeValue"></custom-layout>
 ```
 

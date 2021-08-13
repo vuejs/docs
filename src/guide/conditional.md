@@ -6,13 +6,13 @@
 
 The directive `v-if` is used to conditionally render a block. The block will only be rendered if the directive's expression returns a truthy value.
 
-```html
+```vue-html
 <h1 v-if="awesome">Vue is awesome!</h1>
 ```
 
 It is also possible to add an "else block" with `v-else`:
 
-```html
+```vue-html
 <h1 v-if="awesome">Vue is awesome!</h1>
 <h1 v-else>Oh no 😢</h1>
 ```
@@ -21,7 +21,7 @@ It is also possible to add an "else block" with `v-else`:
 
 Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
 
-```html
+```vue-html
 <template v-if="ok">
   <h1>Title</h1>
   <p>Paragraph 1</p>
@@ -33,7 +33,7 @@ Because `v-if` is a directive, it has to be attached to a single element. But wh
 
 You can use the `v-else` directive to indicate an "else block" for `v-if`:
 
-```html
+```vue-html
 <div v-if="Math.random() > 0.5">
   Now you see me
 </div>
@@ -48,7 +48,7 @@ A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - o
 
 The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
 
-```html
+```vue-html
 <div v-if="type === 'A'">
   A
 </div>
@@ -69,7 +69,7 @@ Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a
 
 Another option for conditionally displaying an element is the `v-show` directive. The usage is largely the same:
 
-```html
+```vue-html
 <h1 v-show="ok">Hello!</h1>
 ```
 

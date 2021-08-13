@@ -15,7 +15,7 @@ In Vue 3, this prefix has been changed to `vnode-`. In addition, these events ar
 
 In Vue 2, the event name is the same as the equivalent lifecycle hook, prefixed with `hook:`:
 
-```html
+```vue-html
 <template>
   <child-component @hook:updated="onUpdated">
 </template>
@@ -25,7 +25,7 @@ In Vue 2, the event name is the same as the equivalent lifecycle hook, prefixed 
 
 In Vue 3, the event name is prefixed with `vnode-`:
 
-```html
+```vue-html
 <template>
   <child-component @vnode-updated="onUpdated">
 </template>
@@ -33,7 +33,7 @@ In Vue 3, the event name is prefixed with `vnode-`:
 
 Or just `vnode` if you're using camel case:
 
-```html
+```vue-html
 <template>
   <child-component @vnodeUpdated="onUpdated">
 </template>

@@ -205,7 +205,7 @@ The `setup` function is a new component option. It serves as the entry point for
 
   If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
 
-  ```html
+  ```vue-html
   <template>
     <div>{{ count }} {{ object.foo }}</div>
   </template>

@@ -74,7 +74,7 @@ export default {
 
 When a parent listens for the `click` event on the component:
 
-```html
+```vue-html
 <my-button v-on:click="handleClick"></my-button>
 ```
 

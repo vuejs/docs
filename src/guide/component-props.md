@@ -30,13 +30,13 @@ This not only documents your component, but will also warn users in the browser'
 
 So far, you've seen props passed a static value, like in:
 
-```html
+```vue-html
 <blog-post title="My journey with Vue"></blog-post>
 ```
 
 You've also seen props assigned dynamically with `v-bind` or its shortcut, the `:` character, such as in:
 
-```html
+```vue-html
 <!-- Dynamically assign the value of a variable -->
 <blog-post :title="post.title"></blog-post>
 
@@ -48,7 +48,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 
 ### Passing a Number
 
-```html
+```vue-html
 <!-- Even though `42` is static, we need v-bind to tell Vue that -->
 <!-- this is a JavaScript expression rather than a string.       -->
 <blog-post :likes="42"></blog-post>
@@ -59,7 +59,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 
 ### Passing a Boolean
 
-```html
+```vue-html
 <!-- Including the prop with no value will imply `true`. -->
 <blog-post is-published></blog-post>
 
@@ -73,7 +73,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 
 ### Passing an Array
 
-```html
+```vue-html
 <!-- Even though the array is static, we need v-bind to tell Vue that -->
 <!-- this is a JavaScript expression rather than a string.            -->
 <blog-post :comment-ids="[234, 266, 273]"></blog-post>
@@ -84,7 +84,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 
 ### Passing an Object
 
-```html
+```vue-html
 <!-- Even though the object is static, we need v-bind to tell Vue that -->
 <!-- this is a JavaScript expression rather than a string.             -->
 <blog-post
@@ -111,13 +111,13 @@ post: {
 
 The following template:
 
-```html
+```vue-html
 <blog-post v-bind="post"></blog-post>
 ```
 
 Will be equivalent to:
 
-```html
+```vue-html
 <blog-post v-bind:id="post.id" v-bind:title="post.title"></blog-post>
 ```
 
@@ -260,7 +260,7 @@ app.component('blog-post', {
 })
 ```
 
-```html
+```vue-html
 <!-- kebab-case in HTML -->
 <blog-post post-title="hello!"></blog-post>
 ```

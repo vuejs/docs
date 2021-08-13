@@ -70,7 +70,7 @@ vue add typescript
 
 Make sure that `script` part of the component has TypeScript set as a language:
 
-```html
+```vue-html
 <script lang="ts">
   ...
 </script>
@@ -78,7 +78,7 @@ Make sure that `script` part of the component has TypeScript set as a language:
 
 Or, if you want to combine TypeScript with a [JSX `render` function](/guide/render-function.html#jsx):
 
-```html
+```vue-html
 <script lang="tsx">
   ...
 </script>

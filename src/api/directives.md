@@ -10,7 +10,7 @@
 
 - **Example:**
 
-  ```html
+  ```vue-html
   <span v-text="msg"></span>
   <!-- same as -->
   <span>{{msg}}</span>
@@ -34,7 +34,7 @@
 
 - **Example:**
 
-  ```html
+  ```vue-html
   <div v-html="html"></div>
   ```
 
@@ -76,7 +76,7 @@
 
   Denote the "else block" for `v-if` or a `v-if`/`v-else-if` chain.
 
-  ```html
+  ```vue-html
   <div v-if="Math.random() > 0.5">
     Now you see me
   </div>
@@ -97,7 +97,7 @@
 
   Denote the "else if block" for `v-if`. Can be chained.
 
-  ```html
+  ```vue-html
   <div v-if="type === 'A'">
     A
   </div>
@@ -122,7 +122,7 @@
 
   Render the element or template block multiple times based on the source data. The directive's value must use the special syntax `alias in expression` to provide an alias for the current element being iterated on:
 
-  ```html
+  ```vue-html
   <div v-for="item in items">
     {{ item.text }}
   </div>
@@ -130,7 +130,7 @@
 
   Alternatively, you can also specify an alias for the index (or the key if used on an Object):
 
-  ```html
+  ```vue-html
   <div v-for="(item, index) in items"></div>
   <div v-for="(value, key) in object"></div>
   <div v-for="(value, name, index) in object"></div>
@@ -138,7 +138,7 @@
 
   The default behavior of `v-for` will try to patch the elements in-place without moving them. To force it to reorder elements, you should provide an ordering hint with the `key` special attribute:
 
-  ```html
+  ```vue-html
   <div v-for="item in items" :key="item.id">
     {{ item.text }}
   </div>
@@ -184,7 +184,7 @@
 
 - **Example:**
 
-  ```html
+  ```vue-html
   <!-- method handler -->
   <button v-on:click="doThis"></button>
 
@@ -224,7 +224,7 @@
 
   Listening to custom events on a child component (the handler is called when "my-event" is emitted on the child):
 
-  ```html
+  ```vue-html
   <my-component @my-event="handleThis"></my-component>
 
   <!-- inline statement -->
@@ -261,7 +261,7 @@
 
 - **Example:**
 
-  ```html
+  ```vue-html
   <!-- bind an attribute -->
   <img v-bind:src="imageSrc" />
 
@@ -303,7 +303,7 @@
 
   The `.prop` modifier also has a dedicated shorthand, `.`:
 
-  ```html
+  ```vue-html
   <div :someProperty.prop="someObject"></div>
 
   <!-- equivalent to -->
@@ -312,7 +312,7 @@
 
   The `.camel` modifier allows camelizing a `v-bind` attribute name when using in-DOM templates, e.g. the SVG `viewBox` attribute:
 
-  ```html
+  ```vue-html
   <svg :view-box.camel="viewBox"></svg>
   ```
 
@@ -366,7 +366,7 @@
 
 - **Example:**
 
-  ```html
+  ```vue-html
   <!-- Named slots -->
   <base-layout>
     <template v-slot:header>
@@ -412,7 +412,7 @@
 
 - **Example:**
 
-  ```html
+  ```vue-html
   <span v-pre>{{ this will not be compiled }}</span>
   ```
 
@@ -432,7 +432,7 @@
   }
   ```
 
-  ```html
+  ```vue-html
   <div v-cloak>
     {{ message }}
   </div>
@@ -448,7 +448,7 @@
 
   Render the element and component **once** only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.
 
-  ```html
+  ```vue-html
   <!-- single element -->
   <span v-once>This will never change: {{msg}}</span>
   <!-- the element have children -->
@@ -478,7 +478,7 @@
 
   Memoize a sub-tree of the template. Can be used on both elements and components. The directive expects a fixed-length array of dependency values to compare for the memoization. If every value in the array was the same as last render, then updates for the entire sub-tree will be skipped. For example:
 
-  ```html
+  ```vue-html
   <div v-memo="[valueA, valueB]">
     ...
   </div>
@@ -492,7 +492,7 @@
 
   `v-memo` is provided solely for micro optimizations in performance-critical scenarios and should be rarely needed. The most common case where this may prove helpful is when rendering large `v-for` lists (where `length > 1000`):
 
-  ```html
+  ```vue-html
   <div v-for="item in list" :key="item.id" v-memo="[item.id === selected]">
     <p>ID: {{ item.id }} - selected: {{ item.id === selected }}</p>
     <p>...more child nodes</p>

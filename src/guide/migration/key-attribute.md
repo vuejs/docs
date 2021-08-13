@@ -22,7 +22,7 @@ The `key` special attribute is used as a hint for Vue's virtual DOM algorithm to
 
 In Vue 2.x, it was recommended to use `key`s on `v-if`/`v-else`/`v-else-if` branches.
 
-```html
+```vue-html
 <!-- Vue 2.x -->
 <div v-if="condition" key="yes">Yes</div>
 <div v-else key="no">No</div>
@@ -30,7 +30,7 @@ In Vue 2.x, it was recommended to use `key`s on `v-if`/`v-else`/`v-else-if` bran
 
 The example above still works in Vue 3.x. However, we no longer recommend using the `key` attribute on `v-if`/`v-else`/`v-else-if` branches, since unique `key`s are now automatically generated on conditional branches if you don't provide them.
 
-```html
+```vue-html
 <!-- Vue 3.x -->
 <div v-if="condition">Yes</div>
 <div v-else>No</div>
@@ -38,7 +38,7 @@ The example above still works in Vue 3.x. However, we no longer recommend using 
 
 The breaking change is that if you manually provide `key`s, each branch must use a unique `key`. In most cases, you can remove these `key`s.
 
-```html
+```vue-html
 <!-- Vue 2.x -->
 <div v-if="condition" key="a">Yes</div>
 <div v-else key="a">No</div>
@@ -56,7 +56,7 @@ The breaking change is that if you manually provide `key`s, each branch must use
 
 In Vue 2.x, a `<template>` tag could not have a `key`. Instead, you could place the `key`s on each of its children.
 
-```html
+```vue-html
 <!-- Vue 2.x -->
 <template v-for="item in list">
   <div :key="'heading-' + item.id">...</div>
@@ -66,7 +66,7 @@ In Vue 2.x, a `<template>` tag could not have a `key`. Instead, you could place 
 
 In Vue 3.x, the `key` should be placed on the `<template>` tag instead.
 
-```html
+```vue-html
 <!-- Vue 3.x -->
 <template v-for="item in list" :key="item.id">
   <div>...</div>
@@ -76,7 +76,7 @@ In Vue 3.x, the `key` should be placed on the `<template>` tag instead.
 
 Similarly, when using `<template v-for>` with a child that uses `v-if`, the `key` should be moved up to the `<template>` tag.
 
-```html
+```vue-html
 <!-- Vue 2.x -->
 <template v-for="item in list">
   <div v-if="item.isVisible" :key="item.id">...</div>

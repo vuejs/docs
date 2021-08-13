@@ -13,7 +13,7 @@ Using a `<transition>` as a component's root will no longer trigger transitions 
 
 In Vue 2, it was possible to trigger a transition from outside a component by using a `<transition>` as the component's root:
 
-```html
+```vue-html
 <!-- modal component -->
 <template>
   <transition>
@@ -22,7 +22,7 @@ In Vue 2, it was possible to trigger a transition from outside a component by us
 </template>
 ```
 
-```html
+```vue-html
 <!-- usage -->
 <modal v-if="showModal">hello</modal>
 ```
@@ -50,7 +50,7 @@ export default {
 </script>
 ```
 
-```html
+```vue-html
 <!-- usage -->
 <modal :show="showModal">hello</modal>
 ```

@@ -15,7 +15,7 @@ In 2.x, developers could use filters in order to apply common text formatting.
 
 For example:
 
-```html
+```vue-html
 <template>
   <h1>Bank Account Balance</h1>
   <p>{{ accountBalance | currencyUSD }}</p>
@@ -46,7 +46,7 @@ In 3.x, filters are removed and no longer supported. Instead, we recommend repla
 
 Using the example above, here is one example of how it could be implemented.
 
-```html
+```vue-html
 <template>
   <h1>Bank Account Balance</h1>
   <p>{{ accountInUSD }}</p>
@@ -97,7 +97,7 @@ app.config.globalProperties.$filters = {
 
 Then you can fix all templates using this `$filters` object like this:
 
-```html
+```vue-html
 <template>
   <h1>Bank Account Balance</h1>
   <p>{{ $filters.currencyUSD(accountBalance) }}</p>

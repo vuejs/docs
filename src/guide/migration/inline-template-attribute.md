@@ -13,7 +13,7 @@ Support for the [inline-template feature](https://vuejs.org/v2/guide/components-
 
 In 2.x, Vue provided the `inline-template` attribute on child components to use its inner content as its template instead of treating it as distributed content.
 
-```html
+```vue-html
 <my-component inline-template>
   <div>
     <p>These are compiled as the component's own template.</p>
@@ -36,7 +36,7 @@ Most of the use cases for `inline-template` assumes a no-build-tool setup, where
 
 The most straightforward workaround in such cases is using `<script>` with an alternative type:
 
-```html
+```vue-html
 <script type="text/html" id="my-comp-template">
   <div>{{ hello }}</div>
 </script>
@@ -57,7 +57,7 @@ This doesn't require any build setup, works in all browsers, is not subject to a
 
 A component previously using `inline-template` can also be refactored using the default slot - which makes the data scoping more explicit while preserving the convenience of writing child content inline:
 
-```html
+```vue-html
 <!-- 2.x Syntax -->
 <my-comp inline-template :msg="parentMsg">
   {{ msg }} {{ childState }}
@@ -71,7 +71,7 @@ A component previously using `inline-template` can also be refactored using the 
 
 The child, instead of providing no template, should now render the default slot\*:
 
-```html
+```vue-html
 <!--
   in child template, render default slot while passing
   in necessary private state of child.

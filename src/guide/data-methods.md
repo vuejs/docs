@@ -63,7 +63,7 @@ Vue automatically binds the `this` value for `methods` so that it always refers 
 
 Just like all other properties of the component instance, the `methods` are accessible from within the component's template. Inside a template they are most commonly used as event listeners:
 
-```html
+```vue-html
 <button @click="increment">Up vote</button>
 ```
 
@@ -71,7 +71,7 @@ In the example above, the method `increment` will be called when the `<button>` 
 
 It is also possible to call a method directly from a template. As we'll see shortly, it's usually better to use a [computed property](computed.html) instead. However, using a method can be useful in scenarios where computed properties aren't a viable option. You can call a method anywhere that a template supports JavaScript expressions:
 
-```html
+```vue-html
 <span :title="toTitleDate(date)">
   {{ formatDate(date) }}
 </span>
@@ -87,7 +87,7 @@ Vue doesn't include built-in support for debouncing or throttling but it can be 
 
 In cases where a component is only used once, the debouncing can be applied directly within `methods`:
 
-```html
+```vue-html
 <script src="https://unpkg.com/lodash@4.17.20/lodash.min.js"></script>
 <script>
   Vue.createApp({

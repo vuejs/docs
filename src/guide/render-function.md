@@ -4,7 +4,7 @@ Vue recommends using templates to build applications in the vast majority of cas
 
 Let's dive into an example where a `render()` function would be practical. Say we want to generate anchored headings:
 
-```html
+```vue-html
 <h1>
   <a name="hello-world" href="#hello-world">
     Hello world!
@@ -87,7 +87,7 @@ The `render()` function implementation is much simpler, but also requires greate
 
 Before we dive into render functions, it’s important to know a little about how browsers work. Take this HTML for example:
 
-```html
+```vue-html
 <div>
   <h1>My title</h1>
   Some text content
@@ -105,7 +105,7 @@ Every element is a node. Every piece of text is a node. Even comments are nodes!
 
 Updating all these nodes efficiently can be difficult, but thankfully, we never have to do it manually. Instead, we tell Vue what HTML we want on the page, in a template:
 
-```html
+```vue-html
 <h1>{{ blogTitle }}</h1>
 ```
 
@@ -297,7 +297,7 @@ render() {
 
 Wherever something can be easily accomplished in plain JavaScript, Vue render functions do not provide a proprietary alternative. For example, in a template using `v-if` and `v-for`:
 
-```html
+```vue-html
 <ul v-if="items.length">
   <li v-for="item in items">{{ item.name }}</li>
 </ul>

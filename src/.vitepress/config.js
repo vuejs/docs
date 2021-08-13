@@ -1,7 +1,7 @@
 const base = require('@vue/theme/config')
 
-module.exports = {
-  ...base,
+module.exports = (async () => ({
+  ...(await base()),
 
   lang: 'en-US',
   title: 'Vue.js',
@@ -9,6 +9,7 @@ module.exports = {
 
   themeConfig: {
     logo: '/logo.svg',
+    repo: 'vuejs/docs',
 
     algolia: {
       indexName: 'vuejs-v3',
@@ -367,4 +368,4 @@ module.exports = {
       ]
     }
   }
-}
+}))()
