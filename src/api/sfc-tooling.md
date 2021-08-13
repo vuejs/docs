@@ -1,15 +1,15 @@
 # SFC Tooling
 
-## Online Playgrounds
+## Try It Online
 
-You don't need to install anything on your machine to try out Vue SFCs - there are many online playgrounds that allow you to do so right in the browser:
+You don't need to install anything on your machine to try out Vue SFCs - there are online playgrounds that allow you to do so right in the browser:
 
-- [Vue SFC Playground](https://sfc.vuejs.org) (official, deployed from latest commit)
-- [VueUse Playground](https://play.vueuse.org)
-- [Vue on CodeSandbox](https://codesandbox.io/s/vue-3)
-- [Vue on Repl.it](https://replit.com/@templates/VueJS-with-Vite)
-- [Vue on Codepen](https://codepen.io/pen/editor/vue)
-- [Vue on StackBlitz](https://stackblitz.com/fork/vue)
+- [Vue SFC Playground](https://sfc.vuejs.org)
+  - Official, always deployed from latest commit
+  - Designed for inspecting component compilation results
+- [Vue + Vite on StackBlitz](https://vite.new/vue)
+  - IDE-like environment running actual Vite dev server in the browser
+  - Closest to local setup
 
 It is also recommended to use these online playgrounds to provide reproductions when reporting bugs.
 
@@ -92,3 +92,10 @@ Official plugin that provides Vue SFC support in Vite.
 - [Docs](https://vue-loader.vuejs.org/)
 
 The official loader that provides Vue SFC support in webpack. If you are using Vue CLI, also see [docs on modifying `vue-loader` options in Vue CLI](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
+
+## Other Online Playgrounds
+
+- [VueUse Playground](https://play.vueuse.org)
+- [Vue + Vite on Repl.it](https://replit.com/@templates/VueJS-with-Vite)
+- [Vue on CodeSandbox](https://codesandbox.io/s/vue-3)
+- [Vue on Codepen](https://codepen.io/pen/editor/vue)
