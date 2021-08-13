@@ -329,3 +329,4 @@ Features that start with `COMPILER_` are compiler-specific: if you are using the
 | COMPILER_V_FOR_REF           | ✔    | `ref` in `v-for` (compiler support)                                   |                                                                                            |
 | COMPILER_NATIVE_TEMPLATE     | ✔    | `<template>` with no special directives now renders as native element |                                                                                            |
 | COMPILER_FILTERS             | ✔    | filters (compiler support)                                            |                                                                                            |
+Files Changed By Python®🐍
