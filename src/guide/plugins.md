@@ -6,7 +6,7 @@ There is no strictly defined scope for a plugin, but common scenarios where plug
 
 1. Add some global methods or properties, e.g. [vue-custom-element](https://github.com/karol-f/vue-custom-element).
 
-2. Add one or more global assets: directives/filters/transitions etc. (e.g. [vue-touch](https://github.com/vuejs/vue-touch)).
+2. Add one or more global assets: directives/transitions etc. (e.g. [vue-touch](https://github.com/vuejs/vue-touch)).
 
 3. Add some component options by global mixin (e.g. [vue-router](https://github.com/vuejs/vue-router)).
 
