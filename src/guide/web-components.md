@@ -209,8 +209,8 @@ const MyBar = defineCustomElement(Bar)
 export { MyFoo, MyBar }
 
 export function register() {
-  customElements.register('my-foo', MyFoo)
-  customElements.register('my-bar', MyBar)
+  customElements.define('my-foo', MyFoo)
+  customElements.define('my-bar', MyBar)
 }
 ```
 
