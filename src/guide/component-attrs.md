@@ -18,7 +18,7 @@ app.component('date-picker', {
 })
 ```
 
-In the event we need to define the status of the date-picker component via a `data-status` property, it will be applied to the root node (i.e., `div.date-picker`).
+In the event we need to define the status of the date-picker component via a `data-status` attribute, it will be applied to the root node (i.e., `div.date-picker`).
 
 ```html
 <!-- Date-picker component with a non-prop attribute -->
