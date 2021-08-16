@@ -27,7 +27,7 @@ You can see other recommendations for component names in the [Style Guide](../st
 
 ### Name Casing
 
-When defining components in a string template or a single-file component, you have two options when defining component names:
+When defining components in a string template or a single-file component, you have two options for naming them:
 
 #### With kebab-case
 
