@@ -118,7 +118,7 @@ But a key difference to lifecycle hooks is that `watch()` and `watchEffect()` ef
 </script>
 ```
 
-Therefore, watchers that use template refs should be defined with the `flush: 'post'` option. This will run the effect *after* the DOM has been updated and ensure that the template ref stays in sync with the DOM and references the correct element.
+Therefore, watchers that use template refs should be defined with the `flush: 'post'` option. This will run the effect *after* the DOM has been mounted or updated and ensure that the template ref stays in sync with the DOM and references the correct element.
 
 ```vue
 <template>
