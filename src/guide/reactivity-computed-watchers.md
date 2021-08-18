@@ -4,7 +4,7 @@
 
 ## Computed values
 
-Sometimes we need state that depends on other state - in Vue this is handled with component [computed properties](computed.html#computed-properties). To directly create a computed value, we can use the `computed` method: it takes a getter function and returns an immutable reactive [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) object for the returned value from the getter.
+Sometimes we need state that depends on other state - in Vue this is handled with component [computed properties](computed.html#computed-properties). To directly create a computed value, we can use the `computed` function: it takes a getter function and returns an immutable reactive [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) object for the returned value from the getter.
 
 ```js
 const count = ref(1)
@@ -62,7 +62,7 @@ count.value++
 
 ## `watchEffect`
 
-To apply and _automatically re-apply_ a side effect based on reactive state, we can use the `watchEffect` method. It runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
+To apply and _automatically re-apply_ a side effect based on reactive state, we can use the `watchEffect` function. It runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
 
 ```js
 const count = ref(0)
@@ -245,7 +245,7 @@ firstName.value = 'John' // logs: ["John", ""] ["", ""]
 lastName.value = 'Smith' // logs: ["John", "Smith"] ["John", ""]
 ```
 
-However, if you are changing both watched sources simultaneously in the same method, the watcher will be executed only once:
+However, if you are changing both watched sources simultaneously in the same function, the watcher will be executed only once:
 
 ```js{9-13}
 setup() {
