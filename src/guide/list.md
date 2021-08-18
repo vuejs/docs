@@ -354,4 +354,6 @@ app.component('todo-item', {
 app.mount('#todo-list-example')
 ```
 
+\
+
 <common-codepen-snippet title="v-for with components" slug="abOaWpz" tab="js,result" :preview="false" />

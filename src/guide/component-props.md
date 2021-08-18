@@ -206,6 +206,7 @@ app.component('my-component', {
 })
 ```
 
+\
 When prop validation fails, Vue will produce a console warning (if using the development build).
 
 ::: tip Note
