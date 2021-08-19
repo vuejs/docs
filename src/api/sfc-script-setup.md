@@ -89,7 +89,7 @@ Think of `MyComponent` as being referenced as a variable. If you have used JSX, 
 
 ### Dynamic Components
 
-Since components are referenced as variables instead of registered under string keys, we should use dynamic `:is` binding when using dynamic components inside `<script setup>`:
+Since components are referenced as variables instead of registered under string keys, you should use dynamic `:is` binding when using dynamic components inside `<script setup>`:
 
 ```vue
 <script setup>
@@ -133,7 +133,7 @@ import * as Form from './form-components'
 
 ## `defineProps` and `defineEmits`
 
-To declare options like `props` and `emits` with full type inference support, we can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
+To declare options like `props` and `emits` with full type inference support, you can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
 
 ```vue
 <script setup>
@@ -195,7 +195,7 @@ const attrs = useAttrs()
 
 ## Usage alongside normal `<script>`
 
-`<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where we need to:
+`<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where you need to:
 
 - Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins.
 - Declaring named exports.
