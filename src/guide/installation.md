@@ -97,7 +97,6 @@ Vue projects can quickly be set up with Vite by running the following commands i
 With npm:
 
 ```bash
-
 # npm 6.x
 $ npm init vite@latest <project-name> --template vue
 
