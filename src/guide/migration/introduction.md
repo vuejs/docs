@@ -53,8 +53,8 @@ Some of the new features to keep an eye on in Vue 3 include:
 - [Fragments](/guide/migration/fragments.html)
 - [Emits Component Option](/guide/component-custom-events.html)
 - [`createRenderer` API from `@vue/runtime-core`](https://github.com/vuejs/vue-next/tree/master/packages/runtime-core) to create custom renderers
-- [SFC Composition API Syntax Sugar (`<script setup>`)](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md) <Badge text="experimental" type="warning" />
-- [SFC State-driven CSS Variables (`v-bind` in `<style>`)](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0043-sfc-style-variables.md) <Badge text="experimental" type="warning" />
+- [SFC Composition API Syntax Sugar (`<script setup>`)](/api/sfc-script-setup.html)
+- [SFC State-driven CSS Variables (`v-bind` in `<style>`)](/api/sfc-style.html#state-driven-dynamic-css)
 - [SFC `<style scoped>` can now include global rules or rules that target only slotted content](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0023-scoped-styles-changes.md)
 - [Suspense](/guide/migration/suspense.html) <Badge text="experimental" type="warning" />
 
