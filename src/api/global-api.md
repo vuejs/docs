@@ -487,7 +487,7 @@ Accepts two arguments: `HostNode` and `HostElement`
 
 ## nextTick
 
-Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.
+Defer the callback to be executed after the next DOM update cycle begin. Use it immediately after you’ve changed some data to wait for the DOM update.
 
 ```js
 import { createApp, nextTick } from 'vue'
