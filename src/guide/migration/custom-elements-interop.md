@@ -8,7 +8,7 @@ badges:
 ## Overview
 
 - **BREAKING:** The checks to determine whether tags should be treated as custom elements are now performed during template compilation, and should be configured via compiler options instead of runtime config.
-- **BREAKING:** Special `is` prop usage is restricted to the reserved `<component>` tag only.
+- **BREAKING:** Special `is` attribute usage is restricted to the reserved `<component>` tag only.
 - **NEW:** To support 2.x use cases where `is` was used on native elements to work around native HTML parsing restrictions, prefix the value with `vue:` to resolve it as a Vue component.
 
 ## Autonomous Custom Elements
@@ -69,21 +69,21 @@ The Custom Elements specification provides a way to use custom elements as [Cust
 <button is="plastic-button">Click Me!</button>
 ```
 
-Vue's usage of the `is` special prop was simulating what the native attribute does before it was made universally available in browsers. However, in 2.x it was interpreted as rendering a Vue component with the name `plastic-button`. This blocks the native usage of Customized Built-in Element mentioned above.
+Vue's usage of the `is` special attribute was simulating what the native attribute does before it was made universally available in browsers. However, in 2.x it was interpreted as rendering a Vue component with the name `plastic-button`. This blocks the native usage of Customized Built-in Element mentioned above.
 
-In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<component>` tag only.
+In 3.0, we are limiting Vue's special treatment of the `is` attribute to the `<component>` tag only.
 
 - When used on the reserved `<component>` tag, it will behave exactly the same as in 2.x;
-- When used on normal components, it will behave like a normal prop:
+- When used on normal components, it will behave like a normal attribute:
 
   ```html
   <foo is="bar" />
   ```
 
   - 2.x behavior: renders the `bar` component.
-  - 3.x behavior: renders the `foo` component and passing the `is` prop.
+  - 3.x behavior: renders the `foo` component and passing the `is` attribute.
 
-- When used on plain elements, it will be passed to the `createElement` call as the `is` prop, and also rendered as a native attribute. This supports the usage of customized built-in elements.
+- When used on plain elements, it will be passed to the `createElement` call as the `is` attribute, and also rendered as a native attribute. This supports the usage of customized built-in elements.
 
   ```html
   <button is="plastic-button">Click Me!</button>
@@ -105,7 +105,7 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
 
 ### 2.x Syntax
 
-In Vue 2 we recommended working around with these restrictions by using the `is` prop on a native tag:
+In Vue 2 we recommended working around with these restrictions by using the `is` attribute on a native tag:
 
 ```html
 <table>
