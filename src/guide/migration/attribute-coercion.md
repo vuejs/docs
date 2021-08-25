@@ -85,7 +85,7 @@ The absence of an enumerated attribute and `attr="false"` may produce different 
 | `draggable`            | `draggable` &rarr; `false`           |
 | `spellcheck`           | `spellcheck` &rarr; `true`           |
 
-To keep the old behavior work, and as we will be coercing `false` to `'false'`, in 3.x Vue developers need to make `v-bind` expression resolve to `false` or `'false'` for `contenteditable` and `spellcheck`.
+Since we no longer coerce `null` to `'false'` for “enumerated properties” in 3.x, in the case of `contenteditable` and `spellcheck`, developers will need to change those `v-bind` expressions that used to resolve to `null` to resolve to `false` or `'false'` in order to maintain the same behavior as 2.x.
 
 In 2.x, invalid values were coerced to `'true'` for enumerated attributes. This was usually unintended and unlikely to be relied upon on a large scale. In 3.x `true` or `'true'` should be explicitly specified.
 
@@ -107,7 +107,7 @@ In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
   <tbody>
     <tr>
       <td rowspan="3">2.x “Enumerated attrs”<br><small>i.e. <code>contenteditable</code>, <code>draggable</code> and <code>spellcheck</code>.</small></td>
-      <td><code>undefined</code>, <code>false</code></td>
+      <td><code>undefined</code></td>
       <td><code>undefined</code>, <code>null</code></td>
       <td><i>removed</i></td>
     </tr>
@@ -120,7 +120,7 @@ In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
       <td><code>"true"</code></td>
     </tr>
     <tr>
-      <td><code>null</code>, <code>'false'</code></td>
+      <td><code>null</code>, <code>false</code>, <code>'false'</code></td>
       <td><code>false</code>, <code>'false'</code></td>
       <td><code>"false"</code></td>
     </tr>
