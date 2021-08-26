@@ -197,7 +197,7 @@ const attrs = useAttrs()
 
 `<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where we need to:
 
-- Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins.
+- Declare options that cannot be expressed in `<script setup>`, for example `name`, `inheritAttrs` and custom options enabled via plugins.
 - Declaring named exports.
 - Run side effects or create objects that should only execute once.
 
@@ -208,6 +208,7 @@ runSideEffectOnce()
 
 // declare additional options
 export default {
+  name: 'CustomName',
   inheritAttrs: false,
   customOptions: {}
 }
