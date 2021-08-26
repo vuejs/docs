@@ -1,6 +1,7 @@
 ---
 supportvue: true
-sidebar: auto
+sidebar: false
+aside: false
 ---
 
 # Sponsor Vue.js Development

@@ -17,35 +17,24 @@ It is also recommended to use these online playgrounds to provide reproductions 
 
 ### Vite
 
-[Vite](https://vitejs.dev/) is a lightweight and fast build tool with first-class Vue SFC support. It is created by Evan You, who is also the author of Vue itself! To get started with Vite + Vue, simply run:
+[Vite](https://vitejs.dev/) is a lightweight and fast build tool with first-class Vue SFC support. It is created by Evan You, who is also the author of Vue itself!
+
+To get started with Vite + Vue, simply run:
 
 ```sh
-npm init vite@latest
+npm init vue@latest
 ```
 
-Then select the Vue template and follow the instructions.
+Then follow the instructions to select desired features.
 
 - To learn more about Vite, check out the [Vite docs](https://vitejs.dev/guide/).
 - To configure Vue-specific behavior in a Vite project, for example passing options to the Vue compiler, check out the docs for [@vitejs/plugin-vue](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#readme).
 
-The [SFC Playground](https://sfc.vuejs.org/) also supports downloading the files as a Vite project.
+Both online playgrounds mentioned above also support downloading files as a Vite project.
 
 ### Vue CLI
 
-[Vue CLI](https://cli.vuejs.org/) is the official webpack-based build tool for Vue projects. To get started with Vue CLI:
-
-```sh
-npm install -g @vue/cli
-vue create hello-vue
-```
-
-- To learn more about Vue CLI, check out [Vue CLI docs](https://cli.vuejs.org/guide/installation.html).
-
-### Vite or Vue CLI?
-
-We recommend starting new projects with Vite as it offers significantly better development experience in terms of dev server startup and HMR update performance ([details](https://vitejs.dev/guide/why.html)). Only go with Vue CLI if you rely on specific webpack features (e.g. Module Federation).
-
-If you are a [Rollup](https://rollupjs.org/) user, you can safely adopt Vite as it uses Rollup for production builds and supports a Rollup-compatible plugin system. [Even Rollup's maintainer recommends Vite as THE web development wrapper for Rollup](https://twitter.com/lukastaegert/status/1412119729431584774).
+[Vue CLI](https://cli.vuejs.org/) is the official webpack-based toolchain for Vue. It is now in maintenance mode and we recommend starting new prjects with Vite unless you rely on specific webpack-only features.
 
 ## IDE Support
 
@@ -71,7 +60,10 @@ Custom blocks are compiled into imports to the same Vue file with different requ
 
 - If using Vue CLI or plain webpack, a webpack loader should be configured to transform the matched blocks. [[Example](https://vue-loader.vuejs.org/guide/custom-blocks.html#custom-blocks)]
 
-## Lower-Level Tools
+## Backend Framework Integrations
+
+// TODO
+## Lower-Level Packages
 
 ### `@vue/compiler-sfc`
 

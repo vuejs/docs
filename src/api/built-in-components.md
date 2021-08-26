@@ -1,4 +1,4 @@
-# Built-In Components
+# Built-in Components
 
 Built-in components can be used directly in templates without needing to be registered.
 

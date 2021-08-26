@@ -1,0 +1,11 @@
+.composition-api {
+  display: none;
+}
+
+.prefer-composition .options-api {
+  display: none;
+}
+
+.prefer-composition .composition-api {
+  display: block;
+}

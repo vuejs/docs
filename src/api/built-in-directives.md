@@ -1,4 +1,4 @@
-# Directives
+# Built-in Directives
 
 ## v-text
 

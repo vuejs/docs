@@ -39,7 +39,6 @@ module.exports = (async () => ({
               { text: 'Tutorial', link: '/tutorial/' },
               { text: 'Examples', link: '/examples/' },
               { text: 'Style Guide', link: '/style-guide/' },
-              { text: 'Release & Versioning', link: '/release/' },
               {
                 text: 'Migration from Vue 2',
                 link: '/guide/migration/introduction'
@@ -49,9 +48,13 @@ module.exports = (async () => ({
         ]
       },
       {
-        text: 'API Reference',
+        text: 'API',
         activeMatch: `^/api/`,
         link: '/api/'
+      },
+      {
+        text: 'Playground',
+        link: 'https://sfc.vuejs.org'
       },
       {
         text: 'Ecosystem',
@@ -131,12 +134,8 @@ module.exports = (async () => ({
           items: [
             { text: 'Introduction', link: '/guide/introduction' },
             {
-              text: 'Pick Your Learning Path',
-              link: '/guide/pick-your-learning-path'
-            },
-            {
-              text: 'Dev Environment Setup',
-              link: '/guide/dev-environment-setup'
+              text: 'Development Setup',
+              link: '/guide/dev-setup'
             }
           ]
         },
@@ -199,32 +198,14 @@ module.exports = (async () => ({
           ]
         },
         {
-          text: 'Composition API',
+          text: 'Reusability',
           items: [
             {
-              text: 'Introduction',
-              link: '/guide/composition-api-introduction'
+              text: 'Composable Functions',
+              link: '/guide/composables'
             },
-            {
-              text: 'Reactivity Fundamentals',
-              link: '/guide/reactivity-fundamentals'
-            },
-            {
-              text: 'Computed and Watch',
-              link: '/guide/reactivity-computed-watchers'
-            },
-            {
-              text: 'Lifecycle Hooks',
-              link: '/guide/composition-api-lifecycle-hooks'
-            },
-            {
-              text: 'Provide / Inject',
-              link: '/guide/composition-api-provide-inject'
-            },
-            {
-              text: 'Template Refs',
-              link: '/guide/composition-api-template-refs'
-            }
+            { text: 'Custom Directives', link: '/guide/custom-directive' },
+            { text: 'Plugins', link: '/guide/plugins' }
           ]
         },
         {
@@ -235,13 +216,6 @@ module.exports = (async () => ({
             { text: 'Teleport', link: '/guide/teleport' },
             { text: 'Suspense', link: '/guide/suspense' },
             { text: 'KeepAlive', link: '/guide/keep-alive' }
-          ]
-        },
-        {
-          text: 'Reusability',
-          items: [
-            { text: 'Custom Directives', link: '/guide/custom-directive' },
-            { text: 'Plugins', link: '/guide/plugins' }
           ]
         },
         {
@@ -256,14 +230,21 @@ module.exports = (async () => ({
             { text: 'State Management', link: '/guide/state-management' },
             { text: 'Testing', link: '/guide/testing' },
             {
-              text: 'Performance',
-              link: '/guide/perf'
+              text: 'Optimizing Performance',
+              link: '/guide/optimizing-performance'
             }
           ]
         },
         {
           text: 'Advanced Topics',
           items: [
+            { text: 'Reactivity in Depth', link: '/guide/reactivity' },
+            { text: 'Rendering Mechanism', link: '/guide/rendering-mechanism' },
+            {
+              text: 'Render Functions & JSX',
+              link: '/guide/render-fn-and-jsx'
+            },
+            { text: 'Server-Side Rendering', link: '/guide/ssr' },
             {
               text: 'Security',
               link: '/guide/security'
@@ -272,28 +253,17 @@ module.exports = (async () => ({
               text: 'Accessibility',
               link: '/guide/a11y'
             },
-            { text: 'Reactivity in Depth', link: '/guide/reactivity' },
             {
-              text: 'Reactivity Debugging',
-              link: '/guide/debugging'
-            },
-            { text: 'Render Function & JSX', link: '/guide/render-function' },
-            { text: 'Server-Side Rendering', link: '/guide/ssr' },
-            {
-              text: 'Advanced Animations',
-              link: '/guide/animation'
-            },
-            {
-              text: 'Render Mechanism & Optimizations',
-              link: '/guide/optimizations'
-            },
-            {
-              text: 'Vue and Web Components',
+              text: 'Web Components',
               link: '/guide/web-components'
             },
             {
               text: 'Building a Library for Vue',
               link: '/guide/building-a-library'
+            },
+            {
+              text: 'Advanced Animations',
+              link: '/guide/animation'
             }
             // {
             //   text: 'Vue for React Devs',
@@ -340,7 +310,10 @@ module.exports = (async () => ({
           items: [
             { text: 'Directives', link: '/api/built-in-directives' },
             { text: 'Components', link: '/api/built-in-components' },
-            { text: 'Special Attributes', link: '/api/special-attributes' }
+            {
+              text: 'Special Attributes',
+              link: '/api/built-in-special-attributes'
+            }
           ]
         },
         {
@@ -353,15 +326,12 @@ module.exports = (async () => ({
           ]
         },
         {
-          text: 'TypeScript',
-          items: [{ text: 'Utility Types', link: '/api/types-utility' }]
-        },
-        {
           text: 'Advanced APIs',
           items: [
             { text: 'Render Function', link: '/api/render-function' },
-            { text: 'Compiler', link: '/api/compiler' },
-            { text: 'SSR', link: '/api/ssr' },
+            { text: 'TypeScript Utility Types', link: '/api/utility-types' },
+            { text: 'Server-Side Rendering', link: '/api/ssr' },
+            { text: 'Compiler Options', link: '/api/compiler' },
             { text: 'Custom Renderer', link: '/api/custom-renderer' }
           ]
         }

@@ -1,5 +1,5 @@
 ---
-home: true
+page: true
 heroImage: /logo.png
 heroText: Vue.js
 tagline: The Progressive<br> JavaScript Framework
@@ -37,4 +37,4 @@ socialIcons:
     link: https://medium.com/the-vue-point
 ---
 
-<common-vuemastery-video-modal/>
+# Vue.js
