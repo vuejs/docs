@@ -23,7 +23,7 @@ If you’d like to learn more about Vue before diving in, we <a id="modal-player
 </p>
 
 ::: tip
-The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
+The official guide assumes an intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
 :::
 
 The easiest way to try out Vue.js is using the [Hello World example](https://codepen.io/team/Vue/pen/KKpRVpx). Feel free to open it in another tab and follow along as we go through some basic examples.
@@ -32,7 +32,7 @@ The [Installation](installation.md) page provides more options of installing Vue
 
 ## Declarative Rendering
 
-At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
+The core of Vue.js has a system that enables us to declaratively render data to the DOM using straightforward template syntax:
 
 ```html
 <div id="counter">
