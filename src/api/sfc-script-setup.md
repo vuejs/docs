@@ -148,7 +148,7 @@ const emit = defineEmits(['change', 'delete'])
 
 - `defineProps` and `defineEmits` are **compiler macros** only usable inside `<script setup>`. They do not need to be imported, and are compiled away when `<script setup>` is processed.
 
-- `defineProps` accepts the same value as the [`props` option](https://v3.vuejs.org/api/options-data.html#props), while `defineEmits` accepts the same value as the [`emits` option](https://v3.vuejs.org/api/options-data.html#emits).
+- `defineProps` accepts the same value as the [`props` option](/api/options-data.html#props), while `defineEmits` accepts the same value as the [`emits` option](/api/options-data.html#emits).
 
 - `defineProps` and `defineEmits` provide proper type inference based on the options passed.
 
