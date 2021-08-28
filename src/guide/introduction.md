@@ -189,7 +189,7 @@ There are quite a few other directives, each with its own special functionality.
 ```html
 <div id="list-rendering">
   <ol>
-    <li v-for="todo in todos">
+    <li v-for="todo in todos" :key="todo.key">
       {{ todo.text }}
     </li>
   </ol>
@@ -201,9 +201,9 @@ const ListRendering = {
   data() {
     return {
       todos: [
-        { text: 'Learn JavaScript' },
-        { text: 'Learn Vue' },
-        { text: 'Build something awesome' }
+        { text: 'Learn JavaScript', key: 'c3ad2a84-1e56-4583-ab84-cbe3aebbe4a2' },
+        { text: 'Learn Vue', key: 'c5920535-ef23-40f0-ba1c-0c9ae86dbe5f' },
+        { text: 'Build something awesome', key: '668e4a16-ecdc-4385-b814-63057b7eeabc' }
       ]
     }
   }
