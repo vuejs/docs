@@ -89,7 +89,7 @@ Think of `MyComponent` as being referenced as a variable. If you have used JSX, 
 
 ### Dynamic Components
 
-Since components are referenced as variables instead of registered under string keys, we should use dynamic `:is` binding when using dynamic components inside `<script setup>`:
+Since components are referenced as variables instead of registered under string keys, you should use dynamic `:is` binding when using dynamic components inside `<script setup>`:
 
 ```vue
 <script setup>
@@ -133,7 +133,7 @@ import * as Form from './form-components'
 
 ## `defineProps` and `defineEmits`
 
-To declare options like `props` and `emits` with full type inference support, we can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
+To declare `props` and `emits` in `<script setup>`, you must use the `defineProps` and `defineEmits` APIs, which provide full type inference support and are automatically available inside `<script setup>`:
 
 ```vue
 <script setup>
@@ -148,7 +148,7 @@ const emit = defineEmits(['change', 'delete'])
 
 - `defineProps` and `defineEmits` are **compiler macros** only usable inside `<script setup>`. They do not need to be imported, and are compiled away when `<script setup>` is processed.
 
-- `defineProps` accepts the same value as the `props` option, while `defineEmits` accepts the same value as the `emits` option.
+- `defineProps` accepts the same value as the [`props` option](/api/options-data.html#props), while `defineEmits` accepts the same value as the [`emits` option](/api/options-data.html#emits).
 
 - `defineProps` and `defineEmits` provide proper type inference based on the options passed.
 
@@ -195,7 +195,7 @@ const attrs = useAttrs()
 
 ## Usage alongside normal `<script>`
 
-`<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where we need to:
+`<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where you need to:
 
 - Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins.
 - Declaring named exports.
