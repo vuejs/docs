@@ -45,7 +45,7 @@ In Vue 3, however, we’ve created a more cohesive API for custom directives. As
 - bind → **beforeMount**
 - inserted → **mounted**
 - **beforeUpdate**: new! This is called before the element itself is updated, much like the component lifecycle hooks.
-- update → removed! There were too many similarities to updated, so this is redundant. Please use updated instead.
+- update → removed! There were too many similarities to `updated`, so this is redundant. Please use `updated` instead.
 - componentUpdated → **updated**
 - **beforeUnmount**: new! Similar to component lifecycle hooks, this will be called right before an element is unmounted.
 - unbind -> **unmounted**
