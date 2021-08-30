@@ -27,6 +27,6 @@ watch: {
 
 ## Migration Strategy
 
-If you rely on watching array mutations, add the `deep` property to ensure that your callback is triggered correctly.
+If you rely on watching array mutations, add the `deep` option to ensure that your callback is triggered correctly.
 
 [Migration build flag: `WATCH_ARRAY`](migration-build.html#compat-configuration)
