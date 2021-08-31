@@ -10,11 +10,11 @@ You can use the `v-model` directive to create two-way data bindings on form inpu
 `v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current active instance data as the source of truth. You should declare the initial value on the JavaScript side, inside the `data` option of your component.
 :::
 
-`v-model` internally uses different properties and emits different events for different input elements:
+`v-model` internally uses different properties and emits different events for different elements:
 
-- text and textarea elements use `value` property and `input` event;
-- checkboxes and radiobuttons use `checked` property and `change` event;
-- select fields use `value` as a prop and `change` as an event.
+- input(text), textarea: use `value` property and `input` event;
+- input(checkbox/radio): use `checked` property and `change` event;
+- select: use `value` as a prop and `change` as an event.
 
 <span id="vmodel-ime-tip"></span>
 ::: tip Note
