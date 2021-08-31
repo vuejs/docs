@@ -1,7 +1,5 @@
 # Dynamic & Async Components
 
-> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
-
 ## Dynamic Components with `keep-alive`
 
 Earlier, we used the `is` attribute to switch between components in a tabbed interface:
@@ -89,4 +87,4 @@ Async components are _suspensible_ by default. This means if it has a `<Suspense
 
 The async component can opt-out of `Suspense` control and let the component always control its own loading state by specifying `suspensible: false` in its options.
 
-You can check the list of available options in the [API Reference](../api/global-api.html#arguments-4)
+You can check the list of available options in the [API Reference](../api/general.html#defineasynccomponent)

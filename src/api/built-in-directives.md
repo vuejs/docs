@@ -30,7 +30,7 @@
   Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
   :::
 
-  In [single-file components](../guide/single-file-component.html), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules.html) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
+  In [Single-File Components](./sfc-overview.html), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](./sfc-style.html#style-module) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
 
 - **Example:**
 
@@ -512,4 +512,4 @@
 
 ## v-is <Badge text="deprecated" type="warning" />
 
-Deprecated in 3.1.0. Use [`is` attribute with `vue:` prefix](/api/special-attributes.html#is) instead.
+Deprecated in 3.1.0. Use [`is` attribute with `vue:` prefix](./built-in-special-attributes.html#is) instead.

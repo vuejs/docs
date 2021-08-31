@@ -116,4 +116,4 @@ app.component('todo-list-statistics', {
 })
 ```
 
-In this, any change to `todos.length` will be reflected correctly in the components, where `todoLength` is injected. Read more about `computed` in the [Computed and Watch section](reactivity-computed-watchers.html#computed-values) and `reactive` provide/inject in the [Composition API section](composition-api-provide-inject.html#reactivity).
+In this, any change to `todos.length` will be reflected correctly in the components, where `todoLength` is injected. Read more about `computed` in the [Computed Properties section](./computed.html).

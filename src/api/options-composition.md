@@ -1,4 +1,4 @@
-# Composition
+# Options: Composition
 
 ## mixins
 
@@ -11,7 +11,7 @@
   Mixin hooks are called in the order they are provided, and called before the component's own hooks.
 
   :::info
-  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, the [Composition API](/guide/composition-api-introduction.html) is now the preferred approach for code reuse between components.
+  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, the [Composition API](/guide/composition-api-faq.html) is now the preferred approach for code reuse between components.
   :::
 
 - **Example:**
@@ -33,8 +33,6 @@
   // => 1
   // => 2
   ```
-
-- **See also:** [Mixins](../guide/mixins.html)
 
 ## extends
 
@@ -190,139 +188,3 @@
   ```
 
 - **See also:** [Provide / Inject](../guide/component-provide-inject.html)
-
-## setup
-
-- **Type:** `Function`
-
-The `setup` function is a new component option. It serves as the entry point for using the Composition API inside components.
-
-- **Invocation Timing**
-
-  `setup` is called right after the initial props resolution when a component instance is created. Lifecycle-wise, it is called before the [beforeCreate](./options-lifecycle-hooks.html#beforecreate) hook.
-
-- **Usage with Templates**
-
-  If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
-
-  ```vue-html
-  <template>
-    <div>{{ count }} {{ object.foo }}</div>
-  </template>
-
-  <script>
-    import { ref, reactive } from 'vue'
-
-    export default {
-      setup() {
-        const count = ref(0)
-        const object = reactive({ foo: 'bar' })
-
-        // expose to template
-        return {
-          count,
-          object
-        }
-      }
-    }
-  </script>
-  ```
-
-  Note that [refs](refs-api.html#ref) returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
-
-- **Usage with Render Functions / JSX**
-
-  `setup` can also return a render function, which can directly make use of reactive state declared in the same scope:
-
-  ```js
-  import { h, ref, reactive } from 'vue'
-
-  export default {
-    setup() {
-      const count = ref(0)
-      const object = reactive({ foo: 'bar' })
-
-      return () => h('div', [count.value, object.foo])
-    }
-  }
-  ```
-
-- **Arguments**
-
-  The function receives the resolved props as its first argument:
-
-  ```js
-  export default {
-    props: {
-      name: String
-    },
-    setup(props) {
-      console.log(props.name)
-    }
-  }
-  ```
-
-  Note this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using `watchEffect` or `watch`:
-
-  ```js
-  export default {
-    props: {
-      name: String
-    },
-    setup(props) {
-      watchEffect(() => {
-        console.log(`name is: ` + props.name)
-      })
-    }
-  }
-  ```
-
-  However, do NOT destructure the `props` object, as it will lose reactivity:
-
-  ```js
-  export default {
-    props: {
-      name: String
-    },
-    setup({ name }) {
-      watchEffect(() => {
-        console.log(`name is: ` + name) // Will not be reactive!
-      })
-    }
-  }
-  ```
-
-  The `props` object is immutable for userland code during development (will emit warning if user code attempts to mutate it).
-
-  The second argument provides a context object which exposes a selective list of properties that were previously exposed on `this`:
-
-  ```js
-  const MyComponent = {
-    setup(props, context) {
-      context.attrs
-      context.slots
-      context.emit
-    }
-  }
-  ```
-
-  `attrs` and `slots` are proxies to the corresponding values on the internal component instance. This ensures they always expose the latest values even after updates so that we can destructure them without worrying about accessing a stale reference:
-
-  ```js
-  const MyComponent = {
-    setup(props, { attrs }) {
-      // a function that may get called at a later stage
-      function onClick() {
-        console.log(attrs.foo) // guaranteed to be the latest reference
-      }
-    }
-  }
-  ```
-
-  There are a number of reasons for placing `props` as a separate first argument instead of including it in the context:
-
-  - It's much more common for a component to use `props` than the other properties, and very often a component uses only `props`.
-
-  - Having `props` as a separate argument makes it easier to type it individually without messing up the types of other properties on the context. It also makes it possible to keep a consistent signature across `setup`, `render` and plain functional components with TSX support.
-
-- **See also:** [Composition API](composition-api.html)

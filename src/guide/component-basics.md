@@ -1,5 +1,7 @@
 # Components Basics
 
+// TODO link to comparison w/ web components
+
 ## Base Example
 
 Here's an example of a Vue component:
@@ -21,10 +23,6 @@ app.component('button-counter', {
     </button>`
 })
 ```
-
-::: tip Info
-We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
-:::
 
 Components are reusable instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root instance:
 
@@ -217,7 +215,7 @@ When we click on the button, we need to communicate to the parent that it should
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
 ```
 
-Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/instance-methods.html#emit), passing the name of the event:
+Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/component-instance.html#emit), passing the name of the event:
 
 ```vue-html
 <button @click="$emit('enlargeText')">
@@ -412,9 +410,9 @@ If you are writing your Vue templates directly in the DOM, Vue will have to retr
 It should be noted that the limitations discussed below only apply if you are writing your templates directly in the DOM. They do NOT apply if you are using string templates from the following sources:
 
 - String templates (e.g. `template: '...'`)
-- [Single-file (`.vue`) components](single-file-component.html)
+- Single File Components
 - `<script type="text/x-template">`
-:::
+  :::
 
 ### Element Placement Restrictions
 
@@ -428,7 +426,7 @@ This will lead to issues when using components with elements that have such rest
 </table>
 ```
 
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special [`is` attribute](/api/special-attributes.html#is) as a workaround:
+The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special [`is` attribute](/api/built-in-special-attributes.html#is) as a workaround:
 
 ```vue-html
 <table>

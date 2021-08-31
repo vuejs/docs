@@ -13,8 +13,8 @@ const { site } = useData()
 
 <div class="vt-doc">
   <h1>API Reference</h1>
-  <div class="api-container">
-    <div class="api-group" v-for="section of site.themeConfig.sidebar['/api/']">
+  <div class="vt-box-container">
+    <div class="vt-box api-group" v-for="section of site.themeConfig.sidebar['/api/']">
       <h3>{{ section.text }}</h3>
       <ul>
         <li v-for="item of section.items">
@@ -32,17 +32,8 @@ const { site } = useData()
   margin: 0 auto;
 }
 
-.api-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .api-group {
-  background-color: var(--vt-c-bg-soft);
-  padding: 28px 36px 12px;
-  margin: 0 10px 10px 0;
-  border-radius: 8px;
-  flex-basis: 100%;
+  margin-bottom: 20px;
 }
 
 .api-group a {
@@ -51,13 +42,6 @@ const { site } = useData()
 
 .api-group h3 {
   margin-top: 0;
-}
-
-
-@media (min-width: 640px) {
-  .api-group {
-    flex-basis: calc(50% - 10px);
-  }
 }
 
 @media (min-width: 768px) {
@@ -69,12 +53,6 @@ const { site } = useData()
 @media (min-width: 960px) {
   .vt-doc {
     padding-top: 64px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .api-group {
-    flex-basis: calc(33.3% - 10px);
   }
 }
 </style>

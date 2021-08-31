@@ -63,7 +63,7 @@ We'll cover VNodes in more detail [later](render-function.html#the-virtual-dom-t
 
 - `unmounted`: called only once, when the directive is unbound from the element and the parent component is unmounted.
 
-You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](../api/application-api.html#directive)
+You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](../api/application.html#app-directive)
 
 ### Dynamic Directive Arguments
 
@@ -214,4 +214,4 @@ app.component('my-component', {
 
 Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`.
 
-With [fragments](/guide/migration/fragments.html#overview) support, components can potentially have more than one root nodes. When applied to a multi-root component, directive will be ignored and the warning will be thrown.
+Note that components can potentially have more than one root nodes. When applied to a multi-root component, directive will be ignored and the warning will be thrown.

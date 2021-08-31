@@ -1,11 +1,11 @@
-# SFC Tooling
+# Single File Components:<br>Tooling
 
 ## Try It Online
 
 You don't need to install anything on your machine to try out Vue SFCs - there are online playgrounds that allow you to do so right in the browser:
 
 - [Vue SFC Playground](https://sfc.vuejs.org)
-  - Official, always deployed from latest commit
+  - Always deployed from latest commit
   - Designed for inspecting component compilation results
 - [Vue + Vite on StackBlitz](https://vite.new/vue)
   - IDE-like environment running actual Vite dev server in the browser
@@ -17,7 +17,7 @@ It is also recommended to use these online playgrounds to provide reproductions 
 
 ### Vite
 
-[Vite](https://vitejs.dev/) is a lightweight and fast build tool with first-class Vue SFC support. It is created by Evan You, who is also the author of Vue itself!
+[Vite](https://vitejs.dev/) is a lightweight and fast build tool with first-class Vue SFC support. It is created by Evan You, who is also the author of Vue!
 
 To get started with Vite + Vue, simply run:
 
@@ -25,7 +25,7 @@ To get started with Vite + Vue, simply run:
 npm init vue@latest
 ```
 
-Then follow the instructions to select desired features.
+This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool.
 
 - To learn more about Vite, check out the [Vite docs](https://vitejs.dev/guide/).
 - To configure Vue-specific behavior in a Vite project, for example passing options to the Vue compiler, check out the docs for [@vitejs/plugin-vue](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#readme).
@@ -34,7 +34,7 @@ Both online playgrounds mentioned above also support downloading files as a Vite
 
 ### Vue CLI
 
-[Vue CLI](https://cli.vuejs.org/) is the official webpack-based toolchain for Vue. It is now in maintenance mode and we recommend starting new prjects with Vite unless you rely on specific webpack-only features.
+[Vue CLI](https://cli.vuejs.org/) is the official webpack-based toolchain for Vue. It is now in maintenance mode and we recommend starting new prjects with Vite unless you rely on specific webpack-only features. Vite will provide superior developer experience in most cases.
 
 ## IDE Support
 
@@ -44,13 +44,29 @@ The recommended IDE setup is [VSCode](https://code.visualstudio.com/) + the [Vol
 
 Most other editors have community-created syntax highlighting support for Vue, but lack the same level of code IntelliSense. In the long run, we do hope we can extend the range of editor support by leveraging the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) as Volar's core logic is implemented as a standard language server.
 
-## Testing Support
+## Testing
 
 - If using Vite, we recommend [Cypress](https://www.cypress.io/) as the test runner for both unit and e2e tests. Unit tests for Vue SFCs can be done with the [Cypress Component Test Runner](https://www.cypress.io/blog/2021/04/06/introducing-the-cypress-component-test-runner/).
 
 - Vue CLI comes with [Jest](https://jestjs.io/) and [Mocha](https://mochajs.org/) integrations.
 
 - If you are manually configuring Jest to work with Vue SFCs, check out [vue-jest](https://github.com/vuejs/vue-jest) which is the official Jest transform for Vue SFCs.
+
+## Linting
+
+The Vue team maintains [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue), an [ESLint](https://eslint.org/) plugin that supports SFC-specific linting rules.
+
+Users previously using Vue CLI may be used to having linters configured via webpack loaders. However when using a Vite-based build setup, our general recommendation is:
+
+1. Setup ESLint via IDE extensions during development so you get linter feedback right in your editor. This also avoids unnecessary linting cost when starting the dev server.
+
+2. Run linting as part of the production build command.
+
+3. Setup tools like [lint-staged](https://github.com/okonet/lint-staged) to automatically lint modified files on git commit.
+
+## Formatting
+
+[Prettier](https://prettier.io/) provides built-in Vue SFC formatting support.
 
 ## Custom Blocks Integration
 
@@ -63,6 +79,7 @@ Custom blocks are compiled into imports to the same Vue file with different requ
 ## Backend Framework Integrations
 
 // TODO
+
 ## Lower-Level Packages
 
 ### `@vue/compiler-sfc`

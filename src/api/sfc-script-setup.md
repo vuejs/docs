@@ -1,10 +1,6 @@
----
-sidebarDepth: 1
----
+# Single File Components:<br>\<script setup\>
 
-# SFC `<script setup>`
-
-`<script setup>` is a compile-time syntactic sugar for using [Composition API](/api/composition-api.html) inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
+`<script setup>` is a compile-time syntactic sugar for using Composition API inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
 
 - More succinct code with less boilerplate
 - Ability to declare props and emitted events using pure TypeScript
@@ -57,7 +53,7 @@ import { capitalize } from './helpers'
 
 ## Reactivity
 
-Reactive state needs to be explicitly created using [Reactivity APIs](/api/basic-reactivity.html). Similar to values returned from a `setup()` function, refs are automatically unwrapped when referenced in templates:
+Reactive state needs to be explicitly created using [Reactivity APIs](./reactivity-core.html). Similar to values returned from a `setup()` function, refs are automatically unwrapped when referenced in templates:
 
 ```vue
 <script setup>
@@ -224,7 +220,7 @@ Top-level `await` can be used inside `<script setup>`. The resulting code will b
 
 ```vue
 <script setup>
-const post = await fetch(`/api/post/1`).then(r => r.json())
+const post = await fetch(`/api/post/1`).then((r) => r.json())
 </script>
 ```
 

@@ -1,6 +1,7 @@
 # TypeScript Support
 
-> [Vue CLI](https://cli.vuejs.org) provides built-in TypeScript tooling support.
+// TODO mention `vue-tsc`
+// TODO mention `vue-dts-gen`
 
 ## Official Declaration in NPM Packages
 
@@ -55,42 +56,17 @@ module.exports = {
 
 ### Project Creation
 
-[Vue CLI](https://github.com/vuejs/vue-cli) can generate new projects that use TypeScript. To get started:
-
-```bash
-# 1. Install Vue CLI, if it's not already installed
-npm install --global @vue/cli
-
-# 2. Create a new project, then choose the "Manually select features" option
-vue create my-project-name
-
-# If you already have a Vue CLI project without TypeScript, please add a proper Vue CLI plugin:
-vue add typescript
-```
-
-Make sure that `script` part of the component has TypeScript set as a language:
-
-```vue-html
-<script lang="ts">
-  ...
-</script>
-```
-
-Or, if you want to combine TypeScript with a [JSX `render` function](/guide/render-function.html#jsx):
-
-```vue-html
-<script lang="tsx">
-  ...
-</script>
-```
+// TODO update thos
 
 ### Editor Support
 
-For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-component.html) (SFCs), get the awesome [Volar extension](https://github.com/johnsoncodehk/volar), which provides TypeScript inference inside SFCs and many other great features.
+For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [Single-File Components](/api/sfc-overview.html) (SFCs), get the awesome [Volar extension](https://github.com/johnsoncodehk/volar), which provides TypeScript inference inside SFCs and many other great features.
 
 [WebStorm](https://www.jetbrains.com/webstorm/) also provides out-of-the-box support for both TypeScript and Vue.
 
 ## Defining Vue Components
+
+// TODO only need this if not using `<script setup>`
 
 To let TypeScript properly infer types inside Vue component options, you need to define components with `defineComponent` global method:
 
@@ -100,18 +76,6 @@ import { defineComponent } from 'vue'
 const Component = defineComponent({
   // type inference enabled
 })
-```
-
-If you're using [single-file components](/guide/single-file-component.html) then this would typically be written as:
-
-```vue
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  // type inference enabled
-})
-</script>
 ```
 
 ## Using with Options API
@@ -155,7 +119,7 @@ const Component = defineComponent({
 
 ### Augmenting Types for `globalProperties`
 
-Vue 3 provides a [`globalProperties` object](../api/application-config.html#globalproperties) that can be used to add a global property that can be accessed in any component instance. For example, a [plugin](./plugins.html#writing-a-plugin) might want to inject a shared global object or function.
+Vue 3 provides a [`globalProperties` object](../api/application.html#app-config-globalproperties) that can be used to add a global property that can be accessed in any component instance. For example, a [plugin](./plugins.html#writing-a-plugin) might want to inject a shared global object or function.
 
 ```ts
 // User Definition
@@ -343,7 +307,7 @@ const Component = defineComponent({
 
   setup(props) {
     const result = props.message.split('') // correct, 'message' is typed as a string
-    const filtered = props.message.filter(p => p.value) // an error will be thrown: Property 'filter' does not exist on type 'string'
+    const filtered = props.message.filter((p) => p.value) // an error will be thrown: Property 'filter' does not exist on type 'string'
   }
 })
 ```
@@ -506,7 +470,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   setup() {
     // `evt` will be of type `any`
-    const handleChange = evt => {
+    const handleChange = (evt) => {
       console.log(evt.target.value) // TS will throw an error here
     }
 

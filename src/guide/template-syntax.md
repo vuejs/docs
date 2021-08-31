@@ -18,7 +18,7 @@ The most basic form of data binding is text interpolation using the "Mustache" s
 
 The mustache tag will be replaced with the value of the `msg` property from the corresponding component instance. It will also be updated whenever the `msg` property changes.
 
-You can also perform one-time interpolations that do not update on data change by using the [v-once directive](../api/directives.html#v-once), but keep in mind this will also affect any other bindings on the same node:
+You can also perform one-time interpolations that do not update on data change by using the [v-once directive](/api/built-in-directives.html#v-once), but keep in mind this will also affect any other bindings on the same node:
 
 ```vue-html
 <span v-once>This will never change: {{ msg }}</span>
@@ -26,7 +26,7 @@ You can also perform one-time interpolations that do not update on data change b
 
 ### Raw HTML
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](../api/directives.html#v-html):
+The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](/api/built-in-directives.html#v-html):
 
 ```vue-html
 <p>Using mustaches: {{ rawHtml }}</p>
@@ -43,7 +43,7 @@ Dynamically rendering arbitrary HTML on your website can be very dangerous becau
 
 ### Attributes
 
-Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](../api/directives.html#v-bind):
+Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](/api/built-in-directives.html#v-bind):
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>

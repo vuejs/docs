@@ -1,0 +1,18 @@
+.demo {
+  background-color: var(--vt-c-bg-soft);
+  padding: 22px 24px;
+  border-radius: 8px;
+}
+
+.demo button {
+  background-color: var(--vt-c-bg-mute);
+  transition: background-color .5s;
+  padding: 8px 16px;
+  border: 1px solid var(--vt-c-divider);
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.demo button + button {
+  margin-left: 1em;
+}

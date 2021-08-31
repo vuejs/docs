@@ -10,7 +10,7 @@ If you're coming from React, you may be wondering how vuex compares to [redux](h
 
 ## Simple State Management from Scratch
 
-It is often overlooked that the source of truth in Vue applications is the reactive `data` object - a component instance only proxies access to it. Therefore, if you have a piece of state that should be shared by multiple instances, you can use a [reactive](/guide/reactivity-fundamentals.html#declaring-reactive-state) method to make an object reactive:
+It is often overlooked that the source of truth in Vue applications is the reactive `data` object - a component instance only proxies access to it. Therefore, if you have a piece of state that should be shared by multiple instances, you can use the [reactive](/api/reactivity-core.html#reactive) method to make an object reactive:
 
 ```js
 const { createApp, reactive } = Vue

@@ -81,7 +81,7 @@ app.component('anchored-heading', {
 })
 ```
 
-The `render()` function implementation is much simpler, but also requires greater familiarity with component instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default()`. If you haven't already, **it's recommended to read through the [instance properties API](../api/instance-properties.html) before diving into render functions.**
+The `render()` function implementation is much simpler, but also requires greater familiarity with component instance properties. In this case, you have to know that when you pass children without a `v-slot` directive into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default()`. If you haven't already, **it's recommended to read through the [instance properties API](../api/component-instance.html) before diving into render functions.**
 
 ## The DOM tree
 
@@ -180,7 +180,7 @@ const app = createApp({})
 /** Recursively get text from children nodes */
 function getChildrenTextContent(children) {
   return children
-    .map(node => {
+    .map((node) => {
       return typeof node.children === 'string'
         ? node.children
         : Array.isArray(node.children)
@@ -399,7 +399,7 @@ render() {
 
 ### Slots
 
-We can access slot contents as arrays of VNodes from [`this.$slots`](../api/instance-properties.html#slots):
+We can access slot contents as arrays of VNodes from [`this.$slots`](../api/component-instance.html#slots):
 
 ```js
 render() {
@@ -532,7 +532,7 @@ Much like a `<template>` tag, a `<component>` tag is only required in templates 
 
 ### Custom Directives
 
-Custom directives can be applied to a VNode using [`withDirectives`](/api/global-api.html#withdirectives):
+Custom directives can be applied to a VNode using [`withDirectives`](/api/render-function.html#withdirectives):
 
 ```js
 const { h, resolveDirective, withDirectives } = Vue
@@ -549,7 +549,7 @@ render () {
 }
 ```
 
-[`resolveDirective`](/api/global-api.html#resolvedirective) is the same function that templates use internally to resolve directives by name. That is only necessary if you don't already have direct access to the directive's definition object.
+[`resolveDirective`](/api/render-function.html#resolvedirective) is the same function that templates use internally to resolve directives by name. That is only necessary if you don't already have direct access to the directive's definition object.
 
 ### Built-in Components
 
@@ -648,9 +648,9 @@ const FunctionalComponent = (props, context) => {
 }
 ```
 
-The second argument, `context`, contains three properties: `attrs`, `emit`, and `slots`. These are equivalent to the instance properties [`$attrs`](/api/instance-properties.html#attrs), [`$emit`](/api/instance-methods.html#emit), and [`$slots`](/api/instance-properties.html#slots) respectively.
+The second argument, `context`, contains three properties: `attrs`, `emit`, and `slots`. These are equivalent to the instance properties [`$attrs`](/api/component-instance.html#attrs), [`$emit`](/api/component-instance.html#emit), and [`$slots`](/api/component-instance.html#slots) respectively.
 
-Most of the usual configuration options for components are not available for functional components. However, it is possible to define [`props`](/api/options-data.html#props) and [`emits`](/api/options-data.html#emits) by adding them as properties:
+Most of the usual configuration options for components are not available for functional components. However, it is possible to define [`props`](/api/options-state.html#props) and [`emits`](/api/options-state.html#emits) by adding them as properties:
 
 ```js
 FunctionalComponent.props = ['value']

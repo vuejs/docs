@@ -1,8 +1,6 @@
-# Computed Properties and Watchers
+# Computed Properties
 
-## Computed Properties
-
-<VideoLesson href="https://vueschool.io/lessons/computed-properties-in-vue-3?friend=vuejs" title="Learn how computed properties work with Vue School">Learn how computed properties work with a free lesson on Vue School</VideoLesson>
+## Basic Example
 
 In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
 
@@ -34,9 +32,7 @@ And we want to display different messages depending on if `author` already has s
 
 At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it performs a calculation depending on `author.books`. The problem is made worse when you want to include this calculation in your template more than once.
 
-That's why for complex logic that includes reactive data, you should use a **computed property**.
-
-### Basic Example
+That's why for complex logic that includes reactive data, you should use a **computed property**. Here's the same example, refactored:
 
 ```vue-html
 <div id="computed-basics">
@@ -79,7 +75,7 @@ Try to change the value of `books` array in the application `data` and you will 
 
 You can data-bind to computed properties in templates just like a normal property. Vue is aware that `vm.publishedBooksMessage` depends on `vm.author.books`, so it will update any bindings that depend on `vm.publishedBooksMessage` when `vm.author.books` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
 
-### Computed Caching vs Methods
+## Computed Caching vs Methods
 
 You may have noticed we can achieve the same result by invoking a method in the expression:
 
@@ -112,7 +108,7 @@ In comparison, a method invocation will **always** run the function whenever a r
 
 Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a `method` instead.
 
-### Computed Setter
+## Writable Computed
 
 Computed properties are by default getter-only, but you can also provide a setter when you need it:
 
@@ -198,7 +194,7 @@ Result:
 
 In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API) and sets a condition for performing this operation. None of that would be possible with a computed property.
 
-In addition to the `watch` option, you can also use the imperative [vm.$watch API](../api/instance-methods.html#watch).
+In addition to the `watch` option, you can also use the imperative [vm.$watch API](../api/component-instance.html#watch).
 
 ### Computed vs Watched Property
 

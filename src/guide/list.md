@@ -135,7 +135,7 @@ Since it's a generic mechanism for Vue to identify nodes, the `key` also has oth
 Don't use non-primitive values like objects and arrays as `v-for` keys. Use string or numeric values instead.
 :::
 
-For detailed usage of the `key` attribute, please see the [`key` API documentation](../api/special-attributes.html#key).
+For detailed usage of the `key` attribute, please see the [`key` API documentation](../api/built-in-special-attributes.html#key).
 
 ## Array Change Detection
 

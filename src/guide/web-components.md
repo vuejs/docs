@@ -10,7 +10,7 @@ Vue [scores a perfect 100% in the Custom Elements Everywhere tests](https://cust
 
 ### Skipping Component Resolution
 
-By default, Vue will attempt to resolve a non-native HTML tag as a registered Vue component before falling back to rendering it as a custom element. This will cause Vue to emit a "failed to resolve component" warning during development. To let Vue know that certain elements should be treated as custom elements and skip component resolution, we can specify the [`compilerOptions.isCustomElement` option](/api/application-config.html#compileroptions).
+By default, Vue will attempt to resolve a non-native HTML tag as a registered Vue component before falling back to rendering it as a custom element. This will cause Vue to emit a "failed to resolve component" warning during development. To let Vue know that certain elements should be treated as custom elements and skip component resolution, we can specify the [`compilerOptions.isCustomElement` option](/api/application.html#app-config-compileroptions).
 
 If you are using Vue with a build setup, the option should be passed via build configs since it is a compile-time option.
 
@@ -26,7 +26,7 @@ export default {
       template: {
         compilerOptions: {
           // treat all tags with a dash as custom elements
-          isCustomElement: tag => tag.includes('-')
+          isCustomElement: (tag) => tag.includes('-')
         }
       }
     })
@@ -73,7 +73,7 @@ The primary benefit of custom elements is that they can be used with any framewo
 
 ### defineCustomElement
 
-Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElment`](/api/global-api.html#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/global-api.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
+Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElment`](/api/general.html#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/general.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
 
 ```vue-html
 <my-vue-element></my-vue-element>
@@ -161,7 +161,7 @@ Inside the component, slots can be rendered using the `<slot/>` element as usual
 
 #### Provide / Inject
 
-The [Provide / Inject API](/guide/component-provide-inject.html#provide-inject) and its [Composition API equivalent](/api/composition-api.html#provide-inject) also work between Vue-defined custom elements. However, note that this works **only between custom elements**. i.e. a Vue-defined custom element won't be able to inject properties provided by a non-custom-element Vue component.
+The [Provide / Inject API](/guide/component-provide-inject.html#provide-inject) and its [Composition API equivalent](/api/composition-api-dependency-injection.html#provide-inject) also work between Vue-defined custom elements. However, note that this works **only between custom elements**. i.e. a Vue-defined custom element won't be able to inject properties provided by a non-custom-element Vue component.
 
 ### SFC as Custom Element
 

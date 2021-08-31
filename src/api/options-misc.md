@@ -1,4 +1,56 @@
-# Misc
+# Options: Misc
+
+## directives
+
+- **Type:** `Object`
+
+- **Details:**
+
+  A hash of directives to be made available to the component instance.
+
+- **Usage:**
+
+  ```js
+  const app = createApp({})
+
+  app.component('focused-input', {
+    directives: {
+      focus: {
+        mounted(el) {
+          el.focus()
+        }
+      }
+    },
+    template: `<input v-focus>`
+  })
+  ```
+
+- **See also:** [Custom Directives](../guide/custom-directive.html)
+
+## components
+
+- **Type:** `Object`
+
+- **Details:**
+
+  A hash of components to be made available to the component instance.
+
+- **Usage:**
+
+  ```js
+  const Foo = {
+    template: `<div>Foo</div>`
+  }
+
+  const app = createApp({
+    components: {
+      Foo
+    },
+    template: `<Foo />`
+  })
+  ```
+
+- **See also:** [Components](../guide/component-basics.html)
 
 ## name
 
@@ -6,7 +58,7 @@
 
 - **Details:**
 
-  Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with [`app.component`](/api/application-api.html#component), the global ID is automatically set as its name.
+  Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with [`app.component`](/api/application.html#app-component), the global ID is automatically set as its name.
 
   Another benefit of specifying a `name` option is debugging. Named components result in more helpful warning messages. Also, when inspecting an app in the [vue-devtools](https://github.com/vuejs/vue-devtools), unnamed components will show up as `<AnonymousComponent>`, which isn't very informative. By providing the `name` option, you will get a much more informative component tree.
 
@@ -48,7 +100,7 @@
 
 - **Details:**
 
-  This is the component-level equivalent of the [app-level `compilerOptions` config](/api/application-config.html#compileroptions).
+  This is the component-level equivalent of the [app-level `compilerOptions` config](/api/application.html#app-config-compileroptions).
 
 - **Usage:**
 

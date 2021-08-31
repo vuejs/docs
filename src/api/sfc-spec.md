@@ -1,8 +1,10 @@
-# SFC Syntax Specification
+# Single File Components:<br>Syntax Specification
 
-## Intro
+## Overview
 
-A `*.vue` file is a custom file format that uses HTML-like syntax to describe a Vue component. Each `*.vue` file consists of three types of top-level language blocks: `<template>`, `<script>`, and `<style>`, and optionally additional custom blocks:
+A Vue Single File Component, conventionally using the `*.vue` file extension, is a custom file format that uses an HTML-like syntax to describe a Vue component. A Vue SFC is syntactically compatible with HTML.
+
+Each `*.vue` file consists of three types of top-level language blocks: `<template>`, `<script>`, and `<style>`, and optionally additional custom blocks:
 
 ```vue
 <template>
@@ -44,7 +46,7 @@ export default {
 
 - The script is executed as an ES Module.
 
-- The **default export** should be a Vue component options object, either as a plain object or as the return value of [defineComponent](/api/global-api.html#definecomponent).
+- The **default export** should be a Vue component options object, either as a plain object or as the return value of [defineComponent](/api/general.html#definecomponent).
 
 ### `<script setup>`
 

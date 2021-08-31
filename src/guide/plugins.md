@@ -39,7 +39,7 @@ This function will receive a `key` string, which we will use to look up the tran
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-    app.config.globalProperties.$translate = key => {
+    app.config.globalProperties.$translate = (key) => {
       return key.split('.').reduce((o, i) => {
         if (o) return o[i]
       }, options)
@@ -64,7 +64,7 @@ Plugins also allow us to use `inject` to provide a function or attribute to the 
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-    app.config.globalProperties.$translate = key => {
+    app.config.globalProperties.$translate = (key) => {
       return key.split('.').reduce((o, i) => {
         if (o) return o[i]
       }, options)
@@ -77,7 +77,7 @@ export default {
 
 Plugin users will now be able to `inject['i18n']` into their components and access the object.
 
-Additionally, since we have access to the `app` object, all other capabilities like using `mixin` and `directive` are available to the plugin. To learn more about `createApp` and the application instance, check out the [Application API documentation](/api/application-api.html).
+Additionally, since we have access to the `app` object, all other capabilities like using `mixin` and `directive` are available to the plugin. To learn more about `createApp` and the application instance, check out the [Application API documentation](/api/application.html).
 
 ```js
 // plugins/i18n.js

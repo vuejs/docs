@@ -1,8 +1,4 @@
----
-sidebarDepth: 1
----
-
-# SFC Style Features
+# Single File Components:<br>\<style\> Features
 
 ## `<style scoped>`
 
@@ -112,9 +108,7 @@ A `<style module>` tag is compiled as [CSS Modules](https://github.com/css-modul
 
 ```vue
 <template>
-  <p :class="$style.red">
-    This should be red
-  </p>
+  <p :class="$style.red">This should be red</p>
 </template>
 
 <style module>
@@ -146,9 +140,12 @@ You can customize the property key of the injected classes object by giving the 
 
 ### Usage with Composition API
 
-The injected classes can be accessed in `setup()` and `<script setup>` via the [`useCssModule`](/api/global-api.html#usecssmodule) API. For `<style module>` blocks with custom injection names, `useCssModule` accepts the matching `module` attribute value as the first argument:
+The injected classes can be accessed in `setup()` and `<script setup>` via the `useCssModule` API. For `<style module>` blocks with custom injection names, `useCssModule` accepts the matching `module` attribute value as the first argument:
 
 ```js
+import { useCssModule } from 'vue'
+
+// inside setup() scope...
 // default, returns classes for <style module>
 useCssModule()
 

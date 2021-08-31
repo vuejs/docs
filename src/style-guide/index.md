@@ -1,5 +1,6 @@
 ---
 sidebar: auto
+outline: false
 ---
 
 # Style Guide
@@ -51,10 +52,11 @@ app.component('todo', {
 
 ```js
 export default {
-  name: 'Todo',
+  name: 'Todo'
   // ...
 }
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -68,10 +70,11 @@ app.component('todo-item', {
 
 ```js
 export default {
-  name: 'TodoItem',
+  name: 'TodoItem'
   // ...
 }
 ```
+
 </div>
 
 ### Prop definitions <sup data-p="a">essential</sup>
@@ -85,7 +88,7 @@ Detailed [prop definitions](/guide/component-props.html#prop-validation) have tw
 
 - They document the API of the component, so that it's easy to see how the component is meant to be used.
 - In development, Vue will warn you if a component is ever provided incorrectly formatted props, helping you catch potential sources of error.
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -94,6 +97,7 @@ Detailed [prop definitions](/guide/component-props.html#prop-validation) have tw
 // This is only OK when prototyping
 props: ['status']
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -123,6 +127,7 @@ props: {
   }
 }
 ```
+
 </div>
 
 ### Keyed `v-for` <sup data-p="a">essential</sup>
@@ -168,6 +173,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
   </li>
 </ul>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -183,6 +189,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
   </li>
 </ul>
 ```
+
 </div>
 
 ### Avoid `v-if` with `v-for` <sup data-p="a">essential</sup>
@@ -261,6 +268,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
   </li>
 </ul>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -286,13 +294,14 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
   </template>
 </ul>
 ```
+
 </div>
 
 ### Component style scoping <sup data-p="a">essential</sup>
 
 **For applications, styles in a top-level `App` component and in layout components may be global, but all other components should always be scoped.**
 
-This is only relevant for [single-file components](../guide/single-file-component.html). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
+This is only relevant for [Single-File Components](/api/sfc-overview.html). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
 
 **Component libraries, however, should prefer a class-based strategy instead of using the `scoped` attribute.**
 
@@ -318,6 +327,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 }
 </style>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -376,6 +386,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 }
 </style>
 ```
+
 </div>
 
 ### Private property names <sup data-p="a">essential</sup>
@@ -471,6 +482,7 @@ function myPrivateFunction() {
 
 export default myGreatMixin
 ```
+
 </div>
 
 ## Priority B Rules: Strongly Recommended <span class="hide-from-sidebar">(Improving Readability)</span>
@@ -493,6 +505,7 @@ app.component('TodoItem', {
   // ...
 })
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -509,11 +522,12 @@ components/
 |- TodoList.vue
 |- TodoItem.vue
 ```
+
 </div>
 
 ### Single-file component filename casing <sup data-p="b">strongly recommended</sup>
 
-**Filenames of [single-file components](../guide/single-file-component.html) should either be always PascalCase or always kebab-case.**
+**Filenames of [Single-File Components](/api/sfc-overview.html) should either be always PascalCase or always kebab-case.**
 
 PascalCase works best with autocompletion in code editors, as it's consistent with how we reference components in JS(X) and templates, wherever possible. However, mixed case filenames can sometimes create issues on case-insensitive file systems, which is why kebab-case is also perfectly acceptable.
 
@@ -529,6 +543,7 @@ components/
 components/
 |- myComponent.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -543,6 +558,7 @@ components/
 components/
 |- my-component.vue
 ```
+
 </div>
 
 ### Base component names <sup data-p="b">strongly recommended</sup>
@@ -569,19 +585,22 @@ Some advantages of this convention:
 - Since these components are so frequently used, you may want to simply make them global instead of importing them everywhere. A prefix makes this possible with Webpack:
 
   ```js
-  const requireComponent = require.context("./src", true, /Base[A-Z]\w+\.(vue|js)$/)
+  const requireComponent = require.context(
+    './src',
+    true,
+    /Base[A-Z]\w+\.(vue|js)$/
+  )
   requireComponent.keys().forEach(function (fileName) {
     let baseComponentConfig = requireComponent(fileName)
     baseComponentConfig = baseComponentConfig.default || baseComponentConfig
-    const baseComponentName = baseComponentConfig.name || (
-      fileName
-        .replace(/^.+\//, '')
-        .replace(/\.\w+$/, '')
-    )
+    const baseComponentName =
+      baseComponentConfig.name ||
+      fileName.replace(/^.+\//, '').replace(/\.\w+$/, '')
     app.component(baseComponentName, baseComponentConfig)
   })
   ```
-:::
+
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -592,6 +611,7 @@ components/
 |- VueTable.vue
 |- Icon.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -617,6 +637,7 @@ components/
 |- VTable.vue
 |- VIcon.vue
 ```
+
 </div>
 
 ### Single-instance component names <sup data-p="b">strongly recommended</sup>
@@ -633,6 +654,7 @@ components/
 |- Heading.vue
 |- MySidebar.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -643,6 +665,7 @@ components/
 |- TheHeading.vue
 |- TheSidebar.vue
 ```
+
 </div>
 
 ### Tightly coupled component names <sup data-p="b">strongly recommended</sup>
@@ -678,7 +701,7 @@ This isn't recommended, as it results in:
 
 - Many files with similar names, making rapid file switching in code editors more difficult.
 - Many nested sub-directories, which increases the time it takes to browse components in an editor's sidebar.
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -695,6 +718,7 @@ components/
 |- SearchSidebar.vue
 |- NavigationForSearchSidebar.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -712,6 +736,7 @@ components/
 |- SearchSidebar.vue
 |- SearchSidebarNavigation.vue
 ```
+
 </div>
 
 ### Order of words in component names <sup data-p="b">strongly recommended</sup>
@@ -762,7 +787,7 @@ You might be tempted to solve this problem differently, nesting all the search c
 - It generally takes more time to navigate through nested sub-directories, than scrolling through a single `components` directory.
 - Name conflicts (e.g. multiple `ButtonDelete.vue` components) make it more difficult to quickly navigate to a specific component in a code editor.
 - Refactoring becomes more difficult, because find-and-replace often isn't sufficient to update relative references to a moved component.
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -776,6 +801,7 @@ components/
 |- SearchInput.vue
 |- TermsCheckbox.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -790,11 +816,12 @@ components/
 |- SettingsCheckboxTerms.vue
 |- SettingsCheckboxLaunchOnStartup.vue
 ```
+
 </div>
 
 ### Self-closing components <sup data-p="b">strongly recommended</sup>
 
-**Components with no content should be self-closing in [single-file components](../guide/single-file-component.html), string templates, and [JSX](../guide/render-function.html#jsx) - but never in DOM templates.**
+**Components with no content should be self-closing in [Single-File Components](/api/sfc-overview.html), string templates, and [JSX](../guide/render-function.html#jsx) - but never in DOM templates.**
 
 Components that self-close communicate that they not only have no content, but are **meant** to have no content. It's the difference between a blank page in a book and one labeled "This page intentionally left blank." Your code is also cleaner without the unnecessary closing tag.
 
@@ -804,7 +831,7 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 <h4>Bad</h4>
 
 ```vue-html
-<!-- In single-file components, string templates, and JSX -->
+<!-- In Single-File Components, string templates, and JSX -->
 <MyComponent></MyComponent>
 ```
 
@@ -812,13 +839,14 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 <!-- In DOM templates -->
 <my-component/>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
 ```vue-html
-<!-- In single-file components, string templates, and JSX -->
+<!-- In Single-File Components, string templates, and JSX -->
 <MyComponent/>
 ```
 
@@ -826,11 +854,12 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 <!-- In DOM templates -->
 <my-component></my-component>
 ```
+
 </div>
 
 ### Component name casing in templates <sup data-p="b">strongly recommended</sup>
 
-**In most projects, component names should always be PascalCase in [single-file components](../guide/single-file-component.html) and string templates - but kebab-case in DOM templates.**
+**In most projects, component names should always be PascalCase in [Single-File Components](/api/sfc-overview.html) and string templates - but kebab-case in DOM templates.**
 
 PascalCase has a few advantages over kebab-case:
 
@@ -846,12 +875,12 @@ Also note that if you've already invested heavily in kebab-case, consistency wit
 <h4>Bad</h4>
 
 ```vue-html
-<!-- In single-file components and string templates -->
+<!-- In Single-File Components and string templates -->
 <mycomponent/>
 ```
 
 ```vue-html
-<!-- In single-file components and string templates -->
+<!-- In Single-File Components and string templates -->
 <myComponent/>
 ```
 
@@ -859,13 +888,14 @@ Also note that if you've already invested heavily in kebab-case, consistency wit
 <!-- In DOM templates -->
 <MyComponent></MyComponent>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
 <h4>Good</h4>
 
 ```vue-html
-<!-- In single-file components and string templates -->
+<!-- In Single-File Components and string templates -->
 <MyComponent/>
 ```
 
@@ -880,6 +910,7 @@ OR
 <!-- Everywhere -->
 <my-component></my-component>
 ```
+
 </div>
 
 ### Component name casing in JS/JSX <sup data-p="b">strongly recommended</sup>
@@ -893,7 +924,7 @@ However, for applications that use **only** global component definitions via `ap
 
 - It's rare that global components are ever referenced in JavaScript, so following a convention for JavaScript makes less sense.
 - These applications always include many in-DOM templates, where [kebab-case **must** be used](#component-name-casing-in-templates-strongly-recommended).
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -910,17 +941,18 @@ import myComponent from './MyComponent.vue'
 
 ```js
 export default {
-  name: 'myComponent',
+  name: 'myComponent'
   // ...
 }
 ```
 
 ```js
 export default {
-  name: 'my-component',
+  name: 'my-component'
   // ...
 }
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -944,10 +976,11 @@ import MyComponent from './MyComponent.vue'
 
 ```js
 export default {
-  name: 'MyComponent',
+  name: 'MyComponent'
   // ...
 }
 ```
+
 </div>
 
 ### Full-word component names <sup data-p="b">strongly recommended</sup>
@@ -964,6 +997,7 @@ components/
 |- SdSettings.vue
 |- UProfOpts.vue
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -974,6 +1008,7 @@ components/
 |- StudentDashboardSettings.vue
 |- UserProfileOptions.vue
 ```
+
 </div>
 
 ### Prop name casing <sup data-p="b">strongly recommended</sup>
@@ -994,6 +1029,7 @@ props: {
 ```vue-html
 <WelcomeMessage greetingText="hi"/>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1008,6 +1044,7 @@ props: {
 ```vue-html
 <WelcomeMessage greeting-text="hi"/>
 ```
+
 </div>
 
 ### Multi-attribute elements <sup data-p="b">strongly recommended</sup>
@@ -1026,6 +1063,7 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
 ```vue-html
 <MyComponent foo="a" bar="b" baz="c"/>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1045,6 +1083,7 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
   baz="c"
 />
 ```
+
 </div>
 
 ### Simple expressions in templates <sup data-p="b">strongly recommended</sup>
@@ -1063,6 +1102,7 @@ Complex expressions in your templates make them less declarative. We should stri
   }).join(' ')
 }}
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1083,6 +1123,7 @@ computed: {
   }
 }
 ```
+
 </div>
 
 ### Simple computed properties <sup data-p="b">strongly recommended</sup>
@@ -1092,20 +1133,20 @@ computed: {
 ::: details Detailed Explanation
 Simpler, well-named computed properties are:
 
-- __Easier to test__
+- **Easier to test**
 
   When each computed property contains only a very simple expression, with very few dependencies, it's much easier to write tests confirming that it works correctly.
 
-- __Easier to read__
+- **Easier to read**
 
   Simplifying computed properties forces you to give each value a descriptive name, even if it's not reused. This makes it much easier for other developers (and future you) to focus in on the code they care about and figure out what's going on.
 
-- __More adaptable to changing requirements__
+- **More adaptable to changing requirements**
 
   Any value that can be named might be useful to the view. For example, we might decide to display a message telling the user how much money they saved. We might also decide to calculate sales tax, but perhaps display it separately, rather than as part of the final price.
 
   Small, focused computed properties make fewer assumptions about how information will be used, so require less refactoring as requirements change.
-:::
+  :::
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -1121,6 +1162,7 @@ computed: {
   }
 }
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1141,6 +1183,7 @@ computed: {
   }
 }
 ```
+
 </div>
 
 ### Quoted attribute values <sup data-p="b">strongly recommended</sup>
@@ -1159,6 +1202,7 @@ While attribute values without any spaces are not required to have quotes in HTM
 ```vue-html
 <AppSidebar :style={width:sidebarWidth+'px'}>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1171,6 +1215,7 @@ While attribute values without any spaces are not required to have quotes in HTM
 ```vue-html
 <AppSidebar :style="{ width: sidebarWidth + 'px' }">
 ```
+
 </div>
 
 ### Directive shorthands <sup data-p="b">strongly recommended</sup>
@@ -1203,6 +1248,7 @@ While attribute values without any spaces are not required to have quotes in HTM
   <p>Here's some contact info</p>
 </template>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1255,6 +1301,7 @@ While attribute values without any spaces are not required to have quotes in HTM
   <p>Here's some contact info</p>
 </template>
 ```
+
 </div>
 
 ## Priority C Rules: Recommended <span class="hide-from-sidebar">(Minimizing Arbitrary Choices and Cognitive Overhead)</span>
@@ -1266,51 +1313,60 @@ While attribute values without any spaces are not required to have quotes in HTM
 This is the default order we recommend for component options. They're split into categories, so you'll know where to add new properties from plugins.
 
 1. **Global Awareness** (requires knowledge beyond the component)
-    - `name`
+
+   - `name`
 
 2. **Template Compiler Options** (changes the way templates are compiled)
-    - `compilerOptions`
+
+   - `compilerOptions`
 
 3. **Template Dependencies** (assets used in the template)
-    - `components`
-    - `directives`
+
+   - `components`
+   - `directives`
 
 4. **Composition** (merges properties into the options)
-    - `extends`
-    - `mixins`
-    - `provide`/`inject`
+
+   - `extends`
+   - `mixins`
+   - `provide`/`inject`
 
 5. **Interface** (the interface to the component)
-    - `inheritAttrs`
-    - `props`
-    - `emits`
+
+   - `inheritAttrs`
+   - `props`
+   - `emits`
 
 6. **Composition API** (the entry point for using the Composition API)
-    - `setup`
+
+   - `setup`
 
 7. **Local State** (local reactive properties)
-    - `data`
-    - `computed`
+
+   - `data`
+   - `computed`
 
 8. **Events** (callbacks triggered by reactive events)
-    - `watch`
-    - Lifecycle Events (in the order they are called)
-        - `beforeCreate`
-        - `created`
-        - `beforeMount`
-        - `mounted`
-        - `beforeUpdate`
-        - `updated`
-        - `activated`
-        - `deactivated`
-        - `beforeUnmount`
-        - `unmounted`
-        - `errorCaptured`
-        - `renderTracked`
-        - `renderTriggered`
 
-9.  **Non-Reactive Properties** (instance properties independent of the reactivity system)
-    - `methods`
+   - `watch`
+   - Lifecycle Events (in the order they are called)
+     - `beforeCreate`
+     - `created`
+     - `beforeMount`
+     - `mounted`
+     - `beforeUpdate`
+     - `updated`
+     - `activated`
+     - `deactivated`
+     - `beforeUnmount`
+     - `unmounted`
+     - `errorCaptured`
+     - `renderTracked`
+     - `renderTriggered`
+
+9. **Non-Reactive Properties** (instance properties independent of the reactivity system)
+
+   - `methods`
 
 10. **Rendering** (the declarative description of the component output)
     - `template`/`render`
@@ -1322,36 +1378,44 @@ This is the default order we recommend for component options. They're split into
 This is the default order we recommend for component options. They're split into categories, so you'll know where to add custom attributes and directives.
 
 1. **Definition** (provides the component options)
-    - `is`
+
+   - `is`
 
 2. **List Rendering** (creates multiple variations of the same element)
-    - `v-for`
+
+   - `v-for`
 
 3. **Conditionals** (whether the element is rendered/shown)
-    - `v-if`
-    - `v-else-if`
-    - `v-else`
-    - `v-show`
-    - `v-cloak`
+
+   - `v-if`
+   - `v-else-if`
+   - `v-else`
+   - `v-show`
+   - `v-cloak`
 
 4. **Render Modifiers** (changes the way the element renders)
-    - `v-pre`
-    - `v-once`
+
+   - `v-pre`
+   - `v-once`
 
 5. **Global Awareness** (requires knowledge beyond the component)
-    - `id`
+
+   - `id`
 
 6. **Unique Attributes** (attributes that require unique values)
-    - `ref`
-    - `key`
+
+   - `ref`
+   - `key`
 
 7. **Two-Way Binding** (combining binding and events)
-    - `v-model`
+
+   - `v-model`
 
 8. **Other Attributes** (all unspecified bound & unbound attributes)
 
 9. **Events** (component event listeners)
-    - `v-on`
+
+   - `v-on`
 
 10. **Content** (overrides the content of the element)
     - `v-html`
@@ -1417,11 +1481,12 @@ computed: {
   }
 }
 ```
+
 </div>
 
 ### Single-file component top-level element order <sup data-p="c">recommended</sup>
 
-**[Single-file components](../guide/single-file-component.html) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
+**[Single-File Components](/api/sfc-overview.html) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -1443,6 +1508,7 @@ computed: {
 <script>/* ... */</script>
 <style>/* ... */</style>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1471,6 +1537,7 @@ computed: {
 <script>/* ... */</script>
 <style>/* ... */</style>
 ```
+
 </div>
 
 ## Priority D Rules: Use with Caution <span class="hide-from-sidebar">(Potentially Dangerous Patterns)</span>
@@ -1501,6 +1568,7 @@ button {
 }
 </style>
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1517,6 +1585,7 @@ button {
 }
 </style>
 ```
+
 </div>
 
 ### Implicit parent-child communication <sup data-p="d">use with caution</sup>
@@ -1554,7 +1623,9 @@ app.component('TodoItem', {
 
   methods: {
     removeTodo() {
-      this.$parent.todos = this.$parent.todos.filter(todo => todo.id !== vm.todo.id)
+      this.$parent.todos = this.$parent.todos.filter(
+        (todo) => todo.id !== vm.todo.id
+      )
     }
   },
 
@@ -1568,6 +1639,7 @@ app.component('TodoItem', {
   `
 })
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1614,6 +1686,7 @@ app.component('TodoItem', {
   `
 })
 ```
+
 </div>
 
 ### Non-flux state management <sup data-p="d">use with caution</sup>
@@ -1622,7 +1695,7 @@ app.component('TodoItem', {
 
 Managing state on `this.$root` and/or using a global event bus can be convenient for very simple cases, but it is not appropriate for most applications.
 
-Vuex is the [official flux-like implementation](/guide/state-management.html#official-flux-like-implementation) for Vue, and offers not only a central place to manage state, but also tools for organizing, tracking, and debugging state changes. It integrates well in the Vue ecosystem (including full [Vue DevTools](/guide/installation.html#vue-devtools) support).
+Vuex is the [official flux-like implementation](/guide/state-management.html#official-flux-like-implementation) for Vue, and offers not only a central place to manage state, but also tools for organizing, tracking, and debugging state changes. It integrates well in the Vue ecosystem (including full [Vue DevTools](/guide/quick-start.html#browser-devtools) support).
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>
@@ -1646,11 +1719,12 @@ const app = createApp({
   methods: {
     removeTodo(todo) {
       const todoIdToRemove = todo.id
-      this.todos = this.todos.filter(todo => todo.id !== todoIdToRemove)
+      this.todos = this.todos.filter((todo) => todo.id !== todoIdToRemove)
     }
   }
 })
 ```
+
 </div>
 
 <div class="style-example style-example-good">
@@ -1664,13 +1738,13 @@ export default {
   },
 
   mutations: {
-    REMOVE_TODO (state, todoId) {
-      state.list = state.list.filter(todo => todo.id !== todoId)
+    REMOVE_TODO(state, todoId) {
+      state.list = state.list.filter((todo) => todo.id !== todoId)
     }
   },
 
   actions: {
-    removeTodo ({ commit, state }, todo) {
+    removeTodo({ commit, state }, todo) {
       commit('REMOVE_TODO', todo.id)
     }
   }
@@ -1703,6 +1777,7 @@ export default {
 }
 </script>
 ```
+
 </div>
 
 <style lang="scss" scoped>
