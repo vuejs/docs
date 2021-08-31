@@ -15,8 +15,8 @@ Additionally, the `expression` string is no longer passed as part of the `bindin
 
 In Vue 2, custom directives were created by using the hooks listed below to target an element’s lifecycle, all of which are optional:
 
-- **bind** - Occurs once the directive is bound to the element. Occurs only once.
-- **inserted** - Occurs once the element is inserted into the parent DOM.
+- **bind** - Called once the directive is bound to the element. Called only once.
+- **inserted** - Called once the element is inserted into the parent DOM.
 - **update** - This hook is called when the element updates, but children haven't been updated yet.
 - **componentUpdated** - This hook is called once the component and the children have been updated.
 - **unbind** - This hook is called once the directive is removed. Also called only once.
