@@ -62,7 +62,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   Registration is not required if you pass the component itself to `is` rather than its name.
 
-- **See also:** [Dynamic Components](../guide/component-dynamic-async.html)
+- **See also:** [Dynamic Components](/guide/component-basics.html#dynamic-components)
 
 ## transition
 
@@ -243,7 +243,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   `<keep-alive>` does not work with functional components because they do not have instances to be cached.
   :::
 
-- **See also:** [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+- **See also:** [`<KeepAlive/>`](../guide/keep-alive.html)
 
 ## slot
 

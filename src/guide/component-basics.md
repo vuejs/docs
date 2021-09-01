@@ -400,7 +400,7 @@ See [this sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) to experiment with t
 
 You can also use the `is` attribute to create regular HTML elements.
 
-That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](./component-dynamic-async.html).
+// TODO mention `<KeepAlive/>`
 
 ## DOM Template Parsing Caveats
 
@@ -461,4 +461,4 @@ app.component('blog-post', {
 
 That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
 
-Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](component-dynamic-async.html), as well as the other pages in the Components In-Depth section of the sidebar.
+Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide components in depth.

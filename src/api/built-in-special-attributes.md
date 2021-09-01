@@ -56,7 +56,7 @@
 
 - **Expects:** `string | Object (component’s options object)`
 
-  Used for [dynamic components](../guide/component-dynamic-async.html).
+  Used for [dynamic components](/guide/component-basics.html#dynamic-components).
 
   For example:
 
@@ -78,5 +78,5 @@
   ```
 
 - **See also:**
-  - [Dynamic Components](../guide/component-dynamic-async.html)
+  - [Dynamic Components](/guide/component-basics.html#dynamic-components)
   - [RFC explaining the change from Vue 2](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0027-custom-elements-interop.md#customized-built-in-elements)

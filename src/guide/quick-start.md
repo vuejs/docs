@@ -111,16 +111,16 @@ The Vue browser devtools extension allows you to explore a Vue app's component t
 If you skipped the [Introduction](/guide/introduction), we strongly recommend reading it before moving on to the rest of the documentation.
 
 <div class="vt-box-container next-steps">
-  <a class="vt-box" href="/guide/application.html">
-    <p class="next-steps-link">Continue the Guide</p>
-    <p class="next-steps-caption">Learn the core concepts step by step, with all the little details.</p>
-  </a>
   <a class="vt-box" href="/tutorial/">
     <p class="next-steps-link">Follow the Tutorial</p>
     <p class="next-steps-caption">For those who prefer learning things hands-on. Let's build something real!</p>
   </a>
+  <a class="vt-box" href="/guide/application.html">
+    <p class="next-steps-link">Continue the Guide</p>
+    <p class="next-steps-caption">Learn the core concepts step by step, with all the little details.</p>
+  </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">See Some Examples</p>
-    <p class="next-steps-caption">Check out the examples and play with Vue right in your browser.</p>
+    <p class="next-steps-link">Check out the Examples</p>
+    <p class="next-steps-caption">Take a quick tour of core features and examples of common UI tasks.</p>
   </a>
 </div>

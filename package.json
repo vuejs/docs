@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "dev": "yarn serve",
-    "serve": "vitepress dev src",
-    "build": "vitepress build src"
+    "dev": "vitepress dev src",
+    "build": "vitepress build src",
+    "serve": "vitepress serve src"
   },
   "devDependencies": {
     "@vue/theme": "*",

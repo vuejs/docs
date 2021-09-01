@@ -189,10 +189,6 @@ module.exports = (async () => {
                 link: '/guide/component-provide-inject'
               },
               {
-                text: 'Dynamic Components',
-                link: '/guide/component-dynamic'
-              },
-              {
                 text: 'Async Components',
                 link: '/guide/component-async'
               }

@@ -7,7 +7,9 @@ const className = 'prefer-composition'
 const toggle = typeof localStorage !== 'undefined' ? useAPIToggle() : () => {}
 
 function useAPIToggle() {
-  let preferComposition = JSON.parse(localStorage.getItem(storageKey) || 'false')
+  let preferComposition = JSON.parse(
+    localStorage.getItem(storageKey) || 'false'
+  )
   const classList = document.documentElement.classList
   return (value = !preferComposition) => {
     if ((preferComposition = value)) {
@@ -21,23 +23,26 @@ function useAPIToggle() {
 </script>
 
 <template>
-  <p class="api-switch">
-    <span class="api-switch-title">
+  <div class="api-switch">
+    <div class="api-switch-title">
       API<span class="api-switch-pref"> Preference</span>
-      <a class="api-switch-link"
+      <a
+        class="api-switch-link"
         title="About API preference"
-        href="/guide/introduction.html#api-styles">?</a>
-    </span>
-    <div style="float:right">
-    <label class="api-switch-label options" @click="toggle(false)"
-      >Options</label
-    >
-    <VTSwitch aria-label="Switch API preference" @click="toggle()" />
-    <label class="api-switch-label composition" @click="toggle(true)"
-      >Composition</label
-    >
+        href="/guide/introduction.html#api-styles"
+        >?</a
+      >
+    </div>
+    <div style="float: right">
+      <label class="api-switch-label options" @click="toggle(false)"
+        >Options</label
+      >
+      <VTSwitch aria-label="Switch API preference" @click="toggle()" />
+      <label class="api-switch-label composition" @click="toggle(true)"
+        >Composition</label
+      >
+    </div>
   </div>
-  </p>
 </template>
 
 <style>
