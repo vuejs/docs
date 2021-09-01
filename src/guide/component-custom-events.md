@@ -18,8 +18,6 @@ As with [props casing](/guide/component-props.html#prop-casing-camelcase-vs-keba
 
 ## Defining Custom Events
 
-<VideoLesson href="https://vueschool.io/lessons/defining-custom-events-emits?friend=vuejs" title="Learn how to define which events a component can emit with Vue School">Watch a free video on how to define custom events on Vue School</VideoLesson>
-
 Emitted events can be defined on the component via the `emits` option.
 
 ```js
@@ -127,7 +125,7 @@ app.component('user-name', {
 })
 ```
 
-<common-codepen-snippet title="Multiple v-models" slug="GRoPPrM" tab="html,result" />
+<!-- <common-codepen-snippet title="Multiple v-models" slug="GRoPPrM" tab="html,result" /> -->
 
 ## Handling `v-model` modifiers
 

@@ -6,7 +6,6 @@
   },
   "devDependencies": {
     "@vue/theme": "vuejs/theme",
-    "sass": "^1.37.5",
-    "vitepress": "^0.16.1"
+    "vitepress": "^0.17.0"
   }
 }

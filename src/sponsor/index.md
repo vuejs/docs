@@ -13,7 +13,7 @@ However, the amount of effort needed to maintain and develop new features for th
 
 We accept donations through these channels:
 
-<support-Coins />
+<!-- <support-Coins /> -->
 
 ## Recurring Pledges
 
@@ -26,35 +26,35 @@ Recurring pledges come with exclusive perks, e.g. having your name listed in the
 
 ### Special Sponsors
 
-<support-SponsorGroup group="special_sponsors" class="platinum" />
+<!-- <support-SponsorGroup group="special_sponsors" class="platinum" /> -->
 
 ### Platinum
 
-<support-SponsorGroup group="platinum_sponsors" class="platinum" />
+<!-- <support-SponsorGroup group="platinum_sponsors" class="platinum" /> -->
 
 ### OpenCollective Platinum
 
-<support-OpenCollectiveGroup group="platinum" />
+<!-- <support-OpenCollectiveGroup group="platinum" /> -->
 
 ### Special Sponsors (China)
 
-<support-SponsorGroup group="platinum_sponsors_china" class="platinum" />
+<!-- <support-SponsorGroup group="platinum_sponsors_china" class="platinum" /> -->
 
 ### Patreon Gold
 
-<support-SponsorGroup group="gold_sponsors" class="patreon-sponsors sponsor-section" />
+<!-- <support-SponsorGroup group="gold_sponsors" class="patreon-sponsors sponsor-section" /> -->
 
 ### OpenCollective Gold
 
-<support-OpenCollectiveGroup group="gold" />
+<!-- <support-OpenCollectiveGroup group="gold" /> -->
 
 ### Patreon Silver
 
-<support-SponsorGroup group="silver_sponsors" class="patreon-sponsors sponsor-section" />
+<!-- <support-SponsorGroup group="silver_sponsors" class="patreon-sponsors sponsor-section" /> -->
 
 ### OpenCollective Silver
 
-<support-OpenCollectiveGroup group="silver" />
+<!-- <support-OpenCollectiveGroup group="silver" /> -->
 
 If you run a business and are using Vue in a revenue-generating product, it makes business sense to sponsor Vue development: **it ensures the project that your product relies on stays healthy and actively maintained.** It can also help your exposure in the Vue community and makes it easier to attract Vue developers.
 

@@ -7,7 +7,7 @@
 Now that we know how watchers are updating the components, you might ask how those changes eventually make it to the DOM! Perhaps you’ve heard of the Virtual DOM before, many frameworks including Vue use this paradigm to make sure our interfaces reflect the changes we’re updating in JavaScript effectively
 
 <div class="reactivecontent">
-  <common-codepen-snippet title="How does the Virtual DOM work?" slug="KKNJKbw" tab="result" theme="light" :height="500" :editable="false" :preview="false" />
+  <!-- <common-codepen-snippet title="How does the Virtual DOM work?" slug="KKNJKbw" tab="result" theme="light" :height="500" :editable="false" :preview="false" /> -->
 </div>
 
 We make a copy of the DOM in JavaScript called the Virtual DOM, we do this because touching the DOM with JavaScript is computationally expensive. While performing updates in JavaScript is cheap, finding the required DOM nodes and updating them with JavaScript is expensive. So we batch calls, and change the DOM all at once.

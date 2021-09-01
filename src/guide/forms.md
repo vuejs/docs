@@ -1,7 +1,5 @@
 # Form Input Bindings
 
-<VideoLesson href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3?friend=vuejs" title="Learn how to handle form inputs on Vue School">Learn how to work with form inputs with a free Vue School lesson</VideoLesson>
-
 ## Basic Usage
 
 You can use the `v-model` directive to create two-way data bindings on form input, textarea, and select elements. It automatically picks the correct way to update the element based on the input type. Although a bit magical, `v-model` is essentially syntax sugar for updating data on user input events, plus special care for some edge cases.
@@ -28,7 +26,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 <p>Message is: {{ message }}</p>
 ```
 
-<common-codepen-snippet title="Handling forms: basic v-model" slug="eYNPEqj" :preview="false" />
+<!-- <common-codepen-snippet title="Handling forms: basic v-model" slug="eYNPEqj" :preview="false" /> -->
 
 ### Multiline text
 
@@ -39,7 +37,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 <textarea v-model="message" placeholder="add multiple lines"></textarea>
 ```
 
-<common-codepen-snippet title="Handling forms: textarea" slug="xxGyXaG" :preview="false" />
+<!-- <common-codepen-snippet title="Handling forms: textarea" slug="xxGyXaG" :preview="false" /> -->
 
 Interpolation on textareas won't work. Use `v-model` instead.
 
@@ -60,7 +58,7 @@ Single checkbox, boolean value:
 <label for="checkbox">{{ checked }}</label>
 ```
 
-<common-codepen-snippet title="Handling forms: checkbox" slug="PoqyJVE" :preview="false" />
+<!-- <common-codepen-snippet title="Handling forms: checkbox" slug="PoqyJVE" :preview="false" /> -->
 
 Multiple checkboxes, bound to the same array:
 
@@ -87,7 +85,7 @@ Vue.createApp({
 }).mount('#v-model-multiple-checkboxes')
 ```
 
-<common-codepen-snippet title="Handling forms: multiple checkboxes" slug="bGdmoyj" :preview="false" />
+<!-- <common-codepen-snippet title="Handling forms: multiple checkboxes" slug="bGdmoyj" :preview="false" /> -->
 
 ### Radio
 
@@ -113,7 +111,7 @@ Vue.createApp({
 }).mount('#v-model-radiobutton')
 ```
 
-<common-codepen-snippet title="Handling forms: radiobutton" slug="MWwPEMM" :preview="false" />
+<!-- <common-codepen-snippet title="Handling forms: radiobutton" slug="MWwPEMM" :preview="false" /> -->
 
 ### Select
 
@@ -141,7 +139,7 @@ Vue.createApp({
 }).mount('#v-model-select')
 ```
 
-<common-codepen-snippet title="Handling forms: select" slug="KKpGydL" :preview="false" />
+<!-- <common-codepen-snippet title="Handling forms: select" slug="KKpGydL" :preview="false" /> -->
 
 :::tip Note
 If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
@@ -159,7 +157,7 @@ Multiple select (bound to array):
 <span>Selected: {{ selected }}</span>
 ```
 
-<common-codepen-snippet title="Handling forms: select bound to array" slug="gOpBXPz" tab="result" :preview="false" />
+<!-- <common-codepen-snippet title="Handling forms: select bound to array" slug="gOpBXPz" tab="result" :preview="false" /> -->
 
 Dynamic options rendered with `v-for`:
 
@@ -189,7 +187,7 @@ Vue.createApp({
 }).mount('#v-model-select-dynamic')
 ```
 
-<common-codepen-snippet title="Handling forms: select with dynamic options" slug="abORVZm" :preview="false" />
+<!-- <common-codepen-snippet title="Handling forms: select with dynamic options" slug="abORVZm" :preview="false" /> -->
 
 ## Value Bindings
 

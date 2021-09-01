@@ -470,7 +470,7 @@
   - [Data Binding Syntax - interpolations](../guide/template-syntax.html#text)
   - [v-memo](#v-memo)
 
-## v-memo <Badge text="3.2+" />
+## v-memo <Badge text="3.2+"/>
 
 - **Expects:** `Array`
 

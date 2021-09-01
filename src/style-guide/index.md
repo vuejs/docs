@@ -1780,14 +1780,7 @@ export default {
 
 </div>
 
-<style lang="scss" scoped>
-$color-bgr-good: #d7efd7;
-$color-bgr-bad: #f7e8e8;
-$color-priority-a: #6b2a2a;
-$color-priority-b: #8c480a;
-$color-priority-c: #2b5a99;
-$color-priority-d: #3f536d;
-
+<style scoped>
 .style-example {
   border-radius: 7px;
   margin: 1.6em 0;
@@ -1795,80 +1788,63 @@ $color-priority-d: #3f536d;
   position: relative;
   border: 1px solid transparent;
   border-top-width: 5px;
-
-  h4 {
-    margin-top: 0;
-
-    &::before {
-      font-family: 'FontAwesome';
-      margin-right: .4em;
-    }
-  }
-
-  &-bad {
-    background: $color-bgr-bad;
-    border-color: darken($color-bgr-bad, 20%);
-    
-    h4 {
-      color: darken($color-bgr-bad, 50%);
-    }
-
-    h4::before {
-      content: '\f057';
-    }
-  }
-
-  &-good {
-    background: $color-bgr-good;
-    border-color: darken($color-bgr-good, 20%);
-    
-    h4 {
-      color: darken($color-bgr-good, 50%);
-    }
-
-    h4::before {
-      content: '\f058';
-    }
-  }
+}
+.style-example h4 {
+  margin-top: 0;
+}
+.style-example h4::before {
+  font-family: "FontAwesome";
+  margin-right: 0.4em;
+}
+.style-example-bad {
+  background: #f7e8e8;
+  border-color: #dd9c9c;
+}
+.style-example-bad h4 {
+  color: #a63a3a;
+}
+.style-example-bad h4::before {
+  content: "";
+}
+.style-example-good {
+  background: #d7efd7;
+  border-color: #8ed28e;
+}
+.style-example-good h4 {
+  color: #398e39;
+}
+.style-example-good h4::before {
+  content: "";
 }
 
 .details summary {
   font-weight: bold !important;
 }
 
-h3 {
-  a.header-anchor {
-    // as we have too many h3 elements on this page, set the anchor to be always visible
-    // to make them stand out more from paragraph texts.
-    opacity: 1; 
-  }
-
-  sup {
-    text-transform: uppercase;
-    font-size: 0.5em;
-    padding: 2px 4px;
-    border-radius: 3px;
-    margin-left: 0.5em;
-
-    &[data-p=a] {
-      color: $color-priority-a;
-      border: 1px solid $color-priority-a;
-    }
-
-    &[data-p=b] {
-      color: $color-priority-b;
-      border: 1px solid $color-priority-b;
-    }
-
-    &[data-p=c] {
-      color: $color-priority-c;
-      border: 1px solid $color-priority-c;
-    }
-
-    &[data-p=d] {
-      color: $color-priority-d;
-      border: 1px solid $color-priority-d;
-    }
-  }
+h3 a.header-anchor {
+  opacity: 1;
+}
+h3 sup {
+  text-transform: uppercase;
+  font-size: 0.5em;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-left: 0.5em;
+}
+h3 sup[data-p=a] {
+  color: #6b2a2a;
+  border: 1px solid #6b2a2a;
+}
+h3 sup[data-p=b] {
+  color: #8c480a;
+  border: 1px solid #8c480a;
+}
+h3 sup[data-p=c] {
+  color: #2b5a99;
+  border: 1px solid #2b5a99;
+}
+h3 sup[data-p=d] {
+  color: #3f536d;
+  border: 1px solid #3f536d;
 }
 </style>

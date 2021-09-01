@@ -1,7 +1,5 @@
 # Teleport
 
-<VideoLesson href="https://vueschool.io/lessons/vue-3-teleport?friend=vuejs" title="Learn how to use teleport with Vue School">Learn how to use teleport with a free lesson on Vue School</VideoLesson>
-
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
 However, sometimes a part of a component's template belongs to this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of the Vue app.
@@ -86,7 +84,7 @@ app.component('modal-button', {
 
 As a result, once we click the button to open the modal, Vue will correctly render the modal's content as a child of the `body` tag.
 
-<common-codepen-snippet title="Vue 3 Teleport" slug="gOPNvjR" tab="js,result" />
+<!-- <common-codepen-snippet title="Vue 3 Teleport" slug="gOPNvjR" tab="js,result" /> -->
 
 ## Using with Vue components
 

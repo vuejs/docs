@@ -1,7 +1,5 @@
 # List Rendering
 
-<VideoLesson href="https://vueschool.io/lessons/list-rendering-in-vue-3?friend=vuejs" title="Learn how to render lists on Vue School">Learn how to render list with a free Vue School lesson</VideoLesson>
-
 ## Mapping an Array to Elements with `v-for`
 
 We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
@@ -26,7 +24,7 @@ Vue.createApp({
 
 Result:
 
-<common-codepen-snippet title="v-for with Array" slug="VwLGbwa" tab="js,result" :preview="false" />
+<!-- <common-codepen-snippet title="v-for with Array" slug="VwLGbwa" tab="js,result" :preview="false" /> -->
 
 Inside `v-for` blocks we have full access to parent scope properties. `v-for` also supports an optional second argument for the index of the current item.
 
@@ -51,7 +49,7 @@ Vue.createApp({
 
 Result:
 
-<common-codepen-snippet title="v-for with Array and index" slug="wvaEdBP" tab="js,result" :preview="false" />
+<!-- <common-codepen-snippet title="v-for with Array and index" slug="wvaEdBP" tab="js,result" :preview="false" /> -->
 
 You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
 
@@ -87,7 +85,7 @@ Vue.createApp({
 
 Result:
 
-<common-codepen-snippet title="v-for with Object" slug="NWqLjqy" tab="js,result" :preview="false" />
+<!-- <common-codepen-snippet title="v-for with Object" slug="NWqLjqy" tab="js,result" :preview="false" /> -->
 
 You can also provide a second argument for the property's name (a.k.a. key):
 
@@ -97,7 +95,7 @@ You can also provide a second argument for the property's name (a.k.a. key):
 </li>
 ```
 
-<common-codepen-snippet title="v-for with Object and key" slug="poJOPjx" tab="js,result" :preview="false" />
+<!-- <common-codepen-snippet title="v-for with Object and key" slug="poJOPjx" tab="js,result" :preview="false" /> -->
 
 And another for the index:
 
@@ -107,7 +105,7 @@ And another for the index:
 </li>
 ```
 
-<common-codepen-snippet title="v-for with Object key and index" slug="abOaWdo" tab="js,result" :preview="false" />
+<!-- <common-codepen-snippet title="v-for with Object key and index" slug="abOaWdo" tab="js,result" :preview="false" /> -->
 
 :::tip Note
 When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which isn't guaranteed to be consistent across JavaScript engine implementations.
@@ -219,7 +217,7 @@ methods: {
 
 Result:
 
-<common-codepen-snippet title="v-for with a range" slug="NWqLjNY" tab="html,result" />
+<!-- <common-codepen-snippet title="v-for with a range" slug="NWqLjNY" tab="html,result" /> -->
 
 ## `v-for` on a `<template>`
 
@@ -354,4 +352,4 @@ app.component('todo-item', {
 app.mount('#todo-list-example')
 ```
 
-<common-codepen-snippet title="v-for with components" slug="abOaWpz" tab="js,result" :preview="false" />
+<!-- <common-codepen-snippet title="v-for with components" slug="abOaWpz" tab="js,result" :preview="false" /> -->

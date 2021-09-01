@@ -6,4 +6,4 @@
 Note that if your web browser is configured to block 3rd-party data/cookies, the example below will not work, as the **localStorage** data will fail to be saved.
 :::
 
-<common-codepen-snippet title="Vue 3 TodoMVC" slug="Yzqyozj" tab="js,result" />
+<!-- <common-codepen-snippet title="Vue 3 TodoMVC" slug="Yzqyozj" tab="js,result" /> -->

@@ -318,15 +318,15 @@ module.exports = (async () => {
               { text: 'setup()', link: '/api/composition-api-setup' },
               {
                 text: 'Reactivity: Core',
-                link: '/api/composition-api-reactivity-core'
+                link: '/api/reactivity-core'
               },
               {
                 text: 'Reactivity: Advanced',
-                link: '/api/composition-api-reactivity-advanced'
+                link: '/api/reactivity-advanced'
               },
               {
                 text: 'Reactivity: Utilities',
-                link: '/api/composition-api-reactivity-utilities'
+                link: '/api/reactivity-utilities'
               },
               {
                 text: 'Lifecycle Hooks',

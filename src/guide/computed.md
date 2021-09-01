@@ -67,7 +67,7 @@ Vue.createApp({
 
 Result:
 
-<common-codepen-snippet title="Computed basic example" slug="NWqzrjr" tab="js,result" :preview="false" />
+<!-- <common-codepen-snippet title="Computed basic example" slug="NWqzrjr" tab="js,result" :preview="false" /> -->
 
 Here we have declared a computed property `publishedBooksMessage`.
 
@@ -190,7 +190,7 @@ For example:
 
 Result:
 
-<common-codepen-snippet title="Watch basic example" slug="GRJGqXp" tab="result" :preview="false" />
+<!-- <common-codepen-snippet title="Watch basic example" slug="GRJGqXp" tab="result" :preview="false" /> -->
 
 In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API) and sets a condition for performing this operation. None of that would be possible with a computed property.
 

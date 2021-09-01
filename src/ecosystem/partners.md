@@ -4,4 +4,4 @@ Vue Partners are premium shops that provide first-class Vue consulting and devel
 
 ## Active Partners
 
-<community-partners-index/>
+<!-- <community-partners-index/> -->

@@ -1,3 +1,3 @@
 # Themes
 
-<community-themes-index/>
+<!-- <community-themes-index/> -->
