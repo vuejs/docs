@@ -66,6 +66,14 @@ TypeScript support is an important consideration when new features are added to 
 
 Adopting TypeScript involves a trade-off between onboarding complexity and long term maintainability gains. Whether such a trade-off can be justified can vary depending on your team's background and project scale, but Vue isn't really an influencing factor in making that decision.
 
+## How does Vue compare to Web Components?
+
+Vue was created before Web Components were natively available, and some aspects of Vue's design (e.g. slots) were inspired by the Web Components model.
+
+The Web Components specs are relatively low-level, as they are centered around defining custom elements. As a framework, Vue addresses additional higher-level concerns such as efficient DOM rendering, reactive state management, tooling, client-side routing, and server-side rendering.
+
+Vue also fully supports consuming or exporting to native custom elements - check out the [Vue and Web Components Guide](/guide/web-components) for more details.
+
 <!-- ## TODO How does Vue compare to React? -->
 
 <!-- ## TODO How does Vue compare to Angular? -->
