@@ -5,7 +5,7 @@
     "build": "vitepress build src"
   },
   "devDependencies": {
-    "@vue/theme": "vuejs/theme",
+    "@vue/theme": "*",
     "vitepress": "^0.17.0"
   }
 }
