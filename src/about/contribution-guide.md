@@ -51,7 +51,7 @@ Apart from answering questions and sharing resources in the forum and chat, ther
 
 I hope that right now, you're reading this sentence in your preferred language. If not, would you like to help us get there?
 
-See the [Translations guide](/translations.html#contributing-to-translations) for more details on how you can get involved.
+See the [Translations guide](/translations/#contributing-to-translations) for more details on how you can get involved.
 
 ### Become a Community Leader
 
