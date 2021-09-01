@@ -50,7 +50,7 @@ Yes. Despite common misconception that Vue is only suitable for simple use cases
 
 ## What's the difference between Vue 2 and Vue 3?
 
-Please refer to the [dedicated Vue 2 vs. Vue 3 FAQ](/v2-faq).
+Please refer to the [dedicated Vue 2 vs. Vue 3 FAQ](./v2-faq).
 
 ## Should I use Options API or Composition API?
 

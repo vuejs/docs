@@ -19,7 +19,7 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const path = require('path')
-            const { isUsingAlertBlock } = require(path.resolve(process.cwd(), 'scripts/tag-alert-blocks.js'))
+            const { isUsingAlertBlock } = require(path.resolve(process.cwd(), '.github/scripts/tag-alert-blocks.js'))
 
             isUsingAlertBlock().then(ok => {
               if (ok) {

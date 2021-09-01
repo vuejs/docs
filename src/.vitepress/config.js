@@ -35,7 +35,7 @@ module.exports = (async () => {
       },
 
       socialLinks: [
-        { icon: 'languages', link: '/translations.html' },
+        { icon: 'languages', link: '/translations/' },
         { icon: 'github', link: 'https://github.com/vuejs/' },
         { icon: 'twitter', link: 'https://twitter.com/vuejs' },
         { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
