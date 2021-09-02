@@ -123,6 +123,13 @@ const sidebar = {
         '/guide/a11y-standards',
         '/guide/a11y-resources'
       ]
+    },
+    {
+      title: 'FAQs',
+      collapsable: false,
+      children: [
+        ['/guide/creating-new-projects', 'Creating New Projects']
+      ]
     }
   ],
   api: [
