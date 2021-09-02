@@ -53,7 +53,7 @@ For more information on this, please read the [API documentation for this featur
 
 ## Migration Strategy
 
-It is highly recommended that you document all of the events emitted by each of your components using `emits`.
+It is highly recommended that you document all the events emitted by each of your components using `emits`.
 
 This is especially important because of [the removal of the `.native` modifier](./v-on-native-modifier-removed.md). Any listeners for events that aren't declared with `emits` will now be included in the component's `$attrs`, which by default will be bound to the component's root node.
 
