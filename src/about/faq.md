@@ -1,14 +1,18 @@
 # Frequently Asked Questions
 
-## What browsers does Vue support?
+## What license does Vue use?
 
-The latest version of Vue (3.x) only supports [browsers with native ES2015 support](https://caniuse.com/es6). This excludes IE11. Vue 3.x uses ES2015 features that cannot be polyfilled in legacy browsers, so if you need to support legacy browsers, you will need to use Vue 2.x instead.
+Vue is a free and open source project released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Who maintains Vue?
 
-Vue is an independent, community-driven open source project. It was created by [Evan You](https://twitter.com/youyuxi) in 2014 as a personal side project. Today, Vue is actively maintained by [a team of both full-time and volunteer members from all around the world](/about/team), where Evan serves as the project lead.
+Vue is an independent, community-driven project. It was created by [Evan You](https://twitter.com/youyuxi) in 2014 as a personal side project. Today, Vue is actively maintained by [a team of both full-time and volunteer members from all around the world](/about/team), where Evan serves as the project lead.
 
 Vue's development is primarily funded through sponsorships and we have been financially sustainable since 2016. If you or your business benefit from Vue, consider [sponsoring us](/sponsor/) to support Vue's development!
+
+## What browsers does Vue support?
+
+The latest version of Vue (3.x) only supports [browsers with native ES2015 support](https://caniuse.com/es6). This excludes IE11. Vue 3.x uses ES2015 features that cannot be polyfilled in legacy browsers, so if you need to support legacy browsers, you will need to use Vue 2.x instead.
 
 ## Is Vue reliable?
 
@@ -47,6 +51,10 @@ Yes. Despite common misconception that Vue is only suitable for simple use cases
 - [Comprehensive tooling support](/ecosystem/official-projects) ensures a smooth development experience as the application grows.
 
 - Lower barrier of entry and excellent documentation translate to lower onboarding and training cost for new developers.
+
+## How do I contribute to Vue?
+
+We appreciate your interest! Please check out our [Contribution Guide](/about/contribution-guide.html).
 
 ## What's the difference between Vue 2 and Vue 3?
 

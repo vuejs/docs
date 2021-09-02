@@ -1,40 +1,59 @@
 ---
 page: true
-heroImage: /logo.png
-heroText: Vue.js
-tagline: The Progressive<br> JavaScript Framework
-actionButtons:
-  - text: Why Vue.js?
-    link: /
-    extraClass: vuemastery-trigger primary
-    icon: fa fa-play-circle
-  - text: Get Started
-    link: /guide/introduction
-  - text: GitHub
-    link: https://github.com/vuejs/vue-next
-    extraClass: github grey
-    icon: fa fa-github
-    target: _blank
-features:
-  - title: Approachable
-    details: Already know HTML, CSS and JavaScript? Read the guide and start building things in no time!
-  - title: Versatile
-    details: An incrementally adoptable ecosystem that scales between a library and a full-featured framework.
-  - title: Performant
-    details: |
-      20KB min+gzip Runtime<br>
-      Blazing Fast Virtual DOM<br>
-      Minimal Optimization Efforts
-footer: |
-  Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a><br>
-  Copyright © 2014-2021 Evan You
-socialIcons:
-  - type: GitHub
-    link: https://github.com/vuejs/vue-next
-  - type: Twitter
-    link: https://twitter.com/vuejs
-  - type: Medium
-    link: https://medium.com/the-vue-point
+head:
+  - - link
+    - rel: stylesheet
+      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap&text=TheProgressiveJavaScriptFramework'
 ---
 
-# Vue.js
+<section id="hero">
+  <h1 class="tagline">
+    The Progressive<br>
+    JavaScript Framework
+  </h1>
+  <p class="description">
+    A modern, fast, and versatile framework for building web interfaces.
+  </p>
+  <p class="actions">
+    <a class="get-started" href="/guide/introduction.html">Get Started →</a>
+    <a class="setup" href="/guide/quick-start.html">Install</a>
+  </p>
+</section>
+
+<!-- TODO make dynamic based on data -->
+<section id="special-sponsor">
+  <span>Special Sponsor</span>
+  <a href="#"><img src="/images/hbuilder.png"></a>
+  <span>Advanced IDE for Vue</span>
+</section>
+
+<section id="highlights" class="vt-box-container">
+  <div class="vt-box">
+    <h3>Approachable</h3>
+    <p>Builds on top of standard HTML, CSS and JavaScript with beginner-friendly API and documentation.</p>
+  </div>
+  <div class="vt-box">
+    <h3>Performant</h3>
+    <p>Truly reactive, compiler-optimized rendering system that rarely requires manual optimization.</p>
+  </div>
+  <div class="vt-box">
+    <h3>Versatile</h3>
+    <p>A rich, incrementally adoptable ecosystem that scales between a library and a full-featured framework.</p>
+  </div>
+</section>
+
+<section id="sponsors">
+  <!-- TODO -->
+</section>
+
+<section id="ways-to-use">
+  <!-- TODO show toggleable example between CDN vs. SFC usage -->
+</section>
+
+<section id="tooling">
+  <!-- TODO show tooling screenshots -->
+</section>
+
+<style scoped>
+@import './.vitepress/theme/styles/home.css'
+</style>

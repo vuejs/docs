@@ -1,0 +1,134 @@
+section {
+  padding: 56px 32px;
+}
+
+#hero {
+  text-align: center;
+}
+
+.tagline {
+  font-size: 60px;
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.description {
+  color: var(--vt-c-text-2);
+  transition: color 0.5s;
+  font-size: 20px;
+  margin: 22px 0 56px;
+}
+
+.actions a {
+  font-size: 16px;
+  display: inline-block;
+  background-color: var(--vt-c-bg-mute);
+  padding: 8px 18px;
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 8px 10px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.actions .get-started {
+  font-weight: 600;
+  background-color: var(--vt-c-green);
+  color: var(--vt-c-text-inverse-1);
+}
+
+.actions .get-started:hover {
+  background-color: var(--vt-c-green-dark);
+  transition-duration: 0.2s;
+}
+
+.dark .actions .get-started:hover {
+  background-color: var(--vt-c-green-light);
+}
+
+.actions .setup {
+  color: var(--vt-c-text-code);
+}
+
+.actions .setup:hover {
+  background-color: var(--vt-c-gray-light-4);
+  transition-duration: 0.2s;
+}
+
+.dark .actions .setup:hover {
+  background-color: var(--vt-c-gray-dark-3);
+}
+
+#special-sponsor {
+  border-top: 1px solid var(--vt-c-divider-light);
+  border-bottom: 1px solid var(--vt-c-divider-light);
+  padding: 12px 24px;
+  text-align: center;
+}
+
+#special-sponsor span {
+  color: var(--vt-c-text-2);
+  font-weight: 500;
+  font-size: 13px;
+  vertical-align: middle;
+  margin: 0 24px;
+}
+
+#special-sponsor img {
+  display: inline-block;
+  vertical-align: middle;
+  height: 36px;
+}
+
+.dark #special-sponsor img {
+  filter: grayscale(1) invert(1);
+}
+
+#highlights {
+  max-width: 960px;
+  margin: 0px auto;
+}
+
+#highlights h3 {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.4px;
+  color: var(--vt-c-text-1);
+  margin-bottom: 0.8em;
+}
+
+#highlights p {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .tagline {
+    font-size: 48px;
+    letter-spacing: -0.5px;
+  }
+  .description {
+    font-size: 18px;
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 42px 32px;
+  }
+  .tagline {
+    font-size: 36px;
+  }
+  .description {
+    font-size: 16px;
+    margin: 18px 0 24px;
+  }
+  #special-sponsor img {
+    display: block;
+    margin: 2px auto 1px;
+  }
+  #highlights h3 {
+    font-size: 18px;
+  }
+}
