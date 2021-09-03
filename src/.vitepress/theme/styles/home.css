@@ -1,8 +1,9 @@
 section {
-  padding: 56px 32px;
+  padding: 48px 32px;
 }
 
 #hero {
+  padding: 72px 32px 64px;
   text-align: center;
 }
 
@@ -98,12 +99,17 @@ section {
   font-size: 20px;
   letter-spacing: -0.4px;
   color: var(--vt-c-text-1);
-  margin-bottom: 0.8em;
+  transition: color 0.5s;
+  margin-bottom: 0.75em;
 }
 
 #highlights p {
   font-weight: 400;
   font-size: 15px;
+}
+
+#highlights .vt-box {
+  background-color: transparent;
 }
 
 @media (max-width: 768px) {
@@ -134,5 +140,8 @@ section {
   }
   #highlights h3 {
     font-size: 18px;
+  }
+  #highlights .vt-box {
+    padding: 20px 36px;
   }
 }
