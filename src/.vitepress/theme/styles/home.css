@@ -34,7 +34,11 @@ section {
 .actions .get-started {
   font-weight: 600;
   background-color: var(--vt-c-green);
-  color: var(--vt-c-text-inverse-1);
+  color: #fff;
+}
+
+.dark .actions .get-started {
+  color: var(--vt-c-indigo);
 }
 
 .actions .get-started:hover {
