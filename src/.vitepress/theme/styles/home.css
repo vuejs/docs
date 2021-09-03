@@ -1,9 +1,9 @@
 section {
-  padding: 48px 32px;
+  padding: 42px 32px;
 }
 
 #hero {
-  padding: 72px 32px 64px;
+  padding: 64px 32px;
   text-align: center;
 }
 
@@ -12,6 +12,15 @@ section {
   line-height: 1.25;
   font-weight: 900;
   letter-spacing: -1.5px;
+  max-width: 680px;
+  margin: 0px auto;
+}
+
+.dark .tagline {
+  /* color: var(--vt-c-green-light); */
+  background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .description {
@@ -124,11 +133,8 @@ section {
 }
 
 @media (max-width: 576px) {
-  section {
-    padding: 42px 32px;
-  }
   .tagline {
-    font-size: 36px;
+    font-size: 38px;
   }
   .description {
     font-size: 16px;
@@ -139,9 +145,15 @@ section {
     margin: 2px auto 1px;
   }
   #highlights h3 {
-    font-size: 18px;
+    margin-bottom: 0.6em;
   }
   #highlights .vt-box {
     padding: 20px 36px;
+  }
+}
+
+@media (max-width: 370px) {
+  .tagline {
+    font-size: 36px;
   }
 }

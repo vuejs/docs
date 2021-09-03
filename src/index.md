@@ -30,7 +30,7 @@ head:
 <section id="highlights" class="vt-box-container">
   <div class="vt-box">
     <h3>Approachable</h3>
-    <p>Builds on top of standard HTML, CSS and JavaScript with beginner-friendly API and documentation.</p>
+    <p>Builds on top of standard HTML, CSS and JavaScript with intuitive API and world-class documentation.</p>
   </div>
   <div class="vt-box">
     <h3>Performant</h3>
