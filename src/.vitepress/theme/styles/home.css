@@ -101,6 +101,7 @@ section {
 #highlights {
   max-width: 960px;
   margin: 0px auto;
+  color: var(--vt-c-text-2);
 }
 
 #highlights h3 {

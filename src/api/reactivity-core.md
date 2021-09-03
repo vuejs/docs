@@ -1,6 +1,6 @@
 # Reactivity API: Core
 
-## ref
+## ref()
 
 Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property `.value` that points to the inner value.
 
@@ -43,7 +43,7 @@ function useState<State extends string>(initial: State) {
 }
 ```
 
-## computed
+## computed()
 
 Takes a getter function and returns an immutable reactive [ref](#ref) object for the returned value from the getter.
 
@@ -102,7 +102,7 @@ interface DebuggerEvent {
 }
 ```
 
-## reactive
+## reactive()
 
 Returns a reactive copy of the object.
 
@@ -156,7 +156,7 @@ console.log(obj.count === count.value) // true
 
 :::
 
-## readonly
+## readonly()
 
 Takes an object (reactive or plain) or a [ref](#ref) and returns a readonly proxy to the original. A readonly proxy is deep: any nested property accessed will be readonly as well.
 
@@ -190,7 +190,7 @@ console.log(raw.count.value) // 123
 console.log(copy.count) // 123
 ```
 
-## watchEffect
+## watchEffect()
 
 Runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
 
@@ -234,15 +234,15 @@ type StopHandle = () => void
 
 **See also**: [`watchEffect` guide](../guide/watchers.html#watcheffect)
 
-## watchPostEffect
+## watchPostEffect()
 
 Alias of `watchEffect` with `flush: 'post'` option.
 
-## watchSyncEffect
+## watchSyncEffect()
 
 Alias of `watchEffect` with `flush: 'sync'` option.
 
-## watch
+## watch()
 
 The `watch` API is the exact equivalent of the Options API [this.\$watch](./component-instance.html#watch) (and the corresponding [watch](./options-state.html#watch) option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
 

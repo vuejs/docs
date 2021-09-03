@@ -1,15 +1,15 @@
 # Render Function APIs
 
-## h
+## h()
 
-## mergeProps
+## mergeProps()
 
-## cloneVNode
+## cloneVNode()
 
-## isVNode
+## isVNode()
 
-## resolveComponent
+## resolveComponent()
 
-## resolveDirective
+## resolveDirective()
 
-## withDirectives
+## withDirectives()

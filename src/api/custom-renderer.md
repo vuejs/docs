@@ -1,1 +1,3 @@
 # Custom Renderer API
+
+## createRenderer()

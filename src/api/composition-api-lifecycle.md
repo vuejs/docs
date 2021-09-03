@@ -1,25 +1,25 @@
 # Composition API: Lifecycle Hooks
 
-## onMounted
+## onMounted()
 
-## onUpdated
+## onUpdated()
 
-## onUnmounted
+## onUnmounted()
 
-## onBeforeMounted
+## onBeforeMounted()
 
-## onBeforeUpdated
+## onBeforeUpdated()
 
-## onBeforeUnmounted
+## onBeforeUnmounted()
 
-## onErrorCaptured
+## onErrorCaptured()
 
-## onRenderTracked
+## onRenderTracked()
 
-## onRenderTriggered
+## onRenderTriggered()
 
-## onActivated
+## onActivated()
 
-## onDeactivated
+## onDeactivated()
 
-## onServerPrefetch
+## onServerPrefetch()

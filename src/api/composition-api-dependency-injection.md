@@ -1,6 +1,6 @@
 # Composition API:<br>Dependency Injection
 
-## provide / inject
+## provide()
 
 `provide` and `inject` enables dependency injection. Both can only be called during [`setup()`](#setup) with a current active instance.
 
@@ -43,3 +43,5 @@
 
 - **See also**:
   - [Provide / Inject](../guide/component-provide-inject.html)
+
+## inject()

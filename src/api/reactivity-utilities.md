@@ -1,19 +1,19 @@
 # Reactivity API: Utilities
 
-## isRef
+## isRef()
 
-## unref
+## unref()
 
-## toRef
+## toRef()
 
-## toRefs
+## toRefs()
 
-## isProxy
+## isProxy()
 
-## isReactive
+## isReactive()
 
-## isReadonly
+## isReadonly()
 
-## toRaw
+## toRaw()
 
-## markRaw
+## markRaw()

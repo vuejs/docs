@@ -1,16 +1,16 @@
 # Reactivity API: Advanced
 
-## shallowRef
+## shallowRef()
 
-## triggerRef
+## triggerRef()
 
-## shallowReactive
+## shallowReactive()
 
-## shallowReadonly
+## shallowReadonly()
 
-## customRef
+## customRef()
 
-## effectScope
+## effectScope()
 
 Creates an effect scope object which can capture the reactive effects (e.g. computed and watchers) created within it so that these effects can be disposed together. For detailed use cases of this API, please consult its corresponding [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0041-reactivity-effect-scope.md).
 
@@ -42,7 +42,7 @@ scope.run(() => {
 scope.stop()
 ```
 
-## getCurrentScope
+## getCurrentScope()
 
 Returns the current active [effect scope](#effectscope) if there is one.
 
@@ -52,7 +52,7 @@ Returns the current active [effect scope](#effectscope) if there is one.
 function getCurrentScope(): EffectScope | undefined
 ```
 
-## onScopeDispose
+## onScopeDispose()
 
 Registers a dispose callback on the current active [effect scope](#effectscope). The callback will be invoked when the associated effect scope is stopped.
 

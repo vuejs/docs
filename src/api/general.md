@@ -1,9 +1,9 @@
 # Global API: General
 
-## nextTick
+## nextTick()
 
-## defineComponent
+## defineComponent()
 
-## defineAsyncComponent
+## defineAsyncComponent()
 
-## defineCustomElement
+## defineCustomElement()

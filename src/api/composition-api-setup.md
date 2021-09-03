@@ -1,3 +1,3 @@
 # Composition API: setup()
 
-## setup()
+## setup

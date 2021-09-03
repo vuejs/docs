@@ -151,7 +151,7 @@ Contains parent-scope attribute bindings and events that are not recognized (and
   - [Non-Prop Attributes](../guide/component-attrs.html)
   - [Options / Misc - inheritAttrs](./options-misc.html#inheritattrs)
 
-## $watch
+## $watch()
 
 - **Arguments:**
 
@@ -346,7 +346,7 @@ Contains parent-scope attribute bindings and events that are not recognized (and
 
 - **See also:** [Watchers](../guide/watchers.html)
 
-## $emit
+## $emit()
 
 - **Arguments:**
 
@@ -427,13 +427,13 @@ Contains parent-scope attribute bindings and events that are not recognized (and
   - [`emits` option](./options-state.html#emits)
   - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
 
-## $forceUpdate
+## $forceUpdate()
 
 - **Usage:**
 
   Force the component instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
 
-## $nextTick
+## $nextTick()
 
 - **Arguments:**
 

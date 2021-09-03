@@ -1,6 +1,6 @@
 # Application API
 
-## createApp
+## createApp()
 
 In Vue 3, APIs that globally mutate Vue's behavior are now moved to application instances created by the new `createApp` method. In addition, their effects are now scoped to that specific application's instance:
 
@@ -14,7 +14,113 @@ Calling `createApp` returns an application instance. This instance provides an a
 
 In addition, since the `createApp` method returns the application instance itself, you can chain other methods after it which can be found in the following sections.
 
-## app.component
+## app.mount()
+
+- **Arguments:**
+
+  - `{Element | string} rootContainer`
+  - `{boolean} isHydrate (optional)`
+
+- **Returns:**
+
+  - The root component instance
+
+- **Usage:**
+
+  The `innerHTML` of the provided DOM element will be replaced with the rendered template of the application root component.
+
+- **Example:**
+
+```vue-html
+<body>
+  <div id="my-app"></div>
+</body>
+```
+
+```js
+import { createApp } from 'vue'
+
+const app = createApp({})
+// do some necessary preparations
+app.mount('#my-app')
+```
+
+- **See also:**
+  - [Lifecycle Diagram](/)
+
+## app.unmount()
+
+- **Usage:**
+
+  Unmounts a root component of the application instance.
+
+- **Example:**
+
+```vue-html
+<body>
+  <div id="my-app"></div>
+</body>
+```
+
+```js
+import { createApp } from 'vue'
+
+const app = createApp({})
+// do some necessary preparations
+app.mount('#my-app')
+
+// Application will be unmounted 5 seconds after mount
+setTimeout(() => app.unmount(), 5000)
+```
+
+## app.provide()
+
+- **Arguments:**
+
+  - `{string | Symbol} key`
+  - `value`
+
+- **Returns:**
+
+  - The application instance
+
+- **Usage:**
+
+  Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
+
+  From a `provide`/`inject` perspective, the application can be thought of as the root-level ancestor, with the root component as its only child.
+
+  This method should not be confused with the [provide component option](/) or the [provide function](/) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application.
+
+  Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](/).
+
+  :::tip Note
+  The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+  :::
+
+- **Example:**
+
+  Injecting a property into the root component, with a value provided by the application:
+
+```js
+import { createApp } from 'vue'
+
+const app = createApp({
+  inject: ['user'],
+  template: `
+    <div>
+      {{ user }}
+    </div>
+  `
+})
+
+app.provide('user', 'administrator')
+```
+
+- **See also:**
+  - [Provide / Inject](/)
+
+## app.component()
 
 - **Arguments:**
 
@@ -48,23 +154,7 @@ const MyComponent = app.component('my-component')
 
 - **See also:** [Components](/)
 
-## app.config
-
-- **Usage:**
-
-  An object containing application configurations.
-
-- **Example:**
-
-```js
-import { createApp } from 'vue'
-const app = createApp({})
-
-app.config = {...}
-```
-
-- **See also:** [Application Config](/)
-## app.directive
+## app.directive()
 
 - **Arguments:**
 
@@ -162,125 +252,8 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 :::
 
 - **See also:** [Custom Directives](/)
-## app.mixin
 
-- **Arguments:**
-
-  - `{Object} mixin`
-
-- **Returns:**
-
-  - The application instance
-
-- **Usage:**
-
-  Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
-
-- **See also:** [Global Mixin](/)
-## app.mount
-
-- **Arguments:**
-
-  - `{Element | string} rootContainer`
-  - `{boolean} isHydrate (optional)`
-
-- **Returns:**
-
-  - The root component instance
-
-- **Usage:**
-
-  The `innerHTML` of the provided DOM element will be replaced with the rendered template of the application root component.
-
-- **Example:**
-
-```vue-html
-<body>
-  <div id="my-app"></div>
-</body>
-```
-
-```js
-import { createApp } from 'vue'
-
-const app = createApp({})
-// do some necessary preparations
-app.mount('#my-app')
-```
-
-- **See also:**
-  - [Lifecycle Diagram](/)
-## app.provide
-
-- **Arguments:**
-
-  - `{string | Symbol} key`
-  - `value`
-
-- **Returns:**
-
-  - The application instance
-
-- **Usage:**
-
-  Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
-
-  From a `provide`/`inject` perspective, the application can be thought of as the root-level ancestor, with the root component as its only child.
-
-  This method should not be confused with the [provide component option](/) or the [provide function](/) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application.
-
-  Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](/).
-
-  :::tip Note
-  The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
-  :::
-
-- **Example:**
-
-  Injecting a property into the root component, with a value provided by the application:
-
-```js
-import { createApp } from 'vue'
-
-const app = createApp({
-  inject: ['user'],
-  template: `
-    <div>
-      {{ user }}
-    </div>
-  `
-})
-
-app.provide('user', 'administrator')
-```
-
-- **See also:**
-  - [Provide / Inject](/)
-## app.unmount
-
-- **Usage:**
-
-  Unmounts a root component of the application instance.
-
-- **Example:**
-
-```vue-html
-<body>
-  <div id="my-app"></div>
-</body>
-```
-
-```js
-import { createApp } from 'vue'
-
-const app = createApp({})
-// do some necessary preparations
-app.mount('#my-app')
-
-// Application will be unmounted 5 seconds after mount
-setTimeout(() => app.unmount(), 5000)
-```
-## app.use
+## app.use()
 
 - **Arguments:**
 
@@ -312,6 +285,23 @@ setTimeout(() => app.unmount(), 5000)
   ```
 
 - **See also:** [Plugins](/)
+
+## app.mixin()
+
+- **Arguments:**
+
+  - `{Object} mixin`
+
+- **Returns:**
+
+  - The application instance
+
+- **Usage:**
+
+  Apply a mixin in the whole application scope. Once registered they can be used in the template of any component within the current application. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+
+- **See also:** [Global Mixin](/)
+
 ## app.version
 
 - **Usage:**
@@ -415,7 +405,7 @@ const app = createApp({})
 app.config.globalProperties.$http = () => {}
 ```
 
-## app.config.optionMergeStrategies and this is a really long FSEFSEf
+## app.config.optionMergeStrategies
 
 - **Type:** `{ [key: string]: Function }`
 

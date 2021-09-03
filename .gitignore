@@ -102,3 +102,4 @@ dist/
 tmp/
 temp/
 TODOs.md
+src/api/index.json

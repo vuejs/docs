@@ -70,7 +70,7 @@ Additional custom blocks can be included in a `*.vue` file for any project-speci
 
 Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see [SFC Tooling](/api/sfc-tooling.html#custom-blocks-integration) for more details.
 
-## Automatic `name` Inference
+## Automatic Name Inference
 
 An SFC automatically infers the component's name from its **filename** in the following cases:
 

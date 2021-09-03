@@ -1,65 +1,6 @@
 # Options: Composition
 
-## mixins
-
-- **Type:** `Array<Object>`
-
-- **Details:**
-
-  The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the certain option merging logic. For example, if your mixin contains a `created` hook and the component itself also has one, both functions will be called.
-
-  Mixin hooks are called in the order they are provided, and called before the component's own hooks.
-
-  :::info
-  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, the [Composition API](/guide/composition-api-faq.html) is now the preferred approach for code reuse between components.
-  :::
-
-- **Example:**
-
-  ```js
-  const mixin = {
-    created() {
-      console.log(1)
-    }
-  }
-
-  createApp({
-    created() {
-      console.log(2)
-    },
-    mixins: [mixin]
-  })
-
-  // => 1
-  // => 2
-  ```
-
-## extends
-
-- **Type:** `Object`
-
-- **Details:**
-
-  Allows one component to extend another, inheriting its component options.
-
-  From an implementation perspective, `extends` is almost identical to `mixins`. The component specified by `extends` will be treated as though it were the first mixin.
-
-  However, `extends` and `mixins` express different intents. The `mixins` option is primarily used to compose chunks of functionality, whereas `extends` is primarily concerned with inheritance.
-
-  As with `mixins`, any options will be merged using the relevant merge strategy.
-
-- **Example:**
-
-  ```js
-  const CompA = { ... }
-
-  const CompB = {
-    extends: CompA,
-    ...
-  }
-  ```
-
-## provide / inject
+## provide
 
 - **Type:**
 
@@ -188,3 +129,64 @@
   ```
 
 - **See also:** [Provide / Inject](../guide/component-provide-inject.html)
+
+## inject
+
+## mixins
+
+- **Type:** `Array<Object>`
+
+- **Details:**
+
+  The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the certain option merging logic. For example, if your mixin contains a `created` hook and the component itself also has one, both functions will be called.
+
+  Mixin hooks are called in the order they are provided, and called before the component's own hooks.
+
+  :::info
+  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, the [Composition API](/guide/composition-api-faq.html) is now the preferred approach for code reuse between components.
+  :::
+
+- **Example:**
+
+  ```js
+  const mixin = {
+    created() {
+      console.log(1)
+    }
+  }
+
+  createApp({
+    created() {
+      console.log(2)
+    },
+    mixins: [mixin]
+  })
+
+  // => 1
+  // => 2
+  ```
+
+## extends
+
+- **Type:** `Object`
+
+- **Details:**
+
+  Allows one component to extend another, inheriting its component options.
+
+  From an implementation perspective, `extends` is almost identical to `mixins`. The component specified by `extends` will be treated as though it were the first mixin.
+
+  However, `extends` and `mixins` express different intents. The `mixins` option is primarily used to compose chunks of functionality, whereas `extends` is primarily concerned with inheritance.
+
+  As with `mixins`, any options will be merged using the relevant merge strategy.
+
+- **Example:**
+
+  ```js
+  const CompA = { ... }
+
+  const CompB = {
+    extends: CompA,
+    ...
+  }
+  ```

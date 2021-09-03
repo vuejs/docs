@@ -1,6 +1,6 @@
 # Single File Components:<br>\<style\> Features
 
-## `<style scoped>`
+## Scoped CSS
 
 When a `<style>` tag has the `scoped` attribute, its CSS will apply to elements of the current component only. This is similar to the style encapsulation found in Shadow DOM. It comes with some caveats, but doesn't require any polyfills. It is achieved by using PostCSS to transform the following:
 
@@ -102,7 +102,7 @@ You can also include both scoped and non-scoped styles in the same component:
 
 - **Be careful with descendant selectors in recursive components!** For a CSS rule with the selector `.a .b`, if the element that matches `.a` contains a recursive child component, then all `.b` in that child component will be matched by the rule.
 
-## `<style module>`
+## CSS Modules
 
 A `<style module>` tag is compiled as [CSS Modules](https://github.com/css-modules/css-modules) and exposes the resulting CSS classes to the component as an object under the key of `$style`:
 
@@ -153,7 +153,7 @@ useCssModule()
 useCssModule('classes')
 ```
 
-## State-Driven Dynamic CSS
+## `v-bind()` in CSS
 
 SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function:
 
