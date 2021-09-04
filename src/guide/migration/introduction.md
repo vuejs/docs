@@ -166,7 +166,7 @@ We are working on a new version of the Devtools with a new UI and refactored int
 
 ### IDE Support
 
-It is recommended to use [VSCode](https://code.visualstudio.com/) with our official extension [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), which provides comprehensive IDE support for Vue 3.
+It is recommended to use [VSCode](https://code.visualstudio.com/) with our official extension [Volar](https://github.com/johnsoncodehk/volar), which provides comprehensive IDE support for Vue 3.
 
 ### Other Projects
 
