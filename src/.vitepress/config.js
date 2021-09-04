@@ -106,28 +106,34 @@ const sidebar = {
       items: [
         {
           text: 'Creating an Application',
-          link: '/guide/application'
+          link: '/guide/essentials/application'
         },
         {
           text: 'Template Syntax',
-          link: '/guide/template-syntax'
+          link: '/guide/essentials/template-syntax'
         },
         {
           text: 'State and Reactivity',
-          link: '/guide/state-and-reactivity'
+          link: '/guide/essentials/state-and-reactivity'
         },
-        { text: 'Computed Properties', link: '/guide/computed' },
-        { text: 'Watchers and Effects', link: '/guide/watchers' },
+        { text: 'Computed Properties', link: '/guide/essentials/computed' },
+        { text: 'Watchers and Effects', link: '/guide/essentials/watchers' },
         {
           text: 'Class and Style Bindings',
-          link: '/guide/class-and-style'
+          link: '/guide/essentials/class-and-style'
         },
-        { text: 'Conditional Rendering', link: '/guide/conditional' },
-        { text: 'List Rendering', link: '/guide/list' },
-        { text: 'Event Handling', link: '/guide/events' },
-        { text: 'Form Input Bindings', link: '/guide/forms' },
-        { text: 'Components Basics', link: '/guide/component-basics' },
-        { text: 'Template Refs', link: '/guide/template-refs' }
+        {
+          text: 'Conditional Rendering',
+          link: '/guide/essentials/conditional'
+        },
+        { text: 'List Rendering', link: '/guide/essentials/list' },
+        { text: 'Event Handling', link: '/guide/essentials/event-handling' },
+        { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
+        {
+          text: 'Components Basics',
+          link: '/guide/essentials/component-basics'
+        },
+        { text: 'Template Refs', link: '/guide/essentials/template-refs' }
       ]
     },
     {
@@ -135,23 +141,23 @@ const sidebar = {
       items: [
         {
           text: 'Registration',
-          link: '/guide/component-registration'
+          link: '/guide/components/registration'
         },
         {
           text: 'Lifecycle',
-          link: '/guide/component-lifecycle'
+          link: '/guide/components/lifecycle'
         },
-        { text: 'Props', link: '/guide/component-props' },
-        { text: 'Non-Prop Attributes', link: '/guide/component-attrs' },
-        { text: 'Custom Events', link: '/guide/component-custom-events' },
-        { text: 'Slots', link: '/guide/component-slots' },
+        { text: 'Props', link: '/guide/components/props' },
+        { text: 'Non-Prop Attributes', link: '/guide/components/attrs' },
+        { text: 'Events', link: '/guide/components/events' },
+        { text: 'Slots', link: '/guide/components/slots' },
         {
           text: 'Provide / inject',
-          link: '/guide/component-provide-inject'
+          link: '/guide/components/provide-inject'
         },
         {
           text: 'Async Components',
-          link: '/guide/component-async'
+          link: '/guide/components/async'
         }
       ]
     },
@@ -160,80 +166,91 @@ const sidebar = {
       items: [
         {
           text: 'Composables',
-          link: '/guide/composables'
+          link: '/guide/reusability/composables'
         },
-        { text: 'Custom Directives', link: '/guide/custom-directive' },
-        { text: 'Plugins', link: '/guide/plugins' }
+        {
+          text: 'Custom Directives',
+          link: '/guide/reusability/custom-directives'
+        },
+        { text: 'Plugins', link: '/guide/reusability/plugins' }
       ]
     },
     {
       text: 'Built-in Components',
       items: [
-        { text: 'Transition', link: '/guide/transition' },
-        { text: 'TransitionGroup', link: '/guide/transition-group' },
-        { text: 'KeepAlive', link: '/guide/keep-alive' },
-        { text: 'Teleport', link: '/guide/teleport' },
-        { text: 'Suspense', link: '/guide/suspense' }
+        { text: 'Transition', link: '/guide/built-ins/transition' },
+        { text: 'TransitionGroup', link: '/guide/built-ins/transition-group' },
+        { text: 'KeepAlive', link: '/guide/built-ins/keep-alive' },
+        { text: 'Teleport', link: '/guide/built-ins/teleport' },
+        { text: 'Suspense', link: '/guide/built-ins/suspense' }
       ]
     },
     {
       text: 'Scaling Up',
       items: [
-        { text: 'TypeScript', link: '/guide/typescript' },
-        { text: 'Routing', link: '/guide/routing' },
-        { text: 'State Management', link: '/guide/state-management' },
-        { text: 'Testing', link: '/guide/testing' },
+        { text: 'TypeScript', link: '/guide/scaling-up/typescript' },
+        { text: 'Routing', link: '/guide/scaling-up/routing' },
         {
-          text: 'Performance Optimization',
-          link: '/guide/performance-optimization'
+          text: 'State Management',
+          link: '/guide/scaling-up/state-management'
         },
+        { text: 'Testing', link: '/guide/scaling-up/testing' }
+      ]
+    },
+    {
+      text: 'Best Practices',
+      items: [
         {
           text: 'Production Deployment',
-          link: '/guide/production-deployment'
+          link: '/guide/best-practices/production-deployment'
+        },
+        {
+          text: 'Performance',
+          link: '/guide/best-practices/performance'
+        },
+        {
+          text: 'Security',
+          link: '/guide/best-practices/security'
+        },
+        {
+          text: 'Accessibility',
+          link: '/guide/best-practices/accessibility'
         }
       ]
     },
     {
       text: 'Advanced Topics',
       items: [
-        { text: 'The Big Picture', link: '/guide/the-big-picture' },
+        { text: 'The Big Picture', link: '/guide/advanced/the-big-picture' },
         {
           text: 'Reactivity in Depth',
-          link: '/guide/reactivity-in-depth'
+          link: '/guide/advanced/reactivity-in-depth'
         },
         {
           text: 'Rendering Mechanism',
-          link: '/guide/rendering-mechanism'
+          link: '/guide/advanced/rendering-mechanism'
         },
         {
           text: 'Render Functions & JSX',
-          link: '/guide/render-fn-and-jsx'
+          link: '/guide/advanced/render-function'
         },
-        { text: 'Server-Side Rendering', link: '/guide/ssr' },
-        { text: 'Custom Renderers', link: '/guide/custom-renderer' },
-        {
-          text: 'Security',
-          link: '/guide/security'
-        },
-        {
-          text: 'Accessibility',
-          link: '/guide/a11y'
-        },
+        { text: 'Server-Side Rendering', link: '/guide/advanced/server-side-rendering' },
+        { text: 'Custom Renderers', link: '/guide/advanced/custom-renderer' },
         {
           text: 'Web Components',
-          link: '/guide/web-components'
+          link: '/guide/advanced/web-components'
         },
         {
           text: 'Building a Library for Vue',
-          link: '/guide/building-a-library'
+          link: '/guide/advanced/building-a-library'
         },
         {
           text: 'Advanced Animations',
-          link: '/guide/animation'
+          link: '/guide/advanced/animation'
         }
         // {
         //   text: 'Vue for React Devs',
-        //   link: '/guide/vue-for-react-devs'
+        //   link: '/guide/advanced/vue-for-react-devs'
         // }
       ]
     }

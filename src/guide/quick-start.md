@@ -34,7 +34,7 @@ Vue can be used without a build step in progressive enhancement or relatively si
 The above example uses a browser feature called [Import Maps](https://caniuse.com/import-maps) so that we can use the short `'vue'` import specifier across all code samples in the documentation. Import Maps is currently only available in Chromium-based browsers - if your preferred browser does not support it yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
 
 :::tip For learning only
-The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in in production, make sure to check out the [Production Deployment Guide](/guide/production-deployment.html#without-build-tools).
+The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
 
 ## With Build Tools
@@ -82,8 +82,8 @@ $ npm run dev
 
 You should now have your first Vue project running!
 
-- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev/guide/).
-- If you chose to use TypeScript, check out the dedicated section on [TypeScript Support](/guide/typescript.html).
+- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
+- If you chose to use TypeScript, check out the dedicated section on [TypeScript Support](scaling-up/typescript.html).
 - More tooling details are discussed in [SFC tooling](/api/sfc-tooling.html).
 
 ## IDE Setup
@@ -115,7 +115,7 @@ If you skipped the [Introduction](/guide/introduction), we strongly recommend re
     <p class="next-steps-link">Follow the Tutorial</p>
     <p class="next-steps-caption">For those who prefer learning things hands-on. Let's build something real!</p>
   </a>
-  <a class="vt-box" href="/guide/application.html">
+  <a class="vt-box" href="/guide/essentials/application.html">
     <p class="next-steps-link">Continue the Guide</p>
     <p class="next-steps-caption">Learn the core concepts step by step, with all the little details.</p>
   </a>

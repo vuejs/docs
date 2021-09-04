@@ -6,7 +6,7 @@
 
 - **Details:**
 
-  Updates the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent). If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/template-syntax.html#text) instead
+  Updates the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent). If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax.html#text) instead
 
 - **Example:**
 
@@ -16,7 +16,7 @@
   <span>{{msg}}</span>
   ```
 
-- **See also:** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#text)
+- **See also:** [Data Binding Syntax - Interpolations](/guide/essentials/template-syntax.html#text)
 
 ## v-html
 
@@ -38,7 +38,7 @@
   <div v-html="html"></div>
   ```
 
-- **See also:** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#raw-html)
+- **See also:** [Data Binding Syntax - Interpolations](/guide/essentials/template-syntax.html#raw-html)
 
 ## v-show
 
@@ -50,7 +50,7 @@
 
   This directive triggers transitions when its condition changes.
 
-- **See also:** [Conditional Rendering - v-show](../guide/conditional.html#v-show)
+- **See also:** [Conditional Rendering - v-show](/guide/essentials/conditional.html#v-show)
 
 ## v-if
 
@@ -62,9 +62,9 @@
 
   This directive triggers transitions when its condition changes.
 
-  When used together, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element — see the [list rendering guide](../guide/list.html#v-for-with-v-if) for details.
+  When used together, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element — see the [list rendering guide](/guide/essentials/list.html#v-for-with-v-if) for details.
 
-- **See also:** [Conditional Rendering - v-if](../guide/conditional.html#v-if)
+- **See also:** [Conditional Rendering - v-if](/guide/essentials/conditional.html#v-if)
 
 ## v-else
 
@@ -85,7 +85,7 @@
   </div>
   ```
 
-- **See also:** [Conditional Rendering - v-else](../guide/conditional.html#v-else)
+- **See also:** [Conditional Rendering - v-else](/guide/essentials/conditional.html#v-else)
 
 ## v-else-if
 
@@ -112,7 +112,7 @@
   </div>
   ```
 
-- **See also:** [Conditional Rendering - v-else-if](../guide/conditional.html#v-else-if)
+- **See also:** [Conditional Rendering - v-else-if](/guide/essentials/conditional.html#v-else-if)
 
 ## v-for
 
@@ -149,7 +149,7 @@
   The detailed usage for `v-for` is explained in the guide section linked below.
 
 - **See also:**
-  - [List Rendering](../guide/list.html)
+  - [List Rendering](/guide/essentials/list.html)
 
 ## v-on
 
@@ -232,8 +232,8 @@
   ```
 
 - **See also:**
-  - [Event Handling](../guide/events.html)
-  - [Components - Custom Events](../guide/component-basics.html#listening-to-child-components-events)
+  - [Event Handling](/guide/essentials/event-handling.html)
+  - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-child-components-events)
 
 ## v-bind
 
@@ -299,7 +299,7 @@
   <svg><a :xlink:special="foo"></a></svg>
   ```
 
-  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/web-components.html#passing-dom-properties).
+  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/advanced/web-components.html#passing-dom-properties).
 
   The `.prop` modifier also has a dedicated shorthand, `.`:
 
@@ -319,8 +319,8 @@
   `.camel` is not needed if you are using string templates, or compiling with `vue-loader`/`vueify`.
 
 - **See also:**
-  - [Class and Style Bindings](../guide/class-and-style.html)
-  - [Components - Props](../guide/component-basics.html#passing-data-to-child-components-with-props)
+  - [Class and Style Bindings](/guide/essentials/class-and-style.html)
+  - [Components - Props](/guide/essentials/component-basics.html#passing-data-to-child-components-with-props)
 
 ## v-model
 
@@ -335,30 +335,30 @@
 
 - **Modifiers:**
 
-  - [`.lazy`](../guide/forms.html#lazy) - listen to `change` events instead of `input`
-  - [`.number`](../guide/forms.html#number) - cast valid input string to numbers
-  - [`.trim`](../guide/forms.html#trim) - trim input
+  - [`.lazy`](/guide/essentials/forms.html#lazy) - listen to `change` events instead of `input`
+  - [`.number`](/guide/essentials/forms.html#number) - cast valid input string to numbers
+  - [`.trim`](/guide/essentials/forms.html#trim) - trim input
 
 - **Usage:**
 
   Create a two-way binding on a form input element or a component. For detailed usage and other notes, see the Guide section linked below.
 
 - **See also:**
-  - [Form Input Bindings](../guide/forms.html)
-  - [Components - Form Input Components using Custom Events](../guide/component-custom-events.html#v-model-arguments)
+  - [Form Input Bindings](/guide/essentials/forms.html)
+  - [Components - Form Input Components using Custom Events](..](components/events.html#v-model-arguments)
 
 ## v-slot
 
 - **Shorthand:** `#`
 
-- **Expects:** JavaScript expression that is valid in a function argument position (supports destructuring in [supported environments](../guide/component-slots.html#destructuring-slot-props)). Optional - only needed if expecting props to be passed to the slot.
+- **Expects:** JavaScript expression that is valid in a function argument position (supports destructuring in [supported environments](/guide/components/slots.html#destructuring-slot-props)). Optional - only needed if expecting props to be passed to the slot.
 
 - **Argument:** slot name (optional, defaults to `default`)
 
 - **Limited to:**
 
   - `<template>`
-  - [components](../guide/component-slots.html#abbreviated-syntax-for-lone-default-slots) (for a lone default slot with props)
+  - [components](/guide/components/slots.html#abbreviated-syntax-for-lone-default-slots) (for a lone default slot with props)
 
 - **Usage:**
 
@@ -400,7 +400,7 @@
   For more details, see the links below.
 
 - **See also:**
-  - [Components - Slots](../guide/component-slots.html)
+  - [Components - Slots](/guide/components/slots.html)
 
 ## v-pre
 
@@ -467,7 +467,7 @@
   Since 3.2, you can also memoize part of the template with invalidation conditions using [`v-memo`](#v-memo).
 
 - **See also:**
-  - [Data Binding Syntax - interpolations](../guide/template-syntax.html#text)
+  - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text)
   - [v-memo](#v-memo)
 
 ## v-memo <Badge text="3.2+"/>

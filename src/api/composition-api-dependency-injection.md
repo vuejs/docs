@@ -42,6 +42,6 @@
   ```
 
 - **See also**:
-  - [Provide / Inject](../guide/component-provide-inject.html)
+  - [Provide / Inject](/guide/components/provide-inject.html)
 
 ## inject()

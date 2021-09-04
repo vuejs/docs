@@ -62,7 +62,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   Registration is not required if you pass the component itself to `is` rather than its name.
 
-- **See also:** [Dynamic Components](/guide/component-basics.html#dynamic-components)
+- **See also:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
 
 ## transition
 
@@ -136,7 +136,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   app.mount('#transition-demo')
   ```
 
-- **See also:** [Enter & Leave Transitions](/guide/transitions-enterleave.html#transitioning-single-elements-components)
+- **See also:** [Enter & Leave Transitions](/guide/built-ins/transitions-enterleave.html#transitioning-single-elements-components)
 
 ## transition-group
 
@@ -166,7 +166,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   </transition-group>
   ```
 
-- **See also:** [List Transitions](/guide/transitions-list.html)
+- **See also:** [List Transitions](/guide/built-ins/transitions-list.html)
 
 ## keep-alive
 
@@ -243,7 +243,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   `<keep-alive>` does not work with functional components because they do not have instances to be cached.
   :::
 
-- **See also:** [`<KeepAlive/>`](../guide/keep-alive.html)
+- **See also:** [`<KeepAlive/>`](/guide/built-ins/keep-alive.html)
 
 ## slot
 
@@ -257,7 +257,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   For detailed usage, see the guide section linked below.
 
-- **See also:** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+- **See also:** [Content Distribution with Slots](/guide/essentials/component-basics.html#content-distribution-with-slots)
 
 ## teleport
 
@@ -286,4 +286,4 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
 
-- **See also:** [Teleport component](../guide/teleport.html#teleport)
+- **See also:** [Teleport component](/guide/built-ins/teleport.html#teleport)

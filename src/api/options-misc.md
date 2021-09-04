@@ -25,7 +25,7 @@
   })
   ```
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+- **See also:** [Custom Directives](/guide/reusability/custom-directives.html)
 
 ## components
 
@@ -50,7 +50,7 @@
   })
   ```
 
-- **See also:** [Components](../guide/component-basics.html)
+- **See also:** [Components](/guide/essentials/component-basics.html)
 
 ## name
 
@@ -92,7 +92,7 @@
   })
   ```
 
-- **See also:** [Disabling Attribute Inheritance](../guide/component-attrs.html#disabling-attribute-inheritance)
+- **See also:** [Disabling Attribute Inheritance](/guide/components/attrs.html#disabling-attribute-inheritance)
 
 ## compilerOptions <Badge text="3.1+" />
 

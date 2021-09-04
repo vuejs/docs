@@ -232,7 +232,7 @@ type InvalidateCbRegistrator = (invalidate: () => void) => void
 type StopHandle = () => void
 ```
 
-**See also**: [`watchEffect` guide](../guide/watchers.html#watcheffect)
+**See also**: [`watchEffect` guide](/guide/essentials/watchers.html#watcheffect)
 
 ## watchPostEffect()
 
@@ -325,4 +325,4 @@ interface WatchOptions extends WatchEffectOptions {
 }
 ```
 
-**See also**: [Watchers](../guide/watchers.html)
+**See also**: [Watchers](/guide/essentials/watchers.html)

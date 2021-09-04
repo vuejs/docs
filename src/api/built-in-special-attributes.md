@@ -50,13 +50,13 @@
 
   An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
-- **See also:** [Child Component Refs](../guide/template-refs.html)
+- **See also:** [Child Component Refs](/guide/essentials/template-refs.html)
 
 ## is
 
 - **Expects:** `string | Object (component’s options object)`
 
-  Used for [dynamic components](/guide/component-basics.html#dynamic-components).
+  Used for [dynamic components](/guide/essentials/component-basics.html#dynamic-components).
 
   For example:
 
@@ -69,7 +69,7 @@
 
   When the `is` attribute is used on a native HTML element, it will be interpreted as a [Customized built-in element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), which is a native web platform feature.
 
-  There is, however, a use case where you may need Vue to replace a native element with a Vue component, as explained in [DOM Template Parsing Caveats](/guide/component-basics.html#dom-template-parsing-caveats). You can prefix the value of the `is` attribute with `vue:` so that Vue will render the element as a Vue component instead:
+  There is, however, a use case where you may need Vue to replace a native element with a Vue component, as explained in [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats). You can prefix the value of the `is` attribute with `vue:` so that Vue will render the element as a Vue component instead:
 
   ```vue-html
   <table>
@@ -78,5 +78,5 @@
   ```
 
 - **See also:**
-  - [Dynamic Components](/guide/component-basics.html#dynamic-components)
+  - [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
   - [RFC explaining the change from Vue 2](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0027-custom-elements-interop.md#customized-built-in-elements)

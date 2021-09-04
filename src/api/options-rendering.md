@@ -19,7 +19,7 @@
   :::
 
 - **See also:**
-  - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+  - [Content Distribution with Slots](/guide/essentials/component-basics.html#content-distribution-with-slots)
 
 ## render
 
@@ -63,4 +63,4 @@
   The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element
   :::
 
-- **See also:** [Render Functions](../guide/render-function.html)
+- **See also:** [Render Functions](/guide/advanced/render-function.html)

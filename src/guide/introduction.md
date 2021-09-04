@@ -75,7 +75,7 @@ If you are a beginner and find these concepts intimidating, don't worry! The mai
 
 ### Fullstack / SSR
 
-Vue provides first-class APIs to render a Vue application into HTML on the server side so that the end user can see the content as soon as possible, without having to wait for the JavaScript to load and execute. Vue will then "hydrate" the application on the client side to make it interactive. This is called [Server-Side Rendering (SSR)](/guide/ssr) and is a necessary feature in cases where SEO and time-to-content are critical.
+Vue provides first-class APIs to render a Vue application into HTML on the server side so that the end user can see the content as soon as possible, without having to wait for the JavaScript to load and execute. Vue will then "hydrate" the application on the client side to make it interactive. This is called [Server-Side Rendering (SSR)](/guide/advanced/server-side-rendering) and is a necessary feature in cases where SEO and time-to-content are critical.
 
 There are higher-level Vue-based frameworks built on top of this paradigm, such as [NuxtJS](https://nuxtjs.org/), which allow you to develop a fullstack application using Vue and JavaScript.
 
@@ -199,7 +199,7 @@ The Options API is centered around the concept of a "component instance" (`this`
 
 The Composition API is centered around declaring reactive state variables directly in a function scope, and composing state from multiple functions together to handle complexity. It is more free-form, but the flexibility enables more powerful patterns for organizing and reusing logic.
 
-You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/composition-api-faq).
+You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/advanced/composition-api-faq).
 
 If you are new to Vue, here's our general recommendation:
 

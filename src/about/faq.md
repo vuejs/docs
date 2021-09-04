@@ -28,7 +28,7 @@ In stress-testing scenarios, Vue out-performs React and Angular by a decent marg
 
 If you care more about page load performance, here is the [Lighthouse audit](https://www.webpagetest.org/result/210818_BiDcYB_4a83d7a1f2a7f6fdc76db16a00b4882d/) generated via [WebPageTest](https://www.webpagetest.org/lighthouse) for a real world Vue-powered site with SSG pre-rendering, full page hydration and SPA client-side navigations. It scores 98 in performance on an emulated Moto G4 with 4x CPU throttling over 3G networks.
 
-You can learn more about how Vue automatically optimizes runtime performance in the [Rendering Mechanism](/guide/rendering-mechanism.html) section, and how to optimize a Vue app in particularly demanding cases in the [Performance Optimization Guide](/guide/performance-optimization.html).
+You can learn more about how Vue automatically optimizes runtime performance in the [Rendering Mechanism](/guide/advanced/rendering-mechanism.html) section, and how to optimize a Vue app in particularly demanding cases in the [Performance Optimization Guide](/guide/best-practices/performance.html).
 
 ## Is Vue lightweight?
 
@@ -46,9 +46,9 @@ Yes. Despite common misconception that Vue is only suitable for simple use cases
 
 - [Single File Components](/api/sfc-overview) provide a modularized development model that allows different parts of an application to be developed in isolation.
 
-- [Composition API](/guide/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
+- [Composition API](/guide/reusability/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
 
-- [Comprehensive tooling support](/ecosystem/official-projects) ensures a smooth development experience as the application grows.
+- Comprehensive tooling support ensures a smooth development experience as the application grows.
 
 - Lower barrier of entry and excellent documentation translate to lower onboarding and training cost for new developers.
 
@@ -64,7 +64,7 @@ Please refer to the [dedicated Vue 2 vs. Vue 3 FAQ](./v2-faq).
 
 If you are new to Vue, we provide a high-level comparison between the two styles [here](/guide/introduction.html#which-to-choose).
 
-If you have previously used Options API and are currently evaluating Composition API, check out [this FAQ](/guide/composition-api-faq).
+If you have previously used Options API and are currently evaluating Composition API, check out [this FAQ](/guide/advanced/composition-api-faq).
 
 ## Should I use JavaScript or TypeScript with Vue?
 
@@ -80,7 +80,7 @@ Vue was created before Web Components were natively available, and some aspects 
 
 The Web Components specs are relatively low-level, as they are centered around defining custom elements. As a framework, Vue addresses additional higher-level concerns such as efficient DOM rendering, reactive state management, tooling, client-side routing, and server-side rendering.
 
-Vue also fully supports consuming or exporting to native custom elements - check out the [Vue and Web Components Guide](/guide/web-components) for more details.
+Vue also fully supports consuming or exporting to native custom elements - check out the [Vue and Web Components Guide](/guide/advanced/web-components) for more details.
 
 <!-- ## TODO How does Vue compare to React? -->
 

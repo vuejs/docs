@@ -30,7 +30,7 @@
 
   The root DOM element that the component instance is managing.
 
-  For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM. It is recommended to use [template refs](../guide/template-refs.html) for direct access to DOM elements instead of relying on `$el`.
+  For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM. It is recommended to use [template refs](/guide/essentials/template-refs.html) for direct access to DOM elements instead of relying on `$el`.
 
 ## $options
 
@@ -79,9 +79,9 @@
 
 - **Details:**
 
-  Used to programmatically access content [distributed by slots](../guide/component-basics.html#content-distribution-with-slots). Each [named slot](../guide/component-slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `this.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
+  Used to programmatically access content [distributed by slots](/guide/essentials/component-basics.html#content-distribution-with-slots). Each [named slot](/guide/components/slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `this.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
 
-  Accessing `this.$slots` is most useful when writing a component with a [render function](../guide/render-function.html).
+  Accessing `this.$slots` is most useful when writing a component with a [render function](/guide/advanced/render-function.html).
 
 - **Example:**
 
@@ -120,8 +120,8 @@
 
 - **See also:**
   - [`<slot>` Component](built-in-components.html#slot)
-  - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
-  - [Render Functions - Slots](../guide/render-function.html#slots)
+  - [Content Distribution with Slots](/guide/essentials/component-basics.html#content-distribution-with-slots)
+  - [Render Functions - Slots](/guide/advanced/render-function.html#slots)
 
 ## $refs
 
@@ -131,10 +131,10 @@
 
 - **Details:**
 
-An object of DOM elements and component instances, registered with [`ref` attributes](../guide/template-refs.html).
+An object of DOM elements and component instances, registered with [`ref` attributes](/guide/essentials/template-refs.html).
 
 - **See also:**
-  - [Template refs](../guide/template-refs.html)
+  - [Template refs](/guide/essentials/template-refs.html)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
 
 ## $attrs
@@ -148,7 +148,7 @@ An object of DOM elements and component instances, registered with [`ref` attrib
 Contains parent-scope attribute bindings and events that are not recognized (and extracted) as component [props](./options-state.html#props) or [custom events](./options-state.html#emits). When a component doesn't have any declared props or custom events, this essentially contains all parent-scope bindings, and can be passed down to an inner component via `v-bind="$attrs"` - useful when creating higher-order components.
 
 - **See also:**
-  - [Non-Prop Attributes](../guide/component-attrs.html)
+  - [Non-Prop Attributes](/guide/components/attrs.html)
   - [Options / Misc - inheritAttrs](./options-misc.html#inheritattrs)
 
 ## $watch()
@@ -342,9 +342,9 @@ Contains parent-scope attribute bindings and events that are not recognized (and
 
   `'sync'` watchers should be used sparingly, as they don't have these benefits.
 
-  For more information about `flush` see [Effect Flush Timing](../guide/watchers.html#effect-flush-timing).
+  For more information about `flush` see [Effect Flush Timing](/guide/essentials/watchers.html#effect-flush-timing).
 
-- **See also:** [Watchers](../guide/watchers.html)
+- **See also:** [Watchers](/guide/essentials/watchers.html)
 
 ## $emit()
 
@@ -425,7 +425,7 @@ Contains parent-scope attribute bindings and events that are not recognized (and
 
 - **See also:**
   - [`emits` option](./options-state.html#emits)
-  - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
+  - [Emitting a Value With an Event](/guide/essentials/component-basics.html#emitting-a-value-with-an-event)
 
 ## $forceUpdate()
 
