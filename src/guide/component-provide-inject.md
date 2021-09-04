@@ -49,7 +49,7 @@ app.component('todo-list-statistics', {
 })
 ```
 
-However, this won't work if we try to provide some component instance property here:
+However, this won't work if we try to provide same component instance property here:
 
 ```js
 app.component('todo-list', {
