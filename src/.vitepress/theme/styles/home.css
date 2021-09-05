@@ -37,7 +37,7 @@ section {
   padding: 8px 18px;
   font-weight: 500;
   border-radius: 8px;
-  margin: 8px 10px;
+  margin: 8px 0;
   transition: background-color 0.5s, color 0.5s;
 }
 
@@ -45,6 +45,16 @@ section {
   font-weight: 600;
   background-color: var(--vt-c-green);
   color: #fff;
+  margin-right: 18px
+}
+
+.actions .icon {
+  display: inline;
+  position: relative;
+  top: -1px;
+  margin-left: 2px;
+  fill: currentColor;
+  transition: transform 0.2s;
 }
 
 .dark .actions .get-started {
@@ -54,6 +64,10 @@ section {
 .actions .get-started:hover {
   background-color: var(--vt-c-green-dark);
   transition-duration: 0.2s;
+}
+
+.actions .get-started:hover .icon {
+  transform: translateX(2px);
 }
 
 .dark .actions .get-started:hover {

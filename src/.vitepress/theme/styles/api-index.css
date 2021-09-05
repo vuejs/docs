@@ -17,15 +17,16 @@ h2 {
 }
 
 h1 {
-  font-weight: 700;
   font-size: 38px;
 }
 
 h2 {
   font-size: 24px;
   color: var(--vt-c-text-1);
-  margin: 64px 0 32px;
+  margin: 64px 0 36px;
   transition: color 0.5s;
+  padding-top: 36px;
+  border-top: 1px solid var(--vt-c-divider-light);
 }
 
 h3 {
@@ -71,7 +72,8 @@ h3 {
   }
   h2 {
     font-size: 22px;
-    margin: 42px 0 24px;
+    margin: 42px 0 32px;
+    padding-top: 32px;
   }
   .api-groups a {
     font-size: 14px;

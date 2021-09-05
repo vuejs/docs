@@ -11,15 +11,17 @@
   transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.next-steps-link {
+.vt-doc .next-steps-link {
   font-size: 20px;
-  line-height: 1.5;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
   margin-bottom: 0.75em;
   display: block;
   color: var(--vt-c-green);
 }
 
-.next-steps-caption {
+.vt-doc .next-steps-caption {
+  margin-bottom: 0;
   color: var(--vt-c-text-2);
   transition: color 0.5s;
 }
