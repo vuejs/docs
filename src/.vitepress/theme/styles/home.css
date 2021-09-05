@@ -24,10 +24,12 @@ section {
 }
 
 .description {
+  max-width: 760px;
+  line-height: 1.5;
   color: var(--vt-c-text-2);
   transition: color 0.5s;
-  font-size: 20px;
-  margin: 22px 0 56px;
+  font-size: 19px;
+  margin: 22px auto 50px;
 }
 
 .actions a {
@@ -37,7 +39,6 @@ section {
   padding: 8px 18px;
   font-weight: 500;
   border-radius: 8px;
-  margin: 8px 0;
   transition: background-color 0.5s, color 0.5s;
 }
 
@@ -153,7 +154,7 @@ section {
   }
   .description {
     font-size: 16px;
-    margin: 18px 0 24px;
+    margin: 18px 0 30px;
   }
   #special-sponsor img {
     display: block;
