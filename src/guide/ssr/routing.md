@@ -13,12 +13,15 @@ import MyUser from './components/MyUser.vue'
 
 const isServer = typeof window === 'undefined'
 
-const history = isServer ? createMemoryHistory() : createWebHistory()
+const createHistory = isServer ? createMemoryHistory : createWebHistory
 
 const routes = [{ path: '/user', component: MyUser }]
 
 export default function() {
-  return createRouter({ routes, history })
+  return createRouter({
+    history: createHistory(),
+    routes
+  })
 }
 ```
 
