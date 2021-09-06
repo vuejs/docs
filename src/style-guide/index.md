@@ -301,7 +301,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 
 **For applications, styles in a top-level `App` component and in layout components may be global, but all other components should always be scoped.**
 
-This is only relevant for [Single-File Components](/api/sfc-overview.html). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
+This is only relevant for [Single-File Components](/guide/scaling-up/sfc.html). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
 
 **Component libraries, however, should prefer a class-based strategy instead of using the `scoped` attribute.**
 
@@ -527,7 +527,7 @@ components/
 
 ### Single-file component filename casing <sup data-p="b">strongly recommended</sup>
 
-**Filenames of [Single-File Components](/api/sfc-overview.html) should either be always PascalCase or always kebab-case.**
+**Filenames of [Single-File Components](/guide/scaling-up/sfc.html) should either be always PascalCase or always kebab-case.**
 
 PascalCase works best with autocompletion in code editors, as it's consistent with how we reference components in JS(X) and templates, wherever possible. However, mixed case filenames can sometimes create issues on case-insensitive file systems, which is why kebab-case is also perfectly acceptable.
 
@@ -821,7 +821,7 @@ components/
 
 ### Self-closing components <sup data-p="b">strongly recommended</sup>
 
-**Components with no content should be self-closing in [Single-File Components](/api/sfc-overview.html), string templates, and [JSX](/guide/advanced/render-function.html#jsx) - but never in DOM templates.**
+**Components with no content should be self-closing in [Single-File Components](/guide/scaling-up/sfc.html), string templates, and [JSX](/guide/advanced/render-function.html#jsx) - but never in DOM templates.**
 
 Components that self-close communicate that they not only have no content, but are **meant** to have no content. It's the difference between a blank page in a book and one labeled "This page intentionally left blank." Your code is also cleaner without the unnecessary closing tag.
 
@@ -859,7 +859,7 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 
 ### Component name casing in templates <sup data-p="b">strongly recommended</sup>
 
-**In most projects, component names should always be PascalCase in [Single-File Components](/api/sfc-overview.html) and string templates - but kebab-case in DOM templates.**
+**In most projects, component names should always be PascalCase in [Single-File Components](/guide/scaling-up/sfc.html) and string templates - but kebab-case in DOM templates.**
 
 PascalCase has a few advantages over kebab-case:
 
@@ -1486,7 +1486,7 @@ computed: {
 
 ### Single-file component top-level element order <sup data-p="c">recommended</sup>
 
-**[Single-File Components](/api/sfc-overview.html) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
+**[Single-File Components](/guide/scaling-up/sfc.html) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
 
 <div class="style-example style-example-bad">
 <h4>Bad</h4>

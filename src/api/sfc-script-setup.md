@@ -127,7 +127,7 @@ import * as Form from './form-components'
 </template>
 ```
 
-## `defineProps()` and `defineEmits()`
+## defineProps() & defineEmits()
 
 To declare options like `props` and `emits` with full type inference support, we can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
 
@@ -152,7 +152,7 @@ const emit = defineEmits(['change', 'delete'])
 
 If you are using TypeScript, it is also possible to [declare props and emits using pure type annotations](#typescript-only-features).
 
-## `defineExpose()`
+## defineExpose()
 
 Components using `<script setup>` are **closed by default** - i.e. the public instance of the component, which is retrieved via template refs or `$parent` chains, will **not** expose any of the bindings declared inside `<script setup>`.
 
@@ -174,7 +174,7 @@ defineExpose({
 
 When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
 
-## `useSlots()` and `useAttrs()`
+## `useSlots()` & `useAttrs()`
 
 Usage of `slots` and `attrs` inside `<script setup>` should be relatively rare, since you can access them directly as `$slots` and `$attrs` in the template. In the rare case where you do need them, use the `useSlots` and `useAttrs` helpers respectively:
 

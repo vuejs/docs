@@ -39,7 +39,7 @@ The import-maps-based setup is meant for learning only - if you intend to use Vu
 
 ## With Build Tools
 
-A build setup allows us to use Vue [Single File Components](/api/sfc-overview) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight and extremely fast.
+A build setup allows us to use Vue [Single File Components](/guide/scaling-up/sfc) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight and extremely fast.
 
 ### Online
 
@@ -82,29 +82,18 @@ $ npm run dev
 
 You should now have your first Vue project running!
 
+- More tooling details are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
 - To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
-- If you chose to use TypeScript, check out the dedicated section on [TypeScript Support](scaling-up/typescript.html).
-- More tooling details are discussed in [SFC tooling](/api/sfc-tooling.html).
+- If you chose to use TypeScript, check out [Using Vue with TypeScript](scaling-up/typescript.html).
 
 ## IDE Setup
 
+If you are not using build tools, you can use any editor or IDE as long as it supports syntax highlighting for HTML, CSS and JavaScript.
+
+If you are using build tools, it is recommended to use the following IDE setup for get syntax highlighting, type inference and auto-completion support for Vue Single File Components:
+
 - Recommended: [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 - Also viable: [JetBrains WebStorm](https://www.jetbrains.com/webstorm/)
-
-While almost all editors can support syntax highlighting for Vue components, most of them lack the level of Intellisense / refactoring support the above solutions provide (especially with TypeScript).
-
-## Browser Devtools
-
-The Vue browser devtools extension allows you to explore a Vue app's component tree, inspect the state of individual components, track state management events, and profile performance.
-
-![devtools screenshot](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
-
-// TODO update links after swapping versions
-
-- [Documentation](https://devtools.vuejs.org/)
-- [Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
-- [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-- [Standalone Electron app](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
 
 ## Next Steps
 

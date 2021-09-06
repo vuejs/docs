@@ -1,4 +1,4 @@
-# Single File Components:<br>Tooling
+# Tooling
 
 ## Try It Online
 
@@ -44,6 +44,28 @@ The recommended IDE setup is [VSCode](https://code.visualstudio.com/) + the [Vol
 
 Most other editors have community-created syntax highlighting support for Vue, but lack the same level of code IntelliSense. In the long run, we do hope we can extend the range of editor support by leveraging the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) as Volar's core logic is implemented as a standard language server.
 
+## Browser Devtools
+
+The Vue browser devtools extension allows you to explore a Vue app's component tree, inspect the state of individual components, track state management events, and profile performance.
+
+![devtools screenshot](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
+
+// TODO update links after swapping versions
+
+- [Documentation](https://devtools.vuejs.org/)
+- [Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
+- [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+- [Standalone Electron app](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
+
+## TypeScript
+
+// TODO links and recommendations
+
+- `vue-tsc`: Type check Vue SFCs
+- `vue-dts-gen`: Generate type declarations from Vue SFCs
+
+See also: [Using Vue with TypeScript](/guide/scaling-up/typescript).
+
 ## Testing
 
 - If using Vite, we recommend [Cypress](https://www.cypress.io/) as the test runner for both unit and e2e tests. Unit tests for Vue SFCs can be done with the [Cypress Component Test Runner](https://www.cypress.io/blog/2021/04/06/introducing-the-cypress-component-test-runner/).
@@ -51,6 +73,8 @@ Most other editors have community-created syntax highlighting support for Vue, b
 - Vue CLI comes with [Jest](https://jestjs.io/) and [Mocha](https://mochajs.org/) integrations.
 
 - If you are manually configuring Jest to work with Vue SFCs, check out [vue-jest](https://github.com/vuejs/vue-jest) which is the official Jest transform for Vue SFCs.
+
+See also: [Testing Guide](/guide/scaling-up/testing).
 
 ## Linting
 
@@ -68,17 +92,17 @@ Users previously using Vue CLI may be used to having linters configured via webp
 
 [Prettier](https://prettier.io/) provides built-in Vue SFC formatting support.
 
-## Custom Blocks Integration
+## Backend Framework Integrations
+
+// TODO
+
+## SFC Custom Block Integrations
 
 Custom blocks are compiled into imports to the same Vue file with different request queries. It is up to the underlying build tool to handle these import requests.
 
 - If using Vite, a custom Vite plugin should be used to transform matched custom blocks into executable JavaScript. [Example](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
 
 - If using Vue CLI or plain webpack, a webpack loader should be configured to transform the matched blocks. [Example](https://vue-loader.vuejs.org/custom-blocks.html#custom-blocks)
-
-## Backend Framework Integrations
-
-// TODO
 
 ## Lower-Level Packages
 

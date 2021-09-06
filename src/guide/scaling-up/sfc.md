@@ -1,4 +1,4 @@
-# Single File Components:<br>Overview
+# Single File Components
 
 ## Introduction
 
@@ -39,7 +39,7 @@ While SFCs require a build step, there are numerous benefits in return:
 - [Component-scoped CSS](/api/sfc-style)
 - [More ergonomic syntax when working with Composition API](/api/sfc-script-setup)
 - More compile-time optimizations by cross-analyzing template and script
-- [IDE support](/api/sfc-tooling.html#ide-support) with auto-completion and type-checking for template expressions
+- [IDE support](/guide/scaling-up/tooling.html#ide-support) with auto-completion and type-checking for template expressions
 - Out-of-the-box Hot-Module Replacement (HMR) support
 
 SFC is a defining feature of Vue as a framework, and is the recommended approach for using Vue in the following scenarios:
@@ -68,7 +68,7 @@ export default {
 
 You can play with SFCs and explore how they are compiled in the [Vue SFC Playground](https://sfc.vuejs.org/).
 
-In actual projects, we typically integrate the SFC compiler with a build tool such as [Vite](https://vitejs.dev/) or [Vue CLI](http://cli.vuejs.org/) (which is based on [webpack](https://webpack.js.org/)), and Vue provides official scaffolding tools to get you started with SFCs as fast as possible. Check out more details in the [SFC Tooling](/api/sfc-tooling) section.
+In actual projects, we typically integrate the SFC compiler with a build tool such as [Vite](https://vitejs.dev/) or [Vue CLI](http://cli.vuejs.org/) (which is based on [webpack](https://webpack.js.org/)), and Vue provides official scaffolding tools to get you started with SFCs as fast as possible. Check out more details in the [SFC Tooling](/guide/scaling-up/tooling) section.
 
 ## What About Separation of Concerns?
 

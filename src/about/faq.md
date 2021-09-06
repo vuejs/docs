@@ -44,7 +44,7 @@ Some frameworks, such as Svelte, use a compilation strategy that produces extrem
 
 Yes. Despite common misconception that Vue is only suitable for simple use cases, Vue is perfectly capable of handling large scale applications:
 
-- [Single File Components](/api/sfc-overview) provide a modularized development model that allows different parts of an application to be developed in isolation.
+- [Single File Components](/guide/scaling-up/sfc) provide a modularized development model that allows different parts of an application to be developed in isolation.
 
 - [Composition API](/guide/reusability/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
 

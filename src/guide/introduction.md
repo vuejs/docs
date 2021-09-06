@@ -62,7 +62,7 @@ Vue also provides an alternative distribution called [petite-vue](https://github
 
 You can build rich, large scale applications where Vue not only controls the entire page, but also handles data updates and navigations without having to reload the page. This type of applications are typically referred to as Single-Page Applications (SPAs).
 
-Vue provides [comprehensive libraries and tooling support](https://github.com/vuejs/) with an amazing developer experience for building modern SPAs, including:
+Vue provides core libraries and [comprehensive tooling support](/guide/scaling-up/tooling) with amazing developer experience for building modern SPAs, including:
 
 - Client-side router
 - Blazing fast build tool chain
@@ -121,7 +121,7 @@ export default {
 </style>
 ```
 
-SFC is a defining feature of Vue, and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/api/sfc-overview) in its dedicated section - but for now, just know that Vue provides tools that can help you scaffold SFC-ready projects in minutes.
+SFC is a defining feature of Vue, and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue provides tools that can help you scaffold SFC-ready projects in minutes.
 
 ## API Styles
 
@@ -195,9 +195,9 @@ onMounted(() => {
 
 First of all, it is important to note that both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
 
-The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which may align better with a class-based mental model for users coming from OOP language backgrounds. It also provides some "guard rails" by enforcing code organization via option groups.
+The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope, and composing state from multiple functions together to handle complexity. It is more free-form, but the flexibility enables more powerful patterns for organizing and reusing logic.
+The Composition API is centered around declaring reactive state variables directly in a function scope, and composing state from multiple functions together to handle complexity. It is more free-form, and requires understanding how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
 
 You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/advanced/composition-api-faq).
 
@@ -209,7 +209,7 @@ If you are new to Vue, here's our general recommendation:
 
   - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
 
-  - Go with Composition API + Single File Components if you plan to build full applications with Vue, or intend to use TypeScript with Vue.
+  - Go with Composition API + Single File Components if you plan to build full applications with Vue.
 
 You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using this switch (also available at the top of eligible pages):
 

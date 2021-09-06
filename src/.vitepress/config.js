@@ -188,13 +188,15 @@ const sidebar = {
     {
       text: 'Scaling Up',
       items: [
-        { text: 'TypeScript', link: '/guide/scaling-up/typescript' },
+        { text: 'Single File Components', link: '/guide/scaling-up/sfc' },
+        { text: 'Tooling', link: '/guide/scaling-up/tooling' },
         { text: 'Routing', link: '/guide/scaling-up/routing' },
         {
           text: 'State Management',
           link: '/guide/scaling-up/state-management'
         },
-        { text: 'Testing', link: '/guide/scaling-up/testing' }
+        { text: 'Testing', link: '/guide/scaling-up/testing' },
+        { text: 'TypeScript', link: '/guide/scaling-up/typescript' }
       ]
     },
     {
@@ -234,7 +236,10 @@ const sidebar = {
           text: 'Render Functions & JSX',
           link: '/guide/advanced/render-function'
         },
-        { text: 'Server-Side Rendering', link: '/guide/advanced/server-side-rendering' },
+        {
+          text: 'Server-Side Rendering',
+          link: '/guide/advanced/server-side-rendering'
+        },
         { text: 'Custom Renderers', link: '/guide/advanced/custom-renderer' },
         {
           text: 'Web Components',
@@ -326,9 +331,7 @@ const sidebar = {
     {
       text: 'Single File Component',
       items: [
-        { text: 'Overview', link: '/api/sfc-overview' },
-        { text: 'Specification', link: '/api/sfc-spec' },
-        { text: 'Tooling', link: '/api/sfc-tooling' },
+        { text: 'Syntax Specification', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
         { text: '<style> Features', link: '/api/sfc-style' }
       ]
