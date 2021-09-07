@@ -38,11 +38,11 @@ Both online playgrounds mentioned above also support downloading files as a Vite
 
 ## IDE Support
 
-The recommended IDE setup is [VSCode](https://code.visualstudio.com/) + the [Volar](https://github.com/johnsoncodehk/volar) extension. Volar provides syntax highlighting and advanced IntelliSense for template expressions, component props and even slots validation. We strongly recommend this setup if you want to get the best possible experience with Vue SFCs, especially if you are also using TypeScript.
+- The recommended IDE setup is [VSCode](https://code.visualstudio.com/) + the [Volar](https://github.com/johnsoncodehk/volar) extension. Volar provides syntax highlighting, TypeScript support, and intellisense for template expressions and component props.
 
-[WebStorm](https://www.jetbrains.com/webstorm/) also provides decent support for Vue SFCs. However, do note as of now its support for `<script setup>` is still [in progress](https://youtrack.jetbrains.com/issue/WEB-49000).
+- [WebStorm](https://www.jetbrains.com/webstorm/) also provides great built-in support for Vue SFCs.
 
-Most other editors have community-created syntax highlighting support for Vue, but lack the same level of code IntelliSense. In the long run, we do hope we can extend the range of editor support by leveraging the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) as Volar's core logic is implemented as a standard language server.
+- Other IDEs that support the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) can also leverage Volar's core functionalities via LSP. One examples is [coc-volar](https://github.com/yaegassy/coc-volar) which provides Vue SFC support for vim/Neovim.
 
 ## Browser Devtools
 
