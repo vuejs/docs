@@ -5,7 +5,7 @@
     "serve": "vitepress serve src"
   },
   "devDependencies": {
-    "@vue/theme": "^0.1.2",
+    "@vue/theme": "^0.1.5",
     "cheap-watch": "^1.0.3",
     "vitepress": "^0.17.0"
   }
