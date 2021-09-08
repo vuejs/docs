@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const getBaseConfig = require('@vue/theme/config')
 
 const nav = [
   {
@@ -350,50 +349,47 @@ const sidebar = {
 
 require('./genApiIndex').genApiIndex(sidebar['/api/'])
 
-module.exports = (async () => {
-  const baseConfig = await getBaseConfig()
+module.exports = {
+  extends: require('@vue/theme/config'),
 
-  // inject api preference initialization code
-  baseConfig.head.push([
-    'script',
-    {},
-    fs.readFileSync(
-      path.resolve(__dirname, './inlined-scripts/apiPreference.js'),
-      'utf-8'
-    )
-  ])
+  lang: 'en-US',
+  title: 'Vue.js',
+  description: 'Vue.js - The Progressive JavaScript Framework',
 
-  return {
-    ...baseConfig,
+  head: [
+    [
+      'script',
+      {},
+      fs.readFileSync(
+        path.resolve(__dirname, './inlined-scripts/apiPreference.js'),
+        'utf-8'
+      )
+    ]
+  ],
 
-    lang: 'en-US',
-    title: 'Vue.js',
-    description: 'Vue.js - The Progressive JavaScript Framework',
+  themeConfig: {
+    logo: '/logo.svg',
+    repo: 'vuejs/docs',
 
-    themeConfig: {
-      logo: '/logo.svg',
-      repo: 'vuejs/docs',
+    algolia: {
+      indexName: 'vuejs-v3',
+      appId: 'BH4D9OD16A',
+      apiKey: 'bc6e8acb44ed4179c30d0a45d6140d3f'
+    },
 
-      algolia: {
-        indexName: 'vuejs-v3',
-        appId: 'BH4D9OD16A',
-        apiKey: 'bc6e8acb44ed4179c30d0a45d6140d3f'
-      },
+    carbonAds: {
+      code: 'CEBDT27Y',
+      placement: 'vuejsorg'
+    },
 
-      carbonAds: {
-        code: 'CEBDT27Y',
-        placement: 'vuejsorg'
-      },
+    socialLinks: [
+      { icon: 'languages', link: '/translations/' },
+      { icon: 'github', link: 'https://github.com/vuejs/' },
+      { icon: 'twitter', link: 'https://twitter.com/vuejs' },
+      { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
+    ],
 
-      socialLinks: [
-        { icon: 'languages', link: '/translations/' },
-        { icon: 'github', link: 'https://github.com/vuejs/' },
-        { icon: 'twitter', link: 'https://twitter.com/vuejs' },
-        { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
-      ],
-
-      nav,
-      sidebar
-    }
+    nav,
+    sidebar
   }
-})()
+}
