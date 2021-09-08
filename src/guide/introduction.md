@@ -231,7 +231,7 @@ Different developers have different learning styles. Feel free to pick a learnin
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
     <p class="next-steps-link">Continue the Guide</p>
-    <p class="next-steps-caption">Learn the core concepts step by step, with all the little details.</p>
+    <p class="next-steps-caption">An in-depth guide that walks through the core concepts with small details.</p>
   </a>
   <a class="vt-box" href="/examples/">
     <p class="next-steps-link">Check out the Examples</p>
