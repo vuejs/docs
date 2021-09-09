@@ -1,5 +1,7 @@
 const fs = require('fs')
 const path = require('path')
+const { genApiIndex } = require('../../scripts/genApiIndex')
+const { genExamplesData } = require('../../scripts/genExamplesData')
 
 const nav = [
   {
@@ -344,13 +346,109 @@ const sidebar = {
         { text: 'Custom Renderer', link: '/api/custom-renderer' }
       ]
     }
+  ],
+  '/examples/': [
+    {
+      text: 'Examples',
+      items: [
+        {
+          text: 'Markdown Editor',
+          link: '/examples/#markdown'
+        },
+        {
+          text: 'GitHub Commits',
+          link: '/examples/#commits'
+        },
+        {
+          text: 'Data Grid',
+          link: '/examples/#grid'
+        },
+        {
+          text: 'Tree View',
+          link: '/examples/#tree'
+        },
+        {
+          text: 'SVG Graph',
+          link: '/examples/#svg'
+        },
+        {
+          text: 'Modal',
+          link: '/examples/#modal'
+        },
+        {
+          text: 'TodoMVC',
+          link: '/examples/#todomvc'
+        }
+      ]
+    },
+    {
+      // https://eugenkiss.github.io/7guis/
+      text: '7 GUIs',
+      items: [
+        {
+          text: 'Counter',
+          link: '/examples/#counter'
+        },
+        {
+          text: 'Temperature Converter',
+          link: '/examples/#temprature-converter'
+        },
+        {
+          text: 'Flight Booker',
+          link: '/examples/#flight-booker'
+        },
+        {
+          text: 'Timer',
+          link: '/examples/#timer'
+        },
+        {
+          text: 'CRUD',
+          link: '/examples/#crud'
+        },
+        {
+          text: 'Circle Drawer',
+          link: '/examples/#circle-drawer'
+        },
+        {
+          text: 'Cells',
+          link: '/examples/#cells'
+        }
+      ]
+    },
+    {
+      text: 'API Usage',
+      items: [
+        {
+          text: 'v-bind',
+          link: '/examples/#v-bind'
+        },
+        {
+          text: 'v-if',
+          link: '/examples/#v-if'
+        },
+        {
+          text: 'v-for',
+          link: '/examples/#v-for'
+        },
+        {
+          text: 'v-model',
+          link: '/examples/#v-model'
+        }
+      ]
+    }
   ]
 }
 
-require('./genApiIndex').genApiIndex(sidebar['/api/'])
+genApiIndex(sidebar['/api/'])
+genExamplesData()
 
 module.exports = {
   extends: require('@vue/theme/config'),
+  vite: {
+    optimizeDeps: {
+      exclude: ['@vue/repl']
+    }
+  },
 
   lang: 'en-US',
   title: 'Vue.js',

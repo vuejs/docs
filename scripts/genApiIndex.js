@@ -5,8 +5,20 @@
 // @ts-check
 const fs = require('fs')
 const path = require('path')
+const { watch } = require('./watch')
 
-let prevData
+exports.genApiIndex = (apiGroups) => {
+  watch({
+    src: 'api',
+    out: 'api/index.json',
+    genData() {
+      return genIndex(apiGroups)
+    },
+    filter(path) {
+      return path.endsWith('.md')
+    }
+  })
+}
 
 /**
  * @param {{
@@ -15,19 +27,13 @@ let prevData
  * }[]} apiGroups
  */
 function genIndex(apiGroups) {
-  const data = apiGroups.map((group) => ({
+  return apiGroups.map((group) => ({
     text: group.text,
     items: group.items.map((item) => ({
       ...item,
       headers: parsePageHeaders(item.link)
     }))
   }))
-
-  const stringified = JSON.stringify(data, null, 2)
-  if (stringified === prevData) return
-  prevData = stringified
-
-  fs.writeFileSync(path.resolve(__dirname, '../api/index.json'), stringified)
 }
 
 const headersCache = new Map()
@@ -36,7 +42,7 @@ const headersCache = new Map()
  * @param {string} link
  */
 function parsePageHeaders(link) {
-  const fullePath = path.join(__dirname, '..', link) + '.md'
+  const fullePath = path.join(__dirname, '../src', link) + '.md'
   const timestamp = fs.statSync(fullePath).mtimeMs
 
   const cached = headersCache.get(fullePath)
@@ -56,29 +62,4 @@ function parsePageHeaders(link) {
     )
   }
   return []
-}
-
-let watcher
-
-exports.genApiIndex = async function (apiGroups) {
-  genIndex(apiGroups)
-
-  // do not watch for build
-  if (process.env.NODE_ENV === 'production') {
-    return
-  }
-
-  if (watcher) {
-    watcher.close()
-  }
-
-  // @ts-ignore
-  watcher = new (require('cheap-watch'))({
-    dir: path.resolve(__dirname, '../api'),
-    filter: ({ path }) => path.endsWith('.md'),
-    debounce: 50
-  })
-  await watcher.init()
-  watcher.on('+', () => genIndex(apiGroups))
-  watcher.on('-', () => genIndex(apiGroups))
 }

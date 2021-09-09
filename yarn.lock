@@ -291,6 +291,11 @@
     estree-walker "^2.0.2"
     magic-string "^0.25.7"
 
+"@vue/repl@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@vue/repl/-/repl-0.2.3.tgz#af71ed98dbccd6bd6a0b89a4644be4e402a9647e"
+  integrity sha512-J30cpBXMkRdgkGTerOURLb+tHceThwdzlK5mYXuZ4QFGQh9TP2/G0qTZIP7kW86CXDXQrJ+i22Pqaa1JBTHmMQ==
+
 "@vue/runtime-core@3.2.11":
   version "3.2.11"
   resolved "https://registry.yarnpkg.com/@vue/runtime-core/-/runtime-core-3.2.11.tgz#0dbe801be4bd0bfde253226797e7d304c8fdda30"
@@ -1313,10 +1318,10 @@ vite@^2.5.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitepress@^0.17.2:
-  version "0.17.2"
-  resolved "https://registry.yarnpkg.com/vitepress/-/vitepress-0.17.2.tgz#d3085a2c1187fdf70563804485be06c88b29ac6f"
-  integrity sha512-byBobt633wf7bmaxYXHxmh1X8DNOncvzj/Sl8mV58AUaiJd40a53Aq2JS7ZRWjWiR1euPPinU8/vnLSaIhXNqw==
+vitepress@^0.17.3:
+  version "0.17.3"
+  resolved "https://registry.yarnpkg.com/vitepress/-/vitepress-0.17.3.tgz#6ddd749950b2b5a838d6d5830a6b0a5158381979"
+  integrity sha512-wB8Pl/U7zjd0mS3Z4WDfpPRJKzCP2hZLHN6Tl7ybYhvlWVvSZglnkr8BiY1NCYVq1eCUnSY1YJaV/oT1Yogg6Q==
   dependencies:
     "@docsearch/css" "^1.0.0-alpha.28"
     "@docsearch/js" "^1.0.0-alpha.28"
