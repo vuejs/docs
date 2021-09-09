@@ -447,6 +447,9 @@ module.exports = {
   vite: {
     optimizeDeps: {
       exclude: ['@vue/repl']
+    },
+    ssr: {
+      external: ['@vue/repl']
     }
   },
 

@@ -291,10 +291,10 @@
     estree-walker "^2.0.2"
     magic-string "^0.25.7"
 
-"@vue/repl@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@vue/repl/-/repl-0.2.3.tgz#af71ed98dbccd6bd6a0b89a4644be4e402a9647e"
-  integrity sha512-J30cpBXMkRdgkGTerOURLb+tHceThwdzlK5mYXuZ4QFGQh9TP2/G0qTZIP7kW86CXDXQrJ+i22Pqaa1JBTHmMQ==
+"@vue/repl@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@vue/repl/-/repl-0.2.4.tgz#2d97a2b804fa1b96360fa9ff85ad284838cfc19c"
+  integrity sha512-Vo45lseAJeb4+tJRCdG3vOxu5dA7/aKL7xxLGOp5lmD0dPm0l0VvJ9koZW8OEkRLrKFFv8x6y7tvqOLffAYL+w==
 
 "@vue/runtime-core@3.2.11":
   version "3.2.11"
