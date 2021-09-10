@@ -5,6 +5,6 @@
       document.documentElement.classList.add(cls)
     }
   }
-  restore('vue-docs-api-preference', 'prefer-composition')
-  restore('vue-docs-format-preference', 'prefer-sfc')
+  restore('vue-docs-prefer-composition', 'prefer-composition')
+  restore('vue-docs-prefer-sfc', 'prefer-sfc')
 })()

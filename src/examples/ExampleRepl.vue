@@ -1,27 +1,27 @@
-<script setup>
+<script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
 import '@vue/repl/style.css'
 import data from './data.json'
+import { inject, watch } from 'vue'
 
 const store = new ReplStore()
 
-// TODO make dynamic
-const preference = document.documentElement.classList.contains(
-  'prefer-composition'
-)
-  ? 'composition'
-  : 'options'
+const preferComposition = inject('prefer-composition')
+const preferSFC = inject('prefer-sfc')
 
 function updateExample() {
   const hash = location.hash.slice(1)
   if (data.hasOwnProperty(hash)) {
-    store.setFiles(data[hash][preference])
+    store.setFiles(
+      data[hash][preferComposition.value ? 'composition' : 'options']
+    )
   } else if (!hash) {
     location.hash = '#markdown'
   }
 }
 
 window.addEventListener('hashchange', updateExample)
+watch(preferComposition, updateExample)
 updateExample()
 </script>
 

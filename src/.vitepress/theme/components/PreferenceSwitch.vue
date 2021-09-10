@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { VTSwitch, VTIconChevronDown, VTIconChevronUp } from '@vue/theme'
 import { useRoute } from 'vitepress'
-import { ref, computed } from 'vue'
+import { ref, computed, Ref } from 'vue'
+import {
+  preferCompositionKey,
+  preferComposition,
+  preferSFCKey,
+  preferSFC
+} from './preferences'
 
 const route = useRoute()
 const show = computed(() => /^\/(guide|tutorial|examples)\//.test(route.path))
@@ -9,24 +15,28 @@ const isOpen = ref(false)
 
 const toggleOpen = () => (isOpen.value = !isOpen.value)
 const toggleCompositionAPI = useToggleFn(
-  'vue-docs-api-preference',
+  preferCompositionKey,
+  preferComposition,
   'prefer-composition'
 )
-const toggleSFC = useToggleFn('vue-docs-format-preference', 'prefer-sfc')
+const toggleSFC = useToggleFn(preferSFCKey, preferSFC, 'prefer-sfc')
 
-function useToggleFn(storageKey: string, className: string) {
+function useToggleFn(
+  storageKey: string,
+  state: Ref<boolean>,
+  className: string
+) {
   if (typeof localStorage === 'undefined') {
     return () => {}
   }
-  let enabled = JSON.parse(localStorage.getItem(storageKey) || 'false')
   const classList = document.documentElement.classList
-  return (value = !enabled) => {
-    if ((enabled = value)) {
+  return (value = !state.value) => {
+    if ((state.value = value)) {
       classList.add(className)
     } else {
       classList.remove(className)
     }
-    localStorage.setItem(storageKey, enabled)
+    localStorage.setItem(storageKey, String(state.value))
   }
 }
 </script>
