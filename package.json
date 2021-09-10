@@ -9,7 +9,7 @@
     "vitepress": "^0.17.3"
   },
   "dependencies": {
-    "@vue/repl": "^0.2.4",
+    "@vue/repl": "^0.2.5",
     "@vue/theme": "^0.1.6"
   }
 }

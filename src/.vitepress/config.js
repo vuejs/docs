@@ -436,6 +436,21 @@ const sidebar = {
         }
       ]
     }
+  ],
+  '/tutorial/': [
+    {
+      text: 'Tutorial',
+      items: [
+        {
+          text: '1. Hello World',
+          link: '/tutorial/#step-1'
+        },
+        {
+          text: '2. Render a List',
+          link: '/tutorial/#step-2'
+        }
+      ]
+    }
   ]
 }
 
