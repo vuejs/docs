@@ -20,10 +20,7 @@ function genExamples() {
   const examples = fs.readdirSync(srcDir)
   const data = {}
   for (const name of examples) {
-    data[name] = {
-      composition: readExample(path.join(srcDir, name, 'composition')),
-      options: readExample(path.join(srcDir, name, 'options'))
-    }
+    data[name] = readExample(path.join(srcDir, name))
   }
   return data
 }
@@ -32,7 +29,22 @@ function readExample(dir) {
   const filenames = fs.readdirSync(dir)
   const files = {}
   for (const filename of filenames) {
-    files[filename] = fs.readFileSync(path.join(dir, filename), 'utf-8')
+    if (filename === 'import-map.json' || filename === 'description.txt') {
+      files[filename] = fs.readFileSync(path.join(dir, filename), 'utf-8')
+    } else {
+      files[filename] = readComponentDir(path.join(dir, filename))
+    }
+  }
+  return files
+}
+
+function readComponentDir(dir) {
+  const filenames = fs.readdirSync(dir)
+  const files = {}
+  for (const filename of filenames) {
+    let content = fs.readFileSync(path.join(dir, filename), 'utf-8')
+    if (!content.endsWith('\n')) content += '\n'
+    files[filename] = content
   }
   return files
 }

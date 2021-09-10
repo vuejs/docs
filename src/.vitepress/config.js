@@ -1,3 +1,4 @@
+// @ts-check
 const fs = require('fs')
 const path = require('path')
 const { genApiIndex } = require('../../scripts/genApiIndex')
@@ -457,7 +458,11 @@ const sidebar = {
 genApiIndex(sidebar['/api/'])
 genExamplesData()
 
+/**
+ * @type {import('vitepress').UserConfig}
+ */
 module.exports = {
+  // @ts-ignore
   extends: require('@vue/theme/config'),
   vite: {
     optimizeDeps: {

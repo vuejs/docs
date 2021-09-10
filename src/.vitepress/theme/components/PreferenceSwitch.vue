@@ -122,7 +122,7 @@ function useToggleFn(
 }
 
 #preference-switches {
-  padding: 12px 15px;
+  padding: 12px 16px;
   background-color: var(--vt-c-bg-soft);
   transition: background-color 0.5s;
   margin: 6px 0 12px;
@@ -136,7 +136,7 @@ function useToggleFn(
 }
 
 .switch-container:first-child {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .vt-switch {
@@ -165,10 +165,13 @@ function useToggleFn(
   border-radius: 50%;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   #preference-switches {
     font-size: 11px;
     padding: 8px 12px;
+  }
+  .switch-container:first-child {
+    margin-bottom: 8px;
   }
   .switch-container label:first-child {
     width: 46px;
