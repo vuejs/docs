@@ -118,7 +118,7 @@ function useToggleFn(
 
 .vt-link-icon {
   position: relative;
-  top: 2px;
+  top: 1px;
 }
 
 #preference-switches {
@@ -140,7 +140,8 @@ function useToggleFn(
 }
 
 .vt-switch {
-  margin-right: 12px;
+  margin-right: 5px;
+  transform: scale(0.8);
 }
 
 .switch-container label {
@@ -149,7 +150,7 @@ function useToggleFn(
 }
 
 .switch-container label:first-child {
-  width: 56px;
+  width: 50px;
 }
 
 .switch-link {
@@ -162,6 +163,16 @@ function useToggleFn(
   color: var(--vt-c-green);
   border: 1px solid var(--vt-c-green);
   border-radius: 50%;
+}
+
+@media (max-width: 1440px) {
+  #preference-switches {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+  .switch-container label:first-child {
+    width: 46px;
+  }
 }
 </style>
 
