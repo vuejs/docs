@@ -1,5 +1,6 @@
 {
   "imports": {
-    "marked": "https://unpkg.com/marked@3.0.3/lib/marked.esm.js"
+    "marked": "https://cdn.jsdelivr.net/npm/marked/+esm",
+    "lodash-es": "https://cdn.jsdelivr.net/npm/lodash-es/+esm"
   }
 }

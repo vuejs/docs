@@ -1,5 +1,6 @@
 <script setup>
 import marked from 'marked'
+import { debounce } from 'lodash-es'
 import { ref, computed } from 'vue'
 
 const input = ref('# hello')
@@ -11,16 +12,6 @@ const output = computed(() => {
 const update = debounce((e) => {
   input.value = e.target.value
 }, 100)
-
-function debounce(fn, delay) {
-  let handle
-  return (...args) => {
-    if (handle) clearTimeout(handle)
-    handle = setTimeout(() => {
-      fn(...args)
-    }, delay)
-  }
-}
 </script>
 
 <template>

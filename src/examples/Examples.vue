@@ -14,10 +14,13 @@ const preference = document.documentElement.classList.contains(
 
 function updateExample() {
   const hash = location.hash.slice(1)
-  store.setFiles(data[hash][preference])
+  if (data.hasOwnProperty(hash)) {
+    store.setFiles(data[hash][preference])
+  }
 }
 
 window.addEventListener('hashchange', updateExample)
+updateExample()
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 <script>
 import marked from 'marked'
+import { debounce } from 'lodash-es'
 
 export default {
   data: () => ({
@@ -14,16 +15,6 @@ export default {
     update: debounce(function (e) {
       this.input = e.target.value
     }, 100)
-  }
-}
-
-function debounce(fn, delay) {
-  let handle
-  return (...args) => {
-    if (handle) clearTimeout(handle)
-    handle = setTimeout(() => {
-      fn(...args)
-    }, delay)
   }
 }
 </script>
