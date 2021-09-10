@@ -1,0 +1,6 @@
+{
+  // just here to enable Volar inside .vitepress
+  "compilerOptions": {
+    "allowJs": true
+  }
+}

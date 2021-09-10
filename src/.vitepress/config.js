@@ -5,7 +5,7 @@ const { genExamplesData } = require('../../scripts/genExamplesData')
 
 const nav = [
   {
-    text: 'Learn',
+    text: 'Docs',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
       {
@@ -13,6 +13,7 @@ const nav = [
           { text: 'Guide', link: '/guide/introduction' },
           { text: 'Tutorial', link: '/tutorial/' },
           { text: 'Examples', link: '/examples/' },
+          { text: 'Installation', link: '/guide/quick-start' },
           { text: 'Style Guide', link: '/style-guide/' }
         ]
       }
@@ -34,17 +35,16 @@ const nav = [
       {
         text: 'Resources',
         items: [
-          {
-            text: 'Official Projects',
-            link: 'https://github.com/vuejs/'
-          },
           { text: 'Partners', link: '/ecosystem/partners' },
           { text: 'Themes', link: '/ecosystem/themes' },
+          { text: 'Video Courses', link: '/ecosystem/video-courses' },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          {
-            text: 'Awesome Vue',
-            link: 'https://github.com/vuejs/awesome-vue'
-          }
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+          // TODO should start a separate branch for Vue 3?
+          // {
+          //   text: 'Awesome Vue',
+          //   link: 'https://github.com/vuejs/awesome-vue'
+          // }
         ]
       },
       {
@@ -483,7 +483,7 @@ module.exports = {
       'script',
       {},
       fs.readFileSync(
-        path.resolve(__dirname, './inlined-scripts/apiPreference.js'),
+        path.resolve(__dirname, './inlined-scripts/restorePreference.js'),
         'utf-8'
       )
     ]

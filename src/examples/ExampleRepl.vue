@@ -16,6 +16,8 @@ function updateExample() {
   const hash = location.hash.slice(1)
   if (data.hasOwnProperty(hash)) {
     store.setFiles(data[hash][preference])
+  } else if (!hash) {
+    location.hash = '#markdown'
   }
 }
 

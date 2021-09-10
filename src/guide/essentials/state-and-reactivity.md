@@ -1,7 +1,5 @@
 # State and Reactivity
 
-<APISwitch />
-
 ## Data Properties
 
 The `data` option for a component is a function. Vue calls this function as part of creating a new component instance. It should return an object, which Vue will then wrap in its reactivity system and store on the component instance as `$data`. For convenience, any top-level properties of that object are also exposed directly via the component instance:
