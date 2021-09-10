@@ -450,6 +450,12 @@ module.exports = {
     },
     ssr: {
       external: ['@vue/repl']
+    },
+    build: {
+      chunkSizeWarningLimit: Infinity
+    },
+    json: {
+      stringify: true
     }
   },
 
