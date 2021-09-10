@@ -99,12 +99,12 @@ function toScriptSetup(src: string): string {
       .trim()
   )
 
-  const propsDeclIdnex = src.indexOf(`\n  props:`)
-  if (propsDeclIdnex > -1) {
-    const setupStartIndex = src.indexOf(`\n  setup(`)
+  const propsStartIndex = src.indexOf(`\n  props:`)
+  if (propsStartIndex > -1) {
+    const propsEndIndex = src.indexOf(`\n  }`, propsStartIndex) + 4
     const propsDef = deindent(
       src
-        .slice(propsDeclIdnex, setupStartIndex)
+        .slice(propsStartIndex, propsEndIndex)
         .trim()
         .replace(/,$/, '')
         .replace(/^props: /, 'const props = defineProps(') + ')',

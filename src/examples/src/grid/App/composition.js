@@ -2,6 +2,9 @@ import DemoGrid from './Grid.vue'
 import { ref } from 'vue'
 
 export default {
+  components: {
+    DemoGrid
+  },
   setup() {
     const searchQuery = ref('')
     const gridColumns = ['name', 'power']

@@ -350,7 +350,7 @@ const sidebar = {
   ],
   '/examples/': [
     {
-      text: 'Examples',
+      text: 'Basic Examples',
       items: [
         {
           text: 'Markdown Editor',
@@ -415,28 +415,29 @@ const sidebar = {
           link: '/examples/#cells'
         }
       ]
-    },
-    {
-      text: 'API Usage',
-      items: [
-        {
-          text: 'v-bind',
-          link: '/examples/#v-bind'
-        },
-        {
-          text: 'v-if',
-          link: '/examples/#v-if'
-        },
-        {
-          text: 'v-for',
-          link: '/examples/#v-for'
-        },
-        {
-          text: 'v-model',
-          link: '/examples/#v-model'
-        }
-      ]
     }
+    // TODO
+    // {
+    //   text: 'API Usage',
+    //   items: [
+    //     {
+    //       text: 'v-bind',
+    //       link: '/examples/#v-bind'
+    //     },
+    //     {
+    //       text: 'v-if',
+    //       link: '/examples/#v-if'
+    //     },
+    //     {
+    //       text: 'v-for',
+    //       link: '/examples/#v-for'
+    //     },
+    //     {
+    //       text: 'v-model',
+    //       link: '/examples/#v-model'
+    //     }
+    //   ]
+    // }
   ],
   '/tutorial/': [
     {
