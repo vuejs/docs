@@ -6,12 +6,18 @@ import data from './data.json'
 const store = new ReplStore()
 
 // TODO make dynamic
-const preference = 'composition'
+const preference = document.documentElement.classList.contains(
+  'prefer-composition'
+)
+  ? 'composition'
+  : 'options'
 
-window.addEventListener('hashchange', () => {
-  const newHash = location.hash.slice(1)
-  store.setFiles(data[newHash][preference])
-})
+function updateExample() {
+  const hash = location.hash.slice(1)
+  store.setFiles(data[hash][preference])
+}
+
+window.addEventListener('hashchange', updateExample)
 </script>
 
 <template>
