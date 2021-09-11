@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { VTSwitch, VTIconChevronDown, VTIconChevronUp } from '@vue/theme'
+import { VTSwitch, VTIconChevronDown } from '@vue/theme'
 import { useRoute } from 'vitepress'
-import { ref, computed, Ref } from 'vue'
+import { ref, computed, inject, Ref } from 'vue'
 import {
   preferCompositionKey,
   preferComposition,
@@ -20,6 +20,7 @@ const toggleCompositionAPI = useToggleFn(
   'prefer-composition'
 )
 const toggleSFC = useToggleFn(preferSFCKey, preferSFC, 'prefer-sfc')
+const closeSideBar = inject('close-sidebar') as () => void
 
 function useToggleFn(
   storageKey: string,
@@ -51,8 +52,7 @@ function useToggleFn(
       @click="toggleOpen"
     >
       <span>API Preference</span>
-      <VTIconChevronUp v-if="isOpen" class="vt-link-icon" />
-      <VTIconChevronDown v-else class="vt-link-icon" />
+      <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
     </button>
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
       <div class="switch-container">
@@ -71,6 +71,7 @@ function useToggleFn(
           class="switch-link"
           title="About API preference"
           href="/guide/introduction.html#api-styles"
+          @click="closeSideBar"
           >?</a
         >
       </div>
@@ -86,6 +87,7 @@ function useToggleFn(
           class="switch-link"
           title="About SFC"
           href="/guide/scaling-up/sfc.html"
+          @click="closeSideBar"
           >?</a
         >
       </div>
@@ -119,6 +121,10 @@ function useToggleFn(
 .vt-link-icon {
   position: relative;
   top: 1px;
+}
+
+.vt-link-icon.open {
+  transform: rotate(180deg);
 }
 
 #preference-switches {
