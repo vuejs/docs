@@ -2,7 +2,7 @@
 
 ## key
 
-- **Expects:** `number | string`
+- **Expects:** `number | string | symbol `
 
   The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify VNodes when diffing the new list of nodes against the old list. Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed/destroyed.
 
