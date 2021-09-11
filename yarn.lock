@@ -296,10 +296,10 @@
     estree-walker "^2.0.2"
     magic-string "^0.25.7"
 
-"@vue/repl@^0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@vue/repl/-/repl-0.2.5.tgz#c1bf9823df53523620405916df8ef63d4e791367"
-  integrity sha512-wYmoFRU8Lv03j3cBY++r5Kn/LfT+R4Hgk+/IZ2TbW2NqwEzyqkTcAooIrUdsFEmbPubberBAmkPcij5xKXwzYw==
+"@vue/repl@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@vue/repl/-/repl-0.3.0.tgz#1cae74efa01af097551f4a3c95df99a401527520"
+  integrity sha512-+uFU7vpqTE8kq69L6muMHrI0KZUdYWUwlbOSoCjNlNf1gMk7ZLqYbx4jxhswyz7/TqjH9x4eJUgGhKmMRnQZ3w==
 
 "@vue/runtime-core@3.2.11":
   version "3.2.11"
@@ -331,10 +331,10 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.11.tgz#01899f54949caf1ac241de397bd17069632574de"
   integrity sha512-ovfXAsSsCvV9JVceWjkqC/7OF5HbgLOtCWjCIosmPGG8lxbPuavhIxRH1dTx4Dg9xLgRTNLvI3pVxG4ItQZekg==
 
-"@vue/theme@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@vue/theme/-/theme-0.1.6.tgz#dffe8ec1d1bb297c0c4c90380c696c4b30a42483"
-  integrity sha512-p55zBdOt9JI9qT9QCaB2/45jOQXVK1++YrxDd7IFXZc5Ol0ofE8Kszz//G+3X9Sropy58iTqAsoayMdf86LJSw==
+"@vue/theme@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@vue/theme/-/theme-0.1.7.tgz#d4bb26d5a2d9ccf3675b434ca6ac2ade0194b3cb"
+  integrity sha512-GZoDwVc2gead2dh04l6TQHQfBhChWp5djru2Q/Io7gB6XjULj8NVUZGULty+n6KCFYbueXRqsWTEO01qfjmZxQ==
   dependencies:
     "@docsearch/css" "^1.0.0-alpha.28"
     "@docsearch/js" "^1.0.0-alpha.28"
