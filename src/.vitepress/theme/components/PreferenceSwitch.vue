@@ -76,7 +76,7 @@ function useToggleFn(
         >
       </div>
       <div class="switch-container">
-        <label class="no-sfc-label" @click="toggleSFC(false)">No SFC</label>
+        <label class="no-sfc-label" @click="toggleSFC(false)">HTML</label>
         <VTSwitch
           class="sfc-switch"
           aria-label="Switch Single File Component"

@@ -2,7 +2,7 @@
 import { Repl, ReplStore } from '@vue/repl'
 import '@vue/repl/style.css'
 import data from './data.json'
-import { inject, watch, version, Ref } from 'vue'
+import { inject, watchEffect, version, Ref } from 'vue'
 
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
@@ -12,16 +12,22 @@ const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
 
 window.addEventListener('hashchange', updateExample)
-watch(preferComposition, updateExample)
-updateExample()
+watchEffect(updateExample)
 
+/**
+ * We perform some runtime logic to transform source files into different
+ * API / format combinations:
+ * - Options vs. Composition
+ * - plain HTML vs. SFCs
+ */
 function updateExample() {
   const hash = location.hash.slice(1)
   if (data.hasOwnProperty(hash)) {
     store.setFiles(
       preferSFC.value
         ? resolveSFCExample(data[hash])
-        : resolveNoBuildExample(data[hash])
+        : resolveNoBuildExample(data[hash]),
+      preferSFC.value ? 'App.vue' : 'index.html'
     )
   } else if (!hash) {
     location.hash = '#markdown'
@@ -68,23 +74,48 @@ function resolveSFCExample(raw: ExampleData) {
 
 function resolveNoBuildExample(raw: ExampleData) {
   const files: Record<string, string> = {}
+
+  let html = `<!--\n${raw['description.txt']}\n-->\n\n`
+  let css = ''
+
+  // set it first for ordering
+  files['index.html'] = html
+
   for (const filename in raw) {
-    if (filename === 'import-map.json') {
+    if (filename === 'description.txt') {
+      continue
+    } else if (filename === 'import-map.json') {
       files[filename] = raw[filename]
     } else {
       const {
-        'template.html': template,
+        'template.html': _template,
         'composition.js': composition,
         'options.js': options,
         'style.css': style
       } = raw[filename]
 
-      let htmlContent = ''
-      if (preferComposition.value) {
+      let js = preferComposition.value ? composition : options
+      // rewrite imports to *.vue
+      js = js.replace(/import (.*) from '(.*)\.vue'/g, "import $1 from '$2.js'")
+
+      const template = indent(toKebabTags(_template))
+      if (style) css += style
+
+      if (filename === 'App') {
+        html += `<script type="module">\n${injectCreateApp(js)}<\/script>`
+        html += `\n\n<div id="app">\n${template}</div>`
       } else {
+        html += `\n\n<template id="${filename}">\n${template}</template>`
+        js = js.replace(
+          `export default {\n  `,
+          `export default {\n  template: '#${filename}',\n  `
+        )
+        files[filename + '.js'] = js
       }
     }
   }
+  files['index.html'] = html
+  files['style.css'] = css
   return files
 }
 
@@ -128,6 +159,22 @@ function deindent(str: string, tabsize = 2): string {
     .split('\n')
     .map((l) => l.replace(tabsize === 1 ? /^\s{2}/ : /^\s{4}/, ''))
     .join('\n')
+}
+
+function injectCreateApp(src: string): string {
+  const importVueRE = /import {(.*?)} from 'vue'/
+  if (importVueRE.test(src)) {
+    src = src.replace(importVueRE, `import { createApp,$1} from 'vue'`)
+  } else {
+    src = `import { createApp } from 'vue'\n${src}`
+  }
+  return src.replace(/export default ({[^]*\n})/, "createApp($1).mount('#app')")
+}
+
+function toKebabTags(str: string): string {
+  return str.replace(/(<\/?)([A-Z]\w+)(\s|>)/g, (_, open, tagName, end) => {
+    return open + tagName.replace(/\B([A-Z])/g, '-$1').toLowerCase() + end
+  })
 }
 </script>
 

@@ -7,7 +7,7 @@ export default {
   }),
   computed: {
     output() {
-      return marked(this.input, { sanitize: true })
+      return marked(this.input)
     }
   },
   methods: {

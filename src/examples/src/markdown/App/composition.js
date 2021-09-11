@@ -6,9 +6,7 @@ export default {
   setup() {
     const input = ref('# hello')
 
-    const output = computed(() => {
-      return marked(input.value, { sanitize: true })
-    })
+    const output = computed(() => marked(input.value))
 
     const update = debounce((e) => {
       input.value = e.target.value

@@ -8,7 +8,7 @@ Vue can be used without a build step in progressive enhancement or relatively si
 <script type="importmap">
   {
     "imports": {
-      "vue": "https://unpkg.com/vue/dist/vue.esm-browser.js"
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
     }
   }
 </script>
