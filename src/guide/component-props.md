@@ -61,6 +61,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 
 ```html
 <!-- Including the prop with no value will imply `true`. -->
+<!-- If you don't set is-published's type to Boolean in props, it will be an empty string instead of "true" value. -->
 <blog-post is-published></blog-post>
 
 <!-- Even though `false` is static, we need v-bind to tell Vue that -->
