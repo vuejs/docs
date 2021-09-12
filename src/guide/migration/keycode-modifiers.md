@@ -42,7 +42,7 @@ Vue.config.keyCodes = {
 
 ## 3.x Syntax
 
-Since [`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode), it no longer makes sense for Vue 3 to continue supporting this as well. As a result, it is now recommended to use the kebab-case name for any key you want to use as a modifier.
+Since [`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode), it no longer makes sense for Vue 3 to continue supporting this as well. As a result, it is now recommended using the kebab-case name for any key you want to use as a modifier.
 
 ```html
 <!-- Vue 3 Key Modifier on v-on -->
