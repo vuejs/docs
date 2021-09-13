@@ -11,8 +11,8 @@ const store = new ReplStore({
 const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
 
-window.addEventListener('hashchange', updateExample)
 watchEffect(updateExample)
+window.addEventListener('hashchange', updateExample)
 
 /**
  * We perform some runtime logic to transform source files into different
@@ -21,17 +21,17 @@ watchEffect(updateExample)
  * - plain HTML vs. SFCs
  */
 function updateExample() {
-  const hash = location.hash.slice(1)
-  if (data.hasOwnProperty(hash)) {
-    store.setFiles(
-      preferSFC.value
-        ? resolveSFCExample(data[hash])
-        : resolveNoBuildExample(data[hash]),
-      preferSFC.value ? 'App.vue' : 'index.html'
-    )
-  } else if (!hash) {
-    location.hash = '#markdown'
+  let hash = location.hash.slice(1)
+  if (!data.hasOwnProperty(hash)) {
+    hash = 'markdown'
+    location.hash = `#${hash}`
   }
+  store.setFiles(
+    preferSFC.value
+      ? resolveSFCExample(data[hash])
+      : resolveNoBuildExample(data[hash]),
+    preferSFC.value ? 'App.vue' : 'index.html'
+  )
 }
 
 type ExampleData = {
