@@ -5,6 +5,22 @@ page: true
 
 <script setup>
 import apiIndex from './index.json'
+import { ref, computed } from 'vue'
+
+const query = ref('')
+
+const filtered = computed(() => {
+  const q = query.value
+  return apiIndex.map(section => {
+    const items = section.items.map(({ text, link, headers }) => {
+      headers = headers.filter(h => {
+        return h.toLowerCase().includes(q.toLowerCase())
+      })
+      return headers.length ? { text, link, headers } : null
+    }).filter(i => i)
+    return items.length ? { text: section.text, items } : null
+  }).filter(i => i)
+})
 
 // same as vitepress' slugify logic
 function slugify(text) {
@@ -23,9 +39,12 @@ function slugify(text) {
 </script>
 
 <div id="api-index">
-  <h1>API Reference</h1>
+  <div class="header">
+    <h1>API Reference</h1>
+    <input class="api-filter" placeholder="Filter" v-model="query">
+  </div>
 
-  <div v-for="section of apiIndex" class="api-section">
+  <div v-for="section of filtered" class="api-section">
     <h2>{{ section.text }}</h2>
     <div class="api-groups">
       <div v-for="item of section.items" class="api-group">
@@ -66,7 +85,7 @@ h1 {
 h2 {
   font-size: 24px;
   color: var(--vt-c-text-1);
-  margin: 64px 0 36px;
+  margin: 36px 0;
   transition: color 0.5s;
   padding-top: 36px;
   border-top: 1px solid var(--vt-c-divider-light);
@@ -78,6 +97,10 @@ h3 {
   font-size: 18px;
   margin-bottom: 1em;
   transition: color 0.5s;
+}
+
+.api-section {
+  margin-bottom: 64px;
 }
 
 .api-groups a {
@@ -106,12 +129,29 @@ h3 {
   transition: background-color 0.5s;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.api-filter {
+  border: 1px solid var(--vt-c-divider);
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+.api-filter:focus {
+  border-color: var(--vt-c-green-light);
+}
+
 @media (max-width: 768px) {
   #api-index {
     padding: 42px 24px;
   }
   h1 {
     font-size: 32px;
+    margin-bottom: 24px;
   }
   h2 {
     font-size: 22px;
@@ -120,6 +160,9 @@ h3 {
   }
   .api-groups a {
     font-size: 14px;
+  }
+  .header {
+    display: block;
   }
 }
 
