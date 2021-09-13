@@ -29,10 +29,11 @@ function readExample(dir) {
   const filenames = fs.readdirSync(dir)
   const files = {}
   for (const filename of filenames) {
-    if (filename === 'import-map.json' || filename === 'description.txt') {
-      files[filename] = fs.readFileSync(path.join(dir, filename), 'utf-8')
+    const fullPath = path.join(dir, filename)
+    if (fs.statSync(fullPath).isDirectory()) {
+      files[filename] = readComponentDir(fullPath)
     } else {
-      files[filename] = readComponentDir(path.join(dir, filename))
+      files[filename] = fs.readFileSync(fullPath, 'utf-8')
     }
   }
   return files

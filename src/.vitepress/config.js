@@ -362,7 +362,7 @@ const sidebar = {
         },
         {
           text: 'Attribute Bindings',
-          link: '/examples/#attr-bindings'
+          link: '/examples/#attribute-bindings'
         },
         {
           text: 'Conditionals and Loops',
@@ -373,8 +373,8 @@ const sidebar = {
           link: '/examples/#form-bindings'
         },
         {
-          text: 'Simple Components',
-          link: '/examples/#simple-components'
+          text: 'Simple Component',
+          link: '/examples/#simple-component'
         }
       ]
     },
@@ -387,7 +387,7 @@ const sidebar = {
         },
         {
           text: 'Fetching Data',
-          link: '/examples/#commits'
+          link: '/examples/#fetching-data'
         },
         {
           text: 'Grid with Sort and Filter',
