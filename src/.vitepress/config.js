@@ -350,18 +350,47 @@ const sidebar = {
   ],
   '/examples/': [
     {
-      text: 'Basic Examples',
+      text: 'Basic',
+      items: [
+        {
+          text: 'Hello World',
+          link: '/examples/#hello-world'
+        },
+        {
+          text: 'Handling User Input',
+          link: '/examples/#handling-input'
+        },
+        {
+          text: 'Attribute Bindings',
+          link: '/examples/#attr-bindings'
+        },
+        {
+          text: 'Conditionals and Loops',
+          link: '/examples/#conditionals-and-loops'
+        },
+        {
+          text: 'Form Bindings',
+          link: '/examples/#form-bindings'
+        },
+        {
+          text: 'Simple Components',
+          link: '/examples/#simple-components'
+        }
+      ]
+    },
+    {
+      text: 'Practical',
       items: [
         {
           text: 'Markdown Editor',
           link: '/examples/#markdown'
         },
         {
-          text: 'GitHub Commits',
+          text: 'Fetching Data',
           link: '/examples/#commits'
         },
         {
-          text: 'Data Grid',
+          text: 'Grid with Sort and Filter',
           link: '/examples/#grid'
         },
         {
@@ -373,8 +402,12 @@ const sidebar = {
           link: '/examples/#svg'
         },
         {
-          text: 'Modal',
+          text: 'Modal with Transitions',
           link: '/examples/#modal'
+        },
+        {
+          text: 'List with Transitions',
+          link: '/examples/#list'
         },
         {
           text: 'TodoMVC',
@@ -416,28 +449,6 @@ const sidebar = {
         }
       ]
     }
-    // TODO
-    // {
-    //   text: 'API Usage',
-    //   items: [
-    //     {
-    //       text: 'v-bind',
-    //       link: '/examples/#v-bind'
-    //     },
-    //     {
-    //       text: 'v-if',
-    //       link: '/examples/#v-if'
-    //     },
-    //     {
-    //       text: 'v-for',
-    //       link: '/examples/#v-for'
-    //     },
-    //     {
-    //       text: 'v-model',
-    //       link: '/examples/#v-model'
-    //     }
-    //   ]
-    // }
   ],
   '/tutorial/': [
     {
