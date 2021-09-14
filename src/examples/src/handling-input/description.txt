@@ -1,1 +1,1 @@
-This example demonstrates handling user input with the v-on directive. The @click syntax is short for v-on:click
+This example demonstrates handling user input with the v-on directive. The @click syntax is short for v-on:click.

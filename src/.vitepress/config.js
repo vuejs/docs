@@ -480,6 +480,9 @@ module.exports = {
     optimizeDeps: {
       exclude: ['@vue/repl']
     },
+    server: {
+      host: true
+    },
     ssr: {
       external: ['@vue/repl']
     },
