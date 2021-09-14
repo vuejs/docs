@@ -16,7 +16,7 @@ export default {
 
     return {
       message,
-      isRef,
+      isRed,
       color,
       toggleRed,
       toggleColor

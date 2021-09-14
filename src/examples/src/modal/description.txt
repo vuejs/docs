@@ -1,1 +1,1 @@
-Say Hello World with Vue!
+Modal component with customizable slots and CSS transitions.

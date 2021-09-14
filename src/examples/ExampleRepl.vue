@@ -2,7 +2,7 @@
 import { Repl, ReplStore } from '@vue/repl'
 import '@vue/repl/style.css'
 import data from './data.json'
-import { inject, watchEffect, version, Ref } from 'vue'
+import { computed, inject, watchEffect, version, Ref } from 'vue'
 
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
@@ -196,7 +196,12 @@ function toKebabTags(str: string): string {
 </script>
 
 <template>
-  <Repl :store="store" :showCompileOutput="false" :clearConsole="false" />
+  <Repl
+    :store="store"
+    :showImportMap="!preferSFC"
+    :showCompileOutput="false"
+    :clearConsole="false"
+  />
 </template>
 
 <style scoped>

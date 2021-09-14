@@ -1,7 +1,12 @@
+import Modal from './Modal.vue'
+
 export default {
+  components: {
+    Modal
+  },
   data() {
     return {
-      message: 'Hello World!'
+      showModal: false
     }
   }
 }

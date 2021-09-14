@@ -407,7 +407,7 @@ const sidebar = {
         },
         {
           text: 'List with Transitions',
-          link: '/examples/#list'
+          link: '/examples/#list-transition'
         },
         {
           text: 'TodoMVC',
@@ -480,11 +480,11 @@ module.exports = {
     optimizeDeps: {
       exclude: ['@vue/repl']
     },
-    server: {
-      host: true
-    },
     ssr: {
       external: ['@vue/repl']
+    },
+    server: {
+      host: true
     },
     build: {
       chunkSizeWarningLimit: Infinity
