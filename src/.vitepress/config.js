@@ -496,6 +496,8 @@ module.exports = {
   description: 'Vue.js - The Progressive JavaScript Framework',
 
   head: [
+    ['meta', { name: 'twitter:site', content: '@vuejs' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     [
       'script',
       {},

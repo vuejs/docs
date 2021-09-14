@@ -331,10 +331,10 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.11.tgz#01899f54949caf1ac241de397bd17069632574de"
   integrity sha512-ovfXAsSsCvV9JVceWjkqC/7OF5HbgLOtCWjCIosmPGG8lxbPuavhIxRH1dTx4Dg9xLgRTNLvI3pVxG4ItQZekg==
 
-"@vue/theme@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@vue/theme/-/theme-0.1.7.tgz#d4bb26d5a2d9ccf3675b434ca6ac2ade0194b3cb"
-  integrity sha512-GZoDwVc2gead2dh04l6TQHQfBhChWp5djru2Q/Io7gB6XjULj8NVUZGULty+n6KCFYbueXRqsWTEO01qfjmZxQ==
+"@vue/theme@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@vue/theme/-/theme-0.1.8.tgz#3edf1631e51faee5ef957dad1d1d6c86f06f1fb4"
+  integrity sha512-DRKFTKyCMnc+X+CoFQmxGvawB1zikTI5iUFLUHET6ESRVTH6RjFNTjapolWjICChySJvPT1N5TgMxHtCQauIFA==
   dependencies:
     "@docsearch/css" "^1.0.0-alpha.28"
     "@docsearch/js" "^1.0.0-alpha.28"

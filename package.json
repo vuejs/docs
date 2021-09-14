@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@vue/repl": "^0.3.0",
-    "@vue/theme": "^0.1.7"
+    "@vue/theme": "^0.1.8"
   }
 }
