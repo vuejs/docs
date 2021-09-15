@@ -10,11 +10,11 @@ const members = [
     twitter: 'youyuxi',
     work: {
       role: 'Creator',
-      org: 'Vue.js'
+      org: 'Vue.js',
     },
     reposOfficial: ['vuejs/*', 'vuejs-templates/*'],
-    links: ['https://www.patreon.com/evanyou']
-  }
+    links: ['https://www.patreon.com/evanyou'],
+  },
 ].concat(
   shuffle([
     {
@@ -25,11 +25,11 @@ const members = [
       github: 'posva',
       twitter: 'posva',
       work: {
-        role: 'Freelance Developer & Consultant'
+        role: 'Freelance Developer & Consultant',
       },
       reposOfficial: ['vuefire', 'vue-router'],
       reposPersonal: ['vuex-mock-store', 'vue-promised', 'vue-motion'],
-      links: ['https://www.patreon.com/posva']
+      links: ['https://www.patreon.com/posva'],
     },
     {
       name: 'Sodatea',
@@ -37,7 +37,7 @@ const members = [
       languages: ['zh', 'en'],
       github: 'sodatea',
       twitter: 'haoqunjiang',
-      reposOfficial: ['vue-cli', 'vue-loader']
+      reposOfficial: ['vue-cli', 'vue-loader'],
     },
     {
       name: 'Pine Wu',
@@ -46,9 +46,9 @@ const members = [
       github: 'octref',
       twitter: 'octref',
       work: {
-        role: 'Nomad'
+        role: 'Nomad',
       },
-      reposOfficial: ['vetur']
+      reposOfficial: ['vetur'],
     },
     {
       name: 'Jinjiang',
@@ -61,8 +61,8 @@ const members = [
         'vue-a11y-utils',
         'vue-mark-display',
         'mark2slides',
-        'vue-keyboard-over'
-      ]
+        'vue-keyboard-over',
+      ],
     },
     {
       name: 'Katashin',
@@ -72,12 +72,12 @@ const members = [
       work: {
         role: 'Software Engineer',
         org: 'ClassDo',
-        orgUrl: 'https://classdo.com'
+        orgUrl: 'https://classdo.com',
       },
       github: 'ktsn',
       twitter: 'ktsn',
       reposOfficial: ['vuex', 'vue-class-component'],
-      reposPersonal: ['vue-designer']
+      reposPersonal: ['vue-designer'],
     },
     {
       name: 'Kazupon',
@@ -89,7 +89,7 @@ const members = [
       work: {
         role: 'Engineer',
         org: 'PLAID, Inc.',
-        orgUrl: 'https://plaid.co.jp'
+        orgUrl: 'https://plaid.co.jp',
       },
       reposOfficial: ['vuejs.org', 'jp.vuejs.org'],
       reposPersonal: [
@@ -98,9 +98,9 @@ const members = [
         'vue-i18n-loader',
         'eslint-plugin-vue-i18n',
         'vue-i18n-extensions',
-        'vue-cli-plugin-p11n'
+        'vue-cli-plugin-p11n',
       ],
-      links: ['https://www.patreon.com/kazupon']
+      links: ['https://www.patreon.com/kazupon'],
     },
     {
       name: 'Rahul Kadyan',
@@ -110,13 +110,13 @@ const members = [
       work: {
         role: 'Software Engineer',
         org: 'Grammarly',
-        orgUrl: 'https://grammarly.com/'
+        orgUrl: 'https://grammarly.com/',
       },
       github: 'znck',
       twitter: 'znck0',
       reposOfficial: ['rollup-plugin-vue', 'vue-next'],
       reposPersonal: ['vue-developer-experience', 'prop-types', 'grammarly'],
-      links: ['https://znck.me']
+      links: ['https://znck.me'],
     },
     {
       name: 'Linusborg',
@@ -127,7 +127,7 @@ const members = [
       twitter: 'Linus_Borg',
       reposOfficial: ['vuejs/*'],
       reposPersonal: ['portal-vue'],
-      links: ['https://forum.vuejs.org/']
+      links: ['https://forum.vuejs.org/'],
     },
     {
       name: 'Guillaume Chau',
@@ -139,37 +139,16 @@ const members = [
       work: {
         role: 'Frontend Developer',
         org: 'Livestorm',
-        orgUrl: 'https://livestorm.co/'
+        orgUrl: 'https://livestorm.co/',
       },
       reposOfficial: ['vue-devtools', 'vue-cli', 'vue-curated'],
       reposPersonal: [
         'vue-apollo',
         'vue-meteor',
         'vue-virtual-scroller',
-        'v-tooltip'
+        'v-tooltip',
       ],
-      links: ['http://patreon.com/akryum']
-    },
-    {
-      name: 'Sarah Drasner',
-      city: 'Denver, CO, USA',
-      languages: ['en'],
-      work: {
-        role: 'VP of Developer Experience',
-        org: 'Netlify',
-        orgUrl: 'https://url.netlify.com/HJ8X2mxP8'
-      },
-      github: 'sdras',
-      twitter: 'sarah_edo',
-      codepen: 'sdras',
-      reposOfficial: ['vuejs.org'],
-      reposPersonal: [
-        'vue-vscode-snippets',
-        'intro-to-vue',
-        'vue-vscode-extensionpack',
-        'ecommerce-netlify'
-      ],
-      links: ['https://sarah.dev/']
+      links: ['http://patreon.com/akryum'],
     },
     {
       name: 'Damian Dulisz',
@@ -179,10 +158,10 @@ const members = [
       github: 'shentao',
       twitter: 'DamianDulisz',
       work: {
-        role: 'Consultant'
+        role: 'Consultant',
       },
       reposOfficial: ['news.vuejs.org'],
-      reposPersonal: ['shentao/vue-multiselect', 'shentao/vue-global-events']
+      reposPersonal: ['shentao/vue-multiselect', 'shentao/vue-global-events'],
     },
     {
       name: 'Michał Sajnóg',
@@ -193,10 +172,10 @@ const members = [
       work: {
         role: 'Senior Frontend Developer / Team Leader',
         org: 'Netguru',
-        orgUrl: 'https://netguru.co/'
+        orgUrl: 'https://netguru.co/',
       },
       reposOfficial: ['eslint-plugin-vue', 'vue-devtools'],
-      reposPersonal: ['vue-computed-helpers', 'vue-content-placeholders']
+      reposPersonal: ['vue-computed-helpers', 'vue-content-placeholders'],
     },
     {
       name: 'GU Yiling',
@@ -205,7 +184,7 @@ const members = [
       work: {
         role: 'Senior web developer',
         org: 'Baidu, inc.',
-        orgUrl: 'https://www.baidu.com/'
+        orgUrl: 'https://www.baidu.com/',
       },
       github: 'Justineo',
       twitter: '_justineo',
@@ -213,8 +192,8 @@ const members = [
       reposPersonal: [
         'Justineo/vue-awesome',
         'ecomfe/vue-echarts',
-        'ecomfe/veui'
-      ]
+        'ecomfe/veui',
+      ],
     },
     {
       name: 'ULIVZ',
@@ -223,11 +202,11 @@ const members = [
       work: {
         role: 'Senior Frontend Developer',
         org: 'AntFinancial',
-        orgUrl: 'https://www.antfin.com'
+        orgUrl: 'https://www.antfin.com',
       },
       github: 'ulivz',
       twitter: '_ulivz',
-      reposOfficial: ['vuepress']
+      reposOfficial: ['vuepress'],
     },
     {
       name: 'Phan An',
@@ -239,11 +218,11 @@ const members = [
       work: {
         role: 'Engineering Team Lead',
         org: 'InterNations',
-        orgUrl: 'https://www.internations.org/'
+        orgUrl: 'https://www.internations.org/',
       },
       reposOfficial: ['vuejs.org'],
       reposPersonal: ['vuequery', 'vue-google-signin-button'],
-      links: ['https://vi.vuejs.org', 'https://phanan.net/']
+      links: ['https://vi.vuejs.org', 'https://phanan.net/'],
     },
     {
       name: 'Natalia Tepluhina',
@@ -254,10 +233,10 @@ const members = [
       work: {
         role: 'Staff Frontend Engineer',
         org: 'GitLab',
-        orgUrl: 'https://gitlab.com/'
+        orgUrl: 'https://gitlab.com/',
       },
       github: 'NataliaTepluhina',
-      twitter: 'N_Tepluhina'
+      twitter: 'N_Tepluhina',
     },
     {
       name: 'Yosuke Ota',
@@ -268,9 +247,9 @@ const members = [
       work: {
         role: 'Lead Web Engineer',
         org: 'Future Corporation',
-        orgUrl: 'https://www.future.co.jp/'
+        orgUrl: 'https://www.future.co.jp/',
       },
-      reposOfficial: ['eslint-plugin-vue']
+      reposOfficial: ['eslint-plugin-vue'],
     },
     {
       name: 'Ben Hong',
@@ -278,12 +257,12 @@ const members = [
       languages: ['en', 'zh'],
       work: {
         role: 'Developer Experience (DX) Engineer',
-        org: 'Cypress.io'
+        org: 'Cypress.io',
       },
       reposOfficial: ['vuejs.org', 'vuepress', 'vuejs/events'],
       github: 'bencodezen',
       twitter: 'bencodezen',
-      links: ['https://bencodezen.io/']
+      links: ['https://bencodezen.io/'],
     },
     {
       name: 'Kia King Ishii',
@@ -293,12 +272,12 @@ const members = [
       work: {
         role: 'Tech Talent',
         org: 'Global Brain',
-        orgUrl: 'https://globalbrains.com/'
+        orgUrl: 'https://globalbrains.com/',
       },
       github: 'kiaking',
       twitter: 'KiaKing85',
       reposOfficial: ['vuex'],
-      reposPersonal: ['vuex-orm/*']
+      reposPersonal: ['vuex-orm/*'],
     },
     {
       name: 'Anthony Fu',
@@ -308,8 +287,8 @@ const members = [
       twitter: 'antfu7',
       reposOfficial: ['composition-api'],
       reposPersonal: ['vueuse', 'vue-demi', 'vue-reactivity/*'],
-      links: ['https://antfu.me/']
-    }
+      links: ['https://antfu.me/'],
+    },
   ])
 )
 

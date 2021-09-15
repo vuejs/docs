@@ -2,6 +2,27 @@ import { shuffle } from 'lodash'
 
 export default shuffle([
   {
+    name: 'Sarah Drasner',
+    city: 'Denver, CO, USA',
+    languages: ['en'],
+    work: {
+      role: 'Director of Engineering, Core Developer Web',
+      org: 'Google',
+      orgUrl: 'https://google.com',
+    },
+    github: 'sdras',
+    twitter: 'sarah_edo',
+    codepen: 'sdras',
+    reposOfficial: ['vuejs.org'],
+    reposPersonal: [
+      'vue-vscode-snippets',
+      'intro-to-vue',
+      'vue-vscode-extensionpack',
+      'ecommerce-netlify',
+    ],
+    links: ['https://sarah.dev/'],
+  },
+  {
     name: 'Chris Fritz',
     title: 'Good Word Putter-Togetherer',
     city: 'Durham, NC, USA',
@@ -9,11 +30,9 @@ export default shuffle([
     github: 'chrisvfritz',
     twitter: 'chrisvfritz',
     work: {
-      role: 'Educator & Consultant'
+      role: 'Educator & Consultant',
     },
-    reposPersonal: [
-      'vue-enterprise-boilerplate'
-    ]
+    reposPersonal: ['vue-enterprise-boilerplate'],
   },
   {
     name: 'Blake Newman',
@@ -23,10 +42,10 @@ export default shuffle([
     work: {
       role: 'Software Engineer',
       org: 'Attest',
-      orgUrl: 'https://www.askattest.com/'
+      orgUrl: 'https://www.askattest.com/',
     },
     github: 'blake-newman',
-    twitter: 'blakenewman'
+    twitter: 'blakenewman',
   },
   {
     name: 'kingwl',
@@ -36,12 +55,10 @@ export default shuffle([
     work: {
       role: 'Software Development Engineer',
       org: 'Chaitin',
-      orgUrl: 'https://chaitin.cn/'
+      orgUrl: 'https://chaitin.cn/',
     },
     github: 'kingwl',
-    reposOfficial: [
-      'vue'
-    ]
+    reposOfficial: ['vue'],
   },
   {
     name: 'Alan Song',
@@ -51,12 +68,10 @@ export default shuffle([
     work: {
       role: 'Cofounder',
       org: 'Futurenda',
-      orgUrl: 'https://www.futurenda.com/'
+      orgUrl: 'https://www.futurenda.com/',
     },
     github: 'fnlctrl',
-    reposOfficial: [
-      'vue-router'
-    ]
+    reposOfficial: ['vue-router'],
   },
   {
     name: 'defcc',
@@ -66,8 +81,8 @@ export default shuffle([
     github: 'defcc',
     work: {
       org: 'zbj.com',
-      orgUrl: 'http://www.zbj.com/'
-    }
+      orgUrl: 'http://www.zbj.com/',
+    },
   },
   {
     name: 'gebilaoxiong',
@@ -77,8 +92,8 @@ export default shuffle([
     github: 'gebilaoxiong',
     work: {
       org: 'zbj.com',
-      orgUrl: 'http://www.zbj.com/'
-    }
+      orgUrl: 'http://www.zbj.com/',
+    },
   },
   {
     name: 'Denis Karabaza',
@@ -90,8 +105,8 @@ export default shuffle([
     work: {
       role: 'Software Engineer',
       org: 'Neolant',
-      orgUrl: 'http://neolant.ru/'
-    }
+      orgUrl: 'http://neolant.ru/',
+    },
   },
   {
     name: 'Edd Yerburgh',
@@ -101,16 +116,10 @@ export default shuffle([
     github: 'eddyerburgh',
     twitter: 'EddYerburgh',
     work: {
-      role: 'Full Stack Developer'
+      role: 'Full Stack Developer',
     },
-    reposOfficial: [
-      'vue-test-utils'
-    ],
-    reposPersonal: [
-      'avoriaz'
-    ],
-    links: [
-      'https://www.eddyerburgh.me'
-    ]
-  }
+    reposOfficial: ['vue-test-utils'],
+    reposPersonal: ['avoriaz'],
+    links: ['https://www.eddyerburgh.me'],
+  },
 ])
