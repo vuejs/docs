@@ -5,8 +5,7 @@ import { preferComposition, preferSFC } from './components/preferences'
 import './styles/inline-demo.css'
 import './styles/options-boxes.css'
 
-export default {
-  ...VPTheme,
+export default Object.assign({}, VPTheme, {
   Layout: () => {
     return h(VPTheme.Layout, null, {
       'sidebar-top': () => h(PreferenceSwitch)
@@ -17,4 +16,4 @@ export default {
     app.provide('prefer-composition', preferComposition)
     app.provide('prefer-sfc', preferSFC)
   }
-}
+})
