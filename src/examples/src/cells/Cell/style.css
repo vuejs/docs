@@ -1,10 +1,14 @@
-.cell {
+.cell, .cell input {
+  height: 1.5em;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.cell span {
   padding: 0 6px;
-  height: 1em;
 }
 
 .cell input {
-  width: 80px;
-  height: 1em;
-  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
 }

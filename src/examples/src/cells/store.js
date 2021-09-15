@@ -1,32 +1,38 @@
 import { reactive } from 'vue'
 
+const COLS = 5
+const ROWS = 20
+
 export const cells = reactive(
-  Array.from(Array(26).keys()).map((i) =>
-    Array.from(Array(100).keys()).map((i) => '')
+  Array.from(Array(COLS).keys()).map((i) =>
+    Array.from(Array(ROWS).keys()).map((i) => '')
   )
 )
 
-// https://codesandbox.io/s/jotai-7guis-task7-cells-mzoit?file=/src/atoms.ts
+// adapted from https://codesandbox.io/s/jotai-7guis-task7-cells-mzoit?file=/src/atoms.ts
+// by @dai-shi
 export function evalCell(exp) {
   if (!exp.startsWith('=')) {
     return exp
   }
-  try {
-    const fn = Function(
-      'get',
-      `
-      return ${exp
-        .slice(1)
-        .replace(/\b([A-Z])(\d{1,2})\b/g, (_, c, r) => `get('${c}', ${r})`)};
-      `
+
+  // = A1 + B2 ---> get(0,1) + get(1,2)
+  exp = exp
+    .slice(1)
+    .replace(
+      /\b([A-Z])(\d{1,2})\b/g,
+      (_, c, r) => `get(${c.charCodeAt(0) - 65},${r})`
     )
-    return fn((c, r) => {
-      c = c.charCodeAt(0) - 65
-      const val = evalCell(cells[c][r])
-      const num = Number(val)
-      return Number.isFinite(num) ? num : val
-    })
+
+  try {
+    return new Function('get', `return ${exp}`)(getCellValue)
   } catch (e) {
     return `#ERROR ${e}`
   }
+}
+
+function getCellValue(c, r) {
+  const val = evalCell(cells[c][r])
+  const num = Number(val)
+  return Number.isFinite(num) ? num : val
 }

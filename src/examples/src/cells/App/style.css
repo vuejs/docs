@@ -9,7 +9,7 @@ table {
 }
 
 th {
-  background-color: lightgray;
+  background-color: #eee;
 }
 
 tr:first-of-type th {
@@ -21,7 +21,7 @@ tr:first-of-type th:first-of-type {
 }
 
 td {
-  border: 1px solid lightgray;
+  border: 1px solid #ccc;
   height: 1.5em;
   overflow: scroll;
 }

@@ -1,4 +1,4 @@
-<div class="cell" @click="editing = true">
+<div class="cell" :title="cells[c][r]" @click="editing = true">
   <input
     v-if="editing"
     :value="cells[c][r]"
