@@ -7,13 +7,15 @@ export default {
     const checkedNames = ref(['Jack'])
     const picked = ref('One')
     const selected = ref('A')
+    const multiSelected = ref(['A'])
 
     return {
       text,
       checked,
       checkedNames,
       picked,
-      selected
+      selected,
+      multiSelected
     }
   }
 }

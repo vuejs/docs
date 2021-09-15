@@ -7,6 +7,10 @@
     <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
   </div>
   <ul v-show="isOpen" v-if="isFolder">
+    <!--
+      A component can recursively render itself using its
+      "name" option (inferred from filename if using SFC)
+    -->
     <TreeItem
       class="item"
       v-for="model in model.children"

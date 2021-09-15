@@ -7,6 +7,9 @@ export default {
   methods: {
     reverseMessage() {
       this.message = this.message.split('').reverse().join('')
+    },
+    notify() {
+      alert('navigation was prevented.')
     }
   }
 }

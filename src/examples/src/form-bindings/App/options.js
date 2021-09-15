@@ -5,7 +5,8 @@ export default {
       checked: true,
       checkedNames: ['Jack'],
       picked: 'One',
-      selected: 'A'
+      selected: 'A',
+      multiSelected: ['A']
     }
   }
 }
