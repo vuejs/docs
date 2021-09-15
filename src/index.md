@@ -56,12 +56,12 @@ section {
 }
 
 #hero {
-  padding: 64px 32px;
+  padding: 76px 32px;
   text-align: center;
 }
 
 .tagline {
-  font-size: 60px;
+  font-size: 62px;
   line-height: 1.25;
   font-weight: 900;
   letter-spacing: -1.5px;
@@ -81,8 +81,8 @@ section {
   line-height: 1.5;
   color: var(--vt-c-text-2);
   transition: color 0.5s;
-  font-size: 19px;
-  margin: 22px auto 50px;
+  font-size: 18px;
+  margin: 24px auto 40px;
 }
 
 .actions a {
@@ -202,6 +202,9 @@ section {
 }
 
 @media (max-width: 576px) {
+  #hero {
+    padding: 64px 32px;
+  }
   .tagline {
     font-size: 38px;
   }
