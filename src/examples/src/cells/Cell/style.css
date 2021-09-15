@@ -1,0 +1,10 @@
+.cell {
+  padding: 0 6px;
+  height: 1em;
+}
+
+.cell input {
+  width: 80px;
+  height: 1em;
+  font-size: 15px;
+}

@@ -1,0 +1,11 @@
+<select v-model="flightType">
+  <option>one-way flight</option>
+  <option>return flight</option>
+</select>
+
+<input type="date" v-model="departureDate" />
+<input type="date" v-model="returnDate" :disabled="!isReturn" />
+
+<button :disabled="!canBook" @click="book">Book</button>
+
+<p>{{ canBook ? '' : 'Return date must be after departure date.' }}</p>

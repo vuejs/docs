@@ -425,7 +425,7 @@ const sidebar = {
         },
         {
           text: 'Temperature Converter',
-          link: '/examples/#temprature-converter'
+          link: '/examples/#temperature-converter'
         },
         {
           text: 'Flight Booker',
