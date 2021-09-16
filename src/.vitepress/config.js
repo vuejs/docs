@@ -477,6 +477,9 @@ module.exports = {
   // @ts-ignore
   extends: require('@vue/theme/config'),
   vite: {
+    define: {
+      __VUE_OPTIONS_API__: false
+    },
     optimizeDeps: {
       exclude: ['@vue/repl']
     },
@@ -487,6 +490,10 @@ module.exports = {
       host: true
     },
     build: {
+      // TODO - before switching to esbuild for minification we need:
+      // 1. release vite with unused css string fix
+      // 2. release vue with try...catch block fix
+      // minify: 'esbuild',
       chunkSizeWarningLimit: Infinity
     },
     json: {
