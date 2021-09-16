@@ -28,7 +28,7 @@ app.config.errorHandler = (err, vm, info) => {
 
 Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the application instance.
 
-> Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
+> Error tracking services [Sentry](https://sentry.io/for/vue/), [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) and [Airbrake](https://airbrake.io/docs/installing-airbrake/installing-airbrake-in-a-vuejs-app/) provide official integrations using this option.
 
 ## warnHandler
 
@@ -180,7 +180,7 @@ Setting the value to `'preserve'` will disable (2) and (3).
 
 ```js
 // Delimiters changed to ES6 template string style
-app.config.compilerOptions.delimiters = ['${', '}']    
+app.config.compilerOptions.delimiters = ['${', '}']
 ```
 
 Sets the delimiters used for text interpolation within the template.
