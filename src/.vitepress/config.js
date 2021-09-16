@@ -534,6 +534,14 @@ module.exports = {
     ],
 
     nav,
-    sidebar
+    sidebar,
+
+    footer: {
+      license: {
+        text: 'MIT License',
+        link: 'https://opensource.org/licenses/MIT'
+      },
+      copyright: 'Copyright © 2014-2021 Evan You'
+    }
   }
 }
