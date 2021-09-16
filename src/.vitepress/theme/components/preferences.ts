@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
 const hasStorage = typeof localStorage !== 'undefined'
-const get = (key: string) =>
+const get = (key: string): boolean =>
   hasStorage ? JSON.parse(localStorage.getItem(key) || 'false') : false
 
 export const preferCompositionKey = 'vue-docs-prefer-composition'

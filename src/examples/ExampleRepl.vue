@@ -2,7 +2,7 @@
 import { Repl, ReplStore } from '@vue/repl'
 import '@vue/repl/style.css'
 import data from './data.json'
-import { computed, inject, watchEffect, version, Ref } from 'vue'
+import { inject, watchEffect, version, Ref } from 'vue'
 
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
