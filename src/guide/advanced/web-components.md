@@ -14,6 +14,14 @@ By default, Vue will attempt to resolve a non-native HTML tag as a registered Vu
 
 If you are using Vue with a build setup, the option should be passed via build configs since it is a compile-time option.
 
+#### Example In-Browser Config
+
+```js
+// Only works if using in-browser compilation.
+// If using build tools, see config examples below.
+app.config.compilerOptions.isCustomElement = (tag) => tag.includes('-')
+```
+
 #### Example Vite Config
 
 ```js
