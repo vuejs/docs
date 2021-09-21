@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Evan You",
+    "title": "Creator",
+    "company": "Vue.js",
+    "projects": [],
+    "location": {
+      "label": "New Jersey, NJ, USA"
+    },
+    "languageList": ["Chinese", "English"],
+    "website": {
+      "label": "patreon.com/evanyou",
+      "url": "https://www.patreon.com/evanyou"
+    },
+    "social": {
+      "twitter": "youyuxi",
+      "github": "yyx990803"
+    }
+  },
+  {
+    "name": "Ben Hong",
+    "title": "Staff Developer Experience Engineer",
+    "company": "Netlify",
+    "projects": [],
+    "location": {
+      "label": "Washington, DC, USA"
+    },
+    "languageList": ["Chinese", "English"],
+    "website": {
+      "label": "bencodezen.io",
+      "url": "https://www.bencodezen.io"
+    },
+    "social": {
+      "twitter": "bencodezen",
+      "github": "bencodezen"
+    }
+  }
+]
