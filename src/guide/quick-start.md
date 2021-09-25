@@ -55,30 +55,26 @@ You can try Vue with SFCs online on [StackBlitz](https://vite.new/vue). StackBli
 
 To create a built-tool-enabled Vue project on your machine, run the following command in your command line (without the `$` sign):
 
-```sh
-$ npm init vue@latest
-```
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#ddd;">npm init vue@latest</span></span></code></pre></div>
 
 This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You will be presented with prompts for a number of optional features such as TypeScript and testing support:
 
-```
-✔ Project name: … <your-project-name>
-✔ Add TypeScript? … No / Yes
-✔ Add JSX Support? … No / Yes
-✔ Add Vue Router for Single Page Application development? … No / Yes
-✔ Add Vuex for state management? … No / Yes
-✔ Add Cypress for testing? … No / Yes
-
-Scaffolding project in /**/vue-project...
-```
+<div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#ddd;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#ddd;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#ddd;">Add JSX Support? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#ddd;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#ddd;">Add Vuex for state management? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#ddd;">Add Cypress for testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span></span>
+<span style="color:#ddd;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span>...</span>
+<span style="color:#ddd;">Done.</span></code></pre></div>
 
 If you are unsure about an option, simply choose `No` by hitting enter for now. Once the project is created, follow the instructions to install dependencies and start the dev server:
 
-```sh
-$ cd <your-project-name>
-$ npm install
-$ npm run dev
-```
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#ddd;">cd</span><span style="color:#ddd;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#ddd;">npm install</span></span>
+<span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#ddd;">npm run dev</span></span>
+<span class="line"></span></code></pre></div>
 
 You should now have your first Vue project running!
 
