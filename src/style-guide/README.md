@@ -1284,6 +1284,7 @@ This is the default order we recommend for component options. They're split into
     - `inheritAttrs`
     - `props`
     - `emits`
+    - `expose`
 
 6. **Composition API** (the entry point for using the Composition API)
     - `setup`

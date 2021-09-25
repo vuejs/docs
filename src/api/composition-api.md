@@ -41,6 +41,7 @@ A component option that is executed **before** the component is created, once th
     attrs: Data
     slots: Slots
     emit: (event: string, ...args: unknown[]) => void
+    expose: (exposed?: Record<string, any>) => void
   }
 
   function setup(props: Data, context: SetupContext): Data
@@ -89,8 +90,33 @@ A component option that is executed **before** the component is created, once th
     setup() {
       const readersNumber = ref(0)
       const book = reactive({ title: 'Vue 3 Guide' })
-      // Please note that we need to explicitly expose ref value here
+      // Please note that we need to explicitly use ref value here
       return () => h('div', [readersNumber.value, book.title])
+    }
+  }
+  ```
+
+  If you return a render function then you can't return any other properties. If you need to expose properties so that they can be accessed externally, e.g. via a `ref` in the parent, you can use `expose`:
+
+  ```js
+  // MyBook.vue
+
+  import { h } from 'vue'
+
+  export default {
+    setup(props, { expose }) {
+      const reset = () => {
+        // Some reset logic
+      }
+
+      // If you need to expose multiple properties they must all
+      // be included in the object passed to expose. expose can
+      // only be called once.
+      expose({
+        reset
+      })
+
+      return () => h('div')
     }
   }
   ```

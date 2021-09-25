@@ -64,21 +64,24 @@ setup(props) {
 
 ### Context
 
-The second argument passed to the `setup` function is the `context`. The `context` is a normal JavaScript object that exposes three component properties:
+The second argument passed to the `setup` function is the `context`. The `context` is a normal JavaScript object that exposes other values that may be useful inside `setup`:
 
 ```js
 // MyBook.vue
 
 export default {
   setup(props, context) {
-    // Attributes (Non-reactive object)
+    // Attributes (Non-reactive object, equivalent to $attrs)
     console.log(context.attrs)
 
-    // Slots (Non-reactive object)
+    // Slots (Non-reactive object, equivalent to $slots)
     console.log(context.slots)
 
-    // Emit Events (Method)
+    // Emit events (Function, equivalent to $emit)
     console.log(context.emit)
+
+    // Expose public properties (Function)
+    console.log(context.expose)
   }
 }
 ```
@@ -88,13 +91,15 @@ The `context` object is a normal JavaScript object, i.e., it is not reactive, th
 ```js
 // MyBook.vue
 export default {
-  setup(props, { attrs, slots, emit }) {
+  setup(props, { attrs, slots, emit, expose }) {
     ...
   }
 }
 ```
 
-`attrs` and `slots` are stateful objects that are always updated when the component itself is updated. This means you should avoid destructuring them and always reference properties as `attrs.x` or `slots.x`. Also note that unlike `props`, `attrs` and `slots` are **not** reactive. If you intend to apply side effects based on `attrs` or `slots` changes, you should do so inside an `onUpdated` lifecycle hook.
+`attrs` and `slots` are stateful objects that are always updated when the component itself is updated. This means you should avoid destructuring them and always reference properties as `attrs.x` or `slots.x`. Also note that, unlike `props`, the properties of `attrs` and `slots` are **not** reactive. If you intend to apply side effects based on changes to `attrs` or `slots`, you should do so inside an `onBeforeUpdate` lifecycle hook.
+
+We'll explain the role of `expose` shortly.
 
 ## Accessing Component Properties
 
@@ -157,11 +162,34 @@ export default {
   setup() {
     const readersNumber = ref(0)
     const book = reactive({ title: 'Vue 3 Guide' })
-    // Please note that we need to explicitly expose ref value here
+    // Please note that we need to explicitly use ref value here
     return () => h('div', [readersNumber.value, book.title])
   }
 }
 ```
+
+Returning a render function prevents us from returning anything else. Internally that shouldn't be a problem, but it can be problematic if we want to expose methods of this component to the parent component via template refs.
+
+We can solve this problem by calling `expose`, passing it an object that defines the properties that should be available on the external component instance:
+
+```js
+import { h, ref } from 'vue'
+
+export default {
+  setup(props, { expose }) {
+    const count = ref(0)
+    const increment = () => ++count.value
+
+    expose({
+      increment
+    })
+
+    return () => h('div', count.value)
+  }
+}
+```
+
+The `increment` method would then be available in the parent component via a template ref.
 
 ## Usage of `this`
 

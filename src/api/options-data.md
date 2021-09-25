@@ -301,3 +301,39 @@
   :::
 
 * **See also:** [Attribute Inheritance](../guide/component-attrs.html#attribute-inheritance)
+
+## expose <Badge text="3.2+" />
+
+- **Type:** `Array<string>`
+
+- **Details:**
+
+  A list of properties to expose on the public component instance.
+
+  By default, the public instance accessed via [`$refs`](/api/instance-properties.html#refs), [`$parent`](/api/instance-properties.html#parent), or [`$root`](/api/instance-properties.html#root) is the same as the internal component instance that's used by the template. The `expose` option restricts the properties that can be accessed via the public instance.
+
+  Properties defined by Vue itself, such as `$el` and `$parent`, will always be available on the public instance and don't need to be listed.
+
+- **Usage:**
+
+  ```js
+  export default {
+    // increment will be exposed but count
+    // will only be accessible internally
+    expose: ['increment'],
+
+    data() {
+      return {
+        count: 0
+      }
+    },
+
+    methods: {
+      increment() {
+        this.count++
+      }
+    }
+  }
+  ```
+
+- **See also:** [defineExpose](/api/sfc-script-setup.html#defineexpose)
