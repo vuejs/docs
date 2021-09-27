@@ -9,8 +9,7 @@ export default {
     {
       "url": "https://www.dcloud.io/hbuilderx.html?hmsr=vue-en&hmpl=&hmcu=&hmkw=&hmci=",
       "img": "hbuilder.png",
-      "name": "HBuilder",
-      "description": "An IDE for Vue"
+      "name": "HBuilder"
     }
   ],
   "platinum_sponsors": [
