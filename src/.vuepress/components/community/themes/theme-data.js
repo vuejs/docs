@@ -131,6 +131,20 @@ export default [
     seeMoreUrl: 'https://www.primefaces.org/primevue/#/?af_id=4218',
     products: [
       {
+        name: 'Sakai',
+        price: 0,
+        description: 'Free Admin Template',
+        url: 'https://www.primefaces.org/sakai-vue/#/?af_id=4218',
+        image: 'https://www.primefaces.org/vue-templates/sakai.jpg'
+      },
+      {
+        name: 'Atlantis',
+        price: 59,
+        description: 'Premium Admin Template',
+        url: 'https://www.primefaces.org/layouts/atlantis-vue?af_id=4218',
+        image: 'https://www.primefaces.org/vue-templates/atlantis.jpg'
+      },
+      {
         name: 'Freya',
         price: 59,
         description: 'Premium Admin Template',
@@ -138,18 +152,18 @@ export default [
         image: 'https://www.primefaces.org/vue-templates/freya.jpg'
       },
       {
-        name: 'Diamond',
-        price: 59,
-        description: 'PrimeOne Design Admin Template',
-        url: 'https://www.primefaces.org/layouts/diamond-vue?af_id=4218',
-        image: 'https://www.primefaces.org/vue-templates/diamond.jpg'
-      },
-      {
         name: 'Ultima',
         price: 79,
         description: 'Material Design Admin Template',
         url: 'https://www.primefaces.org/layouts/ultima-vue?af_id=4218',
         image: 'https://www.primefaces.org/vue-templates/ultima.jpg'
+      },
+      {
+        name: 'Diamond',
+        price: 59,
+        description: 'PrimeOne Design Admin Template',
+        url: 'https://www.primefaces.org/layouts/diamond-vue?af_id=4218',
+        image: 'https://www.primefaces.org/vue-templates/diamond.jpg'
       },
       {
         name: 'Sapphire',
@@ -199,13 +213,6 @@ export default [
         description: 'Highly Customizable Admin Template',
         url: 'https://www.primefaces.org/layouts/prestige-vue?af_id=4218',
         image: 'https://www.primefaces.org/vue-templates/prestige.jpg'
-      },
-      {
-        name: 'Sigma',
-        price: 0,
-        description: 'Free Admin Template',
-        url: 'https://www.primefaces.org/sigma-vue/#/?af_id=4218',
-        image: 'https://www.primefaces.org/vue-templates/sigma.jpg'
       }
     ]
   },
