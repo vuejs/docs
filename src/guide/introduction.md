@@ -52,61 +52,24 @@ The above example demonstrates the two core features of Vue:
 
 - **Reactivity**: Vue automatically tracks JavaScript state changes and efficiently updates the DOM when changes happen.
 
-You may already have questions - don't worry! We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue is all about.
+You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
 
-## Ways of Using Vue
+## The Progressive Framework
 
-Vue is a framework. As a whole, it covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
+Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
 
-### Standalone Script
+- Enhancing backend-rendered HTML without a build step
+- Embedding as Web Components on any page
+- Single-Page Application (SPA)
+- Fullstack / Server-Side-Rendering (SSR)
+- JAMStack / Static-Site-Generation (SSG)
+- Targeting desktop, mobile, WebGL or even the terminal
 
-Vue can be used as a standalone script file - no build step required! If you have a backend framework already rendering most of the HTML, or your frontend logic isn't complex enough to demand a build step, this is the easiest way to integrate Vue into your stack. You can think of Vue as a more declarative replacement of jQuery in such cases.
+If you are a beginner and find these concepts intimidating, don't worry! The main guide only requires basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
 
-Vue also provides an alternative distribution called [petite-vue](https://github.com/vuejs/petite-vue) that is specifically optimized for progressively enhancing existing HTML. It has a smaller feature set, but is extremely lightweight and uses an implementation that is more efficient in no-build-setup scenarios.
+If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more details in [Ways of Using Vue](/guide/advanced/ways-of-using-vue).
 
-### Single-Page Application (SPA)
-
-Some applications require rich interactivity and non-trivial stateful logic on the frontend. The best way to build such applications is to use an architecture where Vue not only controls the entire page, but also handles data updates and navigations without having to reload the page. This type of applications are typically referred to as Single-Page Applications (SPAs).
-
-Vue provides core libraries and [comprehensive tooling support](/guide/scaling-up/tooling) with amazing developer experience for building modern SPAs, including:
-
-- Client-side router
-- Blazing fast build tool chain
-- IDE support
-- Browser devtools
-- TypeScript integrations
-- Testing utilities
-
-:::tip
-If you are a beginner and find the concepts discussed here or below intimidating, don't worry! The main guide only requires basic HTML and JavaScript knowledge, and you can follow along without prior experience in any of these.
-:::
-
-### Fullstack / SSR
-
-Pure client-side SPAs are problematic when the app is sensitive to SEO and time-to-content. This is because the browser will receive a largely empty HTML page, and has to wait until the JavaScript is loaded before anything can be rendered.
-
-Vue provides first-class APIs to render a Vue app into HTML on the server. This allows the server to send back already-rendered HTML, allowing end users to see the content immediately while the JavaScript is being downloaded. Vue will then "hydrate" the application on the client side to make it interactive. This is called [Server-Side Rendering (SSR)](/guide/advanced/server-side-rendering) and it greatly improves Core Web Vital metrics such as [Largest Contentful Paint (LCP)](https://web.dev/lcp/).
-
-There are higher-level Vue-based frameworks built on top of this paradigm, such as [NuxtJS](https://nuxtjs.org/), which allow you to develop a fullstack application using Vue and JavaScript.
-
-### JAMStack / SSG
-
-Server-side rendering can be done ahead of time if the required data is static. This means we can pre-render an entire application into HTML and serve them as static files. This improves site performance and makes deployment a lot simpler since we no longer need to dynamically render pages on each request. Vue can still hydrate such applications to provide rich interactivity on the client. This technique is commonly referred to as Static-Site Generation (SSG), also known as [JAMStack](https://jamstack.org/what-is-jamstack/).
-
-The Vue team maintains a static-site generator called [VitePress](https://vitepress.vuejs.org/), which powers this website you reading right now! In addition, [NuxtJS](https://nuxtjs.org/) also supports SSG.
-
-### Beyond the Web
-
-Although Vue is primarily designed for building web applications, it is by no means limited to just the browser. You can:
-
-- Build desktop apps with [Electron](https://www.electronjs.org/) or [Tauri](https://tauri.studio/en/)
-- Build mobile apps with [Ionic Vue](https://ionicframework.com/docs/vue/overview)
-- Build desktop and mobile apps from the same codebase with [Quasar](https://quasar.dev/)
-- Use Vue's [Custom Renderer API](/api/custom-renderer) to build custom renderers targeting [WebGL](https://troisjs.github.io/) or even [the terminal](https://github.com/ycmjason/vuminal)!
-
-### The Progressive Framework
-
-The fundamental knowledge about how Vue works is shared across all the above use cases. Even if you are just a beginner now and are starting with the simplest steps, the knowledge gained will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the best way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. Vue is a progressive framework that can grow with you and adapt to your needs.
+Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
 
 ## Single-File Components
 
@@ -184,7 +147,7 @@ export default {
 
 ### Composition API
 
-With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). Imports and top-level variables and functions declared in `<script setup>` are directly usable in the template.
+With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). The `setup` attribute is a hint that makes Vue perform compile-time transforms that allow us to use Composition API with less boilerplate. For example, imports and top-level variables / functions declared in `<script setup>` are directly usable in the template.
 
 Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
 

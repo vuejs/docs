@@ -225,7 +225,7 @@ const sidebar = {
     {
       text: 'Advanced Topics',
       items: [
-        { text: 'The Big Picture', link: '/guide/advanced/the-big-picture' },
+        { text: 'Ways of Using Vue', link: '/guide/advanced/ways-of-using-vue' },
         {
           text: 'Reactivity in Depth',
           link: '/guide/advanced/reactivity-in-depth'
