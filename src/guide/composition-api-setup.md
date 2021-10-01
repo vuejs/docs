@@ -115,6 +115,7 @@ In other words, you **will not have access** to the following component options:
 - `data`
 - `computed`
 - `methods`
+- `refs` (template refs)
 
 ## Usage with Templates
 
