@@ -259,6 +259,8 @@
 
   When used without an argument, can be used to bind an object containing attribute name-value pairs. Note in this mode `class` and `style` does not support Array or Objects.
 
+  // TODO details on auto prop/attr check
+
 - **Example:**
 
   ```vue-html

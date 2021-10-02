@@ -57,7 +57,7 @@ Writing documentation is an exercise in empathy. We're not describing an objecti
 
 - **Avoid abbreviations** in writing and code examples (e.g. `attribute` is better than `attr`, `message` is better than `msg`), unless you are specifically referencing an abbreviation in an API (e.g. `$attrs`). Abbreviation symbols included on standard keyboards (e.g. `@`, `#`, `&`) are OK.
 - **When referencing a directly following example, use a colon (`:`) to end a sentence**, rather than a period (`.`).
-- **Use the Oxford comma** (e.g. "a, b, and c" instead of "a, b and c"). ![Why the Oxford comma is important](/images/oxford-comma.jpg)
+- **Use the Oxford comma** (e.g. "a, b, and c" instead of "a, b and c"). ![Why the Oxford comma is important](./oxford-comma.jpg)
   - Source: [The Serial (Oxford) Comma: When and Why To Use It](https://www.inkonhand.com/2015/10/the-serial-oxford-comma-when-and-why-to-use-it/)
 - **When referencing the name of a project, use the name that project refers to itself as.** For example, "webpack" and "npm" should both use lowercase as that's how their documentation refers to them.
 - **Use Title Case for headings** - at least for now, since it's what we use through the rest of the docs. There's research suggesting that sentence case (only first word of the heading starts with a capital) is actually superior for legibility and also reduces the cognitive overhead for documentation writers, since they don't have to try to remember whether to capitalize words like "and", "with", and "about".

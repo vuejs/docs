@@ -2,6 +2,9 @@
 
 ## createApp()
 
+// TODO rework this
+// TODO document that you can pass props to the root component
+
 In Vue 3, APIs that globally mutate Vue's behavior are now moved to application instances created by the new `createApp` method. In addition, their effects are now scoped to that specific application's instance:
 
 ```js
@@ -347,7 +350,7 @@ You can modify its properties, listed below, before mounting your application.
 - **Usage:**
 
 ```js
-app.config.errorHandler = (err, vm, info) => {
+app.config.errorHandler = (err, instance, info) => {
   // handle error
   // `info` is a Vue-specific error info, e.g. which lifecycle hook
   // the error was found in
@@ -367,7 +370,7 @@ Assign a handler for uncaught errors during component render function and watche
 - **Usage:**
 
 ```js
-app.config.warnHandler = function (msg, vm, trace) {
+app.config.warnHandler = function (msg, instance, trace) {
   // `trace` is the component hierarchy trace
 }
 ```

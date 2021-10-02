@@ -34,6 +34,18 @@ Both online playgrounds mentioned above also support downloading files as a Vite
 
 [Vue CLI](https://cli.vuejs.org/) is the official webpack-based toolchain for Vue. It is now in maintenance mode and we recommend starting new prjects with Vite unless you rely on specific webpack-only features. Vite will provide superior developer experience in most cases.
 
+### Note on In-Browser Template Compilation
+
+When using Vue without a build step, component templates are written either directly in the page's HTML or as inlined JavaScript strings. In such cases, Vue needs to ship the template compiler to the browser in order to perform on-the-fly template compilation. On the other hand, the compiler would be unnecessary if we pre-compile the templates with a build step. To reduce client bundle size, Vue provides [different "builds"](https://unpkg.com/browse/vue@3/dist/) optimized for different use cases.
+
+- Build files that start with `vue.runtime.*` are **runtime-only builds**: they do not include the compiler. When using these builds, all templates must be pre-compiled via a build step.
+
+- Build files that do not include `.runtime` are **full builds**: they include the compiler and support compiling templates directly in the browser. However, they will increase the payload by ~14kb.
+
+Our default tooling setups use the runtime-only build since all templates in SFCs are pre-compiled. If for some reason you need in-browser template compilation even with a build step, you can do so by configuring the build tool to alias `vue` to `vue/dist/vue.esm-bundler.js` instead.
+
+If you are looking for a lighter-weight alternative for no-build-step usage, check out [petite-vue](https://github.com/vuejs/petite-vue).
+
 ## IDE Support
 
 - The recommended IDE setup is [VSCode](https://code.visualstudio.com/) + the [Volar](https://github.com/johnsoncodehk/volar) extension. Volar provides syntax highlighting, TypeScript support, and intellisense for template expressions and component props.
@@ -108,7 +120,7 @@ Custom blocks are compiled into imports to the same Vue file with different requ
 
 - [Docs](https://github.com/vuejs/vue-next/tree/master/packages/compiler-sfc)
 
-This package is part of the Vue core monorepo and is always published with the same version as the main `vue` package. Typically, it will be listed as a peer dependency of `vue` in a project. To ensure correct behavior, its version should always be kept in-sync with `vue` - i.e. whenever you upgrade the version of `vue`, you should also upgrade `@vue/compiler-sfc` to match it.
+This package is part of the Vue core monorepo and is always published with the same version as the main `vue` package. In v3.2.13+, it is now a dependency of the main `vue` package and proxied under `vue/compiler-sfc` so you don't need to install it individually.
 
 The package itself provides lower-level utilities for processing Vue SFCs and is only meant for tooling authors that need to support Vue SFCs in custom tools.
 
@@ -122,7 +134,7 @@ Official plugin that provides Vue SFC support in Vite.
 
 - [Docs](https://vue-loader.vuejs.org/)
 
-The official loader that provides Vue SFC support in webpack. If you are using Vue CLI, also see [docs on modifying `vue-loader` options in Vue CLI](https://cli.vuejs.org](webpack.html#modifying-options-of-a-loader).
+The official loader that provides Vue SFC support in webpack. If you are using Vue CLI, also see [docs on modifying `vue-loader` options in Vue CLI](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
 ## Other Online Playgrounds
 

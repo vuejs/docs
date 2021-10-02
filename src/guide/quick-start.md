@@ -84,9 +84,7 @@ You should now have your first Vue project running!
 
 ## IDE Setup
 
-If you are not using build tools, you can use any editor or IDE as long as it supports syntax highlighting for HTML, CSS and JavaScript.
-
-If you are using build tools, it is recommended to use the following IDE setup for get syntax highlighting, type inference and auto-completion support for Vue Single File Components:
+If you are using Vue with build tools, it is recommended to use the following IDE setup for get syntax highlighting, type inference and auto-completion support for Single File Components:
 
 - Recommended: [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 - Also viable: [JetBrains WebStorm](https://www.jetbrains.com/webstorm/)
