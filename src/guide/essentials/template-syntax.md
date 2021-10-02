@@ -60,7 +60,7 @@ Because `v-bind` is so commonly used, it has a dedicated shorthand syntax:
 
 Attributes that start with `:` may look a bit different from normal HTML, but it is in fact a valid character for attribute names and all Vue-supported browsers can parse it correctly. In addition, they do not appear in the final rendered markup. The shorthand syntax is optional, but you will likely appreciate it when you learn more about its usage later.
 
-> From this point on, we will be using the shorthand syntax in code examples, as that's the most common usage for Vue developers.
+> For the rest of the guide, we will be using the shorthand syntax in code examples, as that's the most common usage for Vue developers.
 
 ### Boolean Attributes
 
@@ -96,9 +96,9 @@ So far we've only been binding to simple property keys in our templates. But Vue
 
 These expressions will be evaluated as JavaScript in the data scope of the current component instance.
 
-JavaScript expressions can be used in the following positions:
+In Vue templates, JavaScript expressions can be used in the following positions:
 
-- Inside text interpolation (mustaches)
+- Inside text interpolations (mustaches)
 - In the attribute value of any `v-` directive bindings (including shorthands)
 
 ### Expressions Only
@@ -153,7 +153,7 @@ Another example is the `v-on` directive, which listens to DOM events:
 <a @click="url"> ... </a>
 ```
 
-Here the argument is the event name to listen to. `v-on` is one of the few directives that also have a corresponding shorthand, with its shorthand character being `@`. We will talk about event handling in more detail too.
+Here the argument is the event name to listen to: `click`. `v-on` is one of the few directives that also have a corresponding shorthand, with its shorthand character being `@`. We will talk about event handling in more detail too.
 
 ### Dynamic Arguments
 
@@ -187,7 +187,7 @@ In this example, when `eventName`'s value is `"focus"`, `v-on:[eventName]` will 
 
 Dynamic arguments are expected to evaluate to a string, with the exception of `null`. The special value `null` can be used to explicitly remove the binding. Any other non-string value will trigger a warning.
 
-#### Dynamic Argument Expression Constraints
+#### Dynamic Argument Syntax Constraints
 
 Dynamic argument expressions have some syntax constraints because certain characters, such as spaces and quotes, are invalid inside HTML attribute names. For example, the following is invalid:
 

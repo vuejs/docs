@@ -1,64 +1,51 @@
 # State and Reactivity
 
-## Data Properties
+:::tip
+This section contains different content for Options API and Composition API. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
+:::
 
-The `data` option for a component is a function. Vue calls this function as part of creating a new component instance. It should return an object, which Vue will then wrap in its reactivity system and store on the component instance as `$data`. For convenience, any top-level properties of that object are also exposed directly via the component instance:
+## Declaring Reactive State
 
 <div class="options-api">
 
+We use the `data` option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. The wrapped object is stored on the component instance as `$data`. For convenience, any top-level properties of that object are also exposed directly on the component instance (`this` in methods and lifecycle hooks):
+
 ```js
-const app = Vue.createApp({
+export default {
   data() {
-    return { count: 4 }
+    return {
+      count: 1
+    }
+  },
+
+  mounted() {
+    console.log(this.$data.count) // => 1
+    console.log(this.count) // => 1
+
+    // Assigning a value to this.count will also update $data.count
+    this.count = 2
+    console.log(this.$data.count) // => 2
+
+    // ... and vice-versa
+    this.$data.count = 3
+    console.log(this.count) // => 3
   }
-})
-
-const vm = app.mount('#app')
-
-console.log(vm.$data.count) // => 4
-console.log(vm.count) // => 4
-
-// Assigning a value to vm.count will also update $data.count
-vm.count = 5
-console.log(vm.$data.count) // => 5
-
-// ... and vice-versa
-vm.$data.count = 6
-console.log(vm.count) // => 6
+}
 ```
-
-</div>
-<div class="composition-api">
-
-```js
-const app = Vue.createApp({
-  setup() {
-    const count = Vue.ref(4)
-    return { count }
-  }
-})
-
-const vm = app.mount('#app')
-
-console.log(vm.$data.count) // => 4
-console.log(vm.count) // => 4
-
-// Assigning a value to vm.count will also update $data.count
-vm.count = 5
-console.log(vm.$data.count) // => 5
-
-// ... and vice-versa
-vm.$data.count = 6
-console.log(vm.count) // => 6
-```
-
-</div>
 
 These instance properties are only added when the instance is first created, so you need to ensure they are all present in the object returned by the `data` function. Where necessary, use `null`, `undefined` or some other placeholder value for properties where the desired value isn't yet available.
 
 It is possible to add a new property directly to the component instance without including it in `data`. However, because this property isn't backed by the reactive `$data` object, it won't automatically be tracked by [Vue's reactivity system](/guide/advanced/reactivity-in-depth.html).
 
 Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
+
+</div>
+
+<div class="composition-api">
+
+
+
+</div>
 
 ## Methods
 
@@ -114,18 +101,17 @@ Vue doesn't include built-in support for debouncing or throttling but it can be 
 
 In cases where a component is only used once, the debouncing can be applied directly within `methods`:
 
-```vue-html
-<script src="https://unpkg.com/lodash@4.17.20/lodash.min.js"></script>
-<script>
-  Vue.createApp({
-    methods: {
-      // Debouncing with Lodash
-      click: _.debounce(function() {
-        // ... respond to click ...
-      }, 500)
-    }
-  }).mount('#app')
-</script>
+```js
+import { debounce } from 'lodash-es'
+
+createApp({
+  methods: {
+    // Debouncing with Lodash
+    click: debounce(function () {
+      // ... respond to click ...
+    }, 500)
+  }
+}).mount('#app')
 ```
 
 However, this approach is potentially problematic for components that are reused because they'll all share the same debounced function. To keep the component instances independent from each other, we can add the debounced function in the `created` lifecycle hook:

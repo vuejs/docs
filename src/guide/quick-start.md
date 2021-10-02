@@ -1,8 +1,12 @@
+---
+aside: deep
+---
+
 # Quick Start
 
 ## Without Build Tools
 
-Vue can be used without a build step in progressive enhancement or relatively simple use cases. Simply copy the following code into an HTML file and open it in your browser:
+To get started with Vue without a build step, simply copy the following code into an HTML file and open it in your browser:
 
 ```html
 <script type="importmap">
@@ -12,6 +16,8 @@ Vue can be used without a build step in progressive enhancement or relatively si
     }
   }
 </script>
+
+<div id="app">{{ message }}</div>
 
 <script type="module">
   import { createApp } from 'vue'
@@ -24,18 +30,44 @@ Vue can be used without a build step in progressive enhancement or relatively si
     }
   }).mount('#app')
 </script>
-
-<div id="app">
-  <!-- template -->
-  {{ message }}
-</div>
 ```
 
-The above example uses a browser feature called [Import Maps](https://caniuse.com/import-maps) so that we can use the short `'vue'` import specifier across all code samples in the documentation. Import Maps is currently only available in Chromium-based browsers - if your preferred browser does not support it yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
+Notice how we can import directly from `'vue'` in our code - this is made possible by the `<script type="importmap">` block, leveraging a browser feature called [Import Maps](https://caniuse.com/import-maps). Import maps are currently only available in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process. If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
 
-:::tip For learning only
+You can add entries for other dependencies to the import map - just make sure they point to the ES modules version of the library you intend to use.
+
+:::tip Not for production
 The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
+
+### Serving over HTTP
+
+As we dive deeper into the guide, we may need to split our code into separate JavaScript files so that they are easier to manage. For example:
+
+```js
+import MyComponent from './my-component.js'
+```
+
+In order for this to work, you need to serve your HTML over the `http://` protocol instead of `file://` protocol. To start a local HTTP server, first install [Node.js](https://nodejs.org/en/), and then run `npx serve` from the command line in the same directory where your HTML file is.
+
+### Using the Global Build
+
+For consistency, we will be exclusively using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax throughout the documentation. That said, Vue is also available in a more traditional build where it exposes a global `Vue` variable:
+
+```html
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">...</div>
+
+<script>
+  // instead of `import { createApp } from 'vue'`:
+  const { createApp } = Vue
+
+  createApp({
+    // ...
+  }).mount('#app')
+</script>
+```
 
 ## With Build Tools
 
@@ -78,16 +110,10 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
 
 You should now have your first Vue project running!
 
+- The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar). [WebStorm](https://www.jetbrains.com/webstorm/) is also viable.
 - More tooling details are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
 - To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
 - If you chose to use TypeScript, check out [Using Vue with TypeScript](scaling-up/typescript.html).
-
-## IDE Setup
-
-If you are using Vue with build tools, it is recommended to use the following IDE setup for get syntax highlighting, type inference and auto-completion support for Single File Components:
-
-- Recommended: [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
-- Also viable: [JetBrains WebStorm](https://www.jetbrains.com/webstorm/)
 
 ## Next Steps
 
