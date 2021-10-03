@@ -109,9 +109,9 @@ A component option that is executed **before** the component is created, once th
         // Some reset logic
       }
 
-      // If you need to expose multiple properties they must all
-      // be included in the object passed to expose. expose can
-      // only be called once.
+      // Expose can only be called once.
+      // If you need to expose multiple properties, they must all
+      // be included in the object passed to expose. 
       expose({
         reset
       })
