@@ -1,6 +1,7 @@
 ---
-aside: false
 page: true
+aside: false
+footer: false
 returnToTop: false
 ---
 

@@ -2,6 +2,10 @@
 page: true
 ---
 
+<script setup>
+  import NewsLetter from './.vitepress/theme/components/NewsletterSection.vue'
+</script>
+
 <section id="hero">
   <h1 class="tagline">
     The Progressive<br>
@@ -49,6 +53,8 @@ page: true
 <section id="tooling">
   <!-- TODO show tooling screenshots -->
 </section>
+
+<NewsLetter/>
 
 <style scoped>
 section {
