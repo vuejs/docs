@@ -14,7 +14,7 @@ With Options API, we use the `data` option to declare reactive state of a compon
 export default {
   data() {
     return {
-      count: 1
+      count: 0
     }
   },
 
@@ -159,10 +159,10 @@ Top-level imports and variables declared in `<script setup>` are automatically u
 To add methods to a component instance we use the `methods` option. This should be an object containing the desired methods:
 
 ```js
-const app = Vue.createApp({
+export default {
   data() {
     return {
-      count: 4
+      count: 0
     }
   },
   methods: {
@@ -174,20 +174,77 @@ const app = Vue.createApp({
     // methods can be called in lifecycle hooks, or other methods!
     this.increment()
   }
-})
+}
 ```
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBpbmNyZW1lbnQoKSB7XG4gICAgICB0aGlzLmNvdW50KytcbiAgICB9XG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgdGhpcy5pbmNyZW1lbnQoKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 Vue automatically binds the `this` value for `methods` so that it always refers to the component instance. This ensures that a method retains the correct `this` value if it's used as an event listener or callback. You should avoid using arrow functions when defining `methods`, as that prevents Vue from binding the appropriate `this` value.
 
 Just like all other properties of the component instance, the `methods` are accessible from within the component's template. Inside a template they are most commonly used as event listeners:
 
 ```vue-html
-<button @click="increment">Up vote</button>
+<button @click="increment">{{ count }}</button>
 ```
 
 In the example above, the method `increment` will be called when the `<button>` is clicked.
 
-It is also possible to call a method directly from a template. As we'll see shortly, it's usually better to use a [computed property](computed.html) instead. However, using a method can be useful in scenarios where computed properties aren't a viable option. You can call a method anywhere that a template supports JavaScript expressions:
+</div>
+
+<div class="composition-api">
+
+To declare methods when using Composition API, simply declare functions in the same scope with the reactive state:
+
+```js
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    const count = ref(0)
+
+    function increment() {
+      count.value++
+    }
+
+    // when using manual setup(),
+    // don't forget to expose the function as well.
+    return {
+      count,
+      increment
+    }
+  }
+}
+```
+
+Methods are typically used as event listeners:
+
+```vue-html
+<button @click="increment">{{ count }}</button>
+```
+
+Again, the same example is much simpler in an SFC with `<script setup>`, as functions are auto-exposes as well:
+
+```vue
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+
+function increment() {
+  count.value++
+}
+</script>
+
+<template>
+  <button @click="increment">{{ count }}</button>
+</template>
+```
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+
+</div>
+
+It is also possible to call a method inside a binding expression. As we'll see shortly, it's usually better to use a [computed property](computed.html) instead. However, using a method can be useful in scenarios where computed properties aren't a viable option. You can call a method anywhere that a template supports JavaScript expressions:
 
 ```vue-html
 <span :title="toTitleDate(date)">
@@ -198,6 +255,59 @@ It is also possible to call a method directly from a template. As we'll see shor
 If the methods `toTitleDate` or `formatDate` access any reactive data then it will be tracked as a rendering dependency, just as if it had been used in the template directly.
 
 Methods called inside binding expressions should **not** have any side effects, such as changing data or triggering asynchronous operations. If you find yourself tempted to do that you should probably use a [lifecycle hook](/guide/components/lifecycle.html) instead.
+
+### Deep Reactivity
+
+In Vue, state is deeply reactive by default. This means you can expect changes to be detected even when you mutate nested objects or arrays:
+
+<div class="options-api">
+
+```js
+export default {
+  data() {
+    return {
+      obj: {
+        nested: { count: 0 },
+        arr: ['foo', 'bar']
+      }
+    }
+  },
+  methods: {
+    mutateDeeply() {
+      // these will work as expected.
+      this.obj.nested.count++
+      this.obj.arr.push('baz')
+    }
+  }
+}
+```
+
+</div>
+
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref } from 'vue'
+
+const obj = ref({
+  nested: { count: 0 },
+  arr: ['foo', 'bar']
+})
+
+function mutateDeeply() {
+  // these will work as expected.
+  obj.value.nested.count++
+  obj.value.arr.push('baz')
+}
+</script>
+```
+
+</div>
+
+It is also possible to explicitly create ["shallow" reactive objects](/guide/advanced/reactivity-in-depth.html#deep-vs-shallow-reactivity) where the reactivity is only tracked for root-level properties, however they are typically only needed in advanced use cases.
+
+<div class="options-api">
 
 ### Debouncing and Throttling
 
@@ -251,53 +361,6 @@ app.component('save-button', {
 
 <div class="composition-api">
 
-To declare methods when using Composition API, simply declare functions in the same scope with the reactive state:
-
-```js
-import { ref } from 'vue'
-
-export default {
-  setup() {
-    const count = ref(0)
-
-    function increment() {
-      count.value++
-    }
-
-    // when using manual setup(),
-    // don't forget to expose the function as well.
-    return {
-      count,
-      increment
-    }
-  }
-}
-```
-
-```html
-<button @click="increment">{{ count }}</button>
-```
-
-Again, it's much simpler with `<script setup>` as it auto-exposes functions as well:
-
-```vue
-<script setup>
-import { ref } from 'vue'
-
-const count = ref(0)
-
-function increment() {
-  count.value++
-}
-</script>
-
-<template>
-  <button @click="increment">{{ count }}</button>
-</template>
-```
-
-</div>
-
 ### Ref Transform
 
 The necessity of using `.value` wit refs roots from the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. The [ref transform](https://github.com/vuejs/vue-next/tree/master/packages/ref-transform) allows us to write the above example like this:
@@ -319,3 +382,5 @@ function increment() {
 :::warning Experimental
 Ref transform is currently an experimental feature. It is disabled by default and requires explicit opt-in. It may also change before being finalized. More details can be found in its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
 :::
+
+</div>

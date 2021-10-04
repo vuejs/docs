@@ -4,8 +4,10 @@
 
 In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
 
+<div class="options-api">
+
 ```js
-Vue.createApp({
+export default {
   data() {
     return {
       author: {
@@ -18,8 +20,24 @@ Vue.createApp({
       }
     }
   }
+}
+```
+
+</div>
+<div class="composition-api">
+
+```js
+const author = ref({
+  name: 'John Doe',
+  books: [
+    'Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery'
+  ]
 })
 ```
+
+</div>
 
 And we want to display different messages depending on if `author` already has some books or not
 
