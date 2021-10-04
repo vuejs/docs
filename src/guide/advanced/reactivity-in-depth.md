@@ -310,6 +310,12 @@ A `render` function is conceptually very similar to a `computed` property. Vue d
   <!-- <common-codepen-snippet title="Second Reactivity with Proxies in Vue 3 Explainer" slug="wvgqyJK" tab="result" theme="light" :height="500" :editable="false" :preview="false" /> -->
 </div>
 
-## Change Detection Caveats in Vue 2
+## Reactive Objects with `reactive`
 
-// TODO
+### Ref Auto Unwrapping
+
+### Destucturing and Reactivity
+
+### Deep vs. Shallow Reactivity
+
+### Caveats of Proxy-based Reactivity

@@ -115,8 +115,8 @@ const sidebar = {
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'State and Reactivity',
-          link: '/guide/essentials/state-and-reactivity'
+          text: 'Basic Reactivity',
+          link: '/guide/essentials/basic-reactivity'
         },
         { text: 'Computed Properties', link: '/guide/essentials/computed' },
         { text: 'Watchers and Effects', link: '/guide/essentials/watchers' },

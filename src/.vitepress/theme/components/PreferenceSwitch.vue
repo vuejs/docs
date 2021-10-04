@@ -195,7 +195,7 @@ function useToggleFn(
 }
 
 .prefer-composition .composition-api {
-  display: block;
+  display: initial;
 }
 
 .prefer-composition .api-switch .vt-switch-check {
@@ -216,5 +216,11 @@ function useToggleFn(
 
 .prefer-sfc .sfc-switch .vt-switch-check {
   transform: translateX(18px);
+}
+
+.tip .options-api, .tip .composition-api {
+  color: var(--vt-c-text-code);
+  transition: color 0.5s;
+  font-weight: 600;
 }
 </style>
