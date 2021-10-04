@@ -249,10 +249,10 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.13.tgz#c830ef966d7af12598e0ea862a55695ea589cd47"
   integrity sha512-F/gs3kHQ8Xeo24F6EImOvBiIoYQsBjF9qoLzvk+LHxYN6ZhIDEL1NWrBFYzdFQ7NphjEYd4EvPZ+Qee+WX8P6w==
 
-"@vue/theme@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@vue/theme/-/theme-0.1.10.tgz#46483e437db0ea635dfc32fe193c276d937908f2"
-  integrity sha512-zd2NS1d1sqjZmw+nwNiFXMfwwhif7KXOE3SGwxaieDZAenIUpIyBEwphJOqTd69HIS6/IolBA/KY2CGi34v7rA==
+"@vue/theme@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@vue/theme/-/theme-0.1.11.tgz#826f328429dc8f9b42469b7e1125cffd08ed74b8"
+  integrity sha512-PHg9kZlJQDWmhDmARr0jFr4E0cl1HkyYk0lencv1UzudgkSkvJy/26Qj3eQSnytK+8LVjf8z7TqWhm1wyqEjHg==
   dependencies:
     "@docsearch/css" "^1.0.0-alpha.28"
     "@docsearch/js" "^1.0.0-alpha.28"
