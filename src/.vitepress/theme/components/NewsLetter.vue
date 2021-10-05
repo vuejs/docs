@@ -16,7 +16,6 @@ import { VTLink } from '@vue/theme'
           action="https://www.getrevue.co/profile/vuenewsletter/add_subscriber"
           rel="noopener"
           target="_blank"
-          @submit="subscribe"
         >
           <input
             class="input"
@@ -25,7 +24,7 @@ import { VTLink } from '@vue/theme'
             type="email"
             placeholder="Email address"
             required
-          >
+          />
 
           <div class="action">
             <input
@@ -34,13 +33,22 @@ import { VTLink } from '@vue/theme'
               name="member[subscribe]"
               type="submit"
               value="SUBSCRIBE"
-            >
+            />
           </div>
         </form>
       </div>
 
       <p class="help">
-        You can read the previous issues and listen to our podcast at <VTLink class="link" href="https://news.vuejs.org/" no-icon>news.vuejs.org</VTLink>. You may also go social at <VTLink class="link" href="https://twitter.com/vuejs" no-icon>Twitter</VTLink>, or join our home at <VTLink class="link" href="https://chat.vuejs.org/" no-icon>Dicsord</VTLink>.
+        You can read the previous issues and listen to our podcast at
+        <VTLink class="link" href="https://news.vuejs.org/" no-icon
+          >news.vuejs.org</VTLink
+        >. You may also go social at
+        <VTLink class="link" href="https://twitter.com/vuejs" no-icon
+          >Twitter</VTLink
+        >, or join our home at
+        <VTLink class="link" href="https://chat.vuejs.org/" no-icon
+          >Dicsord</VTLink
+        >.
       </p>
     </div>
   </section>
@@ -143,7 +151,7 @@ import { VTLink } from '@vue/theme'
 .button {
   border-radius: 4px;
   padding: 0 12px;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   line-height: 36px;
   font-size: 13px;
   font-weight: 500;
