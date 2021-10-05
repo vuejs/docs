@@ -32,6 +32,16 @@ const imageAlt = computed(() => {
         <span v-if="profile.company">@ {{ profile.company }}</span>
       </p>
       <div class="member-details">
+        <h4 v-if="profile.projectList.length > 0" class="sr-only">Projects</h4>
+        <ul v-if="profile.projectList.length > 0" class="member-language-list">
+          <li
+            v-for="project in profile.projectList"
+            :key="`${profile.name}-project-${project}`"
+            class="member-language"
+          >
+            <a :href="project.url">{{ project.label }}</a>
+          </li>
+        </ul>
         <address>{{ profile.location.label }}</address>
         <h4 class="sr-only">Languages</h4>
         <ul class="member-language-list">
