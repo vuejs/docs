@@ -1,5 +1,6 @@
 <script setup>
 import { computed, defineProps } from 'vue'
+import { VTIconGitHub, VTIconTwitter } from '@vue/theme'
 
 const props = defineProps({
   profile: {
@@ -37,13 +38,22 @@ const imageAlt = computed(() => {
         </li>
       </ul>
       <a :href="profile.website.url">{{ profile.website.label }}</a>
-      <ul>
+      <ul class="member-social-list">
         <li
           v-for="(handle, platform) in profile.social"
           :key="`${platform}-${handle}`"
+          class="member-social-item"
         >
           <a :href="`https://www.${platform}.com/${handle}`">
-            {{ platform }}: {{ handle }}
+            <VTIconGitHub
+              v-if="platform === 'github'"
+              class="member-social-icon"
+            />
+            <VTIconTwitter
+              v-else-if="platform === 'twitter'"
+              class="member-social-icon"
+            />
+            <span v-else> {{ platform }}: {{ handle }} </span>
           </a>
         </li>
       </ul>
@@ -71,5 +81,23 @@ const imageAlt = computed(() => {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+}
+
+.member-social-icon {
+  width: 24px;
+  height: 24px;
+  fill: rgba(60, 60, 60, 0.6);
+  margin-right: 14px;
+}
+
+.member-social-item:before {
+  /* Override list bullet which exists in
+  .vt-doc ul > li:before */
+  display: none;
+}
+
+.member-social-list {
+  padding: 0;
+  display: flex;
 }
 </style>
