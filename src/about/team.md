@@ -1,3 +1,7 @@
+---
+aside: false
+---
+
 <script setup>
 import TeamCard from '../.vitepress/components/TeamCard.vue'
 import teamData from './team.json'
