@@ -8,6 +8,8 @@ This recipe shows how to debug [Vue CLI](https://github.com/vuejs/vue-cli) appli
 
 Make sure you have VS Code and the browser of your choice installed, and the latest version of the corresponding Debugger extension installed and enabled:
 
+**Note**: If you're using VS Code version 1.46 or higher, you can skip this step as a [default JavaScript debugger](https://github.com/microsoft/vscode-js-debug) comes bundled with the app which has the same functionality as these extensions.
+
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 - [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug)
 
