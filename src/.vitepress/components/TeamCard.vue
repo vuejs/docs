@@ -49,11 +49,12 @@ const imageAlt = computed(() => {
 
 <style scoped>
 .team-card {
+  --grid-column: 32px;
   display: grid;
-  grid-template-columns: 32px 1fr;
-  grid-column-gap: 32px;
-  margin-bottom: 16px;
-  padding: 32px;
+  grid-template-columns: var(--grid-column) 1fr;
+  grid-column-gap: var(--grid-column);
+  margin-bottom: calc(var(--grid-column) / 2);
+  padding: var(--grid-column);
   border-radius: 8px;
   background-color: #f8f8f8;
 }
