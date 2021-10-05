@@ -19,7 +19,11 @@ const imageAlt = computed(() => {
 
 <template>
   <div class="team-card">
-    <img :src="`../../about/images/${imageFileName}`" :alt="imageAlt" />
+    <img
+      :src="`../../about/images/${imageFileName}`"
+      :alt="imageAlt"
+      class="member-profile-image"
+    />
     <section>
       <h3 class="member-name">{{ profile.name }}</h3>
       <p>
@@ -51,7 +55,7 @@ const imageAlt = computed(() => {
 .team-card {
   --grid-column: 32px;
   display: grid;
-  grid-template-columns: var(--grid-column) 1fr;
+  grid-template-columns: 80px 1fr;
   grid-column-gap: var(--grid-column);
   margin-bottom: calc(var(--grid-column) / 2);
   padding: var(--grid-column);
@@ -60,6 +64,12 @@ const imageAlt = computed(() => {
 }
 
 .team-card .member-name {
-  margin-top: 0;
+  margin: 0;
+}
+
+.member-profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
 </style>
