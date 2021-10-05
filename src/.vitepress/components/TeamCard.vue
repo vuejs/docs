@@ -31,13 +31,20 @@ const imageAlt = computed(() => {
         {{ profile.title }}
         <span v-if="profile.company">@ {{ profile.company }}</span>
       </p>
-      <address>{{ profile.location.label }}</address>
-      <ul>
-        <li v-for="language in profile.languageList">
-          {{ language }}
-        </li>
-      </ul>
-      <a :href="profile.website.url">{{ profile.website.label }}</a>
+      <div class="member-details">
+        <address>{{ profile.location.label }}</address>
+        <h4 class="sr-only">Languages</h4>
+        <ul class="member-language-list">
+          <li
+            v-for="language in profile.languageList"
+            :key="`${profile.name}-language-${language}`"
+            class="member-language"
+          >
+            {{ language }}
+          </li>
+        </ul>
+        <a :href="profile.website.url">{{ profile.website.label }}</a>
+      </div>
       <ul class="member-social-list">
         <li
           v-for="(handle, platform) in profile.social"
@@ -62,6 +69,17 @@ const imageAlt = computed(() => {
 </template>
 
 <style scoped>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .team-card {
   --grid-column: 32px;
   display: grid;
@@ -75,6 +93,27 @@ const imageAlt = computed(() => {
 
 .team-card .member-name {
   margin: 0;
+}
+
+.member-details {
+  display: grid;
+  grid-row-templates: repeat(4, 1fr);
+  grid-row-gap: 4px;
+  margin: 20px 0;
+}
+
+.member-language {
+  margin-right: 34px;
+}
+
+.member-language:first-child:before {
+  display: none;
+}
+
+.member-language-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .member-profile-image {
