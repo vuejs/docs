@@ -47,7 +47,7 @@ Vue uses a `$` prefix when exposing its own built-in APIs via the component inst
 
 ### Reactive Variables with `ref`
 
-The primary API for declaring reactive state when using Composition API is the `ref` method:
+The primary API for declaring reactive state when using Composition API is the [`ref()`](/api/reactivity-core.html#ref) method:
 
 ```js
 import { ref } from 'vue'
@@ -55,7 +55,7 @@ import { ref } from 'vue'
 const count = ref(0)
 ```
 
-`ref` takes the argument and returns it wrapped within an object with a `value` property, which can then be used to access or mutate the value of the reactive variable:
+`ref` takes the argument and returns it wrapped within an object with a `.value` property, which can then be used to access or mutate the value of the reactive variable:
 
 ```js
 const count = ref(0)
@@ -149,6 +149,26 @@ const count = ref(0)
 Top-level imports and variables declared in `<script setup>` are automatically usable in the template of the same component.
 
 > For the rest of the guide, we will be primarily using SFC + `<script setup>` syntax for Composition API code examples, as that is the most common usage for Vue developers.
+
+### Reactive Objects with `reactive`
+
+It is also possible to directly create a reactive object or array with the [`reactive()`](/api/reactivity-core.html#reactive) method:
+
+```vue
+<script setup>
+import { reactive } from 'vue'
+
+const state = reactive({ count: 0 })
+</script>
+
+<template>
+  {{ state.count }}
+</template>
+```
+
+Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and work exactly like normal objects. When you create a ref with an object value, it also calls `reactive()` on that object internally.
+
+Note that `reactive()` cannot hold primitive value types, and lacks the ability to "replace" the entire object with a new one. You **can** mix `ref()` and `reactive()` usage, however for consistency, we recommend using `ref()` unless you know you never intend to replace the object.
 
 </div>
 
@@ -361,9 +381,9 @@ app.component('save-button', {
 
 <div class="composition-api">
 
-### Ref Transform
+### Ref Transform <Badge type="warning" text="experimental" />
 
-The necessity of using `.value` wit refs roots from the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. The [ref transform](https://github.com/vuejs/vue-next/tree/master/packages/ref-transform) allows us to write the above example like this:
+Refs require the `.value` property due to the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. The [ref transform](https://github.com/vuejs/vue-next/tree/master/packages/ref-transform) allows us to write the above example like this:
 
 ```vue
 <script setup>
@@ -379,8 +399,8 @@ function increment() {
 </template>
 ```
 
-:::warning Experimental
-Ref transform is currently an experimental feature. It is disabled by default and requires explicit opt-in. It may also change before being finalized. More details can be found in its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
+:::warning Experimental Feature
+Ref transform is currently an experimental feature. It is disabled by default and requires [explicit opt-in](https://github.com/vuejs/rfcs/blob/ref-sugar-2/active-rfcs/0000-ref-sugar.md#enabling-the-macros). It may also change before being finalized. More details can be found in its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
 :::
 
 </div>

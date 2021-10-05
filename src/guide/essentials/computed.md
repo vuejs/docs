@@ -27,7 +27,7 @@ export default {
 <div class="composition-api">
 
 ```js
-const author = ref({
+const author = reactive({
   name: 'John Doe',
   books: [
     'Vue 2 - Advanced Guide',
@@ -95,9 +95,9 @@ You can data-bind to computed properties in templates just like a normal propert
 
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { reactive, computed } from 'vue'
 
-const author = ref({
+const author = reactive({
   name: 'John Doe',
   books: [
     'Vue 2 - Advanced Guide',
@@ -108,7 +108,7 @@ const author = ref({
 
 // a computed ref
 const publishedBooksMessage = computed(() => {
-  return author.value.books.length > 0 ? 'Yes' : 'No'
+  return author.books.length > 0 ? 'Yes' : 'No'
 })
 </script>
 
@@ -118,11 +118,11 @@ const publishedBooksMessage = computed(() => {
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgY29tcHV0ZWQgfSBmcm9tICd2dWUnXG5cbmNvbnN0IGF1dGhvciA9IHJlZih7XG4gIG5hbWU6ICdKb2huIERvZScsXG4gIGJvb2tzOiBbXG4gICAgJ1Z1ZSAyIC0gQWR2YW5jZWQgR3VpZGUnLFxuICAgICdWdWUgMyAtIEJhc2ljIEd1aWRlJyxcbiAgICAnVnVlIDQgLSBUaGUgTXlzdGVyeSdcbiAgXVxufSlcblxuLy8gYSBjb21wdXRlZCByZWZcbmNvbnN0IHB1Ymxpc2hlZEJvb2tzTWVzc2FnZSA9IGNvbXB1dGVkKCgpID0+IHtcbiAgcmV0dXJuIGF1dGhvci52YWx1ZS5ib29rcy5sZW5ndGggPiAwID8gJ1llcycgOiAnTm8nXG59KVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHA+SGFzIHB1Ymxpc2hlZCBib29rczo8L3A+XG4gIDxzcGFuPnt7IHB1Ymxpc2hlZEJvb2tzTWVzc2FnZSB9fTwvc3Bhbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSJ9)
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlLCBjb21wdXRlZCB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgYXV0aG9yID0gcmVhY3RpdmUoe1xuICBuYW1lOiAnSm9obiBEb2UnLFxuICBib29rczogW1xuICAgICdWdWUgMiAtIEFkdmFuY2VkIEd1aWRlJyxcbiAgICAnVnVlIDMgLSBCYXNpYyBHdWlkZScsXG4gICAgJ1Z1ZSA0IC0gVGhlIE15c3RlcnknXG4gIF1cbn0pXG5cbi8vIGEgY29tcHV0ZWQgcmVmXG5jb25zdCBwdWJsaXNoZWRCb29rc01lc3NhZ2UgPSBjb21wdXRlZCgoKSA9PiB7XG4gIHJldHVybiBhdXRob3IuYm9va3MubGVuZ3RoID4gMCA/ICdZZXMnIDogJ05vJ1xufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxwPkhhcyBwdWJsaXNoZWQgYm9va3M6PC9wPlxuICA8c3Bhbj57eyBwdWJsaXNoZWRCb29rc01lc3NhZ2UgfX08L3NwYW4+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 Here we have declared a computed property `publishedBooksMessage`. The `computed()` method expects a getter function, and returned value is a **computed ref**. Similar to normal refs, you can access the computed result as `publishedBooksMessage.value`. Computed refs are also auto-unwrapped in templates so you can reference them without `.value` in template expressions.
 
-Vue is aware that the computation of `publishedBooksMessage` depends on `author.value.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.value.books` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
+Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
 
 </div>
 
@@ -152,13 +152,13 @@ methods: {
 ```js
 // in component
 function calculateBooksMessage() {
-  return author.value.books.length > 0 ? 'Yes' : 'No'
+  return author.books.length > 0 ? 'Yes' : 'No'
 }
 ```
 
 </div>
 
-Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as <code class="options-api">author.books</code><code class="composition-api">author.value.books</code> has not changed, multiple access to `publishedBooksMessage` will immediately return the previously computed result without having to run the getter function again.
+Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to `publishedBooksMessage` will immediately return the previously computed result without having to run the getter function again.
 
 This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
 
@@ -188,7 +188,7 @@ Why do we need caching? Imagine we have an expensive computed property `list`, w
 
 ## Writable Computed
 
-Computed properties are by default getter-only. When you attempt to mutate a computed property, you will receive a runtime warning. But you can provide a setter to create a "writable" computed property if you need to:
+Computed properties are by default getter-only. When you attempt to mutate a computed property, you will receive a runtime warning. In the rare cases where you need a "writable" computed property, you can create one by providing both a getter and a setter:
 
 <div class="options-api">
 

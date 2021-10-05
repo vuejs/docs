@@ -119,7 +119,7 @@ const sidebar = {
           link: '/guide/essentials/basic-reactivity'
         },
         { text: 'Computed Properties', link: '/guide/essentials/computed' },
-        { text: 'Watchers and Effects', link: '/guide/essentials/watchers' },
+        { text: 'Watchers', link: '/guide/essentials/watchers' },
         {
           text: 'Class and Style Bindings',
           link: '/guide/essentials/class-and-style'
