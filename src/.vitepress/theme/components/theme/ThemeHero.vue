@@ -1,7 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div class="PartnerHero">
+  <div class="ThemeHero">
     <div class="container">
       <h1 class="title">
         <slot name="title" />
@@ -14,25 +12,23 @@
 </template>
 
 <style scoped>
-.PartnerHero {
+.ThemeHero {
   padding: 48px 24px;
-  text-align: center;
 }
 
 @media (min-width: 768px) {
-  .PartnerHero {
-    padding: 64px 32px;
+  .ThemeHero {
+    padding: 64px 32px 48px;
   }
 }
 
 .container {
   margin: 0 auto;
-  max-width: 540px;
+  max-width: 960px;
 }
 
 .title,
-.lead,
-.PartnerHero :deep(.link) {
+.lead {
   transition: color 0.25s;
 }
 
@@ -53,14 +49,7 @@
   padding-top: 8px;
   font-size: 16px;
   font-weight: 500;
+  max-width: 512px;
   color: var(--vt-c-text-2);
-}
-
-.PartnerHero :deep(.link) {
-  color: var(--vt-c-brand);
-}
-
-.PartnerHero :deep(.link:hover) {
-  color: var(--vt-c-brand-dark);
 }
 </style>
