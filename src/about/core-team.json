@@ -28,7 +28,12 @@
     "name": "Ben Hong",
     "title": "Staff Developer Experience Engineer",
     "company": "Netlify",
-    "projectList": [],
+    "projectList": [
+      {
+        "label": "vuejs/docs",
+        "url": "https://www.github.com/vuejs/docs"
+      }
+    ],
     "city": "Washington, DC, USA",
     "languageList": ["Chinese", "English"],
     "website": {
@@ -52,7 +57,20 @@
     "work": {
       "role": "Freelance Developer & Consultant"
     },
-    "projectList": ["vuefire", "vue-router"],
+    "projectList": [
+      {
+        "label": "vuefire",
+        "url": "https://github.com/vuejs/vuefire"
+      },
+      {
+        "label": "vue-router",
+        "url": "https://github.com/vuejs/vue-router-next"
+      },
+      {
+        "label": "pinia",
+        "url": "https://github.com/posva/pinia"
+      }
+    ],
     "reposPersonal": ["vuex-mock-store", "vue-promised", "vue-motion"],
     "website": {
       "label": "patreon.com/posva",
@@ -67,7 +85,16 @@
       "github": "sodatea",
       "twitter": "haoqunjiang"
     },
-    "projectList": ["vue-cli", "vue-loader"]
+    "projectList": [
+      {
+        "label": "vue-cli",
+        "url": "https://github.com/vuejs/vue-cli"
+      },
+      {
+        "label": "vue-loader",
+        "url": "https://github.com/vuejs/vue-loader"
+      }
+    ]
   },
   {
     "name": "Pine Wu",
@@ -80,7 +107,12 @@
     "work": {
       "role": "Nomad"
     },
-    "projectList": ["vetur"]
+    "projectList": [
+      {
+        "label": "vetur",
+        "url": "https://github.com/vuejs/vetur"
+      }
+    ]
   },
   {
     "name": "Jinjiang",
@@ -90,7 +122,13 @@
       "github": "jinjiang",
       "twitter": "zhaojinjiang"
     },
-    "projectList": ["cn.vuejs.org", "vue-docs-zh-cn"],
+    "projectList": [
+      { "label": "cn.vuejs.org", "url": "https://cn.vuejs.org/" },
+      {
+        "label": "vue-docs-zh-cn",
+        "url": "https://github.com/vuejs/vue-docs-zh-cn"
+      }
+    ],
     "reposPersonal": [
       "vue-a11y-utils",
       "vue-mark-display",
@@ -112,7 +150,16 @@
       "github": "ktsn",
       "twitter": "ktsn"
     },
-    "projectList": ["vuex", "vue-class-component"],
+    "projectList": [
+      {
+        "label": "vuex",
+        "url": "https://github.com/vuejs/vuex"
+      },
+      {
+        "label": "vue-class-component",
+        "url": "https://github.com/vuejs/vue-class-component"
+      }
+    ],
     "reposPersonal": ["vue-designer"]
   },
   {
@@ -129,7 +176,13 @@
       "org": "PLAID, Inc.",
       "orgUrl": "https://plaid.co.jp"
     },
-    "projectList": ["vuejs.org", "jp.vuejs.org"],
+    "projectList": [
+      {
+        "label": "vuejs.org",
+        "url": "https://www.vuejs.org"
+      },
+      { "label": "jp.vuejs.org", "url": "https://jp.vuejs.org" }
+    ],
     "reposPersonal": [
       "vue-i18n",
       "vue-cli-plugin-i18n",
@@ -157,8 +210,17 @@
       "github": "znck",
       "twitter": "znck0"
     },
-    "projectList": ["rollup-plugin-vue", "vue-next"],
-    "reposPersonal": ["vue-developer-experience", "prop-types", "grammarly"],
+    "projectList": [
+      {
+        "label": "rollup-plugin-vue",
+        "url": "https://github.com/vuejs/rollup-plugin-vue"
+      },
+      {
+        "label": "vue-next",
+        "url": "https://github.com/vuejs/vue-next"
+      },
+      { "label": "VueDX", "url": "https://github.com/vuedx" }
+    ],
     "website": {
       "label": "https://znck.me",
       "url": "https://znck.me"
@@ -194,7 +256,14 @@
       "org": "Livestorm",
       "orgUrl": "https://livestorm.co/"
     },
-    "projectList": ["vue-devtools", "vue-cli", "vue-curated"],
+    "projectList": [
+      {
+        "label": "vue-devtools",
+        "url": "https://github.com/vuejs/devtools"
+      },
+      { "label": "vue-cli", "url": "https://github.com/vuejs/vue-cli" },
+      { "label": "vue-curated", "url": "https://github.com/vuejs/awesome-vue" }
+    ],
     "reposPersonal": [
       "vue-apollo",
       "vue-meteor",
@@ -218,8 +287,16 @@
     "work": {
       "role": "Consultant"
     },
-    "projectList": ["news.vuejs.org"],
-    "reposPersonal": ["shentao/vue-multiselect", "shentao/vue-global-events"]
+    "projectList": [
+      {
+        "label": "news.vuejs.org",
+        "url": "https://news.vuejs.org"
+      },
+      {
+        "label": "vue-multiselect",
+        "url": "https://vue-multiselect.js.org/"
+      }
+    ]
   },
   {
     "name": "Michał Sajnóg",
@@ -234,7 +311,13 @@
       "org": "Netguru",
       "orgUrl": "https://netguru.co/"
     },
-    "projectList": ["eslint-plugin-vue", "vue-devtools"],
+    "projectList": [
+      {
+        "label": "eslint-plugin-vue",
+        "url": "https://github.com/vuejs/eslint-plugin-vue"
+      },
+      { "label": "vue-devtools", "url": "https://github.com/vuejs/devtools" }
+    ],
     "reposPersonal": ["vue-computed-helpers", "vue-content-placeholders"]
   },
   {
@@ -250,7 +333,16 @@
       "github": "Justineo",
       "twitter": "_justineo"
     },
-    "projectList": ["vue", "cn.vuejs.org"],
+    "projectList": [
+      {
+        "label": "vue",
+        "url": "https://www.github.com/vuejs/vue"
+      },
+      {
+        "label": "cn.vuejs.org",
+        "url": "https://cn.vuejs.org"
+      }
+    ],
     "reposPersonal": [
       "Justineo/vue-awesome",
       "ecomfe/vue-echarts",
@@ -267,7 +359,12 @@
       "orgUrl": "https://www.antfin.com"
     },
     "social": { "github": "ulivz", "twitter": "_ulivz" },
-    "projectList": ["vuepress"]
+    "projectList": [
+      {
+        "label": "vuepress",
+        "url": "https://www.github.com/vuejs/vuepress"
+      }
+    ]
   },
   {
     "name": "Phan An",
@@ -280,7 +377,12 @@
       "org": "InterNations",
       "orgUrl": "https://www.internations.org/"
     },
-    "projectList": ["vuejs.org"],
+    "projectList": [
+      {
+        "label": "vuejs.org",
+        "url": "https://www.vuejs.org"
+      }
+    ],
     "reposPersonal": ["vuequery", "vue-google-signin-button"],
     "website": {
       "label": "https://phanan.net/",
@@ -292,7 +394,13 @@
     "title": "Fox Tech Guru",
     "city": "Amsterdam, Netherlands",
     "languageList": ["uk", "ru", "en"],
-    "projectList": ["vuejs.org", "vue-cli"],
+    "projectList": [
+      {
+        "label": "vuejs/docs",
+        "url": "https://github.com/vuejs/docs"
+      },
+      { "label": "vue-cli", "url": "https://github.com/vuejs/vue-cli" }
+    ],
     "work": {
       "role": "Staff Frontend Engineer",
       "org": "GitLab",
@@ -323,7 +431,12 @@
       "orgUrl": "https://globalbrains.com/"
     },
     "social": { "github": "kiaking", "twitter": "KiaKing85" },
-    "projectList": ["vuex"],
+    "projectList": [
+      {
+        "label": "vuex",
+        "url": "https://github.com/vuejs/vuex"
+      }
+    ],
     "reposPersonal": ["vuex-orm/*"]
   },
   {
@@ -331,8 +444,20 @@
     "city": "Taipei, Taiwan",
     "languageList": ["zh", "en"],
     "social": { "github": "antfu", "twitter": "antfu7" },
-    "projectList": ["composition-api"],
-    "reposPersonal": ["vueuse", "vue-demi", "vue-reactivity/*"],
+    "projectList": [
+      {
+        "label": "composition-api",
+        "url": "https://github.com/vuejs/composition-api"
+      },
+      {
+        "label": "vue-use",
+        "url": "https://github.com/vueuse/vueuse"
+      },
+      {
+        "label": "vue-demi",
+        "url": "https://github.com/vueuse/vue-demi"
+      }
+    ],
     "website": {
       "label": "https://antfu.me/",
       "url": "https://antfu.me/"
