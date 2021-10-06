@@ -1,3 +1,22 @@
+function stringToDate(str) {
+  const [y, m, d] = str.split('-')
+  return new Date(+y, +m, +d)
+}
+
+function dateToString(date) {
+  return (
+    date.getFullYear() +
+    '-' +
+    pad(date.getMonth() + 1) +
+    '-' +
+    pad(date.getDate())
+  )
+}
+
+function pad(n, s = String(n)) {
+  return s.length < 2 ? `0${s}` : s
+}
+
 export default {
   data() {
     return {
@@ -26,23 +45,4 @@ export default {
       )
     }
   }
-}
-
-function stringToDate(str) {
-  const [y, m, d] = str.split('-')
-  return new Date(+y, +m, +d)
-}
-
-function dateToString(date) {
-  return (
-    date.getFullYear() +
-    '-' +
-    pad(date.getMonth() + 1) +
-    '-' +
-    pad(date.getDate())
-  )
-}
-
-function pad(n, s = String(n)) {
-  return s.length < 2 ? `0${s}` : s
 }

@@ -15,7 +15,7 @@ const nav = [
           { text: 'Guide', link: '/guide/introduction' },
           { text: 'Tutorial', link: '/tutorial/' },
           { text: 'Examples', link: '/examples/' },
-          { text: 'Installation', link: '/guide/quick-start' },
+          { text: 'Quick Start', link: '/guide/quick-start' },
           { text: 'Style Guide', link: '/style-guide/' }
         ]
       }

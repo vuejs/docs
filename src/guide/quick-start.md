@@ -1,73 +1,6 @@
----
-aside: deep
----
-
 # Quick Start
 
-## Without Build Tools
-
-To get started with Vue without a build step, simply copy the following code into an HTML file and open it in your browser:
-
-```html
-<script type="importmap">
-  {
-    "imports": {
-      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
-    }
-  }
-</script>
-
-<div id="app">{{ message }}</div>
-
-<script type="module">
-  import { createApp } from 'vue'
-
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
-    }
-  }).mount('#app')
-</script>
-```
-
-Notice how we can import directly from `'vue'` in our code - this is made possible by the `<script type="importmap">` block, leveraging a browser feature called [Import Maps](https://caniuse.com/import-maps). Import maps are currently only available in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process. If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
-
-You can add entries for other dependencies to the import map - just make sure they point to the ES modules version of the library you intend to use.
-
-:::tip Not for production
-The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
-:::
-
-### Serving over HTTP
-
-As we dive deeper into the guide, we may need to split our code into separate JavaScript files so that they are easier to manage. For example:
-
-```js
-import MyComponent from './my-component.js'
-```
-
-In order for this to work, you need to serve your HTML over the `http://` protocol instead of `file://` protocol. To start a local HTTP server, first install [Node.js](https://nodejs.org/en/), and then run `npx serve` from the command line in the same directory where your HTML file is.
-
-### Using the Global Build
-
-For consistency, we will be exclusively using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax throughout the documentation. That said, Vue is also available in a more traditional build where it exposes a global `Vue` variable:
-
-```html
-<script src="https://unpkg.com/vue@3"></script>
-
-<div id="app">...</div>
-
-<script>
-  // instead of `import { createApp } from 'vue'`:
-  const { createApp } = Vue
-
-  createApp({
-    // ...
-  }).mount('#app')
-</script>
-```
+Depending on your use case and preference, you can use Vue with or without a build step.
 
 ## With Build Tools
 
@@ -108,12 +41,94 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
 <span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-You should now have your first Vue project running!
+You should now have your first Vue project running! Here are some additional tips:
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar). [WebStorm](https://www.jetbrains.com/webstorm/) is also viable.
 - More tooling details are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
 - To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
 - If you chose to use TypeScript, check out [Using Vue with TypeScript](scaling-up/typescript.html).
+
+## Without Build Tools
+
+To get started with Vue without a build step, simply copy the following code into an HTML file and open it in your browser:
+
+```html
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  Vue.createApp({
+    data() {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable. However, we will be primarily using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax throughout the documentation for consistency. In order to use Vue over native ES modules, use the following HTML instead:
+
+```html
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp } from 'vue'
+
+  createApp({
+    data() {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+Notice how we can import directly from `'vue'` in our code - this is made possible by the `<script type="importmap">` block, leveraging a native browser feature called [Import Maps](https://caniuse.com/import-maps). Import maps are currently only available in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process. If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
+
+You can add entries for other dependencies to the import map - just make sure they point to the ES modules version of the library you intend to use.
+
+:::tip Not for production
+The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
+:::
+
+### Serving over HTTP
+
+As we dive deeper into the guide, we may need to split our code into separate JavaScript files so that they are easier to manage. For example:
+
+```html
+<!-- index.html -->
+<script type="module">
+import { createApp } from 'vue'
+import MyComponent from './my-component.js'
+
+createApp(MyComponent).mount('#app')
+</script>
+```
+
+```js
+// my-component.js
+export default {
+  data() {
+    return { count: 0 }
+  },
+  template: `<div>count is {{ count }}</div>`
+}
+```
+
+In order for this to work, you need to serve your HTML over the `http://` protocol instead of `file://` protocol. To start a local HTTP server, first install [Node.js](https://nodejs.org/en/), and then run `npx serve` from the command line in the same directory where your HTML file is. You can also use any other HTTP server that can serve static files with correct MIME types.
+
+You may have noticed that the imported component's template is inlined as a JavaScript string. If you are using VSCode, you can install the [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) extension and prefix the strings with a `/*html*/` comment to get syntax highlighting for them.
 
 ## Next Steps
 

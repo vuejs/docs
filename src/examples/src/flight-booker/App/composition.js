@@ -42,10 +42,12 @@ export default {
     }
 
     return {
-      flightTypes,
       flightType,
       departureDate,
-      returnDate
+      returnDate,
+      isReturn,
+      canBook,
+      book
     }
   }
 }

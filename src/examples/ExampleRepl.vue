@@ -82,17 +82,17 @@ function resolveNoBuildExample(raw: ExampleData) {
       // rewrite imports to *.vue
       js = js.replace(/import (.*) from '(.*)\.vue'/g, "import $1 from '$2.js'")
 
-      const _template = indent(toKebabTags(template))
+      const _template = indent(toKebabTags(template).trim())
       if (style) css += style
 
       if (filename === 'App') {
         html += `<script type="module">\n${injectCreateApp(js)}<\/script>`
         html += `\n\n<div id="app">\n${_template}</div>`
       } else {
-        html += `\n\n<template id="${filename}">\n${_template}</template>`
+        // html += `\n\n<template id="${filename}">\n${_template}</template>`
         js = js.replace(
-          `export default {\n  `,
-          `export default {\n  template: '#${filename}',\n  `
+          /export default \{([^]*)\n\}/,
+          `export default {$1,\n  template: \`\n${_template}\n  \`\n}`
         )
         files[filename + '.js'] = js
       }
