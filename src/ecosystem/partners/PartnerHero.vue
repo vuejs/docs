@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="PartnerHero">
@@ -34,7 +32,7 @@
 
 .title,
 .lead,
-.PartnerHero >>> .link {
+.PartnerHero :deep(.link) {
   transition: color 0.25s;
 }
 
@@ -58,6 +56,10 @@
   color: var(--vt-c-text-2);
 }
 
-.PartnerHero >>> .link       { color: var(--vt-c-brand); }
-.PartnerHero >>> .link:hover { color: var(--vt-c-brand-dark); }
+.PartnerHero :deep(.link) {
+  color: var(--vt-c-brand);
+}
+.PartnerHero :deep(.link:hover) {
+  color: var(--vt-c-brand-dark);
+}
 </style>
