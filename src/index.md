@@ -3,7 +3,7 @@ page: true
 ---
 
 <script setup>
-  import NewsLetter from './.vitepress/theme/components/NewsletterSection.vue'
+import NewsLetter from './.vitepress/theme/components/NewsLetter.vue'
 </script>
 
 <section id="hero">
@@ -54,7 +54,7 @@ page: true
   <!-- TODO show tooling screenshots -->
 </section>
 
-<NewsLetter/>
+<NewsLetter />
 
 <style scoped>
 section {

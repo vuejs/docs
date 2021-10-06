@@ -3,7 +3,7 @@ import { VTLink } from '@vue/theme'
 </script>
 
 <template>
-  <section id="newsletter" class="NewsletterSection">
+  <section id="newsletter" class="NewsLetter">
     <div class="container">
       <h2 class="title">Subscribe to our weekly newsletter.</h2>
 
@@ -47,7 +47,7 @@ import { VTLink } from '@vue/theme'
 </template>
 
 <style scoped>
-.NewsletterSection {
+.NewsLetter {
   border-top: 1px solid transparent;
   border-bottom: 1px solid var(--vt-c-divider-light);
   padding: 32px 24px;
@@ -55,14 +55,14 @@ import { VTLink } from '@vue/theme'
   transition: border-color 0.5s, background-color 0.5s;
 }
 
-.dark .NewsletterSection {
+.dark .NewsLetter {
   border-top-color: var(--vt-c-divider-light);
   border-bottom-color: transparent;
   background: var(--vt-c-bg);
 }
 
 @media (min-width: 768px) {
-  .NewsletterSection {
+  .NewsLetter {
     padding: 48px 32px;
   }
 }
