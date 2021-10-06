@@ -30,14 +30,14 @@ const imageAlt = computed(() => {
       class="member-profile-image"
     />
     <section>
-      <h3 class="member-name">{{ profile.name }}</h3>
-      <p class="member-headline">
+      <h3 v-if="profile.name" class="member-name">{{ profile.name }}</h3>
+      <p v-if="profile.title" class="member-headline">
         {{ profile.title }}
         <span v-if="profile.company">@ {{ profile.company }}</span>
       </p>
       <div class="member-details">
         <section
-          v-if="profile.projectList.length > 0"
+          v-if="profile.projectList && profile.projectList.length > 0"
           class="member-detail-section"
         >
           <IconCode class="member-detail-icon" />
@@ -52,7 +52,10 @@ const imageAlt = computed(() => {
             </li>
           </ul>
         </section>
-        <section v-if="profile.location.label" class="member-detail-section">
+        <section
+          v-if="profile.location && profile.location.label"
+          class="member-detail-section"
+        >
           <IconLocation class="member-detail-icon" />
           <h4 class="sr-only">Location</h4>
           <address class="member-location">
@@ -60,7 +63,7 @@ const imageAlt = computed(() => {
           </address>
         </section>
         <section
-          v-if="profile.languageList.length > 0"
+          v-if="profile.languageList && profile.languageList.length > 0"
           class="member-detail-section"
         >
           <IconGlobe class="member-detail-icon" />
@@ -84,7 +87,7 @@ const imageAlt = computed(() => {
           <a :href="profile.website.url">{{ profile.website.label }}</a>
         </section>
       </div>
-      <ul class="member-social-list">
+      <ul v-if="profile.social" class="member-social-list">
         <li
           v-for="(handle, platform) in profile.social"
           :key="`${platform}-${handle}`"
