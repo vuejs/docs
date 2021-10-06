@@ -1,16 +1,9 @@
 ---
-aside: false
-layoutReset: true
+page: true
 ---
 
 <script setup>
-import CommunityPartnersIndex from '../.vitepress/components/community/partners/index.vue'
+import PartnerPage from '../.vitepress/theme/components/partner/PartnerPage.vue'
 </script>
 
-<<<<<<< HEAD:src/ecosystem/partners.md
-## Active Partners
-
-<!-- <community-partners-index/> -->
-=======
-<community-partners-index />
->>>>>>> 2b93b37 (feature: implement initial layout for new vue partners page):src/community/partners.md
+<PartnerPage />
