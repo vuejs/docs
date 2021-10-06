@@ -11,7 +11,7 @@ import partnersData from './partners.json'
 import shuffle from 'lodash/shuffle'
 
 const coreTeamList = computed(() => {
-  return coreTeamData.slice(0, 1).concat(shuffle(coreTeamData.slice(2)))
+  return coreTeamData.slice(0, 1).concat(shuffle(coreTeamData.slice(1)))
 })
 const emeritiTeamList = computed(() => shuffle(emeritiTeamData))
 const partnersList = computed(() => shuffle(partnersData))
