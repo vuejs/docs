@@ -104,7 +104,7 @@ There are two reasons why we need to wrap the value in an object:
    count.value++ // this will affect the log output.
    ```
 
-   This capability is quite important as it unlocks powerful patterns that allow us to compose reactive logic encapsulated in decoupled functions, which we will discuss later in the guide.
+   This capability is quite important as it is frequently used when extracting logic into [Composable Functions](/guide/reusability/composables.html).
 
 ### Exposing State to Template
 
@@ -166,14 +166,20 @@ const state = reactive({ count: 0 })
 </template>
 ```
 
-Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and work exactly like normal objects. Calling `reactive()` on the same object always returns the same proxy, and calling `reactive()` on an existing proxy also returns that same proxy:
+Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and behave just like normal objects. Calling `reactive()` on the same object always returns the same proxy, and calling `reactive()` on an existing proxy also returns that same proxy:
 
 ```js
-const raw = { count: 0 }
+const raw = { count: 0, nested: {} }
 const proxy = reactive(raw)
+
+// proxy is NOT equal to the original.
+console.log(proxy === raw) // false
 
 console.log(proxy === reactive(raw)) // true
 console.log(proxy === reactive(proxy)) // true
+
+// nested objects in a proxy are also proxies
+console.log(proxy.nested === reactive(proxy.nested)) // true
 ```
 
 When you create a ref with object value, it also implicitly converts the value to a proxy using `reactive()`:
@@ -183,14 +189,47 @@ const objRef = ref(raw)
 console.log(objRef.value === proxy) // true
 ```
 
-It is important to note that the proxy is not equal to the original object. Only the proxy is reactive. Mutating the original object will not trigger reactive updates:
+:::tip
+The reactive proxy is NOT equal to the original object, and only the proxy is reactive. Mutating the original object will not trigger updates. The best practice when working with Vue's reactivity system is to **exclusively use the proxied versions of your state**.
+:::
+
+### Ref Unwrapping in Reactive Objects
+
+When a `ref` is accessed or mutated as a property of a reactive object, it automatically unwraps to the inner value so it behaves like a normal property:
 
 ```js
-console.log(raw === proxy) // false
-raw.count++ // won't trigger updates!
+const count = ref(0)
+const state = reactive({
+  count
+})
+
+console.log(state.count) // 0
+
+state.count = 1
+console.log(count.value) // 1
 ```
 
-Therefore, the best practice when working with Vue's reactivity system is to **exclusively use the proxied versions of your state**.
+If a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
+
+```js
+const otherCount = ref(2)
+
+state.count = otherCount
+console.log(state.count) // 2
+console.log(count.value) // 1
+```
+
+Ref unwrapping only happens when nested inside a reactive object. There is no unwrapping performed when the ref is accessed from an array or a native collection type like [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map):
+
+```js
+const books = reactive([ref('Vue 3 Guide')])
+// need .value here
+console.log(books[0].value)
+
+const map = reactive(new Map([['count', ref(0)]]))
+// need .value here
+console.log(map.get('count').value)
+```
 
 </div>
 
@@ -330,24 +369,24 @@ export default {
 
 ```vue
 <script setup>
-import { ref } from 'vue'
+import { reactive } from 'vue'
 
-const obj = ref({
+const obj = reactive({
   nested: { count: 0 },
   arr: ['foo', 'bar']
 })
 
 function mutateDeeply() {
   // these will work as expected.
-  obj.value.nested.count++
-  obj.value.arr.push('baz')
+  obj.nested.count++
+  obj.arr.push('baz')
 }
 </script>
 ```
 
 </div>
 
-It is also possible to explicitly create ["shallow" refs and reactive objects](/api/reactivity-advanced.html#shallowref) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
+It is also possible to explicitly create [shallow refs](<(/api/reactivity-advanced.html#shallowref)>) and [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
 
 <div class="options-api">
 
@@ -424,84 +463,5 @@ function increment() {
 :::warning Experimental Feature
 Ref transform is currently an experimental feature. It is disabled by default and requires [explicit opt-in](https://github.com/vuejs/rfcs/blob/ref-sugar-2/active-rfcs/0000-ref-sugar.md#enabling-the-macros). It may also change before being finalized. More details can be found in its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
 :::
-
-## Additional Details
-
-### Ref Unwrapping in Reactive Objects
-
-When a `ref` is accessed or mutated as a property of a reactive object, it automatically unwraps to the inner value so it behaves like a normal property:
-
-```js
-const count = ref(0)
-const state = reactive({
-  count
-})
-
-console.log(state.count) // 0
-
-state.count = 1
-console.log(count.value) // 1
-```
-
-If a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
-
-```js
-const otherCount = ref(2)
-
-state.count = otherCount
-console.log(state.count) // 2
-console.log(count.value) // 1
-```
-
-Ref unwrapping only happens when nested inside a reactive object. There is no unwrapping performed when the ref is accessed from an array or a native collection type like [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map):
-
-```js
-const books = reactive([ref('Vue 3 Guide')])
-// need .value here
-console.log(books[0].value)
-
-const map = reactive(new Map([['count', ref(0)]]))
-// need .value here
-console.log(map.get('count').value)
-```
-
-### Destructuring Reactive Objects
-
-When we want to use a few properties of the large reactive object, it could be tempting to use destructuring to get properties we want:
-
-```js
-import { reactive } from 'vue'
-
-const book = reactive({
-  author: 'Vue Team',
-  year: '2020',
-  title: 'Vue 3 Guide',
-  description: 'You are reading this book right now ;)',
-  price: 'free'
-})
-
-let { author, title } = book
-```
-
-Unfortunately, with such a destructuring the reactivity for both properties would be lost. For such a case, we need to convert our reactive object to a set of refs. These refs will retain the reactive connection to the source object:
-
-```js
-import { reactive, toRefs } from 'vue'
-
-const book = reactive({
-  author: 'Vue Team',
-  year: '2020',
-  title: 'Vue 3 Guide',
-  description: 'You are reading this book right now ;)',
-  price: 'free'
-})
-
-let { author, title } = toRefs(book)
-
-title.value = 'Vue 3 Detailed Guide' // we need to use .value as title is a ref now
-console.log(book.title) // 'Vue 3 Detailed Guide'
-```
-
-You can learn more about `toRefs` in the [API Reference](/api/reactivity-utilities.html#torefs).
 
 </div>
