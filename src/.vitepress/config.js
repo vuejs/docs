@@ -3,6 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const { genApiIndex } = require('../../scripts/genApiIndex')
 const { genExamplesData } = require('../../scripts/genExamplesData')
+const { headerPlugin } = require('./header')
 
 const nav = [
   {
@@ -520,6 +521,12 @@ module.exports = {
       )
     ]
   ],
+
+  markdown: {
+    config(md) {
+      md.use(headerPlugin)
+    }
+  },
 
   themeConfig: {
     logo: '/logo.svg',

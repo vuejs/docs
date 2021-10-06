@@ -1,7 +1,11 @@
 import { h } from 'vue'
 import { VPTheme, VTBadge } from '@vue/theme'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
-import { preferComposition, preferSFC } from './components/preferences'
+import {
+  preferComposition,
+  preferSFC,
+  filterHeadersByPreference
+} from './components/preferences'
 import './styles/inline-demo.css'
 import './styles/options-boxes.css'
 
@@ -15,5 +19,6 @@ export default Object.assign({}, VPTheme, {
     app.component('Badge', VTBadge)
     app.provide('prefer-composition', preferComposition)
     app.provide('prefer-sfc', preferSFC)
+    app.provide('filter-headers', filterHeadersByPreference)
   }
 })

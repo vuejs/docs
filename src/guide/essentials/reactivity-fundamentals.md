@@ -4,9 +4,9 @@
 This section contains different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
 :::
 
-## Declaring State
-
 <div class="options-api">
+
+## Declaring Reactive State *
 
 With Options API, we use the `data` option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. The wrapped object is stored on the component instance as `$data`. For convenience, any top-level properties of that object are also exposed directly on the component instance (`this` in methods and lifecycle hooks):
 
@@ -45,7 +45,7 @@ Vue uses a `$` prefix when exposing its own built-in APIs via the component inst
 
 <div class="composition-api">
 
-### Reactive Variables with `ref`
+## Reactive Variables with `ref` **
 
 The primary API for declaring reactive state when using Composition API is the [`ref()`](/api/reactivity-core.html#ref) method:
 
@@ -106,7 +106,7 @@ There are two reasons why we need to wrap the value in an object:
 
    This capability is quite important as it is frequently used when extracting logic into [Composable Functions](/guide/reusability/composables.html).
 
-### Exposing State to Template
+## Exposing State to Template **
 
 To use refs in a component's template, declare and return them from a component's `setup()` function:
 
@@ -150,7 +150,7 @@ Top-level imports and variables declared in `<script setup>` are automatically u
 
 > For the rest of the guide, we will be primarily using SFC + `<script setup>` syntax for Composition API code examples, as that is the most common usage for Vue developers.
 
-### Reactive Objects with `reactive`
+## Reactive Objects with `reactive` **
 
 It is also possible to directly create a reactive object or array with the [`reactive()`](/api/reactivity-core.html#reactive) method:
 
@@ -274,7 +274,7 @@ In the example above, the method `increment` will be called when the `<button>` 
 
 <div class="composition-api">
 
-To declare methods when using Composition API, simply declare functions in the same scope with the reactive state:
+We can declare functions that mutate reactive state in the same scope, and expose it as a method alongside the state:
 
 ```js
 import { ref } from 'vue'
@@ -297,7 +297,7 @@ export default {
 }
 ```
 
-Methods are typically used as event listeners:
+Exposed methods are typically used as event listeners:
 
 ```vue-html
 <button @click="increment">{{ count }}</button>
@@ -386,7 +386,7 @@ function mutateDeeply() {
 
 </div>
 
-It is also possible to explicitly create [shallow refs](<(/api/reactivity-advanced.html#shallowref)>) and [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
+It is also possible to explicitly create [shallow refs](/api/reactivity-advanced.html#shallowref) and [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
 
 <div class="options-api">
 
@@ -442,7 +442,7 @@ app.component('save-button', {
 
 <div class="composition-api">
 
-### Ref Transform <Badge type="warning" text="experimental" />
+## Ref Transform <Badge type="warning" text="experimental" /> **
 
 Refs require the `.value` property due to the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. The [ref transform](https://github.com/vuejs/vue-next/tree/master/packages/ref-transform) allows us to write the above example like this:
 

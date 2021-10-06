@@ -319,10 +319,10 @@ watchPostEffect(() => {
 })
 ```
 
+## Side Effect Invalidation **
+
+## Stopping a Watcher **
+
+## Watcher Debugging **
+
 </div>
-
-## Side Effect Invalidation
-
-## Stopping a Watcher
-
-## Watcher Debugging
