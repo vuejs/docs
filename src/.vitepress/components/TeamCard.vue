@@ -13,10 +13,6 @@ const props = defineProps({
   }
 })
 
-const imageFileName = computed(() => {
-  return props.profile.name.toLowerCase().split(' ').join('-') + '.jpeg'
-})
-
 const imageAlt = computed(() => {
   return `${props.profile.name}'s Profile Picture`
 })
