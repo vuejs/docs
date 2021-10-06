@@ -2,6 +2,9 @@
 import { computed, defineProps } from 'vue'
 import { VTIconGitHub, VTIconTwitter } from '@vue/theme'
 import IconCode from './IconCode.vue'
+import IconGlobe from './IconGlobe.vue'
+import IconLink from './IconLink.vue'
+import IconLocation from './IconLocation.vue'
 
 const props = defineProps({
   profile: {
@@ -28,20 +31,18 @@ const imageAlt = computed(() => {
     />
     <section>
       <h3 class="member-name">{{ profile.name }}</h3>
-      <p>
+      <p class="member-headline">
         {{ profile.title }}
         <span v-if="profile.company">@ {{ profile.company }}</span>
       </p>
       <div class="member-details">
-        <div class="member-project-wrapper">
-          <h4 v-if="profile.projectList.length > 0" class="sr-only">
-            Projects
-          </h4>
-          <IconCode />
-          <ul
-            v-if="profile.projectList.length > 0"
-            class="member-language-list"
-          >
+        <section
+          v-if="profile.projectList.length > 0"
+          class="member-detail-section"
+        >
+          <IconCode class="member-detail-icon" />
+          <h4 class="sr-only">Projects</h4>
+          <ul class="member-language-list">
             <li
               v-for="project in profile.projectList"
               :key="`${profile.name}-project-${project}`"
@@ -50,19 +51,35 @@ const imageAlt = computed(() => {
               <a :href="project.url">{{ project.label }}</a>
             </li>
           </ul>
-        </div>
-        <address>{{ profile.location.label }}</address>
-        <h4 class="sr-only">Languages</h4>
-        <ul class="member-language-list">
-          <li
-            v-for="language in profile.languageList"
-            :key="`${profile.name}-language-${language}`"
-            class="member-language"
-          >
-            {{ language }}
-          </li>
-        </ul>
-        <a :href="profile.website.url">{{ profile.website.label }}</a>
+        </section>
+        <section v-if="profile.location.label" class="member-detail-section">
+          <IconLocation class="member-detail-icon" />
+          <h4 class="sr-only">Location</h4>
+          <address class="member-location">
+            {{ profile.location.label }}
+          </address>
+        </section>
+        <section
+          v-if="profile.languageList.length > 0"
+          class="member-detail-section"
+        >
+          <IconGlobe class="member-detail-icon" />
+          <h4 class="sr-only">Languages</h4>
+          <ul class="member-language-list">
+            <li
+              v-for="language in profile.languageList"
+              :key="`${profile.name}-language-${language}`"
+              class="member-language"
+            >
+              {{ language }}
+            </li>
+          </ul>
+        </section>
+        <section v-if="profile.website.url" class="member-detail-section">
+          <IconLink class="member-detail-icon" />
+          <h4 class="sr-only">Website</h4>
+          <a :href="profile.website.url">{{ profile.website.label }}</a>
+        </section>
       </div>
       <ul class="member-social-list">
         <li
@@ -116,16 +133,26 @@ const imageAlt = computed(() => {
 
 .member-details {
   display: grid;
-  grid-row-templates: repeat(4, 1fr);
   grid-row-gap: 4px;
-  margin: 20px 0;
+  margin: 16px 0 20px;
+  font-weight: 500;
+}
+
+.member-detail-icon {
+  margin-right: 10px;
+}
+
+.member-detail-section {
+  display: flex;
+  align-items: center;
+}
+
+.member-headline {
+  margin-bottom: 0;
 }
 
 .member-language {
   margin-right: 34px;
-}
-.member-language:first-child {
-  margin-left: 10px;
 }
 
 .member-language:first-child:before {
@@ -138,15 +165,14 @@ const imageAlt = computed(() => {
   display: flex;
 }
 
+.member-location {
+  font-style: normal;
+}
+
 .member-profile-image {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-}
-
-.member-project-wrapper {
-  display: flex;
-  align-items: center;
 }
 
 .member-social-icon {
