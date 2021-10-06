@@ -1,0 +1,341 @@
+[
+  {
+    "name": "Evan You",
+    "title": "Creator",
+    "company": "Vue.js",
+    "projectList": [
+      {
+        "label": "vuejs/*",
+        "url": "https://www.github.com/vuejs"
+      },
+      {
+        "label": "vitejs/*",
+        "url": "https://www.github.com/vitejs"
+      }
+    ],
+    "city": "New Jersey, NJ, USA",
+    "languageList": ["中文", "English"],
+    "website": {
+      "label": "patreon.com/evanyou",
+      "url": "https://www.patreon.com/evanyou"
+    },
+    "social": {
+      "github": "yyx990803",
+      "twitter": "youyuxi"
+    }
+  },
+  {
+    "name": "Ben Hong",
+    "title": "Staff Developer Experience Engineer",
+    "company": "Netlify",
+    "projectList": [],
+    "city": "Washington, DC, USA",
+    "languageList": ["Chinese", "English"],
+    "website": {
+      "label": "bencodezen.io",
+      "url": "https://www.bencodezen.io"
+    },
+    "social": {
+      "github": "bencodezen",
+      "twitter": "bencodezen"
+    }
+  },
+  {
+    "name": "Eduardo",
+    "title": "Real-Time Rerouter",
+    "city": "Paris, France",
+    "languageList": ["es", "fr", "en"],
+    "social": {
+      "github": "posva",
+      "twitter": "posva"
+    },
+    "work": {
+      "role": "Freelance Developer & Consultant"
+    },
+    "projectList": ["vuefire", "vue-router"],
+    "reposPersonal": ["vuex-mock-store", "vue-promised", "vue-motion"],
+    "website": {
+      "label": "patreon.com/posva",
+      "url": "https://www.patreon.com/posva"
+    }
+  },
+  {
+    "name": "Sodatea",
+    "city": "Hangzhou, China",
+    "languageList": ["zh", "en"],
+    "social": {
+      "github": "sodatea",
+      "twitter": "haoqunjiang"
+    },
+    "projectList": ["vue-cli", "vue-loader"]
+  },
+  {
+    "name": "Pine Wu",
+    "city": "Shanghai, China",
+    "languageList": ["zh", "en", "jp"],
+    "social": {
+      "github": "octref",
+      "twitter": "octref"
+    },
+    "work": {
+      "role": "Nomad"
+    },
+    "projectList": ["vetur"]
+  },
+  {
+    "name": "Jinjiang",
+    "city": "Singapore",
+    "languageList": ["zh", "en"],
+    "social": {
+      "github": "jinjiang",
+      "twitter": "zhaojinjiang"
+    },
+    "projectList": ["cn.vuejs.org", "vue-docs-zh-cn"],
+    "reposPersonal": [
+      "vue-a11y-utils",
+      "vue-mark-display",
+      "mark2slides",
+      "vue-keyboard-over"
+    ]
+  },
+  {
+    "name": "Katashin",
+    "title": "One of a Type State Manager",
+    "city": "Singapore",
+    "languageList": ["jp", "en"],
+    "work": {
+      "role": "Software Engineer",
+      "org": "ClassDo",
+      "orgUrl": "https://classdo.com"
+    },
+    "social": {
+      "github": "ktsn",
+      "twitter": "ktsn"
+    },
+    "projectList": ["vuex", "vue-class-component"],
+    "reposPersonal": ["vue-designer"]
+  },
+  {
+    "name": "Kazupon",
+    "title": "Validated Internationalizing Missionary",
+    "city": "Tokyo, Japan",
+    "languageList": ["jp", "en"],
+    "social": {
+      "github": "kazupon",
+      "twitter": "kazu_pon"
+    },
+    "work": {
+      "role": "Engineer",
+      "org": "PLAID, Inc.",
+      "orgUrl": "https://plaid.co.jp"
+    },
+    "projectList": ["vuejs.org", "jp.vuejs.org"],
+    "reposPersonal": [
+      "vue-i18n",
+      "vue-cli-plugin-i18n",
+      "vue-i18n-loader",
+      "eslint-plugin-vue-i18n",
+      "vue-i18n-extensions",
+      "vue-cli-plugin-p11n"
+    ],
+    "website": {
+      "label": "patreon.com/kazupon",
+      "url": "https://www.patreon.com/kazupon"
+    }
+  },
+  {
+    "name": "Rahul Kadyan",
+    "title": "Ecosystem Glue Chemist",
+    "city": "Bangalore, India",
+    "languageList": ["hi", "en"],
+    "work": {
+      "role": "Software Engineer",
+      "org": "Grammarly",
+      "orgUrl": "https://grammarly.com/"
+    },
+    "social": {
+      "github": "znck",
+      "twitter": "znck0"
+    },
+    "projectList": ["rollup-plugin-vue", "vue-next"],
+    "reposPersonal": ["vue-developer-experience", "prop-types", "grammarly"],
+    "website": {
+      "label": "https://znck.me",
+      "url": "https://znck.me"
+    }
+  },
+  {
+    "name": "Linusborg",
+    "title": "Hive-Mind Community Wrangler (Probably a Bot)",
+    "city": "Mannheim, Germany",
+    "languageList": ["de", "en"],
+    "social": {
+      "github": "LinusBorg",
+      "twitter": "Linus_Borg"
+    },
+    "projectList": ["vuejs/*"],
+    "reposPersonal": ["portal-vue"],
+    "website": {
+      "label": "https://forum.vuejs.org/",
+      "url": "https://forum.vuejs.org/"
+    }
+  },
+  {
+    "name": "Guillaume Chau",
+    "title": "Client-Server Astronaut",
+    "city": "Lyon, France",
+    "languageList": ["fr", "en"],
+    "social": {
+      "github": "Akryum",
+      "twitter": "Akryum"
+    },
+    "work": {
+      "role": "Frontend Developer",
+      "org": "Livestorm",
+      "orgUrl": "https://livestorm.co/"
+    },
+    "projectList": ["vue-devtools", "vue-cli", "vue-curated"],
+    "reposPersonal": [
+      "vue-apollo",
+      "vue-meteor",
+      "vue-virtual-scroller",
+      "v-tooltip"
+    ],
+    "website": {
+      "label": "patreon.com/akryum",
+      "url": "http://patreon.com/akryum"
+    }
+  },
+  {
+    "name": "Damian Dulisz",
+    "title": "Dark Mage of Plugins, News, and Confs",
+    "city": "Wrocław, Poland",
+    "languageList": ["pl", "en"],
+    "social": {
+      "github": "shentao",
+      "twitter": "DamianDulisz"
+    },
+    "work": {
+      "role": "Consultant"
+    },
+    "projectList": ["news.vuejs.org"],
+    "reposPersonal": ["shentao/vue-multiselect", "shentao/vue-global-events"]
+  },
+  {
+    "name": "Michał Sajnóg",
+    "city": "Poznań, Poland",
+    "languageList": ["pl", "en"],
+    "social": {
+      "github": "michalsnik",
+      "twitter": "michalsnik"
+    },
+    "work": {
+      "role": "Senior Frontend Developer / Team Leader",
+      "org": "Netguru",
+      "orgUrl": "https://netguru.co/"
+    },
+    "projectList": ["eslint-plugin-vue", "vue-devtools"],
+    "reposPersonal": ["vue-computed-helpers", "vue-content-placeholders"]
+  },
+  {
+    "name": "GU Yiling",
+    "city": "Shanghai, China",
+    "languageList": ["zh", "en"],
+    "work": {
+      "role": "Senior web developer",
+      "org": "Baidu, inc.",
+      "orgUrl": "https://www.baidu.com/"
+    },
+    "social": {
+      "github": "Justineo",
+      "twitter": "_justineo"
+    },
+    "projectList": ["vue", "cn.vuejs.org"],
+    "reposPersonal": [
+      "Justineo/vue-awesome",
+      "ecomfe/vue-echarts",
+      "ecomfe/veui"
+    ]
+  },
+  {
+    "name": "ULIVZ",
+    "city": "Hangzhou, China",
+    "languageList": ["zh", "en"],
+    "work": {
+      "role": "Senior Frontend Developer",
+      "org": "AntFinancial",
+      "orgUrl": "https://www.antfin.com"
+    },
+    "social": { "github": "ulivz", "twitter": "_ulivz" },
+    "projectList": ["vuepress"]
+  },
+  {
+    "name": "Phan An",
+    "title": "Backend Designer & Process Poet",
+    "city": "Munich, Germany",
+    "languageList": ["vi", "en"],
+    "social": { "github": "phanan", "twitter": "notphanan" },
+    "work": {
+      "role": "Engineering Team Lead",
+      "org": "InterNations",
+      "orgUrl": "https://www.internations.org/"
+    },
+    "projectList": ["vuejs.org"],
+    "reposPersonal": ["vuequery", "vue-google-signin-button"],
+    "website": {
+      "label": "https://phanan.net/",
+      "url": "https://phanan.net/"
+    }
+  },
+  {
+    "name": "Natalia Tepluhina",
+    "title": "Fox Tech Guru",
+    "city": "Amsterdam, Netherlands",
+    "languageList": ["uk", "ru", "en"],
+    "projectList": ["vuejs.org", "vue-cli"],
+    "work": {
+      "role": "Staff Frontend Engineer",
+      "org": "GitLab",
+      "orgUrl": "https://gitlab.com/"
+    },
+    "social": { "github": "NataliaTepluhina", "twitter": "N_Tepluhina" }
+  },
+  {
+    "name": "Yosuke Ota",
+    "city": "Kanagawa, Japan",
+    "languageList": ["jp"],
+    "social": { "github": "ota-meshi", "twitter": "omoteota" },
+    "work": {
+      "role": "Lead Web Engineer",
+      "org": "Future Corporation",
+      "orgUrl": "https://www.future.co.jp/"
+    },
+    "projectList": ["eslint-plugin-vue"]
+  },
+  {
+    "name": "Kia King Ishii",
+    "title": "The optimist web designer/developer",
+    "city": "Kanagawa, Japan",
+    "languageList": ["en", "jp"],
+    "work": {
+      "role": "Tech Talent",
+      "org": "Global Brain",
+      "orgUrl": "https://globalbrains.com/"
+    },
+    "social": { "github": "kiaking", "twitter": "KiaKing85" },
+    "projectList": ["vuex"],
+    "reposPersonal": ["vuex-orm/*"]
+  },
+  {
+    "name": "Anthony Fu",
+    "city": "Taipei, Taiwan",
+    "languageList": ["zh", "en"],
+    "social": { "github": "antfu", "twitter": "antfu7" },
+    "projectList": ["composition-api"],
+    "reposPersonal": ["vueuse", "vue-demi", "vue-reactivity/*"],
+    "website": {
+      "label": "https://antfu.me/",
+      "url": "https://antfu.me/"
+    }
+  }
+]
