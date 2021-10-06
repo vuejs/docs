@@ -16,6 +16,7 @@
   },
   {
     "name": "Pratik Patel",
+    "avatarPic": "https://pbs.twimg.com/profile_images/1541624512/profile-pic-09-11-2011_400x400.png",
     "title": "Organizer of VueConf US",
     "city": "Atlanta, GA, USA",
     "languages": ["en"],
@@ -30,6 +31,7 @@
   },
   {
     "name": "Vincent Mayers",
+    "avatarPic": "https://pbs.twimg.com/profile_images/916531463905992706/MNvTkO5K_400x400.jpg",
     "title": "Organizer of VueConf US",
     "city": "Atlanta, GA, USA",
     "languages": ["en"],
@@ -42,6 +44,7 @@
   },
   {
     "name": "Luke Thomas",
+    "avatarPic": "https://pbs.twimg.com/profile_images/1123492769299877888/aviXE_M5_400x400.jpg",
     "title": "Creator of Vue.js Amsterdam",
     "city": "Amsterdam, Netherlands",
     "languages": ["nl", "en", "de"],
@@ -57,6 +60,7 @@
   },
   {
     "name": "Jos Gerards",
+    "avatarPic": "https://pbs.twimg.com/profile_images/1110510517951627269/LDzDyd4N_400x400.jpg",
     "title": "Organizer and Host of Vue.js Amsterdam & Frontend Love",
     "city": "Amsterdam, Netherlands",
     "languages": ["nl", "en", "de"],
