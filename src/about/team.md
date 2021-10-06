@@ -3,9 +3,15 @@ aside: false
 ---
 
 <script setup>
+import { computed } from 'vue'
 import TeamCard from '../.vitepress/components/TeamCard.vue'
 import coreTeamData from './core-team.json'
 import emeritiData from './emeriti.json'
+import shuffle from 'lodash/shuffle'
+
+const coreTeamList = computed(() => {
+  return coreTeamData.slice(0, 1).concat(shuffle(coreTeamData.slice(2)))
+})
 </script>
 
 # Meet the Team
@@ -19,7 +25,7 @@ The development of Vue and its ecosystem is guided by an international team, som
 In general, core team members are expected to maintain a consistent presence in the project. e also look for contributions over a longer period of time, so that we know the community can depend on the members long term.
 
 <TeamCard
-  v-for="member in coreTeamData"
+  v-for="member in coreTeamList"
   :key="member.name"
   :profile="member"
 />
