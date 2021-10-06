@@ -124,13 +124,18 @@ const imageAlt = computed(() => {
 
 .team-card {
   --grid-column: 32px;
+  --card-bg-color: #f8f8f8;
   display: grid;
   grid-template-columns: 80px 1fr;
   grid-column-gap: var(--grid-column);
   margin-bottom: calc(var(--grid-column) / 2);
   padding: var(--grid-column);
   border-radius: 8px;
-  background-color: #f8f8f8;
+  background-color: var(--card-bg-color);
+}
+
+.dark .team-card {
+  --card-bg-color: #222;
 }
 
 .team-card .member-name {
@@ -146,6 +151,10 @@ const imageAlt = computed(() => {
 
 .member-detail-icon {
   margin-right: 10px;
+}
+
+.dark .member-detail-icon {
+  fill: var(--vt-c-text-1);
 }
 
 .member-detail-item {
@@ -184,8 +193,12 @@ const imageAlt = computed(() => {
 .member-social-icon {
   width: 24px;
   height: 24px;
-  fill: rgba(60, 60, 60, 0.6);
+  fill: #3c3c3c;
   margin-right: 14px;
+}
+
+.dark .member-social-icon {
+  fill: var(--vt-c-text-1);
 }
 
 .member-social-item:before {
