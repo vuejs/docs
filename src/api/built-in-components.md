@@ -62,6 +62,16 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   Registration is not required if you pass the component itself to `is` rather than its name.
 
+- **key:**
+
+When using <component :is="vnode"> and passing vnode of the same type, you need to provide keys:
+  
+```html
+<component :is="current" :key="selected" />
+```
+
+Otherwise, you are passing two compiled vnodes of the same type to the renderer. Because they are compiled as completely static, they will not be updated at all.
+
 - **See also:** [Dynamic Components](../guide/component-dynamic-async.html)
 
 ## transition
