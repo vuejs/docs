@@ -1,4 +1,4 @@
-# Basic Reactivity
+# Reactivity Fundamentals
 
 :::tip API Preference
 This section contains different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
@@ -69,42 +69,42 @@ console.log(count.value) // 1
 
 There are two reasons why we need to wrap the value in an object:
 
-- **Reactivity tracking**: Vue's reactivity system needs a way to track what state is being used or changed. When you access or mutate a ref via its `.value` property, it triggers the underlying getter/setter functions that notify Vue about what is going on. We discuss more details on how Vue's reactivity system works in [Reactivity in Depth](/guide/advanced/reactivity-in-depth.html).
+1. **Reactivity tracking**: Vue's reactivity system needs a way to track what state is being used or changed. When you access or mutate a ref via its `.value` property, it triggers the underlying getter/setter functions that notify Vue about what is going on. We discuss more details on how Vue's reactivity system works in [Reactivity in Depth](/guide/advanced/reactivity-in-depth.html).
 
-- **Passing references instead of values**: in JavaScript, primitive types such as strings, numbers and booleans are _passed by value_. This means when you assign a variable to another variable, or pass it to a function, you are passing a copy of the value that is completely disconnected from the original variable:
+2. **Passing references instead of values**: in JavaScript, primitive types such as strings, numbers and booleans are _passed by value_. This means when you assign a variable to another variable, or pass it to a function, you are passing a copy of the value that is completely disconnected from the original variable:
 
-  ```js
-  let count = 0
+   ```js
+   let count = 0
 
-  function log(count) {
-    setInterval(() => {
-      // This will always log 0, which is the initial
-      // value of `count` when log() was called.
-      console.log(count)
-    }, 1000)
-  }
+   function log(count) {
+     setInterval(() => {
+       // This will always log 0, which is the initial
+       // value of `count` when log() was called.
+       console.log(count)
+     }, 1000)
+   }
 
-  log(count)
-  count++ // this won't affect the log output.
-  ```
+   log(count)
+   count++ // this won't affect the log output.
+   ```
 
-  However, objects are always _passed by reference_. So with a ref, we can pass it around while retaining the connection to the original ref:
+   However, objects are always _passed by reference_. So with a ref, we can pass it around while retaining the connection to the original ref:
 
-  ```js
-  const count = ref(0)
+   ```js
+   const count = ref(0)
 
-  function log(count) {
-    setInterval(() => {
-      // This will always log the latest value.
-      console.log(count.value)
-    }, 1000)
-  }
+   function log(count) {
+     setInterval(() => {
+       // This will always log the latest value.
+       console.log(count.value)
+     }, 1000)
+   }
 
-  log(count)
-  count.value++ // this will affect the log output.
-  ```
+   log(count)
+   count.value++ // this will affect the log output.
+   ```
 
-  This capability is quite important as it unlocks powerful patterns that allow us to compose reactive logic encapsulated in decoupled functions, which we will discuss later in the guide.
+   This capability is quite important as it unlocks powerful patterns that allow us to compose reactive logic encapsulated in decoupled functions, which we will discuss later in the guide.
 
 ### Exposing State to Template
 
@@ -166,9 +166,31 @@ const state = reactive({ count: 0 })
 </template>
 ```
 
-Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and work exactly like normal objects. When you create a ref with an object value, it also calls `reactive()` on that object internally.
+Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and work exactly like normal objects. Calling `reactive()` on the same object always returns the same proxy, and calling `reactive()` on an existing proxy also returns that same proxy:
 
-Note that `reactive()` cannot hold primitive value types, and lacks the ability to "replace" the entire object with a new one. You **can** mix `ref()` and `reactive()` usage, however for consistency, we recommend using `ref()` unless you know you never intend to replace the object.
+```js
+const raw = { count: 0 }
+const proxy = reactive(raw)
+
+console.log(proxy === reactive(raw)) // true
+console.log(proxy === reactive(proxy)) // true
+```
+
+When you create a ref with object value, it also implicitly converts the value to a proxy using `reactive()`:
+
+```js
+const objRef = ref(raw)
+console.log(objRef.value === proxy) // true
+```
+
+It is important to note that the proxy is not equal to the original object. Only the proxy is reactive. Mutating the original object will not trigger reactive updates:
+
+```js
+console.log(raw === proxy) // false
+raw.count++ // won't trigger updates!
+```
+
+Therefore, the best practice when working with Vue's reactivity system is to **exclusively use the proxied versions of your state**.
 
 </div>
 
@@ -242,7 +264,7 @@ Methods are typically used as event listeners:
 <button @click="increment">{{ count }}</button>
 ```
 
-Again, the same example is much simpler in an SFC with `<script setup>`, as functions are auto-exposes as well:
+Again, the same example is much simpler in an SFC with `<script setup>`, as functions are auto-exposed as well:
 
 ```vue
 <script setup>
@@ -325,7 +347,7 @@ function mutateDeeply() {
 
 </div>
 
-It is also possible to explicitly create ["shallow" reactive objects](/guide/advanced/reactivity-in-depth.html#deep-vs-shallow-reactivity) where the reactivity is only tracked for root-level properties, however they are typically only needed in advanced use cases.
+It is also possible to explicitly create ["shallow" refs and reactive objects](/api/reactivity-advanced.html#shallowref) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
 
 <div class="options-api">
 
@@ -402,5 +424,84 @@ function increment() {
 :::warning Experimental Feature
 Ref transform is currently an experimental feature. It is disabled by default and requires [explicit opt-in](https://github.com/vuejs/rfcs/blob/ref-sugar-2/active-rfcs/0000-ref-sugar.md#enabling-the-macros). It may also change before being finalized. More details can be found in its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
 :::
+
+## Additional Details
+
+### Ref Unwrapping in Reactive Objects
+
+When a `ref` is accessed or mutated as a property of a reactive object, it automatically unwraps to the inner value so it behaves like a normal property:
+
+```js
+const count = ref(0)
+const state = reactive({
+  count
+})
+
+console.log(state.count) // 0
+
+state.count = 1
+console.log(count.value) // 1
+```
+
+If a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
+
+```js
+const otherCount = ref(2)
+
+state.count = otherCount
+console.log(state.count) // 2
+console.log(count.value) // 1
+```
+
+Ref unwrapping only happens when nested inside a reactive object. There is no unwrapping performed when the ref is accessed from an array or a native collection type like [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map):
+
+```js
+const books = reactive([ref('Vue 3 Guide')])
+// need .value here
+console.log(books[0].value)
+
+const map = reactive(new Map([['count', ref(0)]]))
+// need .value here
+console.log(map.get('count').value)
+```
+
+### Destructuring Reactive Objects
+
+When we want to use a few properties of the large reactive object, it could be tempting to use destructuring to get properties we want:
+
+```js
+import { reactive } from 'vue'
+
+const book = reactive({
+  author: 'Vue Team',
+  year: '2020',
+  title: 'Vue 3 Guide',
+  description: 'You are reading this book right now ;)',
+  price: 'free'
+})
+
+let { author, title } = book
+```
+
+Unfortunately, with such a destructuring the reactivity for both properties would be lost. For such a case, we need to convert our reactive object to a set of refs. These refs will retain the reactive connection to the source object:
+
+```js
+import { reactive, toRefs } from 'vue'
+
+const book = reactive({
+  author: 'Vue Team',
+  year: '2020',
+  title: 'Vue 3 Guide',
+  description: 'You are reading this book right now ;)',
+  price: 'free'
+})
+
+let { author, title } = toRefs(book)
+
+title.value = 'Vue 3 Detailed Guide' // we need to use .value as title is a ref now
+console.log(book.title) // 'Vue 3 Detailed Guide'
+```
+
+You can learn more about `toRefs` in the [API Reference](/api/reactivity-utilities.html#torefs).
 
 </div>

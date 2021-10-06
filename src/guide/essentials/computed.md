@@ -87,7 +87,7 @@ Here we have declared a computed property `publishedBooksMessage`.
 
 Try to change the value of `books` array in the application `data` and you will see how `publishedBooksMessage` is changing accordingly.
 
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `vm.publishedBooksMessage` when `this.author.books` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
+You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `vm.publishedBooksMessage` when `this.author.books` changes.
 
 </div>
 
@@ -122,9 +122,11 @@ const publishedBooksMessage = computed(() => {
 
 Here we have declared a computed property `publishedBooksMessage`. The `computed()` method expects a getter function, and returned value is a **computed ref**. Similar to normal refs, you can access the computed result as `publishedBooksMessage.value`. Computed refs are also auto-unwrapped in templates so you can reference them without `.value` in template expressions.
 
-Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
+A computed property automatically tracks its reactive dependencies. Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes.
 
 </div>
+
+It is important to remember that **computed getter functions should be free of side effects**. For example, don't make async requests or mutate the DOM inside a computed getter! Think of a computed property has declaratively describing how to derive a value based on other values - its only resposnibility should be computing and returning that value. Later in the guide we will discuss how we can perform side effects in reaction to state changes with [watchers](./watchers).
 
 ## Computed Caching vs Methods
 

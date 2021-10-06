@@ -115,11 +115,10 @@ const sidebar = {
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'Basic Reactivity',
-          link: '/guide/essentials/basic-reactivity'
+          text: 'Reactivity Fundamentals',
+          link: '/guide/essentials/reactivity-fundamentals'
         },
         { text: 'Computed Properties', link: '/guide/essentials/computed' },
-        { text: 'Watchers', link: '/guide/essentials/watchers' },
         {
           text: 'Class and Style Bindings',
           link: '/guide/essentials/class-and-style'
@@ -131,6 +130,7 @@ const sidebar = {
         { text: 'List Rendering', link: '/guide/essentials/list' },
         { text: 'Event Handling', link: '/guide/essentials/event-handling' },
         { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
+        { text: 'Watchers', link: '/guide/essentials/watchers' },
         {
           text: 'Components Basics',
           link: '/guide/essentials/component-basics'
@@ -225,7 +225,10 @@ const sidebar = {
     {
       text: 'Advanced Topics',
       items: [
-        { text: 'Ways of Using Vue', link: '/guide/advanced/ways-of-using-vue' },
+        {
+          text: 'Ways of Using Vue',
+          link: '/guide/advanced/ways-of-using-vue'
+        },
         {
           text: 'Reactivity in Depth',
           link: '/guide/advanced/reactivity-in-depth'
