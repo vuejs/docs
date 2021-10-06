@@ -57,6 +57,7 @@ import { VTLink } from '@vue/theme'
 
 .dark .NewsletterSection {
   border-top-color: var(--vt-c-divider-light);
+  border-bottom-color: transparent;
   background: var(--vt-c-bg);
 }
 
@@ -76,6 +77,7 @@ import { VTLink } from '@vue/theme'
   font-size: 14px;
   font-weight: 500;
   color: var(--vt-c-text-2);
+  transition: color 0.5s;
 }
 
 @media (min-width: 375px) {
@@ -139,7 +141,6 @@ import { VTLink } from '@vue/theme'
 }
 
 .button {
-  background-color: var(--vt-c-brand);
   border-radius: 4px;
   padding: 0 12px;
   letter-spacing: .8px;
@@ -147,6 +148,13 @@ import { VTLink } from '@vue/theme'
   font-size: 13px;
   font-weight: 500;
   color: var(--vt-c-text-dark-1);
+  background-color: var(--vt-c-brand);
+  transition: background-color .25s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--vt-c-brand-dark);
 }
 
 .help {
