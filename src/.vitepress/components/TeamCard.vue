@@ -26,6 +26,12 @@ const imageAlt = computed(() => {
       :alt="imageAlt"
       class="member-profile-image"
     />
+    <img
+      v-else
+      :src="profile.avatarPic"
+      :alt="imageAlt"
+      class="member-profile-image"
+    />
     <section>
       <h3 v-if="profile.name" class="member-name">{{ profile.name }}</h3>
       <p v-if="profile.title" class="member-headline">
