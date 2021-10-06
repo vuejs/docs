@@ -127,7 +127,6 @@ const linkIcons = {
 
 .container {
   margin: 0 auto;
-  padding-top: 24px;
   max-width: 392px;
 }
 
