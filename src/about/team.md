@@ -21,7 +21,7 @@ const partnersList = computed(() => shuffle(partnersData))
 
 The development of Vue and its ecosystem is guided by an international team, some of whom have chosen to be featured below.
 
-[See Vue Team Charter to learn more about teams →]()
+[See Vue Team Charter to learn more about teams →](https://github.com/vuejs/governance/blob/master/Team-Charter.md)
 
 ## Core Team Members
 
