@@ -1,7 +1,9 @@
-# Vue Partners
+---
+page: true
+---
 
-Vue Partners are premium shops that provide first-class Vue consulting and development. If your company is interested in being listed as a partner, please register your interest [here](https://airtable.com/shrCQhat57SApJI2l).
+<script setup>
+import PartnerPage from '../.vitepress/theme/components/partner/PartnerPage.vue'
+</script>
 
-## Active Partners
-
-<!-- <community-partners-index/> -->
+<PartnerPage />
