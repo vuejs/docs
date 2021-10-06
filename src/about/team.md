@@ -26,3 +26,11 @@ In general, core team members are expected to maintain a consistent presence in 
 ## Team Members
 
 The Vue.js Team consists of members in the community who have provided valuable contributions to the community and are recognized for their efforts and time.
+
+## Community Partners
+
+Some members of the Vue community have so enriched it, that they deserve special mention. We've developed a more intimate relationship with these key partners, often coordinating with them on upcoming features and news.
+
+## Core Team Emeriti
+
+Here we honor some no-longer-active core team members who have made valuable contributions in the past.
