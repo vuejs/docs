@@ -1,6 +1,6 @@
 <script setup>
 import { computed, defineProps } from 'vue'
-import { VTIconGitHub, VTIconTwitter } from '@vue/theme'
+import { VTIconGitHub, VTIconLinkedIn, VTIconTwitter } from '@vue/theme'
 import IconCode from './IconCode.vue'
 import IconGlobe from './IconGlobe.vue'
 import IconLink from './IconLink.vue'
@@ -100,6 +100,10 @@ const imageAlt = computed(() => {
             />
             <VTIconTwitter
               v-else-if="platform === 'twitter'"
+              class="member-social-icon"
+            />
+            <VTIconLinkedIn
+              v-else-if="platform === 'linkedin'"
               class="member-social-icon"
             />
             <span v-else> {{ platform }}: {{ handle }} </span>
