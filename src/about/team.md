@@ -6,12 +6,14 @@ aside: false
 import { computed } from 'vue'
 import TeamCard from '../.vitepress/components/TeamCard.vue'
 import coreTeamData from './core-team.json'
-import emeritiData from './emeriti.json'
+import emeritiTeamData from './emeriti.json'
 import shuffle from 'lodash/shuffle'
 
 const coreTeamList = computed(() => {
   return coreTeamData.slice(0, 1).concat(shuffle(coreTeamData.slice(2)))
 })
+
+const emeritiTeamList = computed(() => shuffle(emeritiTeamData))
 </script>
 
 # Meet the Team
@@ -43,7 +45,7 @@ Some members of the Vue community have so enriched it, that they deserve special
 Here we honor some no-longer-active core team members who have made valuable contributions in the past.
 
 <TeamCard
-  v-for="member in emeritiData"
+  v-for="member in emeritiTeamList"
   :key="member.name"
   :profile="member"
 />
