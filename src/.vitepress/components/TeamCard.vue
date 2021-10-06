@@ -25,7 +25,7 @@ const imageAlt = computed(() => {
 <template>
   <div class="team-card">
     <img
-      :src="`../../about/images/${imageFileName}`"
+      :src="`https://www.github.com/${profile.social.github}.png`"
       :alt="imageAlt"
       class="member-profile-image"
     />
@@ -42,11 +42,11 @@ const imageAlt = computed(() => {
         >
           <IconCode class="member-detail-icon" />
           <h4 class="sr-only">Projects</h4>
-          <ul class="member-language-list">
+          <ul class="member-detail-list">
             <li
               v-for="project in profile.projectList"
               :key="`${profile.name}-project-${project}`"
-              class="member-language"
+              class="member-detail-item"
             >
               <a :href="project.url">{{ project.label }}</a>
             </li>
@@ -65,17 +65,20 @@ const imageAlt = computed(() => {
         >
           <IconGlobe class="member-detail-icon" />
           <h4 class="sr-only">Languages</h4>
-          <ul class="member-language-list">
+          <ul class="member-detail-list">
             <li
               v-for="language in profile.languageList"
               :key="`${profile.name}-language-${language}`"
-              class="member-language"
+              class="member-detail-item"
             >
               {{ language }}
             </li>
           </ul>
         </section>
-        <section v-if="profile.website.url" class="member-detail-section">
+        <section
+          v-if="profile.website && profile.website.url"
+          class="member-detail-section"
+        >
           <IconLink class="member-detail-icon" />
           <h4 class="sr-only">Website</h4>
           <a :href="profile.website.url">{{ profile.website.label }}</a>
@@ -142,6 +145,20 @@ const imageAlt = computed(() => {
   margin-right: 10px;
 }
 
+.member-detail-item {
+  margin-right: 34px;
+}
+
+.member-detail-item:first-child:before {
+  display: none;
+}
+
+.member-detail-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
 .member-detail-section {
   display: flex;
   align-items: center;
@@ -149,20 +166,6 @@ const imageAlt = computed(() => {
 
 .member-headline {
   margin-bottom: 0;
-}
-
-.member-language {
-  margin-right: 34px;
-}
-
-.member-language:first-child:before {
-  display: none;
-}
-
-.member-language-list {
-  margin: 0;
-  padding: 0;
-  display: flex;
 }
 
 .member-location {
