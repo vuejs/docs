@@ -7,13 +7,14 @@ import { computed } from 'vue'
 import TeamCard from '../.vitepress/components/TeamCard.vue'
 import coreTeamData from './core-team.json'
 import emeritiTeamData from './emeriti.json'
+import partnersData from './partners.json'
 import shuffle from 'lodash/shuffle'
 
 const coreTeamList = computed(() => {
   return coreTeamData.slice(0, 1).concat(shuffle(coreTeamData.slice(2)))
 })
-
 const emeritiTeamList = computed(() => shuffle(emeritiTeamData))
+const partnersList = computed(() => shuffle(partnersData))
 </script>
 
 # Meet the Team
@@ -36,16 +37,22 @@ In general, core team members are expected to maintain a consistent presence in 
 
 The Vue.js Team consists of members in the community who have provided valuable contributions to the community and are recognized for their efforts and time.
 
-## Community Partners
-
-Some members of the Vue community have so enriched it, that they deserve special mention. We've developed a more intimate relationship with these key partners, often coordinating with them on upcoming features and news.
-
 ## Core Team Emeriti
 
 Here we honor some no-longer-active core team members who have made valuable contributions in the past.
 
 <TeamCard
   v-for="member in emeritiTeamList"
+  :key="member.name"
+  :profile="member"
+/>
+
+## Community Partners
+
+Some members of the Vue community have so enriched it, that they deserve special mention. We've developed a more intimate relationship with these key partners, often coordinating with them on upcoming features and news.
+
+<TeamCard
+  v-for="member in partnersList"
   :key="member.name"
   :profile="member"
 />

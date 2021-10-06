@@ -13,9 +13,7 @@
         "url": "https://www.github.com/vitejs"
       }
     ],
-    "location": {
-      "label": "New Jersey, NJ, USA"
-    },
+    "city": "New Jersey, NJ, USA",
     "languageList": ["中文", "English"],
     "website": {
       "label": "patreon.com/evanyou",
@@ -31,9 +29,7 @@
     "title": "Staff Developer Experience Engineer",
     "company": "Netlify",
     "projectList": [],
-    "location": {
-      "label": "Washington, DC, USA"
-    },
+    "city": "Washington, DC, USA",
     "languageList": ["Chinese", "English"],
     "website": {
       "label": "bencodezen.io",
@@ -47,7 +43,7 @@
   {
     "name": "Eduardo",
     "title": "Real-Time Rerouter",
-    "location": { "label": "Paris, France" },
+    "city": "Paris, France",
     "languageList": ["es", "fr", "en"],
     "social": {
       "github": "posva",
@@ -65,7 +61,7 @@
   },
   {
     "name": "Sodatea",
-    "location": { "label": "Hangzhou, China" },
+    "city": "Hangzhou, China",
     "languageList": ["zh", "en"],
     "social": {
       "github": "sodatea",
@@ -75,7 +71,7 @@
   },
   {
     "name": "Pine Wu",
-    "location": { "label": "Shanghai, China" },
+    "city": "Shanghai, China",
     "languageList": ["zh", "en", "jp"],
     "social": {
       "github": "octref",
@@ -88,7 +84,7 @@
   },
   {
     "name": "Jinjiang",
-    "location": { "label": "Singapore" },
+    "city": "Singapore",
     "languageList": ["zh", "en"],
     "social": {
       "github": "jinjiang",
@@ -105,7 +101,7 @@
   {
     "name": "Katashin",
     "title": "One of a Type State Manager",
-    "location": { "label": "Singapore" },
+    "city": "Singapore",
     "languageList": ["jp", "en"],
     "work": {
       "role": "Software Engineer",
@@ -122,7 +118,7 @@
   {
     "name": "Kazupon",
     "title": "Validated Internationalizing Missionary",
-    "location": { "label": "Tokyo, Japan" },
+    "city": "Tokyo, Japan",
     "languageList": ["jp", "en"],
     "social": {
       "github": "kazupon",
@@ -150,7 +146,7 @@
   {
     "name": "Rahul Kadyan",
     "title": "Ecosystem Glue Chemist",
-    "location": { "label": "Bangalore, India" },
+    "city": "Bangalore, India",
     "languageList": ["hi", "en"],
     "work": {
       "role": "Software Engineer",
@@ -171,7 +167,7 @@
   {
     "name": "Linusborg",
     "title": "Hive-Mind Community Wrangler (Probably a Bot)",
-    "location": { "label": "Mannheim, Germany" },
+    "city": "Mannheim, Germany",
     "languageList": ["de", "en"],
     "social": {
       "github": "LinusBorg",
@@ -187,7 +183,7 @@
   {
     "name": "Guillaume Chau",
     "title": "Client-Server Astronaut",
-    "location": { "label": "Lyon, France" },
+    "city": "Lyon, France",
     "languageList": ["fr", "en"],
     "social": {
       "github": "Akryum",
@@ -213,7 +209,7 @@
   {
     "name": "Damian Dulisz",
     "title": "Dark Mage of Plugins, News, and Confs",
-    "location": { "label": "Wrocław, Poland" },
+    "city": "Wrocław, Poland",
     "languageList": ["pl", "en"],
     "social": {
       "github": "shentao",
@@ -227,7 +223,7 @@
   },
   {
     "name": "Michał Sajnóg",
-    "location": { "label": "Poznań, Poland" },
+    "city": "Poznań, Poland",
     "languageList": ["pl", "en"],
     "social": {
       "github": "michalsnik",
@@ -243,7 +239,7 @@
   },
   {
     "name": "GU Yiling",
-    "location": { "label": "Shanghai, China" },
+    "city": "Shanghai, China",
     "languageList": ["zh", "en"],
     "work": {
       "role": "Senior web developer",
@@ -263,7 +259,7 @@
   },
   {
     "name": "ULIVZ",
-    "location": { "label": "Hangzhou, China" },
+    "city": "Hangzhou, China",
     "languageList": ["zh", "en"],
     "work": {
       "role": "Senior Frontend Developer",
@@ -276,7 +272,7 @@
   {
     "name": "Phan An",
     "title": "Backend Designer & Process Poet",
-    "location": { "label": "Munich, Germany" },
+    "city": "Munich, Germany",
     "languageList": ["vi", "en"],
     "social": { "github": "phanan", "twitter": "notphanan" },
     "work": {
@@ -294,7 +290,7 @@
   {
     "name": "Natalia Tepluhina",
     "title": "Fox Tech Guru",
-    "location": { "label": "Amsterdam, Netherlands" },
+    "city": "Amsterdam, Netherlands",
     "languageList": ["uk", "ru", "en"],
     "projectList": ["vuejs.org", "vue-cli"],
     "work": {
@@ -306,7 +302,7 @@
   },
   {
     "name": "Yosuke Ota",
-    "location": { "label": "Kanagawa, Japan" },
+    "city": "Kanagawa, Japan",
     "languageList": ["jp"],
     "social": { "github": "ota-meshi", "twitter": "omoteota" },
     "work": {
@@ -319,7 +315,7 @@
   {
     "name": "Kia King Ishii",
     "title": "The optimist web designer/developer",
-    "location": { "label": "Kanagawa, Japan" },
+    "city": "Kanagawa, Japan",
     "languageList": ["en", "jp"],
     "work": {
       "role": "Tech Talent",
@@ -332,7 +328,7 @@
   },
   {
     "name": "Anthony Fu",
-    "location": { "label": "Taipei, Taiwan" },
+    "city": "Taipei, Taiwan",
     "languageList": ["zh", "en"],
     "social": { "github": "antfu", "twitter": "antfu7" },
     "projectList": ["composition-api"],

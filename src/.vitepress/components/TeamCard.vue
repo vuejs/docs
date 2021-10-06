@@ -25,6 +25,7 @@ const imageAlt = computed(() => {
 <template>
   <div class="team-card">
     <img
+      v-if="profile.social && profile.social.github"
       :src="`https://www.github.com/${profile.social.github}.png`"
       :alt="imageAlt"
       class="member-profile-image"
@@ -52,14 +53,11 @@ const imageAlt = computed(() => {
             </li>
           </ul>
         </section>
-        <section
-          v-if="profile.location && profile.location.label"
-          class="member-detail-section"
-        >
+        <section v-if="profile.city" class="member-detail-section">
           <IconLocation class="member-detail-icon" />
           <h4 class="sr-only">Location</h4>
           <address class="member-location">
-            {{ profile.location.label }}
+            {{ profile.city }}
           </address>
         </section>
         <section
