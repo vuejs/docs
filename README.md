@@ -1,6 +1,17 @@
-# v3.vuejs.org
+# vuejs.org
+
+This is the WIP branch of the brand new vuejs.org. **The content is under heavy updates and re-organization so please refrain from submitting PRs to this branch until we have removed this notice.**
+
+## Dev Setup
 
 This site is built with [VitePress](https://github.com/vuejs/vitepress) and [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`.
+
+Make sure to use [pnpm](https://pnpm.io/) as the package manager:
+
+```sh
+pnpm i
+pnpm run dev
+```
 
 ## Writing
 
@@ -22,22 +33,18 @@ git clone git@github.com:vuejs/theme.git
 ```bash
 # In ./theme
 # Install dependencies
-yarn
+pnpm i
 # Link workspace in ./theme
-yarn link
+pnpm link --global
 
 # in ./docs
-yarn link @vue/theme
+pnpm link --global @vue/theme
 ```
 
 3. Install deps and start VitePress server
 
 ```bash
 # in ./docs
-yarn
-yarn serve
+pnpm i
+pnpm run dev
 ```
-
-## Deploying
-
-The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
