@@ -23,8 +23,9 @@ props: {
   contactsPromise: Promise // or any other constructor
 }
 ```
-
+::: tip Note
 This not only documents your component, but will also warn users in the browser's JavaScript console if they pass the wrong type. You'll learn much more about [type checks and other prop validations](#prop-validation) further down this page.
+:::
 
 ## Passing Static or Dynamic Props
 
