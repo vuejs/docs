@@ -113,6 +113,18 @@ Each binding can only contain **one single expression**, so the following will *
 {{ if (ok) { return message } }}
 ```
 
+### Calling Functions
+
+It is possible to call a component-exposed method inside a binding expression. As we'll see shortly, it's usually better to use a [computed property](computed.html) instead. However, using a function call can be useful in scenarios where computed properties aren't a viable option:
+
+```vue-html
+<span :title="toTitleDate(date)">
+  {{ formatDate(date) }}
+</span>
+```
+
+Functions called inside binding expressions should **not** have any side effects, such as changing data or triggering asynchronous operations. If you find yourself tempted to do that you should probably use a [lifecycle hook](/guide/components/lifecycle.html) instead.
+
 ### Restricted Globals Access
 
 Template expressions are sandboxed and only have access to a [restricted list of globals](https://github.com/vuejs/vue-next/blob/master/packages/shared/src/globalsWhitelist.ts#L3). The list exposes commonly used built-in globals such as `Math` and `Date`.
