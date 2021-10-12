@@ -3,7 +3,7 @@ page: true
 ---
 
 <script setup>
-import ThemePage from '../.vitepress/theme/components/theme/ThemePage.vue'
+import ThemePage from './themes/ThemePage.vue'
 </script>
 
 <ThemePage />
