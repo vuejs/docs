@@ -1,3 +1,9 @@
-# Themes
+---
+page: true
+---
 
-<!-- <community-themes-index/> -->
+<script setup>
+import ThemePage from './themes/ThemePage.vue'
+</script>
+
+<ThemePage />
