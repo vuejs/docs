@@ -355,3 +355,7 @@ app.mount('#todo-list-example')
 ```
 
 <common-codepen-snippet title="v-for with components" slug="abOaWpz" tab="js,result" :preview="false" />
+
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::

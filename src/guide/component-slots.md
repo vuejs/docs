@@ -247,6 +247,10 @@ app.component('todo-list', {
 })
 ```
 
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
+
 We might want to replace the <span v-pre>`{{ item }}`</span> with a `<slot>` to customize it on parent component:
 
 ```html

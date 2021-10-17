@@ -55,6 +55,10 @@ app.component('anchored-heading', {
 })
 ```
 
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
+
 This template doesn't feel great. It's not only verbose, but we're duplicating `<slot></slot>` for every heading level. And when we add the anchor element, we have to again duplicate it in every `v-if/v-else-if` branch.
 
 While templates work great for most components, it's clear that this isn't one of them. So let's try rewriting it with a `render()` function:

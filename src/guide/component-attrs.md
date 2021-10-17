@@ -18,6 +18,10 @@ app.component('date-picker', {
 })
 ```
 
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
+
 In the event we need to define the status of the date-picker component via a `data-status` attribute, it will be applied to the root node (i.e., `div.date-picker`).
 
 ```html

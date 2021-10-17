@@ -212,6 +212,10 @@ app.component('my-component', {
 })
 ```
 
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
+
 Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`.
 
 With [fragments](/guide/migration/fragments.html#overview) support, components can potentially have more than one root node. When applied to a multi-root component, directive will be ignored and the warning will be thrown.

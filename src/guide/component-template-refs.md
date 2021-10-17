@@ -28,6 +28,10 @@ app.component('base-input', {
 })
 ```
 
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
+
 Also, you can add another `ref` to the component itself and use it to trigger `focusInput` event from the parent component:
 
 ```html

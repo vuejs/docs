@@ -235,6 +235,10 @@ app.component('todo-item', {
 app.mount(...)
 ```
 
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
+
 Now you can compose it in another component's template:
 
 ```html

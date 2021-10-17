@@ -136,6 +136,10 @@ app.component('my-component', {
 })
 ```
 
+::: info
+We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+:::
+
 Then add some classes when using it:
 
 ```html
