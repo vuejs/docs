@@ -1,5 +1,7 @@
 # Reactivity Fundamentals
 
+> This section uses [single-file component](single-file-component.html) syntax for code examples
+
 ## Declaring Reactive State
 
 To create a reactive state from a JavaScript object, we can use a `reactive` method:

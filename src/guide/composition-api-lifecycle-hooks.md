@@ -1,5 +1,7 @@
 # Lifecycle Hooks
 
+> This section uses [single-file component](single-file-component.html) syntax for code examples
+
 > This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
 
 <VideoLesson href="https://www.vuemastery.com/courses/vue-3-essentials/lifecycle-hooks" title="Learn about how Lifecycle Hooks work with Vue Mastery">Watch a free video about Lifecycle Hooks on Vue Mastery</VideoLesson>
