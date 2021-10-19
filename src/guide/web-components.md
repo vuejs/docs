@@ -120,7 +120,7 @@ document.body.appendChild(
 
 - When the element's `disconnectedCallback` is invoked, Vue will check whether the element is detached from the document after a microtask tick.
 
-  - If the element is still in the document, it's a move and the component instance will be perserved;
+  - If the element is still in the document, it's a move and the component instance will be preserved;
 
   - If the element is detached from the document, it's a removal and the component instance will be unmounted.
 
