@@ -224,7 +224,9 @@ In Vue, a component is essentially an instance with pre-defined options. Registe
 
 ```js
 // Import the child component
-import TodoItem from '.../TodoItem.vue';
+const TodoItem = {
+  template: `<li>This is a todo</li>`
+}
 
 // Create Vue application
 const app = Vue.createApp({
