@@ -223,12 +223,16 @@ The component system is another important concept in Vue, because it's an abstra
 In Vue, a component is essentially an instance with pre-defined options. Registering a component in Vue is straightforward: we create a component object as we did with `App` objects and we define it in parent's `components` option:
 
 ```js
-// Create Vue application
-const app = Vue.createApp(...)
-
-// Define a new component called todo-item
-app.component('todo-item', {
+const TodoItem = {
   template: `<li>This is a todo</li>`
+}
+
+// Create Vue application
+const app = Vue.createApp({
+  components: {
+    TodoItem // Register a new component
+  },
+  ... // Other properties for the component
 })
 
 // Mount Vue application
