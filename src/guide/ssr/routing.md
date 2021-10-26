@@ -27,7 +27,7 @@ And update our client and server entries:
 // entry-client.js
 import { createApp } from 'vue'
 import { createWebHistory } from 'vue-router'
-import creteRouter from './router.js'
+import createRouter from './router.js'
 import App from './App.vue'
 
 // ...
@@ -46,7 +46,7 @@ app.use(router)
 import { createSSRApp } from 'vue'
 // server router uses a different history from the client one
 import { createMemoryHistory } from 'vue-router'
-import creteRouter from './router.js'
+import createRouter from './router.js'
 import App from './App.vue'
 
 export default async function () {
