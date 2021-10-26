@@ -125,7 +125,7 @@ export default function () {
   const app = createSSRApp(Vue)
 
   return {
-    app,
+    app
   }
 }
 ```
