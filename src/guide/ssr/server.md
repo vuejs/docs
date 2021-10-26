@@ -2,13 +2,14 @@
 
 The [code structure](./structure.html) and [webpack configuration](./build-config.html) we've described also require some changes to our Express server code.
 
-- we need to create an application with a built `app.js` from the resulting bundle. A path to it can be found using the webpack manifest:
+- we need to create an application with a built `entry-server.js` from the resulting bundle. A path to it can be found using the webpack manifest:
 
   ```js
   // server.js
   const path = require('path')
   const manifest = require('./dist/server/ssr-manifest.json')
 
+  // the 'app.js' name is taken from the name of the entrypoint with an added `.js` postfix
   const appPath = path.join(__dirname, './dist', 'server', manifest['app.js'])
   const createApp = require(appPath).default
   ```
@@ -78,7 +79,7 @@ server.use(
 )
 
 server.get('*', async (req, res) => {
-  const { app } = await createApp()
+  const { app } = createApp()
 
   const appContent = await renderToString(app)
 

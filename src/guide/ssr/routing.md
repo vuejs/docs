@@ -8,56 +8,58 @@ It is recommended to use the official [vue-router](https://github.com/vuejs/vue-
 
 ```js
 // router.js
-import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router'
+import { createRouter } from 'vue-router'
 import MyUser from './components/MyUser.vue'
-
-const isServer = typeof window === 'undefined'
-
-const createHistory = isServer ? createMemoryHistory : createWebHistory
 
 const routes = [{ path: '/user', component: MyUser }]
 
-export default function() {
+export default function (history) {
   return createRouter({
-    history: createHistory(),
-    routes
+    history,
+    routes,
   })
 }
 ```
 
-And update our `app.js`, client and server entries:
+And update our client and server entries:
 
 ```js
-// app.js
-import { createSSRApp } from 'vue'
+// entry-client.js
+import { createApp } from 'vue'
+import { createWebHistory } from 'vue-router'
+import creteRouter from './router.js'
 import App from './App.vue'
-import createRouter from './router'
 
-export default function(args) {
-  const app = createSSRApp(App)
-  const router = createRouter()
+// ...
+
+const app = createApp(App)
+
+const router = createRouter(createWebHistory())
+
+app.use(router)
+
+// ...
+```
+
+```js
+// entry-server.js
+import { createSSRApp } from 'vue'
+// server router uses a different history from the client one
+import { createMemoryHistory } from 'vue-router'
+import creteRouter from './router.js'
+import App from './App.vue'
+
+export default async function () {
+  const app = createSSRApp(Vue)
+  const router = createRouter(createMemoryHistory())
 
   app.use(router)
 
   return {
     app,
-    router
+    router,
   }
 }
-```
-
-```js
-// entry-client.js
-const { app, router } = createApp({
-  /*...*/
-})
-```
-
-```js
-// entry-server.js
-const { app, router } = createApp({
-  /*...*/
-})
 ```
 
 ## Code-Splitting
@@ -73,19 +75,24 @@ const routes = [{ path: '/user', component: MyUser }]
 
 // to this:
 const routes = [
-  { path: '/user', component: () => import('./components/MyUser.vue') }
+  { path: '/user', component: () => import('./components/MyUser.vue') },
 ]
 ```
 
-On both client and server we need to wait for router to resolve async route components ahead of time in order to properly invoke in-component hooks. For this we will be using [router.isReady](https://next.router.vuejs.org/api/#isready) method Let's update our client entry:
+On both client and server we need to wait for the router to resolve async route components ahead of time in order to properly invoke in-component hooks. For this we will be using [router.isReady](https://next.router.vuejs.org/api/#isready) method Let's update our client entry:
 
 ```js
 // entry-client.js
-import createApp from './app'
+import { createApp } from 'vue'
+import { createWebHistory } from 'vue-router'
+import creteRouter from './router.js'
+import App from './App.vue'
 
-const { app, router } = createApp({
-  /* ... */
-})
+const app = createApp(App)
+
+const router = createRouter(createWebHistory())
+
+app.use(router)
 
 router.isReady().then(() => {
   app.mount('#app')
