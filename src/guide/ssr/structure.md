@@ -32,8 +32,12 @@ server.get('*', async (req, res) => {
 Therefore, we need to **create a new root Vue instance for each request.** In order to do that, we need to write a factory function that can be repeatedly executed to create fresh app instances for each request:
 
 ```js
-// app.js
+// server.js
 const { createSSRApp } = require('vue')
+const { renderToString } = require('@vue/server-renderer')
+const express = require('express')
+
+const server = express()
 
 function createApp() {
   return createSSRApp({
@@ -45,15 +49,6 @@ function createApp() {
     template: `<div>Current user is: {{ user }}</div>`
   })
 }
-```
-
-And our server code now becomes:
-
-```js
-// server.js
-const { renderToString } = require('@vue/server-renderer')
-const server = require('express')()
-const { createApp } = require('src/app.js')
 
 server.get('*', async (req, res) => {
   const app = createApp()
@@ -74,7 +69,7 @@ server.get('*', async (req, res) => {
 server.listen(8080)
 ```
 
-The same rule applies to other instances as well (such as the router or store). Instead of exporting the router or store directly from a module and importing it across your app, you should create a fresh instance in `createApp` and inject it from the root Vue instance.
+The same rule applies to other instances as well (such as the router or store). Instead of exporting the router or store directly from a module and importing it across your app, you should create a fresh instance in `createApp` and inject it from the root Vue instance each time a new request is made.
 
 ## Introducing a Build Step
 
@@ -101,42 +96,43 @@ src
 ├── components
 │   ├── MyUser.vue
 │   └── MyTable.vue
-├── App.vue
-├── app.js # universal entry
+├── App.vue # the root of your application
 ├── entry-client.js # runs in browser only
 └── entry-server.js # runs on server only
 ```
 
-### `app.js`
+### `App.vue`
 
-`app.js` is the universal entry to our app. In a client-only app, we would create the Vue application instance right in this file and mount directly to DOM. However, for SSR that responsibility is moved into the client-only entry file. `app.js` instead creates an application instance and exports it:
+You may have noticed we now have a file called `App.vue` in the root of our `src` folder. That's where the root component of your application will be stored. We can now safely move the application code from `server.js` to the `App.vue` file:
+
+```vue
+<template>
+  <div>Current user is: {{ user }}</div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      user: 'John Doe'
+    }
+  }
+}
+</script>
+```
+
+### `entry-client.js`
+
+The client entry creates the application using the `App.vue` component and mounts it to the DOM:
 
 ```js
 import { createSSRApp } from 'vue'
 import App from './App.vue'
 
-// export a factory function for creating a root component
-export default function(args) {
-  const app = createSSRApp(App)
-
-  return {
-    app
-  }
-}
-```
-
-### `entry-client.js`
-
-The client entry creates the application using the root component factory and mounts it to the DOM:
-
-```js
-import createApp from './app'
-
 // client-specific bootstrapping logic...
 
-const { app } = createApp({
-  // here we can pass additional arguments to app factory
-})
+const app = createSSRApp(App)
 
 // this assumes App.vue template root element has `id="app"`
 app.mount('#app')
@@ -147,12 +143,11 @@ app.mount('#app')
 The server entry uses a default export which is a function that can be called repeatedly for each render. At this moment, it doesn't do much other than returning the app instance - but later we will perform server-side route matching and data pre-fetching logic here.
 
 ```js
-import createApp from './app'
+import { createSSRApp } from 'vue'
+import App from './App.vue'
 
-export default function() {
-  const { app } = createApp({
-    /*...*/
-  })
+export default function () {
+  const app = createSSRApp(Vue)
 
   return {
     app
