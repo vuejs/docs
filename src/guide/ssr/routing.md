@@ -49,7 +49,7 @@ import { createMemoryHistory } from 'vue-router'
 import createRouter from './router.js'
 import App from './App.vue'
 
-export default async function () {
+export default function () {
   const app = createSSRApp(Vue)
   const router = createRouter(createMemoryHistory())
 
