@@ -85,7 +85,7 @@ On both client and server we need to wait for the router to resolve async route 
 // entry-client.js
 import { createApp } from 'vue'
 import { createWebHistory } from 'vue-router'
-import creteRouter from './router.js'
+import createRouter from './router.js'
 import App from './App.vue'
 
 const app = createApp(App)

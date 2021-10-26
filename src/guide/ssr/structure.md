@@ -18,10 +18,10 @@ function createApp() {
   return createSSRApp({
     data() {
       return {
-        user: 'John Doe',
+        user: 'John Doe'
       }
     },
-    template: `<div>Current user is: {{ user }}</div>`,
+    template: `<div>Current user is: {{ user }}</div>`
   })
 }
 
@@ -90,9 +90,9 @@ export default {
   name: 'App',
   data() {
     return {
-      user: 'John Doe',
+      user: 'John Doe'
     }
-  },
+  }
 }
 </script>
 ```
