@@ -75,7 +75,7 @@ const routes = [{ path: '/user', component: MyUser }]
 
 // to this:
 const routes = [
-  { path: '/user', component: () => import('./components/MyUser.vue') },
+  { path: '/user', component: () => import('./components/MyUser.vue') }
 ]
 ```
 
