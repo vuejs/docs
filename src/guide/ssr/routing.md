@@ -16,7 +16,7 @@ const routes = [{ path: '/user', component: MyUser }]
 export default function (history) {
   return createRouter({
     history,
-    routes,
+    routes
   })
 }
 ```
