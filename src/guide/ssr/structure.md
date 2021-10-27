@@ -4,7 +4,32 @@
 
 When writing client-only code, we can assume that our code will be evaluated in a fresh context every time. However, a Node.js server is a long-running process. When our code is first imported by the process, it will be evaluated once and then stay in memory. This means that if you create a singleton object, it will be shared between every incoming request, with the risk of cross-request state pollution.
 
-Therefore, we need to **create a new root Vue instance for each request.** In order to do that, we need to write a factory function that can be repeatedly executed to create fresh app instances for each request, so our server code now becomes:
+```js
+// bad
+import app from './app.js'
+
+server.get('*', async (req, res) => {
+  // the app is now shared amongst all users
+  const result = await renderToString(app)
+  // ...
+})
+```
+
+```js
+// good
+function createApp() {
+  return createSSRApp(/* ... */)
+}
+
+server.get('*', async (req, res) => {
+  // each user gets its own app
+  const app = createApp()
+  const result = await renderToString(app)
+  // ...
+})
+```
+
+Therefore, we need to **create a new root Vue instance for each request.** In order to do that, we need to write a factory function that can be repeatedly executed to create fresh app instances for each request:
 
 ```js
 // server.js
