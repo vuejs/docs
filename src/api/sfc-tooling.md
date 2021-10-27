@@ -10,6 +10,8 @@ You don't need to install anything on your machine to try out Vue SFCs - there a
 - [Vue on Repl.it](https://replit.com/@templates/VueJS-with-Vite)
 - [Vue on Codepen](https://codepen.io/pen/editor/vue)
 - [Vue on StackBlitz](https://stackblitz.com/fork/vue)
+- [Vue on Components.studio](https://components.studio/create/vue3)
+- [Vue on WebComponents.dev](https://webcomponents.dev/create/cevue)
 
 It is also recommended to use these online playgrounds to provide reproductions when reporting bugs.
 
