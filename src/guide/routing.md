@@ -6,7 +6,7 @@ For most Single Page Applications, it's recommended to use the officially-suppor
 
 ## Simple Routing from Scratch
 
-If you only need very simple routing and do not wish to involve a full-featured router library, you can do so by dynamically rendering a page-level component like this:
+If you only need a very simple routing and wish not to involve a full-featured router library, you can do so by dynamically rendering a page-level component like this:
 
 ```js
 const { createApp, h } = Vue
