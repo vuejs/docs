@@ -21,7 +21,7 @@ Detailed release notes for each version are available on [GitHub](https://github
  
 <VideoLesson href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3?friend=vuejs" title="Learn how to install Vue Devtools on Vue School">Learn how to install and use Vue Devtools in a free Vue School lesson</VideoLesson>
 
-When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
+When using Vue, we also recommend installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
 
 [Get the Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
 
@@ -43,11 +43,11 @@ For production, we recommend linking to a specific version number and build to a
 
 If you want to avoid using build tools but can't use a CDN in production then you can download the relevant `.js` file and host it using your own web server. You can then include it using a `<script>` tag, just like with the CDN approach.
 
-The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg.com/browse/vue@next/dist/) or [jsDelivr](https://cdn.jsdelivr.net/npm/vue@next/dist/). The various different files are [explained later](#explanation-of-different-builds) but you would typically want to download both a development build and a production build.
+The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg.com/browse/vue@next/dist/) or [jsDelivr](https://cdn.jsdelivr.net/npm/vue@next/dist/). The various files are [explained later](#explanation-of-different-builds) but you would typically want to download both a development build and a production build.
 
 ## npm
 
-npm is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/).
+npm is the recommended installation method when building large scale applications with Vue; it pairs nicely with module bundlers such as [webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/).
 
 ```bash
 # latest stable
@@ -62,7 +62,7 @@ $ npm install -D @vue/compiler-sfc
 
 If you're coming from Vue 2 then note that `@vue/compiler-sfc` replaces `vue-template-compiler`.
 
-In addition to `@vue/compiler-sfc`, you'll also need a suitable SFC loader or plugin for your chosen bundler. See the [SFC documentation](../guide/single-file-component.html) for more information.
+In addition to `@vue/compiler-sfc`, you'll also need a suitable SFC loader or a plugin for your chosen bundler. See the [SFC documentation](../guide/single-file-component.html) for more information.
 
 In most cases, the preferred way to create a webpack build with minimal configuration is to use Vue CLI.
 
