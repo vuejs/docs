@@ -100,7 +100,7 @@ Here we're encountering something new. The `v-bind` attribute you're seeing is c
 
 ## Handling User Input
 
-To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our instances:
+To let users interact with our app, we can use the `v-on` directive to attach event listeners that invoke methods on our instances:
 
 ```html
 <div id="event-handling">
