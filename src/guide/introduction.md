@@ -96,7 +96,7 @@ Vue.createApp(AttributeBinding).mount('#bind-attribute')
 
 <common-codepen-snippet title="Attribute dynamic binding" slug="KKpRVvJ" />
 
-Here we're encountering something new. The `v-bind` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here we are basically saying "_keep this element's `title` attribute up-to-date with the `message` property on the current active instance._"
+Here we're encountering something new. The `v-bind` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, we're basically saying "_keep this element's `title` attribute up-to-date with the `message` property on the current active instance._"
 
 ## Handling User Input
 
