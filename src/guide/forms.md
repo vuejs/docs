@@ -272,7 +272,7 @@ If you want user input to be automatically typecast as a number, you can add the
 <input v-model.number="age" type="text" />
 ```
 
-This is often useful when the input type is `text`. if the input type is `number`, Vue can automatically convert the raw string value to a number, and you don't need to add the `.number` modifier. If the value cannot be parsed with `parseFloat()`, then the original value is returned.
+This is often useful when the input type is `text`. If the input type is `number`, Vue can automatically convert the raw string value to a number, and you don't need to add the `.number` modifier to `v-model`. If the value cannot be parsed with `parseFloat()`, then the original value is returned.
 
 ### `.trim`
 
