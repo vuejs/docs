@@ -1,0 +1,10 @@
+{
+  "hello-world": {
+    "App": {
+      "composition.js": "import { ref } from 'vue'\n\nexport default {\n  setup() {\n    // A \"ref\" is a reactive data source that stores a value.\n    // Technically, we don't need to wrap the string with ref()\n    // in order to display it, but we will see in the next\n    // example why it is needed if we ever intend to change\n    // the value.\n    const message = ref('Hello World!')\n\n    return {\n      message\n    }\n  }\n}\n",
+      "options.js": "export default {\n  data() {\n    return {\n      message: 'Hello World!'\n    }\n  }\n}\n",
+      "template.html": "<h1>{{ message }}</h1>\n"
+    },
+    "description.txt": "Say Hello World with Vue!"
+  }
+}
