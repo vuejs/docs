@@ -52,11 +52,11 @@ Vue.config.ignoredElements = ['plastic-button']
   ]
   ```
 
-- If using on-the-fly template compilation, pass it via `app.config.isCustomElement`:
+- If using on-the-fly template compilation, pass it via `app.config.compilerOptions.isCustomElement`:
 
   ```js
   const app = Vue.createApp({})
-  app.config.isCustomElement = tag => tag === 'plastic-button'
+  app.config.compilerOptions.isCustomElement = tag => tag === 'plastic-button'
   ```
 
   It's important to note the runtime config only affects runtime template compilation - it won't affect pre-compiled templates.
@@ -125,6 +125,6 @@ With the behavior change of `is`, a `vue:` prefix is now required to resolve the
 
 ## Migration Strategy
 
-- Replace `config.ignoredElements` with either `vue-loader`'s `compilerOptions` (with the build step) or `app.config.isCustomElement` (with on-the-fly template compilation)
+- Replace `config.ignoredElements` with either `vue-loader`'s `compilerOptions` (with the build step) or `app.config.compilerOptions.isCustomElement` (with on-the-fly template compilation)
 
 - Change all non-`<component>` tags with `is` usage to `<component is="...">` (for SFC templates) or prefix it with `vue:` (for in-DOM templates).
