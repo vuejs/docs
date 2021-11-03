@@ -20,7 +20,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 - **Props:**
 
-  - `is` - `string | Component`
+  - `is` - `string | Component | VNode`
 
 - **Usage:**
 
@@ -40,6 +40,8 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   <!-- can be used to render native HTML elements -->
   <component :is="href ? 'a' : 'span'"></component>
   ```
+
+- **Usage with built-in components:**
 
   The built-in components `KeepAlive`, `Transition`, `TransitionGroup`, and `Teleport` can all be passed to `is`, but you must register them if you want to pass them by name. For example:
 
@@ -62,15 +64,15 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
   Registration is not required if you pass the component itself to `is` rather than its name.
 
-- **key:**
+- **Usage with VNodes:**
 
-When using <component :is="vnode"> and passing vnode of the same type, you need to provide keys:
-  
-```html
-<component :is="current" :key="selected" />
-```
+  In advanced use cases, it can sometimes be useful to render an existing VNode via a template. Using a `<component>` makes this possible, but it should be seen as an escape hatch, used to avoid rewriting the entire template as a `render` function.
 
-Otherwise, you are passing two compiled vnodes of the same type to the renderer. Because they are compiled as completely static, they will not be updated at all.
+  ```html
+  <component :is="vnode" :key="aSuitableKey" />
+  ```
+
+  A caveat of mixing VNodes and templates in this way is that you need to provide a suitable `key` attribute. The VNode will be considered static, so any updates will be ignored unless the `key` changes. The `key` can be on the VNode or the `<component>` tag, but either way it must change every time you want the VNode to re-render. This caveat doesn't apply if the nodes have different types, e.g. changing a `span` to a `div`.
 
 - **See also:** [Dynamic Components](../guide/component-dynamic-async.html)
 
