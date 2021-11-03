@@ -77,7 +77,7 @@ original.count++
 copy.count++ // warning!
 ```
 
-As with [`reactive`](#reactive), if any property uses a `ref` it will be automatically unwrapped when it is accessed via the proxy:
+As with [`reactive`](#reactive), if any property uses a `readonly` it will be automatically unwrapped when it is accessed via the proxy:
 
 ```js
 const raw = {
