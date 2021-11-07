@@ -211,15 +211,14 @@ export default shuffle([
     github: 'rstoenescu',
     twitter: 'quasarframework',
     work: {
-      role: 'Developer',
+      role: 'Author',
       org: 'Quasar Framework',
-      orgUrl: 'http://quasar-framework.org/'
+      orgUrl: 'http://quasar.dev/'
     },
     reposPersonal: [
-      'quasarframework/quasar',
-      'quasarframework/quasar-cli',
-      'quasarframework/quasar-play'
-    ]
+      'quasarframework/quasar'
+    ],
+    links: ['https://quasar.dev']
   },
   {
     name: 'Jilson Thomas',
