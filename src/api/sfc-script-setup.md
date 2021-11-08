@@ -151,7 +151,7 @@ const vMyDirective = {
 ```
 ```html
 <script setup>
-  // imports also work, and can be renamed to fit the requires naming schema
+  // imports also work, and can be renamed to fit the required naming schema
   import { myDirective as vMyDirective } from './MyDirective.js'
 </script>
 ```
