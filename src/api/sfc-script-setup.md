@@ -141,7 +141,7 @@ But there's one restriction to be aware of: You must name local custom directive
 <script setup>
 const vMyDirective = {
   beforeMount: (el) => {
-    // do someting with the element
+    // do something with the element
   }
 }
 </script>
