@@ -1,15 +1,33 @@
-<script setup>
+<script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
+import { inject, watchEffect, version, Ref } from 'vue'
+import data from './data.json'
+import { resolveSFCExample, resolveNoBuildExample } from '../examples/utils'
 import '@vue/repl/style.css'
 
-const store = new ReplStore()
+const store = new ReplStore({
+  defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
+})
 
-// TODO make dynamic
-const preference = document.documentElement.classList.contains(
-  'prefer-composition'
-)
-  ? 'composition'
-  : 'options'
+const preferComposition = inject('prefer-composition') as Ref<boolean>
+const preferSFC = inject('prefer-sfc') as Ref<boolean>
+
+function updateExample() {
+  let hash = location.hash.slice(1)
+  if (!data.hasOwnProperty(hash)) {
+    hash = 'hello-world'
+    location.hash = `#${hash}`
+  }
+  store.setFiles(
+    preferSFC.value
+      ? resolveSFCExample(data[hash], preferComposition.value)
+      : resolveNoBuildExample(data[hash], preferComposition.value),
+    preferSFC.value ? 'App.vue' : 'index.html'
+  )
+}
+
+watchEffect(updateExample)
+window.addEventListener('hashchange', updateExample)
 </script>
 
 <template>
@@ -55,9 +73,7 @@ const preference = document.documentElement.classList.contains(
 @media (max-width: 960px) {
   .vue-repl {
     border: none;
-    height: calc(
-      100vh - var(--vp-nav-height) - var(--ins-height) - 48px
-    );
+    height: calc(100vh - var(--vp-nav-height) - var(--ins-height) - 48px);
   }
 }
 </style>
