@@ -131,6 +131,31 @@ import * as Form from './form-components'
 </template>
 ```
 
+## Using Custom Directives
+
+Globally registered custom directives just work as expected, and local ones can be used directly in the template, much like we explained above for components. 
+
+But there's one restriction to be aware of: You must name local custom directives according to the following schema: `vNameOfDirective` in order for them to be directly usable in the template.
+
+```html
+<script setup>
+const vMyDirective = {
+  beforeMount: (el) => {
+    // do something with the element
+  }
+}
+</script>
+<template>
+  <h1 v-my-directive>This is a Heading</h1>
+</template>
+```
+```html
+<script setup>
+  // imports also work, and can be renamed to fit the required naming schema
+  import { myDirective as vMyDirective } from './MyDirective.js'
+</script>
+```
+
 ## `defineProps` and `defineEmits`
 
 To declare `props` and `emits` in `<script setup>`, you must use the `defineProps` and `defineEmits` APIs, which provide full type inference support and are automatically available inside `<script setup>`:
