@@ -25,9 +25,9 @@ export default {
 }
 </style>
 
-<custom1>
+<p class="doc">
   This could be e.g. documentation for the component.
-</custom1>
+</p>
 ```
 
 ## Language Blocks
