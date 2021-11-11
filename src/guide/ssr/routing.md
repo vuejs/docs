@@ -79,7 +79,7 @@ const routes = [
 ]
 ```
 
-On both client and server we need to wait for the router to resolve async route components ahead of time in order to properly invoke in-component hooks. For this we will be using [router.isReady](https://next.router.vuejs.org/api/#isready) method Let's update our client entry:
+On both client and server we need to wait for the router to resolve async route components ahead of time in order to properly invoke in-component hooks. For this we will be using [router.isReady](https://next.router.vuejs.org/api/#isready) method. Let's update our client entry:
 
 ```js
 // entry-client.js
