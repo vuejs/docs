@@ -169,7 +169,7 @@ For example:
     },
     watch: {
       // whenever question changes, this function will run
-      question(newQuestion, oldQuestion) {
+      question(newQuestion) {
         if (newQuestion.indexOf('?') > -1) {
           this.getAnswer()
         }
