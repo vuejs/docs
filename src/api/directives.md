@@ -35,7 +35,7 @@
 - **Example:**
 
   ```html
-<div v-html="'<h1>Hello World</h1>'"></div>
+  <div v-html="'<h1>Hello World</h1>'"></div>
   ```
 
 - **See also:** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#raw-html)
