@@ -12,7 +12,7 @@
 
   ```html
   <ul>
-    <li v-for="item in items" :key="item.id">...</li>
+    <li v-for="(item , index) in items" :key="index">item</li>
   </ul>
   ```
 
