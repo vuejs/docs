@@ -17,7 +17,7 @@
         Get Discount
       </div>
     </div>
-    <div id="vs-close" class="vs-close">
+    <div id="vs-close" class="vs-close" @click.stop.prevent="$emit('close')">
       <img src="/images/vueschool/vueschool_close.svg" alt="Close">
     </div>
   </a>
