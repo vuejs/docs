@@ -1,40 +1,47 @@
 <template>
-  <a id="vs" href="https://vueschool.io/sales/summer-vue?friend=vuejs" target="_blank" rel="noreferrer">
-    <div class="vs-iso">
-      <img src="/images/vueschool/vs-iso.svg">
-    </div>
-    <div class="vs-logo">
-      <img src="/images/vueschool/vs-logo.svg">
-    </div>
+  <a id="vs" class="vs-hidden" href="https://vueschool.io/sales/blackfriday?friend=vuejs" target="_blank" rel="noreferrer">
+    <BannerCoins />
     <div class="vs-core">
-      <div class="vs-backpack">
-        <img src="/images/vueschool/vs-backpack.png" alt="Backpack">
+      <div class="vs-logo">
+        <img src="/images/vueschool/vueschool_blackfriday_logo.svg">
       </div>
       <div class="vs-slogan">
-        Extended! <span class="vs-slogan-light">Last few hours</span> for the Vue School offer
+        <div class="vs-slogan-subtitle">
+          Access to all Vue Courses at Vue School
+        </div>
+        <div class="vs-slogan-title">
+          Black Friday <strong>40% OFF</strong>
+        </div>
       </div>
       <div class="vs-button">
-        GET ACCESS
+        Get Discount
       </div>
     </div>
-    <div
-      id="vs-close"
-      class="vs-close"
-      @click.stop.prevent="$emit('close')">
-      <img src="/images/vueschool/close.svg" alt="Close">
+    <div id="vs-close" class="vs-close">
+      <img src="/images/vueschool/vueschool_close.svg" alt="Close">
     </div>
   </a>
 </template>
 
+<script>
+import BannerCoins from './BannerCoins.vue'
+
+export default {
+  components: {
+    BannerCoins
+  }
+}
+</script>
+
 <style lang="stylus">
 @require '../styles/config'
 $topBannerHeight ?= 5rem
-$topBannerHeightMobile ?= 3.125rem
+$topBannerHeightMobile ?= 5rem
 
 // Banner
 #vs
   align-items: center
-  background-color: #202A5A
+  background-color: #000c19
   box-sizing: border-box
   color: #fff
   display: none
@@ -46,91 +53,65 @@ $topBannerHeightMobile ?= 3.125rem
   right: 0
   top: 0
   z-index: 100
+  line-height: 1
   height: $topBannerHeightMobile
   @media (min-width: 680px)
     height: $topBannerHeight
+    justify-content: center
+
   &:hover
     .vs-core
       .vs-button
-        background: #f22606
-
-  .vs-iso
-    display: none
-    position: absolute
-    left: 20px
-    height: 26px
-    img
-      height: 26px
-    @media (min-width: 680px)
-      display: inline-block
-      height: 40px
-      img
-        height: 40px
-    @media (min-width: 900px)
-      display: none
-
-  .vs-logo
-    position: absolute
-    display: none
-    left: 20px
-    @media (min-width: 900px)
-      display: block
+        background: linear-gradient(261deg, #e61463 100%, #db5248 3%)
 
   .vs-core
     display: flex
     align-items: center
 
-    .vs-backpack
-      margin-right: 6px
-      position: absolute
-      @media (min-width: 680px)
-        position: static
-        margin-right: 4px
-      img
-        height: 50px
-        @media (min-width: 680px)
-          height: 56px
-        @media (min-width: 900px)
-          height: 74px
-
     .vs-slogan
+      font-family: Archivo
       color: #FFF
-      font-weight: bold
-      font-size: 14px
-      text-align: center
-      padding: 0 90px
+      margin-left: 8px
       @media (min-width: 680px)
-        padding: 0
-        text-align: left
-        margin-right: 26px
-        margin-right: 0
-        font-size: 18px
-      > .vs-slogan-light
-        color: #ff5338
-        text-align: left
-        @media (min-width: 900px)
-          text-align: center
-          display: inline
+        margin-left: 24px
+      .vs-slogan-subtitle
+        font-size: 12px
+        @media (min-width: 680px)
+          font-size: 14px
+      .vs-slogan-title
+        margin-top: 6px
+        font-size: 16px
+        font-weight: 600
+        @media (min-width: 680px)
+          font-size: 18px
+        strong
+          color: #ffae29
+          font-weight: 600
 
     .vs-button
-      margin-left: 13px
       color: #FFF
-      padding: 13px 24px
-      border-radius: 40px
-      display: none
-      background: #ff5338
-      font-weight: bold
+      padding: 7px 10px
+      border-radius: 4px
+      background: linear-gradient(to left, #e61b60, #dd4a4c)
+      font-weight: 600
+      white-space: nowrap
+      margin-right: 30px
+      margin-left: 1px
       @media (min-width: 680px)
-        display: inline-block
+        margin-right: 0
+        padding: 8px 24px
+        margin-left: 32px
+      @media (min-width: 680px)
+        margin-left: 69px
 
   .vs-close
-    right: 10px
-    position: absolute
-    padding: 10px
-    @media (min-width: 680px)
-      right: 20px
-    &:hover
-      color: #56D8FF
+      right: 6px
+      position: absolute
+      @media (min-width: 680px)
+        padding: 10px
+        right: 20px
+      &:hover
+        color: #56D8FF
 
 /************************************/
 
