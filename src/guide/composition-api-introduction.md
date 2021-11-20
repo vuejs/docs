@@ -357,7 +357,7 @@ const twiceTheCounter = computed(() => counter.value * 2)
 
 counter.value++
 console.log(counter.value) // 1
-console.log(twiceTheCounter.value) // 2
+console.log(twiceTheCounter) // 2
 ```
 
 Here, the `computed` function returns a _read-only_ **Reactive Reference** to the output of the getter-like callback passed as the first argument to `computed`. In order to access the **value** of the newly-created computed variable, we need to use the `.value` property just like with `ref`.
