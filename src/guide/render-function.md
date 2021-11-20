@@ -350,7 +350,7 @@ render() {
 
 #### Event Modifiers
 
-For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after the event name using camel case.
+For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after the event name using camelCase.
 
 For example:
 

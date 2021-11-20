@@ -31,7 +31,7 @@ In Vue 3, the event name is prefixed with `vnode-`:
 </template>
 ```
 
-Or just `vnode` if you're using camel case:
+Or just `vnode` if you're using camelCase:
 
 ```html
 <template>

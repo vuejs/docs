@@ -4,7 +4,7 @@
 
 ## Event Names
 
-Like components and props, event names provide an automatic case transformation. If you emit an event from the child component in camel case, you will be able to add a kebab-cased listener in the parent:
+Like components and props, event names provide an automatic case transformation. If you emit an event from the child component in camelCase, you will be able to add a kebab-cased listener in the parent:
 
 ```js
 this.$emit('myEvent')
