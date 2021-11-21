@@ -67,7 +67,7 @@ app.component('todo-list', {
 })
 ```
 
-To access component instance properties, we need to convert `provide` to be a function returning an object
+To access component instance properties, we need to convert `provide` to be a function returning an object:
 
 ```js
 app.component('todo-list', {
