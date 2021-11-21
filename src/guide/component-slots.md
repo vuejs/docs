@@ -92,7 +92,7 @@ The slot does **not** have access to `<todo-button>`'s scope. For example, tryin
   Clicking here will {{ action }} an item
   <!--
   The `action` will be undefined, because this content is passed
-  _to_ <todo-button>, rather than defined _inside_ the
+  to <todo-button>, rather than defined inside the
   <todo-button> component.
   -->
 </todo-button>
