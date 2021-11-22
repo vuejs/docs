@@ -254,7 +254,14 @@ to validate that the value of the `author` prop was created with `new Person`.
 HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you're using in-DOM templates, camelCased prop names need to use their kebab-cased (hyphen-delimited) equivalents:
 
 ```js
-const app = Vue.createApp({})
+const app = Vue.createApp({
+  template: `
+    <div>
+      <h1>Using camelCase</h1>
+      <blog-post postTitle="hello!"></blog-post>
+    </div>
+  `
+})
 
 app.component('blog-post', {
   // camelCase in JavaScript
