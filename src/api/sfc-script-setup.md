@@ -243,6 +243,10 @@ export default {
 </script>
 ```
 
+:::warning
+`render` function is not supported in this scenario. Please use one normal `<script>` with `setup` option instead.
+:::
+
 ## Top-level `await`
 
 Top-level `await` can be used inside `<script setup>`. The resulting code will be compiled as `async setup()`:
