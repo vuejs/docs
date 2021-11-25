@@ -82,6 +82,9 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+# pnpm link folder
+pnpm-global
+
 # dotenv environment variables file
 .env
 .env.test

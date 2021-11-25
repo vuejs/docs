@@ -34,7 +34,12 @@ const avatarUrl = computed(() => {
         {{ member.title }}
         <span v-if="member.company" class="nowrap">
           @
-          <VTLink v-if="member.companyLink" class="company link" :href="member.companyLink" no-icon>
+          <VTLink
+            v-if="member.companyLink"
+            class="company link"
+            :href="member.companyLink"
+            :no-icon="true"
+          >
             {{ member.company }}
           </VTLink>
           <span v-else class="company">
@@ -51,7 +56,7 @@ const avatarUrl = computed(() => {
           </div>
           <ul class="desc-list">
             <li v-for="project in member.projects" :key="project.label" class="desc-item">
-              <VTLink class="desc-link" :href="project.url" no-icon>
+              <VTLink class="desc-link" :href="project.url" :no-icon="true">
                 {{ project.label }}
               </VTLink>
             </li>
@@ -86,7 +91,7 @@ const avatarUrl = computed(() => {
             <VTIconLink class="desc-icon" />
           </div>
           <p class="desc-text">
-            <VTLink class="desc-link" :href="member.website.url" no-icon>
+            <VTLink class="desc-link" :href="member.website.url" :no-icon="true">
               {{ member.website.label }}
             </VTLink>
           </p>
@@ -97,7 +102,7 @@ const avatarUrl = computed(() => {
             <VTLink
               class="social-link"
               :href="`https://github.com/${member.socials.github}`"
-              no-icon
+              :no-icon="true"
             >
               <VTIconGitHub class="social-icon" />
             </VTLink>
@@ -106,7 +111,7 @@ const avatarUrl = computed(() => {
             <VTLink
               class="social-link"
               :href="`https://twitter.com/${member.socials.twitter}`"
-              no-icon
+              :no-icon="true"
             >
               <VTIconTwitter class="social-icon" />
             </VTLink>
@@ -115,7 +120,7 @@ const avatarUrl = computed(() => {
             <VTLink
               class="social-link"
               :href="`https://www.linkedin.com/in/${member.socials.linkedin}`"
-              no-icon
+              :no-icon="true"
             >
               <VTIconLinkedIn class="social-icon" />
             </VTLink>
@@ -124,7 +129,7 @@ const avatarUrl = computed(() => {
             <VTLink
               class="social-link"
               :href="`https://codepen.io/${member.socials.codepen}`"
-              no-icon
+              :no-icon="true"
             >
               <VTIconCodePen class="social-icon" />
             </VTLink>
