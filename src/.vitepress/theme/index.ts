@@ -6,6 +6,7 @@ import {
   preferSFC,
   filterHeadersByPreference
 } from './components/preferences'
+import './styles/utilities.css'
 import './styles/inline-demo.css'
 import './styles/options-boxes.css'
 

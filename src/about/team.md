@@ -1,23 +1,27 @@
 ---
-aside: false
+page: true
+title: Meet the Team
 ---
 
 <script setup>
-import { computed } from 'vue'
-import TeamCard from '../.vitepress/components/TeamCard.vue'
-import coreTeamData from './core-team.json'
-import emeritiTeamData from './emeriti.json'
-import partnersData from './partners.json'
-import shuffle from 'lodash/shuffle'
+import TeamPage from './team/TeamPage.vue'
+// import { computed } from 'vue'
+// import TeamCard from '../.vitepress/components/TeamCard.vue'
+// import coreTeamData from './core-team.json'
+// import emeritiTeamData from './emeriti.json'
+// import partnersData from './partners.json'
 
-const coreTeamList = computed(() => {
-  return coreTeamData.slice(0, 1).concat(shuffle(coreTeamData.slice(1)))
-})
-const emeritiTeamList = computed(() => shuffle(emeritiTeamData))
-const partnersList = computed(() => shuffle(partnersData))
+// const coreTeamList = computed(() => {
+//   return coreTeamData.slice(0, 1).concat(shuffle(coreTeamData.slice(1)))
+// })
+
+// const emeritiTeamList = computed(() => shuffle(emeritiTeamData))
+// const partnersList = computed(() => shuffle(partnersData))
 </script>
 
-# Meet the Team
+<TeamPage />
+
+<!-- # Meet the Team
 
 The development of Vue and its ecosystem is guided by an international team, some of whom have chosen to be featured below.
 
@@ -55,4 +59,4 @@ Some members of the Vue community have so enriched it, that they deserve special
   v-for="member in partnersList"
   :key="member.name"
   :profile="member"
-/>
+/> -->
