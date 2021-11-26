@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed } from 'vue'
 import { VTIconGitHub, VTIconLinkedIn, VTIconTwitter } from '@vue/theme'
 import IconCode from './IconCode.vue'
 import IconGlobe from './IconGlobe.vue'
