@@ -214,7 +214,7 @@
     "company": "Fandogh (AUT University)",
     "companyLink": "https://fandogh.org",
     "location": "Tehran, Iran",
-    "languages": ["fa", "English"],
+    "languages": ["Persian", "English"],
     "projects": [
       {
         "label": "nuxt/*",
@@ -238,7 +238,7 @@
     "name": "Xin Du",
     "title": "Nuxpert",
     "location": "Dublin, Ireland",
-    "languages": ["zh", "English"],
+    "languages": ["Chinese", "English"],
     "projects": [
       {
         "label": "nuxt/*",
@@ -260,7 +260,7 @@
     "company": "ele.me",
     "companyLink": "https://www.ele.me",
     "location": "Shanghai, China",
-    "languages": ["zh", "English"],
+    "languages": ["Chinese", "English"],
     "projects": [
       {
         "label": "elemefe/element",
@@ -309,7 +309,7 @@
     "name": "ChangJoo Park",
     "title": "Vuenthusiastic Korean Community Organizer",
     "location": "Seoul, South Korea",
-    "languages": ["ko", "English"],
+    "languages": ["Korean", "English"],
     "projects": [
       {
         "label": "vuejs-kr/kr.vuejs.org",
@@ -335,7 +335,7 @@
     "company": "Fatec Taquaritinga",
     "companyLink": "http://www.fatectq.edu.br/",
     "location": "Taquaritinga, Brazil",
-    "languages": ["pt", "English"],
+    "languages": ["Polish", "English"],
     "projects": [
       {
         "label": "vuejs-br/br.vuejs.org",
@@ -357,7 +357,7 @@
     "company": "Quasar Framework",
     "companyLink": "http://quasar-framework.org/",
     "location": "Bucharest, Romania",
-    "languages": ["ro", "English"],
+    "languages": ["Romanian", "English"],
     "projects": [
       {
         "label": "quasarframework/quasar",
@@ -436,7 +436,7 @@
     "company": "Self Employed",
     "companyLink": "http://gbezyuk.ru",
     "location": "Moscow, Russia",
-    "languages": ["ru", "German", "English"],
+    "languages": ["Russian", "German", "English"],
     "projects": [
       {
         "label": "translation-gang/ru.vuejs.org",
@@ -451,7 +451,7 @@
     "name": "Alexander Sokolov",
     "title": "Russian Translation Sharp Eye",
     "location": "Krasnodar, Russia",
-    "languages": ["ru", "English"],
+    "languages": ["Russian", "English"],
     "projects": [
       {
         "label": "translation-gang/ru.vuejs.org",
@@ -491,7 +491,7 @@
         "url": "https://github.com/egoist/vue-play"
       }
     ],
-    "languages": ["zh", "English"],
+    "languages": ["Chinese", "English"],
     "socials": { "github": "egoist", "twitter": "_egoistlily" }
   },
   {
@@ -529,7 +529,7 @@
     "company": "Vue School",
     "companyLink": "https://vueschool.io/",
     "location": "Oslo, Norway",
-    "languages": ["English", "no"],
+    "languages": ["English"],
     "projects": [
       {
         "label": "vueschool.io",
@@ -582,7 +582,7 @@
     "company": "Divante",
     "companyLink": "https://divante.co/",
     "location": "Wrocław, Poland",
-    "languages": ["pl", "English"],
+    "languages": ["Polish", "English"],
     "projects": [
       {
         "label": "DivanteLtd/vue-storefront",

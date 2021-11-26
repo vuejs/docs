@@ -336,7 +336,7 @@
       }
     ],
     "location": "Wrocław, Poland",
-    "languages": ["Portuguese", "English"],
+    "languages": ["Polish", "English"],
     "socials": {
       "github": "shentao",
       "twitter": "DamianDulisz"
@@ -348,7 +348,7 @@
     "company": "Netguru",
     "companyLink": "https://netguru.co/",
     "location": "Poznań, Poland",
-    "languages": ["Portuguese", "English"],
+    "languages": ["Polish", "English"],
     "projects": [
       {
         "label": "eslint-plugin-vue",
