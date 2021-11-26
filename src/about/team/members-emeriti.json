@@ -150,5 +150,36 @@
       "label": "www.eddyerburgh.me",
       "url": "https://www.eddyerburgh.me"
     }
+  },
+  {
+    "name": "Pine Wu",
+    "title": "Nomad",
+    "projects": [
+      {
+        "label": "vetur",
+        "url": "https://github.com/vuejs/vetur"
+      }
+    ],
+    "location": "Shanghai, China",
+    "languages": ["Chinese", "English", "Japanese"],
+    "socials": {
+      "github": "octref",
+      "twitter": "octref"
+    }
+  },
+  {
+    "name": "ULIVZ",
+    "title": "Senior Frontend Developer",
+    "company": "AntFinancial",
+    "companyLink": "https://www.antfin.com",
+    "projects": [
+      {
+        "label": "vuepress",
+        "url": "https://www.github.com/vuejs/vuepress"
+      }
+    ],
+    "location": "Hangzhou, China",
+    "languages": ["Chinese", "English"],
+    "socials": { "github": "ulivz", "twitter": "_ulivz" }
   }
 ]
