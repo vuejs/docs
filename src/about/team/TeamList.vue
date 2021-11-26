@@ -2,7 +2,7 @@
 import type { Member } from './Member'
 import TeamMember from './TeamMember.vue'
 
-const props = defineProps<{
+defineProps<{
   members: Member[]
 }>()
 </script>

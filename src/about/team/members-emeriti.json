@@ -3,7 +3,7 @@
     "name": "Sarah Drasner",
     "title": "Director of Engineering, Core Developer Web",
     "company": "Google",
-    "companyList": "https://google.com",
+    "companyLink": "https://google.com",
     "projects": [
       {
         "label": "vuejs.org",
