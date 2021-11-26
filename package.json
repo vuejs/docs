@@ -4,14 +4,14 @@
     "build": "vitepress build src",
     "serve": "vitepress serve src"
   },
+  "dependencies": {
+    "@vue/repl": "^0.4.3",
+    "@vue/theme": "^0.1.14",
+    "vue": "^3.2.21"
+  },
   "devDependencies": {
     "@types/node": "^16.9.1",
     "cheap-watch": "^1.0.3",
     "vitepress": "^0.20.1"
-  },
-  "dependencies": {
-    "vue": "^3.2.21",
-    "@vue/repl": "^0.4.3",
-    "@vue/theme": "^0.1.13"
   }
 }
