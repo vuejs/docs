@@ -8,41 +8,29 @@ The directive `v-if` is used to conditionally render a block. The block will onl
 <h1 v-if="awesome">Vue is awesome!</h1>
 ```
 
-It is also possible to add an "else block" with `v-else`:
+## `v-else`
+
+You can use the `v-else` directive to indicate an "else block" for `v-if`:
 
 ```vue-html
 <h1 v-if="awesome">Vue is awesome!</h1>
 <h1 v-else>Oh no 😢</h1>
 ```
 
-### Conditional Groups with `v-if` on `<template>`
+<div class="composition-api">
 
-Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgYXdlc29tZSA9IHJlZih0cnVlKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGgxIHYtaWY9XCJhd2Vzb21lXCI+VnVlIGlzIGF3ZXNvbWUhPC9oMT5cblx0PGgxIHYtZWxzZT5PaCBubyDwn5iiPC9oMT5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSJ9)
 
-```vue-html
-<template v-if="ok">
-  <h1>Title</h1>
-  <p>Paragraph 1</p>
-  <p>Paragraph 2</p>
-</template>
-```
-
-### `v-else`
-
-You can use the `v-else` directive to indicate an "else block" for `v-if`:
-
-```vue-html
-<div v-if="Math.random() > 0.5">
-  Now you see me
 </div>
-<div v-else>
-  Now you don't
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgXHRyZXR1cm4ge1xuXHQgICAgYXdlc29tZTogdHJ1ZVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGgxIHYtaWY9XCJhd2Vzb21lXCI+VnVlIGlzIGF3ZXNvbWUhPC9oMT5cblx0PGgxIHYtZWxzZT5PaCBubyDwn5iiPC9oMT5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSJ9)
+
 </div>
-```
 
 A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - otherwise it will not be recognized.
 
-### `v-else-if`
+## `v-else-if`
 
 The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
 
@@ -62,6 +50,20 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
 ```
 
 Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+
+## `v-if` on `<template>`
+
+Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+
+```vue-html
+<template v-if="ok">
+  <h1>Title</h1>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+</template>
+```
+
+`v-else` and `v-else-if` can also be used on `<template>`.
 
 ## `v-show`
 
@@ -87,8 +89,8 @@ Generally speaking, `v-if` has higher toggle costs while `v-show` has higher ini
 
 ## `v-if` with `v-for`
 
-::: tip Note
-Using `v-if` and `v-for` together is **not recommended**. See the [style guide](/style-guide/#avoid-v-if-with-v-for-essential) for further information.
+::: warning Note
+It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/#avoid-v-if-with-v-for-essential) for details.
 :::
 
 When `v-if` and `v-for` are both used on the same element, `v-if` will be evaluated first. See the [list rendering guide](list#v-for-with-v-if) for details.
