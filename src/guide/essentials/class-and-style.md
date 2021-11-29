@@ -1,3 +1,7 @@
+---
+aside: deep
+---
+
 # Class and Style Bindings
 
 A common need for data binding is manipulating an element's class list and its inline styles. Since they are both attributes, we can use `v-bind` to handle them: we only need to calculate a final string with our expressions. However, meddling with string concatenation is annoying and error-prone. For this reason, Vue provides special enhancements when `v-bind` is used with `class` and `style`. In addition to strings, the expressions can also evaluate to objects or arrays.
@@ -14,16 +18,18 @@ We can pass an object to `:class` (short for `v-bind:class`) to dynamically togg
 
 The above syntax means the presence of the `active` class will be determined by the [truthiness](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) of the data property `isActive`.
 
-You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following template:
+You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following state:
 
-```vue-html
-<div
-  class="static"
-  :class="{ active: isActive, 'text-danger': hasError }"
-></div>
+<div class="composition-api">
+
+```js
+const isActive = ref(true)
+const hasError = ref(false)
 ```
 
-And the following data:
+</div>
+
+<div class="options-api">
 
 ```js
 data() {
@@ -32,6 +38,17 @@ data() {
     hasError: false
   }
 }
+```
+
+</div>
+
+And the following template:
+
+```vue-html
+<div
+  class="static"
+  :class="{ active: isActive, 'text-danger': hasError }"
+></div>
 ```
 
 It will render:
@@ -44,9 +61,18 @@ When `isActive` or `hasError` changes, the class list will be updated accordingl
 
 The bound object doesn't have to be inline:
 
-```vue-html
-<div :class="classObject"></div>
+<div class="composition-api">
+
+```js
+const classObject = reactive({
+  active: true,
+  'text-danger': false
+})
 ```
+
+</div>
+
+<div class="options-api">
 
 ```js
 data() {
@@ -59,11 +85,29 @@ data() {
 }
 ```
 
-This will render the same result. We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
+</div>
 
 ```vue-html
 <div :class="classObject"></div>
 ```
+
+This will render the same result. We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
+
+<div class="composition-api">
+
+```js
+const isActive = ref(true)
+const error = ref(null)
+
+const classObject = computed(() => ({
+  active: isActive.value && !error.value,
+  'text-danger': error.value && error.value.type === 'fatal'
+}))
+```
+
+</div>
+
+<div class="options-api">
 
 ```js
 data() {
@@ -82,13 +126,26 @@ computed: {
 }
 ```
 
+</div>
+
+```vue-html
+<div :class="classObject"></div>
+```
+
 ### Array Syntax
 
 We can pass an array to `:class` to apply a list of classes:
 
-```vue-html
-<div :class="[activeClass, errorClass]"></div>
+<div class="composition-api">
+
+```js
+const activeClass = ref('active')
+const errorClass = ref('text-danger')
 ```
+
+</div>
+
+<div class="options-api">
 
 ```js
 data() {
@@ -97,6 +154,12 @@ data() {
     errorClass: 'text-danger'
   }
 }
+```
+
+</div>
+
+```vue-html
+<div :class="[activeClass, errorClass]"></div>
 ```
 
 Which will render:
@@ -121,26 +184,22 @@ However, this can be a bit verbose if you have multiple conditional classes. Tha
 
 ### With Components
 
-> This section assumes knowledge of [Vue Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
 
-When you use the `class` attribute on a custom component with a single root element, those classes will be added to this element. Existing classes on this element will not be overwritten.
+When you use the `class` attribute on a component with a single root element, those classes will be added to the component's root element, and merged with any existing class already on it.
 
-For example, if you declare this component:
+For example, if we have a component named `my-component` with the following template:
 
-```js
-const app = Vue.createApp({})
-
-app.component('my-component', {
-  template: `<p class="foo bar">Hi!</p>`
-})
+```vue-html
+<!-- child component template -->
+<p class="foo bar">Hi!</p>
 ```
 
 Then add some classes when using it:
 
 ```vue-html
-<div id="app">
-  <my-component class="baz boo"></my-component>
-</div>
+<!-- when using the component -->
+<my-component class="baz boo"></my-component>
 ```
 
 The rendered HTML will be:
@@ -164,20 +223,20 @@ When `isActive` is truthy, the rendered HTML will be:
 If your component has multiple root elements, you would need to define which component will receive this class. You can do this using `$attrs` component property:
 
 ```vue-html
-<div id="app">
-  <my-component class="baz"></my-component>
-</div>
+<!-- my-component template using $attrs -->
+<p :class="$attrs.class">Hi!</p>
+<span>This is a child component</span>
 ```
 
-```js
-const app = Vue.createApp({})
+```vue-html
+<my-component class="baz"></my-component>
+```
 
-app.component('my-component', {
-  template: `
-    <p :class="$attrs.class">Hi!</p>
-    <span>This is a child component</span>
-  `
-})
+Will render:
+
+```html
+<p class="baz">Hi!</p>
+<span>This is a child component</span>
 ```
 
 You can learn more about component attribute inheritance in [Non-Prop Attributes](/guide/components/attrs.html) section.
@@ -188,9 +247,16 @@ You can learn more about component attribute inheritance in [Non-Prop Attributes
 
 The object syntax for `:style` is pretty straightforward - it looks almost like CSS, except it's a JavaScript object. You can use either camelCase or kebab-case (use quotes with kebab-case) for the CSS property names:
 
-```vue-html
-<div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+<div class="composition-api">
+
+```js
+const activeColor = ref('red')
+const fontSize = ref(30)
 ```
+
+</div>
+
+<div class="options-api">
 
 ```js
 data() {
@@ -201,11 +267,26 @@ data() {
 }
 ```
 
-It is often a good idea to bind to a style object directly so that the template is cleaner:
+</div>
 
 ```vue-html
-<div :style="styleObject"></div>
+<div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
+
+It is often a good idea to bind to a style object directly so that the template is cleaner:
+
+<div class="composition-api">
+
+```js
+const styleObject = reactive({
+  color: 'red',
+  fontSize: '13px'
+})
+```
+
+</div>
+
+<div class="options-api">
 
 ```js
 data() {
@@ -216,6 +297,12 @@ data() {
     }
   }
 }
+```
+
+</div>
+
+```vue-html
+<div :style="styleObject"></div>
 ```
 
 Again, the object syntax is often used in conjunction with computed properties that return objects.
