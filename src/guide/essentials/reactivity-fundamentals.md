@@ -45,6 +45,19 @@ It is possible to add a new property directly to the component instance without 
 
 Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
 
+### Reactive Proxy vs. Original \*
+
+In Vue 3, data is made reactive by leveraging [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Users coming from Vue 2 should be aware of the following edge case:
+
+```js
+const object = {}
+this.someObject = object
+
+console.log(object === this.someObject) // false
+```
+
+When you access `this.someObject` after assigning it, the value is a reactive proxy of the original `object`. **Unlike in Vue 2, the original `object` is left intact and will not be made reactive: make sure to always access reactive state as a property of `this`.**
+
 </div>
 
 <div class="composition-api">
@@ -111,7 +124,7 @@ Exposed methods are typically used as event listeners:
 </button>
 ```
 
-### `<script setup>` **
+### `<script setup>` \*\*
 
 Manually exposing state and methods via `setup()` can be verbose. Luckily, it is only necessary when not using a build step. When using Single File Components (SFCs), we can greatly simplify the usage with `<script setup>`:
 
@@ -233,32 +246,38 @@ It is also possible to explicitly create [shallow refs](/api/reactivity-advanced
 
 ### Reactive Proxy vs. Original \*\*
 
-Calling `reactive()` on the same object always returns the same proxy, and calling `reactive()` on an existing proxy also returns that same proxy:
+It is important to note that the returned value from `reactive()` is a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) of the original object, which is not equal to the original object:
 
 ```js
-const raw = { count: 0, nested: {} }
+const raw = {}
 const proxy = reactive(raw)
 
 // proxy is NOT equal to the original.
 console.log(proxy === raw) // false
-
-console.log(proxy === reactive(raw)) // true
-console.log(proxy === reactive(proxy)) // true
-
-// nested objects in a proxy are also proxies
-console.log(proxy.nested === reactive(proxy.nested)) // true
 ```
 
-When you create a ref with object value, it also implicitly converts the value to a proxy using `reactive()`:
+Only the proxy is reactive - mutating the original object will not trigger updates. Therefore, the best practice when working with Vue's reactivity system is to **exclusively use the proxied versions of your state**.
+
+To ensure consistent access to the proxy, calling `reactive()` on the same object always returns the same proxy, and calling `reactive()` on an existing proxy also returns that same proxy:
 
 ```js
-const objRef = ref(raw)
-console.log(objRef.value === proxy) // true
+// calling reactive() on the same object returns the same proxy
+console.log(reactive(raw) === proxy) // true
+
+// calling reactive() on a proxy returns itself
+console.log(reactive(proxy) === proxy) // true
 ```
 
-:::tip
-The reactive proxy is NOT equal to the original object, and only the proxy is reactive. Mutating the original object will not trigger updates. The best practice when working with Vue's reactivity system is to **exclusively use the proxied versions of your state**.
-:::
+This rule applies to nested objects as well. Due to deep reactivity, nested objects inside a reactive object are also proxies:
+
+```js
+const proxy = reactive({})
+
+const raw = {}
+proxy.nested = raw
+
+console.log(proxy.nested === raw) // false
+```
 
 ### Limitations of `reactive()` \*\*
 
@@ -287,6 +306,8 @@ The `reactive()` API has two limitations:
    // count is a plain number that is disconnected
    // from state.count.
    let { count } = state
+   // does not affect original state
+   count++
    ```
 
 ## Reactive Variables with `ref()` \*\*
@@ -341,7 +362,7 @@ const { foo, bar } = obj
 
 In other words, `ref()` allows us to create a "reference" to any value and pass it around without losing reactivity. This capability is quite important as it is frequently used when extracting logic into [Composable Functions](/guide/reusability/composables.html).
 
-### Ref Unwrapping in Templates **
+### Ref Unwrapping in Templates \*\*
 
 When refs are exposed to templates and accessed on the render context, they are automatically "unwrapped" so there is no need to use `.value`. Here's the previous counter example, using `ref()` instead:
 
@@ -365,7 +386,7 @@ function increment() {
 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-### Ref Unwrapping in Reactive Objects **
+### Ref Unwrapping in Reactive Objects \*\*
 
 When a `ref` is accessed or mutated as a property of a reactive object, it is also automatically unwrapped so it behaves like a normal property:
 
@@ -392,7 +413,9 @@ console.log(state.count) // 2
 console.log(count.value) // 1
 ```
 
-Ref unwrapping only happens when nested inside a reactive object. There is no unwrapping performed when the ref is accessed from an array or a native collection type like `Map`:
+Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced.html#shallowreactive).
+
+In addition, there is no unwrapping performed when the ref is accessed from an array or a native collection type like `Map`:
 
 ```js
 const books = reactive([ref('Vue 3 Guide')])
