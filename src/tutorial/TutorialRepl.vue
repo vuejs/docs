@@ -16,7 +16,7 @@ let componentData
 function updateExample() {
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
-    hash = 'lesson-1'
+    hash = 'step-1'
     location.hash = `#${hash}`
   }
   componentData = data[hash]?.App
