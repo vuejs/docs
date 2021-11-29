@@ -126,8 +126,6 @@ A computed property automatically tracks its reactive dependencies. Vue is aware
 
 </div>
 
-It is important to remember that **computed getter functions should be free of side effects**. For example, don't make async requests or mutate the DOM inside a computed getter! Think of a computed property has declaratively describing how to derive a value based on other values - its only resposnibility should be computing and returning that value. Later in the guide we will discuss how we can perform side effects in reaction to state changes with [watchers](./watchers).
-
 ## Computed Caching vs Methods
 
 You may have noticed we can achieve the same result by invoking a method in the expression:
@@ -280,3 +278,13 @@ const fullName = computed({
 Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `firstName` and `lastName` will be updated accordingly.
 
 </div>
+
+## Best Practices
+
+### Getters should be side-effect free
+
+It is important to remember that computed getter functions should only perform pure computation and be free of side effects. For example, don't make async requests or mutate the DOM inside a computed getter! Think of a computed property has declaratively describing how to derive a value based on other values - its only resposnibility should be computing and returning that value. Later in the guide we will discuss how we can perform side effects in reaction to state changes with [watchers](./watchers).
+
+### Avoid mutating computed value
+
+The returned value from a computed property is derived state. Think of it as a temporary snapshot - every time the source state changes, a new snapshot is created. It does not make sense to mutate a snapshot, so a computed return value should be treated as read-only and never be mutated - instead, update the source state it depends on to trigger new computations.
