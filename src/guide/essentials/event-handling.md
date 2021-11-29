@@ -1,3 +1,7 @@
+---
+aside: deep
+---
+
 # Event Handling
 
 ## Listening to Events
@@ -6,26 +10,40 @@ We can use the `v-on` directive, which we typically shorten to the `@` symbol, t
 
 For example:
 
-```vue-html
-<div id="basic-event">
-  <button @click="counter += 1">Add 1</button>
-  <p>The button above has been clicked {{ counter }} times.</p>
-</div>
-```
+<div class="composition-api">
 
 ```js
-Vue.createApp({
-  data() {
-    return {
-      counter: 0
-    }
-  }
-}).mount('#basic-event')
+const counter = ref(0)
 ```
 
-Result:
+</div>
+<div class="options-api">
 
-<!-- <common-codepen-snippet title="Event handling: basic" slug="xxGadPZ" tab="result" :preview="false" /> -->
+```js
+data() {
+  return {
+    counter: 0
+  }
+}
+```
+
+</div>
+
+```vue-html
+<button @click="counter++">Add 1</button>
+<p>The button above has been clicked {{ counter }} times.</p>
+```
+
+<div class="composition-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnRlciA9IHJlZigwKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJjb3VudGVyKytcIj5BZGQgMTwvYnV0dG9uPlxuXHQ8cD5UaGUgYnV0dG9uIGFib3ZlIGhhcyBiZWVuIGNsaWNrZWQge3sgY291bnRlciB9fSB0aW1lcy48L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcblx0ICByZXR1cm4ge1xuICAgIFx0Y291bnRlcjogMFxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJjb3VudGVyKytcIj5BZGQgMTwvYnV0dG9uPlxuXHQ8cD5UaGUgYnV0dG9uIGFib3ZlIGhhcyBiZWVuIGNsaWNrZWQge3sgY291bnRlciB9fSB0aW1lcy48L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+
+</div>
 
 ## Method Event Handlers
 
@@ -33,61 +51,99 @@ The logic for many event handlers will be more complex though, so keeping your J
 
 For example:
 
-```vue-html
-<div id="event-with-method">
-  <!-- `greet` is the name of a method defined below -->
-  <button @click="greet">Greet</button>
-</div>
-```
+<div class="composition-api">
 
 ```js
-Vue.createApp({
-  data() {
-    return {
-      name: 'Vue.js'
-    }
-  },
-  methods: {
-    greet(event) {
-      // `this` inside methods points to the current active instance
-      alert('Hello ' + this.name + '!')
-      // `event` is the native DOM event
-      if (event) {
-        alert(event.target.tagName)
-      }
-    }
+const name = ref('Vue.js')
+
+function greet(event) {
+  alert(`Hello ${name.value}!`)
+  // `event` is the native DOM event
+  if (event) {
+    alert(event.target.tagName)
   }
-}).mount('#event-with-method')
+}
 ```
 
-Result:
+</div>
+<div class="options-api">
 
-<!-- <common-codepen-snippet title="Event handling: with a method" slug="jOPvmaX" tab="result" :preview="false" /> -->
+```js
+data() {
+  return {
+    name: 'Vue.js'
+  }
+},
+methods: {
+  greet(event) {
+    // `this` inside methods points to the current active instance
+    alert(`Hello ${this.name}!`)
+    // `event` is the native DOM event
+    if (event) {
+      alert(event.target.tagName)
+    }
+  }
+}
+```
+
+</div>
+
+```vue-html
+<!-- `greet` is the name of a method defined below -->
+<button @click="greet">Greet</button>
+```
+
+<div class="composition-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgbmFtZSA9IHJlZignVnVlLmpzJylcblxuZnVuY3Rpb24gZ3JlZXQoZXZlbnQpIHtcbiAgYWxlcnQoYEhlbGxvICR7bmFtZS52YWx1ZX0hYClcbiAgLy8gYGV2ZW50YCBpcyB0aGUgbmF0aXZlIERPTSBldmVudFxuICBpZiAoZXZlbnQpIHtcbiAgICBhbGVydChldmVudC50YXJnZXQudGFnTmFtZSlcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJncmVldFwiPkdyZWV0PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbmFtZTogJ1Z1ZS5qcydcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBncmVldChldmVudCkge1xuICAgICAgLy8gYHRoaXNgIGluc2lkZSBtZXRob2RzIHBvaW50cyB0byB0aGUgY3VycmVudCBhY3RpdmUgaW5zdGFuY2VcbiAgICAgIGFsZXJ0KGBIZWxsbyAke3RoaXMubmFtZX0hYClcbiAgICAgIC8vIGBldmVudGAgaXMgdGhlIG5hdGl2ZSBET00gZXZlbnRcbiAgICAgIGlmIChldmVudCkge1xuICAgICAgICBhbGVydChldmVudC50YXJnZXQudGFnTmFtZSlcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxidXR0b24gQGNsaWNrPVwiZ3JlZXRcIj5HcmVldDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+
+</div>
 
 ## Methods in Inline Handlers
 
 Instead of binding directly to a method name, we can also use methods in an inline JavaScript statement:
 
-```vue-html
-<div id="inline-handler">
-  <button @click="say('hi')">Say hi</button>
-  <button @click="say('what')">Say what</button>
-</div>
-```
+<div class="composition-api">
 
 ```js
-Vue.createApp({
-  methods: {
-    say(message) {
-      alert(message)
-    }
-  }
-}).mount('#inline-handler')
+function say(message) {
+  alert(message)
+}
 ```
 
-Result:
+</div>
+<div class="options-api">
 
-<!-- <common-codepen-snippet title="Event handling: with an inline handler" slug="WNvgjda" tab="result" :preview="false" /> -->
+```js
+methods: {
+  say(message) {
+    alert(message)
+  }
+}
+```
+
+</div>
+
+```vue-html
+<button @click="say('hi')">Say hi</button>
+<button @click="say('what')">Say what</button>
+```
+
+<div class="composition-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmZ1bmN0aW9uIHNheShtZXNzYWdlKSB7XG4gIGFsZXJ0KG1lc3NhZ2UpXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8YnV0dG9uIEBjbGljaz1cInNheSgnaGknKVwiPlNheSBoaTwvYnV0dG9uPlxuICA8YnV0dG9uIEBjbGljaz1cInNheSgnd2hhdCcpXCI+U2F5IHdoYXQ8L2J1dHRvbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSJ9)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgbWV0aG9kczoge1xuXHQgIHNheShtZXNzYWdlKSB7XG4gICAgXHRhbGVydChtZXNzYWdlKVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJzYXkoJ2hpJylcIj5TYXkgaGk8L2J1dHRvbj5cbiAgPGJ1dHRvbiBAY2xpY2s9XCJzYXkoJ3doYXQnKVwiPlNheSB3aGF0PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+
+</div>
 
 Sometimes we also need to access the original DOM event in an inline statement handler. You can pass it into a method using the special `$event` variable:
 
@@ -97,8 +153,22 @@ Sometimes we also need to access the original DOM event in an inline statement h
 </button>
 ```
 
+<div class="composition-api">
+
 ```js
-// ...
+function warn(message, event) {
+  // `now we have access to the native event`
+  if (event) {
+    event.preventDefault()
+  }
+  alert(message)
+}
+```
+
+</div>
+<div class="options-api">
+
+```js
 methods: {
   warn(message, event) {
     // now we have access to the native event
@@ -109,6 +179,8 @@ methods: {
   }
 }
 ```
+
+</div>
 
 ## Multiple Event Handlers
 
@@ -121,8 +193,23 @@ You can have multiple methods in an event handler separated by a comma operator 
 </button>
 ```
 
+<div class="composition-api">
+
 ```js
-// ...
+function one(event) {
+  // first handler logic...
+}
+
+function two(event) {
+  // second handler logic...
+}
+```
+
+</div>
+<div class="options-api">
+
+
+```js
 methods: {
   one(event) {
     // first handler logic...
@@ -132,6 +219,8 @@ methods: {
   }
 }
 ```
+
+</div>
 
 ## Event Modifiers
 
@@ -225,7 +314,7 @@ Vue provides aliases for the most commonly used keys:
 - `.left`
 - `.right`
 
-## System Modifier Keys
+### System Modifier Keys
 
 You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
 
@@ -267,20 +356,10 @@ The `.exact` modifier allows control of the exact combination of system modifier
 <button @click.exact="onClick">A</button>
 ```
 
-### Mouse Button Modifiers
+## Mouse Button Modifiers
 
 - `.left`
 - `.right`
 - `.middle`
 
 These modifiers restrict the handler to events triggered by a specific mouse button.
-
-## Why Listeners in HTML?
-
-You might be concerned that this whole event listening approach violates the good old rules about "separation of concerns". Rest assured - since all Vue handler functions and expressions are strictly bound to the ViewModel that's handling the current view, it won't cause any maintenance difficulty. In fact, there are several benefits in using `v-on` or `@`:
-
-1. It's easier to locate the handler function implementations within your JS code by skimming the HTML template.
-
-2. Since you don't have to manually attach event listeners in JS, your ViewModel code can be pure logic and DOM-free. This makes it easier to test.
-
-3. When a ViewModel is destroyed, all event listeners are automatically removed. You don't need to worry about cleaning it up yourself.
