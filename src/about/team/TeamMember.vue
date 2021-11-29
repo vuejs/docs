@@ -5,6 +5,7 @@ import {
   VTIconCodePen,
   VTIconGitHub,
   VTIconGlobe,
+  VTIconHeart,
   VTIconLink,
   VTIconLinkedIn,
   VTIconMapPin,
@@ -24,6 +25,10 @@ const avatarUrl = computed(() => {
 
 <template>
   <article class="TeamMember">
+    <VTLink v-if="member.sponsor" class="sponsor" :href="member.sponsor" no-icon>
+      <VTIconHeart class="sponsor-icon" /> Sponsor
+    </VTLink>
+
     <figure class="avatar">
       <img class="avatar-img" :src="avatarUrl" :alt="`${member.name}'s Profile Picture`">
     </figure>
@@ -142,6 +147,7 @@ const avatarUrl = computed(() => {
 
 <style scoped>
 .TeamMember {
+  position: relative;
   background-color: var(--vt-c-bg-soft);
   transition: background-color 0.5s;
 }
@@ -156,6 +162,33 @@ const avatarUrl = computed(() => {
   .TeamMember {
     border-radius: 8px;
   }
+}
+
+.sponsor {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #fd1d7c;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fd1d7c;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.sponsor:hover {
+  color: var(--vt-c-white);
+  background-color: #fd1d7c;
+}
+
+.sponsor-icon {
+  margin-right: 6px;
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
 }
 
 .avatar {

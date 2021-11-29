@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "@vue/repl": "^0.4.3",
-    "@vue/theme": "^0.1.15",
+    "@vue/theme": "^0.1.16",
     "vue": "^3.2.23"
   },
   "devDependencies": {

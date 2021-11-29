@@ -9,6 +9,7 @@ export interface Member {
   languages: string[]
   website?: Link
   socials: Socials
+  sponsor?: string
 }
 
 export interface Link {
