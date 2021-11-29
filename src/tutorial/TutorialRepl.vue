@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
-import { inject, watchEffect, version, Ref } from 'vue'
+import { inject, watchEffect, version, Ref, computed } from 'vue'
 import data from './data.json'
 import { resolveSFCExample, resolveNoBuildExample } from '../examples/utils'
 import '@vue/repl/style.css'
@@ -11,13 +11,16 @@ const store = new ReplStore({
 
 const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
+let componentData
 
 function updateExample() {
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
-    hash = 'hello-world'
+    hash = 'lesson-1'
     location.hash = `#${hash}`
   }
+  componentData = data[hash]?.App
+
   store.setFiles(
     preferSFC.value
       ? resolveSFCExample(data[hash], preferComposition.value)
@@ -33,11 +36,12 @@ window.addEventListener('hashchange', updateExample)
 <template>
   <div class="tutorial">
     <div class="instruction">
-      <h1>1. Hello World</h1>
-      <p>Let's do get something on the screen!</p>
-      <p>Next Step &gt;</p>
+      <h1>{{ componentData.title }}</h1>
+      <article v-html="componentData.description"></article>
+      <button>Show me!</button>
+      <button>Next Step &gt;</button>
     </div>
-    <Repl :store="store" :showCompileOutput="false" />
+    <Repl :store="store" :showCompileOutput="false" :clearConsole="false" />
   </div>
 </template>
 
