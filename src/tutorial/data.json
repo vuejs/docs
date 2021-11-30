@@ -6,7 +6,7 @@
       "template.html": "<main>\n  <div class=\"panel\">\n    <h1>Guess the Color</h1>\n    <h2>Number of colors: 3</h2>\n  </div>\n</main>\n",
       "style.css": "* {\n   margin: 0;\n   padding: 0;\n }\n \n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n   -webkit-font-smoothing: antialiased;\n   -moz-osx-font-smoothing: grayscale;\n   text-align: center;\n   color: #2c3e50;\n }\n \n label {\n   font-size: 18px;\n }\n \n input {\n   font-size: 18px;\n   padding-left: 5px;\n   width: 35px;\n }\n \n .panel {\n   color: white;\n   background-color: teal;\n   transition: background 0.5s;\n }",
       "title": "Adding data",
-      "description": "<p>Test</p><p>Test</p>"
+      "description": "<p>For now, our component renders some static data. Try to change a number 3 in the code to something different to see how the rendered result changes.</p><p>Now, let's add some dynamic data. Within component `data` return statement, add a property `colorsNumber`</p>"
     },
     "description.txt": "Let's learn how to add reactive data properties"
   },

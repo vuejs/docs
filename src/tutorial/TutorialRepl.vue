@@ -14,6 +14,15 @@ const preferSFC = inject('prefer-sfc') as Ref<boolean>
 const componentData = ref('')
 const nextStep = ref('')
 
+function calculateNextStep(hash) {
+  const nextLessonIndex = +hash.slice(-1) + 1
+  if (data.hasOwnProperty(`step-${nextLessonIndex}`)) {
+    nextStep.value = `#step-${nextLessonIndex}`
+  } else {
+    nextStep.value = ''
+  }
+}
+
 function updateExample() {
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
@@ -21,10 +30,8 @@ function updateExample() {
     location.hash = `#${hash}`
   }
   componentData.value = data[hash]?.App
-  const nextLessonIndex = +hash.slice(-1) + 1
-  if (data.hasOwnProperty(`step-${nextLessonIndex}`)) {
-    nextStep.value = `#step-${nextLessonIndex}`
-  }
+
+  calculateNextStep(hash)
 
   store.setFiles(
     preferSFC.value
@@ -90,7 +97,8 @@ footer {
   padding-top: 1em;
 }
 
-footer button {
+footer button,
+a {
   color: var(--vt-c-green-light);
 }
 
