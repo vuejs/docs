@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
-import { inject, watchEffect, version, Ref, computed } from 'vue'
+import { inject, watchEffect, version, Ref, ref } from 'vue'
 import data from './data.json'
 import { resolveSFCExample, resolveNoBuildExample } from '../examples/utils'
 import '@vue/repl/style.css'
@@ -11,7 +11,8 @@ const store = new ReplStore({
 
 const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
-let componentData
+const componentData = ref('')
+const nextStep = ref('')
 
 function updateExample() {
   let hash = location.hash.slice(1)
@@ -19,7 +20,11 @@ function updateExample() {
     hash = 'step-1'
     location.hash = `#${hash}`
   }
-  componentData = data[hash]?.App
+  componentData.value = data[hash]?.App
+  const nextLessonIndex = +hash.slice(-1) + 1
+  if (data.hasOwnProperty(`step-${nextLessonIndex}`)) {
+    nextStep.value = `#step-${nextLessonIndex}`
+  }
 
   store.setFiles(
     preferSFC.value
@@ -34,15 +39,17 @@ window.addEventListener('hashchange', updateExample)
 </script>
 
 <template>
-  <div class="tutorial">
-    <div class="instruction">
+  <section class="tutorial">
+    <article class="instruction">
       <h1>{{ componentData.title }}</h1>
-      <article v-html="componentData.description"></article>
-      <button>Show me!</button>
-      <button>Next Step &gt;</button>
-    </div>
+      <div v-html="componentData.description"></div>
+      <footer class="footer">
+        <button>Show me!</button>
+        <a v-if="nextStep" :href="nextStep">Next Step &gt;</a>
+      </footer>
+    </article>
     <Repl :store="store" :showCompileOutput="false" :clearConsole="false" />
-  </div>
+  </section>
 </template>
 
 <style scoped>
@@ -72,6 +79,19 @@ window.addEventListener('hashchange', updateExample)
 
 .vue-repl {
   height: calc(100vh - var(--vp-nav-height) - var(--ins-height));
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #7e7e7e;
+  margin-top: 2em;
+  padding-top: 1em;
+}
+
+footer button {
+  color: var(--vt-c-green-light);
 }
 
 @media (max-width: 960px) {

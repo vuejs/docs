@@ -461,6 +461,10 @@ const sidebar = {
         {
           text: 'Adding Data',
           link: '/tutorial/#step-1'
+        },
+        {
+          text: 'Two-way binding',
+          link: '/tutorial/#step-2'
         }
       ]
     }
