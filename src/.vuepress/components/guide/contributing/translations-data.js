@@ -13,7 +13,7 @@ export const labels = {
 export const repos = [
   { lang: 'en-us', owner: 'vuejs', repo: 'docs', branch: 'master', url: 'https://v3.vuejs.org/' },
   { lang: 'fr', owner: 'demahom18', repo: 'docs-next', branch: 'master', url: 'https://vue3-fr.netlify.app' },
-  { lang: 'id', owner: 'vuejs-id', repo: 'docs-next', branch: 'indonesian' },
+  { lang: 'id', owner: 'vuejs-id', repo: 'docs-next', branch: 'indonesian', url: 'https://v3-vuejsid-docs.netlify.app/' },
   { lang: 'ja', owner: 'vuejs-jp', repo: 'ja.vuejs.org', branch: 'lang-ja', url: 'https://v3.ja.vuejs.org/' },
   { lang: 'ko', owner: 'vuejs-kr', repo: 'docs-next', branch: 'rootKoKr', url: 'https://v3.ko.vuejs.org/'  },
   { lang: 'pt-br', owner: 'vuejs-br', repo: 'docs-next', branch: 'master', url: 'https://vuejsbr-docs-next.netlify.app/' },
