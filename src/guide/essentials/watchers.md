@@ -319,10 +319,145 @@ watchPostEffect(() => {
 })
 ```
 
-## Side Effect Invalidation **
+</div>
 
-## Stopping a Watcher **
+<div class="options-api">
 
-## Watcher Debugging **
+## `$watch()` \*
+
+It's also possible to imperatively create watchers using the [`$watch()` instance method](http://localhost:3000/api/component-instance.html#watch):
+
+```js
+export default {
+  created() {
+    this.$watch('question', (newQuestion) => {
+      // ...
+    })
+  }
+}
+```
+
+This is useful when you need to conditional set up a watcher, or only watch something in response to user interaction. It also allows you to stop the watcher early.
+
+</div>
+
+## Stopping a Watcher
+
+<div class="options-api">
+
+Watchers declared using the `watch` option or the `$watch()` instance method are automatically stopped when the owner component is unmounted, so in most cases you don't need to worry about stopping the watcher yourself.
+
+In the rare case where you need to stop a watcher before the owner component unmounts, the `$watch()` API returns a function for that:
+
+```js
+const unwatch = this.$watch('foo', callback)
+
+// ...when the watcher is no longer needed:
+unwatch()
+```
+
+</div>
+
+<div class="composition-api">
+
+Watchers declared synchronously inside `setup()` or `<script setup>` are bound to the owner component instance, and will be automatically stopped when the owner component is unmounted. In most cases, you don't need to worry about stopping the watcher yourself.
+
+The key here is that the watcher must be created **synchronously**: if the watcher is created in an async callback, it won't be bound to the owner component and must be stopped manually to avoid memory leaks. Here's an example:
+
+```vue
+<script setup>
+import { watchEffect } from 'vue'
+
+// this one will be automatically stopped
+watchEffect(() => {})
+
+// ...this one will not!
+setTimeout(() => {
+  watchEffect(() => {})
+}, 100)
+</script>
+```
+
+To manually stop a watcher, use the returned handle function. This works for both `watch` and `watchEffect`:
+
+```js
+const unwatch = watchEffect(() => {})
+
+// ...later, when no longer needed
+unwatch()
+```
+
+Note that there should be very few cases where you need to create watchers asynchronously, and synchronous creation should be preferred whenever possible. If you need to wait for some async data, you can make your watch logic conditional instead:
+
+```js
+// data to be loaded asynchronously
+const data = ref(null)
+
+watchEffect(() => {
+  if (data.value) {
+    // do something when data is loaded
+  }
+})
+```
+
+</div>
+
+<div class="composition-api">
+
+## Side Effect Invalidation \*\*
+
+Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
+
+- the effect is about to re-run
+- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
+
+```js
+watchEffect((onInvalidate) => {
+  const token = performAsyncOperation(id.value)
+  onInvalidate(() => {
+    // id has changed or watcher is stopped.
+    // invalidate previously pending async operation
+    token.cancel()
+  })
+})
+```
+
+We are registering the invalidation callback via a passed-in function instead of returning it from the callback because the return value is important for async error handling. It is very common for the effect function to be an async function when performing data fetching:
+
+```js
+const data = ref(null)
+watchEffect(async (onInvalidate) => {
+  onInvalidate(() => {
+    /* ... */
+  }) // we register cleanup function before Promise resolves
+  data.value = await fetchData(props.id)
+})
+```
+
+An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the Promise chain.
+
+## Watcher Debugging \*\*
+
+The `onTrack` and `onTrigger` options can be used to debug a watcher's behavior.
+
+- `onTrack` will be called when a reactive property or ref is tracked as a dependency.
+- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency.
+
+Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in these callbacks to interactively inspect the dependency:
+
+```js
+watchEffect(
+  () => {
+    /* side effect */
+  },
+  {
+    onTrigger(e) {
+      debugger
+    }
+  }
+)
+```
+
+`onTrack` and `onTrigger` only work in development mode.
 
 </div>
