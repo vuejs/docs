@@ -132,11 +132,11 @@ const sidebar = {
         { text: 'Event Handling', link: '/guide/essentials/event-handling' },
         { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
         { text: 'Watchers', link: '/guide/essentials/watchers' },
+        { text: 'Template Refs', link: '/guide/essentials/template-refs' },
         {
           text: 'Components Basics',
           link: '/guide/essentials/component-basics'
-        },
-        { text: 'Template Refs', link: '/guide/essentials/template-refs' }
+        }
       ]
     },
     {
