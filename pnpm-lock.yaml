@@ -2,14 +2,14 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/node': ^16.9.1
-  '@vue/repl': ^0.4.3
+  '@vue/repl': ^0.4.4
   '@vue/theme': ^0.1.16
   cheap-watch: ^1.0.3
   vitepress: ^0.20.1
   vue: ^3.2.23
 
 dependencies:
-  '@vue/repl': 0.4.3_vue@3.2.23
+  '@vue/repl': 0.4.4_vue@3.2.23
   '@vue/theme': 0.1.16_vue@3.2.23
   vue: 3.2.23
 
@@ -247,8 +247,8 @@ packages:
       estree-walker: 2.0.2
       magic-string: 0.25.7
 
-  /@vue/repl/0.4.3_vue@3.2.23:
-    resolution: {integrity: sha512-C9/hBNFjS6ROwWIMZOQpEz04DBONvgTT7s/LL0esXd8yQaO8UEAPJw8f/dfK5141nwcBZgfzbPtfcGMThddx2w==}
+  /@vue/repl/0.4.4_vue@3.2.23:
+    resolution: {integrity: sha512-Mj0Zasc6V7bymDg7DNiN1bW/MZVNS4PmKzDkG9hq9ysrkrZoTHcwA+gcAxF+25Dfn0Tz8WSZD9FuEgEKoA681g==}
     peerDependencies:
       vue: ^3.2.13
     dependencies:
