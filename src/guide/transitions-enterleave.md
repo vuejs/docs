@@ -500,7 +500,7 @@ Now let's update the transition for our on/off buttons with `out-in`:
 
 With one attribute addition, we've fixed that original transition without having to add any special styling.
 
-We can use this to coordinate more expressive movement, such as a folding card, as demonstrated below. Try hovering over each image and clicking the replace button.
+We can use this to coordinate more expressive movement, such as a folding card, as demonstrated below. Try hovering over each image and clicking the replace button:
 
 <common-codepen-snippet title="Transition Modes Flip Cards" slug="76e344bf057bd58b5936bba260b787a8" :editable="false" />
 
