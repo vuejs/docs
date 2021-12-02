@@ -2,69 +2,19 @@
 
 Built-in components can be used directly in templates without needing to be registered.
 
-The `<keep-alive>`, `<transition>`, `<transition-group>`, and `<teleport>` components can all be tree-shaken by bundlers, so that they are only included in the build if they're used. They can also be imported explicitly if you need direct access to the component itself:
-
-```js
-// CDN build of Vue
-const { KeepAlive, Teleport, Transition, TransitionGroup } = Vue
-```
+The `<Transition>`, `<TransitionGroup>`, `<KeepAlive>`, `<Teleport>` and `<Suspense>` components can all be tree-shaken by bundlers, so that they are only included in the build if they're used.They can also be imported explicitly if you need direct access to the component itself:
 
 ```js
 // ESM build of Vue
-import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
+import { Transition, TransitionGroup, KeepAlive, Teleport, Suspense } from 'vue'
 ```
 
-`<component>` and `<slot>` are component-like features of template syntax. They are not true components and they can't be imported like the components shown above.
+```js
+// CDN build of Vue
+const { Transition, TransitionGroup, KeepAlive, Teleport, Suspense } = Vue
+```
 
-## component
-
-- **Props:**
-
-  - `is` - `string | Component`
-
-- **Usage:**
-
-  A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop. An `is` prop as a string could be either an HTML tag name or a Component name.
-
-  ```vue-html
-  <!-- a dynamic component controlled by -->
-  <!-- the `componentId` property on the vm -->
-  <component :is="componentId"></component>
-
-  <!-- can also render registered component or component passed as prop -->
-  <component :is="$options.components.child"></component>
-
-  <!-- can reference components by string -->
-  <component :is="condition ? 'FooComponent' : 'BarComponent'"></component>
-
-  <!-- can be used to render native HTML elements -->
-  <component :is="href ? 'a' : 'span'"></component>
-  ```
-
-  The built-in components `KeepAlive`, `Transition`, `TransitionGroup`, and `Teleport` can all be passed to `is`, but you must register them if you want to pass them by name. For example:
-
-  ```js
-  const { Transition, TransitionGroup } = Vue
-
-  const Component = {
-    components: {
-      Transition,
-      TransitionGroup
-    },
-
-    template: `
-      <component :is="isGroup ? 'TransitionGroup' : 'Transition'">
-        ...
-      </component>
-    `
-  }
-  ```
-
-  Registration is not required if you pass the component itself to `is` rather than its name.
-
-- **See also:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
-
-## transition
+## `<Transition>`
 
 - **Props:**
 
@@ -138,7 +88,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 - **See also:** [Enter & Leave Transitions](/guide/built-ins/transitions-enterleave.html#transitioning-single-elements-components)
 
-## transition-group
+## `<TransitionGroup>`
 
 - **Props:**
 
@@ -168,7 +118,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 - **See also:** [List Transitions](/guide/built-ins/transitions-list.html)
 
-## keep-alive
+## `<KeepAlive>`
 
 - **Props:**
 
@@ -245,21 +195,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 - **See also:** [`<KeepAlive/>`](/guide/built-ins/keep-alive.html)
 
-## slot
-
-- **Props:**
-
-  - `name` - `string`, Used for named slot.
-
-- **Usage:**
-
-  `<slot>` serve as content distribution outlets in component templates. `<slot>` itself will be replaced.
-
-  For detailed usage, see the guide section linked below.
-
-- **See also:** [Content Distribution with Slots](/guide/essentials/component-basics.html#content-distribution-with-slots)
-
-## teleport
+## `<Teleport>`
 
 - **Props:**
 
@@ -287,3 +223,7 @@ import { KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
   Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
 
 - **See also:** [Teleport component](/guide/built-ins/teleport.html#teleport)
+
+## `<Suspense>`
+
+// TODO

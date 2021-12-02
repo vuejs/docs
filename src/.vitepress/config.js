@@ -328,6 +328,7 @@ const sidebar = {
       items: [
         { text: 'Directives', link: '/api/built-in-directives' },
         { text: 'Components', link: '/api/built-in-components' },
+        { text: 'Special Elements', link: '/api/built-in-special-elements' },
         {
           text: 'Special Attributes',
           link: '/api/built-in-special-attributes'

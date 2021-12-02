@@ -5,15 +5,23 @@ import { ref, computed } from 'vue'
 const query = ref('')
 
 const filtered = computed(() => {
-  const q = query.value
+  const q = query.value.toLowerCase()
   return apiIndex
     .map((section) => {
+      if (section.text.toLowerCase().includes(q)) {
+        return section
+      }
       const items = section.items
-        .map(({ text, link, headers }) => {
-          headers = headers.filter((h) => {
-            return h.toLowerCase().includes(q.toLowerCase())
+        .map((item) => {
+          if (item.text.toLowerCase().includes(q)) {
+            return item
+          }
+          const headers = item.headers.filter((h) => {
+            return h.toLowerCase().includes(q)
           })
-          return headers.length ? { text, link, headers } : null
+          return headers.length
+            ? { text: item.text, link: item.link, headers }
+            : null
         })
         .filter((i) => i)
       return items.length ? { text: section.text, items } : null
