@@ -8,11 +8,11 @@ import NewsLetter from './.vitepress/theme/components/NewsLetter.vue'
 
 <section id="hero">
   <h1 class="tagline">
-    The Progressive<br>
+    The <span class="accent">Progressive</span><br>
     JavaScript Framework
   </h1>
   <p class="description">
-    An approachable, performant and versatile framework for building web interfaces.
+    An approachable, performant and versatile framework for building web user interfaces.
   </p>
   <p class="actions">
     <a class="get-started" href="/guide/introduction.html">Get Started <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg></a>
@@ -62,32 +62,31 @@ section {
 }
 
 #hero {
-  padding: 76px 32px;
+  padding: 96px 32px;
   text-align: center;
 }
 
 .tagline {
-  font-size: 62px;
+  font-size: 76px;
   line-height: 1.25;
   font-weight: 900;
   letter-spacing: -1.5px;
-  max-width: 680px;
+  max-width: 960px;
   margin: 0px auto;
 }
 
-.dark .tagline {
-  /* color: var(--vt-c-green-light); */
+html:not(.dark) .accent, .dark .tagline {
   background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .description {
-  max-width: 760px;
+  max-width: 960px;
   line-height: 1.5;
   color: var(--vt-c-text-2);
   transition: color 0.5s;
-  font-size: 18px;
+  font-size: 22px;
   margin: 24px auto 40px;
 }
 
@@ -196,9 +195,9 @@ section {
   background-color: transparent;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .tagline {
-    font-size: 48px;
+    font-size: 64px;
     letter-spacing: -0.5px;
   }
   .description {
@@ -207,12 +206,16 @@ section {
   }
 }
 
+@media (max-width: 768px) {
+  .tagline {
+    font-size: 48px;
+    letter-spacing: -0.5px;
+  }
+}
+
 @media (max-width: 576px) {
   #hero {
     padding: 64px 32px;
-  }
-  .tagline {
-    font-size: 38px;
   }
   .description {
     font-size: 16px;
