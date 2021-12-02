@@ -1,0 +1,243 @@
+.vuemastery-banner
+  background: url(/images/vuemastery/background-vuemastery.svg) center center no-repeat
+  background-size 100% auto
+  overflow hidden
+  position relative
+
+  &:before
+    content ''
+    background: url(/images/vuemastery/background-bubbles-vuemastery.svg) left center no-repeat
+    background-size cover
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0
+    transition all .3s ease-out .1s
+    transform: scale(1.1)
+
+  &:after
+    content: ''
+    background: url(/images/vuemastery/lock-vuemastery.svg) right center no-repeat
+    background-size: auto 100%
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    pointer-events: none
+
+  &:hover
+    background-size 150% auto
+
+    &:before
+      transform: scale(1)
+
+    &:after
+      background-image url(/images/vuemastery/unlock-vuemastery.svg)
+
+  a
+    display flex
+    height 80px
+    justify-content center
+  
+.vuemastery-banner--wrapper
+  display flex
+  height 100%
+  align-items center
+  width: 100%
+  justify-content: center
+  position relative
+
+  &:before
+    content ''
+    pointer-events none
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    width 0
+    transition width .3s ease-out
+
+  &:hover
+    + .vuemastery-banner--close
+      &:before,
+      &:after
+        transform-origin 100%
+  
+  p
+    margin -3px 50px 0 20px
+    font-size 1rem
+    line-height 1.4rem
+    color #fff
+    position relative
+    transition-delay .15s
+
+  span
+    font-size 1.17rem
+    font-weight 600
+    color #BEFF74
+    background -webkit-linear-gradient(#41E281, #BEFF74)
+    -webkit-background-clip text
+    -webkit-text-fill-color transparent
+
+@media screen and (min-width: 700px)
+  .vuemastery-banner--wrapper span
+    display block
+
+.vuemastery-banner--logo
+  height 102%
+  margin-top: -1px
+  margin-left -200px
+  position relative
+  z-index 2
+  
+.vuemastery-banner--close
+  position absolute
+  top 20px
+  right 25px
+  height 40px
+  width 40px
+  -webkit-tap-highlight-color transparent
+  border-radius 50%
+  cursor pointer
+
+  &:before,
+  &:after
+    content ''
+    position absolute
+    top 19px
+    left 14px
+    width 25px
+    height 2px
+    background-color #fff
+    transform-origin 50%
+    transform rotate(-45deg)
+    transition all .2s ease-out
+
+  &:after
+    transform rotate(45deg)
+
+.vuemastery-button
+  display: inline-flex;
+  background: linear-gradient(to top right,#3d2c61,#835ec2);
+  height: 38px;
+  margin: .5em 0;
+  line-height: 38px;
+  padding: 0 30px;
+  color: #fff;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 36px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative
+  overflow hidden
+
+  &:before,
+  &:after
+    background: linear-gradient(to top right,transparent,#fff);
+    content: "";
+    height: 150px;
+    left: -175px;
+    opacity: .1;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    width: 100px;
+
+@media screen and (max-width: 1200px)
+  .vuemastery-banner
+    &,
+    &:hover
+      background-size cover
+
+    &:before
+      transform: scale(1)
+
+    &:hover:before
+      transform: scale(1)
+
+@media screen and (max-width: 1100px)
+    .vuemastery-button
+      display none
+
+@media screen and (max-width: 700px)
+  .vuemastery-banner
+    &:after
+      background-position right -2rem center
+    a
+      height 40px
+      overflow hidden
+
+    .vuemastery-banner--logo
+      margin-left 0
+      justify-content flex-start
+
+    p, span
+      font-size .8rem
+      color #fff
+      line-height .9rem
+
+    .vuemastery-banner--close
+      top 0px
+      right 0px
+
+      &:before,
+      &:after
+        top 19px
+        left 14px
+        width 15px
+        height 2px
+
+@media screen and (max-width: 465px)
+  .vuemastery-banner
+    &:after
+      display: none
+    p
+      margin-right 40px
+      margin-left 5px
+
+    &:after
+      background-position right -3rem center
+@media screen and (max-width 330px)
+  .vuemastery-banner p
+    font-size 0.6rem
+    margin-right 20px
+    margin-left 0
+
+@media print
+  .vuemastery-banner
+    display none
+
+
+.vuemastery-promo
+  .navbar
+    position relative
+
+  .sidebar
+    position absolute
+    top 8.6rem
+    bottom -5rem
+
+    @media screen and (max-width: 700px)
+      top: 98px;
+      bottom: -20px;
+
+  &.vuemastery-menu-fixed
+    .vuemastery-banner
+      margin-bottom 56px
+
+    .sidebar,
+    .navbar
+      position fixed
+      top -1px
+
+    .sidebar
+      top 3.5rem
+      bottom 0
