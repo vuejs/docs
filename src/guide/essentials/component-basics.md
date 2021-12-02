@@ -136,7 +136,7 @@ With `<script setup>`, imported components are automatically made available to t
 
 </div>
 
-It's also possible to [globally register a component](/guide/components/registration.html#global-registration), making it available to all components in a given app without having to import it. However, global registration makes the dependency relationship less explicit, and can make it difficult to locate the implementation of a child component to understand its usage in large apps.
+It's also possible to globally register a component, making it available to all components in a given app without having to import it. The pros and cons of global vs. local registration is discussed in the dedicated [Component Registration](/guide/components/registration.html) section.
 
 Components can be reused as many times as you want:
 
@@ -160,7 +160,18 @@ Components can be reused as many times as you want:
 
 Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
 
-In SFCs, it's recommended to use `PascalCase` tag names for child components to differentiate from native HTML elements. Although native HTML tag names are case-insensitive, Vue SFC is a compiled format so we are able to use case-sensitive tag names in it. However, you will need to use `kebab-case` component tags if you are authoring your template directly in the DOM (which makes it subject to native HTML parsing rules). See [DOM template parsing caveats](#dom-template-parsing-caveats) for more details.
+In SFCs, it's recommended to use `PascalCase` tag names for child components to differentiate from native HTML elements. Although native HTML tag names are case-insensitive, Vue SFC is a compiled format so we are able to use case-sensitive tag names in it. We are also able to use `/>` to close a tag.
+
+If you are authoring your templates directly in a DOM (e.g. as the content of a native `<template>` element), the template will be subject to the browser's native HTML parsing behavior. In such cases, you will need to use `kebab-case` and explicit closing tags for components:
+
+```vue-html
+<!-- if this template is written in the DOM -->
+<button-counter></button-counter>
+<button-counter></button-counter>
+<button-counter></button-counter>
+```
+
+See [DOM template parsing caveats](#dom-template-parsing-caveats) for more details.
 
 ## Passing Data to Child Components with Props
 
@@ -687,8 +698,8 @@ If you are writing your Vue templates directly in the DOM, Vue will have to retr
 :::tip
 It should be noted that the limitations discussed below only apply if you are writing your templates directly in the DOM. They do NOT apply if you are using string templates from the following sources:
 
-- String templates (e.g. `template: '...'`)
 - Single File Components
+- Inlined template strings (e.g. `template: '...'`)
 - `<script type="text/x-template">`
   :::
 

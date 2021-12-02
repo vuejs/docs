@@ -2,176 +2,138 @@
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
-## Component Names
-
-When registering a component, it will always be given a name. For example, in the global registration we've seen so far:
-
-```js
-const app = Vue.createApp({...})
-
-app.component('my-component-name', {
-  /* ... */
-})
-```
-
-The component's name is the first argument of `app.component`. In the example above, the component's name is "my-component-name".
-
-The name you give a component may depend on where you intend to use it. When using a component directly in the DOM (as opposed to in a string template or Single File Component), we strongly recommend following the [W3C rules](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) for custom tag names:
-
-1. All lowercase
-2. Contains a hyphen (i.e., has multiple words connected with the hyphen symbol)
-
-By doing so, this will help you avoid conflicts with current and future HTML elements.
-
-You can see other recommendations for component names in the [Style Guide](/style-guide/#base-component-names-strongly-recommended).
-
-### Name Casing
-
-When defining components in a string template or a single-file component, you have two options when defining component names:
-
-#### With kebab-case
-
-```js
-app.component('my-component-name', {
-  /* ... */
-})
-```
-
-When defining a component with kebab-case, you must also use kebab-case when referencing its custom element, such as in `<my-component-name>`.
-
-#### With PascalCase
-
-```js
-app.component('MyComponentName', {
-  /* ... */
-})
-```
-
-When defining a component with PascalCase, you can use either case when referencing its custom element. That means both `<my-component-name>` and `<MyComponentName>` are acceptable. Note, however, that only kebab-case names are valid directly in the DOM (i.e. non-string templates).
+A Vue component needs to be "registered" so that Vue knows where to locate its implementation when it is encountered in a template. There are two ways to register components: global and local.
 
 ## Global Registration
 
-So far, we've only created components using `app.component`:
+We can make components available globally in the current [Vue application](/guide/essentials/application.html) using the `app.component()` method:
 
 ```js
-Vue.createApp({...}).component('my-component-name', {
-  // ... options ...
-})
+import { createApp } from 'vue'
+
+const app = createApp({})
+
+app.component(
+  // the registered name
+  'MyComponent',
+  // the implementation
+  {
+    /* ... */
+  }
+)
 ```
 
-These components are **globally registered** for the application. That means they can be used in the template of any component instance within this application:
+If using SFCs, you will be registering the imported `.vue` files:
 
 ```js
-const app = Vue.createApp({})
+import MyComponent from './App.vue`
 
-app.component('component-a', {
-  /* ... */
-})
-app.component('component-b', {
-  /* ... */
-})
-app.component('component-c', {
-  /* ... */
-})
-
-app.mount('#app')
+app.component('MyComponent', MyComponent)
 ```
+
+The `app.component()` method can be chained:
+
+```js
+app
+  .component('ComponentA', ComponentA)
+  .component('ComponentB', ComponentB)
+  .component('ComponentC', ComponentC)
+```
+
+Globally registered components can be used in the template of any component instance within this application:
 
 ```vue-html
-<div id="app">
-  <component-a></component-a>
-  <component-b></component-b>
-  <component-c></component-c>
-</div>
+<!-- this will work in any component inside the app -->
+<ComponentA/>
+<ComponentB/>
+<ComponentC/>
 ```
 
 This even applies to all subcomponents, meaning all three of these components will also be available _inside each other_.
 
 ## Local Registration
 
-Global registration often isn't ideal. For example, if you're using a build system like Webpack, globally registering all components means that even if you stop using a component, it could still be included in your final build. This unnecessarily increases the amount of JavaScript your users have to download.
+While convenient, global registration has a few drawbacks:
 
-In these cases, you can define your components as plain JavaScript objects:
+1. Global registration prevents build systems from removing unused components (a.k.a "tree-shaking"). If you globally register a component but ends up not using it anywhere in your app, it will still be included in the final bundle.
 
-```js
-const ComponentA = {
-  /* ... */
-}
-const ComponentB = {
-  /* ... */
-}
-const ComponentC = {
-  /* ... */
-}
+2. Global registration makes dependency relationships less explicit in large applications. It makes it difficult to locate a child component's implementation from a parent component using it. This can affect long term maintainability similar to using too many global variables.
+
+Local registration scopes the availability of the registered components to the current component only. It makes the dependency relationship more explicit, and is more tree-shaking-friendly.
+
+<div class="composition-api">
+
+When using SFC with `<script setup>`, imported components are automatically local-registered:
+
+```vue
+<script setup>
+import ComponentA from './ComponentA.vue'
+</script>
+
+<template>
+  <ComponentA />
+</template>
 ```
 
-Then define the components you'd like to use in a `components` option:
+If not using SFC, you will need to use the `components` option:
 
 ```js
-const app = Vue.createApp({
+import ComponentA from './ComponentA.js'
+
+export default {
   components: {
-    'component-a': ComponentA,
-    'component-b': ComponentB
+    ComponentA
+  },
+  setup() {
+    // ...
   }
-})
-```
-
-For each property in the `components` object, the key will be the name of the custom element, while the value will contain the options object for the component.
-
-Note that **locally registered components are _not_ also available in subcomponents**. For example, if you wanted `ComponentA` to be available in `ComponentB`, you'd have to use:
-
-```js
-const ComponentA = {
-  /* ... */
-}
-
-const ComponentB = {
-  components: {
-    'component-a': ComponentA
-  }
-  // ...
 }
 ```
 
-Or if you're using ES2015 modules, such as through Babel and Webpack, that might look more like:
+</div>
+<div class="options-api">
 
-```js
+Local registration are done using the `components` option:
+
+```vue
+<script>
 import ComponentA from './ComponentA.vue'
 
 export default {
   components: {
     ComponentA
   }
-  // ...
 }
+</script>
+
+<template>
+  <ComponentA />
+</template>
 ```
 
-Note that in ES2015+, placing a variable name like `ComponentA` inside an object is shorthand for `ComponentA: ComponentA`, meaning the name of the variable is both:
+</div>
 
-- the custom element name to use in the template, and
-- the name of the variable containing the component options
-
-## Module Systems
-
-If you're not using a module system with `import`/`require`, you can probably skip this section for now. If you are, we have some special instructions and tips just for you.
-
-### Local Registration in a Module System
-
-If you're still here, then it's likely you're using a module system, such as with Babel and Webpack. In these cases, we recommend creating a `components` directory, with each component in its own file.
-
-Then you'll need to import each component you'd like to use, before you locally register it. For example, in a hypothetical `ComponentB.js` or `ComponentB.vue` file:
+For each property in the `components` object, the key will be the registered name of the component, while the value will contain the implementation of the component. The above example is using the ES2015 property shorthand and is equivalent to:
 
 ```js
-import ComponentA from './ComponentA'
-import ComponentC from './ComponentC'
-
 export default {
   components: {
-    ComponentA,
-    ComponentC
+    ComponentA: ComponentA
   }
   // ...
 }
 ```
 
-Now both `ComponentA` and `ComponentC` can be used inside `ComponentB`'s template.
+Note that **locally registered components are _not_ also available in descendent components**. In this case, `ComponentA` will be made available to the current component only, not any of its child or descendent components.
+
+## Component Name Casing
+
+Throughout the guide, we are using PascalCase for component registration names. This is because:
+
+1. PascalCase names are valid JavaScript identifiers. This makes it easier to import and register components in JavaScript.
+
+2. `<PascalCase />` makes it more obvious that this is a Vue component instead of a native HTML element in templates.
+
+This is the recommended style when working with SFC or string templates. However, as discussed in [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats), PascalCase tags are not usable in DOM templates.
+
+Luckily, Vue supports resolving kebab-case tags to components registered using PascalCase. This means a component registered as `MyComponent` can be referenced in the template via both `<MyComponent>` and `<my-component>`. This allows us to use the same JavaScript component registration code regardless of template source.
