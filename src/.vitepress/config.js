@@ -131,6 +131,10 @@ const sidebar = {
         { text: 'List Rendering', link: '/guide/essentials/list' },
         { text: 'Event Handling', link: '/guide/essentials/event-handling' },
         { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
+        {
+          text: 'Lifecycle Hooks',
+          link: '/guide/essentials/lifecycle'
+        },
         { text: 'Watchers', link: '/guide/essentials/watchers' },
         { text: 'Template Refs', link: '/guide/essentials/template-refs' },
         {
@@ -145,10 +149,6 @@ const sidebar = {
         {
           text: 'Registration',
           link: '/guide/components/registration'
-        },
-        {
-          text: 'Lifecycle',
-          link: '/guide/components/lifecycle'
         },
         { text: 'Props', link: '/guide/components/props' },
         { text: 'Non-Prop Attributes', link: '/guide/components/attrs' },
