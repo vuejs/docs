@@ -6,25 +6,38 @@ const query = ref('')
 
 const filtered = computed(() => {
   const q = query.value.toLowerCase()
+  const matches = (text: string) =>
+    text.toLowerCase().replace(/-/g, ' ').includes(q)
+
   return apiIndex
     .map((section) => {
-      if (section.text.toLowerCase().includes(q)) {
+      // section title match
+      if (matches(section.text)) {
         return section
       }
-      const items = section.items
+
+      // filter groups
+      const matchedGroups = section.items
         .map((item) => {
-          if (item.text.toLowerCase().includes(q)) {
+          // group title match
+          if (matches(item.text)) {
             return item
           }
-          const headers = item.headers.filter((h) => {
-            return h.toLowerCase().includes(q)
-          })
-          return headers.length
-            ? { text: item.text, link: item.link, headers }
+          // ssr special case
+          if (q.includes('ssr') && item.text.startsWith('Server')) {
+            return item
+          }
+          // filter headers
+          const matchedHeaders = item.headers.filter(matches)
+          return matchedHeaders.length
+            ? { text: item.text, link: item.link, headers: matchedHeaders }
             : null
         })
         .filter((i) => i)
-      return items.length ? { text: section.text, items } : null
+
+      return matchedGroups.length
+        ? { text: section.text, items: matchedGroups }
+        : null
     })
     .filter((i) => i)
 })
@@ -54,13 +67,13 @@ function slugify(text) {
       <input class="api-filter" placeholder="Filter" v-model="query" />
     </div>
 
-    <div v-for="section of filtered" class="api-section">
+    <div v-for="section of filtered" :key="section.text" class="api-section">
       <h2>{{ section.text }}</h2>
       <div class="api-groups">
-        <div v-for="item of section.items" class="api-group">
+        <div v-for="item of section.items" :key="item.text" class="api-group">
           <h3>{{ item.text }}</h3>
           <ul>
-            <li v-for="h of item.headers">
+            <li v-for="h of item.headers" :key="h">
               <a :href="item.link + '.html#' + slugify(h)">{{ h }}</a>
             </li>
           </ul>

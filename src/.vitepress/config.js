@@ -278,26 +278,6 @@ const sidebar = {
       ]
     },
     {
-      text: 'Options API',
-      items: [
-        { text: 'Options: State', link: '/api/options-state' },
-        { text: 'Options: Rendering', link: '/api/options-rendering' },
-        {
-          text: 'Options: Lifecycle',
-          link: '/api/options-lifecycle'
-        },
-        {
-          text: 'Options: Composition',
-          link: '/api/options-composition'
-        },
-        { text: 'Options: Misc', link: '/api/options-misc' },
-        {
-          text: 'Component Instance',
-          link: '/api/component-instance'
-        }
-      ]
-    },
-    {
       text: 'Composition API',
       items: [
         { text: 'setup()', link: '/api/composition-api-setup' },
@@ -320,6 +300,26 @@ const sidebar = {
         {
           text: 'Dependency Injection',
           link: '/api/composition-api-dependency-injection'
+        }
+      ]
+    },
+    {
+      text: 'Options API',
+      items: [
+        { text: 'Options: State', link: '/api/options-state' },
+        { text: 'Options: Rendering', link: '/api/options-rendering' },
+        {
+          text: 'Options: Lifecycle',
+          link: '/api/options-lifecycle'
+        },
+        {
+          text: 'Options: Composition',
+          link: '/api/options-composition'
+        },
+        { text: 'Options: Misc', link: '/api/options-misc' },
+        {
+          text: 'Component Instance',
+          link: '/api/component-instance'
         }
       ]
     },
