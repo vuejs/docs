@@ -217,6 +217,17 @@ const props = defineProps(['title'])
 console.log(props.title)
 ```
 
+If you are not using `<script setup>`, props should be declared using the `props` option, and the props object will be passed to `setup()` as the first argument:
+
+```js
+export default {
+  props: ['title'],
+  setup(props) {
+    console.log(props.title)
+  }
+}
+```
+
 </div>
 
 A component can have as many props as you like and, by default, any value can be passed to any prop.
@@ -407,7 +418,24 @@ This documents all the events that a component emits and optionally [validate th
 
 <div class="composition-api">
 
-Similar to `defineProps`, `defineEmits` is also only usable in `<script setup>` and doesn't need to be imported. It returns an `emit` function that can be used to emit events in JavaScript code.
+Similar to `defineProps`, `defineEmits` is also only usable in `<script setup>` and doesn't need to be imported. It returns an `emit` function that can be used to emit events in JavaScript code:
+
+```js
+const emit = defineEmits(['enlarge-text'])
+
+emit('enlarge-text')
+```
+
+If you are not using `<script setup>`, you can declare emitted events using the `emits` option. You can access the `emit` function as a property of the setup context (passed to `setup()` as the second argument):
+
+```js
+export default {
+  emits: ['enlarge-text'],
+  setup(props, ctx) {
+    ctx.emit('enlarge-text')
+  }
+}
+```
 
 </div>
 

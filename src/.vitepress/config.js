@@ -151,7 +151,7 @@ const sidebar = {
           link: '/guide/components/registration'
         },
         { text: 'Props', link: '/guide/components/props' },
-        { text: 'Non-Prop Attributes', link: '/guide/components/attrs' },
+        { text: 'Fallthrough Attributes', link: '/guide/components/attrs' },
         { text: 'Events', link: '/guide/components/events' },
         { text: 'Slots', link: '/guide/components/slots' },
         {
