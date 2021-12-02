@@ -44,9 +44,16 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
 You should now have your first Vue project running! Here are some additional tips:
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar). [WebStorm](https://www.jetbrains.com/webstorm/) is also viable.
-- More tooling details are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
+- More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
 - To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
 - If you chose to use TypeScript, check out [Using Vue with TypeScript](scaling-up/typescript.html).
+
+When you are ready to ship your app to production, run the following:
+
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#A6ACCD;">npm run build</span></span>
+<span class="line"></span></code></pre></div>
+
+This will create a production-ready build of your app in the project's `./dist` directory. Check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html) to learn more about shipping your app to production.
 
 ## Without Build Tools
 
@@ -68,7 +75,9 @@ To get started with Vue without a build step, simply copy the following code int
 </script>
 ```
 
-The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable. However, we will be primarily using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax throughout the documentation for consistency. In order to use Vue over native ES modules, use the following HTML instead:
+The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable.
+
+While the global build works, we will be primarily using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax throughout the rest of the documentation for consistency. In order to use Vue over native ES modules, use the following HTML instead:
 
 ```html
 <script type="importmap">

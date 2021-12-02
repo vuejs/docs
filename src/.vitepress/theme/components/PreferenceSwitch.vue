@@ -75,7 +75,7 @@ function useToggleFn(
           >?</a
         >
       </div>
-      <div class="switch-container">
+      <div class="switch-container" v-if="route.path.startsWith('/examples')">
         <label class="no-sfc-label" @click="toggleSFC(false)">HTML</label>
         <VTSwitch
           class="sfc-switch"
@@ -141,8 +141,8 @@ function useToggleFn(
   align-items: center;
 }
 
-.switch-container:first-child {
-  margin-bottom: 10px;
+.switch-container:nth-child(2) {
+  margin-top: 10px;
 }
 
 .vt-switch {
