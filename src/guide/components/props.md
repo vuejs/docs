@@ -205,7 +205,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 
 ### Binding Multiple Properties Using an Object
 
-If you want to pass all the properties of an object as props, you can use `v-bind` without an argument (`v-bind` instead of `:prop-name`). For example, given a `post` object:
+If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
 
 <div class="options-api">
 
