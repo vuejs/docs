@@ -1,108 +1,83 @@
+---
+aside: deep
+---
+
 # Slots
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
-## Slot Content
+## Slot Content and Outlet
 
-Vue implements a content distribution API inspired by the [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), using the `<slot>` element to serve as distribution outlets for content.
+We have learned that components can accept props, which can be JavaScript values of any type. But how about template content? In some cases, we may want to pass a template fragment to a child component, and let the child component render the fragment within its own template.
 
-This allows you to compose components like this:
+For example, we may have a `<FancyButton>` component that supports usage like this:
 
-```vue-html
-<todo-button>
-  Add todo
-</todo-button>
+```vue-html{2}
+<FancyButton>
+  Click me! <!-- slot content -->
+</FancyButton>
 ```
 
-Then in the template for `<todo-button>`, you might have:
+This is how the template of `<FancyButton>` looks like:
 
-```vue-html
-<!-- todo-button component template -->
-<button class="btn-primary">
-  <slot></slot>
+```vue-html{2}
+<button class="fancy-btn">
+  <slot></slot> <!-- slot outlet -->
 </button>
 ```
 
-When the component renders, `<slot></slot>` will be replaced by "Add Todo".
+Notice the `<slot>` element, which is a **slot outlet** that indicates where the parent-provided **slot content** should be rendered.
 
-```vue-html
-<!-- rendered HTML -->
-<button class="btn-primary">
-  Add todo
-</button>
+![slot diagram](/images/slots.png)
+
+And the final rendered DOM:
+
+```html
+<button class="fancy-btn">Click me!</button>
 ```
 
-Strings are just the beginning though! Slots can also contain any template code, including HTML:
+With slots, the `<FancyButton>` is responsible for rendering the outer `<button>` (and its fancy styling), while the inner content is determined by the parent component using `<FancyButton>`. This makes our `<FancyButton>` more flexible and reusable, since we can now use it in different places with different inner content, but all with the same fancy styling.
+
+Slot content is not just limited to text. It can be any valid template content. For example, we can pass in elements or even other components:
 
 ```vue-html
-<todo-button>
-  <!-- Add a Font Awesome icon -->
-  <i class="fas fa-plus"></i>
-  Add todo
-</todo-button>
+<FancyButton>
+  <span style="color:red">Click me!</span>
+  <AwesomeIcon name="plus" />
+</FancyButton>
 ```
 
-Or even other components:
+<div class="composition-api">
 
-```vue-html
-<todo-button>
-  <!-- Use a component to add an icon -->
-  <font-awesome-icon name="plus"></font-awesome-icon>
-  Add todo
-</todo-button>
-```
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBGYW5jeUJ1dHRvbiBmcm9tICcuL0ZhbmN5QnV0dG9uLnZ1ZSdcbmltcG9ydCBBd2Vzb21lSWNvbiBmcm9tICcuL0F3ZXNvbWVJY29uLnZ1ZSdcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxGYW5jeUJ1dHRvbj5cbiAgICBDbGljayBtZVxuIFx0PC9GYW5jeUJ1dHRvbj5cblxuICA8RmFuY3lCdXR0b24+XG4gICAgPHNwYW4gc3R5bGU9XCJjb2xvcjpyZWRcIj5DbGljayBtZSE8L3NwYW4+XG4gICAgPEF3ZXNvbWVJY29uIC8+XG4gIDwvRmFuY3lCdXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJGYW5jeUJ1dHRvbi52dWUiOiI8dGVtcGxhdGU+XG4gIDxidXR0b24gY2xhc3M9XCJmYW5jeS1idG5cIj5cbiAgXHQ8c2xvdC8+XG5cdDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlPlxuLmZhbmN5LWJ0biB7XG4gIGNvbG9yOiAjZmZmO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMzE1ZGVnLCAjNDJkMzkyIDI1JSwgIzY0N2VmZik7XG4gIGJvcmRlcjogbm9uZTtcbiAgcGFkZGluZzogMTBweDtcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xufVxuPC9zdHlsZT4iLCJBd2Vzb21lSWNvbi52dWUiOiI8IS0tIHVzaW5nIGFuIGVtb2ppIGp1c3QgZm9yIGRlbW8gcHVycG9zZXMgLS0+XG48dGVtcGxhdGU+4p6VPC90ZW1wbGF0ZT4ifQ==)
 
-If `<todo-button>`'s template did **not** contain a `<slot>` element, any content provided between its opening and closing tag would be discarded.
+</div>
+<div class="options-api">
 
-```vue-html
-<!-- todo-button component template -->
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBGYW5jeUJ1dHRvbiBmcm9tICcuL0ZhbmN5QnV0dG9uLnZ1ZSdcbmltcG9ydCBBd2Vzb21lSWNvbiBmcm9tICcuL0F3ZXNvbWVJY29uLnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgRmFuY3lCdXR0b24sIEF3ZXNvbWVJY29uIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxGYW5jeUJ1dHRvbj5cbiAgICBDbGljayBtZVxuIFx0PC9GYW5jeUJ1dHRvbj5cblxuICA8RmFuY3lCdXR0b24+XG4gICAgPHNwYW4gc3R5bGU9XCJjb2xvcjpyZWRcIj5DbGljayBtZSE8L3NwYW4+XG4gICAgPEF3ZXNvbWVJY29uIC8+XG4gIDwvRmFuY3lCdXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJGYW5jeUJ1dHRvbi52dWUiOiI8dGVtcGxhdGU+XG4gIDxidXR0b24gY2xhc3M9XCJmYW5jeS1idG5cIj5cbiAgXHQ8c2xvdC8+XG5cdDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlPlxuLmZhbmN5LWJ0biB7XG4gIGNvbG9yOiAjZmZmO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMzE1ZGVnLCAjNDJkMzkyIDI1JSwgIzY0N2VmZik7XG4gIGJvcmRlcjogbm9uZTtcbiAgcGFkZGluZzogMTBweDtcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xufVxuPC9zdHlsZT4iLCJBd2Vzb21lSWNvbi52dWUiOiI8IS0tIHVzaW5nIGFuIGVtb2ppIGp1c3QgZm9yIGRlbW8gcHVycG9zZXMgLS0+XG48dGVtcGxhdGU+4p6VPC90ZW1wbGF0ZT4ifQ==)
 
-<button class="btn-primary">
-  Create a new item
-</button>
-```
+</div>
 
-```vue-html
-<todo-button>
-  <!-- Following text won't be rendered -->
-  Add todo
-</todo-button>
-```
+Vue components' slot mechanism is inspired by the [native Web Component `<slot>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot), but with additional capabilities that we will see later.
 
 ## Render Scope
 
-When you want to use data inside a slot, such as in:
+Slot content has access to the data scope of the parent component, because it is defined in the parent. For example:
 
 ```vue-html
-<todo-button>
-  Delete a {{ item.name }}
-</todo-button>
+<span>{{ message }}</span>
+<FancyButton>{{ message }}</FancyButton>
 ```
 
-That slot has access to the same instance properties (i.e. the same "scope") as the rest of the template.
+Here both <span v-pre>`{{ message }}`</span> interpolations will render the same content, even though one of them is passed into a child component.
 
-<img src="/images/slot.png" width="447" height="auto" style="display: block; margin: 0 auto; max-width: 100%" loading="lazy" alt="Slot explanation diagram">
-
-The slot does **not** have access to `<todo-button>`'s scope. For example, trying to access `action` would not work:
-
-```vue-html
-<todo-button action="delete">
-  Clicking here will {{ action }} an item
-  <!--
-  The `action` will be undefined, because this content is passed
-  _to_ <todo-button>, rather than defined _inside_ the
-  <todo-button> component.
-  -->
-</todo-button>
-```
-
-As a rule, remember that:
+Slot content does **not** have access to the child component's data. As a rule, remember that:
 
 > Everything in the parent template is compiled in parent scope; everything in the child template is compiled in the child scope.
 
 ## Fallback Content
 
-There are cases when it's useful to specify fallback (i.e. default) content for a slot, to be rendered only when no content is provided. For example, in a `<submit-button>` component:
+There are cases when it's useful to specify fallback (i.e. default) content for a slot, to be rendered only when no content is provided. For example, in a `<SubmitButton>` component:
 
 ```vue-html
 <button type="submit">
@@ -112,45 +87,52 @@ There are cases when it's useful to specify fallback (i.e. default) content for 
 
 We might want the text "Submit" to be rendered inside the `<button>` most of the time. To make "Submit" the fallback content, we can place it in between the `<slot>` tags:
 
-```vue-html
+```vue-html{3}
 <button type="submit">
-  <slot>Submit</slot>
+  <slot>
+    Submit <!-- fallback content -->
+  </slot>
 </button>
 ```
 
 Now when we use `<submit-button>` in a parent component, providing no content for the slot:
 
 ```vue-html
-<submit-button></submit-button>
+<SubmitButton />
 ```
 
-will render the fallback content, "Submit":
+This will render the fallback content, "Submit":
 
-```vue-html
-<button type="submit">
-  Submit
-</button>
+```html
+<button type="submit">Submit</button>
 ```
 
 But if we provide content:
 
 ```vue-html
-<submit-button>
-  Save
-</submit-button>
+<SubmitButton>Save</SubmitButton>
 ```
 
 Then the provided content will be rendered instead:
 
-```vue-html
-<button type="submit">
-  Save
-</button>
+```html
+<button type="submit">Save</button>
 ```
+
+<div class="composition-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBTdWJtaXRCdXR0b24gZnJvbSAnLi9TdWJtaXRCdXR0b24udnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPCEtLSB1c2UgZmFsbGJhY2sgdGV4dCAtLT5cbiAgPFN1Ym1pdEJ1dHRvbiAvPlxuICBcbiAgPCEtLSBwcm92aWRlIGN1c3RvbSB0ZXh0IC0tPlxuICA8U3VibWl0QnV0dG9uPlNhdmU8L1N1Ym1pdEJ1dHRvbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIlN1Ym1pdEJ1dHRvbi52dWUiOiI8dGVtcGxhdGU+XG4gIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiPlxuXHQgIDxzbG90PlxuICAgIFx0U3VibWl0IDwhLS0gZmFsbGJhY2sgY29udGVudCAtLT5cbiAgXHQ8L3Nsb3Q+XG5cdDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4ifQ==)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBTdWJtaXRCdXR0b24gZnJvbSAnLi9TdWJtaXRCdXR0b24udnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIFN1Ym1pdEJ1dHRvblxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8IS0tIHVzZSBmYWxsYmFjayB0ZXh0IC0tPlxuICA8U3VibWl0QnV0dG9uIC8+XG4gIFxuICA8IS0tIHByb3ZpZGUgY3VzdG9tIHRleHQgLS0+XG4gIDxTdWJtaXRCdXR0b24+U2F2ZTwvU3VibWl0QnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiU3VibWl0QnV0dG9uLnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGJ1dHRvbiB0eXBlPVwic3VibWl0XCI+XG5cdCAgPHNsb3Q+XG4gICAgXHRTdWJtaXQgPCEtLSBmYWxsYmFjayBjb250ZW50IC0tPlxuICBcdDwvc2xvdD5cblx0PC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+
+</div>
 
 ## Named Slots
 
-There are times when it's useful to have multiple slots. For example, in a `<base-layout>` component with the following template:
+There are times when it's useful to have multiple slot outlets in a single component. For example, in a `<BaseLayout>` component with the following template:
 
 ```vue-html
 <div class="container">
@@ -184,28 +166,40 @@ For these cases, the `<slot>` element has a special attribute, `name`, which can
 
 A `<slot>` outlet without `name` implicitly has the name "default".
 
-To provide content to named slots, we need to use the `v-slot` directive on a `<template>` element, providing the name of the slot as `v-slot`'s argument:
+In a parent component using `<BaseLayout>`, we need a way to pass multiple slot content framgents, each targeting a different slot outlet. This is where the `v-slot` directive comes in.
+
+`v-slot` must be used on a `<template>`, where it expects an argument correspnding to its target slot's name:
 
 ```vue-html
-<base-layout>
+<BaseLayout>
   <template v-slot:header>
+    <!-- content for the header slot -->
+  </template>
+</BaseLayout>
+```
+
+`v-slot` has a dedicated shorthand `#`, so `<template v-slot:header>` can be shortened to just `<template #header>`. It means "render this template fragment in the child component's 'header' slot".
+
+Here's us passing content to all three slots to `<BaseLayout>` using the shorthand syntax:
+
+```vue-html
+<BaseLayout>
+  <template #header>
     <h1>Here might be a page title</h1>
   </template>
 
-  <template v-slot:default>
+  <template #default>
     <p>A paragraph for the main content.</p>
     <p>And another one.</p>
   </template>
 
-  <template v-slot:footer>
+  <template #footer>
     <p>Here's some contact info</p>
   </template>
-</base-layout>
+</BaseLayout>
 ```
 
-Now everything inside the `<template>` elements will be passed to the corresponding slots.
-
-The rendered HTML will be:
+Now everything inside the `<template>` elements will be passed to the corresponding slots. The final rendered HTML will be:
 
 ```vue-html
 <div class="container">
@@ -222,11 +216,47 @@ The rendered HTML will be:
 </div>
 ```
 
+<div class="composition-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBCYXNlTGF5b3V0IGZyb20gJy4vQmFzZUxheW91dC52dWUnXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8QmFzZUxheW91dD5cbiAgICA8dGVtcGxhdGUgI2hlYWRlcj5cbiAgICAgIDxoMT5IZXJlIG1pZ2h0IGJlIGEgcGFnZSB0aXRsZTwvaDE+XG4gICAgPC90ZW1wbGF0ZT5cblxuICAgIDx0ZW1wbGF0ZSAjZGVmYXVsdD5cbiAgICAgIDxwPkEgcGFyYWdyYXBoIGZvciB0aGUgbWFpbiBjb250ZW50LjwvcD5cbiAgICAgIDxwPkFuZCBhbm90aGVyIG9uZS48L3A+XG4gICAgPC90ZW1wbGF0ZT5cblxuICAgIDx0ZW1wbGF0ZSAjZm9vdGVyPlxuICAgICAgPHA+SGVyZSdzIHNvbWUgY29udGFjdCBpbmZvPC9wPlxuICAgIDwvdGVtcGxhdGU+XG4gIDwvQmFzZUxheW91dD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkJhc2VMYXlvdXQudnVlIjoiPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwiY29udGFpbmVyXCI+XG4gICAgPGhlYWRlcj5cbiAgICAgIDxzbG90IG5hbWU9XCJoZWFkZXJcIj48L3Nsb3Q+XG4gICAgPC9oZWFkZXI+XG4gICAgPG1haW4+XG4gICAgICA8c2xvdD48L3Nsb3Q+XG4gICAgPC9tYWluPlxuICAgIDxmb290ZXI+XG4gICAgICA8c2xvdCBuYW1lPVwiZm9vdGVyXCI+PC9zbG90PlxuICAgIDwvZm9vdGVyPlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZT5cbiAgZm9vdGVyIHtcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgI2NjYztcbiAgICBjb2xvcjogIzY2NjtcbiAgICBmb250LXNpemU6IDAuOGVtO1xuICB9XG48L3N0eWxlPiJ9)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCYXNlTGF5b3V0IGZyb20gJy4vQmFzZUxheW91dC52dWUnXG4gIFxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7XG4gICAgQmFzZUxheW91dFxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8QmFzZUxheW91dD5cbiAgICA8dGVtcGxhdGUgI2hlYWRlcj5cbiAgICAgIDxoMT5IZXJlIG1pZ2h0IGJlIGEgcGFnZSB0aXRsZTwvaDE+XG4gICAgPC90ZW1wbGF0ZT5cblxuICAgIDx0ZW1wbGF0ZSAjZGVmYXVsdD5cbiAgICAgIDxwPkEgcGFyYWdyYXBoIGZvciB0aGUgbWFpbiBjb250ZW50LjwvcD5cbiAgICAgIDxwPkFuZCBhbm90aGVyIG9uZS48L3A+XG4gICAgPC90ZW1wbGF0ZT5cblxuICAgIDx0ZW1wbGF0ZSAjZm9vdGVyPlxuICAgICAgPHA+SGVyZSdzIHNvbWUgY29udGFjdCBpbmZvPC9wPlxuICAgIDwvdGVtcGxhdGU+XG4gIDwvQmFzZUxheW91dD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkJhc2VMYXlvdXQudnVlIjoiPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwiY29udGFpbmVyXCI+XG4gICAgPGhlYWRlcj5cbiAgICAgIDxzbG90IG5hbWU9XCJoZWFkZXJcIj48L3Nsb3Q+XG4gICAgPC9oZWFkZXI+XG4gICAgPG1haW4+XG4gICAgICA8c2xvdD48L3Nsb3Q+XG4gICAgPC9tYWluPlxuICAgIDxmb290ZXI+XG4gICAgICA8c2xvdCBuYW1lPVwiZm9vdGVyXCI+PC9zbG90PlxuICAgIDwvZm9vdGVyPlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZT5cbiAgZm9vdGVyIHtcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgI2NjYztcbiAgICBjb2xvcjogIzY2NjtcbiAgICBmb250LXNpemU6IDAuOGVtO1xuICB9XG48L3N0eWxlPiJ9)
+
+</div>
+
 Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#abbreviated-syntax-for-lone-default-slots))
+
+## Dynamic Slot Names
+
+[Dynamic directive arguments](/guide/essentials/template-syntax.md#dynamic-arguments) also work on `v-slot`, allowing the definition of dynamic slot names:
+
+```vue-html
+<base-layout>
+  <template v-slot:[dynamicSlotName]>
+    ...
+  </template>
+
+  <!-- with shorthand -->
+  <template #[dynamicSlotName]>
+    ...
+  </template>
+</base-layout>
+```
+
+Do note the expression is subject to the same [syntax constraints](/guide/essentials/template-syntax.html#directives) of dynamic directive arguments.
 
 ## Scoped Slots
 
-Sometimes, it's useful for slot content to have access to data only available in the child component. It's a common case when a component is used to render an array of items, and we want to be able to customize the way each item is rendered.
+As discussed in [Render Scope](#render-scope), slot content does not have access to state in the child component.
+
+However, there are cases where it could be useful if the child component can selectively expose data to the slot content passed by the parent. For example, we can have a
+
+- Think of scoped slots as callback functions being passed into the child component (in fact, slots are compiled into functions!)
+  - The child component call the slot function while passing it props
+  - The slot function use the props to render and return content
 
 For example, we have a component, containing a list of todo-items.
 
@@ -374,59 +404,6 @@ You can even define fallbacks, to be used in case a slot prop is undefined:
 
 ```vue-html
 <todo-list v-slot="{ item = 'Placeholder' }">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ item }}</span>
-</todo-list>
-```
-
-## Dynamic Slot Names
-
-[Dynamic directive arguments](/guide/essentials/template-syntax.md#dynamic-arguments) also work on `v-slot`, allowing the definition of dynamic slot names:
-
-```vue-html
-<base-layout>
-  <template v-slot:[dynamicSlotName]>
-    ...
-  </template>
-</base-layout>
-```
-
-## Named Slots Shorthand
-
-Similar to `v-on` and `v-bind`, `v-slot` also has a shorthand, replacing everything before the argument (`v-slot:`) with the special symbol `#`. For example, `v-slot:header` can be rewritten as `#header`:
-
-```vue-html
-<base-layout>
-  <template #header>
-    <h1>Here might be a page title</h1>
-  </template>
-
-  <template #default>
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
-  </template>
-
-  <template #footer>
-    <p>Here's some contact info</p>
-  </template>
-</base-layout>
-```
-
-However, just as with other directives, the shorthand is only available when an argument is provided. That means the following syntax is invalid:
-
-```vue-html
-<!-- This will trigger a warning -->
-
-<todo-list #="{ item }">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ item }}</span>
-</todo-list>
-```
-
-Instead, you must always specify the name of the slot if you wish to use the shorthand:
-
-```vue-html
-<todo-list #default="{ item }">
   <i class="fas fa-check"></i>
   <span class="green">{{ item }}</span>
 </todo-list>
