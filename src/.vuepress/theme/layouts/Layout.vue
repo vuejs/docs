@@ -77,7 +77,7 @@ export default {
       isSidebarOpen: false,
       isBannerOpen: false,
       isMenuFixed: false,
-      nameStorage: 'vuemastery-banner--black-friday-2021',
+      nameStorage: 'vuemastery-banner--free-weekend-december-2021',
       menuPosition: 0
     }
   },
