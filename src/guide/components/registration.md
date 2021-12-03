@@ -130,9 +130,9 @@ Note that **locally registered components are _not_ also available in descendent
 
 Throughout the guide, we are using PascalCase for component registration names. This is because:
 
-1. PascalCase names are valid JavaScript identifiers. This makes it easier to import and register components in JavaScript.
+1. PascalCase names are valid JavaScript identifiers. This makes it easier to import and register components in JavaScript. It also helps IDEs with auto-completion.
 
-2. `<PascalCase />` makes it more obvious that this is a Vue component instead of a native HTML element in templates.
+2. `<PascalCase />` makes it more obvious that this is a Vue component instead of a native HTML element in templates. It also differentiates Vue components from custom elements (web components).
 
 This is the recommended style when working with SFC or string templates. However, as discussed in [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats), PascalCase tags are not usable in DOM templates.
 

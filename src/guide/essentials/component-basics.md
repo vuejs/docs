@@ -235,9 +235,9 @@ A component can have as many props as you like and, by default, any value can be
 Once a prop is registered, you can pass data to it as a custom attribute, like this:
 
 ```vue-html
-<BlogPost title="My journey with Vue"></BlogPost>
-<BlogPost title="Blogging with Vue"></BlogPost>
-<BlogPost title="Why Vue is so fun"></BlogPost>
+<BlogPost title="My journey with Vue" />
+<BlogPost title="Blogging with Vue" />
+<BlogPost title="Why Vue is so fun" />
 ```
 
 In a typical app, however, you'll likely have an array of posts in your parent component:
@@ -279,7 +279,7 @@ Then want to render a component for each one, using `v-for`:
   v-for="post in posts"
   :key="post.id"
   :title="post.title"
-></BlogPost>
+ />
 ```
 
 <div class="options-api">
@@ -337,7 +337,7 @@ Which can be used in the template to control the font size of all blog posts:
     v-for="post in posts"
     :key="post.id"
     :title="post.title"
-  ></BlogPost>
+   />
 </div>
 ```
 
@@ -359,7 +359,7 @@ The button currently doesn't do anything yet - we want clicking the button to co
 <BlogPost
   ...
   @enlarge-text="postFontSize += 0.1"
-></BlogPost>
+ />
 ```
 
 Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](/api/component-instance.html#emit), passing the name of the event:
@@ -435,193 +435,6 @@ export default {
     ctx.emit('enlarge-text')
   }
 }
-```
-
-</div>
-
-### Emitting a Value With an Event
-
-It's sometimes useful to emit a specific value with an event. For example, we may want the `<BlogPost>` component to be in charge of how much to enlarge the text by. In those cases, we can pass a second parameter to `$emit` to provide this value:
-
-```vue-html
-<button @click="$emit('enlargeText', 0.1)">
-  Enlarge text
-</button>
-```
-
-Then when we listen to the event in the parent, we can access the emitted event's value with `$event`:
-
-```vue-html
-<BlogPost ... @enlarge-text="postFontSize += $event"></BlogPost>
-```
-
-Or, if the event handler is a method:
-
-```vue-html
-<BlogPost ... @enlarge-text="onEnlargeText"></BlogPost>
-```
-
-Then the value will be passed as the first parameter of that method:
-
-<div class="options-api">
-
-```js
-methods: {
-  onEnlargeText(enlargeAmount) {
-    this.postFontSize += enlargeAmount
-  }
-}
-```
-
-</div>
-<div class="composition-api">
-
-```js
-function onEnlargeText(enlargeAmount) {
-  postFontSize.value += enlargeAmount
-}
-```
-
-</div>
-
-### Using `v-model` on Components
-
-Custom events can also be used to create custom inputs that work with `v-model`. Remember that:
-
-```vue-html
-<input v-model="searchText" />
-```
-
-does the same thing as:
-
-```vue-html
-<input :value="searchText" @input="searchText = $event.target.value" />
-```
-
-When used on a component, `v-model` instead does this:
-
-```vue-html
-<CustomInput
-  :modelValue="searchText"
-  @update:modelValue="searchText = $event"
-></CustomInput>
-```
-
-For this to actually work though, the `<input>` inside the component must:
-
-- Bind the `value` attribute to the `modelValue` prop
-- On `input`, emit an `update:modelValue` event with the new value
-
-Here's that in action:
-
-<div class="options-api">
-
-```vue
-<!-- CustomInput.vue -->
-<script>
-export default {
-  props: ['modelValue'],
-  emits: ['update:modelValue']
-}
-</script>
-
-<template>
-  <input
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
-  />
-</template>
-```
-
-</div>
-<div class="composition-api">
-
-```vue
-<!-- CustomInput.vue -->
-<script setup>
-defineProps(['modelValue'])
-defineEmits(['update:modelValue'])
-</script>
-
-<template>
-  <input
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
-  />
-</template>
-```
-
-</div>
-
-Now `v-model` should work perfectly with this component:
-
-```vue-html
-<CustomInput v-model="searchText"></CustomInput>
-```
-
-<div class="options-api">
-
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDdXN0b21JbnB1dCBmcm9tICcuL0N1c3RvbUlucHV0LnZ1ZSdcblxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7IEN1c3RvbUlucHV0IH0sXG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIG1lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxDdXN0b21JbnB1dCB2LW1vZGVsPVwibWVzc2FnZVwiIC8+IHt7IG1lc3NhZ2UgfX1cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkN1c3RvbUlucHV0LnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIHByb3BzOiBbJ21vZGVsVmFsdWUnXSxcbiAgZW1pdHM6IFsndXBkYXRlOm1vZGVsVmFsdWUnXVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGlucHV0XG4gICAgOnZhbHVlPVwibW9kZWxWYWx1ZVwiXG4gICAgQGlucHV0PVwiJGVtaXQoJ3VwZGF0ZTptb2RlbFZhbHVlJywgJGV2ZW50LnRhcmdldC52YWx1ZSlcIlxuICAvPlxuPC90ZW1wbGF0ZT4ifQ==)
-
-</div>
-<div class="composition-api">
-
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBDdXN0b21JbnB1dCBmcm9tICcuL0N1c3RvbUlucHV0LnZ1ZSdcbiAgXG5jb25zdCBtZXNzYWdlID0gcmVmKCdoZWxsbycpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8Q3VzdG9tSW5wdXQgdi1tb2RlbD1cIm1lc3NhZ2VcIiAvPiB7eyBtZXNzYWdlIH19XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJDdXN0b21JbnB1dC52dWUiOiI8c2NyaXB0IHNldHVwPlxuZGVmaW5lUHJvcHMoWydtb2RlbFZhbHVlJ10pXG5kZWZpbmVFbWl0cyhbJ3VwZGF0ZTptb2RlbFZhbHVlJ10pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8aW5wdXRcbiAgICA6dmFsdWU9XCJtb2RlbFZhbHVlXCJcbiAgICBAaW5wdXQ9XCIkZW1pdCgndXBkYXRlOm1vZGVsVmFsdWUnLCAkZXZlbnQudGFyZ2V0LnZhbHVlKVwiXG4gIC8+XG48L3RlbXBsYXRlPiJ9)
-
-</div>
-
-Another way of implementing `v-model` within this component is to use a writable `computed` property with both a getter and a setter. The `get` method should return the `modelValue` property and the `set` method should emit the corresponding event:
-
-<div class="options-api">
-
-```vue
-<!-- CustomInput.vue -->
-<script>
-export default {
-  props: ['modelValue'],
-  emits: ['update:modelValue'],
-  computed: {
-    value: {
-      get() {
-        return this.modelValue
-      },
-      set(value) {
-        this.$emit('update:modelValue', value)
-      }
-    }
-  }
-}
-</script>
-
-<template>
-  <input v-model="value" />
-</template>
-```
-
-</div>
-<div class="composition-api">
-
-```vue
-<!-- CustomInput.vue -->
-<script setup>
-import { computed } from 'vue'
-
-const props = defineProps(['modelValue'])
-const emit = defineEmits(['update:modelValue'])
-
-const value = computed({
-  get() {
-    return props.modelValue
-  },
-  set(value) {
-    emit('update:modelValue', value)
-  }
-})
-</script>
-
-<template>
-  <input v-model="value" />
-</template>
 ```
 
 </div>
