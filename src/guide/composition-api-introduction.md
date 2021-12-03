@@ -320,7 +320,7 @@ import { ref, onMounted, watch, toRefs } from 'vue'
 
 // in our component
 setup (props) {
-  // using `toRefs` to create a Reactive Reference to the `user` property of props
+  // using `toRefs` to create a Reactive Reference to the `user` property of `props`
   const { user } = toRefs(props)
 
   const repositories = ref([])
