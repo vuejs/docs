@@ -155,7 +155,7 @@ Events emitted via `this.$emit` or setup `emit` are dispatched as native [Custom
 
 #### Slots
 
-Inside the component, slots can be rendered using the `<slot/>` element as usual. However when consuming the resulting element, it only accepts [native slots syntax](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots):
+Inside the component, slots can be rendered using the `<slot/>` element as usual. However, when consuming the resulting element, it only accepts [native slots syntax](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots):
 
 - [Scoped slots](/guide/components/slots.html#scoped-slots) are not supported.
 
@@ -173,7 +173,7 @@ The [Provide / Inject API](/guide/components/provide-inject.html#provide-inject)
 
 ### SFC as Custom Element
 
-`defineCustomElement` also works with Vue Single File Components (SFCs). However, with the default tooling setup, the `<style>` inside the SFCs will still be extracted and merged into a single CSS file during production build. When using an SFC as a custom element, it is often desirable to inject the `<style>` tags into the custom element's shadow root instead.
+`defineCustomElement` also works with Vue Single-File Components (SFCs). However, with the default tooling setup, the `<style>` inside the SFCs will still be extracted and merged into a single CSS file during production build. When using an SFC as a custom element, it is often desirable to inject the `<style>` tags into the custom element's shadow root instead.
 
 The official SFC toolings support importing SFCs in "custom element mode" (requires `@vitejs/plugin-vue@^1.4.0` or `vue-loader@^16.5.0`). An SFC loaded in custom element mode inlines its `<style>` tags as strings of CSS and exposes them under the component's `styles` option. This will be picked up by `defineCustomElement` and injected into the element's shadow root when instantiated.
 
@@ -217,8 +217,8 @@ const MyBar = defineCustomElement(Bar)
 export { MyFoo, MyBar }
 
 export function register() {
-  customElements.register('my-foo', MyFoo)
-  customElements.register('my-bar', MyBar)
+  customElements.define('my-foo', MyFoo)
+  customElements.define('my-bar', MyBar)
 }
 ```
 

@@ -188,7 +188,7 @@ If the child component is using Options API or not using `<script setup>`, the r
 
 <div class="composition-api">
 
-An exception here is that components using `<script setup>` are **private by default**: a parent component referencing a child component using `<script setup>` won't be able to access anything unless the child component choose to expose a public interface using the `defineExpose` macro:
+An exception here is that components using `<script setup>` are **private by default**: a parent component referencing a child component using `<script setup>` won't be able to access anything unless the child component chooses to expose a public interface using the `defineExpose` macro:
 
 ```vue
 <script setup>
@@ -215,8 +215,10 @@ The `expose` option can be used to limit the access to a child instance:
 export default {
   expose: ['publicData', 'publicMethod'],
   data() {
-    publicData: 'foo',
-    privateData: 'bar'
+    return {
+      publicData: 'foo',
+      privateData: 'bar'
+    }
   },
   methods: {
     publicMethod() { /* ... */ },

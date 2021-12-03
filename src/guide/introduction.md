@@ -182,7 +182,7 @@ First of all, it is important to note that both API styles are fully capable of 
 
 The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope, and composing state from multiple functions together to handle complexity. It is more free-form, and requires understanding how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
+The Composition API is centered around declaring reactive state variables directly in a function scope, and composing state from multiple functions together to handle complexity. It is more free-form, and requires understanding of how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
 
 You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/advanced/composition-api-faq).
 
@@ -194,7 +194,7 @@ If you are new to Vue, here's our general recommendation:
 
   - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
 
-  - Go with Composition API + Single File Components if you plan to build full applications with Vue.
+  - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
 
 You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
 
@@ -204,7 +204,7 @@ Check out our [FAQ](/about/faq).
 
 ## Pick Your Learning Path
 
-Different developers have different learning styles. Feel free to pick a learning path that suites your preference - although we do recommend going over all content if possible!
+Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all content if possible!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">

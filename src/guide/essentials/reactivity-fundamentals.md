@@ -62,7 +62,7 @@ When you access `this.someObject` after assigning it, the value is a reactive pr
 
 <div class="composition-api">
 
-We can create a reactive object or array with the [`reactive()`](/api/reactivity-core.html#reactive) method:
+We can create a reactive object or array with the [`reactive()`](/api/reactivity-core.html#reactive) function:
 
 ```js
 import { reactive } from 'vue'
@@ -126,7 +126,7 @@ Exposed methods are typically used as event listeners:
 
 ### `<script setup>` \*\*
 
-Manually exposing state and methods via `setup()` can be verbose. Luckily, it is only necessary when not using a build step. When using Single File Components (SFCs), we can greatly simplify the usage with `<script setup>`:
+Manually exposing state and methods via `setup()` can be verbose. Luckily, it is only necessary when not using a build step. When using Single-File Components (SFCs), we can greatly simplify the usage with `<script setup>`:
 
 ```vue
 <script setup>
@@ -332,7 +332,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-Similar to properties on a reactive object, the `.value` property of a ref is reactive. In addition, when holding object types, refs automatically converts its `.value` with `reactive()`.
+Similar to properties on a reactive object, the `.value` property of a ref is reactive. In addition, when holding object types, ref automatically converts its `.value` with `reactive()`.
 
 A ref containing an object value can reactively replace the entire object:
 

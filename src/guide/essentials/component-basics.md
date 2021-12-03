@@ -8,7 +8,7 @@ Vue implements its own component model, but also plays nicely with native Web Co
 
 ## Defining a Component
 
-When using a build step, we typically define each Vue component in a dedicated file using the `.vue` extension - known as a [Single File Component](/guide/scaling-up/sfc.html) (SFC for short):
+When using a build step, we typically define each Vue component in a dedicated file using the `.vue` extension - known as a [Single-File Component](/guide/scaling-up/sfc.html) (SFC for short):
 
 <div class="options-api">
 
@@ -414,7 +414,7 @@ defineEmits(['enlarge-text'])
 
 </div>
 
-This documents all the events that a component emits and optionally [validate them](/guide/components/events.html#validate-emitted-events). It also allows Vue to avoid implicitly applying them as native listeners to the child component's root element.
+This documents all the events that a component emits and optionally [validates them](/guide/components/events.html#validate-emitted-events). It also allows Vue to avoid implicitly applying them as native listeners to the child component's root element.
 
 <div class="composition-api">
 
@@ -509,7 +509,7 @@ The above is made possible by Vue's `<component>` element with the special `is` 
 <div class="options-api">
 
 ```vue-html
-<!-- Component changes when currentTabComponent changes -->
+<!-- Component changes when currentTab changes -->
 <component :is="currentTab"></component>
 ```
 
@@ -517,7 +517,7 @@ The above is made possible by Vue's `<component>` element with the special `is` 
 <div class="composition-api">
 
 ```vue-html
-<!-- Component changes when currentTabComponent changes -->
+<!-- Component changes when currentTab changes -->
 <component :is="tabs[currentTab]"></component>
 ```
 
@@ -539,7 +539,7 @@ If you are writing your Vue templates directly in the DOM, Vue will have to retr
 :::tip
 It should be noted that the limitations discussed below only apply if you are writing your templates directly in the DOM. They do NOT apply if you are using string templates from the following sources:
 
-- Single File Components
+- Single-File Components
 - Inlined template strings (e.g. `template: '...'`)
 - `<script type="text/x-template">`
   :::

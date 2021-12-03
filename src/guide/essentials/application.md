@@ -16,7 +16,7 @@ const app = createApp({
 
 The object we are passing into `createApp` is in fact a component. Every app requires a "root component" that can contain other components as its children.
 
-If you are using Single File Components, we typically import the root component from another file:
+If you are using Single-File Components, we typically import the root component from another file:
 
 ```js
 import { createApp } from 'vue'

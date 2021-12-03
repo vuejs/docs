@@ -67,7 +67,7 @@ In addition to the `watch` option, you can also use the imperative [this.$watch 
 
 <div class="composition-api">
 
-With Composition API, we can use the [`watch` method](/api/reactivity-core.html#watch) to trigger a callback function whenever a piece of reactive state changes:
+With Composition API, we can use the [`watch` function](/api/reactivity-core.html#watch) to trigger a callback whenever a piece of reactive state changes:
 
 ```vue
 <script setup>
@@ -243,7 +243,7 @@ watch(question, callback, {
 })
 ```
 
-Alternatively, instead of using `watch`, we can perform a side effect immediately while automatically tracking reactive dependencies with the [`watchEffect` method](/api/reactivity-core.html#watcheffect):
+Alternatively, instead of using `watch`, we can perform a side effect immediately while automatically tracking reactive dependencies with the [`watchEffect` function](/api/reactivity-core.html#watcheffect):
 
 ```js
 watchEffect(async () => {

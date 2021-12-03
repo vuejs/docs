@@ -4,7 +4,7 @@ Depending on your use case and preference, you can use Vue with or without a bui
 
 ## With Build Tools
 
-A build setup allows us to use Vue [Single File Components](/guide/scaling-up/sfc) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight and extremely fast.
+A build setup allows us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight and extremely fast.
 
 ### Online
 
@@ -18,7 +18,7 @@ You can try Vue with SFCs online on [StackBlitz](https://vite.new/vue). StackBli
 - Install [Node.js](https://nodejs.org/)
   :::
 
-To create a built-tool-enabled Vue project on your machine, run the following command in your command line (without the `$` sign):
+To create a build-tool-enabled Vue project on your machine, run the following command in your command line (without the `$` sign):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
