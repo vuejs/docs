@@ -56,7 +56,6 @@ import Sidebar from '@theme/components/Sidebar.vue'
 import VueMasteryBanner from '@theme/components/sponsors/VueMasteryBanner.vue'
 import BuySellAds from '@theme/components/BuySellAds.vue'
 import CarbonAds from '@theme/components/CarbonAds.vue'
-import BannerTop from '@theme/components/BannerTop.vue'
 import { resolveSidebarItems } from '../util'
 
 export default {
