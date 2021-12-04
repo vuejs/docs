@@ -26,19 +26,37 @@ This is how the template of `<FancyButton>` looks like:
 </button>
 ```
 
-Notice the `<slot>` element, which is a **slot outlet** that indicates where the parent-provided **slot content** should be rendered.
+The `<slot>` element is a **slot outlet** that indicates where the parent-provided **slot content** should be rendered.
 
 ![slot diagram](/images/slots.png)
 
 And the final rendered DOM:
 
 ```html
-<button class="fancy-btn">Click me!</button>
+<button class="fancy-btn">
+  Click me!
+</button>
 ```
 
-With slots, the `<FancyButton>` is responsible for rendering the outer `<button>` (and its fancy styling), while the inner content is determined by the parent component using `<FancyButton>`. This makes our `<FancyButton>` more flexible and reusable, since we can now use it in different places with different inner content, but all with the same fancy styling.
+With slots, the `<FancyButton>` is responsible for rendering the outer `<button>` (and its fancy styling), while the inner content is provided by the parent component.
 
-Slot content is not just limited to text. It can be any valid template content. For example, we can pass in elements or even other components:
+Another way to understand slots is by comparing them to JavaScript functions:
+
+```js
+// parent component passing slot content
+FancyButton('Click me!')
+
+// FancyButton renders slot content in its own template
+function FancyButton(slotContent) {
+  return (
+    `<button class="fancy-btn">
+      ${slotContent}
+    </button>`
+  )
+}
+```
+
+Slot content is not just limited to text. It can be any valid template content. For example, we can pass in multiple elements, or even other components:
 
 ```vue-html
 <FancyButton>
@@ -58,6 +76,8 @@ Slot content is not just limited to text. It can be any valid template content. 
 
 </div>
 
+By using slots, our `<FancyButton>` is more flexible and reusable. We can now use it in different places with different inner content, but all with the same fancy styling.
+
 Vue components' slot mechanism is inspired by the [native Web Component `<slot>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot), but with additional capabilities that we will see later.
 
 ## Render Scope
@@ -69,7 +89,7 @@ Slot content has access to the data scope of the parent component, because it is
 <FancyButton>{{ message }}</FancyButton>
 ```
 
-Here both <span v-pre>`{{ message }}`</span> interpolations will render the same content, even though one of them is passed into a child component.
+Here both <span v-pre>`{{ message }}`</span> interpolations will render the same content.
 
 Slot content does **not** have access to the child component's data. As a rule, remember that:
 
@@ -85,7 +105,7 @@ There are cases when it's useful to specify fallback (i.e. default) content for 
 </button>
 ```
 
-We might want the text "Submit" to be rendered inside the `<button>` most of the time. To make "Submit" the fallback content, we can place it in between the `<slot>` tags:
+We might want the text "Submit" to be rendered inside the `<button>` if the parent didn't provide any slot content. To make "Submit" the fallback content, we can place it in between the `<slot>` tags:
 
 ```vue-html{3}
 <button type="submit">
@@ -166,9 +186,9 @@ For these cases, the `<slot>` element has a special attribute, `name`, which can
 
 A `<slot>` outlet without `name` implicitly has the name "default".
 
-In a parent component using `<BaseLayout>`, we need a way to pass multiple slot content framgents, each targeting a different slot outlet. This is where the `v-slot` directive comes in.
+In a parent component using `<BaseLayout>`, we need a way to pass multiple slot content framgents, each targeting a different slot outlet. This is where **named slots** comes in.
 
-`v-slot` must be used on a `<template>`, where it expects an argument correspnding to its target slot's name:
+To pass a named slot, we need to use a `<template>` element with the `v-slot` directive, and then pass the name of the slot as an argument to `v-slot`:
 
 ```vue-html
 <BaseLayout>
@@ -178,9 +198,11 @@ In a parent component using `<BaseLayout>`, we need a way to pass multiple slot 
 </BaseLayout>
 ```
 
-`v-slot` has a dedicated shorthand `#`, so `<template v-slot:header>` can be shortened to just `<template #header>`. It means "render this template fragment in the child component's 'header' slot".
+`v-slot` has a dedicated shorthand `#`, so `<template v-slot:header>` can be shortened to just `<template #header>`. Think of it as "render this template fragment in the child component's 'header' slot".
 
-Here's us passing content to all three slots to `<BaseLayout>` using the shorthand syntax:
+![named slots diagram](/images/named-slots.png)
+
+Here's the code passing content to all three slots to `<BaseLayout>` using the shorthand syntax:
 
 ```vue-html
 <BaseLayout>
@@ -201,7 +223,7 @@ Here's us passing content to all three slots to `<BaseLayout>` using the shortha
 
 Now everything inside the `<template>` elements will be passed to the corresponding slots. The final rendered HTML will be:
 
-```vue-html
+```html
 <div class="container">
   <header>
     <h1>Here might be a page title</h1>
@@ -227,7 +249,27 @@ Now everything inside the `<template>` elements will be passed to the correspond
 
 </div>
 
-Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#abbreviated-syntax-for-lone-default-slots))
+Again, it may help you understand named slots better using the JavaScript function analogy:
+
+```js
+// passing multiple slot fragments with different names
+BaseLayout({
+  header: `...`,
+  default: `...`,
+  footer: `...`
+})
+
+// <BaseLayout> renders them in different places
+function BaseLayout(slots) {
+  return (
+    `<div class="container">
+      <header>${slots.header}<header>
+      <main>${slots.default}</main>
+      <footer>${slots.footer}</footer>
+    </div>`
+  )
+}
+```
 
 ## Dynamic Slot Names
 
@@ -252,159 +294,160 @@ Do note the expression is subject to the same [syntax constraints](/guide/essent
 
 As discussed in [Render Scope](#render-scope), slot content does not have access to state in the child component.
 
-However, there are cases where it could be useful if the child component can selectively expose data to the slot content passed by the parent. For example, we can have a
+However, there are cases where it could be useful if a slot's content can make use of data from both the parent scope and the child scope. To achieve that, we need a way for the child to pass data to a slot when rendering it.
 
-- Think of scoped slots as callback functions being passed into the child component (in fact, slots are compiled into functions!)
-  - The child component call the slot function while passing it props
-  - The slot function use the props to render and return content
+In fact, we can do exactly that - we can pass attributes to a slot outlet just like passing props to a component:
 
-For example, we have a component, containing a list of todo-items.
+```vue-html
+<!-- <MyComponent> template -->
+<div>
+  <slot :text="greetingMessage" :count="1"></slot>
+</div>
+```
+
+Receiving the slot props is a bit different when using a single default slot vs. using named slots. We are going to show how to receive props using a single default slot first, by using `v-slot` directly on the child component tag:
+
+```vue-html
+<MyComonent v-slot="slotProps">
+  {{ slotProps.text }} {{ slotProps.count }}
+<MyComponent>
+```
+
+<div class="composition-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBNeUNvbXBvbmVudCBmcm9tICcuL015Q29tcG9uZW50LnZ1ZSdcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxNeUNvbXBvbmVudCB2LXNsb3Q9XCJzbG90UHJvcHNcIj5cbiAgXHR7eyBzbG90UHJvcHMudGV4dCB9fSB7eyBzbG90UHJvcHMuY291bnQgfX1cbiAgPC9NeUNvbXBvbmVudD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIk15Q29tcG9uZW50LnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5jb25zdCBncmVldGluZ01lc3NhZ2UgPSAnaGVsbG8nXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8ZGl2PlxuICBcdDxzbG90IDp0ZXh0PVwiZ3JlZXRpbmdNZXNzYWdlXCIgOmNvdW50PVwiMVwiPjwvc2xvdD5cblx0PC9kaXY+XG48L3RlbXBsYXRlPiJ9)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBNeUNvbXBvbmVudCBmcm9tICcuL015Q29tcG9uZW50LnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHtcbiAgICBNeUNvbXBvbmVudFxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8TXlDb21wb25lbnQgdi1zbG90PVwic2xvdFByb3BzXCI+XG4gIFx0e3sgc2xvdFByb3BzLnRleHQgfX0ge3sgc2xvdFByb3BzLmNvdW50IH19XG4gIDwvTXlDb21wb25lbnQ+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJNeUNvbXBvbmVudC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBncmVldGluZ01lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxkaXY+XG4gIFx0PHNsb3QgOnRleHQ9XCJncmVldGluZ01lc3NhZ2VcIiA6Y291bnQ9XCIxXCI+PC9zbG90PlxuXHQ8L2Rpdj5cbjwvdGVtcGxhdGU+In0=)
+
+</div>
+
+The props passed to the slot by the child is available as the value of the corresponding `v-slot` directive, which can be accessed by expressions inside the slot.
+
+You can think of a scoped slot as a function being passed into the child component. The child component then calls it and passing props as arguments:
 
 ```js
-app.component('todo-list', {
-  data() {
-    return {
-      items: ['Feed a cat', 'Buy milk']
-    }
-  },
-  template: `
-    <ul>
-      <li v-for="(item, index) in items">
-        {{ item }}
-      </li>
-    </ul>
-  `
+MyComponent({
+  // passing the default slot, but as a function
+  default: (slotProps) => {
+    return `${slotProps.text} ${slotProps.count}`
+  }
 })
-```
 
-We might want to replace the <span v-pre>`{{ item }}`</span> with a `<slot>` to customize it on parent component:
-
-```vue-html
-<todo-list>
-  <i class="fas fa-check"></i>
-  <span class="green">{{ item }}</span>
-</todo-list>
-```
-
-That won't work, however, because only the `<todo-list>` component has access to the `item` and we are providing the slot content from its parent.
-
-To make `item` available to the slot content provided by the parent, we can add a `<slot>` element and bind it as an attribute:
-
-```vue-html
-<ul>
-  <li v-for="( item, index ) in items">
-    <slot :item="item"></slot>
-  </li>
-</ul>
-```
-
-You can bind as many attributes to the `slot` as you need:
-
-```vue-html
-<ul>
-  <li v-for="( item, index ) in items">
-    <slot :item="item" :index="index" :another-attribute="anotherAttribute"></slot>
-  </li>
-</ul>
-```
-
-Attributes bound to a `<slot>` element are called **slot props**. Now, in the parent scope, we can use `v-slot` with a value to define a name for the slot props we've been provided:
-
-```vue-html
-<todo-list>
-  <template v-slot:default="slotProps">
-    <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}</span>
-  </template>
-</todo-list>
-```
-
-<img src="/images/scoped-slot.png" width="611" height="auto" style="display: block; margin: 0 auto; max-width: 100%;" loading="lazy" alt="Scoped slot diagram">
-
-In this example, we've chosen to name the object containing all our slot props `slotProps`, but you can use any name you like.
-
-### Abbreviated Syntax for Lone Default Slots
-
-In cases like above, when _only_ the default slot is provided content, the component's tags can be used as the slot's template. This allows us to use `v-slot` directly on the component:
-
-```vue-html
-<todo-list v-slot:default="slotProps">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ slotProps.item }}</span>
-</todo-list>
-```
-
-This can be shortened even further. Just as non-specified content is assumed to be for the default slot, `v-slot` without an argument is assumed to refer to the default slot:
-
-```vue-html
-<todo-list v-slot="slotProps">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ slotProps.item }}</span>
-</todo-list>
-```
-
-Note that the abbreviated syntax for default slot **cannot** be mixed with named slots, as it would lead to scope ambiguity:
-
-```vue-html
-<!-- INVALID, will result in warning -->
-<todo-list v-slot="slotProps">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ slotProps.item }}</span>
-
-  <template v-slot:other="otherSlotProps">
-    slotProps is NOT available here
-  </template>
-</todo-list>
-```
-
-Whenever there are multiple slots, use the full `<template>` based syntax for _all_ slots:
-
-```vue-html
-<todo-list>
-  <template v-slot:default="slotProps">
-    <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}</span>
-  </template>
-
-  <template v-slot:other="otherSlotProps">
-    ...
-  </template>
-</todo-list>
-```
-
-### Destructuring Slot Props
-
-Internally, scoped slots work by wrapping your slot content in a function passed a single argument:
-
-```js
-function (slotProps) {
-  // ... slot content ...
+function MyComponent(slots) {
+  const greetingMessage = 'hello'
+  return (
+    `<div>${
+      // call the slot function with props!
+      slots.default({ text: greetingMessage, count: 1 })
+    }</div>`
+  )
 }
 ```
 
-That means the value of `v-slot` can actually accept any valid JavaScript expression that can appear in the argument position of a function definition. So you can also use [ES2015 destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) to pull out specific slot props, like so:
+In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/advanced/render-function.html).
+
+Notice how `v-slot="slotProps"` matches the slot function signature - this means similar to function arguments, we can use destructuring in `v-slot`:
+
 
 ```vue-html
-<todo-list v-slot="{ item }">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ item }}</span>
-</todo-list>
+<MyComonent v-slot="{ text, count }">
+  {{ text }} {{ count }}
+<MyComponent>
 ```
 
-This can make the template much cleaner, especially when the slot provides many props. It also opens other possibilities, such as renaming props, e.g. `item` to `todo`:
+### Named Scoped Slots
+
+Named scoped slots work similarly - slot props are accessible as the value of the `v-slot` directive: `v-slot:name="slotProps"`. When using the shorthand, it looks like this:
 
 ```vue-html
-<todo-list v-slot="{ item: todo }">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ todo }}</span>
-</todo-list>
+<MyComponent>
+  <template #header="headerProps">
+    {{ headerProps }}
+  </template>
+
+  <template #default="defaultProps">
+    {{ defaultProps }}
+  </template>
+
+  <template #footer="footerProps">
+    {{ headerProps }}
+  </template>
+</MyComponent>
 ```
 
-You can even define fallbacks, to be used in case a slot prop is undefined:
+Passing props to a named slot:
 
 ```vue-html
-<todo-list v-slot="{ item = 'Placeholder' }">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ item }}</span>
-</todo-list>
+<slot name="header" message="hello"></slot>
 ```
+
+Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
+
+
+### Fancy List Example
+
+You may be wondering what would be a good use case for scoped slots. Here's an example: imagine a `<FancyList>` component that renders a list of items - it may encapsulate the logic for loading remote data, using the data to display a list, or even advanced features like pagination or infinite scrolling. However, we want it to be flexible with how each item looks and leave the stying of each item to the parent component consuming it. So the desired usage may look like this:
+
+```vue-html
+<FancyList :api-url="url" :per-page="10">
+  <template #item="{ body, username, likes }">
+    <div class="item">
+      <p>{{ body }}</p>
+      <p>by {{ username }} | {{ likes }} likes</p>
+    </div>
+  </template>
+</FancyList>
+```
+
+Inside `<FancyList>`, we can render the same `<slot>` multiple times with different item data (notice we are using `v-bind` to pass an object as slot props):
+
+```vue-html
+<ul>
+  <li v-for="item in items">
+    <slot name="item" v-bind="item"></slot>
+  </li>
+</ul>
+```
+
+<div class="composition-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBGYW5jeUxpc3QgZnJvbSAnLi9GYW5jeUxpc3QudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEZhbmN5TGlzdCA6YXBpLXVybD1cInVybFwiIDpwZXItcGFnZT1cIjEwXCI+XG4gICAgPHRlbXBsYXRlICNpdGVtPVwieyBib2R5LCB1c2VybmFtZSwgbGlrZXMgfVwiPlxuICAgICAgPGRpdiBjbGFzcz1cIml0ZW1cIj5cbiAgICAgICAgPHA+e3sgYm9keSB9fTwvcD5cbiAgICAgICAgPHAgY2xhc3M9XCJtZXRhXCI+Ynkge3sgdXNlcm5hbWUgfX0gfCB7eyBsaWtlcyB9fSBsaWtlczwvcD5cbiAgICAgIDwvZGl2PlxuICAgIDwvdGVtcGxhdGU+XG4gIDwvRmFuY3lMaXN0PlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlIHNjb3BlZD5cbi5tZXRhIHtcbiAgZm9udC1zaXplOiAwLjhlbTtcbiAgY29sb3I6ICM0MmI4ODM7XG59XG48L3N0eWxlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJGYW5jeUxpc3QudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgcHJvcHMgPSBkZWZpbmVQcm9wcyhbJ2FwaS11cmwnLCAncGVyLXBhZ2UnXSlcblxuLy8gLi4uYXMgYW4gZXhhbXBsZSwgd2UgYXJlIG5vdCBnb2luZyB0byBpbXBsZW1lbnRcbi8vIHRoZSBmdWxsIGRhdGEgZmV0Y2hpbmcgYW5kIHBhZ2luYXRpb24gbG9naWMgaGVyZSxcbi8vIGJ1dCB0aGV5IHdpbGwgYWxsIGJlIG11dGF0aW5nIHRoZSBpdGVtcyBhcnJheS5cblxuY29uc3QgaXRlbXMgPSByZWYoW1xuICB7IGJvZHk6ICdTY29wZWQgU2xvdHMgR3VpZGUnLCB1c2VybmFtZTogJ0V2YW4gWW91JywgbGlrZXM6IDIwIH0sXG4gIHsgYm9keTogJ1Z1ZSBUdXRvcmlhbCcsIHVzZXJuYW1lOiAnTmF0YWxpYSBUZXBsdWhpbmEnLCBsaWtlczogMTAgfVxuXSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDx1bD5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGl0ZW1zXCI+XG4gICAgICA8c2xvdCBuYW1lPVwiaXRlbVwiIHYtYmluZD1cIml0ZW1cIi8+XG4gICAgPC9saT5cbiAgPC91bD5cbjwvdGVtcGxhdGU+In0=)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBGYW5jeUxpc3QgZnJvbSAnLi9GYW5jeUxpc3QudnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEZhbmN5TGlzdFxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8RmFuY3lMaXN0IDphcGktdXJsPVwidXJsXCIgOnBlci1wYWdlPVwiMTBcIj5cbiAgICA8dGVtcGxhdGUgI2l0ZW09XCJ7IGJvZHksIHVzZXJuYW1lLCBsaWtlcyB9XCI+XG4gICAgICA8ZGl2IGNsYXNzPVwiaXRlbVwiPlxuICAgICAgICA8cD57eyBib2R5IH19PC9wPlxuICAgICAgICA8cCBjbGFzcz1cIm1ldGFcIj5ieSB7eyB1c2VybmFtZSB9fSB8IHt7IGxpa2VzIH19IGxpa2VzPC9wPlxuICAgICAgPC9kaXY+XG4gICAgPC90ZW1wbGF0ZT5cbiAgPC9GYW5jeUxpc3Q+XG48L3RlbXBsYXRlPlxuXG48c3R5bGUgc2NvcGVkPlxuLm1ldGEge1xuICBmb250LXNpemU6IDAuOGVtO1xuICBjb2xvcjogIzQyYjg4Mztcbn1cbjwvc3R5bGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkZhbmN5TGlzdC52dWUiOiI8c2NyaXB0PlxuLy8gLi4uYXMgYW4gZXhhbXBsZSwgd2UgYXJlIG5vdCBnb2luZyB0byBpbXBsZW1lbnRcbi8vIHRoZSBmdWxsIGRhdGEgZmV0Y2hpbmcgYW5kIHBhZ2luYXRpb24gbG9naWMgaGVyZSxcbi8vIGJ1dCB0aGV5IHdpbGwgYWxsIGJlIG11dGF0aW5nIHRoZSBpdGVtcyBhcnJheS5cblxuZXhwb3J0IGRlZmF1bHQge1xuICBwcm9wczogWydhcGktdXJsJywgJ3Blci1wYWdlJ10sXG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIGl0ZW1zOiBbXG4gICAgICAgIHsgYm9keTogJ1Njb3BlZCBTbG90cyBHdWlkZScsIHVzZXJuYW1lOiAnRXZhbiBZb3UnLCBsaWtlczogMjAgfSxcbiAgICAgICAgeyBib2R5OiAnVnVlIFR1dG9yaWFsJywgdXNlcm5hbWU6ICdOYXRhbGlhIFRlcGx1aGluYScsIGxpa2VzOiAxMCB9XG4gICAgICBdXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8dWw+XG4gICAgPGxpIHYtZm9yPVwiaXRlbSBpbiBpdGVtc1wiPlxuICAgICAgPHNsb3QgbmFtZT1cIml0ZW1cIiB2LWJpbmQ9XCJpdGVtXCIvPlxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiJ9)
+
+</div>
+
+### Renderless Components
+
+The `<FancyList>` use case we discussed above encapsulates both reusable logic (data fetching, pagination etc.) and visual output, while delegating part of the visual output to the consumer component via scoped slots.
+
+If we push this concept a bit further, we can come up with components that only encapsulate logic and do not render anything by themselves - visual output is fully delegated to the consumer component with scoped slots. We call this type of components **Renderless Components**.
+
+An exmaple renderless component could be one that encapsulates the logic of tracking the current mouse position:
+
+```vue-html
+<MouseTracker v-slot="{ x, y }">
+  Mosue is at: {{ x }}, {{ y }}
+</MouseTracker>
+```
+
+<div class="composition-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBNb3VzZVRyYWNrZXIgZnJvbSAnLi9Nb3VzZVRyYWNrZXIudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PE1vdXNlVHJhY2tlciB2LXNsb3Q9XCJ7IHgsIHkgfVwiPlxuICBcdE1vc3VlIGlzIGF0OiB7eyB4IH19LCB7eyB5IH19XG5cdDwvTW91c2VUcmFja2VyPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiTW91c2VUcmFja2VyLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgeyByZWYsIG9uTW91bnRlZCwgb25Vbm1vdW50ZWQgfSBmcm9tICd2dWUnXG4gIFxuY29uc3QgeCA9IHJlZigwKVxuY29uc3QgeSA9IHJlZigwKVxuXG5jb25zdCB1cGRhdGUgPSBlID0+IHtcbiAgeC52YWx1ZSA9IGUucGFnZVhcbiAgeS52YWx1ZSA9IGUucGFnZVlcbn1cblxub25Nb3VudGVkKCgpID0+IHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdtb3VzZW1vdmUnLCB1cGRhdGUpKVxub25Vbm1vdW50ZWQoKCkgPT4gd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIHVwZGF0ZSkpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8c2xvdCA6eD1cInhcIiA6eT1cInlcIi8+XG48L3RlbXBsYXRlPiJ9)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBNb3VzZVRyYWNrZXIgZnJvbSAnLi9Nb3VzZVRyYWNrZXIudnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIE1vdXNlVHJhY2tlclxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8TW91c2VUcmFja2VyIHYtc2xvdD1cInsgeCwgeSB9XCI+XG4gIFx0TW9zdWUgaXMgYXQ6IHt7IHggfX0sIHt7IHkgfX1cblx0PC9Nb3VzZVRyYWNrZXI+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJNb3VzZVRyYWNrZXIudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgeDogMCxcbiAgICAgIHk6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICB1cGRhdGUoZSkge1xuICAgICAgdGhpcy54ID0gZS5wYWdlWFxuICAgICAgdGhpcy55ID0gZS5wYWdlWVxuICAgIH1cbiAgfSxcbiAgbW91bnRlZCgpIHtcbiAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignbW91c2Vtb3ZlJywgdGhpcy51cGRhdGUpXG4gIH0sXG4gIHVubW91bnRlZCgpIHtcbiAgICB3aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcignbW91c2Vtb3ZlJywgdGhpcy51cGRhdGUpXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxzbG90IDp4PVwieFwiIDp5PVwieVwiLz5cbjwvdGVtcGxhdGU+In0=)
+
+</div>
+
+While an interesting pattern, most of what can be achieved with Renderless Components can be achieved in a more efficient fashion with Composition API, without incurring the overhead of extra component nesting. Later, we will see how we can implement the same mouse tracking functionality as a [Composable](/guide/reusability/composables.html).
+
+That said, scoped slots are still useful in cases where we need to both encapsulate logic **and** compose visual output, like in the `<FancyList>` example.
