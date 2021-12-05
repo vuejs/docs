@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
-import { inject, watchEffect, version, Ref, ref } from 'vue'
+import { inject, watchEffect, version, Ref, ref, computed } from 'vue'
 import data from './data.json'
 import { resolveSFCExample, resolveNoBuildExample } from '../examples/utils'
 import '@vue/repl/style.css'
@@ -11,8 +11,11 @@ const store = new ReplStore({
 
 const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
-const componentData = ref('')
-const nextStep = ref('')
+const componentData = ref('') as Ref<string>
+const nextStep = ref('') as Ref<string>
+const currentState = ref(null) as Ref<object>
+
+const buttonText = computed(() => (currentState.value ? 'Reset' : 'Show me!'))
 
 function calculateNextStep(hash) {
   const nextLessonIndex = +hash.slice(-1) + 1
@@ -41,6 +44,16 @@ function updateExample() {
   )
 }
 
+function toggleResult() {
+  if (currentState.value) {
+    store.setFiles(currentState.value)
+    currentState.value = null
+  } else {
+    currentState.value = store.getFiles()
+    updateExample()
+  }
+}
+
 watchEffect(updateExample)
 window.addEventListener('hashchange', updateExample)
 </script>
@@ -51,7 +64,7 @@ window.addEventListener('hashchange', updateExample)
       <h1>{{ componentData.title }}</h1>
       <div v-html="componentData.description"></div>
       <footer class="footer">
-        <button>Show me!</button>
+        <button @click="toggleResult">{{ buttonText }}</button>
         <a v-if="nextStep" :href="nextStep">Next Step &gt;</a>
       </footer>
     </article>
