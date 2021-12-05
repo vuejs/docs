@@ -10,7 +10,7 @@ Because the actual rendering process needs to be deterministic, we will also be 
 
 ## Component Lifecycle Hooks
 
-Since there are no dynamic updates, the only [lifecycle hooks](/guide/components/lifecycle.html) that will be called during SSR are `beforeCreate` and `created`. This means any code inside other lifecycle hooks such as `beforeMount` or `mounted` will only be executed on the client.
+Since there are no dynamic updates, the only [lifecycle hooks](/guide/essentials/lifecycle.html) that will be called during SSR are `beforeCreate` and `created`. This means any code inside other lifecycle hooks such as `beforeMount` or `mounted` will only be executed on the client.
 
 Another thing to note is that you should avoid code that produces global side effects in `beforeCreate` and `created`, for example setting up timers with `setInterval`. In client-side only code we may setup a timer and then tear it down in `beforeUnmount` or `unmounted`. However, because the destroy hooks will not be called during SSR, the timers will stay around forever. To avoid this, move your side-effect code into `beforeMount` or `mounted` instead.
 

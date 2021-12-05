@@ -123,7 +123,7 @@ It is possible to call a component-exposed method inside a binding expression. A
 </span>
 ```
 
-Functions called inside binding expressions should **not** have any side effects, such as changing data or triggering asynchronous operations. If you find yourself tempted to do that you should probably use a [lifecycle hook](/guide/components/lifecycle.html) instead.
+Functions called inside binding expressions should **not** have any side effects, such as changing data or triggering asynchronous operations. If you find yourself tempted to do that you should probably use a [lifecycle hook](/guide/essentials/lifecycle.html) instead.
 
 ### Restricted Globals Access
 

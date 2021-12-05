@@ -12,7 +12,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called synchronously immediately after the instance has been initialized, before data observation and event/watcher setup.
 
-- **See also:** [Lifecycle Diagram](/guide/components/lifecycle)
+- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## created
 
@@ -22,7 +22,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following have been set up: data observation, computed properties, methods, watch/event callbacks. However, the mounting phase has not been started, and the `$el` property will not be available yet.
 
-- **See also:** [Lifecycle Diagram](/guide/components/lifecycle)
+- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## beforeMount
 
@@ -34,7 +34,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **See also:** [Lifecycle Diagram](/guide/components/lifecycle)
+- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## mounted
 
@@ -57,7 +57,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **See also:** [Lifecycle Diagram](/guide/components/lifecycle)
+- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## beforeUpdate
 
@@ -69,7 +69,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering, because only the initial render is performed server-side.**
 
-- **See also:** [Lifecycle Diagram](/guide/components/lifecycle)
+- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## updated
 
@@ -94,7 +94,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **See also:** [Lifecycle Diagram](/guide/components/lifecycle)
+- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## activated
 
@@ -132,7 +132,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **See also:** [Lifecycle Diagram](/guide/components/lifecycle)
+- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## unmounted
 
@@ -144,7 +144,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
-- **See also:** [Lifecycle Diagram](/guide/components/lifecycle)
+- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## errorCaptured
 
