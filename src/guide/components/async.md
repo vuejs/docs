@@ -1,57 +1,56 @@
 # Async Components
 
-In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's needed. To make that possible, Vue has a `defineAsyncComponent` method:
+In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's needed. To make that possible, Vue has a [`defineAsyncComponent`](/api/general.html#defineasynccomponent) method:
 
 ```js
-const { createApp, defineAsyncComponent } = Vue
+const { defineAsyncComponent } = Vue
 
-const app = createApp({})
-
-const AsyncComp = defineAsyncComponent(
-  () =>
-    new Promise((resolve, reject) => {
-      resolve({
-        template: '<div>I am async!</div>'
-      })
-    })
-)
-
-app.component('async-example', AsyncComp)
+const AsyncComp = defineAsyncComponent(() => {
+  return new Promise((resolve, reject) => {
+    // ...load component from server
+    resolve(/* loaded component */)
+  })
+})
+// ... use `AsyncComp` like a normal component
 ```
 
-As you can see, this method accepts a factory function returning a `Promise`. Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
+As you can see, this method accepts a loader function that returns a Promise. The Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
 
-You can also return a `Promise` in the factory function, so with Webpack 2 or later and ES2015 syntax you can do:
+[ES module dynamic import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports) also returns a Promise, so most of the time we will use it in combination with `defineAsyncComponent`. Bundlers like Vite and webpack also support the syntax, so we can use it to import Vue SFCs:
 
 ```js
 import { defineAsyncComponent } from 'vue'
 
 const AsyncComp = defineAsyncComponent(() =>
-  import('./components/AsyncComponent.vue')
+  import('./components/MyComponent.vue')
 )
-
-app.component('async-component', AsyncComp)
 ```
+
+The resulting `AsyncComp` is a wrapper component that only calls the loader function when it is actually rendered on the page. In addition, it will pass along any props to the inner component, so you can use the async wrapper to seamlessly replace the original component while achieving lazy loading.
+
+<div class="options-api">
 
 You can also use `defineAsyncComponent` when [registering a component locally](/guide/components/registration.html#local-registration):
 
 ```js
-import { createApp, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
 
-createApp({
+export default {
   // ...
   components: {
     AsyncComponent: defineAsyncComponent(() =>
       import('./components/AsyncComponent.vue')
     )
   }
-})
+}
 ```
+
+</div>
+
+## Loading State
+
+## Error Handling
 
 ## Using with Suspense
 
-Async components are _suspensible_ by default. This means if it has a `<Suspense>` in the parent chain, it will be treated as an async dependency of that `<Suspense>`. In this case, the loading state will be controlled by the `<Suspense>`, and the component's own loading, error, delay and timeout options will be ignored.
-
-The async component can opt-out of `Suspense` control and let the component always control its own loading state by specifying `suspensible: false` in its options.
-
-You can check the list of available options in the [API Reference](/api/general.html#defineasynccomponent)
+Async components can be used with the `<Suspense>` built-in component. The interaction between `<Suspense>` and async components are documented in the [dedicated chapter for `<Suspense>`](/guide/built-ins/suspense.html).
