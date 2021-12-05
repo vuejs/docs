@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
-import { inject, watchEffect, version, Ref, ref, computed } from 'vue'
+import { inject, watch, version, Ref, ref, computed } from 'vue'
 import data from './data.json'
 import { resolveSFCExample, resolveNoBuildExample } from '../examples/utils'
 import '@vue/repl/style.css'
@@ -20,13 +20,14 @@ const buttonText = computed(() => (currentState.value ? 'Reset' : 'Show me!'))
 function calculateNextStep(hash) {
   const nextLessonIndex = +hash.slice(-1) + 1
   if (data.hasOwnProperty(`step-${nextLessonIndex}`)) {
-    nextStep.value = `#step-${nextLessonIndex}`
+    nextStep.value = `step-${nextLessonIndex}`
   } else {
     nextStep.value = ''
   }
 }
 
 function updateExample() {
+  console.log('Update example triggered')
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
     hash = 'step-1'
@@ -36,10 +37,12 @@ function updateExample() {
 
   calculateNextStep(hash)
 
+  const content = currentState.value ? data[nextStep.value] : data[hash]
+
   store.setFiles(
     preferSFC.value
-      ? resolveSFCExample(data[hash], preferComposition.value)
-      : resolveNoBuildExample(data[hash], preferComposition.value),
+      ? resolveSFCExample(content, preferComposition.value)
+      : resolveNoBuildExample(content, preferComposition.value),
     preferSFC.value ? 'App.vue' : 'index.html'
   )
 }
@@ -54,8 +57,16 @@ function toggleResult() {
   }
 }
 
-watchEffect(updateExample)
-window.addEventListener('hashchange', updateExample)
+watch([preferComposition, preferSFC], () => {
+  currentState.value = null
+  updateExample()
+})
+window.addEventListener('hashchange', () => {
+  currentState.value = null
+  updateExample()
+})
+
+updateExample()
 </script>
 
 <template>
@@ -65,7 +76,7 @@ window.addEventListener('hashchange', updateExample)
       <div v-html="componentData.description"></div>
       <footer class="footer">
         <button @click="toggleResult">{{ buttonText }}</button>
-        <a v-if="nextStep" :href="nextStep">Next Step &gt;</a>
+        <a v-if="nextStep" :href="`#${nextStep}`">Next Step &gt;</a>
       </footer>
     </article>
     <Repl :store="store" :showCompileOutput="false" :clearConsole="false" />

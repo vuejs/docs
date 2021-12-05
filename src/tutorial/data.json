@@ -4,7 +4,7 @@
       "composition.js": "import { ref } from 'vue'\n export default {\n   name: 'App',\n   setup() {}\n }\n ",
       "options.js": "export default {\n   name: 'App',\n   data() {\n     return {}\n   }\n }",
       "template.html": "<main>\n  <div class=\"panel\">\n    <h1>Guess the Color</h1>\n    <h2>Number of colors: 3</h2>\n  </div>\n</main>\n",
-      "style.css": "* {\n   margin: 0;\n   padding: 0;\n }\n \n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n   -webkit-font-smoothing: antialiased;\n   -moz-osx-font-smoothing: grayscale;\n   text-align: center;\n   color: #2c3e50;\n }\n \n label {\n   font-size: 18px;\n }\n \n input {\n   font-size: 18px;\n   padding-left: 5px;\n   width: 35px;\n }\n \n .panel {\n   color: white;\n   background-color: teal;\n   transition: background 0.5s;\n }",
+      "style.css": "* {\n   margin: 0;\n   padding: 0;\n }\n \n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n   -webkit-font-smoothing: antialiased;\n   -moz-osx-font-smoothing: grayscale;\n   text-align: center;\n   color: #2c3e50;\n }\n \n label {\n   font-size: 18px;\n }\n \n input {\n   font-size: 18px;\n   padding-left: 5px;\n   width: 35px;\n }\n \n .panel {\n   color: white;\n   background-color: teal;\n   transition: background 0.5s;\n }\n",
       "title": "Adding data",
       "description": "<p>For now, our component renders some static data. Try to change a number 3 in the code to something different to see how the rendered result changes.</p><p>Now, let's add some dynamic data. Within component `data` return statement, add a property `colorsNumber`</p>"
     },
@@ -12,10 +12,10 @@
   },
   "step-2": {
     "App": {
-      "composition.js": "import { ref } from 'vue'\n export default {\n   name: 'App',\n   setup() {}\n }\n ",
-      "options.js": "export default {\n   name: 'App',\n   data() {\n     return {}\n   }\n }",
-      "template.html": "<main>\n  <div class=\"panel\">\n    <h1>Guess the Color</h1>\n    <h2>Number of colors: 3</h2>\n  </div>\n</main>\n",
-      "style.css": "* {\n   margin: 0;\n   padding: 0;\n }\n \n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n   -webkit-font-smoothing: antialiased;\n   -moz-osx-font-smoothing: grayscale;\n   text-align: center;\n   color: #2c3e50;\n }\n \n label {\n   font-size: 18px;\n }\n \n input {\n   font-size: 18px;\n   padding-left: 5px;\n   width: 35px;\n }\n \n .panel {\n   color: white;\n   background-color: teal;\n   transition: background 0.5s;\n }",
+      "composition.js": "import { ref } from 'vue'\n\nexport default {\n  setup() {\n    const colorsNumber = ref(3)\n\n    return {\n      colorsNumber\n    }\n  }\n}\n",
+      "options.js": "export default {\n   name: 'App',\n   data() {\n     return {\n       colorsNumber: 3\n     }\n   }\n }",
+      "template.html": "<main>\n  <div class=\"panel\">\n    <h1>Guess the Color</h1>\n    <h2>Number of colors: {{ colorsNumber }}</h2>\n  </div>\n</main>\n",
+      "style.css": "* {\n   margin: 0;\n   padding: 0;\n }\n \n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n   -webkit-font-smoothing: antialiased;\n   -moz-osx-font-smoothing: grayscale;\n   text-align: center;\n   color: #2c3e50;\n }\n \n label {\n   font-size: 18px;\n }\n \n input {\n   font-size: 18px;\n   padding-left: 5px;\n   width: 35px;\n }\n \n .panel {\n   color: white;\n   background-color: teal;\n   transition: background 0.5s;\n }\n",
       "title": "Two-way binding",
       "description": "<p>Test</p><p>Test</p>"
     },
