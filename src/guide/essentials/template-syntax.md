@@ -29,10 +29,10 @@ The double mustaches interprets the data as plain text, not HTML. In order to ou
   const rawHtml = '<span style="color: red">This should be red.</span>'
 </script>
 
-<p class="demo">
+<div class="demo">
   <p>Using text interpolation: {{ rawHtml }}</p>
   <p>Using v-html directive: <span v-html="rawHtml"></span></p>
-</p>
+</div>
 
 The contents of the `span` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
 

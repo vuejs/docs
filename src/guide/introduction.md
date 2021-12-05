@@ -39,12 +39,12 @@ import { ref } from 'vue'
 const count = ref(0)
 </script>
 
-<p class="demo">
+<div class="demo">
   <button @click="count++">
     Clicked {{ count }} time{{ count === 1 ? '' : 's' }}.
   </button>
   <button @click="count = 0">Reset</button>
-</p>
+</div>
 
 The above example demonstrates the two core features of Vue:
 
