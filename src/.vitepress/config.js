@@ -495,10 +495,7 @@ module.exports = {
       host: true
     },
     build: {
-      // TODO - before switching to esbuild for minification we need:
-      // 1. release vite with unused css string fix
-      // 2. release vue with try...catch block fix
-      // minify: 'esbuild',
+      minify: 'terser',
       chunkSizeWarningLimit: Infinity
     },
     json: {
