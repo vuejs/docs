@@ -7,11 +7,11 @@
   "dependencies": {
     "@vue/repl": "^0.4.4",
     "@vue/theme": "^0.1.16",
-    "vue": "^3.2.23"
+    "vue": "^3.2.24"
   },
   "devDependencies": {
     "@types/node": "^16.9.1",
     "cheap-watch": "^1.0.3",
-    "vitepress": "^0.20.1"
+    "vitepress": "^0.20.2"
   }
 }
