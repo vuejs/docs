@@ -11,7 +11,10 @@ import {
 
 const route = useRoute()
 const show = computed(() => /^\/(guide|tutorial|examples)\//.test(route.path))
-const isOpen = ref(false)
+const isOpen = ref(
+  typeof localStorage !== 'undefined' &&
+    !localStorage.getItem(preferCompositionKey)
+)
 
 const toggleOpen = () => (isOpen.value = !isOpen.value)
 const toggleCompositionAPI = useToggleFn(
@@ -218,7 +221,8 @@ function useToggleFn(
   transform: translateX(18px);
 }
 
-.tip .options-api, .tip .composition-api {
+.tip .options-api,
+.tip .composition-api {
   color: var(--vt-c-text-code);
   transition: color 0.5s;
   font-weight: 600;
