@@ -31,11 +31,11 @@ export default {
 
 </div>
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, with the most commonly used being <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html#onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated), and [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted). Some hooks The full reference for all lifecycle hooks and their respective use cases can be found [here](/api/composition-api-lifecycle.html).</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated), and [`unmounted`](/api/options-lifecycle.html#unmounted). All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it. The full reference for all lifecycle hooks and their respective use cases can be found [here](/api/options-lifecycle.html).</span>
+There are also other hooks which will be called at different stages of the instance's lifecycle, with the most commonly used being <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html#onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated), and [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted). The full reference for all lifecycle hooks and their respective use cases can be found [here](/api/composition-api-lifecycle.html).</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated), and [`unmounted`](/api/options-lifecycle.html#unmounted). All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it. The full reference for all lifecycle hooks and their respective use cases can be found [here](/api/options-lifecycle.html).</span>
 
 <div class="composition-api">
 
-When calling `onMounted`, Vue automatically associates the registered callback function to the current active component instance. This requires these hooks to be registered **synchronously** during component setup. For example, do not do this:
+When calling `onMounted`, Vue automatically associates the registered callback function with the current active component instance. This requires these hooks to be registered **synchronously** during component setup. For example, do not do this:
 
 ```js
 setTimeout(() => {

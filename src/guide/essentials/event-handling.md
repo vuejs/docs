@@ -89,7 +89,7 @@ methods: {
 </div>
 
 ```vue-html
-<!-- `greet` is the name of a method defined below -->
+<!-- `greet` is the name of the method defined above -->
 <button @click="greet">Greet</button>
 ```
 

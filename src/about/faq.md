@@ -16,7 +16,7 @@ The latest version of Vue (3.x) only supports [browsers with native ES2015 suppo
 
 ## Is Vue reliable?
 
-Vue is a mature and battle-tested framework. It is one of the most widely used JavaScript frameworks in production today, with over 1.5 million users worldwide, and is downloaded close to 10 millions times a month on NPM.
+Vue is a mature and battle-tested framework. It is one of the most widely used JavaScript frameworks in production today, with over 1.5 million users worldwide, and is downloaded close to 10 million times a month on npm.
 
 Vue is used in production by renowned organizations in varying capacities all around the world, including Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou, and many more.
 
@@ -26,7 +26,7 @@ Vue 3 is one of the most performant mainstream frontend frameworks, and handles 
 
 In stress-testing scenarios, Vue out-performs React and Angular by a decent margin in the [js-framework-benchmark](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html). It also goes neck-and-neck against some of the fastest production-level non-Virtual-DOM frameworks in the benchmark.
 
-Do note that synthetic benchmarks like the above focus on raw rendering performance with dedicated optimizations and may not be fully representative of real world performance results. If you care more about page load performance, here is the [Lighthouse audit](https://www.webpagetest.org/result/210818_BiDcYB_4a83d7a1f2a7f6fdc76db16a00b4882d/) generated via [WebPageTest](https://www.webpagetest.org/lighthouse) for a real world Vue-powered site with SSG pre-rendering, full page hydration and SPA client-side navigations. It scores 98 in performance on an emulated Moto G4 with 4x CPU throttling over 3G networks.
+Do note that synthetic benchmarks like the above focus on raw rendering performance with dedicated optimizations and may not be fully representative of real-world performance results. If you care more about page load performance, here is the [Lighthouse audit](https://www.webpagetest.org/result/210818_BiDcYB_4a83d7a1f2a7f6fdc76db16a00b4882d/) generated via [WebPageTest](https://www.webpagetest.org/lighthouse) for a real-world, Vue-powered site with SSG pre-rendering, full page hydration and SPA client-side navigations. It scores 98 in performance on an emulated Moto G4 with 4x CPU throttling over 3G networks.
 
 You can learn more about how Vue automatically optimizes runtime performance in the [Rendering Mechanism](/guide/advanced/rendering-mechanism.html) section, and how to optimize a Vue app in particularly demanding cases in the [Performance Optimization Guide](/guide/best-practices/performance.html).
 
@@ -36,21 +36,21 @@ When you use a build tool, many of Vue's APIs are ["tree-shakable"](https://deve
 
 A hello world Vue app that only uses the absolutely minimal APIs has a baseline size of only around **16kb**, with minification and brotli compression. The actual size of the application will depend on how many optional features you use from the framework. In the unlikely case where an app uses every single feature that Vue provides, the total runtime size is around **27kb**.
 
-When using Vue without a build tool, we not only lose tree-shaking, but also have to ship the template compiler to the browser. This bloats up the size to around **41kb**. Therefore if you are using Vue primarily for progressive enhancement without a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
+When using Vue without a build tool, we not only lose tree-shaking, but also have to ship the template compiler to the browser. This bloats up the size to around **41kb**. Therefore, if you are using Vue primarily for progressive enhancement without a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
 
-Some frameworks, such as Svelte, use a compilation strategy that produces extremely lightweight output in single-component scenarios. However, [our research](https://github.com/yyx990803/vue-svelte-size-analysis) shows that the size difference heavily depends on the number of components in the application. While Vue has a heavier baseline size, it generates less code per component. In real world scenarios, a Vue app may very well end up being lighter.
+Some frameworks, such as Svelte, use a compilation strategy that produces extremely lightweight output in single-component scenarios. However, [our research](https://github.com/yyx990803/vue-svelte-size-analysis) shows that the size difference heavily depends on the number of components in the application. While Vue has a heavier baseline size, it generates less code per component. In real-world scenarios, a Vue app may very well end up being lighter.
 
 ## Does Vue scale?
 
-Yes. Despite common misconception that Vue is only suitable for simple use cases, Vue is perfectly capable of handling large scale applications:
+Yes. Despite a common misconception that Vue is only suitable for simple use cases, Vue is perfectly capable of handling large scale applications:
 
-- [Single File Components](/guide/scaling-up/sfc) provide a modularized development model that allows different parts of an application to be developed in isolation.
+- [Single-File Components](/guide/scaling-up/sfc) provide a modularized development model that allows different parts of an application to be developed in isolation.
 
 - [Composition API](/guide/reusability/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
 
 - Comprehensive tooling support ensures a smooth development experience as the application grows.
 
-- Lower barrier of entry and excellent documentation translate to lower onboarding and training cost for new developers.
+- Lower barrier to entry and excellent documentation translate to lower onboarding and training costs for new developers.
 
 ## How do I contribute to Vue?
 
@@ -72,7 +72,7 @@ While Vue itself is implemented in TypeScript and provides first-class TypeScrip
 
 TypeScript support is an important consideration when new features are added to Vue. APIs that are designed with TypeScript in mind are typically easier for IDEs and linters to understand, even if you aren't using TypeScript yourself. Everybody wins. Vue APIs are also designed to work the same way in both JavaScript and TypeScript as much as possible.
 
-Adopting TypeScript involves a trade-off between onboarding complexity and long term maintainability gains. Whether such a trade-off can be justified can vary depending on your team's background and project scale, but Vue isn't really an influencing factor in making that decision.
+Adopting TypeScript involves a trade-off between onboarding complexity and long-term maintainability gains. Whether such a trade-off can be justified can vary depending on your team's background and project scale, but Vue isn't really an influencing factor in making that decision.
 
 ## How does Vue compare to Web Components?
 

@@ -191,7 +191,7 @@ const sidebar = {
     {
       text: 'Scaling Up',
       items: [
-        { text: 'Single File Components', link: '/guide/scaling-up/sfc' },
+        { text: 'Single-File Components', link: '/guide/scaling-up/sfc' },
         { text: 'Tooling', link: '/guide/scaling-up/tooling' },
         { text: 'Routing', link: '/guide/scaling-up/routing' },
         {

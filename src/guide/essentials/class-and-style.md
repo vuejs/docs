@@ -220,7 +220,7 @@ When `isActive` is truthy, the rendered HTML will be:
 <p class="foo bar active">Hi</p>
 ```
 
-If your component has multiple root elements, you would need to define which component will receive this class. You can do this using `$attrs` component property:
+If your component has multiple root elements, you would need to define which element will receive this class. You can do this using the `$attrs` component property:
 
 ```vue-html
 <!-- my-component template using $attrs -->

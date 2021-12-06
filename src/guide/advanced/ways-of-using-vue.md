@@ -1,6 +1,6 @@
 # Ways of Using Vue
 
-We believe there is no "one size fit all" story for the web. This is why Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways to strike the optimal balance between stack complexity, developer experience and end performance.
+We believe there is no "one size fits all" story for the web. This is why Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways to strike the optimal balance between stack complexity, developer experience and end performance.
 
 ## Standalone Script
 
@@ -14,7 +14,7 @@ You can use Vue to [build standard Web Components](/guide/advanced/web-component
 
 ## Single-Page Application (SPA)
 
-Some applications require rich interactivity and non-trivial stateful logic on the frontend. The best way to build such applications is to use an architecture where Vue not only controls the entire page, but also handles data updates and navigations without having to reload the page. This type of applications are typically referred to as Single-Page Applications (SPAs).
+Some applications require rich interactivity and non-trivial stateful logic on the frontend. The best way to build such applications is to use an architecture where Vue not only controls the entire page, but also handles data updates and navigations without having to reload the page. This type of application is typically referred to as a Single-Page Application (SPA).
 
 Vue provides core libraries and [comprehensive tooling support](/guide/scaling-up/tooling) with amazing developer experience for building modern SPAs, including:
 
