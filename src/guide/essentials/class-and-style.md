@@ -8,7 +8,7 @@ A common need for data binding is manipulating an element's class list and its i
 
 ## Binding HTML Classes
 
-### Object Syntax
+### Binding to Objects
 
 We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
 
@@ -132,9 +132,9 @@ computed: {
 <div :class="classObject"></div>
 ```
 
-### Array Syntax
+### Binding to Arrays
 
-We can pass an array to `:class` to apply a list of classes:
+We can bind `:class` to an array to apply a list of classes:
 
 <div class="composition-api">
 
@@ -243,9 +243,9 @@ You can learn more about component attribute inheritance in [Fallthrough Attribu
 
 ## Binding Inline Styles
 
-### Object Syntax
+### Binding to Objects
 
-The object syntax for `:style` is pretty straightforward - it looks almost like CSS, except it's a JavaScript object. You can use either camelCase or kebab-case (use quotes with kebab-case) for the CSS property names:
+`:style` supports binding to JavaScript object values - it corresponds to an [HTML element's `style` property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
 
 <div class="composition-api">
 
@@ -271,6 +271,12 @@ data() {
 
 ```vue-html
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+```
+
+Although camelCase keys are recommended, `:style` also supports kebab-cased CSS property keys (corresponds to how they are used in actual CSS) - for example:
+
+```vue-html
+<div :style="{ 'font-size': fontSize + 'px' }"></div>
 ```
 
 It is often a good idea to bind to a style object directly so that the template is cleaner:
@@ -305,11 +311,11 @@ data() {
 <div :style="styleObject"></div>
 ```
 
-Again, the object syntax is often used in conjunction with computed properties that return objects.
+Again, object style binding is often used in conjunction with computed properties that return objects.
 
-### Array Syntax
+### Binding to Arrays
 
-The array syntax for `:style` allows you to apply multiple style objects to the same element:
+We can bind `:style` to an array of multiple style objects. These objects will be merged and applied to the same element:
 
 ```vue-html
 <div :style="[baseStyles, overridingStyles]"></div>
