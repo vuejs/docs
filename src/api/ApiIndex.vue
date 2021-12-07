@@ -81,9 +81,10 @@ function slugify(text) {
       </div>
     </div>
 
-    <div v-if="!filtered.length" class="no-match">
-      No API matching "{{ query }}" found.
-    </div>
+    <div
+      v-if="!filtered.length"
+      class="no-match"
+    >No API matching "{{ query }}" found.</div>
   </div>
 </template>
 

@@ -40,15 +40,13 @@ import { VTLink } from '@vue/theme'
 
       <p class="help">
         You can read the previous issues and listen to our podcast at
-        <VTLink class="link" href="https://news.vuejs.org/" no-icon
-          >news.vuejs.org</VTLink
-        >. You may also go social at
-        <VTLink class="link" href="https://twitter.com/vuejs" no-icon
-          >Twitter</VTLink
-        >, or join our home at
-        <VTLink class="link" href="https://chat.vuejs.org/" no-icon
-          >Discord</VTLink
-        >.
+        <VTLink
+          class="link"
+          href="https://news.vuejs.org/"
+          no-icon
+        >news.vuejs.org</VTLink>. You may also go social at
+        <VTLink class="link" href="https://twitter.com/vuejs" no-icon>Twitter</VTLink>, or join our home at
+        <VTLink class="link" href="https://chat.vuejs.org/" no-icon>Discord</VTLink>.
       </p>
     </div>
   </section>
@@ -157,7 +155,7 @@ import { VTLink } from '@vue/theme'
   font-weight: 500;
   color: var(--vt-c-text-dark-1);
   background-color: var(--vt-c-brand);
-  transition: background-color .25s;
+  transition: background-color 0.25s;
   cursor: pointer;
 }
 
