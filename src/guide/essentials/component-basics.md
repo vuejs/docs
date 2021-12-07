@@ -619,6 +619,6 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 When used on native HTML elements, the value of `is` must be prefixed with `vue:` in order to be interpreted as a Vue component. This is required to avoid confusion with native [customized built-in elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 
-That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
+That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself - build something fun, or check out some of the [Examples](/examples/) if you haven't.
 
-Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide components in depth.
+Once you feel comfortable with the knowledge you've just digested, move on with the guide to learn more about components in depth.
