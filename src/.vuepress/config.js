@@ -274,7 +274,7 @@ module.exports = {
       'link',
       {
         href:
-          'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Archivo:400,600|Open+Sans:400,600;display=swap',
+        'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
         rel: 'stylesheet'
       }
     ],
