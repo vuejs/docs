@@ -313,3 +313,75 @@ A `render` function is conceptually very similar to a `computed` property. Vue d
 <div class="reactivecontent">
   <!-- <common-codepen-snippet title="Second Reactivity with Proxies in Vue 3 Explainer" slug="wvgqyJK" tab="result" theme="light" :height="500" :editable="false" :preview="false" /> -->
 </div>
+
+## Reactivity Debugging
+
+It's great that Vue's reactivity system automatically tracks dependencies, but in some cases we may want to figure out exactly what is being tracked, or what is causing a component to re-render.
+
+### Component Debugging Hooks
+
+// TODO `renderTracked` and `renderTriggered`
+
+<div class="composition-api">
+
+### Computed Debugging \*\*
+
+We can debug computed properties by passing `computed()` a second options object with `onTrack` and `onTrigger` callbacks:
+
+- `onTrack` will be called when a reactive property or ref is tracked as a dependency.
+- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency.
+
+Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in these callbacks to interactively inspect the dependency:
+
+```js
+const plusOne = computed(() => count.value + 1, {
+  onTrack(e) {
+    // triggered when count.value is tracked as a dependency
+    debugger
+  },
+  onTrigger(e) {
+    // triggered when count.value is mutated
+    debugger
+  }
+})
+
+// access plusOne, should trigger onTrack
+console.log(plusOne.value)
+
+// mutate count.value, should trigger onTrigger
+count.value++
+```
+
+:::tip
+`onTrack` and `onTrigger` computed options only work in development mode.
+:::
+
+### Watcher Debugging \*\*
+
+Similar to `computed()`, watchers also support the `onTrack` and `onTrigger` options:
+
+```js
+watch(source, callback, {
+  onTrack(e) {
+    debugger
+  },
+  onTrigger(e) {
+    debugger
+  }
+})
+
+watchEffect(callback, {
+  onTrack(e) {
+    debugger
+  },
+  onTrigger(e) {
+    debugger
+  }
+})
+```
+
+:::tip
+`onTrack` and `onTrigger` watcher options only work in development mode.
+:::
+
+</div>

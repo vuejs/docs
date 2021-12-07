@@ -449,28 +449,4 @@ watchEffect(async (onInvalidate) => {
 
 An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the Promise chain.
 
-## Watcher Debugging \*\*
-
-The `onTrack` and `onTrigger` options can be used to debug a watcher's behavior.
-
-- `onTrack` will be called when a reactive property or ref is tracked as a dependency.
-- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency.
-
-Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in these callbacks to interactively inspect the dependency:
-
-```js
-watchEffect(
-  () => {
-    /* side effect */
-  },
-  {
-    onTrigger(e) {
-      debugger
-    }
-  }
-)
-```
-
-`onTrack` and `onTrigger` only work in development mode.
-
 </div>
