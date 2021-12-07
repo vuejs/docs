@@ -9,7 +9,7 @@ footer: false
 
 Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS and JavaScript, and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be it simple or complex.
 
-Here is a minimal Vue counter example:
+Here is a minimal example:
 
 ```js
 import { createApp } from 'vue'
@@ -26,9 +26,8 @@ createApp({
 ```vue-html
 <div id="app">
   <button @click="count++">
-    Clicked {{ count }} time{{ count === 1 ? '' : 's' }}.
+    Count is: {{ count }}
   </button>
-  <button @click="count = 0">Reset</button>
 </div>
 ```
 
@@ -41,9 +40,8 @@ const count = ref(0)
 
 <div class="demo">
   <button @click="count++">
-    Clicked {{ count }} time{{ count === 1 ? '' : 's' }}.
+    Count is: {{ count }}
   </button>
-  <button @click="count = 0">Reset</button>
 </div>
 
 The above example demonstrates the two core features of Vue:
@@ -73,7 +71,7 @@ Despite the flexibility, the core knowledge about how Vue works is shared across
 
 ## Single-File Components
 
-In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous counter example, written in SFC format:
+In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
 
 ```vue
 <script>
@@ -88,9 +86,8 @@ export default {
 
 <template>
   <button @click="count++">
-    Clicked {{ count }} time{{ count === 1 ? '' : 's' }}.
+    Count is: {{ count }}
   </button>
-  <button @click="count = 0">Reset</button>
 </template>
 
 <style scoped>
@@ -170,7 +167,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <button @click="increment">count is: {{ count }}</button>
+  <button @click="increment">
+    Count is: {{ count }}
+  </button>
 </template>
 ```
 
@@ -188,7 +187,7 @@ You can learn more about the comparison between the two styles and the potential
 
 If you are new to Vue, here's our general recommendation:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. Once you are familiar with one of them, the other one can be easily picked up.
+- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other one at a later time.
 
 - For production use:
 

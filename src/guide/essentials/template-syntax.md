@@ -115,7 +115,7 @@ Each binding can only contain **one single expression**, so the following will *
 
 ### Calling Functions
 
-It is possible to call a component-exposed method inside a binding expression. As we'll see shortly, it's usually better to use a [computed property](computed.html) instead. However, using a function call can be useful in scenarios where computed properties aren't a viable option:
+It is possible to call a component-exposed method inside a binding expression:
 
 ```vue-html
 <span :title="toTitleDate(date)">
@@ -123,7 +123,9 @@ It is possible to call a component-exposed method inside a binding expression. A
 </span>
 ```
 
-Functions called inside binding expressions should **not** have any side effects, such as changing data or triggering asynchronous operations. If you find yourself tempted to do that you should probably use a [lifecycle hook](/guide/essentials/lifecycle.html) instead.
+:::tip
+Functions called inside binding expressions will be called every time the component updates, so they should **not** have any side effects, such as changing data or triggering asynchronous operations.
+:::
 
 ### Restricted Globals Access
 
@@ -207,8 +209,6 @@ Dynamic argument expressions have some syntax constraints because certain charac
 <!-- This will trigger a compiler warning. -->
 <a :['foo' + bar]="value"> ... </a>
 ```
-
-We recommend replacing any complex expressions with a [computed property](computed.html), one of the most fundamental pieces of Vue, which we'll cover shortly.
 
 When using in-DOM templates (templates directly written in an HTML file), you should also avoid naming keys with uppercase characters, as browsers will coerce attribute names into lowercase:
 

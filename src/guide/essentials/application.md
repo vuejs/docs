@@ -1,6 +1,6 @@
 # Creating a Vue Application
 
-## The App Instance
+## The application instance
 
 Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
 
@@ -32,18 +32,18 @@ While many examples in this guide only need a single component, most real applic
 App (root component)
 ├─ TodoList
 │  └─ TodoItem
-│     ├─ DeleteTodoButton
-│     └─ EditTodoButton
-└─ TodoListFooter
-   ├─ ClearTodosButton
-   └─ TodoListStatistics
+│     ├─ TodoDeleteButton
+│     └─ TodoEditButton
+└─ TodoFooter
+   ├─ TodoClearButton
+   └─ TodoStatistics
 ```
 
 We will discuss how to define and compose multiple components together in later sections of the guide. Before that, we will focus on what happens inside a single component.
 
 ## App Configurations
 
-The app instance exposes a `.config` object that allows us to configure a few app-level options, for example defining an app-level error handler that captures errors from all descendent components:
+The application instance exposes a `.config` object that allows us to configure a few app-level options, for example defining an app-level error handler that captures errors from all descendent components:
 
 ```js
 app.config.errorHandler = (err) => {
@@ -51,43 +51,17 @@ app.config.errorHandler = (err) => {
 }
 ```
 
-You can browse the full list of `app.config` options in the [API reference](/api/application#app-config).
-
-## Global Assets
-
-The app instance is used to register "global assets" that can then be used by components within that app. We'll discuss them in detail later in the guide but here is a quick example:
+The application instance also provides a few methods for registering app-scoped assets. for example, registering a component:
 
 ```js
-const app = createApp({})
-
-// register a global component
-app.component('SearchInput', SearchInputComponent)
-
-// register a global custom directive
-app.directive('focus', FocusDirective)
-
-// app-wide dependency injection
-app.provide('store', myStore)
-
-// register a plugin
-app.use(LocalePlugin)
+app.component('TodoDeleteButton', TodoDeleteButton)
 ```
 
-Most of the methods exposed by the application instance return that same instance, so we can also use the chaining syntax:
-
-```js
-const app = createApp({})
-  .component('SearchInput', SearchInputComponent)
-  .directive('focus', FocusDirective)
-  .provide('store', myStore)
-  .use(LocalePlugin)
-```
-
-You can browse the full list of app instance methods in the [API reference](/api/application).
+This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](/api/application).
 
 ## Mounting the App
 
-An app instance won't render anything until its `.mount()` method is called.
+An application instance won't render anything until its `.mount()` method is called.
 It expects a "container" argument, which can either be an actual DOM element or a selector string:
 
 ```html
@@ -100,7 +74,7 @@ app.mount('#app')
 
 The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app.
 
-The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the app instance.
+The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
 
 ### In-DOM Root Component Template
 
@@ -128,16 +102,20 @@ app.mount('#app')
 
 Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
 
-## Multiple App Instances
+## Multiple application instances
 
-You are not limited to a single app instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
+You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
 
 ```js
-const app1 = createApp({ /* ... */ })
+const app1 = createApp({
+  /* ... */
+})
 app1.mount('#container-1')
 
-const app2 = createApp({ /* ... */ })
+const app2 = createApp({
+  /* ... */
+})
 app2.mount('#container-2')
 ```
 
-If you are using Vue to enhance server-rendered HTML and only need Vue to control specific parts of a large page, avoid mounting a singe Vue app instance on the entire page. Instead, create multiple small app instances and mount them on the elements they are responsible for.
+If you are using Vue to enhance server-rendered HTML and only need Vue to control specific parts of a large page, avoid mounting a singe Vue application instance on the entire page. Instead, create multiple small application instances and mount them on the elements they are responsible for.
