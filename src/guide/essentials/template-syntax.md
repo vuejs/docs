@@ -34,6 +34,8 @@ The double mustaches interprets the data as plain text, not HTML. In order to ou
   <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 </div>
 
+Here we're encountering something new. The `v-html` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, we're basically saying "keep this element's inner HTML up-to-date with the `rawHtml` property on the current active instance."
+
 The contents of the `span` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
 
 :::warning Security Warning
@@ -48,7 +50,7 @@ Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` direct
 <div v-bind:id="dynamicId"></div>
 ```
 
-If the bound value is `null` or `undefined` then the attribute will not be included on the rendered element.
+The `v-bind` directive instructs Vue to keep the element's `id` attribute in sync with the component's `dynamicId` property. If the bound value is `null` or `undefined`, then the attribute will be removed from the rendered element.
 
 ### Shorthand
 
@@ -74,7 +76,34 @@ The `disabled` attribute will be included if `isButtonDisabled` has a [truthy va
 
 ### Dynamically Binding Multiple Attributes
 
-If you have a JavaScript object representing multiple attributes to be bound on an element, you can use `v-bind` without an argument:
+If you have a JavaScript object representing multiple attributes that looks like this:
+
+<div class="composition-api">
+
+```js
+const objectOfAttrs = {
+  id: 'container',
+  class: 'wrapper'
+}
+```
+
+</div>
+<div class="options-api">
+
+```js
+data() {
+  return {
+    objectOfAttrs: {
+      id: 'container',
+      class: 'wrapper'
+    }
+  }
+}
+```
+
+</div>
+
+You can bind them to a single element by using `v-bind` without an argument:
 
 ```vue-html
 <div v-bind="objectOfAttrs"></div>
@@ -99,7 +128,7 @@ These expressions will be evaluated as JavaScript in the data scope of the curre
 In Vue templates, JavaScript expressions can be used in the following positions:
 
 - Inside text interpolations (mustaches)
-- In the attribute value of any `v-` directive bindings (including shorthands)
+- In the attribute value of any Vue directives (special attributes that start with `v-`)
 
 ### Expressions Only
 
@@ -135,9 +164,9 @@ Globals not explicitly included in the list, for example user-attached propertie
 
 ## Directives
 
-Directives are special attributes with the `v-` prefix. Vue provides a number of [built-in directives](/api/built-in-directives.html), including `v-bind` which we have introduced above.
+Directives are special attributes with the `v-` prefix. Vue provides a number of [built-in directives](/api/built-in-directives.html), including `v-html` and `v-bind` which we have introduced above.
 
-Directive attribute values are expected to be single JavaScript expressions (with the exception of `v-for` and `v-on`, which will be discussed later). A directive's job is to reactively apply updates to the DOM when the value of its expression changes. Take [`v-if`](/api/built-in-directives.html#v-if) as an example:
+Directive attribute values are expected to be single JavaScript expressions (with the exception of `v-for`, `v-on` and `v-slot`, which will be discussed in their respective sections later). A directive's job is to reactively apply updates to the DOM when the value of its expression changes. Take [`v-if`](/api/built-in-directives.html#v-if) as an example:
 
 ```vue-html
 <p v-if="seen">Now you see me</p>
@@ -209,6 +238,8 @@ Dynamic argument expressions have some syntax constraints because certain charac
 <!-- This will trigger a compiler warning. -->
 <a :['foo' + bar]="value"> ... </a>
 ```
+
+If you need to pass a complex dynamic argument, it's probably better to use to a [computed property](./computed.html), which we will cover shortly.
 
 When using in-DOM templates (templates directly written in an HTML file), you should also avoid naming keys with uppercase characters, as browsers will coerce attribute names into lowercase:
 
