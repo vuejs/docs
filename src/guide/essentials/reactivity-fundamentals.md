@@ -240,7 +240,7 @@ function mutateDeeply() {
 
 </div>
 
-It is also possible to explicitly create [shallow refs](/api/reactivity-advanced.html#shallowref) and [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
+It is also possible to explicitly create [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
 
 <div class="composition-api">
 
@@ -364,7 +364,7 @@ In other words, `ref()` allows us to create a "reference" to any value and pass 
 
 ### Ref Unwrapping in Templates \*\*
 
-When refs are exposed to templates and accessed on the render context, they are automatically "unwrapped" so there is no need to use `.value`. Here's the previous counter example, using `ref()` instead:
+When refs are accessed as top-level properties in the template, they are automatically "unwrapped" so there is no need to use `.value`. Here's the previous counter example, using `ref()` instead:
 
 ```vue{13}
 <script setup>
@@ -385,6 +385,28 @@ function increment() {
 ```
 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+
+Note the unwrapping only applies to top-level properties - nested access to refs will not be unwrapped:
+
+```js
+const object = { foo: ref(1) }
+```
+
+```vue-html
+{{ object.foo }} <!-- does NOT get unwrapped -->
+```
+
+We can fix that by making `foo` a top-level property:
+
+```js
+const { foo } = object
+```
+
+```vue-html
+{{ foo }} <!-- properly unwrapped -->
+```
+
+Now `foo` will be wrapped as expected.
 
 ### Ref Unwrapping in Reactive Objects \*\*
 
