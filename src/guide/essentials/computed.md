@@ -69,7 +69,7 @@ export default {
   computed: {
     // a computed getter
     publishedBooksMessage() {
-      // `this` points to the vm instance
+      // `this` points to the component instance
       return this.author.books.length > 0 ? 'Yes' : 'No'
     }
   }
@@ -87,7 +87,7 @@ Here we have declared a computed property `publishedBooksMessage`.
 
 Try to change the value of the `books` array in the application `data` and you will see how `publishedBooksMessage` is changing accordingly.
 
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `vm.publishedBooksMessage` when `this.author.books` changes.
+You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `this.publishedBooksMessage` when `this.author.books` changes.
 
 </div>
 
@@ -188,7 +188,7 @@ Why do we need caching? Imagine we have an expensive computed property `list`, w
 
 <div class="composition-api">
 
-## Computed Debugging **
+## Computed Debugging \*\*
 
 It's great that a computed property automatically tracks its reactive dependencies, but in some cases we may want to figure out exactly what is being tracked, or what is causing it to re-compute. We can do that by passing `computed()` a second options object with `onTrack` and `onTrigger` callbacks:
 
