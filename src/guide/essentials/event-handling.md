@@ -6,14 +6,22 @@ aside: deep
 
 ## Listening to Events
 
-We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="methodName"` or with the shortcut, `@click="methodName"`
+We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="handler"` or with the shortcut, `@click="handler"`.
 
-For example:
+The handler value can be one of the following:
+
+1. **Inline handlers:** Inline JavaScript to be executed when the event is triggered (similar to the native `onclick` attribute).
+
+2. **Method handlers:** A property name or path that points to a method defined on the component.
+
+## Inline Handlers
+
+Inline handlers are typically used in simple cases, for example:
 
 <div class="composition-api">
 
 ```js
-const counter = ref(0)
+const count = ref(0)
 ```
 
 </div>
@@ -22,7 +30,7 @@ const counter = ref(0)
 ```js
 data() {
   return {
-    counter: 0
+    count: 0
   }
 }
 ```
@@ -30,8 +38,8 @@ data() {
 </div>
 
 ```vue-html
-<button @click="counter++">Add 1</button>
-<p>The button above has been clicked {{ counter }} times.</p>
+<button @click="count++">Add 1</button>
+<p>Count is: {{ count }}</p>
 ```
 
 <div class="composition-api">
@@ -45,9 +53,9 @@ data() {
 
 </div>
 
-## Method Event Handlers
+## Method Handlers
 
-The logic for many event handlers will be more complex though, so keeping your JavaScript in the value of the `v-on` attribute isn't feasible. That's why `v-on` can also accept the name of a method you'd like to call.
+The logic for many event handlers will be more complex though, and likely isn't feasible with inline handlers. That's why `v-on` can also accept the name or path of a component method you'd like to call.
 
 For example:
 
@@ -104,9 +112,13 @@ methods: {
 
 </div>
 
+A method handler automatically receives the native DOM Event object that triggers it - in the example above, we are able to access the element dispatching the event via `event.target.tagName`.
+
+The template compiler detects method handlers by checking whether the `v-on` value string is a valid JavaScript identifier or property access path. For example, `foo`, `foo.bar` and `foo['bar']` are treated as method handlers, while `foo()` and `count++` are treated as inline handlers.
+
 ## Methods in Inline Handlers
 
-Instead of binding directly to a method name, we can also use methods in an inline JavaScript statement:
+Instead of binding directly to a method name, we can also call methods in an inline handler. This allows us to pass the method custom arguments instead of the native event:
 
 <div class="composition-api">
 
@@ -130,8 +142,8 @@ methods: {
 </div>
 
 ```vue-html
-<button @click="say('hi')">Say hi</button>
-<button @click="say('what')">Say what</button>
+<button @click="say('hello')">Say hello</button>
+<button @click="say('bye')">Say bye</button>
 ```
 
 <div class="composition-api">
@@ -145,7 +157,7 @@ methods: {
 
 </div>
 
-Sometimes we also need to access the original DOM event in an inline statement handler. You can pass it into a method using the special `$event` variable:
+Sometimes we also need to access the original DOM event in an inline handler. You can pass it into a method using the special `$event` variable:
 
 ```vue-html
 <button @click="warn('Form cannot be submitted yet.', $event)">
@@ -182,46 +194,6 @@ methods: {
 
 </div>
 
-## Multiple Event Handlers
-
-You can have multiple methods in an event handler separated by a comma operator like this:
-
-```vue-html
-<!-- both one() and two() will execute on button click -->
-<button @click="one($event), two($event)">
-  Submit
-</button>
-```
-
-<div class="composition-api">
-
-```js
-function one(event) {
-  // first handler logic...
-}
-
-function two(event) {
-  // second handler logic...
-}
-```
-
-</div>
-<div class="options-api">
-
-
-```js
-methods: {
-  one(event) {
-    // first handler logic...
-  },
-  two(event) {
-    // second handler logic...
-  }
-}
-```
-
-</div>
-
 ## Event Modifiers
 
 It is a very common need to call `event.preventDefault()` or `event.stopPropagation()` inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.
@@ -230,8 +202,8 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 
 - `.stop`
 - `.prevent`
-- `.capture`
 - `.self`
+- `.capture`
 - `.once`
 - `.passive`
 
@@ -248,10 +220,6 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 <!-- just the modifier -->
 <form @submit.prevent></form>
 
-<!-- use capture mode when adding the event listener -->
-<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
-<div @click.capture="doThis">...</div>
-
 <!-- only trigger handler if event.target is the element itself -->
 <!-- i.e. not from a child element -->
 <div @click.self="doThat">...</div>
@@ -261,26 +229,26 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **all clicks** while `@click.self.prevent` will only prevent clicks on the element itself.
 :::
 
+The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the native `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters):
+
 ```vue-html
+<!-- use capture mode when adding the event listener -->
+<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<div @click.capture="doThis">...</div>
+
 <!-- the click event will be triggered at most once -->
 <a @click.once="doThis"></a>
-```
 
-Unlike the other modifiers, which are exclusive to native DOM events, the `.once` modifier can also be used on [component events](/guide/components/events). If you haven't read about components yet, don't worry about this for now.
-
-Vue also offers the `.passive` modifier, corresponding to [`addEventListener`'s `passive` option](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters).
-
-```vue-html
 <!-- the scroll event's default behavior (scrolling) will happen -->
 <!-- immediately, instead of waiting for `onScroll` to complete  -->
 <!-- in case it contains `event.preventDefault()`                -->
 <div @scroll.passive="onScroll">...</div>
 ```
 
-The `.passive` modifier is especially useful for improving performance on mobile devices.
+The `.passive` modifier is typically used with touch event listeners for [improving performance on mobile devices](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
 
 ::: tip
-Don't use `.passive` and `.prevent` together, because `.prevent` will be ignored and your browser will probably show you a warning. Remember, `.passive` communicates to the browser that you _don't_ want to prevent the event's default behavior.
+Do not use `.passive` and `.prevent` together, because `.passive` already indicates to the browser that you _do not_ intend to prevent the event's default behavior, and you will likely see a warning from the browser if you do so.
 :::
 
 ## Key Modifiers

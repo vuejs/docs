@@ -27,9 +27,17 @@ The parent can then listen to it using `v-on`:
 <MyComponent @some-event="callback" />
 ```
 
-Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but is able to listen to it using a kebab-cased listener in the parent.
+The `.once` modifier is also supported on component event listeners:
 
-As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
+```vue-html
+<MyComponent @some-event.once="callback" />
+```
+
+Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but is able to listen to it using a kebab-cased listener in the parent. As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
+
+:::tip
+Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component.
+:::
 
 ## Event Arguments
 
