@@ -30,7 +30,7 @@ data() {
 </li>
 ```
 
-Inside `v-for` blocks we have full access to parent scope properties. `v-for` also supports an optional second argument for the index of the current item.
+Inside the `v-for` scope, template expressions have access to all parent scope properties. In addition, `v-for` also supports an optional second alias for the index of the current item:
 
 <div class="composition-api">
 
@@ -40,7 +40,6 @@ const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 ```
 
 </div>
-
 <div class="options-api">
 
 ```js
@@ -70,6 +69,34 @@ data() {
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgXHRyZXR1cm4ge1xuXHQgICAgcGFyZW50TWVzc2FnZTogJ1BhcmVudCcsXG4gICAgXHRpdGVtczogW3sgbWVzc2FnZTogJ0ZvbycgfSwgeyBtZXNzYWdlOiAnQmFyJyB9XVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGxpIHYtZm9yPVwiKGl0ZW0sIGluZGV4KSBpbiBpdGVtc1wiPlxuICBcdHt7IHBhcmVudE1lc3NhZ2UgfX0gLSB7eyBpbmRleCB9fSAtIHt7IGl0ZW0ubWVzc2FnZSB9fVxuXHQ8L2xpPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 
 </div>
+
+The variable scoping of `v-for` is similar to the following JavaScript:
+
+```js
+const parentMessage = 'Parent'
+const items = [
+  /* ... */
+]
+
+items.forEach((item, index) => {
+  // has access to outer scope `parentMessage`
+  // but `item` and `index` are only avaialble in here
+  console.log(parentMessage, item.message, index)
+})
+```
+
+Notice how the `v-for` value matches the function signature of the `forEach` callback. In fact, you can use destrcuturing on the `v-for` item alias similar to destrucutring function arguments:
+
+```vue-html
+<li v-for="{ message } in items">
+  {{ message }}
+</li>
+
+<!-- with index alias -->
+<li v-for="({ message }, index) in items">
+  {{ message }} {{ index }}
+</li>
+```
 
 You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
 
@@ -116,7 +143,7 @@ data() {
 </ul>
 ```
 
-You can also provide a second argument for the property's name (a.k.a. key):
+You can also provide a second alias for the property's name (a.k.a. key):
 
 ```vue-html
 <li v-for="(value, key) in myObject">
@@ -163,7 +190,7 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 
 ```vue-html
 <ul>
-  <template v-for="item in items" :key="item.msg">
+  <template v-for="item in items">
     <li>{{ item.msg }}</li>
     <li class="divider" role="presentation"></li>
   </template>
@@ -191,7 +218,7 @@ is not defined on instance.
 This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is also more explicit):
 
 ```vue-html
-<template v-for="todo in todos" :key="todo.name">
+<template v-for="todo in todos">
   <li v-if="!todo.isComplete">
     {{ todo.name }}
   </li>
@@ -212,15 +239,21 @@ To give Vue a hint so that it can track each node's identity, and thus reuse and
 </div>
 ```
 
-[It is recommended](/style-guide/#keyed-v-for-essential) to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple (i.e. contains no components or stateful DOM elements), or you are intentionally relying on the default behavior for performance gains.
+When using `<template v-for>`, the `key` should be placed on the `<template>` container:
 
-Since it's a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
+```vue-html
+<template v-for="todo in todos" :key="todo.name">
+  <li>{{ todo.name }}</li>
+</template>
+```
 
 :::tip Note
-Don't use non-primitive values like objects and arrays as `v-for` keys. Use string or numeric values instead.
+`key` here is a special attribute being bonund with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
 :::
 
-For detailed usage of the `key` attribute, please see the [`key` API documentation](/api/built-in-special-attributes.html#key).
+[It is recommended](/style-guide/#keyed-v-for-essential) to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple (i.e. contains no components or stateful DOM elements), or you are intentionally relying on the default behavior for performance gains.
+
+The `key` binding expects primitive values - i.e. strings and numbers. Do not use objects as `v-for` keys. For detailed usage of the `key` attribute, please see the [`key` API documentation](/api/built-in-special-attributes.html#key).
 
 ## `v-for` with a Component
 
