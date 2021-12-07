@@ -162,7 +162,7 @@ We are working on a new version of the Devtools with a new UI and refactored int
 
   - Note: the beta channel may conflict with the stable version of devtools so you may need to temporarily disable the stable version for the beta channel to work properly.
 
-- For Firefox: [Download the signed extension](https://github.com/vuejs/vue-devtools/releases/tag/v6.0.0-beta.2) (`.xpi` file under Assets)
+- For Firefox: [Download the signed extension](https://github.com/vuejs/vue-devtools/releases/tag/v6.0.0-beta.20) (`.xpi` file under Assets)
 
 ### IDE Support
 
