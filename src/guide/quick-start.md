@@ -118,10 +118,10 @@ As we dive deeper into the guide, we may need to split our code into separate Ja
 ```html
 <!-- index.html -->
 <script type="module">
-import { createApp } from 'vue'
-import MyComponent from './my-component.js'
+  import { createApp } from 'vue'
+  import MyComponent from './my-component.js'
 
-createApp(MyComponent).mount('#app')
+  createApp(MyComponent).mount('#app')
 </script>
 ```
 
@@ -144,13 +144,13 @@ You may have noticed that the imported component's template is inlined as a Java
 If you skipped the [Introduction](/guide/introduction), we strongly recommend reading it before moving on to the rest of the documentation.
 
 <div class="vt-box-container next-steps">
+  <a class="vt-box" href="/guide/quick-start.html">
+    <p class="next-steps-link">Continue the Guide</p>
+    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full details.</p>
+  </a>
   <a class="vt-box" href="/tutorial/">
     <p class="next-steps-link">Follow the Tutorial</p>
     <p class="next-steps-caption">For those who prefer learning things hands-on. Let's build something real!</p>
-  </a>
-  <a class="vt-box" href="/guide/essentials/application.html">
-    <p class="next-steps-link">Continue the Guide</p>
-    <p class="next-steps-caption">An in-depth guide that walks through the core concepts in full detail.</p>
   </a>
   <a class="vt-box" href="/examples/">
     <p class="next-steps-link">Check out the Examples</p>
