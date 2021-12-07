@@ -3,7 +3,7 @@ import { Repl, ReplStore } from '@vue/repl'
 import '@vue/repl/style.css'
 import data from './data.json'
 import { inject, watchEffect, version, Ref } from 'vue'
-import { resolveSFCExample, resolveNoBuildExample } from './utils'
+import { resolveSFCExample, resolveNoBuildExample, onHashChange } from './utils'
 
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
@@ -13,7 +13,7 @@ const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
 
 watchEffect(updateExample)
-window.addEventListener('hashchange', updateExample)
+onHashChange(updateExample)
 
 /**
  * We perform some runtime logic to transform source files into different

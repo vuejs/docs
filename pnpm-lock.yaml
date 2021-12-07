@@ -5,7 +5,7 @@ specifiers:
   '@vue/repl': ^0.4.4
   '@vue/theme': ^0.1.16
   cheap-watch: ^1.0.3
-  vitepress: ^0.20.2
+  vitepress: ^0.20.4
   vue: ^3.2.24
 
 dependencies:
@@ -16,7 +16,7 @@ dependencies:
 devDependencies:
   '@types/node': 16.10.3
   cheap-watch: 1.0.4
-  vitepress: 0.20.2
+  vitepress: 0.20.4
 
 packages:
 
@@ -629,8 +629,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/0.20.2:
-    resolution: {integrity: sha512-hLJMPmA5rhKKyZddHb75sR3tGU6AzvYC+j3qpphevoQPTDeXq3uH8wEK6pgi/+EII9uLbRwsnNP/mwHn9Z+o9w==}
+  /vitepress/0.20.4:
+    resolution: {integrity: sha512-UzmGxYDkZnSSsQp3yenxpulZCibQDzOo/4ipX6GgIurol21FkFhAqkNwhAK+5pwp1TY4rkaBR5cFmNh02JtrJg==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:

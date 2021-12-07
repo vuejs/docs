@@ -3,7 +3,8 @@ const fs = require('fs')
 const path = require('path')
 const { genApiIndex } = require('../../scripts/genApiIndex')
 const { genExamplesData } = require('../../scripts/genExamplesData')
-const { headerPlugin } = require('./header')
+const { genTutorialData } = require('../../scripts/genTutorialData')
+const { headerPlugin } = require('./headerMdPlugin')
 
 const nav = [
   {
@@ -460,11 +461,11 @@ const sidebar = {
       text: 'Tutorial',
       items: [
         {
-          text: '1. Hello World',
+          text: '1. Adding Data',
           link: '/tutorial/#step-1'
         },
         {
-          text: '2. Render a List',
+          text: '2. Two-way Binding',
           link: '/tutorial/#step-2'
         }
       ]
@@ -474,6 +475,7 @@ const sidebar = {
 
 genApiIndex(sidebar['/api/'])
 genExamplesData()
+genTutorialData()
 
 /**
  * @type {import('vitepress').UserConfig}

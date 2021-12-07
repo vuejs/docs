@@ -15,6 +15,8 @@ exports.genExamplesData = () => {
   })
 }
 
+exports.readExample = readExample
+
 function genExamples() {
   const srcDir = path.resolve(__dirname, '../src/examples/src')
   const examples = fs.readdirSync(srcDir)

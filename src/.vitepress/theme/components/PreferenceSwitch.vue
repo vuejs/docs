@@ -11,6 +11,7 @@ import {
 
 const route = useRoute()
 const show = computed(() => /^\/(guide|tutorial|examples)\//.test(route.path))
+const showSFC = computed(() => !/^\/guide/.test(route.path))
 const isOpen = ref(
   typeof localStorage !== 'undefined' &&
   !localStorage.getItem(preferCompositionKey)
@@ -79,7 +80,7 @@ function useToggleFn(
           @click="closeSideBar"
         >?</a>
       </div>
-      <div class="switch-container" v-if="route.path.startsWith('/examples')">
+      <div class="switch-container" v-if="showSFC">
         <label class="no-sfc-label" @click="toggleSFC(false)">HTML</label>
         <VTSwitch
           class="sfc-switch"

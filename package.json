@@ -12,6 +12,6 @@
   "devDependencies": {
     "@types/node": "^16.9.1",
     "cheap-watch": "^1.0.3",
-    "vitepress": "^0.20.2"
+    "vitepress": "^0.20.4"
   }
 }

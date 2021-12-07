@@ -1,3 +1,5 @@
+import { onBeforeUnmount } from 'vue'
+
 type ExampleData = {
   [key: string]: Record<string, string>
 } & {
@@ -66,7 +68,7 @@ function forEachComponent(
 ) {
   for (const filename in raw) {
     const content = raw[filename]
-    if (filename === 'description.txt') {
+    if (filename === 'description.txt' || filename === 'description.md') {
       continue
     } else if (typeof content === 'string') {
       files[filename] = content
@@ -93,14 +95,18 @@ function injectCreateApp(src: string): string {
   return src.replace(/export default ({[^]*\n})/, "createApp($1).mount('#app')")
 }
 
-export function resolveSFCExample(raw: ExampleData, preferComposition: boolean) {
+export function resolveSFCExample(
+  raw: ExampleData,
+  preferComposition: boolean
+) {
   const files: Record<string, string> = {}
   forEachComponent(
     raw,
     files,
     (filename, { template, composition, options, style }) => {
+      const desc = raw['description.txt']
       let sfcContent =
-        filename === 'App' ? `<!--\n${raw['description.txt']}\n-->\n\n` : ``
+        desc && filename === 'App' ? `<!--\n${desc}\n-->\n\n` : ``
       if (preferComposition) {
         sfcContent += `<script setup>\n${toScriptSetup(
           composition,
@@ -119,10 +125,14 @@ export function resolveSFCExample(raw: ExampleData, preferComposition: boolean) 
   return files
 }
 
-export function resolveNoBuildExample(raw: ExampleData, preferComposition: boolean) {
+export function resolveNoBuildExample(
+  raw: ExampleData,
+  preferComposition: boolean
+) {
   const files: Record<string, string> = {}
 
-  let html = `<!--\n${raw['description.txt']}\n-->\n\n`
+  const desc = raw['description.txt']
+  let html = desc ? `<!--\n${desc})}\n-->\n\n` : ``
   let css = ''
 
   // set it first for ordering
@@ -140,7 +150,7 @@ export function resolveNoBuildExample(raw: ExampleData, preferComposition: boole
 
       if (filename === 'App') {
         html += `<script type="module">\n${injectCreateApp(js)}<\/script>`
-        html += `\n\n<div id="app">\n${_template}</div>`
+        html += `\n\n<div id="app">\n${_template}\n</div>`
       } else {
         // html += `\n\n<template id="${filename}">\n${_template}</template>`
         js = js.replace(
@@ -158,4 +168,9 @@ export function resolveNoBuildExample(raw: ExampleData, preferComposition: boole
   return files
 }
 
-
+export function onHashChange(cb) {
+  window.addEventListener('hashchange', cb)
+  onBeforeUnmount(() => {
+    window.removeEventListener('hashchange', cb)
+  })
+}

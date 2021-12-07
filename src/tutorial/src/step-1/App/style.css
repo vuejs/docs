@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+label {
+  font-size: 18px;
+}
+
+input {
+  font-size: 18px;
+  padding-left: 5px;
+  width: 35px;
+}
+
+.panel {
+  color: white;
+  background-color: teal;
+  transition: background 0.5s;
+}
