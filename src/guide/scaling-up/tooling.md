@@ -92,11 +92,13 @@ The Vue team maintains [eslint-plugin-vue](https://github.com/vuejs/eslint-plugi
 
 Users previously using Vue CLI may be used to having linters configured via webpack loaders. However when using a Vite-based build setup, our general recommendation is:
 
-1. Setup ESLint via IDE extensions during development so you get linter feedback right in your editor. This also avoids unnecessary linting cost when starting the dev server.
+1. `npm install -D eslint eslint-plugin-vue`, then follow `eslint-plugin-vue`'s [configuration guide](https://eslint.vuejs.org/user-guide/#usage).
 
-2. Run linting as part of the production build command.
+2. Setup ESLint IDE extensions, for example [ESLint for VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), so you get linter feedback right in your editor during development. This also avoids unnecessary linting cost when starting the dev server.
 
-3. Setup tools like [lint-staged](https://github.com/okonet/lint-staged) to automatically lint modified files on git commit.
+3. Run ESLint as part of the production build command, so you get full linter feedback before shipping to production.
+
+4. (Optional) Setup tools like [lint-staged](https://github.com/okonet/lint-staged) to automatically lint modified files on git commit.
 
 ## Formatting
 
