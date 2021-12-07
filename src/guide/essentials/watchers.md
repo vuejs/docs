@@ -61,8 +61,6 @@ export default {
 }
 ```
 
-In addition to the `watch` option, you can also use the imperative [this.$watch API](/api/component-instance.html#watch).
-
 </div>
 
 <div class="composition-api">
@@ -77,7 +75,7 @@ const question = ref('')
 const answer = ref('Questions usually contain a question mark. ;-)')
 
 // watch works directly on a ref
-watch(question, async (newQuestion) => {
+watch(question, async (newQuestion, oldQuestion) => {
   if (newQuestion.indexOf('?') > -1) {
     answer.value = 'Thinking...'
     try {
@@ -183,8 +181,10 @@ When you call `watch()` directly on a reactive object, it will implicitly create
 ```js
 const obj = reactive({ count: 0 })
 
-watch(obj, () => {
+watch(obj, (newValue, oldValue) => {
   // fires on nested property mutations
+  // Note: `newValue` will be equal to `oldValue` here
+  // because they both point to the same object!
 })
 
 obj.count++
@@ -194,10 +194,23 @@ This should be differentiated with a getter that returns a reactive object - in 
 
 ```js
 watch(
-  () => state.activeObject,
+  () => state.someObject,
   () => {
-    // fires only when state.activeObject is replaced
+    // fires only when state.someObject is replaced
   }
+)
+```
+
+You can, however, force the second case into a deep watcher by explicitly using the `deep` option:
+
+```js
+watch(
+  () => state.someObject,
+  (newValue, oldValue) => {
+    // Note: `newValue` will be equal to `oldValue` here
+    // *unless* state.someObject has been replaced
+  },
+  { deep: true }
 )
 ```
 
@@ -265,13 +278,13 @@ You can check out [this example](/examples/#fetching-data) with `watchEffect` an
 
 `watch` and `watchEffect` both allow us to reactively perform side effects. Their main difference is the way they track their reactive dependencies:
 
-- `watch` only tracks the explicitly watched source. It won't track anything accessed inside the callback. This allows us to have more control over what should trigger the callback.
+- `watch` only tracks the explicitly watched source. It won't track anything accessed inside the callback. In addition, the callback only triggers when the source has actually changed. `watch` separates dependency tracking from the side effect, giving us more precise control over when the callback should fire.
 
-- `watchEffect`, on the other hand, automatically tracks every reactive property accessed during its synchronous execution. This is more convenient and typically results in terser code, but makes its reactive dependencies less explicit.
+- `watchEffect`, on the other hand, combines dependency tracking and side effect into one phase. It automatically tracks every reactive property accessed during its synchronous execution. This is more convenient and typically results in terser code, but makes its reactive dependencies less explicit.
 
 </div>
 
-## Effect Flush Timing
+## Callback Flush Timing
 
 Every Vue component has an update function that updates the DOM when relevant state changes. This update function is also a watcher, created by Vue internally.
 
@@ -323,7 +336,7 @@ watchPostEffect(() => {
 
 <div class="options-api">
 
-## `$watch()` \*
+## `this.$watch()` \*
 
 It's also possible to imperatively create watchers using the [`$watch()` instance method](http://localhost:3000/api/component-instance.html#watch):
 
