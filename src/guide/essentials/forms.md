@@ -1,3 +1,7 @@
+---
+aside: deep
+---
+
 # Form Input Bindings
 
 ## Basic Usage
@@ -86,7 +90,7 @@ Single checkbox, boolean value:
 
 </div>
 
-We can also bind multiple checkboxes to the same array value:
+We can also bind multiple checkboxes to the same array or [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) value:
 
 <div class="composition-api">
 
