@@ -102,7 +102,9 @@ Users previously using Vue CLI may be used to having linters configured via webp
 
 ## Formatting
 
-[Prettier](https://prettier.io/) provides built-in Vue SFC formatting support.
+- The [Volar](https://github.com/johnsoncodehk/volar) VSCode extension provides formatting for Vue SFCs out of the box.
+
+- Alternatively, [Prettier](https://prettier.io/) provides built-in Vue SFC formatting support.
 
 ## Backend Framework Integrations
 
