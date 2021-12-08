@@ -19,7 +19,7 @@ const currentDescription = computed(() => {
 })
 
 const nextStep = computed(() => {
-  const next = `step-${parseInt(currentStep.value, 10) + 1}`
+  const next = `step-${+currentStep.value.match(/\d+/)[0] + 1}`
   if (data.hasOwnProperty(next)) {
     return next
   }
@@ -29,7 +29,6 @@ const userEditedState = ref<object | null>(null)
 const buttonText = computed(() => (userEditedState.value ? 'Reset' : 'Show me!'))
 
 function updateExample() {
-  console.log('Update example triggered')
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
     hash = 'step-1'
@@ -105,6 +104,19 @@ updateExample()
   border-bottom: 1px solid var(--vt-c-divider-light);
   font-size: 15px;
   overflow-y: auto;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #7e7e7e;
+  margin-top: 2em;
+  padding-top: 1em;
+}
+footer button,
+a {
+  color: var(--vt-c-green-light);
 }
 
 .instruction h1 {
