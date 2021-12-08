@@ -3,6 +3,7 @@ page: true
 ---
 
 <script setup>
+import SponsorSection from './.vitepress/theme/components/SponsorSection.vue'
 import NewsLetter from './.vitepress/theme/components/NewsLetter.vue'
 </script>
 
@@ -42,17 +43,15 @@ import NewsLetter from './.vitepress/theme/components/NewsLetter.vue'
   </div>
 </section>
 
-<section id="sponsors">
-  <!-- TODO -->
-</section>
+<SponsorSection />
 
-<section id="ways-to-use">
+<!-- <section id="ways-to-use"> -->
   <!-- TODO show toggleable example between CDN vs. SFC usage -->
-</section>
+<!-- </section> -->
 
-<section id="tooling">
+<!-- <section id="tooling"> -->
   <!-- TODO show tooling screenshots -->
-</section>
+<!-- </section> -->
 
 <NewsLetter />
 
