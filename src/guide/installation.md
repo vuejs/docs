@@ -18,7 +18,7 @@ Detailed release notes for each version are available on [GitHub](https://github
 ## Vue Devtools
 
 > Currently in Beta - Vuex and Router integration is still WIP
- 
+
 <VideoLesson href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3?friend=vuejs" title="Learn how to install Vue Devtools on Vue School">Learn how to install and use Vue Devtools in a free Vue School lesson</VideoLesson>
 
 When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
@@ -117,6 +117,15 @@ $ yarn
 $ yarn dev
 ```
 
+Or with PNPM:
+
+```bash
+$ pnpm create vite <project-name> --template vue
+$ cd <project-name>
+$ pnpm install
+$ pnpm dev
+```
+
 ## Explanation of Different Builds
 
 In the [`dist/` directory of the npm package](https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
@@ -170,14 +179,14 @@ If you need to compile templates on the client (e.g. passing a string to the tem
 ```js
 // this requires the compiler
 Vue.createApp({
-  template: '<div>{{ hi }}</div>'
+  template: '<div>{{ hi }}</div>',
 })
 
 // this does not
 Vue.createApp({
   render() {
     return Vue.h('div', {}, this.hi)
-  }
+  },
 })
 ```
 
