@@ -7,6 +7,10 @@
 Vue Single File Components (aka `*.vue` files, abbreviated as **SFC**) is a special file format that allows us to encapsulate the template, logic, **and** styling of a Vue component in a single file. Here's an example SFC:
 
 ```vue
+<template>
+  <p class="greeting">{{ greeting }}</p>
+</template>
+
 <script>
 export default {
   data() {
@@ -17,14 +21,11 @@ export default {
 }
 </script>
 
-<template>
-  <p class="greeting">{{ greeting }}</p>
-</template>
-
-<style>
+<style scoped>
 .greeting {
   color: red;
   font-weight: bold;
+  text-align: center;
 }
 </style>
 ```
@@ -32,7 +33,8 @@ export default {
 As we can see, Vue SFC is a natural extension of the classic trio of HTML, CSS and JavaScript. Each `*.vue` file consists of three types of top-level language blocks: `<template>`, `<script>`, and `<style>`:
 
 - The `<script>` section is a standard JavaScript module. It should export a Vue component definition as its default export.
-- The `<template>` section defines the component's template.
+- The `<template>` section defines the component's template 
+  (with at least one root element).
 - The `<style>` section defines CSS associated with the component.
 
 Check out more details in the [SFC Syntax Specification](/api/sfc-spec).
@@ -73,7 +75,7 @@ SFC is a defining feature of Vue as a framework, and is the recommended approach
 
 - Single-Page Applications (SPA)
 - Static Site Generation (SSG)
-- Any non-trivial frontends where a build step can be justified for better development experience (DX).
+- Any non-trivial frontends where a build step can be justified for a better development experience (DX).
 
 That said, we do realize there are scenarios where SFCs can feel like overkill. This is why Vue can still be used via plain JavaScript without a build step. If you are just looking for enhancing largely static HTML with light interactions, you can also check out [petite-vue](https://github.com/vuejs/petite-vue), a 5kb subset of Vue optimized for progressive enhancement.
 
@@ -85,4 +87,4 @@ To answer this question, it is important for us to agree that **separation of co
 
 In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic, and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable.
 
-Note even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files using [Src Imports](/api/sfc-spec.html#src-imports).
+Note even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files using [SRC Imports](/api/sfc-spec.html#src-imports).
