@@ -179,14 +179,14 @@ If you need to compile templates on the client (e.g. passing a string to the tem
 ```js
 // this requires the compiler
 Vue.createApp({
-  template: '<div>{{ hi }}</div>',
+  template: '<div>{{ hi }}</div>'
 })
 
 // this does not
 Vue.createApp({
   render() {
     return Vue.h('div', {}, this.hi)
-  },
+  }
 })
 ```
 
