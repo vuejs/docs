@@ -154,8 +154,8 @@ computed: {
 }
 ```
 
-::: tip Note
-Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child component **will** affect parent state.
+::: warning Warning
+Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child component **will** affect the parent state and Vue is unable to warn you against this. As a general rule, you should avoid mutating any prop, including objects and arrays as doing so ignores one-way data binding and may cause undesired results.
 :::
 
 ## Prop Validation
