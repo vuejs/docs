@@ -70,45 +70,42 @@ watchEffect(() => {
 
 </div>
 
-## Function Refs
-
-Instead of a string key, the `ref` attribute can also be bound to a function, which will be called on each component update. The function receives the element reference as the first argument:
-
-```vue-html
-<input :ref="(el) => { /* assign el to a property or ref */ }">
-```
-
-You can, of course, use a method instead of an inline function.
-
 ## Refs inside `v-for`
 
-Unlike Vue 2, template refs in Vue 3 will not automatically populate an array when used inside `v-for`. You can, however, achieve that using function refs:
+> Requires v3.2.25 or above
 
 <div class="composition-api">
 
+When `ref` is used inside `v-for`, the corrensponding ref should contain an Array value, which will be populated with the elements after mount:
+
 ```vue
 <script setup>
-import { ref, onBeforeUpdate } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const list = ref([
   /* ... */
 ])
 
-let itemRefs = []
+const itemRefs = ref([])
 
-onBeforeUpdate(() => {
-  // reset the array before each update
-  itemRefs = []
-})
+onMounted(() => console.log(itemRefs.value))
 </script>
 
 <template>
-  <div v-for="item in list" :ref="(el) => el && itemRefs.push(el)"></div>
+  <ul>
+    <li v-for="item in list" ref="itemRefs">
+      {{ item }}
+    </li>
+  </ul>
 </template>
 ```
 
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBsaXN0ID0gcmVmKFsxLCAyLCAzXSlcblxuY29uc3QgaXRlbVJlZnMgPSByZWYoW10pXG5cbm9uTW91bnRlZCgoKSA9PiB7XG4gIGFsZXJ0KGl0ZW1SZWZzLnZhbHVlLm1hcChpID0+IGkudGV4dENvbnRlbnQpKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDx1bD5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGxpc3RcIiByZWY9XCJpdGVtUmVmc1wiPlxuICAgICAge3sgaXRlbSB9fVxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+
 </div>
 <div class="options-api">
+
+When `ref` is used inside `v-for`, the resulting ref value will be an array containing the corresponding elements:
 
 ```vue
 <script>
@@ -117,23 +114,39 @@ export default {
     return {
       list: [
         /* ... */
-      ],
-      itemRefs: []
+      ]
     }
   },
-  beforeUpdate() {
-    // reset the array before an update
-    this.itemRefs = []
+  mounted() {
+    console.log(this.$refs.items)
   }
 }
 </script>
 
 <template>
-  <div v-for="item in list" :ref="(el) => el && itemRefs.push(el)"></div>
+  <ul>
+    <li v-for="item in list" ref="items">
+      {{ item }}
+    </li>
+  </ul>
 </template>
 ```
 
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbGlzdDogWzEsIDIsIDNdXG4gICAgfVxuICB9LFxuICBtb3VudGVkKCkge1xuICAgIGNvbnNvbGUubG9nKHRoaXMuJHJlZnMuaXRlbXMpXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDx1bD5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGxpc3RcIiByZWY9XCJpdGVtc1wiPlxuICAgICAge3sgaXRlbSB9fVxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+
 </div>
+
+It should be noted that the ref array does **not** guarantee the same order as the source array.
+
+## Function Refs
+
+Instead of a string key, the `ref` attribute can also be bound to a function, which will be called on each component update and gives you full flexibility on where to store the element reference. The function receives the element reference as the first argument:
+
+```vue-html
+<input :ref="(el) => { /* assign el to a property or ref */ }">
+```
+
+Note we are using a dynamic `:ref` binding so we can pass it a function instead of a ref name string. When the element is unmounted, the argument will be `null`. You can, of course, use a method instead of an inline function.
 
 ## Ref on Component
 
@@ -184,7 +197,7 @@ export default {
 
 </div>
 
-If the child component is using Options API or not using `<script setup>`, the referenced instance will be identical to the child component's `this`, which means the parent component will have full access to every property and method of the child component. This makes it easy to create tightly coupled implementation details between the parent and the child, so component refs should be only used when absolutely needed - in most cases, you should try to implement parent / child interactions using the standard props and emit interfaces first.
+<span class="composition-api">If the child component is using Options API or not using `<script setup>`, the</span><span class="options-api">The</span> referenced instance will be identical to the child component's `this`, which means the parent component will have full access to every property and method of the child component. This makes it easy to create tightly coupled implementation details between the parent and the child, so component refs should be only used when absolutely needed - in most cases, you should try to implement parent / child interactions using the standard props and emit interfaces first.
 
 <div class="composition-api">
 
@@ -221,8 +234,12 @@ export default {
     }
   },
   methods: {
-    publicMethod() { /* ... */ },
-    privateMethod() { /* ... */ }
+    publicMethod() {
+      /* ... */
+    },
+    privateMethod() {
+      /* ... */
+    }
   }
 }
 ```
