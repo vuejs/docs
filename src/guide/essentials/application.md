@@ -41,24 +41,6 @@ App (root component)
 
 We will discuss how to define and compose multiple components together in later sections of the guide. Before that, we will focus on what happens inside a single component.
 
-## App Configurations
-
-The application instance exposes a `.config` object that allows us to configure a few app-level options, for example defining an app-level error handler that captures errors from all descendent components:
-
-```js
-app.config.errorHandler = (err) => {
-  /* handle error */
-}
-```
-
-The application instance also provides a few methods for registering app-scoped assets. for example, registering a component:
-
-```js
-app.component('TodoDeleteButton', TodoDeleteButton)
-```
-
-This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](/api/application).
-
 ## Mounting the App
 
 An application instance won't render anything until its `.mount()` method is called.
@@ -101,6 +83,26 @@ app.mount('#app')
 ```
 
 Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
+
+## App Configurations
+
+The application instance exposes a `.config` object that allows us to configure a few app-level options, for example defining an app-level error handler that captures errors from all descendent components:
+
+```js
+app.config.errorHandler = (err) => {
+  /* handle error */
+}
+```
+
+The application instance also provides a few methods for registering app-scoped assets. for example, registering a component:
+
+```js
+app.component('TodoDeleteButton', TodoDeleteButton)
+```
+
+This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](/api/application).
+
+Make sure to apply all app configurations before mounting the app!
 
 ## Multiple application instances
 

@@ -5,43 +5,39 @@ aside: deep
 # Reactivity Fundamentals
 
 :::tip API Preference
-This section contains different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
+This page and many other chapters later in the guide contain different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
 :::
 
 ## Declaring Reactive State
 
 <div class="options-api">
 
-With Options API, we use the `data` option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. The wrapped object is stored on the component instance as `$data`. For convenience, any top-level properties of that object are also exposed directly on the component instance (`this` in methods and lifecycle hooks):
+With Options API, we use the `data` option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. Any top-level properties of this object are proxied on the component instance (`this` in methods and lifecycle hooks):
 
-```js
+```js{2-6}
 export default {
   data() {
     return {
-      count: 0
+      count: 1
     }
   },
 
   // `mounted` is a lifecycle hook which we will explain later
   mounted() {
     // `this` refers to the component instance.
-    console.log(this.$data.count) // => 1
     console.log(this.count) // => 1
 
-    // Assigning a value to this.count will also update $data.count
+    // data can be mutated as well
     this.count = 2
-    console.log(this.$data.count) // => 2
-
-    // ... and vice-versa
-    this.$data.count = 3
-    console.log(this.count) // => 3
   }
 }
 ```
 
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDFcbiAgICB9XG4gIH0sXG5cbiAgLy8gYG1vdW50ZWRgIGlzIGEgbGlmZWN5Y2xlIGhvb2sgd2hpY2ggd2Ugd2lsbCBleHBsYWluIGxhdGVyXG4gIG1vdW50ZWQoKSB7XG4gICAgLy8gYHRoaXNgIHJlZmVycyB0byB0aGUgY29tcG9uZW50IGluc3RhbmNlLlxuICAgIGNvbnNvbGUubG9nKHRoaXMuY291bnQpIC8vID0+IDFcblxuICAgIC8vIGRhdGEgY2FuIGJlIG11dGF0ZWQgYXMgd2VsbFxuICAgIHRoaXMuY291bnQgPSAyXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIENvdW50IGlzOiB7eyBjb3VudCB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+
 These instance properties are only added when the instance is first created, so you need to ensure they are all present in the object returned by the `data` function. Where necessary, use `null`, `undefined` or some other placeholder value for properties where the desired value isn't yet available.
 
-It is possible to add a new property directly to the component instance without including it in `data`. However, because this property isn't backed by the reactive `$data` object, it won't automatically be tracked by [Vue's reactivity system](/guide/advanced/reactivity-in-depth.html).
+It is possible to add a new property directly to `this` without including it in `data`. However, properties added this way will not be able to trigger reactive updates.
 
 Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
 
@@ -50,13 +46,22 @@ Vue uses a `$` prefix when exposing its own built-in APIs via the component inst
 In Vue 3, data is made reactive by leveraging [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Users coming from Vue 2 should be aware of the following edge case:
 
 ```js
-const object = {}
-this.someObject = object
+export default {
+  data() {
+    return {
+      someObject: {}
+    }
+  },
+  mounted() {
+    const newObject = {}
+    this.someObject = newObject
 
-console.log(object === this.someObject) // false
+    console.log(newObject === this.someObject) // false
+  }
+}
 ```
 
-When you access `this.someObject` after assigning it, the value is a reactive proxy of the original `object`. **Unlike in Vue 2, the original `object` is left intact and will not be made reactive: make sure to always access reactive state as a property of `this`.**
+When you access `this.someObject` after assigning it, the value is a reactive proxy of the original `newObject`. **Unlike in Vue 2, the original `newObject` is left intact and will not be made reactive: make sure to always access reactive state as a property of `this`.**
 
 </div>
 
@@ -160,7 +165,7 @@ Top-level imports and variables declared in `<script setup>` are automatically u
 
 To add methods to a component instance we use the `methods` option. This should be an object containing the desired methods:
 
-```js
+```js{7-11}
 export default {
   data() {
     return {
@@ -179,7 +184,17 @@ export default {
 }
 ```
 
-Vue automatically binds the `this` value for `methods` so that it always refers to the component instance. This ensures that a method retains the correct `this` value if it's used as an event listener or callback. You should avoid using arrow functions when defining `methods`, as that prevents Vue from binding the appropriate `this` value.
+Vue automatically binds the `this` value for `methods` so that it always refers to the component instance. This ensures that a method retains the correct `this` value if it's used as an event listener or callback. You should avoid using arrow functions when defining `methods`, as that prevents Vue from binding the appropriate `this` value:
+
+```js
+export default {
+  methods: {
+    increment: () => {
+      // BAD: no `this` access here!
+    }
+  }
+}
+```
 
 Just like all other properties of the component instance, the `methods` are accessible from within the component's template. Inside a template they are most commonly used as event listeners:
 
@@ -312,7 +327,7 @@ The `reactive()` API has two limitations:
 
 ## Reactive Variables with `ref()` \*\*
 
-To address the limitations of `reactive()`, Vue also provides a [`ref()`](/api/reactivity-core.html#ref) method which allows us to create reactive **"refs"** that can hold any value type:
+To address the limitations of `reactive()`, Vue also provides a [`ref()`](/api/reactivity-core.html#ref) function which allows us to create reactive **"refs"** that can hold any value type:
 
 ```js
 import { ref } from 'vue'

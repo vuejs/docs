@@ -4,24 +4,31 @@ aside: deep
 
 # Form Input Bindings
 
-## Basic Usage
+When dealing with forms on the frontend, we often need to sync the state of form input elements with corresponding state in JavaScript. It can be cumbersom to manually wire up value bindings and change event listeners:
 
-You can use the `v-model` directive to create two-way data bindings on form input, textarea, and select elements. It automatically picks the correct way to update the element based on the input type. Although a bit magical, `v-model` is essentially syntax sugar for updating data on user input events, plus special care for some edge cases.
+```vue-html
+<input
+  :value="text"
+  @input="event => text = event.target.value">
+```
+
+The `v-model` directive helps us simplify the above to:
+
+```vue-html
+<input v-model="text">
+```
+
+In addition, `v-model` can be used on inputs of different types, `<textarea>`, and `<select>` elements. It automatically expands to different DOM property and event pairs based on the element it is used on:
+
+- `<input>` with text types and `<textarea>` elements use `value` property and `input` event;
+- `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event;
+- `<select>` use `value` as a prop and `change` as an event.
 
 ::: tip Note
 `v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using <span class="options-api">the `data` option</span><span class="composition-api">reactivity APIs</span>.
 :::
 
-`v-model` internally uses different properties and emits different events for different input elements:
-
-- text and textarea elements use `value` property and `input` event;
-- checkboxes and radiobuttons use `checked` property and `change` event;
-- select fields use `value` as a prop and `change` as an event.
-
-<span id="vmodel-ime-tip"></span>
-::: tip Note
-For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to respond to these updates as well, use an `input` event listener and `value` binding instead of using `v-model`.
-:::
+## Basic Usage
 
 ### Text
 
@@ -40,6 +47,11 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogJydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxpbnB1dCB2LW1vZGVsPVwibWVzc2FnZVwiIHBsYWNlaG9sZGVyPVwiZWRpdCBtZVwiIC8+XG5cdDxwPk1lc3NhZ2UgaXM6IHt7IG1lc3NhZ2UgfX08L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 </div>
+
+<span id="vmodel-ime-tip"></span>
+::: tip Note
+For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to respond to these updates as well, use an `input` event listener and `value` binding instead of using `v-model`.
+:::
 
 ### Multiline text
 
@@ -228,6 +240,7 @@ const options = ref([
   { text: 'Three', value: 'C' }
 ])
 ```
+
 </div>
 <div class="options-api">
 
@@ -245,6 +258,7 @@ export default {
   }
 }
 ```
+
 </div>
 
 ```vue-html
@@ -298,7 +312,6 @@ But sometimes we may want to bind the value to a dynamic property on the current
 ```
 
 `true-value` and `false-value` are Vue-specific attributes that only works with `v-model`. Here the `toggle` property's value will be set to `'yes'` when the box is checked, and set to `'no'` when unchecked. You can also bind them to dynamic values using `v-bind`:
-
 
 ```vue-html
 <input

@@ -82,11 +82,11 @@ export default {
 }
 ```
 
+</div>
+
 The template is inlined as a JavaScript string here, which Vue will compile on the fly. You can also use an ID selector pointing to an element (usually native `<template>` elements) - Vue will use its content as the template source.
 
 The example above defines a single component and exports it as the default export of a `.js` file, but you can use named exports to export multiple components from the same file.
-
-</div>
 
 ## Using a Component
 

@@ -98,6 +98,16 @@ Notice how the `v-for` value matches the function signature of the `forEach` cal
 </li>
 ```
 
+For nested `v-for`, scoping also works similar to nested functions. Each `v-for` scope has access to parent scopes:
+
+```vue-html
+<li v-for="item in items">
+  <span v-for="childItem in item.children">
+    {{ item.message }} {{ childItem }}
+  </span>
+</li>
+```
+
 You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
 
 ```vue-html

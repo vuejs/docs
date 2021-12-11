@@ -48,7 +48,7 @@ Yes. Despite a common misconception that Vue is only suitable for simple use cas
 
 - [Composition API](/guide/reusability/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
 
-- Comprehensive tooling support ensures a smooth development experience as the application grows.
+- [Comprehensive tooling support](/guide/scaling-up/tooling.html) ensures a smooth development experience as the application grows.
 
 - Lower barrier to entry and excellent documentation translate to lower onboarding and training costs for new developers.
 

@@ -318,7 +318,7 @@ watch(source, callback, {
 })
 
 watchEffect(callback, {
-  fush: 'post'
+  flush: 'post'
 })
 ```
 

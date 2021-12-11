@@ -66,7 +66,9 @@ Attributes that start with `:` may look a bit different from normal HTML, but it
 
 ### Boolean Attributes
 
-In the case of boolean attributes, where their mere existence implies `true`, `v-bind` works a little differently. For example:
+[Boolean attributes](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) are attributes that can indicate true / false values by its presence on an element. For example, [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled) is one of the most commonly used boolean attributes.
+
+`v-bind` works a bit differently in this case:
 
 ```vue-html
 <button :disabled="isButtonDisabled">Button</button>
