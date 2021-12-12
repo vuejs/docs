@@ -18,9 +18,9 @@ You can try Vue with SFCs online on [StackBlitz](https://vite.new/vue). StackBli
 - Install [Node.js](https://nodejs.org/)
   :::
 
-To create a build-tool-enabled Vue project on your machine, run the following command in your command line (without the `$` sign):
+To create a build-tool-enabled Vue project on your machine, run the following command in your command line (without the `>` sign):
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
 This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You will be presented with prompts for a number of optional features such as TypeScript and testing support:
 
@@ -36,9 +36,9 @@ This command will install and execute [create-vue](https://github.com/vuejs/crea
 
 If you are unsure about an option, simply choose `No` by hitting enter for now. Once the project is created, follow the instructions to install dependencies and start the dev server:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span>
-<span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#A6ACCD;">npm install</span></span>
-<span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#A6ACCD;">npm run dev</span></span>
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
+<span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
 You should now have your first Vue project running! Here are some additional tips:
@@ -50,10 +50,12 @@ You should now have your first Vue project running! Here are some additional tip
 
 When you are ready to ship your app to production, run the following:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$ </span><span style="color:#A6ACCD;">npm run build</span></span>
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
 This will create a production-ready build of your app in the project's `./dist` directory. Check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html) to learn more about shipping your app to production.
+
+[Next Steps >](#next-steps)
 
 ## Without Build Tools
 
@@ -144,7 +146,7 @@ You may have noticed that the imported component's template is inlined as a Java
 If you skipped the [Introduction](/guide/introduction), we strongly recommend reading it before moving on to the rest of the documentation.
 
 <div class="vt-box-container next-steps">
-  <a class="vt-box" href="/guide/quick-start.html">
+  <a class="vt-box" href="/guide/essentials/application.html">
     <p class="next-steps-link">Continue the Guide</p>
     <p class="next-steps-caption">The guide walks you through every aspect of the framework in full details.</p>
   </a>
