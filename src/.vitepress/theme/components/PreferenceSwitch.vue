@@ -17,7 +17,18 @@ const isOpen = ref(
   !localStorage.getItem(preferCompositionKey)
 )
 
-const toggleOpen = () => (isOpen.value = !isOpen.value)
+const toggleOpen = () => {
+  isOpen.value = !isOpen.value
+}
+
+const removeOutline = (e) => {
+  e.target.classList.add('no-outline')
+}
+
+const restoreOutline = (e) => {
+  e.target.classList.remove('no-outline')
+}
+
 const toggleCompositionAPI = useToggleFn(
   preferCompositionKey,
   preferComposition,
@@ -54,6 +65,8 @@ function useToggleFn(
       aria-controls="preference-switches"
       :aria-expanded="isOpen"
       @click="toggleOpen"
+      @mousedown="removeOutline"
+      @blur="restoreOutline"
     >
       <span>API Preference</span>
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
@@ -120,6 +133,10 @@ function useToggleFn(
 
 .toggle:hover {
   color: var(--vt-c-text-1);
+}
+
+.no-outline {
+  outline: 0;
 }
 
 .vt-link-icon {
