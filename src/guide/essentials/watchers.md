@@ -220,11 +220,11 @@ watch(
 Deep watch requires traversing all nested properties in the watched object, and can be expensive when used on large data structures. Use it only when necessary and beware of the performance implications.
 :::
 
-## Eager Watchers
+<div class="options-api">
+
+## Eager Watchers \*
 
 `watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
-
-<div class="options-api">
 
 We can force a watcher's callback to be executed immediately by declaring it using an object with a `handler` function and the `immediate: true` option:
 
@@ -248,25 +248,35 @@ export default {
 
 <div class="composition-api">
 
-We can force a watcher's callback to be executed immediately with the `immediate: true` option:
+## `watchEffect()` \*\*
+
+`watch()` is lazy: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes. We may find ourselves doing this:
 
 ```js
-watch(question, callback, {
-  immediate: true
-})
+const url = ref('https://...')
+const data = ref(null)
+
+async function fetchData() {
+  const response = await fetch(url.value)
+  data.value = await response.json()
+}
+
+// fetch immediately
+fetchData()
+// ...then watch for url change
+watch(url, fetchData)
 ```
 
-Alternatively, instead of using `watch`, we can perform a side effect immediately while automatically tracking reactive dependencies with the [`watchEffect` function](/api/reactivity-core.html#watcheffect):
+This can be simplified with [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` allows us to perform a side effect immediately while automatically tracking the effect's reactive dependencies. The above example can be rewritten as:
 
 ```js
 watchEffect(async () => {
-  if (question.value.indexOf('?') > -1) {
-    // ...
-  }
+  const response = await fetch(url.value)
+  data.value = await response.json()
 })
 ```
 
-Here, the callback will run immediately. During its execution, it will also automatically track `question.value` as a dependency (similar to computed properties). Whenever `question.value` changes, the callback will be run again.
+Here, the callback will run immediately. During its execution, it will also automatically track `url.value` as a dependency (similar to computed properties). Whenever `url.value` changes, the callback will be run again.
 
 You can check out [this example](/examples/#fetching-data) with `watchEffect` and reactive data-fetching in action.
 
@@ -286,11 +296,9 @@ You can check out [this example](/examples/#fetching-data) with `watchEffect` an
 
 ## Callback Flush Timing
 
-Every Vue component has an update function that updates the DOM when relevant state changes. This update function is also a watcher, created by Vue internally.
+When you mutate reactive state, it may trigger both Vue component updates and watcher callbacks created by you.
 
-When both user-created watchers and component update watchers are triggered by the same state changes, Vue will put all the watcher callbacks (or the "effects") into a queue based on priority before calling them.
-
-By default, user effects are called **before** Vue component update effects. This means if you attempt to access the DOM inside a watcher callback, the DOM will be in the state before Vue has applied any updates.
+By default, user-created watcher callbacks are called **before** Vue component updates. This means if you attempt to access the DOM inside a watcher callback, the DOM will be in the state before Vue has applied any updates.
 
 If you want to access the DOM in a watcher callback **after** Vue has updated it, you need to specify the `flush: 'post'` option:
 
@@ -322,7 +330,7 @@ watchEffect(callback, {
 })
 ```
 
-Post-flush `watchEffect` also has a convenience alias, `watchPostEffect`:
+Post-flush `watchEffect()` also has a convenience alias, `watchPostEffect()`:
 
 ```js
 import { watchPostEffect } from 'vue'
@@ -412,41 +420,5 @@ watchEffect(() => {
   }
 })
 ```
-
-</div>
-
-<div class="composition-api">
-
-## Side Effect Invalidation \*\*
-
-Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
-
-- the effect is about to re-run
-- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
-
-```js
-watchEffect((onInvalidate) => {
-  const token = performAsyncOperation(id.value)
-  onInvalidate(() => {
-    // id has changed or watcher is stopped.
-    // invalidate previously pending async operation
-    token.cancel()
-  })
-})
-```
-
-We are registering the invalidation callback via a passed-in function instead of returning it from the callback because the return value is important for async error handling. It is very common for the effect function to be an async function when performing data fetching:
-
-```js
-const data = ref(null)
-watchEffect(async (onInvalidate) => {
-  onInvalidate(() => {
-    /* ... */
-  }) // we register cleanup function before Promise resolves
-  data.value = await fetchData(props.id)
-})
-```
-
-An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the Promise chain.
 
 </div>

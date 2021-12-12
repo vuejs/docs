@@ -384,4 +384,36 @@ watchEffect(callback, {
 `onTrack` and `onTrigger` watcher options only work in development mode.
 :::
 
+## Watcher Side Effect Invalidation \*\*
+
+Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
+
+- the effect is about to re-run
+- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
+
+```js
+watchEffect((onInvalidate) => {
+  const token = performAsyncOperation(id.value)
+  onInvalidate(() => {
+    // id has changed or watcher is stopped.
+    // invalidate previously pending async operation
+    token.cancel()
+  })
+})
+```
+
+We are registering the invalidation callback via a passed-in function instead of returning it from the callback because the return value is important for async error handling. It is very common for the effect function to be an async function when performing data fetching:
+
+```js
+const data = ref(null)
+watchEffect(async (onInvalidate) => {
+  onInvalidate(() => {
+    /* ... */
+  }) // we register cleanup function before Promise resolves
+  data.value = await fetchData(props.id)
+})
+```
+
+An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the Promise chain.
+
 </div>
