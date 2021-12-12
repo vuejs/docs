@@ -520,9 +520,9 @@ app.component('save-button', {
 
 <div class="composition-api">
 
-### Ref Transform <Badge type="warning" text="experimental" /> \*\*
+### Reactivity Transform <Badge type="warning" text="experimental" /> \*\*
 
-Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. The [ref transform](https://github.com/vuejs/vue-next/tree/master/packages/ref-transform) allows us to write the above example like this:
+Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. [Vue Reactivity Transform](https://github.com/vuejs/vue-next/tree/master/packages/reactivity-transform) allows us to write the above example like this:
 
 ```vue
 <script setup>
@@ -539,7 +539,7 @@ function increment() {
 ```
 
 :::warning Experimental Feature
-Ref transform is currently an experimental feature. It is disabled by default and requires [explicit opt-in](https://github.com/vuejs/rfcs/blob/ref-sugar-2/active-rfcs/0000-ref-sugar.md#enabling-the-macros). It may also change before being finalized. More details can be found in its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
+Reactivity transform is currently an experimental feature. It is disabled by default and requires [explicit opt-in](https://github.com/vuejs/rfcs/blob/reactivity-transform/active-rfcs/0000-reactivity-transform.md#enabling-the-macros). It may also change before being finalized. More details can be found in its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
 :::
 
 </div>
