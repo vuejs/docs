@@ -2,24 +2,33 @@
 
 For now, our component renders some static data. Try to change a number 3 in the code to something different to see how the rendered result changes.
 
-Let's add some dynamic data. Within component `data` return statement, add a property `colorsNumber`.
+How to make it dynamic? We need to create our first _reactive_ property `colorsNumber`
 
-For now, our component renders some static data. Try to change a number 3 in the code to something different to see how the rendered result changes.
+<div class="options-api">
 
-Let's add some dynamic data. Within component `data` return statement, add a property `colorsNumber`.
+```js
+data() {
+  return {
+    colorsNumber: 3
+  }
+}
+```
 
-For now, our component renders some static data. Try to change a number 3 in the code to something different to see how the rendered result changes.
+</div>
 
-Let's add some dynamic data. Within component `data` return statement, add a property `colorsNumber`.
+<div class="composition-api">
 
-For now, our component renders some static data. Try to change a number 3 in the code to something different to see how the rendered result changes.
+```js
+import { ref } from 'vue'
+const colorsNumber = ref(3)
+```
 
-Let's add some dynamic data. Within component `data` return statement, add a property `colorsNumber`.
+</div>
 
-For now, our component renders some static data. Try to change a number 3 in the code to something different to see how the rendered result changes.
+Now, we can use it in our template instead of a static number:
 
-Let's add some dynamic data. Within component `data` return statement, add a property `colorsNumber`.
+```html
+<h2>Number of colors: {{ colorsNumber }}</h2>
+```
 
-For now, our component renders some static data. Try to change a number 3 in the code to something different to see how the rendered result changes.
-
-Let's add some dynamic data. Within component `data` return statement, add a property `colorsNumber`.
+Try to change the `colorsNumber` and check how it immediately updates the rendered HTML.
