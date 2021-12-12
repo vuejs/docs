@@ -2,5 +2,9 @@ import { ref } from 'vue'
 
 export default {
   name: 'App',
-  setup() {}
+  setup() {
+    const colorsNumber = ref(3)
+
+    return { colorsNumber }
+  }
 }
