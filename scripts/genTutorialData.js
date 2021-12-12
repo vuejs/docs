@@ -9,8 +9,11 @@ const { watch } = require('./watch')
 const { readExample } = require('./genExamplesData')
 const { createMarkdownRenderer } = require('vitepress')
 
-exports.genTutorialData = () => {
-  const md = createMarkdownRenderer(process.cwd())
+exports.genTutorialData = async () => {
+  const md = createMarkdownRenderer(process.cwd(), {
+    // @ts-ignore
+    highlight: await require('@vue/theme/highlight')()
+  })
 
   watch({
     src: 'tutorial/src',
