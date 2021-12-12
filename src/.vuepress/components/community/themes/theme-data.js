@@ -218,7 +218,7 @@ export default [
   },
   {
     name: 'Flatlogic',
-    description: `Check the admin dashboard templates built by our partners from [Flatlogic](https://flatlogic.com/templates?ref=x-fdkuTAVW). With these themes you can see how real applications are built. Additionally, these templates will help you to start a new application and save you time and money.`,
+    description: `Check out the admin dashboard templates built by our partners from [Flatlogic](https://flatlogic.com/templates?ref=x-fdkuTAVW). With these themes you can see how real applications are built. Additionally, these templates will help you to start a new application and save you time and money.`,
     seeMoreUrl: 'https://flatlogic.com/templates?ref=x-fdkuTAVW',
     products: [
       {
