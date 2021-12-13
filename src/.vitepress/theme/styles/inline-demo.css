@@ -22,3 +22,23 @@
 .demo button + button {
   margin-left: 1em;
 }
+
+.demo input, .demo textarea, .demo select {
+  border: 1px solid var(--vt-c-divider);
+  border-radius: 4px;
+  padding: 0.2em 0.6em;
+  margin-top: 10px;
+}
+
+.demo select {
+  /* this was set by normalize.css */
+  -webkit-appearance: listbox;
+}
+
+.demo label {
+  margin: 0 1em 0 0.4em;
+}
+
+.demo select[multiple] {
+  width: 100px;
+}
