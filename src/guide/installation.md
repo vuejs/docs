@@ -120,7 +120,7 @@ $ yarn dev
 Or with pnpm:
 
 ```bash
-$ pnpm create vite <project-name> --template vue
+$ pnpm create vite <project-name> -- --template vue
 $ cd <project-name>
 $ pnpm install
 $ pnpm dev
