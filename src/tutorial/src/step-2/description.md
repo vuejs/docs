@@ -35,8 +35,8 @@ Now we created a _two-way binding_: we update `input` field on reactive property
 Now, we can choose how many colors we'll have in our guessing game! As a last touch, let's add a label to our input field and set up minimum and maximum for it:
 
 ```html
-<label for="squares">
+<label for="colors">
   Enter number of colors and press Enter:
-  <input id="squares" type="number" v-model="squaresNumber" min="2" max="10" />
+  <input id="colors" type="number" v-model="colorsNumber" min="2" max="10" />
 </label>
 ```
