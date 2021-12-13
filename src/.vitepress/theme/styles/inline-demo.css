@@ -30,6 +30,10 @@
   margin-top: 10px;
 }
 
+.demo input:focus {
+  outline: 1px solid blue;
+}
+
 .demo select {
   /* this was set by normalize.css */
   -webkit-appearance: listbox;
