@@ -1,4 +1,4 @@
-# Dynamic Components with `keep-alive`
+# KeepAlive
 
 Earlier, we used the `is` attribute to switch between components in a tabbed interface:
 
