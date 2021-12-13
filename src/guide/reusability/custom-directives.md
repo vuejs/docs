@@ -1,6 +1,6 @@
 # Custom Directives
 
-## Intro
+## Introduction
 
 In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives. Note that in Vue, the primary form of code reuse and abstraction is components - however, there may be cases where you need some low-level DOM access on plain elements, and this is where custom directives would still be useful. An example would be focusing on an input element, like this one:
 
@@ -41,7 +41,7 @@ Then in a template, you can use the new `v-focus` attribute on any element, like
 <input v-focus />
 ```
 
-## Hook Functions
+## Directive Hooks
 
 A directive definition object can provide several hook functions (all optional):
 

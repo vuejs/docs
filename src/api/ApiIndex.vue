@@ -68,7 +68,7 @@ function slugify(text) {
     </div>
 
     <div v-for="section of filtered" :key="section.text" class="api-section">
-      <h2>{{ section.text }}</h2>
+      <h2 :id="slugify(section.text)">{{ section.text }}</h2>
       <div class="api-groups">
         <div v-for="item of section.items" :key="item.text" class="api-group">
           <h3>{{ item.text }}</h3>

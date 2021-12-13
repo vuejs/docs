@@ -236,6 +236,10 @@ const sidebar = {
           link: '/guide/advanced/reactivity-in-depth'
         },
         {
+          text: 'Composition API FAQ',
+          link: '/guide/advanced/composition-api-faq'
+        },
+        {
           text: 'Rendering Mechanism',
           link: '/guide/advanced/rendering-mechanism'
         },
@@ -247,19 +251,19 @@ const sidebar = {
           text: 'Server-Side Rendering',
           link: '/guide/advanced/server-side-rendering'
         },
-        { text: 'Custom Renderers', link: '/guide/advanced/custom-renderer' },
         {
-          text: 'Web Components',
+          text: 'Vue and Web Components',
           link: '/guide/advanced/web-components'
-        },
-        {
-          text: 'Building a Library for Vue',
-          link: '/guide/advanced/building-a-library'
-        },
-        {
-          text: 'Advanced Animations',
-          link: '/guide/advanced/animation'
         }
+        // {
+        //   text: 'Building a Library for Vue',
+        //   link: '/guide/advanced/building-a-library'
+        // },
+        // {
+        //   text: 'Advanced Animations',
+        //   link: '/guide/advanced/animation'
+        // },
+        // { text: 'Custom Renderers', link: '/guide/advanced/custom-renderer' },
         // {
         //   text: 'Vue for React Devs',
         //   link: '/guide/advanced/vue-for-react-devs'
