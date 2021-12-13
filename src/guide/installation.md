@@ -117,7 +117,7 @@ $ yarn
 $ yarn dev
 ```
 
-Or with PNPM:
+Or with pnpm:
 
 ```bash
 $ pnpm create vite <project-name> --template vue
