@@ -26,3 +26,31 @@ input {
   background-color: teal;
   transition: background 0.5s;
 }
+
+nav {
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: white;
+  color: teal;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+nav button {
+  text-transform: uppercase;
+  padding: 0 8px;
+  height: 100%;
+  font-size: 16px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  color: teal;
+}
+
+nav button:hover {
+  background-color: teal;
+  color: white;
+}
