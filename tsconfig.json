@@ -8,5 +8,5 @@
     "allowJs": true,
     "strict": true
   },
-  "include": ["src/**/*", "src/.vitepress/**/*", "env.d.ts"]
+  "include": ["src/**/*", "src/.vitepress/**/*"]
 }

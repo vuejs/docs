@@ -4,19 +4,17 @@ specifiers:
   '@types/node': ^16.9.1
   '@vue/repl': ^0.4.7
   '@vue/theme': ^0.1.19
-  cheap-watch: ^1.0.3
-  vitepress: ^0.20.6
+  vitepress: ^0.20.8
   vue: ^3.2.25
 
 dependencies:
   '@vue/repl': 0.4.7_vue@3.2.25
   '@vue/theme': 0.1.19_vue@3.2.25
-  vitepress: 0.20.6
+  vitepress: 0.20.8
   vue: 3.2.25
 
 devDependencies:
   '@types/node': 16.10.3
-  cheap-watch: 1.0.4
 
 packages:
 
@@ -416,11 +414,6 @@ packages:
     resolution: {integrity: sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==}
     dev: false
 
-  /cheap-watch/1.0.4:
-    resolution: {integrity: sha512-QR/9FrtRL5fjfUJBhAKCdi0lSRQ3rVRRum3GF9wDKp2TJbEIMGhUEr2yU8lORzm9Isdjx7/k9S0DFDx+z5VGtw==}
-    engines: {node: '>=8'}
-    dev: true
-
   /csstype/2.6.18:
     resolution: {integrity: sha512-RSU6Hyeg14am3Ah4VZEmeX8H7kLwEEirXe6aU2IPfKNvhXwTflK5HQRDNI0ypQXoqmm+QPyG2IaPuQE5zMwSIQ==}
     dev: false
@@ -732,8 +725,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/0.20.6:
-    resolution: {integrity: sha512-s9nHetaQQ/wZ/OImNDAxCZShpuMR/R5Cs9gEMhsfZI5vFJy1xH5hploOER+FEpqvpFTIhhVpuSp4jJ7/bycBKQ==}
+  /vitepress/0.20.8:
+    resolution: {integrity: sha512-beaBE0JFo71xcJfIVQH98ItZtLC16DJqjev7eMrGDrlpQxqm5Y60UY8tYwi3vjMR7Hu5hvkepyQ0cstZoYVXRQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
