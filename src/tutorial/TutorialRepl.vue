@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
 import { inject, watch, version, Ref, ref, computed } from 'vue'
-import data from './data.json'
-import { resolveSFCExample, resolveNoBuildExample, onHashChange } from '../examples/utils'
+import { data } from './tutorial.data'
+import {
+  resolveSFCExample,
+  resolveNoBuildExample,
+  onHashChange
+} from '../examples/utils'
 import '@vue/repl/style.css'
 
 const store = new ReplStore({
@@ -19,14 +23,17 @@ const currentDescription = computed(() => {
 })
 
 const nextStep = computed(() => {
-  const next = `step-${+currentStep.value.match(/\d+/)[0] + 1}`
-  if (data.hasOwnProperty(next)) {
+  const nextMatch = currentStep.value.match(/\d+/)
+  const next = nextMatch && `step-${+nextMatch[0]} + 1}`
+  if (next && data.hasOwnProperty(next)) {
     return next
   }
 })
 
-const userEditedState = ref<object | null>(null)
-const buttonText = computed(() => (userEditedState.value ? 'Reset' : 'Show me!'))
+const userEditedState = ref<Record<string, string> | null>(null)
+const buttonText = computed(() =>
+  userEditedState.value ? 'Reset' : 'Show me!'
+)
 
 function updateExample() {
   let hash = location.hash.slice(1)
@@ -36,7 +43,8 @@ function updateExample() {
   }
   currentStep.value = hash
 
-  const content = userEditedState.value ? data[nextStep.value] : data[hash]
+  const content =
+    userEditedState.value && nextStep.value ? data[nextStep.value] : data[hash]
 
   store.setFiles(
     preferSFC.value

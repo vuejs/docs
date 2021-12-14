@@ -1,9 +1,9 @@
 import { onBeforeUnmount } from 'vue'
 
-type ExampleData = {
-  [key: string]: Record<string, string>
+export type ExampleData = {
+  [key: string]: string | Record<string, string>
 } & {
-  'import-map.json': string
+  'import-map.json'?: string
 }
 
 function indent(str: string): string {
@@ -168,7 +168,7 @@ export function resolveNoBuildExample(
   return files
 }
 
-export function onHashChange(cb) {
+export function onHashChange(cb: () => void) {
   window.addEventListener('hashchange', cb)
   onBeforeUnmount(() => {
     window.removeEventListener('hashchange', cb)

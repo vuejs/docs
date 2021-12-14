@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
 import '@vue/repl/style.css'
-import data from './data.json'
+import { data } from './examples.data'
 import { inject, watchEffect, version, Ref } from 'vue'
 import { resolveSFCExample, resolveNoBuildExample, onHashChange } from './utils'
 

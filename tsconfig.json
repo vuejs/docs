@@ -5,7 +5,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowJs": true
+    "allowJs": true,
+    "strict": true
   },
-  "include": ["src/**/*", "src/.vitepress/**/*"]
+  "include": ["src/**/*", "src/.vitepress/**/*", "env.d.ts"]
 }

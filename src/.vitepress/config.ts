@@ -1,11 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { defineConfig } from 'vitepress'
-// @ts-ignore
 import baseConfig from '@vue/theme/config'
-import { genApiIndex } from '../../scripts/genApiIndex'
-import { genExamplesData } from '../../scripts/genExamplesData'
-import { genTutorialData } from '../../scripts/genTutorialData'
 import { headerPlugin } from './headerMdPlugin'
 
 const nav = [
@@ -95,7 +91,7 @@ const nav = [
   }
 ]
 
-const sidebar = {
+export const sidebar = {
   '/guide/': [
     {
       text: 'Getting Started',
@@ -479,12 +475,9 @@ const sidebar = {
   ]
 }
 
-genApiIndex(sidebar['/api/'])
-genExamplesData()
-genTutorialData()
-
 export default defineConfig({
   extends: baseConfig,
+
   vite: {
     define: {
       __VUE_OPTIONS_API__: false
@@ -505,6 +498,16 @@ export default defineConfig({
     },
     json: {
       stringify: true
+    }
+  },
+
+  vue: {
+    template: {
+      compilerOptions: {
+        directiveTransforms: {
+          focus: () => ({ props: [] })
+        }
+      }
     }
   },
 

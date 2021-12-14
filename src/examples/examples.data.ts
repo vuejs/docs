@@ -1,35 +1,31 @@
-/**
- * watch / generate an all-example data temporary json file (ignored by Git)
- */
+import fs from 'fs'
+import path from 'path'
+import { ExampleData } from './utils'
 
-// @ts-check
-const fs = require('fs')
-const path = require('path')
-const { watch } = require('./watch')
+export declare const data: Record<string, ExampleData>
 
-exports.genExamplesData = () => {
-  watch({
-    src: 'examples/src',
-    out: 'examples/data.json',
-    genData: genExamples
-  })
+export { ExampleData }
+
+export default {
+  watch: 'src/**',
+  load() {
+    const srcDir = path.resolve(__dirname, './src')
+    return readExamples(srcDir)
+  }
 }
 
-exports.readExample = readExample
-
-function genExamples() {
-  const srcDir = path.resolve(__dirname, '../src/examples/src')
+export function readExamples(srcDir: string): Record<string, ExampleData> {
   const examples = fs.readdirSync(srcDir)
-  const data = {}
+  const data: Record<string, ExampleData> = {}
   for (const name of examples) {
     data[name] = readExample(path.join(srcDir, name))
   }
   return data
 }
 
-function readExample(dir) {
+function readExample(dir: string): ExampleData {
   const filenames = fs.readdirSync(dir)
-  const files = {}
+  const files: ExampleData = {}
   for (const filename of filenames) {
     const fullPath = path.join(dir, filename)
     if (fs.statSync(fullPath).isDirectory()) {
@@ -41,9 +37,9 @@ function readExample(dir) {
   return files
 }
 
-function readComponentDir(dir) {
+function readComponentDir(dir: string): Record<string, string> {
   const filenames = fs.readdirSync(dir)
-  const files = {}
+  const files: Record<string, string> = {}
   for (const filename of filenames) {
     let content = fs.readFileSync(path.join(dir, filename), 'utf-8')
     if (!content.endsWith('\n')) content += '\n'
