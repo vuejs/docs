@@ -1,10 +1,12 @@
-// @ts-check
-const fs = require('fs')
-const path = require('path')
-const { genApiIndex } = require('../../scripts/genApiIndex')
-const { genExamplesData } = require('../../scripts/genExamplesData')
-const { genTutorialData } = require('../../scripts/genTutorialData')
-const { headerPlugin } = require('./headerMdPlugin')
+import fs from 'fs'
+import path from 'path'
+import { defineConfig } from 'vitepress'
+// @ts-ignore
+import baseConfig from '@vue/theme/config'
+import { genApiIndex } from '../../scripts/genApiIndex'
+import { genExamplesData } from '../../scripts/genExamplesData'
+import { genTutorialData } from '../../scripts/genTutorialData'
+import { headerPlugin } from './headerMdPlugin'
 
 const nav = [
   {
@@ -481,12 +483,8 @@ genApiIndex(sidebar['/api/'])
 genExamplesData()
 genTutorialData()
 
-/**
- * @type {import('vitepress').UserConfig}
- */
-module.exports = {
-  // @ts-ignore
-  extends: require('@vue/theme/config'),
+export default defineConfig({
+  extends: baseConfig,
   vite: {
     define: {
       __VUE_OPTIONS_API__: false
@@ -494,6 +492,7 @@ module.exports = {
     optimizeDeps: {
       exclude: ['@vue/repl']
     },
+    // @ts-ignore
     ssr: {
       external: ['@vue/repl']
     },
@@ -565,4 +564,4 @@ module.exports = {
       copyright: 'Copyright © 2014-2021 Evan You'
     }
   }
-}
+})
