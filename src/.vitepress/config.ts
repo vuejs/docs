@@ -490,7 +490,11 @@ export default defineConfig({
       external: ['@vue/repl']
     },
     server: {
-      host: true
+      host: true,
+      fs: {
+        // for when developing with locally linked theme
+        allow: ['../..']
+      }
     },
     build: {
       minify: 'terser',
