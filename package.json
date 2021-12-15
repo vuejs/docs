@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "@vue/repl": "^0.4.7",
-    "@vue/theme": "^0.1.19",
+    "@vue/theme": "^0.1.20",
     "vitepress": "^0.20.8",
     "vue": "^3.2.25"
   },
