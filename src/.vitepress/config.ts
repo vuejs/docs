@@ -478,43 +478,6 @@ export const sidebar = {
 export default defineConfig({
   extends: baseConfig,
 
-  vite: {
-    define: {
-      __VUE_OPTIONS_API__: false
-    },
-    optimizeDeps: {
-      exclude: ['@vue/repl']
-    },
-    // @ts-ignore
-    ssr: {
-      external: ['@vue/repl']
-    },
-    server: {
-      host: true,
-      fs: {
-        // for when developing with locally linked theme
-        allow: ['../..']
-      }
-    },
-    build: {
-      minify: 'terser',
-      chunkSizeWarningLimit: Infinity
-    },
-    json: {
-      stringify: true
-    }
-  },
-
-  vue: {
-    template: {
-      compilerOptions: {
-        directiveTransforms: {
-          focus: () => ({ props: [] })
-        }
-      }
-    }
-  },
-
   lang: 'en-US',
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
@@ -569,6 +532,43 @@ export default defineConfig({
         link: 'https://opensource.org/licenses/MIT'
       },
       copyright: 'Copyright © 2014-2021 Evan You'
+    }
+  },
+
+  vite: {
+    define: {
+      __VUE_OPTIONS_API__: false
+    },
+    optimizeDeps: {
+      exclude: ['@vue/repl']
+    },
+    // @ts-ignore
+    ssr: {
+      external: ['@vue/repl']
+    },
+    server: {
+      host: true,
+      fs: {
+        // for when developing with locally linked theme
+        allow: ['../..']
+      }
+    },
+    build: {
+      minify: 'terser',
+      chunkSizeWarningLimit: Infinity
+    },
+    json: {
+      stringify: true
+    }
+  },
+
+  vue: {
+    template: {
+      compilerOptions: {
+        directiveTransforms: {
+          focus: () => ({ props: [] })
+        }
+      }
     }
   }
 })

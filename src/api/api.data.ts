@@ -1,3 +1,5 @@
+// api.data.ts
+// a file ending with data.(j|t)s will be evaluated in Node.js
 import fs from 'fs'
 import path from 'path'
 import { sidebar } from '../.vitepress/config'
@@ -11,10 +13,13 @@ export interface APIGroup {
   }[]
 }
 
+// declare resolved data type
 export declare const data: APIGroup[]
 
 export default {
+  // declare files that should trigger HMR
   watch: './*.md',
+  // read from fs and generate the data
   load(): APIGroup[] {
     return sidebar['/api/'].map((group) => ({
       text: group.text,

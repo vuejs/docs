@@ -3,14 +3,14 @@ lockfileVersion: 5.3
 specifiers:
   '@types/node': ^16.9.1
   '@vue/repl': ^0.4.7
-  '@vue/theme': ^0.1.20
-  vitepress: ^0.20.8
+  '@vue/theme': ^0.1.22
+  vitepress: ^0.20.9
   vue: ^3.2.25
 
 dependencies:
   '@vue/repl': 0.4.7_vue@3.2.25
-  '@vue/theme': 0.1.20_vue@3.2.25
-  vitepress: 0.20.8
+  '@vue/theme': 0.1.22_vue@3.2.25
+  vitepress: 0.20.9
   vue: 3.2.25
 
 devDependencies:
@@ -354,8 +354,8 @@ packages:
     resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==}
     dev: false
 
-  /@vue/theme/0.1.20_vue@3.2.25:
-    resolution: {integrity: sha512-5w33/DzTsFfTiQXvME3kwhW4LZzs+T3abjRt0F8aLN+rHe7jAl06QVTqZohc+WK3OkBjWpNO6Q9dSqvtjc3Pzw==}
+  /@vue/theme/0.1.22_vue@3.2.25:
+    resolution: {integrity: sha512-ZlA59oeuOgABGVUdy83GyeE5DuytdA5W3MSdldWLOd/cGTbwksTSxZ3oZzSiKZkSTeGMWLDXYdDyxMCOdiUELw==}
     dependencies:
       '@docsearch/css': 3.0.0-alpha.41
       '@docsearch/js': 3.0.0-alpha.41
@@ -725,8 +725,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/0.20.8:
-    resolution: {integrity: sha512-beaBE0JFo71xcJfIVQH98ItZtLC16DJqjev7eMrGDrlpQxqm5Y60UY8tYwi3vjMR7Hu5hvkepyQ0cstZoYVXRQ==}
+  /vitepress/0.20.9:
+    resolution: {integrity: sha512-2Rd6NMS5sTVl+3HDM9EzIMi3JOTNz1DjylvbYEWjxPyCmL3OH0lEez7O4FAijCkS5+i3VcwygxisadonMhtYkw==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:

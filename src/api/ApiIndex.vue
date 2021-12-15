@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { APIGroup, data as apiIndex } from './api.data'
+// in .vue components or .md pages:
+// named import "data" is the resolved static data
+// can also import types for type consistency
+import { data as apiIndex, APIGroup } from './api.data'
 import { ref, computed } from 'vue'
 
 const query = ref('')
