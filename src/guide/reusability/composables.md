@@ -90,9 +90,43 @@ const { x, y } = useMouse()
 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZU1vdXNlIH0gZnJvbSAnLi9tb3VzZS5qcydcblxuY29uc3QgeyB4LCB5IH0gPSB1c2VNb3VzZSgpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICBNb3VzZSBwb3NpdGlvbiBpcyBhdDoge3sgeCB9fSwge3sgeSB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwibW91c2UuanMiOiJpbXBvcnQgeyByZWYsIG9uTW91bnRlZCwgb25Vbm1vdW50ZWQgfSBmcm9tICd2dWUnXG5cbmV4cG9ydCBmdW5jdGlvbiB1c2VNb3VzZSgpIHtcbiAgY29uc3QgeCA9IHJlZigwKVxuICBjb25zdCB5ID0gcmVmKDApXG5cbiAgZnVuY3Rpb24gdXBkYXRlKGV2ZW50KSB7XG4gICAgeC52YWx1ZSA9IGV2ZW50LnBhZ2VYXG4gICAgeS52YWx1ZSA9IGV2ZW50LnBhZ2VZXG4gIH1cblxuICBvbk1vdW50ZWQoKCkgPT4gd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIHVwZGF0ZSkpXG4gIG9uVW5tb3VudGVkKCgpID0+IHdpbmRvdy5yZW1vdmVFdmVudExpc3RlbmVyKCdtb3VzZW1vdmUnLCB1cGRhdGUpKVxuXG4gIHJldHVybiB7IHgsIHkgfVxufSJ9)
 
-As we can see, the core logic remains exactly the same - all we had to do was moving it into an external function and return the state that should be exposed. The same `useMouse()` functionality can now be used in any component.
+As we can see, the core logic remains exactly the same - all we had to do was moving it into an external function and return the state that should be exposed. Same as inside a component, you can use the full range of [Composition API functions](/api/#composition-api) in composables. The same `useMouse()` functionality can now be used in any component.
 
-You can use the full range of [Composition API functions](/api/#composition-api) in composables. You can also nest them: one composable function can call one or more other composable functions. This enables us to compose complex logic using small, isolated units, similar to how we compose an entire application using components. In fact, this is why we decided to call the collection of APIs that make this pattern possible Composition API.
+The cooler part about composables though, is that you can also nest them: one composable function can call one or more other composable functions. This enables us to compose complex logic using small, isolated units, similar to how we compose an entire application using components. In fact, this is why we decided to call the collection of APIs that make this pattern possible Composition API.
+
+As an example, we can extract the logic of adding and cleaning up a DOM event listener into its own compsoable:
+
+```js
+// event.js
+import { onMounted, onUnmounted } from 'vue'
+
+export function useEventListener(target, event, callback) {
+  // if you want, you can also make this
+  // support selector strings as target
+  onMounted(() => target.addEventListener(event, callback))
+  onUnmounted(() => target.removeEventListener(event, callback))
+}
+```
+
+And now our `useMouse()` can be simplified to:
+
+```js{3,9-12}
+// mouse.js
+import { ref } from 'vue'
+import { useEventListener } from './event'
+
+export function useMouse() {
+  const x = ref(0)
+  const y = ref(0)
+
+  useEventListener(window, 'mousemove', (event) => {
+    x.value = event.pageX
+    y.value = event.pageY
+  })
+
+  return { x, y }
+}
+```
 
 :::tip
 Each component instance calling `useMouse()` will create its own copies of `x` and `y` state so they won't interfere with one another. If you want to manage shared state between components, read the [State Management](/guide/scaling-up/state-management.html) chapter.
@@ -117,7 +151,10 @@ fetch('...')
 
 <template>
   <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
-  <div v-else-if="data">Data loaded: <pre>{{ data }}</pre></div>
+  <div v-else-if="data">
+    Data loaded:
+    <pre>{{ data }}</pre>
+  </div>
   <div v-else>Loading...</div>
 </template>
 ```
@@ -197,7 +234,7 @@ It is a convention to name composable functions with camelCase names that start 
 
 ### Input Arguments
 
-A composable can accept ref arguments even if it doesn't rely on it for reactivity. If you are writing a composable that may be used by other developers, it's a good idea to handle the case of input arguments being refs instead of raw values. The [`unref()`](/api/reactivity-utilities.html#unref) utility function will come handy for this purpose:
+A composable can accept ref arguments even if it doesn't rely on it for reactivity. If you are writing a composable that may be used by other developers, it's a good idea to handle the case of input arguments being refs instead of raw values. The [`unref()`](/api/reactivity-utilities.html#unref) utility function will come in handy for this purpose:
 
 ```js
 import { unref } from 'vue'
@@ -209,7 +246,7 @@ function useFeature(maybeRef) {
 }
 ```
 
-If your composable expects to setup a `watchEffect()` using the input ref, make sure to call `unref()` inside the effect callback so it's tracked as a dependency.
+If your composable creates reactive effects when the input is a ref, make sure to either explicitly watch the ref with `watch()`, or call `unref()` inside a `watchEffect()` so that it is propertly tracked.
 
 ### Return Values
 
@@ -229,6 +266,7 @@ const mouse = reactive(useMouse())
 // mouse.x is linked to original ref
 console.log(mouse.x)
 ```
+
 ```vue-html
 Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
 ```
@@ -239,7 +277,7 @@ It is OK to perform side effects (e.g. adding DOM event listeners or fetching da
 
 - If your are working in an application that utilizes [Server-Side Rendering](/guide/advanced/server-side-rendering.html) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser so you can ensure code inside it has access to the DOM.
 
-- Make sure to clean up side effects in `onUnmounted()`. For example, if a composable sets up a DOM event listener, it should remove that listener in `onUnmounted()` (as we have seen in the `useMouse()` example). It can also be a good idea to use [a composable that automatically does this for you](https://vueuse.org/core/useeventlistener/).
+- Make sure to clean up side effects in `onUnmounted()`. For example, if a composable sets up a DOM event listener, it should remove that listener in `onUnmounted()` (as we have seen in the `useMouse()` example). It can also be a good idea to use a composable that automatically does this for you, like the `useEventListener()` example.
 
 ### Usage Restrictions
 
