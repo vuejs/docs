@@ -357,7 +357,7 @@ The recommendation is to use composables when reusing pure logic, and use compon
 
 ### vs. React Hooks
 
-If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more details in the [Composition API FAQ](/guide/advanced/composition-api-faq).
+If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more details in the [Composition API FAQ](/guide/advanced/composition-api-faq#comparison-with-react-hooks).
 
 ## Further Reading
 
