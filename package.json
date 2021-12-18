@@ -12,5 +12,22 @@
   },
   "devDependencies": {
     "@types/node": "^16.9.1"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "@docsearch/react": {
+        "peerDepndenciesMeta": {
+          "react": {
+            "optional": true
+          },
+          "react-dom": {
+            "optional": true
+          },
+          "@types/react": {
+            "optional": true
+          }
+        }
+      }
+    }
   }
 }
