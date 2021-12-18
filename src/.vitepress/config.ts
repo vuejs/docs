@@ -205,61 +205,61 @@ export const sidebar = {
       text: 'Best Practices',
       items: [
         {
-          text: 'Production Deployment',
-          link: '/guide/best-practices/production-deployment'
-        },
-        {
-          text: 'Performance',
-          link: '/guide/best-practices/performance'
+          text: 'Accessibility',
+          link: '/guide/best-practices/accessibility'
         },
         {
           text: 'Security',
           link: '/guide/best-practices/security'
         },
         {
-          text: 'Accessibility',
-          link: '/guide/best-practices/accessibility'
+          text: 'Performance',
+          link: '/guide/best-practices/performance'
+        },
+        {
+          text: 'Production Deployment',
+          link: '/guide/best-practices/production-deployment'
         }
       ]
     },
     {
-      text: 'Advanced Topics',
+      text: 'Extra Topics',
       items: [
         {
           text: 'Ways of Using Vue',
-          link: '/guide/advanced/ways-of-using-vue'
-        },
-        {
-          text: 'Reactivity in Depth',
-          link: '/guide/advanced/reactivity-in-depth'
+          link: '/guide/extras/ways-of-using-vue'
         },
         {
           text: 'Composition API FAQ',
-          link: '/guide/advanced/composition-api-faq'
+          link: '/guide/extras/composition-api-faq'
+        },
+        {
+          text: 'Reactivity in Depth',
+          link: '/guide/extras/reactivity-in-depth'
         },
         {
           text: 'Rendering Mechanism',
-          link: '/guide/advanced/rendering-mechanism'
+          link: '/guide/extras/rendering-mechanism'
         },
         {
           text: 'Render Functions & JSX',
-          link: '/guide/advanced/render-function'
+          link: '/guide/extras/render-function'
         },
         {
-          text: 'Server-Side Rendering',
-          link: '/guide/advanced/server-side-rendering'
+          text: 'Server-Side Rendering (SSR)',
+          link: '/guide/extras/ssr'
         },
         {
           text: 'Vue and Web Components',
-          link: '/guide/advanced/web-components'
+          link: '/guide/extras/web-components'
+        },
+        {
+          text: 'Animation Techniques',
+          link: '/guide/extras/animation'
         }
         // {
         //   text: 'Building a Library for Vue',
         //   link: '/guide/advanced/building-a-library'
-        // },
-        // {
-        //   text: 'Advanced Animations',
-        //   link: '/guide/advanced/animation'
         // },
         // { text: 'Custom Renderers', link: '/guide/advanced/custom-renderer' },
         // {
