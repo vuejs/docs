@@ -3,13 +3,13 @@ lockfileVersion: 5.3
 specifiers:
   '@types/node': ^16.9.1
   '@vue/repl': ^0.4.7
-  '@vue/theme': ^0.1.22
+  '@vue/theme': ^0.1.23
   vitepress: ^0.20.9
   vue: ^3.2.25
 
 dependencies:
   '@vue/repl': 0.4.7_vue@3.2.25
-  '@vue/theme': 0.1.22_vue@3.2.25
+  '@vue/theme': 0.1.23_vue@3.2.25
   vitepress: 0.20.9
   vue: 3.2.25
 
@@ -354,8 +354,8 @@ packages:
     resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==}
     dev: false
 
-  /@vue/theme/0.1.22_vue@3.2.25:
-    resolution: {integrity: sha512-ZlA59oeuOgABGVUdy83GyeE5DuytdA5W3MSdldWLOd/cGTbwksTSxZ3oZzSiKZkSTeGMWLDXYdDyxMCOdiUELw==}
+  /@vue/theme/0.1.23_vue@3.2.25:
+    resolution: {integrity: sha512-AHo8D2LYncljCBXWkj37XjjxllW0QJXQX3UF9jIS++5oUGF/80cXhe0qIST++i8v9Ekn/y+xgr02x7PqLURTbQ==}
     dependencies:
       '@docsearch/css': 3.0.0-alpha.41
       '@docsearch/js': 3.0.0-alpha.41

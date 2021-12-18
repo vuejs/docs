@@ -149,7 +149,7 @@ Provide labels to describe the purpose of all form control; linking `for` and `i
 
 If you inspect this element in your chrome developer tools and open the Accessibility tab inside the Elements tab, you will see how the input gets its name from the label:
 
-![Chrome Developer Tools showing input accessible name from label](/images/AccessibleLabelChromeDevTools.png)
+![Chrome Developer Tools showing input accessible name from label](./images/AccessibleLabelChromeDevTools.png)
 
 :::warning Warning:
 Though you might have seen labels wrapping the input fields like this:
@@ -183,7 +183,7 @@ You can also give the input an accessible name with [`aria-label`](https://devel
 
 Feel free to inspect this element in Chrome DevTools to see how the accessible name has changed:
 
-![Chrome Developer Tools showing input accessible name from aria-label](/images/AccessibleARIAlabelDevTools.png)
+![Chrome Developer Tools showing input accessible name from aria-label](./images/AccessibleARIAlabelDevTools.png)
 
 #### `aria-labelledby`
 
@@ -213,7 +213,7 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 
 <!-- <common-codepen-snippet title="Form ARIA labelledby" slug="MWJvvBe" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-![Chrome Developer Tools showing input accessible name from aria-labelledby](/images/AccessibleARIAlabelledbyDevTools.png)
+![Chrome Developer Tools showing input accessible name from aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
 
 #### `aria-describedby`
 
@@ -247,7 +247,7 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 
 You can see the description by inspecting Chrome DevTools:
 
-![Chrome Developer Tools showing input accessible name from aria-labelledby and description with aria-describedby](/images/AccessibleARIAdescribedby.png)
+![Chrome Developer Tools showing input accessible name from aria-labelledby and description with aria-describedby](./images/AccessibleARIAdescribedby.png)
 
 ### Placeholder
 
