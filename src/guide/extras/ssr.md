@@ -1,4 +1,4 @@
-# Server-Side Rendering
+# Server-Side Rendering <Badge text="WIP" />
 
 ## Higher Level Solutions
 

@@ -2,7 +2,7 @@
 aside: deep
 ---
 
-# Reactivity in Depth
+# Reactivity in Depth <Badge text="WIP" />
 
 // TODO explain proxies
 // TODO explain refs

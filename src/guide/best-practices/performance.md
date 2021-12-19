@@ -2,7 +2,7 @@
 aside: deep
 ---
 
-# Performance Guide
+# Performance Guide <Badge text="WIP" />
 
 ## Page Load Performance
 

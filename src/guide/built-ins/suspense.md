@@ -1,4 +1,4 @@
-# Suspense
+# Suspense <Badge type="warning" text="experimental" />
 
 ## Basic Usage
 

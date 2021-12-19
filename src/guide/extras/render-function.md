@@ -1,4 +1,4 @@
-# Render Functions
+# Render Functions <Badge text="WIP" />
 
 Vue recommends using templates to build applications in the vast majority of cases. However, there are situations where we need the full programmatic power of JavaScript. That's where we can use the **render function**.
 
