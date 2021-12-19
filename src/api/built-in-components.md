@@ -86,7 +86,7 @@ const { Transition, TransitionGroup, KeepAlive, Teleport, Suspense } = Vue
   app.mount('#transition-demo')
   ```
 
-- **See also:** [Enter & Leave Transitions](/guide/built-ins/transitions-enterleave.html#transitioning-single-elements-components)
+- **See also:** [`<Transition>` Guide](/guide/built-ins/transition.html)
 
 ## `<TransitionGroup>`
 
@@ -116,7 +116,7 @@ const { Transition, TransitionGroup, KeepAlive, Teleport, Suspense } = Vue
   </transition-group>
   ```
 
-- **See also:** [List Transitions](/guide/built-ins/transitions-list.html)
+- **See also:** [`<TransitionGroup>` Guide](/guide/built-ins/transition-group.html)
 
 ## `<KeepAlive>`
 
