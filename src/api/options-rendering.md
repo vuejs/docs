@@ -63,4 +63,4 @@
   The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element
   :::
 
-- **See also:** [Render Functions](/guide/advanced/render-function.html)
+- **See also:** [Render Functions](/guide/extras/render-function.html)

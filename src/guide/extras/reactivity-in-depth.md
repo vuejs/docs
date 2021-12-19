@@ -333,7 +333,7 @@ console.log(count.value) // 1
 
 ## How Rendering Reacts to Changes
 
-The template for a component is compiled down into a [`render`](/guide/advanced/render-function.html) function. The `render` function creates the [VNodes](/guide/advanced/render-function.html#the-virtual-dom-tree) that describe how the component should be rendered. It is wrapped in an effect, allowing Vue to track the properties that are 'touched' while it is running.
+The template for a component is compiled down into a [`render`](/guide/extras/render-function.html) function. The `render` function creates the [VNodes](/guide/extras/render-function.html#the-virtual-dom-tree) that describe how the component should be rendered. It is wrapped in an effect, allowing Vue to track the properties that are 'touched' while it is running.
 
 A `render` function is conceptually very similar to a `computed` property. Vue doesn't track exactly how dependencies are used, it only knows that they were used at some point while the function was running. If any of those properties subsequently changes, it will trigger the effect to run again, re-running the `render` function to generate new VNodes. These are then used to make the necessary changes to the DOM.
 

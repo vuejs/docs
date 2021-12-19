@@ -81,7 +81,7 @@
 
   Used to programmatically access content [distributed by slots](/guide/essentials/component-basics.html#content-distribution-with-slots). Each [named slot](/guide/components/slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `this.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
 
-  Accessing `this.$slots` is most useful when writing a component with a [render function](/guide/advanced/render-function.html).
+  Accessing `this.$slots` is most useful when writing a component with a [render function](/guide/extras/render-function.html).
 
 - **Example:**
 
@@ -121,7 +121,7 @@
 - **See also:**
   - [`<slot>` Component](built-in-components.html#slot)
   - [Content Distribution with Slots](/guide/essentials/component-basics.html#content-distribution-with-slots)
-  - [Render Functions - Slots](/guide/advanced/render-function.html#slots)
+  - [Render Functions - Slots](/guide/extras/render-function.html#slots)
 
 ## $refs
 

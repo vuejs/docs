@@ -301,7 +301,7 @@ Vue.component('my-special-transition', {
 })
 ```
 
-And [functional components](/guide/advanced/render-function.html#functional-components) are especially well-suited to this task:
+And [functional components](/guide/extras/render-function.html#functional-components) are especially well-suited to this task:
 
 ```js
 Vue.component('my-special-transition', {

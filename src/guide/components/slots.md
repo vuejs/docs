@@ -358,7 +358,7 @@ function MyComponent(slots) {
 }
 ```
 
-In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/advanced/render-function.html).
+In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/extras/render-function.html).
 
 Notice how `v-slot="slotProps"` matches the slot function signature - this means similar to function arguments, we can use destructuring in `v-slot`:
 

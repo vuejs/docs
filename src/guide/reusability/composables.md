@@ -250,7 +250,7 @@ If your composable creates reactive effects when the input is a ref, make sure t
 
 ### Return Values
 
-You have probably noticed that we have been exclusively using `ref()` instead of `reactive()` in composables. The recommended convention is to always return an object of refs from composables, so that it can be destructured in components while [retaining reactivity](/guide/advanced/reactivity-in-depth.html#retaining-reactivity):
+You have probably noticed that we have been exclusively using `ref()` instead of `reactive()` in composables. The recommended convention is to always return an object of refs from composables, so that it can be destructured in components while [retaining reactivity](/guide/extras/reactivity-in-depth.html#retaining-reactivity):
 
 ```js
 // x and y are refs
@@ -275,7 +275,7 @@ Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
 
 It is OK to perform side effects (e.g. adding DOM event listeners or fetching data) in composables, but pay attention to the following rules:
 
-- If your are working in an application that utilizes [Server-Side Rendering](/guide/advanced/server-side-rendering.html) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser so you can ensure code inside it has access to the DOM.
+- If your are working in an application that utilizes [Server-Side Rendering](/guide/extras/server-side-rendering.html) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser so you can ensure code inside it has access to the DOM.
 
 - Make sure to clean up side effects in `onUnmounted()`. For example, if a composable sets up a DOM event listener, it should remove that listener in `onUnmounted()` (as we have seen in the `useMouse()` example). It can also be a good idea to use a composable that automatically does this for you, like the `useEventListener()` example.
 
@@ -357,10 +357,10 @@ The recommendation is to use composables when reusing pure logic, and use compon
 
 ### vs. React Hooks
 
-If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more details in the [Composition API FAQ](/guide/advanced/composition-api-faq#comparison-with-react-hooks).
+If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more details in the [Composition API FAQ](/guide/extras/composition-api-faq#comparison-with-react-hooks).
 
 ## Further Reading
 
-- [Reactivity In Depth](/guide/advanced/reactivity-in-depth.html): for a low-level understanding of how Vue's reactivity system works.
+- [Reactivity In Depth](/guide/extras/reactivity-in-depth.html): for a low-level understanding of how Vue's reactivity system works.
 - [State Management](/guide/scaling-up/state-management.html): for patterns of managing state shared by multiple components.
 - [VueUse](https://vueuse.org/): an ever-growing collection of Vue composables. The source code is also a great learning resource.

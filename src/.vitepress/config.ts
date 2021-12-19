@@ -259,12 +259,12 @@ export const sidebar = {
         }
         // {
         //   text: 'Building a Library for Vue',
-        //   link: '/guide/advanced/building-a-library'
+        //   link: '/guide/extras/building-a-library'
         // },
-        // { text: 'Custom Renderers', link: '/guide/advanced/custom-renderer' },
+        // { text: 'Custom Renderers', link: '/guide/extras/custom-renderer' },
         // {
         //   text: 'Vue for React Devs',
-        //   link: '/guide/advanced/vue-for-react-devs'
+        //   link: '/guide/extras/vue-for-react-devs'
         // }
       ]
     }

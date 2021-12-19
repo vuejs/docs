@@ -2,7 +2,7 @@
 
 ## The Complete SSR Guide
 
-We have created a standalone guide for creating server-rendered Vue applications. This is a very in-depth guide for those who are already familiar with client-side Vue development, server-side Node.js development and webpack. Check it out [here](/guide/advanced/ssr/introduction.html).
+We have created a standalone guide for creating server-rendered Vue applications. This is a very in-depth guide for those who are already familiar with client-side Vue development, server-side Node.js development and webpack. Check it out [here](/guide/extras/ssr/introduction.html).
 
 ## Nuxt.js
 
@@ -20,4 +20,4 @@ Properly configuring all the discussed aspects of a production-ready server-rend
 
 - A build command that bundles your code with [Rollup](https://rollupjs.org/), pre-configured to output highly optimized static assets for production.
 
-Vite also provides built-in [support for server-side rendering](https://vitejs.d](/guide/advanced/ssr.html). You can find an example project with Vue [here](https://github.com/vitejs/vite/tree/main/packages/playground/ssr-vue)
+Vite also provides built-in [support for server-side rendering](https://vitejs.d](/guide/extras/ssr.html). You can find an example project with Vue [here](https://github.com/vitejs/vite/tree/main/packages/playground/ssr-vue)
