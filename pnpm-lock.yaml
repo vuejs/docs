@@ -6,12 +6,14 @@ specifiers:
   '@types/node': ^16.9.1
   '@vue/repl': ^0.4.7
   '@vue/theme': ^0.1.23
+  gsap: ^3.9.0
   vitepress: ^0.20.9
   vue: ^3.2.25
 
 dependencies:
   '@vue/repl': 0.4.7_vue@3.2.25
   '@vue/theme': 0.1.23_vue@3.2.25
+  gsap: 3.9.0
   vitepress: 0.20.9
   vue: 3.2.25
 
@@ -594,6 +596,10 @@ packages:
 
   /function-bind/1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
+    dev: false
+
+  /gsap/3.9.0:
+    resolution: {integrity: sha512-YfIBNHJu4UHES1Vj780+sXtQuiD78QQwgJqktaXE9PO9OuXz5l4ETz05pnhxUfJcxJy4SUINXJxT9ZZhuYwU2g==}
     dev: false
 
   /has/1.0.3:

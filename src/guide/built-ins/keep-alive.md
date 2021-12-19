@@ -1,5 +1,11 @@
 # KeepAlive
 
+## Basic Usage
+
+:::tip
+When used in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats), it should be referenced as `<keep-alive>`.
+:::
+
 Earlier, we used the `is` attribute to switch between components in a tabbed interface:
 
 ```vue-html
@@ -28,3 +34,7 @@ Check out the result below:
 Now the _Posts_ tab maintains its state (the selected post) even when it's not rendered.
 
 Check out more details on `<keep-alive>` in the [API reference](/api/built-in-components.html#keep-alive).
+
+## Include / Exclude
+
+## Max Cached Instances
