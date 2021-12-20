@@ -60,7 +60,7 @@ The Vue browser devtools extension allows you to explore a Vue app's component t
 
 ![devtools screenshot](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
 
-// TODO update links after swapping versions
+<!-- TODO update links after swapping versions -->
 
 - [Documentation](https://devtools.vuejs.org/)
 - [Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
@@ -69,22 +69,21 @@ The Vue browser devtools extension allows you to explore a Vue app's component t
 
 ## TypeScript
 
-// TODO links and recommendations
+Main article: [Using Vue with TypeScript](/guide/scaling-up/typescript).
 
-- `vue-tsc`: Type check Vue SFCs
-- `vue-dts-gen`: Generate type declarations from Vue SFCs
+- [Volar](https://github.com/johnsoncodehk/volar) provides type checking for SFCs using `<script lang="ts">` blocks, including template expressions and cross-component props validation.
 
-See also: [Using Vue with TypeScript](/guide/scaling-up/typescript).
+- Use [`vue-tsc`](https://github.com/johnsoncodehk/volar/tree/master/packages/vue-tsc) for performing the same type checking from the command line, or for generating `d.ts` files for SFCs.
 
 ## Testing
+
+Main article: [Testing Guide](/guide/scaling-up/testing).
 
 - If using Vite, we recommend [Cypress](https://www.cypress.io/) as the test runner for both unit and e2e tests. Unit tests for Vue SFCs can be done with the [Cypress Component Test Runner](https://www.cypress.io/blog/2021/04/06/introducing-the-cypress-component-test-runner/).
 
 - Vue CLI comes with [Jest](https://jestjs.io/) and [Mocha](https://mochajs.org/) integrations.
 
 - If you are manually configuring Jest to work with Vue SFCs, check out [vue-jest](https://github.com/vuejs/vue-jest) which is the official Jest transform for Vue SFCs.
-
-See also: [Testing Guide](/guide/scaling-up/testing).
 
 ## Linting
 
@@ -105,10 +104,6 @@ Users previously using Vue CLI may be used to having linters configured via webp
 - The [Volar](https://github.com/johnsoncodehk/volar) VSCode extension provides formatting for Vue SFCs out of the box.
 
 - Alternatively, [Prettier](https://prettier.io/) provides built-in Vue SFC formatting support.
-
-## Backend Framework Integrations
-
-// TODO
 
 ## SFC Custom Block Integrations
 
@@ -146,3 +141,5 @@ The official loader that provides Vue SFC support in webpack. If you are using V
 - [Vue + Vite on Repl.it](https://replit.com/@templates/VueJS-with-Vite)
 - [Vue on CodeSandbox](https://codesandbox.io/s/vue-3)
 - [Vue on Codepen](https://codepen.io/pen/editor/vue)
+
+<!-- TODO ## Backend Framework Integrations -->
