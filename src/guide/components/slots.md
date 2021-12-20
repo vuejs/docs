@@ -232,6 +232,24 @@ Here's the code passing content to all three slots to `<BaseLayout>` using the s
 </BaseLayout>
 ```
 
+When a component accepts both default slot and named slots, all top-level non-`<template>` nodes are implciitly treated as content for default slot. So the above can also be written as:
+
+```vue-html
+<BaseLayout>
+  <template #header>
+    <h1>Here might be a page title</h1>
+  </template>
+
+  <!-- implicit default slot -->
+  <p>A paragraph for the main content.</p>
+  <p>And another one.</p>
+
+  <template #footer>
+    <p>Here's some contact info</p>
+  </template>
+</BaseLayout>
+```
+
 Now everything inside the `<template>` elements will be passed to the corresponding slots. The final rendered HTML will be:
 
 ```html
