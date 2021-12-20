@@ -205,20 +205,20 @@ export const sidebar = {
       text: 'Best Practices',
       items: [
         {
-          text: 'Accessibility',
-          link: '/guide/best-practices/accessibility'
-        },
-        {
-          text: 'Security',
-          link: '/guide/best-practices/security'
+          text: 'Production Deployment',
+          link: '/guide/best-practices/production-deployment'
         },
         {
           text: 'Performance',
           link: '/guide/best-practices/performance'
         },
         {
-          text: 'Production Deployment',
-          link: '/guide/best-practices/production-deployment'
+          text: 'Accessibility',
+          link: '/guide/best-practices/accessibility'
+        },
+        {
+          text: 'Security',
+          link: '/guide/best-practices/security'
         }
       ]
     },
