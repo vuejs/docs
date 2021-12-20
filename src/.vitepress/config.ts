@@ -256,6 +256,10 @@ export const sidebar = {
         {
           text: 'Animation Techniques',
           link: '/guide/extras/animation'
+        },
+        {
+          text: 'Reactivity Transform',
+          link: '/guide/extras/reactivity-transform'
         }
         // {
         //   text: 'Building a Library for Vue',
