@@ -4,6 +4,8 @@ import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 
 # KeepAlive
 
+`<KeepAlive>` is a built-in component that allows us to conditionally cache component instances when dynamically switching between multiple components.
+
 ## Basic Usage
 
 In the Component Basics chapter, we introduced the syntax for [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components), using the `<component>` special element:
@@ -80,3 +82,9 @@ We can limit the maximum number of component instances that can be cached via th
   <component :is="activeComponent" />
 </KeepAlive>
 ```
+
+---
+
+**Related**
+
+- [`<KeepAlive>` API reference](/api/built-in-components.html#keepalive)

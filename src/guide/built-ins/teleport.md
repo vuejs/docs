@@ -1,141 +1,197 @@
 # Teleport
 
-Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
+`<Teleport>` is a built-in component that allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM hierarchy of that component.
 
-However, sometimes a part of a component's template belongs to this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of the Vue app.
+## Basic Usage
 
-A common scenario for this is creating a component that includes a full-screen modal. In most cases, you'd want the modal's logic to live within the component, but the positioning of the modal quickly becomes difficult to solve through CSS, or requires a change in component composition.
+Sometimes we may run into the following scenario: a part of a component's template belongs to it logically, but from a visual standpoint, it should be displayed somewhere else in the DOM, outside of the Vue application.
+
+The most common example of this is when building a full-screen modal. Ideally, we want the modal's button and the modal itself to live within the same component, since they are both related to the open / close state of the modal. But that means the modal will be rendered alongside the button, deeply nested in the application's DOM hierarchy. This can create some tricky issues when positioning the modal via CSS.
 
 Consider the following HTML structure.
 
 ```vue-html
-<body>
-  <div style="position: relative;">
-    <h3>Tooltips with Vue 3 Teleport</h3>
-    <div>
-      <modal-button></modal-button>
-    </div>
+<div class="outer">
+  <h3>Vue Teleport Example</h3>
+  <div>
+    <MyModal />
   </div>
-</body>
+</div>
 ```
 
-Let's take a look at `modal-button`.
+And here is the implementation of `<MyModal>`:
 
-The component will have a `button` element to trigger the opening of the modal, and a `div` element with a class of `.modal`, which will contain the modal's content and a button to self-close.
+<div class="composition-api">
 
-```js
-const app = Vue.createApp({});
+```vue
+<script setup>
+import { ref } from 'vue'
 
-app.component('modal-button', {
-  template: `
-    <button @click="modalOpen = true">
-        Open full screen modal!
-    </button>
+const open = ref(false)
+</script>
 
-    <div v-if="modalOpen" class="modal">
-      <div>
-        I'm a modal! 
-        <button @click="modalOpen = false">
-          Close
-        </button>
-      </div>
+<template>
+  <button @click="open = true">Open Modal</button>
+
+  <div v-if="open" class="modal">
+    <p>Hello from the modal!</p>
+    <button @click="open = false">Close</button>
+  </div>
+</template>
+
+<style scoped>
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 20%;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+}
+</style>
+```
+
+</div>
+<div class="options-api">
+
+```vue
+<script>
+export default {
+  data() {
+    return {
+      open: false
+    }
+  }
+}
+</script>
+
+<template>
+  <button @click="open = true">Open Modal</button>
+
+  <div v-if="open" class="modal">
+    <p>Hello from the modal!</p>
+    <button @click="open = false">Close</button>
+  </div>
+</template>
+
+<style scoped>
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 20%;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+}
+</style>
+```
+
+</div>
+
+The component contains a `<button>` to trigger the opening of the modal, and a `<div>` with a class of `.modal`, which will contain the modal's content and a button to self-close.
+
+When using this component inside the initial HTML structure, there are a number of potential issues:
+
+- `position: fixed` only places the element relative to the viewport when no ancestor element has `transform`, `perspective` or `filter` property set. If, for example, we intend to animate the ancestor `<div class="outer">` with a CSS transform, it would break the modal layout!
+
+- The modal's `z-index` is constrained by its containing elements. If there is another element that overlaps with `<div class="outer">` and has a higher `z-index`, it would cover our modal.
+
+`<Teleport>` provides a clean way to work around these, by allowing us to break out of the nested DOM structure. Let's modify `<MyModal>` to use `<Teleport>`:
+
+```vue-html{3,8}
+<button @click="open = true">Open Modal</button>
+
+<Teleport to="body">
+  <div v-if="open" class="modal">
+    <p>Hello from the modal!</p>
+    <button @click="open = false">Close</button>
+  </div>
+</Teleport>
+```
+
+The `to` target of `<Teleport>` expects a CSS selector string or an actual DOM node. Here, we are essentially telling Vue to "**teleport** this template fragment **to** the **`body`** tag".
+
+You can click the button below and inspect the `<body>` tag via browser devtools:
+
+<script setup>
+let open = $ref(false)
+</script>
+
+<div class="demo">
+  <button @click="open = true">Open Modal</button>
+  <Teleport to="body">
+    <div v-if="open" class="demo modal-demo">
+      <p style="margin-bottom:20px">Hello from the modal!</p>
+      <button @click="open = false">Close</button>
     </div>
-  `,
-  data() {
-    return {
-      modalOpen: false
-    }
-  }
-})
-```
+  </Teleport>
+</div>
 
-When using this component inside the initial HTML structure, we can see a problem - the modal is being rendered inside the deeply nested `div` and the `position: absolute` of the modal takes the parent relatively positioned `div` as reference.
+<style>
+.modal-demo {
+  position: fixed;
+  z-index: 999;
+  top: 20%;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  background-color: var(--vt-c-bg);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+</style>
 
-Teleport provides a clean way to allow us to control under which parent in our DOM we want a piece of HTML to be rendered, without having to resort to global state or splitting this into two components.
+You can combine `<Teleport>` with [`<Transition>`](./transition) to create animated modals - see [Example here](/examples/#modal).
 
-Let's modify our `modal-button` to use `<teleport>` and tell Vue "**teleport** this HTML **to** the "**body**" tag".
+:::tip
+The teleport `to` target must be already in the DOM when the `<Teleport>` component is mounted. Ideally, this should be an element outside the entire Vue application. If targeting another element rendered by Vue, you need to make sure that element is mounted before the `<Teleport>`.
+:::
 
-```js
-app.component('modal-button', {
-  template: `
-    <button @click="modalOpen = true">
-        Open full screen modal! (With teleport!)
-    </button>
+## Using with Components
 
-    <teleport to="body">
-      <div v-if="modalOpen" class="modal">
-        <div>
-          I'm a teleported modal! 
-          (My parent is "body")
-          <button @click="modalOpen = false">
-            Close
-          </button>
-        </div>
-      </div>
-    </teleport>
-  `,
-  data() {
-    return {
-      modalOpen: false
-    }
-  }
-})
-```
-
-As a result, once we click the button to open the modal, Vue will correctly render the modal's content as a child of the `body` tag.
-
-<!-- <common-codepen-snippet title="Vue 3 Teleport" slug="gOPNvjR" tab="js,result" /> -->
-
-## Using with Vue components
-
-If `<teleport>` contains a Vue component, it will remain a logical child component of the `<teleport>`'s parent:
-
-```js
-const app = Vue.createApp({
-  template: `
-    <h1>Root instance</h1>
-    <parent-component />
-  `
-})
-
-app.component('parent-component', {
-  template: `
-    <h2>This is a parent component</h2>
-    <teleport to="#endofbody">
-      <child-component name="John" />
-    </teleport>
-  `
-})
-
-app.component('child-component', {
-  props: ['name'],
-  template: `
-    <div>Hello, {{ name }}</div>
-  `
-})
-```
-
-In this case, even when `child-component` is rendered in the different place, it will remain a child of `parent-component` and will receive a `name` prop from it.
+`<Teleport>` only alters the rendered DOM structure - it does not affect the logical hierarchy of the components. That is to say, if `<Teleport>` contains a component, that component will remain a logical child of the parent component containing the `<Teleport>`. Props passing and event emitting will continue to work the same way.
 
 This also means that injections from a parent component work as expected, and that the child component will be nested below the parent component in the Vue Devtools, instead of being placed where the actual content moved to.
 
-## Using multiple teleports on the same target
+## Disabling Teleport
 
-A common use case scenario would be a reusable `<Modal>` component of which there might be multiple instances active at the same time. For this kind of scenario, multiple `<teleport>` components can mount their content to the same target element. The order will be a simple append - later mounts will be located after earlier ones within the target element.
+In some cases, we may want to conditionally disable `<Teleport>`. For example, we may want to render a component as an overlay for desktop, but inline on mobile. `<Teleport>` supports the `disabled` prop which can be dynamically toggled:
 
 ```vue-html
-<teleport to="#modals">
-  <div>A</div>
-</teleport>
-<teleport to="#modals">
-  <div>B</div>
-</teleport>
+<Teleport :disabled="isMobile">
+  ...
+</Teleport>
+```
 
-<!-- result-->
+Where the `isMobile` state can be dynamically updated by detecting media query changes.
+
+## Multiple Teleports on the Same Target
+
+A common use case scenario would be a reusable `<Modal>` component of which there might be multiple instances active at the same time. For this kind of scenario, multiple `<Teleport>` components can mount their content to the same target element. The order will be a simple append - later mounts will be located after earlier ones within the target element.
+
+Given the following usage:
+
+```vue-html
+<Teleport to="#modals">
+  <div>A</div>
+</Teleport>
+<Teleport to="#modals">
+  <div>B</div>
+</Teleport>
+```
+
+The rendered result would be:
+
+```html
 <div id="modals">
   <div>A</div>
   <div>B</div>
 </div>
 ```
 
-You can check `<teleport>` component options in the [API reference](/api/built-in-components.html#teleport).
+---
+
+**Related**
+
+- [`<Teleport>` API reference](/api/built-in-components.html#teleport)

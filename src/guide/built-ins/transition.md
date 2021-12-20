@@ -83,7 +83,7 @@ When an element in a `<Transition>` component is inserted or removed, this is wh
 
 There are six classes applied for enter / leave transitions.
 
-![Transition Diagram](./images/transitions.svg)
+![Transition Diagram](./images/transition-classes.png)
 
 1. `v-enter-from`: Starting state for enter. Added before the element is inserted, removed one frame after the element is inserted.
 
@@ -577,3 +577,9 @@ Here's the previous demo with `mode="out-in"`:
 This can be useful when you've defined CSS transitions / animations using Vue's transition class conventions and want to switch between them.
 
 You can also apply different behavior in JavaScript transition hooks based on current state of your component. Finally, the ultimate way of creating dynamic transitions is through [reusable transition components](#reusable-transitions) that accept props to change the nature of the transition(s) to be used. It may sound cheesy, but the only limit really is your imagination.
+
+---
+
+**Related**
+
+- [`<Transition>` API reference](/api/built-in-components.html#transition)
