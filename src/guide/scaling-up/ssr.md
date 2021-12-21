@@ -1,5 +1,15 @@
 # Server-Side Rendering <Badge text="WIP" />
 
+## Cross-Request State Pollution
+
+In the State Management chapter, we introduced a [simple state management pattern using Reactivity APIs](state-management.html#simple-state-management-with-reactivity-api). In an SSR context, this pattern requires some additional adjustments.
+
+The pattern declares shared state as **singletons**. This means there is only once instance of the reactive object throughout the entire lifecycle of our application. This works as expected in a pure client-side Vue application, since the our application code is initialized fresh for each browser page visit.
+
+However, in an SSR context, the application code is typically initialized only once on the server, when the server boots up. In such case, singletons in our application will be shared across multiple requests handled by the server! If we mutate the shared singleton store with data specific to one user, it can be accidentally leaked to a request from another user. We call this **cross-request state pollution.**
+
+// TODO finish
+
 ## Higher Level Solutions
 
 ### Nuxt.js

@@ -80,7 +80,11 @@ const nav = [
             text: 'Contribution Guide',
             link: '/about/contribution-guide'
           },
-          { text: 'Code of Conduct', link: '/about/coc' }
+          { text: 'Code of Conduct', link: '/about/coc' },
+          {
+            text: 'The Documentary',
+            link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
+          }
         ]
       }
     ]
@@ -198,7 +202,11 @@ export const sidebar = {
           link: '/guide/scaling-up/state-management'
         },
         { text: 'Testing', link: '/guide/scaling-up/testing' },
-        { text: 'TypeScript', link: '/guide/scaling-up/typescript' }
+        { text: 'TypeScript', link: '/guide/scaling-up/typescript' },
+        {
+          text: 'Server-Side Rendering (SSR)',
+          link: '/guide/scaling-up/ssr'
+        }
       ]
     },
     {
@@ -244,10 +252,6 @@ export const sidebar = {
         {
           text: 'Render Functions & JSX',
           link: '/guide/extras/render-function'
-        },
-        {
-          text: 'Server-Side Rendering (SSR)',
-          link: '/guide/extras/ssr'
         },
         {
           text: 'Vue and Web Components',

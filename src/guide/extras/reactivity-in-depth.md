@@ -304,7 +304,6 @@ const obj = reactive({
 console.log(obj.count === 0) // true
 ```
 
-
 ### Retaining Reactivity
 
 When we want to use a few properties of the large reactive object, it could be tempting to use destructuring to get properties we want. However, the destructured property would lose the reactivity connection to the original object:
@@ -444,3 +443,13 @@ watchEffect(async (onInvalidate) => {
 An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the Promise chain.
 
 </div>
+
+## Integration with External State Systems
+
+### State Machines
+
+// TODO `useMachine()` example
+
+### RxJS
+
+The [VueUse](https://vueuse.org/) library provides the [`@vueuse/rxjs`](https://vueuse.org/rxjs/readme.html) add-on for connecting RxJS streams with Vue's reactivity system.
