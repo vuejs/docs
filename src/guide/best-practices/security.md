@@ -184,4 +184,4 @@ HTTP security vulnerabilities, such as cross-site request forgery (CSRF/XSRF) an
 
 ## Server-Side Rendering (SSR)
 
-There are some additional security concerns when using SSR, so make sure to follow the best practices outlined throughout [our SSR documentation](/guide/extras/ssr.html) to avoid vulnerabilities.
+There are some additional security concerns when using SSR, so make sure to follow the best practices outlined throughout [our SSR documentation](/guide/scaling-up/ssr.html) to avoid vulnerabilities.

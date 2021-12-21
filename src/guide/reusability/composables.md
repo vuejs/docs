@@ -275,7 +275,7 @@ Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
 
 It is OK to perform side effects (e.g. adding DOM event listeners or fetching data) in composables, but pay attention to the following rules:
 
-- If your are working in an application that utilizes [Server-Side Rendering](/guide/extras/ssr.html) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser so you can ensure code inside it has access to the DOM.
+- If your are working in an application that utilizes [Server-Side Rendering](/guide/scaling-up/ssr.html) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser so you can ensure code inside it has access to the DOM.
 
 - Make sure to clean up side effects in `onUnmounted()`. For example, if a composable sets up a DOM event listener, it should remove that listener in `onUnmounted()` (as we have seen in the `useMouse()` example). It can also be a good idea to use a composable that automatically does this for you, like the `useEventListener()` example.
 
