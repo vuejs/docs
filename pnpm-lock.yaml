@@ -4,7 +4,7 @@ packageExtensionsChecksum: d9d47e56337cb07be92aa72d7a5365b9
 
 specifiers:
   '@types/node': ^16.9.1
-  '@vue/repl': ^0.4.7
+  '@vue/repl': ^0.4.8
   '@vue/theme': ^0.1.23
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
@@ -12,7 +12,7 @@ specifiers:
   vue: ^3.2.25
 
 dependencies:
-  '@vue/repl': 0.4.7_vue@3.2.25
+  '@vue/repl': 0.4.8_vue@3.2.25
   '@vue/theme': 0.1.23_vue@3.2.25
   dynamics.js: 1.1.5
   gsap: 3.9.0
@@ -294,8 +294,8 @@ packages:
       '@vue/shared': 3.2.26
     dev: false
 
-  /@vue/repl/0.4.7_vue@3.2.25:
-    resolution: {integrity: sha512-Ouwlw4vSxQtqN+9poG1x5WVy7AKZwOFxtEACqftyqL6OuLCpqK/hwhsAQepm86PbotmRryIEbAyv0z6PDfQLyA==}
+  /@vue/repl/0.4.8_vue@3.2.25:
+    resolution: {integrity: sha512-MP4xVHMuInTQEo6b3Q8OQF3R4fTrfFzWqQl157/S6hOnPDW3b05pMisC2RRubp+scHzR/1M+OnCNCRfpAHzPGg==}
     peerDependencies:
       vue: ^3.2.13
     dependencies:
