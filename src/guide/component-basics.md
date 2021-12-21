@@ -398,7 +398,7 @@ The above is made possible by Vue's `<component>` element with the special `is` 
 In the example above, `currentTabComponent` can contain either:
 
 - the name of a registered component, or
-- a component's options object
+- a local component object
 
 See [this sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) to experiment with the full code, or [this version](https://codepen.io/team/Vue/pen/oNXapXM) for an example binding to a component's options object, instead of its registered name.
 
