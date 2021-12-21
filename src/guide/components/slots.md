@@ -30,6 +30,8 @@ The `<slot>` element is a **slot outlet** that indicates where the parent-provid
 
 ![slot diagram](./images/slots.png)
 
+<!-- https://www.figma.com/file/LjKTYVL97Ck6TEmBbstavX/slot -->
+
 And the final rendered DOM:
 
 ```html
@@ -212,6 +214,8 @@ To pass a named slot, we need to use a `<template>` element with the `v-slot` di
 `v-slot` has a dedicated shorthand `#`, so `<template v-slot:header>` can be shortened to just `<template #header>`. Think of it as "render this template fragment in the child component's 'header' slot".
 
 ![named slots diagram](./images/named-slots.png)
+
+<!-- https://www.figma.com/file/2BhP8gVZevttBu9oUmUUyz/named-slot -->
 
 Here's the code passing content to all three slots to `<BaseLayout>` using the shorthand syntax:
 

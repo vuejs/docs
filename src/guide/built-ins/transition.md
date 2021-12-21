@@ -85,6 +85,8 @@ There are six classes applied for enter / leave transitions.
 
 ![Transition Diagram](./images/transition-classes.png)
 
+<!-- https://www.figma.com/file/rlOv0ZKJFFNA9hYmzdZv3S/Transition-Classes -->
+
 1. `v-enter-from`: Starting state for enter. Added before the element is inserted, removed one frame after the element is inserted.
 
 2. `v-enter-active`: Active state for enter. Applied during the entire entering phase. Added before the element is inserted, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.

@@ -51,6 +51,8 @@ setTimeout(() => {
 
 Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
 
-![Component lifecycle diagram](./images/lifecycle.svg)
+![Component lifecycle diagram](./images/lifecycle.png)
+
+<!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
 Consult the <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle.html)</span> for details on all lifecycle hooks and their respective use cases.

@@ -266,3 +266,5 @@ You'll see other examples of modifiers later, [for `v-on`](./event-handling.html
 And finally, here's the full directive syntax visualized:
 
 ![directive syntax graph](./images/directive.png)
+
+<!-- https://www.figma.com/file/BGWUknIrtY9HOmbmad0vFr/Directive -->
