@@ -1,4 +1,4 @@
-# Conditional Rendering - 2
+# More on Conditional Rendering
 
 The last thing we want to implement in this lesson is hiding the input field when the game is already started and showing a button `Change colors number`. Clicking on the button will set the game to "not-started" and show the input again. First, let's add the button to our template:
 
