@@ -132,7 +132,7 @@ export function resolveNoBuildExample(
   const files: Record<string, string> = {}
 
   const desc = raw['description.txt']
-  let html = desc ? `<!--\n${desc})}\n-->\n\n` : ``
+  let html = desc ? `<!--\n${desc}\n-->\n\n` : ``
   let css = ''
 
   // set it first for ordering
