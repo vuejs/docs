@@ -1,0 +1,8 @@
+<main>
+  <div class="panel">
+    <h1>Guess the Color</h1>
+    <h2>Number of colors: {{ colorsNumber }}</h2>
+    <input type="number" :value="colorsNumber" @input="colorsNumber = $event.target.value" />
+  </div>
+  <section class="flex" v-if="gameStarted">Game is started</section>
+</main>

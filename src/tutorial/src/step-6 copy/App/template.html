@@ -1,0 +1,13 @@
+<main>
+  <div class="panel">
+    <h1>Guess the Color</h1>
+    <h2>Number of colors: {{ colorsNumber }}</h2>
+    <form @submit.prevent="gameStarted = true">
+      <label for="colors">
+        Enter number of colors and press Enter:
+        <input id="colors" type="number" v-model="colorsNumber" />
+      </label>
+    </form>
+  </div>
+  <section class="flex" v-if="gameStarted">Game is started</section>
+</main>
