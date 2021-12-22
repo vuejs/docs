@@ -10,7 +10,7 @@ Let's make our example more interactive! What if we could allow user to change `
 </div>
 ```
 
-Now, we have to provide some initial value to our input, and we want to display `colorsNumber` there. Let's use a dynamic binding to provide a value:
+Now, we have to provide some initial value to our input, and we want to display `colorsNumber` there. In Vue, we can use a _dynamic binding_ to provide a value:
 
 ```html
 <input type="number" :value="colorsNumber" />
