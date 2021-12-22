@@ -2,7 +2,7 @@
   transition: border-color 0.5s;
   padding: 22px 24px;
   border-radius: 8px;
-  border: 1px solid var(--vt-c-divider-light);
+  box-shadow: var(--vt-shadow-2);
   margin-bottom: 1.2em;
 }
 

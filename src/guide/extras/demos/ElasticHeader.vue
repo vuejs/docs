@@ -52,12 +52,12 @@ function stopDrag() {
   <div
     class="draggable"
     @mousedown="startDrag"
-    @touchstart="startDrag"
     @mousemove="onDrag"
-    @touchmove="onDrag"
     @mouseup="stopDrag"
-    @touchend="stopDrag"
     @mouseleave="stopDrag"
+    @touchstart.prevent="startDrag"
+    @touchmove.prevent="onDrag"
+    @touchend.prevent="stopDrag"
   >
     <svg class="bg" width="320" height="560">
       <path :d="headerPath" fill="#3F51B5"></path>
@@ -76,7 +76,7 @@ function stopDrag() {
 <style scoped>
 .draggable {
   background-color: #fff;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--vt-shadow-2);
   width: 320px;
   height: 240px;
   overflow: hidden;
