@@ -24,7 +24,7 @@ const currentDescription = computed(() => {
 
 const nextStep = computed(() => {
   const nextMatch = currentStep.value.match(/\d+/)
-  const next = nextMatch && `step-${+nextMatch[0]} + 1}`
+  const next = nextMatch && `step-${+nextMatch[0] + 1}`
   if (next && data.hasOwnProperty(next)) {
     return next
   }
