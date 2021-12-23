@@ -52,7 +52,7 @@ const Counter = {
 Vue.createApp(Counter).mount('#counter')
 ```
 
-We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Take a look at the example below where `counter` property increments every second and you will see how rendered DOM changes:
+We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Take a look at the example below where the `counter` property increments every second and you will see how the rendered DOM changes:
 
 ```js{8-10}
 const Counter = {
@@ -158,7 +158,7 @@ Vue.createApp(TwoWayBinding).mount('#two-way-binding')
 
 ## Conditionals and Loops
 
-It's easy to toggle the presence of an element, too:
+It's easy to toggle the presence of an element too:
 
 ```html
 <div id="conditional-rendering">
@@ -220,7 +220,7 @@ The component system is another important concept in Vue, because it's an abstra
 
 ![Component Tree](/images/components.png)
 
-In Vue, a component is essentially an instance with pre-defined options. Registering a component in Vue is straightforward: we create a component object as we did with `App` objects and we define it in parent's `components` option:
+In Vue, a component is essentially an instance with pre-defined options. Registering a component in Vue is straightforward: we create a component object as we did with the `app` object and we define it in the parent's `components` option:
 
 ```js
 const TodoItem = {
@@ -237,6 +237,20 @@ const app = Vue.createApp({
 
 // Mount Vue application
 app.mount(...)
+```
+
+Another way to register a component is to use the `component()` method on the `app` object, passing in the name of the component as the first attribute and an options object as the second:
+
+```js
+const app = Vue.createApp({
+  ... // Properties for the component
+})
+
+app.component('todo-item', {
+  template: `<li>This is a todo</li>`
+})
+
+app.mount()
 ```
 
 Now you can compose it in another component's template:
