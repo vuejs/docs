@@ -14,7 +14,7 @@ Usually, when we need to pass data from the parent to child component, we use [p
 
 <!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/props-drilling -->
 
-Notice although the `<Footer>` component may not care about these props at all - but it still needs to declare and pass them along just so `<DeepChild>` can access them. If there is a longer parent chain, more components would be affected along the way. This is called "props drilling" and definitely isn't fun to deal with.
+Notice although the `<Footer>` component may not care about these props at all, it still needs to declare and pass them along just so `<DeepChild>` can access them. If there is a longer parent chain, more components would be affected along the way. This is called "props drilling" and definitely isn't fun to deal with.
 
 We can solve props drilling with `provide` and `inject`. A parent component can serve as a **dependency provider** for all its descendants. Any component in the descendant tree, regardless of how deep it is, can **inject** dependencies provided by components up in its parent chain.
 
