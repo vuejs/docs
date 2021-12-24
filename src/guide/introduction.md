@@ -239,20 +239,6 @@ const app = Vue.createApp({
 app.mount(...)
 ```
 
-Another way to register a component is to use the `component()` method on the `app` object, passing in the name of the component as the first attribute and an options object as the second:
-
-```js
-const app = Vue.createApp({
-  ... // Properties for the component
-})
-
-app.component('todo-item', {
-  template: `<li>This is a todo</li>`
-})
-
-app.mount()
-```
-
 Now you can compose it in another component's template:
 
 ```html
@@ -265,10 +251,10 @@ Now you can compose it in another component's template:
 But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](component-basics.html#passing-data-to-child-components-with-props):
 
 ```js
-app.component('todo-item', {
+const TodoItem = {
   props: ['todo'],
   template: `<li>{{ todo.text }}</li>`
-})
+}
 ```
 
 Now we can pass the todo into each repeated component using `v-bind`:
@@ -292,6 +278,11 @@ Now we can pass the todo into each repeated component using `v-bind`:
 ```
 
 ```js
+const TodoItem = {
+  props: ['todo'],
+  template: `<li>{{ todo.text }}</li>`
+}
+
 const TodoList = {
   data() {
     return {
@@ -301,15 +292,13 @@ const TodoList = {
         { id: 2, text: 'Whatever else humans are supposed to eat' }
       ]
     }
+  },
+  components: {
+    TodoItem
   }
 }
 
 const app = Vue.createApp(TodoList)
-
-app.component('todo-item', {
-  props: ['todo'],
-  template: `<li>{{ todo.text }}</li>`
-})
 
 app.mount('#todo-list-app')
 ```
