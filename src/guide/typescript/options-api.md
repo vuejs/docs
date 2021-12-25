@@ -8,7 +8,7 @@ While Vue does support TypeScript usage with Options API, it is recommended to u
 
 ## Typing Component Props
 
-When `defineComponent()` is used, Vue is able to infer the types for the props based on the `props` option, taking additional options such as `required: true` and `default` into account:
+Type inference for props in Options API requires wrapping the component with `defineComponent()`. With it, Vue is able to infer the types for the props based on the `props` option, taking additional options such as `required: true` and `default` into account:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -173,6 +173,39 @@ const Component = defineComponent({
 ```
 
 Explicit annotations may also be required in some edge cases where TypeScript fails to infer the type of a computed property due to circular inference loops.
+
+## Typing Event Handlers
+
+When dealing with native DOM events, it might be useful to type the argument we pass to the handler correctly. Let's take a look at this example:
+
+```vue
+<script lang="ts">
+export default {
+  methods: {
+    handleChange(event) {
+      // `event` implicitly has `any` type
+      console.log(event.target.value)
+    }
+  }
+}
+</script>
+
+<template>
+  <input type="text" @change="handleChange" />
+</template>
+```
+
+Without type annotation, the `event` argument will implicitly have a type of `any`. This will also result in a TS error if `"strict": true` or `"noImplicitAny": true` are used in `tsconfig.json`. It is therefore recommended to explicitly annotate the argument of event handlers. In addition, you may need to explicitly cast properties on `event`:
+
+```ts
+export default {
+  methods: {
+    handleChange(event: Event) {
+      console.log((event.target as HTMLInputElement).value)
+    }
+  }
+}
+```
 
 ## Augmenting Global Properties
 

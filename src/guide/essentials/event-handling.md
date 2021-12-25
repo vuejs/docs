@@ -119,6 +119,11 @@ A method handler automatically receives the native DOM Event object that trigger
 See also: [Typing Event Handlers](/guide/typescript/composition-api.html#typing-event-handlers) <Badge type="ts" text="TS" />
 
 </div>
+<div class="options-api">
+
+See also: [Typing Event Handlers](/guide/typescript/options-api.html#typing-event-handlers) <Badge type="ts" text="TS" />
+
+</div>
 
 ### Method vs. Inline Detection
 

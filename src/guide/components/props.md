@@ -10,6 +10,8 @@ aside: deep
 
 Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in the next section).
 
+<div class="composition-api">
+
 In SFCs using `<script setup>`, props can be declared using the `defineProps()` macro:
 
 ```vue
@@ -20,9 +22,7 @@ console.log(props.foo)
 </script>
 ```
 
-In non-`<script setup>` components, props are declared using the `props` option:
-
-<div class="composition-api">
+In non-`<script setup>` components, props are declared using the [`props`](/api/options-state.html#props) option:
 
 ```js
 export default {
@@ -34,8 +34,13 @@ export default {
 }
 ```
 
+Notice the argument passed to `defineProps()` is the same as the value provided to the `props` options: the same props options API is shared between the two declaration styles.
+
 </div>
+
 <div class="options-api">
+
+Props are declared using the [`props`](/api/options-state.html#props) option:
 
 ```js
 export default {
@@ -49,9 +54,21 @@ export default {
 
 </div>
 
-Notice the argument passed to `defineProps()` is the same as the value provided to the `props` options: the same props options API is shared between the two declaration styles.
-
 In addition to declaring props using an array of strings, we can also use the object syntax:
+
+<div class="options-api">
+
+```js
+export default {
+  props: {
+    title: String,
+    likes: Number
+  }
+}
+```
+
+</div>
+<div class="composition-api">
 
 ```js
 // in <script setup>
@@ -62,7 +79,7 @@ defineProps({
 ```
 
 ```js
-// non-<script setup>
+// in non-<script setup>
 export default {
   props: {
     title: String,
@@ -71,9 +88,17 @@ export default {
 }
 ```
 
+</div>
+
 For each property in the object declaration syntax, the key is the name of the prop, while the value should be the constructor function of the expected type.
 
 This not only documents your component, but will also warn other developers using your component in the browser console if they pass the wrong type. We will discuss more details about [prop validation](#prop-validation) further down this page.
+
+<div class="options-api">
+
+See also: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <Badge type="ts" text="TS" />
+
+</div>
 
 <div class="composition-api">
 

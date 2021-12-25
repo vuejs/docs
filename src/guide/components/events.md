@@ -102,8 +102,6 @@ const emit = defineEmits(['inFocus', 'submit'])
 
 The returned `emit` function can be used to emit events in JavaScript.
 
-See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <Badge type="ts" text="TS" />
-
 If not using `<script setup>`, events should be declared using the [`emits`](/api/options-state.html#emits) option, and the `emit` function is exposed on the `setup()` context:
 
 ```js
@@ -123,6 +121,41 @@ export default {
   emits: ['inFocus', 'submit']
 }
 ```
+
+</div>
+
+The `emits` option also supports an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
+
+<div class="composition-api">
+
+```vue
+<script setup>
+const emit = defineEmits({
+  submit(payload) {
+    // return `true` or `false` to indicate
+    // validation pass / fail
+  }
+})
+</script>
+```
+
+See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <Badge type="ts" text="TS" />
+
+</div>
+<div class="options-api">
+
+```js
+export default {
+  emits: {
+    submit(payload) {
+      // return `true` or `false` to indicate
+      // validation pass / fail
+    }
+  }
+}
+```
+
+See also: [Typing Component Emits](/guide/typescript/options-api.html#typing-component-emits) <Badge type="ts" text="TS" />
 
 </div>
 
