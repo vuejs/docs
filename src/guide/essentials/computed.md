@@ -124,6 +124,8 @@ Here we have declared a computed property `publishedBooksMessage`. The `computed
 
 A computed property automatically tracks its reactive dependencies. Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes.
 
+See also: [Typing Computed](/guide/typescript/composition-api.html#typing-computed) <Badge type="ts" text="TS" />
+
 </div>
 
 ## Computed Caching vs Methods

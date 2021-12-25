@@ -297,6 +297,8 @@ import { myInjectionKey } from './keys.js'
 const injected = inject(myInjectionKey)
 ```
 
+See also: [Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <Badge type="ts" text="TS" />
+
 </div>
 
 <div class="options-api">

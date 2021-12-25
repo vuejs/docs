@@ -77,7 +77,7 @@ This not only documents your component, but will also warn other developers usin
 
 <div class="composition-api">
 
-If you are using TypeScript with `<script setup>`, it's also possible to [declare props using pure type annotations](/api/sfc-script-setup.html#typescript-only-features):
+If you are using TypeScript with `<script setup>`, it's also possible to declare props using pure type annotations:
 
 ```vue
 <script setup lang="ts">
@@ -87,6 +87,8 @@ defineProps<{
 }>()
 </script>
 ```
+
+More details: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <Badge type="ts" text="TS" />
 
 </div>
 

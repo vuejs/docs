@@ -114,9 +114,17 @@ methods: {
 
 A method handler automatically receives the native DOM Event object that triggers it - in the example above, we are able to access the element dispatching the event via `event.target.tagName`.
 
+<div class="composition-api">
+
+See also: [Typing Event Handlers](/guide/typescript/composition-api.html#typing-event-handlers) <Badge type="ts" text="TS" />
+
+</div>
+
+### Method vs. Inline Detection
+
 The template compiler detects method handlers by checking whether the `v-on` value string is a valid JavaScript identifier or property access path. For example, `foo`, `foo.bar` and `foo['bar']` are treated as method handlers, while `foo()` and `count++` are treated as inline handlers.
 
-## Methods in Inline Handlers
+## Calling Methods in Inline Handlers
 
 Instead of binding directly to a method name, we can also call methods in an inline handler. This allows us to pass the method custom arguments instead of the native event:
 
@@ -157,10 +165,18 @@ methods: {
 
 </div>
 
-Sometimes we also need to access the original DOM event in an inline handler. You can pass it into a method using the special `$event` variable:
+## Accessing Event Argument in Inline Handlers
+
+Sometimes we also need to access the original DOM event in an inline handler. You can pass it into a method using the special `$event` variable, or use an inline arrow function:
 
 ```vue-html
+<!-- using $event special variable -->
 <button @click="warn('Form cannot be submitted yet.', $event)">
+  Submit
+</button>
+
+<!-- using inline arrow function -->
+<button @click="(event) => warn('Form cannot be submitted yet.', event)">
   Submit
 </button>
 ```

@@ -202,7 +202,6 @@ export const sidebar = {
           link: '/guide/scaling-up/state-management'
         },
         { text: 'Testing', link: '/guide/scaling-up/testing' },
-        { text: 'TypeScript', link: '/guide/scaling-up/typescript' },
         {
           text: 'Server-Side Rendering (SSR)',
           link: '/guide/scaling-up/ssr'
@@ -228,6 +227,17 @@ export const sidebar = {
           text: 'Security',
           link: '/guide/best-practices/security'
         }
+      ]
+    },
+    {
+      text: 'TypeScript',
+      items: [
+        { text: 'Overview', link: '/guide/typescript/overview' },
+        {
+          text: 'TS with Composition API',
+          link: '/guide/typescript/composition-api'
+        },
+        { text: 'TS with Options API', link: '/guide/typescript/options-api' }
       ]
     },
     {

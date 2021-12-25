@@ -219,6 +219,8 @@ const props = defineProps(['title'])
 console.log(props.title)
 ```
 
+See also: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <Badge type="ts" text="TS" />
+
 If you are not using `<script setup>`, props should be declared using the `props` option, and the props object will be passed to `setup()` as the first argument:
 
 ```js
@@ -428,6 +430,8 @@ const emit = defineEmits(['enlarge-text'])
 emit('enlarge-text')
 ```
 
+See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <Badge type="ts" text="TS" />
+
 If you are not using `<script setup>`, you can declare emitted events using the `emits` option. You can access the `emit` function as a property of the setup context (passed to `setup()` as the second argument):
 
 ```js
@@ -455,7 +459,7 @@ Just like with HTML elements, it's often useful to be able to pass content to a 
 
 Which might render something like:
 
-:::danger Error
+:::danger This is an Error for Demo Purposes
 Something bad happened.
 :::
 

@@ -102,6 +102,8 @@ const emit = defineEmits(['inFocus', 'submit'])
 
 The returned `emit` function can be used to emit events in JavaScript.
 
+See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <Badge type="ts" text="TS" />
+
 If not using `<script setup>`, events should be declared using the [`emits`](/api/options-state.html#emits) option, and the `emit` function is exposed on the `setup()` context:
 
 ```js
