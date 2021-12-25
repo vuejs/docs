@@ -49,13 +49,15 @@ function updateExample() {
 .vue-repl {
   max-width: 1105px;
   border-right: 1px solid var(--vt-c-divider-light);
-  height: calc(100vh - var(--vt-nav-height));
+  height: calc(100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px));
 }
 
 @media (max-width: 960px) {
   .vue-repl {
     border: none;
-    height: calc(100vh - var(--vt-nav-height) - 48px);
+    height: calc(
+      100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px) - 48px
+    );
   }
 }
 </style>

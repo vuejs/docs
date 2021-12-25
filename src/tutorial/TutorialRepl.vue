@@ -134,13 +134,19 @@ a {
 }
 
 .vue-repl {
-  height: calc(100vh - var(--vt-nav-height) - var(--ins-height));
+  height: calc(
+    100vh - var(--vt-nav-height) - var(--ins-height) -
+      var(--vt-banner-height, 0px)
+  );
 }
 
 @media (max-width: 960px) {
   .vue-repl {
     border: none;
-    height: calc(100vh - var(--vt-nav-height) - var(--ins-height) - 48px);
+    height: calc(
+      100vh - var(--vt-nav-height) - var(--ins-height) -
+        var(--vt-banner-height, 0px) - 48px
+    );
   }
 }
 
