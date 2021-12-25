@@ -290,11 +290,6 @@ import { ref } from 'vue'
 const el = ref<HTMLInputElement | null>(null)
 
 onMounted(() => {
-  // type guard
-  if (el.value) {
-    el.value.focus()
-  }
-  // or optional chaining
   el.value?.focus()
 })
 </script>
@@ -304,7 +299,7 @@ onMounted(() => {
 </template>
 ```
 
-Note that for strict type safety, it is necessary to use an `if` type guard or optional chaining when accessing the `el.value`. This is because the initial ref value is `null` until the component is mounted, and it can also be set to `null` if the referenced element is unmounted by `v-if`.
+Note that for strict type safety, it is necessary to use optional chaining or type guards when accessing `el.value`. This is because the initial ref value is `null` until the component is mounted, and it can also be set to `null` if the referenced element is unmounted by `v-if`.
 
 ## Typing Component Template Refs
 

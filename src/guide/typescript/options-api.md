@@ -6,9 +6,33 @@
 While Vue does support TypeScript usage with Options API, it is recommended to use Vue with TypeScript via Composition API as it offers simpler, more efficient and more robust type inference.
 :::
 
-## Annotating Component Props
+## Typing Component Props
 
-Vue does a runtime validation on props with a `type` defined. To provide these types to TypeScript, we need to cast the constructor with `PropType`:
+When `defineComponent()` is used, Vue is able to infer the types for the props based on the `props` option, taking additional options such as `required: true` and `default` into account:
+
+```ts
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  // type inference enabled
+  props: {
+    name: String,
+    id: [Number, String],
+    msg: { type: String, required: true },
+    metadata: null
+  },
+  mounted() {
+    this.name // type: string | undefined
+    this.id // type" number | string | undefined
+    this.msg // type: string
+    this.metadata // type: any
+  }
+})
+```
+
+However, the runtime props options only support using constructor functions as a prop's type - there is no way to specify complex types such as objects with nested properties or function call signatures.
+
+To annotate complex props types, we can use the `PropType` utility type:
 
 ```ts
 import { defineComponent, PropType } from 'vue'
@@ -19,29 +43,30 @@ interface Book {
   year: number
 }
 
-const Component = defineComponent({
+export default defineComponent({
   props: {
-    name: String,
-    id: [Number, String],
-    success: { type: String },
-    callback: {
-      type: Function as PropType<() => void>
-    },
     book: {
+      // provide more specific type to `Object`
       type: Object as PropType<Book>,
       required: true
     },
-    metadata: {
-      type: null // metadata is typed as any
-    }
+    // can also annotate functions
+    callback: Function as PropType<(id: number) => void>
+  },
+  mounted() {
+    this.book.title // string
+    this.book.year // number
+
+    // TS Error: argument of type 'string' is not
+    // assignable to parameter of type 'number'
+    this.callback?.('123')
   }
 })
 ```
 
-::: warning
-Because of a [design limitation](https://github.com/microsoft/TypeScript/issues/38845) in TypeScript when it comes
-to type inference of function expressions, you have to be careful with `validator` and `default` values for objects and arrays:
-:::
+### Caveats
+
+Because of a [design limitation](https://github.com/microsoft/TypeScript/issues/38845) in TypeScript, you have to be careful when using function values for `validator` and `default` prop options - make sure to use arrow functions:
 
 ```ts
 import { defineComponent, PropType } from 'vue'
@@ -60,29 +85,21 @@ const Component = defineComponent({
         title: 'Arrow Function Expression'
       }),
       validator: (book: Book) => !!book.title
-    },
-    bookB: {
-      type: Object as PropType<Book>,
-      // Or provide an explicit this parameter
-      default(this: void) {
-        return {
-          title: 'Function Expression'
-        }
-      },
-      validator(this: void, book: Book) {
-        return !!book.title
-      }
     }
   }
 })
 ```
 
-## Annotating Component Emits
+This prevents TypeScript from having to infer the type of `this` inside these functions, which, unfortunately, can cause the type inference to fail.
 
-We can annotate a payload for the emitted event. Also, all non-declared emitted events will throw a type error when called:
+## Typing Component Emits
+
+We can declare the expected payload type for an emitted event using the object syntax of the `emits` option. Also, all non-declared emitted events will throw a type error when called:
 
 ```ts
-const Component = defineComponent({
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   emits: {
     addBook(payload: { bookName: string }) {
       // perform runtime validation
@@ -101,9 +118,31 @@ const Component = defineComponent({
 })
 ```
 
-## Annotating Computed Return Types
+## Typing Computed Properties
 
-Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type of computed properties.
+A computed property infers its type based on its return value:
+
+```ts
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      message: 'Hello!'
+    }
+  },
+  computed: {
+    greeting() {
+      return this.message + '!'
+    }
+  },
+  mounted() {
+    this.greeting // type: string
+  }
+})
+```
+
+In some cases, you may want to explicit annotate the type of a computed property to ensure its implementation is correct:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -115,12 +154,12 @@ const Component = defineComponent({
     }
   },
   computed: {
-    // needs an annotation
+    // explicit annotate return type
     greeting(): string {
       return this.message + '!'
     },
 
-    // in a computed with a setter, getter needs to be annotated
+    // annotating a writable computed property
     greetingUppercased: {
       get(): string {
         return this.greeting.toUpperCase()
@@ -133,52 +172,63 @@ const Component = defineComponent({
 })
 ```
 
+Explicit annotations may also be required in some edge cases where TypeScript fails to infer the type of a computed property due to circular inference loops.
+
 ## Augmenting Global Properties
 
-Vue 3 provides a [`globalProperties` object](/api/application.html#app-config-globalproperties) that can be used to add a global property that can be accessed in any component instance. For example, a [plugin](/guide/reusability/plugins.html#writing-a-plugin) might want to inject a shared global object or function.
-
-```ts
-// User Definition
-import axios from 'axios'
-
-const app = Vue.createApp({})
-app.config.globalProperties.$http = axios
-
-// Plugin for validating some data
-export default {
-  install(app, options) {
-    app.config.globalProperties.$validate = (data: object, rule: object) => {
-      // check whether the object meets certain rules
-    }
-  }
-}
-```
-
-In order to tell TypeScript about these new properties, we can use [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
-
-In the above example, we could add the following type declaration:
+Some plugins install globally available properties to all component instances via [`app.config.globalProperties`](/api/application.html#app-config-globalproperties). For example, we may install `this.$http` for data-fetching or `this.$translate` for internationalization. To make this play well with TypeScript, Vue exposes a `ComponentCustomProperties` interface designed to be augmented via [TypeScript module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation):
 
 ```ts
 import axios from 'axios'
 
-declare module '@vue/runtime-core' {
-  export interface ComponentCustomProperties {
+declare module 'vue' {
+  interface ComponentCustomProperties {
     $http: typeof axios
-    $validate: (data: object, rule: object) => boolean
+    $translate: (key: string) => string
   }
 }
 ```
 
-We can put this type declaration in the same file, or in a project-wide `*.d.ts` file (for example, in the `src/typings` folder that is automatically loaded by TypeScript). For library/plugin authors, this file should be specified in the `types` property in `package.json`.
+See also:
 
-::: warning Make sure the declaration file is a TypeScript module
-In order to take advantage of module augmentation, you will need to ensure there is at least one top-level `import` or `export` in your file, even if it is just `export {}`.
+- [TypeScript unit tests for component type extensions](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx)
 
-[In TypeScript](https://www.typescriptlang.org/docs/handbook/modules.html), any file containing a top-level `import` or `export` is considered a 'module'. If type declaration is made outside of a module, it will overwrite the original types rather than augmenting them.
-:::
+### Type Augmentation Placement
 
-For more information about the `ComponentCustomProperties` type, see its [definition in `@vue/runtime-core`](https://github.com/vuejs/vue-next/blob/2587f36fe311359e2e34f40e8e47d2eebfab7f42/packages/runtime-core/src/componentOptions.ts#L64-L80) and [the TypeScript unit tests](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) to learn more.
+We can put this type augmentation in a `.ts` file, or in a project-wide `*.d.ts` file. Either way, make sure it is included in `tsconfig.json`. For library / plugin authors, this file should be specified in the `types` property in `package.json`.
+
+In order to take advantage of module augmentation, you will need to ensure the augmentation is placed in a [TypeScript module](https://www.typescriptlang.org/docs/handbook/modules.html). That is to say, the file needs to contain at least one top-level `import` or `export`, even if it is just `export {}`. If the augmentation is placed outside of a module, it will overwrite the original types rather than augmenting them!
 
 ## Augmenting Custom Options
 
-// TODO
+Some plugins, for example `vue-router`, provides support for custom component options such as `beforeRouteEnter`:
+
+```ts
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  beforeRouteEnter(to, from, next) {
+    // ...
+  }
+})
+```
+
+Without proper type augmentation, the arguments of this hook will implicitly have `any` type. We can augment the `ComponentCustomOptions` interface to support these custom options:
+
+```ts
+import { Route } from 'vue-router'
+
+declare module 'vue' {
+  interface ComponentCustomOptions {
+    beforeRouteEnter?(to: any, from: any, next: () => void): void
+  }
+}
+```
+
+Now the `beforeRouterEnter` option will be properly typed. Note this is just an example - well-typed libraries like `vue-router` should automatically perform these augmentations in their own type definitions.
+
+The placement of this augmentation is subject the [same restrictions](#type-augmentation-placement) as global property augmentations.
+
+See also:
+
+- [TypeScript unit tests for component type extensions](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx)

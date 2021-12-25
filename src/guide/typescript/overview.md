@@ -98,16 +98,18 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   // type inference enabled
   props: {
-    message: String
+    name: String,
+    msg: { type: String, required: true }
   },
   data() {
     return {
-      n: 1
+      count: 1
     }
   },
   mounted() {
-    this.message // <-- type: string
-    this.n // <-- type: number
+    this.name // type: string | undefined
+    this.msg // type: string
+    this.count // type: number
   }
 })
 ```
@@ -123,10 +125,12 @@ export default defineComponent({
     message: String
   },
   setup(props) {
-    props.message // <-- type: string
+    props.message // type: string | undefined
   }
 })
 ```
+
+See also: [type tests for `defineComponent`](https://github.com/vuejs/vue-next/blob/master/test-dts/defineComponent.test-d.tsx)
 
 :::tip
 `defineComponent()` also enables type inference for components defined in plain JavaScript.
@@ -143,7 +147,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      n: 1
+      count: 1
     }
   }
 })
@@ -151,7 +155,7 @@ export default defineComponent({
 
 <template>
   <!-- type checking and auto-completion enabled -->
-  {{ n.toFixed(2) }}
+  {{ count.toFixed(2) }}
 </template>
 ```
 
@@ -162,12 +166,12 @@ export default defineComponent({
 // TypeScript enabled
 import { ref } from 'vue'
 
-const n = ref(1)
+const count = ref(1)
 </script>
 
 <template>
   <!-- type checking and auto-completion enabled -->
-  {{ n.toFixed(2) }}
+  {{ count.toFixed(2) }}
 </template>
 ```
 
