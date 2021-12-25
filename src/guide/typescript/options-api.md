@@ -1,55 +1,10 @@
 # TypeScript with Options API
 
+> This page assumes you've already read the overview on [Using Vue with TypeScript](./overview).
+
 :::tip
 While Vue does support TypeScript usage with Options API, it is recommended to use Vue with TypeScript via Composition API as it offers simpler, more efficient and more robust type inference.
 :::
-
-To let TypeScript properly infer types inside Vue component options, you need to define components with `defineComponent` global method:
-
-```ts
-import { defineComponent } from 'vue'
-
-const Component = defineComponent({
-  // type inference enabled
-})
-```
-
-TypeScript should be able to infer most of the types without defining types explicitly. For example, if you have a component with a number `count` property, you will have an error if you try to call a string-specific method on it:
-
-```ts
-const Component = defineComponent({
-  data() {
-    return {
-      count: 0
-    }
-  },
-  mounted() {
-    const result = this.count.split('') // => Property 'split' does not exist on type 'number'
-  }
-})
-```
-
-If you have a complex type or interface, you can cast it using [type assertion](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions):
-
-```ts
-interface Book {
-  title: string
-  author: string
-  year: number
-}
-
-const Component = defineComponent({
-  data() {
-    return {
-      book: {
-        title: 'Vue 3 Guide',
-        author: 'Vue Team',
-        year: 2020
-      } as Book
-    }
-  }
-})
-```
 
 ## Annotating Component Props
 

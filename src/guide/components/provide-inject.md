@@ -95,7 +95,7 @@ export default {
 }
 ```
 
-However, do note this does **not** make the injection reactive. We will discuss [making injections reactive](#injection-reactivity) below.
+However, do note this does **not** make the injection reactive. We will discuss [making injections reactive](#working-with-reactivity) below.
 
 </div>
 
@@ -175,9 +175,7 @@ export default {
 
 [Full provide + inject example](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7IENoaWxkIH0sXG4gIHByb3ZpZGUoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIG1lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
 
-
-
-### Injection Aliasing *
+### Injection Aliasing \*
 
 When using the array syntax for `inject`, the injected properties are exposed on the component instance using the same key. In the example above, the property was provided under the key `"message"`, and injected as `this.message`. The local key is the same as the injection key.
 
@@ -238,7 +236,61 @@ export default {
 }
 ```
 
-## Injection Reactivity *
+</div>
+
+## Working with Reactivity
+
+<div class="composition-api">
+
+When using reactive provide / inject values, **it is recommended to keep any mutations to reactive state inside of the _provider_ whenever possible**. This ensures that the provided state and its possible mutations are co-located in the same component, making it easier to maintain in the future.
+
+There may be times where we need to update the data from a injector component. In such cases, we recommend providing a method that is responsible for mutating the state:
+
+```vue{7-9,13}
+<!-- inside provider component -->
+<script setup>
+import { provide, ref } from 'vue'
+
+const location = ref('North Pole')
+
+function updateLocation() {
+  location.value = 'South Pole'
+}
+
+provide('location', {
+  location,
+  updateLocation
+})
+</script>
+```
+
+```vue{5}
+<!-- in injector component -->
+<script setup>
+import { inject } from 'vue'
+
+const { location, updateLocation } = inject('location')
+</script>
+
+<template>
+  <button @click="updateLocation">{{ location }}</button>
+</template>
+```
+
+Finally, you can wrap the provided value with [`readonly()`](/api/reactivity-core.html#readonly) if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
+
+```vue
+<script setup>
+import { ref, provide, readonly } from 'vue'
+
+const count = ref(0)
+provide('read-only-count', readonly(count))
+</script>
+```
+
+</div>
+
+<div class="options-api">
 
 In order to make injections reactively linked to the provider, we need to provide a computed property using the [computed()](/api/reactivity-core.html#computed) function:
 
@@ -286,7 +338,9 @@ export const myInjectionKey = Symbol()
 import { provide } from 'vue'
 import { myInjectionKey } from './keys.js'
 
-provide(myInjectionKey, { /* data to provide */ })
+provide(myInjectionKey, {
+  /* data to provide */
+})
 ```
 
 ```js
@@ -310,7 +364,9 @@ import { myInjectionKey } from './keys.js'
 export default {
   provide() {
     return {
-      [myInjectionKey]: { /* data to provide */ }
+      [myInjectionKey]: {
+        /* data to provide */
+      }
     }
   }
 }
