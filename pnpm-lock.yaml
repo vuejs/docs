@@ -5,18 +5,18 @@ packageExtensionsChecksum: d9d47e56337cb07be92aa72d7a5365b9
 specifiers:
   '@types/node': ^16.9.1
   '@vue/repl': ^0.4.8
-  '@vue/theme': ^0.1.25
+  '@vue/theme': ^0.1.26
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
-  vitepress: ^0.20.9
+  vitepress: ^0.20.10
   vue: ^3.2.25
 
 dependencies:
   '@vue/repl': 0.4.8_vue@3.2.25
-  '@vue/theme': 0.1.25_vue@3.2.25
+  '@vue/theme': 0.1.26_vue@3.2.25
   dynamics.js: 1.1.5
   gsap: 3.9.0
-  vitepress: 0.20.9
+  vitepress: 0.20.10
   vue: 3.2.25
 
 devDependencies:
@@ -360,8 +360,8 @@ packages:
     resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==}
     dev: false
 
-  /@vue/theme/0.1.25_vue@3.2.25:
-    resolution: {integrity: sha512-OATpiApY0IHMjw+TurMLLMx0m4EjTqXKcWi4IgwjoZ00OUsRRW5mGqZ8ge/rXZwVi6M55wdq/DMGpflK6xFYUw==}
+  /@vue/theme/0.1.26_vue@3.2.25:
+    resolution: {integrity: sha512-+BKGKdggqSwvE8ojGvR3h5sOu5SWBaGgdZNkuEU3HyJsOlj40oV1q0IrFEKOQ0JZtBwHvQsMJUrtN41hP7u/lQ==}
     dependencies:
       '@docsearch/css': 3.0.0-alpha.41
       '@docsearch/js': 3.0.0-alpha.41
@@ -739,8 +739,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/0.20.9:
-    resolution: {integrity: sha512-2Rd6NMS5sTVl+3HDM9EzIMi3JOTNz1DjylvbYEWjxPyCmL3OH0lEez7O4FAijCkS5+i3VcwygxisadonMhtYkw==}
+  /vitepress/0.20.10:
+    resolution: {integrity: sha512-dKgH6k1yxdEjIIxoXGI0vMg3lpBLvMarre/vvt4beuxd+rXOUB1a7DAtXDmgIXOMGQ7IcF+4zyd2132IedhjtQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:

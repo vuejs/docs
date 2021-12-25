@@ -6,10 +6,10 @@
   },
   "dependencies": {
     "@vue/repl": "^0.4.8",
-    "@vue/theme": "^0.1.25",
+    "@vue/theme": "^0.1.26",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
-    "vitepress": "^0.20.9",
+    "vitepress": "^0.20.10",
     "vue": "^3.2.25"
   },
   "devDependencies": {
