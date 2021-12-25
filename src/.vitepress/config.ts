@@ -38,9 +38,9 @@ const nav = [
         items: [
           { text: 'Partners', link: '/ecosystem/partners' },
           { text: 'Themes', link: '/ecosystem/themes' },
-          { text: 'Video Courses', link: '/ecosystem/video-courses' },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' },
+          // { text: 'Video Courses', link: '/ecosystem/video-courses' },
           // TODO should start a separate branch for Vue 3?
           // {
           //   text: 'Awesome Vue',

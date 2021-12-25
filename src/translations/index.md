@@ -2,7 +2,7 @@
 aside: false
 ---
 
-# Translations
+# Translations <Badge text="WIP" />
 
 The Vue documentation is available in the following languages:
 

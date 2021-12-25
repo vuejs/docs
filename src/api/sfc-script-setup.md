@@ -263,7 +263,7 @@ const emit = defineEmits<{
   - A type literal
   - A reference to an interface or a type literal in the same file
 
-  Currently complex types and type imports from other files are not supported. It is theoretically possible to support type imports in the future.
+  Currently complex types and type imports from other files are not supported. It is possible to support type imports in the future.
 
 ### Default props values when using type declaration
 
