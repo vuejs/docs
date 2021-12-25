@@ -268,7 +268,7 @@ When using `<template v-for>`, the `key` should be placed on the `<template>` co
 ```
 
 :::tip Note
-`key` here is a special attribute being bonund with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
+`key` here is a special attribute being bound with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
 :::
 
 [It is recommended](/style-guide/#keyed-v-for-essential) to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple (i.e. contains no components or stateful DOM elements), or you are intentionally relying on the default behavior for performance gains.
