@@ -1,1 +1,1 @@
-# Vue 2 vs. Vue 3 FAQ
+# Vue 2 vs. Vue 3 FAQ <Badge text="WIP" />
