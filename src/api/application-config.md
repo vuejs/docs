@@ -26,7 +26,7 @@ app.config.errorHandler = (err, vm, info) => {
 }
 ```
 
-Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the application instance.
+Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the corresponding application instance.
 
 > Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
 
@@ -146,7 +146,7 @@ This config option is only respected when using the full build (i.e. the standal
 app.config.compilerOptions.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
-Specifies a method to recognize custom elements defined outside of Vue (e.g., using the Web Components APIs). If component matches this condition, it won't need local or global registration and Vue won't throw a warning about an `Unknown custom element`.
+Specifies a method to recognize custom elements defined outside of Vue (e.g., using the Web Components APIs). If a component matches this condition, it won't need local or global registration and Vue won't throw a warning about an `Unknown custom element`.
 
 > Note that all native HTML and SVG tags don't need to be matched in this function - Vue parser performs this check automatically.
 
