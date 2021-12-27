@@ -235,7 +235,7 @@ app.mount('#my-app')
   Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.html#globalproperties).
 
   :::tip Note
-  The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+  The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down a reactive object, properties on that object do remain reactive.
   :::
 
 - **Example:**
@@ -298,9 +298,9 @@ setTimeout(() => app.unmount(), 5000)
 
 - **Usage:**
 
-  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method.
+  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the `install` method.
 
-  The install method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
+  The `install` method will be called with the application as its first argument. Any `options` passed to `use` will be passed on in subsequent arguments.
 
   When this method is called on the same plugin multiple times, the plugin will be installed only once.
 
