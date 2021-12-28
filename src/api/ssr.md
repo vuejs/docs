@@ -26,7 +26,7 @@ const app = createSSRApp({
   template: `<div>{{ msg }}</div>`
 })
 
-;(async () => {
+(async () => {
   const html = await renderToString(app)
   console.log(html)
 })()
