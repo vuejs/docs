@@ -199,6 +199,38 @@ In order to take advantage of module augmentation, you will need to ensure there
 
 For more information about the `ComponentCustomProperties` type, see its [definition in `@vue/runtime-core`](https://github.com/vuejs/vue-next/blob/2587f36fe311359e2e34f40e8e47d2eebfab7f42/packages/runtime-core/src/componentOptions.ts#L64-L80) and [the TypeScript unit tests](https://github.com/vuejs/vue-next/blob/master/test-dts/componentTypeExtensions.test-d.tsx) to learn more.
 
+### Adding Global Component Types
+
+When [registering a component globally](../api/application-api.html#component) your component’s type definition is not automatically available in your application’s single file component template blocks. For example:
+
+```ts
+import { createApp } from 'vue'
+import MyComponent from './components/MyComponent.vue'
+
+const app = createApp()
+app.component('MyComponent', MyComponent)
+```
+
+The above `MyComponent` would not receive [TypeScript editor support](#editor-support) in the following single file component:
+
+```vue
+<template>
+  <MyComponent>
+</template>
+```
+
+To solve this we need to augment the `GlobalComponents` type for the `@vue/runtime-core` module. Similar to [Augmenting Types for `globalProperties`](#augmenting-types-for-globalproperties) this can be added in the same file or a project-wide `*.d.ts` file.
+
+```ts
+import MyComponent from './components/MyComponent.vue'
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    MyComponent: typeof MyComponent
+  }
+}
+```
+
 ### Annotating Return Types
 
 Because of the circular nature of Vue’s declaration files, TypeScript may have difficulties inferring the types of computed. For this reason, you may need to annotate the return type of computed properties.
