@@ -215,7 +215,7 @@ The above `MyComponent` would not receive [TypeScript editor support](#editor-su
 
 ```vue
 <template>
-  <MyComponent>
+  <MyComponent />
 </template>
 ```
 
