@@ -195,7 +195,7 @@ Another example is the `v-on` directive, which listens to DOM events:
 <a v-on:click="doSomething"> ... </a>
 
 <!-- shorthand -->
-<a @click="url"> ... </a>
+<a @click="doSomething"> ... </a>
 ```
 
 Here the argument is the event name to listen to: `click`. `v-on` is one of the few directives that also have a corresponding shorthand, with its shorthand character being `@`. We will talk about event handling in more detail too.
