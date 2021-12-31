@@ -2,7 +2,7 @@
 aside: deep
 ---
 
-# Testing <Badge text="WIP" />
+# Testing
 
 ## Overview
 
@@ -88,7 +88,7 @@ We recommend using `@testing-library/vue` for testing components in applications
 
 - [Cypress](https://www.cypress.io/) is an E2E test solution, but it also supports [Component Testing](https://docs.cypress.io/guides/component-testing/introduction) which can test components in real browsers with a GUI that shows the actual DOM state during tests.
 
-- [Nightwatch v2](https://v2.nightwatchjs.org/) is another E2E test runner with Vue Component Testing support in v2 (currently beta - [Exmaple Project](https://github.com/nightwatchjs-community/todo-vue)).
+- [Nightwatch](https://v2.nightwatchjs.org/) is another E2E test runner with Vue Component Testing support. ([Exmaple Project](https://github.com/nightwatchjs-community/todo-vue) in Nightwatch v2)
 
 ## E2E Testing
 
