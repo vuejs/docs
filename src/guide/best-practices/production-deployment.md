@@ -9,7 +9,7 @@ During development, Vue provides a number of features to improve the development
 - Reactivity debugging hooks
 - Devtools integration
 
-However, these features become useless in production. Some of the warning checks also introduce small runtime overhead. When deploying to production, we should drop all the unused, development-only code branches for smaller payload size and better performance.
+However, these features become useless in production. Some of the warning checks can also incur a small amount of performance overhead. When deploying to production, we should drop all the unused, development-only code branches for smaller payload size and better performance.
 
 ## Without Build Tools
 
