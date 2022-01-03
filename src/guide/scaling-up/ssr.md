@@ -44,64 +44,97 @@ SSG retains the same performance characteristics of SSR apps: it provides great 
 
 If you're only investigating SSR to improve the SEO of a handful of marketing pages (e.g. `/`, `/about`, `/contact`, etc), then you probably want SSG instead of SSR. SSG is also great for content-based websites such as documentation sites or blogs. In fact, this website you are reading right now is statically generated using [VitePress](https://vitepress.vuejs.org/), a Vue-powered static site generator.
 
-## Basic Usage
+## Basic Tutorial
 
 ### Rendering an App
 
-Vue's server-rendering API is exposed under `vue/server-renderer`.
+Let's take a look at the most bare-bone example of Vue SSR in action.
 
-Let's take a look at the most bare-bone example of Vue SSR in action. First, create a new directory and run `npm install vue` in it. Then, create an `example.mjs` file:
+1. Create a new directory and `cd` into it
+2. Run `npm init -y`
+3. Add `"type": "module"` in `package.json` so that Node.js runs in [ES modules mode](https://nodejs.org/api/esm.html#modules-ecmascript-modules).
+4. Run `npm install vue`
+5. Create an `example.js` file:
 
 ```js
-// example.mjs
 // this runs in Node.js on the server.
 import { createSSRApp } from 'vue'
+// Vue's server-rendering API is exposed under `vue/server-renderer`.
 import { renderToString } from 'vue/server-renderer'
 
 const app = createSSRApp({
-  data: () => ({ msg: 'hello' }),
-  template: `<div>{{ msg }}</div>`
+  data: () => ({ count: 1 }),
+  template: `<button @click="count++">{{ count }}</button>`
 })
 
-;(async () => {
-  const html = await renderToString(app)
+renderToString(app).then((html) => {
   console.log(html)
-})()
+})
 ```
 
 Then run:
 
 ```sh
-> node example.mjs
+> node example.js
 ```
 
-...which should print the following:
+It should print the following to the command line:
 
-```html
-<div>hello</div>
+```
+<button>1</button>
 ```
 
 [`renderToString()`](/api/ssr.html#rendertostring) takes a Vue app instance and returns a Promise that resolves to the rendered HTML of the app. It is also possible to perform streaming render using [Node.js Stream API](https://nodejs.org/api/stream.html) or [Web Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). Check out the [SSR API Reference](/api/ssr.html) for full details.
 
-### Client Hydration
+We can then move the Vue SSR code into a server request handler, which wraps the application markup with the full page HTML. We will be using [`express`](https://expressjs.com/) for the next steps:
 
-In actual SSR applications, the server-rendered markup is typically embedded in an HTML page like this:
+- Run `npm install express`
+- Create the following `server.js` file:
 
-```html{6}
-<!DOCTYPE html>
-<html>
-  <head>...</head>
-  <body>
-    <div id="app">
-      <div>hello</div> <!-- server-rendered content -->
-    </div>
-  </body>
-</html>
+```js
+import express from 'express'
+import { createSSRApp } from 'vue'
+import { renderToString } from 'vue/server-renderer'
+
+const server = express()
+
+server.get('/', (req, res) => {
+  const app = createSSRApp({
+    data: () => ({ count: 1 }),
+    template: `<button @click="count++">{{ count }}</button>`
+  })
+
+  renderToString(app).then((html) => {
+    res.send(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Vue SSR Example</title>
+      </head>
+      <body>
+        <div id="app">${html}</div>
+      </body>
+    </html>
+    `)
+  })
+})
+
+server.listen(3000, () => {
+  console.log('ready')
+})
 ```
 
-On the client side, Vue needs to perform the **hydration** step. It creates the same Vue application that was run on the server, matches each component to the DOM nodes it should control, and attaches event listeners so the app becomes interactive.
+Finally, run `node server.js` and visit `http://localhost:3000`. You should see the page working with the button.
 
-The only thing different from a client-only app is that we need to use [`createSSRApp()`](/api/application.html#createssrapp) instead of `createApp()`:
+[Try it on StackBlitz](https://stackblitz.com/edit/vue-ssr-example-basic?file=index.js)
+
+### Client Hydration
+
+If you click the button, you'll notice the number doesn't change. The HTML is completely static on the client since we are not loading Vue in the browser.
+
+To make the client-side app interactive, Vue needs to perform the **hydration** step. During hydration, it creates the same Vue application that was run on the server, matches each component to the DOM nodes it should control, and attaches DOM event listeners.
+
+To mount an app in hydration mode, we need to use [`createSSRApp()`](/api/application.html#createssrapp) instead of `createApp()`:
 
 ```js{2}
 // this runs in the browser.
@@ -117,21 +150,72 @@ const app = createSSRApp({
 app.mount('#app')
 ```
 
+### Code Structure
+
+Notice how we need to reuse the same app implementation as on the server. This is where we need to start thinking about code structure in an SSR app - how do we share the same application code between the server and the client?
+
+Here we will demonstrate the most bare-bones setup. First, let's split the app creation logic into a dedicated file, `app.js`:
+
+```js
+// app.js (shared between server and client)
+import { createSSRApp } from 'vue'
+
+export function createApp() {
+  return createSSRApp({
+    data: () => ({ count: 1 }),
+    template: `<div @click="count++">{{ count }}</div>`
+  })
+}
+```
+
+This file and its dependencies are shared between the server and the client - we call them **universal code**. There are a number of things you need to pay attention to when writing universal code, as we will [discuss below](#writing-ssr-friendly-code).
+
+Our client entry imports the universal code, creates the app, and performs the mount:
+
+```js
+// client.js
+import { createApp } from './app.js'
+
+createApp().mount('#app')
+```
+
+And the server uses the same app creation logic in the request handler:
+
+```js{2,5}
+// server.js (irrelevant code omitted)
+import { createApp } from './app.js'
+
+server.get('/', (req, res) => {
+  const app = createApp()
+  renderToString(app).then(html => {
+    // ...
+  })
+})
+```
+
+In addition, in order to load the client files in the browser, we also need to:
+
+1. Serve client files by adding `server.use(express.static('.'))` in `server.js`.
+2. Load the client entry by adding `<script type="module" src="/client.js"></script>` to the HTML shell.
+3. Support usage like `import * from 'vue'` in the browser by adding an [Import Map](https://github.com/WICG/import-maps) to the HTML shell.
+
+[Try the completed example on StackBlitz](https://stackblitz.com/edit/vue-ssr-example?file=index.js). The button is now interactive!
+
 ## Higher Level Solutions
 
-While the examples so far are relatively simple, production-ready SSR apps are fullstack projects that involve a lot more than just Vue APIs. We will need to:
+Moving from the example to a production-ready SSR app involves a lot more. We will need to:
 
-- Build the app twice: once for the client, and once for the server.
+- Support Vue SFCs and other build step requirements. In fact, we will need to coordinate two builds for the same app: once for the client, and once for the server.
 
   :::tip
   Vue components are compiled differently when used for SSR - templates are compiled into string concatenations instead of Virtual DOM render functions for more efficient rendering performance.
   :::
 
-- In the server request handler, render the HTML page with the correct outer shell and app markup, including client-side asset links and resource hints. We may also need to switch between SSR and SSG mode, or even mix both in the same app.
+- In the server request handler, render the HTML with the correct client-side asset links and optimal resource hints. We may also need to switch between SSR and SSG mode, or even mix both in the same app.
 
 - Manage routing, data fetching, and state management stores in a universal manner.
 
-This is quite advanced and highly dependent on the built toolchain you have chosen to work with. Therefore, we highly recommend going with a higher-level, opinionated solution that abstracts away the complexity for you. Below we will introduce a few recommended SSR solutions in the Vue ecosystem.
+A complete implementation would be quite complex and depends on the build toolchain you have chosen to work with. Therefore, we highly recommend going with a higher-level, opinionated solution that abstracts away the complexity for you. Below we will introduce a few recommended SSR solutions in the Vue ecosystem.
 
 ### Nuxt
 
@@ -175,11 +259,19 @@ Note that if a 3rd party library is not written with universal usage in mind, it
 
 In the State Management chapter, we introduced a [simple state management pattern using Reactivity APIs](state-management.html#simple-state-management-with-reactivity-api). In an SSR context, this pattern requires some additional adjustments.
 
-The pattern declares shared state as **singletons**. This means there is only once instance of the reactive object throughout the entire lifecycle of our application. This works as expected in a pure client-side Vue application, since the our application code is initialized fresh for each browser page visit.
+The pattern declares shared state in a JavaScript module's root scope. This makes them **singletons** - i.e. there is only once instance of the reactive object throughout the entire lifecycle of our application. This works as expected in a pure client-side Vue application, since the modules in our application are initialized fresh for each browser page visit.
 
-However, in an SSR context, the application code is typically initialized only once on the server, when the server boots up. In such case, singletons in our application will be shared across multiple requests handled by the server! If we mutate the shared singleton store with data specific to one user, it can be accidentally leaked to a request from another user. We call this **cross-request state pollution.**
+However, in an SSR context, the application modules are typically initialized only once on the server, when the server boots up. The same module instances will be reused across multiple server requests, and so will our singleton state objects. If we mutate the shared singleton state with data specific to one user, it can be accidentally leaked to a request from another user. We call this **cross-request state pollution.**
 
-To workaround this, we need to create a fresh instance of the application and the shared object on each request. Then, instead of directly importing it in our components, we provide the shared state using [app-level provide](/guide/components/provide-inject.html#app-level-provide) and inject it in components that need it.
+We can technically re-initialize all the JavaScript modules on each request, just like we do in browsers. However, initializing JavaScript modules can be costly, so this would significantly affect server performance.
+
+The recommended solution is to create a new instance of the entire application - including the router and global stores - on each request:
+
+```js
+
+```
+
+create a fresh instance of the application and the shared object on each request. Then, instead of directly importing it in our components, we provide the shared state using [app-level provide](/guide/components/provide-inject.html#app-level-provide) and inject it in components that need it.
 
 State Management libraries like Pinia are designed with this in mind. Consult [Pinia's SSR guide](https://pinia.vuejs.org/ssr/) for more details.
 
