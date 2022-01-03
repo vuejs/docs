@@ -2,343 +2,230 @@
 aside: deep
 ---
 
-# Reactivity in Depth <Badge text="WIP" />
+<script setup>
+import SpreadSheet from './demos/SpreadSheet.vue'
+</script>
 
-// TODO explain proxies
-// TODO explain refs
-// TODO explain shallow
+# Reactivity in Depth
 
-Now it’s time to take a deep dive! One of Vue’s most distinct features is the unobtrusive reactivity system. Models are proxied JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
+One of Vue’s most distinct features is the unobtrusive reactivity system. Component state are reactive JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
 
 ## What is Reactivity?
 
-This term comes up in programming quite a bit these days, but what do people mean when they say it? Reactivity is a programming paradigm that allows us to adjust to changes in a declarative manner. The canonical example that people usually show, because it’s a great one, is an Excel spreadsheet.
+This term comes up in programming quite a bit these days, but what do people mean when they say it? Reactivity is a programming paradigm that allows us to adjust to changes in a declarative manner. The canonical example that people usually show, because it’s a great one, is an Excel spreadsheet:
 
-<video width="550" height="400" controls>
-  <source src="/images/reactivity-spreadsheet.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<SpreadSheet />
 
-If you put the number 2 in the first cell, and the number 3 in the second and asked for the SUM, the spreadsheet would give it to you. No surprises there. But if you update that first number, the SUM automagically updates too.
+Here cell A2 is defined via a formula of `= A0 + A1` (you can click on A2 to view or edit the formula), so the spreadsheet gives us 3. No surprises there. But if you update A0 or A1, you'll notice that A2 automagically updates too.
 
 JavaScript doesn’t usually work like this. If we were to write something comparable in JavaScript:
 
 ```js
-let val1 = 2
-let val2 = 3
-let sum = val1 + val2
+let A0 = 1
+let A1 = 2
+let A2 = A0 + A1
 
-console.log(sum) // 5
+console.log(A2) // 3
 
-val1 = 3
-
-console.log(sum) // Still 5
+A0 = 2
+console.log(A2) // Still 3
 ```
 
-If we update the first value, the sum is not adjusted.
+When we mutate `A0`, `A2` does not change automatically.
 
-So how would we do this in JavaScript?
-
-As a high-level overview, there are a few things we need to be able to do:
-
-1. **Track when a value is read.** e.g. `val1 + val2` reads both `val1` and `val2`.
-2. **Detect when a value changes.** e.g. When we assign `val1 = 3`.
-3. **Re-run the code that read the value originally.** e.g. Run `sum = val1 + val2` again to update the value of `sum`.
-
-We can't do this directly using the code from the previous example but we'll come back to this example later to see how to adapt it to be compatible with Vue's reactivity system.
-
-First, let's dig a bit deeper into how Vue implements the core reactivity requirements outlined above.
-
-## How Vue Knows What Code Is Running
-
-To be able to run our sum whenever the values change, the first thing we need to do is wrap it in a function:
+So how would we do this in JavaScript? First, in order to re-run the code that updates `A2`, let's wrap it in a function:
 
 ```js
-const updateSum = () => {
-  sum = val1 + val2
+let A2
+
+function update() {
+  A2 = A0 + A1
 }
 ```
 
-But how do we tell Vue about this function?
+Then, we need to define a few terms:
 
-Vue keeps track of which function is currently running by using an _effect_. An effect is a wrapper around the function that initiates tracking just before the function is called. Vue knows which effect is running at any given point and can run it again when required.
+- The `update()` function produces a **side effect**, or **effect** for short, because it modifies the state of the program.
 
-To understand that better, let's try to implement something similar ourselves, without Vue, to see how it might work.
+- `A0` and `A1` are considered **dependencies** of the effect, as their values are used to perform the effect. The effect is said to be a **subscriber** to its dependencies.
 
-What we need is something that can wrap our sum, like this:
+What we need is a magic function that can invoke `update()` (the **effect**) whenever `A0` or `A1` (the **dependencies**) change:
 
 ```js
-createEffect(() => {
-  sum = val1 + val2
-})
+whenDepsChange(update)
 ```
 
-We need `createEffect` to keep track of when the sum is running. We might implement it something like this:
+This `whenDepsChange()` function has the following tasks:
+
+1. Track when a variable is read. E.g. when evaluating the expression `A0 + A1`, both `A0` and `A1` are read.
+
+2. If a variable is read when there is a currently running effect, make that effect a subscriber to that variable. E.g. because `A0` and `A1` are read when `update()` is being executed, `update()` becomes a subscriber to both `A0` and `A1` after the first call.
+
+3. Detect when a variable is mutated. E.g. when `A0` is assigned a new value, notify all its subscriber effects to re-run.
+
+## How Reactivity Works in Vue
+
+We can't really track read and write of local variables like in the example. There's just no mechanism for doing that in vanilla JavaScript. What we **can** do though, is intercepting the read and write of **object properties**.
+
+There are two ways of intercepting property access in JavaScript: [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)/[setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) and [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 used getter/setters exclusively due to browser support limitations. In Vue 3, Proxies are used for reactive objects and getter/setters are used for refs. Here's the pseudo code that illustrates how they work:
+
+```js{4,8,17,21}
+function reactive(obj) {
+  return new Proxy(obj, {
+    get(target, key) {
+      track(target, key)
+      return target[key]
+    },
+    set(target, key, value) {
+      trigger(target, key)
+      target[key] = value
+    }
+  })
+}
+
+function ref(value) {
+  const refObject = {
+    get value() {
+      track(refObject, key)
+      return value
+    },
+    set value(newValue) {
+      trigger(refObject, key)
+      value = newValue
+    }
+  }
+  return refObject
+}
+```
+
+:::tip
+Code snippets here and below are meant to explain the core concepts in the simplest form possible, so many details are omitted, and edge cases ignored.
+:::
+
+This explains a few things that we have discussed in the fundamentals section:
+
+- When you destructure a property from a reactive object into a local variable, the reactivity is "disconnected" because access to the local variable no longer triggers the get / set proxy traps.
+
+- The returned proxy from `reactive()`, although behaving just like the original, has a different identity if we compare it to the original using the `===` operator.
+
+Inside `track()`, we check whether there is a currently running effect. If there is one, we lookup the subscriber effects (stored in a Set) to the property being tracked, and adds the effect to the Set:
 
 ```js
-// Maintain a stack of running effects
-const runningEffects = []
+// This will be set right before an effect is about
+// to be run. We'll deal with this later.
+let activeEffect
 
-const createEffect = (fn) => {
-  // Wrap the passed fn in an effect function
-  const effect = () => {
-    runningEffects.push(effect)
-    fn()
-    runningEffects.pop()
+function track(target, key) {
+  if (activeEffect) {
+    const effects = getSubscribersForProperty(target, key)
+    effects.add(activeEffect)
   }
+}
+```
 
-  // Automatically run the effect immediately
+Effect subscriptions are stored in a global `WeakMap<target, Map<key, Set<effect>>>` data structure. If no subscribing effects Set was found for a property (tracked for the first time), it will be created. This is what the `getSubscribersForProperty()` function does, in short. For simplicity, we will skip its details.
+
+Inside `trigger()`, we again lookup the subscriber effects for the property. But this time we invoke them instead:
+
+```js
+function trigger(target, key) {
+  const effects = getSubscribersForProperty(target, key)
+  effects.forEach((effect) => effect())
+}
+```
+
+Now let's circle back to the `whenDepsChange()` function:
+
+```js
+function whenDepsChange(update) {
+  const effect = () => {
+    activeEffect = effect
+    update()
+    activeEffect = null
+  }
   effect()
 }
 ```
 
-When our effect is called it pushes itself onto the `runningEffects` array, before calling `fn`. Anything that needs to know which effect is currently running can check that array.
+It wraps the raw `update` function into an effect that sets itself as the current active effect before running the actual update. This enables `track()` calls during the update to locate the current active effect.
 
-Effects act as the starting point for many key features. For example, both component rendering and computed properties use effects internally. Any time something magically responds to data changes you can be pretty sure it has been wrapped in an effect.
+At this point, we have created an effect that automatically tracks its dependencies, and re-runs whenever a dependency changes. We call this a **Reactive Effect**.
 
-While Vue's public API doesn't include any way to create an effect directly, it does expose a function called `watchEffect` that behaves a lot like the `createEffect` function from our example.
+Vue provides an API that allows you to create reactive effects: [`watchEffect()`](/api/reactivity-core.html#watcheffect). In fact, you probably have noticed that it works pretty similar to the magical `whenDepsChange()` in the example. We can now rework the original example using actual Vue APIs:
 
-But knowing what code is running is just one part of the puzzle. How does Vue know what values the effect uses and how does it know when they change?
+```js
+import { ref, watchEffect } from 'vue'
 
-## How Vue Tracks These Changes
+const A0 = ref(0)
+const A1 = ref(1)
+const A2 = ref()
 
-We can't track reassignments of local variables like those in our earlier examples, there's just no mechanism for doing that in JavaScript. What we can track are changes to object properties.
+watchEffect(() => {
+  // tracks A0 and A1
+  A2.value = A0.value + A1.value
+})
 
-When we return a plain JavaScript object from a component's `data` function, Vue will wrap that object in a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) with handlers for `get` and `set`. Proxies were introduced in ES6 and allow Vue 3 to avoid some of the reactivity caveats that existed in earlier versions of Vue.
+// triggers the effect
+A0.value = 2
+```
 
-<div class="reactivecontent">
-  <!-- <common-codepen-snippet title="Proxies and Vue's Reactivity Explained Visually" slug="VwmxZXJ" tab="result" theme="light" :height="500" :editable="false" :preview="false" /> -->
+Using a reactive effect to mutating a ref isn't the most interesting use case - in fact, using a computed property makes it more declarative:
+
+```js
+import { ref, computed } from 'vue'
+
+const A0 = ref(0)
+const A1 = ref(1)
+const A2 = computed(() => A0.value + A1.value)
+
+A0.value = 2
+```
+
+Internally, `computed` manages its invalidation and re-computation using a reactive effect.
+
+So what's an example of a common and useful reactive effect? Well, updating the DOM! We can implement simple "reactive rendering" like this:
+
+```js
+import { ref, watchEffect } from 'vue'
+
+const count = ref(0)
+
+watchEffect(() => {
+  document.body.innerHTML = `count is: ${count.value}`
+})
+
+// updates the DOM
+count.value++
+```
+
+In fact, this is pretty close to how a Vue component keeps the state and the DOM in sync - each component instance creates a reactive effect to render and update the DOM. Of course, Vue components use much more efficient ways to update the DOM than `innerHTML`. This is discussed in [Rendering Mechanism](./rendering-mechanism).
+
+<div class="options-api">
+
+The `ref()`, `computed()` and `watchEffect()` APIs are all part of the Composition API. If you have only been using Options API with Vue so far, you'll notice that Composition API is closer to how Vue's reactivity system works under the hood. In fact, in Vue 3 the Options API is implemented on top of the Composition API. All property access on the component instance (`this`) trigger getter/setters for reactivity tracking, and options like `watch` and `computed` invoke their Composition API equivalents internally.
+
 </div>
 
-That was rather quick and requires some knowledge of [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to understand! So let’s dive in a bit. There’s a lot of literature on Proxies, but what you really need to know is that a **Proxy is an object that encases another object and allows you to intercept any interactions with that object.**
+## Runtime vs. Compile-time Reactivity
 
-We use it like this: `new Proxy(target, handler)`
+Vue's reactivity system is primarily runtime-based: the tracking and triggering are all performed while the code is running directly in the browser. The pros of runtime reactivity is that it can work without a build step, and there are fewer edge cases. On the other hand, this makes it constrained by the syntax limitations of JavaScript.
 
-```js
-const dinner = {
-  meal: 'tacos'
-}
+We have already encountered a limitation in the previous example: JavaScript does not provide a way for us to intercept read and write of local variables, so we have to always access reactive state as object properties, using either reactive objects or refs.
 
-const handler = {
-  get(target, property) {
-    console.log('intercepted!')
-    return target[property]
-  }
-}
-
-const proxy = new Proxy(dinner, handler)
-console.log(proxy.meal)
-
-// intercepted!
-// tacos
-```
-
-Here we've intercepted attempts to read properties of the target object. A handler function like this is also known as a _trap_. There are many different types of trap available, each handling a different type of interaction.
-
-Beyond a console log, we could do anything here we wish. We could even _not_ return the real value if we wanted to. This is what makes Proxies so powerful for creating APIs.
-
-One challenge with using a Proxy is the `this` binding. We'd like any methods to be bound to the Proxy, rather than the target object, so that we can intercept them too. Thankfully, ES6 introduced another new feature, called `Reflect`, that allows us to make this problem disappear with minimal effort:
-
-```js{7}
-const dinner = {
-  meal: 'tacos'
-}
-
-const handler = {
-  get(target, property, receiver) {
-    return Reflect.get(...arguments)
-  }
-}
-
-const proxy = new Proxy(dinner, handler)
-console.log(proxy.meal)
-
-// tacos
-```
-
-The first step towards implementing reactivity with a Proxy is to track when a property is read. We do this in the handler, in a function called `track`, where we pass in the `target` and `property`:
-
-```js{7}
-const dinner = {
-  meal: 'tacos'
-}
-
-const handler = {
-  get(target, property, receiver) {
-    track(target, property)
-    return Reflect.get(...arguments)
-  }
-}
-
-const proxy = new Proxy(dinner, handler)
-console.log(proxy.meal)
-
-// tacos
-```
-
-The implementation of `track` isn't shown here. It will check which _effect_ is currently running and record that alongside the `target` and `property`. This is how Vue knows that the property is a dependency of the effect.
-
-Finally, we need to re-run the effect when the property value changes. For this we're going to need a `set` handler on our proxy:
+We have been experimenting with the [Reactivity Transform](/guide/extras/reactivity-transform.html) feature to reduce the code verbosity:
 
 ```js
-const dinner = {
-  meal: 'tacos'
-}
+let A0 = $ref(0)
+let A1 = $ref(1)
 
-const handler = {
-  get(target, property, receiver) {
-    track(target, property)
-    return Reflect.get(...arguments)
-  },
-  set(target, property, value, receiver) {
-    trigger(target, property)
-    return Reflect.set(...arguments)
-  }
-}
+// track on variable read
+const A2 = $computed(() => A0 + A1)
 
-const proxy = new Proxy(dinner, handler)
-console.log(proxy.meal)
-
-// tacos
+// trigger on variable write
+A0 = 2
 ```
 
-Remember this list from earlier? Now we have some answers to how Vue implements these key steps:
-
-1. **Track when a value is read**: the `track` function in the proxy's `get` handler records the property and the current effect.
-2. **Detect when that value changes**: the `set` handler is called on the proxy.
-3. **Re-run the code that read the value originally:** the `trigger` function looks up which effects depend on the property and runs them.
-
-The proxied object is invisible to the user, but under the hood it enables Vue to perform dependency-tracking and change-notification when properties are accessed or modified. One caveat is that console logging will format proxied objects differently, so you may want to install [vue-devtools](https://github.com/vuejs/vue-devtools) for a more inspection-friendly interface.
-
-If we were to rewrite our original example using a component we might do it something like this:
-
-```js
-const vm = createApp({
-  data() {
-    return {
-      val1: 2,
-      val2: 3
-    }
-  },
-  computed: {
-    sum() {
-      return this.val1 + this.val2
-    }
-  }
-}).mount('#app')
-
-console.log(vm.sum) // 5
-
-vm.val1 = 3
-
-console.log(vm.sum) // 6
-```
-
-The object returned by `data` will be wrapped in a reactive proxy and stored as `this.$data`. The properties `this.val1` and `this.val2` are aliases for `this.$data.val1` and `this.$data.val2` respectively, so they go through the same proxy.
-
-Vue will wrap the function for `sum` in an effect. When we try to access `this.sum`, it will run that effect to calculate the value. The reactive proxy around `$data` will track that the properties `val1` and `val2` were read while that effect is running.
-
-As of Vue 3, our reactivity is now available in a [separate package](https://github.com/vuejs/vue-next/tree/master/packages/reactivity). The function that wraps `$data` in a proxy is called [`reactive`](/api/reactivity-core.html#reactive). We can call this directly ourselves, allowing us to wrap an object in a reactive proxy without needing to use a component:
-
-```js
-const proxy = reactive({
-  val1: 2,
-  val2: 3
-})
-```
-
-We'll explore the functionality exposed by the reactivity package over the course of the next few pages of this guide. That includes functions like `reactive` and `watchEffect` that we've already met, as well as ways to use other reactivity features, such as `computed` and `watch`, without needing to create a component.
-
-### Proxied Objects
-
-Vue internally tracks all objects that have been made reactive, so it always returns the same proxy for the same object.
-
-When a nested object is accessed from a reactive proxy, that object is _also_ converted into a proxy before being returned:
-
-```js{6-7}
-const handler = {
-  get(target, property, receiver) {
-    track(target, property)
-    const value = Reflect.get(...arguments)
-    if (isObject(value)) {
-      // Wrap the nested object in its own reactive proxy
-      return reactive(value)
-    } else {
-      return value
-    }
-  }
-  // ...
-}
-```
-
-### Proxy vs. original identity
-
-The use of Proxy does introduce a new caveat to be aware of: the proxied object is not equal to the original object in terms of identity comparison (`===`). For example:
-
-```js
-const obj = {}
-const wrapped = new Proxy(obj, handlers)
-
-console.log(obj === wrapped) // false
-```
-
-Other operations that rely on strict equality comparisons can also be impacted, such as `.includes()` or `.indexOf()`.
-
-The best practice here is to never hold a reference to the original raw object and only work with the reactive version:
-
-```js
-const obj = reactive({
-  count: 0
-}) // no reference to original
-```
-
-This ensures that both equality comparisons and reactivity behave as expected.
-
-Note that Vue does not wrap primitive values such as numbers or strings in a Proxy, so you can still use `===` directly with those values:
-
-```js
-const obj = reactive({
-  count: 0
-})
-
-console.log(obj.count === 0) // true
-```
-
-### Retaining Reactivity
-
-When we want to use a few properties of the large reactive object, it could be tempting to use destructuring to get properties we want. However, the destructured property would lose the reactivity connection to the original object:
-
-```js
-const state = reactive({
-  count: 0
-  // ... with many other properties
-})
-
-// `count` won't be reactive once destructured
-// as it's just a number now
-const { count } = state
-```
-
-You can create a ref from a property of a reactive object with [`toRef()`](/api/reactivity-utilities.html#toref):
-
-```js
-import { toRef } from 'vue'
-
-const count = toRef(state, 'count')
-
-state.count++
-console.log(count.value) // 1
-```
-
-## How Rendering Reacts to Changes
-
-The template for a component is compiled down into a [`render`](/guide/extras/render-function.html) function. The `render` function creates the [VNodes](/guide/extras/render-function.html#the-virtual-dom-tree) that describe how the component should be rendered. It is wrapped in an effect, allowing Vue to track the properties that are 'touched' while it is running.
-
-A `render` function is conceptually very similar to a `computed` property. Vue doesn't track exactly how dependencies are used, it only knows that they were used at some point while the function was running. If any of those properties subsequently changes, it will trigger the effect to run again, re-running the `render` function to generate new VNodes. These are then used to make the necessary changes to the DOM.
-
-<div class="reactivecontent">
-  <!-- <common-codepen-snippet title="Second Reactivity with Proxies in Vue 3 Explainer" slug="wvgqyJK" tab="result" theme="light" :height="500" :editable="false" :preview="false" /> -->
-</div>
+This snippet compiles into exactly what we'd have written without the transform, by automatically appending `.value` after references of the variables. With Reactivity Transform, Vue's reactivity system becomes a hybrid one.
 
 ## Reactivity Debugging
 
@@ -346,18 +233,72 @@ It's great that Vue's reactivity system automatically tracks dependencies, but i
 
 ### Component Debugging Hooks
 
-// TODO `renderTracked` and `renderTriggered`
+We can debug what dependencies are used during a component's render and which dependency is triggering an update using the <span class="options-api">`renderTracked`</span><span class="composition-api">`onRenderTracked`</span> and <span class="options-api">`renderTriggered`</span><span class="composition-api">`onRenderTriggered`</span> lifecycle hooks. Both hooks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in the callbacks to interactively inspect the dependency:
 
 <div class="composition-api">
 
-### Computed Debugging \*\*
+```vue
+<script setup>
+import { onRenderTracked, onRenderTriggered } from 'vue'
+
+onRenderTracked((event) => {
+  debugger
+})
+
+onRenderTriggered((event) => {
+  debugger
+})
+</script>
+```
+
+</div>
+<div class="options-api">
+
+```js
+export default {
+  renderTracked(event) {
+    debugger
+  },
+  renderTriggered(event) {
+    debugger
+  }
+}
+```
+
+</div>
+
+:::tip
+Component debug hooks only work in development mode.
+:::
+
+The debug event objects have the following type:
+
+<span id="debugger-event"></span>
+
+```ts
+type DebuggerEvent = {
+  effect: ReactiveEffect
+  target: object
+  type:
+    | TrackOpTypes /* 'get' | 'has' | 'iterate' */
+    | TriggerOpTypes /* 'set' | 'add' | 'delete' | 'clear' */
+  key: any
+  newValue?: any
+  oldValue?: any
+  oldTarget?: Map<any, any> | Set<any>
+}
+```
+
+### Computed Debugging
+
+<!-- TODO options API equivalent -->
 
 We can debug computed properties by passing `computed()` a second options object with `onTrack` and `onTrigger` callbacks:
 
 - `onTrack` will be called when a reactive property or ref is tracked as a dependency.
 - `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency.
 
-Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in these callbacks to interactively inspect the dependency:
+Both callbacks will receive debugger events in the [same format](#debugger-event) as component debug hooks:
 
 ```js
 const plusOne = computed(() => count.value + 1, {
@@ -382,7 +323,9 @@ count.value++
 `onTrack` and `onTrigger` computed options only work in development mode.
 :::
 
-### Watcher Debugging \*\*
+### Watcher Debugging
+
+<!-- TODO options API equivalent -->
 
 Similar to `computed()`, watchers also support the `onTrack` and `onTrigger` options:
 
@@ -410,46 +353,66 @@ watchEffect(callback, {
 `onTrack` and `onTrigger` watcher options only work in development mode.
 :::
 
-## Watcher Side Effect Invalidation \*\*
-
-Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e. state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
-
-- the effect is about to re-run
-- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
-
-```js
-watchEffect((onInvalidate) => {
-  const token = performAsyncOperation(id.value)
-  onInvalidate(() => {
-    // id has changed or watcher is stopped.
-    // invalidate previously pending async operation
-    token.cancel()
-  })
-})
-```
-
-We are registering the invalidation callback via a passed-in function instead of returning it from the callback because the return value is important for async error handling. It is very common for the effect function to be an async function when performing data fetching:
-
-```js
-const data = ref(null)
-watchEffect(async (onInvalidate) => {
-  onInvalidate(() => {
-    /* ... */
-  }) // we register cleanup function before Promise resolves
-  data.value = await fetchData(props.id)
-})
-```
-
-An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the Promise chain.
-
-</div>
-
 ## Integration with External State Systems
+
+Vue's reactivity system works by deeply converting plain JavaScript objects into reactive proxies. The deep conversion can be unnecessary or sometimes unwanted when integrating with external state management systems (e.g. if an external solution also uses Proxies).
+
+The general idea of integrating Vue's reactivity system with an external state management solution is to hold the external state in a [`shallowRef`](/api/reactivity-advanced.html#shallowref). A shallow ref is only reactive when its `.value` property is accessed - the inner value is left intact. When the external state changes, replace the ref value to trigger updates.
+
+### Immutable Data
+
+If you are implementing a undo / redo feature, you likely want to take a snapshot of the application's state on every user edit. However, Vue's mutable reactivity system isn't best suited for this if the state tree is large, because serializing the entire state object on every update can be expensive in terms of both CPU and memory costs.
+
+[Immutable data structures](https://en.wikipedia.org/wiki/Persistent_data_structure) solve this by never mutating the state objects - instead, it creates new objects that share the same, unchanged parts with old ones. There are different ways of using immutable data in JavaScript, but we recommend using [Immer](https://immerjs.github.io/immer/) with Vue because it allows you to use immutable data while keeping the more ergonomic, mutable syntax.
+
+We can integrate Immer with Vue via a simple composable:
+
+```js
+import produce from "immer"
+import { shallowRef } from 'vue'
+
+export function useImmer(baseState) {
+  const state = shallowRef(baseState)
+
+  return {
+    state,
+    update(updater) {
+      state.value = produce(state.value, updater)
+    }
+  }
+}
+```
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZUltbWVyIH0gZnJvbSAnLi9pbW1lci5qcydcbiAgXG5jb25zdCB7IHN0YXRlOiBpdGVtcywgdXBkYXRlIH0gPSB1c2VJbW1lcihbXG4gIHtcbiAgICAgdGl0bGU6IFwiTGVhcm4gVnVlXCIsXG4gICAgIGRvbmU6IHRydWVcbiAgfSxcbiAge1xuICAgICB0aXRsZTogXCJVc2UgVnVlIHdpdGggSW1tZXJcIixcbiAgICAgZG9uZTogZmFsc2VcbiAgfVxuXSlcblxuZnVuY3Rpb24gdG9nZ2xlSXRlbShpbmRleCkge1xuICB1cGRhdGUoaXRlbXMgPT4ge1xuICAgIGl0ZW1zW2luZGV4XS5kb25lID0gIWl0ZW1zW2luZGV4XS5kb25lXG4gIH0pXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8dWw+XG4gICAgPGxpIHYtZm9yPVwiKHsgdGl0bGUsIGRvbmUgfSwgaW5kZXgpIGluIGl0ZW1zXCJcbiAgICAgICAgOmNsYXNzPVwieyBkb25lIH1cIlxuICAgICAgICBAY2xpY2s9XCJ0b2dnbGVJdGVtKGluZGV4KVwiPlxuICAgICAgICB7eyB0aXRsZSB9fVxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPlxuXG48c3R5bGU+XG4uZG9uZSB7XG4gIHRleHQtZGVjb3JhdGlvbjogbGluZS10aHJvdWdoO1xufVxuPC9zdHlsZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIixcbiAgICBcImltbWVyXCI6IFwiaHR0cHM6Ly91bnBrZy5jb20vaW1tZXJAOS4wLjcvZGlzdC9pbW1lci5lc20uanM/bW9kdWxlXCJcbiAgfVxufSIsImltbWVyLmpzIjoiaW1wb3J0IHByb2R1Y2UgZnJvbSBcImltbWVyXCJcbmltcG9ydCB7IHNoYWxsb3dSZWYgfSBmcm9tICd2dWUnXG5cbmV4cG9ydCBmdW5jdGlvbiB1c2VJbW1lcihiYXNlU3RhdGUpIHtcbiBcdCBjb25zdCBzdGF0ZSA9IHNoYWxsb3dSZWYoYmFzZVN0YXRlKVxuICAgXG4gICByZXR1cm4ge1xuICAgICBzdGF0ZSxcbiAgICAgdXBkYXRlKHVwZGF0ZXIpIHtcbiAgICAgICBzdGF0ZS52YWx1ZSA9IHByb2R1Y2Uoc3RhdGUudmFsdWUsIHVwZGF0ZXIpXG4gICAgIH1cbiAgIH1cbn1cbiJ9)
 
 ### State Machines
 
-// TODO `useMachine()` example
+[State Machine](https://en.wikipedia.org/wiki/Finite-state_machine) is a model for describing all the possible states an application can be in, and all the possible ways it can transition from one state to another. While it may be an overkill for simple components, it can help make complex state flows more robust and manageable.
+
+One of the most popular state machine implementations in JavaScript is [XState](https://xstate.js.org/). Here's a composable that integrates with it:
+
+```js
+import { createMachine, interpret } from 'xstate'
+import { shallowRef } from 'vue'
+
+export function useMachine(options) {
+  const machine = createMachine(options)
+  const state = shallowRef(machine.initialState)
+  const service = interpret(machine)
+  	.onTransition(newState => state.value = newState)
+    .start()
+
+  return {
+    state,
+    send(event) {
+      service.send(event)
+    }
+  }
+}
+```
+
+[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZU1hY2hpbmUgfSBmcm9tICcuL21hY2hpbmUuanMnXG4gIFxuY29uc3QgeyBzdGF0ZSwgc2VuZCB9ID0gdXNlTWFjaGluZSh7XG4gIGlkOiAndG9nZ2xlJyxcbiAgaW5pdGlhbDogJ2luYWN0aXZlJyxcbiAgc3RhdGVzOiB7XG4gICAgaW5hY3RpdmU6IHsgb246IHsgVE9HR0xFOiAnYWN0aXZlJyB9IH0sXG4gICAgYWN0aXZlOiB7IG9uOiB7IFRPR0dMRTogJ2luYWN0aXZlJyB9IH1cbiAgfVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxidXR0b24gQGNsaWNrPVwic2VuZCgnVE9HR0xFJylcIj5cbiAgICB7eyBzdGF0ZS5tYXRjaGVzKFwiaW5hY3RpdmVcIikgPyBcIk9mZlwiIDogXCJPblwiIH19XG4gIDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIixcbiAgICBcInhzdGF0ZVwiOiBcImh0dHBzOi8vdW5wa2cuY29tL3hzdGF0ZUA0LjI3LjAvZXMvaW5kZXguanM/bW9kdWxlXCJcbiAgfVxufSIsIm1hY2hpbmUuanMiOiJpbXBvcnQgeyBjcmVhdGVNYWNoaW5lLCBpbnRlcnByZXQgfSBmcm9tICd4c3RhdGUnXG5pbXBvcnQgeyBzaGFsbG93UmVmIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgZnVuY3Rpb24gdXNlTWFjaGluZShvcHRpb25zKSB7XG4gIGNvbnN0IG1hY2hpbmUgPSBjcmVhdGVNYWNoaW5lKG9wdGlvbnMpXG4gIGNvbnN0IHN0YXRlID0gc2hhbGxvd1JlZihtYWNoaW5lLmluaXRpYWxTdGF0ZSlcbiAgY29uc3Qgc2VydmljZSA9IGludGVycHJldChtYWNoaW5lKVxuICBcdC5vblRyYW5zaXRpb24obmV3U3RhdGUgPT4gc3RhdGUudmFsdWUgPSBuZXdTdGF0ZSlcbiAgICAuc3RhcnQoKVxuICByZXR1cm4ge1xuICAgIHN0YXRlLFxuICAgIHNlbmQoZXZlbnQpIHtcbiAgICAgIHNlcnZpY2Uuc2VuZChldmVudClcbiAgICB9XG4gIH1cbn0ifQ==)
 
 ### RxJS
 
-The [VueUse](https://vueuse.org/) library provides the [`@vueuse/rxjs`](https://vueuse.org/rxjs/readme.html) add-on for connecting RxJS streams with Vue's reactivity system.
+[RxJS](https://rxjs.dev/) is a library for working with asynchronous event streams. The [VueUse](https://vueuse.org/) library provides the [`@vueuse/rxjs`](https://vueuse.org/rxjs/readme.html) add-on for connecting RxJS streams with Vue's reactivity system.
