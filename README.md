@@ -11,7 +11,7 @@ See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) 
 1. Clone repository
 
 ```bash
-git clone git@github.com:vuejs/docs.git
+git clone https://github.com/vuejs/docs.git
 ```
 
 2. Install dependencies
