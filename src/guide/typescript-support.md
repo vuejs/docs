@@ -207,7 +207,7 @@ When [registering a component globally](../api/application-api.html#component) y
 import { createApp } from 'vue'
 import MyComponent from './components/MyComponent.vue'
 
-const app = createApp()
+const app = createApp({})
 app.component('MyComponent', MyComponent)
 ```
 
