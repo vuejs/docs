@@ -59,22 +59,23 @@
     },
     "projects": [
       {
-        "label": "vuefire",
-        "url": "https://github.com/vuejs/vuefire"
-      },
-      {
         "label": "vue-router",
         "url": "https://github.com/vuejs/vue-router-next"
       },
       {
         "label": "pinia",
-        "url": "https://github.com/posva/pinia"
+        "url": "https://github.com/vuejs/pinia"
+      },
+      {
+        "label": "vuefire",
+        "url": "https://github.com/vuejs/vuefire"
       }
     ],
     "website": {
-      "label": "patreon.com/posva",
-      "url": "https://www.patreon.com/posva"
-    }
+      "label": "esm.dev",
+      "url": "https://esm.dev"
+    },
+    "sponsor": "https://github.com/sponsors/posva"
   },
   {
     "name": "Haoqun Jiang",
