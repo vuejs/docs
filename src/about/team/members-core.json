@@ -69,7 +69,7 @@
       {
         "label": "vuefire",
         "url": "https://github.com/vuejs/vuefire"
-      },
+      }
     ],
     "website": {
       "label": "esm.dev",
