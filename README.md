@@ -17,17 +17,13 @@ git clone git@github.com:vuejs/docs.git
 2. Install dependencies
 
 ```bash
-npm install
-#or
-yarn
+yarn # or npm install
 ```
 
 3. Start local development environment
 
 ```bash
-npm run serve
-#or
-yarn serve
+yarn serve # or npm run serve
 ```
 
 ## Deploying
