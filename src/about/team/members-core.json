@@ -436,6 +436,14 @@
       {
         "label": "eslint-plugin-vue",
         "url": "https://github.com/vuejs/eslint-plugin-vue"
+      },
+      {
+        "label": "@intlify/eslint-plugin-vue-i18n",
+        "url": "https://github.com/intlify/eslint-plugin-vue-i18n"
+      },
+      {
+        "label": "eslint-plugin-vue-scoped-css",
+        "url": "https://github.com/future-architect/eslint-plugin-vue-scoped-css"
       }
     ],
     "location": "Kanagawa, Japan",
@@ -443,7 +451,8 @@
     "socials": {
       "github": "ota-meshi",
       "twitter": "omoteota"
-    }
+    },
+    "sponsor": "https://github.com/sponsors/ota-meshi"
   },
   {
     "name": "Kia King Ishii",
