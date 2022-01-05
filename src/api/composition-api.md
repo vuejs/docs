@@ -157,8 +157,8 @@ The component instance context is also set during the synchronous execution of l
   - `mounted` -> `onMounted`
   - `beforeUpdate` -> `onBeforeUpdate`
   - `updated` -> `onUpdated`
-  - `beforeUnmount` -> `onBeforeUnmount`
-  - `unmounted` -> `onUnmounted`
+  - `beforeDestroy` -> `onBeforeUnmount`
+  - `destroyed` -> `onUnmounted`
   - `errorCaptured` -> `onErrorCaptured`
   - `renderTracked` -> `onRenderTracked`
   - `renderTriggered` -> `onRenderTriggered`
