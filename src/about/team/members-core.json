@@ -485,14 +485,14 @@
   },
   {
     "name": "Anthony Fu",
-    "title": "Developer",
+    "title": "Open Sourceror",
     "projects": [
       {
         "label": "composition-api",
         "url": "https://github.com/vuejs/composition-api"
       },
       {
-        "label": "vue-use",
+        "label": "VueUse",
         "url": "https://github.com/vueuse/vueuse"
       },
       {
@@ -500,7 +500,7 @@
         "url": "https://github.com/vueuse/vue-demi"
       }
     ],
-    "location": "Taipei, Taiwan",
+    "location": "Shanghai, China",
     "languages": ["Chinese", "English"],
     "socials": {
       "github": "antfu",
@@ -509,6 +509,7 @@
     "website": {
       "label": "https://antfu.me/",
       "url": "https://antfu.me/"
-    }
+    },
+    "sponsor": "https://github.com/sponsors/antfu"
   }
 ]
