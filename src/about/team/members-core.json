@@ -162,45 +162,30 @@
   },
   {
     "name": "Kazupon",
-    "title": "Engineer",
+    "title": "Engineer & Part-time Open Sourceror",
     "company": "PLAID, Inc.",
     "companyLink": "https://plaid.co.jp",
     "projects": [
-      {
-        "label": "vuejs.org",
-        "url": "https://www.vuejs.org"
-      },
-      {
-        "label": "jp.vuejs.org",
-        "url": "https://jp.vuejs.org"
-      },
       {
         "label": "vue-i18n",
         "url": "https://github.com/kazupon/vue-i18n"
       },
       {
-        "label": "vue-cli-plugin-i18n",
-        "url": "https://github.com/kazupon/vue-cli-plugin-i18n"
+        "label": "Intlify",
+        "url": "https://intlify.dev/"
       },
       {
-        "label": "vue-i18n-loader",
-        "url": "https://github.com/kazupon/vue-i18n-loader"
+        "label": "Vue.js Japan User Group",
+        "url": "https://vuejs-jp.org/en"
       },
       {
-        "label": "eslint-plugin-vue-i18n",
-        "url": "https://github.com/kazupon/eslint-plugin-vue-i18n"
-      },
-      {
-        "label": "vue-i18n-extensions",
-        "url": "https://github.com/kazupon/vue-i18n-extensions"
-      },
-      {
-        "label": "vue-cli-plugin-p11n",
-        "url": "https://github.com/kazupon/vue-cli-plugin-p11n"
+        "label": "jp.vuejs.org",
+        "url": "https://jp.vuejs.org"
       }
     ],
     "location": "Tokyo, Japan",
     "languages": ["Japanese", "English"],
+    "sponsor": "https://github.com/sponsors/kazupon",
     "website": {
       "label": "patreon.com/kazupon",
       "url": "https://www.patreon.com/kazupon"
