@@ -26,7 +26,7 @@ You can also perform one-time interpolations that do not update on data change b
 
 ### Raw HTML
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](../api/directives.html#v-html):
+The double mustaches interpret the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](../api/directives.html#v-html):
 
 ```html
 <p>Using mustaches: {{ rawHtml }}</p>
