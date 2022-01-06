@@ -1,6 +1,6 @@
 lockfileVersion: 5.3
 
-packageExtensionsChecksum: d9d47e56337cb07be92aa72d7a5365b9
+packageExtensionsChecksum: f5292354c18822696465269029d32a11
 
 specifiers:
   '@types/markdown-it': ^12.2.3
@@ -9,7 +9,7 @@ specifiers:
   '@vue/theme': ^0.1.33
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
-  vitepress: ^0.21.2
+  vitepress: ^0.21.3
   vue: ^3.2.26
 
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
   '@vue/theme': 0.1.33_vue@3.2.26
   dynamics.js: 1.1.5
   gsap: 3.9.0
-  vitepress: 0.21.2
+  vitepress: 0.21.3
   vue: 3.2.26
 
 devDependencies:
@@ -37,6 +37,9 @@ packages:
     peerDependencies:
       '@algolia/client-search': ^4.9.1
       algoliasearch: ^4.9.1
+    peerDependenciesMeta:
+      '@algolia/client-search':
+        optional: true
     dependencies:
       '@algolia/autocomplete-shared': 1.2.2
       algoliasearch: 4.10.5
@@ -164,6 +167,13 @@ packages:
       '@types/react': '>= 16.8.0 < 18.0.0'
       react: '>= 16.8.0 < 18.0.0'
       react-dom: '>= 16.8.0 < 18.0.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.2.2
       '@algolia/autocomplete-preset-algolia': 1.2.2_algoliasearch@4.10.5
@@ -673,8 +683,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/0.21.2:
-    resolution: {integrity: sha512-Xf2lLYVpzW8BzeaqxTjB0/IlArha6GS44csR4+jMIpC9ZYLSmZgx+UJBMqVCd7OoXS/ROrC+H5j5RJOjHXLutg==}
+  /vitepress/0.21.3:
+    resolution: {integrity: sha512-EKD6EYBUA2V0dVKgJB10yI0tk2iu2mfkL+29eygojdBw3SxxklPOL2CJ6fvaX0It0NMhUkrgQn/WKI1b9edp2A==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
