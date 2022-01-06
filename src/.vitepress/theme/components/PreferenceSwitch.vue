@@ -118,6 +118,10 @@ function useToggleFn(
   border-bottom: 1px solid var(--vt-c-divider-light);
   transition: border-color 0.5s;
   margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  background-color: var(--vt-c-bg);
+  padding-top: 10px;
 }
 
 .toggle {
