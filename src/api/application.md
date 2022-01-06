@@ -19,6 +19,10 @@ Calling `createApp` returns an application instance. This instance provides an a
 
 In addition, since the `createApp` method returns the application instance itself, you can chain other methods after it which can be found in the following sections.
 
+## createSSRApp()
+
+<!-- TODO -->
+
 ## app.mount()
 
 - **Arguments:**

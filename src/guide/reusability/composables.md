@@ -363,4 +363,5 @@ If you have experience with React, you may notice that this looks very similar t
 
 - [Reactivity In Depth](/guide/extras/reactivity-in-depth.html): for a low-level understanding of how Vue's reactivity system works.
 - [State Management](/guide/scaling-up/state-management.html): for patterns of managing state shared by multiple components.
+- [Testing Composables](/guide/scaling-up/testing.html#testing-composables): tips on unit testing composables.
 - [VueUse](https://vueuse.org/): an ever-growing collection of Vue composables. The source code is also a great learning resource.

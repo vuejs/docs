@@ -531,7 +531,7 @@ The above is made possible by Vue's `<component>` element with the special `is` 
 
 In the example above, the value passed to `:is` can contain either:
 
-- the name of a registered component, or
+- the name string of a registered component, OR
 - the actual imported component object
 
 You can also use the `is` attribute to create regular HTML elements.

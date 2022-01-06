@@ -1,10 +1,8 @@
 # Server-Side Rendering API
 
-:::tip
-APIs listed on this page are exported by the `@vue/server-renderer` package.
-:::
-
 ## renderToString()
+
+> Exported from `vue/server-renderer`
 
 **Signature**
 
@@ -18,8 +16,8 @@ function renderToString(
 **Usage**
 
 ```js
-const { createSSRApp } = require('vue')
-const { renderToString } = require('@vue/server-renderer')
+import { createSSRApp } from 'vue'
+import { renderToString } from 'vue/server-renderer'
 
 const app = createSSRApp({
   data: () => ({ msg: 'hello' }),
@@ -60,7 +58,7 @@ function renderToNodeStream(input: App | VNode, context?: SSRContext): Readable
 renderToNodeStream(app).pipe(res)
 ```
 
-**Note:** This method is not supported in the ESM build of `@vue/server-renderer`, which is decoupled from Node.js environments. Use `pipeToNodeWritable` instead.
+**Note:** This method is not supported in the ESM build of `vue/server-renderer`, which is decoupled from Node.js environments. Use `pipeToNodeWritable` instead.
 
 ## pipeToNodeWritable()
 
@@ -174,3 +172,30 @@ renderToSimpleStream(
   }
 )
 ```
+
+## useSSRContext()
+
+**Signature**
+
+```ts
+function useSSRContext<T = Record<string, any>>(): T | undefined
+```
+
+**Usage**
+
+`useSSRContext()` is used to retrieve the context object passed to `renderToString()` or other server render APIs:
+
+```vue
+<script setup>
+import { useSSRContext } from 'vue'
+
+// make sure to only call it during SSR
+// https://vitejs.dev/guide/ssr.html#conditional-logic
+if (import.meta.env.SSR) {
+  const ctx = useSSRContext()
+  // ...attach properties to the context
+}
+</script>
+```
+
+This can be used to attach information that is needed for rendering the final HTML (e.g. head metadata) to the render context.

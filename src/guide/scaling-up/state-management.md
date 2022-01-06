@@ -200,7 +200,26 @@ export const store = reactive({
 Note the click handler uses `store.increment()` with the parenthesis - this is necessary to call the method with the proper `this` context since it's not a component method.
 :::
 
-Although here we are using a single reactive object as a store, you can also share reactive state created using other [Reactivity APIs](/api/reactivity-core.html) such as `ref()` or `computed()`. The fact that Vue's reactivity system is decoupled from the component model makes it extremely flexible.
+Although here we are using a single reactive object as a store, you can also share reactive state created using other [Reactivity APIs](/api/reactivity-core.html) such as `ref()` or `computed()`, or even return global state from a [Composable](/guide/reusability/composables.html):
+
+```js
+import { ref } from 'vue'
+
+// global state, created in module scope
+const globalCount = ref(1)
+
+export function useCount() {
+  // local state, created per-component
+  const localCount = ref(1)
+
+  return {
+    globalCount,
+    localCount
+  }
+}
+```
+
+The fact that Vue's reactivity system is decoupled from the component model makes it extremely flexible.
 
 ## SSR Considerations
 

@@ -59,22 +59,23 @@
     },
     "projects": [
       {
-        "label": "vuefire",
-        "url": "https://github.com/vuejs/vuefire"
-      },
-      {
         "label": "vue-router",
         "url": "https://github.com/vuejs/vue-router-next"
       },
       {
         "label": "pinia",
-        "url": "https://github.com/posva/pinia"
+        "url": "https://github.com/vuejs/pinia"
+      },
+      {
+        "label": "vuefire",
+        "url": "https://github.com/vuejs/vuefire"
       }
     ],
     "website": {
-      "label": "patreon.com/posva",
-      "url": "https://www.patreon.com/posva"
-    }
+      "label": "esm.dev",
+      "url": "https://esm.dev"
+    },
+    "sponsor": "https://github.com/sponsors/posva"
   },
   {
     "name": "Haoqun Jiang",
@@ -161,45 +162,30 @@
   },
   {
     "name": "Kazupon",
-    "title": "Engineer",
+    "title": "Engineer & Part-time Open Sourceror",
     "company": "PLAID, Inc.",
     "companyLink": "https://plaid.co.jp",
     "projects": [
-      {
-        "label": "vuejs.org",
-        "url": "https://www.vuejs.org"
-      },
-      {
-        "label": "jp.vuejs.org",
-        "url": "https://jp.vuejs.org"
-      },
       {
         "label": "vue-i18n",
         "url": "https://github.com/kazupon/vue-i18n"
       },
       {
-        "label": "vue-cli-plugin-i18n",
-        "url": "https://github.com/kazupon/vue-cli-plugin-i18n"
+        "label": "Intlify",
+        "url": "https://intlify.dev/"
       },
       {
-        "label": "vue-i18n-loader",
-        "url": "https://github.com/kazupon/vue-i18n-loader"
+        "label": "Vue.js Japan User Group",
+        "url": "https://vuejs-jp.org/en"
       },
       {
-        "label": "eslint-plugin-vue-i18n",
-        "url": "https://github.com/kazupon/eslint-plugin-vue-i18n"
-      },
-      {
-        "label": "vue-i18n-extensions",
-        "url": "https://github.com/kazupon/vue-i18n-extensions"
-      },
-      {
-        "label": "vue-cli-plugin-p11n",
-        "url": "https://github.com/kazupon/vue-cli-plugin-p11n"
+        "label": "jp.vuejs.org",
+        "url": "https://jp.vuejs.org"
       }
     ],
     "location": "Tokyo, Japan",
     "languages": ["Japanese", "English"],
+    "sponsor": "https://github.com/sponsors/kazupon",
     "website": {
       "label": "patreon.com/kazupon",
       "url": "https://www.patreon.com/kazupon"
@@ -450,6 +436,14 @@
       {
         "label": "eslint-plugin-vue",
         "url": "https://github.com/vuejs/eslint-plugin-vue"
+      },
+      {
+        "label": "@intlify/eslint-plugin-vue-i18n",
+        "url": "https://github.com/intlify/eslint-plugin-vue-i18n"
+      },
+      {
+        "label": "eslint-plugin-vue-scoped-css",
+        "url": "https://github.com/future-architect/eslint-plugin-vue-scoped-css"
       }
     ],
     "location": "Kanagawa, Japan",
@@ -457,7 +451,8 @@
     "socials": {
       "github": "ota-meshi",
       "twitter": "omoteota"
-    }
+    },
+    "sponsor": "https://github.com/sponsors/ota-meshi"
   },
   {
     "name": "Kia King Ishii",
@@ -484,14 +479,14 @@
   },
   {
     "name": "Anthony Fu",
-    "title": "Developer",
+    "title": "Open Sourceror",
     "projects": [
       {
         "label": "composition-api",
         "url": "https://github.com/vuejs/composition-api"
       },
       {
-        "label": "vue-use",
+        "label": "VueUse",
         "url": "https://github.com/vueuse/vueuse"
       },
       {
@@ -499,7 +494,7 @@
         "url": "https://github.com/vueuse/vue-demi"
       }
     ],
-    "location": "Taipei, Taiwan",
+    "location": "Shanghai, China",
     "languages": ["Chinese", "English"],
     "socials": {
       "github": "antfu",
@@ -508,6 +503,23 @@
     "website": {
       "label": "https://antfu.me/",
       "url": "https://antfu.me/"
+    },
+    "sponsor": "https://github.com/sponsors/antfu"
+  },
+  {
+    "name": "HcySunYang",
+    "title": "Developer",
+    "projects": [
+      {
+        "label": "vue-next",
+        "url": "https://github.com/vuejs/vue-next"
+      }
+    ],
+    "location": "Beijing, China",
+    "languages": ["Chinese", "English"],
+    "socials": {
+      "github": "HcySunYang",
+      "twitter": "HcySunYang"
     }
   }
 ]
