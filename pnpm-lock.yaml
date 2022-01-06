@@ -6,7 +6,7 @@ specifiers:
   '@types/markdown-it': ^12.2.3
   '@types/node': ^16.9.1
   '@vue/repl': ^0.4.8
-  '@vue/theme': ^0.1.31
+  '@vue/theme': ^0.1.33
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
   vitepress: ^0.21.2
@@ -14,7 +14,7 @@ specifiers:
 
 dependencies:
   '@vue/repl': 0.4.8_vue@3.2.25
-  '@vue/theme': 0.1.31_vue@3.2.25
+  '@vue/theme': 0.1.33_vue@3.2.25
   dynamics.js: 1.1.5
   gsap: 3.9.0
   vitepress: 0.21.2
@@ -377,8 +377,8 @@ packages:
     resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==}
     dev: false
 
-  /@vue/theme/0.1.31_vue@3.2.25:
-    resolution: {integrity: sha512-wH/Wzp0YGsQVAwiHo0TNGF0s8gQedqWVgQ9wJinM/pyrt7cFrwBcTxP3UOD+JIlLAnpYvSSlUeyscE1CmZRfDg==}
+  /@vue/theme/0.1.33_vue@3.2.25:
+    resolution: {integrity: sha512-bFJ250pJMMJ9xpGfkqhtRwPbCTGLnnksva5fWQAzVuSCX72C/kTdnQ6x3sbGVunzXb8VVESAVebxJyhrYyopyQ==}
     dependencies:
       '@docsearch/css': 3.0.0-alpha.41
       '@docsearch/js': 3.0.0-alpha.41

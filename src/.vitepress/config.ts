@@ -1,23 +1,20 @@
 import fs from 'fs'
 import path from 'path'
-import { defineConfig } from 'vitepress'
+import { defineConfigWithTheme } from 'vitepress'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
+import type { Config } from '@vue/theme'
 
 const nav = [
   {
     text: 'Docs',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      {
-        items: [
-          { text: 'Guide', link: '/guide/introduction' },
-          { text: 'Tutorial', link: '/tutorial/' },
-          { text: 'Examples', link: '/examples/' },
-          { text: 'Quick Start', link: '/guide/quick-start' },
-          { text: 'Style Guide', link: '/style-guide/' }
-        ]
-      }
+      { text: 'Guide', link: '/guide/introduction' },
+      { text: 'Tutorial', link: '/tutorial/' },
+      { text: 'Examples', link: '/examples/' },
+      { text: 'Quick Start', link: '/guide/quick-start' },
+      { text: 'Style Guide', link: '/style-guide/' }
     ]
   },
   {
@@ -39,7 +36,7 @@ const nav = [
           { text: 'Partners', link: '/ecosystem/partners' },
           { text: 'Themes', link: '/ecosystem/themes' },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' },
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
           // { text: 'Video Courses', link: '/ecosystem/video-courses' },
           // TODO should start a separate branch for Vue 3?
           // {
@@ -71,21 +68,17 @@ const nav = [
     text: 'About',
     activeMatch: `^/about/`,
     items: [
+      { text: 'FAQ', link: '/about/faq' },
+      { text: 'Team', link: '/about/team' },
+      { text: 'Releases', link: '/about/releases' },
       {
-        items: [
-          { text: 'FAQ', link: '/about/faq' },
-          { text: 'Team', link: '/about/team' },
-          { text: 'Releases', link: '/about/releases' },
-          {
-            text: 'Contribution Guide',
-            link: '/about/contribution-guide'
-          },
-          { text: 'Code of Conduct', link: '/about/coc' },
-          {
-            text: 'The Documentary',
-            link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
-          }
-        ]
+        text: 'Contribution Guide',
+        link: '/about/contribution-guide'
+      },
+      { text: 'Code of Conduct', link: '/about/coc' },
+      {
+        text: 'The Documentary',
+        link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
   },
@@ -493,7 +486,7 @@ export const sidebar = {
   ]
 }
 
-export default defineConfig({
+export default defineConfigWithTheme<Config>({
   extends: baseConfig,
 
   lang: 'en-US',
@@ -521,7 +514,6 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
-    repo: 'vuejs/docs',
 
     algolia: {
       indexName: 'vuejs-v3',
