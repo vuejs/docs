@@ -505,5 +505,21 @@
       "url": "https://antfu.me/"
     },
     "sponsor": "https://github.com/sponsors/antfu"
+  },
+  {
+    "name": "HcySunYang",
+    "title": "Developer",
+    "projects": [
+      {
+        "label": "vue-next",
+        "url": "https://github.com/vuejs/vue-next"
+      }
+    ],
+    "location": "Beijing, China",
+    "languages": ["Chinese", "English"],
+    "socials": {
+      "github": "HcySunYang",
+      "twitter": "HcySunYang"
+    }
   }
 ]
