@@ -10,6 +10,7 @@
  * https://github.com/vitejs/docs-cn/tree/main/.vitepress/markdown-it-custom-anchor
  */
 
+import MarkdownIt from 'markdown-it'
 import { MarkdownRenderer } from 'vitepress'
 
 declare module 'vitepress' {
@@ -19,7 +20,7 @@ declare module 'vitepress' {
   }
 }
 
-export const headerPlugin = (md: MarkdownRenderer) => {
+export const headerPlugin = (md: MarkdownIt) => {
   const originalOpen = md.renderer.rules.heading_open!
   md.renderer.rules.heading_open = (tokens, i, ...rest) => {
     for (const child of tokens[i + 1].children!) {
@@ -31,7 +32,7 @@ export const headerPlugin = (md: MarkdownRenderer) => {
   }
 
   md.renderer.rules.heading_close = (tokens, i, options, _env, self) => {
-    const headers = md.__data?.headers
+    const headers = (md as MarkdownRenderer).__data?.headers
     if (headers) {
       const last = headers[headers.length - 1]
       if (last.title.endsWith('*')) {
