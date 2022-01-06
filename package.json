@@ -9,10 +9,11 @@
     "@vue/theme": "^0.1.31",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
-    "vitepress": "^0.20.10",
+    "vitepress": "^0.21.2",
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "^16.9.1"
   },
   "pnpm": {

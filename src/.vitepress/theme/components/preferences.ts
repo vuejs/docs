@@ -13,13 +13,7 @@ export const preferComposition = ref(get(preferCompositionKey))
 export const preferSFCKey = 'vue-docs-prefer-sfc'
 export const preferSFC = ref(get(preferSFCKey, true))
 
-// headers are augmented via the md plugin in ../header.js
-type AugmentedHeader = Header & {
-  compositionOnly?: boolean
-  optionsOnly?: boolean
-}
-
-export function filterHeadersByPreference(headers: AugmentedHeader[]) {
+export function filterHeadersByPreference(headers: Header[]) {
   const enableComp = preferComposition.value
   return headers.filter((h) => {
     return enableComp ? !h.optionsOnly : !h.compositionOnly

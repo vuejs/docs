@@ -3,12 +3,13 @@ lockfileVersion: 5.3
 packageExtensionsChecksum: d9d47e56337cb07be92aa72d7a5365b9
 
 specifiers:
+  '@types/markdown-it': ^12.2.3
   '@types/node': ^16.9.1
   '@vue/repl': ^0.4.8
   '@vue/theme': ^0.1.31
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
-  vitepress: ^0.20.10
+  vitepress: ^0.21.2
   vue: ^3.2.25
 
 dependencies:
@@ -16,10 +17,11 @@ dependencies:
   '@vue/theme': 0.1.31_vue@3.2.25
   dynamics.js: 1.1.5
   gsap: 3.9.0
-  vitepress: 0.20.10
+  vitepress: 0.21.2
   vue: 3.2.25
 
 devDependencies:
+  '@types/markdown-it': 12.2.3
   '@types/node': 16.10.3
 
 packages:
@@ -170,6 +172,21 @@ packages:
     transitivePeerDependencies:
       - '@algolia/client-search'
     dev: false
+
+  /@types/linkify-it/3.0.2:
+    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
+    dev: true
+
+  /@types/markdown-it/12.2.3:
+    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
+    dependencies:
+      '@types/linkify-it': 3.0.2
+      '@types/mdurl': 1.0.2
+    dev: true
+
+  /@types/mdurl/1.0.2:
+    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
+    dev: true
 
   /@types/node/16.10.3:
     resolution: {integrity: sha512-ho3Ruq+fFnBrZhUYI46n/bV2GjwzSkwuT4dTf0GkuNFmnb8nq4ny2z9JEVemFi6bdEJanHLlYfy9c6FN9B9McQ==}
@@ -739,8 +756,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/0.20.10:
-    resolution: {integrity: sha512-dKgH6k1yxdEjIIxoXGI0vMg3lpBLvMarre/vvt4beuxd+rXOUB1a7DAtXDmgIXOMGQ7IcF+4zyd2132IedhjtQ==}
+  /vitepress/0.21.2:
+    resolution: {integrity: sha512-Xf2lLYVpzW8BzeaqxTjB0/IlArha6GS44csR4+jMIpC9ZYLSmZgx+UJBMqVCd7OoXS/ROrC+H5j5RJOjHXLutg==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
