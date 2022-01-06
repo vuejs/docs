@@ -119,7 +119,7 @@ function useToggleFn(
   transition: border-color 0.5s;
   margin-bottom: 20px;
   position: sticky;
-  top: 0;
+  top: -0.5px;
   background-color: var(--vt-c-bg);
   padding-top: 10px;
 }
