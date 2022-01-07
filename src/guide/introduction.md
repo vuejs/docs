@@ -1,5 +1,4 @@
 ---
-aside: deep
 footer: false
 ---
 
