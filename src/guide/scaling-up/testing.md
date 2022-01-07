@@ -1,7 +1,3 @@
----
-aside: deep
----
-
 # Testing
 
 ## Overview

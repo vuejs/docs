@@ -1,7 +1,3 @@
----
-aside: deep
----
-
 # Provide / Inject
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
@@ -99,7 +95,7 @@ However, do note this does **not** make the injection reactive. We will discuss 
 
 </div>
 
-### App-level Provide
+## App-level Provide
 
 In addition to providing data in a component, we can also provide at the app level:
 

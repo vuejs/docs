@@ -265,13 +265,23 @@ However, in an SSR context, the application modules are typically initialized on
 
 We can technically re-initialize all the JavaScript modules on each request, just like we do in browsers. However, initializing JavaScript modules can be costly, so this would significantly affect server performance.
 
-The recommended solution is to create a new instance of the entire application - including the router and global stores - on each request:
+The recommended solution is to create a new instance of the entire application - including the router and global stores - on each request. The, instead of directly importing it in our components, we provide the shared state using [app-level provide](/guide/components/provide-inject.html#app-level-provide) and inject it in components that need it:
 
 ```js
+// app.js (shared between server and client)
+import { createSSRApp } from 'vue'
+import { createStore } from './store.js'
 
+export function createApp() {
+  const app = createSSRApp(/* ... */)
+  // create new instance of store per request
+  const store = createStore(/* ... */)
+  // provide store at the app level
+  app.provide('store', store)
+  // also expose store for hydration purposes
+  return { app, store }
+}
 ```
-
-create a fresh instance of the application and the shared object on each request. Then, instead of directly importing it in our components, we provide the shared state using [app-level provide](/guide/components/provide-inject.html#app-level-provide) and inject it in components that need it.
 
 State Management libraries like Pinia are designed with this in mind. Consult [Pinia's SSR guide](https://pinia.vuejs.org/ssr/) for more details.
 

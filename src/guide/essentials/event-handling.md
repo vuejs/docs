@@ -1,7 +1,3 @@
----
-aside: deep
----
-
 # Event Handling
 
 ## Listening to Events
