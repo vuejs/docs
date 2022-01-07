@@ -552,6 +552,7 @@ export default defineConfigWithTheme<Config>({
       __VUE_OPTIONS_API__: false
     },
     optimizeDeps: {
+      include: ['gsap', 'dynamics.js'],
       exclude: ['@vue/repl']
     },
     // @ts-ignore
