@@ -186,4 +186,5 @@ A child block is tracked inside the parent block's dynamic children array. This 
 Both patch flags and tree flattening also greatly improve Vue's [SSR Hydration](/guide/scaling-up/ssr.html#client-hydration) performance:
 
 - Single element hydration can take fast paths based on corresponding vnode's patch flag.
+
 - Only block nodes and their dynamic children need to be traversed during hydration, effectively achieving partial hydration at the template level.
