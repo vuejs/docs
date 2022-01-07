@@ -116,12 +116,13 @@ function useToggleFn(
 .preference-switch {
   font-size: 12px;
   border-bottom: 1px solid var(--vt-c-divider-light);
-  transition: border-color 0.5s;
+  transition: border-color 0.5s, background-color .5s ease;
   margin-bottom: 20px;
   position: sticky;
   top: -0.5px;
   background-color: var(--vt-c-bg);
   padding-top: 10px;
+  z-index: 10;
 }
 
 .toggle {
@@ -243,7 +244,7 @@ function useToggleFn(
 .tip .options-api,
 .tip .composition-api {
   color: var(--vt-c-text-code);
-  transition: color 0.5s;
+  /* transition: color 0.5s; */
   font-weight: 600;
 }
 </style>

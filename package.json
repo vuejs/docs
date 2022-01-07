@@ -5,7 +5,7 @@
     "serve": "vitepress serve src"
   },
   "dependencies": {
-    "@vue/repl": "^0.4.8",
+    "@vue/repl": "^0.4.9",
     "@vue/theme": "^0.1.35",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",

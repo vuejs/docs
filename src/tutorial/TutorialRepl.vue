@@ -8,6 +8,8 @@ import {
   onHashChange
 } from '../examples/utils'
 import '@vue/repl/style.css'
+import PreferenceSwitch from '../.vitepress/theme/components/PreferenceSwitch.vue'
+import { VTFlyout, VTIconChevronLeft, VTIconChevronRight } from '@vue/theme'
 
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
@@ -17,14 +19,37 @@ const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
 
 const currentStep = ref('')
+const keys = Object.keys(data)
+const totalSteps = keys.length
+
+const titleRE = /<h1.*?>([\w\s-_]+?)<a class="header-anchor/
+const allSteps = keys.map((key, i) => {
+  const desc = data[key]['description.md'] as string
+  return {
+    text: `${i + 1}. ${desc.match(titleRE)![1]}`,
+    link: `#${key}`
+  }
+})
 
 const currentDescription = computed(() => {
   return data[currentStep.value]?.['description.md']
 })
 
+const currentStepIndex = computed(() => {
+  return keys.indexOf(currentStep.value) + 1
+})
+
+const prevStep = computed(() => {
+  const match = currentStep.value.match(/\d+/)
+  const prev = match && `step-${+match[0] - 1}`
+  if (prev && data.hasOwnProperty(prev)) {
+    return prev
+  }
+})
+
 const nextStep = computed(() => {
-  const nextMatch = currentStep.value.match(/\d+/)
-  const next = nextMatch && `step-${+nextMatch[0] + 1}`
+  const match = currentStep.value.match(/\d+/)
+  const next = match && `step-${+match[0] + 1}`
   if (next && data.hasOwnProperty(next)) {
     return next
   }
@@ -80,13 +105,26 @@ updateExample()
 <template>
   <section class="tutorial">
     <article class="instruction">
+      <PreferenceSwitch />
+      <VTFlyout
+        :button="`${currentStepIndex} / ${totalSteps}`"
+        :items="allSteps"
+      ></VTFlyout>
       <div class="vt-doc" v-html="currentDescription"></div>
-      <footer class="footer">
+      <div class="hint">
         <button @click="toggleResult">{{ buttonText }}</button>
-        <a v-if="nextStep" :href="`#${nextStep}`">Next Step &gt;</a>
+      </div>
+      <footer>
+        <a v-if="prevStep" :href="`#${prevStep}`"
+          ><VTIconChevronLeft class="vt-link-icon" style="margin:0" /> Prev</a
+        >
+        <a class="next-step" v-if="nextStep" :href="`#${nextStep}`"
+          >Next <VTIconChevronRight class="vt-link-icon"
+        /></a>
       </footer>
     </article>
     <Repl
+      layout="vertical"
       :store="store"
       :showCompileOutput="false"
       :clearConsole="false"
@@ -97,61 +135,85 @@ updateExample()
 
 <style scoped>
 .tutorial {
-  --ins-height: min(30vh, 250px);
+  display: flex;
+  --height: calc(100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px));
 }
 
-.vue-repl,
 .instruction {
-  max-width: 1105px;
+  width: 33%;
+  height: var(--height);
+  padding: 0 32px 24px;
   border-right: 1px solid var(--vt-c-divider-light);
-}
-
-.instruction {
-  height: var(--ins-height);
-  padding: 24px 32px;
-  border-bottom: 1px solid var(--vt-c-divider-light);
   font-size: 15px;
   overflow-y: auto;
+  position: relative;
+  --vt-nav-height: 40px;
+}
+
+.vue-repl {
+  width: 67%;
+  height: var(--height);
+}
+
+.vt-flyout {
+  z-index: 9;
+  position: absolute;
+  right: 20px;
 }
 
 footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #7e7e7e;
-  margin-top: 2em;
+  border-top: 1px solid var(--vt-c-divider);
+  margin-top: 1.5em;
   padding-top: 1em;
 }
-footer button,
-a {
-  color: var(--vt-c-green-light);
+
+footer a {
+  font-weight: 500;
+  color: var(--vt-c-brand);
 }
 
-.instruction h1 {
-  font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 0.5em;
-}
-
-.vue-repl {
-  height: calc(
-    100vh - var(--vt-nav-height) - var(--ins-height) -
-      var(--vt-banner-height, 0px)
-  );
-}
-
-@media (max-width: 960px) {
-  .vue-repl {
-    border: none;
-    height: calc(
-      100vh - var(--vt-nav-height) - var(--ins-height) -
-        var(--vt-banner-height, 0px) - 48px
-    );
-  }
+.next-step {
+  margin-left: auto;
 }
 
 .vt-doc :deep(h1) {
-  font-size: 1.5em;
-  margin-bottom: 1em;
+  font-size: 1.4em;
+  margin: 1em 0;
+}
+
+.vt-doc :deep(.header-anchor) {
+  display: none;
+}
+
+.hint {
+  padding-top: 1em;
+}
+
+button {
+  background-color: var(--vt-c-brand);
+  color: var(--vt-c-bg);
+  padding: 4px 12px 3px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media (max-width: 720px) {
+  .tutorial {
+    display: block;
+  }
+  .instruction {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--vt-c-divider-light);
+    height: 30vh;
+  }
+  .vue-repl {
+    width: 100%;
+    height: calc(70vh - var(--vt-nav-height) - var(--vt-banner-height, 0px));
+  }
 }
 </style>

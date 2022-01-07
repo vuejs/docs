@@ -1,5 +1,6 @@
 ---
 page: true
+sidebar: false
 aside: false
 footer: false
 returnToTop: false

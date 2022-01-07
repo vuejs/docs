@@ -468,21 +468,6 @@ export const sidebar = {
         }
       ]
     }
-  ],
-  '/tutorial/': [
-    {
-      text: 'Tutorial',
-      items: [
-        {
-          text: '1. Adding Data',
-          link: '/tutorial/#step-1'
-        },
-        {
-          text: '2. Two-way Binding',
-          link: '/tutorial/#step-2'
-        }
-      ]
-    }
   ]
 }
 
