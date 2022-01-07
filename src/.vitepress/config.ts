@@ -538,6 +538,11 @@ export default defineConfigWithTheme<Config>({
     nav,
     sidebar,
 
+    editLink: {
+      repo: 'vuejs/docs#next',
+      text: 'Edit this page on GitHub'
+    },
+
     footer: {
       license: {
         text: 'MIT License',
