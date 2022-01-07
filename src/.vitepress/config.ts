@@ -512,9 +512,12 @@ export default defineConfigWithTheme<Config>({
     sidebar,
 
     algolia: {
-      indexName: 'vuejs-v3',
-      appId: 'BH4D9OD16A',
-      apiKey: 'bc6e8acb44ed4179c30d0a45d6140d3f'
+      indexName: 'vuejs',
+      appId: 'ML0LEBN7FQ',
+      apiKey: 'f49cbd92a74532cc55cfbffa5e5a7d01',
+      searchParameters: {
+        facetFilters: ['version:v3']
+      }
     },
 
     carbonAds: {
