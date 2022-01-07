@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
-import { inject, watch, version, Ref, ref, computed } from 'vue'
+import { inject, watch, version, Ref, ref, computed, nextTick } from 'vue'
 import { data } from './tutorial.data'
 import {
   resolveSFCExample,
@@ -14,6 +14,8 @@ import { VTFlyout, VTIconChevronLeft, VTIconChevronRight } from '@vue/theme'
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
 })
+
+const instruction = ref<HTMLElement>()
 
 const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
@@ -77,6 +79,10 @@ function updateExample() {
       : resolveNoBuildExample(content, preferComposition.value),
     preferSFC.value ? 'App.vue' : 'index.html'
   )
+
+  nextTick(() => {
+    instruction.value!.scrollTop = 0
+  })
 }
 
 function toggleResult() {
@@ -104,7 +110,7 @@ updateExample()
 
 <template>
   <section class="tutorial">
-    <article class="instruction">
+    <article class="instruction" ref="instruction">
       <PreferenceSwitch />
       <VTFlyout
         :button="`${currentStepIndex} / ${totalSteps}`"
@@ -116,7 +122,7 @@ updateExample()
       </div>
       <footer>
         <a v-if="prevStep" :href="`#${prevStep}`"
-          ><VTIconChevronLeft class="vt-link-icon" style="margin:0" /> Prev</a
+          ><VTIconChevronLeft class="vt-link-icon" style="margin: 0" /> Prev</a
         >
         <a class="next-step" v-if="nextStep" :href="`#${nextStep}`"
           >Next <VTIconChevronRight class="vt-link-icon"
@@ -136,11 +142,13 @@ updateExample()
 <style scoped>
 .tutorial {
   display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
   --height: calc(100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px));
 }
 
 .instruction {
-  width: 33%;
+  width: 45%;
   height: var(--height);
   padding: 0 32px 24px;
   border-right: 1px solid var(--vt-c-divider-light);
@@ -151,7 +159,7 @@ updateExample()
 }
 
 .vue-repl {
-  width: 67%;
+  width: 55%;
   height: var(--height);
 }
 
@@ -201,7 +209,22 @@ button {
   font-size: 14px;
 }
 
+@media (min-width: 1377px) {
+  .vue-repl {
+    border-right: 1px solid var(--vt-c-divider-light);
+  }
+}
+
+@media (min-width: 1441px) {
+  .tutorial {
+    padding-right: 32px;
+  }
+}
+
 @media (max-width: 720px) {
+  .preference-switch {
+    position: relative;
+  }
   .tutorial {
     display: block;
   }
@@ -210,6 +233,7 @@ button {
     border-right: none;
     border-bottom: 1px solid var(--vt-c-divider-light);
     height: 30vh;
+    padding: 0 24px 24px;
   }
   .vue-repl {
     width: 100%;
