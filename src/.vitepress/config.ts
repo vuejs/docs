@@ -495,7 +495,11 @@ export default defineConfigWithTheme<Config>({
 
   head: [
     ['meta', { name: 'twitter:site', content: '@vuejs' }],
-    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:card', content: 'summary' }],
+    [
+      'meta',
+      { name: 'twitter:image', content: 'https://vuejs.org/images/logo.png' }
+    ],
     [
       'script',
       {},
@@ -513,8 +517,6 @@ export default defineConfigWithTheme<Config>({
   },
 
   themeConfig: {
-    logo: '/logo.svg',
-
     algolia: {
       indexName: 'vuejs-v3',
       appId: 'BH4D9OD16A',
@@ -541,7 +543,7 @@ export default defineConfigWithTheme<Config>({
         text: 'MIT License',
         link: 'https://opensource.org/licenses/MIT'
       },
-      copyright: 'Copyright © 2014-2021 Evan You'
+      copyright: `Copyright © 2014-${new Date().getFullYear()} Evan You`
     }
   },
 
