@@ -207,15 +207,15 @@ Different developers have different learning styles. Feel free to pick a learnin
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Continue the Guide</p>
+    <p class="next-steps-link">Read the Guide</p>
     <p class="next-steps-caption">The guide walks you through every aspect of the framework in full details.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Follow the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on. Let's build something real!</p>
+    <p class="next-steps-link">Try the Tutorial</p>
+    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
   </a>
   <a class="vt-box" href="/examples/">
     <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Take a quick tour of core features and examples of common UI tasks.</p>
+    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
   </a>
 </div>
