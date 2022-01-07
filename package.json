@@ -9,7 +9,7 @@
     "@vue/theme": "^0.1.35",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
-    "vitepress": "^0.21.3",
+    "vitepress": "^0.21.4",
     "vue": "^3.2.26"
   },
   "devDependencies": {
