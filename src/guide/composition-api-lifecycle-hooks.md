@@ -25,6 +25,7 @@ The following table contains how the lifecycle hooks are invoked inside of [setu
 | `renderTriggered` | `onRenderTriggered` |
 | `activated`       | `onActivated`       |
 | `deactivated`     | `onDeactivated`     |
+| `serverPrefetch`  | `onServerPrefetch`  |
 
 
 :::tip
