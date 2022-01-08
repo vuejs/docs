@@ -164,4 +164,4 @@ Other tooling to help manage SVG icons includes:
 - [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader)
 - [svgo-loader](https://github.com/rpominov/svgo-loader)
 
-These tools bundle SVGs at compile-time, but make them a little harder to edit during runtime, because `<use>` tags can have strange cross-browser issues when doing anything more complex. They also leave you with two nested `viewBox` properties and thus two coordinate systems. This makes the implementation a little more complex.
+These tools bundle SVGs at time of compilation, but make them a little harder to edit during runtime, because `<use>` tags can have strange cross-browser issues when doing anything more complex. They also leave you with two nested `viewBox` properties and thus two coordinate systems. This makes the implementation a little more complex.
