@@ -1,4 +1,4 @@
-# Single File Components:<br>\<script setup\>
+# \<script setup>
 
 `<script setup>` is a compile-time syntactic sugar for using Composition API inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
 

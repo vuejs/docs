@@ -1,4 +1,4 @@
-# Single File Components:<br>\<style\> Features
+# SFC CSS Features
 
 ## Scoped CSS
 

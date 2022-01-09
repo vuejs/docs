@@ -1,8 +1,8 @@
-# Single File Components:<br>Syntax Specification
+# SFC Syntax Specification
 
 ## Overview
 
-A Vue Single File Component, conventionally using the `*.vue` file extension, is a custom file format that uses an HTML-like syntax to describe a Vue component. A Vue SFC is syntactically compatible with HTML.
+A Vue Single File Component (SFC), conventionally using the `*.vue` file extension, is a custom file format that uses an HTML-like syntax to describe a Vue component. A Vue SFC is syntactically compatible with HTML.
 
 Each `*.vue` file consists of three types of top-level language blocks: `<template>`, `<script>`, and `<style>`, and optionally additional custom blocks:
 

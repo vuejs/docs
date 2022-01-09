@@ -366,7 +366,7 @@ export const sidebar = {
       items: [
         { text: 'Syntax Specification', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
-        { text: '<style> Features', link: '/api/sfc-style' }
+        { text: 'CSS Features', link: '/api/sfc-css-features' }
       ]
     },
     {
