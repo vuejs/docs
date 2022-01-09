@@ -210,6 +210,45 @@ In the example above, the method `increment` will be called when the `<button>` 
 
 </div>
 
+### DOM Update Timing
+
+When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component needs to update only once no matter how many state changes you have made.
+
+To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general.html#nexttick) global API:
+
+<div class="composition-api">
+
+```js
+import { nextTick } from 'vue'
+
+function increment() {
+  count.value++
+  nextTick(() => {
+    // access updated DOM
+  })
+}
+```
+
+</div>
+<div class="options-api">
+
+```js
+import { nextTick } from 'vue'
+
+export default {
+  methods: {
+    increment() {
+      this.count++
+      nextTick(() => {
+        // access updated DOM
+      })
+    }
+  }
+}
+```
+
+</div>
+
 ### Deep Reactivity
 
 In Vue, state is deeply reactive by default. This means you can expect changes to be detected even when you mutate nested objects or arrays:
@@ -472,52 +511,44 @@ console.log(map.get('count').value)
 
 <div class="options-api">
 
-### Debouncing and Throttling \*
+### Stateful Methods \*
 
-Vue doesn't include built-in support for debouncing or throttling but it can be implemented using libraries such as [Lodash](https://lodash.com/).
-
-In cases where a component is only used once, the debouncing can be applied directly within `methods`:
+In some cases, we may need to dynamically create a method function, for example creating a debounced event handler:
 
 ```js
 import { debounce } from 'lodash-es'
 
-createApp({
+export default {
   methods: {
     // Debouncing with Lodash
     click: debounce(function () {
       // ... respond to click ...
     }, 500)
   }
-}).mount('#app')
+}
 ```
 
-:::tip
-If you are using the [no-build setup](/guide/quick-start.html#without-build-tools), add the following to your import map: `"lodash-es": "https://cdn.jsdelivr.net/npm/lodash-es/+esm"`
-:::
+However, this approach is problematic for components that are reused because a debounce function is **stateful**: it maintains some internal state on the elapsed time. If multiple component instances share the same debounced function, they will interfere with one another.
 
-However, this approach is potentially problematic for components that are reused because they'll all share the same debounced function. To keep the component instances independent from each other, we can add the debounced function in the `created` lifecycle hook:
+To keep the each component instance's debounce function independent from each other, we can create the debounced version of a method in the `created` lifecycle hook:
 
 ```js
-app.component('save-button', {
+export default {
   created() {
-    // Debouncing with Lodash
+    // each instance now has its own copy of debounced handler
     this.debouncedClick = _.debounce(this.click, 500)
   },
   unmounted() {
-    // Cancel the timer when the component is removed
+    // also a good idea to cancel the timer
+    // when the component is removed
     this.debouncedClick.cancel()
   },
   methods: {
     click() {
       // ... respond to click ...
     }
-  },
-  template: `
-    <button @click="debouncedClick">
-      Save
-    </button>
-  `
-})
+  }
+}
 ```
 
 </div>
