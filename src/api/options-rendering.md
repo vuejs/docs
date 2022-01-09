@@ -64,3 +64,7 @@
   :::
 
 - **See also:** [Render Functions](/guide/extras/render-function.html)
+
+## compilerOptions
+
+- **See also:** [app.config.compilerOptions](/api/application.html#app-config-compileroptions)

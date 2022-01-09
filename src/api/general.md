@@ -1,5 +1,7 @@
 # Global API: General
 
+## version
+
 ## nextTick()
 
 ## defineComponent()
