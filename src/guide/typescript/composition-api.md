@@ -125,7 +125,7 @@ export default defineComponent({
 })
 ```
 
-## Typing `ref`
+## Typing `ref()`
 
 Refs infer the type from the initial value:
 
@@ -165,7 +165,7 @@ If you specify a generic type argument but omit the initial value, the resulting
 const n = ref<number>()
 ```
 
-## Typing `reactive`
+## Typing `reactive()`
 
 `reactive()` also implicitly infers the type from its argument:
 
@@ -193,7 +193,7 @@ const book: Book = reactive({ title: 'Vue 3 Guide' })
 It's not recommended to use the generic argument of `reactive()` because the returned type, which handles nested ref unwrapping, is different from the generic argument type.
 :::
 
-## Typing `computed`
+## Typing `computed()`
 
 `computed()` infers its type based on the getter's return value:
 
