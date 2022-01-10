@@ -83,6 +83,56 @@ We can limit the maximum number of component instances that can be cached via th
 </KeepAlive>
 ```
 
+## Lifecycle of Cached Instance
+
+When a component instance is removed from the DOM but is part of a component tree cached by `<KeepAlive>`, it goes into **deactivated** state instead of unmounted. When a component instance is inserted into the DOM as part of a cached tree, it is **activated**.
+
+<div class="composition-api">
+
+A kept-alive component can register lifecycle hooks for these two states using [`onActivated()`](/api/composition-api-lifecycle.html#onactivated) and [`onDeactivated()`](/api/composition-api-lifecycle.html#ondeactivated):
+
+```vue
+<script setup>
+import { onActivated, onDeactivated } from 'vue'
+
+onActivated(() => {
+  // called on initial mount
+  // and every time it is re-inserted from the cache
+})
+
+onDeactivated(() => {
+  // called when removed from the DOM into the cache
+  // and also when unmounted
+})
+</script>
+```
+
+</div>
+<div class="options-api">
+
+A kept-alive component can register lifecycle hooks for these two states using [`activated`](/api/options-lifecycle.html#activated) and [`deactovated`](/api/options-lifecycle.html#deactivated) hooks:
+
+```js
+export default {
+  activated() {
+    // called on initial mount
+    // and every time it is re-inserted from the cache
+  },
+  deactivated() {
+    // called when removed from the DOM into the cache
+    // and also when unmounted
+  }
+}
+```
+
+</div>
+
+Note that:
+
+- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> is also called on mount, and <span class="composition-api">`onDectivated`</span><span class="options-api">`deactivated`</span> on unmount.
+
+- Both hooks work for not only the root component cached by `<KeepAlive>`, but also descendent components in the cached tree.
+
 ---
 
 **Related**

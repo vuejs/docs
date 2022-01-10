@@ -307,7 +307,7 @@ Assign a global handler for uncaught errors from the following sources:
 - Custom directive hooks
 - Transition hooks
 
-The error handler gets called with the error as the first argument, the source component instance as the second argument, and an information string specifying the error source type as the third.
+The error handler receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
 
 - **Type**
 
@@ -316,6 +316,8 @@ The error handler gets called with the error as the first argument, the source c
     errorHandler?: (
       err: unknown,
       instance: ComponentPublicInstance | null,
+      // `info` is a Vue-specific error info,
+      // e.g. which lifecycle hook the error was thrown in
       info: string
     ) => void
   }
@@ -326,8 +328,6 @@ The error handler gets called with the error as the first argument, the source c
   ```js
   app.config.errorHandler = (err, instance, info) => {
     // handle error, e.g. report to a service
-    // `info` is a Vue-specific error info,
-    // e.g. which lifecycle hook the error was thrown in
   }
   ```
 

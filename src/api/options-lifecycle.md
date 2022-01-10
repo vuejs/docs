@@ -44,17 +44,6 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called after the instance has been mounted, where element, passed to [`app.mount`](/api/application.html#app-mount) is replaced by the newly created `vm.$el`. If the root instance is mounted to an in-document element, `vm.$el` will also be in-document when `mounted` is called.
 
-  Note that `mounted` does **not** guarantee that all child components have also been mounted. If you want to wait until the entire view has been rendered, you can use [vm.$nextTick](/api/component-instance.html#nexttick) inside of `mounted`:
-
-  ```js
-  mounted() {
-    this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been rendered
-    })
-  }
-  ```
-
   **This hook is not called during server-side rendering.**
 
 - **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
@@ -80,17 +69,6 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
   Called after a data change causes the virtual DOM to be re-rendered and patched.
 
   The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](./options-state.html#computed) or [watcher](./options-state.html#watch) instead.
-
-  Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.$nextTick](/api/component-instance.html#nexttick) inside of `updated`:
-
-  ```js
-  updated() {
-    this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been re-rendered
-    })
-  }
-  ```
 
   **This hook is not called during server-side rendering.**
 

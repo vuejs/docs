@@ -45,6 +45,8 @@ setTimeout(() => {
 }, 100)
 ```
 
+Do note this doesn't mean that the call must be placed lexically inside `setup()` or `<script setup>` - `onMounted()` can be called in an external function as along as the call stack is synchronous and originates from within `setup()`.
+
 </div>
 
 ## Lifecycle Diagram
