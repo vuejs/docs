@@ -1,11 +1,13 @@
 # Composition API: setup()
 
-The `setup()` hook serves as the entry point for Composition API usage in components.
+:::tip
+This page documents the usage of the `setup` component option. If you are using Composition API with Single-File Components, [`<script setup>`](/api/sfc-script-setup.html) is recommended for a more succinct and ergonomic syntax.
+:::
 
-Note that if you are using Composition API with Single-File Components, [`<script setup>`](/api/sfc-script-setup.html) is recommended for a more succinct and ergonomic syntax. The `setup()` hook is primarily a way to:
+The `setup()` hook serves as the entry point for Composition API usage in components in the following cases:
 
-1. Use Composition API without a build step;
-2. Integrate with Composition-API-based code in an Options API component.
+1. Using Composition API without a build step;
+2. Integrating with Composition-API-based code in an Options API component.
 
 ## Basic Usage
 

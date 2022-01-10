@@ -135,7 +135,18 @@ const emit = defineEmits({
 </script>
 ```
 
-See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <Badge type="ts" text="TS" />
+If you are using TypeScript with `<script setup>`, it's also possible to declare emitted events using pure type annotations:
+
+```vue
+<script setup lang="ts">
+const emit = defineEmits<{
+  (e: 'change', id: number): void
+  (e: 'update', value: string): void
+}>()
+</script>
+```
+
+More details: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <Badge type="ts" text="TS" />
 
 </div>
 <div class="options-api">
