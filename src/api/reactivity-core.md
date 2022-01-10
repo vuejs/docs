@@ -16,7 +16,7 @@ If an object is assigned as a ref's value, the object is made deeply reactive wi
 - **Type**
 
   ```ts
-  function ref<T>(value: T): Ref<T>
+  function ref<T>(value: T): Ref<UnwrapRef<T>>
 
   interface Ref<T> {
     value: T
