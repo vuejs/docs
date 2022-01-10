@@ -309,12 +309,12 @@ export const sidebar = {
           link: '/api/reactivity-core'
         },
         {
-          text: 'Reactivity: Advanced',
-          link: '/api/reactivity-advanced'
-        },
-        {
           text: 'Reactivity: Utilities',
           link: '/api/reactivity-utilities'
+        },
+        {
+          text: 'Reactivity: Advanced',
+          link: '/api/reactivity-advanced'
         },
         {
           text: 'Lifecycle Hooks',

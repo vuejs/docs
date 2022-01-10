@@ -63,6 +63,64 @@ Force trigger effects that depends on a [shallow ref](#shallowref). This is typi
   triggerRef(shallow)
   ```
 
+## customRef()
+
+Creates a customized ref with explicit control over its dependency tracking and updates triggering. It expects a factory function, which receives `track` and `trigger` functions as arguments and should return an object with `get` and `set` methods.
+
+- **Type**
+
+  ```ts
+  function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
+
+  type CustomRefFactory<T> = (
+    track: () => void,
+    trigger: () => void
+  ) => {
+    get: () => T
+    set: (value: T) => void
+  }
+  ```
+
+- **Example**
+
+  Creating a debounced ref that only updates the value after a certain timeout after the latest set call:
+
+  ```js
+  function useDebouncedRef(value, delay = 200) {
+    let timeout
+    return customRef((track, trigger) => {
+      return {
+        get() {
+          track()
+          return value
+        },
+        set(newValue) {
+          clearTimeout(timeout)
+          timeout = setTimeout(() => {
+            value = newValue
+            trigger()
+          }, delay)
+        }
+      }
+    })
+  }
+  ```
+
+  Usage in component:
+
+  ```vue
+  <script setup>
+  import { useDebouncedRef } from './debouncedRef'
+  const text = useDebouncedRef('hello')
+  </script>
+
+  <template>
+    <input v-model="text" />
+  </template>
+  ```
+
+  [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZURlYm91bmNlZFJlZiB9IGZyb20gJy4vZGVib3VuY2VkUmVmLmpzJ1xuY29uc3QgdGV4dCA9IHVzZURlYm91bmNlZFJlZignaGVsbG8nLCAxMDAwKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHA+XG4gICAgVGhpcyB0ZXh0IG9ubHkgdXBkYXRlcyAxIHNlY29uZCBhZnRlciB5b3UndmUgc3RvcHBlZCB0eXBpbmc6XG4gIDwvcD5cbiAgPHA+e3sgdGV4dCB9fTwvcD5cbiAgPGlucHV0IHYtbW9kZWw9XCJ0ZXh0XCIgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsImRlYm91bmNlZFJlZi5qcyI6ImltcG9ydCB7IGN1c3RvbVJlZiB9IGZyb20gJ3Z1ZSdcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZURlYm91bmNlZFJlZih2YWx1ZSwgZGVsYXkgPSAyMDApIHtcbiAgbGV0IHRpbWVvdXRcbiAgcmV0dXJuIGN1c3RvbVJlZigodHJhY2ssIHRyaWdnZXIpID0+IHtcbiAgICByZXR1cm4ge1xuICAgICAgZ2V0KCkge1xuICAgICAgICB0cmFjaygpXG4gICAgICAgIHJldHVybiB2YWx1ZVxuICAgICAgfSxcbiAgICAgIHNldChuZXdWYWx1ZSkge1xuICAgICAgICBjbGVhclRpbWVvdXQodGltZW91dClcbiAgICAgICAgdGltZW91dCA9IHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgICAgIHZhbHVlID0gbmV3VmFsdWVcbiAgICAgICAgICB0cmlnZ2VyKClcbiAgICAgICAgfSwgZGVsYXkpXG4gICAgICB9XG4gICAgfVxuICB9KVxufSJ9)
+
 ## shallowReactive()
 
 Shallow version of [`reactive()`](./reactivity-core.html#reactive).
@@ -127,63 +185,73 @@ Unlike `readonly()`, there is no deep conversion: only root-level properties are
   state.nested.bar++
   ```
 
-## customRef()
+## toRaw()
 
-Creates a customized ref with explicit control over its dependency tracking and updates triggering. It expects a factory function, which receives `track` and `trigger` functions as arguments and should return an object with `get` and `set` methods.
+Returns the raw, original object of a proxy created by [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](#shallowreactive) or [`shallowReadonly()`](#shallowreadonly).
+
+This is an escape hatch that can be used to temporarily read without incurring proxy access / tracking overhead or write without triggering changes. It is **not** recommended to hold a persistent reference to the original object. Use with caution.
 
 - **Type**
 
   ```ts
-  function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
-
-  type CustomRefFactory<T> = (
-    track: () => void,
-    trigger: () => void
-  ) => {
-    get: () => T
-    set: (value: T) => void
-  }
+  function toRaw<T>(proxy: T): T
   ```
 
 - **Example**
 
-  Creating a debounced ref that only updates the value after a certain timeout after the latest set call:
+  ```js
+  const foo = {}
+  const reactiveFoo = reactive(foo)
+
+  console.log(toRaw(reactiveFoo) === foo) // true
+  ```
+
+## markRaw()
+
+Marks an object so that it will never be converted to a proxy. Returns the object itself.
+
+- **Type**
+
+  ```ts
+  function markRaw<T extends object>(value: T): T
+  ```
+
+- **Example**
 
   ```js
-  function useDebouncedRef(value, delay = 200) {
-    let timeout
-    return customRef((track, trigger) => {
-      return {
-        get() {
-          track()
-          return value
-        },
-        set(newValue) {
-          clearTimeout(timeout)
-          timeout = setTimeout(() => {
-            value = newValue
-            trigger()
-          }, delay)
-        }
-      }
-    })
-  }
+  const foo = markRaw({})
+  console.log(isReactive(reactive(foo))) // false
+
+  // also works when nested inside other reactive objects
+  const bar = reactive({ foo })
+  console.log(isReactive(bar.foo)) // false
   ```
 
-  Usage in component:
+  :::warning Use with Caution
+  `markRaw()` and shallow APIs such as `shallowReactive()` allow you to selectively opt-out of the default deep reactive/readonly conversion and embed raw, non-proxied objects in your state graph. They can be used for various reasons:
 
-  ```vue
-  <script setup>
-  import { useDebouncedRef } from './debouncedRef'
-  const text = useDebouncedRef('hello')
-  </script>
+  - Some values simply should not be made reactive, for example a complex 3rd party class instance, or a Vue component object.
 
-  <template>
-    <input v-model="text" />
-  </template>
+  - Skipping proxy conversion can provide performance improvements when rendering large lists with immutable data sources.
+
+  They are considered advanced because the raw opt-out is only at the root level, so if you set a nested, non-marked raw object into a reactive object and then access it again, you get the proxied version back. This can lead to **identity hazards** - i.e. performing an operation that relies on object identity but using both the raw and the proxied version of the same object:
+
+  ```js
+  const foo = markRaw({
+    nested: {}
+  })
+
+  const bar = reactive({
+    // although `foo` is marked as raw, foo.nested is not.
+    nested: foo.nested
+  })
+
+  console.log(foo.nested === bar.nested) // false
   ```
 
-  [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZURlYm91bmNlZFJlZiB9IGZyb20gJy4vZGVib3VuY2VkUmVmLmpzJ1xuY29uc3QgdGV4dCA9IHVzZURlYm91bmNlZFJlZignaGVsbG8nLCAxMDAwKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHA+XG4gICAgVGhpcyB0ZXh0IG9ubHkgdXBkYXRlcyAxIHNlY29uZCBhZnRlciB5b3UndmUgc3RvcHBlZCB0eXBpbmc6XG4gIDwvcD5cbiAgPHA+e3sgdGV4dCB9fTwvcD5cbiAgPGlucHV0IHYtbW9kZWw9XCJ0ZXh0XCIgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsImRlYm91bmNlZFJlZi5qcyI6ImltcG9ydCB7IGN1c3RvbVJlZiB9IGZyb20gJ3Z1ZSdcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZURlYm91bmNlZFJlZih2YWx1ZSwgZGVsYXkgPSAyMDApIHtcbiAgbGV0IHRpbWVvdXRcbiAgcmV0dXJuIGN1c3RvbVJlZigodHJhY2ssIHRyaWdnZXIpID0+IHtcbiAgICByZXR1cm4ge1xuICAgICAgZ2V0KCkge1xuICAgICAgICB0cmFjaygpXG4gICAgICAgIHJldHVybiB2YWx1ZVxuICAgICAgfSxcbiAgICAgIHNldChuZXdWYWx1ZSkge1xuICAgICAgICBjbGVhclRpbWVvdXQodGltZW91dClcbiAgICAgICAgdGltZW91dCA9IHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgICAgIHZhbHVlID0gbmV3VmFsdWVcbiAgICAgICAgICB0cmlnZ2VyKClcbiAgICAgICAgfSwgZGVsYXkpXG4gICAgICB9XG4gICAgfVxuICB9KVxufSJ9)
+  Identity hazards are in general rare. However, to properly utilize these APIs while safely avoiding identity hazards requires a solid understanding of how the reactivity system works.
+
+  :::
 
 ## effectScope()
 
