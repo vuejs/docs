@@ -2,9 +2,13 @@
 
 ## key
 
+The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify vnodes when diffing the new list of nodes against the old list.
+
 - **Expects:** `number | string`
 
-  The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify VNodes when diffing the new list of nodes against the old list. Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed/destroyed.
+- **Details**
+
+  Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed / destroyed.
 
   Children of the same common parent must have **unique keys**. Duplicate keys will cause render errors.
 
@@ -31,39 +35,58 @@
 
   When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
 
+- **See also:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list.html#maintaining-state-with-key)
+
 ## ref
+
+Denotes a [template ref](/guide/essentials/template-refs.html).
 
 - **Expects:** `string | Function`
 
-  `ref` is used to register a reference to an element or a child component. The reference will be registered under the parent component's `$refs` object. If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be component instance:
+- **Details**
+
+  `ref` is used to register a reference to an element or a child component.
+
+  In Options API, the reference will be registered under the component's `this.$refs` object:
 
   ```vue-html
-  <!-- vm.$refs.p will be the DOM node -->
+  <!-- stored as this.$refs.p -->
   <p ref="p">hello</p>
-
-  <!-- vm.$refs.child will be the child component instance -->
-  <child-component ref="child"></child-component>
-
-  <!-- When bound dynamically, we can define ref as a callback function, passing the element or component instance explicitly -->
-  <child-component :ref="(el) => child = el"></child-component>
   ```
 
-  An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
+  In Composition API, the reference will be stored in a ref with matching name:
 
-- **See also:** [Child Component Refs](/guide/essentials/template-refs.html)
+  ```vue
+  <script setup>
+  import { ref } from 'vue'
+
+  const p = ref()
+  </script>
+
+  <template>
+    <p ref="p">hello</p>
+  </template>
+  ```
+
+  If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be the child component instance.
+
+  Alternatively `ref` can accept a function value which provides full control over where to store the reference:
+
+  ```vue-html
+  <ChildComponent :ref="(el) => child = el" />
+  ```
+
+  An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you must wait until the component is mounted before accessing them.
+
+  `this.$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
+
+- **See also:** [Template Refs](/guide/essentials/template-refs.html)
 
 ## is
 
-- **Expects:** `string | Object (component’s options object)`
+Used for binding [dynamic components](/guide/essentials/component-basics.html#dynamic-components).
 
-  Used for [dynamic components](/guide/essentials/component-basics.html#dynamic-components).
-
-  For example:
-
-  ```vue-html
-  <!-- component changes when currentView changes -->
-  <component :is="currentView"></component>
-  ```
+- **Expects:** `string | Component`
 
 - **Usage on native elements** <Badge text="3.1+" />
 
@@ -78,5 +101,6 @@
   ```
 
 - **See also:**
+
+  - [Built-in Special Element - `<component>`](/api/built-in-special-elements.html#component)
   - [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
-  - [RFC explaining the change from Vue 2](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0027-custom-elements-interop.md#customized-built-in-elements)
