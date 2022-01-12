@@ -1,46 +1,84 @@
 # Component Instance
 
-> Properties and methods exposed on the component instance, i.e. `this`.
+:::info
+This page documents the built-in properties and methods exposed on the component public instance, i.e. `this`.
+
+All properties listed on this page are readonly (except nested properties in `$data`).
+:::
 
 ## $data
 
-- **Type:** `Object`
+The object returned from the [`data`](./options-state.html#data) option, made reactive by the component. The component instance proxies access to the properties on its data object.
 
-- **Details:**
+- **Type**
 
-  The data object that the component instance is observing. The component instance proxies access to the properties on its data object.
-
-- **See also:** [Options / Data - data](./options-state.html#data-2)
+  ```ts
+  interface ComponentPublicInstance {
+    $data: object
+  }
+  ```
 
 ## $props
 
-- **Type:** `Object`
+An object representing the component's current, resolved props.
 
-- **Details:**
+- **Type**
 
-  An object representing the current props a component has received. The component instance proxies access to the properties on its props object.
+  ```ts
+  interface ComponentPublicInstance {
+    $props: object
+  }
+  ```
+
+- **Details**
+
+  Only props declared via the [`props`](./options-state.html#props) option will be included. The component instance proxies access to the properties on its props object.
 
 ## $el
 
-- **Type:** `any`
+The root DOM node that the component instance is managing.
 
-- **Read only**
+- **Type**
 
-- **Details:**
+  ```ts
+  interface ComponentPublicInstance {
+    $el: Node | undefined
+  }
+  ```
 
-  The root DOM element that the component instance is managing.
+- **Details**
 
-  For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM. It is recommended to use [template refs](/guide/essentials/template-refs.html) for direct access to DOM elements instead of relying on `$el`.
+  `$el` will be `undefined` until the component is [mounted](./options-lifecycle#mounted).
+
+  - For components with a single root element, `$el` will point to that element.
+  - For components with text root, `$el` will point to the text node.
+  - For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM (a text node, or a comment node in SSR hydration mode).
+
+  :::tip
+  For consistency, its is recommended to use [template refs](/guide/essentials/template-refs.html) for direct access to elements instead of relying on `$el`.
+  :::
 
 ## $options
 
-- **Type:** `Object`
+The resolved component options used for instantiating the current component instance.
 
-- **Read only**
+- **Type**
 
-- **Details:**
+  ```ts
+  interface ComponentPublicInstance {
+    $options: ComponentOptions
+  }
+  ```
 
-  The instantiation options used for the current component instance. This is useful when you want to include custom properties in the options:
+- **Details**
+
+  The `$options` object exposes the resolved options for the current component and is the merge result of these possible sources:
+
+  - Global mixins
+  - Component `extends` base
+  - Component mixins
+
+  It is typically used to support custom component options:
 
   ```js
   const app = createApp({
@@ -51,417 +89,238 @@
   })
   ```
 
+- **See also:** [`app.config.optionMergeStrategies`](/api/application.html#app-config-optionmergestrategies)
+
 ## $parent
 
-- **Type:** `Component instance`
+The parent instance, if the current instance has one. It will be `null` for the root instance itself.
 
-- **Read only**
+- **Type**
 
-- **Details:**
-
-  The parent instance, if the current instance has one.
+  ```ts
+  interface ComponentPublicInstance {
+    $parent: ComponentPublicInstance | null
+  }
+  ```
 
 ## $root
 
-- **Type:** `Component instance`
+The root component instance of the current component tree. If the current instance has no parents this value will be itself.
 
-- **Read only**
+- **Type**
 
-- **Details:**
-
-  The root component instance of the current component tree. If the current instance has no parents this value will be itself.
+  ```ts
+  interface ComponentPublicInstance {
+    $root: ComponentPublicInstance
+  }
+  ```
 
 ## $slots
 
-- **Type:** `{ [name: string]: (...args: any[]) => Array<VNode> | undefined }`
+An object representing the [slots](/guide/components/slots.html) passed by the parent component.
 
-- **Read only**
+- **Type**
 
-- **Details:**
+  ```ts
+  interface ComponentPublicInstance {
+    $slots: { [name: string]: Slot }
+  }
 
-  Used to programmatically access content [distributed by slots](/guide/essentials/component-basics.html#content-distribution-with-slots). Each [named slot](/guide/components/slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `this.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
-
-  Accessing `this.$slots` is most useful when writing a component with a [render function](/guide/extras/render-function.html).
-
-- **Example:**
-
-  ```vue-html
-  <blog-post>
-    <template v-slot:header>
-      <h1>About Me</h1>
-    </template>
-
-    <template v-slot:default>
-      <p>
-        Here's some page content, which will be included in $slots.default.
-      </p>
-    </template>
-
-    <template v-slot:footer>
-      <p>Copyright 2020 Evan You</p>
-    </template>
-  </blog-post>
+  type Slot = (...args: any[]) => VNode[]
   ```
 
-  ```js
-  const { createApp, h } = Vue
-  const app = createApp({})
+- **Details**
 
-  app.component('blog-post', {
-    render() {
-      return h('div', [
-        h('header', this.$slots.header()),
-        h('main', this.$slots.default()),
-        h('footer', this.$slots.footer())
-      ])
-    }
-  })
-  ```
+  Typically used when manually authoring [render functions](/guide/extras/render-function.html), but can also be used to detect whether a slot is present.
 
-- **See also:**
-  - [`<slot>` Component](built-in-components.html#slot)
-  - [Content Distribution with Slots](/guide/essentials/component-basics.html#content-distribution-with-slots)
-  - [Render Functions - Slots](/guide/extras/render-function.html#slots)
+  Each slot is exposed on `this.$slots` as a function that returns an array of vnodes under the key corresponding to that slot's name. The default slot is exposed as `this.$slots.default`.
+
+  If a slot is a [scoped slot](/guide/components/slots.html#scoped-slots), arguments passed to the slot functions are available to the slot as its slot props.
+
+- **See also:** [Render Functions - Rendering Slots](/guide/extras/render-function.html#rendering-slots)
 
 ## $refs
 
-- **Type:** `Object`
+An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs.html).
 
-- **Read only**
+- **Type**
 
-- **Details:**
-
-An object of DOM elements and component instances, registered with [`ref` attributes](/guide/essentials/template-refs.html).
+  ```ts
+  interface ComponentPublicInstance {
+    $refs: { [name: string]: Element | ComponentPublicInstance | null }
+  }
+  ```
 
 - **See also:**
+
   - [Template refs](/guide/essentials/template-refs.html)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
 
 ## $attrs
 
-- **Type:** `Object`
+An object that contains the component's fallthrough attributes.
 
-- **Read only**
+- **Type**
 
-- **Details:**
+  ```ts
+  interface ComponentPublicInstance {
+    $attrs: object
+  }
+  ```
 
-Contains parent-scope attribute bindings and events that are not recognized (and extracted) as component [props](./options-state.html#props) or [custom events](./options-state.html#emits). When a component doesn't have any declared props or custom events, this essentially contains all parent-scope bindings, and can be passed down to an inner component via `v-bind="$attrs"` - useful when creating higher-order components.
+- **Details**
+
+  [Fallthrough Attributes](/guide/components/attrs.html) are attributes and event handlers passed by the parent component, but not declared as a prop or a emitted event by the child.
+
+  By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc.html#inheritattrs) option.
 
 - **See also:**
+
   - [Fallthrough Attributes](/guide/components/attrs.html)
-  - [Options / Misc - inheritAttrs](./options-misc.html#inheritattrs)
 
 ## $watch()
 
-- **Arguments:**
+Imperative API for creating watchers.
 
-  - `{string | Function} source`
-  - `{Function | Object} callback`
-  - `{Object} options (optional)`
-    - `{boolean} deep`
-    - `{boolean} immediate`
-    - `{string} flush`
+- **Type**
 
-- **Returns:** `{Function} unwatch`
+  ```ts
+  interface ComponentPublicInstance {
+    $watch(
+      source: string | (() => any),
+      callback: WatchCallback,
+      options?: WatchOptions
+    ): StopHandle
+  }
 
-- **Usage:**
+  type WatchCallback<T> = (
+    value: T,
+    oldValue: T,
+    onCleanup: (cleanupFn: () => void) => void
+  ) => void
 
-  Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `props`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
+  interface WatchOptions {
+    immediate?: boolean // default: false
+    deep?: boolean // default: false
+    flush?: 'pre' | 'post' | 'sync' // default: 'pre'
+    onTrack?: (event: DebuggerEvent) => void
+    onTrigger?: (event: DebuggerEvent) => void
+  }
 
-- **Example:**
-
-  ```js
-  const app = createApp({
-    data() {
-      return {
-        a: 1,
-        b: 2,
-        c: {
-          d: 3,
-          e: 4
-        }
-      }
-    },
-    created() {
-      // top-level property name
-      this.$watch('a', (newVal, oldVal) => {
-        // do something
-      })
-
-      // function for watching a single nested property
-      this.$watch(
-        () => this.c.d,
-        (newVal, oldVal) => {
-          // do something
-        }
-      )
-
-      // function for watching a complex expression
-      this.$watch(
-        // every time the expression `this.a + this.b` yields a different result,
-        // the handler will be called. It's as if we were watching a computed
-        // property without defining the computed property itself
-        () => this.a + this.b,
-        (newVal, oldVal) => {
-          // do something
-        }
-      )
-    }
-  })
+  type StopHandle = () => void
   ```
 
-  When watched value is an object or array, any changes to its properties or elements won't trigger the watcher because they reference the same object/array:
+- **Details**
+
+  The first argument is the watch source. It can be a component property name string, a simple dot-delimited path string, or a getter function.
+
+  The second argument is the callback function. The callback receives the new value and the old value of the watched source.
+
+  - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
+  - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers.html#deep-watchers).
+  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing).
+  - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging).
+
+- **Example**
+
+  Watch a property name:
 
   ```js
-  const app = createApp({
-    data() {
-      return {
-        article: {
-          text: 'Vue is awesome!'
-        },
-        comments: ['Indeed!', 'I agree']
-      }
-    },
-    created() {
-      this.$watch('article', () => {
-        console.log('Article changed!')
-      })
-
-      this.$watch('comments', () => {
-        console.log('Comments changed!')
-      })
-    },
-    methods: {
-      // These methods won't trigger a watcher because we changed only a property of object/array,
-      // not the object/array itself
-      changeArticleText() {
-        this.article.text = 'Vue 3 is awesome'
-      },
-      addComment() {
-        this.comments.push('New comment')
-      },
-
-      // These methods will trigger a watcher because we replaced object/array completely
-      changeWholeArticle() {
-        this.article = { text: 'Vue 3 is awesome' }
-      },
-      clearComments() {
-        this.comments = []
-      }
-    }
-  })
+  this.$watch('a', (newVal, oldVal) => {})
   ```
 
-  `$watch` returns an unwatch function that stops firing the callback:
+  Watch a dot-delimited path:
 
   ```js
-  const app = createApp({
-    data() {
-      return {
-        a: 1
-      }
-    }
-  })
+  this.$watch('a.b', (newVal, oldVal) => {})
+  ```
 
-  const vm = app.mount('#app')
+  Using getter for more complex expressions:
 
-  const unwatch = vm.$watch('a', cb)
-  // later, teardown the watcher
+  ```js
+  this.$watch(
+    // every time the expression `this.a + this.b` yields
+    // a different result, the handler will be called.
+    // It's as if we were watching a computed property
+    // without defining the computed property itself.
+    () => this.a + this.b,
+    (newVal, oldVal) => {}
+  )
+  ```
+
+  Stopping the watcher:
+
+  ```js
+  const unwatch = this.$watch('a', cb)
+
+  // later...
   unwatch()
   ```
 
-- **Option: deep**
-
-  To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. This option also can be used to watch array mutations.
-
-  > Note: when mutating (rather than replacing) an Object or an Array and watch with deep option, the old value will be the same as new value because they reference the same Object/Array. Vue doesn't keep a copy of the pre-mutate value.
-
-  ```js
-  vm.$watch('someObject', callback, {
-    deep: true
-  })
-  vm.someObject.nestedValue = 123
-  // callback is fired
-  ```
-
-- **Option: immediate**
-
-  Passing in `immediate: true` in the option will trigger the callback immediately with the current value of the expression:
-
-  ```js
-  vm.$watch('a', callback, {
-    immediate: true
-  })
-  // `callback` is fired immediately with current value of `a`
-  ```
-
-  Note that with `immediate` option you won't be able to unwatch the given property on the first callback call.
-
-  ```js
-  // This will cause an error
-  const unwatch = vm.$watch(
-    'value',
-    function () {
-      doSomething()
-      unwatch()
-    },
-    { immediate: true }
-  )
-  ```
-
-  If you still want to call an unwatch function inside the callback, you should check its availability first:
-
-  ```js
-  let unwatch = null
-
-  unwatch = vm.$watch(
-    'value',
-    function () {
-      doSomething()
-      if (unwatch) {
-        unwatch()
-      }
-    },
-    { immediate: true }
-  )
-  ```
-
-- **Option: flush**
-
-  The `flush` option allows for greater control over the timing of the callback. It can be set to `'pre'`, `'post'` or `'sync'`.
-
-  The default value is `'pre'`, which specifies that the callback should be invoked before rendering. This allows the callback to update other values before the template runs.
-
-  The value `'post'` can be used to defer the callback until after rendering. This should be used if the callback needs access to the updated DOM or child components via `$refs`.
-
-  If `flush` is set to `'sync'`, the callback will be called synchronously, as soon as the value changes.
-
-  For both `'pre'` and `'post'`, the callback is buffered using a queue. The callback will only be added to the queue once, even if the watched value changes multiple times. The interim values will be skipped and won't be passed to the callback.
-
-  Buffering the callback not only improves performance but also helps to ensure data consistency. The watchers won't be triggered until the code performing the data updates has finished.
-
-  `'sync'` watchers should be used sparingly, as they don't have these benefits.
-
-  For more information about `flush` see [Effect Flush Timing](/guide/essentials/watchers.html#effect-flush-timing).
-
-- **See also:** [Watchers](/guide/essentials/watchers.html)
+- **See also:**
+  - [Options - `watch`](/api/options-state.html#watch)
+  - [Guide - Watchers](/guide/essentials/watchers.html)
 
 ## $emit()
 
-- **Arguments:**
+Trigger a custom event on the current instance. Any additional arguments will be passed into the listener's callback function.
 
-  - `{string} eventName`
-  - `...args (optional)`
+- **Type**
 
-  Trigger an event on the current instance. Any additional arguments will be passed into the listener's callback function.
-
-- **Examples:**
-
-  Using `$emit` with only an event name:
-
-  ```vue-html
-  <div id="emit-example-simple">
-    <welcome-button v-on:welcome="sayHi"></welcome-button>
-  </div>
+  ```ts
+  interface ComponentPublicInstance {
+    $emit(event: string, ...args: any[]): void
+  }
   ```
+
+- **Example**
 
   ```js
-  const app = createApp({
-    methods: {
-      sayHi() {
-        console.log('Hi!')
-      }
+  export default {
+    created() {
+      // only event
+      this.$emit('foo')
+      // with additional arguments
+      this.$emit('bar', 1, 2, 3)
     }
-  })
-
-  app.component('welcome-button', {
-    emits: ['welcome'],
-    template: `
-      <button v-on:click="$emit('welcome')">
-        Click me to be welcomed
-      </button>
-    `
-  })
-
-  app.mount('#emit-example-simple')
-  ```
-
-  Using `$emit` with additional arguments:
-
-  ```vue-html
-  <div id="emit-example-argument">
-    <advice-component v-on:advise="showAdvice"></advice-component>
-  </div>
-  ```
-
-  ```js
-  const app = createApp({
-    methods: {
-      showAdvice(advice) {
-        alert(advice)
-      }
-    }
-  })
-
-  app.component('advice-component', {
-    emits: ['advise'],
-    data() {
-      return {
-        adviceText: 'Some advice'
-      }
-    },
-    template: `
-      <div>
-        <input type="text" v-model="adviceText">
-        <button v-on:click="$emit('advise', adviceText)">
-          Click me for sending advice
-        </button>
-      </div>
-    `
-  })
-
-  app.mount('#emit-example-argument')
+  }
   ```
 
 - **See also:**
+
+  - [Component - Events](/guide/components/events.html)
   - [`emits` option](./options-state.html#emits)
-  - [Emitting a Value With an Event](/guide/essentials/component-basics.html#emitting-a-value-with-an-event)
 
 ## $forceUpdate()
 
-- **Usage:**
+Force the component instance to re-render.
 
-  Force the component instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
+- **Type**
+
+  ```ts
+  interface ComponentPublicInstance {
+    $forceUpdate(): void
+  }
+  ```
+
+- **Details**
+
+  This should be rarely needed given Vue's fully automatic reactivity system. The only cases where you may need it is when you have explicitly created non-reactive component state using advanced reactivity APIs.
 
 ## $nextTick()
 
-- **Arguments:**
+Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
 
-  - `{Function} callback (optional)`
+- **Type**
 
-- **Usage:**
-
-  Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update. This is the same as the global `nextTick`, except that the callback's `this` context is automatically bound to the instance calling this method.
-
-- **Example:**
-
-  ```js
-  createApp({
-    // ...
-    methods: {
-      // ...
-      example() {
-        // modify data
-        this.message = 'changed'
-        // DOM is not updated yet
-        this.$nextTick(function () {
-          // DOM is now updated
-          // `this` is bound to the current instance
-          this.doSomethingElse()
-        })
-      }
-    }
-  })
+  ```ts
+  interface ComponentPublicInstance {
+    $nextTick(callback?: (this: ComponentPublicInstance) => void): Promise<void>
+  }
   ```
 
-- **See also:** [nextTick](general.html#nexttick)
+- **Details**
+
+  The only different from the global version of `nextTick()` is that the callback passed to `this.$nextTick()` will have its `this` context bound to the current component instance.
+
+- **See also:** [`nextTick()`](./general.html#nexttick)

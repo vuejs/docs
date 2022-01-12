@@ -571,3 +571,5 @@ An object for defining merging strategies for custom component options.
   app.mount('#app')
   // logs 'Hello Vue'
   ```
+
+- **See also:** [Component Instance - `$options`](/api/component-instance.html#options)

@@ -270,7 +270,7 @@ Declare watch callbacks to be invoked on data change.
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
-  } & WatchOptions
+  }
   ```
 
   > Types are simplified for readability.
@@ -284,9 +284,9 @@ Declare watch callbacks to be invoked on data change.
   The value can also be a string of a method name (declared via `methods`), or an object that contains additional options. When using the object syntax, the callback should be declared under the `handler` field. Additional options include:
 
   - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
-  - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations.
-  - **`flush`**: adjust the callback's flush timing.
-  - **`onTrack / onTrigger`**: debug the watcher's dependencies.
+  - **`deep`**: force deep traversal of the source if it is an object or an array, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers.html#deep-watchers).
+  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing).
+  - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging).
 
   Avoid using arrow functions when declaring watch callbacks as they will not have access to the component instance via `this`.
 
