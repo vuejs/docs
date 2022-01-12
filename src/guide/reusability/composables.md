@@ -301,7 +301,7 @@ import { useFeatureC } from './featureC.js'
 
 const { foo, bar } = useFeatureA()
 const { baz } = useFeatureB(foo)
-const { qux } = iseFeatureC(baz)
+const { qux } = useFeatureC(baz)
 </script>
 ```
 
