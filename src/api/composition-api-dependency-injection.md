@@ -6,9 +6,7 @@ Similar to lifecycle hook registration APIs, both `provide()` and `inject()` can
 
 ## provide()
 
-Provides a value that can be injected by descendent components. It takes two arguments: the key, which can be a string or a symbol, and the value to be injected.
-
-Similar to lifecycle hook registration APIs, `provide()` must be called synchronously during a component's `setup()` phase.
+Provides a value that can be injected by descendent components.
 
 - **Type**
 
@@ -16,7 +14,13 @@ Similar to lifecycle hook registration APIs, `provide()` must be called synchron
   function provide<T>(key: InjectionKey<T> | string, value: T): void
   ```
 
-  `InjectionKey` is a type that extends `Symbol` which can be used to sync the value type between `provide()` and `inject()`.
+- **Details**
+
+  `provide()` takes two arguments: the key, which can be a string or a symbol, and the value to be injected.
+
+  When using TypeScript, the key can be a symbol casted as `InjectionKey` - a Vue provided utility type that extends `Symbol`, which can be used to sync the value type between `provide()` and `inject()`.
+
+  Similar to lifecycle hook registration APIs, `provide()` must be called synchronously during a component's `setup()` phase.
 
 - **Example**
 
@@ -45,12 +49,6 @@ Similar to lifecycle hook registration APIs, `provide()` must be called synchron
 
 Injects a value provided by an ancestor component or the application (via `app.provide()`).
 
-The first argument is the injection key. Vue will walk up the parent chain to locate a provided value with a matching key.  If multiple components in the parent chain provides the same key, the one closest to the injecting component will "shadow" those higher up the chain. If no value with matching key was found, `inject()` returns `undefined` unless a default value is provided via the second argument.
-
-The second argument can also be a factory function to return values that are expensive to create. If the default value is a function, then `false` must be passed as the third argument to indicate that the function should be used as the value instead of the factory.
-
-If multiple components in the parent chain provides the same key, the one closest to the injecting component will "shadow" those higher up the chain.
-
 - **Type**
 
   ```ts
@@ -68,7 +66,13 @@ If multiple components in the parent chain provides the same key, the one closes
   ): T
   ```
 
-  `InjectionKey` is a type that extends `Symbol` which can be used to sync the value type between `provide()` and `inject()`.
+- **Details**
+
+  The first argument is the injection key. Vue will walk up the parent chain to locate a provided value with a matching key. If multiple components in the parent chain provides the same key, the one closest to the injecting component will "shadow" those higher up the chain. If no value with matching key was found, `inject()` returns `undefined` unless a default value is provided.
+
+  The second argument is optional and is the default value to be used when no matching value was found. It can also be a factory function to return values that are expensive to create. If the default value is a function, then `false` must be passed as the third argument to indicate that the function should be used as the value instead of the factory.
+
+  When using TypeScript, the key can be of type of `InjectionKey` - a Vue-provided utility type that extends `Symbol`, which can be used to sync the value type between `provide()` and `inject()`.
 
 - **Example**
 

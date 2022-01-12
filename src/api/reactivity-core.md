@@ -9,9 +9,7 @@ To better understand the Reactivity APIs, it is recommended to read the followin
 
 ## ref()
 
-Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property `.value` that points to the inner value.
-
-If an object is assigned as a ref's value, the object is made deeply reactive with [reactive()](#reactive). To avoid the deep conversion, use [`shallowRef()`](./reactivity-advanced.html#shallowref) instead.
+Takes an inner value and returns a reactive and mutable ref object, which has a single property `.value` that points to the inner value.
 
 - **Type**
 
@@ -22,6 +20,14 @@ If an object is assigned as a ref's value, the object is made deeply reactive wi
     value: T
   }
   ```
+
+- **Details**
+
+  The ref object is mutable - i.e. you can assign new values to `.value`. It is also reactive - i.e. any read operations to `.value` is tracked, and write operations will trigger associated effects.
+
+  If an object is assigned as a ref's value, the object is made deeply reactive with [reactive()](#reactive). This also means if the object contains nested refs, they will be deeply unwrapped.
+
+  To avoid the deep conversion, use [`shallowRef()`](./reactivity-advanced.html#shallowref) instead.
 
 - **Example**
 
@@ -111,17 +117,19 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
 
 Returns a reactive proxy of the object.
 
-The reactive conversion is "deep": it affects all nested properties. It also deeply unwraps any properties that are [refs](#ref) while maintaining reactivity.
-
-To avoid the deep conversion and only retain reactivity at the root level, use [shallowReactive()](./reactivity-advanced.html#shallowreactive) instead.
-
-The returned object and its nested objects are wrapped with [ES Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and **not** equal to the original objects. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.
-
 - **Type**
 
   ```ts
   function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
   ```
+
+- **Details**
+
+  The reactive conversion is "deep": it affects all nested properties. It also deeply unwraps any properties that are [refs](#ref) while maintaining reactivity.
+
+  To avoid the deep conversion and only retain reactivity at the root level, use [shallowReactive()](./reactivity-advanced.html#shallowreactive) instead.
+
+  The returned object and its nested objects are wrapped with [ES Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and **not** equal to the original objects. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.
 
 - **Example**
 
@@ -172,8 +180,6 @@ The returned object and its nested objects are wrapped with [ES Proxy](https://d
 
 Takes an object (reactive or plain) or a [ref](#ref) and returns a readonly proxy to the original.
 
-A readonly proxy is deep: any nested property accessed will be readonly as well. It also has the same ref-unwrapping behavior as `reactive()`, except the unwrapped values will also be made readonly. To avoid the deep conversion, use [shallowReadonly()](./reactivity-advanced.html#shallowreadonly) instead.
-
 - **Type**
 
   ```ts
@@ -181,6 +187,12 @@ A readonly proxy is deep: any nested property accessed will be readonly as well.
     target: T
   ): DeepReadonly<UnwrapNestedRefs<T>>
   ```
+
+- **Details**
+
+  A readonly proxy is deep: any nested property accessed will be readonly as well. It also has the same ref-unwrapping behavior as `reactive()`, except the unwrapped values will also be made readonly.
+
+  To avoid the deep conversion, use [shallowReadonly()](./reactivity-advanced.html#shallowreadonly) instead.
 
 - **Example**
 
@@ -205,19 +217,15 @@ A readonly proxy is deep: any nested property accessed will be readonly as well.
 
 Runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
 
-The first argument is the effect function to be run. The effect function receives a function that can be used to register a cleanup callback. The cleanup callback will be called right before the next time the effect is re-run, and can be used to clean up invalidated side effects, e.g. a pending async request.
-
-The second argument is an optional options object that can be used to adjust the effect's flush timing or to debug the effect's dependencies.
-
-The return value is a handle function that can be called to stop the effect from running again.
-
 - **Type**
 
   ```ts
   function watchEffect(
-    effect: (onCleanup: InvalidateCbRegistrator) => void,
+    effect: (onCleanup: OnCleanup) => void,
     options?: WatchEffectOptions
   ): StopHandle
+
+  type OnCleanup = (cleanupFn: () => void) => void
 
   interface WatchEffectOptions {
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
@@ -225,10 +233,16 @@ The return value is a handle function that can be called to stop the effect from
     onTrigger?: (event: DebuggerEvent) => void
   }
 
-  type InvalidateCbRegistrator = (invalidate: () => void) => void
-
   type StopHandle = () => void
   ```
+
+- **Details**
+
+  The first argument is the effect function to be run. The effect function receives a function that can be used to register a cleanup callback. The cleanup callback will be called right before the next time the effect is re-run, and can be used to clean up invalidated side effects, e.g. a pending async request (see example below).
+
+  The second argument is an optional options object that can be used to adjust the effect's flush timing or to debug the effect's dependencies.
+
+  The return value is a handle function that can be called to stop the effect from running again.
 
 - **Example**
 
@@ -292,60 +306,74 @@ Alias of [`watchEffect()`](#watcheffect) with `flush: 'sync'` option.
 
 ## watch()
 
-`watch()` tracks changes of a reactive data source and invokes a callback function when the source changes. It is lazy by default - i.e. the callback is only called when the watched source has changed.
-
-Compared to [watchEffect](#watcheffect), `watch` allows us to:
-
-- Perform the side effect lazily;
-- Be more specific about what state should trigger the watcher to re-run;
-- Access both the previous and current value of the watched state.
-
-The first argument is the watcher's **source**. The source can be one of the following:
-
-- A getter function that returns a value
-- A ref
-- A reactive object
-- ...or an array of the above.
-
-The second argument is the callback that will be called when the source changes. The callback receives three arguments: the new value, the old value, and a function for registering a side effect cleanup callback. The cleanup callback will be called right before the next time the effect is re-run, and can be used to clean up invalidated side effects, e.g. a pending async request.
+Watches one or more reactive data sources and invokes a callback function when the sources change.
 
 - **Type**
 
   ```ts
   // watching single source
   function watch<T>(
-    source: WatcherSource<T>,
-    callback: (
-      value: T,
-      oldValue: T,
-      onCleanup: InvalidateCbRegistrator
-    ) => void,
+    source: WatchSource<T>,
+    callback: WatchCallback<T>,
     options?: WatchOptions
   ): StopHandle
 
   // watching multiple sources
-  function watch<T extends WatcherSource<unknown>[]>(
-    sources: T
-    callback: (
-      values: MapSources<T>,
-      oldValues: MapSources<T>,
-      onInvalidate: InvalidateCbRegistrator
-    ) => void,
-    options? : WatchOptions
+  function watch<T>(
+    sources: WatchSource<T>[],
+    callback: WatchCallback<T[]>,
+    options?: WatchOptions
   ): StopHandle
 
-  type WatcherSource<T> = Ref<T> | (() => T)
+  type WatchCallback<T> = (
+    value: T,
+    oldValue: T,
+    onCleanup: (cleanupFn: () => void) => void
+  ) => void
 
-  type MapSources<T> = {
-    [K in keyof T]: T[K] extends WatcherSource<infer V> ? V : never
-  }
+  type WatchSource<T> =
+    | Ref<T> // ref
+    | (() => T) // getter
+    | T extends object ? T : never // reactive object
 
-  // see `watchEffect` typing for shared options
   interface WatchOptions extends WatchEffectOptions {
     immediate?: boolean // default: false
     deep?: boolean
+    flush?: 'pre' | 'post' | 'sync' // default: 'pre'
+    onTrack?: (event: DebuggerEvent) => void
+    onTrigger?: (event: DebuggerEvent) => void
   }
   ```
+
+  > Type is simplified for readability.
+
+- **Details**
+
+  `watch()` is lazy by default - i.e. the callback is only called when the watched source has changed.
+
+  The first argument is the watcher's **source**. The source can be one of the following:
+
+  - A getter function that returns a value
+  - A ref
+  - A reactive object
+  - ...or an array of the above.
+
+  The second argument is the callback that will be called when the source changes. The callback receives three arguments: the new value, the old value, and a function for registering a side effect cleanup callback. The cleanup callback will be called right before the next time the effect is re-run, and can be used to clean up invalidated side effects, e.g. a pending async request.
+
+  When watching multiple sources, the callback receives two arrays containing new / old values corresponding to the source array.
+
+  The third optional argument is an options object that supports the following options:
+
+  - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
+  - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations.
+  - **`flush`**: adjust the callback's flush timing.
+  - **`onTrack / onTrigger`**: debug the watcher's dependencies.
+
+  Compared to [`watchEffect()`](#watcheffect), `watch()` allows us to:
+
+  - Perform the side effect lazily;
+  - Be more specific about what state should trigger the watcher to re-run;
+  - Access both the previous and current value of the watched state.
 
 - **Example**
 
@@ -378,7 +406,7 @@ The second argument is the callback that will be called when the source changes.
   })
   ```
 
-  Deep mode will track every nested property in the source object. Note in this mode, the new value and the old will be the same object if the callback was triggered by a deep mutation:
+  When using a getter source, the watcher only fires if the getter's return value has changed. If you want the callback to fire even on deep mutations, you need to explicitly force the watcher into deep mode with `{ deep: true }`. Note in deep mode, the new value and the old will be the same object if the callback was triggered by a deep mutation:
 
   ```js
   const state = reactive({ count: 0 })
@@ -391,7 +419,7 @@ The second argument is the callback that will be called when the source changes.
   )
   ```
 
-  When watching a reactive object, the watcher is implicitly in deep mode:
+  When directly watching a reactive object, the watcher is automatically in deep mode:
 
   ```js
   const state = reactive({ count: 0 })

@@ -6,21 +6,25 @@ All APIs listed on this page must be called synchronously during the `setup()` p
 
 ## onMounted()
 
-Registers a callback to be called after the component has been mounted. A component is considered mounted after:
-
-- All of its synchronous child components have been mounted (does not include async components or components inside `<Suspense>` trees).
-
-- Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
-
-This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr.html).
-
-**This hook is not called during SSR.**
+Registers a callback to be called after the component has been mounted.
 
 - **Type**
 
   ```ts
   function onMounted(callback: () => void): void
   ```
+
+- **Details**
+
+  A component is considered mounted after:
+
+  - All of its synchronous child components have been mounted (does not include async components or components inside `<Suspense>` trees).
+
+  - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
+
+  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr.html).
+
+  **This hook is not called during SSR.**
 
 - **Example**
 
@@ -44,21 +48,25 @@ This hook is typically used for performing side effects that need access to the 
 
 ## onUpdated()
 
-Registers a callback to be called after the component has updated its DOM tree due to a reactive state change. A parent component's updated hook is called after that of its child components.
-
-This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general.html#nexttick) instead.
-
-:::warning
-Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
-:::
-
-**This hook is not called during SSR.**
+Registers a callback to be called after the component has updated its DOM tree due to a reactive state change.
 
 - **Type**
 
   ```ts
   function onUpdated(callback: () => void): void
   ```
+
+- **Details**
+
+  A parent component's updated hook is called after that of its child components.
+
+  This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general.html#nexttick) instead.
+
+  **This hook is not called during SSR.**
+
+  :::warning
+  Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
+  :::
 
 - **Example**
 
@@ -83,21 +91,25 @@ Do not mutate component state in the updated hook - this will likely lead to an 
 
 ## onUnmounted()
 
-Registers a callback to be called after the component has been unmounted. A component is considered unmounted after:
-
-- All of its child components have been unmounted.
-
-- All of its associated reactive effects (render effect and computed / watchers created during `setup()`) have been stopped.
-
-Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
-
-**This hook is not called during SSR.**
+Registers a callback to be called after the component has been unmounted.
 
 - **Type**
 
   ```ts
   function onUnmounted(callback: () => void): void
   ```
+
+- **Details**
+
+  A component is considered unmounted after:
+
+  - All of its child components have been unmounted.
+
+  - All of its associated reactive effects (render effect and computed / watchers created during `setup()`) have been stopped.
+
+  Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
+
+  **This hook is not called during SSR.**
 
 - **Example**
 
@@ -118,9 +130,7 @@ Use this hook to clean up manually created side effects such as timers, DOM even
 
 ## onBeforeMount()
 
-Registers a hook to be called right before the component is to be mounted. At this stage the component has finished setting up its reactive state, but no DOM nodes have been created yet. It is about to execute its DOM render effect for the first time.
-
-**This hook is not called during SSR.**
+Registers a hook to be called right before the component is to be mounted.
 
 - **Type**
 
@@ -128,11 +138,15 @@ Registers a hook to be called right before the component is to be mounted. At th
   function onBeforeMount(callback: () => void): void
   ```
 
+- **Details**
+
+  When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet. It is about to execute its DOM render effect for the first time.
+
+  **This hook is not called during SSR.**
+
 ## onBeforeUpdate()
 
-Registers a hook to be called right before the component is about to update its DOM tree due to a reactive state change. This hook can be used to access the DOM state before Vue updates the DOM.
-
-**This hook is not called during SSR.**
+Registers a hook to be called right before the component is about to update its DOM tree due to a reactive state change.
 
 - **Type**
 
@@ -140,11 +154,15 @@ Registers a hook to be called right before the component is about to update its 
   function onBeforeUpdate(callback: () => void): void
   ```
 
+- **Details**
+
+  This hook can be used to access the DOM state before Vue updates the DOM. It is also safe to modify component state inside this hook.
+
+  **This hook is not called during SSR.**
+
 ## onBeforeUnmount()
 
-Registers a hook to be called right before a component instance is to be unmounted. At this stage the instance is still fully functional.
-
-**This hook is not called during SSR.**
+Registers a hook to be called right before a component instance is to be unmounted.
 
 - **Type**
 
@@ -152,23 +170,15 @@ Registers a hook to be called right before a component instance is to be unmount
   function onBeforeUnmounted(callback: () => void): void
   ```
 
+- **Details**
+
+  When this hook is called, the component instance is still fully functional.
+
+  **This hook is not called during SSR.**
+
 ## onErrorCaptured()
 
-Registers a hook to be called when an error propagating from a descendent component has been captured. Errors can be captured from the following sources:
-
-- Component renders
-- Event handlers
-- Lifecycle hooks
-- `setup()` function
-- Watchers
-- Custom directive hooks
-- Transition hooks
-
-The hook receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
-
-You can modify component state in `errorCaptured()` to display an error state to the user. However, it is important that the error state should not render the original content that caused the error; otherwise the component will be thrown into an infinite render loop.
-
-The hook can return `false` to stop the error from propagating further. See error propagation details below.
+Registers a hook to be called when an error propagating from a descendent component has been captured.
 
 - **Type**
 
@@ -182,7 +192,25 @@ The hook can return `false` to stop the error from propagating further. See erro
   ) => boolean | void
   ```
 
-- **Error Propagation Rules**
+- **Details**
+
+  Errors can be captured from the following sources:
+
+  - Component renders
+  - Event handlers
+  - Lifecycle hooks
+  - `setup()` function
+  - Watchers
+  - Custom directive hooks
+  - Transition hooks
+
+  The hook receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+
+  You can modify component state in `errorCaptured()` to display an error state to the user. However, it is important that the error state should not render the original content that caused the error; otherwise the component will be thrown into an infinite render loop.
+
+  The hook can return `false` to stop the error from propagating further. See error propagation details below.
+
+  **Error Propagation Rules**
 
   - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application.html#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
 
@@ -196,7 +224,7 @@ The hook can return `false` to stop the error from propagating further. See erro
 
 Registers a debug hook to be called when a reactive dependency has been tracked by the component's render effect.
 
-> This hook is development-mode-only and not called during SSR.
+**This hook is development-mode-only and not called during SSR.**
 
 - **Type**
 
@@ -219,7 +247,7 @@ Registers a debug hook to be called when a reactive dependency has been tracked 
 
 Registers a debug hook to be called when a reactive dependency triggers the component's render effect to be re-run.
 
-> This hook is development-mode-only and not called during SSR.
+**This hook is development-mode-only and not called during SSR.**
 
 - **Type**
 
@@ -271,15 +299,19 @@ Registers a callback to be called after the component instance is removed from t
 
 ## onServerPrefetch() <Badge text="SSR only" />
 
-Registers a callback to be called before the component instance is to be rendered on the server. If the callback returns a Promise, the server renderer will wait until the Promise is resolved before rendering the component.
-
-This hook is only called during SSR can be used to perform server-only data fetching.
+Registers a async function to be resolved before the component instance is to be rendered on the server.
 
 - **Type**
 
   ```ts
   function onServerPrefetch(callback: () => Promise<any>): void
   ```
+
+- **Details**
+
+  If the callback returns a Promise, the server renderer will wait until the Promise is resolved before rendering the component.
+
+  This hook is only called during SSR can be used to perform server-only data fetching.
 
 - **Example**
 
