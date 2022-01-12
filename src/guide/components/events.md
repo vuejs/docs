@@ -29,7 +29,7 @@ The `.once` modifier is also supported on component event listeners:
 <MyComponent @some-event.once="callback" />
 ```
 
-Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but is able to listen to it using a kebab-cased listener in the parent. As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
+Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but can listen for it using a kebab-cased listener in the parent. As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
 
 :::tip
 Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component.
@@ -45,7 +45,7 @@ It's sometimes useful to emit a specific value with an event. For example, we ma
 </button>
 ```
 
-Then when we listen to the event in the parent, we can use an inline arrow function as the listener, which allows us to access the event argument:
+Then, when we listen to the event in the parent, we can use an inline arrow function as the listener, which allows us to access the event argument:
 
 ```vue-html
 <MyButton @increase-by="(n) => count += n" />
@@ -169,12 +169,12 @@ See also: [Typing Component Emits](/guide/typescript/options-api.html#typing-com
 Although optional, it is recommended to define all emitted events in order to better document how a component should work. It also allows Vue to exclude known listeners from [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance).
 
 :::tip
-If a native event (e.g., `click`) is defined in the `emits` option, the listener will now only listen to component-emitted `click` event and no longer respond to native `click` events.
+If a native event (e.g., `click`) is defined in the `emits` option, the listener will now only listen to component-emitted `click` events and no longer respond to native `click` events.
 :::
 
 ## Events Validation
 
-Similar to prop type validation, an emitted event can be validated if it is defined with the Object syntax instead of the array syntax.
+Similar to prop type validation, an emitted event can be validated if it is defined with the object syntax instead of the array syntax.
 
 To add validation, the event is assigned a function that receives the arguments passed to the `emit` call and returns a boolean to indicate whether the event is valid or not.
 
@@ -385,7 +385,7 @@ By default, `v-model` on a component uses `modelValue` as the prop and `update:m
 <MyComponent v-model:title="bookTitle" />
 ```
 
-In this case, child component should expect a `title` prop and emit `update:title` event to update the parent value:
+In this case, the child component should expect a `title` prop and emit an `update:title` event to update the parent value:
 
 <div class="composition-api">
 

@@ -14,7 +14,7 @@ For example, we may have a `<FancyButton>` component that supports usage like th
 </FancyButton>
 ```
 
-This is how the template of `<FancyButton>` looks like:
+The template of `<FancyButton>` looks like this:
 
 ```vue-html{2}
 <button class="fancy-btn">
@@ -124,7 +124,7 @@ We might want the text "Submit" to be rendered inside the `<button>` if the pare
 </button>
 ```
 
-Now when we use `<submit-button>` in a parent component, providing no content for the slot:
+Now when we use `<SubmitButton>` in a parent component, providing no content for the slot:
 
 ```vue-html
 <SubmitButton />
@@ -195,7 +195,7 @@ For these cases, the `<slot>` element has a special attribute, `name`, which can
 
 A `<slot>` outlet without `name` implicitly has the name "default".
 
-In a parent component using `<BaseLayout>`, we need a way to pass multiple slot content framgents, each targeting a different slot outlet. This is where **named slots** comes in.
+In a parent component using `<BaseLayout>`, we need a way to pass multiple slot content fragments, each targeting a different slot outlet. This is where **named slots** come in.
 
 To pass a named slot, we need to use a `<template>` element with the `v-slot` directive, and then pass the name of the slot as an argument to `v-slot`:
 
@@ -213,7 +213,7 @@ To pass a named slot, we need to use a `<template>` element with the `v-slot` di
 
 <!-- https://www.figma.com/file/2BhP8gVZevttBu9oUmUUyz/named-slot -->
 
-Here's the code passing content to all three slots to `<BaseLayout>` using the shorthand syntax:
+Here's the code passing content for all three slots to `<BaseLayout>` using the shorthand syntax:
 
 ```vue-html
 <BaseLayout>
@@ -232,7 +232,7 @@ Here's the code passing content to all three slots to `<BaseLayout>` using the s
 </BaseLayout>
 ```
 
-When a component accepts both default slot and named slots, all top-level non-`<template>` nodes are implciitly treated as content for default slot. So the above can also be written as:
+When a component accepts both a default slot and named slots, all top-level non-`<template>` nodes are implicitly treated as content for the default slot. So the above can also be written as:
 
 ```vue-html
 <BaseLayout>
@@ -317,7 +317,7 @@ function BaseLayout(slots) {
 </base-layout>
 ```
 
-Do note the expression is subject to the same [syntax constraints](/guide/essentials/template-syntax.html#directives) of dynamic directive arguments.
+Do note the expression is subject to the [syntax constraints](/guide/essentials/template-syntax.html#directives) of dynamic directive arguments.
 
 ## Scoped Slots
 
@@ -337,9 +337,9 @@ In fact, we can do exactly that - we can pass attributes to a slot outlet just l
 Receiving the slot props is a bit different when using a single default slot vs. using named slots. We are going to show how to receive props using a single default slot first, by using `v-slot` directly on the child component tag:
 
 ```vue-html
-<MyComonent v-slot="slotProps">
+<MyComponent v-slot="slotProps">
   {{ slotProps.text }} {{ slotProps.count }}
-<MyComponent>
+</MyComponent>
 ```
 
 <div class="composition-api">
@@ -353,7 +353,7 @@ Receiving the slot props is a bit different when using a single default slot vs.
 
 </div>
 
-The props passed to the slot by the child is available as the value of the corresponding `v-slot` directive, which can be accessed by expressions inside the slot.
+The props passed to the slot by the child are available as the value of the corresponding `v-slot` directive, which can be accessed by expressions inside the slot.
 
 You can think of a scoped slot as a function being passed into the child component. The child component then calls it and passing props as arguments:
 
@@ -378,13 +378,12 @@ function MyComponent(slots) {
 
 In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/extras/render-function.html).
 
-Notice how `v-slot="slotProps"` matches the slot function signature - this means similar to function arguments, we can use destructuring in `v-slot`:
-
+Notice how `v-slot="slotProps"` matches the slot function signature. Just like with function arguments, we can use destructuring in `v-slot`:
 
 ```vue-html
-<MyComonent v-slot="{ text, count }">
+<MyComponent v-slot="{ text, count }">
   {{ text }} {{ count }}
-<MyComponent>
+</MyComponent>
 ```
 
 ### Named Scoped Slots
@@ -456,9 +455,9 @@ Inside `<FancyList>`, we can render the same `<slot>` multiple times with differ
 
 The `<FancyList>` use case we discussed above encapsulates both reusable logic (data fetching, pagination etc.) and visual output, while delegating part of the visual output to the consumer component via scoped slots.
 
-If we push this concept a bit further, we can come up with components that only encapsulate logic and do not render anything by themselves - visual output is fully delegated to the consumer component with scoped slots. We call this type of components **Renderless Components**.
+If we push this concept a bit further, we can come up with components that only encapsulate logic and do not render anything by themselves - visual output is fully delegated to the consumer component with scoped slots. We call this type of component a **Renderless Component**.
 
-An exmaple renderless component could be one that encapsulates the logic of tracking the current mouse position:
+An example renderless component could be one that encapsulates the logic of tracking the current mouse position:
 
 ```vue-html
 <MouseTracker v-slot="{ x, y }">

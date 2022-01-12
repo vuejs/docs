@@ -154,7 +154,7 @@ We use [PascalCase for component tags](/guide/components/registration.html#compo
 
 ### Static vs. Dynamic Props
 
-So far, you've seen props passed as static value, like in:
+So far, you've seen props passed as static values, like in:
 
 ```vue-html
 <BlogPost title="My journey with Vue" />
@@ -418,7 +418,7 @@ defineProps({
 ```
 
 :::tip
-Code inside the `defineProps()` argument **cannot access other variables declared in `<script setup>`**, because the entire expression is moved out to an outer function scoped when compiled.
+Code inside the `defineProps()` argument **cannot access other variables declared in `<script setup>`**, because the entire expression is moved to an outer function scope when compiled.
 :::
 
 </div>
@@ -483,7 +483,7 @@ If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-o
 <div class="options-api">
 
 ::: tip Note
-Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc) will not be available inside `default` or `validator` functions.
+Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc.) will not be available inside `default` or `validator` functions.
 :::
 
 </div>
