@@ -2,13 +2,15 @@
 
 ## v-text
 
+Update the element's text content.
+
 - **Expects:** `string`
 
-- **Details:**
+- **Details**
 
-  Updates the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent). If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax.html#text) instead
+  `v-text` works by setting the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) property, so it will overwrite any existing content inside the element. If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax.html#text) instead.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <span v-text="msg"></span>
@@ -16,17 +18,19 @@
   <span>{{msg}}</span>
   ```
 
-- **See also:** [Data Binding Syntax - Interpolations](/guide/essentials/template-syntax.html#text)
+- **See also:** [Template Syntax - Text Interpolation](/guide/essentials/template-syntax.html#text-interpolation)
 
 ## v-html
+
+Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
 
 - **Expects:** `string`
 
 - **Details:**
 
-  Updates the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML). **Note that the contents are inserted as plain HTML - they will not be compiled as Vue templates**. If you find yourself trying to compose templates using `v-html`, try to rethink the solution by using components instead.
+  Contents of `v-html` are inserted as plain HTML - Vue template syntax will not be processed. If you find yourself trying to compose templates using `v-html`, try to rethink the solution by using components instead.
 
-  ::: warning
+  ::: warning Security Note
   Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
   :::
 
@@ -38,27 +42,31 @@
   <div v-html="html"></div>
   ```
 
-- **See also:** [Data Binding Syntax - Interpolations](/guide/essentials/template-syntax.html#raw-html)
+- **See also:** [Template Syntax - Raw HTML](/guide/essentials/template-syntax.html#raw-html)
 
 ## v-show
 
+Toggle the element's visibility based on the truthy-ness of the expression value.
+
 - **Expects:** `any`
 
-- **Usage:**
+- **Details**
 
-  Toggles the element's `display` CSS property based on the truthy-ness of the expression value.
-
-  This directive triggers transitions when its condition changes.
+  `v-show` works by setting the `display` CSS property via inline styles, and will try to respect the initial `display` value when the element is visible. It also triggers transitions when its condition changes.
 
 - **See also:** [Conditional Rendering - v-show](/guide/essentials/conditional.html#v-show)
 
 ## v-if
 
+Conditionally render an element or a template fragment based on the truthy-ness of the expression value.
+
 - **Expects:** `any`
 
-- **Usage:**
+- **Details**
 
-  Conditionally render the element based on the truthy-ness of the expression value. The element and its contained directives / components are destroyed and re-constructed during toggles. If the element is a `<template>` element, its content will be extracted as the conditional block.
+  When a `v-if` element is toggled, the element and its contained directives / components are destroyed and re-constructed. If the initial condition is falsy, then the inner content won't be rendered at all.
+
+  Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
 
   This directive triggers transitions when its condition changes.
 
@@ -68,13 +76,17 @@
 
 ## v-else
 
+Denote the "else block" for `v-if` or a `v-if` / `v-else-if` chain.
+
 - **Does not expect expression**
 
-- **Restriction:** previous sibling element must have `v-if` or `v-else-if`.
+- **Details**
 
-- **Usage:**
+  - Restriction: previous sibling element must have `v-if` or `v-else-if`.
 
-  Denote the "else block" for `v-if` or a `v-if`/`v-else-if` chain.
+  - Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
+
+- **Example**
 
   ```vue-html
   <div v-if="Math.random() > 0.5">
@@ -89,13 +101,17 @@
 
 ## v-else-if
 
+Denote the "else if block" for `v-if`. Can be chained.
+
 - **Expects:** `any`
 
-- **Restriction:** previous sibling element must have `v-if` or `v-else-if`.
+- **Details**
 
-- **Usage:**
+  - Restriction: previous sibling element must have `v-if` or `v-else-if`.
 
-  Denote the "else if block" for `v-if`. Can be chained.
+  - Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
+
+- **Example**
 
   ```vue-html
   <div v-if="type === 'A'">
@@ -116,11 +132,13 @@
 
 ## v-for
 
+Render the element or template block multiple times based on the source data.
+
 - **Expects:** `Array | Object | number | string | Iterable`
 
-- **Usage:**
+- **Details**
 
-  Render the element or template block multiple times based on the source data. The directive's value must use the special syntax `alias in expression` to provide an alias for the current element being iterated on:
+  The directive's value must use the special syntax `alias in expression` to provide an alias for the current element being iterated on:
 
   ```vue-html
   <div v-for="item in items">
@@ -146,18 +164,18 @@
 
   `v-for` can also work on values that implement the [Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), including native `Map` and `Set`.
 
-  The detailed usage for `v-for` is explained in the guide section linked below.
-
 - **See also:**
   - [List Rendering](/guide/essentials/list.html)
 
 ## v-on
 
+Attach an event listener to the element.
+
 - **Shorthand:** `@`
 
-- **Expects:** `Function | Inline Statement | Object`
+- **Expects:** `Function | Inline Statement | Object (without argument)`
 
-- **Argument:** `event`
+- **Argument:** `event` (optional if using Object syntax)
 
 - **Modifiers:**
 
@@ -172,15 +190,15 @@
   - `.middle` - only trigger handler for middle button mouse events.
   - `.passive` - attaches a DOM event with `{ passive: true }`.
 
-- **Usage:**
+- **Details**
 
-  Attaches an event listener to the element. The event type is denoted by the argument. The expression can be a method name, an inline statement, or omitted if there are modifiers present.
+  The event type is denoted by the argument. The expression can be a method name, an inline statement, or omitted if there are modifiers present.
 
   When used on a normal element, it listens to [**native DOM events**](https://developer.mozilla.org/en-US/docs/Web/Events) only. When used on a custom element component, it listens to **custom events** emitted on that child component.
 
   When listening to native DOM events, the method receives the native event as the only argument. If using inline statement, the statement has access to the special `$event` property: `v-on:click="handle('ok', $event)"`.
 
-  `v-on` also supports binding to an object of event/listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.
+  `v-on` also supports binding to an object of event / listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.
 
 - **Example:**
 
@@ -225,10 +243,10 @@
   Listening to custom events on a child component (the handler is called when "my-event" is emitted on the child):
 
   ```vue-html
-  <my-component @my-event="handleThis"></my-component>
+  <MyComponent @my-event="handleThis" />
 
   <!-- inline statement -->
-  <my-component @my-event="handleThis(123, $event)"></my-component>
+  <MyComponent @my-event="handleThis(123, $event)" />
   ```
 
 - **See also:**
@@ -236,6 +254,8 @@
   - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-child-components-events)
 
 ## v-bind
+
+Dynamically bind one or more attributes, or a component prop to an expression.
 
 - **Shorthand:** `:` or `.` (when using `.prop` modifier)
 
@@ -251,15 +271,13 @@
 
 - **Usage:**
 
-  Dynamically bind one or more attributes, or a component prop to an expression.
+  When used to bind the `class` or `style` attribute, `v-bind` supports additional value types such as Array or Objects. See linked guide section below for more details.
 
-  When used to bind the `class` or `style` attribute, it supports additional value types such as Array or Objects. See linked guide section below for more details.
+  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/extras/web-components.html#passing-dom-properties).
 
-  When used for prop binding, the prop must be properly declared in the child component.
+  When used for component prop binding, the prop must be properly declared in the child component.
 
   When used without an argument, can be used to bind an object containing attribute name-value pairs. Note in this mode `class` and `style` does not support Array or Objects.
-
-  // TODO details on auto prop/attr check
 
 - **Example:**
 
@@ -291,17 +309,15 @@
   <!-- binding an object of attributes -->
   <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
-  <!-- prop binding. "prop" must be declared in my-component. -->
-  <my-component :prop="someThing"></my-component>
+  <!-- prop binding. "prop" must be declared in the child component. -->
+  <MyComponent :prop="someThing" />
 
   <!-- pass down parent props in common with a child component -->
-  <child-component v-bind="$props"></child-component>
+  <MyComponent v-bind="$props" />
 
   <!-- XLink -->
   <svg><a :xlink:special="foo"></a></svg>
   ```
-
-  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/extras/web-components.html#passing-dom-properties).
 
   The `.prop` modifier also has a dedicated shorthand, `.`:
 
@@ -318,13 +334,15 @@
   <svg :view-box.camel="viewBox"></svg>
   ```
 
-  `.camel` is not needed if you are using string templates, or compiling with `vue-loader`/`vueify`.
+  `.camel` is not needed if you are using string templates, or pre-compiling the template with a build step.
 
 - **See also:**
   - [Class and Style Bindings](/guide/essentials/class-and-style.html)
-  - [Components - Props](/guide/essentials/component-basics.html#passing-data-to-child-components-with-props)
+  - [Components - Prop Passing Details](/guide/components/props.html#prop-passing-details)
 
 ## v-model
+
+Create a two-way binding on a form input element or a component.
 
 - **Expects:** varies based on value of form inputs element or output of components
 
@@ -341,15 +359,14 @@
   - [`.number`](/guide/essentials/forms.html#number) - cast valid input string to numbers
   - [`.trim`](/guide/essentials/forms.html#trim) - trim input
 
-- **Usage:**
-
-  Create a two-way binding on a form input element or a component. For detailed usage and other notes, see the Guide section linked below.
-
 - **See also:**
+
   - [Form Input Bindings](/guide/essentials/forms.html)
-  - [Components - Form Input Components using Custom Events](..](components/events.html#v-model-arguments)
+  - [Component Events - Usage with `v-model`](/guide/components/events.html#usage-with-v-model)
 
 ## v-slot
+
+Denote named slots or slots that expect to receive props.
 
 - **Shorthand:** `#`
 
@@ -362,15 +379,11 @@
   - `<template>`
   - [components](/guide/components/slots.html#abbreviated-syntax-for-lone-default-slots) (for a lone default slot with props)
 
-- **Usage:**
-
-  Denote named slots or slots that expect to receive props.
-
 - **Example:**
 
   ```vue-html
   <!-- Named slots -->
-  <base-layout>
+  <BaseLayout>
     <template v-slot:header>
       Header content
     </template>
@@ -382,35 +395,35 @@
     <template v-slot:footer>
       Footer content
     </template>
-  </base-layout>
+  </BaseLayout>
 
   <!-- Named slot that receives props -->
-  <infinite-scroll>
+  <InfiniteScroll>
     <template v-slot:item="slotProps">
       <div class="item">
         {{ slotProps.item.text }}
       </div>
     </template>
-  </infinite-scroll>
+  </InfiniteScroll>
 
   <!-- Default slot that receive props, with destructuring -->
-  <mouse-position v-slot="{ x, y }">
+  <Mouse v-slot="{ x, y }">
     Mouse position: {{ x }}, {{ y }}
-  </mouse-position>
+  </Mouse>
   ```
-
-  For more details, see the links below.
 
 - **See also:**
   - [Components - Slots](/guide/components/slots.html)
 
 ## v-pre
 
+Skip compilation for this element and all its children.
+
 - **Does not expect expression**
 
-- **Usage:**
+- **Details**
 
-  Skip compilation for this element and all its children. You can use this for displaying raw mustache tags. Skipping large numbers of nodes with no directives on them can also speed up compilation.
+  Inside the element with `v-pre`, all Vue template syntax will be preserved and rendered as-is. The most common use case of this is displaying raw mustache tags.
 
 - **Example:**
 
@@ -418,37 +431,15 @@
   <span v-pre>{{ this will not be compiled }}</span>
   ```
 
-## v-cloak
-
-- **Does not expect expression**
-
-- **Usage:**
-
-  This directive will remain on the element until the associated component instance finishes compilation. Combined with CSS rules such as `[v-cloak] { display: none }`, this directive can be used to hide un-compiled mustache bindings until the component instance is ready.
-
-- **Example:**
-
-  ```css
-  [v-cloak] {
-    display: none;
-  }
-  ```
-
-  ```vue-html
-  <div v-cloak>
-    {{ message }}
-  </div>
-  ```
-
-  The `<div>` will not be visible until the compilation is done.
-
 ## v-once
 
+Render the element and component once only, and skip future updates.
+
 - **Does not expect expression**
 
-- **Details:**
+- **Details**
 
-  Render the element and component **once** only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.
+  On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.
 
   ```vue-html
   <!-- single element -->
@@ -474,9 +465,9 @@
 
 ## v-memo <Badge text="3.2+"/>
 
-- **Expects:** `Array`
+- **Expects:** `any[]`
 
-- **Details:**
+- **Details**
 
   Memoize a sub-tree of the template. Can be used on both elements and components. The directive expects a fixed-length array of dependency values to compare for the memoization. If every value in the array was the same as last render, then updates for the entire sub-tree will be skipped. For example:
 
@@ -512,6 +503,32 @@
 - **See also:**
   - [v-once](#v-once)
 
-## v-is <Badge text="deprecated" type="warning" />
+## v-cloak
 
-Deprecated in 3.1.0. Use [`is` attribute with `vue:` prefix](./built-in-special-attributes.html#is) instead.
+Used to hide un-compiled template until it is ready.
+
+- **Does not expect expression**
+
+- **Details**
+
+  **This directive is only needed in no-build-step setups.**
+
+  When using in-DOM templates, there can be a "flash of un-compiled templates": the user may see raw mustache tags until the mounted component replaces them with rendered content.
+
+  `v-cloak` will remain on the element until the associated component instance is mounted. Combined with CSS rules such as `[v-cloak] { display: none }`, it can be used to hide the raw templates until the component is ready.
+
+- **Example:**
+
+  ```css
+  [v-cloak] {
+    display: none;
+  }
+  ```
+
+  ```vue-html
+  <div v-cloak>
+    {{ message }}
+  </div>
+  ```
+
+  The `<div>` will not be visible until the compilation is done.
