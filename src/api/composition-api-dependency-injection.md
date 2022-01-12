@@ -1,9 +1,5 @@
 # Composition API: <br>Dependency Injection
 
-:::tip Usage Note
-Similar to lifecycle hook registration APIs, both `provide()` and `inject()` can only be called synchronously during a component's `setup()` phase.
-:::
-
 ## provide()
 
 Provides a value that can be injected by descendent components.
@@ -71,6 +67,8 @@ Injects a value provided by an ancestor component or the application (via `app.p
   The first argument is the injection key. Vue will walk up the parent chain to locate a provided value with a matching key. If multiple components in the parent chain provides the same key, the one closest to the injecting component will "shadow" those higher up the chain. If no value with matching key was found, `inject()` returns `undefined` unless a default value is provided.
 
   The second argument is optional and is the default value to be used when no matching value was found. It can also be a factory function to return values that are expensive to create. If the default value is a function, then `false` must be passed as the third argument to indicate that the function should be used as the value instead of the factory.
+
+  Similar to lifecycle hook registration APIs, `inject()` must be called synchronously during a component's `setup()` phase.
 
   When using TypeScript, the key can be of type of `InjectionKey` - a Vue-provided utility type that extends `Symbol`, which can be used to sync the value type between `provide()` and `inject()`.
 

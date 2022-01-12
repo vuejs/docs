@@ -1,239 +1,332 @@
 # Options: Lifecycle
 
-:::tip Note
-All lifecycle hooks automatically have their `this` context bound to the instance, so that you can access data, computed properties, and methods. This means **you should not use an arrow function to define a lifecycle method** (e.g. `created: () => this.fetchTodos()`). The reason is arrow functions bind the parent context, so `this` will not be the component instance as you expect and `this.fetchTodos` will be undefined.
+:::info See also
+For shared usage of lifecycle hooks, see [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html)
 :::
 
 ## beforeCreate
 
-- **Type:** `Function`
+Called when the instance is initialized.
 
-- **Details:**
+- **Type**
 
-  Called synchronously immediately after the instance has been initialized, before data observation and event/watcher setup.
+  ```ts
+  interface ComponentOptions {
+    beforeCreate(this: ComponentPublicInstance): void
+  }
+  ```
 
-- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
+- **Details**
+
+  Called immediately when the instance is initialized, after props resolution, before processing other options such as `data()` or `computed`.
+
+  Note that the `setup()` hook of Composition API is called before any Options API hooks, even `beforeCreate()`.
 
 ## created
 
-- **Type:** `Function`
+Called after the instance has finished processing all state-related options.
 
-- **Details:**
+- **Type**
 
-  Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following have been set up: data observation, computed properties, methods, watch/event callbacks. However, the mounting phase has not been started, and the `$el` property will not be available yet.
+  ```ts
+  interface ComponentOptions {
+    created(this: ComponentPublicInstance): void
+  }
+  ```
 
-- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
+- **Details**
+
+  When this hooks is called, the following have been set up: reactive data, computed properties, methods, and watchers. However, the mounting phase has not been started, and the `$el` property will not be available yet.
 
 ## beforeMount
 
-- **Type:** `Function`
+Called right before the component is to be mounted.
 
-- **Details:**
+- **Type**
 
-  Called right before the mounting begins: the `render` function is about to be called for the first time.
+  ```ts
+  interface ComponentOptions {
+    beforeMount(this: ComponentPublicInstance): void
+  }
+  ```
+
+- **Details**
+
+  When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet. It is about to execute its DOM render effect for the first time.
 
   **This hook is not called during server-side rendering.**
-
-- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## mounted
 
-- **Type:** `Function`
+Called after the component has been mounted.
 
-- **Details:**
+- **Type**
 
-  Called after the instance has been mounted, where element, passed to [`app.mount`](/api/application.html#app-mount) is replaced by the newly created `vm.$el`. If the root instance is mounted to an in-document element, `vm.$el` will also be in-document when `mounted` is called.
+  ```ts
+  interface ComponentOptions {
+    mounted(this: ComponentPublicInstance): void
+  }
+  ```
+
+- **Details**
+
+  A component is considered mounted after:
+
+  - All of its synchronous child components have been mounted (does not include async components or components inside `<Suspense>` trees).
+
+  - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
+
+  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr.html).
 
   **This hook is not called during server-side rendering.**
-
-- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## beforeUpdate
 
-- **Type:** `Function`
+Called right before the component is about to update its DOM tree due to a reactive state change.
 
-- **Details:**
+- **Type**
 
-  Called when data changes, before the DOM is patched. This is a good place to access the existing DOM before an update, e.g. to remove manually added event listeners.
+  ```ts
+  interface ComponentOptions {
+    beforeUpdate(this: ComponentPublicInstance): void
+  }
+  ```
 
-  **This hook is not called during server-side rendering, because only the initial render is performed server-side.**
+- **Details**
 
-- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
+  This hook can be used to access the DOM state before Vue updates the DOM. It is also safe to modify component state inside this hook.
+
+  **This hook is not called during server-side rendering.**
 
 ## updated
 
-- **Type:** `Function`
+Called after the component has updated its DOM tree due to a reactive state change.
 
-- **Details:**
+- **Type**
 
-  Called after a data change causes the virtual DOM to be re-rendered and patched.
+  ```ts
+  interface ComponentOptions {
+    updated(this: ComponentPublicInstance): void
+  }
+  ```
 
-  The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](./options-state.html#computed) or [watcher](./options-state.html#watch) instead.
+- **Details**
 
-  **This hook is not called during server-side rendering.**
+  A parent component's updated hook is called after that of its child components.
 
-- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
-
-## activated
-
-- **Type:** `Function`
-
-- **Details:**
-
-  Called when a kept-alive component is activated.
+  This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general.html#nexttick) instead.
 
   **This hook is not called during server-side rendering.**
 
-- **See also:**
-  - [`<KeepAlive/>`](/guide/built-ins/keep-alive)
-
-## deactivated
-
-- **Type:** `Function`
-
-- **Details:**
-
-  Called when a kept-alive component is deactivated.
-
-  **This hook is not called during server-side rendering.**
-
-- **See also:**
-  - [`<KeepAlive/>`](/guide/built-ins/keep-alive)
+  :::warning
+  Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
+  :::
 
 ## beforeUnmount
 
-- **Type:** `Function`
+Called right before a component instance is to be unmounted.
 
-- **Details:**
+- **Type**
 
-  Called right before a component instance is unmounted. At this stage the instance is still fully functional.
+  ```ts
+  interface ComponentOptions {
+    beforeUnmount(this: ComponentPublicInstance): void
+  }
+  ```
+
+- **Details**
+
+  When this hook is called, the component instance is still fully functional.
 
   **This hook is not called during server-side rendering.**
-
-- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
 
 ## unmounted
 
-- **Type:** `Function`
+Called after the component has been unmounted.
 
-- **Details:**
+- **Type**
 
-  Called after a component instance has been unmounted. When this hook is called, all directives of the component instance have been unbound, all event listeners have been removed, and all child component instance have also been unmounted.
+  ```ts
+  interface ComponentOptions {
+    unmounted(this: ComponentPublicInstance): void
+  }
+  ```
+
+- **Details**
+
+  A component is considered unmounted after:
+
+  - All of its child components have been unmounted.
+
+  - All of its associated reactive effects (render effect and computed / watchers created during `setup()`) have been stopped.
+
+  Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
 
   **This hook is not called during server-side rendering.**
 
-- **See also:** [Lifecycle Diagram](/guide/essentials/lifecycle.html#lifecycle-diagram)
-
 ## errorCaptured
 
-- **Type:** `(err: Error, instance: Component, info: string) => ?boolean`
+Called when an error propagating from a descendent component has been captured.
 
-- **Details:**
+- **Type**
 
-  Called when an error from any descendent component is captured. The hook receives three arguments: the error, the component instance that triggered the error, and a string containing information on where the error was captured. The hook can return `false` to stop the error from propagating further.
+  ```ts
+  interface ComponentOptions {
+    errorCaptured(
+      this: ComponentPublicInstance,
+      err: unknown,
+      instance: ComponentPublicInstance | null,
+      info: string
+    ): boolean | void
+  }
+  ```
 
-  :::tip
-  You can modify component state in this hook. However, it is important to have conditionals in your template or render function that short circuits other content when an error has been captured; otherwise the component will be thrown into an infinite render loop.
-  :::
+- **Details**
+
+  Errors can be captured from the following sources:
+
+  - Component renders
+  - Event handlers
+  - Lifecycle hooks
+  - `setup()` function
+  - Watchers
+  - Custom directive hooks
+  - Transition hooks
+
+  The hook receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+
+  You can modify component state in `errorCaptured()` to display an error state to the user. However, it is important that the error state should not render the original content that caused the error; otherwise the component will be thrown into an infinite render loop.
+
+  The hook can return `false` to stop the error from propagating further. See error propagation details below.
 
   **Error Propagation Rules**
 
-  - By default, all errors are still sent to the global `config.errorHandler` if it is defined, so that these errors can still be reported to an analytics service in a single place.
+  - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application.html#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
 
   - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error.
 
-  - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to the global `config.errorHandler`.
+  - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to `app.config.errorHandler`.
 
-  - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or the global `config.errorHandler` from being invoked for this error.
+  - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
 
-## renderTracked
+## renderTracked <Badge type="warning" text="Dev only" />
 
-- **Type:** `(e: DebuggerEvent) => void`
+Called when a reactive dependency has been tracked by the component's render effect.
 
-- **Details:**
+- **Type**
 
-  Called when virtual DOM re-render is tracked. The hook receives a `debugger event` as an argument. This event tells you what operation tracked the component and the target object and key of that operation.
+  ```ts
+  interface ComponentOptions {
+    renderTracked(e: DebuggerEvent): void
+  }
 
-- **Usage:**
-
-  ```vue-html
-  <div id="app">
-    <button v-on:click="addToCart">Add to cart</button>
-    <p>Cart({{ cart }})</p>
-  </div>
+  type DebuggerEvent = {
+    effect: ReactiveEffect
+    target: object
+    type: TrackOpTypes /* 'get' | 'has' | 'iterate' */
+    key: any
+  }
   ```
+
+- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+
+## renderTriggered <Badge type="warning" text="Dev only" />
+
+Called when a reactive dependency triggers the component's render effect to be re-run.
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    renderTracked(e: DebuggerEvent): void
+  }
+
+  type DebuggerEvent = {
+    effect: ReactiveEffect
+    target: object
+    type: TriggerOpTypes /* 'set' | 'add' | 'delete' | 'clear' */
+    key: any
+    newValue?: any
+    oldValue?: any
+    oldTarget?: Map<any, any> | Set<any>
+  }
+  ```
+
+- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+
+## activated
+
+Called after the component instance is inserted into the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
+
+**This hook is not called during server-side rendering.**
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    activated(this: ComponentPublicInstance): void
+  }
+  ```
+
+- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
+
+## deactivated
+
+Called after the component instance is removed from the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
+
+**This hook is not called during server-side rendering.**
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    deactivated(this: ComponentPublicInstance): void
+  }
+  ```
+
+- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
+
+## serverPrefetch <Badge text="SSR only" />
+
+Async function to be resolved before the component instance is to be rendered on the server.
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    serverPrefetch(this: ComponentPublicInstance): Promise<any>
+  }
+  ```
+
+- **Details**
+
+  If the hook returns a Promise, the server renderer will wait until the Promise is resolved before rendering the component.
+
+  This hook is only called during server-side rendering can be used to perform server-only data fetching.
+
+- **Example**
 
   ```js
-  const app = createApp({
+  export default {
     data() {
       return {
-        cart: 0
+        data: null
       }
     },
-    renderTracked({ key, target, type }) {
-      console.log({ key, target, type })
-      /* This will be logged when component is rendered for the first time:
-      {
-        key: "cart",
-        target: {
-          cart: 0
-        },
-        type: "get"
-      }
-      */
+    async serverPrefetch() {
+      // component is rendered as part of the initial request
+      // pre-fetch data on server as it is faster than on the client
+      this.data = await fetchOnServer(/* ... */)
     },
-    methods: {
-      addToCart() {
-        this.cart += 1
+    async mounted() {
+      if (!this.data) {
+        // if data is null on mount, it means the component
+        // is dynamically rendered on the client. Perform a
+        // client-side fetch instead.
+        this.data = await fetchOnClient(/* ... */)
       }
     }
-  })
-
-  app.mount('#app')
+  }
   ```
 
-## renderTriggered
-
-- **Type:** `(e: DebuggerEvent) => void`
-
-- **Details:**
-
-  Called when virtual DOM re-render is triggered. Similarly to [`renderTracked`](#rendertracked), receives a `debugger event` as an argument. This event tells you what operation triggered the re-rendering and the target object and key of that operation.
-
-- **Usage:**
-
-  ```vue-html
-  <div id="app">
-    <button v-on:click="addToCart">Add to cart</button>
-    <p>Cart({{ cart }})</p>
-  </div>
-  ```
-
-  ```js
-  const app = createApp({
-    data() {
-      return {
-        cart: 0
-      }
-    },
-    renderTriggered({ key, target, type }) {
-      console.log({ key, target, type })
-    },
-    methods: {
-      addToCart() {
-        this.cart += 1
-        /* This will cause renderTriggered call
-          {
-            key: "cart",
-            target: {
-              cart: 1
-            },
-            type: "set"
-          }
-        */
-      }
-    }
-  })
-
-  app.mount('#app')
-  ```
+- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr.html)

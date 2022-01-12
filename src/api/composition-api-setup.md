@@ -1,6 +1,6 @@
 # Composition API: setup()
 
-:::tip
+:::info Note
 This page documents the usage of the `setup` component option. If you are using Composition API with Single-File Components, [`<script setup>`](/api/sfc-script-setup.html) is recommended for a more succinct and ergonomic syntax.
 :::
 

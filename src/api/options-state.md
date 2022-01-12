@@ -1,6 +1,6 @@
 # Options: State
 
-## data()
+## data
 
 A function that returns the initial reactive state for the component instance.
 
@@ -209,7 +209,9 @@ Declare methods to be mixed into the component instance.
 
   ```ts
   interface ComponentOptions {
-    methods: { [key: string]: Function }
+    methods: {
+      [key: string]: (this: ComponentPublicInstance, ...args: any[]) => any
+    }
   }
   ```
 

@@ -136,6 +136,8 @@
 
 ## mixins
 
+An array of option objects to be mixed into the current component.
+
 - **Type:** `Array<Object>`
 
 - **Details:**

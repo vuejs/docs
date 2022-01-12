@@ -1,6 +1,6 @@
 # Composition API: Lifecycle Hooks
 
-:::tip Usage Note
+:::info Usage Note
 All APIs listed on this page must be called synchronously during the `setup()` phase of a component. See [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html) for more details.
 :::
 
@@ -24,7 +24,7 @@ Registers a callback to be called after the component has been mounted.
 
   This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr.html).
 
-  **This hook is not called during SSR.**
+  **This hook is not called during server-side rendering.**
 
 - **Example**
 
@@ -62,7 +62,7 @@ Registers a callback to be called after the component has updated its DOM tree d
 
   This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general.html#nexttick) instead.
 
-  **This hook is not called during SSR.**
+  **This hook is not called during server-side rendering.**
 
   :::warning
   Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
@@ -109,7 +109,7 @@ Registers a callback to be called after the component has been unmounted.
 
   Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
 
-  **This hook is not called during SSR.**
+  **This hook is not called during server-side rendering.**
 
 - **Example**
 
@@ -142,7 +142,7 @@ Registers a hook to be called right before the component is to be mounted.
 
   When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet. It is about to execute its DOM render effect for the first time.
 
-  **This hook is not called during SSR.**
+  **This hook is not called during server-side rendering.**
 
 ## onBeforeUpdate()
 
@@ -158,7 +158,7 @@ Registers a hook to be called right before the component is about to update its 
 
   This hook can be used to access the DOM state before Vue updates the DOM. It is also safe to modify component state inside this hook.
 
-  **This hook is not called during SSR.**
+  **This hook is not called during server-side rendering.**
 
 ## onBeforeUnmount()
 
@@ -174,7 +174,7 @@ Registers a hook to be called right before a component instance is to be unmount
 
   When this hook is called, the component instance is still fully functional.
 
-  **This hook is not called during SSR.**
+  **This hook is not called during server-side rendering.**
 
 ## onErrorCaptured()
 
@@ -224,7 +224,7 @@ Registers a hook to be called when an error propagating from a descendent compon
 
 Registers a debug hook to be called when a reactive dependency has been tracked by the component's render effect.
 
-**This hook is development-mode-only and not called during SSR.**
+**This hook is development-mode-only and not called during server-side rendering.**
 
 - **Type**
 
@@ -247,7 +247,7 @@ Registers a debug hook to be called when a reactive dependency has been tracked 
 
 Registers a debug hook to be called when a reactive dependency triggers the component's render effect to be re-run.
 
-**This hook is development-mode-only and not called during SSR.**
+**This hook is development-mode-only and not called during server-side rendering.**
 
 - **Type**
 
@@ -273,7 +273,7 @@ Registers a debug hook to be called when a reactive dependency triggers the comp
 
 Registers a callback to be called after the component instance is inserted into the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
 
-**This hook is not called during SSR.**
+**This hook is not called during server-side rendering.**
 
 - **Type**
 
@@ -287,7 +287,7 @@ Registers a callback to be called after the component instance is inserted into 
 
 Registers a callback to be called after the component instance is removed from the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
 
-**This hook is not called during SSR.**
+**This hook is not called during server-side rendering.**
 
 - **Type**
 
@@ -311,7 +311,7 @@ Registers a async function to be resolved before the component instance is to be
 
   If the callback returns a Promise, the server renderer will wait until the Promise is resolved before rendering the component.
 
-  This hook is only called during SSR can be used to perform server-only data fetching.
+  This hook is only called during server-side rendering can be used to perform server-only data fetching.
 
 - **Example**
 
