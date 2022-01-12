@@ -2,13 +2,17 @@
 
 ## createApp()
 
-Creates an application instance. Expects the root component as the first argument, and optional props to be passed to the root component as the second argument.
+Creates an application instance.
 
 - **Type**
 
   ```ts
   function createApp(rootComponent: Component, rootProps?: object): App
   ```
+
+- **Details**
+
+  The first argument is the root component. The second optional argument is the props to be passed to the root component.
 
 - **Example**
 
@@ -39,13 +43,7 @@ Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr.html#cl
 
 ## app.mount()
 
-Mounts the application instance in a container element. The first argument can either be a CSS selector (the first matched element will be used) or an actual DOM element. Returns the root component instance.
-
-If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
-
-In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr.html#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
-
-For each app instance, `mount()` can only be called once.
+Mounts the application instance in a container element.
 
 - **Type**
 
@@ -54,6 +52,16 @@ For each app instance, `mount()` can only be called once.
     mount(rootContainer: Element | string): ComponentPublicInstance
   }
   ```
+
+- **Details**
+
+  The first argument can either be a CSS selector (the first matched element will be used) or an actual DOM element. Returns the root component instance.
+
+  If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
+
+  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr.html#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
+
+  For each app instance, `mount()` can only be called once.
 
 - **Example**
 
@@ -72,7 +80,7 @@ For each app instance, `mount()` can only be called once.
 
 ## app.unmount()
 
-Unmounts a mounted application instance. This will in turn trigger the unmount lifecycle hooks for all components in the application's component tree.
+Unmounts a mounted application instance, triggering the unmount lifecycle hooks for all components in the application's component tree.
 
 - **Type**
 
@@ -84,7 +92,7 @@ Unmounts a mounted application instance. This will in turn trigger the unmount l
 
 ## app.provide()
 
-Provide a value that can be injected in all descendent components within the application. Expects the injection key as the first argument, and the provided value as the second. Returns the application instance itself.
+Provide a value that can be injected in all descendent components within the application.
 
 - **Type**
 
@@ -93,6 +101,10 @@ Provide a value that can be injected in all descendent components within the app
     provide<T>(key: InjectionKey<T> | symbol | string, value: T): this
   }
   ```
+
+- **Details**
+
+  Expects the injection key as the first argument, and the provided value as the second. Returns the application instance itself.
 
 - **Example**
 
@@ -207,11 +219,7 @@ Registers a global custom directive if passing both a name string and a directiv
 
 ## app.use()
 
-Installs a [plugin](/guide/reusability/plugins.html). Expects the plugin as the first argument, and optional plugin options as the second argument.
-
-The plugin can either be an object with an `install()` method, or a directly a function (which itself will used as the install method). The options (second argument of `app.use()`) will be passed along to the plugin's install method.
-
-When `app.use()` is called on the same plugin multiple times, the plugin will be installed only once.
+Installs a [plugin](/guide/reusability/plugins.html).
 
 - **Type**
 
@@ -220,6 +228,14 @@ When `app.use()` is called on the same plugin multiple times, the plugin will be
     use(plugin: Plugin, ...options: any[]): this
   }
   ```
+
+- **Details**
+
+  Expects the plugin as the first argument, and optional plugin options as the second argument.
+
+  The plugin can either be an object with an `install()` method, or a directly a function (which itself will used as the install method). The options (second argument of `app.use()`) will be passed along to the plugin's install method.
+
+  When `app.use()` is called on the same plugin multiple times, the plugin will be installed only once.
 
 - **Example**
 
@@ -240,6 +256,12 @@ When `app.use()` is called on the same plugin multiple times, the plugin will be
 
 Applies a global mixin (scoped to the application). A global mixin applies its included options to every component instance in the application.
 
+:::warning Not Recommended
+Mixins are supported in Vue 3 mainly for backwards compatibility due to its wide-spread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
+
+For logic reuse, prefer [Composables](/guide/reusability/composables.html) instead.
+:::
+
 - **Type**
 
   ```ts
@@ -247,12 +269,6 @@ Applies a global mixin (scoped to the application). A global mixin applies its i
     mixin(mixin: ComponentOptions): this
   }
   ```
-
-:::warning Not Recommended
-Mixins are supported in Vue 3 mainly for backwards compatibility due to its wide-spread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
-
-For logic reuse, prefer [Composables](/guide/reusability/composables.html) instead.
-:::
 
 ## app.version
 
@@ -297,17 +313,7 @@ console.log(app.config)
 
 ## app.config.errorHandler
 
-Assign a global handler for uncaught errors from the following sources:
-
-- Component renders
-- Event handlers
-- Lifecycle hooks
-- `setup()` function
-- Watchers
-- Custom directive hooks
-- Transition hooks
-
-The error handler receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+Assign a global handler for uncaught errors propagating from within the application.
 
 - **Type**
 
@@ -323,6 +329,20 @@ The error handler receives three arguments: the error, the component instance th
   }
   ```
 
+- **Details**
+
+  The error handler receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+
+  It can capture errors from the following sources:
+
+  - Component renders
+  - Event handlers
+  - Lifecycle hooks
+  - `setup()` function
+  - Watchers
+  - Custom directive hooks
+  - Transition hooks
+
 - **Example**
 
   ```js
@@ -333,13 +353,7 @@ The error handler receives three arguments: the error, the component instance th
 
 ## app.config.warnHandler
 
-Assign a custom handler for runtime warnings from Vue. It receives the warning message as the first argument, the source component instance as the second argument, and a component trace string as the third.
-
-This can be used to filter out specific warnings to reduce console verbosity. All Vue warnings should be addressed during development, so this is only recommended during debug sessions to focus on specific warnings among many, and should be removed once the debugging is done.
-
-:::tip
-Warnings only work during development, so this config is ignored in production mode.
-:::
+Assign a custom handler for runtime warnings from Vue.
 
 - **Type**
 
@@ -352,6 +366,16 @@ Warnings only work during development, so this config is ignored in production m
     ) => void
   }
   ```
+
+- **Details**
+
+  The warning handler receives the warning message as the first argument, the source component instance as the second argument, and a component trace string as the third.
+
+  It can be used to filter out specific warnings to reduce console verbosity. All Vue warnings should be addressed during development, so this is only recommended during debug sessions to focus on specific warnings among many, and should be removed once the debugging is done.
+
+  :::tip
+  Warnings only work during development, so this config is ignored in production mode.
+  :::
 
 - **Example**
 
@@ -383,11 +407,15 @@ This config option is only respected when using the full build (i.e. the standal
 
 ### app.compilerOptions.isCustomElement
 
-Specifies a check method to recognize native custom elements. If a tag name matches this condition, Vue will render it as a native element instead of attempting to resolve it as a Vue component.
-
-Native HTML and SVG tags don't need to be matched in this function - Vue's parser recognizes them automatically.
+Specifies a check method to recognize native custom elements.
 
 - **Type:** `(tag: string) => boolean`
+
+- **Details**
+
+  Should return `true` if the tag should be treated as a native custom element. For a matched tag, Vue will render it as a native element instead of attempting to resolve it as a Vue component.
+
+  Native HTML and SVG tags don't need to be matched in this function - Vue's parser recognizes them automatically.
 
 - **Example**
 
@@ -404,17 +432,19 @@ Native HTML and SVG tags don't need to be matched in this function - Vue's parse
 
 Adjusts template whitespace handling behavior.
 
-Vue removes / condenses whitespaces in templates to produce more efficient compiled output. The default strategy is "condense", with the following behavior:
-
-1. Leading / ending whitespaces inside an element are condensed into a single space.
-2. Whitespaces between elements that contain newlines are removed.
-3. Consecutive whitespaces in text nodes are condensed into a single space.
-
-Setting this option to `'preserve'` will disable (2) and (3).
-
 - **Type:** `'condense' | 'preserve'`
 
 - **Default:** `'condense'`
+
+- **Details**
+
+  Vue removes / condenses whitespaces in templates to produce more efficient compiled output. The default strategy is "condense", with the following behavior:
+
+  1. Leading / ending whitespaces inside an element are condensed into a single space.
+  2. Whitespaces between elements that contain newlines are removed.
+  3. Consecutive whitespaces in text nodes are condensed into a single space.
+
+  Setting this option to `'preserve'` will disable (2) and (3).
 
 - **Example**
 
@@ -424,11 +454,15 @@ Setting this option to `'preserve'` will disable (2) and (3).
 
 ### app.compilerOptions.delimiters
 
-Adjusts the delimiters used for text interpolation within the template. This is typically used to avoid conflicting with server-side frameworks that also use mustache syntax.
+Adjusts the delimiters used for text interpolation within the template.
 
 - **Type:** `[string, string]`
 
 - **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
+
+- **Details**
+
+  This is typically used to avoid conflicting with server-side frameworks that also use mustache syntax.
 
 - **Example**
 
@@ -441,11 +475,13 @@ Adjusts the delimiters used for text interpolation within the template. This is 
 
 Adjusts treatment of HTML comments in templates.
 
-By default, Vue will remove the comments in production. Setting this option to `true` will force Vue to preserve comments even in production. Comments are always preserved during development. This option is typically used when Vue is used with other libraries that rely on HTML comments.
-
 - **Type:** `boolean`
 
 - **Default:** `false`
+
+- **Details**
+
+  By default, Vue will remove the comments in production. Setting this option to `true` will force Vue to preserve comments even in production. Comments are always preserved during development. This option is typically used when Vue is used with other libraries that rely on HTML comments.
 
 - **Example**
 
@@ -455,9 +491,7 @@ By default, Vue will remove the comments in production. Setting this option to `
 
 ## app.config.globalProperties
 
-An object that can be used to register global properties that can be accessed on any component instance inside the application. This is a replacement of Vue 2's `Vue.prototype` which is no longer present in Vue 3. As with anything global, this should be used sparingly.
-
-If a global property conflicts with a component’s own property, the component's own property will have higher priority.
+An object that can be used to register global properties that can be accessed on any component instance inside the application.
 
 - **Type**
 
@@ -466,6 +500,12 @@ If a global property conflicts with a component’s own property, the component'
     globalProperties: Record<string, any>
   }
   ```
+
+- **Details**
+
+  This is a replacement of Vue 2's `Vue.prototype` which is no longer present in Vue 3. As with anything global, this should be used sparingly.
+
+  If a global property conflicts with a component’s own property, the component's own property will have higher priority.
 
 - **Usage**
 
@@ -487,8 +527,6 @@ If a global property conflicts with a component’s own property, the component'
 
 An object for defining merging strategies for custom component options.
 
-The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively.
-
 - **Type**
 
   ```ts
@@ -498,6 +536,14 @@ The merge strategy receives the value of that option defined on the parent and c
 
   type OptionMergeFunction = (to: unknown, from: unknown) => any
   ```
+
+- **Details**
+
+  Some plugins / libraries add support for custom component options (by injecting global mixins). These options may require special merging logic when the same option needs to be "merged" from multiple sources (e.g. mixins or component inheritance).
+
+  A merge strategy function can registered for a custom option by assigning it on the `app.config.optionMergeStrategies` object using the option's name as the key.
+
+  The merge strategy function receives the value of that option defined on the parent and child instances as the first and second arguments, respectively.
 
 - **Example**
 
