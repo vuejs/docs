@@ -2,65 +2,104 @@
 
 ## provide
 
-- **Type:**
+Provide values that can be injected by descendent components.
 
-  - **provide:** `Object | () => Object`
-  - **inject:** `Array<string> | { [key: string]: string | Symbol | Object }`
+- **Type**
 
-- **Details:**
-
-  This pair of options are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain. If you are familiar with React, this is very similar to React's `context` feature.
-
-  The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
-
-  The `inject` option should be either:
-
-  - an array of strings, or
-  - an object where the keys are the local binding name and the value is either:
-    - the key (string or Symbol) to search for in available injections, or
-    - an object where:
-      - the `from` property is the key (string or Symbol) to search for in available injections, and
-      - the `default` property is used as fallback value
-
-  > Note: the `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down a reactive object, properties on that object do remain reactive.
-
-- **Example:**
-
-  ```js
-  // parent component providing 'foo'
-  const Provider = {
-    provide: {
-      foo: 'bar'
-    }
-    // ...
-  }
-
-  // child component injecting 'foo'
-  const Child = {
-    inject: ['foo'],
-    created() {
-      console.log(this.foo) // => "bar"
-    }
-    // ...
+  ```ts
+  interface ComponentOptions {
+    provide?: object | ((this: ComponentPublicInstance) => object)
   }
   ```
 
-  With ES2015 Symbols, function `provide` and object `inject`:
+- **Details:**
+
+  `provide` and [`inject`](#inject) are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain.
+
+  The `provide` option should be either an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use Symbols as keys in this object.
+
+- **Example**
+
+  Basic usage:
 
   ```js
   const s = Symbol()
 
-  const Provider = {
+  export default {
+    provide: {
+      foo: 'foo',
+      [s]: 'bar'
+    }
+  }
+  ```
+
+  Using a function to provide per-component state:
+
+  ```js
+  export default {
+    data() {
+      return {
+        msg: 'foo'
+      }
+    }
     provide() {
       return {
-        [s]: 'foo'
+        msg: this.msg
       }
     }
   }
+  ```
 
-  const Child = {
-    inject: { s }
-    // ...
+  Note in the above example, the provided `msg` will NOT be reactive. See [Working with Reactivity](/guide/components/provide-inject.html#working-with-reactivity) for more details.
+
+- **See also:** [Provide / Inject](/guide/components/provide-inject.html)
+
+## inject
+
+Declare properties to inject into the current component by locating them from ancestor providers.
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    inject?: ArrayInjectOptions | ObjectInjectOptions
+  }
+
+  type ArrayInjectOptions = string[]
+
+  type ObjectInjectOptions = {
+    [key: string | symbol]:
+      | string
+      | symbol
+      | { from?: string | symbol; default?: any }
+  }
+  ```
+
+- **Details**
+
+  The `inject` option should be either:
+
+  - An array of strings, or
+  - An object where the keys are the local binding name and the value is either:
+    - The key (string or Symbol) to search for in available injections, or
+    - An object where:
+      - The `from` property is the key (string or Symbol) to search for in available injections, and
+      - The `default` property is used as fallback value. Similar to props default values, a factory function is needed for object types to avoid value sharing between multiple component instances.
+
+  An injected property will be `undefined` is neither a matching property nor a default value was provided.
+
+  Note that injected bindings are NOT reactive. This is intentional. However, if the injected value is a reactive object, properties on that object do remain reactive. See [Working with Reactivity](/guide/components/provide-inject.html#working-with-reactivity) for more details.
+
+- **Example**
+
+  Basic usage:
+
+  ```js
+  export default {
+    inject: ['foo'],
+    created() {
+      console.log(this.foo)
+    }
   }
   ```
 
@@ -130,15 +169,17 @@
 
 - **See also:** [Provide / Inject](/guide/components/provide-inject.html)
 
-## inject
-
-// TODO
-
 ## mixins
 
 An array of option objects to be mixed into the current component.
 
-- **Type:** `Array<Object>`
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    mixins?: ComponentOptions[]
+  }
+  ```
 
 - **Details:**
 
@@ -146,7 +187,7 @@ An array of option objects to be mixed into the current component.
 
   Mixin hooks are called in the order they are provided, and called before the component's own hooks.
 
-  :::info
+  :::warning No Longer Recommended
   In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composition API](/guide/reusability/composables.html) is now the preferred approach for code reuse between components.
   :::
 
@@ -172,7 +213,15 @@ An array of option objects to be mixed into the current component.
 
 ## extends
 
-- **Type:** `Object`
+A "base class" component to extend from.
+
+- **Type:**
+
+  ```ts
+  interface ComponentOptions {
+    extends?: ComponentOptions
+  }
+  ```
 
 - **Details:**
 

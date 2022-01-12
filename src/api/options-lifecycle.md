@@ -12,7 +12,7 @@ Called when the instance is initialized.
 
   ```ts
   interface ComponentOptions {
-    beforeCreate(this: ComponentPublicInstance): void
+    beforeCreate?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -30,7 +30,7 @@ Called after the instance has finished processing all state-related options.
 
   ```ts
   interface ComponentOptions {
-    created(this: ComponentPublicInstance): void
+    created?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -46,7 +46,7 @@ Called right before the component is to be mounted.
 
   ```ts
   interface ComponentOptions {
-    beforeMount(this: ComponentPublicInstance): void
+    beforeMount?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -64,7 +64,7 @@ Called after the component has been mounted.
 
   ```ts
   interface ComponentOptions {
-    mounted(this: ComponentPublicInstance): void
+    mounted?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -88,7 +88,7 @@ Called right before the component is about to update its DOM tree due to a react
 
   ```ts
   interface ComponentOptions {
-    beforeUpdate(this: ComponentPublicInstance): void
+    beforeUpdate?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -106,7 +106,7 @@ Called after the component has updated its DOM tree due to a reactive state chan
 
   ```ts
   interface ComponentOptions {
-    updated(this: ComponentPublicInstance): void
+    updated?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -130,7 +130,7 @@ Called right before a component instance is to be unmounted.
 
   ```ts
   interface ComponentOptions {
-    beforeUnmount(this: ComponentPublicInstance): void
+    beforeUnmount?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -148,7 +148,7 @@ Called after the component has been unmounted.
 
   ```ts
   interface ComponentOptions {
-    unmounted(this: ComponentPublicInstance): void
+    unmounted?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -172,7 +172,7 @@ Called when an error propagating from a descendent component has been captured.
 
   ```ts
   interface ComponentOptions {
-    errorCaptured(
+    errorCaptured?(
       this: ComponentPublicInstance,
       err: unknown,
       instance: ComponentPublicInstance | null,
@@ -217,7 +217,7 @@ Called when a reactive dependency has been tracked by the component's render eff
 
   ```ts
   interface ComponentOptions {
-    renderTracked(e: DebuggerEvent): void
+    renderTracked?(this: ComponentPublicInstance, e: DebuggerEvent): void
   }
 
   type DebuggerEvent = {
@@ -238,7 +238,7 @@ Called when a reactive dependency triggers the component's render effect to be r
 
   ```ts
   interface ComponentOptions {
-    renderTracked(e: DebuggerEvent): void
+    renderTriggered?(this: ComponentPublicInstance, e: DebuggerEvent): void
   }
 
   type DebuggerEvent = {
@@ -264,7 +264,7 @@ Called after the component instance is inserted into the DOM as part of a tree c
 
   ```ts
   interface ComponentOptions {
-    activated(this: ComponentPublicInstance): void
+    activated?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -280,7 +280,7 @@ Called after the component instance is removed from the DOM as part of a tree ca
 
   ```ts
   interface ComponentOptions {
-    deactivated(this: ComponentPublicInstance): void
+    deactivated?(this: ComponentPublicInstance): void
   }
   ```
 
@@ -294,7 +294,7 @@ Async function to be resolved before the component instance is to be rendered on
 
   ```ts
   interface ComponentOptions {
-    serverPrefetch(this: ComponentPublicInstance): Promise<any>
+    serverPrefetch?(this: ComponentPublicInstance): Promise<any>
   }
   ```
 

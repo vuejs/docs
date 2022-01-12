@@ -8,7 +8,7 @@ A function that returns the initial reactive state for the component instance.
 
   ```ts
   interface ComponentOptions {
-    data(this: ComponentPublicInstance, vm: ComponentPublicInstance): object
+    data?(this: ComponentPublicInstance, vm: ComponentPublicInstance): object
   }
   ```
 
@@ -52,7 +52,7 @@ Declare the props of a component.
 
   ```ts
   interface ComponentOptions {
-    props: ArrayPropsOptions | ObjectPropsOptions
+    props?: ArrayPropsOptions | ObjectPropsOptions
   }
 
   type ArrayPropsOptions = string[]
@@ -132,7 +132,7 @@ Declare computed properties to be exposed on the component instance.
 
   ```ts
   interface ComponentOptions {
-    computed: {
+    computed?: {
       [key: string]: ComputedGetter<any> | WritableComputedOptions<any>
     }
   }
@@ -209,7 +209,7 @@ Declare methods to be mixed into the component instance.
 
   ```ts
   interface ComponentOptions {
-    methods: {
+    methods?: {
       [key: string]: (this: ComponentPublicInstance, ...args: any[]) => any
     }
   }
@@ -250,7 +250,7 @@ Declare watch callbacks to be invoked on data change.
 
   ```ts
   interface ComponentOptions {
-    watch: {
+    watch?: {
       [key: string]: WatchOptionItem | WatchOptionItem[]
     }
   }
@@ -368,7 +368,7 @@ Declare the custom events emitted by the component.
 
   ```ts
   interface ComponentOptions {
-    emits: ArrayEmitsOptions | ObjectEmitsOptions
+    emits?: ArrayEmitsOptions | ObjectEmitsOptions
   }
 
   type ArrayEmitsOptions = string[]

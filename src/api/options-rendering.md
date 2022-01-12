@@ -4,7 +4,13 @@
 
 A string template for the component instance.
 
-- **Type:** `string`
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    template?: string
+  }
+  ```
 
 - **Details**
 
@@ -28,7 +34,7 @@ A function that programmatically returns the virtual DOM tree of the component.
 
   ```ts
   interface ComponentOptions {
-    render(this: ComponentPublicInstance) => VNodeChild
+    render?(this: ComponentPublicInstance) => VNodeChild
   }
 
   type VNodeChild = VNodeChildAtom | VNodeArrayChildren
@@ -59,6 +65,21 @@ A function that programmatically returns the virtual DOM tree of the component.
 
 Configure runtime compiler options for the component's template.
 
-This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application.html#app-config-compileroptions), and has higher priority for the current component.
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    compilerOptions?: {
+      isCustomElement?: (tag: string) => boolean
+      whitespace?: 'condense' | 'preserve' // default: 'condense'
+      delimiters?: [string, string] // default: ['{{', '}}']
+      comments?: boolean // default: false
+    }
+  }
+  ```
+
+- **Details**
+
+  This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application.html#app-config-compileroptions), and has higher priority for the current component.
 
 - **See also:** [app.config.compilerOptions](/api/application.html#app-config-compileroptions)
