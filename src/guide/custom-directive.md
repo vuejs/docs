@@ -49,7 +49,7 @@ A directive definition object can provide several hook functions (all optional):
 
 - `beforeMount`: called when the directive is first bound to the element and before parent component is mounted.
 
-- `mounted`: called when the bound element's parent component is mounted.
+- `mounted`: called before the bound element's parent component is mounted.
 
 - `beforeUpdate`: called before the containing component's VNode is updated
 
