@@ -1,73 +1,111 @@
 # Options: State
 
-## data
+## data()
 
-- **Type:** `Function`
+A function that returns the initial reactive state for the component instance.
 
-- **Details:**
+- **Type**
 
-  The function that returns a data object for the component instance. In `data`, we don't recommend to observe objects with their own stateful behavior like browser API objects and prototype properties. A good idea would be to have here just a plain object that represents component data.
+  ```ts
+  interface ComponentOptions {
+    data(this: ComponentPublicInstance, vm: ComponentPublicInstance): object
+  }
+  ```
+
+- **Details**
+
+  The function is expected to return a plain JavaScript object, which will be made reactive by Vue. After the instance is created, the original data object can be accessed as `this.$data`. The component instance also proxies all the properties found on the data object, so `this.a` will be equivalent to `this.$data.a`.
 
   Once observed, you can no longer add reactive properties to the root data object. It is therefore recommended to declare all root-level reactive properties upfront, before creating the instance.
 
-  After the instance is created, the original data object can be accessed as `vm.$data`. The component instance also proxies all the properties found on the data object, so `vm.a` will be equivalent to `vm.$data.a`.
+  Properties that start with `_` or `$` will **not** be proxied on the component instance because they may conflict with Vue's internal properties and API methods. You will have to access them as `this.$data._property`.
 
-  Properties that start with `_` or `$` will **not** be proxied on the component instance because they may conflict with Vue's internal properties and API methods. You will have to access them as `vm.$data._property`.
+  It is **not** recommend to return objects with their own stateful behavior like browser API objects and prototype properties. The returned object should ideally be a plain object that only represents the state of the component.
 
-- **Example:**
+- **Example**
 
   ```js
-  // direct instance creation
-  const data = { a: 1 }
-
-  // The object is added to a component instance
-  const vm = createApp({
+  export default {
     data() {
-      return data
+      return { a: 1 }
+    },
+    created() {
+      console.log(this.a) // 1
+      console.log(this.$data) // { a: 1 }
     }
-  }).mount('#app')
-
-  console.log(vm.a) // => 1
+  }
   ```
 
   Note that if you use an arrow function with the `data` property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
 
   ```js
-  data: vm => ({ a: vm.myProp })
+  data: (vm) => ({ a: vm.myProp })
   ```
 
 - **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
 ## props
 
-- **Type:** `Array<string> | Object`
+Declare the props of a component.
 
-- **Details:**
+- **Type**
 
-  A list/hash of attributes that are exposed to accept data from the parent component. It has an Array-based simple syntax and an alternative Object-based syntax that allows advanced configurations such as type checking, custom validation and default values.
+  ```ts
+  interface ComponentOptions {
+    props: ArrayPropsOptions | ObjectPropsOptions
+  }
 
-  With Object-based syntax, you can use following options:
+  type ArrayPropsOptions = string[]
 
-  - `type`: can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. Will check if a prop has a given type, and will throw a warning if it doesn't. [More information](/guide/components/props.html#prop-types) on prop types.
-  - `default`: `any`
-    Specifies a default value for the prop. If the prop is not passed, this value will be used instead. Object or array defaults must be returned from a factory function.
-  - `required`: `Boolean`
-    Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
-  - `validator`: `Function`
-    Custom validator function that takes the prop value as the sole argument. In a non-production environment, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails). You can read more about prop validation [here](/guide/components/props.html#prop-validation).
+  type ObjectPropsOptions = { [key: string]: Prop }
 
-- **Example:**
+  type Prop<T = any> = PropOptions<T> | PropType<T> | null
+
+  interface PropOptions<T> {
+    type?: PropType<T>
+    required?: boolean
+    default?: T | ((rawProps: object) => T)
+    validator?: (value: unknown) => boolean
+  }
+
+  type PropType<T> = { new (): T } | { new (): T }[]
+  ```
+
+  > Types are simplified for readability.
+
+- **Details**
+
+  In Vue, all component props need to be explicit declared. Component props can be declared in two forms:
+
+  - Simple form using an array of strings
+  - Full form using an object where each property key is the name of the prop, and the value is the prop's type (a constructor function) or advanced options.
+
+  With object-based syntax, each prop can further defined the following options:
+
+  - **`type`**: Can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. In development mode, Vue will check if a prop's value matches the declared type, and will throw a warning if it doesn't. See [Prop Validation](/guide/components/props.html#prop-validation) for more details.
+
+    Also note that a prop with `Boolean` type affects its value casting behavior in both development and production. See [Boolean Casting](/guide/components/props.html#boolean-casting) for more details.
+
+  - **`default`**: Specifies a default value for the prop when it is not passed by the parent or has `undefined` value. Object or array defaults must be returned using a factory function. The factory function also receives the raw props object as the argument.
+
+  - **`required`**: Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
+
+  - **`validator`**: Custom validator function that takes the prop value as the sole argument. In development mode, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails).
+
+- **Example**
+
+  Simple declaration:
 
   ```js
-  const app = createApp({})
-
-  // simple syntax
-  app.component('props-demo-simple', {
+  export default {
     props: ['size', 'myMessage']
-  })
+  }
+  ```
 
-  // object syntax with validation
-  app.component('props-demo-advanced', {
+  Object declaration with validations:
+
+  ```js
+  export default {
     props: {
       // type check
       height: Number,
@@ -76,47 +114,71 @@
         type: Number,
         default: 0,
         required: true,
-        validator: value => {
+        validator: (value) => {
           return value >= 0
         }
       }
     }
-  })
+  }
   ```
 
 - **See also:** [Props](/guide/components/props.html)
 
 ## computed
 
-- **Type:** `{ [key: string]: Function | { get: Function, set: Function } }`
+Declare computed properties to be exposed on the component instance.
 
-- **Details:**
+- **Type**
 
-  Computed properties to be mixed into the component instance. All getters and setters have their `this` context automatically bound to the component instance.
+  ```ts
+  interface ComponentOptions {
+    computed: {
+      [key: string]: ComputedGetter<any> | WritableComputedOptions<any>
+    }
+  }
 
-  Note that if you use an arrow function with a computed property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  type ComputedGetter<T> = (
+    this: ComponentPublicInstance,
+    vm: ComponentPublicInstance
+  ) => T
 
-  ```js
-  computed: {
-    aDouble: vm => vm.a * 2
+  type ComputedSetter<T> = (this: ComponentPublicInstance, value: T) => void
+
+  type WritableComputedOptions<T> = {
+    get: ComputedGetter<T>
+    set: ComputedSetter<T>
   }
   ```
 
-  Computed properties are cached, and only re-computed on reactive dependency changes. Note that if a certain dependency is out of the instance's scope (i.e. not reactive), the computed property will **not** be updated.
+- **Details**
 
-- **Example:**
+  The option accepts an object where the key is the name of the computed property, and the value is either a computed getter, or an object with `get` and `set` methods (for writable computed properties).
+
+  All getters and setters have their `this` context automatically bound to the component instance.
+
+  Note that if you use an arrow function with a computed property, `this` won't point to the component's instance, but you can still access the instance as the function's first argument:
 
   ```js
-  const app = createApp({
+  export default {
+    computed: {
+      aDouble: (vm) => vm.a * 2
+    }
+  }
+  ```
+
+- **Example**
+
+  ```js
+  export default {
     data() {
       return { a: 1 }
     },
     computed: {
-      // get only
+      // readonly
       aDouble() {
         return this.a * 2
       },
-      // both get and set
+      // writable
       aPlus: {
         get() {
           return this.a + 1
@@ -125,34 +187,42 @@
           this.a = v - 1
         }
       }
-    }
-  })
+    },
+    created() {
+      console.log(this.aDouble) // => 2
+      console.log(this.aPlus) // => 2
 
-  const vm = app.mount('#app')
-  console.log(vm.aPlus) // => 2
-  vm.aPlus = 3
-  console.log(vm.a) // => 2
-  console.log(vm.aDouble) // => 4
+      this.aPlus = 3
+      console.log(this.a) // => 2
+      console.log(this.aDouble) // => 4
+    }
+  }
   ```
 
 - **See also:** [Computed Properties](/guide/essentials/computed.html)
 
 ## methods
 
-- **Type:** `{ [key: string]: Function }`
+Declare methods to be mixed into the component instance.
 
-- **Details:**
+- **Type**
 
-  Methods to be mixed into the component instance. You can access these methods directly on the VM instance, or use them in directive expressions. All methods will have their `this` context automatically bound to the component instance.
+  ```ts
+  interface ComponentOptions {
+    methods: { [key: string]: Function }
+  }
+  ```
 
-  :::tip Note
-  Note that **you should not use an arrow function to define a method** (e.g. `plus: () => this.a++`). The reason is arrow functions bind the parent context, so `this` will not be the component instance as you expect and `this.a` will be undefined.
-  :::
+- **Details**
 
-- **Example:**
+  Declared methods can be directly accessed on the component instance, or used in template expressions. All methods have their `this` context automatically bound to the component instance, even when passed around.
+
+  Avoid using arrow functions when declaring methods, as they will not have access to the component instance via `this`.
+
+- **Example**
 
   ```js
-  const app = createApp({
+  export default {
     data() {
       return { a: 1 }
     },
@@ -160,29 +230,68 @@
       plus() {
         this.a++
       }
+    },
+    created() {
+      this.plus()
+      console.log(this.a) // => 2
     }
-  })
-
-  const vm = app.mount('#app')
-
-  vm.plus()
-  console.log(vm.a) // => 2
+  }
   ```
 
 - **See also:** [Event Handling](/guide/essentials/event-handling.html)
 
 ## watch
 
-- **Type:** `{ [key: string]: string | Function | Object | Array}`
+Declare watch callbacks to be invoked on data change.
 
-- **Details:**
+- **Type**
 
-  An object where keys are reactive properties to watch — examples include [data](/api/options-state.html#data-2) or [computed](/api/options-state.html#computed) properties — and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The component instance will call `$watch()` for each entry in the object at instantiation. See [$watch](/api/component-instance.html#watch) for more information about the `deep`, `immediate` and `flush` options.
+  ```ts
+  interface ComponentOptions {
+    watch: {
+      [key: string]: WatchOptionItem | WatchOptionItem[]
+    }
+  }
 
-- **Example:**
+  type WatchOptionItem = string | WatchCallback | ObjectWatchOptionItem
+
+  type WatchCallback<T> = (
+    value: T,
+    oldValue: T,
+    onCleanup: (cleanupFn: () => void) => void
+  ) => void
+
+  type ObjectWatchOptionItem = {
+    handler: WatchCallback | string
+    immediate?: boolean // default: false
+    deep?: boolean // default: false
+    flush?: 'pre' | 'post' | 'sync' // default: 'pre'
+    onTrack?: (event: DebuggerEvent) => void
+    onTrigger?: (event: DebuggerEvent) => void
+  } & WatchOptions
+  ```
+
+  > Types are simplified for readability.
+
+- **Details**
+
+  The `watch` option expects an object where keys are the reactive component instance properties to watch (e.g. properties declared via `data` or `computed`) — and values are the corresponding callbacks. The callback receives the new value and the old value of the watched source.
+
+  In addition to a root-level property, The key can also be a simple dot-delimited path, e.g. `a.b.c`. Note that this usage does **not** support complex expressions - only dot-delimited paths are supported. If you need to watch complex data sources, this the imperative [`$watch()`](/api/component-instance.html#watch) API instead.
+
+  The value can also be a string of a method name (declared via `methods`), or an object that contains additional options. When using the object syntax, the callback should be declared under the `handler` field. Additional options include:
+
+  - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
+  - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations.
+  - **`flush`**: adjust the callback's flush timing.
+  - **`onTrack / onTrigger`**: debug the watcher's dependencies.
+
+  Avoid using arrow functions when declaring watch callbacks as they will not have access to the component instance via `this`.
+
+- **Example**
 
   ```js
-  const app = createApp({
+  export default {
     data() {
       return {
         a: 1,
@@ -240,51 +349,67 @@
       handle1() {
         console.log('handle 1 triggered')
       }
+    },
+    created() {
+      this.a = 3 // => new: 3, old: 1
     }
-  })
-
-  const vm = app.mount('#app')
-
-  vm.a = 3 // => new: 3, old: 1
+  }
   ```
 
-  ::: tip Note
-  Note that _you should not use an arrow function to define a watcher_ (e.g. `searchQuery: newValue => this.updateAutocomplete(newValue)`). The reason is arrow functions bind the parent context, so `this` will not be the component instance as you expect and `this.updateAutocomplete` will be undefined.
-  :::
-
-- **See also:** [Watchers](/guide/essentials/computed.html#watchers)
+- **See also:** [Watchers](/guide/essentials/watchers.html)
 
 ## emits
 
-- **Type:** `Array<string> | Object`
+Declare the custom events emitted by the component.
 
-- **Details:**
+- **Type**
 
-  A list/hash of custom events that can be emitted from the component. It has an array-based simple syntax and an alternative Object-based syntax that allows to configure an event validation.
+  ```ts
+  interface ComponentOptions {
+    emits: ArrayEmitsOptions | ObjectEmitsOptions
+  }
 
-  In Object-based syntax, the value of each property can either be `null` or a validator function. The validation function will receive the additional arguments passed to the `$emit` call. For example, if `this.$emit('foo', 1)` is called, the corresponding validator for `foo` will receive the argument `1`. The validator function should return a boolean to indicate whether the event arguments are valid.
+  type ArrayEmitsOptions = string[]
 
-- **Usage:**
+  type ObjectEmitsOptions = { [key: string]: EmitValidator | null }
+
+  type EmitValidator = (...args: unknown[]) => boolean
+  ```
+
+- **Details**
+
+  Emitted events can be declared in two forms:
+
+  - Simple form using an array of strings
+  - Full form using an object where each property key is the name of the event, and the value is either `null` or a validator function.
+
+  The validation function will receive the additional arguments passed to the component's `$emit` call. For example, if `this.$emit('foo', 1)` is called, the corresponding validator for `foo` will receive the argument `1`. The validator function should return a boolean to indicate whether the event arguments are valid.
+
+  Note that the `emits` option affects which event listeners received by the component are considered component event listeners vs. native DOM event listeners. A declared event's listener will not be added to the component's root element, and will be removed from the component's `$attrs` object. See [Fallthrough Attributes](/guide/components/attrs.html) for more details.
+
+- **Example**
+
+  Array syntax:
 
   ```js
-  const app = createApp({})
-
-  // Array syntax
-  app.component('todo-item', {
+  export default {
     emits: ['check'],
     created() {
       this.$emit('check')
     }
-  })
+  }
+  ```
 
-  // Object syntax
-  app.component('reply-form', {
+  Object syntax:
+
+  ```js
+  export default {
     emits: {
       // no validation
       click: null,
 
       // with validation
-      submit: payload => {
+      submit: (payload) => {
         if (payload.email && payload.password) {
           return true
         } else {
@@ -293,11 +418,7 @@
         }
       }
     }
-  })
+  }
   ```
 
-  ::: tip Note
-  Events listed in the `emits` option **will not** be inherited by the root element of the component and also will be excluded from the `$attrs` property.
-  :::
-
-* **See also:** [Attribute Inheritance](/guide/components/attrs.html#attribute-inheritance)
+* **See also:** [Fallthrough Attributes](/guide/components/attrs.html)

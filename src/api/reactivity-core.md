@@ -338,14 +338,14 @@ Watches one or more reactive data sources and invokes a callback function when t
 
   interface WatchOptions extends WatchEffectOptions {
     immediate?: boolean // default: false
-    deep?: boolean
+    deep?: boolean // default: false
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
   }
   ```
 
-  > Type is simplified for readability.
+  > Types are simplified for readability.
 
 - **Details**
 

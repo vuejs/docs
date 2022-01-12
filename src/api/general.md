@@ -106,7 +106,7 @@ A type helper for defining a Vue component with type inference.
   ): ComponentConstructor
   ```
 
-  > Type is simplified for readability and omits generics.
+  > Type is simplified for readability.
 
 - **Details**
 
@@ -163,7 +163,7 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
   }
   ```
 
-  > Type is simplified for readability and omits generics.
+  > Type is simplified for readability.
 
 - **Details**
 

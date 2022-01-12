@@ -445,8 +445,9 @@ export default {
     propE: {
       type: Object,
       // Object or array defaults must be returned from
-      // a factory function
-      default(props) {
+      // a factory function. The function receives the raw
+      // props received by the component as the argument.
+      default(rawProps) {
         // default function receives the raw props object as argument
         return { message: 'hello' }
       }
@@ -535,3 +536,38 @@ export default {
 </div>
 
 to validate that the value of the `author` prop was created with `new Person`.
+
+## Boolean Casting
+
+Props with `Boolean` type has special casting rules to mimic the behavior of native boolean attributes. Given a `<MyComponent>` with the following declaration:
+
+<div class="composition-api">
+
+```js
+defineProps({
+  disabled: Boolean
+})
+```
+
+</div>
+<div class="options-api">
+
+```js
+export default {
+  props: {
+    disabled: Boolean
+  }
+}
+```
+
+</div>
+
+The component can be used like this:
+
+```vue-html
+<!-- equivalent of passing :disabled="true" -->
+<MyComponent disabled />
+
+<!-- equivalent of passing :disabled="false" -->
+<MyComponent />
+```
