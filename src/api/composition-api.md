@@ -82,7 +82,7 @@ A component option that is executed **before** the component is created, once th
   With render function:
 
   ```js
-  // MyBook.vue
+  // MyBook.js
 
   import { h, ref, reactive } from 'vue'
 
@@ -99,7 +99,7 @@ A component option that is executed **before** the component is created, once th
   If you return a render function then you can't return any other properties. If you need to expose properties so that they can be accessed externally, e.g. via a `ref` in the parent, you can use `expose`:
 
   ```js
-  // MyBook.vue
+  // MyBook.js
 
   import { h } from 'vue'
 
