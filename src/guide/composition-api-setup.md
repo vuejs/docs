@@ -103,7 +103,7 @@ We'll explain the role of `expose` shortly.
 
 ## Accessing Component Properties
 
-When `setup` is executed, although the component instance has already been created, you will only be able to access the following properties:
+When `setup` is executed, you will only be able to access the following properties:
 
 - `props`
 - `attrs`
