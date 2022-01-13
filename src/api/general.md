@@ -114,6 +114,14 @@ A type helper for defining a Vue component with type inference.
 
   Note that the return type is a bit special: it will be a constructor type whose instance type is the inferred component instance type based on the options. This is used for type inference when the returned type is used as a tag in TSX.
 
+  You can extract the instance type of a component (equivalent to the type of `this` in its options) from the return type of `defineComponent()` like this:
+
+  ```ts
+  const Foo = defineComponent(/* ... */)
+
+  type FooInstance = InstanceType<typeof Foo>
+  ```
+
 - **See also:** [Guide - Using Vue with TypeScript](/guide/typescript/overview.html#general-usage-notes)
 
 ## defineAsyncComponent()
