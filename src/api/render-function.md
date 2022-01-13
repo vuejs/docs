@@ -248,7 +248,7 @@ For manually resolving a registered directive by name.
 
   If the directive is not found, a runtime warning will be emitted, and the function returns `undefined`.
 
-- **See also:** [Guide - Render Functions - Custom Directives](guide/extras/render-function.html#custom-directives)
+- **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
 
 ## withDirectives()
 
@@ -292,4 +292,4 @@ For adding custom directives to vnodes.
   ])
   ```
 
-- **See also:** [Guide - Render Functions - Custom Directives](guide/extras/render-function.html#custom-directives)
+- **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
