@@ -1,3 +1,5 @@
-/guide/   /guide/introduction.html
-/v2/*   https://v2.vuejs.org/v2/:splat    301
-/support-vuejs/   https://v2.vuejs.org/support-vuejs/   301
+/guide/               /guide/introduction.html
+/v2/guide/team.html   /about/team.html
+/v2/*                 https://v2.vuejs.org/v2/:splat
+/support-vuejs/       /sponsor/
+/resources/*          /ecosystem/:splat
