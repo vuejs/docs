@@ -2,200 +2,217 @@
 
 ## renderToString()
 
-> Exported from `vue/server-renderer`
+- **Exported from `vue/server-renderer`**
 
-**Signature**
+- **Type**
 
-```ts
-function renderToString(
-  input: App | VNode,
-  context?: SSRContext
-): Promise<string>
-```
+  ```ts
+  function renderToString(
+    input: App | VNode,
+    context?: SSRContext
+  ): Promise<string>
+  ```
 
-**Usage**
+- **Example**
 
-```js
-import { createSSRApp } from 'vue'
-import { renderToString } from 'vue/server-renderer'
+  ```js
+  import { createSSRApp } from 'vue'
+  import { renderToString } from 'vue/server-renderer'
 
-const app = createSSRApp({
-  data: () => ({ msg: 'hello' }),
-  template: `<div>{{ msg }}</div>`
-})
+  const app = createSSRApp({
+    data: () => ({ msg: 'hello' }),
+    template: `<div>{{ msg }}</div>`
+  })
 
-;(async () => {
-  const html = await renderToString(app)
-  console.log(html)
-})()
-```
+  ;(async () => {
+    const html = await renderToString(app)
+    console.log(html)
+  })()
+  ```
 
-### Handling Teleports
+  ### Handling Teleports
 
-If the rendered app contains teleports, the teleported content will not be part of the rendered string. Instead, they are exposed under the `teleports` property of the ssr context object:
+  If the rendered app contains teleports, the teleported content will not be part of the rendered string. Instead, they are exposed under the `teleports` property of the ssr context object:
 
-```js
-const ctx = {}
-const html = await renderToString(app, ctx)
+  ```js
+  const ctx = {}
+  const html = await renderToString(app, ctx)
 
-console.log(ctx.teleports) // { '#teleported': 'teleported content' }
-```
+  console.log(ctx.teleports) // { '#teleported': 'teleported content' }
+  ```
 
 ## renderToNodeStream()
 
 Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable).
 
-**Signature**
+- **Exported from `vue/server-renderer`**
 
-```ts
-function renderToNodeStream(input: App | VNode, context?: SSRContext): Readable
-```
+- **Type**
 
-**Usage**
+  ```ts
+  function renderToNodeStream(
+    input: App | VNode,
+    context?: SSRContext
+  ): Readable
+  ```
 
-```js
-// inside a Node.js http handler
-renderToNodeStream(app).pipe(res)
-```
+- **Example**
 
-**Note:** This method is not supported in the ESM build of `vue/server-renderer`, which is decoupled from Node.js environments. Use `pipeToNodeWritable` instead.
+  ```js
+  // inside a Node.js http handler
+  renderToNodeStream(app).pipe(res)
+  ```
+
+  :::tip Note
+  This method is not supported in the ESM build of `vue/server-renderer`, which is decoupled from Node.js environments. Use [`pipeToNodeWritable`](#pipetonodewritable) instead.
+  :::
 
 ## pipeToNodeWritable()
 
 Render and pipe to an existing [Node.js Writable stream](https://nodejs.org/api/stream.html#stream_writable_streams) instance.
 
-**Signature**
+- **Exported from `vue/server-renderer`**
 
-```ts
-function pipeToNodeWritable(
-  input: App | VNode,
-  context: SSRContext = {},
-  writable: Writable
-): void
-```
+- **Type**
 
-**Usage**
+  ```ts
+  function pipeToNodeWritable(
+    input: App | VNode,
+    context: SSRContext = {},
+    writable: Writable
+  ): void
+  ```
 
-```js
-// inside a Node.js http handler
-pipeToNodeWritable(app, {}, res)
-```
+- **Example**
+
+  ```js
+  // inside a Node.js http handler
+  pipeToNodeWritable(app, {}, res)
+  ```
 
 ## renderToWebStream()
 
 Renders input as a [Web ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
 
-**Signature**
+- **Exported from `vue/server-renderer`**
 
-```ts
-function renderToWebStream(
-  input: App | VNode,
-  context?: SSRContext
-): ReadableStream
-```
+- **Type**
 
-**Usage**
+  ```ts
+  function renderToWebStream(
+    input: App | VNode,
+    context?: SSRContext
+  ): ReadableStream
+  ```
 
-```js
-// inside an environment with ReadableStream support
-return new Response(renderToWebStream(app))
-```
+- **Example**
 
-**Note:** in environments that do not expose `ReadableStream` constructor in the global scope, `pipeToWebWritable` should be used instead.
+  ```js
+  // inside an environment with ReadableStream support
+  return new Response(renderToWebStream(app))
+  ```
+
+  :::tip Note
+  In environments that do not expose `ReadableStream` constructor in the global scope, [`pipeToWebWritable()`](#pipetowebwritable) should be used instead.
+  :::
 
 ## pipeToWebWritable()
 
 Render and pipe to an existing [Web WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream) instance.
 
-**Signature**
+- **Exported from `vue/server-renderer`**
 
-```ts
-function pipeToWebWritable(
-  input: App | VNode,
-  context: SSRContext = {},
-  writable: WritableStream
-): void
-```
+- **Type**
 
-**Usage**
+  ```ts
+  function pipeToWebWritable(
+    input: App | VNode,
+    context: SSRContext = {},
+    writable: WritableStream
+  ): void
+  ```
 
-This is typically used in combination with [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream):
+- **Example**
 
-```js
-// TransformStream is available in environments such as CloudFlare workers.
-// in Node.js, TransformStream needs to be explicitly imported from 'stream/web'
-const { readable, writable } = new TransformStream()
-pipeToWebWritable(app, {}, writable)
+  This is typically used in combination with [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream):
 
-return new Response(readable)
-```
+  ```js
+  // TransformStream is available in environments such as CloudFlare workers.
+  // in Node.js, TransformStream needs to be explicitly imported from 'stream/web'
+  const { readable, writable } = new TransformStream()
+  pipeToWebWritable(app, {}, writable)
+
+  return new Response(readable)
+  ```
 
 ## renderToSimpleStream()
 
 Renders input in streaming mode using a simple readable interface.
 
-**Signature**
+- **Exported from `vue/server-renderer`**
 
-```ts
-function renderToSimpleStream(
-  input: App | VNode,
-  context: SSRContext,
-  options: SimpleReadable
-): SimpleReadable
+- **Type**
 
-interface SimpleReadable {
-  push(content: string | null): void
-  destroy(err: any): void
-}
-```
+  ```ts
+  function renderToSimpleStream(
+    input: App | VNode,
+    context: SSRContext,
+    options: SimpleReadable
+  ): SimpleReadable
 
-**Usage**
-
-```js
-let res = ''
-
-renderToSimpleStream(
-  app,
-  {},
-  {
-    push(chunk) {
-      if (chunk === null) {
-        // done
-        console(`render complete: ${res}`)
-      } else {
-        res += chunk
-      }
-    },
-    destroy(err) {
-      // error encountered
-    }
+  interface SimpleReadable {
+    push(content: string | null): void
+    destroy(err: any): void
   }
-)
-```
+  ```
+
+- **Example**
+
+  ```js
+  let res = ''
+
+  renderToSimpleStream(
+    app,
+    {},
+    {
+      push(chunk) {
+        if (chunk === null) {
+          // done
+          console(`render complete: ${res}`)
+        } else {
+          res += chunk
+        }
+      },
+      destroy(err) {
+        // error encountered
+      }
+    }
+  )
+  ```
 
 ## useSSRContext()
 
-**Signature**
+A runtime API used to retrieve the context object passed to `renderToString()` or other server render APIs.
 
-```ts
-function useSSRContext<T = Record<string, any>>(): T | undefined
-```
+- **Type**
 
-**Usage**
+  ```ts
+  function useSSRContext<T = Record<string, any>>(): T | undefined
+  ```
 
-`useSSRContext()` is used to retrieve the context object passed to `renderToString()` or other server render APIs:
+- **Example**
 
-```vue
-<script setup>
-import { useSSRContext } from 'vue'
+  The retrieved context can be used to attach information that is needed for rendering the final HTML (e.g. head metadata).
 
-// make sure to only call it during SSR
-// https://vitejs.dev/guide/ssr.html#conditional-logic
-if (import.meta.env.SSR) {
-  const ctx = useSSRContext()
-  // ...attach properties to the context
-}
-</script>
-```
+  ```vue
+  <script setup>
+  import { useSSRContext } from 'vue'
 
-This can be used to attach information that is needed for rendering the final HTML (e.g. head metadata) to the render context.
+  // make sure to only call it during SSR
+  // https://vitejs.dev/guide/ssr.html#conditional-logic
+  if (import.meta.env.SSR) {
+    const ctx = useSSRContext()
+    // ...attach properties to the context
+  }
+  </script>
+  ```
