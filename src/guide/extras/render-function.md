@@ -39,6 +39,13 @@ h('div', { id: 'foo' })
 // Vue automatically picks the right way to assign it
 h('div', { class: 'bar', innerHTML: 'hello' })
 
+// class and style have the same object / array
+// value support like in templates
+h('div', { class: [foo, { bar }], style: { color: 'red' } })
+
+// event listeners should be passed as onXxx
+h('div', { onClick: () => {} })
+
 // children can be a string
 h('div', { id: 'foo' }, 'hello')
 
@@ -196,7 +203,8 @@ If you really want to duplicate the same element/component many times, you can d
 
 ```js
 function render() {
-  return h('div',
+  return h(
+    'div',
     Array.from({ length: 20 }).map(() => {
       return h('p', 'hi')
     })
