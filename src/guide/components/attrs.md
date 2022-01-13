@@ -46,7 +46,7 @@ Then the final rendered DOM would now become:
 
 ### `v-on` Listener Inheritance
 
-Same rule applies to `v-on` event listeners:
+The same rule applies to `v-on` event listeners:
 
 ```vue-html
 <MyButton @click="onClick" />
@@ -94,7 +94,7 @@ export default {
 
 </div>
 
-The common scenario for disabling an attribute inheritance is when attributes need to be applied to other elements besides the root node. By setting the `inheritAttrs` option to `false`, you can take full control over where the fallthrough attributes should be applied to.
+The common scenario for disabling attribute inheritance is when attributes need to be applied to other elements besides the root node. By setting the `inheritAttrs` option to `false`, you can take full control over where the fallthrough attributes should be applied.
 
 These fallthrough attributes can be accessed directly in template expressions as `$attrs`:
 
@@ -102,7 +102,7 @@ These fallthrough attributes can be accessed directly in template expressions as
 <span>Fallthrough attributes: {{ $attrs }}</span>
 ```
 
-The `$attrs` object includes all attributes not included to component `props` and `emits` properties (e.g., `class`, `style`, `v-on` listeners, etc.).
+The `$attrs` object includes all attributes that are not declared by the component's `props` or `emits` options (e.g., `class`, `style`, `v-on` listeners, etc.).
 
 Using our `<MyButton>` component example from the [previous section](#attribute-inheritance) - sometimes we may need to wrap the actual `<button>` element with an extra `<div>` for styling purposes:
 
@@ -120,11 +120,11 @@ We want all fallthrough attributes like `class` and `v-on` listeners to be appli
 </div>
 ```
 
-Remember that [`v-bind` without argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) binds every property of an object as attributes to the target element.
+Remember that [`v-bind` without an argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) binds all the properties of an object as attributes of the target element.
 
 ## Attribute Inheritance on Multiple Root Nodes
 
-Unlike single root node components, components with multiple root nodes do not have an automatic attribute fallthrough behavior. If `$attrs` are not bound explicitly, a runtime warning will be issued.
+Unlike components with a single root node, components with multiple root nodes do not have an automatic attribute fallthrough behavior. If `$attrs` are not bound explicitly, a runtime warning will be issued.
 
 ```vue-html
 <CustomLayout id="custom-layout" @click="changeValue" />

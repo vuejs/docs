@@ -4,7 +4,7 @@
 
 ## Props Drilling
 
-Usually, when we need to pass data from the parent to child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
+Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
 
 ![props drilling diagram](./images/props-drilling.png)
 
@@ -46,7 +46,7 @@ export default {
 
 The `provide()` function accepts two arguments. The first argument is called the **injection key**, which can be a string or a `Symbol`. The injection key is used by descendent components to lookup the desired value to inject. A single component can call `provide()` multiple times with different injection keys to provide different values.
 
-The second argument is the provided value. The value can be of any type. including reactive state such as refs:
+The second argument is the provided value. The value can be of any type, including reactive state such as refs:
 
 ```js
 import { ref, provide } from 'vue'
@@ -193,7 +193,7 @@ Here, the component will locate a property provided with the key `"message"`, an
 
 ### Injection Default Values
 
-By default, `inject` assumes that the injected key is provided somewhere in the parent chian. In the case where the key is not provided, there will be a runtime warning.
+By default, `inject` assumes that the injected key is provided somewhere in the parent chain. In the case where the key is not provided, there will be a runtime warning.
 
 If we want to make an injected property work with optional providers, we need to declare a default value, similar to props:
 
@@ -221,11 +221,11 @@ export default {
   // when declaring default values for injections
   inject: {
     message: {
-      from: 'message', // this is optional is using the same key for injection
+      from: 'message', // this is optional if using the same key for injection
       default: 'default value'
     },
     user: {
-      // make sure to use factory function for non-primitive values!
+      // make sure to use a factory function for non-primitive values!
       default: () => ({ name: 'John' })
     }
   }
@@ -240,7 +240,7 @@ export default {
 
 When using reactive provide / inject values, **it is recommended to keep any mutations to reactive state inside of the _provider_ whenever possible**. This ensures that the provided state and its possible mutations are co-located in the same component, making it easier to maintain in the future.
 
-There may be times where we need to update the data from a injector component. In such cases, we recommend providing a method that is responsible for mutating the state:
+There may be times when we need to update the data from a injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
 
 ```vue{7-9,13}
 <!-- inside provider component -->

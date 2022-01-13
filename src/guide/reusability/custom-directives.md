@@ -98,7 +98,7 @@ app.directive('focus', {
 ```
 
 :::tip
-Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation. Prefer declarative templating using built-in directives such as `v-bind` when possible because they are more efficient and server-rendering-friendly.
+Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation. Prefer declarative templating using built-in directives such as `v-bind` when possible because they are more efficient and server-rendering friendly.
 :::
 
 ## Directive Hooks
@@ -141,13 +141,13 @@ Directive hooks are passed these arguments:
   - `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
   - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
   - `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-  - `instance`: The instance of the component where directive is used.
+  - `instance`: The instance of the component where the directive is used.
   - `dir`: the directive definition object.
 
 - `vnode`: the underlying VNode representing the bound element.
 - `prevNode`: the VNode representing the bound element from the previous render. Only available in the `beforeUpdate` and `updated` hooks.
 
-As an example, the following directive usage:
+As an example, consider the following directive usage:
 
 ```vue-html
 <div v-example:foo.bar="baz">
@@ -178,7 +178,7 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 
 ## Function Shorthand
 
-It's common for a custom directive to need the same behavior for `mounted` and `updated`, and don't care about the other hooks. In such cases we can define the directive as a function:
+It's common for a custom directive to have the same behavior for `mounted` and `updated`, with no need for the other hooks. In such cases we can define the directive as a function:
 
 ```vue-html
 <div v-color="color"></div>
@@ -208,7 +208,7 @@ app.directive('demo', (el, binding) => {
 
 ## Usage on Components
 
-When used on components, custom directive will always apply to component's root node, similarly to [Fallthrough Attributes](/guide/components/attrs.html).
+When used on components, custom directives will always apply to a component's root node, similar to [Fallthrough Attributes](/guide/components/attrs.html).
 
 ```vue-html
 <MyComponent v-demo="test" />
@@ -222,4 +222,4 @@ When used on components, custom directive will always apply to component's root 
 </div>
 ```
 
-Note that components can potentially have more than one root nodes. When applied to a multi-root component, directive will be ignored and the warning will be thrown. Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`. In general, it is **not** recommended to use custom directives on components.
+Note that components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be thrown. Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`. In general, it is **not** recommended to use custom directives on components.
