@@ -36,7 +36,7 @@ While SFCs require a build step, there are numerous benefits in return:
 - Author modularized components using familiar HTML, CSS and JavaScript syntax
 - [Collocation of inherently coupled concerns](#what-about-separation-of-concerns)
 - Pre-compiled templates
-- [Component-scoped CSS](/api/sfc-style)
+- [Component-scoped CSS](/api/sfc-css-features)
 - [More ergonomic syntax when working with Composition API](/api/sfc-script-setup)
 - More compile-time optimizations by cross-analyzing template and script
 - [IDE support](/guide/scaling-up/tooling.html#ide-support) with auto-completion and type-checking for template expressions
