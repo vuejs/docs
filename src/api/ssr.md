@@ -41,6 +41,8 @@
   console.log(ctx.teleports) // { '#teleported': 'teleported content' }
   ```
 
+- **See also:** [Guide - Server-Side Rendering](/guide/scaling-up/ssr.html)
+
 ## renderToNodeStream()
 
 Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable).
