@@ -115,7 +115,10 @@ export const sidebar = {
           text: 'Reactivity Fundamentals',
           link: '/guide/essentials/reactivity-fundamentals'
         },
-        { text: 'Computed Properties', link: '/guide/essentials/computed' },
+        {
+          text: 'Computed Properties',
+          link: '/guide/essentials/computed'
+        },
         {
           text: 'Class and Style Bindings',
           link: '/guide/essentials/class-and-style'
@@ -150,7 +153,10 @@ export const sidebar = {
           link: '/guide/components/registration'
         },
         { text: 'Props', link: '/guide/components/props' },
-        { text: 'Fallthrough Attributes', link: '/guide/components/attrs' },
+        {
+          text: 'Fallthrough Attributes',
+          link: '/guide/components/attrs'
+        },
         { text: 'Events', link: '/guide/components/events' },
         { text: 'Slots', link: '/guide/components/slots' },
         {
@@ -495,7 +501,10 @@ export default defineConfigWithTheme<Config>({
     ['meta', { name: 'twitter:card', content: 'summary' }],
     [
       'meta',
-      { name: 'twitter:image', content: 'https://vuejs.org/images/logo.png' }
+      {
+        name: 'twitter:image',
+        content: 'https://vuejs.org/images/logo.png'
+      }
     ],
     [
       'script',
@@ -576,9 +585,13 @@ export default defineConfigWithTheme<Config>({
       chunkSizeWarningLimit: Infinity,
       rollupOptions: {
         output: {
+          chunkFileNames: 'assets/chunks/[name].[hash].js',
           manualChunks(id, ctx) {
             if (id.includes('gsap')) {
               return 'gsap'
+            }
+            if (id.includes('dynamics.js')) {
+              return 'dynamics'
             }
             return moveToVendor(id, ctx)
           }
