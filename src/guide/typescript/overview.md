@@ -69,6 +69,7 @@ To enable Takeover Mode, you need to disable VSCode's built-in TS language servi
 2. Type `built` and select "Extensions: Show Built-in Extensions".
 3. Type `typescript` in the extension search box (do not remove `@builtin` prefix).
 4. Click the little gear icon of "TypeScript and JavaScript Language Features", and select "Disable (Workspace)".
+5. Reload the workspace. Takeover mode will be enabled when you open a Vue or TS file.
 
 <img src="./images/takeover-mode.png" width="590" height="426" style="margin:0px auto;border-radius:8px">
 
