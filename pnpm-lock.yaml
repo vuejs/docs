@@ -1,7 +1,5 @@
 lockfileVersion: 5.3
 
-packageExtensionsChecksum: f5292354c18822696465269029d32a11
-
 specifiers:
   '@types/markdown-it': ^12.2.3
   '@types/node': ^16.9.1
@@ -167,13 +165,6 @@ packages:
       '@types/react': '>= 16.8.0 < 18.0.0'
       react: '>= 16.8.0 < 18.0.0'
       react-dom: '>= 16.8.0 < 18.0.0'
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.2.2
       '@algolia/autocomplete-preset-algolia': 1.2.2_algoliasearch@4.10.5
