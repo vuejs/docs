@@ -28,17 +28,21 @@ With a Vite-based setup, the dev server and the bundler are transpilation-only a
 
 - [Visual Studio Code](https://code.visualstudio.com/) (VSCode) is strongly recommended for its great out-of-the-box support for TypeScript.
 
-- [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) is the official VSCode extension that provides TypeScript support inside Vue SFCs, along with many other great features.
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) is the official VSCode extension that provides TypeScript support inside Vue SFCs, along with many other great features.
 
-  :::tip
-  Volar replaces [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), our previous official VSCode extension for Vue 2. If you have Vetur currently installed, make sure to disable it in Vue 3 projects.
-  :::
+    :::tip
+    Volar replaces [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), our previous official VSCode extension for Vue 2. If you have Vetur currently installed, make sure to disable it in Vue 3 projects.
+    :::
+
+  - [TypeScript Vue Plugin](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) is also needed to get type support for `*.vue` imports in TS files.
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) also provides out-of-the-box support for both TypeScript and Vue.
 
 ### Configuring `tsconfig.json`
 
-Projects scaffolded via `create-vue` include [pre-configured `tsconfig.json`](https://github.com/vuejs/create-vue/blob/main/template/config/typescript/tsconfig.json). Some notable options include:
+Projects scaffolded via `create-vue` include pre-configured `tsconfig.json`. The base config is abstracted in the [`@vue/tsconfig`](https://github.com/vuejs/tsconfig) package. Inside the project, we use [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html) to ensure correct types for code running in different environments (e.g. app vs. test).
+
+When configuring `tsconfig.json` manually, some notable options include:
 
 - [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) is set to `true` because Vite uses [esbuild](https://esbuild.github.io/) for transpiling TypeScript and is subject to single-file transpile limitations.
 
@@ -55,24 +59,18 @@ See also:
 
 > This section only applies for VSCode + Volar.
 
-To get Vue SFCs and TypeScript working together, Volar creates a separate TypeScript language service instance patched with Vue-specific support, and uses it in Vue SFCs. This default behavior works, but has two drawbacks:
+To get Vue SFCs and TypeScript working together, Volar creates a separate TS language service instance patched with Vue-specific support, and uses it in Vue SFCs. At the same time, plain TS files are still handled by VSCode's built-in TS language service, which is why we need [TypeScript Vue Plugin](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to support Vue SFC imports in TS files. This default setup works, but for each project we are running two TS language service instances: one from Volar, one from VSCode's built-in service. This is a bit inefficient and can lead to performance issues in large projects.
 
-1. For each project we are running two TS language service instances, which is not the most efficient.
+Volar provides a feature called "Takeover Mode" to improve performance. In takeover mode, Volar provides support for both Vue and TS files using a single TS language service instance.
 
-2. Plain TypeScript files still use the built-in TS language service, which has no knowledge of Vue SFCs. This is why we have to shim `*.vue` modules with the following:
+To enable Takeover Mode, you need to disable VSCode's built-in TS language service in **your project's workspace only** by following these steps:
 
-   ```ts
-   // in a d.ts file
-   declare module '*.vue' {
-     import { DefineComponent } from 'vue'
-     const component: DefineComponent<{}, {}, any>
-     export default component
-   }
-   ```
+1. In your project workspace, bring up the command pallette with `Ctrl + Shift + P` (macOS: `Cmd + Shift + P`).
+2. Type `built` and select "Extensions: Show Built-in Extensions".
+3. Type `typescript` in the extension search box (do not remove `@builtin` prefix).
+4. Click the little gear icon of "TypeScript and JavaScript Language Features", and select "Disable (Workspace)".
 
-Volar provides a feature called "Takeover Mode" that addresses these problems. In takeover mode, Volar provides support for both Vue and TS files using a single TS language service instance, so we can remove the shim above.
-
-To enable Takeover Mode, you need to disable VSCode's built-in TypeScript language service in your project's workspace. Check out these [instructions](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) for more details.
+<img src="./images/takeover-mode.png" width="590" height="426" style="margin:0px auto;border-radius:8px">
 
 ### Note on Vue CLI and `ts-loader`
 
