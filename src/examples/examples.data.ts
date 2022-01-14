@@ -29,7 +29,11 @@ function readExample(dir: string): ExampleData {
   for (const filename of filenames) {
     const fullPath = path.join(dir, filename)
     if (fs.statSync(fullPath).isDirectory()) {
-      files[filename] = readComponentDir(fullPath)
+      if (filename === '_hint') {
+        files[filename] = readExample(fullPath)
+      } else {
+        files[filename] = readComponentDir(fullPath)
+      }
     } else {
       files[filename] = fs.readFileSync(fullPath, 'utf-8')
     }

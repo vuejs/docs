@@ -62,7 +62,7 @@ Vue is a framework and ecosystem that covers most of the common features needed 
 - JAMStack / Static-Site-Generation (SSG)
 - Targeting desktop, mobile, WebGL or even the terminal
 
-If you are a beginner and find these concepts intimidating, don't worry! The main guide only requires basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
+If you are a beginner and find these concepts intimidating, don't worry! The guide and tutorial only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
 
 If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more details in [Ways of Using Vue](/guide/extras/ways-of-using-vue).
 
@@ -176,7 +176,7 @@ onMounted(() => {
 
 ### Which to Choose?
 
-First of all, it is important to note that both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+First of all, both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
 
 The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
 

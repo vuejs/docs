@@ -4,6 +4,7 @@ export type ExampleData = {
   [key: string]: string | Record<string, string>
 } & {
   'import-map.json'?: string
+  _hint?: ExampleData
 }
 
 function indent(str: string): string {
@@ -21,9 +22,14 @@ function deindent(str: string, tabsize = 2): string {
 }
 
 function toKebabTags(str: string): string {
-  return str.replace(/(<\/?)([A-Z]\w+)(\s|>)/g, (_, open, tagName, end) => {
-    return open + tagName.replace(/\B([A-Z])/g, '-$1').toLowerCase() + end
-  })
+  return str.replace(
+    /(<\/?)([A-Z]\w+)(\s|>)/g,
+    (_, open, tagName, end) => {
+      return (
+        open + tagName.replace(/\B([A-Z])/g, '-$1').toLowerCase() + end
+      )
+    }
+  )
 }
 
 function toScriptSetup(src: string, template: string): string {
@@ -68,7 +74,11 @@ function forEachComponent(
 ) {
   for (const filename in raw) {
     const content = raw[filename]
-    if (filename === 'description.txt' || filename === 'description.md') {
+    if (
+      filename === 'description.txt' ||
+      filename === 'description.md' ||
+      filename === '_hint'
+    ) {
       continue
     } else if (typeof content === 'string') {
       files[filename] = content
@@ -92,7 +102,10 @@ function injectCreateApp(src: string): string {
     const newline = src.startsWith(`import`) ? `\n` : `\n\n`
     src = `import { createApp } from 'vue'${newline}${src}`
   }
-  return src.replace(/export default ({[^]*\n})/, "createApp($1).mount('#app')")
+  return src.replace(
+    /export default ({[^]*\n})/,
+    "createApp($1).mount('#app')"
+  )
 }
 
 export function resolveSFCExample(
@@ -107,15 +120,16 @@ export function resolveSFCExample(
       const desc = raw['description.txt']
       let sfcContent =
         desc && filename === 'App' ? `<!--\n${desc}\n-->\n\n` : ``
-      if (preferComposition) {
+      if (preferComposition && composition) {
         sfcContent += `<script setup>\n${toScriptSetup(
           composition,
           template
-        )}<\/script>`
-      } else {
-        sfcContent += `<script>\n${options}<\/script>`
+        )}<\/script>\n\n`
       }
-      sfcContent += `\n\n<template>\n${indent(template)}</template>`
+      if (!preferComposition && options) {
+        sfcContent += `<script>\n${options}<\/script>\n\n`
+      }
+      sfcContent += `<template>\n${indent(template)}</template>`
       if (style) {
         sfcContent += `\n\n<style>\n${style}</style>`
       }
@@ -141,16 +155,23 @@ export function resolveNoBuildExample(
     raw,
     files,
     (filename, { template, composition, options, style }) => {
-      let js = preferComposition ? composition : options
+      let js = (preferComposition ? composition : options) || ''
       // rewrite imports to *.vue
-      js = js.replace(/import (.*) from '(.*)\.vue'/g, "import $1 from '$2.js'")
+      js = js.replace(
+        /import (.*) from '(.*)\.vue'/g,
+        "import $1 from '$2.js'"
+      )
 
       const _template = indent(toKebabTags(template).trim())
       if (style) css += style
 
       if (filename === 'App') {
-        html += `<script type="module">\n${injectCreateApp(js)}<\/script>`
-        html += `\n\n<div id="app">\n${_template}\n</div>`
+        if (js) {
+          html += `<script type="module">\n${injectCreateApp(
+            js
+          )}<\/script>\n\n`
+        }
+        html += `<div id="app">\n${_template}\n</div>`
       } else {
         // html += `\n\n<template id="${filename}">\n${_template}</template>`
         js = js.replace(

@@ -9,7 +9,11 @@ import {
 } from '../examples/utils'
 import '@vue/repl/style.css'
 import PreferenceSwitch from '../.vitepress/theme/components/PreferenceSwitch.vue'
-import { VTFlyout, VTIconChevronLeft, VTIconChevronRight } from '@vue/theme'
+import {
+  VTFlyout,
+  VTIconChevronLeft,
+  VTIconChevronRight
+} from '@vue/theme'
 
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
@@ -24,7 +28,7 @@ const currentStep = ref('')
 const keys = Object.keys(data)
 const totalSteps = keys.length
 
-const titleRE = /<h1.*?>([\w\s-_]+?)<a class="header-anchor/
+const titleRE = /<h1.*?>(.+?)<a class="header-anchor/
 const allSteps = keys.map((key, i) => {
   const desc = data[key]['description.md'] as string
   return {
@@ -57,10 +61,7 @@ const nextStep = computed(() => {
   }
 })
 
-const userEditedState = ref<Record<string, string> | null>(null)
-const buttonText = computed(() =>
-  userEditedState.value ? 'Reset' : 'Show me!'
-)
+const showingHint = ref(false)
 
 function updateExample() {
   let hash = location.hash.slice(1)
@@ -70,8 +71,7 @@ function updateExample() {
   }
   currentStep.value = hash
 
-  const content =
-    userEditedState.value && nextStep.value ? data[nextStep.value] : data[hash]
+  const content = showingHint.value ? data[hash]._hint! : data[hash]
 
   store.setFiles(
     preferSFC.value
@@ -86,25 +86,12 @@ function updateExample() {
 }
 
 function toggleResult() {
-  if (userEditedState.value) {
-    store.setFiles(userEditedState.value)
-    userEditedState.value = null
-  } else {
-    userEditedState.value = store.getFiles()
-    updateExample()
-  }
+  showingHint.value = !showingHint.value
+  updateExample()
 }
 
-watch([preferComposition, preferSFC], () => {
-  userEditedState.value = null
-  updateExample()
-})
-
-onHashChange(() => {
-  userEditedState.value = null
-  updateExample()
-})
-
+watch([preferComposition, preferSFC], updateExample)
+onHashChange(updateExample)
 updateExample()
 </script>
 
@@ -117,12 +104,15 @@ updateExample()
         :items="allSteps"
       ></VTFlyout>
       <div class="vt-doc" v-html="currentDescription"></div>
-      <div class="hint">
-        <button @click="toggleResult">{{ buttonText }}</button>
+      <div class="hint" v-if="data[currentStep]?._hint">
+        <button @click="toggleResult">
+          {{ showingHint ? 'Reset' : 'Show me!' }}
+        </button>
       </div>
       <footer>
         <a v-if="prevStep" :href="`#${prevStep}`"
-          ><VTIconChevronLeft class="vt-link-icon" style="margin: 0" /> Prev</a
+          ><VTIconChevronLeft class="vt-link-icon" style="margin: 0" />
+          Prev</a
         >
         <a class="next-step" v-if="nextStep" :href="`#${nextStep}`"
           >Next <VTIconChevronRight class="vt-link-icon"
@@ -144,11 +134,13 @@ updateExample()
   display: flex;
   max-width: 1440px;
   margin: 0 auto;
-  --height: calc(100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px));
+  --height: calc(
+    100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px)
+  );
 }
 
 .instruction {
-  width: 45%;
+  width: 40%;
   height: var(--height);
   padding: 0 32px 24px;
   border-right: 1px solid var(--vt-c-divider-light);
@@ -159,7 +151,7 @@ updateExample()
 }
 
 .vue-repl {
-  width: 55%;
+  width: 60%;
   height: var(--height);
 }
 
@@ -237,7 +229,9 @@ button {
   }
   .vue-repl {
     width: 100%;
-    height: calc(70vh - var(--vt-nav-height) - var(--vt-banner-height, 0px));
+    height: calc(
+      70vh - var(--vt-nav-height) - var(--vt-banner-height, 0px)
+    );
   }
 }
 </style>
