@@ -1,25 +1,15 @@
-import { ref, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 
 export default {
   setup() {
-    const todoId = ref(1)
-    const todoData = ref(null)
+    const p = ref(null)
 
-    async function fetchData() {
-      todoData.value = null
-      const res = await fetch(
-        `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
-      )
-      todoData.value = await res.json()
-    }
-
-    fetchData()
-
-    watch(todoId, fetchData)
+    onMounted(() => {
+      p.value.textContent = 'mounted!'
+    })
 
     return {
-      todoId,
-      todoData
+      p
     }
   }
 }

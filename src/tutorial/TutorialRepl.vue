@@ -26,7 +26,9 @@ const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
 
 const currentStep = ref('')
-const keys = Object.keys(data)
+const keys = Object.keys(data).sort((a, b) => {
+  return Number(a.replace(/^step-/, '')) - Number(b.replace(/^step-/, ''))
+})
 const totalSteps = keys.length
 
 const titleRE = /<h1.*?>(.+?)<a class="header-anchor/
