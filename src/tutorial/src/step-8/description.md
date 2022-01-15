@@ -13,7 +13,7 @@ The next improvement we can add is to be able to hide already completed todos. W
 
 <div class="options-api">
 
-Introducing computed property. We can declare a property that is reactively computed from other properties using the `computed` option:
+Introducing <a target="_blank" href="/guide/essentials/computed.html">computed property</a>. We can declare a property that is reactively computed from other properties using the `computed` option:
 
 <div class="sfc">
 
@@ -47,7 +47,7 @@ createApp({
 </div>
 <div class="composition-api">
 
-Introducing `computed()`. We can create a computed ref that computes its `.value` based on other reactive data sources:
+Introducing <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>. We can create a computed ref that computes its `.value` based on other reactive data sources:
 
 <div class="sfc">
 

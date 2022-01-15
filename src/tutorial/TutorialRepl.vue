@@ -148,6 +148,10 @@ updateExample()
   );
 }
 
+.preference-switch {
+  position: relative;
+}
+
 .instruction {
   width: 45%;
   height: var(--height);
@@ -232,9 +236,6 @@ button {
 }
 
 @media (max-width: 720px) {
-  .preference-switch {
-    position: relative;
-  }
   .tutorial {
     display: block;
   }
