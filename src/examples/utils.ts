@@ -22,14 +22,15 @@ function deindent(str: string, tabsize = 2): string {
 }
 
 function toKebabTags(str: string): string {
-  return str.replace(
-    /(<\/?)([A-Z]\w+)(\s|>)/g,
-    (_, open, tagName, end) => {
+  return str
+    .replace(/(<\/?)([A-Z]\w+)(\s|>)/g, (_, open, tagName, end) => {
       return (
         open + tagName.replace(/\B([A-Z])/g, '-$1').toLowerCase() + end
       )
-    }
-  )
+    })
+    .replace(/<([\w-]+)\s*\/>/g, (_, tagName) => {
+      return `<${tagName}></${tagName}>`
+    })
 }
 
 function toScriptSetup(src: string, template: string): string {
@@ -64,7 +65,8 @@ function toScriptSetup(src: string, template: string): string {
     setupCode = (propsDef + '\n\n' + setupCode).trim()
   }
 
-  return src.slice(0, exportDefaultIndex) + setupCode + '\n'
+  const res = src.slice(0, exportDefaultIndex) + setupCode
+  return (setupCode ? res : res.trim()) + '\n'
 }
 
 function forEachComponent(
@@ -174,10 +176,14 @@ export function resolveNoBuildExample(
         html += `<div id="app">\n${_template}\n</div>`
       } else {
         // html += `\n\n<template id="${filename}">\n${_template}</template>`
-        js = js.replace(
-          /export default \{([^]*)\n\}/,
-          `export default {$1,\n  template: \`\n${_template}\n  \`\n}`
-        )
+        if (js) {
+          js = js.replace(
+            /export default \{([^]*)\n\}/,
+            `export default {$1,\n  template: \`\n${_template}\n  \`\n}`
+          )
+        } else {
+          js = `export default {\n  template: \`\n${_template}\n  \`\n}`
+        }
         files[filename + '.js'] = js
       }
     }

@@ -43,7 +43,10 @@ function readExample(dir: string): ExampleData {
   if (files._hint) {
     for (const filename in files) {
       if (filename !== '_hint') {
-        const hint = files._hint[filename]
+        let hint = files._hint[filename]
+        if (!hint) {
+          hint = files._hint[filename] = {}
+        }
         const original = files[filename]
         if (typeof original !== 'string' && typeof hint !== 'string') {
           for (const key in original) {
