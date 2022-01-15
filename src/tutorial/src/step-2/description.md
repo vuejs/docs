@@ -74,7 +74,7 @@ createApp({
       message: 'Hello World!'
     }
   }
-}).mount('#app')
+})
 ```
 
 </div>
