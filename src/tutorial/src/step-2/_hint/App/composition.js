@@ -2,10 +2,10 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    const msg = ref('Hello World!')
+    const message = ref('Hello World!')
 
     return {
-      msg
+      message
     }
   }
 }

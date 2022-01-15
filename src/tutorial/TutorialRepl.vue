@@ -63,7 +63,7 @@ const nextStep = computed(() => {
 
 const showingHint = ref(false)
 
-function updateExample() {
+function updateExample(scroll = false) {
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
     hash = 'step-1'
@@ -80,9 +80,11 @@ function updateExample() {
     preferSFC.value ? 'App.vue' : 'index.html'
   )
 
-  nextTick(() => {
-    instruction.value!.scrollTop = 0
-  })
+  if (scroll) {
+    nextTick(() => {
+      instruction.value!.scrollTop = 0
+    })
+  }
 }
 
 function toggleResult() {
@@ -90,8 +92,8 @@ function toggleResult() {
   updateExample()
 }
 
-watch([preferComposition, preferSFC], updateExample)
-onHashChange(updateExample)
+watch([preferComposition, preferSFC], () => updateExample())
+onHashChange(() => updateExample(true))
 updateExample()
 </script>
 
@@ -125,6 +127,7 @@ updateExample()
       :showCompileOutput="false"
       :clearConsole="false"
       :showImportMap="false"
+      @keyup="showingHint = false"
     />
   </section>
 </template>
@@ -140,7 +143,7 @@ updateExample()
 }
 
 .instruction {
-  width: 40%;
+  width: 45%;
   height: var(--height);
   padding: 0 32px 24px;
   border-right: 1px solid var(--vt-c-divider-light);
@@ -151,7 +154,7 @@ updateExample()
 }
 
 .vue-repl {
-  width: 60%;
+  width: 55%;
   height: var(--height);
 }
 
@@ -213,6 +216,10 @@ button {
   }
 }
 
+:deep(.narrow) {
+  display: none;
+}
+
 @media (max-width: 720px) {
   .preference-switch {
     position: relative;
@@ -232,6 +239,12 @@ button {
     height: calc(
       70vh - var(--vt-nav-height) - var(--vt-banner-height, 0px)
     );
+  }
+  :deep(.wide) {
+    display: none;
+  }
+  :deep(.narrow) {
+    display: inline;
   }
 }
 </style>

@@ -10,7 +10,9 @@ import {
 } from './preferences'
 
 const route = useRoute()
-const show = computed(() => /^\/(guide|tutorial|examples)\//.test(route.path))
+const show = computed(() =>
+  /^\/(guide|tutorial|examples)\//.test(route.path)
+)
 const showSFC = computed(() => !/^\/guide/.test(route.path))
 const isOpen = ref(
   typeof localStorage !== 'undefined' &&
@@ -81,7 +83,9 @@ function useToggleFn(
           aria-label="Switch API"
           @click="toggleCompositionAPI()"
         />
-        <label class="composition-label" @click="toggleCompositionAPI(true)"
+        <label
+          class="composition-label"
+          @click="toggleCompositionAPI(true)"
           >Composition</label
         >
         <a
@@ -116,7 +120,7 @@ function useToggleFn(
 .preference-switch {
   font-size: 12px;
   border-bottom: 1px solid var(--vt-c-divider-light);
-  transition: border-color 0.5s, background-color .5s ease;
+  transition: border-color 0.5s, background-color 0.5s ease;
   margin-bottom: 20px;
   position: sticky;
   top: -0.5px;
@@ -209,15 +213,18 @@ function useToggleFn(
 </style>
 
 <style>
-.composition-api {
+.composition-api,
+.sfc {
   display: none;
 }
 
-.prefer-composition .options-api {
+.prefer-composition .options-api,
+.prefer-sfc .html {
   display: none;
 }
 
-.prefer-composition .composition-api {
+.prefer-composition .composition-api,
+.prefer-sfc .sfc {
   display: initial;
 }
 
