@@ -28,8 +28,8 @@ function toKebabTags(str: string): string {
         open + tagName.replace(/\B([A-Z])/g, '-$1').toLowerCase() + end
       )
     })
-    .replace(/<([\w-]+)\s*\/>/g, (_, tagName) => {
-      return `<${tagName}></${tagName}>`
+    .replace(/<([\w-]+)([^>]*?)\s?\/>/g, (_, tagName, attrs) => {
+      return `<${tagName}${attrs}></${tagName}>`
     })
 }
 
