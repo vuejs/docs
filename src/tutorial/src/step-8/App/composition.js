@@ -2,18 +2,18 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    // give each todo a unique id
     let id = 0
 
     const newTodo = ref('')
+    const hideCompleted = ref(false)
     const todos = ref([
-      { id: id++, text: 'Learn HTML' },
-      { id: id++, text: 'Learn JavaScript' },
-      { id: id++, text: 'Learn Vue' }
+      { id: id++, text: 'Learn HTML', done: true },
+      { id: id++, text: 'Learn JavaScript', done: true },
+      { id: id++, text: 'Learn Vue', done: false }
     ])
 
     function addTodo() {
-      todos.value.push({ text: newTodo.value })
+      todos.value.push({ id: id++, text: newTodo.value, done: false })
       newTodo.value = ''
     }
 
@@ -23,6 +23,7 @@ export default {
 
     return {
       newTodo,
+      hideCompleted,
       todos,
       addTodo,
       removeTodo

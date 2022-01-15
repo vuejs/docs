@@ -1,11 +1,14 @@
+// give each todo a unique id
+let id = 0
+
 export default {
   data() {
     return {
       newTodo: '',
       todos: [
-        { text: 'Learn HTML' },
-        { text: 'Learn JavaScript' },
-        { text: 'Learn Vue' }
+        { id: id++, text: 'Learn HTML' },
+        { id: id++, text: 'Learn JavaScript' },
+        { id: id++, text: 'Learn Vue' }
       ]
     }
   },
