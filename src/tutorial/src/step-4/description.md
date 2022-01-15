@@ -106,4 +106,6 @@ Inside the function, we can update the component state by mutating refs.
 
 </div>
 
+Event handlers can also use inline expressions, and can simplify common tasks with modifiers. These details are covered in <a target="_blank" href="/guide/essentials/event-handling.html">Guide - Event Handling</a>.
+
 Now, try to implement the `increment` <span class="options-api">method</span><span class="composition-api">function</span> yourself and bind it to the button using `v-on`.
