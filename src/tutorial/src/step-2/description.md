@@ -46,8 +46,6 @@ Properties in the returned object will be exposed to the template, and can be ac
 <h1>{{ message }}</h1>
 ```
 
-Now, try to create a ref object yourself, and use it as the text content for the `<h1>` in the template.
-
 </div>
 
 <div class="options-api">
@@ -86,6 +84,22 @@ The `message` property will be made available in the template. This is how we ca
 ```vue-html
 <h1>{{ message }}</h1>
 ```
+
+</div>
+
+The content inside the mustaches is not limited to just single properties - we can use any valid JavaScript expression:
+
+```vue-html
+<h1>{{ message.split('').reverse().join('') }}</h1>
+```
+
+<div class="composition-api">
+
+Now, try to create a ref object yourself, and use it as the text content for the `<h1>` in the template.
+
+</div>
+
+<div class="options-api">
 
 Now, try to create a data property yourself, and use it as the text content for the `<h1>` in the template.
 

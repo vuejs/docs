@@ -38,6 +38,24 @@ function readExample(dir: string): ExampleData {
       files[filename] = fs.readFileSync(fullPath, 'utf-8')
     }
   }
+
+  // fallback so that we can omit identical files in _hint
+  if (files._hint) {
+    for (const filename in files) {
+      if (filename !== '_hint') {
+        const hint = files._hint[filename]
+        const original = files[filename]
+        if (typeof original !== 'string' && typeof hint !== 'string') {
+          for (const key in original) {
+            if (!(key in hint)) {
+              hint[key] = original[key]
+            }
+          }
+        }
+      }
+    }
+  }
+
   return files
 }
 

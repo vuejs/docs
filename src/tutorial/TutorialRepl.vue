@@ -15,6 +15,8 @@ import {
   VTIconChevronRight
 } from '@vue/theme'
 
+debugger
+
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
 })
