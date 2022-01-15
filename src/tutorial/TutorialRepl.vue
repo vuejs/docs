@@ -12,10 +12,9 @@ import PreferenceSwitch from '../.vitepress/theme/components/PreferenceSwitch.vu
 import {
   VTFlyout,
   VTIconChevronLeft,
-  VTIconChevronRight
+  VTIconChevronRight,
+  VTLink
 } from '@vue/theme'
-
-debugger
 
 const store = new ReplStore({
   defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
@@ -103,10 +102,15 @@ updateExample()
   <section class="tutorial">
     <article class="instruction" ref="instruction">
       <PreferenceSwitch />
-      <VTFlyout
-        :button="`${currentStepIndex} / ${totalSteps}`"
-        :items="allSteps"
-      ></VTFlyout>
+      <VTFlyout :button="`${currentStepIndex} / ${totalSteps}`">
+        <VTLink
+          v-for="(step, i) of allSteps"
+          class="vt-menu-link"
+          :class="{ active: i + 1 === currentStepIndex }"
+          :href="step.link"
+          >{{ step.text }}</VTLink
+        >
+      </VTFlyout>
       <div class="vt-doc" v-html="currentDescription"></div>
       <div class="hint" v-if="data[currentStep]?._hint">
         <button @click="toggleResult">
@@ -164,6 +168,11 @@ updateExample()
   z-index: 9;
   position: absolute;
   right: 20px;
+}
+
+.vt-menu-link.active {
+  font-weight: 500;
+  color: var(--vt-c-brand);
 }
 
 footer {
