@@ -99,6 +99,6 @@ createApp({
 + <li v-for="todo in filteredTodos">
 ```
 
-A computed property tracks other reactive state used in its computation as dependencies, and will automatically update when its dependencies change.
+A computed property tracks other reactive state used in its computation as dependencies. It caches the result and automatically updates it when its dependencies change.
 
 Now, try to add the `filteredTodos` computed property and implement its computation logic! If implemented correctly, checking off a todo when hiding completed items should instantly hide it as well.
