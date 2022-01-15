@@ -8,7 +8,7 @@ A child component can accept input from the parent via **props**. First, it need
 ```vue
 <!-- ChildComp.vue -->
 <script setup>
-defineProps({
+const props = defineProps({
   msg: String
 })
 </script>
@@ -25,11 +25,14 @@ Note `defineProps()` is a compile-time macro and doesn't need to be imported. On
 export default {
   props: {
     msg: String
+  },
+  setup(props) {
+    // access props.msg
   }
 }
 ```
 
-Once declared, the `msg` prop is exposed on `this` and can be used in the child component's template.
+Once declared, the `msg` prop is exposed on `this` and can be used in the child component's template. The received props are passed to `setup()` as the first argument.
 
 </div>
 

@@ -28,7 +28,7 @@ function toKebabTags(str: string): string {
         open + tagName.replace(/\B([A-Z])/g, '-$1').toLowerCase() + end
       )
     })
-    .replace(/<([\w-]+)([^>]*?)\s?\/>/g, (_, tagName, attrs) => {
+    .replace(/<([\w-]+)([^/]*?)\s?\/>/g, (_, tagName, attrs) => {
       return `<${tagName}${attrs}></${tagName}>`
     })
 }
@@ -63,6 +63,18 @@ function toScriptSetup(src: string, template: string): string {
       1
     )
     setupCode = (propsDef + '\n\n' + setupCode).trim()
+  }
+
+  const emitsStartIndex = src.indexOf(`\n  emits:`)
+  if (emitsStartIndex > -1) {
+    const emitsEndIndex = src.indexOf(`]`, emitsStartIndex) + 1
+    const emitsDef =
+      src
+        .slice(emitsStartIndex, emitsEndIndex)
+        .trim()
+        .replace(/,$/, '')
+        .replace(/^emits: /, `const emit = defineEmits(`) + ')'
+    setupCode = (emitsDef + '\n\n' + setupCode).trim()
   }
 
   const res = src.slice(0, exportDefaultIndex) + setupCode
