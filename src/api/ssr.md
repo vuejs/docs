@@ -32,7 +32,9 @@
 
   ### Handling Teleports
 
-  If the rendered app contains teleports, the teleported content will not be part of the rendered string. Instead, they are exposed under the `teleports` property of the ssr context object:
+  If the rendered app contains Teleports, the teleported content will not be part of the rendered string. In most cases, the best solution is to conditionally render the Teleport on mount.
+
+  If you do need to hydrate teleported content, they are exposed under the `teleports` property of the ssr context object:
 
   ```js
   const ctx = {}

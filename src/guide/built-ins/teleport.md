@@ -119,12 +119,14 @@ let open = $ref(false)
 
 <div class="demo">
   <button @click="open = true">Open Modal</button>
-  <Teleport to="body">
-    <div v-if="open" class="demo modal-demo">
-      <p style="margin-bottom:20px">Hello from the modal!</p>
-      <button @click="open = false">Close</button>
-    </div>
-  </Teleport>
+  <ClientOnly>
+    <Teleport to="body">
+      <div v-if="open" class="demo modal-demo">
+        <p style="margin-bottom:20px">Hello from the modal!</p>
+        <button @click="open = false">Close</button>
+      </div>
+    </Teleport>
+  </ClientOnly>
 </div>
 
 <style>
@@ -195,3 +197,4 @@ The rendered result would be:
 **Related**
 
 - [`<Teleport>` API reference](/api/built-in-components.html#teleport)
+- [Handling Teleports in SSR](/api/ssr.html#handling-teleports)
