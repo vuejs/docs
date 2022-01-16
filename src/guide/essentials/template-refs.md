@@ -56,6 +56,7 @@ export default {
 Note that you can only access the ref **after the component is mounted.** If you try to access `$refs.input` in a template expression, it will be `null` on the first render. This is because the element doesn't exist until after the first render!
 
 <div class="composition-api">
+
 If you are trying to watch the changes of a template ref, make sure to account for the case where the ref has `null` value:
 
 ```js
