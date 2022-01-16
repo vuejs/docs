@@ -37,6 +37,8 @@ For profiling performance during local development:
 
 ## Page Load Optimizations
 
+There are many framework-agnostic aspects for optimizing page load performance - check out [this web.dev guide](https://web.dev/fast/) for a comprehensive round up. Here, we will primarily focus on techniques that are specific to Vue.
+
 ### Bundle Size and Tree-shaking
 
 One of the most effective ways to improve page load performance is shipping smaller JavaScript bundles. Here are a few ways to reduce bundle size when using Vue:
