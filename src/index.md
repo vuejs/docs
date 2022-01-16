@@ -34,15 +34,15 @@ import NewsLetter from './.vitepress/theme/components/NewsLetter.vue'
 
 <section id="highlights" class="vt-box-container">
   <div class="vt-box">
-    <h3>Approachable</h3>
+    <h2>Approachable</h2>
     <p>Builds on top of standard HTML, CSS and JavaScript with intuitive API and world-class documentation.</p>
   </div>
   <div class="vt-box">
-    <h3>Performant</h3>
+    <h2>Performant</h2>
     <p>Truly reactive, compiler-optimized rendering system that rarely requires manual optimization.</p>
   </div>
   <div class="vt-box">
-    <h3>Versatile</h3>
+    <h2>Versatile</h2>
     <p>A rich, incrementally adoptable ecosystem that scales between a library and a full-featured framework.</p>
   </div>
 </section>
@@ -182,7 +182,7 @@ html:not(.dark) .accent, .dark .tagline {
   color: var(--vt-c-text-2);
 }
 
-#highlights h3 {
+#highlights h2 {
   font-weight: 600;
   font-size: 20px;
   letter-spacing: -0.4px;
