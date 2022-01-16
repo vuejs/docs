@@ -492,6 +492,8 @@ export const sidebar = {
 export default defineConfigWithTheme<Config>({
   extends: baseConfig,
 
+  srcExclude: ['tutorial/**/description.md'],
+
   lang: 'en-US',
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
