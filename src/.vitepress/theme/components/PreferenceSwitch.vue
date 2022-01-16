@@ -63,7 +63,7 @@ function useToggleFn(
   <div v-if="show" class="preference-switch">
     <button
       class="toggle"
-      role="switch"
+      aria-label="preference switches toggle"
       aria-controls="preference-switches"
       :aria-expanded="isOpen"
       @click="toggleOpen"
@@ -80,7 +80,8 @@ function useToggleFn(
         >
         <VTSwitch
           class="api-switch"
-          aria-label="Switch API"
+          aria-label="prefer composition api"
+          :aria-checked="preferComposition"
           @click="toggleCompositionAPI()"
         />
         <label
@@ -100,7 +101,8 @@ function useToggleFn(
         <label class="no-sfc-label" @click="toggleSFC(false)">HTML</label>
         <VTSwitch
           class="sfc-switch"
-          aria-label="Switch Single File Component"
+          aria-label="prefer single file component"
+          :aria-checked="preferSFC"
           @click="toggleSFC()"
         />
         <label class="sfc-label" @click="toggleSFC(true)">SFC</label>
