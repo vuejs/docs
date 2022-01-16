@@ -305,34 +305,19 @@ When Vue encounters a hydration mismatch, it will attempt to automatically recov
 
 ### Custom Directives
 
-Since most custom directives involve direct DOM manipulation, they are ignored during SSR.
-
-You can provide a transform function to implement the server-side rendering logic for a custom directive. The function should be passed under the `directiveTransforms` option to `@vue/compiler-dom`.
-
-Example Vite config that provides an empty stub for a custom `v-focus` directive:
+Since most custom directives involve direct DOM manipulation, they are ignored during SSR. However, if you want to specify how a custom directive should be rendered (i.e. what attributes it should add to the rendered element), you can use the `getSSRProps` directive hook:
 
 ```js
-import vue from '@vitejs/plugin-vue'
-
-export default {
-  plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          directiveTransforms: {
-            // an empty array indicates that v-focus
-            // does not add any rendered attributes to the element.
-            focus: () => ({ props: [] })
-          }
-        }
-      }
-    })
-  ]
+const myDirective = {
+  mounted(el) {
+    el.id = 'foo'
+  },
+  getSSRProps(binding, vnode) {
+    // the hook the directive binding and the element vnode as arguments.
+    // return props to be added to the vnode.
+    return {
+      id: 'foo'
+    }
+  }
 }
 ```
-
-Writing a proper directive transform requires TypeScript proficiency and knowledge of Vue's compiler API. We plan to add documentation for the compiler API in the future, but for now, you will need to consult the [source code](https://github.com/vuejs/vue-next/blob/master/packages/compiler-core/src/transform.ts#L53-L63) to learn more about it.
-
-:::tip
-Currently, the SSR compiler will throw an error if a server-side transform is not found for a custom directive. This behavior will be adjusted to a warning in the future.
-:::
