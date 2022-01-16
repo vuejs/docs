@@ -4,6 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
 import type { Config } from '@vue/theme'
+import { UserConfig } from 'vitepress'
 
 const nav = [
   {
@@ -490,13 +491,13 @@ export const sidebar = {
 }
 
 export default defineConfigWithTheme<Config>({
-  extends: baseConfig,
-
-  srcExclude: ['tutorial/**/description.md'],
+  extends: baseConfig as () => UserConfig<Config>,
 
   lang: 'en-US',
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
+  srcExclude: ['tutorial/**/description.md'],
+  scrollOffset: 'header',
 
   head: [
     ['meta', { name: 'twitter:site', content: '@vuejs' }],
@@ -606,14 +607,7 @@ export default defineConfigWithTheme<Config>({
   },
 
   vue: {
-    reactivityTransform: true,
-    template: {
-      compilerOptions: {
-        directiveTransforms: {
-          focus: () => ({ props: [] })
-        }
-      }
-    }
+    reactivityTransform: true
   }
 })
 
