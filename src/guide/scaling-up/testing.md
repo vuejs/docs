@@ -156,7 +156,7 @@ Then create a file ending in `*.test.js` in your project. You can place all test
 
 ```js
 // MyComponent.test.js
-import { render } from '@vue/testing-library'
+import { render } from '@testing-library/vue'
 import MyComponent from './MyComponent.vue'
 
 test('it should work', () => {
