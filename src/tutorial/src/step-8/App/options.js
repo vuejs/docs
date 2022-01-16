@@ -12,6 +12,9 @@ export default {
       ]
     }
   },
+  computed: {
+    // ...
+  },
   methods: {
     addTodo() {
       this.todos.push({ id: id++, text: this.newTodo, done: false })

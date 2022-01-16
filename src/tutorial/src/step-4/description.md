@@ -18,7 +18,7 @@ Here, `increment` references a function declared using the `methods` option:
 
 <div class="sfc">
 
-```js{8}
+```js{7-12}
 export default {
   data() {
     return {
@@ -37,7 +37,7 @@ export default {
 </div>
 <div class="html">
 
-```js{8}
+```js{7-12}
 createApp({
   data() {
     return {
@@ -65,7 +65,7 @@ Inside a method, we can access the component instance using `this`. The componen
 
 Here, `increment` is referencing a function declared in `<script setup>`:
 
-```vue{6}
+```vue{6-9}
 <script setup>
 import { ref } from 'vue'
 

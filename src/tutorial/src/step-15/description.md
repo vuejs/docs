@@ -1,4 +1,4 @@
-# Next Steps
+# You Did It!
 
 You have finished the tutorial!
 

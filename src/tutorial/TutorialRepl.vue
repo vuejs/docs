@@ -96,7 +96,12 @@ function toggleResult() {
 }
 
 watch([preferComposition, preferSFC], () => updateExample())
-onHashChange(() => updateExample(true))
+
+onHashChange(() => {
+  showingHint.value = false
+  updateExample(true)
+})
+
 updateExample()
 </script>
 

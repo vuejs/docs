@@ -4,24 +4,35 @@ The core feature of Vue is **declarative rendering**: using a template syntax th
 
 <div class="composition-api">
 
-We can declare reactive state using the `ref()` API:
+We can declare reactive state using `reactive()`. Objects created from `reactive()` are proxies that work just like normal objects:
 
 ```js
-const message = ref('Hello World!')
+import { reactive } from 'vue'
+
+const counter = reactive({
+  count: 1
+})
+
+console.log(counter.count) // 0
+counter.count++
 ```
 
-A "ref" is an object that exposes its inner value under a `.value` property:
+`reactive()` only works on objects (including arrays and built-in types like `Map` and `Set`). `ref()`, on the other hand, can take any value type and create an object that exposes the inner value under a `.value` property:
 
 ```js
-console.log(message.value) // "Hello World!"
+import { ref } from 'vue'
 
-// refs can also be mutated.
+const message = ref('Hello World!')
+
+console.log(message.value) // "Hello World!"
 message.value = 'Changed'
 ```
 
+Details on `reactive()` and `ref()` are discussed in <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">Guide - Reactivity Fundamentals</a>.
+
 <div class="sfc">
 
-Refs declared in the `<script setup>` block can be used directly in the template, **without the need of `.value`**. This is how we can render dynamic text based on the value of the `message` ref, using mustaches syntax:
+Variables declared in the `<script setup>` block can be used directly in the template. This is how we can render dynamic text based on the value of the `state` object and `message` ref, using mustaches syntax:
 
 </div>
 
@@ -31,20 +42,25 @@ A component's state should be declared inside its `setup()` function, and return
 
 ```js{2,5}
 setup() {
+  const state = reactive({ count: 0 })
   const message = ref('Hello World!')
   return {
+    state,
     message
   }
 }
 ```
 
-Properties in the returned object will be exposed to the template, and can be accessed **without the need of `.value`**. This is how we can render dynamic text based on the value of `message`, using mustaches syntax:
+Properties in the returned object will be exposed to the template. This is how we can render dynamic text based on the value of `message`, using mustaches syntax:
 
 </div>
 
 ```vue-html
 <h1>{{ message }}</h1>
+<p>count is: {{ state.count }}</p>
 ```
+
+Notice how we did not need to use `.value` when accessing the `message` ref in templates: it is automatically unwrapped for more succinct usage.
 
 </div>
 
@@ -54,7 +70,7 @@ We can declare reactive state using the `data` option, which should be a functio
 
 <div class="sfc">
 
-```js
+```js{3-5}
 export default {
   data() {
     return {
@@ -67,7 +83,7 @@ export default {
 </div>
 <div class="html">
 
-```js{2-6}
+```js{3-5}
 createApp({
   data() {
     return {
@@ -87,7 +103,7 @@ The `message` property will be made available in the template. This is how we ca
 
 </div>
 
-The content inside the mustaches is not limited to just single properties - we can use any valid JavaScript expression:
+The content inside the mustaches is not limited to just identifiers or paths - we can use any valid JavaScript expression:
 
 ```vue-html
 <h1>{{ message.split('').reverse().join('') }}</h1>
@@ -95,7 +111,7 @@ The content inside the mustaches is not limited to just single properties - we c
 
 <div class="composition-api">
 
-Now, try to create a ref object yourself, and use it as the text content for the `<h1>` in the template.
+Now, try to create some reactive state yourself, and use it to render dynamic text content for the `<h1>` in the template.
 
 </div>
 
