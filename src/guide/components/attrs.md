@@ -67,7 +67,7 @@ Then the fallthrough attributes received by `<MyButton>` will be automatically f
 
 Note that:
 
-1. Forwarded attributes do not include any attributes that are declared as props by `<MyButton>` - in other words, the declared props have been "consumed" by `<MyButton>`.
+1. Forwarded attributes do not include any attributes that are declared as props, or `v-on` listeners of declared events by `<MyButton>` - in other words, the declared props and listeners have been "consumed" by `<MyButton>`.
 
 2. Forwarded attributes may be accepted as props by `<BaseButton>`, if declared by it.
 
@@ -103,6 +103,12 @@ These fallthrough attributes can be accessed directly in template expressions as
 ```
 
 The `$attrs` object includes all attributes that are not declared by the component's `props` or `emits` options (e.g., `class`, `style`, `v-on` listeners, etc.).
+
+Some notes:
+
+- Unlike props, fallthrough attributes preserve their original casing in JavaScript, so an attribute like `foo-bar` needs to be accessed as `$attrs['foo-bar']`.
+
+- A `v-on` event listener like `@click` will be exposed on the object as a function under `$attrs.onClick`.
 
 Using our `<MyButton>` component example from the [previous section](#attribute-inheritance) - sometimes we may need to wrap the actual `<button>` element with an extra `<div>` for styling purposes:
 
@@ -150,7 +156,7 @@ The warning will be suppressed if `$attrs` is explicitly bound:
 
 <div class="composition-api">
 
-You can access a component's fallthrough attributes in `<script setup>` using the `useAttrs()` API:
+If needed, you can access a component's fallthrough attributes in `<script setup>` using the `useAttrs()` API:
 
 ```vue
 <script setup>
@@ -171,11 +177,13 @@ export default {
 }
 ```
 
+Note that although the `attrs` object here always reflect the latest fallthrough attributes, it isn't reactive (for performance reasons). You cannot use watchers to observe its changes. If you need reactivity, use a prop. Alternatively, you can use `onUpdated()` to perform side effects with latest `attrs` on each update.
+
 </div>
 
 <div class="options-api">
 
-You can access a component's fallthrough attributes via the `$attrs` instance property:
+If needed, you can access a component's fallthrough attributes via the `$attrs` instance property:
 
 ```js
 export default {

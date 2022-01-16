@@ -2,13 +2,13 @@
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
-## Props Drilling
+## Prop Drilling
 
 Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
 
-![props drilling diagram](./images/props-drilling.png)
+![prop drilling diagram](./images/prop-drilling.png)
 
-<!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/props-drilling -->
+<!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/prop-drilling -->
 
 Notice although the `<Footer>` component may not care about these props at all, it still needs to declare and pass them along just so `<DeepChild>` can access them. If there is a longer parent chain, more components would be affected along the way. This is called "props drilling" and definitely isn't fun to deal with.
 
@@ -225,7 +225,8 @@ export default {
       default: 'default value'
     },
     user: {
-      // make sure to use a factory function for non-primitive values!
+      // use a factory function for non-primitive values that are expensive
+      // to create, or ones that should be unique per component instance.
       default: () => ({ name: 'John' })
     }
   }
@@ -291,6 +292,8 @@ provide('read-only-count', readonly(count))
 In order to make injections reactively linked to the provider, we need to provide a computed property using the [computed()](/api/reactivity-core.html#computed) function:
 
 ```js{10}
+import { computed } from 'vue'
+
 export default {
   data() {
     return {

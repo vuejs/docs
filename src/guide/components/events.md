@@ -176,7 +176,7 @@ If a native event (e.g., `click`) is defined in the `emits` option, the listener
 
 Similar to prop type validation, an emitted event can be validated if it is defined with the object syntax instead of the array syntax.
 
-To add validation, the event is assigned a function that receives the arguments passed to the `emit` call and returns a boolean to indicate whether the event is valid or not.
+To add validation, the event is assigned a function that receives the arguments passed to the <span class="options-api">`this.$emit`</span><span class="composition-api">`emit`</span> call and returns a boolean to indicate whether the event is valid or not.
 
 <div class="composition-api">
 

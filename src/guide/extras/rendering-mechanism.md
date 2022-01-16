@@ -46,6 +46,8 @@ At the high level, this is what happens when a Vue component is mounted:
 
 ![render pipeline](./images/render-pipeline.png)
 
+<!-- https://www.figma.com/file/elViLsnxGJ9lsQVsuhwqxM/Rendering-Mechanism -->
+
 ## Template vs. Render Functions
 
 Vue templates are compiled into virtual DOM render functions. Vue also provides APIs that allow us to skip the template compilation step and directly author render functions. Render functions are more flexible compared to templates when dealing with highly dynamic logic, because you can work with vnodes using the full power of JavaScript.
