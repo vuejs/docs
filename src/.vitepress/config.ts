@@ -487,6 +487,33 @@ export const sidebar = {
         }
       ]
     }
+  ],
+  '/style-guide/': [
+    {
+      text: 'Style Guide',
+      items: [
+        {
+          text: 'Overview',
+          link: '/style-guide/'
+        },
+        {
+          text: 'A - Essential',
+          link: '/style-guide/rules-essential'
+        },
+        {
+          text: 'B - Strongly Recommended',
+          link: '/style-guide/rules-strongly-recommended'
+        },
+        {
+          text: 'C - Recommended',
+          link: '/style-guide/rules-recommended'
+        },
+        {
+          text: 'D - Use with Caution',
+          link: '/style-guide/rules-use-with-caution'
+        }
+      ]
+    }
   ]
 }
 
