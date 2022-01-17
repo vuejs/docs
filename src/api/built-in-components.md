@@ -1,3 +1,7 @@
+---
+pageClass: api
+---
+
 # Built-in Components
 
 :::info Registration and Usage
@@ -297,7 +301,7 @@ Renders its slot content to another part of the DOM.
 
 - **See also:** [Guide - Teleport](/guide/built-ins/teleport.html)
 
-## `<Suspense>` <Badge type="warning" text="experimental" />
+## `<Suspense>` <sup class="vt-badge warning">experimental</sup>
 
 Used for orchestrating nested async dependencies in a component tree.
 

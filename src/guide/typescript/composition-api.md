@@ -57,7 +57,7 @@ In order to generate the correct runtime code, the generic argument for `defineP
 The same-file limitation could be removed in a future release.
 :::
 
-### Props Default Values <Badge type="warning" text="experimental" />
+### Props Default Values <sup class="vt-badge warning">experimental</sup>
 
 When using type-based declaration, we lose the ability to declare default values for the props. This can be resolved by the currently experimental [Reactivity Transform](/guide/extras/reactivity-transform.html):
 

@@ -92,7 +92,7 @@ This not only documents your component, but will also warn other developers usin
 
 <div class="options-api">
 
-See also: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <Badge type="ts" text="TS" />
+See also: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts">TS</sup>
 
 </div>
 
@@ -109,7 +109,7 @@ defineProps<{
 </script>
 ```
 
-More details: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <Badge type="ts" text="TS" />
+More details: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts">TS</sup>
 
 </div>
 

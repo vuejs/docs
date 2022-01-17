@@ -88,7 +88,7 @@ Used for binding [dynamic components](/guide/essentials/component-basics.html#dy
 
 - **Expects:** `string | Component`
 
-- **Usage on native elements** <Badge text="3.1+" />
+- **Usage on native elements** <sup class="vt-badge">3.1+</sup>
 
   When the `is` attribute is used on a native HTML element, it will be interpreted as a [Customized built-in element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), which is a native web platform feature.
 

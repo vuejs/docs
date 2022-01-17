@@ -1,4 +1,4 @@
-# Releases <Badge text="WIP" />
+# Releases <sup class="vt-badge">WIP</sup>
 
 ## Release Notes
 

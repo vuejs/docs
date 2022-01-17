@@ -85,7 +85,7 @@ Our `$translate` function will take a string such as `greetings.hello`, look ins
 <h1>{{ $translate('greetings.hello') }}</h1>
 ```
 
-See also: [Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <Badge type="ts" text="TS" />
+See also: [Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts">TS</sup>
 
 :::tip
 Use global properties scarcely, since it can quickly become confusing if too many global properties injected by different plugins are used throughout an app.

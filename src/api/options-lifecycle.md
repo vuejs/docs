@@ -209,7 +209,7 @@ Called when an error propagating from a descendent component has been captured.
 
   - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
 
-## renderTracked <Badge type="warning" text="Dev only" />
+## renderTracked <sup class="vt-badge warning">Dev only</sup>
 
 Called when a reactive dependency has been tracked by the component's render effect.
 
@@ -230,7 +230,7 @@ Called when a reactive dependency has been tracked by the component's render eff
 
 - **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
-## renderTriggered <Badge type="warning" text="Dev only" />
+## renderTriggered <sup class="vt-badge warning">Dev only</sup>
 
 Called when a reactive dependency triggers the component's render effect to be re-run.
 
@@ -286,7 +286,7 @@ Called after the component instance is removed from the DOM as part of a tree ca
 
 - **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## serverPrefetch <Badge text="SSR only" />
+## serverPrefetch <sup class="vt-badge">SSR only</sup>
 
 Async function to be resolved before the component instance is to be rendered on the server.
 

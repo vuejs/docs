@@ -55,7 +55,8 @@ function parsePageHeaders(link: string) {
     headers = h2s.map((h) =>
       h
         .slice(2)
-        .replace(/<Badge.*/, '')
+        .replace(/<sup class=.*/, '')
+        .replace(/\\</g, '<')
         .replace(/`([^`]+)`/g, '$1')
         .trim()
     )

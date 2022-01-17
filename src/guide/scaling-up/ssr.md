@@ -1,5 +1,5 @@
 ---
-aside: deep
+outline: deep
 ---
 
 # Server-Side Rendering (SSR)

@@ -1,5 +1,5 @@
 ---
-aside: deep
+outline: deep
 ---
 
 # Using Vue with TypeScript

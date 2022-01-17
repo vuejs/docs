@@ -8,7 +8,10 @@ A function that returns the initial reactive state for the component instance.
 
   ```ts
   interface ComponentOptions {
-    data?(this: ComponentPublicInstance, vm: ComponentPublicInstance): object
+    data?(
+      this: ComponentPublicInstance,
+      vm: ComponentPublicInstance
+    ): object
   }
   ```
 
@@ -142,7 +145,10 @@ Declare computed properties to be exposed on the component instance.
     vm: ComponentPublicInstance
   ) => T
 
-  type ComputedSetter<T> = (this: ComponentPublicInstance, value: T) => void
+  type ComputedSetter<T> = (
+    this: ComponentPublicInstance,
+    value: T
+  ) => void
 
   type WritableComputedOptions<T> = {
     get: ComputedGetter<T>
@@ -424,3 +430,40 @@ Declare the custom events emitted by the component.
   ```
 
 * **See also:** [Fallthrough Attributes](/guide/components/attrs.html)
+
+## expose
+
+Declare exposed public properties when the component instance is accessed by a parent via template refs.
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    expose?: string[]
+  }
+  ```
+
+- **Details**
+
+  By default, a component instance exposes all instance properties to the parent when accessed via `$parent`, `$root`, or template refs. This can be undesirable since a component most likely have internal state or methods that should be kept private to avoid tight coupling.
+
+  The `expose` option expects a list of property name strings. When `expose` is used, only the properties explicitly listed will be exposed on the component's public instance.
+
+  `expose` only affects user-defined properties - it does not filter out built-in component instance properties.
+
+- **Example**
+
+  ```js
+  export default {
+    // only `publicMethod` will be available on the pubic instance
+    expose: ['publicMethod'],
+    methods: {
+      publicMethod() {
+        // ...
+      },
+      privateMethod() {
+        // ...
+      }
+    }
+  }
+  ```

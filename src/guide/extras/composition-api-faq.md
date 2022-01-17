@@ -1,5 +1,5 @@
 ---
-aside: deep
+outline: deep
 ---
 
 # Composition API FAQ

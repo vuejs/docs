@@ -266,8 +266,8 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 - **Modifiers:**
 
   - `.camel` - transform the kebab-case attribute name into camelCase.
-  - `.prop` - force a binding to be set as a DOM property. <Badge text="3.2+"/>
-  - `.attr` - force a binding to be set as a DOM attribute. <Badge text="3.2+"/>
+  - `.prop` - force a binding to be set as a DOM property. <sup class="vt-badge">3.2+</sup>
+  - `.attr` - force a binding to be set as a DOM attribute. <sup class="vt-badge">3.2+</sup>
 
 - **Usage:**
 
@@ -463,7 +463,7 @@ Render the element and component once only, and skip future updates.
   - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text)
   - [v-memo](#v-memo)
 
-## v-memo <Badge text="3.2+"/>
+## v-memo <sup class="vt-badge">3.2+</sup>
 
 - **Expects:** `any[]`
 
