@@ -1,6 +1,6 @@
 import { ref, watchEffect } from 'vue'
 
-const API_URL = `https://api.github.com/repos/vuejs/vue-next/commits?per_page=3&sha=`
+const API_URL = `https://api.github.com/repos/vuejs/core/commits?per_page=3&sha=`
 const branches = ['master', 'v2-compat']
 
 export default {

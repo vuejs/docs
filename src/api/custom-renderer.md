@@ -82,4 +82,4 @@ Creates a custom renderer. By providing platform-specific node creation and mani
   export * from '@vue/runtime-core'
   ```
 
-  Vue's own `@vue/runtime-dom` is [implemented using the same API](https://github.com/vuejs/vue-next/blob/master/packages/runtime-dom/src/index.ts). For a simpler implementation, check out [`@vue/runtime-test`](https://github.com/vuejs/vue-next/blob/master/packages/runtime-test/src/index.ts) which is a private package for Vue's own unit testing.
+  Vue's own `@vue/runtime-dom` is [implemented using the same API](https://github.com/vuejs/core/blob/master/packages/runtime-dom/src/index.ts). For a simpler implementation, check out [`@vue/runtime-test`](https://github.com/vuejs/core/blob/master/packages/runtime-test/src/index.ts) which is a private package for Vue's own unit testing.

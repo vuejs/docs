@@ -227,7 +227,7 @@ const post = await fetch(`/api/post/1`).then((r) => r.json())
 In addition, the awaited expression will be automatically compiled in a format that preserves the current component instance context after the `await`.
 
 :::warning Note
-`async setup()` must be used in combination with `Suspense`, which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
+`async setup()` must be used in combination with `Suspense`, which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/core/blob/master/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
 :::
 
 ## TypeScript-only Features <sup class="vt-badge ts">TS</sup>

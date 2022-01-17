@@ -207,7 +207,7 @@
       },
       {
         "label": "vue-next",
-        "url": "https://github.com/vuejs/vue-next"
+        "url": "https://github.com/vuejs/core"
       },
       { "label": "VueDX", "url": "https://github.com/vuedx" }
     ],
@@ -512,7 +512,7 @@
     "projects": [
       {
         "label": "vue-next",
-        "url": "https://github.com/vuejs/vue-next"
+        "url": "https://github.com/vuejs/core"
       }
     ],
     "location": "Beijing, China",

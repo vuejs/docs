@@ -8,7 +8,7 @@ import { onMounted } from 'vue'
 let version = $ref()
 
 onMounted(async () => {
-  const res = await fetch('https://api.github.com/repos/vuejs/vue-next/releases?per_page=1')
+  const res = await fetch('https://api.github.com/repos/vuejs/core/releases?per_page=1')
   version = (await res.json())[0].name
 })
 </script>
@@ -22,7 +22,7 @@ The current latest stable version of Vue is <strong>{{ version }}</strong>.
 Checking latest version...
 </p>
 
-A full changelog of past releases is available on [GitHub](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md).
+A full changelog of past releases is available on [GitHub](https://github.com/vuejs/core/blob/master/CHANGELOG.md).
 
 ## Release Cycle
 

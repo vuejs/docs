@@ -160,7 +160,7 @@ Functions called inside binding expressions will be called every time the compon
 
 ### Restricted Globals Access
 
-Template expressions are sandboxed and only have access to a [restricted list of globals](https://github.com/vuejs/vue-next/blob/master/packages/shared/src/globalsWhitelist.ts#L3). The list exposes commonly used built-in globals such as `Math` and `Date`.
+Template expressions are sandboxed and only have access to a [restricted list of globals](https://github.com/vuejs/core/blob/master/packages/shared/src/globalsWhitelist.ts#L3). The list exposes commonly used built-in globals such as `Math` and `Date`.
 
 Globals not explicitly included in the list, for example user-attached properties on `window`, will not be accessible in template expressions. You can, however, explicitly define additional globals for all Vue expressions by adding them to [`app.config.globalProperties`](/api/application.html#app-config-globalproperties).
 
