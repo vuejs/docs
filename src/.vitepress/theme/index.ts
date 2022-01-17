@@ -1,5 +1,6 @@
+import './styles/index.css'
 import { h, App } from 'vue'
-import { VPTheme, VTBadge } from '@vue/theme'
+import { VPTheme } from '@vue/theme'
 import Banner from './components/Banner.vue'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
 import {
@@ -7,10 +8,6 @@ import {
   preferSFC,
   filterHeadersByPreference
 } from './components/preferences'
-import './styles/badges.css'
-import './styles/utilities.css'
-import './styles/inline-demo.css'
-import './styles/options-boxes.css'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {
@@ -21,7 +18,6 @@ export default Object.assign({}, VPTheme, {
     })
   },
   enhanceApp({ app }: { app: App }) {
-    app.component('Badge', VTBadge)
     app.provide('prefer-composition', preferComposition)
     app.provide('prefer-sfc', preferSFC)
     app.provide('filter-headers', filterHeadersByPreference)
