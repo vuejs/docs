@@ -49,7 +49,7 @@ const nav = [
       {
         text: 'Help',
         items: [
-          { text: 'Chat', link: 'https://discord.com/invite/HBherRA' },
+          { text: 'Discord Chat', link: 'https://discord.com/invite/HBherRA' },
           { text: 'Forum', link: 'https://forum.vuejs.org/' },
           { text: 'DEV Community', link: 'https://dev.to/t/vue' }
         ]
@@ -73,8 +73,8 @@ const nav = [
       { text: 'Team', link: '/about/team' },
       { text: 'Releases', link: '/about/releases' },
       {
-        text: 'Contribution Guide',
-        link: '/about/contribution-guide'
+        text: 'Community Guide',
+        link: '/about/community-guide'
       },
       { text: 'Code of Conduct', link: '/about/coc' },
       {
