@@ -95,7 +95,7 @@ items.forEach((item, index) => {
 })
 ```
 
-Notice how the `v-for` value matches the function signature of the `forEach` callback. In fact, you can use destrcuturing on the `v-for` item alias similar to destrucutring function arguments:
+Notice how the `v-for` value matches the function signature of the `forEach` callback. In fact, you can use destructuring on the `v-for` item alias similar to destructuring function arguments:
 
 ```vue-html
 <li v-for="{ message } in items">
