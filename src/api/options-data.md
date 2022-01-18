@@ -54,7 +54,7 @@
   - `required`: `Boolean`
     Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
   - `validator`: `Function`
-    Custom validator function that takes the prop value as the sole argument. In a non-production environment, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails). You can read more about prop validation [here](../guide/component-props.html#prop-validation).
+    Custom validator function that takes the prop value as the sole argument. In a non-production environment, a console warning will be thrown if this function returns a false value (i.e. the validation fails). You can read more about prop validation [here](../guide/component-props.html#prop-validation).
 
 - **Example:**
 
