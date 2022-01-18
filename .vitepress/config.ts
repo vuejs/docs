@@ -15,7 +15,11 @@ const nav = [
       { text: 'Tutorial', link: '/tutorial/' },
       { text: 'Examples', link: '/examples/' },
       { text: 'Quick Start', link: '/guide/quick-start' },
-      { text: 'Style Guide', link: '/style-guide/' }
+      { text: 'Style Guide', link: '/style-guide/' },
+      {
+        text: 'Migration from Vue 2',
+        link: 'https://v3-migration.vuejs.org/'
+      }
     ]
   },
   {
@@ -38,12 +42,19 @@ const nav = [
           { text: 'Themes', link: '/ecosystem/themes' },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
-          // { text: 'Video Courses', link: '/ecosystem/video-courses' },
-          // TODO should start a separate branch for Vue 3?
-          // {
-          //   text: 'Awesome Vue',
-          //   link: 'https://github.com/vuejs/awesome-vue'
-          // }
+        ]
+      },
+      {
+        text: 'Video Courses',
+        items: [
+          {
+            text: 'Vue Mastery',
+            link: 'https://www.vuemastery.com/courses/'
+          },
+          {
+            text: 'Vue School',
+            link: 'https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown'
+          }
         ]
       },
       {
