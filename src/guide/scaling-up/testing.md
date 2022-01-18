@@ -171,7 +171,7 @@ test('it should work', () => {
 })
 ```
 
-Finallym, update `package.json` to add the test script and run it:
+Finally, update `package.json` to add the test script and run it:
 
 ```json{4}
 {
