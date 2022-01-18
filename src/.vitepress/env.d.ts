@@ -1,7 +1,5 @@
 /// <reference types="vitepress/client" />
 
-declare module '*.vue' {}
-
 declare module '@vue/theme/config' {
   import { UserConfig } from 'vitepress'
   const config: () => Promise<UserConfig>

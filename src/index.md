@@ -3,7 +3,7 @@ page: true
 ---
 
 <script setup>
-import NewsLetter from './.vitepress/theme/components/NewsLetter.vue'
+import NewsLetter from '/@theme/components/NewsLetter.vue'
 </script>
 
 <section id="hero">

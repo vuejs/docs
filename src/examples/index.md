@@ -7,7 +7,7 @@ returnToTop: false
 
 <script>
 import { defineAsyncComponent } from 'vue'
-import ReplLoading from '../.vitepress/theme/components/ReplLoading.vue'
+import ReplLoading from '/@theme/components/ReplLoading.vue'
 
 export default {
   components: {

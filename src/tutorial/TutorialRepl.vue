@@ -8,7 +8,7 @@ import {
   onHashChange
 } from '../examples/utils'
 import '@vue/repl/style.css'
-import PreferenceSwitch from '../.vitepress/theme/components/PreferenceSwitch.vue'
+import PreferenceSwitch from '/@theme/components/PreferenceSwitch.vue'
 import {
   VTFlyout,
   VTIconChevronLeft,

@@ -6,7 +6,11 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "/@theme/*": ["src/.vitepress/theme/*"]
+    }
   },
   "include": ["src/**/*", "src/.vitepress/**/*"]
 }

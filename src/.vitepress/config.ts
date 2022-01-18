@@ -49,7 +49,10 @@ const nav = [
       {
         text: 'Help',
         items: [
-          { text: 'Discord Chat', link: 'https://discord.com/invite/HBherRA' },
+          {
+            text: 'Discord Chat',
+            link: 'https://discord.com/invite/HBherRA'
+          },
           { text: 'Forum', link: 'https://forum.vuejs.org/' },
           { text: 'DEV Community', link: 'https://dev.to/t/vue' }
         ]
