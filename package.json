@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "dev": "vitepress dev src",
-    "build": "vitepress build src",
-    "serve": "vitepress serve src"
+    "dev": "vitepress",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
   },
   "dependencies": {
     "@vue/repl": "^0.4.9",

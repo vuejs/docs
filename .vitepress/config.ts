@@ -526,6 +526,7 @@ export default defineConfigWithTheme<Config>({
   lang: 'en-US',
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
+  srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
   scrollOffset: 'header',
 

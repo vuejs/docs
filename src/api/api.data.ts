@@ -2,7 +2,7 @@
 // a file ending with data.(j|t)s will be evaluated in Node.js
 import fs from 'fs'
 import path from 'path'
-import { sidebar } from '../.vitepress/config'
+import { sidebar } from '../../.vitepress/config'
 
 export interface APIGroup {
   text: string
