@@ -2,49 +2,23 @@
 
 This is the WIP branch of the brand new vuejs.org. **The content is under heavy updates and re-organization so please refrain from submitting PRs to this branch until we have removed this notice.**
 
-## Dev Setup
+## Contributing
 
-This site is built with [VitePress](https://github.com/vuejs/vitepress) and [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`.
+This site is built with [VitePress](https://github.com/vuejs/vitepress) and depends on [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`. For simple edits, you can directly edit the file on GitHub and generate a Pull Request.
 
-Make sure to use [pnpm](https://pnpm.io/) as the package manager:
+For local development, [pnpm](https://pnpm.io/) is preferred as package manager:
 
-```sh
+```bash
 pnpm i
 pnpm run dev
 ```
 
-## Writing
+## Working on the content
 
-See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) for our rules and recommendations on writing and maintaining documentation.
+- See VitePress docs on supported [Markdown Extensions](https://vitepress.vuejs.org/guide/markdown.html) and the ability to [use Vue syntax inside markdown](https://vitepress.vuejs.org/guide/using-vue.html).
 
-## Developing
+- See the [Writing Guide](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) for our rules and recommendations on writing and maintaining documentation content.
 
-For now, local development requires cloning both this repo and `vuejs/theme`:
+## Working on the theme
 
-1. Clone repositories
-
-```bash
-git clone git@github.com:vuejs/docs.git
-git clone git@github.com:vuejs/theme.git
-```
-
-2. Link theme into docs repo
-
-```bash
-# In ./theme
-# Install dependencies
-pnpm i
-# Link workspace in ./theme
-pnpm link --global
-
-# in ./docs
-pnpm link --global @vue/theme
-```
-
-3. Install deps and start VitePress server
-
-```bash
-# in ./docs
-pnpm i
-pnpm run dev
-```
+If changes need to made for the theme, check out the [instructions for developing the theme alongside the docs](https://github.com/vuejs/vue-theme#developing-with-real-content).
