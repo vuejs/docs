@@ -54,7 +54,7 @@ Yes. Despite a common misconception that Vue is only suitable for simple use cas
 
 ## How do I contribute to Vue?
 
-We appreciate your interest! Please check out our [Contribution Guide](/about/contribution-guide.html).
+We appreciate your interest! Please check out our [Community Guide](/about/community-guide.html).
 
 ## What's the difference between Vue 2 and Vue 3?
 
