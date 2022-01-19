@@ -587,7 +587,7 @@ export default defineConfigWithTheme<Config>({
     ],
 
     editLink: {
-      repo: 'vuejs/docs#next',
+      repo: 'vuejs/docs',
       text: 'Edit this page on GitHub'
     },
 
