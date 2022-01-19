@@ -13,17 +13,17 @@
         "url": "https://www.github.com/vitejs"
       }
     ],
-    "location": "New Jersey, NJ, USA",
+    "location": "Singapore",
     "languages": ["English", "Chinese"],
     "website": {
-      "label": "patreon.com/evanyou",
-      "url": "https://www.patreon.com/evanyou"
+      "label": "evanyou.me",
+      "url": "https://evanyou.me"
     },
     "socials": {
       "github": "yyx990803",
       "twitter": "youyuxi"
     },
-    "sponsor": "https://github.com/sponsors/yyx990803"
+    "sponsor": true
   },
   {
     "name": "Ben Hong",
@@ -45,7 +45,8 @@
     "socials": {
       "github": "bencodezen",
       "twitter": "bencodezen"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "Eduardo",
@@ -60,7 +61,7 @@
     "projects": [
       {
         "label": "vue-router",
-        "url": "https://github.com/vuejs/vue-router-next"
+        "url": "https://github.com/vuejs/router"
       },
       {
         "label": "pinia",
@@ -75,13 +76,21 @@
       "label": "esm.dev",
       "url": "https://esm.dev"
     },
-    "sponsor": "https://github.com/sponsors/posva"
+    "sponsor": true
   },
   {
     "name": "Haoqun Jiang",
     "title": "Developer",
     "company": "Vue.js",
     "projects": [
+      {
+        "label": "create-vue",
+        "url": "https://github.com/vuejs/create-vue"
+      },
+      {
+        "label": "vite",
+        "url": "https://github.com/vitejs/vite"
+      },
       {
         "label": "vue-cli",
         "url": "https://github.com/vuejs/vue-cli"
@@ -96,7 +105,8 @@
     "socials": {
       "github": "sodatea",
       "twitter": "haoqunjiang"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "Jinjiang",
@@ -104,11 +114,7 @@
     "projects": [
       {
         "label": "cn.vuejs.org",
-        "url": "https://cn.vuejs.org/"
-      },
-      {
-        "label": "vue-docs-zh-cn",
-        "url": "https://github.com/vuejs/vue-docs-zh-cn"
+        "url": "https://cn.vuejs.org"
       },
       {
         "label": "vue-a11y-utils",
@@ -132,32 +138,6 @@
     "socials": {
       "github": "jinjiang",
       "twitter": "zhaojinjiang"
-    }
-  },
-  {
-    "name": "Katashin",
-    "title": "Software Engineer",
-    "company": "ClassDo",
-    "companyLink": "https://classdo.com",
-    "projects": [
-      {
-        "label": "vuex",
-        "url": "https://github.com/vuejs/vuex"
-      },
-      {
-        "label": "vue-class-component",
-        "url": "https://github.com/vuejs/vue-class-component"
-      },
-      {
-        "label": "vue-designer",
-        "url": "https://github.com/ktsn/vue-designer"
-      }
-    ],
-    "location": "Singapore",
-    "languages": ["Japanese", "English"],
-    "socials": {
-      "github": "ktsn",
-      "twitter": "ktsn"
     }
   },
   {
@@ -185,7 +165,6 @@
     ],
     "location": "Tokyo, Japan",
     "languages": ["Japanese", "English"],
-    "sponsor": "https://github.com/sponsors/kazupon",
     "website": {
       "label": "patreon.com/kazupon",
       "url": "https://www.patreon.com/kazupon"
@@ -193,7 +172,8 @@
     "socials": {
       "github": "kazupon",
       "twitter": "kazu_pon"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "Rahul Kadyan",
@@ -202,14 +182,14 @@
     "companyList": "https://grammarly.com/",
     "projects": [
       {
-        "label": "rollup-plugin-vue",
-        "url": "https://github.com/vuejs/rollup-plugin-vue"
-      },
-      {
-        "label": "vue-next",
+        "label": "vuejs/core",
         "url": "https://github.com/vuejs/core"
       },
-      { "label": "VueDX", "url": "https://github.com/vuedx" }
+      { "label": "VueDX", "url": "https://github.com/vuedx" },
+      {
+        "label": "rollup-plugin-vue",
+        "url": "https://github.com/vuejs/rollup-plugin-vue"
+      }
     ],
     "location": "Bangalore, India",
     "languages": ["Hindi", "English"],
@@ -220,7 +200,8 @@
     "website": {
       "label": "https://znck.me",
       "url": "https://znck.me"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "Linusborg",
@@ -245,7 +226,8 @@
     "socials": {
       "github": "LinusBorg",
       "twitter": "Linus_Borg"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "Guillaume Chau",
@@ -291,7 +273,8 @@
     "socials": {
       "github": "Akryum",
       "twitter": "Akryum"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "Damian Dulisz",
@@ -311,37 +294,8 @@
     "socials": {
       "github": "shentao",
       "twitter": "DamianDulisz"
-    }
-  },
-  {
-    "name": "Michał Sajnóg",
-    "title": "Senior Frontend Developer / Team Leader",
-    "company": "Netguru",
-    "companyLink": "https://netguru.co/",
-    "location": "Poznań, Poland",
-    "languages": ["Polish", "English"],
-    "projects": [
-      {
-        "label": "eslint-plugin-vue",
-        "url": "https://github.com/vuejs/eslint-plugin-vue"
-      },
-      {
-        "label": "vue-devtools",
-        "url": "https://github.com/vuejs/devtools"
-      },
-      {
-        "label": "vue-computed-helpers",
-        "url": "https://github.com/michalsnik/vue-computed-helpers"
-      },
-      {
-        "label": "vue-content-placeholders",
-        "url": "https://github.com/michalsnik/vue-content-placeholders"
-      }
-    ],
-    "socials": {
-      "github": "michalsnik",
-      "twitter": "michalsnik"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "GU Yiling",
@@ -406,7 +360,8 @@
     "website": {
       "label": "https://phanan.net/",
       "url": "https://phanan.net/"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "Natalia Tepluhina",
@@ -425,7 +380,8 @@
     "socials": {
       "github": "NataliaTepluhina",
       "twitter": "N_Tepluhina"
-    }
+    },
+    "sponsor": true
   },
   {
     "name": "Yosuke Ota",
@@ -511,7 +467,7 @@
     "title": "Developer",
     "projects": [
       {
-        "label": "vue-next",
+        "label": "vuejs/core",
         "url": "https://github.com/vuejs/core"
       }
     ],
@@ -521,5 +477,22 @@
       "github": "HcySunYang",
       "twitter": "HcySunYang"
     }
+  },
+  {
+    "name": "Johnson Chu",
+    "title": "Developer",
+    "projects": [
+      {
+        "label": "volar",
+        "url": "https://github.com/johnsoncodehk/volar"
+      }
+    ],
+    "location": "Hong Kong, China",
+    "languages": ["Chinese", "English"],
+    "socials": {
+      "github": "johnsoncodehk",
+      "twitter": "johnsoncodehk"
+    },
+    "sponsor": "https://github.com/sponsors/johnsoncodehk"
   }
 ]
