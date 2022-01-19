@@ -13,7 +13,7 @@ export default {
     ])
 
     function addTodo() {
-      todos.value.push({ text: newTodo.value })
+      todos.value.push({ id: id++, text: newTodo.value })
       newTodo.value = ''
     }
 
