@@ -126,7 +126,7 @@ Custom blocks are compiled into imports to the same Vue file with different requ
 
 ### `@vue/compiler-sfc`
 
-- [Docs](https://github.com/vuejs/core/tree/master/packages/compiler-sfc)
+- [Docs](https://github.com/vuejs/core/tree/main/packages/compiler-sfc)
 
 This package is part of the Vue core monorepo and is always published with the same version as the main `vue` package. It is included as a dependency of the main `vue` package and proxied under `vue/compiler-sfc` so you don't need to install it individually.
 

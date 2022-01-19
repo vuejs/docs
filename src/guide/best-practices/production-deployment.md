@@ -18,7 +18,7 @@ If you are using Vue without a build tool by loading it from a CDN or self-hoste
 - If using global build (accessing via the `Vue` global): use `vue.global.prod.js`.
 - If using ESM build (accessing via native ESM imports): use `vue.esm-browser.prod.js`.
 
-Consult the [dist file guide](https://github.com/vuejs/core/tree/master/packages/vue#which-dist-file-to-use) for more details.
+Consult the [dist file guide](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) for more details.
 
 ## With Build Tools
 
@@ -27,7 +27,7 @@ Projects scaffolded via `create-vue` (based on Vite) or Vue CLI (based on webpac
 If using a custom setup, make sure that:
 
 1. `vue` resolves to `vue.runtime.esm-bundler.js`.
-2. The [compile time feature flags](https://github.com/vuejs/core/tree/master/packages/vue#bundler-build-feature-flags) are properly configured.
+2. The [compile time feature flags](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) are properly configured.
 3. <code>process.env<wbr>.NODE_ENV</code> is replaced with `"production"` during build.
 
 Additional references:

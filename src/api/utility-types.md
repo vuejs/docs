@@ -1,7 +1,7 @@
 # Utility Types
 
 :::info
-This page only lists a few commonly used utility types that may need explanation for their usage. For a full list of exported types, consult the [source code](https://github.com/vuejs/core/blob/master/packages/runtime-core/src/index.ts#L131).
+This page only lists a few commonly used utility types that may need explanation for their usage. For a full list of exported types, consult the [source code](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/index.ts#L131).
 :::
 
 ## PropType\<T>

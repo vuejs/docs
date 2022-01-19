@@ -111,7 +111,7 @@ createElementVNode("div", {
 }, null, 2 /* CLASS */)
 ```
 
-The last argument `2` is a [patch flag](https://github.com/vuejs/core/blob/master/packages/shared/src/patchFlags.ts). An element can have multiple patch flags, which will be merged into a single number. The runtime renderer can then check against the flags using [bitwise operations](https://en.wikipedia.org/wiki/Bitwise_operation) to determine whether it needs to do certain work:
+The last argument `2` is a [patch flag](https://github.com/vuejs/core/blob/main/packages/shared/src/patchFlags.ts). An element can have multiple patch flags, which will be merged into a single number. The runtime renderer can then check against the flags using [bitwise operations](https://en.wikipedia.org/wiki/Bitwise_operation) to determine whether it needs to do certain work:
 
 ```js
 if (vnode.patchFlag & PatchFlags.CLASS /* 2 */) {

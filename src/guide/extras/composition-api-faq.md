@@ -98,7 +98,7 @@ Code written in Composition API and `<script setup>` is also more efficient and 
 
 Yes in terms of stateful logic. When using Composition API, there are only a few options that may still be needed: `props`, `emits`, `name`, and `inheritAttrs`. If using `<script setup>`, then `inheritAttrs` is typically the only option that may require a separate normal `<script>` block.
 
-If you intend to exclusively use Composition API (along with the options listed above), you can shave a few kbs off your production bundle via a [compile-time flag](https://github.com/vuejs/core/tree/master/packages/vue#bundler-build-feature-flags) that drops Options API related code from Vue. Note this also affects Vue components in your dependencies.
+If you intend to exclusively use Composition API (along with the options listed above), you can shave a few kbs off your production bundle via a [compile-time flag](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) that drops Options API related code from Vue. Note this also affects Vue components in your dependencies.
 
 ### Can I use both APIs together?
 

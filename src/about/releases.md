@@ -22,7 +22,7 @@ The current latest stable version of Vue is <strong>{{ version }}</strong>.
 Checking latest version...
 </p>
 
-A full changelog of past releases is available on [GitHub](https://github.com/vuejs/core/blob/master/CHANGELOG.md).
+A full changelog of past releases is available on [GitHub](https://github.com/vuejs/core/blob/main/CHANGELOG.md).
 
 ## Release Cycle
 

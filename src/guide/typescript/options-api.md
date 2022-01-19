@@ -224,7 +224,7 @@ declare module 'vue' {
 
 See also:
 
-- [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/master/test-dts/componentTypeExtensions.test-d.tsx)
+- [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/main/test-dts/componentTypeExtensions.test-d.tsx)
 
 ### Type Augmentation Placement
 
@@ -264,4 +264,4 @@ The placement of this augmentation is subject the [same restrictions](#type-augm
 
 See also:
 
-- [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/master/test-dts/componentTypeExtensions.test-d.tsx)
+- [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/main/test-dts/componentTypeExtensions.test-d.tsx)
