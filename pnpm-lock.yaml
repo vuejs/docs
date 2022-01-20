@@ -3,16 +3,16 @@ lockfileVersion: 5.3
 specifiers:
   '@types/markdown-it': ^12.2.3
   '@types/node': ^16.9.1
-  '@vue/repl': ^0.4.9
-  '@vue/theme': ^0.1.42
+  '@vue/repl': ^1.0.0
+  '@vue/theme': ^1.0.0
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
   vitepress: ^0.21.6
   vue: ^3.2.27
 
 dependencies:
-  '@vue/repl': 0.4.9_vue@3.2.27
-  '@vue/theme': 0.1.42_vue@3.2.27
+  '@vue/repl': 1.0.0_vue@3.2.27
+  '@vue/theme': 1.0.0_vue@3.2.27
   dynamics.js: 1.1.5
   gsap: 3.9.0
   vitepress: 0.21.6
@@ -265,8 +265,8 @@ packages:
       '@vue/shared': 3.2.27
     dev: false
 
-  /@vue/repl/0.4.9_vue@3.2.27:
-    resolution: {integrity: sha512-NC1DrrtmeiEgG9eel+B72RVezXJ+lB0rubPhyYexth+fgJnTjtbc77e+OMSirBR0qAyoFeaBkMKWohAlDKxulg==}
+  /@vue/repl/1.0.0_vue@3.2.27:
+    resolution: {integrity: sha512-cDcQuWKZuA0Y0JYEpiQS/ZAEGP/RrfkcK+zKm5H8tUjfD8XIxYHY+sQGoY6FSkz/gAOQJocrsaPgt7ddKL0inQ==}
     peerDependencies:
       vue: ^3.2.13
     dependencies:
@@ -302,8 +302,8 @@ packages:
     resolution: {integrity: sha512-rpAn9k6O08Lvo7ekBIAnkOukX/4EsEQLPrRJBKhIEasMsOI5eX0f6mq1sDUSY7cgAqWw2d7QtP74CWxdXoyKxA==}
     dev: false
 
-  /@vue/theme/0.1.42_vue@3.2.27:
-    resolution: {integrity: sha512-eMlKlncsQXBFxHI+HqNTfDbWDGSjvoQ/I/LDcqTtM5Fh0YSs+1a4hKGh1/js0x5Y7/K0g6lRyHz09lX6IbKB4A==}
+  /@vue/theme/1.0.0_vue@3.2.27:
+    resolution: {integrity: sha512-Ly1SVRB1xBY0Zj3kMvTgBAJYCMahS2IoQ8I6mXv9R8zD4o2Up/Y2GAV3NNhC9GcgyaOYl8F5cdlz1FvI3AvYyQ==}
     dependencies:
       '@docsearch/css': 3.0.0-alpha.41
       '@docsearch/js': 3.0.0-alpha.41
