@@ -209,8 +209,19 @@ footer a {
   margin: 1em 0;
 }
 
+.vt-doc :deep(h2) {
+  font-size: 1.1em;
+  margin: 1.2em 0 0.5em;
+  padding: 0;
+  border-top: none;
+}
+
 .vt-doc :deep(.header-anchor) {
   display: none;
+}
+
+.vt-doc :deep(summary) {
+  cursor: pointer;
 }
 
 .hint {
