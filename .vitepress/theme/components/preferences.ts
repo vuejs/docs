@@ -20,6 +20,8 @@ export function filterHeadersByPreference(headers: Header[]) {
   })
 }
 
+const isMac = /(Mac OS X)/i.test(globalThis.navigator?.userAgent);
+
 export function usePreferences(): ToRefs<{
   showPreference: boolean;
   showSFC: boolean;
@@ -104,9 +106,6 @@ export function usePreferences(): ToRefs<{
   })
 
   const shortcutInfo = computed(() => {
-    // @ts-ignore
-    const isMac = /(Mac OS X)/i.test(window.navigator.userAgent);
-
     const templateInfo = showSFC.value ? `\nCtrl+${isMac ? 'Option' : 'Alt'}+T: toggle template preference` : ''
 
     return `Ctrl+${isMac ? 'Option' : 'Alt'}+A: toggle API preference${templateInfo}`
