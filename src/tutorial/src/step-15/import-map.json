@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "js-confetti": "https://cdn.jsdelivr.net/npm/js-confetti/+esm"
+  }
+}

@@ -95,7 +95,7 @@ items.forEach((item, index) => {
 })
 ```
 
-Notice how the `v-for` value matches the function signature of the `forEach` callback. In fact, you can use destrcuturing on the `v-for` item alias similar to destrucutring function arguments:
+Notice how the `v-for` value matches the function signature of the `forEach` callback. In fact, you can use destructuring on the `v-for` item alias similar to destructuring function arguments:
 
 ```vue-html
 <li v-for="{ message } in items">
@@ -268,7 +268,7 @@ When using `<template v-for>`, the `key` should be placed on the `<template>` co
 ```
 
 :::tip Note
-`key` here is a special attribute being bonund with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
+`key` here is a special attribute being bound with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
 :::
 
 [It is recommended](/style-guide/#keyed-v-for-essential) to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple (i.e. contains no components or stateful DOM elements), or you are intentionally relying on the default behavior for performance gains.

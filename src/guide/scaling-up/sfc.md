@@ -36,7 +36,7 @@ While SFCs require a build step, there are numerous benefits in return:
 - Author modularized components using familiar HTML, CSS and JavaScript syntax
 - [Collocation of inherently coupled concerns](#what-about-separation-of-concerns)
 - Pre-compiled templates
-- [Component-scoped CSS](/api/sfc-style)
+- [Component-scoped CSS](/api/sfc-css-features)
 - [More ergonomic syntax when working with Composition API](/api/sfc-script-setup)
 - More compile-time optimizations by cross-analyzing template and script
 - [IDE support](/guide/scaling-up/tooling.html#ide-support) with auto-completion and type-checking for template expressions
@@ -52,7 +52,7 @@ That said, we do realize there are scenarios where SFCs can feel like overkill. 
 
 ## How It Works
 
-Vue SFC is a framework-specific file format and must be pre-compiled by [@vue/compiler-sfc](https://github.com/vuejs/vue-next/tree/master/packages/compiler-sfc) into standard JavaScript and CSS. A compiled SFC is a standard JavaScript (ES) module - which means with proper build setup you can import an SFC like a module:
+Vue SFC is a framework-specific file format and must be pre-compiled by [@vue/compiler-sfc](https://github.com/vuejs/core/tree/main/packages/compiler-sfc) into standard JavaScript and CSS. A compiled SFC is a standard JavaScript (ES) module - which means with proper build setup you can import an SFC like a module:
 
 ```js
 import MyComponent from './MyComponent.vue'

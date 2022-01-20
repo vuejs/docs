@@ -40,7 +40,7 @@ app
   .component('ComponentC', ComponentC)
 ```
 
-Globally registered components can be used in the template of any component instance within this application:
+Globally registered components can be used in the template of any component within this application:
 
 ```vue-html
 <!-- this will work in any component inside the app -->
@@ -55,15 +55,15 @@ This even applies to all subcomponents, meaning all three of these components wi
 
 While convenient, global registration has a few drawbacks:
 
-1. Global registration prevents build systems from removing unused components (a.k.a "tree-shaking"). If you globally register a component but ends up not using it anywhere in your app, it will still be included in the final bundle.
+1. Global registration prevents build systems from removing unused components (a.k.a "tree-shaking"). If you globally register a component but end up not using it anywhere in your app, it will still be included in the final bundle.
 
-2. Global registration makes dependency relationships less explicit in large applications. It makes it difficult to locate a child component's implementation from a parent component using it. This can affect long term maintainability similar to using too many global variables.
+2. Global registration makes dependency relationships less explicit in large applications. It makes it difficult to locate a child component's implementation from a parent component using it. This can affect long-term maintainability similar to using too many global variables.
 
-Local registration scopes the availability of the registered components to the current component only. It makes the dependency relationship more explicit, and is more tree-shaking-friendly.
+Local registration scopes the availability of the registered components to the current component only. It makes the dependency relationship more explicit, and is more tree-shaking friendly.
 
 <div class="composition-api">
 
-When using SFC with `<script setup>`, imported components are automatically local-registered:
+When using SFC with `<script setup>`, imported components are automatically registered locally:
 
 ```vue
 <script setup>
@@ -93,7 +93,7 @@ export default {
 </div>
 <div class="options-api">
 
-Local registration are done using the `components` option:
+Local registration is done using the `components` option:
 
 ```vue
 <script>
@@ -128,7 +128,7 @@ Note that **locally registered components are _not_ also available in descendent
 
 ## Component Name Casing
 
-Throughout the guide, we are using PascalCase for component registration names. This is because:
+Throughout the guide, we are using PascalCase names when registering components. This is because:
 
 1. PascalCase names are valid JavaScript identifiers. This makes it easier to import and register components in JavaScript. It also helps IDEs with auto-completion.
 

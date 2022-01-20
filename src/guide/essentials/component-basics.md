@@ -6,7 +6,7 @@ Components allow us to split the UI into independent and reusable pieces, and th
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-This is very similar to how we nest native HTML elements, but Vue implements its own component model that allow us to encapsulate custom content and logic in each component. Vue also plays nicely with native Web Components. If you are curious about the relationship between Vue Components and native Web Components, [read more here](http://localhost:3000/guide/extras/web-components.html).
+This is very similar to how we nest native HTML elements, but Vue implements its own component model that allow us to encapsulate custom content and logic in each component. Vue also plays nicely with native Web Components. If you are curious about the relationship between Vue Components and native Web Components, [read more here](/guide/extras/web-components.html).
 
 ## Defining a Component
 
@@ -93,7 +93,7 @@ The example above defines a single component and exports it as the default expor
 ## Using a Component
 
 :::tip
-We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step for not. The [Examples](http://localhost:3000/examples/) section shows component usage in both scenarios.
+We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step for not. The [Examples](/examples/) section shows component usage in both scenarios.
 :::
 
 To use a child component, we need to import it in the parent component. Assuming we placed our counter component inside a file called `ButtonCounter.vue`, the component will be exposed as the file's default export:
@@ -218,6 +218,8 @@ defineProps(['title'])
 const props = defineProps(['title'])
 console.log(props.title)
 ```
+
+See also: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts">TS</sup>
 
 If you are not using `<script setup>`, props should be declared using the `props` option, and the props object will be passed to `setup()` as the first argument:
 
@@ -428,6 +430,8 @@ const emit = defineEmits(['enlarge-text'])
 emit('enlarge-text')
 ```
 
+See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts">TS</sup>
+
 If you are not using `<script setup>`, you can declare emitted events using the `emits` option. You can access the `emit` function as a property of the setup context (passed to `setup()` as the second argument):
 
 ```js
@@ -455,7 +459,7 @@ Just like with HTML elements, it's often useful to be able to pass content to a 
 
 Which might render something like:
 
-:::danger Error
+:::danger This is an Error for Demo Purposes
 Something bad happened.
 :::
 
@@ -527,7 +531,7 @@ The above is made possible by Vue's `<component>` element with the special `is` 
 
 In the example above, the value passed to `:is` can contain either:
 
-- the name of a registered component, or
+- the name string of a registered component, OR
 - the actual imported component object
 
 You can also use the `is` attribute to create regular HTML elements.

@@ -1,35 +1,29 @@
 {
   "scripts": {
-    "dev": "vitepress dev src",
-    "build": "vitepress build src",
-    "serve": "vitepress serve src"
+    "dev": "vitepress",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
   },
   "dependencies": {
-    "@vue/repl": "^0.4.8",
-    "@vue/theme": "^0.1.25",
+    "@vue/repl": "^1.0.0",
+    "@vue/theme": "^1.0.0",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
-    "vitepress": "^0.20.9",
-    "vue": "^3.2.25"
+    "vitepress": "^0.21.6",
+    "vue": "^3.2.27"
   },
   "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "^16.9.1"
   },
   "pnpm": {
-    "packageExtensions": {
-      "@docsearch/react": {
-        "peerDepndenciesMeta": {
-          "react": {
-            "optional": true
-          },
-          "react-dom": {
-            "optional": true
-          },
-          "@types/react": {
-            "optional": true
-          }
-        }
-      }
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "react",
+        "react-dom",
+        "@types/react"
+      ]
     }
   }
 }

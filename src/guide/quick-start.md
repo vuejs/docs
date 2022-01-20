@@ -1,3 +1,7 @@
+---
+footer: false
+---
+
 # Quick Start
 
 Depending on your use case and preference, you can use Vue with or without a build step.
@@ -46,7 +50,7 @@ You should now have your first Vue project running! Here are some additional tip
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar). [WebStorm](https://www.jetbrains.com/webstorm/) is also viable.
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
 - To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
-- If you chose to use TypeScript, check out [Using Vue with TypeScript](scaling-up/typescript.html).
+- If you chose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview.html).
 
 When you are ready to ship your app to production, run the following:
 
@@ -151,11 +155,11 @@ If you skipped the [Introduction](/guide/introduction), we strongly recommend re
     <p class="next-steps-caption">The guide walks you through every aspect of the framework in full details.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Follow the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on. Let's build something real!</p>
+    <p class="next-steps-link">Try the Tutorial</p>
+    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
   </a>
   <a class="vt-box" href="/examples/">
     <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Take a quick tour of core features and examples of common UI tasks.</p>
+    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
   </a>
 </div>

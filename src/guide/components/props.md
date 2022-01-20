@@ -1,7 +1,3 @@
----
-aside: deep
----
-
 # Props
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
@@ -9,6 +5,8 @@ aside: deep
 ## Props Declaration
 
 Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in the next section).
+
+<div class="composition-api">
 
 In SFCs using `<script setup>`, props can be declared using the `defineProps()` macro:
 
@@ -20,9 +18,7 @@ console.log(props.foo)
 </script>
 ```
 
-In non-`<script setup>` components, props are declared using the `props` option:
-
-<div class="composition-api">
+In non-`<script setup>` components, props are declared using the [`props`](/api/options-state.html#props) option:
 
 ```js
 export default {
@@ -34,8 +30,13 @@ export default {
 }
 ```
 
+Notice the argument passed to `defineProps()` is the same as the value provided to the `props` options: the same props options API is shared between the two declaration styles.
+
 </div>
+
 <div class="options-api">
+
+Props are declared using the [`props`](/api/options-state.html#props) option:
 
 ```js
 export default {
@@ -49,9 +50,21 @@ export default {
 
 </div>
 
-Notice the argument passed to `defineProps()` is the same as the value provided to the `props` options: the same props options API is shared between the two declaration styles.
-
 In addition to declaring props using an array of strings, we can also use the object syntax:
+
+<div class="options-api">
+
+```js
+export default {
+  props: {
+    title: String,
+    likes: Number
+  }
+}
+```
+
+</div>
+<div class="composition-api">
 
 ```js
 // in <script setup>
@@ -62,7 +75,7 @@ defineProps({
 ```
 
 ```js
-// non-<script setup>
+// in non-<script setup>
 export default {
   props: {
     title: String,
@@ -71,13 +84,21 @@ export default {
 }
 ```
 
+</div>
+
 For each property in the object declaration syntax, the key is the name of the prop, while the value should be the constructor function of the expected type.
 
 This not only documents your component, but will also warn other developers using your component in the browser console if they pass the wrong type. We will discuss more details about [prop validation](#prop-validation) further down this page.
 
+<div class="options-api">
+
+See also: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts">TS</sup>
+
+</div>
+
 <div class="composition-api">
 
-If you are using TypeScript with `<script setup>`, it's also possible to [declare props using pure type annotations](/api/sfc-script-setup.html#typescript-only-features):
+If you are using TypeScript with `<script setup>`, it's also possible to declare props using pure type annotations:
 
 ```vue
 <script setup lang="ts">
@@ -87,6 +108,8 @@ defineProps<{
 }>()
 </script>
 ```
+
+More details: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts">TS</sup>
 
 </div>
 
@@ -131,7 +154,7 @@ We use [PascalCase for component tags](/guide/components/registration.html#compo
 
 ### Static vs. Dynamic Props
 
-So far, you've seen props passed as static value, like in:
+So far, you've seen props passed as static values, like in:
 
 ```vue-html
 <BlogPost title="My journey with Vue" />
@@ -395,7 +418,7 @@ defineProps({
 ```
 
 :::tip
-Code inside the `defineProps()` argument **cannot access other variables declared in `<script setup>`**, because the entire expression is moved out to an outer function scoped when compiled.
+Code inside the `defineProps()` argument **cannot access other variables declared in `<script setup>`**, because the entire expression is moved to an outer function scope when compiled.
 :::
 
 </div>
@@ -422,8 +445,9 @@ export default {
     propE: {
       type: Object,
       // Object or array defaults must be returned from
-      // a factory function
-      default(props) {
+      // a factory function. The function receives the raw
+      // props received by the component as the argument.
+      default(rawProps) {
         // default function receives the raw props object as argument
         return { message: 'hello' }
       }
@@ -459,7 +483,7 @@ If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-o
 <div class="options-api">
 
 ::: tip Note
-Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc) will not be available inside `default` or `validator` functions.
+Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc.) will not be available inside `default` or `validator` functions.
 :::
 
 </div>
@@ -512,3 +536,38 @@ export default {
 </div>
 
 to validate that the value of the `author` prop was created with `new Person`.
+
+## Boolean Casting
+
+Props with `Boolean` type has special casting rules to mimic the behavior of native boolean attributes. Given a `<MyComponent>` with the following declaration:
+
+<div class="composition-api">
+
+```js
+defineProps({
+  disabled: Boolean
+})
+```
+
+</div>
+<div class="options-api">
+
+```js
+export default {
+  props: {
+    disabled: Boolean
+  }
+}
+```
+
+</div>
+
+The component can be used like this:
+
+```vue-html
+<!-- equivalent of passing :disabled="true" -->
+<MyComponent disabled />
+
+<!-- equivalent of passing :disabled="false" -->
+<MyComponent />
+```

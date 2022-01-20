@@ -56,6 +56,7 @@ export default {
 Note that you can only access the ref **after the component is mounted.** If you try to access `$refs.input` in a template expression, it will be `null` on the first render. This is because the element doesn't exist until after the first render!
 
 <div class="composition-api">
+
 If you are trying to watch the changes of a template ref, make sure to account for the case where the ref has `null` value:
 
 ```js
@@ -67,6 +68,8 @@ watchEffect(() => {
   }
 })
 ```
+
+See also: [Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts">TS</sup>
 
 </div>
 
@@ -218,6 +221,8 @@ defineExpose({
 ```
 
 When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
+
+See also: [Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts">TS</sup>
 
 </div>
 <div class="options-api">

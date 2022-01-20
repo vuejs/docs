@@ -1,7 +1,3 @@
----
-aside: deep
----
-
 <script setup>
 import Basic from './transition-demos/Basic.vue'
 import SlideFade from './transition-demos/SlideFade.vue'

@@ -67,7 +67,7 @@ However, the simplicity starts to break down when we have **multiple components 
 1. Multiple views may depend on the same piece of state.
 2. Actions from different views may need to mutate the same piece of state.
 
-For case one, a possible workaround is by "lifting" the shared state up to a common ancestor component, and then pass it down as props. However, this quickly gets tedious in component trees with deep hierarchies, leading to another problem known as [Props Drilling](/guide/components/provide-inject.html#props-drilling).
+For case one, a possible workaround is by "lifting" the shared state up to a common ancestor component, and then pass it down as props. However, this quickly gets tedious in component trees with deep hierarchies, leading to another problem known as [Prop Drilling](/guide/components/provide-inject.html#prop-drilling).
 
 For case two, we often find ourselves resorting to solutions such as reaching for direct parent / child instances via template refs, or trying to mutate and synchronize multiple copies of the state via emitted events. Both of these patterns are brittle and quickly lead to unmaintainable code.
 
@@ -200,7 +200,26 @@ export const store = reactive({
 Note the click handler uses `store.increment()` with the parenthesis - this is necessary to call the method with the proper `this` context since it's not a component method.
 :::
 
-Although here we are using a single reactive object as a store, you can also share reactive state created using other [Reactivity APIs](/api/reactivity-core.html) such as `ref()` or `computed()`. The fact that Vue's reactivity system is decoupled from the component model makes it extremely flexible.
+Although here we are using a single reactive object as a store, you can also share reactive state created using other [Reactivity APIs](/api/reactivity-core.html) such as `ref()` or `computed()`, or even return global state from a [Composable](/guide/reusability/composables.html):
+
+```js
+import { ref } from 'vue'
+
+// global state, created in module scope
+const globalCount = ref(1)
+
+export function useCount() {
+  // local state, created per-component
+  const localCount = ref(1)
+
+  return {
+    globalCount,
+    localCount
+  }
+}
+```
+
+The fact that Vue's reactivity system is decoupled from the component model makes it extremely flexible.
 
 ## SSR Considerations
 

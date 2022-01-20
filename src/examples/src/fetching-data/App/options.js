@@ -1,9 +1,9 @@
-const API_URL = `https://api.github.com/repos/vuejs/vue-next/commits?per_page=3&sha=`
+const API_URL = `https://api.github.com/repos/vuejs/core/commits?per_page=3&sha=`
 
 export default {
   data: () => ({
-    branches: ['master', 'v2-compat'],
-    currentBranch: 'master',
+    branches: ['main', 'v2-compat'],
+    currentBranch: 'main',
     commits: null
   }),
 

@@ -89,6 +89,8 @@ Try to change the value of the `books` array in the application `data` and you w
 
 You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `this.publishedBooksMessage` when `this.author.books` changes.
 
+See also: [Typing Computed Properties](/guide/typescript/options-api.html#typing-computed) <sup class="vt-badge ts">TS</sup>
+
 </div>
 
 <div class="composition-api">
@@ -123,6 +125,8 @@ const publishedBooksMessage = computed(() => {
 Here we have declared a computed property `publishedBooksMessage`. The `computed()` function expects to be passed a getter function, and the returned value is a **computed ref**. Similar to normal refs, you can access the computed result as `publishedBooksMessage.value`. Computed refs are also auto-unwrapped in templates so you can reference them without `.value` in template expressions.
 
 A computed property automatically tracks its reactive dependencies. Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes.
+
+See also: [Typing Computed](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts">TS</sup>
 
 </div>
 

@@ -2,7 +2,7 @@
 // a file ending with data.(j|t)s will be evaluated in Node.js
 import fs from 'fs'
 import path from 'path'
-import { sidebar } from '../.vitepress/config'
+import { sidebar } from '../../.vitepress/config'
 
 export interface APIGroup {
   text: string
@@ -55,7 +55,8 @@ function parsePageHeaders(link: string) {
     headers = h2s.map((h) =>
       h
         .slice(2)
-        .replace(/<Badge.*/, '')
+        .replace(/<sup class=.*/, '')
+        .replace(/\\</g, '<')
         .replace(/`([^`]+)`/g, '$1')
         .trim()
     )

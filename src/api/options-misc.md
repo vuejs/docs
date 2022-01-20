@@ -1,123 +1,166 @@
 # Options: Misc
 
-## directives
+## name
 
-- **Type:** `Object`
+Explicitly declare a display name for the component.
 
-- **Details:**
+- **Type**
 
-  A hash of directives to be made available to the component instance.
+  ```ts
+  interface ComponentOptions {
+    name?: string
+  }
+  ```
 
-- **Usage:**
+- **Details**
+
+  The name of a component is used for the following:
+
+  - Recursive self-reference in the component's own template
+  - Display in Vue DevTools' component inspection tree
+  - Display in warning component traces
+
+  When you use Single-File Components, the component already infers its own name from the filename. For example, a file named `MyComponent.vue` will have the inferred display name "MyComponent".
+
+  Another case is that when a component is registered globally with [`app.component`](/api/application.html#app-component), the global ID is automatically set as its name.
+
+  The `name` option allows you to override the inferred name, or to explicitly provide a name when no name can be inferred (e.g. when not using build tools, or an inlined non-SFC component).
+
+  There is one case where `name` is explicitly necessary: when matching against cacheable components in [`<KeepAlive>`](/guide/built-ins/keep-alive.html) via its `include / exclude` props.
+
+## inheritAttrs
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    inheritAttrs?: boolean // default: true
+  }
+  ```
+
+- **Details**
+
+  By default, parent scope attribute bindings that are not recognized as props will "fallthrough". This means that when we have a single-root component, these bindings will be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting `inheritAttrs` to `false`, this default behavior can be disabled. The attributes are available via the `$attrs` instance property and can be explicitly bound to a non-root element using `v-bind`.
+
+- **Example**
+
+  <div class="options-api">
+
+  ```vue
+  <script>
+  export default {
+    inheritAttrs: false,
+    props: ['label', 'value'],
+    emits: ['input']
+  }
+  </script>
+
+  <template>
+    <label>
+      {{ label }}
+      <input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      />
+    </label>
+  </template>
+  ```
+
+  </div>
+  <div class="composition-api">
+
+  When declaring this option in a component that uses `<script setup>`, a separate `<script>` block is necessary:
+
+  ```vue
+  <script>
+  export default {
+    inheritAttrs: false
+  }
+  </script>
+
+  <script setup>
+  defineProps(['label', 'value'])
+  defineEmits(['input'])
+  </script>
+
+  <template>
+    <label>
+      {{ label }}
+      <input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      />
+    </label>
+  </template>
+  ```
+
+  </div>
+
+- **See also:** [Fallthrough Attributes](/guide/components/attrs.html)
+
+## components
+
+An object that registers components to be made available to the component instance.
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    components?: { [key: string]: Component }
+  }
+  ```
+
+- **Example**
 
   ```js
-  const app = createApp({})
+  import Foo from './Foo.vue'
+  import Bar from './Bar.vue'
 
-  app.component('focused-input', {
+  export default {
+    components: {
+      // shorthand
+      Foo,
+      // register under a different name
+      RenamedBar: Bar
+    }
+  }
+  ```
+
+- **See also:** [Component Registration](/guide/components/registration.html)
+
+## directives
+
+An object that registers directives to be made available to the component instance.
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    directives?: { [key: string]: Directive }
+  }
+  ```
+
+- **Example**
+
+  ```js
+  export default {
     directives: {
+      // enables v-focus in template
       focus: {
         mounted(el) {
           el.focus()
         }
       }
-    },
-    template: `<input v-focus>`
-  })
-  ```
-
-- **See also:** [Custom Directives](/guide/reusability/custom-directives.html)
-
-## components
-
-- **Type:** `Object`
-
-- **Details:**
-
-  A hash of components to be made available to the component instance.
-
-- **Usage:**
-
-  ```js
-  const Foo = {
-    template: `<div>Foo</div>`
-  }
-
-  const app = createApp({
-    components: {
-      Foo
-    },
-    template: `<Foo />`
-  })
-  ```
-
-- **See also:** [Components](/guide/essentials/component-basics.html)
-
-## name
-
-- **Type:** `string`
-
-- **Details:**
-
-  Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with [`app.component`](/api/application.html#app-component), the global ID is automatically set as its name.
-
-  Another benefit of specifying a `name` option is debugging. Named components result in more helpful warning messages. Also, when inspecting an app in the [vue-devtools](https://github.com/vuejs/vue-devtools), unnamed components will show up as `<AnonymousComponent>`, which isn't very informative. By providing the `name` option, you will get a much more informative component tree.
-
-## inheritAttrs
-
-- **Type:** `boolean`
-
-- **Default:** `true`
-
-- **Details:**
-
-  By default, parent scope attribute bindings that are not recognized as props will "fallthrough". This means that when we have a single-root component, these bindings will be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting `inheritAttrs` to `false`, this default behavior can be disabled. The attributes are available via the `$attrs` instance property and can be explicitly bound to a non-root element using `v-bind`.
-
-- **Usage:**
-
-  ```js
-  app.component('base-input', {
-    inheritAttrs: false,
-    props: ['label', 'value'],
-    emits: ['input'],
-    template: `
-      <label>
-        {{ label }}
-        <input
-          v-bind="$attrs"
-          v-bind:value="value"
-          v-on:input="$emit('input', $event.target.value)"
-        >
-      </label>
-    `
-  })
-  ```
-
-- **See also:** [Disabling Attribute Inheritance](/guide/components/attrs.html#disabling-attribute-inheritance)
-
-## compilerOptions <Badge text="3.1+" />
-
-- **Type:** `Object`
-
-- **Details:**
-
-  This is the component-level equivalent of the [app-level `compilerOptions` config](/api/application.html#app-config-compileroptions).
-
-- **Usage:**
-
-  ```js
-  const Foo = {
-    // ...
-    compilerOptions: {
-      delimiters: ['${', '}'],
-      comments: true
     }
   }
   ```
 
-  ::: tip Important
-  Similar to the app-level `compilerOptions` config, this option is only respected when using the full build with in-browser template compilation.
-  :::
+  ```vue-html
+  <input v-focus>
+  ```
 
-## delimiters <Badge text="deprecated" type="warning" />
+  A hash of directives to be made available to the component instance.
 
-Deprecated in 3.1.0. Use `compilerOptions.delimiters` instead.
+- **See also:** [Custom Directives](/guide/reusability/custom-directives.html)

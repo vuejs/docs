@@ -2,65 +2,84 @@
 
 ## template
 
-- **Type:** `string`
+A string template for the component instance.
 
-- **Details:**
+- **Type**
 
-  A string template to be used as the markup for the component instance. The template will **replace** the `innerHTML` of mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.
+  ```ts
+  interface ComponentOptions {
+    template?: string
+  }
+  ```
 
-  If the string starts with `#` it will be used as a `querySelector` and use the selected element's innerHTML as the template string. This allows the use of the common `<script type="x-template">` trick to include templates.
+- **Details**
 
-  :::tip Note
-  From a security perspective, you should only use Vue templates that you can trust. Never use user-generated content as your template.
+  Template provided via the `template` option will be compiled on-the-fly, therefore it is only supported when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser).
+
+  The template will **replace** the `innerHTML` of mounted element. Any existing markup inside the mounted element will be ignored.
+
+  If the string starts with `#` it will be used as a `querySelector` and use the selected element's `innerHTML` as the template string. This allows the source template to be authored using native `<template>` elements.
+
+  If the `render` is also present in the same component, `template` will be ignored.
+
+  :::warning Security Note
+  Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security.html#rule-no-1-never-use-non-trusted-templates) for more details.
   :::
-
-  :::tip Note
-  If render function is present in the Vue option, the template will be ignored.
-  :::
-
-- **See also:**
-  - [Content Distribution with Slots](/guide/essentials/component-basics.html#content-distribution-with-slots)
 
 ## render
 
-- **Type:** `Function`
+A function that programmatically returns the virtual DOM tree of the component.
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    render?(this: ComponentPublicInstance) => VNodeChild
+  }
+
+  type VNodeChild = VNodeChildAtom | VNodeArrayChildren
+
+  type VNodeChildAtom =
+    | VNode
+    | string
+    | number
+    | boolean
+    | null
+    | undefined
+    | void
+
+  type VNodeArrayChildren = (VNodeArrayChildren | VNodeChildAtom)[]
+  ```
 
 - **Details:**
 
-  An alternative to string templates allowing you to leverage the full programmatic power of JavaScript.
+  `render` is an alternative to string templates that allows you to leverage the full programmatic power of JavaScript to declare the render output of the component.
 
-- **Usage:**
+  Pre-compiled templates, for example those in Single-File Components, are compiled into the `render` option at build time. If both `render` and `template` are present in a component, `render` will take higher priority.
 
-  ```vue-html
-  <div id="app" class="demo">
-    <my-title blog-title="A Perfect Vue"></my-title>
-  </div>
-  ```
+- **See also:**
+  - [Rendering Mechanism](/guide/extras/rendering-mechanism.html)
+  - [Render Functions](/guide/extras/render-function.html)
 
-  ```js
-  const { createApp, h } = Vue
-  const app = createApp({})
+## compilerOptions
 
-  app.component('my-title', {
-    render() {
-      return h(
-        'h1', // tag name,
-        this.blogTitle // tag content
-      )
-    },
-    props: {
-      blogTitle: {
-        type: String,
-        required: true
-      }
+Configure runtime compiler options for the component's template.
+
+- **Type**
+
+  ```ts
+  interface ComponentOptions {
+    compilerOptions?: {
+      isCustomElement?: (tag: string) => boolean
+      whitespace?: 'condense' | 'preserve' // default: 'condense'
+      delimiters?: [string, string] // default: ['{{', '}}']
+      comments?: boolean // default: false
     }
-  })
-
-  app.mount('#app')
+  }
   ```
 
-  :::tip Note
-  The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element
-  :::
+- **Details**
 
-- **See also:** [Render Functions](/guide/extras/render-function.html)
+  This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application.html#app-config-compileroptions), and has higher priority for the current component.
+
+- **See also:** [app.config.compilerOptions](/api/application.html#app-config-compileroptions)

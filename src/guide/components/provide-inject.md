@@ -1,20 +1,16 @@
----
-aside: deep
----
-
 # Provide / Inject
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
-## Props Drilling
+## Prop Drilling
 
-Usually, when we need to pass data from the parent to child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
+Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
 
-![props drilling diagram](./images/props-drilling.png)
+![prop drilling diagram](./images/prop-drilling.png)
 
-<!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/props-drilling -->
+<!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/prop-drilling -->
 
-Notice although the `<Footer>` component may not care about these props at all - but it still needs to declare and pass them along just so `<DeepChild>` can access them. If there is a longer parent chain, more components would be affected along the way. This is called "props drilling" and definitely isn't fun to deal with.
+Notice although the `<Footer>` component may not care about these props at all, it still needs to declare and pass them along just so `<DeepChild>` can access them. If there is a longer parent chain, more components would be affected along the way. This is called "props drilling" and definitely isn't fun to deal with.
 
 We can solve props drilling with `provide` and `inject`. A parent component can serve as a **dependency provider** for all its descendants. Any component in the descendant tree, regardless of how deep it is, can **inject** dependencies provided by components up in its parent chain.
 
@@ -50,7 +46,7 @@ export default {
 
 The `provide()` function accepts two arguments. The first argument is called the **injection key**, which can be a string or a `Symbol`. The injection key is used by descendent components to lookup the desired value to inject. A single component can call `provide()` multiple times with different injection keys to provide different values.
 
-The second argument is the provided value. The value can be of any type. including reactive state such as refs:
+The second argument is the provided value. The value can be of any type, including reactive state such as refs:
 
 ```js
 import { ref, provide } from 'vue'
@@ -95,11 +91,11 @@ export default {
 }
 ```
 
-However, do note this does **not** make the injection reactive. We will discuss [making injections reactive](#injection-reactivity) below.
+However, do note this does **not** make the injection reactive. We will discuss [making injections reactive](#working-with-reactivity) below.
 
 </div>
 
-### App-level Provide
+## App-level Provide
 
 In addition to providing data in a component, we can also provide at the app level:
 
@@ -111,7 +107,7 @@ const app = createApp({})
 app.provide(/* key */ 'message', /* value */ 'hello!')
 ```
 
-App-level provides are available to all components rendered in the app.
+App-level provides are available to all components rendered in the app. This is especially useful when writing [plugins](/guide/reusability/plugins.html), as plugins typically wouldn't be able to provide values using components.
 
 ## Inject
 
@@ -175,9 +171,7 @@ export default {
 
 [Full provide + inject example](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7IENoaWxkIH0sXG4gIHByb3ZpZGUoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIG1lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
 
-
-
-### Injection Aliasing *
+### Injection Aliasing \*
 
 When using the array syntax for `inject`, the injected properties are exposed on the component instance using the same key. In the example above, the property was provided under the key `"message"`, and injected as `this.message`. The local key is the same as the injection key.
 
@@ -199,7 +193,7 @@ Here, the component will locate a property provided with the key `"message"`, an
 
 ### Injection Default Values
 
-By default, `inject` assumes that the injected key is provided somewhere in the parent chian. In the case where the key is not provided, there will be a runtime warning.
+By default, `inject` assumes that the injected key is provided somewhere in the parent chain. In the case where the key is not provided, there will be a runtime warning.
 
 If we want to make an injected property work with optional providers, we need to declare a default value, similar to props:
 
@@ -227,22 +221,79 @@ export default {
   // when declaring default values for injections
   inject: {
     message: {
-      from: 'message', // this is optional is using the same key for injection
+      from: 'message', // this is optional if using the same key for injection
       default: 'default value'
     },
     user: {
-      // make sure to use factory function for non-primitive values!
+      // use a factory function for non-primitive values that are expensive
+      // to create, or ones that should be unique per component instance.
       default: () => ({ name: 'John' })
     }
   }
 }
 ```
 
-## Injection Reactivity *
+</div>
+
+## Working with Reactivity
+
+<div class="composition-api">
+
+When using reactive provide / inject values, **it is recommended to keep any mutations to reactive state inside of the _provider_ whenever possible**. This ensures that the provided state and its possible mutations are co-located in the same component, making it easier to maintain in the future.
+
+There may be times when we need to update the data from a injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
+
+```vue{7-9,13}
+<!-- inside provider component -->
+<script setup>
+import { provide, ref } from 'vue'
+
+const location = ref('North Pole')
+
+function updateLocation() {
+  location.value = 'South Pole'
+}
+
+provide('location', {
+  location,
+  updateLocation
+})
+</script>
+```
+
+```vue{5}
+<!-- in injector component -->
+<script setup>
+import { inject } from 'vue'
+
+const { location, updateLocation } = inject('location')
+</script>
+
+<template>
+  <button @click="updateLocation">{{ location }}</button>
+</template>
+```
+
+Finally, you can wrap the provided value with [`readonly()`](/api/reactivity-core.html#readonly) if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
+
+```vue
+<script setup>
+import { ref, provide, readonly } from 'vue'
+
+const count = ref(0)
+provide('read-only-count', readonly(count))
+</script>
+```
+
+</div>
+
+<div class="options-api">
 
 In order to make injections reactively linked to the provider, we need to provide a computed property using the [computed()](/api/reactivity-core.html#computed) function:
 
 ```js{10}
+import { computed } from 'vue'
+
 export default {
   data() {
     return {
@@ -286,7 +337,9 @@ export const myInjectionKey = Symbol()
 import { provide } from 'vue'
 import { myInjectionKey } from './keys.js'
 
-provide(myInjectionKey, { /* data to provide */ })
+provide(myInjectionKey, {
+  /* data to provide */
+})
 ```
 
 ```js
@@ -296,6 +349,8 @@ import { myInjectionKey } from './keys.js'
 
 const injected = inject(myInjectionKey)
 ```
+
+See also: [Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts">TS</sup>
 
 </div>
 
@@ -308,7 +363,9 @@ import { myInjectionKey } from './keys.js'
 export default {
   provide() {
     return {
-      [myInjectionKey]: { /* data to provide */ }
+      [myInjectionKey]: {
+        /* data to provide */
+      }
     }
   }
 }

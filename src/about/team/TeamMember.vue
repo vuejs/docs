@@ -19,18 +19,30 @@ const props = defineProps<{
 }>()
 
 const avatarUrl = computed(() => {
-  return props.member.avatarPic ?? `https://www.github.com/${props.member.socials.github}.png`
+  return (
+    props.member.avatarPic ??
+    `https://www.github.com/${props.member.socials.github}.png`
+  )
 })
 </script>
 
 <template>
   <article class="TeamMember">
-    <VTLink v-if="member.sponsor" class="sponsor" :href="member.sponsor" no-icon>
+    <VTLink
+      v-if="member.sponsor"
+      class="sponsor"
+      :href="`https://github.com/sponsors/${member.socials.github}`"
+      no-icon
+    >
       <VTIconHeart class="sponsor-icon" /> Sponsor
     </VTLink>
 
     <figure class="avatar">
-      <img class="avatar-img" :src="avatarUrl" :alt="`${member.name}'s Profile Picture`">
+      <img
+        class="avatar-img"
+        :src="avatarUrl"
+        :alt="`${member.name}'s Profile Picture`"
+      />
     </figure>
 
     <div class="data">
@@ -60,8 +72,16 @@ const avatarUrl = computed(() => {
             <VTIconCode class="desc-icon code" />
           </div>
           <ul class="desc-list">
-            <li v-for="project in member.projects" :key="project.label" class="desc-item">
-              <VTLink class="desc-link" :href="project.url" :no-icon="true">
+            <li
+              v-for="project in member.projects"
+              :key="project.label"
+              class="desc-item"
+            >
+              <VTLink
+                class="desc-link"
+                :href="project.url"
+                :no-icon="true"
+              >
                 {{ project.label }}
               </VTLink>
             </li>
@@ -84,7 +104,11 @@ const avatarUrl = computed(() => {
             <VTIconGlobe class="desc-icon" />
           </div>
           <ul class="desc-list">
-            <li v-for="language in member.languages" :key="language" class="desc-item">
+            <li
+              v-for="language in member.languages"
+              :key="language"
+              class="desc-item"
+            >
               {{ language }}
             </li>
           </ul>
@@ -96,7 +120,11 @@ const avatarUrl = computed(() => {
             <VTIconLink class="desc-icon" />
           </div>
           <p class="desc-text">
-            <VTLink class="desc-link" :href="member.website.url" :no-icon="true">
+            <VTLink
+              class="desc-link"
+              :href="member.website.url"
+              :no-icon="true"
+            >
               {{ member.website.label }}
             </VTLink>
           </p>
@@ -281,7 +309,7 @@ const avatarUrl = computed(() => {
 }
 
 .desc-icon.code {
-  transform: translateY(1px)
+  transform: translateY(1px);
 }
 
 .desc-list {
@@ -301,7 +329,7 @@ const avatarUrl = computed(() => {
 
 .desc-item::after {
   margin-left: 8px;
-  content: "•";
+  content: '•';
   color: var(--vt-c-text-3);
   transition: color 0.25s;
 }

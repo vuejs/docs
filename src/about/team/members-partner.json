@@ -353,9 +353,9 @@
   },
   {
     "name": "Razvan Stoenescu",
-    "title": "Developer",
+    "title": "Deep Space Quasar Creator",
     "company": "Quasar Framework",
-    "companyLink": "http://quasar-framework.org/",
+    "companyLink": "https://quasar.dev/",
     "location": "Bucharest, Romania",
     "languages": ["Romanian", "English"],
     "projects": [
@@ -364,12 +364,8 @@
         "url": "https://github.com/quasarframework/quasar"
       },
       {
-        "label": "quasarframework/quasar-cli",
-        "url": "https://github.com/quasarframework/quasar-cli"
-      },
-      {
-        "label": "quasarframework/quasar-play",
-        "url": "https://github.com/quasarframework/quasar-play"
+        "label": "quasarframework",
+        "url": "https://github.com/quasarframework"
       }
     ],
     "socials": {

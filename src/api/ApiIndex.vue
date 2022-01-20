@@ -6,11 +6,11 @@ import { data as apiIndex, APIGroup } from './api.data'
 import { ref, computed } from 'vue'
 
 const query = ref('')
+const nomralize = (s: string) => s.toLowerCase().replace(/-/g, ' ')
 
 const filtered = computed(() => {
-  const q = query.value.toLowerCase()
-  const matches = (text: string) =>
-    text.toLowerCase().replace(/-/g, ' ').includes(q)
+  const q = nomralize(query.value)
+  const matches = (text: string) => nomralize(text).includes(q)
 
   return apiIndex
     .map((section) => {

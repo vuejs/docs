@@ -12,7 +12,7 @@ Reactivity Transform is a Composition-API-specific feature and requires a build 
 
 Ever since the introduction of the Composition API, one of the primary unresolved questions is the use of refs vs. reactive objects. It can be cumbersome to use `.value` everywhere, and it is easy to miss if not using a type system.
 
-[Vue Reactivity Transform](https://github.com/vuejs/vue-next/tree/master/packages/reactivity-transform) is a compile-time transform that allows us to write code like this:
+[Vue Reactivity Transform](https://github.com/vuejs/core/tree/main/packages/reactivity-transform) is a compile-time transform that allows us to write code like this:
 
 ```vue
 <script setup>
@@ -265,7 +265,7 @@ setup(props) {
 }
 ```
 
-## TypeScript Integration <Badge type="ts" text="TS" />
+## TypeScript Integration <sup class="vt-badge ts">TS</sup>
 
 Vue provides typings for these macros (available globally) and all types will work as expected. There are no incompatibilities with standard TypeScript semantics so the syntax would work with all existing tooling.
 

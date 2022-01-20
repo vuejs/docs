@@ -1,4 +1,4 @@
-# Single File Components:<br>\<script setup\>
+# \<script setup>
 
 `<script setup>` is a compile-time syntactic sugar for using Composition API inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
 
@@ -227,10 +227,10 @@ const post = await fetch(`/api/post/1`).then((r) => r.json())
 In addition, the awaited expression will be automatically compiled in a format that preserves the current component instance context after the `await`.
 
 :::warning Note
-`async setup()` must be used in combination with `Suspense`, which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
+`async setup()` must be used in combination with `Suspense`, which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
 :::
 
-## TypeScript-only Features
+## TypeScript-only Features <sup class="vt-badge ts">TS</sup>
 
 ### Type-only props/emit declarations
 
@@ -263,7 +263,7 @@ const emit = defineEmits<{
   - A type literal
   - A reference to an interface or a type literal in the same file
 
-  Currently complex types and type imports from other files are not supported. It is theoretically possible to support type imports in the future.
+  Currently complex types and type imports from other files are not supported. It is possible to support type imports in the future.
 
 ### Default props values when using type declaration
 

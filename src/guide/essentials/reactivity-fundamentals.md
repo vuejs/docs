@@ -1,5 +1,5 @@
 ---
-aside: deep
+outline: deep
 ---
 
 # Reactivity Fundamentals
@@ -76,6 +76,8 @@ const state = reactive({ count: 0 })
 ```
 
 Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and behave just like normal objects. The difference is that Vue is able to track the property access and mutations of a reactive object. If you are curious about the details, we explain how Vue's reactivity system works in [Reactivity in Depth](/guide/extras/reactivity-in-depth.html) - but we recommend reading it after you have finished the main guide.
+
+See also: [Typing Reactive](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts">TS</sup>
 
 To use reactive state in a component's template, declare and return them from a component's `setup()` function:
 
@@ -205,6 +207,45 @@ Just like all other properties of the component instance, the `methods` are acce
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBpbmNyZW1lbnQoKSB7XG4gICAgICB0aGlzLmNvdW50KytcbiAgICB9XG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgdGhpcy5pbmNyZW1lbnQoKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 In the example above, the method `increment` will be called when the `<button>` is clicked.
+
+</div>
+
+### DOM Update Timing
+
+When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component needs to update only once no matter how many state changes you have made.
+
+To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general.html#nexttick) global API:
+
+<div class="composition-api">
+
+```js
+import { nextTick } from 'vue'
+
+function increment() {
+  count.value++
+  nextTick(() => {
+    // access updated DOM
+  })
+}
+```
+
+</div>
+<div class="options-api">
+
+```js
+import { nextTick } from 'vue'
+
+export default {
+  methods: {
+    increment() {
+      this.count++
+      nextTick(() => {
+        // access updated DOM
+      })
+    }
+  }
+}
+```
 
 </div>
 
@@ -347,6 +388,8 @@ count.value++
 console.log(count.value) // 1
 ```
 
+See also: [Typing Refs](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts">TS</sup>
+
 Similar to properties on a reactive object, the `.value` property of a ref is reactive. In addition, when holding object types, ref automatically converts its `.value` with `reactive()`.
 
 A ref containing an object value can reactively replace the entire object:
@@ -468,59 +511,51 @@ console.log(map.get('count').value)
 
 <div class="options-api">
 
-### Debouncing and Throttling \*
+### Stateful Methods \*
 
-Vue doesn't include built-in support for debouncing or throttling but it can be implemented using libraries such as [Lodash](https://lodash.com/).
-
-In cases where a component is only used once, the debouncing can be applied directly within `methods`:
+In some cases, we may need to dynamically create a method function, for example creating a debounced event handler:
 
 ```js
 import { debounce } from 'lodash-es'
 
-createApp({
+export default {
   methods: {
     // Debouncing with Lodash
     click: debounce(function () {
       // ... respond to click ...
     }, 500)
   }
-}).mount('#app')
+}
 ```
 
-:::tip
-If you are using the [no-build setup](/guide/quick-start.html#without-build-tools), add the following to your import map: `"lodash-es": "https://cdn.jsdelivr.net/npm/lodash-es/+esm"`
-:::
+However, this approach is problematic for components that are reused because a debounce function is **stateful**: it maintains some internal state on the elapsed time. If multiple component instances share the same debounced function, they will interfere with one another.
 
-However, this approach is potentially problematic for components that are reused because they'll all share the same debounced function. To keep the component instances independent from each other, we can add the debounced function in the `created` lifecycle hook:
+To keep the each component instance's debounce function independent from each other, we can create the debounced version of a method in the `created` lifecycle hook:
 
 ```js
-app.component('save-button', {
+export default {
   created() {
-    // Debouncing with Lodash
+    // each instance now has its own copy of debounced handler
     this.debouncedClick = _.debounce(this.click, 500)
   },
   unmounted() {
-    // Cancel the timer when the component is removed
+    // also a good idea to cancel the timer
+    // when the component is removed
     this.debouncedClick.cancel()
   },
   methods: {
     click() {
       // ... respond to click ...
     }
-  },
-  template: `
-    <button @click="debouncedClick">
-      Save
-    </button>
-  `
-})
+  }
+}
 ```
 
 </div>
 
 <div class="composition-api">
 
-## Reactivity Transform <Badge type="warning" text="experimental" /> \*\*
+## Reactivity Transform <sup class="vt-badge warning">experimental</sup> \*\*
 
 Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the ealier "counter" example like this:
 
