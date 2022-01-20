@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     addTodo() {
-      this.todos.push({ text: this.newTodo })
+      this.todos.push({ id: id++, text: this.newTodo })
       this.newTodo = ''
     },
     removeTodo(todo) {
