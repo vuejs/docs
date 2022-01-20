@@ -4,7 +4,7 @@ import CompB from './CompB.vue'
 
 let current = $shallowRef(CompA)
 
-const { useKeepAlive } = defineProps(['useKeepAlive'])
+const { useKeepAlive } = defineProps({ useKeepAlive: Boolean })
 </script>
 
 <template>
@@ -12,12 +12,12 @@ const { useKeepAlive } = defineProps(['useKeepAlive'])
     <label><input type="radio" v-model="current" :value="CompA" /> A</label>
     <label><input type="radio" v-model="current" :value="CompB" /> B</label>
     <template v-if="useKeepAlive">
-      <component :is="current"></component>
-    </template>
-    <template v-else>
       <KeepAlive>
         <component :is="current"></component>
       </KeepAlive>
+    </template>
+    <template v-else>
+      <component :is="current"></component>
     </template>
   </div>
 </template>
