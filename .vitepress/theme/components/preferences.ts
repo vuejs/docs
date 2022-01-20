@@ -105,7 +105,7 @@ export function usePreferences(): ToRefs<{
 
   const shortcutInfo = computed(() => {
     // @ts-ignore
-    const isMac = /(Mac OS X)/i.test(navigator.userAgent);
+    const isMac = /(Mac OS X)/i.test(window.navigator.userAgent);
 
     const templateInfo = showSFC.value ? `\nCtrl+${isMac ? 'Option' : 'Alt'}+T: toggle template preference` : ''
 
