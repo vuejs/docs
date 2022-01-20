@@ -71,17 +71,15 @@ export function usePreferences(): ToRefs<{
     }
   }
 
-  let closeTimeout: any, alreadyOpen: boolean | undefined;
+  let closeTimeout: any
   const onPreferenceKeyupChange = () => {
-    if (typeof alreadyOpen === 'undefined')
-      alreadyOpen = isOpen.value
+    const alreadyOpen = isOpen.value
     if (alreadyOpen === false) {
       clearTimeout(closeTimeout)
       isOpen.value = true // Open preference to see what is changed.
       closeTimeout = setTimeout(() => {
         // Close after 5 seconds
         isOpen.value = false;
-        alreadyOpen = undefined
       }, 5000)
     }
   }
