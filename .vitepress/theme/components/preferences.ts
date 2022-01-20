@@ -85,8 +85,8 @@ export function usePreferences(): ToRefs<{
   }
 
   const preferenceKeyupHandler = (e: KeyboardEvent) => {
-    if (e.altKey && e.ctrlKey) {
-      if (e.key === 'a' && showPreference.value) {  // Ctrl+Alt+A + preference switch available
+    if (e.altKey && e.ctrlKey && showPreference.value) {
+      if (e.key === 'a') { // Ctrl+Alt+A + preference switch available
         toggleCompositionAPI()
         onPreferenceKeyupChange()
       } else if (e.key === 't' && showSFC.value) { // Ctrl+Alt+T + sfc option available
@@ -94,7 +94,6 @@ export function usePreferences(): ToRefs<{
         onPreferenceKeyupChange()
       }
     }
-    return
   }
 
   onMounted(() => {
