@@ -1,27 +1,21 @@
 <script setup lang="ts">
 import { VTSwitch, VTIconChevronDown } from '@vue/theme'
-import { useRoute } from 'vitepress'
-import { ref, computed, inject, Ref } from 'vue'
+import { inject } from 'vue'
 import {
-  preferCompositionKey,
   preferComposition,
-  preferSFCKey,
-  preferSFC
+  preferSFC,
+  usePreferences
 } from './preferences'
 
-const route = useRoute()
-const show = computed(() =>
-  /^\/(guide|tutorial|examples)\//.test(route.path)
-)
-const showSFC = computed(() => !/^\/guide/.test(route.path))
-const isOpen = ref(
-  typeof localStorage !== 'undefined' &&
-    !localStorage.getItem(preferCompositionKey)
-)
-
-const toggleOpen = () => {
-  isOpen.value = !isOpen.value
-}
+const {
+  isOpen,
+  showPreference,
+  showSFC,
+  shortcutInfo,
+  toggleOpen,
+  toggleCompositionAPI,
+  toggleSFC
+} = usePreferences()
 
 const removeOutline = (e: Event) => {
   ;(e.target as HTMLElement).classList.add('no-outline')
@@ -31,36 +25,11 @@ const restoreOutline = (e: Event) => {
   ;(e.target as HTMLElement).classList.remove('no-outline')
 }
 
-const toggleCompositionAPI = useToggleFn(
-  preferCompositionKey,
-  preferComposition,
-  'prefer-composition'
-)
-const toggleSFC = useToggleFn(preferSFCKey, preferSFC, 'prefer-sfc')
 const closeSideBar = inject('close-sidebar') as () => void
-
-function useToggleFn(
-  storageKey: string,
-  state: Ref<boolean>,
-  className: string
-) {
-  if (typeof localStorage === 'undefined') {
-    return () => {}
-  }
-  const classList = document.documentElement.classList
-  return (value = !state.value) => {
-    if ((state.value = value)) {
-      classList.add(className)
-    } else {
-      classList.remove(className)
-    }
-    localStorage.setItem(storageKey, String(state.value))
-  }
-}
 </script>
 
 <template>
-  <div v-if="show" class="preference-switch">
+  <div v-if="showPreference" class="preference-switch">
     <button
       class="toggle"
       aria-label="preference switches toggle"
@@ -70,32 +39,25 @@ function useToggleFn(
       @mousedown="removeOutline"
       @blur="restoreOutline"
     >
-      <span>API Preference</span>
+      <abbr :title="shortcutInfo">API Preference</abbr>
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
     </button>
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
       <div class="switch-container">
-        <label class="options-label" @click="toggleCompositionAPI(false)"
-          >Options</label
-        >
+        <label class="options-label" @click="toggleCompositionAPI(false)">Options</label>
         <VTSwitch
           class="api-switch"
           aria-label="prefer composition api"
           :aria-checked="preferComposition"
           @click="toggleCompositionAPI()"
         />
-        <label
-          class="composition-label"
-          @click="toggleCompositionAPI(true)"
-          >Composition</label
-        >
+        <label class="composition-label" @click="toggleCompositionAPI(true)">Composition</label>
         <a
           class="switch-link"
           title="About API preference"
           href="/guide/introduction.html#api-styles"
           @click="closeSideBar"
-          >?</a
-        >
+        >?</a>
       </div>
       <div class="switch-container" v-if="showSFC">
         <label class="no-sfc-label" @click="toggleSFC(false)">HTML</label>
@@ -111,8 +73,7 @@ function useToggleFn(
           title="About SFC"
           href="/guide/scaling-up/sfc.html"
           @click="closeSideBar"
-          >?</a
-        >
+        >?</a>
       </div>
     </div>
   </div>
