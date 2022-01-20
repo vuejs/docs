@@ -1,3 +1,21 @@
+.vt-doc a[href^="https://sfc.vuejs.org"]:before {
+  content: "▶";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 10px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  color: var(--vt-c-green);
+  border: 2px solid var(--vt-c-green);
+  margin-right: 8px;
+  margin-left: 4px;
+  line-height: 16px;
+  padding-left: 4px;
+  font-size: 11px;
+}
+
 .demo {
   transition: border-color 0.5s;
   padding: 22px 24px;
