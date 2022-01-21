@@ -8,13 +8,15 @@ import {
   preferSFC,
   filterHeadersByPreference
 } from './components/preferences'
+import SponsorsAside from './components/SponsorsAside.vue'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {
     // @ts-ignore
     return h(VPTheme.Layout, null, {
       banner: () => h(Banner),
-      'sidebar-top': () => h(PreferenceSwitch)
+      'sidebar-top': () => h(PreferenceSwitch),
+      'aside-mid': () => h(SponsorsAside)
     })
   },
   enhanceApp({ app }: { app: App }) {

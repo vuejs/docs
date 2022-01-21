@@ -2,10 +2,11 @@
 sidebar: false
 ads: false
 editLink: false
+sponsors: false
 ---
 
 <script setup>
-import Sponsors from './Sponsors.vue'
+import SponsorsGroup from '/@theme/components/SponsorsGroup.vue'
 </script>
 
 # Become a Vue.js Sponsor
@@ -57,20 +58,20 @@ Sponsorships can be done via [GitHub Sponsors](https://github.com/sponsors/yyx99
 
 ### Special Global Sponsor
 
-<Sponsors tier="special" />
+<SponsorsGroup tier="special" placement="page" />
 
 ### Platinum
 
-<Sponsors tier="platinum" />
+<SponsorsGroup tier="platinum" placement="page" />
 
 ### Platinum (China)
 
-<Sponsors tier="platinum_china" />
+<SponsorsGroup tier="platinum_china" placement="page" />
 
 ### Gold
 
-<Sponsors tier="gold" />
+<SponsorsGroup tier="gold" placement="page" />
 
 ### Silver
 
-<Sponsors tier="silver" />
+<SponsorsGroup tier="silver" placement="page" />
