@@ -72,26 +72,29 @@ export function usePreferences(): ToRefs<{
   }
 
   let closeTimeout: any
-  const onPreferenceKeyupChange = () => {
+  const onPreferenceKeyupChange = (callback: Function) => {
     const alreadyOpen = isOpen.value
+    clearTimeout(closeTimeout)
     if (alreadyOpen === false) {
-      clearTimeout(closeTimeout)
       isOpen.value = true // Open preference to see what is changed.
-      closeTimeout = setTimeout(() => {
-        // Close after 5 seconds
-        isOpen.value = false;
-      }, 5000)
+      setTimeout(() => {
+        callback()
+        closeTimeout = setTimeout(() => {
+          // Close after 5 seconds
+          isOpen.value = false;
+        }, 5000)
+      }, 150)
+    } else {
+      callback()
     }
   }
 
   const preferenceKeyupHandler = (e: KeyboardEvent) => {
     if (e.altKey && e.ctrlKey && showPreference.value) {
       if (e.key === 'a') { // Ctrl+Alt+A + preference switch available
-        toggleCompositionAPI()
-        onPreferenceKeyupChange()
+        onPreferenceKeyupChange(toggleCompositionAPI)
       } else if (e.key === 't' && showSFC.value) { // Ctrl+Alt+T + sfc option available
-        toggleSFC()
-        onPreferenceKeyupChange()
+        onPreferenceKeyupChange(toggleSFC)
       }
     }
   }

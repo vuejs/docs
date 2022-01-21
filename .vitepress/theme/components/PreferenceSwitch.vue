@@ -39,7 +39,7 @@ const closeSideBar = inject('close-sidebar') as () => void
       @mousedown="removeOutline"
       @blur="restoreOutline"
     >
-      <abbr :title="shortcutInfo">API Preference</abbr>
+      <span :title="shortcutInfo">API Preference</span>
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
     </button>
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
