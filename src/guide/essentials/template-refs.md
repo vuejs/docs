@@ -38,7 +38,7 @@ onMounted(() => {
 The resulting ref is exposed on `this.$refs`:
 
 ```vue
-<script setup>
+<script>
 export default {
   mounted() {
     this.$refs.input.focus()
