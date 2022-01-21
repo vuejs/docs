@@ -14,8 +14,9 @@ const { frontmatter } = useData()
 
 <style>
 a.sponsors-aside-text {
+  color: var(--vt-c-text-3);
   display: block;
-  margin: 2em 0 1em;
+  margin: 3em 0 1em;
   font-weight: 700;
   font-size: 11px;
   text-transform: uppercase;
