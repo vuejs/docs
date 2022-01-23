@@ -16,7 +16,7 @@ While Vue.js does not natively support mobile app development, there are a numbe
 
 ### NativeScript
 
-[NativeScript](https://www.nativescript.org) powers cross-platform (truly native) mobile apps, using the web skills you already know. Combined they are a fantastic pair for developing immersive mobile experiences.
+[NativeScript (vue 2)](https://www.nativescript.org) powers cross-platform (truly native) mobile apps, using the web skills you already know. Combined they are a fantastic pair for developing immersive mobile experiences.
 
 **Resources**
 
