@@ -265,7 +265,7 @@ setup(props) {
 }
 ```
 
-## TypeScript Integration <sup class="vt-badge ts">TS</sup>
+## TypeScript Integration <sup class="vt-badge ts" />
 
 Vue provides typings for these macros (available globally) and all types will work as expected. There are no incompatibilities with standard TypeScript semantics so the syntax would work with all existing tooling.
 

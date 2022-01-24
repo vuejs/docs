@@ -2,7 +2,7 @@
 aside: false
 ---
 
-# Translations <sup class="vt-badge">WIP</sup>
+# Translations <sup class="vt-badge wip" />
 
 The Vue documentation has recently undergone a major revision, so there are no completed translations in other languages yet.
 
