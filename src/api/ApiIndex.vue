@@ -6,11 +6,11 @@ import { data as apiIndex, APIGroup } from './api.data'
 import { ref, computed } from 'vue'
 
 const query = ref('')
-const nomralize = (s: string) => s.toLowerCase().replace(/-/g, ' ')
+const normalize = (s: string) => s.toLowerCase().replace(/-/g, ' ')
 
 const filtered = computed(() => {
-  const q = nomralize(query.value)
-  const matches = (text: string) => nomralize(text).includes(q)
+  const q = normalize(query.value)
+  const matches = (text: string) => normalize(text).includes(q)
 
   return apiIndex
     .map((section) => {
@@ -31,7 +31,7 @@ const filtered = computed(() => {
             return item
           }
           // filter headers
-          const matchedHeaders = item.headers.filter(matches)
+          const matchedHeaders = item.headers.filter(({ shortText }) => matches(shortText))
           return matchedHeaders.length
             ? { text: item.text, link: item.link, headers: matchedHeaders }
             : null
@@ -76,8 +76,8 @@ function slugify(text: string): string {
         <div v-for="item of section.items" :key="item.text" class="api-group">
           <h3>{{ item.text }}</h3>
           <ul>
-            <li v-for="h of item.headers" :key="h">
-              <a :href="item.link + '.html#' + slugify(h)">{{ h }}</a>
+            <li v-for="{ shortText, fullText } of item.headers" :key="fullText">
+              <a :href="item.link + '.html#' + slugify(fullText)">{{ shortText }}</a>
             </li>
           </ul>
         </div>
