@@ -139,7 +139,8 @@ onMounted(async () => {
 }
 .dark .aside .sponsor-item:hover,
 .dark .landing .sponsor-item:hover {
-  background-color: var(--vt-c-white-soft);
+  color: var(--vt-c-indigo);
+  background-color: var(--vt-c-white-mute);
 }
 .dark .sponsor-item:hover img {
   filter: none;
