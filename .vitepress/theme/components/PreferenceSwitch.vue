@@ -9,9 +9,9 @@ import {
 
 const {
   isOpen,
+  shortcutInfo,
   showPreference,
   showSFC,
-  shortcutInfo,
   toggleOpen,
   toggleCompositionAPI,
   toggleSFC

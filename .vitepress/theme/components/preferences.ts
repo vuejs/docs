@@ -22,15 +22,7 @@ export function filterHeadersByPreference(headers: Header[]) {
 
 const isMac = /(Mac OS X)/i.test(globalThis.navigator?.userAgent);
 
-export function usePreferences(): ToRefs<{
-  showPreference: boolean;
-  showSFC: boolean;
-  shortcutInfo: string;
-  isOpen: boolean
-  toggleOpen: typeof toggleOpen;
-  toggleCompositionAPI: typeof toggleCompositionAPI
-  toggleSFC: typeof toggleSFC;
-}> {
+export function usePreferences() {
   const route = useRoute()
   const showPreference = computed(() =>
     /^\/(guide|tutorial|examples)\//.test(route.path)
@@ -112,13 +104,13 @@ export function usePreferences(): ToRefs<{
     return `Ctrl+${isMac ? 'Option' : 'Alt'}+A: toggle API preference${templateInfo}`
   })
 
-  return toRefs({
+  return {
+    isOpen,
     shortcutInfo,
     showPreference,
     showSFC,
-    isOpen,
     toggleOpen,
     toggleCompositionAPI,
     toggleSFC,
-  })
+  }
 }
