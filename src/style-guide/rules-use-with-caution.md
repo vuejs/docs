@@ -155,7 +155,7 @@ app.component('TodoItem', {
 
 Managing state on `this.$root` and/or using a global event bus can be convenient for very simple cases, but it is not appropriate for most applications.
 
-[Vuex](/guide/scaling-up/state-management.html#vuex) is the official flux-like implementation for Vue, and offers not only a central place to manage state, but also tools for organizing, tracking, and debugging state changes. It integrates well in the Vue ecosystem (including full [Vue DevTools](/guide/quick-start.html#browser-devtools) support).
+[Vuex](/guide/scaling-up/state-management.html#vuex) is the official flux-like implementation for Vue, and offers not only a central place to manage state, but also tools for organizing, tracking, and debugging state changes. It integrates well in the Vue ecosystem (including full [Vue DevTools](/guide/scaling-up/tooling.html#browser-devtools) support).
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
