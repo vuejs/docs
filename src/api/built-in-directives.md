@@ -463,7 +463,7 @@ Render the element and component once only, and skip future updates.
   - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text)
   - [v-memo](#v-memo)
 
-## v-memo <sup class="vt-badge">3.2+</sup>
+## v-memo <sup class="vt-badge" data-text="3.2+" />
 
 - **Expects:** `any[]`
 
