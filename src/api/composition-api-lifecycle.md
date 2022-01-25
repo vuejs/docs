@@ -297,7 +297,7 @@ Registers a callback to be called after the component instance is removed from t
 
 - **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## onServerPrefetch() <sup class="vt-badge">SSR only</sup>
+## onServerPrefetch() <sup class="vt-badge" data-text="SSR only" />
 
 Registers a async function to be resolved before the component instance is to be rendered on the server.
 

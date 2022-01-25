@@ -22,3 +22,7 @@
 .vt-badge.experimental:before {
   content: 'Experimental';
 }
+
+.vt-badge[data-text]:before {
+  content: attr(data-text);
+}

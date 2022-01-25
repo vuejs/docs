@@ -286,7 +286,7 @@ Called after the component instance is removed from the DOM as part of a tree ca
 
 - **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## serverPrefetch <sup class="vt-badge">SSR only</sup>
+## serverPrefetch <sup class="vt-badge" data-text="SSR only" />
 
 Async function to be resolved before the component instance is to be rendered on the server.
 
