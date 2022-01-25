@@ -8,7 +8,7 @@ Update the element's text content.
 
 - **Details**
 
-  `v-text` works by setting the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) property, so it will overwrite any existing content inside the element. If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax.html#text) instead.
+  `v-text` works by setting the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) property, so it will overwrite any existing content inside the element. If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax.html#text-interpolation) instead.
 
 - **Example**
 
@@ -251,7 +251,7 @@ Attach an event listener to the element.
 
 - **See also:**
   - [Event Handling](/guide/essentials/event-handling.html)
-  - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-child-components-events)
+  - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-events)
 
 ## v-bind
 
@@ -370,14 +370,14 @@ Denote named slots or slots that expect to receive props.
 
 - **Shorthand:** `#`
 
-- **Expects:** JavaScript expression that is valid in a function argument position (supports destructuring in [supported environments](/guide/components/slots.html#destructuring-slot-props)). Optional - only needed if expecting props to be passed to the slot.
+- **Expects:** JavaScript expression that is valid in a function argument position, including support for destructuring. Optional - only needed if expecting props to be passed to the slot.
 
 - **Argument:** slot name (optional, defaults to `default`)
 
 - **Limited to:**
 
   - `<template>`
-  - [components](/guide/components/slots.html#abbreviated-syntax-for-lone-default-slots) (for a lone default slot with props)
+  - [components](/guide/components/slots.html#scoped-slots) (for a lone default slot with props)
 
 - **Example:**
 
@@ -460,7 +460,7 @@ Render the element and component once only, and skip future updates.
   Since 3.2, you can also memoize part of the template with invalidation conditions using [`v-memo`](#v-memo).
 
 - **See also:**
-  - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text)
+  - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text-interpolation)
   - [v-memo](#v-memo)
 
 ## v-memo <sup class="vt-badge" data-text="3.2+" />

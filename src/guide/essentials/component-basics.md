@@ -418,7 +418,7 @@ defineEmits(['enlarge-text'])
 
 </div>
 
-This documents all the events that a component emits and optionally [validates them](/guide/components/events.html#validate-emitted-events). It also allows Vue to avoid implicitly applying them as native listeners to the child component's root element.
+This documents all the events that a component emits and optionally [validates them](/guide/components/events.html#events-validation). It also allows Vue to avoid implicitly applying them as native listeners to the child component's root element.
 
 <div class="composition-api">
 

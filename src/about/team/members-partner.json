@@ -172,15 +172,15 @@
     "projects": [
       {
         "label": "nuxt/*",
-        "url": "nuxt/*"
+        "url": "https://github.com/nuxt"
       },
       {
         "label": "nuxt-community/*",
-        "url": "nuxt-community/*"
+        "url": "https://github.com/nuxt-community"
       },
       {
         "label": "vue-flexboxgrid",
-        "url": "vue-flexboxgrid"
+        "url": "https://github.com/alexchopin/vue-flexboxgrid"
       }
     ],
     "socials": {
