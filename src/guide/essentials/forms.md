@@ -32,7 +32,7 @@ The `v-model` directive helps us simplify the above to:
 In addition, `v-model` can be used on inputs of different types, `<textarea>`, and `<select>` elements. It automatically expands to different DOM property and event pairs based on the element it is used on:
 
 - `<input>` with text types and `<textarea>` elements use `value` property and `input` event;
-- `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event;
+- `<input type="checkbox" />` and `<input type="radio" />` use `checked` property and `change` event;
 - `<select>` use `value` as a prop and `change` as an event.
 
 ::: tip Note
@@ -155,26 +155,26 @@ export default {
 ```vue-html
 <div>Checked names: {{ checkedNames }}</div>
 
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
 <label for="jack">Jack</label>
 
-<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<input type="checkbox" id="john" value="John" v-model="checkedNames" />
 <label for="john">John</label>
 
-<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
 <label for="mike">Mike</label>
 ```
 
 <div class="demo">
   <div>Checked names: {{ checkedNames }}</div>
 
-  <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames">
+  <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames" />
   <label for="demo-jack">Jack</label>
 
-  <input type="checkbox" id="demo-john" value="John" v-model="checkedNames">
+  <input type="checkbox" id="demo-john" value="John" v-model="checkedNames" />
   <label for="demo-john">John</label>
 
-  <input type="checkbox" id="demo-mike" value="Mike" v-model="checkedNames">
+  <input type="checkbox" id="demo-mike" value="Mike" v-model="checkedNames" />
   <label for="demo-mike">Mike</label>
 </div>
 
@@ -434,7 +434,7 @@ If you want user input to be automatically typecast as a number, you can add the
 <input v-model.number="age" />
 ```
 
-This is often useful, because even with `<input type="number">`, the value of HTML input elements always returns a string. If the value cannot be parsed with `parseFloat()`, then the original value is used.
+This is often useful, because even with `<input type="number" />`, the value of HTML input elements always returns a string. If the value cannot be parsed with `parseFloat()`, then the original value is used.
 
 ### `.trim`
 

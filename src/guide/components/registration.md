@@ -26,7 +26,7 @@ app.component(
 If using SFCs, you will be registering the imported `.vue` files:
 
 ```js
-import MyComponent from './App.vue`
+import MyComponent from './App.vue'
 
 app.component('MyComponent', MyComponent)
 ```
@@ -44,9 +44,9 @@ Globally registered components can be used in the template of any component with
 
 ```vue-html
 <!-- this will work in any component inside the app -->
-<ComponentA/>
-<ComponentB/>
-<ComponentC/>
+<ComponentA />
+<ComponentB />
+<ComponentC />
 ```
 
 This even applies to all subcomponents, meaning all three of these components will also be available _inside each other_.

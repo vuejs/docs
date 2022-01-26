@@ -39,7 +39,7 @@ const headersCache = new Map<
   }
 >()
 
-function parsePageHeaders(link: string) {
+function parsePageHeaders(link: string): string[] {
   const fullePath = path.join(__dirname, '../', link) + '.md'
   const timestamp = fs.statSync(fullePath).mtimeMs
 

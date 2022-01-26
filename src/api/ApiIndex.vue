@@ -5,7 +5,7 @@
 import { data as apiIndex, APIGroup } from './api.data'
 import { ref, computed } from 'vue'
 
-const query = ref('')
+const query = ref<string>('')
 const nomralize = (s: string) => s.toLowerCase().replace(/-/g, ' ')
 
 const filtered = computed(() => {
@@ -70,10 +70,14 @@ function slugify(text: string): string {
       <input class="api-filter" placeholder="Filter" v-model="query" />
     </div>
 
-    <div v-for="section of filtered" :key="section.text" class="api-section">
-      <h2 :id="slugify(section.text)">{{ section.text }}</h2>
+    <div
+      v-for="{ text, items } of filtered"
+      :key="text"
+      class="api-section"
+    >
+      <h2 :id="slugify(text)">{{ text }}</h2>
       <div class="api-groups">
-        <div v-for="item of section.items" :key="item.text" class="api-group">
+        <div v-for="item of items" :key="item.text" class="api-group">
           <h3>{{ item.text }}</h3>
           <ul>
             <li v-for="h of item.headers" :key="h">
