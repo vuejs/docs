@@ -32,7 +32,7 @@ The `v-model` directive helps us simplify the above to:
 In addition, `v-model` can be used on inputs of different types, `<textarea>`, and `<select>` elements. It automatically expands to different DOM property and event pairs based on the element it is used on:
 
 - `<input>` with text types and `<textarea>` elements use `value` property and `input` event;
-- `<input type="checkbox" />` and `<input type="radio" />` use `checked` property and `change` event;
+- `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event;
 - `<select>` use `value` as a prop and `change` as an event.
 
 ::: tip Note
@@ -45,7 +45,7 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 
 ```vue-html
 <p>Message is: {{ message }}</p>
-<input v-model="message" placeholder="edit me" />
+<input v-model="message" placeholder="edit me">
 ```
 
 <div class="demo">
@@ -109,7 +109,7 @@ Note that interpolation inside `<textarea>` won't work. Use `v-model` instead.
 Single checkbox, boolean value:
 
 ```vue-html
-<input type="checkbox" id="checkbox" v-model="checked" />
+<input type="checkbox" id="checkbox" v-model="checked">
 <label for="checkbox">{{ checked }}</label>
 ```
 
@@ -155,13 +155,13 @@ export default {
 ```vue-html
 <div>Checked names: {{ checkedNames }}</div>
 
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
 <label for="jack">Jack</label>
 
-<input type="checkbox" id="john" value="John" v-model="checkedNames" />
+<input type="checkbox" id="john" value="John" v-model="checkedNames">
 <label for="john">John</label>
 
-<input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
 <label for="mike">Mike</label>
 ```
 
@@ -196,10 +196,10 @@ In this case, the `checkedNames` array will always contain the values from the c
 ```vue-html
 <div>Picked: {{ picked }}</div>
 
-<input type="radio" id="one" value="One" v-model="picked" />
+<input type="radio" id="one" value="One" v-model="picked">
 <label for="one">One</label>
 
-<input type="radio" id="two" value="Two" v-model="picked" />
+<input type="radio" id="two" value="Two" v-model="picked">
 <label for="two">Two</label>
 ```
 
@@ -358,10 +358,10 @@ For radio, checkbox and select options, the `v-model` binding values are usually
 
 ```vue-html
 <!-- `picked` is a string "a" when checked -->
-<input type="radio" v-model="picked" value="a" />
+<input type="radio" v-model="picked" value="a">
 
 <!-- `toggle` is either true or false -->
-<input type="checkbox" v-model="toggle" />
+<input type="checkbox" v-model="toggle">
 
 <!-- `selected` is a string "abc" when the first option is selected -->
 <select v-model="selected">
@@ -378,7 +378,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
   type="checkbox"
   v-model="toggle"
   true-value="yes"
-  false-value="no" />
+  false-value="no">
 ```
 
 `true-value` and `false-value` are Vue-specific attributes that only works with `v-model`. Here the `toggle` property's value will be set to `'yes'` when the box is checked, and set to `'no'` when unchecked. You can also bind them to dynamic values using `v-bind`:
@@ -388,7 +388,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
   type="checkbox"
   v-model="toggle"
   :true-value="dynamicTrueValue"
-  :false-value="dynamicFalseValue" />
+  :false-value="dynamicFalseValue">
 ```
 
 :::tip Tip
@@ -398,8 +398,8 @@ The `true-value` and `false-value` attributes don't affect the input's `value` a
 ### Radio
 
 ```vue-html
-<input type="radio" v-model="pick" :value="first" />
-<input type="radio" v-model="pick" :value="second" />
+<input type="radio" v-model="pick" :value="first">
+<input type="radio" v-model="pick" :value="second">
 ```
 
 `pick` will be set to the value of `first` when the first radio input is checked, and set to the value of `second` when the second one is checked.
@@ -423,7 +423,7 @@ By default, `v-model` syncs the input with the data after each `input` event (wi
 
 ```vue-html
 <!-- synced after "change" instead of "input" -->
-<input v-model.lazy="msg" />
+<input v-model.lazy="msg">
 ```
 
 ### `.number`
@@ -431,7 +431,7 @@ By default, `v-model` syncs the input with the data after each `input` event (wi
 If you want user input to be automatically typecast as a number, you can add the `number` modifier to your `v-model` managed inputs:
 
 ```vue-html
-<input v-model.number="age" />
+<input v-model.number="age">
 ```
 
 This is often useful, because even with `<input type="number" />`, the value of HTML input elements always returns a string. If the value cannot be parsed with `parseFloat()`, then the original value is used.
@@ -441,7 +441,7 @@ This is often useful, because even with `<input type="number" />`, the value of 
 If you want whitespace from user input to be trimmed automatically, you can add the `trim` modifier to your `v-model`-managed inputs:
 
 ```vue-html
-<input v-model.trim="msg" />
+<input v-model.trim="msg">
 ```
 
 ## `v-model` with Components
