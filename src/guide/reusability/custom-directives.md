@@ -111,7 +111,7 @@ A directive definition object can provide several hook functions (all optional):
 const myDir = {
   // called before bound element's attributes
   // or event listeners are applied
-  created(el binding, vnode, prevVnode) {
+  created(el, binding, vnode, prevVnode) {
     // see below for details on arguments
   },
   // called right before the element is inserted into the DOM.
@@ -161,7 +161,7 @@ The `binding` argument would be an object in the shape of:
 ```js
 {
   arg: 'foo',
-  modifiers: { baz: true },
+  modifiers: { bar: true },
   value: /* value of `baz` */,
   oldValue: /* value of `baz` from previous update */
 }
