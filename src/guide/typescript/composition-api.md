@@ -31,7 +31,7 @@ const props = defineProps<{
 </script>
 ```
 
-This is called "type-based declaration". The compiler will try to do its best to infer the equivalent runtime options based on the type argument. In this case, our second example compiles into the exact same runtime options from the first one.
+This is called "type-based declaration". The compiler will try to do its best to infer the equivalent runtime options based on the type argument. In this case, our second example compiles into the exact same runtime options as the first example.
 
 You can use either type-based declaration OR runtime declaration, but you cannot use both at the same time.
 
@@ -200,7 +200,7 @@ It's not recommended to use the generic argument of `reactive()` because the ret
 ```ts
 import { ref, computed } from 'vue'
 
-let count = ref(0)
+const count = ref(0)
 
 // inferred type: ComputedRef<number>
 const double = computed(() => count.value * 2)
@@ -209,7 +209,7 @@ const double = computed(() => count.value * 2)
 const result = double.value.split('')
 ```
 
-You can also specify an explicit type via generic argument:
+You can also specify an explicit type via a generic argument:
 
 ```ts
 const double = computed<number>(() => {
@@ -244,8 +244,7 @@ function handleChange(event: Event) {
 
 ## Typing Provide / Inject
 
-Provide and inject are usually performed in separate components. To properly type injected values,
-Vue provides an `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
+Provide and inject are usually performed in separate components. To properly type injected values, Vue provides an `InjectionKey` interface, which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
 
 ```ts
 import { provide, inject, InjectionKey } from 'vue'
@@ -285,7 +284,7 @@ Template refs should be created with an explicit generic type argument and an in
 
 ```vue
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const el = ref<HTMLInputElement | null>(null)
 

@@ -14,7 +14,7 @@ Vue offers two built-in components that can help work with transitions and anima
 
 - `<Transition>` for applying animations when an element or component is entering and leaving the DOM. This is covered on this page.
 
-- `<TransitionGroup>` for applying animations when an element or component is inserted into, removed from, or moved within a `v-for` list. This is covered in the next chapter.
+- `<TransitionGroup>` for applying animations when an element or component is inserted into, removed from, or moved within a `v-for` list. This is covered in [the next chapter](/guide/built-ins/transition-group.html).
 
 Aside from these two components, we can also apply animations in Vue using other techniques such as toggling CSS classes or state-driven animations via style bindings. These additional techniques are covered in the [Animation Techniques](/guide/extras/animation.html) chapter.
 
@@ -125,7 +125,7 @@ For a named transition, its transition classes will be prefixed with its name in
 
 `<Transition>` is most commonly used in combination with [native CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), as seen in the basic example above. The `transition` CSS property is a shorthand that allows us to specify multiple aspects of a transition, including properties that should be animated, duration of the transition, and [easing curves](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
 
-Here is a more advanced example transitioning more than one properties, with different duration and easing curves for enter and leave:
+Here is a more advanced example that transitions multiple properties, with different durations and easing curves for enter and leave:
 
 ```vue-html
 <Transition name="slide-fade">
@@ -319,9 +319,9 @@ You may notice that the animations shown above are mostly using properties like 
 
 1. They do not affect the document layout during the animation, so they do not trigger expensive CSS layout calculation on every animation frame.
 
-2. Most modern browsers can leverage GPU hardware accelaration when animating `transform`.
+2. Most modern browsers can leverage GPU hardware acceleration when animating `transform`.
 
-In comparision, properties like `height` or `margin` will trigger CSS layout, so they are much more expensive to animate, and should be used with caution. We can check resources like [CSS-Triggers](https://csstriggers.com/) to see which properties will trigger layout if we animate them.
+In comparison, properties like `height` or `margin` will trigger CSS layout, so they are much more expensive to animate, and should be used with caution. We can check resources like [CSS-Triggers](https://csstriggers.com/) to see which properties will trigger layout if we animate them.
 
 ## JavaScript Hooks
 
@@ -362,7 +362,7 @@ function onAfterEnter(el) {}
 function onEnterCancelled(el) {}
 
 // called before the leave hook.
-// Most of the time, you shoud just use the leave hook
+// Most of the time, you should just use the leave hook
 function onBeforeLeave(el) {}
 
 // called when the leave transition starts.
@@ -463,13 +463,13 @@ Here's a demo using the [GreenSock library](https://greensock.com/) to perform t
 Transitions can be reused through Vue's component system. To create a reusable transition, we can create a component that wraps the `<Transition>` component and passes down the slot content:
 
 ```vue{5}
-<!-- MyTransitio.vue -->
+<!-- MyTransition.vue -->
 <script>
 // JavaScript hooks logic...
 </script>
 
 <template>
-  <!-- wrap the built in Transition component -->
+  <!-- wrap the built-in Transition component -->
   <Transition
     name="my-transition"
     @enter="onEnter"
@@ -523,7 +523,7 @@ In addition to toggling an element with `v-if` / `v-show`, we can also transitio
 
 ## Transition Modes
 
-In the previous example, the entering and leaving elements are animated at the same time, and we had to work make them `position: absolute` to avoid the layout issue when both elements are present in the DOM.
+In the previous example, the entering and leaving elements are animated at the same time, and we had to make them `position: absolute` to avoid the layout issue when both elements are present in the DOM.
 
 However, in some cases this isn't an option, or simply isn't the desired behavior. We may want the leaving element to be animated out first, and for the entering element to only be inserted **after** the leaving animation has finished. Orchestrating such animations manually would be very complicated - luckily, we can enable this behavior by passing `<Transition>` a `mode` prop:
 
@@ -574,7 +574,7 @@ Here's the previous demo with `mode="out-in"`:
 
 This can be useful when you've defined CSS transitions / animations using Vue's transition class conventions and want to switch between them.
 
-You can also apply different behavior in JavaScript transition hooks based on current state of your component. Finally, the ultimate way of creating dynamic transitions is through [reusable transition components](#reusable-transitions) that accept props to change the nature of the transition(s) to be used. It may sound cheesy, but the only limit really is your imagination.
+You can also apply different behavior in JavaScript transition hooks based on the current state of your component. Finally, the ultimate way of creating dynamic transitions is through [reusable transition components](#reusable-transitions) that accept props to change the nature of the transition(s) to be used. It may sound cheesy, but the only limit really is your imagination.
 
 ---
 

@@ -8,7 +8,7 @@ import ListStagger from './transition-demos/ListStagger.vue'
 
 `<TransitionGroup>` is a built-in component designed for animating the insertion, removal, and order change of elements or components that are rendered in a list.
 
-## Difference from `<Transition>`
+## Differences from `<Transition>`
 
 `<TransitionGroup>` supports the same props, CSS transition classes, and JavaScript hook listeners as `<Transition>`, with the following differences:
 
@@ -52,7 +52,7 @@ Here is an example of applying enter / leave transitions to a `v-for` list using
 
 ## Move Transitions
 
-The above demo has some obvious flaws: when an item is inserted or removed, its sorrounding items instantly "jumps" into place instead of moving smoothly. We can fix this by adding a few additional CSS rules:
+The above demo has some obvious flaws: when an item is inserted or removed, its surrounding items instantly "jump" into place instead of moving smoothly. We can fix this by adding a few additional CSS rules:
 
 ```css{1,13-17}
 .list-move, /* apply transition to moving elements */
@@ -74,7 +74,7 @@ The above demo has some obvious flaws: when an item is inserted or removed, its 
 }
 ```
 
-Now it looks much better - even animates smoothly when the whole list is shuffled:
+Now it looks much better - even animating smoothly when the whole list is shuffled:
 
 <ListMove />
 

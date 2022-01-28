@@ -51,15 +51,15 @@ One of the most effective ways to improve page load performance is shipping smal
 
 - Be cautious of size when introducing new dependencies! In real world applications, bloated bundles are most often a result of introducing heavy dependencies without realizing it.
 
-  - If using a build step, prefer dependencies that offer ES module formats and are tree-shaking-friendly. For example, prefer `lodash-es` over `lodash`.
+  - If using a build step, prefer dependencies that offer ES module formats and are tree-shaking friendly. For example, prefer `lodash-es` over `lodash`.
 
-  - Check a dependency's size and evaluate whether it is worth the functionality it provides. Note if the dependency is tree-shaking-friendly, the actual size increase will depend on the APIs you actually import from it. Tools like [bundle.js.org](https://bundle.js.org/) can be used for quick checks, but measuring with your actual build setup will always be the most accurate.
+  - Check a dependency's size and evaluate whether it is worth the functionality it provides. Note if the dependency is tree-shaking friendly, the actual size increase will depend on the APIs you actually import from it. Tools like [bundle.js.org](https://bundle.js.org/) can be used for quick checks, but measuring with your actual build setup will always be the most accurate.
 
 - If you are using Vue primarily for progressive enhancement and prefer to avoid a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
 
 ### Code Splitting
 
-Code splitting stands for the build tool splitting the application bundle into multiple smaller chunks which can then be loaded on demand or in parallel. With proper code splitting, features required at page load can be downloaded immediately, with additional chunks being lazy loaded only when needed, thus improving performance.
+Code splitting is where a build tool splits the application bundle into multiple smaller chunks, which can then be loaded on demand or in parallel. With proper code splitting, features required at page load can be downloaded immediately, with additional chunks being lazy loaded only when needed, thus improving performance.
 
 Bundlers like Rollup (which Vite is based upon) or webpack can automatically create split chunks by detecting the ESM dynamic import syntax:
 
@@ -116,11 +116,11 @@ Now, for most components the `active` prop will remain the same when `activeId` 
 
 ### `v-once`
 
-`v-once` is a built-in directive that can be used to render content that relies on runtime data but never needs to update. The entire sub tree it is used on will be skipped for all future updates. Consult its [API reference](/api/built-in-directives.html#v-once) for more details.
+`v-once` is a built-in directive that can be used to render content that relies on runtime data but never needs to update. The entire sub-tree it is used on will be skipped for all future updates. Consult its [API reference](/api/built-in-directives.html#v-once) for more details.
 
 ### `v-memo`
 
-`v-memo` is a built-in directive that can be used to conditionally skip the update of large sub trees or `v-for` lists. Consult its [API reference](/api/built-in-directives.html#v-memo) for more details.
+`v-memo` is a built-in directive that can be used to conditionally skip the update of large sub-trees or `v-for` lists. Consult its [API reference](/api/built-in-directives.html#v-memo) for more details.
 
 ## General Optimizations
 
@@ -128,7 +128,7 @@ Now, for most components the `active` prop will remain the same when `activeId` 
 
 ### Virtualize Large Lists
 
-One of the most common performance issues in all frontend applications is rendering large lists. No matter how performant a framework is, rendering a list with thousands of items **will** be slow due to the sheer amount of DOM nodes that the browser needs to handle.
+One of the most common performance issues in all frontend applications is rendering large lists. No matter how performant a framework is, rendering a list with thousands of items **will** be slow due to the sheer number of DOM nodes that the browser needs to handle.
 
 However, we don't necessarily have to render all these nodes upfront. In most cases, the user's screen size can display only a small subset of our large list. We can greatly improve the performance with **list virtualization**, the technique of only rendering the items that are currently in or close to the viewport in a large list.
 
@@ -139,7 +139,7 @@ Implementing list virtualization isn't easy, luckily there are existing communit
 
 ### Reduce Reactivity Overhead for Large Immutable Structures
 
-Vue's reactivity system is deep by default. While this makes state management intuitive, it does create a certain level of overhead when the data size is large, because every property access triggers proxy traps that performs dependency tracking. This typically becomes noticeable when dealing with large arrays of deeply nested objects, where a single render needs to access 100,000+ properties, so it should only affect very specific use cases.
+Vue's reactivity system is deep by default. While this makes state management intuitive, it does create a certain level of overhead when the data size is large, because every property access triggers proxy traps that perform dependency tracking. This typically becomes noticeable when dealing with large arrays of deeply nested objects, where a single render needs to access 100,000+ properties, so it should only affect very specific use cases.
 
 Vue does provide an escape hatch to opt-out of deep reactivity by using [`shallowRef()`](/api/reactivity-advanced.html#shallowref) and [`shallowReactive()`](/api/reactivity-advanced.html#shallowreactive). Shallow APIs create state that is reactive only at the root level, and exposes all nested objects untouched. This keeps nested property access fast, with the trade-off being that we must now treat all nested objects as immutable, and updates can only be triggered by replacing the root state:
 
@@ -153,7 +153,7 @@ shallowArray.value.push(newObject)
 // this does:
 shallowArray.value = [...shallowArr.value, newObject]
 
-// this won't trigger update...
+// this won't trigger updates...
 shallowArray.value[0].foo = 1
 // this does:
 shallowArray.value = [

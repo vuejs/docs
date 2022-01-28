@@ -30,7 +30,7 @@ The `<Suspense>` component gives us the ability to display top-level loading / e
 
 There are two types of async dependencies that `<Suspense>` can wait on:
 
-1. Components with an async `setup()` hook. This includes components with `<script setup>` that contains top-level `await` expressions.
+1. Components with an async `setup()` hook. This includes components using `<script setup>` with top-level `await` expressions.
 
 2. [Async Components](/guide/components/async.html).
 
@@ -85,17 +85,17 @@ The `<Suspense>` component has two slots: `#default` and `#fallback`. Both slots
 </Suspense>
 ```
 
-On initial render, `<Suspense>` will render its default slot content in memory. If any async dependencies are encountered during the process, it will enter **pending** state. During pending state, the fallback content will be displayed. When all encountered async dependencies have been resolved, `<Suspense>` enters **resolved** state and the resolved default slot content is displayed.
+On initial render, `<Suspense>` will render its default slot content in memory. If any async dependencies are encountered during the process, it will enter a **pending** state. During the pending state, the fallback content will be displayed. When all encountered async dependencies have been resolved, `<Suspense>` enters a **resolved** state and the resolved default slot content is displayed.
 
-If no async dependencies were encountered during the initial render, `<Suspense>` will directly go into resolved state.
+If no async dependencies were encountered during the initial render, `<Suspense>` will directly go into a resolved state.
 
-Once in resolved state, `<Suspense>` will only revert to pending state if the root node of the `#default` slot is replaced. New async dependencies nested deeper in the tree will **not** cause the `<Suspense>` to revert into pending state.
+Once in a resolved state, `<Suspense>` will only revert to a pending state if the root node of the `#default` slot is replaced. New async dependencies nested deeper in the tree will **not** cause the `<Suspense>` to revert to a pending state.
 
 When a revert happens, fallback content will not be immediately displayed. Instead, `<Suspense>` will display the previous `#default` content while waiting for the new content and its async dependencies to be resolved. This behavior can be configured with the `timeout` prop: `<Suspense>` will switch to fallback content if it takes longer than `timeout` to render the new default content. A `timeout` value of `0` will cause the fallback content to be displayed immediately when default content is replaced.
 
 ## Events
 
-In addition to the `pending` event, the `<suspense>` component also has `resolve` and `fallback` events. The `resolve` event is emitted when new content has finished resolving in the `default` slot. The `fallback` event is fired when the contents of the `fallback` slot are shown.
+The `<Suspense>` component emits 3 events: `pending`, `resolve` and `fallback`. The `pending` event occurs when entering a pending state. The `resolve` event is emitted when new content has finished resolving in the `default` slot. The `fallback` event is fired when the contents of the `fallback` slot are shown.
 
 The events could be used, for example, to show a loading indicator in front of the old DOM while new components are loading.
 
