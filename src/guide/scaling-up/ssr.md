@@ -58,11 +58,11 @@ Let's take a look at the most bare-bone example of Vue SSR in action.
 
 ```js
 // this runs in Node.js on the server.
-import { createSSRApp } from 'vue'
+import { createApp } from 'vue'
 // Vue's server-rendering API is exposed under `vue/server-renderer`.
 import { renderToString } from 'vue/server-renderer'
 
-const app = createSSRApp({
+const app = createApp({
   data: () => ({ count: 1 }),
   template: `<button @click="count++">{{ count }}</button>`
 })
@@ -93,13 +93,13 @@ We can then move the Vue SSR code into a server request handler, which wraps the
 
 ```js
 import express from 'express'
-import { createSSRApp } from 'vue'
+import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 
 const server = express()
 
 server.get('/', (req, res) => {
-  const app = createSSRApp({
+  const app = createApp({
     data: () => ({ count: 1 }),
     template: `<button @click="count++">{{ count }}</button>`
   })
