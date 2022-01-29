@@ -101,3 +101,30 @@ Used to augment allowed TSX props in order to use non-declared props on TSX elem
   :::tip
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
+
+## CSSProperties
+
+Used to augment allowed values in style property bindings.
+
+- **Example**
+
+  Allow any custom CSS property
+
+  ```ts
+  declare module 'vue' {
+    interface CSSProperties {
+      [key: `--${string}`]: string
+    }
+  }
+  ```
+
+  ```tsx
+  <div style={ { '--bg-color': 'blue' } }>
+  ```
+  ```html
+  <div :style="{ '--bg-color': 'blue' }">
+  ```
+
+ :::tip
+  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
+  :::
