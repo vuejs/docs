@@ -265,7 +265,7 @@ However, in an SSR context, the application modules are typically initialized on
 
 We can technically re-initialize all the JavaScript modules on each request, just like we do in browsers. However, initializing JavaScript modules can be costly, so this would significantly affect server performance.
 
-The recommended solution is to create a new instance of the entire application - including the router and global stores - on each request. The, instead of directly importing it in our components, we provide the shared state using [app-level provide](/guide/components/provide-inject.html#app-level-provide) and inject it in components that need it:
+The recommended solution is to create a new instance of the entire application - including the router and global stores - on each request. Then, instead of directly importing it in our components, we provide the shared state using [app-level provide](/guide/components/provide-inject.html#app-level-provide) and inject it in components that need it:
 
 ```js
 // app.js (shared between server and client)
