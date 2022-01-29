@@ -110,7 +110,7 @@ onDeactivated(() => {
 </div>
 <div class="options-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`activated`](/api/options-lifecycle.html#activated) and [`deactovated`](/api/options-lifecycle.html#deactivated) hooks:
+A kept-alive component can register lifecycle hooks for these two states using [`activated`](/api/options-lifecycle.html#activated) and [`deactivated`](/api/options-lifecycle.html#deactivated) hooks:
 
 ```js
 export default {
