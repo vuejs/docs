@@ -1,6 +1,6 @@
 function stringToDate(str) {
   const [y, m, d] = str.split('-')
-  return new Date(+y, +m, +d)
+  return new Date(+y, m - 1, +d)
 }
 
 function dateToString(date) {
