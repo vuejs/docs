@@ -31,7 +31,7 @@ export default {
     },
     canBook() {
       return (
-        this.isReturn ||
+        !this.isReturn ||
         stringToDate(this.returnDate) > stringToDate(this.departureDate)
       )
     }
