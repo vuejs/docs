@@ -121,7 +121,7 @@ if (vnode.patchFlag & PatchFlags.CLASS /* 2 */) {
 
 Bitwise checks are extremely fast. With the patch flags, Vue is able to do the least amount of work necessary when updating elements with dynamic bindings.
 
-Vue also encodes the type of children a vnode has - for example, the template root is a fragment with three child elements, and we know for sure that their order will never change, so this information can also be provided to the runtime as a patch flag:
+Vue also encodes the type of children a vnode has. For example, a template that has multiple root nodes is represented as a fragment. In most cases, we know for sure that the order of these root nodes will never change, so this information can also be provided to the runtime as a patch flag:
 
 ```js{4}
 export function render() {
