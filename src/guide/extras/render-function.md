@@ -294,6 +294,7 @@ Equivalent render function / JSX:
 ```js
 h(
   'ul',
+  // assuming `items` is a ref with array value
   items.value.map(({ id, text }) => {
     return h('li', { key: id }, text)
   })
