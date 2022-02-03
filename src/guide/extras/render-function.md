@@ -385,7 +385,7 @@ h('input', {
 />
 ```
 
-For other event and key modifiers, the `withModifiers` helper can be used:
+For other event and key modifiers, the [`withModifiers`](/api/render-function.html#withmodifiers) helper can be used:
 
 ```js
 import { withModifiers } from 'vue'
