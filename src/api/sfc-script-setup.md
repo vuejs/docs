@@ -223,7 +223,7 @@ const attrs = useAttrs()
 `<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where you need to:
 
 - Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins.
-- Declaring named exports (including TypeScript types)
+- Declaring named exports (including TypeScript types).
 - Run side effects or create objects that should only execute once.
 
 ```vue
