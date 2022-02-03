@@ -102,9 +102,9 @@ function ref(value) {
 Code snippets here and below are meant to explain the core concepts in the simplest form possible, so many details are omitted, and edge cases ignored.
 :::
 
-This explains a few things that we have discussed in the fundamentals section:
+This explains a few [limitations of reactive objects](/guide/essentials/reactivity-fundamentals.html#limitations-of-reactive) that we have discussed in the fundamentals section:
 
-- When you destructure a property from a reactive object into a local variable, the reactivity is "disconnected" because access to the local variable no longer triggers the get / set proxy traps.
+- When you assign or destructure a reactive object's property to a local variable, the reactivity is "disconnected" because access to the local variable no longer triggers the get / set proxy traps.
 
 - The returned proxy from `reactive()`, although behaving just like the original, has a different identity if we compare it to the original using the `===` operator.
 
