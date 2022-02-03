@@ -86,11 +86,11 @@ function reactive(obj) {
 function ref(value) {
   const refObject = {
     get value() {
-      track(refObject, key)
+      track(refObject, 'value')
       return value
     },
     set value(newValue) {
-      trigger(refObject, key)
+      trigger(refObject, 'value')
       value = newValue
     }
   }
@@ -368,7 +368,7 @@ If you are implementing a undo / redo feature, you likely want to take a snapsho
 We can integrate Immer with Vue via a simple composable:
 
 ```js
-import produce from "immer"
+import produce from 'immer'
 import { shallowRef } from 'vue'
 
 export function useImmer(baseState) {
@@ -399,7 +399,7 @@ export function useMachine(options) {
   const machine = createMachine(options)
   const state = shallowRef(machine.initialState)
   const service = interpret(machine)
-  	.onTransition(newState => state.value = newState)
+    .onTransition((newState) => (state.value = newState))
     .start()
 
   return {
