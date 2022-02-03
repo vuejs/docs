@@ -40,7 +40,9 @@ To hide the link unless it is focused, you can add the following style:
 }
 ```
 
-Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus to the `ref` provided below:
+Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus on the skip link's template ref (assuming usage of `vue-router`):
+
+<div class="options-api">
 
 ```vue
 <script>
@@ -54,7 +56,27 @@ export default {
 </script>
 ```
 
-<!-- <common-codepen-snippet title="Skip to Main" slug="GRrvQJa" :height="350" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+</div>
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const skipLink = ref()
+
+watch(
+  () => route.path,
+  () => {
+    skipLink.value.focus()
+  }
+)
+</script>
+```
+
+</div>
 
 [Read documentation on skip link to main content](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
 
