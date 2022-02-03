@@ -265,8 +265,6 @@ test('useFoo', () => {
 
 For more complex composables, it could also be easier to test it by writing tests against the wrapper component using [Component Testing](#component-testing) techniques.
 
-<!-- TODO link to this from composables page -->
-
 <!--
 TODO more testing recipes can be added in the future e.g.
 - How to set up CI via GitHub actions
