@@ -94,7 +94,7 @@ For a single element with dynamic bindings, we can also infer a lot of informati
 <!-- class binding only -->
 <div :class="{ active }"></div>
 
-<!-- id binding only -->
+<!-- id and value bindings only -->
 <input :id="id" :value="value">
 
 <!-- text children only -->
