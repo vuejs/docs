@@ -71,7 +71,7 @@ By default, `<KeepAlive>` will cache any component instance inside. We can custo
 </KeepAlive>
 ```
 
-The match is checked against the component's [`name`](/api/options-misc.html#name) option, so components that need to be conditionally cached by `KeepAlive` must explicitly delcare a `name` option.
+The match is checked against the component's [`name`](/api/options-misc.html#name) option, so components that need to be conditionally cached by `KeepAlive` must explicitly declare a `name` option.
 
 ## Max Cached Instances
 
@@ -85,7 +85,7 @@ We can limit the maximum number of component instances that can be cached via th
 
 ## Lifecycle of Cached Instance
 
-When a component instance is removed from the DOM but is part of a component tree cached by `<KeepAlive>`, it goes into **deactivated** state instead of unmounted. When a component instance is inserted into the DOM as part of a cached tree, it is **activated**.
+When a component instance is removed from the DOM but is part of a component tree cached by `<KeepAlive>`, it goes into a **deactivated** state instead of being unmounted. When a component instance is inserted into the DOM as part of a cached tree, it is **activated**.
 
 <div class="composition-api">
 

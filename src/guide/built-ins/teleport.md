@@ -111,7 +111,7 @@ When using this component inside the initial HTML structure, there are a number 
 
 The `to` target of `<Teleport>` expects a CSS selector string or an actual DOM node. Here, we are essentially telling Vue to "**teleport** this template fragment **to** the **`body`** tag".
 
-You can click the button below and inspect the `<body>` tag via browser devtools:
+You can click the button below and inspect the `<body>` tag via your browser's devtools:
 
 <script setup>
 let open = $ref(false)
@@ -170,7 +170,7 @@ Where the `isMobile` state can be dynamically updated by detecting media query c
 
 ## Multiple Teleports on the Same Target
 
-A common use case scenario would be a reusable `<Modal>` component of which there might be multiple instances active at the same time. For this kind of scenario, multiple `<Teleport>` components can mount their content to the same target element. The order will be a simple append - later mounts will be located after earlier ones within the target element.
+A common use case would be a reusable `<Modal>` component, with the potential for multiple instances to be active at the same time. For this kind of scenario, multiple `<Teleport>` components can mount their content to the same target element. The order will be a simple append - later mounts will be located after earlier ones within the target element.
 
 Given the following usage:
 

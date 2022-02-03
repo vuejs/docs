@@ -42,13 +42,13 @@ Before using SSR for your app, the first question you should ask is whether you 
 
 SSG retains the same performance characteristics of SSR apps: it provides great time-to-content performance. At the same time, it is cheaper and easier to deploy than SSR apps because the output is static HTML and assets. The keyword here is **static**: SSG can only be applied to pages consuming static data, i.e. data that is known at build time and does not change between deploys. Every time the data changes, a new deployment is needed.
 
-If you're only investigating SSR to improve the SEO of a handful of marketing pages (e.g. `/`, `/about`, `/contact`, etc), then you probably want SSG instead of SSR. SSG is also great for content-based websites such as documentation sites or blogs. In fact, this website you are reading right now is statically generated using [VitePress](https://vitepress.vuejs.org/), a Vue-powered static site generator.
+If you're only investigating SSR to improve the SEO of a handful of marketing pages (e.g. `/`, `/about`, `/contact`, etc.), then you probably want SSG instead of SSR. SSG is also great for content-based websites such as documentation sites or blogs. In fact, this website you are reading right now is statically generated using [VitePress](https://vitepress.vuejs.org/), a Vue-powered static site generator.
 
 ## Basic Tutorial
 
 ### Rendering an App
 
-Let's take a look at the most bare-bone example of Vue SSR in action.
+Let's take a look at the most bare-bones example of Vue SSR in action.
 
 1. Create a new directory and `cd` into it
 2. Run `npm init -y`
@@ -84,7 +84,7 @@ It should print the following to the command line:
 <button>1</button>
 ```
 
-[`renderToString()`](/api/ssr.html#rendertostring) takes a Vue app instance and returns a Promise that resolves to the rendered HTML of the app. It is also possible to perform streaming render using [Node.js Stream API](https://nodejs.org/api/stream.html) or [Web Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). Check out the [SSR API Reference](/api/ssr.html) for full details.
+[`renderToString()`](/api/ssr.html#rendertostring) takes a Vue app instance and returns a Promise that resolves to the rendered HTML of the app. It is also possible to stream rendering using the [Node.js Stream API](https://nodejs.org/api/stream.html) or [Web Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). Check out the [SSR API Reference](/api/ssr.html) for full details.
 
 We can then move the Vue SSR code into a server request handler, which wraps the application markup with the full page HTML. We will be using [`express`](https://expressjs.com/) for the next steps:
 
@@ -205,7 +205,7 @@ In addition, in order to load the client files in the browser, we also need to:
 
 Moving from the example to a production-ready SSR app involves a lot more. We will need to:
 
-- Support Vue SFCs and other build step requirements. In fact, we will need to coordinate two builds for the same app: once for the client, and once for the server.
+- Support Vue SFCs and other build step requirements. In fact, we will need to coordinate two builds for the same app: one for the client, and one for the server.
 
   :::tip
   Vue components are compiled differently when used for SSR - templates are compiled into string concatenations instead of Virtual DOM render functions for more efficient rendering performance.
@@ -249,11 +249,11 @@ You should avoid code that produces side effects that need cleanup in <span clas
 
 Universal code cannot assume access to platform-specific APIs, so if your code directly uses browser-only globals like `window` or `document`, they will throw errors when executed in Node.js, and vice-versa.
 
-For tasks shared between server and client but use different platform APIs, it's recommended to wrap the platform-specific implementations inside a universal API, or use libraries that do this for you. For example, you can use [`node-fetch`](https://github.com/node-fetch/node-fetch) to use the same fetch API on both server and client.
+For tasks that are shared between server and client but with different platform APIs, it's recommended to wrap the platform-specific implementations inside a universal API, or use libraries that do this for you. For example, you can use [`node-fetch`](https://github.com/node-fetch/node-fetch) to use the same fetch API on both server and client.
 
 For browser-only APIs, the common approach is to lazily access them inside client-only lifecycle hooks such as <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
 
-Note that if a 3rd party library is not written with universal usage in mind, it could be tricky to integrate it into an server-rendered app. You _might_ be able to get it working by mocking some of the globals, but it would be hacky and may interfere with the environment detection code of other libraries.
+Note that if a third-party library is not written with universal usage in mind, it could be tricky to integrate it into an server-rendered app. You _might_ be able to get it working by mocking some of the globals, but it would be hacky and may interfere with the environment detection code of other libraries.
 
 ### Cross-Request State Pollution
 
@@ -287,7 +287,7 @@ State Management libraries like Pinia are designed with this in mind. Consult [P
 
 ### Hydration Mismatch
 
-If the DOM structure of the pre-rendered HTML does not match the expected output of the client-side app, there will be a hydration mismatch error. In most cases, this is caused by browser's native HTML parsing behavior trying to correct invalid structures in the HTML string. For example, a common gotcha is that [`<div>` cannot be placed inside `<p>`](https://stackoverflow.com/questions/8397852/why-cant-the-p-tag-contain-a-div-tag-inside-it):
+If the DOM structure of the pre-rendered HTML does not match the expected output of the client-side app, there will be a hydration mismatch error. In most cases, this is caused by the browser's native HTML parsing behavior trying to correct invalid structures in the HTML string. For example, a common gotcha is that [`<div>` cannot be placed inside `<p>`](https://stackoverflow.com/questions/8397852/why-cant-the-p-tag-contain-a-div-tag-inside-it):
 
 ```html
 <p><div>hi</div></p>
@@ -301,7 +301,7 @@ If we produce this in our server-rendered HTML, the browser will terminate the f
 <p></p>
 ```
 
-When Vue encounters a hydration mismatch, it will attempt to automatically recover and adjust the pre-rendered DOM to match the client side state. This will lead to some rendering performance loss due to incorrect nodes being discarded and new nodes being mounted, but in most cases, the app should continue to work as expected. That said, it is still best to eliminate hydration mismatches during development.
+When Vue encounters a hydration mismatch, it will attempt to automatically recover and adjust the pre-rendered DOM to match the client-side state. This will lead to some rendering performance loss due to incorrect nodes being discarded and new nodes being mounted, but in most cases, the app should continue to work as expected. That said, it is still best to eliminate hydration mismatches during development.
 
 ### Custom Directives
 
@@ -313,7 +313,7 @@ const myDirective = {
     el.id = 'foo'
   },
   getSSRProps(binding, vnode) {
-    // the hook the directive binding and the element vnode as arguments.
+    // the hook is passed the directive binding and the element vnode.
     // return props to be added to the vnode.
     return {
       id: 'foo'

@@ -40,7 +40,7 @@ h('div', { id: 'foo' })
 h('div', { class: 'bar', innerHTML: 'hello' })
 
 // class and style have the same object / array
-// value support like in templates
+// value support that they have in templates
 h('div', { class: [foo, { bar }], style: { color: 'red' } })
 
 // event listeners should be passed as onXxx
@@ -72,7 +72,7 @@ vnode.key // null
 The full `VNode` interface contains many other internal properties, but it is strongly recommended to avoid relying on any properties other than the ones listed here. This avoids unintended breakage in case the internal properties are changed.
 :::
 
-### Declaring Render Function
+### Declaring Render Functions
 
 <div class="composition-api">
 
@@ -114,7 +114,7 @@ export default {
     // use an array to return multiple root nodes
     return () => [
       h('div'),
-      h('div')
+      h('div'),
       h('div')
     ]
   }
@@ -145,7 +145,7 @@ export default {
 }
 ```
 
-The `render()` function has access to the same `this` component instance.
+The `render()` function has access to the component instance via `this`.
 
 In addition to returning a single vnode, you can also return strings or arrays:
 
@@ -165,7 +165,7 @@ export default {
     // use an array to return multiple root nodes
     return [
       h('div'),
-      h('div')
+      h('div'),
       h('div')
     ]
   }
@@ -182,7 +182,7 @@ function Hello() {
 }
 ```
 
-That's right, this is is a valid Vue component! See [Functional Components](#functional-components) for more details on this syntax.
+That's right, this is a valid Vue component! See [Functional Components](#functional-components) for more details on this syntax.
 
 ### Vnodes Must Be Unique
 
@@ -228,16 +228,16 @@ const vnode = <div id={dynamicId}>hello, {userName}</div>
 
 `create-vue` and Vue CLI both have options for scaffolding projects with pre-configured JSX support. If you are configuring JSX manually, please refer to the documentation of [`@vue/babel-plugin-jsx`](https://github.com/vuejs/jsx-next) for details.
 
-Although first introduced by React, JSX actually has no defined runtime semantics and can be compiled into various different output. If you have worked with JSX before, do note that **Vue JSX transform is different from React's JSX transform**, so you can't use React's JSX transform in Vue applications. Some notable differences from React JSX include:
+Although first introduced by React, JSX actually has no defined runtime semantics and can be compiled into various different outputs. If you have worked with JSX before, do note that **Vue JSX transform is different from React's JSX transform**, so you can't use React's JSX transform in Vue applications. Some notable differences from React JSX include:
 
 - You can use HTML attributes such as `class` and `for` as props - no need to use `className` or `htmlFor`.
-- Passing children to components (i.e. slots) [work differently](#passing-slots).
+- Passing children to components (i.e. slots) [works differently](#passing-slots).
 
 Vue's type definition also provides type inference for TSX usage. When using TSX, make sure to specify `"jsx": "preserve"` in `tsconfig.json` so that TypeScript leaves the JSX syntax intact for Vue JSX transform to process.
 
 ## Render Function Recipes
 
-Below we will provide some common recipes for implementating template feature equivalents in render function / JSX.
+Below we will provide some common recipes for implementing template features as their equivalent render functions / JSX.
 
 ### `v-if`
 
@@ -332,7 +332,7 @@ h(
 
 ### `v-on`
 
-Props with names that start with `on` followed by uppercase letter are treated as event listeners. For example, `onClick` is the equivalent of `@click` in templates.
+Props with names that start with `on` followed by an uppercase letter are treated as event listeners. For example, `onClick` is the equivalent of `@click` in templates.
 
 ```js
 h(
@@ -358,7 +358,7 @@ h(
 
 #### Event Modifiers
 
-For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after the event name using camel case.
+For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after the event name using camelCase.
 
 For example:
 
@@ -424,7 +424,7 @@ function render() {
 
 As we can see, `h` can work with components imported from any file format as long as it's a valid Vue component.
 
-Dynamic components are strightforward with render functions:
+Dynamic components are straightforward with render functions:
 
 ```js
 import Foo from './Foo.vue'
@@ -456,7 +456,7 @@ export default {
     return () => [
       // default slot:
       // <div><slot /></div>
-      h('div', slots.default())
+      h('div', slots.default()),
 
       // named slot:
       // <div><slot name="footer" :text="message" /></div>
@@ -492,7 +492,7 @@ export default {
   render() {
     return [
       // <div><slot /></div>
-      h('div', this.$slots.default())
+      h('div', this.$slots.default()),
 
       // <div><slot name="footer" :text="message" /></div>
       h(
@@ -528,7 +528,7 @@ h(MyComponent, () => 'hello')
 
 // named slots
 // notice the `null` is required to avoid
-// slots object being treated as props
+// the slots object being treated as props
 h(MyComponent, null, {
   default: () => 'default slot',
   foo: () => h('div', 'foo'),
@@ -550,7 +550,7 @@ JSX equivalent:
 }}</MyComponent>
 ```
 
-Passing slots as functions allows them to be invoked lazily by the child component. This makes a slot's dependncies to be tracked by the child instead of the parent, which results in more accurate and efficient updates.
+Passing slots as functions allows them to be invoked lazily by the child component. This leads to the slot's dependencies being tracked by the child instead of the parent, which results in more accurate and efficient updates.
 
 ### Built-in Components
 
@@ -559,7 +559,7 @@ Passing slots as functions allows them to be invoked lazily by the child compone
 <div class="composition-api">
 
 ```js
-import { h, KeepAlive, Teleport, Transition, TransitionGroup } from Vue
+import { h, KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 export default {
   setup () {
@@ -572,7 +572,7 @@ export default {
 <div class="options-api">
 
 ```js
-import { h, KeepAlive, Teleport, Transition, TransitionGroup } from Vue
+import { h, KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 export default {
   render () {
@@ -596,7 +596,7 @@ export default {
   setup(props, { emit }) {
     return () =>
       h(SomeComponent, {
-        modelValue: modelValue,
+        modelValue: props.modelValue,
         'onUpdate:modelValue': (value) => emit('update:modelValue', value)
       })
   }
@@ -626,7 +626,7 @@ export default {
 Custom directives can be applied to a vnode using [`withDirectives`](/api/render-function.html#withdirectives):
 
 ```js
-import { h, withDirectives } from Vue
+import { h, withDirectives } from 'vue'
 
 // a custom directive
 const pin = {
