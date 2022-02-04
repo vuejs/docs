@@ -309,14 +309,17 @@ Since most custom directives involve direct DOM manipulation, they are ignored d
 
 ```js
 const myDirective = {
-  mounted(el) {
-    el.id = 'foo'
+  mounted(el, binding) {
+    // client-side implementation:
+    // directly update the DOM
+    el.id = binding.value
   },
-  getSSRProps(binding, vnode) {
-    // the hook is passed the directive binding and the element vnode.
-    // return props to be added to the vnode.
+  getSSRProps(binding) {
+    // server-side implementation:
+    // return the props to be rendered.
+    // getSSRProps only receives the directive binding.
     return {
-      id: 'foo'
+      id: binding.value
     }
   }
 }
