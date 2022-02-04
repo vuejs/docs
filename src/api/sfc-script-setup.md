@@ -223,7 +223,7 @@ const attrs = useAttrs()
 `<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where you need to:
 
 - Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins.
-- Declaring named exports.
+- Declaring named exports (including TypeScript types).
 - Run side effects or create objects that should only execute once.
 
 ```vue
@@ -264,6 +264,23 @@ In addition, the awaited expression will be automatically compiled in a format t
 :::
 
 ## TypeScript-only Features
+
+### Additional type exports
+
+As noted above, in order to export additional types from an SFC, they must be moved to an additional `<script>` block alongside the `<script setup>` block.
+
+For example
+```vue
+<script lang="ts">
+export type SizeOptions = 'small' | 'medium' | 'large';
+</script>
+
+<script lang="ts" setup>
+defineProps({
+  size: { type: String as PropType<SizeOptions> },
+})
+</script>
+```
 
 ### Type-only props/emit declarations
 
