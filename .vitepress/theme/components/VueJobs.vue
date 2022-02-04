@@ -37,8 +37,8 @@ onMounted(async () => {
   <div v-if="frontmatter.vuejobs !== false" ref="vuejobs">
     <div class="vuejobs-container" v-if="openings.length">
       <div class="vj-item" v-for="(job, n) in openings" :key="n">
-        <p>
-          <a class="vj-job-title" :href="job.link" target="_blank">
+        <a class="vj-job-title" :href="job.link" target="_blank">
+          <p>
             {{ job.title }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,17 +54,17 @@ onMounted(async () => {
                 d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z"
               ></path>
             </svg>
-          </a>
-        </p>
-        <p>
-          <a class="vj-job-info" :href="job.link" target="_blank">
+          </p>
+
+          <p class="vj-job-info">
             {{ job.company }}
             <span v-if="job.salary">·</span>
             {{ job.salary }}
             <span>·</span>
             {{ job.location }}
-          </a>
-        </p>
+            `
+          </p>
+        </a>
       </div>
     </div>
   </div>
@@ -88,7 +88,7 @@ onMounted(async () => {
 .vuejobs-container p,
 .vuejobs-container a {
   line-height: 16px;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
   display: inline-block;
 }
 .vuejobs-container a:hover {
