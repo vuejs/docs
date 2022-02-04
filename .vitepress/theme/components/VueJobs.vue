@@ -62,7 +62,6 @@ onMounted(async () => {
             {{ job.salary }}
             <span>·</span>
             {{ job.location }}
-            `
           </p>
         </a>
       </div>
