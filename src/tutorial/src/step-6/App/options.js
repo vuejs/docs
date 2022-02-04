@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      show: true
+      awesome: true
     }
   },
   methods: {

@@ -1,12 +1,12 @@
 export default {
   data() {
     return {
-      show: true
+      awesome: true
     }
   },
   methods: {
     toggle() {
-      this.show = !this.show
+      this.awesome = !this.awesome
     }
   }
 }

@@ -2,14 +2,14 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    const show = ref(true)
+    const awesome = ref(true)
 
     function toggle() {
-      show.value = !show.value
+      awesome.value = !awesome.value
     }
 
     return {
-      show,
+      awesome,
       toggle
     }
   }
