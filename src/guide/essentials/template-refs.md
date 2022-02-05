@@ -28,7 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <input ref="input" />
+  <input ref="input">
 </template>
 ```
 
@@ -47,7 +47,7 @@ export default {
 </script>
 
 <template>
-  <input ref="input" />
+  <input ref="input">
 </template>
 ```
 
