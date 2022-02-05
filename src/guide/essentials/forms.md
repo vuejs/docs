@@ -114,7 +114,7 @@ Single checkbox, boolean value:
 ```
 
 <div class="demo">
-  <input type="checkbox" id="checkbox-demo" v-model="checked" />
+  <input type="checkbox" id="checkbox-demo" v-model="checked">
   <label for="checkbox-demo">{{ checked }}</label>
 </div>
 
@@ -168,13 +168,13 @@ export default {
 <div class="demo">
   <div>Checked names: {{ checkedNames }}</div>
 
-  <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames" />
+  <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames">
   <label for="demo-jack">Jack</label>
 
-  <input type="checkbox" id="demo-john" value="John" v-model="checkedNames" />
+  <input type="checkbox" id="demo-john" value="John" v-model="checkedNames">
   <label for="demo-john">John</label>
 
-  <input type="checkbox" id="demo-mike" value="Mike" v-model="checkedNames" />
+  <input type="checkbox" id="demo-mike" value="Mike" v-model="checkedNames">
   <label for="demo-mike">Mike</label>
 </div>
 
@@ -206,10 +206,10 @@ In this case, the `checkedNames` array will always contain the values from the c
 <div class="demo">
   <div>Picked: {{ picked }}</div>
 
-  <input type="radio" id="one" value="One" v-model="picked" />
+  <input type="radio" id="one" value="One" v-model="picked">
   <label for="one">One</label>
 
-  <input type="radio" id="two" value="Two" v-model="picked" />
+  <input type="radio" id="two" value="Two" v-model="picked">
   <label for="two">Two</label>
 </div>
 
@@ -434,7 +434,7 @@ If you want user input to be automatically typecast as a number, you can add the
 <input v-model.number="age">
 ```
 
-This is often useful, because even with `<input type="number" />`, the value of HTML input elements always returns a string. If the value cannot be parsed with `parseFloat()`, then the original value is used.
+This is often useful, because even with `<input type="number">`, the value of HTML input elements always returns a string. If the value cannot be parsed with `parseFloat()`, then the original value is used.
 
 ### `.trim`
 
