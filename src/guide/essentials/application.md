@@ -43,8 +43,7 @@ We will discuss how to define and compose multiple components together in later 
 
 ## Mounting the App
 
-An application instance won't render anything until its `.mount()` method is called.
-It expects a "container" argument, which can either be an actual DOM element or a selector string:
+An application instance won't render anything until its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
 
 ```html
 <div id="app"></div>
