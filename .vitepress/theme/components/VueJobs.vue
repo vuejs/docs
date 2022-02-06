@@ -28,7 +28,11 @@ onMounted(async () => {
 
   // load data
   if (!openings.length) {
-    openings = await (await fetch(`${base}`)).json()
+    const items = await (await fetch(`${base}`)).json()
+    // choose two random items
+    if (items && items.length) {
+      openings = items.sort(() => 0.5 - Math.random()).slice(0, 2)
+    }
   }
 })
 </script>
