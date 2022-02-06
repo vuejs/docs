@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "vitepress",
     "build": "vitepress build",
-    "serve": "vitepress serve"
+    "serve": "vitepress serve",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@vue/repl": "^1.0.0",
