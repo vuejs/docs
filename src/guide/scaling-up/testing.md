@@ -8,9 +8,9 @@ In this guide, we'll cover basic terminology and provide our recommendations on 
 
 There is one Vue-specific section covering composables. See [Testing Composables](#testing-composables) below for more details.
 
-:::tip Start testing early!
-We recommend you begin writing tests as soon as you can. The longer you wait to add tests to your application, the more dependencies your application will have, and the harder it will be to start.
-:::
+## When to Test
+
+Start testing early! We recommend you begin writing tests as soon as you can. The longer you wait to add tests to your application, the more dependencies your application will have, and the harder it will be to start.
 
 ## Testing Types
 
