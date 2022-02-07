@@ -81,7 +81,7 @@ The primary benefit of custom elements is that they can be used with any framewo
 
 ### defineCustomElement
 
-Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElment`](/api/general.html#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/general.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
+Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElement`](/api/general.html#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/general.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
 
 ```vue-html
 <my-vue-element></my-vue-element>
@@ -120,7 +120,7 @@ document.body.appendChild(
 
 - When the element's `disconnectedCallback` is invoked, Vue will check whether the element is detached from the document after a microtask tick.
 
-  - If the element is still in the document, it's a move and the component instance will be perserved;
+  - If the element is still in the document, it's a move and the component instance will be preserved;
 
   - If the element is detached from the document, it's a removal and the component instance will be unmounted.
 

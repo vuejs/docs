@@ -181,7 +181,7 @@ When this component needs to re-render, it only needs to traverse the flattened 
 </div>
 ```
 
-A child block is tracked inside the parent block's array of dynamic descendents. This retains a stable structure for the parent block.
+A child block is tracked inside the parent block's array of dynamic descendants. This retains a stable structure for the parent block.
 
 ### Impact on SSR Hydration
 
@@ -189,4 +189,4 @@ Both patch flags and tree flattening also greatly improve Vue's [SSR Hydration](
 
 - Single element hydration can take fast paths based on the corresponding vnode's patch flag.
 
-- Only block nodes and their dynamic descendents need to be traversed during hydration, effectively achieving partial hydration at the template level.
+- Only block nodes and their dynamic descendants need to be traversed during hydration, effectively achieving partial hydration at the template level.
