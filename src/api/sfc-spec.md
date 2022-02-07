@@ -103,7 +103,7 @@ p {{ msg }}
 </style>
 ```
 
-Note the integration with pre-processors may differ based on the toolchain. Check out the respective documentations for examples:
+Note that integration with various pre-processors may differ by toolchain. Check out the respective documentation for examples:
 
 - [Vite](https://vitejs.dev](features.html#css-pre-processors)
 - [Vue CLI](https://cli.vuejs.org](css.html#pre-processors)
