@@ -30,7 +30,7 @@ We will briefly discuss what each of these are, how they can be implemented for 
 
 Unit tests are written to verify that small, isolated units of code are working as expected. A unit test usually covers a single function, class, composable, or module. Unit tests focus on logical correctness and only concern themselves with a small portion of the application's overall functionality. They may mock large parts of your application's environment (e.g. initial state, complex classes, 3rd party modules, and network requests).
 
-Unit tests will catch issues with a function's business logic and logical correctness.
+In general, unit tests will catch issues with a function's business logic and logical correctness.
 
 Take for example this `increment` function:
 
@@ -67,12 +67,30 @@ describe('increment', () => {
 })
 ```
 
-As mentioned previously, unit testing is typically applied to self-contained business logic, classes, modules, or functions that do not involve UI rendering, network requests, or other environmental concerns.
+As mentioned previously, unit testing is typically applied to self-contained business logic, components, classes, modules, or functions that do not involve UI rendering, network requests, or other environmental concerns.
 
-These are typically plain JavaScript / TypeScript modules unrelated to Vue. In general, writing unit tests in Vue applications does not differ significantly from applications using other frameworks.
+These are typically plain JavaScript / TypeScript modules unrelated to Vue. In general, writing unit tests for business logic in Vue applications does not differ significantly from applications using other frameworks.
+
+There are two instances where you DO unit test Vue-specific features:
+
+1. Composables
+2. Components
+
+### Composables
 
 One category of functions specific to Vue applications are [Composables](/guide/reusability/composables.html), which may require special handling during tests.
 See [Testing Composables](#testing-composables) below for more details.
+
+### Components
+
+A component can be tested in two ways:
+
+1. Whitebox: Unit Testing
+
+Tests that are "Whitebox tests" are aware of the implementation details and dependencies of a component. Components be unit tested by using [`@vue/test-utils`'s](https://test-utils.vuejs.org) `shallowMount` command instead of the `mount` command. You can also make use of the `global.stubs` API. Please read the Vue Test Utils docs for some help on [how to decide](https://test-utils.vuejs.org/guide/advanced/stubs-shallow-mount.html#mount-shallow-and-stubs-which-one-and-when) if you want to Unit Test or Component Test your components. As stated above, unit tests may mock initial state and large parts of your application, when unit testing components, this includes 3rd party components, libraries, and all child components.
+
+2. Blackbox: Component Testing
+Tests that are "Blackbox tests" are unaware of the implementation details of a component. These tests do not mock anything. They render all child components and are considered more of an "integration test" in which Components are the Subject Under Test. We will cover this in the next section.
 
 ### Recommendation
 
@@ -96,7 +114,7 @@ In Vue applications, components are the main building blocks of the UI. Componen
 
 Component tests should catch issues relating to your component's props, events, slots that it provides, styles, classes, lifecycle hooks, and more.
 
-They should not mock child components, but instead test the interactions between your component and its children by interacting with the components as a user would. For example, a component test should click on an element like a user would instead of programmatically interacting with the component.
+Component tests should not mock child components, but instead test the interactions between your component and its children by interacting with the components as a user would. For example, a component test should click on an element like a user would instead of programmatically interacting with the component.
 
 Component tests should focus on the component's public interfaces rather than internal implementation details. For most components, the public interface is limited to: events emitted, props, and slots. When testing, remember to **test what a component does, not how it does it**.
 
