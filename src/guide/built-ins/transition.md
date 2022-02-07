@@ -476,7 +476,7 @@ Transitions can be reused through Vue's component system. To create a reusable t
     @leave="onLeave">
     <slot></slot> <!-- pass down slot content -->
   </Transition>
-</tempalte>
+</template>
 
 <style>
 /*
