@@ -20,7 +20,12 @@ function dismiss() {
 
 <template>
   <div class="banner" v-if="open">
-    Work in Progress - for Preview Only
+    Vue 3 is now the new default version!
+    <a
+      href="https://blog.vuejs.org/posts/vue-3-as-the-new-default.html"
+      target="_blank"
+      >Learn more</a
+    >
   </div>
 </template>
 
@@ -49,5 +54,9 @@ html:not(.banner-dismissed) {
 
 .banner-dismissed .banner {
   display: none;
+}
+
+a {
+  text-decoration: underline;
 }
 </style>
