@@ -93,7 +93,7 @@ See also: [Typing Template Refs](/guide/typescript/composition-api.html#typing-t
 
 <div class="composition-api">
 
-When `ref` is used inside `v-for`, the corrensponding ref should contain an Array value, which will be populated with the elements after mount:
+When `ref` is used inside `v-for`, the corresponding ref should contain an Array value, which will be populated with the elements after mount:
 
 ```vue
 <script setup>

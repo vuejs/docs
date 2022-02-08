@@ -40,15 +40,15 @@ const headersCache = new Map<
 >()
 
 function parsePageHeaders(link: string) {
-  const fullePath = path.join(__dirname, '../', link) + '.md'
-  const timestamp = fs.statSync(fullePath).mtimeMs
+  const fullPath = path.join(__dirname, '../', link) + '.md'
+  const timestamp = fs.statSync(fullPath).mtimeMs
 
-  const cached = headersCache.get(fullePath)
+  const cached = headersCache.get(fullPath)
   if (cached && timestamp === cached.timestamp) {
     return cached.headers
   }
 
-  const src = fs.readFileSync(fullePath, 'utf-8')
+  const src = fs.readFileSync(fullPath, 'utf-8')
   const h2s = src.match(/^## [^\n]+/gm)
   let headers: string[] = []
   if (h2s) {
@@ -61,7 +61,7 @@ function parsePageHeaders(link: string) {
         .trim()
     )
   }
-  headersCache.set(fullePath, {
+  headersCache.set(fullPath, {
     timestamp,
     headers
   })
