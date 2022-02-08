@@ -144,13 +144,27 @@ export default defineConfig({
   // ...
   test: {
     // enable jest-like global test APIs
-    global: true,
+    globals: true,
     // simulate DOM with happy-dom
     // (requires installing happy-dom as a peer dependency)
     environment: 'happy-dom'
   }
 })
 ```
+
+:::tip
+If you are using TypeScript, add `vitest/globals` to the `types` field in your `tsconfig.json`.
+
+```json
+// tsconfig.json
+
+{
+ "compileroptions": {
+    "types": ["vitest/globals"]
+  }
+}
+```
+:::
 
 Then create a file ending in `*.test.js` in your project. You can place all test files in a test directory in project root, or in test directories next to your source files. Vitest will automatically search for them using the naming convention.
 
