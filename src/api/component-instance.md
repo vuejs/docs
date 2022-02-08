@@ -251,10 +251,10 @@ Imperative API for creating watchers.
   Stopping the watcher:
 
   ```js
-  const stopWatching = this.$watch('a', cb)
+  const unwatch = this.$watch('a', cb)
 
   // later...
-  stopWatching()
+  unwatch()
   ```
 
 - **See also:**
