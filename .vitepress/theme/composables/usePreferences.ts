@@ -1,5 +1,7 @@
 import { Header, useRoute } from 'vitepress'
-import { computed, onMounted, onUnmounted, Ref, ref, ToRefs, toRefs } from 'vue'
+import { computed, onMounted, onUnmounted, Ref, ref } from 'vue'
+
+import { usePlatform } from './usePlatform'
 
 const hasStorage = typeof localStorage !== 'undefined'
 const get = (key: string, defaultValue = false): boolean =>
@@ -20,8 +22,6 @@ export function filterHeadersByPreference(headers: Header[]) {
   })
 }
 
-const isMac = /(Mac OS X)/i.test(globalThis.navigator?.userAgent);
-
 export function usePreferences() {
   const route = useRoute()
   const showPreference = computed(() =>
@@ -29,10 +29,12 @@ export function usePreferences() {
   )
   const showSFC = computed(() => !/^\/guide/.test(route.path))
 
-  const shortcutInfo = computed(() => {
-    const templateInfo = showSFC.value ? `\nCtrl+${isMac ? 'Option' : 'Alt'}+T: toggle template preference` : ''
+  const { altKey } = usePlatform()
 
-    return `Ctrl+${isMac ? 'Option' : 'Alt'}+A: toggle API preference${templateInfo}`
+  const shortcutInfo = computed(() => {
+    const templateInfo = showSFC.value ? `\nCtrl+${altKey}+T: toggle template preference` : ''
+
+    return `Ctrl+${altKey}+A: toggle API preference${templateInfo}`
   })
 
   const isOpen = ref(
@@ -90,9 +92,9 @@ export function usePreferences() {
 
   const preferenceKeyupHandler = (e: KeyboardEvent) => {
     if (e.altKey && e.ctrlKey && showPreference.value) {
-      if (e.keyCode === 65) { // Ctrl+Alt+A + preference switch available
+      if (e.code === '65') { // Ctrl+Alt+A + preference switch available
         onPreferenceKeyupChange(toggleCompositionAPI)
-      } else if (e.keyCode === 84 && showSFC.value) { // Ctrl+Alt+T + sfc option available
+      } else if (e.code === '84' && showSFC.value) { // Ctrl+Alt+T + sfc option available
         onPreferenceKeyupChange(toggleSFC)
       }
     }

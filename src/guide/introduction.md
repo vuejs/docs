@@ -202,12 +202,16 @@ If you are new to Vue, here's our general recommendation:
 
 You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar. 
 
+<script>
+  import { usePlatform } from '/@theme/composables/usePlatform.ts'
+  const { altKey } = usePlatform();
+  console.log(altKey, 'hello')
+</script>
+
 > Use following shortcuts to switch between API Preference:
 > 
-> * `Ctrl+Alt+A` switches the API Preference (options/composition)  
-> * `Ctrl+Alt+T` switches the templating preference (HTML/SFC)  
-> 
-> For Mac, `Option` instead of `Alt`
+> * `Ctrl+{{altKey}}+A` switches the API Preference (Options/Composition)  
+> * `Ctrl+{{altKey}}+T` switches the templating preference (HTML/SFC)  
 
 ## Still Got Questions?
 

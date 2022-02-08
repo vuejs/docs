@@ -5,7 +5,7 @@ import {
   preferComposition,
   preferSFC,
   usePreferences
-} from './preferences'
+} from '../composables/usePreferences'
 
 const {
   isOpen,

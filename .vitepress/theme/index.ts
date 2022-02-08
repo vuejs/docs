@@ -7,7 +7,7 @@ import {
   preferComposition,
   preferSFC,
   filterHeadersByPreference
-} from './components/preferences'
+} from './composables/usePreferences'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {
