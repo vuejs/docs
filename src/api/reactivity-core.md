@@ -125,7 +125,9 @@ Returns a reactive proxy of the object.
 
 - **Details**
 
-  The reactive conversion is "deep": it affects all nested properties. It also deeply unwraps any properties that are [refs](#ref) while maintaining reactivity.
+  The reactive conversion is "deep": it affects all nested properties. A reactive object also deeply unwraps any properties that are [refs](#ref) while maintaining reactivity.
+
+  It should also be noted that there is no ref unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`.
 
   To avoid the deep conversion and only retain reactivity at the root level, use [shallowReactive()](./reactivity-advanced.html#shallowreactive) instead.
 
@@ -158,6 +160,18 @@ Returns a reactive proxy of the object.
   obj.count++
   console.log(obj.count) // 3
   console.log(count.value) // 3
+  ```
+
+  Note that refs are **not** unwrapped when accessed as array or collection elements:
+
+  ```js
+  const books = reactive([ref('Vue 3 Guide')])
+  // need .value here
+  console.log(books[0].value)
+
+  const map = reactive(new Map([['count', ref(0)]]))
+  // need .value here
+  console.log(map.get('count').value)
   ```
 
   When assigning a [ref](#ref) to a `reactive` property, that ref will also be automatically unwrapped:
@@ -334,7 +348,9 @@ Watches one or more reactive data sources and invokes a callback function when t
   type WatchSource<T> =
     | Ref<T> // ref
     | (() => T) // getter
-    | T extends object ? T : never // reactive object
+    | T extends object
+    ? T
+    : never // reactive object
 
   interface WatchOptions extends WatchEffectOptions {
     immediate?: boolean // default: false

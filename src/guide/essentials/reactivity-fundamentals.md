@@ -500,7 +500,9 @@ console.log(count.value) // 1
 
 Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced.html#shallowreactive).
 
-In addition, there is no unwrapping performed when the ref is accessed from an array or a native collection type like `Map`:
+#### Ref Unwrapping in Arrays and Collections
+
+Unlike reactive objects, there is no unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`:
 
 ```js
 const books = reactive([ref('Vue 3 Guide')])
