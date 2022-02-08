@@ -114,7 +114,7 @@ Notice how we can import directly from `'vue'` in our code - this is made possib
 You can add entries for other dependencies to the import map - just make sure they point to the ES modules version of the library you intend to use.
 
 :::tip Not for production
-The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
+The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
 
 ### Serving over HTTP
