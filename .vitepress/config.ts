@@ -633,7 +633,7 @@ export default defineConfigWithTheme<Config>({
       }
     },
     build: {
-      minify: 'terser',
+      minify: false, // 'terser',
       chunkSizeWarningLimit: Infinity,
       rollupOptions: {
         output: {
