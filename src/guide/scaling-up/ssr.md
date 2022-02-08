@@ -126,7 +126,7 @@ server.listen(3000, () => {
 
 Finally, run `node server.js` and visit `http://localhost:3000`. You should see the page working with the button.
 
-[Try it on StackBlitz](https://stackblitz.com/edit/vue-ssr-example-basic?file=index.js)
+[Try it on StackBlitz](https://stackblitz.com/fork/vue-ssr-example-basic?file=index.js)
 
 ### Client Hydration
 
@@ -199,7 +199,7 @@ In addition, in order to load the client files in the browser, we also need to:
 2. Load the client entry by adding `<script type="module" src="/client.js"></script>` to the HTML shell.
 3. Support usage like `import * from 'vue'` in the browser by adding an [Import Map](https://github.com/WICG/import-maps) to the HTML shell.
 
-[Try the completed example on StackBlitz](https://stackblitz.com/edit/vue-ssr-example?file=index.js). The button is now interactive!
+[Try the completed example on StackBlitz](https://stackblitz.com/fork/vue-ssr-example?file=index.js). The button is now interactive!
 
 ## Higher Level Solutions
 
