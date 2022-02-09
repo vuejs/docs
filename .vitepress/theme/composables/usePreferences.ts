@@ -92,9 +92,9 @@ export default function usePreferences() {
 
   const preferenceKeyupHandler = (e: KeyboardEvent) => {
     if (e.altKey && e.ctrlKey && showPreference.value) {
-      if (e.code === '65') { // Ctrl+Alt+A + preference switch available
+      if (e.keyCode === 65) { // Ctrl+Alt+A + preference switch available
         onPreferenceKeyupChange(toggleCompositionAPI)
-      } else if (e.code === '84' && showSFC.value) { // Ctrl+Alt+T + sfc option available
+      } else if (e.keyCode === 84 && showSFC.value) { // Ctrl+Alt+T + sfc option available
         onPreferenceKeyupChange(toggleSFC)
       }
     }
