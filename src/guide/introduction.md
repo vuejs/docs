@@ -205,7 +205,6 @@ You don't have to commit to only one style during the learning phase. The rest o
 <script>
   import usePlatform from '/@theme/composables/usePlatform.ts'
   const { altKey } = usePlatform();
-  console.log(altKey, 'hello')
 </script>
 
 > Use following shortcuts to switch between API Preference:

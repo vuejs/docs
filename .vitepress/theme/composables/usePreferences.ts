@@ -70,20 +70,26 @@ export default function usePreferences() {
   }
 
   let closeTimeout: any
+  let hasInitiallyBeenOpenByKeyboard = false
   const onPreferenceKeyupChange = (callback: Function) => {
-    const alreadyOpen = isOpen.value
     clearTimeout(closeTimeout)
-    if (alreadyOpen === false) {
+    if (!isOpen.value) {
       isOpen.value = true // Open preference to see what is changed.
+      hasInitiallyBeenOpenByKeyboard = true
       setTimeout(() => {
+        // Differ the toggle a bit to being able to see the change
         callback()
-        closeTimeout = setTimeout(() => {
-          // Close after 5 seconds
-          isOpen.value = false;
-        }, 5000)
-      }, 150)
+      }, 100)
     } else {
       callback()
+    }
+    if (hasInitiallyBeenOpenByKeyboard) {
+      // Close automatically when it was initially opened by shortcut
+      closeTimeout = setTimeout(() => {
+        // Close after 5 seconds
+        isOpen.value = false;
+        hasInitiallyBeenOpenByKeyboard = false;
+      }, 5000)
     }
   }
 
