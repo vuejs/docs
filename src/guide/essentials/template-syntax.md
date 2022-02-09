@@ -14,14 +14,38 @@ The most basic form of data binding is text interpolation using the "Mustache" s
 <span>Message: {{ msg }}</span>
 ```
 
-The mustache tag will be replaced with the value of the `msg` property from the corresponding component instance. It will also be updated whenever the `msg` property changes.
+Mustache will be replaced with the value of the `msg` property from the corresponding component instance. It will also be updated whenever the `msg` property changes.
+
+or use the [`v-text` directive](/api/built-in-directives.html#v-text):
+
+```vue-html
+<span>Message: <span v-text="msg"></span></span>
+```
+
+Here we're encountering something new. The `v-html` attribute you're seeing is called a [**directive**](/api/built-in-directives.html). Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, we're basically saying "keep this element's inner HTML up-to-date with the `rawHtml` property on the current active instance."
 
 ## Raw HTML
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](/api/built-in-directives.html#v-html):
+`v-text` directive(or Mustache) interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](/api/built-in-directives.html#v-html):
+
+<div class="composition-api">
+
+```js
+const rawHtml = '<span style="color: red">This should be red.</span>'
+```
+
+</div>
+<div class="options-api">
+
+```js
+const rawHtml = '<span style="color: red">This should be red.</span>'
+```
+
+</div>
 
 ```vue-html
-<p>Using text interpolation: {{ rawHtml }}</p>
+<p>Using Mustache: {{rawHtml}}</p>
+<p>Using v-text directive: <span v-text="rawHtml"></span></p>
 <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 ```
 
@@ -30,11 +54,10 @@ The double mustaches interprets the data as plain text, not HTML. In order to ou
 </script>
 
 <div class="demo">
-  <p>Using text interpolation: {{ rawHtml }}</p>
+  <p>Using Mustache: {{rawHtml}}</p>
+  <p>Using v-text directive: <span v-text="rawHtml"></span></p>
   <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 </div>
-
-Here we're encountering something new. The `v-html` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, we're basically saying "keep this element's inner HTML up-to-date with the `rawHtml` property on the current active instance."
 
 The contents of the `span` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
 
@@ -44,7 +67,7 @@ Dynamically rendering arbitrary HTML on your website can be very dangerous becau
 
 ## Attribute Bindings
 
-Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](/api/built-in-directives.html#v-bind):
+Mustache cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](/api/built-in-directives.html#v-bind):
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
@@ -129,7 +152,7 @@ These expressions will be evaluated as JavaScript in the data scope of the curre
 
 In Vue templates, JavaScript expressions can be used in the following positions:
 
-- Inside text interpolations (mustaches)
+- Inside text interpolations (Mustache)
 - In the attribute value of any Vue directives (special attributes that start with `v-`)
 
 ### Expressions Only
