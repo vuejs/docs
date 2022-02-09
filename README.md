@@ -1,31 +1,24 @@
-# v3.vuejs.org
+# vuejs.org
 
-This site is built with [VuePress](https://vuepress.vuejs.org/). Site content is written in Markdown format located in `src`.
+This is the WIP branch of the brand new vuejs.org. **The content is under heavy updates and re-organization so please refrain from submitting PRs to this branch until we have removed this notice.**
 
-## Writing
+## Contributing
 
-See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) for our rules and recommendations on writing and maintaining documentation.
+This site is built with [VitePress](https://github.com/vuejs/vitepress) and depends on [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`. For simple edits, you can directly edit the file on GitHub and generate a Pull Request.
 
-## Developing
-
-1. Clone repository
+For local development, [pnpm](https://pnpm.io/) is preferred as package manager:
 
 ```bash
-git clone git@github.com:vuejs/docs-next.git
+pnpm i
+pnpm run dev
 ```
 
-2. Install dependencies
+## Working on the content
 
-```bash
-yarn # or npm install
-```
+- See VitePress docs on supported [Markdown Extensions](https://vitepress.vuejs.org/guide/markdown.html) and the ability to [use Vue syntax inside markdown](https://vitepress.vuejs.org/guide/using-vue.html).
 
-3. Start local development environment
+- See the [Writing Guide](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) for our rules and recommendations on writing and maintaining documentation content.
 
-```bash
-yarn serve # or npm run serve
-```
+## Working on the theme
 
-## Deploying
-
-The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
+If changes need to made for the theme, check out the [instructions for developing the theme alongside the docs](https://github.com/vuejs/vue-theme#developing-with-real-content).

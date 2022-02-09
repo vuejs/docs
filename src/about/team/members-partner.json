@@ -1,0 +1,632 @@
+[
+  {
+    "name": "Maria Lamardo",
+    "title": "Front End Engineer",
+    "company": "Pendo",
+    "projects": [
+      {
+        "label": "vuejs/events",
+        "url": "https://github.com/vuejs/events"
+      }
+    ],
+    "location": "Raleigh, NC, USA",
+    "languages": ["English", "Spanish"],
+    "socials": {
+      "github": "mlama007",
+      "twitter": "MariaLamardo"
+    }
+  },
+  {
+    "name": "Pratik Patel",
+    "avatarPic": "https://pbs.twimg.com/profile_images/1541624512/profile-pic-09-11-2011_400x400.png",
+    "title": "Organizer",
+    "company": "VueConf US",
+    "projects": [
+      {
+        "label": "us.vuejs.org",
+        "url": "https://us.vuejs.org/"
+      }
+    ],
+    "location": "Atlanta, GA, USA",
+    "languages": ["English"],
+    "socials": {
+      "twitter": "prpatel"
+    }
+  },
+  {
+    "name": "Vincent Mayers",
+    "avatarPic": "https://pbs.twimg.com/profile_images/916531463905992706/MNvTkO5K_400x400.jpg",
+    "title": "Organizer",
+    "company": "VueConf US",
+    "projects": [
+      {
+        "label": "us.vuejs.org",
+        "url": "https://us.vuejs.org/"
+      }
+    ],
+    "location": "Atlanta, GA, USA",
+    "languages": ["English"],
+    "socials": {
+      "twitter": "vincentmayers"
+    }
+  },
+  {
+    "name": "Luke Thomas",
+    "avatarPic": "https://pbs.twimg.com/profile_images/1123492769299877888/aviXE_M5_400x400.jpg",
+    "title": "Creator",
+    "company": "Vue.js Amsterdam",
+    "projects": [
+      {
+        "label": "vuejs.amsterdam",
+        "url": "https://vuejs.amsterdam"
+      }
+    ],
+    "location": "Amsterdam, Netherlands",
+    "languages": ["Dutch", "English", "German"],
+    "socials": {
+      "twitter": "lukevscostas",
+      "linkedin": "luke-kenneth-thomas-578b3916a"
+    }
+  },
+  {
+    "name": "Jos Gerards",
+    "avatarPic": "https://pbs.twimg.com/profile_images/1110510517951627269/LDzDyd4N_400x400.jpg",
+    "title": "Event Manager",
+    "company": "Vue.js Amsterdam",
+    "projects": [
+      {
+        "label": "vuejs.amsterdam",
+        "url": "https://vuejs.amsterdam"
+      }
+    ],
+    "location": "Amsterdam, Netherlands",
+    "languages": ["Dutch", "English", "German"],
+    "socials": {
+      "twitter": "josgerards88",
+      "linkedin": "josgerards"
+    }
+  },
+  {
+    "name": "Jen Looper",
+    "title": "CEO",
+    "company": "Vue Vixens",
+    "projects": [
+      {
+        "label": "vuevixens.org",
+        "url": "https://vuevixens.org/"
+      },
+      {
+        "label": "nativescript-vue.org",
+        "url": "https://nativescript-vue.org/"
+      }
+    ],
+    "location": "Boston, MA, USA",
+    "languages": ["English", "French"],
+    "socials": {
+      "github": "jlooper",
+      "twitter": "jenlooper"
+    }
+  },
+  {
+    "name": "Alex Jover",
+    "title": "Web, PWA and Performance Consultant",
+    "company": "Freelance",
+    "projects": [
+      {
+        "label": "v-runtime-template",
+        "url": "https://github.com/alexjoverm/v-runtime-template"
+      },
+      {
+        "label": "v-lazy-image",
+        "url": "https://github.com/alexjoverm/v-lazy-image"
+      },
+      {
+        "label": "vue-testing-series",
+        "url": "https://github.com/alexjoverm/vue-testing-series"
+      }
+    ],
+    "location": "Alicante, Spain",
+    "languages": ["Spanish", "English"],
+    "website": {
+      "label": "alexjover.com",
+      "url": "https://alexjover.com"
+    },
+    "socials": {
+      "github": "alexjoverm",
+      "twitter": "alexjoverm"
+    }
+  },
+  {
+    "name": "Sebastien Chopin",
+    "title": "#1 Nuxt Brother",
+    "company": "NuxtJS",
+    "companyLink": "https://nuxtjs.org",
+    "location": "Bordeaux, France",
+    "languages": ["French", "English"],
+    "projects": [
+      {
+        "label": "nuxt/*",
+        "url": "https://github.com/nuxt"
+      },
+      {
+        "label": "nuxt-community/*",
+        "url": "https://github.com/nuxt-community"
+      },
+      {
+        "label": "nuxt/vue-meta",
+        "url": "https://github.com/nuxt/vue-meta"
+      }
+    ],
+    "socials": {
+      "github": "Atinux",
+      "twitter": "Atinux"
+    }
+  },
+  {
+    "name": "Alexandre Chopin",
+    "title": "#1 Nuxt Brother",
+    "company": "NuxtJS",
+    "companyLink": "https://nuxtjs.org",
+    "location": "Bordeaux, France",
+    "languages": ["French", "English"],
+    "projects": [
+      {
+        "label": "nuxt/*",
+        "url": "https://github.com/nuxt"
+      },
+      {
+        "label": "nuxt-community/*",
+        "url": "https://github.com/nuxt-community"
+      },
+      {
+        "label": "vue-flexboxgrid",
+        "url": "https://github.com/alexchopin/vue-flexboxgrid"
+      }
+    ],
+    "socials": {
+      "github": "alexchopin",
+      "twitter": "iamnuxt"
+    }
+  },
+  {
+    "name": "Khary Sharpe",
+    "title": "Viral Newscaster",
+    "location": "Kingston, Jamaica",
+    "languages": ["English"],
+    "projects": [
+      {
+        "label": "VueJsNews",
+        "url": "https://twitter.com/VueJsNews"
+      }
+    ],
+    "website": {
+      "label": "www.kharysharpe.com",
+      "url": "http://www.kharysharpe.com/"
+    },
+    "socials": {
+      "github": "kharysharpe",
+      "twitter": "kharysharpe"
+    }
+  },
+  {
+    "name": "Pooya Parsa",
+    "title": "Technical Advisor",
+    "company": "Fandogh (AUT University)",
+    "companyLink": "https://fandogh.org",
+    "location": "Tehran, Iran",
+    "languages": ["Persian", "English"],
+    "projects": [
+      {
+        "label": "nuxt/*",
+        "url": "https://github.com/nuxt"
+      },
+      {
+        "label": "nuxt-community/*",
+        "url": "https://github.com/nuxt-community"
+      },
+      {
+        "label": "bootstrap-vue/*",
+        "url": "https://github.com/bootstrap-vue"
+      }
+    ],
+    "socials": {
+      "github": "pi0",
+      "twitter": "_pi0_"
+    }
+  },
+  {
+    "name": "Xin Du",
+    "title": "Nuxpert",
+    "location": "Dublin, Ireland",
+    "languages": ["Chinese", "English"],
+    "projects": [
+      {
+        "label": "nuxt/*",
+        "url": "https://github/com/nuxt"
+      },
+      {
+        "label": "nuxt-community/*",
+        "url": "https://github/com/nuxt-community"
+      }
+    ],
+    "socials": {
+      "github": "clarkdo",
+      "twitter": "ClarkDu_"
+    }
+  },
+  {
+    "name": "Yi Yang",
+    "title": "Interface Elementologist",
+    "company": "ele.me",
+    "companyLink": "https://www.ele.me",
+    "location": "Shanghai, China",
+    "languages": ["Chinese", "English"],
+    "projects": [
+      {
+        "label": "elemefe/element",
+        "url": "https://github.com/elemefe/element"
+      },
+      {
+        "label": "elemefe/mint-ui",
+        "url": "https://github.com/elemefe/mint-ui"
+      }
+    ],
+    "socials": {
+      "github": "Leopoldthecoder"
+    }
+  },
+  {
+    "name": "Bruno Lesieur",
+    "title": "Cofounder",
+    "company": "Orchard ID",
+    "companyLink": "https://www.orchard-id.com/",
+    "projects": [
+      {
+        "label": "vuejs-fr/*",
+        "url": "https://vuejs-fr"
+      },
+      {
+        "label": "vuejs-fr/*",
+        "url": "https://Haeresis/node-atlas-hello-vue"
+      },
+      {
+        "label": "https://node-atlas.js.org/",
+        "url": "https://node-atlas.js.org/"
+      }
+    ],
+    "location": "Annecy, France",
+    "languages": ["French", "English"],
+    "website": {
+      "label": "blog.lesieur.name/",
+      "url": "https://blog.lesieur.name/"
+    },
+    "socials": {
+      "github": "Haeresis",
+      "twitter": "ZetesEthique"
+    }
+  },
+  {
+    "name": "ChangJoo Park",
+    "title": "Vuenthusiastic Korean Community Organizer",
+    "location": "Seoul, South Korea",
+    "languages": ["Korean", "English"],
+    "projects": [
+      {
+        "label": "vuejs-kr/kr.vuejs.org",
+        "url": "https://github.com/vuejs-kr/kr.vuejs.org"
+      },
+      {
+        "label": "ChangJoo-Park/vue-component-generator",
+        "url": "https://github.com/ChangJoo-Park/vue-component-generator"
+      },
+      {
+        "label": "vuejs-kr.github.io",
+        "url": "https://vuejs-kr.github.io"
+      }
+    ],
+    "socials": {
+      "github": "changjoo-park",
+      "twitter": "pcjpcj2"
+    }
+  },
+  {
+    "name": "Erick Petrucelli",
+    "title": "Teacher",
+    "company": "Fatec Taquaritinga",
+    "companyLink": "http://www.fatectq.edu.br/",
+    "location": "Taquaritinga, Brazil",
+    "languages": ["Portuguese", "English"],
+    "projects": [
+      {
+        "label": "vuejs-br/br.vuejs.org",
+        "url": "https://github.com/vuejs-br/br.vuejs.org"
+      },
+      {
+        "label": "ErickPetru/vue-feathers-chat",
+        "url": "https://github.com/ErickPetru/vue-feathers-chat"
+      }
+    ],
+    "socials": {
+      "github": "ErickPetru",
+      "twitter": "erickpetru"
+    }
+  },
+  {
+    "name": "Razvan Stoenescu",
+    "title": "Deep Space Quasar Creator",
+    "company": "Quasar Framework",
+    "companyLink": "https://quasar.dev/",
+    "location": "Bucharest, Romania",
+    "languages": ["Romanian", "English"],
+    "projects": [
+      {
+        "label": "quasarframework/quasar",
+        "url": "https://github.com/quasarframework/quasar"
+      },
+      {
+        "label": "quasarframework",
+        "url": "https://github.com/quasarframework"
+      }
+    ],
+    "socials": {
+      "github": "rstoenescu",
+      "twitter": "quasarframework"
+    }
+  },
+  {
+    "name": "Jilson Thomas",
+    "title": "Senior Frontend Developer",
+    "company": "Nominator",
+    "companyLink": "https://nominator.com/",
+    "projects": [
+      {
+        "label": "vuejobs.com",
+        "url": "https://vuejobs.com"
+      }
+    ],
+    "location": "Toronto, Canada",
+    "languages": ["English"],
+    "socials": {
+      "github": "JillzTom",
+      "twitter": "jilsonthomas"
+    }
+  },
+  {
+    "name": "Israel Ortuño",
+    "title": "Full Stack Web Developer",
+    "company": "Freelance",
+    "projects": [
+      {
+        "label": "vuejobs.com",
+        "url": "https://vuejobs.com"
+      }
+    ],
+    "location": "Alicante, Spain",
+    "languages": ["Spanish", "English"],
+    "socials": {
+      "github": "IsraelOrtuno",
+      "twitter": "IsraelOrtuno"
+    }
+  },
+  {
+    "name": "John Leider",
+    "title": "CEO",
+    "company": "Vuetify LLC",
+    "companyLink": "https://vuetifyjs.com",
+    "location": "Fort Worth, TX, USA",
+    "languages": ["English"],
+    "projects": [
+      {
+        "label": "vuetifyjs/vuetify",
+        "url": "https://github.com/vuetifyjs/vuetify"
+      }
+    ],
+    "socials": {
+      "github": "vuetifyjs",
+      "twitter": "vuetifyjs"
+    }
+  },
+  {
+    "name": "Grigoriy Beziuk",
+    "title": "Full Stack Web Developer",
+    "company": "Self Employed",
+    "companyLink": "http://gbezyuk.ru",
+    "location": "Moscow, Russia",
+    "languages": ["Russian", "German", "English"],
+    "projects": [
+      {
+        "label": "translation-gang/ru.vuejs.org",
+        "url": "https://github.com/translation-gang/ru.vuejs.org"
+      }
+    ],
+    "socials": {
+      "github": "gbezyuk"
+    }
+  },
+  {
+    "name": "Alexander Sokolov",
+    "title": "Russian Translation Sharp Eye",
+    "location": "Krasnodar, Russia",
+    "languages": ["Russian", "English"],
+    "projects": [
+      {
+        "label": "translation-gang/ru.vuejs.org",
+        "url": "https://github.com/translation-gang/ru.vuejs.org"
+      }
+    ],
+    "socials": { "github": "Alex-Sokolov" }
+  },
+  {
+    "name": "Anthony Gore",
+    "title": "Author",
+    "company": "Vue.js Developers",
+    "companyLink": "https://vuejsdevelopers.com/",
+    "location": "Sydney, Australia",
+    "languages": ["English"],
+    "website": {
+      "label": "vuejsdevelopers.com",
+      "url": "https://vuejsdevelopers.com"
+    },
+    "socials": { "github": "anthonygore", "twitter": "anthonygore" }
+  },
+  {
+    "name": "EGOIST",
+    "title": "Build Tool Simplificator",
+    "location": "Chengdu, China",
+    "projects": [
+      {
+        "label": "poi",
+        "url": "https://github.com/egoist/poi"
+      },
+      {
+        "label": "ream",
+        "url": "https://github.com/egoist/ream"
+      },
+      {
+        "label": "vue-play",
+        "url": "https://github.com/egoist/vue-play"
+      }
+    ],
+    "languages": ["Chinese", "English"],
+    "socials": { "github": "egoist", "twitter": "_egoistlily" }
+  },
+  {
+    "name": "Alex Kyriakidis",
+    "title": "Consultant / Author",
+    "location": "Thessaloniki, Greece",
+    "languages": ["el", "English"],
+    "socials": { "github": "hootlex", "twitter": "hootlex" },
+    "projects": [
+      {
+        "label": "vuejs-paginator",
+        "url": "https://github.com/hootlex/vuejs-paginator"
+      },
+      {
+        "label": "vuedo/vuedo",
+        "url": "https://github.com/vuedo/vuedo"
+      },
+      {
+        "label": "the-majesty-of-vuejs-2",
+        "url": "https://github.com/hootlex/the-majesty-of-vuejs-2"
+      },
+      {
+        "label": "vuejsfeed.com",
+        "url": "https://vuejsfeed.com/"
+      },
+      {
+        "label": "vueschool.io",
+        "url": "https://vueschool.io/"
+      }
+    ]
+  },
+  {
+    "name": "Rolf Haug",
+    "title": "Educator & Consultant",
+    "company": "Vue School",
+    "companyLink": "https://vueschool.io/",
+    "location": "Oslo, Norway",
+    "languages": ["English"],
+    "projects": [
+      {
+        "label": "vueschool.io",
+        "url": "https://vueschool.io/"
+      }
+    ],
+    "website": {
+      "label": "rah.no",
+      "url": "https://rah.no"
+    },
+    "socials": { "github": "rahaug", "twitter": "rahaug" }
+  },
+  {
+    "name": "Andrew Tomaka",
+    "title": "The Server Server",
+    "company": "Michigan State University",
+    "companyLink": "https://msu.edu/",
+    "location": "East Lansing, MI, USA",
+    "languages": ["English"],
+    "projects": [
+      {
+        "label": "vuejs/*",
+        "url": "https://www.github.com/vuejs"
+      }
+    ],
+    "socials": { "github": "atomaka", "twitter": "atomaka" },
+    "website": {
+      "label": "atomaka.com",
+      "url": "https://atomaka.com/"
+    }
+  },
+  {
+    "name": "Blake Newman",
+    "title": "Software Engineer",
+    "company": "Attest",
+    "companyLink": "https://www.askattest.com/",
+    "location": "London, UK",
+    "languages": ["English"],
+    "projects": [
+      {
+        "label": "vuejs.london",
+        "url": "https://vuejs.london"
+      }
+    ],
+    "socials": { "github": "blake-newman", "twitter": "blakenewman" }
+  },
+  {
+    "name": "Filip Rakowski",
+    "title": "Co-founder of Vue Storefront",
+    "company": "Divante",
+    "companyLink": "https://divante.co/",
+    "location": "Wrocław, Poland",
+    "languages": ["Polish", "English"],
+    "projects": [
+      {
+        "label": "DivanteLtd/vue-storefront",
+        "url": "https://vuestorefront.io"
+      },
+      {
+        "label": "DivanteLtd/storefront-ui",
+        "url": "https://storefrontui.io"
+      }
+    ],
+    "socials": { "github": "filrak", "twitter": "filrakowski" }
+  },
+  {
+    "name": "Gregg Pollack",
+    "title": "Vue Instructor",
+    "company": "Vue Mastery",
+    "companyLink": "https://www.vuemastery.com/",
+    "location": "Orlando, FL, USA",
+    "languages": ["English"],
+    "projects": [
+      {
+        "label": "www.vuemastery.com",
+        "url": "https://www.vuemastery.com"
+      },
+      {
+        "label": "news.vuejs.org/",
+        "url": "https://news.vuejs.org/"
+      }
+    ],
+    "socials": { "github": "gregg", "twitter": "greggpollack" }
+  },
+  {
+    "name": "Adam Jahr",
+    "title": "Vue Instructor",
+    "company": "Vue Mastery",
+    "companyLink": "https://www.vuemastery.com/",
+    "location": "Orlando, FL, USA",
+    "languages": ["English"],
+    "projects": [
+      {
+        "label": "www.vuemastery.com",
+        "url": "https://www.vuemastery.com"
+      },
+      {
+        "label": "news.vuejs.org/",
+        "url": "https://news.vuejs.org/"
+      }
+    ],
+    "socials": { "github": "atomjar", "twitter": "adamjahr" }
+  }
+]

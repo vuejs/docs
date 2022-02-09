@@ -1,0 +1,241 @@
+[
+  {
+    "name": "Sarah Drasner",
+    "title": "Director of Engineering, Core Developer Web",
+    "company": "Google",
+    "companyLink": "https://google.com",
+    "projects": [
+      {
+        "label": "vuejs.org",
+        "url": "https://github.com/vuejs/vuejs.org"
+      },
+      {
+        "label": "vue-vscode-snippets",
+        "url": "https://github.com/sdras/vue-vscode-snippets"
+      },
+      {
+        "label": "intro-to-vue",
+        "url": "https://github.com/sdras/intro-to-vue"
+      },
+      {
+        "label": "vue-vscode-extensionpack",
+        "url": "https://github.com/sdras/vue-vscode-extensionpack"
+      },
+      {
+        "label": "ecommerce-netlify",
+        "url": "https://github.com/sdras/ecommerce-netlify"
+      }
+    ],
+    "location": "Denver, CO, USA",
+    "languages": ["English"],
+    "website": {
+      "label": "sarah.dev",
+      "url": "https://sarah.dev/"
+    },
+    "socials": {
+      "github": "sdras",
+      "twitter": "sarah_edo",
+      "codepen": "sdras"
+    }
+  },
+  {
+    "name": "Chris Fritz",
+    "title": "Educator & Consultant",
+    "location": "Durham, NC, USA",
+    "languages": ["English", "German"],
+    "socials": {
+      "github": "chrisvfritz",
+      "twitter": "chrisvfritz"
+    },
+    "reposPersonal": ["vue-enterprise-boilerplate"]
+  },
+  {
+    "name": "Blake Newman",
+    "title": "Performance Specializer & Code Deleter",
+    "location": "London, UK",
+    "languages": ["English"],
+    "socials": {
+      "github": "blake-newman",
+      "twitter": "blakenewman"
+    }
+  },
+  {
+    "name": "kingwl",
+    "title": "Software Development Engineer",
+    "company": "Chaitin",
+    "companyLink": "https://chaitin.cn/",
+    "projects": [
+      {
+        "label": "vue",
+        "url": "https://github.com/vuejs/vue"
+      }
+    ],
+    "location": "Beijing, China",
+    "languages": ["Chinese"],
+    "socials": {
+      "github": "kingwl"
+    }
+  },
+  {
+    "name": "Alan Song",
+    "title": "Cofounder",
+    "company": "Futurenda",
+    "companyLink": "https://www.futurenda.com/",
+    "projects": [
+      {
+        "label": "vue-router",
+        "url": "https://github.com/vuejs/vue-router"
+      }
+    ],
+    "location": "Hangzhou, China",
+    "languages": ["Chinese", "English"],
+    "socials": {
+      "github": "fnlctrl"
+    }
+  },
+  {
+    "name": "defcc",
+    "title": "Details Deity & Bug Surgeon",
+    "company": "zbj.com",
+    "companyLink": "http://www.zbj.com/",
+    "location": "Chongqing, China",
+    "languages": ["Chinese", "English"],
+    "socials": {
+      "github": "defcc"
+    }
+  },
+  {
+    "name": "gebilaoxiong",
+    "title": "Issue Annihilator",
+    "company": "zbj.com",
+    "companyLink": "http://www.zbj.com/",
+    "location": "Chongqing, China",
+    "languages": ["Chinese", "English"],
+    "socials": {
+      "github": "gebilaoxiong"
+    }
+  },
+  {
+    "name": "Denis Karabaza",
+    "title": "Software Engineer",
+    "company": "Neolant",
+    "companyLink": "http://neolant.ru/",
+    "location": "Dubna, Russia",
+    "languages": ["Russian", "English"],
+    "socials": {
+      "github": "simplesmiler",
+      "twitter": "simplesmiler"
+    }
+  },
+  {
+    "name": "Edd Yerburgh",
+    "title": "Full Stack Developer",
+    "projects": [
+      {
+        "label": "vue-test-utils",
+        "url": "https://github.com/vuejs/vue-test-utils"
+      },
+      {
+        "label": "avoriaz",
+        "url": "https://github.com/avoriaz"
+      }
+    ],
+    "location": "London, UK",
+    "languages": ["English"],
+    "socials": {
+      "github": "eddyerburgh",
+      "twitter": "EddYerburgh"
+    },
+    "website": {
+      "label": "www.eddyerburgh.me",
+      "url": "https://www.eddyerburgh.me"
+    }
+  },
+  {
+    "name": "Pine Wu",
+    "title": "Nomad",
+    "projects": [
+      {
+        "label": "vetur",
+        "url": "https://github.com/vuejs/vetur"
+      }
+    ],
+    "location": "Shanghai, China",
+    "languages": ["Chinese", "English", "Japanese"],
+    "socials": {
+      "github": "octref",
+      "twitter": "octref"
+    }
+  },
+  {
+    "name": "ULIVZ",
+    "title": "Senior Frontend Developer",
+    "company": "AntFinancial",
+    "companyLink": "https://www.antfin.com",
+    "projects": [
+      {
+        "label": "vuepress",
+        "url": "https://www.github.com/vuejs/vuepress"
+      }
+    ],
+    "location": "Hangzhou, China",
+    "languages": ["Chinese", "English"],
+    "socials": { "github": "ulivz", "twitter": "_ulivz" }
+  },
+  {
+    "name": "Katashin",
+    "title": "Software Engineer",
+    "company": "ClassDo",
+    "companyLink": "https://classdo.com",
+    "projects": [
+      {
+        "label": "vuex",
+        "url": "https://github.com/vuejs/vuex"
+      },
+      {
+        "label": "vue-class-component",
+        "url": "https://github.com/vuejs/vue-class-component"
+      },
+      {
+        "label": "vue-designer",
+        "url": "https://github.com/ktsn/vue-designer"
+      }
+    ],
+    "location": "Singapore",
+    "languages": ["Japanese", "English"],
+    "socials": {
+      "github": "ktsn",
+      "twitter": "ktsn"
+    }
+  },
+  {
+    "name": "Michał Sajnóg",
+    "title": "Senior Frontend Developer / Team Leader",
+    "company": "Netguru",
+    "companyLink": "https://netguru.co/",
+    "location": "Poznań, Poland",
+    "languages": ["Polish", "English"],
+    "projects": [
+      {
+        "label": "eslint-plugin-vue",
+        "url": "https://github.com/vuejs/eslint-plugin-vue"
+      },
+      {
+        "label": "vue-devtools",
+        "url": "https://github.com/vuejs/devtools"
+      },
+      {
+        "label": "vue-computed-helpers",
+        "url": "https://github.com/michalsnik/vue-computed-helpers"
+      },
+      {
+        "label": "vue-content-placeholders",
+        "url": "https://github.com/michalsnik/vue-content-placeholders"
+      }
+    ],
+    "socials": {
+      "github": "michalsnik",
+      "twitter": "michalsnik"
+    }
+  }
+]

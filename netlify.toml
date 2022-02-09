@@ -1,11 +1,7 @@
-[[redirects]]
-  from = "/guide/"
-  to = "/guide/introduction.html"
+[build.environment]
+  NODE_VERSION = "16"
+  NPM_FLAGS = "--version" # prevent Netlify npm install
 
-[[redirects]]
- from = "guide/doc-style-guide.html"
- to = "/guide/contributing/doc-style-guide.html"
-
-[[redirects]]
-  from = "/guide/writing-guide.html"
-  to = "/guide/contributing/writing-guide.html"
+[build]
+  publish = ".vitepress/dist"
+  command = "npx pnpm i --store=node_modules/.pnpm-store && npm run build"
