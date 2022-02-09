@@ -14,7 +14,7 @@ You can use Vue to [build standard Web Components](/guide/extras/web-components)
 
 ## Single-Page Application (SPA)
 
-Some applications require rich interactivity and non-trivial stateful logic on the frontend. The best way to build such applications is to use an architecture where Vue not only controls the entire page, but also handles data updates and navigations without having to reload the page. This type of application is typically referred to as a Single-Page Application (SPA).
+Some applications require rich interactivity and non-trivial stateful logic on the frontend. The best way to build such applications is to use an architecture where Vue not only controls the entire page, but also handles data updates and navigation without having to reload the page. This type of application is typically referred to as a Single-Page Application (SPA).
 
 Vue provides core libraries and [comprehensive tooling support](/guide/scaling-up/tooling) with amazing developer experience for building modern SPAs, including:
 

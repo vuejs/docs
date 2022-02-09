@@ -32,6 +32,20 @@ onMounted(() => {
 </template>
 ```
 
+If not using `<script setup>`, make sure to also return the ref from `setup()`:
+
+```js{6}
+export default {
+  setup() {
+    const input = ref(null)
+    // ...
+    return {
+      input
+    }
+  }
+}
+```
+
 </div>
 <div class="options-api">
 
@@ -53,7 +67,7 @@ export default {
 
 </div>
 
-Note that you can only access the ref **after the component is mounted.** If you try to access `$refs.input` in a template expression, it will be `null` on the first render. This is because the element doesn't exist until after the first render!
+Note that you can only access the ref **after the component is mounted.** If you try to access <span class="options-api">`$refs.input`</span><span class="composition-api">`input`</span> in a template expression, it will be `null` on the first render. This is because the element doesn't exist until after the first render!
 
 <div class="composition-api">
 
@@ -79,7 +93,7 @@ See also: [Typing Template Refs](/guide/typescript/composition-api.html#typing-t
 
 <div class="composition-api">
 
-When `ref` is used inside `v-for`, the corrensponding ref should contain an Array value, which will be populated with the elements after mount:
+When `ref` is used inside `v-for`, the corresponding ref should contain an Array value, which will be populated with the elements after mount:
 
 ```vue
 <script setup>

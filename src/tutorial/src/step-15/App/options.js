@@ -1,4 +1,6 @@
-import confetti from 'js-confetti'
+import JSConfetti from 'js-confetti'
+
+const confetti = new JSConfetti()
 
 export default {
   mounted() {
@@ -6,7 +8,7 @@ export default {
   },
   methods: {
     showConfetti() {
-      new confetti().addConfetti()
+      confetti.addConfetti()
     }
   }
 }

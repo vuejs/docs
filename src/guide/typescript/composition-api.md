@@ -48,14 +48,34 @@ const props = defineProps<Props>()
 </script>
 ```
 
-:::warning Syntax Limitations
+#### Syntax Limitations
+
 In order to generate the correct runtime code, the generic argument for `defineProps()` must be one of the following:
 
-- A type literal
-- A reference to an interface or object type literal **in the same file**.
+- An object literal type:
 
-The same-file limitation could be removed in a future release.
-:::
+  ```ts
+  defineProps<{ /*... */ }>()
+  ```
+
+- A reference to an interface or object literal type **in the same file**:
+
+  ```ts
+  interface Props {/* ... */}
+
+  defineProps<Props>()
+  ```
+
+The interface or object literal type can contain references to types imported from other files, however, the generic argument itself passed to `defineProps` **cannot** be an imported type:
+
+```ts
+import { Props } from './other-file'
+
+// NOT supported
+defineProps<Props>()
+```
+
+This is because Vue components are compiled in isolation and the compiler currently does not crawl imported files in order to analyze the source type. This limitation could be removed in a future release.
 
 ### Props Default Values <sup class="vt-badge experimental" />
 

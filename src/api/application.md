@@ -438,11 +438,11 @@ Adjusts template whitespace handling behavior.
 
 - **Details**
 
-  Vue removes / condenses whitespaces in templates to produce more efficient compiled output. The default strategy is "condense", with the following behavior:
+  Vue removes / condenses whitespace characters in templates to produce more efficient compiled output. The default strategy is "condense", with the following behavior:
 
-  1. Leading / ending whitespaces inside an element are condensed into a single space.
-  2. Whitespaces between elements that contain newlines are removed.
-  3. Consecutive whitespaces in text nodes are condensed into a single space.
+  1. Leading / ending whitespace characters inside an element are condensed into a single space.
+  2. Whitespace characters between elements that contain newlines are removed.
+  3. Consecutive whitespace characters in text nodes are condensed into a single space.
 
   Setting this option to `'preserve'` will disable (2) and (3).
 
