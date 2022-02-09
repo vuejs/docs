@@ -1,7 +1,7 @@
 import { Header, useRoute } from 'vitepress'
 import { computed, onMounted, onUnmounted, Ref, ref } from 'vue'
 
-import { usePlatform } from './usePlatform'
+import usePlatform from './usePlatform'
 
 const hasStorage = typeof localStorage !== 'undefined'
 const get = (key: string, defaultValue = false): boolean =>
@@ -22,7 +22,7 @@ export function filterHeadersByPreference(headers: Header[]) {
   })
 }
 
-export function usePreferences() {
+export default function usePreferences() {
   const route = useRoute()
   const showPreference = computed(() =>
     /^\/(guide|tutorial|examples)\//.test(route.path)

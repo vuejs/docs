@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { VTSwitch, VTIconChevronDown } from '@vue/theme'
 import { inject } from 'vue'
-import {
+import usePreferences, {
   preferComposition,
   preferSFC,
-  usePreferences
 } from '../composables/usePreferences'
 
 const {
@@ -18,11 +17,11 @@ const {
 } = usePreferences()
 
 const removeOutline = (e: Event) => {
-  ;(e.target as HTMLElement).classList.add('no-outline')
+  ; (e.target as HTMLElement).classList.add('no-outline')
 }
 
 const restoreOutline = (e: Event) => {
-  ;(e.target as HTMLElement).classList.remove('no-outline')
+  ; (e.target as HTMLElement).classList.remove('no-outline')
 }
 
 const closeSideBar = inject('close-sidebar') as () => void

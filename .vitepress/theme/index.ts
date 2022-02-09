@@ -1,8 +1,10 @@
 import './styles/index.css'
 import { h, App } from 'vue'
 import { VPTheme } from '@vue/theme'
+
 import Banner from './components/Banner.vue'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
+
 import {
   preferComposition,
   preferSFC,
