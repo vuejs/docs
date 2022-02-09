@@ -154,7 +154,7 @@ const closeSideBar = inject('close-sidebar') as () => void
 .switch-link {
   margin-left: 8px;
   font-size: 11px;
-  width: 14px;
+  min-width: 14px;
   height: 14px;
   line-height: 13px;
   text-align: center;

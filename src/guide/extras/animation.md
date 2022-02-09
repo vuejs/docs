@@ -1,6 +1,6 @@
 <script setup>
 import ElasticHeader from './demos/ElasticHeader.vue'
-import NotActivated from './demos/NotActivated.vue'
+import DisabledButton from './demos/DisabledButton.vue'
 import Colors from './demos/Colors.vue'
 import AnimateWatcher from './demos/AnimateWatcher.vue'
 </script>
@@ -16,12 +16,12 @@ For elements that are not entering / leaving the DOM, we can trigger animations 
 <div class="composition-api">
 
 ```js
-const notActivated = ref(false)
+const disabled = ref(false)
 
-function warnNotActivated() {
-  notActivated.value = true
+function warnDisabled() {
+  disabled.value = true
   setTimeout(() => {
-    notActivated.value = false
+    disabled.value = false
   }, 1500)
 }
 ```
@@ -33,14 +33,14 @@ function warnNotActivated() {
 export default {
   data() {
     return {
-      notActivated: false
+      disabled: false
     }
   },
   methods: {
-    warnNotActivated() {
-      this.notActivated = true
+    warnDisabled() {
+      this.disabled = true
       setTimeout(() => {
-        this.notActivated = false
+        this.disabled = false
       }, 1500)
     }
   }
@@ -50,9 +50,9 @@ export default {
 </div>
 
 ```vue-html
-<div :class="{ shake: notActivated }">
-  <button @click="warnNotActivated">Click me</button>
-  <span v-if="notActivated">This feature is not activated.</span>
+<div :class="{ shake: disabled }">
+  <button @click="warnDisabled">Click me</button>
+  <span v-if="disabled">This feature is disabled!</span>
 </div>
 ```
 
@@ -86,7 +86,7 @@ export default {
 }
 ```
 
-<NotActivated />
+<DisabledButton />
 
 ## State-driven Animations
 

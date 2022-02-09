@@ -301,7 +301,7 @@ Renders its slot content to another part of the DOM.
 
 - **See also:** [Guide - Teleport](/guide/built-ins/teleport.html)
 
-## `<Suspense>` <sup class="vt-badge warning">experimental</sup>
+## `<Suspense>` <sup class="vt-badge experimental" />
 
 Used for orchestrating nested async dependencies in a component tree.
 

@@ -4,6 +4,8 @@ import { VPTheme } from '@vue/theme'
 
 import Banner from './components/Banner.vue'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
+import SponsorsAside from './components/SponsorsAside.vue'
+import VueJobs from './components/VueJobs.vue'
 
 import {
   preferComposition,
@@ -16,7 +18,9 @@ export default Object.assign({}, VPTheme, {
     // @ts-ignore
     return h(VPTheme.Layout, null, {
       banner: () => h(Banner),
-      'sidebar-top': () => h(PreferenceSwitch)
+      'sidebar-top': () => h(PreferenceSwitch),
+      'aside-mid': () => h(SponsorsAside),
+      'aside-bottom': () => h(VueJobs)
     })
   },
   enhanceApp({ app }: { app: App }) {

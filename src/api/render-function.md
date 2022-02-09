@@ -93,7 +93,7 @@ Creates virtual DOM nodes (vnodes).
   })
   ```
 
-- See also: [Guide - Creating VNodes](/guide/extras/render-function.html#creating-vnodes)
+- **See also:** [Guide - Creating VNodes](/guide/extras/render-function.html#creating-vnodes)
 
 ## mergeProps()
 
@@ -278,12 +278,16 @@ For adding custom directives to vnodes.
 - **Example**
 
   ```js
-  import { h, withDirectives } from Vue
+  import { h, withDirectives } from 'vue'
 
   // a custom directive
   const pin = {
-    mounted() { /* ... */ },
-    updated() { /* ... */ }
+    mounted() {
+      /* ... */
+    },
+    updated() {
+      /* ... */
+    }
   }
 
   // <div v-pin:top.animate="200"></div>
@@ -293,3 +297,28 @@ For adding custom directives to vnodes.
   ```
 
 - **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
+
+## withModifiers()
+
+For adding built-in [`v-on` modifiers](/guide/essentials/event-handling.html#event-modifiers) to an event handler function.
+
+- **Type**
+
+  ```ts
+  function withModifiers(fn: Function, modifiers: string[]): Function
+  ```
+
+- **Example**
+
+  ```js
+  import { h, withModifiers } from 'vue'
+
+  const vnode = h('button', {
+    // equivalent of v-on.stop.prevent
+    onClick: withModifiers(() => {
+      // ...
+    }, ['stop', 'prevent'])
+  })
+  ```
+
+- **See also:** [Guide - Render Functions - Event Modifiers](/guide/extras/render-function.html#event-modifiers)

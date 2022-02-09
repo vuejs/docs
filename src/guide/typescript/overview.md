@@ -4,7 +4,7 @@ outline: deep
 
 # Using Vue with TypeScript
 
-A type system like TypeScript can detect many common errors via static analysis at build time. This reduces the chance of runtime errors in production, and also allows us to more confidently refactor code in large scale applications. TypeScript also improves developer ergonomics via type-based auto-completion in IDEs.
+A type system like TypeScript can detect many common errors via static analysis at build time. This reduces the chance of runtime errors in production, and also allows us to more confidently refactor code in large-scale applications. TypeScript also improves developer ergonomics via type-based auto-completion in IDEs.
 
 Vue is written in TypeScript itself and provides first-class TypeScript support. All official Vue packages come with bundled type declarations that should work out-of-the-box.
 
@@ -46,9 +46,9 @@ When configuring `tsconfig.json` manually, some notable options include:
 
 - [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) is set to `true` because Vite uses [esbuild](https://esbuild.github.io/) for transpiling TypeScript and is subject to single-file transpile limitations.
 
-- If using Options API, it is required to set [`compilerOptions.strict`](https://www.typescriptlang.org/tsconfig#strict) to `true` (or at least enable [`compilerOptions.noImplicitThis`](https://www.typescriptlang.org/tsconfig#noImplicitThis) which is a part of the `strict` flag) to leverage type checking of `this` in component options. Otherwise `this` will be treated as `any`.
+- If you're using Options API, you need to set [`compilerOptions.strict`](https://www.typescriptlang.org/tsconfig#strict) to `true` (or at least enable [`compilerOptions.noImplicitThis`](https://www.typescriptlang.org/tsconfig#noImplicitThis), which is a part of the `strict` flag) to leverage type checking of `this` in component options. Otherwise `this` will be treated as `any`.
 
-- If you have configured resolver alias in your build tool, for example the `@/*` alias configured by default in a `create-vue` project, you need to also configure it for TypeScript via [`compilerOptions.paths`](https://www.typescriptlang.org/tsconfig#paths).
+- If you have configured resolver aliases in your build tool, for example the `@/*` alias configured by default in a `create-vue` project, you need to also configure it for TypeScript via [`compilerOptions.paths`](https://www.typescriptlang.org/tsconfig#paths).
 
 See also:
 
@@ -65,7 +65,7 @@ Volar provides a feature called "Takeover Mode" to improve performance. In takeo
 
 To enable Takeover Mode, you need to disable VSCode's built-in TS language service in **your project's workspace only** by following these steps:
 
-1. In your project workspace, bring up the command pallette with `Ctrl + Shift + P` (macOS: `Cmd + Shift + P`).
+1. In your project workspace, bring up the command palette with `Ctrl + Shift + P` (macOS: `Cmd + Shift + P`).
 2. Type `built` and select "Extensions: Show Built-in Extensions".
 3. Type `typescript` in the extension search box (do not remove `@builtin` prefix).
 4. Click the little gear icon of "TypeScript and JavaScript Language Features", and select "Disable (Workspace)".
@@ -77,7 +77,7 @@ To enable Takeover Mode, you need to disable VSCode's built-in TS language servi
 
 In webpack-based setups such as Vue CLI, it is common to perform type checking as part of the module transform pipeline, for example with `ts-loader`. This, however, isn't a clean solution because the type system needs knowledge of the entire module graph to perform type checks. Individual module's transform step simply is not the right place for the task. It leads to the following problems:
 
-- `ts-loader` can only type check post-transform code. This doesn't align with the errors we see in IDEs or from `vue-tsc`, which maps directly back to the source code.
+- `ts-loader` can only type check post-transform code. This doesn't align with the errors we see in IDEs or from `vue-tsc`, which map directly back to the source code.
 
 - Type checking can be slow. When it is performed in the same thread / process with code transformations, it significantly affects the build speed of the entire application.
 
@@ -89,7 +89,7 @@ If you are currently using Vue 3 + TypeScript via Vue CLI, we strongly recommend
 
 ### `defineComponent()`
 
-To let TypeScript properly infer types inside component options, we need to define components with [`defineComponent()`](/api/general.html#definecomponent) global API:
+To let TypeScript properly infer types inside component options, we need to define components with [`defineComponent()`](/api/general.html#definecomponent):
 
 ```ts
 import { defineComponent } from 'vue'
@@ -204,7 +204,7 @@ let x: string | number = 1
 ```
 
 :::tip
-If using Vue CLI or webpack-based setup, TypeScript in template expressions requires `vue-loader@^16.8.0`.
+If using Vue CLI or a webpack-based setup, TypeScript in template expressions requires `vue-loader@^16.8.0`.
 :::
 
 ## API-Specific Recipes

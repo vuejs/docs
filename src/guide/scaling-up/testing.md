@@ -10,9 +10,9 @@ In a Vue application, there are different types of concerns that can be covered 
 
 - **Visual**: given certain input props / state, verify that an isolated component or component tree is rendering the correct visual output.
 
-- **Interaction**: given a simulate user behavior such as click or input, verify that an isolated component or component tree renders correct, updated output.
+- **Interaction**: simulate user behavior, such as a click or input, and verify that an isolated component or component tree renders correct, updated output.
 
-- **User Flow**: given a sequence of user interactions that are necessary to complete an actual user task, whether the application as a whole is working as expected.
+- **User Flow**: given a sequence of user interactions that are necessary to complete an actual user task, check whether the application as a whole is working as expected.
 
 For different testing concerns, we need to use different testing techniques:
 
@@ -62,13 +62,13 @@ Component tests should focus on the component's public interfaces rather than in
 
   Assert the private state of a component instance or test the private methods of a component. Testing implementation details makes the tests brittle, as they are more likely to break and require updates when the implementation changes.
 
-  The component's ultimate job is rendering the correct DOM output, so the tests focusing on the DOM output provides the same level of correctness assurance (if not more) while being more robust and resistant to change.
+  The component's ultimate job is rendering the correct DOM output, so tests focusing on the DOM output provide the same level of correctness assurance (if not more) while being more robust and resilient to change.
 
   If a method needs to be tested, extract it into a standalone utility function and write a dedicated unit test for it. If it cannot be extracted cleanly, it should be tested as a part of an interaction test that invokes it.
 
 ### Recommendation
 
-- [Vitest](https://vitest.dev/) or other unit test frameworks mentioned above can be used for component testing by simulating the DOM in Node.js. See [Adding Vitest to a Project](#adding-vitest-to-a-project) for more details.
+- [Vitest](https://vitest.dev/) or the other unit testing frameworks mentioned above can be used for component testing by simulating the DOM in Node.js. See [Adding Vitest to a Project](#adding-vitest-to-a-project) for more details.
 
 ### Libraries
 
@@ -76,7 +76,7 @@ Component testing often involves mounting the component being tested in isolatio
 
 - [`@testing-library/vue`](https://github.com/testing-library/vue-testing-library) is a Vue testing library focused on testing components without relying on implementation details. Built with accessibility in mind, its approach also makes refactoring a breeze. Its guiding principle is that the more tests resemble the way software is used, the more confidence they can provide.
 
-- [`@vue/test-utils`](https://github.com/vuejs/vue-test-utils) is the official low-level component testing library that was written to provide users access to Vue specific APIs. It's also the lower-level library `@testing-library/vue` is built on top of.
+- [`@vue/test-utils`](https://github.com/vuejs/test-utils) is the official low-level component testing library that was written to provide users access to Vue specific APIs. It's also the lower-level library `@testing-library/vue` is built on top of.
 
 We recommend using `@testing-library/vue` for testing components in applications, as its focus aligns better with the testing priorities of applications. Use `@vue/test-utils` only if you are building advanced components that require testing Vue-specific internals.
 
@@ -84,7 +84,7 @@ We recommend using `@testing-library/vue` for testing components in applications
 
 - [Cypress](https://www.cypress.io/) is an E2E test solution, but it also supports [Component Testing](https://docs.cypress.io/guides/component-testing/introduction) which can test components in real browsers with a GUI that shows the actual DOM state during tests.
 
-- [Nightwatch](https://v2.nightwatchjs.org/) is another E2E test runner with Vue Component Testing support. ([Exmaple Project](https://github.com/nightwatchjs-community/todo-vue) in Nightwatch v2)
+- [Nightwatch](https://v2.nightwatchjs.org/) is another E2E test runner with Vue Component Testing support. ([Example Project](https://github.com/nightwatchjs-community/todo-vue) in Nightwatch v2)
 
 ## E2E Testing
 
@@ -104,13 +104,13 @@ One of the primary benefits that end-to-end (E2E) testing is known for is its ab
 
 One of the primary problems with end-to-end (E2E) tests and development is that running the entire suite takes a long time. Typically, this is only done in continuous integration and deployment (CI/CD) pipelines. Modern E2E testing frameworks have helped to solve this by adding features like parallelization, which allows for CI/CD pipelines to often run magnitudes faster than before. In addition, when developing locally, the ability to selectively run a single test for the page you are working on while also providing hot reloading of tests can help to boost a developer's workflow and productivity.
 
-#### First class debugging experience
+#### First-class debugging experience
 
 While developers have traditionally relied on scanning logs in a terminal window to help determine what went wrong in a test, modern end-to-end (E2E) test frameworks allow developers to leverage tools that they are already familiar with, e.g. browser developer tools.
 
 #### Visibility in headless mode
 
-When end-to-end (E2E) tests are run in continuous integration / deployment pipelines, they are often run in headless browsers (i.e., no visible browser is opened for the user to watch). As a result, when errors occur, a critical feature that modern E2E testing frameworks provide 1st class support for is the ability to see snapshots and/or videos of your applications during various testing stages in order to provide insight into why errors are happening. Historically, it was tedious to maintain these integrations.
+When end-to-end (E2E) tests are run in continuous integration / deployment pipelines, they are often run in headless browsers (i.e., no visible browser is opened for the user to watch). A critical feature of modern E2E testing frameworks is the ability to see snapshots and/or videos of the application during testing, providing some insight into why errors are happening. Historically, it was tedious to maintain these integrations.
 
 ### Recommendation
 
@@ -264,8 +264,6 @@ test('useFoo', () => {
 ```
 
 For more complex composables, it could also be easier to test it by writing tests against the wrapper component using [Component Testing](#component-testing) techniques.
-
-<!-- TODO link to this from composables page -->
 
 <!--
 TODO more testing recipes can be added in the future e.g.

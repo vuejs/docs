@@ -552,6 +552,13 @@ export default defineConfigWithTheme<Config>({
       }
     ],
     [
+      'link',
+      {
+        rel: 'preconnect',
+        href: 'https://sponsors.vuejs.org'
+      }
+    ],
+    [
       'script',
       {},
       fs.readFileSync(

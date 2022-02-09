@@ -17,11 +17,15 @@
 }
 
 .demo {
-  transition: border-color 0.5s;
   padding: 22px 24px;
   border-radius: 8px;
   box-shadow: var(--vt-shadow-2);
   margin-bottom: 1.2em;
+  transition: background-color 0.5s ease;
+}
+
+.dark .demo {
+  background-color: var(--vt-c-bg-soft);
 }
 
 .demo p {
