@@ -69,12 +69,10 @@ The Vue browser devtools extension allows you to explore a Vue app's component t
 
 ![devtools screenshot](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
 
-<!-- TODO update links after swapping versions -->
-
 - [Documentation](https://devtools.vuejs.org/)
-- [Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
+- [Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 - [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-- [Standalone Electron app](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
+- [Standalone Electron app](https://devtools.vuejs.org/guide/installation.html#standalone)
 
 ## TypeScript
 
