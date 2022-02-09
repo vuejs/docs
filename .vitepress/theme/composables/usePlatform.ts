@@ -1,10 +1,9 @@
-import { onMounted, ref } from "vue";
-
 export function usePlatform() {
-    const isOSX = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
-    const altKey = isOSX ? 'Option' : 'Alt';
+  const isMac = /(Mac OS X)/i.test(globalThis.navigator?.userAgent)
+  const altKey = isMac ? 'Option' : 'Alt';
 
-    return {
-        isOSX, altKey
-    }
+  return {
+    isMac,
+    altKey
+  }
 }
