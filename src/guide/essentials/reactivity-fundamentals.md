@@ -350,20 +350,25 @@ The `reactive()` API has two limitations:
    state = reactive({ count: 1 })
    ```
 
-   It also means that when we pass a reactive object's property into a function, or when we destructure properties from a reactive object, we will lose the reactivity connection:
+   It also means that when we assign or destructure a reactive object's property into local variables, or when we pass that property into a function, or destructure properties from a reactive object, we will lose the reactivity connection:
 
    ```js
    const state = reactive({ count: 0 })
 
-   // the function receives a plain number and
-   // won't be able to track changes to state.count
-   callSomeFunction(state.count)
-
-   // count is a plain number that is disconnected
+   // n is a local variable that is disconnected
    // from state.count.
+   let n = state.count
+   // does not affect original state
+   n++
+
+   // count is also disconnected from state.count.
    let { count } = state
    // does not affect original state
    count++
+
+   // the function receives a plain number and
+   // won't be able to track changes to state.count
+   callSomeFunction(state.count)
    ```
 
 ## Reactive Variables with `ref()` \*\*
@@ -464,7 +469,7 @@ const { foo } = object
 {{ foo }} <!-- properly unwrapped -->
 ```
 
-Now `foo` will be wrapped as expected.
+Now `foo` will be unwrapped as expected.
 
 ### Ref Unwrapping in Reactive Objects \*\*
 
@@ -495,7 +500,9 @@ console.log(count.value) // 1
 
 Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced.html#shallowreactive).
 
-In addition, there is no unwrapping performed when the ref is accessed from an array or a native collection type like `Map`:
+#### Ref Unwrapping in Arrays and Collections
+
+Unlike reactive objects, there is no unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`:
 
 ```js
 const books = reactive([ref('Vue 3 Guide')])

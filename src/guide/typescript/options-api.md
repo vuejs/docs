@@ -76,7 +76,7 @@ interface Book {
   year?: number
 }
 
-const Component = defineComponent({
+export default defineComponent({
   props: {
     bookA: {
       type: Object as PropType<Book>,
@@ -142,19 +142,19 @@ export default defineComponent({
 })
 ```
 
-In some cases, you may want to explicit annotate the type of a computed property to ensure its implementation is correct:
+In some cases, you may want to explicitly annotate the type of a computed property to ensure its implementation is correct:
 
 ```ts
 import { defineComponent } from 'vue'
 
-const Component = defineComponent({
+export default defineComponent({
   data() {
     return {
       message: 'Hello!'
     }
   },
   computed: {
-    // explicit annotate return type
+    // explicitly annotate return type
     greeting(): string {
       return this.message + '!'
     },
@@ -180,14 +180,16 @@ When dealing with native DOM events, it might be useful to type the argument we 
 
 ```vue
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   methods: {
     handleChange(event) {
       // `event` implicitly has `any` type
       console.log(event.target.value)
     }
   }
-}
+})
 </script>
 
 <template>
@@ -198,13 +200,15 @@ export default {
 Without type annotation, the `event` argument will implicitly have a type of `any`. This will also result in a TS error if `"strict": true` or `"noImplicitAny": true` are used in `tsconfig.json`. It is therefore recommended to explicitly annotate the argument of event handlers. In addition, you may need to explicitly cast properties on `event`:
 
 ```ts
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   methods: {
     handleChange(event: Event) {
       console.log((event.target as HTMLInputElement).value)
     }
   }
-}
+})
 ```
 
 ## Augmenting Global Properties
@@ -234,7 +238,7 @@ In order to take advantage of module augmentation, you will need to ensure the a
 
 ## Augmenting Custom Options
 
-Some plugins, for example `vue-router`, provides support for custom component options such as `beforeRouteEnter`:
+Some plugins, for example `vue-router`, provide support for custom component options such as `beforeRouteEnter`:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -253,12 +257,12 @@ import { Route } from 'vue-router'
 
 declare module 'vue' {
   interface ComponentCustomOptions {
-    beforeRouteEnter?(to: any, from: any, next: () => void): void
+    beforeRouteEnter?(to: Route, from: Route, next: () => void): void
   }
 }
 ```
 
-Now the `beforeRouterEnter` option will be properly typed. Note this is just an example - well-typed libraries like `vue-router` should automatically perform these augmentations in their own type definitions.
+Now the `beforeRouteEnter` option will be properly typed. Note this is just an example - well-typed libraries like `vue-router` should automatically perform these augmentations in their own type definitions.
 
 The placement of this augmentation is subject the [same restrictions](#type-augmentation-placement) as global property augmentations.
 

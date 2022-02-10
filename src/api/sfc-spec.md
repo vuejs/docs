@@ -76,7 +76,7 @@ An SFC automatically infers the component's name from its **filename** in the fo
 
 - Dev warning formatting
 - DevTools inspection
-- Recursive self-reference. E.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template. This has lower priority than explicity registered/imported components.
+- Recursive self-reference. E.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template. This has lower priority than explicitly registered/imported components.
 
 ## Pre-Processors
 
@@ -103,7 +103,7 @@ p {{ msg }}
 </style>
 ```
 
-Note the intergration with pre-processors may differ based on the toolchain. Check out the respective documentations for examples:
+Note that integration with various pre-processors may differ by toolchain. Check out the respective documentation for examples:
 
 - [Vite](https://vitejs.dev](features.html#css-pre-processors)
 - [Vue CLI](https://cli.vuejs.org](css.html#pre-processors)
@@ -126,7 +126,7 @@ Beware that `src` imports follow the same path resolution rules as webpack modul
 
 ```vue
 <!-- import a file from the installed "todomvc-app-css" npm package -->
-<style src="todomvc-app-css/index.css">
+<style src="todomvc-app-css/index.css" />
 ```
 
 `src` imports also work with custom blocks, e.g.:

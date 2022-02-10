@@ -4,7 +4,7 @@
 
 <!-- TODO update links -->
 
-For most Single Page Applications, it's recommended to use the officially-supported [vue-router library](https://github.com/vuejs/vue-router-next). For more details, see vue-router's [documentation](https://next.router.vuejs.org/).
+For most Single Page Applications, it's recommended to use the officially-supported [vue-router library](https://github.com/vuejs/vue-router-next). For more details, see vue-router's [documentation](https://router.vuejs.org/).
 
 ## Simple Routing from Scratch
 

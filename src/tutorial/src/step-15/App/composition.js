@@ -1,9 +1,11 @@
-import confetti from 'js-confetti'
+import JSConfetti from 'js-confetti'
+
+const confetti = new JSConfetti()
 
 export default {
   setup() {
     function showConfetti() {
-      new confetti().addConfetti()
+      confetti.addConfetti()
     }
 
     showConfetti()

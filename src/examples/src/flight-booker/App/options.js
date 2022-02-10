@@ -1,6 +1,6 @@
 function stringToDate(str) {
   const [y, m, d] = str.split('-')
-  return new Date(+y, +m, +d)
+  return new Date(+y, m - 1, +d)
 }
 
 function dateToString(date) {
@@ -31,7 +31,7 @@ export default {
     },
     canBook() {
       return (
-        this.isReturn ||
+        !this.isReturn ||
         stringToDate(this.returnDate) > stringToDate(this.departureDate)
       )
     }
@@ -39,9 +39,9 @@ export default {
   methods: {
     book() {
       alert(
-        `You have booked a ${this.flightType} leaving on ${this.departureDate}${
-          this.isReturn ? ` and returning on ${this.returnDate}` : ``
-        }`
+        this.isReturn
+          ? `You have booked a return flight leaving on ${this.departureDate} and returning on ${this.returnDate}.`
+        	: `You have booked a one-way flight leaving on ${this.departureDate}.`
       )
     }
   }

@@ -335,7 +335,7 @@
     "company": "Fatec Taquaritinga",
     "companyLink": "http://www.fatectq.edu.br/",
     "location": "Taquaritinga, Brazil",
-    "languages": ["Polish", "English"],
+    "languages": ["Portuguese", "English"],
     "projects": [
       {
         "label": "vuejs-br/br.vuejs.org",

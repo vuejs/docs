@@ -87,7 +87,7 @@ const __temp = useMouse(),
 console.log(x.value, y.value)
 ```
 
-Note that if `x` is already a ref, `toRef(__temp, 'x')` will simply return it as-is and no additional ref will be created. If a destructured value is not a ref (e.g. a function), it will still work - the value will be wrapped into a ref so the rest of the code work as expected.
+Note that if `x` is already a ref, `toRef(__temp, 'x')` will simply return it as-is and no additional ref will be created. If a destructured value is not a ref (e.g. a function), it will still work - the value will be wrapped in a ref so the rest of the code works as expected.
 
 `$()` destructure works on both reactive objects **and** plain objects containing refs.
 
@@ -111,7 +111,7 @@ There are two pain points with the current `defineProps()` usage in `<script set
 
 2. When using the [type-only props declaration](/api/sfc-script-setup.html#typescript-only-features), there is no easy way to declare default values for the props. We introduced the `withDefaults()` API for this exact purpose, but it's still clunky to use.
 
-We can address these issues by applying the same logic for reactive variables destructure to `defineProps`:
+We can address these issues by applying a compile-time transform when `defineProps` is used with destructuring, similar to what we saw earlier with `$()`:
 
 ```html
 <script setup lang="ts">
@@ -137,7 +137,7 @@ We can address these issues by applying the same logic for reactive variables de
 </script>
 ```
 
-the above will be compiled into the following runtime declaration equivalent:
+The above will be compiled into the following runtime declaration equivalent:
 
 ```js
 export default {
@@ -160,7 +160,7 @@ While reactive variables relieve us from having to use `.value` everywhere, it c
 
 ### Passing into function as argument
 
-Given a function that expects a ref object as argument, e.g.:
+Given a function that expects a ref as an argument, e.g.:
 
 ```ts
 function trackChange(x: Ref<number>) {
@@ -180,7 +180,7 @@ let count = ref(0)
 trackChange(count.value)
 ```
 
-Here `count.value` is passed as a number where `trackChange` expects an actual ref. This can be fixed by wrapping `count` with `$$()` before passing it:
+Here `count.value` is passed as a number, whereas `trackChange` expects an actual ref. This can be fixed by wrapping `count` with `$$()` before passing it:
 
 ```diff
 let count = $ref(0)
@@ -229,7 +229,7 @@ return {
 
 In order to retain reactivity, we should be returning the actual refs, not the current value at return time.
 
-Again, we can use `$$()` to fix this. In this case, `$$()` can be used directly on the returned object - any reference to reactive variables inside the `$$()` call will be retained as reference to their underlying refs:
+Again, we can use `$$()` to fix this. In this case, `$$()` can be used directly on the returned object - any reference to reactive variables inside the `$$()` call will retain the reference to their underlying refs:
 
 ```ts
 function useMouse() {
@@ -246,7 +246,7 @@ function useMouse() {
 }
 ```
 
-### `$$()` Usage on destructured props
+### Using `$$()` on destructured props
 
 `$$()` works on destructured props since they are reactive variables as well. The compiler will convert it with `toRef` for efficiency:
 
@@ -267,7 +267,7 @@ setup(props) {
 
 ## TypeScript Integration <sup class="vt-badge ts" />
 
-Vue provides typings for these macros (available globally) and all types will work as expected. There are no incompatibilities with standard TypeScript semantics so the syntax would work with all existing tooling.
+Vue provides typings for these macros (available globally) and all types will work as expected. There are no incompatibilities with standard TypeScript semantics, so the syntax will work with all existing tooling.
 
 This also means the macros can work in any files where valid JS / TS are allowed - not just inside Vue SFCs.
 
@@ -287,7 +287,7 @@ Reactivity Transform is currently disabled by default and requires explicit opt-
 
 - Requires `@vitejs/plugin-vue@^2.0.0`
 - Applies to SFCs and js(x)/ts(x) files. A fast usage check is performed on files before applying the transform so there should be no performance cost for files not using the macros.
-- Note `refTransform` is now a plugin root-level option instead of nested as `script.refSugar`, since it affects not just SFCs.
+- Note `reactivityTransform` is now a plugin root-level option instead of nested as `script.refSugar`, since it affects not just SFCs.
 
 ```js
 // vite.config.js
@@ -303,7 +303,7 @@ export default {
 ### `vue-cli`
 
 - Currently only affects SFCs
-- requires `vue-loader@^17.0.0`
+- Requires `vue-loader@^17.0.0`
 
 ```js
 // vue.config.js
@@ -325,7 +325,7 @@ module.exports = {
 ### Plain `webpack` + `vue-loader`
 
 - Currently only affects SFCs
-- requires `vue-loader@^17.0.0`
+- Requires `vue-loader@^17.0.0`
 
 ```js
 // webpack.config.js

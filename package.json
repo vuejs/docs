@@ -2,11 +2,12 @@
   "scripts": {
     "dev": "vitepress",
     "build": "vitepress build",
-    "serve": "vitepress serve"
+    "serve": "vitepress serve",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@vue/repl": "^1.0.0",
-    "@vue/theme": "^1.0.0",
+    "@vue/theme": "^1.0.1",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
     "vitepress": "^0.21.6",
