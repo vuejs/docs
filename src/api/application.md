@@ -55,7 +55,7 @@ Mounts the application instance in a container element.
 
 - **Details**
 
-  The first argument can either be a CSS selector (the first matched element will be used) or an actual DOM element. Returns the root component instance.
+  The argument can either be an actual DOM element or a CSS selector (the first matched element will be used). Returns the root component instance.
 
   If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
 
