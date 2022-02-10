@@ -9,4 +9,4 @@
 /v2/examples/svg.html               https://vuejs.org/examples/#svg   301
 /v2/examples/todomvc.html           https://vuejs.org/examples/#todomvc   301
 /v2/examples/tree-view.html         https://vuejs.org/examples/#tree   301
-/v2/*                               https://v2.vuejs.org/v2/:splat    301
+/v2/*                               https://v2.vuejs.org/v2/:splat?redirect=true    302
