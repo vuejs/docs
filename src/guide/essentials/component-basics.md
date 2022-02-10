@@ -93,7 +93,7 @@ The example above defines a single component and exports it as the default expor
 ## Using a Component
 
 :::tip
-We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step for not. The [Examples](/examples/) section shows component usage in both scenarios.
+We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step or not. The [Examples](/examples/) section shows component usage in both scenarios.
 :::
 
 To use a child component, we need to import it in the parent component. Assuming we placed our counter component inside a file called `ButtonCounter.vue`, the component will be exposed as the file's default export:
