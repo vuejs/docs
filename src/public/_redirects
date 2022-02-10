@@ -1,5 +1,14 @@
 /guide/               /guide/introduction.html
 /v2/guide/team.html   /about/team.html
-/v2/*                 https://v2.vuejs.org/v2/:splat
 /support-vuejs/       /sponsor/
 /resources/*          /ecosystem/:splat
+
+/v2/examples/                       https://vuejs.org/examples/#markdown    301
+/v2/examples/commits.html           https://vuejs.org/examples/#fetching-data   301
+/v2/examples/modal.html             https://vuejs.org/examples/#modal   301
+/v2/examples/grid-component.html    https://vuejs.org/examples/#grid   301
+/v2/examples/svg.html               https://vuejs.org/examples/#svg   301
+/v2/examples/todomvc.html           https://vuejs.org/examples/#todomvc   301
+/v2/examples/tree-view.html         https://vuejs.org/examples/#tree   301
+
+/v2/*                               https://v2.vuejs.org/v2/:splat?redirect=true  307
