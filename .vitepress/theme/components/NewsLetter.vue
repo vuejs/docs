@@ -5,7 +5,7 @@ import { VTLink } from '@vue/theme'
 <template>
   <section id="newsletter" class="NewsLetter">
     <div class="container">
-      <h2 class="title">Subscribe to our weekly newsletter.</h2>
+      <h2 class="title">Đăng ký nhận bản tin hàng tuần của chúng tôi.</h2>
 
       <div class="form">
         <form
@@ -22,7 +22,7 @@ import { VTLink } from '@vue/theme'
             id="member_email"
             name="member[email]"
             type="email"
-            placeholder="Email address"
+            placeholder="Địa chỉ email"
             required
           />
 
@@ -32,20 +32,20 @@ import { VTLink } from '@vue/theme'
               id="member_submit"
               name="member[subscribe]"
               type="submit"
-              value="SUBSCRIBE"
+              value="ĐĂNG KÝ"
             />
           </div>
         </form>
       </div>
 
       <p class="help">
-        You can read the previous issues and listen to our podcast at
+        Bạn có thể đọc các số trước và nghe podcast của chúng tôi tại
         <VTLink
           class="link"
           href="https://news.vuejs.org/"
           no-icon
-        >news.vuejs.org</VTLink>. You may also go social at
-        <VTLink class="link" href="https://twitter.com/vuejs" no-icon>Twitter</VTLink>, or join our home at
+        >news.vuejs.org</VTLink>. Bạn cũng có thể theo dõi
+        <VTLink class="link" href="https://twitter.com/vuejs" no-icon>Twitter</VTLink>, hoặc tham gia
         <VTLink class="link" href="https://chat.vuejs.org/" no-icon>Discord</VTLink>.
       </p>
     </div>
