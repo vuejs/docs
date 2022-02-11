@@ -165,6 +165,8 @@ Top-level imports and variables declared in `<script setup>` are automatically u
 
 ## Declaring Methods \*
 
+<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Free Vue.js Methods Lesson"/>
+
 To add methods to a component instance we use the `methods` option. This should be an object containing the desired methods:
 
 ```js{7-11}
