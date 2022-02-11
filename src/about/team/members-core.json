@@ -494,5 +494,22 @@
       "twitter": "johnsoncodehk"
     },
     "sponsor": "https://github.com/sponsors/johnsoncodehk"
+  },
+  {
+    "name": "Carlos Rodrigues",
+    "title": "Developer & Consultant",
+    "projects": [
+      {
+        "label": "vuejs/core",
+        "url": "https://github.com/vuejs/core"
+      }
+    ],
+    "location": "London, United Kingdom",
+    "languages": ["English", "Portuguese"],
+    "socials": {
+      "github": "pikax",
+      "twitter": "pikax_dev"
+    },
+    "sponsor": "https://github.com/sponsors/pikax"
   }
 ]
