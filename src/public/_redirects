@@ -1,5 +1,6 @@
 /guide/               /guide/introduction.html
 /v2/guide/team.html   /about/team.html
+/v2/guide/join.html   /about/community-guide.html
 /support-vuejs/       /sponsor/
 /resources/*          /ecosystem/:splat
 /v2/examples/                       https://vuejs.org/examples/#markdown    301
