@@ -30,7 +30,7 @@ export default defineComponent({
 })
 ```
 
-However, the runtime props options only support using constructor functions as a prop's type - there is no way to specify complex types such as objects with nested properties or function call signatures.
+However, the runtime `props` options only support using constructor functions as a prop's type - there is no way to specify complex types such as objects with nested properties or function call signatures.
 
 To annotate complex props types, we can use the `PropType` utility type:
 
