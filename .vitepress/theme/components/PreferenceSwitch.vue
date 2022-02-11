@@ -234,6 +234,10 @@ function useToggleFn(
   transform: translateX(18px);
 }
 
+.vt-switch-check {
+  background-color: var(--vt-c-green);
+}
+
 .composition-label,
 .sfc-label,
 .prefer-composition .options-label,
