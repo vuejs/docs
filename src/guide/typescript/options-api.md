@@ -6,7 +6,7 @@
 While Vue does support TypeScript usage with Options API, it is recommended to use Vue with TypeScript via Composition API as it offers simpler, more efficient and more robust type inference.
 :::
 
-## Typing Component `props`
+## Typing Component Props
 
 Type inference for props in Options API requires wrapping the component with `defineComponent()`. With it, Vue is able to infer the types for the props based on the `props` option, taking additional options such as `required: true` and `default` into account:
 
@@ -92,7 +92,7 @@ export default defineComponent({
 
 This prevents TypeScript from having to infer the type of `this` inside these functions, which, unfortunately, can cause the type inference to fail.
 
-## Typing Component `emits`
+## Typing Component Emits
 
 We can declare the expected payload type for an emitted event using the object syntax of the `emits` option. Also, all non-declared emitted events will throw a type error when called:
 
