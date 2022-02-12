@@ -535,9 +535,9 @@ export default {
 }
 ```
 
-However, this approach is problematic for components that are reused because a debounce function is **stateful**: it maintains some internal state on the elapsed time. If multiple component instances share the same debounced function, they will interfere with one another.
+However, this approach is problematic for components that are reused because a debounced function is **stateful**: it maintains some internal state on the elapsed time. If multiple component instances share the same debounced function, they will interfere with one another.
 
-To keep the each component instance's debounce function independent from each other, we can create the debounced version of a method in the `created` lifecycle hook:
+To keep each component instance's debounced function independent of the others, we can create the debounced version in the `created` lifecycle hook:
 
 ```js
 export default {
@@ -564,7 +564,7 @@ export default {
 
 ## Reactivity Transform <sup class="vt-badge experimental" /> \*\*
 
-Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the ealier "counter" example like this:
+Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the earlier "counter" example like this:
 
 ```vue
 <script setup>
