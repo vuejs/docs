@@ -1,6 +1,8 @@
-# vuejs.org
+# vuejs.org (باللغة العربية)
 
 ## Contributing
+
+هذا الموقع تم بنائة بإستخدام [VitePress](https://github.com/vuejs/vitepress) ويستخدم بشكل رئيسي [@vue/theme](https://github.com/vuejs/vue-theme).
 
 This site is built with [VitePress](https://github.com/vuejs/vitepress) and depends on [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`. For simple edits, you can directly edit the file on GitHub and generate a Pull Request.
 
