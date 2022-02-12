@@ -1,12 +1,21 @@
 # vuejs.org (باللغة العربية)
 
+هذه النسخه العربيه من vue docs. مازالت تحت الإنشاء
+
 ## Contributing
 
 هذا الموقع تم بنائة بإستخدام [VitePress](https://github.com/vuejs/vitepress) ويستخدم بشكل رئيسي [@vue/theme](https://github.com/vuejs/vue-theme).
+محتوي الموقع تمت كتابته بواسطة Markdown-format والموجود بداخل فولدر ال `src`.
 
-This site is built with [VitePress](https://github.com/vuejs/vitepress) and depends on [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`. For simple edits, you can directly edit the file on GitHub and generate a Pull Request.
+اذا ما اردت عمل بعض التعديلات البسيطه فيمكنك التعديل فيها بشكل مباشر علي Github وعمل Pull Request.
 
-For local development, [pnpm](https://pnpm.io/) is preferred as package manager:
+في هذا المشروع نقوم بإستخدام [pnpm](https://pnpm.io/) كمدير للحزم البرمجية (package manager) ويشبه الي حد كبير npm package manager.
+
+لتشغيل المشروع علي جهازك قم اولا بسحبه من github عن طريق 
+```bash
+git pull https://github.com/amans199/docs.git
+```
+ثم قم بالدخول علي المشروع ثم قم بتسطيب الحزم عن طريق 
 
 ```bash
 pnpm i
