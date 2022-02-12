@@ -1,5 +1,6 @@
-.vt-doc a[href^="https://sfc.vuejs.org"]:before {
-  content: "▶";
+.vt-doc a[href^="https://sfc.vuejs.org"]:before
+{
+  content: '▶';
   width: 20px;
   height: 20px;
   display: inline-block;
@@ -11,8 +12,8 @@
   border: 2px solid var(--vt-c-green);
   margin-right: 8px;
   margin-left: 4px;
-  line-height: 16px;
-  padding-left: 4px;
+  line-height: 15px;
+  padding-left: 4.5px;
   font-size: 11px;
 }
 
