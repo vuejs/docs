@@ -90,7 +90,7 @@ const items = [
 
 items.forEach((item, index) => {
   // has access to outer scope `parentMessage`
-  // but `item` and `index` are only avaialble in here
+  // but `item` and `index` are only available in here
   console.log(parentMessage, item.message, index)
 })
 ```
