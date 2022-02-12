@@ -40,7 +40,6 @@ tr:first-of-type th:first-of-type {
 
 td {
   border: 1px solid #ccc;
-  overflow: scroll;
   padding: 0;
 }
 </style>
