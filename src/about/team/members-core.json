@@ -179,7 +179,7 @@
     "name": "Rahul Kadyan",
     "title": "Software Engineer",
     "company": "Grammarly",
-    "companyList": "https://grammarly.com/",
+    "companyLink": "https://grammarly.com/",
     "projects": [
       {
         "label": "vuejs/core",
