@@ -85,16 +85,16 @@ There are two instances where you DO unit test Vue-specific features:
 One category of functions specific to Vue applications are [Composables](/guide/reusability/composables.html), which may require special handling during tests.
 See [Testing Composables](#testing-composables) below for more details.
 
-### Components
+### Unit Testing Components
 
 A component can be tested in two ways:
 
 1. Whitebox: Unit Testing
 
-Tests that are "Whitebox tests" are aware of the implementation details and dependencies of a component. Components mustmbe unit tested by using [`@vue/test-utils`'s](https://test-utils.vuejs.org) `shallowMount` command instead of the `mount` command. You can also make use of the `global.stubs` API. Please read the Vue Test Utils docs for some help on [how to decide](https://test-utils.vuejs.org/guide/advanced/stubs-shallow-mount.html#mount-shallow-and-stubs-which-one-and-when) if you want to Unit Test or Component Test your components. As stated above, unit tests may mock initial state and large parts of your application, when unit testing components, this includes 3rd party components, libraries, and all child components.
+Tests that are "Whitebox tests" are aware of the implementation details and dependencies of a component. They are focused on **isolating** the component under test. These tests will usually involve mocking some, if not all of your component's children, as well as setting up plugin state and dependencies (e.g. Vuex).
 
 2. Blackbox: Component Testing
-Tests that are "Blackbox tests" are unaware of the implementation details of a component. These tests do not mock anything. They render all child components and are considered more of an "integration test" in which Components are the Subject Under Test. We will cover this in the next section.
+Tests that are "Blackbox tests" are unaware of the implementation details of a component. These tests mock as little as possible to test the integration of your component and the entire system. They usually render all child components and are considered more of an "integration test". See the [Component Testing recommendations](#component-testing) below.
 
 ### Recommendation
 
