@@ -1,3 +1,7 @@
+<script setup>
+import TestingApiSwitcher from './TestingApiSwitcher.vue'
+</script>
+
 # Testing
 
 ## Why Test?
@@ -53,15 +57,15 @@ If any of these assertions fail, it's clear that the issue is contained within t
 import { increment } from './helpers'
 
 describe('increment', () => {
-  it('increments the current number by 1', () => {
+  test('increments the current number by 1', () => {
     expect(increment(0, 10)).toBe(1)
   })
 
-  it('does not increment the current number over the max', () => {
+  test('does not increment the current number over the max', () => {
     expect(increment(10, 10)).toBe(10)
   })
 
-  it('has a default max of 10', () => {
+  test('has a default max of 10', () => {
     expect(increment(10)).toBe(10)
   })
 })
@@ -87,7 +91,7 @@ A component can be tested in two ways:
 
 1. Whitebox: Unit Testing
 
-Tests that are "Whitebox tests" are aware of the implementation details and dependencies of a component. Components be unit tested by using [`@vue/test-utils`'s](https://test-utils.vuejs.org) `shallowMount` command instead of the `mount` command. You can also make use of the `global.stubs` API. Please read the Vue Test Utils docs for some help on [how to decide](https://test-utils.vuejs.org/guide/advanced/stubs-shallow-mount.html#mount-shallow-and-stubs-which-one-and-when) if you want to Unit Test or Component Test your components. As stated above, unit tests may mock initial state and large parts of your application, when unit testing components, this includes 3rd party components, libraries, and all child components.
+Tests that are "Whitebox tests" are aware of the implementation details and dependencies of a component. Components mustmbe unit tested by using [`@vue/test-utils`'s](https://test-utils.vuejs.org) `shallowMount` command instead of the `mount` command. You can also make use of the `global.stubs` API. Please read the Vue Test Utils docs for some help on [how to decide](https://test-utils.vuejs.org/guide/advanced/stubs-shallow-mount.html#mount-shallow-and-stubs-which-one-and-when) if you want to Unit Test or Component Test your components. As stated above, unit tests may mock initial state and large parts of your application, when unit testing components, this includes 3rd party components, libraries, and all child components.
 
 2. Blackbox: Component Testing
 Tests that are "Blackbox tests" are unaware of the implementation details of a component. These tests do not mock anything. They render all child components and are considered more of an "integration test" in which Components are the Subject Under Test. We will cover this in the next section.
@@ -127,6 +131,56 @@ In the below example, we demonstrate a Stepper component that has a DOM element 
 
 We know nothing about the implementation of Stepper, only that the "input" is the `max` prop and the "output" is the state of the DOM as the user will see it.
 
+<TestingApiSwitcher>
+
+<div class="testing-library-api">
+
+```js
+render(Stepper, {
+  props: {
+    max: 1
+  }
+})
+
+const { getByText } = render(Component)
+
+getByText('0') // Implicit assertion that "0" is within the component
+
+const button = getByText('increment')
+
+// Dispatch a click event to our increment button.
+await fireEvent.click(button)
+
+getByText('1')
+
+await fireEvent.click(button)
+```
+
+</div>
+
+<div class="vtu-api">
+
+```js
+const valueSelector = '[data-testid=stepper-value]'
+const buttonSelector = '[data-testid=increment]'
+
+const wrapper = mount(Stepper, {
+  props: {
+    max: 1
+  }
+})
+
+expect(wrapper.find(valueSelector).text()).toContain('0')
+
+await wrapper.find(buttonSelector).trigger('click')
+
+expect(wrapper.find(valueSelector).text()).toContain('1')
+```
+
+</div>
+
+<div class="cypress-api">
+
 ```js
 const valueSelector = '[data-testid=stepper-value]'
 const buttonSelector = '[data-testid=increment]'
@@ -137,18 +191,14 @@ mount(Stepper, {
   }
 })
 
-// Each of these commands does implicit assertions
-// that the button and values are visible
-// and that the button can be clicked.
-cy.get(valueSelector)
-  .should('be.visible')
-  .and('contain.text', '0')
-  .get(buttonSelector)
-  .click()
-  .get(valueSelector)
-  .should('contain.text', '1')
-  .click() // Should still be "1" because of the max prop
+cy.get(valueSelector).should('be.visible').and('contain.text', '0')
+  .get(buttonSelector).click()
+  .get(valueSelector).should('contain.text', '1')
 ```
+
+</div>
+
+</TestingApiSwitcher>
 
 - **DON'T**
 
@@ -162,21 +212,13 @@ cy.get(valueSelector)
 
 ### Recommendation
 
-- [Vitest](https://vitest.dev/) for components or composables that render headlessly. (e.g. the [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) function in VueUse.
+- [Vitest](https://vitest.dev/) for components or composables that render headlessly. (e.g. the [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) function in VueUse. Components and DOM can be tested using [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro).
 
-- [Cypress Component Testing](https://on.cypress.io/component) for components whose expected behavior depends on properly rendering styles or triggering native DOM events.
+- [Cypress Component Testing](https://on.cypress.io/component) for components whose expected behavior depends on properly rendering styles or triggering native DOM events. Can be used with Testing Library via [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro).
 
-Cypress relies on Vue's `@vue/test-utils` library under the hood and is easily integrated with the Testing Library API via `@testing-library/cypress`. It works for both Vite-based and Webpack-based applications.
+The main differences between Vitest and browser-based runners are speed and execution context. In short, browser-based runners, like Cypress, can catch issues that node-based runners, like Vitest, cannot (e.g. style issues, real native DOM events, cookies, local storage, and network failures), but browser-based runners are *orders of magnitude slower than Vitest* because they doopen a browser, compile your stylesheets, and more. Cypress is a browser-based runner that supports component testing. Please read [Vitest's comparison page](https://vitest.dev/guide/comparisons.html#cypress) for the latest information comparing Vitest and Cypress.
 
-The main differences between Vitest and Cypress are speed and execution context. In short, Cypress can catch issues that Vitest cannot (style issues, real native DOM events, cookies, local storage, and network failures), but is *orders of magnitude slower than Vitest* because it opens a browser and compiles your stylesheets. **The Cypress team recommends Vitest if you want to trade speed for coverage.**
-
-Please read [Vitest's comparison page](https://vitest.dev/guide/comparisons.html#cypress) for the latest information.
-
-:::warning In Active Development
-Cypress Component Testing is still undergoing development. The Mount API is identical to [@vue/test-utils](https://github.com/vuejs/vue-test-utils) and has been stable for over a year now, but the Cypress team has not taken the project out of Alpha yet. Like Vitest, it can utilize your Vite config. It also has a Webpack adapter for use with Vue CLI or other build setups.
-:::
-
-### Libraries
+### Mounting Libraries
 
 Component testing often involves mounting the component being tested in isolation, triggering simulated user input events, and asserting on the rendered DOM output. There are dedicated utility libraries that make these tasks simpler.
 
