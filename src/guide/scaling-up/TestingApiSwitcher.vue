@@ -44,7 +44,7 @@ const testingLangs = [
   flex-direction: column;
 }
 
-:slotted([class*=language]) {
+.code-example :slotted([class*=language]) {
   margin-top: 0;
   border-top-left-radius: 0;
 }
