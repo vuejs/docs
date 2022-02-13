@@ -105,7 +105,6 @@ const testingLangs = [
   border-bottom: 2px solid rgba(255,255,255,.2);
   background: #2f2f2f;
   color: inherit;
-
 }
 
 :global(.dark .testing-code-examples .tab.active) {
