@@ -1,12 +1,4 @@
 <script lang="ts">
-// shared data across instances so we load only once
-let data = $ref<SponsorData>()
-const base = `https://sponsors.vuejs.org`
-</script>
-
-<script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
-
 interface Sponsor {
   url: string
   img: string
@@ -22,6 +14,16 @@ interface SponsorData {
   bronze: Sponsor[]
 }
 
+// shared data across instances so we load only once
+let data = $ref<SponsorData>()
+let pending = false
+
+const base = `https://sponsors.vuejs.org`
+</script>
+
+<script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
+
 const { tier, placement = 'aside' } = defineProps<{
   tier: keyof SponsorData
   placement?: 'aside' | 'page' | 'landing'
@@ -32,17 +34,21 @@ let visible = $ref(false)
 
 onMounted(async () => {
   // only render when entering view
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      visible = true
-      observer.disconnect()
-    }
-  }, { rootMargin: '0px 0px 300px 0px' })
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        visible = true
+        observer.disconnect()
+      }
+    },
+    { rootMargin: '0px 0px 300px 0px' }
+  )
   observer.observe(container)
   onUnmounted(() => observer.disconnect())
 
   // load data
-  if (!data) {
+  if (!pending) {
+    pending = true
     data = await (await fetch(`${base}/data.json`)).json()
   }
 })
@@ -76,7 +82,8 @@ onMounted(async () => {
       v-if="placement !== 'page' && tier !== 'special'"
       href="/sponsor/"
       class="sponsor-item action"
-    >Your logo</a>
+      >Your logo</a
+    >
   </div>
 </template>
 
