@@ -7,7 +7,7 @@ specifiers:
   '@vue/theme': ^1.0.1
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
-  vitepress: ^0.22.1
+  vitepress: ^0.22.2
   vue: ^3.2.31
 
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
   '@vue/theme': 1.0.1_vue@3.2.31
   dynamics.js: 1.1.5
   gsap: 3.9.0
-  vitepress: 0.22.1
+  vitepress: 0.22.2
   vue: 3.2.31
 
 devDependencies:
@@ -746,8 +746,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/0.22.1:
-    resolution: {integrity: sha512-PdsU7LL1eV4hqaofnvxA+Natp58BCeAxK2gqLMfcHqd9jxkCxfF7exYbM2XKUTTx0QtY9w8XTfMFH4ta3zZuLg==}
+  /vitepress/0.22.2:
+    resolution: {integrity: sha512-L6ykQzBXKzLTSU3zZbILeF1TONO6juV/RrL0DsA9OayomVQjEOoFY7cVdKOpIBb3T5Jy/GAAVxcvWtU/XJ5k4g==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:

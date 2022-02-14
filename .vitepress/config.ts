@@ -641,32 +641,8 @@ export default defineConfigWithTheme<Config>({
       }
     },
     build: {
-      minify: false, //'terser',
-      chunkSizeWarningLimit: Infinity,
-      rollupOptions: {
-        output: {
-          chunkFileNames: 'assets/chunks/[name].[hash].js',
-          manualChunks(id, ctx) {
-            if (id.includes('gsap')) {
-              return 'gsap'
-            }
-            if (id.includes('dynamics.js')) {
-              return 'dynamics'
-            }
-            if (id.includes('plugin-vue:export-helper')) {
-              return 'framework'
-            }
-            const isVendor = moveToVendor(id, ctx)
-            if (isVendor) {
-              if (/@vue\/(runtime|shared|reactivity)/.test(id)) {
-                return 'framework'
-              } else {
-                return 'app'
-              }
-            }
-          }
-        }
-      }
+      minify: 'terser',
+      chunkSizeWarningLimit: Infinity
     },
     json: {
       stringify: true
@@ -677,59 +653,3 @@ export default defineConfigWithTheme<Config>({
     reactivityTransform: true
   }
 })
-
-const cache = new Map<string, boolean>()
-
-/**
- * This is temporarily copied from Vite - which should be exported in a
- * future release.
- *
- * @TODO when this is exported by Vite, VitePress should ship a better
- * manual chunk strategy to split chunks for deps that are imported by
- * multiple pages but not all.
- */
-function moveToVendor(id: string, { getModuleInfo }: any) {
-  if (
-    id.includes('node_modules') &&
-    !/\.css($|\\?)/.test(id) &&
-    staticImportedByEntry(id, getModuleInfo, cache)
-  ) {
-    return 'vendor'
-  }
-}
-
-function staticImportedByEntry(
-  id: string,
-  getModuleInfo: any,
-  cache: Map<string, boolean>,
-  importStack: string[] = []
-): boolean {
-  if (cache.has(id)) {
-    return cache.get(id) as boolean
-  }
-  if (importStack.includes(id)) {
-    // circular deps!
-    cache.set(id, false)
-    return false
-  }
-  const mod = getModuleInfo(id)
-  if (!mod) {
-    cache.set(id, false)
-    return false
-  }
-
-  if (mod.isEntry) {
-    cache.set(id, true)
-    return true
-  }
-  const someImporterIs = mod.importers.some((importer: string) =>
-    staticImportedByEntry(
-      importer,
-      getModuleInfo,
-      cache,
-      importStack.concat(id)
-    )
-  )
-  cache.set(id, someImporterIs)
-  return someImporterIs
-}
