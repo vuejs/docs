@@ -292,7 +292,7 @@ BaseLayout({
 function BaseLayout(slots) {
   return (
     `<div class="container">
-      <header>${slots.header}<header>
+      <header>${slots.header}</header>
       <main>${slots.default}</main>
       <footer>${slots.footer}</footer>
     </div>`
