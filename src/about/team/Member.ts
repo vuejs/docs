@@ -9,7 +9,8 @@ export interface Member {
   languages: string[]
   website?: Link
   socials: Socials
-  sponsor?: string
+  sponsor?: boolean | string
+  reposPersonal?: string[]
 }
 
 export interface Link {
