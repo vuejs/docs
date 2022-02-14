@@ -641,7 +641,7 @@ export default defineConfigWithTheme<Config>({
       }
     },
     build: {
-      minify: 'terser',
+      minify: false, //'terser',
       chunkSizeWarningLimit: Infinity,
       rollupOptions: {
         output: {
@@ -653,7 +653,17 @@ export default defineConfigWithTheme<Config>({
             if (id.includes('dynamics.js')) {
               return 'dynamics'
             }
-            return moveToVendor(id, ctx)
+            if (id.includes('plugin-vue:export-helper')) {
+              return 'framework'
+            }
+            const isVendor = moveToVendor(id, ctx)
+            if (isVendor) {
+              if (/@vue\/(runtime|shared|reactivity)/.test(id)) {
+                return 'framework'
+              } else {
+                return 'app'
+              }
+            }
           }
         }
       }
