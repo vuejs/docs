@@ -455,7 +455,7 @@ Declare exposed public properties when the component instance is accessed by a p
 
   ```js
   export default {
-    // only `publicMethod` will be available on the pubic instance
+    // only `publicMethod` will be available on the public instance
     expose: ['publicMethod'],
     methods: {
       publicMethod() {

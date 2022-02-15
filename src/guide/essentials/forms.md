@@ -23,7 +23,7 @@ const multiSelected = ref([])
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Free Lesson on User Inputs with Vue.js"/>
 </div>
 
-When dealing with forms on the frontend, we often need to sync the state of form input elements with corresponding state in JavaScript. It can be cumbersom to manually wire up value bindings and change event listeners:
+When dealing with forms on the frontend, we often need to sync the state of form input elements with corresponding state in JavaScript. It can be cumbersome to manually wire up value bindings and change event listeners:
 
 ```vue-html
 <input
@@ -442,7 +442,9 @@ If you want user input to be automatically typecast as a number, you can add the
 <input v-model.number="age" />
 ```
 
-This is often useful, because even with `<input type="number">`, the value of HTML input elements always returns a string. If the value cannot be parsed with `parseFloat()`, then the original value is used.
+If the value cannot be parsed with `parseFloat()`, then the original value is used instead.
+
+The `number` modifier is applied automatically if the input has `type="number"`.
 
 ### `.trim`
 

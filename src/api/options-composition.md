@@ -86,7 +86,7 @@ Declare properties to inject into the current component by locating them from an
       - The `from` property is the key (string or Symbol) to search for in available injections, and
       - The `default` property is used as fallback value. Similar to props default values, a factory function is needed for object types to avoid value sharing between multiple component instances.
 
-  An injected property will be `undefined` is neither a matching property nor a default value was provided.
+  An injected property will be `undefined` if neither a matching property nor a default value was provided.
 
   Note that injected bindings are NOT reactive. This is intentional. However, if the injected value is a reactive object, properties on that object do remain reactive. See [Working with Reactivity](/guide/components/provide-inject.html#working-with-reactivity) for more details.
 
