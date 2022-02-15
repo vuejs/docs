@@ -36,7 +36,7 @@ With a Vite-based setup, the dev server and the bundler are transpilation-only a
 
   - [TypeScript Vue Plugin](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) is also needed to get type support for `*.vue` imports in TS files.
 
-- [WebStorm](https://www.jetbrains.com/webstorm/) also provides out-of-the-box support for both TypeScript and Vue.
+- [WebStorm](https://www.jetbrains.com/webstorm/) also provides out-of-the-box support for both TypeScript and Vue. Other JetBrains IDEs support them too, either out of the box or via [a free plugin](https://plugins.jetbrains.com/plugin/9442-vue-js).
 
 ### Configuring `tsconfig.json`
 

@@ -48,7 +48,7 @@ SFC is a defining feature of Vue as a framework, and is the recommended approach
 - Static Site Generation (SSG)
 - Any non-trivial frontend where a build step can be justified for better development experience (DX).
 
-That said, we do realize there are scenarios where SFCs can feel like overkill. This is why Vue can still be used via plain JavaScript without a build step. If you are just looking for enhancing largely static HTML with light interactions, you can also check out [petite-vue](https://github.com/vuejs/petite-vue), a 5kb subset of Vue optimized for progressive enhancement.
+That said, we do realize there are scenarios where SFCs can feel like overkill. This is why Vue can still be used via plain JavaScript without a build step. If you are just looking for enhancing largely static HTML with light interactions, you can also check out [petite-vue](https://github.com/vuejs/petite-vue), a 6kb subset of Vue optimized for progressive enhancement.
 
 ## How It Works
 
