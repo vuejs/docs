@@ -49,7 +49,7 @@ Globally registered components can be used in the template of any component with
 <ComponentC/>
 ```
 
-This evenly applies to all subcomponents, meaning all three of these components will also be available _inside each other_.
+This even applies to all subcomponents, meaning all three of these components will also be available _inside each other_.
 
 ## Local Registration
 
