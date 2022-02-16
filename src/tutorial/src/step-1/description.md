@@ -6,7 +6,7 @@ The goal of this tutorial is to quickly give you an experience of what it feels 
 
 ## Prerequisites
 
-The tutorial assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to front development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
+The tutorial assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to front-end development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
 
 ## How to Use This Tutorial
 
