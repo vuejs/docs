@@ -115,7 +115,7 @@ Registers a callback to be called after the component has been unmounted.
 
   ```vue
   <script setup>
-  import { onMounted, unUnmounted } from 'vue'
+  import { onMounted, onUnmounted } from 'vue'
 
   let intervalId
   onMounted(() => {
