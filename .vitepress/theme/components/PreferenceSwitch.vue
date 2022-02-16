@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { VTSwitch, VTIconChevronDown } from '@vue/theme'
 import { useRoute } from 'vitepress'
-import { ref, computed, inject, Ref } from 'vue'
+import { ref, computed, onMounted, onUnmounted, inject, Ref } from 'vue'
 import {
   preferCompositionKey,
   preferComposition,
@@ -18,6 +18,26 @@ const isOpen = ref(
   typeof localStorage !== 'undefined' &&
     !localStorage.getItem(preferCompositionKey)
 )
+
+onMounted(() => {
+  window.addEventListener('keydown', handleToggleCompositionHotKey)
+  onUnmounted(removeToggleHotKey)
+})
+
+const handleToggleCompositionHotKey = (e: KeyboardEvent) => {
+  if (e.key === ' ' && (e.ctrlKey || e.metaKey)) {
+    e.preventDefault()
+    if (preferComposition.value) {
+      toggleCompositionAPI(false)
+    } else {
+      toggleCompositionAPI(true)
+    }
+  }
+}
+
+const removeToggleHotKey = () => {
+  window.removeEventListener('keydown', handleToggleCompositionHotKey)
+}
 
 const toggleOpen = () => {
   isOpen.value = !isOpen.value
