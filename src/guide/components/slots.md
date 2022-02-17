@@ -405,7 +405,7 @@ Named scoped slots work similarly - slot props are accessible as the value of th
   </template>
 
   <template #footer="footerProps">
-    {{ headerProps }}
+    {{ footerProps }}
   </template>
 </MyComponent>
 ```
