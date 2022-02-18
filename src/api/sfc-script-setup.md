@@ -127,6 +127,31 @@ import * as Form from './form-components'
 </template>
 ```
 
+## Using Custom Directives
+
+Globally registered custom directives just work as normal. Local custom directives don't need to be explicitly registered with `<script setup>`, but they must follow the naming scheme `vNameOfDirective`:
+
+```vue
+<script setup>
+const vMyDirective = {
+  beforeMount: (el) => {
+    // do something with the element
+  }
+}
+</script>
+<template>
+  <h1 v-my-directive>This is a Heading</h1>
+</template>
+```
+
+If you're importing a directive from elsewhere, it can be renamed to fit the required naming scheme:
+
+```vue
+<script setup>
+import { myDirective as vMyDirective } from './MyDirective.js'
+</script>
+```
+
 ## defineProps() & defineEmits()
 
 To declare options like `props` and `emits` with full type inference support, we can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
