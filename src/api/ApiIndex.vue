@@ -226,6 +226,10 @@ h3 {
   .header {
     display: block;
   }
+
+  .api-filter {
+    justify-content: flex-start;
+  }
 }
 
 @media (min-width: 768px) {
