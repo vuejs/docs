@@ -571,6 +571,7 @@ export default defineConfigWithTheme<Config>({
       {
         src: 'https://cdn.usefathom.com/script.js',
         'data-site': 'XNOLWPLB',
+        'data-spa': 'auto',
         defer: ''
       }
     ]
