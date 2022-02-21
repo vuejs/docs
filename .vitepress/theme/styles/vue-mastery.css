@@ -1,0 +1,62 @@
+.vue-mastery-link {
+  background-color: var(--vt-c-bg-soft);
+  border-radius: 8px;
+  padding: 8px;
+  transition: color 0.5s, background-color 0.5s;
+}
+
+.vue-mastery-link a {
+  display: flex;
+  align-items: center;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.vue-mastery-link img {
+  background-color: var(--vt-c-white-soft);
+  border-radius: 4px;
+  width:96px;
+  height:56px;
+  object-fit: cover;
+}
+
+.vue-mastery-link svg {
+  position: absolute;
+  left: 36%;
+  top: 36%;
+}
+
+.vue-mastery-link .description {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--vt-c-text-1);
+  margin: 0;
+  margin-left: 16px;
+  transition: color 0.5s;
+}
+
+.vue-mastery-link p span {
+  color: var(--vt-c-brand);
+}
+
+@media (max-width: 576px) {
+  .vue-mastery-link img {
+    width:56px;
+  }
+
+  .vue-mastery-link svg {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+  }
+
+  .vue-mastery-link .description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
