@@ -1,10 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import { defineConfigWithTheme } from 'vitepress'
+import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
-import type { Config } from '@vue/theme'
-import { UserConfig } from 'vitepress'
 
 const nav = [
   {
@@ -531,8 +530,8 @@ export const sidebar = {
   ]
 }
 
-export default defineConfigWithTheme<Config>({
-  extends: baseConfig as () => UserConfig<Config>,
+export default defineConfigWithTheme<ThemeConfig>({
+  extends: baseConfig,
 
   lang: 'en-US',
   title: 'Vue.js',
@@ -571,6 +570,7 @@ export default defineConfigWithTheme<Config>({
       {
         src: 'https://cdn.usefathom.com/script.js',
         'data-site': 'XNOLWPLB',
+        'data-spa': 'auto',
         defer: ''
       }
     ]

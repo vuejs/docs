@@ -26,7 +26,8 @@ const cols = cells.map((_, i) => String.fromCharCode(65 + i))
 
 <style scoped>
 th {
-  background-color: #eee;
+  color: var(--vt-c-text-1);
+  background-color: var(--vt-c-bg-mute);
   padding: 0 1em;
 }
 
@@ -39,7 +40,7 @@ tr:first-of-type th:first-of-type {
 }
 
 td {
-  border: 1px solid #ccc;
+  border: 1px solid var(--vt-c-bg-mute);
   padding: 0;
 }
 </style>

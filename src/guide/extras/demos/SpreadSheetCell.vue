@@ -33,6 +33,7 @@ function update(e) {
   height: 1.5em;
   line-height: 1.5;
   font-size: 15px;
+  color: var(--vt-c-text-1);
 }
 
 .cell span {
@@ -46,7 +47,7 @@ function update(e) {
 }
 
 .cell input:focus {
-  border: 2px solid blue;
-  background-color: #fff;
+  border: 2px solid var(--vt-c-divider);
+  color: var(--vt-c-text-1);
 }
 </style>
