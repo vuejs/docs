@@ -58,8 +58,6 @@
   object-fit: contain;
 }
 
-
-
 @media (max-width: 576px) {
   .vue-mastery-link img {
     width:56px;
