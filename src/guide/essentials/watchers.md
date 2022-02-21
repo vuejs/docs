@@ -30,7 +30,7 @@ export default {
       try {
         const res = await fetch('https://yesno.wtf/api')
         this.answer = (await res.json()).answer
-      } catch (e) {
+      } catch (error) {
         this.answer = 'Error! Could not reach the API. ' + error
       }
     }
@@ -81,7 +81,7 @@ watch(question, async (newQuestion, oldQuestion) => {
     try {
       const res = await fetch('https://yesno.wtf/api')
       answer.value = (await res.json()).answer
-    } catch (e) {
+    } catch (error) {
       answer.value = 'Error! Could not reach the API. ' + error
     }
   }
