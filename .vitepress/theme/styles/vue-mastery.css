@@ -59,7 +59,7 @@
 }
 
 @media (max-width: 576px) {
-  .vue-mastery-link img {
+  .vue-mastery-link .banner {
     width:56px;
   }
 
@@ -72,5 +72,10 @@
   .vue-mastery-link .description {
     font-size: 12px;
     line-height: 18px;
+  }
+  .vue-mastery-link .logo-wrapper {
+    position: relative;
+    width: 32px;
+    height: 32px;
   }
 }
