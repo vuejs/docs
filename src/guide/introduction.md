@@ -12,12 +12,15 @@ footer: false
 
 <div class="vue-mastery-link">
   <a href="https://www.vuemastery.com" target="_blank">
-    <div class="img-wrapper">
-      <img alt="Vue Mastery" src="./typescript/images/vuemastery-graphical-link.png">
+    <div class="banner-wrapper">
+      <img class="banner" alt="Vue Mastery banner" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png">
       <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M2 20.9999C1.7 20.9999 1.4 20.8999 1.1 20.7999C0.4 20.3999 0 19.6999 0 18.9999V2.99993C0 2.29993 0.4 1.59993 1.1 1.19993C1.7 0.899928 2.5 0.899928 3.2 1.29993L15.2 9.29993C15.8 9.69993 16.1 10.2999 16.1 10.9999C16.1 11.6999 15.8 12.2999 15.2 12.6999L3.2 20.6999C2.8 20.8999 2.4 20.9999 2 20.9999Z" fill="white" fill-opacity="0.8"></path></svg>
     </div>
     <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <div class="logo-wrapper">
+        <img alt="Vue Mastery Logo" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png">
+    </div>
   </a>
 </div>
 

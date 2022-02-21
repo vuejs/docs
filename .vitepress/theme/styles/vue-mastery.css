@@ -1,7 +1,7 @@
 .vue-mastery-link {
   background-color: var(--vt-c-bg-soft);
   border-radius: 8px;
-  padding: 8px;
+  padding: 8px 16px 8px 8px;
   transition: color 0.5s, background-color 0.5s;
 }
 
@@ -10,11 +10,11 @@
   align-items: center;
 }
 
-.img-wrapper {
+.vue-mastery-link .banner-wrapper {
   position: relative;
 }
 
-.vue-mastery-link img {
+.vue-mastery-link .banner {
   background-color: var(--vt-c-white-soft);
   border-radius: 4px;
   width:96px;
@@ -29,20 +29,36 @@
 }
 
 .vue-mastery-link .description {
-  font-family: Inter;
-  font-style: normal;
+  flex: 1;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   color: var(--vt-c-text-1);
-  margin: 0;
-  margin-left: 16px;
+  margin: 0 0 0 16px;
   transition: color 0.5s;
 }
 
-.vue-mastery-link p span {
+.vue-mastery-link .description span {
   color: var(--vt-c-brand);
 }
+
+.vue-mastery-link .logo-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--vt-c-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vue-mastery-link .logo-wrapper img {
+  width: 25px;
+  object-fit: contain;
+}
+
+
 
 @media (max-width: 576px) {
   .vue-mastery-link img {
