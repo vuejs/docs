@@ -326,9 +326,9 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   <!-- equivalent to -->
   <div .someProperty="someObject"></div>
   
-  <div :someProperty.attr="someObject"></div>
+  <div :someProperty.attr="someString"></div>
   <!-- equivalent to -->
-  <div ^someProperty="someObject"></div>
+  <div ^someProperty="someString"></div>
   ```
 
   The `.camel` modifier allows camelizing a `v-bind` attribute name when using in-DOM templates, e.g. the SVG `viewBox` attribute:
