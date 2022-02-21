@@ -41,7 +41,7 @@ Returns the inner value if the argument is a ref, otherwise return the argument 
 
 ## toRef()
 
-Can be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
+Can be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa. **unless the source property is a [component property](./sfc-script-setup.html#defineprops-defineemits)** 
 
 - **Type**
 
