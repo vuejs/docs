@@ -3,6 +3,11 @@
 ## Official Router
 
 <!-- TODO update links -->
+<div>
+  <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Free Vue Router Course">
+    Watch a Free Video Course on Vue School
+  </VueSchoolLink>
+</div>
 
 For most Single Page Applications, it's recommended to use the officially-supported [vue-router library](https://github.com/vuejs/vue-router-next). For more details, see vue-router's [documentation](https://router.vuejs.org/).
 
