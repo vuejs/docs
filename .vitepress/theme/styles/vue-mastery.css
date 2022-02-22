@@ -10,22 +10,12 @@
   align-items: center;
 }
 
-.vue-mastery-link .banner-wrapper {
-  position: relative;
-}
-
 .vue-mastery-link .banner {
   background-color: var(--vt-c-white-soft);
   border-radius: 4px;
   width:96px;
   height:56px;
   object-fit: cover;
-}
-
-.vue-mastery-link svg {
-  position: absolute;
-  left: 36%;
-  top: 36%;
 }
 
 .vue-mastery-link .description {
@@ -61,12 +51,6 @@
 @media (max-width: 576px) {
   .vue-mastery-link .banner {
     width:56px;
-  }
-
-  .vue-mastery-link svg {
-    position: absolute;
-    left: 30%;
-    top: 30%;
   }
 
   .vue-mastery-link .description {

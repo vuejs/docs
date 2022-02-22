@@ -35,60 +35,58 @@ watch(
     </svg>
     Why Vue
   </a>
-  <Teleport to="body">
-    <transition name="modal">
-      <div
-        v-if="showWhyVue"
-        @click="showWhyVue = false"
-        class="vuemastery-modal-mask"
-      >
-        <div class="vuemastery-modal-wrapper">
-          <div class="vuemastery-modal-container">
-            <div class="vuemastery-modal-content">
-              <div class="vuemastery-video-space">
-                <iframe
-                  :src="VIDEO_SOURCE"
-                  style="
-                    height: 100%;
-                    left: 0;
-                    position: absolute;
-                    top: 0;
-                    width: 100%;
-                  "
-                  frameborder="0"
-                  webkitallowfullscreen
-                  mozallowfullscreen
-                  allowfullscreen
-                  allow="autoplay"
-                ></iframe>
-              </div>
+  <Teleport v-if="showWhyVue" to="body">
+    <div
+      @click="showWhyVue = false"
+      class="vuemastery-modal-mask"
+    >
+      <div class="vuemastery-modal-wrapper">
+        <div class="vuemastery-modal-container">
+          <div class="vuemastery-modal-content">
+            <div class="vuemastery-video-space">
+              <iframe
+                :src="VIDEO_SOURCE"
+                style="
+                  height: 100%;
+                  left: 0;
+                  position: absolute;
+                  top: 0;
+                  width: 100%;
+                  border-radius: 6px;
+                "
+                frameborder="0"
+                webkitallowfullscreen
+                mozallowfullscreen
+                allowfullscreen
+                allow="autoplay"
+              ></iframe>
             </div>
+          </div>
 
-            <div class="vuemastery-modal-footer">
-              <p class="vuemastery-modal-footer-text">
-                Video by
-                <a
-                  href="https://www.vuemastery.com"
-                  target="_blank"
-                  rel="sponsored noopener"
-                  title="Vue.js Courses on Vue Mastery"
-                >
-                  Vue Mastery.</a
-                > Watch Vue Mastery’s free
-                <a
-                  href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3"
-                  target="_blank"
-                  rel="sponsored noopener"
-                  title="Vue.js Courses on Vue Mastery"
-                >
-                  Intro to Vue course.</a
-                >
-              </p>
-            </div>
+          <div class="vuemastery-modal-footer">
+            <p class="vuemastery-modal-footer-text">
+              Video by
+              <a
+                href="https://www.vuemastery.com"
+                target="_blank"
+                rel="sponsored noopener"
+                title="Vue.js Courses on Vue Mastery"
+              >
+                Vue Mastery.</a
+              > Watch Vue Mastery’s free
+              <a
+                href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3"
+                target="_blank"
+                rel="sponsored noopener"
+                title="Vue.js Courses on Vue Mastery"
+              >
+                Intro to Vue course.</a
+              >
+            </p>
           </div>
         </div>
       </div>
-    </transition>
+    </div>
   </Teleport>
 </template>
 
@@ -141,15 +139,15 @@ watch(
 }
 
 .vuemastery-modal-wrapper {
+  display: block;
   box-sizing: border-box;
-  display: none;
+  border-radius: 8px;
   position: fixed;
   width: 75%;
   height: auto;
   padding: 0.5em;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-  display: block;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -161,7 +159,7 @@ watch(
 }
 
 .vuemastery-modal-content {
-  margin: 20px 0;
+  margin-bottom: 10px;
 }
 
 .vuemastery-video-space {

@@ -10,15 +10,15 @@ footer: false
 - Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
   :::
 
+<style src="/@theme/styles/vue-mastery.css"></style>
 <div class="vue-mastery-link">
-  <a href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3" target="_blank">
+  <a href="https://www.vuemastery.com/courses-path/beginner" target="_blank">
     <div class="banner-wrapper">
-      <img class="banner" alt="Vue Mastery banner" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png">
-      <svg width="17" height="21" fill="none" viewBox="0 0 17 21" xmlns="http://www.w3.org/2000/svg"><path d="m2 21c-0.3 0-0.6-0.1-0.9-0.2-0.7-0.4-1.1-1.1-1.1-1.8v-16c0-0.7 0.4-1.4 1.1-1.8 0.6-0.3 1.4-0.3 2.1 0.1l12 8c0.6 0.4 0.9 0.99997 0.9 1.7s-0.3 1.3-0.9 1.7l-12 8c-0.4 0.2-0.8 0.3-1.2 0.3z" fill="#fff" fill-opacity=".8"/></svg>
+      <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>
     <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
     <div class="logo-wrapper">
-        <img alt="Vue Mastery Logo" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png">
+        <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
