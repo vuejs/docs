@@ -14,8 +14,7 @@ footer: false
   <a href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3" target="_blank">
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png">
-      <svg width="17" height="21" fill="none" viewBox="0 0 17 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m2 21c-0.3 0-0.6-0.1-0.9-0.2-0.7-0.4-1.1-1.1-1.1-1.8v-16c0-0.7 0.4-1.4 1.1-1.8 0.6-0.3 1.4-0.3 2.1 0.1l12 8c0.6 0.4 0.9 0.99997 0.9 1.7s-0.3 1.3-0.9 1.7l-12 8c-0.4 0.2-0.8 0.3-1.2 0.3z" fill="#fff" fill-opacity=".8"/></svg>
+      <svg width="17" height="21" fill="none" viewBox="0 0 17 21" xmlns="http://www.w3.org/2000/svg"><path d="m2 21c-0.3 0-0.6-0.1-0.9-0.2-0.7-0.4-1.1-1.1-1.1-1.8v-16c0-0.7 0.4-1.4 1.1-1.8 0.6-0.3 1.4-0.3 2.1 0.1l12 8c0.6 0.4 0.9 0.99997 0.9 1.7s-0.3 1.3-0.9 1.7l-12 8c-0.4 0.2-0.8 0.3-1.2 0.3z" fill="#fff" fill-opacity=".8"/></svg>
     </div>
     <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
     <div class="logo-wrapper">
