@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { VTSwitch, VTIconChevronDown } from '@vue/theme'
 import { useRoute } from 'vitepress'
-import { ref, computed, inject, Ref } from 'vue'
+import { inject, Ref } from 'vue'
 import {
   preferCompositionKey,
   preferComposition,
@@ -10,20 +10,15 @@ import {
 } from './preferences'
 
 const route = useRoute()
-const show = computed(() =>
+const show = $computed(() =>
   /^\/(guide|tutorial|examples)\//.test(route.path)
 )
-const showSFC = computed(() => !/^\/guide/.test(route.path))
+const showSFC = $computed(() => !/^\/guide/.test(route.path))
 
-const isOpenKey = 'keep-preference-open'
-const persistedOpenState =
-  typeof localStorage !== 'undefined' && localStorage.getItem(isOpenKey)
-const isOpen = ref(
-  persistedOpenState ? JSON.parse(persistedOpenState) : true
-)
+let isOpen = $ref(true)
 
 const toggleOpen = () => {
-  localStorage.setItem(isOpenKey, String((isOpen.value = !isOpen.value)))
+  isOpen = !isOpen
 }
 
 const removeOutline = (e: Event) => {
