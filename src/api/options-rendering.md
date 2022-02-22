@@ -2,7 +2,7 @@
 
 ## template
 
-A string template for the component instance.
+A string template for the component.
 
 - **Type**
 
@@ -14,13 +14,13 @@ A string template for the component instance.
 
 - **Details**
 
-  Template provided via the `template` option will be compiled on-the-fly, therefore it is only supported when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser).
-
-  The template will **replace** the `innerHTML` of mounted element. Any existing markup inside the mounted element will be ignored.
+  A template provided via the `template` option will be compiled on-the-fly at runtime. It is only supported when using a full build of Vue that includes the template compiler. The builds that include the template compiler have the word `runtime` in their names, e.g. `vue.runtime.esm-bundler.js`. Consult the [dist file guide](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) for more details about the different builds.
 
   If the string starts with `#` it will be used as a `querySelector` and use the selected element's `innerHTML` as the template string. This allows the source template to be authored using native `<template>` elements.
 
-  If the `render` is also present in the same component, `template` will be ignored.
+  If the `render` option is also present in the same component, `template` will be ignored.
+
+  If the root component of your application doesn't have a `template` or `render` option specified, Vue will try to use the `innerHTML` of the mounted element as the template instead.
 
   :::warning Security Note
   Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security.html#rule-no-1-never-use-non-trusted-templates) for more details.
