@@ -14,13 +14,16 @@ const show = computed(() =>
   /^\/(guide|tutorial|examples)\//.test(route.path)
 )
 const showSFC = computed(() => !/^\/guide/.test(route.path))
+
+const isOpenKey = 'keep-preference-open'
+const persistedOpenState =
+  typeof localStorage !== 'undefined' && localStorage.getItem(isOpenKey)
 const isOpen = ref(
-  typeof localStorage !== 'undefined' &&
-    !localStorage.getItem(preferCompositionKey)
+  persistedOpenState ? JSON.parse(persistedOpenState) : true
 )
 
 const toggleOpen = () => {
-  isOpen.value = !isOpen.value
+  localStorage.setItem(isOpenKey, String((isOpen.value = !isOpen.value)))
 }
 
 const removeOutline = (e: Event) => {
