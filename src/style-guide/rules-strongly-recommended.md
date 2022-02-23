@@ -87,7 +87,7 @@ These components lay the foundation for consistent styling and behavior in your 
 - other base components, and
 - 3rd-party UI components.
 
-But they'll **never** contain global state (e.g. from a Vuex store).
+But they'll **never** contain global state (e.g. from a [Pinia](https://pinia.vuejs.org/) store).
 
 Their names often include the name of an element they wrap (e.g. `BaseButton`, `BaseTable`), unless no element exists for their specific purpose (e.g. `BaseIcon`). If you build similar components for a more specific context, they will almost always consume these components (e.g. `BaseButton` may be used in `ButtonSubmit`).
 
