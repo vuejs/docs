@@ -129,7 +129,7 @@ export default {
 
 Note that:
 
-- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> is also called on mount, and <span class="composition-api">`onDectivated`</span><span class="options-api">`deactivated`</span> on unmount.
+- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> is also called on mount, and <span class="composition-api">`onDeactivated`</span><span class="options-api">`deactivated`</span> on unmount.
 
 - Both hooks work for not only the root component cached by `<KeepAlive>`, but also descendent components in the cached tree.
 
