@@ -2,6 +2,10 @@
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
+<div class="options-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Free Vue.js Lesson on Defining Custom Events"/>
+</div>
+
 ## Emitting and Listening to Events
 
 A component can emit custom events directly in template expressions (e.g. in a `v-on` handler) using the built-in `$emit` function:

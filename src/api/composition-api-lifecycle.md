@@ -167,7 +167,7 @@ Registers a hook to be called right before a component instance is to be unmount
 - **Type**
 
   ```ts
-  function onBeforeUnmounted(callback: () => void): void
+  function onBeforeUnmount(callback: () => void): void
   ```
 
 - **Details**
