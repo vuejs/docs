@@ -70,6 +70,7 @@ function slugify(text: string): string {
       <div class="api-filter">
         <label for="api-filter">Filter</label>
         <input
+          type="search"
           placeholder="Enter keyword"
           id="api-filter"
           v-model="query"
@@ -184,7 +185,7 @@ h3 {
 .api-filter {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
 }
 
@@ -225,10 +226,6 @@ h3 {
   }
   .header {
     display: block;
-  }
-
-  .api-filter {
-    justify-content: flex-start;
   }
 }
 
