@@ -55,6 +55,15 @@
   padding: 0.2em 0.6em;
   margin-top: 10px;
   background: transparent;
+  transition: background-color 0.5s;
+}
+
+.dark .demo select {
+  background: var(--vt-c-bg-soft);
+}
+
+.dark .demo select option {
+  background: transparent;
 }
 
 .demo input:not([type]):focus,
