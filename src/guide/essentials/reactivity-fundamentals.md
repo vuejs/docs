@@ -483,7 +483,7 @@ One thing to note is that a ref will also be unwrapped if it is the final evalua
 {{ object.foo }}
 ```
 
-This is just a convenience feature of text interpolation and is equivalent to <code v-pre>{{ object.foo.value ]}</code>.
+This is just a convenience feature of text interpolation and is equivalent to <code v-pre>{{ object.foo.value }}</code>.
 
 ### Ref Unwrapping in Reactive Objects \*\*
 
