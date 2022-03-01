@@ -451,27 +451,39 @@ function increment() {
 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-Note the unwrapping only applies to top-level properties - nested access to refs will not be unwrapped:
+Note the unwrapping only applies if the ref is a top-level property on the template render context. As an example, `foo` is a top-level property, but `object.foo` is not.
+
+So given the following object:
 
 ```js
 const object = { foo: ref(1) }
 ```
 
+The following expression will **NOT** work as expected:
+
 ```vue-html
-{{ object.foo }} <!-- does NOT get unwrapped -->
+{{ object.foo + 1 }}
 ```
 
-We can fix that by making `foo` a top-level property:
+The rendered result will be `[object Object]1` because `object.foo` is a ref object. We can fix that by making `foo` a top-level property:
 
 ```js
 const { foo } = object
 ```
 
 ```vue-html
-{{ foo }} <!-- properly unwrapped -->
+{{ foo + 1 }}
 ```
 
-Now `foo` will be unwrapped as expected.
+Now the render result will be `2`.
+
+One thing to note is that a ref will also be unwrapped if it is the final evaluated value of a text interpolation (i.e. a <code v-pre>{{ }}</code> tag), so the following will render `1`:
+
+```vue-html
+{{ object.foo }}
+```
+
+This is just a convenience feature of text interpolation and is equivalent to <code v-pre>{{ object.foo.value ]}</code>.
 
 ### Ref Unwrapping in Reactive Objects \*\*
 
