@@ -26,7 +26,7 @@ app.component(
 If using SFCs, you will be registering the imported `.vue` files:
 
 ```js
-import MyComponent from './App.vue`
+import MyComponent from './App.vue'
 
 app.component('MyComponent', MyComponent)
 ```
