@@ -10,6 +10,19 @@ footer: false
 - Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
   :::
 
+<style src="/@theme/styles/vue-mastery.css"></style>
+<div class="vue-mastery-link">
+  <a href="https://www.vuemastery.com/courses-path/beginner" target="_blank">
+    <div class="banner-wrapper">
+      <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
+    </div>
+    <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <div class="logo-wrapper">
+        <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
+    </div>
+  </a>
+</div>
+
 ## What is Vue?
 
 Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS and JavaScript, and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be it simple or complex.
