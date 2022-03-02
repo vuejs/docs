@@ -358,7 +358,7 @@ export default {
 }
 ```
 
-This is useful when you need to conditional set up a watcher, or only watch something in response to user interaction. It also allows you to stop the watcher early.
+This is useful when you need to conditionally set up a watcher, or only watch something in response to user interaction. It also allows you to stop the watcher early.
 
 </div>
 
