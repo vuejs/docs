@@ -38,7 +38,7 @@ Details on `reactive()` and `ref()` are discussed in <a target="_blank" href="/g
 
 <div class="sfc">
 
-Reactive state declared in the component's `<script setup>` block can be used directly in the template. This is how we can render dynamic text based on the value of the `state` object and `message` ref, using mustaches syntax:
+Reactive state declared in the component's `<script setup>` block can be used directly in the template. This is how we can render dynamic text based on the value of the `counter` object and `message` ref, using mustaches syntax:
 
 </div>
 
@@ -48,10 +48,10 @@ The object being passed to `createApp()` is a Vue component. A component's state
 
 ```js{2,5}
 setup() {
-  const state = reactive({ count: 0 })
+  const counter = reactive({ count: 0 })
   const message = ref('Hello World!')
   return {
-    state,
+    counter,
     message
   }
 }
