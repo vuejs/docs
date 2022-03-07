@@ -117,7 +117,7 @@ Users can navigate an application through headings. Having descriptive headings 
 [Landmarks](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/landmark_role) provide programmatic access to sections within an application. Users who rely on assistive technology can navigate to each section of the application and skip over content. You can use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) to help you achieve this.
 
 | HTML            | ARIA Role            | Landmark Purpose                                                                                                 |
-| --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+|-----------------|----------------------|------------------------------------------------------------------------------------------------------------------|
 | header          | role="banner"        | Prime heading: title of the page                                                                                 |
 | nav             | role="navigation"    | Collection of links suitable for use when navigating the document or related documents                           |
 | main            | role="main"          | The main or central content of the document.                                                                     |
