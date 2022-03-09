@@ -194,7 +194,7 @@ Sometimes we also need to access the original DOM event in an inline handler. Yo
 
 ```js
 function warn(message, event) {
-  // `now we have access to the native event`
+  // now we have access to the native event
   if (event) {
     event.preventDefault()
   }
