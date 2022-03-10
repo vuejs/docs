@@ -34,7 +34,7 @@ A "meta component" for rendering dynamic components or elements.
   import Bar from './Bar.vue'
 
   export default {
-    components: { Foo, Bar }
+    components: { Foo, Bar },
     data() {
       return {
         view: 'Foo'
