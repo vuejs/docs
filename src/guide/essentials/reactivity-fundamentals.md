@@ -224,7 +224,7 @@ To wait for the DOM update to complete after a state change, you can use the [ne
 import { nextTick } from 'vue'
 
 function increment() {
-  count.value++
+  state.count++
   nextTick(() => {
     // access updated DOM
   })
