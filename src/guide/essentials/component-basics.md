@@ -558,7 +558,7 @@ HTML tags and attribute names are case-insensitive, so browsers will interpret a
 // camelCase in JavaScript
 const BlogPost = {
   props: ['postTitle'],
-  emits: ['updatePost']
+  emits: ['updatePost'],
   template: `
     <h3>{{ postTitle }}</h3>
   `
