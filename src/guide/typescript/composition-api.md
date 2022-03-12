@@ -162,7 +162,7 @@ year.value = '2020'
 Sometimes we may need to specify complex types for a ref's inner value. We can do that by using the `Ref` type:
 
 ```ts
-import { ref, Ref } from 'vue'
+import { ref, type Ref } from 'vue'
 
 const year: Ref<string | number> = ref('2020')
 
