@@ -1,8 +1,8 @@
-<input v-model="newTodo" @keyup.enter="addTodo" />
+<input v-model="newTodo" @keyup.enter="addTodo">
 <button @click="addTodo">Add Todo</button>
 <ul>
   <li v-for="todo in filteredTodos" :key="todo.id">
-    <input type="checkbox" v-model="todo.done" />
+    <input type="checkbox" v-model="todo.done">
     <span :class="{ done: todo.done }">{{ todo.text }}</span>
     <button @click="removeTodo(todo)">X</button>
   </li>

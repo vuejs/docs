@@ -4,7 +4,7 @@ Let's keep building on top of the todo list from the last step. Here, we've alre
 
 ```vue-html{2}
 <li v-for="todo in todos">
-  <input type="checkbox" v-model="todo.done" />
+  <input type="checkbox" v-model="todo.done">
   ...
 </li>
 ```
