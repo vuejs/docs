@@ -46,9 +46,9 @@ You can also try to convince your employer to sponsor Vue as a business. This ma
 - **Gold (USD$500/mo)**:
   - Large logo placement on the front page of [vuejs.org](/).
   - Large Logo placement in the README of `vuejs/core` and `vuejs/vue`.
-- **Silver (USD$500/mo)**:
+- **Silver (USD$250/mo)**:
   - Medium logo placement in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`.
-- **Bronze (USD$500/mo)**:
+- **Bronze (USD$100/mo)**:
   - Small logo placement in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`.
 - **Generous Backer (USD$50/mo)**:
   - Name listed in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`, above other individual backers.
