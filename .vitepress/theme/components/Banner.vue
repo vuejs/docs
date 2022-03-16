@@ -20,11 +20,11 @@ function dismiss() {
 
 <template>
   <div class="banner" v-if="open">
-    Vue 3 is now the new default version!
+    !  Vue 3 هو الآن الإصدار الافتراضي الجديد  
     <a
       href="https://blog.vuejs.org/posts/vue-3-as-the-new-default.html"
       target="_blank"
-      >Learn more</a
+      >اطلع على المزيد</a
     >
   </div>
 </template>
@@ -37,6 +37,7 @@ html:not(.banner-dismissed) {
 
 <style scoped>
 .banner {
+  direction: rtl;
   position: fixed;
   z-index: var(--vp-z-index-banner);
   box-sizing: border-box;

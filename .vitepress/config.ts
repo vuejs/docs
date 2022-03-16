@@ -8,97 +8,97 @@ import { UserConfig } from 'vitepress'
 
 const nav = [
   {
-    text: 'Docs',
+    text: 'المستندات',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Guide', link: '/guide/introduction' },
-      { text: 'Tutorial', link: '/tutorial/' },
-      { text: 'Examples', link: '/examples/' },
-      { text: 'Quick Start', link: '/guide/quick-start' },
-      { text: 'Style Guide', link: '/style-guide/' },
+      { text: 'الدليل', link: '/guide/introduction' },
+      { text: 'الدليل التطبيقي', link: '/tutorial/' },
+      { text: 'الأمثلة', link: '/examples/' },
+      { text: 'انطلاقة سريعة', link: '/guide/quick-start' },
+      { text: 'دليل الأسلوب', link: '/style-guide/' },
       {
-        text: 'Migration from Vue 2',
+        text: ' Vue 2 الترقية من',
         link: 'https://v3-migration.vuejs.org/'
       }
     ]
   },
   {
-    text: 'API',
+    text: 'API مراجع',
     activeMatch: `^/api/`,
     link: '/api/'
   },
   {
-    text: 'Playground',
+    text: 'التجربة',
     link: 'https://sfc.vuejs.org'
   },
   {
-    text: 'Ecosystem',
+    text: 'بيئة العمل',
     activeMatch: `^/ecosystem/`,
     items: [
       {
-        text: 'Resources',
+        text: 'الموارد',
         items: [
-          { text: 'Partners', link: '/ecosystem/partners' },
-          { text: 'Themes', link: '/ecosystem/themes' },
-          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+          { text: 'شركاء', link: '/ecosystem/partners' },
+          { text: '(Themes) قوالب', link: '/ecosystem/themes' },
+          { text: 'وظائف', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'شراء تيشيرت', link: 'https://vue.threadless.com/' }
         ]
       },
       {
-        text: 'Video Courses',
+        text: 'دروس عبر الفيديو',
         items: [
           {
-            text: 'Vue Mastery',
+            text: 'Vue Mastery منصة',
             link: 'https://www.vuemastery.com/courses/'
           },
           {
-            text: 'Vue School',
+            text: 'Vue School منصة',
             link: 'https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown'
           }
         ]
       },
       {
-        text: 'Help',
+        text: 'مساعدة',
         items: [
           {
-            text: 'Discord Chat',
+            text: 'دردشة عبر منصة ديسكورد',
             link: 'https://discord.com/invite/HBherRA'
           },
-          { text: 'Forum', link: 'https://forum.vuejs.org/' },
-          { text: 'DEV Community', link: 'https://dev.to/t/vue' }
+          { text: 'المنتدى', link: 'https://forum.vuejs.org/' },
+          { text: 'DEV Community على منصة vue وسم ', link: 'https://dev.to/t/vue' }
         ]
       },
       {
-        text: 'News',
+        text: 'المستجدات',
         items: [
-          { text: 'Blog', link: 'https://blog.vuejs.org/' },
-          { text: 'Twitter', link: 'https://twitter.com/vuejs' },
-          { text: 'Newsletter', link: 'https://news.vuejs.org/' },
-          { text: 'Events', link: 'https://events.vuejs.org/' }
+          { text: 'المدونة', link: 'https://blog.vuejs.org/' },
+          { text: 'تويتر', link: 'https://twitter.com/vuejs' },
+          { text: 'النشرة البريدية', link: 'https://news.vuejs.org/' },
+          { text: 'الفعاليات و المؤتمرات', link: 'https://events.vuejs.org/' }
         ]
       }
     ]
   },
   {
-    text: 'About',
+    text: 'حول',
     activeMatch: `^/about/`,
     items: [
-      { text: 'FAQ', link: '/about/faq' },
-      { text: 'Team', link: '/about/team' },
-      { text: 'Releases', link: '/about/releases' },
+      { text: 'الأسئلة الشائعة', link: '/about/faq' },
+      { text: 'الفريق', link: '/about/team' },
+      { text: 'الإصدارات', link: '/about/releases' },
       {
-        text: 'Community Guide',
+        text: 'دليل المجتمع',
         link: '/about/community-guide'
       },
-      { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'القواعد السلوكية', link: '/about/coc' },
       {
-        text: 'The Documentary',
+        text: 'الوثائقي',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
   },
   {
-    text: 'Sponsor',
+    text: 'الممولون',
     link: '/sponsor/'
   }
 ]
@@ -106,100 +106,100 @@ const nav = [
 export const sidebar = {
   '/guide/': [
     {
-      text: 'Getting Started',
+      text: 'ابدأ',
       items: [
-        { text: 'Introduction', link: '/guide/introduction' },
+        { text: 'المقدمة', link: '/guide/introduction' },
         {
-          text: 'Quick Start',
+          text: 'انطلاقة سريعة',
           link: '/guide/quick-start'
         }
       ]
     },
     {
-      text: 'Essentials',
+      text: 'مبادئ أساسية',
       items: [
         {
-          text: 'Creating an Application',
+          text: 'إنشاء تطبيق',
           link: '/guide/essentials/application'
         },
         {
-          text: 'Template Syntax',
+          text: ' صيغة القالب ',
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'Reactivity Fundamentals',
+          text: 'أساسيات التفاعل',
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Computed Properties',
+          text: 'الخصائص المحسوبة',
           link: '/guide/essentials/computed'
         },
         {
-          text: 'Class and Style Bindings',
+          text: 'ربط التنسيقات و الأصناف',
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'Conditional Rendering',
+          text: 'التصيير الشرطي',
           link: '/guide/essentials/conditional'
         },
-        { text: 'List Rendering', link: '/guide/essentials/list' },
+        { text: 'تصيير القوائم', link: '/guide/essentials/list' },
         {
-          text: 'Event Handling',
+          text: 'معالجة الأحداث',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
+        { text: 'ربط مداخل النموذج', link: '/guide/essentials/forms' },
         {
-          text: 'Lifecycle Hooks',
+          text: 'خطافات دورة الحياة',
           link: '/guide/essentials/lifecycle'
         },
-        { text: 'Watchers', link: '/guide/essentials/watchers' },
-        { text: 'Template Refs', link: '/guide/essentials/template-refs' },
+        { text: 'الخصائص المراقبة', link: '/guide/essentials/watchers' },
+        { text: 'Refs مراجع القالب', link: '/guide/essentials/template-refs' },
         {
-          text: 'Components Basics',
+          text: 'أساسيات المكونات',
           link: '/guide/essentials/component-basics'
         }
       ]
     },
     {
-      text: 'Components In-Depth',
+      text: 'المكونات بالتفصيل',
       items: [
         {
-          text: 'Registration',
+          text: 'التسجيل',
           link: '/guide/components/registration'
         },
-        { text: 'Props', link: '/guide/components/props' },
-        { text: 'Events', link: '/guide/components/events' },
+        { text: 'الخاصيات', link: '/guide/components/props' },
+        { text: 'الأحداث', link: '/guide/components/events' },
         {
-          text: 'Fallthrough Attributes',
+          text: 'السمات الإحتياطية',
           link: '/guide/components/attrs'
         },
-        { text: 'Slots', link: '/guide/components/slots' },
+        { text: 'الفتحات', link: '/guide/components/slots' },
         {
-          text: 'Provide / inject',
+          text: 'تزويد/حقن',
           link: '/guide/components/provide-inject'
         },
         {
-          text: 'Async Components',
+          text: 'المكونات اللاتزامنية',
           link: '/guide/components/async'
         }
       ]
     },
     {
-      text: 'Reusability',
+      text: 'إعادة الإستخدام',
       items: [
         {
-          text: 'Composables',
+          text: 'التركيبات',
           link: '/guide/reusability/composables'
         },
         {
-          text: 'Custom Directives',
+          text: 'سمات مُوجهة مخصصة',
           link: '/guide/reusability/custom-directives'
         },
-        { text: 'Plugins', link: '/guide/reusability/plugins' }
+        { text: 'الإضافات', link: '/guide/reusability/plugins' }
       ]
     },
     {
-      text: 'Built-in Components',
+      text: 'مكونات مدمجة',
       items: [
         { text: 'Transition', link: '/guide/built-ins/transition' },
         {
@@ -212,90 +212,91 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Scaling Up',
+      text: 'الإرتقاء و التدرج',
       items: [
-        { text: 'Single-File Components', link: '/guide/scaling-up/sfc' },
-        { text: 'Tooling', link: '/guide/scaling-up/tooling' },
-        { text: 'Routing', link: '/guide/scaling-up/routing' },
+        { text: '(SFC) المكونات أحادية المستند', link: '/guide/scaling-up/sfc' },
+        { text: 'الأدوات', link: '/guide/scaling-up/tooling' },
+        { text: 'التوجيه', link: '/guide/scaling-up/routing' },
         {
-          text: 'State Management',
+          text: 'تسيير الحالة',
           link: '/guide/scaling-up/state-management'
         },
-        { text: 'Testing', link: '/guide/scaling-up/testing' },
+        { text: 'الإختبار', link: '/guide/scaling-up/testing' },
         {
-          text: 'Server-Side Rendering (SSR)',
+          text: '(SSR) التصيير من الخادم',
           link: '/guide/scaling-up/ssr'
         }
       ]
     },
     {
-      text: 'Best Practices',
+      text: 'أحسن الممارسات',
       items: [
         {
-          text: 'Production Deployment',
+          text: 'النشر الإنتاجي',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Performance',
+          text: 'الكفاءة',
           link: '/guide/best-practices/performance'
         },
         {
-          text: 'Accessibility',
+          text: 'شمولية الوصول',
           link: '/guide/best-practices/accessibility'
         },
         {
-          text: 'Security',
+          text: 'الأمن',
           link: '/guide/best-practices/security'
         }
       ]
     },
     {
-      text: 'TypeScript',
+      text: 'التايبسكريبت',
       items: [
-        { text: 'Overview', link: '/guide/typescript/overview' },
+        { text: 'نظرة شاملة', link: '/guide/typescript/overview' },
         {
-          text: 'TS with Composition API',
+          text: 'و واجهة برمجة التطبيقات بالتكوين TS',
           link: '/guide/typescript/composition-api'
         },
         {
-          text: 'TS with Options API',
+          text: 'و واجهة برمجة التطبيقات بالخيارات TS',
+        
           link: '/guide/typescript/options-api'
         }
       ]
     },
     {
-      text: 'Extra Topics',
+      text: 'مواضيع اضافية',
       items: [
         {
-          text: 'Ways of Using Vue',
+          text: 'Vue طرق استخام',
           link: '/guide/extras/ways-of-using-vue'
         },
         {
-          text: 'Composition API FAQ',
+          text: 'الأسئلة الشائعة عن برمجة واجهة التطبيقات بالتكوين',
           link: '/guide/extras/composition-api-faq'
         },
         {
-          text: 'Reactivity in Depth',
+          text: 'التفاعلية بالتفصيل',
           link: '/guide/extras/reactivity-in-depth'
         },
         {
-          text: 'Rendering Mechanism',
+          text: 'آلية التصيير',
           link: '/guide/extras/rendering-mechanism'
         },
         {
-          text: 'Render Functions & JSX',
+          text: 'JSXدوال التصيير و ال',
           link: '/guide/extras/render-function'
         },
         {
-          text: 'Vue and Web Components',
+          text: 'و مكونات الويب Vue',
           link: '/guide/extras/web-components'
         },
         {
-          text: 'Animation Techniques',
+          text: 'تقنيات التحريك',
           link: '/guide/extras/animation'
         },
         {
-          text: 'Reactivity Transform',
+          text: 'تحويل التفاعل',
           link: '/guide/extras/reactivity-transform'
         }
         // {
@@ -312,179 +313,179 @@ export const sidebar = {
   ],
   '/api/': [
     {
-      text: 'Global API',
+      text: 'واجهة برمجة التطبيقات العامة',
       items: [
-        { text: 'Application', link: '/api/application' },
+        { text: 'التطبيق', link: '/api/application' },
         {
-          text: 'General',
+          text: 'عام',
           link: '/api/general'
         }
       ]
     },
     {
-      text: 'Composition API',
+      text: 'واجهة برمجة التطبيقات بالتكوين',
       items: [
-        { text: 'setup()', link: '/api/composition-api-setup' },
+        { text: 'setup()دالةال', link: '/api/composition-api-setup' },
         {
-          text: 'Reactivity: Core',
+          text: 'التفاعلية: الأساسيات',
           link: '/api/reactivity-core'
         },
         {
-          text: 'Reactivity: Utilities',
+          text: 'التفاعلية : الأدوات',
           link: '/api/reactivity-utilities'
         },
         {
-          text: 'Reactivity: Advanced',
+          text: 'التفاعلية: الدليل المتقدم',
           link: '/api/reactivity-advanced'
         },
         {
-          text: 'Lifecycle Hooks',
+          text: 'خطافات دورة الحياة',
           link: '/api/composition-api-lifecycle'
         },
         {
-          text: 'Dependency Injection',
+          text: 'حقن الإعتمادية',
           link: '/api/composition-api-dependency-injection'
         }
       ]
     },
     {
-      text: 'Options API',
+      text: 'واجهة برمجة التطبيقات بالخيارات',
       items: [
-        { text: 'Options: State', link: '/api/options-state' },
-        { text: 'Options: Rendering', link: '/api/options-rendering' },
+        { text: 'الخيارات : الحالة', link: '/api/options-state' },
+        { text: 'الخيارات : التصيير', link: '/api/options-rendering' },
         {
-          text: 'Options: Lifecycle',
+          text: 'الخيارات : دورة الحياة',
           link: '/api/options-lifecycle'
         },
         {
-          text: 'Options: Composition',
+          text: 'الخيارات : التركيب',
           link: '/api/options-composition'
         },
-        { text: 'Options: Misc', link: '/api/options-misc' },
+        { text: 'الخيارات : متفرقة', link: '/api/options-misc' },
         {
-          text: 'Component Instance',
+          text: 'نسخة مكون',
           link: '/api/component-instance'
         }
       ]
     },
     {
-      text: 'Built-ins',
+      text: 'عناصر مدمجة',
       items: [
-        { text: 'Directives', link: '/api/built-in-directives' },
-        { text: 'Components', link: '/api/built-in-components' },
+        { text: 'السمات الموجهة', link: '/api/built-in-directives' },
+        { text: 'المكونات', link: '/api/built-in-components' },
         {
-          text: 'Special Elements',
+          text: 'عناصر خاصة',
           link: '/api/built-in-special-elements'
         },
         {
-          text: 'Special Attributes',
+          text: 'سمات خاصة',
           link: '/api/built-in-special-attributes'
         }
       ]
     },
     {
-      text: 'Single File Component',
+      text: 'المكونات أحادية المستند',
       items: [
-        { text: 'Syntax Specification', link: '/api/sfc-spec' },
+        { text: 'مواصفات الصيغة', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
-        { text: 'CSS Features', link: '/api/sfc-css-features' }
+        { text: 'CSSميزات ال', link: '/api/sfc-css-features' }
       ]
     },
     {
-      text: 'Advanced APIs',
+      text: 'واجهة برمجة التطبيقات متقدمة',
       items: [
-        { text: 'Render Function', link: '/api/render-function' },
-        { text: 'Server-Side Rendering', link: '/api/ssr' },
-        { text: 'TypeScript Utility Types', link: '/api/utility-types' },
-        { text: 'Custom Renderer', link: '/api/custom-renderer' }
+        { text: 'دالة التصيير', link: '/api/render-function' },
+        { text: 'التصيير من الخادم', link: '/api/ssr' },
+        { text: 'TypeScriptأدوات النوع ل', link: '/api/utility-types' },
+        { text: 'مصير مخصص', link: '/api/custom-renderer' }
       ]
     }
   ],
   '/examples/': [
     {
-      text: 'Basic',
+      text: 'أمثلة قاعدية ',
       items: [
         {
-          text: 'Hello World',
+          text: 'مرحبا',
           link: '/examples/#hello-world'
         },
         {
-          text: 'Handling User Input',
+          text: 'معالجة إدخالات المستخدم',
           link: '/examples/#handling-input'
         },
         {
-          text: 'Attribute Bindings',
+          text: 'ربط السمات',
           link: '/examples/#attribute-bindings'
         },
         {
-          text: 'Conditionals and Loops',
+          text: 'الشروط و الحلقات',
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Form Bindings',
+          text: 'ربط النماذج',
           link: '/examples/#form-bindings'
         },
         {
-          text: 'Simple Component',
+          text: 'مكون بسيط',
           link: '/examples/#simple-component'
         }
       ]
     },
     {
-      text: 'Practical',
+      text: 'أمثلة تطبيقية',
       items: [
         {
-          text: 'Markdown Editor',
+          text: 'Markdown محرر',
           link: '/examples/#markdown'
         },
         {
-          text: 'Fetching Data',
+          text: 'بحث عن بيانات',
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Grid with Sort and Filter',
+          text: 'جدول مع خاصية الترتيب و البحث',
           link: '/examples/#grid'
         },
         {
-          text: 'Tree View',
+          text: 'واجهة عرض شجرية',
           link: '/examples/#tree'
         },
         {
-          text: 'SVG Graph',
+          text: 'SVG مخطط',
           link: '/examples/#svg'
         },
         {
-          text: 'Modal with Transitions',
+          text: '  نافذة منبثقة مع خاصية الإنتقال', 
           link: '/examples/#modal'
         },
         {
-          text: 'List with Transitions',
+          text: 'قائمة مع خاصية الإنتقال',
           link: '/examples/#list-transition'
         },
         {
-          text: 'TodoMVC',
+          text: 'MVCقائمة مهام بال',
           link: '/examples/#todomvc'
         }
       ]
     },
     {
       // https://eugenkiss.github.io/7guis/
-      text: '7 GUIs',
+      text: '7 GUIs واجهات مستخدم رسومية  ',
       items: [
         {
-          text: 'Counter',
+          text: 'عداد',
           link: '/examples/#counter'
         },
         {
-          text: 'Temperature Converter',
+          text: 'محول درجة الحرارة',
           link: '/examples/#temperature-converter'
         },
         {
-          text: 'Flight Booker',
+          text: 'حجز رحلات طيران',
           link: '/examples/#flight-booker'
         },
         {
-          text: 'Timer',
+          text: 'مؤقت',
           link: '/examples/#timer'
         },
         {
@@ -492,11 +493,11 @@ export const sidebar = {
           link: '/examples/#crud'
         },
         {
-          text: 'Circle Drawer',
+          text: 'راسم دائرة',
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Cells',
+          text: 'خلايا',
           link: '/examples/#cells'
         }
       ]
@@ -504,26 +505,26 @@ export const sidebar = {
   ],
   '/style-guide/': [
     {
-      text: 'Style Guide',
+      text: 'دليل الأسلوب',
       items: [
         {
-          text: 'Overview',
+          text: 'نظرة شاملة',
           link: '/style-guide/'
         },
         {
-          text: 'A - Essential',
+          text: 'أ - قواعد أساسية',
           link: '/style-guide/rules-essential'
         },
         {
-          text: 'B - Strongly Recommended',
+          text: 'ب - مقترح بقوة',
           link: '/style-guide/rules-strongly-recommended'
         },
         {
-          text: 'C - Recommended',
+          text: 'ج - مقترح',
           link: '/style-guide/rules-recommended'
         },
         {
-          text: 'D - Use with Caution',
+          text: 'د - استخدام بحذر',
           link: '/style-guide/rules-use-with-caution'
         }
       ]
