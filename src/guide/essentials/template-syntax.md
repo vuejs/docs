@@ -207,7 +207,7 @@ It is also possible to use a JavaScript expression in a directive argument by wr
 ```vue-html
 <!--
 Note that there are some constraints to the argument expression,
-as explained in the "Dynamic Argument Expression Constraints" section below.
+as explained in the "Dynamic Argument Value Constraints" and "Dynamic Argument Syntax Constraints" sections below.
 -->
 <a v-bind:[attributeName]="url"> ... </a>
 

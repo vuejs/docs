@@ -85,7 +85,7 @@ Writing documentation is an exercise in empathy. We're not describing an objecti
 
 ### Tips, Callouts, Alerts, and Line Highlights
 
-We have some dedicated styles to denote something that's worth highlighting in a particular way. These are captured [on this page](https://v3.vuejs.org/guide/doc-style-guide.html#alerts). **They are to be used sparingly.**
+We have some dedicated styles to denote something that's worth highlighting in a particular way. These are captured [on this page](https://vitepress.vuejs.org/guide/markdown.html#custom-containers). **They are to be used sparingly.**
 
 There is a certain temptation to abuse these styles, as one can simply add a change inside a callout. However, this breaks up the flow of reading for the user, and thus, should only be used in special circumstances. Wherever possible, we should attempt to create a narrative and flow within the page to respect the readers cognitive load.
 
