@@ -13,7 +13,7 @@ methods: {
   onInput(e) {
     // a v-on handler receives the native DOM event
     // as the argument.
-    text.value = e.target.value
+    this.text = e.target.value
   }
 }
 ```
