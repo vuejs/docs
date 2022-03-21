@@ -1,5 +1,7 @@
-<input v-model="newTodo" @keyup.enter="addTodo">
-<button @click="addTodo">Add Todo</button>
+<form @submit.prevent="addTodo">
+  <input v-model="newTodo" />
+  <button>Add Todo</button>
+</form>
 <ul>
   <li v-for="todo in filteredTodos" :key="todo.id">
     <input type="checkbox" v-model="todo.done">
