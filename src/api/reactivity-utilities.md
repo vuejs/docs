@@ -80,12 +80,14 @@ Can be used to create a ref for a property on a source reactive object. The crea
   const fooRef = ref(state.foo)
   ```
 
-  The above ref is **not** synced with `state.foo`, because the `ref()` receives a plain string value.
+  The above ref is **not** synced with `state.foo`, because the `ref()` receives a plain number value.
 
   `toRef()` is useful when you want to pass the ref of a prop to a composable function:
 
   ```vue
   <script setup>
+  import { toRef } from 'vue'
+  
   const props = defineProps(/* ... */)
 
   // convert `props.foo` into a ref, then pass into
@@ -94,7 +96,9 @@ Can be used to create a ref for a property on a source reactive object. The crea
   </script>
   ```
 
-  `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it especially useful when working with optional props, which wouldn't be picked up by [`toRefs`](#torefs).
+  When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core.html#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/events.html#usage-with-v-model) for more information.
+
+  `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
 
 ## toRefs()
 
