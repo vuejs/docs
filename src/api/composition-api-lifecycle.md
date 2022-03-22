@@ -39,6 +39,10 @@ Registers a callback to be called after the component has been mounted.
   onMounted(() => {
     el.value // <div>
   })
+  
+  return {
+    el
+  }
   </script>
 
   <template>
