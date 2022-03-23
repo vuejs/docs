@@ -6,7 +6,7 @@
       autofocus
       placeholder="What needs to be done?"
       @keyup.enter="addTodo"
-    />
+    >
   </header>
   <section class="main" v-show="todos.length">
     <input
@@ -15,7 +15,7 @@
       type="checkbox"
       :checked="remaining === 0"
       @change="toggleAll"
-    />
+    >
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
       <li
@@ -25,7 +25,7 @@
         :class="{ completed: todo.completed, editing: todo === editedTodo }"
       >
         <div class="view">
-          <input class="toggle" type="checkbox" v-model="todo.completed" />
+          <input class="toggle" type="checkbox" v-model="todo.completed">
           <label @dblclick="editTodo(todo)">{{ todo.title }}</label>
           <button class="destroy" @click="removeTodo(todo)"></button>
         </div>
@@ -38,7 +38,7 @@
           @blur="doneEdit(todo)"
           @keyup.enter="doneEdit(todo)"
           @keyup.escape="cancelEdit(todo)"
-        />
+        >
       </li>
     </ul>
   </section>

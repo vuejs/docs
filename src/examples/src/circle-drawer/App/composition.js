@@ -57,10 +57,12 @@ export default {
 
     return {
       history,
+      index,
       circles,
       selected,
       adjusting,
       onClick,
+      adjust,
       undo,
       redo
     }
