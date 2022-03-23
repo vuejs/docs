@@ -389,7 +389,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
   false-value="no" />
 ```
 
-`true-value` and `false-value` are Vue-specific attributes that only works with `v-model`. Here the `toggle` property's value will be set to `'yes'` when the box is checked, and set to `'no'` when unchecked. You can also bind them to dynamic values using `v-bind`:
+`true-value` and `false-value` are Vue-specific attributes that only work with `v-model`. Here the `toggle` property's value will be set to `'yes'` when the box is checked, and set to `'no'` when unchecked. You can also bind them to dynamic values using `v-bind`:
 
 ```vue-html
 <input
