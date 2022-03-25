@@ -64,7 +64,7 @@ Note that if you destructure the `props` object, the destructured variables will
 If you really need to destructure the props, or need to pass a prop into an external function while retaining reactivity, you can do so with the [toRefs()](./reactivity-utilities.html#torefs) and [toRef()](/api/reactivity-utilities.html#toref) utility APIs:
 
 ```js
-import { toRefs } from 'vue'
+import { toRefs, toRef } from 'vue'
 
 export default {
   setup(props) {
