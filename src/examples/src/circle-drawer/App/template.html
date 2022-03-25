@@ -23,5 +23,5 @@
 
 <div class="dialog" v-if="adjusting" @click.stop>
   <p>Adjust radius of circle at ({{ selected.cx }}, {{ selected.cy }})</p>
-  <input type="range" v-model="selected.r" min="1" max="300" />
+  <input type="range" v-model="selected.r" min="1" max="300">
 </div>
