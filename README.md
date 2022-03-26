@@ -20,3 +20,7 @@ pnpm run dev
 ## Working on the theme
 
 If changes need to made for the theme, check out the [instructions for developing the theme alongside the docs](https://github.com/vuejs/vue-theme#developing-with-real-content).
+
+## Node.js Version Requirement
+
+This project uses JavaScript's new features like optional chaining, so it is recommended to use `v14.0.0` or higher.
