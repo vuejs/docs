@@ -230,7 +230,7 @@ If you are building an application that leverages [Server-Side Rendering (SSR)](
 While our hand-rolled state management solution will suffice in simple scenarios, there are many more things to consider in large-scale production applications:
 
 - Stronger conventions for team collaboration
-- Integrating with the Vue DevTools, including timeline, in-component inspection, and time-travel debugging.
+- Integrating with the Vue DevTools, including timeline, in-component inspection, and time-travel debugging
 - Hot Module Replacement
 - Server-Side Rendering support
 
