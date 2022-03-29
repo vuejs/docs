@@ -241,7 +241,7 @@ export default {
 
 When using reactive provide / inject values, **it is recommended to keep any mutations to reactive state inside of the _provider_ whenever possible**. This ensures that the provided state and its possible mutations are co-located in the same component, making it easier to maintain in the future.
 
-There may be times when we need to update the data from a injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
+There may be times when we need to update the data from an injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
 
 ```vue{7-9,13}
 <!-- inside provider component -->
