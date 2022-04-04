@@ -468,7 +468,7 @@ This can be achieved using Vue's custom `<slot>` element:
 ```vue{4}
 <template>
   <div class="alert-box">
-    <strong>Error!</strong>
+    <strong>This is an Error for Demo Purposes</strong>
     <slot />
   </div>
 </template>
