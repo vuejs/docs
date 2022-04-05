@@ -115,7 +115,7 @@ Registers a callback to be called after the component has been unmounted.
 
   ```vue
   <script setup>
-  import { onMounted, unUnmounted } from 'vue'
+  import { onMounted, onUnmounted } from 'vue'
 
   let intervalId
   onMounted(() => {
@@ -167,7 +167,7 @@ Registers a hook to be called right before a component instance is to be unmount
 - **Type**
 
   ```ts
-  function onBeforeUnmounted(callback: () => void): void
+  function onBeforeUnmount(callback: () => void): void
   ```
 
 - **Details**

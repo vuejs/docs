@@ -36,7 +36,7 @@ export default {
 
 ### `<template>`
 
-- Each `*.vue` file can contain at most one `<template>` block at a time.
+- Each `*.vue` file can contain at most one top-level `<template>` block at a time.
 
 - Contents will be extracted and passed on to `@vue/compiler-dom`, pre-compiled into JavaScript render functions, and attached to the exported component as its `render` option.
 
@@ -105,9 +105,9 @@ p {{ msg }}
 
 Note that integration with various pre-processors may differ by toolchain. Check out the respective documentation for examples:
 
-- [Vite](https://vitejs.dev](features.html#css-pre-processors)
-- [Vue CLI](https://cli.vuejs.org](css.html#pre-processors)
-- [webpack + vue-loader](https://vue-loader.vuejs.org](pre-processors.html#using-pre-processors)
+- [Vite](https://vitejs.dev/guide/features.html#css-pre-processors)
+- [Vue CLI](https://cli.vuejs.org/guide/css.html#pre-processors)
+- [webpack + vue-loader](https://vue-loader.vuejs.org/guide/pre-processors.html#using-pre-processors)
 
 ## Src Imports
 

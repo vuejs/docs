@@ -78,7 +78,7 @@ Declare the props of a component.
 
 - **Details**
 
-  In Vue, all component props need to be explicit declared. Component props can be declared in two forms:
+  In Vue, all component props need to be explicitly declared. Component props can be declared in two forms:
 
   - Simple form using an array of strings
   - Full form using an object where each property key is the name of the prop, and the value is the prop's type (a constructor function) or advanced options.
@@ -455,7 +455,7 @@ Declare exposed public properties when the component instance is accessed by a p
 
   ```js
   export default {
-    // only `publicMethod` will be available on the pubic instance
+    // only `publicMethod` will be available on the public instance
     expose: ['publicMethod'],
     methods: {
       publicMethod() {

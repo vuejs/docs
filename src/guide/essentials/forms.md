@@ -15,7 +15,15 @@ const multiSelected = ref([])
 
 # Form Input Bindings
 
-When dealing with forms on the frontend, we often need to sync the state of form input elements with corresponding state in JavaScript. It can be cumbersom to manually wire up value bindings and change event listeners:
+<div class="options-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Free Lesson on User Inputs with Vue.js"/>
+</div>
+
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Free Lesson on User Inputs with Vue.js"/>
+</div>
+
+When dealing with forms on the frontend, we often need to sync the state of form input elements with corresponding state in JavaScript. It can be cumbersome to manually wire up value bindings and change event listeners:
 
 ```vue-html
 <input
@@ -381,7 +389,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
   false-value="no" />
 ```
 
-`true-value` and `false-value` are Vue-specific attributes that only works with `v-model`. Here the `toggle` property's value will be set to `'yes'` when the box is checked, and set to `'no'` when unchecked. You can also bind them to dynamic values using `v-bind`:
+`true-value` and `false-value` are Vue-specific attributes that only work with `v-model`. Here the `toggle` property's value will be set to `'yes'` when the box is checked, and set to `'no'` when unchecked. You can also bind them to dynamic values using `v-bind`:
 
 ```vue-html
 <input
@@ -434,7 +442,9 @@ If you want user input to be automatically typecast as a number, you can add the
 <input v-model.number="age" />
 ```
 
-This is often useful, because even with `<input type="number">`, the value of HTML input elements always returns a string. If the value cannot be parsed with `parseFloat()`, then the original value is used.
+If the value cannot be parsed with `parseFloat()`, then the original value is used instead.
+
+The `number` modifier is applied automatically if the input has `type="number"`.
 
 ### `.trim`
 

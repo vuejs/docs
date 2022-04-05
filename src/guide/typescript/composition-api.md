@@ -4,6 +4,8 @@
 
 ## Typing Component Props
 
+### Using `<script setup>`
+
 When using `<script setup>`, the `defineProps()` macro supports inferring the props types based on its argument:
 
 ```vue

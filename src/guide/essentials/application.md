@@ -93,7 +93,7 @@ app.config.errorHandler = (err) => {
 }
 ```
 
-The application instance also provides a few methods for registering app-scoped assets. for example, registering a component:
+The application instance also provides a few methods for registering app-scoped assets. For example, registering a component:
 
 ```js
 app.component('TodoDeleteButton', TodoDeleteButton)

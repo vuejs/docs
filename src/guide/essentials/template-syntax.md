@@ -207,7 +207,7 @@ It is also possible to use a JavaScript expression in a directive argument by wr
 ```vue-html
 <!--
 Note that there are some constraints to the argument expression,
-as explained in the "Dynamic Argument Expression Constraints" section below.
+as explained in the "Dynamic Argument Value Constraints" and "Dynamic Argument Syntax Constraints" sections below.
 -->
 <a v-bind:[attributeName]="url"> ... </a>
 
@@ -241,7 +241,7 @@ Dynamic argument expressions have some syntax constraints because certain charac
 <a :['foo' + bar]="value"> ... </a>
 ```
 
-If you need to pass a complex dynamic argument, it's probably better to use to a [computed property](./computed.html), which we will cover shortly.
+If you need to pass a complex dynamic argument, it's probably better to use a [computed property](./computed.html), which we will cover shortly.
 
 When using in-DOM templates (templates directly written in an HTML file), you should also avoid naming keys with uppercase characters, as browsers will coerce attribute names into lowercase:
 
@@ -249,9 +249,7 @@ When using in-DOM templates (templates directly written in an HTML file), you sh
 <a :[someAttr]="value"> ... </a>
 ```
 
-The above will be converted to `:[someattr]` in in-DOM templates.
-If your component has a "someAttr" property instead of "someattr",
-your code won't work.
+The above will be converted to `:[someattr]` in in-DOM templates. If your component has a `someAttr` property instead of `someattr`, your code won't work.
 
 ### Modifiers
 

@@ -23,5 +23,5 @@ tr:first-of-type th:first-of-type {
 td {
   border: 1px solid #ccc;
   height: 1.5em;
-  overflow: scroll;
+  overflow: hidden;
 }

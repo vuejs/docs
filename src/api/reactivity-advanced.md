@@ -94,7 +94,9 @@ Creates a customized ref with explicit control over its dependency tracking and 
   Creating a debounced ref that only updates the value after a certain timeout after the latest set call:
 
   ```js
-  function useDebouncedRef(value, delay = 200) {
+  import { customRef } from 'vue'
+  
+  export function useDebouncedRef(value, delay = 200) {
     let timeout
     return customRef((track, trigger) => {
       return {

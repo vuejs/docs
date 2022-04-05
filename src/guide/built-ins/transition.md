@@ -564,7 +564,7 @@ Here's the previous demo with `mode="out-in"`:
 
 ## Dynamic Transitions
 
-`<Transition>` props like `name` can also by dynamic! It allows us to dynamically apply different transitions based on state change:
+`<Transition>` props like `name` can also be dynamic! It allows us to dynamically apply different transitions based on state change:
 
 ```vue-html
 <Transition :name="transitionName">

@@ -1,5 +1,13 @@
 # List Rendering
 
+<div class="options-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Free Vue.js List Rendering Lesson"/>
+</div>
+
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Free Vue.js List Rendering Lesson"/>
+</div>
+
 ## `v-for`
 
 We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
@@ -90,7 +98,7 @@ const items = [
 
 items.forEach((item, index) => {
   // has access to outer scope `parentMessage`
-  // but `item` and `index` are only avaialble in here
+  // but `item` and `index` are only available in here
   console.log(parentMessage, item.message, index)
 })
 ```

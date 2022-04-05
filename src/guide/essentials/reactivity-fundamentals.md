@@ -165,6 +165,8 @@ Top-level imports and variables declared in `<script setup>` are automatically u
 
 ## Declaring Methods \*
 
+<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Free Vue.js Methods Lesson"/>
+
 To add methods to a component instance we use the `methods` option. This should be an object containing the desired methods:
 
 ```js{7-11}
@@ -222,7 +224,7 @@ To wait for the DOM update to complete after a state change, you can use the [ne
 import { nextTick } from 'vue'
 
 function increment() {
-  count.value++
+  state.count++
   nextTick(() => {
     // access updated DOM
   })
@@ -350,7 +352,7 @@ The `reactive()` API has two limitations:
    state = reactive({ count: 1 })
    ```
 
-   It also means that when we assign or destructure a reactive object's property into local variables, or when we pass that property into a function, or destructure properties from a reactive object, we will lose the reactivity connection:
+   It also means that when we assign or destructure a reactive object's property into local variables, or when we pass that property into a function, we will lose the reactivity connection:
 
    ```js
    const state = reactive({ count: 0 })
@@ -449,27 +451,39 @@ function increment() {
 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-Note the unwrapping only applies to top-level properties - nested access to refs will not be unwrapped:
+Note the unwrapping only applies if the ref is a top-level property on the template render context. As an example, `foo` is a top-level property, but `object.foo` is not.
+
+So given the following object:
 
 ```js
 const object = { foo: ref(1) }
 ```
 
+The following expression will **NOT** work as expected:
+
 ```vue-html
-{{ object.foo }} <!-- does NOT get unwrapped -->
+{{ object.foo + 1 }}
 ```
 
-We can fix that by making `foo` a top-level property:
+The rendered result will be `[object Object]` because `object.foo` is a ref object. We can fix that by making `foo` a top-level property:
 
 ```js
 const { foo } = object
 ```
 
 ```vue-html
-{{ foo }} <!-- properly unwrapped -->
+{{ foo + 1 }}
 ```
 
-Now `foo` will be unwrapped as expected.
+Now the render result will be `2`.
+
+One thing to note is that a ref will also be unwrapped if it is the final evaluated value of a text interpolation (i.e. a <code v-pre>{{ }}</code> tag), so the following will render `1`:
+
+```vue-html
+{{ object.foo }}
+```
+
+This is just a convenience feature of text interpolation and is equivalent to <code v-pre>{{ object.foo.value }}</code>.
 
 ### Ref Unwrapping in Reactive Objects \*\*
 
@@ -535,9 +549,9 @@ export default {
 }
 ```
 
-However, this approach is problematic for components that are reused because a debounce function is **stateful**: it maintains some internal state on the elapsed time. If multiple component instances share the same debounced function, they will interfere with one another.
+However, this approach is problematic for components that are reused because a debounced function is **stateful**: it maintains some internal state on the elapsed time. If multiple component instances share the same debounced function, they will interfere with one another.
 
-To keep the each component instance's debounce function independent from each other, we can create the debounced version of a method in the `created` lifecycle hook:
+To keep each component instance's debounced function independent of the others, we can create the debounced version in the `created` lifecycle hook:
 
 ```js
 export default {
@@ -564,7 +578,7 @@ export default {
 
 ## Reactivity Transform <sup class="vt-badge experimental" /> \*\*
 
-Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the ealier "counter" example like this:
+Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the earlier "counter" example like this:
 
 ```vue
 <script setup>

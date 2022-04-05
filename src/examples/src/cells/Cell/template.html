@@ -5,6 +5,6 @@
     @change="update"
     @blur="update"
     @vnode-mounted="({ el }) => el.focus()"
-  />
+  >
   <span v-else>{{ evalCell(cells[c][r]) }}</span>
 </div>

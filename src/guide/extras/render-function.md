@@ -641,7 +641,7 @@ const vnode = withDirectives(h('div'), [
 ])
 ```
 
-If the directive is registered by name can cannot be imported directly, it can be resolved using the [`resolveDirective`](/api/render-function.html#resolvedirective) helper.
+If the directive is registered by name and cannot be imported directly, it can be resolved using the [`resolveDirective`](/api/render-function.html#resolvedirective) helper.
 
 ## Functional Components
 

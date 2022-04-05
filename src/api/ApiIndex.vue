@@ -67,13 +67,29 @@ function slugify(text: string): string {
   <div id="api-index">
     <div class="header">
       <h1>API Reference</h1>
-      <input class="api-filter" placeholder="Filter" v-model="query" />
+      <div class="api-filter">
+        <label for="api-filter">Filter</label>
+        <input
+          type="search"
+          placeholder="Enter keyword"
+          id="api-filter"
+          v-model="query"
+        />
+      </div>
     </div>
 
-    <div v-for="section of filtered" :key="section.text" class="api-section">
+    <div
+      v-for="section of filtered"
+      :key="section.text"
+      class="api-section"
+    >
       <h2 :id="slugify(section.text)">{{ section.text }}</h2>
       <div class="api-groups">
-        <div v-for="item of section.items" :key="item.text" class="api-group">
+        <div
+          v-for="item of section.items"
+          :key="item.text"
+          class="api-group"
+        >
           <h3>{{ item.text }}</h3>
           <ul>
             <li v-for="h of item.headers" :key="h">
@@ -167,6 +183,13 @@ h3 {
 }
 
 .api-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.api-filter input {
   border: 1px solid var(--vt-c-divider);
   border-radius: 8px;
   padding: 6px 12px;

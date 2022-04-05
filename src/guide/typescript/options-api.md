@@ -23,14 +23,14 @@ export default defineComponent({
   },
   mounted() {
     this.name // type: string | undefined
-    this.id // type" number | string | undefined
+    this.id // type: number | string | undefined
     this.msg // type: string
     this.metadata // type: any
   }
 })
 ```
 
-However, the runtime props options only support using constructor functions as a prop's type - there is no way to specify complex types such as objects with nested properties or function call signatures.
+However, the runtime `props` options only support using constructor functions as a prop's type - there is no way to specify complex types such as objects with nested properties or function call signatures.
 
 To annotate complex props types, we can use the `PropType` utility type:
 
