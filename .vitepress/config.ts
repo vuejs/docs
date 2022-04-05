@@ -7,16 +7,16 @@ import { headerPlugin } from './headerMdPlugin'
 
 const nav = [
   {
-    text: 'Docs',
+    text: 'Dokumentacja',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Guide', link: '/guide/introduction' },
-      { text: 'Tutorial', link: '/tutorial/' },
-      { text: 'Examples', link: '/examples/' },
-      { text: 'Quick Start', link: '/guide/quick-start' },
-      { text: 'Style Guide', link: '/style-guide/' },
+      { text: 'Przewodnik', link: '/guide/introduction' },
+      { text: 'Samouczek', link: '/tutorial/' },
+      { text: 'Przykłady', link: '/examples/' },
+      { text: 'Szybki start', link: '/guide/quick-start' },
+      { text: 'Przewodnik po stylach', link: '/style-guide/' },
       {
-        text: 'Migration from Vue 2',
+        text: 'Migracja z Vue 2',
         link: 'https://v3-migration.vuejs.org/'
       }
     ]
@@ -27,11 +27,11 @@ const nav = [
     link: '/api/'
   },
   {
-    text: 'Playground',
+    text: 'Plac zabaw',
     link: 'https://sfc.vuejs.org'
   },
   {
-    text: 'Ecosystem',
+    text: 'Ekosystem',
     activeMatch: `^/ecosystem/`,
     items: [
       {
@@ -79,7 +79,7 @@ const nav = [
     ]
   },
   {
-    text: 'About',
+    text: 'O nas',
     activeMatch: `^/about/`,
     items: [
       { text: 'FAQ', link: '/about/faq' },
@@ -533,9 +533,9 @@ export const sidebar = {
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
-  lang: 'en-US',
+  lang: 'pl-PL',
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - Progresywny Framework JavaScript',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
   scrollOffset: 'header',
@@ -603,7 +603,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     editLink: {
       repo: 'vuejs/docs',
-      text: 'Edit this page on GitHub'
+      text: 'Edytuj tę stronę w serwisie GitHub'
     },
 
     footer: {
@@ -636,7 +636,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     server: {
       host: true,
       fs: {
-        // for when developing with locally linked theme
+        // for when developing with locally linked themeInter
         allow: ['../..']
       }
     },
