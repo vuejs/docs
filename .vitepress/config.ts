@@ -35,16 +35,16 @@ const nav = [
     activeMatch: `^/ecosystem/`,
     items: [
       {
-        text: 'Resources',
+        text: 'Zasoby',
         items: [
-          { text: 'Partners', link: '/ecosystem/partners' },
-          { text: 'Themes', link: '/ecosystem/themes' },
-          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'Partnerzy', link: '/ecosystem/partners' },
+          { text: 'Motywy', link: '/ecosystem/themes' },
+          { text: 'Praca', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
         ]
       },
       {
-        text: 'Video Courses',
+        text: 'Kursy wideo',
         items: [
           {
             text: 'Vue Mastery',
@@ -57,7 +57,7 @@ const nav = [
         ]
       },
       {
-        text: 'Help',
+        text: 'Pomoc',
         items: [
           {
             text: 'Discord Chat',
@@ -68,12 +68,12 @@ const nav = [
         ]
       },
       {
-        text: 'News',
+        text: 'Nowości',
         items: [
           { text: 'Blog', link: 'https://blog.vuejs.org/' },
           { text: 'Twitter', link: 'https://twitter.com/vuejs' },
           { text: 'Newsletter', link: 'https://news.vuejs.org/' },
-          { text: 'Events', link: 'https://events.vuejs.org/' }
+          { text: 'Wydarzenia', link: 'https://events.vuejs.org/' }
         ]
       }
     ]
@@ -83,15 +83,15 @@ const nav = [
     activeMatch: `^/about/`,
     items: [
       { text: 'FAQ', link: '/about/faq' },
-      { text: 'Team', link: '/about/team' },
-      { text: 'Releases', link: '/about/releases' },
+      { text: 'Zespół', link: '/about/team' },
+      { text: 'Wydania', link: '/about/releases' },
       {
-        text: 'Community Guide',
+        text: 'Przewodnik dla społeczności',
         link: '/about/community-guide'
       },
-      { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'Kodeks postępowania', link: '/about/coc' },
       {
-        text: 'The Documentary',
+        text: 'Dokumentacja',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
