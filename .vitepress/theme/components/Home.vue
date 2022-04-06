@@ -126,7 +126,13 @@ html:not(.dark) .accent,
   font-size: 22px;
   margin: 24px auto 40px;
 }
-
+.actions {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .actions a {
   font-size: 16px;
   display: inline-block;
@@ -135,10 +141,6 @@ html:not(.dark) .accent,
   font-weight: 500;
   border-radius: 8px;
   transition: background-color 0.5s, color 0.5s;
-}
-
-.actions .get-started {
-  margin-right: 18px;
 }
 
 .actions .icon {
@@ -273,9 +275,6 @@ html:not(.dark) .accent,
   }
   #highlights .vt-box {
     padding: 20px 36px;
-  }
-  .actions a {
-    margin: 0.5em 0;
   }
 }
 
