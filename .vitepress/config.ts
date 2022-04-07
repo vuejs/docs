@@ -91,7 +91,7 @@ const nav = [
       },
       { text: 'Kodeks postępowania', link: '/about/coc' },
       {
-        text: 'Dokumentacja',
+        text: 'Film dokumentalny',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
