@@ -51,7 +51,7 @@ Można też spróbować przekonać swojego pracodawcę, by sponsorował Vue jako
   - Umieszczenie małego logo w pliku `BACKERS.md` w repozytorium `vuejs/core` oraz `vuejs/vue`.
 - **Generous Backer (USD$50/mo)**:
   - Nazwa wymieniona w pliku `BACKERS.md` w repozytorium `vuejs/core` oraz `vuejs/vue`, nad innymi indywidualnymi sponsorami.
-- **Sponsor indywidualny (USD$5/mo)**:
+- **Individual Backer (USD$5/mo)**:
   - Nazwa wymieniona w pliku `BACKERS.md` w repozytorium `vuejs/core` oraz `vuejs/vue`.
 
 ## Aktualni sponsorzy
