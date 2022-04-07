@@ -13,26 +13,26 @@ onMounted(async () => {
 })
 </script>
 
-# Releases
+# Wydania
 
 <p v-if="version">
-The current latest stable version of Vue is <strong>{{ version }}</strong>.
+Aktualna najnowsza stabilna wersja Vue to <strong>{{ version }}</strong>.
 </p>
 <p v-else>
-Checking latest version...
+Sprawdzanie najnowszej wersji...
 </p>
 
-A full changelog of past releases is available on [GitHub](https://github.com/vuejs/core/blob/main/CHANGELOG.md).
+Pełny wykaz zmian w poprzednich wydaniach jest dostępny na [GitHub](https://github.com/vuejs/core/blob/main/CHANGELOG.md).
 
-## Release Cycle
+## Cykl wydawania
 
-Vue does not have a fixed release cycle.
+Vue nie ma ustalonego cyklu wydawania.
 
-- Patch releases are released as needed.
+- Poprawki są wydawane w miarę potrzeb.
 
-- Minor releases always contain new features, with a typical time frame of 3~6 months in between. Minor releases always go through a beta pre-release phase.
+- Mniejsze wydania zawsze zawierają nowe funkcje, z typowym odstępem czasowym 3~6 miesięcy. Mniejsze wydania zawsze przechodzą przez fazę beta przed wydaniem.
 
-- Major releases will be announced ahead of time, and will go through an early discussion phase and alpha / beta pre-release phases.
+- Duże wydania są ogłaszane z wyprzedzeniem i przechodzą fazę wczesnej dyskusji oraz fazę przedpremierową alfa/beta.
 
 ## Semantic Versioning Edge Cases
 
