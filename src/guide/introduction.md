@@ -2,7 +2,7 @@
 footer: false
 ---
 
-# Introduction
+# Wprowadzenie
 
 :::info You are reading the documentation for Vue 3!
 
