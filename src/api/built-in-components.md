@@ -244,9 +244,9 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
 
   <!-- Array (use `v-bind`) -->
-  <keepalive :include="['a', 'b']">
+  <KeepAlive :include="['a', 'b']">
     <component :is="view"></component>
-  </keepalive>
+  </KeepAlive>
   ```
 
   Usage with `max`:
