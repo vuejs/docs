@@ -11,6 +11,9 @@ pnpm i
 pnpm run dev
 ```
 
+This project requires Node.js to be `v14.0.0` or higher, because we use new JavaScript features in our code, such as optional chaining.
+
+
 ## Working on the content
 
 - See VitePress docs on supported [Markdown Extensions](https://vitepress.vuejs.org/guide/markdown.html) and the ability to [use Vue syntax inside markdown](https://vitepress.vuejs.org/guide/using-vue.html).
@@ -20,7 +23,3 @@ pnpm run dev
 ## Working on the theme
 
 If changes need to made for the theme, check out the [instructions for developing the theme alongside the docs](https://github.com/vuejs/vue-theme#developing-with-real-content).
-
-## Node.js Version Requirement
-
-This project uses JavaScript's new features like optional chaining, so it is recommended to use `v14.0.0` or higher.
