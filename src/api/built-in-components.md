@@ -55,7 +55,7 @@ Provides animated transition effects to a **single** element or component.
      * Controls the timing sequence of leaving/entering transitions.
      * Default behavior is simultaneous.
      */
-    mode?: 'in-out' | 'out-in'
+    mode?: 'in-out' | 'out-in' | 'default'
     /**
      * Whether to apply transition on initial render.
      * Default: false
