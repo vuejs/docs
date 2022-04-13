@@ -423,7 +423,7 @@ Note the `name` of a slot won't be included in the props because it is reserved 
 
 ### Fancy List Example
 
-You may be wondering what would be a good use case for scoped slots. Here's an example: imagine a `<FancyList>` component that renders a list of items - it may encapsulate the logic for loading remote data, using the data to display a list, or even advanced features like pagination or infinite scrolling. However, we want it to be flexible with how each item looks and leave the stying of each item to the parent component consuming it. So the desired usage may look like this:
+You may be wondering what would be a good use case for scoped slots. Here's an example: imagine a `<FancyList>` component that renders a list of items - it may encapsulate the logic for loading remote data, using the data to display a list, or even advanced features like pagination or infinite scrolling. However, we want it to be flexible with how each item looks and leave the styling of each item to the parent component consuming it. So the desired usage may look like this:
 
 ```vue-html
 <FancyList :api-url="url" :per-page="10">
