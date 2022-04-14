@@ -274,7 +274,7 @@ data() {
 </div>
 
 ```vue-html
-<div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+<div :style="{ 'color': activeColor, 'font-size': fontSize + 'px' }"></div>
 ```
 
 Although camelCase keys are recommended, `:style` also supports kebab-cased CSS property keys (corresponds to how they are used in actual CSS) - for example:
