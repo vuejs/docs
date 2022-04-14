@@ -57,17 +57,17 @@ By default, `<KeepAlive>` will cache any component instance inside. We can custo
 ```vue-html
 <!-- comma-delimited string -->
 <KeepAlive include="a,b">
-  <component :is="view"></component>
+  <component :is="view" />
 </KeepAlive>
 
 <!-- regex (use `v-bind`) -->
 <KeepAlive :include="/a|b/">
-  <component :is="view"></component>
+  <component :is="view" />
 </KeepAlive>
 
 <!-- Array (use `v-bind`) -->
 <KeepAlive :include="['a', 'b']">
-  <component :is="view"></component>
+  <component :is="view" />
 </KeepAlive>
 ```
 
