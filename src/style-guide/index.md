@@ -2,44 +2,44 @@
 outline: deep
 ---
 
-# Style Guide
+# Przewodnik po stylach
 
-:::warning Status Notice
-The style guide is currently a bit outdated. Most examples are in Options API only, and there are no rules regarding `<script setup>` and Composition API. We are planning to improve it in the future.
+:::warning Uwaga
+Przewodnik po stylu jest obecnie nieco przestarzały. Większość przykładów dotyczy tylko Options API i nie ma żadnych reguł dotyczących `<script setup>` i Composition API. W przyszłości planujemy to poprawić.
 :::
 
-This is the official style guide for Vue-specific code. If you use Vue in a project, it's a great reference to avoid errors, bikeshedding, and anti-patterns. However, we don't believe that any style guide is ideal for all teams or projects, so mindful deviations are encouraged based on past experience, the surrounding tech stack, and personal values.
+Masz do czynienia z oficjalnym przewodnikiem stylu dla Vue. Jeśli używasz Vue w swoim projekcie, jest to świetny punkt odniesienia, który pozwoli Ci uniknąć błędów, bikesheddingu i anty-patternów. Jednak, nie wierzymy, że jakikolwiek przewodnik stylu jest idealny dla wszystkich zespołów lub projektów, dlatego zachęcamy do rozważnych odstępstw w oparciu o wcześniejsze doświadczenia, otaczający stos technologii i osobiste wartości.
 
-For the most part, we also avoid suggestions about JavaScript or HTML in general. We don't mind whether you use semicolons or trailing commas. We don't mind whether your HTML uses single-quotes or double-quotes for attribute values. Some exceptions will exist however, where we've found that a particular pattern is helpful in the context of Vue.
+W większości przypadków unikamy też sugestii dotyczących JavaScript lub HTML w ogóle. Nie obchodzi nas, czy używasz średników czy przecinków. Nie obchodzi nas, czy w HTML-u używasz pojedynczych czy podwójnych cudzysłowów dla wartości atrybutów. Istnieją jednak pewne wyjątki, w przypadku których stwierdziliśmy, że dany wzorzec jest przydatny w kontekście Vue.
 
-Finally, we've split rules into four categories:
+Ostatecznie podzieliliśmy reguły na cztery kategorie:
 
-## Rule Categories
+## Kategorie reguł
 
-### Priority A: Essential (Error Prevention)
+### Priorytet A: Podstawowe (Zapobieganie błędom)
 
-These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
+Te reguły pomagają zapobiegać błędom, więc naucz się ich i przestrzegaj za wszelką cenę. Wyjątki mogą istnieć, ale powinny być bardzo rzadkie i powinny być stosowane tylko przez osoby posiadające specjalistyczną wiedzę na temat JavaScript i Vue.
 
-- [See all priority A rules](./rules-essential)
+- [Zobacz wszystkie reguły priorytetu A](./rules-essential)
 
-### Priority B: Strongly Recommended
+### Priorytet B: Silnie zalecane
 
-These rules have been found to improve readability and/or developer experience in most projects. Your code will still run if you violate them, but violations should be rare and well-justified.
+W większości projektów reguły te poprawiają czytelność i/lub komfort pracy programisty. Jeśli je naruszysz, Twój kod będzie nadal działał, jeśli je naruszysz, ale naruszenia powinny być rzadkie i dobrze uzasadnione.
 
-- [See all priority B rules](./rules-strongly-recommended)
+- [Zobacz wszystkie reguły priorytetu B](./rules-strongly-recommended)
 
-### Priority C: Recommended
+### Priorytet C: Zalecane
 
-Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
+Tam, gdzie istnieje wiele równie dobrych opcji, można dokonać arbitralnego wyboru, aby zapewnić spójność. W niniejszych regułach opisujemy każdą dopuszczalną opcję i sugerujemy wybór domyślny. Oznacza to, że możesz swobodnie dokonać innego wyboru we własnej bazie kodu, o ile jesteś konsekwentny i masz dobry powód. Dostosowując się do standardu społeczności, będziesz:
 
-1. Train your brain to more easily parse most of the community code you encounter
-2. Be able to copy and paste most community code examples without modification
-3. Often find new hires are already accustomed to your preferred coding style, at least in regards to Vue
+1. Łatwiej przetwarzał większość kodu napisanego przez społeczność,
+2. W stanie skopiować i wkleić większość przykładów kodu napisanego przez społeczność bez jego modyfikacji,
+3. Szybciej wdrożysz nowo zatrudnione osoby przyzwyczajone do tego stylu pisania kodu.
 
-- [See all priority C rules](./rules-recommended)
+- [Zobacz wszystkie reguły priorytetu C](./rules-recommended)
 
-### Priority D: Use with Caution
+### Priorytet D: Do użytku z zachowaniem ostrożności
 
-Some features of Vue exist to accommodate rare edge cases or smoother migrations from a legacy code base. When overused however, they can make your code more difficult to maintain or even become a source of bugs. These rules shine a light on potentially risky features, describing when and why they should be avoided.
+Niektóre funkcje Vue istnieją po to, aby obsłużyć rzadkie przypadki brzegowe lub ułatwić migrację ze starszej bazy kodu. Jeśli jednak są one nadużywane, mogą utrudnić utrzymanie kodu lub nawet stać się źródłem błędów. Te reguły rzucają światło na potencjalnie ryzykowne funkcje, opisując kiedy i dlaczego należy ich unikać.
 
-- [See all priority D rules](./rules-use-with-caution)
+- [Zobacz wszystkie reguły priorytetu D](./rules-use-with-caution)

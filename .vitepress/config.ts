@@ -503,26 +503,26 @@ export const sidebar = {
   ],
   '/style-guide/': [
     {
-      text: 'Style Guide',
+      text: 'Przewodnik po stylach',
       items: [
         {
-          text: 'Overview',
+          text: 'Przegląd',
           link: '/style-guide/'
         },
         {
-          text: 'A - Essential',
+          text: 'A - Podstawowe',
           link: '/style-guide/rules-essential'
         },
         {
-          text: 'B - Strongly Recommended',
+          text: 'B - Silnie zalecane',
           link: '/style-guide/rules-strongly-recommended'
         },
         {
-          text: 'C - Recommended',
+          text: 'C - Zalecane',
           link: '/style-guide/rules-recommended'
         },
         {
-          text: 'D - Use with Caution',
+          text: 'D - Do użytku z zachowaniem ostrożności',
           link: '/style-guide/rules-use-with-caution'
         }
       ]
