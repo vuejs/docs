@@ -5,10 +5,10 @@ outline: deep
 # Przewodnik po stylach
 
 :::warning Uwaga
-Przewodnik po stylu jest obecnie nieco przestarzały. Większość przykładów dotyczy tylko Options API i nie ma żadnych reguł dotyczących `<script setup>` i Composition API. W przyszłości planujemy to poprawić.
+Przewodnik po stylach jest obecnie nieco przestarzały. Większość przykładów dotyczy tylko Options API i nie ma żadnych reguł dotyczących `<script setup>` i Composition API. W przyszłości planujemy to poprawić.
 :::
 
-Masz do czynienia z oficjalnym przewodnikiem stylu dla Vue. Jeśli używasz Vue w swoim projekcie, jest to świetny punkt odniesienia, który pozwoli Ci uniknąć błędów, bikesheddingu i anty-patternów. Jednak, nie wierzymy, że jakikolwiek przewodnik stylu jest idealny dla wszystkich zespołów lub projektów, dlatego zachęcamy do rozważnych odstępstw w oparciu o wcześniejsze doświadczenia, otaczający stos technologii i osobiste wartości.
+Jeśli używasz Vue w swoim projekcie, jest to świetny punkt odniesienia, który pozwoli Ci uniknąć błędów, bikesheddingu i anty-patternów. Jednak, nie wierzymy, że jakikolwiek przewodnik stylu jest idealny dla wszystkich zespołów lub projektów, dlatego zachęcamy do rozważnych odstępstw w oparciu o wcześniejsze doświadczenia, otaczający stos technologii i osobiste wartości.
 
 W większości przypadków unikamy też sugestii dotyczących JavaScript lub HTML w ogóle. Nie obchodzi nas, czy używasz średników czy przecinków. Nie obchodzi nas, czy w HTML-u używasz pojedynczych czy podwójnych cudzysłowów dla wartości atrybutów. Istnieją jednak pewne wyjątki, w przypadku których stwierdziliśmy, że dany wzorzec jest przydatny w kontekście Vue.
 
