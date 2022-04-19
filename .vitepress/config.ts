@@ -35,6 +35,13 @@ const nav = [
     activeMatch: `^/ecosystem/`,
     items: [
       {
+        text: 'Core Libraries',
+        items: [
+          { text: 'Vue Router', link: 'https://router.vuejs.org/' },
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' }
+        ]
+      },
+      {
         text: 'Resources',
         items: [
           { text: 'Partners', link: '/ecosystem/partners' },
