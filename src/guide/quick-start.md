@@ -83,8 +83,28 @@ To get started with Vue without a build step, simply copy the following code int
   }).mount('#app')
 </script>
 ```
-
 The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable.
+
+To use **ref** or any vue 3 features, simply add **const { ref } = Vue** 
+
+
+```html
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">{{ message }} {{version}}</div>
+
+<script>
+  const { ref } = Vue
+  Vue.createApp({
+    setup(){
+      const version = ref(3)
+      const message = ref('Hello Vue')
+      return {message,version}
+    }
+  }).mount('#app')
+</script>
+```
+
 
 While the global build works, we will be primarily using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax throughout the rest of the documentation for consistency. In order to use Vue over native ES modules, use the following HTML instead:
 
