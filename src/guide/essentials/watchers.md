@@ -296,7 +296,7 @@ You can check out [this example](/examples/#fetching-data) with `watchEffect` an
 
 ## Callback Flush Timing
 
-When you mutate reactive state, it may trigger both Vue component updates and watcher callbacks created by you.
+When you mutate reactive states, it may trigger both Vue component updates and watcher callbacks created by you.
 
 By default, user-created watcher callbacks are called **before** Vue component updates. This means if you attempt to access the DOM inside a watcher callback, the DOM will be in the state before Vue has applied any updates.
 
