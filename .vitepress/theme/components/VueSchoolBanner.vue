@@ -2,7 +2,7 @@
   <a
     v-if="isVisible"
     id="vs"
-    href="https://vueschool.io/free-weekend?friend=vuejs"
+    href="https://vueschool.io/sales/price-increase-22?friend=vuejs"
     target="_blank"
     rel="noreferrer"
   >
