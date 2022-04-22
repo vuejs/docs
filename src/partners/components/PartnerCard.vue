@@ -16,7 +16,7 @@ const { name, intro, region, logo, proficiencies, flipLogo } = data
   <component
     :is="page ? 'div' : 'a'"
     class="partner-card"
-    :class="{ hero, page }"
+    :class="{ hero, page, flipLogo }"
     :href="'/partners/' + normalizeName(name) + '.html'"
   >
     <div class="info">
@@ -77,7 +77,7 @@ h3 {
 }
 
 .logo.dark,
-.dark .logo:not(.dark) {
+.flipLogo .dark .logo:not(.dark) {
   display: none;
 }
 
