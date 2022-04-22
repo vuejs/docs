@@ -1,0 +1,120 @@
+[
+  {
+    "name": "Vehikl",
+    "logo": "vehikl.svg",
+    "intro": "Vehikl is a team of code-crushing Laravel experts. Over the years we have built a variety of web applications for customers using Laravel as our framework of choice and implemented Lean Agile development techniques to build professional applications that are functional and easy to use.",
+    "description": [
+      "Combining the power of Laravel, Lean Agile development techniques, and a diverse team with deep technical knowledge and experience allows us to provide a unique approach to make sure your work gets done as quickly, professionally, and economically as possible. Our customers range from smaller startups looking for help with working through a feature backlog as they scale, to larger established firms that need to refactor a legacy code base and build new features.",
+      "We integrate fully with your existing workflow and will dramatically increase your project’s velocity. We also provide mentorship to more junior developers and work to assist knowledge transfer to any new developers you onboard internally. As a development partner, Vehikl provides a flexible, scalable option while you ramp up an internal team. Over the years we have built a variety of web applications for customers using Laravel as our framework of choice and implemented Lean Agile development techniques to build professional applications that are functional and easy to use."
+    ],
+    "proficiencies": ["Vue", "Laravel", "Node.js"],
+    "region": ["North America"],
+    "location": ["Ontario, Canada"],
+    "website": {
+      "text": "www.vehikl.com",
+      "url": "https://www.vehikl.com?utm_source=vue_partners_page"
+    },
+    "contact": "go+vuepartner@vehikl.com",
+    "platinum": true
+  },
+  {
+    "name": "Passionate People",
+    "logo": "passionatepeople.png",
+    "intro": "We provide you with additional technical capacity to power-up your digital transformation journeys with our teams of first-class engineers and consultants. Full stack JavaScript Cloud Engineers ready to work with you and your teams.",
+    "description": [
+      "Founded in October 2017, Passionate People is the leading JavaScript consultancy in the Netherlands.",
+      "Our aim is to help our customers speed up their digital transformation initiatives at scale, and our standard is the highest in the sector.",
+      "We have a wide client base spanning industries such as FinTech, E-commerce, Logistics, Supply Chain, Industrial Automation, etc. To achieve their digital goals and to make their products scalable and secure for millions of users, companies such as Albert Heijn Digital, GrandVision, Nationale Nederlanden, Talpa and AKQA have trusted us to deliver top-notch work.",
+      "Besides being the leading JavaScript Consultancy in the Netherlands, Passionate People is also proud to host the largest tech conferences and community events in the world.",
+      "Starting in February 2018 with Frontend Love and Vue.js Amsterdam, we are now responsible for many other conferences in Europe under the Frontend Love brand: React Live, AngularNL, Vue.js Amsterdam, and JS World Conference."
+    ],
+    "proficiencies": ["Vue", "Nuxt", "Node.js", "JAMStack"],
+    "region": ["Europe"],
+    "location": ["Amsterdam, Netherlands"],
+    "website": {
+      "text": "passionatepeople.io",
+      "url": "https://passionatepeople.io/"
+    },
+    "contact": "info@passionatepeople.io",
+    "platinum": true
+  },
+  {
+    "name": "Curotec",
+    "logo": "curotec.png",
+    "intro": "Our clients leverage our deep Vue.js & Nuxt.js expertise to develop better digital products and quickly expand their product development team velocity.",
+    "description": [
+      "Curotec approaches software development and IT support differently – address the business problems that our clients tell us they need to have solved with technology and with the right resources at the right time. That starts with understanding your challenges and pairing it with solutions and talent to get the outcome you’re driving for.",
+      "The result? Products that are responsive to your needs and primed for your growth, while ensuring your applications have a clean and straightforward end-user experience. And with well-developed and elegantly written code, it’s seamless for us to support and maintain as your needs evolve."
+    ],
+    "region": ["North America", "Latin America"],
+    "proficiencies": ["Vue", "Nuxt", "Laravel", "Jamstack"],
+    "website": {
+      "text": "www.curotec.com",
+      "url": "https://www.curotec.com/services/technologies/vuejs/"
+    },
+    "contact": "info@curotec.com",
+    "hiring": "https://www.curotec.com/careers/",
+    "platinum": true
+  },
+  {
+    "name": "64 Robots",
+    "logo": "64robots.svg",
+    "intro": "We're a team of Vue / Nuxt experts creating beautifully designed, cutting edge modern applications. Whether building something new, refactoring an existing project or moving to Vue/Nuxt 3, we'll give you a personal and thoughtful approach to development.",
+    "description": [
+      "We specialize in building Laravel APIs, Vue.js 2/3 SPAs, Nuxt.js 2/3 SSR applications, and Flutter mobile applications.",
+      "We love working with companies of all sizes. We've guided early-stage, funded startups to a successful launch and helped large international companies refactor and rebuild existing products to scale into the future. Whatever your needs, we'll help you make the right technology decisions and build a polished product that will put you on the path to success.",
+      "We set ourselves apart by our level of involvement in your product. Think of us as an extension of your team. Whether augmenting an existing team or stepping in as de facto CTO to make the technical decisions, we're there for you. We're selective in the products that we take on, as we truly want to believe in our work and do everything we can to make them successful. Your success is our success."
+    ],
+    "region": ["North America", "Europe", "Africa"],
+    "proficiencies": ["Vue", "Nuxt", "Laravel", "Flutter", "Node.js"],
+    "website": {
+      "text": "64robots.com",
+      "url": "https://64robots.com/"
+    },
+    "contact": "rob@64robots.com",
+    "platinum": true
+  },
+  {
+    "name": "Redberry",
+    "logo": "redberry.png",
+    "intro": "We are a 100+ award-winning, Laravel & Vue partner software design, development, and growth marketing agency from Tbilisi. In 8 years, we have taken 300+ products from zero to hero using Vue, Laravel, React and React Native for clients ranging from startups and government institutions to international agencies and enterprises.",
+    "description": [
+      "Redberry was born in 2014 as a four friends’ venture to bring digital transformation to the brick-to-mortar business in Georgia. Today, we are more than 150 and represent the biggest Georgian agency. We are multifaceted in every way - technology, services, people. We accompany our clients along the entire product journey - from product design to development to its growth. We boast a 100+ international award-winning team of legendary UX/UI designers, software developers, DevOps engineers, project managers, scrum masters, digital strategists, copywriters, content creators, and growth hackers. So call us your swiss-army-knife digital partner if you like; we do.",
+      "While we are a top-tier agency, one of the most beautiful things about us is our location, both literally and metaphorically. We are based in Georgia (country, not the state), where IT outsourcing is almost tax-free. As a result, our EU and US-based partner startups, agencies, and companies enjoy a longer runway and more significant project margins. Luckily, we have a substantial capacity and easy access to the rapidly growing local tech talent, so we are our clients’ reliable and scalable partner.",
+      "Besides being an official Laravel and now Vue Partner software house, we are a Google and Facebook partner creative growth agency, making us an ideal, full-service partner for 80+ companies of all sizes to grow their business progressively. It has also earned us the Best Agency of the Year titles twice in 3 years, 2019 and 2021. Our client’s business is our business, so we remain results-oriented at all times, on and off work hours, weekdays and weekends, to ensure we deliver the solutions that drive your business results. That mindset has shaped our list of clients with industry leaders and runner-ups in finance, insurance, real estate, auto, education, healthcare, etc.",
+      "As for the methodology, running our startup studio has imprinted agile into our DNA. We have built a dozen MVPs and continued developing them over time according to the ever-changing business requirements, honing our ability to optimize for low initial time-to-market and high development velocity on any project we take on. We also internalized and standardized setting up and maintaining adequate codebase test coverage and regularly using CI/CD pipelines, making our lives and codes that much more manageable.",
+      "If you would like to collaborate on extending your product team, you can contact us through our website."
+    ],
+    "region": ["Europe"],
+    "proficiencies": [
+      "Vue",
+      "Laravel",
+      "Node.js",
+      "React",
+      "React Native"
+    ],
+    "website": {
+      "text": "redberry.international",
+      "url": "https://redberry.international/"
+    },
+    "contact": "nini.doggo@redberry.ge"
+  },
+  {
+    "name": "WebReinvent",
+    "logo": "webreinvent.png",
+    "intro": "WebReinvent is a software development company that provides a range of end-to-end software products, real-time apps, multi-tenant SaaS applications, low latency API & mobile app development services. We have delivered MVP to enterprise-level software globally from startup to MNC. Email us, and let's build your software product.",
+    "description": [
+      "WebReinvent is a process-oriented software development company that provides a range of end-to-end software products, real-time apps, multi-tenant SaaS applications, low latency API & mobile apps development services. Our team is well versed with VueJs and its ecosystem. We have delivered MVP to enterprise-level software from startup to MNC. Not only client projects we have developed multiple open-source products which are based on VueJs. We are proud to mention that we are one of the few official Laravel & NuxtJS partners too.",
+      "Our team loves to follow the industry standards, some of which are managing git repo, code review, release deployments via CI/CD (DevOps), automated software testing, maintaining detailed technical documentation, application performance monitoring, etc.",
+      "Email us, and let's build your software product."
+    ],
+    "region": ["Asia", "North America", "Africa"],
+    "proficiencies": ["Vue", "Laravel", "Nuxt", "Ionic", "Node.js"],
+    "website": {
+      "text": "webreinvent.com",
+      "url": "https://webreinvent.com/?utm_source=vuejs.org&utm_medium=website&utm_campaign=partners"
+    },
+    "contact": "we@webreinvent.com",
+    "hiring": "https://webreinvent.com/career?utm_source=vuejs.org&utm_medium=website&utm_campaign=partner-hiring-link"
+  }
+]

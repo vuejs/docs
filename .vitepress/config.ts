@@ -106,6 +106,11 @@ const nav = [
   {
     text: 'Sponsor',
     link: '/sponsor/'
+  },
+  {
+    text: 'Partners',
+    link: '/partners/',
+    activeMatch: `^/partners/`,
   }
 ]
 
