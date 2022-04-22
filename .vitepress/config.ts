@@ -35,19 +35,19 @@ const nav = [
     activeMatch: `^/ecosystem/`,
     items: [
       {
+        text: 'Resources',
+        items: [
+          { text: 'Partners', link: '/partners/' },
+          { text: 'Themes', link: '/ecosystem/themes' },
+          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+        ]
+      },
+      {
         text: 'Core Libraries',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' }
-        ]
-      },
-      {
-        text: 'Resources',
-        items: [
-          { text: 'Partners', link: '/ecosystem/partners' },
-          { text: 'Themes', link: '/ecosystem/themes' },
-          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
         ]
       },
       {
