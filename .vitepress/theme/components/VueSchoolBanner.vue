@@ -37,14 +37,14 @@ import { ref, onMounted } from 'vue'
 const isVisible = ref(false)
 
 onMounted(() => {
-  isVisible.value = !localStorage.getItem('VS_FW_22')
+  isVisible.value = !localStorage.getItem('VS_FW_22_OFFER')
   if (isVisible.value) document.body.classList.add('has-top-banner')
 })
 
 function close () {
   isVisible.value = false
   document.body.classList.remove('has-top-banner')
-  localStorage.setItem('VS_FW_22', 1)
+  localStorage.setItem('VS_FW_22_OFFER', 1)
 }
 </script>
 
