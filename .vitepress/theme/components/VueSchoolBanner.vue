@@ -13,7 +13,7 @@
     <div class="vs-core">
       <div class="vs-slogan">
         <div class="vs-slogan-title">
-          Get up to <strong>40%</strong> off your Vue School Subscription
+          Get up to <strong>40% off</strong> your Vue School Subscription
         </div>
         <div class="vs-slogan-subtitle">
           Time Limited Offer
