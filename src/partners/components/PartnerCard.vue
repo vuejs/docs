@@ -77,7 +77,7 @@ h3 {
 }
 
 .logo.dark,
-.flipLogo .dark .logo:not(.dark) {
+.dark .flipLogo .logo:not(.dark) {
   display: none;
 }
 
