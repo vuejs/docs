@@ -9,7 +9,7 @@ const { data, hero, page } = defineProps<{
   page?: boolean
 }>()
 
-const { name, intro, region, logo, proficiencies } = data
+const { name, intro, region, logo, proficiencies, flipLogo } = data
 </script>
 
 <template>
@@ -20,6 +20,11 @@ const { name, intro, region, logo, proficiencies } = data
     :href="'/partners/' + normalizeName(name) + '.html'"
   >
     <div class="info">
+      <img
+        class="logo dark"
+        v-if="hero && flipLogo"
+        :src="getLogo(logo, flipLogo)"
+      />
       <img class="logo" v-if="hero" :src="getLogo(logo)" />
       <h3 v-else>{{ name }}</h3>
       <p class="region"><Location /> {{ region.join(', ') }}</p>
@@ -29,7 +34,7 @@ const { name, intro, region, logo, proficiencies } = data
         <span class="proficiency" v-for="p in proficiencies">{{ p }}</span>
       </p>
     </div>
-    <img :src="getHero(name)" :alt="name + ' hero'" />
+    <img class="big" :src="getHero(name)" :alt="name + ' hero'" />
   </component>
 </template>
 
@@ -68,23 +73,31 @@ h3 {
 .logo {
   margin-bottom: 1em;
   max-width: 240px;
+  max-height: 120px;
 }
 
-.dark .logo {
-  filter: grayscale(1) invert(1);
+.logo.dark,
+.dark .logo:not(.dark) {
+  display: none;
 }
 
-.partner-card:not(.hero) img {
+.dark .logo.dark {
+  display: inline-block;
+}
+
+.partner-card:not(.hero) .big {
   margin-top: auto;
 }
 
 .partner-card.hero .info {
   margin-right: 2em;
 }
-.partner-card.hero img {
+.partner-card.hero .big {
   display: inline-block;
   margin-left: auto;
   width: 60%;
+  max-height: 360px;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {
@@ -97,7 +110,7 @@ h3 {
   .logo {
     max-width: 200px;
   }
-  .partner-card.hero img {
+  .partner-card.hero .big {
     width: 100%;
   }
 }

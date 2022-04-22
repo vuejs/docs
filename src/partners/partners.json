@@ -2,6 +2,7 @@
   {
     "name": "Vehikl",
     "logo": "vehikl.svg",
+    "flipLogo": true,
     "intro": "Vehikl is a team of code-crushing Laravel experts. Over the years we have built a variety of web applications for customers using Laravel as our framework of choice and implemented Lean Agile development techniques to build professional applications that are functional and easy to use.",
     "description": [
       "Combining the power of Laravel, Lean Agile development techniques, and a diverse team with deep technical knowledge and experience allows us to provide a unique approach to make sure your work gets done as quickly, professionally, and economically as possible. Our customers range from smaller startups looking for help with working through a feature backlog as they scale, to larger established firms that need to refactor a legacy code base and build new features.",
@@ -20,6 +21,7 @@
   {
     "name": "Passionate People",
     "logo": "passionatepeople.png",
+    "flipLogo": true,
     "intro": "We provide you with additional technical capacity to power-up your digital transformation journeys with our teams of first-class engineers and consultants. Full stack JavaScript Cloud Engineers ready to work with you and your teams.",
     "description": [
       "Founded in October 2017, Passionate People is the leading JavaScript consultancy in the Netherlands.",
@@ -108,7 +110,7 @@
       "Our team loves to follow the industry standards, some of which are managing git repo, code review, release deployments via CI/CD (DevOps), automated software testing, maintaining detailed technical documentation, application performance monitoring, etc.",
       "Email us, and let's build your software product."
     ],
-    "region": ["Asia", "North America", "Africa"],
+    "region": ["North America", "Asia", "Europe"],
     "proficiencies": ["Vue", "Laravel", "Nuxt", "Ionic", "Node.js"],
     "website": {
       "text": "webreinvent.com",

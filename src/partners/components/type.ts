@@ -1,6 +1,7 @@
 export interface Partner {
   name: string
   logo: string
+  flipLogo?: boolean
   intro: string
   description: string[]
   proficiencies: string[]
