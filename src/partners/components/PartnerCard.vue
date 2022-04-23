@@ -27,8 +27,11 @@ const { name, intro, region, logo, proficiencies, flipLogo } = data
       />
       <img class="logo" v-if="hero" :src="getLogo(logo)" />
       <h3 v-else>{{ name }}</h3>
+
       <p class="region"><Location /> {{ region.join(', ') }}</p>
+
       <p>{{ intro }}</p>
+
       <h4 v-if="hero">Proficiencies</h4>
       <p v-if="hero">
         <span class="proficiency" v-for="p in proficiencies">{{ p }}</span>
@@ -171,12 +174,13 @@ h4 {
 }
 
 .proficiency {
+  display: inline-block;
   color: var(--vt-c-text-code);
   font-weight: 600;
   font-size: 0.85em;
-  margin-right: 4px;
+  margin: 2px;
   background-color: var(--vt-c-bg-mute);
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 6px;
 }
 </style>

@@ -81,4 +81,10 @@ h2 {
 .browse-all:hover {
   background-color: var(--vt-c-brand-dark);
 }
+
+@media (max-width: 768px) {
+  .spotlight-inner, .featured {
+    padding: 36px 28px;
+  }
+}
 </style>
