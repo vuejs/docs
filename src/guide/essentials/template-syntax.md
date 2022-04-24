@@ -113,7 +113,7 @@ You can bind them to a single element by using `v-bind` without an argument:
 
 ## Using JavaScript Expressions
 
-So far we've only been binding to simple property keys in our templates. But Vue actually supports the full power of JavaScript expressions inside all data bindings:
+So far we've only been binding two simple property keys in our templates. But Vue actually supports the full power of JavaScript expressions inside all data bindings:
 
 ```vue-html
 {{ number + 1 }}
