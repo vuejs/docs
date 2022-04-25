@@ -147,7 +147,7 @@ function close () {
 }
 
 .has-top-banner {
-  --vt-banner-height: 104px;
+  --vt-banner-height: 80px;
 }
 
 .has-top-banner .banner {
