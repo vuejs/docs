@@ -66,10 +66,10 @@
     "region": ["Europe"],
     "website": {
       "text": "www.monterail.com",
-      "url": "https://www.monterail.com/?utm_source=vuejs.org&utm_medium=website&utm_campaign=partners"
+      "url": "https://www.monterail.com/?utm_source=vuejs.org&utm_medium=referral&utm_campaign=partners"
     },
-    "contact": "peter.curac-dahl@monterail.com",
-    "hiring": "https://www.monterail.com/careers?utm_source=vuejs.org&utm_medium=website&utm_campaign=partner-hiring-link",
+    "contact": "hello@monterail.com",
+    "hiring": "https://www.monterail.com/careers?utm_source=vuejs.org&utm_medium=referral&utm_campaign=partner-hiring-link",
     "platinum": true
   },
   {
