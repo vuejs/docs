@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@vue/repl": "^1.0.0",
-    "@vue/theme": "^1.0.1",
+    "@vue/theme": "^1.0.2",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
-    "vitepress": "^0.22.2",
-    "vue": "^3.2.31"
+    "vitepress": "^0.22.3",
+    "vue": "^3.2.33"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
