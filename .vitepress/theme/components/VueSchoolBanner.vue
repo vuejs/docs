@@ -13,10 +13,10 @@
     <div class="vs-core">
       <div class="vs-slogan">
         <div class="vs-slogan-title">
-          Get up to <strong>40% off</strong> your Vue School Subscription
+          Extended for <strong>48 hours!</strong>
         </div>
         <div class="vs-slogan-subtitle">
-          Time Limited Offer
+          Get up to 40% off your Vue School Subscription
         </div>
       </div>
       <div class="vs-button">
@@ -37,7 +37,9 @@ import { ref, onMounted } from 'vue'
 const isVisible = ref(false)
 
 onMounted(() => {
-  isVisible.value = !localStorage.getItem('VS_FW_22_OFFER')
+  const now = new Date()
+  const end = new Date('2022-05-04T00:00:00+02:00')
+  isVisible.value = !localStorage.getItem('VS_FW_22_OFFER') && (now < end)
   if (isVisible.value) document.body.classList.add('has-top-banner')
 })
 
