@@ -77,7 +77,7 @@ import ComponentA from './ComponentA.vue'
 </template>
 ```
 
-If not using SFC, you will need to use the `components` option:
+In non-`<script setup>`, you will need to use the `components` option:
 
 ```js
 import ComponentA from './ComponentA.js'
