@@ -65,7 +65,7 @@ Local registration scopes the availability of the registered components to the c
 
 <div class="composition-api">
 
-When using SFC with `<script setup>`, imported components are automatically registered locally:
+When using SFC with `<script setup>`, imported components can be locally used without registration:
 
 ```vue
 <script setup>
