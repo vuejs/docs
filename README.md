@@ -11,7 +11,7 @@ pnpm i
 pnpm run dev
 ```
 
-This project requires Node.js to be `v14.0.0` or higher, because we use new JavaScript features in our code, such as optional chaining.
+Ten projekt wymaga, aby Node.js był w wersji `v14.0.0` lub wyższej, ponieważ w naszym kodzie używamy nowych funkcji JavaScript, takich jak opcjonalne łączenie.
 
 ## Working on the content
 
