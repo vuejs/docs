@@ -37,14 +37,21 @@ const nav = [
       {
         text: 'Zasoby',
         items: [
-          { text: 'Partnerzy', link: '/ecosystem/partners' },
-          { text: 'Motywy', link: '/ecosystem/themes' },
-          { text: 'Praca', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'Partners', link: '/partners/' },
+          { text: 'Themes', link: '/ecosystem/themes' },
+          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
         ]
       },
       {
-        text: 'Kursy wideo',
+        text: 'Core Libraries',
+        items: [
+          { text: 'Vue Router', link: 'https://router.vuejs.org/' },
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' }
+        ]
+      },
+      {
+        text: 'Video Courses',
         items: [
           {
             text: 'Vue Mastery',
@@ -99,6 +106,11 @@ const nav = [
   {
     text: 'Sponsor',
     link: '/sponsor/'
+  },
+  {
+    text: 'Partners',
+    link: '/partners/',
+    activeMatch: `^/partners/`,
   }
 ]
 
