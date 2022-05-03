@@ -37,10 +37,17 @@ const nav = [
       {
         text: 'Zasoby',
         items: [
-          { text: 'Partnerzy', link: '/ecosystem/partners' },
+          { text: 'Partnerzy', link: '/partners/' },
           { text: 'Motywy', link: '/ecosystem/themes' },
           { text: 'Praca', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+        ]
+      },
+      {
+        text: 'Biblioteki główne',
+        items: [
+          { text: 'Vue Router', link: 'https://router.vuejs.org/' },
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' }
         ]
       },
       {
@@ -99,6 +106,11 @@ const nav = [
   {
     text: 'Sponsor',
     link: '/sponsor/'
+  },
+  {
+    text: 'Partners',
+    link: '/partners/',
+    activeMatch: `^/partners/`,
   }
 ]
 

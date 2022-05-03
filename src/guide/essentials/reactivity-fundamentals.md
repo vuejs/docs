@@ -343,12 +343,12 @@ The `reactive()` API has two limitations:
 
 1. It only works for object types (objects, arrays, and [collection types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections) such as `Map` and `Set`). It cannot hold [primitive types](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) such as `string`, `number` or `boolean`.
 
-2. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object:
+2. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost:
 
    ```js
    let state = reactive({ count: 0 })
 
-   // this won't work!
+   // the above reference ({ count: 0 }) is no longer being tracked (reactivity connection is lost!)
    state = reactive({ count: 1 })
    ```
 
