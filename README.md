@@ -11,9 +11,9 @@ pnpm i
 pnpm run dev
 ```
 
-Ten projekt wymaga, aby Node.js był w wersji `v14.0.0` lub wyższej, ponieważ w naszym kodzie używamy nowych funkcji JavaScript, takich jak opcjonalne łączenie.
+Ten projekt wymaga, aby Node.js był w wersji `v14.0.0` lub wyższej, ponieważ w naszym kodzie używamy nowych funkcji JavaScript.
 
-## Working on the content
+## Praca nad treścią
 
 - Zobacz dokumentację VitePress na temat obsługiwanych [rozszerzeń Markdown](https://vitepress.vuejs.org/guide/markdown.html) i możliwości [używania składni Vue w markdown](https://vitepress.vuejs.org/guide/using-vue.html).
 
