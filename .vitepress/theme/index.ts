@@ -2,8 +2,6 @@ import './styles/index.css'
 import { h, App } from 'vue'
 import { VPTheme } from '@vue/theme'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
-import VueSchoolLink from './components/VueSchoolLink.vue'
-import VueSchoolBanner from './components/VueSchoolBanner.vue'
 import {
   preferComposition,
   preferSFC,
@@ -16,9 +14,6 @@ export default Object.assign({}, VPTheme, {
   Layout: () => {
     // @ts-ignore
     return h(VPTheme.Layout, null, {
-      banner: () => h('div', {}, [
-        h(VueSchoolBanner)
-      ]),
       'sidebar-top': () => h(PreferenceSwitch),
       'aside-mid': () => h(SponsorsAside),
       'aside-bottom': () => h(VueJobs)
@@ -28,6 +23,5 @@ export default Object.assign({}, VPTheme, {
     app.provide('prefer-composition', preferComposition)
     app.provide('prefer-sfc', preferSFC)
     app.provide('filter-headers', filterHeadersByPreference)
-    app.component('VueSchoolLink', VueSchoolLink)
   }
 })
