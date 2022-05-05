@@ -8,6 +8,7 @@ import {
   filterHeadersByPreference
 } from './components/preferences'
 import SponsorsAside from './components/SponsorsAside.vue'
+import VueSchoolLink from './components/VueSchoolLink.vue'
 import VueJobs from './components/VueJobs.vue'
 
 export default Object.assign({}, VPTheme, {
@@ -23,5 +24,6 @@ export default Object.assign({}, VPTheme, {
     app.provide('prefer-composition', preferComposition)
     app.provide('prefer-sfc', preferSFC)
     app.provide('filter-headers', filterHeadersByPreference)
+    app.component('VueSchoolLink', VueSchoolLink)
   }
 })
