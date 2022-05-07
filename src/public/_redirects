@@ -16,12 +16,8 @@
 /v2/guide/                                          /guide/introduction.html
 /v2/guide/index.html                                /guide/introduction.html
 /v2/guide/installation.html                         /guide/quick-start.html
-/v2/guide/instance.html#Data-and-Methods            /guide/essentials/reactivity-fundamentals.html
-/v2/guide/instance.html#Instance-Lifecycle-Hooks    /guide/essentials/lifecycle.html
-/v2/guide/instance.html#Lifecycle-Diagram           /guide/essentials/lifecycle.html#lifecycle-diagram
 /v2/guide/instance.html             /guide/essentials/application.html
 /v2/guide/syntax.html               /guide/essentials/template-syntax.html
-/v2/guide/computed.html#Watchers    /guide/essentials/watchers.html
 /v2/guide/computed.html             /guide/essentials/computed.html
 /v2/guide/class-and-style.html      /guide/essentials/class-and-style.html
 /v2/guide/conditional.html          /guide/essentials/conditional.html
@@ -30,13 +26,10 @@
 /v2/guide/forms.html                /guide/essentials/forms.html
 /v2/guide/components.html           /guide/essentials/component-basics.html
 /v2/guide/components-registration.html                      /guide/components/registration.html
-/v2/guide/components-props.html#Non-Prop-Attributes         /guide/components/attrs.html
 /v2/guide/components-props.html                             /guide/components/props.html
 /v2/guide/components-custom-events.html                     /guide/components/events.html
 /v2/guide/components-slots.html                             /guide/components/slots.html
-/v2/guide/components-dynamic-async.html#Async-Components    /guide/components/async.html
 /v2/guide/components-dynamic-async.html                     /guide/built-ins/keep-alive.html
-/v2/guide/transitions.html#List-Transitions                 /guide/built-ins/transition-group.html
 /v2/guide/transitions.html              /guide/built-ins/transition.html
 /v2/guide/transitioning-state.html      /guide/extras/animation.html
 /v2/guide/custom-directive.html         /guide/reusability/custom-directives.html
