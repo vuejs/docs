@@ -176,7 +176,7 @@ import { ref, computed } from 'vue'
 
 const A0 = ref(0)
 const A1 = ref(1)
-const A2 = computed(() => A0.value + A1.value)
+const A2 = computed(() => A0.value + A1.value))
 
 A0.value = 2
 ```
@@ -219,7 +219,7 @@ let A0 = $ref(0)
 let A1 = $ref(1)
 
 // track on variable read
-const A2 = $computed(() => A0 + A1)
+const A2 = $computed(() => A0 + A1))
 
 // trigger on variable write
 A0 = 2
