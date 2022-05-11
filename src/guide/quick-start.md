@@ -123,7 +123,11 @@ Notice how we can import directly from `'vue'` in our code - this is made possib
 You can add entries for other dependencies to the import map - just make sure they point to the ES modules version of the library you intend to use.
 
 :::tip Import Maps Browser Support
-Import maps are currently only available in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process. If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
+Import maps are supported by default in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process.
+
+If using Firefox, it is only supported in version 102+ and currently needs to be enabled via the `dom.importMaps.enabled` option in `about:config`.
+
+If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
 :::
 
 :::warning Not for production
