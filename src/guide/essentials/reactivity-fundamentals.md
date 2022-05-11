@@ -2,17 +2,17 @@
 outline: deep
 ---
 
-# Reactivity Fundamentals
+# Podstawy reaktywności
 
-:::tip API Preference
-This page and many other chapters later in the guide contain different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
+:::tip Preferencje API
+Ta strona i wiele innych rozdziałów w dalszej części podręcznika zawierają różne treści dla interfejsów Options API i Composition API. Obecne twoje preferencje to <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. Możesz przełączać się między stylami API za pomocą przełączników "Preferowane API" znajdujących się w górnej części lewego paska bocznego.
 :::
 
-## Declaring Reactive State
+## Deklarowanie Stanu Reaktywnego
 
 <div class="options-api">
 
-With Options API, we use the `data` option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. Any top-level properties of this object are proxied on the component instance (`this` in methods and lifecycle hooks):
+W Options API używamy parametru `data`, aby zadeklarować reaktywny stan komponentu. Wartość parametru opcji powinna być funkcją, która zwraca obiekt. Vue wywoła tę funkcję podczas tworzenia nowej instancji komponentu i opakuje zwrócony obiekt w swój system reaktywności. Wszelkie właściwości najwyższego poziomu tego obiektu są przekazywane na instancję komponentu (`this` w metodach i momentach cyklu życia komponentu):
 
 ```js{2-6}
 export default {
