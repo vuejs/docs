@@ -40,7 +40,7 @@ h('div', { id: 'foo' })
 h('div', { class: 'bar', innerHTML: 'hello' })
 
 // props modifiers such as .prop and .attr can be added via shorthands
-h('div', { .name: 'some-name', ^width: '100' })
+h('div', { '.name': 'some-name', '^width': '100' })
 
 // class and style have the same object / array
 // value support that they have in templates
