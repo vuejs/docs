@@ -8,9 +8,9 @@
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-computed-properties-in-vue-with-the-composition-api" title="Free Vue.js Computed Properties Lesson"/>
 </div>
 
-## Basic Example
+## Przykład podstawowy
 
-In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
+Wyrażenia w szablonach są bardzo wygodne, ale służą do wykonywania prostych operacji. Umieszczanie zbyt dużej ilości logiki w szablonach może spowodować, że staną się one obszerne i trudne do utrzymania. Na przykład, jeśli mamy obiekt z zagnieżdżoną tablicą:
 
 <div class="options-api">
 
@@ -47,16 +47,16 @@ const author = reactive({
 
 </div>
 
-And we want to display different messages depending on if `author` already has some books or not:
+Chcemy też wyświetlać różne komunikaty w zależności od tego, czy `autor` ma już jakieś książki, czy nie:
 
 ```vue-html
 <p>Has published books:</p>
 <span>{{ author.books.length > 0 ? 'Yes' : 'No' }}</span>
 ```
 
-At this point, the template is getting a bit cluttered. We have to look at it for a second before realizing that it performs a calculation depending on `author.books`. More importantly, we probably don't want to repeat ourselves if we need to include this calculation in the template more than once.
+W tym momencie szablon staje się nieco zagracony. Musimy przyjrzeć się mu przez chwilę, aby zorientować się, że wykonuje on obliczenia w zależności od `author.books`. Co ważniejsze, prawdopodobnie nie chcemy się powtarzać, jeśli będziemy musieli zawrzeć to obliczenie w szablonie więcej niż jeden raz.
 
-That's why for complex logic that includes reactive data, it is recommended to use a **computed property**. Here's the same example, refactored:
+Dlatego właśnie w przypadku złożonej logiki, która zawiera dane reaktywne, zaleca się używanie właściwości **computed**. Poniżej znajduje się ten sam przykład po refaktoryzacji:
 
 <div class="options-api">
 
