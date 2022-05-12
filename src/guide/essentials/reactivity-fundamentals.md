@@ -375,7 +375,7 @@ API `reactive()` ma dwa ograniczenia:
 
 ## Reactive Variables with `ref()` \*\*
 
-To address the limitations of `reactive()`, Vue also provides a [`ref()`](/api/reactivity-core.html#ref) function which allows us to create reactive **"refs"** that can hold any value type:
+Aby zaradzić ograniczeniom funkcji `reactive()`, Vue dostarcza również funkcję [`ref()`](/api/reactivity-core.html#ref), która pozwala nam na tworzenie reaktywnych **"refów "**, które mogą przechowywać dowolny typ wartości:
 
 ```js
 import { ref } from 'vue'
@@ -383,7 +383,7 @@ import { ref } from 'vue'
 const count = ref(0)
 ```
 
-`ref()` takes the argument and returns it wrapped within a ref object with a `.value` property:
+Polecenie `ref()` pobiera argument i zwraca go opakowany w obiekt ref z właściwością `.value`:
 
 ```js
 const count = ref(0)
@@ -395,20 +395,20 @@ count.value++
 console.log(count.value) // 1
 ```
 
-See also: [Typing Refs](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
+Zobacz także: [Typowanie refów](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
 
-Similar to properties on a reactive object, the `.value` property of a ref is reactive. In addition, when holding object types, ref automatically converts its `.value` with `reactive()`.
+Podobnie jak właściwości obiektu reaktywnego, właściwość `.value` ref jest reaktywna. Dodatkowo, gdy przechowuje typy obiektów, ref automatycznie konwertuje swoją `.value` za pomocą `reactive()`.
 
-A ref containing an object value can reactively replace the entire object:
+Ref zawierający wartość obiektu może reaktywnie zastąpić cały obiekt:
 
 ```js
 const objectRef = ref({ count: 0 })
 
-// this works reactively
+// działa to reaktywnie
 objectRef.value = { count: 1 }
 ```
 
-Refs can also be passed into functions or destructured from plain objects without losing reactivity:
+Refy można również przekazywać do funkcji lub usuwać z obiektów bez utraty reaktywności:
 
 ```js
 const obj = {
@@ -416,20 +416,20 @@ const obj = {
   bar: ref(2)
 }
 
-// the function receives a ref
-// it needs to access the value via .value but it
-// will retain the reactivity connection
+// funkcja otrzymuje ref
+// musi uzyskać dostęp do wartości za pomocą .value, ale
+// zachowa połączenie reaktywne
 callSomeFunction(obj.foo)
 
-// still reactive
+// wciąż reaktywne
 const { foo, bar } = obj
 ```
 
-In other words, `ref()` allows us to create a "reference" to any value and pass it around without losing reactivity. This capability is quite important as it is frequently used when extracting logic into [Composable Functions](/guide/reusability/composables.html).
+Innymi słowy, `ref()` pozwala nam stworzyć "referencję" do dowolnej wartości i przekazać ją dalej bez utraty reaktywności. Ta zdolność jest dość ważna, ponieważ jest często używana podczas wyciągania logiki do [Composable Functions] (/guide/reusability/composables.html).
 
-### Ref Unwrapping in Templates \*\*
+### Rozwijanie refów w szablonach
 
-When refs are accessed as top-level properties in the template, they are automatically "unwrapped" so there is no need to use `.value`. Here's the previous counter example, using `ref()` instead:
+Gdy refy są dostępne jako właściwości najwyższego poziomu w szablonie, są automatycznie "rozpakowywane", więc nie ma potrzeby używania `.value`. Oto poprzedni przykład z licznikiem, używający zamiast tego `ref()`:
 
 ```vue{13}
 <script setup>
@@ -444,28 +444,28 @@ function increment() {
 
 <template>
   <button @click="increment">
-    {{ count }} <!-- no .value needed -->
+    {{ count }} <!-- nie potrzeba .value -->
   </button>
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Spróbuj w tego w praktyce ](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-Note the unwrapping only applies if the ref is a top-level property on the template render context. As an example, `foo` is a top-level property, but `object.foo` is not.
+Zwróć uwagę, że rozpakowywanie ma zastosowanie tylko wtedy, gdy ref jest właściwością najwyższego poziomu w kontekście renderowania szablonu. Na przykład, `foo` jest właściwością najwyższego poziomu, ale `object.foo` nie jest.
 
-So given the following object:
+Zatem biorąc pod uwagę następujący obiekt:
 
 ```js
 const object = { foo: ref(1) }
 ```
 
-The following expression will **NOT** work as expected:
+Poniższe wyrażenie **NIE** będzie działać zgodnie z oczekiwaniami:
 
 ```vue-html
 {{ object.foo + 1 }}
 ```
 
-The rendered result will be `[object Object]` because `object.foo` is a ref object. We can fix that by making `foo` a top-level property:
+Wynikiem renderowania będzie `[object Object]`, ponieważ `object.foo` jest obiektem ref. Możemy to naprawić przez uczynienie `foo` właściwością najwyższego poziomu:
 
 ```js
 const { foo } = object
@@ -475,19 +475,20 @@ const { foo } = object
 {{ foo + 1 }}
 ```
 
-Now the render result will be `2`.
+Teraz wynikiem renderowania będzie `2`.
 
-One thing to note is that a ref will also be unwrapped if it is the final evaluated value of a text interpolation (i.e. a <code v-pre>{{ }}</code> tag), so the following will render `1`:
+Teraz wynikiem renderowania będzie `2`.
+Należy zauważyć, że ref zostanie również zawinięty, jeśli jest końcową wartością interpolacji tekstowej (np. znacznik <code v-pre>{{ }}</code>), więc poniższy wynik wyrenderuje `1`:
 
 ```vue-html
 {{ object.foo }}
 ```
 
-This is just a convenience feature of text interpolation and is equivalent to <code v-pre>{{ object.foo.value }}</code>.
+Jest to tylko wygodna cecha interpolacji tekstu i jest równoważna <code v-pre>{{ object.foo.value }}</code>.
 
-### Ref Unwrapping in Reactive Objects \*\*
+### Rozpakowywanie refów w obiektach reaktywnych
 
-When a `ref` is accessed or mutated as a property of a reactive object, it is also automatically unwrapped so it behaves like a normal property:
+Kiedy uzyskuje się dostęp do `ref` lub modyfikuje się go jako właściwość obiektu reaktywnego, jest on również automatycznie rozwijany, więc zachowuje się jak normalna właściwość:
 
 ```js
 const count = ref(0)
@@ -501,30 +502,30 @@ state.count = 1
 console.log(count.value) // 1
 ```
 
-If a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
+Jeśli do właściwości powiązanej z istniejącym ref zostanie przypisany nowy ref, zastąpi on stary ref:
 
 ```js
 const otherCount = ref(2)
 
 state.count = otherCount
 console.log(state.count) // 2
-// original ref is now disconnected from state.count
+// oryginalny ref jest teraz odłączony od state.count
 console.log(count.value) // 1
 ```
 
-Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced.html#shallowreactive).
+Rozwijanie refów ma miejsce tylko wtedy, gdy są one zagnieżdżone wewnątrz głębokiego obiektu reaktywnego. Nie ma zastosowania, gdy jest dostępna jako właściwość [płytkiego obiektu reaktywnego] (/api/reactivity-advanced.html#shallowreactive).
 
-#### Ref Unwrapping in Arrays and Collections
+#### Rozwijanie ref w tablicach i kolekcjach
 
-Unlike reactive objects, there is no unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`:
+W przeciwieństwie do obiektów reaktywnych, nie ma rozwijania, gdy ref jest dostępny jako element tablicy reaktywnej lub natywnej kolekcji typu `Map`:
 
 ```js
 const books = reactive([ref('Vue 3 Guide')])
-// need .value here
+// tutaj musi być .value
 console.log(books[0].value)
 
 const map = reactive(new Map([['count', ref(0)]]))
-// need .value here
+// tutaj musi być .value
 console.log(map.get('count').value)
 ```
 
@@ -532,41 +533,41 @@ console.log(map.get('count').value)
 
 <div class="options-api">
 
-### Stateful Methods \*
+### Metody stanowe
 
-In some cases, we may need to dynamically create a method function, for example creating a debounced event handler:
+W niektórych przypadkach możemy potrzebować dynamicznie utworzyć funkcję metody, na przykład tworząc obsługę zdarzenia z odbicia:
 
 ```js
 import { debounce } from 'lodash-es'
 
 export default {
   methods: {
-    // Debouncing with Lodash
+// Odbijanie za pomocą Lodash
     click: debounce(function () {
-      // ... respond to click ...
+// ... reakcja na kliknięcie ...
     }, 500)
   }
 }
 ```
 
-However, this approach is problematic for components that are reused because a debounced function is **stateful**: it maintains some internal state on the elapsed time. If multiple component instances share the same debounced function, they will interfere with one another.
+Jednak takie podejście jest problematyczne w przypadku komponentów, które są ponownie używane, ponieważ funkcja odświeżania jest **statystyczna**: utrzymuje pewien wewnętrzny stan dotyczący upływającego czasu. Jeśli wiele instancji komponentów korzysta z tej samej funkcji odbicia, będą one wzajemnie się zakłócać.
 
-To keep each component instance's debounced function independent of the others, we can create the debounced version in the `created` lifecycle hook:
+Aby zachować niezależność funkcji odbicia każdej instancji komponentu od pozostałych, możemy utworzyć jej wersję w lifecycle hook `created`:
 
 ```js
 export default {
   created() {
-    // each instance now has its own copy of debounced handler
+    // każda instancja ma teraz swoją własną kopię handler'a odbicia
     this.debouncedClick = _.debounce(this.click, 500)
   },
   unmounted() {
-    // also a good idea to cancel the timer
-    // when the component is removed
+    // dobrze jest też anulować timer
+    // gdy komponent zostanie usunięty
     this.debouncedClick.cancel()
   },
   methods: {
     click() {
-      // ... respond to click ...
+      // ... reagować na kliknięcie ...
     }
   }
 }
@@ -576,16 +577,16 @@ export default {
 
 <div class="composition-api">
 
-## Reactivity Transform <sup class="vt-badge experimental" /> \*\*
+## Przekształcenie reaktywności <sup class="vt-badge experimental" /> 
 
-Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the earlier "counter" example like this:
+Konieczność używania `.value` z referencjami jest wadą narzuconą przez ograniczenia języka JavaScript. Jednak dzięki przekształceniom w czasie kompilacji możemy poprawić ergonomię poprzez automatyczne dołączanie `.value` w odpowiednich miejscach. Vue udostępnia transformację w czasie kompilacji, która pozwala nam napisać wcześniejszy przykład "licznika" w ten sposób:
 
 ```vue
 <script setup>
 let count = $ref(0)
 
 function increment() {
-  // no need for .value
+  // nie trzeba używać .value
   count++
 }
 </script>
@@ -595,6 +596,6 @@ function increment() {
 </template>
 ```
 
-You can learn more about [Reactivity Transform](/guide/extras/reactivity-transform.html) in its dedicated section. Do note that it is currently still experimental and may change before being finalized.
+Możesz dowiedzieć się więcej o [Przekształceniu reaktywności](/guide/extras/reactivity-transform.html) w dedykowanej sekcji. Należy pamiętać, że obecnie jest to wciąż eksperymentalne rozwiązanie i może ulec zmianie zanim zostanie sfinalizowane.
 
 </div>
