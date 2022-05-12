@@ -74,7 +74,9 @@ Aby rozpocząć pracę z Vue bez etapu kompilacji, wystarczy skopiować poniższ
 <div id="app">{{ message }}</div>
 
 <script>
-  Vue.createApp({
+  const { createApp } = Vue
+
+  createApp({
     data() {
       return {
         message: 'Hello Vue!'
@@ -84,7 +86,11 @@ Aby rozpocząć pracę z Vue bez etapu kompilacji, wystarczy skopiować poniższ
 </script>
 ```
 
-W powyższym przykładzie użyto globalnej wersji Vue, w której wszystkie interfejsy API są dostępne pod globalną zmienną `Vue`.
+W powyższym przykładzie użyto globalnej wersji Vue, w której wszystkie interfejsy API są dostępne pod globalną zmienną `Vue`. Na przykład, aby użyć interfejsu API `ref`, można wykonać następujące czynności:
+
+```js
+const { createApp, ref } = Vue
+```
 
 Chociaż globalny build działa, w pozostałej części dokumentacji dla zachowania spójności będziemy używać składni [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). Aby użyć Vue zamiast natywnych modułów ES, należy użyć następującego kodu HTML:
 
@@ -112,11 +118,19 @@ Chociaż globalny build działa, w pozostałej części dokumentacji dla zachowa
 </script>
 ```
 
-Zauważ, że w naszym kodzie możemy importować bezpośrednio z `'vue'` - jest to możliwe dzięki blokowi `<script type="importmap">`, wykorzystującemu natywną funkcję przeglądarki o nazwie [Import Maps](https://caniuse.com/import-maps). Mapy importu są obecnie dostępne tylko w przeglądarkach opartych na Chromium, dlatego podczas nauki zalecamy korzystanie z Chrome lub Edge. Jeśli Twoja preferowana przeglądarka nie obsługuje jeszcze map importu, możesz ją uzupełnić za pomocą [es-module-shims](https://github.com/guybedford/es-module-shims).
+Zauważ, że w naszym kodzie możemy importować bezpośrednio z `'vue'` - jest to możliwe dzięki blokowi `<script type="importmap">`, wykorzystującemu natywną funkcję przeglądarki o nazwie [Import Maps](https://caniuse.com/import-maps).
 
 Do mapy importu można dodać wpisy dotyczące innych zależności - należy tylko upewnić się, że wskazują one na wersję biblioteki, której zamierzamy używać w modułach ES.
 
-:::tip Nie do produkcji
+:::tip Import Map a wsparcie przeglądarek
+Import map domyśle jest wspierany w przeglądarkach opartych na Chromium, dlatego podczas nauki zalecamy korzystanie z Chrome lub Edge.
+
+Jeśli używasz Firefoksa, jest ona obsługiwana tylko w wersji 102+ i obecnie musi być włączona poprzez opcję `dom.importMaps.enabled` w `about:config`.
+
+Jeśli preferowana przeglądarka nie obsługuje jeszcze map importu, można ją uzupełnić za pomocą [es-module-shims](https://github.com/guybedford/es-module-shims).
+:::
+
+:::warning Nie do produkcji
 Konfiguracja oparta na import-maps jest przeznaczona wyłącznie do nauki - jeśli zamierzasz używać Vue bez narzędzi do budowania na produkcji, sprawdź [Przewodnik wdrożenia produkcyjnego](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
 

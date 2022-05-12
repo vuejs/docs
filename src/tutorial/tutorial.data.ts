@@ -11,7 +11,7 @@ export default {
     const md = createMarkdownRenderer(process.cwd(), {
       // @ts-ignore
       highlight: await createHighlighter()
-    })
+    }, '/')
     const files = readExamples(path.resolve(__dirname, './src'))
     for (const step in files) {
       const stepFiles = files[step]

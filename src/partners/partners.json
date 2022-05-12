@@ -3,12 +3,21 @@
     "name": "Vehikl",
     "logo": "vehikl.svg",
     "flipLogo": true,
-    "intro": "Vehikl is a team of code-crushing Laravel experts. Over the years we have built a variety of web applications for customers using Laravel as our framework of choice and implemented Lean Agile development techniques to build professional applications that are functional and easy to use.",
+    "intro": "Vehikl has deep knowledge of Vue and will act as an extension of your team. We focus on writing clean, maintainable code. We are passionate about continual improvement, and we practice Mob Programming and Pair Programming on a daily basis.",
     "description": [
-      "Combining the power of Laravel, Lean Agile development techniques, and a diverse team with deep technical knowledge and experience allows us to provide a unique approach to make sure your work gets done as quickly, professionally, and economically as possible. Our customers range from smaller startups looking for help with working through a feature backlog as they scale, to larger established firms that need to refactor a legacy code base and build new features.",
-      "We integrate fully with your existing workflow and will dramatically increase your project’s velocity. We also provide mentorship to more junior developers and work to assist knowledge transfer to any new developers you onboard internally. As a development partner, Vehikl provides a flexible, scalable option while you ramp up an internal team. Over the years we have built a variety of web applications for customers using Laravel as our framework of choice and implemented Lean Agile development techniques to build professional applications that are functional and easy to use."
+      "Vehikl is a Team that values Caring, Growing, and Delivering. We instill those values in everything we do, and everyone we work with. Our goal is to be an extension of your development efforts, and build exceptional web and mobile applications.",
+      "Our Team has a strong specialty and deep knowledge of Vue, Laravel, and React frameworks. In addition to this, our Team of 75 has worked with every tech stack you can imagine. We’re proud test-driven developers who focus on writing clean, maintainable code. Our Team is passionate about continual improvement, and we practice Mob Programming and Pair Programming on a daily basis.",
+      "We’ve worked on projects from a wide range of companies ranging from startups to enterprise-level organizations. We are one team with our clients and we share in their successes.",
+      "So what does working with us look like?",
+      "- Daily communication with your team",
+      "- Collaborate with you on weekly or bi-weekly Sprint Planning",
+      "- Demos & Retrospectives at the end of each Sprint",
+      "- Collaborative PR reviews",
+      "- Daily Pairing and Mobbing sessions",
+      "We’re always looking for opportunities to learn new things and refine our skills using lean Agile development, open communication, and collaboration. We combine one-on-one communication, and the iterative values of the Agile methodology to deliver high quality code.",
+      "We’re active members of the JavaScript and PHP community, and love to collaborate with other enthusiasts."
     ],
-    "proficiencies": ["Vue", "Laravel", "Node.js"],
+    "proficiencies": ["Vue", "Laravel", "React", "Node.js", "Unity"],
     "region": ["North America"],
     "location": ["Ontario, Canada"],
     "website": {
@@ -16,6 +25,7 @@
       "url": "https://www.vehikl.com?utm_source=vue_partners_page"
     },
     "contact": "go+vuepartner@vehikl.com",
+    "hiring": "www.vehikl.com/jobs/developer",
     "platinum": true
   },
   {

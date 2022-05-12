@@ -14,7 +14,11 @@ const nav = [
       { text: 'Samouczek', link: '/tutorial/' },
       { text: 'Przykłady', link: '/examples/' },
       { text: 'Szybki start', link: '/guide/quick-start' },
-      { text: 'Przewodnik po stylach', link: '/style-guide/' },
+      // { text: 'Przewodnik po stylach', link: '/style-guide/' },
+      {
+        text: 'Vue 2 Docs',
+        link: 'https://v2.vuejs.org'
+      },
       {
         text: 'Migracja z Vue 2',
         link: 'https://v3-migration.vuejs.org/'
@@ -70,7 +74,10 @@ const nav = [
             text: 'Discord Chat',
             link: 'https://discord.com/invite/HBherRA'
           },
-          { text: 'Forum', link: 'https://forum.vuejs.org/' },
+          {
+            text: 'GitHub Discussions',
+            link: 'https://github.com/vuejs/core/discussions'
+          },
           { text: 'DEV Community', link: 'https://dev.to/t/vue' }
         ]
       },
@@ -110,7 +117,7 @@ const nav = [
   {
     text: 'Partnerzy',
     link: '/partners/',
-    activeMatch: `^/partners/`,
+    activeMatch: `^/partners/`
   }
 ]
 

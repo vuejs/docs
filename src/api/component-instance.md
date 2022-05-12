@@ -321,6 +321,6 @@ Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
 
 - **Details**
 
-  The only different from the global version of `nextTick()` is that the callback passed to `this.$nextTick()` will have its `this` context bound to the current component instance.
+  The only difference from the global version of `nextTick()` is that the callback passed to `this.$nextTick()` will have its `this` context bound to the current component instance.
 
 - **See also:** [`nextTick()`](./general.html#nexttick)
