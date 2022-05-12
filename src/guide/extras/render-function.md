@@ -39,6 +39,9 @@ h('div', { id: 'foo' })
 // Vue automatically picks the right way to assign it
 h('div', { class: 'bar', innerHTML: 'hello' })
 
+// props modifiers such as .prop and .attr can be added via shorthands
+h('div', { .name: 'some-name', ^width: '100' })
+
 // class and style have the same object / array
 // value support that they have in templates
 h('div', { class: [foo, { bar }], style: { color: 'red' } })
@@ -112,11 +115,7 @@ import { h } from 'vue'
 export default {
   setup() {
     // use an array to return multiple root nodes
-    return () => [
-      h('div'),
-      h('div'),
-      h('div')
-    ]
+    return () => [h('div'), h('div'), h('div')]
   }
 }
 ```
@@ -163,11 +162,7 @@ import { h } from 'vue'
 export default {
   render() {
     // use an array to return multiple root nodes
-    return [
-      h('div'),
-      h('div'),
-      h('div')
-    ]
+    return [h('div'), h('div'), h('div')]
   }
 }
 ```
@@ -563,8 +558,8 @@ Passing slots as functions allows them to be invoked lazily by the child compone
 import { h, KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 export default {
-  setup () {
-    return () => h(Transition, { mode: 'out-in' }, /* ... */)
+  setup() {
+    return () => h(Transition, { mode: 'out-in' } /* ... */)
   }
 }
 ```
@@ -576,8 +571,8 @@ export default {
 import { h, KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 export default {
-  render () {
-    return h(Transition, { mode: 'out-in' }, /* ... */)
+  render() {
+    return h(Transition, { mode: 'out-in' } /* ... */)
   }
 }
 ```
@@ -614,7 +609,8 @@ export default {
   render() {
     return h(SomeComponent, {
       modelValue: this.modelValue,
-      'onUpdate:modelValue': (value) => this.$emit('update:modelValue', value)
+      'onUpdate:modelValue': (value) =>
+        this.$emit('update:modelValue', value)
     })
   }
 }
@@ -631,8 +627,12 @@ import { h, withDirectives } from 'vue'
 
 // a custom directive
 const pin = {
-  mounted() { /* ... */ },
-  updated() { /* ... */ }
+  mounted() {
+    /* ... */
+  },
+  updated() {
+    /* ... */
+  }
 }
 
 // <div v-pin:top.animate="200"></div>

@@ -319,13 +319,22 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   <svg><a :xlink:special="foo"></a></svg>
   ```
 
-  The `.prop` modifier also has a dedicated shorthand, `.`:
+  The `.prop` modifier has a dedicated shorthand, `.`:
 
   ```vue-html
   <div :someProperty.prop="someObject"></div>
 
   <!-- equivalent to -->
   <div .someProperty="someObject"></div>
+  ```
+
+  The `.attr` modifier has a shorthand `^`:
+
+  ```vue-html
+  <div :someProperty.attr="someObject"></div>
+
+  <!-- equivalent to -->
+  <div ^someProperty="someObject"></div>
   ```
 
   The `.camel` modifier allows camelizing a `v-bind` attribute name when using in-DOM templates, e.g. the SVG `viewBox` attribute:
