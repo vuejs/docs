@@ -16,7 +16,7 @@ const nav = [
       { text: 'Szybki start', link: '/guide/quick-start' },
       // { text: 'Przewodnik po stylach', link: '/style-guide/' },
       {
-        text: 'Vue 2 Docs',
+        text: 'Vue 2 Dokumentacja',
         link: 'https://v2.vuejs.org'
       },
       {
