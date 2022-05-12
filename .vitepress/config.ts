@@ -74,7 +74,10 @@ const nav = [
             text: 'Discord Chat',
             link: 'https://discord.com/invite/HBherRA'
           },
-          { text: 'Forum', link: 'https://forum.vuejs.org/' },
+          {
+            text: 'GitHub Discussions',
+            link: 'https://github.com/vuejs/core/discussions'
+          },
           { text: 'DEV Community', link: 'https://dev.to/t/vue' }
         ]
       },
