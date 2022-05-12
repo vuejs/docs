@@ -233,7 +233,7 @@ Installs a [plugin](/guide/reusability/plugins.html).
 
   Expects the plugin as the first argument, and optional plugin options as the second argument.
 
-  The plugin can either be an object with an `install()` method, or a directly a function (which itself will used as the install method). The options (second argument of `app.use()`) will be passed along to the plugin's install method.
+  The plugin can either be an object with an `install()` method, or just a function that will be used as the `install()` method. The options (second argument of `app.use()`) will be passed along to the plugin's `install()` method.
 
   When `app.use()` is called on the same plugin multiple times, the plugin will be installed only once.
 
@@ -257,7 +257,7 @@ Installs a [plugin](/guide/reusability/plugins.html).
 Applies a global mixin (scoped to the application). A global mixin applies its included options to every component instance in the application.
 
 :::warning Not Recommended
-Mixins are supported in Vue 3 mainly for backwards compatibility due to its wide-spread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
+Mixins are supported in Vue 3 mainly for backwards compatibility, due to their widespread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
 
 For logic reuse, prefer [Composables](/guide/reusability/composables.html) instead.
 :::
@@ -541,7 +541,7 @@ An object for defining merging strategies for custom component options.
 
   Some plugins / libraries add support for custom component options (by injecting global mixins). These options may require special merging logic when the same option needs to be "merged" from multiple sources (e.g. mixins or component inheritance).
 
-  A merge strategy function can registered for a custom option by assigning it on the `app.config.optionMergeStrategies` object using the option's name as the key.
+  A merge strategy function can be registered for a custom option by assigning it on the `app.config.optionMergeStrategies` object using the option's name as the key.
 
   The merge strategy function receives the value of that option defined on the parent and child instances as the first and second arguments, respectively.
 
