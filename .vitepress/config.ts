@@ -108,7 +108,7 @@ const nav = [
     link: '/sponsor/'
   },
   {
-    text: 'Partners',
+    text: 'Partnerzy',
     link: '/partners/',
     activeMatch: `^/partners/`,
   }
@@ -134,7 +134,7 @@ export const sidebar = {
           link: '/guide/essentials/application'
         },
         {
-          text: 'Template Syntax',
+          text: 'Składnia szablonu',
           link: '/guide/essentials/template-syntax'
         },
         {
@@ -142,7 +142,7 @@ export const sidebar = {
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Computed Properties',
+          text: 'Właściwości obliczeniowe',
           link: '/guide/essentials/computed'
         },
         {
@@ -163,10 +163,10 @@ export const sidebar = {
           text: 'Cykl życia Hooków',
           link: '/guide/essentials/lifecycle'
         },
-        { text: 'Watchers', link: '/guide/essentials/watchers' },
+        { text: 'Strażnicy', link: '/guide/essentials/watchers' },
         { text: 'Template Refs', link: '/guide/essentials/template-refs' },
         {
-          text: 'Components Basics',
+          text: 'Podstawy komponentów',
           link: '/guide/essentials/component-basics'
         }
       ]
@@ -175,22 +175,22 @@ export const sidebar = {
       text: 'Komponenty - dogłębnie',
       items: [
         {
-          text: 'Registration',
+          text: 'Rejestracja',
           link: '/guide/components/registration'
         },
         { text: 'Props', link: '/guide/components/props' },
-        { text: 'Events', link: '/guide/components/events' },
+        { text: 'Zdarzenia', link: '/guide/components/events' },
         {
           text: 'Fallthrough Attributes',
           link: '/guide/components/attrs'
         },
-        { text: 'Slots', link: '/guide/components/slots' },
+        { text: 'Sloty', link: '/guide/components/slots' },
         {
           text: 'Provide / inject',
           link: '/guide/components/provide-inject'
         },
         {
-          text: 'Async Components',
+          text: 'Komponenty asynchroniczne',
           link: '/guide/components/async'
         }
       ]
@@ -203,10 +203,10 @@ export const sidebar = {
           link: '/guide/reusability/composables'
         },
         {
-          text: 'Custom Directives',
+          text: 'Dyrektywy niestandardowe',
           link: '/guide/reusability/custom-directives'
         },
-        { text: 'Plugins', link: '/guide/reusability/plugins' }
+        { text: 'Pluginy', link: '/guide/reusability/plugins' }
       ]
     },
     {
@@ -232,7 +232,7 @@ export const sidebar = {
           text: 'Zarządzanie stanem',
           link: '/guide/scaling-up/state-management'
         },
-        { text: 'Testing', link: '/guide/scaling-up/testing' },
+        { text: 'Testowanie', link: '/guide/scaling-up/testing' },
         {
           text: 'Server-Side Rendering (SSR)',
           link: '/guide/scaling-up/ssr'
