@@ -14,8 +14,8 @@
 export default {
   props: {
     href: { type: String, required: true },
-    title: { type: String, required: true },
-  },
+    title: { type: String, required: true }
+  }
 }
 </script>
 <style scoped>

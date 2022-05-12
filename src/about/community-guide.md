@@ -28,6 +28,7 @@ Nasz [Kodeks postępowania](/about/coc) jest przewodnikiem, który ma ułatwić 
 - [DEV Community](https://dev.to/t/vue): Dziel się i dyskutuj na tematy związane z Vue na Dev.to.
 - [Meetups](https://events.vuejs.org/meetups): Chcesz znaleźć lokalnych entuzjastów Vue, takich jak Ty? Chcesz zostać liderem społeczności? Mamy pomoc i wsparcie, którego potrzebujesz właśnie tutaj!
 - [GitHub](https://github.com/vuejs): Jeśli masz do zgłoszenia błąd lub funkcję, o którą chciałbyś poprosić, to właśnie do tego służą sprawy na GitHubie. Prosimy o przestrzeganie zasad określonych w szablonie sprawy dla każdego repozytorium.
+- [Społeczność Twittera (nieoficjalna)](https://twitter.com/i/communities/1516368750634840064): Społeczność na Twitterze, gdzie można spotkać innych entuzjastów Vue, uzyskać pomoc lub po prostu porozmawiać o Vue.
 
 ### Poznaj ekosystem
 
