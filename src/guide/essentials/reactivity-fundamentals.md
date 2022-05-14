@@ -425,7 +425,7 @@ callSomeFunction(obj.foo)
 const { foo, bar } = obj
 ```
 
-Innymi słowy, `ref()` pozwala nam stworzyć "referencję" do dowolnej wartości i przekazać ją dalej bez utraty reaktywności. Ta zdolność jest dość ważna, ponieważ jest często używana podczas wyciągania logiki do [Composable Functions] (/guide/reusability/composables.html).
+Innymi słowy, `ref()` pozwala nam stworzyć "referencję" do dowolnej wartości i przekazać ją dalej bez utraty reaktywności. Ta zdolność jest dość ważna, ponieważ jest często używana podczas wyciągania logiki do [Composable Functions](/guide/reusability/composables.html).
 
 ### Rozwijanie refów w szablonach
 
