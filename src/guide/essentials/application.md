@@ -1,8 +1,8 @@
-# Tworzenie applikacji Vue
+# Tworzenie aplikacji Vue
 
 ## Instancja aplikacji
 
-Każda aplikacja Vue rozpoczyna się od utworzenia nowej  **instancjiaplikacji** za pomocą funkcji [`createApp`](/api/application#createapp):
+Każda aplikacja Vue rozpoczyna się od utworzenia nowej **instancji aplikacji** za pomocą funkcji [`createApp`](/api/application#createapp):
 
 ```js
 import { createApp } from 'vue'
@@ -89,7 +89,7 @@ Instancja aplikacji udostępnia obiekt `.config`, który pozwala nam skonfigurow
 
 ```js
 app.config.errorHandler = (err) => {
-/* obsługa błędów */
+  /* obsługa błędów */
 }
 ```
 

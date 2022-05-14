@@ -6,7 +6,7 @@ import { VTLink } from '@vue/theme'
   <section id="newsletter" class="NewsLetter">
     <div class="container">
       <h2 class="title">
-        Zapisz się do naszego cotygodniowego newsletter'a.
+        Zapisz się do naszego cotygodniowego newslettera.
       </h2>
 
       <div class="form">

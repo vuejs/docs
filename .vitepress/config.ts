@@ -31,7 +31,7 @@ const nav = [
     link: '/api/'
   },
   {
-    text: 'Plac zabaw',
+    text: 'Piaskownica',
     link: 'https://sfc.vuejs.org'
   },
   {
@@ -149,11 +149,11 @@ export const sidebar = {
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Właściwości obliczeniowe',
+          text: 'Właściwości obliczane',
           link: '/guide/essentials/computed'
         },
         {
-          text: 'Class and Style Bindings',
+          text: 'Przypisywanie klas i stylów',
           link: '/guide/essentials/class-and-style'
         },
         {

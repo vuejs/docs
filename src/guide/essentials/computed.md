@@ -1,4 +1,4 @@
-# Computed Properties (właściwości obliczane)
+# Właściwości obliczane (Computed Properties)
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="Free Vue.js Computed Properties Lesson"/>
@@ -75,7 +75,7 @@ export default {
     }
   },
   computed: {
-      // obliczeniowy getter
+    // obliczeniowy getter
     publishedBooksMessage() {
       // `this` wskazuje na instancję komponentu
       return this.author.books.length > 0 ? 'Yes' : 'No'
@@ -220,8 +220,8 @@ export default {
       },
       // setter
       set(newValue) {
-      // Uwaga: używamy tutaj składni przypisania destrukturyzacji.
-        [this.firstName, this.lastName] = newValue.split(' ')
+        // Uwaga: używamy tutaj składni przypisania destrukturyzacji.
+        ;[this.firstName, this.lastName] = newValue.split(' ')
       }
     }
   }
@@ -248,8 +248,8 @@ const fullName = computed({
   },
   // setter
   set(newValue) {
-  // Uwaga: używamy tutaj składni przypisania destrukturyzacji.
-    [firstName.value, lastName.value] = newValue.split(' ')
+    // Uwaga: używamy tutaj składni przypisania destrukturyzacji.
+    ;[firstName.value, lastName.value] = newValue.split(' ')
   }
 })
 </script>

@@ -1,4 +1,4 @@
-# Template Syntax (Składnia szablonu)
+# Składnia szablonu (Template Syntax)
 
 Vue wykorzystuje składnię szablonów opartą na HTML, która pozwala na deklaratywne powiązanie renderowanego DOM z danymi instancji komponentu. Wszystkie szablony Vue są poprawnym składniowo kodem HTML, który może być przetwarzany przez przeglądarki i parsery HTML zgodne ze specyfikacją.
 
