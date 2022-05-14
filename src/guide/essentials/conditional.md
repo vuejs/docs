@@ -1,11 +1,11 @@
-# Conditional Rendering (rendderowanie warunkowe)
+# Renderowanie warunkowe (Conditional Rendering)
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Free Vue.js Conditional Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Darmowa lekcja renderowania warunkowego Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-conditionals-in-vue" title="Free Vue.js Conditional Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-conditionals-in-vue" title="Darmowa lekcja renderowania warunkowego Vue.js"/>
 </div>
 
 <script setup>
