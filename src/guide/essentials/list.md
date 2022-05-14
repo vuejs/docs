@@ -1,4 +1,4 @@
-# List Rendering
+# Renderowanie Listy
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Free Vue.js List Rendering Lesson"/>
@@ -431,7 +431,7 @@ methods: {
 </ul>
 ```
 
-Bądź ostrożny z `reverse()` i `sort()` we computed property! Te dwie metody zmutują oryginalną tablicę, co powinno być unikane w computed getterach. Przed wywołaniem tych metod należy utworzyć kopię oryginalnej tablicy:
+Bądź ostrożny z `reverse()` i `sort()` w computed property! Te dwie metody zmutują oryginalną tablicę, co powinno być unikane w computed getterach. Przed wywołaniem tych metod należy utworzyć kopię oryginalnej tablicy:
 
 ```diff
 - return numbers.reverse()
