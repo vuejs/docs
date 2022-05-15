@@ -213,7 +213,7 @@ cy.get(valueSelector).should('be.visible').and('contain.text', '0')
 
 ### Recommendation
 
-- [Vitest](https://vitest.dev/) for components or composables that render headlessly. (e.g. the [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) function in VueUse. Components and DOM can be tested using [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro).
+- [Vitest](https://vitest.dev/) for components or composables that render headlessly (e.g. the [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) function in VueUse). Components and DOM can be tested using [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro).
 
 - [Cypress Component Testing](https://on.cypress.io/component) for components whose expected behavior depends on properly rendering styles or triggering native DOM events. Can be used with Testing Library via [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro).
 
