@@ -238,6 +238,26 @@ We can put this type augmentation in a `.ts` file, or in a project-wide `*.d.ts`
 
 In order to take advantage of module augmentation, you will need to ensure the augmentation is placed in a [TypeScript module](https://www.typescriptlang.org/docs/handbook/modules.html). That is to say, the file needs to contain at least one top-level `import` or `export`, even if it is just `export {}`. If the augmentation is placed outside of a module, it will overwrite the original types rather than augmenting them!
 
+```ts
+// Does not work, overwrites the original types.
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $translate: (key: string) => string
+  }
+}
+```
+
+```ts
+// Works correctly
+export {}
+
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $translate: (key: string) => string
+  }
+}
+```
+
 ## Augmenting Custom Options
 
 Some plugins, for example `vue-router`, provide support for custom component options such as `beforeRouteEnter`:
