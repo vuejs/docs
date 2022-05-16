@@ -1,15 +1,17 @@
-/guide/               /guide/introduction.html
-/v2/guide/team.html   /about/team.html
-/v2/guide/join.html   /about/community-guide.html
-/support-vuejs/       /sponsor/
-/resources/*          /ecosystem/:splat
-/v2/examples/                       https://vuejs.org/examples/#markdown    301
-/v2/examples/commits.html           https://vuejs.org/examples/#fetching-data   301
-/v2/examples/modal.html             https://vuejs.org/examples/#modal   301
-/v2/examples/grid-component.html    https://vuejs.org/examples/#grid   301
-/v2/examples/svg.html               https://vuejs.org/examples/#svg   301
-/v2/examples/todomvc.html           https://vuejs.org/examples/#todomvc   301
-/v2/examples/tree-view.html         https://vuejs.org/examples/#tree   301
+/guide/                   /guide/introduction.html
+/support-vuejs/           /sponsor/
+/ecosystem/partners.html  /partners/
+/resources/*              /ecosystem/:splat
+
+/v2/guide/team.html                 /about/team.html
+/v2/guide/join.html                 /about/community-guide.html
+/v2/examples/                       https://vuejs.org/examples/#markdown
+/v2/examples/commits.html           https://vuejs.org/examples/#fetching-data
+/v2/examples/modal.html             https://vuejs.org/examples/#modal
+/v2/examples/grid-component.html    https://vuejs.org/examples/#grid
+/v2/examples/svg.html               https://vuejs.org/examples/#svg
+/v2/examples/todomvc.html           https://vuejs.org/examples/#todomvc
+/v2/examples/tree-view.html         https://vuejs.org/examples/#tree
 
 /v2/api/                                            /api/
 /v2/api/index.html                                  /api/
