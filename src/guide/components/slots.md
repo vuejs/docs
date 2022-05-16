@@ -361,7 +361,7 @@ Receiving the slot props is a bit different when using a single default slot vs.
 
 The props passed to the slot by the child are available as the value of the corresponding `v-slot` directive, which can be accessed by expressions inside the slot.
 
-You can think of a scoped slot as a function being passed into the child component. The child component then calls it and passing props as arguments:
+You can think of a scoped slot as a function being passed into the child component. The child component then calls it, passing props as arguments:
 
 ```js
 MyComponent({
