@@ -48,7 +48,7 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-You should now have your first Vue project running! Here are some additional tips:
+You should now have your first Vue project running! You should note here that the components in the generated app are written in [Composition API](guide/extras/composition-api-faq.html) style. Here are some additional tips:
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). [WebStorm](https://www.jetbrains.com/webstorm/) is also viable.
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
