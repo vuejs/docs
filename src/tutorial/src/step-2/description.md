@@ -16,7 +16,7 @@ State that can trigger updates when changed are considered **reactive**. We can 
 import { reactive } from 'vue'
 
 const counter = reactive({
-  count: 1
+  count: 0
 })
 
 console.log(counter.count) // 0
