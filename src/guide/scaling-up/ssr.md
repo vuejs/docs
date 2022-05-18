@@ -324,3 +324,24 @@ const myDirective = {
   }
 }
 ```
+
+### Teleports
+
+Teleports require special handling during SSR. If the rendered app contains Teleports, the teleported content will not be part of the rendered string. An easier solution is to conditionally render the Teleport on mount.
+
+If you do need to hydrate teleported content, they are exposed under the `teleports` property of the ssr context object:
+
+```js
+const ctx = {}
+const html = await renderToString(app, ctx)
+
+console.log(ctx.teleports) // { '#teleported': 'teleported content' }
+```
+
+You need to inject the teleport markup into the correct location in your final page HTML similar to how you need to inject the main app markup.
+
+:::tip
+Avoid targeting `body` when using Teleports and SSR together - usually, `<body>` will contain other server-rendered content which makes it impossible for Teleports to determine the correct starting location for hydration.
+
+Instead, prefer a dedicated container, e.g. `<div id="teleported"></div>` which contains only teleported content.
+:::
