@@ -182,10 +182,10 @@ export const sidebar = {
       text: 'Komponenty - dogłębnie',
       items: [
         {
-          text: 'Rejestracja',
+          text: 'Rejestracja komponentu',
           link: '/guide/components/registration'
         },
-        { text: 'Props', link: '/guide/components/props' },
+        { text: 'Propsy', link: '/guide/components/props' },
         { text: 'Zdarzenia', link: '/guide/components/events' },
         {
           text: 'Fallthrough Attributes',
