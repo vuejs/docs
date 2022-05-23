@@ -331,23 +331,20 @@
   },
   {
     "name": "Erick Petrucelli",
-    "title": "Teacher",
-    "company": "Fatec Taquaritinga",
-    "companyLink": "http://www.fatectq.edu.br/",
-    "location": "Taquaritinga, Brazil",
+    "title": "Head of Engineering",
+    "company": "Airbank",
+    "companyLink": "https://www.joinairbank.com/",
+    "location": "João Pessoa, Brazil",
     "languages": ["Portuguese", "English"],
     "projects": [
       {
-        "label": "vuejs-br/br.vuejs.org",
-        "url": "https://github.com/vuejs-br/br.vuejs.org"
-      },
-      {
-        "label": "ErickPetru/vue-feathers-chat",
-        "url": "https://github.com/ErickPetru/vue-feathers-chat"
+        "label": "vuejs-br",
+        "url": "https://github.com/vuejs-br"
       }
     ],
     "socials": {
       "github": "ErickPetru",
+      "linkedin": "erick-petrucelli",
       "twitter": "erickpetru"
     }
   },
