@@ -338,7 +338,7 @@ Mutation methods, as the name suggests, mutate the original array they are calle
 <div class="composition-api">
 
 ```js
-// `item` is a ref with array value
+// `items` is a ref with array value
 items.value = items.value.filter((item) => item.message.match(/Foo/))
 ```
 
