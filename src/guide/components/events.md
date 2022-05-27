@@ -97,6 +97,7 @@ Emitted events can be explicitly declared on the component via the <span class="
 ```vue
 <script setup>
 const emit = defineEmits(['inFocus', 'submit'])
+emit('submit')
 </script>
 ```
 
