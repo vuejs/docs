@@ -1,4 +1,4 @@
-# vuejs.org
+# vuejs.uz
 
 ## Contributing
 
