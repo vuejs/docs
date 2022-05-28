@@ -1,16 +1,17 @@
-# Components Basics
+# Komponenty Podstawy
 
-Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
+Komponenty umożliwiają podzielenie interfejsu użytkownika na niezależne części, które można ponownie wykorzystać, i myślenie o każdej z nich osobno. Często zdarza się, że aplikacja jest zorganizowana w drzewo zagnieżdżonych komponentów:
 
-![Component Tree](./images/components.png)
+![Drzewo Komponentów](./images/components.png)
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-This is very similar to how we nest native HTML elements, but Vue implements its own component model that allow us to encapsulate custom content and logic in each component. Vue also plays nicely with native Web Components. If you are curious about the relationship between Vue Components and native Web Components, [read more here](/guide/extras/web-components.html).
+Jest to bardzo podobne do tego, jak zagnieżdżamy natywne elementy HTML, ale Vue implementuje swój własny model komponentu, który pozwala nam hermetyzować własną zawartość i logikę w każdym komponencie. Vue dobrze współpracuje także z natywnymi komponentami sieciowymi. Jeśli jesteś ciekaw relacji między komponentami Vue a natywnymi komponentami sieciowymi, [przeczytaj więcej tutaj](/guide/extras/web-components.html).
 
-## Defining a Component
 
-When using a build step, we typically define each Vue component in a dedicated file using the `.vue` extension - known as a [Single-File Component](/guide/scaling-up/sfc.html) (SFC for short):
+## Definiowanie Komponentu
+
+Kiedy używamy kroku budowania, zazwyczaj definiujemy każdy komponent Vue w dedykowanym pliku z rozszerzeniem `.vue` - znanym jako [Single-File Component](/guide/scaling-up/sfc.html) (w skrócie SFC):
 
 <div class="options-api">
 
@@ -26,7 +27,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <button @click="count++">Kliknąłeś mnie {{ count }} razy.</button>
 </template>
 ```
 
@@ -41,13 +42,13 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <button @click="count++">Kliknąłeś mnie {{ count }} razy.</button>
 </template>
 ```
 
 </div>
 
-When not using a build step, a Vue component can be defined as a plain JavaScript object containing Vue-specific options:
+Gdy nie używa się kroku budowania, komponent Vue można zdefiniować jako zwykły obiekt JavaScript zawierający opcje specyficzne dla Vue:
 
 <div class="options-api">
 
@@ -86,17 +87,18 @@ export default {
 
 </div>
 
-The template is inlined as a JavaScript string here, which Vue will compile on the fly. You can also use an ID selector pointing to an element (usually native `<template>` elements) - Vue will use its content as the template source.
+Szablon jest tutaj wklejany jako kod JavaScript, który Vue skompiluje w locie. Można też użyć selektora ID wskazującego na element (zwykle rodzimy element `<template>`) - Vue użyje jego zawartości jako źródła szablonu.
 
-The example above defines a single component and exports it as the default export of a `.js` file, but you can use named exports to export multiple components from the same file.
+W powyższym przykładzie zdefiniowano pojedynczy komponent i wyeksportowano go jako domyślny eksport pliku `.js`, ale można użyć nazwanych eksportów, aby wyeksportować wiele komponentów z tego samego pliku.
 
-## Using a Component
+
+## Użycie komponentu
 
 :::tip
-We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step or not. The [Examples](/examples/) section shows component usage in both scenarios.
+W dalszej części tego podręcznika będziemy używać składni SFC - koncepcje dotyczące komponentów są takie same niezależnie od tego, czy używamy kroku budowania, czy nie. Sekcja [Przykłady](/examples/) pokazuje użycie komponentów w obu scenariuszach.
 :::
 
-To use a child component, we need to import it in the parent component. Assuming we placed our counter component inside a file called `ButtonCounter.vue`, the component will be exposed as the file's default export:
+Aby użyć komponentu potomnego, musimy zaimportować go w komponencie nadrzędnym. Zakładając, że umieściliśmy nasz komponent licznika wewnątrz pliku o nazwie `ButtonCounter.vue`, komponent ten będzie widoczny jako domyślny eksport tego pliku:
 
 <div class="options-api">
 
@@ -112,12 +114,12 @@ export default {
 </script>
 
 <template>
-  <h1>Here is a child component!</h1>
+  <h1>Tu jest komponent dziecko - podrzędny!</h1>
   <ButtonCounter />
 </template>
 ```
 
-To expose the imported component to our template, we need to [register](/guide/components/registration.html) it with the `components` option. The component will then be available as a tag using the key it is registered under.
+Aby udostępnić zaimportowany komponent naszemu szablonowi, musimy go [zarejestrować](/guide/components/registration.html) za pomocą opcji `components`. Komponent będzie wtedy dostępny jako znacznik używający klucza, pod którym został zarejestrowany.
 
 </div>
 
@@ -129,21 +131,21 @@ import ButtonCounter from './ButtonCounter.vue'
 </script>
 
 <template>
-  <h1>Here is a child component!</h1>
+  <h1>Tu jest komponent dziecko - podrzędny!</h1>
   <ButtonCounter />
 </template>
 ```
 
-With `<script setup>`, imported components are automatically made available to the template.
+Dzięki `<script setup>` importowane komponenty są automatycznie udostępniane szablonowi.
 
 </div>
 
-It's also possible to globally register a component, making it available to all components in a given app without having to import it. The pros and cons of global vs. local registration is discussed in the dedicated [Component Registration](/guide/components/registration.html) section.
+Możliwe jest również globalne zarejestrowanie komponentu, dzięki czemu będzie on dostępny dla wszystkich komponentów w danej aplikacji bez konieczności jego importowania. Zalety i wady rejestracji globalnej i lokalnej są omówione w specjalnej sekcji [Rejestracja komponentów](/guide/components/registration.html).
 
-Components can be reused as many times as you want:
+Komponenty mogą być używane dowolną liczbę razy:
 
 ```vue-html
-<h1>Here are many child components!</h1>
+<h1>Tu jest komponent dziecko - podrzędny!</h1>
 <ButtonCounter />
 <ButtonCounter />
 <ButtonCounter />
@@ -151,20 +153,20 @@ Components can be reused as many times as you want:
 
 <div class="options-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG4gIFxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7XG4gICAgQnV0dG9uQ291bnRlclxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIGNvdW50OiAwXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Spróbuj tego w Vue Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG4gIFxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7XG4gICAgQnV0dG9uQ291bnRlclxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIGNvdW50OiAwXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
 
 </div>
 <div class="composition-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgeyByZWYgfSBmcm9tICd2dWUnXG5cbmNvbnN0IGNvdW50ID0gcmVmKDApXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Spróbuj tego w Vue Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgeyByZWYgfSBmcm9tICd2dWUnXG5cbmNvbnN0IGNvdW50ID0gcmVmKDApXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
 
 </div>
 
-Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
+Zauważ, że podczas klikania na przyciski każdy z nich ma swoją własną, oddzielną `liczbę`. Dzieje się tak dlatego, że za każdym razem, gdy używasz komponentu, tworzona jest jego nowa **instancja**.
 
-In SFCs, it's recommended to use `PascalCase` tag names for child components to differentiate from native HTML elements. Although native HTML tag names are case-insensitive, Vue SFC is a compiled format so we are able to use case-sensitive tag names in it. We are also able to use `/>` to close a tag.
+W SFC zaleca się używanie nazw znaczników `PascalCase` dla komponentów potomnych, aby odróżnić je od rodzimych elementów HTML. Chociaż w natywnych nazwach znaczników HTML nie jest rozróżniana wielkość liter, Vue SFC jest formatem skompilowanym, więc możemy w nim używać nazw znaczników rozróżniających wielkość liter. Możemy również używać `/>` do zamykania znaczników.
 
-If you are authoring your templates directly in a DOM (e.g. as the content of a native `<template>` element), the template will be subject to the browser's native HTML parsing behavior. In such cases, you will need to use `kebab-case` and explicit closing tags for components:
+Jeśli tworzysz swoje szablony bezpośrednio w DOM (np. jako zawartość natywnego elementu `<template>`), szablon będzie podlegał natywnemu parsowaniu HTML przez przeglądarkę. W takich przypadkach należy używać `kebab-case` oraz jawnych znaczników zamykających dla elementów:
 
 ```vue-html
 <!-- if this template is written in the DOM -->
