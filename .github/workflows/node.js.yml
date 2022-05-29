@@ -52,10 +52,17 @@ jobs:
           key: ${{ secrets.SSH_KEY }} #
 
       - name: Restart pm2
-        uses: appleboy/ssh-action@master
+        uses: garygrossgarten/github-action-ssh@release
         with:
+          command: pm2 restart vuejs.uz
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.PORT }}
-          script: pm2 restart vuejs.uz
+          privateKey: ${{ secrets.SSH_KEY}}
+          
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.HOST }}
+#           username: ${{ secrets.USER }}
+#           key: ${{ secrets.SSH_KEY }}
+#           port: ${{ secrets.PORT }}
+#           script: pm2 restart vuejs.uz
