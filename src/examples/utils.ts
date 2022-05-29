@@ -131,9 +131,9 @@ export function resolveSFCExample(
     raw,
     files,
     (filename, { template, composition, options, style }) => {
-      const desc = raw['description.txt']
+      const desc = raw['description.txt'] as string
       let sfcContent =
-        desc && filename === 'App' ? `<!--\n${desc}\n-->\n\n` : ``
+        desc && filename === 'App' ? `<!--\n${desc.trim()}\n-->\n\n` : ``
       if (preferComposition && composition) {
         sfcContent += `<script setup>\n${toScriptSetup(
           composition,
@@ -159,8 +159,8 @@ export function resolveNoBuildExample(
 ) {
   const files: Record<string, string> = {}
 
-  const desc = raw['description.txt']
-  let html = desc ? `<!--\n${desc}\n-->\n\n` : ``
+  const desc = raw['description.txt'] as string
+  let html = desc ? `<!--\n${desc.trim()}\n-->\n\n` : ``
   let css = ''
 
   // set it first for ordering

@@ -254,7 +254,7 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **clicks default action on the element itself and its children** while `@click.self.prevent` will only prevent clicks default action on the element itself.
 :::
 
-The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the native `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters):
+The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the native `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
 
 ```vue-html
 <!-- use capture mode when adding the event listener -->

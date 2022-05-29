@@ -61,7 +61,13 @@ If you are looking for a lighter-weight alternative for no-build-step usage, che
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) also provides great built-in support for Vue SFCs.
 
-- Other IDEs that support the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) can also leverage Volar's core functionalities via LSP. One examples is [coc-volar](https://github.com/yaegassy/coc-volar) which provides Vue SFC support for vim/Neovim.
+- Other IDEs that support the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) can also leverage Volar's core functionalities via LSP:
+
+  - Sublime Text support via [LSP-Volar](https://github.com/sublimelsp/LSP-volar).
+
+  - vim / Neovim support via [coc-volar](https://github.com/yaegassy/coc-volar).
+
+  - emacs support via [lsp-mode](https://emacs-lsp.github.io/lsp-mode/page/lsp-volar/)
 
 ## Browser Devtools
 
