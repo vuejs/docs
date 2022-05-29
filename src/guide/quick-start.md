@@ -50,7 +50,7 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
 
 You should now have your first Vue project running! Here are some additional tips:
 
-- The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). [WebStorm](https://www.jetbrains.com/webstorm/) is also viable.
+- The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling.html#ide-support).
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
 - To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
 - If you chose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview.html).
