@@ -25,6 +25,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: Deploy in EC2
+        env:
+            PRIVATE_KEY: ${{ secrets.SSH_KEY  }}
+            HOSTNAME : ${{ secrets.HOST  }}
+            USER_NAME : ${{ secrets.USER  }}
+
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+
+          pm2 restart vuejs.uz
+          
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 7.0.0
@@ -51,13 +63,8 @@ jobs:
           user: ${{ secrets.USER }} # eg: github-action
           key: ${{ secrets.SSH_KEY }} #
 
-      - name: Restart pm2
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: pm2 restart vuejs.uz
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          privateKey: ${{ secrets.SSH_KEY}}
+      
+
           
 #         uses: appleboy/ssh-action@master
 #         with:
