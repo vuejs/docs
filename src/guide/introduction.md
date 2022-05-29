@@ -50,7 +50,7 @@ createApp({
 </div>
 ```
 
-**Result**
+**Natija**
 
 <script setup>
 import { ref } from 'vue'
