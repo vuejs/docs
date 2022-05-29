@@ -7,18 +7,16 @@ import VueMasteryModal from './VueMasteryModal.vue';
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
+      <span class="accent">Ko'pqirrali</span>
       <br />JavaScript Framework
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Veb-interfeyslar yozish uchun dasturchiga qulay, tezkor va universal platforma
     </p>
     <p class="actions">
       <vue-mastery-modal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Kirish
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +29,7 @@ import VueMasteryModal from './VueMasteryModal.vue';
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">O'rnatish - Install</a>
     </p>
   </section>
 
