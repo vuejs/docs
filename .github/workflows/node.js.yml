@@ -51,11 +51,10 @@ jobs:
           user: ${{ secrets.USER }} # eg: github-action
           key: ${{ secrets.SSH_KEY }} #
 
-      - name: Docker build
+      - name: Restart pm2
         uses: fifsky/ssh-action@master
         with:
-          command: |
-            pm2 restart 0
+          command: pm2 restart 0
           host: ${{ secrets.HOST }} # eg: example.com
 
           # port: ${{ secrets.PORT }} # eg: 22
