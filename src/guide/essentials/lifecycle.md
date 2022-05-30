@@ -3,7 +3,7 @@
 Har bir Vue komponent yaratilganda bir qator jarayonlardan, bosqichlardan yani Hook-lardan o'tadi, masalan,  komponent data-kuzatuvchilarini sozlashi, shablonni (template) kompilyatsiya qilish, uni DOM-ga mount yani biriktirishi, DOM-ga, bo'lgan o'zgarishlarni kiritishi. Shular bilan birgalikda, foydalanuchilar, har bir bosqichda o'zlarining kodlarini kiritishlari uchun imkon beruvchi bosqichlardur.
 
 <!-- ## Registering Lifecycle Hooks -->
-## Haytiy-tsikl bosqichlarini registratsiya qilish 
+## Hayotiy-tsikl bosqichlarini registratsiya qilish 
 
 Masalan, <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span>, komponent boshlang'ich renderdan va DOM elementlari yaratilgandan so'ng ishga tushadigan boshqich hisoblanadi:
 
@@ -55,8 +55,7 @@ setTimeout(() => {
 }, 100)
 ```
 
-Do note this doesn't mean that the call must be placed lexically inside `setup()` or `<script setup>`. `onMounted()` can be called in an external function as long as the call stack is synchronous and originates from within `setup()`.
-Lekin bu degan,hook-larni ishlatish,  leksik jihatdan `setup()` yoki `<script setup>` da bo'lishini talab qilmaydi. Hook-larni ishlatish sinxron va `setup()`- ichidan kelib chiqgan holatda, `onMounted()` tashqi funksiyalardan ham chaqirilishi mumkin.
+Lekin bu degani,hook-larni ishlatish,  leksik jihatdan `setup()` yoki `<script setup>` da bo'lishini talab qilmaydi. Hook-larni ishlatish sinxron va `setup()`- ichidan kelib chiqgan holatda, `onMounted()` tashqi funksiyalardan ham chaqirilishi mumkin.
 
 </div>
 
@@ -68,4 +67,4 @@ Quyidagi keltirilgan diagrammada, lifecycle qanday boshqichlardan iboratligini b
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Barcha bosqichlar va ularning ishlatish o'rinlarini aniqroq ko'rish uchun <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API bo'yicha malumotlar](/api/options-lifecycle.html)</span>-ga murojat qiling
+Barcha bosqichlar va ularning ishlatish o'rinlarini aniqroq ko'rish uchun <span class="composition-api">[Lifecycle Hooks API bo'yicha malumotlar](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API bo'yicha malumotlar](/api/options-lifecycle.html)</span>-ga murojat qiling
