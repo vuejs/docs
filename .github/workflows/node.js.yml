@@ -24,19 +24,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Deploy in EC2
-        env:
-            PRIVATE_KEY: ${{ secrets.SSH_KEY  }}
-            HOSTNAME : ${{ secrets.HOST  }}
-            USER_NAME : ${{ secrets.USER  }}
-
-        run: |
-          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-
-          pm2 restart vuejs.uz
-          
+      - uses: actions/checkout@v2          
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 7.0.0
@@ -62,14 +50,12 @@ jobs:
           # port: ${{ secrets.PORT }} # eg: 22
           user: ${{ secrets.USER }} # eg: github-action
           key: ${{ secrets.SSH_KEY }} #
-
-      
-
-          
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: ${{ secrets.HOST }}
-#           username: ${{ secrets.USER }}
-#           key: ${{ secrets.SSH_KEY }}
-#           port: ${{ secrets.PORT }}
-#           script: pm2 restart vuejs.uz
+        
+      - name: EC2 restart pm2
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USER }}
+            key: ${{ secrets.SSH_KEY }}
+            port: ${{ secrets.PORT }}
+            script: pm2 restart vuejs.uz
