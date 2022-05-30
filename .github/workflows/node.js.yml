@@ -63,4 +63,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }} #
       
       - name: EC2 restart pm2
-        run: ssh $SSH_USER@$SSH_HOST "pm2 restart vuejs.uz"
+        run: ssh -i ./deploy.key $SSH_USER@$SSH_HOST "pm2 restart vuejs.uz"
