@@ -24,7 +24,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2          
+      - uses: actions/checkout@v2
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ./deploy.key
+          sudo chmod 600 ./deploy.key
+          echo "$SSH_HOST" > ~/.ssh/known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_HOST}}
+          
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 7.0.0
@@ -50,12 +61,6 @@ jobs:
           # port: ${{ secrets.PORT }} # eg: 22
           user: ${{ secrets.USER }} # eg: github-action
           key: ${{ secrets.SSH_KEY }} #
-        
+      
       - name: EC2 restart pm2
-        uses: appleboy/ssh-action@master
-        with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USER }}
-            key: ${{ secrets.SSH_KEY }}
-            port: ${{ secrets.PORT }}
-            script: pm2 restart vuejs.uz
+        run: ssh $SSH_USER@$SSH_HOST "pm2 restart vuejs.uz"
