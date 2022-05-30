@@ -55,7 +55,7 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
-            sh deploy.sh
+            sh ~/deploy.sh
           host: ${{ secrets.HOST }} # eg: example.com
 
           # port: ${{ secrets.PORT }} # eg: 22
