@@ -55,8 +55,7 @@ setTimeout(() => {
 }, 100)
 ```
 
-Do note this doesn't mean that the call must be placed lexically inside `setup()` or `<script setup>`. `onMounted()` can be called in an external function as long as the call stack is synchronous and originates from within `setup()`.
-Lekin bu degan,hook-larni ishlatish,  leksik jihatdan `setup()` yoki `<script setup>` da bo'lishini talab qilmaydi. Hook-larni ishlatish sinxron va `setup()`- ichidan kelib chiqgan holatda, `onMounted()` tashqi funksiyalardan ham chaqirilishi mumkin.
+Lekin bu degani,hook-larni ishlatish,  leksik jihatdan `setup()` yoki `<script setup>` da bo'lishini talab qilmaydi. Hook-larni ishlatish sinxron va `setup()`- ichidan kelib chiqgan holatda, `onMounted()` tashqi funksiyalardan ham chaqirilishi mumkin.
 
 </div>
 
