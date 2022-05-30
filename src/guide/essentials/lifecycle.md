@@ -62,7 +62,7 @@ Lekin bu degan,hook-larni ishlatish,  leksik jihatdan `setup()` yoki `<script se
 
 ## Lifecycle Diagrammasi
 
-Quyidagi keltirilgan diagrammada, lifesycle qanday boshqichlardan iboratligini bilib olishimiz mumkin. Hozir ko'rib turganlaringizning barchasiga to'liq tushunishingiz shart emas, ular bilan ko'plab ishlaganingiz sari, ularni foydasini ko'rib borasiz.
+Quyidagi keltirilgan diagrammada, lifecycle qanday boshqichlardan iboratligini bilib olishimiz mumkin. Hozir ko'rib turganlaringizning barchasiga to'liq tushunishingiz shart emas, ular bilan ko'plab ishlaganingiz sari, ularni foydasini ko'rib borasiz.
 
 ![Component lifecycle diagram](./images/lifecycle.png)
 
