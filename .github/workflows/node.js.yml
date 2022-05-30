@@ -52,9 +52,12 @@ jobs:
           key: ${{ secrets.SSH_KEY }} #
       
       - name: EC2 restart pm2
-        uses: appleboy/ssh-action@master
+        uses: fifsky/ssh-action@master
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: sh deploy.sh
+          command: |
+            sh deploy.sh
+          host: ${{ secrets.HOST }} # eg: example.com
+
+          # port: ${{ secrets.PORT }} # eg: 22
+          user: ${{ secrets.USER }} # eg: github-action
+          key: ${{ secrets.SSH_KEY }} #
