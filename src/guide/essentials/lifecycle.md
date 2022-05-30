@@ -67,4 +67,4 @@ Quyidagi keltirilgan diagrammada, lifecycle qanday boshqichlardan iboratligini b
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Barcha bosqichlar va ularning ishlatish o'rinlarini aniqroq ko'rish uchun <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API bo'yicha malumotlar](/api/options-lifecycle.html)</span>-ga murojat qiling
+Barcha bosqichlar va ularning ishlatish o'rinlarini aniqroq ko'rish uchun <span class="composition-api">[Lifecycle Hooks API bo'yicha malumotlar](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API bo'yicha malumotlar](/api/options-lifecycle.html)</span>-ga murojat qiling
