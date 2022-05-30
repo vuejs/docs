@@ -28,13 +28,13 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ./deploy.key
+          echo "${{ secrets.SSH_KEY }}" > ./deploy.key
           sudo chmod 600 ./deploy.key
-          echo "$SSH_HOST" > ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_HOST }}" > ~/.ssh/known_hosts
         shell: bash
         env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
-          SSH_KNOWN_HOSTS: ${{secrets.SSH_HOST}}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_HOST }}
           
       - uses: pnpm/action-setup@v2.0.1
         with:
@@ -63,4 +63,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }} #
       
       - name: EC2 restart pm2
-        run: ssh -i ./deploy.key $SSH_USER@$SSH_HOST "pm2 restart vuejs.uz"
+        run: ssh -i ./deploy.key ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "pm2 restart vuejs.uz"
