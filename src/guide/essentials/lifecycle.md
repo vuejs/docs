@@ -3,7 +3,7 @@
 Har bir Vue komponent yaratilganda bir qator jarayonlardan, bosqichlardan yani Hook-lardan o'tadi, masalan,  komponent data-kuzatuvchilarini sozlashi, shablonni (template) kompilyatsiya qilish, uni DOM-ga mount yani biriktirishi, DOM-ga, bo'lgan o'zgarishlarni kiritishi. Shular bilan birgalikda, foydalanuchilar, har bir bosqichda o'zlarining kodlarini kiritishlari uchun imkon beruvchi bosqichlardur.
 
 <!-- ## Registering Lifecycle Hooks -->
-## Haytiy-tsikl bosqichlarini registratsiya qilish 
+## Hayotiy-tsikl bosqichlarini registratsiya qilish 
 
 Masalan, <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span>, komponent boshlang'ich renderdan va DOM elementlari yaratilgandan so'ng ishga tushadigan boshqich hisoblanadi:
 
