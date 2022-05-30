@@ -1,4 +1,4 @@
-# Lifecylce hooks | Hayotiy-sikl bosqichlari
+# Lifecylce hooks - Hayotiy-sikl bosqichlari
 
 Har bir Vue komponent yaratilganda bir qator jarayonlardan, bosqichlardan yani Hook-lardan o'tadi, masalan,  komponent data-kuzatuvchilarini sozlashi, shablonni (template) kompilyatsiya qilish, uni DOM-ga mount yani biriktirishi, DOM-ga, bo'lgan o'zgarishlarni kiritishi. Shular bilan birgalikda, foydalanuchilar, har bir bosqichda o'zlarining kodlarini kiritishlari uchun imkon beruvchi bosqichlardur.
 
@@ -25,7 +25,7 @@ onMounted(() => {
 ```js
 export default {
   mounted() {
-    console.log(`Kopmonent mount-bo'ldi.`)
+    console.log(`Komponent mount bo'ldi.`)
   }
 }
 ```
