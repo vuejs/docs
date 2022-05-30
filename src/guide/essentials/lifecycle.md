@@ -25,7 +25,7 @@ onMounted(() => {
 ```js
 export default {
   mounted() {
-    console.log(`Kopmonent mount bo'ldi.`)
+    console.log(`Komponent mount bo'ldi.`)
   }
 }
 ```
