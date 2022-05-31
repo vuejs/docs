@@ -24,6 +24,10 @@
       {
         "label": "nuxt",
         "url": "https://github.com/nuxt"
+      },
+      {
+        "label": "typed-vuex",
+        "url": "https://github.com/danielroe/typed-vuex"
       }
     ],
     "location": "United Kingdom",
