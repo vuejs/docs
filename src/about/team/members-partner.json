@@ -17,6 +17,23 @@
     }
   },
   {
+    "name": "Daniel Roe",
+    "title": "Framework Architect",
+    "company": "Nuxt",
+    "projects": [
+      {
+        "label": "nuxt",
+        "url": "https://github.com/nuxt"
+      }
+    ],
+    "location": "United Kingdom",
+    "languages": ["English"],
+    "socials": {
+      "github": "danielroe",
+      "twitter": "danielcroe"
+    }
+  },
+  {
     "name": "Pratik Patel",
     "avatarPic": "https://pbs.twimg.com/profile_images/1541624512/profile-pic-09-11-2011_400x400.png",
     "title": "Organizer",
