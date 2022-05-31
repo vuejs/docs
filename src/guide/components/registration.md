@@ -2,9 +2,9 @@
 
 <VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Vue maktabida bepul video darsni tomosha qiling"/>
 
-> Ushbu sahifada siz allaqachon [Komponentlar asoslarini](/guide/essentials/component-basics). o'qigan deb taxmin qiladi . Agar siz komponentlar uchun yangi bo'lsangiz, avval buni o'qing.
+> Ushbu sahifada siz allaqachon [Komponentlar asoslarini](/guide/essentials/component-basics). o'qigan deb taxmin qiladi. Agar siz komponentlar uchun yangi bo'lsangiz, avval buni o'qing.
 
-Vue komponenti shablonda uchraganida uni amalga oshirish joyini qaerdan bilishi uchun “roʻyxatdan oʻtgan” boʻlishi kerak. Komponentlarni ro'yxatdan o'tkazishning ikki yo'li mavjud: global va mahalliy.
+Vue komponenti shablonda uchraganida uni amalga oshirish joyini qayerdan bilishi uchun “roʻyxatdan oʻtgan” boʻlishi kerak. Komponentlarni ro'yxatdan o'tkazishning ikki yo'li mavjud: global va mahalliy.
 
 ## Global ro'yxatga olish
 
@@ -126,7 +126,7 @@ export default {
 E'tibor bering, **mahalliy ro'yxatdan o'tgan komponentlar nasl komponentlarida ham _mavjud emas_** . Bunday holda, `ComponentA` faqat joriy komponent uchun mavjud bo'ladi, uning har qanday bola yoki nasl komponentlari emas.
 ## Komponent nomi korpusi
 
-Qo'llanma davomida biz komponentlarni ro'yxatdan o'tkazishda PascalCase nomlaridan foydalanamiz. Buning sababi:
+Qo'llanma davomida biz komponentlarni ro'yxatdan o'tkazishda PascalCase usulidan foydalanamiz. Buning sababi:
 
 1. PascalCase nomlari haqiqiy JavaScript identifikatorlaridir. Bu JavaScript-da komponentlarni import qilish va ro'yxatdan o'tkazishni osonlashtiradi. Shuningdek, u IDE-larga avtomatik to'ldirish bilan yordam beradi.
 
