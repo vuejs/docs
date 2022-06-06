@@ -494,6 +494,39 @@ When prop validation fails, Vue will produce a console warning (if using the dev
 
 If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-only-features), Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
 
+
+<!-- added the equivalent validations for type based declarations -->
+```js
+interface Props {
+  // Basic type check
+  //  (`null` and `undefined` values will allow any type)
+  propA?: number
+  // Multiple possible types
+  propB?: string | number
+  // Required string
+  propC: string
+  // Number with a default value
+  propD?: number
+  // Object with a default value
+  propE: { message: string }
+  // Custom validator
+  // The value must match one of these strings
+  propF: 'success' | 'warning' | 'danger'
+  // Function with a default value
+  // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+    //However, using Function as a type does not provide type safety when calling the function and may be a common source of bugs
+  propG: Function
+}
+const props = withDefaults(defineProps<Props>(), {
+  propD: 100,
+  propE: { message: 'Hello' },
+  propG: function() {
+    return 'Default function'
+  }
+})
+```
+
+
 </div>
 <div class="options-api">
 
@@ -515,6 +548,17 @@ The `type` can be one of the following native constructors:
 - `Date`
 - `Function`
 - `Symbol`
+
+Type-based props declaration
+
+- `string`
+- `number`
+- `boolean`
+- `string[]`
+- `object`
+- `Date`
+- `Function`
+- `symbol`
 
 In addition, `type` can also be a custom class or constructor function and the assertion will be made with an `instanceof` check. For example, given the following class:
 
