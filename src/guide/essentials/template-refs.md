@@ -1,25 +1,26 @@
 # Template Refs
 
-While Vue's declarative rendering model abstracts away most of the direct DOM operations for you, there may still be cases where we need direct access to the underlying DOM elements. To achieve this, we can use the special `ref` attribute:
+Vue ning deklarativ renderlash modeli(template sintaksisi( `{}` ) orqali ma'lumotlarni DOMga chiqarish) siz uchun DOM ning to'g'ridan-to'g'ri bajariladigan ko'p operatsiyalarini(Masalan, `document.querySelector()`) qisqartirib bergan bo'lsa-da, DOM 
+
 
 ```vue-html
 <input ref="input">
 ```
 
-`ref` is a special attribute, similar to the `key` attribute discussed in the `v-for` chapter. It allows us to obtain a direct reference to a specific DOM element or child component instance after it's mounted. This may be useful when you want to, for example, programmatically focus an input on component mount, or initialize a 3rd party library on an element.
+`ref` - `key` atributiga o'xshagan maxsus atribut bo'lib, bu `v-for` bo'limida muhokama qilingan. Bu bizga DOM ning xos elementi yoki bola komponent namunasi(instance) `mounted` bo'lgandan keyin, to'g'ridan-to'g'ri aloqa yaratish imkonini beradi. Misol uchun, siz component `mount` bo'lganda `input` bilan bog'lanishni xohlasangiz yoki elementda yordamchi kutubxonani ishga tushirganingizda foydali bo'lishi mumkin.
 
-## Accessing the Refs
+## Ref dan foydalanish
 
 <div class="composition-api">
 
-To obtain the reference with Composition API, we need to declare a ref with the same name:
-
+Composition API bilan aloqa yaratish uchun, biz `ref` xuddi shu nom bilan e'lon qilishimiz kerak:
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// declare a ref to hold the element reference
-// the name must match template ref value
+
+// elementni bog'langan holda ushlash uchun ref e'lon qiling
+// nom refning qiymati bilan mos bo'lishi shart
 const input = ref(null)
 
 onMounted(() => {
@@ -32,7 +33,7 @@ onMounted(() => {
 </template>
 ```
 
-If not using `<script setup>`, make sure to also return the ref from `setup()`:
+Agar siz `<script setup>`dan foydalanmayotgan bo'lsangiz, `setup()` funksiyasidan `ref` ni qaytarayotganingiz(return qilayotganingiz)ga e'tibor bering:
 
 ```js{6}
 export default {
@@ -49,7 +50,7 @@ export default {
 </div>
 <div class="options-api">
 
-The resulting ref is exposed on `this.$refs`:
+ref ning natijasi `this.$refs` orqali ko'rsatiladi:
 
 ```vue
 <script>
@@ -66,34 +67,34 @@ export default {
 ```
 
 </div>
-
-Note that you can only access the ref **after the component is mounted.** If you try to access <span class="options-api">`$refs.input`</span><span class="composition-api">`input`</span> in a template expression, it will be `null` on the first render. This is because the element doesn't exist until after the first render!
+Yodda tuting, siz `ref` ni faqatgina **komponent mounted bo'lgandan keyin** ishlata olasiz. Agar siz <span class="options-api">`$refs.input` ga</span><span class="composition-api">`input` ga</span> template expression ichida bog'lanishga harakat qilsangiz, birinchi render da uning qiymati `null` ga teng bo'ladi. 
+Buning sababi element birinchi renderdan keyin mavjud emas!
 
 <div class="composition-api">
 
-If you are trying to watch the changes of a template ref, make sure to account for the case where the ref has `null` value:
-
+If you are trying to watch the changes of a template ref, refning qiymati `null` bo'lgan holat uchun ta'rif berganingizga ishonch hosil qiling:
+Agar siz template refning o'zgarishlarini kuzatishga harakat qilayotgan bo'lsangiz, 
 ```js
 watchEffect(() => {
   if (input.value) {
     input.value.focus()
   } else {
-    // not mounted yet, or the element was unmounted (e.g. by v-if)
+    // hali mounted bo'lmadi, yoki element unmounted bo'lgan (masalan, v-if tomonidan)
   }
 })
 ```
 
-See also: [Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
+Buni ham ko'ring: [Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
 
 </div>
 
-## Refs inside `v-for`
+## `v-for` ichidagi Reflar
 
-> Requires v3.2.25 or above
+> v3.2.25 yoki undan yuqori versiyani talab qiladi
 
 <div class="composition-api">
 
-When `ref` is used inside `v-for`, the corresponding ref should contain an Array value, which will be populated with the elements after mount:
+Qachonki `ref` `v-for` ichida ishlatilsa, shunga bog'langan ref mount bo'lgandan keyin, ichiga elementlar to'ldiriladigan, Array qiymatini o'z ichiga olishi kerak:
 
 ```vue
 <script setup>
@@ -122,7 +123,7 @@ onMounted(() => console.log(itemRefs.value))
 </div>
 <div class="options-api">
 
-When `ref` is used inside `v-for`, the resulting ref value will be an array containing the corresponding elements:
+Qachonki `ref` `v-for` ichida ishlatilsa, natija olinayotgan refning qiymati bir-biriga mos elementlarni o'z ichiga olgan arrayga teng bo'ladi:
 
 ```vue
 <script>
@@ -153,23 +154,23 @@ export default {
 
 </div>
 
-It should be noted that the ref array does **not** guarantee the same order as the source array.
+Yodda saqlash kerakki, `ref array` ning tartibi `source array` nikidek bir xil bo'lishiga kafolat **bermaydi**.
 
-## Function Refs
+## Funksiyali Reflar
 
-Instead of a string key, the `ref` attribute can also be bound to a function, which will be called on each component update and gives you full flexibility on where to store the element reference. The function receives the element reference as the first argument:
+String kaliti o'rniga `ref` atributi har bir komponent yangilanganda chaqiriladigan va element bilan bog'liqlikni qayerda saqlash to'g'risida to'liq moslashuvchanlikni beradigan funksiyaga ham bog'lanishi mumkin. Funksiya bog'langan elementni birinchi argument sifatida qabul qiladi:
 
 ```vue-html
-<input :ref="(el) => { /* assign el to a property or ref */ }">
+<input :ref="(el) => { /* ref yoki property uchun el parametrini tayinlang */ }">
 ```
 
-Note we are using a dynamic `:ref` binding so we can pass it a function instead of a ref name string. When the element is unmounted, the argument will be `null`. You can, of course, use a method instead of an inline function.
+Yodda tuting biz dinamik bog'lanuvchi `:ref` ishlatyapmiz, shuning uchun ref nomli string o'rniga funksiyani uzatib yuboryapmiz. Element unmounted bo'lganda, argument `null` ga teng bo'ladi. Siz, albatta, inline funksiyaning o'rniga `method` ni ishlata olasiz.
 
-## Ref on Component
+## Komponentdagi ref
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> Bu bo'lim [Komponentlar](/guide/essentials/component-basics) haqidagi bilimni o'z ichiga oladi. O'tkazib yuborishingiz va keyinroq qaytishingiz mumkin.
 
-`ref` can also be used on a child component. In this case the reference will be that of a component instance:
+`ref` bola komponentda ham ishlatilishi mumkin. Bu holatda bog'langan ref komponent namunasi bo'ladi: 
 
 <div class="composition-api">
 
@@ -181,7 +182,7 @@ import Child from './Child.vue'
 const child = ref(null)
 
 onMounted(() => {
-  // child.value will hold an instance of <Child />
+  // child.value <Child /> namunasini kutib turadi
 })
 </script>
 
@@ -202,7 +203,7 @@ export default {
     Child
   },
   mounted() {
-    // this.$refs.child will hold an instance of <Child />
+    // this.$refs.child <Child /> namunasini kutib turadi
   }
 }
 </script>
@@ -214,11 +215,11 @@ export default {
 
 </div>
 
-<span class="composition-api">If the child component is using Options API or not using `<script setup>`, the</span><span class="options-api">The</span> referenced instance will be identical to the child component's `this`, which means the parent component will have full access to every property and method of the child component. This makes it easy to create tightly coupled implementation details between the parent and the child, so component refs should be only used when absolutely needed - in most cases, you should try to implement parent / child interactions using the standard props and emit interfaces first.
+<span class="composition-api">Agar bola komponent Options API ishlatayotgan bo'lsa yoki `<script setup>` ishlatmasa, bog'langan</span><span class="options-api">Bog'langan</span> namuna bola komponentning `this` kalit so'zi bilan bir xil bo'ladi, shuningdek ota komponent bola komponentning har bir xususiyati(property) va metodlariga to'liq ulana oladi - foydalana oladi. Bu esa ota va bola komponent o'rtasidagi birgalikda amalga oshiriladigan chambarchas ma'lumotlarni yaratishni osonlashtiradi, shuning uchun ko'p holatlarda komponent reflar kerakli bo'lganda ishlatilishi kerak. Birinchi o'rinda standard xususiyatlar(props) va emit(bola komponentdan turib ota komponentga ta'sir qilish)dan foydalangan holda ota / bola o'zaro ta'sirlarini amalga oshirishga harakat qilishingiz kerak.
 
 <div class="composition-api">
 
-An exception here is that components using `<script setup>` are **private by default**: a parent component referencing a child component using `<script setup>` won't be able to access anything unless the child component chooses to expose a public interface using the `defineExpose` macro:
+`<script setup>` ni **tabiiy holatda shaxsiy(by default private)** qilgan holatda foydalanayotgan komponentlar uchun istisno bor: bola komponent `defineExpose` `compiler` idan foydalanib umumiy interfeysni ochishni tanlamagunicha, ota komponent `<script setup>` dan foydalanayotgan bola komponentga bog'lanayotib bola komponentning hech narsaniga kira olmaydi - foydalana olmaydi:
 
 ```vue
 <script setup>
@@ -234,14 +235,14 @@ defineExpose({
 </script>
 ```
 
-When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
+Ota component template reflar orqali shu komponent namunasini olganda, olingan namuna `{ a: number, b: number }` ko'rinishda bo'ladi (reflar normal namunadagidek avtomatik o'ralmagan holda bo'ladi).
 
-See also: [Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
+Buni ham ko'ring: [Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-The `expose` option can be used to limit the access to a child instance:
+`expose` varianti(option)dan bola namuna bog'lanish - ulanishni cheklash uchun foydalanish mumkin:
 
 ```js
 export default {
@@ -263,6 +264,6 @@ export default {
 }
 ```
 
-In the above example, a parent referencing this component via template ref will only be able to access `publicData` and `publicMethod`.
-
+Yuqoridagi misolda, a parent referencing this component via template ref will only be able to access `publicData` and `publicMethod`.
+Ota shu komponentga template ref orqali bog'lanyapti va faqatgina `publicData` hamda `publicMethod` lardan foydalana oladi.
 </div>
