@@ -45,7 +45,7 @@ Then, we can use the component in the template as:
 <div class="html">
 
 ```js
-import ChildComp from './ChildComp.vue'
+import ChildComp from './ChildComp.js'
 
 createApp({
   components: {

@@ -128,7 +128,6 @@ const myDirective = {
   beforeUnmount() {},
   // called when the parent component is unmounted
   unmounted() {}
-  }
 }
 ```
 

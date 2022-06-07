@@ -35,7 +35,8 @@ However, the runtime `props` options only support using constructor functions as
 To annotate complex props types, we can use the `PropType` utility type:
 
 ```ts
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
 
 interface Book {
   title: string
@@ -69,7 +70,8 @@ export default defineComponent({
 Because of a [design limitation](https://github.com/microsoft/TypeScript/issues/38845) in TypeScript, you have to be careful when using function values for `validator` and `default` prop options - make sure to use arrow functions:
 
 ```ts
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
 
 interface Book {
   title: string
@@ -235,6 +237,26 @@ See also:
 We can put this type augmentation in a `.ts` file, or in a project-wide `*.d.ts` file. Either way, make sure it is included in `tsconfig.json`. For library / plugin authors, this file should be specified in the `types` property in `package.json`.
 
 In order to take advantage of module augmentation, you will need to ensure the augmentation is placed in a [TypeScript module](https://www.typescriptlang.org/docs/handbook/modules.html). That is to say, the file needs to contain at least one top-level `import` or `export`, even if it is just `export {}`. If the augmentation is placed outside of a module, it will overwrite the original types rather than augmenting them!
+
+```ts
+// Does not work, overwrites the original types.
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $translate: (key: string) => string
+  }
+}
+```
+
+```ts
+// Works correctly
+export {}
+
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $translate: (key: string) => string
+  }
+}
+```
 
 ## Augmenting Custom Options
 

@@ -93,7 +93,7 @@ Creates virtual DOM nodes (vnodes).
   })
   ```
 
-- **See also:** [Guide - Creating VNodes](/guide/extras/render-function.html#creating-vnodes)
+- **See also:** [Guide - Render Functions - Creating VNodes](/guide/extras/render-function.html#creating-vnodes)
 
 ## mergeProps()
 

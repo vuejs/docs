@@ -164,7 +164,8 @@ year.value = '2020'
 Sometimes we may need to specify complex types for a ref's inner value. We can do that by using the `Ref` type:
 
 ```ts
-import { ref, Ref } from 'vue'
+import { ref } from 'vue'
+import type { Ref } from 'vue'
 
 const year: Ref<string | number> = ref('2020')
 
@@ -269,7 +270,8 @@ function handleChange(event: Event) {
 Provide and inject are usually performed in separate components. To properly type injected values, Vue provides an `InjectionKey` interface, which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
 
 ```ts
-import { provide, inject, InjectionKey } from 'vue'
+import { provide, inject } from 'vue'
+import type { InjectionKey } from 'vue'
 
 const key = Symbol() as InjectionKey<string>
 

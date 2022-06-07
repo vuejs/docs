@@ -17,6 +17,28 @@
     }
   },
   {
+    "name": "Daniel Roe",
+    "title": "Framework Architect",
+    "company": "Nuxt",
+    "projects": [
+      {
+        "label": "nuxt",
+        "url": "https://github.com/nuxt"
+      },
+      {
+        "label": "typed-vuex",
+        "url": "https://github.com/danielroe/typed-vuex"
+      }
+    ],
+    "location": "United Kingdom",
+    "languages": ["English"],
+    "socials": {
+      "github": "danielroe",
+      "twitter": "danielcroe",
+      "linkedin": "daniel-roe"
+    }
+  },
+  {
     "name": "Pratik Patel",
     "avatarPic": "https://pbs.twimg.com/profile_images/1541624512/profile-pic-09-11-2011_400x400.png",
     "title": "Organizer",
@@ -331,23 +353,20 @@
   },
   {
     "name": "Erick Petrucelli",
-    "title": "Teacher",
-    "company": "Fatec Taquaritinga",
-    "companyLink": "http://www.fatectq.edu.br/",
-    "location": "Taquaritinga, Brazil",
+    "title": "Head of Engineering",
+    "company": "Airbank",
+    "companyLink": "https://www.joinairbank.com/",
+    "location": "João Pessoa, Brazil",
     "languages": ["Portuguese", "English"],
     "projects": [
       {
-        "label": "vuejs-br/br.vuejs.org",
-        "url": "https://github.com/vuejs-br/br.vuejs.org"
-      },
-      {
-        "label": "ErickPetru/vue-feathers-chat",
-        "url": "https://github.com/ErickPetru/vue-feathers-chat"
+        "label": "vuejs-br",
+        "url": "https://github.com/vuejs-br"
       }
     ],
     "socials": {
       "github": "ErickPetru",
+      "linkedin": "erick-petrucelli",
       "twitter": "erickpetru"
     }
   },

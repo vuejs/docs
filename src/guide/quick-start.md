@@ -36,7 +36,7 @@ This command will install and execute [create-vue](https://github.com/vuejs/crea
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Cypress for both Unit and End-to-End testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add ESLint for code quality? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formating? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formatting? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span></span>
 <span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span>...</span>
 <span style="color:#A6ACCD;">Done.</span></code></pre></div>
@@ -50,7 +50,7 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
 
 You should now have your first Vue project running! Here are some additional tips:
 
-- The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar). [WebStorm](https://www.jetbrains.com/webstorm/) is also viable.
+- The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling.html#ide-support).
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
 - To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
 - If you chose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview.html).
@@ -74,7 +74,9 @@ To get started with Vue without a build step, simply copy the following code int
 <div id="app">{{ message }}</div>
 
 <script>
-  Vue.createApp({
+  const { createApp } = Vue
+
+  createApp({
     data() {
       return {
         message: 'Hello Vue!'
@@ -84,7 +86,11 @@ To get started with Vue without a build step, simply copy the following code int
 </script>
 ```
 
-The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable.
+The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable. For example, to also use the `ref` API, you can do:
+
+```js
+const { createApp, ref } = Vue
+```
 
 While the global build works, we will be primarily using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax throughout the rest of the documentation for consistency. In order to use Vue over native ES modules, use the following HTML instead:
 
@@ -112,11 +118,19 @@ While the global build works, we will be primarily using [ES modules](https://de
 </script>
 ```
 
-Notice how we can import directly from `'vue'` in our code - this is made possible by the `<script type="importmap">` block, leveraging a native browser feature called [Import Maps](https://caniuse.com/import-maps). Import maps are currently only available in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process. If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
+Notice how we can import directly from `'vue'` in our code - this is made possible by the `<script type="importmap">` block, leveraging a native browser feature called [Import Maps](https://caniuse.com/import-maps).
 
 You can add entries for other dependencies to the import map - just make sure they point to the ES modules version of the library you intend to use.
 
-:::tip Not for production
+:::tip Import Maps Browser Support
+Import maps are supported by default in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process.
+
+If using Firefox, it is only supported in version 102+ and currently needs to be enabled via the `dom.importMaps.enabled` option in `about:config`.
+
+If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
+:::
+
+:::warning Not for production
 The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
 

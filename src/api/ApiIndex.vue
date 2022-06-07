@@ -169,6 +169,7 @@ h3 {
 
 .api-group {
   break-inside: avoid;
+  overflow: auto;
   margin-bottom: 20px;
   background-color: var(--vt-c-bg-soft);
   border-radius: 8px;

@@ -14,7 +14,11 @@ const nav = [
       { text: 'Tutorial', link: '/tutorial/' },
       { text: 'Examples', link: '/examples/' },
       { text: 'Quick Start', link: '/guide/quick-start' },
-      { text: 'Style Guide', link: '/style-guide/' },
+      // { text: 'Style Guide', link: '/style-guide/' },
+      {
+        text: 'Vue 2 Docs',
+        link: 'https://v2.vuejs.org'
+      },
       {
         text: 'Migration from Vue 2',
         link: 'https://v3-migration.vuejs.org/'
@@ -37,10 +41,17 @@ const nav = [
       {
         text: 'Resources',
         items: [
-          { text: 'Partners', link: '/ecosystem/partners' },
+          { text: 'Partners', link: '/partners/' },
           { text: 'Themes', link: '/ecosystem/themes' },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+        ]
+      },
+      {
+        text: 'Core Libraries',
+        items: [
+          { text: 'Vue Router', link: 'https://router.vuejs.org/' },
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' }
         ]
       },
       {
@@ -63,7 +74,10 @@ const nav = [
             text: 'Discord Chat',
             link: 'https://discord.com/invite/HBherRA'
           },
-          { text: 'Forum', link: 'https://forum.vuejs.org/' },
+          {
+            text: 'GitHub Discussions',
+            link: 'https://github.com/vuejs/core/discussions'
+          },
           { text: 'DEV Community', link: 'https://dev.to/t/vue' }
         ]
       },
@@ -99,6 +113,11 @@ const nav = [
   {
     text: 'Sponsor',
     link: '/sponsor/'
+  },
+  {
+    text: 'Partners',
+    link: '/partners/',
+    activeMatch: `^/partners/`
   }
 ]
 

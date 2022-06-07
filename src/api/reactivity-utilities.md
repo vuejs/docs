@@ -10,7 +10,7 @@ Checks if a value is a ref object.
   function isRef<T>(r: Ref<T> | unknown): r is Ref<T>
   ```
 
-  Note the return type is a [type predicate](https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards), which means `isRef` can be used as a type guard:
+  Note the return type is a [type predicate](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates), which means `isRef` can be used as a type guard:
 
   ```ts
   let foo: unknown

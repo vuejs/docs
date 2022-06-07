@@ -229,7 +229,7 @@ A complete implementation would be quite complex and depends on the build toolch
 
 Vite provides built-in [support for Vue server-side rendering](https://vitejs.dev/guide/ssr.html), but it is intentionally low-level. If you wish to go directly with Vite, check out [vite-plugin-ssr](https://vite-plugin-ssr.com/), a community plugin that abstracts away many challenging details for you.
 
-You can also find an example Vue + Vite SSR project using manual setup [here](https://github.com/vitejs/vite/tree/main/packages/playground/ssr-vue), which can serve as a base to build upon. Note this is only recommended if you are experienced with SSR / build tools and really want to have complete control over the higher-level architecture.
+You can also find an example Vue + Vite SSR project using manual setup [here](https://github.com/vitejs/vite/tree/main/playground/ssr-vue), which can serve as a base to build upon. Note this is only recommended if you are experienced with SSR / build tools and really want to have complete control over the higher-level architecture.
 
 ## Writing SSR-friendly Code
 
@@ -324,3 +324,24 @@ const myDirective = {
   }
 }
 ```
+
+### Teleports
+
+Teleports require special handling during SSR. If the rendered app contains Teleports, the teleported content will not be part of the rendered string. An easier solution is to conditionally render the Teleport on mount.
+
+If you do need to hydrate teleported content, they are exposed under the `teleports` property of the ssr context object:
+
+```js
+const ctx = {}
+const html = await renderToString(app, ctx)
+
+console.log(ctx.teleports) // { '#teleported': 'teleported content' }
+```
+
+You need to inject the teleport markup into the correct location in your final page HTML similar to how you need to inject the main app markup.
+
+:::tip
+Avoid targeting `body` when using Teleports and SSR together - usually, `<body>` will contain other server-rendered content which makes it impossible for Teleports to determine the correct starting location for hydration.
+
+Instead, prefer a dedicated container, e.g. `<div id="teleported"></div>` which contains only teleported content.
+:::
