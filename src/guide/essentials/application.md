@@ -53,7 +53,7 @@ An application instance won't render anything until its `.mount()` method is cal
 app.mount('#app')
 ```
 
-The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app. If you're running Vue with a build step, the container element is the div in the `index.html` file at the root of your project. You can change the id of that div from 'app' to any other name. You would have to change the argumnet passed to the `createApp.mount()` method to match the id of the div.
+The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app. If you're running Vue with a build step, the container element is the div in the `index.html` file at the root of your project. You can change the id of that div from 'app' to any other name. You would have to change the argument passed to the `createApp.mount()` method to match the id of the div.
 
 The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
 
