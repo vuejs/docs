@@ -9,7 +9,10 @@ export interface APIGroup {
   items: {
     text: string
     link: string
-    headers: string[]
+    headers: {
+      anchor: string
+      text: string
+    }[]
   }[]
 }
 
@@ -34,7 +37,10 @@ export default {
 const headersCache = new Map<
   string,
   {
-    headers: string[]
+    headers: {
+      anchor: string
+      text: string
+    }[]
     timestamp: number
   }
 >()
@@ -50,15 +56,22 @@ function parsePageHeaders(link: string) {
 
   const src = fs.readFileSync(fullPath, 'utf-8')
   const h2s = src.match(/^## [^\n]+/gm)
-  let headers: string[] = []
+  let headers: {
+    anchor: string
+    text: string
+  }[] = []
   if (h2s) {
-    headers = h2s.map((h) =>
-      h
-        .slice(2)
-        .replace(/<sup class=.*/, '')
-        .replace(/\\</g, '<')
-        .replace(/`([^`]+)`/g, '$1')
-        .trim()
+    headers = h2s.map((h) => {
+        const text = h
+          .slice(2)
+          .replace(/<sup class=.*/, '')
+          .replace(/\\</g, '<')
+          .replace(/`([^`]+)`/g, '$1')
+          .replace(/\{#([a-zA-Z0-9-]+)\}/g, '') // hidden anchor tag
+          .trim()
+        const anchor = h.match(/\{#([a-zA-Z0-9-]+)\}/)?.[1] ?? text
+        return { text, anchor }
+      }
     )
   }
   headersCache.set(fullPath, {
