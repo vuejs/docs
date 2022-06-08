@@ -129,7 +129,10 @@ export default defineComponent({
 })
 ```
 
-See also: [type tests for `defineComponent`](https://github.com/vuejs/core/blob/main/test-dts/defineComponent.test-d.tsx)
+See also:
+
+- [Note on webpack Treeshaking](/api/general.html#note-on-webpack-treeshaking)
+- [type tests for `defineComponent`](https://github.com/vuejs/core/blob/main/test-dts/defineComponent.test-d.tsx)
 
 :::tip
 `defineComponent()` also enables type inference for components defined in plain JavaScript.
