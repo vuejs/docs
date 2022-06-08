@@ -31,7 +31,9 @@ const filtered = computed(() => {
             return item
           }
           // filter headers
-          const matchedHeaders = item.headers.map(h => h.text).filter(matches)
+          const matchedHeaders = item.headers.filter(
+            ({ text, anchor }) => matches(text) || matches(anchor)
+          )
           return matchedHeaders.length
             ? { text: item.text, link: item.link, headers: matchedHeaders }
             : null

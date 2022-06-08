@@ -4,15 +4,17 @@ import fs from 'fs'
 import path from 'path'
 import { sidebar } from '../../.vitepress/config'
 
+interface APIHeader {
+  anchor: string
+  text: string
+}
+
 export interface APIGroup {
   text: string
   items: {
     text: string
     link: string
-    headers: {
-      anchor: string
-      text: string
-    }[]
+    headers: APIHeader[]
   }[]
 }
 
@@ -37,10 +39,7 @@ export default {
 const headersCache = new Map<
   string,
   {
-    headers: {
-      anchor: string
-      text: string
-    }[]
+    headers: APIHeader[]
     timestamp: number
   }
 >()
@@ -56,10 +55,7 @@ function parsePageHeaders(link: string) {
 
   const src = fs.readFileSync(fullPath, 'utf-8')
   const h2s = src.match(/^## [^\n]+/gm)
-  let headers: {
-    anchor: string
-    text: string
-  }[] = []
+  let headers: APIHeader[] = []
   if (h2s) {
     headers = h2s.map((h) => {
         const text = h
