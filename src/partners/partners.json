@@ -143,9 +143,9 @@
     "intro": "Treat people well, solve the right problems, build spectacular software—that's how we roll. We're ultra-focused and deeply experienced in the technology powering modern business, including Vue.js. Via our signature method, our meticulously assembled team delivers unparalleled service, helping you do more with your software, and do right by your business.",
     "description": [
       "Empathetically opinionated, expertly executed development. That's what we deliver.",
-      "At Tighten, and we sweat the hell out of the details to give your app the fit-and-finish today's users expect, while giving you the clarity and confidence to charge ahead.",
+      "At Tighten, we sweat the hell out of the details to give your app the fit-and-finish today's users expect, while giving you the clarity and confidence to charge ahead.",
       "Whether you’re looking to simply enhance a user interface or build a sophisticated JavaScript-based application, we’ve got you covered. Vue.js is a flexible and robust framework, capable of powering a complex single-page application. We typically combine it with a Laravel-based API.",
-      "If you're building a development team, you know it takes time and diligence, and it could be the make-or-break factor for your business. Companies turn to Tighten at key turning points, to propel their technology forward while they assemble the *right* team for their business."
+      "If you're building a development team, you know it takes time and diligence, and it could be the make-or-break factor for your business. Companies turn to Tighten at key turning points, to propel their technology forward while they assemble the <b>right</b> team for their business."
     ],
     "region": ["North America", "Europe", "Latin America"],
     "proficiencies": ["Vue", "Nuxt", "Laravel", "Inertia", "Tailwind"],

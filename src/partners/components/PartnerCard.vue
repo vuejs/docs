@@ -98,7 +98,7 @@ h3 {
 .partner-card.hero .big {
   display: inline-block;
   margin-left: auto;
-  width: 60%;
+  max-width: 60%;
   max-height: 360px;
   object-fit: cover;
 }
@@ -115,6 +115,7 @@ h3 {
   }
   .partner-card.hero .big {
     width: 100%;
+    max-width: 100%;
   }
 }
 
