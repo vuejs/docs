@@ -357,7 +357,7 @@ Now let's add a button to the `<BlogPost>` component's template:
 </template>
 ```
 
-The button currently doesn't do anything yet - we want clicking the button to communicate to the parent that it should enlarge the text of all posts. To solve this problem, component instances provide a custom events system. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
+The button doesn't do anything yet - we want clicking the button to communicate to the parent that it should enlarge the text of all posts. To solve this problem, components provide a custom events system. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
 
 ```vue-html{3}
 <BlogPost
@@ -422,20 +422,14 @@ This documents all the events that a component emits and optionally [validates t
 
 <div class="composition-api">
 
-Similar to `defineProps`, `defineEmits` is also only usable in `<script setup>` and doesn't need to be imported. It returns an `emit` function that can be used to emit events:
+Similar to `defineProps`, `defineEmits` is only usable in `<script setup>` and doesn't need to be imported. It returns an `emit` function that is equivalent to the `$emit` method. It can be used to emit events in the `<script setup>` section of a component, where `$emit` isn't directly accessible:
 
 ```vue
-<!-- BlogPost.vue -->
 <script setup>
 const emit = defineEmits(['enlarge-text'])
+
+emit('enlarge-text')
 </script>
-  
-<template>
-  <div class="blog-post">
-    <h4>{{ title }}</h4>
-    <button @click="emit('enlarge-text')">Enlarge text</button>
-  </div>
-</template>
 ```
 
 See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
