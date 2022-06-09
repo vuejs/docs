@@ -8,7 +8,7 @@
 
 ## Emitting and Listening to Events
 
-A component can emit custom events directly in template expressions (e.g. in a `v-on` handler) using the built-in `$emit` function:
+A component can emit custom events directly in template expressions (e.g. in a `v-on` handler) using the built-in `$emit` method:
 
 ```vue-html
 <!-- MyComponent -->
@@ -17,7 +17,17 @@ A component can emit custom events directly in template expressions (e.g. in a `
 
 <div class="options-api">
 
-The `$emit()` function is also available on the component instance as `this.$emit()`.
+The `$emit()` method is also available on the component instance as `this.$emit()`:
+
+```js
+export default {
+  methods: {
+    submit() {
+      this.$emit('submit')
+    }
+  }
+}
+```
 
 </div>
 
@@ -90,25 +100,48 @@ All extra arguments passed to `$emit()` after the event name will be forwarded t
 
 ## Declaring Emitted Events
 
-Emitted events can be explicitly declared on the component via the <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span><span class="options-api">[`emits`](/api/options-state.html#emits) option</span>.
+Emitted events can be explicitly declared on the component via the <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span><span class="options-api">[`emits`](/api/options-state.html#emits) option</span>:
 
 <div class="composition-api">
 
 ```vue
 <script setup>
-const emit = defineEmits(['inFocus', 'submit'])
+defineEmits(['inFocus', 'submit'])
 </script>
 ```
 
-The returned `emit` function can be used to emit events in JavaScript.
+The `$emit` method that we used in the `<template>` isn't accessible within the `<script setup>` section of a component, but `defineEmits()` returns an equivalent function that we can use instead:
 
-If not using `<script setup>`, events should be declared using the [`emits`](/api/options-state.html#emits) option, and the `emit` function is exposed on the `setup()` context:
+```vue
+<script setup>
+const emit = defineEmits(['inFocus', 'submit'])
+
+function buttonClick() {
+  emit('submit')
+}
+</script>
+```
+
+The `defineEmits()` macro **cannot** be used inside a function, it must be placed directly within `<script setup>`, as in the example above.
+
+If you're using an explicit `setup` function instead of `<script setup>`, events should be declared using the [`emits`](/api/options-state.html#emits) option, and the `emit` function is exposed on the `setup()` context:
 
 ```js
 export default {
   emits: ['inFocus', 'submit'],
   setup(props, ctx) {
     ctx.emit('submit')
+  }
+}
+```
+
+As with other properties of the `setup()` context, `emit` can safely be destructured:
+
+```js
+export default {
+  emits: ['inFocus', 'submit'],
+  setup(props, { emit }) {
+    emit('submit')
   }
 }
 ```
