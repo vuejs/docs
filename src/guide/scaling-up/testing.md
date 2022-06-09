@@ -288,7 +288,7 @@ When end-to-end (E2E) tests are run in continuous integration / deployment pipel
 In a Vite-based Vue project, run:
 
 ```sh
-> npm install -D vitest happy-dom @testing-library/vue@next
+> npm install -D vitest happy-dom @testing-library/vue
 ```
 
 Next, update the Vite configuration to add the `test` option block:
