@@ -2,17 +2,16 @@
 outline: deep
 ---
 
-# Reactivity Fundamentals
+# Reaktivlik asoslari
 
-:::tip API Preference
-This page and many other chapters later in the guide contain different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
+:::tip API havola
+Ushbu sahifa va qo'llanmaning keyingi boshqa boblarida Options API va Composition API uchun turli xil mazmunli ma'lumotlar mavjud. Siz uchun <span class="options-api">Options API</span><span class="composition-api">Composition API</span> tanlangan. Chap yon panelning yuqori qismidagi “API havola” kalitlari yordamida API turlarini almashtirishingiz mumkin.
 :::
 
-## Declaring Reactive State
+## Reaktiv holatlarni e'lon qilish
 
 <div class="options-api">
-
-With Options API, we use the `data` option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. Any top-level properties of this object are proxied on the component instance (`this` in methods and lifecycle hooks):
+Options API yordamida komponentning reaktiv holatlarini e'lon qilish uchun `data` metodidan foydalanamiz. Metod qaytaradigan qiymat obyekt bo'lishi kerak. Vue yangi komponent namunasini yaratishda metodni chaqiradi va qaytarilgan obyektni reaktivlik tizimiga o'giradi. Ushbu obyektning har qanday yuqori darajali xususiyatlari komponent bilan proksi-server orqali biriktiriladi (Metod lar va lifecycle hook scope larda `this` (kontekst) orqali bu xususiyatlariga murojaat qilsa bo'ladi ):
 
 ```js{2-6}
 export default {
@@ -22,28 +21,37 @@ export default {
     }
   },
 
-  // `mounted` is a lifecycle hook which we will explain later
+  // `mounted` lifecycle hook haqida keyingi maqolalarda ma'lumot keltirilgan 
   mounted() {
-    // `this` refers to the component instance.
+    // bu yerda `this` yaratilgan komponent ga yo'naltirilgan havola hisoblanadi.
     console.log(this.count) // => 1
 
-    // data can be mutated as well
+    // `data` dagi ma'lumotni ham o'zgartiradi
     this.count = 2
   }
 }
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDFcbiAgICB9XG4gIH0sXG5cbiAgLy8gYG1vdW50ZWRgIGlzIGEgbGlmZWN5Y2xlIGhvb2sgd2hpY2ggd2Ugd2lsbCBleHBsYWluIGxhdGVyXG4gIG1vdW50ZWQoKSB7XG4gICAgLy8gYHRoaXNgIHJlZmVycyB0byB0aGUgY29tcG9uZW50IGluc3RhbmNlLlxuICAgIGNvbnNvbGUubG9nKHRoaXMuY291bnQpIC8vID0+IDFcblxuICAgIC8vIGRhdGEgY2FuIGJlIG11dGF0ZWQgYXMgd2VsbFxuICAgIHRoaXMuY291bnQgPSAyXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIENvdW50IGlzOiB7eyBjb3VudCB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Sinab ko'ring](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDFcbiAgICB9XG4gIH0sXG5cbiAgLy8gYG1vdW50ZWRgIGlzIGEgbGlmZWN5Y2xlIGhvb2sgd2hpY2ggd2Ugd2lsbCBleHBsYWluIGxhdGVyXG4gIG1vdW50ZWQoKSB7XG4gICAgLy8gYHRoaXNgIHJlZmVycyB0byB0aGUgY29tcG9uZW50IGluc3RhbmNlLlxuICAgIGNvbnNvbGUubG9nKHRoaXMuY291bnQpIC8vID0+IDFcblxuICAgIC8vIGRhdGEgY2FuIGJlIG11dGF0ZWQgYXMgd2VsbFxuICAgIHRoaXMuY291bnQgPSAyXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIENvdW50IGlzOiB7eyBjb3VudCB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 
-These instance properties are only added when the instance is first created, so you need to ensure they are all present in the object returned by the `data` function. Where necessary, use `null`, `undefined` or some other placeholder value for properties where the desired value isn't yet available.
+Ushbu namuna xususiyatlari faqat birinchi yaratilganda qo'shiladi, shuning uchun ularning barchasi `data` metodi tomonidan qaytarilgan obyektda mavjudligiga ishonch hosil qilishingiz kerak. Agar kerak bo'lsa, kerakli qiymat hali mavjud bo'lmagan xususiyatlar uchun `null`, `undefined` yoki boshqa to'ldiruvchi qiymatdan foydalaning.
 
-It is possible to add a new property directly to `this` without including it in `data`. However, properties added this way will not be able to trigger reactive updates.
+Yangi xususiyatni to'g'ridan-to'g'ri `this` (komponent namunasidagi reaktiv ma'lutmot), `data` ga e'lon qilmasdan turib qo'shish mumkin. Biroq, shu tarzda qo'shilgan xususiyatlar reaktiv yangilanishlarni ishga tushira olmaydi.
 
-Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
+Vue komponent namunasi orqali o‘zining o‘rnatilgan API-larini ishlatishda “$” prefiksidan foydalanadi. Shuningdek, u ichki xususiyatlar uchun `_` prefiksini ishlatadi. Ushbu belgilarning har biri bilan boshlanadigan yuqori darajadagi `data` xususiyatlari uchun shu prefiks bilan boshlangan nomlardan foydalanmaslik kerak.
+```js{2-6}
+export default {
+  data() {
+    return {
+      name: 'foo,
+      $name: 'bar', // Yaxshi emas
+      _count: 'baz' // Xato
+    }
+  }
+```
+### Reaktiv Proxy va. Orginal \*
 
-### Reactive Proxy vs. Original \*
-
-In Vue 3, data is made reactive by leveraging [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Users coming from Vue 2 should be aware of the following edge case:
+Vue 3 da ma'lumotlar [JavaScript proksi-server](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) yordamida reaktiv holatga keltiriladi. Vue 2 dan foydalangan foydalanuvchilar quyidagi cheklov holatlaridan xabardor bo'lishlari kerak:
 
 ```js
 export default {
@@ -60,14 +68,14 @@ export default {
   }
 }
 ```
-
+`this.someObject` ni `newObject` ga tenglashtirganizdan so'ng, uning qiymati asl nusxaning, `newObject` ning reaktiv proksisi hisoblanadi. **Vue 2 dan farqli, original `newObject` butunligicha qoldiriladi va reaktiv bo'lib qolmaydi va doim e'tibor bering reaktiv xususiyatlarga `this` orqali murojaat qilishingiz kerak.**   
 When you access `this.someObject` after assigning it, the value is a reactive proxy of the original `newObject`. **Unlike in Vue 2, the original `newObject` is left intact and will not be made reactive: make sure to always access reactive state as a property of `this`.**
 
 </div>
 
 <div class="composition-api">
 
-We can create a reactive object or array with the [`reactive()`](/api/reactivity-core.html#reactive) function:
+Biz [`reactive()`](/api/reactivity-core.html#reactive) funksiyasi bilan reaktiv obyekt va array yarata olamiz:
 
 ```js
 import { reactive } from 'vue'
@@ -75,21 +83,21 @@ import { reactive } from 'vue'
 const state = reactive({ count: 0 })
 ```
 
-Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and behave just like normal objects. The difference is that Vue is able to track the property access and mutations of a reactive object. If you are curious about the details, we explain how Vue's reactivity system works in [Reactivity in Depth](/guide/extras/reactivity-in-depth.html) - but we recommend reading it after you have finished the main guide.
+Reaktiv obyekt lar va [JavaScript Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) lar hisoblanadi va oddiy obyektlarga o'xshaydi. Farqi shundaki, Vue reaktiv obyektdan ma'lumot olishni va uni mutatsiyasini kuzata oladi. Agar siz tafsilotlarga qiziqsangiz, biz Vue reaktivlik tizimi qanday ishlashini [Reaktivlik chuqurroq](/guide/extras/reactivity-in-depth.html) maqolasida tushuntiramiz - lekin, asosiy qo‘llanmani tugatgandan so‘ng uni o‘qishni tavsiya qilamiz.
 
-See also: [Typing Reactive](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
+Buni ham ko'ring: [Reaktivlikdan foydalanish](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
 
-To use reactive state in a component's template, declare and return them from a component's `setup()` function:
+Komponent shablonida reaktiv holatni ishlatish uchun ularni komponentning `setup()` funksiyasi ichida e’lon qiling va uni qaytaring:
 
 ```js{5,9-11}
 import { reactive } from 'vue'
 
 export default {
-  // `setup` is a special hook dedicated for composition API.
+  // `setup` kompozitsiya API uchun maxsus hook.
   setup() {
     const state = reactive({ count: 0 })
 
-    // expose the state to the template
+    // reaktiv holat shablonda mavjud bo'lishi uchun qaytariladi
     return {
       state
     }
@@ -100,8 +108,7 @@ export default {
 ```vue-html
 <div>{{ state.count }}</div>
 ```
-
-Similarly, we can declare functions that mutate reactive state in the same scope, and expose it as a method alongside the state:
+Xuddi shunday, biz reaktiv holatni funksiya doirasida (in scope) oz'gartira oladigan funksiyani e'lon qilishimiz va u shablonda mavjud bo'lishi uchun holat bilan yonma-yon qilib qaytara olamiz. 
 
 ```js{7-9,14}
 import { reactive } from 'vue'
@@ -114,7 +121,7 @@ export default {
       state.count++
     }
 
-    // don't forget to expose the function as well.
+    // funksiyani ham qaytarishni unutmang.
     return {
       state,
       increment
@@ -123,7 +130,7 @@ export default {
 }
 ```
 
-Exposed methods are typically used as event listeners:
+Qaytarilgan methodlar odatda hodisa tinglovchilari (event listeners) sifatida  ishlatiladi:
 
 ```vue-html
 <button @click="increment">
@@ -132,8 +139,7 @@ Exposed methods are typically used as event listeners:
 ```
 
 ### `<script setup>` \*\*
-
-Manually exposing state and methods via `setup()` can be verbose. Luckily, it is only necessary when not using a build step. When using Single-File Components (SFCs), we can greatly simplify the usage with `<script setup>`:
+`setup()` orqali holat va metodlarni qo'lda qaytraish ortiqcha ish bo'lishi mumkin. Yaxshiyamki, bu faqat qurilish bosqichi(build step)dan  foydalanmayotganda kerak bo'ladi. Yagona faylli komponentlardan (SFC) foydalanganda biz `<script setup>` yordamida foydalanishni ancha soddalashtira olamiz.
 
 ```vue
 <script setup>
@@ -153,21 +159,20 @@ function increment() {
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBzdGF0ZSA9IHJlYWN0aXZlKHsgY291bnQ6IDAgfSlcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBzdGF0ZS5jb3VudCsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPlxuICAgIHt7IHN0YXRlLmNvdW50IH19XG4gIDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Sinab ko'ring](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBzdGF0ZSA9IHJlYWN0aXZlKHsgY291bnQ6IDAgfSlcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBzdGF0ZS5jb3VudCsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPlxuICAgIHt7IHN0YXRlLmNvdW50IH19XG4gIDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+`<script setup>` da e'lon qilingan yuqori darajadagi importlar va o'zgaruvchilar avtomatik ravishda shu komponent shablonida ishlatilishi mumkin.
 
-Top-level imports and variables declared in `<script setup>` are automatically usable in the template of the same component.
-
-> For the rest of the guide, we will be primarily using SFC + `<script setup>` syntax for Composition API code examples, as that is the most common usage for Vue developers.
+> Qo'llanmaning qolgan qismida biz asosan SFC + `<script setup>` sintaksisidan Composition API kod misollari uchun foydalanamiz, chunki bu Vue dan foydalanadiganlar uchun eng keng tarqalgan sintaksis hisoblanadi.
 
 </div>
 
 <div class="options-api">
 
-## Declaring Methods \*
+## Metod larni e'lon qilish \*
 
-<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Free Vue.js Methods Lesson"/>
+<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Vue js metod lar - tekin darslik"/>
 
-To add methods to a component instance we use the `methods` option. This should be an object containing the desired methods:
+Komponent namunasiga metod lar qo'shish uchun biz `methods` opsiyasidan foydalanamiz. Bu kerakli metod larni o'z ichiga olgan obyekt bo'lishi kerak:
 
 ```js{7-11}
 export default {
@@ -182,41 +187,44 @@ export default {
     }
   },
   mounted() {
-    // methods can be called in lifecycle hooks, or other methods!
+    // metod lar  lifecycle hook larda, yoki boshqa metod lar ichida chaqirilishi mumkin!
     this.increment()
   }
 }
 ```
 
-Vue automatically binds the `this` value for `methods` so that it always refers to the component instance. This ensures that a method retains the correct `this` value if it's used as an event listener or callback. You should avoid using arrow functions when defining `methods`, as that prevents Vue from binding the appropriate `this` value:
+Metod lar komponent namunasida mavjud bo'lishi uchun Vue avtomatik ravishda metod larga `this` kontekstini biriktiradi. Bu metod event listener yoki callback sifatida ishlatilsa `this` to'g'ri qiymatni saqlab qolishni ta'minlaydi. Metod larni e'lon qilayotganda strelka funksiyasidan foydalnamaslik kerak, chunki bu Vue ning `this` qiymatini bog'lashiga yo'l qo'ymaydi:
 
 ```js
 export default {
   methods: {
     increment: () => {
-      // BAD: no `this` access here!
+      // NOTO'G'RI: `this` ga bu yerda murojaat qilib bo'lmaydi!
     }
   }
 }
 ```
 
-Just like all other properties of the component instance, the `methods` are accessible from within the component's template. Inside a template they are most commonly used as event listeners:
+Komponent namunasining barcha boshqa property lari singari, `method` larga komponent shablonida murojaat qilsa bo'ladi. Shablon ichida ular ko'pincha event listener sifatida ishlatiladi:
 
 ```vue-html
 <button @click="increment">{{ count }}</button>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBpbmNyZW1lbnQoKSB7XG4gICAgICB0aGlzLmNvdW50KytcbiAgICB9XG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgdGhpcy5pbmNyZW1lbnQoKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Sinab ko'ring](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBpbmNyZW1lbnQoKSB7XG4gICAgICB0aGlzLmNvdW50KytcbiAgICB9XG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgdGhpcy5pbmNyZW1lbnQoKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-In the example above, the method `increment` will be called when the `<button>` is clicked.
+Yuqoridagi misolda tugma bosilganda `increment` nomli metod chaqiriladi.
 
 </div>
 
-### DOM Update Timing
+### DOM yangilash vaqti
 
-When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component needs to update only once no matter how many state changes you have made.
+Reaktiv holatni o'zgartirganingizda, DOM avtomatik ravishda yangilanadi.
+Ammo shuni ta'kidlash kerakki, DOM yangilanishlari sinxron ravishda qo'llanilmaydi.
+Buning o'rniga, Vue ularni keyingi yangilanish sikligacha `next tick` buferda saqlaydi.  
+Shu tufayli qancha holatni  o'zgartirgan bo'lishingizdan qat'iy nazar, har bir komponent faqat bir marta yangilanadi.
 
-To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general.html#nexttick) global API:
+Holatlar o'zgargandan so'ng DOM ynagilanishini kutish uchun [nextTick()](/api/general.html#nexttick) global API dan foydalanishingiz mumkin:
 
 <div class="composition-api">
 
@@ -226,7 +234,7 @@ import { nextTick } from 'vue'
 function increment() {
   state.count++
   nextTick(() => {
-    // access updated DOM
+    // yangilangan DOM dan foydalanishingiz mumkin 
   })
 }
 ```
@@ -242,7 +250,7 @@ export default {
     increment() {
       this.count++
       nextTick(() => {
-        // access updated DOM
+        // yangilangan DOM dan foydalanishingiz mumkin 
       })
     }
   }
@@ -251,9 +259,9 @@ export default {
 
 </div>
 
-### Deep Reactivity
+### Reaktivlik chuqurroq
 
-In Vue, state is deeply reactive by default. This means you can expect changes to be detected even when you mutate nested objects or arrays:
+Vue da holatlar azaldan chuqur reaktiv hisoblanadi. Bu shuni anglatadiki, siz ichki o'rnatilgan obyektlar yoki massivlarni mutatsiya qilganingizda ham o'zgarishlar aniqlanishini kutishingiz mumkin:
 
 <div class="options-api">
 
@@ -269,7 +277,7 @@ export default {
   },
   methods: {
     mutateDeeply() {
-      // these will work as expected.
+      // Kutilganidek ishlaydi.
       this.obj.nested.count++
       this.obj.arr.push('baz')
     }
@@ -290,7 +298,7 @@ const obj = reactive({
 })
 
 function mutateDeeply() {
-  // these will work as expected.
+  // Kutilganidek ishlaydi.
   obj.nested.count++
   obj.arr.push('baz')
 }
@@ -298,35 +306,35 @@ function mutateDeeply() {
 
 </div>
 
-It is also possible to explicitly create [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
+Reaktivlik holati chuqur bo'lmagan, faqatgina yuqori darajadagi propertylari reaktiv bo'lgan [sayoz reaktiv obyekt](/api/reactivity-advanced.html#shallowreactive) yaratish imkoniyati ham mavjud, ammo bu murakkab ko'rinishdagi ishlar uchun qo'llaniladi.
 
 <div class="composition-api">
 
 ### Reactive Proxy vs. Original \*\*
 
-It is important to note that the returned value from `reactive()` is a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) of the original object, which is not equal to the original object:
+Shuni ta'kidlash kerakki, `reactive()` dan qaytarilgan obyekt asl nusxaning [Proksi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) hisoblanadi va u asl ob'ektga teng emas:
 
 ```js
 const raw = {}
 const proxy = reactive(raw)
 
-// proxy is NOT equal to the original.
+// proxy obyekt uning asl nusxasiga teng emas.
 console.log(proxy === raw) // false
 ```
 
-Only the proxy is reactive - mutating the original object will not trigger updates. Therefore, the best practice when working with Vue's reactivity system is to **exclusively use the proxied versions of your state**.
+Faqat proksi reaktivniy hisoblanadi va asl obyektni o'zgartirish yangilanishlarni ishga tushirmaydi. Shuning uchun, Vue reaktivlik tizimi bilan ishlashda eng yaxshi amaliyot **faqat proksi holatlradan foydalanish** hisoblanadi.
 
-To ensure consistent access to the proxy, calling `reactive()` on the same object always returns the same proxy, and calling `reactive()` on an existing proxy also returns that same proxy:
+Bir xil obyekt bilan `reactive()` chaqiruvi har doim bir xil proksi obyektni qaytaradi va proksi obyekt bilan `reactive()` chaqiruvi ham o'sha proksi obyetkni qaytaradi:
 
 ```js
-// calling reactive() on the same object returns the same proxy
+// Bir xil obyekt bilan reactive() chaqiruvi bir xil proksi obyektni chaqiradi
 console.log(reactive(raw) === proxy) // true
 
-// calling reactive() on a proxy returns itself
+// proxy obyekt bilan  reactive() chaqiruvi shu proxy obyektni uzini qaytaradi
 console.log(reactive(proxy) === proxy) // true
 ```
 
-This rule applies to nested objects as well. Due to deep reactivity, nested objects inside a reactive object are also proxies:
+Bu qoida ichki o'rnatilgan obyektlar uchun ham amal qiladi. Chuqur reaktivlik tufayli reaktiv obyekt ichidagi ichki o'rnatilgan obyektlar ham proksi obyekt hisoblanadi:
 
 ```js
 const proxy = reactive({})
@@ -337,13 +345,13 @@ proxy.nested = raw
 console.log(proxy.nested === raw) // false
 ```
 
-### Limitations of `reactive()` \*\*
+### `reactive()` cheklovlari \*\*
 
-The `reactive()` API has two limitations:
+`reactive()` API da 2ta cheklov mavjud:
 
-1. It only works for object types (objects, arrays, and [collection types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections) such as `Map` and `Set`). It cannot hold [primitive types](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) such as `string`, `number` or `boolean`.
-
-2. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost:
+1. U faqat obyekt turlari uchun ishlaydi (obyektlar, massivlar,  [Kollekisya turlari](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections) `Map` va `Set` kabi to'plam turlari). U `string`, `number` yoki `boolean` kabi turdagi ma'lumotlar bilan ishlay olmaydi.
+2. Vue reaktivligini kuzatish mulkka kirishda ishlaganligi sababli, biz har doim reaktiv ob'ektga bir xil havolani saqlashimiz kerak. Bu shuni anglatadiki, biz reaktiv ob'ektni osongina "almashtira olmaymiz", chunki birinchi havola bilan reaktivlik aloqasi yo'qoladi:
+3. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost:
 
    ```js
    let state = reactive({ count: 0 })
@@ -585,7 +593,7 @@ Having to use `.value` with refs is a drawback imposed by the language constrain
 let count = $ref(0)
 
 function increment() {
-  // no need for .value
+  // .value ga ishlatishga ehtiyoj yo'q
   count++
 }
 </script>
@@ -595,6 +603,6 @@ function increment() {
 </template>
 ```
 
-You can learn more about [Reactivity Transform](/guide/extras/reactivity-transform.html) in its dedicated section. Do note that it is currently still experimental and may change before being finalized.
+[Reactivity Transform](/guide/extras/reactivity-transform.html) haqida uning maxsus boʻlimida koʻproq bilib olishingiz mumkin. E'tibor qarating, u hozircha tajribada va yakunlanishidan oldin oʻzgarishi mumkin.
 
 </div>

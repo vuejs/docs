@@ -145,7 +145,7 @@ export const sidebar = {
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'Reactivity Fundamentals',
+          text: 'Reaktivlik asoslari',
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
