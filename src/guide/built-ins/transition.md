@@ -286,6 +286,14 @@ Although the transition classes are only applied to the direct child element in 
 }
 ```
 
+However, this creates a small issue. By default, the `<Transition>` component attempts to automatically figure out when the transition has finished by listening to the **first** `transitionend` or `animationend` event on the root transition element. With a nested transition, the desired behavior should be waiting until the transitions of all inner elements have finished.
+
+Therefore, you should specify an explicit transition duration (in milliseconds) using the `duration` prop on the `<transition>` component. The total duration should match the delay plus transition duration of the inner element:
+
+```vue-html
+<Transition :duration="550">...</Transition>
+```
+
 We can even add a transition delay to the nested element on enter, which creates a staggered enter animation sequence:
 
 ```css{3}
@@ -293,14 +301,6 @@ We can even add a transition delay to the nested element on enter, which creates
 .nested-enter-active .inner {
   transition-delay: 0.25s;
 }
-```
-
-However, this creates a small issue. By default, the `<Transition>` component attempts to automatically figure out when the transition has finished by listening to the **first** `transitionend` or `animationend` event on the root transition element. With a nested transition, the desired behavior should be waiting until the transitions of all inner elements have finished.
-
-In such cases you can specify an explicit transition duration (in milliseconds) using the `duration` prop on the `<transition>` component. The total duration should match the delay plus transition duration of the inner element:
-
-```vue-html
-<Transition :duration="550">...</Transition>
 ```
 
 <NestedTransitions />
