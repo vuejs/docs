@@ -70,7 +70,7 @@ function updateExample(scroll = false) {
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
     hash = 'step-1'
-    location.hash = `#${hash}`
+    location.replace(`/tutorial/#${hash}`)
   }
   currentStep.value = hash
 
