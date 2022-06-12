@@ -69,7 +69,7 @@ We can't really track the reading and writing of local variables like in the exa
 
 There are two ways of intercepting property access in JavaScript: [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)/[setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) and [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 used getter/setters exclusively due to browser support limitations. In Vue 3, Proxies are used for reactive objects and getter/setters are used for refs. Here's some pseudo-code that illustrates how they work:
 
-```js{4,8,17,21}
+```js{4,9,17,22}
 function reactive(obj) {
   return new Proxy(obj, {
     get(target, key) {
@@ -77,8 +77,8 @@ function reactive(obj) {
       return target[key]
     },
     set(target, key, value) {
-      trigger(target, key)
       target[key] = value
+      trigger(target, key)
     }
   })
 }
@@ -90,8 +90,8 @@ function ref(value) {
       return value
     },
     set value(newValue) {
-      trigger(refObject, 'value')
       value = newValue
+      trigger(refObject, 'value')
     }
   }
   return refObject
