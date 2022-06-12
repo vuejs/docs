@@ -54,7 +54,7 @@ Vue templates are compiled into virtual DOM render functions. Vue also provides 
 
 So why does Vue recommend templates by default? There are a number of reasons:
 
-1. Templates are closer to actual HTML. This makes it easier to reuse existing HTML snippets, apply a11y best practices, style with CSS, and for designers to understand and modify.
+1. Templates are closer to actual HTML. This makes it easier to reuse existing HTML snippets, apply accessibility best practices, style with CSS, and for designers to understand and modify.
 
 2. Templates are easier to statically analyze due to their more deterministic syntax. This allows Vue's template compiler to apply many compile-time optimizations to improve the performance of the virtual DOM (which we will discuss below).
 
