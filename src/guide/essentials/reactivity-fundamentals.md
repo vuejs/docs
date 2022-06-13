@@ -350,40 +350,37 @@ console.log(proxy.nested === raw) // false
 `reactive()` API da 2ta cheklov mavjud:
 
 1. U faqat obyekt turlari uchun ishlaydi (obyektlar, massivlar,  [Kollekisya turlari](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections) `Map` va `Set` kabi to'plam turlari). U `string`, `number` yoki `boolean` kabi turdagi ma'lumotlar bilan ishlay olmaydi.
-2. Vue reaktivligini kuzatish mulkka kirishda ishlaganligi sababli, biz har doim reaktiv ob'ektga bir xil havolani saqlashimiz kerak. Bu shuni anglatadiki, biz reaktiv ob'ektni osongina "almashtira olmaymiz", chunki birinchi havola bilan reaktivlik aloqasi yo'qoladi:
-3. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost:
+2. Vue reaktivligini kuzatish obyekt property lardan foydalanayotganda vaqtda ishlaganligi sababli, biz har doim reaktiv obyektga bir xil havolani saqlashimiz kerak. Bu shuni anglatadiki, biz reaktiv obyektni osongina `almashtira olmaymiz`, chunki birinchi havola bilan reaktivlik aloqasi yo'qoladi:
 
    ```js
    let state = reactive({ count: 0 })
-
-   // the above reference ({ count: 0 }) is no longer being tracked (reactivity connection is lost!)
+   // yuqoridagi havola ({ count: 0 }) endi kuzatilmaydi (reaktivlik aloqasi uzildi!)
    state = reactive({ count: 1 })
    ```
-
-   It also means that when we assign or destructure a reactive object's property into local variables, or when we pass that property into a function, we will lose the reactivity connection:
+   Bundan tashqari, biz reaktiv obyektning xususiyatini boshqa o'zgaruvchilarga tenglaganimizda yoki destrukzatsiydan foydalanganimizda yoki bu xususiyatni funksiyaga argument sifatida berganimizda, biz reaktivlik aloqasini yo'qotamiz:  
 
    ```js
    const state = reactive({ count: 0 })
 
-   // n is a local variable that is disconnected
-   // from state.count.
+   // n - uzilgan o'zgaruvchi
+   // state.count dan.
    let n = state.count
-   // does not affect original state
+   // state ning count property isini o'zgartirmaydi
    n++
 
-   // count is also disconnected from state.count.
+   // count ham state.count dan uzilgan.
    let { count } = state
-   // does not affect original state
+   // state ning count property isini o'zgartirmaydi
    count++
 
-   // the function receives a plain number and
-   // won't be able to track changes to state.count
+   // funksiya oddiy raqamni oladi va
+   // state.count-dagi o'zgarishlarni kuzata olmaydi
    callSomeFunction(state.count)
    ```
 
-## Reactive Variables with `ref()` \*\*
+## `ref()` bilan reaktiv o'zgaruvchilar\*\*
 
-To address the limitations of `reactive()`, Vue also provides a [`ref()`](/api/reactivity-core.html#ref) function which allows us to create reactive **"refs"** that can hold any value type:
+`Reactive()` cheklovlarini hal qilish uchun Vue shuningdek, [`ref()`](/api/reactivity-core.html#ref) funksiyasini taqdim etadi, bu bizga reaktiv **"refs"** yaratish imkonini beradi va unda har qanday qiymat turini saqlasa bo'ladi:
 
 ```js
 import { ref } from 'vue'
@@ -391,7 +388,7 @@ import { ref } from 'vue'
 const count = ref(0)
 ```
 
-`ref()` takes the argument and returns it wrapped within a ref object with a `.value` property:
+`ref()` argument oladi va uni `.value` xususiyatiga ega ref obyektiga o'ralgan holda qaytaradi:
 
 ```js
 const count = ref(0)
@@ -403,20 +400,20 @@ count.value++
 console.log(count.value) // 1
 ```
 
-See also: [Typing Refs](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
+Buni ham ko'ring: [Refs typescript bilan](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
 
-Similar to properties on a reactive object, the `.value` property of a ref is reactive. In addition, when holding object types, ref automatically converts its `.value` with `reactive()`.
+Reaktiv obyektning propertylariga o'xshab, ref ning .value property isi reaktivdir. Bunga qo'shimcha ravishda, obyekt turlarini saqlaganda ref avtomatik ravishda uning .qiymatini reactiv() ga o'zgartiradi.
 
-A ref containing an object value can reactively replace the entire object:
+Obyekt qiymatini o'z ichiga olgan ref butun obyektni reaktiv ravishda almashtira oladi:
 
 ```js
 const objectRef = ref({ count: 0 })
 
-// this works reactively
+// bu reaktiv ishlaydi
 objectRef.value = { count: 1 }
 ```
 
-Refs can also be passed into functions or destructured from plain objects without losing reactivity:
+Reflar reaktivlikni yo'qotmasdan funksiyalarga argument sifatida berilishi va destrukzatsiyadan foydalanish mumkin mumkin:
 
 ```js
 const obj = {
@@ -424,16 +421,16 @@ const obj = {
   bar: ref(2)
 }
 
-// the function receives a ref
-// it needs to access the value via .value but it
-// will retain the reactivity connection
+// funksiya ref qabul qiladi
+// u qiymatga .value orqali murojaat qilish kerak, lekin u
+// reaktivlik aloqasini saqlab qoladi
 callSomeFunction(obj.foo)
 
-// still reactive
+// hali ham reaktiv
 const { foo, bar } = obj
 ```
 
-In other words, `ref()` allows us to create a "reference" to any value and pass it around without losing reactivity. This capability is quite important as it is frequently used when extracting logic into [Composable Functions](/guide/reusability/composables.html).
+Boshqacha qilib aytadigan bo'lsak, `ref()` har qanday qiymatga ega "ma'lumotlar" yaratish va uni reaktivlikni yo'qotmasdan saqlash imkonini beradi. Bu  juda muhim, chunki u [Composable Functions](/guide/reusability/composables.html) ni ishlatishda tez-tez qo'llaniladi.
 
 ### Ref Unwrapping in Templates \*\*
 
