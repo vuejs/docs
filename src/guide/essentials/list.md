@@ -199,7 +199,7 @@ And another for the index:
 </div>
 
 :::tip Note
-When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which isn't guaranteed to be consistent across JavaScript engine implementations.
+When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which has only been well-defined in modern versions of ECMAScript and could be inconsistent in older JavaScript engines.
 :::
 
 ## `v-for` with a Range
