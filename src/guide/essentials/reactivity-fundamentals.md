@@ -160,7 +160,7 @@ function increment() {
 [Sinab ko'ring](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBzdGF0ZSA9IHJlYWN0aXZlKHsgY291bnQ6IDAgfSlcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBzdGF0ZS5jb3VudCsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPlxuICAgIHt7IHN0YXRlLmNvdW50IH19XG4gIDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 `<script setup>` da e'lon qilingan yuqori darajadagi importlar va o'zgaruvchilar avtomatik ravishda shu komponentga biriktiriladi va komponent shablonida ishlatilishi mumkin.
 
-> Qo'llanmaning qolgan qismida biz asosan SFC + `<script setup>` sintaksisidan Composition API kod misollari uchun foydalanamiz, chunki bu Vue dan foydalanadiganlar uchun eng keng tarqalgan sintaksis hisoblanadi.
+> Qo'llanmaning qolgan qismida biz asosan SFC + `<script setup>` sintaksisidan Composition API kod misollari uchun foydalanamiz, chunki bu Vue-dan foydalanadiganlar uchun eng keng tarqalgan sintaksis hisoblanadi.
 
 </div>
 
@@ -222,7 +222,7 @@ Ammo shuni ta'kidlash kerakki, DOM yangilanishlari sinxron ravishda qo'llanilmay
 Buning o'rniga, Vue ularni keyingi yangilanish sikl(`next tick`)igacha buferda saqlaydi.  
 Shu tufayli qancha holatni  o'zgartirgan bo'lishingizdan qat'iy nazar, har bir komponent faqat bir marta yangilanadi.
 
-Holatlar o'zgargandan so'ng DOM yangilanishini kutish uchun [nextTick()](/api/general.html#nexttick) global API dan foydalanishingiz mumkin:
+Holatlar o'zgargandan so'ng DOM yangilanishini kutish uchun [nextTick()](/api/general.html#nexttick) global API-dan foydalanishingiz mumkin:
 
 <div class="composition-api">
 
@@ -275,7 +275,7 @@ export default {
   },
   methods: {
     mutateDeeply() {
-      // Kutilganidek ishlaydi.
+      // Kutilganidak ishlaydi.
       this.obj.nested.count++
       this.obj.arr.push('baz')
     }
@@ -296,7 +296,7 @@ const obj = reactive({
 })
 
 function mutateDeeply() {
-  // Kutilganidek ishlaydi.
+  // Kutilganidak ishlaydi.
   obj.nested.count++
   obj.arr.push('baz')
 }
@@ -308,7 +308,7 @@ Reaktivlik holati chuqur bo'lmagan, faqatgina yuqori darajadagi xususiyatlari re
 
 <div class="composition-api">
 
-### Reactive Proxy vs. Original \*\*
+### Reactive Proxy Obyekt va Asl Obyekt \*\*
 
 Shuni ta'kidlash kerakki, `reactive()`-dan qaytarilgan obyekt asl nusxaning [Proksi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)-si hisoblanadi va u asl obyektga teng emas:
 
@@ -550,8 +550,7 @@ export default {
 ```
 
 Biroq, bu yondashuv qayta ishlatiladigan komponentlar uchun muammoli, chunki o'chirilgan funksiya **holatli**: u ba'zi ichki holatlarni o'zida saqlaydi. Agar bir nechta komponent namunalari bir xil debounce funksiyani ishlatsa, ular bir-biriga xalaqit beradi.
-[//]: # (TODO Need to check there is something wrong )
-Har bir komponent misolining debounce funksiyasi boshqalardan mustaqil ravishda ishlashi uchun biz `created` lifecycle hook-da debounce versiyani yaratishimiz mumkin:
+Har bir komponent misolining debounce funksiyasi boshqalardan mustaqil ravishda ishlashi uchun biz debounce versiyani `created` lifecycle hook-da yaratishimiz mumkin:
 
 ```js
 export default {
