@@ -49,6 +49,11 @@ export default {
 
 </div>
 
+```vue-html{2}
+<AsyncComponent :prop="value"/>
+```
+
+
 ## Loading and Error States
 
 Asynchronous operations inevitably involve loading and error states - `defineAsyncComponent()` supports handling these states via advanced options:
