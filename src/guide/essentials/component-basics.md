@@ -538,7 +538,7 @@ In the example above, the value passed to `:is` can contain either:
 
 You can also use the `is` attribute to create regular HTML elements.
 
-If you're using a native HTML element such as `<component is="'input'">`, using `v-bind` will not work as expected. The compiler doesn't know the element type at build time, therefor it always generates `v-bind` code for a dynamic component, not a native input element.
+If you're using a native HTML element such as `<component is="'input'">`, using `v-model` will not work as expected. The compiler doesn't know the element type at build time, therefor it always generates `v-model` code for a dynamic component, not a native input element.
 
 When switching between multiple components with `<component :is="...">`, a component will be unmounted when it is switched away from. We can force the inactive components to stay "alive" with the built-in [`<KeepAlive>` component](/guide/built-ins/keep-alive.html).
 
