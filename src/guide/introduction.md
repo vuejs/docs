@@ -71,7 +71,7 @@ The above example demonstrates the two core features of Vue:
 You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
 
 :::tip Prerequisites
-The rest of the documentation assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
+The rest of the documentation assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! Prior experience with other frameworks helps, but is not required.
 :::
 
 ## The Progressive Framework
@@ -81,9 +81,9 @@ Vue is a framework and ecosystem that covers most of the common features needed 
 - Enhancing static HTML without a build step
 - Embedding as Web Components on any page
 - Single-Page Application (SPA)
-- Fullstack / Server-Side-Rendering (SSR)
-- Jamstack / Static-Site-Generation (SSG)
-- Targeting desktop, mobile, WebGL or even the terminal
+- Fullstack / Server-Side Rendering (SSR)
+- Jamstack / Static Site Generation (SSG)
+- Targeting desktop, mobile, WebGL, and even the terminal
 
 If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
 
@@ -130,7 +130,7 @@ With Options API, we define a component's logic using an object of options such 
 ```vue
 <script>
 export default {
-  // Properties returned from data() becomes reactive state
+  // Properties returned from data() become reactive state
   // and will be exposed on `this`.
   data() {
     return {
@@ -195,7 +195,7 @@ onMounted(() => {
 
 ### Which to Choose?
 
-First of all, both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
 
 The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
 
@@ -205,7 +205,7 @@ You can learn more about the comparison between the two styles and the potential
 
 If you are new to Vue, here's our general recommendation:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other one at a later time.
+- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
 
 - For production use:
 
@@ -221,7 +221,7 @@ Check out our [FAQ](/about/faq).
 
 ## Pick Your Learning Path
 
-Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all content if possible!
+Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
@@ -230,7 +230,7 @@ Different developers have different learning styles. Feel free to pick a learnin
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
     <p class="next-steps-link">Read the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full details.</p>
+    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
   </a>
   <a class="vt-box" href="/examples/">
     <p class="next-steps-link">Check out the Examples</p>
