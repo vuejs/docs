@@ -8,7 +8,7 @@ Depending on your use case and preference, you can use Vue with or without a bui
 
 ## With Build Tools
 
-A build setup allows us to use Vue [Single File Components](/guide/scaling-up/sfc) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight, and extremely fast.
+A build setup allows us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight, and extremely fast.
 
 ### Online
 
