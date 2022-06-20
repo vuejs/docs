@@ -8,7 +8,7 @@ Depending on your use case and preference, you can use Vue with or without a bui
 
 ## With Build Tools
 
-A build setup allows us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight and extremely fast.
+A build setup allows us to use Vue [Single File Components](/guide/scaling-up/sfc) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight, and extremely fast.
 
 ### Online
 
@@ -26,7 +26,7 @@ To create a build-tool-enabled Vue project on your machine, run the following co
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
-This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You will be presented with prompts for a number of optional features such as TypeScript and testing support:
+This command installs and executes [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You are presented with prompts for a number of optional features such as TypeScript and testing support:
 
 <div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
@@ -41,7 +41,7 @@ This command will install and execute [create-vue](https://github.com/vuejs/crea
 <span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span>...</span>
 <span style="color:#A6ACCD;">Done.</span></code></pre></div>
 
-If you are unsure about an option, simply choose `No` by hitting enter for now. Once the project is created, follow the instructions to install dependencies and start the dev server:
+If you are unsure about an option, simply choose `No` by hitting enter. Once the project is created, follow the instructions to install dependencies and start the dev server:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
@@ -53,14 +53,14 @@ You should now have your first Vue project running! Here are some additional tip
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling.html#ide-support).
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
 - To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
-- If you chose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview.html).
+- If you chose TypeScript, then check out the [TypeScript Usage Guide](typescript/overview.html).
 
 When you are ready to ship your app to production, run the following:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-This will create a production-ready build of your app in the project's `./dist` directory. Check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html) to learn more about shipping your app to production.
+This creates a production-ready build of your app in the project's `./dist` directory. Check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html) to learn more about shipping your app to production.
 
 [Next Steps >](#next-steps)
 
@@ -86,7 +86,7 @@ To get started with Vue without a build step, simply copy the following code int
 </script>
 ```
 
-The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable. For example, to also use the `ref` API, you can do:
+The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable. For example, to also use the `ref` API, you can write:
 
 ```js
 const { createApp, ref } = Vue
@@ -158,7 +158,7 @@ export default {
 }
 ```
 
-In order for this to work, you need to serve your HTML over the `http://` protocol instead of `file://` protocol. To start a local HTTP server, first install [Node.js](https://nodejs.org/en/), and then run `npx serve` from the command line in the same directory where your HTML file is. You can also use any other HTTP server that can serve static files with correct MIME types.
+For this to work, you need to serve your HTML over the `http://` protocol instead of `file://` protocol. To start a local HTTP server, first install [Node.js](https://nodejs.org/en/), and then run `npx serve` from the command line in the same directory where your HTML file is. You can also use any other HTTP server that can serve static files with correct MIME types.
 
 You may have noticed that the imported component's template is inlined as a JavaScript string. If you are using VSCode, you can install the [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) extension and prefix the strings with a `/*html*/` comment to get syntax highlighting for them.
 
@@ -169,7 +169,7 @@ If you skipped the [Introduction](/guide/introduction), we strongly recommend re
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application.html">
     <p class="next-steps-link">Continue the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full details.</p>
+    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
     <p class="next-steps-link">Try the Tutorial</p>
