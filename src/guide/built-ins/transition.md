@@ -378,7 +378,7 @@ function onLeave(el, done) {
 function onAfterLeave(el) {}
 
 // only available with v-show transitions
-function leaveCancelled(el) {}
+function onLeaveCancelled(el) {}
 ```
 
 </div>
@@ -421,7 +421,7 @@ export default {
     onAfterLeave(el) {},
 
     // only available with v-show transitions
-    leaveCancelled(el) {}
+    onLeaveCancelled(el) {}
   }
 }
 ```
