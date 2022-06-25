@@ -421,7 +421,7 @@ export default {
     onAfterLeave(el) {},
 
     // only available with v-show transitions
-    leaveCancelled(el) {}
+    onLeaveCancelled(el) {}
   }
 }
 ```
