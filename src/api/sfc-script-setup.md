@@ -35,7 +35,7 @@ function log() {
 </script>
 
 <template>
-  <div @click="log">{{ msg }}</div>
+  <button @click="log">{{ msg }}</button>
 </template>
 ```
 
