@@ -342,6 +342,57 @@ watchPostEffect(() => {
 
 </div>
 
+The `flush: 'pre'|'post'` option buffers the callback so that it is only called once at the end, even if there are multiple state changes in the same "tick".
+
+The `flush: 'sync'` option should be used if the callback needs to be invoked synchronously on every state change multiple times within the same tick.
+
+<div class="options-api">
+
+```js
+export default {
+  data: () => ({ count: 0 }),
+  watch: {
+    count: {
+      handler(val, preVal) {
+        console.log('Changed:', val, preVal)
+      },
+      flush: 'sync'
+    }
+  },
+  methods: {
+    increment() {
+      this.count++
+      // then trigger handler
+      this.count++
+      // then trigger handler
+      this.count++
+      // then trigger handler
+    }
+  }
+}
+```
+
+</div>
+
+<div class="composition-api">
+
+```js
+const count = ref(0)
+const callback = (val, preVal) => console.log('Changed:', val, preVal)
+const options = { flush: 'sync' }
+
+watch(count, callback, options)
+
+count.value++
+// then trigger callback
+count.value++
+// then trigger callback
+count.value++
+// then trigger callback
+```
+
+</div>
+
 <div class="options-api">
 
 ## `this.$watch()` \*
