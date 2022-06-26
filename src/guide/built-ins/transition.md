@@ -284,6 +284,8 @@ Although the transition classes are only applied to the direct child element in 
   transform: translateX(30px);
   opacity: 0;
 }
+
+/* ... other necessary CSS omitted */
 ```
 
 We can even add a transition delay to the nested element on enter, which creates a staggered enter animation sequence:
