@@ -169,7 +169,7 @@ If you skipped the [Introduction](/guide/introduction), we strongly recommend re
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application.html">
     <p class="next-steps-link">Continue the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full details.</p>
+    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
     <p class="next-steps-link">Try the Tutorial</p>
