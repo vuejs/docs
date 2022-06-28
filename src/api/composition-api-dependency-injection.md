@@ -52,12 +52,16 @@ Injects a value provided by an ancestor component or the application (via `app.p
   function inject<T>(key: InjectionKey<T> | string): T | undefined
 
   // with default value
-  function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
+  function inject<T>(
+    key: InjectionKey<T> | string,
+    defaultValue: T,
+    treatDefaultAsFactory?: false
+  ): T
 
   // with factory
   function inject<T>(
     key: InjectionKey<T> | string,
-    defaultValue: () => T,
+    defaultValue: T | (() => T),
     treatDefaultAsFactory: true
   ): T
   ```
