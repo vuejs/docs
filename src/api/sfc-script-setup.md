@@ -295,7 +295,7 @@ const emit = defineEmits<{
 One drawback of the type-only `defineProps` declaration is that it doesn't have a way to provide default values for the props. To resolve this problem, a `withDefaults` compiler macro is also provided:
 
 ```ts
-interface Props {
+export interface Props {
   msg?: string
   labels?: string[]
 }
