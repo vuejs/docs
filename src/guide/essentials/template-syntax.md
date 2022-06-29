@@ -134,7 +134,9 @@ In Vue templates, JavaScript expressions can be used in the following positions:
 
 ### Expressions Only
 
-Each binding can only contain **one single expression**, so the following will **NOT** work:
+Each binding can only contain **one single expression**. An expression is a piece of code that can evaluate to a value. A simple check is whether it can be used after `return`.
+
+Therefore, the following will **NOT** work:
 
 ```vue-html
 <!-- this is a statement, not an expression: -->
@@ -249,7 +251,7 @@ When using in-DOM templates (templates directly written in an HTML file), you sh
 <a :[someAttr]="value"> ... </a>
 ```
 
-The above will be converted to `:[someattr]` in in-DOM templates. If your component has a `someAttr` property instead of `someattr`, your code won't work.
+The above will be converted to `:[someattr]` in in-DOM templates. If your component has a `someAttr` property instead of `someattr`, your code won't work. Templates inside Single-File Components are **not** subject to this constraint.
 
 ### Modifiers
 
