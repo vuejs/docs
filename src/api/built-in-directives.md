@@ -450,7 +450,7 @@ Render the element and component once only, and skip future updates.
     <p>{{msg}}</p>
   </div>
   <!-- component -->
-  <my-component v-once :comment="msg"></my-component>
+  <MyComponent v-once :comment="msg"></MyComponent>
   <!-- `v-for` directive -->
   <ul>
     <li v-for="i in list" v-once>{{i}}</li>

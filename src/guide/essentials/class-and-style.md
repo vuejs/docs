@@ -192,7 +192,7 @@ However, this can be a bit verbose if you have multiple conditional classes. Tha
 
 When you use the `class` attribute on a component with a single root element, those classes will be added to the component's root element, and merged with any existing class already on it.
 
-For example, if we have a component named `my-component` with the following template:
+For example, if we have a component named `MyComponent` with the following template:
 
 ```vue-html
 <!-- child component template -->
@@ -203,7 +203,7 @@ Then add some classes when using it:
 
 ```vue-html
 <!-- when using the component -->
-<my-component class="baz boo"></my-component>
+<MyComponent class="baz boo" />
 ```
 
 The rendered HTML will be:
@@ -215,7 +215,7 @@ The rendered HTML will be:
 The same is true for class bindings:
 
 ```vue-html
-<my-component :class="{ active: isActive }"></my-component>
+<MyComponent :class="{ active: isActive }" />
 ```
 
 When `isActive` is truthy, the rendered HTML will be:
@@ -227,13 +227,13 @@ When `isActive` is truthy, the rendered HTML will be:
 If your component has multiple root elements, you would need to define which element will receive this class. You can do this using the `$attrs` component property:
 
 ```vue-html
-<!-- my-component template using $attrs -->
+<!-- MyComponent template using $attrs -->
 <p :class="$attrs.class">Hi!</p>
 <span>This is a child component</span>
 ```
 
 ```vue-html
-<my-component class="baz"></my-component>
+<MyComponent class="baz" />
 ```
 
 Will render:

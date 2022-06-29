@@ -290,18 +290,18 @@ The `key` binding expects primitive values - i.e. strings and numbers. Do not us
 You can directly use `v-for` on a component, like any normal element (don't forget to provide a `key`):
 
 ```vue-html
-<my-component v-for="item in items" :key="item.id"></my-component>
+<MyComponent v-for="item in items" :key="item.id" />
 ```
 
 However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
 
 ```vue-html
-<my-component
+<MyComponent
   v-for="(item, index) in items"
   :item="item"
   :index="index"
   :key="item.id"
-></my-component>
+/>
 ```
 
 The reason for not automatically injecting `item` into the component is because that makes the component tightly coupled to how `v-for` works. Being explicit about where its data comes from makes the component reusable in other situations.
