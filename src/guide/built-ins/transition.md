@@ -349,7 +349,7 @@ You can hook into the transition process with JavaScript by listening to events 
 ```js
 // called before the element is inserted into the DOM.
 // use this to set the "enter-from" state of the element
-function onBeforeEnter(el) {},
+function onBeforeEnter(el) {}
 
 // called one frame after the element is inserted.
 // use this to start the entering animation.
