@@ -28,23 +28,56 @@ const AsyncComp = defineAsyncComponent(() =>
 )
 ```
 
-The resulting `AsyncComp` is a wrapper component that only calls the loader function when it is actually rendered on the page. In addition, it will pass along any props to the inner component, so you can use the async wrapper to seamlessly replace the original component while achieving lazy loading.
+The resulting `AsyncComp` is a wrapper component that only calls the loader function when it is actually rendered on the page. In addition, it will pass along any props and slots to the inner component, so you can use the async wrapper to seamlessly replace the original component while achieving lazy loading.
+
+As with normal components, async components can be [registered globally](/guide/components/registration.html#global-registration) using `app.component()`:
+
+```js
+app.component('MyComponent', defineAsyncComponent(() =>
+  import('./components/MyComponent.vue')
+))
+```
 
 <div class="options-api">
 
 You can also use `defineAsyncComponent` when [registering a component locally](/guide/components/registration.html#local-registration):
 
-```js
+```vue
+<script>
 import { defineAsyncComponent } from 'vue'
 
 export default {
-  // ...
   components: {
-    AsyncComponent: defineAsyncComponent(() =>
-      import('./components/AsyncComponent.vue')
+    AdminPage: defineAsyncComponent(() =>
+      import('./components/AdminPageComponent.vue')
     )
   }
 }
+</script>
+
+<template>
+  <AdminPage />
+</template>
+```
+
+</div>
+
+<div class="composition-api">
+
+They can also be defined directly inside their parent component:
+
+```vue
+<script setup>
+import { defineAsyncComponent } from 'vue'
+
+const AdminPage = defineAsyncComponent(() =>
+  import('./components/AdminPageComponent.vue')
+)
+</script>
+
+<template>
+  <AdminPage />
+</template>
 ```
 
 </div>
