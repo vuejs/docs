@@ -68,7 +68,7 @@ In general, Vue 3 provides smaller bundle sizes, better performance, better scal
 
 If you intend to migrate an existing Vue 2 app to Vue 3, consult the dedicated [Vue 3 Migration Guide](https://v3-migration.vuejs.org/).
 
-Vue 2 will receive a final minor release (2.7) in 2022. This minor release will backport a selected subset of new features from Vue 3. After that, Vue 2 will enter maintenance mode: it will no longer ship new features, but will continue to receive critical bug fixes and security updates for another 18 months.
+Vue 2 has shipped a final minor release (2.7) in July 2022, which backports a selected subset of new features from Vue 3. Vue 2 has now entered maintenance mode: it will no longer ship new features, but will continue to receive critical bug fixes and security updates until the end of 2023.
 
 ## Should I use Options API or Composition API?
 
