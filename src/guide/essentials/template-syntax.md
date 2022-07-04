@@ -18,7 +18,7 @@ The mustache tag will be replaced with the value of the `msg` property from the 
 
 ## Raw HTML
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](/api/built-in-directives.html#v-html):
+The double mustaches interpret the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](/api/built-in-directives.html#v-html):
 
 ```vue-html
 <p>Using text interpolation: {{ rawHtml }}</p>
@@ -200,7 +200,7 @@ Another example is the `v-on` directive, which listens to DOM events:
 <a @click="doSomething"> ... </a>
 ```
 
-Here the argument is the event name to listen to: `click`. `v-on` is one of the few directives that also have a corresponding shorthand, with its shorthand character being `@`. We will talk about event handling in more detail too.
+Here the argument is the event name to listen to: `click`. `v-on` has a corresponding shorthand, namely the `@` character. We will talk about event handling in more detail too.
 
 ### Dynamic Arguments
 
