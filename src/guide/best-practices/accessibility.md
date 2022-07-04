@@ -277,6 +277,8 @@ Avoid using placeholders as they can confuse many users.
 
 One of the issues with placeholders is that they don't meet the [color contrast criteria](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) by default; fixing the color contrast makes the placeholder look like pre-populated data in the input fields. Looking at the following example, you can see that the Last Name placeholder which meets the color contrast criteria looks like pre-populated data:
 
+![Accessible placeholder](./images/AccessiblePlaceholder.png)
+
 ```vue-html
 <form
   class="demo"
@@ -298,7 +300,25 @@ One of the issues with placeholders is that they don't meet the [color contrast 
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Form Placeholder" slug="ExZvvMw" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+```css
+/* https://www.w3schools.com/howto/howto_css_placeholder.asp */
+
+#lastName::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+#lastName:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black;
+}
+
+#lastName::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: black;
+}
+```
 
 It is best to provide all the information the user needs to fill out forms outside any inputs.
 
