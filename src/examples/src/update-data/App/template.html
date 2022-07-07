@@ -1,0 +1,8 @@
+<h1>Your user profile</h1>
+<p v-if="profile">You have a profile</p>
+<p v-else>The profile does not exist</p>
+<form @submit.prevent="onSubmit" v-if="profile">
+  <input type="text" v-model="profile.firstName" />
+  <input type="text" v-model="profile.lastName" />
+  <input type="submit" value="Update" />
+</form>
