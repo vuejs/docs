@@ -460,6 +460,10 @@ export const sidebar = {
           link: '/examples/#fetching-data'
         },
         {
+          text: 'Fetching and updating data',
+          link: '/examples/#update-data'
+        },
+        {
           text: 'Grid with Sort and Filter',
           link: '/examples/#grid'
         },
