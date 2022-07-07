@@ -10,10 +10,10 @@ export default {
 
   methods: {
     async fetchData() {
-      this.profile = await (await fetch('/profile/')).json()
+      this.profile = await fetch('/profile/')
     },
     onSubmit() {
-      alert(JSON.stringify(this.profile.value))
+      alert(JSON.stringify(this.profile))
     }
   }
 }
