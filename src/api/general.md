@@ -16,7 +16,7 @@ Exposes the current version of Vue.
 
 ## nextTick()
 
-A utility for waiting for the next DOM update flush.
+A utility for delaying task execution at next tick, which you can use to wait for the next DOM update flush.
 
 - **Type**
 
