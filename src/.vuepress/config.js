@@ -340,7 +340,19 @@ module.exports = {
         src: 'https://extend.vimeocdn.com/ga/72160148.js',
         defer: 'defer'
       }
-    ]
+    ],
+    ['script', {
+      async: true,
+      src: 'https://www.googletagmanager.com/gtag/js?id=UA-2918085-50'
+    }],
+    ['script', {}, `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-2918085-50');
+      `],
+
   ],
   themeConfig: {
     logo: '/logo.png',
@@ -494,7 +506,7 @@ module.exports = {
         ]
       }
     ],
-    repo: 'vuejs/docs',
+    repo: 'vuejsorgua/docs-next',
     editLinks: true,
     editLinkText: 'Редагувати цю сторінку на GitHub!',
     lastUpdated: 'Востаннє оновлено',
