@@ -1,11 +1,29 @@
+---
+sidebarDepth: 1
+---
+
 # Global API
+
+If you're using a CDN build then the functions of the global API are accessible via the global `Vue` object. e.g.:
+
+```js
+const { createApp, h, nextTick } = Vue
+```
+
+If you're using ES modules then they can be imported directly:
+
+```js
+import { createApp, h, nextTick } from 'vue'
+```
+
+Global functions that handle reactivity, such as `reactive` and `ref`, are documented separately. See [Reactivity API](/api/reactivity-api.html) for those functions.
 
 ## createApp
 
 Returns an application instance which provides an application context. The entire component tree mounted by the application instance share the same context.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 ```
 
 You can chain other methods after `createApp`, they can be found in [Application API](./application-api.html)
@@ -15,7 +33,7 @@ You can chain other methods after `createApp`, they can be found in [Application
 The function receives a root component options object as a first parameter:
 
 ```js
-const app = Vue.createApp({
+const app = createApp({
   data() {
     return {
       ...
@@ -30,7 +48,7 @@ const app = Vue.createApp({
 With the second parameter, we can pass root props to the application:
 
 ```js
-const app = Vue.createApp(
+const app = createApp(
   {
     props: ['username']
   },
@@ -44,6 +62,8 @@ const app = Vue.createApp(
   {{ username }}
 </div>
 ```
+
+The root props are raw props, much like those passed to [`h`](#h) to create a VNode. In addition to component props, they can also include attributes and event listeners to be applied to the root component.
 
 ### Typing
 
@@ -60,11 +80,11 @@ export type CreateAppFunction<HostElement> = (
 
 ## h
 
-Returns a returns "virtual node", usually abbreviated to **VNode**: a plain object which contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. It is intended for manually written [render functions](../guide/render-function.md):
+Returns a "virtual node", usually abbreviated to **VNode**: a plain object which contains information describing to Vue what kind of node it should render on the page, including descriptions of any child nodes. It is intended for manually written [render functions](../guide/render-function.md):
 
 ```js
 render() {
-  return Vue.h('h1', {}, 'Some title')
+  return h('h1', {}, 'Some title')
 }
 ```
 
@@ -78,7 +98,7 @@ Accepts three arguments: `type`, `props` and `children`
 
 - **Details:**
 
-  An HTML tag name, a component or an async component. Using function returning null would render a comment. This parameter is required
+  An HTML tag name, a component, an async component, or a functional component. Using function returning null would render a comment. This parameter is required
 
 #### props
 
@@ -173,16 +193,14 @@ createApp({
 })
 ```
 
-For advanced usage, `defineAsyncComponent` can accept an object:
-
-The `defineAsyncComponent` method can also return an object of the following format:
+For advanced usage, `defineAsyncComponent` can accept an object of the following format:
 
 ```js
 import { defineAsyncComponent } from 'vue'
 
 const AsyncComp = defineAsyncComponent({
   // The factory function
-  loader: () => import('./Foo.vue')
+  loader: () => import('./Foo.vue'),
   // A component to use while the async component is loading
   loadingComponent: LoadingComponent,
   // A component to use if the load fails
@@ -216,6 +234,44 @@ const AsyncComp = defineAsyncComponent({
 
 **See also**: [Dynamic and Async components](../guide/component-dynamic-async.html)
 
+## defineCustomElement <Badge text="3.2+" />
+
+This method accepts the same argument as [`defineComponent`](#definecomponent), but instead returns a native [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) that can be used within any framework, or with no frameworks at all.
+
+Usage example:
+
+```html
+<my-vue-element></my-vue-element>
+```
+
+```js
+import { defineCustomElement } from 'vue'
+
+const MyVueElement = defineCustomElement({
+  // normal Vue component options here
+  props: {},
+  emits: {},
+  template: `...`,
+
+  // defineCustomElement only: CSS to be injected into shadow root
+  styles: [`/* inlined css */`]
+})
+
+// Register the custom element.
+// After registration, all `<my-vue-element>` tags on the page will be upgraded.
+customElements.define('my-vue-element', MyVueElement)
+
+// You can also programmatically instantiate the element:
+// (can only be done after registration)
+document.body.appendChild(
+  new MyVueElement({
+    // initial props (optional)
+  })
+)
+```
+
+For more details on building Web Components with Vue, especially with Single File Components, see [Vue and Web Components](/guide/web-components.html#building-custom-elements-with-vue).
+
 ## resolveComponent
 
 :::warning
@@ -224,10 +280,10 @@ const AsyncComp = defineAsyncComponent({
 
 Allows resolving a `component` by its name, if it is available in the current application instance.
 
-Returns a `Component` or `undefined` when not found.
+Returns a `Component` or the argument `name` when not found.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 app.component('MyComponent', {
   /* ... */
 })
@@ -292,7 +348,7 @@ Allows resolving a `directive` by its name, if it is available in the current ap
 Returns a `Directive` or `undefined` when not found.
 
 ```js
-const app = Vue.createApp({})
+const app = createApp({})
 app.directive('highlight', {})
 ```
 
@@ -399,7 +455,7 @@ For example, for runtime-dom, HostNode would be the DOM
 
 Custom renderers can pass in the platform specific types like this:
 
-```js
+```ts
 import { createRenderer } from 'vue'
 const { render, createApp } = createRenderer<Node, Element>({
   patchProp,
@@ -447,3 +503,96 @@ const app = createApp({
 ```
 
 **See also**: [`$nextTick` instance method](instance-methods.html#nexttick)
+
+## mergeProps
+
+Takes multiple objects containing VNode props and merges them into a single object. A newly created object is returned, the objects passed as arguments are not modified.
+
+Any number of objects can be passed, with properties from later arguments taking precedence. Event listeners are handled specially, as are `class` and `style`, with the values of these properties being merged rather than overwritten.
+
+```js
+import { h, mergeProps } from 'vue'
+
+export default {
+  inheritAttrs: false,
+
+  render() {
+    const props = mergeProps(
+      {
+        // The class will be merged with any class from $attrs
+        class: 'active'
+      },
+      this.$attrs
+    )
+
+    return h('div', props)
+  }
+}
+```
+
+## useCssModule
+
+:::warning
+`useCssModule` can only be used within `render` or `setup` functions.
+:::
+
+Allows CSS modules to be accessed within the [`setup`](/api/composition-api.html#setup) function of a [single-file component](/guide/single-file-component.html):
+
+```vue
+<script>
+import { h, useCssModule } from 'vue'
+
+export default {
+  setup() {
+    const style = useCssModule()
+
+    return () =>
+      h(
+        'div',
+        {
+          class: style.success
+        },
+        'Task complete!'
+      )
+  }
+}
+</script>
+
+<style module>
+.success {
+  color: #090;
+}
+</style>
+```
+
+For more information about using CSS modules, see [SFC Style Features: `<style module>`](/api/sfc-style.html#style-module).
+
+### Arguments
+
+Accepts one argument: `name`
+
+#### name
+
+- **Type:** `String`
+
+- **Details:**
+
+  The name of the CSS module. Defaults to `'$style'`.
+
+## version
+
+Provides the installed version of Vue as a string.
+
+```js
+const version = Number(Vue.version.split('.')[0])
+
+if (version === 3) {
+  // Vue 3
+} else if (version === 2) {
+  // Vue 2
+} else {
+  // Unsupported versions of Vue
+}
+```
+
+**See also**: [Application API - version](/api/application-api.html#version)

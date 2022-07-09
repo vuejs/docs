@@ -1,5 +1,7 @@
 # Provide / Inject
 
+> This section uses [single-file component](single-file-component.html) syntax for code examples
+
 > This guide assumes that you have already read [Provide / Inject](component-provide-inject.html), [Composition API Introduction](composition-api-introduction.html), and [Reactivity Fundamentals](reactivity-fundamentals.html).
 
 We can use [provide / inject](component-provide-inject.html) with the Composition API as well. Both can only be called during [`setup()`](composition-api-setup.html) with a current active instance.
@@ -60,7 +62,7 @@ Using our `MyMap` component, our provided values can be refactored as the follow
 
 <script>
 import { provide } from 'vue'
-import MyMarker from './MyMarker.vue
+import MyMarker from './MyMarker.vue'
 
 export default {
   components: {
@@ -123,7 +125,7 @@ Using our `MyMap` component, our code can be updated as follows:
 
 <script>
 import { provide, reactive, ref } from 'vue'
-import MyMarker from './MyMarker.vue
+import MyMarker from './MyMarker.vue'
 
 export default {
   components: {
@@ -159,7 +161,7 @@ For example, in the event we needed to change the user's location, we would idea
 
 <script>
 import { provide, reactive, ref } from 'vue'
-import MyMarker from './MyMarker.vue
+import MyMarker from './MyMarker.vue'
 
 export default {
   components: {
@@ -198,7 +200,7 @@ However, there are times where we need to update the data inside of the componen
 
 <script>
 import { provide, reactive, ref } from 'vue'
-import MyMarker from './MyMarker.vue
+import MyMarker from './MyMarker.vue'
 
 export default {
   components: {
@@ -254,7 +256,7 @@ Finally, we recommend using `readonly` on provided property if you want to ensur
 
 <script>
 import { provide, reactive, readonly, ref } from 'vue'
-import MyMarker from './MyMarker.vue
+import MyMarker from './MyMarker.vue'
 
 export default {
   components: {

@@ -34,7 +34,7 @@ export default {
 However, because `props` are reactive, you **cannot use ES6 destructuring** because it will remove props reactivity.
 :::
 
-If you need to destructure your props, you can do this safely by utilizing the [toRefs](reactivity-fundamentals.html#destructuring-reactive-state) inside of the `setup` function.
+If you need to destructure your props, you can do this by utilizing the [toRefs](reactivity-fundamentals.html#destructuring-reactive-state) inside of the `setup` function:
 
 ```js
 // MyBook.vue
@@ -42,29 +42,46 @@ If you need to destructure your props, you can do this safely by utilizing the [
 import { toRefs } from 'vue'
 
 setup(props) {
-	const { title } = toRefs(props)
+  const { title } = toRefs(props)
 
-	console.log(title.value)
+  console.log(title.value)
+}
+```
+
+If `title` is an optional prop, it could be missing from `props`. In that case, `toRefs` won't create a ref for `title`. Instead you'd need to use `toRef`:
+
+```js
+// MyBook.vue
+
+import { toRef } from 'vue'
+
+setup(props) {
+  const title = toRef(props, 'title')
+
+  console.log(title.value)
 }
 ```
 
 ### Context
 
-The second argument passed to the `setup` function is the `context`. The `context` is a normal JavaScript object that exposes three component properties:
+The second argument passed to the `setup` function is the `context`. The `context` is a normal JavaScript object that exposes other values that may be useful inside `setup`:
 
 ```js
 // MyBook.vue
 
 export default {
   setup(props, context) {
-    // Attributes (Non-reactive object)
+    // Attributes (Non-reactive object, equivalent to $attrs)
     console.log(context.attrs)
 
-    // Slots (Non-reactive object)
+    // Slots (Non-reactive object, equivalent to $slots)
     console.log(context.slots)
 
-    // Emit Events (Method)
+    // Emit events (Function, equivalent to $emit)
     console.log(context.emit)
+
+    // Expose public properties (Function)
+    console.log(context.expose)
   }
 }
 ```
@@ -74,17 +91,19 @@ The `context` object is a normal JavaScript object, i.e., it is not reactive, th
 ```js
 // MyBook.vue
 export default {
-  setup(props, { attrs, slots, emit }) {
+  setup(props, { attrs, slots, emit, expose }) {
     ...
   }
 }
 ```
 
-`attrs` and `slots` are stateful objects that are always updated when the component itself is updated. This means you should avoid destructuring them and always reference properties as `attrs.x` or `slots.x`. Also note that unlike `props`, `attrs` and `slots` are **not** reactive. If you intend to apply side effects based on `attrs` or `slots` changes, you should do so inside an `onUpdated` lifecycle hook.
+`attrs` and `slots` are stateful objects that are always updated when the component itself is updated. This means you should avoid destructuring them and always reference properties as `attrs.x` or `slots.x`. Also note that, unlike `props`, the properties of `attrs` and `slots` are **not** reactive. If you intend to apply side effects based on changes to `attrs` or `slots`, you should do so inside an `onBeforeUpdate` lifecycle hook.
+
+We'll explain the role of `expose` shortly.
 
 ## Accessing Component Properties
 
-When `setup` is executed, the component instance has not been created yet. As a result, you will only be able to access the following properties:
+When `setup` is executed, you will only be able to access the following properties:
 
 - `props`
 - `attrs`
@@ -96,6 +115,7 @@ In other words, you **will not have access** to the following component options:
 - `data`
 - `computed`
 - `methods`
+- `refs` (template refs)
 
 ## Usage with Templates
 
@@ -128,7 +148,7 @@ If `setup` returns an object, the properties on the object can be accessed in th
 </script>
 ```
 
-Note that [refs](../api/refs-api.html#ref) returned from `setup` are [automatically unwrapped](/guide/reactivity-fundamentals.html#ref-unwrapping) when accessed in the template so you shouldn't use `.value` in templates.
+Note that [refs](../api/refs-api.html#ref) returned from `setup` are [automatically shallow unwrapped](/guide/reactivity-fundamentals.html#ref-unwrapping) when accessed in the template so you shouldn't use `.value` in templates.
 
 ## Usage with Render Functions
 
@@ -143,11 +163,34 @@ export default {
   setup() {
     const readersNumber = ref(0)
     const book = reactive({ title: 'Vue 3 Guide' })
-    // Please note that we need to explicitly expose ref value here
+    // Please note that we need to explicitly use ref value here
     return () => h('div', [readersNumber.value, book.title])
   }
 }
 ```
+
+Returning a render function prevents us from returning anything else. Internally that shouldn't be a problem, but it can be problematic if we want to expose methods of this component to the parent component via template refs.
+
+We can solve this problem by calling `expose`, passing it an object that defines the properties that should be available on the external component instance:
+
+```js
+import { h, ref } from 'vue'
+
+export default {
+  setup(props, { expose }) {
+    const count = ref(0)
+    const increment = () => ++count.value
+
+    expose({
+      increment
+    })
+
+    return () => h('div', count.value)
+  }
+}
+```
+
+The `increment` method would then be available in the parent component via a template ref.
 
 ## Usage of `this`
 

@@ -39,7 +39,7 @@
 
     <Content class="theme-default-content custom" />
 
-    <section class="section-sponsors" ref="sponsors">
+    <section class="section-sponsors" :class="{ active: sponsorsActive }" ref="sponsors">
       <div class="inner">
         <PatreonSponsors :sponsors="sponsors" />
         <OpenCollectiveSponsors />
@@ -85,7 +85,8 @@ export default {
   },
 
   data: () => ({
-    sponsors
+    sponsors,
+    sponsorsActive: false
   }),
 
   computed: {
@@ -103,29 +104,19 @@ export default {
   },
 
   mounted() {
-    if (!window) {
-      return
+    window.addEventListener('scroll', this.onPageScroll)
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onPageScroll)
+  },
+
+  methods: {
+    onPageScroll() {
+      const sponsorTop = this.$refs.sponsors.offsetTop
+
+      this.sponsorsActive = window.pageYOffset > sponsorTop - 100
     }
-
-    const sponsors = this.$refs.sponsors
-    let sponsorTop = sponsors.offsetTop
-    let sponsorActive = false
-
-    window.addEventListener('resize', () => (sponsorTop = sponsors.offsetTop))
-
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > sponsorTop - 100) {
-        if (!sponsorActive) {
-          sponsorActive = true
-          sponsors.classList.add('active')
-        }
-      } else {
-        if (sponsorActive) {
-          sponsorActive = false
-          sponsors.classList.remove('active')
-        }
-      }
-    })
   }
 }
 </script>

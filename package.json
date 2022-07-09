@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@vuepress/plugin-pwa": "^1.5.4",
-    "node-sass": "^4.14.1",
+    "sass": "^1.32.0",
     "sass-loader": "^8.0.2",
     "vuepress": "^1.5.4"
   },
@@ -11,10 +11,9 @@
     "build": "vuepress build src"
   },
   "dependencies": {
-    "@docsearch/css": "^1.0.0-alpha.28",
-    "@docsearch/js": "^1.0.0-alpha.28",
-    "algoliasearch": "^4.5.1",
-    "axios": "^0.19.1",
+    "@docsearch/css": "^1.0.0-alpha.27",
+    "@docsearch/js": "^1.0.0-alpha.27",
+    "algoliasearch": "^4.4.0",
     "intersection-observer": "^0.11.0",
     "showdown": "^1.9.1"
   }

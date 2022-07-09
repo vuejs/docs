@@ -9,9 +9,10 @@
   A hash of directives to be made available to the component instance.
 
 - **Usage:**
+
   ```js
-  const app = Vue.createApp({})
-  
+  const app = createApp({})
+
   app.component('focused-input', {
     directives: {
       focus: {
@@ -35,12 +36,13 @@
   A hash of components to be made available to the component instance.
 
 - **Usage:**
+
   ```js
   const Foo = {
     template: `<div>Foo</div>`
   }
-  
-  const app = Vue.createApp({
+
+  const app = createApp({
     components: {
       Foo
     },

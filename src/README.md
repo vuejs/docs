@@ -11,7 +11,7 @@ actionButtons:
   - text: Розпочати
     link: /guide/introduction
   - text: GitHub
-    link: https://github.com/vuejs/vue
+    link: https://github.com/vuejs/vue-next
     extraClass: github grey
     icon: fa fa-github
     target: _blank
@@ -27,10 +27,10 @@ features:
       Мінімальні зусилля по оптимізації
 footer: |
   Випущено під <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">ліцензією MIT</a><br>
-  Всі права збережено © 2014-2020 Evan You
+  Всі права збережено © 2014-2021 Evan You
 socialIcons:
   - type: GitHub
-    link: https://github.com/vuejs/vue
+    link: https://github.com/vuejs/vue-next
   - type: Twitter
     link: https://twitter.com/vuejs
   - type: Medium

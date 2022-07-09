@@ -3,7 +3,7 @@ badges:
   - breaking
 ---
 
-# `key` attribute <MigrationBadges :badges="$frontmatter.badges" />
+# `key` Attribute <MigrationBadges :badges="$frontmatter.badges" />
 
 ## Overview
 
@@ -59,8 +59,8 @@ In Vue 2.x, a `<template>` tag could not have a `key`. Instead, you could place 
 ```html
 <!-- Vue 2.x -->
 <template v-for="item in list">
-  <div :key="item.id">...</div>
-  <span :key="item.id">...</span>
+  <div :key="'heading-' + item.id">...</div>
+  <span :key="'content-' + item.id">...</span>
 </template>
 ```
 

@@ -16,7 +16,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.html#reactive) method.
+If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.html#reactive) function.
 
 **Typing:**
 
@@ -38,7 +38,7 @@ foo.value = 123 // ok!
 
 If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`:
 
-```js
+```ts
 function useState<State extends string>(initial: State) {
   const state = ref(initial) as Ref<State> // state.value -> State extends string
   return state
@@ -49,7 +49,7 @@ function useState<State extends string>(initial: State) {
 
 Returns the inner value if the argument is a [`ref`](#ref), otherwise return the argument itself. This is a sugar function for `val = isRef(val) ? val.value : val`.
 
-```js
+```ts
 function useFoo(x: number | Ref<number>) {
   const unwrapped = unref(x) // unwrapped is guaranteed to be number now
 }
@@ -83,6 +83,8 @@ export default {
   }
 }
 ```
+
+`toRef` will return a usable ref even if the source property doesn't currently exist. This makes it especially useful when working with optional props, which wouldn't be picked up by [`toRefs`](#torefs).
 
 ## `toRefs`
 
@@ -139,6 +141,8 @@ export default {
   }
 }
 ```
+
+`toRefs` will only generate refs for properties that are included in the source object. To create a ref for a specific property use [`toRef`](#toref) instead.
 
 ## `isRef`
 
@@ -213,7 +217,7 @@ isReactive(foo.value) // false
 
 ## `triggerRef`
 
-Execute any effects tied to a  [`shallowRef`](#shallowref) manually.
+Execute any effects tied to a [`shallowRef`](#shallowref) manually.
 
 ```js
 const shallow = shallowRef({

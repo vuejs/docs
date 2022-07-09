@@ -18,7 +18,10 @@ Let’s imagine that in our app, we have a view to show a list of repositories o
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   data () {
     return {
@@ -54,7 +57,7 @@ This component has several responsibilities:
 
 Organizing logics with component's options (`data`, `computed`, `methods`, `watch`) works in most cases. However, when our components get bigger, the list of **logical concerns** also grows. This can lead to components that are hard to read and understand, especially for people who didn't write them in the first place.
 
-![Vue Option API: Code grouped by option type](https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png)
+![Vue Options API: Code grouped by option type](/images/options-api.png)
 
 Example presenting a large component where its **logical concerns** are grouped by colors.
 
@@ -64,16 +67,16 @@ It would be much nicer if we could collocate code related to the same logical co
 
 ## Basics of Composition API
 
-Now that we know the **why** we can get to the **how**. To start working with the Composition API we first need a place where we can actually use it. In a Vue component, we call this place the `setup`.
+Now that we know the **why**, we can get to the **how**. To start working with the Composition API we first need a place where we can actually use it. In a Vue component, we call this place the `setup`.
 
 ### `setup` Component Option
 
 <VideoLesson href="https://www.vuemastery.com/courses/vue-3-essentials/setup-and-reactive-references" title="Learn how setup works with Vue Mastery">Watch a free video on setup on Vue Mastery</VideoLesson>
 
-The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
+The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition APIs.
 
 ::: warning
-Because the component instance is not yet created when `setup` is executed, there is no `this` inside a `setup` option. This means, with the exception of `props`, you won't be able to access any properties declared in the component – **local state**, **computed properties** or **methods**.
+You should avoid using `this` inside `setup` as it won't refer to the component instance. `setup` is called before `data` properties, `computed` properties or `methods` are resolved, so they won't be available within `setup`.
 :::
 
 The `setup` option should be a function that accepts `props` and `context` which we will talk about [later](composition-api-setup.html#arguments). Additionally, everything that we return from `setup` will be exposed to the rest of our component (computed properties, methods, lifecycle hooks and so on) as well as to the component's template.
@@ -86,7 +89,10 @@ Let’s add `setup` to our component:
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   setup(props) {
     console.log(props) // { user: '' }
@@ -192,7 +198,10 @@ import { ref } from 'vue'
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   setup (props) {
     const repositories = ref([])
@@ -300,7 +309,7 @@ export default {
 }
 ```
 
-For more details on `watch`, refer to our [in-depth guide]().
+For more details on `watch`, refer to our [in-depth guide](reactivity-computed-watchers.md#watch).
 
 **Let’s now apply it to our example:**
 
@@ -311,7 +320,7 @@ import { ref, onMounted, watch, toRefs } from 'vue'
 
 // in our component
 setup (props) {
-  // using `toRefs` to create a Reactive Reference to the `user` property of props
+  // using `toRefs` to create a Reactive Reference to the `user` property of `props`
   const { user } = toRefs(props)
 
   const repositories = ref([])
@@ -449,7 +458,10 @@ import { toRefs } from 'vue'
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   setup (props) {
     const { user } = toRefs(props)
@@ -495,7 +507,10 @@ import useRepositoryFilters from '@/composables/useRepositoryFilters'
 export default {
   components: { RepositoriesFilters, RepositoriesSortBy, RepositoriesList },
   props: {
-    user: { type: String }
+    user: {
+      type: String,
+      required: true
+    }
   },
   setup(props) {
     const { user } = toRefs(props)

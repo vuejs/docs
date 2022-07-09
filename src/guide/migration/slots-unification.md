@@ -63,3 +63,5 @@ A majority of the change has already been shipped in 2.6. As a result, the migra
 
 1. Replace all `this.$scopedSlots` occurrences with `this.$slots` in 3.x.
 2. Replace all occurrences of `this.$slots.mySlot` with `this.$slots.mySlot()`
+
+[Migration build flag: `INSTANCE_SCOPED_SLOTS`](migration-build.html#compat-configuration)

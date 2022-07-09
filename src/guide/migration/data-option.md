@@ -94,9 +94,9 @@ In Vue 2.x, the resulting `$data` is:
 
 ```json
 {
-  user: {
-    id: 2,
-    name: 'Jack'
+  "user": {
+    "id": 2,
+    "name": "Jack"
   }
 }
 ```
@@ -105,11 +105,13 @@ In 3.0, the result will be:
 
 ```json
 {
-  user: {
-    id: 2
+  "user": {
+    "id": 2
   }
 }
 ```
+
+[Migration build flag: `OPTIONS_DATA_FN`](migration-build.html#compat-configuration)
 
 ## Migration Strategy
 
@@ -119,3 +121,8 @@ For users relying on the object declaration, we recommend:
 - Rewrite references to the shared data to point to a new shared object
 
 For users relying on the deep merge behavior from mixins, we recommend refactoring your code to avoid such reliance altogether, since deep merges from mixins are very implicit and can make the code logic more difficult to understand and debug.
+
+[Migration build flags:](migration-build.html#compat-configuration)
+
+- `OPTIONS_DATA_FN`
+- `OPTIONS_DATA_MERGE`

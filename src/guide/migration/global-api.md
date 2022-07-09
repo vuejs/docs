@@ -5,7 +5,7 @@ badges:
 
 # Global API <MigrationBadges :badges="$frontmatter.badges" />
 
-Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to create a global component, you would use the `Vue.component` API like this:
+Vue 2.x has a number of global APIs and configurations that globally mutate Vue’s behavior. For instance, to register a global component, you would use the `Vue.component` API like this:
 
 ```js
 Vue.component('button-counter', {
@@ -28,18 +28,18 @@ While this approach is convenient, it leads to a couple of problems. Technically
 
 - Global configuration makes it easy to accidentally pollute other test cases during testing. Users need to carefully store original global configuration and restore it after each test (e.g. resetting `Vue.config.errorHandler`). Some APIs like `Vue.use` and `Vue.mixin` don't even have a way to revert their effects. This makes tests involving plugins particularly tricky. In fact, vue-test-utils has to implement a special API `createLocalVue` to deal with this:
 
-```js
-import { createLocalVue, mount } from '@vue/test-utils'
+  ```js
+  import { createLocalVue, mount } from '@vue/test-utils'
 
-// create an extended `Vue` constructor
-const localVue = createLocalVue()
+  // create an extended `Vue` constructor
+  const localVue = createLocalVue()
 
-// install a plugin “globally” on the “local” Vue constructor
-localVue.use(MyPlugin)
+  // install a plugin “globally” on the “local” Vue constructor
+  localVue.use(MyPlugin)
 
-// pass the `localVue` to the mount options
-mount(Component, { localVue })
-```
+  // pass the `localVue` to the mount options
+  mount(Component, { localVue })
+  ```
 
 - Global configuration makes it difficult to share the same copy of Vue between multiple "apps" on the same page, but with different global configurations.
 
@@ -65,17 +65,27 @@ import { createApp } from 'vue'
 const app = createApp({})
 ```
 
-An app instance exposes a subset of the current global APIs. The rule of thumb is _any APIs that globally mutate Vue's behavior are now moved to the app instance_. Here is a table of the current global APIs and their corresponding instance APIs:
+If you're using a [CDN](/guide/installation.html#cdn) build of Vue then `createApp` is exposed via the global `Vue` object:
 
-| 2.x Global API             | 3.x Instance API (`app`)                                                                        |
-| -------------------------- | ----------------------------------------------------------------------------------------------- |
-| Vue.config                 | app.config                                                                                      |
-| Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                          |
-| Vue.config.ignoredElements | app.config.isCustomElement ([see below](#config-ignoredelements-is-now-config-iscustomelement)) |
-| Vue.component              | app.component                                                                                   |
-| Vue.directive              | app.directive                                                                                   |
-| Vue.mixin                  | app.mixin                                                                                       |
-| Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                               |
+```js
+const { createApp } = Vue
+
+const app = createApp({})
+```
+
+An app instance exposes a subset of the Vue 2 global APIs. The rule of thumb is _any APIs that globally mutate Vue's behavior are now moved to the app instance_. Here is a table of the Vue 2 global APIs and their corresponding instance APIs:
+
+| 2.x Global API             | 3.x Instance API (`app`)                                                                                                        |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Vue.config                 | app.config                                                                                                                      |
+| Vue.config.productionTip   | _removed_ ([see below](#config-productiontip-removed))                                                                          |
+| Vue.config.ignoredElements | app.config.compilerOptions.isCustomElement ([see below](#config-ignoredelements-is-now-config-compileroptions-iscustomelement)) |
+| Vue.component              | app.component                                                                                                                   |
+| Vue.directive              | app.directive                                                                                                                   |
+| Vue.mixin                  | app.mixin                                                                                                                       |
+| Vue.use                    | app.use ([see below](#a-note-for-plugin-authors))                                                                               |
+| Vue.prototype              | app.config.globalProperties ([see below](#vue-prototype-replaced-by-config-globalproperties))                                   |
+| Vue.extend                 | _removed_ ([see below](#vue-extend-removed))                                                                                    |
 
 All other global APIs that do not globally mutate behavior are now named exports, as documented in [Global API Treeshaking](./global-api-treeshaking.html).
 
@@ -85,7 +95,9 @@ In Vue 3.x, the "use production build" tip will only show up when using the "dev
 
 For ES modules builds, since they are used with bundlers, and in most cases a CLI or boilerplate would have configured the production env properly, this tip will no longer show up.
 
-### `config.ignoredElements` Is Now `config.isCustomElement`
+[Migration build flag: `CONFIG_PRODUCTION_TIP`](migration-build.html#compat-configuration)
+
+### `config.ignoredElements` Is Now `config.compilerOptions.isCustomElement`
 
 This config option was introduced with the intention to support native custom elements, so the renaming better conveys what it does. The new option also expects a function which provides more flexibility than the old string / RegExp approach:
 
@@ -94,17 +106,90 @@ This config option was introduced with the intention to support native custom el
 Vue.config.ignoredElements = ['my-el', /^ion-/]
 
 // after
-const app = Vue.createApp({})
-app.config.isCustomElement = tag => tag.startsWith('ion-')
+const app = createApp({})
+app.config.compilerOptions.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
 ::: tip Important
 
-In 3.0, the check of whether an element is a component or not has been moved to the template compilation phase, therefore this config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
+In Vue 3, the check of whether an element is a component or not has been moved to the template compilation phase, therefore this config option is only respected when using the runtime compiler. If you are using the runtime-only build, `isCustomElement` must be passed to `@vue/compiler-dom` in the build setup instead - for example, via the [`compilerOptions` option in vue-loader](https://vue-loader.vuejs.org/options.html#compileroptions).
 
-- If `config.isCustomElement` is assigned to when using a runtime-only build, a warning will be emitted instructing the user to pass the option in the build setup instead;
+- If `config.compilerOptions.isCustomElement` is assigned to when using a runtime-only build, a warning will be emitted instructing the user to pass the option in the build setup instead;
 - This will be a new top-level option in the Vue CLI config.
-  :::
+:::
+
+[Migration build flag: `CONFIG_IGNORED_ELEMENTS`](migration-build.html#compat-configuration)
+
+### `Vue.prototype` Replaced by `config.globalProperties`
+
+In Vue 2, `Vue.prototype` was commonly used to add properties that would be accessible in all components.
+
+The equivalent in Vue 3 is [`config.globalProperties`](/api/application-config.html#globalproperties). These properties will be copied across as part of instantiating a component within the application:
+
+```js
+// before - Vue 2
+Vue.prototype.$http = () => {}
+```
+
+```js
+// after - Vue 3
+const app = createApp({})
+app.config.globalProperties.$http = () => {}
+```
+
+Using `provide` (discussed [below](#provide-inject)) should also be considered as an alternative to `globalProperties`.
+
+[Migration build flag: `GLOBAL_PROTOTYPE`](migration-build.html#compat-configuration)
+
+### `Vue.extend` Removed
+
+In Vue 2.x, `Vue.extend` was used to create a "subclass" of the base Vue constructor with the argument that should be an object containing component options. In Vue 3.x, we don't have the concept of component constructors anymore. Mounting a component should always use the `createApp` global API:
+
+```js
+// before - Vue 2
+
+// create constructor
+const Profile = Vue.extend({
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data() {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+})
+// create an instance of Profile and mount it on an element
+new Profile().$mount('#mount-point')
+```
+
+```js
+// after - Vue 3
+const Profile = {
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data() {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+}
+
+Vue.createApp(Profile).mount('#mount-point')
+```
+
+#### Type Inference
+
+In Vue 2, `Vue.extend` was also used for providing TypeScript type inference for the component options. In Vue 3, the `defineComponent` global API can be used in place of `Vue.extend` for the same purpose.
+
+Note that although the return type of `defineComponent` is a constructor-like type, it is only used for TSX inference. At runtime `defineComponent` is largely a noop and will return the options object as-is.
+
+#### Component Inheritance
+
+In Vue 3, we strongly recommend favoring composition via [Composition API](/api/composition-api.html) over inheritance and mixins. If for some reason you still need component inheritance, you can use the [`extends` option](/api/options-composition.html#extends) instead of `Vue.extend`.
+
+[Migration build flag: `GLOBAL_EXTEND`](migration-build.html#compat-configuration)
 
 ### A Note for Plugin Authors
 
@@ -127,7 +212,7 @@ app.use(VueRouter)
 
 ## Mounting App Instance
 
-After being initialized with `createApp(/* options */)`, the app instance `app` can be used to mount a Vue root instance with `app.mount(domTarget)`:
+After being initialized with `createApp(/* options */)`, the app instance `app` can be used to mount a root component instance with `app.mount(domTarget)`:
 
 ```js
 import { createApp } from 'vue'
@@ -159,6 +244,8 @@ app.directive('focus', {
 app.mount('#app')
 ```
 
+[Migration build flag: `GLOBAL_MOUNT`](migration-build.html#compat-configuration)
+
 ## Provide / Inject
 
 Similar to using the `provide` option in a 2.x root instance, a Vue 3 app instance can also provide dependencies that can be injected by any component inside the app:
@@ -177,6 +264,8 @@ export default {
   template: `<div>{{ book }}</div>`
 }
 ```
+
+Using `provide` is especially useful when writing a plugin, as an alternative to `globalProperties`.
 
 ## Share Configurations Among Apps
 
@@ -198,4 +287,4 @@ createMyApp(Foo).mount('#foo')
 createMyApp(Bar).mount('#bar')
 ```
 
-Now the `focus` directive will be available in both Foo and Bar instances and their descendants.
+Now the `focus` directive will be available in both `Foo` and `Bar` instances and their descendants.

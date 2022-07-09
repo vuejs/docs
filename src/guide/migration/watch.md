@@ -8,7 +8,7 @@ badges:
 
 ## Overview
 
-- **BREAKING**: When watching an array, the callback will only trigger when the array is replaced. If you need to to trigger on mutation, the `deep` option must be specified.
+- **BREAKING**: When watching an array, the callback will only trigger when the array is replaced. If you need to trigger on mutation, the `deep` option must be specified.
 
 ## 3.x Syntax
 
@@ -27,4 +27,6 @@ watch: {
 
 ## Migration Strategy
 
-If you rely on watching array mutations, add the `deep` property to ensure that your callback is triggered correctly.
+If you rely on watching array mutations, add the `deep` option to ensure that your callback is triggered correctly.
+
+[Migration build flag: `WATCH_ARRAY`](migration-build.html#compat-configuration)

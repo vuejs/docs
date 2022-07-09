@@ -1,18 +1,18 @@
 # Basics
 
-Web accessibility (also known as a11y) refers to the practice of creating websites that can be used by anyone — be that a person with a disability, a slow connection, outdated or broken hardware or simply someone in an unfavorable environment. For example, adding subtitles to a video would help both your deaf and hard-of-hearing users and your users who are in a loud environment and can't hear their phone. Similarly, making sure your text isn't too low contrast will help both your low-vision users and your users who are trying to use their phone in bright sunlight.
+Web accessibility (also known as a11y) refers to the practice of creating websites that can be used by anyone — be that a person with a disability, a slow connection, outdated or broken hardware, or simply someone in an unfavorable environment. For example, adding subtitles to a video would help both your deaf and hard-of-hearing users and your users who are in a loud environment and can't hear their phones. Similarly, making sure your text isn't too low contrast will help both your low-vision users and your users who are trying to use their phones in bright sunlight.
 
-Ready start but aren’t sure where?
+Ready to start but aren’t sure where?
 
 Checkout the [Planning and managing web accessibility guide](https://www.w3.org/WAI/planning-and-managing/) provided by [World Wide Web Consortium (W3C)](https://www.w3.org/)
 
 ## Skip link
 
-You should add a link at the top of each page that goes directly to the main content area so users can skip content that is repeated on multiple Web pages.
+You should add a link at the top of each page that goes directly to the main content area so that users can skip content that was repeated on multiple Web pages.
 
 Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
 
-``` html
+```html
 <ul class="skip-links">
   <li>
     <a href="#main" ref="skipLink">Skip to main content</a>
@@ -22,7 +22,7 @@ Typically this is done on the top of `App.vue` as it will be the first focusable
 
 To hide the link unless it is focused, you can add the following style:
 
-``` css
+```css
 .skipLink {
   white-space: nowrap;
   margin: 1em auto;
@@ -42,7 +42,7 @@ To hide the link unless it is focused, you can add the following style:
 
 Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus to the `ref` provided below:
 
-``` vue
+```vue
 <script>
 export default {
   watch: {
@@ -54,12 +54,7 @@ export default {
 </script>
 ```
 
-<p class="codepen" data-height="350" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="VwepxJa" style="height: 350px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Skip to Main">
-  <span>See the Pen <a href="https://codepen.io/mlama007/pen/VwepxJa">
-  Skip to Main</a> by Maria (<a href="https://codepen.io/mlama007">@mlama007</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<common-codepen-snippet title="Skip to Main" slug="GRrvQJa" :height="350" tab="js,result" theme="light" :preview="false" :editable="false" />
 
 [Read documentation on skip link to main content](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
 
@@ -99,16 +94,16 @@ Users can navigate an application through headings. Having descriptive headings 
 
 Landmarks provide programmatic access to sections within an application. Users who rely on assistive technology can navigate to each section of the application and skip over content. You can use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) to help you achieve this.
 
-| HTML            | ARIA Role                                                         | Landmark Purpose                                                                       |
-| --------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| header          | role="banner"                                                     | Prime heading: title of the page                                                       |
-| nav             | role="navigation"                                                 | Collection of links suitable for use when navigating the document or related documents |
-| main            | role="main"                                                       | The main or central content of the document.                                           |
-| footer          | role="contentinfo"                                                | Information about the parent document: footnotes/copyrights/links to privacy statement |
-| aside           | role="complementary"                                              | Supports the main content, yet is separated and meaningful on its own content            |
-| _Not available_ | role="search"                                                     | This section contains the search functionality for the application                     |
-| form            | role="form"                                                       | Collection of form-associated elements                                                 |
-| section         | role="region"  | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element                |
+| HTML            | ARIA Role            | Landmark Purpose                                                                                                 |
+| --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| header          | role="banner"        | Prime heading: title of the page                                                                                 |
+| nav             | role="navigation"    | Collection of links suitable for use when navigating the document or related documents                           |
+| main            | role="main"          | The main or central content of the document.                                                                     |
+| footer          | role="contentinfo"   | Information about the parent document: footnotes/copyrights/links to privacy statement                           |
+| aside           | role="complementary" | Supports the main content, yet is separated and meaningful on its own content                                    |
+| _Not available_ | role="search"        | This section contains the search functionality for the application                                               |
+| form            | role="form"          | Collection of form-associated elements                                                                           |
+| section         | role="region"        | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element |
 
 :::tip Tip:
 It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).

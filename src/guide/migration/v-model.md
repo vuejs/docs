@@ -86,7 +86,7 @@ Then the parent could listen to that event and update a local data property, if 
 <ChildComponent :title="pageTitle" @update:title="pageTitle = $event" />
 ```
 
-For convenience, we had a shorthand for this pattern with the .sync modifier:
+For convenience, we had a shorthand for this pattern with the `.sync` modifier:
 
 ```html
 <ChildComponent :title.sync="pageTitle" />
@@ -173,6 +173,7 @@ We recommend:
     props: {
       modelValue: String // previously was `value: String`
     },
+    emits: ['update:modelValue'],
     methods: {
       changePageTitle(title) {
         this.$emit('update:modelValue', title) // previously was `this.$emit('input', title)`
@@ -181,10 +182,15 @@ We recommend:
   }
   ```
 
+[Migration build flags:](migration-build.html#compat-configuration)
+
+- `COMPONENT_V_MODEL`
+- `COMPILER_V_BIND_SYNC`
+
 ## Next Steps
 
 For more information on the new `v-model` syntax, see:
 
 - [Using `v-model` on Components](../component-basics.html#using-v-model-on-components)
 - [`v-model` arguments](../component-custom-events.html#v-model-arguments)
-- [Handling `v-model` modifiers](../component-custom-events.html#v-model-arguments)
+- [Handling `v-model` modifiers](../component-custom-events.html#handling-v-model-modifiers)

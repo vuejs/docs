@@ -1,0 +1,135 @@
+<svg width="838" height="1388" xmlns="http://www.w3.org/2000/svg" fill="none" font-family="Inter,Roboto,sans-serif" font-size="14" text-anchor="middle">
+  <g transform="translate(283 63)">
+    <path d="M131 66v35h6l-7 14-7-14h6v-35h2z" fill="#9AA9B2"/>
+    <rect stroke="#2F679A" fill="#3E6B94" x="0.5" y="0.5" width="259" height="66" rx="8"/>
+    <text x="130" y="24.5" fill="#FFF" dominant-baseline="middle">
+      app = Vue.<tspan fill="#FFB196" dominant-baseline="middle">createApp</tspan>(<tspan fill="#39DD95" dominant-baseline="middle">options</tspan>)
+    </text>
+    <text x="130" y="43" fill="#FFF" dominant-baseline="middle">
+      app.<tspan fill="#FFB196" dominant-baseline="middle">mount</tspan>(<tspan fill="#39DD95" dominant-baseline="middle">el</tspan>)
+    </text>
+  </g>
+  <g transform="translate(316 178)">
+    <path d="M98 58v46h6l-7 14-7-14h6v-46h2z" fill="#9AA9B2"/>
+    <rect stroke="#23AC70" fill="#3AB881" x="0.5" y="0.5" width="193" height="58" rx="8"/>
+    <text x="97" y="20.5" fill="#FFF" dominant-baseline="middle">Init</text>
+    <text x="97" y="39" fill="#FFF" dominant-baseline="middle">events &amp; lifecycle</text>
+  </g>
+  <g transform="translate(73 235)">
+    <path d="M160 18v14l-14-7l14-7z" fill="#DB5B62"/>
+    <line x1="338" y1="25" x2="161" y2="25" stroke="#DB5B62" stroke-width="2" stroke-dasharray="3"/>
+    <rect stroke="#DB5B62" stroke-width="2" x="1" y="1" width="144" height="48" rx="8"/>
+    <text x="73" y="25.5" fill="#DB5B62" dominant-baseline="middle">beforeCreate</text>
+  </g>
+  <g transform="translate(316 296)">
+    <path d="M98 58v46h6l-7 14-7-14h6v-46h2z" fill="#9AA9B2"/>
+    <rect stroke="#23AC70" fill="#3AB881" x="0.5" y="0.5" width="193" height="58" rx="8"/>
+    <text x="97" y="20.5" fill="#FFF" dominant-baseline="middle">Init</text>
+    <text x="97" y="39" fill="#FFF" dominant-baseline="middle">injections &amp; reactivity</text>
+  </g>
+  <g transform="translate(73 353)">
+    <path d="M160 18v14l-14-7l14-7z" fill="#DB5B62"/>
+    <line x1="338" y1="25" x2="161" y2="25" stroke="#DB5B62" stroke-width="2" stroke-dasharray="3"/>
+    <rect stroke="#DB5B62" stroke-width="2" x="1" y="1" width="144" height="48" rx="8"/>
+    <text x="73" y="25.5" fill="#DB5B62" dominant-baseline="middle">created</text>
+  </g>
+  <g transform="translate(317 414)">
+    <path d="M-45 53v52h6l-7 14-7-14h6v-54h286v54h6l-7 14-7-14h6v-52z" fill="#9AA9B2"/>
+    <polygon points="96,0.5 192,52 96,103.5 0,52" stroke="#F2781E" fill="#FF8228"/>
+    <text fill="#FFF" x="96" y="33.5" dominant-baseline="middle">Has</text>
+    <text fill="#FFF" x="96" y="52" dominant-baseline="middle">“template”</text>
+    <text fill="#FFF" x="96" y="70.5" dominant-baseline="middle">option?</text>
+    <text fill="#8E9EA9" x="-58.5" y="66.5" text-anchor="end" dominant-baseline="middle">YES</text>
+    <text fill="#8E9EA9" x="250" y="66.5" text-anchor="start" dominant-baseline="middle">NO</text>
+  </g>
+  <g transform="translate(167 533)">
+    <path d="M103 58h2v44h282v-44h2v46h-142v54h6l-7 14l-7-14h6v-54h-142z" fill="#9AA9B2"/>
+    <rect stroke="#23AC70" fill="#3AB881" x="0.5" y="0.5" width="207" height="58" rx="8"/>
+    <text fill="#FFF" x="104" y="20.5" dominant-baseline="middle">Compile template</text>
+    <text fill="#FFF" x="104" y="39" dominant-baseline="middle">into render function <tspan fill="#F6DA72" dominant-baseline="middle">*</tspan></text>
+    <g transform="translate(284 0)">
+      <rect stroke="#23AC70" fill="#3AB881" x="0.5" y="0.5" width="207" height="58" rx="8"/>
+      <text fill="#FFF" x="104" y="20.5" dominant-baseline="middle">Compile el’s innerHTML</text>
+      <text fill="#FFF" x="104" y="39" dominant-baseline="middle">as template <tspan fill="#F6DA72" dominant-baseline="middle">*</tspan></text>
+    </g>
+  </g>
+  <g transform="translate(73 639)">
+    <path d="M160 18v14l-14-7l14-7z" fill="#DB5B62"/>
+    <line x1="338" y1="25" x2="161" y2="25" stroke="#DB5B62" stroke-width="2" stroke-dasharray="3"/>
+    <rect stroke="#DB5B62" stroke-width="2" x="1" y="1" width="144" height="48" rx="8"/>
+    <text x="73" y="25.5" fill="#DB5B62" dominant-baseline="middle">beforeMount</text>
+  </g>
+  <g transform="translate(316 705)">
+    <path d="M98 58v77h6l-7 14-7-14h6v-77h2z" fill="#9AA9B2"/>
+    <rect stroke="#23AC70" fill="#3AB881" x="0.5" y="0.5" width="193" height="58" rx="8"/>
+    <text x="97" y="20.5" fill="#FFF" dominant-baseline="middle">Create app.$el and</text>
+    <text x="97" y="39" fill="#FFF" dominant-baseline="middle">append it to el</text>
+  </g>
+  <g transform="translate(73 777)">
+    <path d="M160 18v14l-14-7l14-7z" fill="#DB5B62"/>
+    <line x1="338" y1="25" x2="161" y2="25" stroke="#DB5B62" stroke-width="2" stroke-dasharray="3"/>
+    <rect stroke="#DB5B62" stroke-width="2" x="1" y="1" width="144" height="48" rx="8"/>
+    <text x="73" y="25.5" fill="#DB5B62" dominant-baseline="middle">mounted</text>
+  </g>
+  <g>
+    <g transform="translate(651.5 802.363) rotate(140 0 0)">
+      <path d="M14 0v14l-14-7l14-7z" fill="#DB5B62"/>
+      <line x1="60" y1="7" x2="15" y2="7" stroke="#DB5B62" stroke-width="2" stroke-dasharray="3"/>
+    </g>
+    <g transform="translate(619 747)">
+      <rect stroke="#DB5B62" stroke-width="2" x="1" y="1" width="144" height="48" rx="8"/>
+      <text x="73" y="25.5" fill="#DB5B62" dominant-baseline="middle">beforeUpdate</text>
+    </g>
+    <g transform="translate(642.5 1008.363) rotate(220 0 0)">
+      <path d="M14 0v14l-14-7l14-7z" fill="#DB5B62"/>
+      <line x1="60" y1="7" x2="15" y2="7" stroke="#DB5B62" stroke-width="2" stroke-dasharray="3"/>
+    </g>
+    <g transform="translate(619 1003)">
+      <rect stroke="#DB5B62" stroke-width="2" x="1" y="1" width="144" height="48" rx="8"/>
+      <text x="73" y="25.5" fill="#DB5B62" dominant-baseline="middle">updated</text>
+    </g>
+    <path transform="translate(430 803)" stroke="#8999A4" stroke-width="2" stroke-dasharray="4" stroke-dashoffset="6" d="M147 16a95 95,0,1,1,-102 0"/>
+    <g transform="translate(539 860)">
+      <rect stroke="#23AC70" fill="#3AB881" x="0.5" y="0.5" width="141" height="77" rx="8"/>
+      <text x="71" y="20.5" fill="#FFF" dominant-baseline="middle">Virtual DOM</text>
+      <text x="71" y="39" fill="#FFF" dominant-baseline="middle">re-rendered</text>
+      <text x="71" y="57.5" fill="#FFF" dominant-baseline="middle">and patch</text>
+    </g>
+    <g transform="translate(526 803)">
+      <text x="0" y="0" fill="#8E9EA9" dominant-baseline="middle">when data</text>
+      <text x="0" y="18.5" fill="#8E9EA9" dominant-baseline="middle">changes</text>
+    </g>
+  </g>
+  <g transform="translate(366 854)">
+    <circle stroke="#DC424C" fill="#DB5860" cx="47" cy="47" r="46.5"/>
+    <text x="47" y="48" fill="#FFF" dominant-baseline="middle">Mounted</text>
+    <path stroke="#9AA9B2" stroke-width="2" stroke-dasharray="3" d="M47 96v33"/>
+  </g>
+  <g transform="translate(355 947)">
+    <text x="58" y="55" fill="#8E9EA9" dominant-baseline="middle">when</text>
+    <text x="58" y="73.5" fill="#8E9EA9" dominant-baseline="middle">app.<tspan fill="#DB5B62" dominant-baseline="middle">unmount</tspan>()</text>
+    <text x="56" y="92" fill="#8E9EA9" dominant-baseline="middle">is called</text>
+    <path stroke="#9AA9B2" stroke-width="2" stroke-dasharray="3" d="M58 107v51"/>
+    <path d="M51 159l7 14 7-14z" fill="#9AA9B2"/>
+  </g>
+  <g transform="translate(73 1056)">
+    <path d="M160 18v14l-14-7l14-7z" fill="#DB5B62"/>
+    <line x1="338" y1="25" x2="161" y2="25" stroke="#DB5B62" stroke-width="2" stroke-dasharray="3"/>
+    <rect stroke="#DB5B62" stroke-width="2" x="1" y="1" width="144" height="48" rx="8"/>
+    <text x="73" y="25.5" fill="#DB5B62" dominant-baseline="middle">beforeUnmount</text>
+  </g>
+  <g transform="translate(73 1150)">
+    <path d="M160 18v14l-14-7l14-7z" fill="#DB5B62"/>
+    <line x1="338" y1="25" x2="161" y2="25" stroke="#DB5B62" stroke-width="2" stroke-dasharray="3"/>
+    <rect stroke="#DB5B62" stroke-width="2" x="1" y="1" width="144" height="48" rx="8"/>
+    <text x="73" y="25.5" fill="#DB5B62" dominant-baseline="middle">unmounted</text>
+  </g>
+  <g transform="translate(359 1120)">
+    <circle stroke="#DC424C" fill="#DB5860" cx="54" cy="54" r="53.5"/>
+    <text x="54" y="55" fill="#FFF" dominant-baseline="middle">Unmounted</text>
+  </g>
+  <g transform="translate(413 1299.5)">
+    <text x="0" y="0" fill="#848484" dominant-baseline="middle">* Template compilation is performed ahead-of-time if using</text>
+    <text x="0" y="18.5" fill="#848484" dominant-baseline="middle">a build step, e.g., with single-file components.</text>
+  </g>
+</svg>

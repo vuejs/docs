@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="611px" height="615px" viewBox="0 0 611 615" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Scoped Slot</title>
+    <defs>
+        <rect id="path-1" x="58" y="54" width="499" height="507" rx="8"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-2" y="-2" width="503" height="511">
+            <rect x="56" y="52" width="503" height="511" fill="white"></rect>
+            <use xlink:href="#path-1" fill="black"></use>
+        </mask>
+        <rect id="path-3" x="0" y="0" width="319" height="129" rx="8"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-2" y="-2" width="323" height="133">
+            <rect x="-2" y="-2" width="323" height="133" fill="white"></rect>
+            <use xlink:href="#path-3" fill="black"></use>
+        </mask>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-2" y="-2" width="323" height="133">
+            <rect x="-2" y="-2" width="323" height="133" fill="white"></rect>
+            <use xlink:href="#path-3" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Diagrams" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Scoped-Slot">
+            <use id="Rectangle" stroke="#23AC70" mask="url(#mask-2)" stroke-width="4" stroke-dasharray="4,4" xlink:href="#path-1"></use>
+            <g id="TodoList-Component" transform="translate(105.000000, 319.000000)">
+                <rect id="Rectangle" fill="#FF8228" x="0" y="0" width="380" height="212" rx="8"></rect>
+                <g id="Slot" transform="translate(31.000000, 57.000000)">
+                    <mask id="mask-5" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Rectangle-Copy" stroke="#FFFFFF" mask="url(#mask-4)" stroke-width="4" stroke-dasharray="2,3">
+                        <use mask="url(#mask-6)" xlink:href="#path-3"></use>
+                    </g>
+                    <rect id="Rectangle-Copy-2" fill="#E56000" mask="url(#mask-5)" x="0" y="43" width="319" height="100"></rect>
+                </g>
+                <text id="TodoList" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="159.927734" y="31">TodoList</tspan>
+                </text>
+                <text id="Slot" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="173.937988" y="86">Slot</tspan>
+                </text>
+            </g>
+            <text id="Parent-Component" font-family="Helvetica" font-size="16" font-weight="normal" fill="#23AC70">
+                <tspan x="216.347656" y="90">Parent Component</tspan>
+            </text>
+            <g id="HTML" transform="translate(105.000000, 115.000000)">
+                <rect id="Rectangle" fill="#3E6B94" x="0" y="0" width="380" height="173" rx="2"></rect>
+                <text id="&lt;todo-list&gt;-&lt;templat" font-family="Helvetica" font-size="14" font-weight="normal">
+                    <tspan x="20" y="27" fill="#FFFFFF">&lt;todo-list&gt;</tspan>
+                    <tspan x="20" y="47" fill="#FFFFFF">  &lt;template v-slot:default="</tspan>
+                    <tspan x="186.058594" y="47" fill="#39DD95">slotProps</tspan>
+                    <tspan x="244.416992" y="47" fill="#FFFFFF">"&gt;</tspan>
+                    <tspan x="20" y="67" fill="#FFFFFF">    &lt;span&gt;</tspan>
+                    <tspan x="20" y="87" fill="#FFFFFF">      {{ </tspan>
+                    <tspan x="56.5791016" y="87" fill="#39DD95">slotProps</tspan>
+                    <tspan x="114.9375" y="87" fill="#FFFFFF">.item }}</tspan>
+                    <tspan x="20" y="107" fill="#FFFFFF">    &lt;span&gt;</tspan>
+                    <tspan x="20" y="127" fill="#FFFFFF">  &lt;/template&gt;</tspan>
+                    <tspan x="20" y="147" fill="#FFFFFF">&lt;/todo-list&gt;</tspan>
+                </text>
+                <text id="&lt;li-v-for=&quot;item-in-i" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="38" y="331">  &lt;li v-for="item in items"&gt;</tspan>
+                    <tspan x="38" y="351">    &lt;slot :item="item"&gt;&lt;/slot&gt;</tspan>
+                    <tspan x="38" y="371">  &lt;/li&gt;</tspan>
+                </text>
+            </g>
+            <g id="Arrow" transform="translate(351.000000, 172.000000)">
+                <path id="Line" d="M14,22 L14,28 L49,28 L49,30 L14,30 L14,36 L0,29 L14,22 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <line x1="48" y1="0" x2="48" y2="29" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></line>
+            </g>
+            <g id="Arrow" transform="translate(463.000000, 310.500000) scale(1, -1) translate(-463.000000, -310.500000) translate(404.000000, 157.000000)">
+                <line x1="115" y1="306" x2="82" y2="306" id="Line" stroke="#9AA9B2" stroke-width="2" stroke-linecap="square"></line>
+                <path id="Line-Copy-2" d="M70,299 L70,305 L81,305 L81,307 L70,307 L70,313 L56,306 L70,299 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <line x1="117" y1="1" x2="82" y2="1" id="Line" stroke="#9AA9B2" stroke-width="2" stroke-linecap="square"></line>
+                <line x1="80" y1="1" x2="0" y2="1" id="Line-Copy" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></line>
+                <line x1="117" y1="1" x2="117" y2="306" id="Line" stroke="#9AA9B2" stroke-width="2" stroke-linecap="square"></line>
+            </g>
+        </g>
+    </g>
+</svg>

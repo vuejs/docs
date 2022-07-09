@@ -6,7 +6,7 @@ There is no strictly defined scope for a plugin, but common scenarios where plug
 
 1. Add some global methods or properties, e.g. [vue-custom-element](https://github.com/karol-f/vue-custom-element).
 
-2. Add one or more global assets: directives/filters/transitions etc. (e.g. [vue-touch](https://github.com/vuejs/vue-touch)).
+2. Add one or more global assets: directives/transitions etc. (e.g. [vue-touch](https://github.com/vuejs/vue-touch)).
 
 3. Add some component options by global mixin (e.g. [vue-router](https://github.com/vuejs/vue-router)).
 
@@ -42,7 +42,7 @@ export default {
     app.config.globalProperties.$translate = key => {
       return key.split('.').reduce((o, i) => {
         if (o) return o[i]
-      }, i18n)
+      }, options)
     }
   }
 }
@@ -67,7 +67,7 @@ export default {
     app.config.globalProperties.$translate = key => {
       return key.split('.').reduce((o, i) => {
         if (o) return o[i]
-      }, i18n)
+      }, options)
     }
 
     app.provide('i18n', options)
@@ -85,7 +85,7 @@ export default {
   install: (app, options) => {
     app.config.globalProperties.$translate = (key) => {
       return key.split('.')
-        .reduce((o, i) => { if (o) return o[i] }, i18n)
+        .reduce((o, i) => { if (o) return o[i] }, options)
     }
 
     app.provide('i18n', options)

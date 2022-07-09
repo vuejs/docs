@@ -6,7 +6,7 @@ const sidebar = {
       lang: 'en-US', // this will be set as the lang attribute on <html>
       title: 'English',
     },
-    'https://v3.vuejs.org.ua': {
+    'https://vuejs.org.ua': {
       lang: 'uk-UA',
       title: 'Українська',
     }
@@ -15,7 +15,12 @@ const sidebar = {
     {
       title: 'Книга рецептів',
       collapsable: false,
-      children: ['/cookbook/', '/cookbook/editable-svg-icons']
+      children: [
+        '/cookbook/',
+        '/cookbook/editable-svg-icons',
+        '/cookbook/debugging-in-vscode',
+        '/cookbook/automatic-global-registration-of-base-components'
+      ]
     }
   ],
   guide: [
@@ -66,6 +71,16 @@ const sidebar = {
       title: 'Повторне використання та композиція',
       collapsable: false,
       children: [
+        {
+          title: 'Composition API',
+          children: [
+            '/guide/composition-api-introduction',
+            '/guide/composition-api-setup',
+            '/guide/composition-api-lifecycle-hooks',
+            '/guide/composition-api-provide-inject',
+            '/guide/composition-api-template-refs'
+          ]
+        },
         '/guide/mixins',
         '/guide/custom-directive',
         '/guide/teleport',
@@ -77,22 +92,13 @@ const sidebar = {
       title: 'Розширені посібники',
       collapsable: false,
       children: [
+        '/guide/web-components',
         {
           title: 'Reactivity',
           children: [
             '/guide/reactivity',
             '/guide/reactivity-fundamentals',
             '/guide/reactivity-computed-watchers'
-          ]
-        },
-        {
-          title: 'Composition API',
-          children: [
-            '/guide/composition-api-introduction',
-            '/guide/composition-api-setup',
-            '/guide/composition-api-lifecycle-hooks',
-            '/guide/composition-api-provide-inject',
-            '/guide/composition-api-template-refs'
           ]
         },
         '/guide/optimizations',
@@ -106,13 +112,19 @@ const sidebar = {
         '/guide/single-file-component',
         '/guide/testing',
         '/guide/typescript-support',
-        '/guide/mobile'
+        '/guide/mobile',
+        '/guide/tooling/deployment'
       ]
     },
     {
       title: 'Масштабування',
       collapsable: false,
-      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
+      children: [
+        '/guide/routing',
+        '/guide/state-management',
+        '/guide/ssr',
+        '/guide/security'
+      ]
     },
     {
       title: 'Доступність',
@@ -122,44 +134,6 @@ const sidebar = {
         '/guide/a11y-semantics',
         '/guide/a11y-standards',
         '/guide/a11y-resources'
-      ]
-    },
-    {
-      title: 'Міграція',
-      collapsable: true,
-      children: [
-        '/guide/migration/introduction',
-        '/guide/migration/array-refs',
-        '/guide/migration/async-components',
-        '/guide/migration/attribute-coercion',
-        '/guide/migration/custom-directives',
-        '/guide/migration/custom-elements-interop',
-        '/guide/migration/data-option',
-        '/guide/migration/events-api',
-        '/guide/migration/filters',
-        '/guide/migration/fragments',
-        '/guide/migration/functional-components',
-        '/guide/migration/global-api',
-        '/guide/migration/global-api-treeshaking',
-        '/guide/migration/inline-template-attribute',
-        '/guide/migration/key-attribute',
-        '/guide/migration/keycode-modifiers',
-        '/guide/migration/props-default-this',
-        '/guide/migration/render-function-api',
-        '/guide/migration/slots-unification',
-        '/guide/migration/transition',
-        '/guide/migration/v-model',
-        '/guide/migration/v-if-v-for',
-        '/guide/migration/v-bind'
-      ]
-    },
-    {
-      title: 'Долучитися до перекладу',
-      collapsable: true,
-      children: [
-        '/guide/contributing/writing-guide',
-        '/guide/contributing/doc-style-guide',
-        '/guide/contributing/translations'
       ]
     }
   ],
@@ -192,10 +166,33 @@ const sidebar = {
       children: [
         '/api/basic-reactivity',
         '/api/refs-api',
-        '/api/computed-watch-api'
+        '/api/computed-watch-api',
+        '/api/effect-scope',
       ]
     },
-    '/api/composition-api'
+    '/api/composition-api',
+    {
+      title: 'Single File Components',
+      collapsable: false,
+      children: [
+        {
+          title: 'Spec',
+          path: '/api/sfc-spec'
+        },
+        {
+          title: 'Tooling',
+          path: '/api/sfc-tooling'
+        },
+        {
+          title: '<script setup>',
+          path: '/api/sfc-script-setup'
+        },
+        {
+          title: '<style> Features',
+          path: '/api/sfc-style'
+        }
+      ]
+    }
   ],
   examples: [
     {
@@ -213,6 +210,71 @@ const sidebar = {
         '/examples/todomvc'
       ]
     }
+  ],
+  migration: [
+    '/guide/migration/introduction',
+    '/guide/migration/migration-build',
+    {
+      title: 'Деталі',
+      collapsable: false,
+      children: [
+        '/guide/migration/array-refs',
+        '/guide/migration/async-components',
+        '/guide/migration/attribute-coercion',
+        '/guide/migration/attrs-includes-class-style',
+        '/guide/migration/children',
+        '/guide/migration/custom-directives',
+        '/guide/migration/custom-elements-interop',
+        '/guide/migration/data-option',
+        '/guide/migration/emits-option',
+        '/guide/migration/events-api',
+        '/guide/migration/filters',
+        '/guide/migration/fragments',
+        '/guide/migration/functional-components',
+        '/guide/migration/global-api',
+        '/guide/migration/global-api-treeshaking',
+        '/guide/migration/inline-template-attribute',
+        '/guide/migration/key-attribute',
+        '/guide/migration/keycode-modifiers',
+        '/guide/migration/listeners-removed',
+        '/guide/migration/mount-changes',
+        '/guide/migration/props-data',
+        '/guide/migration/props-default-this',
+        '/guide/migration/render-function-api',
+        '/guide/migration/slots-unification',
+        '/guide/migration/suspense',
+        '/guide/migration/transition',
+        '/guide/migration/transition-as-root',
+        '/guide/migration/transition-group',
+        '/guide/migration/v-on-native-modifier-removed',
+        '/guide/migration/v-model',
+        '/guide/migration/v-if-v-for',
+        '/guide/migration/v-bind',
+        '/guide/migration/vnode-lifecycle-events',
+        '/guide/migration/watch'
+      ]
+    }
+  ],
+  ssr: [
+    ['/guide/ssr/introduction', 'Introduction'],
+    '/guide/ssr/getting-started',
+    '/guide/ssr/universal',
+    '/guide/ssr/structure',
+    '/guide/ssr/build-config',
+    '/guide/ssr/server',
+    '/guide/ssr/routing',
+    '/guide/ssr/hydration'
+  ],
+  contributing: [
+    {
+      title: 'Contribute to the Docs',
+      collapsable: false,
+      children: [
+        '/guide/contributing/writing-guide',
+        '/guide/contributing/doc-style-guide',
+        '/guide/contributing/translations'
+      ]
+    }
   ]
 }
 
@@ -224,7 +286,7 @@ module.exports = {
       'link',
       {
         href:
-          'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
+        'https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap',
         rel: 'stylesheet'
       }
     ],
@@ -246,6 +308,7 @@ module.exports = {
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     [
       'meta',
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }
@@ -266,10 +329,10 @@ module.exports = {
     ],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
     [
-      ('script',
+      'script',
       {
         src: 'https://player.vimeo.com/api/player.js'
-      })
+      }
     ],
     [
       'script',
@@ -291,10 +354,6 @@ module.exports = {
             link: '/guide/introduction'
           },
           {
-            text: 'Міграція',
-            link: '/guide/migration/introduction'
-          },
-          {
             text: 'Посібник по стилях',
             link: '/style-guide/'
           },
@@ -305,6 +364,14 @@ module.exports = {
           {
             text: 'Приклади',
             link: '/examples/markdown'
+          },
+          {
+            text: 'Ваш ванесок',
+            link: '/guide/contributing/writing-guide'
+          },
+          {
+            text: 'Міграція з Vue 2',
+            link: '/guide/migration/introduction'
           }
         ]
       },
@@ -346,7 +413,7 @@ module.exports = {
               },
               {
                 text: 'Vuex',
-                link: 'https://vuex.vuejs.org/'
+                link: 'https://next.vuex.vuejs.org/'
               },
               {
                 text: 'Vue CLI',
@@ -354,16 +421,19 @@ module.exports = {
               },
               {
                 text: 'Vue Test Utils',
-                link:
-                  'https://vuejs.github.io/vue-test-utils-next-docs/guide/introduction.html'
+                link: 'https://next.vue-test-utils.vuejs.org/guide/'
               },
               {
                 text: 'Devtools',
-                link: 'https://github.com/vuejs/vue-devtools'
+                link: 'https://devtools.vuejs.org'
               },
               {
                 text: 'Щотижневі новини',
                 link: 'https://news.vuejs.org/'
+              },
+              {
+                text: 'Блог',
+                link: 'https://blog.vuejs.org/'
               }
             ]
           }
@@ -386,16 +456,55 @@ module.exports = {
             link: 'https://vue.threadless.com/'
           }
         ]
+      },
+      {
+        text: 'Translations',
+        link: '#',
+        items: [
+          // Translation maintainers: Please include the link below to the English documentation
+          // {
+          //   text: 'English',
+          //   link: 'https://v3.vuejs.org/',
+          //   isTranslation: true
+          // },
+          {
+            text: '中文',
+            link: 'https://v3.cn.vuejs.org/',
+            isTranslation: true
+          },
+          {
+            text: '한국어',
+            link: 'https://v3.ko.vuejs.org/',
+            isTranslation: true
+          },
+          {
+            text: '日本語',
+            link: 'https://v3.ja.vuejs.org/',
+            isTranslation: true
+          },
+          {
+            text: 'Русский',
+            link: 'https://v3.ru.vuejs.org/ru/',
+            isTranslation: true
+          },
+          {
+            text: 'More Translations',
+            link: '/guide/contributing/translations#community-translations'
+          }
+        ]
       }
     ],
-    repo: 'vuejs/docs-next',
-    editLinks: false,
-    editLinkText: 'Відредагувати це на GitHub!',
-    lastUpdated: 'Востаннє оновлено',
+    repo: 'vuejs/docs',
+    editLinks: true,
+    editLinkText: 'Edit this on GitHub!',
+    lastUpdated: 'Last updated',
     docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {
       collapsable: false,
+      '/guide/migration/': sidebar.migration,
+      '/guide/contributing/': sidebar.contributing,
+      '/guide/ssr/': sidebar.ssr,
       '/guide/': sidebar.guide,
       '/community/': sidebar.guide,
       '/cookbook/': sidebar.cookbook,
@@ -405,10 +514,39 @@ module.exports = {
     smoothScroll: false,
     algolia: {
       indexName: 'vuejs-v3',
+      appId: 'BH4D9OD16A',
       apiKey: 'bc6e8acb44ed4179c30d0a45d6140d3f'
-    }
+    },
+    carbonAds: {
+      carbon: 'CEBDT27Y',
+      custom: 'CKYD62QM',
+      placement: 'vuejsorg'
+    },
+    topBanner: true
   },
   plugins: [
+    [
+      '@vuepress/last-updated',
+      {
+        transformer(timestamp) {
+          const date = new Date(timestamp)
+
+          const digits = [
+            date.getUTCFullYear(),
+            date.getUTCMonth() + 1,
+            date.getUTCDate(),
+            date.getUTCHours(),
+            date.getUTCMinutes(),
+            date.getUTCSeconds()
+          ].map(num => String(num).padStart(2, '0'))
+
+          return '{0}-{1}-{2}, {3}:{4}:{5} UTC'.replace(
+            /{(\d)}/g,
+            (_, num) => digits[num]
+          )
+        }
+      }
+    ],
     [
       '@vuepress/pwa',
       {

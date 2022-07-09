@@ -54,13 +54,18 @@ export default {
       }
     }
   }),
-  created () {
-    if (typeof window === 'undefined') return
+  mounted () {
+    this.updateType()
 
-    this.type = window.location.hash.slice(1)
-    window.addEventListener('hashchange', function () {
+    window.addEventListener('hashchange', this.updateType)
+  },
+  beforeDestroy () {
+    window.removeEventListener('hashchange', this.updateType)
+  },
+  methods: {
+    updateType () {
       this.type = window.location.hash.slice(1)
-    })
+    }
   }
 }
 </script>
@@ -74,7 +79,12 @@ export default {
 
   a {
     margin: 20px;
-    color: $medium;
+    color: $textColor;
+    text-decoration: none !important;
+
+    &:hover {
+      color: $accentColor;
+    }
   }
 
   svg {

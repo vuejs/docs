@@ -85,6 +85,8 @@
     transition: all 0.15s ease;
     box-sizing: border-box;
     border: 1px solid currentColor;
+    appearance: none;
+    cursor: pointer;
   }
 }
 </style>

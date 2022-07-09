@@ -15,12 +15,12 @@
 
 - **Usage:**
 
-  Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `prop`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
+  Watch a reactive property or a computed function on the component instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `props`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
 
 - **Example:**
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         a: 1,
@@ -59,10 +59,10 @@
   })
   ```
 
-  When watched value is an Object or Array, any changes to its properties or elements won't trigger the watcher because they reference the same Object/Array:
+  When watched value is an object or array, any changes to its properties or elements won't trigger the watcher because they reference the same object/array:
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         article: {
@@ -81,8 +81,8 @@
       })
     },
     methods: {
-      // These methods won't trigger a watcher because we changed only a property of Object/Array,
-      // not the Object/Array itself
+      // These methods won't trigger a watcher because we changed only a property of object/array,
+      // not the object/array itself
       changeArticleText() {
         this.article.text = 'Vue 3 is awesome'
       },
@@ -90,7 +90,7 @@
         this.comments.push('New comment')
       },
 
-      // These methods will trigger a watcher because we replaced Object/Array completely
+      // These methods will trigger a watcher because we replaced object/array completely
       changeWholeArticle() {
         this.article = { text: 'Vue 3 is awesome' }
       },
@@ -104,7 +104,7 @@
   `$watch` returns an unwatch function that stops firing the callback:
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     data() {
       return {
         a: 1
@@ -121,7 +121,9 @@
 
 - **Option: deep**
 
-  To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. Note that you don't need to do so to listen for Array mutations.
+  To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. This option also can be used to watch array mutations.
+
+  > Note: when mutating (rather than replacing) an Object or an Array and watch with deep option, the old value will be the same as new value because they reference the same Object/Array. Vue doesn't keep a copy of the pre-mutate value.
 
   ```js
   vm.$watch('someObject', callback, {
@@ -160,7 +162,7 @@
 
   ```js
   let unwatch = null
-  
+
   unwatch = vm.$watch(
     'value',
     function() {
@@ -176,17 +178,17 @@
 - **Option: flush**
 
   The `flush` option allows for greater control over the timing of the callback. It can be set to `'pre'`, `'post'` or `'sync'`.
-  
+
   The default value is `'pre'`, which specifies that the callback should be invoked before rendering. This allows the callback to update other values before the template runs.
-  
+
   The value `'post'` can be used to defer the callback until after rendering. This should be used if the callback needs access to the updated DOM or child components via `$refs`.
 
   If `flush` is set to `'sync'`, the callback will be called synchronously, as soon as the value changes.
 
   For both `'pre'` and `'post'`, the callback is buffered using a queue. The callback will only be added to the queue once, even if the watched value changes multiple times. The interim values will be skipped and won't be passed to the callback.
-  
+
   Buffering the callback not only improves performance but also helps to ensure data consistency. The watchers won't be triggered until the code performing the data updates has finished.
-  
+
   `'sync'` watchers should be used sparingly, as they don't have these benefits.
 
   For more information about `flush` see [Effect Flush Timing](../guide/reactivity-computed-watchers.html#effect-flush-timing).
@@ -213,7 +215,7 @@
   ```
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     methods: {
       sayHi() {
         console.log('Hi!')
@@ -222,6 +224,7 @@
   })
 
   app.component('welcome-button', {
+    emits: ['welcome'],
     template: `
       <button v-on:click="$emit('welcome')">
         Click me to be welcomed
@@ -236,12 +239,12 @@
 
   ```html
   <div id="emit-example-argument">
-    <advice-component v-on:give-advice="showAdvice"></advice-component>
+    <advice-component v-on:advise="showAdvice"></advice-component>
   </div>
   ```
 
   ```js
-  const app = Vue.createApp({
+  const app = createApp({
     methods: {
       showAdvice(advice) {
         alert(advice)
@@ -250,6 +253,7 @@
   })
 
   app.component('advice-component', {
+    emits: ['advise'],
     data() {
       return {
         adviceText: 'Some advice'
@@ -258,12 +262,14 @@
     template: `
       <div>
         <input type="text" v-model="adviceText">
-        <button v-on:click="$emit('give-advice', adviceText)">
+        <button v-on:click="$emit('advise', adviceText)">
           Click me for sending advice
         </button>
       </div>
     `
   })
+
+  app.mount('#emit-example-argument')
   ```
 
 - **See also:**
@@ -289,7 +295,7 @@
 - **Example:**
 
   ```js
-  Vue.createApp({
+  createApp({
     // ...
     methods: {
       // ...

@@ -59,7 +59,7 @@ app.component('todo-list', {
     }
   },
   provide: {
-    todoLength: this.todos.length // this will result in error 'Cannot read property 'length' of undefined`
+    todoLength: this.todos.length // this will result in error `Cannot read property 'length' of undefined`
   },
   template: `
     ...
@@ -67,7 +67,7 @@ app.component('todo-list', {
 })
 ```
 
-To access component instance properties, we need to convert `provide` to be a function returning an object
+To access component instance properties, we need to convert `provide` to be a function returning an object:
 
 ```js
 app.component('todo-list', {
@@ -107,6 +107,13 @@ app.component('todo-list', {
     }
   }
 })
+
+app.component('todo-list-statistics', {
+  inject: ['todoLength'],
+  created() {
+    console.log(`Injected property: ${this.todoLength.value}`) // > Injected property: 5
+  }
+})
 ```
 
-In this, any change to `todos.length` will be reflected correctly in the components, where `todoLength` is injected. Read more about `reactive` provide/inject in the [Composition API section](composition-api-provide-inject.html#reactivity)
+In this, any change to `todos.length` will be reflected correctly in the components, where `todoLength` is injected. Read more about `computed` in the [Computed and Watch section](reactivity-computed-watchers.html#computed-values) and `reactive` provide/inject in the [Composition API section](composition-api-provide-inject.html#reactivity).

@@ -2,6 +2,8 @@
 
 > This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
 
+<VideoLesson href="https://vueschool.io/lessons/vue-3-component-slots?friend=vuejs" title="Free Vue.js Slots lesson">Learn slot basics with a free lesson on Vue School</VideoLesson>
+
 ## Slot Content
 
 Vue implements a content distribution API inspired by the [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), using the `<slot>` element to serve as distribution outlets for content.
@@ -23,7 +25,7 @@ Then in the template for `<todo-button>`, you might have:
 </button>
 ```
 
-When the component renders, `<slot></slot>` will be replaced by "Add Todo".
+When the component renders, `<slot></slot>` will be replaced by "Add todo".
 
 ```html
 <!-- rendered HTML -->
@@ -90,7 +92,7 @@ The slot does **not** have access to `<todo-button>`'s scope. For example, tryin
   Clicking here will {{ action }} an item
   <!--
   The `action` will be undefined, because this content is passed
-  _to_ <todo-button>, rather than defined _inside_ the
+  to <todo-button>, rather than defined inside the
   <todo-button> component.
   -->
 </todo-button>
@@ -222,7 +224,7 @@ The rendered HTML will be:
 </div>
 ```
 
-Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#abbreviated-syntax-for-lone-default-slots))
+Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#abbreviated-syntax-for-lone-default-slots)).
 
 ## Scoped Slots
 
@@ -247,7 +249,7 @@ app.component('todo-list', {
 })
 ```
 
-We might want to replace the slot to customize it on parent component:
+We might want to replace the <span v-pre>`{{ item }}`</span> with a `<slot>` to customize it on parent component:
 
 ```html
 <todo-list>
@@ -264,6 +266,16 @@ To make `item` available to the slot content provided by the parent, we can add 
 <ul>
   <li v-for="( item, index ) in items">
     <slot :item="item"></slot>
+  </li>
+</ul>
+```
+
+You can bind as many attributes to the `slot` as you need:
+
+```html
+<ul>
+  <li v-for="( item, index ) in items">
+    <slot :item="item" :index="index" :another-attribute="anotherAttribute"></slot>
   </li>
 </ul>
 ```
@@ -308,10 +320,9 @@ Note that the abbreviated syntax for default slot **cannot** be mixed with named
 ```html
 <!-- INVALID, will result in warning -->
 <todo-list v-slot="slotProps">
-  <todo-list v-slot:default="slotProps">
-    <i class="fas fa-check"></i>
-    <span class="green">{{ slotProps.item }}</span>
-  </todo-list>
+  <i class="fas fa-check"></i>
+  <span class="green">{{ slotProps.item }}</span>
+
   <template v-slot:other="otherSlotProps">
     slotProps is NOT available here
   </template>

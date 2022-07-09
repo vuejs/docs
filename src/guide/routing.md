@@ -2,13 +2,15 @@
 
 ## Official Router
 
-For most Single Page Applications, it's recommended to use the officially-supported [vue-router library](https://github.com/vuejs/vue-router). For more details, see vue-router's [documentation](https://router.vuejs.org/).
+For most Single Page Applications, it's recommended to use the officially-supported [vue-router library](https://github.com/vuejs/vue-router-next). For more details, see vue-router's [documentation](https://next.router.vuejs.org/).
 
 ## Simple Routing from Scratch
 
 If you only need very simple routing and do not wish to involve a full-featured router library, you can do so by dynamically rendering a page-level component like this:
 
 ```js
+const { createApp, h } = Vue
+
 const NotFoundComponent = { template: '<p>Page not found</p>' }
 const HomeComponent = { template: '<p>Home page</p>' }
 const AboutComponent = { template: '<p>About page</p>' }
@@ -30,11 +32,11 @@ const SimpleRouter = {
   },
 
   render() {
-    return Vue.h(this.CurrentComponent)
+    return h(this.CurrentComponent)
   }
 }
 
-Vue.createApp(SimpleRouter).mount('#app')
+createApp(SimpleRouter).mount('#app')
 ```
 
 Combined with the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API), you can build a very basic but fully-functional client-side router. To see that in practice, check out [this example app](https://github.com/phanan/vue-3.0-simple-routing-example).

@@ -10,16 +10,20 @@
 
   Mixin hooks are called in the order they are provided, and called before the component's own hooks.
 
+  :::info
+  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, the [Composition API](/guide/composition-api-introduction.html) is now the preferred approach for code reuse between components.
+  :::
+
 - **Example:**
 
   ```js
   const mixin = {
-    created: function() {
+    created() {
       console.log(1)
     }
   }
 
-  Vue.createApp({
+  createApp({
     created() {
       console.log(2)
     },
@@ -34,20 +38,23 @@
 
 ## extends
 
-- **Type:** `Object | Function`
+- **Type:** `Object`
 
 - **Details:**
 
-  Allows declaratively extending another component (could be either a plain options object or a constructor). This is primarily intended to make it easier to extend between single file components.
+  Allows one component to extend another, inheriting its component options.
 
-  This is similar to `mixins`.
+  From an implementation perspective, `extends` is almost identical to `mixins`. The component specified by `extends` will be treated as though it were the first mixin.
+
+  However, `extends` and `mixins` express different intents. The `mixins` option is primarily used to compose chunks of functionality, whereas `extends` is primarily concerned with inheritance.
+
+  As with `mixins`, any options will be merged using the relevant merge strategy.
 
 - **Example:**
 
   ```js
   const CompA = { ... }
 
-  // extend CompA without having to call `Vue.extend` on either
   const CompB = {
     extends: CompA,
     ...
@@ -287,7 +294,7 @@ The `setup` function is a new component option. It serves as the entry point for
 
   The `props` object is immutable for userland code during development (will emit warning if user code attempts to mutate it).
 
-  The second argument provides a context object which exposes a selective list of properties that were previously exposed on `this`:
+  The second argument provides a context object which exposes various objects and functions that might be useful in `setup`:
 
   ```js
   const MyComponent = {
@@ -295,11 +302,14 @@ The `setup` function is a new component option. It serves as the entry point for
       context.attrs
       context.slots
       context.emit
+      context.expose
     }
   }
   ```
 
-  `attrs` and `slots` are proxies to the corresponding values on the internal component instance. This ensures they always expose the latest values even after updates so that we can destructure them without worrying accessing a stale reference:
+  `attrs`, `slots`, and `emit` are equivalent to the instance properties [`$attrs`](/api/instance-properties.html#attrs), [`$slots`](/api/instance-properties.html#slots), and [`$emit`](/api/instance-methods.html#emit) respectively.
+
+  `attrs` and `slots` are proxies to the corresponding values on the internal component instance. This ensures they always expose the latest values even after updates so that we can destructure them without worrying about accessing a stale reference:
 
   ```js
   const MyComponent = {
@@ -308,6 +318,26 @@ The `setup` function is a new component option. It serves as the entry point for
       function onClick() {
         console.log(attrs.foo) // guaranteed to be the latest reference
       }
+    }
+  }
+  ```
+
+  `expose`, added in Vue 3.2, is a function that allows specific properties to be exposed via the public component instance. By default, the public instance retrieved using refs, `$parent`, or `$root` is equivalent to the internal instance used by the template. Calling `expose` will create a separate public instance with the properties specified:
+
+  ```js
+  const MyComponent = {
+    setup(props, { expose }) {
+      const count = ref(0)
+      const reset = () => count.value = 0
+      const increment = () => count.value++
+
+      // Only reset will be available externally, e.g. via $refs
+      expose({
+        reset
+      })
+
+      // Internally, the template has access to count and increment
+      return { count, increment }
     }
   }
   ```

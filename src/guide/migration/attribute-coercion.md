@@ -14,7 +14,7 @@ This is a low-level internal API change and does not affect most developers.
 Here is a high level summary of the changes:
 
 - Drop the internal concept of enumerated attributes and treat those attributes the same as normal non-boolean attributes
-- **BREAKING**: No longer removes attribute if value is boolean `false`. Instead, it's set as attr="false" instead. To remove the attribute, use `null` or `undefined`.
+- **BREAKING**: No longer removes attribute if the value is boolean `false`. Instead, it's set as attr="false". To remove the attribute, use `null` or `undefined`.
 
 For more information, read on!
 
@@ -34,10 +34,10 @@ The following table describes how Vue coerce "enumerated attributes" differently
 
 | Binding expression  | `foo` <sup>normal</sup> | `draggable` <sup>enumerated</sup> |
 | ------------------- | ----------------------- | --------------------------------- |
-| `:attr="null"`      | /                       | `draggable="false"`               |
-| `:attr="undefined"` | /                       | /                                 |
+| `:attr="null"`      | -                       | `draggable="false"`               |
+| `:attr="undefined"` | -                       | -                                 |
 | `:attr="true"`      | `foo="true"`            | `draggable="true"`                |
-| `:attr="false"`     | /                       | `draggable="false"`               |
+| `:attr="false"`     | -                       | `draggable="false"`               |
 | `:attr="0"`         | `foo="0"`               | `draggable="true"`                |
 | `attr=""`           | `foo=""`                | `draggable="true"`                |
 | `attr="foo"`        | `foo="foo"`             | `draggable="true"`                |
@@ -60,16 +60,16 @@ The following table describes the new behavior:
 
 | Binding expression  | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
 | ------------------- | -------------------------- | --------------------------------- |
-| `:attr="null"`      | /                          | / <sup>†</sup>                    |
-| `:attr="undefined"` | /                          | /                                 |
+| `:attr="null"`      | -                          | - <sup>*</sup>                    |
+| `:attr="undefined"` | -                          | -                                 |
 | `:attr="true"`      | `foo="true"`               | `draggable="true"`                |
-| `:attr="false"`     | `foo="false"` <sup>†</sup> | `draggable="false"`               |
-| `:attr="0"`         | `foo="0"`                  | `draggable="0"` <sup>†</sup>      |
-| `attr=""`           | `foo=""`                   | `draggable=""` <sup>†</sup>       |
-| `attr="foo"`        | `foo="foo"`                | `draggable="foo"` <sup>†</sup>    |
-| `attr`              | `foo=""`                   | `draggable=""` <sup>†</sup>       |
+| `:attr="false"`     | `foo="false"` <sup>*</sup> | `draggable="false"`               |
+| `:attr="0"`         | `foo="0"`                  | `draggable="0"` <sup>*</sup>      |
+| `attr=""`           | `foo=""`                   | `draggable=""` <sup>*</sup>       |
+| `attr="foo"`        | `foo="foo"`                | `draggable="foo"` <sup>*</sup>    |
+| `attr`              | `foo=""`                   | `draggable=""` <sup>*</sup>       |
 
-<small>†: changed</small>
+<small>*: changed</small>
 
 Coercion for boolean attributes is left untouched.
 
@@ -85,7 +85,7 @@ The absence of an enumerated attribute and `attr="false"` may produce different 
 | `draggable`            | `draggable` &rarr; `false`           |
 | `spellcheck`           | `spellcheck` &rarr; `true`           |
 
-To keep the old behavior work, and as we will be coercing `false` to `'false'`, in 3.x Vue developers need to make `v-bind` expression resolve to `false` or `'false'` for `contenteditable` and `spellcheck`.
+Since we no longer coerce `null` to `'false'` for “enumerated properties” in 3.x, in the case of `contenteditable` and `spellcheck`, developers will need to change those `v-bind` expressions that used to resolve to `null` to resolve to `false` or `'false'` in order to maintain the same behavior as 2.x.
 
 In 2.x, invalid values were coerced to `'true'` for enumerated attributes. This was usually unintended and unlikely to be relied upon on a large scale. In 3.x `true` or `'true'` should be explicitly specified.
 
@@ -107,7 +107,7 @@ In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
   <tbody>
     <tr>
       <td rowspan="3">2.x “Enumerated attrs”<br><small>i.e. <code>contenteditable</code>, <code>draggable</code> and <code>spellcheck</code>.</small></td>
-      <td><code>undefined</code>, <code>false</code></td>
+      <td><code>undefined</code></td>
       <td><code>undefined</code>, <code>null</code></td>
       <td><i>removed</i></td>
     </tr>
@@ -120,7 +120,7 @@ In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
       <td><code>"true"</code></td>
     </tr>
     <tr>
-      <td><code>null</code>, <code>'false'</code></td>
+      <td><code>null</code>, <code>false</code>, <code>'false'</code></td>
       <td><code>false</code>, <code>'false'</code></td>
       <td><code>"false"</code></td>
     </tr>
@@ -137,3 +137,8 @@ In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
     </tr>
   </tbody>
 </table>
+
+[Migration build flags:](migration-build.html#compat-configuration)
+
+- `ATTR_FALSE_VALUE`
+- `ATTR_ENUMERATED_COERCION`

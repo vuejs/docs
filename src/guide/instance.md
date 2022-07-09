@@ -5,7 +5,9 @@
 Every Vue application starts by creating a new **application instance** with the `createApp` function:
 
 ```js
-const app = Vue.createApp({ /* options */ })
+const app = Vue.createApp({
+  /* options */
+})
 ```
 
 The application instance is used to register 'globals' that can then be used by components within that application. We'll discuss that in detail later in the guide but as a quick example:
@@ -35,7 +37,9 @@ The options passed to `createApp` are used to configure the **root component**. 
 An application needs to be mounted into a DOM element. For example, if we want to mount a Vue application into `<div id="app"></div>`, we should pass `#app`:
 
 ```js
-const RootComponent = { /* options */ }
+const RootComponent = {
+  /* options */
+}
 const app = Vue.createApp(RootComponent)
 const vm = app.mount('#app')
 ```
@@ -109,4 +113,4 @@ Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript
 
 Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
 
-<img src="/images/lifecycle.png" width="840" height="auto" style="margin: 0px auto; display: block; max-width: 100%;" loading="lazy" alt="Instance lifecycle hooks">
+<img src="/images/lifecycle.svg" width="840" height="auto" style="margin: 0px auto; display: block; max-width: 100%;" loading="lazy" alt="Instance lifecycle hooks">

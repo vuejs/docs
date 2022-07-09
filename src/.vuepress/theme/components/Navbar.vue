@@ -108,7 +108,7 @@ $navbar-horizontal-padding = 1.5rem;
   padding: $navbar-vertical-padding $navbar-horizontal-padding;
   line-height: $navbarHeight - 1.4rem;
 
-  a, span, img {
+  a, img {
     display: inline-block;
   }
 

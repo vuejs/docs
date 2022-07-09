@@ -20,7 +20,7 @@ However, if you've ruled out the above and find yourself in this extremely rare 
 
 Rendering plain HTML elements is very fast in Vue, but sometimes you might have a component that contains **a lot** of static content. In these cases, you can ensure that it's only evaluated once and then cached by adding the `v-once` directive to the root element, like this:
 
-``` js
+```js
 app.component('terms-of-service', {
   template: `
     <div v-once>

@@ -41,15 +41,13 @@ After that, you'll be ready to contribute to Vue's core repositories:
 Apart from answering questions and sharing resources in the forum and chat, there are a few other less obvious ways to share and expand what you know:
 
 - **Develop learning materials.** It's often said that the best way to learn is to teach. If there's something interesting you're doing with Vue, strengthen your expertise by writing a blog post, developing a workshop, or even publishing a gist that you share on social media.
-- **Watch a repo you care about.** This will send you notifications whenever there's activity in that repository, giving you insider knowledge about ongoing discussions and upcoming features. It's a fantastic way to build expertise so that you're eventually able to help address issues and pull requests.
+- **Watch a repo you care about.** This will send you notifications whenever there's an activity in that repository, giving you insider knowledge about ongoing discussions and upcoming features. It's a fantastic way to build expertise so that you're eventually able to help address issues and pull requests.
 
 ### Translate Docs
 
-Vue has already spread across the globe, with even the core team in at least half a dozen timezones. [The forum](https://forum.vuejs.org/) includes 7 languages and counting and many of our docs have [actively-maintained translations](https://github.com/vuejs?utf8=%E2%9C%93&q=vuejs.org). We're very proud of Vue's international reach, but we can do even better.
-
 I hope that right now, you're reading this sentence in your preferred language. If not, would you like to help us get there?
 
-If so, please feel free to fork the repo for [these docs](https://github.com/vuejs/vuejs.org/) or for any other officially maintained documentation, then start translating. Once you've made some progress, open an issue or pull request in the main repo and we'll put out a call for more contributors to help you out.
+See the [Translations guide](/guide/contributing/translations.html) for more details on how you can get involved.
 
 ### Become a Community Leader
 
