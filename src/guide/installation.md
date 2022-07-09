@@ -9,52 +9,52 @@ Vue.js розроблено так, щоб його можна було пост
 3. Встановіть його за допомогою [npm](#npm)
 4. Скористайтесь офіційним [CLI](#cli) для створення проекту, який допоможе налаштувати збірку з усім необхідним для сучасного робочого процесу інтерфейсу (наприклад, гаряче перезавантаження, перевірка помилок при збереженні та багато іншого)
 
-## Release Notes
+## Примітки до випуску
 
-Latest version: ![npm](https://img.shields.io/npm/v/vue/next.svg)
+Остання версія: ![npm](https://img.shields.io/npm/v/vue/next.svg)
 
-Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md).
+Детальні примітки до випуску для кожної версії доступні на [GitHub](https://github.com/vuejs/vue-next/blob/master/CHANGELOG.md).
 
 ## Vue Devtools
 
-> Currently in Beta - Vuex and Router integration is still WIP
+> Зараз у бета-версії – інтеграція Vuex і Router все ще WIP
 
-<VideoLesson href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3?friend=vuejs" title="Learn how to install Vue Devtools on Vue School">Learn how to install and use Vue Devtools in a free Vue School lesson</VideoLesson>
+<VideoLesson href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3?friend=vuejs" title="Дізнайтеся, як установити Vue Devtools у Vue School">Дізнайтеся, як встановити та використовувати Vue Devtools на безкоштовному уроці Vue School</VideoLesson>
 
-When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
+Під час використання Vue ми також рекомендуємо встановити [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) у вашому браузері, щоб ви могли перевіряти та налагоджувати свої програми Vue у більш зручній для користувача системі. дружній інтерфейс.
 
-[Get the Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
+[Отримати розширення Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)
 
-[Get the Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+[Отримати доповнення Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
 
-[Get the standalone Electron app](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
+[Отримайте окрему програму Electron](https://github.com/vuejs/vue-devtools/blob/dev/packages/shell-electron/README.md)
 
 ## CDN
 
-For prototyping or learning purposes, you can use the latest version with:
+Для прототипування або навчання ви можете використовувати останню версію з:
 
 ```html
 <script src="https://unpkg.com/vue@next"></script>
 ```
 
-For production, we recommend linking to a specific version number and build to avoid unexpected breakage from newer versions.
+Для робочої версії ми рекомендуємо прив'язуватись до певного номеру версії та збірки, щоб уникнути неочікуваних поломок у новіших версіях.
 
-## Download and Self Host
+## Завантажити та самостійно розмістити
 
-If you want to avoid using build tools but can't use a CDN in production then you can download the relevant `.js` file and host it using your own web server. You can then include it using a `<script>` tag, just like with the CDN approach.
+Якщо ви хочете уникнути використання інструментів збірки, але не можете використовувати CDN у виробництві, ви можете завантажити відповідний файл `.js` і розмістити його на своєму власному веб-сервері. Потім ви можете включити його за допомогою тегу <script>, як у випадку з CDN.
 
-The files can be browsed and downloaded from a CDN such as [unpkg](https://unpkg.com/browse/vue@next/dist/) or [jsDelivr](https://cdn.jsdelivr.net/npm/vue@next/dist/). The various different files are [explained later](#explanation-of-different-builds) but you would typically want to download both a development build and a production build.
+Файли можна переглядати та завантажувати з CDN, наприклад [unpkg](https:unpkg.combrowsevue@nextdist) або [jsDelivr](https:cdn.jsdelivr.netnpmvue@nextdist). Роль різних файлів [пояснено пізніше](#explanation-of-different-builds), але зазвичай вам потрібна версія як для розробки, так і для виробництва.
 
 ## npm
 
-npm is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/).
+npm є рекомендованим методом встановлення під час створення великомасштабних програм за допомогою Vue. Він чудово поєднується з комплектувальниками модулів, такими як [webpack](https:webpack.js.org) або [Rollup](https:rollupjs.org).
 
 ```bash
-# latest stable
+# остання стабільна версія
 $ npm install vue@next
 ```
 
-Vue also provides accompanying tools for authoring [Single File Components](../guide/single-file-component.html) (SFCs). If you want to use SFCs then you'll also need to install `@vue/compiler-sfc`:
+Vue також надає супутні інструменти для створення [однофайлових компонентів](..guidesingle-file-component.html) (SFC). Якщо ви хочете використовувати SFC, вам також потрібно буде встановити `@vuecompiler-sfc`:
 
 ```bash
 $ npm install -D @vue/compiler-sfc
