@@ -12,7 +12,6 @@ export const labels = {
 // You may need to clear your sessionStorage when adding a new item to this list
 export const repos = [
   { lang: 'en-us', owner: 'vuejs', repo: 'docs', branch: 'master', url: 'https://v3.vuejs.org/' },
-  { lang: 'ua', owner: 'matrunchyk', repo: 'docs-next', branch: 'master', url: 'hhttps://github.com/vuejsorgua/docs-next' },
   { lang: 'fr', owner: 'demahom18', repo: 'docs-next', branch: 'master', url: 'https://vue3-fr.netlify.app' },
   { lang: 'id', owner: 'vuejs-id', repo: 'docs-next', branch: 'indonesian', url: 'https://v3-vuejsid-docs.netlify.app/' },
   { lang: 'ja', owner: 'vuejs-jp', repo: 'ja.vuejs.org', branch: 'lang-ja', url: 'https://v3.ja.vuejs.org/' },
