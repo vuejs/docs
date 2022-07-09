@@ -12,7 +12,6 @@ const languageNameFor = {
   vi: 'Tiếng Việt',
   pl: 'Polski',
   pt: 'Português',
-  ru: 'Русский',
   jp: '日本語',
   fr: 'Français',
   de: 'Deutsch',
@@ -56,7 +55,7 @@ export default {
 
     title () {
       if (this.highlighted) {
-        return `${this.vuerName} can give technical talks in your preferred language.`
+        return `${this.vuerName} може проводити технічні доповіді мовою, яку ви бажаєте.`
       }
 
       return this.name
