@@ -94,7 +94,7 @@ const sidebar = {
       children: [
         '/guide/web-components',
         {
-          title: 'Reactivity',
+          title: 'Реактивність',
           children: [
             '/guide/reactivity',
             '/guide/reactivity-fundamentals',
@@ -172,15 +172,15 @@ const sidebar = {
     },
     '/api/composition-api',
     {
-      title: 'Single File Components',
+      title: 'Однофайлові компоненти',
       collapsable: false,
       children: [
         {
-          title: 'Spec',
+          title: 'Специфікація',
           path: '/api/sfc-spec'
         },
         {
-          title: 'Tooling',
+          title: 'Інструменти',
           path: '/api/sfc-tooling'
         },
         {
@@ -267,7 +267,7 @@ const sidebar = {
   ],
   contributing: [
     {
-      title: 'Contribute to the Docs',
+      title: 'Долучитись до документації',
       collapsable: false,
       children: [
         '/guide/contributing/writing-guide',
@@ -347,7 +347,7 @@ module.exports = {
     nav: [
       {
         text: 'Документація',
-        ariaLabel: 'Documentation Menu',
+        ariaLabel: 'Меню документації',
         items: [
           {
             text: 'Посібник',
@@ -458,15 +458,15 @@ module.exports = {
         ]
       },
       {
-        text: 'Translations',
+        text: 'Переклади',
         link: '#',
         items: [
           // Translation maintainers: Please include the link below to the English documentation
-          // {
-          //   text: 'English',
-          //   link: 'https://v3.vuejs.org/',
-          //   isTranslation: true
-          // },
+          {
+            text: 'English',
+            link: 'https://v3.vuejs.org/',
+            isTranslation: true
+          },
           {
             text: '中文',
             link: 'https://v3.cn.vuejs.org/',
@@ -483,12 +483,12 @@ module.exports = {
             isTranslation: true
           },
           {
-            text: 'Русский',
-            link: 'https://v3.ru.vuejs.org/ru/',
+            text: 'Українська',
+            link: 'https://vuejs.org.ua/',
             isTranslation: true
           },
           {
-            text: 'More Translations',
+            text: 'Більше перекладів',
             link: '/guide/contributing/translations#community-translations'
           }
         ]
@@ -496,8 +496,8 @@ module.exports = {
     ],
     repo: 'vuejs/docs',
     editLinks: true,
-    editLinkText: 'Edit this on GitHub!',
-    lastUpdated: 'Last updated',
+    editLinkText: 'Редагувати цю сторінку на GitHub!',
+    lastUpdated: 'Востаннє оновлено',
     docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {

@@ -1,4 +1,4 @@
-# Components Basics
+# Основи компонентів
 
 <VideoLesson href="https://vueschool.io/courses/vue-js-3-components-fundamentals?friend=vuejs" title="Free Vue.js Components Fundamentals Course">Learn component basics with a free video course on Vue School</VideoLesson>
 

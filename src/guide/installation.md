@@ -1,13 +1,13 @@
-# Installation
+# Встановлення
 
-Vue.js is built by design to be incrementally adoptable. This means that it can be integrated into a project multiple ways depending on the requirements.
+Vue.js розроблено так, щоб його можна було поступово адаптувати. Це означає, що його можна інтегрувати в проект різними способами залежно від вимог.
 
-There are four primary ways of adding Vue.js to a project:
+Існує чотири основні способи додавання Vue.js до проекту:
 
-1. Import it as a [CDN package](#cdn) on the page
-2. Download the JavaScript files and [host them yourself](#download-and-self-host)
-3. Install it using [npm](#npm)
-4. Use the official [CLI](#cli) to scaffold a project, which provides batteries-included build setups for a modern frontend workflow (e.g., hot-reload, lint-on-save, and much more)
+1. Імпортуйте його як [пакет CDN](#cdn) на сторінці
+2. Завантажте файли JavaScript і [розмістіть їх самостійно](#download-and-self-host)
+3. Встановіть його за допомогою [npm](#npm)
+4. Скористайтесь офіційним [CLI](#cli) для створення проекту, який допоможе налаштувати збірку з усім необхідним для сучасного робочого процесу інтерфейсу (наприклад, гаряче перезавантаження, перевірка помилок при збереженні та багато іншого)
 
 ## Release Notes
 

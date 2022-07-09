@@ -1,6 +1,6 @@
 <template>
   <a :href="url">
-    <slot>Text</slot>
+    <slot>Текст</slot>
   </a>
 </template>
 
