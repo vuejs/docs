@@ -2,7 +2,7 @@
   <div>
     <div class="team">
       <h2 id="active-core-team-members">
-        Active Core Team Members
+        Активні члени основної команди
         <GetPositionButton
           v-if="!userPosition"
           @positionRetrieved="setUserPosition"
@@ -11,15 +11,16 @@
       </h2>
 
       <div v-if="errorGettingLocation" class="danger custom-block">
-        <p>Failed to get your location.</p>
+        <p>Не вдаєтсья отримати локація.</p>
       </div>
 
       <p>
-        The development of Vue and its ecosystem is guided by an international team, some of whom have chosen to be featured below.
+        Розвитком Vue та його екосистеми керує міжнародна команда, деякі члени якої вирішили бути представленими
+        нижче.
       </p>
 
       <div v-if="userPosition" class="tip custom-block">
-        <p>The core team have been sorted by their distance from you.</p>
+        <p>Основну команду відсортовано за віддаленістю від вас.</p>
       </div>
 
       <VuerProfile v-for="profile in members" :key="profile.name" :profile="profile" :use-miles="useMiles"/>
@@ -27,11 +28,11 @@
 
     <div class="team">
       <h2 id="core-team-emeriti">
-        Core Team Emeriti
+        Основна команда Team Emeriti
       </h2>
 
       <p>
-        Here we honor some no-longer-active core team members who have made valuable contributions in the past.
+        Тут ми вшановуємо деяких неактивних членів основної команди, які зробили цінний внесок у минулому.
       </p>
 
       <VuerProfile v-for="profile in emeriti" :key="profile.name" :profile="profile" :use-miles="useMiles"/>
@@ -52,11 +53,12 @@
       </div>
 
       <p>
-        Some members of the Vue community have so enriched it, that they deserve special mention. We've developed a more intimate relationship with these key partners, often coordinating with them on upcoming features and news.
+        Деякі члени спільноти Vue настільки збагатили його, що заслуговують окремої згадки. Ми налагодили тісніші
+        стосунки з цими ключовими партнерами, часто координуючи з ними стосовно майбутніх функцій та новин.
       </p>
 
       <div v-if="userPosition" class="tip custom-block">
-        <p>The community partners have been sorted by their distance from you.</p>
+        <p>Партнерів спільноти відсортовано за їхньою віддаленістю від вас.</p>
       </div>
 
       <VuerProfile v-for="profile in partners" :key="profile.name" :profile="profile" :use-miles="useMiles"/>

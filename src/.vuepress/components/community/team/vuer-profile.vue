@@ -26,7 +26,7 @@
           </dd>
         </template>
         <template v-if="profile.github && profile.reposPersonal">
-          <dt>Ecosystem</dt>
+          <dt>Екосистема</dt>
           <dd>
             <ul>
               <li v-for="repo in profile.reposPersonal">
@@ -38,14 +38,14 @@
         <template v-if="profile.work">
           <dt>
             <i class="fa fa-briefcase"></i>
-            <span class="sr-only">Work</span>
+            <span class="sr-only">Робота</span>
           </dt>
           <dd v-html="workHtml"></dd>
         </template>
         <span v-if="profile.distanceInKm" class="distance">
           <dt>
             <i class="fa fa-map-marker"></i>
-            <span class="sr-only">Distance</span>
+            <span class="sr-only">Віддаленість</span>
           </dt>
           <dd>
             About
@@ -53,15 +53,15 @@
               v-if="profile.distanceInKm <= 150"
               :title="`${profile.name} is close enough to commute to your location.`"
               class="highlighted"
-            >{{ textDistance }} away</span>
-            <template v-else>{{ textDistance }} away</template>
+            >{{ textDistance }}</span>
+            <template v-else>{{ textDistance }}</template>
             in {{ profile.city }}
           </dd>
         </span>
         <template v-else-if="profile.city">
           <dt>
             <i class="fa fa-map-marker"></i>
-            <span class="sr-only">City</span>
+            <span class="sr-only">Місто</span>
           </dt>
           <dd>
             {{ profile.city }}
@@ -70,7 +70,7 @@
         <template v-if="profile.languages">
           <dt>
             <i class="fa fa-globe"></i>
-            <span class="sr-only">Languages</span>
+            <span class="sr-only">Мови</span>
           </dt>
           <dd class="language-list">
             <ul>
@@ -87,7 +87,7 @@
         <template v-if="profile.links">
           <dt>
             <i class="fa fa-link"></i>
-            <span class="sr-only">Links</span>
+            <span class="sr-only">Посилання</span>
           </dt>
           <dd>
             <ul>

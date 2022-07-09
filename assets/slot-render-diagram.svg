@@ -18,7 +18,7 @@
                 <use id="Rectangle" fill="#FF8228" xlink:href="#path-1"></use>
                 <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-2)" x="72" y="49" width="92" height="36" rx="3"></rect>
                 <text id="Data" mask="url(#mask-2)" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                    <tspan x="103.713867" y="72">Data</tspan>
+                    <tspan x="103.713867" y="72">Дані</tspan>
                 </text>
                 <text id="TodoButton" mask="url(#mask-2)" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
                     <tspan x="80.0830078" y="31">TodoButton</tspan>
@@ -26,14 +26,14 @@
             </g>
             <use id="Rectangle" stroke="#23AC70" mask="url(#mask-4)" stroke-width="4" stroke-dasharray="4,4" xlink:href="#path-3"></use>
             <text id="Parent-Component" font-family="Helvetica" font-size="16" font-weight="normal" fill="#23AC70">
-                <tspan x="155.347656" y="90">Parent Component</tspan>
+                <tspan x="155.347656" y="90">Батьківський компонент</tspan>
             </text>
             <g id="HTML" transform="translate(105.000000, 193.000000)">
                 <rect id="Rectangle" fill="#3E6B94" x="0" y="0" width="236" height="88" rx="2"></rect>
                 <text id="&lt;todo-button&gt;-Delete" font-family="Helvetica" font-size="14" font-weight="normal">
                     <tspan x="24" y="26" fill="#FFFFFF">&lt;todo-button&gt;</tspan>
-                    <tspan x="24" y="46" fill="#FFFFFF">  Delete </tspan>
-                    <tspan x="76.1376953" y="46" fill="#39DD95">{{ item }}</tspan>
+                    <tspan x="24" y="46" fill="#FFFFFF">  Видалити </tspan>
+                    <tspan x="98.1376953" y="46" fill="#39DD95">{{ item }}</tspan>
                     <tspan x="129.068359" y="46" fill="#FFFFFF"></tspan>
                     <tspan x="24" y="66" fill="#FFFFFF">&lt;/todo-button&gt;</tspan>
                 </text>
@@ -41,11 +41,11 @@
             <g id="Data" transform="translate(105.000000, 110.000000)">
                 <rect id="Rectangle" fill="#21BD79" x="0" y="0" width="236" height="71" rx="8"></rect>
                 <text font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                    <tspan x="102.713867" y="28">Data</tspan>
+                    <tspan x="102.713867" y="28">Дані</tspan>
                 </text>
                 <text id="{-item:-'First-Item'" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                    <tspan x="60.4824219" y="53">{ </tspan>
-                    <tspan x="69.0478516" y="53">item: 'First Item' }</tspan>
+                    <tspan x="40.4824219" y="53">{ </tspan>
+                    <tspan x="49.0478516" y="53">item: 'Перша задача' }</tspan>
                 </text>
             </g>
             <g id="Arrow" transform="translate(297.000000, 158.000000)">

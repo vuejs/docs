@@ -3,8 +3,8 @@
     <theme-provider v-for="provider in providers" :key="provider.name" :provider="provider" />
 
     <p>
-      Want to feature your themes here?
-      <a href="mailto:evan@vuejs.org?subject=Theme+affiliation">Contact us</a>!
+      Хочете розмістити тут свої теми?
+      <a href="mailto:evan@vuejs.org?subject=Theme+affiliation">Напишіть про це нам</a>!
     </p>
   </div>
 </template>

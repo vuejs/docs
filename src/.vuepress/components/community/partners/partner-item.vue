@@ -18,13 +18,13 @@
 
         <dt>
           <i class="fa fa-map-marker"></i>
-          <span class="sr-only">Location</span>
+          <span class="sr-only">Локація</span>
         </dt>
         <dd>{{ partner.location }}</dd>
 
         <dt>
           <i class="fa fa-globe"></i>
-          <span class="sr-only">Languages</span>
+          <span class="sr-only">Мови</span>
         </dt>
         <dd class="language-list">
           <ul>
@@ -34,7 +34,7 @@
 
         <dt title="Proficiencies">
           <i class="fa fa-briefcase"></i>
-          <span class="sr-only">Proficiencies</span>
+          <span class="sr-only">Досвід</span>
         </dt>
         <dd class="proficiency-list">
           <ul>

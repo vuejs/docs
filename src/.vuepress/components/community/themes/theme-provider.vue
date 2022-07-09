@@ -10,7 +10,7 @@
 
     <div class="see-more-container">
       <RoundedButton :url="provider.seeMoreUrl">
-        See More Themes from {{ provider.name }}
+        Більше тем від {{ provider.name }}
       </RoundedButton>
     </div>
   </section>

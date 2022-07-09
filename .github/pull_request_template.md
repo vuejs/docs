@@ -1,5 +1,5 @@
-## Description of Problem
+## Опис проблеми
 
-## Proposed Solution
+## Запропоноване вирішення
 
-## Additional Information
+## Додаткова інформація

@@ -3,8 +3,8 @@
     <title>Lifecycle</title>
     <g id="Lifecycle" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <text id="*-Template-compilati" font-family="Helvetica" font-size="14" font-weight="normal" fill="#848484">
-            <tspan x="231.592773" y="1303">* Template compilation is performed ahead-of-time if using</tspan>
-            <tspan x="270.755859" y="1321.5">a build step, e.g., with single-file components.</tspan>
+            <tspan x="231.592773" y="1303">* Компіляція шаблону виконується передчасно </tspan>
+            <tspan x="180.755859" y="1321.5">під час етапу збірки, а саме — з однофайловими компонентами.</tspan>
         </text>
         <g id="beforeUnmount" transform="translate(72.000000, 1056.000000)">
             <path id="Line" d="M160,18 L160,32 L146,25 L160,18 Z M340,24 L340,26 L337,26 L337,24 L340,24 Z M333,24 L333,26 L330,26 L330,24 L333,24 Z M326,24 L326,26 L323,26 L323,24 L326,24 Z M319,24 L319,26 L316,26 L316,24 L319,24 Z M312,24 L312,26 L309,26 L309,24 L312,24 Z M305,24 L305,26 L302,26 L302,24 L305,24 Z M298,24 L298,26 L295,26 L295,24 L298,24 Z M291,24 L291,26 L288,26 L288,24 L291,24 Z M284,24 L284,26 L281,26 L281,24 L284,24 Z M277,24 L277,26 L274,26 L274,24 L277,24 Z M270,24 L270,26 L267,26 L267,24 L270,24 Z M263,24 L263,26 L260,26 L260,24 L263,24 Z M256,24 L256,26 L253,26 L253,24 L256,24 Z M249,24 L249,26 L246,26 L246,24 L249,24 Z M242,24 L242,26 L239,26 L239,24 L242,24 Z M235,24 L235,26 L232,26 L232,24 L235,24 Z M228,24 L228,26 L225,26 L225,24 L228,24 Z M221,24 L221,26 L218,26 L218,24 L221,24 Z M214,24 L214,26 L211,26 L211,24 L214,24 Z M207,24 L207,26 L204,26 L204,24 L207,24 Z M200,24 L200,26 L197,26 L197,24 L200,24 Z M193,24 L193,26 L190,26 L190,24 L193,24 Z M186,24 L186,26 L183,26 L183,24 L186,24 Z M179,24 L179,26 L176,26 L176,24 L179,24 Z M172,24 L172,26 L169,26 L169,24 L172,24 Z M165,24 L165,26 L162,26 L162,24 L165,24 Z" fill="#DB5B62" fill-rule="nonzero"></path>
@@ -17,11 +17,11 @@
             <line x1="58" y1="0" x2="58" y2="40" id="Line" stroke="#9AA9B2" stroke-width="2" fill="#9AA9B2" stroke-linecap="square" stroke-dasharray="1,6"></line>
             <path id="Line" d="M59,157 L59,159 L65,159 L58,173 L51,159 L57,159 L57,157 L59,157 Z M59,150 L59,153 L57,153 L57,150 L59,150 Z M59,143 L59,146 L57,146 L57,143 L59,143 Z M59,136 L59,139 L57,139 L57,136 L59,136 Z M59,129 L59,132 L57,132 L57,129 L59,129 Z M59,122 L59,125 L57,125 L57,122 L59,122 Z M59,115 L59,118 L57,118 L57,115 L59,115 Z M59,108 L59,111 L57,111 L57,108 L59,108 Z" fill="#9AA9B2" fill-rule="nonzero"></path>
             <text id="when-app.unmount()-i" font-family="Helvetica" font-size="14" font-weight="normal">
-                <tspan x="39.765625" y="60" fill="#8E9EA9">when </tspan>
+                <tspan x="39.765625" y="60" fill="#8E9EA9">якщо </tspan>
                 <tspan x="3.97265625" y="77" fill="#8E9EA9">app.</tspan>
                 <tspan x="31.2207031" y="77" fill="#DB5B62">unmount</tspan>
-                <tspan x="85.703125" y="77" fill="#8E9EA9">() is </tspan>
-                <tspan x="38.2104492" y="94" fill="#8E9EA9">called</tspan>
+                <tspan x="85.703125" y="77" fill="#8E9EA9">() було </tspan>
+                <tspan x="38.2104492" y="94" fill="#8E9EA9">викликано</tspan>
             </text>
         </g>
         <g id="beforeCreate" transform="translate(72.000000, 238.000000)">
@@ -60,32 +60,31 @@
             <g id="Compile-template" transform="translate(0.000000, 119.000000)">
                 <rect id="Rectangle" stroke="#23AC70" fill="#3AB881" x="-0.5" y="-0.5" width="207" height="58" rx="8"></rect>
                 <text id="Compile-template-int" font-family="Helvetica" font-size="14" font-weight="normal">
-                    <tspan x="49.6950918" y="23.9183673" fill="#FFFFFF">Compile template</tspan>
-                    <tspan x="39.5676504" y="42.4183673" fill="#FFFFFF">into render function </tspan>
+                    <tspan x="38.6950918" y="23.9183673" fill="#FFFFFF">Компіляція шаблону</tspan>
+                    <tspan x="48.5676504" y="42.4183673" fill="#FFFFFF">у рендер-функції </tspan>
                     <tspan x="163.311791" y="42.4183673" fill="#F6DA72">*</tspan>
                 </text>
             </g>
             <g id="Compile-el's-outerHTML" transform="translate(282.000000, 119.000000)">
                 <rect id="Rectangle" stroke="#23AC70" fill="#3AB881" x="-0.5" y="-0.5" width="207" height="58" rx="8"></rect>
                 <text id="Compile-el’s-innerHT" font-family="Helvetica" font-size="14" font-weight="normal">
-                    <tspan x="29.0155147" y="23.9183673" fill="#FFFFFF">Compile el’s innerHTML</tspan>
-                    <tspan x="62.7269404" y="42.4183673" fill="#FFFFFF">as template </tspan>
-                    <tspan x="138.988659" y="42.4183673" fill="#F6DA72">*</tspan>
+                    <tspan x="29.0155147" y="23.9183673" fill="#FFFFFF">Компіляція el.innerHTML </tspan>
+                    <tspan x="62.7269404" y="42.4183673" fill="#FFFFFF">в шаблон </tspan>
+                    <tspan x="125.988659" y="42.4183673" fill="#F6DA72">*</tspan>
                 </text>
             </g>
             <g id="Has-template-option" transform="translate(149.000000, 0.000000)">
                 <path d="M95,-0.567494371 L191.057097,51 L95,102.567494 L-1.05709736,51 L95,-0.567494371 Z" id="Path" stroke="#F2781E" fill="#FF8228"></path>
                 <text id="Has-“template”-optio" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                    <tspan x="82.0517578" y="37.7272727">Has</tspan>
-                    <tspan x="38.0795898" y="56.2272727">“template” option?</tspan>
+                    <tspan x="71.0517578" y="37.7272727">Чи має</tspan>
+                    <tspan x="38.0795898" y="56.2272727">Опція “template”?</tspan>
                 </text>
             </g>
             <text id="YES" font-family="Helvetica" font-size="14" font-weight="normal" fill="#8E9EA9">
-                <tspan x="61.6621094" y="69">YE</tspan>
-                <tspan x="66.3310547" y="86">S</tspan>
+                <tspan x="61.6621094" y="69">ТАК</tspan>
             </text>
             <text id="NO" font-family="Helvetica" font-size="14" font-weight="normal" fill="#8E9EA9">
-                <tspan x="405.5" y="69">NO</tspan>
+                <tspan x="405.5" y="69">НІ</tspan>
             </text>
         </g>
         <g id="created" transform="translate(72.000000, 354.000000)">
@@ -135,38 +134,38 @@
             <g id="Virtual-DOM-re-rendered" transform="translate(88.000000, 114.000000)">
                 <rect id="Rectangle" stroke="#23AC70" fill="#3AB881" x="20.5" y="-0.5" width="139.833333" height="78" rx="8"></rect>
                 <text id="Virtual-DOM-re-rende" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                    <tspan x="53.0058594" y="25.3333333">Virtual DOM</tspan>
-                    <tspan x="54.4243164" y="43.8333333">re-rendered</tspan>
-                    <tspan x="60.2519531" y="62.3333333">and patch</tspan>
+                    <tspan x="33.0058594" y="25.3333333">Віртуальний DOM</tspan>
+                    <tspan x="34.4243164" y="43.8333333">перемальовано</tspan>
+                    <tspan x="45.2519531" y="62.3333333">і пропатчено</tspan>
                 </text>
             </g>
             <text id="when-data-change" font-family="Helvetica" font-size="14" font-weight="normal" fill="#8E9EA9">
-                <tspan x="62.1967773" y="58">when data </tspan>
-                <tspan x="71.534668" y="75">change</tspan>
+                <tspan x="72.1967773" y="58">зміна </tspan>
+                <tspan x="71.534668" y="75">даних</tspan>
             </text>
         </g>
         <g id="Init-events" transform="translate(316.000000, 179.000000)">
             <path id="Line" d="M98,57 L98,103 L104,103 L97,117 L90,103 L96,103 L96,57 L98,57 Z" fill="#9AA9B2" fill-rule="nonzero"></path>
             <rect id="Rectangle" stroke="#23AC70" fill="#3AB881" x="-0.5" y="-0.5" width="192" height="58" rx="8"></rect>
             <text id="Init-events-&amp;-lifecy" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                <tspan x="87.1621094" y="24">Init </tspan>
-                <tspan x="42.4208984" y="42.5">events &amp; lifecycle</tspan>
+                <tspan x="57.1621094" y="24">Ініціалізація </tspan>
+                <tspan x="22.4208984" y="42.5">події та життєвий цикл</tspan>
             </text>
         </g>
         <g id="Init-injections" transform="translate(316.000000, 297.000000)">
             <path id="Line" d="M98,57 L98,104 L104,104 L97,118 L90,104 L96,104 L96,57 L98,57 Z" fill="#9AA9B2" fill-rule="nonzero"></path>
             <rect id="Rectangle" stroke="#23AC70" fill="#3AB881" x="-0.5" y="-0.5" width="192" height="58" rx="8"></rect>
             <text id="Init-injections-&amp;-re" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                <tspan x="87.1621094" y="24">Init </tspan>
-                <tspan x="31.1416016" y="42.5">injections &amp; reactivity </tspan>
+                <tspan x="57.1621094" y="24">Ініціалізація </tspan>
+                <tspan x="21.1416016" y="42.5">ін'єкція та реактивність </tspan>
             </text>
         </g>
         <g id="Create-app.$el" transform="translate(317.000000, 707.000000)">
             <path id="Line" d="M96.4936726,56.3990486 L96.5043882,57.3989912 L97.314,132.982 L103.31401,132.918214 L96.4644301,146.992419 L89.3148141,133.068232 L95.314,133.004 L94.504503,57.4204223 L94.4937874,56.4204798 L96.4936726,56.3990486 Z" fill="#9AA9B2" fill-rule="nonzero"></path>
             <rect id="Rectangle" stroke="#23AC70" fill="#3AB881" x="-0.5" y="-0.5" width="192" height="58" rx="8"></rect>
             <text id="Create-app.$el-and-r" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                <tspan x="36.4555664" y="24">Create app.$el and</tspan>
-                <tspan x="41.1484375" y="42.5">replace “el” with it</tspan>
+                <tspan x="32.4555664" y="24">Створення app.$el</tspan>
+                <tspan x="38.1484375" y="42.5">і заміна його “el”</tspan>
             </text>
         </g>
         <g id="Mounted" transform="translate(367.000000, 855.000000)">

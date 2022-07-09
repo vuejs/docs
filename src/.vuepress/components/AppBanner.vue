@@ -2,7 +2,7 @@
   <ClientOnly>
     <aside class="app-banner" v-if="shouldShow">
       <slot></slot>
-      <button ref="closeButton" @click="close">Close</button>
+      <button ref="closeButton" @click="close">Закрити</button>
     </aside>
   </ClientOnly>
 </template>

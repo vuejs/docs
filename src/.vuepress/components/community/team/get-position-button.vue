@@ -9,7 +9,7 @@
     <template v-else>
       <i class="fa fa-map-marker"></i>
       <span>
-        <slot>Find near me</slot>
+        <slot>Знайти поблизу</slot>
       </span>
     </template>
   </button>

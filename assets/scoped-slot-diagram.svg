@@ -32,14 +32,14 @@
                     <rect id="Rectangle-Copy-2" fill="#E56000" mask="url(#mask-5)" x="0" y="43" width="319" height="100"></rect>
                 </g>
                 <text id="TodoList" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                    <tspan x="159.927734" y="31">TodoList</tspan>
+                    <tspan x="139.927734" y="31">Список завдань</tspan>
                 </text>
                 <text id="Slot" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
-                    <tspan x="173.937988" y="86">Slot</tspan>
+                    <tspan x="173.937988" y="86">Слот</tspan>
                 </text>
             </g>
             <text id="Parent-Component" font-family="Helvetica" font-size="16" font-weight="normal" fill="#23AC70">
-                <tspan x="216.347656" y="90">Parent Component</tspan>
+                <tspan x="216.347656" y="90">Батьківський компонент</tspan>
             </text>
             <g id="HTML" transform="translate(105.000000, 115.000000)">
                 <rect id="Rectangle" fill="#3E6B94" x="0" y="0" width="380" height="173" rx="2"></rect>
