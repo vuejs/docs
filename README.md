@@ -1,31 +1,46 @@
-# v3.vuejs.org
+# vuejs.org.ua
 
-This site is built with [VuePress](https://vuepress.vuejs.org/). Site content is written in Markdown format located in `src`.
+Цей сайт створено за допомогою [VuePress](https://vuepress.vuejs.org/). Вміст сайту записується у форматі Markdown, який знаходиться в `src`.
 
-## Writing
+## Написання
 
-See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) for our rules and recommendations on writing and maintaining documentation.
+Перегляньте [Посібник із написання документів Vue](https://v3.vuejs.org/guide/writing-guide.html), щоб дізнатися про наші правила та рекомендації щодо написання та ведення документації.
 
-## Developing
+## Розробка
 
-1. Clone repository
+1. Склонуйте репозиторій
 
 ```bash
 git clone https://github.com/vuejs/docs.git
 ```
 
-2. Install dependencies
+2. Встановіть залежності
 
 ```bash
-yarn # or npm install
+yarn # або npm install
 ```
 
-3. Start local development environment
+3. Запустіть локальне середовище розробки
 
 ```bash
-yarn serve # or npm run serve
+yarn serve # або npm run serve
 ```
 
-## Deploying
+## Розгортання
 
-The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
+Сайт автоматично розгортається, коли фіксує опиняються в `master` через [Netlify](https://www.netlify.com).
+
+## Переклад
+
+Приєднуйтесь до нас!
+
+Ми — команда з 2-х людей, хто займається перекладом англомовної документації VueJS на українську.
+
+Ми віримо, що наявність україномовних матеріалів допоможе українцям швидше вдосконалювати свої знання цього чудового фреймворку та його екосистеми, а також популяризуватиме українську мову в світі.
+
+Оскільки переклад документації не є нашим основним видом зайнятості і виконується виключно на волонтерських засадах, не є джерелом прибутку, тому ми надіємося лише на спонсорську підтримку тих, хто вважає, що україномовним технічним ресурсам має бути місце в Інтернеті.
+
+Якщо ви бажаєте допомогти нам фінансово, скористайтесь кнопкою `Sponsor` на GitHub.
+Якщо ж ви хотіли б долучитись до команди перекладачів, ласкаво просимо в [наш телеграм канал](https://t.me/vuejs_ukraine).
+
+Дякуємо за вашу підтримку.
