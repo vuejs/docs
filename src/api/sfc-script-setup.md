@@ -1,6 +1,6 @@
 # \<script setup>
 
-`<script setup>` is a compile-time syntactic sugar for using Composition API inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
+`<script setup>` is a compile-time syntactic sugar for using Composition API inside Single-File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
 
 - More succinct code with less boilerplate
 - Ability to declare props and emitted events using pure TypeScript
