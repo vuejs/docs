@@ -317,7 +317,7 @@ Check out [this example of a simple todo list](https://sfc.vuejs.org/#eyJBcHAudn
 
 ### Mutation Methods
 
-Vue is able to detect when an reactive array's mutation methods are called and trigger necessary updates. These mutation methods are:
+Vue is able to detect when a reactive array's mutation methods are called and trigger necessary updates. These mutation methods are:
 
 - `push()`
 - `pop()`
