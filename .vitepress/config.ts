@@ -401,7 +401,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Single File Component',
+      text: 'Single-File Component',
       items: [
         { text: 'Syntax Specification', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
