@@ -79,7 +79,8 @@ To get started with Vue without a build step, simply copy the following code int
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        message: 'Hello Vue!'![tumblr_31ec2bca345376e2fba6b0515bc6db4c_166941a6_540](https://user-images.githubusercontent.com/105249309/178565905-74e62e5a-82c8-4952-92e8-cd27d57daf73.gif)
+
       }
     }
   }).mount('#app')
