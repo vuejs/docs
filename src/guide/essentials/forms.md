@@ -74,7 +74,7 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 
 <span id="vmodel-ime-tip"></span>
 ::: tip Note
-For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to respond to these updates as well, use an `input` event listener and `value` binding instead of using `v-model`.
+For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to respond to these updates as well, use your own `input` event listener and `value` binding instead of using `v-model`.
 :::
 
 ### Multiline text

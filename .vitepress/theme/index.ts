@@ -3,7 +3,6 @@ import { h, App } from 'vue'
 import { VPTheme } from '@vue/theme'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
 import VueMasteryBanner from './components/VueMasteryBanner.vue'
-import VueSchoolLink from './components/VueSchoolLink.vue'
 import {
   preferComposition,
   preferSFC,
@@ -11,6 +10,7 @@ import {
 } from './components/preferences'
 import SponsorsAside from './components/SponsorsAside.vue'
 import VueJobs from './components/VueJobs.vue'
+import VueSchoolLink from './components/VueSchoolLink.vue'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {
