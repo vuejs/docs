@@ -12,7 +12,7 @@
       <p>Access the highest quality library of Vue courses free<span>July 22-24 only</span></p>
         <button class="vuemastery-button">Secure a spot</button>
     </div>
-    <div id="vm-close" class="vuemastery-banner--close"></div>
+    <div id="vm-close" class="vuemastery-banner--close" @click.stop.prevent="close"></div>
   </a>
 </div>
 </template>
@@ -24,7 +24,7 @@ const isVisible = ref(false)
 
 onMounted(() => {
   const now = new Date()
-  const end = new Date('2022-07-24T00:00:00+02:00')
+  const end = new Date('2022-07-25T00:00:00+02:00')
   isVisible.value = !localStorage.getItem('VM_FW_22_OFFER') && (now < end)
   if (isVisible.value) document.body.classList.add('has-top-banner')
 })
