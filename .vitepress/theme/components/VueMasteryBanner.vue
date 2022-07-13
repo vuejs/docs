@@ -12,7 +12,7 @@
       <p>Access the highest quality library of Vue courses free<span>July 22-24 only</span></p>
         <button class="vuemastery-button">Secure a spot</button>
     </div>
-    <div id="vm-close" class="vuemastery-banner--close"></div>
+    <div id="vm-close" class="vuemastery-banner--close" @click.stop.prevent="close"></div>
   </a>
 </div>
 </template>
