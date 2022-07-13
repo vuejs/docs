@@ -3,10 +3,10 @@
 /ecosystem/partners.html  /partners/
 /resources/*              /ecosystem/:splat
 
-/guide/computed.html                https://v2.vuejs.org/v2/guide/computed.html
-/guide/custom-directive.html        https://v2.vuejs.org/v2/guide/custom-directive.html
-/guide/list.html                    https://v2.vuejs.org/v2/guide/list.html
-/guide/deployment.html              https://v2.vuejs.org/v2/guide/deployment.html
+/guide/computed.html                /guide/essentials/computed.html
+/guide/custom-directive.html        /guide/reusability/custom-directives.html
+/guide/list.html                    /guide/essentials/list.html
+/guide/deployment.html              /guide/best-practices/production-deployment.html
 
 /v2/guide/team.html                 /about/team.html
 /v2/guide/join.html                 /about/community-guide.html
