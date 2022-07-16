@@ -341,7 +341,7 @@ export default {
 
 ```vue-html
 <select v-model="selected">
-  <option v-for="option in options" :value="option.value" :key="option.key">
+  <option v-for="option in options" :value="option.value" :key="option.value">
     {{ option.text }}
   </option>
 </select>
