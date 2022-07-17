@@ -6,7 +6,7 @@ Computed properties allow us to declaratively compute derived values. However, t
 
 <div class="options-api">
 
-With Options API, we can use the [`watch` option](/api/options-state.html#watch) to trigger a function whenever a reactive property changes:
+With the Options API, we can use the [`watch` option](/api/options-state.html#watch) to trigger a function whenever a reactive property changes:
 
 ```js
 export default {
