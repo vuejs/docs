@@ -19,7 +19,7 @@ You can try Vue with SFCs online on [StackBlitz](https://vite.new/vue). StackBli
 :::tip Pre-requisites
 
 - Familiarity with the command line
-- Install [Node.js](https://nodejs.org/)
+- Install [Node.js](https://nodejs.org/) version 15.0 or higher
   :::
 
 To create a build-tool-enabled Vue project on your machine, run the following command in your command line (without the `>` sign):
