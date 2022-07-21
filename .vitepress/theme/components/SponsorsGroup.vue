@@ -1,28 +1,6 @@
-<script lang="ts">
-interface Sponsor {
-  url: string
-  img: string
-  name: string
-}
-
-interface SponsorData {
-  special: Sponsor[]
-  platinum: Sponsor[]
-  platinum_china: Sponsor[]
-  gold: Sponsor[]
-  silver: Sponsor[]
-  bronze: Sponsor[]
-}
-
-// shared data across instances so we load only once
-let data = $ref<SponsorData>()
-let pending = false
-
-const base = `https://sponsors.vuejs.org`
-</script>
-
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
+import { SponsorData, data, base, load } from './sponsors';
 
 const { tier, placement = 'aside' } = defineProps<{
   tier: keyof SponsorData
@@ -47,10 +25,7 @@ onMounted(async () => {
   onUnmounted(() => observer.disconnect())
 
   // load data
-  if (!pending) {
-    pending = true
-    data = await (await fetch(`${base}/data.json`)).json()
-  }
+  await load()
 })
 </script>
 
