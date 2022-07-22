@@ -43,7 +43,7 @@ function close () {
   overflow: hidden;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: var(--vp-z-index-banner);
   width: 100%;
   transition: all 0.3s ease-out 0.1s;
 }
