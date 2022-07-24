@@ -16,7 +16,7 @@ In the Component Basics chapter, we introduced the syntax for [Dynamic Component
 
 By default, an active component instance will be unmounted when switched away from. This will cause any changed state it holds to be lost.
 
-In the example below, we have two stateful components - A contains a counter, while B contains a message synced with an input via `v-model`. Try update the state of one of them, switch away, and then switch back to it:
+In the example below, we have two stateful components - A contains a counter, while B contains a message synced with an input via `v-model`. Try updating the state of one of them, switch away, and then switch back to it:
 
 <SwitchComponent />
 
