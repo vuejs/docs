@@ -7,7 +7,8 @@ footer: false
 :::info You are reading the documentation for Vue 3!
 
 - Vue 2 documentation has been moved to [v2.vuejs.org](https://v2.vuejs.org/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+- Upgrading from Vue 2?
+ Check out the [Migration Guide](https://v3-migration.vuejs.org/).
   :::
 
 <style src="/@theme/styles/vue-mastery.css"></style>
