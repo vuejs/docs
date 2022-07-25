@@ -10,6 +10,7 @@ Translation efforts are managed in the [vuejs-translations](https://github.com/v
 
 - [Simplified Chinese](https://github.com/vuejs-translations/docs-zh-cn)
 - [Japanese](https://github.com/vuejs-translations/docs-ja)
+- [French]
 
 ## Starting a new Translation
 
