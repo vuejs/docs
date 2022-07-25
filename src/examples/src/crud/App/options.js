@@ -17,7 +17,7 @@ export default {
   },
   watch: {
     selected(name) {
-      ;[this.last, this.first] = name.split(', ')
+      [this.last, this.first] = name.split(', ')
     }
   },
   methods: {
