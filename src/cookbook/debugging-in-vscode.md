@@ -55,7 +55,7 @@ Click on the Debugging icon in the Activity Bar to bring up the Debug view, then
       "webRoot": "${workspaceFolder}/src",
       "breakOnLoad": true,
       "sourceMapPathOverrides": {
-        "webpack:///src/*": "${webRoot}/*"
+        "webpack://${workspaceRootFolderName}/*": "${workspaceFolder}/*"
       }
     },
     {
@@ -64,7 +64,12 @@ Click on the Debugging icon in the Activity Bar to bring up the Debug view, then
       "name": "vuejs: firefox",
       "url": "http://localhost:8080",
       "webRoot": "${workspaceFolder}/src",
-      "pathMappings": [{ "url": "webpack:///src/", "path": "${webRoot}/" }]
+      "pathMappings": [
+        {
+          "url": "webpack://${workspaceRootFolderName}/",
+          "path": "${workspaceFolder}/"
+        },
+      ]
     }
   ]
 }
