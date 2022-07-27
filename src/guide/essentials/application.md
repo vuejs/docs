@@ -62,13 +62,15 @@ The `.mount()` method should always be called after all app configurations and a
 When using Vue without a build step, we can write our root component's template directly inside the mount container:
 
 ```html
+<script src="https://unpkg.com/vue@3"></script>
+
 <div id="app">
   <button @click="count++">{{ count }}</button>
 </div>
 ```
 
 ```js
-import { createApp } from 'vue'
+const { createApp } = Vue
 
 const app = createApp({
   data() {
