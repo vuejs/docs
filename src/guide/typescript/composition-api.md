@@ -22,6 +22,22 @@ props.bar // number | undefined
 
 This is called "runtime declaration", because the argument passed to `defineProps()` will be used as the runtime `props` option.
 
+Prop types can also be explicitly declared when using runtime declaration:
+
+```vue
+<script setup lang="ts">
+const props = defineProps({
+  foo: {
+    type: String as PropType<string>,
+    required: true
+  },
+  bar: Number as PropType<number>,
+})
+props.foo // string
+props.bar // number | undefined
+</script>
+```
+
 However, it is usually more straightforward to define props with pure types via a generic type argument:
 
 ```vue
