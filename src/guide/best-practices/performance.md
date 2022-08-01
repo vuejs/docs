@@ -82,7 +82,9 @@ import { defineAsyncComponent } from 'vue'
 const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 ```
 
-If using client-side routing via Vue Router, it is strongly recommended to **not** use async components as route components. Async components can still be used inside route components but route component themselves are just dynamic imports. See [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html) for more details.
+:::tip
+If using client-side routing via [Vue Router](https://router.vuejs.org/), asynchronous loading with route components is strongly recommended, but not via `defineAsyncComponent`. See [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html) for more details.
+:::
 
 ### SSR / SSG
 
