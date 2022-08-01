@@ -10,7 +10,7 @@ Reactivity Transform is a Composition-API-specific feature and requires a build 
 
 ## Refs vs. Reactive Variables
 
-Ever since the introduction of the Composition API, one of the primary unresolved questions is the use of refs vs. reactive objects. It can be cumbersome to use `.value` everywhere, and it is easy to miss if not using a type system.
+Ever since the introduction of the Composition API, one of the primary unresolved questions is the use of refs vs. reactive objects. It's easy to lose reactivity when destructuring reactive objects, while it can be cumbersome to use `.value` everywhere when using refs. Also, `.value` is easy to miss if not using a type system.
 
 [Vue Reactivity Transform](https://github.com/vuejs/core/tree/main/packages/reactivity-transform) is a compile-time transform that allows us to write code like this:
 
@@ -285,7 +285,7 @@ Reactivity Transform is currently disabled by default and requires explicit opt-
 
 ### Vite
 
-- Requires `@vitejs/plugin-vue@^2.0.0`
+- Requires `@vitejs/plugin-vue@>=2.0.0`
 - Applies to SFCs and js(x)/ts(x) files. A fast usage check is performed on files before applying the transform so there should be no performance cost for files not using the macros.
 - Note `reactivityTransform` is now a plugin root-level option instead of nested as `script.refSugar`, since it affects not just SFCs.
 
@@ -303,7 +303,7 @@ export default {
 ### `vue-cli`
 
 - Currently only affects SFCs
-- Requires `vue-loader@^17.0.0`
+- Requires `vue-loader@>=17.0.0`
 
 ```js
 // vue.config.js
@@ -325,7 +325,7 @@ module.exports = {
 ### Plain `webpack` + `vue-loader`
 
 - Currently only affects SFCs
-- Requires `vue-loader@^17.0.0`
+- Requires `vue-loader@>=17.0.0`
 
 ```js
 // webpack.config.js
