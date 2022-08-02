@@ -1,34 +1,28 @@
 # vuejs.org.ua
 
-Цей сайт створено за допомогою [VuePress](https://vuepress.vuejs.org/). Вміст сайту записується у форматі Markdown, який знаходиться в `src`.
+## Contributing
 
-## Написання
+Цей сайт створено за допомогою [VitePress](https://github.com/vuejs/vitepress) і залежить від [@vue/theme](https://github.com/vuejs/vue-theme). Вміст сайту записується у форматі Markdown, який знаходиться в `src`. Для маленьких змін, ви можете редагувати файл безпосередньо на GitHub і потім створити Pull Request.
 
-Перегляньте [Посібник із написання документів Vue](https://v3.vuejs.org/guide/writing-guide.html), щоб дізнатися про наші правила та рекомендації щодо написання та ведення документації.
-
-## Розробка
-
-1. Склонуйте репозиторій
+Для локальної розробки рекомендується використовувати [pnpm](https://pnpm.io/) у якості менеджера пакетів:
 
 ```bash
-git clone https://github.com/vuejs/docs.git
+pnpm i
+pnpm run dev
 ```
 
-2. Встановіть залежності
+This project requires Node.js to be `v14.0.0` or higher, because we use new JavaScript features in our code, such as optional chaining.
 
-```bash
-yarn # або npm install
-```
 
-3. Запустіть локальне середовище розробки
+## Робота з вмістом
 
-```bash
-yarn serve # або npm run serve
-```
+- Перегляньте документацію по VitePress для ознайомлення із підтримуваними [розширеннями Markdown](https://vitepress.vuejs.org/guide/markdown.html) і можливостями [використання синтаксису Vue всередині markdown](https://vitepress.vuejs.org/guide/using-vue.html).
 
-## Розгортання
+- Перегляньте [Редакторський Посібник](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) з нашими правилами та рекомендаціями по написанню та обслуговуванню документації.
 
-Сайт автоматично розгортається, коли зміни опиняються в `master` через [Netlify](https://www.netlify.com).
+## Робота з темою
+
+Якщо потрібно внести зміни до теми, перегляньте [інструкції по розробці теми разом з документацією](https://github.com/vuejs/vue-theme#developing-with-real-content).
 
 ## Переклад
 
