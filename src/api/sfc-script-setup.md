@@ -1,10 +1,6 @@
----
-sidebarDepth: 1
----
+# \<script setup>
 
-# SFC `<script setup>`
-
-`<script setup>` is a compile-time syntactic sugar for using [Composition API](/api/composition-api.html) inside Single File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
+`<script setup>` is a compile-time syntactic sugar for using Composition API inside Single-File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
 
 - More succinct code with less boilerplate
 - Ability to declare props and emitted events using pure TypeScript
@@ -39,7 +35,7 @@ function log() {
 </script>
 
 <template>
-  <div @click="log">{{ msg }}</div>
+  <button @click="log">{{ msg }}</button>
 </template>
 ```
 
@@ -57,7 +53,7 @@ import { capitalize } from './helpers'
 
 ## Reactivity
 
-Reactive state needs to be explicitly created using [Reactivity APIs](/api/basic-reactivity.html). Similar to values returned from a `setup()` function, refs are automatically unwrapped when referenced in templates:
+Reactive state needs to be explicitly created using [Reactivity APIs](./reactivity-core.html). Similar to values returned from a `setup()` function, refs are automatically unwrapped when referenced in templates:
 
 ```vue
 <script setup>
@@ -89,7 +85,7 @@ Think of `MyComponent` as being referenced as a variable. If you have used JSX, 
 
 ### Dynamic Components
 
-Since components are referenced as variables instead of registered under string keys, you should use dynamic `:is` binding when using dynamic components inside `<script setup>`:
+Since components are referenced as variables instead of registered under string keys, we should use dynamic `:is` binding when using dynamic components inside `<script setup>`:
 
 ```vue
 <script setup>
@@ -133,11 +129,9 @@ import * as Form from './form-components'
 
 ## Using Custom Directives
 
-Globally registered custom directives just work as expected, and local ones can be used directly in the template, much like we explained above for components. 
+Globally registered custom directives just work as normal. Local custom directives don't need to be explicitly registered with `<script setup>`, but they must follow the naming scheme `vNameOfDirective`:
 
-But there's one restriction to be aware of: You must name local custom directives according to the following schema: `vNameOfDirective` in order for them to be directly usable in the template.
-
-```html
+```vue
 <script setup>
 const vMyDirective = {
   beforeMount: (el) => {
@@ -149,16 +143,18 @@ const vMyDirective = {
   <h1 v-my-directive>This is a Heading</h1>
 </template>
 ```
-```html
+
+If you're importing a directive from elsewhere, it can be renamed to fit the required naming scheme:
+
+```vue
 <script setup>
-  // imports also work, and can be renamed to fit the required naming schema
-  import { myDirective as vMyDirective } from './MyDirective.js'
+import { myDirective as vMyDirective } from './MyDirective.js'
 </script>
 ```
 
-## `defineProps` and `defineEmits`
+## defineProps() & defineEmits()
 
-To declare `props` and `emits` in `<script setup>`, you must use the `defineProps` and `defineEmits` APIs, which provide full type inference support and are automatically available inside `<script setup>`:
+To declare options like `props` and `emits` with full type inference support, we can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
 
 ```vue
 <script setup>
@@ -173,7 +169,7 @@ const emit = defineEmits(['change', 'delete'])
 
 - `defineProps` and `defineEmits` are **compiler macros** only usable inside `<script setup>`. They do not need to be imported, and are compiled away when `<script setup>` is processed.
 
-- `defineProps` accepts the same value as the [`props` option](/api/options-data.html#props), while `defineEmits` accepts the same value as the [`emits` option](/api/options-data.html#emits).
+- `defineProps` accepts the same value as the `props` option, while `defineEmits` accepts the same value as the `emits` option.
 
 - `defineProps` and `defineEmits` provide proper type inference based on the options passed.
 
@@ -181,7 +177,7 @@ const emit = defineEmits(['change', 'delete'])
 
 If you are using TypeScript, it is also possible to [declare props and emits using pure type annotations](#typescript-only-features).
 
-## `defineExpose`
+## defineExpose()
 
 Components using `<script setup>` are **closed by default** - i.e. the public instance of the component, which is retrieved via template refs or `$parent` chains, will **not** expose any of the bindings declared inside `<script setup>`.
 
@@ -203,7 +199,7 @@ defineExpose({
 
 When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
 
-## `useSlots` and `useAttrs`
+## `useSlots()` & `useAttrs()`
 
 Usage of `slots` and `attrs` inside `<script setup>` should be relatively rare, since you can access them directly as `$slots` and `$attrs` in the template. In the rare case where you do need them, use the `useSlots` and `useAttrs` helpers respectively:
 
@@ -220,10 +216,10 @@ const attrs = useAttrs()
 
 ## Usage alongside normal `<script>`
 
-`<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where you need to:
+`<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where we need to:
 
 - Declare options that cannot be expressed in `<script setup>`, for example `inheritAttrs` or custom options enabled via plugins.
-- Declaring named exports (including TypeScript types).
+- Declaring named exports.
 - Run side effects or create objects that should only execute once.
 
 ```vue
@@ -243,44 +239,23 @@ export default {
 </script>
 ```
 
-:::warning
-`render` function is not supported in this scenario. Please use one normal `<script>` with `setup` option instead.
-:::
-
 ## Top-level `await`
 
 Top-level `await` can be used inside `<script setup>`. The resulting code will be compiled as `async setup()`:
 
 ```vue
 <script setup>
-const post = await fetch(`/api/post/1`).then(r => r.json())
+const post = await fetch(`/api/post/1`).then((r) => r.json())
 </script>
 ```
 
 In addition, the awaited expression will be automatically compiled in a format that preserves the current component instance context after the `await`.
 
 :::warning Note
-`async setup()` must be used in combination with `Suspense`, which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/vue-next/blob/master/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
+`async setup()` must be used in combination with `Suspense`, which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
 :::
 
-## TypeScript-only Features
-
-### Additional type exports
-
-As noted above, in order to export additional types from an SFC, they must be moved to an additional `<script>` block alongside the `<script setup>` block.
-
-For example
-```vue
-<script lang="ts">
-export type SizeOptions = 'small' | 'medium' | 'large';
-</script>
-
-<script lang="ts" setup>
-defineProps({
-  size: { type: String as PropType<SizeOptions> },
-})
-</script>
-```
+## TypeScript-only Features <sup class="vt-badge ts" />
 
 ### Type-only props/emit declarations
 
@@ -313,14 +288,14 @@ const emit = defineEmits<{
   - A type literal
   - A reference to an interface or a type literal in the same file
 
-  Currently complex types and type imports from other files are not supported. It is theoretically possible to support type imports in the future.
+  Currently complex types and type imports from other files are not supported. It is possible to support type imports in the future.
 
 ### Default props values when using type declaration
 
 One drawback of the type-only `defineProps` declaration is that it doesn't have a way to provide default values for the props. To resolve this problem, a `withDefaults` compiler macro is also provided:
 
 ```ts
-interface Props {
+export interface Props {
   msg?: string
   labels?: string[]
 }
@@ -333,6 +308,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
 
-## Restriction: No Src Imports
+## Restrictions
 
 Due to the difference in module execution semantics, code inside `<script setup>` relies on the context of an SFC. When moved into external `.js` or `.ts` files, it may lead to confusion for both developers and tools. Therefore, **`<script setup>`** cannot be used with the `src` attribute.

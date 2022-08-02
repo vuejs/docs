@@ -1,8 +1,10 @@
 # SFC Syntax Specification
 
-## Intro
+## Overview
 
-A `*.vue` file is a custom file format that uses HTML-like syntax to describe a Vue component. Each `*.vue` file consists of three types of top-level language blocks: `<template>`, `<script>`, and `<style>`, and optionally additional custom blocks:
+A Vue Single-File Component (SFC), conventionally using the `*.vue` file extension, is a custom file format that uses an HTML-like syntax to describe a Vue component. A Vue SFC is syntactically compatible with HTML.
+
+Each `*.vue` file consists of three types of top-level language blocks: `<template>`, `<script>`, and `<style>`, and optionally additional custom blocks:
 
 ```vue
 <template>
@@ -44,7 +46,7 @@ export default {
 
 - The script is executed as an ES Module.
 
-- The **default export** should be a Vue component options object, either as a plain object or as the return value of [defineComponent](/api/global-api.html#definecomponent).
+- The **default export** should be a Vue component options object, either as a plain object or as the return value of [defineComponent](/api/general.html#definecomponent).
 
 ### `<script setup>`
 
@@ -56,7 +58,7 @@ export default {
 
 - A single `*.vue` file can contain multiple `<style>` tags.
 
-- A `<style>` tag can have `scoped` or `module` attributes (see [SFC Style Features](/api/sfc-style) for more details) to help encapsulate the styles to the current component. Multiple `<style>` tags with different encapsulation modes can be mixed in the same component.
+- A `<style>` tag can have `scoped` or `module` attributes (see [SFC Style Features](/api/sfc-css-features) for more details) to help encapsulate the styles to the current component. Multiple `<style>` tags with different encapsulation modes can be mixed in the same component.
 
 ### Custom Blocks
 
@@ -66,21 +68,21 @@ Additional custom blocks can be included in a `*.vue` file for any project-speci
 - [vite-plugin-vue-gql: `<gql>`](https://github.com/wheatjs/vite-plugin-vue-gql)
 - [vue-i18n: `<i18n>`](https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n#i18n-custom-block)
 
-Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see [SFC Tooling](/api/sfc-tooling.html#custom-blocks-integration) for more details.
+Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see [relevant tooling section](/guide/scaling-up/tooling.html#sfc-custom-block-integrations) for more details.
 
-## Automatic `name` Inference
+## Automatic Name Inference
 
 An SFC automatically infers the component's name from its **filename** in the following cases:
 
 - Dev warning formatting
 - DevTools inspection
-- Recursive self-reference. E.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template. This has lower priority than explicity registered/imported components.
+- Recursive self-reference. E.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template. This has lower priority than explicitly registered/imported components.
 
 ## Pre-Processors
 
 Blocks can declare pre-processor languages using the `lang` attribute. The most common case is using TypeScript for the `<script>` block:
 
-```html
+```vue-html
 <script lang="ts">
   // use TypeScript
 </script>
@@ -88,7 +90,7 @@ Blocks can declare pre-processor languages using the `lang` attribute. The most 
 
 `lang` can be applied to any block - for example we can use `<style>` with [SASS](https://sass-lang.com/) and `<template>` with [Pug](https://pugjs.org/api/getting-started.html):
 
-```html
+```vue-html
 <template lang="pug">
 p {{ msg }}
 </template>
@@ -101,7 +103,7 @@ p {{ msg }}
 </style>
 ```
 
-Note the intergration with pre-processors may differ based on the toolchain. Check out the respective documentations for examples:
+Note that integration with various pre-processors may differ by toolchain. Check out the respective documentation for examples:
 
 - [Vite](https://vitejs.dev/guide/features.html#css-pre-processors)
 - [Vue CLI](https://cli.vuejs.org/guide/css.html#pre-processors)
@@ -124,7 +126,7 @@ Beware that `src` imports follow the same path resolution rules as webpack modul
 
 ```vue
 <!-- import a file from the installed "todomvc-app-css" npm package -->
-<style src="todomvc-app-css/index.css">
+<style src="todomvc-app-css/index.css" />
 ```
 
 `src` imports also work with custom blocks, e.g.:
