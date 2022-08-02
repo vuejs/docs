@@ -6,6 +6,7 @@
 
 ### Using `<script setup>`
 
+#### Runtime Declaration
 When using `<script setup>`, the `defineProps()` macro supports inferring the props types based on its argument:
 
 ```vue
@@ -22,23 +23,65 @@ props.bar // number | undefined
 
 This is called "runtime declaration", because the argument passed to `defineProps()` will be used as the runtime `props` option.
 
-Prop types can also be explicitly declared when using runtime declaration:
+However, runtime declaration only supports constructor functions as a prop's type - there is no way to specify complex types such as objects with nested properties or function call signatures.
+
+To annotate complex props types, we can use the `PropType` utility type:
 
 ```vue
 <script setup lang="ts">
+import type { PropType } from 'vue'
+
+interface Book {
+  title: string
+  author: string
+  year: number
+}
+
 const props = defineProps({
-  foo: {
-    type: String as PropType<string>,
+  book: {
+    // provide more specific type to `Object`
+    type: Object as PropType<Book>,
     required: true
   },
-  bar: Number as PropType<number>,
-})
-props.foo // string
-props.bar // number | undefined
+  // can also annotate functions
+  callback: Function as PropType<(id: number) => void>
+});
 </script>
 ```
 
-However, it is usually more straightforward to define props with pure types via a generic type argument:
+##### Validators and Default Values
+
+Validators and default values are then specified as usual, using the `validator` and `default` properties.
+
+**Note:** If your TypeScript version is less than `4.7`, you have to be careful when using function values for `validator` and `default` prop options - make sure to use arrow functions:
+
+```vue
+<script setup lang="ts">
+import type { PropType } from 'vue'
+
+interface Book {
+  title: string
+  year?: number
+}
+
+const props = defineProps({
+  bookA: {
+    type: Object as PropType<Book>,
+    // Make sure to use arrow functions if your TypeScript version is less than 4.7
+    default: () => ({
+      title: 'Arrow Function Expression'
+    }),
+    validator: (book: Book) => !!book.title
+  }
+});
+</script>
+```
+
+This prevents TypeScript from having to infer the type of `this` inside these functions, which, unfortunately, can cause the type inference to fail. It was a previous [design limitation](https://github.com/microsoft/TypeScript/issues/38845), and now has been improved in [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
+
+#### Type-Based Declaration
+
+In simpler cases, where default values or validators are not needed, it is usually more straightforward to define props with pure types via a generic type argument:
 
 ```vue
 <script setup lang="ts">
@@ -66,7 +109,7 @@ const props = defineProps<Props>()
 </script>
 ```
 
-#### Syntax Limitations
+##### Syntax Limitations
 
 In order to generate the correct runtime code, the generic argument for `defineProps()` must be one of the following:
 
@@ -95,7 +138,7 @@ defineProps<Props>()
 
 This is because Vue components are compiled in isolation and the compiler currently does not crawl imported files in order to analyze the source type. This limitation could be removed in a future release.
 
-### Props Default Values <sup class="vt-badge experimental" />
+##### Default Values with Type-Based Declaration <sup class="vt-badge experimental" />
 
 When using type-based declaration, we lose the ability to declare default values for the props. This can be resolved by the currently experimental [Reactivity Transform](/guide/extras/reactivity-transform.html):
 
@@ -112,7 +155,7 @@ const { foo, bar = 100 } = defineProps<Props>()
 </script>
 ```
 
-This behavior currently requires [explicit opt-in](/guide/extras/reactivity-transform.html#explicit-opt-in).
+**Warning**: This behavior currently requires [explicit opt-in](/guide/extras/reactivity-transform.html#explicit-opt-in). If not activated, props will lose their reactivity when destructured.
 
 ### Without `<script setup>`
 
