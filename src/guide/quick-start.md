@@ -2,33 +2,33 @@
 footer: false
 ---
 
-# Quick Start
+# Швидкий старт
 
-Depending on your use case and preference, you can use Vue with or without a build step.
+Виходячи з ваших потреб та уподобань, ви можете використовувати Vue з етапом збірки або без нього.
 
-## With Build Tools
+## З інструментами збірки
 
-A build setup allows us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs). The official Vue build setup is based on [Vite](https://vitejs.dev), a frontend build tool that is modern, lightweight and extremely fast.
+Налаштування збірки дозволяє нам використовувати [однофайлові компоненти Vue](/guide/scaling-up/sfc) (SFC). Офіційна збірка Vue базована на [Vite](https://vitejs.dev) — сучасному, легкому та надзвичайно швидкому інструменті для створення роботи з фронтендом.
 
-### Online
+### Онлайн
 
-You can try Vue with SFCs online on [StackBlitz](https://vite.new/vue). StackBlitz runs the Vite-based build setup directly in the browser, so it is almost identical to the local setup but doesn't require installing anything on your machine.
+Ви можете спробувати Vue із SFC онлайн на [StackBlitz](https://vite.new/vue). StackBlitz запускає збірку на основі Vite безпосередньо в браузері, тому вона майже ідентична локальній конфігурації, але не вимагає встановлення будь-чого на вашій машині.
 
-### Local
+### Локально
 
-:::tip Pre-requisites
+:::tip Передумови
 
-- Familiarity with the command line
-- Install [Node.js](https://nodejs.org/) version 15.0 or higher
+- Знайомство з командним рядком
+- Встановіть [Node.js](https://nodejs.org/) версії 15.0 або новішу
   :::
 
-To create a build-tool-enabled Vue project on your machine, run the following command in your command line (without the `>` sign):
+Щоб створити проект Vue із підтримкою збірки на вашому комп’ютері, виконайте наступну команду в командному рядку (без знаку `>`):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
-This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You will be presented with prompts for a number of optional features such as TypeScript and testing support:
+Ця команда встановить і виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проектів Vue. Вам буде надано підказки щодо ряду додаткових функцій, таких як TypeScript з підтримкою тестування:
 
-<div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span></span>
+<div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту</span><span style="color:#89DDFF;">&gt;</span></span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add JSX Support? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
@@ -38,17 +38,17 @@ This command will install and execute [create-vue](https://github.com/vuejs/crea
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add ESLint for code quality? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formatting? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span></span>
-<span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span>...</span>
+<span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту</span><span style="color:#89DDFF;">&gt;</span>...</span>
 <span style="color:#A6ACCD;">Done.</span></code></pre></div>
 
-If you are unsure about an option, simply choose `No` by hitting enter for now. Once the project is created, follow the instructions to install dependencies and start the dev server:
+Якщо ви не впевнені щодо варіанту, просто виберіть «Ні», натиснувши Enter. Після створення проекту дотримуйтесь інструкцій, щоб встановити залежності та запустити сервер в режимі розробки:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span>
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-You should now have your first Vue project running! Note that the example components in the generated project are written using the [Composition API](/guide/introduction.html#composition-api) and `<script setup>`, rather than the [Options API](/guide/introduction.html#options-api). Here are some additional tips:
+Тепер у вас повинен бути запущений перший проект Vue! Зауважте, що приклади компонентів у створеному проекті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Параметричного API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling.html#ide-support).
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
