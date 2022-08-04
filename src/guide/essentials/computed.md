@@ -131,17 +131,17 @@ const publishedBooksMessage = computed(() => {
 
 [Спробуйте відтворити це в Пісочниці](https://sfc.vuejs.org/#eNp9Us1u00AQfpXRXpxKid1KIIGVGsGdJ2A5OM4kcYl3V7vrcLAsFThw5IKChODSE8cShKhapbzC7ivwJMzaaUGt2oOtnf3m5/u+2YY9VSpe1chSNjaFLpUFg7ZWGRdlpaS20IDGvLDlCodQyErVFqfQwkzLCiKqjLjgopDCWMhru5AaDq8rBg0XACKvMIXInbhTf0zfG3Df3E+38e/pv3Xn7jIahryJlK9MCi/CGSA6ePRgH/4cfwT32V267+5XKO8zO/ThQY+eEPqbvgv/4X/0cY9+cqcduvFr/5a4Arzkot0LpJME8n+SNM6udKh6sizNAqfPAqPnaEw+R5J1lTsY7MFhBp04TW5psZMedxLiJYq5XUAG+/Ck1+3OIwgWfPVr4hDGj5PebjKaAouVWuYWKQIYq8x9IbHEnpT5d6T9wq+DT25DrbZ+DRRs3Zn74c7ScRKWRVVG5SJrmjvYty1NDBlh9PU4NmT9mkdVruIjIwU9hE4X3wGGs7RXGu5o3yHmbGGtMmmSmFkRns+RiaWeJ3SKdS1sWWGMphpNtHxtUFNjznar6XokdLlCPdIopqhR39fzRuqtvqFtS56y9i/UuSDc)
 
-Тут ми оголосили обчислювану властивість `publishedBooksMessage`. Функція `computed()` очікує в якості аргументу функцію, яка повертає якесь значення. Результат виконання функції `computed()` є **обчислювана референція**. Як і звичайні референції, ви можете отримати до їхнього обчисленого результату через `publishedBooksMessage.value`. Обчислювані референції є також такими, що автоматично розпаковуються в шаблонах, щоб ви могли їх використовувати без `.value` у шаблоинних виразах.
+Тут ми оголосили обчислювану властивість `publishedBooksMessage`. Функція `computed()` очікує в якості аргументу функцію, яка повертає якесь значення. Результат виконання функції `computed()` є **обчислювана референція**. Як і звичайні референції, ви можете отримати до їхнього обчисленого результату через `publishedBooksMessage.value`. Обчислювані референції є також такими, що автоматично розпаковуються в шаблонах, щоб ви могли їх використовувати без `.value` у шаблонних виразах.
 
-A computed property automatically tracks its reactive dependencies. Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes.
+Обчислювана властивість автоматично відслідковує свої реактивні залежності. Vue знає, що обчислення `publishedBooksMessage` залежить від `author.books`, тому він оновить будь-які прив'язки `publishedBooksMessage`, у разі якщо `author.books` зміниться.
 
-See also: [Typing Computed](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
+Також перегляньте: [Типізрвані обчислювані вирази](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
 
 </div>
 
-## Computed Caching vs Methods
+## Кешування обчислюваних виразів та методи
 
-You may have noticed we can achieve the same result by invoking a method in the expression:
+Ви могли помітити, що ви можемо досягнути такий ж самий результат просто виконавши метод, представлений у вигляді виразу:
 
 ```vue-html
 <p>{{ calculateBooksMessage() }}</p>
@@ -153,7 +153,7 @@ You may have noticed we can achieve the same result by invoking a method in the 
 // in component
 methods: {
   calculateBooksMessage() {
-    return this.author.books.length > 0 ? 'Yes' : 'No'
+    return this.author.books.length > 0 ? 'Так' : 'Ні'
   }
 }
 ```
@@ -171,9 +171,9 @@ function calculateBooksMessage() {
 
 </div>
 
-Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to `publishedBooksMessage` will immediately return the previously computed result without having to run the getter function again.
+Замість обчислюваної властивості ми можемо оголосити таку ж функцію у якості метода. В кінцевому результаті, два цих підходи точнісінько такі ж самі. Але різниця між ними полягає в тому, що **обчислювані властивості кешуються на основі їхнії рективних залежностей.** Тобто, обчислювана властивість перерахується лише в тому випадку, коли її хоч якась реактивна залежність змінюється. Це означає, що скільки б разів ми б не звертались до `publishedBooksMessage`, вона не буде обчислюватись повторно, а буде повертатись результат, обчислений перед цим, аж поки `author.books` не зміниться.
 
-This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
+Це також означає, що наступна обчислювана властивість ніколи не оновиться, оскільки `Date.now()` не є реактивною залежністю:
 
 <div class="options-api">
 
@@ -195,7 +195,7 @@ const now = computed(() => Date.now())
 
 </div>
 
-In comparison, a method invocation will **always** run the function whenever a re-render happens.
+Для порівняння, виклик метода **завжди** виконуватиме цю функцію, аж поки не відбудется повтореий ререндерінг.
 
 Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a method call instead.
 
