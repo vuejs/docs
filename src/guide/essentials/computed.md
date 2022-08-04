@@ -140,7 +140,7 @@ const publishedBooksMessage = computed(() => {
 
 ## Кешування обчислюваних виразів та методи
 
-Ви могли помітити, що ви можемо досягнути такий ж самий результат просто виконавши метод, представлений у вигляді виразу:
+Ви могли помітити, що ми можемо досягнути такий ж самий результат просто виконавши метод, представлений у вигляді виразу:
 
 ```vue-html
 <p>{{ calculateBooksMessage() }}</p>
@@ -170,7 +170,7 @@ function calculateBooksMessage() {
 
 </div>
 
-Замість обчислюваної властивості ми можемо оголосити таку ж функцію у якості метода. В кінцевому результаті, два цих підходи точнісінько такі ж самі. Але різниця між ними полягає в тому, що **обчислювані властивості кешуються на основі їхнії рективних залежностей.** Тобто, обчислювана властивість перерахується лише в тому випадку, коли її хоч якась реактивна залежність змінюється. Це означає, що скільки б разів ми б не звертались до `publishedBooksMessage`, вона не буде обчислюватись повторно, а буде повертатись результат, обчислений перед цим, аж поки `author.books` не зміниться.
+Замість обчислюваної властивості ми можемо оголосити таку ж функцію у якості метода. В кінцевому результаті, два цих підходи точнісінько такі ж самі. Але різниця між ними полягає в тому, що **обчислювані властивості кешуються на основі їхніх рективних залежностей.** Тобто, обчислювана властивість перерахується лише в тому випадку, коли її хоч якась реактивна залежність змінюється. Це означає, що скільки б разів ми б не звертались до `publishedBooksMessage`, вона не буде обчислюватись повторно, а буде повертатись результат, обчислений перед цим, аж поки `author.books` не зміниться.
 
 Це також означає, що наступна обчислювана властивість ніколи не оновиться, оскільки `Date.now()` не є реактивною залежністю:
 
@@ -194,13 +194,13 @@ const now = computed(() => Date.now())
 
 </div>
 
-Для порівняння, виклик метода **завжди** виконуватиме цю функцію, аж поки не відбудется повтореий ререндерінг.
+Для порівняння, виклик метода **завжди** виконуватиме цю функцію, аж поки не відбудется повторний ререндерінг.
 
-Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a method call instead.
+Навіщо нам кешування? Уявіть, що у нас є "дорога" обчислювана властивість `list`, яка вимагає циклічного перегляду величезного масиву та виконання великої кількості обчислень. Тоді ми можемо мати інші обчислені властивості, які, у свою чергу, залежать від `list`. Без кешування ми б виконували геттер для `list` набагато більше разів, ніж потрібно! Отже, випадках, коли ви не бажаєте кешування, замість цього використовуйте виклик методу.
 
-## Writable Computed
+## Обчислювана властивість з можливістю запису
 
-Computed properties are by default getter-only. If you attempt to assign a new value to a computed property, you will receive a runtime warning. In the rare cases where you need a "writable" computed property, you can create one by providing both a getter and a setter:
+Обчислювані властивості за замовчуванням призначені лише для читання. Якщо ви спробуєте призначити нове значення обчислюваній властивості, ви отримаєте попередження під час виконання. У рідкісних випадках, коли вам потрібна «записувана» обчислювана властивість, ви можете створити її, надавши як getter, так і setter:
 
 <div class="options-api">
 
@@ -228,7 +228,7 @@ export default {
 }
 ```
 
-Now when you run `this.fullName = 'Тарас Шевченко'`, the setter will be invoked and `this.firstName` and `this.lastName` will be updated accordingly.
+Тепер, коли ви запускаєте `this.fullName = 'Тарас Шевченко'`, буде викликано setter, і `this.firstName` та `this.lastName` будуть відповідно оновлені.
 
 </div>
 
@@ -248,23 +248,23 @@ const fullName = computed({
   },
   // setter
   set(newValue) {
-    // Note: we are using destructuring assignment syntax here.
+    // Примітка: ми використовуємо так званий деструктуризаційний синтаксис при присвоєнні.
     [firstName.value, lastName.value] = newValue.split(' ')
   }
 })
 </script>
 ```
 
-Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `firstName` and `lastName` will be updated accordingly.
+Тепер, коли ви запускаєте `fullName.value = 'Тарас Шевченко'`, буде викликано setter і `firstName` та `lastName` будуть відповідно оновлені.
 
 </div>
 
-## Best Practices
+## Рекомендації
 
-### Getters should be side-effect free
+### Геттери не мають мати побічних ефектів
 
-It is important to remember that computed getter functions should only perform pure computation and be free of side effects. For example, **don't make async requests or mutate the DOM inside a computed getter!** Think of a computed property as declaratively describing how to derive a value based on other values - its only responsibility should be computing and returning that value. Later in the guide we will discuss how we can perform side effects in reaction to state changes with [watchers](./watchers).
+Важливо пам’ятати, що обчислювані функції повинні виконувати лише чисті (pure functions) обчислення та не мати побічних ефектів. Наприклад, **не робіть асинхронні запити та не змінюйте DOM у обчислюваному геттері!** Подумайте про обчислювану властивість як про декларативний опис того, як отримати значення на основі інших значень – її єдиною відповідальністю має бути обчислення та повернення цього значення. Далі в посібнику ми обговоримо, як ми можемо виконувати побічні ефекти у відповідь на зміни стану за допомогою [watchers](.watchers).
 
-### Avoid mutating computed value
+### Уникайте змін обчисленого значення
 
-The returned value from a computed property is derived state. Think of it as a temporary snapshot - every time the source state changes, a new snapshot is created. It does not make sense to mutate a snapshot, so a computed return value should be treated as read-only and never be mutated - instead, update the source state it depends on to trigger new computations.
+Значення, що повертається з обчислюваної властивості, є похідним станом. Подумайте про це як про тимчасовий знімок – кожного разу, коли вихідний стан змінюється, створюється новий знімок. Немає сенсу змінювати знімок, тому обчислене значення, що повертається, слід розглядати як лише для читання та ніколи не змінювати – натомість оновіть вихідний стан, від якого воно залежить, щоб ініціювати нові обчислення.
