@@ -32,35 +32,35 @@ footer: false
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи використовувати TypeScript)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add JSX Support? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи використовувати JSX стиль)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Vue Router для розробки односторінкових додатків - SPA)</span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Pinia for state management? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Cypress for both Unit and End-to-End testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add ESLint for code quality? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formatting? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Pinia for state management? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Pinia для керування станом додатку)</span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Vitest для юніт-тестів)</span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Cypress for both Unit and End-to-End testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Cypress для наскрізного тестування)</span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add ESLint for code quality? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Eslint для перевірки на правильність написання коду)</span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formatting? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Prettier для автоматичного форматування коду)</span>
 <span></span>
-<span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту</span><span style="color:#89DDFF;">&gt;</span>...</span>
+<span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту-без-пробілів</span><span style="color:#89DDFF;">&gt;</span>...</span>
 <span style="color:#A6ACCD;">Done.</span></code></pre></div>
 
-Якщо ви не впевнені щодо варіанту, просто виберіть «Ні», натиснувши Enter. Після створення проекту дотримуйтесь інструкцій, щоб встановити залежності та запустити сервер в режимі розробки:
+Якщо ви не впевнені щодо варіанту, просто виберіть «No» (Ні), натиснувши Enter. Після створення проекту дотримуйтесь інструкцій для вставнолення залежностей та запуску сервера в режимі розробки:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту</span><span style="color:#89DDFF;">&gt;</span></span>
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту-без-пробілів</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-Тепер у вас повинен бути запущений перший проект Vue! Зауважте, що приклади компонентів у створеному проекті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Параметричного API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
+Вітаємо, тепер у вас має бути запущений перший проект на Vue! Зауважте, що приклади компонентів у створеному проекті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Параметричного API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
 
 - Рекомендовано використовувати [Visual Studio Code](https://code.visualstudio.com/) в якості вашої IDE ї [розширенням Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Якщо ви користуєтесь іншими редакторами, перевірте [можливості щодо їхньої підтримки](/guide/scaling-up/tooling.html#ide-support).
-- Стосовно інших інструментів, зокрема інтеграцію з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling.html).
+- Стосовно інших інструментів, зокрема інтеграції з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling.html).
 - Для поглибленого вивчення інструментів, на яких оснований Vite, перегляньте [документацію по Vite](https://vitejs.dev).
-- Якщо ви користуєтесь TypeScript, скористайтесь [Гідом по використанню TypeScript](typescript/overview.html).
+- Якщо ви користуєтесь TypeScript, пропонуємо до вашої уваги [Гід по використанню TypeScript](typescript/overview.html).
 
-Коли ви будете готові до запуску вашого додатку у продакшн, виконайте наступне:
+Коли ви будете готові до запуску свого додатку у продакшн, виконайте наступне:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-Виконання цієї команди створить в директорії `./dist` збірку вашого додатку, готову до продакшну. Прочитайте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment.html) для отримання деталей.
+Виконання цієї команди створить в директорії `./dist` збірку вашого додатку, готового до продакшну. Прочитайте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment.html) для отримання деталей.
 
 [Наступні кроки >](#наступні-кроки)
 
