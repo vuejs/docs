@@ -186,7 +186,7 @@ function useToggleFn(
 }
 
 .switch-container label:first-child {
-  width: 46px;
+  width: 53px;
 }
 
 .switch-link {
