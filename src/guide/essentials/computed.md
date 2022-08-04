@@ -1,16 +1,17 @@
-# Computed Properties
+# Обчислювані властивості
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="Free Vue.js Computed Properties Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="Безкоштовний урок по обчислюваних властивостях Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-computed-properties-in-vue-with-the-composition-api" title="Free Vue.js Computed Properties Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-computed-properties-in-vue-with-the-composition-api" title="Безкоштовний урок по обчислюваних властивостях Vue.js"/>
 </div>
 
-## Basic Example
+## Простий приклад
 
 In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
+Вирази, вбудовані в шаблон є досить зручними, але їх є зміст використовувати для простих дій. Додавання дуже багато логіки до шаблонів може роздути їх та ускладнити подальше обслуговування. Наприклад, у нас є об'єкт з вкладеним масивом:
 
 <div class="options-api">
 
@@ -19,11 +20,11 @@ export default {
   data() {
     return {
       author: {
-        name: 'John Doe',
+        name: 'Тарас Шевченко',
         books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
+          '1840 — Кобзар',
+          '1851 — Тополя',
+          '1859 — Заповіт'
         ]
       }
     }
@@ -36,27 +37,27 @@ export default {
 
 ```js
 const author = reactive({
-  name: 'John Doe',
+  name: 'Тарас Шевченко',
   books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
+    '1840 — Кобзар',
+    '1851 — Тополя',
+    '1859 — Заповіт'
   ]
 })
 ```
 
 </div>
 
-And we want to display different messages depending on if `author` already has some books or not:
+І ми хочемо вивести різні повідомлення, виходячи з того, чи `author` має якісь книги, чи ні:
 
 ```vue-html
-<p>Has published books:</p>
-<span>{{ author.books.length > 0 ? 'Yes' : 'No' }}</span>
+<p>Має опубліковані книги:</p>
+<span>{{ author.books.length > 0 ? 'Так' : 'Ні' }}</span>
 ```
 
-At this point, the template is getting a bit cluttered. We have to look at it for a second before realizing that it performs a calculation depending on `author.books`. More importantly, we probably don't want to repeat ourselves if we need to include this calculation in the template more than once.
+Як бачите, шаблон стає дещо захаращеним. Давайте поглянемо на нього на секунду перед тим, як зрозуміти, що він виконує обчислення, залежне від `author.books`. Більше того, ми напевне не хочемо повторювати самих себе, якщо б нам потрібно було скористатись цим обчисленням в шаблоні більше, ніж один раз.
 
-That's why for complex logic that includes reactive data, it is recommended to use a **computed property**. Here's the same example, refactored:
+Ось чому наша складна логіка, яка містить в собі реактивні дані, рекомендована для використання в **обчислюваній властивості**. Ось той самий приклад, але відрефакторений:
 
 <div class="options-api">
 
@@ -65,39 +66,39 @@ export default {
   data() {
     return {
       author: {
-        name: 'John Doe',
+        name: 'Тарас Шевченко',
         books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
+          '1840 — Кобзар',
+          '1851 — Тополя',
+          '1859 — Заповіт'
         ]
       }
     }
   },
   computed: {
-    // a computed getter
+    // обчислювана властивість - getter
     publishedBooksMessage() {
-      // `this` points to the component instance
-      return this.author.books.length > 0 ? 'Yes' : 'No'
+      // `this` вказує на екземпляр компоненти
+      return this.author.books.length > 0 ? 'Так' : 'Ні'
     }
   }
 }
 ```
 
 ```vue-html
-<p>Has published books:</p>
+<p>Має опубліковані книги:</p>
 <span>{{ publishedBooksMessage }}</span>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgYXV0aG9yOiB7XG4gICAgICAgIG5hbWU6ICdKb2huIERvZScsXG4gICAgICAgIGJvb2tzOiBbXG4gICAgICAgICAgJ1Z1ZSAyIC0gQWR2YW5jZWQgR3VpZGUnLFxuICAgICAgICAgICdWdWUgMyAtIEJhc2ljIEd1aWRlJyxcbiAgICAgICAgICAnVnVlIDQgLSBUaGUgTXlzdGVyeSdcbiAgICAgICAgXVxuICAgICAgfVxuICAgIH1cbiAgfSxcbiAgY29tcHV0ZWQ6IHtcbiAgICBwdWJsaXNoZWRCb29rc01lc3NhZ2UoKSB7XG4gICAgICByZXR1cm4gdGhpcy5hdXRob3IuYm9va3MubGVuZ3RoID4gMCA/ICdZZXMnIDogJ05vJ1xuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHA+SGFzIHB1Ymxpc2hlZCBib29rczo8L3A+XG4gIDxzcGFuPnt7IGF1dGhvci5ib29rcy5sZW5ndGggPiAwID8gJ1llcycgOiAnTm8nIH19PC9zcGFuPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте відтворити це в Пісочниці](https://sfc.vuejs.org/#eNp9UsFu00AQ/ZWRLwGpsVsJJLCiILjzBRipTjyNXeL1anddkCJLaXvgguCCgoTg0hPHEFQlSkj4hd1f4EuYXScxaqtK9npm/PbNzJsZec85989K9EKvI/si46obMXzHC6EgwZO4HCoYRQwgiVX84GFtAwhUpWA7DyAuVVqIsAkAsDjHEFr6Sk/NmN5z0D/0tZ6Z93Su9VJvWgcNulcUb2QIr5oIQOvoyaND+Dv+DPqr3uifem6p/r/lMI+PaswVYf7QuzKfbmOe1pgveuowMzMxF60G9HpnVrXhPpVj6Rc5LxUm++aCAGw11MfCnFO2j3pGrGs9BTJWtlNzoRcuBVnmA7RhgEqhqK/zsjfMZIrJC9vyS5QyHmCjrOM/Vmkmjy3fkqjn5tJQ7S7DNUXmdP6mNqhRMwarpHM3hCBlbfId1XZMls2vR+Q7of0hsoFKoQuH8KyekV62wI7ru5lsdak1iBg9nWC/G+QozPkwVkgeQId39Tdqmgok+c0ljWllJq4oJ4uZ2ArXJMgvvQg7Aa9vSR6z7mh0txpQVZTRImzqfTrvwMtyu5ntPOb+qSwYba2TLdr+kJG3H1Pk0VpbP/JSpbgMg0Ce9O2un0q/EIOALF+UTGU5+ijzdk8UbyUKIo687f44joCCZyjaAlmCgsZ4D+cN6C3enaRe9Q+SbXBW)
 
-Here we have declared a computed property `publishedBooksMessage`.
+Тут ми оголосили обчислювану властивість  `publishedBooksMessage`.
 
-Try to change the value of the `books` array in the application `data` and you will see how `publishedBooksMessage` is changing accordingly.
+Спробуйте змінити значення масиву `books`, що знаходиться у `data` в додатку, і ви побачите, що `publishedBooksMessage` теж змінюється відповідно до ваших змін.
 
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `this.publishedBooksMessage` when `this.author.books` changes.
+Ви можете прив'язувати дані до обчислюваних компонентів в шаблонах як звичайну властивість. Vue в курсі, що `this.publishedBooksMessage` залежить від `this.author.books`, тому він автоматично оновить всі зв'язки, що залежать від `this.publishedBooksMessage`, коли змінюється `this.author.books`.
 
-See also: [Typing Computed Properties](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
+Також до вашої уваги: [Типізація обчислюваних властивостей](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
 
 </div>
 
@@ -108,29 +109,29 @@ See also: [Typing Computed Properties](/guide/typescript/options-api.html#typing
 import { reactive, computed } from 'vue'
 
 const author = reactive({
-  name: 'John Doe',
+  name: 'Тарас Шевченко',
   books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
+    '1840 — Кобзар',
+    '1851 — Тополя',
+    '1859 — Заповіт'
   ]
 })
 
-// a computed ref
+// обчислювана властивість - ref
 const publishedBooksMessage = computed(() => {
-  return author.books.length > 0 ? 'Yes' : 'No'
+  return author.books.length > 0 ? 'Так' : 'Ні'
 })
 </script>
 
 <template>
-  <p>Has published books:</p>
+  <p>Має опубліковані книги:</p>
   <span>{{ publishedBooksMessage }}</span>
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlLCBjb21wdXRlZCB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgYXV0aG9yID0gcmVhY3RpdmUoe1xuICBuYW1lOiAnSm9obiBEb2UnLFxuICBib29rczogW1xuICAgICdWdWUgMiAtIEFkdmFuY2VkIEd1aWRlJyxcbiAgICAnVnVlIDMgLSBCYXNpYyBHdWlkZScsXG4gICAgJ1Z1ZSA0IC0gVGhlIE15c3RlcnknXG4gIF1cbn0pXG5cbi8vIGEgY29tcHV0ZWQgcmVmXG5jb25zdCBwdWJsaXNoZWRCb29rc01lc3NhZ2UgPSBjb21wdXRlZCgoKSA9PiB7XG4gIHJldHVybiBhdXRob3IuYm9va3MubGVuZ3RoID4gMCA/ICdZZXMnIDogJ05vJ1xufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxwPkhhcyBwdWJsaXNoZWQgYm9va3M6PC9wPlxuICA8c3Bhbj57eyBwdWJsaXNoZWRCb29rc01lc3NhZ2UgfX08L3NwYW4+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Спробуйте відтворити це в Пісочниці](https://sfc.vuejs.org/#eNp9Us1u00AQfpXRXpxKid1KIIGVGsGdJ2A5OM4kcYl3V7vrcLAsFThw5IKChODSE8cShKhapbzC7ivwJMzaaUGt2oOtnf3m5/u+2YY9VSpe1chSNjaFLpUFg7ZWGRdlpaS20IDGvLDlCodQyErVFqfQwkzLCiKqjLjgopDCWMhru5AaDq8rBg0XACKvMIXInbhTf0zfG3Df3E+38e/pv3Xn7jIahryJlK9MCi/CGSA6ePRgH/4cfwT32V267+5XKO8zO/ThQY+eEPqbvgv/4X/0cY9+cqcduvFr/5a4Arzkot0LpJME8n+SNM6udKh6sizNAqfPAqPnaEw+R5J1lTsY7MFhBp04TW5psZMedxLiJYq5XUAG+/Ck1+3OIwgWfPVr4hDGj5PebjKaAouVWuYWKQIYq8x9IbHEnpT5d6T9wq+DT25DrbZ+DRRs3Zn74c7ScRKWRVVG5SJrmjvYty1NDBlh9PU4NmT9mkdVruIjIwU9hE4X3wGGs7RXGu5o3yHmbGGtMmmSmFkRns+RiaWeJ3SKdS1sWWGMphpNtHxtUFNjznar6XokdLlCPdIopqhR39fzRuqtvqFtS56y9i/UuSDc)
 
-Here we have declared a computed property `publishedBooksMessage`. The `computed()` function expects to be passed a getter function, and the returned value is a **computed ref**. Similar to normal refs, you can access the computed result as `publishedBooksMessage.value`. Computed refs are also auto-unwrapped in templates so you can reference them without `.value` in template expressions.
+Тут ми оголосили обчислювану властивість `publishedBooksMessage`. Функція `computed()` очікує в якості аргументу функцію, яка повертає якесь значення. Результат виконання функції `computed()` є **обчислювана референція**. Як і звичайні референції, ви можете отримати до їхнього обчисленого результату через `publishedBooksMessage.value`. Обчислювані референції є також такими, що автоматично розпаковуються в шаблонах, щоб ви могли їх використовувати без `.value` у шаблоинних виразах.
 
 A computed property automatically tracks its reactive dependencies. Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes.
 
