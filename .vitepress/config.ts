@@ -597,7 +597,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     [
       'script',
       {
-        defer: '',
+        async: '',
         src: 'https://www.googletagmanager.com/gtag/js?id=UA-2918085-50'
       }
     ],
