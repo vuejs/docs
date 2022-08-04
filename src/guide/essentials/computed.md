@@ -150,7 +150,7 @@ const publishedBooksMessage = computed(() => {
 <div class="options-api">
 
 ```js
-// in component
+// в компоненті
 methods: {
   calculateBooksMessage() {
     return this.author.books.length > 0 ? 'Так' : 'Ні'
@@ -163,9 +163,9 @@ methods: {
 <div class="composition-api">
 
 ```js
-// in component
+// в компоненті
 function calculateBooksMessage() {
-  return author.books.length > 0 ? 'Yes' : 'No'
+  return author.books.length > 0 ? 'Так' : 'Ні'
 }
 ```
 
@@ -209,19 +209,19 @@ Computed properties are by default getter-only. If you attempt to assign a new v
 export default {
   data() {
     return {
-      firstName: 'John',
-      lastName: 'Doe'
+      firstName: 'Тарас',
+      lastName: 'Шевченко'
     }
   },
   computed: {
     fullName: {
-      // getter
+      // геттер
       get() {
         return this.firstName + ' ' + this.lastName
       },
-      // setter
+      // сеттер
       set(newValue) {
-        // Note: we are using destructuring assignment syntax here.
+        // Примітка: ми використовуємо так званий деструктуризаційний синтаксис при присвоєнні.
         [this.firstName, this.lastName] = newValue.split(' ')
       }
     }
@@ -229,7 +229,7 @@ export default {
 }
 ```
 
-Now when you run `this.fullName = 'John Doe'`, the setter will be invoked and `this.firstName` and `this.lastName` will be updated accordingly.
+Now when you run `this.fullName = 'Тарас Шевченко'`, the setter will be invoked and `this.firstName` and `this.lastName` will be updated accordingly.
 
 </div>
 
