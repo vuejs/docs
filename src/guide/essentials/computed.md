@@ -97,7 +97,7 @@ export default {
 
 Ви можете прив'язувати дані до обчислюваних компонентів в шаблонах як звичайну властивість. Vue в курсі, що `this.publishedBooksMessage` залежить від `this.author.books`, тому він автоматично оновить всі зв'язки, що залежать від `this.publishedBooksMessage`, коли змінюється `this.author.books`.
 
-Також до вашої уваги: [Типізація обчислюваних властивостей](/guide/typescript/options-api.html#типізація-обчислюваних-властивостей) <sup class="vt-badge ts" />
+Також до вашої уваги: [Типізація обчислюваних властивостей](/guide/typescript/options-api.html#типізація-обчисnюваних-вnастивостей) <sup class="vt-badge ts" />
 
 </div>
 
