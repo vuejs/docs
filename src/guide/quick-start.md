@@ -48,7 +48,7 @@ footer: false
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-Вітаємо, тепер у вас має бути запущений перший проект на Vue! Зауважте, що приклади компонентів у створеному проекті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Параметричного API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
+Вітаємо, тепер у вас має бути запущений перший проект на Vue! Зауважте, що приклади компонентів у створеному проекті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Опційним API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
 
 - Рекомендовано використовувати [Visual Studio Code](https://code.visualstudio.com/) в якості вашої IDE ї [розширенням Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Якщо ви користуєтесь іншими редакторами, перевірте [можливості щодо їхньої підтримки](/guide/scaling-up/tooling.html#ide-support).
 - Стосовно інших інструментів, зокрема інтеграції з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling.html).
@@ -123,7 +123,7 @@ const { createApp, ref } = Vue
 Ви можете додавати записи для інших залежностей до карти імпорту — просто переконайтесь, що вони вказують на саме ES модуль бібліотеки, яку ви збираєтесь використовувати. 
 
 :::tip Підтримка Карт імпорту браузерами
-Карти імпорту підтримуються по замовчуванню браузерами сімейства Chromium, тому ми радимо використовувати Chrome чи Edge під час навчального процесу.
+Карти імпорту підтримуються за замовчуванням браузерами сімейства Chromium, тому ми радимо використовувати Chrome чи Edge під час навчального процесу.
 
 Якщо ви використовуєте Firefox, лише версії 102+ підтримують карти імпорту, та ця можливість повинна бути увімкнена через параметр `dom.importMaps.enabled` в `about:config`.
 
@@ -136,7 +136,7 @@ const { createApp, ref } = Vue
 
 ### Подача через HTTP
 
-По заглибленні в гід, надалі нам треба буде розбити наш код на окремі файли Javascript, щоб, таким чином, було легще обслуговувати додаток. Наприклад:
+По заглибленні в гід, надалі нам треба буде розбивати наш код на окремі файли JavaScript, щоб, таким чином, було легше обслуговувати додаток. Наприклад:
 
 ```html
 <!-- index.html -->
@@ -169,7 +169,6 @@ export default {
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application.html">
     <p class="next-steps-link">Продовжити з Гідом</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
     <p class="next-steps-caption">Гід допоможе вам розглянути кожен аспект фреймворку якомога детальніше.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
