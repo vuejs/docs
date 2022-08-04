@@ -29,8 +29,8 @@ import TeamHero from './TeamHero.vue'
 import TeamList from './TeamList.vue'
 import type { Member } from './Member'
 shuffleMembers(membersCoreData as Member[], true)
-shuffleMembers(membersEmeritiData as Member[])
-shuffleMembers(membersPartnerData as Member[])
+shuffleMembers(membersEmeritiData as Member[], true)
+shuffleMembers(membersPartnerData as Member[], true)
 </script>
 
 <template>
