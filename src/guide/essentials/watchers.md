@@ -19,7 +19,7 @@ export default {
   watch: {
     // whenever question changes, this function will run
     question(newQuestion, oldQuestion) {
-      if (newQuestion.indexOf('?') > -1) {
+      if (newQuestion.includes('?')) {
         this.getAnswer()
       }
     }
