@@ -1,3 +1,8 @@
+[![GitHub stars](https://img.shields.io/github/stars/vshymanskyy/StandWithUkraine.svg)](https://github.com/vuejsorgua/docs/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/vshymanskyy/StandWithUkraine.svg)](https://github.com/vuejsorgua/docs/issues)
+[![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
+
+
 # vuejs.org.ua
 
 ## Contributing
