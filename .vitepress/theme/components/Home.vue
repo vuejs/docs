@@ -81,7 +81,7 @@ onMounted(async () => {
   </section>
 
   <section id="sponsors">
-    <h2>Платинові споносори</h2>
+    <h2>Платинові спонсори</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
     <h2>Золоті спонсори</h2>
     <SponsorsGroup tier="gold" placement="landing" />
