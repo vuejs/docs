@@ -2,7 +2,7 @@
 footer: false
 ---
 
-# Introduction
+# Вступ
 
 :::info Ви переглядаєте документацію для Vue 3!
 
@@ -62,38 +62,38 @@ const count = ref(0)
   </button>
 </div>
 
-The above example demonstrates the two core features of Vue:
+Наведений вище приклад демонструє дві основні функції Vue:
 
-- **Declarative Rendering**: Vue extends standard HTML with a template syntax that allows us to declaratively describe HTML output based on JavaScript state.
+- **Декларативне відображення**: Vue розширює стандартний HTML шаблонним синтаксисом, який дозволяє нам декларативно задавати структуру HTML на основі стану описаного у JavaScript.
 
-- **Reactivity**: Vue automatically tracks JavaScript state changes and efficiently updates the DOM when changes happen.
+- **Реактивність**: Vue автоматично відстежує зміни стану описаного у JavaScript і з максимальною ефективністю оновлює DOM, коли відбуваються зміни.
 
-You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
+Можливо, у вас вже є запитання – не хвилюйтеся. Ми розглянемо кожну деталь в наступних розділах документації. Наразі, будь ласка, прочитайте розділ повністю, щоб ви могли мати високорівневе розуміння того, що пропонує Vue.
 
-:::tip Prerequisites
-The rest of the documentation assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Prior experience with other frameworks helps, but is not required.
+:::tip Передумови
+Решта документації передбачає базове знання HTML, CSS і JavaScript. Якщо ви зовсім новачок у розробці користувацьких інтерфейсів, можливо, це не найкраща ідея одразу переходити безпосередньо до вивчення фреймворку, можливо, краще спочатку осягнути основи, а потім повернутися! Ви можете перевірити свій рівень знань JavaScript використовуючи [посібник MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Попередній досвід роботи з іншими фреймворками допомагає у вивчені Vue, але не обов’язковий.
 :::
 
-## The Progressive Framework
+## Прогресивний фреймворк
 
-Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
+Vue — це фреймворк та екосистема, яка охоплює більшість функцій, необхідних для розробки інтерфейсу. Але веб додатки надзвичайно різноманітні – речі, які ми створюємо в рамках веб додатків, можуть кардинально відрізнятися за формою та масштабом. Зважаючи на це, Vue розроблено таким чином, щоб бути гнучким і адаптивним. Залежно від вашого випадку та задач, Vue можна використовувати різними способами:
 
-- Enhancing static HTML without a build step
-- Embedding as Web Components on any page
-- Single-Page Application (SPA)
-- Fullstack / Server-Side Rendering (SSR)
-- Jamstack / Static Site Generation (SSG)
-- Targeting desktop, mobile, WebGL, and even the terminal
+- Розширення статичного HTML
+- Вбудовування як веб-компоненту на будь-яку сторінку
+- Створення односторінкового додатку (SPA)
+- Fullstack / Додаток з рендерингом на стороні серверу (SSR)
+- Jamstack / Генерація статичного додатку (SSG)
+- Створення десктопних, мобільних, WebGL додатків і навіть додатків для терміналу
 
-If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
+Якщо ви вважаєте ці концепції важкими для розуміння, не хвилюйтеся! Гід і посібник вимагають лише базових знань HTML і JavaScript, і ви повинні бути в змозі зрозуміти їх, не будучи експертом з HTML чи JavaScript.
 
-If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more details in [Ways of Using Vue](/guide/extras/ways-of-using-vue).
+Якщо ви досвідчений розробник, зацікавлений у тому, як найкраще інтегрувати Vue у свій стек, або вам цікаво, що означають ці терміни, ми докладніше обговоримо їх у [Способах використання Vue](/guide/extras/ways-of-using-vue).
 
-Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
+Незважаючи на гнучкість фреймворку, основні знання про те, як працює Vue, можуть бути застосовані спільно для всіх цих варіантів використання Vue. Навіть якщо ви зараз лише новачок, знання, отримані на цьому шляху, залишаться корисними, коли ви зростатимете, щоб вирішувати амбітніші цілі в майбутньому. Якщо ви досвідчений розробник, ви можете обрати оптимальний спосіб використання Vue на основі проблем, які ви намагаєтеся вирішити, зберігаючи ту саму продуктивність. Ось чому ми називаємо Vue «Прогресивним фреймворком»: це фреймворк, який може рости разом з вами та адаптуватися до ваших потреб.
 
-## Single-File Components
+## Однофайлові компоненти
 
-In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
+У більшості проектів Vue, що використовують інструменти збірки та потребують етапу збірки, ми створюємо компоненти Vue, використовуючи HTML-подібний формат файлу під назвою **Single-File Component** (також відомий як файли `*.vue`, скорочено **SFC**). Vue SFC, як випливає з назви, інкапсулює логіку компонента (JavaScript), шаблон (HTML) і стилі (CSS) в одному файлі. Ось попередній приклад, написаний у форматі SFC:
 
 ```vue
 <script>
@@ -117,38 +117,38 @@ button {
 </style>
 ```
 
-SFC is a defining feature of Vue, and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
+SFC є однією з основних функцій Vue і рекомендованим способом створення компонентів Vue, **якщо** ваш задача вимагає використання інструментів збірки. Ви можете дізнатися більше [як і навіщо використовувати SFC](/guide/scaling-up/sfc) у спеціальному розділі, але наразі знайте, що Vue впорається з усіма налаштуваннями інструментів збірки за вас автоматично.
 
-## API Styles
+## Стилі API
 
-Vue components can be authored in two different API styles: **Options API** and **Composition API**.
+Компоненти Vue можна створювати в двох різних стилях API: **Options API** і **Composition API**.
 
 ### Options API
 
-With Options API, we define a component's logic using an object of options such as `data`, `methods`, and `mounted`. Properties defined by options are exposed on `this` inside functions, which points to the component instance:
+За допомогою Options API ми визначаємо логіку компонента за допомогою об’єкта параметрів таких як `data`, `methods` і `mounted`. Властивості, визначені параметрами, виділяються у внутрішні функції `this`, що в свою чергу вказує на екземпляр компонента:
 
 ```vue
 <script>
 export default {
-  // Properties returned from data() become reactive state
-  // and will be exposed on `this`.
+  // Властивості, повернуті з data(), переходять у реактивний стан
+  // та виділяються у `this`.
   data() {
     return {
       count: 0
     }
   },
 
-  // Methods are functions that mutate state and trigger updates.
-  // They can be bound as event listeners in templates.
+  // Методи — це функції, які змінюють стан і ініціюють оновлення.
+  // Їх можна використовувати як прослуховувачів подій у шаблонах.
   methods: {
     increment() {
       this.count++
     }
   },
 
-  // Lifecycle hooks are called at different stages
-  // of a component's lifecycle.
-  // This function will be called when the component is mounted.
+  // Хуки життєвого циклу викликаються на різних етапах
+  // життєвого циклу компонента.
+  // Ця функція буде викликана під час монтування компонента.
   mounted() {
     console.log(`The initial count is ${this.count}.`)
   }
@@ -160,27 +160,27 @@ export default {
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgLy8gcmVhY3RpdmUgc3RhdGVcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG5cbiAgLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbiAgbWV0aG9kczoge1xuICAgIGluY3JlbWVudCgpIHtcbiAgICAgIHRoaXMuY291bnQrK1xuICAgIH1cbiAgfSxcblxuICAvLyBsaWZlY3ljbGUgaG9va3NcbiAgbW91bnRlZCgpIHtcbiAgICBjb25zb2xlLmxvZyhgVGhlIGluaXRpYWwgY291bnQgaXMgJHt0aGlzLmNvdW50fS5gKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPkNvdW50IGlzOiB7eyBjb3VudCB9fTwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4ifQ==)
+[Спробуйте у Пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgLy8gcmVhY3RpdmUgc3RhdGVcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG5cbiAgLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbiAgbWV0aG9kczoge1xuICAgIGluY3JlbWVudCgpIHtcbiAgICAgIHRoaXMuY291bnQrK1xuICAgIH1cbiAgfSxcblxuICAvLyBsaWZlY3ljbGUgaG9va3NcbiAgbW91bnRlZCgpIHtcbiAgICBjb25zb2xlLmxvZyhgVGhlIGluaXRpYWwgY291bnQgaXMgJHt0aGlzLmNvdW50fS5gKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPkNvdW50IGlzOiB7eyBjb3VudCB9fTwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4ifQ==)
 
 ### Composition API
 
-With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). The `setup` attribute is a hint that makes Vue perform compile-time transforms that allow us to use Composition API with less boilerplate. For example, imports and top-level variables / functions declared in `<script setup>` are directly usable in the template.
+За допомогою Composition API ми визначаємо логіку компонента за допомогою імпортованих функцій API. У SFC Composition API зазвичай використовується з [`<script setup>`](/api/sfc-script-setup). Атрибут `setup` — це підказка, яка змушує Vue виконувати перетворення під час компіляції, що дозволяє нам використовувати Composition API з меншою кількістю повторюваного шаблоного коду. Наприклад, імпортовані функції і змінні/функції верхнього рівня, оголошені в `<script setup>`, можна безпосередньо використовувати в шаблоні SFC.
 
-Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
+Ось той самий компонент із тим самим шаблоном, але з використанням Composition API та `<script setup>`:
 
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// reactive state
+// реактивний стан
 const count = ref(0)
 
-// functions that mutate state and trigger updates
+// функції, що змінюють стан і запускають оновлення
 function increment() {
   count.value++
 }
 
-// lifecycle hooks
+// хуки життєвого циклу
 onMounted(() => {
   console.log(`The initial count is ${count.value}.`)
 })
@@ -191,49 +191,49 @@ onMounted(() => {
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG4vLyByZWFjdGl2ZSBzdGF0ZVxuY29uc3QgY291bnQgPSByZWYoMClcblxuLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbmZ1bmN0aW9uIGluY3JlbWVudCgpIHtcbiAgY291bnQudmFsdWUrK1xufVxuXG4vLyBsaWZlY3ljbGUgaG9va3Ncbm9uTW91bnRlZCgoKSA9PiB7XG4gIGNvbnNvbGUubG9nKGBUaGUgaW5pdGlhbCBjb3VudCBpcyAke2NvdW50LnZhbHVlfS5gKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxidXR0b24gQGNsaWNrPVwiaW5jcmVtZW50XCI+Q291bnQgaXM6IHt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте у Пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG4vLyByZWFjdGl2ZSBzdGF0ZVxuY29uc3QgY291bnQgPSByZWYoMClcblxuLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbmZ1bmN0aW9uIGluY3JlbWVudCgpIHtcbiAgY291bnQudmFsdWUrK1xufVxuXG4vLyBsaWZlY3ljbGUgaG9va3Ncbm9uTW91bnRlZCgoKSA9PiB7XG4gIGNvbnNvbGUubG9nKGBUaGUgaW5pdGlhbCBjb3VudCBpcyAke2NvdW50LnZhbHVlfS5gKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxidXR0b24gQGNsaWNrPVwiaW5jcmVtZW50XCI+Q291bnQgaXM6IHt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
 
-### Which to Choose?
+### Що вибрати?
 
-Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+Обидва стилі API цілком здатні охопити стандартні випадки використання. Це різні інтерфейси, які працюють від однієї і тієї ж основної системи. Фактично, Options API реалізовано поверх Composition API! Основні концепції та знання про Vue спільні для обох стилів.
 
-The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
+Options API побудовано навколо концепції «екземпляра компонента» (`this`, як показано в прикладі), який зазвичай краще узгоджується з розробкою на основі класу для користувачів, які мають досвід ООП. Він також більш зручний для початківців, оскільки абстрагується від деталей реактивності та забезпечує організацію коду через групи параметрів.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope, and composing state from multiple functions together to handle complexity. It is more free-form, and requires understanding of how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
+Composition API, в свою чергу, побудовано навколо концепції оголошення реактивних змінних безпосередньо в області функції та компонуванні єдиного реактивного стану з множини функцій, що підійде для більш складних компонентів/випадків. Цей стиль має менше обмежень та потребує розуміння того, як реактивність працює у Vue, щоб ефективно використовувати її. У свою чергу, гнучкість цього стилю забезпечує більш потужні можливості повторного використання та організації логіки.
 
-You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/extras/composition-api-faq).
+Ви можете ознайомитись з більш детальним порівнянням двох стилів та потенційними перевагами Composition API у [FAQ щодо Composition API](/guide/extras/composition-api-faq).
 
-If you are new to Vue, here's our general recommendation:
+Якщо ви тільки знайомитесь з Vue, ось наша загальна рекомендація:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
+- З метою навчання використовуйте стиль, який вам здається легшим для розуміння. Знову ж таки, більшість основних концепцій спільні для двох стилів. Ви завжди можете обрати інший стиль пізніше.
 
-- For production use:
+- Для комерційних проектів:
 
-  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
+  - Використовуйте Options API, якщо ви не користуєтеся інструментами збірки або плануєте використовувати Vue переважно в додатках низької складності.
 
-  - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
+  - Використовуйте Composition API + Single-File Components, якщо плануєте створювати повноцінні програми за допомогою Vue.
 
-You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
+На етапі навчання вам не потрібно дотримуватися лише одного стилю. Решта документації містить зразки коду в обох стилях, де це можливо, і ви можете будь-коли перемикатися між ними за допомогою **перемикача параметрів API** у верхній частині лівої бічної панелі.
 
-## Still Got Questions?
+## Все ще є запитання?
 
-Check out our [FAQ](/about/faq).
+Перегляньте наші [FAQ](/about/faq).
 
-## Pick Your Learning Path
+## Виберіть свій стиль навчання
 
-Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
+Різні розробники мають різні стилі навчання. Не соромтеся вибрати стиль навчання, який відповідає вашим уподобанням, хоча ми рекомендуємо переглянути всю документацію, якщо це можливо!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">Спробуйте Посібник</p>
+    <p class="next-steps-caption">Для тих, хто надає перевагу навчанню на практиці.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Read the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">Прочитайте <br>Гід</p>
+    <p class="next-steps-caption">Гід детально ознайомить вас із усіма аспектами фреймворку.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">Перегляньте приклади</p>
+    <p class="next-steps-caption">Ознайомтеся з прикладами основних функцій і типових завдань при розробці інтерфейсу користувача.</p>
   </a>
 </div>

@@ -1,6 +1,13 @@
-# vuejs.org.ua
+[![GitHub stars](https://img.shields.io/github/stars/vshymanskyy/StandWithUkraine.svg)](https://github.com/vuejsorgua/docs/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/vshymanskyy/StandWithUkraine.svg)](https://github.com/vuejsorgua/docs/issues)
+[![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
-## Contributing
+<a href="#"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-no-action.svg" /></a>
+
+
+# Документація vuejs.org.ua
+
+## Сприяння
 
 Цей сайт створено за допомогою [VitePress](https://github.com/vuejs/vitepress) і залежить від [@vue/theme](https://github.com/vuejs/vue-theme). Вміст сайту записується у форматі Markdown, який знаходиться в `src`. Для маленьких змін, ви можете редагувати файл безпосередньо на GitHub і потім створити Pull Request.
 
@@ -11,7 +18,7 @@ pnpm i
 pnpm run dev
 ```
 
-This project requires Node.js to be `v14.0.0` or higher, because we use new JavaScript features in our code, such as optional chaining.
+Цей проект вимагає версію `v14.0.0` або вище Node.js, оскільки в нашому коді ми використовуємо нові можливості JavaScript, як-от "optional chaining".
 
 
 ## Робота з вмістом
