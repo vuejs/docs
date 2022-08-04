@@ -4,11 +4,11 @@ footer: false
 
 # Швидкий старт
 
-Виходячи з ваших потреб та уподобань, ви можете використовувати Vue з етапом збірки або без нього.
+Виходячи з ваших потреб та уподобань, ви можете використовувати Vue із засобами збірки або без них.
 
-## З інструментами збірки
+## Використання за домогою засобів збірки
 
-Налаштування збірки дозволяє нам використовувати [однофайлові компоненти Vue](/guide/scaling-up/sfc) (SFC). Офіційна збірка Vue базована на [Vite](https://vitejs.dev) — сучасному, легкому та надзвичайно швидкому інструменті для створення роботи з фронтендом.
+Налаштування збірки дозволяє нам використовувати [однофайлові компоненти Vue](/guide/scaling-up/sfc) (SFC). Офіційна збірка Vue базована на [Vite](https://vitejs.dev) — сучасному, легкому та надзвичайно швидкому інструменті для проведення робіт на фронтенді.
 
 ### Онлайн
 
@@ -28,10 +28,10 @@ footer: false
 
 Ця команда встановить і виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проектів Vue. Вам буде надано підказки щодо ряду додаткових функцій, таких як TypeScript з підтримкою тестування:
 
-<div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту</span><span style="color:#89DDFF;">&gt;</span></span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add JSX Support? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту-без-пробілів</span><span style="color:#89DDFF;">&gt;</span></span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи використовувати TypeScript)</span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add JSX Support? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи використовувати JSX стиль)</span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Vue Router для розробки односторінкових додатків - SPA)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Pinia for state management? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Cypress for both Unit and End-to-End testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
@@ -64,7 +64,7 @@ footer: false
 
 [Наступні кроки >](#наступні-кроки)
 
-## Без інструментів збірки
+## Без засобів збірки
 
 Щоб розпочати розробку на Vue без збірки, просто скопіюйте наступний код в файл HTML та відкрийте його у браузері:
 
