@@ -50,23 +50,23 @@ footer: false
 
 Тепер у вас повинен бути запущений перший проект Vue! Зауважте, що приклади компонентів у створеному проекті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Параметричного API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
 
-- The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling.html#ide-support).
-- More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
-- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
-- If you chose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview.html).
+- Рекомендовано використовувати [Visual Studio Code](https://code.visualstudio.com/) в якості вашої IDE ї [розширенням Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Якщо ви користуєтесь іншими редакторами, перевірте [можливості щодо їхньої підтримки](/guide/scaling-up/tooling.html#ide-support).
+- Стосовно інших інструментів, зокрема інтеграцію з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling.html).
+- Для поглибленого вивчення інструментів, на яких оснований Vite, перегляньте [документацію по Vite](https://vitejs.dev).
+- Якщо ви користуєтесь TypeScript, скористайтесь [Гідом по використанню TypeScript](typescript/overview.html).
 
-When you are ready to ship your app to production, run the following:
+Коли ви будете готові до запуску вашого додатку у продакшн, виконайте наступне:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-This will create a production-ready build of your app in the project's `./dist` directory. Check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html) to learn more about shipping your app to production.
+Виконання цієї команди створить в директорії `./dist` збірку вашого додатку, готову до продакшну. Прочитайте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment.html) для отримання деталей.
 
-[Next Steps >](#next-steps)
+[Наступні кроки >](#наступні-кроки)
 
-## Without Build Tools
+## Без інструментів збірки
 
-To get started with Vue without a build step, simply copy the following code into an HTML file and open it in your browser:
+Щоб розпочати розробку на Vue без збірки, просто скопіюйте наступний код в файл HTML та відкрийте його у браузері:
 
 ```html
 <script src="https://unpkg.com/vue@3"></script>
@@ -79,20 +79,20 @@ To get started with Vue without a build step, simply copy the following code int
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        message: 'Привіт, Vue!'
       }
     }
   }).mount('#app')
 </script>
 ```
 
-The above example uses the global build of Vue where all APIs are exposed under the global `Vue` variable. For example, to also use the `ref` API, you can do:
+Цей приклад використовує глобальну збірку Vue, яка розкриває весь API під глобальною змінною `Vue`. Наприклад, для використання `ref` потрібно зробити наступне:
 
 ```js
 const { createApp, ref } = Vue
 ```
 
-While the global build works, we will be primarily using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax throughout the rest of the documentation for consistency. In order to use Vue over native ES modules, use the following HTML instead:
+Хоч глобальна збірка працює без проблем, для загальної узгодженості в документації надалі ми будемо використовувати [ES модулі](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). Для використання Vue через ES модулі, пропонується наступний HTML:
 
 ```html
 <script type="importmap">
@@ -111,32 +111,32 @@ While the global build works, we will be primarily using [ES modules](https://de
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        message: 'Привіт, Vue!'
       }
     }
   }).mount('#app')
 </script>
 ```
 
-Notice how we can import directly from `'vue'` in our code - this is made possible by the `<script type="importmap">` block, leveraging a native browser feature called [Import Maps](https://caniuse.com/import-maps).
+Зверніть увагу, що ми можемо виконувати імпорт безпосередньо з `'vue'` в нашому коді завдяки блоку `<script type="importmap">`, покладаючись на базову підтримку браузером [Карт імпорту](https://caniuse.com/import-maps).
 
-You can add entries for other dependencies to the import map - just make sure they point to the ES modules version of the library you intend to use.
+Ви можете додавати записи для інших залежностей до карти імпорту — просто переконайтесь, що вони вказують на саме ES модуль бібліотеки, яку ви збираєтесь використовувати. 
 
-:::tip Import Maps Browser Support
-Import maps are supported by default in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process.
+:::tip Підтримка Карт імпорту браузерами
+Карти імпорту підтримуються по замовчуванню браузерами сімейства Chromium, тому ми радимо використовувати Chrome чи Edge під час навчального процесу.
 
-If using Firefox, it is only supported in version 102+ and currently needs to be enabled via the `dom.importMaps.enabled` option in `about:config`.
+Якщо ви використовуєте Firefox, лише версії 102+ підтримують карти імпорту, та ця можливість повинна бути увімкнена через параметр `dom.importMaps.enabled` в `about:config`.
 
-If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
+Якщо ж ваш улюблений браузер ще не підтримує карти імпорту, ви можете забезпечити таку підтримку за допомогою [es-module-shims](https://github.com/guybedford/es-module-shims).
 :::
 
-:::warning Not for production
-The import-maps-based setup is meant for learning only - if you intend to use Vue without build tools in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
+:::warning Не для продакшну
+Конфігурацію через карти імпорту є зміст використовувати лише в навчальних цілях, але якщо ви збираєтесь використовувати Vue без інструментів збірки в продакшні, обов'язково перегляньте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
 
-### Serving over HTTP
+### Подача через HTTP
 
-As we dive deeper into the guide, we may need to split our code into separate JavaScript files so that they are easier to manage. For example:
+По заглибленні в гід, надалі нам треба буде розбити наш код на окремі файли Javascript, щоб, таким чином, було легще обслуговувати додаток. Наприклад:
 
 ```html
 <!-- index.html -->
@@ -154,29 +154,30 @@ export default {
   data() {
     return { count: 0 }
   },
-  template: `<div>count is {{ count }}</div>`
+  template: `<div>лічильник {{ count }}</div>`
 }
 ```
 
-In order for this to work, you need to serve your HTML over the `http://` protocol instead of `file://` protocol. To start a local HTTP server, first install [Node.js](https://nodejs.org/en/), and then run `npx serve` from the command line in the same directory where your HTML file is. You can also use any other HTTP server that can serve static files with correct MIME types.
+Щоб це запрацювало, вам потрібно буде віддавати ваш HTML через протокол `http://` замість протоколу `file://`. Для запуску локального HTTP-серверу, встановіть спочатку [Node.js](https://nodejs.org/en/), а потім виконайте `npx serve` в командному рядку у директорії з вашим HTML файлом. Ви також можете використовувати будь-який інший HTTP сервер, що має можливість віддавати статичні файли з коректними MIME-типами.
 
-You may have noticed that the imported component's template is inlined as a JavaScript string. If you are using VSCode, you can install the [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) extension and prefix the strings with a `/*html*/` comment to get syntax highlighting for them.
+Можливо, ви помітили, що імпортовані шаблони компонентів вказані у вигляді JavasScript рядка. Якщо ви використовуєте VSCode, ви можете встановити розширення [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) та додавати коментар `/*html*/` перед такими рядками, щоб VSCode підсвічував для них синтаксис.
 
-## Next Steps
+## Наступні кроки
 
-If you skipped the [Introduction](/guide/introduction), we strongly recommend reading it before moving on to the rest of the documentation.
+Якщо ви пропустили [Вступ](/guide/introduction), ми наполегливо радимо його прочитати перед тим, як рухатись далі цією документацією.
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application.html">
-    <p class="next-steps-link">Continue the Guide</p>
+    <p class="next-steps-link">Продовжити з Гідом</p>
     <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-caption">Гід допоможе вам розглянути кожен аспект фреймворку якомога детальніше.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">Спробувати Посібник</p>
+    <p class="next-steps-caption">Для тих, хто полюбляє навчатись через практику.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">Переглянути Приклади</p>
+    <p class="next-steps-caption">Перегляньте приклади базових можливостей і поширених проблем під час розробки користувацьких інтерфейсів.</p>
   </a>
 </div>
