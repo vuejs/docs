@@ -74,7 +74,7 @@ function useToggleFn(
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
       <div class="switch-container">
         <label class="options-label" @click="toggleCompositionAPI(false)"
-          >Параметричне</label
+          >Опційне</label
         >
         <VTSwitch
           class="api-switch"
@@ -177,7 +177,7 @@ function useToggleFn(
 
 .vt-switch {
   margin-right: 5px;
-  transform: scale(0.8);
+  transform: scale(0.7);
 }
 
 .switch-container label {
@@ -186,7 +186,7 @@ function useToggleFn(
 }
 
 .switch-container label:first-child {
-  width: 50px;
+  width: 46px;
 }
 
 .switch-link {
@@ -204,7 +204,7 @@ function useToggleFn(
 @media (max-width: 1439px) {
   #preference-switches {
     font-size: 11px;
-    padding: 8px 12px;
+    padding: 8px 9px;
   }
   .switch-container label:first-child {
     width: 46px;
