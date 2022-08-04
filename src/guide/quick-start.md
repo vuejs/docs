@@ -6,9 +6,9 @@ footer: false
 
 Виходячи з ваших потреб та уподобань, ви можете використовувати Vue із засобами збірки або без них.
 
-## Використання за домогою засобів збірки
+## Використання за допомогою засобів збірки
 
-Налаштування збірки дозволяє нам використовувати [однофайлові компоненти Vue](/guide/scaling-up/sfc) (SFC). Офіційна збірка Vue базована на [Vite](https://vitejs.dev) — сучасному, легкому та надзвичайно швидкому інструменті для проведення робіт на фронтенді.
+Налаштування збірки дозволяє нам використовувати [одно-файлові компоненти Vue](/guide/scaling-up/sfc) (SFC). Офіційна збірка Vue базована на [Vite](https://vitejs.dev) — сучасному, легкому та надзвичайно швидкому інструменті для проведення робіт на фронтенді.
 
 ### Онлайн
 
@@ -22,18 +22,18 @@ footer: false
 - Встановіть [Node.js](https://nodejs.org/) версії 15.0 або новішу
   :::
 
-Щоб створити проект Vue із підтримкою збірки на вашому комп’ютері, виконайте наступну команду в командному рядку (без знаку `>`):
+Щоб створити проєкт Vue із підтримкою збірки на вашому комп'ютері, виконайте наступну команду в командному рядку (без знаку `>`):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
-Ця команда встановить і виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проектів Vue. Вам буде надано підказки щодо ряду додаткових функцій, таких як TypeScript з підтримкою тестування:
+Ця команда встановить і виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проєктів Vue. Вам буде надано підказки щодо ряду додаткових функцій, таких як TypeScript з підтримкою тестування:
 
 <div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту-без-пробілів</span><span style="color:#89DDFF;">&gt;</span></span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи використовувати TypeScript)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add JSX Support? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи використовувати JSX стиль)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Vue Router для розробки односторінкових додатків - SPA)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Pinia for state management? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Pinia для керування станом додатку)</span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Vitest для юніт-тестів)</span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Vitest для модульних тестів)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Cypress for both Unit and End-to-End testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Cypress для наскрізного тестування)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add ESLint for code quality? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Eslint для перевірки на правильність написання коду)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formatting? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Prettier для автоматичного форматування коду)</span>
@@ -41,14 +41,14 @@ footer: false
 <span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту-без-пробілів</span><span style="color:#89DDFF;">&gt;</span>...</span>
 <span style="color:#A6ACCD;">Done.</span></code></pre></div>
 
-Якщо ви не впевнені щодо варіанту, просто виберіть «No» (Ні), натиснувши Enter. Після створення проекту дотримуйтесь інструкцій для вставнолення залежностей та запуску сервера в режимі розробки:
+Якщо ви не впевнені щодо варіанту, просто виберіть «No» (Ні), натиснувши Enter. Після створення проєкту дотримуйтесь інструкцій для встановлення залежностей та запуску сервера в режимі розробки:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проекту-без-пробілів</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-Вітаємо, тепер у вас має бути запущений перший проект на Vue! Зауважте, що приклади компонентів у створеному проекті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Опційним API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
+Вітаємо, тепер у вас має бути запущений перший проєкт на Vue! Зауважте, що приклади компонентів у створеному проєкті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Опційним API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
 
 - Рекомендовано використовувати [Visual Studio Code](https://code.visualstudio.com/) в якості вашої IDE ї [розширенням Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Якщо ви користуєтесь іншими редакторами, перевірте [можливості щодо їхньої підтримки](/guide/scaling-up/tooling.html#ide-support).
 - Стосовно інших інструментів, зокрема інтеграції з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling.html).
@@ -60,13 +60,13 @@ footer: false
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-Виконання цієї команди створить в директорії `./dist` збірку вашого додатку, готового до продакшну. Прочитайте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment.html) для отримання деталей.
+Виконання цієї команди створить в директорії `./dist` збірку вашого додатка, готового до продакшну. Прочитайте [Гід з підготовки до продакшну](/guide/best-practices/production-deployment.html) для отримання деталей.
 
 [Наступні кроки >](#наступні-кроки)
 
 ## Без засобів збірки
 
-Щоб розпочати розробку на Vue без збірки, просто скопіюйте наступний код в файл HTML та відкрийте його у браузері:
+Щоб розпочати розробку на Vue без збірки, просто скопіюйте наступний код у файл HTML та відкрийте його у браузері:
 
 ```html
 <script src="https://unpkg.com/vue@3"></script>
@@ -136,7 +136,7 @@ const { createApp, ref } = Vue
 
 ### Подача через HTTP
 
-По заглибленні в гід, надалі нам треба буде розбивати наш код на окремі файли JavaScript, щоб, таким чином, було легше обслуговувати додаток. Наприклад:
+По заглибленні в гіда, надалі нам треба буде розбивати наш код на окремі файли JavaScript, щоб, таким чином, було легше обслуговувати додаток. Наприклад:
 
 ```html
 <!-- index.html -->
@@ -158,7 +158,7 @@ export default {
 }
 ```
 
-Щоб це запрацювало, вам потрібно буде віддавати ваш HTML через протокол `http://` замість протоколу `file://`. Для запуску локального HTTP-серверу, встановіть спочатку [Node.js](https://nodejs.org/en/), а потім виконайте `npx serve` в командному рядку у директорії з вашим HTML файлом. Ви також можете використовувати будь-який інший HTTP сервер, що має можливість віддавати статичні файли з коректними MIME-типами.
+Щоб це запрацювало, вам потрібно буде віддавати ваш HTML через протокол `http://` замість протоколу `file://`. Для запуску локального HTTP-сервера, встановіть спочатку [Node.js](https://nodejs.org/en/), а потім виконайте `npx serve` в командному рядку у директорії з вашим HTML файлом. Ви також можете використовувати будь-який інший HTTP сервер, що має можливість віддавати статичні файли з коректними MIME-типами.
 
 Можливо, ви помітили, що імпортовані шаблони компонентів вказані у вигляді JavasScript рядка. Якщо ви використовуєте VSCode, ви можете встановити розширення [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) та додавати коментар `/*html*/` перед такими рядками, щоб VSCode підсвічував для них синтаксис.
 
