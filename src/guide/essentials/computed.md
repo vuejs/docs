@@ -10,7 +10,6 @@
 
 ## Простий приклад
 
-In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
 Вирази, вбудовані в шаблон є досить зручними, але їх є зміст використовувати для простих дій. Додавання дуже багато логіки до шаблонів може роздути їх та ускладнити подальше обслуговування. Наприклад, у нас є об'єкт з вкладеним масивом:
 
 <div class="options-api">
