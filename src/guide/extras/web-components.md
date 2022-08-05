@@ -6,7 +6,7 @@ We consider Vue and Web Components to be primarily complementary technologies. V
 
 ## Using Custom Elements in Vue
 
-Vue [scores a perfect 100% in the Custom Elements Everywhere tests](https://custom-elements-everywhere.com/libraries/vue/results/results.html). Consuming custom elements inside a Vue application largely works the same as using native HTML elements, with a few things to keep in mind:
+Consuming custom elements inside a Vue application largely works the same as using native HTML elements, with a few things to keep in mind:
 
 ### Skipping Component Resolution
 
@@ -74,6 +74,30 @@ However, there could be rare cases where the data must be passed as a DOM proper
 <!-- shorthand equivalent -->
 <my-element .user="{ name: 'jack' }"></my-element>
 ```
+
+### Handling Events with Capital Letters
+
+The `v-on` directive handles lowercase and kebab-case events dispatched from custom elements. However, the `v-on` directive does not support listening for events whose names include capital letters. For example, adding `v-on:myInput` to a custom element adds a listener for events with the name `my-input`, which does not handle an event with the name `myInput`.
+
+If your app uses custom elements that dispatch events with capital letters, you can use a custom directive to add the correct event listener to the element.
+
+#### Example Custom Directive to Handle Specific Events
+
+```js
+// ex. <my-element v-event:eventName="handler" />
+app.directive('event', {
+  beforeMount(el, { arg: eventName, value: handler }) {
+    el.addEventListener(eventName, handler)
+  },
+  beforeUnmount(el, { arg: eventName, value: handler }) {
+    el.removeEventListener(eventName, handler)
+  }
+})
+```
+
+**See also:**
+  - [Custom Directives](/guide/reusability/custom-directives.html)
+  - [Built-in "v-on" Directive](/api/built-in-directives.html#v-on)
 
 ## Building Custom Elements with Vue
 
