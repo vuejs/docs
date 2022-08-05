@@ -1,28 +1,28 @@
-# Class and Style Bindings
+# Прив'язування класів та стилей
 
-A common need for data binding is manipulating an element's class list and inline styles. Since `class` and `style` are both attributes, we can use `v-bind` to assign them a string value dynamically, much like with other attributes. However, trying to generate those values using string concatenation can be annoying and error-prone. For this reason, Vue provides special enhancements when `v-bind` is used with `class` and `style`. In addition to strings, the expressions can also evaluate to objects or arrays.
+Маніпулювання списком класів елемента та вбудованими стилями є загальною потребою при зв'язуванні даних. Оскільки `class` і `style` є атрибутами, ми можемо використовувати `v-bind` для динамічного призначення їм рядкового значення, подібно до інших атрибутів. Однак спроба згенерувати ці значення за допомогою конкатенації рядків може набриднути та стати джерелом помилок. Vue допомагає нам у розв'язанні цих питань, пропонуючи для використання `class` і `style` разом з `v-bind`. Окрім рядків, вирази також можуть бути обчисленими як об'єкти або масиви.
 
-## Binding HTML Classes
+## Прив'язування класів HTML
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3" title="Free Vue.js Dynamic CSS Classes Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3" title="Безкоштовний урок по динамічних CSS класах у Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Free Vue.js Dynamic CSS Classes Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Безкоштовний урок по динамічних CSS класах у Vue.js"/>
 </div>
 
-### Binding to Objects
+### Прив'язування об'єктів
 
-We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
+Ви можете передати об'єкт в `:class` (скорочена форма для `v-bind:class`) для динамічного перемикання класів:
 
 ```vue-html
 <div :class="{ active: isActive }"></div>
 ```
 
-The above syntax means the presence of the `active` class will be determined by the [truthiness](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) of the data property `isActive`.
+Вищенавещений синтаксис вказує на те, що клас `active` буде автоматично визначений [правдивістю](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).
 
-You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following state:
+Таким чином ви можете визначати кілька класів, вказуючи кілька полів в об'єкті. Між іншим, директива `:class` також може співіснувати зі звичайним атрибутом `class`. Наприклад, маючи ось такий стан:
 
 <div class="composition-api">
 
@@ -46,7 +46,7 @@ data() {
 
 </div>
 
-And the following template:
+І ось такий шаблон:
 
 ```vue-html
 <div
@@ -55,15 +55,15 @@ And the following template:
 ></div>
 ```
 
-It will render:
+Результат буде наступним:
 
 ```vue-html
 <div class="static active"></div>
 ```
 
-When `isActive` or `hasError` changes, the class list will be updated accordingly. For example, if `hasError` becomes `true`, the class list will become `"static active text-danger"`.
+Коли змінюються `isActive` або `hasError`, відповідно буде оновлений і перелік класів даного елементу. Наприклад, якщо `hasError` буде `true`, список класів елементу стане `"static active text-danger"`.
 
-The bound object doesn't have to be inline:
+Прив'язаний об'єкт не мусить бути прямолінійним:
 
 <div class="composition-api">
 
@@ -95,7 +95,7 @@ data() {
 <div :class="classObject"></div>
 ```
 
-This will render the same result. We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
+Результат рендеру буде таким же самим, як і у прикладі вище. Ви також можете прив'язувати й [обчислювані властивості](./computed), які повертають об'єкт. Це поширена і досить потужна модель:
 
 <div class="composition-api">
 
@@ -136,9 +136,9 @@ computed: {
 <div :class="classObject"></div>
 ```
 
-### Binding to Arrays
+### Прив'язування масивів
 
-We can bind `:class` to an array to apply a list of classes:
+Для зміни переліку класів елементу можемо прив'язати `:class` і до масиву:
 
 <div class="composition-api">
 
@@ -166,90 +166,90 @@ data() {
 <div :class="[activeClass, errorClass]"></div>
 ```
 
-Which will render:
+Ось результат:
 
 ```vue-html
 <div class="active text-danger"></div>
 ```
 
-If you would like to also toggle a class in the list conditionally, you can do it with a ternary expression:
+Якщо ви хочете також змінювати перелік класів за певною умовою, ви можете це робити за допомогою [тернарного виразу](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator):
 
 ```vue-html
 <div :class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
-This will always apply `errorClass`, but `activeClass` will only be applied when `isActive` is truthy.
+Це завжди застосує `errorClass`, але клас `activeClass` буде додано лише коли значення `isActive` є правдивим.
 
-However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
+Разом з тим, це може виглядати дещо захаращено, особливо, якщо у вас багато класів з умовами. Тому існує можливість використовувати синтаксис з об'єктами всередині синтаксису з масивами:
 
 ```vue-html
 <div :class="[{ active: isActive }, errorClass]"></div>
 ```
 
-### With Components
+### З компонентами
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> Ця секція передбачає ваше знання [Компонентів](/guide/essentials/component-basics). Ви можете пропустити її та повернутись пізніше.
 
-When you use the `class` attribute on a component with a single root element, those classes will be added to the component's root element, and merged with any existing class already on it.
+Коли ви використовуєте атрибут `class` на компоненті, яка містить в собі лише один кореневий елемент, відповідні класи будуть додані до цього кореневого елементу та об'єднані з тими класами, які вже в ньому існують.
 
-For example, if we have a component named `MyComponent` with the following template:
+Для прикладу, якщо у нас є компонент з назвою `MyComponent` та наступним шаблоном:
 
 ```vue-html
-<!-- child component template -->
-<p class="foo bar">Hi!</p>
+<!-- шаблон дочірнього документу -->
+<p class="foo bar">Привіт!</p>
 ```
 
-Then add some classes when using it:
+Тоді додавання класів при його використанні:
 
 ```vue-html
-<!-- when using the component -->
+<!-- коли використовуємо компонент -->
 <MyComponent class="baz boo" />
 ```
 
-The rendered HTML will be:
+Згенерує наступний HTML:
 
 ```vue-html
 <p class="foo bar baz boo">Hi</p>
 ```
 
-The same is true for class bindings:
+Те ж стосується і для прив'язувань класів:
 
 ```vue-html
 <MyComponent :class="{ active: isActive }" />
 ```
 
-When `isActive` is truthy, the rendered HTML will be:
+Якщо `isActive` є правдивим, результат HTML рендеру буде наступним:
 
 ```vue-html
 <p class="foo bar active">Hi</p>
 ```
 
-If your component has multiple root elements, you would need to define which element will receive this class. You can do this using the `$attrs` component property:
+Якщо ж ваш компонент містить в собі кілька кореневих елементів, тоді вам потрібно вказати, який саме елемент отримає цей клас. Це можливо зробити за допомогою властивості компонента `$attrs`:
 
 ```vue-html
-<!-- MyComponent template using $attrs -->
+<!-- MyComponent у використанні з $attrs -->
 <p :class="$attrs.class">Hi!</p>
-<span>This is a child component</span>
+<span>Це дочірній компонент</span>
 ```
 
 ```vue-html
 <MyComponent class="baz" />
 ```
 
-Will render:
+HTML результат:
 
 ```html
-<p class="baz">Hi!</p>
-<span>This is a child component</span>
+<p class="baz">Привіт!</p>
+<span>Це дочірній компонент</span>
 ```
 
-You can learn more about component attribute inheritance in [Fallthrough Attributes](/guide/components/attrs.html) section.
+Дізнайтесь більше про наслідування атрибутів компонентів в розділі [Атрибути Fallthrough](/guide/components/attrs.html).
 
-## Binding Inline Styles
+## Прив'язування прямолінійних стилів
 
-### Binding to Objects
+### Прив'язування об'єктів
 
-`:style` supports binding to JavaScript object values - it corresponds to an [HTML element's `style` property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
+`:style` підтримує прив'язування до об'єктних значень JavaScript — це узгоджено з [властивістю `style` HTML елемента](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
 
 <div class="composition-api">
 
@@ -277,13 +277,13 @@ data() {
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
 
-Although camelCase keys are recommended, `:style` also supports kebab-cased CSS property keys (corresponds to how they are used in actual CSS) - for example:
+Хоч і рекомендовано використовувати camelCase, `:style` також підтримує ключі властивостей CSS, написані та в kebab-case (відповідно до того, як ми їх використовуємо в "чистому" CSS). Приклад:
 
 ```vue-html
 <div :style="{ 'font-size': fontSize + 'px' }"></div>
 ```
 
-It is often a good idea to bind to a style object directly so that the template is cleaner:
+Також часто гарною ідеєю є прив'язування до об'єкта стилю безпосередньо, отримавши дещо чистіший шаблон:
 
 <div class="composition-api">
 
@@ -315,26 +315,26 @@ data() {
 <div :style="styleObject"></div>
 ```
 
-Again, object style binding is often used in conjunction with computed properties that return objects.
+Знову ж таки, прив'язування об'єктних стилів часто використовується разом з обчислюваними властивостями, що повертають об'єкт.
 
-### Binding to Arrays
+### Прив'язування масивів
 
-We can bind `:style` to an array of multiple style objects. These objects will be merged and applied to the same element:
+Ми можемо прив'язувати `:style` до масивів відразу кілька об'єктів стилів: Ці об'єкти будуть об'єднані та застосовані до того ж самого елементу:
 
 ```vue-html
 <div :style="[baseStyles, overridingStyles]"></div>
 ```
 
-### Auto-prefixing
+### Автоматичні префікси
 
-When you use a CSS property that requires a [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, Vue will automatically add the appropriate prefix. Vue does this by checking at runtime to see which style properties are supported in the current browser. If the browser doesn't support a particular property then various prefixed variants will be tested to try to find one that is supported.
+Якщо ви використовуєте властивість CSS, що вимагає специфічний [префікс](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) в `:style`, Vue автоматично додасть відповідний префікс. Vue це робить шляхом перевірки під час виконання програми, щоб побачити, які властивості стилів підтримуються поточним браузером. Якщо браузер не підтримує певну властивість, тоді будуть протестовані різні варіанти з префіксами, щоб знайти серед них той, який підтримується.
 
-### Multiple Values
+### Множинні значення
 
-You can provide an array of multiple (prefixed) values to a style property, for example:
+Ви можете надати масив множинних значень (з префіксами) до властивості стилю, наприклад:
 
 ```vue-html
 <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
-This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
+Таким чином, в кінцевому результаті в HTML буде лише останнє значення, підтримуване браузером. Для цього прикладі, буде застосовано `display: flex` для браузерів, що підтримують версію flexbox без префіксів.
