@@ -56,14 +56,14 @@ const awesome = ref(true)
 `v-else-if`, як і підказує його назва, слугує в якості "блоку інакше якщо" для `v-if`. Може бути також і ланцюжок таких елементів:
 
 ```vue-html
-<div v-if="type === 'A'">
+<div v-if="type === 'А'">
   А
 </div>
-<div v-else-if="type === 'B'">
+<div v-else-if="type === 'Б'">
   Б
 </div>
-<div v-else-if="type === 'C'">
-  А
+<div v-else-if="type === 'В'">
+  В
 </div>
 <div v-else>
   Не А/Б/В
