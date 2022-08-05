@@ -1,11 +1,11 @@
-# Conditional Rendering
+# Умовний рендеринг
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Free Vue.js Conditional Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Безкоштовний урок по умовному рендеринг у Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-conditionals-in-vue" title="Free Vue.js Conditional Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-conditionals-in-vue" title="Безкоштовний урок по умовному рендеринг у Vue.js"/>
 </div>
 
 <script setup>
@@ -15,66 +15,66 @@ const awesome = ref(true)
 
 ## `v-if`
 
-The directive `v-if` is used to conditionally render a block. The block will only be rendered if the directive's expression returns a truthy value.
+Директива `v-if` використовується для умовного рендерингу блоку. Блок буде згенеровано лише якщо вираз у директиві повертає правдиве значення.
 
 ```vue-html
-<h1 v-if="awesome">Vue is awesome!</h1>
+<h1 v-if="awesome">Vue — це круто!</h1>
 ```
 
 ## `v-else`
 
-You can use the `v-else` directive to indicate an "else block" for `v-if`:
+Ви можете використовувати директиву `v-else` для вказування "блоку інакше" для `v-if`:
 
 ```vue-html
-<button @click="awesome = !awesome">Toggle</button>
+<button @click="awesome = !awesome">Перемкнути</button>
 
-<h1 v-if="awesome">Vue is awesome!</h1>
-<h1 v-else>Oh no 😢</h1>
+<h1 v-if="awesome">Vue — це круто!</h1>
+<h1 v-else>Ой, ні 😢</h1>
 ```
 
 <div class="demo">
-  <button @click="awesome = !awesome">Toggle</button>
-  <h1 v-if="awesome">Vue is awesome!</h1>
-  <h1 v-else>Oh no 😢</h1>
+  <button @click="awesome = !awesome">Перемкнути</button>
+  <h1 v-if="awesome">Vue — це круто!</h1>
+  <h1 v-else>Ой, ні 😢</h1>
 </div>
 
 <div class="composition-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgYXdlc29tZSA9IHJlZih0cnVlKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGJ1dHRvbiBAY2xpY2s9XCJhd2Vzb21lID0gIWF3ZXNvbWVcIj50b2dnbGU8L2J1dHRvbj5cblxuXHQ8aDEgdi1pZj1cImF3ZXNvbWVcIj5WdWUgaXMgYXdlc29tZSE8L2gxPlxuXHQ8aDEgdi1lbHNlPk9oIG5vIPCfmKI8L2gxPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9kE9KAzEUxq/ymk0VOhO6LWnRS7jKph3f2KnNH5JMuygDRcETiLiy4B0KWtQzZK7gCTyCSWewotDde1++70fetyLnWqeLEsmAMJuZQjuw6Eo94rIQWhkHKzCYQwW5UQK6wdrlkstMSetgvESrBMIwek6cKfGUS0YbUECExaHQ87HDsAGwSemcknCWzYvsesjJAdBpR05GfuO39dpv/Zvf+ff6tr7xL4w20T2UOzbtwyIp8gMi5C5KhM/1PdR3fgt+V6/30Y8Oo9N+zLUpnFsc+Sf/2oNAf4CvzeNza2H057ukR5oCEjHW6cwqGSpaxSN4+2A5GcBeiVooJu6cTJ3TdkCpzbNY7MymylzRMKWmlK4QmKIVycSopUUTwJz0fjFoEBdoEoPyEg2aY8w/1n/ciK24rEj1DYqhuiY=)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgXHRyZXR1cm4ge1xuXHQgICAgYXdlc29tZTogdHJ1ZVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGJ1dHRvbiBAY2xpY2s9XCJhd2Vzb21lID0gIWF3ZXNvbWVcIj50b2dnbGU8L2J1dHRvbj5cblxuXHQ8aDEgdi1pZj1cImF3ZXNvbWVcIj5WdWUgaXMgYXdlc29tZSE8L2gxPlxuXHQ8aDEgdi1lbHNlPk9oIG5vIPCfmKI8L2gxPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9kVFKAzEQhq8y5kmhu6Gvy7boJXzKy3Y7tVt3syGZtEIpFAVPIOKTBe9Q0KKeIXsFT+ARTLpLFQVDCPNn5v8If5bsTKl4bpElLDW5LhQNhcQrVWuCMU4yWxIshQQYZ5Qdn7S1II1ktQxKEPiVLdDUFSZA2mI7sgo9f/id8gPaC8JKlRmhVwDpyBLVEk7zssgvB4J1JBjAUVcKNnQbt23Wbute3c69NTfNtXtOeWvdQwWl0z7Mo2LyjfC+c4vwsb6D5tZtwe2a9d76fpTyaT/4OheWBofu0b30wNPv4XPz8NSNpPzwXNZjRRWCiapMxTNTSx9am0fXMIIlbULhzqcatGBTImUSzs0kD1HPTFzrC+6rWFtJRYUxmioa6XphUHuwYL0fDO4v56gjjXKMGvV/zF+jf7gBG76Erb4AVmLAPQ==)
 
 </div>
 
-A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - otherwise it will not be recognized.
+А елемент `v-else` повинен йти безпосередньо за `v-if` або елементом `v-else-if` — в іншому випадку їх не буде розпізнано.
 
 ## `v-else-if`
 
-The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
+`v-else-if`, як і підказує його назва, слугує в якості "блоку інакше якщо" для `v-if`. Може бути також і ланцюжок таких елементів:
 
 ```vue-html
 <div v-if="type === 'A'">
-  A
+  А
 </div>
 <div v-else-if="type === 'B'">
-  B
+  Б
 </div>
 <div v-else-if="type === 'C'">
-  C
+  А
 </div>
 <div v-else>
-  Not A/B/C
+  Не А/Б/В
 </div>
 ```
 
-Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+Подібно до `v-else`, елемент `v-else-if` повинен йти безпосередньо за `v-if` або `v-else-if` елементами.
 
-## `v-if` on `<template>`
+## `v-if` в `<template>`
 
-Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+Оскільки `v-if` є директивою, вона має бути додана до одиночного елементу. Але робити у випадку, коли ми хочемо перемикати більше, ніж один елемент? У такому разі ми можемо використовувати `v-if` в елементі `<template>`, який слугує невидимою обгорткою. Фінальний результат рендеру не міститиме елемент `<template>`.
 
 ```vue-html
 <template v-if="ok">

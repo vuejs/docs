@@ -232,7 +232,7 @@ export const sidebar = {
     {
       text: 'Масштабування',
       items: [
-        { text: 'Однофайлові компоненти', link: '/guide/scaling-up/sfc' },
+        { text: 'Одно-файлові компоненти', link: '/guide/scaling-up/sfc' },
         { text: 'Інструменти', link: '/guide/scaling-up/tooling' },
         { text: 'Маршрутизація', link: '/guide/scaling-up/routing' },
         {
@@ -293,7 +293,7 @@ export const sidebar = {
           link: '/guide/extras/composition-api-faq'
         },
         {
-          text: 'Реактивність поглибено',
+          text: 'Реактивність поглиблено',
           link: '/guide/extras/reactivity-in-depth'
         },
         {
@@ -313,7 +313,7 @@ export const sidebar = {
           link: '/guide/extras/animation'
         },
         {
-          text: 'Транфсормація реактивності',
+          text: 'Трансформація реактивності',
           link: '/guide/extras/reactivity-transform'
         }
         // {
@@ -348,7 +348,7 @@ export const sidebar = {
           link: '/api/reactivity-core'
         },
         {
-          text: 'Реактивність: Інструменти',
+          text: 'Реактивність: Утиліти',
           link: '/api/reactivity-utilities'
         },
         {
@@ -375,7 +375,7 @@ export const sidebar = {
           link: '/api/options-lifecycle'
         },
         {
-          text: 'Опції: Композиції',
+          text: 'Опції: Композиція',
           link: '/api/options-composition'
         },
         { text: 'Опції: Різне', link: '/api/options-misc' },
@@ -401,7 +401,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Однофайлові компоненти',
+      text: 'Одно-файлові компоненти',
       items: [
         { text: 'Специфікація синтаксису', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
