@@ -157,7 +157,7 @@ export const sidebar = {
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'Умовна візуалізація',
+          text: 'Умовний рендеринг',
           link: '/guide/essentials/conditional'
         },
         { text: 'Візуалізація списків', link: '/guide/essentials/list' },
