@@ -4,3 +4,7 @@
 @import "./inline-demo.css";
 @import "./utilities.css";
 @import "./style-guide.css";
+
+:root {
+  --vp-sidebar-width-small: 289px;
+}
