@@ -143,7 +143,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 
 </div>
 
-## Avoid `v-if` with `v-for`
+## Уникайте `v-if` з `v-for`
 
 **Never use `v-if` on the same element as `v-for`.**
 
