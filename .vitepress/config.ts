@@ -247,7 +247,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Рекомендовані практики',
+      text: 'Найкращі практики',
       items: [
         {
           text: 'Підготовка до продакшна',
@@ -305,7 +305,7 @@ export const sidebar = {
           link: '/guide/extras/render-function'
         },
         {
-          text: 'Vue та Web Components',
+          text: 'Vue та Веб Компоненти',
           link: '/guide/extras/web-components'
         },
         {
