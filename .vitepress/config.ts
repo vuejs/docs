@@ -182,44 +182,44 @@ export const sidebar = {
       text: 'Компоненти поглиблено',
       items: [
         {
-          text: 'Registration',
+          text: 'Реєстрація',
           link: '/guide/components/registration'
         },
-        { text: 'Props', link: '/guide/components/props' },
-        { text: 'Events', link: '/guide/components/events' },
+        { text: 'Властивості', link: '/guide/components/props' },
+        { text: 'Події', link: '/guide/components/events' },
         {
-          text: 'Fallthrough Attributes',
+          text: 'Атрибути Fallthrough',
           link: '/guide/components/attrs'
         },
-        { text: 'Slots', link: '/guide/components/slots' },
+        { text: 'Слоти', link: '/guide/components/slots' },
         {
           text: 'Provide / inject',
           link: '/guide/components/provide-inject'
         },
         {
-          text: 'Async Components',
+          text: 'Асинхронні компоненти',
           link: '/guide/components/async'
         }
       ]
     },
     {
-      text: 'Reusability',
+      text: 'Повторне використання',
       items: [
         {
-          text: 'Composables',
+          text: 'Композиційні функції',
           link: '/guide/reusability/composables'
         },
         {
-          text: 'Custom Directives',
+          text: 'Спеціальні директиви',
           link: '/guide/reusability/custom-directives'
         },
-        { text: 'Plugins', link: '/guide/reusability/plugins' }
+        { text: 'Плагіни', link: '/guide/reusability/plugins' }
       ]
     },
     {
-      text: 'Built-in Components',
+      text: 'Вбудовані компоненти',
       items: [
-        { text: 'Transition', link: '/guide/built-ins/transition' },
+        { text: 'Переходи', link: '/guide/built-ins/transition' },
         {
           text: 'TransitionGroup',
           link: '/guide/built-ins/transition-group'
@@ -230,39 +230,39 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Scaling Up',
+      text: 'Масштабування',
       items: [
-        { text: 'Single-File Components', link: '/guide/scaling-up/sfc' },
-        { text: 'Tooling', link: '/guide/scaling-up/tooling' },
-        { text: 'Routing', link: '/guide/scaling-up/routing' },
+        { text: 'Однофайлові компоненти', link: '/guide/scaling-up/sfc' },
+        { text: 'Інструменти', link: '/guide/scaling-up/tooling' },
+        { text: 'Маршрутизація', link: '/guide/scaling-up/routing' },
         {
-          text: 'State Management',
+          text: 'Керування станом',
           link: '/guide/scaling-up/state-management'
         },
-        { text: 'Testing', link: '/guide/scaling-up/testing' },
+        { text: 'Тестування', link: '/guide/scaling-up/testing' },
         {
-          text: 'Server-Side Rendering (SSR)',
+          text: 'Рендеринг на стороні сервера (SSR)',
           link: '/guide/scaling-up/ssr'
         }
       ]
     },
     {
-      text: 'Best Practices',
+      text: 'Рекомендовані практики',
       items: [
         {
-          text: 'Production Deployment',
+          text: 'Підготовка до продакшна',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Performance',
+          text: 'Швидкодія',
           link: '/guide/best-practices/performance'
         },
         {
-          text: 'Accessibility',
+          text: 'Доступність',
           link: '/guide/best-practices/accessibility'
         },
         {
-          text: 'Security',
+          text: 'Безпека',
           link: '/guide/best-practices/security'
         }
       ]
@@ -270,50 +270,50 @@ export const sidebar = {
     {
       text: 'TypeScript',
       items: [
-        { text: 'Overview', link: '/guide/typescript/overview' },
+        { text: 'Огляд', link: '/guide/typescript/overview' },
         {
-          text: 'TS with Composition API',
+          text: 'TS з композиційним API',
           link: '/guide/typescript/composition-api'
         },
         {
-          text: 'TS with Options API',
+          text: 'TS з опційним API',
           link: '/guide/typescript/options-api'
         }
       ]
     },
     {
-      text: 'Extra Topics',
+      text: 'Додаткові теми',
       items: [
         {
-          text: 'Ways of Using Vue',
+          text: 'Способи використання Vue',
           link: '/guide/extras/ways-of-using-vue'
         },
         {
-          text: 'Composition API FAQ',
+          text: 'ЧаПи по Композиційному API',
           link: '/guide/extras/composition-api-faq'
         },
         {
-          text: 'Reactivity in Depth',
+          text: 'Реактивність поглибено',
           link: '/guide/extras/reactivity-in-depth'
         },
         {
-          text: 'Rendering Mechanism',
+          text: 'Механізм рендерингу',
           link: '/guide/extras/rendering-mechanism'
         },
         {
-          text: 'Render Functions & JSX',
+          text: 'Функції рендерингу та JSX',
           link: '/guide/extras/render-function'
         },
         {
-          text: 'Vue and Web Components',
+          text: 'Vue та Web Components',
           link: '/guide/extras/web-components'
         },
         {
-          text: 'Animation Techniques',
+          text: 'Техніки анімації',
           link: '/guide/extras/animation'
         },
         {
-          text: 'Reactivity Transform',
+          text: 'Транфсормація реактивності',
           link: '/guide/extras/reactivity-transform'
         }
         // {
@@ -330,191 +330,191 @@ export const sidebar = {
   ],
   '/api/': [
     {
-      text: 'Global API',
+      text: 'Глобальний API',
       items: [
-        { text: 'Application', link: '/api/application' },
+        { text: 'Додаток', link: '/api/application' },
         {
-          text: 'General',
+          text: 'Загальне',
           link: '/api/general'
         }
       ]
     },
     {
-      text: 'Composition API',
+      text: 'Композиційний API',
       items: [
         { text: 'setup()', link: '/api/composition-api-setup' },
         {
-          text: 'Reactivity: Core',
+          text: 'Реактивність: Основи',
           link: '/api/reactivity-core'
         },
         {
-          text: 'Reactivity: Utilities',
+          text: 'Реактивність: Інструменти',
           link: '/api/reactivity-utilities'
         },
         {
-          text: 'Reactivity: Advanced',
+          text: 'Реактивність: Розширено',
           link: '/api/reactivity-advanced'
         },
         {
-          text: 'Lifecycle Hooks',
+          text: 'Хуки життєвого циклу',
           link: '/api/composition-api-lifecycle'
         },
         {
-          text: 'Dependency Injection',
+          text: 'Ін`єкція залежностей',
           link: '/api/composition-api-dependency-injection'
         }
       ]
     },
     {
-      text: 'Options API',
+      text: 'Опційний API',
       items: [
-        { text: 'Options: State', link: '/api/options-state' },
-        { text: 'Options: Rendering', link: '/api/options-rendering' },
+        { text: 'Опції: Стан', link: '/api/options-state' },
+        { text: 'Опції: Рендеринг', link: '/api/options-rendering' },
         {
-          text: 'Options: Lifecycle',
+          text: 'Опції: Життєвий цикл',
           link: '/api/options-lifecycle'
         },
         {
-          text: 'Options: Composition',
+          text: 'Опції: Композиції',
           link: '/api/options-composition'
         },
-        { text: 'Options: Misc', link: '/api/options-misc' },
+        { text: 'Опції: Різне', link: '/api/options-misc' },
         {
-          text: 'Component Instance',
+          text: 'Екземпляр компонента',
           link: '/api/component-instance'
         }
       ]
     },
     {
-      text: 'Built-ins',
+      text: 'Вбудоване',
       items: [
-        { text: 'Directives', link: '/api/built-in-directives' },
-        { text: 'Components', link: '/api/built-in-components' },
+        { text: 'Директиви', link: '/api/built-in-directives' },
+        { text: 'Компоненти', link: '/api/built-in-components' },
         {
-          text: 'Special Elements',
+          text: 'Спеціальні елементи',
           link: '/api/built-in-special-elements'
         },
         {
-          text: 'Special Attributes',
+          text: 'Спеціальні атрибути',
           link: '/api/built-in-special-attributes'
         }
       ]
     },
     {
-      text: 'Single-File Component',
+      text: 'Однофайлові компоненти',
       items: [
-        { text: 'Syntax Specification', link: '/api/sfc-spec' },
+        { text: 'Специфікація синтаксису', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
-        { text: 'CSS Features', link: '/api/sfc-css-features' }
+        { text: 'Можливості CSS', link: '/api/sfc-css-features' }
       ]
     },
     {
-      text: 'Advanced APIs',
+      text: 'Розширені API',
       items: [
-        { text: 'Render Function', link: '/api/render-function' },
-        { text: 'Server-Side Rendering', link: '/api/ssr' },
-        { text: 'TypeScript Utility Types', link: '/api/utility-types' },
-        { text: 'Custom Renderer', link: '/api/custom-renderer' }
+        { text: 'Функції рендерингу', link: '/api/render-function' },
+        { text: 'Рендеринг на стороні сервера', link: '/api/ssr' },
+        { text: 'Утилітарні типи TypeScript', link: '/api/utility-types' },
+        { text: 'Спеціальний рендерер', link: '/api/custom-renderer' }
       ]
     }
   ],
   '/examples/': [
     {
-      text: 'Basic',
+      text: 'Основи',
       items: [
         {
-          text: 'Hello World',
+          text: 'Привіт, світ',
           link: '/examples/#hello-world'
         },
         {
-          text: 'Handling User Input',
+          text: 'Керування діями користувача',
           link: '/examples/#handling-input'
         },
         {
-          text: 'Attribute Bindings',
+          text: 'Прив`язка атрибутів',
           link: '/examples/#attribute-bindings'
         },
         {
-          text: 'Conditionals and Loops',
+          text: 'Умови та цикли',
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Form Bindings',
+          text: 'Прив`язка форм',
           link: '/examples/#form-bindings'
         },
         {
-          text: 'Simple Component',
+          text: 'Простенька компонента',
           link: '/examples/#simple-component'
         }
       ]
     },
     {
-      text: 'Practical',
+      text: 'Практичні завдання',
       items: [
         {
-          text: 'Markdown Editor',
+          text: 'Редактор Markdown',
           link: '/examples/#markdown'
         },
         {
-          text: 'Fetching Data',
+          text: 'Отримання даних з серверу',
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Grid with Sort and Filter',
+          text: 'Таблиця з сортуванням та фільтрацією',
           link: '/examples/#grid'
         },
         {
-          text: 'Tree View',
+          text: 'Деревовидне відображення',
           link: '/examples/#tree'
         },
         {
-          text: 'SVG Graph',
+          text: 'SVG графік',
           link: '/examples/#svg'
         },
         {
-          text: 'Modal with Transitions',
+          text: 'Модальне вікно з переходами',
           link: '/examples/#modal'
         },
         {
-          text: 'List with Transitions',
+          text: 'Список з переходами',
           link: '/examples/#list-transition'
         },
         {
-          text: 'TodoMVC',
+          text: 'Список завдань',
           link: '/examples/#todomvc'
         }
       ]
     },
     {
       // https://eugenkiss.github.io/7guis/
-      text: '7 GUIs',
+      text: '7 користувацьких інтерфейсів',
       items: [
         {
-          text: 'Counter',
+          text: 'Лічильник',
           link: '/examples/#counter'
         },
         {
-          text: 'Temperature Converter',
+          text: 'Конвертер температури',
           link: '/examples/#temperature-converter'
         },
         {
-          text: 'Flight Booker',
+          text: 'Бронювання літаків',
           link: '/examples/#flight-booker'
         },
         {
-          text: 'Timer',
+          text: 'Таймер',
           link: '/examples/#timer'
         },
         {
-          text: 'CRUD',
+          text: 'CRUD система',
           link: '/examples/#crud'
         },
         {
-          text: 'Circle Drawer',
+          text: 'Малювання кругів',
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Cells',
+          text: 'Ячейки',
           link: '/examples/#cells'
         }
       ]
@@ -522,26 +522,26 @@ export const sidebar = {
   ],
   '/style-guide/': [
     {
-      text: 'Style Guide',
+      text: 'Гід по стилях',
       items: [
         {
-          text: 'Overview',
+          text: 'Огляд',
           link: '/style-guide/'
         },
         {
-          text: 'A - Essential',
+          text: 'А - Найнеобхідніше',
           link: '/style-guide/rules-essential'
         },
         {
-          text: 'B - Strongly Recommended',
+          text: 'Б - Настійно рекомендовано',
           link: '/style-guide/rules-strongly-recommended'
         },
         {
-          text: 'C - Recommended',
+          text: 'В - Рекомендовано',
           link: '/style-guide/rules-recommended'
         },
         {
-          text: 'D - Use with Caution',
+          text: 'Г - Використовувати з обережністю',
           link: '/style-guide/rules-use-with-caution'
         }
       ]
@@ -554,7 +554,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   lang: 'en-US',
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - Прогресивний фрейморк на JavaScript',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
   scrollOffset: 'header',
@@ -593,7 +593,25 @@ export default defineConfigWithTheme<ThemeConfig>({
         'data-spa': 'auto',
         defer: ''
       }
-    ]
+    ],
+    [
+      'script',
+      {
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=UA-2918085-50'
+      }
+    ],
+    [
+      'script',
+      {},
+      `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-2918085-50');
+      `
+    ],
   ],
 
   themeConfig: {
@@ -622,16 +640,16 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
 
     editLink: {
-      repo: 'vuejs/docs',
-      text: 'Edit this page on GitHub'
+      repo: 'vuejsorgua/docs',
+      text: 'Редагувати цю сторінку на GitHub'
     },
 
     footer: {
       license: {
-        text: 'MIT License',
+        text: 'Ліцензія MIT',
         link: 'https://opensource.org/licenses/MIT'
       },
-      copyright: `Copyright © 2014-${new Date().getFullYear()} Evan You`
+      copyright: `Всі права збережено © 2014-${new Date().getFullYear()} Evan You`
     }
   },
 

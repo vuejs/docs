@@ -68,13 +68,13 @@ function useToggleFn(
       @mousedown="removeOutline"
       @blur="restoreOutline"
     >
-      <span>API Preference</span>
+      <span>Вподобання API</span>
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
     </button>
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
       <div class="switch-container">
         <label class="options-label" @click="toggleCompositionAPI(false)"
-          >Options</label
+          >Опційне</label
         >
         <VTSwitch
           class="api-switch"
@@ -85,12 +85,12 @@ function useToggleFn(
         <label
           class="composition-label"
           @click="toggleCompositionAPI(true)"
-          >Composition</label
+          >Композиційне</label
         >
         <a
           class="switch-link"
           title="About API preference"
-          href="/guide/introduction.html#api-styles"
+          href="/guide/introduction.html#стиnі-api"
           @click="closeSideBar"
           >?</a
         >
@@ -177,7 +177,7 @@ function useToggleFn(
 
 .vt-switch {
   margin-right: 5px;
-  transform: scale(0.8);
+  transform: scale(0.7);
 }
 
 .switch-container label {
@@ -186,7 +186,7 @@ function useToggleFn(
 }
 
 .switch-container label:first-child {
-  width: 50px;
+  width: 53px;
 }
 
 .switch-link {
@@ -204,7 +204,7 @@ function useToggleFn(
 @media (max-width: 1439px) {
   #preference-switches {
     font-size: 11px;
-    padding: 8px 12px;
+    padding: 8px 9px;
   }
   .switch-container label:first-child {
     width: 46px;
