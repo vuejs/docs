@@ -206,10 +206,12 @@ function useToggleFn(
     font-size: 11px;
     padding: 8px 4px;
   }
-  .vt-switch{
+  
+  .vt-switch {
     margin: auto;
   }
-  .switch-link{
+  
+  .switch-link {
     margin-left: auto;
   }
   .switch-container label:first-child {
