@@ -514,7 +514,7 @@ export const sidebar = {
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Ячейки',
+          text: 'Табличний процесор',
           link: '/examples/#cells'
         }
       ]
