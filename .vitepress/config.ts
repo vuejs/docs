@@ -153,7 +153,7 @@ export const sidebar = {
           link: '/guide/essentials/computed'
         },
         {
-          text: 'Прив\'язки класів та стилів',
+          text: 'Прив\'язування класів та стилів',
           link: '/guide/essentials/class-and-style'
         },
         {
