@@ -224,7 +224,7 @@ data() {
 ## `v-for` з `v-if`
 
 :::warning Примітка
-**Не** рекомендується використовувати `v-if` та `v-for` на тому ж самому елементі у зв'язку з їх неявними пріоритетами. Зверніться до [гіду по стилях](/style-guide/rules-essential.html#уникайте-v-if-з-v-for) для деталей.
+**Не** рекомендується використовувати `v-if` та `v-for` на тому ж самому елементі у зв'язку з їх неявними пріоритетами. Зверніться до [Гіда по стилях](/style-guide/rules-essential.html#уникайте-v-if-з-v-for) для деталей.
 :::
 
 When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
