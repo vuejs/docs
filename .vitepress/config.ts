@@ -431,7 +431,7 @@ export const sidebar = {
           link: '/examples/#handling-input'
         },
         {
-          text: 'Прив`язка атрибутів',
+          text: 'Прив\'язування атрибутів',
           link: '/examples/#attribute-bindings'
         },
         {
@@ -439,7 +439,7 @@ export const sidebar = {
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Прив`язка форм',
+          text: 'Прив\'язування форм',
           link: '/examples/#form-bindings'
         },
         {
