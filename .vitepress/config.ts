@@ -160,7 +160,7 @@ export const sidebar = {
           text: 'Умовний рендеринг',
           link: '/guide/essentials/conditional'
         },
-        { text: 'Візуалізація списків', link: '/guide/essentials/list' },
+        { text: 'Рендеринг списків', link: '/guide/essentials/list' },
         {
           text: 'Обробка подій',
           link: '/guide/essentials/event-handling'

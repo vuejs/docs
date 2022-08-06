@@ -1,21 +1,21 @@
-# List Rendering
+# Рендеринг списків
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Free Vue.js List Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Безкоштовний урок по рендерингу списків у Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Free Vue.js List Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Безкоштовний урок по рендерингу списків у Vue.js"/>
 </div>
 
 ## `v-for`
 
-We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
+Ми можемо використовувати директиву `v-for` для рендерингу списку елементів, основаних на масиві. Директив `v-for` вимагає спеціального синтаксису у формі `item in items`, де `items` — вихідний масив і `item` є **псевдонімом** ітерованого елемента масиву:
 
 <div class="composition-api">
 
 ```js
-const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
+const items = ref([{ message: 'Леся' }, { message: 'Тарас' }])
 ```
 
 </div>
@@ -25,7 +25,7 @@ const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 ```js
 data() {
   return {
-    items: [{ message: 'Foo' }, { message: 'Bar' }]
+    items: [{ message: 'Леся' }, { message: 'Тарас' }]
   }
 }
 ```
@@ -38,13 +38,13 @@ data() {
 </li>
 ```
 
-Inside the `v-for` scope, template expressions have access to all parent scope properties. In addition, `v-for` also supports an optional second alias for the index of the current item:
+Всередині області `v-for`, вирази шаблону мають доступ до всіх батьківських властивостей. Крім цього, `v-for` також підтримує необов'язковий другий псевдонім для індексу поточного елемента масиву:
 
 <div class="composition-api">
 
 ```js
-const parentMessage = ref('Parent')
-const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
+const parentMessage = ref('Батько')
+const items = ref([{ message: 'Леся' }, { message: 'Тарас' }])
 ```
 
 </div>
@@ -53,8 +53,8 @@ const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 ```js
 data() {
   return {
-    parentMessage: 'Parent',
-    items: [{ message: 'Foo' }, { message: 'Bar' }]
+    parentMessage: 'Батько',
+    items: [{ message: 'Леся' }, { message: 'Тарас' }]
   }
 }
 ```
@@ -68,8 +68,8 @@ data() {
 ```
 
 <script setup>
-const parentMessage = 'Parent'
-const items = [{ message: 'Foo' }, { message: 'Bar' }]
+const parentMessage = 'Батько'
+const items = [{ message: 'Леся' }, { message: 'Тарас' }]
 </script>
 <div class="demo">
   <li v-for="(item, index) in items">
@@ -79,44 +79,44 @@ const items = [{ message: 'Foo' }, { message: 'Bar' }]
 
 <div class="composition-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgcGFyZW50TWVzc2FnZSA9IHJlZignUGFyZW50JylcbmNvbnN0IGl0ZW1zID0gcmVmKFt7IG1lc3NhZ2U6ICdGb28nIH0sIHsgbWVzc2FnZTogJ0JhcicgfV0pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8bGkgdi1mb3I9XCIoaXRlbSwgaW5kZXgpIGluIGl0ZW1zXCI+XG4gIFx0e3sgcGFyZW50TWVzc2FnZSB9fSAtIHt7IGluZGV4IH19IC0ge3sgaXRlbS5tZXNzYWdlIH19XG5cdDwvbGk+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UEtOwzAQvcrIm7RSEu+jFIkDcALMIrST4qr+yHYLUhSJskZCrNlxAjZsWHCG5EaMkwBVkVhY9rx58974Nezc2ny/Q1aw0i+dtAE8hp09E1oqa1yABhzW0ELtjIKEqInQQi+N9gFs5VCHC/S+WiMsInOWdM/dW//QP3Yf3Wcy/6bKgMpPlMsG1DhTQNK9dO/9oX9KoE3J7KjxSjr3dA7UuiKhko8b0m5UkJ7dVgFjFcqthH1WG7cQbBatUpB6hXdzukZrwYgIIELTnKzdtpABocPAb0VD+bQMgYMJ30oSKfmPNUvZmFKmKptvvNGUYzP4TA3yLWBAIkbpxVqwmxCsLzj39TKmv/G5cWtOr9ztdJAKc/Qqu3bm1qMjYcHSIw1O4B5dRr9YoUP3n+YJ9Y9ulKXftaz9AgXXwOk=)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgXHRyZXR1cm4ge1xuXHQgICAgcGFyZW50TWVzc2FnZTogJ1BhcmVudCcsXG4gICAgXHRpdGVtczogW3sgbWVzc2FnZTogJ0ZvbycgfSwgeyBtZXNzYWdlOiAnQmFyJyB9XVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGxpIHYtZm9yPVwiKGl0ZW0sIGluZGV4KSBpbiBpdGVtc1wiPlxuICBcdHt7IHBhcmVudE1lc3NhZ2UgfX0gLSB7eyBpbmRleCB9fSAtIHt7IGl0ZW0ubWVzc2FnZSB9fVxuXHQ8L2xpPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UUtOwzAQvcrIm7ZSPvsoIHEAToBZmGZaXCWOZTulUhSJskZCrNlxAjZsWHCG5EbMNKVVQWqUxH7zeW/83Iora5N1gyITuZ87bcOlNLixtQtQ4EI1ZYBWGoBCBTWdjXsZHIbGGUYyAD1WOTThGr1XS8xg0r/2H8PT8Nx/9d+TiHu4SwesfAY3LVTHyrf+c9gOLxPoIjhJvBPFI31bSt2Osh3r0Y/ePD2MS4CIbakCMgp5qWEdL2p3IcWUNSPQpsDNjBbYzSAFFTJh256ODl0HMVB013BE1JTsR6PgTiQtNZHk6UFaREJXbFxcKZusfG3I1NGvfYJ0s9FBjpHrjKW4D8H6LE39Ys5XsfJJ7ZYp7RLXmKArTNBX8Z2rHzw6Ipbi11HmSCm4RhfTKQp06M5x/in9x8u0bK/ofgDvWcSE)
 
 </div>
 
-The variable scoping of `v-for` is similar to the following JavaScript:
+Область видимості `v-for` схожа до наступного JavaScript:
 
 ```js
-const parentMessage = 'Parent'
+const parentMessage = 'Батько'
 const items = [
   /* ... */
 ]
 
 items.forEach((item, index) => {
-  // has access to outer scope `parentMessage`
-  // but `item` and `index` are only available in here
+  // має доступ до зовнішнього `parentMessage`
+  // але `item` та `index` доступні лише тут
   console.log(parentMessage, item.message, index)
 })
 ```
 
-Notice how the `v-for` value matches the function signature of the `forEach` callback. In fact, you can use destructuring on the `v-for` item alias similar to destructuring function arguments:
+Зверніть увагу на те, як значення для `v-for` співпадає з сигнатурою колбек-функції для `forEach`. Насправді ви можете використовувати деструктуризацію псевдоніму елементу в `v-for`, аналогічно до деструктуризації аргументів функції:
 
 ```vue-html
 <li v-for="{ message } in items">
   {{ message }}
 </li>
 
-<!-- with index alias -->
+<!-- з індексним псевдонімом  -->
 <li v-for="({ message }, index) in items">
   {{ message }} {{ index }}
 </li>
 ```
 
-For nested `v-for`, scoping also works similar to nested functions. Each `v-for` scope has access to parent scopes:
+Для вкладених `v-for`, область видимості працює подібно до вкладених функцій. Кожна область `v-for` має доступ до батьківських областей видимості:
 
 ```vue-html
 <li v-for="item in items">
@@ -126,7 +126,7 @@ For nested `v-for`, scoping also works similar to nested functions. Each `v-for`
 </li>
 ```
 
-You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
+Ви також можете використовувати `of` як роздільник замість `in`, наближено до синтаксису ітераторів JavaScript:
 
 ```vue-html
 <div v-for="item of items"></div>
@@ -134,15 +134,15 @@ You can also use `of` as the delimiter instead of `in`, so that it is closer to 
 
 ## `v-for` with an Object
 
-You can also use `v-for` to iterate through the properties of an object. The iteration order will be based on the result of calling `Object.keys()` on the object:
+Ви також можете використовувати `v-for` для ітерування властивостей об'єкту. Порядок ітерації оснований на результаті виклику `Object.keys()` на об'єкті:
 
 <div class="composition-api">
 
 ```js
 const myObject = reactive({
-  title: 'How to do lists in Vue',
-  author: 'Jane Doe',
-  publishedAt: '2016-04-10'
+  title: 'Як створювати списки на Vue',
+  author: 'Іван Іваненко',
+  publishedAt: '2022-08-06'
 })
 ```
 
@@ -153,9 +153,9 @@ const myObject = reactive({
 data() {
   return {
     myObject: {
-      title: 'How to do lists in Vue',
-      author: 'Jane Doe',
-      publishedAt: '2016-04-10'
+      title: 'Як створювати списки на Vue',
+      author: 'Іван Іваненко',
+      publishedAt: '2022-08-06'
     }
   }
 }
@@ -171,7 +171,7 @@ data() {
 </ul>
 ```
 
-You can also provide a second alias for the property's name (a.k.a. key):
+Ви також можете використовувати другий псевдонімо для назви властивості (що також називають ключем):
 
 ```vue-html
 <li v-for="(value, key) in myObject">
@@ -179,7 +179,7 @@ You can also provide a second alias for the property's name (a.k.a. key):
 </li>
 ```
 
-And another for the index:
+І ще один для індексу:
 
 ```vue-html
 <li v-for="(value, key, index) in myObject">
@@ -189,28 +189,28 @@ And another for the index:
 
 <div class="composition-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBteU9iamVjdCA9IHJlYWN0aXZlKHtcbiAgdGl0bGU6ICdIb3cgdG8gZG8gbGlzdHMgaW4gVnVlJyxcbiAgYXV0aG9yOiAnSmFuZSBEb2UnLFxuICBwdWJsaXNoZWRBdDogJzIwMTYtMDQtMTAnXG59KVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PHVsPlxuICAgIDxsaSB2LWZvcj1cIih2YWx1ZSwga2V5LCBpbmRleCkgaW4gbXlPYmplY3RcIj5cblx0XHQgIHt7IGluZGV4IH19LiB7eyBrZXkgfX06IHt7IHZhbHVlIH19XG5cdFx0PC9saT5cbiAgPC91bD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UcFKw0AQ/ZVhL1VoktKDSImCX+DN017SOLVbk82yO4lKCKgHj/6KIghSsP7C9o+cTWoPCgayM2/3zdt5s604MyZuahQzkbrcKkPgkGpzKrUqTWUJWrCY5aQahA4WtiphxPyR1FLnlXYE5d35fIU5wcmeedBKDUCKCpzByL/4NWwfto/+zW+299tnjq+MPnjTf/kPXtcM/Kd/hQuWHofirKZlZUP1U6D7T/hJ/Dv/a78ZeKaeF8ot8fKMmDydTKfR5DiaHHGD3aHUaTK4Yj8MCEtTZIQBUVoXHIG/tFDQRIvKnkhx0GRFjWO4xrsxKH2Jt4cc9ial6GslAbTtcA5dFwfAFZzOQtprMBioaVKo/qY06a9Mk30fYiyGMUdlZuKVqzQ/RD88uTtwUrDk0KcUPPmApVgSGTdLErfIw/OtXFzZq4Sz2NaaVIkxujKa2+rGoWVhKfpp7TQS3mzQRhbZgEX7n+Yv6h/dIMtGO9F9A4sl4dQ=)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgXHRyZXR1cm4ge1xuXHQgICAgbXlPYmplY3Q6IHtcbiAgXHQgICAgdGl0bGU6ICdIb3cgdG8gZG8gbGlzdHMgaW4gVnVlJyxcblx0ICAgICAgYXV0aG9yOiAnSmFuZSBEb2UnLFxuICAgICAgXHRwdWJsaXNoZWRBdDogJzIwMTYtMDQtMTAnXG4gICAgXHR9XG4gIFx0fVxuXHR9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8dWw+XG4gICAgPGxpIHYtZm9yPVwiKHZhbHVlLCBrZXksIGluZGV4KSBpbiBteU9iamVjdFwiPlxuXHRcdCAge3sgaW5kZXggfX0uIHt7IGtleSB9fToge3sgdmFsdWUgfX1cblx0XHQ8L2xpPlxuICA8L3VsPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UUtqwzAQvYrQJgn4E7IoxbiFnKC7rrRx4knj1D+kkZtgDG0XXfYqDYVCCCS9gnyjjuwkixZqLM280czT6E3Np2XpVRp4wEM1l0mJtyKHdVlIZDEsIp0iq0XOWBxhNBz1vkAJqGVukUBGX7a5m61gjsE5wQYxwRQCNjAfZs/al/bVfJpj+9y+k90S2lHQfJsd7XsC5mC27F7DwDmzMhZpXBbScrzZInNgZ8d80dqbo83ucwWWepYmagnxlBoZTMaTiTu+dsdXgz5FYNM3R6bb6A/9y6sJIGRlGiFYhKFOydrCME1Y5S4KeSP4sIpSDQ57hI3DkjyG9YjMRQDBu1rbf13356xpPAuoglxSqGYdB4E+NfTTpLsp9LsrQ//SB3d4ktlhuFlUeitV5DSoXuLTgRL8JLqN0SQtFnyJWKrA99Vibse7Ul4hH3zyPKlzTDLwQGXuTBZPCiQRC37SsePwKViBdCXQAyTI/zh/pf7htbRWa978AJm46P8=)
 
 </div>
 
-## `v-for` with a Range
+## `v-for` з діапазонами
 
-`v-for` can also take an integer. In this case it will repeat the template that many times, based on a range of `1...n`.
+Директива `v-for` також може приймати число. У такому випадку вона буде повторювати шаблон відповідно до діапазону `1...n` кількість разів.
 
 ```vue-html
 <span v-for="n in 10">{{ n }}</span>
 ```
 
-Note here `n` starts with an initial value of `1` instead of `0`.
+Зауважте, що `n` починається з `1`, а не з `0`.
 
-## `v-for` on `<template>`
+## `v-for` в `<template>`
 
-Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
+Схоже до `v-if`, ви можете також використовувати елемент `<template>` з `v-for` для рендерингу блоку з множинними елементами. Для прикладу:
 
 ```vue-html
 <ul>
@@ -221,10 +221,10 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 </ul>
 ```
 
-## `v-for` with `v-if`
+## `v-for` з `v-if`
 
-:::warning Note
-It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential.html#avoid-v-if-with-v-for) for details.
+:::warning Примітка
+**Не** рекомендується використовувати `v-if` та `v-for` на тому ж самому елементі у зв'язку з їх неявними пріоритетами. Зверніться до [гіду по стилях](/style-guide/rules-essential.html#уникайте-v-if-з-v-for) для деталей.
 :::
 
 When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
