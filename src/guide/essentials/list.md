@@ -221,7 +221,7 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 </ul>
 ```
 
-## `v-for` with `v-if`
+## `v-for` з `v-if`
 
 :::warning Note
 It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential.html#avoid-v-if-with-v-for) for details.
