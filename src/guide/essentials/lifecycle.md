@@ -41,26 +41,26 @@ export default {
 
 <div class="composition-api">
 
-Коли викликається `onMounted`, Vue automatically associates the registered callback function with the current active component instance. This requires these hooks to be registered **synchronously** during component setup. For example, do not do this:
+Коли викликається `onMounted`, Vue автоматично пов'язує зареєстровану функцію зворотного виклику з поточним активним екземпляром компонента. Це вимагає, щоб ці хуки були зареєстровані **синхронно** під час ініціалізації компонента. Наприклад, не робіть так:
 
 ```js
 setTimeout(() => {
   onMounted(() => {
-    // this won't work.
+    // це не спрацює.
   })
 }, 100)
 ```
 
-Do note this doesn't mean that the call must be placed lexically inside `setup()` or `<script setup>`. `onMounted()` can be called in an external function as long as the call stack is synchronous and originates from within `setup()`.
+Зауважте, що це не означає, що виклик має бути розміщений лексично всередині `setup()` або `<script setup>`. `onMounted()` можна викликати у зовнішній функції, якщо стек викликів є синхронним і походить ізсередини `setup()`.
 
 </div>
 
-## Lifecycle Diagram
+## Діаграма життєвого циклу
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+Нижче наведено діаграму життєвого циклу екземпляра. Вам не обов’язково повністю розуміти все, що відбувається зараз, але коли ви дізнаєтесь і створите більше, це стане корисною довідкою.
 
 ![Component lifecycle diagram](./images/lifecycle.png)
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Consult the <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle.html)</span> for details on all lifecycle hooks and their respective use cases.
+Зверніться до <span class="composition-api">[довідника API хуків життєвого циклу](/api/composition-api-lifecycle.html)</span><span class="options-api">[довідника API хуків життєвого циклу](/api/options-lifecycle.html)</span>, щоб дізнатися більше про всі хуки життєвого циклу та їх відповідні випадки використання.
