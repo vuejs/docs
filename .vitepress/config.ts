@@ -165,7 +165,7 @@ export const sidebar = {
           text: 'Обробка подій',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Прив’язка елементів форми', link: '/guide/essentials/forms' },
+        { text: 'Прив\'язування елементів форми', link: '/guide/essentials/forms' },
         {
           text: 'Хуки життєвого циклу',
           link: '/guide/essentials/lifecycle'
@@ -185,7 +185,7 @@ export const sidebar = {
           text: 'Реєстрація',
           link: '/guide/components/registration'
         },
-        { text: 'Властивості', link: '/guide/components/props' },
+        { text: 'Реквізити', link: '/guide/components/props' },
         { text: 'Події', link: '/guide/components/events' },
         {
           text: 'Атрибути Fallthrough',
@@ -552,7 +552,7 @@ export const sidebar = {
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
-  lang: 'en-US',
+  lang: 'uk-UA',
   title: 'Vue.js',
   description: 'Vue.js - Прогресивний фрейморк на JavaScript',
   srcDir: 'src',
