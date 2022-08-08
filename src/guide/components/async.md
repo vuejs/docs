@@ -88,7 +88,7 @@ const AdminPage = defineAsyncComponent(() =>
 
 ```js
 const AsyncComp = defineAsyncComponent({
-  // функція завантажувача
+  // функція-завантажувач
   loader: () => import('./Foo.vue'),
 
   // Компонент для використання під час завантаження асинхронного компонента
