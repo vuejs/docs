@@ -165,7 +165,7 @@ export const sidebar = {
           text: 'Обробка подій',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Прив’язка елементів форми', link: '/guide/essentials/forms' },
+        { text: 'Прив\'язка елементів форми', link: '/guide/essentials/forms' },
         {
           text: 'Хуки життєвого циклу',
           link: '/guide/essentials/lifecycle'
@@ -185,7 +185,7 @@ export const sidebar = {
           text: 'Реєстрація',
           link: '/guide/components/registration'
         },
-        { text: 'Властивості', link: '/guide/components/props' },
+        { text: 'Реквізити', link: '/guide/components/props' },
         { text: 'Події', link: '/guide/components/events' },
         {
           text: 'Атрибути Fallthrough',
@@ -250,7 +250,7 @@ export const sidebar = {
       text: 'Найкращі практики',
       items: [
         {
-          text: 'Підготовка до продакшна',
+          text: 'Підготовка до виробництва',
           link: '/guide/best-practices/production-deployment'
         },
         {
