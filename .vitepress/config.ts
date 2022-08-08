@@ -250,7 +250,7 @@ export const sidebar = {
       text: 'Найкращі практики',
       items: [
         {
-          text: 'Підготовка до виробництва',
+          text: 'Підготовка до продакшна',
           link: '/guide/best-practices/production-deployment'
         },
         {
