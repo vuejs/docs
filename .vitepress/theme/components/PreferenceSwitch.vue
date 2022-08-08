@@ -204,7 +204,15 @@ function useToggleFn(
 @media (max-width: 1439px) {
   #preference-switches {
     font-size: 11px;
-    padding: 8px 12px;
+    padding: 8px 4px;
+  }
+  
+  .vt-switch {
+    margin: auto;
+  }
+  
+  .switch-link {
+    margin-left: auto;
   }
   .switch-container label:first-child {
     width: 46px;
