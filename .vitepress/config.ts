@@ -552,7 +552,7 @@ export const sidebar = {
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
-  lang: 'en-US',
+  lang: 'uk-UA',
   title: 'Vue.js',
   description: 'Vue.js - Прогресивний фрейморк на JavaScript',
   srcDir: 'src',
