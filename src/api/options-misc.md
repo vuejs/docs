@@ -28,7 +28,13 @@ Explicitly declare a display name for the component.
 
   There is one case where `name` is explicitly necessary: when matching against cacheable components in [`<KeepAlive>`](/guide/built-ins/keep-alive.html) via its `include / exclude` props.
 
+  :::tip
+  Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name even when used with `<KeepAlive>`.
+  :::
+
 ## inheritAttrs
+
+Controls whether the default component attribute fallthrough behavior should be enabled.
 
 - **Type**
 
