@@ -71,7 +71,7 @@ function loadLazy() {
 }
 ```
 
-Lazy loading is best used on features that are not immediately needed after initial page load. In Vue applications, this is typically used in combination with Vue's [Async Component](/guide/components/async.html) feature to create split chunks for component trees:
+Lazy loading is best used on features that are not immediately needed after initial page load. In Vue applications, this can be used in combination with Vue's [Async Component](/guide/components/async.html) feature to create split chunks for component trees:
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -82,7 +82,7 @@ import { defineAsyncComponent } from 'vue'
 const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 ```
 
-If using client-side routing via Vue Router, it is strongly recommended to use async components as route components. See [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html) for more details.
+For applications using Vue Router, it is strongly recommended to use lazy loading for route components. Vue Router has explicit support for lazy loading, separate from `defineAsyncComponent`. See [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html) for more details.
 
 ### SSR / SSG
 
