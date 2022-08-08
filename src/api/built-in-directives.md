@@ -277,7 +277,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   When used for component prop binding, the prop must be properly declared in the child component.
 
-  When used without an argument, can be used to bind an object containing attribute name-value pairs. Note in this mode `class` and `style` does not support Array or Objects.
+  When used without an argument, can be used to bind an object containing attribute name-value pairs.
 
 - **Example:**
 
@@ -366,7 +366,7 @@ Create a two-way binding on a form input element or a component.
 
 ## v-slot
 
-Denote named slots or slots that expect to receive props.
+Denote named slots or scoped slots that expect to receive props.
 
 - **Shorthand:** `#`
 

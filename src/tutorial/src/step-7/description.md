@@ -10,7 +10,7 @@ We can use the `v-for` directive to render a list of elements based on a source 
 </ul>
 ```
 
-Here `todo` is a local variable representing the array element currently being iterated on. It's only accessible on or inside the `v-for` element.
+Here `todo` is a local variable representing the array element currently being iterated on. It's only accessible on or inside the `v-for` element, similar to a function scope.
 
 Notice how we are also giving each todo object a unique `id`, and binding it as the <a target="_blank" href="/api/built-in-special-attributes.html#key">special `key` attribute</a> for each `<li>`. The `key` allows Vue to accurately move each `<li>` to match the position of its corresponding object in the array.
 

@@ -499,7 +499,7 @@ Now `MyTransition` can be imported and used just like the built-in version:
 
 ## Transition on Appear
 
-If you also want to apply a transition on the initial render of a node, you can add the `appear` attribute:
+If you also want to apply a transition on the initial render of a node, you can add the `appear` prop:
 
 ```vue-html
 <Transition appear>
@@ -509,7 +509,7 @@ If you also want to apply a transition on the initial render of a node, you can 
 
 ## Transition Between Elements
 
-In addition to toggling an element with `v-if` / `v-show`, we can also transition between two elements using `v-if` / `v-else` / `v-else-if`:
+In addition to toggling an element with `v-if` / `v-show`, we can also transition between two elements using `v-if` / `v-else` / `v-else-if`, as long as we make sure that there is only one element being shown at any given moment:
 
 ```vue-html
 <Transition>

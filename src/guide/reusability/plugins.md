@@ -49,7 +49,13 @@ export default {
 }
 ```
 
-We want to make a function to translate keys available to the whole application, so we will expose it using `app.config.globalProperties`. This function will receive a dot-delimited `key` string, which we will use to look up the translated string in the user-provided options.
+We want to create a translation function. This function will receive a dot-delimited `key` string, which we will use to look up the translated string in the user-provided options. This is the intended usage in templates:
+
+```vue-html
+<h1>{{ $translate('greetings.hello') }}</h1>
+```
+
+Since this function should be globally available in all templates, we will make it so by attaching it to `app.config.globalProperties` in our plugin:
 
 ```js{4-11}
 // plugins/i18n.js
@@ -67,7 +73,9 @@ export default {
 }
 ```
 
-The plugin expects users to pass in an object containing the translated keys via the options when they use the plugin, so it should be used like this:
+Our `$translate` function will take a string such as `greetings.hello`, look inside the user provided configuration and return the translated value.
+
+The object containing the translated keys should be passed to the plugin during installation via additional parameters to `app.use()`:
 
 ```js
 import i18nPlugin from './plugins/i18n'
@@ -79,11 +87,7 @@ app.use(i18nPlugin, {
 })
 ```
 
-Our `$translate` function will take a string such as `greetings.hello`, look inside the user provided configuration and return the translated value - in this case, `Bonjour!`:
-
-```vue-html
-<h1>{{ $translate('greetings.hello') }}</h1>
-```
+Now, our initial expression `$translate('greetings.hello')` will be replaced by `Bonjour!` at runtime.
 
 See also: [Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
 
