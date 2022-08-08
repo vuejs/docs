@@ -33,9 +33,7 @@ The `<slot>` element is a **slot outlet** that indicates where the parent-provid
 And the final rendered DOM:
 
 ```html
-<button class="fancy-btn">
-  Click me!
-</button>
+<button class="fancy-btn">Click me!</button>
 ```
 
 <div class="composition-api">
@@ -59,11 +57,9 @@ FancyButton('Click me!')
 
 // FancyButton renders slot content in its own template
 function FancyButton(slotContent) {
-  return (
-    `<button class="fancy-btn">
+  return `<button class="fancy-btn">
       ${slotContent}
     </button>`
-  )
 }
 ```
 
@@ -102,9 +98,9 @@ Slot content has access to the data scope of the parent component, because it is
 
 Here both <span v-pre>`{{ message }}`</span> interpolations will render the same content.
 
-Slot content does **not** have access to the child component's data. As a rule, remember that:
+Slot content does **not** have access to the child component's data. Expressions in Vue templates can only access the scope it is defined in, consistent with JavaScript's lexical scoping. In other words:
 
-> Everything in the parent template is compiled in parent scope; everything in the child template is compiled in the child scope.
+> Expressions in the parent template only have access to the parent scope; expressions in the child template only have access to the child scope.
 
 ## Fallback Content
 
@@ -292,13 +288,11 @@ BaseLayout({
 
 // <BaseLayout> renders them in different places
 function BaseLayout(slots) {
-  return (
-    `<div class="container">
+  return `<div class="container">
       <header>${slots.header}</header>
       <main>${slots.default}</main>
       <footer>${slots.footer}</footer>
     </div>`
-  )
 }
 ```
 
@@ -373,12 +367,10 @@ MyComponent({
 
 function MyComponent(slots) {
   const greetingMessage = 'hello'
-  return (
-    `<div>${
-      // call the slot function with props!
-      slots.default({ text: greetingMessage, count: 1 })
-    }</div>`
-  )
+  return `<div>${
+    // call the slot function with props!
+    slots.default({ text: greetingMessage, count: 1 })
+  }</div>`
 }
 ```
 
@@ -419,7 +411,6 @@ Passing props to a named slot:
 ```
 
 Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
-
 
 ### Fancy List Example
 
