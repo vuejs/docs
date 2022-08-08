@@ -44,6 +44,6 @@ pnpm run dev
 Якщо ви бажаєте допомогти нам фінансово, скористайтесь кнопкою `Sponsor` на GitHub.
 Якщо ж ви хотіли б долучитись до команди перекладачів, ласкаво просимо в [наш телеграм канал](https://t.me/vuejs_ukraine).
 
-Глосарій доступний [ось тут](https://github.com/vuejsorgua/docs-next/wiki/Glossary).
+Наше Wiki знаходиться [ось тут](https://github.com/vuejsorgua/docs/wiki).
 
 Дякуємо за вашу підтримку.
