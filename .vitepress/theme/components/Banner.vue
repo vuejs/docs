@@ -19,32 +19,19 @@ function dismiss() {
 </script>
 
 <template>
-  <div class="banner banner-vuejsconf" v-if="open">
-    <a href="https://conf.vuejs.de" target="_blank">
-      <picture>
-        <source
-          media="(min-width:1200px)"
-          srcset="/images/vuejsde-conf/vuejsdeconf_banner_large.png"
-        />
-        <source
-          media="(min-width:920px)"
-          srcset="/images/vuejsde-conf/vuejsdeconf_banner_medium.png"
-        />
-        <img
-          src="/images/vuejsde-conf/vuejsdeconf_banner_small.png"
-          alt=""
-        />
-      </picture>
-    </a>
-    <div class="close-btn" @click.stop.prevent="dismiss">
-      <img src="/images/vuejsde-conf/close.svg" alt="Close" />
-    </div>
+  <div class="banner" v-if="open">
+    Vue 3 is now the new default version!
+    <a
+      href="https://blog.vuejs.org/posts/vue-3-as-the-new-default.html"
+      target="_blank"
+      >Learn more</a
+    >
   </div>
 </template>
 
 <style>
 html:not(.banner-dismissed) {
-  --vt-banner-height: 60px;
+  --vt-banner-height: 24px;
 }
 </style>
 
@@ -57,7 +44,7 @@ html:not(.banner-dismissed) {
   left: 0;
   right: 0;
   height: var(--vt-banner-height);
-  line-height: 0;
+  line-height: var(--vt-banner-height);
   text-align: center;
   font-size: 12px;
   font-weight: 600;
@@ -71,24 +58,5 @@ html:not(.banner-dismissed) {
 
 a {
   text-decoration: underline;
-}
-
-.banner-vuejsconf {
-  background: linear-gradient(90deg, #fff 50%, var(--vt-c-green) 50%);
-}
-
-.banner-vuejsconf a {
-  display: inline-block;
-  margin: 0 auto;
-}
-
-.banner-vuejsconf .close-btn {
-  top: 26%;
-  right: 10px;
-  z-index: 99;
-  position: absolute;
-  border-radius: 50%;
-  background-color: var(--vt-c-brand-dark);
-  padding: 8px;
 }
 </style>

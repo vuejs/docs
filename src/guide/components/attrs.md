@@ -29,6 +29,8 @@ The final rendered DOM would be:
 <button class="large">click me</button>
 ```
 
+Here, `<MyButton>` did not declare `class` as an accepted prop. Therefore, `class` is treated as a fallthrough attribute and automatically added to `<MyButton>`'s root element.
+
 ### `class` and `style` Merging
 
 If the child component's root element already has existing `class` or `style` attributes, it will be merged with the `class` and `style` values that are inherited from the parent. Suppose we change the template of `<MyButton>` in the previous example to:
