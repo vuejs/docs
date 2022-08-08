@@ -256,6 +256,8 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
 
   The second argument is an optional options object that can be used to adjust the effect's flush timing or to debug the effect's dependencies.
 
+  By default, watchers will run just prior to component rendering. Setting `flush: 'post'` will defer the watcher until after component rendering. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing) for more information. In rare cases, it might be necessary to trigger a watcher immediately when a reactive dependency changes, e.g. to invalidate a cache. This can be achieved using `flush: 'sync'`. However, this setting should be used with caution, as it can lead to problems with performance and data consistency if multiple properties are being updated at the same time.
+
   The return value is a handle function that can be called to stop the effect from running again.
 
 - **Example**
@@ -382,7 +384,7 @@ Watches one or more reactive data sources and invokes a callback function when t
 
   - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
   - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers.html#deep-watchers).
-  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing).
+  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core.html#watcheffect).
   - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging).
 
   Compared to [`watchEffect()`](#watcheffect), `watch()` allows us to:
