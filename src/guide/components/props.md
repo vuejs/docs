@@ -483,7 +483,7 @@ Additional details:
 - All props are optional by default, unless `required: true` is specified.
 
 - An absent optional prop other than `Boolean` will have `undefined` value.
-  
+
 - The `Boolean` absent props will be cast to `false`. You should set a `default` value for it in order to get desired behavior.
 
 - If a `default` value is specified, it will be used if the resolved prop value is `undefined` - this includes both when the prop is absent, or an explicit `undefined` value is passed.
@@ -492,7 +492,7 @@ When prop validation fails, Vue will produce a console warning (if using the dev
 
 <div class="composition-api">
 
-If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-only-features), Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
@@ -550,7 +550,7 @@ export default {
 
 </div>
 
-to validate that the value of the `author` prop was created with `new Person`.
+Vue will use `instanceof Person` to validate whether the value of the `author` prop is indeed an instance of the `Person` class.
 
 ## Boolean Casting
 

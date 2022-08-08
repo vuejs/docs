@@ -246,7 +246,7 @@ If your composable creates reactive effects when the input is a ref, make sure t
 
 ### Return Values
 
-You have probably noticed that we have been exclusively using `ref()` instead of `reactive()` in composables. The recommended convention is to always return an object of refs from composables, so that it can be destructured in components while retaining reactivity:
+You have probably noticed that we have been exclusively using `ref()` instead of `reactive()` in composables. The recommended convention is for composables to always return a plain, non-reactive object containing multiple refs. This allows it to be destructured in components while retaining reactivity:
 
 ```js
 // x and y are refs
@@ -283,7 +283,7 @@ These are the contexts where Vue is able to determine the current active compone
 
 1. Lifecycle hooks can be registered to it.
 
-2. Computed properties and watchers can be linked to it for disposal on component unmount.
+2. Computed properties and watchers can be linked to it, so that they can be disposed when the instance is unmounted to prevent memory leaks.
 
 :::tip
 `<script setup>` is the only place where you can call composables **after** using `await`. The compiler automatically restores the active instance context for you after the async operation.
