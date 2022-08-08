@@ -649,7 +649,7 @@ If the directive is registered by name and cannot be imported directly, it can b
 
 ## Functional Components
 
-Functional components are an alternative form of component that don't have any state of their own. They are rendered without creating a component instance, bypassing the usual component lifecycle.
+Functional components are an alternative form of component that don't have any state of their own. They act like pure functions: props in, vnodes out. They are rendered without creating a component instance (i.e. no `this`), and without the usual component lifecycle hooks.
 
 To create a functional component we use a plain function, rather than an options object. The function is effectively the `render` function for the component.
 

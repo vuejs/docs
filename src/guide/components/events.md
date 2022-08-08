@@ -46,7 +46,7 @@ The `.once` modifier is also supported on component event listeners:
 Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but can listen for it using a kebab-cased listener in the parent. As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
 
 :::tip
-Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component.
+Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component. If there is a need to communicate between sibling or deeply nested components, use an external event bus or a [global state management solution](/guide/scaling-up/state-management.html).
 :::
 
 ## Event Arguments
@@ -203,7 +203,7 @@ See also: [Typing Component Emits](/guide/typescript/options-api.html#typing-com
 
 </div>
 
-Although optional, it is recommended to define all emitted events in order to better document how a component should work. It also allows Vue to exclude known listeners from [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance).
+Although optional, it is recommended to define all emitted events in order to better document how a component should work. It also allows Vue to exclude known listeners from [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance), avoiding edge cases caused by DOM events manually dispatched by 3rd party code.
 
 :::tip
 If a native event (e.g., `click`) is defined in the `emits` option, the listener will now only listen to component-emitted `click` events and no longer respond to native `click` events.
@@ -271,13 +271,13 @@ export default {
 
 ## Usage with `v-model`
 
-Custom events can also be used to create custom inputs that work with `v-model`. Remember that:
+Custom events can also be used to create custom inputs that work with `v-model`. Let's revisit how `v-model` is used on a native element:
 
 ```vue-html
 <input v-model="searchText" />
 ```
 
-does the same thing as:
+Under the hood, the template compiler expands `v-model` to the more verbose equivalent for us. So the above code does the same as the following:
 
 ```vue-html
 <input
@@ -286,7 +286,7 @@ does the same thing as:
 />
 ```
 
-When used on a component, `v-model` instead does this:
+When used on a component, `v-model` instead expands to this:
 
 ```vue-html
 <CustomInput
@@ -295,10 +295,10 @@ When used on a component, `v-model` instead does this:
 />
 ```
 
-For this to actually work though, the `<input>` inside the component must:
+For this to actually work though, the `<CustomInput>` component must do two things:
 
-- Bind the `value` attribute to the `modelValue` prop
-- On `input`, emit an `update:modelValue` event with the new value
+1. Bind the `value` attribute of a native `<input>` element to the `modelValue` prop
+2. When a native `input` event is triggered, emit an `update:modelValue` custom event with the new value
 
 Here's that in action:
 
@@ -544,7 +544,7 @@ export default {
 
 ### Handling `v-model` modifiers
 
-When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, however, you might also want to add your own custom modifiers.
+When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, you might also want the `v-model` on your custom input component to support custom modifiers.
 
 Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding:
 
