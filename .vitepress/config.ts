@@ -165,7 +165,7 @@ export const sidebar = {
           text: 'Обробка подій',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Прив\'язка елементів форми', link: '/guide/essentials/forms' },
+        { text: 'Прив\'язування елементів форми', link: '/guide/essentials/forms' },
         {
           text: 'Хуки життєвого циклу',
           link: '/guide/essentials/lifecycle'
