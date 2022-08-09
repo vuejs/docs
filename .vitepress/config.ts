@@ -48,10 +48,11 @@ const nav = [
         ]
       },
       {
-        text: 'Core Libraries',
+        text: 'Official Libraries',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
-          { text: 'Pinia', link: 'https://pinia.vuejs.org/' }
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
+          { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
         ]
       },
       {
@@ -560,7 +561,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   scrollOffset: 'header',
 
   head: [
-    ['meta', { name: 'theme-color', content: "#3c8772" }],
+    ['meta', { name: 'theme-color', content: '#3c8772' }],
     ['meta', { name: 'twitter:site', content: '@vuejs' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     [
