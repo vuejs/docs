@@ -57,13 +57,17 @@ In order to generate the correct runtime code, the generic argument for `defineP
 - An object literal type:
 
   ```ts
-  defineProps<{ /*... */ }>()
+  defineProps<{
+    /*... */
+  }>()
   ```
 
 - A reference to an interface or object literal type **in the same file**:
 
   ```ts
-  interface Props {/* ... */}
+  interface Props {
+    /* ... */
+  }
 
   defineProps<Props>()
   ```
@@ -147,7 +151,7 @@ export default defineComponent({
 })
 ```
 
-## Typing `ref()`
+## Типізована ref()
 
 Refs infer the type from the initial value:
 
@@ -188,7 +192,7 @@ If you specify a generic type argument but omit the initial value, the resulting
 const n = ref<number>()
 ```
 
-## Typing `reactive()`
+## Типізована `reactive()`
 
 `reactive()` also implicitly infers the type from its argument:
 
