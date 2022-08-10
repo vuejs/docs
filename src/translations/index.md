@@ -4,12 +4,19 @@ aside: false
 
 # Translations <sup class="vt-badge wip" />
 
+## Languages
+
+- [✅ English](https://vuejs.org/)
+- [✅ 简体中文](https://cn.vuejs.org/)
+
+## Translations
+
 The Vue documentation has recently undergone a major revision, so there are no completed translations in other languages yet.
 
 Translation efforts are managed in the [vuejs-translations](https://github.com/vuejs-translations/) GitHub organization. There are currently the following translations underway. If you want to contribute, you can open an issue to express your interest.
 
-- [Simplified Chinese](https://github.com/vuejs-translations/docs-zh-cn)
-- [Japanese](https://github.com/vuejs-translations/docs-ja)
+- [🚧 Simplified Chinese](https://github.com/vuejs-translations/docs-zh-cn)
+- [🚧 Japanese](https://github.com/vuejs-translations/docs-ja)
 
 ## Starting a new Translation
 
