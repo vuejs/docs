@@ -190,7 +190,7 @@ export default {
 
 ```vue-html
 Type a number: <input v-model.number="number" />
-<p>{{ tweened.number.toFixed(0) }}</p>
+<p>{{ tweened.toFixed(0) }}</p>
 ```
 
 <AnimateWatcher />
