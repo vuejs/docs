@@ -17,9 +17,11 @@ const filtered = computed(() =>
 
 onMounted(() => {
   mounted = true
-  const cloned = [...partners]
-  shuffle(cloned)
-  partners = cloned
+  const platinum = partners.filter((p) => p.platinum)
+  shuffle(platinum)
+  const normal = partners.filter((p) => !p.platinum)
+  shuffle(normal)
+  partners = [...platinum, ...normal]
 })
 
 function shuffle(array: Array<any>) {
