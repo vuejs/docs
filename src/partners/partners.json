@@ -198,5 +198,37 @@
     },
     "contact": "we@webreinvent.com",
     "hiring": "https://webreinvent.com/career?utm_source=vuejs.org&utm_medium=website&utm_campaign=partner-hiring-link"
+  },
+  {
+    "name": "Active Logic",
+    "logo": "activelogic.png",
+    "flipLogo": true,
+    "intro": "As the largest on-shore Laravel development company in the United States, Active Logic is headquartered in Kansas City. With offices in both Kansas City and Miami, the team is made up of senior developers and engineers with local backgrounds who have the expertise needed to deliver a quality end product. Active Logic believes in transparent and active communication to provide meaningful collaboration with clients.",
+    "description": [
+      "Active Logic Labs was founded in 2014, and since then has worked with businesses ranging from local startups to Fortune 500 organizations. Through planning, development, and execution, our team is able to produce leading-edge applications that work with a variety of platforms.",
+      "Our tried-and-true Laravel development process allows us to deliver top-of-the-line solutions at a fraction of the time.",
+      "Each project that we work on is designed around a client’s specific needs. From start to finish, we aim to ensure that the end goal is met in a timely and successful fashion. Each line of code is written with your company brand, business model, and needs in mind. The process starts with an initial consultation between our organizations to build a strong foundation of trust and communication.",
+      "Contact our Laravel development team today, and learn how we can provide the tools and systems required to reach your business goals."
+    ],
+    "proficiencies": [
+      "Vue",
+      "Laravel",
+      "Node.js",
+      "React",
+      "React Native",
+      "Angular",
+      "Swift",
+      "Kotlin",
+      ".NET"
+    ],
+    "region": ["North America"],
+    "location": ["Leadwood, Kansas, USA"],
+    "website": {
+      "text": "activelogic.io",
+      "url": "https://activelogic.io/services/vue-js-development/"
+    },
+    "contact": "josh@activelogic.io",
+    "hiring": "https://activelogic.io/careers/",
+    "platinum": true
   }
 ]
