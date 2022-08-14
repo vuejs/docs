@@ -13,18 +13,16 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      <span class="accent" style="padding-top: 8px;">प्रगतिशील</span>
+      <br />JavaScript फ्रेमवर्क
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      वेब यूजर इंटरफेस के निर्माण के लिए एक स्वीकार्य, प्रदर्शनकारी और बहुमुखी ढांचा।
     </p>
     <p class="actions">
       <vue-mastery-modal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        शुरू हो जाओ
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +40,7 @@ onMounted(async () => {
   </section>
 
   <section id="special-sponsor">
-    <span>Special Sponsor</span>
+    <span>विशेष प्रायोजक</span>
     <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
@@ -59,24 +57,21 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>सुलभ</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        सहज ज्ञान युक्त API और विश्व स्तरीय प्रलेखन के साथ मानक HTML, CSS और JavaScript के शीर्ष पर बनाता है।
       </p>
     </div>
     <div class="vt-box">
       <h2>Performant</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        वास्तव में प्रतिक्रियाशील, संकलक-अनुकूलित प्रतिपादन प्रणाली जिसे शायद ही कभी मैन्युअल अनुकूलन की आवश्यकता होती है।
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>बहुमुखी प्रतिभा संपन्न</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        एक समृद्ध, वृद्धिशील रूप से अपनाने योग्य पारिस्थितिकी तंत्र जो एक पुस्तकालय और एक पूर्ण विशेषताओं वाले ढांचे के बीच होता है।
       </p>
     </div>
   </section>
@@ -108,6 +103,7 @@ section {
   letter-spacing: -1.5px;
   max-width: 960px;
   margin: 0px auto;
+  padding-top: 8px;
 }
 
 html:not(.dark) .accent,
