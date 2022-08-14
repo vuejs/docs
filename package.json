@@ -4,8 +4,8 @@
   },
   "scripts": {
     "dev": "vitepress",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
+    "build": "vitepress build",
+    "serve": "vitepress serve",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
