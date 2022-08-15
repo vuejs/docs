@@ -6,6 +6,22 @@ Vue is an independent, community-driven project. It was created by [Evan You](ht
 
 Vue's development is primarily funded through sponsorships and we have been financially sustainable since 2016. If you or your business benefit from Vue, consider [sponsoring us](/sponsor/) to support Vue's development!
 
+## What's the difference between Vue 2 and Vue 3?
+
+Vue 3 is the current, latest major version of Vue. It contains new features that are not present in Vue 2, for example Teleport, Suspense, and multiple root elements per template. It also contains breaking changes that makes it incompatible with Vue 2. Full details are documented in the [Vue 3 Migration Guide](https://v3-migration.vuejs.org/).
+
+Despite the differences, the majority of Vue APIs are shared between the two major versions, so most of your Vue 2 knowledge will continue to work in Vue 3. Notably, Composition API was originally a Vue-3-only feature, but has now been backported to Vue 2 and is available in [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
+
+In general, Vue 3 provides smaller bundle sizes, better performance, better scalability, and better TypeScript / IDE support. If you are starting a new project today, Vue 3 is the recommended choice. There are only a few reasons for you to consider Vue 2 as of now:
+
+- You need to support IE11. Vue 3 leverages modern JavaScript features and does not support IE11.
+
+- You are still waiting for major ecosystem projects like Nuxt or Vuetify to release stable versions for Vue 3. This is reasonable if you do not wish to use beta-stage software. However, do note there are other already stable Vue 3 component libraries such as [Quasar](https://quasar.dev/), [Naive UI](https://www.naiveui.com/) and [Element Plus](https://element-plus.org/).
+
+If you intend to migrate an existing Vue 2 app to Vue 3, consult the [migration guide](https://v3-migration.vuejs.org/).
+
+Vue 2.7, which was shipped in July 2022, is the final minor release of the Vue 2 version range. Vue 2 has now entered maintenance mode: it will no longer ship new features, but will continue to receive critical bug fixes and security updates for 18 months starting from the 2.7 release date. This means **Vue 2 will reach End of Life by the end of 2023**. We believe this should provide plenty of time for most of the ecosystem to migrate over to Vue 3. However, we also understand that there could be teams or projects that cannot upgrade by this timeline while still need to fullfil security and compliance requirements. We are planning to provide extended support for Vue 2 for teams with such needs - if your team expects to be using Vue 2 beyond end of 2023, make sure to plan head and register your interest [here](https://airtable.com/shrj37Zf4ZIfrxFzh).
+
 ## What license does Vue use?
 
 Vue is a free and open source project released under the [MIT License](https://opensource.org/licenses/MIT).
@@ -55,20 +71,6 @@ Yes. Despite a common misconception that Vue is only suitable for simple use cas
 ## How do I contribute to Vue?
 
 We appreciate your interest! Please check out our [Community Guide](/about/community-guide.html).
-
-## What's the difference between Vue 2 and Vue 3?
-
-Vue 3 is the current, latest major version of Vue. It contains new features that are not present in Vue 2 (most notably Composition API), and also contains breaking changes that makes it incompatible with Vue 2. Despite the differences, the majority of Vue APIs are shared between the two major versions, so most of your Vue 2 knowledge will continue to work in Vue 3.
-
-In general, Vue 3 provides smaller bundle sizes, better performance, better scalability, and better TypeScript / IDE support. If you are starting a new project today, Vue 3 is the recommended choice. There are only a few reasons for you to consider Vue 2 as of now:
-
-- You need to support IE11. Vue 3 leverages modern JavaScript features and does not support IE11.
-
-- You are still waiting for major ecosystem projects like Nuxt or Vuetify to release stable versions for Vue 3. This is reasonable if you do not wish to use beta-stage software. However, do note there are other already stable Vue 3 component libraries such as [Quasar](https://quasar.dev/), [Naive UI](https://www.naiveui.com/) and [Element Plus](https://element-plus.org/).
-
-If you intend to migrate an existing Vue 2 app to Vue 3, consult the dedicated [Vue 3 Migration Guide](https://v3-migration.vuejs.org/).
-
-Vue 2 has shipped a final minor release (2.7) in July 2022, which backports a selected subset of new features from Vue 3. Vue 2 has now entered maintenance mode: it will no longer ship new features, but will continue to receive critical bug fixes and security updates until the end of 2023.
 
 ## Should I use Options API or Composition API?
 
