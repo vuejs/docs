@@ -1,19 +1,19 @@
-# Routing
+# Маршрутизація
 
-## Client-Side vs. Server-Side Routing
+## Клієнтська маршрутизація проти серверної маршрутизації
 
-Routing on the server side means the server sending a response based on the URL path that the user is visiting. When we click on a link in a traditional server-rendered web app, the browser receives an HTML response from the server and reloads the entire page with the new HTML.
+Маршрутизація на сервері має на увазі, що сервер надсилає відповідь, залежно від URL шляху, який відвідує користувач. Коли ми переходимо за посиланням, у традидійному додатку з рендерингом на стороні серверу, браузер отримує HTML відповідь та перезавантажує всю сторінку з новим HTML.
 
-In a [Single-Page Application](https://developer.mozilla.org/en-US/docs/Glossary/SPA) (SPA), however, the client-side JavaScript can intercept the navigation, dynamically fetch new data, and update the current page without full page reloads. This typically results in a more snappy user experience, especially for use cases that are more like actual "applications", where the user is expected to perform many interactions over a long period of time.
+Проте в [одно-сторінковому додатку](https://developer.mozilla.org/en-US/docs/Glossary/SPA) (SPA), JavaScript може перехоплювати навігацію, динамічно отримувати дані та оновлювати поточну сторінку без повного перезавантаження. Зазвичай це покращує взаємодію з користувачем, особливо для випадків використання, які більше схожі на традиційні "додатки", де користувач виконує багато взаємодій протягом тривалого часу.
 
-In such SPAs, the "routing" is done on the client side, in the browser. A client-side router is responsible for managing the application's rendered view using browser APIs such as [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) or the [`hashchange` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event).
+У таких одно-сторінкових додатках, "маршрутизація" відбувається на стороні клієнта, в браузері. Маршрутизатор на стороні клієнта відповідає за керування відрендереним виглядом програми за допомогою API браузера, наприклад [API історії](https://developer.mozilla.org/en-US/docs/Web/API/History) або події [`hashchange`](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event).
 
-## Official Router
+## Офіційний маршрутизатор
 
-<!-- TODO update links -->
+<!-- TODO оновити аосилання -->
 <div>
-  <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Free Vue Router Course">
-    Watch a Free Video Course on Vue School
+  <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Безкоштовний курс по Vue Router">
+    Перегляньте безкоштовний відеокурс у Vue School
   </VueSchoolLink>
 </div>
 
