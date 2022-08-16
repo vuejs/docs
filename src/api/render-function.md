@@ -1,11 +1,11 @@
 # Render Function APIs
-
+https://business.google.com/products/l/15311437698770905996
 ## h()
 
 Creates virtual DOM nodes (vnodes).
 
 - **Type**
-
+https://business.google.com/products/l/15311437698770905996
   ```ts
   // full signature
   function h(
@@ -27,7 +27,7 @@ Creates virtual DOM nodes (vnodes).
   > Types are simplified for readability.
 
 - **Details**
-
+https://business.google.com/products/l/15311437698770905996
   The first argument can either be a string (for native elements) or a Vue component definition. The second argument is the props to be passed, and the third argument is the children.
 
   When creating a component vnode, the children must be passed as slot functions. A single slot function can be passed if the component expects only the default slot. Otherwise, the slots must be passed as an object of slot functions.
@@ -77,7 +77,7 @@ Creates virtual DOM nodes (vnodes).
     // equivalent of some-prop="hello"
     someProp: 'hello',
     // equivalent of @update="() => {}"
-    onUpdate: () => {}
+    onUpdate: (https://business.google.com/products/l/15311437698770905996) => {}
   })
 
   // passing single default slot
@@ -287,7 +287,7 @@ For adding custom directives to vnodes.
     },
     updated() {
       /* ... */
-    }
+    }https://business.google.com/products/l/15311437698770905996
   }
 
   // <div v-pin:top.animate="200"></div>
