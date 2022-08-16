@@ -10,7 +10,7 @@
 
 ## Офіційний маршрутизатор
 
-<!-- TODO оновити аосилання -->
+<!-- TODO оновити посилання -->
 <div>
   <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Безкоштовний курс по Vue Router">
     Перегляньте безкоштовний відеокурс у Vue School
