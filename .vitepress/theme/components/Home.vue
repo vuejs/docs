@@ -52,7 +52,7 @@ onMounted(async () => {
           </picture>
           <img v-else :src="`${base}/images/${img}`" :alt="name" />
         </a>
-        <span v-if="description">{{ description }}</span>
+        <!-- <span v-if="description">{{ description }}</span> -->
       </template>
     </template>
   </section>
@@ -264,6 +264,9 @@ html:not(.dark) .accent,
   .description {
     font-size: 16px;
     margin: 18px 0 30px;
+  }
+  #special-sponsor span {
+    margin: 0;
   }
   #special-sponsor img {
     display: block;
