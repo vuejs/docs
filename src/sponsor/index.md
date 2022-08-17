@@ -7,7 +7,7 @@ vuejobs: false
 ---
 
 <script setup>
-import SponsorsGroup from '/@theme/components/SponsorsGroup.vue'
+import SponsorsGroup from '@theme/components/SponsorsGroup.vue'
 </script>
 
 # Become a Vue.js Sponsor
