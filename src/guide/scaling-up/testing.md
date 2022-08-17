@@ -133,13 +133,11 @@ Component tests should focus on the component's public interfaces rather than in
 <div class="testing-library-api">
 
 ```js
-render(Stepper, {
+const { getByText } = render(Stepper, {
   props: {
     max: 1
   }
 })
-
-const { getByText } = render(Component)
 
 getByText('0') // Implicit assertion that "0" is within the component
 
