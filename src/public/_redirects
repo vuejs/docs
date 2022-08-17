@@ -59,5 +59,6 @@
 /v2/guide/ssr.html                      /guide/scaling-up/ssr.html
 /v2/guide/security.html                 /guide/best-practices/security.html
 /v2/guide/reactivity.html               /guide/extras/reactivity-in-depth.html
+/api/translations/glossary              /glossary.json
 
 /v2/*                                   https://v2.vuejs.org.ua/v2/:splat?redirect=true    302
