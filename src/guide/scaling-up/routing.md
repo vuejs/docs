@@ -1,21 +1,29 @@
-# Routing
+# Маршрутизація
 
-## Official Router
+## Клієнтська маршрутизація у порівнянні з серверною маршрутизацією
 
-<!-- TODO update links -->
+Маршрутизація на сервері реалізована таким чином, що сервер надсилає відповідь, залежно від URL, який відвідує користувач. Коли ми переходимо за посиланням, у традидійному додатку з рендерингом на стороні серверу, браузер отримує HTML у відповідь та перезавантажує всю сторінку з новим HTML.
+
+Проте в [одно-сторінковому додатку](https://developer.mozilla.org/en-US/docs/Glossary/SPA) (SPA), JavaScript може перехоплювати навігацію, динамічно отримувати дані та оновлювати поточну сторінку без повного перезавантаження. Зазвичай це покращує взаємодію з користувачем, особливо для випадків використання, які більше схожі на традиційні "додатки", де користувач виконує багато взаємодій протягом тривалого часу.
+
+У таких одно-сторінкових додатках, "маршрутизація" відбувається на стороні клієнта, в браузері. Маршрутизатор на стороні клієнта відповідає за керування відрендереним виглядом програми за допомогою API браузера, наприклад [API історії](https://developer.mozilla.org/en-US/docs/Web/API/History) або події [`hashchange`](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event).
+
+## Офіційний маршрутизатор
+
+<!-- TODO оновити посилання -->
 <div>
-  <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Free Vue Router Course">
-    Watch a Free Video Course on Vue School
+  <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Безкоштовний курс по Vue Router">
+    Перегляньте безкоштовний відеокурс у Vue School
   </VueSchoolLink>
 </div>
 
-For most Single Page Applications, it's recommended to use the officially-supported [vue-router library](https://github.com/vuejs/router). For more details, see vue-router's [documentation](https://router.vuejs.org/).
+Vue добре підходить для розробки одно-сторінкових додатків. Для більшості SPA рекомендується використовувати офіційно підтримувану бібліотеку [Vue Router](https://github.com/vuejs/router). Для додаткової інформації перегляньте [документацію Vue Router](https://router.vuejs.org/).
 
-## Simple Routing from Scratch
+## Проста маршрутизація з нуля
 
-If you only need very simple routing and do not wish to involve a full-featured router library, you can do so with [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components) and update the current component state by listening to browser [`hashchange` events](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event) or using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History).
+Якщо вам потрібна дуже проста маршрутизація і ви не хочете використовувати повноцінну бібліотеку, ви можете це зробити за допомогою [динамічних компонентів](/guide/essentials/component-basics.html#динамічні-компоненти) і оновлювати поточний стан компонента прослуховуючи [`подію hashchange`](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event) або використовуючи [API історії](https://developer.mozilla.org/en-US/docs/Web/API/History).
 
-Here's a bare-bone example:
+Ось простий приклад:
 
 <div class="composition-api">
 
@@ -43,14 +51,14 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
-  <a href="#/non-existent-path">Broken Link</a>
+  <a href="#/">Головна</a> |
+  <a href="#/about">Про нас</a> |
+  <a href="#/non-existent-path">Несправне посилання</a>
   <component :is="currentView" />
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgY29tcHV0ZWQgfSBmcm9tICd2dWUnXG5pbXBvcnQgSG9tZSBmcm9tICcuL0hvbWUudnVlJ1xuaW1wb3J0IEFib3V0IGZyb20gJy4vQWJvdXQudnVlJ1xuaW1wb3J0IE5vdEZvdW5kIGZyb20gJy4vTm90Rm91bmQudnVlJ1xuXG5jb25zdCByb3V0ZXMgPSB7XG4gICcvJzogSG9tZSxcbiAgJy9hYm91dCc6IEFib3V0XG59XG5cbmNvbnN0IGN1cnJlbnRQYXRoID0gcmVmKHdpbmRvdy5sb2NhdGlvbi5oYXNoKVxuXG53aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignaGFzaGNoYW5nZScsICgpID0+IHtcbiAgY3VycmVudFBhdGgudmFsdWUgPSB3aW5kb3cubG9jYXRpb24uaGFzaFxufSlcblxuY29uc3QgY3VycmVudFZpZXcgPSBjb21wdXRlZCgoKSA9PiB7XG4gIHJldHVybiByb3V0ZXNbY3VycmVudFBhdGgudmFsdWUuc2xpY2UoMSkgfHwgJy8nXSB8fCBOb3RGb3VuZFxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxhIGhyZWY9XCIjL1wiPkhvbWU8L2E+IHxcbiAgPGEgaHJlZj1cIiMvYWJvdXRcIj5BYm91dDwvYT4gfFxuICA8YSBocmVmPVwiIy9ub24tZXhpc3RlbnQtcGF0aFwiPkJyb2tlbiBMaW5rPC9hPlxuICA8Y29tcG9uZW50IDppcz1cImN1cnJlbnRWaWV3XCIgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkhvbWUudnVlIjoiPHRlbXBsYXRlPlxuICA8aDE+SG9tZTwvaDE+XG48L3RlbXBsYXRlPiIsIkFib3V0LnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGgxPkFib3V0PC9oMT5cbjwvdGVtcGxhdGU+IiwiTm90Rm91bmQudnVlIjoiPHRlbXBsYXRlPlxuICA8aDE+NDA0PC9oMT5cbjwvdGVtcGxhdGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U82K2zAQfpVBPTiBxOrCnkIS2ENLD6X01EvVg9aerL3EkpHkpJAEuk/QQ8+lrxAKC4Wy2Vdw3qgj2/Hmx/QQ4hl93zejb0YrdpPn4aJANmJjG5k0d2DRFflUqDTLtXGwAoOzAUQ6ywuHMWxgZnQGAZGCFvROZ9jkQ+4Dr/lyfHOrC9eeV9Ep4IN2b3Wh4hZzSDQwoSKtrANDTLQwgZVQAAEPRlXpQR1JL0ypqoBQmxdeVBiDyn2ULiEyXai3TFWsl+FcR9KlWoWJtEnfE5oDGcdvFkR5n1qHCk0v8IgokeoOgwH0+jCZ1l0caYcLOS+QKnSpU0NVgZOOPqW4JPzB3d6RrqE5GNVc+fNFldDO0wh7V31Yr70TX/z/wba61pjXI6VhUuAwy+fSIUUAYwkJ2TAR7BUXbFr+KHflX/r9Lp/K7ZjLKazPYZW7Hvtr/63cgQfuH7qhSqshfq2cc8OcWva0n+Xj/qF8JvK2KvMI5XO5o9QfqrylxNP+u5erxLwhWhEdRqklzSO7BANOoDFvL8QGrN6jYSbz8N5qRetceSiaAyvYqHbV52infCxY4lxuR5zbWeQX7d6G2txx+gpNoVxKa4w2G94avbRoSFiwatMaDU7JBZohNRajQfM/zTPoha6XpX3d0FUOz8c/ydOZJVcXg6LUuRXt8+oWOJ1eB//46XVKXL++7iBu/gFiF5uS)
 
 </div>
 
@@ -87,13 +95,13 @@ export default {
 </script>
 
 <template>
-  <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
-  <a href="#/non-existent-path">Broken Link</a>
+  <a href="#/">Головна</a> |
+  <a href="#/about">Про нас</a> |
+  <a href="#/non-existent-path">Несправне посилання</a>
   <component :is="currentView" />
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBIb21lIGZyb20gJy4vSG9tZS52dWUnXG5pbXBvcnQgQWJvdXQgZnJvbSAnLi9BYm91dC52dWUnXG5pbXBvcnQgTm90Rm91bmQgZnJvbSAnLi9Ob3RGb3VuZC52dWUnXG5cbmNvbnN0IHJvdXRlcyA9IHtcbiAgJy8nOiBIb21lLFxuICAnL2Fib3V0JzogQWJvdXRcbn1cblxuZXhwb3J0IGRlZmF1bHQge1xuICBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBjdXJyZW50UGF0aDogd2luZG93LmxvY2F0aW9uLmhhc2hcbiAgICB9XG4gIH0sXG4gIGNvbXB1dGVkOiB7XG4gICAgY3VycmVudFZpZXcoKSB7XG4gICAgICByZXR1cm4gcm91dGVzW3RoaXMuY3VycmVudFBhdGguc2xpY2UoMSkgfHwgJy8nXSB8fCBOb3RGb3VuZFxuICAgIH1cbiAgfSxcbiAgbW91bnRlZCgpIHtcbiAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignaGFzaGNoYW5nZScsICgpID0+IHtcblx0XHQgIHRoaXMuY3VycmVudFBhdGggPSB3aW5kb3cubG9jYXRpb24uaGFzaFxuXHRcdH0pXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxhIGhyZWY9XCIjL1wiPkhvbWU8L2E+IHxcbiAgPGEgaHJlZj1cIiMvYWJvdXRcIj5BYm91dDwvYT4gfFxuICA8YSBocmVmPVwiIy9ub24tZXhpc3RlbnQtcGF0aFwiPkJyb2tlbiBMaW5rPC9hPlxuICA8Y29tcG9uZW50IDppcz1cImN1cnJlbnRWaWV3XCIgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkhvbWUudnVlIjoiPHRlbXBsYXRlPlxuICA8aDE+SG9tZTwvaDE+XG48L3RlbXBsYXRlPiIsIkFib3V0LnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGgxPkFib3V0PC9oMT5cbjwvdGVtcGxhdGU+IiwiTm90Rm91bmQudnVlIjoiPHRlbXBsYXRlPlxuICA8aDE+NDA0PC9oMT5cbjwvdGVtcGxhdGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U81q20AQfpVhe5ANtraBnIRtyKGlh1J66qXbw0ZaRwrWrthd2YHY0DxBDz2XvoIpBAolzivIb9TZ1U/8I3LQz8x+830zOzP35KoowmUpSEQmJtZZYWdMZnmhtIUPKhcw1yqHIKTOcMCgO766VqXtzr11DPik7HtVyqTDtI4GxmSspLGgMVIYmMI9kwABDSIvPaot7ojR5QWY3Lg4cecFEjHn5cLWcQm3fDCs/wG0sKWWrQUQl1oLaT9zm0awymSiVuFCxdxmSoYpN2kNRHZ8eeVY5QXmlUQtSUPxJROrF51OqS7iq00zEx6IhWaRxWJwMYT12pX2zX3bezjTzNGLki/0TaY8Sd4tkfFjZqyQQg8Cl3KccnkjghEgfjpzIcwyC3CaA95sf8UOvhl6eX+xE9qNABpW5MWCW4EWwIRDqsV8ysgbysis+lntqn/4/Kmequ2E8hmsT2G+cQ77e/+92oED7h/6oVLJsbjzxdlxgSm7sF/V4/6hesbgrZd5hOq52qHrLypv0fG0/+HoPJnrlpIYDlFmkPOgWYwARdCEdgWREalHdJzzIrw1SuL4+xtnzYFhpOs7IziuzmYktbYwEaVmHrsZvjWh0jcU/0KNjctwQ4TJx9darYzQSMyIb2vDQdG5FHqMiSVCC/0a5wn0jLdtGpbSbqZb4eOepRdnjULX6VV0m9tPcNy9nvjDre6luHx72RO4+Q9GqaXv)
 
 </div>

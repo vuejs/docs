@@ -106,7 +106,7 @@ section {
   font-weight: 900;
   letter-spacing: -1.5px;
   max-width: 960px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 html:not(.dark) .accent,
@@ -201,7 +201,7 @@ html:not(.dark) .accent,
 
 #highlights {
   max-width: 960px;
-  margin: 0px auto;
+  margin: 0 auto;
   color: var(--vt-c-text-2);
 }
 
@@ -225,7 +225,7 @@ html:not(.dark) .accent,
 
 #sponsors {
   max-width: 900px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 #sponsors h2 {
@@ -279,9 +279,23 @@ html:not(.dark) .accent,
   }
 }
 
+@media (max-width: 380px) {
+  .actions {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
+
 @media (max-width: 370px) {
   .tagline {
     font-size: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .actions .get-started {
+    margin-right: 0;
+    margin-left: 18px;
   }
 }
 </style>

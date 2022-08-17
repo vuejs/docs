@@ -48,10 +48,11 @@ const nav = [
         ]
       },
       {
-        text: 'Основні бібліотеки',
+        text: 'Офіційні бібліотеки',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
-          { text: 'Pinia', link: 'https://pinia.vuejs.org/' }
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
+          { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
         ]
       },
       {
@@ -165,7 +166,7 @@ export const sidebar = {
           text: 'Обробка подій',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Прив’язка елементів форми', link: '/guide/essentials/forms' },
+        { text: 'Прив\'язування елементів форми', link: '/guide/essentials/forms' },
         {
           text: 'Хуки життєвого циклу',
           link: '/guide/essentials/lifecycle'
@@ -185,7 +186,7 @@ export const sidebar = {
           text: 'Реєстрація',
           link: '/guide/components/registration'
         },
-        { text: 'Властивості', link: '/guide/components/props' },
+        { text: 'Реквізити', link: '/guide/components/props' },
         { text: 'Події', link: '/guide/components/events' },
         {
           text: 'Атрибути Fallthrough',
@@ -552,7 +553,7 @@ export const sidebar = {
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
-  lang: 'en-US',
+  lang: 'uk-UA',
   title: 'Vue.js',
   description: 'Vue.js - Прогресивний фрейморк на JavaScript',
   srcDir: 'src',
@@ -560,7 +561,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   scrollOffset: 'header',
 
   head: [
-    ['meta', { name: 'theme-color', content: "#3c8772" }],
+    ['meta', { name: 'theme-color', content: '#3c8772' }],
     ['meta', { name: 'twitter:site', content: '@vuejs' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     [
