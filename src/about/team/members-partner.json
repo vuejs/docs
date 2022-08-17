@@ -264,11 +264,11 @@
     "projects": [
       {
         "label": "nuxt/*",
-        "url": "https://github/com/nuxt"
+        "url": "https://github.com/nuxt"
       },
       {
         "label": "nuxt-community/*",
-        "url": "https://github/com/nuxt-community"
+        "url": "https://github.com/nuxt-community"
       }
     ],
     "socials": {
