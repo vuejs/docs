@@ -302,7 +302,7 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   msg: 'hello',
-  labels: () => ['one', 'two']
+  labels: ['one', 'two']
 })
 ```
 
