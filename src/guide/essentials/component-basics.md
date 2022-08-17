@@ -1,4 +1,4 @@
-# Components Basics
+# Основи компонентів
 
 Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
 
@@ -497,7 +497,7 @@ As you'll see above, we use the `<slot>` as a placeholder where we want the cont
 
 That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](/guide/components/slots).
 
-## Dynamic Components
+## Динамічні компоненти
 
 Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
 
