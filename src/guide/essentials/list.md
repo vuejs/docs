@@ -1,21 +1,21 @@
-# List Rendering
+# Рендеринг списків
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Free Vue.js List Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Безкоштовний урок по рендерингу списків у Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Free Vue.js List Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Безкоштовний урок по рендерингу списків у Vue.js"/>
 </div>
 
 ## `v-for`
 
-We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
+Ми можемо використовувати директиву `v-for` для рендерингу списку елементів, основаних на масиві. Директив `v-for` вимагає спеціального синтаксису у формі `item in items`, де `items` — вихідний масив і `item` є **псевдонімом** ітерованого елемента масиву:
 
 <div class="composition-api">
 
 ```js
-const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
+const items = ref([{ message: 'Леся' }, { message: 'Тарас' }])
 ```
 
 </div>
@@ -25,7 +25,7 @@ const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 ```js
 data() {
   return {
-    items: [{ message: 'Foo' }, { message: 'Bar' }]
+    items: [{ message: 'Леся' }, { message: 'Тарас' }]
   }
 }
 ```
@@ -38,13 +38,13 @@ data() {
 </li>
 ```
 
-Inside the `v-for` scope, template expressions have access to all parent scope properties. In addition, `v-for` also supports an optional second alias for the index of the current item:
+Всередині області `v-for`, вирази шаблону мають доступ до всіх батьківських властивостей. Крім цього, `v-for` також підтримує необов'язковий другий псевдонім для індексу поточного елемента масиву:
 
 <div class="composition-api">
 
 ```js
-const parentMessage = ref('Parent')
-const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
+const parentMessage = ref('Батько')
+const items = ref([{ message: 'Леся' }, { message: 'Тарас' }])
 ```
 
 </div>
@@ -53,8 +53,8 @@ const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 ```js
 data() {
   return {
-    parentMessage: 'Parent',
-    items: [{ message: 'Foo' }, { message: 'Bar' }]
+    parentMessage: 'Батько',
+    items: [{ message: 'Леся' }, { message: 'Тарас' }]
   }
 }
 ```
@@ -68,8 +68,8 @@ data() {
 ```
 
 <script setup>
-const parentMessage = 'Parent'
-const items = [{ message: 'Foo' }, { message: 'Bar' }]
+const parentMessage = 'Батько'
+const items = [{ message: 'Леся' }, { message: 'Тарас' }]
 </script>
 <div class="demo">
   <li v-for="(item, index) in items">
@@ -79,44 +79,44 @@ const items = [{ message: 'Foo' }, { message: 'Bar' }]
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgcGFyZW50TWVzc2FnZSA9IHJlZignUGFyZW50JylcbmNvbnN0IGl0ZW1zID0gcmVmKFt7IG1lc3NhZ2U6ICdGb28nIH0sIHsgbWVzc2FnZTogJ0JhcicgfV0pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8bGkgdi1mb3I9XCIoaXRlbSwgaW5kZXgpIGluIGl0ZW1zXCI+XG4gIFx0e3sgcGFyZW50TWVzc2FnZSB9fSAtIHt7IGluZGV4IH19IC0ge3sgaXRlbS5tZXNzYWdlIH19XG5cdDwvbGk+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UEtOwzAQvcrIm7RSEu+jFIkDcALMIrST4qr+yHYLUhSJskZCrNlxAjZsWHCG5EaMkwBVkVhY9rx58974Nezc2ny/Q1aw0i+dtAE8hp09E1oqa1yABhzW0ELtjIKEqInQQi+N9gFs5VCHC/S+WiMsInOWdM/dW//QP3Yf3Wcy/6bKgMpPlMsG1DhTQNK9dO/9oX9KoE3J7KjxSjr3dA7UuiKhko8b0m5UkJ7dVgFjFcqthH1WG7cQbBatUpB6hXdzukZrwYgIIELTnKzdtpABocPAb0VD+bQMgYMJ30oSKfmPNUvZmFKmKptvvNGUYzP4TA3yLWBAIkbpxVqwmxCsLzj39TKmv/G5cWtOr9ztdJAKc/Qqu3bm1qMjYcHSIw1O4B5dRr9YoUP3n+YJ9Y9ulKXftaz9AgXXwOk=)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgXHRyZXR1cm4ge1xuXHQgICAgcGFyZW50TWVzc2FnZTogJ1BhcmVudCcsXG4gICAgXHRpdGVtczogW3sgbWVzc2FnZTogJ0ZvbycgfSwgeyBtZXNzYWdlOiAnQmFyJyB9XVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGxpIHYtZm9yPVwiKGl0ZW0sIGluZGV4KSBpbiBpdGVtc1wiPlxuICBcdHt7IHBhcmVudE1lc3NhZ2UgfX0gLSB7eyBpbmRleCB9fSAtIHt7IGl0ZW0ubWVzc2FnZSB9fVxuXHQ8L2xpPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UUtOwzAQvcrIm7ZSPvsoIHEAToBZmGZaXCWOZTulUhSJskZCrNlxAjZsWHCG5EbMNKVVQWqUxH7zeW/83Iora5N1gyITuZ87bcOlNLixtQtQ4EI1ZYBWGoBCBTWdjXsZHIbGGUYyAD1WOTThGr1XS8xg0r/2H8PT8Nx/9d+TiHu4SwesfAY3LVTHyrf+c9gOLxPoIjhJvBPFI31bSt2Osh3r0Y/ePD2MS4CIbakCMgp5qWEdL2p3IcWUNSPQpsDNjBbYzSAFFTJh256ODl0HMVB013BE1JTsR6PgTiQtNZHk6UFaREJXbFxcKZusfG3I1NGvfYJ0s9FBjpHrjKW4D8H6LE39Ys5XsfJJ7ZYp7RLXmKArTNBX8Z2rHzw6Ipbi11HmSCm4RhfTKQp06M5x/in9x8u0bK/ofgDvWcSE)
 
 </div>
 
-The variable scoping of `v-for` is similar to the following JavaScript:
+Область видимості `v-for` схожа до наступного JavaScript:
 
 ```js
-const parentMessage = 'Parent'
+const parentMessage = 'Батько'
 const items = [
   /* ... */
 ]
 
 items.forEach((item, index) => {
-  // has access to outer scope `parentMessage`
-  // but `item` and `index` are only available in here
+  // має доступ до зовнішнього `parentMessage`
+  // але `item` та `index` доступні лише тут
   console.log(parentMessage, item.message, index)
 })
 ```
 
-Notice how the `v-for` value matches the function signature of the `forEach` callback. In fact, you can use destructuring on the `v-for` item alias similar to destructuring function arguments:
+Зверніть увагу на те, як значення для `v-for` співпадає з сигнатурою колбек-функції для `forEach`. Насправді ви можете використовувати деструктуризацію псевдоніму елементу в `v-for`, аналогічно до деструктуризації аргументів функції:
 
 ```vue-html
 <li v-for="{ message } in items">
   {{ message }}
 </li>
 
-<!-- with index alias -->
+<!-- з індексним псевдонімом  -->
 <li v-for="({ message }, index) in items">
   {{ message }} {{ index }}
 </li>
 ```
 
-For nested `v-for`, scoping also works similar to nested functions. Each `v-for` scope has access to parent scopes:
+Для вкладених `v-for`, область видимості працює подібно до вкладених функцій. Кожна область `v-for` має доступ до батьківських областей видимості:
 
 ```vue-html
 <li v-for="item in items">
@@ -126,23 +126,23 @@ For nested `v-for`, scoping also works similar to nested functions. Each `v-for`
 </li>
 ```
 
-You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
+Ви також можете використовувати `of` як роздільник замість `in`, наближено до синтаксису ітераторів JavaScript:
 
 ```vue-html
 <div v-for="item of items"></div>
 ```
 
-## `v-for` with an Object
+## `v-for` з об'єктами
 
-You can also use `v-for` to iterate through the properties of an object. The iteration order will be based on the result of calling `Object.keys()` on the object:
+Ви також можете використовувати `v-for` для ітерування властивостей об'єкту. Порядок ітерації оснований на результаті виклику `Object.keys()` на об'єкті:
 
 <div class="composition-api">
 
 ```js
 const myObject = reactive({
-  title: 'How to do lists in Vue',
-  author: 'Jane Doe',
-  publishedAt: '2016-04-10'
+  title: 'Як створювати списки на Vue',
+  author: 'Іван Іваненко',
+  publishedAt: '2022-08-06'
 })
 ```
 
@@ -153,9 +153,9 @@ const myObject = reactive({
 data() {
   return {
     myObject: {
-      title: 'How to do lists in Vue',
-      author: 'Jane Doe',
-      publishedAt: '2016-04-10'
+      title: 'Як створювати списки на Vue',
+      author: 'Іван Іваненко',
+      publishedAt: '2022-08-06'
     }
   }
 }
@@ -171,7 +171,7 @@ data() {
 </ul>
 ```
 
-You can also provide a second alias for the property's name (a.k.a. key):
+Ви також можете використовувати другий псевдонімо для назви властивості (що також називають ключем):
 
 ```vue-html
 <li v-for="(value, key) in myObject">
@@ -179,7 +179,7 @@ You can also provide a second alias for the property's name (a.k.a. key):
 </li>
 ```
 
-And another for the index:
+І ще один для індексу:
 
 ```vue-html
 <li v-for="(value, key, index) in myObject">
@@ -189,28 +189,28 @@ And another for the index:
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBteU9iamVjdCA9IHJlYWN0aXZlKHtcbiAgdGl0bGU6ICdIb3cgdG8gZG8gbGlzdHMgaW4gVnVlJyxcbiAgYXV0aG9yOiAnSmFuZSBEb2UnLFxuICBwdWJsaXNoZWRBdDogJzIwMTYtMDQtMTAnXG59KVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PHVsPlxuICAgIDxsaSB2LWZvcj1cIih2YWx1ZSwga2V5LCBpbmRleCkgaW4gbXlPYmplY3RcIj5cblx0XHQgIHt7IGluZGV4IH19LiB7eyBrZXkgfX06IHt7IHZhbHVlIH19XG5cdFx0PC9saT5cbiAgPC91bD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UcFKw0AQ/ZVhL1VoktKDSImCX+DN017SOLVbk82yO4lKCKgHj/6KIghSsP7C9o+cTWoPCgayM2/3zdt5s604MyZuahQzkbrcKkPgkGpzKrUqTWUJWrCY5aQahA4WtiphxPyR1FLnlXYE5d35fIU5wcmeedBKDUCKCpzByL/4NWwfto/+zW+299tnjq+MPnjTf/kPXtcM/Kd/hQuWHofirKZlZUP1U6D7T/hJ/Dv/a78ZeKaeF8ot8fKMmDydTKfR5DiaHHGD3aHUaTK4Yj8MCEtTZIQBUVoXHIG/tFDQRIvKnkhx0GRFjWO4xrsxKH2Jt4cc9ial6GslAbTtcA5dFwfAFZzOQtprMBioaVKo/qY06a9Mk30fYiyGMUdlZuKVqzQ/RD88uTtwUrDk0KcUPPmApVgSGTdLErfIw/OtXFzZq4Sz2NaaVIkxujKa2+rGoWVhKfpp7TQS3mzQRhbZgEX7n+Yv6h/dIMtGO9F9A4sl4dQ=)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgXHRyZXR1cm4ge1xuXHQgICAgbXlPYmplY3Q6IHtcbiAgXHQgICAgdGl0bGU6ICdIb3cgdG8gZG8gbGlzdHMgaW4gVnVlJyxcblx0ICAgICAgYXV0aG9yOiAnSmFuZSBEb2UnLFxuICAgICAgXHRwdWJsaXNoZWRBdDogJzIwMTYtMDQtMTAnXG4gICAgXHR9XG4gIFx0fVxuXHR9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8dWw+XG4gICAgPGxpIHYtZm9yPVwiKHZhbHVlLCBrZXksIGluZGV4KSBpbiBteU9iamVjdFwiPlxuXHRcdCAge3sgaW5kZXggfX0uIHt7IGtleSB9fToge3sgdmFsdWUgfX1cblx0XHQ8L2xpPlxuICA8L3VsPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UUtqwzAQvYrQJgn4E7IoxbiFnKC7rrRx4knj1D+kkZtgDG0XXfYqDYVCCCS9gnyjjuwkixZqLM280czT6E3Np2XpVRp4wEM1l0mJtyKHdVlIZDEsIp0iq0XOWBxhNBz1vkAJqGVukUBGX7a5m61gjsE5wQYxwRQCNjAfZs/al/bVfJpj+9y+k90S2lHQfJsd7XsC5mC27F7DwDmzMhZpXBbScrzZInNgZ8d80dqbo83ucwWWepYmagnxlBoZTMaTiTu+dsdXgz5FYNM3R6bb6A/9y6sJIGRlGiFYhKFOydrCME1Y5S4KeSP4sIpSDQ57hI3DkjyG9YjMRQDBu1rbf13356xpPAuoglxSqGYdB4E+NfTTpLsp9LsrQ//SB3d4ktlhuFlUeitV5DSoXuLTgRL8JLqN0SQtFnyJWKrA99Vibse7Ul4hH3zyPKlzTDLwQGXuTBZPCiQRC37SsePwKViBdCXQAyTI/zh/pf7htbRWa978AJm46P8=)
 
 </div>
 
-## `v-for` with a Range
+## `v-for` з діапазонами
 
-`v-for` can also take an integer. In this case it will repeat the template that many times, based on a range of `1...n`.
+Директива `v-for` також може приймати число. У такому випадку вона буде повторювати шаблон відповідно до діапазону `1...n` кількість разів.
 
 ```vue-html
 <span v-for="n in 10">{{ n }}</span>
 ```
 
-Note here `n` starts with an initial value of `1` instead of `0`.
+Зауважте, що `n` починається з `1`, а не з `0`.
 
-## `v-for` on `<template>`
+## `v-for` в `<template>`
 
-Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
+Схоже до `v-if`, ви можете також використовувати елемент `<template>` з `v-for` для рендерингу блоку з множинними елементами. Для прикладу:
 
 ```vue-html
 <ul>
@@ -223,23 +223,23 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 
 ## `v-for` з `v-if`
 
-:::warning Note
-It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential.html#avoid-v-if-with-v-for) for details.
+:::warning Примітка
+**Не** рекомендується використовувати `v-if` та `v-for` на тому ж самому елементі у зв'язку з їх неявними пріоритетами. Зверніться до [гіда по стилях](/style-guide/rules-essential.html#уникайте-v-if-з-v-for) для деталей.
 :::
 
-When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
+Якщо вони співіснують на одному й тому ж вузлі, `v-if` має вищий пріоритет, аніж `v-for`. Це означає, що умова `v-if` не матиме доступу до змінних з області видимості `v-for`: 
 
 ```vue-html
 <!--
-This will throw an error because property "todo"
-is not defined on instance.
+Це видасть помилку, оскільки властивість "todo"
+не існує в екземплярі компонента.
 -->
 <li v-for="todo in todos" v-if="!todo.isComplete">
   {{ todo.name }}
 </li>
 ```
 
-This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is also more explicit):
+Це можна виправити, перемістивши `v-for` в обгортаючий тег `<template>` (що також є більш очевидним):
 
 ```vue-html
 <template v-for="todo in todos">
@@ -249,21 +249,21 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is als
 </template>
 ```
 
-## Maintaining State with `key`
+## Підтримка Стану за допомогою `key`
 
-When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index.
+Коли Vue оновлює список елементів при рендері за допомогою `v-for`, за замовчуванням використовується стратегія "заміна на місці". Якщо порядок елементів змінився, замість того, щоб переставляти елементи DOM відповідно до нового порядку елементів, Vue замінить кожен елемент на місці, переконавшись, що показується те, що має бути показано за тим чи іншим конкретним індексом.
 
-This default mode is efficient, but **only suitable when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)**.
+Цей режим по замовчуванню є дієвим, але **він лише підходить для ситуацій, коли вихідний результат рендеру списку не залежить від стану дочірнього компонента чи тимчасового стану DOM (як-от значення елементів форми)**. 
 
-To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item:
+Щоб підказати Vue, щоб він міг відстежувати ідентичність кожного вузла і таким чином повторно використовувати та змінювати порядок наявних елементів, вам потрібно надати унікальний `key` атрибут для кожного елементу списку:   
 
 ```vue-html
 <div v-for="item in items" :key="item.id">
-  <!-- content -->
+  <!-- вміст -->
 </div>
 ```
 
-When using `<template v-for>`, the `key` should be placed on the `<template>` container:
+Якщо використовується `<template v-for>`, тоді `key` слід розмістити в контейнері `<template>`:
 
 ```vue-html
 <template v-for="todo in todos" :key="todo.name">
@@ -271,25 +271,25 @@ When using `<template v-for>`, the `key` should be placed on the `<template>` co
 </template>
 ```
 
-:::tip Note
-`key` here is a special attribute being bound with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
+:::tip Примітка
+Атрибут `key` тут є спеціальним атрибутом, пов'язаним з `v-bind`. Його не слід плутати зі змінним ключем властивості при [використанні `v-for` з об'єктами](#v-for-з-об'єктами).
 :::
 
-[It is recommended](/style-guide/rules-essential.html#use-keyed-v-for) to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple (i.e. contains no components or stateful DOM elements), or you are intentionally relying on the default behavior for performance gains.
+[Рекомендовано](/style-guide/rules-essential.html#use-keyed-v-for) вказувати атрибут `key` разом з `v-for` коли це можливо, якщо ітерований вміст DOM не простий (тобто не містить компонентів або елементів DOM зі збереженням стану), або ви навмисно покладаєтеся на поведінку за замовчуванням для підвищення продуктивності.
 
-The `key` binding expects primitive values - i.e. strings and numbers. Do not use objects as `v-for` keys. For detailed usage of the `key` attribute, please see the [`key` API documentation](/api/built-in-special-attributes.html#key).
+Прив'язування атрибута `key` передбачає примітивні значення, наприклад, рядкові або числові величини. Не використовуйте об'єкти у якості ключів для `v-for`. Докладніше про використання атрибута `key` дивіться [АРІ документацію для `key`](/api/built-in-special-attributes.html#key).
 
-## `v-for` with a Component
+## `v-for` з компонентом
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> Цей розділ передбачає знання [компонентів](/guide/essentials/component-basics). Ви можете його пропустити та повернутися пізніше.
 
-You can directly use `v-for` on a component, like any normal element (don't forget to provide a `key`):
+Ви можете безпосередньо використовувати `v-for` для компонента, як і будь-який звичайний елемент (не забудьте вказати `key`):
 
 ```vue-html
 <MyComponent v-for="item in items" :key="item.id" />
 ```
 
-However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
+Однак це не призведе до автоматичної передачі даних компоненту, оскільки компоненти мають власні ізольовані області. Щоб передати ітеровані дані в компонент, ми також повинні використовувати властивості:
 
 ```vue-html
 <MyComponent
@@ -300,24 +300,24 @@ However, this won't automatically pass any data to the component, because compon
 />
 ```
 
-The reason for not automatically injecting `item` into the component is because that makes the component tightly coupled to how `v-for` works. Being explicit about where its data comes from makes the component reusable in other situations.
+Причина автоматичного введення `item` у компонент полягає в тому, що це робить компонент тісно пов'язаним із тим, як працює `v-for`. Якщо чітко вказати, звідки надходять дані, цей компонент можна повторно використовувати в інших ситуаціях.
 
 <div class="composition-api">
 
-Check out [this example of a simple todo list](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBUb2RvSXRlbSBmcm9tICcuL1RvZG9JdGVtLnZ1ZSdcbiAgXG5jb25zdCBuZXdUb2RvVGV4dCA9IHJlZignJylcbmNvbnN0IHRvZG9zID0gcmVmKFtcbiAge1xuICAgIGlkOiAxLFxuICAgIHRpdGxlOiAnRG8gdGhlIGRpc2hlcydcbiAgfSxcbiAge1xuICAgIGlkOiAyLFxuICAgIHRpdGxlOiAnVGFrZSBvdXQgdGhlIHRyYXNoJ1xuICB9LFxuICB7XG4gICAgaWQ6IDMsXG4gICAgdGl0bGU6ICdNb3cgdGhlIGxhd24nXG4gIH1cbl0pXG5cbmxldCBuZXh0VG9kb0lkID0gNFxuXG5mdW5jdGlvbiBhZGROZXdUb2RvKCkge1xuICB0b2Rvcy52YWx1ZS5wdXNoKHtcbiAgICBpZDogbmV4dFRvZG9JZCsrLFxuICAgIHRpdGxlOiBuZXdUb2RvVGV4dC52YWx1ZVxuICB9KVxuICBuZXdUb2RvVGV4dC52YWx1ZSA9ICcnXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8Zm9ybSB2LW9uOnN1Ym1pdC5wcmV2ZW50PVwiYWRkTmV3VG9kb1wiPlxuICAgIDxsYWJlbCBmb3I9XCJuZXctdG9kb1wiPkFkZCBhIHRvZG88L2xhYmVsPlxuICAgIDxpbnB1dFxuICAgICAgdi1tb2RlbD1cIm5ld1RvZG9UZXh0XCJcbiAgICAgIGlkPVwibmV3LXRvZG9cIlxuICAgICAgcGxhY2Vob2xkZXI9XCJFLmcuIEZlZWQgdGhlIGNhdFwiXG4gICAgLz5cbiAgICA8YnV0dG9uPkFkZDwvYnV0dG9uPlxuICA8L2Zvcm0+XG4gIDx1bD5cbiAgICA8dG9kby1pdGVtXG4gICAgICB2LWZvcj1cIih0b2RvLCBpbmRleCkgaW4gdG9kb3NcIlxuICAgICAgOmtleT1cInRvZG8uaWRcIlxuICAgICAgOnRpdGxlPVwidG9kby50aXRsZVwiXG4gICAgICBAcmVtb3ZlPVwidG9kb3Muc3BsaWNlKGluZGV4LCAxKVwiXG4gICAgPjwvdG9kby1pdGVtPlxuICA8L3VsPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiVG9kb0l0ZW0udnVlIjoiPHNjcmlwdCBzZXR1cD5cbmRlZmluZVByb3BzKFsndGl0bGUnXSlcbmRlZmluZUVtaXRzKFsncmVtb3ZlJ10pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8bGk+XG4gICAge3sgdGl0bGUgfX1cbiAgICA8YnV0dG9uIEBjbGljaz1cIiRlbWl0KCdyZW1vdmUnKVwiPlJlbW92ZTwvYnV0dG9uPlxuICA8L2xpPlxuPC90ZW1wbGF0ZT4ifQ==) to see how to render a list of components using `v-for`, passing different data to each instance.
+Перегляньте [цей приклад простого списку завдань](https://sfc.vuejs.org/#eNp9VE1P2zAY/itWNCmtaBPYxyUExA6Ttsu0AzeyQ9u41JDYke2UoqoSGpfdkKZpt21/oQIkUPnYX3D+0V7bMQ3Q7ZLY7/P68fN+eeq9LYpgXGIv8mIx4KSQSGBZFtsJJXnBuERTxPEQzdCQsxz54Oo/QLssZR8kzmssCJ1BM4IbQgkdMCokovhIY7t4ItGWJmz5ftuBEhBRm/f0qan+IETSCG107FoSmeEI+eqXuqzO1IW6q06rL+oaVV/VXP1Ri+rUXDgz/g2Cl08Jfqt7dauu7eGT6lQtYKGukDaqGw2uJnq1iuhSXalz+N/VhEAyV7fVD0uR0M8QZEIzrDMwkSY9KUT6WluHJR1IwijqpelHm59W295oMhKMe1mJg6IUo1ZDx5Jobe2xpEaS7VkjAhSg5xCI8EEkSIxDW3eoOGygeEXWk1jvZDxkPEfjLqORKPs5kUHB8RhTuZV4S9GJB85aRpz1+jhDcAhwuLGrwwBUfTeZmtsMXUGGzvUWknZXncWhOeUoCC1KadcIbs5ZijPL5vQnnoNJ+ugeZxbyOMOAHJFUjqAB1teLySbKe3yf0Ai9KSZLVwh1gEcsS7GWrH7qVqpOoA8W0AlzdRmh9/C70PKhUc5dCAt1D4u54wmd+H4pJaOP4o3D2qhd4lAn1C7Lh5C1+i6BxC/DtilsaaSDCE3xpA0/2xZL9dEhPgY3bQ1I2rCbfnCI2SzBHY5zNnaoCESRkQFumUs6aKPtPLfj8EFYLd5IBrNrEa/j2Yegm/eK4EAwCq+I6dSkBkBs5GYo8eBR0PvEG0lZiCgMxXCgX4oDETC+H8Iq4CWVJMcBFnm3z9mRwByIE69udMMRgnGMeZdj0Mwx/x/nE9dnvPWYziCU5tu14jVM8ZBQ/ImzQrT2fJNUX0+3tb+D4dB2m1wD/HOu9KCQuvjTqR1eNAMVjR5COwMoyyFU6QUG6pYjhvJsq2/QoHp+buyj86TFDHejSuZ6MxPGISOuII2J2KzzAJqNozf7C+BpTUw=), щоб побачити, як показувати список компонентів за допомогою `v-for`, передаючи різні дані до кожного екземпляру.
 
 </div>
 <div class="options-api">
 
-Check out [this example of a simple todo list](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBUb2RvSXRlbSBmcm9tICcuL1RvZG9JdGVtLnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgVG9kb0l0ZW0gfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbmV3VG9kb1RleHQ6ICcnLFxuICAgICAgdG9kb3M6IFtcbiAgICAgICAge1xuICAgICAgICAgIGlkOiAxLFxuICAgICAgICAgIHRpdGxlOiAnRG8gdGhlIGRpc2hlcydcbiAgICAgICAgfSxcbiAgICAgICAge1xuICAgICAgICAgIGlkOiAyLFxuICAgICAgICAgIHRpdGxlOiAnVGFrZSBvdXQgdGhlIHRyYXNoJ1xuICAgICAgICB9LFxuICAgICAgICB7XG4gICAgICAgICAgaWQ6IDMsXG4gICAgICAgICAgdGl0bGU6ICdNb3cgdGhlIGxhd24nXG4gICAgICAgIH1cbiAgICAgIF0sXG4gICAgICBuZXh0VG9kb0lkOiA0XG4gICAgfVxuICB9LFxuICBtZXRob2RzOiB7XG4gICAgYWRkTmV3VG9kbygpIHtcbiAgICAgIHRoaXMudG9kb3MucHVzaCh7XG4gICAgICAgIGlkOiB0aGlzLm5leHRUb2RvSWQrKyxcbiAgICAgICAgdGl0bGU6IHRoaXMubmV3VG9kb1RleHRcbiAgICAgIH0pXG4gICAgICB0aGlzLm5ld1RvZG9UZXh0ID0gJydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxmb3JtIHYtb246c3VibWl0LnByZXZlbnQ9XCJhZGROZXdUb2RvXCI+XG4gICAgPGxhYmVsIGZvcj1cIm5ldy10b2RvXCI+QWRkIGEgdG9kbzwvbGFiZWw+XG4gICAgPGlucHV0XG4gICAgICB2LW1vZGVsPVwibmV3VG9kb1RleHRcIlxuICAgICAgaWQ9XCJuZXctdG9kb1wiXG4gICAgICBwbGFjZWhvbGRlcj1cIkUuZy4gRmVlZCB0aGUgY2F0XCJcbiAgICAvPlxuICAgIDxidXR0b24+QWRkPC9idXR0b24+XG4gIDwvZm9ybT5cbiAgPHVsPlxuICAgIDx0b2RvLWl0ZW1cbiAgICAgIHYtZm9yPVwiKHRvZG8sIGluZGV4KSBpbiB0b2Rvc1wiXG4gICAgICA6a2V5PVwidG9kby5pZFwiXG4gICAgICA6dGl0bGU9XCJ0b2RvLnRpdGxlXCJcbiAgICAgIEByZW1vdmU9XCJ0b2Rvcy5zcGxpY2UoaW5kZXgsIDEpXCJcbiAgICA+PC90b2RvLWl0ZW0+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJUb2RvSXRlbS52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuXHRwcm9wczogWyd0aXRsZSddLFxuICBlbWl0czogWydyZW1vdmUnXVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGxpPlxuICAgIHt7IHRpdGxlIH19XG4gICAgPGJ1dHRvbiBAY2xpY2s9XCIkZW1pdCgncmVtb3ZlJylcIj5SZW1vdmU8L2J1dHRvbj5cbiAgPC9saT5cbjwvdGVtcGxhdGU+In0=) to see how to render a list of components using `v-for`, passing different data to each instance.
+Перегляньте [цей приклад простого списку завдань](https://sfc.vuejs.org/#eNqNVM1O20AQfpWVVSlBTWzoz8UYRG/tpSdumIMTb8iCvWut1yEoioTKpTekquqt7StEgAQKP32F9Rt1dtdrO1BQo0jenZn95pvfmfMhy9xJgR3fCfIhJ5nYDilJM8YF2mUx+yRwikacpajjelagHnRCilBI8VSbxngUFYlAMyUdMnhPMRW5j2YNyrynlHEkou6aMUSIY1Fwam8IUXys7HfxVPio09Ev1E+AEND27B01T9SPxD7aqI31AyISDBDyl7wqz+WlvC/Pyi/yBpVf5UL+kcvyTEdgfobaM8Bv/g38Wz7IO3ljQE/LM7mEg7xGSihvlfJ/Hbx93sGVvJYX8L2vHAH4Qt6VP9rQ9rhfw0BVhE47gL8zQm1lWKRYjFmsamNUURx/Nmlv6gI0xiR3ddrdrMjH3RZrxVmrGz+vX7diqCKoTOqCWoP52oqPlgXagpq3+YYU/oFXNyZcoJOyJBJY3UQwYjxFkz6jfl4MUiLcjOMJdN5W6DRhhQ4YK9AgiQY4QfAI9OC3r+IDrfyuU70wKb6GFF+oK2T9vjwPPP3KQhCaFXUok37KYpwYtDpOx6pJvOLHinNxkmDQHJNYjKG/1tez6SZKI35AqI/eZ9PGFEId4jFLYqwoy5+qd8tTaLAltNhCXvnoI3wuFX3owAsbwlI+wGFhcTxLflAIwehKvIFXCZVJ4KmEmmNRh6zY9wkkvgnbpLCrND1EaIyna/AxY9qw94/wCZgpqUvillx3iNXoS6Pc4ThlE6vN3TxLyBB3tZMe2lizltuBVxOryGvKILYt4vQcs8r6aZS5hzmjsOZ0I4eVAsjWcxA6sNbUPXTGQmS573n5aKh23WHuMn7gwcnlBRUkxS7O0/6As+MccwAOnar9NYYHwgnmfY6BM8f8JcxHpk9w7RhAKO3tu7Kun+7gUGScgTe019HZ7ZjdgGFCtNCkuLP/8nypgSFVE8xmZqzRvNo3VS+hnSGU5wiq9Uqhdy00lGlbfoNGVXN0a7bXo1bT2K1qafd6NrRBQmxhWpOxWeUDOGtDZ/4X0U9qlQ==), щоб побачити, як показувати список компонентів за допомогою `v-for`, передаючи різні дані до кожного екземпляру.
 
 </div>
 
-## Array Change Detection
+## Виявлення зміни масиву
 
-### Mutation Methods
+### Методи мутації
 
-Vue is able to detect when a reactive array's mutation methods are called and trigger necessary updates. These mutation methods are:
+Vue здатний виявляти, коли викликаються методи мутації реактивного масиву, і запускати необхідні оновлення. Цими методами мутації є:
 
 - `push()`
 - `pop()`
@@ -327,14 +327,14 @@ Vue is able to detect when a reactive array's mutation methods are called and tr
 - `sort()`
 - `reverse()`
 
-### Replacing an Array
+### Заміна масиву
 
-Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, we should replace the old array with the new one:
+Методи мутації, як випливає з назви, змінюють вихідний масив, який вони викликають. Для порівняння існують також не мутуючі методи, як-от, `filter()`, `concat()` і `slice()`, які не змінюють вихідний масив, але **завжди повертають новий масив**. При роботі з не мутуючими методами ми повинні замінити старий масив на новий:
 
 <div class="composition-api">
 
 ```js
-// `items` is a ref with array value
+// `items` є референцією на значення масиву
 items.value = items.value.filter((item) => item.message.match(/Foo/))
 ```
 
@@ -347,13 +347,13 @@ this.items = this.items.filter((item) => item.message.match(/Foo/))
 
 </div>
 
-You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
+Ви можете подумати, що це змусить Vue викинути наявний DOM і повторно відрендерити весь список - на щастя, це не так. Vue реалізує деякі розумні евристики для максимального повторного використання елементів DOM, тому заміна масиву іншим масивом, який містить об'єкти, що збігаються, є дуже ефективною операцією.
 
-## Displaying Filtered/Sorted Results
+## Показ відфільтрованих/відсортованих результатів
 
-Sometimes we want to display a filtered or sorted version of an array without actually mutating or resetting the original data. In this case, you can create a computed property that returns the filtered or sorted array.
+Іноді ми хочемо відобразити відфільтровану або відсортовану версію масиву без фактичної зміни або скидання вихідних даних. У цьому випадку ви можете створити обчислювану властивість, яка повертає відфільтрований або відсортований масив.
 
-For example:
+Для прикладу:
 
 <div class="composition-api">
 
@@ -387,7 +387,7 @@ computed: {
 <li v-for="n in evenNumbers">{{ n }}</li>
 ```
 
-In situations where computed properties are not feasible (e.g. inside nested `v-for` loops), you can use a method:
+У ситуаціях, коли обчислювані властивості не підходять (наприклад, усередині вкладених циклів `v-for`), ви можете використати метод:
 
 <div class="composition-api">
 
@@ -426,7 +426,7 @@ methods: {
 </ul>
 ```
 
-Be careful with `reverse()` and `sort()` in a computed property! These two methods will mutate the original array, which should be avoided in computed getters. Create a copy of the original array before calling these methods:
+Будьте обережні з `reverse()` і `sort()` в обчислюваній властивості! Ці два методи видозмінять вихідний масив, чого слід уникати в обчислюваних гетерах. Створіть копію оригінального масиву перед викликом цих методів:
 
 ```diff
 - return numbers.reverse()
