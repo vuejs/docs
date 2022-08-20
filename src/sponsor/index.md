@@ -3,7 +3,6 @@ sidebar: false
 ads: false
 editLink: false
 sponsors: false
-vuejobs: false
 ---
 
 <script setup>
