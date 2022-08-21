@@ -24,7 +24,7 @@ onMounted(async () => {
           <div class="vj-company-logo">
             <img :src="job.organization.avatar" alt="" />
           </div>
-          <div style="overflow: hidden">
+          <div style="overflow: hidden;display: flex; flex-direction: column; justify-content: center;">
             <div class="vj-job-title">{{ job.title }}</div>
             <div class="vj-job-info">
               {{ job.organization.name }} <span>· </span>
@@ -37,8 +37,8 @@ onMounted(async () => {
     </div>
     <div style="font-size: 12px; margin-top: 5px; text-align: right">
       Jobs by <a
-        href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link" target="_blank"
-        title="Hire Vue.js developers">vuejobs.com</a>
+        href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
+        target="_blank" title="Hire Vue.js developers">vuejobs.com</a>
     </div>
   </div>
 </template>
@@ -69,7 +69,7 @@ onMounted(async () => {
 
 .vj-item {
   background-color: var(--vt-c-bg-soft);
-  padding: 10px;
+  padding: 15px;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -91,27 +91,28 @@ onMounted(async () => {
 }
 
 .vj-job-title {
+  font-size: 13px;
+  font-weight: bold;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
 .vj-job-info {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--vt-c-text-2);
   margin-top: 1px;
-  line-height: 12px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
 .vj-company-logo {
-  width: 35px;
-  height: 35px;
-  border-radius: 8px;
+  width: 46px;
+  height: 46px;
+  border-radius: 3px;
   overflow: hidden;
-  margin-right: 10px;
+  margin-right: 12px;
   flex-shrink: 0;
 }
 
