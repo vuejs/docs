@@ -17,7 +17,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="vuejobs-wrapper" v-if="openings.length" ref="vuejobs">
+  <div class="vuejobs-wrapper" ref="vuejobs">
     <div class="vj-container">
       <div class="vj-item" v-for="(job, n) in openings" :key="n" style="min-height: 55px;">
         <a class="vj-job-link" :href="job.link" target="_blank">
