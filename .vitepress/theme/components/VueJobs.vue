@@ -36,7 +36,7 @@ onMounted(async () => {
       </div>
     </div>
     <div style="font-size: 12px; margin-top: 5px; text-align: right">
-      Job opportunities by <a
+      Jobs by <a
         href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link" target="_blank"
         title="Hire Vue.js developers">vuejobs.com</a>
     </div>
