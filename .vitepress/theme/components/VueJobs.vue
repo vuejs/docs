@@ -51,6 +51,7 @@ onMounted(async () => {
 .vj-container {
   display: grid;
   gap: 15px;
+  height: 76px;
 }
 
 .vj-item:nth-child(2) {
