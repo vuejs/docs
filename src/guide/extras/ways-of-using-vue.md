@@ -14,7 +14,7 @@ You can use Vue to [build standard Web Components](/guide/extras/web-components)
 
 ## Single-Page Application (SPA)
 
-Some applications require rich interactivity and non-trivial stateful logic on the frontend. The best way to build such applications is to use an architecture where Vue not only controls the entire page, but also handles data updates and navigation without having to reload the page. This type of application is typically referred to as a Single-Page Application (SPA).
+Some applications require rich interactivity, deep session depth, and non-trivial stateful logic on the frontend. The best way to build such applications is to use an architecture where Vue not only controls the entire page, but also handles data updates and navigation without having to reload the page. This type of application is typically referred to as a Single-Page Application (SPA).
 
 Vue provides core libraries and [comprehensive tooling support](/guide/scaling-up/tooling) with amazing developer experience for building modern SPAs, including:
 
@@ -39,7 +39,15 @@ There are higher-level Vue-based frameworks built on top of this paradigm, such 
 
 Server-side rendering can be done ahead of time if the required data is static. This means we can pre-render an entire application into HTML and serve them as static files. This improves site performance and makes deployment a lot simpler since we no longer need to dynamically render pages on each request. Vue can still hydrate such applications to provide rich interactivity on the client. This technique is commonly referred to as Static-Site Generation (SSG), also known as [JAMStack](https://jamstack.org/what-is-jamstack/).
 
-The Vue team maintains a static-site generator called [VitePress](https://vitepress.vuejs.org/), which powers this website you are reading right now! In addition, [Nuxt](https://v3.nuxtjs.org/) also supports SSG. You can even mix SSR and SSG for different routes in the same Nuxt app.
+There are two flavors of SSG: single-page and multi-page. Both favors pre-render the site into static HTML, the difference is that:
+
+- After the initial page load, a single-page SSG "hydrates" the page into an SPA. This requires more upfront JS payload and hydration cost, but subsequent navigations will be faster, since it only needs to partially update the page content instead of reloading the entire page.
+
+- A multi-page SSG loads a new page on every navigation. The upside is that it can ship minimal JS - or no JS at all if the page requires no interaction! Some multi-page SSG frameworks such as [Astro](https://astro.build/) also support "partial hydration" - which allows you to use Vue components to create interactive "islands" inside static HTML.
+
+Single-page SSGs are better suited if you expect non-trivial interactivity, deep session lengths, or persisted elements / state across navigations. Otherwise, multi-page SSG would be the better choice.
+
+The Vue team also maintains a static-site generator called [VitePress](https://vitepress.vuejs.org/), which powers this website you are reading right now! VitePress supports both flavors of SSG. [Nuxt](https://v3.nuxtjs.org/) also supports SSG. You can even mix SSR and SSG for different routes in the same Nuxt app.
 
 ## Beyond the Web
 
