@@ -2,6 +2,8 @@ import MarkdownIt from 'markdown-it'
 import { MarkdownRenderer } from 'vitepress';
 
 const excludedPages = [
+  'guide/intruduction.md',
+  'guide/quick-start.md',
   'guide/essentials/computed.md',
   'guide/essentials/conditional.md',
   'guide/essentials/list.md',
