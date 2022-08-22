@@ -19,23 +19,21 @@ onMounted(async () => {
 <template>
   <div class="vuejobs-wrapper" ref="vuejobs">
     <div class="vj-container">
-      <div class="vj-item" v-for="(job, n) in openings" :key="n" style="min-height: 55px;">
-        <a class="vj-job-link" :href="job.link" target="_blank">
-          <div class="vj-company-logo">
-            <img :src="job.organization.avatar" alt="" />
+      <a class="vj-item" v-for="(job, n) in openings" :key="n" :href="job.link" target="_blank">
+        <div class="vj-company-logo">
+          <img :src="job.organization.avatar" alt="" />
+        </div>
+        <div style="overflow: hidden;display: flex; flex-direction: column; justify-content: center;">
+          <div class="vj-job-title">{{ job.title }}</div>
+          <div class="vj-job-info">
+            {{ job.organization.name }} <span>· </span>
+            <span v-if="['ONLY', 'ALLOWED'].includes(job.remote)">Remote</span>
+            <span v-else>{{ job.locations[0] }}</span>
           </div>
-          <div style="overflow: hidden;display: flex; flex-direction: column; justify-content: center;">
-            <div class="vj-job-title">{{ job.title }}</div>
-            <div class="vj-job-info">
-              {{ job.organization.name }} <span>· </span>
-              <span v-if="['ONLY', 'ALLOWED'].includes(job.remote)">Remote</span>
-              <span v-else>{{ job.locations[0] }}</span>
-            </div>
-          </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
-    <div style="font-size: 12px; margin-top: 5px; text-align: right">
+    <div style="font-size: 10px; line-height: 1; margin-top: 2px; text-align: right">
       Jobs by <a
         href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
         target="_blank" title="Hire Vue.js developers">vuejobs.com</a>
@@ -46,12 +44,12 @@ onMounted(async () => {
 <style scoped>
 .vuejobs-wrapper {
   margin: 28px 0;
+  height: 60px;
 }
 
 .vj-container {
   display: grid;
   gap: 15px;
-  height: 76px;
 }
 
 .vj-item:nth-child(2) {
@@ -70,9 +68,13 @@ onMounted(async () => {
 
 .vj-item {
   background-color: var(--vt-c-bg-soft);
-  padding: 15px;
+  padding: 8px;
   border-radius: 8px;
   overflow: hidden;
+  font-size: 12px;
+  color: var(--vt-c-text-1);
+  display: flex;
+  width: 100%;
 }
 
 .vuejobs-wrapper p,
@@ -93,6 +95,7 @@ onMounted(async () => {
 
 .vj-job-title {
   font-size: 13px;
+  line-height: 14px;
   font-weight: bold;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -100,20 +103,21 @@ onMounted(async () => {
 }
 
 .vj-job-info {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--vt-c-text-2);
-  margin-top: 1px;
+  margin-top: 3px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  line-height: 1;
 }
 
 .vj-company-logo {
-  width: 46px;
-  height: 46px;
-  border-radius: 3px;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
   overflow: hidden;
-  margin-right: 12px;
+  margin-right: 10px;
   flex-shrink: 0;
 }
 
