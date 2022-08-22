@@ -96,7 +96,7 @@ onMounted(async () => {
 .vj-job-title {
   font-size: 13px;
   line-height: 14px;
-  font-weight: bold;
+  font-weight: 600;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
