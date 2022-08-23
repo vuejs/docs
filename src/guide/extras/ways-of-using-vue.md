@@ -39,7 +39,7 @@ There are higher-level Vue-based frameworks built on top of this paradigm, such 
 
 Server-side rendering can be done ahead of time if the required data is static. This means we can pre-render an entire application into HTML and serve them as static files. This improves site performance and makes deployment a lot simpler since we no longer need to dynamically render pages on each request. Vue can still hydrate such applications to provide rich interactivity on the client. This technique is commonly referred to as Static-Site Generation (SSG), also known as [JAMStack](https://jamstack.org/what-is-jamstack/).
 
-There are two flavors of SSG: single-page and multi-page. Both favors pre-render the site into static HTML, the difference is that:
+There are two flavors of SSG: single-page and multi-page. Both flavors pre-render the site into static HTML, the difference is that:
 
 - After the initial page load, a single-page SSG "hydrates" the page into an SPA. This requires more upfront JS payload and hydration cost, but subsequent navigations will be faster, since it only needs to partially update the page content instead of reloading the entire page.
 
