@@ -18,8 +18,7 @@ export default Object.assign({}, VPTheme, {
     return h(VPTheme.Layout, null, {
       // banner: () => h(Banner),
       'sidebar-top': () => h(PreferenceSwitch),
-      'aside-mid': () => h(SponsorsAside),
-      'aside-bottom': () => h(VueJobs)
+      'aside-mid': () => h(SponsorsAside)
     })
   },
   enhanceApp({ app }: { app: App }) {
@@ -27,5 +26,6 @@ export default Object.assign({}, VPTheme, {
     app.provide('prefer-sfc', preferSFC)
     app.provide('filter-headers', filterHeadersByPreference)
     app.component('VueSchoolLink', VueSchoolLink)
+    app.component('VueJobs', VueJobs)
   }
 })
