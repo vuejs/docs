@@ -9,7 +9,9 @@ import { onMounted, computed } from 'vue'
 
 let vuejobs = $ref<HTMLElement>()
 
-const openings = computed(() => items.sort(() => 0.5 - Math.random()).slice(0, 2))
+const openings = computed(() =>
+  items.sort(() => 0.5 - Math.random()).slice(0, 2)
+)
 
 onMounted(async () => {
   if (!items.length) items = (await (await fetch(`${base}`)).json()).data
@@ -19,24 +21,43 @@ onMounted(async () => {
 <template>
   <div class="vuejobs-wrapper" ref="vuejobs">
     <div class="vj-container">
-      <a class="vj-item" v-for="(job, n) in openings" :key="n" :href="job.link" target="_blank">
+      <a
+        class="vj-item"
+        v-for="(job, n) in openings"
+        :key="n"
+        :href="job.link"
+        target="_blank"
+      >
         <div class="vj-company-logo">
           <img :src="job.organization.avatar" alt="" />
         </div>
-        <div style="overflow: hidden;display: flex; flex-direction: column; justify-content: center;">
+        <div
+          style="
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
           <div class="vj-job-title">{{ job.title }}</div>
           <div class="vj-job-info">
             {{ job.organization.name }} <span>· </span>
-            <span v-if="['ONLY', 'ALLOWED'].includes(job.remote)">Remote</span>
+            <span v-if="['ONLY', 'ALLOWED'].includes(job.remote)"
+              >Remote</span
+            >
             <span v-else>{{ job.locations[0] }}</span>
           </div>
         </div>
       </a>
     </div>
-    <div style="font-size: 10px; line-height: 1; margin-top: 2px; text-align: right">
-      Jobs by <a
+    <div class="vj-link">
+      Jobs by
+      <a
         href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
-        target="_blank" title="Hire Vue.js developers">vuejobs.com</a>
+        target="_blank"
+        title="Hire Vue.js developers"
+        >vuejobs.com</a
+      >
     </div>
   </div>
 </template>
@@ -44,7 +65,6 @@ onMounted(async () => {
 <style scoped>
 .vuejobs-wrapper {
   margin: 28px 0;
-  height: 60px;
 }
 
 .vj-container {
@@ -68,7 +88,7 @@ onMounted(async () => {
 
 .vj-item {
   background-color: var(--vt-c-bg-soft);
-  padding: 8px;
+  padding: 14px;
   border-radius: 8px;
   overflow: hidden;
   font-size: 12px;
@@ -105,7 +125,7 @@ onMounted(async () => {
 .vj-job-info {
   font-size: 11px;
   color: var(--vt-c-text-2);
-  margin-top: 3px;
+  margin-top: 4px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -126,5 +146,12 @@ onMounted(async () => {
   height: 100%;
   object-fit: contain;
   object-position: center center;
+}
+
+.vj-link {
+  font-size: 10px;
+  line-height: 1;
+  margin-top: 10px;
+  text-align: right;
 }
 </style>
