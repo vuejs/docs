@@ -18,7 +18,8 @@ const excludedPages = [
   'about/team.md',
   'about/releases.md',
   'about/community-guide.md',
-  'about/coc.md'
+  'about/coc.md',
+  'sponsor/index.md'
 ]
 
 export const jobsPlugin = (md: MarkdownIt) => {
@@ -26,7 +27,7 @@ export const jobsPlugin = (md: MarkdownIt) => {
     const relativePath = (md as MarkdownRenderer).__relativePath
     const renderedContent = self.renderToken(tokens, i, options)
 
-    return excludedPages.includes(relativePath) 
+    return excludedPages.includes(relativePath)
       ? renderedContent
       : renderedContent.replace(/<\/h1>/, '</h1><VueJobs/>')
   }
