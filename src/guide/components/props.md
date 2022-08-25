@@ -593,7 +593,7 @@ When a prop is declared to allow multiple types, e.g.
 
 ```js
 defineProps({
-  disabled: [Boolean, Number]
+  disabled: [String, Boolean, Number]
 })
 ```
 
@@ -603,11 +603,11 @@ defineProps({
 ```js
 export default {
   props: {
-    disabled: [Boolean, Number]
+    disabled: [String, Boolean, Number]
   }
 }
 ```
 
 </div>
 
-The casting rules for `Boolean` will apply regardless of type appearance order.
+The casting rules for `Boolean` will apply if it occurs prior to `String`.
