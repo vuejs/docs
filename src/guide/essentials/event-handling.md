@@ -281,7 +281,7 @@ Do not use `.passive` and `.prevent` together, because `.passive` already indica
 When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` or `@` when listening for key events:
 
 ```vue-html
-<!-- only call `vm.submit()` when the `key` is `Enter` -->
+<!-- only call `submit` when the `key` is `Enter` -->
 <input @keyup.enter="submit" />
 ```
 
