@@ -13,17 +13,17 @@ const selected = ref('')
 const multiSelected = ref([])
 </script>
 
-# Form Input Bindings
+# Прив'язування елементів форми
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Free Lesson on User Inputs with Vue.js"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Безкоштовний урок по елементах форм із Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Free Lesson on User Inputs with Vue.js"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Безкоштовний урок по елементах форм із Vue.js"/>
 </div>
 
-When dealing with forms on the frontend, we often need to sync the state of form input elements with corresponding state in JavaScript. It can be cumbersome to manually wire up value bindings and change event listeners:
+Коли ми маємо справу з формами на фронтенді, нам часто потрібно синхронізувати стан елементів введення форми з відповідним станом у JavaScript. Вручну підключати зв'язки значень і змінювати слухачів подій може бути громіздким:
 
 ```vue-html
 <input
@@ -31,13 +31,13 @@ When dealing with forms on the frontend, we often need to sync the state of form
   @input="event => text = event.target.value">
 ```
 
-The `v-model` directive helps us simplify the above to:
+Директива `v-model` допомагає нам спростити вищезазначене:
 
 ```vue-html
 <input v-model="text">
 ```
 
-In addition, `v-model` can be used on inputs of different types, `<textarea>`, and `<select>` elements. It automatically expands to different DOM property and event pairs based on the element it is used on:
+Крім того, `v-model` можна використовувати для елементів різних типів, таких як `<textarea>` і `<select>`. Вона автоматично розширюється до різних пар властивостей і подій DOM на основі елемента, у якому ця директива використовується:
 
 - `<input>` with text types and `<textarea>` elements use `value` property and `input` event;
 - `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event;
