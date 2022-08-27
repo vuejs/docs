@@ -1,106 +1,157 @@
 <script lang="ts">
 // shared data across instances so we load only once
-const base = `https://vuejobs.com/api/postings`
-let openings = $ref([])
+const base = `https://app.vuejobs.com/feed/vuejs/docs?format=json`
+let items = $ref([])
 </script>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
-import { useData } from 'vitepress'
-const { frontmatter } = useData()
+import { onMounted, computed } from 'vue'
 
 let vuejobs = $ref<HTMLElement>()
-let visible = $ref(false)
+
+const openings = computed(() =>
+  items.sort(() => 0.5 - Math.random()).slice(0, 2)
+)
 
 onMounted(async () => {
-  // only render when entering view
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) {
-        visible = true
-        observer.disconnect()
-      }
-    },
-    { rootMargin: '0px 0px 300px 0px' }
-  )
-  observer.observe(vuejobs)
-  onUnmounted(() => observer.disconnect())
-
-  // load data
-  if (!openings.length) {
-    const items = await (await fetch(`${base}`)).json()
-    // choose two random items
-    if (items && items.length) {
-      openings = items.sort(() => 0.5 - Math.random()).slice(0, 2)
-    }
-  }
+  if (!items.length) items = (await (await fetch(`${base}`)).json()).data
 })
 </script>
 
 <template>
-  <div v-if="frontmatter.vuejobs !== false" ref="vuejobs">
-    <div class="vuejobs-container" v-if="openings.length">
-      <div class="vj-item" v-for="(job, n) in openings" :key="n">
-        <a class="vj-job-title" :href="job.link" target="_blank">
-          <img :src="job.company_logo" alt="" class="vj-company-logo" />
-          <div>
-            <p>
-              {{ job.title }}
-            </p>
-
-            <p class="vj-job-info">
-              {{ job.company }}
-              <!-- <span v-if="job.salary">·</span> -->
-              <!-- {{ job.salary }} -->
-              <span>·</span>
-              {{ job.location }}
-            </p>
+  <div class="vuejobs-wrapper" ref="vuejobs">
+    <div class="vj-container">
+      <a
+        class="vj-item"
+        v-for="(job, n) in openings"
+        :key="n"
+        :href="job.link"
+        target="_blank"
+      >
+        <div class="vj-company-logo">
+          <img :src="job.organization.avatar" alt="" />
+        </div>
+        <div
+          style="
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <div class="vj-job-title">{{ job.title }}</div>
+          <div class="vj-job-info">
+            {{ job.organization.name }} <span>· </span>
+            <span v-if="['ONLY', 'ALLOWED'].includes(job.remote)"
+              >Remote</span
+            >
+            <span v-else>{{ job.locations[0] }}</span>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
+    </div>
+    <div class="vj-link">
+      Jobs by
+      <a
+        href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
+        target="_blank"
+        title="Hire Vue.js developers"
+        >vuejobs.com</a
+      >
     </div>
   </div>
 </template>
 
 <style scoped>
-.vuejobs-container {
-  border-radius: 2px;
-  background-color: var(--vt-c-bg-soft);
-  padding: 3px 10px;
+.vuejobs-wrapper {
+  margin: 28px 0;
 }
+
+.vj-container {
+  display: grid;
+  gap: 15px;
+}
+
+.vj-item:nth-child(2) {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .vj-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vj-item:nth-child(2) {
+    display: flex;
+  }
+}
+
 .vj-item {
-  padding: 10px 0 10px 0;
-  border-bottom: 1px solid var(--vt-c-divider-light);
-  display: flex;
-  flex-direction: column;
-}
-.vj-item:last-child {
-  border-bottom: none;
-}
-.vuejobs-container p,
-.vuejobs-container a {
-  line-height: 16px;
-  transition: color 0.2s ease;
-}
-.vuejobs-container a:hover {
-  color: var(--vt-c-brand);
-}
-.vj-job-title {
+  background-color: var(--vt-c-bg-soft);
+  padding: 14px;
+  border-radius: 8px;
+  overflow: hidden;
   font-size: 12px;
   color: var(--vt-c-text-1);
   display: flex;
-  flex-direction: row;
+  width: 100%;
 }
+
+.vuejobs-wrapper p,
+.vuejobs-wrapper a {
+  transition: color 0.2s ease;
+}
+
+.vuejobs-wrapper a:hover {
+  color: var(--vt-c-brand);
+}
+
+.vj-job-link {
+  font-size: 12px;
+  color: var(--vt-c-text-1);
+  display: flex;
+  width: 100%;
+}
+
+.vj-job-title {
+  font-size: 13px;
+  line-height: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .vj-job-info {
   font-size: 11px;
   color: var(--vt-c-text-2);
-  margin-top: 2px;
-  line-height: 12px;
+  margin-top: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1;
 }
+
 .vj-company-logo {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  overflow: hidden;
   margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.vj-company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.vj-link {
+  font-size: 10px;
+  line-height: 1;
+  margin-top: 10px;
+  text-align: right;
 }
 </style>

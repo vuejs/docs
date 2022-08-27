@@ -9,7 +9,8 @@ const { data, hero, page } = defineProps<{
   page?: boolean
 }>()
 
-const { name, intro, region, logo, proficiencies, flipLogo } = data
+const { name, intro, region, logo, proficiencies, flipLogo, website } =
+  data
 </script>
 
 <template>
@@ -20,13 +21,15 @@ const { name, intro, region, logo, proficiencies, flipLogo } = data
     :href="'/partners/' + normalizeName(name) + '.html'"
   >
     <div class="info">
-      <img
-        class="logo dark"
-        v-if="hero && flipLogo"
-        :src="getLogo(logo, flipLogo)"
-      />
-      <img class="logo" v-if="hero" :src="getLogo(logo)" />
-      <h3 v-else>{{ name }}</h3>
+      <a :href="website.url" target="_blank">
+        <img
+          class="logo dark"
+          v-if="hero && flipLogo"
+          :src="getLogo(logo, flipLogo)"
+        />
+        <img class="logo" v-if="hero" :src="getLogo(logo)" />
+        <h3 v-else>{{ name }}</h3>
+      </a>
 
       <p class="region"><Location /> {{ region.join(', ') }}</p>
 

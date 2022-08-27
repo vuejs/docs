@@ -13,12 +13,13 @@
     "@vue/theme": "^1.0.4",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
-    "vitepress": "^0.22.4",
+    "vitepress": "1.0.0-alpha.8",
     "vue": "^3.2.37"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^16.9.1"
+    "@types/node": "^16.9.1",
+    "terser": "^5.14.2"
   },
   "pnpm": {
     "peerDependencyRules": {
