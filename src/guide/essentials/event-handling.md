@@ -1,26 +1,26 @@
-# Event Handling
+# Обробка подій
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/user-events-in-vue-3" title="Free Vue.js Events Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/user-events-in-vue-3" title="Безкоштовний урок по обробці подій у Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-events-in-vue-3" title="Free Vue.js Events Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-events-in-vue-3" title="Безкоштовний урок по обробці подій у Vue.js"/>
 </div>
 
-## Listening to Events
+## Прослуховування подій
 
-We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="handler"` or with the shortcut, `@click="handler"`.
+Ми можемо використовувати директиву `v-on`, яку ми зазвичай скорочуємо до символу `@`, щоб слухати події DOM і запускати потрібний JavaScript, коли дані події виконуються. Це виглядатиме як `v-on:click="handler"` або скорочено `@click="handler"`.
 
-The handler value can be one of the following:
+Значення обробника може бути одним із наступних:
 
-1. **Inline handlers:** Inline JavaScript to be executed when the event is triggered (similar to the native `onclick` attribute).
+1. **Вбудовані обробники:** вбудований JavaScript буде виконано, коли ініціюється певна подія (подібно до рідного атрибута `onclick`).
 
-2. **Method handlers:** A property name or path that points to a method defined on the component.
+2. **Обробники методів:** ім’я властивості або шлях, що вказує на метод, визначений у компоненті.
 
-## Inline Handlers
+## Вбудовані обробники
 
-Inline handlers are typically used in simple cases, for example:
+Вбудовані обробники зазвичай використовуються в простих випадках, наприклад:
 
 <div class="composition-api">
 
@@ -42,26 +42,26 @@ data() {
 </div>
 
 ```vue-html
-<button @click="count++">Add 1</button>
-<p>Count is: {{ count }}</p>
+<button @click="count++">Додати 1</button>
+<p>Рахунок: {{ count }}</p>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnRlciA9IHJlZigwKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJjb3VudGVyKytcIj5BZGQgMTwvYnV0dG9uPlxuXHQ8cD5UaGUgYnV0dG9uIGFib3ZlIGhhcyBiZWVuIGNsaWNrZWQge3sgY291bnRlciB9fSB0aW1lcy48L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UM1OAjEQfpVJL2iArV7JQvQ9eoG1q4ts20y7eNhsonLybjz4FEgkEo34CtM3smUJMZp4m5nvZ2a+mp0bk8wryQYstRkWxoGVrjIjoYrSaHRQA8ocGshRl9AJ1I5QQmVaWQeZrpSTCMPIOTo5FirlrUvQh8bJ0szGTsbOpZPKOa3gLJsV2fVQsL262xVsRI+0pVda+nvawGnKW26rMyN6ps+Af9G7XwCtaOMfaA304hf0QVsI4E7o70K1jlSo68NxTQP+lpb05p9olaQ8/pbyw2msx9pP++XYJFOrVciiFgpA7AEr2AB2kzgLCcResCvnjB1wbvMsJji1icZLHqoEw+KilIm0ZX+C+sZKDMaC9X548DCcS+yjVBcSJf7n+Yv6xzfaNkI1rPkGTqC8Gg==)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcblx0ICByZXR1cm4ge1xuICAgIFx0Y291bnRlcjogMFxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJjb3VudGVyKytcIj5BZGQgMTwvYnV0dG9uPlxuXHQ8cD5UaGUgYnV0dG9uIGFib3ZlIGhhcyBiZWVuIGNsaWNrZWQge3sgY291bnRlciB9fSB0aW1lcy48L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9kM9KAzEQxl9lyElpu9HrshZ9j1y226lu7e6GZLYKy4Lak3fx4FPUYrEo1leYvJFJW4ooFEKYP9/8kvkacaF1NK1RxCKxmck19VWJt7oyBEMcpfWEoFElwDCl9Og4xIoADFJtym0HQFFW1SWhieEkVBS1QeYvfxK55/qEsNCTlDBklAxqoqqE82ySZ9dnSuwwnY4SfX7iNb/x3D3wCk4TudVu53SfX/jL97/5w82AF7xyj7wEfnUz/uQ1+OZm0N37aBmk0DSww0PbgrvjOb+7Z15EidSemsj910RX5EVwoFekOhrbqvTubFZVu4ZVIt4vL7x9IVfiikjbWEo7yoKnYxtV5lL6KDL+4bzACG3RG5jqxqLxYCW6vxjSF6doegbLIRo0h5h/pP+4ARvsF+0PiGzCMQ==)
 
 </div>
 
-## Method Handlers
+## Обробники методів
 
-The logic for many event handlers will be more complex though, and likely isn't feasible with inline handlers. That's why `v-on` can also accept the name or path of a component method you'd like to call.
+Логіка для багатьох обробників подій буде складнішою, і, ймовірно, неможлива з вбудованими обробниками. Ось чому `v-on` також може прийняти назву або шлях методу компонента, який ви хочете викликати.
 
-For example:
+Наприклад:
 
 <div class="composition-api">
 
@@ -69,8 +69,8 @@ For example:
 const name = ref('Vue.js')
 
 function greet(event) {
-  alert(`Hello ${name.value}!`)
-  // `event` is the native DOM event
+  alert(`Привіт, ${name.value}!`)
+  // `event` є рідною подією DOM
   if (event) {
     alert(event.target.tagName)
   }
@@ -88,9 +88,9 @@ data() {
 },
 methods: {
   greet(event) {
-    // `this` inside methods points to the current active instance
-    alert(`Hello ${this.name}!`)
-    // `event` is the native DOM event
+    // `this` всередині методів вказуює на поточний активний екземпляр
+    alert(`Привіт, ${this.name}!`)
+    // `event` є рідною подією DOM
     if (event) {
       alert(event.target.tagName)
     }
@@ -101,41 +101,41 @@ methods: {
 </div>
 
 ```vue-html
-<!-- `greet` is the name of the method defined above -->
-<button @click="greet">Greet</button>
+<!-- `greet` — назва методу, визначеного вище -->
+<button @click="greet">Привітати</button>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgbmFtZSA9IHJlZignVnVlLmpzJylcblxuZnVuY3Rpb24gZ3JlZXQoZXZlbnQpIHtcbiAgYWxlcnQoYEhlbGxvICR7bmFtZS52YWx1ZX0hYClcbiAgLy8gYGV2ZW50YCBpcyB0aGUgbmF0aXZlIERPTSBldmVudFxuICBpZiAoZXZlbnQpIHtcbiAgICBhbGVydChldmVudC50YXJnZXQudGFnTmFtZSlcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJncmVldFwiPkdyZWV0PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UbFOwzAQ/ZXDQmqR2niv0gokVmBj8tA0XEpK4kT2JQxRpIoPYKq68gsIdehC+QXnj7ikFBWQkGzZ53v37t5zJS7y3CsLFCPh29DEOYFFKvKJ0nGaZ4agAoMR1BCZLIUeQ3tKKx1m2hLoIEUYt4B+77ZAb2F7Z202KnRIcaZhbhCpjyVqOoNKaYAgQUP9qXtplm7r3pp18zSA06pl8sogKbA+mTIHgJQw7Qqn0KygWTZrt3Hvbtc8g/twO7fh0hUHlzdXLTyO4EefQ6fuzaPAzLE95tfcqOOvlebly71q1ssBYZonAWEbkT8riFjDeZjE4cNYiU6MEpPj2d0r760v91iu8+U3iRiIvYfDNMjZm0yzy91w6ithlRgdxlWCvW1jJe6JcjuS0kZh+zcL62VmLvnmmUJTzE6hTYczkz1aNEysxOCIQ/JjiWZoUN+hQfMf5y/oH96DUaL+BPX51Ow=)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbmFtZTogJ1Z1ZS5qcydcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBncmVldChldmVudCkge1xuICAgICAgLy8gYHRoaXNgIGluc2lkZSBtZXRob2RzIHBvaW50cyB0byB0aGUgY3VycmVudCBhY3RpdmUgaW5zdGFuY2VcbiAgICAgIGFsZXJ0KGBIZWxsbyAke3RoaXMubmFtZX0hYClcbiAgICAgIC8vIGBldmVudGAgaXMgdGhlIG5hdGl2ZSBET00gZXZlbnRcbiAgICAgIGlmIChldmVudCkge1xuICAgICAgICBhbGVydChldmVudC50YXJnZXQudGFnTmFtZSlcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxidXR0b24gQGNsaWNrPVwiZ3JlZXRcIj5HcmVldDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UsFu00AQ/ZXpCqmpFNv3yFQgcQVunPZgN5kkLvHa2l0HpChSaA+IS7lUufILVUjUUNrwC7O/wJcw68SmohKStbsz++bN2+eZiZdlGU4rFD0Rm77OSnsqFX4sC21hgMO0mliYSQUwSG3aOdmfATTaSqsmAlBpjj04fldheG6O99m53+Zdv+Zox8XA9JqCkUa0HZyisi0lQBRBYseZSYBW7hNt3II2tKYtPbgl0D0nLmhHa7ekFSPojm7o1l26K3cN9EA3QL9o5yHuM4db+gEMuOPElsGHxIarbnm9Z+xP99Utmt7pBLXtJPSNmzLeLd1FF57NvJzQP25+lJw81llrT4BbuwULWnODnbuqJXiF7pqDV29fNyXZEJ48t2la50Ob6hH6bfSG27W9ahMbL6XiL47a/8SBxbycpBY5AoiPggCS2twEfi/2tvB7V96cv/5ddr19W77gazZr48XTd9rVafeFNhAEnt7GZ5W1hYIX/UnWf/9cippbitPHPjEHexxHeyzXxVGrSnRFlvthCvK05NEoFA9a7YA8XBgp2rGQgifRx1KMrS1NL4rMsO/H89yEhR5FfAp1pWyWY4gmD8508cGgZmIp6kE7cEScnKIONKoBatT/4/wH+oS3cV7M/wCzBFzW)
 
 </div>
 
-A method handler automatically receives the native DOM Event object that triggers it - in the example above, we are able to access the element dispatching the event via `event.target.tagName`.
+Обробник методу автоматично отримує власний об’єкт події DOM, який ініціює його – у наведеному вище прикладі ми можемо отримати доступ до елемента, який відправляє подію через `event.target.tagName`.
 
 <div class="composition-api">
 
-See also: [Typing Event Handlers](/guide/typescript/composition-api.html#typing-event-handlers) <sup class="vt-badge ts" />
+Дивіться також: [Типізація обробників подій](/guide/typescript/composition-api.html#типізація-обробників-подій) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-See also: [Typing Event Handlers](/guide/typescript/options-api.html#typing-event-handlers) <sup class="vt-badge ts" />
+Дивіться також: [Типізація обробників подій](/guide/typescript/options-api.html#типізація-обробників-подій) <sup class="vt-badge ts" />
 
 </div>
 
-### Method vs. Inline Detection
+### Метод проти вбудованого виявлення
 
-The template compiler detects method handlers by checking whether the `v-on` value string is a valid JavaScript identifier or property access path. For example, `foo`, `foo.bar` and `foo['bar']` are treated as method handlers, while `foo()` and `count++` are treated as inline handlers.
+Компілятор шаблону виявляє обробники методів, перевіряючи, чи є рядок значення `v-on` дійсним ідентифікатором JavaScript або шляхом доступу до властивості. Наприклад, `foo`, `foo.bar` і `foo['bar']` розглядаються як обробники методів, тоді як `foo()` і `count++` розглядаються як вбудовані обробники.
 
-## Calling Methods in Inline Handlers
+## Виклик методів у вбудованих обробниках
 
-Instead of binding directly to a method name, we can also call methods in an inline handler. This allows us to pass the method custom arguments instead of the native event:
+Замість прив'язки безпосередньо до імені методу ми також можемо викликати методи у вбудованому обробнику. Це дозволяє нам передавати спеціальні аргументи методу замість рідної події:
 
 <div class="composition-api">
 
@@ -159,34 +159,35 @@ methods: {
 </div>
 
 ```vue-html
-<button @click="say('hello')">Say hello</button>
-<button @click="say('bye')">Say bye</button>
+<button @click="say('Слава')">Скажи Слава</button>
+<button @click="say('Україні')">Скажи Україні</button>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmZ1bmN0aW9uIHNheShtZXNzYWdlKSB7XG4gIGFsZXJ0KG1lc3NhZ2UpXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8YnV0dG9uIEBjbGljaz1cInNheSgnaGknKVwiPlNheSBoaTwvYnV0dG9uPlxuICA8YnV0dG9uIEBjbGljaz1cInNheSgnd2hhdCcpXCI+U2F5IHdoYXQ8L2J1dHRvbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9kUFOwzAQRa9ieVMqNfE+ChXcw5s0TEtK7FieSRGqInEKWCMuELFAqIg7ODdiTFApVHTnP9//yfO9lZfOpZsWZCZzLH3lSCBQ6+baLltbUtVYgcXdmQHEYgVTsdVWiKIGT/uZtp22uRrjHGRBYFxdEERF+aIlYs5FWVflzbmWETgJT+E99OEl9JOplnOWO5av4U38OLkao4wR4h/Mc9gN96EfHsPH8HCE+uUe4HK1f6Kcycq4xlNiCpeusbFcxtea+ttALbNx8TjjtqLW8prIYaYULstY4RrTxq8Un1LfWqoMpIAmWfjmFsEzWMvZAUPxcAM+8WCvwIM/xfxz9YgbsfwHnew+ARJcvH8=)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgbWV0aG9kczoge1xuXHQgIHNheShtZXNzYWdlKSB7XG4gICAgXHRhbGVydChtZXNzYWdlKVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJzYXkoJ2hpJylcIj5TYXkgaGk8L2J1dHRvbj5cbiAgPGJ1dHRvbiBAY2xpY2s9XCJzYXkoJ3doYXQnKVwiPlNheSB3aGF0PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9kUtOwzAQhq9ieVMqtfE+ChXcw5s0mbYp8UOeSQFVlTgFrBEXiFggVMQdnBthpygUKipZlv95fGP/3vJra5NNAzzlGRausjSTGu6sccRKWORNTWwrNWMKaGVKTKOSxBjm9xcKEPMljA8VjEnKa3A0xGNU0i42hC2sTAwzgiBQts4JoqJs3hAZza6KuipuLiWPA0b+2X/41r/6djSWfBbkPsg3/85+Mpk4tAYMY/9gXvy+e/Bt9+Q/u8cT1K/sES4TwxX5hFcqujJVuU3WaHRwrH+2/E6g5L05vRE8WBq15Csii6kQuCiiz2tMjFuKcEpco6lSkACq6dyZWwQXwJJPjhgiBDfgpg50CQ7cOeaf0hNuxMZv4Lsv/DXJFQ==)
 
 </div>
 
 ## Accessing Event Argument in Inline Handlers
+## Доступ до аргументу події у вбудованих обробниках
 
-Sometimes we also need to access the original DOM event in an inline handler. You can pass it into a method using the special `$event` variable, or use an inline arrow function:
+Іноді нам також потрібно отримати доступ до оригінальної події DOM у вбудованому обробнику. Ви можете передати його в метод за допомогою спеціальної змінної `event` або використати вбудовану стрілкову функцію:
 
 ```vue-html
 <!-- using $event special variable -->
-<button @click="warn('Form cannot be submitted yet.', $event)">
-  Submit
+<button @click="warn('Форму ще не можна надіслати.', $event)">
+  Надіслати
 </button>
 
 <!-- using inline arrow function -->
-<button @click="(event) => warn('Form cannot be submitted yet.', event)">
-  Submit
+<button @click="(event) => warn('Форму ще не можна надіслати.', event)">
+  Надіслати
 </button>
 ```
 
@@ -194,7 +195,7 @@ Sometimes we also need to access the original DOM event in an inline handler. Yo
 
 ```js
 function warn(message, event) {
-  // now we have access to the native event
+  // тепер ми маємо доступ до рідної події
   if (event) {
     event.preventDefault()
   }
@@ -208,7 +209,7 @@ function warn(message, event) {
 ```js
 methods: {
   warn(message, event) {
-    // now we have access to the native event
+    // тепер ми маємо доступ до рідної події
     if (event) {
       event.preventDefault()
     }
@@ -219,11 +220,11 @@ methods: {
 
 </div>
 
-## Event Modifiers
+## Модифікатори подій
 
-It is a very common need to call `event.preventDefault()` or `event.stopPropagation()` inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.
+Дуже часто потрібно викликати `event.preventDefault()` або `event.stopPropagation()` всередині обробників подій. Хоча ми можемо це легко зробити всередині методів, було б краще, якби методи стосувалися виключно логіки даних, а не мали справу з деталями подій DOM.
 
-To address this problem, Vue provides **event modifiers** for `v-on`. Recall that modifiers are directive postfixes denoted by a dot.
+Щоб розв'язати цю проблему, Vue надає **модифікатори подій** для `v-on`. Нагадаємо, що модифікатори — це директивні постфікси, які позначаються крапкою.
 
 - `.stop`
 - `.prevent`
@@ -233,73 +234,74 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 - `.passive`
 
 ```vue-html
-<!-- the click event's propagation will be stopped -->
+<!-- розповсюдження події click буде зупинено -->
 <a @click.stop="doThis"></a>
 
-<!-- the submit event will no longer reload the page -->
+<!-- подія надсилання більше не перезавантажуватиме сторінку -->
 <form @submit.prevent="onSubmit"></form>
 
-<!-- modifiers can be chained -->
+<!-- модифікатори можуть бути виражені у вигляді ланцюжка -->
 <a @click.stop.prevent="doThat"></a>
 
-<!-- just the modifier -->
+<!-- лише модифікатор -->
 <form @submit.prevent></form>
 
-<!-- only trigger handler if event.target is the element itself -->
-<!-- i.e. not from a child element -->
+<!-- лише обробник тригера, якщо event.target є самим елементом -->
+<!-- тобто, не з дочірнього елемента -->
 <div @click.self="doThat">...</div>
 ```
 
 ::: tip
-Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **clicks default action on the element itself and its children** while `@click.self.prevent` will only prevent clicks default action on the element itself.
+Порядок має значення при використанні модифікаторів, оскільки відповідний код генерується в тому самому порядку. Таким чином, використання `@click.prevent.self` запобігатиме **події click за замовчуванням для самого елемента та його дочірніх елементів**, тоді як `@click.self.prevent` запобігатиме лише дії клацання за замовчуванням для самого елемента.
 :::
 
-The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the native `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
+Модифікатори `.capture`, `.once` і `.passive` вказують на [параметри власного методу `addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
 
 ```vue-html
-<!-- use capture mode when adding the event listener -->
-<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<!-- використовувати режим захоплення під час додавання прослуховувача подій -->
+<!-- тобто подія, спрямована на внутрішній елемент, обробляється тут, перш ніж оброблятися цим елементом -->
 <div @click.capture="doThis">...</div>
 
-<!-- the click event will be triggered at most once -->
+<!-- подія клацання буде ініційована щонайбільше один раз -->
 <a @click.once="doThis"></a>
 
-<!-- the scroll event's default behavior (scrolling) will happen -->
-<!-- immediately, instead of waiting for `onScroll` to complete  -->
-<!-- in case it contains `event.preventDefault()`                -->
+<!-- типова поведінка події прокручування відбудеться -->
+<!-- негайно, замість того, щоб чекати завершення `onScroll` -->
+<!-- якщо він містить `event.preventDefault()` -->
 <div @scroll.passive="onScroll">...</div>
 ```
 
-The `.passive` modifier is typically used with touch event listeners for [improving performance on mobile devices](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
+Модифікатор `.passive` зазвичай використовується зі слухачами подій touch (дотику) для [підвищення продуктивності на мобільних пристроях](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
 
 ::: tip
-Do not use `.passive` and `.prevent` together, because `.passive` already indicates to the browser that you _do not_ intend to prevent the event's default behavior, and you will likely see a warning from the browser if you do so.
+Не використовуйте `.passive` і `.prevent` разом, оскільки `.passive` вже вказує браузеру, що ви _не_ маєте намір запобігти поведінці події за замовчуванням, і, ймовірно, ви побачите попередження від браузера, якщо ви це зробите.
 :::
 
-## Key Modifiers
+## Ключові модифікатори
 
-When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` or `@` when listening for key events:
+Під час прослуховування подій клавіатури нам часто потрібно перевіряти певні клавіші. Vue дозволяє додавати ключові модифікатори для `v-on` або `@` під час прослуховування ключових подій:
 
 ```vue-html
-<!-- only call `submit` when the `key` is `Enter` -->
+<!-- викликати `submit` лише тоді, коли `key` є клавішею `Enter` -->
 <input @keyup.enter="submit" />
 ```
 
-You can directly use any valid key names exposed via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case.
+Ви можете безпосередньо використовувати будь-які дійсні назви ключів, надані через [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) як модифікатори, перетворивши їх на kebab-case.
 
 ```vue-html
 <input @keyup.page-down="onPageDown" />
 ```
 
-In the above example, the handler will only be called if `$event.key` is equal to `'PageDown'`.
+У наведеному вище прикладі обробник буде викликано, лише якщо `event.key` дорівнює `'PageDown'`.
 
 ### Key Aliases
+### Ключові псевдоніми
 
-Vue provides aliases for the most commonly used keys:
+Vue надає псевдоніми для найбільш часто використовуваних ключів:
 
 - `.enter`
 - `.tab`
-- `.delete` (captures both "Delete" and "Backspace" keys)
+- `.delete` (стосується клавіш «Delete» і «Backspace».)
 - `.esc`
 - `.space`
 - `.up`
@@ -307,52 +309,52 @@ Vue provides aliases for the most commonly used keys:
 - `.left`
 - `.right`
 
-### System Modifier Keys
+### Клавіші-модифікатори системи
 
-You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
+Ви можете використовувати такі модифікатори, щоб запускати слухачів подій миші або клавіатури, лише коли натиснуто відповідну клавішу-модифікатор:
 
 - `.ctrl`
 - `.alt`
 - `.shift`
 - `.meta`
 
-::: tip Note
-On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the Windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+::: tip Примітка
+На клавіатурах Macintosh meta — це командна клавіша (⌘). На клавіатурах Windows meta — це клавіша Windows (⊞). На клавіатурах Sun Microsystems meta позначено суцільним ромбом (◆). На деяких клавіатурах, зокрема машинних клавіатурах MIT та Lisp, а також клавіатурах Knight, Space-cadet, meta позначається як «META». На клавіатурах Symbolics meta позначається як «META» або «Meta».
 :::
 
-For example:
+Наприклад:
 
 ```vue-html
 <!-- Alt + Enter -->
 <input @keyup.alt.enter="clear" />
 
 <!-- Ctrl + Click -->
-<div @click.ctrl="doSomething">Do something</div>
+<div @click.ctrl="doSomething">Зробити щось</div>
 ```
 
 ::: tip
-Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone.
+Зауважте, що клавіші-модифікатори відрізняються від звичайних клавіш, і коли вони використовуються з подіями `keyup`, їх потрібно натискати під час випромінювання події. Іншими словами, `keyup.ctrl` спрацює, лише якщо ви відпустите клавішу, утримуючи `ctrl`. Він не запуститься, якщо ви відпустите лише клавішу `ctrl`.
 :::
 
-### `.exact` Modifier
+### Модифікатор `.exact`
 
-The `.exact` modifier allows control of the exact combination of system modifiers needed to trigger an event.
+Модифікатор `.exact` дозволяє керувати точною комбінацією системних модифікаторів, необхідних для ініціювання події.
 
 ```vue-html
-<!-- this will fire even if Alt or Shift is also pressed -->
+<!-- це спрацює, навіть якщо також натиснути Alt або Shift -->
 <button @click.ctrl="onClick">A</button>
 
-<!-- this will only fire when Ctrl and no other keys are pressed -->
+<!-- це спрацює лише тоді, коли не натиснуто Ctrl і жодних інших клавіш -->
 <button @click.ctrl.exact="onCtrlClick">A</button>
 
-<!-- this will only fire when no system modifiers are pressed -->
+<!-- це запускатиметься лише тоді, коли не буде натиснуто системних модифікаторів -->
 <button @click.exact="onClick">A</button>
 ```
 
-## Mouse Button Modifiers
+## Модифікатори кнопок миші
 
 - `.left`
 - `.right`
 - `.middle`
 
-These modifiers restrict the handler to events triggered by a specific mouse button.
+Ці модифікатори обмежують обробник подіями, викликаними певною кнопкою миші.

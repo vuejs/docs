@@ -244,7 +244,7 @@ const double = computed<number>(() => {
 })
 ```
 
-## Typing Event Handlers
+## Типізація обробників подій
 
 When dealing with native DOM events, it might be useful to type the argument we pass to the handler correctly. Let's take a look at this example:
 

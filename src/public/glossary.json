@@ -134,6 +134,10 @@
       "translation": "обробник подій"
     },
     {
+      "original": "event listener",
+      "translation": "слухач подій"
+    },
+    {
       "original": "explicit",
       "translation": "явно"
     },
@@ -183,7 +187,7 @@
     },
     {
       "original": "listener",
-      "translation": "наглядач"
+      "translation": "слухач"
     },
     {
       "original": "maintenance",
