@@ -21,7 +21,7 @@ export default {
         return
       }
 
-      this.selected = this.circles.find(({ cx, cy, r }) => {
+      this.selected = [...this.circles].reverse().find(({ cx, cy, r }) => {
         const dx = cx - x
         const dy = cy - y
         return Math.sqrt(dx * dx + dy * dy) <= r
