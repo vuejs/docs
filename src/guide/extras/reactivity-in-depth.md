@@ -8,7 +8,7 @@ import SpreadSheet from './demos/SpreadSheet.vue'
 
 # Reactivity in Depth
 
-One of Vue’s most distinct features is the unobtrusive reactivity system. Component state are reactive JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
+One of Vue’s most distinctive features is the unobtrusive reactivity system. Component state consists of reactive JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
 
 ## What is Reactivity?
 
