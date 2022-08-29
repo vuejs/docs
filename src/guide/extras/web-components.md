@@ -79,9 +79,7 @@ However, there could be rare cases where the data must be passed as a DOM proper
 
 The `v-on` directive handles lowercase and kebab-case events dispatched from custom elements. However, the `v-on` directive does not support listening for events whose names include capital letters. For example, adding `v-on:myInput` to a custom element adds a listener for events with the name `my-input`, which does not handle an event with the name `myInput`.
 
-If your app uses custom elements that dispatch events with capital letters, you can use a custom directive to add the correct event listener to the element.
-
-#### Example Custom Directive to Handle Specific Events
+If you use custom elements that dispatch events with capital letters, you can use a custom directive to add the correct event listener to the element:
 
 ```js
 // ex. <my-element v-event:eventName="handler" />
