@@ -276,36 +276,6 @@ Now everything inside the `<template>` elements will be passed to the correspond
 
 </div>
 
-Note that if you are mixing named slots with the default slot, you need to explicitly define the default template. Otherwise, it would hint that the data of the default slot would be available in the other slots scopes.
-
-```vue-html
-<template>
-  <BaseLayout v-slot="{ message }">
-    <p>{{ message }}</p>
-    <template #footer>
-      <!-- message belongs to the default slot, and is not available here -->
-      <p>{{ message }}</p>
-    </template>
-  </BaseLayout>
-</template>
-```
-
-Instead, you will need to write it as follows:
-```vue-html
-<template>
-  <MyComponent>
-    <!-- Use explicit default slot -->
-    <template #default="{ message }">
-      <p>{{ message }}</p>
-    </template>
-
-    <template #footer>
-      <p>Here's some contact info</p>
-    </template>
-  </MyComponent>
-</template>
-```
-
 Again, it may help you understand named slots better using the JavaScript function analogy:
 
 ```js
@@ -441,6 +411,36 @@ Passing props to a named slot:
 ```
 
 Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
+
+Also note that if you are mixing named scoped slots with the default scoped slot, you need to explicitly define the default template. Otherwise, it would hint that the data of the default scoped slot would be available in the other slots scopes.
+
+```vue-html
+<template>
+  <BaseLayout v-slot="{ message }">
+    <p>{{ message }}</p>
+    <template #footer>
+      <!-- message belongs to the default slot, and is not available here -->
+      <p>{{ message }}</p>
+    </template>
+  </BaseLayout>
+</template>
+```
+
+Instead, you will need to write it as follows:
+```vue-html
+<template>
+  <MyComponent>
+    <!-- Use explicit default slot -->
+    <template #default="{ message }">
+      <p>{{ message }}</p>
+    </template>
+
+    <template #footer>
+      <p>Here's some contact info</p>
+    </template>
+  </MyComponent>
+</template>
+```
 
 ### Fancy List Example
 
