@@ -412,6 +412,54 @@ Passing props to a named slot:
 
 Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
 
+Also note that if you are mixing named slots with the default slot, you need to explicitly define the default template. Otherwise, it would hint that the data of the default slot would be available in the other slots scopes.
+
+```vue-html
+<template>
+  <TabSelector v-model="currentTab" v-slot="{ setTab }">
+    <button @click="setTab('a')">
+      Click on A
+    </button>
+
+    <template #a>
+      This is A content
+      <!-- setTab belongs to the default slot, and is not available here -->
+      <button @click="setTab('b')">
+        Click on B
+      </button>
+      <button @click="setTab('c')">
+        Click on B
+      </button>
+    </template>
+    <template #b>
+      This is B content
+    </template>
+  </TabSelector>
+</template>
+```
+
+Instead, you will need to write it as follows:
+```vue-html
+<template>
+  <TabSelector v-model="currentTab">
+    <!-- Use explicit default slot -->
+    <template #default="{ setTab }">
+      <button @click="setTab('a')">
+        Click on A
+      </button>
+    </template>
+
+    <template #a>
+      This is A content
+    </template>
+    <template #b>
+      This is B content
+    </template>
+  </TabSelector>
+</template>
+```
+
+
 ### Fancy List Example
 
 You may be wondering what would be a good use case for scoped slots. Here's an example: imagine a `<FancyList>` component that renders a list of items - it may encapsulate the logic for loading remote data, using the data to display a list, or even advanced features like pagination or infinite scrolling. However, we want it to be flexible with how each item looks and leave the styling of each item to the parent component consuming it. So the desired usage may look like this:
