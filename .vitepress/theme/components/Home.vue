@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 import NewsLetter from './NewsLetter.vue'
-import { load, data, base } from './sponsors';
-import SponsorsGroup from './SponsorsGroup.vue';
-import VueMasteryModal from './VueMasteryModal.vue';
+import { load, data, base } from './sponsors'
+import SponsorsGroup from './SponsorsGroup.vue'
+import VueMasteryModal from './VueMasteryModal.vue'
 
 onMounted(async () => {
   await load()
@@ -42,7 +42,7 @@ onMounted(async () => {
   </section>
 
   <section id="special-sponsor">
-    <span>Special Sponsor</span>
+    <span class="lead">Special Sponsor</span>
     <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
@@ -52,7 +52,7 @@ onMounted(async () => {
           </picture>
           <img v-else :src="`${base}/images/${img}`" :alt="name" />
         </a>
-        <!-- <span v-if="description">{{ description }}</span> -->
+        <span v-if="description">{{ description }}</span>
       </template>
     </template>
   </section>
@@ -178,7 +178,7 @@ html:not(.dark) .accent,
   border-top: 1px solid var(--vt-c-divider-light);
   border-bottom: 1px solid var(--vt-c-divider-light);
   padding: 12px 24px;
-  text-align: center;
+  display: flex;
 }
 
 #special-sponsor span {
@@ -186,14 +186,21 @@ html:not(.dark) .accent,
   font-weight: 500;
   font-size: 13px;
   vertical-align: middle;
-  margin-right: 24px;
+  flex: 1;
+}
+
+#special-sponsor span:first-child {
+  text-align: right;
+}
+
+#special-sponsor a {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
 }
 
 #special-sponsor img {
-  display: inline-block;
-  vertical-align: middle;
-  height: 36px;
-  margin-right: 24px;
+  height: 30px;
 }
 
 .dark #special-sponsor img {
@@ -265,12 +272,14 @@ html:not(.dark) .accent,
     font-size: 16px;
     margin: 18px 0 30px;
   }
-  #special-sponsor span {
-    margin: 0;
+  #special-sponsor {
+    flex-direction: column;
   }
   #special-sponsor img {
-    display: block;
-    margin: 2px auto 1px;
+    margin: 10px 0;
+  }
+  #special-sponsor span {
+    text-align: center !important;
   }
   #highlights h3 {
     margin-bottom: 0.6em;
