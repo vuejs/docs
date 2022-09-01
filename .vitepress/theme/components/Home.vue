@@ -200,7 +200,8 @@ html:not(.dark) .accent,
 }
 
 #special-sponsor img {
-  height: 30px;
+  height: 42px;
+  margin: -6px 0;
 }
 
 .dark #special-sponsor img {
@@ -276,7 +277,8 @@ html:not(.dark) .accent,
     flex-direction: column;
   }
   #special-sponsor img {
-    margin: 10px 0;
+    height: 36px;
+    margin: 8px 0;
   }
   #special-sponsor span {
     text-align: center !important;
