@@ -10,7 +10,7 @@ Vue написаний на TypeScript, тому забезпечує першо
 
 ## Налаштування проекту
 
-[`create-vue`](https://github.com/vuejs/create-vue), офіційний інструмент створення скелетів проекту, пропонує опції створення скелетів [Vite](https://vitejs.dev/), для Vue з TypeScript.
+[`create-vue`](https://github.com/vuejs/create-vue), офіційний інструмент створення проєктів Vue, який базується на [Vite](https://vitejs.dev/), пропонує опції створення проєктів Vue з TypeScript.
 
 ### Огляд
 
