@@ -111,7 +111,7 @@ export default defineComponent({
 })
 ```
 
-`defineComponent()` підтримує також припущення реквізитів, переданих у `setup()` під час використання Composition API без `<script setup>`:
+`defineComponent()` також підтримує визначення типів реквізитів, переданих у `setup()` під час використання Composition API без `<script setup>`:
 
 ```ts
 import { defineComponent } from 'vue'
