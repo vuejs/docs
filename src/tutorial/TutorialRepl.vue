@@ -13,7 +13,8 @@ import {
   VTFlyout,
   VTIconChevronLeft,
   VTIconChevronRight,
-  VTLink
+  VTLink,
+  useCopyCode
 } from '@vue/theme'
 
 const store = new ReplStore({
