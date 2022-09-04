@@ -111,7 +111,7 @@ export default defineComponent({
 })
 ```
 
-`defineComponent()` підтримує також припущення реквізитів, переданих у `setup()` під час використання Composition API без `<script setup>`:
+`defineComponent()` також підтримує визначення типів реквізитів, переданих у `setup()` під час використання Composition API без `<script setup>`:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -133,7 +133,7 @@ export default defineComponent({
 - [Типові тести для `defineComponent`](https://github.com/vuejs/core/blob/main/test-dts/defineComponent.test-d.tsx)
 
 :::tip
-`defineComponent()` також дає змогу припускати типи для компонентів, визначених у звичайному JavaScript.
+`defineComponent()` також дає змогу визначати типи для компонентів, визначених у звичайному JavaScript.
 :::
 
 ### Використання в одно-файлових компонентах
