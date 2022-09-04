@@ -1,17 +1,13 @@
 import path from 'path'
 import { createMarkdownRenderer } from 'vitepress'
 import { readExamples, ExampleData } from '../examples/examples.data'
-import createHighlighter from '@vue/theme/highlight'
 
 export declare const data: Record<string, ExampleData>
 
 export default {
   watch: './src/**',
   async load() {
-    const md = await createMarkdownRenderer(process.cwd(), {
-      // @ts-ignore
-      highlight: await createHighlighter()
-    }, '/')
+    const md = await createMarkdownRenderer(process.cwd(), undefined, '/')
     const files = readExamples(path.resolve(__dirname, './src'))
     for (const step in files) {
       const stepFiles = files[step]

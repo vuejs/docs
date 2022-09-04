@@ -1,5 +1,4 @@
 import MarkdownIt from 'markdown-it'
-import { MarkdownRenderer } from 'vitepress';
 
 const excludedPages = [
   'guide/introduction.md',
@@ -23,8 +22,8 @@ const excludedPages = [
 ]
 
 export const jobsPlugin = (md: MarkdownIt) => {
-  md.renderer.rules.heading_close = (tokens, i, options, _env, self) => {
-    const relativePath = (md as MarkdownRenderer).__relativePath
+  md.renderer.rules.heading_close = (tokens, i, options, env, self) => {
+    const relativePath = env.relativePath
     const renderedContent = self.renderToken(tokens, i, options)
 
     return excludedPages.includes(relativePath)

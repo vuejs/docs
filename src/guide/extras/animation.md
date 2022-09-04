@@ -165,6 +165,11 @@ watch(number, (n) => {
 })
 ```
 
+```vue-html
+Type a number: <input v-model.number="number" />
+<p>{{ tweened.number.toFixed(0) }}</p>
+```
+
 </div>
 <div class="options-api">
 
@@ -186,12 +191,12 @@ export default {
 }
 ```
 
-</div>
-
 ```vue-html
 Type a number: <input v-model.number="number" />
-<p>{{ tweened.number.toFixed(0) }}</p>
+<p>{{ tweened.toFixed(0) }}</p>
 ```
+
+</div>
 
 <AnimateWatcher />
 
