@@ -87,13 +87,13 @@ Vue написаний на TypeScript, тому забезпечує першо
 
 ### `defineComponent()`
 
-Щоб дозволити TypeScript правильно припустити типи всередині опцій компонента, нам потрібно визначити компоненти за допомогою [`defineComponent()`](/api/general.html#definecomponent):
+Щоб дозволити TypeScript правильно визначати типи всередині опцій компонента, нам потрібно визначити компоненти за допомогою [`defineComponent()`](/api/general.html#definecomponent):
 
 ```ts
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  // увімкнено припущення типу
+  // увімкнено визначення типу
   props: {
     name: String,
     msg: { type: String, required: true }
@@ -117,7 +117,7 @@ export default defineComponent({
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  // увімкнено припущення типу
+  // увімкнено визначення типу
   props: {
     message: String
   },
@@ -133,7 +133,7 @@ export default defineComponent({
 - [Типові тести для `defineComponent`](https://github.com/vuejs/core/blob/main/test-dts/defineComponent.test-d.tsx)
 
 :::tip
-`defineComponent()` також дає змогу визначати типи для компонентів, визначених у звичайному JavaScript.
+`defineComponent()` також дає змогу визначити типи для компонентів, визначених у звичайному JavaScript.
 :::
 
 ### Використання в одно-файлових компонентах
