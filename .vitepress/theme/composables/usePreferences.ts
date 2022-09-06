@@ -10,10 +10,10 @@ const get = (key: string, defaultValue = false): boolean =>
     ? JSON.parse(localStorage.getItem(key) || String(defaultValue))
     : defaultValue
 
-export const preferCompositionKey = 'vue-docs-prefer-composition'
+const preferCompositionKey = 'vue-docs-prefer-composition'
 export const preferComposition = ref(get(preferCompositionKey))
 
-export const preferSFCKey = 'vue-docs-prefer-sfc'
+const preferSFCKey = 'vue-docs-prefer-sfc'
 export const preferSFC = ref(get(preferSFCKey, true))
 
 export function filterHeadersByPreference(h: AugmentedHeader) {
@@ -30,14 +30,16 @@ export default function usePreferences() {
   const { altKey } = usePlatform()
 
   const shortcutInfo = computed(() => {
-    const templateInfo = showSFC.value ? `\nCtrl+${altKey}+T: toggle template preference` : ''
+    const templateInfo = showSFC.value
+      ? `\nCtrl+${altKey}+T: toggle template preference`
+      : ''
 
     return `Ctrl+${altKey}+A: toggle API preference${templateInfo}`
   })
 
   const isOpen = ref(
     typeof localStorage !== 'undefined' &&
-    !localStorage.getItem(preferCompositionKey)
+      !localStorage.getItem(preferCompositionKey)
   )
 
   const toggleOpen = () => {
@@ -57,7 +59,7 @@ export default function usePreferences() {
     className: string
   ) {
     if (typeof localStorage === 'undefined') {
-      return () => { }
+      return () => {}
     }
     const classList = document.documentElement.classList
     return (value = !state.value) => {
@@ -78,7 +80,7 @@ export default function usePreferences() {
       isOpen.value = true // Open preference to see what is changed.
       hasInitiallyBeenOpenByKeyboard = true
       setTimeout(() => {
-        // Differ the toggle a bit to being able to see the change
+        // Defer the toggle a bit to be able to see the change
         callback()
       }, 100)
     } else {
@@ -88,15 +90,15 @@ export default function usePreferences() {
       // Close automatically when it was initially opened by shortcut
       closeTimeout = setTimeout(() => {
         // Close after 5 seconds
-        isOpen.value = false;
-        hasInitiallyBeenOpenByKeyboard = false;
+        isOpen.value = false
+        hasInitiallyBeenOpenByKeyboard = false
       }, 5000)
     }
   }
 
   const preferenceKeyupHandler = (e: KeyboardEvent) => {
     if (e.altKey && e.ctrlKey && showPreference.value) {
-      if (e.keyCode === 65) { 
+      if (e.keyCode === 65) {
         // Ctrl+Alt+A + preference switch available
         onPreferenceKeyupChange(toggleCompositionAPI)
       } else if (e.keyCode === 84 && showSFC.value) {
@@ -120,6 +122,6 @@ export default function usePreferences() {
     showSFC,
     toggleOpen,
     toggleCompositionAPI,
-    toggleSFC,
+    toggleSFC
   }
 }
