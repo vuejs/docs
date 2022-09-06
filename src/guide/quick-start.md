@@ -19,7 +19,7 @@ You can try Vue with SFCs online on [StackBlitz](https://vite.new/vue). StackBli
 :::tip Pre-requisites
 
 - Familiarity with the command line
-- Install [Node.js](https://nodejs.org/)
+- Install [Node.js](https://nodejs.org/) version 15.0 or higher
   :::
 
 To create a build-tool-enabled Vue project on your machine, run the following command in your command line (without the `>` sign):
@@ -48,7 +48,7 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-You should now have your first Vue project running! Here are some additional tips:
+You should now have your first Vue project running! Note that the example components in the generated project are written using the [Composition API](/guide/introduction.html#composition-api) and `<script setup>`, rather than the [Options API](/guide/introduction.html#options-api). Here are some additional tips:
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling.html#ide-support).
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
@@ -169,7 +169,7 @@ If you skipped the [Introduction](/guide/introduction), we strongly recommend re
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application.html">
     <p class="next-steps-link">Continue the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full details.</p>
+    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
     <p class="next-steps-link">Try the Tutorial</p>

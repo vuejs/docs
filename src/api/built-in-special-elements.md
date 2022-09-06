@@ -90,6 +90,24 @@ A "meta component" for rendering dynamic components or elements.
 
   Registration is not required if you pass the component itself to `is` rather than its name, e.g. in `<script setup>`.
 
+  If `v-model` is used on a `<component>` tag, the template compiler will expand it to a `modelValue` prop and `update:modelValue` event listener, much like it would for any other component. However, this won't be compatible with native HTML elements, such as `<input>` or `<select>`. As a result, using `v-model` with a dynamically created native element won't work: 
+
+  ```vue
+  <script setup>
+  import { ref } from 'vue'
+  
+  const tag = ref('input')
+  const username = ref('')
+  </script>
+
+  <template>
+    <!-- This won't work as 'input' is a native HTML element -->
+    <component :is="tag" v-model="username" />
+  </template>
+  ```
+
+  In practice, this edge case isn't common as native form fields are typically wrapped in components in real applications. If you do need to use a native element directly then you can split the `v-model` into an attribute and event manually.
+
 - **See also:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
 
 ## `<slot>`

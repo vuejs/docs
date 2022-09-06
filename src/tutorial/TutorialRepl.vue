@@ -8,12 +8,13 @@ import {
   onHashChange
 } from '../examples/utils'
 import '@vue/repl/style.css'
-import PreferenceSwitch from '/@theme/components/PreferenceSwitch.vue'
+import PreferenceSwitch from '@theme/components/PreferenceSwitch.vue'
 import {
   VTFlyout,
   VTIconChevronLeft,
   VTIconChevronRight,
-  VTLink
+  VTLink,
+  useCopyCode
 } from '@vue/theme'
 
 const store = new ReplStore({
@@ -70,7 +71,7 @@ function updateExample(scroll = false) {
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
     hash = 'step-1'
-    location.hash = `#${hash}`
+    location.replace(`/tutorial/#${hash}`)
   }
   currentStep.value = hash
 

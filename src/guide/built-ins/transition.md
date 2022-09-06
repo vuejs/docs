@@ -284,6 +284,8 @@ Although the transition classes are only applied to the direct child element in 
   transform: translateX(30px);
   opacity: 0;
 }
+
+/* ... other necessary CSS omitted */
 ```
 
 We can even add a transition delay to the nested element on enter, which creates a staggered enter animation sequence:
@@ -347,7 +349,7 @@ You can hook into the transition process with JavaScript by listening to events 
 ```js
 // called before the element is inserted into the DOM.
 // use this to set the "enter-from" state of the element
-function onBeforeEnter(el) {},
+function onBeforeEnter(el) {}
 
 // called one frame after the element is inserted.
 // use this to start the entering animation.
@@ -378,7 +380,7 @@ function onLeave(el, done) {
 function onAfterLeave(el) {}
 
 // only available with v-show transitions
-function leaveCancelled(el) {}
+function onLeaveCancelled(el) {}
 ```
 
 </div>
@@ -421,7 +423,7 @@ export default {
     onAfterLeave(el) {},
 
     // only available with v-show transitions
-    leaveCancelled(el) {}
+    onLeaveCancelled(el) {}
   }
 }
 ```
@@ -497,7 +499,7 @@ Now `MyTransition` can be imported and used just like the built-in version:
 
 ## Transition on Appear
 
-If you also want to apply a transition on the initial render of a node, you can add the `appear` attribute:
+If you also want to apply a transition on the initial render of a node, you can add the `appear` prop:
 
 ```vue-html
 <Transition appear>
@@ -507,7 +509,7 @@ If you also want to apply a transition on the initial render of a node, you can 
 
 ## Transition Between Elements
 
-In addition to toggling an element with `v-if` / `v-show`, we can also transition between two elements using `v-if` / `v-else` / `v-else-if`:
+In addition to toggling an element with `v-if` / `v-show`, we can also transition between two elements using `v-if` / `v-else` / `v-else-if`, as long as we make sure that there is only one element being shown at any given moment:
 
 ```vue-html
 <Transition>

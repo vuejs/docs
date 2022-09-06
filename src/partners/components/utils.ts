@@ -6,7 +6,7 @@ export function getHero(name: string) {
   return `/images/partners/${normalizeName(name)}-hero.jpg`
 }
 
-export function getLogo(img: string, flip: boolean | undefined) {
+export function getLogo(img: string, flip = false) {
   if (flip) img = img.replace(/(\.\w+$)/, '-dark$1')
   return `/images/partners/${img}`
 }

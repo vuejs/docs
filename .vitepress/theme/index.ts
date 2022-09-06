@@ -7,17 +7,18 @@ import {
   filterHeadersByPreference
 } from './composables/usePreferences'
 import SponsorsAside from './components/SponsorsAside.vue'
-import VueSchoolLink from './components/VueSchoolLink.vue'
 import VueJobs from './components/VueJobs.vue'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
+import VueSchoolLink from './components/VueSchoolLink.vue'
+import Banner from './components/Banner.vue'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {
     // @ts-ignore
     return h(VPTheme.Layout, null, {
+      banner: () => h(Banner),
       'sidebar-top': () => h(PreferenceSwitch),
-      'aside-mid': () => h(SponsorsAside),
-      'aside-bottom': () => h(VueJobs)
+      'aside-mid': () => h(SponsorsAside)
     })
   },
   enhanceApp({ app }: { app: App }) {
@@ -25,5 +26,6 @@ export default Object.assign({}, VPTheme, {
     app.provide('prefer-sfc', preferSFC)
     app.provide('filter-headers', filterHeadersByPreference)
     app.component('VueSchoolLink', VueSchoolLink)
+    app.component('VueJobs', VueJobs)
   }
 })

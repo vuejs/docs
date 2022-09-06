@@ -405,7 +405,7 @@ This config option is only respected when using the full build (i.e. the standal
 - For `vite`: [pass via `@vitejs/plugin-vue` options](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#options).
   :::
 
-### app.compilerOptions.isCustomElement
+### app.config.compilerOptions.isCustomElement
 
 Specifies a check method to recognize native custom elements.
 
@@ -428,7 +428,7 @@ Specifies a check method to recognize native custom elements.
 
 - **See also:** [Vue and Web Components](/guide/extras/web-components.html)
 
-### app.compilerOptions.whitespace
+### app.config.compilerOptions.whitespace
 
 Adjusts template whitespace handling behavior.
 
@@ -452,7 +452,7 @@ Adjusts template whitespace handling behavior.
   app.config.compilerOptions.whitespace = 'preserve'
   ```
 
-### app.compilerOptions.delimiters
+### app.config.compilerOptions.delimiters
 
 Adjusts the delimiters used for text interpolation within the template.
 
@@ -471,7 +471,7 @@ Adjusts the delimiters used for text interpolation within the template.
   app.config.compilerOptions.delimiters = ['${', '}']
   ```
 
-### app.compilerOptions.comments
+### app.config.compilerOptions.comments
 
 Adjusts treatment of HTML comments in templates.
 

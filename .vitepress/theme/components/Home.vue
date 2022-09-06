@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import NewsLetter from './NewsLetter.vue'
-import SponsorsGroup from './SponsorsGroup.vue';
-import VueMasteryModal from './VueMasteryModal.vue';
+import { load, data, base } from './sponsors'
+import SponsorsGroup from './SponsorsGroup.vue'
+import VueMasteryModal from './VueMasteryModal.vue'
+
+onMounted(async () => {
+  await load()
+})
 </script>
 
 <template>
@@ -35,21 +41,20 @@ import VueMasteryModal from './VueMasteryModal.vue';
     </p>
   </section>
 
-  <!-- TODO make dynamic based on data -->
   <section id="special-sponsor">
-    <span>Special Sponsor</span>
-    <a href="https://www.dcloud.io/hbuilderx.html?hmsr=vue-en&hmpl=&hmcu=&hmkw=&hmci=">
-      <picture>
-        <source type="image/avif" srcset="/images/sponsors/hbuilder.avif" />
-        <img
-          alt="hbuilder logo"
-          width="97"
-          height="36"
-          src="/images/sponsors/hbuilder.png"
-        />
-      </picture>
-    </a>
-    <span>Advanced IDE for Vue</span>
+    <span class="lead">Special Sponsor</span>
+    <template v-if="data && data.special">
+      <template v-for="{ url, img, name, description } of data.special">
+        <a :href="url" target="_blank" rel="sponsored noopener">
+          <picture v-if="img.endsWith('png')">
+            <source type="image/avif" :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`" />
+            <img :src="`${base}/images/${img}`" :alt="name" />
+          </picture>
+          <img v-else :src="`${base}/images/${img}`" :alt="name" />
+        </a>
+        <span v-if="description">{{ description }}</span>
+      </template>
+    </template>
   </section>
 
   <section id="highlights" class="vt-box-container">
@@ -173,7 +178,7 @@ html:not(.dark) .accent,
   border-top: 1px solid var(--vt-c-divider-light);
   border-bottom: 1px solid var(--vt-c-divider-light);
   padding: 12px 24px;
-  text-align: center;
+  display: flex;
 }
 
 #special-sponsor span {
@@ -181,13 +186,22 @@ html:not(.dark) .accent,
   font-weight: 500;
   font-size: 13px;
   vertical-align: middle;
-  margin: 0 24px;
+  flex: 1;
+}
+
+#special-sponsor span:first-child {
+  text-align: right;
+}
+
+#special-sponsor a {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
 }
 
 #special-sponsor img {
-  display: inline-block;
-  vertical-align: middle;
-  height: 36px;
+  height: 42px;
+  margin: -6px 0;
 }
 
 .dark #special-sponsor img {
@@ -259,9 +273,15 @@ html:not(.dark) .accent,
     font-size: 16px;
     margin: 18px 0 30px;
   }
+  #special-sponsor {
+    flex-direction: column;
+  }
   #special-sponsor img {
-    display: block;
-    margin: 2px auto 1px;
+    height: 36px;
+    margin: 8px 0;
+  }
+  #special-sponsor span {
+    text-align: center !important;
   }
   #highlights h3 {
     margin-bottom: 0.6em;

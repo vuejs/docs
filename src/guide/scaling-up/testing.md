@@ -103,10 +103,6 @@ A component can be tested in two ways:
 
   Since the official setup created by `create-vue` is based on [Vite](https://vitejs.dev/), we recommend using a unit testing framework that can leverage the same configuration and transform pipeline directly from Vite. [Vitest](https://vitest.dev/) is a unit testing framework designed specifically for this purpose, created and maintained by Vue / Vite team members. It integrates with Vite-based projects with minimal effort, and is blazing fast.
 
-:::warning In Active Development
-Vitest is relatively new and is still undergoing rapid development. While it is not considered stable yet, the team is working hard to get it to production ready state.
-:::
-
 ### Other Options
 
 - [Peeky](https://peeky.dev/) is another fast unit test runner with first-class Vite integration. It is also created by a Vue core team member and offers a GUI-based testing interface.
@@ -137,13 +133,11 @@ Component tests should focus on the component's public interfaces rather than in
 <div class="testing-library-api">
 
 ```js
-render(Stepper, {
+const { getByText } = render(Stepper, {
   props: {
     max: 1
   }
 })
-
-const { getByText } = render(Component)
 
 getByText('0') // Implicit assertion that "0" is within the component
 
@@ -288,7 +282,7 @@ When end-to-end (E2E) tests are run in continuous integration / deployment pipel
 In a Vite-based Vue project, run:
 
 ```sh
-> npm install -D vitest happy-dom @testing-library/vue@next
+> npm install -D vitest happy-dom @testing-library/vue
 ```
 
 Next, update the Vite configuration to add the `test` option block:

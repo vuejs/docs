@@ -16,7 +16,7 @@ export default {
         return
       }
 
-      selected.value = circles.value.find(({ cx, cy, r }) => {
+      selected.value = [...circles.value].reverse().find(({ cx, cy, r }) => {
         const dx = cx - x
         const dy = cy - y
         return Math.sqrt(dx * dx + dy * dy) <= r

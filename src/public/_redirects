@@ -3,6 +3,19 @@
 /ecosystem/partners.html  /partners/
 /resources/*              /ecosystem/:splat
 
+# From Vue v2 runtime warnings
+
+/guide/computed.html                https://v2.vuejs.org/v2/guide/computed.html
+/guide/custom-directive.html        https://v2.vuejs.org/v2/guide/custom-directive.html
+/guide/deployment.html              https://v2.vuejs.org/v2/guide/deployment.html
+/guide/list.html                    https://v2.vuejs.org/v2/guide/list.html
+# https://vuejs.org/v2/api/#data
+# /v2/api/                            https://v2.vuejs.org/v2/api/
+# https://vuejs.org/v2/guide/reactivity.html#Declaring-Reactive-Properties
+# /v2/guide/reactivity.html           https://v2.vuejs.org/v2/guide/reactivity.html
+# https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function
+# /v2/guide/components.html           https://v2.vuejs.org/v2/guide/components.html
+
 /v2/guide/team.html                 /about/team.html
 /v2/guide/join.html                 /about/community-guide.html
 /v2/examples/                       https://vuejs.org/examples/#markdown

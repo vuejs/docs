@@ -25,7 +25,7 @@
       "url": "https://www.vehikl.com?utm_source=vue_partners_page"
     },
     "contact": "go+vuepartner@vehikl.com",
-    "hiring": "www.vehikl.com/jobs/developer",
+    "hiring": "https://vehikl.com/jobs/developer/",
     "platinum": true
   },
   {
@@ -143,9 +143,9 @@
     "intro": "Treat people well, solve the right problems, build spectacular software—that's how we roll. We're ultra-focused and deeply experienced in the technology powering modern business, including Vue.js. Via our signature method, our meticulously assembled team delivers unparalleled service, helping you do more with your software, and do right by your business.",
     "description": [
       "Empathetically opinionated, expertly executed development. That's what we deliver.",
-      "At Tighten, and we sweat the hell out of the details to give your app the fit-and-finish today's users expect, while giving you the clarity and confidence to charge ahead.",
+      "At Tighten, we sweat the hell out of the details to give your app the fit-and-finish today's users expect, while giving you the clarity and confidence to charge ahead.",
       "Whether you’re looking to simply enhance a user interface or build a sophisticated JavaScript-based application, we’ve got you covered. Vue.js is a flexible and robust framework, capable of powering a complex single-page application. We typically combine it with a Laravel-based API.",
-      "If you're building a development team, you know it takes time and diligence, and it could be the make-or-break factor for your business. Companies turn to Tighten at key turning points, to propel their technology forward while they assemble the *right* team for their business."
+      "If you're building a development team, you know it takes time and diligence, and it could be the make-or-break factor for your business. Companies turn to Tighten at key turning points, to propel their technology forward while they assemble the <b>right</b> team for their business."
     ],
     "region": ["North America", "Europe", "Latin America"],
     "proficiencies": ["Vue", "Nuxt", "Laravel", "Inertia", "Tailwind"],
@@ -198,5 +198,37 @@
     },
     "contact": "we@webreinvent.com",
     "hiring": "https://webreinvent.com/career?utm_source=vuejs.org&utm_medium=website&utm_campaign=partner-hiring-link"
+  },
+  {
+    "name": "Active Logic",
+    "logo": "activelogic.png",
+    "flipLogo": true,
+    "intro": "We’re not just an extension of your Vue.JS development team, we’re a rapid-speed injector. Since 2014, we have been providing premium software development & staff augmentation solutions for various organizations nationwide. By utilizing our 100% on-shore development team, we can conduct the groundwork for a new application, or continue to engineer existing software that needs modifications.",
+    "description": [
+      "Headquartered in the heart of America, our mission is simple - provide nationwide organizations with tailored, technical solutions; one system at a time. We are proud to say that we continue to fulfill our mission on a daily basis.",
+      "We believe that a project, regardless of size or tech stack, should always be managed by a dedicated Software Lead who works closely with you and your team. Their expertise and guidance will better allow you to focus on your daily business operations while we do the heavy lifting.",
+      "We have produced over 200 final projects for our clients in the past 8 years, all of which follow well-known industry standards to ensure their functionality, security, and scalability.",
+      "Optimizing your business operations has never been easier; reach out to us here at Active Logic today!"
+    ],
+    "proficiencies": [
+      "Vue",
+      "Laravel",
+      "Node.js",
+      "React",
+      "React Native",
+      "Angular",
+      "Swift",
+      "Kotlin",
+      ".NET"
+    ],
+    "region": ["North America"],
+    "location": ["Leadwood, Kansas, USA"],
+    "website": {
+      "text": "activelogic.io",
+      "url": "https://activelogic.io/services/vue-js-development/"
+    },
+    "contact": "sales@activelogic.io",
+    "hiring": "https://activelogic.io/careers/",
+    "platinum": true
   }
 ]
