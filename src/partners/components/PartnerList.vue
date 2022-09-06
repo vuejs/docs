@@ -45,7 +45,7 @@ function shuffle(array: Array<any>) {
 
 <template>
   <div class="PartnerList" v-show="mounted">
-    <!-- to skip SSG since the members are shuffled -->
+    <!-- to skip SSG since the partners are shuffled -->
     <ClientOnly>
       <PartnerCard v-for="p in filtered" :key="p.name" :data="p" />
     </ClientOnly>
