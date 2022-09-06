@@ -1,4 +1,5 @@
-import { Header, useRoute } from 'vitepress'
+import { AugmentedHeader } from '.vitepress/headerMdPlugin'
+import { useRoute } from 'vitepress'
 import { computed, onMounted, onUnmounted, Ref, ref } from 'vue'
 
 import usePlatform from './usePlatform'
@@ -15,7 +16,7 @@ export const preferComposition = ref(get(preferCompositionKey))
 export const preferSFCKey = 'vue-docs-prefer-sfc'
 export const preferSFC = ref(get(preferSFCKey, true))
 
-export function filterHeadersByPreference(h: Header) {
+export function filterHeadersByPreference(h: AugmentedHeader) {
   return preferComposition.value ? !h.optionsOnly : !h.compositionOnly
 }
 
