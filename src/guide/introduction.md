@@ -220,10 +220,7 @@ You don't have to commit to only one style during the learning phase. The rest o
   const { altKey } = usePlatform()
 </script>
 
-> You can use following shortcuts to switch between API Preferences:
-> 
-> * `Ctrl+{{altKey}}+A` switches the API preference (Options/Composition)  
-> * `Ctrl+{{altKey}}+T` switches the templating preference (HTML/SFC)  
+> You can use following shortcut to switch between API Preferences: `Ctrl+{{altKey}}+A`
 
 ## Still Got Questions?
 

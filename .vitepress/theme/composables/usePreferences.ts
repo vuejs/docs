@@ -25,17 +25,9 @@ export default function usePreferences() {
   const showPreference = computed(() =>
     /^\/(guide|tutorial|examples)\//.test(route.path)
   )
-  const showSFC = computed(() => !/^\/guide/.test(route.path))
-
   const { altKey } = usePlatform()
 
-  const shortcutInfo = computed(() => {
-    const templateInfo = showSFC.value
-      ? `\nCtrl+${altKey}+T: toggle template preference`
-      : ''
-
-    return `Ctrl+${altKey}+A: toggle API preference${templateInfo}`
-  })
+  const shortcutInfo = computed(() => `Ctrl+${altKey}+A: toggle API preference`)
 
   const isOpen = ref(
     typeof localStorage !== 'undefined' &&
@@ -101,9 +93,6 @@ export default function usePreferences() {
       if (e.keyCode === 65) {
         // Ctrl+Alt+A + preference switch available
         onPreferenceKeyupChange(toggleCompositionAPI)
-      } else if (e.keyCode === 84 && showSFC.value) {
-        // Ctrl+Alt+T + sfc option available
-        onPreferenceKeyupChange(toggleSFC)
       }
     }
   }
@@ -119,7 +108,6 @@ export default function usePreferences() {
     isOpen,
     shortcutInfo,
     showPreference,
-    showSFC,
     toggleOpen,
     toggleCompositionAPI,
     toggleSFC
