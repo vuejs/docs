@@ -79,20 +79,36 @@ defineProps<Props>()
 
 This is because Vue components are compiled in isolation and the compiler currently does not crawl imported files in order to analyze the source type. This limitation could be removed in a future release.
 
-### Props Default Values <sup class="vt-badge experimental" />
+### Props Default Values
 
-When using type-based declaration, we lose the ability to declare default values for the props. This can be resolved by the currently experimental [Reactivity Transform](/guide/extras/reactivity-transform.html):
+When using type-based declaration, we lose the ability to declare default values for the props. This can be resolved by the `withDefaults` compiler macro:
+
+```ts
+export interface Props {
+  msg?: string
+  labels?: string[]
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  msg: 'hello',
+  labels: () => ['one', 'two']
+})
+```
+
+This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
+
+Alternatively, you can use the currently experimental [Reactivity Transform](/guide/extras/reactivity-transform.html):
 
 ```vue
 <script setup lang="ts">
 interface Props {
-  foo: string
-  bar?: number
+  name: string
+  count?: number
 }
 
 // reactive destructure for defineProps()
 // default value is compiled to equivalent runtime option
-const { foo, bar = 100 } = defineProps<Props>()
+const { name, count = 100 } = defineProps<Props>()
 </script>
 ```
 
