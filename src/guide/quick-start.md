@@ -20,7 +20,7 @@ footer: false
 - Install [Node.js](https://nodejs.org/) version 16.0 or higher
   :::
 
-In this section we will introduce how to scaffold a Vue [Single Page Application](http://localhost:5173/guide/extras/ways-of-using-vue.html#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vitejs.dev), and allows us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
+In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue.html#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vitejs.dev), and allows us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
 
 Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) installed, then run the following command in your command line (without the `>` sign):
 
