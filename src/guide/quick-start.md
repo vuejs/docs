@@ -66,7 +66,7 @@ footer: false
 
 ## Використання Vue з CDN
 
-Ви можете використовувати Vue безпосередньо з CDN за допомогою тегу сценарію:
+Ви можете використовувати Vue безпосередньо з CDN за допомогою тегу `script`:
 
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
