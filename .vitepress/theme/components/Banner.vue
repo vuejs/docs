@@ -19,19 +19,12 @@ function dismiss() {
 </script>
 
 <template>
-  <div class="banner" v-if="open">
-    Vue 3 is now the new default version!
-    <a
-      href="https://blog.vuejs.org/posts/vue-3-as-the-new-default.html"
-      target="_blank"
-      >Learn more</a
-    >
-  </div>
+  <div class="banner" v-if="open"></div>
 </template>
 
 <style>
 html:not(.banner-dismissed) {
-  --vt-banner-height: 24px;
+  --vt-banner-height: 60px;
 }
 </style>
 
@@ -44,7 +37,7 @@ html:not(.banner-dismissed) {
   left: 0;
   right: 0;
   height: var(--vt-banner-height);
-  line-height: var(--vt-banner-height);
+  line-height: 0;
   text-align: center;
   font-size: 12px;
   font-weight: 600;
@@ -54,9 +47,5 @@ html:not(.banner-dismissed) {
 
 .banner-dismissed .banner {
   display: none;
-}
-
-a {
-  text-decoration: underline;
 }
 </style>
