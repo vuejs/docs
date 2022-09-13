@@ -4,19 +4,6 @@ footer: false
 
 # Швидкий старт
 
-<<<<<<< HEAD
-Виходячи з ваших потреб та уподобань, ви можете використовувати Vue із засобами збірки або без них.
-
-## Використання за допомогою засобів збірки
-
-Налаштування збірки дозволяє нам використовувати [одно-файлові компоненти Vue](/guide/scaling-up/sfc) (SFC). Офіційна збірка Vue базована на [Vite](https://vitejs.dev) — сучасному, легкому та надзвичайно швидкому інструменті збірки.
-
-### Онлайн
-
-Ви можете спробувати Vue із SFC онлайн на [StackBlitz](https://vite.new/vue). StackBlitz запускає збірку на основі Vite безпосередньо в браузері, тому вона майже ідентична локальній конфігурації, але не вимагає встановлення будь-чого на вашій машині.
-
-### Локально
-=======
 ## Спробуйте Vue онлайн
 
 - Щоб швидко відчути смак Vue, спробуйте його безпосередньо на нашому [ігровому майданчику](https://sfc.vuejs.org/#eNp9UFFqwzAMvYqmn26QxOw3ZIXdwz9Zo7YpsWNkJxuEwLZD7Hd3GAx2jORGU5qljBYKxtbTk5+e1OGjc0nbEKaY+Q2XLqy1pRdXc4CCtnlTBei0BSjykN/ezTEAU2jYLgjA+F0Kq+FzfB1+hq/xY3yPYHybo+H7ZjXX9dMjl5xMnboJCGRclQcSBJDt79ddN0lC32dK0DFbWtcEaGNTF1Q9aBReo1CZOv3GCEszWY9N7pKDr62MdfSo/wivMV1ca5S5J6xxH4LzqVJ+u5mWcfBJzTslUcKNDaWhhLyJn7h+9sQirDH6p6Ek2RLHTLYgJr6meVZ6obtsCPtf0fmTIA==).
