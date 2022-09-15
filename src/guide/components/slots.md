@@ -415,6 +415,7 @@ Note the `name` of a slot won't be included in the props because it is reserved 
 If you are mixing named slots with the default scoped slot, you need to use an explicit `<template>` tag for the default slot. Attempting to place the `v-slot` directive directly on the component will result in a compilation error. This is to avoid any ambiguity about the scope of the props of the default slot. For example:
 
 ```vue-html
+<!-- This template won't compile -->
 <template>
   <MyComponent v-slot="{ message }">
     <p>{{ message }}</p>
