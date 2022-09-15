@@ -416,13 +416,13 @@ Also note that if you are mixing named scoped slots with the default scoped slot
 
 ```vue-html
 <template>
-  <BaseLayout v-slot="{ message }">
+  <MyComponent v-slot="{ message }">
     <p>{{ message }}</p>
     <template #footer>
       <!-- message belongs to the default slot, and is not available here -->
       <p>{{ message }}</p>
     </template>
-  </BaseLayout>
+  </MyComponent>
 </template>
 ```
 
