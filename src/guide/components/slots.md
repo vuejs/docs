@@ -427,7 +427,8 @@ If you are mixing named slots with the default scoped slot, you need to use an e
 </template>
 ```
 
-Instead, you will need to write it as follows:
+Using an explicit `<template>` tag for the default slot helps to make it clear that the `message` prop is not available inside the other slot:
+
 ```vue-html
 <template>
   <MyComponent>
