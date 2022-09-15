@@ -412,7 +412,7 @@ Passing props to a named slot:
 
 Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
 
-Also note that if you are mixing named scoped slots with the default scoped slot, you need to explicitly define the default template. Otherwise, it would hint that the data of the default scoped slot would be available in the other slots scopes.
+If you are mixing named slots with the default scoped slot, you need to use an explicit `<template>` tag for the default slot. Attempting to place the `v-slot` directive directly on the component will result in a compilation error. This is to avoid any ambiguity about the scope of the props of the default slot. For example:
 
 ```vue-html
 <template>
