@@ -176,7 +176,7 @@ Directive attribute values are expected to be single JavaScript expressions (wit
 <p v-if="seen">Now you see me</p>
 ```
 
-Here, the `v-if` directive would remove / insert the `<p>` element based on the truthiness of the value of the expression `seen`.
+Here, the `v-if` directive would remove/insert the `<p>` element based on the truthiness of the value of the expression `seen`.
 
 ### Arguments
 
