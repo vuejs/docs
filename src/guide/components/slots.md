@@ -412,6 +412,38 @@ Passing props to a named slot:
 
 Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
 
+If you are mixing named slots with the default scoped slot, you need to use an explicit `<template>` tag for the default slot. Attempting to place the `v-slot` directive directly on the component will result in a compilation error. This is to avoid any ambiguity about the scope of the props of the default slot. For example:
+
+```vue-html
+<!-- This template won't compile -->
+<template>
+  <MyComponent v-slot="{ message }">
+    <p>{{ message }}</p>
+    <template #footer>
+      <!-- message belongs to the default slot, and is not available here -->
+      <p>{{ message }}</p>
+    </template>
+  </MyComponent>
+</template>
+```
+
+Using an explicit `<template>` tag for the default slot helps to make it clear that the `message` prop is not available inside the other slot:
+
+```vue-html
+<template>
+  <MyComponent>
+    <!-- Use explicit default slot -->
+    <template #default="{ message }">
+      <p>{{ message }}</p>
+    </template>
+
+    <template #footer>
+      <p>Here's some contact info</p>
+    </template>
+  </MyComponent>
+</template>
+```
+
 ### Fancy List Example
 
 You may be wondering what would be a good use case for scoped slots. Here's an example: imagine a `<FancyList>` component that renders a list of items - it may encapsulate the logic for loading remote data, using the data to display a list, or even advanced features like pagination or infinite scrolling. However, we want it to be flexible with how each item looks and leave the styling of each item to the parent component consuming it. So the desired usage may look like this:
