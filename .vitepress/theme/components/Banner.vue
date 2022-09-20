@@ -42,7 +42,7 @@ function dismiss() {
           </div>
           <div class="vs-button-wrapper">
             <div class="vs-button">
-              Book my spot
+              Join for Free
             </div>
           </div>
         </div>
