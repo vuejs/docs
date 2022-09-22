@@ -5,13 +5,13 @@ import Colors from './demos/Colors.vue'
 import AnimateWatcher from './demos/AnimateWatcher.vue'
 </script>
 
-# Animation Techniques
+# Техніки анімації
 
-Vue provides the [`<Transition>`](/guide/built-ins/transition.html) and [`<TransitionGroup>`](/guide/built-ins/transition-group.html) components for handling enter / leave and list transitions. However, there are many other ways of using animations on the web, even in a Vue application. Here we will discuss a few additional techniques.
+Vue надає компоненти [`<Transition>`](/guide/built-ins/transition.html) і [`<TransitionGroup>`](/guide/built-ins/transition-group.html) для обробки переходів входу / виходу і списків. Однак існує багато інших способів використання анімації в Інтернеті, навіть у програмі Vue. Тут ми обговоримо кілька додаткових прийомів.
 
-## Class-based Animations
+## Анімація на основі класу
 
-For elements that are not entering / leaving the DOM, we can trigger animations by dynamically adding a CSS class:
+Для елементів, які не входять / виходять з DOM, ми можемо запускати анімацію, динамічно додаючи клас CSS:
 
 <div class="composition-api">
 
@@ -51,8 +51,8 @@ export default {
 
 ```vue-html
 <div :class="{ shake: disabled }">
-  <button @click="warnDisabled">Click me</button>
-  <span v-if="disabled">This feature is disabled!</span>
+  <button @click="warnDisabled">Натисніть мене</button>
+  <span v-if="disabled">Ця функція вимкнена!</span>
 </div>
 ```
 
@@ -88,9 +88,9 @@ export default {
 
 <DisabledButton />
 
-## State-driven Animations
+## Анімація на основі стану
 
-Some transition effects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
+Деякі ефекти переходу можна застосувати шляхом інтерполяції значень, наприклад, шляхом прив’язки стилю до елемента під час взаємодії. Візьмемо, наприклад, цей приклад:
 
 <div class="composition-api">
 
@@ -128,7 +128,7 @@ export default {
   :style="{ backgroundColor: `hsl(${x}, 80%, 50%)` }"
   class="movearea"
 >
-  <p>Move your mouse across this div...</p>
+  <p>Перемістіть курсор миші по цьому div...</p>
   <p>x: {{ x }}</p>
 </div>
 ```
@@ -141,13 +141,13 @@ export default {
 
 <Colors />
 
-In addition to color, you can also use style bindings to animate transform, width, or height. You can even animate SVG paths using spring physics - after all, they are all attribute data bindings:
+Крім кольору, ви також можете використовувати прив’язки стилю для анімації трансформації, ширини або висоти. Ви навіть можете анімувати шляхи SVG за допомогою пружинної фізики - зрештою, усі вони є прив’язками даних атрибутів:
 
 <ElasticHeader />
 
-## Animating with Watchers
+## Анімація зі спостерігачами
 
-With some creativity, we can use watchers to animate anything based on some numerical state. For example we can animate the number itself:
+З деякою креативністю ми можемо використовувати спостерігачі, щоб анімувати будь-що на основі певного числового стану. Наприклад, ми можемо анімувати саме число:
 
 <div class="composition-api">
 
@@ -166,7 +166,7 @@ watch(number, (n) => {
 ```
 
 ```vue-html
-Type a number: <input v-model.number="number" />
+Введіть число: <input v-model.number="number" />
 <p>{{ tweened.number.toFixed(0) }}</p>
 ```
 
@@ -192,7 +192,7 @@ export default {
 ```
 
 ```vue-html
-Type a number: <input v-model.number="number" />
+Введіть число: <input v-model.number="number" />
 <p>{{ tweened.toFixed(0) }}</p>
 ```
 
@@ -202,11 +202,11 @@ Type a number: <input v-model.number="number" />
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgcmVhY3RpdmUsIHdhdGNoIH0gZnJvbSAndnVlJ1xuaW1wb3J0IGdzYXAgZnJvbSAnZ3NhcCdcblxuY29uc3QgbnVtYmVyID0gcmVmKDApXG5jb25zdCB0d2VlbmVkID0gcmVhY3RpdmUoe1xuICBudW1iZXI6IDBcbn0pXG5cbndhdGNoKFxuICBudW1iZXIsXG4gIChuKSA9PiB7XG4gICAgZ3NhcC50byh0d2VlbmVkLCB7IGR1cmF0aW9uOiAwLjUsIG51bWJlcjogTnVtYmVyKG4pIHx8IDAgfSlcbiAgfVxuKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGRpdiBjbGFzcz1cImRlbW9cIj5cbiAgICBUeXBlIGEgbnVtYmVyOiA8aW5wdXQgdi1tb2RlbC5udW1iZXI9XCJudW1iZXJcIiAvPlxuICAgIDxwIGNsYXNzPVwiYmlnLW51bWJlclwiPnt7IHR3ZWVuZWQubnVtYmVyLnRvRml4ZWQoMCkgfX08L3A+XG4gIDwvZGl2PlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlPlxuLmJpZy1udW1iZXIge1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgZm9udC1zaXplOiAyZW07XG59XG48L3N0eWxlPlxuIiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwiZ3NhcFwiOiBcImh0dHBzOi8vdW5wa2cuY29tL2dzYXA/bW9kdWxlXCIsXG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp1UkuO00AQvUqpN5OR/ImQ2BgniA1LTtAbx64kHdwfdbcdwOMFbNiwYsFBEEhISJzBvhHVtpMZGM3Grn7V71X1q+rYK2OStkGWsdyVVhgPDn1jtlwJabT10IHFfUSfovSixQjOhS+P0MPeagk3xL253j24wix4CCnBVamV86AauUMLmyC2Wt9eYH9GVFhN+Ky/6riC5XoGa656uszVVHR1n4pCuFK3sNnCxICpeOL1atGMqPOqsYUXWpFQ8jy6qr6Z/oF9dwdrCBUAeq7on6ezC/R+OniUpi480gkgr0QLZV04t+GsQqk5m3CA4evwffg5/Bi/jZ/GLzB+Hn6NH4ffw58McqFM46GNpa6wTuYOiD8HnEG6aOTmqr0Th/iS33bdxaSFTE98Ld5hRS5C3+dpGBXRU+qOojx90DMdnX9fhzC5F5392mvl4zOKw9FnsNN19eKKOvEBM3iGkiByhSxZRFjE5kHHkqw+Oa1obSY1viQcZ9llHpyFiQSAs6P3xmVp2ijz9pCUWqYh95JMaWrkbJpmYNA2/Utw+zKs58kl2h5SihLbKC8kJuhkvLP67MiSE9V9qJES2KKNLaoKbfDxac3/rj7SXXajZ/1fjpsfiQ==)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBnc2FwIGZyb20gJ2dzYXAnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbnVtYmVyOiAwLFxuICAgICAgdHdlZW5lZDogMFxuICAgIH1cbiAgfSxcbiAgd2F0Y2g6IHtcbiAgICBudW1iZXIobikge1xuICAgICAgZ3NhcC50byh0aGlzLCB7IGR1cmF0aW9uOiAwLjUsIHR3ZWVuZWQ6IE51bWJlcihuKSB8fCAwIH0pXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHRUeXBlIGEgbnVtYmVyOiA8aW5wdXQgdi1tb2RlbC5udW1iZXI9XCJudW1iZXJcIiAvPlxuXHQ8cCBjbGFzcz1cImJpZy1udW1iZXJcIj57eyB0d2VlbmVkLnRvRml4ZWQoMCkgfX08L3A+XG48L3RlbXBsYXRlPlxuXG48c3R5bGU+XG4uYmlnLW51bWJlciB7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBmb250LXNpemU6IDJlbTtcbn1cbjwvc3R5bGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwiZ3NhcFwiOiBcImh0dHBzOi8vdW5wa2cuY29tL2dzYXA/bW9kdWxlXCIsXG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp1Ujtu3DAQvcqAjXeBlbQIkEZRHKRJmROw0UqzWjriB+Ro14msImnSpEqRgwQJYMCAzyDdyKRkyT8YEKCZ9ziPM2/Yso/GxMcGWcoyV1hh6JwrIY22BJXLDeytlnAWwjOuuMLLkSpxnzc1QcsVQJlTvlpPMYBFaqyaMwDVyB3aFLabGaETosLSQxPShV830qecikM6F0+lK7Vow9hTTHpFB+E20ELZ2JyEVl4sfrt5kP68lF5dwRa69eOruPJflizz+oRQmjonDBn1v/u//f/+3/Bn+DH8guFnfz1872/62xQyoUxDcIykLrGOpw7fczYFnEEyKmQGijp3zjM7UUUze962c4t+iE/iEsvVdg1dlyXG12XJ4zZU5uhrHcL4QWNyYq8VRScU1YFS2Om6fLegTnzDFN6g9NA05SjCNmzaaiS9gRdOK7/xUYvfE46zxXjOgs8B4OxAZFyaJI0yX6q40DIJ3Ac/f1MjZ/db5cw/oqcFbl+El3XhYm2rxEexbRQJiTE6Ge2sPjm0vpWnGokHj2gji6pEG0x7XfPZ0Re687JZdwcXOASm)
 
 </div>
