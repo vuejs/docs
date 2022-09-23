@@ -213,6 +213,8 @@ Called when an error propagating from a descendent component has been captured.
 
 Called when a reactive dependency has been tracked by the component's render effect.
 
+**This hook is development-mode-only and not called during server-side rendering.**
+
 - **Type**
 
   ```ts
@@ -233,6 +235,8 @@ Called when a reactive dependency has been tracked by the component's render eff
 ## renderTriggered <sup class="vt-badge dev-only" />
 
 Called when a reactive dependency triggers the component's render effect to be re-run.
+
+**This hook is development-mode-only and not called during server-side rendering.**
 
 - **Type**
 
