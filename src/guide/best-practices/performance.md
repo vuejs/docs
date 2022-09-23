@@ -138,6 +138,7 @@ Implementing list virtualization isn't easy, luckily there are existing communit
 
 - [vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)
 - [vue-virtual-scroll-grid](https://github.com/rocwang/vue-virtual-scroll-grid)
+- [vueuc/VVirtualList](https://github.com/07akioni/vueuc)
 
 ### Reduce Reactivity Overhead for Large Immutable Structures
 
