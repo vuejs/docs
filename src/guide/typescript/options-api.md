@@ -82,7 +82,7 @@ export default defineComponent({
   props: {
     bookA: {
       type: Object as PropType<Book>,
-      // Обов’язково використовуйте стрілочні функції, якщо ваша версія TypeScript менше 4.7
+      // Обов’язково використовуйте стрілочні функції, якщо ваша версія TypeScript нижча 4.7
       default: () => ({
         title: 'Arrow Function Expression'
       }),
@@ -92,7 +92,7 @@ export default defineComponent({
 })
 ```
 
-Це запобігає TypeScript від необхідності визначати тип `this` у цих функціях, що, на жаль, може призвести до помилки визначення типу. Це було в попередній [design limitation](https://github.com/microsoft/TypeScript/issues/38845), і тепер покращено в [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
+Це запобігає TypeScript від необхідності визначати тип `this` у цих функціях, що, на жаль, може призвести до помилки визначення типу. Це [обмеження](https://github.com/microsoft/TypeScript/issues/38845) було в попередній версії, і тепер покращено в [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
 
 ## Типізація випромінювача компонента
 
