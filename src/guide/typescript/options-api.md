@@ -82,7 +82,7 @@ export default defineComponent({
   props: {
     bookA: {
       type: Object as PropType<Book>,
-      // Обов’язково використовуйте стрілочні функції, якщо ваша версія TypeScript менше 4.7
+      // Обов’язково використовуйте стрілочні функції, якщо ваша версія TypeScript нижча за 4.7
       default: () => ({
         title: 'Arrow Function Expression'
       }),
