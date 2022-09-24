@@ -46,7 +46,7 @@ import { createApp } from 'vue'
 const app = createApp(...)
 
 app.config.errorHandler = (err, instance, info) => {
-  // повідомлення служб відстеження, про помилки
+  // повідомлення служб відстеження про помилки
 }
 ```
 
