@@ -2,7 +2,7 @@
 
 ## Екземпляр додатку
 
-Кожен додаток на Vue починається з створення нового **екземпляру додатку** з функцією [`createApp`](/api/application#createapp):
+Кожен додаток Vue починається зі створення нового **екземпляру додатку** функцією [`createApp`](/api/application#createapp):
 
 ```js
 import { createApp } from 'vue'
