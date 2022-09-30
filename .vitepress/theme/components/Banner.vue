@@ -14,7 +14,7 @@ const items = [
   {
     banner: {
       assets: "FREE_WEEKEND",
-      cta: "Book my spot",
+      cta: "JOIN FOR FREE",
       link: "/free-weekend",
       static: "FREE_WEEKEND",
       subtitle: "Get Access to ALL Vue School premium courses",
