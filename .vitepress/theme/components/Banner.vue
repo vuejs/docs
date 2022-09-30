@@ -92,7 +92,7 @@ function dismiss() {
   <div class="banner" v-if="open && activeBanner">
     <a
       id="vs-top"
-      :href="`https://vueschool.io${activeBanner.link}?friend=vuejs&utm_source=vuerouter&utm_medium=website&utm_campaign=affiliate&utm_content=top_banner`"
+      :href="`https://vueschool.io${activeBanner.link}?friend=vuejs&utm_source=vuejs&utm_medium=website&utm_campaign=affiliate&utm_content=top_banner`"
       target="_blank"
       :class="activeBanner.assets">
       <div class="vs-background-wrapper">
