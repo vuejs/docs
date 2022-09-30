@@ -10,7 +10,7 @@ const vFocus = {
 
 ## Introduction
 
-<VueSchoolLink href="https://vueschool.io/lessons/click-outside-directive-1" title="Free Vue.js Teleport Lesson"/>
+<VueSchoolLink href="https://vueschool.io/lessons/click-outside-directive-1" title="Create a Custom Click Outside Directive with this FREE video lesson from Vue School!"/>
 
 In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives.
 
