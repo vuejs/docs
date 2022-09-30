@@ -10,6 +10,8 @@ const vFocus = {
 
 ## Introduction
 
+<VueSchoolLink href="https://vueschool.io/lessons/click-outside-directive-1" title="Free Vue.js Teleport Lesson"/>
+
 In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives.
 
 We have introduced two forms of code reuse in Vue: [components](/guide/essentials/component-basics.html) and [composables](./composables). Components are the main building blocks, while composables are focused on reusing stateful logic. Custom directives, on the other hand, are mainly intended for reusing logic that involves low-level DOM access on plain elements.
