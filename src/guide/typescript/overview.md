@@ -8,6 +8,8 @@ A type system like TypeScript can detect many common errors via static analysis 
 
 Vue is written in TypeScript itself and provides first-class TypeScript support. All official Vue packages come with bundled type declarations that should work out-of-the-box.
 
+<VueSchoolLink href="https://vueschool.io/lessons/introduction-to-typescript-with-vue-js-3" title="Learn about the Advantages Pairing TypeScript with Vue with this FREE video lesson from Vue School!"/>
+
 ## Project Setup
 
 [`create-vue`](https://github.com/vuejs/create-vue), the official project scaffolding tool, offers the options to scaffold a [Vite](https://vitejs.dev/)-powered, TypeScript-ready Vue project.

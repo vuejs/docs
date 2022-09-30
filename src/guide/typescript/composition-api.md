@@ -4,6 +4,8 @@
 
 ## Typing Component Props
 
+<VueSchoolLink href="https://vueschool.io/lessons/declaring-and-typing-component-props" title="Learn how to declare and type component props with this FREE video lesson from Vue School!"/>
+
 ### Using `<script setup>`
 
 When using `<script setup>`, the `defineProps()` macro supports inferring the props types based on its argument:
@@ -132,6 +134,8 @@ export default defineComponent({
 ```
 
 ## Typing Component Emits
+
+<VueSchoolLink href="https://vueschool.io/lessons/typing-component-events" title="Learn how to type component emits with this FREE video lesson from Vue School!"/>
 
 In `<script setup>`, the `emit` function can also be typed using either runtime declaration OR type declaration:
 
