@@ -44,7 +44,7 @@ const items = [
       link: "/sales/levelup2022",
       static: "LEVELUP2022",
       subtitle: "Access 800+ lessons including the Vue.js 3 Masterclass",
-      title: "Less than <strong>_HOURS_ hours</strong> to get 45% off at Vue School today"
+      title: "Less than <strong>_HOURS_ hours</strong> to get 45% off at Vue School"
     },
     ends: "2022-10-04T23:59:59+02:00",
     id: "LEVELUP2022",
@@ -57,7 +57,7 @@ const items = [
       link: "/sales/levelup2022",
       static: "LEVELUP2022",
       subtitle: "Extended! Access 800+ lessons including the Vue.js 3 Masterclass",
-      title: "Less than <strong>_HOURS_ hours</strong> to get 45% off at Vue School today"
+      title: "Less than <strong>_HOURS_ hours</strong> to get 45% off at Vue School"
     },
     ends: "2022-10-06T23:59:59+02:00",
     id: "LEVELUP2022_EXTENDED",
@@ -65,7 +65,7 @@ const items = [
   }
 ]
 
-const now = new Date('2022-10-06')
+const now = new Date()
 const phases = computed(() => items.map(phase => ({ ...phase, remaining: new Date(phase.ends) - now })))
 const activePhase = computed(() => phases.value.find(phase => phase.remaining > 0))
 const title = computed(() => {
