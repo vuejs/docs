@@ -16,7 +16,7 @@ const banner = ref({
   link: "/sales/levelup2022",
   static: "LEVELUP2022",
   subtitle: "Access 800+ lessons including the Vue.js 3 Masterclass",
-  title: "Less than <strong>48 hs hours</strong> to get 45% off at Vue School"
+  title: "Less than <strong>48 hours</strong> to get 45% off at Vue School"
 })
 
 /**
