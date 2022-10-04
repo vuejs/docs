@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { ref } from 'vue'
 
 /**
  * Adding a new banner:
@@ -10,72 +10,13 @@ import { computed } from 'vue'
 
 let open = $ref(true)
 
-const items = [
-  {
-    banner: {
-      assets: "FREE_WEEKEND",
-      cta: "JOIN FOR FREE",
-      link: "/free-weekend",
-      static: "FREE_WEEKEND",
-      subtitle: "Get Access to ALL Vue School premium courses",
-      title: "Free Weekend 1st & 2nd of October"
-    },
-    ends: "2022-09-30T23:59:59+02:00",
-    id: "FREE_WEEKEND_LOBBY",
-    isExtended: false
-  },
-  {
-    banner: {
-      assets: "FREE_WEEKEND",
-      cta: "WATCH FOR FREE",
-      link: "/free-weekend",
-      static: "FREE_WEEKEND_LIVE",
-      subtitle: "Get Access to ALL Vue School premium courses",
-      title: "Free Weekend <strong>NOW LIVE</strong>"
-    },
-    ends: "2022-10-02T23:59:59+02:00",
-    id: "FREE_WEEKEND_LIVE",
-    isExtended: false
-  },
-  {
-    banner: {
-      assets: "LEVELUP2022",
-      cta: "GET OFFER",
-      link: "/sales/levelup2022",
-      static: "LEVELUP2022",
-      subtitle: "Access 800+ lessons including the Vue.js 3 Masterclass",
-      title: "Less than <strong>_HOURS_ hours</strong> to get 45% off at Vue School"
-    },
-    ends: "2022-10-04T23:59:59+02:00",
-    id: "LEVELUP2022",
-    isExtended: false
-  },
-  {
-    banner: {
-      assets: "LEVELUP2022",
-      cta: "GET OFFER",
-      link: "/sales/levelup2022",
-      static: "LEVELUP2022",
-      subtitle: "Extended! Access 800+ lessons including the Vue.js 3 Masterclass",
-      title: "Less than <strong>_HOURS_ hours</strong> to get 45% off at Vue School"
-    },
-    ends: "2022-10-06T23:59:59+02:00",
-    id: "LEVELUP2022_EXTENDED",
-    isExtended: true
-  }
-]
-
-const now = new Date()
-const phases = computed(() => items.map(phase => ({ ...phase, remaining: new Date(phase.ends) - now })))
-const activePhase = computed(() => phases.value.find(phase => phase.remaining > 0))
-const title = computed(() => {
-  if (!activePhase.value) return null
-  const hours = Math.ceil(activePhase.value.remaining / 1000 / 60 / 60)
-  return activePhase.value.banner.title.replace('_HOURS_', hours)
-})
-const activeBanner = computed(() => {
-  if (!activePhase.value) return null
-  return activePhase.value.banner
+const banner = ref({
+  assets: "LEVELUP2022",
+  cta: "GET OFFER",
+  link: "/sales/levelup2022",
+  static: "LEVELUP2022",
+  subtitle: "Access 800+ lessons including the Vue.js 3 Masterclass",
+  title: "Less than <strong>48 hours</strong> to get 45% off at Vue School"
 })
 
 /**
@@ -89,22 +30,22 @@ function dismiss() {
 </script>
 
 <template>
-  <div class="banner" v-if="open && activeBanner">
+  <div class="banner" v-if="open">
     <a
       id="vs-top"
-      :href="`https://vueschool.io${activeBanner.link}?friend=vuejs&utm_source=vuejs&utm_medium=website&utm_campaign=affiliate&utm_content=top_banner`"
+      :href="`https://vueschool.io${banner.link}?friend=vuejs&utm_source=vuejs&utm_medium=website&utm_campaign=affiliate&utm_content=top_banner`"
       target="_blank"
-      :class="activeBanner.assets">
+      :class="banner.assets">
       <div class="vs-background-wrapper">
         <div class="vs-logo" />
         <div class="vs-core">
           <div class="vs-slogan-wrapper">
-            <div class="vs-slogan" v-html="title" />
-            <div class="vs-subline" v-html="activeBanner.subtitle" />
+            <div class="vs-slogan" v-html="banner.title" />
+            <div class="vs-subline" v-html="banner.subtitle" />
           </div>
           <div class="vs-button-wrapper">
             <div class="vs-button">
-              {{ activeBanner.cta }}
+              {{ banner.cta }}
             </div>
           </div>
         </div>
@@ -257,54 +198,6 @@ html:not(.banner-dismissed) {
 
   #vs-top .vs-core .vs-subline {
     font-size: 15px;
-  }
-}
-
-/* FREE_WEEKEND
-******************************************/
-
-#vs-top.FREE_WEEKEND {
-  color: #FFF;
-  background: linear-gradient(to left, #161a35, #283065);
-}
-
-#vs-top.FREE_WEEKEND .vs-logo {
-  background-image: url(https://vueschool.io/images/mark-vueschool-white.svg);
-}
-
-#vs-top.FREE_WEEKEND .vs-core .vs-slogan {
-  color: #fff;
-}
-
-#vs-top.FREE_WEEKEND .vs-core .vs-slogan strong {
-  color: #ff2556;
-}
-
-#vs-top.FREE_WEEKEND .vs-core .vs-subline {
-  color: #c6cdf7;
-}
-
-#vs-top.FREE_WEEKEND .vs-background-wrapper {
-  background-image: url(https://vueschool.io/images/banners/assets/FREE_WEEKEND/bg-mobile.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top right;
-}
-
-@media (min-width: 680px) {
-  #vs-top.FREE_WEEKEND .vs-background-wrapper {
-    background-image: url(https://vueschool.io/images/banners/assets/FREE_WEEKEND/bg-tablet.svg);
-  }
-}
-
-@media (min-width: 1280px) {
-  #vs-top.FREE_WEEKEND .vs-logo {
-    background-image: url(https://vueschool.io/images/icons/logo-white.svg);
-  }
-
-  #vs-top.FREE_WEEKEND .vs-background-wrapper {
-    background-image: url(https://vueschool.io/images/banners/assets/FREE_WEEKEND/bg-desktop.svg);
-    background-position: top right -60px;
   }
 }
 
