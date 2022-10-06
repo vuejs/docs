@@ -223,7 +223,7 @@ A complete implementation would be quite complex and depends on the build toolch
 
 ### Quasar
 
-[Quasar](https://quasar.dev) is a complete Vue-based solution that allows you to target SPA, SSR, PWA, mobile app, desktop app, and browser extension all using one codebase. It not only handles the build setup, but also provides a full collection of Material Design compliant UI components.
+[Quasar](https://next.quasar.dev) is a complete Vue-based solution that allows you to target SPA, SSR, PWA, mobile app, desktop app, and browser extension all using one codebase. It not only handles the build setup, but also provides a full collection of Material Design compliant UI components.
 
 ### Vite SSR
 
