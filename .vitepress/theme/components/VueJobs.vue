@@ -25,11 +25,11 @@ onMounted(async () => {
         class="vj-item"
         v-for="(job, n) in openings"
         :key="n"
-        :href="job.link"
+        :href="job['link']"
         target="_blank"
       >
         <div class="vj-company-logo">
-          <img :src="job.organization.avatar" alt="" />
+          <img :src="job['organization']['avatar']" alt="" />
         </div>
         <div
           style="
@@ -39,13 +39,13 @@ onMounted(async () => {
             justify-content: center;
           "
         >
-          <div class="vj-job-title">{{ job.title }}</div>
+          <div class="vj-job-title">{{ job["title"] }}</div>
           <div class="vj-job-info">
-            {{ job.organization.name }} <span>· </span>
-            <span v-if="['ONLY', 'ALLOWED'].includes(job.remote)"
+            {{ job["organization"]["name"] }} <span>· </span>
+            <span v-if="['ONLY', 'ALLOWED'].includes(job['remote'])"
               >Remote</span
             >
-            <span v-else>{{ job.locations[0] }}</span>
+            <span v-else>{{ job["locations"][0] }}</span>
           </div>
         </div>
       </a>
