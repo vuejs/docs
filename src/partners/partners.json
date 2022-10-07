@@ -234,6 +234,7 @@
   {
     "name": "Dreamonkey",
     "logo": "dreamonkey.png",
+    "hero": "dreamonkey-hero.png",
     "intro": "We are an Italian software house, including international team collaborators, with 8 years of experience in software design and development. We build software from scratch or re-design it and support other companies’ teams, especially for industrial IoT, delivery, finance, medical, automotive and supply chain, working mostly for American and Canadian clients. We are proud sponsors of the Quasar framework and members of its core team.",
     "description": [
       "Our stack includes Vue, Quasar, Laravel and, when requested, Angular too. We strive to produce high quality, clean and well-documented code, making it rock-solid by means of automatic tests. Our frontend follows the main guidelines of Google Material Design.",
