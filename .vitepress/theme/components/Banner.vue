@@ -1,15 +1,12 @@
 <script setup>
 import { ref } from 'vue'
-
 /**
  * Adding a new banner:
  * 1. uncomment the banner slot in ../index.ts
  * 2. uncomment and update BANNER_ID in ../../inlined-scripts/restorePreferences.ts
  * 3. update --vt-banner-height if necessary
  */
-
 let open = $ref(true)
-
 const banner = ref({
   cta: 'Register Now',
   title:
@@ -18,7 +15,6 @@ const banner = ref({
   shortText: 'Join in-person <br> 1-3 November 2022, Toronto, Canada',
   link: 'https://vuetoronto.com/'
 })
-
 /**
  * Call this if the banner is dismissible
  */
@@ -144,7 +140,6 @@ function dismiss() {
 html:not(.banner-dismissed) {
   --vt-banner-height: 72px;
 }
-
 #vt-top {
   display: block;
   box-sizing: border-box;
@@ -156,7 +151,6 @@ html:not(.banner-dismissed) {
   z-index: 100;
   line-height: 1;
 }
-
 #vt-top .vt-background-wrapper {
   align-items: center;
   justify-content: center;
@@ -165,15 +159,12 @@ html:not(.banner-dismissed) {
   height: 100%;
   width: 100%;
 }
-
 #vt-top:hover {
   text-decoration: none;
 }
-
 #vt-top:hover .vt-core .vt-button {
   background: #e5c60b;
 }
-
 #vt-top .vt-logo {
   position: absolute;
   left: 10px;
@@ -182,32 +173,26 @@ html:not(.banner-dismissed) {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 #vt-top .vt-core {
   display: flex;
   align-items: center;
   width: 260px;
 }
-
 #vt-top .vt-core .vt-slogan-wrapper {
   text-align: center;
   width: 174px;
   margin: 0 auto;
 }
-
 #vt-top .vt-core .vt-slogan {
   display: none;
 }
-
 #vt-top .vt-core .vt-subline {
   display: none;
 }
-
 #vt-top .vt-core .vt-short {
   display: block;
   line-height: 14px;
 }
-
 #vt-top .vt-core .vt-button {
   background: #ffe502;
   border-radius: 3px;
@@ -217,7 +202,6 @@ html:not(.banner-dismissed) {
   font-size: 10px;
   white-space: nowrap;
 }
-
 #vt-top .vt-close {
   right: 0;
   position: absolute;
@@ -228,61 +212,49 @@ html:not(.banner-dismissed) {
   height: 24px;
   width: 24px;
 }
-
 #vt-top .vt-close:hover {
   color: #56d8ff;
 }
-
 @media (min-width: 680px) {
   #vt-top .vt-core {
     width: auto;
   }
-
   #vt-top .vt-core .vt-slogan-wrapper {
     margin: 0 20px 0 0;
     width: 450px;
   }
-
   #vt-top .vt-core .vt-short {
     display: none;
   }
-
   #vt-top .vt-core .vt-slogan {
     display: block;
     font-size: 17px;
   }
-
   #vt-top .vt-core .vt-slogan strong {
     color: #ffe401;
   }
-
   #vt-top .vt-core .vt-subline {
     display: block;
     font-size: 12px;
     margin-top: 5px;
     opacity: 80%;
   }
-
   #vt-top .vt-core .vt-button {
     font-size: 13px;
     padding: 12px 16px;
   }
 }
-
 @media (min-width: 1280px) {
   #vt-top .vt-logo {
     left: 20px;
     width: 104px;
   }
-
   #vt-top .vt-core {
     margin-right: 0;
   }
-
   #vt-top .vt-core .vt-slogan-wrapper {
     width: auto;
   }
-
   #vt-top .vt-core .vt-subline {
     font-size: 14px;
   }
@@ -305,7 +277,6 @@ html:not(.banner-dismissed) {
   color: #fff;
   background: -webkit-linear-gradient(315deg, #96c93c 25%, #03b19a);
 }
-
 .banner-dismissed .banner {
   display: none;
 }
