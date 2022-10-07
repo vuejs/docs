@@ -26,7 +26,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
 
 - **Expects:** `string`
 
-- **Details:**
+- **Details**
 
   Contents of `v-html` are inserted as plain HTML - Vue template syntax will not be processed. If you find yourself trying to compose templates using `v-html`, try to rethink the solution by using components instead.
 
@@ -36,7 +36,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
 
   In [Single-File Components](/guide/scaling-up/sfc), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](./sfc-css-features.html#css-modules) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <div v-html="html"></div>
@@ -164,7 +164,7 @@ Render the element or template block multiple times based on the source data.
 
   `v-for` can also work on values that implement the [Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), including native `Map` and `Set`.
 
-- **See also:**
+- **See also**
   - [List Rendering](/guide/essentials/list.html)
 
 ## v-on
@@ -177,7 +177,7 @@ Attach an event listener to the element.
 
 - **Argument:** `event` (optional if using Object syntax)
 
-- **Modifiers:**
+- **Modifiers**
 
   - `.stop` - call `event.stopPropagation()`.
   - `.prevent` - call `event.preventDefault()`.
@@ -200,7 +200,7 @@ Attach an event listener to the element.
 
   `v-on` also supports binding to an object of event / listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <!-- method handler -->
@@ -249,7 +249,7 @@ Attach an event listener to the element.
   <MyComponent @my-event="handleThis(123, $event)" />
   ```
 
-- **See also:**
+- **See also**
   - [Event Handling](/guide/essentials/event-handling.html)
   - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-events)
 
@@ -263,13 +263,13 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
 - **Argument:** `attrOrProp (optional)`
 
-- **Modifiers:**
+- **Modifiers**
 
   - `.camel` - transform the kebab-case attribute name into camelCase.
   - `.prop` - force a binding to be set as a DOM property. <sup class="vt-badge">3.2+</sup>
   - `.attr` - force a binding to be set as a DOM attribute. <sup class="vt-badge">3.2+</sup>
 
-- **Usage:**
+- **Usage**
 
   When used to bind the `class` or `style` attribute, `v-bind` supports additional value types such as Array or Objects. See linked guide section below for more details.
 
@@ -279,7 +279,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   When used without an argument, can be used to bind an object containing attribute name-value pairs.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <!-- bind an attribute -->
@@ -336,7 +336,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   `.camel` is not needed if you are using string templates, or pre-compiling the template with a build step.
 
-- **See also:**
+- **See also**
   - [Class and Style Bindings](/guide/essentials/class-and-style.html)
   - [Components - Prop Passing Details](/guide/components/props.html#prop-passing-details)
 
@@ -346,20 +346,20 @@ Create a two-way binding on a form input element or a component.
 
 - **Expects:** varies based on value of form inputs element or output of components
 
-- **Limited to:**
+- **Limited to**
 
   - `<input>`
   - `<select>`
   - `<textarea>`
   - components
 
-- **Modifiers:**
+- **Modifiers**
 
   - [`.lazy`](/guide/essentials/forms.html#lazy) - listen to `change` events instead of `input`
   - [`.number`](/guide/essentials/forms.html#number) - cast valid input string to numbers
   - [`.trim`](/guide/essentials/forms.html#trim) - trim input
 
-- **See also:**
+- **See also**
 
   - [Form Input Bindings](/guide/essentials/forms.html)
   - [Component Events - Usage with `v-model`](/guide/components/events.html#usage-with-v-model)
@@ -374,12 +374,12 @@ Denote named slots or scoped slots that expect to receive props.
 
 - **Argument:** slot name (optional, defaults to `default`)
 
-- **Limited to:**
+- **Limited to**
 
   - `<template>`
   - [components](/guide/components/slots.html#scoped-slots) (for a lone default slot with props)
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <!-- Named slots -->
@@ -412,7 +412,7 @@ Denote named slots or scoped slots that expect to receive props.
   </Mouse>
   ```
 
-- **See also:**
+- **See also**
   - [Components - Slots](/guide/components/slots.html)
 
 ## v-pre
@@ -425,7 +425,7 @@ Skip compilation for this element and all its children.
 
   Inside the element with `v-pre`, all Vue template syntax will be preserved and rendered as-is. The most common use case of this is displaying raw mustache tags.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <span v-pre>{{ this will not be compiled }}</span>
@@ -459,7 +459,7 @@ Render the element and component once only, and skip future updates.
 
   Since 3.2, you can also memoize part of the template with invalidation conditions using [`v-memo`](#v-memo).
 
-- **See also:**
+- **See also**
   - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text-interpolation)
   - [v-memo](#v-memo)
 
@@ -500,7 +500,7 @@ Render the element and component once only, and skip future updates.
 
   `v-memo` can also be used on components to manually prevent unwanted updates in certain edge cases where the child component update check has been de-optimized. But again, it is the developer's responsibility to specify correct dependency arrays to avoid skipping necessary updates.
 
-- **See also:**
+- **See also**
   - [v-once](#v-once)
 
 ## v-cloak
@@ -517,7 +517,7 @@ Used to hide un-compiled template until it is ready.
 
   `v-cloak` will remain on the element until the associated component instance is mounted. Combined with CSS rules such as `[v-cloak] { display: none }`, it can be used to hide the raw templates until the component is ready.
 
-- **Example:**
+- **Example**
 
   ```css
   [v-cloak] {

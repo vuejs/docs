@@ -144,7 +144,7 @@ Provide a value that can be injected in all descendent components within the app
 
   </div>
 
-- **See also:**
+- **See also**
   - [Provide / Inject](/guide/components/provide-inject.html)
   - [App-level Provide](/guide/components/provide-inject.html#app-level-provide)
 
@@ -389,7 +389,7 @@ Assign a custom handler for runtime warnings from Vue.
 
 Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
 
-- **Type**: `boolean`
+- **Type:** `boolean`
 
 - **See also:** [Guide - Performance](/guide/best-practices/performance.html)
 

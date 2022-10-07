@@ -32,7 +32,7 @@ Shallow version of [`ref()`](./reactivity-core.html#ref).
   state.value = { count: 2 }
   ```
 
-- **See also:**
+- **See also**
   - [Guide - Reduce Reactivity Overhead for Large Immutable Structures](/guide/best-practices/performance.html#reduce-reactivity-overhead-for-large-immutable-structures)
   - [Guide - Integration with External State Systems](/guide/extras/reactivity-in-depth.html#integration-with-external-state-systems)
 

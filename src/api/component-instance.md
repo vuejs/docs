@@ -151,7 +151,7 @@ An object of DOM elements and component instances, registered via [template refs
   }
   ```
 
-- **See also:**
+- **See also**
 
   - [Template refs](/guide/essentials/template-refs.html)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
@@ -174,7 +174,7 @@ An object that contains the component's fallthrough attributes.
 
   By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc.html#inheritattrs) option.
 
-- **See also:**
+- **See also**
 
   - [Fallthrough Attributes](/guide/components/attrs.html)
 
@@ -257,7 +257,7 @@ Imperative API for creating watchers.
   unwatch()
   ```
 
-- **See also:**
+- **See also**
   - [Options - `watch`](/api/options-state.html#watch)
   - [Guide - Watchers](/guide/essentials/watchers.html)
 
@@ -286,7 +286,7 @@ Trigger a custom event on the current instance. Any additional arguments will be
   }
   ```
 
-- **See also:**
+- **See also**
 
   - [Component - Events](/guide/components/events.html)
   - [`emits` option](./options-state.html#emits)

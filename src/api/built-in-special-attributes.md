@@ -100,7 +100,7 @@ Used for binding [dynamic components](/guide/essentials/component-basics.html#dy
   </table>
   ```
 
-- **See also:**
+- **See also**
 
   - [Built-in Special Element - `<component>`](/api/built-in-special-elements.html#component)
   - [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)

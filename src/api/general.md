@@ -204,7 +204,7 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
   customElements.define('my-vue-element', MyVueElement)
   ```
 
-- **See also:**
+- **See also**
 
   - [Guide - Building Custom Elements with Vue](/guide/extras/web-components.html#building-custom-elements-with-vue)
 
