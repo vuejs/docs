@@ -18,7 +18,8 @@ const excludedPages = [
   'about/releases.md',
   'about/community-guide.md',
   'about/coc.md',
-  'sponsor/index.md'
+  'sponsor/index.md',
+  'translations/index.md'
 ]
 
 export const jobsPlugin = (md: MarkdownIt) => {
