@@ -3,7 +3,7 @@
 > Ця сторінка передбачає, що ви вже прочитали [основи компонентів](/guide/essentials/component-basics). Прочитайте це спочатку, якщо ви новачок у компонентах.
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Безкоштовний урок реквізити Vue.js"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Безкоштовний урок по реквізитах у Vue.js"/>
 </div>
 
 ## Декларація реквізитів {#props-declaration}
