@@ -77,7 +77,7 @@ import ComponentA from './ComponentA.vue'
 </template>
 ```
 
-У не-`<script setup>` вам потрібно буде використовувати параметр `components`:
+Без `<script setup>` вам потрібно буде використовувати параметр `components`:
 
 ```js
 import ComponentA from './ComponentA.js'
