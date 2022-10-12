@@ -1,6 +1,6 @@
 # Реєстрація компонентів {#component-registration}
 
-<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Free Vue.js Component Registration Lesson"/>
+<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Безкоштовний урок реєстрації компонентів Vue.js"/>
 
 > Ця сторінка передбачає, що ви вже прочитали [Основи компонентів](/guide/essentials/component-basics). Прочитайте це спочатку, якщо ви новачок у компонентах.
 
