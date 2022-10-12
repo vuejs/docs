@@ -126,7 +126,7 @@ export default {
 }
 ```
 
-Note that **locally registered components are _not_ also available in descendent components**. In this case, `ComponentA` will be made available to the current component only, not any of its child or descendent components.
+Note that **locally registered components are _not_ also available in descendant components**. In this case, `ComponentA` will be made available to the current component only, not any of its child or descendant components.
 
 ## Component Name Casing
 
