@@ -44,7 +44,7 @@ export default {
 }
 ```
 
-The `provide()` function accepts two arguments. The first argument is called the **injection key**, which can be a string or a `Symbol`. The injection key is used by descendent components to lookup the desired value to inject. A single component can call `provide()` multiple times with different injection keys to provide different values.
+The `provide()` function accepts two arguments. The first argument is called the **injection key**, which can be a string or a `Symbol`. The injection key is used by descendant components to lookup the desired value to inject. A single component can call `provide()` multiple times with different injection keys to provide different values.
 
 The second argument is the provided value. The value can be of any type, including reactive state such as refs:
 
@@ -55,7 +55,7 @@ const count = ref(0)
 provide('key', count)
 ```
 
-Providing reactive values allows the descendent components using the provided value to establish a reactive connection to the provider component.
+Providing reactive values allows the descendant components using the provided value to establish a reactive connection to the provider component.
 
 </div>
 
