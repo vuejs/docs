@@ -28,7 +28,7 @@ console.log(props.foo)
 export default {
   props: ['foo'],
   setup(props) {
-    // setup() receives props as the first argument.
+    // setup() отримує реквізити як перший аргумент.
     console.log(props.foo)
   }
 }
@@ -46,7 +46,7 @@ export default {
 export default {
   props: ['foo'],
   created() {
-    // props are exposed on `this`
+    // реквізит зберігається в `this`
     console.log(this.foo)
   }
 }
@@ -92,7 +92,7 @@ export default {
 
 Для кожної властивості, в синтаксисі оголошення об’єкта, ключ — це ім’я властивості, тоді як значення має бути функцією конструктора очікуваного типу.
 
-Це не лише документує ваш компонент, але й попередить інших розробників, які використовують ваш компонент у консолі браузера, якщо вони передають неправильний тип. Ми обговоримо додаткові відомості про [перевірку prop](#prop-validation) далі на цій сторінці.
+Це не лише документує ваш компонент, але й попередить інших розробників, які використовують ваш компонент у консолі браузера, якщо вони передають неправильний тип. Ми обговоримо додаткові відомості про [перевірку реквізитів](#prop-validation) далі на цій сторінці.
 
 <div class="options-api">
 
@@ -231,8 +231,6 @@ export default {
 ```
 
 ### Прив’язка кількох реквізитів за допомогою об’єкта {#binding-multiple-properties-using an-object}
-
-If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
 
 Якщо ви хочете передати всі властивості об’єкта як реквізит, ви можете використовувати [`v-bind` без аргументу](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` замість `:prop-name`). Наприклад, задано об’єкт `post`:
 
