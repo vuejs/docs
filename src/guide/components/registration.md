@@ -33,7 +33,7 @@ import MyComponent from './App.vue'
 app.component('MyComponent', MyComponent)
 ```
 
-Метод `app.component()` можна ланцюгувати:
+Метод `app.component()` може бути зв'язаний:
 
 ```js
 app
