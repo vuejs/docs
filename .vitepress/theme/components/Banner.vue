@@ -37,18 +37,6 @@ function dismiss() {
       :class="banner.assets"
     >
       <div class="vt-background-wrapper">
-        <div class="vt-logo">
-          <svg
-            width="64"
-            height="50"
-            viewBox="0 0 200 141"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="200" height="70" fill="#005BBB" />
-            <rect width="200" height="70" fill="#FFD500" />
-          </svg>
-        </div>
         <div class="vt-core">
           <div class="vt-slogan-wrapper">
             <div class="vt-short" v-html="banner.shortText" />
@@ -108,7 +96,7 @@ html:not(.banner-dismissed) {
   text-decoration: none;
 }
 #vt-top:hover .vt-core .vt-button {
-  background: #e5c60b;
+  background: #f2f2f2;
 }
 #vt-top .vt-logo {
   position: absolute;
@@ -139,7 +127,7 @@ html:not(.banner-dismissed) {
   line-height: 14px;
 }
 #vt-top .vt-core .vt-button {
-  background: #ffe502;
+  background: #fff;
   border-radius: 3px;
   color: #000;
   padding: 8px 6px;
@@ -183,6 +171,7 @@ html:not(.banner-dismissed) {
     font-size: 12px;
     margin-top: 5px;
     opacity: 80%;
+    color: #000;
   }
   #vt-top .vt-core .vt-button {
     font-size: 13px;
@@ -220,7 +209,7 @@ html:not(.banner-dismissed) {
   font-size: 12px;
   font-weight: 600;
   color: #fff;
-  background: -webkit-linear-gradient(180deg, #005bbb 50%, #ffd500 50%);
+  background: -webkit-linear-gradient(270deg, #005bbb 50%, #ffd500 50%);
 }
 .banner-dismissed .banner {
   display: none;
