@@ -92,7 +92,7 @@ Unmounts a mounted application instance, triggering the unmount lifecycle hooks 
 
 ## app.provide()
 
-Provide a value that can be injected in all descendent components within the application.
+Provide a value that can be injected in all descendant components within the application.
 
 - **Type**
 
