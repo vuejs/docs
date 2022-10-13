@@ -126,17 +126,17 @@ const nav = [
 export const sidebar = {
   '/guide/': [
     {
-      text: 'Getting Started',
+      text: 'Приступая к изучению',
       items: [
-        { text: 'Introduction', link: '/guide/introduction' },
+        { text: 'Введение', link: '/guide/introduction' },
         {
-          text: 'Quick Start',
+          text: 'Быстрый старт',
           link: '/guide/quick-start'
         }
       ]
     },
     {
-      text: 'Essentials',
+      text: 'Основы',
       items: [
         {
           text: 'Creating an Application',
@@ -181,7 +181,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Components In-Depth',
+      text: 'Продвинутые компоненты',
       items: [
         {
           text: 'Registration',
@@ -205,7 +205,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Reusability',
+      text: 'Переиспользование',
       items: [
         {
           text: 'Composables',
@@ -219,7 +219,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Built-in Components',
+      text: 'Встроенные компоненты',
       items: [
         { text: 'Transition', link: '/guide/built-ins/transition' },
         {
@@ -232,7 +232,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Scaling Up',
+      text: 'Масштабирование',
       items: [
         { text: 'Single-File Components', link: '/guide/scaling-up/sfc' },
         { text: 'Tooling', link: '/guide/scaling-up/tooling' },
@@ -249,7 +249,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Best Practices',
+      text: 'Лучшие практики',
       items: [
         {
           text: 'Production Deployment',
@@ -284,7 +284,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Extra Topics',
+      text: 'Дополнительные темы',
       items: [
         {
           text: 'Ways of Using Vue',
@@ -332,7 +332,7 @@ export const sidebar = {
   ],
   '/api/': [
     {
-      text: 'Global API',
+      text: 'Глобальное API',
       items: [
         { text: 'Application', link: '/api/application' },
         {
