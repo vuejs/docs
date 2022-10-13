@@ -2,7 +2,7 @@
 
 ## provide()
 
-Provides a value that can be injected by descendent components.
+Provides a value that can be injected by descendant components.
 
 - **Type**
 

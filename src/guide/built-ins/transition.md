@@ -407,7 +407,7 @@ export default {
     onEnterCancelled(el) {},
 
     // called before the leave hook.
-    // Most of the time, you shoud just use the leave hook.
+    // Most of the time, you should just use the leave hook.
     onBeforeLeave(el) {},
 
     // called when the leave transition starts.
