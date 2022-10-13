@@ -12,12 +12,12 @@ const nav = [
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
       { text: 'Руководство', link: '/guide/introduction' },
-      { text: 'Самоучитель', link: '/tutorial/' },
+      { text: 'Интерактивный учебник', link: '/tutorial/' },
       { text: 'Примеры', link: '/examples/' },
       { text: 'Быстрый старт', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
       {
-        text: 'Документация Vue 2',
+        text: 'Документация для Vue 2',
         link: 'https://ru.vuejs.org/'
       },
       {
@@ -53,7 +53,7 @@ const nav = [
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
-          { text: 'Руководство по инструментам', link: '/guide/scaling-up/tooling.html' }
+          { text: 'Инструментарий', link: '/guide/scaling-up/tooling.html' }
         ]
       },
       {
@@ -107,7 +107,7 @@ const nav = [
       },
       { text: 'Code of Conduct', link: '/about/coc' },
       {
-        text: 'The Documentary',
+        text: 'Документальный фильм',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
@@ -139,43 +139,43 @@ export const sidebar = {
       text: 'Основы',
       items: [
         {
-          text: 'Creating an Application',
+          text: 'Создание приложения',
           link: '/guide/essentials/application'
         },
         {
-          text: 'Template Syntax',
+          text: 'Синтаксис шаблонов',
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'Reactivity Fundamentals',
+          text: 'Основы реактивности',
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Computed Properties',
+          text: 'Вычисляемые свойства',
           link: '/guide/essentials/computed'
         },
         {
-          text: 'Class and Style Bindings',
+          text: 'Работа с классами и стилями',
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'Conditional Rendering',
+          text: 'Условная отрисовка',
           link: '/guide/essentials/conditional'
         },
-        { text: 'List Rendering', link: '/guide/essentials/list' },
+        { text: 'Отрисовка списков', link: '/guide/essentials/list' },
         {
-          text: 'Event Handling',
+          text: 'Обработка событий',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
+        { text: 'Работа с формами', link: '/guide/essentials/forms' },
         {
-          text: 'Lifecycle Hooks',
+          text: 'Хуки жизненного цикла',
           link: '/guide/essentials/lifecycle'
         },
-        { text: 'Watchers', link: '/guide/essentials/watchers' },
-        { text: 'Template Refs', link: '/guide/essentials/template-refs' },
+        { text: 'Наблюдатели', link: '/guide/essentials/watchers' },
+        { text: 'Ссылки на элементы шаблона', link: '/guide/essentials/template-refs' },
         {
-          text: 'Components Basics',
+          text: 'Основы компонентов',
           link: '/guide/essentials/component-basics'
         }
       ]
@@ -184,22 +184,22 @@ export const sidebar = {
       text: 'Продвинутые компоненты',
       items: [
         {
-          text: 'Registration',
+          text: 'Регистрация компонентов',
           link: '/guide/components/registration'
         },
-        { text: 'Props', link: '/guide/components/props' },
-        { text: 'Events', link: '/guide/components/events' },
+        { text: 'Входные параметры', link: '/guide/components/props' },
+        { text: 'События', link: '/guide/components/events' },
         {
-          text: 'Fallthrough Attributes',
+          text: 'Передача обычных атрибутов',
           link: '/guide/components/attrs'
         },
-        { text: 'Slots', link: '/guide/components/slots' },
+        { text: 'Слоты', link: '/guide/components/slots' },
         {
           text: 'Provide / inject',
           link: '/guide/components/provide-inject'
         },
         {
-          text: 'Async Components',
+          text: 'Асинхронные компоненты',
           link: '/guide/components/async'
         }
       ]
@@ -212,10 +212,10 @@ export const sidebar = {
           link: '/guide/reusability/composables'
         },
         {
-          text: 'Custom Directives',
+          text: 'Пользовательские директивы',
           link: '/guide/reusability/custom-directives'
         },
-        { text: 'Plugins', link: '/guide/reusability/plugins' }
+        { text: 'Плагины', link: '/guide/reusability/plugins' }
       ]
     },
     {
@@ -234,16 +234,16 @@ export const sidebar = {
     {
       text: 'Масштабирование',
       items: [
-        { text: 'Single-File Components', link: '/guide/scaling-up/sfc' },
-        { text: 'Tooling', link: '/guide/scaling-up/tooling' },
-        { text: 'Routing', link: '/guide/scaling-up/routing' },
+        { text: 'Однофайловые компоненты', link: '/guide/scaling-up/sfc' },
+        { text: 'Инструментарий', link: '/guide/scaling-up/tooling' },
+        { text: 'Роутинг', link: '/guide/scaling-up/routing' },
         {
-          text: 'State Management',
+          text: 'Управление состоянием приложения',
           link: '/guide/scaling-up/state-management'
         },
-        { text: 'Testing', link: '/guide/scaling-up/testing' },
+        { text: 'Тестирование', link: '/guide/scaling-up/testing' },
         {
-          text: 'Server-Side Rendering (SSR)',
+          text: 'Отрисовка на стороне сервера',
           link: '/guide/scaling-up/ssr'
         }
       ]
@@ -252,19 +252,19 @@ export const sidebar = {
       text: 'Лучшие практики',
       items: [
         {
-          text: 'Production Deployment',
+          text: 'Публикация на production',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Performance',
+          text: 'Производительность',
           link: '/guide/best-practices/performance'
         },
         {
-          text: 'Accessibility',
+          text: 'Доступность',
           link: '/guide/best-practices/accessibility'
         },
         {
-          text: 'Security',
+          text: 'Безопасность',
           link: '/guide/best-practices/security'
         }
       ]
@@ -272,13 +272,13 @@ export const sidebar = {
     {
       text: 'TypeScript',
       items: [
-        { text: 'Overview', link: '/guide/typescript/overview' },
+        { text: 'Обзор', link: '/guide/typescript/overview' },
         {
-          text: 'TS with Composition API',
+          text: 'Использование с Composition API',
           link: '/guide/typescript/composition-api'
         },
         {
-          text: 'TS with Options API',
+          text: 'Использование с Options API',
           link: '/guide/typescript/options-api'
         }
       ]
@@ -287,35 +287,35 @@ export const sidebar = {
       text: 'Дополнительные темы',
       items: [
         {
-          text: 'Ways of Using Vue',
+          text: 'Способы использования Vue',
           link: '/guide/extras/ways-of-using-vue'
         },
         {
-          text: 'Composition API FAQ',
+          text: 'FAQ по Composition API',
           link: '/guide/extras/composition-api-faq'
         },
         {
-          text: 'Reactivity in Depth',
+          text: 'Подробнее о реактивности',
           link: '/guide/extras/reactivity-in-depth'
         },
         {
-          text: 'Rendering Mechanism',
+          text: 'Механизмы отрисовки',
           link: '/guide/extras/rendering-mechanism'
         },
         {
-          text: 'Render Functions & JSX',
+          text: 'Render-функции & JSX',
           link: '/guide/extras/render-function'
         },
         {
-          text: 'Vue and Web Components',
+          text: 'Vue и веб-компоненты',
           link: '/guide/extras/web-components'
         },
         {
-          text: 'Animation Techniques',
+          text: 'Техники анимации',
           link: '/guide/extras/animation'
         },
         {
-          text: 'Reactivity Transform',
+          text: 'Трансформация реактивности',
           link: '/guide/extras/reactivity-transform'
         }
         // {
@@ -334,9 +334,9 @@ export const sidebar = {
     {
       text: 'Глобальное API',
       items: [
-        { text: 'Application', link: '/api/application' },
+        { text: 'Приложение', link: '/api/application' },
         {
-          text: 'General',
+          text: 'Основное',
           link: '/api/general'
         }
       ]
@@ -346,23 +346,23 @@ export const sidebar = {
       items: [
         { text: 'setup()', link: '/api/composition-api-setup' },
         {
-          text: 'Reactivity: Core',
+          text: 'Реактивность: Основное',
           link: '/api/reactivity-core'
         },
         {
-          text: 'Reactivity: Utilities',
+          text: 'Реактивность: Утилиты',
           link: '/api/reactivity-utilities'
         },
         {
-          text: 'Reactivity: Advanced',
+          text: 'Реактивность: Продвинутая',
           link: '/api/reactivity-advanced'
         },
         {
-          text: 'Lifecycle Hooks',
+          text: 'Хуки жизненного цикла',
           link: '/api/composition-api-lifecycle'
         },
         {
-          text: 'Dependency Injection',
+          text: 'Внедрение зависимостей',
           link: '/api/composition-api-dependency-injection'
         }
       ]
@@ -370,53 +370,53 @@ export const sidebar = {
     {
       text: 'Options API',
       items: [
-        { text: 'Options: State', link: '/api/options-state' },
-        { text: 'Options: Rendering', link: '/api/options-rendering' },
+        { text: 'Опции: Состояние', link: '/api/options-state' },
+        { text: 'Опции: Отрисовка', link: '/api/options-rendering' },
         {
-          text: 'Options: Lifecycle',
+          text: 'Опции: Жизненный цикл',
           link: '/api/options-lifecycle'
         },
         {
-          text: 'Options: Composition',
+          text: 'Опции: Композиция',
           link: '/api/options-composition'
         },
-        { text: 'Options: Misc', link: '/api/options-misc' },
+        { text: 'Опции: Прочее', link: '/api/options-misc' },
         {
-          text: 'Component Instance',
+          text: 'Экземпляр компонента',
           link: '/api/component-instance'
         }
       ]
     },
     {
-      text: 'Built-ins',
+      text: 'Встроенное',
       items: [
-        { text: 'Directives', link: '/api/built-in-directives' },
-        { text: 'Components', link: '/api/built-in-components' },
+        { text: 'Директивы', link: '/api/built-in-directives' },
+        { text: 'Компоненты', link: '/api/built-in-components' },
         {
-          text: 'Special Elements',
+          text: 'Специальные элементы',
           link: '/api/built-in-special-elements'
         },
         {
-          text: 'Special Attributes',
+          text: 'Специальные атрибуты',
           link: '/api/built-in-special-attributes'
         }
       ]
     },
     {
-      text: 'Single-File Component',
+      text: 'Однофайловый компонент',
       items: [
-        { text: 'Syntax Specification', link: '/api/sfc-spec' },
+        { text: 'Спецификация синтаксиса', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
-        { text: 'CSS Features', link: '/api/sfc-css-features' }
+        { text: 'Возможности CSS', link: '/api/sfc-css-features' }
       ]
     },
     {
-      text: 'Advanced APIs',
+      text: 'Продвинутое API',
       items: [
-        { text: 'Render Function', link: '/api/render-function' },
-        { text: 'Server-Side Rendering', link: '/api/ssr' },
-        { text: 'TypeScript Utility Types', link: '/api/utility-types' },
-        { text: 'Custom Renderer', link: '/api/custom-renderer' }
+        { text: 'Render-функция', link: '/api/render-function' },
+        { text: 'Отрисовка на стороне сервера', link: '/api/ssr' },
+        { text: 'Вспомогательные типы TypeScript', link: '/api/utility-types' },
+        { text: 'Пользовательский рендерер', link: '/api/custom-renderer' }
       ]
     }
   ],
