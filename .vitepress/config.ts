@@ -8,20 +8,20 @@ import { jobsPlugin } from './jobsMdPlugin'
 
 const nav = [
   {
-    text: 'Docs',
+    text: 'Документация',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Guide', link: '/guide/introduction' },
-      { text: 'Tutorial', link: '/tutorial/' },
-      { text: 'Examples', link: '/examples/' },
-      { text: 'Quick Start', link: '/guide/quick-start' },
+      { text: 'Руководство', link: '/guide/introduction' },
+      { text: 'Самоучитель', link: '/tutorial/' },
+      { text: 'Примеры', link: '/examples/' },
+      { text: 'Быстрый старт', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
       {
-        text: 'Vue 2 Docs',
-        link: 'https://v2.vuejs.org'
+        text: 'Документация Vue 2',
+        link: 'https://ru.vuejs.org/'
       },
       {
-        text: 'Migration from Vue 2',
+        text: 'Руководство по миграции с Vue 2',
         link: 'https://v3-migration.vuejs.org/'
       }
     ]
@@ -32,32 +32,32 @@ const nav = [
     link: '/api/'
   },
   {
-    text: 'Playground',
+    text: 'Песочница',
     link: 'https://sfc.vuejs.org'
   },
   {
-    text: 'Ecosystem',
+    text: 'Экосистема',
     activeMatch: `^/ecosystem/`,
     items: [
       {
-        text: 'Resources',
+        text: 'Ресурсы',
         items: [
-          { text: 'Partners', link: '/partners/' },
-          { text: 'Themes', link: '/ecosystem/themes' },
-          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+          { text: 'Партнёры', link: '/partners/' },
+          { text: 'Темы', link: '/ecosystem/themes' },
+          { text: 'Вакансии', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'Магазин футболок', link: 'https://vue.threadless.com/' }
         ]
       },
       {
-        text: 'Official Libraries',
+        text: 'Официальные библиотеки',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
-          { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
+          { text: 'Руководство по инструментам', link: '/guide/scaling-up/tooling.html' }
         ]
       },
       {
-        text: 'Video Courses',
+        text: 'Видео-курсы',
         items: [
           {
             text: 'Vue Mastery',
@@ -70,37 +70,37 @@ const nav = [
         ]
       },
       {
-        text: 'Help',
+        text: 'Помощь',
         items: [
           {
-            text: 'Discord Chat',
+            text: 'Чат в Discord',
             link: 'https://discord.com/invite/HBherRA'
           },
           {
-            text: 'GitHub Discussions',
+            text: 'Обсуждения в GitHub',
             link: 'https://github.com/vuejs/core/discussions'
           },
-          { text: 'DEV Community', link: 'https://dev.to/t/vue' }
+          { text: 'Сообщество разработчиков', link: 'https://dev.to/t/vue' }
         ]
       },
       {
-        text: 'News',
+        text: 'Новости',
         items: [
-          { text: 'Blog', link: 'https://blog.vuejs.org/' },
+          { text: 'Блог', link: 'https://blog.vuejs.org/' },
           { text: 'Twitter', link: 'https://twitter.com/vuejs' },
-          { text: 'Newsletter', link: 'https://news.vuejs.org/' },
-          { text: 'Events', link: 'https://events.vuejs.org/' }
+          { text: 'Рассылка', link: 'https://news.vuejs.org/' },
+          { text: 'События', link: 'https://events.vuejs.org/' }
         ]
       }
     ]
   },
   {
-    text: 'About',
+    text: 'О нас',
     activeMatch: `^/about/`,
     items: [
       { text: 'FAQ', link: '/about/faq' },
-      { text: 'Team', link: '/about/team' },
-      { text: 'Releases', link: '/about/releases' },
+      { text: 'Команда', link: '/about/team' },
+      { text: 'Релизы', link: '/about/releases' },
       {
         text: 'Community Guide',
         link: '/about/community-guide'
@@ -113,11 +113,11 @@ const nav = [
     ]
   },
   {
-    text: 'Sponsor',
+    text: 'Спонсоры',
     link: '/sponsor/'
   },
   {
-    text: 'Partners',
+    text: 'Партнёры',
     link: '/partners/',
     activeMatch: `^/partners/`
   }
@@ -551,12 +551,48 @@ export const sidebar = {
   ]
 }
 
+const i18n = {
+  search: 'Поиск',
+  menu: 'Меню',
+  toc: 'Содержание',
+  returnToTop: 'Вернуться к началу',
+  appearance: 'Внешний вид',
+  previous: 'Предыдущая',
+  next: 'Следующая',
+  pageNotFound: 'Страница не найдена',
+  deadLink: {
+    before: 'Вы перешли по несуществующей ссылке: ',
+    after: '.'
+  },
+  deadLinkReport: {
+    before: 'Можно  ',
+    link: 'указать нам на неё',
+    after: ', чтобы мы смогли её исправить'
+  },
+  footerLicense: {
+    before: '',
+    after: ''
+  },
+
+  // aria labels
+  ariaAnnouncer: {
+    before: '',
+    after: 'Уже загружено'
+  },
+  ariaDarkMode: 'Переключение в тёмный режим',
+  ariaSkip: 'Перейти к содержанию',
+  ariaTOC: 'Оглавление текущей страницы',
+  ariaMainNav: 'Основная навигация',
+  ariaMobileNav: 'Навигация по мобильной версии',
+  ariaSidebarNav: 'Навигация в боковой панели',
+}
+
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
-  lang: 'en-US',
+  lang: 'ru-RU',
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - Прогрессивный JavaScript-фреймворк',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
   scrollOffset: 'header',
@@ -601,20 +637,21 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     nav,
     sidebar,
+    i18n,
 
-    algolia: {
-      indexName: 'vuejs',
-      appId: 'ML0LEBN7FQ',
-      apiKey: 'f49cbd92a74532cc55cfbffa5e5a7d01',
-      searchParameters: {
-        facetFilters: ['version:v3']
-      }
-    },
+    // algolia: {
+    //   indexName: 'vuejs_ru',
+    //   appId: 'ML0LEBN7FQ',
+    //   apiKey: 'f49cbd92a74532cc55cfbffa5e5a7d01',
+    //   searchParameters: {
+    //     facetFilters: ['version:v3']
+    //   }
+    // },
 
-    carbonAds: {
-      code: 'CEBDT27Y',
-      placement: 'vuejsorg'
-    },
+    // carbonAds: {
+    //   code: 'CEBDT27Y',
+    //   placement: 'vuejsorg'
+    // },
 
     socialLinks: [
       { icon: 'languages', link: '/translations/' },
@@ -624,8 +661,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
 
     editLink: {
-      repo: 'vuejs/docs',
-      text: 'Edit this page on GitHub'
+      repo: 'translation-gang/docs-ru',
+      text: 'Исправить эту страницу на GitHub'
     },
 
     footer: {

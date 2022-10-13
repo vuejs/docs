@@ -13,18 +13,16 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      <span class="accent">Прогрессивный</span>
+      <br />JavaScript-фреймворк
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Доступный, производительный и гибкий фреймворк для создания пользовательских интерфейсов.
     </p>
     <p class="actions">
       <vue-mastery-modal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Начать знакомство
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -37,14 +35,14 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Установить</a>
     </p>
   </section>
 
   <section id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
+    <span class="lead">Специальный спонсор</span>
     <template v-if="data && data.special">
-      <template v-for="{ url, img, name, description } of data.special">
+      <template v-for="{ url, img, name, description } of data.special" :key="name">
         <a :href="url" target="_blank" rel="sponsored noopener">
           <picture v-if="img.endsWith('png')">
             <source type="image/avif" :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`" />
@@ -59,32 +57,30 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>Доступный</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        Построен на стандартах HTML, CSS и JavaScript. Интуитивно понятное
+        API и отличная документация.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Производительный</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        По-настоящему реактивная система отрисовки, оптимизированная компилятором. Минимальная необходимость в оптимизации.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>Универсальный</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        Богатая, постепенно внедряемая экосистема. Масштабируется от библиотеки до полнофункционального фреймворка.
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>Платиновые спонсоры</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>Золотые спонсоры</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
