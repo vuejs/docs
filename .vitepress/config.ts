@@ -642,7 +642,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
 
     editLink: {
-      repo: 'vuejsorgua/docs',
+      repo: 'vuejs-translations/docs-uk',
       text: 'Редагувати цю сторінку на GitHub'
     },
 
