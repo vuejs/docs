@@ -1,4 +1,4 @@
-# Ways of Using Vue
+# Способи використання Vue
 
 We believe there is no "one size fits all" story for the web. This is why Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways to strike the optimal balance between stack complexity, developer experience and end performance.
 

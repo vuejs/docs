@@ -252,11 +252,11 @@ export const sidebar = {
       text: 'Найкращі практики',
       items: [
         {
-          text: 'Підготовка до продакшна',
+          text: 'Розгортання Продакшну',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Швидкодія',
+          text: 'Продуктивність',
           link: '/guide/best-practices/performance'
         },
         {
