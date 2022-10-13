@@ -147,7 +147,7 @@ export function render() {
 
 Conceptually, a "block" is a part of the template that has stable inner structure. In this case, the entire template has a single block because it does not contain any structural directives like `v-if` and `v-for`.
 
-Each block tracks any descendent nodes (not just direct children) that have patch flags. For example:
+Each block tracks any descendant nodes (not just direct children) that have patch flags. For example:
 
 ```vue-html{3,5}
 <div> <!-- root block -->
@@ -159,7 +159,7 @@ Each block tracks any descendent nodes (not just direct children) that have patc
 </div>
 ```
 
-The result is a flattened array that contains only the dynamic descendent nodes:
+The result is a flattened array that contains only the dynamic descendant nodes:
 
 ```
 div (block root)
