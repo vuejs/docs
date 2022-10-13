@@ -32,7 +32,7 @@ Vue розроблений таким чином, щоб бути ефектив
 Для профілювання ефективності під час локальної розробки:
 
 - [Chrome DevTools Performance Panel](https://developer.chrome.com/docs/devtools/evaluate-performance/)
-  - [`app.config.performance`](/api/application.html#app-config-performance) Вмикає ініціалізацію відстеження продуктивності Vue на шкалі часу Chrome DevTools.
+  - [`app.config.performance`](/api/application.html#app-config-performance) вмикає ініціалізацію відстеження продуктивності Vue на шкалі часу Chrome DevTools.
 - [Vue DevTools Extension](/guide/scaling-up/tooling.html#browser-devtools) також вмикає профілювання продуктивності.
 
 ## Оптимізація завантаження сторінки
