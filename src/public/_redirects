@@ -62,3 +62,4 @@
 /api/translations/glossary              /glossary.json
 
 /v2/*                                   https://v2.vuejs.org.ua/v2/:splat?redirect=true    302
+https://vuejs.org.ua/*                  https://ua.vuejs.org/:splat    301
