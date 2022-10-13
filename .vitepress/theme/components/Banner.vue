@@ -10,8 +10,8 @@ let open = $ref(true)
 const banner = ref({
   cta: 'Help Ukraine Now',
   title:
-    "Russia has invaded Ukraine and already killed tens of thousands of civilians, with many more raped or tortured.",
-  subtitle: 'The death toll keeps climbing. It's a genocide. We need your help.',
+    'Russia has invaded Ukraine and already killed tens of thousands of civilians, with many more raped or tortured.',
+  subtitle: "The death toll keeps climbing. It's a genocide. We need your help.",
   shortText: 'Russia has invaded Ukraine and already killed tens of thousands of civilians. We need your help.',
   link: 'https://stand-with-ukraine.pp.ua/'
 })
