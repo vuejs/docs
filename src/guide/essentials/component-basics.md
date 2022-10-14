@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Ви клацнули на мене {{ count }} разів.</button>
+  <button @click="count++">Ви натиснули на мене {{ count }} разів.</button>
 </template>
 ```
 
@@ -41,7 +41,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">Ви клацнули на мене {{ count }} разів.</button>
+  <button @click="count++">Ви натиснули на мене {{ count }} разів.</button>
 </template>
 ```
 
@@ -60,7 +60,7 @@ export default {
   },
   template: `
     <button @click="count++">
-      Ви клацнули на мене {{ count }} разів.
+      Ви натиснули на мене {{ count }} разів.
     </button>`
 }
 ```
@@ -78,7 +78,7 @@ export default {
   },
   template: `
     <button @click="count++">
-      Ви клацнули на мене {{ count }} разів.
+      Ви натиснули на мене {{ count }} разів.
     </button>`
   // or `template: '#my-template-element'`
 }
@@ -151,12 +151,12 @@ import ButtonCounter from './ButtonCounter.vue'
 
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqVkt9OwjAUxl/l2Bs1wqq3ZBL/vEZvxigCsm5pOzQhJAZivPeCB/AJ8A/RgOArnL2Rp5sQAaMxWZadr+t3er5fe+w0SbxuKlmF+SbUrcRWhWpFSawtnKXWxuo8TpWVGho6jmDX42uq27orFIBQ8jrfVJeNIO1Y6Dk1jMlJSWVNpRBg3dRJfaHo8fmqOxVWRkknsNJV1m8eVfEhG2YDwEcc4zOOswEuAF9wkd1lo+wG5/S+BZziAt/xg95znJA4yEb4tONzMsiN1gfi/xJ9vjoUK7EioXIUJF7bxIrSy8cTXwtGsNXAglFGrhasaW1iKpybRuiCaxsv1hecvjxNjVqR9KSJyjUdXxmKtk0upW8enMSu1GUtVV1qCu8Xz41ft3yXwdMoWzzXrsJPVOuBDfb2l/NpaVOtlpVjTk4VOCxqavInYgC/lh8CTsJOK7w8Fiw3OTgQLF8GwHt8c3xnRHRKZIc4c8Icx0DEiTVOoNcrekO/D3Qnxvjq8Hu5Py8abHDsfwJaJTA4)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqVUltOAjEU3cq1P2qUqf6SkfjYRn+GoQjIdCZtB00IiUKM/36wAFeADyJRwS3c2ZG3M0AEjMZk0sw9bc/pPed22UmSeJ1UsjLzTaibia0I1YySWFs4Ta2N1VmcKis11HUcwbbHV1B3dVsoAKHkVX6pJutB2rbQdWgYE5OSyppyAcAqqYN6QtHn86U6FVZGSTuw0lXWbxxW8CEbZH3ARxzhM46yPs4AX3CW3WXD7BqntN4CvuEMP/CT1imOCexnQ3za8jkR5ESrDfF/gT5fPorts8KhUhQkXsvEitzL2xPzDSPYsmHByCNXC9awNjFlzk09dMa1jBfrc05/niahZiQ9aaJSVceXhqxtEcv+Nw5OYEfqkpaqJjWZ9wvn2tEN3oXx1MpGniuj8FOqtcAGO7uL/rS0qVaLymVOTGU4KGoS+TNiAL+aPwKOw3YzvDgSLCfZ2xMs3wbAe5wApeqSn2Q3lO0A3+cQUOaUNo6h2y3UodcDmooRvroB8HIFXkisJdn7AsrSMWw=)
 
 </div>
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqVkt1OwjAUx1/l2Bs1wKq3ZBA/XqM3MIuArFvaghfLEgMx3nvBA/gE84NoQPAVzt7I040YgUjiTbP+2/5OT39L2Hkce6OhZHXmm0D3YgtG2mHcFKoXxpG2cDG0NlKX0VBZqaGjoxAOPb6ROsChUD4vCXSWJlaG8aBlpZtZv3vaxKd8ko8BnzHDV8zyMa4A33CVP+TT/A6XNN4DznGFn/hF4xJnFI7zKb4c+JwABWjzOvxfoc9/LsWqrOyvFrZir28iRS+QCAUg1gtGsDoUicuoQzcXrGttbOqcm07g2u4bL9LXnL48TYV6ofSkCWttHd0aepg+Uaq/GJzCkdQ1LdWV1FLvY25t3eE6bCpUSq3s2PhbZwJadiBdiyzFCRVEylgIHAAabsfRyfEeoQB+uygJZ8GgF9w0BCvOViqCFcsA+IgfzuaC/M3J4wQXLlhiBuSXzOIMkmRdMk2B/oAM351sr+DzssCWtfQblQQXAw==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqVks1OAjEUhV/l2o0aYKpbMhB/XqMbGIuATGfSFlxMJlGIce+CB/AJ8IdIVPAV7ryRtzMTIxBJ3DS9p+05vf2asNM49kZDyerMN4HuxRaMtMO4KVQvjCNt4WxobaTOo6GyUkNHRyHse3xNdQb7Qvm8cKCzVFgZxoOWla6yfve4iY/ZJBsDPuEMX3CWjXEF+Iqr7D6bZje4pPEO8B1X+IlfNC5xTuI4m+Lzns/JIDdavw7/l+jzn0uxKiv6q4Wt2OubSNELJEIBiHLBCFaHXHEadehqwbrWxqbOuekEru2+8SJ9yWnmaQrqhdKTJqy1dXRt6GH65FL95cFJHEld01JdSC31Ls+NrVu+zjYVKqVWtmj8jTMBLTuQliALcEIFkTIWAmcADbfj4OhwB1AAv51Hwkkw6AVXDcHys5WKYPkyAD7gAoih47zIbonkBD9KCYgwscU5JEkZmqZAf2CGbw63lyfwImKDW/oN00cYNw==)
 
 </div>
 
@@ -629,5 +629,4 @@ will be parsed as:
 
 Це все, що вам наразі потрібно знати про застереження щодо аналізу шаблонів DOM – і, власне, кінець _Основам_ від Vue. Щиро вітаю! Ще є чому навчитися, але спочатку ми рекомендуємо зробити перерву, щоб пограти з Vue самостійно - створіть щось веселе або перегляньте [приклади](/examples/), якщо ви ще цього не зробили.
 
-Once you feel comfortable with the knowledge you've just digested, move on with the guide to learn more about components in depth.
-Коли ви відчуєте себе комфортно з знаннями, які ви щойно засвоїли, перейдіть до посібника, щоб дізнатися більше про компоненти.
+Коли ви відчуєте себе комфортно зі знаннями, які ви щойно засвоїли, перейдіть до посібника, щоб дізнатися більше про компоненти.
