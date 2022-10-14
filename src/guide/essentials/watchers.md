@@ -362,7 +362,7 @@ export default {
 
 </div>
 
-## Зупинка спостерігача {#stopping-a-watcher}
+## Зупинення спостерігача {#stopping-a-watcher}
 
 <div class="options-api">
 
