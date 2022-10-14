@@ -18,7 +18,7 @@ Znacznik mustache zostanie zastąpiony wartością właściwości `msg` z odpowi
 
 ## Czysty HTML
 
-Podwójne wąsy interpretują dane jako zwykły tekst, a nie HTML. Aby wyprowadzić prawdziwy HTML, należy użyć [derektywy `v-html`](/api/built-in-directives.html#v-html):
+The double mustaches interpret the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](/api/built-in-directives.html#v-html):
 
 ```vue-html
 <p>Używając interpolacji: {{ rawHtml }}</p>
@@ -134,7 +134,8 @@ W szablonach Vue, wyrażenia JavaScript mogą być używane w następujących mi
 
 ### Tylko wyrażenia
 
-Każde wiązanie może zawierać tylko **jedno wyrażenie**, więc poniższe wyrażenia **nie będą** działać:
+Każde wiązanie może zawierać tylko **jedno wyrażenie**. Wyrażenie to fragment kodu, którego wartością może być wartość. Proste sprawdzenie polega na tym, czy można go użyć po `return`. więc poniższe wyrażenia **nie będą** działać:
+Więc poniższe wyrażenia **nie będą** działać:
 
 ```vue-html
 <!-- to jest stwierdzenie, a nie wyrażenie: -->
@@ -252,6 +253,7 @@ Podczas korzystania z szablonów in-DOM (szablonów zapisanych bezpośrednio w p
 ```
 
 Powyższe zostanie przekonwertowane na `:[someattr]` w szablonach in-DOM. Jeśli twój komponent ma właściwość `someAttr` zamiast `someattr`, twój kod nie będzie działał.
+Komponenty jednoplikowe **nie** podlegają temu ograniczeniu.
 
 ### Modyfikatory
 

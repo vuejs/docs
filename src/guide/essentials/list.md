@@ -134,7 +134,7 @@ Możesz także użyć `of` jako separatora zamiast `in`, tak aby było to bliżs
 
 ## `v-for` z Obiektem
 
-Możesz także użyć `v-for` do iteracji po właściwościach obiektu.
+Możesz także użyć `v-for` do iteracji po właściwościach obiektu. Kolejność iteracji będzie oparta na wyniku wykonania `Object.keys()` na obiekcie:
 
 <div class="composition-api">
 
@@ -198,10 +198,6 @@ I jeszcze jeden do indeksu:
 
 </div>
 
-:::tip Note
-Podczas iteracji po obiekcie, kolejność jest oparta na kolejności wyliczania `Object.keys()`, która nie jest gwarantowana jako identyczna w różnych implementacjach silnika JavaScript.
-:::
-
 ## `v-for` z Zakresem
 
 `v-for` może również przyjmować liczbę całkowitą. W tym przypadku powtórzy on szablon tyle razy, na podstawie zakresu `1...n`.
@@ -228,7 +224,7 @@ Podobnie jak w przypadku szablonu `v-if`, możesz także użyć znacznika `<temp
 ## `v-for` z `v-if`
 
 :::warning Note
- **Nie** zaleca się używania `v-if` i `v-for` na tym samym elemencie z powodu ukrytego pierwszeństwa. Po szczegóły odsyłam do [style-guide](/style-guide/rules-essential.html#avoid-v-if-with-v-for).
+**Nie** zaleca się używania `v-if` i `v-for` na tym samym elemencie z powodu ukrytego pierwszeństwa. Po szczegóły odsyłam do [style-guide](/style-guide/rules-essential.html#avoid-v-if-with-v-for).
 :::
 
 Gdy istnieją na tym samym drzewie, `v-if` ma wyższy priorytet niż `v-for`. Oznacza to, że warunek `v-if` nie będzie miał dostępu do zmiennych z zakresu `v-for`:
@@ -290,18 +286,18 @@ Wiązanie `key` oczekuje wartości prymitywnych - tj. strings i numbers. Nie nal
 Możesz bezpośrednio użyć `v-for` na komponencie, jak na każdym normalnym elemencie (nie zapomnij podać `key`):
 
 ```vue-html
-<my-component v-for="item in items" :key="item.id"></my-component>
+<MyComponent v-for="item in items" :key="item.id" />
 ```
 
 Nie spowoduje to jednak automatycznego przekazania żadnych danych do komponentu, ponieważ komponenty mają własne, izolowane zakresy. Aby przekazać iterowane dane do komponentu, należy również użyć props:
 
 ```vue-html
-<my-component
+<MyComponent
   v-for="(item, index) in items"
   :item="item"
   :index="index"
   :key="item.id"
-></my-component>
+/>
 ```
 
 Powodem, dla którego nie wstrzykujemy automatycznie `item` do komponentu jest to, że czyni to komponent ściśle powiązanym z tym, jak działa `v-for`. Wyraźne określenie, skąd pochodzą dane, czyni komponent przydatnym w innych sytuacjach.
@@ -358,7 +354,6 @@ Można by pomyśleć, że spowoduje to, iż Vue wyrzuci istniejący DOM i ponown
 Czasami chcemy wyświetlić przefiltrowaną lub posortowaną wersję tablicy bez faktycznego mutowania lub resetowania oryginalnych danych. W takim przypadku można utworzyć computed property, która zwraca przefiltrowaną lub posortowaną tablicę.
 
 Na przykład:
-
 
 <div class="composition-api">
 

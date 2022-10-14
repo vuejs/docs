@@ -54,7 +54,7 @@ Vue templates are compiled into virtual DOM render functions. Vue also provides 
 
 So why does Vue recommend templates by default? There are a number of reasons:
 
-1. Templates are closer to actual HTML. This makes it easier to reuse existing HTML snippets, apply a11y best practices, style with CSS, and for designers to understand and modify.
+1. Templates are closer to actual HTML. This makes it easier to reuse existing HTML snippets, apply accessibility best practices, style with CSS, and for designers to understand and modify.
 
 2. Templates are easier to statically analyze due to their more deterministic syntax. This allows Vue's template compiler to apply many compile-time optimizations to improve the performance of the virtual DOM (which we will discuss below).
 
@@ -147,7 +147,7 @@ export function render() {
 
 Conceptually, a "block" is a part of the template that has stable inner structure. In this case, the entire template has a single block because it does not contain any structural directives like `v-if` and `v-for`.
 
-Each block tracks any descendent nodes (not just direct children) that have patch flags. For example:
+Each block tracks any descendant nodes (not just direct children) that have patch flags. For example:
 
 ```vue-html{3,5}
 <div> <!-- root block -->
@@ -159,7 +159,7 @@ Each block tracks any descendent nodes (not just direct children) that have patc
 </div>
 ```
 
-The result is a flattened array that contains only the dynamic descendent nodes:
+The result is a flattened array that contains only the dynamic descendant nodes:
 
 ```
 div (block root)

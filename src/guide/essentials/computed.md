@@ -263,7 +263,7 @@ Teraz, gdy uruchomisz `this.fullName = 'John Doe'`, setter zostanie wywołany, a
 
 ### Gettery powinny być wolne od efektów ubocznych
 
-Ważne jest, aby pamiętać, że obliczeniowe funkcje pobierające powinny wykonywać tylko czyste obliczenia i być wolne od efektów ubocznych. Na przykład, nie wykonuj asynchronicznych żądań ani nie mutuj DOM wewnątrz obliczeniowego gettera! Pomyśl o właściwości computed jako o deklaratywnym opisie sposobu uzyskiwania wartości na podstawie innych wartości - jej jedynym zadaniem powinno być obliczenie i zwrócenie tej wartości. W dalszej części przewodnika omówimy, w jaki sposób możemy wykonywać efekty uboczne w reakcji na zmiany stanu za pomocą [watchers](./watchers).
+Ważne jest, aby pamiętać, że obliczeniowe funkcje pobierające powinny wykonywać tylko czyste obliczenia i być wolne od efektów ubocznych. Na przykład, **nie wykonuj asynchronicznych żądań ani nie mutuj DOM wewnątrz obliczeniowego gettera!** Pomyśl o właściwości computed jako o deklaratywnym opisie sposobu uzyskiwania wartości na podstawie innych wartości - jej jedynym zadaniem powinno być obliczenie i zwrócenie tej wartości. W dalszej części przewodnika omówimy, w jaki sposób możemy wykonywać efekty uboczne w reakcji na zmiany stanu za pomocą [watchers](./watchers).
 
 ### Unikaj modyfikacji wartości obliczanej
 

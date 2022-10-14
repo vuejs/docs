@@ -166,7 +166,7 @@ Called after the component has been unmounted.
 
 ## errorCaptured
 
-Called when an error propagating from a descendent component has been captured.
+Called when an error propagating from a descendant component has been captured.
 
 - **Type**
 
@@ -203,7 +203,7 @@ Called when an error propagating from a descendent component has been captured.
 
   - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application.html#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
 
-  - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error.
+  - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error, in the order of bottom to top. This is similar to the bubbling mechanism of native DOM events.
 
   - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to `app.config.errorHandler`.
 
@@ -212,6 +212,8 @@ Called when an error propagating from a descendent component has been captured.
 ## renderTracked <sup class="vt-badge dev-only" />
 
 Called when a reactive dependency has been tracked by the component's render effect.
+
+**This hook is development-mode-only and not called during server-side rendering.**
 
 - **Type**
 
@@ -233,6 +235,8 @@ Called when a reactive dependency has been tracked by the component's render eff
 ## renderTriggered <sup class="vt-badge dev-only" />
 
 Called when a reactive dependency triggers the component's render effect to be re-run.
+
+**This hook is development-mode-only and not called during server-side rendering.**
 
 - **Type**
 

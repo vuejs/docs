@@ -30,11 +30,9 @@
   })()
   ```
 
-  ### Handling Teleports
+  ### SSR Context
 
-  If the rendered app contains Teleports, the teleported content will not be part of the rendered string. In most cases, the best solution is to conditionally render the Teleport on mount.
-
-  If you do need to hydrate teleported content, they are exposed under the `teleports` property of the ssr context object:
+  You can pass an optional context object, which can be used to record additional data during the render, for example [accessing content of Teleports](/guide/scaling-up/ssr.html#teleports):
 
   ```js
   const ctx = {}
@@ -42,6 +40,8 @@
 
   console.log(ctx.teleports) // { '#teleported': 'teleported content' }
   ```
+
+  Most other SSR APIs on this page also optionally accept a context object. The context object can be accessed in component code via the [useSSRContext](#usessrcontext) helper.
 
 - **See also:** [Guide - Server-Side Rendering](/guide/scaling-up/ssr.html)
 

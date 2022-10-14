@@ -8,7 +8,6 @@ Komponenty umożliwiają podzielenie interfejsu użytkownika na niezależne czę
 
 Jest to bardzo podobne do tego, jak zagnieżdżamy natywne elementy HTML, ale Vue implementuje swój własny model komponentu, który pozwala nam hermetyzować własną zawartość i logikę w każdym komponencie. Vue dobrze współpracuje także z natywnymi komponentami sieciowymi. Jeśli jesteś ciekaw relacji między komponentami Vue a natywnymi komponentami sieciowymi, [przeczytaj więcej tutaj](/guide/extras/web-components.html).
 
-
 ## Definiowanie Komponentu
 
 Kiedy używamy kroku budowania, zazwyczaj definiujemy każdy komponent Vue w dedykowanym pliku z rozszerzeniem `.vue` - znanym jako [Single-File Component](/guide/scaling-up/sfc.html) (w skrócie SFC):
@@ -90,7 +89,6 @@ export default {
 Szablon jest tutaj wklejany jako kod JavaScript, który Vue skompiluje w locie. Można też użyć selektora ID wskazującego na element (zwykle rodzimy element `<template>`) - Vue użyje jego zawartości jako źródła szablonu.
 
 W powyższym przykładzie zdefiniowano pojedynczy komponent i wyeksportowano go jako domyślny eksport pliku `.js`, ale można użyć nazwanych eksportów, aby wyeksportować wiele komponentów z tego samego pliku.
-
 
 ## Użycie komponentu
 
@@ -424,12 +422,14 @@ Dokumentuje to wszystkie zdarzenia emitowane przez komponent i opcjonalnie [wali
 
 <div class="composition-api">
 
-Podobnie jak `defineProps`, `defineEmits` jest również użyteczne tylko w `<script setup>` i nie wymaga importu. Zwraca ona funkcję `emit`, która może być użyta do emitowania zdarzeń w kodzie JavaScript:
+Podobnie jak `defineProps`, `defineEmits` jest również użyteczne tylko w `<script setup>` i nie wymaga importu. Zwraca ona funkcję `emit`, jest odpowiednikiem metody `$emit`.
 
-```js
+```vue
+<script setup>
 const emit = defineEmits(['enlarge-text'])
 
 emit('enlarge-text')
+</script>
 ```
 
 Zobacz także: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />

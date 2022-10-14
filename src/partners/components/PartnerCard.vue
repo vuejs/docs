@@ -9,7 +9,16 @@ const { data, hero, page } = defineProps<{
   page?: boolean
 }>()
 
-const { name, intro, region, logo, proficiencies, flipLogo } = data
+const {
+  name,
+  intro,
+  region,
+  logo,
+  hero: heroImg,
+  proficiencies,
+  flipLogo,
+  website
+} = data
 </script>
 
 <template>
@@ -20,13 +29,15 @@ const { name, intro, region, logo, proficiencies, flipLogo } = data
     :href="'/partners/' + normalizeName(name) + '.html'"
   >
     <div class="info">
-      <img
-        class="logo dark"
-        v-if="hero && flipLogo"
-        :src="getLogo(logo, flipLogo)"
-      />
-      <img class="logo" v-if="hero" :src="getLogo(logo)" />
-      <h3 v-else>{{ name }}</h3>
+      <a :href="website.url" target="_blank">
+        <img
+          class="logo dark"
+          v-if="hero && flipLogo"
+          :src="getLogo(logo, flipLogo)"
+        />
+        <img class="logo" v-if="hero" :src="getLogo(logo)" />
+        <h3 v-else>{{ name }}</h3>
+      </a>
 
       <p class="region"><Location /> {{ region.join(', ') }}</p>
 
@@ -37,7 +48,7 @@ const { name, intro, region, logo, proficiencies, flipLogo } = data
         <span class="proficiency" v-for="p in proficiencies">{{ p }}</span>
       </p>
     </div>
-    <img class="big" :src="getHero(name)" :alt="name + ' hero'" />
+    <img class="big" :src="getHero(heroImg, name)" :alt="name + ' hero'" />
   </component>
 </template>
 
@@ -98,7 +109,7 @@ h3 {
 .partner-card.hero .big {
   display: inline-block;
   margin-left: auto;
-  width: 60%;
+  max-width: 60%;
   max-height: 360px;
   object-fit: cover;
 }
@@ -115,6 +126,7 @@ h3 {
   }
   .partner-card.hero .big {
     width: 100%;
+    max-width: 100%;
   }
 }
 

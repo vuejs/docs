@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import NewsLetter from './NewsLetter.vue'
+import { load, data, base } from './sponsors'
 import SponsorsGroup from './SponsorsGroup.vue'
 import VueMasteryModal from './VueMasteryModal.vue'
+
+onMounted(async () => {
+  await load()
+})
 </script>
 
 <template>
@@ -19,42 +25,28 @@ import VueMasteryModal from './VueMasteryModal.vue'
       <vue-mastery-modal />
       <a class="get-started" href="/guide/introduction.html">
         Rozpocznij
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="10"
-          height="10"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-          />
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24">
+          <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z" />
         </svg>
       </a>
       <a class="setup" href="/guide/quick-start.html">Zainstaluj</a>
     </p>
   </section>
 
-  <!-- TODO make dynamic based on data -->
   <section id="special-sponsor">
-    <span>Sponsor specjalny</span>
-    <a
-      href="https://www.dcloud.io/hbuilderx.html?hmsr=vue-en&hmpl=&hmcu=&hmkw=&hmci="
-    >
-      <picture>
-        <source
-          type="image/avif"
-          srcset="/images/sponsors/hbuilder.avif"
-        />
-        <img
-          alt="hbuilder logo"
-          width="97"
-          height="36"
-          src="/images/sponsors/hbuilder.png"
-        />
-      </picture>
-    </a>
-    <span>Zaawansowane IDE dla Vue</span>
+    <span class="lead">Sponsor specjalny</span>
+    <template v-if="data && data.special">
+      <template v-for="{ url, img, name, description } of data.special">
+        <a :href="url" target="_blank" rel="sponsored noopener">
+          <picture v-if="img.endsWith('png')">
+            <source type="image/avif" :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`" />
+            <img :src="`${base}/images/${img}`" :alt="name" />
+          </picture>
+          <img v-else :src="`${base}/images/${img}`" :alt="name" />
+        </a>
+        <span>{{ description }}</span>
+      </template>
+    </template>
   </section>
 
   <section id="highlights" class="vt-box-container">
@@ -126,6 +118,7 @@ html:not(.dark) .accent,
   font-size: 22px;
   margin: 24px auto 40px;
 }
+
 .actions {
   display: flex;
   gap: 18px;
@@ -133,6 +126,7 @@ html:not(.dark) .accent,
   flex-wrap: wrap;
   align-items: center;
 }
+
 .actions a {
   font-size: 16px;
   display: inline-block;
@@ -180,7 +174,8 @@ html:not(.dark) .accent,
   border-top: 1px solid var(--vt-c-divider-light);
   border-bottom: 1px solid var(--vt-c-divider-light);
   padding: 12px 24px;
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 #special-sponsor span {
@@ -188,13 +183,22 @@ html:not(.dark) .accent,
   font-weight: 500;
   font-size: 13px;
   vertical-align: middle;
-  margin: 0 24px;
+  flex: 1;
+}
+
+#special-sponsor span:first-child {
+  text-align: right;
+}
+
+#special-sponsor a {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
 }
 
 #special-sponsor img {
-  display: inline-block;
-  vertical-align: middle;
-  height: 36px;
+  height: 42px;
+  margin: -6px 0;
 }
 
 .dark #special-sponsor img {
@@ -245,6 +249,7 @@ html:not(.dark) .accent,
     font-size: 64px;
     letter-spacing: -0.5px;
   }
+
   .description {
     font-size: 18px;
     margin-bottom: 48px;
@@ -262,17 +267,29 @@ html:not(.dark) .accent,
   #hero {
     padding: 64px 32px;
   }
+
   .description {
     font-size: 16px;
     margin: 18px 0 30px;
   }
-  #special-sponsor img {
-    display: block;
-    margin: 2px auto 1px;
+
+  #special-sponsor {
+    flex-direction: column;
   }
+
+  #special-sponsor img {
+    height: 36px;
+    margin: 8px 0;
+  }
+
+  #special-sponsor span {
+    text-align: center !important;
+  }
+
   #highlights h3 {
     margin-bottom: 0.6em;
   }
+
   #highlights .vt-box {
     padding: 20px 36px;
   }

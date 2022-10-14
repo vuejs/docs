@@ -6,7 +6,7 @@ Właściwości obliczeniowe pozwalają nam deklaratywnie obliczać wartości poc
 
 <div class="options-api">
 
-W Options API, możemy użyć metody [`watch`](/api/options-state.html#watch), aby wywołać funkcję za każdym razem, gdy zmieni się właściwość reaktywna:
+W Options API, możemy użyć metody [`watch` option](/api/options-state.html#watch), aby wywołać funkcję za każdym razem, gdy zmieni się właściwość reaktywna:
 
 ```js
 export default {
@@ -19,7 +19,7 @@ export default {
   watch: {
     // gdy tylko pytanie ulegnie zmianie, funkcja ta zostanie uruchomiona
     question(newQuestion, oldQuestion) {
-      if (newQuestion.indexOf('?') > -1) {
+      if (newQuestion.includes('?')) {
         this.getAnswer()
       }
     }
@@ -53,7 +53,7 @@ Opcja `watch` obsługuje również składnię w postaci kropek jako klucz:
 ```js
 export default {
   watch: {
-// Uwaga: tylko proste typy składni. Wyrażenia nie są obsługiwane.
+    // Uwaga: tylko proste typy składni. Wyrażenia nie są obsługiwane.
     'some.nested.key'(newValue) {
       // ...
     }

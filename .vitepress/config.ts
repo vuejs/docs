@@ -4,6 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
+import { jobsPlugin } from './jobsMdPlugin'
 
 const nav = [
   {
@@ -48,10 +49,11 @@ const nav = [
         ]
       },
       {
-        text: 'Biblioteki główne',
+        text: 'Oficjalne biblioteki',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
-          { text: 'Pinia', link: 'https://pinia.vuejs.org/' }
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
+          { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
         ]
       },
       {
@@ -401,7 +403,7 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Single File Component',
+      text: 'Single-File Component',
       items: [
         { text: 'Syntax Specification', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
@@ -560,6 +562,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   scrollOffset: 'header',
 
   head: [
+    ['meta', { name: 'theme-color', content: '#3c8772' }],
     ['meta', { name: 'twitter:site', content: '@vuejs' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     [
@@ -636,7 +639,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   markdown: {
     config(md) {
-      md.use(headerPlugin)
+      md.use(headerPlugin).use(jobsPlugin)
     }
   },
 

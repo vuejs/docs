@@ -8,7 +8,7 @@ import SpreadSheet from './demos/SpreadSheet.vue'
 
 # Reactivity in Depth
 
-One of Vue’s most distinct features is the unobtrusive reactivity system. Component state are reactive JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
+One of Vue’s most distinctive features is the unobtrusive reactivity system. Component state consists of reactive JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
 
 ## What is Reactivity?
 
@@ -67,9 +67,9 @@ This `whenDepsChange()` function has the following tasks:
 
 We can't really track the reading and writing of local variables like in the example. There's just no mechanism for doing that in vanilla JavaScript. What we **can** do though, is intercept the reading and writing of **object properties**.
 
-There are two ways of intercepting property access in JavaScript: [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)/[setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) and [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 used getter/setters exclusively due to browser support limitations. In Vue 3, Proxies are used for reactive objects and getter/setters are used for refs. Here's some pseudo-code that illustrates how they work:
+There are two ways of intercepting property access in JavaScript: [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) / [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) and [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 used getter / setters exclusively due to browser support limitations. In Vue 3, Proxies are used for reactive objects and getter / setters are used for refs. Here's some pseudo-code that illustrates how they work:
 
-```js{4,8,17,21}
+```js{4,9,17,22}
 function reactive(obj) {
   return new Proxy(obj, {
     get(target, key) {
@@ -77,8 +77,8 @@ function reactive(obj) {
       return target[key]
     },
     set(target, key, value) {
-      trigger(target, key)
       target[key] = value
+      trigger(target, key)
     }
   })
 }
@@ -90,8 +90,8 @@ function ref(value) {
       return value
     },
     set value(newValue) {
-      trigger(refObject, 'value')
       value = newValue
+      trigger(refObject, 'value')
     }
   }
   return refObject
@@ -202,7 +202,7 @@ In fact, this is pretty close to how a Vue component keeps the state and the DOM
 
 <div class="options-api">
 
-The `ref()`, `computed()` and `watchEffect()` APIs are all part of the Composition API. If you have only been using Options API with Vue so far, you'll notice that Composition API is closer to how Vue's reactivity system works under the hood. In fact, in Vue 3 the Options API is implemented on top of the Composition API. All property access on the component instance (`this`) triggers getter/setters for reactivity tracking, and options like `watch` and `computed` invoke their Composition API equivalents internally.
+The `ref()`, `computed()` and `watchEffect()` APIs are all part of the Composition API. If you have only been using Options API with Vue so far, you'll notice that Composition API is closer to how Vue's reactivity system works under the hood. In fact, in Vue 3 the Options API is implemented on top of the Composition API. All property access on the component instance (`this`) triggers getter / setters for reactivity tracking, and options like `watch` and `computed` invoke their Composition API equivalents internally.
 
 </div>
 
@@ -361,7 +361,7 @@ The general idea of integrating Vue's reactivity system with an external state m
 
 ### Immutable Data
 
-If you are implementing a undo / redo feature, you likely want to take a snapshot of the application's state on every user edit. However, Vue's mutable reactivity system isn't best suited for this if the state tree is large, because serializing the entire state object on every update can be expensive in terms of both CPU and memory costs.
+If you are implementing an undo / redo feature, you likely want to take a snapshot of the application's state on every user edit. However, Vue's mutable reactivity system isn't best suited for this if the state tree is large, because serializing the entire state object on every update can be expensive in terms of both CPU and memory costs.
 
 [Immutable data structures](https://en.wikipedia.org/wiki/Persistent_data_structure) solve this by never mutating the state objects - instead, it creates new objects that share the same, unchanged parts with old ones. There are different ways of using immutable data in JavaScript, but we recommend using [Immer](https://immerjs.github.io/immer/) with Vue because it allows you to use immutable data while keeping the more ergonomic, mutable syntax.
 

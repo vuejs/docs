@@ -2,7 +2,7 @@
 
 ## provide
 
-Provide values that can be injected by descendent components.
+Provide values that can be injected by descendant components.
 
 - **Type**
 

@@ -43,7 +43,7 @@ Dodatkowo, `v-model` może być używany na elementach wejściowych różnych ty
 - `<select>` używa `value` jako prop i `change` jako event.
 
 ::: tip Note
-`v-model` będzie ignorował początkowe `value`, `checked` or `selected`  atrybutów znalezionych na dowolnych elementach formularza. Będzie on zawsze traktował bieżący związany stan JavaScript jako źródło prawdy. Wartość początkową należy zadeklarować po stronie JavaScript, używając <span class="options-api">funkcję `data` </span><span class="composition-api">reaktywność API</span>.
+`v-model` będzie ignorował początkowe `value`, `checked` or `selected` atrybutów znalezionych na dowolnych elementach formularza. Będzie on zawsze traktował bieżący związany stan JavaScript jako źródło prawdy. Wartość początkową należy zadeklarować po stronie JavaScript, używając <span class="options-api">funkcję `data` </span><span class="composition-api">reaktywność API</span>.
 :::
 
 ## Podstawowe uycie
@@ -85,9 +85,9 @@ Dla języków, które wymagają [IME](https://en.wikipedia.org/wiki/Input_method
 ```
 
 <div class="demo">
-  <span>Wielowierszowa wiadomość to</span>
-  <p style="white-space: pre-line;">{{ message }}</p>
-  <textarea v-model="message" placeholder="dodaj wiele lini tekstu"></textarea>
+  <span>Wielowierszowa wiadomość to:</span>
+  <p style="white-space: pre-line;">{{ multilineText }}</p>
+  <textarea v-model="multilineText" placeholder="dodaj wiele lini tekstu"></textarea>
 </div>
 
 <div class="composition-api">

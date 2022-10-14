@@ -1,6 +1,6 @@
 # Attribute Bindings
 
-in Vue, mustaches are only used for text interpolation. To bind an attribute to a dynamic value, we use the `v-bind` directive:
+In Vue, mustaches are only used for text interpolation. To bind an attribute to a dynamic value, we use the `v-bind` directive:
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
