@@ -55,7 +55,7 @@ function dismiss() {
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
-            stroke="#fff"
+            stroke="currentColor"
           >
             <path
               stroke-linecap="round"
@@ -96,7 +96,7 @@ html:not(.banner-dismissed) {
   text-decoration: none;
 }
 #vt-top:hover .vt-core .vt-button {
-  background: #f2f2f2;
+  opacity: 0.75;
 }
 #vt-top .vt-logo {
   position: absolute;
@@ -124,29 +124,32 @@ html:not(.banner-dismissed) {
 }
 #vt-top .vt-core .vt-short {
   display: block;
+  color: black;
   line-height: 14px;
 }
 #vt-top .vt-core .vt-button {
-  background: #fff;
+  background: -webkit-linear-gradient(270deg, #005bbb 50%, #ffd500 50%);
   border-radius: 3px;
   color: #000;
   padding: 8px 6px;
   text-align: center;
   font-size: 10px;
-  white-space: nowrap;
+}
+#vt-top .vt-core .vt-button:first-line {
+  color: #fff;
 }
 #vt-top .vt-close {
   right: 0;
   position: absolute;
   padding: 10px;
-  color: white;
+  color: black;
 }
 #vt-top .vt-close svg {
   height: 24px;
   width: 24px;
 }
 #vt-top .vt-close:hover {
-  color: #56d8ff;
+  opacity: 0.7;
 }
 @media (min-width: 680px) {
   #vt-top .vt-core {
@@ -158,6 +161,17 @@ html:not(.banner-dismissed) {
   }
   #vt-top .vt-core .vt-short {
     display: none;
+  }
+  #vt-top .vt-core .vt-button {
+    background: #fff;
+    color: #000;
+    white-space: nowrap;
+  }
+  #vt-top .vt-core .vt-button:first-line {
+    color: #000;
+  }
+  #vt-top:hover .vt-core .vt-button {
+    background: #f2f2f2;
   }
   #vt-top .vt-core .vt-slogan {
     display: block;
@@ -176,6 +190,9 @@ html:not(.banner-dismissed) {
   #vt-top .vt-core .vt-button {
     font-size: 13px;
     padding: 12px 16px;
+  }
+  #vt-top .vt-close {
+    color: white;
   }
 }
 @media (min-width: 1280px) {
@@ -209,7 +226,18 @@ html:not(.banner-dismissed) {
   font-size: 12px;
   font-weight: 600;
   color: #fff;
-  background: -webkit-linear-gradient(270deg, #005bbb 50%, #ffd500 50%);
+  background: #fff;
+}
+@media (min-width: 680px) { 
+  .banner { 
+    background: -webkit-linear-gradient(270deg, #005bbb 75%, #ffd500 75%);
+  }
+}
+
+@media (min-width: 1280px) {
+  .banner {
+    background: -webkit-linear-gradient(270deg, #005bbb 52%, #ffd500 52%);
+  }
 }
 .banner-dismissed .banner {
   display: none;
