@@ -480,7 +480,7 @@ Inside `<FancyList>`, we can render the same `<slot>` multiple times with differ
 
 </div>
 
-### Компоненти без рендерингу
+### Компоненти без рендерингу {#renderless-components}
 
 The `<FancyList>` use case we discussed above encapsulates both reusable logic (data fetching, pagination etc.) and visual output, while delegating part of the visual output to the consumer component via scoped slots.
 

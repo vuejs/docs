@@ -252,7 +252,7 @@ export const sidebar = {
       text: 'Найкращі практики',
       items: [
         {
-          text: 'Розгортання Продакшну',
+          text: 'Розгортання продакшну',
           link: '/guide/best-practices/production-deployment'
         },
         {
