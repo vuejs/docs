@@ -67,7 +67,7 @@ export default {
 
 </div>
 
-Зауважте, що ви можете отримати доступ до референції лише **після монтування компонента**. Якщо ви спробуєте отримати доступ до <span class="options-api">`$refs.input`<span><span class="composition-api">`input`<span> у виразі шаблону, він буде `null` при першому рендері. Це тому, що елемент існує лише після першого рендера!
+Зауважте, що ви можете отримати доступ до референції лише **після монтування компонента**. Якщо ви спробуєте отримати доступ до <span class="options-api">`$refs.input`</span><span class="composition-api">`input`</span> у виразі шаблону, він буде `null` при першому рендері. Це тому, що елемент існує лише після першого рендера!
 
 <div class="composition-api">
 
@@ -83,7 +83,7 @@ watchEffect(() => {
 })
 ```
 
-Дивіться також: [Типізація референцій в шаблонах](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts"/>
+Дивіться також: [Типізація референцій в шаблонах](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
 
 </div>
 
