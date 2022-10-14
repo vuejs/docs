@@ -1,3 +1,5 @@
+https://vuejs.org.ua/*                  https://ua.vuejs.org/:splat    301!
+
 /guide/                   /guide/introduction.html
 /support-vuejs/           /sponsor/
 /ecosystem/partners.html  /partners/
@@ -62,4 +64,3 @@
 /api/translations/glossary              /glossary.json
 
 /v2/*                                   https://v2.vuejs.org.ua/v2/:splat?redirect=true    302
-https://vuejs.org.ua/*                  https://ua.vuejs.org/:splat    301
