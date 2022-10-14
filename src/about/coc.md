@@ -1,45 +1,50 @@
-# Kodeks postępowania
 
-## Nasze zobowiązania
+# Przymierze Współpracy — Kodeks Postępowania
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, political party, or sexual identity and orientation. Note, however, that religion, political party, or other ideological affiliation provide no exemptions for the behavior we outline as unacceptable in this Code of Conduct.
+## Nasza Przysięga
 
-## Nasze standardy
+W celu wspierania otwartego i przyjaznego środowiska, my — jako współpracownicy i opiekunowie projektu — zobowiązujemy się dopilnować, aby uczestnictwo w naszym projekcie oraz przynależność do jego społeczności były pozbawione nękania bez względu na budowę ciała, doświadczenie, kolor skóry, narodowość, niepełnosprawność, orientację i identyfikację seksualną, pochodzenie etniczne, religię, wiek czy wygląd zewnętrzny.
 
-Examples of behavior that contributes to creating a positive environment include:
+## Nasze Standardy
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
+Wśród przykładów zachowania, które przyczyniają się do tworzenia pozytywnego
+środowiska, są:
 
-Examples of unacceptable behavior by participants include:
+* Używanie języka, który jest przyjazny i nie wyklucza innych uczestników projektu,
+* Okazywanie szacunku dla różnych punktów widzenia i osobistych doświadczeń,
+* Przyjmowanie konstruktywnej krytyki z wdzięcznością,
+* Skupianie się na tym, co dobre dla społeczności projektu,
+* Wykazywanie empatii wobec innych członków społeczności.
 
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or electronic address, without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+Wśród przykładów zachowania, którego nie będziemy akceptować, są:
 
-## Nasza odpowiedzialność
+* Używanie języka i grafik o podtekście seksualnym, okazywanie niepożądanego zainteresowania seksualnego, a także zaloty,
+* Trollowanie, obraźliwe bądź urągające komentarze oraz ataki osobiste bądź polityczne,
+* Nękanie, zarówno na forum publicznym jak i prywatnym,
+* Publikowanie danych osobistych innych osób — takich jak adres fizyczny czy elektroniczny — bez ich wyraźnej zgody,
+* Inne zachowania, które mogłyby zostać uznane za nieodpowiednie w kontekście profesjonalnym.
 
-Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+## Nasza Odpowiedzialność
 
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+Opiekunowie projektu są odpowiedzialni za objaśnianie standardów akceptowalnego zachowania i reagowanie na wszelkie przypadki nieodpowiedniego zachowania, w sposób sprawiedliwy i adekwatny do sytuacji.
 
-## Zakres
+Opiekunowie projektu mają prawo do i są odpowiedzialni za usuwanie, edycję oraz odrzucanie komentarzy, zmian w kodzie (ang. _commit_), edycji Wiki, oraz innych treści, które łamią niniejszy Kodeks Postępowania, oraz mają prawo tymczasowo lub na stałe zablokować dostęp do projektu każdemu ze współpracowników: w przypadku gróźb bądź obraźliwych komentarzy pod adresem innych współpracowników, a także innych zachowań, które uznają za nieodpowiednie lub szkodliwe.
 
-This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+## Zakres działania
 
-## Egzekwowanie przepisów
+Ten Kodeks Postępowania ma zastosowanie wewnątrz projektu, a w przypadku reprezentowania projektu lub jego społeczności przez współpracownika — także na zewnątrz projektu. Do przykładów reprezentowania projektu zalicza się używanie oficjalnego adresu e-mail projektu, publikowanie na oficjalnym koncie w mediach społecznościowych lub branie udziału w wydarzeniu (zarówno w Internecie, jak i poza nim) jako oficjalny przedstawiciel projektu. Dokładny zakres pojęcia reprezentowania projektu może zostać objaśniony w bardziej szczegółowy sposób przez opiekunów projektu.
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at community@vuejs.org. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+## Egzekwowanie
 
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
+Przypadki nękania, gróźb oraz innych form nieakceptowalnego zachowania mogą być zgłaszane do zespołu projektu pod adresem [TU WSTAW ADRES EMAIL]. Wszystkie skargi zostaną odpowiednio rozpatrzone oraz podjęte zostaną działania uznane za konieczne i odpowiednie do sytuacji. Zespół projektu ma obowiązek zachowania tożsamości osoby zgłaszającej incydent w tajemnicy. Bardziej szczegółowe zasady egzekwowania Kodeksu Postępowania mogą zostać udostępnione w osobnym dokumencie.
 
-## Przypis
+Opiekunowie projektu, którzy nie respektują i nie egzekwują w dobrej wierze Kodeksu Postępowania, mogą zostać na stałe lub tymczasowo ukarani, zgodnie z decyzją innych liderów projektu.
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+## Autorstwo
 
-[homepage]: https://www.contributor-covenant.org
+Ten Kodeks Postępowania został zaadaptowany z [Contributor Covenant][homepage] w
+wersji 1.4, dostępnej pod adresem https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+(w języku angielskim) oraz https://www.contributor-covenant.org/pl/version/1/4/code-of-conduct.html
+(w języku polskim).
+
+[homepage]: https://www.contributor-covenant.org/
