@@ -14,7 +14,7 @@ outline: deep
 
 ```vue-html
 <!-- шаблон <MyButton> -->
-<button>натиснути</button>
+<button>натисніть мене</button>
 ```
 
 І батько, який використовує цей компонент:
@@ -26,7 +26,7 @@ outline: deep
 Кінцевий відрендерений DOM буде таким:
 
 ```html
-<button class="large">натиснути</button>
+<button class="large">натисніть мене</button>
 ```
 
 Тут `<MyButton>` не оголосив `class` як прийнятний реквізит. Таким чином, `class` розглядається як прохідний атрибут і автоматично додається до кореневого елемента `<MyButton>`.
@@ -37,13 +37,13 @@ outline: deep
 
 ```vue-html
 <!-- шаблон <MyButton> -->
-<button class="btn">натиснути</button>
+<button class="btn">натисніть мене</button>
 ```
 
 Кінцевий відрендерений DOM буде таким:
 
 ```html
-<button class="btn large">натиснути</button>
+<button class="btn large">натисніть мене</button>
 ```
 
 ### Наслідування слухача `v-on` {#v-on-listener-inheritance}
@@ -116,7 +116,7 @@ export default {
 
 ```vue-html
 <div class="btn-wrapper">
-  <button class="btn">натиснути</button>
+  <button class="btn">натисніть мене</button>
 </div>
 ```
 
@@ -124,7 +124,7 @@ export default {
 
 ```vue-html{2}
 <div class="btn-wrapper">
-  <button class="btn" v-bind="$attrs">натиснути</button>
+  <button class="btn" v-bind="$attrs">натисніть мене</button>
 </div>
 ```
 
