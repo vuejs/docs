@@ -173,7 +173,7 @@ export const sidebar = {
           link: '/guide/essentials/lifecycle'
         },
         { text: 'Спостерігачі', link: '/guide/essentials/watchers' },
-        { text: 'Посилання шаблону', link: '/guide/essentials/template-refs' },
+        { text: 'Референції в шаблонах', link: '/guide/essentials/template-refs' },
         {
           text: 'Основи компонентів',
           link: '/guide/essentials/component-basics'
