@@ -39,7 +39,7 @@ App (root component)
    └─ TodoStatistics
 ```
 
-We will discuss how to define and compose multiple components together in later sections of the guide. Before that, we will focus on what happens inside a single component.
+In later sections of the guide, we will discuss how to define and compose multiple components together. Before that, we will focus on what happens inside a single component.
 
 ## Mounting the App
 
@@ -85,7 +85,7 @@ Vue will automatically use the container's `innerHTML` as the template if the ro
 
 ## App Configurations
 
-The application instance exposes a `.config` object that allows us to configure a few app-level options, for example defining an app-level error handler that captures errors from all descendant components:
+The application instance exposes a `.config` object that allows us to configure a few app-level options, for example, defining an app-level error handler that captures errors from all descendant components:
 
 ```js
 app.config.errorHandler = (err) => {
