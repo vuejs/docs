@@ -178,7 +178,7 @@ Registers a hook to be called right before a component instance is to be unmount
 
 ## onErrorCaptured()
 
-Registers a hook to be called when an error propagating from a descendent component has been captured.
+Registers a hook to be called when an error propagating from a descendant component has been captured.
 
 - **Type**
 
