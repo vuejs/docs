@@ -10,7 +10,7 @@ footer: false
 - Przechodzisz z Vue 2? Zapoznaj się z [przewodnikiem migracji](https://v3-migration.vuejs.org/).
   :::
 
-<style src="/@theme/styles/vue-mastery.css"></style>
+<style src="@theme/styles/vue-mastery.css"></style>
 <div class="vue-mastery-link">
   <a href="https://www.vuemastery.com/courses-path/beginner" target="_blank">
     <div class="banner-wrapper">
@@ -71,7 +71,7 @@ Powyższy przykład demonstruje dwie podstawowe cechy Vue:
 Być może masz już jakieś pytania - nie martw się. Każdy szczegół omówimy w dalszej części dokumentacji. Na razie prosimy czytać dalej, aby mieć ogólne pojęcie o tym, co oferuje Vue.
 
 :::tip Wymagania wstępne
-Pozostała część dokumentacji zakłada podstawową znajomość HTML, CSS i JavaScript. Jeśli jesteś zupełnie nowy w świecie frontendu, to nauka frameworku może nie być najlepszym pomysłem. Opanuj podstawy, a potem wróć! Wcześniejsze doświadczenie z innymi frameworkami pomaga, ale nie jest wymagane.
+Pozostała część dokumentacji zakłada podstawową znajomość HTML, CSS i JavaScript. Jeśli jesteś zupełnie nowy w świecie frontendu, to nauka frameworku może nie być najlepszym pomysłem. Opanuj podstawy, a potem wróć! Możesz sprawdzić swój poziom wiedzy, korzystając z [tego przeglądu JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Wcześniejsze doświadczenie z innymi frameworkami pomaga, ale nie jest wymagane.
 :::
 
 ## Progresywny Framework
@@ -146,7 +146,7 @@ export default {
     }
   },
 
-// Zapisane w odpowiednich miejscach cyklu życia są wywoływane na różnych etapach
+  // Zapisane w odpowiednich miejscach cyklu życia są wywoływane na różnych etapach
   // cyklu życia komponentu.
   // Ta funkcja zostanie wywołana, gdy komponent zostanie zamontowany.
   mounted() {

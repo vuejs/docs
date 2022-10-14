@@ -102,7 +102,7 @@ By communicating with JavaScript transitions through data attributes, it's also 
 </TransitionGroup>
 ```
 
-Then, in JavaScript hooks, we animate the element with a delay based on the data attribute:
+Then, in JavaScript hooks, we animate the element with a delay based on the data attribute. This example is using the [GreenSock library](https://greensock.com/) to perform the animation:
 
 ```js{5}
 function onEnter(el, done) {

@@ -70,7 +70,7 @@ const name = ref('Vue.js')
 
 function greet(event) {
   alert(`Hello ${name.value}!`)
-// `event` jest zdarzeniem DOM
+  // `event` jest zdarzeniem DOM
   if (event) {
     alert(event.target.tagName)
   }
@@ -165,7 +165,7 @@ methods: {
 
 <div class="composition-api">
 
-[Spróbuj tego w Vue Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmZ1bmN0aW9uIHNheShtZXNzYWdlKSB7XG4gIGFsZXJ0KG1lc3NhZ2UpXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8YnV0dG9uIEBjbGljaz1cInNheSgnaGknKVwiPlNheSBoaTwvYnV0dG9uPlxuICA8YnV0dG9uIEBjbGljaz1cInNheSgnd2hhdCcpXCI+U2F5IHdoYXQ8L2J1dHRvbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSJ9)
+[Spróbuj tego w Vue Playground](https://sfc.vuejs.org/#eNp9kN1uwjAMhV8l8g1Dos191aHtGXabm7QzUNb8yHaYKtR3X0KnCoHEnY/j88XHV/iMsb4khAZa7mmIohglxb3xh+R7GYJXbKc3h8z2iFt1NV4pOyLJ2jN+Nr7Viz0bsxB0cbSCRUnbJZHM+ejHof95N1CAmxOOY9hsDey/7KRuqtXL5AtXN+HqyfWdo9Xrp7CDwcVAUjkb6zMHn+PdFjf/D2ygWaKUXs5ftIGTSORGaz705ShnrgMdda5qSl4GhzWyqzoKv4yUwQZ2dwydmxekitB/IyG9Yj6MPnELNl91hvkPugmTrw==)
 
 </div>
 <div class="options-api">
@@ -254,7 +254,7 @@ Aby rozwiązać ten problem, Vue dostarcza **modyfikatory zdarzeń** dla `v-on`.
 Kolejność ma znaczenie podczas używania modyfikatorów, ponieważ odpowiedni kod jest generowany w tej samej kolejności. Dlatego użycie `@click.prevent.self` zapobiegnie **domyślnemu działaniu kliknięć na samym elemencie i jego dzieciach**, podczas gdy `@click.self.prevent` zapobiegnie tylko domyślnemu działaniu kliknięć na samym elemencie.
 :::
 
-Modyfikatory `.capture`, `.once` i `.passive` odzwierciedlają [opcje natywnej metody `addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters):
+Modyfikatory `.capture`, `.once` i `.passive` odzwierciedlają [opcje natywnej metody `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
 
 ```vue-html
 <!-- użyj trybu przechwytywania podczas dodawania funkcji obsługi zdarzeń -->.

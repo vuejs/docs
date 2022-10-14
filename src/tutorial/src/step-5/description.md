@@ -40,7 +40,7 @@ To simplify two-way bindings, Vue provides a directive, `v-model`, which is esse
 <input v-model="text">
 ```
 
-`v-model` automatically syncs the `<input>`'s value with the bound state, so we no longer need to use a event handler for that.
+`v-model` automatically syncs the `<input>`'s value with the bound state, so we no longer need to use an event handler for that.
 
 `v-model` works not only on text inputs, but also other input types such as checkboxes, radio buttons, and select dropdowns. We cover more details in <a target="_blank" href="/guide/essentials/forms.html">Guide - Form Bindings</a>.
 

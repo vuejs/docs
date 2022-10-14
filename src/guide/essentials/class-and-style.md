@@ -55,7 +55,7 @@ I poniższy szablon:
 ></div>
 ```
 
-Będzie  renderować:
+Będzie renderować:
 
 ```vue-html
 <div class="static active"></div>
@@ -94,6 +94,7 @@ data() {
 ```vue-html
 <div :class="classObject"></div>
 ```
+
 Spowoduje to wyświetlenie tego samego wyniku. Możemy również powiązać się z [właściwością obliczeniową](./computed), która zwraca obiekt. Jest to często stosowany i potężny wzorzec:
 
 <div class="composition-api">
@@ -191,7 +192,7 @@ Jednak może to być trochę skomplikowane, jeśli masz wiele klas warunkowych. 
 
 Kiedy używasz atrybutu `class` na komponencie z pojedynczym elementem głównym, klasy te zostaną dodane do elementu głównego komponentu i połączone z wszystkimi istniejącymi już klasami.
 
-Na przykład, jeśli mamy komponent o nazwie `my-component` z następującym szablonem:
+Na przykład, jeśli mamy komponent o nazwie `MyComponent` z następującym szablonem:
 
 ```vue-html
 <!-- szablon komponentu dziecka -->
@@ -201,8 +202,8 @@ Na przykład, jeśli mamy komponent o nazwie `my-component` z następującym sza
 Następnie dodaj kilka klas podczas korzystania z niego:
 
 ```vue-html
-<!-- podczas korzystania z komponentu -->
-<my-component class="baz boo"></my-component>
+<!-- when using the component -->
+<MyComponent class="baz boo" />
 ```
 
 Wyrenderowany kod HTML będzie miał postać:
@@ -214,7 +215,7 @@ Wyrenderowany kod HTML będzie miał postać:
 To samo dotyczy wiązań klas:
 
 ```vue-html
-<my-component :class="{ active: isActive }"></my-component>
+<MyComponent :class="{ active: isActive }" />
 ```
 
 Gdy `isActive` jest prawdziwe, renderowany HTML będzie taki:
@@ -226,13 +227,13 @@ Gdy `isActive` jest prawdziwe, renderowany HTML będzie taki:
 Jeśli komponent ma wiele elementów głównych, należy określić, który z nich otrzyma tę klasę. Można to zrobić za pomocą właściwości komponentu `$attrs`:
 
 ```vue-html
-<!-- szablon my-component używający $attrs -->
+<!-- szablon MyComponent używający $attrs -->
 <p :class="$attrs.class">Hi!</p>
 <span>To jest komponent dziecka</span>
 ```
 
 ```vue-html
-<my-component class="baz"></my-component>
+<MyComponent class="baz" />
 ```
 
 Will render:

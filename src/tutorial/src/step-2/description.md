@@ -2,7 +2,7 @@
 
 <div class="sfc">
 
-What you see in the editor is a Vue Single File Component (SFC). An SFC is a reusable self-contained block of code that encapsulates HTML, CSS and JavaScript that belong together, written inside a `.vue` file.
+What you see in the editor is a Vue Single-File Component (SFC). An SFC is a reusable self-contained block of code that encapsulates HTML, CSS and JavaScript that belong together, written inside a `.vue` file.
 
 </div>
 
@@ -16,7 +16,7 @@ State that can trigger updates when changed are considered **reactive**. We can 
 import { reactive } from 'vue'
 
 const counter = reactive({
-  count: 1
+  count: 0
 })
 
 console.log(counter.count) // 0
@@ -72,7 +72,7 @@ Notice how we did not need to use `.value` when accessing the `message` ref in t
 
 <div class="options-api">
 
-State that can trigger updates when changed are considered **reactive**. In Vue, reactive state is held in components. In the example code, the object being passed to `createApp()` is a component.
+State that can trigger updates when changed are considered **reactive**. In Vue, reactive state is held in components. <span class="html">In the example code, the object being passed to `createApp()` is a component.</span>
 
 We can declare reactive state using the `data` component option, which should be a function that returns an object:
 

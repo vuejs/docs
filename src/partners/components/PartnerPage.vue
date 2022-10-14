@@ -30,7 +30,7 @@ function genMailLink(email: string) {
 
     <div class="description">
       <h2>About {{ p.name }}</h2>
-      <p v-for="desc in p.description">{{ desc }}</p>
+      <p v-for="desc in p.description" v-html="desc"></p>
     </div>
 
     <div class="actions">

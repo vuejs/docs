@@ -39,6 +39,10 @@ h('div', { id: 'foo' })
 // Vue automatically picks the right way to assign it
 h('div', { class: 'bar', innerHTML: 'hello' })
 
+// props modifiers such as .prop and .attr can be added
+// with '.' and `^' prefixes respectively
+h('div', { '.name': 'some-name', '^width': '100' })
+
 // class and style have the same object / array
 // value support that they have in templates
 h('div', { class: [foo, { bar }], style: { color: 'red' } })
@@ -645,7 +649,7 @@ If the directive is registered by name and cannot be imported directly, it can b
 
 ## Functional Components
 
-Functional components are an alternative form of component that don't have any state of their own. They are rendered without creating a component instance, bypassing the usual component lifecycle.
+Functional components are an alternative form of component that don't have any state of their own. They act like pure functions: props in, vnodes out. They are rendered without creating a component instance (i.e. no `this`), and without the usual component lifecycle hooks.
 
 To create a functional component we use a plain function, rather than an options object. The function is effectively the `render` function for the component.
 
