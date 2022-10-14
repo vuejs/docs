@@ -190,7 +190,7 @@ export const sidebar = {
         { text: 'Реквізити', link: '/guide/components/props' },
         { text: 'Події', link: '/guide/components/events' },
         {
-          text: 'Атрибути Fallthrough',
+          text: 'Прохідні атрибути',
           link: '/guide/components/attrs'
         },
         { text: 'Слоти', link: '/guide/components/slots' },
