@@ -36,7 +36,7 @@ outline: deep
 
 ### `async setup()`
 
-Хук `setup()` компонента Composition API може бути асинхронним:
+Хук `setup()` компонента композиційного АРІ може бути асинхронним:
 
 ```js
 export default {
