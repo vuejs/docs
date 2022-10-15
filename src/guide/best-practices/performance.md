@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Продуктивність {#permormance}
+# Продуктивність {#performance}
 
 ## Огляд {#overview}
 
