@@ -99,7 +99,7 @@ watch(question, async (newQuestion, oldQuestion) => {
 
 [Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U8Fu00AQ/ZXBF9siXotrSIN65ATc92LcNXUUr83uOiaKfKA9cEHkgsoJ8QG9RIXSkDRByhes/4hZb1yRgnqIvfP2zczzm8nMOS4KMimZ03cGMhZpoUAyVRZDytOsyIWCGQiW9KCKVHwKNSQiz8DFDJdyyuOcSwVvSyZVmnM4MlzPdf3uJuKyYqLD9Re90L/1sjnD90ZvmjnoGzze6CsEP+DpF+jb5qJ535w1c/x9NPcbxFdwmEfgaeCbNpS3wrxOQg8iOeUxeJxVr/aYD0dDmFEOkCYHFyTlJ+zdC1T2zPVhCMET3/JgL5xMonHJUL6rPzfn+lYvmk+EEPx0w1Fi2tEB7PcKJpEdVVGqIGFGmHuqVCH7YThlkuekUkkYFamRbvPuNfJsLtYhI5lzz/eJZVh+DXE7B48JkYs7tf/R+01vUe9Sr/VKLx6B/qqvMd7qn4gs0e8t6B96i07P9Xd09By9XbYQHL98TsCFx9D22Pc1L3zUqHsQ2kXBFcFAsawYR4phBDAwe2P4pr2ZIs7rCp/Xds6Ho99dtsFqtw53l4hc7NZ9mz1IeVEqmARZfsLGR9TppksdCG2j0HbChrNZt2V1beFBeCfK6Tl2jYMsKlpHcdFb0+j+QlKn39lIHdxrE1Onm5pMYvP3GEmSizchnogouUozRpjMgtciryTaPsIqvb9qhAhOmAgEwwUTOLwHat6j/lO3c96p/wARy4B1)
 
-### Вихідні типи спостерігачів  {#watch-source-types}
+### Вихідні типи спостерігачів {#watch-source-types}
 
 Першим аргументом `watch` можуть бути різні типи реактивних "джерел": це може бути референція (включаючи обчислювані референції), реактивний об’єкт, функція отримання або масив із кількох джерел:
 
