@@ -1,16 +1,16 @@
 # Основи компонентів
 
-Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
+Компоненти дозволяють нам розділити інтерфейс користувача на незалежні частини, які можна багаторазово використовувати, і думати про кожну частину окремо. Зазвичай програму організовують у дерево вкладених компонентів:
 
 ![Component Tree](./images/components.png)
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-This is very similar to how we nest native HTML elements, but Vue implements its own component model that allow us to encapsulate custom content and logic in each component. Vue also plays nicely with native Web Components. If you are curious about the relationship between Vue Components and native Web Components, [read more here](/guide/extras/web-components.html).
+Це дуже схоже на те, як ми вкладаємо рідні HTML-елементи, але Vue реалізує власну модель компонентів, яка дозволяє нам інкапсулювати власний вміст і логіку в кожному компоненті. Vue також чудово працює з рідними вебкомпонентами. Якщо вас цікавить зв'язок між компонентами Vue і рідними вебкомпонентами, [читайте деталі тут](/guide/extras/web-components.html).
 
-## Defining a Component
+## Оголошення компонента {#defining-a-component}
 
-When using a build step, we typically define each Vue component in a dedicated file using the `.vue` extension - known as a [Single-File Component](/guide/scaling-up/sfc.html) (SFC for short):
+Коли використовується етап збірки, як правило, ми визначаємо кожен компонент Vue у спеціальному файлі за допомогою розширення `.vue`, відомого як [однофайловий компонент](/guide/scaling-up/sfc.html) (скорочено SFC, скорочено від (англ.) Single File Component):
 
 <div class="options-api">
 
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <button @click="count++">Ви натиснули на мене {{ count }} разів.</button>
 </template>
 ```
 
@@ -41,13 +41,13 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <button @click="count++">Ви натиснули на мене {{ count }} разів.</button>
 </template>
 ```
 
 </div>
 
-When not using a build step, a Vue component can be defined as a plain JavaScript object containing Vue-specific options:
+Якщо не використовується етап збірки, компонент Vue можна визначити як звичайний об'єкт JavaScript, що містить параметри Vue:
 
 <div class="options-api">
 
@@ -60,7 +60,7 @@ export default {
   },
   template: `
     <button @click="count++">
-      You clicked me {{ count }} times.
+      Ви натиснули на мене {{ count }} разів.
     </button>`
 }
 ```
@@ -78,7 +78,7 @@ export default {
   },
   template: `
     <button @click="count++">
-      You clicked me {{ count }} times.
+      Ви натиснули на мене {{ count }} разів.
     </button>`
   // or `template: '#my-template-element'`
 }
@@ -86,17 +86,17 @@ export default {
 
 </div>
 
-The template is inlined as a JavaScript string here, which Vue will compile on the fly. You can also use an ID selector pointing to an element (usually native `<template>` elements) - Vue will use its content as the template source.
+Тут шаблон вбудовано як рядок JavaScript, який Vue збиратиметься на льоту. Ви також можете використовувати ID селектор, який вказує на елемент (зазвичай рідні елементи `<template>`) — Vue використовуватиме його вміст як джерело шаблону.
 
-The example above defines a single component and exports it as the default export of a `.js` file, but you can use named exports to export multiple components from the same file.
+Наведений вище приклад визначає один компонент і експортує його як стандартний експорт файлу `.js`, але ви можете використовувати іменовані експорти для експорту кількох компонентів з одного файлу.
 
-## Using a Component
+## Використання компонента {#using-a-component}
 
 :::tip
-We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step or not. The [Examples](/examples/) section shows component usage in both scenarios.
+Ми використовуватимемо синтаксис SFC для решти цього посібника - концепції навколо компонентів однакові, незалежно від того, використовуєте ви крок збірки чи ні. У розділі [Приклади](/examples/) показано використання компонентів в обох сценаріях.
 :::
 
-To use a child component, we need to import it in the parent component. Assuming we placed our counter component inside a file called `ButtonCounter.vue`, the component will be exposed as the file's default export:
+Щоб використовувати дочірній компонент, нам потрібно імпортувати його в батьківський компонент. Якщо припустити, що ми розмістили наш компонент лічильника у файлі під назвою `ButtonCounter.vue`, компонент буде виділено в стандартний експорт файлу:
 
 <div class="options-api">
 
@@ -112,12 +112,12 @@ export default {
 </script>
 
 <template>
-  <h1>Here is a child component!</h1>
+  <h1>Ось дочірній компонент!</h1>
   <ButtonCounter />
 </template>
 ```
 
-To expose the imported component to our template, we need to [register](/guide/components/registration.html) it with the `components` option. The component will then be available as a tag using the key it is registered under.
+Щоб показати імпортований компонент у нашому шаблоні, нам потрібно [зареєструвати](/guide/components/registration.html) його за допомогою параметра `components`. Після цього компонент буде доступний як тег із використанням ключа, під яким він зареєстрований.
 
 </div>
 
@@ -129,21 +129,21 @@ import ButtonCounter from './ButtonCounter.vue'
 </script>
 
 <template>
-  <h1>Here is a child component!</h1>
+  <h1>Ось дочірній компонент!</h1>
   <ButtonCounter />
 </template>
 ```
 
-With `<script setup>`, imported components are automatically made available to the template.
+За допомогою `<script setup>` імпортовані компоненти автоматично стають доступними для шаблону.
 
 </div>
 
-It's also possible to globally register a component, making it available to all components in a given app without having to import it. The pros and cons of global vs. local registration is discussed in the dedicated [Component Registration](/guide/components/registration.html) section.
+Також можна глобально зареєструвати компонент, зробивши його доступним для всіх компонентів даного додатку без необхідності його імпорту. Плюси та мінуси глобальної та локальної реєстрації обговорюються в спеціальному розділі [Реєстрація компонентів](/guide/components/registration.html).
 
-Components can be reused as many times as you want:
+Компоненти можна повторно використовувати скільки завгодно разів:
 
 ```vue-html
-<h1>Here are many child components!</h1>
+<h1>Тут багато дочірніх компонентів!</h1>
 <ButtonCounter />
 <ButtonCounter />
 <ButtonCounter />
@@ -151,35 +151,35 @@ Components can be reused as many times as you want:
 
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG4gIFxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7XG4gICAgQnV0dG9uQ291bnRlclxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIGNvdW50OiAwXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqVUltOAjEU3cq1P2qUqf6SkfjYRn+GoQjIdCZtB00IiUKM/36wAFeADyJRwS3c2ZG3M0AEjMZk0sw9bc/pPed22UmSeJ1UsjLzTaibia0I1YySWFs4Ta2N1VmcKis11HUcwbbHV1B3dVsoAKHkVX6pJutB2rbQdWgYE5OSyppyAcAqqYN6QtHn86U6FVZGSTuw0lXWbxxW8CEbZH3ARxzhM46yPs4AX3CW3WXD7BqntN4CvuEMP/CT1imOCexnQ3za8jkR5ESrDfF/gT5fPorts8KhUhQkXsvEitzL2xPzDSPYsmHByCNXC9awNjFlzk09dMa1jBfrc05/niahZiQ9aaJSVceXhqxtEcv+Nw5OYEfqkpaqJjWZ9wvn2tEN3oXx1MpGniuj8FOqtcAGO7uL/rS0qVaLymVOTGU4KGoS+TNiAL+aPwKOw3YzvDgSLCfZ2xMs3wbAe5wApeqSn2Q3lO0A3+cQUOaUNo6h2y3UodcDmooRvroB8HIFXkisJdn7AsrSMWw=)
 
 </div>
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgeyByZWYgfSBmcm9tICd2dWUnXG5cbmNvbnN0IGNvdW50ID0gcmVmKDApXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqVks1OAjEUhV/l2o0aYKpbMhB/XqMbGIuATGfSFlxMJlGIce+CB/AJ8IdIVPAV7ryRtzMTIxBJ3DS9p+05vf2asNM49kZDyerMN4HuxRaMtMO4KVQvjCNt4WxobaTOo6GyUkNHRyHse3xNdQb7Qvm8cKCzVFgZxoOWla6yfve4iY/ZJBsDPuEMX3CWjXEF+Iqr7D6bZje4pPEO8B1X+IlfNC5xTuI4m+Lzns/JIDdavw7/l+jzn0uxKiv6q4Wt2OubSNELJEIBiHLBCFaHXHEadehqwbrWxqbOuekEru2+8SJ9yWnmaQrqhdKTJqy1dXRt6GH65FL95cFJHEld01JdSC31Ls+NrVu+zjYVKqVWtmj8jTMBLTuQliALcEIFkTIWAmcADbfj4OhwB1AAv51Hwkkw6AVXDcHys5WKYPkyAD7gAoih47zIbonkBD9KCYgwscU5JEkZmqZAf2CGbw63lyfwImKDW/oN00cYNw==)
 
 </div>
 
-Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
+Зауважте, що під час натискання кнопок кожна з них підтримує власний окремий `count`. Це тому, що кожного разу, коли ви використовуєте компонент, створюється новий його **екземпляр**.
 
-In SFCs, it's recommended to use `PascalCase` tag names for child components to differentiate from native HTML elements. Although native HTML tag names are case-insensitive, Vue SFC is a compiled format so we are able to use case-sensitive tag names in it. We are also able to use `/>` to close a tag.
+У SFC рекомендується використовувати `PascalCase` назви тегів для дочірніх компонентів, щоб відрізнити їх від рідних елементів HTML. Хоча рідні імена тегів HTML не чутливі до регістру, Vue SFC є скомпільованим форматом, тому ми можемо використовувати в ньому імена тегів з урахуванням регістру. Ми також можемо використовувати `/>`, щоб закрити тег.
 
-If you are authoring your templates directly in a DOM (e.g. as the content of a native `<template>` element), the template will be subject to the browser's native HTML parsing behavior. In such cases, you will need to use `kebab-case` and explicit closing tags for components:
+Якщо ви створюєте свої шаблони безпосередньо в DOM (наприклад, як вміст рідного елемента `<template>`), шаблон підлягатиме стандартному синтаксичному аналізу HTML браузером. У таких випадках вам потрібно буде використовувати `kebab-case` і явні закривальні теги для компонентів:
 
 ```vue-html
-<!-- if this template is written in the DOM -->
+<!-- якщо цей шаблон написаний у DOM -->
 <button-counter></button-counter>
 <button-counter></button-counter>
 <button-counter></button-counter>
 ```
 
-See [DOM template parsing caveats](#dom-template-parsing-caveats) for more details.
+Дивіться [застереження щодо аналізу шаблону DOM](#dom-template-parsing-caveats) для отримання додаткової інформації.
 
-## Passing Props
+## Передавання реквізитів
 
-If we are building a blog, we will likely need a component representing a blog post. We want all the blog posts to share the same visual layout, but with different content. Such a component won't be useful unless you can pass data to it, such as the title and content of the specific post we want to display. That's where props come in.
+Якщо ми створюємо блог, нам, швидше за все, знадобиться компонент, який представлятиме публікацію блогу. Ми хочемо, щоб усі публікації в блозі мали однаковий візуальний макет, але мали різний вміст. Такий компонент не буде корисним, якщо ви не зможете передати йому дані, наприклад назву та вміст конкретної публікації, яку ми хочемо показати. Ось тут і з’являється реквізит.
 
-Props are custom attributes you can register on a component. To pass a title to our blog post component, we must declare it in the list of props this component accepts, using the <span class="options-api">[`props`](/api/options-state.html#props) option</span><span class="composition-api">[`defineProps`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span>:
+Реквізити — це власні атрибути, які можна зареєструвати в компоненті. Щоб передати заголовок до нашого компонента допису в блозі, ми повинні оголосити його в списку реквізитів, які приймає цей компонент, використовуючи <span class="options-api">параметр [`props`](/api/options-state.html#props)</span><span class="composition-api">макрос [`defineProps`](/api/sfc-script-setup.html#defineprops-defineemits)</span>:
 
 <div class="options-api">
 
@@ -196,7 +196,7 @@ export default {
 </template>
 ```
 
-When a value is passed to a prop attribute, it becomes a property on that component instance. The value of that property is accessible within the template and on the component's `this` context, just like any other component property.
+Коли значення передається до реквізитного атрибута, воно стає властивістю цього екземпляра компонента. Значення цієї властивості доступне в шаблоні та в контексті `this` компонента, як і будь-яка інша властивість компонента.
 
 </div>
 <div class="composition-api">
@@ -212,16 +212,16 @@ defineProps(['title'])
 </template>
 ```
 
-`defineProps` is a compile-time macro that is only available inside `<script setup>` and does not need to be explicitly imported. Declared props are automatically exposed to the template. `defineProps` also returns an object that contains all the props passed to the component, so that we can access them in JavaScript if needed:
+`defineProps` — це макрос часу компіляції, який доступний лише всередині `<script setup>` і не потребує явного імпорту. Оголошені властивості автоматично показуються в шаблоні. `defineProps` також повертає об’єкт, який містить усі властивості, передані компоненту, щоб ми могли отримати до них доступ у JavaScript, якщо потрібно:
 
 ```js
 const props = defineProps(['title'])
 console.log(props.title)
 ```
 
-See also: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+Дивіться також: [Типізація реквізитів компонента](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
 
-If you are not using `<script setup>`, props should be declared using the `props` option, and the props object will be passed to `setup()` as the first argument:
+Якщо ви не використовуєте `<script setup>`, реквізити слід оголошувати за допомогою параметра `props`, а об’єкт props буде передано до `setup()` як перший аргумент:
 
 ```js
 export default {
@@ -234,17 +234,17 @@ export default {
 
 </div>
 
-A component can have as many props as you like and, by default, any value can be passed to any prop.
+Компонент може мати скільки завгодно реквізитів, і за замовчуванням будь-яке значення можна передати будь-якому реквізиту.
 
-Once a prop is registered, you can pass data to it as a custom attribute, like this:
+Після того, як реквізит зареєстровано, ви можете передати йому дані як спеціальний атрибут, наприклад:
 
 ```vue-html
-<BlogPost title="My journey with Vue" />
-<BlogPost title="Blogging with Vue" />
-<BlogPost title="Why Vue is so fun" />
+<BlogPost title="Моя подорож з Vue" />
+<BlogPost title="Ведення блогу з Vue" />
+<BlogPost title="Чому Vue такий чудовий" />
 ```
 
-In a typical app, however, you'll likely have an array of posts in your parent component:
+Однак у типовій програмі ви, ймовірно, матимете масив публікацій у своєму батьківському компоненті:
 
 <div class="options-api">
 
@@ -254,9 +254,9 @@ export default {
   data() {
     return {
       posts: [
-        { id: 1, title: 'My journey with Vue' },
-        { id: 2, title: 'Blogging with Vue' },
-        { id: 3, title: 'Why Vue is so fun' }
+        { id: 1, title: 'Моя подорож з Vue' },
+        { id: 2, title: 'Ведення блогу з Vue' },
+        { id: 3, title: 'Чому Vue такий чудовий' }
       ]
     }
   }
@@ -268,15 +268,15 @@ export default {
 
 ```js
 const posts = ref([
-  { id: 1, title: 'My journey with Vue' },
-  { id: 2, title: 'Blogging with Vue' },
-  { id: 3, title: 'Why Vue is so fun' }
+  { id: 1, title: 'Моя подорож з Vue' },
+  { id: 2, title: 'Ведення блогу з Vue' },
+  { id: 3, title: 'Чому Vue такий чудовий' }
 ])
 ```
 
 </div>
 
-Then want to render a component for each one, using `v-for`:
+Потім показати компонент для кожного за допомогою `v-for`:
 
 ```vue-html
 <BlogPost
@@ -288,24 +288,24 @@ Then want to render a component for each one, using `v-for`:
 
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCbG9nUG9zdCBmcm9tICcuL0Jsb2dQb3N0LnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHtcbiAgICBCbG9nUG9zdFxuICB9LFxuICBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBwb3N0czogW1xuICAgICAgICB7IGlkOiAxLCB0aXRsZTogJ015IGpvdXJuZXkgd2l0aCBWdWUnIH0sXG4gICAgICAgIHsgaWQ6IDIsIHRpdGxlOiAnQmxvZ2dpbmcgd2l0aCBWdWUnIH0sXG4gICAgICAgIHsgaWQ6IDMsIHRpdGxlOiAnV2h5IFZ1ZSBpcyBzbyBmdW4nIH1cbiAgICAgIF1cbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxCbG9nUG9zdFxuICBcdHYtZm9yPVwicG9zdCBpbiBwb3N0c1wiXG5cdCAgOmtleT1cInBvc3QuaWRcIlxuICBcdDp0aXRsZT1cInBvc3QudGl0bGVcIlxuXHQ+PC9CbG9nUG9zdD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkJsb2dQb3N0LnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIHByb3BzOiBbJ3RpdGxlJ11cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxoND57eyB0aXRsZSB9fTwvaDQ+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UslOwzAQ/ZWRLwGpTcRyikIl+AJOXDCH0LgQaGzLdgsoqoTgwBGJM3eu7PvyC84fMU6aKCyqFDl+43lv7DeTk1Up/fGIkZBEuq9SaXqUp5kUysDaUOysC21goEQGnh/UAUfwKAegnB2WqQkbxKOhgdxF+wL5nHGjwyoAjZRDk45bk9jEc/P1uWJmpHiNACTmInuzxgA5pEkICx0wqRmyEDx7aT+Lc7Bf9tPe4/YY/49gn2ADLzct0qYutqgX9gE5D/bDfjiJG/uG5LvidAZ9qUW/wux3zMZUKE7stX21z/YFirPi1F3F3jqIIrXGVrUpMS74RUFjNgLDMjmMDXPIRG2vqBl3B0KtUOIcgZRXzlDiMgHCfXY0PfPTxEUdJSwvWsdLUBF6UdNCLBUFTV3SIVXPu1ks/T0tOM5D2Qw6PcCSTTMpwf47TMmuMVKHQaAHfTcUe9oXaifAna9G3KQZ85nOuttKHGimUJiSqbGlRoDBMVNdxXjCFFOzNH+l/tGtvcWntMf0x1z/N6xSCawGm17pk4etmtUegGh3uZfn1SzAZBIFiH96OfkGoHw7nw==)
 
 </div>
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBCbG9nUG9zdCBmcm9tICcuL0Jsb2dQb3N0LnZ1ZSdcbiAgXG5jb25zdCBwb3N0cyA9IHJlZihbXG4gIHsgaWQ6IDEsIHRpdGxlOiAnTXkgam91cm5leSB3aXRoIFZ1ZScgfSxcbiAgeyBpZDogMiwgdGl0bGU6ICdCbG9nZ2luZyB3aXRoIFZ1ZScgfSxcbiAgeyBpZDogMywgdGl0bGU6ICdXaHkgVnVlIGlzIHNvIGZ1bicgfVxuXSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxCbG9nUG9zdFxuICBcdHYtZm9yPVwicG9zdCBpbiBwb3N0c1wiXG5cdCAgOmtleT1cInBvc3QuaWRcIlxuICBcdDp0aXRsZT1cInBvc3QudGl0bGVcIlxuXHQ+PC9CbG9nUG9zdD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkJsb2dQb3N0LnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5kZWZpbmVQcm9wcyhbJ3RpdGxlJ10pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8aDQ+e3sgdGl0bGUgfX08L2g0PlxuPC90ZW1wbGF0ZT4ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UstOwzAQ/JWVLwGpTcTjFIVK8AU9cWk4lNZpUxrbst0iFEVC9MARiTN3rrzKu+UXnD9inbSlQNVTvLMz4+ysU7IvhDscUOKTQLVkLDQoqgeiFrI4EVxqSEHSCDKIJE/AQaqzaB30eafOlZ71XG8OWEekAYSsxRkSBIIK9qzVRsM2UojbPmxVQMe6T31wzI2Z5ldgvszUPOHxHL/PYF7gEK0gq/yItpdE12aM7LGZmIkV35sPlD3mo5XCnSXhLfI+kYckyC/MnXk3r+YN8st8ZK83D7ZEeciONkMWeGU2mAoWmiai39TUVjqYz1yMq4fViMu9kNiBIWbl4CGxTAD/hJ7Nem7ctqiV+MVPzfGiKAW1YBEoXhV4i3tJhZQbqCZN4fYUZ7i+tHCbNfBKHwrEYrgNW4ekq7VQvuepqGVX1FMulx0PT64cMB0n1KUqqR5LfqqoROOQFPHNPDwEh1RWJWVtKqlc5/mH+s/X2mK4GY6y/GhWPMM2jWJG65ILtdFwinictTsBCLq7tTQtlw1ZFnhY/w4w+wYlFCOy)
 
 </div>
 
-Notice how `v-bind` is used to pass dynamic prop values. This is especially useful when you don't know the exact content you're going to render ahead of time.
+Зверніть увагу, як `v-bind` використовується для передачі динамічних значень реквізитів. Це особливо корисно, коли ви заздалегідь не знаєте точного вмісту, який збираєтеся показати.
 
-That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](/guide/components/props.html).
+Наразі це все, що вам потрібно знати про реквізити, але коли ви закінчите читати цю сторінку та відчуєте себе комфортно з її вмістом, радимо повернутися пізніше, щоб прочитати повний посібник по [реквізитах](/guide/components/props.html).
 
-## Listening to Events
+## Прослуховування подій
 
-As we develop our `<BlogPost>` component, some features may require communicating back up to the parent. For example, we may decide to include an accessibility feature to enlarge the text of blog posts, while leaving the rest of the page at its default size.
+Коли ми розробляємо наш компонент `<BlogPost>`, для деяких функцій може знадобитися зворотна комунікація з батьківським компонентом. Наприклад, ми можемо вирішити включити функцію доступності, щоб збільшити текст дописів блогу, залишивши решту сторінки розміру за замовчуванням.
 
-In the parent, we can support this feature by adding a `postFontSize` <span class="options-api">data property</span><span class="composition-api">ref</span>:
+У батьківському компоненті ми можемо впровадити цю функції, додавши <span class="options-api">властивість даних</span><span class="composition-api">ref</span> `postFontSize`:
 
 <div class="options-api">
 
@@ -333,7 +333,7 @@ const postFontSize = ref(1)
 
 </div>
 
-Which can be used in the template to control the font size of all blog posts:
+Яку можна використовувати в шаблоні для керування розміром шрифту всіх публікацій блогу:
 
 ```vue-html{1,7}
 <div :style="{ fontSize: postFontSize + 'em' }">
@@ -345,19 +345,19 @@ Which can be used in the template to control the font size of all blog posts:
 </div>
 ```
 
-Now let's add a button to the `<BlogPost>` component's template:
+Тепер давайте додамо кнопку до шаблону компонента `<BlogPost>`:
 
 ```vue{5}
 <!-- BlogPost.vue, omitting <script> -->
 <template>
   <div class="blog-post">
     <h4>{{ title }}</h4>
-    <button>Enlarge text</button>
+    <button>Збільшити текст</button>
   </div>
 </template>
 ```
 
-The button doesn't do anything yet - we want clicking the button to communicate to the parent that it should enlarge the text of all posts. To solve this problem, components provide a custom events system. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
+Кнопка ще нічого не робить — ми хочемо, щоб натискання кнопки повідомляло батьківському компоненту, що він має збільшити текст усіх дописів. Щоб розв'язати цю проблему, компоненти забезпечують спеціальну систему подій. Батький компонент може вибрати прослуховування будь-якої події в екземплярі дочірнього компонента за допомогою `v-on` або `@`, так само як ми робимо це з нативною подією DOM:
 
 ```vue-html{3}
 <BlogPost
@@ -366,32 +366,32 @@ The button doesn't do anything yet - we want clicking the button to communicate 
  />
 ```
 
-Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](/api/component-instance.html#emit), passing the name of the event:
+Тоді дочірній компонент може створити подію сам по собі, викликавши вбудований метод [**`emit`**](/api/component-instance.html#emit), передаючи назву події:
 
 ```vue{5}
 <!-- BlogPost.vue, omitting <script> -->
 <template>
   <div class="blog-post">
     <h4>{{ title }}</h4>
-    <button @click="$emit('enlarge-text')">Enlarge text</button>
+    <button @click="$emit('enlarge-text')">Збільшити текст</button>
   </div>
 </template>
 ```
 
-Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update the value of `postFontSize`.
+Завдяки слухачу `@enlarge-text="postFontSize += 0.1"` батьківський компонент отримає подію та оновить значення `postFontSize`.
 
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCbG9nUG9zdCBmcm9tICcuL0Jsb2dQb3N0LnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHtcbiAgICBCbG9nUG9zdFxuICB9LFxuICBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBwb3N0czogW1xuICAgICAgICB7IGlkOiAxLCB0aXRsZTogJ015IGpvdXJuZXkgd2l0aCBWdWUnIH0sXG4gICAgICAgIHsgaWQ6IDIsIHRpdGxlOiAnQmxvZ2dpbmcgd2l0aCBWdWUnIH0sXG4gICAgICAgIHsgaWQ6IDMsIHRpdGxlOiAnV2h5IFZ1ZSBpcyBzbyBmdW4nIH1cbiAgICAgIF0sXG4gICAgICBwb3N0Rm9udFNpemU6IDFcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxkaXYgOnN0eWxlPVwieyBmb250U2l6ZTogcG9zdEZvbnRTaXplICsgJ2VtJyB9XCI+XG4gICAgPEJsb2dQb3N0XG4gICAgICB2LWZvcj1cInBvc3QgaW4gcG9zdHNcIlxuICAgICAgOmtleT1cInBvc3QuaWRcIlxuICAgICAgOnRpdGxlPVwicG9zdC50aXRsZVwiXG4gICAgICBAZW5sYXJnZS10ZXh0PVwicG9zdEZvbnRTaXplICs9IDAuMVwiXG4gICAgPjwvQmxvZ1Bvc3Q+XG4gIDwvZGl2PlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQmxvZ1Bvc3QudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgcHJvcHM6IFsndGl0bGUnXSxcbiAgZW1pdHM6IFsnZW5sYXJnZS10ZXh0J11cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxkaXYgY2xhc3M9XCJibG9nLXBvc3RcIj5cblx0ICA8aDQ+e3sgdGl0bGUgfX08L2g0PlxuXHQgIDxidXR0b24gQGNsaWNrPVwiJGVtaXQoJ2VubGFyZ2UtdGV4dCcpXCI+RW5sYXJnZSB0ZXh0PC9idXR0b24+XG4gIDwvZGl2PlxuPC90ZW1wbGF0ZT4ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNU81u00AQfpWRheRWxDYBTpYbFQ6ckZC41D049ibd1t61djehxYoE7QEOSEgc4MKdKwUCoaXlFdZvxKz/6gKtGkW25+f7dmbnm8J6kOfufEYs3wpkLGiuRiGjWc6Fgocpnz7mUsFE8Axs12sdBmCHDCBkZL9KTcgkmqUKCuONOeIZYUr6tQM6KmMtBuaZRCpaW2/jgqiZYK0FkGMuordaG6AAmvgwHICiKiU+2PqjPi/fgv6tz/U3/HyB7++gf8BTLK45pA+924O+00vELPWZPjMUx/oUwV/Lo2vg93rwT5j9C7MxFcpD/Vmf6JX+CeWr8siUor8YE0laju2OzfT1iDP1hD5HpmHtrvLwgf/A64aAhiJZnkaKoAUQJHQOvlQHKdkIrQImHU2fFG6DTTJztlWhENe/e/ObOxMukMLAgLL6rkOrDft75KCJujTp+av220hlXAQ3CUsjMSWOIvuqybkoaQPuuMM2eRR0Oqr78rAx/Aq8rl1rYNUSdLIod3clZyjPShthE8B6O22FFsrR2KG1o1Qufc+Tk9hodFe6XEw9/HLFjCmaEZfIzBkL/kwSgcSh1Uym4vDQOSfCEYQlRBBxHedfqf/wtiPFVvpbc2nN/rc7ueB4GmzZ1QXbtXJIRqttsPu3bG/fSDFxGkmJExljFY4ZSyWMUGF45/6oKGpVw2IReGg3kfFMKc5gM05pvIfgW6aCtcvHryOR/qCPy/f6tHxTvtYrXIWV2YelPilfloeBV9NcOeXFH1jGon0=)
 
 </div>
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBCbG9nUG9zdCBmcm9tICcuL0Jsb2dQb3N0LnZ1ZSdcbiAgXG5jb25zdCBwb3N0cyA9IHJlZihbXG4gIHsgaWQ6IDEsIHRpdGxlOiAnTXkgam91cm5leSB3aXRoIFZ1ZScgfSxcbiAgeyBpZDogMiwgdGl0bGU6ICdCbG9nZ2luZyB3aXRoIFZ1ZScgfSxcbiAgeyBpZDogMywgdGl0bGU6ICdXaHkgVnVlIGlzIHNvIGZ1bicgfVxuXSlcblxuY29uc3QgcG9zdEZvbnRTaXplID0gcmVmKDEpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8ZGl2IDpzdHlsZT1cInsgZm9udFNpemU6IHBvc3RGb250U2l6ZSArICdlbScgfVwiPlxuICAgIDxCbG9nUG9zdFxuICAgICAgdi1mb3I9XCJwb3N0IGluIHBvc3RzXCJcbiAgICAgIDprZXk9XCJwb3N0LmlkXCJcbiAgICAgIDp0aXRsZT1cInBvc3QudGl0bGVcIlxuICAgICAgQGVubGFyZ2UtdGV4dD1cInBvc3RGb250U2l6ZSArPSAwLjFcIlxuICAgID48L0Jsb2dQb3N0PlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkJsb2dQb3N0LnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5kZWZpbmVQcm9wcyhbJ3RpdGxlJ10pXG5kZWZpbmVFbWl0cyhbJ2VubGFyZ2UtdGV4dCddKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGRpdiBjbGFzcz1cImJsb2ctcG9zdFwiPlxuICAgIDxoND57eyB0aXRsZSB9fTwvaDQ+XG4gICAgPGJ1dHRvbiBAY2xpY2s9XCIkZW1pdCgnZW5sYXJnZS10ZXh0JylcIj5FbmxhcmdlIHRleHQ8L2J1dHRvbj5cbiAgPC9kaXY+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U01v00AQ/SsjC8mpiG0CnCwnKkhwroTEpeaQOOt0W3vX2t0EimUJ2gMckJA4wIU7VwoEQkvLX1j/I2b9kbjQkkt25s17uzPznFv3ssxdzInlW4GMBM0USKLm2ShkNM24UJCDIDEUEAuego2l9hq6n/DZDpeqwVyvTRhFLAMIWcQZFmSYlDA0Ur1dA+RApz4M+qCoSogPtv6oL8q3oH/rC/0Njy/w/zvoH/AYpaDob0i3O6R3eonVS32uzw35RJ8h7Wt5fCXxTof4Cet+YR0WQXmkP+tTvdI/oXxVHpvr9RcTIj1kT7ZC1m3jIWfqEX1Omm4GCAdePTocGgaKpFkyVsREKpjSBfhSHSZkGFo5xA3bv6x1E2ySmussZAH+gnaUdQiwcGIuUMLQgLJ6oqHVwv4BOWxQl047+arjFqmCDbhNWDIWM+Io8kw1NZsnDeGWO2iLR8F6udULAw8bw1Pgrdu1+lbtCycdZ+6+5AxNlVcuaAB8rw9VxuTQIyYOrT2lMul7nowjY5x96XIx8/DkijlTNCUukakzEfypJAKFQ6taaqPhYXJBhCMImxJBxP80/yr9R9fI4soLbKVr5Ss+jimJKSM7gmeyt2tXc7WNU+r8g5Qqk+/Ot4KvdQpO1DglSsZS4iYmeLtj1rExxN7dUZ7XBoaiCDyMG2QyV4oz2I4SGh0g+QbB63uXL99CIf1Bn5Tv9Vn5pnytV+j6lbH+Up+WL8ujwKtlrt1u8QftKI+s)
 
 </div>
 
-We can optionally declare emitted events using the <span class="options-api">[`emits`](/api/options-state.html#emits) option</span><span class="composition-api">[`defineEmits`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span>:
+Додатково ми можемо оголосити випромінені події за допомогою <span class="options-api">параметра [`emits`](/api/options-state.html#emits)</span><span class="composition-api">макросу [`defineEmits`](/api/sfc-script-setup.html#defineprops-defineemits)</span>:
 
 <div class="options-api">
 
@@ -418,11 +418,11 @@ defineEmits(['enlarge-text'])
 
 </div>
 
-This documents all the events that a component emits and optionally [validates them](/guide/components/events.html#events-validation). It also allows Vue to avoid implicitly applying them as native listeners to the child component's root element.
+Це документує всі події, які випромінює компонент, і додатково [їх перевіряє](/guide/components/events.html#events-validation). Це також дозволяє Vue уникнути неявного застосування їх як рідних слухачів до кореневого елемента дочірнього компонента.
 
 <div class="composition-api">
 
-Similar to `defineProps`, `defineEmits` is only usable in `<script setup>` and doesn't need to be imported. It returns an `emit` function that is equivalent to the `$emit` method. It can be used to emit events in the `<script setup>` section of a component, where `$emit` isn't directly accessible:
+Подібно до `defineProps`, `defineEmits` використовується лише в `<script setup>` і не потребує імпорту. Він повертає функцію `emit`, яка еквівалентна методу `emit`. Його можна використовувати для випромінювання подій у розділі `<script setup>` компонента, де `emit` недоступний безпосередньо:
 
 ```vue
 <script setup>
@@ -432,9 +432,9 @@ emit('enlarge-text')
 </script>
 ```
 
-See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+Дивіться також: [Типізація випромінювань компонента](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
-If you are not using `<script setup>`, you can declare emitted events using the `emits` option. You can access the `emit` function as a property of the setup context (passed to `setup()` as the second argument):
+Якщо ви не використовуєте `<script setup>`, ви можете оголосити випромінювані події за допомогою параметра `emits`. Ви можете отримати доступ до функції `emit` як до властивості контексту налаштування (передається `setup()` як другий аргумент):
 
 ```js
 export default {
@@ -447,30 +447,30 @@ export default {
 
 </div>
 
-That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](/guide/components/events).
+Наразі це все, що вам потрібно знати про події спеціальних компонентів, але коли ви закінчите читати цю сторінку та відчуєте себе комфортно з її вмістом, ми рекомендуємо повернутися пізніше, щоб прочитати повний посібник щодо [власних подій](/guide/components/events).
 
-## Content Distribution with Slots
+## Передавання вмісту за допомогою слотів {#content-distribution-with-slots}
 
-Just like with HTML elements, it's often useful to be able to pass content to a component, like this:
+Так само як і з елементами HTML, часто корисно мати можливість передавати вміст до компонента, наприклад:
 
 ```vue-html
 <AlertBox>
-  Something bad happened.
+  Сталося щось погане.
 </AlertBox>
 ```
 
-Which might render something like:
+Що може показати щось на зразок:
 
-:::danger This is an Error for Demo Purposes
-Something bad happened.
+:::danger Це помилка для демонстраційних цілей
+Сталося щось погане.
 :::
 
-This can be achieved using Vue's custom `<slot>` element:
+Цього можна досягти за допомогою спеціального Vue-елемента `<slot>`:
 
 ```vue{4}
 <template>
   <div class="alert-box">
-    <strong>This is an Error for Demo Purposes</strong>
+    <strong>Це помилка для демонстраційних цілей</strong>
     <slot />
   </div>
 </template>
@@ -482,42 +482,42 @@ This can be achieved using Vue's custom `<slot>` element:
 </style>
 ```
 
-As you'll see above, we use the `<slot>` as a placeholder where we want the content to go – and that's it. We're done!
+Як ви бачите вище, ми використовуємо `<slot>` як підмінний елемент, замість якого ми хочемо розмістити вміст – і все. Ми закінчили!
 
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBBbGVydEJveCBmcm9tICcuL0FsZXJ0Qm94LnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgQWxlcnRCb3ggfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PEFsZXJ0Qm94PlxuICBcdFNvbWV0aGluZyBiYWQgaGFwcGVuZWQuXG5cdDwvQWxlcnRCb3g+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJBbGVydEJveC52dWUiOiI8dGVtcGxhdGU+XG4gIDxkaXYgY2xhc3M9XCJhbGVydC1ib3hcIj5cbiAgICA8c3Ryb25nPkVycm9yITwvc3Ryb25nPlxuICAgIDxici8+XG4gICAgPHNsb3QgLz5cbiAgPC9kaXY+XG48L3RlbXBsYXRlPlxuXG48c3R5bGUgc2NvcGVkPlxuLmFsZXJ0LWJveCB7XG4gIGNvbG9yOiAjNjY2O1xuICBib3JkZXI6IDFweCBzb2xpZCByZWQ7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgcGFkZGluZzogMjBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2Y4ZjhmODtcbn1cbiAgXG5zdHJvbmcge1xuXHRjb2xvcjogcmVkOyAgICBcbn1cbjwvc3R5bGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9Ul1q3DAQvspUfchLbLWlLMV1F9Jz6MW2tFuntiRG8tZlyUP7Vij0CCU3CIRAyO8VtDfKyOt1NgkE+0Hzzcw3M9/Mmh1Zm646xTKWuwpr6+dC16016OGoUei/mh4WaFo4SPkOiAkHQgMIrfohVKpF0TUe1hGtDOVrpb3LYP3IciI0/TmfypDhVWubwqto+XwXShZx+3C6+R3OwnW42/za/IPNn+HxF8J9uAvn5LkNF+mQOHVGmTmfSNkh246StIVNj53RNObQohgdTjDqMSIRo7GiLdg3763LOHeLKs567FKDS06vFDvt61alyrVJieaHU0jEgh3ucXACVwoTVFoqVPga57PQF7yRNgpHo+yrH9e1px1ALusVVE3h3BfBihiZlKYXbHCS23k0ejkP/0m6m3BJol6Fsze0jC0+RpXIp4TGeNhaOSfyp8oOy3P+Z6PAVcYqSUg6ld2dQWMwg7ez2exztEuDNGMG720PzjS1BFRyz5NgIeuObuaj7QfYFlLWepnBh3cjUhbV9yWaTstkx774FD/ykkrxILcDxQ6EH2NimWE54/3Ftufs5AGQ8hlb)
 
 </div>
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBBbGVydEJveCBmcm9tICcuL0FsZXJ0Qm94LnZ1ZSdcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxBbGVydEJveD5cbiAgXHRTb21ldGhpbmcgYmFkIGhhcHBlbmVkLlxuXHQ8L0FsZXJ0Qm94PlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQWxlcnRCb3gudnVlIjoiPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwiYWxlcnQtYm94XCI+XG4gICAgPHN0cm9uZz5FcnJvciE8L3N0cm9uZz5cbiAgICA8YnIvPlxuICAgIDxzbG90IC8+XG4gIDwvZGl2PlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlIHNjb3BlZD5cbi5hbGVydC1ib3gge1xuICBjb2xvcjogIzY2NjtcbiAgYm9yZGVyOiAxcHggc29saWQgcmVkO1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG4gIHBhZGRpbmc6IDIwcHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmOGY4Zjg7XG59XG4gIFxuc3Ryb25nIHtcblx0Y29sb3I6IHJlZDsgICAgXG59XG48L3N0eWxlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9UV1O4zAQvsqs94EXEu+uVtUqm63EnsMvSeyWQGJbY6cUoT7AGxISR0DcAAkhIX6v4N6IcdJWBSTkF883M998880J27M2nXWKZSx3FdbWg1O+s2Oh69Ya9LDXKPT/zRwmaFrYSfkaiG07Qud86KMOCrxqbVN4FSOfr0spAhA+XC/Pwk14DC/L0+UlLM/7zwWE1/ASbinzHO7SvnEzhDpzviFlu2xQlbSFTQ+c0aT7pCdfJZxgGfRIxEhhjAXb9966jHM3qaLsA5canHL6pdhpX7cqVa5NSjRHTiERC7a7xcEJnClMUGmpUOFXnB9KP/FG2oXQC1pl28jo/5Z3ALmsZ1A1hXP/BCtiZVKauWB9ktLOo9HTcbgi657CPZn6EG6+0TEGfFVVIt80NMbDEOWcyN872x/P+eNGgauMVZKQdDN2cLQyjcEMvo9Go78xLg3Sjhn8tHNwpqkloJJbmQQLWXcug9923sO2kLLW0wx+/VghZVEdTtF0WiZr9smf+ChLLpH/elgoKhB+VRPH9MeJNXFlkj1mizdaYAhM)
 
 </div>
 
-That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](/guide/components/slots).
+Наразі це все, що вам потрібно знати про слоти, але коли ви закінчите читати цю сторінку та відчуєте себе комфортно з її вмістом, рекомендуємо повернутися пізніше, щоб прочитати повний посібник про [слоти](/guide/components/slots).
 
-## Динамічні компоненти
+## Динамічні компоненти {#dynamic-components}
 
-Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
+Іноді корисно динамічно перемикатися між компонентами, наприклад, в інтерфейсі з вкладками:
 
 <div class="options-api">
 
-[Open example in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBIb21lIGZyb20gJy4vSG9tZS52dWUnXG5pbXBvcnQgUG9zdHMgZnJvbSAnLi9Qb3N0cy52dWUnXG5pbXBvcnQgQXJjaGl2ZSBmcm9tICcuL0FyY2hpdmUudnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEhvbWUsXG4gICAgUG9zdHMsXG4gICAgQXJjaGl2ZVxuICB9LFxuICBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBjdXJyZW50VGFiOiAnSG9tZScsXG4gICAgICB0YWJzOiBbJ0hvbWUnLCAnUG9zdHMnLCAnQXJjaGl2ZSddXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwiZGVtb1wiPlxuICAgIDxidXR0b25cbiAgICAgICB2LWZvcj1cInRhYiBpbiB0YWJzXCJcbiAgICAgICA6a2V5PVwidGFiXCJcbiAgICAgICA6Y2xhc3M9XCJbJ3RhYi1idXR0b24nLCB7IGFjdGl2ZTogY3VycmVudFRhYiA9PT0gdGFiIH1dXCJcbiAgICAgICBAY2xpY2s9XCJjdXJyZW50VGFiID0gdGFiXCJcbiAgICAgPlxuICAgICAge3sgdGFiIH19XG4gICAgPC9idXR0b24+XG5cdCAgPGNvbXBvbmVudCA6aXM9XCJjdXJyZW50VGFiXCIgY2xhc3M9XCJ0YWJcIj48L2NvbXBvbmVudD5cbiAgPC9kaXY+XG48L3RlbXBsYXRlPlxuXG48c3R5bGU+XG4uZGVtbyB7XG4gIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmO1xuICBib3JkZXI6IDFweCBzb2xpZCAjZWVlO1xuICBib3JkZXItcmFkaXVzOiAycHg7XG4gIHBhZGRpbmc6IDIwcHggMzBweDtcbiAgbWFyZ2luLXRvcDogMWVtO1xuICBtYXJnaW4tYm90dG9tOiA0MHB4O1xuICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgb3ZlcmZsb3cteDogYXV0bztcbn1cblxuLnRhYi1idXR0b24ge1xuICBwYWRkaW5nOiA2cHggMTBweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogM3B4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogM3B4O1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIGJhY2tncm91bmQ6ICNmMGYwZjA7XG4gIG1hcmdpbi1ib3R0b206IC0xcHg7XG4gIG1hcmdpbi1yaWdodDogLTFweDtcbn1cbi50YWItYnV0dG9uOmhvdmVyIHtcbiAgYmFja2dyb3VuZDogI2UwZTBlMDtcbn1cbi50YWItYnV0dG9uLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQ6ICNlMGUwZTA7XG59XG4udGFiIHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgcGFkZGluZzogMTBweDtcbn1cbjwvc3R5bGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkhvbWUudnVlIjoiPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwidGFiXCI+XG4gICAgSG9tZSBjb21wb25lbnRcbiAgPC9kaXY+XG48L3RlbXBsYXRlPiIsIlBvc3RzLnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGRpdiBjbGFzcz1cInRhYlwiPlxuICAgIFBvc3RzIGNvbXBvbmVudFxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+IiwiQXJjaGl2ZS52dWUiOiI8dGVtcGxhdGU+XG4gIDxkaXYgY2xhc3M9XCJ0YWJcIj5cbiAgICBBcmNoaXZlIGNvbXBvbmVudFxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+In0=)
+[Відкрийте приклад в пісочниці](https://sfc.vuejs.org/#eNqVVc1u1DAQfpVROCxITdJSxCFsK3rjyIFb04M3cXbTJnZkO9utVisBEhJHDogDT1EhEAui9BWyb8TYTrzZtltRJYo8f9/MfLHHc++oqoJpTb3IG8pE5JU6jFleVlwoeMVLCpngJQyCUAvaceDMr7lU0tmNtOlwJJJJPl1DtHLrBBAzOjOOKc1IXSiYa23CMZpRpmRkFWAK2bFLk6Zdt3haWBhVShR5/KSLElTVgnUSAtdCIOwbMopgoCEHLQ6AIiPMdtyJAPN1Gc4ZCjKiBYrN5+Zv82f1pfnW/G4uB23yuwJNtTcjr5vl6l2zvC+u7awf+Wn1dvVB5+zHndjFwlAQM3yHofuLKChaVgVRFCWAYZpPISmIlAexl9KSx57Ro2VUK8UxoC1m6mdcoBPSAjkz7MSes0Zn9MIa+8oO+HiABt8CYv1zIInCVqIe/XBwcKBBA9cyLE56WC+TIk/OEKsfshngvNsOkMC58TB8wcIwgo2FthDNhkJxnTDKdbHrBLHnqDGNHQ5D52zZC5E+XA3DHqkoSnVR6GWgGbWbLeNM+Rkp8+IiAkmY9CUVefZC20ZcpFREsFfNQPIiT+ERpbRn8gVJ8xp349NqZtQVSdOcjVGxizH7+DHqkohxznzFKwSjZV834thzGcGzzrfG/FhDQRPcXAx7Mlo+pSIr+Lk/i4DUiqMSacNO1j/Q9uMqeI4F7HWgbblYgF/QTLm692/bRT6ebHPYoCJJEmPC/yI5miqeM0WFdSfJ2VjwmqURPMp29XNX0z7C9fUmt1Njg732oonmwDa5AU939XPLP7B7+T8CWpftHTpOWz7t0TV7ydvx7AD1S1IFp5IzHM4GL24NeBrdbIw9HKdajr2JUpWMwlBmiZ6xpzLgYhziKhA1UznObypLfyT4Oe4HBI69dpAYjBCVyIaPBwKLpuI+zBuut3C7eYStdPeGvmC2jyN75mw1drw2l6uPzRUOvF+AU1YrrvF71fxA5fstBxLTuWvoAfm+3oSH5ic0392ovkTrcnvK3rX2gKRunmPS5YOaXPwD8BHE6w==)
 
 </div>
 <div class="composition-api">
 
-[Open example in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBIb21lIGZyb20gJy4vSG9tZS52dWUnXG5pbXBvcnQgUG9zdHMgZnJvbSAnLi9Qb3N0cy52dWUnXG5pbXBvcnQgQXJjaGl2ZSBmcm9tICcuL0FyY2hpdmUudnVlJ1xuaW1wb3J0IHsgcmVmIH0gZnJvbSAndnVlJ1xuIFxuY29uc3QgY3VycmVudFRhYiA9IHJlZignSG9tZScpXG5cbmNvbnN0IHRhYnMgPSB7XG4gIEhvbWUsXG4gIFBvc3RzLFxuICBBcmNoaXZlXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwiZGVtb1wiPlxuICAgIDxidXR0b25cbiAgICAgICB2LWZvcj1cIihfLCB0YWIpIGluIHRhYnNcIlxuICAgICAgIDprZXk9XCJ0YWJcIlxuICAgICAgIDpjbGFzcz1cIlsndGFiLWJ1dHRvbicsIHsgYWN0aXZlOiBjdXJyZW50VGFiID09PSB0YWIgfV1cIlxuICAgICAgIEBjbGljaz1cImN1cnJlbnRUYWIgPSB0YWJcIlxuICAgICA+XG4gICAgICB7eyB0YWIgfX1cbiAgICA8L2J1dHRvbj5cblx0ICA8Y29tcG9uZW50IDppcz1cInRhYnNbY3VycmVudFRhYl1cIiBjbGFzcz1cInRhYlwiPjwvY29tcG9uZW50PlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZT5cbi5kZW1vIHtcbiAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNlZWU7XG4gIGJvcmRlci1yYWRpdXM6IDJweDtcbiAgcGFkZGluZzogMjBweCAzMHB4O1xuICBtYXJnaW4tdG9wOiAxZW07XG4gIG1hcmdpbi1ib3R0b206IDQwcHg7XG4gIHVzZXItc2VsZWN0OiBub25lO1xuICBvdmVyZmxvdy14OiBhdXRvO1xufVxuXG4udGFiLWJ1dHRvbiB7XG4gIHBhZGRpbmc6IDZweCAxMHB4O1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAzcHg7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAzcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgYmFja2dyb3VuZDogI2YwZjBmMDtcbiAgbWFyZ2luLWJvdHRvbTogLTFweDtcbiAgbWFyZ2luLXJpZ2h0OiAtMXB4O1xufVxuLnRhYi1idXR0b246aG92ZXIge1xuICBiYWNrZ3JvdW5kOiAjZTBlMGUwO1xufVxuLnRhYi1idXR0b24uYWN0aXZlIHtcbiAgYmFja2dyb3VuZDogI2UwZTBlMDtcbn1cbi50YWIge1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICBwYWRkaW5nOiAxMHB4O1xufVxuPC9zdHlsZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiSG9tZS52dWUiOiI8dGVtcGxhdGU+XG4gIDxkaXYgY2xhc3M9XCJ0YWJcIj5cbiAgICBIb21lIGNvbXBvbmVudFxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+IiwiUG9zdHMudnVlIjoiPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwidGFiXCI+XG4gICAgUG9zdHMgY29tcG9uZW50XG4gIDwvZGl2PlxuPC90ZW1wbGF0ZT4iLCJBcmNoaXZlLnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGRpdiBjbGFzcz1cInRhYlwiPlxuICAgIEFyY2hpdmUgY29tcG9uZW50XG4gIDwvZGl2PlxuPC90ZW1wbGF0ZT4ifQ==)
+[Відкрийте приклад в пісочниці](https://sfc.vuejs.org/#eNqVVctu00AU/ZWRWaSV4riliIVJEN2xZMGuZuHY42Rae8aaGaetokiAhMSSBWLBV1QIRECU/oLzR5yZcRynJYjGkuV777mPc+y5mXvHZTmYVdQLvaFKJCs1UVRX5dOIs6IUUpPnoqAkk6IgvUFgDAPvteEXQmnVxq21DTiWyZTNNiUaexs0J5JmZNGAXIhEPBFcaZJUUlKuX8ZjMjK4vV79sf5d/1p9qr/UP+ur3n7E11gdjxVQc6ST27DQculvQjf1cvWmXiJg524iH1avV+9MEvzNsBFfRHwYOIEgDQxNizKPNYVFyDBlM5LksVKjyEtpISLP+hEZV1oLJBgDv5mfCQnQXiLAnINWn+TxmOb7hHE7feS14PCMXgJr4133utNJDwm+69DrQ8Q40Zg23FJsNHINyOJVp8azJGfJGWpsibvdqaFAyHy+LgEZLKvANTVSaJgtGRIyM5jhcbKpjMatOghBnGHQpjgBAyiIp2HQ0RWm0pe5eRwYUd1bzQTXfhYXLL8MiYq58hWVLHtiYmMhUypDclheECVylpIHlNJOyJdxyioVkoflhXWXcZoyPoHjADlHuFl3EcsJ474WJYrRousbCzAvQvJoja3QHzPkNNEh4eBkvWJGZZaLc/8iJHGlBZwQD0w2r8zxaSd4jAEO10WbcTGAn9NMt3Mf3Y1LNpnuAmxJkSSJDeHFKIFQKRjXVDp4nJxNpKh4GpIH2YG5/kbaR7mu3/Zu3SDYoRdOjQaO5FZ5emCuO/iB+3r/I6GB7GbYatro6U6v/Za8vud2jl/E5eBUCY7VZ+tFTQAnMHQdjA+7yNiRN9W6VGEQqCwxu+tUDYScBHgayIprhr1IVeGPpTjH94DCkWf3SVMjgBNq+DgRGJrKf9W8Bb1T15QFowWorPexWd+7N5I7c24atxPrq9X7+hpL7gfBajSOG9yv629wvt1xINGuXe/36Pf5dnlSfyf113b9XiG63N2y83dxj6btDkfT5b1ILv4A+Kmejg==)
 
 </div>
 
-The above is made possible by Vue's `<component>` element with the special `is` attribute:
+Це стало можливим завдяки елементу `<component>` Vue зі спеціальним атрибутом `is`:
 
 <div class="options-api">
 
 ```vue-html
-<!-- Component changes when currentTab changes -->
+<!-- Компонент змінюється, коли змінюється поточна вкладка -->
 <component :is="currentTab"></component>
 ```
 
@@ -525,39 +525,39 @@ The above is made possible by Vue's `<component>` element with the special `is` 
 <div class="composition-api">
 
 ```vue-html
-<!-- Component changes when currentTab changes -->
+<!-- Компонент змінюється, коли змінюється поточна вкладка -->
 <component :is="tabs[currentTab]"></component>
 ```
 
 </div>
 
-In the example above, the value passed to `:is` can contain either:
+У наведеному вище прикладі значення, передане в `:is`, може містити:
 
-- the name string of a registered component, OR
-- the actual imported component object
+- рядок імені зареєстрованого компонента, АБО
+- фактичний імпортований об'єкт компонента
 
-You can also use the `is` attribute to create regular HTML elements.
+Ви також можете використовувати атрибут `is` для створення звичайних елементів HTML.
 
-When switching between multiple components with `<component :is="...">`, a component will be unmounted when it is switched away from. We can force the inactive components to stay "alive" with the built-in [`<KeepAlive>` component](/guide/built-ins/keep-alive.html).
+Під час перемикання між декількома компонентами за допомогою `<component :is="...">` компонент буде демонтовано, коли з нього буде перемкнуто. Ми можемо змусити неактивні компоненти залишатися «живими» за допомогою вбудованого [компонента `<KeepAlive>`](/guide/built-ins/keep-alive.html).
 
-## DOM Template Parsing Caveats
+## Застереження щодо аналізу шаблону DOM {#dom-template-parsing-caveats}
 
-If you are writing your Vue templates directly in the DOM, Vue will have to retrieve the template string from the DOM. This leads to some caveats due to browsers' native HTML parsing behavior.
+Якщо ви пишете свої шаблони Vue безпосередньо в DOM, Vue доведеться отримати рядок шаблону з DOM. Це призводить до деяких застережень через власну поведінку браузерів під час аналізу HTML.
 
 :::tip
-It should be noted that the limitations discussed below only apply if you are writing your templates directly in the DOM. They do NOT apply if you are using string templates from the following sources:
+Слід зазначити, що обмеження, описані нижче, застосовуються, лише якщо ви пишете свої шаблони безпосередньо в DOM. Вони НЕ застосовуються, якщо ви використовуєте шаблони рядків із таких джерел:
 
-- Single-File Components
-- Inlined template strings (e.g. `template: '...'`)
+- Однофайлові компоненти
+- Вбудовані рядки шаблону (наприклад, `template: '...'`)
 - `<script type="text/x-template">`
   :::
 
-### Case Insensitivity
+### Нечутливість до регістру {#case-insensitivity}
 
-HTML tags and attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, PascalCase component names and camelCased prop names or `v-on` event names all need to use their kebab-cased (hyphen-delimited) equivalents:
+Теги HTML і назви атрибутів нечутливі до регістру, тому браузери сприйматимуть будь-які символи верхнього регістру як малі. Це означає, що коли ви використовуєте шаблони DOM, назви компонентів в PascalCase та назви реквізитів у в регістрі camelCase або назви подій `v-on` повинні використовувати свої еквіваленти у регістрі kebab (розділені дефісами):
 
 ```js
-// camelCase in JavaScript
+// camelCase в JavaScript
 const BlogPost = {
   props: ['postTitle'],
   emits: ['updatePost'],
@@ -568,46 +568,46 @@ const BlogPost = {
 ```
 
 ```vue-html
-<!-- kebab-case in HTML -->
-<blog-post post-title="hello!" @update-post="onUpdatePost"></blog-post>
+<!-- kebab-case в HTML -->
+<blog-post post-title="привіт!" @update-post="onUpdatePost"></blog-post>
 ```
 
-### Self Closing Tags
+### Закривальні теги {#self-closing-tags}
 
-We have been using self-closing tags for components in previous code samples:
+Ми використовували закривальні теги для компонентів у попередніх зразках коду:
 
 ```vue-html
 <MyComponent />
 ```
 
-This is because Vue's template parser respects `/>` as an indication to end any tag, regardless of its type.
+Це пояснюється тим, що синтаксичний аналізатор шаблону Vue розглядає `/>` як вказівку на закінчення будь-якого тегу, незалежно від його типу.
 
-In DOM templates, however, we must always include explicit closing tags:
+Однак у шаблонах DOM ми завжди повинні включати явні закривальні теги:
 
 ```vue-html
 <my-component></my-component>
 ```
 
-This is because the HTML spec only allows [a few specific elements](https://html.spec.whatwg.org/multipage/syntax.html#void-elements) to omit closing tags, the most common being `<input>` and `<img>`. For all other elements, if you omit the closing tag, the native HTML parser will think you never terminated the opening tag. For example, the following snippet:
+Це тому, що специфікація HTML дозволяє лише [декільком конкретним елементам](https://html.spec.whatwg.org/multipage/syntax.html#void-elements) опускати закривальні теги, найпоширенішими є `<input>` і `<img>`. Для всіх інших елементів, якщо ви опустите закривальний тег, рідний синтаксичний аналізатор HTML вважатиме, що ви не завершили відкривальний тег. Наприклад, такий фрагмент коду:
 
 ```vue-html
-<my-component /> <!-- we intend to close the tag here... -->
-<span>hello</span>
+<my-component /> <!-- ми маємо намір закрити тег тут... -->
+<span>привіт</span>
 ```
 
 will be parsed as:
 
 ```vue-html
 <my-component>
-  <span>hello</span>
-</my-component> <!-- but the browser will close it here. -->
+  <span>привіт</span>
+</my-component> <!-- але браузер закриє його тут. -->
 ```
 
-### Element Placement Restrictions
+### Обмеження розміщення елементів {#element-placement-restrictions}
 
-Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
+Окремі елементи HTML, як-от `<ul>`, `<ol>`, `<table>` і `<select>`, мають обмеження щодо того, які елементи можуть з’являтися в них, а певні елементи, наприклад `<li>`, `<tr>` і `<option>` можуть з'являтися лише всередині деяких інших елементів.
 
-This will lead to issues when using components with elements that have such restrictions. For example:
+Це призведе до проблем під час використання компонентів з елементами, які мають такі обмеження. Наприклад:
 
 ```vue-html
 <table>
@@ -615,7 +615,7 @@ This will lead to issues when using components with elements that have such rest
 </table>
 ```
 
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special [`is` attribute](/api/built-in-special-attributes.html#is) as a workaround:
+Спеціальний компонент `<blog-post-row>` буде видалено як недійсний вміст, що призведе до помилок в остаточному відтвореному виведенні. Ми можемо використати спеціальний атрибут [`is`](/api/built-in-special-attributes.html#is) як обхідний шлях:
 
 ```vue-html
 <table>
@@ -624,9 +624,9 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 ```
 
 :::tip
-When used on native HTML elements, the value of `is` must be prefixed with `vue:` in order to be interpreted as a Vue component. This is required to avoid confusion with native [customized built-in elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
+При використанні в нативних елементах HTML, значення `is` має мати префікс `vue:`, щоб інтерпретуватися як компонент Vue. Це потрібно, щоб уникнути плутанини з рідними [власними вбудованими елементами](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 
-That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself - build something fun, or check out some of the [Examples](/examples/) if you haven't already.
+Це все, що вам наразі потрібно знати про застереження щодо аналізу шаблонів DOM – і, власне, кінець _Основам_ від Vue. Щиро вітаю! Ще є чому навчитися, але спочатку ми рекомендуємо зробити перерву, щоб пограти з Vue самостійно - створіть щось веселе або перегляньте [приклади](/examples/), якщо ви ще цього не зробили.
 
-Once you feel comfortable with the knowledge you've just digested, move on with the guide to learn more about components in depth.
+Коли ви відчуєте себе комфортно зі знаннями, які ви щойно засвоїли, перейдіть до посібника, щоб дізнатися більше про компоненти.
