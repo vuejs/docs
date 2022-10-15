@@ -101,7 +101,7 @@ export default {
 <div>{{ state.count }}</div>
 ```
 
-Similarly, we can declare functions that mutate reactive state in the same scope, and expose it as a method alongside the state:
+Similarly, we can declare functions that mutate reactive state in the same scope and expose it as a method alongside the state:
 
 ```js{7-9,14}
 import { reactive } from 'vue'
@@ -298,7 +298,7 @@ function mutateDeeply() {
 
 </div>
 
-It is also possible to explicitly create [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, however they are typically only needed in advanced use cases.
+It is also possible to explicitly create [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, but these are typically only needed in advanced use cases.
 
 <div class="composition-api">
 
@@ -451,9 +451,9 @@ function increment() {
 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-Note the unwrapping only applies if the ref is a top-level property on the template render context. As an example, `foo` is a top-level property, but `object.foo` is not.
+Note that the unwrapping only applies if the ref is a top-level property on the template render context. As an example, `foo` is a top-level property, but `object.foo` is not.
 
-So given the following object:
+So, given the following object:
 
 ```js
 const object = { foo: ref(1) }
