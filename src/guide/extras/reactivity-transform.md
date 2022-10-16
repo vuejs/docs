@@ -1,10 +1,10 @@
 # Reactivity Transform
 
-:::warning Experimental Feature
+:::warning Экспериментальная возможность
 Reactivity Transform is currently an experimental feature. It is disabled by default and requires [explicit opt-in](#explicit-opt-in). It may also change before being finalized. To stay up-to-date, keep an eye on its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
 :::
 
-:::tip Composition-API-specific
+:::tip Специфика для Composition API
 Reactivity Transform is a Composition-API-specific feature and requires a build step.
 :::
 

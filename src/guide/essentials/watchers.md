@@ -216,7 +216,7 @@ watch(
 
 </div>
 
-:::warning Use with Caution
+:::warning Используйте с осторожностью
 Deep watch requires traversing all nested properties in the watched object, and can be expensive when used on large data structures. Use it only when necessary and beware of the performance implications.
 :::
 
@@ -280,7 +280,7 @@ Here, the callback will run immediately. During its execution, it will also auto
 
 You can check out [this example](/examples/#fetching-data) with `watchEffect` and reactive data-fetching in action.
 
-:::tip
+:::tip Совет
 `watchEffect` only tracks dependencies during its **synchronous** execution. When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
 :::
 

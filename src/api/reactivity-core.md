@@ -1,6 +1,6 @@
 # Reactivity API: Core
 
-:::info See also
+:::info См. также
 To better understand the Reactivity APIs, it is recommended to read the following chapters in the guide:
 
 - [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) (with the API preference set to Composition API)

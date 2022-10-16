@@ -14,7 +14,7 @@ footer: false
 
 ## Creating a Vue Application
 
-:::tip Prerequisites
+:::tip Предварительные условия
 
 - Familiarity with the command line
 - Install [Node.js](https://nodejs.org/) version 16.0 or higher
@@ -162,7 +162,7 @@ We can teach the browser where to locate the `vue` import by using [Import Maps]
 
 You can also add entries for other dependencies to the import map - but make sure they point to the ES modules version of the library you intend to use.
 
-:::tip Import Maps Browser Support
+:::tip Поддержка Import Maps в браузере
 Import maps are supported by default in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process.
 
 If using Firefox, it is only supported in version 102+ and currently needs to be enabled via the `dom.importMaps.enabled` option in `about:config`.
@@ -170,7 +170,7 @@ If using Firefox, it is only supported in version 102+ and currently needs to be
 If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
 :::
 
-:::warning Notes on Production Use
+:::warning Примечание при использовании в production
 The examples so far are using the development build of Vue - if you intend to use Vue from a CDN in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
 

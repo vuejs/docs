@@ -7,7 +7,7 @@ These rules help prevent errors, so learn and abide by them at all costs. Except
 User component names should always be multi-word, except for root `App` components. This [prevents conflicts](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) with existing and future HTML elements, since all HTML elements are a single word.
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Плохо</h3>
 
 ```vue-html
 <!-- in pre-compiled templates -->
@@ -20,7 +20,7 @@ User component names should always be multi-word, except for root `App` componen
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Хорошо</h3>
 
 ```vue-html
 <!-- in pre-compiled templates -->
@@ -36,7 +36,7 @@ User component names should always be multi-word, except for root `App` componen
 
 In committed code, prop definitions should always be as detailed as possible, specifying at least type(s).
 
-::: details Detailed Explanation
+:::details Подробное объяснение
 Detailed [prop definitions](/guide/components/props.html#prop-validation) have two advantages:
 
 - They document the API of the component, so that it's easy to see how the component is meant to be used.
@@ -44,7 +44,7 @@ Detailed [prop definitions](/guide/components/props.html#prop-validation) have t
   :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Плохо</h3>
 
 ```js
 // This is only OK when prototyping
@@ -54,7 +54,7 @@ props: ['status']
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Хорошо</h3>
 
 ```js
 props: {
@@ -87,7 +87,7 @@ props: {
 
 `key` with `v-for` is _always_ required on components, in order to maintain internal component state down the subtree. Even for elements though, it's a good practice to maintain predictable behavior, such as [object constancy](https://bost.ocks.org/mike/constancy/) in animations.
 
-::: details Detailed Explanation
+:::details Подробное объяснение
 Let's say you have a list of todos:
 
 ```js
@@ -115,7 +115,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Плохо</h3>
 
 ```vue-html
 <ul>
@@ -128,7 +128,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Хорошо</h3>
 
 ```vue-html
 <ul>
@@ -153,7 +153,7 @@ There are two common cases where this can be tempting:
 
 - To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
 
-::: details Detailed Explanation
+:::details Подробное объяснение
 When Vue processes directives, `v-if` has a higher priority than `v-for`, so that this template:
 
 ```vue-html
@@ -206,7 +206,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Плохо</h3>
 
 ```vue-html
 <ul>
@@ -223,7 +223,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Хорошо</h3>
 
 ```vue-html
 <ul>
@@ -258,14 +258,14 @@ This is only relevant for [Single-File Components](/guide/scaling-up/sfc.html). 
 
 This makes overriding internal styles easier, with human-readable class names that don't have too high specificity, but are still very unlikely to result in a conflict.
 
-::: details Detailed Explanation
+:::details Подробное объяснение
 If you are developing a large project, working with other developers, or sometimes include 3rd-party HTML/CSS (e.g. from Auth0), consistent scoping will ensure that your styles only apply to the components they are meant for.
 
 Beyond the `scoped` attribute, using unique class names can help ensure that 3rd-party CSS does not apply to your own HTML. For example, many projects use the `button`, `btn`, or `icon` class names, so even if not using a strategy such as BEM, adding an app-specific and/or component-specific prefix (e.g. `ButtonClose-icon`) can provide some protection.
 :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Плохо</h3>
 
 ```vue-html
 <template>
@@ -282,7 +282,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Хорошо</h3>
 
 ```vue-html
 <template>
@@ -344,7 +344,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 
 Always use the `$_` prefix for custom private properties in a plugin, mixin, etc that should not be considered public API. Then to avoid conflicts with code by other authors, also include a named scope (e.g. `$_yourPluginName_`).
 
-::: details Detailed Explanation
+:::details Подробное объяснение
 Vue uses the `_` prefix to define its own private properties, so using the same prefix (e.g. `_update`) risks overwriting an instance property. Even if you check and Vue is not currently using a particular property name, there is no guarantee a conflict won't arise in a later version.
 
 As for the `$` prefix, its purpose within the Vue ecosystem is special instance properties that are exposed to the user, so using it for _private_ properties would not be appropriate.
@@ -353,7 +353,7 @@ Instead, we recommend combining the two prefixes into `$_`, as a convention for 
 :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Плохо</h3>
 
 ```js
 const myGreatMixin = {
@@ -402,7 +402,7 @@ const myGreatMixin = {
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Хорошо</h3>
 
 ```js
 const myGreatMixin = {

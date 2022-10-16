@@ -196,7 +196,7 @@ export const store = reactive({
 
 </div>
 
-:::tip
+:::tip Совет
 Note the click handler uses `store.increment()` with the parenthesis - this is necessary to call the method with the proper `this` context since it's not a component method.
 :::
 

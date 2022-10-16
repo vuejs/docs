@@ -96,7 +96,7 @@ As you learned earlier, Vue automatically escapes HTML content, preventing you f
   <div innerHTML={this.userProvidedHtml}></div>
   ```
 
-:::warning
+:::warning Предупреждение
 User-provided HTML can never be considered 100% safe unless it's in a sandboxed iframe or in a part of the app where only the user who wrote that HTML can ever be exposed to it. Additionally, allowing users to write their own Vue templates brings similar dangers.
 :::
 
@@ -153,7 +153,7 @@ We strongly discourage ever rendering a `<script>` element with Vue, since templ
 
 Every HTML element has attributes with values accepting strings of JavaScript, such as `onclick`, `onfocus`, and `onmouseenter`. Binding user-provided JavaScript to any of these event attributes is a potential security risk, so should be avoided.
 
-:::warning
+:::warning Предупреждение
 User-provided JavaScript can never be considered 100% safe unless it's in a sandboxed iframe or in a part of the app where only the user who wrote that JavaScript can ever be exposed to it.
 :::
 

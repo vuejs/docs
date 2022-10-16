@@ -145,7 +145,7 @@ Shallow version of [`reactive()`](./reactivity-core.html#reactive).
 
   Unlike `reactive()`, there is no deep conversion: only root-level properties are reactive for a shallow reactive object. Property values are stored and exposed as-is - this also means properties with ref values will **not** be automatically unwrapped.
 
-  :::warning Use with Caution
+  :::warning Используйте с осторожностью
   Shallow data structures should only be used for root level state in a component. Avoid nesting it inside a deep reactive object as it creates a tree with inconsistent reactivity behavior which can be difficult to understand and debug.
   :::
 
@@ -183,7 +183,7 @@ Shallow version of [`readonly()`](./reactivity-core.html#readonly).
 
   Unlike `readonly()`, there is no deep conversion: only root-level properties are made readonly. Property values are stored and exposed as-is - this also means properties with ref values will **not** be automatically unwrapped.
 
-  :::warning Use with Caution
+  :::warning Используйте с осторожностью
   Shallow data structures should only be used for root level state in a component. Avoid nesting it inside a deep reactive object as it creates a tree with inconsistent reactivity behavior which can be difficult to understand and debug.
   :::
 
@@ -253,7 +253,7 @@ Marks an object so that it will never be converted to a proxy. Returns the objec
   console.log(isReactive(bar.foo)) // false
   ```
 
-  :::warning Use with Caution
+  :::warning Используйте с осторожностью
   `markRaw()` and shallow APIs such as `shallowReactive()` allow you to selectively opt-out of the default deep reactive/readonly conversion and embed raw, non-proxied objects in your state graph. They can be used for various reasons:
 
   - Some values simply should not be made reactive, for example a complex 3rd party class instance, or a Vue component object.

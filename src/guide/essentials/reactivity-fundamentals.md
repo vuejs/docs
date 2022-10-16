@@ -4,7 +4,7 @@ outline: deep
 
 # Reactivity Fundamentals
 
-:::tip API Preference
+:::tip Справочник API
 This page and many other chapters later in the guide contain different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
 :::
 

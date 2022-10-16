@@ -30,7 +30,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
 
   Contents of `v-html` are inserted as plain HTML - Vue template syntax will not be processed. If you find yourself trying to compose templates using `v-html`, try to rethink the solution by using components instead.
 
-  ::: warning Security Note
+  :::warning Примечание о безопасности
   Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
   :::
 
@@ -494,7 +494,7 @@ Render the element and component once only, and skip future updates.
 
   When the component's `selected` state changes, a large amount of VNodes will be created even though most of the items remained exactly the same. The `v-memo` usage here is essentially saying "only update this item if it went from non-selected to selected, or the other way around". This allows every unaffected item to reuse its previous VNode and skip diffing entirely. Note we don't need to include `item.id` in the memo dependency array here since Vue automatically infers it from the item's `:key`.
 
-  :::warning
+  :::warning Предупреждение
   When using `v-memo` with `v-for`, make sure they are used on the same element. **`v-memo` does not work inside `v-for`.**
   :::
 

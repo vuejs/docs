@@ -4,7 +4,7 @@ outline: deep
 
 # Suspense
 
-:::warning Experimental Feature
+:::warning Экспериментальная возможность
 `<Suspense>` is an experimental feature. It is not guaranteed to reach stable status and the API may change before it does.
 :::
 

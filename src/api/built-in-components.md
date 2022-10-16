@@ -4,7 +4,7 @@ pageClass: api
 
 # Built-in Components
 
-:::info Registration and Usage
+:::info Регистрация и использование
 Built-in components can be used directly in templates without needing to be registered. They are also tree-shakeable: they are only included in the build when they are used.
 
 When using them in [render functions](/guide/extras/render-function.html), they need to be imported explicitly. For example:

@@ -92,7 +92,7 @@ The example above defines a single component and exports it as the default expor
 
 ## Using a Component
 
-:::tip
+:::tip Совет
 We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step or not. The [Examples](/examples/) section shows component usage in both scenarios.
 :::
 
@@ -461,7 +461,7 @@ Just like with HTML elements, it's often useful to be able to pass content to a 
 
 Which might render something like:
 
-:::danger This is an Error for Demo Purposes
+:::danger Эта ошибка для демонстрационных целей
 Something bad happened.
 :::
 
@@ -544,7 +544,7 @@ When switching between multiple components with `<component :is="...">`, a compo
 
 If you are writing your Vue templates directly in the DOM, Vue will have to retrieve the template string from the DOM. This leads to some caveats due to browsers' native HTML parsing behavior.
 
-:::tip
+:::tip Совет
 It should be noted that the limitations discussed below only apply if you are writing your templates directly in the DOM. They do NOT apply if you are using string templates from the following sources:
 
 - Single-File Components
@@ -623,7 +623,7 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 </table>
 ```
 
-:::tip
+:::tip Совет
 When used on native HTML elements, the value of `is` must be prefixed with `vue:` in order to be interpreted as a Vue component. This is required to avoid confusion with native [customized built-in elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 

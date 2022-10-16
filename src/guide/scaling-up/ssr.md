@@ -22,7 +22,7 @@ Compared to a client-side Single-Page Application (SPA), the advantage of SSR pr
 
 - **Better SEO**: the search engine crawlers will directly see the fully rendered page.
 
-  :::tip
+  :::tip Совет
   As of now, Google and Bing can index synchronous JavaScript applications just fine. Synchronous being the key word there. If your app starts with a loading spinner, then fetches content via Ajax, the crawler will not wait for you to finish. This means if you have content fetched asynchronously on pages where SEO is important, SSR might be necessary.
   :::
 
@@ -207,7 +207,7 @@ Moving from the example to a production-ready SSR app involves a lot more. We wi
 
 - Support Vue SFCs and other build step requirements. In fact, we will need to coordinate two builds for the same app: one for the client, and one for the server.
 
-  :::tip
+  :::tip Совет
   Vue components are compiled differently when used for SSR - templates are compiled into string concatenations instead of Virtual DOM render functions for more efficient rendering performance.
   :::
 
@@ -351,7 +351,7 @@ console.log(ctx.teleports) // { '#teleported': 'teleported content' }
 
 You need to inject the teleport markup into the correct location in your final page HTML similar to how you need to inject the main app markup.
 
-:::tip
+:::tip Совет
 Avoid targeting `body` when using Teleports and SSR together - usually, `<body>` will contain other server-rendered content which makes it impossible for Teleports to determine the correct starting location for hydration.
 
 Instead, prefer a dedicated container, e.g. `<div id="teleported"></div>` which contains only teleported content.

@@ -46,7 +46,7 @@ Now, the state will be persisted across component switches:
 
 </div>
 
-:::tip
+:::tip Совет
 When used in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats), it should be referenced as `<keep-alive>`.
 :::
 
@@ -73,7 +73,7 @@ By default, `<KeepAlive>` will cache any component instance inside. We can custo
 
 The match is checked against the component's [`name`](/api/options-misc.html#name) option, so components that need to be conditionally cached by `KeepAlive` must explicitly declare a `name` option.
 
-:::tip
+:::tip Совет
 Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name.
 :::
 

@@ -127,7 +127,7 @@ Users can navigate an application through headings. Having descriptive headings 
 | form            | role="form"          | Collection of form-associated elements                                                                           |
 | section         | role="region"        | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element |
 
-:::tip Tip:
+:::tip Совет
 It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).
 :::
 
@@ -173,7 +173,7 @@ If you inspect this element in your chrome developer tools and open the Accessib
 
 ![Chrome Developer Tools showing input accessible name from label](./images/AccessibleLabelChromeDevTools.png)
 
-:::warning Warning:
+:::warning Предупреждение
 Though you might have seen labels wrapping the input fields like this:
 
 ```vue-html

@@ -1,6 +1,6 @@
 # Built-in Special Elements
 
-:::info Not Components
+:::info Не компоненты
 `<component>` and `<slot>` are component-like features and part of the template syntax. They are not true components and are compiled away during template compilation. As such, they are conventionally written with lowercase in templates.
 :::
 

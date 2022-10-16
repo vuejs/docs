@@ -43,7 +43,7 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 - `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event;
 - `<select>` use `value` as a prop and `change` as an event.
 
-::: tip Note
+:::tip Примечание
 `v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using <span class="options-api">the `data` option</span><span class="composition-api">reactivity APIs</span>.
 :::
 
@@ -73,7 +73,7 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 </div>
 
 <span id="vmodel-ime-tip"></span>
-::: tip Note
+:::tip Примечание
 For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to respond to these updates as well, use your own `input` event listener and `value` binding instead of using `v-model`.
 :::
 
@@ -268,7 +268,7 @@ Single select:
 
 </div>
 
-:::tip Note
+:::tip Примечание
 If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
 :::
 
@@ -399,7 +399,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
   :false-value="dynamicFalseValue" />
 ```
 
-:::tip Tip
+:::tip Совет
 The `true-value` and `false-value` attributes don't affect the input's `value` attribute, because browsers don't include unchecked boxes in form submissions. To guarantee that one of two values is submitted in a form (e.g. "yes" or "no"), use radio inputs instead.
 :::
 

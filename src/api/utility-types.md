@@ -1,6 +1,6 @@
 # Utility Types
 
-:::info
+:::info Информация
 This page only lists a few commonly used utility types that may need explanation for their usage. For a full list of exported types, consult the [source code](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/index.ts#L131).
 :::
 
@@ -49,7 +49,7 @@ Used to augment the component instance type to support custom global properties.
   }
   ```
 
-  :::tip
+  :::tip Совет
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
 
@@ -71,7 +71,7 @@ Used to augment the component options type to support custom options.
   }
   ```
 
-  :::tip
+  :::tip Совет
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
 
@@ -98,7 +98,7 @@ Used to augment allowed TSX props in order to use non-declared props on TSX elem
   <MyComponent hello="world" />
   ```
 
-  :::tip
+  :::tip Совет
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
 
@@ -125,11 +125,11 @@ Used to augment allowed values in style property bindings.
   <div :style="{ '--bg-color': 'blue' }">
   ```
 
- :::tip
+ :::tip Совет
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
   
-  :::info See also
+  :::info См. также
 SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function. This allows for custom properties without type augmentation. 
 
 - [v-bind() in CSS](/api/sfc-css-features.html#v-bind-in-css)

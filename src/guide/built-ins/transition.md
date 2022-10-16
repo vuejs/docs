@@ -61,7 +61,7 @@ This is an example of the most basic usage:
 
 </div>
 
-:::tip
+:::tip Совет
 `<Transition>` only supports a single element or component as its slot content. If the content is a component, the component must also have only one single root element.
 :::
 

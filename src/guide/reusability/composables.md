@@ -5,7 +5,7 @@ import { useMouse } from './mouse'
 const { x, y } = useMouse()
 </script>
 
-:::tip
+:::tip Совет
 This section assumes basic knowledge of Composition API. If you have been learning Vue with Options API only, you can set the API Preference to Composition API (using the toggle at the top of the left sidebar) and re-read the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) and [Lifecycle Hooks](/guide/essentials/lifecycle.html) chapters.
 :::
 
@@ -124,7 +124,7 @@ export function useMouse() {
 }
 ```
 
-:::tip
+:::tip Совет
 Each component instance calling `useMouse()` will create its own copies of `x` and `y` state so they won't interfere with one another. If you want to manage shared state between components, read the [State Management](/guide/scaling-up/state-management.html) chapter.
 :::
 
@@ -285,7 +285,7 @@ These are the contexts where Vue is able to determine the current active compone
 
 2. Computed properties and watchers can be linked to it, so that they can be disposed when the instance is unmounted to prevent memory leaks.
 
-:::tip
+:::tip Совет
 `<script setup>` is the only place where you can call composables **after** using `await`. The compiler automatically restores the active instance context for you after the async operation.
 :::
 

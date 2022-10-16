@@ -1,6 +1,6 @@
 # Options: Lifecycle
 
-:::info See also
+:::info См. также
 For shared usage of lifecycle hooks, see [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html)
 :::
 
@@ -118,7 +118,7 @@ Called after the component has updated its DOM tree due to a reactive state chan
 
   **This hook is not called during server-side rendering.**
 
-  :::warning
+  :::warning Предупреждение
   Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
   :::
 

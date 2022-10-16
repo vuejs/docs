@@ -422,7 +422,7 @@ defineProps({
 })
 ```
 
-:::tip
+:::tip Совет
 Code inside the `defineProps()` argument **cannot access other variables declared in `<script setup>`**, because the entire expression is moved to an outer function scope when compiled.
 :::
 
@@ -497,7 +497,7 @@ If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-o
 </div>
 <div class="options-api">
 
-::: tip Note
+:::tip Примечание
 Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc.) will not be available inside `default` or `validator` functions.
 :::
 

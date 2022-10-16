@@ -54,7 +54,7 @@ The above will be compiled into:
 }
 ```
 
-:::tip
+:::tip Совет
 DOM content created with `v-html` are not affected by scoped styles, but you can still style them using deep selectors.
 :::
 

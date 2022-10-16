@@ -98,7 +98,7 @@ function ref(value) {
 }
 ```
 
-:::tip
+:::tip Совет
 Code snippets here and below are meant to explain the core concepts in the simplest form possible, so many details are omitted, and edge cases ignored.
 :::
 
@@ -267,7 +267,7 @@ export default {
 
 </div>
 
-:::tip
+:::tip Совет
 Component debug hooks only work in development mode.
 :::
 
@@ -319,7 +319,7 @@ console.log(plusOne.value)
 count.value++
 ```
 
-:::tip
+:::tip Совет
 `onTrack` and `onTrigger` computed options only work in development mode.
 :::
 
@@ -349,7 +349,7 @@ watchEffect(callback, {
 })
 ```
 
-:::tip
+:::tip Совет
 `onTrack` and `onTrigger` watcher options only work in development mode.
 :::
 

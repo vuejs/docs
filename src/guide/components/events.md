@@ -45,7 +45,7 @@ The `.once` modifier is also supported on component event listeners:
 
 Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but can listen for it using a kebab-cased listener in the parent. As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
 
-:::tip
+:::tip Совет
 Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component. If there is a need to communicate between sibling or deeply nested components, use an external event bus or a [global state management solution](/guide/scaling-up/state-management.html).
 :::
 
@@ -94,7 +94,7 @@ function increaseCount(n) {
 
 </div>
 
-:::tip
+:::tip Совет
 All extra arguments passed to `$emit()` after the event name will be forwarded to the listener. For example, with `$emit('foo', 1, 2, 3)` the listener function will receive three arguments.
 :::
 
@@ -205,7 +205,7 @@ See also: [Typing Component Emits](/guide/typescript/options-api.html#typing-com
 
 Although optional, it is recommended to define all emitted events in order to better document how a component should work. It also allows Vue to exclude known listeners from [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance), avoiding edge cases caused by DOM events manually dispatched by 3rd party code.
 
-:::tip
+:::tip Совет
 If a native event (e.g., `click`) is defined in the `emits` option, the listener will now only listen to component-emitted `click` events and no longer respond to native `click` events.
 :::
 

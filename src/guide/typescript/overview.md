@@ -28,7 +28,7 @@ With a Vite-based setup, the dev server and the bundler are transpilation-only a
 
   - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) is the official VSCode extension that provides TypeScript support inside Vue SFCs, along with many other great features.
 
-    :::tip
+    :::tip Совет
     Volar replaces [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), our previous official VSCode extension for Vue 2. If you have Vetur currently installed, make sure to disable it in Vue 3 projects.
     :::
 
@@ -132,7 +132,7 @@ See also:
 - [Note on webpack Treeshaking](/api/general.html#note-on-webpack-treeshaking)
 - [type tests for `defineComponent`](https://github.com/vuejs/core/blob/main/test-dts/defineComponent.test-d.tsx)
 
-:::tip
+:::tip Совет
 `defineComponent()` also enables type inference for components defined in plain JavaScript.
 :::
 
@@ -204,7 +204,7 @@ let x: string | number = 1
 </template>
 ```
 
-:::tip
+:::tip Совет
 If using Vue CLI or a webpack-based setup, TypeScript in template expressions requires `vue-loader@^16.8.0`.
 :::
 

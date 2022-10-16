@@ -1,6 +1,6 @@
 # Composition API: Lifecycle Hooks
 
-:::info Usage Note
+:::info Примечание по использованию
 All APIs listed on this page must be called synchronously during the `setup()` phase of a component. See [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html) for more details.
 :::
 
@@ -64,7 +64,7 @@ Registers a callback to be called after the component has updated its DOM tree d
 
   **This hook is not called during server-side rendering.**
 
-  :::warning
+  :::warning Предупреждение
   Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
   :::
 

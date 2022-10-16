@@ -303,7 +303,7 @@ export default defineConfig({
 })
 ```
 
-:::tip
+:::tip Совет
 If you are using TypeScript, add `vitest/globals` to the `types` field in your `tsconfig.json`.
 
 ```json

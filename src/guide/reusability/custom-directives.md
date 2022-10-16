@@ -99,7 +99,7 @@ app.directive('focus', {
 })
 ```
 
-:::tip
+:::tip Совет
 Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation. Prefer declarative templating using built-in directives such as `v-bind` when possible because they are more efficient and server-rendering friendly.
 :::
 
@@ -174,7 +174,7 @@ Similar to built-in directives, custom directive arguments can be dynamic. For e
 
 Here the directive argument will be reactively updated based on `arg` property in our component state.
 
-:::tip Note
+:::tip Примечание
 Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 

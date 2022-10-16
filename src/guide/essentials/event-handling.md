@@ -250,7 +250,7 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 <div @click.self="doThat">...</div>
 ```
 
-::: tip
+:::tip Совет
 Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **click's default action on the element itself and its children**, while `@click.self.prevent` will only prevent click's default action on the element itself.
 :::
 
@@ -272,7 +272,7 @@ The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the nat
 
 The `.passive` modifier is typically used with touch event listeners for [improving performance on mobile devices](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
 
-::: tip
+:::tip Совет
 Do not use `.passive` and `.prevent` together, because `.passive` already indicates to the browser that you _do not_ intend to prevent the event's default behavior, and you will likely see a warning from the browser if you do so.
 :::
 
@@ -316,7 +316,7 @@ You can use the following modifiers to trigger mouse or keyboard event listeners
 - `.shift`
 - `.meta`
 
-::: tip Note
+:::tip Примечание
 On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the Windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
 :::
 
@@ -330,7 +330,7 @@ For example:
 <div @click.ctrl="doSomething">Do something</div>
 ```
 
-::: tip
+:::tip Совет
 Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone.
 :::
 

@@ -72,7 +72,7 @@ vnode.children // []
 vnode.key // null
 ```
 
-:::warning Note
+:::warning Примечание
 The full `VNode` interface contains many other internal properties, but it is strongly recommended to avoid relying on any properties other than the ones listed here. This avoids unintended breakage in case the internal properties are changed.
 :::
 
@@ -125,7 +125,7 @@ export default {
 }
 ```
 
-:::tip
+:::tip Совет
 Make sure to return a function instead of directly returning values! The `setup()` function is called only once per component, while the returned render function will be called multiple times.
 :::
 

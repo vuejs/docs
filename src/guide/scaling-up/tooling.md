@@ -55,7 +55,7 @@ If you are looking for a lighter-weight alternative for no-build-step usage, che
 
 - The recommended IDE setup is [VSCode](https://code.visualstudio.com/) + the [Volar](https://github.com/johnsoncodehk/volar) extension. Volar provides syntax highlighting, TypeScript support, and intellisense for template expressions and component props.
 
-  :::tip
+  :::tip Совет
   Volar replaces [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), our previous official VSCode extension for Vue 2. If you have Vetur currently installed, make sure to disable it in Vue 3 projects.
   :::
 
@@ -138,7 +138,7 @@ This package is part of the Vue core monorepo and is always published with the s
 
 The package itself provides lower-level utilities for processing Vue SFCs and is only meant for tooling authors that need to support Vue SFCs in custom tools.
 
-:::tip
+:::tip Совет
 Always prefer using this package via the `vue/compiler-sfc` deep import since this ensures its version is in sync with the Vue runtime.
 :::
 

@@ -20,7 +20,7 @@ import ListStagger from './transition-demos/ListStagger.vue'
 
 - CSS transition classes will be applied to individual elements in the list, **not** to the group / container itself.
 
-:::tip
+:::tip Совет
 When used in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats), it should be referenced as `<transition-group>`.
 :::
 

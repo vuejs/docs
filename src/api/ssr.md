@@ -67,7 +67,7 @@ Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#
   renderToNodeStream(app).pipe(res)
   ```
 
-  :::tip Note
+  :::tip Примечание
   This method is not supported in the ESM build of `vue/server-renderer`, which is decoupled from Node.js environments. Use [`pipeToNodeWritable`](#pipetonodewritable) instead.
   :::
 
@@ -116,7 +116,7 @@ Renders input as a [Web ReadableStream](https://developer.mozilla.org/en-US/docs
   return new Response(renderToWebStream(app))
   ```
 
-  :::tip Note
+  :::tip Примечание
   In environments that do not expose `ReadableStream` constructor in the global scope, [`pipeToWebWritable()`](#pipetowebwritable) should be used instead.
   :::
 
