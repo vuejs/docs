@@ -48,7 +48,7 @@ When configuring `tsconfig.json` manually, some notable options include:
 
 - If you have configured resolver aliases in your build tool, for example the `@/*` alias configured by default in a `create-vue` project, you need to also configure it for TypeScript via [`compilerOptions.paths`](https://www.typescriptlang.org/tsconfig#paths).
 
-See also:
+См. также:
 
 - [Official TypeScript compiler options docs](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 - [esbuild TypeScript compilation caveats](https://esbuild.github.io/content-types/#typescript-caveats)
@@ -127,7 +127,7 @@ export default defineComponent({
 })
 ```
 
-See also:
+См. также:
 
 - [Note on webpack Treeshaking](/api/general.html#note-on-webpack-treeshaking)
 - [type tests for `defineComponent`](https://github.com/vuejs/core/blob/main/test-dts/defineComponent.test-d.tsx)

@@ -429,7 +429,7 @@ Declare the custom events emitted by the component.
   }
   ```
 
-* **See also:** [Fallthrough Attributes](/guide/components/attrs.html)
+- **См. также:** [Fallthrough Attributes](/guide/components/attrs.html)
 
 ## expose
 
