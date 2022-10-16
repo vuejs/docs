@@ -124,38 +124,38 @@ button {
 
 ### Options API {#options-api}
 
-With Options API, we define a component's logic using an object of options such as `data`, `methods`, and `mounted`. Properties defined by options are exposed on `this` inside functions, which points to the component instance:
+При использовании Options API логика компонентов определяется с помощью объекта опций, таких как `data`, `methods` и `mounted`. Свойства, определённые в опциях, доступны через `this` внутри функций и указывают на экземпляр компонента:
 
 ```vue
 <script>
 export default {
-  // Properties returned from data() become reactive state
-  // and will be exposed on `this`.
+  // Свойства возвращаемые из data() становятся реактивным
+  // состоянием компонента и к ним можно обращаться через `this`.
   data() {
     return {
       count: 0
     }
   },
 
-  // Methods are functions that mutate state and trigger updates.
-  // They can be bound as event listeners in templates.
+  // Методы это функции, которые мутируют состояние и вызывают обновления.
+  // Они могут быть привязаны в качестве обработчиков событий в шаблонах.
   methods: {
     increment() {
       this.count++
     }
   },
 
-  // Lifecycle hooks are called at different stages
-  // of a component's lifecycle.
-  // This function will be called when the component is mounted.
+  // Хуки жизненного цикла вызываются на разных этапах
+  // жизненного цикла компонента.
+  // Эта функция будет вызвана после монтирования компонента.
   mounted() {
-    console.log(`The initial count is ${this.count}.`)
+    console.log(`Стартовое значение счётчика — ${this.count}.`)
   }
 }
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Счётчик: {{ count }}</button>
 </template>
 ```
 
@@ -163,56 +163,56 @@ export default {
 
 ### Composition API {#composition-api}
 
-With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). The `setup` attribute is a hint that makes Vue perform compile-time transforms that allow us to use Composition API with less boilerplate. For example, imports and top-level variables / functions declared in `<script setup>` are directly usable in the template.
+При использовании Composition API логика компонентов определяется с использованием API импортируемых функций. В однофайловых компонентах, Composition API обычно используется с синтаксисом [`<script setup>`](/api/sfc-script-setup). Атрибут `setup` — подсказка компилятору для выполнения специальных преобразований на этапе компиляции, что позволяет использовать Composition API с меньшим количеством кода. Например, импорты и переменные / функции, объявленные на верхнем уровне в `<script setup>` можно использовать напрямую в шаблоне.
 
-Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
+Вот тот же компонент, с точно таким же шаблоном, но написанный с использованием Composition API и `<script setup>`:
 
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// reactive state
+// реактивное состояние
 const count = ref(0)
 
-// functions that mutate state and trigger updates
+// функции которые мутируют состояние и вызывают обновления
 function increment() {
   count.value++
 }
 
-// lifecycle hooks
+// хуки жизненного цикла
 onMounted(() => {
-  console.log(`The initial count is ${count.value}.`)
+  console.log(`Стартовое значение счётчика — ${count.value}.`)
 })
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Счётчик: {{ count }}</button>
 </template>
 ```
 
 [Попробовать в песочнице](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG4vLyByZWFjdGl2ZSBzdGF0ZVxuY29uc3QgY291bnQgPSByZWYoMClcblxuLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbmZ1bmN0aW9uIGluY3JlbWVudCgpIHtcbiAgY291bnQudmFsdWUrK1xufVxuXG4vLyBsaWZlY3ljbGUgaG9va3Ncbm9uTW91bnRlZCgoKSA9PiB7XG4gIGNvbnNvbGUubG9nKGBUaGUgaW5pdGlhbCBjb3VudCBpcyAke2NvdW50LnZhbHVlfS5gKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxidXR0b24gQGNsaWNrPVwiaW5jcmVtZW50XCI+Q291bnQgaXM6IHt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
 
-### Which to Choose? {#which-to-choose}
+### Какой стиль выбрать? {#which-to-choose}
 
-Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+Оба стиля API способны полностью покрыть общие случаи использования. Это разные интерфейсы, работающие на основе одной и той же базовой системы. Фактически, Options API реализован на основе Composition API! Фундаментальные концепции и знания о Vue являются общими для двух стилей.
 
-The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
+Options API сосредоточен вокруг концепции «экземпляра компонента» (`this`, как показано в примере), что обычно лучше согласуется с моделью мышления, основанной на классах, для пользователей с опытом работы с языками ООП. Он также более удобен для новичков, поскольку абстрагируется от деталей реактивности и обеспечивает организацию кода с помощью групп опций.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope, and composing state from multiple functions together to handle complexity. It is more free-form, and requires understanding of how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
+Composition API сосредоточен на объявлении переменных реактивного состояния непосредственно в области видимости функции, а также на композиции состояния из нескольких функций для решения сложных задач. Это более свободная форма, но для эффективного использования требующая понимания того, как работает реактивность во Vue. В свою очередь, его гибкость позволяет использовать более мощные шаблоны для организации и переиспользования логики.
 
-You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/extras/composition-api-faq).
+Подробнее о сравнении двух стилей и потенциальных преимуществах Composition API можно узнать в разделе [Composition API FAQ](/guide/extras/composition-api-faq).
 
-If you are new to Vue, here's our general recommendation:
+Для новичков во Vue, вот общая рекомендация:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
+- В целях обучения выбирайте тот стиль, который кажется более понятным. Опять же, большинство основных концепций являются общими для этих двух стилей. Всегда можно освоить другой стиль позднее.
 
-- For production use:
+- Для использования в production:
 
-  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
+  - Выбирайте Options API если не используются инструменты сборки или при планировании использовать Vue в основном в сценариях с низкой сложностью, например для прогрессивного улучшения.
 
-  - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
+  - Выбирайте Composition API + однофайловые компоненты, если планируете создавать полноценные приложения с помощью Vue.
 
-You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
+На этапе обучения не обязательно придерживаться только одного стиля. В остальной части документации приводятся примеры кода в обоих стилях, где это возможно, и можно в любое время переключаться между ними с помощью переключателя **Предпочитаемый стиль API** в верхней части левой боковой панели.
 
 ## Остались вопросы? {#still-got-questions}
 
