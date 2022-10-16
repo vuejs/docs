@@ -125,12 +125,12 @@ Used to augment allowed values in style property bindings.
   <div :style="{ '--bg-color': 'blue' }">
   ```
 
- :::tip Совет
+  :::tip Совет
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
   
   :::info См. также
-SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function. This allows for custom properties without type augmentation. 
+  SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function. This allows for custom properties without type augmentation. 
 
-- [v-bind() in CSS](/api/sfc-css-features.html#v-bind-in-css)
+  - [v-bind() in CSS](/api/sfc-css-features.html#v-bind-in-css)
   :::

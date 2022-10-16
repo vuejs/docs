@@ -550,7 +550,7 @@ It should be noted that the limitations discussed below only apply if you are wr
 - Single-File Components
 - Inlined template strings (e.g. `template: '...'`)
 - `<script type="text/x-template">`
-  :::
+:::
 
 ### Case Insensitivity
 

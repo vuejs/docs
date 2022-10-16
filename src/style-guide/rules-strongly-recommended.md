@@ -115,8 +115,7 @@ Some advantages of this convention:
     app.component(baseComponentName, baseComponentConfig)
   })
   ```
-
-  :::
+:::
 
 <div class="style-example style-example-bad">
 <h3>Плохо</h3>
@@ -217,7 +216,7 @@ This isn't recommended, as it results in:
 
 - Many files with similar names, making rapid file switching in code editors more difficult.
 - Many nested sub-directories, which increases the time it takes to browse components in an editor's sidebar.
-  :::
+:::
 
 <div class="style-example style-example-bad">
 <h3>Плохо</h3>
@@ -303,7 +302,7 @@ You might be tempted to solve this problem differently, nesting all the search c
 - It generally takes more time to navigate through nested sub-directories, than scrolling through a single `components` directory.
 - Name conflicts (e.g. multiple `ButtonDelete.vue` components) make it more difficult to quickly navigate to a specific component in a code editor.
 - Refactoring becomes more difficult, because find-and-replace often isn't sufficient to update relative references to a moved component.
-  :::
+:::
 
 <div class="style-example style-example-bad">
 <h3>Плохо</h3>
@@ -440,7 +439,7 @@ However, for applications that use **only** global component definitions via `ap
 
 - It's rare that global components are ever referenced in JavaScript, so following a convention for JavaScript makes less sense.
 - These applications always include many in-DOM templates, where [kebab-case **must** be used](#component-name-casing-in-templates).
-  :::
+:::
 
 <div class="style-example style-example-bad">
 <h3>Плохо</h3>
@@ -662,7 +661,7 @@ Simpler, well-named computed properties are:
   Any value that can be named might be useful to the view. For example, we might decide to display a message telling the user how much money they saved. We might also decide to calculate sales tax, but perhaps display it separately, rather than as part of the final price.
 
   Small, focused computed properties make fewer assumptions about how information will be used, so require less refactoring as requirements change.
-  :::
+:::
 
 <div class="style-example style-example-bad">
 <h3>Плохо</h3>

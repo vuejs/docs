@@ -41,7 +41,7 @@ Detailed [prop definitions](/guide/components/props.html#prop-validation) have t
 
 - They document the API of the component, so that it's easy to see how the component is meant to be used.
 - In development, Vue will warn you if a component is ever provided incorrectly formatted props, helping you catch potential sources of error.
-  :::
+:::
 
 <div class="style-example style-example-bad">
 <h3>Плохо</h3>
