@@ -2,13 +2,12 @@
 footer: false
 ---
 
-# Introduction
+# Введение {#introduction}
 
 :::info Это документация для Vue 3!
-
-- Vue 2 documentation has been moved to [v2.vuejs.org](https://v2.vuejs.org/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
-  :::
+- Документация для Vue 2 доступна тут [ru.vuejs.org/v2/](https://ru.vuejs.org/v2/).
+- Мигрируете с Vue 2? Ознакомьтесь с [руководством по миграции](https://v3-migration.vuejs.org/).
+:::
 
 <style src="@theme/styles/vue-mastery.css"></style>
 <div class="vue-mastery-link">
@@ -16,18 +15,18 @@ footer: false
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>
-    <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <p class="description">Изучайте Vue с помощью видеоуроков на <span>VueMastery.com</span> (на англ.)</p>
     <div class="logo-wrapper">
-        <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
+        <img alt="Логотип Vue Mastery" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
 
-## What is Vue?
+## Что такое Vue? {#what-is-vue}
 
-Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS and JavaScript, and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be it simple or complex.
+Vue (произносится /vjuː/, примерно как **view**) — JavaScript фреймворк для создания пользовательских интерфейсов. Он создан на стандартах HTML, CSS и JavaScript и предоставляет декларативную и компонентную модель программирования, которая помогает эффективно разрабатывать пользовательские интерфейсы, будь то простые или сложные.
 
-Here is a minimal example:
+Вот маленький пример:
 
 ```js
 import { createApp } from 'vue'
@@ -44,12 +43,12 @@ createApp({
 ```vue-html
 <div id="app">
   <button @click="count++">
-    Count is: {{ count }}
+    Счётчик: {{ count }}
   </button>
 </div>
 ```
 
-**Result**
+**Результат**
 
 <script setup>
 import { ref } from 'vue'
@@ -58,42 +57,42 @@ const count = ref(0)
 
 <div class="demo">
   <button @click="count++">
-    Count is: {{ count }}
+    Счётчик: {{ count }}
   </button>
 </div>
 
-The above example demonstrates the two core features of Vue:
+Пример выше демонстрирует две главные фундаментальные особенности Vue:
 
-- **Declarative Rendering**: Vue extends standard HTML with a template syntax that allows us to declaratively describe HTML output based on JavaScript state.
+- **Декларативная отрисовка**: Vue расширяет стандартный HTML синтаксисом шаблонов, который позволяет декларативно описывать финальный HTML на основе состояния JavaScript.
 
-- **Reactivity**: Vue automatically tracks JavaScript state changes and efficiently updates the DOM when changes happen.
+- **Реактивность**: Vue автоматически отслеживает изменения состояния JavaScript и эффективно обновляет DOM, когда происходят изменения.
 
-You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
+Возможно уже появились новые вопросы — не волнуйтесь. Каждую деталь изучим в подробностях далее в документации. А пока, продолжайте читать дальше, чтобы получить общее представление о том, что предлагает Vue.
 
 :::tip Предварительные условия
-The rest of the documentation assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Prior experience with other frameworks helps, but is not required.
+В руководстве предполагается наличие знаний HTML, CSS и JavaScript. Для новичков во фронтенд-разработке сразу начинать изучение с фреймворка может быть не лучшей идеей — возвращайтесь, разобравшись с основами! Проверить уровень своих знаний можно например с помощью [этого обзора JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Наличие опыта работы с другими фреймворками может помочь, но не является обязательным.
 :::
 
-## The Progressive Framework
+## Прогрессивный фреймворк {#the-progressive-framework}
 
-Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
+Vue — фреймворк и экосистема, охватывающая большинство функций, необходимых при разработке фронтенда. Однако веб чрезвычайно разнообразен — вещи, которые создаём в интернете, могут сильно отличаться и по форме и по масштабу. Учитывая это, Vue спроектирован так, чтобы быть гибки и постепенно адаптируемым. В зависимости от сценария использования и Vue можно использовать по-разному:
 
-- Enhancing static HTML without a build step
-- Embedding as Web Components on any page
-- Single-Page Application (SPA)
-- Fullstack / Server-Side Rendering (SSR)
-- Jamstack / Static Site Generation (SSG)
-- Targeting desktop, mobile, WebGL, and even the terminal
+- Улучшать статический HTML без добавления этапа сборки
+- Встраиваться в качестве веб-компонентов на любой странице
+- Одностраничные приложения (SPA)
+- Fullstack / Отрисовка на стороне сервера (SSR)
+- Jamstack / Генерация статического сайта (SSG)
+- Нацеленность на настольные, мобильные устройства, WebGL и даже терминалы
 
-If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
+Если эти понятия звучат пугающе, не волнуйтесь! В самоучителе и руководстве требуются только базовые знания HTML и JavaScript. С ними можно начинать изучение даже не будучи экспертом ни в одной из этих областей.
 
-If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more detail in [Ways of Using Vue](/guide/extras/ways-of-using-vue).
+Для опытных разработчиков, интересующихся как лучше интегрировать Vue в уже существующий стек, а также тем, кому интересно, что значат эти термины, более подробно обсудим их в разделе [Пути использования Vue](/guide/extras/ways-of-using-vue).
 
-Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
+Несмотря на гибкость, основные знания о том, как работает Vue будут общими для всех сценариев использования. Даже новичкам знания, полученные на этом пути, пригодятся по мере роста и достижения более амбициозных целей в будущем. Опытные разработчики смогут выбрать оптимальный способ использования Vue в зависимости от проблем, которые требуется решить, сохраняя при этом прежнюю производительность. Вот почему называем Vue «Прогрессивным фреймворком»: это фреймворк, который может расти вместе с вами и адаптироваться к вашим потребностям.
 
-## Single-File Components
+## Однофайловые компоненты {#single-file-components}
 
-In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
+В большинстве проектов Vue, где есть шаг сборки, компоненты Vue создаются с использованием файлов HTML-подобного формата, называемого **однофайловыми компонентами** (также известного как `*.vue` файлы, сокращённо называемых **SFC**). Однофайловые компоненты Vue, как следует из названия, объединяют в себе логику компонента (JavaScript), шаблон (HTML) и стили (CSS) в одном файле. Вот предыдущий пример, написанный в формате однофайлового компонента:
 
 ```vue
 <script>
@@ -107,7 +106,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="count++">Счётчик: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -117,13 +116,13 @@ button {
 </style>
 ```
 
-SFC is a defining feature of Vue, and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
+Однофайловые компоненты — отличительная особенность Vue и рекомендуемый способ создания компонентов Vue **если** сценарий использования предполагает шаг сборки. Подробнее можно узнать в отдельном разделе [как и почему SFC](/guide/scaling-up/sfc) — но сейчас достаточно знать, что Vue будет заниматься настройкой всех инструментов сборки для вас.
 
-## API Styles
+## Стили API {#api-styles}
 
-Vue components can be authored in two different API styles: **Options API** and **Composition API**.
+Компоненты Vue можно создавать с использованием двух различных стилей: **Options API** и **Composition API**.
 
-### Options API
+### Options API {#options-api}
 
 With Options API, we define a component's logic using an object of options such as `data`, `methods`, and `mounted`. Properties defined by options are exposed on `this` inside functions, which points to the component instance:
 
@@ -162,7 +161,7 @@ export default {
 
 [Попробовать в песочнице](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgLy8gcmVhY3RpdmUgc3RhdGVcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG5cbiAgLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbiAgbWV0aG9kczoge1xuICAgIGluY3JlbWVudCgpIHtcbiAgICAgIHRoaXMuY291bnQrK1xuICAgIH1cbiAgfSxcblxuICAvLyBsaWZlY3ljbGUgaG9va3NcbiAgbW91bnRlZCgpIHtcbiAgICBjb25zb2xlLmxvZyhgVGhlIGluaXRpYWwgY291bnQgaXMgJHt0aGlzLmNvdW50fS5gKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPkNvdW50IGlzOiB7eyBjb3VudCB9fTwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4ifQ==)
 
-### Composition API
+### Composition API {#composition-api}
 
 With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). The `setup` attribute is a hint that makes Vue perform compile-time transforms that allow us to use Composition API with less boilerplate. For example, imports and top-level variables / functions declared in `<script setup>` are directly usable in the template.
 
@@ -193,7 +192,7 @@ onMounted(() => {
 
 [Попробовать в песочнице](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG4vLyByZWFjdGl2ZSBzdGF0ZVxuY29uc3QgY291bnQgPSByZWYoMClcblxuLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbmZ1bmN0aW9uIGluY3JlbWVudCgpIHtcbiAgY291bnQudmFsdWUrK1xufVxuXG4vLyBsaWZlY3ljbGUgaG9va3Ncbm9uTW91bnRlZCgoKSA9PiB7XG4gIGNvbnNvbGUubG9nKGBUaGUgaW5pdGlhbCBjb3VudCBpcyAke2NvdW50LnZhbHVlfS5gKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxidXR0b24gQGNsaWNrPVwiaW5jcmVtZW50XCI+Q291bnQgaXM6IHt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
 
-### Which to Choose?
+### Which to Choose? {#which-to-choose}
 
 Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
 
@@ -215,25 +214,25 @@ If you are new to Vue, here's our general recommendation:
 
 You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
 
-## Still Got Questions?
+## Остались вопросы? {#still-got-questions}
 
-Check out our [FAQ](/about/faq).
+Обратитесь к [FAQ](/about/faq).
 
-## Pick Your Learning Path
+## Выберите свой путь обучения {#pick-your-learning-path}
 
-Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
+У разных разработчиков разные стили обучения. Не стесняйтесь выбрать тот путь обучения, который больше по душе — хотя всё равно рекомендуем изучить все материалы, если это возможно!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">Самоучитель</p>
+    <p class="next-steps-caption">Для тех, кто предпочитает учиться на практике.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Read the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">Руководство</p>
+    <p class="next-steps-caption">В руководстве каждый аспект фреймворка разбирается подробно.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">Примеры</p>
+    <p class="next-steps-caption">Изучите примеры основных функций и общих задач при разработке UI.</p>
   </a>
 </div>
