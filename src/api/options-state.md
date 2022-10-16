@@ -4,7 +4,7 @@
 
 A function that returns the initial reactive state for the component instance.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -15,7 +15,7 @@ A function that returns the initial reactive state for the component instance.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   The function is expected to return a plain JavaScript object, which will be made reactive by Vue. After the instance is created, the reactive data object can be accessed as `this.$data`. The component instance also proxies all the properties found on the data object, so `this.a` will be equivalent to `this.$data.a`.
 
@@ -25,7 +25,7 @@ A function that returns the initial reactive state for the component instance.
 
   It is **not** recommended to return objects with their own stateful behavior like browser API objects and prototype properties. The returned object should ideally be a plain object that only represents the state of the component.
 
-- **Example**
+- **Пример:**
 
   ```js
   export default {
@@ -45,13 +45,13 @@ A function that returns the initial reactive state for the component instance.
   data: (vm) => ({ a: vm.myProp })
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **См. также:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
 ## props
 
 Declare the props of a component.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -76,7 +76,7 @@ Declare the props of a component.
 
   > Types are simplified for readability.
 
-- **Details**
+- **Подробности:**
 
   In Vue, all component props need to be explicitly declared. Component props can be declared in two forms:
 
@@ -95,7 +95,7 @@ Declare the props of a component.
 
   - **`validator`**: Custom validator function that takes the prop value as the sole argument. In development mode, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails).
 
-- **Example**
+- **Пример:**
 
   Simple declaration:
 
@@ -125,13 +125,13 @@ Declare the props of a component.
   }
   ```
 
-- **See also:** [Props](/guide/components/props.html)
+- **См. также:** [Props](/guide/components/props.html)
 
 ## computed
 
 Declare computed properties to be exposed on the component instance.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -156,7 +156,7 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   The option accepts an object where the key is the name of the computed property, and the value is either a computed getter, or an object with `get` and `set` methods (for writable computed properties).
 
@@ -172,7 +172,7 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **Example**
+- **Пример:**
 
   ```js
   export default {
@@ -205,13 +205,13 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **See also:** [Computed Properties](/guide/essentials/computed.html)
+- **См. также:** [Computed Properties](/guide/essentials/computed.html)
 
 ## methods
 
 Declare methods to be mixed into the component instance.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -221,13 +221,13 @@ Declare methods to be mixed into the component instance.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   Declared methods can be directly accessed on the component instance, or used in template expressions. All methods have their `this` context automatically bound to the component instance, even when passed around.
 
   Avoid using arrow functions when declaring methods, as they will not have access to the component instance via `this`.
 
-- **Example**
+- **Пример:**
 
   ```js
   export default {
@@ -246,13 +246,13 @@ Declare methods to be mixed into the component instance.
   }
   ```
 
-- **See also:** [Event Handling](/guide/essentials/event-handling.html)
+- **См. также:** [Event Handling](/guide/essentials/event-handling.html)
 
 ## watch
 
 Declare watch callbacks to be invoked on data change.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -281,7 +281,7 @@ Declare watch callbacks to be invoked on data change.
 
   > Types are simplified for readability.
 
-- **Details**
+- **Подробности:**
 
   The `watch` option expects an object where keys are the reactive component instance properties to watch (e.g. properties declared via `data` or `computed`) — and values are the corresponding callbacks. The callback receives the new value and the old value of the watched source.
 
@@ -296,7 +296,7 @@ Declare watch callbacks to be invoked on data change.
 
   Avoid using arrow functions when declaring watch callbacks as they will not have access to the component instance via `this`.
 
-- **Example**
+- **Пример:**
 
   ```js
   export default {
@@ -364,13 +364,13 @@ Declare watch callbacks to be invoked on data change.
   }
   ```
 
-- **See also:** [Watchers](/guide/essentials/watchers.html)
+- **См. также:** [Watchers](/guide/essentials/watchers.html)
 
 ## emits
 
 Declare the custom events emitted by the component.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -384,7 +384,7 @@ Declare the custom events emitted by the component.
   type EmitValidator = (...args: unknown[]) => boolean
   ```
 
-- **Details**
+- **Подробности:**
 
   Emitted events can be declared in two forms:
 
@@ -395,7 +395,7 @@ Declare the custom events emitted by the component.
 
   Note that the `emits` option affects which event listeners are considered component event listeners, rather than native DOM event listeners. The listeners for declared events will be removed from the component's `$attrs` object, so they will not be passed through to the component's root element. See [Fallthrough Attributes](/guide/components/attrs.html) for more details.
 
-- **Example**
+- **Пример:**
 
   Array syntax:
 
@@ -435,7 +435,7 @@ Declare the custom events emitted by the component.
 
 Declare exposed public properties when the component instance is accessed by a parent via template refs.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -443,7 +443,7 @@ Declare exposed public properties when the component instance is accessed by a p
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   By default, a component instance exposes all instance properties to the parent when accessed via `$parent`, `$root`, or template refs. This can be undesirable, since a component most likely has internal state or methods that should be kept private to avoid tight coupling.
 
@@ -451,7 +451,7 @@ Declare exposed public properties when the component instance is accessed by a p
 
   `expose` only affects user-defined properties - it does not filter out built-in component instance properties.
 
-- **Example**
+- **Пример:**
 
   ```js
   export default {

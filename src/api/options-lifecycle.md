@@ -8,7 +8,7 @@ For shared usage of lifecycle hooks, see [Guide - Lifecycle Hooks](/guide/essent
 
 Called when the instance is initialized.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -16,7 +16,7 @@ Called when the instance is initialized.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   Called immediately when the instance is initialized, after props resolution, before processing other options such as `data()` or `computed`.
 
@@ -26,7 +26,7 @@ Called when the instance is initialized.
 
 Called after the instance has finished processing all state-related options.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -34,7 +34,7 @@ Called after the instance has finished processing all state-related options.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   When this hooks is called, the following have been set up: reactive data, computed properties, methods, and watchers. However, the mounting phase has not been started, and the `$el` property will not be available yet.
 
@@ -42,7 +42,7 @@ Called after the instance has finished processing all state-related options.
 
 Called right before the component is to be mounted.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -50,7 +50,7 @@ Called right before the component is to be mounted.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet. It is about to execute its DOM render effect for the first time.
 
@@ -60,7 +60,7 @@ Called right before the component is to be mounted.
 
 Called after the component has been mounted.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -68,7 +68,7 @@ Called after the component has been mounted.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   A component is considered mounted after:
 
@@ -84,7 +84,7 @@ Called after the component has been mounted.
 
 Called right before the component is about to update its DOM tree due to a reactive state change.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -92,7 +92,7 @@ Called right before the component is about to update its DOM tree due to a react
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   This hook can be used to access the DOM state before Vue updates the DOM. It is also safe to modify component state inside this hook.
 
@@ -102,7 +102,7 @@ Called right before the component is about to update its DOM tree due to a react
 
 Called after the component has updated its DOM tree due to a reactive state change.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -110,7 +110,7 @@ Called after the component has updated its DOM tree due to a reactive state chan
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   A parent component's updated hook is called after that of its child components.
 
@@ -126,7 +126,7 @@ Called after the component has updated its DOM tree due to a reactive state chan
 
 Called right before a component instance is to be unmounted.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -134,7 +134,7 @@ Called right before a component instance is to be unmounted.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   When this hook is called, the component instance is still fully functional.
 
@@ -144,7 +144,7 @@ Called right before a component instance is to be unmounted.
 
 Called after the component has been unmounted.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -152,7 +152,7 @@ Called after the component has been unmounted.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   A component is considered unmounted after:
 
@@ -168,7 +168,7 @@ Called after the component has been unmounted.
 
 Called when an error propagating from a descendant component has been captured.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -181,7 +181,7 @@ Called when an error propagating from a descendant component has been captured.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   Errors can be captured from the following sources:
 
@@ -215,7 +215,7 @@ Called when a reactive dependency has been tracked by the component's render eff
 
 **This hook is development-mode-only and not called during server-side rendering.**
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -230,7 +230,7 @@ Called when a reactive dependency has been tracked by the component's render eff
   }
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **См. также:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
 ## renderTriggered <sup class="vt-badge dev-only" />
 
@@ -238,7 +238,7 @@ Called when a reactive dependency triggers the component's render effect to be r
 
 **This hook is development-mode-only and not called during server-side rendering.**
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -256,7 +256,7 @@ Called when a reactive dependency triggers the component's render effect to be r
   }
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **См. также:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
 ## activated
 
@@ -264,7 +264,7 @@ Called after the component instance is inserted into the DOM as part of a tree c
 
 **This hook is not called during server-side rendering.**
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -272,7 +272,7 @@ Called after the component instance is inserted into the DOM as part of a tree c
   }
   ```
 
-- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
+- **См. также:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
 ## deactivated
 
@@ -280,7 +280,7 @@ Called after the component instance is removed from the DOM as part of a tree ca
 
 **This hook is not called during server-side rendering.**
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -288,13 +288,13 @@ Called after the component instance is removed from the DOM as part of a tree ca
   }
   ```
 
-- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
+- **См. также:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
 ## serverPrefetch <sup class="vt-badge" data-text="SSR only" />
 
 Async function to be resolved before the component instance is to be rendered on the server.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -302,13 +302,13 @@ Async function to be resolved before the component instance is to be rendered on
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   If the hook returns a Promise, the server renderer will wait until the Promise is resolved before rendering the component.
 
   This hook is only called during server-side rendering can be used to perform server-only data fetching.
 
-- **Example**
+- **Пример:**
 
   ```js
   export default {
@@ -333,4 +333,4 @@ Async function to be resolved before the component instance is to be rendered on
   }
   ```
 
-- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr.html)
+- **См. также:** [Server-Side Rendering](/guide/scaling-up/ssr.html)

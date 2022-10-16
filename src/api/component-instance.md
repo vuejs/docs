@@ -10,7 +10,7 @@ All properties listed on this page are readonly (except nested properties in `$d
 
 The object returned from the [`data`](./options-state.html#data) option, made reactive by the component. The component instance proxies access to the properties on its data object.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -22,7 +22,7 @@ The object returned from the [`data`](./options-state.html#data) option, made re
 
 An object representing the component's current, resolved props.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -30,7 +30,7 @@ An object representing the component's current, resolved props.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   Only props declared via the [`props`](./options-state.html#props) option will be included. The component instance proxies access to the properties on its props object.
 
@@ -38,7 +38,7 @@ An object representing the component's current, resolved props.
 
 The root DOM node that the component instance is managing.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -46,7 +46,7 @@ The root DOM node that the component instance is managing.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   `$el` will be `undefined` until the component is [mounted](./options-lifecycle#mounted).
 
@@ -62,7 +62,7 @@ The root DOM node that the component instance is managing.
 
 The resolved component options used for instantiating the current component instance.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -70,7 +70,7 @@ The resolved component options used for instantiating the current component inst
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   The `$options` object exposes the resolved options for the current component and is the merge result of these possible sources:
 
@@ -89,13 +89,13 @@ The resolved component options used for instantiating the current component inst
   })
   ```
 
-- **See also:** [`app.config.optionMergeStrategies`](/api/application.html#app-config-optionmergestrategies)
+- **См. также:** [`app.config.optionMergeStrategies`](/api/application.html#app-config-optionmergestrategies)
 
 ## $parent
 
 The parent instance, if the current instance has one. It will be `null` for the root instance itself.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -107,7 +107,7 @@ The parent instance, if the current instance has one. It will be `null` for the 
 
 The root component instance of the current component tree. If the current instance has no parents this value will be itself.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -119,7 +119,7 @@ The root component instance of the current component tree. If the current instan
 
 An object representing the [slots](/guide/components/slots.html) passed by the parent component.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -129,7 +129,7 @@ An object representing the [slots](/guide/components/slots.html) passed by the p
   type Slot = (...args: any[]) => VNode[]
   ```
 
-- **Details**
+- **Подробности:**
 
   Typically used when manually authoring [render functions](/guide/extras/render-function.html), but can also be used to detect whether a slot is present.
 
@@ -137,13 +137,13 @@ An object representing the [slots](/guide/components/slots.html) passed by the p
 
   If a slot is a [scoped slot](/guide/components/slots.html#scoped-slots), arguments passed to the slot functions are available to the slot as its slot props.
 
-- **See also:** [Render Functions - Rendering Slots](/guide/extras/render-function.html#rendering-slots)
+- **См. также:** [Render Functions - Rendering Slots](/guide/extras/render-function.html#rendering-slots)
 
 ## $refs
 
 An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs.html).
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -151,7 +151,7 @@ An object of DOM elements and component instances, registered via [template refs
   }
   ```
 
-- **See also:**
+- **См. также:**
 
   - [Template refs](/guide/essentials/template-refs.html)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
@@ -160,7 +160,7 @@ An object of DOM elements and component instances, registered via [template refs
 
 An object that contains the component's fallthrough attributes.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -168,13 +168,13 @@ An object that contains the component's fallthrough attributes.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   [Fallthrough Attributes](/guide/components/attrs.html) are attributes and event handlers passed by the parent component, but not declared as a prop or an emitted event by the child.
 
   By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc.html#inheritattrs) option.
 
-- **See also:**
+- **См. также:**
 
   - [Fallthrough Attributes](/guide/components/attrs.html)
 
@@ -182,7 +182,7 @@ An object that contains the component's fallthrough attributes.
 
 Imperative API for creating watchers.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -210,7 +210,7 @@ Imperative API for creating watchers.
   type StopHandle = () => void
   ```
 
-- **Details**
+- **Подробности:**
 
   The first argument is the watch source. It can be a component property name string, a simple dot-delimited path string, or a getter function.
 
@@ -221,7 +221,7 @@ Imperative API for creating watchers.
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core.html#watcheffect).
   - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging).
 
-- **Example**
+- **Пример:**
 
   Watch a property name:
 
@@ -257,7 +257,7 @@ Imperative API for creating watchers.
   unwatch()
   ```
 
-- **See also:**
+- **См. также:**
   - [Options - `watch`](/api/options-state.html#watch)
   - [Guide - Watchers](/guide/essentials/watchers.html)
 
@@ -265,7 +265,7 @@ Imperative API for creating watchers.
 
 Trigger a custom event on the current instance. Any additional arguments will be passed into the listener's callback function.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -273,7 +273,7 @@ Trigger a custom event on the current instance. Any additional arguments will be
   }
   ```
 
-- **Example**
+- **Пример:**
 
   ```js
   export default {
@@ -286,7 +286,7 @@ Trigger a custom event on the current instance. Any additional arguments will be
   }
   ```
 
-- **See also:**
+- **См. также:**
 
   - [Component - Events](/guide/components/events.html)
   - [`emits` option](./options-state.html#emits)
@@ -295,7 +295,7 @@ Trigger a custom event on the current instance. Any additional arguments will be
 
 Force the component instance to re-render.
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -303,7 +303,7 @@ Force the component instance to re-render.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   This should be rarely needed given Vue's fully automatic reactivity system. The only cases where you may need it is when you have explicitly created non-reactive component state using advanced reactivity APIs.
 
@@ -311,7 +311,7 @@ Force the component instance to re-render.
 
 Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
 
-- **Type**
+- **Тип:**
 
   ```ts
   interface ComponentPublicInstance {
@@ -319,8 +319,8 @@ Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   The only difference from the global version of `nextTick()` is that the callback passed to `this.$nextTick()` will have its `this` context bound to the current component instance.
 
-- **See also:** [`nextTick()`](./general.html#nexttick)
+- **См. также:** [`nextTick()`](./general.html#nexttick)

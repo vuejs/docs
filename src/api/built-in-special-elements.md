@@ -8,7 +8,7 @@
 
 A "meta component" for rendering dynamic components or elements.
 
-- **Props**
+- **Входные параметры:**
 
   ```ts
   interface DynamicComponentProps {
@@ -16,7 +16,7 @@ A "meta component" for rendering dynamic components or elements.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   The actual component to render is determined by the `is` prop.
 
@@ -24,7 +24,7 @@ A "meta component" for rendering dynamic components or elements.
 
   - Alternatively, `is` can also be directly bound to the definition of a component.
 
-- **Example**
+- **Пример:**
 
   Rendering components by registered name (Options API):
 
@@ -108,13 +108,13 @@ A "meta component" for rendering dynamic components or elements.
 
   In practice, this edge case isn't common as native form fields are typically wrapped in components in real applications. If you do need to use a native element directly then you can split the `v-model` into an attribute and event manually.
 
-- **See also:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
+- **См. также:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
 
 ## `<slot>`
 
 Denotes slot content outlets in templates.
 
-- **Props**
+- **Входные параметры:**
 
   ```ts
   interface SlotProps {
@@ -130,7 +130,7 @@ Denotes slot content outlets in templates.
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   The `<slot>` element can use the `name` attribute to specify a slot name. When no `name` is specified, it will render the default slot. Additional attributes passed to the slot element will be passed as slot props to the scoped slot defined in the parent.
 
@@ -138,4 +138,4 @@ Denotes slot content outlets in templates.
 
   `<slot>` elements in Vue templates are compiled into JavaScript, so they are not to be confused with [native `<slot>` elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
 
-- **See also:** [Component - Slots](/guide/components/slots.html)
+- **См. также:** [Component - Slots](/guide/components/slots.html)

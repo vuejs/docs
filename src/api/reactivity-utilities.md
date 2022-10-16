@@ -4,7 +4,7 @@
 
 Checks if a value is a ref object.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function isRef<T>(r: Ref<T> | unknown): r is Ref<T>
@@ -24,13 +24,13 @@ Checks if a value is a ref object.
 
 Returns the inner value if the argument is a ref, otherwise return the argument itself. This is a sugar function for `val = isRef(val) ? val.value : val`.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function unref<T>(ref: T | Ref<T>): T
   ```
 
-- **Example**
+- **Пример:**
 
   ```ts
   function useFoo(x: number | Ref<number>) {
@@ -43,7 +43,7 @@ Returns the inner value if the argument is a ref, otherwise return the argument 
 
 Can be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function toRef<T extends object, K extends keyof T>(
@@ -55,7 +55,7 @@ Can be used to create a ref for a property on a source reactive object. The crea
   type ToRef<T> = T extends Ref ? T : Ref<T>
   ```
 
-- **Example**
+- **Пример:**
 
   ```js
   const state = reactive({
@@ -104,7 +104,7 @@ Can be used to create a ref for a property on a source reactive object. The crea
 
 Converts a reactive object to a plain object where each property of the resulting object is a ref pointing to the corresponding property of the original object. Each individual ref is created using [`toRef()`](#toref).
 
-- **Type**
+- **Тип:**
 
   ```ts
   function toRefs<T extends object>(
@@ -116,7 +116,7 @@ Converts a reactive object to a plain object where each property of the resultin
   type ToRef = T extends Ref ? T : Ref<T>
   ```
 
-- **Example**
+- **Пример:**
 
   ```js
   const state = reactive({
@@ -165,7 +165,7 @@ Converts a reactive object to a plain object where each property of the resultin
 
 Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
 
-- **Type**
+- **Тип:**
 
   ```ts
   function isProxy(value: unknown): boolean
@@ -175,7 +175,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive) or [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
 
-- **Type**
+- **Тип:**
 
   ```ts
   function isReactive(value: unknown): boolean
@@ -185,7 +185,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 Checks if an object is a proxy created by [`readonly()`](./reactivity-core.html#readonly) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
 
-- **Type**
+- **Тип:**
 
   ```ts
   function isReadonly(value: unknown): boolean

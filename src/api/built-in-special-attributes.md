@@ -4,9 +4,9 @@
 
 The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify vnodes when diffing the new list of nodes against the old list.
 
-- **Expects:** `number | string | symbol`
+- **Ожидает:** `number | string | symbol`
 
-- **Details**
+- **Подробности:**
 
   Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed / destroyed.
 
@@ -35,15 +35,15 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
 
   When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
 
-- **See also:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list.html#maintaining-state-with-key)
+- **См. также:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list.html#maintaining-state-with-key)
 
 ## ref
 
 Denotes a [template ref](/guide/essentials/template-refs.html).
 
-- **Expects:** `string | Function`
+- **Ожидает:** `string | Function`
 
-- **Details**
+- **Подробности:**
 
   `ref` is used to register a reference to an element or a child component.
 
@@ -80,15 +80,15 @@ Denotes a [template ref](/guide/essentials/template-refs.html).
 
   `this.$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
-- **See also:** [Template Refs](/guide/essentials/template-refs.html)
+- **См. также:** [Template Refs](/guide/essentials/template-refs.html)
 
 ## is
 
 Used for binding [dynamic components](/guide/essentials/component-basics.html#dynamic-components).
 
-- **Expects:** `string | Component`
+- **Ожидает:** `string | Component`
 
-- **Usage on native elements** <sup class="vt-badge">3.1+</sup>
+- **Использование на нативных элементах** <sup class="vt-badge">3.1+</sup>
 
   When the `is` attribute is used on a native HTML element, it will be interpreted as a [Customized built-in element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), which is a native web platform feature.
 
@@ -100,7 +100,7 @@ Used for binding [dynamic components](/guide/essentials/component-basics.html#dy
   </table>
   ```
 
-- **See also:**
+- **См. также:**
 
   - [Built-in Special Element - `<component>`](/api/built-in-special-elements.html#component)
   - [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)

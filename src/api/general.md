@@ -4,9 +4,9 @@
 
 Exposes the current version of Vue.
 
-- **Type:** `string`
+- **Тип:** `string`
 
-- **Example**
+- **Пример:**
 
   ```js
   import { version } from 'vue'
@@ -18,19 +18,19 @@ Exposes the current version of Vue.
 
 A utility for waiting for the next DOM update flush.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function nextTick(callback?: () => void): Promise<void>
   ```
 
-- **Details**
+- **Подробности:**
 
   When you mutate reactive state in Vue, the resulting DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" to ensure that each component updates only once no matter how many state changes you have made.
 
   `nextTick()` can be used immediately after a state change to wait for the DOM updates to complete. You can either pass a callback as an argument, or await the returned Promise.
 
-- **Example**
+- **Пример:**
 
   <div class="composition-api">
 
@@ -92,13 +92,13 @@ A utility for waiting for the next DOM update flush.
 
   </div>
 
-- **See also:** [`this.$nextTick()`](/api/component-instance.html#nexttick)
+- **См. также:** [`this.$nextTick()`](/api/component-instance.html#nexttick)
 
 ## defineComponent()
 
 A type helper for defining a Vue component with type inference.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function defineComponent(
@@ -108,7 +108,7 @@ A type helper for defining a Vue component with type inference.
 
   > Type is simplified for readability.
 
-- **Details**
+- **Подробности:**
 
   The first argument expects a component options object. The return value will be the same options object, since the function is essentially a runtime no-op for type inference purposes only.
 
@@ -134,13 +134,13 @@ A type helper for defining a Vue component with type inference.
 
   Note this is not necessary if you are using Vite, because Rollup (the underlying production bundler used by Vite) is smart enough to determine that `defineComponent()` is in fact side-effect-free without the need for manual annotations.
 
-- **See also:** [Guide - Using Vue with TypeScript](/guide/typescript/overview.html#general-usage-notes)
+- **См. также:** [Guide - Using Vue with TypeScript](/guide/typescript/overview.html#general-usage-notes)
 
 ## defineAsyncComponent()
 
 Define an async component which is lazy loaded only when it is rendered. The argument can either be a loader function, or an options object for more advanced control of the loading behavior.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function defineAsyncComponent(
@@ -165,13 +165,13 @@ Define an async component which is lazy loaded only when it is rendered. The arg
   }
   ```
 
-- **See also:** [Guide - Async Components](/guide/components/async.html)
+- **См. также:** [Guide - Async Components](/guide/components/async.html)
 
 ## defineCustomElement()
 
 This method accepts the same argument as [`defineComponent`](#definecomponent), but instead returns a native [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) class constructor.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function defineCustomElement(
@@ -185,13 +185,13 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
 
   > Type is simplified for readability.
 
-- **Details**
+- **Подробности:**
 
   In addition to normal component options, `defineCustomElement()` also supports a special option `styles`, which should be an array of inlined CSS strings, for providing CSS that should be injected into the element's shadow root.
 
   The return value is a custom element constructor that can be registered using [`customElements.define()`](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define).
 
-- **Example**
+- **Пример:**
 
   ```js
   import { defineCustomElement } from 'vue'
@@ -204,7 +204,7 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
   customElements.define('my-vue-element', MyVueElement)
   ```
 
-- **See also:**
+- **См. также:**
 
   - [Guide - Building Custom Elements with Vue](/guide/extras/web-components.html#building-custom-elements-with-vue)
 

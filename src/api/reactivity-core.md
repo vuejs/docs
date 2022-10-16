@@ -11,7 +11,7 @@ To better understand the Reactivity APIs, it is recommended to read the followin
 
 Takes an inner value and returns a reactive and mutable ref object, which has a single property `.value` that points to the inner value.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function ref<T>(value: T): Ref<UnwrapRef<T>>
@@ -21,7 +21,7 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   The ref object is mutable - i.e. you can assign new values to `.value`. It is also reactive - i.e. any read operations to `.value` is tracked, and write operations will trigger associated effects.
 
@@ -29,7 +29,7 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
 
   To avoid the deep conversion, use [`shallowRef()`](./reactivity-advanced.html#shallowref) instead.
 
-- **Example**
+- **Пример:**
 
   ```js
   const count = ref(0)
@@ -39,7 +39,7 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
   console.log(count.value) // 1
   ```
 
-- **See also:**
+- **См. также:**
   - [Guide - Reactive Variables with `ref()`](/guide/essentials/reactivity-fundamentals.html#reactive-variables-with-ref)
   - [Guide - Typing `ref()`](/guide/typescript/composition-api.html#typing-ref)
 
@@ -47,7 +47,7 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
 
 Takes a getter function and returns a readonly reactive [ref](#ref) object for the returned value from the getter. It can also take an object with `get` and `set` functions to create a writable ref object.
 
-- **Type**
+- **Тип:**
 
   ```ts
   // read-only
@@ -67,7 +67,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   ): Ref<T>
   ```
 
-- **Example**
+- **Пример:**
 
   Creating a readonly computed ref:
 
@@ -108,7 +108,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   })
   ```
 
-- **See also:**
+- **См. также:**
   - [Guide - Computed Properties](/guide/essentials/computed.html)
   - [Guide - Computed Debugging](/guide/extras/reactivity-in-depth.html#computed-debugging)
   - [Guide - Typing `computed()`](/guide/typescript/composition-api.html#typing-computed)
@@ -117,13 +117,13 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
 
 Returns a reactive proxy of the object.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
   ```
 
-- **Details**
+- **Подробности:**
 
   The reactive conversion is "deep": it affects all nested properties. A reactive object also deeply unwraps any properties that are [refs](#ref) while maintaining reactivity.
 
@@ -133,7 +133,7 @@ Returns a reactive proxy of the object.
 
   The returned object and its nested objects are wrapped with [ES Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and **not** equal to the original objects. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.
 
-- **Example**
+- **Пример:**
 
   Creating a reactive object:
 
@@ -186,7 +186,7 @@ Returns a reactive proxy of the object.
   console.log(obj.count === count.value) // true
   ```
 
-- **See also:**
+- **См. также:**
   - [Guide - Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html)
   - [Guide - Typing `reactive()`](/guide/typescript/composition-api.html#typing-reactive)
 
@@ -194,7 +194,7 @@ Returns a reactive proxy of the object.
 
 Takes an object (reactive or plain) or a [ref](#ref) and returns a readonly proxy to the original.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function readonly<T extends object>(
@@ -202,13 +202,13 @@ Takes an object (reactive or plain) or a [ref](#ref) and returns a readonly prox
   ): DeepReadonly<UnwrapNestedRefs<T>>
   ```
 
-- **Details**
+- **Подробности:**
 
   A readonly proxy is deep: any nested property accessed will be readonly as well. It also has the same ref-unwrapping behavior as `reactive()`, except the unwrapped values will also be made readonly.
 
   To avoid the deep conversion, use [shallowReadonly()](./reactivity-advanced.html#shallowreadonly) instead.
 
-- **Example**
+- **Пример:**
 
   ```js
   const original = reactive({ count: 0 })
@@ -231,7 +231,7 @@ Takes an object (reactive or plain) or a [ref](#ref) and returns a readonly prox
 
 Runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function watchEffect(
@@ -250,7 +250,7 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
   type StopHandle = () => void
   ```
 
-- **Details**
+- **Подробности:**
 
   The first argument is the effect function to be run. The effect function receives a function that can be used to register a cleanup callback. The cleanup callback will be called right before the next time the effect is re-run, and can be used to clean up invalidated side effects, e.g. a pending async request (see example below).
 
@@ -260,7 +260,7 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
 
   The return value is a handle function that can be called to stop the effect from running again.
 
-- **Example**
+- **Пример:**
 
   ```js
   const count = ref(0)
@@ -308,7 +308,7 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
   })
   ```
 
-- **See also**:
+- **См. также:**
   - [Guide - Watchers](/guide/essentials/watchers.html#watcheffect)
   - [Guide - Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging)
 
@@ -324,7 +324,7 @@ Alias of [`watchEffect()`](#watcheffect) with `flush: 'sync'` option.
 
 Watches one or more reactive data sources and invokes a callback function when the sources change.
 
-- **Type**
+- **Тип:**
 
   ```ts
   // watching single source
@@ -365,7 +365,7 @@ Watches one or more reactive data sources and invokes a callback function when t
 
   > Types are simplified for readability.
 
-- **Details**
+- **Подробности:**
 
   `watch()` is lazy by default - i.e. the callback is only called when the watched source has changed.
 
@@ -393,7 +393,7 @@ Watches one or more reactive data sources and invokes a callback function when t
   - Be more specific about what state should trigger the watcher to re-run;
   - Access both the previous and current value of the watched state.
 
-- **Example**
+- **Пример:**
 
   Watching a getter:
 
@@ -457,7 +457,7 @@ Watches one or more reactive data sources and invokes a callback function when t
   })
   ```
 
-- **See also**:
+- **См. также:**
 
   - [Guide - Watchers](/guide/essentials/watchers.html)
   - [Guide - Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging)

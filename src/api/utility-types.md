@@ -8,7 +8,7 @@ This page only lists a few commonly used utility types that may need explanation
 
 Used to annotate a prop with more advanced types when using runtime props declarations.
 
-- **Example**
+- **Пример:**
 
   ```ts
   import { PropType } from 'vue'
@@ -30,13 +30,13 @@ Used to annotate a prop with more advanced types when using runtime props declar
   }
   ```
 
-- **See also:** [Guide - Typing Component Props](/guide/typescript/options-api.html#typing-component-props)
+- **См. также:** [Guide - Typing Component Props](/guide/typescript/options-api.html#typing-component-props)
 
 ## ComponentCustomProperties
 
 Used to augment the component instance type to support custom global properties.
 
-- **Example**
+- **Пример:**
 
   ```ts
   import axios from 'axios'
@@ -53,13 +53,13 @@ Used to augment the component instance type to support custom global properties.
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
 
-- **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties)
+- **См. также:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties)
 
 ## ComponentCustomOptions
 
 Used to augment the component options type to support custom options.
 
-- **Example**
+- **Пример:**
 
   ```ts
   import { Route } from 'vue-router'
@@ -75,13 +75,13 @@ Used to augment the component options type to support custom options.
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
 
-- **See also:** [Guide - Augmenting Custom Options](/guide/typescript/options-api.html#augmenting-custom-options)
+- **См. также:** [Guide - Augmenting Custom Options](/guide/typescript/options-api.html#augmenting-custom-options)
 
 ## ComponentCustomProps
 
 Used to augment allowed TSX props in order to use non-declared props on TSX elements.
 
-- **Example**
+- **Пример:**
 
   ```ts
   declare module 'vue' {
@@ -106,7 +106,7 @@ Used to augment allowed TSX props in order to use non-declared props on TSX elem
 
 Used to augment allowed values in style property bindings.
 
-- **Example**
+- **Пример:**
 
   Allow any custom CSS property
 

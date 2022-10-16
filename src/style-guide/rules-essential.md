@@ -202,7 +202,6 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
   </template>
 </ul>
 ```
-
 :::
 
 <div class="style-example style-example-bad">

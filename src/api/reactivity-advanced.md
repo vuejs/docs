@@ -4,7 +4,7 @@
 
 Shallow version of [`ref()`](./reactivity-core.html#ref).
 
-- **Type**
+- **Тип:**
 
   ```ts
   function shallowRef<T>(value: T): ShallowRef<T>
@@ -14,13 +14,13 @@ Shallow version of [`ref()`](./reactivity-core.html#ref).
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   Unlike `ref()`, the inner value of a shallow ref is stored and exposed as-is, and will not be made deeply reactive. Only the `.value` access is reactive.
 
   `shallowRef()` is typically used for performance optimizations of large data structures, or integration with external state management systems.
 
-- **Example**
+- **Пример:**
 
   ```js
   const state = shallowRef({ count: 1 })
@@ -32,7 +32,7 @@ Shallow version of [`ref()`](./reactivity-core.html#ref).
   state.value = { count: 2 }
   ```
 
-- **See also:**
+- **См. также:**
   - [Guide - Reduce Reactivity Overhead for Large Immutable Structures](/guide/best-practices/performance.html#reduce-reactivity-overhead-for-large-immutable-structures)
   - [Guide - Integration with External State Systems](/guide/extras/reactivity-in-depth.html#integration-with-external-state-systems)
 
@@ -40,13 +40,13 @@ Shallow version of [`ref()`](./reactivity-core.html#ref).
 
 Force trigger effects that depends on a [shallow ref](#shallowref). This is typically used after making deep mutations to the inner value of a shallow ref.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function triggerRef(ref: ShallowRef): void
   ```
 
-- **Example**
+- **Пример:**
 
   ```js
   const shallow = shallowRef({
@@ -69,7 +69,7 @@ Force trigger effects that depends on a [shallow ref](#shallowref). This is typi
 
 Creates a customized ref with explicit control over its dependency tracking and updates triggering.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
@@ -83,13 +83,13 @@ Creates a customized ref with explicit control over its dependency tracking and 
   }
   ```
 
-- **Details**
+- **Подробности:**
 
   `customRef()` expects a factory function, which receives `track` and `trigger` functions as arguments and should return an object with `get` and `set` methods.
 
   In general, `track()` should be called inside `get()`, and `trigger()` should be called inside `set()`. However, you have full control over when they should be called, or whether they should be called at all.
 
-- **Example**
+- **Пример:**
 
   Creating a debounced ref that only updates the value after a certain timeout after the latest set call:
 
@@ -135,13 +135,13 @@ Creates a customized ref with explicit control over its dependency tracking and 
 
 Shallow version of [`reactive()`](./reactivity-core.html#reactive).
 
-- **Type**
+- **Тип:**
 
   ```ts
   function shallowReactive<T extends object>(target: T): T
   ```
 
-- **Details**
+- **Подробности:**
 
   Unlike `reactive()`, there is no deep conversion: only root-level properties are reactive for a shallow reactive object. Property values are stored and exposed as-is - this also means properties with ref values will **not** be automatically unwrapped.
 
@@ -149,7 +149,7 @@ Shallow version of [`reactive()`](./reactivity-core.html#reactive).
   Shallow data structures should only be used for root level state in a component. Avoid nesting it inside a deep reactive object as it creates a tree with inconsistent reactivity behavior which can be difficult to understand and debug.
   :::
 
-- **Example**
+- **Пример:**
 
   ```js
   const state = shallowReactive({
@@ -173,13 +173,13 @@ Shallow version of [`reactive()`](./reactivity-core.html#reactive).
 
 Shallow version of [`readonly()`](./reactivity-core.html#readonly).
 
-- **Type**
+- **Тип:**
 
   ```ts
   function shallowReadonly<T extends object>(target: T): Readonly<T>
   ```
 
-- **Details**
+- **Подробности:**
 
   Unlike `readonly()`, there is no deep conversion: only root-level properties are made readonly. Property values are stored and exposed as-is - this also means properties with ref values will **not** be automatically unwrapped.
 
@@ -187,7 +187,7 @@ Shallow version of [`readonly()`](./reactivity-core.html#readonly).
   Shallow data structures should only be used for root level state in a component. Avoid nesting it inside a deep reactive object as it creates a tree with inconsistent reactivity behavior which can be difficult to understand and debug.
   :::
 
-- **Example**
+- **Пример:**
 
   ```js
   const state = shallowReadonly({
@@ -211,19 +211,19 @@ Shallow version of [`readonly()`](./reactivity-core.html#readonly).
 
 Returns the raw, original object of a Vue-created proxy.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function toRaw<T>(proxy: T): T
   ```
 
-- **Details**
+- **Подробности:**
 
   `toRaw()` can return the original object from proxies created by [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](#shallowreactive) or [`shallowReadonly()`](#shallowreadonly).
 
   This is an escape hatch that can be used to temporarily read without incurring proxy access / tracking overhead or write without triggering changes. It is **not** recommended to hold a persistent reference to the original object. Use with caution.
 
-- **Example**
+- **Пример:**
 
   ```js
   const foo = {}
@@ -236,13 +236,13 @@ Returns the raw, original object of a Vue-created proxy.
 
 Marks an object so that it will never be converted to a proxy. Returns the object itself.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function markRaw<T extends object>(value: T): T
   ```
 
-- **Example**
+- **Пример:**
 
   ```js
   const foo = markRaw({})
@@ -283,7 +283,7 @@ Marks an object so that it will never be converted to a proxy. Returns the objec
 
 Creates an effect scope object which can capture the reactive effects (i.e. computed and watchers) created within it so that these effects can be disposed together. For detailed use cases of this API, please consult its corresponding [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0041-reactivity-effect-scope.md).
 
-- **Type**
+- **Тип:**
 
   ```ts
   function effectScope(detached?: boolean): EffectScope
@@ -294,7 +294,7 @@ Creates an effect scope object which can capture the reactive effects (i.e. comp
   }
   ```
 
-- **Example**
+- **Пример:**
 
   ```js
   const scope = effectScope()
@@ -315,7 +315,7 @@ Creates an effect scope object which can capture the reactive effects (i.e. comp
 
 Returns the current active [effect scope](#effectscope) if there is one.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function getCurrentScope(): EffectScope | undefined
@@ -327,7 +327,7 @@ Registers a dispose callback on the current active [effect scope](#effectscope).
 
 This method can be used as a non-component-coupled replacement of `onUnmounted` in reusable composition functions, since each Vue component's `setup()` function is also invoked in an effect scope.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function onScopeDispose(fn: () => void): void

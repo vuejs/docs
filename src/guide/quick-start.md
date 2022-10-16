@@ -2,9 +2,9 @@
 footer: false
 ---
 
-# Quick Start
+# Быстрый старт {#quick-start}
 
-## Try Vue Online
+## Поиграться с Vue онлайн {#try-vue-online}
 
 - To quickly get a taste of Vue, you can try it directly in our [Playground](https://sfc.vuejs.org/#eNo9j01qAzEMha+iapMWOjbdDm6gu96gG2/cjJJM8B+2nBaGuXvlpBMwtj4/JL234EfO6toIRzT1UObMexvpN6fCMNHRNc+w2AgwOXbPL/caoBC3EjcCCPU0wu6TvE/wlYqfnnZ3ae2PXHKMfiwQYArZOyYhAHN+2y9LnwLrarTQ7XeOuTFch5Am8u8WRbcoktGPbnzFOXS3Q3BZXWqKkuRmy/4L1eK4GbUoUTtbPDPnOmpdj4ee/1JVKictlSot8hxIUQ3Dd0k/lYoMtrglwfUPkXdoJg==).
 
@@ -12,13 +12,12 @@ footer: false
 
 - If you are already familiar with Node.js and the concept of build tools, you can also try a complete build setup right within your browser on [StackBlitz](https://vite.new/vue).
 
-## Creating a Vue Application
+## Creating a Vue Application {#creating-a-vue-application}
 
 :::tip Предварительные условия
-
-- Familiarity with the command line
-- Install [Node.js](https://nodejs.org/) version 16.0 or higher
-  :::
+- Знакомство с командной строкой
+- Установленная [Node.js](https://nodejs.org/) 16.0 версии или выше
+:::
 
 In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue.html#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vitejs.dev), and allow us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
 
@@ -64,7 +63,7 @@ This will create a production-ready build of your app in the project's `./dist` 
 
 [Next Steps >](#next-steps)
 
-## Using Vue from CDN
+## Использование Vue с помощью CDN {#using-vue-from-cdn}
 
 You can use Vue directly from a CDN via a script tag:
 
@@ -76,7 +75,7 @@ Here we are using [unpkg](https://unpkg.com/), but you can also use any CDN that
 
 When using Vue from a CDN, there is no "build step" involved. This makes the setup a lot simpler, and is suitable for enhancing static HTML or integrating with a backend framework. However, you won't be able to use the Single-File Component (SFC) syntax.
 
-### Using the Global Build
+### Using the Global Build {#using-the-global-build}
 
 The above link is loading the *global build* of Vue, where all top-level APIs are exposed as properties on the global `Vue` object. Here is a full example using the global build:
 
@@ -100,7 +99,7 @@ The above link is loading the *global build* of Vue, where all top-level APIs ar
 
 [JSFiddle demo](https://jsfiddle.net/yyx990803/nw1xg8Lj/)
 
-### Using the ES Module Build
+### Using the ES Module Build {#using-the-es-module-build}
 
 Throughout the rest of the documentation, we will be primarily using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax. Most modern browsers now support ES modules natively, so we can use Vue from a CDN via native ES modules like this:
 
@@ -124,7 +123,7 @@ Notice that we are using `<script type="module">`, and the imported CDN URL is p
 
 [JSFiddle demo](https://jsfiddle.net/yyx990803/vo23c470/)
 
-### Enabling Import maps
+### Enabling Import maps {#enabling-import-maps}
 
 In the above example we are importing from the full CDN URL, but in the rest of the documentation you will see code like this:
 
@@ -174,7 +173,7 @@ If your preferred browser does not support import maps yet, you can polyfill it 
 The examples so far are using the development build of Vue - if you intend to use Vue from a CDN in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
 
-### Splitting Up the Modules
+### Splitting Up the Modules {#splitting-up-the-modules}
 
 As we dive deeper into the guide, we may need to split our code into separate JavaScript files so that they are easier to manage. For example:
 
@@ -204,25 +203,25 @@ To start a local HTTP server, first install [Node.js](https://nodejs.org/en/), a
 
 You may have noticed that the imported component's template is inlined as a JavaScript string. If you are using VSCode, you can install the [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) extension and prefix the strings with a `/*html*/` comment to get syntax highlighting for them.
 
-### Using Composition API without a Build Step
+### Using Composition API without a Build Step {#using-composition-api-without-a-build-step}
 
 Many of the examples for Composition API will be using the `<script setup>` syntax. If you intend to use Composition API without a build step, consult the usage of the [`setup()` option](/api/composition-api-setup.html).
 
-## Next Steps
+## Следующие шаги {#next-steps}
 
 If you skipped the [Introduction](/guide/introduction), we strongly recommend reading it before moving on to the rest of the documentation.
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application.html">
-    <p class="next-steps-link">Continue with the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">Руководство</p>
+    <p class="next-steps-caption">В руководстве каждый аспект фреймворка разбирается подробно.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">Самоучитель</p>
+    <p class="next-steps-caption">Для тех, кто предпочитает учиться на практике.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">Примеры</p>
+    <p class="next-steps-caption">Изучите примеры основных функций и общих задач при разработке UI.</p>
   </a>
 </div>

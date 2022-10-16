@@ -4,13 +4,13 @@
 
 Provides a value that can be injected by descendant components.
 
-- **Type**
+- **Тип:**
 
   ```ts
   function provide<T>(key: InjectionKey<T> | string, value: T): void
   ```
 
-- **Details**
+- **Подробности:**
 
   `provide()` takes two arguments: the key, which can be a string or a symbol, and the value to be injected.
 
@@ -18,7 +18,7 @@ Provides a value that can be injected by descendant components.
 
   Similar to lifecycle hook registration APIs, `provide()` must be called synchronously during a component's `setup()` phase.
 
-- **Example**
+- **Пример:**
 
   ```vue
   <script setup>
@@ -37,7 +37,7 @@ Provides a value that can be injected by descendant components.
   </script>
   ```
 
-- **See also**:
+- **См. также:**
   - [Guide - Provide / Inject](/guide/components/provide-inject.html)
   - [Guide - Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
 
@@ -45,7 +45,7 @@ Provides a value that can be injected by descendant components.
 
 Injects a value provided by an ancestor component or the application (via `app.provide()`).
 
-- **Type**
+- **Тип:**
 
   ```ts
   // without default value
@@ -62,7 +62,7 @@ Injects a value provided by an ancestor component or the application (via `app.p
   ): T
   ```
 
-- **Details**
+- **Подробности:**
 
   The first argument is the injection key. Vue will walk up the parent chain to locate a provided value with a matching key. If multiple components in the parent chain provides the same key, the one closest to the injecting component will "shadow" those higher up the chain. If no value with matching key was found, `inject()` returns `undefined` unless a default value is provided.
 
@@ -72,7 +72,7 @@ Injects a value provided by an ancestor component or the application (via `app.p
 
   When using TypeScript, the key can be of type of `InjectionKey` - a Vue-provided utility type that extends `Symbol`, which can be used to sync the value type between `provide()` and `inject()`.
 
-- **Example**
+- **Пример:**
 
   Assuming a parent component has provided values as shown in the previous `provide()` example:
 
@@ -101,6 +101,6 @@ Injects a value provided by an ancestor component or the application (via `app.p
   </script>
   ```
 
-- **See also**:
+- **См. также:**
   - [Guide - Provide / Inject](/guide/components/provide-inject.html)
   - [Guide - Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
