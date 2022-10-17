@@ -1,11 +1,11 @@
-# Conditional Rendering
+# Условная отрисовка {#conditional-rendering}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Free Vue.js Conditional Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Бесплатный урок про условную отрисовку во Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-conditionals-in-vue" title="Free Vue.js Conditional Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-conditionals-in-vue" title="Бесплатный урок про условную отрисовку во Vue.js"/>
 </div>
 
 <script setup>
@@ -13,29 +13,29 @@ import { ref } from 'vue'
 const awesome = ref(true)
 </script>
 
-## `v-if`
+## `v-if` {#v-if}
 
-The directive `v-if` is used to conditionally render a block. The block will only be rendered if the directive's expression returns a truthy value.
+Для отрисовки блока по условию используется директива `v-if`. Блок будет отображаться только в случае, если выражение директивы возвращает значение, которое приводится к `true`.
 
 ```vue-html
-<h1 v-if="awesome">Vue is awesome!</h1>
+<h1 v-if="awesome">Vue восхитителен!</h1>
 ```
 
-## `v-else`
+## `v-else` {#v-else}
 
-You can use the `v-else` directive to indicate an "else block" for `v-if`:
+Для указания блока «иначе» для `v-if` можно использовать директиву `v-else`:
 
 ```vue-html
-<button @click="awesome = !awesome">Toggle</button>
+<button @click="awesome = !awesome">Переключить</button>
 
-<h1 v-if="awesome">Vue is awesome!</h1>
-<h1 v-else>Oh no 😢</h1>
+<h1 v-if="awesome">Vue восхитителен!</h1>
+<h1 v-else>О, нет 😢</h1>
 ```
 
 <div class="demo">
-  <button @click="awesome = !awesome">Toggle</button>
-  <h1 v-if="awesome">Vue is awesome!</h1>
-  <h1 v-else>Oh no 😢</h1>
+  <button @click="awesome = !awesome">Переключить</button>
+  <h1 v-if="awesome">Vue восхитителен!</h1>
+  <h1 v-else>О, нет 😢</h1>
 </div>
 
 <div class="composition-api">
@@ -49,11 +49,11 @@ You can use the `v-else` directive to indicate an "else block" for `v-if`:
 
 </div>
 
-A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - otherwise it will not be recognized.
+Элемент с директивой `v-else` должен следовать сразу за элементом с директивой `v-if` или `v-else-if` — иначе он не будет распознан.
 
-## `v-else-if`
+## `v-else-if` {#v-else-if}
 
-The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
+Как следует из названия, `v-else-if` служит в качестве блока «else if» директивы `v-if`. Её можно использовать для создания цепочек из условий:
 
 ```vue-html
 <div v-if="type === 'A'">
@@ -66,52 +66,52 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
   C
 </div>
 <div v-else>
-  Not A/B/C
+  Точно не A, B или C
 </div>
 ```
 
-Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+Как и `v-else`, `v-else-if` должен следовать сразу за элементом с `v-if` или `v-else-if`.
 
-## `v-if` on `<template>`
+## Условные группы с помощью `v-if` и `<template>` {#v-if-on-template}
 
-Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+Поскольку `v-if` является директивой, то она должна быть указана на одном элементе. Но что если потребуется управлять отображением сразу нескольких элементов? В этом случае можно использовать `v-if` на элементе `<template>`, который работает как невидимая обёртка и в результатах отрисовки не появится.
 
 ```vue-html
 <template v-if="ok">
-  <h1>Title</h1>
-  <p>Paragraph 1</p>
-  <p>Paragraph 2</p>
+  <h1>Заголовок</h1>
+  <p>Параграф 1</p>
+  <p>Параграф 2</p>
 </template>
 ```
 
-`v-else` and `v-else-if` can also be used on `<template>`.
+Директивы `v-else` и `v-else-if` также можно использовать на `<template>`.
 
-## `v-show`
+## `v-show` {#v-show}
 
-Another option for conditionally displaying an element is the `v-show` directive. The usage is largely the same:
+Ещё одним вариантом условного отображения является директива `v-show`. Используется очень похоже:
 
 ```vue-html
-<h1 v-show="ok">Hello!</h1>
+<h1 v-show="ok">Привет!</h1>
 ```
 
-The difference is that an element with `v-show` will always be rendered and remain in the DOM; `v-show` only toggles the `display` CSS property of the element.
+Отличия в том, что элемент с `v-show` будет всегда отрисовываться и оставаться в DOM, а переключаться будет лишь его CSS свойство `display`.
 
-`v-show` doesn't support the `<template>` element, nor does it work with `v-else`.
+`v-show` нельзя использовать на элементе `<template>` и она не работает с `v-else`.
 
-## `v-if` vs `v-show`
+## `v-if` или `v-show` {#v-if-vs-v-show}
 
-`v-if` is "real" conditional rendering because it ensures that event listeners and child components inside the conditional block are properly destroyed and re-created during toggles.
+`v-if` выполняет «настоящую» условную отрисовку, так как гарантирует, что слушатели событий и дочерние компоненты внутри блока должным образом уничтожаются и воссоздаются при переключениях условия.
 
-`v-if` is also **lazy**: if the condition is false on initial render, it will not do anything - the conditional block won't be rendered until the condition becomes true for the first time.
+`v-if` также **ленивый**: если условие ложно на момент первоначальной отрисовки, то он ничего не сделает — условный блок не будет отрисован до тех пор, пока условие не станет истинным.
 
-In comparison, `v-show` is much simpler - the element is always rendered regardless of initial condition, with CSS-based toggling.
+Для сравнения, `v-show` намного проще — элемент всегда отрисовывается, вне зависимости от исходного состояния с переключением на основе CSS.
 
-Generally speaking, `v-if` has higher toggle costs while `v-show` has higher initial render costs. So prefer `v-show` if you need to toggle something very often, and prefer `v-if` if the condition is unlikely to change at runtime.
+В целом, у `v-if` выше затраты на переключение, в то время как `v-show` имеет больше затрат на первичную отрисовку. Так что используйте `v-show`, если переключения будут частыми, и предпочитайте `v-if`, если условие может и не измениться во время исполнения.
 
-## `v-if` with `v-for`
+## `v-if` вместе с `v-for` {#v-if-with-v-for}
 
 :::warning Примечание
-It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential.html#avoid-v-if-with-v-for) for details.
+Совместное использование `v-if` и `v-for` **не рекомендуется**. Подробнее можно прочитать в разделе [рекомендаций](/style-guide/rules-essential.html#avoid-v-if-with-v-for).
 :::
 
-When `v-if` and `v-for` are both used on the same element, `v-if` will be evaluated first. See the [list rendering guide](list#v-for-with-v-if) for details.
+При одновременном использовании `v-if` и `v-for` на одном элементе, `v-if` будет исполняться первым. Подробнее в разделе [отрисовки списков](list#v-for-with-v-if).
