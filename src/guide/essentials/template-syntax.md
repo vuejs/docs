@@ -64,7 +64,7 @@ Vue використовує синтаксис шаблону на основі
 
 > У решті гіду, ми будемо використовувати скорочений синтаксис у прикладах коду, оскільки це найпоширеніше використання для розробників Vue.
 
-### Булеві атрибути {#boolean-attributes}
+### Логічні атрибути {#boolean-attributes}
 
 [Булеві атрибути](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) це атрибути, які можуть вказувати на значення true/false за допомогою їх присутності в елементі. Наприклад, [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled) є одним із найбільш часто використовуваних булевих атрибутів.
 
