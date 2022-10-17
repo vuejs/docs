@@ -1,56 +1,68 @@
 <script setup>
+import { ref } from 'vue'
 /**
  * Adding a new banner:
  * 1. uncomment the banner slot in ../index.ts
  * 2. uncomment and update BANNER_ID in ../../inlined-scripts/restorePreferences.ts
  * 3. update --vt-banner-height if necessary
  */
-
 let open = $ref(true)
-
+const banner = ref({
+  cta: 'Help Ukraine Now',
+  title:
+    'Russia has invaded Ukraine and already killed tens of thousands of civilians, with many more raped or tortured.',
+  subtitle: "The death toll keeps climbing. It's a genocide. We need your help.",
+  shortText: 'Russia has invaded Ukraine and already killed tens of thousands of civilians. We need your help.',
+  link: 'https://stand-with-ukraine.pp.ua/'
+})
 /**
  * Call this if the banner is dismissible
  */
 function dismiss() {
   open = false
   document.documentElement.classList.add('banner-dismissed')
-  localStorage.setItem(`vue-docs-banner-${window.__VUE_BANNER_ID__}`, 'true')
+  localStorage.setItem(
+    `vue-docs-banner-${window.__VUE_BANNER_ID__}`,
+    'true'
+  )
 }
 </script>
-
+<!-- -webkit-linear-gradient(315deg, #42d392 25%, #647eff) -->
 <template>
   <div class="banner" v-if="open">
     <a
-      id="vs"
-      href="https://vueschool.io/free-weekend?friend=vuejs&utm_source=vuejs&utm_medium=website&utm_campaign=affiliate&utm_content=top_banner"
+      id="vt-top"
+      :href="`${banner.link}?utm_source=vuejs&utm_content=top_banner`"
       target="_blank"
-      rel="noreferrer">
-      <div
-        class="vs-background-wrapper">
-        <div class="vs-logo">
-          <img src="/images/vueschool/vs-iso.svg" class="logo-small">
-          <img src="/images/vueschool/vs-logo.svg" class="logo-big">
-        </div>
-        <div class="vs-core">
-          <div class="vs-slogan-wrapper">
-            <div class="vs-slogan">
-              Free Weekend 1st & 2nd of October
-            </div>
-            <div class="vs-subline">
-              Get Access to ALL Vue School premium courses
-            </div>
+      :class="banner.assets"
+    >
+      <div class="vt-background-wrapper">
+        <div class="vt-core">
+          <div class="vt-slogan-wrapper">
+            <div class="vt-short" v-html="banner.shortText" />
+            <div class="vt-slogan" v-html="banner.title" />
+            <div class="vt-subline" v-html="banner.subtitle" />
           </div>
-          <div class="vs-button-wrapper">
-            <div class="vs-button">
-              Join for Free
+          <div class="vt-button-wrapper">
+            <div class="vt-button">
+              {{ banner.cta }}
             </div>
           </div>
         </div>
-        <div
-          id="vs-close"
-          class="vs-close"
-          @click.stop.prevent="dismiss">
-          <img src="/images/vueschool/close.svg" alt="Close">
+        <div class="vt-close" @click.prevent.stop="dismiss">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
         </div>
       </div>
     </a>
@@ -61,172 +73,142 @@ function dismiss() {
 html:not(.banner-dismissed) {
   --vt-banner-height: 72px;
 }
-
-#vs {
-  background-color: #0A1124;
+#vt-top {
+  display: block;
   box-sizing: border-box;
-  color: #fff;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: 72px;
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
   z-index: 100;
-  height: 72px;
-  background: linear-gradient(to left, #161a35, #283065);
   line-height: 1;
 }
-
-#vs .vs-background-wrapper {
+#vt-top .vt-background-wrapper {
   align-items: center;
   justify-content: center;
   display: flex;
   padding: 0 10px;
   height: 100%;
   width: 100%;
-  background-image: url(/images/vueschool/bg-mobile.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top right;
 }
-
-#vs:hover {
+#vt-top:hover {
   text-decoration: none;
 }
-
-#vs:hover .vs-core .vs-button {
-  background-image: linear-gradient(to bottom, #5ccc45, #419E2D), linear-gradient(to bottom, #388f26, #50b83b);
+#vt-top:hover .vt-core .vt-button {
+  opacity: 0.75;
 }
-
-#vs .vs-logo {
+#vt-top .vt-logo {
   position: absolute;
   left: 10px;
+  width: 42px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
-#vs .vs-logo .logo-big {
-  display: none;
-}
-
-#vs .vs-core {
+#vt-top .vt-core {
   display: flex;
   align-items: center;
-  width: 288px;
+  width: 260px;
 }
-
-#vs .vs-core .vs-slogan-wrapper {
+#vt-top .vt-core .vt-slogan-wrapper {
   text-align: center;
-  width: 170px;
+  width: 174px;
   margin: 0 auto;
 }
-
-#vs .vs-core .vs-slogan {
-  color: #fff;
-  font-weight: bold;
-  font-size: 10px;
+#vt-top .vt-core .vt-slogan {
+  display: none;
 }
-
-#vs .vs-core .vs-subline {
-  color: #c6cdf7;
-  font-size: 10px;
-  margin-top: 4px;
+#vt-top .vt-core .vt-subline {
+  display: none;
 }
-
-#vs .vs-core .vs-button-wrapper {
-  padding: 2px;
-  background-image: linear-gradient(to bottom, #388f26, #50b83b);
-  border-radius: 60px;
-  overflow: hidden;
+#vt-top .vt-core .vt-short {
+  display: block;
+  color: black;
+  line-height: 14px;
 }
-
-#vs .vs-core .vs-button {
-  border-radius: 60px;
-  color: #FFF;
+#vt-top .vt-core .vt-button {
+  background: -webkit-linear-gradient(270deg, #005bbb 50%, #ffd500 50%);
+  border-radius: 3px;
+  color: #000;
   padding: 8px 6px;
-  background-image: linear-gradient(to bottom, #5ccc45, #368c24), linear-gradient(to bottom, #388f26, #50b83b);
-  font-weight: bold;
-  text-transform: uppercase;
   text-align: center;
   font-size: 10px;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
 }
-
-#vs .vs-close {
+#vt-top .vt-core .vt-button:first-line {
+  color: #fff;
+}
+#vt-top .vt-close {
   right: 0;
   position: absolute;
   padding: 10px;
+  color: black;
 }
-
-#vs .vs-close:hover {
-  color: #56d8ff;
+#vt-top .vt-close svg {
+  height: 24px;
+  width: 24px;
 }
-
+#vt-top .vt-close:hover {
+  opacity: 0.7;
+}
 @media (min-width: 680px) {
-  #vs .vs-background-wrapper {
-    background-image: url(/images/vueschool/bg-tablet.svg);
+  #vt-top .vt-core {
+    width: auto;
   }
-
-  #vs .vs-logo {
-    left: 20px;
+  #vt-top .vt-core .vt-slogan-wrapper {
+    margin: 0 20px 0 0;
+    width: 450px;
   }
-
-  #vs .vs-logo .logo-small {
+  #vt-top .vt-core .vt-short {
     display: none;
   }
-
-  #vs .vs-logo .logo-big {
-    display: inline-block;
-    width: 90px;
+  #vt-top .vt-core .vt-button {
+    background: #fff;
+    color: #000;
+    white-space: nowrap;
   }
-
-  #vs .vs-core {
-    width: auto;
-    margin-right: -60px;
+  #vt-top .vt-core .vt-button:first-line {
+    color: #000;
   }
-
-  #vs .vs-core .vs-slogan-wrapper {
-    margin: 0 12px 0 0;
-    width: auto;
+  #vt-top:hover .vt-core .vt-button {
+    background: #f2f2f2;
   }
-
-  #vs .vs-core .vs-slogan {
-    font-size: 16px;
+  #vt-top .vt-core .vt-slogan {
+    display: block;
+    font-size: 17px;
   }
-
-  #vs .vs-core .vs-subline {
-    font-size: 15px;
-    text-align: left;
+  #vt-top .vt-core .vt-slogan strong {
+    color: #ffe401;
   }
-
-  #vs .vs-core .vs-button {
+  #vt-top .vt-core .vt-subline {
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+    opacity: 80%;
+    color: #000;
+  }
+  #vt-top .vt-core .vt-button {
     font-size: 13px;
-    padding: 8px 15px;
+    padding: 12px 16px;
   }
-
-  #vs .vs-close {
-    right: 20px;
+  #vt-top .vt-close {
+    color: white;
   }
 }
-
-@media (min-width: 900px) {
-  #vs .vs-background-wrapper {
-    background-image: url(/images/vueschool/bg-desktop.svg);
-    background-position: top right -300px;
+@media (min-width: 1280px) {
+  #vt-top .vt-logo {
+    left: 20px;
+    width: 104px;
   }
-
-  #vs .vs-logo .logo-big {
-    display: inline-block;
-    width: auto;
-  }
-
-  #vs .vs-core {
+  #vt-top .vt-core {
     margin-right: 0;
   }
-}
-
-@media (min-width: 1280px) {
-  #vs .vs-background-wrapper {
-    background-position: top right;
+  #vt-top .vt-core .vt-slogan-wrapper {
+    width: auto;
+  }
+  #vt-top .vt-core .vt-subline {
+    margin-top: 15px;
+    font-size: 14px;
   }
 }
 </style>
@@ -245,9 +227,19 @@ html:not(.banner-dismissed) {
   font-size: 12px;
   font-weight: 600;
   color: #fff;
-  background-color: var(--vt-c-green);
+  background: #fff;
+}
+@media (min-width: 680px) { 
+  .banner { 
+    background: -webkit-linear-gradient(270deg, #005bbb 75%, #ffd500 75%);
+  }
 }
 
+@media (min-width: 1280px) {
+  .banner {
+    background: -webkit-linear-gradient(270deg, #005bbb 52%, #ffd500 52%);
+  }
+}
 .banner-dismissed .banner {
   display: none;
 }

@@ -1,3 +1,5 @@
+https://vuejs.org.ua/*                  https://ua.vuejs.org/:splat    301!
+
 /guide/                   /guide/introduction.html
 /support-vuejs/           /sponsor/
 /ecosystem/partners.html  /partners/

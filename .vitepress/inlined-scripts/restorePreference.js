@@ -8,6 +8,6 @@
   restore('vue-docs-prefer-composition', 'prefer-composition')
   restore('vue-docs-prefer-sfc', 'prefer-sfc', true)
 
-  window.__VUE_BANNER_ID__ = 'VS-FW'
+  window.__VUE_BANNER_ID__ = 'HELP-UKRAINE-NOW'
   restore(`vue-docs-banner-${__VUE_BANNER_ID__}`, 'banner-dismissed')
 })()

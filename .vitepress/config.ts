@@ -173,7 +173,7 @@ export const sidebar = {
           link: '/guide/essentials/lifecycle'
         },
         { text: 'Спостерігачі', link: '/guide/essentials/watchers' },
-        { text: 'Посилання шаблону', link: '/guide/essentials/template-refs' },
+        { text: 'Референції в шаблонах', link: '/guide/essentials/template-refs' },
         {
           text: 'Основи компонентів',
           link: '/guide/essentials/component-basics'
@@ -190,7 +190,7 @@ export const sidebar = {
         { text: 'Реквізити', link: '/guide/components/props' },
         { text: 'Події', link: '/guide/components/events' },
         {
-          text: 'Атрибути Fallthrough',
+          text: 'Прохідні атрибути',
           link: '/guide/components/attrs'
         },
         { text: 'Слоти', link: '/guide/components/slots' },
@@ -252,11 +252,11 @@ export const sidebar = {
       text: 'Найкращі практики',
       items: [
         {
-          text: 'Підготовка до продакшна',
+          text: 'Розгортання продакшну',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Швидкодія',
+          text: 'Продуктивність',
           link: '/guide/best-practices/performance'
         },
         {
@@ -642,7 +642,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
 
     editLink: {
-      repo: 'vuejsorgua/docs',
+      repo: 'vuejs-translations/docs-uk',
       text: 'Редагувати цю сторінку на GitHub'
     },
 

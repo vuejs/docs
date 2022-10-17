@@ -166,7 +166,7 @@ Called after the component has been unmounted.
 
 ## errorCaptured
 
-Called when an error propagating from a descendent component has been captured.
+Called when an error propagating from a descendant component has been captured.
 
 - **Type**
 

@@ -1,18 +1,18 @@
-# Props
+# Реквізити {#props}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> Ця сторінка передбачає, що ви вже прочитали [основи компонентів](/guide/essentials/component-basics). Прочитайте це спочатку, якщо ви новачок у компонентах.
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Free Vue.js Props Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Безкоштовний урок по реквізитах у Vue.js"/>
 </div>
 
-## Props Declaration
+## Оголошення реквізитів {#props-declaration}
 
-Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in [its dedicated section](/guide/components/attrs)).
+Компоненти Vue вимагають явного оголошення реквізитів, щоб Vue знав, які зовнішні реквізити, передані компоненту, слід розглядати як прохідні атрибути (що буде обговорюватися в [цьому спеціальному розділі](/guide/components/attrs)).
 
 <div class="composition-api">
 
-In SFCs using `<script setup>`, props can be declared using the `defineProps()` macro:
+У SFC, які використовують `<script setup>`, реквізити можна оголошувати за допомогою `defineProps()`:
 
 ```vue
 <script setup>
@@ -22,31 +22,31 @@ console.log(props.foo)
 </script>
 ```
 
-In non-`<script setup>` components, props are declared using the [`props`](/api/options-state.html#props) option:
+У компонентах без `<script setup>`, реквізити оголошуються за допомогою параметра [`props`](/api/options-state.html#props):
 
 ```js
 export default {
   props: ['foo'],
   setup(props) {
-    // setup() receives props as the first argument.
+    // setup() отримує реквізити як перший аргумент.
     console.log(props.foo)
   }
 }
 ```
 
-Notice the argument passed to `defineProps()` is the same as the value provided to the `props` options: the same props options API is shared between the two declaration styles.
+Зауважте, що аргумент, переданий у `defineProps()`, такий самий, як значення, надане параметрам `props`: той самий API параметрів реквізитів використовується двома стилями оголошення.
 
 </div>
 
 <div class="options-api">
 
-Props are declared using the [`props`](/api/options-state.html#props) option:
+Реквізити оголошуються за допомогою параметра [`props`](/api/options-state.html#props):
 
 ```js
 export default {
   props: ['foo'],
   created() {
-    // props are exposed on `this`
+    // реквізит зберігається в `this`
     console.log(this.foo)
   }
 }
@@ -54,7 +54,7 @@ export default {
 
 </div>
 
-In addition to declaring props using an array of strings, we can also use the object syntax:
+На додаток до оголошення реквізитів за допомогою масиву рядкових величин, ми також можемо використовувати об’єктний синтаксис:
 
 <div class="options-api">
 
@@ -71,7 +71,7 @@ export default {
 <div class="composition-api">
 
 ```js
-// in <script setup>
+// З <script setup>
 defineProps({
   title: String,
   likes: Number
@@ -79,7 +79,7 @@ defineProps({
 ```
 
 ```js
-// in non-<script setup>
+// Без <script setup>
 export default {
   props: {
     title: String,
@@ -90,19 +90,19 @@ export default {
 
 </div>
 
-For each property in the object declaration syntax, the key is the name of the prop, while the value should be the constructor function of the expected type.
+Для кожної властивості в синтаксисі оголошення об’єкта, ключ — це ім’я реквізиту, тоді як значення має бути функцією-конструктором очікуваного типу.
 
-This not only documents your component, but will also warn other developers using your component in the browser console if they pass the wrong type. We will discuss more details about [prop validation](#prop-validation) further down this page.
+Це не лише документує ваш компонент, але й попередить інших розробників, які використовують ваш компонент у консолі браузера, якщо вони передають неправильний тип. Ми обговоримо додаткові відомості про [перевірку реквізитів](#prop-validation) далі на цій сторінці.
 
 <div class="options-api">
 
-See also: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
+Дивіться також: [типізація реквізитів компонента](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
 <div class="composition-api">
 
-If you are using TypeScript with `<script setup>`, it's also possible to declare props using pure type annotations:
+Якщо ви використовуєте TypeScript із `<script setup>`, можна також оголосити реквізити за допомогою суто анотацій типу:
 
 ```vue
 <script setup lang="ts">
@@ -113,15 +113,15 @@ defineProps<{
 </script>
 ```
 
-More details: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+Детальніше: [типізація реквізитів компонента](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
-## Prop Passing Details
+## Деталі передачі реквізиту {#prop-passing-details}
 
-### Prop Name Casing
+### Регістр імені реквізиту {#prop-name-casing}
 
-We declare long prop names using camelCase because this avoids having to use quotes when using them as property keys, and allows us to reference them directly in template expressions because they are valid JavaScript identifiers:
+Ми оголошуємо довгі імена реквізитів за допомогою camelCase, оскільки це дозволяє уникнути необхідності використовувати лапки під час використання їх як ключів властивостей і дозволяє нам посилатися на них безпосередньо у виразах шаблону, бо вони є дійсними ідентифікаторами JavaScript:
 
 <div class="composition-api">
 
@@ -148,91 +148,91 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Technically, you can also use camelCase when passing props to a child component (except in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
+Технічно ви також можете використовувати camelCase під час передачі реквізитів дочірньому компоненту (за винятком [шаблонів DOM](/guide/essentials/component-basics.html#dom-template-parsing-caveats)). Однак, угода передбачає використання kebab-case у всіх випадках для узгодження з атрибутами HTML:
 
 ```vue-html
-<MyComponent greeting-message="hello" />
+<MyComponent greeting-message="привіт" />
 ```
 
-We use [PascalCase for component tags](/guide/components/registration.html#component-name-casing) when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
+Ми використовуємо [PascalCase для тегів компонентів](/guide/components/registration.html#component-name-casing), коли це можливо, оскільки це покращує читабельність шаблону, відрізняючи компоненти Vue від нативних елементів. Однак використання camelCase під час передачі реквізитів не має такої практичної користі, тому ми вирішуємо дотримуватись конвенцій кожної мови.
 
-### Static vs. Dynamic Props
+### Статичні та динамічні реквізити {#static-vs-dynamic-props}
 
-So far, you've seen props passed as static values, like in:
+Наразі ви бачили реквізити, що передавалися як статичні значення, наприклад:
 
 ```vue-html
-<BlogPost title="My journey with Vue" />
+<BlogPost title="Моя подорож з Vue" />
 ```
 
-You've also seen props assigned dynamically with `v-bind` or its `:` shortcut, such as in:
+Ви також бачили реквізити, призначені динамічно за допомогою `v-bind` або його скорочення `:`, наприклад:
 
 ```vue-html
-<!-- Dynamically assign the value of a variable -->
+<!-- Динамічне присвоєння значення змінної -->
 <BlogPost :title="post.title" />
 
-<!-- Dynamically assign the value of a complex expression -->
+<!-- Динамічне присвоєння значення складного виразу -->
 <BlogPost :title="post.title + ' by ' + post.author.name" />
 ```
 
-### Passing Different Value Types
+### Передача значень різних типів {#passing-different-value-types}
 
-In the two examples above, we happen to pass string values, but _any_ type of value can be passed to a prop.
+У двох наведених вище прикладах ми передаємо рядкові значення, але значення _будь-якого_ типу може бути передане реквізиту.
 
-#### Number
+#### Число {#number}
 
 ```vue-html
-<!-- Even though `42` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.       -->
+<!-- Незважаючи на те, що `42` є статичним, нам потрібен v-bind, щоб повідомити це Vue -->
+<!-- це вираз JavaScript, а не рядок. -->
 <BlogPost :likes="42" />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамічне присвоєння значення змінної. -->
 <BlogPost :likes="post.likes" />
 ```
 
-#### Boolean
+#### Логічний {#boolean}
 
 ```vue-html
-<!-- Including the prop with no value will imply `true`. -->
+<!-- Передача реквізиту без значення означатиме `true`. -->
 <BlogPost is-published />
 
-<!-- Even though `false` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.          -->
+<!-- Незважаючи на те, що `false` є статичним, нам потрібен v-bind, щоб повідомити це Vue -->
+<!-- це вираз JavaScript, а не рядок. -->
 <BlogPost :is-published="false" />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамічне присвоєння значення змінної. -->
 <BlogPost :is-published="post.isPublished" />
 ```
 
-#### Array
+#### Масив {#array}
 
 ```vue-html
-<!-- Even though the array is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.            -->
+<!-- Незважаючи на те, що масив є статичним, нам потрібен v-bind, щоб повідомити це Vue -->
+<!-- це вираз JavaScript, а не рядок. -->
 <BlogPost :comment-ids="[234, 266, 273]" />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамічне присвоєння значення змінної. -->
 <BlogPost :comment-ids="post.commentIds" />
 ```
 
-#### Object
+#### Об’єкт {#object}
 
 ```vue-html
-<!-- Even though the object is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.             -->
+<!-- Незважаючи на те, що об’єкт є статичним, нам потрібен v-bind, щоб повідомити це Vue -->
+<!-- це вираз JavaScript, а не рядок. -->
 <BlogPost
   :author="{
-    name: 'Veronica',
+    name: 'Вероніка',
     company: 'Veridian Dynamics'
   }"
  />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамічне присвоєння значення змінної. -->
 <BlogPost :author="post.author" />
 ```
 
-### Binding Multiple Properties Using an Object
+### Прив’язка кількох реквізитів за допомогою об’єкта {#binding-multiple-properties-using an-object}
 
-If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
+Якщо ви хочете передати всі властивості об’єкта як реквізит, ви можете використовувати [`v-bind` без аргументу](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` замість `:prop-name`). Наприклад, задано об’єкт `post`:
 
 <div class="options-api">
 
@@ -242,7 +242,7 @@ export default {
     return {
       post: {
         id: 1,
-        title: 'My Journey with Vue'
+        title: 'Моя подорож з Vue'
       }
     }
   }
@@ -255,36 +255,36 @@ export default {
 ```js
 const post = {
   id: 1,
-  title: 'My Journey with Vue'
+  title: 'Моя подорож з Vue'
 }
 ```
 
 </div>
 
-The following template:
+Наступний шаблон:
 
 ```vue-html
 <BlogPost v-bind="post" />
 ```
 
-Will be equivalent to:
+Буде еквівалентним до:
 
 ```vue-html
 <BlogPost :id="post.id" :title="post.title" />
 ```
 
-## One-Way Data Flow
+## Односторонній потік даних {#one-way-data-flow}
 
-All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
+Всі реквізити формують **односторонню зв’язку** між дочірньою та батьківською властивостями: коли батьківська властивість оновлюється, вона переходить до дочірньої, але не навпаки. Це запобігає випадковій зміни стану батьківського компоненту дочірніми, що може ускладнити розуміння потоку даних вашої програми.
 
-In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console:
+Крім того, щоразу, коли батьківський компонент оновлюється, усі атрибути в дочірньому компоненті оновлюватимуться останнім значенням. Це означає, що **не** слід намагатися змінити реквізит всередині дочірнього компонента. Якщо ви це зробите, Vue попередить вас у консолі:
 
 <div class="composition-api">
 
 ```js
 const props = defineProps(['foo'])
 
-// ❌ warning, props are readonly!
+// ❌ попередження, реквізити доступні лише для читання!
 props.foo = 'bar'
 ```
 
@@ -295,7 +295,7 @@ props.foo = 'bar'
 export default {
   props: ['foo'],
   created() {
-    // ❌ warning, props are readonly!
+    // ❌ попередження, реквізити доступні лише для читання!
     this.foo = 'bar'
   }
 }
@@ -303,17 +303,17 @@ export default {
 
 </div>
 
-There are usually two cases where it's tempting to mutate a prop:
+Зазвичай є два випадки, коли виникає бажання змінити реквізит:
 
-1. **The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.** In this case, it's best to define a local data property that uses the prop as its initial value:
+1. **Реквізит використовується для передачі початкового значення; потім дочірній компонент хоче використовувати його як властивість локальних даних.** У цьому випадку найкраще визначити властивість локальних даних, яка використовує реквізит як початкове значення:
 
    <div class="composition-api">
 
    ```js
    const props = defineProps(['initialCounter'])
 
-   // counter only uses props.initialCounter as the initial value;
-   // it is disconnected from future prop updates.
+   // counter використовує лише props.initialCounter як початкове значення;
+   // його відключено від майбутніх оновлень реквізиту.
    const counter = ref(props.initialCounter)
    ```
 
@@ -325,8 +325,8 @@ There are usually two cases where it's tempting to mutate a prop:
      props: ['initialCounter'],
      data() {
        return {
-         // counter only uses this.initialCounter as the initial value;
-         // it is disconnected from future prop updates.
+         // counter використовує лише props.initialCounter як початкове значення;
+         // його відключено від майбутніх оновлень реквізиту.
          counter: this.initialCounter
        }
      }
@@ -335,14 +335,14 @@ There are usually two cases where it's tempting to mutate a prop:
 
    </div>
 
-2. **The prop is passed in as a raw value that needs to be transformed.** In this case, it's best to define a computed property using the prop's value:
+2. **Реквізит передається як необроблене значення, яке потрібно трансформувати.** У цьому випадку найкраще визначити обчислювану властивість за допомогою значення реквізиту:
 
    <div class="composition-api">
 
    ```js
    const props = defineProps(['size'])
 
-   // computed property that auto-updates when the prop changes
+   // обчислювана властивість, яка автоматично оновлюється, коли реквізит змінюється
    const normalizedSize = computed(() => props.size.trim().toLowerCase())
    ```
 
@@ -353,7 +353,7 @@ There are usually two cases where it's tempting to mutate a prop:
    export default {
      props: ['size'],
      computed: {
-       // computed property that auto-updates when the prop changes
+       // обчислювана властивість, яка автоматично оновлюється, коли реквізит змінюється
        normalizedSize() {
          return this.size.trim().toLowerCase()
        }
@@ -363,67 +363,67 @@ There are usually two cases where it's tempting to mutate a prop:
 
    </div>
 
-### Mutating Object / Array Props
+### Зміна об'єкту / масиву як реквізита {#mutating-object-array-props}
 
-When objects and arrays are passed as props, while the child component cannot mutate the prop binding, it **will** be able to mutate the object or array's nested properties. This is because in JavaScript objects and arrays are passed by reference, and it is unreasonably expensive for Vue to prevent such mutations.
+Коли об’єкти та масиви передаються як реквізити, хоча дочірній компонент не може змінювати прив’язку реквізитів, він **зможе** змінити вкладені властивості об’єкта чи масиву. Це пов’язано з тим, що в JavaScript об’єкти та масиви передаються за посиланням, і для Vue необґрунтовано дорого запобігати таким мутаціям.
 
-The main drawback of such mutations is that it allows the child component to affect parent state in a way that isn't obvious to the parent component, potentially making it more difficult to reason about the data flow in the future. As a best practice, you should avoid such mutations unless the parent and child are tightly coupled by design. In most cases, the child should [emit an event](/guide/components/events.html) to let the parent perform the mutation.
+Основний недолік таких мутацій полягає в тому, що вони дозволяють дочірньому компоненту впливати на батьківський стан у спосіб, який не є очевидним для батьківського компонента, потенційно ускладнюючи потік даних у майбутньому. Як найкраща практика, ви повинні уникати таких мутацій, якщо тільки батько та дитина не тісно пов’язані задумом. У більшості випадків нащадок повинен [випромінювати подію](/guide/components/events.html), щоб дозволити батькові виконати мутацію.
 
-## Prop Validation
+## Перевірка реквізиту {#prop-validation}
 
-Components can specify requirements for their props, such as the types you've already seen. If a requirement is not met, Vue will warn you in the browser's JavaScript console. This is especially useful when developing a component that is intended to be used by others.
+Компоненти можуть вказувати вимоги до своїх реквізитів, наприклад типи, які ви вже бачили. Якщо вимога не виконується, Vue попередить вас у консолі JavaScript браузера. Це особливо корисно під час розробки компонента, призначеного для використання іншими.
 
-To specify prop validations, you can provide an object with validation requirements to the <span class="composition-api">`defineProps()` macro</span><span class="options-api">`props` option</span>, instead of an array of strings. For example:
+Щоб указати перевірку реквізиту, ви можете надати об’єкт із вимогами перевірки для <span class="composition-api">`defineProps()` макроса</span><span class="options-api">`props` параметр </span> замість масиву рядкових величин. Наприклад:
 
 <div class="composition-api">
 
 ```js
 defineProps({
-  // Basic type check
-  //  (`null` and `undefined` values will allow any type)
+  // Основна перевірка типу
+  // (`null` та `undefined` значення дозволять будь-який тип)
   propA: Number,
-  // Multiple possible types
+  // Кілька можливих типів
   propB: [String, Number],
-  // Required string
+  // Обов'язковий рядок
   propC: {
     type: String,
     required: true
   },
-  // Number with a default value
+  // Число зі значенням за промовчанням
   propD: {
     type: Number,
     default: 100
   },
-  // Object with a default value
+  // Об'єкт зі значенням за промовчанням
   propE: {
     type: Object,
-    // Object or array defaults must be returned from
-    // a factory function. The function receives the raw
-    // props received by the component as the argument.
+    // Значення за промовчанням для об’єктів або масивів мають бути повернуті
+    // фабричною функцією. Функція отримує необроблені реквізити,
+    // отримані компонентом як аргумент.
     default(rawProps) {
-      return { message: 'hello' }
+      return { message: 'Привіт' }
     }
   },
-  // Custom validator function
+  // Спеціальна функція перевірки
   propF: {
     validator(value) {
-      // The value must match one of these strings
-      return ['success', 'warning', 'danger'].includes(value)
+      // Значення має відповідати одному з цих рядків
+      return ['успіх', 'увага', 'небезпека'].includes(value)
     }
   },
-  // Function with a default value
+  // Функція зі значенням за промовчанням
   propG: {
     type: Function,
-    // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+    // На відміну від об’єкта чи масиву за промовчанням, це не фабрична функція – це функція, яка слугуватиме значенням за промовчанням
     default() {
-      return 'Default function'
+      return 'Функція за промовчанням'
     }
   }
 })
 ```
 
 :::tip
-Code inside the `defineProps()` argument **cannot access other variables declared in `<script setup>`**, because the entire expression is moved to an outer function scope when compiled.
+Код всередині `defineProps()` **не може отримати доступ до інших змінних, оголошених з `<script setup>`**, оскільки весь вираз переміщується до зовнішньої область видимості функції під час компіляції.
 :::
 
 </div>
@@ -432,44 +432,44 @@ Code inside the `defineProps()` argument **cannot access other variables declare
 ```js
 export default {
   props: {
-    // Basic type check
-    //  (`null` and `undefined` values will allow any type)
+    // Основна перевірка типу
+    // (`null` та `undefined` значення дозволять будь-який тип)
     propA: Number,
-    // Multiple possible types
+    // Кілька можливих типів
     propB: [String, Number],
-    // Required string
+    // Обов'язковий рядок
     propC: {
       type: String,
       required: true
     },
-    // Number with a default value
+    // Число зі значенням за промовчанням
     propD: {
       type: Number,
       default: 100
     },
-    // Object with a default value
+    // Об'єкт зі значенням за промовчанням
     propE: {
       type: Object,
-      // Object or array defaults must be returned from
-      // a factory function. The function receives the raw
-      // props received by the component as the argument.
+      // Значення за промовчанням для об’єктів або масивів мають бути повернуті
+      // фабричною функцією. Функція отримує необроблені реквізити,
+      // отримані компонентом як аргумент.
       default(rawProps) {
-        return { message: 'hello' }
+        return { message: 'Привіт' }
       }
     },
-    // Custom validator function
+    // Спеціальна функція перевірки
     propF: {
       validator(value) {
-        // The value must match one of these strings
-        return ['success', 'warning', 'danger'].includes(value)
+        // Значення має відповідати одному з цих рядків
+        return ['успіх', 'увага', 'небезпека'].includes(value)
       }
     },
-    // Function with a default value
+    // Функція зі значенням за промовчанням
     propG: {
       type: Function,
-      // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+      // На відміну від об’єкта чи масиву за промовчанням, це не фабрична функція – це функція, яка слугуватиме значенням за промовчанням
       default() {
-        return 'Default function'
+        return 'Функція за промовчанням'
       }
     }
   }
@@ -478,34 +478,34 @@ export default {
 
 </div>
 
-Additional details:
+Додаткова інформація:
 
-- All props are optional by default, unless `required: true` is specified.
+- Усі реквізити є необов’язковими за промовчанням, якщо не вказано `required: true`.
 
-- An absent optional prop other than `Boolean` will have `undefined` value.
+- Відсутній додатковий реквізит, відмінний від `Boolean`, матиме значення `undefined`.
 
-- The `Boolean` absent props will be cast to `false`. You should set a `default` value for it in order to get desired behavior.
+- Відсутній реквізит `Boolean` буде приведений до `false`. Ви повинні встановити для нього значення за промовчанням, щоб отримати бажану поведінку.
 
-- If a `default` value is specified, it will be used if the resolved prop value is `undefined` - this includes both when the prop is absent, or an explicit `undefined` value is passed.
+- Якщо `default` (значення за промовчанням) вказано, воно використовуватиметься, якщо розв’язане значення реквізиту `undefined` - це стосується як випадків, коли реквізит відсутній, так і передається явне значення `undefined`.
 
-When prop validation fails, Vue will produce a console warning (if using the development build).
+Коли перевірка реквізиту не вдасться, Vue видасть консольне попередження (якщо використовується збірка розробки).
 
 <div class="composition-api">
 
-If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+Якщо використовується [оголошення реквізитів на основі типів](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" />, Vue докладе всіх зусиль для компіляції анотацій типів в еквівалентні оголошення реквізитів. Наприклад, `defineProps<{ msg: string }>` буде скомпільовано в `{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
 
 ::: tip Note
-Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc.) will not be available inside `default` or `validator` functions.
+Зауважте, що реквізити перевіряються **до** створення екземпляра компонента, тому властивості екземпляра (наприклад, `data`, `computed` тощо) не будуть доступні у функціях `default` або `validator`.
 :::
 
 </div>
 
-### Runtime Type Checks
+### Перевірки типу виконання {#runtime-type-checks}
 
-The `type` can be one of the following native constructors:
+`type` може бути одним із таких нативних конструкторів:
 
 - `String`
 - `Number`
@@ -516,7 +516,7 @@ The `type` can be one of the following native constructors:
 - `Function`
 - `Symbol`
 
-In addition, `type` can also be a custom class or constructor function and the assertion will be made with an `instanceof` check. For example, given the following class:
+Крім того, `type` також може бути спеціальним класом або функцією-конструктором, і твердження буде зроблено з перевіркою `instanceof`. Наприклад, задано наступний клас:
 
 ```js
 class Person {
@@ -527,7 +527,7 @@ class Person {
 }
 ```
 
-You could use it as a prop's type:
+Ви можете використовувати його як тип реквізиту:
 
 <div class="composition-api">
 
@@ -550,11 +550,11 @@ export default {
 
 </div>
 
-Vue will use `instanceof Person` to validate whether the value of the `author` prop is indeed an instance of the `Person` class.
+Vue використовуватиме `instanceof Person`, щоб перевірити, чи справді значення властивості `author` є екземпляром класу `Person`.
 
-## Boolean Casting
+## Логічна перевірка {#boolean-casting}
 
-Props with `Boolean` type has special casting rules to mimic the behavior of native boolean attributes. Given a `<MyComponent>` with the following declaration:
+Реквізити з типом `Boolean` мають спеціальні правила приведення, щоб імітувати поведінку власних логічних атрибутів. Дано `<MyComponent>` з таким оголошенням:
 
 <div class="composition-api">
 
@@ -577,17 +577,17 @@ export default {
 
 </div>
 
-The component can be used like this:
+Компонент можна використовувати таким чином:
 
 ```vue-html
-<!-- equivalent of passing :disabled="true" -->
+<!-- еквівалент передачі :disabled="true" -->
 <MyComponent disabled />
 
-<!-- equivalent of passing :disabled="false" -->
+<!-- еквівалент передачі :disabled="false" -->
 <MyComponent />
 ```
 
-When a prop is declared to allow multiple types, e.g.
+Коли реквізит оголошено таким чином, що він дозволяє кілька типів, наприклад:
 
 <div class="composition-api">
 
@@ -610,4 +610,4 @@ export default {
 
 </div>
 
-The casting rules for `Boolean` will apply regardless of type appearance order.
+Правила приведення для `Boolean` застосовуватимуться незалежно від порядку появи типу.
