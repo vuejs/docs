@@ -10,7 +10,7 @@ const { useKeepAlive } = defineProps({ useKeepAlive: Boolean })
 <template>
   <div class="demo">
     <label><input type="radio" v-model="current" :value="CompA" /> A</label>
-    <label><input type="radio" v-model="current" :value="CompB" /> B</label>
+    <label><input type="radio" v-model="current" :value="CompB" /> Б</label>
     <template v-if="useKeepAlive">
       <KeepAlive>
         <component :is="current"></component>
