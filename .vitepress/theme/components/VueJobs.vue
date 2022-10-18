@@ -1,13 +1,6 @@
 <script lang="ts">
 // shared data across instances so we load only once
-const base = `https://app.vuejobs.com/feed/vuejs/docs?format=json`
-
-</script>
-
-<script setup lang="ts">
-import { onMounted, computed } from 'vue'
-
-let vuejobs = $ref<HTMLElement>()
+const base = 'https://app.vuejobs.com/feed/vuejs/docs?format=json'
 
 let items = $ref<Jobs[]>([])
 
@@ -15,14 +8,20 @@ type Jobs = {
   organization: Organization;
   title: string;
   link: string;
-  locations: Array<string>;
-  remote: false | "ALLOWED" | "ONLY";
+  locations: string[];
+  remote: false | 'ALLOWED' | 'ONLY';
 };
 
 type Organization = {
   name: string;
-  avatar: string; 
+  avatar: string;
 };
+</script>
+
+<script setup lang="ts">
+import { onMounted, computed } from 'vue'
+
+let vuejobs = $ref<HTMLElement>()
 
 const openings = computed(() =>
   items.sort(() => 0.5 - Math.random()).slice(0, 2)
@@ -44,8 +43,9 @@ onMounted(async () => {
         target="_blank"
       >
         <div class="vj-company-logo">
-          <img :src="job.organization.avatar"
-            :alt="`${job.organization.name}'s logo for hiring purposes on VueJobs.com.`" />
+          <img 
+            :src="job.organization.avatar" 
+            :alt="`Logo for ${job.organization.name}`" />
         </div>
         <div
           style="
@@ -57,7 +57,7 @@ onMounted(async () => {
           <div class="vj-job-title">{{ job.title }}</div>
           <div class="vj-job-info">
             {{ job.organization.name }} <span>· </span>
-            <span>{{job.remote ? "Remote" : job.locations[0]}}</span>
+            <span>{{ job.remote ? 'Remote' : job.locations[0] }}</span>
           </div>
         </div>
       </a>
@@ -65,11 +65,11 @@ onMounted(async () => {
     <div class="vj-link">
       Jobs by
       <a
-      href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
-      target="_blank"
-      title="Hire Vue.js developers"
-      >vuejobs.com
-    </a>
+        href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
+        target="_blank"
+        title="Hire Vue.js developers"
+        >vuejobs.com</a
+      >
     </div>
   </div>
 </template>
