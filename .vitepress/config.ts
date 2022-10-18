@@ -6,7 +6,7 @@ import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
 import { jobsPlugin } from './jobsMdPlugin'
 
-const nav = [
+const nav: ThemeConfig['nav'] = [
   {
     text: 'Документация',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
@@ -123,7 +123,7 @@ const nav = [
   }
 ]
 
-export const sidebar = {
+export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
       text: 'Приступая к изучению',
@@ -551,7 +551,7 @@ export const sidebar = {
   ]
 }
 
-const i18n = {
+const i18n: ThemeConfig['i18n'] = {
   search: 'Поиск',
   menu: 'Меню',
   toc: 'Содержание',
