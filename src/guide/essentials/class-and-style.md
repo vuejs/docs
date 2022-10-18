@@ -12,7 +12,7 @@
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Безкоштовний урок по динамічних CSS класах у Vue.js"/>
 </div>
 
-### Прив'язування об'єктів
+### Прив'язування об'єктів {#binding-to-objects-1}
 
 Ви можете передати об'єкт в `:class` (скорочена форма для `v-bind:class`) для динамічного перемикання класів:
 

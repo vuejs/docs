@@ -4,34 +4,35 @@ import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 
 # KeepAlive
 
-`<KeepAlive>` is a built-in component that allows us to conditionally cache component instances when dynamically switching between multiple components.
+`<KeepAlive>` — це вбудований компонент, який дозволяє умовно кешувати екземпляри компонентів під час динамічного перемикання між декількома компонентами.
 
-## Basic Usage
 
-In the Component Basics chapter, we introduced the syntax for [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components), using the `<component>` special element:
+## Основне використання {#basic-usage}
+
+У розділі «Основи компонентів» ми представили синтаксис для [динамічних компонентів](/guide/essentials/component-basics.html#dynamic-components), використовуючи спеціальний елемент `<component>`:
 
 ```vue-html
 <component :is="activeComponent" />
 ```
 
-By default, an active component instance will be unmounted when switched away from. This will cause any changed state it holds to be lost. When this component is displayed again, a new instance will be created with only the initial state.
+За промовчанням екземпляр активного компонента буде демонтовано, якщо його вимкнути. Це призведе до втрати будь-якого зміненого стану. Коли цей компонент буде показано знову, буде створено новий екземпляр лише з початковим станом.
 
-In the example below, we have two stateful components - A contains a counter, while B contains a message synced with an input via `v-model`. Try updating the state of one of them, switch away, and then switch back to it:
+У наведеному нижче прикладі ми маємо два компоненти зі збереженням стану: A містить лічильник, а Б містить повідомлення, синхронізоване з введенням через `v-model`. Спробуйте оновити стан одного з них, вимкніться, а потім поверніться до нього:
 
 <SwitchComponent />
 
-You'll notice that when switched back, the previous changed state would have been reset.
+Ви помітите, що після перемикання назад попередній змінений стан було б скинуто.
 
-Creating fresh component instance on switch is normally useful behavior, but in this case, we'd really like the two component instances to be preserved even when they are inactive. To solve this problem, we can wrap our dynamic component with the `<KeepAlive>` built-in component:
+Створення нового екземпляра компонента є корисною поведінкою, але в цьому випадку ми дійсно хотіли б, щоб два екземпляри компонента зберігалися, навіть якщо вони неактивні. Щоб вирішити цю проблему, ми можемо обернути наш динамічний компонент вбудованим компонентом `<KeepAlive>`:
 
 ```vue-html
-<!-- Inactive components will be cached! -->
+<!-- Неактивні компоненти будуть кешовані! -->
 <KeepAlive>
   <component :is="activeComponent" />
 </KeepAlive>
 ```
 
-Now, the state will be persisted across component switches:
+Тепер стан буде збережено для компонентів:
 
 <SwitchComponent use-KeepAlive />
 
@@ -47,39 +48,39 @@ Now, the state will be persisted across component switches:
 </div>
 
 :::tip
-When used in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats), it should be referenced as `<keep-alive>`.
+У разі використання в [шаблонах DOM](/guide/essentials/component-basics.html#dom-template-parsing-caveats) на нього слід посилатися як `<keep-alive>`.
 :::
 
-## Include / Exclude
+## Включити / Виключити {#include-exclude}
 
-By default, `<KeepAlive>` will cache any component instance inside. We can customize this behavior via the `include` and `exclude` props. Both props can be a comma-delimited string, a `RegExp`, or an array containing either types:
+За замовчуванням `<KeepAlive>` кешуватиме будь-який екземпляр компонента всередині. Ми можемо налаштувати цю поведінку за допомогою атрибутів `include` і `exclude`. Обидва атрибути можуть бути рядком із розділеними комами, `RegExp` або масивом, що містить один із типів:
 
 ```vue-html
-<!-- comma-delimited string -->
+<!-- рядок, розділений комами -->
 <KeepAlive include="a,b">
   <component :is="view" />
 </KeepAlive>
 
-<!-- regex (use `v-bind`) -->
+<!-- регулярний вираз (використовуйте `v-bind`) -->
 <KeepAlive :include="/a|b/">
   <component :is="view" />
 </KeepAlive>
 
-<!-- Array (use `v-bind`) -->
+<!-- Масив (використовуйте `v-bind`) -->
 <KeepAlive :include="['a', 'b']">
   <component :is="view" />
 </KeepAlive>
 ```
 
-The match is checked against the component's [`name`](/api/options-misc.html#name) option, so components that need to be conditionally cached by `KeepAlive` must explicitly declare a `name` option.
+Збіг перевіряється з параметром [`name`](/api/options-misc.html#name) компонента, тому компоненти, які потрібно умовно кешувати за допомогою `KeepAlive`, повинні явно оголосити параметр `name`.
 
 :::tip
-Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name.
+Починаючи з версії 3.2.34, однофайловий компонент, який використовує `<script setup>`, автоматично визначатиме свій параметр `name` на основі назви файлу, усуваючи необхідність вручну оголошувати назву.
 :::
 
-## Max Cached Instances
+## Максимальна кількість кешованих екземплярів {#max-cached-instances}
 
-We can limit the maximum number of component instances that can be cached via the `max` prop. When `max` is specified, `<KeepAlive>` behaves like an [LRU cache](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): if the number of cached instances is about to exceed the specified max count, the least recently accessed cached instance will be destroyed to make room for the new one.
+Ми можемо обмежити максимальну кількість екземплярів компонентів, які можна кешувати, за допомогою властивості `max`. Якщо вказано `max`, `<KeepAlive>` поводиться як [кеш LRU](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): якщо кількість кешованих екземплярів приблизно щоб перевищити вказану максимальну кількість, кешований екземпляр, до якого нещодавно зверталися, буде знищено, щоб звільнити місце для нового.
 
 ```vue-html
 <KeepAlive :max="10">
@@ -87,26 +88,26 @@ We can limit the maximum number of component instances that can be cached via th
 </KeepAlive>
 ```
 
-## Lifecycle of Cached Instance
+## Lifecycle of Cached Instance {#lifecycle-of-cached-instance}
 
-When a component instance is removed from the DOM but is part of a component tree cached by `<KeepAlive>`, it goes into a **deactivated** state instead of being unmounted. When a component instance is inserted into the DOM as part of a cached tree, it is **activated**.
+Коли екземпляр компонента видаляється з DOM, але є частиною дерева компонентів, кешованого `<KeepAlive>`, він переходить у **деактивований** стан замість того, щоб бути демонтованим. Коли екземпляр компонента вставляється в DOM як частину кешованого дерева, він **активується**.
 
 <div class="composition-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`onActivated()`](/api/composition-api-lifecycle.html#onactivated) and [`onDeactivated()`](/api/composition-api-lifecycle.html#ondeactivated):
+Компонент, що підтримує роботу, може реєструвати хуки життєвого циклу для цих двох станів за допомогою [`onActivated()`](/api/composition-api-lifecycle.html#onactivated) і [`onDeactivated()`](/api/composition-api-lifecycle.html#ondeactivated):
 
 ```vue
 <script setup>
 import { onActivated, onDeactivated } from 'vue'
 
 onActivated(() => {
-  // called on initial mount
-  // and every time it is re-inserted from the cache
+  // викликається під час початкового монтування
+  // і кожного разу, коли він повторно вставляється з кешу
 })
 
 onDeactivated(() => {
-  // called when removed from the DOM into the cache
-  // and also when unmounted
+  // викликається при видаленні з DOM у кеш
+  // а також коли розмонтуванні
 })
 </script>
 ```
@@ -114,31 +115,31 @@ onDeactivated(() => {
 </div>
 <div class="options-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`activated`](/api/options-lifecycle.html#activated) and [`deactivated`](/api/options-lifecycle.html#deactivated) hooks:
+Компонент може реєструвати хуки життєвого циклу для цих двох станів за допомогою хуків [`activated`](/api/options-lifecycle.html#activated) та [`deactivated`](/api/options-lifecycle.html#deactivated) :
 
 ```js
 export default {
   activated() {
-    // called on initial mount
-    // and every time it is re-inserted from the cache
+    // викликається під час початкового монтування
+    // і кожного разу, коли він повторно вставляється з кешу
   },
   deactivated() {
-    // called when removed from the DOM into the cache
-    // and also when unmounted
+    // викликається при видаленні з DOM у кеш
+    // а також коли розмонтуванні
   }
 }
 ```
 
 </div>
 
-Note that:
+Зауважте:
 
-- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> is also called on mount, and <span class="composition-api">`onDeactivated`</span><span class="options-api">`deactivated`</span> on unmount.
+- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> також викликається під час монтування, а <span class="composition-api">`onDeactivated`</span><span class="options-api">`deactivated`</span> під час демонтування.
 
-- Both hooks work for not only the root component cached by `<KeepAlive>`, but also descendant components in the cached tree.
+- Обидва хуки працюють не лише для кореневого компонента, кешованого `<KeepAlive>`, але й для компонентів-нащадків у кешованому дереві.
 
 ---
 
-**Related**
+**Пов'язані**
 
-- [`<KeepAlive>` API reference](/api/built-in-components.html#keepalive)
+- [Посилання на API `<KeepAlive>`](/api/built-in-components.html#keepalive)

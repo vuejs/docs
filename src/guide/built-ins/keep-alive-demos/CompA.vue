@@ -3,7 +3,7 @@ let count = $ref(0)
 </script>
 
 <template>
-  <p>Current component: A</p>
-  <span style="margin-right:20px">count: {{ count }}</span>
+  <p>Компонент: A</p>
+  <span style="margin-right:20px">Рахунок: {{ count }}</span>
   <button @click="count++">+</button>
 </template>
