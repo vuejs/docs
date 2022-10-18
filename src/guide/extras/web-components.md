@@ -6,7 +6,7 @@ We consider Vue and Web Components to be primarily complementary technologies. V
 
 ## Using Custom Elements in Vue
 
-Vue [scores a perfect 100% in the Custom Elements Everywhere tests](https://custom-elements-everywhere.com/libraries/vue/results/results.html). Consuming custom elements inside a Vue application largely works the same as using native HTML elements, with a few things to keep in mind:
+Consuming custom elements inside a Vue application largely works the same as using native HTML elements, with a few things to keep in mind:
 
 ### Skipping Component Resolution
 
