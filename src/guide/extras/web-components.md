@@ -6,7 +6,7 @@
 
 ## Використання спеціальних елементів у Vue {#using-custom-elements-in-vue}
 
-Vue [отримав ідеальні 100% у тестах Custom Elements Everywhere](https://custom-elements-everywhere.com/libraries/vue/results/results.html). Використання користувальницьких елементів у програмі Vue здебільшого працює так само, як і використання власних елементів HTML, з деякими речами, про які слід пам’ятати:
+Vue [отримав ідеальні 100% у тестах Custom Elements Everywhere](https://custom-elements-everywhere.com/libraries/vue/results/results.html). Використання користувацьких елементів у додатку на Vue здебільшого працює так само, як і використання власних елементів HTML, з деякими речами, про які слід пам’ятати:
 
 ### Запобігання визначення компонента {#skipping-component-resolution}
 
