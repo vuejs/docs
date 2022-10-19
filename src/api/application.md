@@ -146,7 +146,7 @@
 
 - **Також до вашої уваги:**
   - [Надавання / введення](/guide/components/provide-inject.html)
-  - [Provide на рівні додатку](/guide/components/provide-inject.html#app-level-provide)
+  - [Надавання на рівні додатку](/guide/components/provide-inject.html#app-level-provide)
 
 ## app.component()
 
