@@ -39,7 +39,7 @@
 
 ## createSSRApp()
 
-Створює екземпляр додатку в режимі [Гідрації SSR](/guide/scaling-up/ssr.html#client-hydration). Використання точно таке ж, як `createApp()`.
+Створює екземпляр додатку в режимі [гідратації SSR](/guide/scaling-up/ssr.html#client-hydration). Використання точно таке ж, як `createApp()`.
 
 ## app.mount()
 
