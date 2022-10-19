@@ -141,7 +141,7 @@ document.body.appendChild(
   }
   ```
 
-  І використання спеціального елемента:
+  І використання користувацького елемента:
 
   ```vue-html
   <my-element selected index="1"></my-element>
