@@ -185,7 +185,7 @@ import Example from './Example.ce.vue'
 
 console.log(Example.styles) // ["/* вбудований css */"]
 
-// перетворити на власний конструктор елементів
+// перетворити на користувацький конструктор елементів
 const ExampleElement = defineCustomElement(Example)
 
 // зареєструйте
