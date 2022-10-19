@@ -381,7 +381,7 @@ console.log(app.config)
 
   ```js
   app.config.warnHandler = (msg, instance, trace) => {
-    // `trace` is the component hierarchy trace
+    // `trace` — це трасування ієрархії компонентів
   }
   ```
 
