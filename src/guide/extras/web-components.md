@@ -100,7 +100,7 @@ const MyVueElement = defineCustomElement({
   styles: [`/* inlined css */`]
 })
 
-// Зареєструйте настроюваний елемент.
+// Зареєструйте користувацький елемент.
 // Після реєстрації всі теги `<my-vue-element>`
 // на сторінці буде оновлено.
 customElements.define('my-vue-element', MyVueElement)
