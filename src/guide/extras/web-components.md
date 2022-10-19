@@ -167,7 +167,7 @@ document.body.appendChild(
   </my-element>
   ```
 
-#### Надати / ввести {#provideinject}
+#### Надавання / введення {#provideinject}
 
 [Надати / ввести API](/guide/components/provide-inject.html#provide-inject) і [еквівалент композиційного АРІ](/api/composition-api-dependency-injection.html#provide) також працюють між Vue - визначені спеціальні елементи. Однак зауважте, що це працює **тільки між настроюваними елементами**. тобто визначений спеціальний елемент Vue не зможе вводити властивості, надані компонентом Vue, що не є настроюваним елементом.
 
