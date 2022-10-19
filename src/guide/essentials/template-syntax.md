@@ -118,7 +118,7 @@ data() {
 ```vue-html
 {{ number + 1 }}
 
-{{ ok ? 'YES' : 'NO' }}
+{{ ok ? 'ТАК' : 'НІ' }}
 
 {{ message.split('').reverse().join('') }}
 
