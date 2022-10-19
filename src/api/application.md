@@ -35,7 +35,7 @@
   const app = createApp(App)
   ```
 
-- **Дивіться також:** [Гід - Створення додатку Vue](/guide/essentials/application.html)
+- **Також до вашої уваги:** [Гід - Створення додатку Vue](/guide/essentials/application.html)
 
 ## createSSRApp()
 
@@ -144,7 +144,7 @@
 
   </div>
 
-- **Дивіться також:**
+- **Також до вашої уваги:**
   - [Надавання / введення](/guide/components/provide-inject.html)
   - [Provide на рівні додатку](/guide/components/provide-inject.html#app-level-provide)
 
@@ -177,7 +177,7 @@
   const MyComponent = app.component('my-component')
   ```
 
-- **Дивіться також:** [Реєстрація компонента](/guide/components/registration.html)
+- **Також до вашої уваги:** [Реєстрація компонента](/guide/components/registration.html)
 
 ## app.directive()
 
@@ -215,7 +215,7 @@
   const myDirective = app.directive('my-directive')
   ```
 
-- **Дивіться також:** [Користувацькі директиви](/guide/reusability/custom-directives.html)
+- **Також до вашої уваги:** [Користувацькі директиви](/guide/reusability/custom-directives.html)
 
 ## app.use()
 
@@ -250,7 +250,7 @@
   app.use(MyPlugin)
   ```
 
-- **Дивіться також:** [Плагіни](/guide/reusability/plugins.html)
+- **Також до вашої уваги:** [Плагіни](/guide/reusability/plugins.html)
 
 ## app.mixin()
 
@@ -297,7 +297,7 @@
   }
   ```
 
-- **Дивіться також:** [Глобальний API - версія](/api/general.html#version)
+- **Також до вашої уваги:** [Глобальний API - версія](/api/general.html#version)
 
 ## app.config
 
@@ -391,7 +391,7 @@ console.log(app.config)
 
 - **Тип**: `boolean`
 
-- **Дивіться також:** [Гід - Продуктивність](/guide/best-practices/performance.html)
+- **Також до вашої уваги:** [Гід - Продуктивність](/guide/best-practices/performance.html)
 
 ## app.config.compilerOptions
 
@@ -426,7 +426,7 @@ console.log(app.config)
   }
   ```
 
-- **Дивіться також:** [Vue і вебкомпоненти](/guide/extras/web-components.html)
+- **Також до вашої уваги:** [Vue і вебкомпоненти](/guide/extras/web-components.html)
 
 ### app.config.compilerOptions.whitespace
 
@@ -572,4 +572,4 @@ console.log(app.config)
   // покаже 'привіт Vue'
   ```
 
-- **Дивіться також:** [Екземпляр компонента - `$options`](/api/component-instance.html#options)
+- **Також до вашої уваги:** [Екземпляр компонента - `$options`](/api/component-instance.html#options)
