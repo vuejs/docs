@@ -145,7 +145,7 @@
   </div>
 
 - **Дивіться також:**
-  - [Provide / Inject](/guide/components/provide-inject.html)
+  - [Надавання / введення](/guide/components/provide-inject.html)
   - [Provide на рівні додатку](/guide/components/provide-inject.html#app-level-provide)
 
 ## app.component()
