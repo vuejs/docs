@@ -1,4 +1,4 @@
-# API Додатку {#application-api}
+# API додатку {#application-api}
 
 ## createApp()
 
