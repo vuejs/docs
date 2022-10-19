@@ -116,7 +116,7 @@ document.body.appendChild(
 
 #### Життєвий цикл {#Lifecycle}
 
-- Спеціальний елемент Vue монтуватиме внутрішній екземпляр компонента Vue у своєму тіньовому корені, коли елемент [`connectedCallback`](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks) дзвонив вперше.
+- Спеціальний елемент Vue змонтує внутрішній екземпляр компонента Vue у своєму тіньовому корені, коли елемент [`connectedCallback`](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks) викликаний вперше.
 
 - Коли викликається `disconnectedCallback` елемента, Vue перевірить, чи елемент від’єднано від документа після позначки мікрозавдання.
 
