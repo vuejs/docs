@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      greeting: 'Привіт, світ!'
+      greeting: 'Привіт, світе!'
     }
   }
 }
