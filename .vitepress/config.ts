@@ -6,7 +6,7 @@ import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
 import { jobsPlugin } from './jobsMdPlugin'
 
-const nav = [
+const nav: ThemeConfig['nav'] = [
   {
     text: 'Документація',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
@@ -123,7 +123,7 @@ const nav = [
   }
 ]
 
-export const sidebar = {
+export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
       text: 'Початок',
@@ -173,7 +173,7 @@ export const sidebar = {
           link: '/guide/essentials/lifecycle'
         },
         { text: 'Спостерігачі', link: '/guide/essentials/watchers' },
-        { text: 'Посилання шаблону', link: '/guide/essentials/template-refs' },
+        { text: 'Референції в шаблонах', link: '/guide/essentials/template-refs' },
         {
           text: 'Основи компонентів',
           link: '/guide/essentials/component-basics'
@@ -252,11 +252,11 @@ export const sidebar = {
       text: 'Найкращі практики',
       items: [
         {
-          text: 'Підготовка до продакшна',
+          text: 'Розгортання продакшну',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Швидкодія',
+          text: 'Продуктивність',
           link: '/guide/best-practices/performance'
         },
         {
@@ -551,6 +551,10 @@ export const sidebar = {
   ]
 }
 
+// Placeholder of the i18n config for @vuejs-translations.
+// const i18n: ThemeConfig['i18n'] = {
+// }
+
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
@@ -619,6 +623,8 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     nav,
     sidebar,
+    // Placeholder of the i18n config for @vuejs-translations.
+    // i18n,
 
     algolia: {
       indexName: 'vuejs',
