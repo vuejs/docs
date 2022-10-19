@@ -155,7 +155,7 @@ document.body.appendChild(
 
 #### Слоти {#Slots}
 
-Усередині компонента слоти можна відобразити за допомогою елемента `<slot/>`, як зазвичай. Однак під час використання отриманого елемента він приймає лише [власний синтаксис слотів](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots):
+Усередині компонента слоти можна відобразити за допомогою елемента `<slot/>`, як зазвичай. Однак під час використання отриманого елемента він приймає лише [рідний синтаксис слотів](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots):
 
 - [Обмежені слоти](/guide/components/slots.html#scoped-slots) не підтримуються.
 
