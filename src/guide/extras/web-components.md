@@ -188,7 +188,7 @@ console.log(Example.styles) // ["/* вбудований css */"]
 // перетворити на власний конструктор елементів
 const ExampleElement = defineCustomElement(Example)
 
-// зареєструвати
+// зареєструйте
 customElements.define('my-example', ExampleElement)
 ```
 
