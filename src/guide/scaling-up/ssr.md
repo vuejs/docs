@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Server-Side Rendering (SSR)
+# Server-Side Rendering (SSR) {#server-side-rendering-ssr}
 
 ## Overview
 

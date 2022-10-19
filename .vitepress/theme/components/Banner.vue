@@ -207,6 +207,7 @@ html:not(.banner-dismissed) {
     width: auto;
   }
   #vt-top .vt-core .vt-subline {
+    margin-top: 15px;
     font-size: 14px;
   }
 }
