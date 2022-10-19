@@ -635,6 +635,10 @@ export default defineConfigWithTheme<ThemeConfig>({
       }
     },
 
+    i18n: {
+      toc: 'На цій сторінці',
+    },
+
     carbonAds: {
       code: 'CEBDT27Y',
       placement: 'vuejsorg'
