@@ -96,7 +96,7 @@ const MyVueElement = defineCustomElement({
   emits: {},
   template: `...`,
 
-  // defineCustomElement only: CSS буде введено в тіньовий кореневий елемент
+  // Лише defineCustomElement: CSS буде введено в тіньовий кореневий елемент
   styles: [`/* inlined css */`]
 })
 
