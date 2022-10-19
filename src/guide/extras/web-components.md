@@ -151,7 +151,7 @@ document.body.appendChild(
 
 #### Події {#Events}
 
-Події, створені через `this.$emit` або налаштування `emit`, надсилаються як власні [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/EventsCreating_and_triggering_events#adding_custom_data_%E2%80%93_customevent) на спеціальному елементі. Додаткові аргументи події (корисне навантаження) відображатимуться як масив об’єкта CustomEvent як його властивість `detail`.
+Події, створені через `this.$emit` або `emit` в `setup`, надсилаються як рідні [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/EventsCreating_and_triggering_events#adding_custom_data_%E2%80%93_customevent) на користувацькому елементі. Додаткові аргументи події (корисне навантаження) відображатимуться як масив об’єкта CustomEvent як його властивість `detail`.
 
 #### Слоти {#Slots}
 
