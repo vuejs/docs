@@ -219,7 +219,7 @@
 
 ## app.use()
 
-Інсталює [плагін](/guide/reusability/plugins.html).
+Встановлює [плагін](/guide/reusability/plugins.html).
 
 - **Тип**
 
