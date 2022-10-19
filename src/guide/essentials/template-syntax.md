@@ -11,7 +11,7 @@ Vue використовує синтаксис шаблона на основі
 Найелементарнішою формою привʼязування даних є інтерполяція тексту, використовуючи синтаксис "Вуса" (подвійні фігурні дужки):
 
 ```vue-html
-<span>Message: {{ msg }}</span>
+<span>Повідомлення: {{ msg }}</span>
 ```
 
 Тег "вуса" буде замінено на значення властивості `msg` з відповідного екземпляра компонента. Він також буде змінюватись кожного разу, коли властивість `msg` змінюватиметься.
@@ -66,7 +66,7 @@ Vue використовує синтаксис шаблона на основі
 
 ### Логічні атрибути {#boolean-attributes}
 
-[Булеві атрибути](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) це атрибути, які можуть вказувати на значення true/false за допомогою їх присутності в елементі. Наприклад, [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled) є одним із найбільш часто використовуваних булевих атрибутів.
+[Логічні атрибути](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) це атрибути, які можуть вказувати на значення true/false за допомогою їх присутності в елементі. Наприклад, [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled) є одним із найбільш часто використовуваних логічних атрибутів.
 
 `v-bind` в цьому випадку працює трохи по-іншому:
 
