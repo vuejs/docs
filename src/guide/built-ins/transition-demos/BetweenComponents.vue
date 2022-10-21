@@ -1,8 +1,8 @@
 <script setup>
 import { h } from 'vue'
 
-const CompA = () => h('div', 'Component A')
-const CompB = () => h('div', 'Component B')
+const CompA = () => h('div', 'Компонент A')
+const CompB = () => h('div', 'Компонент Б')
 
 let activeComponent = $ref(CompA)
 </script>
@@ -13,7 +13,7 @@ let activeComponent = $ref(CompA)
       <input type="radio" v-model="activeComponent" :value="CompA" /> A
     </label>
     <label>
-      <input type="radio" v-model="activeComponent" :value="CompB" /> B
+      <input type="radio" v-model="activeComponent" :value="CompB" /> Б
     </label>
     <Transition name="fade" mode="out-in">
       <component :is="activeComponent"></component>
