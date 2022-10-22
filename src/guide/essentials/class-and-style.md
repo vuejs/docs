@@ -338,3 +338,20 @@ You can provide an array of multiple (prefixed) values to a style property, for 
 ```
 
 This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
+
+### CSS Functions
+It is best to practice to use JavaScript objects to return CSS functions like `url()`:
+```vue-html
+<div :style=:style="{backgroundImage: this.myUrl}"></div>
+```
+```javascript
+  computed: {
+    myUrl() {
+      return 'url(https://www.foo.com' + this.icon + '.png)'
+    }
+  },
+```
+However, it is also possible to place them in-line using quotes:
+```vue-html
+<div :style=:style="{ 'backgroundImage': 'url(' + this.icon + '.png)' }"></div>
+```
