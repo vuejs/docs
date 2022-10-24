@@ -13,6 +13,7 @@ aside: false
 ## Work in Progress Languages
 
 - [Українська / Ukrainian](https://ua.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ua)]
+- [Français / French](https://fr.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fr)]
 
 ## Starting a new Translation
 
