@@ -219,7 +219,7 @@ const props = defineProps(['title'])
 console.log(props.title)
 ```
 
-Дивіться також: [Типізація реквізитів компонента](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+Також до вашої уваги: [Типізація реквізитів компонента](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 Якщо ви не використовуєте `<script setup>`, реквізити слід оголошувати за допомогою параметра `props`, а об’єкт props буде передано до `setup()` як перший аргумент:
 
@@ -432,9 +432,9 @@ emit('enlarge-text')
 </script>
 ```
 
-Дивіться також: [Типізація випромінювань компонента](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+Також до вашої уваги: [Типізація випромінювань компонента](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
-Якщо ви не використовуєте `<script setup>`, ви можете оголосити випромінювані події за допомогою параметра `emits`. Ви можете отримати доступ до функції `emit` як до властивості контексту налаштування (передається `setup()` як другий аргумент):
+Якщо ви не використовуєте `<script setup>`, ви можете оголосити випромінювані події за допомогою параметра `emits`. Ви можете отримати доступ до функції `emit` як до властивості контексту `setup` (передається `setup()` як другий аргумент):
 
 ```js
 export default {
