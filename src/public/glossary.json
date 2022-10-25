@@ -11,7 +11,7 @@
     },
     {
       "original": "application",
-      "translation": "додаток"
+      "translation": "застосунок"
     },
     {
       "original": "attribute",
@@ -291,11 +291,11 @@
     },
     {
       "original": "SPA, Single-Page Application",
-      "translation": "SPA, одно-сторінковий додаток"
+      "translation": "SPA, односторінковий застосунок"
     },
     {
       "original": "Static Site Generation (SSG)",
-      "translation": "SSG, генерація статичного додатку"
+      "translation": "SSG, генерація статичного сайту"
     },
     {
       "original": "stack",
