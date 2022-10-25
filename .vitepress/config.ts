@@ -636,7 +636,27 @@ export default defineConfigWithTheme<ThemeConfig>({
     },
 
     i18n: {
+      search: 'Пошук',
+      menu: 'Меню',
       toc: 'На цій сторінці',
+      returnToTop: 'Повернутися до початку',
+      appearance: 'Зовнішній вигляд',
+      previous: 'Попередня сторінка',
+      next: 'Наступна сторінка',
+      pageNotFound: 'Сторінку не знайдено',
+      deadLink: {
+        before: 'Ви відкрили посилання, якого не існує:',
+        after: '',
+      },
+      deadLinkReport: {
+        before: 'Будь ласка,',
+        link: 'повідомте нас,',
+        after: 'щоб ми могли це виправити'
+      },
+      footerLicense: {
+        before: '',
+        after: ''
+      },
     },
 
     carbonAds: {
