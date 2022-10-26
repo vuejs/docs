@@ -10,8 +10,7 @@ glob('../../src/**/*.md', { cwd: __dirname }, function (err, files) {
     let headings = content.match(/^#+ .+$/gm);
     for (let h of headings ?? []) {
       let _h = h.replace(/{#.+$/, '').trim();
-      let title = _h.replace(/^\s*#+\s*/, '');
-      content = content.replace(h, `${_h} {#${slugify(title)}}`);
+      content = content.replace(h, `${_h} {#${slugify(_h)}}`);
     }
     fs.writeFileSync(filePath, content, { encoding: 'utf-8' });
   }
