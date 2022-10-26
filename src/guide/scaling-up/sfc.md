@@ -1,6 +1,6 @@
-# Single-File Components
+# Single-File Components {#single-file-components}
 
-## Introduction
+## Introduction {#introduction}
 
 Vue Single-File Components (a.k.a. `*.vue` files, abbreviated as **SFC**) is a special file format that allows us to encapsulate the template, logic, **and** styling of a Vue component in a single file. Here's an example SFC:
 
@@ -29,7 +29,7 @@ export default {
 
 As we can see, Vue SFC is a natural extension of the classic trio of HTML, CSS and JavaScript. The `<template>`, `<script>`, and `<style>` blocks encapsulate and colocate the view, logic and styling of a component in the same file. The full syntax is defined in the [SFC Syntax Specification](/api/sfc-spec).
 
-## Why SFC
+## Why SFC {#why-sfc}
 
 While SFCs require a build step, there are numerous benefits in return:
 
@@ -50,7 +50,7 @@ SFC is a defining feature of Vue as a framework, and is the recommended approach
 
 That said, we do realize there are scenarios where SFCs can feel like overkill. This is why Vue can still be used via plain JavaScript without a build step. If you are just looking for enhancing largely static HTML with light interactions, you can also check out [petite-vue](https://github.com/vuejs/petite-vue), a 6 kB subset of Vue optimized for progressive enhancement.
 
-## How It Works
+## How It Works {#how-it-works}
 
 Vue SFC is a framework-specific file format and must be pre-compiled by [@vue/compiler-sfc](https://github.com/vuejs/core/tree/main/packages/compiler-sfc) into standard JavaScript and CSS. A compiled SFC is a standard JavaScript (ES) module - which means with proper build setup you can import an SFC like a module:
 
@@ -70,7 +70,7 @@ You can play with SFCs and explore how they are compiled in the [Vue SFC Playgro
 
 In actual projects, we typically integrate the SFC compiler with a build tool such as [Vite](https://vitejs.dev/) or [Vue CLI](http://cli.vuejs.org/) (which is based on [webpack](https://webpack.js.org/)), and Vue provides official scaffolding tools to get you started with SFCs as fast as possible. Check out more details in the [SFC Tooling](/guide/scaling-up/tooling) section.
 
-## What About Separation of Concerns?
+## What About Separation of Concerns? {#what-about-separation-of-concerns}
 
 Some users coming from a traditional web development background may have the concern that SFCs are mixing different concerns in the same place - which HTML/CSS/JS were supposed to separate!
 

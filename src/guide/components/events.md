@@ -1,4 +1,4 @@
-# Component Events
+# Component Events {#component-events}
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
@@ -6,7 +6,7 @@
   <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Free Vue.js Lesson on Defining Custom Events"/>
 </div>
 
-## Emitting and Listening to Events
+## Emitting and Listening to Events {#emitting-and-listening-to-events}
 
 A component can emit custom events directly in template expressions (e.g. in a `v-on` handler) using the built-in `$emit` method:
 
@@ -49,7 +49,7 @@ Like components and props, event names provide an automatic case transformation.
 Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component. If there is a need to communicate between sibling or deeply nested components, use an external event bus or a [global state management solution](/guide/scaling-up/state-management.html).
 :::
 
-## Event Arguments
+## Event Arguments {#event-arguments}
 
 It's sometimes useful to emit a specific value with an event. For example, we may want the `<BlogPost>` component to be in charge of how much to enlarge the text by. In those cases, we can pass extra arguments to `$emit` to provide this value:
 
@@ -98,7 +98,7 @@ function increaseCount(n) {
 All extra arguments passed to `$emit()` after the event name will be forwarded to the listener. For example, with `$emit('foo', 1, 2, 3)` the listener function will receive three arguments.
 :::
 
-## Declaring Emitted Events
+## Declaring Emitted Events {#declaring-emitted-events}
 
 Emitted events can be explicitly declared on the component via the <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span><span class="options-api">[`emits`](/api/options-state.html#emits) option</span>:
 
@@ -209,7 +209,7 @@ Although optional, it is recommended to define all emitted events in order to be
 If a native event (e.g., `click`) is defined in the `emits` option, the listener will now only listen to component-emitted `click` events and no longer respond to native `click` events.
 :::
 
-## Events Validation
+## Events Validation {#events-validation}
 
 Similar to prop type validation, an emitted event can be validated if it is defined with the object syntax instead of the array syntax.
 
@@ -269,7 +269,7 @@ export default {
 
 </div>
 
-## Usage with `v-model`
+## Usage with `v-model` {#usage-with-v-model}
 
 Custom events can also be used to create custom inputs that work with `v-model`. Let's revisit how `v-model` is used on a native element:
 
@@ -414,7 +414,7 @@ const value = computed({
 
 </div>
 
-### `v-model` arguments
+### `v-model` arguments {#v-model-arguments}
 
 By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
 
@@ -469,7 +469,7 @@ export default {
 
 </div>
 
-### Multiple `v-model` bindings
+### Multiple `v-model` bindings {#multiple-v-model-bindings}
 
 By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple v-model bindings on a single component instance.
 
@@ -542,7 +542,7 @@ export default {
 
 </div>
 
-### Handling `v-model` modifiers
+### Handling `v-model` modifiers {#handling-v-model-modifiers}
 
 When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, you might also want the `v-model` on your custom input component to support custom modifiers.
 

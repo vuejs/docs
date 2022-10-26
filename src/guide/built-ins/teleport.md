@@ -1,10 +1,10 @@
-# Teleport
+# Teleport {#teleport}
 
  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-teleport" title="Free Vue.js Teleport Lesson"/>
 
 `<Teleport>` is a built-in component that allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM hierarchy of that component.
 
-## Basic Usage
+## Basic Usage {#basic-usage}
 
 Sometimes we may run into the following scenario: a part of a component's template belongs to it logically, but from a visual standpoint, it should be displayed somewhere else in the DOM, outside of the Vue application.
 
@@ -152,13 +152,13 @@ You can combine `<Teleport>` with [`<Transition>`](./transition) to create anima
 The teleport `to` target must be already in the DOM when the `<Teleport>` component is mounted. Ideally, this should be an element outside the entire Vue application. If targeting another element rendered by Vue, you need to make sure that element is mounted before the `<Teleport>`.
 :::
 
-## Using with Components
+## Using with Components {#using-with-components}
 
 `<Teleport>` only alters the rendered DOM structure - it does not affect the logical hierarchy of the components. That is to say, if `<Teleport>` contains a component, that component will remain a logical child of the parent component containing the `<Teleport>`. Props passing and event emitting will continue to work the same way.
 
 This also means that injections from a parent component work as expected, and that the child component will be nested below the parent component in the Vue Devtools, instead of being placed where the actual content moved to.
 
-## Disabling Teleport
+## Disabling Teleport {#disabling-teleport}
 
 In some cases, we may want to conditionally disable `<Teleport>`. For example, we may want to render a component as an overlay for desktop, but inline on mobile. `<Teleport>` supports the `disabled` prop which can be dynamically toggled:
 
@@ -170,7 +170,7 @@ In some cases, we may want to conditionally disable `<Teleport>`. For example, w
 
 Where the `isMobile` state can be dynamically updated by detecting media query changes.
 
-## Multiple Teleports on the Same Target
+## Multiple Teleports on the Same Target {#multiple-teleports-on-the-same-target}
 
 A common use case would be a reusable `<Modal>` component, with the potential for multiple instances to be active at the same time. For this kind of scenario, multiple `<Teleport>` components can mount their content to the same target element. The order will be a simple append - later mounts will be located after earlier ones within the target element.
 

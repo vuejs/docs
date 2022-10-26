@@ -1,6 +1,6 @@
-# Production Deployment
+# Production Deployment {#production-deployment}
 
-## Development vs. Production
+## Development vs. Production {#development-vs-production}
 
 During development, Vue provides a number of features to improve the development experience:
 
@@ -11,7 +11,7 @@ During development, Vue provides a number of features to improve the development
 
 However, these features become useless in production. Some of the warning checks can also incur a small amount of performance overhead. When deploying to production, we should drop all the unused, development-only code branches for smaller payload size and better performance.
 
-## Without Build Tools
+## Without Build Tools {#without-build-tools}
 
 If you are using Vue without a build tool by loading it from a CDN or self-hosted script, make sure to use the production build (dist files that end in `.prod.js`) when deploying to production. Production builds are pre-minified with all development-only code branches removed.
 
@@ -20,7 +20,7 @@ If you are using Vue without a build tool by loading it from a CDN or self-hoste
 
 Consult the [dist file guide](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) for more details.
 
-## With Build Tools
+## With Build Tools {#with-build-tools}
 
 Projects scaffolded via `create-vue` (based on Vite) or Vue CLI (based on webpack) are pre-configured for production builds.
 
@@ -36,7 +36,7 @@ Additional references:
 - [Vite deployment guide](https://vitejs.dev/guide/static-deploy.html)
 - [Vue CLI deployment guide](https://cli.vuejs.org/guide/deployment.html)
 
-## Tracking Runtime Errors
+## Tracking Runtime Errors {#tracking-runtime-errors}
 
 The [app-level error handler](/api/application.html#app-config-errorhandler) can be used to report errors to tracking services:
 

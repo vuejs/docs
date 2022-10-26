@@ -1,4 +1,4 @@
-# Computed Property
+# Computed Property {#computed-property}
 
 Let's keep building on top of the todo list from the last step. Here, we've already added a toggle functionality to each todo. This is done by adding a `done` property to each todo object, and using `v-model` to bind it to a checkbox:
 

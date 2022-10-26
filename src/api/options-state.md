@@ -1,6 +1,6 @@
-# Options: State
+# Options: State {#options-state}
 
-## data
+## data {#data}
 
 A function that returns the initial reactive state for the component instance.
 
@@ -47,7 +47,7 @@ A function that returns the initial reactive state for the component instance.
 
 - **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
-## props
+## props {#props}
 
 Declare the props of a component.
 
@@ -127,7 +127,7 @@ Declare the props of a component.
 
 - **See also:** [Props](/guide/components/props.html)
 
-## computed
+## computed {#computed}
 
 Declare computed properties to be exposed on the component instance.
 
@@ -207,7 +207,7 @@ Declare computed properties to be exposed on the component instance.
 
 - **See also:** [Computed Properties](/guide/essentials/computed.html)
 
-## methods
+## methods {#methods}
 
 Declare methods to be mixed into the component instance.
 
@@ -248,7 +248,7 @@ Declare methods to be mixed into the component instance.
 
 - **See also:** [Event Handling](/guide/essentials/event-handling.html)
 
-## watch
+## watch {#watch}
 
 Declare watch callbacks to be invoked on data change.
 
@@ -366,7 +366,7 @@ Declare watch callbacks to be invoked on data change.
 
 - **See also:** [Watchers](/guide/essentials/watchers.html)
 
-## emits
+## emits {#emits}
 
 Declare the custom events emitted by the component.
 
@@ -431,7 +431,7 @@ Declare the custom events emitted by the component.
 
 * **See also:** [Fallthrough Attributes](/guide/components/attrs.html)
 
-## expose
+## expose {#expose}
 
 Declare exposed public properties when the component instance is accessed by a parent via template refs.
 

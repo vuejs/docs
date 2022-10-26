@@ -13,7 +13,7 @@ const selected = ref('')
 const multiSelected = ref([])
 </script>
 
-# Form Input Bindings
+# Form Input Bindings {#form-input-bindings}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Free Lesson on User Inputs with Vue.js"/>
@@ -47,9 +47,9 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 `v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using <span class="options-api">the `data` option</span><span class="composition-api">reactivity APIs</span>.
 :::
 
-## Basic Usage
+## Basic Usage {#basic-usage}
 
-### Text
+### Text {#text}
 
 ```vue-html
 <p>Message is: {{ message }}</p>
@@ -77,7 +77,7 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to respond to these updates as well, use your own `input` event listener and `value` binding instead of using `v-model`.
 :::
 
-### Multiline text
+### Multiline text {#multiline-text}
 
 ```vue-html
 <span>Multiline message is:</span>
@@ -112,7 +112,7 @@ Note that interpolation inside `<textarea>` won't work. Use `v-model` instead.
 <textarea v-model="text"></textarea>
 ```
 
-### Checkbox
+### Checkbox {#checkbox} {#checkbox}
 
 Single checkbox, boolean value:
 
@@ -199,7 +199,7 @@ In this case, the `checkedNames` array will always contain the values from the c
 
 </div>
 
-### Radio
+### Radio {#radio} {#radio}
 
 ```vue-html
 <div>Picked: {{ picked }}</div>
@@ -232,7 +232,7 @@ In this case, the `checkedNames` array will always contain the values from the c
 
 </div>
 
-### Select
+### Select {#select}
 
 Single select:
 
@@ -360,7 +360,7 @@ export default {
 
 </div>
 
-## Value Bindings
+## Value Bindings {#value-bindings}
 
 For radio, checkbox and select options, the `v-model` binding values are usually static strings (or booleans for checkbox):
 
@@ -412,7 +412,7 @@ The `true-value` and `false-value` attributes don't affect the input's `value` a
 
 `pick` will be set to the value of `first` when the first radio input is checked, and set to the value of `second` when the second one is checked.
 
-### Select Options
+### Select Options {#select-options}
 
 ```vue-html
 <select v-model="selected">
@@ -423,9 +423,9 @@ The `true-value` and `false-value` attributes don't affect the input's `value` a
 
 `v-model` supports value bindings of non-string values as well! In the above example, when the option is selected, `selected` will be set to the object literal value of `{ number: 123 }`.
 
-## Modifiers
+## Modifiers {#modifiers}
 
-### `.lazy`
+### `.lazy` {#lazy}
 
 By default, `v-model` syncs the input with the data after each `input` event (with the exception of IME composition as [stated above](#vmodel-ime-tip)). You can add the `lazy` modifier to instead sync after `change` events:
 
@@ -434,7 +434,7 @@ By default, `v-model` syncs the input with the data after each `input` event (wi
 <input v-model.lazy="msg" />
 ```
 
-### `.number`
+### `.number` {#number}
 
 If you want user input to be automatically typecast as a number, you can add the `number` modifier to your `v-model` managed inputs:
 
@@ -446,7 +446,7 @@ If the value cannot be parsed with `parseFloat()`, then the original value is us
 
 The `number` modifier is applied automatically if the input has `type="number"`.
 
-### `.trim`
+### `.trim` {#trim}
 
 If you want whitespace from user input to be trimmed automatically, you can add the `trim` modifier to your `v-model`-managed inputs:
 
@@ -454,7 +454,7 @@ If you want whitespace from user input to be trimmed automatically, you can add 
 <input v-model.trim="msg" />
 ```
 
-## `v-model` with Components
+## `v-model` with Components {#v-model-with-components}
 
 > If you're not yet familiar with Vue's components, you can skip this for now.
 

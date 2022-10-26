@@ -1,8 +1,8 @@
-# Lifecycle Hooks
+# Lifecycle Hooks {#lifecycle-hooks}
 
 Each Vue component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages.
 
-## Registering Lifecycle Hooks
+## Registering Lifecycle Hooks {#registering-lifecycle-hooks}
 
 For example, the <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> hook can be used to run code after the component has finished the initial rendering and created the DOM nodes:
 
@@ -55,7 +55,7 @@ Do note this doesn't mean that the call must be placed lexically inside `setup()
 
 </div>
 
-## Lifecycle Diagram
+## Lifecycle Diagram {#lifecycle-diagram}
 
 Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
 
