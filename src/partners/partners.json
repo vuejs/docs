@@ -200,38 +200,6 @@
     "hiring": "https://webreinvent.com/career?utm_source=vuejs.org&utm_medium=website&utm_campaign=partner-hiring-link"
   },
   {
-    "name": "Active Logic",
-    "logo": "activelogic.png",
-    "flipLogo": true,
-    "intro": "We’re not just an extension of your Vue.JS development team, we’re a rapid-speed injector. Since 2014, we have been providing premium software development & staff augmentation solutions for various organizations nationwide. By utilizing our 100% on-shore development team, we can conduct the groundwork for a new application, or continue to engineer existing software that needs modifications.",
-    "description": [
-      "Headquartered in the heart of America, our mission is simple - provide nationwide organizations with tailored, technical solutions; one system at a time. We are proud to say that we continue to fulfill our mission on a daily basis.",
-      "We believe that a project, regardless of size or tech stack, should always be managed by a dedicated Software Lead who works closely with you and your team. Their expertise and guidance will better allow you to focus on your daily business operations while we do the heavy lifting.",
-      "We have produced over 200 final projects for our clients in the past 8 years, all of which follow well-known industry standards to ensure their functionality, security, and scalability.",
-      "Optimizing your business operations has never been easier; reach out to us here at Active Logic today!"
-    ],
-    "proficiencies": [
-      "Vue",
-      "Laravel",
-      "Node.js",
-      "React",
-      "React Native",
-      "Angular",
-      "Swift",
-      "Kotlin",
-      ".NET"
-    ],
-    "region": ["North America"],
-    "location": ["Leadwood, Kansas, USA"],
-    "website": {
-      "text": "activelogic.io",
-      "url": "https://activelogic.io/services/vue-js-development/"
-    },
-    "contact": "sales@activelogic.io",
-    "hiring": "https://activelogic.io/careers/",
-    "platinum": true
-  },
-  {
     "name": "Dreamonkey",
     "logo": "dreamonkey.png",
     "hero": "dreamonkey-hero.png",
