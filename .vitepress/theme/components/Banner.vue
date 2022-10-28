@@ -8,12 +8,12 @@ import { ref } from 'vue'
  */
 let open = $ref(true)
 const banner = ref({
-  cta: 'Register Now',
+  cta: 'Get Your Remote Spot',
   title:
-    'Join the Vue community in-person for <strong>VueConf Toronto</strong> from 1-3 November 2022!',
+    'Join the Vue community ONLINE at <strong>VueConf Toronto</strong> from 1-3 November 2022!',
   subtitle: 'Use the code VUEJS to get 25% off on tickets!',
   shortText: 'Join in-person <br> 1-3 November 2022, Toronto, Canada',
-  link: 'https://vuetoronto.com/'
+  link: 'https://vuetoronto.com/tickets'
 })
 /**
  * Call this if the banner is dismissible
