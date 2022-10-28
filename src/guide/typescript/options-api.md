@@ -8,6 +8,8 @@ While Vue does support TypeScript usage with Options API, it is recommended to u
 
 ## Typing Component Props
 
+<VueSchoolLink href="https://vueschool.io/lessons/typing-component-events" title="Learn how to type component emits with this FREE video lesson from Vue School!"/>
+
 Type inference for props in Options API requires wrapping the component with `defineComponent()`. With it, Vue is able to infer the types for the props based on the `props` option, taking additional options such as `required: true` and `default` into account:
 
 ```ts
