@@ -311,7 +311,7 @@ const plusOne = computed(() => count.value + 1, {
   }
 })
 
-// доступ plusOne, має запустити onTrack
+// доступ до plusOne, має запустити onTrack
 console.log(plusOne.value)
 
 // зміна count.value, має запустити onTrigger
