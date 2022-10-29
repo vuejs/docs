@@ -19,11 +19,6 @@ A component can emit custom events directly in template expressions (e.g. in a `
 
 The `$emit()` method is also available on the component instance as `this.$emit()`:
 
-```vue-html
-<!-- MyComponent -->
-<button @click="submit">click me</button>
-```
-  
 ```js
 export default {
   methods: {
