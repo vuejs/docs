@@ -183,7 +183,9 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 ## isReadonly()
 
-Checks if an object is a proxy created by [`readonly()`](./reactivity-core.html#readonly) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
+Checks whether the passed value is a readonly object. The properties of a readonly object can change, but they can't be assigned directly via the passed object.
+
+The proxies created by [`readonly()`](./reactivity-core.html#readonly) and [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly) are both considered readonly, as is a [`computed()`](./reactivity-core.html#computed) ref without a `set` function.
 
 - **Type**
 
