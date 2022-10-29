@@ -1,26 +1,26 @@
-# Event Handling
+# Обработка событий {#event-handling}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/user-events-in-vue-3" title="Free Vue.js Events Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/user-events-in-vue-3" title="Бесплатный урок по обработке событий во Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-events-in-vue-3" title="Free Vue.js Events Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-events-in-vue-3" title="Бесплатный урок по обработке событий во Vue.js"/>
 </div>
 
-## Listening to Events
+## Прослушивание событий {#listening-to-events}
 
-We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="handler"` or with the shortcut, `@click="handler"`.
+Можно использовать директиву `v-on`, которую обычно сокращают до символа `@`, чтобы прослушивать события DOM и запускать какой-нибудь JavaScript-код по их наступлению. Используется как `v-on:click="methodName"` или в сокращённом виде `@click="methodName"`.
 
-The handler value can be one of the following:
+Значение обработчика может быть одним из следующих:
 
-1. **Inline handlers:** Inline JavaScript to be executed when the event is triggered (similar to the native `onclick` attribute).
+1. **Обработчик события в виде инлайн-кода:** Встроенный код JavaScript будет выполняться при срабатывании события (аналогично нативному атрибуту `onclick`).
 
-2. **Method handlers:** A property name or path that points to a method defined on the component.
+2. **Обработчик события в виде метода:** Имя свойства или путь, указывающий на метод, определённый в компоненте.
 
-## Inline Handlers
+## Обработчик события в виде инлайн-кода {#inline-handlers}
 
-Inline handlers are typically used in simple cases, for example:
+Подобный подход обычно используют в очень простых случаях, например:
 
 <div class="composition-api">
 
@@ -42,8 +42,8 @@ data() {
 </div>
 
 ```vue-html
-<button @click="count++">Add 1</button>
-<p>Count is: {{ count }}</p>
+<button @click="count++">Добавить 1</button>
+<p>Счётчик: {{ count }}</p>
 ```
 
 <div class="composition-api">
@@ -57,11 +57,11 @@ data() {
 
 </div>
 
-## Method Handlers
+## Обработчик события в виде метода {#method-handlers}
 
-The logic for many event handlers will be more complex though, and likely isn't feasible with inline handlers. That's why `v-on` can also accept the name or path of a component method you'd like to call.
+Логика многих обработчиков событий будет довольно сложной, поэтому оставлять JavaScript-код в значении атрибута `v-on` бессмысленно. Вот почему `v-on` также принимает имя метода, который потребуется вызвать.
 
-For example:
+Например:
 
 <div class="composition-api">
 
@@ -69,8 +69,8 @@ For example:
 const name = ref('Vue.js')
 
 function greet(event) {
-  alert(`Hello ${name.value}!`)
-  // `event` is the native DOM event
+  alert(`Привет, ${name.value}!`)
+  // `event` — нативное событие DOM
   if (event) {
     alert(event.target.tagName)
   }
@@ -88,9 +88,9 @@ data() {
 },
 methods: {
   greet(event) {
-    // `this` inside methods points to the current active instance
-    alert(`Hello ${this.name}!`)
-    // `event` is the native DOM event
+    // `this` в методе указывает на текущий активный экземпляр
+    alert(`Привет, ${this.name}!`)
+    // `event` — нативное событие DOM
     if (event) {
       alert(event.target.tagName)
     }
@@ -101,8 +101,8 @@ methods: {
 </div>
 
 ```vue-html
-<!-- `greet` is the name of the method defined above -->
-<button @click="greet">Greet</button>
+<!-- `greet` — это название метода, объявленного выше -->
+<button @click="greet">Поприветствовать</button>
 ```
 
 <div class="composition-api">
@@ -116,26 +116,26 @@ methods: {
 
 </div>
 
-A method handler automatically receives the native DOM Event object that triggers it - in the example above, we are able to access the element dispatching the event via `event.target.tagName`.
+Метод обработчика автоматически получает нативное событие DOM, которое его вызвало — в примере выше можно получить доступ к элементу, отправившему событие, через `event.target.tagName`.
 
 <div class="composition-api">
 
-См. также: [Typing Event Handlers](/guide/typescript/composition-api.html#typing-event-handlers) <sup class="vt-badge ts" />
+См. также: [Аннотация событий](/guide/typescript/composition-api.html#typing-event-handlers) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-См. также: [Typing Event Handlers](/guide/typescript/options-api.html#typing-event-handlers) <sup class="vt-badge ts" />
+См. также: [Аннотация событий](/guide/typescript/options-api.html#typing-event-handlers) <sup class="vt-badge ts" />
 
 </div>
 
-### Method vs. Inline Detection
+### Определение метод vs. инлайн {#method-vs-inline-detection}
 
-The template compiler detects method handlers by checking whether the `v-on` value string is a valid JavaScript identifier or property access path. For example, `foo`, `foo.bar` and `foo['bar']` are treated as method handlers, while `foo()` and `count++` are treated as inline handlers.
+Компилятор шаблонов определяет методы обработчиков, проверяя является ли строка значения `v-on` допустимым идентификатором JavaScript или путём для обращения к свойству. Например, `foo`, `foo.bar` и `foo['bar']` будут рассматриваться как обработчики методов, а `foo()` и `count++` — как инлайн-обработчики.
 
-## Calling Methods in Inline Handlers
+## Вызов методов в инлайн-обработчиках {#calling-methods-in-inline-handlers}
 
-Instead of binding directly to a method name, we can also call methods in an inline handler. This allows us to pass the method custom arguments instead of the native event:
+Вместо привязки непосредственно к имени метода, также можно вызывать методы в инлайн-обработчике. Это позволяет передавать в метод пользовательские аргументы вместо нативного события:
 
 <div class="composition-api">
 
@@ -159,8 +159,8 @@ methods: {
 </div>
 
 ```vue-html
-<button @click="say('hello')">Say hello</button>
-<button @click="say('bye')">Say bye</button>
+<button @click="say('привет')">Скажи привет</button>
+<button @click="say('пока')">Скажи пока</button>
 ```
 
 <div class="composition-api">
@@ -174,19 +174,19 @@ methods: {
 
 </div>
 
-## Accessing Event Argument in Inline Handlers
+## Доступ к аргументу события в инлайн-обработчиках {#accessing-event-argument-in-inline-handlers}
 
-Sometimes we also need to access the original DOM event in an inline handler. You can pass it into a method using the special `$event` variable, or use an inline arrow function:
+Иногда может потребоваться получить доступ к оригинальному событию DOM в инлайн-обработчике. Его можно передать в метод с помощью специальной переменной `$event` или использовать стрелочную функцию инлайн:
 
 ```vue-html
-<!-- using $event special variable -->
-<button @click="warn('Form cannot be submitted yet.', $event)">
-  Submit
+<!-- использование специальной переменной $event -->
+<button @click="warn('Форму пока ещё нельзя отправить.', $event)">
+  Отправить
 </button>
 
-<!-- using inline arrow function -->
-<button @click="(event) => warn('Form cannot be submitted yet.', event)">
-  Submit
+<!-- использование стрелочной функции инлайн -->
+<button @click="(event) => warn('Форму пока ещё нельзя отправить.', event)">
+  Отправить
 </button>
 ```
 
@@ -194,7 +194,7 @@ Sometimes we also need to access the original DOM event in an inline handler. Yo
 
 ```js
 function warn(message, event) {
-  // now we have access to the native event
+  // теперь есть доступ к нативному событию
   if (event) {
     event.preventDefault()
   }
@@ -208,7 +208,7 @@ function warn(message, event) {
 ```js
 methods: {
   warn(message, event) {
-    // now we have access to the native event
+    // теперь есть доступ к нативному событию
     if (event) {
       event.preventDefault()
     }
@@ -219,11 +219,11 @@ methods: {
 
 </div>
 
-## Event Modifiers
+## Модификаторы событий {#event-modifiers}
 
-It is a very common need to call `event.preventDefault()` or `event.stopPropagation()` inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.
+Часто может потребоваться вызвать `event.preventDefault()` или `event.stopPropagation()` внутри обработчиков события. Хоть это и легко можно сделать внутри методов, лучше если методы будут содержать в себе только логику и не имеют дела с деталями события DOM.
 
-To address this problem, Vue provides **event modifiers** for `v-on`. Recall that modifiers are directive postfixes denoted by a dot.
+Для решения этой задачи Vue предоставляет **модификаторы событий** для `v-on`. Вспомните, что модификаторы — это постфиксы директивы, отделяемые точкой:
 
 - `.stop`
 - `.prevent`
@@ -233,73 +233,73 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 - `.passive`
 
 ```vue-html
-<!-- the click event's propagation will be stopped -->
+<!-- всплытие события click будет остановлено -->
 <a @click.stop="doThis"></a>
 
-<!-- the submit event will no longer reload the page -->
+<!-- событие submit перестанет перезагружать страницу -->
 <form @submit.prevent="onSubmit"></form>
 
-<!-- modifiers can be chained -->
+<!-- модификаторы можно объединять в цепочки -->
 <a @click.stop.prevent="doThat"></a>
 
-<!-- just the modifier -->
+<!-- можно использовать без обработчиков -->
 <form @submit.prevent></form>
 
-<!-- only trigger handler if event.target is the element itself -->
-<!-- i.e. not from a child element -->
+<!-- вызов обработчика только в случае наступления события непосредственно -->
+<!-- на данном элементе (то есть не на дочернем компоненте) -->
 <div @click.self="doThat">...</div>
 ```
 
 :::tip Совет
-Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **click's default action on the element itself and its children**, while `@click.self.prevent` will only prevent click's default action on the element itself.
+При использовании модификаторов имеет значение их порядок, потому что в той же очерёдности генерируется соответствующий код. Поэтому `@click.prevent.self` предотвратит **действие клика по умолчанию на самом элементе и на его дочерних элементах**, в то время как `@click.self.prevent` предотвратит действие клика по умолчанию только на самом элементе.
 :::
 
-The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the native `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
+Модификаторы `.capture`, `.once` и `.passive` аналогичны [опциям нативного метода `addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
 
 ```vue-html
-<!-- use capture mode when adding the event listener -->
-<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<!-- можно отслеживать события в режиме capture, т.е. событие, нацеленное -->
+<!-- на внутренний элемент, обрабатывается здесь до обработки этим элементом -->
 <div @click.capture="doThis">...</div>
 
-<!-- the click event will be triggered at most once -->
+<!-- обработчик click будет вызван максимум 1 раз -->
 <a @click.once="doThis"></a>
 
-<!-- the scroll event's default behavior (scrolling) will happen -->
-<!-- immediately, instead of waiting for `onScroll` to complete  -->
-<!-- in case it contains `event.preventDefault()`                -->
+<!-- по умолчанию событие scroll (при прокрутке) произойдёт -->
+<!-- незамедлительно, вместо ожидания окончания `onScroll`  -->
+<!-- на случай, если там будет `event.preventDefault()`     -->
 <div @scroll.passive="onScroll">...</div>
 ```
 
-The `.passive` modifier is typically used with touch event listeners for [improving performance on mobile devices](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
+Модификатор `.passive` особенно полезен для [улучшения производительности на мобильных устройствах](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
 
 :::tip Совет
-Do not use `.passive` and `.prevent` together, because `.passive` already indicates to the browser that you _do not_ intend to prevent the event's default behavior, and you will likely see a warning from the browser if you do so.
+Не используйте `.passive` и `.prevent` вместе — `.prevent` будет проигнорирован и браузер скорее всего покажет предупреждение. Запомните, что `.passive` сообщает браузеру, что для события _не будет предотвращаться поведение по умолчанию_.
 :::
 
-## Key Modifiers
+## Модификаторы клавиш {#key-modifiers}
 
-When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` or `@` when listening for key events:
+При прослушивании событий клавиатуры часто нужно отслеживать конкретные клавиши. Vue позволяет использовать модификаторы клавиш при использовании `v-on` или `@` при прослушивании событий клавиш:
 
 ```vue-html
-<!-- only call `submit` when the `key` is `Enter` -->
+<!-- вызвать `vm.submit()` только если `key` будет `Enter` -->
 <input @keyup.enter="submit" />
 ```
 
-You can directly use any valid key names exposed via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case.
+Можно напрямую использовать любые допустимые имена клавиш, предоставляемые через [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) в качестве модификаторов, указывая их имена в kebab-case формате.
 
 ```vue-html
 <input @keyup.page-down="onPageDown" />
 ```
 
-In the above example, the handler will only be called if `$event.key` is equal to `'PageDown'`.
+В примере выше обработчик будет вызван только когда `$event.key` будет `'PageDown'`.
 
-### Key Aliases
+### Псевдонимы клавиш {#key-aliases}
 
-Vue provides aliases for the most commonly used keys:
+Vue предоставляет псевдонимы для наиболее часто используемых клавиш:
 
 - `.enter`
 - `.tab`
-- `.delete` (captures both "Delete" and "Backspace" keys)
+- `.delete` (ловит как «Delete», так и «Backspace»)
 - `.esc`
 - `.space`
 - `.up`
@@ -307,9 +307,9 @@ Vue provides aliases for the most commonly used keys:
 - `.left`
 - `.right`
 
-### System Modifier Keys
+### Системные модификаторы клавиш {#system-modifier-keys}
 
-You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
+Можно использовать следующие модификаторы для прослушивания событий мыши или клавиатуры только при зажатой клавиши-модификатора:
 
 - `.ctrl`
 - `.alt`
@@ -317,42 +317,42 @@ You can use the following modifiers to trigger mouse or keyboard event listeners
 - `.meta`
 
 :::tip Примечание
-On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the Windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+На клавиатурах Apple клавиша meta отмечена знаком ⌘. На клавиатурах Windows клавиша meta отмечена знаком ⊞. На клавиатурах Sun Microsystems клавиша meta отмечена символом ромба ◆. На некоторых клавиатурах, особенно MIT и Lisp machine и их преемников, таких как Knight или space-cadet клавиатуры, клавиша meta отмечена словом «META». На клавиатурах Symbolics, клавиша meta отмечена словом «META» или «Meta».
 :::
 
-For example:
+Например:
 
 ```vue-html
 <!-- Alt + Enter -->
 <input @keyup.alt.enter="clear" />
 
 <!-- Ctrl + Click -->
-<div @click.ctrl="doSomething">Do something</div>
+<div @click.ctrl="doSomething">Сделать что-нибудь</div>
 ```
 
 :::tip Совет
-Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone.
+Обратите внимание, клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий `keyup` должны быть нажаты, когда событие происходит. Другими словами, `keyup.ctrl` будет срабатывать только если отпустить клавишу, удерживая нажатой `ctrl`. Это не сработает, если отпустить только клавишу `ctrl`.
 :::
 
-### `.exact` Modifier
+### Модификатор `.exact` {#exact-modifier}
 
-The `.exact` modifier allows control of the exact combination of system modifiers needed to trigger an event.
+Модификатор `.exact` позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события.
 
 ```vue-html
-<!-- this will fire even if Alt or Shift is also pressed -->
+<!-- сработает, даже если также нажаты Alt или Shift -->
 <button @click.ctrl="onClick">A</button>
 
-<!-- this will only fire when Ctrl and no other keys are pressed -->
+<!-- сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши -->
 <button @click.ctrl.exact="onCtrlClick">A</button>
 
-<!-- this will only fire when no system modifiers are pressed -->
+<!-- сработает, только когда не нажаты никакие системные модификаторы -->
 <button @click.exact="onClick">A</button>
 ```
 
-## Mouse Button Modifiers
+## Модификаторы клавиш мыши {#mouse-button-modifiers}
 
 - `.left`
 - `.right`
 - `.middle`
 
-These modifiers restrict the handler to events triggered by a specific mouse button.
+Эти модификаторы ограничивают обработчик события только вызовами определённой кнопкой мыши.
