@@ -623,15 +623,15 @@ export default defineConfigWithTheme<ThemeConfig>({
         'utf-8'
       )
     ],
-    [
-      'script',
-      {
-        src: 'https://cdn.usefathom.com/script.js',
-        'data-site': 'XNOLWPLB',
-        'data-spa': 'auto',
-        defer: ''
-      }
-    ]
+    // [
+    //   'script',
+    //   {
+    //     src: 'https://cdn.usefathom.com/script.js',
+    //     'data-site': 'XNOLWPLB',
+    //     'data-spa': 'auto',
+    //     defer: ''
+    //   }
+    // ]
   ],
 
   themeConfig: {
