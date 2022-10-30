@@ -28,7 +28,8 @@ const multiSelected = ref([])
 ```vue-html
 <input
   :value="text"
-  @input="event => text = event.target.value">
+  @input="event => text = event.target.value"
+>
 ```
 
 Директива `v-model` помогает упростить указанное выше до:
@@ -102,13 +103,13 @@ const multiSelected = ref([])
 
 </div>
 
-Интерполяция внутри `<textarea>` **НЕ РАБОТАЕТ**. Используйте вместо неё `v-model`.
+Внутри `<textarea>` **ИНТЕРПОЛЯЦИЯ НЕ РАБОТАЕТ**, используйте `v-model`.
 
 ```vue-html
-<!-- НЕ РАБОТАЕТ -->
+<!-- НЕ БУДЕТ РАБОТАТЬ -->
 <textarea>{{ text }}</textarea>
 
-<!-- Хорошо -->
+<!-- А так работает -->
 <textarea v-model="text"></textarea>
 ```
 
