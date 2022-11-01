@@ -333,7 +333,7 @@ In fact, we can do exactly that - we can pass attributes to a slot outlet just l
 Receiving the slot props is a bit different when using a single default slot vs. using named slots. We are going to show how to receive props using a single default slot first, by using `v-slot` directly on the child component tag:
 
 ```vue-html
-<MyComponent v-slot="slotProps">
+<MyComponent v-slot="$slotProps">
   {{ slotProps.text }} {{ slotProps.count }}
 </MyComponent>
 ```
@@ -376,7 +376,7 @@ function MyComponent(slots) {
 
 In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/extras/render-function.html).
 
-Notice how `v-slot="slotProps"` matches the slot function signature. Just like with function arguments, we can use destructuring in `v-slot`:
+Notice how `v-slot="$slotProps"` matches the slot function signature. Just like with function arguments, we can use destructuring in `v-slot`:
 
 ```vue-html
 <MyComponent v-slot="{ text, count }">
