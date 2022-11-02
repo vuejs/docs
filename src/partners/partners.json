@@ -228,5 +228,25 @@
     },
     "contact": "info@dreamonkey.com",
     "hiring": "https://dreamonkey.com/en/work-with-us"
+  },
+  {
+    "name": "Jump24",
+    "logo": "jump24.svg",
+    "flipLogo": true,
+    "hero": "jump24-hero.jpg",
+    "intro": "Hand crafted software, delivered. We work alongside start-ups, enterprises and tech teams creating bespoke web software solutions that will help them grow. Honing our skills since 2013, our strength is our people. We design and build custom applications to the highest standard, so you can reap the benefits.",
+    "description": [
+      "Jump24 is a full-circle development studio that brings ideas to life. From our base in the UK, we’ve worked closely over the years with clients in Europe and the United States, including Jamie Oliver, Admiral, InPost and Buffer. With a team of 16 developers, you’ll be in safe hands with us.",
+      "Long-lasting relationships are our speciality. Whether you’re a startup, enterprise or agency, your story is important to us. We focus on the minute details to help create something that reflects you and your business.",
+      "We’re a talkative bunch, so to find out even more about us, head to our Twitter and LinkedIn."
+    ],
+    "proficiencies": ["Vue", "Laravel", "Tailwind", "Inertia", "React"],
+    "region": ["Europe"],
+    "website": {
+      "text": "jump24.co.uk",
+      "url": "https://jump24.co.uk"
+    },
+    "contact": "hello@jump24.co.uk",
+    "hiring": "jump24.co.uk/careers"
   }
 ]
