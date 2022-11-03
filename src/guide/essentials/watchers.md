@@ -244,6 +244,7 @@ export default {
 }
 ```
 
+In above scenario the initial execution of handler will happen after `beforeCreate` hook, but before `created`.
 </div>
 
 <div class="composition-api">
