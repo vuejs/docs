@@ -687,4 +687,10 @@ MyComponent.emits = ['click']
 
 If the `props` option is not specified, then the `props` object passed to the function will contain all attributes, the same as `attrs`. The prop names will not be normalized to camelCase unless the `props` option is specified.
 
+For functional components with explicit `props`, [attribute fallthrough](/guide/components/attrs.html) works much the same as with normal components. However, for functional components that don't explicitly specify their `props`, only the `class`, `style`, and `onXxx` event listeners will be inherited from the `attrs` by default. In either case, `inheritAttrs` can be set to `false` to disable attribute inheritance:
+
+```js
+MyComponent.inheritAttrs = false
+```
+
 Functional components can be registered and consumed just like normal components. If you pass a function as the first argument to `h()`, it will be treated as a functional component.
