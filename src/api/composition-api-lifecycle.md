@@ -220,7 +220,7 @@ Registers a hook to be called when an error propagating from a descendant compon
 
   - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
 
-## onRenderTracked() <sup class="vt-badge dev-only" /> {#onrendertracked-sup-class-vt-badge-dev-only}
+## onRenderTracked() <sup class="vt-badge dev-only" /> {#onrendertracked}
 
 Registers a debug hook to be called when a reactive dependency has been tracked by the component's render effect.
 
@@ -243,7 +243,7 @@ Registers a debug hook to be called when a reactive dependency has been tracked 
 
 - **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
-## onRenderTriggered() <sup class="vt-badge dev-only" /> {#onrendertriggered-sup-class-vt-badge-dev-only}
+## onRenderTriggered() <sup class="vt-badge dev-only" /> {#onrendertriggered}
 
 Registers a debug hook to be called when a reactive dependency triggers the component's render effect to be re-run.
 
@@ -297,7 +297,7 @@ Registers a callback to be called after the component instance is removed from t
 
 - **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## onServerPrefetch() <sup class="vt-badge" data-text="SSR only" /> {#onserverprefetch-sup-class-vt-badge-data-text-ssr-only}
+## onServerPrefetch() <sup class="vt-badge" data-text="SSR only" /> {#onserverprefetch}
 
 Registers an async function to be resolved before the component instance is to be rendered on the server.
 

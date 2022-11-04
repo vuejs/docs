@@ -576,7 +576,7 @@ export default {
 
 <div class="composition-api">
 
-## Reactivity Transform <sup class="vt-badge experimental" /> \*\* {#reactivity-transform-sup-class-vt-badge-experimental}
+## Reactivity Transform <sup class="vt-badge experimental" /> \*\* {#reactivity-transform}
 
 Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the earlier "counter" example like this:
 

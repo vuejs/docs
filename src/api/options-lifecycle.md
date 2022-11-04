@@ -209,7 +209,7 @@ Called when an error propagating from a descendant component has been captured.
 
   - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
 
-## renderTracked <sup class="vt-badge dev-only" /> {#rendertracked-sup-class-vt-badge-dev-only}
+## renderTracked <sup class="vt-badge dev-only" /> {#rendertracked}
 
 Called when a reactive dependency has been tracked by the component's render effect.
 
@@ -232,7 +232,7 @@ Called when a reactive dependency has been tracked by the component's render eff
 
 - **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
-## renderTriggered <sup class="vt-badge dev-only" /> {#rendertriggered-sup-class-vt-badge-dev-only}
+## renderTriggered <sup class="vt-badge dev-only" /> {#rendertriggered}
 
 Called when a reactive dependency triggers the component's render effect to be re-run.
 
@@ -290,7 +290,7 @@ Called after the component instance is removed from the DOM as part of a tree ca
 
 - **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## serverPrefetch <sup class="vt-badge" data-text="SSR only" /> {#serverprefetch-sup-class-vt-badge-data-text-ssr-only}
+## serverPrefetch <sup class="vt-badge" data-text="SSR only" /> {#serverprefetch}
 
 Async function to be resolved before the component instance is to be rendered on the server.
 
