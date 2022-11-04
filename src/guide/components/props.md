@@ -484,7 +484,7 @@ Additional details:
 
 - An absent optional prop other than `Boolean` will have `undefined` value.
 
-- The `Boolean` absent props will be cast to `false`. You should set a `default` value for it in order to get desired behavior.
+- The `Boolean` absent props will be cast to `false`. You can change this by setting a `default` for it — i.e.: `default: undefined` to behave as a non-Boolean prop.
 
 - If a `default` value is specified, it will be used if the resolved prop value is `undefined` - this includes both when the prop is absent, or an explicit `undefined` value is passed.
 

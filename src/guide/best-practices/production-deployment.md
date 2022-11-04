@@ -6,7 +6,7 @@ During development, Vue provides a number of features to improve the development
 
 - Warning for common errors and pitfalls
 - Props / events validation
-- Reactivity debugging hooks
+- [Reactivity debugging hooks](/guide/extras/reactivity-in-depth.html#reactivity-debugging)
 - Devtools integration
 
 However, these features become useless in production. Some of the warning checks can also incur a small amount of performance overhead. When deploying to production, we should drop all the unused, development-only code branches for smaller payload size and better performance.
