@@ -209,7 +209,7 @@ If you are new to Vue, here's our general recommendation:
 
 - For production use:
 
-  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g., progressive enhancement.
+  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
 
   - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
 
