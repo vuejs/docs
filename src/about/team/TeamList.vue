@@ -61,7 +61,7 @@ defineProps<{
 @media (min-width: 768px) {
   .info {
     position: sticky;
-    top: calc(var(--vt-banner-height) + 32px);
+    top: calc(var(--vt-banner-height, 0px) + 32px);
     left: 0;
     padding: 0 24px 0 0;
     width: 256px;
@@ -74,7 +74,7 @@ defineProps<{
 
 @media (min-width: 960px) {
   .info {
-    top: calc(var(--vt-banner-height) + 88px);
+    top: calc(var(--vt-banner-height, 0px) + 88px);
     padding: 0 64px 0 0;
     width: 384px;
   }
