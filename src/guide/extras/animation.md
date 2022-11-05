@@ -147,7 +147,7 @@ In addition to color, you can also use style bindings to animate transform, widt
 
 ## Animating with Watchers
 
-With some creativity, we can use watchers to animate anything based on some numerical state. For example we can animate the number itself:
+With some creativity, we can use watchers to animate anything based on some numerical state. For example, we can animate the number itself:
 
 <div class="composition-api">
 
