@@ -2,7 +2,7 @@
 
 ## createApp()
 
-Creates an application instance.
+Создает экземпляр приложения.
 
 - **Тип:**
 
@@ -12,21 +12,21 @@ Creates an application instance.
 
 - **Подробности:**
 
-  The first argument is the root component. The second optional argument is the props to be passed to the root component.
+  Первым аргументом является корневой компонент. Вторым необязательным аргументом являются входные параметры, которые должны быть переданы корневому компоненту.
 
 - **Пример:**
 
-  With inline root component:
+  Со встроенным корневым компонентом:
 
   ```js
   import { createApp } from 'vue'
 
   const app = createApp({
-    /* root component options */
+    /* параметры корневого компонента */
   })
   ```
 
-  With imported component:
+  С импортируемым компонентом:
 
   ```js
   import { createApp } from 'vue'
@@ -39,11 +39,11 @@ Creates an application instance.
 
 ## createSSRApp()
 
-Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr.html#client-hydration) mode. Usage is exactly the same as `createApp()`.
+Создает экземпляр приложения в режиме [SSR Hydration](/guide/scaling-up/ssr.html#client-hydration). Используется точно так же, как `createApp()`.
 
 ## app.mount()
 
-Mounts the application instance in a container element.
+Монтирует экземпляр приложения в элемент контейнера.
 
 - **Тип:**
 
@@ -55,13 +55,13 @@ Mounts the application instance in a container element.
 
 - **Подробности:**
 
-  The argument can either be an actual DOM element or a CSS selector (the first matched element will be used). Returns the root component instance.
+  Аргумент может быть либо фактическим элементом DOM, либо селектором CSS (будет использоваться первый соответствующий элемент). Аргумент вернет корневой экземпляр компонента.
 
-  If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
+ Если для компонента определен шаблон или функция рендеринга, он заменит все существующие узлы DOM внутри контейнера. В противном случае, если доступен runtime компилятор, в качестве шаблона будет использоваться `innerHTML`.
 
-  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr.html#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
+  В режиме гидратации SSR гидратирует существующие узлы DOM внутри контейнера. Если имеются [несоответствия](/guide/scaling-up/ssr.html#hydration-mismatch), существующие узлы DOM будут изменены, чтобы соответствовать ожидаемому результату.
 
-  For each app instance, `mount()` can only be called once.
+  Следует отметить, что для каждого экземпляра приложения `mount()` может быть вызван только один раз.
 
 - **Пример:**
 
@@ -72,7 +72,7 @@ Mounts the application instance in a container element.
   app.mount('#app')
   ```
 
-  Can also mount to an actual DOM element:
+  Может также монтироваться к фактическому DOM элементу:
 
   ```js
   app.mount(document.body.firstChild)
@@ -80,7 +80,7 @@ Mounts the application instance in a container element.
 
 ## app.unmount()
 
-Unmounts a mounted application instance, triggering the unmount lifecycle hooks for all components in the application's component tree.
+ Размонтирует смонтированный экземпляр приложения, запуская хуки жизненного цикла размонтирования для всех компонентов в дереве компонентов приложения.
 
 - **Тип:**
 
@@ -92,7 +92,7 @@ Unmounts a mounted application instance, triggering the unmount lifecycle hooks 
 
 ## app.provide()
 
-Provide a value that can be injected in all descendant components within the application.
+ Предоставляет значение, которое может быть внедрено во все дочерние компоненты в приложении.
 
 - **Тип:**
 
@@ -104,7 +104,7 @@ Provide a value that can be injected in all descendant components within the app
 
 - **Подробности:**
 
-  Expects the injection key as the first argument, and the provided value as the second. Returns the application instance itself.
+  Ожидает ключ инъекции в качестве первого аргумента, а предоставленное значение - в качестве второго. В итоге возвращает непосредственно сам экземпляр приложения.
 
 - **Пример:**
 
@@ -113,10 +113,10 @@ Provide a value that can be injected in all descendant components within the app
 
   const app = createApp(/* ... */)
 
-  app.provide('message', 'hello')
+  app.provide('message', 'привет')
   ```
 
-  Inside a component in the application:
+  Внутри компонента в приложении:
 
   <div class="composition-api">
 
@@ -125,7 +125,7 @@ Provide a value that can be injected in all descendant components within the app
 
   export default {
     setup() {
-      console.log(inject('message')) // 'hello'
+      console.log(inject('message')) // 'привет'
     }
   }
   ```
@@ -137,7 +137,7 @@ Provide a value that can be injected in all descendant components within the app
   export default {
     inject: ['message'],
     created() {
-      console.log(this.message) // 'hello'
+      console.log(this.message) // 'привет'
     }
   }
   ```
