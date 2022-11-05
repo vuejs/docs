@@ -138,7 +138,7 @@ const publishedBooksMessage = computed(() => {
 
 </div>
 
-## Кэширование вычисляемых свойств vs Методы {#computed-caching-vs-methods}
+## Кэширование вычисляемых свойств vs. Методы {#computed-caching-vs-methods}
 
 Можно заметить, что того же результата можно достичь с помощью метода в выражении:
 
