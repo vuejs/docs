@@ -255,7 +255,7 @@ The above will be converted to `:[someattr]` in in-DOM templates. If your compon
 
 ### Modifiers
 
-Modifiers are special postfixes denoted by a dot, which indicates that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
+Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
 
 ```vue-html
 <form @submit.prevent="onSubmit">...</form>
