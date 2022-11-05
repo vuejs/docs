@@ -14,7 +14,7 @@ In the Component Basics chapter, we introduced the syntax for [Dynamic Component
 <component :is="activeComponent" />
 ```
 
-By default, an active component instance will be unmounted when switched away from. This will cause any changed state it holds to be lost. When this component is displayed again, a new instance will be created with only the initial state.
+By default, an active component instance will be unmounted when switching away from it. This will cause any changed state it holds to be lost. When this component is displayed again, a new instance will be created with only the initial state.
 
 In the example below, we have two stateful components - A contains a counter, while B contains a message synced with an input via `v-model`. Try updating the state of one of them, switch away, and then switch back to it:
 
