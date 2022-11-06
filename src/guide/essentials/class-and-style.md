@@ -12,7 +12,7 @@ A common need for data binding is manipulating an element's class list and inlin
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Free Vue.js Dynamic CSS Classes Lesson"/>
 </div>
 
-### Binding to Objects {#binding-to-objects} {#binding-to-objects}
+### Binding to Objects {#binding-to-objects}
 
 We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
 
@@ -136,7 +136,7 @@ computed: {
 <div :class="classObject"></div>
 ```
 
-### Binding to Arrays {#binding-to-arrays} {#binding-to-arrays}
+### Binding to Arrays {#binding-to-arrays}
 
 We can bind `:class` to an array to apply a list of classes:
 
