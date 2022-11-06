@@ -1,4 +1,4 @@
-# Component Registration
+# Component Registration {#component-registration}
 
 <VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Free Vue.js Component Registration Lesson"/>
 
@@ -6,7 +6,7 @@
 
 A Vue component needs to be "registered" so that Vue knows where to locate its implementation when it is encountered in a template. There are two ways to register components: global and local.
 
-## Global Registration
+## Global Registration {#global-registration}
 
 We can make components available globally in the current [Vue application](/guide/essentials/application.html) using the `app.component()` method:
 
@@ -53,7 +53,7 @@ Globally registered components can be used in the template of any component with
 
 This even applies to all subcomponents, meaning all three of these components will also be available _inside each other_.
 
-## Local Registration
+## Local Registration {#local-registration}
 
 While convenient, global registration has a few drawbacks:
 
@@ -128,7 +128,7 @@ export default {
 
 Note that **locally registered components are _not_ also available in descendant components**. In this case, `ComponentA` will be made available to the current component only, not any of its child or descendant components.
 
-## Component Name Casing
+## Component Name Casing {#component-name-casing}
 
 Throughout the guide, we are using PascalCase names when registering components. This is because:
 

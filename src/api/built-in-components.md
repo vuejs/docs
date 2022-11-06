@@ -18,7 +18,7 @@ h(Transition, {
 ```
 :::
 
-## `<Transition>`
+## `<Transition>` {#transition}
 
 Обеспечивает эффекты анимированного перехода **одного** элемента или компонента.
 
@@ -118,7 +118,7 @@ h(Transition, {
 
 - **См. также:** [Руководство - Transition](/guide/built-ins/transition.html)
 
-## `<TransitionGroup>`
+## `<TransitionGroup>` {#transitiongroup}
 
 Обеспечивает эффекты перехода для **нескольких** элементов или компонентов в списке.
 
@@ -164,7 +164,7 @@ h(Transition, {
 
 - **См. также:** [Руководство - TransitionGroup](/guide/built-ins/transition-group.html)
 
-## `<KeepAlive>`
+## `<KeepAlive>` {#keepalive}
 
 Кэширует содержащиеся внутри динамически переключаемые компоненты.
 
@@ -257,7 +257,7 @@ h(Transition, {
 
 - **См. также:** [Руководство - KeepAlive](/guide/built-ins/keep-alive.html)
 
-## `<Teleport>`
+## `<Teleport>` {#teleport}
 
 Перемещает содержимое своего слота в другую часть DOM.
 
@@ -299,7 +299,7 @@ h(Transition, {
 
 - **См. также:** [Руководство - Teleport](/guide/built-ins/teleport.html)
 
-## `<Suspense>` <sup class="vt-badge experimental" />
+## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
 Используется для оркестровки вложенных асинхронных зависимостей в дереве компонентов.
 

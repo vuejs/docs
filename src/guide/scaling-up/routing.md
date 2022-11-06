@@ -1,6 +1,6 @@
-# Routing
+# Routing {#routing}
 
-## Client-Side vs. Server-Side Routing
+## Client-Side vs. Server-Side Routing {#client-side-vs-server-side-routing}
 
 Routing on the server side means the server sending a response based on the URL path that the user is visiting. When we click on a link in a traditional server-rendered web app, the browser receives an HTML response from the server and reloads the entire page with the new HTML.
 
@@ -8,7 +8,7 @@ In a [Single-Page Application](https://developer.mozilla.org/en-US/docs/Glossary
 
 In such SPAs, the "routing" is done on the client side, in the browser. A client-side router is responsible for managing the application's rendered view using browser APIs such as [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) or the [`hashchange` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event).
 
-## Official Router
+## Official Router {#official-router}
 
 <!-- TODO update links -->
 <div>
@@ -19,7 +19,7 @@ In such SPAs, the "routing" is done on the client side, in the browser. A client
 
 Vue is well-suited for building SPAs. For most SPAs, it's recommended to use the officially-supported [Vue Router library](https://github.com/vuejs/router). For more details, see Vue Router's [documentation](https://router.vuejs.org/).
 
-## Simple Routing from Scratch
+## Simple Routing from Scratch {#simple-routing-from-scratch}
 
 If you only need very simple routing and do not wish to involve a full-featured router library, you can do so with [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components) and update the current component state by listening to browser [`hashchange` events](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event) or using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History).
 

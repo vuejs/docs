@@ -1,6 +1,6 @@
-# State Management
+# State Management {#state-management}
 
-## What is State Management?
+## What is State Management? {#what-is-state-management}
 
 Technically, every Vue component instance already "manages" its own reactive state. Take a simple counter component as an example:
 
@@ -73,7 +73,7 @@ For case two, we often find ourselves resorting to solutions such as reaching fo
 
 A simpler and more straightforward solution is to extract the shared state out of the components, and manage it in a global singleton. With this, our component tree becomes a big "view", and any component can access the state or trigger actions, no matter where they are in the tree!
 
-## Simple State Management with Reactivity API
+## Simple State Management with Reactivity API {#simple-state-management-with-reactivity-api}
 
 <div class="options-api">
 
@@ -221,11 +221,11 @@ export function useCount() {
 
 The fact that Vue's reactivity system is decoupled from the component model makes it extremely flexible.
 
-## SSR Considerations
+## SSR Considerations {#ssr-considerations}
 
 If you are building an application that leverages [Server-Side Rendering (SSR)](./ssr), the above pattern can lead to issues due to the store being a singleton shared across multiple requests. This is discussed in [more details](./ssr#cross-request-state-pollution) in the SSR guide.
 
-## Pinia
+## Pinia {#pinia}
 
 While our hand-rolled state management solution will suffice in simple scenarios, there are many more things to consider in large-scale production applications:
 

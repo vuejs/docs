@@ -5,11 +5,11 @@ import Colors from './demos/Colors.vue'
 import AnimateWatcher from './demos/AnimateWatcher.vue'
 </script>
 
-# Animation Techniques
+# Animation Techniques {#animation-techniques}
 
 Vue provides the [`<Transition>`](/guide/built-ins/transition.html) and [`<TransitionGroup>`](/guide/built-ins/transition-group.html) components for handling enter / leave and list transitions. However, there are many other ways of using animations on the web, even in a Vue application. Here we will discuss a few additional techniques.
 
-## Class-based Animations
+## Class-based Animations {#class-based-animations}
 
 For elements that are not entering / leaving the DOM, we can trigger animations by dynamically adding a CSS class:
 
@@ -88,7 +88,7 @@ export default {
 
 <DisabledButton />
 
-## State-driven Animations
+## State-driven Animations {#state-driven-animations}
 
 Some transition effects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
 
@@ -145,7 +145,7 @@ In addition to color, you can also use style bindings to animate transform, widt
 
 <ElasticHeader />
 
-## Animating with Watchers
+## Animating with Watchers {#animating-with-watchers}
 
 With some creativity, we can use watchers to animate anything based on some numerical state. For example, we can animate the number itself:
 

@@ -1,4 +1,4 @@
-# \<script setup>
+# \<script setup> {#script-setup}
 
 `<script setup>` is a compile-time syntactic sugar for using Composition API inside Single-File Components (SFCs). It is the recommended syntax if you are using both SFCs and Composition API. It provides a number of advantages over the normal `<script>` syntax:
 
@@ -7,7 +7,7 @@
 - Better runtime performance (the template is compiled into a render function in the same scope, without an intermediate proxy)
 - Better IDE type-inference performance (less work for the language server to extract types from code)
 
-## Basic Syntax
+## Basic Syntax {#basic-syntax}
 
 To opt-in to the syntax, add the `setup` attribute to the `<script>` block:
 
@@ -19,7 +19,7 @@ console.log('hello script setup')
 
 The code inside is compiled as the content of the component's `setup()` function. This means that unlike normal `<script>`, which only executes once when the component is first imported, code inside `<script setup>` will **execute every time an instance of the component is created**.
 
-### Top-level bindings are exposed to template
+### Top-level bindings are exposed to template {#top-level-bindings-are-exposed-to-template}
 
 When using `<script setup>`, any top-level bindings (including variables, function declarations, and imports) declared inside `<script setup>` are directly usable in the template:
 
@@ -51,7 +51,7 @@ import { capitalize } from './helpers'
 </template>
 ```
 
-## Reactivity
+## Reactivity {#reactivity}
 
 Reactive state needs to be explicitly created using [Reactivity APIs](./reactivity-core.html). Similar to values returned from a `setup()` function, refs are automatically unwrapped when referenced in templates:
 
@@ -67,7 +67,7 @@ const count = ref(0)
 </template>
 ```
 
-## Using Components
+## Using Components {#using-components}
 
 Values in the scope of `<script setup>` can also be used directly as custom component tag names:
 
@@ -83,7 +83,7 @@ import MyComponent from './MyComponent.vue'
 
 Think of `MyComponent` as being referenced as a variable. If you have used JSX, the mental model is similar here. The kebab-case equivalent `<my-component>` also works in the template - however PascalCase component tags are strongly recommended for consistency. It also helps differentiating from native custom elements.
 
-### Dynamic Components
+### Dynamic Components {#dynamic-components}
 
 Since components are referenced as variables instead of registered under string keys, we should use dynamic `:is` binding when using dynamic components inside `<script setup>`:
 
@@ -101,7 +101,7 @@ import Bar from './Bar.vue'
 
 Note how the components can be used as variables in a ternary expression.
 
-### Recursive Components
+### Recursive Components {#recursive-components}
 
 An SFC can implicitly refer to itself via its filename. E.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template.
 
@@ -111,7 +111,7 @@ Note this has lower priority than imported components. If you have a named impor
 import { FooBar as FooBarChild } from './components'
 ```
 
-### Namespaced Components
+### Namespaced Components {#namespaced-components}
 
 You can use component tags with dots like `<Foo.Bar>` to refer to components nested under object properties. This is useful when you import multiple components from a single file:
 
@@ -127,7 +127,7 @@ import * as Form from './form-components'
 </template>
 ```
 
-## Using Custom Directives
+## Using Custom Directives {#using-custom-directives}
 
 Globally registered custom directives just work as normal. Local custom directives don't need to be explicitly registered with `<script setup>`, but they must follow the naming scheme `vNameOfDirective`:
 
@@ -152,7 +152,7 @@ import { myDirective as vMyDirective } from './MyDirective.js'
 </script>
 ```
 
-## defineProps() & defineEmits()
+## defineProps() & defineEmits() {#defineprops-defineemits}
 
 To declare options like `props` and `emits` with full type inference support, we can use the `defineProps` and `defineEmits` APIs, which are automatically available inside `<script setup>`:
 
@@ -177,7 +177,7 @@ const emit = defineEmits(['change', 'delete'])
 
 If you are using TypeScript, it is also possible to [declare props and emits using pure type annotations](#typescript-only-features).
 
-## defineExpose()
+## defineExpose() {#defineexpose}
 
 Components using `<script setup>` are **closed by default** - i.e. the public instance of the component, which is retrieved via template refs or `$parent` chains, will **not** expose any of the bindings declared inside `<script setup>`.
 
@@ -199,7 +199,7 @@ defineExpose({
 
 When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
 
-## `useSlots()` & `useAttrs()`
+## `useSlots()` & `useAttrs()` {#useslots-useattrs}
 
 Usage of `slots` and `attrs` inside `<script setup>` should be relatively rare, since you can access them directly as `$slots` and `$attrs` in the template. In the rare case where you do need them, use the `useSlots` and `useAttrs` helpers respectively:
 
@@ -214,7 +214,7 @@ const attrs = useAttrs()
 
 `useSlots` and `useAttrs` are actual runtime functions that return the equivalent of `setupContext.slots` and `setupContext.attrs`. They can be used in normal composition API functions as well.
 
-## Usage alongside normal `<script>`
+## Usage alongside normal `<script>` {#usage-alongside-normal-script}
 
 `<script setup>` can be used alongside normal `<script>`. A normal `<script>` may be needed in cases where we need to:
 
@@ -239,7 +239,7 @@ export default {
 </script>
 ```
 
-## Top-level `await`
+## Top-level `await` {#top-level-await}
 
 Top-level `await` can be used inside `<script setup>`. The resulting code will be compiled as `async setup()`:
 
@@ -255,9 +255,9 @@ In addition, the awaited expression will be automatically compiled in a format t
 `async setup()` must be used in combination with `Suspense`, which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
 :::
 
-## TypeScript-only Features <sup class="vt-badge ts" />
+## TypeScript-only Features <sup class="vt-badge ts" /> {#typescript-only-features}
 
-### Type-only props/emit declarations
+### Type-only props/emit declarations {#type-only-props-emit-declarations}
 
 Props and emits can also be declared using pure-type syntax by passing a literal type argument to `defineProps` or `defineEmits`:
 
@@ -290,7 +290,7 @@ const emit = defineEmits<{
 
   Currently complex types and type imports from other files are not supported. It is possible to support type imports in the future.
 
-### Default props values when using type declaration
+### Default props values when using type declaration {#default-props-values-when-using-type-declaration}
 
 One drawback of the type-only `defineProps` declaration is that it doesn't have a way to provide default values for the props. To resolve this problem, a `withDefaults` compiler macro is also provided:
 
@@ -308,6 +308,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
 
-## Restrictions
+## Restrictions {#restrictions}
 
 Due to the difference in module execution semantics, code inside `<script setup>` relies on the context of an SFC. When moved into external `.js` or `.ts` files, it may lead to confusion for both developers and tools. Therefore, **`<script setup>`** cannot be used with the `src` attribute.

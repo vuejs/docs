@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# Performance
+# Performance {#performance}
 
-## Overview
+## Overview {#overview}
 
 Vue is designed to be performant for most common use cases without much need for manual optimizations. However, there are always challenging scenarios where extra fine-tuning is needed. In this section, we will discuss what you should pay attention to when it comes to performance in a Vue application.
 
@@ -20,7 +20,7 @@ While it would be ideal to maximize both, different frontend architectures tend 
 
 - Jason Miller discusses the types of web applications and their respective ideal implementation / delivery in [Application Holotypes](https://jasonformat.com/application-holotypes/).
 
-## Profiling Options
+## Profiling Options {#profiling-options}
 
 To improve performance, we need to first know how to measure it. There are a number of great tools that can help in this regard:
 
@@ -35,17 +35,17 @@ For profiling performance during local development:
   - [`app.config.performance`](/api/application.html#app-config-performance) enables Vue-specific performance markers in Chrome DevTools' performance timeline.
 - [Vue DevTools Extension](/guide/scaling-up/tooling.html#browser-devtools) also provides a performance profiling feature.
 
-## Page Load Optimizations
+## Page Load Optimizations {#page-load-optimizations}
 
 There are many framework-agnostic aspects for optimizing page load performance - check out [this web.dev guide](https://web.dev/fast/) for a comprehensive round up. Here, we will primarily focus on techniques that are specific to Vue.
 
-### Choosing the Right Architecture
+### Choosing the Right Architecture {#choosing-the-right-architecture}
 
 If your use case is sensitive to page load performance, avoid shipping it as a pure client-side SPA. You want your server to be directly sending HTML containing the content the users want to see. Pure client-side rendering suffers from slow time-to-content. This can be mitigated with [Server-Side Rendering (SSR)](/guide/extras/ways-of-using-vue.html#fullstack-ssr) or [Static Site Generation (SSG)](/guide/extras/ways-of-using-vue.html#jamstack-ssg). Check out the [SSR Guide](/guide/scaling-up/ssr.html) to learn about performing SSR with Vue. If your app doesn't have rich interactivity requirements, you can also use a traditional backend server to render the HTML and enhance it with Vue on the client.
 
 If your main application has to be an SPA, but has marketing pages (landing, about, blog), ship them separately! Your marketing pages should ideally be deployed as static HTML with minimal JS, by using SSG.
 
-### Bundle Size and Tree-shaking
+### Bundle Size and Tree-shaking {#bundle-size-and-tree-shaking}
 
 One of the most effective ways to improve page load performance is shipping smaller JavaScript bundles. Here are a few ways to reduce bundle size when using Vue:
 
@@ -63,7 +63,7 @@ One of the most effective ways to improve page load performance is shipping smal
 
 - If you are using Vue primarily for progressive enhancement and prefer to avoid a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
 
-### Code Splitting
+### Code Splitting {#code-splitting}
 
 Code splitting is where a build tool splits the application bundle into multiple smaller chunks, which can then be loaded on demand or in parallel. With proper code splitting, features required at page load can be downloaded immediately, with additional chunks being lazy loaded only when needed, thus improving performance.
 
@@ -90,9 +90,9 @@ const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 
 For applications using Vue Router, it is strongly recommended to use lazy loading for route components. Vue Router has explicit support for lazy loading, separate from `defineAsyncComponent`. See [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html) for more details.
 
-## Update Optimizations
+## Update Optimizations {#update-optimizations}
 
-### Props Stability
+### Props Stability {#props-stability}
 
 In Vue, a child component only updates when at least one of its received props has changed. Consider the following example:
 
@@ -116,19 +116,19 @@ Ideally, only the items whose active status changed should update. We can achiev
 
 Now, for most components the `active` prop will remain the same when `activeId` changes, so they no longer need to update. In general, the idea is keeping the props passed to child components as stable as possible.
 
-### `v-once`
+### `v-once` {#v-once}
 
 `v-once` is a built-in directive that can be used to render content that relies on runtime data but never needs to update. The entire sub-tree it is used on will be skipped for all future updates. Consult its [API reference](/api/built-in-directives.html#v-once) for more details.
 
-### `v-memo`
+### `v-memo` {#v-memo}
 
 `v-memo` is a built-in directive that can be used to conditionally skip the update of large sub-trees or `v-for` lists. Consult its [API reference](/api/built-in-directives.html#v-memo) for more details.
 
-## General Optimizations
+## General Optimizations {#general-optimizations}
 
 > The following tips affect both page load and update performance.
 
-### Virtualize Large Lists
+### Virtualize Large Lists {#virtualize-large-lists}
 
 One of the most common performance issues in all frontend applications is rendering large lists. No matter how performant a framework is, rendering a list with thousands of items **will** be slow due to the sheer number of DOM nodes that the browser needs to handle.
 
@@ -140,7 +140,7 @@ Implementing list virtualization isn't easy, luckily there are existing communit
 - [vue-virtual-scroll-grid](https://github.com/rocwang/vue-virtual-scroll-grid)
 - [vueuc/VVirtualList](https://github.com/07akioni/vueuc)
 
-### Reduce Reactivity Overhead for Large Immutable Structures
+### Reduce Reactivity Overhead for Large Immutable Structures {#reduce-reactivity-overhead-for-large-immutable-structures}
 
 Vue's reactivity system is deep by default. While this makes state management intuitive, it does create a certain level of overhead when the data size is large, because every property access triggers proxy traps that perform dependency tracking. This typically becomes noticeable when dealing with large arrays of deeply nested objects, where a single render needs to access 100,000+ properties, so it should only affect very specific use cases.
 
@@ -168,7 +168,7 @@ shallowArray.value = [
 ]
 ```
 
-### Avoid Unnecessary Component Abstractions
+### Avoid Unnecessary Component Abstractions {#avoid-unnecessary-component-abstractions}
 
 Sometimes we may create [renderless components](/guide/components/slots.html#renderless-components) or higher-order components (i.e. components that render other components with extra props) for better abstraction or code organization. While there is nothing wrong with this, do keep in mind that component instances are much more expensive than plain DOM nodes, and creating too many of them due to abstraction patterns will incur performance costs.
 

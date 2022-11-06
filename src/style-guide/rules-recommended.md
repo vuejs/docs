@@ -1,4 +1,4 @@
-# Priority C Rules: Recommended
+# Priority C Rules: Recommended {#priority-c-rules-recommended}
 
 Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
 
@@ -6,7 +6,7 @@ Where multiple, equally good options exist, an arbitrary choice can be made to e
 2. Be able to copy and paste most community code examples without modification
 3. Often find new hires are already accustomed to your preferred coding style, at least in regards to Vue
 
-## Component/instance options order
+## Component/instance options order {#component-instance-options-order}
 
 **Component/instance options should be ordered consistently.**
 
@@ -71,7 +71,7 @@ This is the default order we recommend for component options. They're split into
 10. **Rendering** (the declarative description of the component output)
     - `template`/`render`
 
-## Element attribute order
+## Element attribute order {#element-attribute-order}
 
 **The attributes of elements (including components) should be ordered consistently.**
 
@@ -121,7 +121,7 @@ This is the default order we recommend for component options. They're split into
     - `v-html`
     - `v-text`
 
-## Empty lines in component/instance options
+## Empty lines in component/instance options {#empty-lines-in-component-instance-options}
 
 **You may want to add one empty line between multi-line properties, particularly if the options can no longer fit on your screen without scrolling.**
 
@@ -184,7 +184,7 @@ computed: {
 
 </div>
 
-## Single-file component top-level element order
+## Single-file component top-level element order {#single-file-component-top-level-element-order}
 
 **[Single-File Components](/guide/scaling-up/sfc.html) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
 
