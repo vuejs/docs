@@ -1,4 +1,4 @@
-# Components Basics
+# Components Basics {#components-basics}
 
 Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
 
@@ -8,7 +8,7 @@ Components allow us to split the UI into independent and reusable pieces, and th
 
 This is very similar to how we nest native HTML elements, but Vue implements its own component model that allow us to encapsulate custom content and logic in each component. Vue also plays nicely with native Web Components. If you are curious about the relationship between Vue Components and native Web Components, [read more here](/guide/extras/web-components.html).
 
-## Defining a Component
+## Defining a Component {#defining-a-component}
 
 When using a build step, we typically define each Vue component in a dedicated file using the `.vue` extension - known as a [Single-File Component](/guide/scaling-up/sfc.html) (SFC for short):
 
@@ -90,7 +90,7 @@ The template is inlined as a JavaScript string here, which Vue will compile on t
 
 The example above defines a single component and exports it as the default export of a `.js` file, but you can use named exports to export multiple components from the same file.
 
-## Using a Component
+## Using a Component {#using-a-component}
 
 :::tip
 We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step or not. The [Examples](/examples/) section shows component usage in both scenarios.
@@ -175,7 +175,7 @@ If you are authoring your templates directly in a DOM (e.g. as the content of a 
 
 See [DOM template parsing caveats](#dom-template-parsing-caveats) for more details.
 
-## Passing Props
+## Passing Props {#passing-props}
 
 If we are building a blog, we will likely need a component representing a blog post. We want all the blog posts to share the same visual layout, but with different content. Such a component won't be useful unless you can pass data to it, such as the title and content of the specific post we want to display. That's where props come in.
 
@@ -301,7 +301,7 @@ Notice how `v-bind` is used to pass dynamic prop values. This is especially usef
 
 That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](/guide/components/props.html).
 
-## Listening to Events
+## Listening to Events {#listening-to-events}
 
 As we develop our `<BlogPost>` component, some features may require communicating back up to the parent. For example, we may decide to include an accessibility feature to enlarge the text of blog posts, while leaving the rest of the page at its default size.
 
@@ -449,7 +449,7 @@ export default {
 
 That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](/guide/components/events).
 
-## Content Distribution with Slots
+## Content Distribution with Slots {#content-distribution-with-slots}
 
 Just like with HTML elements, it's often useful to be able to pass content to a component, like this:
 
@@ -497,7 +497,7 @@ As you'll see above, we use the `<slot>` as a placeholder where we want the cont
 
 That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](/guide/components/slots).
 
-## Dynamic Components
+## Dynamic Components {#dynamic-components}
 
 Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
 
@@ -540,7 +540,7 @@ You can also use the `is` attribute to create regular HTML elements.
 
 When switching between multiple components with `<component :is="...">`, a component will be unmounted when it is switched away from. We can force the inactive components to stay "alive" with the built-in [`<KeepAlive>` component](/guide/built-ins/keep-alive.html).
 
-## DOM Template Parsing Caveats
+## DOM Template Parsing Caveats {#dom-template-parsing-caveats}
 
 If you are writing your Vue templates directly in the DOM, Vue will have to retrieve the template string from the DOM. This leads to some caveats due to browsers' native HTML parsing behavior.
 
@@ -552,7 +552,7 @@ It should be noted that the limitations discussed below only apply if you are wr
 - `<script type="text/x-template">`
   :::
 
-### Case Insensitivity
+### Case Insensitivity {#case-insensitivity}
 
 HTML tags and attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, PascalCase component names and camelCased prop names or `v-on` event names all need to use their kebab-cased (hyphen-delimited) equivalents:
 
@@ -572,7 +572,7 @@ const BlogPost = {
 <blog-post post-title="hello!" @update-post="onUpdatePost"></blog-post>
 ```
 
-### Self Closing Tags
+### Self Closing Tags {#self-closing-tags}
 
 We have been using self-closing tags for components in previous code samples:
 
@@ -603,7 +603,7 @@ will be parsed as:
 </my-component> <!-- but the browser will close it here. -->
 ```
 
-### Element Placement Restrictions
+### Element Placement Restrictions {#element-placement-restrictions}
 
 Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
 

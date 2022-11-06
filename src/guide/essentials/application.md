@@ -1,6 +1,6 @@
-# Creating a Vue Application
+# Creating a Vue Application {#creating-a-vue-application}
 
-## The application instance
+## The application instance {#the-application-instance}
 
 Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
 
@@ -12,7 +12,7 @@ const app = createApp({
 })
 ```
 
-## The Root Component
+## The Root Component {#the-root-component}
 
 The object we are passing into `createApp` is in fact a component. Every app requires a "root component" that can contain other components as its children.
 
@@ -41,7 +41,7 @@ App (root component)
 
 In later sections of the guide, we will discuss how to define and compose multiple components together. Before that, we will focus on what happens inside a single component.
 
-## Mounting the App
+## Mounting the App {#mounting-the-app}
 
 An application instance won't render anything until its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
 
@@ -57,7 +57,7 @@ The content of the app's root component will be rendered inside the container el
 
 The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
 
-### In-DOM Root Component Template
+### In-DOM Root Component Template {#in-dom-root-component-template}
 
 When using Vue without a build step, we can write our root component's template directly inside the mount container:
 
@@ -83,7 +83,7 @@ app.mount('#app')
 
 Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
 
-## App Configurations
+## App Configurations {#app-configurations}
 
 The application instance exposes a `.config` object that allows us to configure a few app-level options, for example, defining an app-level error handler that captures errors from all descendant components:
 
@@ -103,7 +103,7 @@ This makes the `TodoDeleteButton` available for use anywhere in our app. We will
 
 Make sure to apply all app configurations before mounting the app!
 
-## Multiple application instances
+## Multiple application instances {#multiple-application-instances}
 
 You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
 

@@ -1,8 +1,8 @@
-# Priority A Rules: Essential
+# Priority A Rules: Essential {#priority-a-rules-essential}
 
 These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
 
-## Use multi-word component names
+## Use multi-word component names {#use-multi-word-component-names}
 
 User component names should always be multi-word, except for root `App` components. This [prevents conflicts](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) with existing and future HTML elements, since all HTML elements are a single word.
 
@@ -32,7 +32,7 @@ User component names should always be multi-word, except for root `App` componen
 
 </div>
 
-## Use detailed prop definitions
+## Use detailed prop definitions {#use-detailed-prop-definitions}
 
 In committed code, prop definitions should always be as detailed as possible, specifying at least type(s).
 
@@ -83,7 +83,7 @@ props: {
 
 </div>
 
-## Use keyed `v-for`
+## Use keyed `v-for` {#use-keyed-v-for}
 
 `key` with `v-for` is _always_ required on components, in order to maintain internal component state down the subtree. Even for elements though, it's a good practice to maintain predictable behavior, such as [object constancy](https://bost.ocks.org/mike/constancy/) in animations.
 
@@ -143,7 +143,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 
 </div>
 
-## Avoid `v-if` with `v-for`
+## Avoid `v-if` with `v-for` {#avoid-v-if-with-v-for}
 
 **Never use `v-if` on the same element as `v-for`.**
 
@@ -248,7 +248,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 
 </div>
 
-## Use component-scoped styling
+## Use component-scoped styling {#use-component-scoped-styling}
 
 For applications, styles in a top-level `App` component and in layout components may be global, but all other components should always be scoped.
 
@@ -340,7 +340,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 
 </div>
 
-## Avoid exposing private functions in mixins
+## Avoid exposing private functions in mixins {#avoid-exposing-private-functions-in-mixins}
 
 Always use the `$_` prefix for custom private properties in a plugin, mixin, etc that should not be considered public API. Then to avoid conflicts with code by other authors, also include a named scope (e.g. `$_yourPluginName_`).
 

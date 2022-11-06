@@ -1,4 +1,4 @@
-# Composition API: setup()
+# Composition API: setup() {#composition-api-setup}
 
 :::info Note
 This page documents the usage of the `setup` component option. If you are using Composition API with Single-File Components, [`<script setup>`](/api/sfc-script-setup.html) is recommended for a more succinct and ergonomic syntax.
@@ -9,7 +9,7 @@ The `setup()` hook serves as the entry point for Composition API usage in compon
 1. Using Composition API without a build step;
 2. Integrating with Composition-API-based code in an Options API component.
 
-## Basic Usage
+## Basic Usage {#basic-usage}
 
 We can declare reactive state using [Reactivity APIs](./reactivity-core.html) and expose them to the template by returning an object from `setup()`. The properties on the returned object will also be made available on the component instance (if other options are used):
 
@@ -44,7 +44,7 @@ Note that [refs](/api/reactivity-core.html#ref) returned from `setup` are [autom
 `setup()` itself does not have access to the component instance - `this` will have a value of `undefined` inside `setup()`. You can access Composition-API-exposed values from Options API, but not the other way around.
 :::
 
-## Accessing Props
+## Accessing Props {#accessing-props}
 
 The first argument in the `setup` function is the `props` argument. Just as you would expect in a standard component, `props` inside of a `setup` function are reactive and will be updated when new props are passed in.
 
@@ -79,7 +79,7 @@ export default {
 }
 ```
 
-## Setup Context
+## Setup Context {#setup-context}
 
 The second argument passed to the `setup` function is a **Setup Context** object. The context object exposes other values that may be useful inside `setup`:
 
@@ -113,7 +113,7 @@ export default {
 
 `attrs` and `slots` are stateful objects that are always updated when the component itself is updated. This means you should avoid destructuring them and always reference properties as `attrs.x` or `slots.x`. Also note that, unlike `props`, the properties of `attrs` and `slots` are **not** reactive. If you intend to apply side effects based on changes to `attrs` or `slots`, you should do so inside an `onBeforeUpdate` lifecycle hook.
 
-### Exposing Public Properties
+### Exposing Public Properties {#exposing-public-properties}
 
 `expose` is a function that can be used to explicitly limit the properties exposed when the component instance is accessed by a parent component via [template refs](/guide/essentials/template-refs.html#ref-on-component):
 
@@ -132,7 +132,7 @@ export default {
 }
 ```
 
-## Usage with Render Functions
+## Usage with Render Functions {#usage-with-render-functions}
 
 `setup` can also return a [render function](/guide/extras/render-function.html) which can directly make use of the reactive state declared in the same scope:
 

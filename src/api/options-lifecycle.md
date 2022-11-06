@@ -1,10 +1,10 @@
-# Options: Lifecycle
+# Options: Lifecycle {#options-lifecycle}
 
 :::info See also
 For shared usage of lifecycle hooks, see [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html)
 :::
 
-## beforeCreate
+## beforeCreate {#beforecreate}
 
 Called when the instance is initialized.
 
@@ -22,7 +22,7 @@ Called when the instance is initialized.
 
   Note that the `setup()` hook of Composition API is called before any Options API hooks, even `beforeCreate()`.
 
-## created
+## created {#created}
 
 Called after the instance has finished processing all state-related options.
 
@@ -38,7 +38,7 @@ Called after the instance has finished processing all state-related options.
 
   When this hooks is called, the following have been set up: reactive data, computed properties, methods, and watchers. However, the mounting phase has not been started, and the `$el` property will not be available yet.
 
-## beforeMount
+## beforeMount {#beforemount}
 
 Called right before the component is to be mounted.
 
@@ -56,7 +56,7 @@ Called right before the component is to be mounted.
 
   **This hook is not called during server-side rendering.**
 
-## mounted
+## mounted {#mounted}
 
 Called after the component has been mounted.
 
@@ -80,7 +80,7 @@ Called after the component has been mounted.
 
   **This hook is not called during server-side rendering.**
 
-## beforeUpdate
+## beforeUpdate {#beforeupdate}
 
 Called right before the component is about to update its DOM tree due to a reactive state change.
 
@@ -98,7 +98,7 @@ Called right before the component is about to update its DOM tree due to a react
 
   **This hook is not called during server-side rendering.**
 
-## updated
+## updated {#updated}
 
 Called after the component has updated its DOM tree due to a reactive state change.
 
@@ -122,7 +122,7 @@ Called after the component has updated its DOM tree due to a reactive state chan
   Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
   :::
 
-## beforeUnmount
+## beforeUnmount {#beforeunmount}
 
 Called right before a component instance is to be unmounted.
 
@@ -140,7 +140,7 @@ Called right before a component instance is to be unmounted.
 
   **This hook is not called during server-side rendering.**
 
-## unmounted
+## unmounted {#unmounted}
 
 Called after the component has been unmounted.
 
@@ -164,7 +164,7 @@ Called after the component has been unmounted.
 
   **This hook is not called during server-side rendering.**
 
-## errorCaptured
+## errorCaptured {#errorcaptured}
 
 Called when an error propagating from a descendant component has been captured.
 
@@ -209,7 +209,7 @@ Called when an error propagating from a descendant component has been captured.
 
   - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
 
-## renderTracked <sup class="vt-badge dev-only" />
+## renderTracked <sup class="vt-badge dev-only" /> {#rendertracked}
 
 Called when a reactive dependency has been tracked by the component's render effect.
 
@@ -232,7 +232,7 @@ Called when a reactive dependency has been tracked by the component's render eff
 
 - **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
-## renderTriggered <sup class="vt-badge dev-only" />
+## renderTriggered <sup class="vt-badge dev-only" /> {#rendertriggered}
 
 Called when a reactive dependency triggers the component's render effect to be re-run.
 
@@ -258,7 +258,7 @@ Called when a reactive dependency triggers the component's render effect to be r
 
 - **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
-## activated
+## activated {#activated}
 
 Called after the component instance is inserted into the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
 
@@ -274,7 +274,7 @@ Called after the component instance is inserted into the DOM as part of a tree c
 
 - **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## deactivated
+## deactivated {#deactivated}
 
 Called after the component instance is removed from the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
 
@@ -290,7 +290,7 @@ Called after the component instance is removed from the DOM as part of a tree ca
 
 - **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## serverPrefetch <sup class="vt-badge" data-text="SSR only" />
+## serverPrefetch <sup class="vt-badge" data-text="SSR only" /> {#serverprefetch}
 
 Async function to be resolved before the component instance is to be rendered on the server.
 

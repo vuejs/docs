@@ -1,4 +1,4 @@
-# Computed Properties
+# Computed Properties {#computed-properties}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="Free Vue.js Computed Properties Lesson"/>
@@ -8,7 +8,7 @@
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-computed-properties-in-vue-with-the-composition-api" title="Free Vue.js Computed Properties Lesson"/>
 </div>
 
-## Basic Example
+## Basic Example {#basic-example}
 
 In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
 
@@ -138,7 +138,7 @@ See also: [Typing Computed](/guide/typescript/composition-api.html#typing-comput
 
 </div>
 
-## Computed Caching vs. Methods
+## Computed Caching vs. Methods {#computed-caching-vs-methods}
 
 You may have noticed we can achieve the same result by invoking a method in the expression:
 
@@ -198,7 +198,7 @@ In comparison, a method invocation will **always** run the function whenever a r
 
 Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a method call instead.
 
-## Writable Computed
+## Writable Computed {#writable-computed}
 
 Computed properties are by default getter-only. If you attempt to assign a new value to a computed property, you will receive a runtime warning. In the rare cases where you need a "writable" computed property, you can create one by providing both a getter and a setter:
 
@@ -259,12 +259,12 @@ Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `
 
 </div>
 
-## Best Practices
+## Best Practices {#best-practices}
 
-### Getters should be side-effect free
+### Getters should be side-effect free {#getters-should-be-side-effect-free}
 
 It is important to remember that computed getter functions should only perform pure computation and be free of side effects. For example, **don't make async requests or mutate the DOM inside a computed getter!** Think of a computed property as declaratively describing how to derive a value based on other values - its only responsibility should be computing and returning that value. Later in the guide we will discuss how we can perform side effects in reaction to state changes with [watchers](./watchers).
 
-### Avoid mutating computed value
+### Avoid mutating computed value {#avoid-mutating-computed-value}
 
 The returned value from a computed property is derived state. Think of it as a temporary snapshot - every time the source state changes, a new snapshot is created. It does not make sense to mutate a snapshot, so a computed return value should be treated as read-only and never be mutated - instead, update the source state it depends on to trigger new computations.

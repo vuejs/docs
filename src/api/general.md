@@ -1,6 +1,6 @@
-# Global API: General
+# Global API: General {#global-api-general}
 
-## version
+## version {#version}
 
 Exposes the current version of Vue.
 
@@ -14,7 +14,7 @@ Exposes the current version of Vue.
   console.log(version)
   ```
 
-## nextTick()
+## nextTick() {#nexttick}
 
 A utility for waiting for the next DOM update flush.
 
@@ -94,7 +94,7 @@ A utility for waiting for the next DOM update flush.
 
 - **See also:** [`this.$nextTick()`](/api/component-instance.html#nexttick)
 
-## defineComponent()
+## defineComponent() {#definecomponent}
 
 A type helper for defining a Vue component with type inference.
 
@@ -136,7 +136,7 @@ A type helper for defining a Vue component with type inference.
 
 - **See also:** [Guide - Using Vue with TypeScript](/guide/typescript/overview.html#general-usage-notes)
 
-## defineAsyncComponent()
+## defineAsyncComponent() {#defineasynccomponent}
 
 Define an async component which is lazy loaded only when it is rendered. The argument can either be a loader function, or an options object for more advanced control of the loading behavior.
 
@@ -167,7 +167,7 @@ Define an async component which is lazy loaded only when it is rendered. The arg
 
 - **See also:** [Guide - Async Components](/guide/components/async.html)
 
-## defineCustomElement()
+## defineCustomElement() {#definecustomelement}
 
 This method accepts the same argument as [`defineComponent`](#definecomponent), but instead returns a native [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) class constructor.
 

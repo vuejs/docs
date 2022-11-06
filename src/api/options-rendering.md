@@ -1,6 +1,6 @@
-# Options: Rendering
+# Options: Rendering {#options-rendering}
 
-## template
+## template {#template}
 
 A string template for the component.
 
@@ -26,7 +26,7 @@ A string template for the component.
   Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security.html#rule-no-1-never-use-non-trusted-templates) for more details.
   :::
 
-## render
+## render {#render}
 
 A function that programmatically returns the virtual DOM tree of the component.
 
@@ -61,7 +61,7 @@ A function that programmatically returns the virtual DOM tree of the component.
   - [Rendering Mechanism](/guide/extras/rendering-mechanism.html)
   - [Render Functions](/guide/extras/render-function.html)
 
-## compilerOptions
+## compilerOptions {#compileroptions}
 
 Configure runtime compiler options for the component's template.
 

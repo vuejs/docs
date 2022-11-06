@@ -1,6 +1,6 @@
-# Reactivity API: Utilities
+# Reactivity API: Utilities {#reactivity-api-utilities}
 
-## isRef()
+## isRef() {#isref}
 
 Checks if a value is a ref object.
 
@@ -20,7 +20,7 @@ Checks if a value is a ref object.
   }
   ```
 
-## unref()
+## unref() {#unref}
 
 Returns the inner value if the argument is a ref, otherwise return the argument itself. This is a sugar function for `val = isRef(val) ? val.value : val`.
 
@@ -39,7 +39,7 @@ Returns the inner value if the argument is a ref, otherwise return the argument 
   }
   ```
 
-## toRef()
+## toRef() {#toref}
 
 Can be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
 
@@ -100,7 +100,7 @@ Can be used to create a ref for a property on a source reactive object. The crea
 
   `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
 
-## toRefs()
+## toRefs() {#torefs}
 
 Converts a reactive object to a plain object where each property of the resulting object is a ref pointing to the corresponding property of the original object. Each individual ref is created using [`toRef()`](#toref).
 
@@ -161,7 +161,7 @@ Converts a reactive object to a plain object where each property of the resultin
 
   `toRefs` will only generate refs for properties that are enumerable on the source object at call time. To create a ref for a property that may not exist yet, use [`toRef`](#toref) instead.
 
-## isProxy()
+## isProxy() {#isproxy}
 
 Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
 
@@ -171,7 +171,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
   function isProxy(value: unknown): boolean
   ```
 
-## isReactive()
+## isReactive() {#isreactive}
 
 Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive) or [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
 
@@ -181,7 +181,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
   function isReactive(value: unknown): boolean
   ```
 
-## isReadonly()
+## isReadonly() {#isreadonly}
 
 Checks whether the passed value is a readonly object. The properties of a readonly object can change, but they can't be assigned directly via the passed object.
 

@@ -2,17 +2,17 @@
 outline: deep
 ---
 
-# Server-Side Rendering (SSR)
+# Server-Side Rendering (SSR) {#server-side-rendering-ssr}
 
-## Overview
+## Overview {#overview}
 
-### What is SSR?
+### What is SSR? {#what-is-ssr}
 
 Vue.js is a framework for building client-side applications. By default, Vue components produce and manipulate DOM in the browser as output. However, it is also possible to render the same components into HTML strings on the server, send them directly to the browser, and finally "hydrate" the static markup into a fully interactive app on the client.
 
 A server-rendered Vue.js app can also be considered "isomorphic" or "universal", in the sense that the majority of your app's code runs on both the server **and** the client.
 
-### Why SSR?
+### Why SSR? {#why-ssr}
 
 Compared to a client-side Single-Page Application (SPA), the advantage of SSR primarily lies in:
 
@@ -36,7 +36,7 @@ There are also some trade-offs to consider when using SSR:
 
 Before using SSR for your app, the first question you should ask is whether you actually need it. It mostly depends on how important time-to-content is for your app. For example, if you are building an internal dashboard where an extra few hundred milliseconds on initial load doesn't matter that much, SSR would be an overkill. However, in cases where time-to-content is absolutely critical, SSR can help you achieve the best possible initial load performance.
 
-### SSR vs. SSG
+### SSR vs. SSG {#ssr-vs-ssg}
 
 **Static Site Generation (SSG)**, also referred to as pre-rendering, is another popular technique for building fast websites. If the data needed to server-render a page is the same for every user, then instead of rendering the page every time a request comes in, we can render it only once, ahead of time, during the build process. Pre-rendered pages are generated and served as static HTML files.
 
@@ -44,9 +44,9 @@ SSG retains the same performance characteristics of SSR apps: it provides great 
 
 If you're only investigating SSR to improve the SEO of a handful of marketing pages (e.g. `/`, `/about`, `/contact`, etc.), then you probably want SSG instead of SSR. SSG is also great for content-based websites such as documentation sites or blogs. In fact, this website you are reading right now is statically generated using [VitePress](https://vitepress.vuejs.org/), a Vue-powered static site generator.
 
-## Basic Tutorial
+## Basic Tutorial {#basic-tutorial}
 
-### Rendering an App
+### Rendering an App {#rendering-an-app}
 
 Let's take a look at the most bare-bones example of Vue SSR in action.
 
@@ -128,7 +128,7 @@ Finally, run `node server.js` and visit `http://localhost:3000`. You should see 
 
 [Try it on StackBlitz](https://stackblitz.com/fork/vue-ssr-example-basic?file=index.js)
 
-### Client Hydration
+### Client Hydration {#client-hydration}
 
 If you click the button, you'll notice the number doesn't change. The HTML is completely static on the client since we are not loading Vue in the browser.
 
@@ -150,7 +150,7 @@ const app = createSSRApp({
 app.mount('#app')
 ```
 
-### Code Structure
+### Code Structure {#code-structure}
 
 Notice how we need to reuse the same app implementation as on the server. This is where we need to start thinking about code structure in an SSR app - how do we share the same application code between the server and the client?
 
@@ -201,7 +201,7 @@ In addition, in order to load the client files in the browser, we also need to:
 
 [Try the completed example on StackBlitz](https://stackblitz.com/fork/vue-ssr-example?file=index.js). The button is now interactive!
 
-## Higher Level Solutions
+## Higher Level Solutions {#higher-level-solutions}
 
 Moving from the example to a production-ready SSR app involves a lot more. We will need to:
 
@@ -217,35 +217,35 @@ Moving from the example to a production-ready SSR app involves a lot more. We wi
 
 A complete implementation would be quite complex and depends on the build toolchain you have chosen to work with. Therefore, we highly recommend going with a higher-level, opinionated solution that abstracts away the complexity for you. Below we will introduce a few recommended SSR solutions in the Vue ecosystem.
 
-### Nuxt
+### Nuxt {#nuxt}
 
 [Nuxt](https://v3.nuxtjs.org/) is a higher-level framework built on top of the Vue ecosystem which provides a streamlined development experience for writing universal Vue applications. Better yet, you can also use it as a static site generator! We highly recommend giving it a try.
 
-### Quasar
+### Quasar {#quasar}
 
 [Quasar](https://quasar.dev) is a complete Vue-based solution that allows you to target SPA, SSR, PWA, mobile app, desktop app, and browser extension all using one codebase. It not only handles the build setup, but also provides a full collection of Material Design compliant UI components.
 
-### Vite SSR
+### Vite SSR {#vite-ssr}
 
 Vite provides built-in [support for Vue server-side rendering](https://vitejs.dev/guide/ssr.html), but it is intentionally low-level. If you wish to go directly with Vite, check out [vite-plugin-ssr](https://vite-plugin-ssr.com/), a community plugin that abstracts away many challenging details for you.
 
 You can also find an example Vue + Vite SSR project using manual setup [here](https://github.com/vitejs/vite/tree/main/playground/ssr-vue), which can serve as a base to build upon. Note this is only recommended if you are experienced with SSR / build tools and really want to have complete control over the higher-level architecture.
 
-## Writing SSR-friendly Code
+## Writing SSR-friendly Code {#writing-ssr-friendly-code}
 
 Regardless of your build setup or higher-level framework choice, there are some principles that apply in all Vue SSR applications.
 
-### Reactivity on the Server
+### Reactivity on the Server {#reactivity-on-the-server}
 
 During SSR, each request URL maps to a desired state of our application. There is no user interaction and no DOM updates, so reactivity is unnecessary on the server. By default, reactivity is disabled during SSR for better performance.
 
-### Component Lifecycle Hooks
+### Component Lifecycle Hooks {#component-lifecycle-hooks}
 
 Since there are no dynamic updates, lifecycle hooks such as <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> or <span class="options-api">`updated`</span><span class="composition-api">`onUpdated`</span> will **NOT** be called during SSR and will only be executed on the client.<span class="options-api"> The only hooks that are called during SSR are `beforeCreate` and `created`</span>
 
 You should avoid code that produces side effects that need cleanup in <span class="options-api">`beforeCreate` and `created`</span><span class="composition-api">`setup()` or the root scope of `<script setup>`</span>. An example of such side effects is setting up timers with `setInterval`. In client-side only code we may setup a timer and then tear it down in <span class="options-api">`beforeUnmount`</span><span class="composition-api">`onBeforeUnmount`</span> or <span class="options-api">`unmounted`</span><span class="composition-api">`onUnmounted`</span>. However, because the unmount hooks will never be called during SSR, the timers will stay around forever. To avoid this, move your side-effect code into <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> instead.
 
-### Access to Platform-Specific APIs
+### Access to Platform-Specific APIs {#access-to-platform-specific-apis}
 
 Universal code cannot assume access to platform-specific APIs, so if your code directly uses browser-only globals like `window` or `document`, they will throw errors when executed in Node.js, and vice-versa.
 
@@ -255,7 +255,7 @@ For browser-only APIs, the common approach is to lazily access them inside clien
 
 Note that if a third-party library is not written with universal usage in mind, it could be tricky to integrate it into a server-rendered app. You _might_ be able to get it working by mocking some of the globals, but it would be hacky and may interfere with the environment detection code of other libraries.
 
-### Cross-Request State Pollution
+### Cross-Request State Pollution {#cross-request-state-pollution}
 
 In the State Management chapter, we introduced a [simple state management pattern using Reactivity APIs](state-management.html#simple-state-management-with-reactivity-api). In an SSR context, this pattern requires some additional adjustments.
 
@@ -286,7 +286,7 @@ export function createApp() {
 
 State Management libraries like Pinia are designed with this in mind. Consult [Pinia's SSR guide](https://pinia.vuejs.org/ssr/) for more details.
 
-### Hydration Mismatch
+### Hydration Mismatch {#hydration-mismatch}
 
 If the DOM structure of the pre-rendered HTML does not match the expected output of the client-side app, there will be a hydration mismatch error. Hydration mismatch is most commonly introduced by the following causes:
 
@@ -314,7 +314,7 @@ If the DOM structure of the pre-rendered HTML does not match the expected output
 
 When Vue encounters a hydration mismatch, it will attempt to automatically recover and adjust the pre-rendered DOM to match the client-side state. This will lead to some rendering performance loss due to incorrect nodes being discarded and new nodes being mounted, but in most cases, the app should continue to work as expected. That said, it is still best to eliminate hydration mismatches during development.
 
-### Custom Directives
+### Custom Directives {#custom-directives}
 
 Since most custom directives involve direct DOM manipulation, they are ignored during SSR. However, if you want to specify how a custom directive should be rendered (i.e. what attributes it should add to the rendered element), you can use the `getSSRProps` directive hook:
 
@@ -336,7 +336,7 @@ const myDirective = {
 }
 ```
 
-### Teleports
+### Teleports {#teleports}
 
 Teleports require special handling during SSR. If the rendered app contains Teleports, the teleported content will not be part of the rendered string. An easier solution is to conditionally render the Teleport on mount.
 

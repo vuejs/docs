@@ -2,11 +2,11 @@
 outline: deep
 ---
 
-# Rendering Mechanism
+# Rendering Mechanism {#rendering-mechanism}
 
 How does Vue take a template and turn it into actual DOM nodes? How does Vue update those DOM nodes efficiently? We will attempt to shed some light on these questions here by diving into Vue's internal rendering mechanism.
 
-## Virtual DOM
+## Virtual DOM {#virtual-dom}
 
 You have probably heard about the term "virtual DOM", which Vue's rendering system is based upon.
 
@@ -34,7 +34,7 @@ If we have two copies of virtual DOM trees, the renderer can also walk and compa
 
 The main benefit of virtual DOM is that it gives the developer the ability to programmatically create, inspect and compose desired UI structures in a declarative way, while leaving the direct DOM manipulation to the renderer.
 
-## Render Pipeline
+## Render Pipeline {#render-pipeline}
 
 At the high level, this is what happens when a Vue component is mounted:
 
@@ -48,7 +48,7 @@ At the high level, this is what happens when a Vue component is mounted:
 
 <!-- https://www.figma.com/file/elViLsnxGJ9lsQVsuhwqxM/Rendering-Mechanism -->
 
-## Templates vs. Render Functions
+## Templates vs. Render Functions {#templates-vs-render-functions}
 
 Vue templates are compiled into virtual DOM render functions. Vue also provides APIs that allow us to skip the template compilation step and directly author render functions. Render functions are more flexible than templates when dealing with highly dynamic logic, because you can work with vnodes using the full power of JavaScript.
 
@@ -60,7 +60,7 @@ So why does Vue recommend templates by default? There are a number of reasons:
 
 In practice, templates are sufficient for most use cases in applications. Render functions are typically only used in reusable components that need to deal with highly dynamic rendering logic. Render function usage is discussed in more detail in [Render Functions & JSX](./render-function).
 
-## Compiler-Informed Virtual DOM
+## Compiler-Informed Virtual DOM {#compiler-informed-virtual-dom}
 
 The virtual DOM implementation in React and most other virtual-DOM implementations are purely runtime: the reconciliation algorithm cannot make any assumptions about the incoming virtual DOM tree, so it has to fully traverse the tree and diff the props of every vnode in order to ensure correctness. In addition, even if a part of the tree never changes, new vnodes are always created for them on each re-render, resulting in unnecessary memory pressure. This is one of the most criticized aspect of virtual DOM: the somewhat brute-force reconciliation process sacrifices efficiency in return for declarativeness and correctness.
 
@@ -68,7 +68,7 @@ But it doesn't have to be that way. In Vue, the framework controls both the comp
 
 Below, we will discuss a few major optimizations done by the Vue template compiler to improve the virtual DOM's runtime performance.
 
-### Static Hoisting
+### Static Hoisting {#static-hoisting}
 
 Quite often there will be parts in a template that do not contain any dynamic bindings:
 
@@ -86,7 +86,7 @@ The `foo` and `bar` divs are static - re-creating vnodes and diffing them on eac
 
 In addition, when there are enough consecutive static elements, they will be condensed into a single "static vnode" that contains the plain HTML string for all these nodes ([Example](https://vue-next-template-explorer.netlify.app/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdiBjbGFzcz1cImZvb1wiPmZvbzwvZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdj57eyBkeW5hbWljIH19PC9kaXY+XG48L2Rpdj4iLCJzc3IiOmZhbHNlLCJvcHRpb25zIjp7ImhvaXN0U3RhdGljIjp0cnVlfX0=)). These static vnodes are mounted by directly setting `innerHTML`. They also cache their corresponding DOM nodes on initial mount - if the same piece of content is reused elsewhere in the app, new DOM nodes are created using native `cloneNode()`, which is extremely efficient.
 
-### Patch Flags
+### Patch Flags {#patch-flags}
 
 For a single element with dynamic bindings, we can also infer a lot of information from it at compile time:
 
@@ -133,7 +133,7 @@ export function render() {
 
 The runtime can thus completely skip child-order reconciliation for the root fragment.
 
-### Tree Flattening
+### Tree Flattening {#tree-flattening}
 
 Taking another look at the generated code from the previous example, you'll notice the root of the returned virtual DOM tree is created using a special `createElementBlock()` call:
 
@@ -183,7 +183,7 @@ When this component needs to re-render, it only needs to traverse the flattened 
 
 A child block is tracked inside the parent block's array of dynamic descendants. This retains a stable structure for the parent block.
 
-### Impact on SSR Hydration
+### Impact on SSR Hydration {#impact-on-ssr-hydration}
 
 Both patch flags and tree flattening also greatly improve Vue's [SSR Hydration](/guide/scaling-up/ssr.html#client-hydration) performance:
 

@@ -1,4 +1,4 @@
-# List Rendering
+# List Rendering {#list-rendering}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Free Vue.js List Rendering Lesson"/>
@@ -8,7 +8,7 @@
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Free Vue.js List Rendering Lesson"/>
 </div>
 
-## `v-for`
+## `v-for` {#v-for}
 
 We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
 
@@ -132,7 +132,7 @@ You can also use `of` as the delimiter instead of `in`, so that it is closer to 
 <div v-for="item of items"></div>
 ```
 
-## `v-for` with an Object
+## `v-for` with an Object {#v-for-with-an-object}
 
 You can also use `v-for` to iterate through the properties of an object. The iteration order will be based on the result of calling `Object.keys()` on the object:
 
@@ -198,7 +198,7 @@ And another for the index:
 
 </div>
 
-## `v-for` with a Range
+## `v-for` with a Range {#v-for-with-a-range}
 
 `v-for` can also take an integer. In this case it will repeat the template that many times, based on a range of `1...n`.
 
@@ -208,7 +208,7 @@ And another for the index:
 
 Note here `n` starts with an initial value of `1` instead of `0`.
 
-## `v-for` on `<template>`
+## `v-for` on `<template>` {#v-for-on-template}
 
 Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
 
@@ -221,7 +221,7 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 </ul>
 ```
 
-## `v-for` with `v-if`
+## `v-for` with `v-if` {#v-for-with-v-if}
 
 :::warning Note
 It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential.html#avoid-v-if-with-v-for) for details.
@@ -249,7 +249,7 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is als
 </template>
 ```
 
-## Maintaining State with `key`
+## Maintaining State with `key` {#maintaining-state-with-key}
 
 When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index.
 
@@ -279,7 +279,7 @@ When using `<template v-for>`, the `key` should be placed on the `<template>` co
 
 The `key` binding expects primitive values - i.e. strings and numbers. Do not use objects as `v-for` keys. For detailed usage of the `key` attribute, please see the [`key` API documentation](/api/built-in-special-attributes.html#key).
 
-## `v-for` with a Component
+## `v-for` with a Component {#v-for-with-a-component}
 
 > This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
 
@@ -313,9 +313,9 @@ Check out [this example of a simple todo list](https://sfc.vuejs.org/#eyJBcHAudn
 
 </div>
 
-## Array Change Detection
+## Array Change Detection {#array-change-detection}
 
-### Mutation Methods
+### Mutation Methods {#mutation-methods}
 
 Vue is able to detect when a reactive array's mutation methods are called and trigger necessary updates. These mutation methods are:
 
@@ -327,7 +327,7 @@ Vue is able to detect when a reactive array's mutation methods are called and tr
 - `sort()`
 - `reverse()`
 
-### Replacing an Array
+### Replacing an Array {#replacing-an-array}
 
 Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, we should replace the old array with the new one:
 
@@ -349,7 +349,7 @@ this.items = this.items.filter((item) => item.message.match(/Foo/))
 
 You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
 
-## Displaying Filtered/Sorted Results
+## Displaying Filtered/Sorted Results {#displaying-filtered-sorted-results}
 
 Sometimes we want to display a filtered or sorted version of an array without actually mutating or resetting the original data. In this case, you can create a computed property that returns the filtered or sorted array.
 

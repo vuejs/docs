@@ -1,6 +1,6 @@
-# Watchers
+# Watchers {#watchers}
 
-## Basic Example
+## Basic Example {#basic-example}
 
 Computed properties allow us to declaratively compute derived values. However, there are cases where we need to perform "side effects" in reaction to state changes - for example, mutating the DOM, or changing another piece of state based on the result of an async operation.
 
@@ -99,7 +99,7 @@ watch(question, async (newQuestion, oldQuestion) => {
 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgd2F0Y2ggfSBmcm9tICd2dWUnXG5cbmNvbnN0IHF1ZXN0aW9uID0gcmVmKCcnKVxuY29uc3QgYW5zd2VyID0gcmVmKCdRdWVzdGlvbnMgdXN1YWxseSBjb250YWluIGEgcXVlc3Rpb24gbWFyay4gOy0pJylcblxud2F0Y2gocXVlc3Rpb24sIGFzeW5jIChuZXdRdWVzdGlvbikgPT4ge1xuICBpZiAobmV3UXVlc3Rpb24uaW5kZXhPZignPycpID4gLTEpIHtcbiAgICBhbnN3ZXIudmFsdWUgPSAnVGhpbmtpbmcuLi4nXG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCdodHRwczovL3llc25vLnd0Zi9hcGknKVxuICAgICAgYW5zd2VyLnZhbHVlID0gKGF3YWl0IHJlcy5qc29uKCkpLmFuc3dlclxuICAgIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgICBhbnN3ZXIudmFsdWUgPSAnRXJyb3IhIENvdWxkIG5vdCByZWFjaCB0aGUgQVBJLiAnICsgZXJyb3JcbiAgICB9XG4gIH1cbn0pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBBc2sgYSB5ZXMvbm8gcXVlc3Rpb246XG4gICAgPGlucHV0IHYtbW9kZWw9XCJxdWVzdGlvblwiIC8+XG4gIDwvcD5cbiAgPHA+e3sgYW5zd2VyIH19PC9wPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 
-### Watch Source Types
+### Watch Source Types {#watch-source-types}
 
 `watch`'s first argument can be different types of reactive "sources": it can be a ref (including computed refs), a reactive object, a getter function, or an array of multiple sources:
 
@@ -151,7 +151,7 @@ watch(
 
 </div>
 
-## Deep Watchers
+## Deep Watchers {#deep-watchers}
 
 <div class="options-api">
 
@@ -222,7 +222,7 @@ Deep watch requires traversing all nested properties in the watched object, and 
 
 <div class="options-api">
 
-## Eager Watchers \*
+## Eager Watchers \* {#eager-watchers}
 
 `watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
 
@@ -249,7 +249,7 @@ The initial execution of the handler function will happen just before the `creat
 
 <div class="composition-api">
 
-## `watchEffect()` \*\*
+## `watchEffect()` \*\* {#watcheffect}
 
 `watch()` is lazy: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes. We may find ourselves doing this:
 
@@ -285,7 +285,7 @@ You can check out [this example](/examples/#fetching-data) with `watchEffect` an
 `watchEffect` only tracks dependencies during its **synchronous** execution. When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
 :::
 
-### `watch` vs. `watchEffect`
+### `watch` vs. `watchEffect` {#watch-vs-watcheffect}
 
 `watch` and `watchEffect` both allow us to reactively perform side effects. Their main difference is the way they track their reactive dependencies:
 
@@ -295,7 +295,7 @@ You can check out [this example](/examples/#fetching-data) with `watchEffect` an
 
 </div>
 
-## Callback Flush Timing
+## Callback Flush Timing {#callback-flush-timing}
 
 When you mutate reactive state, it may trigger both Vue component updates and watcher callbacks created by you.
 
@@ -345,7 +345,7 @@ watchPostEffect(() => {
 
 <div class="options-api">
 
-## `this.$watch()` \*
+## `this.$watch()` \* {#this-watch}
 
 It's also possible to imperatively create watchers using the [`$watch()` instance method](/api/component-instance.html#watch):
 
@@ -363,7 +363,7 @@ This is useful when you need to conditionally set up a watcher, or only watch so
 
 </div>
 
-## Stopping a Watcher
+## Stopping a Watcher {#stopping-a-watcher}
 
 <div class="options-api">
 

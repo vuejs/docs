@@ -1,10 +1,10 @@
-# Built-in Special Elements
+# Built-in Special Elements {#built-in-special-elements}
 
 :::info Not Components
 `<component>` and `<slot>` are component-like features and part of the template syntax. They are not true components and are compiled away during template compilation. As such, they are conventionally written with lowercase in templates.
 :::
 
-## `<component>`
+## `<component>` {#component}
 
 A "meta component" for rendering dynamic components or elements.
 
@@ -110,7 +110,7 @@ A "meta component" for rendering dynamic components or elements.
 
 - **See also:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
 
-## `<slot>`
+## `<slot>` {#slot}
 
 Denotes slot content outlets in templates.
 

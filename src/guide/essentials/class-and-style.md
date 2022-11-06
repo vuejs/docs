@@ -1,8 +1,8 @@
-# Class and Style Bindings
+# Class and Style Bindings {#class-and-style-bindings}
 
 A common need for data binding is manipulating an element's class list and inline styles. Since `class` and `style` are both attributes, we can use `v-bind` to assign them a string value dynamically, much like with other attributes. However, trying to generate those values using string concatenation can be annoying and error-prone. For this reason, Vue provides special enhancements when `v-bind` is used with `class` and `style`. In addition to strings, the expressions can also evaluate to objects or arrays.
 
-## Binding HTML Classes
+## Binding HTML Classes {#binding-html-classes}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3" title="Free Vue.js Dynamic CSS Classes Lesson"/>
@@ -12,7 +12,7 @@ A common need for data binding is manipulating an element's class list and inlin
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Free Vue.js Dynamic CSS Classes Lesson"/>
 </div>
 
-### Binding to Objects
+### Binding to Objects {#binding-to-objects} {#binding-to-objects}
 
 We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
 
@@ -136,7 +136,7 @@ computed: {
 <div :class="classObject"></div>
 ```
 
-### Binding to Arrays
+### Binding to Arrays {#binding-to-arrays} {#binding-to-arrays}
 
 We can bind `:class` to an array to apply a list of classes:
 
@@ -186,7 +186,7 @@ However, this can be a bit verbose if you have multiple conditional classes. Tha
 <div :class="[{ active: isActive }, errorClass]"></div>
 ```
 
-### With Components
+### With Components {#with-components}
 
 > This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
 
@@ -245,7 +245,7 @@ Will render:
 
 You can learn more about component attribute inheritance in [Fallthrough Attributes](/guide/components/attrs.html) section.
 
-## Binding Inline Styles
+## Binding Inline Styles {#binding-inline-styles}
 
 ### Binding to Objects
 
@@ -325,11 +325,11 @@ We can bind `:style` to an array of multiple style objects. These objects will b
 <div :style="[baseStyles, overridingStyles]"></div>
 ```
 
-### Auto-prefixing
+### Auto-prefixing {#auto-prefixing}
 
 When you use a CSS property that requires a [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, Vue will automatically add the appropriate prefix. Vue does this by checking at runtime to see which style properties are supported in the current browser. If the browser doesn't support a particular property then various prefixed variants will be tested to try to find one that is supported.
 
-### Multiple Values
+### Multiple Values {#multiple-values}
 
 You can provide an array of multiple (prefixed) values to a style property, for example:
 
