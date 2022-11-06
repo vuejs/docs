@@ -1,49 +1,49 @@
-# Reactivity API: Utilities
+# Реактивність: Утиліти {#reactivity-api-utilities}
 
 ## isRef()
 
-Checks if a value is a ref object.
+Перевіряє, чи значення є об’єкт-референція.
 
-- **Type**
+- **Тип**
 
   ```ts
   function isRef<T>(r: Ref<T> | unknown): r is Ref<T>
   ```
 
-  Note the return type is a [type predicate](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates), which means `isRef` can be used as a type guard:
+  Зауважте, що тип повернення є [предикатом типу](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates), що означає, що `isRef` можна використовувати для захисту типу :
 
   ```ts
   let foo: unknown
   if (isRef(foo)) {
-    // foo's type is narrowed to Ref<unknown>
+    // тип foo звужено до Ref<unknown>
     foo.value
   }
   ```
 
 ## unref()
 
-Returns the inner value if the argument is a ref, otherwise return the argument itself. This is a sugar function for `val = isRef(val) ? val.value : val`.
+Повертає внутрішнє значення, якщо аргумент є референція, інакше повертає сам аргумент. Це функція обгортка для `val = isRef(val) ? val.value : val`.
 
-- **Type**
+- **Тип**
 
   ```ts
   function unref<T>(ref: T | Ref<T>): T
   ```
 
-- **Example**
+- **Приклад**
 
   ```ts
   function useFoo(x: number | Ref<number>) {
     const unwrapped = unref(x)
-    // unwrapped is guaranteed to be number now
+    // unwrapped гарантовано буде числом
   }
   ```
 
 ## toRef()
 
-Can be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
+Може використовуватися для створення референції для властивості вихідного реактивного об'єкта. Створена референція синхронізується з властивістю джерела: зміна властивості джерела оновить референцію, і навпаки.
 
-- **Type**
+- **Тип**
 
   ```ts
   function toRef<T extends object, K extends keyof T>(
@@ -55,7 +55,7 @@ Can be used to create a ref for a property on a source reactive object. The crea
   type ToRef<T> = T extends Ref ? T : Ref<T>
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
   const state = reactive({
@@ -65,46 +65,46 @@ Can be used to create a ref for a property on a source reactive object. The crea
 
   const fooRef = toRef(state, 'foo')
 
-  // mutating the ref updates the original
+  // зміна рефернції оновлює оригінал
   fooRef.value++
   console.log(state.foo) // 2
 
-  // mutating the original also updates the ref
+  // зміна оригіналу також оновлює рефернцію
   state.foo++
   console.log(fooRef.value) // 3
   ```
 
-  Note this is different from:
+  Зауважте, що це відрізняється від:
 
   ```js
   const fooRef = ref(state.foo)
   ```
 
-  The above ref is **not** synced with `state.foo`, because the `ref()` receives a plain number value.
+  Наведена вище референція **не** синхронізується з `state.foo`, оскільки `ref()` отримує звичайне числове значення.
 
-  `toRef()` is useful when you want to pass the ref of a prop to a composable function:
+  `toRef()` корисна, коли ви хочете передати референцію реквізита до композиційної функції:
 
   ```vue
   <script setup>
   import { toRef } from 'vue'
-  
+
   const props = defineProps(/* ... */)
 
-  // convert `props.foo` into a ref, then pass into
-  // a composable
+  // перетворити `props.foo` в референцію, а потім передати в
+  // композиційну функцію
   useSomeFeature(toRef(props, 'foo'))
   </script>
   ```
 
-  When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core.html#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/events.html#usage-with-v-model) for more information.
+  Коли `toRef` використовується з реквізитами компонента, звичайні обмеження щодо зміни реквізитів все ще діють. Спроба призначити нове значення референції еквівалентна спробі безпосередньо змінити реквізит і це не дозволяється. У цьому випадку ви можете використовувати [`computed`](./reactivity-core.html#computed) з `get` і `set` натомість. Додаткову інформацію див. у гіді [використання `v-model` з компонентами](/guide/components/events.html#usage-with-v-model).
 
-  `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
+  `toRef()` поверне придатну референцію, навіть якщо властивість джерела наразі не існує. Це дає змогу працювати з необов'язковими властивостями, які не будуть підхоплені [`toRefs`](#torefs).
 
 ## toRefs()
 
-Converts a reactive object to a plain object where each property of the resulting object is a ref pointing to the corresponding property of the original object. Each individual ref is created using [`toRef()`](#toref).
+Перетворює реактивний об’єкт на звичайний об’єкт, де кожна властивість отриманого об'єкта є референцією, що вказує на відповідну властивість вихідного об'єкта. Кожне окрема референція створюється за допомогою [`toRef()`](#toref).
 
-- **Type**
+- **Тип**
 
   ```ts
   function toRefs<T extends object>(
@@ -116,7 +116,7 @@ Converts a reactive object to a plain object where each property of the resultin
   type ToRef = T extends Ref ? T : Ref<T>
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
   const state = reactive({
@@ -132,7 +132,7 @@ Converts a reactive object to a plain object where each property of the resultin
   }
   */
 
-  // The ref and the original property is "linked"
+  // Референція та вихідна властивість "зв'язані"
   state.foo++
   console.log(stateAsRefs.foo.value) // 2
 
@@ -140,7 +140,7 @@ Converts a reactive object to a plain object where each property of the resultin
   console.log(state.foo) // 3
   ```
 
-  `toRefs` is useful when returning a reactive object from a composable function so that the consuming component can destructure/spread the returned object without losing reactivity:
+  `toRefs` корисна під час повернення реактивного об'єкта з композиційної функції, щоб використовує компонент міг деструктурувати/поширити повернутий об’єкт без втрати реактивності:
 
   ```js
   function useFeatureX() {
@@ -149,23 +149,23 @@ Converts a reactive object to a plain object where each property of the resultin
       bar: 2
     })
 
-    // ...logic operating on state
+    // ...логіка, яка діє на стан
 
-    // convert to refs when returning
+    // перетворити в референції при поверненні
     return toRefs(state)
   }
 
-  // can destructure without losing reactivity
+  // можна деструктурувати без втрати реактивності
   const { foo, bar } = useFeatureX()
   ```
 
-  `toRefs` will only generate refs for properties that are enumerable on the source object at call time. To create a ref for a property that may not exist yet, use [`toRef`](#toref) instead.
+  `toRefs` генеруватиме лише референції для властивостей, які можна перерахувати у вихідному об'єкті під час виклику. Щоб створити посилання для властивості, яка може ще не існувати, використовуйте [`toRef`](#toref).
 
 ## isProxy()
 
-Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
+Перевіряє, чи є об’єкт проксі, створеним [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) або [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
 
-- **Type**
+- **Тип**
 
   ```ts
   function isProxy(value: unknown): boolean
@@ -173,9 +173,9 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 ## isReactive()
 
-Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive) or [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
+Перевіряє, чи є об’єкт проксі, створеним [`reactive()`](./reactivity-core.html#reactive) або [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
 
-- **Type**
+- **Тип**
 
   ```ts
   function isReactive(value: unknown): boolean
@@ -183,9 +183,9 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 ## isReadonly()
 
-Checks if an object is a proxy created by [`readonly()`](./reactivity-core.html#readonly) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
+Перевіряє, чи є об’єкт проксі, створеним [`readonly()`](./reactivity-core.html#readonly) або [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
 
-- **Type**
+- **Тип**
 
   ```ts
   function isReadonly(value: unknown): boolean
