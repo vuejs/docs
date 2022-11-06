@@ -6,7 +6,7 @@ import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
 import { jobsPlugin } from './jobsMdPlugin'
 
-const nav = [
+const nav: ThemeConfig['nav'] = [
   {
     text: 'Документація',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
@@ -123,7 +123,7 @@ const nav = [
   }
 ]
 
-export const sidebar = {
+export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
       text: 'Початок',
@@ -551,6 +551,10 @@ export const sidebar = {
   ]
 }
 
+// Placeholder of the i18n config for @vuejs-translations.
+// const i18n: ThemeConfig['i18n'] = {
+// }
+
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
@@ -619,6 +623,8 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     nav,
     sidebar,
+    // Placeholder of the i18n config for @vuejs-translations.
+    // i18n,
 
     algolia: {
       indexName: 'vuejs',
@@ -627,6 +633,30 @@ export default defineConfigWithTheme<ThemeConfig>({
       searchParameters: {
         facetFilters: ['version:v3']
       }
+    },
+
+    i18n: {
+      search: 'Пошук',
+      menu: 'Меню',
+      toc: 'На цій сторінці',
+      returnToTop: 'Повернутися до початку',
+      appearance: 'Зовнішній вигляд',
+      previous: 'Попередня сторінка',
+      next: 'Наступна сторінка',
+      pageNotFound: 'Сторінку не знайдено',
+      deadLink: {
+        before: 'Ви відкрили посилання, якого не існує:',
+        after: '',
+      },
+      deadLinkReport: {
+        before: 'Будь ласка,',
+        link: 'повідомте нас,',
+        after: 'щоб ми могли це виправити'
+      },
+      footerLicense: {
+        before: '',
+        after: ''
+      },
     },
 
     carbonAds: {
