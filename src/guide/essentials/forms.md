@@ -112,7 +112,7 @@ Note that interpolation inside `<textarea>` won't work. Use `v-model` instead.
 <textarea v-model="text"></textarea>
 ```
 
-### Checkbox {#checkbox} {#checkbox}
+### Checkbox {#checkbox}
 
 Single checkbox, boolean value:
 
@@ -199,7 +199,7 @@ In this case, the `checkedNames` array will always contain the values from the c
 
 </div>
 
-### Radio {#radio} {#radio}
+### Radio {#radio}
 
 ```vue-html
 <div>Picked: {{ picked }}</div>
