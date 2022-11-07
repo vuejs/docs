@@ -97,13 +97,13 @@ A component can be tested in two ways:
 
    Tests that are "Blackbox tests" are unaware of the implementation details of a component. These tests mock as little as possible to test the integration of your component and the entire system. They usually render all child components and are considered more of an "integration test". See the [Component Testing recommendations](#component-testing) below.
 
-### Recommendation {#recommendation} {#recommendation} {#recommendation}
+### Recommendation {#recommendation}
 
 - [Vitest](https://vitest.dev/)
 
   Since the official setup created by `create-vue` is based on [Vite](https://vitejs.dev/), we recommend using a unit testing framework that can leverage the same configuration and transform pipeline directly from Vite. [Vitest](https://vitest.dev/) is a unit testing framework designed specifically for this purpose, created and maintained by Vue / Vite team members. It integrates with Vite-based projects with minimal effort, and is blazing fast.
 
-### Other Options {#other-options} {#other-options} {#other-options}
+### Other Options {#other-options}
 
 - [Peeky](https://peeky.dev/) is another fast unit test runner with first-class Vite integration. It is also created by a Vue core team member and offers a GUI-based testing interface.
 
