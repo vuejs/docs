@@ -223,7 +223,7 @@ Component testing often involves mounting the component being tested in isolatio
 
 We recommend using `@testing-library/vue` for testing components in applications, as its focus aligns better with the testing priorities of applications. Use `@vue/test-utils` only if you are building advanced components that require testing Vue-specific internals.
 
-### Other Options
+### Other Options {#other-options-1}
 
 - [Nightwatch](https://v2.nightwatchjs.org/) is an E2E test runner with Vue Component Testing support. ([Example Project](https://github.com/nightwatchjs-community/todo-vue) in Nightwatch v2)
 
@@ -269,7 +269,7 @@ When end-to-end (E2E) tests are run in continuous integration / deployment pipel
 
   Overall, we believe Cypress provides the most complete E2E solution with features like an informative graphical interface, excellent debuggability, built-in assertions and stubs, flake-resistance, parallelization, and snapshots. As mentioned above, it also provides support for [Component Testing](https://docs.cypress.io/guides/component-testing/introduction). However, it only supports Chromium-based browsers and Firefox.
 
-### Other Options {#other-options}
+### Other Options {#other-options-2}
 
 - [Playwright](https://playwright.dev/) is also a great E2E testing solution with a wider range of browser support (mainly WebKit). See [Why Playwright](https://playwright.dev/docs/why-playwright) for more details.
 
