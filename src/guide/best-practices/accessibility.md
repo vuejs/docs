@@ -478,7 +478,7 @@ The World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI) develops 
 - [Robust](https://www.w3.org/TR/WCAG21/#robust)
   - Users must be able to access the content as technologies advance
 
-#### Web Accessibility Initiative – Accessible Rich Internet Applications (WAI-ARIA) {#web-accessibility-initiative-–-accessible-rich-internet-applications-wai-aria}
+#### Web Accessibility Initiative – Accessible Rich Internet Applications (WAI-ARIA) {#web-accessibility-initiative-accessible-rich-internet-applications-wai-aria}
 
 W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced user interface controls.
 
