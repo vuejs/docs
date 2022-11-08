@@ -24,3 +24,16 @@ Das Projekt erfordert Node.js `v14.0.0` oder höher, da wir neue JavaScript-Funk
 ## Bearbeitung des Themas
 
 Wenn Änderungen am Thema vorgenommen werden müssen, beachten die  [Anleitung zur Entwicklung des Themas neben den Dokumenten](https://github.com/vuejs/vue-theme#developing-with-real-content).
+
+
+## Übersetzung
+
+Ich bin ein begeisterter Frontend-Entwickler mit deutschem Hintergrund und mehrjähriger Erfahrung in der Webentwicklung und übersetze englische Vue 3 Dokumentation auf Deutsch.
+
+Die Übersetzung der Dokumentation auf Deutsch soll den Einstieg in das VueJS-Framework erleichtern. Etwa 130 Millionen Menschen auf der ganzen Welt sprechen Deutsch als Muttersprache.
+
+Die Übersetzung der Dokumentation ist nicht mein Haupttätigkeit, daher wird es "so wie es ist" zur Verfügung gestellt und wird ausschließlich auf freiwilliger Grundlage gemacht. Daher hoffe ich auf die Unterstützung derjenigen, die glauben, dass Vue 3 auf Deutsch übersetzt und der Veröffentlichung zugänglich gemacht werden sollte.
+
+Wenn Sie uns finanziell unterstützen möchten, verwenden Sie bitte die Funktion `Sponsor` auf GitHub. Wenn Sie bei der Übersetzung helfen möchten, nehmen Sie bitte Kontakt mit mir auf. Ich wäre für jede Art von Hilfe dankbar.
+
+Ich danke Ihnen für Ihre Unterstützung.
