@@ -205,7 +205,7 @@ cy.get(valueSelector).should('be.visible').and('contain.text', '0')
 
   If a method needs to be tested thoroughly, consider extracting it into a standalone utility function and write a dedicated unit test for it. If it cannot be extracted cleanly, it may be tested as a part of a component, integration, or end-to-end test that covers it.
 
-### Recommendation
+### Recommendation {#recommendation-1}
 
 - [Vitest](https://vitest.dev/) for components or composables that render headlessly (e.g. the [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) function in VueUse). Components and DOM can be tested using [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro).
 
@@ -223,7 +223,7 @@ Component testing often involves mounting the component being tested in isolatio
 
 We recommend using `@testing-library/vue` for testing components in applications, as its focus aligns better with the testing priorities of applications. Use `@vue/test-utils` only if you are building advanced components that require testing Vue-specific internals.
 
-### Other Options
+### Other Options {#other-options-1}
 
 - [Nightwatch](https://v2.nightwatchjs.org/) is an E2E test runner with Vue Component Testing support. ([Example Project](https://github.com/nightwatchjs-community/todo-vue) in Nightwatch v2)
 
@@ -263,13 +263,13 @@ While developers have traditionally relied on scanning logs in a terminal window
 
 When end-to-end (E2E) tests are run in continuous integration / deployment pipelines, they are often run in headless browsers (i.e., no visible browser is opened for the user to watch). A critical feature of modern E2E testing frameworks is the ability to see snapshots and/or videos of the application during testing, providing some insight into why errors are happening. Historically, it was tedious to maintain these integrations.
 
-### Recommendation
+### Recommendation {#recommendation-2}
 
 - [Cypress](https://www.cypress.io/)
 
   Overall, we believe Cypress provides the most complete E2E solution with features like an informative graphical interface, excellent debuggability, built-in assertions and stubs, flake-resistance, parallelization, and snapshots. As mentioned above, it also provides support for [Component Testing](https://docs.cypress.io/guides/component-testing/introduction). However, it only supports Chromium-based browsers and Firefox.
 
-### Other Options
+### Other Options {#other-options-2}
 
 - [Playwright](https://playwright.dev/) is also a great E2E testing solution with a wider range of browser support (mainly WebKit). See [Why Playwright](https://playwright.dev/docs/why-playwright) for more details.
 
