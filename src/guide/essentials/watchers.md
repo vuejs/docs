@@ -220,9 +220,9 @@ watch(
 Deep watch requires traversing all nested properties in the watched object, and can be expensive when used on large data structures. Use it only when necessary and beware of the performance implications.
 :::
 
-<div class="options-api">
+## Eager Watchers {#eager-watchers}
 
-## Eager Watchers \* {#eager-watchers}
+<div class="options-api">
 
 `watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
 
@@ -245,6 +245,21 @@ export default {
 ```
 
 The initial execution of the handler function will happen just before the `created` hook. Vue will have already processed the `data`, `computed`, and `methods` options, so those properties will be available on the first invocation.
+  
+</div>
+
+<div class="composition-api">
+  
+`watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
+
+We can force a watcher's callback to be executed immediately by declaring it using an object with a `handler` function and the `immediate: true` option:
+
+```js
+watch(obj, (newValue, oldValue) => {
+  // logic
+}, {immediate: true})
+```
+
 </div>
 
 <div class="composition-api">
