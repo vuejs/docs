@@ -222,9 +222,9 @@ Deep watch requires traversing all nested properties in the watched object, and 
 
 ## Eager Watchers {#eager-watchers}
 
-<div class="options-api">
-
 `watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
+
+<div class="options-api">
 
 We can force a watcher's callback to be executed immediately by declaring it using an object with a `handler` function and the `immediate: true` option:
 
@@ -249,15 +249,13 @@ The initial execution of the handler function will happen just before the `creat
 </div>
 
 <div class="composition-api">
-  
-`watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
 
-We can force a watcher's callback to be executed immediately by declaring it using an object with a `handler` function and the `immediate: true` option:
+We can force a watcher's callback to be executed immediately by passing the `immediate: true` option:
 
 ```js
 watch(obj, (newValue, oldValue) => {
-  // logic
-}, {immediate: true})
+  // ...
+}, { immediate: true })
 ```
 
 </div>
