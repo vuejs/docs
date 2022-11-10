@@ -4,6 +4,8 @@
 
 Vue Single-File Components (a.k.a. `*.vue` files, abbreviated as **SFC**) is a special file format that allows us to encapsulate the template, logic, **and** styling of a Vue component in a single file. Here's an example SFC:
 
+<div class="options-api">
+
 ```vue
 <script>
 export default {
@@ -26,6 +28,31 @@ export default {
 }
 </style>
 ```
+
+</div>
+
+<div class="composition-api">
+
+```vue
+<script setup>
+  import { ref } from 'vue';
+  const greeting = ref('Hello World!');
+}
+</script>
+
+<template>
+  <p class="greeting">{{ greeting }}</p>
+</template>
+
+<style>
+.greeting {
+  color: red;
+  font-weight: bold;
+}
+</style>
+```
+
+</div>
 
 As we can see, Vue SFC is a natural extension of the classic trio of HTML, CSS and JavaScript. The `<template>`, `<script>`, and `<style>` blocks encapsulate and colocate the view, logic and styling of a component in the same file. The full syntax is defined in the [SFC Syntax Specification](/api/sfc-spec).
 
@@ -54,15 +81,35 @@ That said, we do realize there are scenarios where SFCs can feel like overkill. 
 
 Vue SFC is a framework-specific file format and must be pre-compiled by [@vue/compiler-sfc](https://github.com/vuejs/core/tree/main/packages/compiler-sfc) into standard JavaScript and CSS. A compiled SFC is a standard JavaScript (ES) module - which means with proper build setup you can import an SFC like a module:
 
-```js
-import MyComponent from './MyComponent.vue'
+<div class="options-api">
+
+```vue
+
+<script>
+import MyComponent from './MyComponent.vue';
 
 export default {
   components: {
     MyComponent
   }
 }
+</script>
 ```
+
+</div>
+
+<div class="composition-api">
+
+```vue
+<script setup>
+import MyComponent from './MyComponent.vue';
+
+</script>
+```
+
+With `<script setup>`, imported components are automatically made available to the template.
+
+</div>
 
 `<style>` tags inside SFCs are typically injected as native `<style>` tags during development to support hot updates. For production they can be extracted and merged into a single CSS file.
 
