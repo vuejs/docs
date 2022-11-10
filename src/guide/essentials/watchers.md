@@ -264,7 +264,9 @@ watch(obj, (newValue, oldValue) => {
 
 ## `watchEffect()` \*\* {#watcheffect}
 
-`watch()` is lazy: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes. We may find ourselves doing this:
+`watch()` is lazy: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly, an alternative to [`watch()`](/api/reactivity-core.html#watch) exists.
+
+We may find ourselves doing this:
 
 ```js
 const url = ref('https://...')
@@ -278,7 +280,7 @@ async function fetchData() {
 // fetch immediately
 fetchData()
 // ...then watch for url change
-watch(url, fetchData)
+watch(url, fetchData, { immediate: true })
 ```
 
 This can be simplified with [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` allows us to perform a side effect immediately while automatically tracking the effect's reactive dependencies. The above example can be rewritten as:
