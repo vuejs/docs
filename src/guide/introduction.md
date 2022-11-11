@@ -2,12 +2,12 @@
 footer: false
 ---
 
-# Introduction {#introduction}
+# Einführung {#introduction}
 
-:::info You are reading the documentation for Vue 3!
+:::info Sie lesen gerade die Dokumentation für Vue 3!
 
-- Vue 2 documentation has been moved to [v2.vuejs.org](https://v2.vuejs.org/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+- Die Vue 2 Dokumentation wurde nach [v2.vuejs.org](https://v2.vuejs.org/) verschoben.
+- Upgraden Sie von Vue 2? Schauen Sie sich den [Migration Guide](https://v3-migration.vuejs.org/) an.
   :::
 
 <style src="@theme/styles/vue-mastery.css"></style>
@@ -16,14 +16,14 @@ footer: false
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>
-    <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <p class="description">Vue lernen mit Video-Tutorials auf <span>VueMastery.com</span></p>
     <div class="logo-wrapper">
         <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
 
-## What is Vue? {#what-is-vue}
+## Was ist Vue? {#what-is-vue}
 
 Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex.
 
