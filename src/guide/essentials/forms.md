@@ -57,7 +57,7 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 ```
 
 <div class="demo">
-  <p>Message is: {{ message }}</p>
+  <p style="word-break:break-word;">Message is: {{ message }}</p>
   <input v-model="message" placeholder="edit me" />
 </div>
 
@@ -87,7 +87,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 
 <div class="demo">
   <span>Multiline message is:</span>
-  <p style="white-space: pre-line;">{{ multilineText }}</p>
+  <p style="white-space: pre-line; word-break:break-word;">{{ multilineText }}</p>
   <textarea v-model="multilineText" placeholder="add multiple lines"></textarea>
 </div>
 
