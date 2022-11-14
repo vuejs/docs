@@ -71,6 +71,20 @@ function close () {
   width: 100%;
 }
 
+@media (max-width:400px) {
+  .vuemastery-banner--wrapper .text {
+    /* color: red; */
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width:330px) {
+  .vuemastery-banner--wrapper .text {
+    /* color: yellow; */
+    margin-left:10px;
+  }
+}
+
 @media (min-width:1001px) {
 
   .vuemastery-banner:hover:after,
@@ -326,6 +340,7 @@ function close () {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .vuemastery-button:after,
