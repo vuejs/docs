@@ -12,21 +12,21 @@ footer: false
 
 - Wenn Sie bereits mit Node.js und dem Konzept von Build-Tools vertraut sind, können Sie auch ein komplettes Build-Setup direkt in Ihrem Browser auf [StackBlitz](https://vite.new/vue).
 
-## Creating a Vue Application {#creating-a-vue-application}
+## Vue-Anwendung erstellen {#creating-a-vue-application}
 
-:::tip Prerequisites
+:::tip Voraussetzungen
 
-- Familiarity with the command line
-- Install [Node.js](https://nodejs.org/) version 16.0 or higher
+- Vertrautheit mit der Kommandozeile
+- Installieren Sie [Node.js](https://nodejs.org/) Version 16.0 oder höher
   :::
 
-In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue.html#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vitejs.dev) and allow us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
+In diesem Abschnitt werden wir Ihnen zeigen, wie Sie ein Vue [Single Page Application](/guide/extras/ways-of-using-vue.html#single-page-application-spa) auf Ihrem lokalen Rechner erstellen können. Das erstellte Projekt wird ein Build-Setup verwenden, das auf [Vite](https://vitejs.dev) basiert und uns erlaubt, Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs) zu verwenden.
 
-Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) installed, then run the following command in your command line (without the `>` sign):
+Stellen Sie sicher, dass Sie eine aktuelle Version von  [Node.js](https://nodejs.org/) installiert haben, und führen Sie dann den folgenden Befehl in Ihrer Befehlszeile aus (ohne das `>` Zeichen):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
-This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You will be presented with prompts for several optional features such as TypeScript and testing support:
+Mit diesem Befehl wird [create-vue](https://github.com/vuejs/create-vue), Vue-Projektgerüstwerkzeug, installiert und ausgeführt. Sie werden aufgefordert, mehrere optionale Funktionen wie TypeScript und Testunterstützung zu aktivieren:
 
 <div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
@@ -41,14 +41,14 @@ This command will install and execute [create-vue](https://github.com/vuejs/crea
 <span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span>...</span>
 <span style="color:#A6ACCD;">Done.</span></code></pre></div>
 
-If you are unsure about an option, simply choose `No` by hitting enter for now. Once the project is created, follow the instructions to install dependencies and start the dev server:
+Wenn Sie sich bei einer Option unsicher sind, wählen Sie einfach `No` indem Sie die Eingabetaste drücken. Sobald das Projekt erstellt ist, folgen Sie den Anweisungen zur Installation der Abhängigkeiten und zum Starten des Entwicklungsservers:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-You should now have your first Vue project running! Note that the example components in the generated project are written using the [Composition API](/guide/introduction.html#composition-api) and `<script setup>`, rather than the [Options API](/guide/introduction.html#options-api). Here are some additional tips:
+Sie sollten nun Ihr erstes Vue-Projekt zum Laufen gebracht haben! Beachten Sie, dass die Beispielkomponenten in dem generierten Projekt mit der [Composition API](/guide/introduction.html#composition-api) und `<script setup>` geschrieben wurden, und nicht mit der [Options API](/guide/introduction.html#options-api). Hier sind einige zusätzliche Tipps:
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling.html#ide-support).
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
