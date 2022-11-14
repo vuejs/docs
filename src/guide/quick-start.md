@@ -50,19 +50,19 @@ Wenn Sie sich bei einer Option unsicher sind, wählen Sie einfach `No` indem Sie
 
 Sie sollten nun Ihr erstes Vue-Projekt zum Laufen gebracht haben! Beachten Sie, dass die Beispielkomponenten in dem generierten Projekt mit der [Composition API](/guide/introduction.html#composition-api) und `<script setup>` geschrieben wurden, und nicht mit der [Options API](/guide/introduction.html#options-api). Hier sind einige zusätzliche Tipps:
 
-- The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling.html#ide-support).
-- More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling.html).
-- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
-- If you choose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview.html).
+- Die empfohlene IDE-Konfiguration ist [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Wenn Sie andere Editoren verwenden, sehen Sie sich den [IDE support section](/guide/scaling-up/tooling.html#ide-support).
+- Weitere Details zum Tooling, einschließlich der Integration mit Backend-Frameworks, werden im [Tooling Guide](/guide/scaling-up/tooling.html) behandelt.
+- Um mehr über das grundlegende Entwicklungstool Vite zu erfahren, lesen Sie die [Vite docs](https://vitejs.dev).
+- Wenn Sie TypeScript verwenden möchten, lesen Sie den [TypeScript Usage Guide](typescript/overview.html).
 
-When you are ready to ship your app to production, run the following:
+Wenn Sie bereit sind, Ihre Anwendung in Produktion zu geben, führen Sie Folgendes aus:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-This will create a production-ready build of your app in the project's `./dist` directory. Check out the [Production Deployment Guide](/guide/best-practices/production-deployment.html) to learn more about shipping your app to production.
+Dadurch wird ein produktionsfähiger Build Ihrer Anwendung im Verzeichnis `./dist` des Projekts erstellt. Lesen Sie den [Production Deployment Guide](/guide/best-practices/production-deployment.html) um mehr über den Einsatz Ihrer Anwendung in der Produktion zu erfahren.
 
-[Next Steps >](#next-steps)
+[Nächste Schritte >](#next-steps)
 
 ## Using Vue from CDN {#using-vue-from-cdn}
 
