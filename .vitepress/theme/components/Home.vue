@@ -13,13 +13,12 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
+      Das
       <span class="accent">Progressive</span>
       <br />JavaScript Framework
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Ein einfaches, performantes und flexibles Framework für die Erstellung von Webschnittstellen.
     </p>
     <p class="actions">
       <vue-mastery-modal />
