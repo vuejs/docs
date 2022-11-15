@@ -422,7 +422,7 @@ Specifies a check method to recognize native custom elements.
   ```js
   // treat all tags starting with 'ion-' as custom elements
   app.config.compilerOptions.isCustomElement = (tag) => {
-    return tag.startsWith('ion-')
+    return tag.startsWith('icon-')
   }
   ```
 
