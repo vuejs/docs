@@ -2,17 +2,17 @@
 
 ## key {#key}
 
-The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify vnodes when diffing the new list of nodes against the old list.
+ Специальный атрибут `key` (ключ) в первую очередь используется как подсказка для алгоритма виртуального DOM Vue для идентификации VNodes (виртуальных узлов) при вычислении разницы между обновленным списком узлов и старым.
 
 - **Ожидает:** `number | string | symbol`
 
 - **Подробности:**
 
-  Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed / destroyed.
+  Без ключей Vue использует алгоритм, который минимизирует перемещение элементов и пытается изменять/переиспользовать элементы одного типа как можно больше. При использовании ключей Vue переупорядочивает элементы на основании изменения ключей, а элементы с ключами, которые уже отсутствуют, будут всегда удаляться/уничтожаться. 
 
-  Children of the same common parent must have **unique keys**. Duplicate keys will cause render errors.
+  Потомки одного и того же общего родителя должны иметь **уникальные ключи**. Дубликаты ключей будут приводить к ошибкам рендера.
 
-  The most common use case is combined with `v-for`:
+  Чаще всего используется в сочетании с `v-for`:
 
   ```vue-html
   <ul>
@@ -20,12 +20,12 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
   </ul>
   ```
 
-  It can also be used to force replacement of an element/component instead of reusing it. This can be useful when you want to:
+  Также может использоваться для принудительной замены элемент/компонента вместо его переиспользования. Это может пригодиться, если вы хотите:
 
-  - Properly trigger lifecycle hooks of a component
-  - Trigger transitions
+  - Корректно вызвать хуки жизненного цикла компонента
+  - Запускать анимации перехода
 
-  For example:
+  Например:
 
   ```vue-html
   <transition>
@@ -33,28 +33,28 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
   </transition>
   ```
 
-  When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
+  При изменении значения `text`, элемент `<span>` будет всегда заменяться, вместо обновления его содержимого, поэтому будет запускаться анимация перехода.
 
-- **См. также:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list.html#maintaining-state-with-key)
+- **См. также:** [Руководство - Рендер списка - Сохранение состояния с помощью `key`](/guide/essentials/list.html#maintaining-state-with-key)
 
 ## ref {#ref}
 
-Denotes a [template ref](/guide/essentials/template-refs.html).
+Означает [ссылку на элементы шаблона](/guide/essentials/template-refs.html).
 
 - **Ожидает:** `string | Function`
 
 - **Подробности:**
 
-  `ref` is used to register a reference to an element or a child component.
+  Атрибут `ref` используется для регистрации ссылки на элемент или дочерний компонент.
 
-  In Options API, the reference will be registered under the component's `this.$refs` object:
+  В Options API, ссылка будет зарегистрирована в объекте компонента `this.$refs`:
 
   ```vue-html
-  <!-- stored as this.$refs.p -->
+  <!-- Хранится в this.$refs.p -->
   <p ref="p">hello</p>
   ```
 
-  In Composition API, the reference will be stored in a ref with matching name:
+  В Composition API, ссылка будет храниться в ref с соответствующим именем:
 
   ```vue
   <script setup>
@@ -64,35 +64,35 @@ Denotes a [template ref](/guide/essentials/template-refs.html).
   </script>
 
   <template>
-    <p ref="p">hello</p>
+    <p ref="p">Привет</p>
   </template>
   ```
 
-  If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be the child component instance.
+  При использовании на обычном DOM-элементе ссылка будет указывать на этот элемент; при использовании на дочернем компоненте ссылка будет указывать на экземпляр дочернего компонента.
 
-  Alternatively `ref` can accept a function value which provides full control over where to store the reference:
+  В качестве альтернативы `ref` может принимать функцию, что даёт полный контроль над тем, где хранить ссылку:
 
   ```vue-html
   <ChildComponent :ref="(el) => child = el" />
   ```
 
-  An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you must wait until the component is mounted before accessing them.
+  Важное замечание о времени регистрации ref-ссылок: поскольку эти ссылки создаются render-функцией, нужно подождать, пока компонент будет смонтирован, прежде чем обращаться к ним.
 
-  `this.$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
+  Так же свойство `this.$refs` не реактивно, поэтому не следует использовать его в шаблонах для привязки данных.
 
-- **См. также:** [Template Refs](/guide/essentials/template-refs.html)
+- **См. также:** [Ссылки на элементы шаблона](/guide/essentials/template-refs.html)
 
 ## is {#is}
 
-Used for binding [dynamic components](/guide/essentials/component-basics.html#dynamic-components).
+Используется для [динамических компонентов](/guide/essentials/component-basics.html#dynamic-components).
 
 - **Ожидает:** `string | Component`
 
 - **Использование на нативных элементах** <sup class="vt-badge">3.1+</sup>
 
-  When the `is` attribute is used on a native HTML element, it will be interpreted as a [Customized built-in element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), which is a native web platform feature.
+  Когда атрибут `is` используется на нативном HTML-элементе, то он интерпретируется как [пользовательский встроенный элемент](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example). Это нативная возможность веб-платформы.
 
-  There is, however, a use case where you may need Vue to replace a native element with a Vue component, as explained in [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats). You can prefix the value of the `is` attribute with `vue:` so that Vue will render the element as a Vue component instead:
+  Однако, есть случай использования, когда может понадобиться, чтобы Vue заменил нативный элемент на компонент Vue, как это разъясняется в [Особенности парсинга DOM-шаблона](/guide/essentials/component-basics.html#dom-template-parsing-caveats). В таком случае можно добавить значению атрибута `is` префикс `vue:`, чтобы Vue вместо элемента отрисовал компонент Vue:
 
   ```vue-html
   <table>
@@ -102,5 +102,5 @@ Used for binding [dynamic components](/guide/essentials/component-basics.html#dy
 
 - **См. также:**
 
-  - [Built-in Special Element - `<component>`](/api/built-in-special-elements.html#component)
-  - [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
+  - [Специальные встроенные элементы - `<component>`](/api/built-in-special-elements.html#component)
+  - [Динамические компоненты](/guide/essentials/component-basics.html#dynamic-components)
