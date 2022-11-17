@@ -41,7 +41,7 @@ Returns the inner value if the argument is a ref, otherwise return the argument 
 
 ## toRef() {#toref}
 
-Can be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
+Can be used to create a ref for a property on a source object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
 
 - **Type**
 
@@ -102,7 +102,7 @@ Can be used to create a ref for a property on a source reactive object. The crea
 
 ## toRefs() {#torefs}
 
-Converts a reactive object to a plain object where each property of the resulting object is a ref pointing to the corresponding property of the original object. Each individual ref is created using [`toRef()`](#toref).
+Converts a object to a plain object where each property of the resulting object is a ref pointing to the corresponding property of the original object. Each individual ref is created using [`toRef()`](#toref).
 
 - **Type**
 
