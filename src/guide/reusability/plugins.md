@@ -65,9 +65,9 @@ export default {
     app.config.globalProperties.$translate = (key) => {
       // retrieve a nested property in `options`
       // using `key` as the path
-      return key.split('.').reduce((o, i) => {
-        if (o) return o[i]
-      }, options)
+      const path = key.split('.')[0]
+      const value = key.split('.')[1]
+      return options[path][value]
     }
   }
 }
@@ -104,9 +104,9 @@ Plugins also allow us to use `inject` to provide a function or attribute to the 
 export default {
   install: (app, options) => {
     app.config.globalProperties.$translate = (key) => {
-      return key.split('.').reduce((o, i) => {
-        if (o) return o[i]
-      }, options)
+      const path = key.split('.')[0]
+      const value = key.split('.')[1]
+      return options[path][value]
     }
 
     app.provide('i18n', options)
