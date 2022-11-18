@@ -35,8 +35,8 @@ export default {
 
 ```vue
 <script setup>
-  import { ref } from 'vue';
-  const greeting = ref('Hello World!');
+  import { ref } from 'vue'
+  const greeting = ref('Hello World!')
 }
 </script>
 
@@ -81,35 +81,15 @@ That said, we do realize there are scenarios where SFCs can feel like overkill. 
 
 Vue SFC is a framework-specific file format and must be pre-compiled by [@vue/compiler-sfc](https://github.com/vuejs/core/tree/main/packages/compiler-sfc) into standard JavaScript and CSS. A compiled SFC is a standard JavaScript (ES) module - which means with proper build setup you can import an SFC like a module:
 
-<div class="options-api">
-
-```vue
-
-<script>
-import MyComponent from './MyComponent.vue';
+```js
+import MyComponent from './MyComponent.vue'
 
 export default {
   components: {
     MyComponent
   }
 }
-</script>
 ```
-
-</div>
-
-<div class="composition-api">
-
-```vue
-<script setup>
-import MyComponent from './MyComponent.vue';
-
-</script>
-```
-
-With `<script setup>`, imported components are automatically made available to the template.
-
-</div>
 
 `<style>` tags inside SFCs are typically injected as native `<style>` tags during development to support hot updates. For production they can be extracted and merged into a single CSS file.
 
