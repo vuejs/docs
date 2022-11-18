@@ -34,6 +34,6 @@ Die Übersetzung der Dokumentation auf Deutsch soll den Einstieg in das VueJS-Fr
 
 Die Übersetzung der Dokumentation ist nicht mein Haupttätigkeit, daher wird es "so wie es ist" zur Verfügung gestellt und wird ausschließlich auf freiwilliger Grundlage gemacht. Daher hoffe ich auf die Unterstützung derjenigen, die glauben, dass Vue 3 auf Deutsch übersetzt und der Veröffentlichung zugänglich gemacht werden sollte.
 
-Wenn Sie uns finanziell unterstützen möchten, verwenden Sie bitte die Funktion `Sponsor` auf GitHub. Wenn Sie bei der Übersetzung helfen möchten, nehmen Sie bitte Kontakt mit mir auf. Ich wäre für jede Art von Hilfe dankbar.
+Wenn Sie bei der Übersetzung helfen möchten, besuchen Sie die [**folgende Diskussion**](https://github.com/vuejs-translations/guidelines/discussions/49). Wenn Sie uns finanziell unterstützen möchten, verwenden Sie bitte die Funktion `Sponsor` auf GitHub. Ich wäre für jede Art von Hilfe dankbar.
 
 Ich danke Ihnen für Ihre Unterstützung.
