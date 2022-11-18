@@ -23,7 +23,7 @@ onMounted(async () => {
     <p class="actions">
       <vue-mastery-modal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Loslegen
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -36,12 +36,12 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Installieren</a>
     </p>
   </section>
 
   <section id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
+    <span class="lead">Besonderer Sponsor</span>
     <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
@@ -58,32 +58,32 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>Zugänglich</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        Basiert auf Standard-HTML, CSS und JavaScript, mit intuitiver
+        API und erstklassiger Dokumentation.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Leistungsfähig</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        Vollständig reaktives, compiler-optimiertes Rendering-System,
+        das selten manuelle Optimierung benötigt.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>Praktisch</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        Ein reichhaltiges, schrittweise anpassbares Ökosystem, das zwischen
+        einer Bibliothek und einem vollwertigen Framework skaliert.
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>Platin-Sponsoren</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>Gold-Sponsoren</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
