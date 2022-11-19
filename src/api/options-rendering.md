@@ -1,10 +1,10 @@
-# Options: Rendering
+# Опції: Рендеринг {#options-rendering}
 
 ## template
 
-A string template for the component.
+Рядок шаблону для компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -12,25 +12,25 @@ A string template for the component.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  A template provided via the `template` option will be compiled on-the-fly at runtime. It is only supported when using a build of Vue that includes the template compiler. The template compiler is **NOT** included in Vue builds that have the word `runtime` in their names, e.g. `vue.runtime.esm-bundler.js`. Consult the [dist file guide](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) for more details about the different builds.
+  Шаблон, наданий за допомогою параметра `template`, буде скомпільовано на льоту під час виконання. Він підтримується лише під час використання збірки Vue, яка включає компілятор шаблонів. Компілятор шаблону **НЕ** включено до збірок Vue, у назвах яких є слово «runtime», напр. `vue.runtime.esm-bundler.js`. Зверніться до [гіда файлів комплекту](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use), щоб дізнатися більше про різні збірки.
 
-  If the string starts with `#` it will be used as a `querySelector` and use the selected element's `innerHTML` as the template string. This allows the source template to be authored using native `<template>` elements.
+  Якщо рядок починається з `#`, він використовуватиметься як `querySelector` і використовуватиме `innerHTML` вибраного елемента як рядок шаблону. Це дозволяє створювати вихідний шаблон за допомогою власних елементів `<template>`.
 
-  If the `render` option is also present in the same component, `template` will be ignored.
+  Якщо параметр `render` також присутній у тому самому компоненті, `template` ігноруватиметься.
 
-  If the root component of your application doesn't have a `template` or `render` option specified, Vue will try to use the `innerHTML` of the mounted element as the template instead.
+  Якщо в кореневому компоненті вашого застосунку не вказано параметри `template` або `render`, Vue замість цього спробує використати `innerHTML` змонтованого елемента як шаблон.
 
-  :::warning Security Note
-  Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security.html#rule-no-1-never-use-non-trusted-templates) for more details.
+  :::warning Примітка безпеки
+  Використовуйте лише джерела шаблонів, яким можна довіряти. Не використовуйте вміст, наданий користувачами, як шаблон. Додаткову інформацію див. у [Гіді безпеки](/guide/best-practices/security.html#rule-no-1-never-use-non-trusted-templates).
   :::
 
 ## render
 
-A function that programmatically returns the virtual DOM tree of the component.
+Функція, яка програмно повертає віртуальне дерево DOM компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -51,35 +51,35 @@ A function that programmatically returns the virtual DOM tree of the component.
   type VNodeArrayChildren = (VNodeArrayChildren | VNodeChildAtom)[]
   ```
 
-- **Details:**
+- **Подробиці:**
 
-  `render` is an alternative to string templates that allows you to leverage the full programmatic power of JavaScript to declare the render output of the component.
+  `render` — це альтернатива рядку шаблонів, яка дає змогу використовувати всю програмну потужність JavaScript, щоб оголосити результат рендеренгу компонента.
 
-  Pre-compiled templates, for example those in Single-File Components, are compiled into the `render` option at build time. If both `render` and `template` are present in a component, `render` will take higher priority.
+  Попередньо скомпільовані шаблони, наприклад ті, що містяться в одно-файлових компонентах, компілюються в параметр `render` під час збірки. Якщо в компоненті присутні `render` і `template`, `render` матиме вищий пріоритет.
 
-- **See also:**
-  - [Rendering Mechanism](/guide/extras/rendering-mechanism.html)
-  - [Render Functions](/guide/extras/render-function.html)
+- **Також до вашої уваги:**
+  - [Механізм рендерингу](/guide/extras/rendering-mechanism.html)
+  - [Функції рендерингу](/guide/extras/render-function.html)
 
 ## compilerOptions
 
-Configure runtime compiler options for the component's template.
+Налаштування параметрів компілятора під час виконання для шаблону компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
     compilerOptions?: {
       isCustomElement?: (tag: string) => boolean
-      whitespace?: 'condense' | 'preserve' // default: 'condense'
-      delimiters?: [string, string] // default: ['{{', '}}']
-      comments?: boolean // default: false
+      whitespace?: 'condense' | 'preserve' // за промовчанням: 'condense'
+      delimiters?: [string, string] // за промовчанням: ['{{', '}}']
+      comments?: boolean // за промовчанням: false
     }
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application.html#app-config-compileroptions), and has higher priority for the current component.
+  Цей параметр конфігурації застосовується лише під час використання повної збірки (тобто окремого `vue.js`, який може компілювати шаблони у браузері). Він підтримує ті самі параметри, що й [app.config.compilerOptions](/api/application.html#app-config-compileroptions) на рівні застосунку, і має вищий пріоритет для поточного компонента.
 
-- **See also:** [app.config.compilerOptions](/api/application.html#app-config-compileroptions)
+- **Також до вашої уваги:** [app.config.compilerOptions](/api/application.html#app-config-compileroptions)
