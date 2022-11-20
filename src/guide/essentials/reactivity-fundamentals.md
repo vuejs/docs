@@ -214,7 +214,7 @@ In the example above, the method `increment` will be called when the `<button>` 
 
 ### DOM Update Timing {#dom-update-timing}
 
-When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component needs to update only once no matter how many state changes you have made.
+When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component updates only once no matter how many state changes you have made.
 
 To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general.html#nexttick) global API:
 
