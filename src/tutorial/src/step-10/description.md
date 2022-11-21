@@ -1,4 +1,4 @@
-# Watchers
+# Watchers {#watchers}
 
 Sometimes we may need to perform "side effects" reactively - for example, logging a number to the console when it changes. We can achieve this with watchers:
 

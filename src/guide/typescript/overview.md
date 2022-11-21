@@ -22,7 +22,7 @@ Vue написаний на TypeScript, тому забезпечує першо
 
 - Vue CLI також забезпечує підтримку TypeScript, але більше не рекомендується. Дивіться [примітки нижче](#note-on-vue-cli-and-ts-loader).
 
-### IDE Підтримка {#ide-support}
+### Підтримка IDE {#ide-support}
 
 - [Visual Studio Code](https://code.visualstudio.com/) (VSCode) настійно рекомендується через чудову готову підтримку TypeScript.
 
@@ -85,7 +85,7 @@ Vue написаний на TypeScript, тому забезпечує першо
 
 ## Загальні вказівки щодо використання {#general-usage-notes}
 
-### `defineComponent()`
+### `defineComponent()` {#definecomponent}
 
 Щоб дозволити TypeScript правильно визначати типи всередині опцій компонента, нам потрібно визначити компоненти за допомогою [`defineComponent()`](/api/general.html#definecomponent):
 
@@ -136,7 +136,7 @@ export default defineComponent({
 `defineComponent()` також дає змогу визначати типи для компонентів, визначених у звичайному JavaScript.
 :::
 
-### Використання в одно-файлових компонентах {#usage-in-single-file-components}
+### Використання в однофайлових компонентах {#usage-in-single-file-components}
 
 Щоб використовувати TypeScript в одно-файлових компонентах, додайте атрибут `lang="ts"` до тегів `<script>`. Якщо присутній `lang="ts"`, всі вирази шаблону також підлягають більш суворій перевірці типу.
 
@@ -208,7 +208,7 @@ let x: string | number = 1
 У разі використання Vue CLI, або інструмент збірки на основі webpack, TypeScript вимагає у виразах шаблону `vue-loader@^16.8.0`.
 :::
 
-## API-спеціальні рецепти {#api-specific-recipes}
+## API-специфічні рецепти {#api-specific-recipes}
 
 - [TS з композиційним API](./composition-api)
 - [TS з опційним API](./options-api)

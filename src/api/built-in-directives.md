@@ -1,6 +1,6 @@
-# Built-in Directives
+# Built-in Directives {#built-in-directives}
 
-## v-text
+## v-text {#v-text}
 
 Update the element's text content.
 
@@ -20,7 +20,7 @@ Update the element's text content.
 
 - **See also:** [Template Syntax - Text Interpolation](/guide/essentials/template-syntax.html#text-interpolation)
 
-## v-html
+## v-html {#v-html}
 
 Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
 
@@ -44,7 +44,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
 
 - **See also:** [Template Syntax - Raw HTML](/guide/essentials/template-syntax.html#raw-html)
 
-## v-show
+## v-show {#v-show}
 
 Toggle the element's visibility based on the truthy-ness of the expression value.
 
@@ -56,7 +56,7 @@ Toggle the element's visibility based on the truthy-ness of the expression value
 
 - **See also:** [Conditional Rendering - v-show](/guide/essentials/conditional.html#v-show)
 
-## v-if
+## v-if {#v-if}
 
 Conditionally render an element or a template fragment based on the truthy-ness of the expression value.
 
@@ -74,7 +74,7 @@ Conditionally render an element or a template fragment based on the truthy-ness 
 
 - **See also:** [Conditional Rendering - v-if](/guide/essentials/conditional.html#v-if)
 
-## v-else
+## v-else {#v-else}
 
 Denote the "else block" for `v-if` or a `v-if` / `v-else-if` chain.
 
@@ -99,7 +99,7 @@ Denote the "else block" for `v-if` or a `v-if` / `v-else-if` chain.
 
 - **See also:** [Conditional Rendering - v-else](/guide/essentials/conditional.html#v-else)
 
-## v-else-if
+## v-else-if {#v-else-if}
 
 Denote the "else if block" for `v-if`. Can be chained.
 
@@ -130,7 +130,7 @@ Denote the "else if block" for `v-if`. Can be chained.
 
 - **See also:** [Conditional Rendering - v-else-if](/guide/essentials/conditional.html#v-else-if)
 
-## v-for
+## v-for {#v-for}
 
 Render the element or template block multiple times based on the source data.
 
@@ -167,7 +167,7 @@ Render the element or template block multiple times based on the source data.
 - **See also:**
   - [List Rendering](/guide/essentials/list.html)
 
-## v-on
+## v-on {#v-on}
 
 Attach an event listener to the element.
 
@@ -253,7 +253,7 @@ Attach an event listener to the element.
   - [Event Handling](/guide/essentials/event-handling.html)
   - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-events)
 
-## v-bind
+## v-bind {#v-bind}
 
 Dynamically bind one or more attributes, or a component prop to an expression.
 
@@ -340,7 +340,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   - [Class and Style Bindings](/guide/essentials/class-and-style.html)
   - [Components - Prop Passing Details](/guide/components/props.html#prop-passing-details)
 
-## v-model
+## v-model {#v-model}
 
 Create a two-way binding on a form input element or a component.
 
@@ -364,7 +364,7 @@ Create a two-way binding on a form input element or a component.
   - [Form Input Bindings](/guide/essentials/forms.html)
   - [Component Events - Usage with `v-model`](/guide/components/events.html#usage-with-v-model)
 
-## v-slot
+## v-slot {#v-slot}
 
 Denote named slots or scoped slots that expect to receive props.
 
@@ -415,7 +415,7 @@ Denote named slots or scoped slots that expect to receive props.
 - **See also:**
   - [Components - Slots](/guide/components/slots.html)
 
-## v-pre
+## v-pre {#v-pre}
 
 Skip compilation for this element and all its children.
 
@@ -431,7 +431,7 @@ Skip compilation for this element and all its children.
   <span v-pre>{{ this will not be compiled }}</span>
   ```
 
-## v-once
+## v-once {#v-once}
 
 Render the element and component once only, and skip future updates.
 
@@ -463,7 +463,7 @@ Render the element and component once only, and skip future updates.
   - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text-interpolation)
   - [v-memo](#v-memo)
 
-## v-memo <sup class="vt-badge" data-text="3.2+" />
+## v-memo <sup class="vt-badge" data-text="3.2+" /> {#v-memo}
 
 - **Expects:** `any[]`
 
@@ -503,7 +503,7 @@ Render the element and component once only, and skip future updates.
 - **See also:**
   - [v-once](#v-once)
 
-## v-cloak
+## v-cloak {#v-cloak}
 
 Used to hide un-compiled template until it is ready.
 

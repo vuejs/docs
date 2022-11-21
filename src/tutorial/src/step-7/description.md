@@ -1,4 +1,4 @@
-# List Rendering
+# List Rendering {#list-rendering}
 
 We can use the `v-for` directive to render a list of elements based on a source array:
 

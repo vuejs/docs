@@ -7,7 +7,7 @@
 - [Реактивність у глибині](/guide/extras/reactivity-in-depth.html)
   :::
 
-## ref()
+## ref() {#ref}
 
 Приймає внутрішнє значення та повертає реактивний і змінний об’єкт-референцію, який має єдину властивість `.value`, яка вказує на внутрішнє значення.
 
@@ -43,7 +43,7 @@
   - [Гід - Реактивні змінні використовуючи `ref()`](/guide/essentials/reactivity-fundamentals.html#reactive-variables-with-ref)
   - [Гід - Типізація `ref()`](/guide/typescript/composition-api.html#typing-ref)
 
-## computed()
+## computed() {#computed}
 
 Бере getter функцію та повертає реактивний об’єкт [референцію](#ref) лише для читання, для повернутого значення з getter. Також можна повернути об’єкт використовуючи функції `get` і `set` для створення об'єкта референції з можливістю запису.
 
@@ -113,7 +113,7 @@
   - [Гід - Налагодження обчислюваних властивостей](/guide/extras/reactivity-in-depth.html#computed-debugging)
   - [Гід - Типізація `computed()`](/guide/typescript/composition-api.html#typing-computed)
 
-## reactive()
+## reactive() {#reactive}
 
 Повертає реактивний проксі об'єкта.
 
@@ -190,7 +190,7 @@
   - [Гід - Основи реактивності](/guide/essentials/reactivity-fundamentals.html)
   - [Гід - Типізація `reactive()`](/guide/typescript/composition-api.html#typing-reactive)
 
-## readonly()
+## readonly() {#readonly}
 
 Бере об’єкт (реактивний або звичайний) або [референцію](#ref) і повертає проксі лише для читання оригіналу.
 
@@ -227,7 +227,7 @@
   copy.count++ // попередження!
   ```
 
-## watchEffect()
+## watchEffect() {#watcheffect}
 
 Запускає функцію негайно, реактивно відстежуючи її залежності, і повторно запускає її щоразу, коли залежності змінюються.
 
@@ -312,15 +312,15 @@
   - [Гід - Спостерігачі](/guide/essentials/watchers.html#watcheffect)
   - [Гід - Налагодження спостерігача](/guide/extras/reactivity-in-depth.html#watcher-debugging)
 
-## watchPostEffect()
+## watchPostEffect() {#watchposteffect}
 
 Псевдонім [`watchEffect()`](#watcheffect) з параметром `flush: 'post'`.
 
-## watchSyncEffect()
+## watchSyncEffect() {#watchsynceffect}
 
 Псевдонім [`watchEffect()`](#watcheffect) з параметром `flush: 'sync'`.
 
-## watch()
+## watch() {#watch}
 
 Спостерігає за одним або кількома реактивними джерелами даних і викликає функцію зворотного виклику, коли джерела змінюються.
 

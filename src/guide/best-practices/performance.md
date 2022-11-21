@@ -116,11 +116,11 @@ const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 
 Тепер для більшості компонентів властивість `active` залишатиметься незмінною, коли `activeId` змінюється, тому їх більше не потрібно оновлювати. Загалом, ідея полягає в тому, щоб реквізити, передані дочірнім компонентам, були якомога постійнішими.
 
-### `v-once`
+### `v-once` {#v-once}
 
 `v-once` — це вбудована директива, яку можна використовувати для рендерингу вмісту, який покладається на дані під час виконання, але ніколи не потребує оновлення. Усе піддерево, у якому вона використовується, буде пропущено для всіх майбутніх оновлень. Перегляньте [довідник по API](/api/built-in-directives.html#v-once), для більш детальної інформації.
 
-### `v-memo`
+### `v-memo` {#v-memo}
 
 `v-memo` — це вбудована директива, яку можна використовувати для умовного пропуску оновлення великих піддерев або списків `v-for`. Перегляньте [довідник по API](/api/built-in-directives.html#v-memo) для більш детальної інформації.
 
@@ -138,6 +138,7 @@ const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 
 - [vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)
 - [vue-virtual-scroll-grid](https://github.com/rocwang/vue-virtual-scroll-grid)
+- [vueuc/VVirtualList](https://github.com/07akioni/vueuc)
 
 ### Зменшення витрат на реактивність для великих незмінних структур {#reduce-reactivity-overhead-for-large-immutable-structures}
 

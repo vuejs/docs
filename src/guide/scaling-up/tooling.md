@@ -15,7 +15,7 @@
 
 ## Створення проекту {#project-scaffolding}
 
-### Vite
+### Vite {#vite}
 
 [Vite](https://vitejs.dev/) — це легкий і швидкий інструмент для розробки з першокласною підтримкою Vue SFC. Його створив Еван Ю, який також є автором Vue!
 
@@ -30,7 +30,7 @@
 
 Обидві онлайн-пісочниці, згадані вище, також підтримують завантаження файлів як проект Vite.
 
-### Vue CLI
+### Vue CLI {#vue-cli}
 
 [Vue CLI](https://cli.vuejs.org/) — це офіційний інструментарій для Vue на основі Webpack. Зараз він у режимі обслуговування, і ми рекомендуємо починати нові проекти з Vite, якщо ви не покладаєтеся на певні функції лише для Webpack. У більшості випадків Vite забезпечить чудовий досвід розробки.
 
@@ -82,7 +82,7 @@
 - [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
 - [Автономний додаток Electron](https://devtools.vuejs.org/guide/installation.html#standalone)
 
-## TypeScript
+## TypeScript {#typescript}
 
 Основна стаття: [використання Vue з TypeScript](/guide/typescript/overview).
 
@@ -130,7 +130,7 @@
 
 ## Пакети нижнього рівня {#lower-level-packages}
 
-### `@vue/compiler-sfc`
+### `@vue/compiler-sfc` {#vue-compiler-sfc}
 
 - [Документація](https://github.com/vuejs/core/tree/main/packages/compiler-sfc)
 
@@ -142,13 +142,13 @@
 Завжди віддавайте перевагу використанню цього пакета через глибокий імпорт `vue/compiler-sfc`, оскільки це гарантує, що його версія синхронізується з середовищем виконання Vue.
 :::
 
-### `@vitejs/plugin-vue`
+### `@vitejs/plugin-vue` {#vitejs-plugin-vue}
 
 - [Документація](https://github.com/vitejs/vite/tree/main/packages/plugin-vue)
 
 Офіційний плагін, який забезпечує підтримку однофайлових компонентів Vue у Vite.
 
-### `vue-loader`
+### `vue-loader` {#vue-loader}
 
 - [Документація](https://vue-loader.vuejs.org/)
 

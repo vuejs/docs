@@ -1,4 +1,4 @@
-# Slots
+# Slots {#slots}
 
 In addition to passing data via props, the parent component can also pass down template fragments to the child via **slots**:
 

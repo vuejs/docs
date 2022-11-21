@@ -1,4 +1,4 @@
-# Component Instance
+# Component Instance {#component-instance}
 
 :::info
 This page documents the built-in properties and methods exposed on the component public instance, i.e. `this`.
@@ -6,7 +6,7 @@ This page documents the built-in properties and methods exposed on the component
 All properties listed on this page are readonly (except nested properties in `$data`).
 :::
 
-## $data
+## $data {#data}
 
 The object returned from the [`data`](./options-state.html#data) option, made reactive by the component. The component instance proxies access to the properties on its data object.
 
@@ -18,7 +18,7 @@ The object returned from the [`data`](./options-state.html#data) option, made re
   }
   ```
 
-## $props
+## $props {#props}
 
 An object representing the component's current, resolved props.
 
@@ -34,7 +34,7 @@ An object representing the component's current, resolved props.
 
   Only props declared via the [`props`](./options-state.html#props) option will be included. The component instance proxies access to the properties on its props object.
 
-## $el
+## $el {#el}
 
 The root DOM node that the component instance is managing.
 
@@ -58,7 +58,7 @@ The root DOM node that the component instance is managing.
   For consistency, it is recommended to use [template refs](/guide/essentials/template-refs.html) for direct access to elements instead of relying on `$el`.
   :::
 
-## $options
+## $options {#options}
 
 The resolved component options used for instantiating the current component instance.
 
@@ -91,7 +91,7 @@ The resolved component options used for instantiating the current component inst
 
 - **See also:** [`app.config.optionMergeStrategies`](/api/application.html#app-config-optionmergestrategies)
 
-## $parent
+## $parent {#parent}
 
 The parent instance, if the current instance has one. It will be `null` for the root instance itself.
 
@@ -103,7 +103,7 @@ The parent instance, if the current instance has one. It will be `null` for the 
   }
   ```
 
-## $root
+## $root {#root}
 
 The root component instance of the current component tree. If the current instance has no parents this value will be itself.
 
@@ -115,7 +115,7 @@ The root component instance of the current component tree. If the current instan
   }
   ```
 
-## $slots
+## $slots {#slots}
 
 An object representing the [slots](/guide/components/slots.html) passed by the parent component.
 
@@ -139,7 +139,7 @@ An object representing the [slots](/guide/components/slots.html) passed by the p
 
 - **See also:** [Render Functions - Rendering Slots](/guide/extras/render-function.html#rendering-slots)
 
-## $refs
+## $refs {#refs}
 
 An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs.html).
 
@@ -156,7 +156,7 @@ An object of DOM elements and component instances, registered via [template refs
   - [Template refs](/guide/essentials/template-refs.html)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
 
-## $attrs
+## $attrs {#attrs}
 
 An object that contains the component's fallthrough attributes.
 
@@ -178,7 +178,7 @@ An object that contains the component's fallthrough attributes.
 
   - [Fallthrough Attributes](/guide/components/attrs.html)
 
-## $watch()
+## $watch() {#watch}
 
 Imperative API for creating watchers.
 
@@ -261,7 +261,7 @@ Imperative API for creating watchers.
   - [Options - `watch`](/api/options-state.html#watch)
   - [Guide - Watchers](/guide/essentials/watchers.html)
 
-## $emit()
+## $emit() {#emit}
 
 Trigger a custom event on the current instance. Any additional arguments will be passed into the listener's callback function.
 
@@ -291,7 +291,7 @@ Trigger a custom event on the current instance. Any additional arguments will be
   - [Component - Events](/guide/components/events.html)
   - [`emits` option](./options-state.html#emits)
 
-## $forceUpdate()
+## $forceUpdate() {#forceupdate}
 
 Force the component instance to re-render.
 
@@ -307,7 +307,7 @@ Force the component instance to re-render.
 
   This should be rarely needed given Vue's fully automatic reactivity system. The only cases where you may need it is when you have explicitly created non-reactive component state using advanced reactivity APIs.
 
-## $nextTick()
+## $nextTick() {#nexttick}
 
 Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
 
