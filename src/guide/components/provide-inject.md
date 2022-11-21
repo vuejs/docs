@@ -1,8 +1,8 @@
-# Provide / Inject
+# Provide / Inject {#provide-inject}
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
-## Prop Drilling
+## Prop Drilling {#prop-drilling}
 
 Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
 
@@ -18,7 +18,7 @@ We can solve props drilling with `provide` and `inject`. A parent component can 
 
 <!-- https://www.figma.com/file/PbTJ9oXis5KUawEOWdy2cE/provide-inject -->
 
-## Provide
+## Provide {#provide}
 
 <div class="composition-api">
 
@@ -95,7 +95,7 @@ However, do note this does **not** make the injection reactive. We will discuss 
 
 </div>
 
-## App-level Provide
+## App-level Provide {#app-level-provide}
 
 In addition to providing data in a component, we can also provide at the app level:
 
@@ -109,7 +109,7 @@ app.provide(/* key */ 'message', /* value */ 'hello!')
 
 App-level provides are available to all components rendered in the app. This is especially useful when writing [plugins](/guide/reusability/plugins.html), as plugins typically wouldn't be able to provide values using components.
 
-## Inject
+## Inject {#inject}
 
 <div class="composition-api">
 
@@ -171,7 +171,7 @@ export default {
 
 [Full provide + inject example](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7IENoaWxkIH0sXG4gIHByb3ZpZGUoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIG1lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
 
-### Injection Aliasing \*
+### Injection Aliasing \* {#injection-aliasing}
 
 When using the array syntax for `inject`, the injected properties are exposed on the component instance using the same key. In the example above, the property was provided under the key `"message"`, and injected as `this.message`. The local key is the same as the injection key.
 
@@ -191,7 +191,7 @@ Here, the component will locate a property provided with the key `"message"`, an
 
 </div>
 
-### Injection Default Values
+### Injection Default Values {#injection-default-values}
 
 By default, `inject` assumes that the injected key is provided somewhere in the parent chain. In the case where the key is not provided, there will be a runtime warning.
 
@@ -235,7 +235,7 @@ export default {
 
 </div>
 
-## Working with Reactivity
+## Working with Reactivity {#working-with-reactivity}
 
 <div class="composition-api">
 
@@ -319,7 +319,7 @@ The above usage requires setting `app.config.unwrapInjectedRef = true` to make i
 
 </div>
 
-## Working with Symbol Keys
+## Working with Symbol Keys {#working-with-symbol-keys}
 
 So far, we have been using string injection keys in the examples. If you are working in a large application with many dependency providers, or you are authoring components that are going to be used by other developers, it is best to use Symbol injection keys to avoid potential collisions.
 

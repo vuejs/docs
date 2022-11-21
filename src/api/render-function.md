@@ -1,6 +1,6 @@
-# Render Function APIs
+# Render Function APIs {#render-function-apis}
 
-## h()
+## h() {#h}
 
 Creates virtual DOM nodes (vnodes).
 
@@ -95,7 +95,7 @@ Creates virtual DOM nodes (vnodes).
 
 - **See also:** [Guide - Render Functions - Creating VNodes](/guide/extras/render-function.html#creating-vnodes)
 
-## mergeProps()
+## mergeProps() {#mergeprops}
 
 Merge multiple props objects with special handling for certain props.
 
@@ -139,7 +139,7 @@ Merge multiple props objects with special handling for certain props.
    */
   ```
 
-## cloneVNode()
+## cloneVNode() {#clonevnode}
 
 Clones a vnode.
 
@@ -166,7 +166,7 @@ Clones a vnode.
   const cloned = cloneVNode(original, { id: 'foo' })
   ```
 
-## isVNode()
+## isVNode() {#isvnode}
 
 Checks if a value is a vnode.
 
@@ -176,7 +176,7 @@ Checks if a value is a vnode.
   function isVNode(value: unknown): boolean
   ```
 
-## resolveComponent()
+## resolveComponent() {#resolvecomponent}
 
 For manually resolving a registered component by name.
 
@@ -230,7 +230,7 @@ For manually resolving a registered component by name.
 
 - **See also:** [Guide - Render Functions - Components](/guide/extras/render-function.html#components)
 
-## resolveDirective()
+## resolveDirective() {#resolvedirective}
 
 For manually resolving a registered directive by name.
 
@@ -250,7 +250,7 @@ For manually resolving a registered directive by name.
 
 - **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
 
-## withDirectives()
+## withDirectives() {#withdirectives}
 
 For adding custom directives to vnodes.
 
@@ -298,7 +298,7 @@ For adding custom directives to vnodes.
 
 - **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
 
-## withModifiers()
+## withModifiers() {#withmodifiers}
 
 For adding built-in [`v-on` modifiers](/guide/essentials/event-handling.html#event-modifiers) to an event handler function.
 

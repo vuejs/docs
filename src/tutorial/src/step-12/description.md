@@ -1,4 +1,4 @@
-# Props
+# Props {#props}
 
 A child component can accept input from the parent via **props**. First, it needs to declare the props it accepts:
 

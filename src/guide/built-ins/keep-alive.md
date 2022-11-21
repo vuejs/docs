@@ -2,10 +2,9 @@
 import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 </script>
 
-# KeepAlive
+# KeepAlive {#keepalive}
 
 `<KeepAlive>` — це вбудований компонент, який дозволяє умовно кешувати екземпляри компонентів під час динамічного перемикання між декількома компонентами.
-
 
 ## Основне використання {#basic-usage}
 
@@ -88,7 +87,7 @@ import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 </KeepAlive>
 ```
 
-## Lifecycle of Cached Instance {#lifecycle-of-cached-instance}
+## Життєвий цикл кешованого екземпляра {#lifecycle-of-cached-instance}
 
 Коли екземпляр компонента видаляється з DOM, але є частиною дерева компонентів, кешованого `<KeepAlive>`, він переходить у **деактивований** стан замість того, щоб бути демонтованим. Коли екземпляр компонента вставляється в DOM як частину кешованого дерева, він **активується**.
 

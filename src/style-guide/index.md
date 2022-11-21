@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Style Guide
+# Style Guide {#style-guide}
 
 :::warning Status Notice
 The style guide is currently a bit outdated. Most examples are in Options API only, and there are no rules regarding `<script setup>` and Composition API. We are planning to improve it in the future.
@@ -14,21 +14,21 @@ For the most part, we also avoid suggestions about JavaScript or HTML in general
 
 Finally, we've split rules into four categories:
 
-## Rule Categories
+## Rule Categories {#rule-categories}
 
-### Priority A: Essential (Error Prevention)
+### Priority A: Essential (Error Prevention) {#priority-a-essential-error-prevention}
 
 These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
 
 - [See all priority A rules](./rules-essential)
 
-### Priority B: Strongly Recommended
+### Priority B: Strongly Recommended {#priority-b-strongly-recommended}
 
 These rules have been found to improve readability and/or developer experience in most projects. Your code will still run if you violate them, but violations should be rare and well-justified.
 
 - [See all priority B rules](./rules-strongly-recommended)
 
-### Priority C: Recommended
+### Priority C: Recommended {#priority-c-recommended}
 
 Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
 
@@ -38,7 +38,7 @@ Where multiple, equally good options exist, an arbitrary choice can be made to e
 
 - [See all priority C rules](./rules-recommended)
 
-### Priority D: Use with Caution
+### Priority D: Use with Caution {#priority-d-use-with-caution}
 
 Some features of Vue exist to accommodate rare edge cases or smoother migrations from a legacy code base. When overused however, they can make your code more difficult to maintain or even become a source of bugs. These rules shine a light on potentially risky features, describing when and why they should be avoided.
 

@@ -1,6 +1,6 @@
-# Options: Composition
+# Options: Composition {#options-composition}
 
-## provide
+## provide {#provide}
 
 Provide values that can be injected by descendant components.
 
@@ -54,7 +54,7 @@ Provide values that can be injected by descendant components.
 
 - **See also:** [Provide / Inject](/guide/components/provide-inject.html)
 
-## inject
+## inject {#inject}
 
 Declare properties to inject into the current component by locating them from ancestor providers.
 
@@ -169,7 +169,7 @@ Declare properties to inject into the current component by locating them from an
 
 - **See also:** [Provide / Inject](/guide/components/provide-inject.html)
 
-## mixins
+## mixins {#mixins}
 
 An array of option objects to be mixed into the current component.
 
@@ -211,7 +211,7 @@ An array of option objects to be mixed into the current component.
   // => 2
   ```
 
-## extends
+## extends {#extends}
 
 A "base class" component to extend from.
 

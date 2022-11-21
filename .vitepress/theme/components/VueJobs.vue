@@ -1,7 +1,21 @@
 <script lang="ts">
 // shared data across instances so we load only once
-const base = `https://app.vuejobs.com/feed/vuejs/docs?format=json`
-let items = $ref([])
+const base = 'https://app.vuejobs.com/feed/vuejs/docs?format=json'
+
+let items = $ref<Jobs[]>([])
+
+type Jobs = {
+  organization: Organization;
+  title: string;
+  link: string;
+  locations: string[];
+  remote: false | 'ALLOWED' | 'ONLY';
+};
+
+type Organization = {
+  name: string;
+  avatar: string;
+};
 </script>
 
 <script setup lang="ts">
@@ -29,7 +43,9 @@ onMounted(async () => {
         target="_blank"
       >
         <div class="vj-company-logo">
-          <img :src="job.organization.avatar" alt="" />
+          <img 
+            :src="job.organization.avatar" 
+            :alt="`Logo for ${job.organization.name}`" />
         </div>
         <div
           style="
@@ -37,15 +53,11 @@ onMounted(async () => {
             display: flex;
             flex-direction: column;
             justify-content: center;
-          "
-        >
+          ">
           <div class="vj-job-title">{{ job.title }}</div>
           <div class="vj-job-info">
             {{ job.organization.name }} <span>· </span>
-            <span v-if="['ONLY', 'ALLOWED'].includes(job.remote)"
-              >Remote</span
-            >
-            <span v-else>{{ job.locations[0] }}</span>
+            <span>{{ job.remote ? 'Remote' : job.locations[0] }}</span>
           </div>
         </div>
       </a>

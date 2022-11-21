@@ -1,4 +1,4 @@
-# Declarative Rendering
+# Declarative Rendering {#declarative-rendering}
 
 <div class="sfc">
 
