@@ -10,8 +10,8 @@ import {
 import SponsorsAside from './components/SponsorsAside.vue'
 import VueJobs from './components/VueJobs.vue'
 import VueSchoolLink from './components/VueSchoolLink.vue'
-// import Banner from './components/Banner.vue'
-import VueMasteryBanner from './components/VueMasteryBanner.vue'
+import Banner from './components/Banner.vue'
+// import VueMasteryBanner from './components/VueMasteryBanner.vue'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {
@@ -19,7 +19,7 @@ export default Object.assign({}, VPTheme, {
     return h(VPTheme.Layout, null, {
       // banner: () => h(Banner),
       banner: () => h('div', {}, [
-        h(VueMasteryBanner)
+        h(Banner)
       ]),
       'sidebar-top': () => h(PreferenceSwitch),
       'aside-mid': () => h(SponsorsAside)
