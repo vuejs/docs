@@ -1,4 +1,4 @@
-# Conditional Rendering
+# Conditional Rendering {#conditional-rendering}
 
 We can use the `v-if` directive to conditionally render an element:
 

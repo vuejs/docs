@@ -4,7 +4,7 @@ import ListMove from './transition-demos/ListMove.vue'
 import ListStagger from './transition-demos/ListStagger.vue'
 </script>
 
-# TransitionGroup
+# TransitionGroup {#transitiongroup}
 
 `<TransitionGroup>` — це вбудований компонент, розроблений для анімації вставки, видалення та зміни порядку елементів або компонентів, які відображаються у списку.
 

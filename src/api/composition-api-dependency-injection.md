@@ -1,6 +1,6 @@
 # Композиційний АРІ: <br>Ін'єкція залежностей {#composition-api-dependency-injection}
 
-## provide()
+## provide() {#provide}
 
 Надає значення, яке може бути вставлено компонентами-нащадками.
 
@@ -41,7 +41,7 @@
   - [Гід - Provide / Inject](/guide/components/provide-inject.html)
   - [Гід - Типізація Provide/InjectProvide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
 
-## inject()
+## inject() {#inject}
 
 Введення значення, надане батьківським компонентом або застосунком (через `app.provide()`).
 

@@ -407,6 +407,6 @@ export function useMachine(options) {
 
 [Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9VM2O0zAQfpWRL0mlboIQElLV7i4HtBcQEuwNc8im09a7yTiynbZS1ZfgwIMgISEEPEN4I8Z2mraL2EOieOb7Zr75cXbiVdNk6xbFRExtaVTjwKJrm0tJqm60cbCD1uLbolwpQtjDwugakiyvoyW7t4kkAEmlJuvgo3WFwzEHofknmJ1w053HqfkEEqeXywqTcTCQcqqo2KqoKJ1a9/YQx04gsDwsOtkAmvz79t3NzZvXzOtZrG0fmAD/hQ4pPNhj+bUfSZrmsXaumg8O66bi7HwCmN61zmmC67JS5cNMCl9ZmsSQyUiKgALY7aLkrC5cuUKbSnHIJsUIrkCK7nP3vfvZ/eh+dd/4+S0FTKL5658vjxz7IG+ax+ycY5oPssRYxNlc1EXDA9DE0wt94pzBYaUYOicFj9efpVg519hJnttF6Wd+bzNtljl/ZaYlp2rM0NYXd0ZvLBoOLEXfUCm2objzMC01D8us1HUevdcvsucvs2c52lzRHLcc4arW87Zi3hCIs+UcfY3mwnAn0aB5Stwj6D8CD0Pknhw3ktsxLG9pkKX1OzjmPXJoGoNuWOWonZd4oNhVUVV68x4XA4gFMUISbgNm0RJPlrfiZL114y12FPseb0Mvie/BmYwBe0QGEYw75k4P9fQ35INHnDK4M6r0nKGmAyWgADJNt6Ygy3RNaUq4iTFgdglpXNZ1UbU+xOA7UNltXHqWjuYMTHGN5EKIXkAWLkQ0+xYBsJLW0PmvwI9o/xfkWpJJ)
 
-### RxJS
+### RxJS {#rxjs}
 
 [RxJS](https://rxjs.dev/) — це бібліотека для роботи з асинхронними потоками подій. Бібліотека [VueUse](https://vueuse.org/) надає надбудову [`@vueuse/rxjs`](https://vueuse.org/rxjs/readme.html) для підключення потоків RxJS до системи реактивності Vue.

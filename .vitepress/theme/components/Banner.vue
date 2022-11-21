@@ -229,8 +229,8 @@ html:not(.banner-dismissed) {
   color: #fff;
   background: #fff;
 }
-@media (min-width: 680px) { 
-  .banner { 
+@media (min-width: 680px) {
+  .banner {
     background: -webkit-linear-gradient(270deg, #005bbb 75%, #ffd500 75%);
   }
 }

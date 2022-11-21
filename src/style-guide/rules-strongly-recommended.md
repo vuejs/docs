@@ -1,8 +1,8 @@
-# Priority B Rules: Strongly Recommended
+# Priority B Rules: Strongly Recommended {#priority-b-rules-strongly-recommended}
 
 These rules have been found to improve readability and/or developer experience in most projects. Your code will still run if you violate them, but violations should be rare and well-justified.
 
-## Component files
+## Component files {#component-files}
 
 **Whenever a build system is available to concatenate files, each component should be in its own file.**
 
@@ -40,7 +40,7 @@ components/
 
 </div>
 
-## Single-file component filename casing
+## Single-file component filename casing {#single-file-component-filename-casing}
 
 **Filenames of [Single-File Components](/guide/scaling-up/sfc.html) should either be always PascalCase or always kebab-case.**
 
@@ -76,7 +76,7 @@ components/
 
 </div>
 
-## Base component names
+## Base component names {#base-component-names}
 
 **Base components (a.k.a. presentational, dumb, or pure components) that apply app-specific styling and conventions should all begin with a specific prefix, such as `Base`, `App`, or `V`.**
 
@@ -156,7 +156,7 @@ components/
 
 </div>
 
-## Single-instance component names
+## Single-instance component names {#single-instance-component-names}
 
 **Components that should only ever have a single active instance should begin with the `The` prefix, to denote that there can be only one.**
 
@@ -184,7 +184,7 @@ components/
 
 </div>
 
-## Tightly coupled component names
+## Tightly coupled component names {#tightly-coupled-component-names}
 
 **Child components that are tightly coupled with their parent should include the parent component name as a prefix.**
 
@@ -255,7 +255,7 @@ components/
 
 </div>
 
-## Order of words in component names
+## Order of words in component names {#order-of-words-in-component-names}
 
 **Component names should start with the highest-level (often most general) words and end with descriptive modifying words.**
 
@@ -335,7 +335,7 @@ components/
 
 </div>
 
-## Self-closing components
+## Self-closing components {#self-closing-components}
 
 **Components with no content should be self-closing in [Single-File Components](/guide/scaling-up/sfc.html), string templates, and [JSX](/guide/extras/render-function.html#jsx-tsx) - but never in DOM templates.**
 
@@ -373,7 +373,7 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 
 </div>
 
-## Component name casing in templates
+## Component name casing in templates {#component-name-casing-in-templates}
 
 **In most projects, component names should always be PascalCase in [Single-File Components](/guide/scaling-up/sfc.html) and string templates - but kebab-case in DOM templates.**
 
@@ -429,7 +429,7 @@ OR
 
 </div>
 
-## Component name casing in JS/JSX
+## Component name casing in JS/JSX {#component-name-casing-in-js-jsx}
 
 **Component names in JS/[JSX](/guide/extras/render-function.html#jsx-tsx) should always be PascalCase, though they may be kebab-case inside strings for simpler applications that only use global component registration through `app.component`.**
 
@@ -499,7 +499,7 @@ export default {
 
 </div>
 
-## Full-word component names
+## Full-word component names {#full-word-component-names}
 
 **Component names should prefer full words over abbreviations.**
 
@@ -527,7 +527,7 @@ components/
 
 </div>
 
-## Prop name casing
+## Prop name casing {#prop-name-casing}
 
 **Prop names should always use camelCase during declaration, but kebab-case in templates and [JSX](/guide/extras/render-function.html#jsx-tsx).**
 
@@ -563,7 +563,7 @@ props: {
 
 </div>
 
-## Multi-attribute elements
+## Multi-attribute elements {#multi-attribute-elements}
 
 **Elements with multiple attributes should span multiple lines, with one attribute per line.**
 
@@ -602,7 +602,7 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
 
 </div>
 
-## Simple expressions in templates
+## Simple expressions in templates {#simple-expressions-in-templates}
 
 **Component templates should only include simple expressions, with more complex expressions refactored into computed properties or methods.**
 
@@ -642,7 +642,7 @@ computed: {
 
 </div>
 
-## Simple computed properties
+## Simple computed properties {#simple-computed-properties}
 
 **Complex computed properties should be split into as many simpler properties as possible.**
 
@@ -702,7 +702,7 @@ computed: {
 
 </div>
 
-## Quoted attribute values
+## Quoted attribute values {#quoted-attribute-values}
 
 **Non-empty HTML attribute values should always be inside quotes (single or double, whichever is not used in JS).**
 
@@ -734,7 +734,7 @@ While attribute values without any spaces are not required to have quotes in HTM
 
 </div>
 
-## Directive shorthands
+## Directive shorthands {#directive-shorthands}
 
 **Directive shorthands (`:` for `v-bind:`, `@` for `v-on:` and `#` for `v-slot`) should be used always or never.**
 
