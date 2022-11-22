@@ -426,7 +426,7 @@ methods: {
 </ul>
 ```
 
-Be careful with `reverse()` and `sort()` in a computed property! These two methods will mutate the original array, which should be avoided in computed getters. Create a copy of the original array before calling these methods:
+Be careful with `reverse()` and `sort()` in a computed property! These two methods will mutate the original array, which should be avoided in computed getters. Create a copy of the original array before calling these method:
 
 ```diff
 - return numbers.reverse()
