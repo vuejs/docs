@@ -446,8 +446,12 @@ Watches one or more reactive data sources and invokes a callback function when t
   })
   ```
 
-  `watch()` shares the same flush timing and debugging options with [`watchEffect()`](#watcheffect):
+  `watch()` shares the same flush timing、 debugging options、cleanup callback and stopping the watcher with [`watchEffect()`](#watcheffect):
 
+  **Example**
+   
+  1. flush timing、 debugging options
+  
   ```js
   watch(source, callback, {
     flush: 'post',
@@ -455,6 +459,37 @@ Watches one or more reactive data sources and invokes a callback function when t
       debugger
     }
   })
+  ```
+  
+  2. Side effect cleanup:
+  ```js
+  watch(count, (count, oldCount, onCleanup )=>{
+    const { response, cancel } = doAsyncWork(id.value)
+    // `cancel` will be called if `id` changes
+    // so that previous pending request will be cancelled
+    // if not yet completed
+    onCleanup(cancel)
+    count.value = await response
+  })
+  ```
+  
+  3. Stopping the watcher
+  ```js
+  const count = ref(1)
+  
+  setTimeout(() => {
+    count.value = 2 
+  },2000)
+  setTimeout(() => {
+    count.value = 5 // will not log
+  },5000)
+  
+  const stop = watch(count, (count)=>{
+    console.log('count change', count);  // log 「count change 2」
+  })
+  setTimeout(()=>{
+    stop() // Stop after 3 seconds
+  },3000)
   ```
 
 - **See also**:
