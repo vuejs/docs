@@ -44,6 +44,10 @@ Note that [refs](/api/reactivity-core.html#ref) returned from `setup` are [autom
 `setup()` itself does not have access to the component instance - `this` will have a value of `undefined` inside `setup()`. You can access Composition-API-exposed values from Options API, but not the other way around.
 :::
 
+:::warning
+`setup()` should always be called _synchronously_. The only case when `async setup()` can be used is when the component is a descentand of a [Suspense](../guide/built-ins/suspense.html) component.
+:::
+
 ## Accessing Props {#accessing-props}
 
 The first argument in the `setup` function is the `props` argument. Just as you would expect in a standard component, `props` inside of a `setup` function are reactive and will be updated when new props are passed in.
