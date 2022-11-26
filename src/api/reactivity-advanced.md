@@ -1,6 +1,6 @@
 # Реактивність: Розширено {#reactivity-api-advanced}
 
-## shallowRef()
+## shallowRef() {#shallowref}
 
 Неглибока версія [`ref()`](./reactivity-core.html#ref).
 
@@ -36,7 +36,7 @@
   - [Гід - Зменшення витрат на реактивність для великих незмінних структур](/guide/best-practices/performance.html#reduce-reactivity-overhead-for-large-immutable-structures)
   - [Гід - Інтеграція з зовнішніми системами стану](/guide/extras/reactivity-in-depth.html#integration-with-external-state-systems)
 
-## triggerRef()
+## triggerRef() {#triggerref}
 
 Примусове ініціювання ефектів, які залежать від [shallow ref](#shallowref). Це зазвичай використовується після внесення глибоких змін у внутрішнє значення неглибокої референції.
 
@@ -65,7 +65,7 @@
   triggerRef(shallow)
   ```
 
-## customRef()
+## customRef() {#customref}
 
 Створює референцію користувача з можливістю явно контролювати відстеження залежностей і керувати викликом оновлень
 
@@ -131,7 +131,7 @@
 
   [Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZURlYm91bmNlZFJlZiB9IGZyb20gJy4vZGVib3VuY2VkUmVmLmpzJ1xuY29uc3QgdGV4dCA9IHVzZURlYm91bmNlZFJlZignaGVsbG8nLCAxMDAwKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHA+XG4gICAgVGhpcyB0ZXh0IG9ubHkgdXBkYXRlcyAxIHNlY29uZCBhZnRlciB5b3UndmUgc3RvcHBlZCB0eXBpbmc6XG4gIDwvcD5cbiAgPHA+e3sgdGV4dCB9fTwvcD5cbiAgPGlucHV0IHYtbW9kZWw9XCJ0ZXh0XCIgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsImRlYm91bmNlZFJlZi5qcyI6ImltcG9ydCB7IGN1c3RvbVJlZiB9IGZyb20gJ3Z1ZSdcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZURlYm91bmNlZFJlZih2YWx1ZSwgZGVsYXkgPSAyMDApIHtcbiAgbGV0IHRpbWVvdXRcbiAgcmV0dXJuIGN1c3RvbVJlZigodHJhY2ssIHRyaWdnZXIpID0+IHtcbiAgICByZXR1cm4ge1xuICAgICAgZ2V0KCkge1xuICAgICAgICB0cmFjaygpXG4gICAgICAgIHJldHVybiB2YWx1ZVxuICAgICAgfSxcbiAgICAgIHNldChuZXdWYWx1ZSkge1xuICAgICAgICBjbGVhclRpbWVvdXQodGltZW91dClcbiAgICAgICAgdGltZW91dCA9IHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgICAgIHZhbHVlID0gbmV3VmFsdWVcbiAgICAgICAgICB0cmlnZ2VyKClcbiAgICAgICAgfSwgZGVsYXkpXG4gICAgICB9XG4gICAgfVxuICB9KVxufSJ9)
 
-## shallowReactive()
+## shallowReactive() {#shallowreactive}
 
 Неглибока версія [`reactive()`](./reactivity-core.html#reactive).
 
@@ -169,7 +169,7 @@
   state.nested.bar++
   ```
 
-## shallowReadonly()
+## shallowReadonly() {#shallowreadonly}
 
 Неглибока версія [`readonly()`](./reactivity-core.html#readonly).
 
@@ -207,7 +207,7 @@
   state.nested.bar++
   ```
 
-## toRaw()
+## toRaw() {#toraw}
 
 Повертає необроблений оригінальний об’єкт із Vue проксі.
 
@@ -232,7 +232,7 @@
   console.log(toRaw(reactiveFoo) === foo) // true
   ```
 
-## markRaw()
+## markRaw() {#markraw}
 
 Позначає об’єкт таким чином, що він ніколи не буде перетворений на проксі. Повертає сам об'єкт.
 
@@ -279,7 +279,7 @@
 
   :::
 
-## effectScope()
+## effectScope() {#effectscope}
 
 Створює об'єкт області дії ефекту, який може захоплювати інші реактивні ефекти (наприклад, обчислювані властивості та спостерігачі), створені всередині нього, щоб мати можливість знищити всі ці ефекти разом. Щоб отримати докладні відомості про випадки використання цього API, перегляньте відповідний [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0041-reactivity-effect-scope.md).
 
@@ -311,7 +311,7 @@
   scope.stop()
   ```
 
-## getCurrentScope()
+## getCurrentScope() {#getcurrentscope}
 
 Повертає поточну активну [область дії ефекту](#effectscope), якщо така є.
 
@@ -321,7 +321,7 @@
   function getCurrentScope(): EffectScope | undefined
   ```
 
-## onScopeDispose()
+## onScopeDispose() {#onscopedispose}
 
 Реєстрація функція зворотного виклику для активної [області дії ефекту](#effectscope). Функція зворотного виклику буде викликана, коли пов'язана з ним область дії ефекту буде зупинена.
 

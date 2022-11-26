@@ -1,6 +1,6 @@
 # Реактивність: Утиліти {#reactivity-api-utilities}
 
-## isRef()
+## isRef() {#isref}
 
 Перевіряє, чи значення є об’єкт-референція.
 
@@ -20,7 +20,7 @@
   }
   ```
 
-## unref()
+## unref() {#unref}
 
 Повертає внутрішнє значення, якщо аргумент є референція, інакше повертає сам аргумент. Це функція обгортка для `val = isRef(val) ? val.value : val`.
 
@@ -39,7 +39,7 @@
   }
   ```
 
-## toRef()
+## toRef() {#toref}
 
 Може використовуватися для створення референції для властивості вихідного реактивного об'єкта. Створена референція синхронізується з властивістю джерела: зміна властивості джерела оновить референцію, і навпаки.
 
@@ -100,7 +100,7 @@
 
   `toRef()` поверне придатну референцію, навіть якщо властивість джерела наразі не існує. Це дає змогу працювати з необов'язковими властивостями, які не будуть підхоплені [`toRefs`](#torefs).
 
-## toRefs()
+## toRefs() {#torefs}
 
 Перетворює реактивний об’єкт на звичайний об’єкт, де кожна властивість отриманого об'єкта є референцією, що вказує на відповідну властивість вихідного об'єкта. Кожне окрема референція створюється за допомогою [`toRef()`](#toref).
 
@@ -161,7 +161,7 @@
 
   `toRefs` генеруватиме лише референції для властивостей, які можна перерахувати у вихідному об'єкті під час виклику. Щоб створити посилання для властивості, яка може ще не існувати, використовуйте [`toRef`](#toref).
 
-## isProxy()
+## isProxy() {#isproxy}
 
 Перевіряє, чи є об’єкт проксі, створеним [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) або [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
 
@@ -171,7 +171,7 @@
   function isProxy(value: unknown): boolean
   ```
 
-## isReactive()
+## isReactive() {#isreactive}
 
 Перевіряє, чи є об’єкт проксі, створеним [`reactive()`](./reactivity-core.html#reactive) або [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
 
@@ -181,9 +181,11 @@
   function isReactive(value: unknown): boolean
   ```
 
-## isReadonly()
+## isReadonly() {#isreadonly}
 
-Перевіряє, чи є об’єкт проксі, створеним [`readonly()`](./reactivity-core.html#readonly) або [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
+Перевіряє, чи є передане значення об’єктом лише для читання. Властивості об’єкта лише для читання можуть змінюватися, але їх не можна призначати безпосередньо через переданий об’єкт.
+
+Проксі-сервери, створені [`readonly()`](./reactivity-core.html#readonly) і [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly), вважаються лише для читання, як і [ `computed()`](./reactivity-core.html#computed) посилання без функції `set`.
 
 - **Тип**
 

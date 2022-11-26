@@ -1,6 +1,6 @@
 # Глобальний API: Загальне {#global-api-general}
 
-## version
+## version {#version}
 
 Показує поточну версію Vue.
 
@@ -14,7 +14,7 @@
   console.log(version)
   ```
 
-## nextTick()
+## nextTick() {#nexttick}
 
 Утиліта для очікування наступного оновлення DOM.
 
@@ -94,7 +94,7 @@
 
 - **Також до вашої уваги:** [`this.$nextTick()`](/api/component-instance.html#nexttick)
 
-## defineComponent()
+## defineComponent() {#definecomponent}
 
 Помічник типу для визначення компонента Vue за допомогою визначення типу.
 
@@ -136,7 +136,7 @@
 
 - **Також до вашої уваги:** [Гід - Використання Vue з TypeScript](/guide/typescript/overview.html#general-usage-notes)
 
-## defineAsyncComponent()
+## defineAsyncComponent() {#defineasynccomponent}
 
 Визначає асинхронний компонент, який відкладено завантажується лише під час рендерингу. Аргумент може бути або функцією завантажувача, або об'єктом параметрів для більш розширеного керування поведінкою завантаження.
 
@@ -167,7 +167,7 @@
 
 - **Також до вашої уваги:** [Гід - Асинхронні компоненти](/guide/components/async.html)
 
-## defineCustomElement()
+## defineCustomElement() {#definecustomelement}
 
 Цей метод приймає той самий аргумент, що й [`defineComponent`](#definecomponent), але натомість повертає рідний конструктор класу [користувацького елемента](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 

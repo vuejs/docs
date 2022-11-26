@@ -1,4 +1,4 @@
-# You Did It!
+# You Did It! {#you-did-it}
 
 You have finished the tutorial!
 

@@ -1,6 +1,6 @@
 # Опції: Рендеринг {#options-rendering}
 
-## template
+## template {#template}
 
 Рядок шаблону для компонента.
 
@@ -26,7 +26,7 @@
   Використовуйте лише джерела шаблонів, яким можна довіряти. Не використовуйте вміст, наданий користувачами, як шаблон. Додаткову інформацію див. у [Гіді безпеки](/guide/best-practices/security.html#rule-no-1-never-use-non-trusted-templates).
   :::
 
-## render
+## render {#render}
 
 Функція, яка програмно повертає віртуальне дерево DOM компонента.
 
@@ -61,7 +61,7 @@
   - [Механізм рендерингу](/guide/extras/rendering-mechanism.html)
   - [Функції рендерингу](/guide/extras/render-function.html)
 
-## compilerOptions
+## compilerOptions {#compileroptions}
 
 Налаштування параметрів компілятора під час виконання для шаблону компонента.
 

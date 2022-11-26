@@ -1,4 +1,4 @@
-# Emits
+# Emits {#emits}
 
 In addition to receiving props, a child component can also emit events to the parent:
 

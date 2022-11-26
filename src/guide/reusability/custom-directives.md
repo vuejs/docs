@@ -1,4 +1,4 @@
-# Custom Directives
+# Custom Directives {#custom-directives}
 
 <script setup>
 const vFocus = {
@@ -8,7 +8,7 @@ const vFocus = {
 }
 </script>
 
-## Introduction
+## Introduction {#introduction}
 
 In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives.
 
@@ -103,7 +103,7 @@ app.directive('focus', {
 Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation. Prefer declarative templating using built-in directives such as `v-bind` when possible because they are more efficient and server-rendering friendly.
 :::
 
-## Directive Hooks
+## Directive Hooks {#directive-hooks}
 
 A directive definition object can provide several hook functions (all optional):
 
@@ -131,7 +131,7 @@ const myDirective = {
 }
 ```
 
-### Hook Arguments
+### Hook Arguments {#hook-arguments}
 
 Directive hooks are passed these arguments:
 
@@ -178,7 +178,7 @@ Here the directive argument will be reactively updated based on `arg` property i
 Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 
-## Function Shorthand
+## Function Shorthand {#function-shorthand}
 
 It's common for a custom directive to have the same behavior for `mounted` and `updated`, with no need for the other hooks. In such cases we can define the directive as a function:
 
@@ -193,7 +193,7 @@ app.directive('color', (el, binding) => {
 })
 ```
 
-## Object Literals
+## Object Literals {#object-literals}
 
 If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
 
@@ -208,7 +208,7 @@ app.directive('demo', (el, binding) => {
 })
 ```
 
-## Usage on Components
+## Usage on Components {#usage-on-components}
 
 When used on components, custom directives will always apply to a component's root node, similar to [Fallthrough Attributes](/guide/components/attrs.html).
 

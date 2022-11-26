@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Suspense
+# Suspense {#suspense}
 
 :::warning Експериментальна функція
 `<Suspense>` є експериментальною функцією. Немає гарантії, що вона досягне стабільного статусу, а її API може змінитися до цього.
@@ -34,7 +34,7 @@ outline: deep
 
 2. [Асинхронні компоненти](/guide/components/async.html).
 
-### `async setup()`
+### `async setup()` {#async-setup}
 
 Хук `setup()` компонента композиційного АРІ може бути асинхронним:
 

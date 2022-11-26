@@ -1,10 +1,10 @@
-# Utility Types
+# Utility Types {#utility-types}
 
 :::info
 This page only lists a few commonly used utility types that may need explanation for their usage. For a full list of exported types, consult the [source code](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/index.ts#L131).
 :::
 
-## PropType\<T>
+## PropType\<T> {#proptype-t}
 
 Used to annotate a prop with more advanced types when using runtime props declarations.
 
@@ -32,7 +32,7 @@ Used to annotate a prop with more advanced types when using runtime props declar
 
 - **See also:** [Guide - Typing Component Props](/guide/typescript/options-api.html#typing-component-props)
 
-## ComponentCustomProperties
+## ComponentCustomProperties {#componentcustomproperties}
 
 Used to augment the component instance type to support custom global properties.
 
@@ -55,7 +55,7 @@ Used to augment the component instance type to support custom global properties.
 
 - **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties)
 
-## ComponentCustomOptions
+## ComponentCustomOptions {#componentcustomoptions}
 
 Used to augment the component options type to support custom options.
 
@@ -77,7 +77,7 @@ Used to augment the component options type to support custom options.
 
 - **See also:** [Guide - Augmenting Custom Options](/guide/typescript/options-api.html#augmenting-custom-options)
 
-## ComponentCustomProps
+## ComponentCustomProps {#componentcustomprops}
 
 Used to augment allowed TSX props in order to use non-declared props on TSX elements.
 
@@ -102,7 +102,7 @@ Used to augment allowed TSX props in order to use non-declared props on TSX elem
   Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
   :::
 
-## CSSProperties
+## CSSProperties {#cssproperties}
 
 Used to augment allowed values in style property bindings.
 
