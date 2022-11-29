@@ -40,7 +40,7 @@
 
   ```ts
   interface ComponentOptions {
-    inheritAttrs?: boolean // за промовчуванням: true
+    inheritAttrs?: boolean // за промовчанням: true
   }
   ```
 
