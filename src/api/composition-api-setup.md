@@ -45,7 +45,7 @@ Note that [refs](/api/reactivity-core.html#ref) returned from `setup` are [autom
 :::
 
 :::warning
-`setup()` should always be called _synchronously_. The only case when `async setup()` can be used is when the component is a descentand of a [Suspense](../guide/built-ins/suspense.html) component.
+`setup()` should return an object _synchronously_. The only case when `async setup()` can be used is when the component is a descendant of a [Suspense](../guide/built-ins/suspense.html) component.
 :::
 
 ## Accessing Props {#accessing-props}
