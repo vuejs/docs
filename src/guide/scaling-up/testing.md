@@ -225,6 +225,8 @@ We recommend using `@testing-library/vue` for testing components in applications
 
 ### Other Options {#other-options-1}
 
+- [WebdriverIO](https://webdriver.io/docs/component-testing/vue) for cross browser component testing that relies on native user interaction based on standardised automation. Can also be used with Testing Library. 
+
 - [Nightwatch](https://v2.nightwatchjs.org/) is an E2E test runner with Vue Component Testing support. ([Example Project](https://github.com/nightwatchjs-community/todo-vue) in Nightwatch v2)
 
 ## E2E Testing {#e2e-testing}
@@ -272,6 +274,8 @@ When end-to-end (E2E) tests are run in continuous integration / deployment pipel
 ### Other Options {#other-options-2}
 
 - [Playwright](https://playwright.dev/) is also a great E2E testing solution with a wider range of browser support (mainly WebKit). See [Why Playwright](https://playwright.dev/docs/why-playwright) for more details.
+
+- [WebdriverIO](https://webdriver.io/) is a test automation framework for web and mobile testing based on the WebDriver protocol.
 
 - [Nightwatch v2](https://v2.nightwatchjs.org/) is an E2E testing solution based on [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). This gives it the widest browser support range.
 
