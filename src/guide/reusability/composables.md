@@ -6,7 +6,7 @@ const { x, y } = useMouse()
 </script>
 
 :::tip
-Цей розділ передбачає базові знання композиційного API. Якщо ви вивчали Vue лише з опційним API, ви можете встановити налаштування API на композиційний (за допомогою перемикача у верхній частині лівої бічної панелі) і перечитати [основи реактивності](/guide/essentials/reactivity-fundamentals.html) і розділи по [хуках життєвого циклу](/guide/essentials/lifecycle.html).
+Цей розділ передбачає базові знання композиційного API. Якщо ви вивчали Vue лише з опційним API, ви можете встановити налаштування API на композиційний (за допомогою перемикача у верхній частині лівої бічної панелі) і перечитати [основи реактивності](/guide/essentials/reactivity-fundamentals.html) та розділи по [хуках життєвого циклу](/guide/essentials/lifecycle.html).
 :::
 
 ## Що таке композиційна функція? {#what-is-a-composable}
@@ -86,7 +86,7 @@ const { x, y } = useMouse()
 
 [Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNkr9OwzAQxl/FytIgpQ5zBZUY2GBEAilLaK4lVXO2bCdtVUVCTDwBA0/BwNAB+gzuG3GXtKH8EWJJfOe7X+67L6vgTGtZlRAMghM7Mrl2woIr9TDBvNDKOLESpYVLRQ9Ri7FRhejJuOBYTm0vwQRHCi3XLSKxpJrTriE8SvAkbrEEpMBBoWepA4qE8M9+4zfbe//q1/7dv2wf/Fr4N7/ePm6fBmJFRFHXER+IWzOr6w+ioJ2vX6SaBlFIClZMTXYXNgmIwRnOkUSOk+DOOW0HcWzHI9Y9tVKZSUwnaUp0eQESbNG/NWpuwRA4CaIDRkzJCkzfAGZgwPzF/Fb6g8tYElWTlP06SUO3dQPjSCikRaKDjI9XSHUcdEbQxxoHYNE0jUscuVzhgQHtBlqHFmQNUcNjsmWfWx7kOPuJ0BntOYQK0O0oQixklc5KoJ4mL3U6gev2avnL1c1OIr86JSENdToU8xwzNZdplp1z/UVuHSCYsNfsolAV9KLdEEfNvAf6vyJMU/0vCnMM/d4Gu9+VDag/AN5pFz8=)
 
-Як ми бачимо, основна логіка залишається ідентичною - все, що нам потрібно було зробити, це перемістити її в зовнішню функцію і повернути стан, який повинен бути відкритий. Так само, як і всередині компонента, ви можете використовувати повний діапазон [функцій композиційного API](/api/#composition-api) у композиційних функціях. Ту саму функцію `useMouse()` тепер можна використовувати в будь-якому компоненті.
+Як ми бачимо, основна логіка залишається ідентичною - все, що нам потрібно було зробити, це перемістити її в зовнішню функцію і повернути стан, який повинен бути відкритий. Так само як і всередині компонента, ви можете використовувати повний діапазон [функцій композиційного API](/api/#composition-api) у композиційних функціях. Ту саму функцію `useMouse()` тепер можна використовувати в будь-якому компоненті.
 
 Але крутіша частина композиційних функцій полягає в тому, що ви також можете вкладати їх: одна композиційна функція може викликати одну або кілька інших композиційних функцій. Це дає нам змогу створювати складну логіку за допомогою невеликих ізольованих одиниць, подібно до того, як ми створюємо цілу програму за допомогою компонентів. Ось чому ми вирішили назвати набір API, які роблять можливим цей шаблон композиційним API.
 
@@ -130,7 +130,7 @@ export function useMouse() {
 
 ## Приклад асинхронного стану {#async-state-example}
 
-Композиційна функція `useMouse()` не приймає жодних аргументів, тож давайте подивимося на інший приклад, у якому вона використовується. Під час отримання асинхронних даних нам часто потрібно обробляти різні стани: завантаження, успіх і помилка:
+Композиційна функція `useMouse()` не приймає жодних аргументів, тож подивимося на інший приклад, у якому вона використовується. Під час отримання асинхронних даних нам часто потрібно обробляти різні стани: завантаження, успіх і помилка:
 
 ```vue
 <script setup>
@@ -246,7 +246,7 @@ function useFeature(maybeRef) {
 
 ### Повернуті значення {#return-values}
 
-Ви, мабуть, помітили, що ми використовували виключно `ref()` замість `reactive()` у композиційних функціях. Згідно конвенції, рекомендується, щоб композиційні функції завжди повертали звичайний нереактивний об’єкт, що містить кілька референцій. Це дозволяє його деструктурувати на компоненти, зберігаючи реакційну здатність:
+Ви, мабуть, помітили, що ми використовували виключно `ref()` замість `reactive()` у композиційних функціях. Згідно з конвенцією, рекомендується, щоб композиційні функції завжди повертали звичайний нереактивний об’єкт, що містить кілька референцій. Це дозволяє його деструктурувати на компоненти, зберігаючи реакційну здатність:
 
 ```js
 // x і y є референціями
@@ -267,31 +267,31 @@ console.log(mouse.x)
 Координати миші: {{ mouse.x }}, {{ mouse.y }}
 ```
 
-### Side Effects {#side-effects}
+### Сторонні ефекти {#side-effects}
 
-It is OK to perform side effects (e.g. adding DOM event listeners or fetching data) in composables, but pay attention to the following rules:
+Виконувати побічні ефекти (наприклад, додавати прослуховувачі подій DOM або отримувати дані) у композиційних функціях можна, але зверніть увагу на наступні правила:
 
-- If you are working on an application that uses [Server-Side Rendering](/guide/scaling-up/ssr.html) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser, so you can be sure that code inside them has access to the DOM.
+- Якщо ви працюєте над програмою, яка використовує [рендеринг на стороні сервера](/guide/scaling-up/ssr.html) (SSR), переконайтеся, що ви виконуєте специфічні для DOM побічні ефекти в хуках життєвого циклу після монтування, наприклад, `onMounted()`. Ці хуки викликаються лише в браузері, тож ви можете бути впевнені, що код у них має доступ до DOM.
 
-- Remember to clean up side effects in `onUnmounted()`. For example, if a composable sets up a DOM event listener, it should remove that listener in `onUnmounted()` as we have seen in the `useMouse()` example. It can be a good idea to use a composable that automatically does this for you, like the `useEventListener()` example.
+- Не забудьте очищувати побічні ефекти в `onUnmounted()`. Наприклад, якщо композиційна функція встановлює слухач подій DOM, він повинен видалити цей слухач у `onUnmounted()`, як ми бачили у прикладі `useMouse()`. Гарною ідеєю може бути використання композиційної функції, яка автоматично робить це за вас, як-от приклад `useEventListener()`.
 
-### Usage Restrictions {#usage-restrictions}
+### Обмеження при використанні {#usage-restrictions}
 
-Composables should only be called **synchronously** in `<script setup>` or the `setup()` hook. In some cases, you can also call them in lifecycle hooks like `onMounted()`.
+Композиційні функції слід викликати лише **синхронно** в `<script setup>` або `setup()` хуку. У деяких випадках ви також можете викликати їх у хуках життєвого циклу, наприклад `onMounted()`.
 
-These are the contexts where Vue is able to determine the current active component instance. Access to an active component instance is necessary so that:
+Це контексти, у яких Vue може визначити поточний екземпляр активного компонента. Доступ до екземпляра активного компонента необхідний для того, щоб:
 
-1. Lifecycle hooks can be registered to it.
+1. В ньому можна зареєструвати хуки життєвого циклу.
 
-2. Computed properties and watchers can be linked to it, so that they can be disposed when the instance is unmounted to prevent memory leaks.
+2. До нього можна прив'язати обчислювані властивості та спостерігачі, щоб їх можна було видалити, коли екземпляр відмонтовано, щоб запобігти джерелам витоку пам'яті.
 
 :::tip
-`<script setup>` is the only place where you can call composables **after** using `await`. The compiler automatically restores the active instance context for you after the async operation.
+`<script setup>` є єдиним місцем, де ви можете викликати композиційні функції **після** використання `await`. Компілятор автоматично відновлює для вас активний контекст екземпляра після асинхронної операції.
 :::
 
-## Extracting Composables for Code Organization {#extracting-composables-for-code-organization}
+## Витягнення композиційних функцій для організації коду {#extracting-composables-for-code-organization}
 
-Composables can be extracted not only for reuse, but also for code organization. As the complexity of your components grow, you may end up with components that are too large to navigate and reason about. Composition API gives you the full flexibility to organize your component code into smaller functions based on logical concerns:
+Композиційні функції можна витягати не тільки для повторного використання, але й для організації коду. У міру того, як складність ваших компонентів зростає, ви можете опинитися з надто великими компонентами для навігації та розуміння. Композиційний API дає вам повну гнучкість для організації коду компонента в менші функції на основі логічних проблем:
 
 ```vue
 <script setup>
@@ -305,11 +305,11 @@ const { qux } = useFeatureC(baz)
 </script>
 ```
 
-To some extent, you can think of these extracted composables as component-scoped services that can talk to one another.
+Певною мірою ви можете розглядати ці витягнуті компоненти як компонентні сервіси, які можуть спілкуватися один з одним.
 
-## Using Composables in Options API {#using-composables-in-options-api}
+## Використання композиційних функцій в опційному API {#using-composables-in-options-api}
 
-If you are using Options API, composables must be called inside `setup()`, and the returned bindings must be returned from `setup()` so that they are exposed to `this` and the template:
+Якщо ви використовуєте опційний API, композиційні функції потрібно викликати всередині `setup()`, а повернуті прив'язки мають бути повернуті з `setup()` для доступності для `this` і шаблону:
 
 ```js
 import { useMouse } from './mouse.js'
@@ -322,42 +322,42 @@ export default {
     return { x, y, data, error }
   },
   mounted() {
-    // setup() exposed properties can be accessed on `this`
+    // Доступ до відкритих властивостей setup() можна отримати через `this`
     console.log(this.x)
   }
-  // ...other options
+  // ...інші варіанти
 }
 ```
 
-## Comparisons with Other Techniques {#comparisons-with-other-techniques}
+## Порівняння щодо інших технік {#comparisons-with-other-techniques}
 
-### vs. Mixins {#vs-mixins}
+### щодо міксинів {#vs-mixins}
 
-Users coming from Vue 2 may be familiar with the [mixins](/api/options-composition.html#mixins) option, which also allows us to extract component logic into reusable units. There are three primary drawbacks to mixins:
+Користувачі, які перейшли з Vue 2, можуть бути знайомі з параметром [mixins](/api/options-composition.html#mixins), який також дозволяє нам витягувати логіку компонентів у багаторазові блоки. У міксинів є три основні недоліки:
 
-1. **Unclear source of properties**: when using many mixins, it becomes unclear which instance property is injected by which mixin, making it difficult to trace the implementation and understand the component's behavior. This is also why we recommend using the refs + destructure pattern for composables: it makes the property source clear in consuming components.
+1. **Незрозуміле джерело властивостей**: при використанні багатьох міксинів стає незрозуміло, яка властивість екземпляра впроваджується яким міксином, що ускладнює відстеження реалізації та розуміння поведінки компонента. Ось чому ми також рекомендуємо використовувати шаблон "референція + деструктуризація" для композиційних функцій: це робить джерело властивості зрозумілим у споживаючих компонентах.
 
-2. **Namespace collisions**: multiple mixins from different authors can potentially register the same property keys, causing namespace collisions. With composables, you can rename the destructured variables if there are conflicting keys from different composables.
+2. **Колізії просторів імен**: кілька міксинів від різних авторів потенційно можуть зареєструвати однакові ключі властивостей, спричиняючи колізії просторів імен. За допомогою композиційниї функцій ви можете перейменувати деструктуровані змінні, якщо є конфліктні ключі від різних композиційних функцій.
 
-3. **Implicit cross-mixin communication**: multiple mixins that need to interact with one another have to rely on shared property keys, making them implicitly coupled. With composables, values returned from one composable can be passed into another as arguments, just like normal functions.
+3. **Неявний зв'язок крос-міксинів**: кілька міксинів, які повинні взаємодіяти один з одним, повинні покладатися на спільні ключі властивостей, що робить їх неявно зв'яними. За допомогою композиційних функцій значення, повернуті однією композиційною функцією, можна передати в інший як аргументи, як і у звичайні функції.
 
-For the above reasons, we no longer recommend using mixins in Vue 3. The feature is kept only for migration and familiarity reasons.
+З наведених вище причин ми більше не рекомендуємо використовувати міксини у Vue 3. Ця функція зберігається лише з міркувань міграції та знайомства.
 
-### vs. Renderless Components {#vs-renderless-components}
+### щодо компонент без рендерингу {#vs-renderless-components}
 
-In the component slots chapter, we discussed the [Renderless Component](/guide/components/slots.html#renderless-components) pattern based on scoped slots. We even implemented the same mouse tracking demo using renderless components.
+У розділі про слоти компонентів ми обговорили шаблон [компоненти без рендеру](/guide/components/slots.html#renderless-components) на основі слотів з обмеженою областю. Ми навіть реалізували ту саму демонстрацію відстеження миші, використовуючи компоненти без рендерингу.
 
-The main advantage of composables over renderless components is that composables do not incur the extra component instance overhead. When used across an entire application, the amount of extra component instances created by the renderless component pattern can become a noticeable performance overhead.
+Основна перевага складових компонентів над компонентами без рендерингу полягає в тому, що складові компоненти не спричиняють додаткових витрат на екземпляр компонента. При використанні в усій програмі, кількість додаткових екземплярів компонентів, створених за допомогою шаблону компонента без рендерингу, може призвести до помітних накладних витрат на продуктивність.
 
-The recommendation is to use composables when reusing pure logic, and use components when reusing both logic and visual layout.
+Рекомендується використовувати композиційні функції при повторному використанні чистої логіки та використовувати компоненти при повторному використанні як логіки, так і візуального макета.
 
-### vs. React Hooks {#vs-react-hooks}
+### щодо React хуків {#vs-react-hooks}
 
-If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more detail in the [Composition API FAQ](/guide/extras/composition-api-faq#comparison-with-react-hooks).
+Якщо у вас є досвід роботи з React, ви можете помітити, що це дуже схоже на спеціальні хуки React. Композиційний API був частково натхненний хуками React, і композиційні функції Vue справді схожі на хуки React з точки зору можливостей логічної композиції. Однак, композиційні функції Vue базуються на багатогранній системі реактивності Vue, яка принципово відрізняється від моделі виконання хуків React. Це обговорюється більш детально в [поширених питаннях щодо композиційного API](/guide/extras/composition-api-faq#comparison-with-react-hooks).
 
-## Further Reading {#further-reading}
+## Подальше читання {#further-reading}
 
-- [Reactivity In Depth](/guide/extras/reactivity-in-depth.html): for a low-level understanding of how Vue's reactivity system works.
-- [State Management](/guide/scaling-up/state-management.html): for patterns of managing state shared by multiple components.
-- [Testing Composables](/guide/scaling-up/testing.html#testing-composables): tips on unit testing composables.
-- [VueUse](https://vueuse.org/): an ever-growing collection of Vue composables. The source code is also a great learning resource.
+- [Реактивність поглиблено](/guide/extras/reactivity-in-depth.html): для низькорівневого розуміння того, як працює система реактивності Vue.
+- [Керування станом](/guide/scaling-up/state-management.html): для шаблонів керування станом, спільного для кількох компонентів.
+- [Тестування композиційниї функцій](/guide/scaling-up/testing.html#testing-composables): поради щодо модульного тестування композиційних функцій.
+- [VueUse](https://vueuse.org/): колекція Vue композиційних функцій, постійно покращується. Вихідний код також є чудовим навчальним ресурсом.
