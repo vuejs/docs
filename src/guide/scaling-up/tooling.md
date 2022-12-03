@@ -26,7 +26,7 @@ To get started with Vite + Vue, simply run:
 This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool.
 
 - To learn more about Vite, check out the [Vite docs](https://vitejs.dev).
-- To configure Vue-specific behavior in a Vite project, for example passing options to the Vue compiler, check out the docs for [@vitejs/plugin-vue](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#readme).
+- To configure Vue-specific behavior in a Vite project, for example passing options to the Vue compiler, check out the docs for [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
 
 Both online playgrounds mentioned above also support downloading files as a Vite project.
 
@@ -124,7 +124,7 @@ Users previously using Vue CLI may be used to having linters configured via webp
 
 Custom blocks are compiled into imports to the same Vue file with different request queries. It is up to the underlying build tool to handle these import requests.
 
-- If using Vite, a custom Vite plugin should be used to transform matched custom blocks into executable JavaScript. [Example](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
+- If using Vite, a custom Vite plugin should be used to transform matched custom blocks into executable JavaScript. [Example](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
 
 - If using Vue CLI or plain webpack, a webpack loader should be configured to transform the matched blocks. [Example](https://vue-loader.vuejs.org/guide/custom-blocks.html)
 
@@ -144,7 +144,7 @@ Always prefer using this package via the `vue/compiler-sfc` deep import since th
 
 ### `@vitejs/plugin-vue` {#vitejs-plugin-vue}
 
-- [Docs](https://github.com/vitejs/vite/tree/main/packages/plugin-vue)
+- [Docs](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue)
 
 Official plugin that provides Vue SFC support in Vite.
 
