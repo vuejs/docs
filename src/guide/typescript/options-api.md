@@ -94,7 +94,7 @@ export default defineComponent({
 
 Це запобігає TypeScript від необхідності визначати тип `this` у цих функціях, що, на жаль, може призвести до помилки визначення типу. Це [обмеження](https://github.com/microsoft/TypeScript/issues/38845) було в попередній версії, і тепер покращено в [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
 
-## Типізація випромінювача компонента {#typing-component-emits}
+## Типізація випромінювань компонента {#typing-component-emits}
 
 Ми можемо оголосити очікуваний тип корисного навантаження для випромінювача події, використовуючи об’єкт синтаксису опції `emits`. Крім того, усі неоголошені випромінювачі подій викликатимуть типову помилку:
 
@@ -176,7 +176,7 @@ export default defineComponent({
 
 Явні анотації також можуть знадобитися в деяких граничних випадках, коли TypeScript не може визначити тип обчисленої властивості через циклічні визначення.
 
-## Типізація Обробників Подій {#typing-event-handlers}
+## Типізація обробників подій {#typing-event-handlers}
 
 При роботі з нативними подіями DOM може бути корисним правильно типізувати аргумент, який ми передаємо обробнику. Розгляньмо це на прикладі:
 
@@ -213,7 +213,7 @@ export default defineComponent({
 })
 ```
 
-## Доповнення Глобальних Властивостей {#augmenting-global-properties}
+## Доповнення глобальних властивостей {#augmenting-global-properties}
 
 Деякі плагіни інсталюють глобально доступні властивості для всіх екземплярів компонента за допомогою [`app.config.globalProperties`](/api/application.html#app-config-globalproperties). Наприклад, ми можемо інсталювати `this.$http` для отримання даних, або `this.$translate` для інтернаціоналізації. Щоб це добре працювало з TypeScript, Vue надає інтерфейс `ComponentCustomProperties`, призначений для доповнення за допомогою [доповнення модуля TypeScript](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation):
 
@@ -232,7 +232,7 @@ declare module 'vue' {
 
 - [TypeScript модульні тести для доповнення типів компонентів](https://github.com/vuejs/core/blob/main/test-dts/componentTypeExtensions.test-d.tsx)
 
-### Розміщення Доповнень Типу {#type-augmentation-placement}
+### Розміщення доповнень типу {#type-augmentation-placement}
 
 Ми можемо розмістити це доповнення типу у файлі `.ts` або у файлі `*.d.ts` для всього проєкту. У будь-якому випадку переконайтеся, що його включено в `tsconfig.json`. Для авторів бібліотек/плагінів цей файл слід вказати у властивості `types` у `package.json`.
 
@@ -258,7 +258,7 @@ declare module 'vue' {
 }
 ```
 
-## Доповнення Користувацьких Параметрів {#augmenting-custom-options}
+## Доповнення користувацьких параметрів {#augmenting-custom-options}
 
 Деякі плагіни, наприклад `vue-router`, забезпечують підтримку користувацьких параметрів компонента, таких як `beforeRouteEnter`:
 

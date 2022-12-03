@@ -23,7 +23,7 @@
 export default {
   methods: {
     submit() {
-      this.$emit('submit')
+      this.$emit('someEvent')
     }
   }
 }

@@ -1,10 +1,10 @@
-# Options: Composition
+# Опції: Композиція {#options-composition}
 
-## provide
+## provide {#provide}
 
-Provide values that can be injected by descendant components.
+Надавання значень, які можуть бути введені компонентами-нащадками.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -12,15 +12,15 @@ Provide values that can be injected by descendant components.
   }
   ```
 
-- **Details:**
+- **Подробиці:**
 
-  `provide` and [`inject`](#inject) are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain.
+  `provide` і [`inject`](#inject) використовуються разом, щоб дозволити компоненту-предку служити для введення залежностей для всіх своїх нащадків, незалежно від того, наскільки глибока ієрархія компонентів, якщо вони знаходяться в одному батьківському ланцюжку.
 
-  The `provide` option should be either an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use Symbols as keys in this object.
+  Параметр `provide` має бути або об'єктом, або функцією, яка повертає об’єкт. Цей об’єкт містить властивості, які після введення будуть доступні у нащадках. Ви можете використовувати Symbols як ключі в цьому об'єкті.
 
-- **Example**
+- **Приклад**
 
-  Basic usage:
+  Основне використання:
 
   ```js
   const s = Symbol()
@@ -33,7 +33,7 @@ Provide values that can be injected by descendant components.
   }
   ```
 
-  Using a function to provide per-component state:
+  Використання функції для надавання властивостей екземпляра компонента:
 
   ```js
   export default {
@@ -50,15 +50,15 @@ Provide values that can be injected by descendant components.
   }
   ```
 
-  Note in the above example, the provided `msg` will NOT be reactive. See [Working with Reactivity](/guide/components/provide-inject.html#working-with-reactivity) for more details.
+  Зауважте, що в наведеному вище прикладі `msg` НЕ буде реактивним. Див. [Робота з реактивністю](/guide/components/provide-inject.html#working-with-reactivity) для отримання додаткової інформації.
 
-- **See also:** [Provide / Inject](/guide/components/provide-inject.html)
+- **Також до вашої уваги:** [Надавання / введення](/guide/components/provide-inject.html)
 
-## inject
+## inject {#inject}
 
-Declare properties to inject into the current component by locating them from ancestor providers.
+Оголошення властивостей, які потрібно додати в поточний компонент, що будуть надаватися від предків.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -75,24 +75,24 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  The `inject` option should be either:
+  Параметр `inject` має бути:
 
-  - An array of strings, or
-  - An object where the keys are the local binding name and the value is either:
-    - The key (string or Symbol) to search for in available injections, or
-    - An object where:
-      - The `from` property is the key (string or Symbol) to search for in available injections, and
-      - The `default` property is used as fallback value. Similar to props default values, a factory function is needed for object types to avoid value sharing between multiple component instances.
+  - Масивом рядків, або
+   - Об'єктом, де ключі є назвою локального зв'язування, а значенням є:
+     - Ключ (рядок або Symbol) для пошуку в доступних введеннях або
+     - Об'єкт, де:
+       - Властивість `from` — це ключ (рядок або Symbol) для пошуку в доступних введеннях, і
+       - Властивість `default` використовується як резервне значення. Подібно до значень реквізитів за промовчуванням, заводська функція потрібна для типів об'єктів, щоб уникнути спільного використання значення між кількома екземплярами компонентів.
 
-  An injected property will be `undefined` if neither a matching property nor a default value was provided.
+  Введена властивість буде `undefined`, якщо не було надано ані відповідної властивості, ані значення за промовчуванням.
 
-  Note that injected bindings are NOT reactive. This is intentional. However, if the injected value is a reactive object, properties on that object do remain reactive. See [Working with Reactivity](/guide/components/provide-inject.html#working-with-reactivity) for more details.
+  Зауважте, що введені прив'язки НЕ реактивні. Це навмисно. Однак, якщо введене значення є реактивним об'єктом, властивості цього об'єкта залишаються реактивними. Див. [Робота з реактивністю](/guide/components/provide-inject.html#working-with-reactivity) для отримання додаткової інформації.
 
-- **Example**
+- **Приклад**
 
-  Basic usage:
+  Основне використання:
 
   ```js
   export default {
@@ -103,7 +103,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  Using an injected value as the default for a prop:
+  Використання введеного значення як реквізиту за промовчуванням:
 
   ```js
   const Child = {
@@ -118,7 +118,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  Using an injected value as data entry:
+  Використання введеного значення як дані:
 
   ```js
   const Child = {
@@ -131,7 +131,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  Injections can be optional with default value:
+  Введення можуть бути необов'язковими зі значенням за промовчуванням:
 
   ```js
   const Child = {
@@ -141,7 +141,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  If it needs to be injected from a property with a different name, use `from` to denote the source property:
+  Якщо його потрібно ввести з властивості з іншою назвою, використовуйте `from` для позначення властивості-джерела:
 
   ```js
   const Child = {
@@ -154,7 +154,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  Similar to prop defaults, you need to use a factory function for non-primitive values:
+  Подібно до реквізиту за промовчуванням, вам потрібно використовувати фабричну функцію для непримітивних значень:
 
   ```js
   const Child = {
@@ -167,13 +167,13 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-- **See also:** [Provide / Inject](/guide/components/provide-inject.html)
+- **Також до вашої уваги:** [Надавання / введення](/guide/components/provide-inject.html)
 
-## mixins
+## mixins {#mixins}
 
-An array of option objects to be mixed into the current component.
+Масив параметрів об'єктів, які потрібно змішати з поточним компонентом.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -181,17 +181,17 @@ An array of option objects to be mixed into the current component.
   }
   ```
 
-- **Details:**
+- **Подробиці:**
 
-  The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the certain option merging logic. For example, if your mixin contains a `created` hook and the component itself also has one, both functions will be called.
+  Параметр `mixins` приймає масив міксинів об'єктів. Ці міксини об'єктів можуть містити параметри екземплярів, як звичайні об'єкти екземплярів, і вони будуть об'єднані в остаточний набір параметрів із використанням спеціальної логіки об'єднання. Наприклад, якщо ваш міксин містить хук `created` і сам компонент також його має, то буде викликано обидві функції.
 
-  Mixin hooks are called in the order they are provided, and called before the component's own hooks.
+  Хуки міксинів викликаються в тому порядку, в якому вони надані, і викликаються до виклику власних хуків компонента.
 
-  :::warning No Longer Recommended
-  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composition API](/guide/reusability/composables.html) is now the preferred approach for code reuse between components.
+  :::warning Більше не рекомендується
+  У Vue 2 міксини були основним механізмом для створення повторно використовуваних фрагментів логіки компонентів. Хоча міксини продовжують підтримуватися у Vue 3, тепер [Композиційний АРІ](/guide/reusability/composables.html) є кращим підходом для повторного використання коду між компонентами.
   :::
 
-- **Example:**
+- **Приклад:**
 
   ```js
   const mixin = {
@@ -211,11 +211,11 @@ An array of option objects to be mixed into the current component.
   // => 2
   ```
 
-## extends
+## extends {#extends}
 
-A "base class" component to extend from.
+Розширення для компонента "базового класу"
 
-- **Type:**
+- **Тип:**
 
   ```ts
   interface ComponentOptions {
@@ -223,17 +223,17 @@ A "base class" component to extend from.
   }
   ```
 
-- **Details:**
+- **Подробиці:**
 
-  Allows one component to extend another, inheriting its component options.
+  Дозволяє одному компоненту розширювати інший, успадковуючи параметри його компонента.
 
-  From an implementation perspective, `extends` is almost identical to `mixins`. The component specified by `extends` will be treated as though it were the first mixin.
+  З точки зору реалізації, `extends` майже ідентичний `mixins`. Компонент, визначений через `extends`, розглядатиметься як перший міксин.
 
-  However, `extends` and `mixins` express different intents. The `mixins` option is primarily used to compose chunks of functionality, whereas `extends` is primarily concerned with inheritance.
+  Однак `extends` і `mixins` виражають різні наміри. Параметр `mixins` в основному використовується для створення функціональності фрагментів, тоді як `extends` насамперед пов'язаний з успадкуванням.
 
-  As with `mixins`, any options will be merged using the relevant merge strategy.
+  Як і у випадку з міксинами, будь-які параметри буде об'єднано за допомогою відповідної стратегії злиття.
 
-- **Example:**
+- **Приклад:**
 
   ```js
   const CompA = { ... }

@@ -1,60 +1,60 @@
-# Composition API: <br>Dependency Injection
+# Композиційний АРІ: <br>Ін'єкція залежностей {#composition-api-dependency-injection}
 
-## provide()
+## provide() {#provide}
 
-Provides a value that can be injected by descendant components.
+Надає значення, яке може бути вставлено компонентами-нащадками.
 
-- **Type**
+- **Тип**
 
   ```ts
   function provide<T>(key: InjectionKey<T> | string, value: T): void
   ```
 
-- **Details**
+- **Подробиці**
 
-  `provide()` takes two arguments: the key, which can be a string or a symbol, and the value to be injected.
+  `provide()` приймає два аргументи: ключ, який може бути рядком або символом, і значення, яке потрібно ввести.
 
-  When using TypeScript, the key can be a symbol casted as `InjectionKey` - a Vue provided utility type that extends `Symbol`, which can be used to sync the value type between `provide()` and `inject()`.
+  Під час використання TypeScript ключ може бути символом, приведеним утилітою типу `InjectionKey` наданою Vue, яка розширює `Symbol`, який можна використовувати для синхронізації типу значення між `provide()` та `inject()`.
 
-  Similar to lifecycle hook registration APIs, `provide()` must be called synchronously during a component's `setup()` phase.
+  Подібно до API реєстрації хуків життєвого циклу, `provide()` має викликатися синхронно під час фази `setup()` компонента.
 
-- **Example**
+- **Приклад**
 
   ```vue
   <script setup>
   import { ref, provide } from 'vue'
   import { fooSymbol } from './injectionSymbols'
 
-  // provide static value
+  // надати статичне значення
   provide('foo', 'bar')
 
-  // provide reactive value
+  // надати реактивне значення
   const count = ref(0)
   provide('count', count)
 
-  // provide with Symbol keys
+  // надати з символьними ключами
   provide(fooSymbol, count)
   </script>
   ```
 
-- **See also**:
-  - [Guide - Provide / Inject](/guide/components/provide-inject.html)
-  - [Guide - Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
+- **Також до вашої уваги**:
+  - [Гід - Provide / Inject](/guide/components/provide-inject.html)
+  - [Гід - Типізація Provide/InjectProvide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
 
-## inject()
+## inject() {#inject}
 
-Injects a value provided by an ancestor component or the application (via `app.provide()`).
+Введення значення, надане батьківським компонентом або застосунком (через `app.provide()`).
 
-- **Type**
+- **Тип**
 
   ```ts
-  // without default value
+  // без значення за замовчуванням
   function inject<T>(key: InjectionKey<T> | string): T | undefined
 
-  // with default value
+  // зі значенням за замовчуванням
   function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
 
-  // with factory
+  // з фабричною функцією
   function inject<T>(
     key: InjectionKey<T> | string,
     defaultValue: () => T,
@@ -62,45 +62,45 @@ Injects a value provided by an ancestor component or the application (via `app.p
   ): T
   ```
 
-- **Details**
+- **Подробиці**
 
-  The first argument is the injection key. Vue will walk up the parent chain to locate a provided value with a matching key. If multiple components in the parent chain provides the same key, the one closest to the injecting component will "shadow" those higher up the chain. If no value with matching key was found, `inject()` returns `undefined` unless a default value is provided.
+  Перший аргумент - ключ ін'єкції. Vue пройде по батьківському ланцюжку, щоб знайти надане значення з відповідним ключем. Якщо кілька компонентів у батьківському ланцюжку надають той самий ключ, той, що є найближчим до компонента, що вводить, «затьмарюватиме» компоненти, що знаходяться вище в ланцюжку. Якщо значення з відповідним ключем не знайдено, `inject()` повертає `undefined`, якщо не вказано значення за замовчуванням.
 
-  The second argument is optional and is the default value to be used when no matching value was found. It can also be a factory function to return values that are expensive to create. If the default value is a function, then `false` must be passed as the third argument to indicate that the function should be used as the value instead of the factory.
+  Другий аргумент є необов'язковим і є значенням за замовчуванням, яке використовується, якщо відповідне значення не знайдено. Це також може бути фабрична функція для повернення значень, створення яких є дорогим. Якщо значенням за замовчуванням є функція, тоді третім аргументом потрібно передати `false`, щоб вказати, що функція має використовуватися як значення замість фабрики.
 
-  Similar to lifecycle hook registration APIs, `inject()` must be called synchronously during a component's `setup()` phase.
+  Подібно до API реєстрації хуків життєвого циклу, `inject()` має викликатися синхронно під час фази `setup()` компонента.
 
-  When using TypeScript, the key can be of type of `InjectionKey` - a Vue-provided utility type that extends `Symbol`, which can be used to sync the value type between `provide()` and `inject()`.
+  Під час використання TypeScript ключ може бути символом, приведеним утилітою типу `InjectionKey` наданою Vue, яка розширює `Symbol`, який можна використовувати для синхронізації типу значення між `provide()` та `inject()`.
 
-- **Example**
+- **Приклад**
 
-  Assuming a parent component has provided values as shown in the previous `provide()` example:
+  Припустимо, що батьківський компонент надав значення, як показано в попередньому `provide()` Приклад:
 
   ```vue
   <script setup>
   import { inject } from 'vue'
   import { fooSymbol } from './injectionSymbols'
 
-  // inject static value with default
+  // ввести статичне значення за замовчуванням
   const foo = inject('foo')
 
-  // inject reactive value
+  // ввести реактивне значення
   const count = inject('count')
 
-  // inject with Symbol keys
+  // ввести зз символьними ключами
   const foo2 = inject(fooSymbol)
 
-  // inject with default value
+  // ввести зі значенням за замовчуванням
   const bar = inject('foo', 'default value')
 
-  // inject with default value factory
+  // ввести зі значенням за замовчуванням фабричну функцію
   const baz = inject('foo', () => new Map())
 
-  // inject with function default value, by passing the 3rd argument
+  // ввести зі значенням за замовчуванням функцію, передаючи 3-й аргумент
   const fn = inject('function', () => {}, false)
   </script>
   ```
 
-- **See also**:
-  - [Guide - Provide / Inject](/guide/components/provide-inject.html)
-  - [Guide - Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
+- **Також до вашої уваги**:
+  - [Гід - Provide / Inject](/guide/components/provide-inject.html)
+  - [Гід - Типізація Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)

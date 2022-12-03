@@ -2,17 +2,17 @@
 footer: false
 ---
 
-# Швидкий старт
+# Швидкий старт {#quick-start}
 
-## Спробуйте Vue онлайн
+## Спробуйте Vue онлайн {#try-vue-online}
 
-- Щоб швидко відчути смак Vue, спробуйте його безпосередньо на нашому [ігровому майданчику](https://sfc.vuejs.org/#eNp9UFFqwzAMvYqmn26QxOw3ZIXdwz9Zo7YpsWNkJxuEwLZD7Hd3GAx2jORGU5qljBYKxtbTk5+e1OGjc0nbEKaY+Q2XLqy1pRdXc4CCtnlTBei0BSjykN/ezTEAU2jYLgjA+F0Kq+FzfB1+hq/xY3yPYHybo+H7ZjXX9dMjl5xMnboJCGRclQcSBJDt79ddN0lC32dK0DFbWtcEaGNTF1Q9aBReo1CZOv3GCEszWY9N7pKDr62MdfSo/wivMV1ca5S5J6xxH4LzqVJ+u5mWcfBJzTslUcKNDaWhhLyJn7h+9sQirDH6p6Ek2RLHTLYgJr6meVZ6obtsCPtf0fmTIA==).
+- Щоб швидко відчути смак Vue, спробуйте його безпосередньо в нашій [пісочниці](https://sfc.vuejs.org/#eNp9UFFqwzAMvYqmn26QxOw3ZIXdwz9Zo7YpsWNkJxuEwLZD7Hd3GAx2jORGU5qljBYKxtbTk5+e1OGjc0nbEKaY+Q2XLqy1pRdXc4CCtnlTBei0BSjykN/ezTEAU2jYLgjA+F0Kq+FzfB1+hq/xY3yPYHybo+H7ZjXX9dMjl5xMnboJCGRclQcSBJDt79ddN0lC32dK0DFbWtcEaGNTF1Q9aBReo1CZOv3GCEszWY9N7pKDr62MdfSo/wivMV1ca5S5J6xxH4LzqVJ+u5mWcfBJzTslUcKNDaWhhLyJn7h+9sQirDH6p6Ek2RLHTLYgJr6meVZ6obtsCPtf0fmTIA==).
 
-- Якщо ви віддаєте перевагу звичайному HTML без ніяки процесів збірки, ви можете використовувати цей [JSFiddle](https://jsfiddle.net/z6d9k84y/), як відправну точку.
+- Якщо ви віддаєте перевагу звичайному HTML без етапу збірки, ви можете використовувати цей [JSFiddle](https://jsfiddle.net/z6d9k84y/), як відправну точку.
 
-- Якщо ви вже знайомі з Node.js і концепціями інструментів збірки, також можете спробувати повноцінну відправну збірку, прямо у вашому браузені на [StackBlitz](https://vite.new/vue).
+- Якщо ви вже знайомі з Node.js і концепціями інструментів збірки, також можете спробувати повноцінну відправну збірку, прямо у вашому браузері на [StackBlitz](https://vite.new/vue).
 
-## Створення додатка Vue
+## Створення застосунку Vue {#creating-a-vue-application}
 
 :::tip Передумови
 
@@ -64,7 +64,7 @@ footer: false
 
 [Наступні кроки >](#наступні-кроки)
 
-## Використання Vue з CDN
+## Використання Vue з CDN {#using-vue-from-cdn}
 
 Ви можете використовувати Vue безпосередньо з CDN за допомогою тегу `script`:
 
@@ -76,7 +76,7 @@ footer: false
 
 Під час використання Vue із CDN відсутній «етап збірки». Це значно спрощує налаштування та підходить для вдосконалення статичного HTML або інтеграції з базовою структурою. Однак, ви не зможете використовувати синтаксис одно-файлового компонента (SFC).
 
-### Використання глобальної збірки
+### Використання глобальної збірки {#using-the-global-build}
 
 Наведене вище посилання завантажує *глобальну збірку* Vue, де всі API верхнього рівня представлені як властивості глобального об’єкта `Vue`. Ось повний приклад використання глобальної збірки:
 
@@ -100,7 +100,7 @@ footer: false
 
 [Демонстрація JSFiddle](https://jsfiddle.net/to2dk19q/)
 
-### Використання збірки модулів ES
+### Використання збірки модулів ES {#using-the-es-module-build}
 
 У решті документації ми будемо в основному використовувати синтаксис [модулів ES](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). Більшість сучасних браузерів зараз підтримують модулі ES, тому ми можемо використовувати Vue із CDN через нативні модулі ES, як тут:
 
@@ -124,7 +124,7 @@ footer: false
 
 [Демонстрація JSFiddle](https://jsfiddle.net/4nbeyd2g/)
 
-### Увімкнення карт імпорту
+### Увімкнення карт імпорту {#enabling-import-maps}
 
 У наведеному вище прикладі ми імпортуємо з повної URL-адреси CDN, але в решті документації ви побачите такий код:
 
@@ -170,13 +170,11 @@ import { createApp } from 'vue'
 Якщо ж ваш улюблений браузер ще не підтримує карти імпорту, ви можете забезпечити таку підтримку за допомогою [es-module-shims](https://github.com/guybedford/es-module-shims).
 :::
 
-### Доступ через HTTP
-
 :::warning Не для продакшну
 Конфігурацію через карти імпорту є зміст використовувати лише в навчальних цілях, але якщо ви збираєтесь використовувати Vue без інструментів збірки в продакшні, обов'язково перегляньте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment.html#without-build-tools).
 :::
 
-### Розділення модулів
+### Розділення модулів {#splitting-up-the-modules}
 
 В процесі проходження гіда, нам може бути корисно розбивати наш код на окремі файли JavaScript, щоб, таким чином, було легше обслуговувати додаток. Наприклад:
 
@@ -206,11 +204,11 @@ export default {
 
 Можливо, ви помітили, що імпортовані шаблони компонентів вказані у вигляді JavasScript рядка. Якщо ви використовуєте VSCode, ви можете встановити розширення [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) та додавати коментар `/*html*/` перед такими рядками, щоб VSCode підсвічував для них синтаксис.
 
-### Використання Композиційного API без засобів збірки
+### Використання Композиційного API без засобів збірки {#using-composition-api-without-a-build-step}
 
 Багато прикладів для Композиційного API використовують синтаксис `<script setup>`. Якщо ви бажаєте використовувати Композиційний API без засобів збірки, ознайомтесь з використанням [функції `setup()`](/api/composition-api-setup.html).
 
-## Наступні кроки
+## Наступні кроки {#next-steps}
 
 Якщо ви пропустили [Вступ](/guide/introduction), ми наполегливо радимо його прочитати перед тим, як рухатись далі цією документацією.
 

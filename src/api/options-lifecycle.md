@@ -1,14 +1,14 @@
-# Options: Lifecycle
+# Опції: Життєвий цикл {#options-lifecycle}
 
-:::info See also
-For shared usage of lifecycle hooks, see [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html)
+:::info Також до вашої уваги
+Щоб дізнатися про спільне використання хуків життєвого циклу, див. [Гід - Хуки життєвого циклу](/guide/essentials/lifecycle.html)
 :::
 
-## beforeCreate
+## beforeCreate {#beforecreate}
 
-Called when the instance is initialized.
+Викликається під час ініціалізації екземпляра.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -16,17 +16,17 @@ Called when the instance is initialized.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  Called immediately when the instance is initialized, after props resolution, before processing other options such as `data()` or `computed`.
+  Викликається негайно, коли екземпляр ініціалізується, після вирішення реквізитів, перед обробкою інших параметрів, таких як `data()` або `computed`.
 
-  Note that the `setup()` hook of Composition API is called before any Options API hooks, even `beforeCreate()`.
+  Зауважте, що хук `setup()` композиційного API викликається перед будь-якими хуками опційного API, навіть перед `beforeCreate()`.
 
-## created
+## created {#created}
 
-Called after the instance has finished processing all state-related options.
+Викликається після того, як екземпляр завершив обробку всіх параметрів, пов'язаних зі станом.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -34,15 +34,15 @@ Called after the instance has finished processing all state-related options.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  When this hooks is called, the following have been set up: reactive data, computed properties, methods, and watchers. However, the mounting phase has not been started, and the `$el` property will not be available yet.
+  Під час виклику цих хуків було налаштовано наступне: реактивні дані, обчислювані властивості, методи та спостерігачі. Однак етап монтування ще не розпочато, і властивість `$el` ще не буде доступною.
 
-## beforeMount
+## beforeMount {#beforemount}
 
-Called right before the component is to be mounted.
+Викликається безпосередньо перед монтуванням компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -50,17 +50,17 @@ Called right before the component is to be mounted.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet. It is about to execute its DOM render effect for the first time.
+  Коли цей хук викликається, компонент завершив налаштування свого реактивного стану, але вузли DOM ще не створено. Він збирається вперше виконати свій ефект рендерингу DOM.
 
-  **This hook is not called during server-side rendering.**
+  **Цей хук не викликається під час рендерингу на стороні сервера.**
 
-## mounted
+## mounted {#mounted}
 
-Called after the component has been mounted.
+Викликається після монтування компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -68,23 +68,23 @@ Called after the component has been mounted.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  A component is considered mounted after:
+  Компонент вважається змонтованим після:
 
-  - All of its synchronous child components have been mounted (does not include async components or components inside `<Suspense>` trees).
+  - Усі його синхронні дочірні компоненти змонтовано (не включає асинхронні компоненти чи компоненти всередині `<Suspense>` дерев).
 
-  - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
+  - Його власне дерево DOM було створено та вставлено в батьківський контейнер. Зауважте, що це гарантує, що дерево DOM компонента знаходиться в документі, лише якщо кореневий контейнер застосунку також є в документі.
 
-  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr.html).
+  Цей хук зазвичай використовується для виконання побічних ефектів, які потребують доступу до відрендереного DOM компонента, або для обмеження пов'язаного з DOM коду клієнта в [застосунках з рендерингом на стороні серверу](/guide/scaling-up/ssr.html).
 
-  **This hook is not called during server-side rendering.**
+  **Цей хук не викликається під час рендерингу на стороні сервера.**
 
-## beforeUpdate
+## beforeUpdate {#beforeupdate}
 
-Called right before the component is about to update its DOM tree due to a reactive state change.
+Викликається безпосередньо перед тим, як компонент збирається оновити своє дерево DOM через реактивну зміну стану.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -92,17 +92,17 @@ Called right before the component is about to update its DOM tree due to a react
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  This hook can be used to access the DOM state before Vue updates the DOM. It is also safe to modify component state inside this hook.
+  Цей хук можна використовувати для доступу до стану DOM до того, як Vue оновить DOM. Також безпечно змінювати стан компонента всередині цього хука.
 
-  **This hook is not called during server-side rendering.**
+  **Цей хук не викликається під час рендерингу на стороні сервера.**
 
-## updated
+## updated {#updated}
 
-Called after the component has updated its DOM tree due to a reactive state change.
+Викликається після того, як компонент оновив своє дерево DOM через реактивну зміну стану.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -110,23 +110,23 @@ Called after the component has updated its DOM tree due to a reactive state chan
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  A parent component's updated hook is called after that of its child components.
+  Батьківський хук оновлення компонента викликається після того, як будуть оновленні його дочірні компоненти.
 
-  This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general.html#nexttick) instead.
+  Цей хук викликається після будь-якого оновлення DOM компонента, яке може бути викликано різними змінами стану. Якщо вам потрібно отримати доступ до оновленої DOM після певної зміни стану, використовуйте замість цього [nextTick()](/api/general.html#nexttick).
 
-  **This hook is not called during server-side rendering.**
+  **Цей хук не викликається під час рендерингу на стороні сервера.**
 
-  :::warning
-  Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
+  :::warning УВАГА
+  Не змінюйте стан компонента в хуку оновлення - це, швидше за все, призведе до нескінченного циклу оновлення!
   :::
 
-## beforeUnmount
+## beforeUnmount {#beforeunmount}
 
-Called right before a component instance is to be unmounted.
+Викликається безпосередньо перед демонтуванням екземпляра компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -134,17 +134,17 @@ Called right before a component instance is to be unmounted.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  When this hook is called, the component instance is still fully functional.
+  Коли цей хук викликається, екземпляр компонента все ще має повну функціональність.
 
-  **This hook is not called during server-side rendering.**
+  **Цей хук не викликається під час рендерингу на стороні сервера.**
 
-## unmounted
+## unmounted {#unmounted}
 
-Called after the component has been unmounted.
+Викликається після того, як компонент було демонтовано.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -152,23 +152,23 @@ Called after the component has been unmounted.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  A component is considered unmounted after:
+  Компонент вважається демонтованим після:
 
-  - All of its child components have been unmounted.
+  - Усі дочірні компоненти було демонтовано.
 
-  - All of its associated reactive effects (render effect and computed / watchers created during `setup()`) have been stopped.
+  - Усі пов'язані з ним реактивні ефекти (ефект рендеренгу та обчислювання / спостерігачі, створені під час `setup()`) зупинено.
 
-  Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
+  Використовуйте цей хук, щоб очистити створені вручну побічні ефекти, такі як таймери, слухачі подій DOM або підключення до сервера.
 
-  **This hook is not called during server-side rendering.**
+  **Цей хук не викликається під час рендерингу на стороні сервера.**
 
-## errorCaptured
+## errorCaptured {#errorcaptured}
 
-Called when an error propagating from a descendant component has been captured.
+Викликається, коли виявлено помилку, що поширюється від компонента-нащадка.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -181,41 +181,41 @@ Called when an error propagating from a descendant component has been captured.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  Errors can be captured from the following sources:
+  Помилки можна отримати з таких джерел:
 
-  - Component renders
-  - Event handlers
-  - Lifecycle hooks
-  - `setup()` function
-  - Watchers
-  - Custom directive hooks
-  - Transition hooks
+  - Рендери компонента
+  - Обробники подій
+  - Хуки життєвого циклу
+  - функція `setup()`
+  - Спостерігачі
+  - Користувацькі хуки директив
+  - Перехідні хуки
 
-  The hook receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+  Хук отримує три аргументи: помилку, екземпляр компонента, який викликав помилку, та інформаційний рядок, що визначає тип джерела помилки.
 
-  You can modify component state in `errorCaptured()` to display an error state to the user. However, it is important that the error state should not render the original content that caused the error; otherwise the component will be thrown into an infinite render loop.
+  Ви можете змінити стан компонента в `errorCaptured()`, щоб показати стан помилки для користувача. Однак важливо, щоб стан помилки не рендерив вихідний вміст, який спричинив помилку; інакше компонент потрапить у нескінченний цикл рендерингу.
 
-  The hook can return `false` to stop the error from propagating further. See error propagation details below.
+  Хук може повернути `false`, щоб зупинити подальше поширення помилки. Подробиці про поширення помилки див. нижче.
 
-  **Error Propagation Rules**
+  **Правила розповсюдження помилок**
 
-  - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application.html#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
+  - За промовчанням усі помилки все ще надсилаються до [`app.config.errorHandler`](/api/application.html#app-config-errorhandler) на рівні застосунку, якщо він визначений, щоб про ці помилки все одно можна було повідомити аналітичні служби в одному місці.
 
-  - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error, in the order of bottom to top. This is similar to the bubbling mechanism of native DOM events.
+  - Якщо в ланцюжку успадкування або батьківському ланцюжку компонента існує кілька хуків `errorCaptured`, усі вони будуть викликані при одній помилці в порядку знизу вгору. Це схоже на механізм спливання рідних подій DOM.
 
-  - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to `app.config.errorHandler`.
+  - Якщо хук `errorCaptured` сам видає помилку, то ця помилка, і оригінальна захоплена помилка надсилаються до `app.config.errorHandler`.
 
-  - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
+  - Хук `errorCaptured` може повертати `false`, щоб запобігти подальшому поширенню помилки. По суті, це означає, що «цю помилку було оброблено, і її слід ігнорувати». Це запобігатиме виклику будь-яких додаткових хуків `errorCaptured` або `app.config.errorHandler` для цієї помилки.
 
-## renderTracked <sup class="vt-badge dev-only" />
+## renderTracked <sup class="vt-badge dev-only" /> {#rendertracked}
 
-Called when a reactive dependency has been tracked by the component's render effect.
+Викликається, коли реактивна залежність відстежується ефектом рендерингу компонента.
 
-**This hook is development-mode-only and not called during server-side rendering.**
+**Цей хук працює лише в режимі розробки й не викликається під час рендерингу на стороні серверу.**
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -230,15 +230,15 @@ Called when a reactive dependency has been tracked by the component's render eff
   }
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **Також до вашої уваги:** [Реактивність поглиблено](/guide/extras/reactivity-in-depth.html)
 
-## renderTriggered <sup class="vt-badge dev-only" />
+## renderTriggered <sup class="vt-badge dev-only" /> {#rendertriggered}
 
-Called when a reactive dependency triggers the component's render effect to be re-run.
+Викликається, коли реактивна залежність ініціює повторний запуск ефекту рендерингу компонента.
 
-**This hook is development-mode-only and not called during server-side rendering.**
+**Цей хук працює лише в режимі розробки й не викликається під час рендерингу на стороні серверу.**
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -256,15 +256,15 @@ Called when a reactive dependency triggers the component's render effect to be r
   }
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **Також до вашої уваги:** [Реактивність поглиблено](/guide/extras/reactivity-in-depth.html)
 
-## activated
+## activated {#activated}
 
-Called after the component instance is inserted into the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
+Викликається після вставлення екземпляра компонента в DOM як частину дерева, кешованого [`<KeepAlive>`](/api/built-in-components.html#keepalive).
 
-**This hook is not called during server-side rendering.**
+**Цей хук не викликається під час рендерингу на стороні сервера.**
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -272,15 +272,15 @@ Called after the component instance is inserted into the DOM as part of a tree c
   }
   ```
 
-- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
+- **Також до вашої уваги:** [Гід - Життєвий цикл кешованого екземпляра](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## deactivated
+## deactivated {#deactivated}
 
-Called after the component instance is removed from the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
+Викликається після видалення екземпляра компонента з DOM як частини дерева, кешованого [`<KeepAlive>`](/api/built-in-components.html#keepalive).
 
-**This hook is not called during server-side rendering.**
+**Цей хук не викликається під час рендерингу на стороні сервера.**
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -288,13 +288,13 @@ Called after the component instance is removed from the DOM as part of a tree ca
   }
   ```
 
-- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
+- **Також до вашої уваги:** [Гід - Життєвий цикл кешованого екземпляра](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
 
-## serverPrefetch <sup class="vt-badge" data-text="SSR only" />
+## serverPrefetch <sup class="vt-badge" data-text="SSR only" /> {#serverprefetch}
 
-Async function to be resolved before the component instance is to be rendered on the server.
+Асинхронна функція, яка буде викликана перед рендерингом екземпляра компонента на сервері.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -302,13 +302,13 @@ Async function to be resolved before the component instance is to be rendered on
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  If the hook returns a Promise, the server renderer will wait until the Promise is resolved before rendering the component.
+  Якщо хук повертає Promise, серверний рендерер чекатиме, поки Promise буде вирішено, перед рендерингом компонента.
 
-  This hook is only called during server-side rendering can be used to perform server-only data fetching.
+  Цей хук викликається лише під час рендерингу на стороні сервера. Його можна використовувати для отримання даних лише на сервері.
 
-- **Example**
+- **Приклад**
 
   ```js
   export default {
@@ -318,19 +318,19 @@ Async function to be resolved before the component instance is to be rendered on
       }
     },
     async serverPrefetch() {
-      // component is rendered as part of the initial request
-      // pre-fetch data on server as it is faster than on the client
+      // відрендериний компонент як частина початкового запиту
+      // отримання попередніх даних на сервері, оскільки це швидше, ніж на клієнті
       this.data = await fetchOnServer(/* ... */)
     },
     async mounted() {
       if (!this.data) {
-        // if data is null on mount, it means the component
-        // is dynamically rendered on the client. Perform a
-        // client-side fetch instead.
+        // якщо data є null під час монтування, це означає що компонент
+        // динамічно рендериться на клієнті. Виконує
+        // замість цього запит на стороні клієнта.
         this.data = await fetchOnClient(/* ... */)
       }
     }
   }
   ```
 
-- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr.html)
+- **Також до вашої уваги:** [Застосунок з рендерингом на стороні серверу](/guide/scaling-up/ssr.html)
