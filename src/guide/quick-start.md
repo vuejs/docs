@@ -6,9 +6,9 @@ footer: false
 
 ## Спробуйте Vue онлайн {#try-vue-online}
 
-- Щоб швидко відчути смак Vue, спробуйте його безпосередньо на нашому [ігровому майданчику](https://sfc.vuejs.org/#eNp9UFFqwzAMvYqmn26QxOw3ZIXdwz9Zo7YpsWNkJxuEwLZD7Hd3GAx2jORGU5qljBYKxtbTk5+e1OGjc0nbEKaY+Q2XLqy1pRdXc4CCtnlTBei0BSjykN/ezTEAU2jYLgjA+F0Kq+FzfB1+hq/xY3yPYHybo+H7ZjXX9dMjl5xMnboJCGRclQcSBJDt79ddN0lC32dK0DFbWtcEaGNTF1Q9aBReo1CZOv3GCEszWY9N7pKDr62MdfSo/wivMV1ca5S5J6xxH4LzqVJ+u5mWcfBJzTslUcKNDaWhhLyJn7h+9sQirDH6p6Ek2RLHTLYgJr6meVZ6obtsCPtf0fmTIA==).
+- Щоб швидко відчути смак Vue, спробуйте його безпосередньо в нашій [пісочниці](https://sfc.vuejs.org/#eNp9UFFqwzAMvYqmn26QxOw3ZIXdwz9Zo7YpsWNkJxuEwLZD7Hd3GAx2jORGU5qljBYKxtbTk5+e1OGjc0nbEKaY+Q2XLqy1pRdXc4CCtnlTBei0BSjykN/ezTEAU2jYLgjA+F0Kq+FzfB1+hq/xY3yPYHybo+H7ZjXX9dMjl5xMnboJCGRclQcSBJDt79ddN0lC32dK0DFbWtcEaGNTF1Q9aBReo1CZOv3GCEszWY9N7pKDr62MdfSo/wivMV1ca5S5J6xxH4LzqVJ+u5mWcfBJzTslUcKNDaWhhLyJn7h+9sQirDH6p6Ek2RLHTLYgJr6meVZ6obtsCPtf0fmTIA==).
 
-- Якщо ви віддаєте перевагу звичайному HTML без ніяких процесів збірки, ви можете використовувати цей [JSFiddle](https://jsfiddle.net/z6d9k84y/), як відправну точку.
+- Якщо ви віддаєте перевагу звичайному HTML без етапу збірки, ви можете використовувати цей [JSFiddle](https://jsfiddle.net/z6d9k84y/), як відправну точку.
 
 - Якщо ви вже знайомі з Node.js і концепціями інструментів збірки, також можете спробувати повноцінну відправну збірку, прямо у вашому браузері на [StackBlitz](https://vite.new/vue).
 
