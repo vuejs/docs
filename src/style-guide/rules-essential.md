@@ -381,5 +381,3 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 ```
 
 </div>
-
-</div>
