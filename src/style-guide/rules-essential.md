@@ -43,6 +43,7 @@ Detailed [prop definitions](/guide/components/props.html#prop-validation) have t
 - In development, Vue will warn you if a component is ever provided incorrectly formatted props, helping you catch potential sources of error.
   :::
 
+<div class="options-api">
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -81,6 +82,47 @@ props: {
 }
 ```
 
+</div>
+</div>
+
+<div class="composition-api">
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```js
+// This is only OK when prototyping
+const props = defineProps(['status'])
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```js
+const props = defineProps({
+  status: String
+})
+```
+
+```js
+// Even better!
+
+const props = defineProps({
+  status: {
+    type: String,
+    required: true,
+
+    validator: (value) => {
+      return ['syncing', 'synced', 'version-conflict', 'error'].includes(
+        value
+      )
+    }
+  }
+})
+```
+
+</div>
 </div>
 
 ## Use keyed `v-for` {#use-keyed-v-for}
