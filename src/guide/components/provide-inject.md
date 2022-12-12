@@ -239,19 +239,19 @@ export default {
 
 <div class="composition-api">
 
-When using reactive provide / inject values, **it is recommended to keep any mutations to reactive state inside of the _provider_ whenever possible**. This ensures that the provided state and its possible mutations are co-located in the same component, making it easier to maintain in the future.
+Під час використання реактивних значень надавання та введення **рекомендується зберігати будь-які мутації реактивного стану всередині _надавача_, наскільки це можливо**. Це гарантує, що наданий стан і його можливі мутації розташовані в одному компоненті, що полегшує його підтримку в майбутньому.
 
-There may be times when we need to update the data from an injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
+Бувають випадки, коли нам потрібно оновити дані з компонента-приймача. У таких випадках ми рекомендуємо надати функцію, яка відповідає за зміну стану:
 
 ```vue{7-9,13}
-<!-- inside provider component -->
+<!-- всередині компонента провайдера -->
 <script setup>
 import { provide, ref } from 'vue'
 
-const location = ref('North Pole')
+const location = ref('Північний полюс')
 
 function updateLocation() {
-  location.value = 'South Pole'
+  location.value = 'Південний полюс'
 }
 
 provide('location', {
@@ -262,7 +262,7 @@ provide('location', {
 ```
 
 ```vue{5}
-<!-- in injector component -->
+<!-- всередині компонента-приймача -->
 <script setup>
 import { inject } from 'vue'
 
@@ -274,7 +274,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Finally, you can wrap the provided value with [`readonly()`](/api/reactivity-core.html#readonly) if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
+Нарешті, ви можете обернути надане значення за допомогою [`readonly()`](/api/reactivity-core.html#readonly), якщо ви хочете переконатися, що дані, передані через `provide`, не можуть бути змінені компонентом-приймачем.
 
 ```vue
 <script setup>
@@ -289,7 +289,7 @@ provide('read-only-count', readonly(count))
 
 <div class="options-api">
 
-In order to make injections reactively linked to the provider, we need to provide a computed property using the [computed()](/api/reactivity-core.html#computed) function:
+Щоб введення були зв'язані реактивно із надавачем, нам потрібно надати обчислену властивість за допомогою функції [computed()](/api/reactivity-core.html#computed):
 
 ```js{10}
 import { computed } from 'vue'
@@ -297,33 +297,33 @@ import { computed } from 'vue'
 export default {
   data() {
     return {
-      message: 'hello!'
+      message: 'привіт!'
     }
   },
   provide() {
     return {
-      // explicitly provide a computed property
+      // явно надати обчислювану властивість
       message: computed(() => this.message)
     }
   }
 }
 ```
 
-[Full provide + inject Example with Reactivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcbmltcG9ydCB7IGNvbXB1dGVkIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgQ2hpbGQgfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogJ2hlbGxvJ1xuICAgIH1cbiAgfSxcbiAgcHJvdmlkZSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogY29tcHV0ZWQoKCkgPT4gdGhpcy5tZXNzYWdlKVxuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGlucHV0IHYtbW9kZWw9XCJtZXNzYWdlXCI+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
+[Повний приклад реактивного надавання та введення](https://sfc.vuejs.org/#eNqNUktqIzEQvUqhTScQt/ZNJzDMYg4xmkWPuxy3sT5Ias+AaRhmDjC7bHOFEBII+V5BvlFKrbZjJyExCKRSPT1VvXpL9sWYfNEiK1jpxrYx/kSoRhptPXydNvMaJlZLyHLeRxGabQBLGGtpWo81dAMu5YXC3z2ixknVzgkpFPRgrVB5V9DTxN4dxUxd+ergMKEALPrWqnUEING56hQLyMLT6k+4CZers9Vf+iYmu7glFmP1oqlxD6J12QeEPT4BP21cPiQPt2mFolXyjTAUeJRmXnmkCKBsFPHAYiR1jfNjwQYSwVI69cgpKPnmITtiSb+RrEw+c1qR+H2NYkg4wUihVIhgJGmMBZt6b1zBuZuM4xxmLtf2lNMpt63yjcQcnRz9tPqXQ0vEgvWyDBycLhdoRxZVjRbtR5yvoG941+JQKxtbvOegb7ZS9a6NXq4GL+3hldTFy8v9ZrP1+dsJ7JaxU/t75TRqhmNfwPdsmHD249P/Tb8BhPPwGC0brmi/D3fhOjyEh9V/iBcQLun8L9yGC2p0ubYodL0BSx5JtivvngFIKVey)
 
-The `computed()` function is typically used in Composition API components, but can also be used to complement certain use cases in Options API. You can learn more about its usage by reading the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) and [Computed Properties](/guide/essentials/computed.html) with the API Preference set to Composition API.
+Функція `computed()` зазвичай використовується в компонентах композиційного API, але також може використовуватися для доповнення певних випадків використання в опційного API. Ви можете дізнатися більше про його використання, прочитавши [основи реактивності](/guide/essentials/reactivity-fundamentals.html) і [обчислювані властивості](/guide/essentials/computed.html) із вподобанням API, встановленим як Композиційний.
 
-:::warning Temporary Config Required
-The above usage requires setting `app.config.unwrapInjectedRef = true` to make injections automatically unwrap computed refs. This will become the default behavior in Vue 3.3 and this config is introduced temporarily to avoid breakage. It will no longer be required after 3.3.
+:::warning Потрібна тимчасова конфігурація
+Наведене вище використання вимагає налаштування `app.config.unwrapInjectedRef = true`, щоб введення автоматично розгортали обчислювані посилання. Це стане типовою поведінкою у Vue 3.3, і цю конфігурацію введено тимчасово, щоб уникнути поломки. Після 3.3 він більше не потрібен.
 :::
 
 </div>
 
-## Working with Symbol Keys {#working-with-symbol-keys}
+## Робота з ключами типу Symbol {#working-with-symbol-keys}
 
-So far, we have been using string injection keys in the examples. If you are working in a large application with many dependency providers, or you are authoring components that are going to be used by other developers, it is best to use Symbol injection keys to avoid potential collisions.
+Досі ми використовували ключі введення рядків у прикладах. Якщо ви працюєте у великій програмі з багатьма залежними надавачами або створюєте компоненти, які будуть використовуватися іншими розробниками, найкраще використовувати ключі введення типу Symbol, щоб уникнути можливих зіткнень.
 
-It's recommended to export the Symbols in a dedicated file:
+Рекомендовано експортувати ключі типу Symbol в окремий файл:
 
 ```js
 // keys.js
@@ -333,38 +333,38 @@ export const myInjectionKey = Symbol()
 <div class="composition-api">
 
 ```js
-// in provider component
+// у компоненті-надавачі
 import { provide } from 'vue'
 import { myInjectionKey } from './keys.js'
 
 provide(myInjectionKey, {
-  /* data to provide */
+  /* дані для надання */
 })
 ```
 
 ```js
-// in injector component
+// в компоненті-приймачі
 import { inject } from 'vue'
 import { myInjectionKey } from './keys.js'
 
 const injected = inject(myInjectionKey)
 ```
 
-See also: [Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+Дивіться також: [типізація надавання / введення](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
 
 </div>
 
 <div class="options-api">
 
 ```js
-// in provider component
+// у компоненті-приймачі
 import { myInjectionKey } from './keys.js'
 
 export default {
   provide() {
     return {
       [myInjectionKey]: {
-        /* data to provide */
+        /* дані для надання */
       }
     }
   }
@@ -372,7 +372,7 @@ export default {
 ```
 
 ```js
-// in injector component
+// в компоненті-приймачі
 import { myInjectionKey } from './keys.js'
 
 export default {
