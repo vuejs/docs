@@ -1,4 +1,4 @@
-# Composables {#composables}
+# Композиційні функції {#composables}
 
 <script setup>
 import { useMouse } from './mouse'
@@ -6,20 +6,20 @@ const { x, y } = useMouse()
 </script>
 
 :::tip
-This section assumes basic knowledge of Composition API. If you have been learning Vue with Options API only, you can set the API Preference to Composition API (using the toggle at the top of the left sidebar) and re-read the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) and [Lifecycle Hooks](/guide/essentials/lifecycle.html) chapters.
+Цей розділ передбачає базові знання композиційного API. Якщо ви вивчали Vue лише з опційним API, ви можете встановити налаштування API на композиційний (за допомогою перемикача у верхній частині лівої бічної панелі) і перечитати [основи реактивності](/guide/essentials/reactivity-fundamentals.html) та розділи по [хуках життєвого циклу](/guide/essentials/lifecycle.html).
 :::
 
-## What is a "Composable"? {#what-is-a-composable}
+## Що таке композиційна функція? {#what-is-a-composable}
 
-In the context of Vue applications, a "composable" is a function that leverages Vue's Composition API to encapsulate and reuse **stateful logic**.
+У контексті додатків Vue композиційна функція — це функція, яка використовує композиційне API Vue для інкапсуляції та повторного використання **логіки зі станом**.
 
-When building frontend applications, we often need to reuse logic for common tasks. For example, we may need to format dates in many places, so we extract a reusable function for that. This formatter function encapsulates **stateless logic**: it takes some input and immediately returns expected output. There are many libraries out there for reusing stateless logic - for example [lodash](https://lodash.com/) and [date-fns](https://date-fns.org/), which you may have heard of.
+Під час створення фронтенд додатків нам часто потрібно повторно використовувати логіку для типових завдань. Наприклад, нам може знадобитися форматування дати в багатьох місцях, тому ми беремо для цього функцію для повторного використання. Ця функція форматування інкапсулює логіку **без стану**: вона приймає деякий вхід і негайно повертає очікуваний результат. Існує багато бібліотек для повторного використання логіки без стану, наприклад [lodash](https://lodash.com/) і [date-fns](https://date-fns.org/), про які ви, можливо, чули.
 
 By contrast, stateful logic involves managing state that changes over time. A simple example would be tracking the current position of the mouse on a page. In real world scenarios, it could also be more complex logic such as touch gestures or connection status to a database.
 
-## Mouse Tracker Example {#mouse-tracker-example}
+## Приклад відстеження миші {#mouse-tracker-example}
 
-If we were to implement the mouse tracking functionality using the Composition API directly inside a component, it would look like this:
+Якби ми реалізували функцію відстеження миші за допомогою композиційного API безпосередньо всередині компонента, це виглядало б наступним чином:
 
 ```vue
 <script setup>
@@ -37,38 +37,38 @@ onMounted(() => window.addEventListener('mousemove', update))
 onUnmounted(() => window.removeEventListener('mousemove', update))
 </script>
 
-<template>Mouse position is at: {{ x }}, {{ y }}</template>
+<template>Координати миші: {{ x }}, {{ y }}</template>
 ```
 
-But what if we want to reuse the same logic in multiple components? We can extract the logic into an external file, as a composable function:
+Але що, якщо ми хочемо повторно використовувати ту саму логіку в кількох компонентах? Ми можемо перемістити логіку у зовнішній файл як композиційну функцію:
 
 ```js
 // mouse.js
 import { ref, onMounted, onUnmounted } from 'vue'
 
-// by convention, composable function names start with "use"
+// за конвенцією, назви композиційних функцій починаються з "use" (англ. — використовувати)
 export function useMouse() {
-  // state encapsulated and managed by the composable
+  // стан, інкапсульований і керований композиційною функцією
   const x = ref(0)
   const y = ref(0)
 
-  // a composable can update its managed state over time.
+  // композиційна функція може оновлювати свій керований стан з часом.
   function update(event) {
     x.value = event.pageX
     y.value = event.pageY
   }
 
-  // a composable can also hook into its owner component's
-  // lifecycle to setup and teardown side effects.
+  // композиційна функція також може підключитися до свого компонента-власника
+  // життєвий цикл для налаштування та демонтажу побічних ефектів.
   onMounted(() => window.addEventListener('mousemove', update))
   onUnmounted(() => window.removeEventListener('mousemove', update))
 
-  // expose managed state as return value
+  // відкрити керований стан як значення, що повертається
   return { x, y }
 }
 ```
 
-And this is how it can be used in components:
+І ось як це можна використовувати в компонентах:
 
 ```vue
 <script setup>
@@ -77,34 +77,34 @@ import { useMouse } from './mouse.js'
 const { x, y } = useMouse()
 </script>
 
-<template>Mouse position is at: {{ x }}, {{ y }}</template>
+<template>Координати миші: {{ x }}, {{ y }}</template>
 ```
 
 <div class="demo">
-  Mouse position is at: {{ x }}, {{ y }}
+  Координати миші: {{ x }}, {{ y }}
 </div>
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZU1vdXNlIH0gZnJvbSAnLi9tb3VzZS5qcydcblxuY29uc3QgeyB4LCB5IH0gPSB1c2VNb3VzZSgpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICBNb3VzZSBwb3NpdGlvbiBpcyBhdDoge3sgeCB9fSwge3sgeSB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwibW91c2UuanMiOiJpbXBvcnQgeyByZWYsIG9uTW91bnRlZCwgb25Vbm1vdW50ZWQgfSBmcm9tICd2dWUnXG5cbmV4cG9ydCBmdW5jdGlvbiB1c2VNb3VzZSgpIHtcbiAgY29uc3QgeCA9IHJlZigwKVxuICBjb25zdCB5ID0gcmVmKDApXG5cbiAgZnVuY3Rpb24gdXBkYXRlKGV2ZW50KSB7XG4gICAgeC52YWx1ZSA9IGV2ZW50LnBhZ2VYXG4gICAgeS52YWx1ZSA9IGV2ZW50LnBhZ2VZXG4gIH1cblxuICBvbk1vdW50ZWQoKCkgPT4gd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIHVwZGF0ZSkpXG4gIG9uVW5tb3VudGVkKCgpID0+IHdpbmRvdy5yZW1vdmVFdmVudExpc3RlbmVyKCdtb3VzZW1vdmUnLCB1cGRhdGUpKVxuXG4gIHJldHVybiB7IHgsIHkgfVxufSJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNkr9OwzAQxl/FytIgpQ5zBZUY2GBEAilLaK4lVXO2bCdtVUVCTDwBA0/BwNAB+gzuG3GXtKH8EWJJfOe7X+67L6vgTGtZlRAMghM7Mrl2woIr9TDBvNDKOLESpYVLRQ9Ri7FRhejJuOBYTm0vwQRHCi3XLSKxpJrTriE8SvAkbrEEpMBBoWepA4qE8M9+4zfbe//q1/7dv2wf/Fr4N7/ePm6fBmJFRFHXER+IWzOr6w+ioJ2vX6SaBlFIClZMTXYXNgmIwRnOkUSOk+DOOW0HcWzHI9Y9tVKZSUwnaUp0eQESbNG/NWpuwRA4CaIDRkzJCkzfAGZgwPzF/Fb6g8tYElWTlP06SUO3dQPjSCikRaKDjI9XSHUcdEbQxxoHYNE0jUscuVzhgQHtBlqHFmQNUcNjsmWfWx7kOPuJ0BntOYQK0O0oQixklc5KoJ4mL3U6gev2avnL1c1OIr86JSENdToU8xwzNZdplp1z/UVuHSCYsNfsolAV9KLdEEfNvAf6vyJMU/0vCnMM/d4Gu9+VDag/AN5pFz8=)
 
-As we can see, the core logic remains identical - all we had to do was move it into an external function and return the state that should be exposed. Just like inside a component, you can use the full range of [Composition API functions](/api/#composition-api) in composables. The same `useMouse()` functionality can now be used in any component.
+Як ми бачимо, основна логіка залишається ідентичною - все, що нам потрібно було зробити, це перемістити її в зовнішню функцію і повернути стан, який повинен бути відкритий. Так само як і всередині компонента, ви можете використовувати повний діапазон [функцій композиційного API](/api/#composition-api) у композиційних функціях. Ту саму функцію `useMouse()` тепер можна використовувати в будь-якому компоненті.
 
-The cooler part about composables though, is that you can also nest them: one composable function can call one or more other composable functions. This enables us to compose complex logic using small, isolated units, similar to how we compose an entire application using components. In fact, this is why we decided to call the collection of APIs that make this pattern possible Composition API.
+Але крутіша частина композиційних функцій полягає в тому, що ви також можете вкладати їх: одна композиційна функція може викликати одну або кілька інших композиційних функцій. Це дає нам змогу створювати складну логіку за допомогою невеликих ізольованих одиниць, подібно до того, як ми створюємо цілу програму за допомогою компонентів. Ось чому ми вирішили назвати набір API, які роблять можливим цей шаблон композиційним API.
 
-For example, we can extract the logic of adding and removing a DOM event listener into its own composable:
+Наприклад, ми можемо витягти логіку додавання та видалення слухача подій DOM у свою власну композиційну функцію:
 
 ```js
 // event.js
 import { onMounted, onUnmounted } from 'vue'
 
 export function useEventListener(target, event, callback) {
-  // if you want, you can also make this
-  // support selector strings as target
+  // за бажанням, ви також можете додати 
+  // підтримку рядків в якості цілі для прослуховування
   onMounted(() => target.addEventListener(event, callback))
   onUnmounted(() => target.removeEventListener(event, callback))
 }
 ```
 
-And now our `useMouse()` composable can be simplified to:
+І тепер наш `useMouse()` можна спростити до:
 
 ```js{3,9-12}
 // mouse.js
@@ -125,12 +125,12 @@ export function useMouse() {
 ```
 
 :::tip
-Each component instance calling `useMouse()` will create its own copies of `x` and `y` state so they won't interfere with one another. If you want to manage shared state between components, read the [State Management](/guide/scaling-up/state-management.html) chapter.
+Кожен екземпляр компонента, що викликає `useMouse()`, створить власні копії стану `x` і `y`, щоб вони не заважали один одному. Якщо ви хочете керувати спільним станом між компонентами, прочитайте розділ [Керування станом](/guide/scaling-up/state-management.html).
 :::
 
-## Async State Example {#async-state-example}
+## Приклад асинхронного стану {#async-state-example}
 
-The `useMouse()` composable doesn't take any arguments, so let's take a look at another example that makes use of one. When doing async data fetching, we often need to handle different states: loading, success, and error:
+Композиційна функція `useMouse()` не приймає жодних аргументів, тож подивимося на інший приклад, у якому вона використовується. Під час отримання асинхронних даних нам часто потрібно обробляти різні стани: завантаження, успіх і помилка:
 
 ```vue
 <script setup>
@@ -146,16 +146,16 @@ fetch('...')
 </script>
 
 <template>
-  <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
+  <div v-if="error">Ой! Виникла помилка: {{ error.message }}</div>
   <div v-else-if="data">
-    Data loaded:
+    Дані завантажено:
     <pre>{{ data }}</pre>
   </div>
-  <div v-else>Loading...</div>
+  <div v-else>Завантаження...</div>
 </template>
 ```
 
-It would be tedious to have to repeat this pattern in every component that needs to fetch data. Let's extract it into a composable:
+Було б утомливо повторювати цей шаблон у кожному компоненті, який потребує отримання даних. Перемістимо його в композиційну функцію:
 
 ```js
 // fetch.js
@@ -174,7 +174,7 @@ export function useFetch(url) {
 }
 ```
 
-Now in our component we can just do:
+Тепер у нашому компоненті ми можемо просто зробити:
 
 ```vue
 <script setup>
@@ -184,7 +184,7 @@ const { data, error } = useFetch('...')
 </script>
 ```
 
-`useFetch()` takes a static URL string as input - so it performs the fetch only once and is then done. What if we want it to re-fetch whenever the URL changes? We can achieve that by also accepting refs as an argument:
+`useFetch()` приймає статичний рядок URL-адреси як вхідні дані, тому він виконує витягнення даних лише один раз, а потім завершує роботу. Що, якщо ми хочемо, щоб він повторно витягував дані щоразу, коли змінюється URL? Ми можемо досягти цього, також приймаючи референції як аргумент:
 
 ```js
 // fetch.js
@@ -195,10 +195,10 @@ export function useFetch(url) {
   const error = ref(null)
 
   function doFetch() {
-    // reset state before fetching..
+    // скидання стану перед отриманням..
     data.value = null
     error.value = null
-    // unref() unwraps potential refs
+    // unref() розгортає потенційні референції
     fetch(unref(url))
       .then((res) => res.json())
       .then((json) => (data.value = json))
@@ -206,11 +206,11 @@ export function useFetch(url) {
   }
 
   if (isRef(url)) {
-    // setup reactive re-fetch if input URL is a ref
+    // налаштувати реактивне повторне витягнення даних, якщо вхідна URL-адреса є референцією
     watchEffect(doFetch)
   } else {
-    // otherwise, just fetch once
-    // and avoid the overhead of a watcher
+    // інакше просто витягуємо один раз,
+    // уникаючи накладних витрат спостерігача
     doFetch()
   }
 
@@ -218,80 +218,80 @@ export function useFetch(url) {
 }
 ```
 
-This version of `useFetch()` now accepts both static URL strings and refs of URL strings. When it detects that the URL is a dynamic ref using [`isRef()`](/api/reactivity-utilities.html#isref), it sets up a reactive effect using [`watchEffect()`](/api/reactivity-core.html#watcheffect). The effect will run immediately and will also track the URL ref as a dependency. Whenever the URL ref changes, the data will be reset and fetched again.
+Ця версія `useFetch()` тепер приймає як статичні рядки URL-адреси, так і референції на рядки URL-адреси. Коли він виявляє, що URL-адреса є динамічною референцією за допомогою [`isRef()`](/api/reactivity-utilities.html#isref), він встановлює реактивний ефект за допомогою [`watchEffect()`](/api/reactivity-core.html#watcheffect). Ефект запуститься негайно, а також відстежуватиме URL-адресу як залежність. Щоразу, коли URL-адреса змінюється, дані скидаються та завантажуються знову.
 
-Here's [the updated version of `useFetch()`](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgY29tcHV0ZWQgfSBmcm9tICd2dWUnXG5pbXBvcnQgeyB1c2VGZXRjaCB9IGZyb20gJy4vdXNlRmV0Y2guanMnXG5cbmNvbnN0IGJhc2VVcmwgPSAnaHR0cHM6Ly9qc29ucGxhY2Vob2xkZXIudHlwaWNvZGUuY29tL3RvZG9zLydcbmNvbnN0IGlkID0gcmVmKCcxJylcbmNvbnN0IHVybCA9IGNvbXB1dGVkKCgpID0+IGJhc2VVcmwgKyBpZC52YWx1ZSlcblxuY29uc3QgeyBkYXRhLCBlcnJvciwgcmV0cnkgfSA9IHVzZUZldGNoKHVybClcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIExvYWQgcG9zdCBpZDpcbiAgPGJ1dHRvbiB2LWZvcj1cImkgaW4gNVwiIEBjbGljaz1cImlkID0gaVwiPnt7IGkgfX08L2J1dHRvbj5cblxuXHQ8ZGl2IHYtaWY9XCJlcnJvclwiPlxuICAgIDxwPk9vcHMhIEVycm9yIGVuY291bnRlcmVkOiB7eyBlcnJvci5tZXNzYWdlIH19PC9wPlxuICAgIDxidXR0b24gQGNsaWNrPVwicmV0cnlcIj5SZXRyeTwvYnV0dG9uPlxuICA8L2Rpdj5cbiAgPGRpdiB2LWVsc2UtaWY9XCJkYXRhXCI+RGF0YSBsb2FkZWQ6IDxwcmU+e3sgZGF0YSB9fTwvcHJlPjwvZGl2PlxuICA8ZGl2IHYtZWxzZT5Mb2FkaW5nLi4uPC9kaXY+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJ1c2VGZXRjaC5qcyI6ImltcG9ydCB7IHJlZiwgaXNSZWYsIHVucmVmLCB3YXRjaEVmZmVjdCB9IGZyb20gJ3Z1ZSdcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZUZldGNoKHVybCkge1xuICBjb25zdCBkYXRhID0gcmVmKG51bGwpXG4gIGNvbnN0IGVycm9yID0gcmVmKG51bGwpXG5cbiAgYXN5bmMgZnVuY3Rpb24gZG9GZXRjaCgpIHtcbiAgICAvLyByZXNldCBzdGF0ZSBiZWZvcmUgZmV0Y2hpbmcuLlxuICAgIGRhdGEudmFsdWUgPSBudWxsXG4gICAgZXJyb3IudmFsdWUgPSBudWxsXG4gICAgXG4gICAgLy8gcmVzb2x2ZSB0aGUgdXJsIHZhbHVlIHN5bmNocm9ub3VzbHkgc28gaXQncyB0cmFja2VkIGFzIGFcbiAgICAvLyBkZXBlbmRlbmN5IGJ5IHdhdGNoRWZmZWN0KClcbiAgICBjb25zdCB1cmxWYWx1ZSA9IHVucmVmKHVybClcbiAgICBcbiAgICB0cnkge1xuICAgICAgLy8gYXJ0aWZpY2lhbCBkZWxheSAvIHJhbmRvbSBlcnJvclxuICBcdCAgYXdhaXQgdGltZW91dCgpXG4gIFx0ICAvLyB1bnJlZigpIHdpbGwgcmV0dXJuIHRoZSByZWYgdmFsdWUgaWYgaXQncyBhIHJlZlxuXHQgICAgLy8gb3RoZXJ3aXNlIHRoZSB2YWx1ZSB3aWxsIGJlIHJldHVybmVkIGFzLWlzXG4gICAgXHRjb25zdCByZXMgPSBhd2FpdCBmZXRjaCh1cmxWYWx1ZSlcblx0ICAgIGRhdGEudmFsdWUgPSBhd2FpdCByZXMuanNvbigpXG4gICAgfSBjYXRjaCAoZSkge1xuICAgICAgZXJyb3IudmFsdWUgPSBlXG4gICAgfVxuICB9XG5cbiAgaWYgKGlzUmVmKHVybCkpIHtcbiAgICAvLyBzZXR1cCByZWFjdGl2ZSByZS1mZXRjaCBpZiBpbnB1dCBVUkwgaXMgYSByZWZcbiAgICB3YXRjaEVmZmVjdChkb0ZldGNoKVxuICB9IGVsc2Uge1xuICAgIC8vIG90aGVyd2lzZSwganVzdCBmZXRjaCBvbmNlXG4gICAgZG9GZXRjaCgpXG4gIH1cblxuICByZXR1cm4geyBkYXRhLCBlcnJvciwgcmV0cnk6IGRvRmV0Y2ggfVxufVxuXG4vLyBhcnRpZmljaWFsIGRlbGF5XG5mdW5jdGlvbiB0aW1lb3V0KCkge1xuICByZXR1cm4gbmV3IFByb21pc2UoKHJlc29sdmUsIHJlamVjdCkgPT4ge1xuICAgIHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgaWYgKE1hdGgucmFuZG9tKCkgPiAwLjMpIHtcbiAgICAgICAgcmVzb2x2ZSgpXG4gICAgICB9IGVsc2Uge1xuICAgICAgICByZWplY3QobmV3IEVycm9yKCdSYW5kb20gRXJyb3InKSlcbiAgICAgIH1cbiAgICB9LCAzMDApXG4gIH0pXG59In0=), with an artificial delay and randomized error for demo purposes.
+Ось [оновлена версія `useFetch()`](https://sfc.vuejs.org/#eNqFVt1u40QUfpWDb+KK1C5acROlFVwsVyChFcuVb1xnsnVJbMszTqmiSEtLl0VCuxKqundIPAGlP9ts23RfYfxGfGfGdt00gKrG9sz5/c73jT11vswyb1IIp+f0ZZTHmSIpVJFtBUk8ztJc0ZRyMexSlI6zQokBzWiYp2PqwKnTMiqk+EqoaKfZ9/x6yduVsAySKE2kou1Qiuf5iDaps6NUJnu+vyvTJBuFkdhJRwORe2o/i6N0IDwk9VU6SKWPANY9HsATFbmdzzpr9WJh4tUluu4abW41iT6FjzcJR4WAfe0xpUGowi6JPE/zLgKqfB+lbzZ9uIgJ+75vUQEeeFBijDqVwBORfqdP9Rn+F+UBft/rOa5zKn/ix/IAf29IX5Fe6Dt9qy/Ll3ztsWd/u1AqTWiyPkzzzcCJKU7o88ChL6JRHP3AK9xlHDhb0ynFNJv1fetiyghUfxBP4B0PYWo6gCUHRuhsS/+hP3xC+nc9R+q5vtY3+pT0R1PFHA/X+rRHiGscvbGQMnwhTA6euglS1deUY+BBDv2n/mj6+Ls85NZtw7/qS8Lqqb5qlYkoPqq0d7ZcMZLC1szYc7hlBC8ZLNIXZumkh25ywRCwva0Qzyvjro61KN96nlc79P1mfk7XscxdH4cZ+JkmEMCUYwJ7syEDByhZPAIHZOfnwKkpK4cRy2ZXemn+wsedlxeJisfCE3K8vp2nexJE3kWUbiuGj8WJyNdzkYDnAmP795hLpo/icthZkMzQSktoaOOhbmP5jC9FYp72Qpg9HQ5FpJaEHCTiR+M3LJJIxZj+AyVYKKx2zDSsCJNixCqpdwylHm7xZij3k+g+8CC1caugRL4P1YCXczt5HlslI9weMndZPZf6gvQdZPUShre1ob71PBuFy7I6RwWc3S5bmj9eb6eGUsojQ2zEtGy+01f6rIP4V01JuF2A87/U1KLnz77uMv2hBwL32BvsvcXNOXSG27PyRF8g/g1f0eAdVhrhoMPfCAmum0pMrhuEf8/0ZwRgAccb5GpNzjWI15hjOt9XzZkhVwfXfYt8slVA235fI+4h2kAzJmUDKU4GH9XNAfhpXe+js8OIRGGoe2GsiCmfFlVJvMxt/KWvGRUqX1ksL8ufqwkuyldo7C1QO8C+rXfNJjgzJoz+I5xXhHjHx2Dd0AnbI+frVc7mrLrgnVYW9M8FMPpUHldoKQtoLiSwtO0NawEYiJnOJukDqllLeJlzpB7OjCKeGLmiofkyF0VlWSmZL/GQXKNYM8W2QEyLOMnt9OxJ14BjugelsMxvm3PDPX4focFzxrTGwuprXh5hAujdTAmcPDL85LfFByY1IFmF+XH5xpbT5mIlZtP1jPgobhd9ZoaDwYBArOQWucrDLkbCSjNSb1eM6RyzjCB3WEKc1eul0nl9fLRwwwuqyJOVb/Ve7WBOSzb/Pw0ESXNUNfS2TVVpErFH3+LsjKVwXQw+HU0EZ9sFIObTo0IAX1LfVQHsJ0lDBJ7zN6Ha8fIwGaRj7G7RhvekRRVOZgLXhFqG15pwSpfrecotux3z2v8v+XbW7uNV/OvSk40NiyZ+Z87sH8nRkM4=), зі штучною затримкою та випадковою помилкою для демонстраційних цілей.
 
-## Conventions and Best Practices {#conventions-and-best-practices}
+## Конвенції та найкращі практики {#conventions-and-best-practices}
 
-### Naming {#naming}
+### Іменування {#naming}
 
-It is a convention to name composable functions with camelCase names that start with "use".
+Визначає правило іменування композиційних функцій за допомогою імен верблюжого регістру, які починаються з "use".
 
-### Input Arguments {#input-arguments}
+### Вхідні аргументи {#input-arguments}
 
-A composable can accept ref arguments even if it doesn't rely on them for reactivity. If you are writing a composable that may be used by other developers, it's a good idea to handle the case of input arguments being refs instead of raw values. The [`unref()`](/api/reactivity-utilities.html#unref) utility function will come in handy for this purpose:
+Композиційна функція може приймати референції як аргументи, навіть якщо вона не покладається на них для реактивності. Якщо ви пишете композиційну функцію, яка може використовуватися іншими розробниками, буде гарною ідеєю розглянути випадок, коли вхідні аргументи є референціями замість необроблених значень. Допоміжна функція [`unref()`](/api/reactivity-utilities.html#unref) стане в пригоді для цієї мети:
 
 ```js
 import { unref } from 'vue'
 
 function useFeature(maybeRef) {
-  // if maybeRef is indeed a ref, its .value will be returned
-  // otherwise, maybeRef is returned as-is
+  // якщо maybeRef справді є референцією, буде повернено його .value
+  // інакше maybeRef повертається як є
   const value = unref(maybeRef)
 }
 ```
 
-If your composable creates reactive effects when the input is a ref, make sure to either explicitly watch the ref with `watch()`, or call `unref()` inside a `watchEffect()` so that it is properly tracked.
+Якщо ваша композиційна функція створює реактивні ефекти, коли вхідний аргумент є референцією, переконайтеся, що ви явно спостерігаєте за посиланням за допомогою `watch()`, або викликаєте `unref()` всередині `watchEffect()`, щоб воно належним чином відстежувалося.
 
-### Return Values {#return-values}
+### Повернуті значення {#return-values}
 
-You have probably noticed that we have been exclusively using `ref()` instead of `reactive()` in composables. The recommended convention is for composables to always return a plain, non-reactive object containing multiple refs. This allows it to be destructured in components while retaining reactivity:
+Ви, мабуть, помітили, що ми використовували виключно `ref()` замість `reactive()` у композиційних функціях. Згідно з конвенцією, рекомендується, щоб композиційні функції завжди повертали звичайний нереактивний об’єкт, що містить кілька референцій. Це дозволяє його деструктурувати на компоненти, зберігаючи реакційну здатність:
 
 ```js
-// x and y are refs
+// x і y є референціями
 const { x, y } = useMouse()
 ```
 
-Returning a reactive object from a composable will cause such destructures to lose the reactivity connection to the state inside the composable, while the refs will retain that connection.
+Повернення реактивного об'єкта з композиційної функції призведе до того, що такі деструктуризовані дані втратять зв'язок реактивності зі станом всередині композиційної функції, тоді як референції збережуть цей зв'язок.
 
-If you prefer to use returned state from composables as object properties, you can wrap the returned object with `reactive()` so that the refs are unwrapped. For example:
+Якщо ви віддаєте перевагу використанню повернутого стану від композиційної функції як властивості об'єкта, ви можете обгорнути повернутий об'єкт за допомогою `reactive()`, щоб референції були розгорнутими. Наприклад:
 
 ```js
 const mouse = reactive(useMouse())
-// mouse.x is linked to original ref
+// mouse.x пов'язано з оригінальною референцією
 console.log(mouse.x)
 ```
 
 ```vue-html
-Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
+Координати миші: {{ mouse.x }}, {{ mouse.y }}
 ```
 
-### Side Effects {#side-effects}
+### Сторонні ефекти {#side-effects}
 
-It is OK to perform side effects (e.g. adding DOM event listeners or fetching data) in composables, but pay attention to the following rules:
+Виконувати побічні ефекти (наприклад, додавати прослуховувачі подій DOM або отримувати дані) у композиційних функціях можна, але зверніть увагу на наступні правила:
 
-- If you are working on an application that uses [Server-Side Rendering](/guide/scaling-up/ssr.html) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser, so you can be sure that code inside them has access to the DOM.
+- Якщо ви працюєте над програмою, яка використовує [рендеринг на стороні сервера](/guide/scaling-up/ssr.html) (SSR), переконайтеся, що ви виконуєте специфічні для DOM побічні ефекти в хуках життєвого циклу після монтування, наприклад, `onMounted()`. Ці хуки викликаються лише в браузері, тож ви можете бути впевнені, що код у них має доступ до DOM.
 
-- Remember to clean up side effects in `onUnmounted()`. For example, if a composable sets up a DOM event listener, it should remove that listener in `onUnmounted()` as we have seen in the `useMouse()` example. It can be a good idea to use a composable that automatically does this for you, like the `useEventListener()` example.
+- Не забудьте очищувати побічні ефекти в `onUnmounted()`. Наприклад, якщо композиційна функція встановлює слухач подій DOM, він повинен видалити цей слухач у `onUnmounted()`, як ми бачили у прикладі `useMouse()`. Гарною ідеєю може бути використання композиційної функції, яка автоматично робить це за вас, як-от приклад `useEventListener()`.
 
-### Usage Restrictions {#usage-restrictions}
+### Обмеження при використанні {#usage-restrictions}
 
-Composables should only be called **synchronously** in `<script setup>` or the `setup()` hook. In some cases, you can also call them in lifecycle hooks like `onMounted()`.
+Композиційні функції слід викликати лише **синхронно** в `<script setup>` або `setup()` хуку. У деяких випадках ви також можете викликати їх у хуках життєвого циклу, наприклад `onMounted()`.
 
-These are the contexts where Vue is able to determine the current active component instance. Access to an active component instance is necessary so that:
+Це контексти, у яких Vue може визначити поточний екземпляр активного компонента. Доступ до екземпляра активного компонента необхідний для того, щоб:
 
-1. Lifecycle hooks can be registered to it.
+1. В ньому можна зареєструвати хуки життєвого циклу.
 
-2. Computed properties and watchers can be linked to it, so that they can be disposed when the instance is unmounted to prevent memory leaks.
+2. До нього можна прив'язати обчислювані властивості та спостерігачі, щоб їх можна було видалити, коли екземпляр відмонтовано, щоб запобігти джерелам витоку пам'яті.
 
 :::tip
-`<script setup>` is the only place where you can call composables **after** using `await`. The compiler automatically restores the active instance context for you after the async operation.
+`<script setup>` є єдиним місцем, де ви можете викликати композиційні функції **після** використання `await`. Компілятор автоматично відновлює для вас активний контекст екземпляра після асинхронної операції.
 :::
 
-## Extracting Composables for Code Organization {#extracting-composables-for-code-organization}
+## Витягнення композиційних функцій для організації коду {#extracting-composables-for-code-organization}
 
-Composables can be extracted not only for reuse, but also for code organization. As the complexity of your components grow, you may end up with components that are too large to navigate and reason about. Composition API gives you the full flexibility to organize your component code into smaller functions based on logical concerns:
+Композиційні функції можна витягати не тільки для повторного використання, але й для організації коду. У міру того, як складність ваших компонентів зростає, ви можете опинитися з надто великими компонентами для навігації та розуміння. Композиційний API дає вам повну гнучкість для організації коду компонента в менші функції на основі логічних проблем:
 
 ```vue
 <script setup>
@@ -305,11 +305,11 @@ const { qux } = useFeatureC(baz)
 </script>
 ```
 
-To some extent, you can think of these extracted composables as component-scoped services that can talk to one another.
+Певною мірою ви можете розглядати ці витягнуті компоненти як компонентні сервіси, які можуть спілкуватися один з одним.
 
-## Using Composables in Options API {#using-composables-in-options-api}
+## Використання композиційних функцій в опційному API {#using-composables-in-options-api}
 
-If you are using Options API, composables must be called inside `setup()`, and the returned bindings must be returned from `setup()` so that they are exposed to `this` and the template:
+Якщо ви використовуєте опційний API, композиційні функції потрібно викликати всередині `setup()`, а повернуті прив'язки мають бути повернуті з `setup()` для доступності для `this` і шаблону:
 
 ```js
 import { useMouse } from './mouse.js'
@@ -322,42 +322,42 @@ export default {
     return { x, y, data, error }
   },
   mounted() {
-    // setup() exposed properties can be accessed on `this`
+    // Доступ до відкритих властивостей setup() можна отримати через `this`
     console.log(this.x)
   }
-  // ...other options
+  // ...інші варіанти
 }
 ```
 
-## Comparisons with Other Techniques {#comparisons-with-other-techniques}
+## Порівняння щодо інших технік {#comparisons-with-other-techniques}
 
-### vs. Mixins {#vs-mixins}
+### щодо міксинів {#vs-mixins}
 
-Users coming from Vue 2 may be familiar with the [mixins](/api/options-composition.html#mixins) option, which also allows us to extract component logic into reusable units. There are three primary drawbacks to mixins:
+Користувачі, які перейшли з Vue 2, можуть бути знайомі з параметром [mixins](/api/options-composition.html#mixins), який також дозволяє нам витягувати логіку компонентів у багаторазові блоки. У міксинів є три основні недоліки:
 
-1. **Unclear source of properties**: when using many mixins, it becomes unclear which instance property is injected by which mixin, making it difficult to trace the implementation and understand the component's behavior. This is also why we recommend using the refs + destructure pattern for composables: it makes the property source clear in consuming components.
+1. **Незрозуміле джерело властивостей**: при використанні багатьох міксинів стає незрозуміло, яка властивість екземпляра впроваджується яким міксином, що ускладнює відстеження реалізації та розуміння поведінки компонента. Ось чому ми також рекомендуємо використовувати шаблон "референція + деструктуризація" для композиційних функцій: це робить джерело властивості зрозумілим у споживаючих компонентах.
 
-2. **Namespace collisions**: multiple mixins from different authors can potentially register the same property keys, causing namespace collisions. With composables, you can rename the destructured variables if there are conflicting keys from different composables.
+2. **Колізії просторів імен**: кілька міксинів від різних авторів потенційно можуть зареєструвати однакові ключі властивостей, спричиняючи колізії просторів імен. За допомогою композиційниї функцій ви можете перейменувати деструктуровані змінні, якщо є конфліктні ключі від різних композиційних функцій.
 
-3. **Implicit cross-mixin communication**: multiple mixins that need to interact with one another have to rely on shared property keys, making them implicitly coupled. With composables, values returned from one composable can be passed into another as arguments, just like normal functions.
+3. **Неявний зв'язок крос-міксинів**: кілька міксинів, які повинні взаємодіяти один з одним, повинні покладатися на спільні ключі властивостей, що робить їх неявно зв'яними. За допомогою композиційних функцій значення, повернуті однією композиційною функцією, можна передати в інший як аргументи, як і у звичайні функції.
 
-For the above reasons, we no longer recommend using mixins in Vue 3. The feature is kept only for migration and familiarity reasons.
+З наведених вище причин ми більше не рекомендуємо використовувати міксини у Vue 3. Ця функція зберігається лише з міркувань міграції та знайомства.
 
-### vs. Renderless Components {#vs-renderless-components}
+### щодо компонент без рендерингу {#vs-renderless-components}
 
-In the component slots chapter, we discussed the [Renderless Component](/guide/components/slots.html#renderless-components) pattern based on scoped slots. We even implemented the same mouse tracking demo using renderless components.
+У розділі про слоти компонентів ми обговорили шаблон [компоненти без рендеру](/guide/components/slots.html#renderless-components) на основі слотів з обмеженою областю. Ми навіть реалізували ту саму демонстрацію відстеження миші, використовуючи компоненти без рендерингу.
 
-The main advantage of composables over renderless components is that composables do not incur the extra component instance overhead. When used across an entire application, the amount of extra component instances created by the renderless component pattern can become a noticeable performance overhead.
+Основна перевага складових компонентів над компонентами без рендерингу полягає в тому, що складові компоненти не спричиняють додаткових витрат на екземпляр компонента. При використанні в усій програмі, кількість додаткових екземплярів компонентів, створених за допомогою шаблону компонента без рендерингу, може призвести до помітних накладних витрат на продуктивність.
 
-The recommendation is to use composables when reusing pure logic, and use components when reusing both logic and visual layout.
+Рекомендується використовувати композиційні функції при повторному використанні чистої логіки та використовувати компоненти при повторному використанні як логіки, так і візуального макета.
 
-### vs. React Hooks {#vs-react-hooks}
+### щодо React хуків {#vs-react-hooks}
 
-If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more detail in the [Composition API FAQ](/guide/extras/composition-api-faq#comparison-with-react-hooks).
+Якщо у вас є досвід роботи з React, ви можете помітити, що це дуже схоже на спеціальні хуки React. Композиційний API був частково натхненний хуками React, і композиційні функції Vue справді схожі на хуки React з точки зору можливостей логічної композиції. Однак, композиційні функції Vue базуються на багатогранній системі реактивності Vue, яка принципово відрізняється від моделі виконання хуків React. Це обговорюється більш детально в [поширених питаннях щодо композиційного API](/guide/extras/composition-api-faq#comparison-with-react-hooks).
 
-## Further Reading {#further-reading}
+## Подальше читання {#further-reading}
 
-- [Reactivity In Depth](/guide/extras/reactivity-in-depth.html): for a low-level understanding of how Vue's reactivity system works.
-- [State Management](/guide/scaling-up/state-management.html): for patterns of managing state shared by multiple components.
-- [Testing Composables](/guide/scaling-up/testing.html#testing-composables): tips on unit testing composables.
-- [VueUse](https://vueuse.org/): an ever-growing collection of Vue composables. The source code is also a great learning resource.
+- [Реактивність поглиблено](/guide/extras/reactivity-in-depth.html): для низькорівневого розуміння того, як працює система реактивності Vue.
+- [Керування станом](/guide/scaling-up/state-management.html): для шаблонів керування станом, спільного для кількох компонентів.
+- [Тестування композиційниї функцій](/guide/scaling-up/testing.html#testing-composables): поради щодо модульного тестування композиційних функцій.
+- [VueUse](https://vueuse.org/): колекція Vue композиційних функцій, постійно покращується. Вихідний код також є чудовим навчальним ресурсом.
