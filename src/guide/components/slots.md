@@ -374,9 +374,9 @@ function MyComponent(slots) {
 }
 ```
 
-In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/extras/render-function.html).
+Фактично, це дуже близько до того, як компілюються обмежені слоти та як ви б використовували обмежені слоти у користувацьких [функціях візуалізації](/guide/extras/render-function.html).
 
-Notice how `v-slot="slotProps"` matches the slot function signature. Just like with function arguments, we can use destructuring in `v-slot`:
+Зверніть увагу, як `v-slot="slotProps"` відповідає сигнатурі функції слота. Як і з аргументами функції, ми можемо використовувати деструктуризацію у `v-slot`:
 
 ```vue-html
 <MyComponent v-slot="{ text, count }">
@@ -384,9 +384,9 @@ Notice how `v-slot="slotProps"` matches the slot function signature. Just like w
 </MyComponent>
 ```
 
-### Named Scoped Slots {#named-scoped-slots}
+### Іменовані обмежені слоти {#named-scoped-slots}
 
-Named scoped slots work similarly - slot props are accessible as the value of the `v-slot` directive: `v-slot:name="slotProps"`. When using the shorthand, it looks like this:
+Іменовані обмежені слоти працюють аналогічно – властивості слота доступні як значення директиви `v-slot`: `v-slot:name="slotProps"`. При використанні скорочення це виглядає так:
 
 ```vue-html
 <MyComponent>
@@ -404,62 +404,62 @@ Named scoped slots work similarly - slot props are accessible as the value of th
 </MyComponent>
 ```
 
-Passing props to a named slot:
+Передача реквізитів у іменований слот:
 
 ```vue-html
-<slot name="header" message="hello"></slot>
+<slot name="header" message="привіт"></slot>
 ```
 
-Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
+Зауважте, що `name` слота не буде включено до реквізитів, оскільки його зарезервовано, тому остаточний `headerProps` буде `{ message: 'привіт' }`.
 
-If you are mixing named slots with the default scoped slot, you need to use an explicit `<template>` tag for the default slot. Attempting to place the `v-slot` directive directly on the component will result in a compilation error. This is to avoid any ambiguity about the scope of the props of the default slot. For example:
+Якщо ви змішуєте іменовані слоти з обмеженим слотом за промовчанням, вам потрібно використовувати явний тег `<template>` для слота за промовчанням. Спроба розмістити директиву `v-slot` безпосередньо в компоненті призведе до помилки компіляції. Це зроблено для того, щоб уникнути будь-якої двозначності щодо обсягу реквізитів слота за промовчанням. Наприклад:
 
 ```vue-html
-<!-- This template won't compile -->
+<!-- Цей шаблон не скомпілюється -->
 <template>
   <MyComponent v-slot="{ message }">
     <p>{{ message }}</p>
     <template #footer>
-      <!-- message belongs to the default slot, and is not available here -->
+      <!-- повідомлення належить до слота за промовчанням і тут недоступне -->
       <p>{{ message }}</p>
     </template>
   </MyComponent>
 </template>
 ```
 
-Using an explicit `<template>` tag for the default slot helps to make it clear that the `message` prop is not available inside the other slot:
+Використання явного тегу `<template>` для слота за промовчанням допомагає зрозуміти, що властивість `message` недоступна в іншому слоті:
 
 ```vue-html
 <template>
   <MyComponent>
-    <!-- Use explicit default slot -->
+    <!-- Використовуйте явний слот за промовчанням -->
     <template #default="{ message }">
       <p>{{ message }}</p>
     </template>
 
     <template #footer>
-      <p>Here's some contact info</p>
+      <p>Ось трохи контактної інформації</p>
     </template>
   </MyComponent>
 </template>
 ```
 
-### Fancy List Example {#fancy-list-example}
+### Приклад гарного списку {#fancy-list-example}
 
-You may be wondering what would be a good use case for scoped slots. Here's an example: imagine a `<FancyList>` component that renders a list of items - it may encapsulate the logic for loading remote data, using the data to display a list, or even advanced features like pagination or infinite scrolling. However, we want it to be flexible with how each item looks and leave the styling of each item to the parent component consuming it. So the desired usage may look like this:
+Можливо, вам цікаво, що було б гарним варіантом використання для обмежених слотів. Ось приклад: уявіть компонент `<FancyList>`, який рендерить список елементів - він може інкапсулювати логіку для завантаження віддалених даних, використання даних для відображення списку або навіть розширені функції, такі як розбиття на сторінки або нескінченне прокручування. Однак ми хочемо, щоб він був гнучким щодо того, як виглядає кожен елемент, і залишив стиль кожного елемента батьківському компоненту, який його використовує. Отже, бажане використання може виглядати так:
 
 ```vue-html
 <FancyList :api-url="url" :per-page="10">
   <template #item="{ body, username, likes }">
     <div class="item">
       <p>{{ body }}</p>
-      <p>by {{ username }} | {{ likes }} likes</p>
+      <p>автор: {{ username }} | {{ likes }} вподобайок</p>
     </div>
   </template>
 </FancyList>
 ```
 
-Inside `<FancyList>`, we can render the same `<slot>` multiple times with different item data (notice we are using `v-bind` to pass an object as slot props):
+Усередині `<FancyList>` ми можемо кілька разів візуалізувати той самий `<slot>` з різними даними елемента (зверніть увагу, що ми використовуємо `v-bind`, щоб передати об’єкт як реквізити слота):
 
 ```vue-html
 <ul>
@@ -471,40 +471,40 @@ Inside `<FancyList>`, we can render the same `<slot>` multiple times with differ
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBGYW5jeUxpc3QgZnJvbSAnLi9GYW5jeUxpc3QudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEZhbmN5TGlzdCA6YXBpLXVybD1cInVybFwiIDpwZXItcGFnZT1cIjEwXCI+XG4gICAgPHRlbXBsYXRlICNpdGVtPVwieyBib2R5LCB1c2VybmFtZSwgbGlrZXMgfVwiPlxuICAgICAgPGRpdiBjbGFzcz1cIml0ZW1cIj5cbiAgICAgICAgPHA+e3sgYm9keSB9fTwvcD5cbiAgICAgICAgPHAgY2xhc3M9XCJtZXRhXCI+Ynkge3sgdXNlcm5hbWUgfX0gfCB7eyBsaWtlcyB9fSBsaWtlczwvcD5cbiAgICAgIDwvZGl2PlxuICAgIDwvdGVtcGxhdGU+XG4gIDwvRmFuY3lMaXN0PlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlIHNjb3BlZD5cbi5tZXRhIHtcbiAgZm9udC1zaXplOiAwLjhlbTtcbiAgY29sb3I6ICM0MmI4ODM7XG59XG48L3N0eWxlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJGYW5jeUxpc3QudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgcHJvcHMgPSBkZWZpbmVQcm9wcyhbJ2FwaS11cmwnLCAncGVyLXBhZ2UnXSlcblxuY29uc3QgaXRlbXMgPSByZWYoW10pXG5cbi8vIG1vY2sgcmVtb3RlIGRhdGEgZmV0Y2hpbmdcbnNldFRpbWVvdXQoKCkgPT4ge1xuICBpdGVtcy52YWx1ZSA9IFtcbiAgICB7IGJvZHk6ICdTY29wZWQgU2xvdHMgR3VpZGUnLCB1c2VybmFtZTogJ0V2YW4gWW91JywgbGlrZXM6IDIwIH0sXG5cdCAgeyBib2R5OiAnVnVlIFR1dG9yaWFsJywgdXNlcm5hbWU6ICdOYXRhbGlhIFRlcGx1aGluYScsIGxpa2VzOiAxMCB9XG4gIF1cbn0sIDEwMDApXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8dWw+XG4gICAgPGxpIHYtaWY9XCIhaXRlbXMubGVuZ3RoXCI+XG4gICAgICBMb2FkaW5nLi4uXG4gICAgPC9saT5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGl0ZW1zXCI+XG4gICAgICA8c2xvdCBuYW1lPVwiaXRlbVwiIHYtYmluZD1cIml0ZW1cIi8+XG4gICAgPC9saT5cbiAgPC91bD5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZSBzY29wZWQ+XG4gIHVsIHtcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XG4gICAgcGFkZGluZzogNXB4O1xuICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgzMTVkZWcsICM0MmQzOTIgMjUlLCAjNjQ3ZWZmKTtcbiAgfVxuICBsaSB7XG4gICAgcGFkZGluZzogNXB4IDIwcHg7XG4gICAgbWFyZ2luOiAxMHB4O1xuICAgIGJhY2tncm91bmQ6ICNmZmY7XG4gIH1cbjwvc3R5bGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqFVM1y3EQQfpVGLmrXVbvS2o7BiLWruHDiwIHiYuWgXY02k0ijqZnRgllURUj5CgcgnCiqeADKSSUQYq/zCqM34htptT+Qn4N21d36vp7u/noW3idS+vOSeaE31lPFpSHNTCnPIsFzWShDn8ZievEZ14ZSVeTU84O1xwF7kRgHLRIYGIblMosNg0U03qDDWPJhqbLTyMNv5FEomRrKeMbgORhFXgMApCOgPY5XBBc0KZKLAZWaKRHnbEAZf8A0VWsMUAmf0zSLtQbA4bZiiMqzRctCVTUOXHWb0BqWMxMDZq/s0/p7e1t/FxJQXVYg6VvnWCWvyD61r+ytfYbnCUD/4P/lNvk4wKG6qoLdvmyaCHsnCFObi4yRnhaSJfD47mC0cLi0EGao+TcspJF/wvKPnXNaZIUKae/O4eTk5AiuqpmJIznzBl47x2EeS/++LgQm3VChTU1ARx7qbE8ZeZiosyPvnjFSh0Gg06kb833tF2oW4M1XpTA8Zz7T+XCiiq/QHxBH3mCLI4BzjvEqJhKmmHob538+/R+vo0VFFUrZUd6bJbsgxVKqVoJtRRqJaSEgQ6kKqemUEpZywT53Vv+8t9Jmb0C9TpW9u/sblFOUQ4G3f94GgoDqh/aFvakf2ev6h/pne2NvoYn6MRTxDHq4ts/t0j4n+7dTFJ4lVHVl/2rcy/pHar5a2hf1ZSRQwRdoalGafn+fTs/aiTRp/XmclQzJz9sGt0IOqWd/crnIiZAaDd6AuqUHpzvdNVSMnPUlCut07IC/tOch+ycCjZ5DOhxRhRFGZjvD7yB4iCxPHKd92eb6Eg3d5fsNOVxt1/VjV9cfOMMrGI/qS2CX9mqT5QBZXBl3MdABrNEIzXzbBVJm3QZlnOZDnmJR32v7kjExM/e2Ft3++vpO+77fbWHGd+jSQq3uC+Kibff2paKzwpArcn2pADPhIlnbwXq/V8zjoDnxO1aaqMy6pcug52ETH5oLiX6KQrBmsYlknCRczEI6ll+vXJN4+mCmilIkIaCCxWo4U3HCmTD9o4PjhM0G7ipIjj46pMPj92F8cOdDlqb7Db5pPkpf5d7mhwLWSfJYzbhw43pt3r00TTu69U1T/QsHV2jR)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBGYW5jeUxpc3QgZnJvbSAnLi9GYW5jeUxpc3QudnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEZhbmN5TGlzdFxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8RmFuY3lMaXN0IGFwaS11cmw9XCJ1cmxcIiA6cGVyLXBhZ2U9XCIxMFwiPlxuICAgIDx0ZW1wbGF0ZSAjaXRlbT1cInsgYm9keSwgdXNlcm5hbWUsIGxpa2VzIH1cIj5cbiAgICAgIDxkaXYgY2xhc3M9XCJpdGVtXCI+XG4gICAgICAgIDxwPnt7IGJvZHkgfX08L3A+XG4gICAgICAgIDxwIGNsYXNzPVwibWV0YVwiPmJ5IHt7IHVzZXJuYW1lIH19IHwge3sgbGlrZXMgfX0gbGlrZXM8L3A+XG4gICAgICA8L2Rpdj5cbiAgICA8L3RlbXBsYXRlPlxuICA8L0ZhbmN5TGlzdD5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZSBzY29wZWQ+XG4ubWV0YSB7XG4gIGZvbnQtc2l6ZTogMC44ZW07XG4gIGNvbG9yOiAjNDJiODgzO1xufVxuPC9zdHlsZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiRmFuY3lMaXN0LnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIHByb3BzOiBbJ2FwaS11cmwnLCAncGVyLXBhZ2UnXSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgaXRlbXM6IFtdXG4gICAgfVxuICB9LFxuICBtb3VudGVkKCkge1xuICAgIC8vIG1vY2sgcmVtb3RlIGRhdGEgZmV0Y2hpbmdcbiAgICBzZXRUaW1lb3V0KCgpID0+IHtcbiAgICAgIHRoaXMuaXRlbXMgPSBbXG4gICAgICAgIHsgYm9keTogJ1Njb3BlZCBTbG90cyBHdWlkZScsIHVzZXJuYW1lOiAnRXZhbiBZb3UnLCBsaWtlczogMjAgfSxcbiAgICAgICAgeyBib2R5OiAnVnVlIFR1dG9yaWFsJywgdXNlcm5hbWU6ICdOYXRhbGlhIFRlcGx1aGluYScsIGxpa2VzOiAxMCB9XG4gICAgICBdXG4gICAgfSwgMTAwMClcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHVsPlxuICAgIDxsaSB2LWlmPVwiIWl0ZW1zLmxlbmd0aFwiPlxuICAgICAgTG9hZGluZy4uLlxuICAgIDwvbGk+XG4gICAgPGxpIHYtZm9yPVwiaXRlbSBpbiBpdGVtc1wiPlxuICAgICAgPHNsb3QgbmFtZT1cIml0ZW1cIiB2LWJpbmQ9XCJpdGVtXCIvPlxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPlxuXG48c3R5bGUgc2NvcGVkPlxuICB1bCB7XG4gICAgbGlzdC1zdHlsZS10eXBlOiBub25lO1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMzE1ZGVnLCAjNDJkMzkyIDI1JSwgIzY0N2VmZik7XG4gIH1cbiAgbGkge1xuICAgIHBhZGRpbmc6IDVweCAyMHB4O1xuICAgIG1hcmdpbjogMTBweDtcbiAgICBiYWNrZ3JvdW5kOiAjZmZmO1xuICB9XG48L3N0eWxlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNVN1u3EQUfpWDI7SJtLY3SQPBbCJxwxWXiJu6F971eDOtPbZmxqFhWYlS5RYugHKFkHgAlFYtlCabvsL4jfhmvPbuQgSV1l6fMz7fd34+n7n3SVUF5zXzIm+sppJX+jQWvKhKqenTREwvPuNKUybLggZB2HtsyCAWRLFgj93LKcuSOtc0t95pCQTBhFZR66A1mDUXscBvHPaMMDQrqjzRDBbReM2dVNyvZX4Se7jHHkUVk36VzBg8+6PYc+8joounHY5HHM5pUqYXQ6oVkyIp2JBy/ogpkHcxiEr5OU3zRCkE2LiNM5xWp/MWhRaLcVhtHfVhBdMJwsyVedF8a26bb1DzvGdFJH1tHSvyBZkX5q25NS9xPUfQX/h/swk+DpFUV1W43Zb1BGBvHcJU+iJnpKZlxVJ4AptY2/6sFNpX/CsW0Sg4ZsXH7ZDyUka0c+9gcnx8CFc7Egty6g29VgR+kVTBQ1UKCMRBoU3uQMVeP9vYgxysHXtnWlcqCkOVTa1GHqqglLMQT4GsheYFC5gq/Iksv0R/ABx7ww2MEM5zjFcykTLJ5H9h/uPVf+F2OkMpW7LdUvpd4q1kCTq6P1gpbzCkQae5wQOXbproZHevK18yXUvRWURWRxbgQetAEri5uKJEE1i6Dg1Dap6Y1+ameWqum++aH82NuYVCmmfQx0uo49q8MkvzisyfVl+4ltDYlfnDuZfN9+TeWprXzWWLqJj+HG0ua70LmpPTdVr6jKvA5UYndH8t5VbhEQ3MD5aWrDrJifMGLC0T4G2i15A36JtL9KQTuA38qU2NzO84cEKP6GDkio41ZqtjvWb5FSBPwPTc4po3Ld8X2CfbmL+Ax5Z63TyzZf6GPN7CeNpcInZprtZM+2Dqyul6PoR3NNp7t2VT593nlnM693mGr/o916kgZ2Kmzza2gvn57kEEQdB9sjnfgstKuVouxEUrjs0NpPJSky2630CImXCR9nbYL4MV8jh0Gf/P909U5930c4jfd+e+vqjQX4H17LYA9J6kKReziI6qxyvXJJk+mkmINY0QKlgi/ZlMUo6Nvnu4f5Sy2dDujfTwowM6OHofxgf3PmRZtufi3TBQ+op7Ex+q6EmKRM64sOO7k3cny7IOrl9Li78B9ayCew==)
 
 </div>
 
 ### Компоненти без рендерингу {#renderless-components}
 
-The `<FancyList>` use case we discussed above encapsulates both reusable logic (data fetching, pagination etc.) and visual output, while delegating part of the visual output to the consumer component via scoped slots.
+Варіант використання `<FancyList>`, який ми обговорювали вище, інкапсулює як багаторазову логіку (вибірка даних, розбиття на сторінки тощо), так і візуальний вихід, делегуючи частину візуального виводу споживчому компоненту через обмежені слоти.
 
-If we push this concept a bit further, we can come up with components that only encapsulate logic and do not render anything by themselves - visual output is fully delegated to the consumer component with scoped slots. We call this type of component a **Renderless Component**.
+Якщо ми просунемо цю концепцію трохи далі, ми зможемо створити компоненти, які лише інкапсулюють логіку, а самі по собі нічого не рендерять — візуальний вихід повністю делегується споживчому компоненту з обмеженими слотами. Ми називаємо цей тип компонента **Компонент без рендерингу**.
 
-An example renderless component could be one that encapsulates the logic of tracking the current mouse position:
+Прикладом компонента без рендерингу може бути компонент, який інкапсулює логіку відстеження поточної позиції миші:
 
 ```vue-html
 <MouseTracker v-slot="{ x, y }">
-  Mouse is at: {{ x }}, {{ y }}
+  Координати миші: {{ x }}, {{ y }}
 </MouseTracker>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBNb3VzZVRyYWNrZXIgZnJvbSAnLi9Nb3VzZVRyYWNrZXIudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PE1vdXNlVHJhY2tlciB2LXNsb3Q9XCJ7IHgsIHkgfVwiPlxuICBcdE1vdXNlIGlzIGF0OiB7eyB4IH19LCB7eyB5IH19XG5cdDwvTW91c2VUcmFja2VyPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiTW91c2VUcmFja2VyLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgeyByZWYsIG9uTW91bnRlZCwgb25Vbm1vdW50ZWQgfSBmcm9tICd2dWUnXG4gIFxuY29uc3QgeCA9IHJlZigwKVxuY29uc3QgeSA9IHJlZigwKVxuXG5jb25zdCB1cGRhdGUgPSBlID0+IHtcbiAgeC52YWx1ZSA9IGUucGFnZVhcbiAgeS52YWx1ZSA9IGUucGFnZVlcbn1cblxub25Nb3VudGVkKCgpID0+IHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdtb3VzZW1vdmUnLCB1cGRhdGUpKVxub25Vbm1vdW50ZWQoKCkgPT4gd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIHVwZGF0ZSkpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8c2xvdCA6eD1cInhcIiA6eT1cInlcIi8+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNUkFO6zAQvcrIm7ZS6vx1FJD+4u8+O5BA8iY0U0hpbMt20kZRJMSKE7DgFCxYdAGcwb0R46agtgjEwtLMs9/zvJlp2V+teV0hS1hqJ6bQDiy6Sh8LWZRaGQcnqrJ4arLJDRqYGlXCgMe7YKAPhEzjnk9MShyWep45DJlL9zTqsZ0rdyRYC8sIGugEo1cAwvlH/+bf1rf+2a/8q39a3/kV+Be/Wt+vHxJoiQBdF4WAaN1Geq8U0knjz69ZxHoP4zLTfGaVJJft5qvthRWMZAMSMPIRcsGundM2iWM7nQRzM8uVuYop4qaSriiRoy3Hl0YtLNmfkUq0oxETWKMZG5Q5GjQ/aR48/aIbZMlnR1YOW/79xFowOI1ASaJIh3kIz2TZJ9Bth9hPjWqWEyWto9YeBd7wz+gDaXaQD6zSObWWLugc961b8jqbVxuM6+wKzwPYHIAXZCKofBY1HI6CwqKQuVrwLM//1Sjd/8I6lGiGAyrXYqlqHETbT0dUxo6RfQGzefsrjW8XFSANmwnJkpZzKRgkDQWNYPHBXnXviRYqKQ==)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBNb3VzZVRyYWNrZXIgZnJvbSAnLi9Nb3VzZVRyYWNrZXIudnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIE1vdXNlVHJhY2tlclxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8TW91c2VUcmFja2VyIHYtc2xvdD1cInsgeCwgeSB9XCI+XG4gIFx0TW91c2UgaXMgYXQ6IHt7IHggfX0sIHt7IHkgfX1cblx0PC9Nb3VzZVRyYWNrZXI+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJNb3VzZVRyYWNrZXIudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgeDogMCxcbiAgICAgIHk6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICB1cGRhdGUoZSkge1xuICAgICAgdGhpcy54ID0gZS5wYWdlWFxuICAgICAgdGhpcy55ID0gZS5wYWdlWVxuICAgIH1cbiAgfSxcbiAgbW91bnRlZCgpIHtcbiAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignbW91c2Vtb3ZlJywgdGhpcy51cGRhdGUpXG4gIH0sXG4gIHVubW91bnRlZCgpIHtcbiAgICB3aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcignbW91c2Vtb3ZlJywgdGhpcy51cGRhdGUpXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxzbG90IDp4PVwieFwiIDp5PVwieVwiLz5cbjwvdGVtcGxhdGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqVkr2O2zAMx1+F0JIc4MidDV+BDt3arUMLaHFj5uI0lgSJdmwEAYpOfYIOfYoOHTK09wzKGx0dX5xz7gM4wDBESvyR/JNb8c5aWVcoEpH6uSssvVW6KK1xBB9N5fGTy+bf0MHCmRImMn7o7AInSgMojc0xJMdFVq0Jtp13bpijUZNPegeMkJ1npzR/aTykZoOwtOuMsLMoHRVRz/za0LUSW2giaDlc8CvOT+F3uA23h+/hb9iH/+HP4UfYQ/gX9oefh1+cngNgt4u6A4dxTkaPemFOGg+pRSR6EWZlZuXKG80CHXtQ9xdeiaErJViIzlZiSWR9Esd+Me/UWXlp3E3MJ+kqTUWJEn05++rMxrN+K6ZEDxgxO2t0M4c6R8cSvcC8ePqIe5KXW7mc2WjYT00uzyibXp3ac0iV0ycLoEngzX3VAC0b/ZmT8e94USItTX4ee2WZiFMckAC0LLxs4BpQ2uwGP4/87eD/8phtWEjMz+VtCp2bjczy/H3Ny/ah8IQa3XTCLz2WpsZJ1GP7Mq7OrEo/R3PHwNcAX95kgLRbXUga3t5GCUhaPrRKxBeLt7sDUp9Bog==)
 
 </div>
 
-While an interesting pattern, most of what can be achieved with Renderless Components can be achieved in a more efficient fashion with Composition API, without incurring the overhead of extra component nesting. Later, we will see how we can implement the same mouse tracking functionality as a [Composable](/guide/reusability/composables.html).
+Незважаючи на цікаву модель, більшість із того, що можна досягти за допомогою компонентів без рендерингу, можна досягти більш ефективним способом за допомогою композиційного API, не зазнаючи накладних витрат на вкладення додаткових компонентів. Пізніше ми побачимо, як можна реалізувати ту саму функцію відстеження миші, що й [композиційна](/guide/reusability/composables.html).
 
-That said, scoped slots are still useful in cases where we need to both encapsulate logic **and** compose visual output, like in the `<FancyList>` example.
+Тим не менш, обмежені слоти все ще корисні у випадках, коли нам потрібно інкапсулювати логіку, **а також** створити візуальне виведення, як у прикладі з `<FancyList>`.
