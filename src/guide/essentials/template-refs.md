@@ -222,7 +222,7 @@ An exception here is that components using `<script setup>` are **private by def
 
 ```vue
 <script setup>
-import { ref } from 'vue'
+import { defineExpose, ref } from 'vue'
 
 const a = 1
 const b = ref(2)
