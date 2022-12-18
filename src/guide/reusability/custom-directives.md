@@ -203,7 +203,7 @@ app.directive('color', (el, binding) => {
 
 ```js
 app.directive('demo', (el, binding) => {
-  console.log(binding.value.color) // => "білий"
+  console.log(binding.value.color) // => "white"
   console.log(binding.value.text) // => "привіт!"
 })
 ```
