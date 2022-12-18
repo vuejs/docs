@@ -124,11 +124,7 @@
 
 Користувацькі блоки компілюються в імпорт до того самого файлу Vue з різними запитами. Обробка цих імпортів залежить від основного інструменту збірки.
 
-<<<<<<< HEAD
-- Якщо використовується Vite, для перетворення відповідних користувальницьких блоків у виконуваний JavaScript слід використовувати спеціальний плагін Vite. [Приклад](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
-=======
-- If using Vite, a custom Vite plugin should be used to transform matched custom blocks into executable JavaScript. [Example](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
->>>>>>> 051d926a4bcafd9037d7e1a650725e19bf044fd3
+- Якщо використовується Vite, для перетворення відповідних користувальницьких блоків у виконуваний JavaScript слід використовувати спеціальний плагін Vite. [Приклад](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
 
 - Якщо використовується Vue CLI або звичайний Webpack, то Webpack має бути налаштований на перетворення відповідних блоків. [Приклад](https://vue-loader.vuejs.org/guide/custom-blocks.html)
 
@@ -148,11 +144,7 @@
 
 ### `@vitejs/plugin-vue` {#vitejs-plugin-vue}
 
-<<<<<<< HEAD
-- [Документація](https://github.com/vitejs/vite/tree/main/packages/plugin-vue)
-=======
-- [Docs](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue)
->>>>>>> 051d926a4bcafd9037d7e1a650725e19bf044fd3
+- [Документація](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue)
 
 Офіційний плагін, який забезпечує підтримку однофайлових компонентів Vue у Vite.
 
