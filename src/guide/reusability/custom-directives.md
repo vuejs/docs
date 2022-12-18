@@ -188,7 +188,7 @@ const myDirective = {
 
 ```js
 app.directive('color', (el, binding) => {
-  // буде виконано для `mounted` та `updated`
+  // буде викликано для `mounted` та `updated`
   el.style.color = binding.value
 })
 ```
