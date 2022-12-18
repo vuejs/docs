@@ -122,7 +122,7 @@ const myDirective = {
   // викликається перед оновленням батьківського компонента
   beforeUpdate(el, binding, vnode, prevVnode) {},
   // викликається після оновлення
-  // усі його дочірні елементи оновлено
+  // батьківського компонента й усіх дочірніх елементів
   updated(el, binding, vnode, prevVnode) {},
   // викликається перед тим, як батьківський компонент буде демонтовано
   beforeUnmount(el, binding, vnode, prevVnode) {},
