@@ -10,8 +10,8 @@ import {
 import SponsorsAside from './components/SponsorsAside.vue'
 import VueJobs from './components/VueJobs.vue'
 import VueSchoolLink from './components/VueSchoolLink.vue'
+<<<<<<< HEAD
 import Banner from './components/Banner.vue'
-// import VueMasteryBanner from './components/VueMasteryBanner.vue'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {

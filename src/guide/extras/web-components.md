@@ -194,7 +194,7 @@ customElements.define('my-example', ExampleElement)
 
 Якщо ви бажаєте налаштувати, які файли слід імпортувати в режимі користувацьких елементів (наприклад, розглядаючи _всі_ SFC як користувацькі елементи), ви можете передати опцію `customElement` до відповідних плагінів збірки:
 
-- [@vitejs/plugin-vue](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#using-vue-sfcs-as-custom-elements)
+- [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#using-vue-sfcs-as-custom-elements)
 - [vue-loader](https://github.com/vuejs/vue-loader/tree/next#v16-only-options)
 
 ### Поради щодо бібліотеки користувацьких елементів Vue {#tips-for-a-vue-custom-elements-library}
