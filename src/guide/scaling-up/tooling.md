@@ -26,7 +26,7 @@
 Ця команда встановить та виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проектів Vue.
 
 - Щоб дізнатися більше про Vite, перегляньте [документацію Vite](https://vitejs.dev).
-- Щоб налаштувати спеціальну поведінку Vue у проекті Vite, наприклад, передати параметри компілятору Vue, перегляньте документацію для [@vitejs/plugin-vue](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#readme).
+- Щоб налаштувати спеціальну поведінку Vue у проекті Vite, наприклад, передати параметри компілятору Vue, перегляньте документацію для [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
 
 Обидві онлайн-пісочниці, згадані вище, також підтримують завантаження файлів як проект Vite.
 
@@ -124,7 +124,7 @@
 
 Користувацькі блоки компілюються в імпорт до того самого файлу Vue з різними запитами. Обробка цих імпортів залежить від основного інструменту збірки.
 
-- Якщо використовується Vite, для перетворення відповідних користувальницьких блоків у виконуваний JavaScript слід використовувати спеціальний плагін Vite. [Приклад](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
+- Якщо використовується Vite, для перетворення відповідних користувальницьких блоків у виконуваний JavaScript слід використовувати спеціальний плагін Vite. [Приклад](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
 
 - Якщо використовується Vue CLI або звичайний Webpack, то Webpack має бути налаштований на перетворення відповідних блоків. [Приклад](https://vue-loader.vuejs.org/guide/custom-blocks.html)
 
@@ -144,7 +144,7 @@
 
 ### `@vitejs/plugin-vue` {#vitejs-plugin-vue}
 
-- [Документація](https://github.com/vitejs/vite/tree/main/packages/plugin-vue)
+- [Документація](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue)
 
 Офіційний плагін, який забезпечує підтримку однофайлових компонентів Vue у Vite.
 

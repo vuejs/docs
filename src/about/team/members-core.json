@@ -215,7 +215,7 @@
       },
       {
         "label": "portal-vue*",
-        "url": "https://github.com/LinusBorg/portal-vue*"
+        "url": "https://github.com/LinusBorg/portal-vue"
       }
     ],
     "reposPersonal": ["portal-vue"],
