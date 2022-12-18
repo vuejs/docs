@@ -1,61 +1,61 @@
-# Slots {#slots}
+# Слоти {#slots}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> Ця сторінка передбачає, що ви вже прочитали [Основи компонентів](/guide/essentials/component-basics). Прочитайте це спочатку, якщо ви новачок у компонентах.
 
-<VueSchoolLink href="https://vueschool.io/lessons/vue-3-component-slots" title="Free Vue.js Slots Lesson"/>
+<VueSchoolLink href="https://vueschool.io/lessons/vue-3-component-slots" title="Безкоштовний урок про слоти Vue.js"/>
 
-## Slot Content and Outlet {#slot-content-and-outlet}
+## Вміст та вивід слота {#slot-content-and-outlet}
 
-We have learned that components can accept props, which can be JavaScript values of any type. But how about template content? In some cases, we may want to pass a template fragment to a child component, and let the child component render the fragment within its own template.
+Ми дізналися, що компоненти можуть приймати властивості, якими можуть бути значення JavaScript будь-якого типу. Але як щодо вмісту шаблону? У деяких випадках ми можемо захотіти передати фрагмент шаблону в дочірній компонент і дозволити дочірньому компоненту відтворити фрагмент у своєму власному шаблоні.
 
-For example, we may have a `<FancyButton>` component that supports usage like this:
+Наприклад, у нас може бути компонент `<FancyButton>`, який підтримує наступне використання:
 
 ```vue-html{2}
 <FancyButton>
-  Click me! <!-- slot content -->
+  Натисніть мене! <!-- вміст слота -->
 </FancyButton>
 ```
 
-The template of `<FancyButton>` looks like this:
+Шаблон `<FancyButton>` виглядає так:
 
 ```vue-html{2}
 <button class="fancy-btn">
-  <slot></slot> <!-- slot outlet -->
+  <slot></slot> <!-- вивід слота -->
 </button>
 ```
 
-The `<slot>` element is a **slot outlet** that indicates where the parent-provided **slot content** should be rendered.
+Елемент `<slot>` — це вивід слота, який вказує, де має наданий батьком **вміст слота** відтворюватися.
 
-![slot diagram](./images/slots.png)
+![Діаграма слота](./images/slots.png)
 
-<!-- https://www.figma.com/file/LjKTYVL97Ck6TEmBbstavX/slot -->
+<!-- https://www.figma.com/file/75OMLip2mV2aUBRZwx0CCU/slot-(Copy) -->
 
-And the final rendered DOM:
+І остаточний відрендерений DOM:
 
 ```html
-<button class="fancy-btn">Click me!</button>
+<button class="fancy-btn">Натисніть мене!</button>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBGYW5jeUJ1dHRvbiBmcm9tICcuL0ZhbmN5QnV0dG9uLnZ1ZSdcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxGYW5jeUJ1dHRvbj5cbiAgICBDbGljayBtZSA8IS0tIHNsb3QgY29udGVudCAtLT5cbiBcdDwvRmFuY3lCdXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJGYW5jeUJ1dHRvbi52dWUiOiI8dGVtcGxhdGU+XG4gIDxidXR0b24gY2xhc3M9XCJmYW5jeS1idG5cIj5cbiAgXHQ8c2xvdC8+IDwhLS0gc2xvdCBvdXRsZXQgLS0+XG5cdDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlPlxuLmZhbmN5LWJ0biB7XG4gIGNvbG9yOiAjZmZmO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMzE1ZGVnLCAjNDJkMzkyIDI1JSwgIzY0N2VmZik7XG4gIGJvcmRlcjogbm9uZTtcbiAgcGFkZGluZzogNXB4IDEwcHg7XG4gIG1hcmdpbjogNXB4O1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbjwvc3R5bGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9Us1O3DAQfpWpUUUrrZOysP1JU6T20KfwJZs4aWhiW2OHgtAe2HPP3HgHhEBC4ucZnDdinKBVAImb55v5vpn5xifspzHRYSdZwlKbY20cWOk6sy9U3RqNDn5nKj/+1TmnFZSoW9iO4gkWyNtCpfHIJh4FTramyZykCCCdVA8AgD/3F/3a3/Sn/r4/69f9f/B3/trf+2tI33EO/tLfUeK0XwPV3PoHqr4AzgNfuHQ6AEFpvGnIZmycm7eZiQ6sVrTZSegqnhJWsAQGJGA0fYgF++OcsUkc2zIPKx3YSGMV0yvCTrm6lZG0LV+i/mclkrBgs4lGTOChRI5SFRIlvqX5ovSVbpBdCbWiVV74HI703NrleJe8yaz9IVgZ6vnSKcGGPFllG+3i/Y2rN/6yP/NXr1wNpo5iz/0czmndcROe0UZ/NDDXjcYEtsqy/B7iZZb/rVB3qkigqZXMkFeYFbVU7sPuzqKQ1Qy29ubF7rc5zBfvKfi890WW5ceRrZEMSUBpJQfAZEVRqyqBhTmCnU/maEDbDKtaDeCExkOfzibw9QnOO7RhOKNr5SQSRp7SLx1WYatH2WsbbQ==)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBGYW5jeUJ1dHRvbiBmcm9tICcuL0ZhbmN5QnV0dG9uLnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgRmFuY3lCdXR0b24gfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEZhbmN5QnV0dG9uPlxuICAgIENsaWNrIG1lIDwhLS0gc2xvdCBjb250ZW50IC0tPlxuIFx0PC9GYW5jeUJ1dHRvbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkZhbmN5QnV0dG9uLnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGJ1dHRvbiBjbGFzcz1cImZhbmN5LWJ0blwiPlxuICBcdDxzbG90Lz4gPCEtLSBzbG90IG91dGxldCAtLT5cblx0PC9idXR0b24+XG48L3RlbXBsYXRlPlxuXG48c3R5bGU+XG4uZmFuY3ktYnRuIHtcbiAgY29sb3I6ICNmZmY7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgzMTVkZWcsICM0MmQzOTIgMjUlLCAjNjQ3ZWZmKTtcbiAgYm9yZGVyOiBub25lO1xuICBwYWRkaW5nOiA1cHggMTBweDtcbiAgbWFyZ2luOiA1cHg7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuPC9zdHlsZT4ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9Us1O3DAQfpWpUUUrrZOysP1JU6T20KfwxZs4aWhiW7ZDF604sOeeufUdECoSUqHP4LxRxw5dZUFC8sHzzcw3M9/MmnzWOjntBclIbgvTaHfMZNNpZRx85bI4+9I7pyRURnWwn6QTLKTtMwnApFjFhFJUvG8drANaKGSRQjqbwXqH65xJfHm6rYeGE51uuRNoAeST6AgA+F/+atj42+HC3w+Xw2b4Cf7O3/h7fwP5C0rBX/s7dFwMG8CYP/4vRl8BpSGfuXzaOEJ5ui1IZmScl3ZcJydWSdQiTsAeHJYRHGHsgxGcOtiMfHNO2yxNbVUEKU5sokyd4i8xvXRNJxJhO7o06ocVBokZmU04UgRPhaFGyFIYYZ7jfBT6hDfQBlFxlEf7CWvdlXY57qBoubWfGKlCPF06yUj0o1S2VS493qp666+HS//7iapB1JFsV8+4TuvO2vBNtvz/j6JVJoO9qqo+BnvJi++1Ub0sM2gbKbihteFlg2fz6vBgUYp6BntH8/Lwwxzmi5dovD16J6rq9ZitDAqSgcQ7i4DmZdnIOoOFXsHBG72KaMdN3cgITtJoqNPjcb5/gIve2NCcVo10wiA2XmkchZz/AxZWLcg=)
 
 </div>
 
-With slots, the `<FancyButton>` is responsible for rendering the outer `<button>` (and its fancy styling), while the inner content is provided by the parent component.
+Завдяки слотам, `<FancyButton>` відповідає за візуалізацію зовнішнього `<button>` (та його гарного стилю), тоді як внутрішній вміст надається батьківським компонентом.
 
-Another way to understand slots is by comparing them to JavaScript functions:
+Ще один спосіб зрозуміти слоти – порівняти їх із функціями JavaScript:
 
 ```js
-// parent component passing slot content
-FancyButton('Click me!')
+// батьківський компонент передає вміст слота
+FancyButton('Натисніть мене!')
 
-// FancyButton renders slot content in its own template
+// FancyButton рендерить вміст слота у власному шаблоні
 function FancyButton(slotContent) {
   return `<button class="fancy-btn">
       ${slotContent}
@@ -63,48 +63,48 @@ function FancyButton(slotContent) {
 }
 ```
 
-Slot content is not just limited to text. It can be any valid template content. For example, we can pass in multiple elements, or even other components:
+Вміст слота не обмежується лише текстом. Це може бути будь-який дійсний вміст шаблону. Наприклад, ми можемо передати кілька елементів або навіть інші компоненти:
 
 ```vue-html
 <FancyButton>
-  <span style="color:red">Click me!</span>
+  <span style="color:red">Натисніть мене!</span>
   <AwesomeIcon name="plus" />
 </FancyButton>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBGYW5jeUJ1dHRvbiBmcm9tICcuL0ZhbmN5QnV0dG9uLnZ1ZSdcbmltcG9ydCBBd2Vzb21lSWNvbiBmcm9tICcuL0F3ZXNvbWVJY29uLnZ1ZSdcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxGYW5jeUJ1dHRvbj5cbiAgICBDbGljayBtZVxuIFx0PC9GYW5jeUJ1dHRvbj5cbiAgPEZhbmN5QnV0dG9uPlxuICAgIDxzcGFuIHN0eWxlPVwiY29sb3I6Y3lhblwiPkNsaWNrIG1lISA8L3NwYW4+XG4gICAgPEF3ZXNvbWVJY29uIC8+XG4gIDwvRmFuY3lCdXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJGYW5jeUJ1dHRvbi52dWUiOiI8dGVtcGxhdGU+XG4gIDxidXR0b24gY2xhc3M9XCJmYW5jeS1idG5cIj5cbiAgXHQ8c2xvdC8+XG5cdDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlPlxuLmZhbmN5LWJ0biB7XG4gIGNvbG9yOiAjZmZmO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMzE1ZGVnLCAjNDJkMzkyIDI1JSwgIzY0N2VmZik7XG4gIGJvcmRlcjogbm9uZTtcbiAgcGFkZGluZzogNXB4IDEwcHg7XG4gIG1hcmdpbjogNXB4O1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbjwvc3R5bGU+IiwiQXdlc29tZUljb24udnVlIjoiPCEtLSB1c2luZyBhbiBlbW9qaSBqdXN0IGZvciBkZW1vIHB1cnBvc2VzIC0tPlxuPHRlbXBsYXRlPuKdpO+4jzwvdGVtcGxhdGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U11O3DAQvsoQVNFKm6QsbH/SFIk+VOod8uJNnDQ0sS3bAVZopRZeK/FS8cZbD4AQqKtStlewr9AL9AodJ9tVWARP9nyZ+cbzzZcjb1eIYL+hXuTFKpWl0KCobsROwspacKnhPWHp5F2jNWeQS17DRhD2MFe8sUzePaCK1/RD2kvuYYvkOOxaYRMMNK1FRTTFCCDuUbcAgDk3F/bYzOwXc2vP7LH9CuaXuTa35hoTEh33n/MQSawEYaD0pKJvEy/lFZdROiEs8XYe4V8DfCoW/ifpjxd2rVaax+FyHG/gdar4NRHBnuIMRT5yRcnig0q8CFrEYaiNixPvo9ZCRWGo8tQJtqcCLosQb4FsmC5rGlBV+2PJDxSVSJx4gx5HiOA+lb6kLKOSysc4V1Lv8TraacKmOMrKyp1f7i5u3FkkrYhSKHHu8v2xdgq3M+tYVVw71dzKuuy7grVuaFeE12BJ0CnUrQzW8zx/4+IxST8Vkjcsi6AqGSXSLyTJSsr0063NUUaLAaxvD7Ot10MYjp5g8GL7Jc3zZ101lzhxBIwz2gKCZFnJighG4hA2n4vDFq2JLErWgr0y3/VpVASvFnDaSOUeJ3jJNJWIoWjonHYU1G7lD3Darfk+mEszMz/N3H525kMLzs2lPbHf0H1zQAPiYa7MD3sGeNzYUzC/XSqW3JgLc2VPwPedgksB/5x//zs77Vtw+g+dwYHC)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBGYW5jeUJ1dHRvbiBmcm9tICcuL0ZhbmN5QnV0dG9uLnZ1ZSdcbmltcG9ydCBBd2Vzb21lSWNvbiBmcm9tICcuL0F3ZXNvbWVJY29uLnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgRmFuY3lCdXR0b24sIEF3ZXNvbWVJY29uIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxGYW5jeUJ1dHRvbj5cbiAgICBDbGljayBtZVxuIFx0PC9GYW5jeUJ1dHRvbj5cblxuICA8RmFuY3lCdXR0b24+XG4gICAgPHNwYW4gc3R5bGU9XCJjb2xvcjpjeWFuXCI+Q2xpY2sgbWUhIDwvc3Bhbj5cbiAgICA8QXdlc29tZUljb24gLz5cbiAgPC9GYW5jeUJ1dHRvbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkZhbmN5QnV0dG9uLnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGJ1dHRvbiBjbGFzcz1cImZhbmN5LWJ0blwiPlxuICBcdDxzbG90Lz5cblx0PC9idXR0b24+XG48L3RlbXBsYXRlPlxuXG48c3R5bGU+XG4uZmFuY3ktYnRuIHtcbiAgY29sb3I6ICNmZmY7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgzMTVkZWcsICM0MmQzOTIgMjUlLCAjNjQ3ZWZmKTtcbiAgYm9yZGVyOiBub25lO1xuICBwYWRkaW5nOiA1cHggMTBweDtcbiAgbWFyZ2luOiA1cHg7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuPC9zdHlsZT4iLCJBd2Vzb21lSWNvbi52dWUiOiI8IS0tIHVzaW5nIGFuIGVtb2ppIGp1c3QgZm9yIGRlbW8gcHVycG9zZXMgLS0+XG48dGVtcGxhdGU+4p2k77iPPC90ZW1wbGF0ZT4ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U11O3DAQvsoQVNFKm6QsbH/SFIk+VOod8uJNnDQ0sS3bgV2tkFp4rcRLxRtvPQBCoK5K2V7BuUIv0Ct0nCxRdouIItnzZeaz55svM2dfCO+wok7ghCqWudB7EctLwaWG94TF03eV1pxBKnkJW57fw2zZVpe8f0QVL+mHuJfcw5bJABGjk6YgoSmpCg0zi8YcWRhlWgUw6x88WCE+jhi+od/dFANNS1EQTTECCHulDYCPuTCX9YmZ11/MXX1en9RfwfwyN+bO3GBGpMN+Uw3ngzyhEoSB0tOCvo2cmBdcBvGUsMjZe+SEDcDbYuE9Sb8bv73y2vGh33XkDJxWXbckwjtQnOGYGr2i5QcVOShYyx05qLGNI+ej1kIFvq/S2Ap/oDwuMx93nqyYzkvqUVW6Y8mPFJVIHDmDHoeP4CGVrqQsoZLKxzjXUv/jtbR2atjKmnWs41ZnN26tFhdEKZQ4tfnuWFuFm551qAqurWp2aG32qmCNIZoR4dbrCO49ZkcGm2mavrHxmMSfMskrlgRQ5IwS6WaSJDm68OnO9iih2QA2d4fJzushDEdPMHix+5Km6bO2mkvsOACGtm0AQZIkZ1kAIzGB7edi0qAlkVnOGrBX5tpzKvT6qyUcV1LZywmeM00lYq3Pm1ZQu7U/yWq34bpgrszc/DSL+rM1H1pwYa7q0/obum8BaEBczLX5UZ8DLrf1GZjfNhVLbs2lua5PwXWtgp2Afy6+/52f9S14/A+D65mt)
 
 </div>
 
-By using slots, our `<FancyButton>` is more flexible and reusable. We can now use it in different places with different inner content, but all with the same fancy styling.
+Завдяки слотам, наш `<FancyButton>` є більш гнучким і придатним для повторного використання. Тепер ми можемо використовувати його в різних місцях з різним внутрішнім вмістом, але всі з однаковим стильним оформленням.
 
-Vue components' slot mechanism is inspired by the [native Web Component `<slot>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot), but with additional capabilities that we will see later.
+Механізм слотів у Vue був натхненний [нативним елементом `<slot>` Веб Компонента](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot), але з додатковими можливостями, які ми побачимо пізніше.
 
-## Render Scope {#render-scope}
+## Область візуалізації {#render-scope}
 
-Slot content has access to the data scope of the parent component, because it is defined in the parent. For example:
+Вміст слота має доступ до області даних батьківського компонента, оскільки він визначений у батьківському компоненті. Наприклад:
 
 ```vue-html
 <span>{{ message }}</span>
 <FancyButton>{{ message }}</FancyButton>
 ```
 
-Here both <span v-pre>`{{ message }}`</span> interpolations will render the same content.
+Тут обидві інтерполяції <span v-pre>`{{ message }}`</span> відображатимуть однаковий вміст.
 
-Slot content does **not** have access to the child component's data. Expressions in Vue templates can only access the scope it is defined in, consistent with JavaScript's lexical scoping. In other words:
+Вміст слота **не має** доступу до даних дочірнього компонента. Вирази в шаблонах Vue можуть отримати доступ лише до області, у якій вони визначені, відповідно до лексичного діапазону JavaScript. Іншими словами:
 
-> Expressions in the parent template only have access to the parent scope; expressions in the child template only have access to the child scope.
+> Вирази в батьківському шаблоні мають доступ лише до батьківської області; вирази в дочірньому шаблоні мають доступ лише до дочірньої області.
 
-## Fallback Content {#fallback-content}
+## Резервний вміст {#fallback-content}
 
-There are cases when it's useful to specify fallback (i.e. default) content for a slot, to be rendered only when no content is provided. For example, in a `<SubmitButton>` component:
+Бувають випадки, коли для слота корисно вказати резервний вміст (тобто, вміст за замовчуванням), який буде відображатися лише тоді, коли вміст не надано. Наприклад, у компоненті `<SubmitButton>`:
 
 ```vue-html
 <button type="submit">
@@ -112,70 +112,70 @@ There are cases when it's useful to specify fallback (i.e. default) content for 
 </button>
 ```
 
-We might want the text "Submit" to be rendered inside the `<button>` if the parent didn't provide any slot content. To make "Submit" the fallback content, we can place it in between the `<slot>` tags:
+Ми можемо захотіти, щоб текст «Надіслати» відображався всередині `<button>`, якщо батьківський елемент не надав вмісту слота. Щоб «Надіслати» резервний вміст, ми можемо розмістити його між тегами `<slot>`:
 
 ```vue-html{3}
 <button type="submit">
   <slot>
-    Submit <!-- fallback content -->
+    Надіслати <!-- резервний вміст -->
   </slot>
 </button>
 ```
 
-Now when we use `<SubmitButton>` in a parent component, providing no content for the slot:
+Тепер, коли ми використовуємо `<SubmitButton>` у батьківському компоненті, не надаючи вмісту для слота:
 
 ```vue-html
 <SubmitButton />
 ```
 
-This will render the fallback content, "Submit":
+Це відобразить резервний вміст, «Надіслати»:
 
 ```html
-<button type="submit">Submit</button>
+<button type="submit">Надіслати</button>
 ```
 
-But if we provide content:
+Але якщо ми надаємо контент:
 
 ```vue-html
-<SubmitButton>Save</SubmitButton>
+<SubmitButton>Зберегти</SubmitButton>
 ```
 
-Then the provided content will be rendered instead:
+Тоді замість цього буде відображено наданий вміст:
 
 ```html
-<button type="submit">Save</button>
+<button type="submit">Зберегти</button>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBTdWJtaXRCdXR0b24gZnJvbSAnLi9TdWJtaXRCdXR0b24udnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPCEtLSB1c2UgZmFsbGJhY2sgdGV4dCAtLT5cbiAgPFN1Ym1pdEJ1dHRvbiAvPlxuICBcbiAgPCEtLSBwcm92aWRlIGN1c3RvbSB0ZXh0IC0tPlxuICA8U3VibWl0QnV0dG9uPlNhdmU8L1N1Ym1pdEJ1dHRvbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIlN1Ym1pdEJ1dHRvbi52dWUiOiI8dGVtcGxhdGU+XG4gIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiPlxuXHQgIDxzbG90PlxuICAgIFx0U3VibWl0IDwhLS0gZmFsbGJhY2sgY29udGVudCAtLT5cbiAgXHQ8L3Nsb3Q+XG5cdDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNUs1OAjEQfpXaCxd2eycrib6C114Aiy6hP2lnMYaQiL6DnnwHRIn4xzPMvpHTrjGAieHU6deZrzPfN1N+4lw+qRTv8CIMfOmABQWV60pTamc9sLOqr0s4rQCsYUNvNWvlYhuM5S1pCtHUUyVdQGk37oGiG2PFUZYxXOIa33FT3+C6nte3uMFlfUfoguI1I3iFr7iic4lflPoWKz7r+5jLsqwh2mlGJOzQDyj4oHB+GHkXH/ApdbPC51hf7MxMBYX4nZG3eSNWpnsuHwVrSM5pau7nIUjeYQmJGAkW75JfArjQESIMB1HFUcitvxAU5b4yUGqVq6CzvrdXQXkilry9xSEInCifeWXOlVf+P8691D+8kXYmzYxG2fc2rsaunf1Gf7h26ljykPIlj8YDvYaxjUuQ2gR8xAW+RKGT+tGIZNZBdkugpWrYYth8uyf97BtyLjNU)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBTdWJtaXRCdXR0b24gZnJvbSAnLi9TdWJtaXRCdXR0b24udnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIFN1Ym1pdEJ1dHRvblxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8IS0tIHVzZSBmYWxsYmFjayB0ZXh0IC0tPlxuICA8U3VibWl0QnV0dG9uIC8+XG4gIFxuICA8IS0tIHByb3ZpZGUgY3VzdG9tIHRleHQgLS0+XG4gIDxTdWJtaXRCdXR0b24+U2F2ZTwvU3VibWl0QnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiU3VibWl0QnV0dG9uLnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGJ1dHRvbiB0eXBlPVwic3VibWl0XCI+XG5cdCAgPHNsb3Q+XG4gICAgXHRTdWJtaXQgPCEtLSBmYWxsYmFjayBjb250ZW50IC0tPlxuICBcdDwvc2xvdD5cblx0PC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNUktOwzAQvYrxppsm3lehElyBrTf9uNCqsS17UkBVJQp3gBV3KIWK8usZJjdi7EDVFAlVipTx88wbz3sz5SfWppNC8RbPfM8NLbSlHubWOGBnRTcfwmkBYDQbOJOzRip2wVDYkJoxqdVVLOmrQacYA5sGtGeIRysNvlUBrEYZkJnU9GVi25oOoHI77oCiE2PZUZIwXOIa33FT3uC6nJe3uMFleUfoguI1I3iFr7ii/xK/KPUtVHyW9yGXJUlFVJtGROzQBhR8UDg/jLyND/gUX7PC51Cf1USjgkxsZ+RNXqmd5B2bjrzR5EQUS/5ceMm38klOioez5BcA1reE8INesGHkU+POBUWpKzQMc5UqnyddZy69ckQseXOHQxA4US5xSveVU+4/zr3UP7y/PtIo+8sRtqpuZ7fSH66tOpbcx3zJg/FAt35swhLEZwI+4gJfgtBR/WBENOsguyXQUlVsIaza7kk/+wbf70hG)
 
 </div>
 
-## Named Slots {#named-slots}
+## Іменовані слоти {#named-slots}
 
-There are times when it's useful to have multiple slot outlets in a single component. For example, in a `<BaseLayout>` component with the following template:
+Бувають випадки, коли корисно мати кілька виводів в одному компоненті. Наприклад, у компоненті `<BaseLayout>` із таким шаблоном:
 
 ```vue-html
 <div class="container">
   <header>
-    <!-- We want header content here -->
+    <!-- Тут нам потрібен вміст заголовка -->
   </header>
   <main>
-    <!-- We want main content here -->
+    <!-- Тут нам потрібен основний вміст -->
   </main>
   <footer>
-    <!-- We want footer content here -->
+    <!-- Тут ми хочемо вміст нижнього колонтитула -->
   </footer>
 </div>
 ```
 
-For these cases, the `<slot>` element has a special attribute, `name`, which can be used to assign a unique ID to different slots so you can determine where content should be rendered:
+Для цих випадків елемент `<slot>` має спеціальний атрибут `name`, за допомогою якого можна призначити унікальний ідентифікатор різним слотам, щоб ви могли визначити, де має відтворюватися вміст:
 
 ```vue-html
 <div class="container">
@@ -191,102 +191,102 @@ For these cases, the `<slot>` element has a special attribute, `name`, which can
 </div>
 ```
 
-A `<slot>` outlet without `name` implicitly has the name "default".
+Вивід `<slot>` без `name` неявно має назву "default".
 
-In a parent component using `<BaseLayout>`, we need a way to pass multiple slot content fragments, each targeting a different slot outlet. This is where **named slots** come in.
+У батьківському компоненті, що використовує `<BaseLayout>`, нам потрібен спосіб передати кілька фрагментів вмісту слота, кожен з яких націлений на інший вивід слота. Ось де з'являються **іменовані** слоти.
 
-To pass a named slot, we need to use a `<template>` element with the `v-slot` directive, and then pass the name of the slot as an argument to `v-slot`:
+Щоб передати іменований слот, нам потрібно використати елемент `<template>` з директивою `v-slot`, а потім передати назву слота як аргумент `v-slot`:
 
 ```vue-html
 <BaseLayout>
   <template v-slot:header>
-    <!-- content for the header slot -->
+    <!-- вміст для слота заголовка -->
   </template>
 </BaseLayout>
 ```
 
-`v-slot` has a dedicated shorthand `#`, so `<template v-slot:header>` can be shortened to just `<template #header>`. Think of it as "render this template fragment in the child component's 'header' slot".
+`v-slot` має спеціальне скорочення `#`, тому `<template v-slot:header>` можна скоротити до просто `<template #header>`. Подумайте про це як про «відобразити цей фрагмент шаблону в слоті 'header' дочірнього компонента».
 
-![named slots diagram](./images/named-slots.png)
+![діаграма іменованих слотів](./images/named-slots.png)
 
-<!-- https://www.figma.com/file/2BhP8gVZevttBu9oUmUUyz/named-slot -->
+<!-- https://www.figma.com/file/VE5SL2VDXfKSXPwWqZgYpq/named-slot-(Copy) -->
 
-Here's the code passing content for all three slots to `<BaseLayout>` using the shorthand syntax:
+Ось код, який передає вміст для всіх трьох слотів у `<BaseLayout>` за допомогою скороченого синтаксису:
 
 ```vue-html
 <BaseLayout>
   <template #header>
-    <h1>Here might be a page title</h1>
+    <h1>Тут може бути назва сторінки</h1>
   </template>
 
   <template #default>
-    <p>A paragraph for the main content.</p>
+    <p>Абзац для основного змісту.</p>
     <p>And another one.</p>
   </template>
 
   <template #footer>
-    <p>Here's some contact info</p>
+    <p>Ось трохи контактної інформації</p>
   </template>
 </BaseLayout>
 ```
 
-When a component accepts both a default slot and named slots, all top-level non-`<template>` nodes are implicitly treated as content for the default slot. So the above can also be written as:
+Коли компонент приймає як слот за замовчуванням, так і іменовані слоти, усі вузли верхнього рівня, які не є `<template>`, неявно розглядаються як вміст для слота за замовчуванням. Отже, вищесказане також можна записати так:
 
 ```vue-html
 <BaseLayout>
   <template #header>
-    <h1>Here might be a page title</h1>
+    <h1>Тут може бути назва сторінки</h1>
   </template>
 
-  <!-- implicit default slot -->
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <!-- неявний слот за замовчуванням -->
+  <p>Абзац для основного змісту.</p>
+  <p>І ще один.</p>
 
   <template #footer>
-    <p>Here's some contact info</p>
+    <p>Ось трохи контактної інформації</p>
   </template>
 </BaseLayout>
 ```
 
-Now everything inside the `<template>` elements will be passed to the corresponding slots. The final rendered HTML will be:
+Тепер усе всередині елементів `<template>` буде передано до відповідних слотів. Остаточний відтворений HTML буде таким:
 
 ```html
 <div class="container">
   <header>
-    <h1>Here might be a page title</h1>
+    <h1>Тут може бути назва сторінки</h1>
   </header>
   <main>
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
+    <p>Абзац для основного змісту.</p>
+    <p>І ще один.</p>
   </main>
   <footer>
-    <p>Here's some contact info</p>
+    <p>Ось трохи контактної інформації</p>
   </footer>
 </div>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBCYXNlTGF5b3V0IGZyb20gJy4vQmFzZUxheW91dC52dWUnXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8QmFzZUxheW91dD5cbiAgICA8dGVtcGxhdGUgI2hlYWRlcj5cbiAgICAgIDxoMT5IZXJlIG1pZ2h0IGJlIGEgcGFnZSB0aXRsZTwvaDE+XG4gICAgPC90ZW1wbGF0ZT5cblxuICAgIDx0ZW1wbGF0ZSAjZGVmYXVsdD5cbiAgICAgIDxwPkEgcGFyYWdyYXBoIGZvciB0aGUgbWFpbiBjb250ZW50LjwvcD5cbiAgICAgIDxwPkFuZCBhbm90aGVyIG9uZS48L3A+XG4gICAgPC90ZW1wbGF0ZT5cblxuICAgIDx0ZW1wbGF0ZSAjZm9vdGVyPlxuICAgICAgPHA+SGVyZSdzIHNvbWUgY29udGFjdCBpbmZvPC9wPlxuICAgIDwvdGVtcGxhdGU+XG4gIDwvQmFzZUxheW91dD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkJhc2VMYXlvdXQudnVlIjoiPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwiY29udGFpbmVyXCI+XG4gICAgPGhlYWRlcj5cbiAgICAgIDxzbG90IG5hbWU9XCJoZWFkZXJcIj48L3Nsb3Q+XG4gICAgPC9oZWFkZXI+XG4gICAgPG1haW4+XG4gICAgICA8c2xvdD48L3Nsb3Q+XG4gICAgPC9tYWluPlxuICAgIDxmb290ZXI+XG4gICAgICA8c2xvdCBuYW1lPVwiZm9vdGVyXCI+PC9zbG90PlxuICAgIDwvZm9vdGVyPlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZT5cbiAgZm9vdGVyIHtcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgI2NjYztcbiAgICBjb2xvcjogIzY2NjtcbiAgICBmb250LXNpemU6IDAuOGVtO1xuICB9XG48L3N0eWxlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U8tu00AU/ZUrZ9FNY9NNhIyJBGs+wRvXmRBXtmc0MwmUKlJLoRISEqzaHQu+IOUZhSbfMPNHnLGTxk6gsmT5nnvvOfflM++ZEP5kzLzQi1QqM6FJMT0W/bjMCsGlpueJYi+SUz7WNJS8oAM/2EIu9SAuo6DORRYMzQqRJ5rBIoq2wZUNZOOnzoglAybXODyjo775ai/tWzJ3ZmV+mZ9kbp1t5mSWZmZ+m29mRvYCyMqe22uACzOPAiSuyYOG+p7egA2Tcb4pBC7RN5/NLWhn9orMD/PHfiIwX4B3BSn3/m5WhIA7e+1k7aUfBW46W4Irsh9coSvkz82y4X+4mCHnumo+1u5xVF8g8ZGgco4i3rumF6BdotuZWeCNeuwNubbtOzcATAmFo7Kb/4g6s7WAhtc79OoVd4tE+CeKlziCM5cTrx0q9kKqEIdh1c6OvZHWQoVBoIap2/+J8rl8GeDLl+NSZwXzmSq6x5K/UkyCOPYOGxwBwAmTXclK7J7Jhzh3Qvd4He00LqdopX2T7pzbYxhkE0rzRKmnsZfyUidZ6bQ3Q9u9RJVzTWVSMITXPsTizAHfz7mVExVgbOfvxjciovvl/0Ov9u3rNXKiAP2011n9ekqf5nXDdfBme8dcotSu5iKkI/GaFM+zAXXSNH1SB6Q85zKkTq/XWyNDDKmrsjcspEf+Y1ZUMIaNoioRb/oXR2WiEw==)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCYXNlTGF5b3V0IGZyb20gJy4vQmFzZUxheW91dC52dWUnXG4gIFxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7XG4gICAgQmFzZUxheW91dFxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8QmFzZUxheW91dD5cbiAgICA8dGVtcGxhdGUgI2hlYWRlcj5cbiAgICAgIDxoMT5IZXJlIG1pZ2h0IGJlIGEgcGFnZSB0aXRsZTwvaDE+XG4gICAgPC90ZW1wbGF0ZT5cblxuICAgIDx0ZW1wbGF0ZSAjZGVmYXVsdD5cbiAgICAgIDxwPkEgcGFyYWdyYXBoIGZvciB0aGUgbWFpbiBjb250ZW50LjwvcD5cbiAgICAgIDxwPkFuZCBhbm90aGVyIG9uZS48L3A+XG4gICAgPC90ZW1wbGF0ZT5cblxuICAgIDx0ZW1wbGF0ZSAjZm9vdGVyPlxuICAgICAgPHA+SGVyZSdzIHNvbWUgY29udGFjdCBpbmZvPC9wPlxuICAgIDwvdGVtcGxhdGU+XG4gIDwvQmFzZUxheW91dD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkJhc2VMYXlvdXQudnVlIjoiPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwiY29udGFpbmVyXCI+XG4gICAgPGhlYWRlcj5cbiAgICAgIDxzbG90IG5hbWU9XCJoZWFkZXJcIj48L3Nsb3Q+XG4gICAgPC9oZWFkZXI+XG4gICAgPG1haW4+XG4gICAgICA8c2xvdD48L3Nsb3Q+XG4gICAgPC9tYWluPlxuICAgIDxmb290ZXI+XG4gICAgICA8c2xvdCBuYW1lPVwiZm9vdGVyXCI+PC9zbG90PlxuICAgIDwvZm9vdGVyPlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZT5cbiAgZm9vdGVyIHtcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgI2NjYztcbiAgICBjb2xvcjogIzY2NjtcbiAgICBmb250LXNpemU6IDAuOGVtO1xuICB9XG48L3N0eWxlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U0tu2zAQvcqAXmQTS83GKFTVQLvuEbhRZLpWIJEESbtJgwBJ0wYoUKBdJbsuegKnX8ONfQbyRhlKsi3ZSWBD0LyZeW9+OiWvpAwmY0YiEutUZdL0Kc8KKZSB14lmb5ITMTYwVKKAvSDcQD5pj3IAytlxGT5gw2ScGzj1aCqQgzNudFQB0KDz9hnl+I/DtSgahhUyTwxDCyDexJc2Iis/dEYsGTBV4+gZHfTtD3fpPoC9s0v71/4Be+ttOwO7sFP7z/60U3AXiCzdubtGcG5ncYiJNXnYUN/Rq3vbCMq+/WZvkXbqrsD+tv/dV0DmC+RdopR//rJLwIA7d+1l3WUQh7JFcAXusy90ifkzu2j4ny5mKIQpm6fG/zzVd5T4AqhyjkV88k3PkXaB3U7tHJ9Yj7sB37b76AeAU8LCsbKbR0S92VpAw0v2SXUh3SKRwZEWHK+nXDKtHZqS9dopwUvxNiUjY6SOwlAPU38+RzoQ6m2Ib4Eac5MVLGC66B4q8U4zhcSU7Dc4QgQnTHUV47h7pp7i3Ard4V1dILbSPmn/HbTHMMgmkOaJ1i8pSQU3Sca99mpo25eoc2GAJwXD8MqHsXjmCK/n3MqJC2Rs52/HNyLi9fIf0Kt8u3qNnDjEftrrLD89bU7yquEqeLW9Q6Gw1K4RMoIDeQxa5NkAOmmavqgCUpELFUGn1+vVyBCH1NXZexbBs+A5K0q4+tZLEXJ2D1Emtg4=)
 
 </div>
 
-Again, it may help you understand named slots better using the JavaScript function analogy:
+Знову ж таки, це може допомогти вам краще зрозуміти іменовані слоти за допомогою аналогії функції JavaScript:
 
 ```js
-// passing multiple slot fragments with different names
+// передача кількох фрагментів слота з різними іменами
 BaseLayout({
   header: `...`,
   default: `...`,
   footer: `...`
 })
 
-// <BaseLayout> renders them in different places
+// <BaseLayout> відображає їх у різних місцях
 function BaseLayout(slots) {
   return `<div class="container">
       <header>${slots.header}</header>
@@ -296,9 +296,9 @@ function BaseLayout(slots) {
 }
 ```
 
-## Dynamic Slot Names {#dynamic-slot-names}
+## Динамічні назви слотів {#dynamic-slot-names}
 
-[Dynamic directive arguments](/guide/essentials/template-syntax.md#dynamic-arguments) also work on `v-slot`, allowing the definition of dynamic slot names:
+[Аргументи динамічних директив](/guide/essentials/template-syntax.md#dynamic-arguments) також спрацюють з `v-slot`, що дозволяє визначати динамічні назви слотів:
 
 ```vue-html
 <base-layout>
@@ -306,22 +306,22 @@ function BaseLayout(slots) {
     ...
   </template>
 
-  <!-- with shorthand -->
+  <!-- зі скороченням -->
   <template #[dynamicSlotName]>
     ...
   </template>
 </base-layout>
 ```
 
-Do note the expression is subject to the [syntax constraints](/guide/essentials/template-syntax.html#directives) of dynamic directive arguments.
+Зверніть увагу, що на вираз поширюються [синтаксичні обмеження](/guide/essentials/template-syntax.html#directives) аргументів динамічних директив.
 
-## Scoped Slots {#scoped-slots}
+## Обмежені слоти {#scoped-slots}
 
-As discussed in [Render Scope](#render-scope), slot content does not have access to state in the child component.
+Як зазначено в розділі [область візуалізації](#render-scope), вміст слота не має доступу до стану в дочірньому компоненті.
 
-However, there are cases where it could be useful if a slot's content can make use of data from both the parent scope and the child scope. To achieve that, we need a way for the child to pass data to a slot when rendering it.
+Проте є випадки, коли може бути корисно, якщо вміст слота може використовувати дані як з батьківської, так і з дочірньої областей. Щоб досягти цього, нам потрібен спосіб, за допомогою якого дочірній компонент передає дані в слот під час їх рендерингу.
 
-In fact, we can do exactly that - we can pass attributes to a slot outlet just like passing props to a component:
+Фактично, ми можемо зробити саме це - ми можемо передати атрибути до виводу так само як передати атрибути до компонента:
 
 ```vue-html
 <!-- <MyComponent> template -->
@@ -330,7 +330,7 @@ In fact, we can do exactly that - we can pass attributes to a slot outlet just l
 </div>
 ```
 
-Receiving the slot props is a bit different when using a single default slot vs. using named slots. We are going to show how to receive props using a single default slot first, by using `v-slot` directly on the child component tag:
+Отримання реквізитів слотів дещо відрізняється при використанні одного слота за замовчуванням порівняно з використанням іменованих слотів. Ми збираємося показати, як отримати реквізити, використовуючи спочатку один слот за замовчуванням завдяки `v-slot` безпосередньо в тегу дочірнього компонента:
 
 ```vue-html
 <MyComponent v-slot="slotProps">
@@ -338,45 +338,45 @@ Receiving the slot props is a bit different when using a single default slot vs.
 </MyComponent>
 ```
 
-![scoped slots diagram](./images/scoped-slots.svg)
+![діаграма обмежених слотів](./images/scoped-slots.svg)
 
-<!-- https://www.figma.com/file/QRneoj8eIdL1kw3WQaaEyc/scoped-slot -->
+<!-- https://www.figma.com/file/zWaGeuSbwolYlz8LArwW8h/scoped-slot-(Copy) -->
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBNeUNvbXBvbmVudCBmcm9tICcuL015Q29tcG9uZW50LnZ1ZSdcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxNeUNvbXBvbmVudCB2LXNsb3Q9XCJzbG90UHJvcHNcIj5cbiAgXHR7eyBzbG90UHJvcHMudGV4dCB9fSB7eyBzbG90UHJvcHMuY291bnQgfX1cbiAgPC9NeUNvbXBvbmVudD5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIk15Q29tcG9uZW50LnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5jb25zdCBncmVldGluZ01lc3NhZ2UgPSAnaGVsbG8nXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8ZGl2PlxuICBcdDxzbG90IDp0ZXh0PVwiZ3JlZXRpbmdNZXNzYWdlXCIgOmNvdW50PVwiMVwiPjwvc2xvdD5cblx0PC9kaXY+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9kcFOwzAMhl/FymWXNRHXqkNCnCfxALmMziud1iSKvQKqKiEeggfhxI1X2N4IZ52mUtBOif/Yn2P/nboLQbd7VLkqqIx1YCDkfbi1rm6CjwzL13svN4eOYRN9AzNtRloqnllXmKFa6iRgbMJuxZgiLsaENqOd54VV6XiIPpBVkgVguevgImrGF4a+h19i6feC6PuUX4w/IYTCXJqquRr+njWroLfknUzXnZqcH6RpDiclaTJBiq16Yg6UG0ObMo21Je1jZeSmozSuG9RITfYY/TNhFLBV8xHDiNhizCK6NUaM15iT1D/chJUxexllsut/jCq9I4YqInLtqiUSrSqEBcwO38e3w9fh8/hxfL/mkWxzXbdnG4q0b8iTAWLThGoV5CcX5OlGnBOkZA82m4ExNqL/Abv73N4=)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBNeUNvbXBvbmVudCBmcm9tICcuL015Q29tcG9uZW50LnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHtcbiAgICBNeUNvbXBvbmVudFxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8TXlDb21wb25lbnQgdi1zbG90PVwic2xvdFByb3BzXCI+XG4gIFx0e3sgc2xvdFByb3BzLnRleHQgfX0ge3sgc2xvdFByb3BzLmNvdW50IH19XG4gIDwvTXlDb21wb25lbnQ+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJNeUNvbXBvbmVudC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBncmVldGluZ01lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxkaXY+XG4gIFx0PHNsb3QgOnRleHQ9XCJncmVldGluZ01lc3NhZ2VcIiA6Y291bnQ9XCIxXCI+PC9zbG90PlxuXHQ8L2Rpdj5cbjwvdGVtcGxhdGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqFUkFOwzAQ/MrKl4JEY3GNAhLiXIkH+BKSbUjV2Ja9CUVRJMQjeAgnbnyh/RHrpInSgkCKFO94PePZcSvurI2aGkUsEp+50tKt0mVljSNYvdwbXmnUBGtnKlhEcoaFYwulAZTGXX8gx3VabwnagGZjn48HAOaEAeiU5i+Rky4XhJXdpoShomR+g2bpt4ZulAi/B2esV4K7WJ7aFiYwItwRdB2cgJmpmaJjOYBkboIZEjmJiisxeF9WqY023mieS395ddxg0cmOEjyBUCvxRGR9LKVfZ2EsGx8ZV0heRY6Fywoj9NXy0Zlnj46JlbiacUgGG3RLhzpHh+4vzrPWH7zjYNnKWVYnEf+WWJ5SenE5unNItdNjBVA4RCp1sULv0wJjWOy/Dq/7z/3H4f3w1j+EXvnfXDmBvGyO0SUhI4hDaBztmYYSEPfJ8dY1p82U3D08DTlwzMPrvgGJpQEj)
 
 </div>
 
-The props passed to the slot by the child are available as the value of the corresponding `v-slot` directive, which can be accessed by expressions inside the slot.
+Реквізити, передані дочірнім слотом, доступні як значення відповідної директиви `v-slot`, доступ до якої можна отримати за допомогою виразів у слоті.
 
-You can think of a scoped slot as a function being passed into the child component. The child component then calls it, passing props as arguments:
+Ви можете розглядати обмежений слот як функцію, яка передається дочірньому компоненту. Потім дочірній компонент викликає його, передаючи властивості як аргументи:
 
 ```js
 MyComponent({
-  // passing the default slot, but as a function
+  // передаємо слот за замовчуванням, але як функцію
   default: (slotProps) => {
     return `${slotProps.text} ${slotProps.count}`
   }
 })
 
 function MyComponent(slots) {
-  const greetingMessage = 'hello'
+  const greetingMessage = 'привіт'
   return `<div>${
-    // call the slot function with props!
+    // виклик функції слота за допомогою пропсів!
     slots.default({ text: greetingMessage, count: 1 })
   }</div>`
 }
 ```
 
-In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/extras/render-function.html).
+Фактично, це дуже близько до того, як компілюються обмежені слоти та як ви б використовували обмежені слоти у користувацьких [функціях візуалізації](/guide/extras/render-function.html).
 
-Notice how `v-slot="slotProps"` matches the slot function signature. Just like with function arguments, we can use destructuring in `v-slot`:
+Зверніть увагу, як `v-slot="slotProps"` відповідає сигнатурі функції слота. Як і з аргументами функції, ми можемо використовувати деструктуризацію у `v-slot`:
 
 ```vue-html
 <MyComponent v-slot="{ text, count }">
@@ -384,9 +384,9 @@ Notice how `v-slot="slotProps"` matches the slot function signature. Just like w
 </MyComponent>
 ```
 
-### Named Scoped Slots {#named-scoped-slots}
+### Іменовані обмежені слоти {#named-scoped-slots}
 
-Named scoped slots work similarly - slot props are accessible as the value of the `v-slot` directive: `v-slot:name="slotProps"`. When using the shorthand, it looks like this:
+Іменовані обмежені слоти працюють аналогічно – властивості слота доступні як значення директиви `v-slot`: `v-slot:name="slotProps"`. При використанні скорочення це виглядає так:
 
 ```vue-html
 <MyComponent>
@@ -404,62 +404,62 @@ Named scoped slots work similarly - slot props are accessible as the value of th
 </MyComponent>
 ```
 
-Passing props to a named slot:
+Передача реквізитів у іменований слот:
 
 ```vue-html
-<slot name="header" message="hello"></slot>
+<slot name="header" message="привіт"></slot>
 ```
 
-Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
+Зауважте, що `name` слота не буде включено до реквізитів, оскільки його зарезервовано, тому остаточний `headerProps` буде `{ message: 'привіт' }`.
 
-If you are mixing named slots with the default scoped slot, you need to use an explicit `<template>` tag for the default slot. Attempting to place the `v-slot` directive directly on the component will result in a compilation error. This is to avoid any ambiguity about the scope of the props of the default slot. For example:
+Якщо ви змішуєте іменовані слоти з обмеженим слотом за промовчанням, вам потрібно використовувати явний тег `<template>` для слота за промовчанням. Спроба розмістити директиву `v-slot` безпосередньо в компоненті призведе до помилки компіляції. Це зроблено для того, щоб уникнути будь-якої двозначності щодо обсягу реквізитів слота за промовчанням. Наприклад:
 
 ```vue-html
-<!-- This template won't compile -->
+<!-- Цей шаблон не скомпілюється -->
 <template>
   <MyComponent v-slot="{ message }">
     <p>{{ message }}</p>
     <template #footer>
-      <!-- message belongs to the default slot, and is not available here -->
+      <!-- повідомлення належить до слота за промовчанням і тут недоступне -->
       <p>{{ message }}</p>
     </template>
   </MyComponent>
 </template>
 ```
 
-Using an explicit `<template>` tag for the default slot helps to make it clear that the `message` prop is not available inside the other slot:
+Використання явного тегу `<template>` для слота за промовчанням допомагає зрозуміти, що властивість `message` недоступна в іншому слоті:
 
 ```vue-html
 <template>
   <MyComponent>
-    <!-- Use explicit default slot -->
+    <!-- Використовуйте явний слот за промовчанням -->
     <template #default="{ message }">
       <p>{{ message }}</p>
     </template>
 
     <template #footer>
-      <p>Here's some contact info</p>
+      <p>Ось трохи контактної інформації</p>
     </template>
   </MyComponent>
 </template>
 ```
 
-### Fancy List Example {#fancy-list-example}
+### Приклад гарного списку {#fancy-list-example}
 
-You may be wondering what would be a good use case for scoped slots. Here's an example: imagine a `<FancyList>` component that renders a list of items - it may encapsulate the logic for loading remote data, using the data to display a list, or even advanced features like pagination or infinite scrolling. However, we want it to be flexible with how each item looks and leave the styling of each item to the parent component consuming it. So the desired usage may look like this:
+Можливо, вам цікаво, що було б гарним варіантом використання для обмежених слотів. Ось приклад: уявіть компонент `<FancyList>`, який рендерить список елементів - він може інкапсулювати логіку для завантаження віддалених даних, використання даних для відображення списку або навіть розширені функції, такі як розбиття на сторінки або нескінченне прокручування. Однак ми хочемо, щоб він був гнучким щодо того, як виглядає кожен елемент, і залишив стиль кожного елемента батьківському компоненту, який його використовує. Отже, бажане використання може виглядати так:
 
 ```vue-html
 <FancyList :api-url="url" :per-page="10">
   <template #item="{ body, username, likes }">
     <div class="item">
       <p>{{ body }}</p>
-      <p>by {{ username }} | {{ likes }} likes</p>
+      <p>автор: {{ username }} | {{ likes }} вподобайок</p>
     </div>
   </template>
 </FancyList>
 ```
 
-Inside `<FancyList>`, we can render the same `<slot>` multiple times with different item data (notice we are using `v-bind` to pass an object as slot props):
+Усередині `<FancyList>` ми можемо кілька разів візуалізувати той самий `<slot>` з різними даними елемента (зверніть увагу, що ми використовуємо `v-bind`, щоб передати об’єкт як реквізити слота):
 
 ```vue-html
 <ul>
@@ -471,40 +471,40 @@ Inside `<FancyList>`, we can render the same `<slot>` multiple times with differ
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBGYW5jeUxpc3QgZnJvbSAnLi9GYW5jeUxpc3QudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEZhbmN5TGlzdCA6YXBpLXVybD1cInVybFwiIDpwZXItcGFnZT1cIjEwXCI+XG4gICAgPHRlbXBsYXRlICNpdGVtPVwieyBib2R5LCB1c2VybmFtZSwgbGlrZXMgfVwiPlxuICAgICAgPGRpdiBjbGFzcz1cIml0ZW1cIj5cbiAgICAgICAgPHA+e3sgYm9keSB9fTwvcD5cbiAgICAgICAgPHAgY2xhc3M9XCJtZXRhXCI+Ynkge3sgdXNlcm5hbWUgfX0gfCB7eyBsaWtlcyB9fSBsaWtlczwvcD5cbiAgICAgIDwvZGl2PlxuICAgIDwvdGVtcGxhdGU+XG4gIDwvRmFuY3lMaXN0PlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlIHNjb3BlZD5cbi5tZXRhIHtcbiAgZm9udC1zaXplOiAwLjhlbTtcbiAgY29sb3I6ICM0MmI4ODM7XG59XG48L3N0eWxlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJGYW5jeUxpc3QudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgcHJvcHMgPSBkZWZpbmVQcm9wcyhbJ2FwaS11cmwnLCAncGVyLXBhZ2UnXSlcblxuY29uc3QgaXRlbXMgPSByZWYoW10pXG5cbi8vIG1vY2sgcmVtb3RlIGRhdGEgZmV0Y2hpbmdcbnNldFRpbWVvdXQoKCkgPT4ge1xuICBpdGVtcy52YWx1ZSA9IFtcbiAgICB7IGJvZHk6ICdTY29wZWQgU2xvdHMgR3VpZGUnLCB1c2VybmFtZTogJ0V2YW4gWW91JywgbGlrZXM6IDIwIH0sXG5cdCAgeyBib2R5OiAnVnVlIFR1dG9yaWFsJywgdXNlcm5hbWU6ICdOYXRhbGlhIFRlcGx1aGluYScsIGxpa2VzOiAxMCB9XG4gIF1cbn0sIDEwMDApXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8dWw+XG4gICAgPGxpIHYtaWY9XCIhaXRlbXMubGVuZ3RoXCI+XG4gICAgICBMb2FkaW5nLi4uXG4gICAgPC9saT5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGl0ZW1zXCI+XG4gICAgICA8c2xvdCBuYW1lPVwiaXRlbVwiIHYtYmluZD1cIml0ZW1cIi8+XG4gICAgPC9saT5cbiAgPC91bD5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZSBzY29wZWQ+XG4gIHVsIHtcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XG4gICAgcGFkZGluZzogNXB4O1xuICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgzMTVkZWcsICM0MmQzOTIgMjUlLCAjNjQ3ZWZmKTtcbiAgfVxuICBsaSB7XG4gICAgcGFkZGluZzogNXB4IDIwcHg7XG4gICAgbWFyZ2luOiAxMHB4O1xuICAgIGJhY2tncm91bmQ6ICNmZmY7XG4gIH1cbjwvc3R5bGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqFVM1y3EQQfpVGLmrXVbvS2o7BiLWruHDiwIHiYuWgXY02k0ijqZnRgllURUj5CgcgnCiqeADKSSUQYq/zCqM34htptT+Qn4N21d36vp7u/noW3idS+vOSeaE31lPFpSHNTCnPIsFzWShDn8ZievEZ14ZSVeTU84O1xwF7kRgHLRIYGIblMosNg0U03qDDWPJhqbLTyMNv5FEomRrKeMbgORhFXgMApCOgPY5XBBc0KZKLAZWaKRHnbEAZf8A0VWsMUAmf0zSLtQbA4bZiiMqzRctCVTUOXHWb0BqWMxMDZq/s0/p7e1t/FxJQXVYg6VvnWCWvyD61r+ytfYbnCUD/4P/lNvk4wKG6qoLdvmyaCHsnCFObi4yRnhaSJfD47mC0cLi0EGao+TcspJF/wvKPnXNaZIUKae/O4eTk5AiuqpmJIznzBl47x2EeS/++LgQm3VChTU1ARx7qbE8ZeZiosyPvnjFSh0Gg06kb833tF2oW4M1XpTA8Zz7T+XCiiq/QHxBH3mCLI4BzjvEqJhKmmHob538+/R+vo0VFFUrZUd6bJbsgxVKqVoJtRRqJaSEgQ6kKqemUEpZywT53Vv+8t9Jmb0C9TpW9u/sblFOUQ4G3f94GgoDqh/aFvakf2ev6h/pne2NvoYn6MRTxDHq4ts/t0j4n+7dTFJ4lVHVl/2rcy/pHar5a2hf1ZSRQwRdoalGafn+fTs/aiTRp/XmclQzJz9sGt0IOqWd/crnIiZAaDd6AuqUHpzvdNVSMnPUlCut07IC/tOch+ycCjZ5DOhxRhRFGZjvD7yB4iCxPHKd92eb6Eg3d5fsNOVxt1/VjV9cfOMMrGI/qS2CX9mqT5QBZXBl3MdABrNEIzXzbBVJm3QZlnOZDnmJR32v7kjExM/e2Ft3++vpO+77fbWHGd+jSQq3uC+Kibff2paKzwpArcn2pADPhIlnbwXq/V8zjoDnxO1aaqMy6pcug52ETH5oLiX6KQrBmsYlknCRczEI6ll+vXJN4+mCmilIkIaCCxWo4U3HCmTD9o4PjhM0G7ipIjj46pMPj92F8cOdDlqb7Db5pPkpf5d7mhwLWSfJYzbhw43pt3r00TTu69U1T/QsHV2jR)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBGYW5jeUxpc3QgZnJvbSAnLi9GYW5jeUxpc3QudnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEZhbmN5TGlzdFxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8RmFuY3lMaXN0IGFwaS11cmw9XCJ1cmxcIiA6cGVyLXBhZ2U9XCIxMFwiPlxuICAgIDx0ZW1wbGF0ZSAjaXRlbT1cInsgYm9keSwgdXNlcm5hbWUsIGxpa2VzIH1cIj5cbiAgICAgIDxkaXYgY2xhc3M9XCJpdGVtXCI+XG4gICAgICAgIDxwPnt7IGJvZHkgfX08L3A+XG4gICAgICAgIDxwIGNsYXNzPVwibWV0YVwiPmJ5IHt7IHVzZXJuYW1lIH19IHwge3sgbGlrZXMgfX0gbGlrZXM8L3A+XG4gICAgICA8L2Rpdj5cbiAgICA8L3RlbXBsYXRlPlxuICA8L0ZhbmN5TGlzdD5cbjwvdGVtcGxhdGU+XG5cbjxzdHlsZSBzY29wZWQ+XG4ubWV0YSB7XG4gIGZvbnQtc2l6ZTogMC44ZW07XG4gIGNvbG9yOiAjNDJiODgzO1xufVxuPC9zdHlsZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiRmFuY3lMaXN0LnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIHByb3BzOiBbJ2FwaS11cmwnLCAncGVyLXBhZ2UnXSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgaXRlbXM6IFtdXG4gICAgfVxuICB9LFxuICBtb3VudGVkKCkge1xuICAgIC8vIG1vY2sgcmVtb3RlIGRhdGEgZmV0Y2hpbmdcbiAgICBzZXRUaW1lb3V0KCgpID0+IHtcbiAgICAgIHRoaXMuaXRlbXMgPSBbXG4gICAgICAgIHsgYm9keTogJ1Njb3BlZCBTbG90cyBHdWlkZScsIHVzZXJuYW1lOiAnRXZhbiBZb3UnLCBsaWtlczogMjAgfSxcbiAgICAgICAgeyBib2R5OiAnVnVlIFR1dG9yaWFsJywgdXNlcm5hbWU6ICdOYXRhbGlhIFRlcGx1aGluYScsIGxpa2VzOiAxMCB9XG4gICAgICBdXG4gICAgfSwgMTAwMClcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHVsPlxuICAgIDxsaSB2LWlmPVwiIWl0ZW1zLmxlbmd0aFwiPlxuICAgICAgTG9hZGluZy4uLlxuICAgIDwvbGk+XG4gICAgPGxpIHYtZm9yPVwiaXRlbSBpbiBpdGVtc1wiPlxuICAgICAgPHNsb3QgbmFtZT1cIml0ZW1cIiB2LWJpbmQ9XCJpdGVtXCIvPlxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPlxuXG48c3R5bGUgc2NvcGVkPlxuICB1bCB7XG4gICAgbGlzdC1zdHlsZS10eXBlOiBub25lO1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMzE1ZGVnLCAjNDJkMzkyIDI1JSwgIzY0N2VmZik7XG4gIH1cbiAgbGkge1xuICAgIHBhZGRpbmc6IDVweCAyMHB4O1xuICAgIG1hcmdpbjogMTBweDtcbiAgICBiYWNrZ3JvdW5kOiAjZmZmO1xuICB9XG48L3N0eWxlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNVN1u3EQUfpWDI7SJtLY3SQPBbCJxwxWXiJu6F971eDOtPbZmxqFhWYlS5RYugHKFkHgAlFYtlCabvsL4jfhmvPbuQgSV1l6fMz7fd34+n7n3SVUF5zXzIm+sppJX+jQWvKhKqenTREwvPuNKUybLggZB2HtsyCAWRLFgj93LKcuSOtc0t95pCQTBhFZR66A1mDUXscBvHPaMMDQrqjzRDBbReM2dVNyvZX4Se7jHHkUVk36VzBg8+6PYc+8joounHY5HHM5pUqYXQ6oVkyIp2JBy/ogpkHcxiEr5OU3zRCkE2LiNM5xWp/MWhRaLcVhtHfVhBdMJwsyVedF8a26bb1DzvGdFJH1tHSvyBZkX5q25NS9xPUfQX/h/swk+DpFUV1W43Zb1BGBvHcJU+iJnpKZlxVJ4AptY2/6sFNpX/CsW0Sg4ZsXH7ZDyUka0c+9gcnx8CFc7Egty6g29VgR+kVTBQ1UKCMRBoU3uQMVeP9vYgxysHXtnWlcqCkOVTa1GHqqglLMQT4GsheYFC5gq/Iksv0R/ABx7ww2MEM5zjFcykTLJ5H9h/uPVf+F2OkMpW7LdUvpd4q1kCTq6P1gpbzCkQae5wQOXbproZHevK18yXUvRWURWRxbgQetAEri5uKJEE1i6Dg1Dap6Y1+ameWqum++aH82NuYVCmmfQx0uo49q8MkvzisyfVl+4ltDYlfnDuZfN9+TeWprXzWWLqJj+HG0ua70LmpPTdVr6jKvA5UYndH8t5VbhEQ3MD5aWrDrJifMGLC0T4G2i15A36JtL9KQTuA38qU2NzO84cEKP6GDkio41ZqtjvWb5FSBPwPTc4po3Ld8X2CfbmL+Ax5Z63TyzZf6GPN7CeNpcInZprtZM+2Dqyul6PoR3NNp7t2VT593nlnM693mGr/o916kgZ2Kmzza2gvn57kEEQdB9sjnfgstKuVouxEUrjs0NpPJSky2630CImXCR9nbYL4MV8jh0Gf/P909U5930c4jfd+e+vqjQX4H17LYA9J6kKReziI6qxyvXJJk+mkmINY0QKlgi/ZlMUo6Nvnu4f5Sy2dDujfTwowM6OHofxgf3PmRZtufi3TBQ+op7Ex+q6EmKRM64sOO7k3cny7IOrl9Li78B9ayCew==)
 
 </div>
 
 ### Компоненти без рендерингу {#renderless-components}
 
-The `<FancyList>` use case we discussed above encapsulates both reusable logic (data fetching, pagination etc.) and visual output, while delegating part of the visual output to the consumer component via scoped slots.
+Варіант використання `<FancyList>`, який ми обговорювали вище, інкапсулює як багаторазову логіку (вибірка даних, розбиття на сторінки тощо), так і візуальний вихід, делегуючи частину візуального виводу споживчому компоненту через обмежені слоти.
 
-If we push this concept a bit further, we can come up with components that only encapsulate logic and do not render anything by themselves - visual output is fully delegated to the consumer component with scoped slots. We call this type of component a **Renderless Component**.
+Якщо ми просунемо цю концепцію трохи далі, ми зможемо створити компоненти, які лише інкапсулюють логіку, а самі по собі нічого не рендерять — візуальний вихід повністю делегується споживчому компоненту з обмеженими слотами. Ми називаємо цей тип компонента **Компонент без рендерингу**.
 
-An example renderless component could be one that encapsulates the logic of tracking the current mouse position:
+Прикладом компонента без рендерингу може бути компонент, який інкапсулює логіку відстеження поточної позиції миші:
 
 ```vue-html
 <MouseTracker v-slot="{ x, y }">
-  Mouse is at: {{ x }}, {{ y }}
+  Координати миші: {{ x }}, {{ y }}
 </MouseTracker>
 ```
 
 <div class="composition-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBNb3VzZVRyYWNrZXIgZnJvbSAnLi9Nb3VzZVRyYWNrZXIudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PE1vdXNlVHJhY2tlciB2LXNsb3Q9XCJ7IHgsIHkgfVwiPlxuICBcdE1vdXNlIGlzIGF0OiB7eyB4IH19LCB7eyB5IH19XG5cdDwvTW91c2VUcmFja2VyPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiTW91c2VUcmFja2VyLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgeyByZWYsIG9uTW91bnRlZCwgb25Vbm1vdW50ZWQgfSBmcm9tICd2dWUnXG4gIFxuY29uc3QgeCA9IHJlZigwKVxuY29uc3QgeSA9IHJlZigwKVxuXG5jb25zdCB1cGRhdGUgPSBlID0+IHtcbiAgeC52YWx1ZSA9IGUucGFnZVhcbiAgeS52YWx1ZSA9IGUucGFnZVlcbn1cblxub25Nb3VudGVkKCgpID0+IHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdtb3VzZW1vdmUnLCB1cGRhdGUpKVxub25Vbm1vdW50ZWQoKCkgPT4gd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIHVwZGF0ZSkpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8c2xvdCA6eD1cInhcIiA6eT1cInlcIi8+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqNUkFO6zAQvcrIm7ZS6vx1FJD+4u8+O5BA8iY0U0hpbMt20kZRJMSKE7DgFCxYdAGcwb0R46agtgjEwtLMs9/zvJlp2V+teV0hS1hqJ6bQDiy6Sh8LWZRaGQcnqrJ4arLJDRqYGlXCgMe7YKAPhEzjnk9MShyWep45DJlL9zTqsZ0rdyRYC8sIGugEo1cAwvlH/+bf1rf+2a/8q39a3/kV+Be/Wt+vHxJoiQBdF4WAaN1Geq8U0knjz69ZxHoP4zLTfGaVJJft5qvthRWMZAMSMPIRcsGundM2iWM7nQRzM8uVuYop4qaSriiRoy3Hl0YtLNmfkUq0oxETWKMZG5Q5GjQ/aR48/aIbZMlnR1YOW/79xFowOI1ASaJIh3kIz2TZJ9Bth9hPjWqWEyWto9YeBd7wz+gDaXaQD6zSObWWLugc961b8jqbVxuM6+wKzwPYHIAXZCKofBY1HI6CwqKQuVrwLM//1Sjd/8I6lGiGAyrXYqlqHETbT0dUxo6RfQGzefsrjW8XFSANmwnJkpZzKRgkDQWNYPHBXnXviRYqKQ==)
 
 </div>
 <div class="options-api">
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBNb3VzZVRyYWNrZXIgZnJvbSAnLi9Nb3VzZVRyYWNrZXIudnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIE1vdXNlVHJhY2tlclxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8TW91c2VUcmFja2VyIHYtc2xvdD1cInsgeCwgeSB9XCI+XG4gIFx0TW91c2UgaXMgYXQ6IHt7IHggfX0sIHt7IHkgfX1cblx0PC9Nb3VzZVRyYWNrZXI+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJNb3VzZVRyYWNrZXIudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgeDogMCxcbiAgICAgIHk6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICB1cGRhdGUoZSkge1xuICAgICAgdGhpcy54ID0gZS5wYWdlWFxuICAgICAgdGhpcy55ID0gZS5wYWdlWVxuICAgIH1cbiAgfSxcbiAgbW91bnRlZCgpIHtcbiAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignbW91c2Vtb3ZlJywgdGhpcy51cGRhdGUpXG4gIH0sXG4gIHVubW91bnRlZCgpIHtcbiAgICB3aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcignbW91c2Vtb3ZlJywgdGhpcy51cGRhdGUpXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxzbG90IDp4PVwieFwiIDp5PVwieVwiLz5cbjwvdGVtcGxhdGU+In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNqVkr2O2zAMx1+F0JIc4MidDV+BDt3arUMLaHFj5uI0lgSJdmwEAYpOfYIOfYoOHTK09wzKGx0dX5xz7gM4wDBESvyR/JNb8c5aWVcoEpH6uSssvVW6KK1xBB9N5fGTy+bf0MHCmRImMn7o7AInSgMojc0xJMdFVq0Jtp13bpijUZNPegeMkJ1npzR/aTykZoOwtOuMsLMoHRVRz/za0LUSW2giaDlc8CvOT+F3uA23h+/hb9iH/+HP4UfYQ/gX9oefh1+cngNgt4u6A4dxTkaPemFOGg+pRSR6EWZlZuXKG80CHXtQ9xdeiaErJViIzlZiSWR9Esd+Me/UWXlp3E3MJ+kqTUWJEn05++rMxrN+K6ZEDxgxO2t0M4c6R8cSvcC8ePqIe5KXW7mc2WjYT00uzyibXp3ac0iV0ycLoEngzX3VAC0b/ZmT8e94USItTX4ee2WZiFMckAC0LLxs4BpQ2uwGP4/87eD/8phtWEjMz+VtCp2bjczy/H3Ny/ah8IQa3XTCLz2WpsZJ1GP7Mq7OrEo/R3PHwNcAX95kgLRbXUga3t5GCUhaPrRKxBeLt7sDUp9Bog==)
 
 </div>
 
-While an interesting pattern, most of what can be achieved with Renderless Components can be achieved in a more efficient fashion with Composition API, without incurring the overhead of extra component nesting. Later, we will see how we can implement the same mouse tracking functionality as a [Composable](/guide/reusability/composables.html).
+Не зважаючи на цікаву модель, більшість із того, що можна досягти за допомогою компонентів без рендерингу, можна досягти більш ефективним способом за допомогою композиційного API, не зазнаючи накладних витрат на вкладення додаткових компонентів. Пізніше ми побачимо, як можна реалізувати ту саму функцію відстеження миші, що й [композиційна](/guide/reusability/composables.html).
 
-That said, scoped slots are still useful in cases where we need to both encapsulate logic **and** compose visual output, like in the `<FancyList>` example.
+Проте, обмежені слоти все ще корисні у випадках, коли нам потрібно інкапсулювати логіку, **а також** створити візуальне виведення, як у прикладі з `<FancyList>`.
