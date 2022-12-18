@@ -26,7 +26,6 @@
 Ця команда встановить та виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проектів Vue.
 
 - Щоб дізнатися більше про Vite, перегляньте [документацію Vite](https://vitejs.dev).
-
 - Щоб налаштувати спеціальну поведінку Vue у проекті Vite, наприклад, передати параметри компілятору Vue, перегляньте документацію для [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
 
 Обидві онлайн-пісочниці, згадані вище, також підтримують завантаження файлів як проект Vite.
