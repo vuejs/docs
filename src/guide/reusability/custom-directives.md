@@ -93,7 +93,7 @@ export default {
 ```js
 const app = createApp({})
 
-// зробити v-focus придатним для використання в усіх компонентах
+// робить v-focus придатним для використання в усіх компонентах
 app.directive('focus', {
   /* ... */
 })
