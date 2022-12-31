@@ -43,6 +43,7 @@ Detailed [prop definitions](/guide/components/props.html#prop-validation) have t
 - In development, Vue will warn you if a component is ever provided incorrectly formatted props, helping you catch potential sources of error.
   :::
 
+<div class="options-api">
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -81,6 +82,47 @@ props: {
 }
 ```
 
+</div>
+</div>
+
+<div class="composition-api">
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```js
+// This is only OK when prototyping
+const props = defineProps(['status'])
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```js
+const props = defineProps({
+  status: String
+})
+```
+
+```js
+// Even better!
+
+const props = defineProps({
+  status: {
+    type: String,
+    required: true,
+
+    validator: (value) => {
+      return ['syncing', 'synced', 'version-conflict', 'error'].includes(
+        value
+      )
+    }
+  }
+})
+```
+
+</div>
 </div>
 
 ## Use keyed `v-for` {#use-keyed-v-for}
@@ -336,102 +378,6 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
   background-color: red;
 }
 </style>
-```
-
-</div>
-
-## Avoid exposing private functions in mixins {#avoid-exposing-private-functions-in-mixins}
-
-Always use the `$_` prefix for custom private properties in a plugin, mixin, etc that should not be considered public API. Then to avoid conflicts with code by other authors, also include a named scope (e.g. `$_yourPluginName_`).
-
-::: details Detailed Explanation
-Vue uses the `_` prefix to define its own private properties, so using the same prefix (e.g. `_update`) risks overwriting an instance property. Even if you check and Vue is not currently using a particular property name, there is no guarantee a conflict won't arise in a later version.
-
-As for the `$` prefix, its purpose within the Vue ecosystem is special instance properties that are exposed to the user, so using it for _private_ properties would not be appropriate.
-
-Instead, we recommend combining the two prefixes into `$_`, as a convention for user-defined private properties that guarantee no conflicts with Vue.
-:::
-
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-
-```js
-const myGreatMixin = {
-  // ...
-  methods: {
-    update() {
-      // ...
-    }
-  }
-}
-```
-
-```js
-const myGreatMixin = {
-  // ...
-  methods: {
-    _update() {
-      // ...
-    }
-  }
-}
-```
-
-```js
-const myGreatMixin = {
-  // ...
-  methods: {
-    $update() {
-      // ...
-    }
-  }
-}
-```
-
-```js
-const myGreatMixin = {
-  // ...
-  methods: {
-    $_update() {
-      // ...
-    }
-  }
-}
-```
-
-</div>
-
-<div class="style-example style-example-good">
-<h3>Good</h3>
-
-```js
-const myGreatMixin = {
-  // ...
-  methods: {
-    $_myGreatMixin_update() {
-      // ...
-    }
-  }
-}
-```
-
-```js
-// Even better!
-const myGreatMixin = {
-  // ...
-  methods: {
-    publicMethod() {
-      // ...
-      myPrivateFunction()
-    }
-  }
-}
-
-function myPrivateFunction() {
-  // ...
-}
-
-export default myGreatMixin
 ```
 
 </div>
