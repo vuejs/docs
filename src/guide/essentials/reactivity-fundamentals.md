@@ -101,7 +101,7 @@ export default {
 <div>{{ state.count }}</div>
 ```
 
-Similarly, we can declare functions that mutate reactive state in the same scope and expose it as a method alongside the state:
+Similarly, we can declare functions that mutate reactive state in the same scope and expose them as methods alongside the state:
 
 ```js{7-9,14}
 import { reactive } from 'vue'
