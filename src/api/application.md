@@ -522,6 +522,8 @@ An object that can be used to register global properties that can be accessed on
     }
   }
   ```
+  
+- **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
 
