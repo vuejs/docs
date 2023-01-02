@@ -80,7 +80,10 @@
 
   Так же свойство `this.$refs` не реактивно, поэтому не следует использовать его в шаблонах для привязки данных.
 
-- **См. также:** [Ссылки на элементы шаблона](/guide/essentials/template-refs.html)
+- **См. также:**
+  - [Руководство - Ссылки на элементы шаблона](/guide/essentials/template-refs.html)
+  - [Guide - Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
+  - [Guide - Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
 
 ## is {#is}
 

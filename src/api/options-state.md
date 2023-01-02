@@ -125,7 +125,9 @@ Declare the props of a component.
   }
   ```
 
-- **См. также:** [Props](/guide/components/props.html)
+- **См. также:**
+  - [Guide - Props](/guide/components/props.html)
+  - [Guide - Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 ## computed {#computed}
 
@@ -205,7 +207,9 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **См. также:** [Computed Properties](/guide/essentials/computed.html)
+- **См. также:**
+  - [Guide - Computed Properties](/guide/essentials/computed.html)
+  - [Guide - Typing Computed Properties](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
 
 ## methods {#methods}
 
@@ -429,7 +433,9 @@ Declare the custom events emitted by the component.
   }
   ```
 
-- **См. также:** [Fallthrough Attributes](/guide/components/attrs.html)
+- **См. также:**
+  - [Guide - Fallthrough Attributes](/guide/components/attrs.html)
+  - [Guide - Typing Component Emits](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 ## expose {#expose}
 

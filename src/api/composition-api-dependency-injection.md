@@ -39,7 +39,7 @@
 
 - **См. также:**
   - [Guide - Provide / Inject](/guide/components/provide-inject.html)
-  - [Guide - Типизация Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
+  - [Guide - Типизация Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
 
 ## inject() {#inject}
 
@@ -103,4 +103,4 @@
 
 - **См. также:**
   - [Guide - Provide / Inject](/guide/components/provide-inject.html)
-  - [Guide - Типизация Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
+  - [Guide - Типизация Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
