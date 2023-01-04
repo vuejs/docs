@@ -35,9 +35,8 @@ export default {
 
 ```vue
 <script setup>
-  import { ref } from 'vue'
-  const greeting = ref('Hello World!')
-}
+import { ref } from 'vue'
+const greeting = ref('Hello World!')
 </script>
 
 <template>
