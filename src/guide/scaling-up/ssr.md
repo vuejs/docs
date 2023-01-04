@@ -219,7 +219,7 @@ A complete implementation would be quite complex and depends on the build toolch
 
 ### Nuxt {#nuxt}
 
-[Nuxt](https://v3.nuxtjs.org/) is a higher-level framework built on top of the Vue ecosystem which provides a streamlined development experience for writing universal Vue applications. Better yet, you can also use it as a static site generator! We highly recommend giving it a try.
+[Nuxt](https://nuxt.com/) is a higher-level framework built on top of the Vue ecosystem which provides a streamlined development experience for writing universal Vue applications. Better yet, you can also use it as a static site generator! We highly recommend giving it a try.
 
 ### Quasar {#quasar}
 
@@ -229,7 +229,7 @@ A complete implementation would be quite complex and depends on the build toolch
 
 Vite provides built-in [support for Vue server-side rendering](https://vitejs.dev/guide/ssr.html), but it is intentionally low-level. If you wish to go directly with Vite, check out [vite-plugin-ssr](https://vite-plugin-ssr.com/), a community plugin that abstracts away many challenging details for you.
 
-You can also find an example Vue + Vite SSR project using manual setup [here](https://github.com/vitejs/vite/tree/main/playground/ssr-vue), which can serve as a base to build upon. Note this is only recommended if you are experienced with SSR / build tools and really want to have complete control over the higher-level architecture.
+You can also find an example Vue + Vite SSR project using manual setup [here](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue), which can serve as a base to build upon. Note this is only recommended if you are experienced with SSR / build tools and really want to have complete control over the higher-level architecture.
 
 ## Writing SSR-friendly Code {#writing-ssr-friendly-code}
 

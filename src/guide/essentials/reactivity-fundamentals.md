@@ -101,7 +101,7 @@ export default {
 <div>{{ state.count }}</div>
 ```
 
-Similarly, we can declare functions that mutate reactive state in the same scope and expose it as a method alongside the state:
+Similarly, we can declare functions that mutate reactive state in the same scope and expose them as methods alongside the state:
 
 ```js{7-9,14}
 import { reactive } from 'vue'
@@ -214,7 +214,7 @@ In the example above, the method `increment` will be called when the `<button>` 
 
 ### DOM Update Timing {#dom-update-timing}
 
-When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component needs to update only once no matter how many state changes you have made.
+When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component updates only once no matter how many state changes you have made.
 
 To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general.html#nexttick) global API:
 

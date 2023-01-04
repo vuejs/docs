@@ -6,6 +6,7 @@ footer: false
 
 :::info You are reading the documentation for Vue 3!
 
+- Vue 2 support will end on Dec 31, 2023. Learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
 - Vue 2 documentation has been moved to [v2.vuejs.org](https://v2.vuejs.org/).
 - Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
   :::
