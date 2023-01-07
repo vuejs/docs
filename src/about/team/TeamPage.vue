@@ -1,5 +1,8 @@
 <script lang="ts">
-const shuffleMembers = (members: Member[], pinTheFirstMember = false): void => {
+const shuffleMembers = (
+  members: Member[],
+  pinTheFirstMember = false
+): void => {
   let offset = pinTheFirstMember ? 1 : 0
   // `i` is between `1` and `length - offset`
   // `j` is between `0` and `length - offset - 1`
@@ -7,11 +10,8 @@ const shuffleMembers = (members: Member[], pinTheFirstMember = false): void => {
   // `offset + j` is between `offset` and `length - 1`
   let i = members.length - offset
   while (i > 0) {
-    const j = Math.floor(Math.random() * i);
-    [
-      members[offset + i - 1],
-      members[offset + j]
-    ] = [
+    const j = Math.floor(Math.random() * i)
+    ;[members[offset + i - 1], members[offset + j]] = [
       members[offset + j],
       members[offset + i - 1]
     ]
@@ -36,46 +36,48 @@ shuffleMembers(membersPartnerData as Member[])
 <template>
   <div class="TeamPage">
     <TeamHero>
-      <template #title>Meet the Team</template>
+      <template #title>Conoce el Equipo</template>
       <template #lead
-        >The development of Vue and its ecosystem is guided by an international
-        team, some of whom have chosen to be
-        <span class="nowrap">featured below.</span></template
+        >El desarrollo de Vue y su ecosistema está guiado por un
+        <br />equipo internacional, algunos de los cuales han elegido
+        <span class="nowrap">aparecer a continuación.</span></template
       >
 
       <template #action>
         <VTLink
           href="https://github.com/vuejs/governance/blob/master/Team-Charter.md"
-          >Learn more about teams</VTLink
+          >Más información sobre los equipos</VTLink
         >
       </template>
     </TeamHero>
 
     <TeamList :members="membersCoreData as Member[]">
-      <template #title>Core Team Members</template>
+      <template #title>Miembros del Equipo Central</template>
       <template #lead
-        >Core team members are those who are actively involved in the
-        maintenance of one or more core projects. They have made significant
-        contributions to the Vue ecosystem, with a long term commitment to the
-        success of the project and its users.</template
+        >Los miembros del equipo central son aquellos que participan
+        activamente en el mantenimiento de uno o más proyectos centrales.
+        Han hecho contribuciones significativas al ecosistema Vue, con un
+        compromiso a largo plazo con el éxito del proyecto y sus
+        usuarios.</template
       >
     </TeamList>
 
     <TeamList :members="membersEmeritiData as Member[]">
-      <template #title>Core Team Emeriti</template>
+      <template #title>Equipo Central Emérito</template>
       <template #lead
-        >Here we honor some no-longer-active core team members who have made
-        valuable contributions in the past.</template
+        >Aquí honramos a algunos miembros del equipo central que ya no
+        están activos quienes han realizado contribuciones valiosas en el
+        pasado.</template
       >
     </TeamList>
 
     <TeamList :members="membersPartnerData as Member[]">
-      <template #title>Community Partners</template>
+      <template #title>Socios de la Comunidad</template>
       <template #lead
-        >Some members of the Vue community have so enriched it, that they
-        deserve special mention. We've developed a more intimate relationship
-        with these key partners, often coordinating with them on upcoming
-        features and news.</template
+        >Algunos miembros de la comunidad de Vue lo han enriquecido tanto
+        que merecen una mención especial. Hemos desarrollado una relación
+        más íntima con estos socios clave, a menudo coordinando con ellos
+        las características y noticias venideras.</template
       >
     </TeamList>
   </div>

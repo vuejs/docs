@@ -1,19 +1,19 @@
-# Attribute Bindings {#attribute-bindings}
+# Vinculación de Atributos
 
-In Vue, mustaches are only used for text interpolation. To bind an attribute to a dynamic value, we use the `v-bind` directive:
+En Vue, los mostachos se utilizan únicamente para la interpolación de texto. Para vincular un atributo a un valor dinámico, utilizamos la directiva `v-bind`:
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
 ```
 
-A **directive** is a special attribute that starts with the `v-` prefix. They are part of Vue's template syntax. Similar to text interpolations, directive values are JavaScript expressions that have access to the component's state. The full details of `v-bind` and directive syntax are discussed in <a target="_blank" href="/guide/essentials/template-syntax.html">Guide - Template Syntax</a>.
+Una **directiva** es un atributo especial que comienza con el prefijo `v-`. Son parte de la sintaxis de la plantilla de Vue. De manera similar a las interpolaciones de texto, los valores de las directivas son expresiones de JavaScript que tienen acceso al estado del componente. Los detalles completos de `v-bind` y la sintaxis de las directivas se tratan en <a target="_blank" href="/guide/essentials/template-syntax.html">Guía - Sintaxis de la Plantilla</a>.
 
-The part after the colon (`:id`) is the "argument" of the directive. Here, the element's `id` attribute will be synced with the `dynamicId` property from the component's state.
+La parte después de los dos puntos (`:id`) es el "argumento" de la directiva. En este caso, el atributo `id` del elemento se sincronizará con la propiedad `dynamicId` del estado del componente.
 
-Because `v-bind` is used so frequently, it has a dedicated shorthand syntax:
+Puesto que `v-bind` se utiliza con tanta frecuencia, tiene una sintaxis abreviada específica:
 
 ```vue-html
 <div :id="dynamicId"></div>
 ```
 
-Now, try to add a dynamic `class` binding to the `<h1>`, using the `titleClass` <span class="options-api">data property</span><span class="composition-api">ref</span> as its value. If it's bound correctly, the text should turn red.
+Prueba ahora a añadir un enlace dinámico `class` al `<h1>`, utilizando la <span class="composition-api">ref</span><span class="options-api">propiedad data</span> `titleClass` como valor. Si está vinculado correctamente, el texto debería cambiar a rojo.

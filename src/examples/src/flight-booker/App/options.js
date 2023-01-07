@@ -40,8 +40,8 @@ export default {
     book() {
       alert(
         this.isReturn
-          ? `You have booked a return flight leaving on ${this.departureDate} and returning on ${this.returnDate}.`
-        	: `You have booked a one-way flight leaving on ${this.departureDate}.`
+          ? `Has reservado un vuelo ida y vuelta con salida el ${this.departureDate} y retorno el ${this.returnDate}.`
+          : `Has reservado un vuelo solo ida con salida el ${this.departureDate}.`
       )
     }
   }

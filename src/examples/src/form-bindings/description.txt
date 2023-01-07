@@ -1,1 +1,1 @@
-We can create two-way bindings between state and form inputs using the v-model directive.
+Podemos crear enlaces bidireccionales entre el estado y las entradas del formulario utilizando la directiva v-model.

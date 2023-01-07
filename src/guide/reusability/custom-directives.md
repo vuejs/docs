@@ -1,4 +1,4 @@
-# Custom Directives {#custom-directives}
+# Directivas Personalizadas
 
 <script setup>
 const vFocus = {
@@ -8,19 +8,19 @@ const vFocus = {
 }
 </script>
 
-## Introduction {#introduction}
+## Introducción
 
-In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives.
+Además del conjunto de directivas por defecto incluidas en el core (como `v-model` o `v-show`), Vue también te permite registrar tus propias directivas personalizadas.
 
-We have introduced two forms of code reuse in Vue: [components](/guide/essentials/component-basics.html) and [composables](./composables). Components are the main building blocks, while composables are focused on reusing stateful logic. Custom directives, on the other hand, are mainly intended for reusing logic that involves low-level DOM access on plain elements.
+Hemos introducido dos formas de reutilización de código en Vue: componentes (/guide/essentials/component-basics.html) y composables (/composables). Los componentes son los principales bloques de construcción, mientras que los composables se centran en la reutilización de la lógica con estado. Las directivas personalizadas, por su parte, están pensadas principalmente para reutilizar la lógica que implica el acceso de bajo nivel al DOM en elementos planos.
 
-A custom directive is defined as an object containing lifecycle hooks similar to those of a component. The hooks receive the element the directive is bound to. Here is an example of a directive that focuses an input when the element is inserted into the DOM by Vue:
+Una directiva personalizada se define como un objeto que contiene hooks del ciclo de vida similares a los de un componente. Los hooks reciben el elemento al que está vinculada la directiva. Aquí hay un ejemplo de una directiva que focaliza una entrada cuando el elemento es insertado en el DOM por Vue:
 
 <div class="composition-api">
 
 ```vue
 <script setup>
-// enables v-focus in templates
+// permite el v-focus en las plantillas
 const vFocus = {
   mounted: (el) => el.focus()
 }
@@ -42,7 +42,7 @@ const focus = {
 
 export default {
   directives: {
-    // enables v-focus in template
+    // permite el v-focus en las plantillas
     focus
   }
 }
@@ -55,16 +55,16 @@ export default {
 </div>
 
 <div class="demo">
-  <input v-focus placeholder="This should be focused" />
+  <input v-focus placeholder="Debería estar enfocado" />
 </div>
 
-Assuming you haven't clicked elsewhere on the page, the input above should be auto-focused. This directive is more useful than the `autofocus` attribute because it works not just on page load - it also works when the element is dynamically inserted by Vue.
+Suponiendo que no has hecho clic en otra parte de la página, la entrada de arriba debería estar autoenfocada. Esta directiva es más útil que el atributo `autofocus` porque funciona no sólo al cargar la página; también funciona cuando el elemento es insertado dinámicamente por Vue.
 
 <div class="composition-api">
 
-In `<script setup>`, any camelCase variable that starts with the `v` prefix can be used as a custom directive. In the example above, `vFocus` can be used in the template as `v-focus`.
+En `<script setup>`, cualquier variable camelCase que comience con el prefijo `v` puede utilizarse como directiva personalizada. En el ejemplo anterior, `vFocus` puede utilizarse en la plantilla como `v-focus`.
 
-If not using `<script setup>`, custom directives can be registered using the `directives` option:
+Si no se utiliza `<script setup>`, las directivas personalizadas pueden registrarse utilizando la opción `directives`:
 
 ```js
 export default {
@@ -72,7 +72,7 @@ export default {
     /*...*/
   },
   directives: {
-    // enables v-focus in template
+    // permite el v-focus en las plantillas
     focus: {
       /* ... */
     }
@@ -84,103 +84,103 @@ export default {
 
 <div class="options-api">
 
-Similar to components, custom directives must be registered so that they can be used in templates. In the example above, we are using local registration via the `directives` option.
+De forma parecida a los componentes, las directivas personalizadas deben ser registradas para que puedan ser utilizadas en las plantillas. En el ejemplo anterior, estamos utilizando el registro local a través de la opción `directives`.
 
 </div>
 
-It is also common to globally register custom directives at the app level:
+También es común registrar globalmente las directivas personalizadas a nivel de la aplicación:
 
 ```js
 const app = createApp({})
 
-// make v-focus usable in all components
+// hacer que v-focus sea utilizable en todos los componentes
 app.directive('focus', {
   /* ... */
 })
 ```
 
 :::tip
-Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation. Prefer declarative templating using built-in directives such as `v-bind` when possible because they are more efficient and server-rendering friendly.
+Las directivas personalizadas deberían usarse únicamente cuando la funcionalidad deseada solo puede lograrse mediante la manipulación directa del DOM. Siempre que sea posible, es preferible utilizar directivas integradas como `v-bind`, ya que son más eficientes y fáciles de procesar por el servidor.
 :::
 
-## Directive Hooks {#directive-hooks}
+## Hooks de la Directiva
 
-A directive definition object can provide several hook functions (all optional):
+Un objeto que defina la directiva puede proporcionar varias funciones de hook (todas ellas opcionales):
 
 ```js
 const myDirective = {
-  // called before bound element's attributes
-  // or event listeners are applied
+  // llamada antes de que se apliquen los atributos del elemento vinculado
+  // o se apliquen los escuchadores de eventos
   created(el, binding, vnode, prevVnode) {
-    // see below for details on arguments
+    // ver más abajo los detalles de los argumentos
   },
-  // called right before the element is inserted into the DOM.
+  // llamada justo antes de que el elemento se inserte en el DOM.
   beforeMount(el, binding, vnode, prevVnode) {},
-  // called when the bound element's parent component
-  // and all its children are mounted.
+  // llamada cuando el componente padre del elemento vinculado
+  // y todos sus hijos están montados.
   mounted(el, binding, vnode, prevVnode) {},
-  // called before the parent component is updated
+  // llamada antes de que se actualice el componente padre
   beforeUpdate(el, binding, vnode, prevVnode) {},
-  // called after the parent component and
-  // all of its children have updated
+  // llamada después de que el componente padre y
+  // todos sus hijos se hayan actualizado
   updated(el, binding, vnode, prevVnode) {},
-  // called before the parent component is unmounted
+  // llamada antes de que el componente padre sea desmontado
   beforeUnmount(el, binding, vnode, prevVnode) {},
-  // called when the parent component is unmounted
+  // llamada cuando se desmonta el componente padre
   unmounted(el, binding, vnode, prevVnode) {}
 }
 ```
 
-### Hook Arguments {#hook-arguments}
+### Argumentos del Hook
 
-Directive hooks are passed these arguments:
+A los hooks de directivas se les pasan estos argumentos
 
-- `el`: the element the directive is bound to. This can be used to directly manipulate the DOM.
+- `el`: el elemento al que está ligada la directiva. Se puede utilizar para manipular directamente el DOM.
 
-- `binding`: an object containing the following properties.
+- `binding`: un objeto que contiene las siguientes propiedades.
 
-  - `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-  - `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
-  - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-  - `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-  - `instance`: The instance of the component where the directive is used.
-  - `dir`: the directive definition object.
+  - `value`: El valor pasado a la directiva. Por ejemplo, en `v-my-directive="1 + 1"`, el valor sería `2`.
+  - `oldValue`: El valor previo, sólo disponible en `beforeUpdate` y `updated`. Está disponible tanto si el valor ha cambiado como si no.
+  - `arg`: El argumento pasado a la directiva, si lo hay. Por ejemplo, en `v-my-directive:foo`, el argumento sería `"foo"`.
+  - `modifiers`: Un objeto que contiene modificadores, si los hay. Por ejemplo, en `v-my-directive.foo.bar`, el objeto modificador sería `{ foo: true, bar: true }`.
+  - `instance`: La instancia del componente donde se utiliza la directiva.
+  - `dir`: el objeto de definición de la directiva.
 
-- `vnode`: the underlying VNode representing the bound element.
-- `prevNode`: the VNode representing the bound element from the previous render. Only available in the `beforeUpdate` and `updated` hooks.
+- `vnode`: el VNode subyacente que representa el elemento vinculado.
+- `prevNode`: el VNode que representa el elemento vinculado del renderizado anterior. Sólo está disponible en los hooks `beforeUpdate` y `updated`.
 
-As an example, consider the following directive usage:
+Como ejemplo, considera el siguiente uso de la directiva:
 
 ```vue-html
 <div v-example:foo.bar="baz">
 ```
 
-The `binding` argument would be an object in the shape of:
+El argumento `binding` sería un objeto en forma de:
 
 ```js
 {
   arg: 'foo',
   modifiers: { bar: true },
-  value: /* value of `baz` */,
-  oldValue: /* value of `baz` from previous update */
+  value: /* valor de `baz` */,
+  oldValue: /* valor de `baz` de la actualización previa */
 }
 ```
 
-Similar to built-in directives, custom directive arguments can be dynamic. For example:
+De forma similar a las directivas integradas, los argumentos de las directivas personalizadas pueden ser dinámicos. Por ejemplo:
 
 ```vue-html
 <div v-example:[arg]="value"></div>
 ```
 
-Here the directive argument will be reactively updated based on `arg` property in our component state.
+En este caso, el argumento de la directiva se actualizará de forma reactiva en función de la propiedad `arg` en el estado de nuestro componente.
 
-:::tip Note
-Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+:::tip Nota
+A parte de `el`, debes tratar estos argumentos como de sólo lectura y nunca modificarlos. Si necesitas compartir información entre hooks, se recomienda hacerlo a través del elemento [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 
-## Function Shorthand {#function-shorthand}
+## Abreviatura de la Función
 
-It's common for a custom directive to have the same behavior for `mounted` and `updated`, with no need for the other hooks. In such cases we can define the directive as a function:
+Es habitual que una directiva personalizada tenga el mismo comportamiento para `mounted` y `updated`, sin necesidad de los otros hooks. En estos casos podemos definir la directiva como una función:
 
 ```vue-html
 <div v-color="color"></div>
@@ -188,14 +188,14 @@ It's common for a custom directive to have the same behavior for `mounted` and `
 
 ```js
 app.directive('color', (el, binding) => {
-  // this will be called for both `mounted` and `updated`
+  // esto se llamará tanto para `mounted` como para `updated`
   el.style.color = binding.value
 })
 ```
 
-## Object Literals {#object-literals}
+## Object Literals
 
-If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
+Si tu directiva necesita varios valores, puedes pasar también un objeto literal de JavaScript. Recuerda que las directivas pueden tomar cualquier expresión válida de JavaScript.
 
 ```vue-html
 <div v-demo="{ color: 'white', text: 'hello!' }"></div>
@@ -203,25 +203,25 @@ If your directive needs multiple values, you can also pass in a JavaScript objec
 
 ```js
 app.directive('demo', (el, binding) => {
-  console.log(binding.value.color) // => "white"
-  console.log(binding.value.text) // => "hello!"
+  console.log(binding.value.color) // => " blanco"
+  console.log(binding.value.text) // => " ¡hola!"
 })
 ```
 
-## Usage on Components {#usage-on-components}
+## Uso en Componentes
 
-When used on components, custom directives will always apply to a component's root node, similar to [Fallthrough Attributes](/guide/components/attrs.html).
+Cuando se utilizan en componentes, las directivas personalizadas siempre se aplicarán al nodo raíz de un componente, de forma similar a los [Atributos Fallthrough](/guide/components/attrs.html).
 
 ```vue-html
 <MyComponent v-demo="test" />
 ```
 
 ```vue-html
-<!-- template of MyComponent -->
+<!-- plantilla de MyComponent -->
 
-<div> <!-- v-demo directive will be applied here -->
-  <span>My component content</span>
+<div> <!-- se aplicará aquí la directiva v-demo -->
+  <span>contenido de My component</span>
 </div>
 ```
 
-Note that components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be thrown. Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`. In general, it is **not** recommended to use custom directives on components.
+Observa que los componentes pueden tener potencialmente más de un nodo raíz. Cuando se aplica a un componente multi-raíz, la directiva será ignorada y se lanzará una advertencia. A diferencia de los atributos, las directivas no pueden pasarse a un elemento diferente con `v-bind="$attrs"`. En general, no se recomienda utilizar directivas personalizadas en los componentes.

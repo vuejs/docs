@@ -1,32 +1,32 @@
-# Application API {#application-api}
+# API de la aplicación
 
-## createApp() {#createapp}
+## createApp()
 
-Creates an application instance.
+Crea una instancia de la aplicación.
 
-- **Type**
+- **Tipo**
 
   ```ts
   function createApp(rootComponent: Component, rootProps?: object): App
   ```
 
-- **Details**
+- **Detalles**
 
-  The first argument is the root component. The second optional argument is the props to be passed to the root component.
+  El primer argumento es el componente base. El segundo argumento (opcional) son las propiedades de dicho componente.
 
-- **Example**
+- **Ejemplo**
 
-  With inline root component:
+  Con un componente raíz en línea:
 
   ```js
   import { createApp } from 'vue'
 
   const app = createApp({
-    /* root component options */
+    /* componente base */
   })
   ```
 
-  With imported component:
+  Importando un componente:
 
   ```js
   import { createApp } from 'vue'
@@ -35,17 +35,17 @@ Creates an application instance.
   const app = createApp(App)
   ```
 
-- **See also:** [Guide - Creating a Vue Application](/guide/essentials/application.html)
+- **Ver también:** [Guía - Creando una Aplicación Vue](/guide/essentials/application.html)
 
-## createSSRApp() {#createssrapp}
+## createSSRApp()
 
-Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr.html#client-hydration) mode. Usage is exactly the same as `createApp()`.
+Crea una instancia de la aplicación en modo [Renderizado del Lado del Servidor (SSR)](/guide/scaling-up/ssr.html#client-hydration). Su uso es exactamente igual a `createApp()`.
 
-## app.mount() {#app-mount}
+## app.mount()
 
-Mounts the application instance in a container element.
+Monta la instancia de la aplicación en un elemento contenedor.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface App {
@@ -53,17 +53,17 @@ Mounts the application instance in a container element.
   }
   ```
 
-- **Details**
+- **Detalles**
 
-  The argument can either be an actual DOM element or a CSS selector (the first matched element will be used). Returns the root component instance.
+  El argumento puede ser tanto un elemento del DOM como un selector de CSS (el primer elemento que coincida será utilizado). Devuelve la instancia del componente raíz.
 
-  If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
+  Si el componente tiene una plantilla o una función de renderizado definida, reemplazará cualquier nodo DOM existente dentro del contendor. De lo contrario, si el compilador en tiempo de ejecución está disponible, el `innerHTML` del contenedor será usado como plantilla.
 
-  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr.html#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
+  En el modo de renderizado del lado del servidor (SSR), hidratará los nodos DOM existentes dentro del contenedor. Si hay [desajustes](/guide/scaling-up/ssr.html#error-en-la-hidratacion), los nodos DOM existentes se transformarán para que coincidan con la salida esperada.
 
-  For each app instance, `mount()` can only be called once.
+  Por cada instancia de la aplicación, `mount()` solo puede ser usado una vez.
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { createApp } from 'vue'
@@ -72,17 +72,17 @@ Mounts the application instance in a container element.
   app.mount('#app')
   ```
 
-  Can also mount to an actual DOM element:
+  Puede incluso montarse directamente sobre un elemento del DOM:
 
   ```js
   app.mount(document.body.firstChild)
   ```
 
-## app.unmount() {#app-unmount}
+## app.unmount()
 
-Unmounts a mounted application instance, triggering the unmount lifecycle hooks for all components in the application's component tree.
+Desmonta una instancia de una aplicación montada, activando el hook del ciclo de vida unmount para todos los componentes en el árbol de componentes de la aplicación.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface App {
@@ -90,11 +90,11 @@ Unmounts a mounted application instance, triggering the unmount lifecycle hooks 
   }
   ```
 
-## app.provide() {#app-provide}
+## app.provide()
 
-Provide a value that can be injected in all descendant components within the application.
+Provee un valor que puede ser inyectado en todos sus componentes hijos dentro de la aplicación.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface App {
@@ -102,11 +102,11 @@ Provide a value that can be injected in all descendant components within the app
   }
   ```
 
-- **Details**
+- **Detalles**
 
-  Expects the injection key as the first argument, and the provided value as the second. Returns the application instance itself.
+  Espera la key de inyección como el primer argumento, y el valor provisto como el segundo. Devuelve la propia instancia de la aplicación.
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { createApp } from 'vue'
@@ -116,7 +116,7 @@ Provide a value that can be injected in all descendant components within the app
   app.provide('message', 'hello')
   ```
 
-  Inside a component in the application:
+  Dentro de un componente en la aplicación:
 
   <div class="composition-api">
 
@@ -125,7 +125,7 @@ Provide a value that can be injected in all descendant components within the app
 
   export default {
     setup() {
-      console.log(inject('message')) // 'hello'
+      console.log(inject('message')) // 'hola'
     }
   }
   ```
@@ -137,22 +137,22 @@ Provide a value that can be injected in all descendant components within the app
   export default {
     inject: ['message'],
     created() {
-      console.log(this.message) // 'hello'
+      console.log(this.message) // 'hola'
     }
   }
   ```
 
   </div>
 
-- **See also:**
+- **Ver también:**
   - [Provide / Inject](/guide/components/provide-inject.html)
-  - [App-level Provide](/guide/components/provide-inject.html#app-level-provide)
+  - [Nivel de Aplicación de Provide](/guide/components/provide-inject.html#nivel-de-aplicacion-de-provide)
 
-## app.component() {#app-component}
+## app.component()
 
-Registers a global component if passing both a name string and a component definition, or retrieves an already registered one if only the name is passed.
+Registra un componente global si se le pasa tanto un nombre como la definición del componente, o recupera uno ya registrado si solo se pasa el nombre.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface App {
@@ -161,29 +161,29 @@ Registers a global component if passing both a name string and a component defin
   }
   ```
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { createApp } from 'vue'
 
   const app = createApp({})
 
-  // register an options object
+  // registra un componente con su definición
   app.component('my-component', {
     /* ... */
   })
 
-  // retrieve a registered component
+  // recupera un componente registrado previamente
   const MyComponent = app.component('my-component')
   ```
 
-- **See also:** [Component Registration](/guide/components/registration.html)
+- **Ver también:** [Registro de Componentes](/guide/components/registration.html)
 
-## app.directive() {#app-directive}
+## app.directive()
 
-Registers a global custom directive if passing both a name string and a directive definition, or retrieves an already registered one if only the name is passed.
+Registra una directiva personalizada global si se le pasa tanto un nombre y la definición de la directiva, o recupera una ya registrada si solo se pasa el nombre.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface App {
@@ -192,7 +192,7 @@ Registers a global custom directive if passing both a name string and a directiv
   }
   ```
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { createApp } from 'vue'
@@ -201,27 +201,27 @@ Registers a global custom directive if passing both a name string and a directiv
     /* ... */
   })
 
-  // register (object directive)
+  // registro (directiva de objeto)
   app.directive('my-directive', {
-    /* custom directive hooks */
+    /* hooks de directiva personalizada */
   })
 
-  // register (function directive shorthand)
+  // registro (directiva de función abreviada)
   app.directive('my-directive', () => {
     /* ... */
   })
 
-  // retrieve a registered directive
+  // recupera una directiva registrada previamente
   const myDirective = app.directive('my-directive')
   ```
 
-- **See also:** [Custom Directives](/guide/reusability/custom-directives.html)
+- **Ver también:** [Directivas Personalizadas](/guide/reusability/custom-directives.html)
 
-## app.use() {#app-use}
+## app.use()
 
-Installs a [plugin](/guide/reusability/plugins.html).
+Instala un [plugin](/guide/reusability/plugins.html).
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface App {
@@ -229,15 +229,15 @@ Installs a [plugin](/guide/reusability/plugins.html).
   }
   ```
 
-- **Details**
+- **Detalles**
 
-  Expects the plugin as the first argument, and optional plugin options as the second argument.
+  Espera el plugin como el primer argumento, y las opciones del plugin (opcional) como segundo argumento.
 
-  The plugin can either be an object with an `install()` method, or just a function that will be used as the `install()` method. The options (second argument of `app.use()`) will be passed along to the plugin's `install()` method.
+  El plugin puede ser tanto un objeto con un método `install()`, o solamente una función que sera usada como el método `install()`. Las opciones (el segundo argumento de `app.use()`) será pasado a través del método `install()` del plugin.
 
-  When `app.use()` is called on the same plugin multiple times, the plugin will be installed only once.
+  Cuando `app.use()` es llamado con el mismo plugin varias veces, el plugin será instalado solo una vez.
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { createApp } from 'vue'
@@ -250,19 +250,19 @@ Installs a [plugin](/guide/reusability/plugins.html).
   app.use(MyPlugin)
   ```
 
-- **See also:** [Plugins](/guide/reusability/plugins.html)
+- **Ver también:** [Plugins](/guide/reusability/plugins.html)
 
-## app.mixin() {#app-mixin}
+## app.mixin()
 
-Applies a global mixin (scoped to the application). A global mixin applies its included options to every component instance in the application.
+Aplica un mixin global (con alcance a la aplicación). Un mixin global aplica sus opciones incluidas a cada instancia de componente en la aplicación.
 
-:::warning Not Recommended
-Mixins are supported in Vue 3 mainly for backwards compatibility, due to their widespread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
+:::warning No Recomendado
+Los mixins están soportados en Vue 3 solo para mantener la compatibilidad hacia atrás, debido a su uso extendido en las librerías del ecosistema. El uso de mixins, en especial los mixins globales, debería evitarse en el código de la aplicación.
 
-For logic reuse, prefer [Composables](/guide/reusability/composables.html) instead.
+Para la reutilización de lógica, usar preferentemente [Composables](/guide/reusability/composables.html) en su lugar.
 :::
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface App {
@@ -270,11 +270,11 @@ For logic reuse, prefer [Composables](/guide/reusability/composables.html) inste
   }
   ```
 
-## app.version {#app-version}
+## app.version
 
-Provides the version of Vue that the application was created with. This is useful inside [plugins](/guide/reusability/plugins.html), where you might need conditional logic based on different Vue versions.
+Proporciona la versión de Vue con la que se creó la aplicación. Esto es útil dentro de [plugins](/guide/reusability/plugins.html), donde podrías necesitar lógica condicional basada en diferentes versiones de Vue.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface App {
@@ -282,9 +282,9 @@ Provides the version of Vue that the application was created with. This is usefu
   }
   ```
 
-- **Example**
+- **Ejemplo**
 
-  Performing a version check inside a plugin:
+  Realizando una comprobación de la versión dentro de un plugin:
 
   ```js
   export default {
@@ -297,11 +297,11 @@ Provides the version of Vue that the application was created with. This is usefu
   }
   ```
 
-- **See also:** [Global API - version](/api/general.html#version)
+- **Ver también:** [API Global - Versión](/api/general.html#version)
 
-## app.config {#app-config}
+## app.config
 
-Every application instance exposes a `config` object that contains the configuration settings for that application. You can modify its properties (documented below) before mounting your application.
+Cada instancia de la aplicación expone un objeto `config` que contiene las opciones de configuración para esa aplicación. Puedes modificar sus propiedades (documentadas a continuación) antes de montar tu aplicación.
 
 ```js
 import { createApp } from 'vue'
@@ -311,51 +311,51 @@ const app = createApp(/* ... */)
 console.log(app.config)
 ```
 
-## app.config.errorHandler {#app-config-errorhandler}
+## app.config.errorHandler
 
-Assign a global handler for uncaught errors propagating from within the application.
+Asigna un manejador global para los errores no capturados que se propagan desde la aplicación.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface AppConfig {
     errorHandler?: (
       err: unknown,
       instance: ComponentPublicInstance | null,
-      // `info` is a Vue-specific error info,
-      // e.g. which lifecycle hook the error was thrown in
+      // `info` contiene información específica de errores de Vue,
+      // ej. el hook del ciclo de vida donde se produjo el error
       info: string
     ) => void
   }
   ```
 
-- **Details**
+- **Detalles**
 
-  The error handler receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+  El manejador de errores recibe tres argumentos: el error, la instancia del componente que disparó el error, y la información que especifica el tipo de fuente del error.
 
-  It can capture errors from the following sources:
+  Puede capturar errores de las siguientes fuentes:
 
-  - Component renders
-  - Event handlers
-  - Lifecycle hooks
-  - `setup()` function
+  - Renderizado de los componentes
+  - Manejadores de eventos
+  - Hooks del ciclo de vida
+  - La función `setup()`
   - Watchers
-  - Custom directive hooks
-  - Transition hooks
+  - Hooks de directivas personalizadas
+  - Hooks de transiciones
 
-- **Example**
+- **Ejemplo**
 
   ```js
   app.config.errorHandler = (err, instance, info) => {
-    // handle error, e.g. report to a service
+    // manejo del error, ej. reportarlo a un servicio
   }
   ```
 
-## app.config.warnHandler {#app-config-warnhandler}
+## app.config.warnHandler
 
-Assign a custom handler for runtime warnings from Vue.
+Asigna un manejador personalizado para advertencias de vue en tiempo de ejecución.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface AppConfig {
@@ -367,133 +367,133 @@ Assign a custom handler for runtime warnings from Vue.
   }
   ```
 
-- **Details**
+- **Detalles**
 
-  The warning handler receives the warning message as the first argument, the source component instance as the second argument, and a component trace string as the third.
+  El manejador de advertencias recibe el mensaje de advertencia como primer argumento, la instancia del componente como segundo argumento, y la cadena de componentes asociada en formato string como el tercero.
 
-  It can be used to filter out specific warnings to reduce console verbosity. All Vue warnings should be addressed during development, so this is only recommended during debug sessions to focus on specific warnings among many, and should be removed once the debugging is done.
+  Puede ser usado para filtrar advertencias específicas con el fin de reducir la verbosidad de la consola. Todas las advertencias de Vue deberían abordarse durante el desarrollo, por lo que sólo se recomienda durante las sesiones de depuración para centrarse en advertencias específicas entre muchas, y debe eliminarse una vez que la depuración haya terminado.
 
   :::tip
-  Warnings only work during development, so this config is ignored in production mode.
+  Las advertencias solo aparecen durante el desarrollo, por lo que esta configuración es ignorada en el modo de producción.
   :::
 
-- **Example**
+- **Ejemplo**
 
   ```js
   app.config.warnHandler = (msg, instance, trace) => {
-    // `trace` is the component hierarchy trace
+    // `trace` es la traza de jerarquía de los componentes
   }
   ```
 
-## app.config.performance {#app-config-performance}
+## app.config.performance
 
-Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
+Asigna este valor a `true` para activar el seguimiento del inicio del componente, compilación, renderizado y seguimiento de la performance en el panel rentimiento/tiempo de las herramientas del desarrollador en el navegador. Solo funciona en el modo desarrollo y en navegadores que soporten la API de [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark).
 
-- **Type**: `boolean`
+- **Tipo**: `boolean`
 
-- **See also:** [Guide - Performance](/guide/best-practices/performance.html)
+- **Ver también:** [Guía - Guía de Optimización del Rendimiento](/guide/best-practices/performance.html)
 
-## app.config.compilerOptions {#app-config-compileroptions}
+## app.config.compilerOptions
 
-Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affect every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-rendering.html#compileroptions).
+Configurar las opciones del compilador en tiempo de ejecución. Las opciones establecidas en este objeto se pasarán al compilador de plantillas del navegador y afectarán a todos los componentes de la aplicación configurada. Ten en cuenta que también puedes anular estas opciones por componente utilizando la opción [`compilerOptions`] (/api/options-rendering.html#compileroptions).
 
-::: warning Important
-This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). If you are using the runtime-only build with a build setup, compiler options must be passed to `@vue/compiler-dom` via build tool configurations instead.
+::: warning Importante
+Esta opción de configuración solo es respetada cuando se usa la compilación completa (es decir, la compilación de `vue.js` que puede compilar plantillas en el navegador). Si estás usando la construcción en tiempo de ejecución con una configuración de construcción, las opciones del compilador deben ser pasadas a `@vue/compiler-dom` a través de las configuraciones de la herramienta de construcción.
 
-- For `vue-loader`: [pass via the `compilerOptions` loader option](https://vue-loader.vuejs.org/options.html#compileroptions). Also see [how to configure it in `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
+- Para `vue-loader`: [Pasarlo a través de la opción `compilerOptions`](https://vue-loader.vuejs.org/options.html#compileroptions). Ver también [cómo configurarlo en `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
-- For `vite`: [pass via `@vitejs/plugin-vue` options](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options).
+- Para `vite`: [paralo a través de la opción `@vitejs/plugin-vue`](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#options).
   :::
 
-### app.config.compilerOptions.isCustomElement {#app-config-compileroptions-iscustomelement}
+### app.config.compilerOptions.isCustomElement
 
-Specifies a check method to recognize native custom elements.
+Especifica un método de comprobación para reconocer elementos nativos personalizados.
 
 - **Type:** `(tag: string) => boolean`
 
-- **Details**
+- **Detalles**
 
-  Should return `true` if the tag should be treated as a native custom element. For a matched tag, Vue will render it as a native element instead of attempting to resolve it as a Vue component.
+  Debería devolver `true` si el tag debería ser tratado como un elemento nativo personalizado. Para el tag coincidente, Vue lo renderizará como un elemento nativo en lugar de intentar resolverlo como un componente Vue.
 
-  Native HTML and SVG tags don't need to be matched in this function - Vue's parser recognizes them automatically.
+  Los tags nativos de HTML y SVG tags no necesitan ser tratados por esta función - El analizador sintáctivo de Vue los reconoce automáticamente.
 
-- **Example**
+- **Ejemplo**
 
   ```js
-  // treat all tags starting with 'ion-' as custom elements
+  // tratará todos los tags que empiecen con 'ion-' como elementos  personalizados
   app.config.compilerOptions.isCustomElement = (tag) => {
     return tag.startsWith('ion-')
   }
   ```
 
-- **See also:** [Vue and Web Components](/guide/extras/web-components.html)
+- **Ver también:** [Vue y Componentes Web](/guide/extras/web-components.html)
 
-### app.config.compilerOptions.whitespace {#app-config-compileroptions-whitespace}
+### app.config.compilerOptions.whitespace
 
-Adjusts template whitespace handling behavior.
+Ajusta el comportamiento del manejo de los espacios en blanco de la plantilla.
 
 - **Type:** `'condense' | 'preserve'`
 
 - **Default:** `'condense'`
 
-- **Details**
+- **Detalles**
 
-  Vue removes / condenses whitespace characters in templates to produce more efficient compiled output. The default strategy is "condense", with the following behavior:
+  Vue elimina / condensa los caracteres de espacios en blanco en las plantillas para producir una compilación más eficiente. La estrategia por defecto es "condense", con el siguiente comportamiento:
 
-  1. Leading / ending whitespace characters inside an element are condensed into a single space.
-  2. Whitespace characters between elements that contain newlines are removed.
-  3. Consecutive whitespace characters in text nodes are condensed into a single space.
+  1. Los espacios en blanco iniciales y finales dentro de un elemento se condensan en un solo espacio.
+  2. Se eliminan los espacios en blanco entre los elementos que contienen nuevas líneas.
+  3. Los espacios en blanco consecutivos en los nodos de texto se condensan en un solo espacio.
 
-  Setting this option to `'preserve'` will disable (2) and (3).
+  Setear esta opción a `'preserve'` deshabilitará el punto (2) y el (3).
 
-- **Example**
+- **Ejemplo**
 
   ```js
   app.config.compilerOptions.whitespace = 'preserve'
   ```
 
-### app.config.compilerOptions.delimiters {#app-config-compileroptions-delimiters}
+### app.config.compilerOptions.delimiters
 
-Adjusts the delimiters used for text interpolation within the template.
+Ajusta los delimitadores utilizados para la interpolación del texto dentro de la plantilla.
 
 - **Type:** `[string, string]`
 
 - **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
 
-- **Details**
+- **Detalles**
 
-  This is typically used to avoid conflicting with server-side frameworks that also use mustache syntax.
+  Esto se utiliza normalmente para evitar conflictos con los frameworks del lado del servidor que también utilizan la sintaxis de "mostacho" o bigotes (doble llave).
 
-- **Example**
+- **Ejemplo**
 
   ```js
-  // Delimiters changed to ES6 template string style
+  // Delimitadores cambaidos al estilo de template strings de ES6
   app.config.compilerOptions.delimiters = ['${', '}']
   ```
 
-### app.config.compilerOptions.comments {#app-config-compileroptions-comments}
+### app.config.compilerOptions.comments
 
-Adjusts treatment of HTML comments in templates.
+Ajusta el tratamiento de los comentarios HTML en las plantillas.
 
 - **Type:** `boolean`
 
 - **Default:** `false`
 
-- **Details**
+- **Detalles**
 
-  By default, Vue will remove the comments in production. Setting this option to `true` will force Vue to preserve comments even in production. Comments are always preserved during development. This option is typically used when Vue is used with other libraries that rely on HTML comments.
+  Por defecto, Vue eliminará los comentarios en producción. Si se establece esta opción como `true` se obligará a Vue a conservar los comentarios incluso en producción. Los comentarios siempre se conservan durante el desarrollo. Esta opción se utiliza normalmente cuando Vue se utiliza con otras bibliotecas que dependen de los comentarios HTML.
 
-- **Example**
+- **Ejemplo**
 
   ```js
   app.config.compilerOptions.comments = true
   ```
 
-## app.config.globalProperties {#app-config-globalproperties}
+## app.config.globalProperties
 
-An object that can be used to register global properties that can be accessed on any component instance inside the application.
+Un objeto que se puede utilizar para registrar propiedades globales a las que se puede acceder en cualquier instancia de componente dentro de la aplicación.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface AppConfig {
@@ -501,35 +501,33 @@ An object that can be used to register global properties that can be accessed on
   }
   ```
 
-- **Details**
+- **Detalles**
 
-  This is a replacement of Vue 2's `Vue.prototype` which is no longer present in Vue 3. As with anything global, this should be used sparingly.
+  Este es un reemplazo de `Vue.prototype` de Vue 2 que ya no está presente en Vue 3. Al igual que con cualquier cosa global, esto debe ser utilizado con moderación.
 
-  If a global property conflicts with a component’s own property, the component's own property will have higher priority.
+  Si una propiedad global entra en conflicto con una propiedad privada de un componente, la propiedad privada del componente tendrá mayor prioridad.
 
-- **Usage**
+- **Uso**
 
   ```js
-  app.config.globalProperties.msg = 'hello'
+  app.config.globalProperties.msg = 'hola'
   ```
 
-  This makes `msg` available inside any component template in the application, and also on `this` of any component instance:
+  Esto hace que `msg` esté disponible dentro de cualquier plantilla de componente en la aplicación, y también en `this` de cualquier instancia de componente:
 
   ```js
   export default {
     mounted() {
-      console.log(this.msg) // 'hello'
+      console.log(this.msg) // 'hola'
     }
   }
   ```
-  
-- **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
 
-## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
+## app.config.optionMergeStrategies
 
-An object for defining merging strategies for custom component options.
+Un objeto para definir las estrategias de mergeo para componentes personalizados.
 
-- **Type**
+- **Tipo**
 
   ```ts
   interface AppConfig {
@@ -539,39 +537,39 @@ An object for defining merging strategies for custom component options.
   type OptionMergeFunction = (to: unknown, from: unknown) => any
   ```
 
-- **Details**
+- **Detalles**
 
-  Some plugins / libraries add support for custom component options (by injecting global mixins). These options may require special merging logic when the same option needs to be "merged" from multiple sources (e.g. mixins or component inheritance).
+  Algunos plugins / bibliotecas añaden soporte para opciones de componentes personalizados (inyectando mixins globales). Estas opciones pueden requerir una lógica de mergeo especial cuando la misma opción necesita ser "mergeada" desde múltiples fuentes (por ejemplo, mixins o herencia de componentes).
 
-  A merge strategy function can be registered for a custom option by assigning it on the `app.config.optionMergeStrategies` object using the option's name as the key.
+  Se puede registrar una función de estrategia de mergeo para una opción personalizada asignándola al objeto `app.config.optionMergeStrategies` utilizando el nombre de la opción como clave.
 
-  The merge strategy function receives the value of that option defined on the parent and child instances as the first and second arguments, respectively.
+  La función de estrategia de mergeo recibe el valor de esa opción definida en las instancias padre e hija como primer y segundo argumento, respectivamente.
 
-- **Example**
+- **Ejemplo**
 
   ```js
   const app = createApp({
-    // option from self
+    // propiedad interna
     msg: 'Vue',
-    // option from a mixin
+    // propiedad de un mixin
     mixins: [
       {
-        msg: 'Hello '
+        msg: 'Hola, '
       }
     ],
     mounted() {
-      // merged options exposed on this.$options
+      // propiedad mergeada expuesta en this.$options
       console.log(this.$options.msg)
     }
   })
 
-  // define a custom merge strategy for `msg`
+  // define una estrategia de mergeo especial para `msg`
   app.config.optionMergeStrategies.msg = (parent, child) => {
     return (parent || '') + (child || '')
   }
 
   app.mount('#app')
-  // logs 'Hello Vue'
+  // logs 'Hola, Vue'
   ```
 
-- **See also:** [Component Instance - `$options`](/api/component-instance.html#options)
+- **Ver también:** [Instancia del componente - `$options`](/api/component-instance.html#options)

@@ -1,4 +1,4 @@
-<p>Todo id: {{ todoId }}</p>
-<button @click="todoId++">Fetch next todo</button>
-<p v-if="!todoData">Loading...</p>
+<p>Id de la tarea: {{ todoId }}</p>
+<button @click="todoId++">Recuperar la próxima tarea</button>
+<p v-if="!todoData">Cargando...</p>
 <pre v-else>{{ todoData }}</pre>

@@ -1,26 +1,26 @@
-# Getting Started {#getting-started}
+# Comenzando
 
-Welcome to the Vue tutorial!
+¡Bienvenido al tutorial de Vue!
 
-The goal of this tutorial is to quickly give you an experience of what it feels like to work with Vue, right in the browser. It does not aim to be comprehensive, and you don't need to understand everything before moving on. However, after you complete it, make sure to also read the <a target="_blank" href="/guide/introduction.html">Guide</a> which covers each topic in more detail.
+El objetivo de este tutorial es darte rápidamente una experiencia de lo que se siente al trabajar con Vue, justo en el navegador. No pretende ser exhaustivo, y no es necesario que lo entiendas todo antes de seguir adelante. No obstante, después de completarlo, asegúrate de leer también la <a target="_blank" href="/guide/introduction.html">Guía</a> que cubre cada tema con más detalle.
 
-## Prerequisites {#prerequisites}
+## Prerrequisitos
 
-The tutorial assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to front-end development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
+Este tutorial supone una familiaridad básica con HTML, CSS y JavaScript. Si eres totalmente nuevo en el desarrollo front-end, puede que no sea la mejor idea saltar directamente a un framework como primer paso; ¡comprende lo básico y luego vuelve! La experiencia previa con otros frameworks ayuda, pero no es necesaria.
 
-## How to Use This Tutorial {#how-to-use-this-tutorial}
+## Cómo Usar este Tutorial
 
-You can edit the code <span class="wide">on the right</span><span class="narrow">below</span> and see the result update instantly. Each step will introduce a core feature of Vue, and you will be expected to complete the code to get the demo working. If you get stuck, you will have a "Show me!" button that reveals the working code for you. Try not to rely on it too much - you'll learn faster by figuring things out on your own.
+Puedes editar el código <span class="wide">a la derecha</span><span class="narrow">debajo</span> y ver el resultado actualizado al instante. Con cada paso se introducirá una característica principal de Vue, y se espera que completes el código para que la demo funcione. En caso de que te quedes atascado, tendrás un botón "¡Muéstrame!" que te revelará el código que funciona. Procura no depender demasiado de él: aprenderás más rápido resolviendo las cosas por tu cuenta.
 
-If you are an experienced developer coming from Vue 2 or other frameworks, there are a few settings you can tweak to make the best use of this tutorial. If you are a beginner, it's recommended to go with the defaults.
+Si eres un desarrollador experimentado que viene de Vue 2 u otros frameworks, hay algunos ajustes que puedes hacer para aprovechar al máximo este tutorial. En cambio, si eres un principiante, se recomienda ir con los valores predeterminados.
 
 <details>
-<summary>Tutorial Setting Details</summary>
+<summary>Detalles de la Configuración del Tutorial</summary>
 
-- Vue offers two API styles: Options API and Composition API. This tutorial is designed to work for both - you can choose your preferred style using the **API Preference** switches at the top. <a target="_blank" href="/guide/introduction.html#api-styles">Learn more about API styles</a>.
+- Vue ofrece dos estilos de API: Options API and Composition API. Este tutorial está diseñado para funcionar con ambos; puedes elegir tu estilo preferido usando los interruptores de **Preferencia de API** en la parte superior. <a target="_blank" href="/guide/introduction.html#tipos-de-api">Aprende más sobre los estilos de la API</a>.
 
-- You can also switch between SFC-mode or HTML-mode. The former will show code examples in <a target="_blank" href="/guide/introduction.html#single-file-components">Single-File Component</a> (SFC) format, which is what most developers use when they use Vue with a build step. HTML-mode shows usage without a build step.
+- También puede cambiar entre el modo SFC o el modo HTML. En el primero se mostrarán ejemplos de código en formato <a target="_blank" href="/guide/introduction.html#componentes-de-un-solo-archivo-single-file-components">Componentes de un Solo Archivo</a> (SFC), que es el que la mayoría de los desarrolladores utilizan cuando usan Vue con un paso de compilación. El modo HTML muestra el uso sin un paso de construcción.
 
 </details>
 
-Ready? Click "Next" to get started.
+¿Listo? Haz clic en "Siguiente" para empezar.

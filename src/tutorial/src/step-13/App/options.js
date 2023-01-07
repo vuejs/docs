@@ -6,7 +6,7 @@ export default {
   },
   data() {
     return {
-      childMsg: 'No child msg yet'
+      childMsg: 'Ningún mensaje del hijo aún'
     }
   }
 }

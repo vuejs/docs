@@ -11,22 +11,23 @@
   box-sizing: border-box;
 }
 
-/* 1. declare transition */
+/* 1. declara la transición */
 .fade-move,
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-/* 2. declare enter from and leave to state */
+/* 2. declarar el estado de entrada y de salida */
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
   transform: scaleY(0.01) translate(30px, 0);
 }
 
-/* 3. ensure leaving items are taken out of layout flow so that moving
-      animations can be calculated correctly. */
+/* 3. asegurarse de que los elementos de salida son retirados
+ * del flujo del diseño para que las animaciones en movimiento
+ * puedan ser calculadas correctamente. */
 .fade-leave-active {
   position: absolute;
 }

@@ -6,9 +6,9 @@ export default {
       newTodo: '',
       hideCompleted: false,
       todos: [
-        { id: id++, text: 'Learn HTML', done: true },
-        { id: id++, text: 'Learn JavaScript', done: true },
-        { id: id++, text: 'Learn Vue', done: false }
+        { id: id++, text: 'Aprender HTML', done: true },
+        { id: id++, text: 'Aprender JavaScript', done: true },
+        { id: id++, text: 'Aprender Vue', done: false }
       ]
     }
   },

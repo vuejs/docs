@@ -11,9 +11,9 @@ import {
 
 const route = useRoute()
 const show = $computed(() =>
-  /^\/(guide|tutorial|examples|style-guide)\//.test(route.path)
+  /^\/(guide|tutorial|examples)\//.test(route.path)
 )
-const showSFC = $computed(() => !/^\/guide|style-guide/.test(route.path))
+const showSFC = $computed(() => !/^\/guide/.test(route.path))
 
 let isOpen = $ref(true)
 
@@ -68,7 +68,7 @@ function useToggleFn(
       @mousedown="removeOutline"
       @blur="restoreOutline"
     >
-      <span>API Preference</span>
+      <span>Preferencia de API</span>
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
     </button>
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
@@ -89,8 +89,8 @@ function useToggleFn(
         >
         <a
           class="switch-link"
-          title="About API preference"
-          href="/guide/introduction.html#api-styles"
+          title="Acerca de preferencias de API"
+          href="/guide/introduction.html#estilos-de-api"
           @click="closeSideBar"
           >?</a
         >
@@ -106,7 +106,7 @@ function useToggleFn(
         <label class="sfc-label" @click="toggleSFC(true)">SFC</label>
         <a
           class="switch-link"
-          title="About SFC"
+          title="Acerca de SFC"
           href="/guide/scaling-up/sfc.html"
           @click="closeSideBar"
           >?</a

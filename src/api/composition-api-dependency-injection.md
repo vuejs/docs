@@ -1,8 +1,8 @@
-# Composition API: <br>Dependency Injection {#composition-api-dependency-injection}
+# Composition API: <br>Dependency Injection
 
-## provide() {#provide}
+## provide()
 
-Provides a value that can be injected by descendant components.
+Provides a value that can be injected by descendent components.
 
 - **Type**
 
@@ -39,9 +39,9 @@ Provides a value that can be injected by descendant components.
 
 - **See also**:
   - [Guide - Provide / Inject](/guide/components/provide-inject.html)
-  - [Guide - Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+  - [Guide - Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)
 
-## inject() {#inject}
+## inject()
 
 Injects a value provided by an ancestor component or the application (via `app.provide()`).
 
@@ -103,4 +103,4 @@ Injects a value provided by an ancestor component or the application (via `app.p
 
 - **See also**:
   - [Guide - Provide / Inject](/guide/components/provide-inject.html)
-  - [Guide - Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+  - [Guide - Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject)

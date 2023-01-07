@@ -22,26 +22,26 @@ function genMailLink(email: string) {
   <div class="partner-page">
     <div class="back">
       <a href="/partners/all.html"
-        ><VTIconChevronLeft class="icon" />Back to all partners</a
+        ><VTIconChevronLeft class="icon" />Volver a todos los socios</a
       >
     </div>
 
     <PartnerCard hero page :data="p" />
 
     <div class="description">
-      <h2>About {{ p.name }}</h2>
+      <h2>Acerca de {{ p.name }}</h2>
       <p v-for="desc in p.description" v-html="desc"></p>
     </div>
 
     <div class="actions">
-      <a :href="p.website.url" target="_blank">Visit Website</a>
+      <a :href="p.website.url" target="_blank">Visitar el Sitio Web</a>
       <a class="contact" :href="genMailLink(p.contact)" target="_blank"
-        >Contact</a
+        >Contactar</a
       >
     </div>
 
     <div class="hiring" v-if="p.hiring">
-      <a :href="p.hiring">{{ p.name }} is hiring!</a>
+      <a :href="p.hiring">¡{{ p.name }} está contratando!</a>
     </div>
   </div>
 </template>

@@ -10,20 +10,24 @@ const filters = {
 
 export default {
   setup() {
-    // state
-    const todos = ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
+    // estado
+    const todos = ref(
+      JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+    )
     const visibility = ref('all')
     const editedTodo = ref()
 
-    // derived state
-    const filteredTodos = computed(() => filters[visibility.value](todos.value))
+    // estado derivado
+    const filteredTodos = computed(() =>
+      filters[visibility.value](todos.value)
+    )
     const remaining = computed(() => filters.active(todos.value).length)
 
-    // handle routing
+    // manejo de rutas
     window.addEventListener('hashchange', onHashChange)
     onHashChange()
 
-    // persist state
+    // estado persistente
     watchEffect(() => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(todos.value))
     })
@@ -93,7 +97,7 @@ export default {
       editTodo,
       doneEdit,
       cancelEdit,
-      removeCompleted,
+      removeCompleted
     }
   }
 }

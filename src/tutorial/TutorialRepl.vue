@@ -13,7 +13,8 @@ import {
   VTFlyout,
   VTIconChevronLeft,
   VTIconChevronRight,
-  VTLink
+  VTLink,
+  useCopyCode
 } from '@vue/theme'
 
 const store = new ReplStore({
@@ -121,16 +122,16 @@ updateExample()
       <div class="vt-doc" v-html="currentDescription"></div>
       <div class="hint" v-if="data[currentStep]?._hint">
         <button @click="toggleResult">
-          {{ showingHint ? 'Reset' : 'Show me!' }}
+          {{ showingHint ? 'Reiniciar' : '¡Muéstrame!' }}
         </button>
       </div>
       <footer>
         <a v-if="prevStep" :href="`#${prevStep}`"
           ><VTIconChevronLeft class="vt-link-icon" style="margin: 0" />
-          Prev</a
+          Previo</a
         >
         <a class="next-step" v-if="nextStep" :href="`#${nextStep}`"
-          >Next <VTIconChevronRight class="vt-link-icon"
+          >Siguiente <VTIconChevronRight class="vt-link-icon"
         /></a>
       </footer>
     </article>

@@ -1,21 +1,7 @@
 <script lang="ts">
 // shared data across instances so we load only once
-const base = 'https://app.vuejobs.com/feed/vuejs/docs?format=json'
-
-let items = $ref<Jobs[]>([])
-
-type Jobs = {
-  organization: Organization;
-  title: string;
-  link: string;
-  locations: string[];
-  remote: false | 'ALLOWED' | 'ONLY';
-};
-
-type Organization = {
-  name: string;
-  avatar: string;
-};
+const base = `https://app.vuejobs.com/feed/vuejs/docs?format=json`
+let items = $ref([])
 </script>
 
 <script setup lang="ts">
@@ -43,9 +29,7 @@ onMounted(async () => {
         target="_blank"
       >
         <div class="vj-company-logo">
-          <img 
-            :src="job.organization.avatar" 
-            :alt="`Logo for ${job.organization.name}`" />
+          <img :src="job.organization.avatar" alt="" />
         </div>
         <div
           style="
@@ -53,21 +37,25 @@ onMounted(async () => {
             display: flex;
             flex-direction: column;
             justify-content: center;
-          ">
+          "
+        >
           <div class="vj-job-title">{{ job.title }}</div>
           <div class="vj-job-info">
             {{ job.organization.name }} <span>· </span>
-            <span>{{ job.remote ? 'Remote' : job.locations[0] }}</span>
+            <span v-if="['ONLY', 'ALLOWED'].includes(job.remote)"
+              >Remoto</span
+            >
+            <span v-else>{{ job.locations[0] }}</span>
           </div>
         </div>
       </a>
     </div>
     <div class="vj-link">
-      Jobs by
+      Empleos por
       <a
         href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
         target="_blank"
-        title="Hire Vue.js developers"
+        title="Contratar a desarrolladores de Vue.js"
         >vuejobs.com</a
       >
     </div>

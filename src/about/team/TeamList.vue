@@ -61,26 +61,18 @@ defineProps<{
 @media (min-width: 768px) {
   .info {
     position: sticky;
-    top: calc(var(--vt-banner-height, 0px) + 32px);
+    top: 32px;
     left: 0;
     padding: 0 24px 0 0;
     width: 256px;
-  }
-
-  html.banner-dismissed .info {
-    top: 32px;
   }
 }
 
 @media (min-width: 960px) {
   .info {
-    top: calc(var(--vt-banner-height, 0px) + 88px);
+    top: 88px;
     padding: 0 64px 0 0;
     width: 384px;
-  }
-
-  html.banner-dismissed .info {
-    top: 88px;
   }
 }
 

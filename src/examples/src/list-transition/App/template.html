@@ -1,6 +1,6 @@
-<button @click="insert">insert at random index</button>
-<button @click="reset">reset</button>
-<button @click="shuffle">shuffle</button>
+<button @click="insert">insertar un índice aleatorio</button>
+<button @click="reset">reiniciar</button>
+<button @click="shuffle">mezclar</button>
 
 <TransitionGroup tag="ul" name="fade" class="container">
   <div v-for="item in items" class="item" :key="item">

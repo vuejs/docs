@@ -1,1 +1,1 @@
-Say Hello World with Vue!
+¡Di Hola Mundo con Vue!

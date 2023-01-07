@@ -1,6 +1,6 @@
-# Watchers {#watchers}
+# Watchers
 
-Sometimes we may need to perform "side effects" reactively - for example, logging a number to the console when it changes. We can achieve this with watchers:
+Hay ocasiones en las que podemos necesitar la ejecución de "efectos secundarios" de forma reactiva; por ejemplo, registrar un número en la consola cada vez que esta cambie. Esto lo podemos conseguir con los watchers:
 
 <div class="composition-api">
 
@@ -10,12 +10,12 @@ import { ref, watch } from 'vue'
 const count = ref(0)
 
 watch(count, (newCount) => {
-  // yes, console.log() is a side effect
-  console.log(`new count is: ${newCount}`)
+  // sí, console.log() es un efecto secundario
+  console.log(`La nueva cuenta es: ${newCount}`)
 })
 ```
 
-`watch()` can directly watch a ref, and the callback gets fired whenever `count`'s value changes. `watch()` can also watch other types of data sources - more details are covered in <a target="_blank" href="/guide/essentials/watchers.html">Guide - Watchers</a>.
+`watch()` puede observar directamente a una ref, y el callback se dispara cada vez que el valor de `count` cambia. `watch()` también puede observar otros tipos de fuentes de datos; más detalles en la <a target="_blank" href="/guide/essentials/watchers.html">Guía - Watchers</a>.
 
 </div>
 <div class="options-api">
@@ -29,15 +29,15 @@ export default {
   },
   watch: {
     count(newCount) {
-      // yes, console.log() is a side effect
-      console.log(`new count is: ${newCount}`)
+      // sí, console.log() es un efecto secundario
+      console.log(`La nueva cuenta es: ${newCount}`)
     }
   }
 }
 ```
 
-Here, we are using the `watch` option to watch changes to the `count` property. The watch callback is called when `count` changes, and receives the new value as the argument. More details are covered in <a target="_blank" href="/guide/essentials/watchers.html">Guide - Watchers</a>.
+En este caso, estamos utilizando la opción `watch` para observar los cambios en la propiedad `count`. El callback watch es llamado cuando `count` cambia, y recibe el nuevo valor como argumento. Para más detalles, consulta la <a target="_blank" href="/guide/essentials/watchers.html">Guía - Watchers</a>.
 
 </div>
 
-A more practical example than logging to the console would be fetching new data when an ID changes. The code we have is fetching todos data from a mock API on component mount. There is also a button that increments the todo ID that should be fetched. Try to implement a watcher that fetches a new todo when the button is clicked.
+Un ejemplo más práctico que registrar en la consola sería recuperar nuevos datos cuando un ID cambia. El código que tenemos está recuperando datos de tareas desde una API de prueba cuando se monta el componente. Hay también un botón que incrementa el ID de la tarea que debe ser recuperada. Intenta implementar un watcher que recupere una nueva tarea cuando se pulse el botón.

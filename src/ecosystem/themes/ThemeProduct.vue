@@ -10,7 +10,7 @@ const props = defineProps({
   <VTLink class="ThemeProduct" :href="product.url" no-icon>
     <article class="container">
       <figure class="figure">
-        <img class="image" :src="product.image" :alt="product.name">
+        <img class="image" :src="product.image" :alt="product.name" />
       </figure>
 
       <div class="data">
@@ -20,8 +20,10 @@ const props = defineProps({
         </div>
 
         <div class="price">
-          <p v-if="product.price > 0" class="value">${{ product.price }}</p>
-          <p v-else class="free">FREE</p>
+          <p v-if="product.price > 0" class="value">
+            ${{ product.price }}
+          </p>
+          <p v-else class="free">GRATIS</p>
         </div>
       </div>
     </article>

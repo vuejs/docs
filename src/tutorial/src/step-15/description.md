@@ -1,13 +1,13 @@
-# You Did It! {#you-did-it}
+# ¡Lo lograste!
 
-You have finished the tutorial!
+¡Has terminado el tutorial!
 
-At this point, you should have a good idea of what it's like to work with Vue. However, we covered a lot of things really fast and glossed over the details, so definitely keep learning! As a next step, you can:
+En este punto, deberías tener una buena idea de cómo es trabajar con Vue. Sin embargo, hemos cubierto muchas cosas muy rápido y hemos pasado por alto los detalles, así que ¡sigue aprendiendo! Como siguiente paso, puedes:
 
-- Set up a real Vue project on your machine by following the [Quick Start](/guide/quick-start.html).
+- Configurar un proyecto real de Vue en tu máquina siguiendo el [Inicio Rápido](/guide/quick-start.html).
 
-- Go through the [Main Guide](/guide/essentials/application.html), which covers all the topics we learned so far in greater details, and much more.
+- Revisar la [Guía principal](/guide/essentials/application.html), que cubre todos los temas que hemos aprendido hasta ahora con mayor detalle, y mucho más.
 
-- Check out some more practical [Examples](/examples/).
+- Consulta algunos [Ejemplos](/examples/) más prácticos.
 
-We can't wait to see what you build next!
+¡Estamos deseando ver qué es lo próximo que construyes!

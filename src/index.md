@@ -1,6 +1,6 @@
 ---
 page: true
-title: Vue.js - The Progressive JavaScript Framework
+title: Vue.js - El Framework Progresivo de JavaScript
 ---
 
 <script setup>

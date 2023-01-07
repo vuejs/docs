@@ -22,15 +22,15 @@ onMounted(() => {
     <!-- Spotlight -->
     <div class="spotlight">
       <div class="spotlight-inner">
-        <h2>Partner Spotlight</h2>
+        <h2>Socio Destacado</h2>
         <PartnerCard v-if="spotlighted" hero :data="spotlighted" />
       </div>
     </div>
 
     <div class="featured">
-      <h2>Featured Partners</h2>
+      <h2>Socios Recomendados</h2>
       <PartnerList :filter="(p) => p.platinum" />
-      <a class="browse-all" href="./all.html">Browse All Partners</a>
+      <a class="browse-all" href="./all.html">Ver Todos los Socios</a>
     </div>
 
     <PartnerJoin />
@@ -83,7 +83,8 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .spotlight-inner, .featured {
+  .spotlight-inner,
+  .featured {
     padding: 36px 28px;
   }
 }

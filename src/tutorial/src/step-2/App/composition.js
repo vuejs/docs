@@ -2,11 +2,11 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    // component logic
-    // declare some reactive state here.
+    // lógica del componente
+    // declara algún estado reactivo aquí.
 
     return {
-      // exposed to template
+      // expuesto a la plantilla
     }
   }
 }

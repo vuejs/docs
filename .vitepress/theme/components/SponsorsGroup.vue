@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
-import { SponsorData, data, base, load } from './sponsors';
+import { SponsorData, data, base, load } from './sponsors'
 
 const { tier, placement = 'aside' } = defineProps<{
   tier: keyof SponsorData
@@ -11,7 +11,7 @@ let container = $ref<HTMLElement>()
 let visible = $ref(false)
 
 onMounted(async () => {
-  // only render when entering view
+  // sólo se renderiza al entrar en la vista
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting) {
@@ -57,7 +57,7 @@ onMounted(async () => {
       v-if="placement !== 'page' && tier !== 'special'"
       href="/sponsor/"
       class="sponsor-item action"
-      >Your logo</a
+      >Su logo</a
     >
   </div>
 </template>

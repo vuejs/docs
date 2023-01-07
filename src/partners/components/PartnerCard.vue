@@ -9,16 +9,8 @@ const { data, hero, page } = defineProps<{
   page?: boolean
 }>()
 
-const {
-  name,
-  intro,
-  region,
-  logo,
-  hero: heroImg,
-  proficiencies,
-  flipLogo,
-  website
-} = data
+const { name, intro, region, logo, proficiencies, flipLogo, website } =
+  data
 </script>
 
 <template>
@@ -43,12 +35,12 @@ const {
 
       <p>{{ intro }}</p>
 
-      <h4 v-if="hero">Proficiencies</h4>
+      <h4 v-if="hero">Competencias</h4>
       <p v-if="hero">
         <span class="proficiency" v-for="p in proficiencies">{{ p }}</span>
       </p>
     </div>
-    <img class="big" :src="getHero(heroImg, name)" :alt="name + ' hero'" />
+    <img class="big" :src="getHero(name)" :alt="name + ' hero'" />
   </component>
 </template>
 

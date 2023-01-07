@@ -1,2 +1,2 @@
-FLIP list transitions with the built-in <TransitionGroup>.
+Transiciones de la lista FLIP con el <TransitionGroup> integrado.
 https://aerotwist.com/blog/flip-your-animations/

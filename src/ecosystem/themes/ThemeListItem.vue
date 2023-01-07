@@ -26,7 +26,11 @@ const description = computed(() => {
 
     <div class="container">
       <div class="products">
-        <div v-for="product in provider.products" :key="product.name" class="product">
+        <div
+          v-for="product in provider.products"
+          :key="product.name"
+          class="product"
+        >
           <ThemeProduct :product="product" />
         </div>
       </div>
@@ -34,7 +38,7 @@ const description = computed(() => {
 
     <div class="action">
       <VTLink class="action-link" :href="provider.seeMoreUrl" no-icon>
-        See More Themes from {{ provider.name }}
+        Ver Más Temas de {{ provider.name }}
       </VTLink>
     </div>
   </section>

@@ -7,17 +7,14 @@ const tweened = reactive({
   number: 0
 })
 
-watch(
-  number,
-  (n) => {
-    gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
-  }
-)
+watch(number, (n) => {
+  gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
+})
 </script>
 
 <template>
   <div class="demo">
-    Type a number: <input v-model.number="number" />
+    Escribe un número: <input v-model.number="number" />
     <p class="big-number">{{ tweened.number.toFixed(0) }}</p>
   </div>
 </template>

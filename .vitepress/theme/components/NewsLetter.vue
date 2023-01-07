@@ -5,7 +5,7 @@ import { VTLink } from '@vue/theme'
 <template>
   <section id="newsletter" class="NewsLetter">
     <div class="container">
-      <h2 class="title">Subscribe to our weekly newsletter.</h2>
+      <h2 class="title">Suscríbete a nuestro boletín semanal.</h2>
 
       <div class="form">
         <form
@@ -22,7 +22,7 @@ import { VTLink } from '@vue/theme'
             id="member_email"
             name="member[email]"
             type="email"
-            placeholder="Email address"
+            placeholder="Correo Electrónico"
             required
           />
 
@@ -32,21 +32,23 @@ import { VTLink } from '@vue/theme'
               id="member_submit"
               name="member[subscribe]"
               type="submit"
-              value="SUBSCRIBE"
+              value="SUSCRÍBETE"
             />
           </div>
         </form>
       </div>
 
       <p class="help">
-        You can read the previous issues and listen to our podcast at
-        <VTLink
-          class="link"
-          href="https://news.vuejs.org/"
-          no-icon
-        >news.vuejs.org</VTLink>. You may also go social at
-        <VTLink class="link" href="https://twitter.com/vuejs" no-icon>Twitter</VTLink>, or join our home at
-        <VTLink class="link" href="https://chat.vuejs.org/" no-icon>Discord</VTLink>.
+        Puedes leer las ediciones previas y escuchar nuestro podcast en
+        <VTLink class="link" href="https://news.vuejs.org/" no-icon
+          >news.vuejs.org</VTLink
+        >. También puedes socializar en
+        <VTLink class="link" href="https://twitter.com/vuejs" no-icon
+          >Twitter</VTLink
+        >, o unirte a nuestro espacio en
+        <VTLink class="link" href="https://chat.vuejs.org/" no-icon
+          >Discord</VTLink
+        >.
       </p>
     </div>
   </section>
@@ -166,7 +168,7 @@ import { VTLink } from '@vue/theme'
 .help {
   margin: 0 auto;
   padding: 8px;
-  max-width: 480px;
+  max-width: 500px;
   text-align: center;
   line-height: 20px;
   font-size: 12px;

@@ -1,6 +1,6 @@
-# Form Bindings {#form-bindings}
+# Vinculación de Formularios
 
-Using `v-bind` and `v-on` together, we can create two-way bindings on form input elements:
+Usando `v-bind` y `v-on` juntos, podemos crear enlaces bidireccionales en los elementos de entrada del formulario:
 
 ```vue-html
 <input :value="text" @input="onInput">
@@ -11,8 +11,8 @@ Using `v-bind` and `v-on` together, we can create two-way bindings on form input
 ```js
 methods: {
   onInput(e) {
-    // a v-on handler receives the native DOM event
-    // as the argument.
+    // un manejador v-on recibe el evento nativo
+    // del DOM como argumento.
     this.text = e.target.value
   }
 }
@@ -24,24 +24,24 @@ methods: {
 
 ```js
 function onInput(e) {
-  // a v-on handler receives the native DOM event
-  // as the argument.
+  // un manejador v-on recibe el evento nativo
+  // del DOM como argumento.
   text.value = e.target.value
 }
 ```
 
 </div>
 
-Try typing in the input box - you should see the text in `<p>` updating as you type.
+Prueba a escribir en la caja de entrada; deberías ver el texto en `<p>` actualizándose a medida que escribes.
 
-To simplify two-way bindings, Vue provides a directive, `v-model`, which is essentially a syntax sugar for the above:
+Para simplificar los enlaces bidireccionales, Vue proporciona una directiva, `v-model`, que es esencialmente un azúcar sintáctico para lo anterior:
 
 ```vue-html
 <input v-model="text">
 ```
 
-`v-model` automatically syncs the `<input>`'s value with the bound state, so we no longer need to use an event handler for that.
+`v-model` sincroniza automáticamente el valor de `<input>` con el estado vinculado, por lo que ya no es necesario utilizar un controlador de eventos para ello.
 
-`v-model` works not only on text inputs, but also other input types such as checkboxes, radio buttons, and select dropdowns. We cover more details in <a target="_blank" href="/guide/essentials/forms.html">Guide - Form Bindings</a>.
+`v-model` no sólo funciona con entradas de texto, sino también con otros tipos de entradas como checkboxes, radio buttons y select desplegables. Veremos más detalles en la <a target="_blank" href="/guide/essentials/forms.html">Guía - Vinculación de Entradas de Formularios</a>.
 
-Now, try to refactor the code to use `v-model` instead.
+A continuación, trata de refactorizar el código para utilizar `v-model` en su lugar.

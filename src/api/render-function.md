@@ -1,20 +1,20 @@
-# Render Function APIs {#render-function-apis}
+# Función de renderizado
 
-## h() {#h}
+## h()
 
-Creates virtual DOM nodes (vnodes).
+Crea nodos DOM virtuales (vnodes).
 
-- **Type**
+- **Tipo**
 
   ```ts
-  // full signature
+  // firma completa
   function h(
     type: string | Component,
     props?: object | null,
     children?: Children | Slot | Slots
   ): VNode
 
-  // omitting props
+  // omitiendo las props
   function h(type: string | Component, children?: Children | Slot): VNode
 
   type Children = string | number | boolean | VNode | null | Children[]
@@ -24,68 +24,68 @@ Creates virtual DOM nodes (vnodes).
   type Slots = { [name: string]: Slot }
   ```
 
-  > Types are simplified for readability.
+  > Los tipos se han simplificado para facilitar la lectura.
 
-- **Details**
+- **Detalles**
 
-  The first argument can either be a string (for native elements) or a Vue component definition. The second argument is the props to be passed, and the third argument is the children.
+  El primer argumento puede ser una cadena (para elementos nativos) o una definición de componente de Vue. El segundo argumento son las props que se van a pasar, y el tercer argumento son los hijos.
 
-  When creating a component vnode, the children must be passed as slot functions. A single slot function can be passed if the component expects only the default slot. Otherwise, the slots must be passed as an object of slot functions.
+  Al crear un componente vnode, los hijos deben pasarse como funciones de slot. Se puede pasar una función de slot única si el componente espera solo el slot por defecto. De lo contrario, los slots deben pasarse como un objeto de funciones de slot.
 
-  For convenience, the props argument can be omitted when the children is not a slots object.
+  Por conveniencia, el argumento de props puede omitirse cuando los hijos no son un objeto de slots.
 
-- **Example**
+- **Ejemplo**
 
-  Creating native elements:
+  Creando elementos nativos:
 
   ```js
   import { h } from 'vue'
 
-  // all arguments except the type are optional
+  // todos los argumentos, excepto el tipo, son opcionales
   h('div')
   h('div', { id: 'foo' })
 
-  // both attributes and properties can be used in props
-  // Vue automatically picks the right way to assign it
+  // tanto los atributos como las propiedades se pueden utilizar en props
+  // Vue elige automáticamente la forma correcta de asignarlo
   h('div', { class: 'bar', innerHTML: 'hello' })
 
-  // class and style have the same object / array
-  // value support like in templates
+  // la clase y el estilo tienen el mismo objeto / array
+  // soporta valores como en las plantillas
   h('div', { class: [foo, { bar }], style: { color: 'red' } })
 
-  // event listeners should be passed as onXxx
+  // los escuchadores de eventos deben ser pasados como onXxx
   h('div', { onClick: () => {} })
 
-  // children can be a string
+  // los hijos pueden ser una cadena
   h('div', { id: 'foo' }, 'hello')
 
-  // props can be omitted when there are no props
+  // los props se pueden omitir cuando no hay props
   h('div', 'hello')
   h('div', [h('span', 'hello')])
 
-  // children array can contain mixed vnodes and strings
+  // el array de hijos puede contener una mezcla de vnodes y cadenas
   h('div', ['hello', h('span', 'hello')])
   ```
 
-  Creating components:
+  Creando componentes:
 
   ```js
   import Foo from './Foo.vue'
 
-  // passing props
+  // pasando props
   h(Foo, {
-    // equivalent of some-prop="hello"
+    // el equivalente a some-prop="hello"
     someProp: 'hello',
-    // equivalent of @update="() => {}"
+    // el equivalente a @update="() => {}"
     onUpdate: () => {}
   })
 
-  // passing single default slot
+  // pasando un único slot por defecto
   h(Foo, () => 'default slot')
 
-  // passing named slots
-  // notice the `null` is required to avoid
-  // slots object being treated as props
+  // pasando slots nombrados
+  // observa que el `null` es necesario para evitar que
+  // el objeto slots sea tratado como props
   h(MyComponent, null, {
     default: () => 'default slot',
     foo: () => h('div', 'foo'),
@@ -93,29 +93,29 @@ Creates virtual DOM nodes (vnodes).
   })
   ```
 
-- **See also:** [Guide - Render Functions - Creating VNodes](/guide/extras/render-function.html#creating-vnodes)
+- **Véase también:** [Guía - Funciones de renderizado - Creando VNodes](/guide/extras/render-function.html#creando-vnodos)
 
-## mergeProps() {#mergeprops}
+## mergeProps()
 
-Merge multiple props objects with special handling for certain props.
+Combina múltiples objetos de props con un manejo especial para ciertos props.
 
-- **Type**
+- **Tipo**
 
   ```ts
   function mergeProps(...args: object[]): object
   ```
 
-- **Details**
+- **Detalles**
 
-  `mergeProps()` supports merging multiple props objects with special handling for the following props:
+  `mergeProps()` admite fusionar múltiples objetos de props con un manejo especial para los siguientes props:
 
   - `class`
   - `style`
-  - `onXxx` event listeners - multiple listeners with the same name will be merged into an array.
+  - `onXxx` escuchador de evento - múltiples escuchadores con el mismo nombre se fusionarán en un array.
 
-  If you do not need the merge behavior and want simple overwrites, native object spread can be used instead.
+  Si no necesitas el comportamiento de fusión y deseas una simple sobreescritura, puedes usar la propagación de objetos nativos en su lugar.
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { mergeProps } from 'vue'
@@ -139,25 +139,25 @@ Merge multiple props objects with special handling for certain props.
    */
   ```
 
-## cloneVNode() {#clonevnode}
+## cloneVNode()
 
-Clones a vnode.
+Clona un vnode.
 
-- **Type**
+- **Tipo**
 
   ```ts
   function cloneVNode(vnode: VNode, extraProps?: object): VNode
   ```
 
-- **Details**
+- **Detalles**
 
-  Returns a cloned vnode, optionally with extra props to merge with the original.
+  Devuelve un vnode clonado, opcionalmente con props adicionales para fusionarlas con el original.
 
-  Vnodes should be considered immutable once created, and you should not mutate the props of an existing vnode. Instead, clone it with different / extra props.
+  Los vnodes deben considerarse inmutables una vez creados, y no debes mutar las props de un vnode existente. En su lugar, clónalo con props diferentes/adicionales.
 
-  Vnodes have special internal properties, so cloning them is not as simple as an object spread. `cloneVNode()` handles most of the internal logic.
+  Los vnodes tienen propiedades internas especiales, por lo que clonarlos no es tan simple como propagar un objeto. `cloneVNode()` maneja la mayor parte de la lógica interna.
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { h, cloneVNode } from 'vue'
@@ -166,35 +166,35 @@ Clones a vnode.
   const cloned = cloneVNode(original, { id: 'foo' })
   ```
 
-## isVNode() {#isvnode}
+## isVNode()
 
-Checks if a value is a vnode.
+Comprueba si un valor es un vnode.
 
-- **Type**
+- **Tipo**
 
   ```ts
   function isVNode(value: unknown): boolean
   ```
 
-## resolveComponent() {#resolvecomponent}
+## resolveComponent()
 
-For manually resolving a registered component by name.
+Para resolver manualmente un componente registrado por su nombre.
 
-- **Type**
+- **Tipo**
 
   ```ts
   function resolveComponent(name: string): Component | string
   ```
 
-- **Details**
+- **Detalles**
 
-  **Note: you do not need this if you can import the component directly.**
+  **Nota: no necesitas esto si puedes importar el componente directamente.**
 
-  `resolveComponent()` must be called inside<span class="composition-api"> either `setup()` or</span> the render function in order to resolve from the correct component context.
+  `resolveComponent()` debe llamarse dentro de <span class="composition-api"> `setup()` o</span> la función de renderizado para resolver desde el contexto correcto del componente.
 
-  If the component is not found, a runtime warning will be emitted, and the name string is returned.
+  Si no se encuentra el componente, se emitirá una advertencia en tiempo de ejecución y se devolverá una cadena de texto con el nombre.
 
-- **Example**
+- **Ejemplo**
 
   <div class="composition-api">
 
@@ -228,33 +228,33 @@ For manually resolving a registered component by name.
 
   </div>
 
-- **See also:** [Guide - Render Functions - Components](/guide/extras/render-function.html#components)
+- **Véase también:** [Guía - Funciones de Renderizado - Componentes](/guide/extras/render-function.html#componentes)
 
-## resolveDirective() {#resolvedirective}
+## resolveDirective()
 
-For manually resolving a registered directive by name.
+Para resolver manualmente una directiva registrada por su nombre.
 
-- **Type**
+- **Tipo**
 
   ```ts
   function resolveDirective(name: string): Directive | undefined
   ```
 
-- **Details**
+- **Detalles**
 
-  **Note: you do not need this if you can import the component directly.**
+  **Nota: no necesitas esto si puedes importar el componente directamente.**
 
-  `resolveDirective()` must be called inside<span class="composition-api"> either `setup()` or</span> the render function in order to resolve from the correct component context.
+  `resolveDirective()` debe llamarse dentro de <span class="composition-api"> `setup()` o</span> la función de renderizado para resolver desde el contexto correcto del componente.
 
-  If the directive is not found, a runtime warning will be emitted, and the function returns `undefined`.
+  Si no se encuentra la directiva, se emitirá una advertencia en tiempo de ejecución y la función devolverá `undefined`.
 
-- **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
+- **Véase también:** [Guía - Funciones de Renderizado - Directivas Personalizadas](/guide/extras/render-function.html#directivas-personalizadas)
 
-## withDirectives() {#withdirectives}
+## withDirectives()
 
-For adding custom directives to vnodes.
+Para añadir directivas personalizadas a los vnodes.
 
-- **Type**
+- **Tipo**
 
   ```ts
   function withDirectives(
@@ -271,16 +271,16 @@ For adding custom directives to vnodes.
   >
   ```
 
-- **Details**
+- **Detalles**
 
-  Wraps an existing vnode with custom directives. The second argument is an array of custom directives. Each custom directive is also represented as an array in the form of `[Directive, value, argument, modifiers]`. Tailing elements of the array can be omitted if not needed.
+  Envuelve un vnode existente con directivas personalizadas. El segundo argumento es un array de directivas personalizadas. Cada directiva personalizada también se representa como un array en forma de `[Directive, value, argument, modifiers]`. Los elementos de seguimiento del array se pueden omitir si no se necesitan.
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { h, withDirectives } from 'vue'
 
-  // a custom directive
+  // una directiva personalizada
   const pin = {
     mounted() {
       /* ... */
@@ -296,29 +296,29 @@ For adding custom directives to vnodes.
   ])
   ```
 
-- **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
+- **Véase también:** [Guía - Funciones de Renderizado - Directivas Personalizadas](/guide/extras/render-function.html#directivas-personalizadas)
 
-## withModifiers() {#withmodifiers}
+## withModifiers()
 
-For adding built-in [`v-on` modifiers](/guide/essentials/event-handling.html#event-modifiers) to an event handler function.
+Para agregar [modificadores `v-on`](/guide/essentials/event-handling.html#modificadores-de-eventos) incorporados a una función manejadora de eventos.
 
-- **Type**
+- **Tipo**
 
   ```ts
   function withModifiers(fn: Function, modifiers: string[]): Function
   ```
 
-- **Example**
+- **Ejemplo**
 
   ```js
   import { h, withModifiers } from 'vue'
 
   const vnode = h('button', {
-    // equivalent of v-on.stop.prevent
+    // equivalente a v-on.stop.prevent
     onClick: withModifiers(() => {
       // ...
     }, ['stop', 'prevent'])
   })
   ```
 
-- **See also:** [Guide - Render Functions - Event Modifiers](/guide/extras/render-function.html#event-modifiers)
+- **Véase también:** [Guía - Funciones de Renderizado - Modificadores de Eventos](/guide/extras/render-function.html#modificadores-de-eventos)

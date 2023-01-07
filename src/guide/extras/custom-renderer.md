@@ -1,1 +1,1 @@
-# Custom Renderers {#custom-renderers}
+# Custom Renderers

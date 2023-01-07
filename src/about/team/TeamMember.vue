@@ -34,14 +34,14 @@ const avatarUrl = computed(() => {
       :href="`https://github.com/sponsors/${member.socials.github}`"
       no-icon
     >
-      <VTIconHeart class="sponsor-icon" /> Sponsor
+      <VTIconHeart class="sponsor-icon" /> Patrocinador
     </VTLink>
 
     <figure class="avatar">
       <img
         class="avatar-img"
         :src="avatarUrl"
-        :alt="`${member.name}'s Profile Picture`"
+        :alt="`Imagen de perfil de ${member.name}`"
       />
     </figure>
 
@@ -68,7 +68,7 @@ const avatarUrl = computed(() => {
       <div class="profiles">
         <section v-if="member.projects" class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Projects</h2>
+            <h2 class="sr-only">Proyectos</h2>
             <VTIconCode class="desc-icon code" />
           </div>
           <ul class="desc-list">
@@ -90,7 +90,7 @@ const avatarUrl = computed(() => {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Location</h2>
+            <h2 class="sr-only">Ubicación</h2>
             <VTIconMapPin class="desc-icon" />
           </div>
           <p class="desc-text">
@@ -100,7 +100,7 @@ const avatarUrl = computed(() => {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Languages</h2>
+            <h2 class="sr-only">Idiomas</h2>
             <VTIconGlobe class="desc-icon" />
           </div>
           <ul class="desc-list">

@@ -1,6 +1,6 @@
-# List Rendering {#list-rendering}
+# Renderizado de Listas
 
-We can use the `v-for` directive to render a list of elements based on a source array:
+Podemos utilizar la directiva `v-for` para renderizar una lista de elementos basada en un array fuente:
 
 ```vue-html
 <ul>
@@ -10,13 +10,13 @@ We can use the `v-for` directive to render a list of elements based on a source 
 </ul>
 ```
 
-Here `todo` is a local variable representing the array element currently being iterated on. It's only accessible on or inside the `v-for` element, similar to a function scope.
+Aquí `todo` es una variable local que representa el elemento de la matriz que se está iterando actualmente. Solo es accesible en o dentro del elemento `v-for`, similar al ámbito de una función.
 
-Notice how we are also giving each todo object a unique `id`, and binding it as the <a target="_blank" href="/api/built-in-special-attributes.html#key">special `key` attribute</a> for each `<li>`. The `key` allows Vue to accurately move each `<li>` to match the position of its corresponding object in the array.
+Observa que también estamos dando a cada objeto `todo` un `id` único, y lo vinculamos como el <a target="_blank" href="/api/built-in-special-attributes.html#key">atributo especial `key`</a> para cada `<li>`. La `key` (_clave_, en español) permite a Vue mover con precisión cada `<li>` para que coincida con la posición de su correspondiente objeto en el array.
 
-There are two ways to update the list:
+Hay dos maneras de actualizar la lista:
 
-1. Call [mutating methods](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) on the source array:
+1. Llamar a los [métodos de mutación](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) en el array fuente:
 
    <div class="composition-api">
 
@@ -33,7 +33,7 @@ There are two ways to update the list:
 
    </div>
 
-2. Replace the array with a new one:
+2. Reemplazar el array por uno nuevo:
 
    <div class="composition-api">
 
@@ -50,6 +50,6 @@ There are two ways to update the list:
 
    </div>
 
-Here we have a simple todo list - try to implement the logic for `addTodo()` and `removeTodo()` methods to make it work!
+Aquí tenemos una simple lista de tareas. Trata de implementar la lógica de los métodos `addTodo()` y `removeTodo()` para que funcione!
 
-More details on `v-for`: <a target="_blank" href="/guide/essentials/list.html">Guide - List Rendering</a>
+Más detalles sobre `v-for`: <a target="_blank" href="/guide/essentials/list.html" >Guía - Renderizado de Listas</a>

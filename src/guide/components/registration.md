@@ -1,14 +1,14 @@
-# Component Registration {#component-registration}
+# Registro de Componentes
 
-<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Free Vue.js Component Registration Lesson"/>
+> Esta página supone que ya has leído los [Fundamentos de los Componentes](/guide/essentials/component-basics). Léelo primero si eres nuevo en el tema de componentes.
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Lección gratuita de Registro de Componentes de Vue.js"/>
 
-A Vue component needs to be "registered" so that Vue knows where to locate its implementation when it is encountered in a template. There are two ways to register components: global and local.
+Un componente de Vue necesita ser "registrado" para que Vue sepa dónde localizar su implementación cuando se encuentre en una plantilla. Hay dos maneras de registrar componentes: global y local.
 
-## Global Registration {#global-registration}
+## Registro Global
 
-We can make components available globally in the current [Vue application](/guide/essentials/application.html) using the `app.component()` method:
+Podemos hacer que los componentes estén disponibles globalmente en la [aplicación Vue](/guide/essentials/application.html) actual usando el método `app.component()`:
 
 ```js
 import { createApp } from 'vue'
@@ -16,16 +16,16 @@ import { createApp } from 'vue'
 const app = createApp({})
 
 app.component(
-  // the registered name
+  // el nombre registrado
   'MyComponent',
-  // the implementation
+  // la implementación
   {
     /* ... */
   }
 )
 ```
 
-If using SFCs, you will be registering the imported `.vue` files:
+Si utilizas SFCs, registrarás los archivos `.vue` importados:
 
 ```js
 import MyComponent from './App.vue'
@@ -33,7 +33,7 @@ import MyComponent from './App.vue'
 app.component('MyComponent', MyComponent)
 ```
 
-The `app.component()` method can be chained:
+El método `app.component()` puede ser encadenado:
 
 ```js
 app
@@ -42,30 +42,30 @@ app
   .component('ComponentC', ComponentC)
 ```
 
-Globally registered components can be used in the template of any component within this application:
+Los componentes registrados globalmente pueden ser utilizados en la plantilla de cualquier componente dentro de esta aplicación:
 
 ```vue-html
-<!-- this will work in any component inside the app -->
+<!-- esto funcionará en cualquier componente dentro de la aplicación -->
 <ComponentA/>
 <ComponentB/>
 <ComponentC/>
 ```
 
-This even applies to all subcomponents, meaning all three of these components will also be available _inside each other_.
+Esto se aplica incluso a todos los subcomponentes, lo que significa que estos tres componentes también estarán disponibles _dentro de cada uno_.
 
-## Local Registration {#local-registration}
+## Registro Local
 
-While convenient, global registration has a few drawbacks:
+Aunque es conveniente, el registro global tiene algunos puntos débiles:
 
-1. Global registration prevents build systems from removing unused components (a.k.a "tree-shaking"). If you globally register a component but end up not using it anywhere in your app, it will still be included in the final bundle.
+1. El registro global impide que los sistemas de compilación eliminen los componentes no utilizados (también conocido como "tree-shaking"). Si registras globalmente un componente pero acabas por no utilizarlo en ninguna parte de tu aplicación, seguirá estando incluido en el bundle final.
 
-2. Global registration makes dependency relationships less explicit in large applications. It makes it difficult to locate a child component's implementation from a parent component using it. This can affect long-term maintainability similar to using too many global variables.
+2. El registro global hace que las relaciones de dependencia sean menos explícitas en aplicaciones grandes. Hace difícil localizar la implementación de un componente hijo desde un componente padre que lo utiliza. Esto puede afectar a la capacidad de mantenimiento a largo plazo de forma similar al uso de demasiadas variables globales.
 
-Local registration scopes the availability of the registered components to the current component only. It makes the dependency relationship more explicit, and is more tree-shaking friendly.
+El registro local limita la disponibilidad de los componentes registrados al componente actual. Hace que la relación de dependencia sea más explícita, y es más amigable con el árbol.
 
 <div class="composition-api">
 
-When using SFC with `<script setup>`, imported components can be locally used without registration:
+Cuando se utiliza SFC con `<script setup>`, los componentes importados pueden ser utilizados localmente sin necesidad de registro:
 
 ```vue
 <script setup>
@@ -77,7 +77,7 @@ import ComponentA from './ComponentA.vue'
 </template>
 ```
 
-In non-`<script setup>`, you will need to use the `components` option:
+En el caso de que no sea `<script setup>`, tendrás que utilizar la opción `components`:
 
 ```js
 import ComponentA from './ComponentA.js'
@@ -95,7 +95,7 @@ export default {
 </div>
 <div class="options-api">
 
-Local registration is done using the `components` option:
+El registro local se realiza mediante la opción `components`:
 
 ```vue
 <script>
@@ -115,7 +115,7 @@ export default {
 
 </div>
 
-For each property in the `components` object, the key will be the registered name of the component, while the value will contain the implementation of the component. The above example is using the ES2015 property shorthand and is equivalent to:
+Para cada propiedad del objeto `components`, la clave será el nombre registrado del componente, mientras que el valor contendrá la implementación del componente. El ejemplo anterior utiliza la abreviatura de propiedades de ES2015 y es equivalente a:
 
 ```js
 export default {
@@ -126,16 +126,16 @@ export default {
 }
 ```
 
-Note that **locally registered components are _not_ also available in descendant components**. In this case, `ComponentA` will be made available to the current component only, not any of its child or descendant components.
+Ten en cuenta que **los componentes registrados localmente _no_ están disponibles también en los componentes descendientes**. En este caso, `ComponentA` estará disponible sólo para el componente actual, no para ninguno de sus componentes hijos o descendientes.
 
-## Component Name Casing {#component-name-casing}
+## Nomenclatura de los Componentes
 
-Throughout the guide, we are using PascalCase names when registering components. This is because:
+A lo largo de la guía, utilizamos nombres PascalCase al registrar componentes. Esto se debe a que:
 
-1. PascalCase names are valid JavaScript identifiers. This makes it easier to import and register components in JavaScript. It also helps IDEs with auto-completion.
+1. Los nombres PascalCase son identificadores válidos de JavaScript. Esto facilita la importación y el registro de componentes en JavaScript. También ayuda a los IDEs con el autocompletado.
 
-2. `<PascalCase />` makes it more obvious that this is a Vue component instead of a native HTML element in templates. It also differentiates Vue components from custom elements (web components).
+2. `<PascalCase />` hace más obvio que se trata de un componente Vue en lugar de un elemento HTML nativo en las plantillas. También diferencia los componentes Vue de los elementos personalizados (componentes web).
 
-This is the recommended style when working with SFC or string templates. However, as discussed in [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats), PascalCase tags are not usable in DOM templates.
+Este es el estilo recomendado cuando se trabaja con plantillas SFC o de cadena. Sin embargo, como se discute en [Análisis de Advertencias de la Plantilla del DOM](/guide/essentials/component-basics.html#advertencias-sobre-el-procesamiento-de-las-plantillas-del-dom), las etiquetas PascalCase no son utilizables en las plantillas del DOM.
 
-Luckily, Vue supports resolving kebab-case tags to components registered using PascalCase. This means a component registered as `MyComponent` can be referenced in the template via both `<MyComponent>` and `<my-component>`. This allows us to use the same JavaScript component registration code regardless of template source.
+Por suerte, Vue soporta la resolución de etiquetas kebab-case a componentes registrados usando PascalCase. Esto significa que un componente registrado como `MyComponent` puede ser referenciado en la plantilla a través de `<MyComponent>` y `<my-component>`. Esto nos permite utilizar el mismo código de registro de componentes JavaScript independientemente de la fuente de la plantilla.
