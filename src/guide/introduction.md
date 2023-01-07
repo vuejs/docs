@@ -62,7 +62,7 @@ const count = ref(0)
   </button>
 </div>
 
-The above example demonstrates the two core features of Vue:
+Das oben genannte Beispiel demonstriert die beiden Kernfunktionen von Vue:
 
 - **Declarative Rendering**: Vue extends standard HTML with a template syntax that allows us to declaratively describe HTML output based on JavaScript state.
 
