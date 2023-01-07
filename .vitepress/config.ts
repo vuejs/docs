@@ -189,6 +189,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
         },
         { text: 'Props', link: '/guide/components/props' },
         { text: 'Events', link: '/guide/components/events' },
+        { text: 'Component v-model', link: '/guide/components/v-model' },
         {
           text: 'Fallthrough Attributes',
           link: '/guide/components/attrs'
