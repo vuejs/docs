@@ -49,7 +49,7 @@ createApp({
 </div>
 ```
 
-**Result**
+**Resultat**
 
 <script setup>
 import { ref } from 'vue'
