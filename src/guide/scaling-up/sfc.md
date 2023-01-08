@@ -4,6 +4,8 @@
 
 Vue Single-File Components (a.k.a. `*.vue` files, abbreviated as **SFC**) is a special file format that allows us to encapsulate the template, logic, **and** styling of a Vue component in a single file. Here's an example SFC:
 
+<div class="options-api">
+
 ```vue
 <script>
 export default {
@@ -26,6 +28,30 @@ export default {
 }
 </style>
 ```
+
+</div>
+
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref } from 'vue'
+const greeting = ref('Hello World!')
+</script>
+
+<template>
+  <p class="greeting">{{ greeting }}</p>
+</template>
+
+<style>
+.greeting {
+  color: red;
+  font-weight: bold;
+}
+</style>
+```
+
+</div>
 
 As we can see, Vue SFC is a natural extension of the classic trio of HTML, CSS and JavaScript. The `<template>`, `<script>`, and `<style>` blocks encapsulate and colocate the view, logic and styling of a component in the same file. The full syntax is defined in the [SFC Syntax Specification](/api/sfc-spec).
 
