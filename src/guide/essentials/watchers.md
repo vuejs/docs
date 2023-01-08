@@ -220,11 +220,11 @@ watch(
 Deep watch requires traversing all nested properties in the watched object, and can be expensive when used on large data structures. Use it only when necessary and beware of the performance implications.
 :::
 
-<div class="options-api">
-
-## Eager Watchers \* {#eager-watchers}
+## Eager Watchers {#eager-watchers}
 
 `watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
+
+<div class="options-api">
 
 We can force a watcher's callback to be executed immediately by declaring it using an object with a `handler` function and the `immediate: true` option:
 
@@ -245,41 +245,57 @@ export default {
 ```
 
 The initial execution of the handler function will happen just before the `created` hook. Vue will have already processed the `data`, `computed`, and `methods` options, so those properties will be available on the first invocation.
+  
+</div>
+
+<div class="composition-api">
+
+We can force a watcher's callback to be executed immediately by passing the `immediate: true` option:
+
+```js
+watch(source, (newValue, oldValue) => {
+  // ...
+}, { immediate: true })
+```
+
 </div>
 
 <div class="composition-api">
 
 ## `watchEffect()` \*\* {#watcheffect}
 
-`watch()` is lazy: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes. We may find ourselves doing this:
+It is common for the watcher callback to use exactly the same reactive state as the source. For example, consider the following code, which uses a watcher to load a remote resource whenever the `todoId` ref changes:
 
 ```js
-const url = ref('https://...')
+const todoId = ref(1)
 const data = ref(null)
 
-async function fetchData() {
-  const response = await fetch(url.value)
+watch(todoId, async () => {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  )
   data.value = await response.json()
-}
-
-// fetch immediately
-fetchData()
-// ...then watch for url change
-watch(url, fetchData)
+}, { immediate: true })
 ```
 
-This can be simplified with [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` allows us to perform a side effect immediately while automatically tracking the effect's reactive dependencies. The above example can be rewritten as:
+In particular, notice how the watcher uses `todoId` twice, once as the source and then again inside the callback. 
+
+This can be simplified with [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` allows us to track the callback's reactive dependencies automatically. The watcher above can be rewritten as:
 
 ```js
 watchEffect(async () => {
-  const response = await fetch(url.value)
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  )
   data.value = await response.json()
 })
 ```
 
-Here, the callback will run immediately. During its execution, it will also automatically track `url.value` as a dependency (similar to computed properties). Whenever `url.value` changes, the callback will be run again.
+Here, the callback will run immediately, there's no need to specify `immediate: true`. During its execution, it will automatically track `todoId.value` as a dependency (similar to computed properties). Whenever `todoId.value` changes, the callback will be run again. With `watchEffect()`, we no longer need to pass `todoId` explicitly as the source value.
 
-You can check out [this example](/examples/#fetching-data) with `watchEffect` and reactive data-fetching in action.
+You can check out [this example](/examples/#fetching-data) of `watchEffect()` and reactive data-fetching in action.
+
+For examples like these, with only one dependency, the benefit of `watchEffect()` is relatively small. But for watchers that have multiple dependencies, using `watchEffect()` removes the burden of having to maintain the list of dependencies manually. In addition, if you need to watch several properties in a nested data structure, `watchEffect()` may prove more efficient than a deep watcher, as it will only track the properties that are used in the callback, rather than recursively tracking all of them.
 
 :::tip
 `watchEffect` only tracks dependencies during its **synchronous** execution. When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
