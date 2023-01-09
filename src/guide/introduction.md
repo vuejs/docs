@@ -5,6 +5,7 @@ footer: false
 # Введение {#introduction}
 
 :::info Это документация для Vue 3!
+
 - Поддержка Vue 2 закончится 31 декабря 2023. Подробнее о версии с расширенной поддержкой — [Vue 2 LTS](https://v2.vuejs.org/lts/).
 - Документация для Vue 2 доступна тут [ru.vuejs.org/v2/](https://ru.vuejs.org/v2/).
 - Мигрируете с Vue 2? Ознакомьтесь с [руководством по миграции](https://v3-migration.vuejs.org/).

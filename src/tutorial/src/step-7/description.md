@@ -1,6 +1,6 @@
-# List Rendering {#list-rendering}
+# Рендеринг списков {#list-rendering}
 
-We can use the `v-for` directive to render a list of elements based on a source array:
+Можно использовать директиву `v-for` для вывода списка элементов на основе исходного массива:
 
 ```vue-html
 <ul>
@@ -10,13 +10,13 @@ We can use the `v-for` directive to render a list of elements based on a source 
 </ul>
 ```
 
-Here `todo` is a local variable representing the array element currently being iterated on. It's only accessible on or inside the `v-for` element, similar to a function scope.
+Здесь `todo` - локальная переменная, представляющая элемент массива, по которому в данный момент выполняется итерация. Она доступна только в элементе `v-for` или внутри него, подобно области видимости функции.
 
-Notice how we are also giving each todo object a unique `id`, and binding it as the <a target="_blank" href="/api/built-in-special-attributes.html#key">special `key` attribute</a> for each `<li>`. The `key` allows Vue to accurately move each `<li>` to match the position of its corresponding object in the array.
+Обратите внимание, что здесь также присваиваем каждому объекту todo уникальный `id` и связываем его как <a target="_blank" href="/api/built-in-special-attributes.html#key">специальный атрибут `key`</a> для каждого `<li>`. `key` позволяет Vue точно перемещать каждый "<li>", чтобы он соответствовал положению соответствующего объекта в массиве.
 
-There are two ways to update the list:
+Существует два способа обновления списка:
 
-1. Call [mutating methods](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) on the source array:
+1. Вызов [мутирующих методов](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) в исходном массиве:
 
    <div class="composition-api">
 
@@ -33,7 +33,7 @@ There are two ways to update the list:
 
    </div>
 
-2. Replace the array with a new one:
+2. Замена массива на новый:
 
    <div class="composition-api">
 
@@ -50,6 +50,6 @@ There are two ways to update the list:
 
    </div>
 
-Here we have a simple todo list - try to implement the logic for `addTodo()` and `removeTodo()` methods to make it work!
+Здесь у нас есть простой список todo - попробуйте реализовать логику для методов `addTodo()` и `removeTodo()`, чтобы заставить его работать!
 
-More details on `v-for`: <a target="_blank" href="/guide/essentials/list.html">Guide - List Rendering</a>
+Подробнее о `v-for`: <a target="_blank" href="/guide/essentials/list.html">Руководство - рендеринг списков</a>
