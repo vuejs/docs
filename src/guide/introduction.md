@@ -64,7 +64,7 @@ const count = ref(0)
 
 Das oben genannte Beispiel demonstriert die beiden Kernfunktionen von Vue:
 
-- **Declarative Rendering**: Vue extends standard HTML with a template syntax that allows us to declaratively describe HTML output based on JavaScript state.
+- **Deklaratives Rendering**: Vue erweitert den HTML-Standard um eine Template-Syntax, die es uns ermöglicht, die HTML-Ausgabe auf der Grundlage des JavaScript-Status deklarativ zu beschreiben.
 
 - **Reactivity**: Vue automatically tracks JavaScript state changes and efficiently updates the DOM when changes happen.
 
