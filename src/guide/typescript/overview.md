@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Usando Vue con TypeScript
+# Usando Vue con TypeScript {#usando-vue-con-typescript}
 
 Un sistema de tipos como TypeScript puede detectar muchos errores comunes a través del análisis estático en tiempo de desarrollo. Esto reduce la posibilidad de que se produzcan errores en tiempo de ejecución en producción, y también nos permite refactorizar con más confianza el código en aplicaciones a gran escala. TypeScript también mejora la ergonomía del desarrollador a través del autocompletado basado en tipos en los IDE.
 

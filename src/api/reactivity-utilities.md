@@ -96,7 +96,7 @@ Se puede utilizar para crear una ref para una propiedad en un objeto reactivo de
   </script>
   ```
 
-  Cuando `toRef` se usa con props de componentes, se siguen aplicando las restricciones habituales sobre la mutación de las props. Intentar asignar un nuevo valor a la ref es equivalente a intentar modificar la prop directamente y no está permitido. En ese escenario, puedes considerar el uso de [`computed`](./reactivity-core.html#computed) con `get` y `set` en su lugar. Consulta la guía para [usar `v-model` con componentes](/guide/components/events.html#uso-con-v-model) para más información.
+  Cuando `toRef` se usa con props de componentes, se siguen aplicando las restricciones habituales sobre la mutación de las props. Intentar asignar un nuevo valor a la ref es equivalente a intentar modificar la prop directamente y no está permitido. En ese escenario, puedes considerar el uso de [`computed`](./reactivity-core.html#computed) con `get` y `set` en su lugar. Consulta la guía para [usar `v-model` con componentes](/guide/components/v-model.html) para más información.
 
   `toRef()` devolverá una ref utilizable incluso si la propiedad de origen no existe actualmente. Esto hace posible trabajar con propiedades opcionales, que no serían recogidas por [`toRefs`](#torefs).
 

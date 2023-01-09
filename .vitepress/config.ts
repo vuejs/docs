@@ -4,9 +4,8 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
-import { jobsPlugin } from './jobsMdPlugin'
 
-const nav = [
+const nav: ThemeConfig['nav'] = [
   {
     text: 'Documentación',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
@@ -129,7 +128,7 @@ const nav = [
   }
 ]
 
-export const sidebar = {
+export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
       text: 'Cómo Comenzar',
@@ -201,6 +200,7 @@ export const sidebar = {
         },
         { text: 'Props', link: '/guide/components/props' },
         { text: 'Eventos', link: '/guide/components/events' },
+        { text: 'Componente v-model', link: '/guide/components/v-model' },
         {
           text: 'Atributos Fallthrough',
           link: '/guide/components/attrs'
@@ -434,7 +434,7 @@ export const sidebar = {
         { text: 'Función de Renderizado', link: '/api/render-function' },
         { text: 'Renderizado del Lado del Servidor', link: '/api/ssr' },
         {
-          text: 'Tipos de Utilidades de TypeScript',
+          text: 'Utilidad del Tipado de TypeScript',
           link: '/api/utility-types'
         },
         {
@@ -575,6 +575,10 @@ export const sidebar = {
   ]
 }
 
+// Placeholder of the i18n config for @vuejs-translations.
+// const i18n: ThemeConfig['i18n'] = {
+// }
+
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
@@ -625,6 +629,26 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     nav,
     sidebar,
+    // Placeholder of the i18n config for @vuejs-translations.
+    // i18n,
+
+    localeLinks: [
+      {
+        link: 'https://cn.vuejs.org',
+        text: '简体中文',
+        repo: 'https://github.com/vuejs-translations/docs-zh-cn'
+      },
+      {
+        link: 'https://ja.vuejs.org',
+        text: '日本語',
+        repo: 'https://github.com/vuejs-translations/docs-ja'
+      },
+      {
+        link: '/translations/',
+        text: 'Help Us Translate!',
+        isTranslationsDesc: true
+      }
+    ],
 
     algolia: {
       indexName: 'vuejs',
@@ -641,7 +665,6 @@ export default defineConfigWithTheme<ThemeConfig>({
     },
 
     socialLinks: [
-      { icon: 'languages', link: '/translations/' },
       { icon: 'github', link: 'https://github.com/vuejs/' },
       { icon: 'twitter', link: 'https://twitter.com/vuejs' },
       { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
@@ -663,7 +686,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   markdown: {
     config(md) {
-      md.use(headerPlugin).use(jobsPlugin)
+      md.use(headerPlugin)
     }
   },
 

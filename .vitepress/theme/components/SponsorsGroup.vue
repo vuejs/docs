@@ -11,7 +11,7 @@ let container = $ref<HTMLElement>()
 let visible = $ref(false)
 
 onMounted(async () => {
-  // sólo se renderiza al entrar en la vista
+  // only render when entering view
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting) {

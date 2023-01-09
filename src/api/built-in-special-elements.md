@@ -1,10 +1,10 @@
-# Elementos Especiales Integrados
+# Elementos Especiales Integrados {#elementos-especiales-integrados}
 
 :::info No Son Componentes
-`<component>` y `<slot>` tienen características similares a los componentes y forman parte de la sintaxis de la plantilla. No son verdaderos componentes y se compilan aparte durante la compilación de la plantilla. Como tales, se escriben convencionalmente con minúsculas.
+`<component>`, `<slot>` y `<template>` tienen características similares a los componentes y forman parte de la sintaxis de la plantilla. No son verdaderos componentes y se compilan aparte durante la compilación de la plantilla. Como tales, se escriben convencionalmente con minúsculas.
 :::
 
-## `<component>`
+## `<component>` {#component}
 
 Un "meta componente" para renderizar componentes dinámicos o elementos HTML.
 
@@ -90,12 +90,12 @@ Un "meta componente" para renderizar componentes dinámicos o elementos HTML.
 
   El registro no es necesario si pasas el componente directo a `is` en lugar de su nombre, por ejemplo, en `<script setup>`.
 
-  Si `v-model` es usado en un tag `<component>`, el compilador de la plantilla lo transformará en la propiedad `modelValue` y en  `update:modelValue` para escuchar el evento, tal y como sucedería con cualquier otro componente. Sin embargo, esto no será compatible con elementos nativos de HTML, tales como `<input>` o `<select>`. Como resultado, usar `v-model` con un elemento nativo creado dinámicamente no funcionará: 
+  Si `v-model` es usado en un tag `<component>`, el compilador de la plantilla lo transformará en la propiedad `modelValue` y en `update:modelValue` para escuchar el evento, tal y como sucedería con cualquier otro componente. Sin embargo, esto no será compatible con elementos nativos de HTML, tales como `<input>` o `<select>`. Como resultado, usar `v-model` con un elemento nativo creado dinámicamente no funcionará:
 
   ```vue
   <script setup>
   import { ref } from 'vue'
-  
+
   const tag = ref('input')
   const username = ref('')
   </script>
@@ -110,7 +110,7 @@ Un "meta componente" para renderizar componentes dinámicos o elementos HTML.
 
 - **Ver también:** [Componentes Dinámicos](/guide/essentials/component-basics.html#componentes-dinamicos)
 
-## `<slot>`
+## `<slot>` {#slot}
 
 Denotes slot content outlets in templates.
 
@@ -136,6 +136,29 @@ Denotes slot content outlets in templates.
 
   El propio elemento será sustituido por el contenido del slot correspondiente.
 
-  Los elementos `<slot>` son compilados a Javascript en las plantillas de Vue, por eso no deben ser confundidos con [el elemento `<slot>` nativo0](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
+  Los elementos `<slot>` son compilados a Javascript en las plantillas de Vue, por eso no deben ser confundidos con [el elemento `<slot>` nativo](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
 
 - **Ver también:** [Componentes - Slots](/guide/components/slots.html)
+
+## `<template>` {#template}
+
+La etiqueta `<template>` se utiliza como marcador de posición cuando queremos utilizar una directiva integrada sin renderizar un elemento en el DOM.
+
+- **Detalles:**
+
+El tratamiento especial para `<template>` sólo es activado si se usa con una de estas directivas:
+
+- `v-if`, `v-else-if`, o `v-else`
+- `v-for`
+- `v-slot`
+
+Si ninguna de estas directivas está presente, entonces se renderizará como un [elemento nativo `<template>`](https://developer.mozilla.org/es/docs/Web/HTML/Element/template).
+
+Una `<template>` con `v-for` también puede tener un [atributo `key`](/api/built-in-special-attributes.html#key). Todos los demás atributos y directivas se descartarán, ya que no tienen sentido sin un elemento correspondiente.
+
+Los componentes de un solo archivo utilizan una [etiqueta `<template>` de nivel superior](/api/sfc-spec.html#bloques-de-lenguaje) para envolver toda la plantilla. Este uso es independiente del uso de `<template>` descrito anteriormente. Esa etiqueta de nivel superior no forma parte de la template como tal y no admite la sintaxis de la template, como son las directivas.
+
+- **Ver también:**
+  - [Guía - `v-if` en `<template>`](/guide/essentials/conditional.html#v-if-en-template)
+  - [Guía - `v-for` en `<template>`](/guide/essentials/list.html#v-for-en-template)
+  - [Guía - Slots con nombre](/guide/components/slots.html#slots-asignados)

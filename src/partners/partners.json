@@ -200,35 +200,53 @@
     "hiring": "https://webreinvent.com/career?utm_source=vuejs.org&utm_medium=website&utm_campaign=partner-hiring-link"
   },
   {
-    "name": "Active Logic",
-    "logo": "activelogic.png",
-    "flipLogo": true,
-    "intro": "No sólo somos una extensión de su equipo de desarrollo Vue.JS, sino que somos un inyector de alta velocidad. Desde 2014, hemos estado proporcionando soluciones de desarrollo de software y de ampliación de personal de primera calidad para varias organizaciones en todo el país. Utilizando nuestro equipo de desarrollo 100% local, podemos llevar a cabo el desarrollo de una nueva aplicación, o continuar con la ingeniería del software existente que necesita modificaciones.",
+    "name": "Dreamonkey",
+    "logo": "dreamonkey.png",
+    "hero": "dreamonkey-hero.png",
+    "intro": "Somos una casa de software italiana, que incluye colaboradores de equipos internacionales, con 8 años de experiencia en diseño y desarrollo de software. Construimos software desde cero o lo rediseñamos y apoyamos a los equipos de otras empresas, especialmente para la industria del IoT, entrega, finanzas, medicina, automoción y cadena de suministro, trabajando principalmente para clientes estadounidenses y canadienses. Somos orgullosos patrocinadores del framework Quasar y miembros de su equipo central.",
     "description": [
-      "Con sede en el corazón de Estados Unidos, nuestra misión es sencilla: proporcionar a las organizaciones de todo el país soluciones técnicas a medida; un sistema a la vez. Nos enorgullece decir que seguimos cumpliendo nuestra misión a diario.",
-      "Creemos que un proyecto, independientemente del tamaño o de la pila tecnológica, siempre debe ser gestionado por un líder de software dedicado que trabaje estrechamente con usted y su equipo. Su experiencia y orientación le permitirán centrarse en sus operaciones comerciales diarias mientras nosotros hacemos el trabajo pesado.",
-      "Hemos producido más de 200 proyectos finales para nuestros clientes en los últimos 8 años, todos los cuales siguen reconocidos estándares de la industria para garantizar su funcionalidad, seguridad y escalabilidad.",
-      "Optimizar las operaciones de su negocio nunca ha sido tan fácil; ¡póngase en contacto con nosotros aquí en Active Logic hoy mismo!"
+      "Nuestro stack incluye Vue, Quasar, Laravel y, cuando se solicita, también Angular. Nos esforzamos por producir código de alta calidad, limpio y bien documentado, haciéndolo sólido como una roca mediante pruebas automáticas. Nuestro frontend sigue las principales directrices de Google Material Design",
+      "Somos capaces de liderar proyectos desde el inicio hasta su despliegue, incluyendo análisis de requisitos, diseño UX/UI, entrega de activos de diseño, desarrollo y configuración de pipelines CI/CD en AWS. Podemos fusionarnos con la metodología ágil del cliente y, cuando se nos solicite, podemos encargarnos también de la gestión del proyecto con un profesional dedicado",
+      "Tenemos experiencia con proyectos de diferente complejidad, desde startups a nivel empresarial. Podemos proporcionar UIs estáticas, MPVs funcionales, SPA totalmente operativas o aplicaciones móviles. También dividimos nuestro equipo para proporcionar al cliente la experiencia específica que necesita, ya sea desarrollo, diseño o simplemente un análisis de viabilidad",
+      "Si necesita integrar nuevas habilidades en su equipo, podemos estructurar un programa de formación centrado en temas de desarrollo o diseño de su interés y ayudar a sus empleados a progresar con lecciones dedicadas."
     ],
     "proficiencies": [
       "Vue",
+      "Quasar",
+      "Angular",
+      "Capacitor",
       "Laravel",
       "Node.js",
-      "React",
-      "React Native",
-      "Angular",
-      "Swift",
-      "Kotlin",
-      ".NET"
+      "NestJS",
+      "UX Design",
+      "AWS"
     ],
-    "region": ["Norte América"],
-    "location": ["Leadwood, Kansas, USA"],
+    "region": ["Europa", "Norte América"],
     "website": {
-      "text": "activelogic.io",
-      "url": "https://activelogic.io/services/vue-js-development/"
+      "text": "dreamonkey.com",
+      "url": "https://dreamonkey.com/en/vue-partner"
     },
-    "contact": "sales@activelogic.io",
-    "hiring": "https://activelogic.io/careers/",
-    "platinum": true
+    "contact": "info@dreamonkey.com",
+    "hiring": "https://dreamonkey.com/en/work-with-us"
+  },
+  {
+    "name": "Jump24",
+    "logo": "jump24.svg",
+    "flipLogo": true,
+    "hero": "jump24-hero.jpg",
+    "intro": "Software hecho a medida, y entregado. Trabajamos con start-ups, empresas y equipos tecnológicos para crear soluciones de software web a medida que les ayuden a crecer. Perfeccionando nuestras habilidades desde 2013, nuestra fuerza es nuestra gente. Diseñamos y creamos aplicaciones personalizadas al más alto nivel, para que usted pueda cosechar los beneficios.",
+    "description": [
+      "Jump24 es un estudio de desarrollo integral que da vida a las ideas. Desde nuestra base en el Reino Unido, hemos trabajado estrechamente a lo largo de los años con clientes de Europa y Estados Unidos, como Jamie Oliver, Admiral, InPost y Buffer. Con un equipo de 16 desarrolladores, con nosotros estará en buenas manos",
+      "Las relaciones duraderas son nuestra especialidad. Tanto si eres una startup, una empresa o una agencia, tu historia es importante para nosotros. Nos centramos en los detalles más pequeños para ayudarte a crear algo que te refleje a ti y a tu negocio",
+      "Somos un grupo muy comunicativo, así que para saber aún más sobre nosotros, visita nuestro Twitter y LinkedIn."
+    ],
+    "proficiencies": ["Vue", "Laravel", "Tailwind", "Inertia", "React"],
+    "region": ["Europa"],
+    "website": {
+      "text": "jump24.co.uk",
+      "url": "https://jump24.co.uk/vue-specialist/"
+    },
+    "contact": "hello@jump24.co.uk",
+    "hiring": "jump24.co.uk/careers"
   }
 ]

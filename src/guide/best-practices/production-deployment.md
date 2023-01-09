@@ -1,6 +1,6 @@
-# Implementación de Producción (Deployment)
+# Implementación de Producción (Deployment) {#implementacion-de-produccion-deployment}
 
-## Desarrollo vs. Producción
+## Desarrollo vs. Producción {#desarrollo-vs-produccion}
 
 Durante el desarrollo, Vue proporciona una serie de características para mejorar la experiencia de desarrollo:
 
@@ -11,7 +11,7 @@ Durante el desarrollo, Vue proporciona una serie de características para mejora
 
 Sin embargo, estas características se vuelven inútiles en producción. Algunas de las comprobaciones de advertencia también pueden ocasionar una pequeña sobrecarga de rendimiento. Al desplegar en producción, deberíamos eliminar todas las ramas de código de desarrollo no utilizadas para reducir el tamaño de la carga útil y mejorar el rendimiento.
 
-## Sin Herramientas de Compilación
+## Sin Herramientas de Compilación {#sin-herramientas-de-compilacion}
 
 Si estás utilizando Vue sin una herramienta de compilación cargándolo desde un CDN o un script auto-alojado, asegúrate de utilizar la compilación de producción (archivos dist que terminan en `.prod.js`) al desplegar en producción. Las compilaciones de producción se minifican previamente con todas las ramas de código de desarrollo eliminadas.
 
@@ -20,7 +20,7 @@ Si estás utilizando Vue sin una herramienta de compilación cargándolo desde u
 
 Consulte la [guía de archivos dist](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) para obtener más detalles.
 
-## Con Herramientas de Compilación
+## Con Herramientas de Compilación {#con-herramientas-de-compilacion}
 
 Los proyectos creados a través de `create-vue` (basado en Vite) o Vue CLI (basado en webpack) están preconfigurados para compilaciones de producción.
 
@@ -36,7 +36,7 @@ Referencias adicionales:
 - [Guía de implementación de Vite](https://vitejs.dev/guide/static-deploy.html)
 - [Guía de implementación de Vue CLI](https://cli.vuejs.org/guide/deployment.html)
 
-## Seguimiento de Errores en Tiempo de Ejecución
+## Seguimiento de Errores en Tiempo de Ejecución {#seguimiento-de-errores-en-tiempo-de-ejecucion}
 
 El [controlador de errores a nivel de aplicación](/api/application.html#app-config-errorhandler) se puede usar para informar errores a los servicios de seguimiento:
 

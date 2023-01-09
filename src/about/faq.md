@@ -1,16 +1,16 @@
 # Preguntas frecuentes
 
-## ¿Quién mantiene Vue?
+## ¿Quién mantiene Vue? {#quien-mantiene-vue}
 
 Vue es un proyecto independiente impulsado por la comunidad. Fue creado por [Evan You](https://twitter.com/youyuxi) en 2014 como un proyecto personal paralelo. Hoy en día, Vue es mantenido activamente por [un equipo tanto de tiempo completo como de miembros voluntarios alrededor de todo el mundo](/about/team), donde Evan se desempeña como líder del proyecto. Puedes obtener más información sobre la historia de Vue en este [documental](https://www.youtube.com/watch?v=OrxmtDw4pVI).
 
 El desarrollo de Vue se financia principalmente a través de patrocinios y hemos sido financieramente sostenibles desde 2016. Si usted o su empresa se benefician de Vue, ¡considere [patrocinarnos](/sponsor/) para apoyar el desarrollo de Vue!
 
-## ¿Cuál es la diferencia entre Vue 2 y Vue 3?
+## ¿Cuál es la diferencia entre Vue 2 y Vue 3? {#cual-es-la-diferencia-entre-vue-2-y-vue-3}
 
 Vue 3 es la última y actual versión principal de Vue. Contiene nuevas características que no están presentes en Vue 2, por ejemplo Teleport, Suspense, y múltiples elementos raíz por plantilla. También contiene cambios de ruptura que la hacen incompatible con Vue 2. Todos los detalles están documentados en la [Guía de migración a Vue 3](https://v3-migration.vuejs.org/).
 
-A pesar de las diferencias, la mayoría de las APIs de Vue se comparten entre las dos versiones principales, por lo que la mayoría de tus conocimientos de Vue 2 seguirán funcionando en Vue 3. En particular, la Composition API era originalmente una característica exclusiva de Vue 3, pero ahora se ha trasladado a Vue 2 y está disponible en [Vue 2.7] (https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
+A pesar de las diferencias, la mayoría de las APIs de Vue se comparten entre las dos versiones principales, por lo que la mayoría de tus conocimientos de Vue 2 seguirán funcionando en Vue 3. En particular, la Composition API era originalmente una característica exclusiva de Vue 3, pero ahora se ha trasladado a Vue 2 y está disponible en [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
 
 En general, Vue 3 proporciona tamaños de paquetes más pequeños, mejor rendimiento, mejor escalabilidad y mejor soporte de TypeScript / IDE. Si estás empezando un nuevo proyecto hoy, Vue 3 es la opción recomendada. Sólo hay unas pocas razones para que consideres Vue 2 a partir de ahora:
 
@@ -20,23 +20,27 @@ En general, Vue 3 proporciona tamaños de paquetes más pequeños, mejor rendimi
 
 Si tienes intención de migrar una aplicación Vue 2 existente a Vue 3, consulta la [guía de migración](https://v3-migration.vuejs.org/).
 
-Vue 2.7, que se lanzó en julio de 2022, es la última versión menor de la gama de versiones de Vue 2. Vue 2 ha entrado en modo de mantenimiento: ya no recibirá nuevas características, pero seguirá recibiendo correcciones de errores críticos y actualizaciones de seguridad durante 18 meses a partir de la fecha de lanzamiento de la versión 2.7. Esto significa que **Vue 2 llegará al final de su vida útil a finales de 2023**. Creemos que esto debería dar tiempo suficiente para que la mayor parte del ecosistema migre a Vue 3. Sin embargo, también entendemos que podría haber equipos o proyectos que no puedan actualizar en este plazo y que aún necesiten cumplir con los requisitos de seguridad y compatibilidad. Estamos planeando proporcionar soporte extendido para Vue 2 para los equipos con tales necesidades; si su equipo espera estar usando Vue 2 más allá de finales de 2023, asegúrese de planificar con anticipación y registrar su interés [aquí](https://airtable.com/shrj37Zf4ZIfrxFzh).
+## ¿Vue 2 sigue siendo soportado? {#vue-2-sigue-siendo-soportado}
 
-## ¿Qué licencia usa Vue?
+Vue 2.7, que se lanzó en julio de 2022, es la última versión menor de la gama de versiones de Vue 2. Vue 2 ha entrado en modo de mantenimiento: ya no recibirá nuevas características, pero seguirá recibiendo correcciones de errores críticos y actualizaciones de seguridad durante 18 meses a partir de la fecha de lanzamiento de la versión 2.7. Esto significa que **Vue 2 llegará al final de su vida útil a finales de 2023**.
+
+Creemos que esto debería dar tiempo suficiente para que la mayor parte del ecosistema migre a Vue 3. Sin embargo, también entendemos que podría haber equipos o proyectos que no puedan actualizar en este plazo y que aún necesiten cumplir con los requisitos de seguridad y compatibilidad. Estamos planeando proporcionar soporte extendido para Vue 2 para los equipos con tales necesidades; si su equipo espera estar usando Vue 2 más allá de finales de 2023, asegúrese de planificar con antelación y obtener más información sobre [Vue 2 LTS Extendida](https://v2.vuejs.org/lts/).
+
+## ¿Qué licencia usa Vue? {#que-lilcencia-usa-vue}
 
 Vue es un proyecto gratuito y de código abierto publicado bajo [Licencia MIT](https://opensource.org/licenses/MIT).
 
-## ¿Qué navegadores soporta Vue?
+## ¿Qué navegadores soporta Vue? {#que-navegadores-soporta-vue}
 
 La última versión de Vue (3.x) solo admite [navegadores con soporte nativo para ES2015](https://caniuse.com/es6). Esto excluye IE11. Vue 3.x usa funciones de ES2015 a las que no se puede hacer polyfill en navegadores heredados, por lo que si necesita admitir navegadores heredados, deberá usar Vue 2.x en su lugar.
 
-## ¿Es confiable Vue?
+## ¿Es confiable Vue? {#es-confiable-vue}
 
 Vue es un framework maduro y probado en batalla. Es uno de los frameworks de JavaScript más ampliamente utilizados en producción en la actualidad, con más de 1,5 millones de usuarios en todo el mundo y con cerca de 10 millones de descargas al mes en npm.
 
 Vue es utilizado en producción por organizaciones de renombre en diversas capacidades en todo el mundo, incluidas la Fundación Wikimedia, la NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou y muchas más.
 
-## ¿Vue es rápido?
+## ¿Vue es rápido? {#vue-es-rapido}
 
 Vue 3 es uno de los frameworks frontend convencionales de mayor rendimiento y maneja la mayoría de los casos de uso de aplicaciones web con facilidad, sin necesidad de optimizaciones manuales.
 
@@ -46,7 +50,7 @@ Ten en cuenta que los índices sintéticos de referencia como los anteriores se 
 
 Puede obtener más información sobre cómo Vue optimiza automáticamente el rendimiento del tiempo de ejecución en la sección [Mecanismo de Renderizado](/guide/extras/rendering-mechanism.html), y cómo optimizar una aplicación Vue en casos especialmente exigentes en la [Guía de Optimización del Rendimiento](/guide/best-practices/performance.html).
 
-## ¿Vue es liviano?
+## ¿Vue es ligero? {#vue-es-ligero}
 
 Cuando usas una herramienta de compilación, muchas de las API de Vue son ["sacudibles del árbol"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). Por ejemplo, si no utilizas el componente integrado `<Transition>`, no se incluirá en el paquete de producción final.
 
@@ -56,7 +60,7 @@ Cuando usamos Vue sin una herramienta de compilación, no solo perdemos lo sacud
 
 Algunos frameworks, como Svelte, usan una estrategia de compilación que produce resultados extremadamente livianos en escenarios de un solo componente. Sin embargo, [nuestra investigación](https://github.com/yyx990803/vue-svelte-size-analysis) muestra que la diferencia de tamaño depende en gran medida de la cantidad de componentes en la aplicación. Si bien Vue tiene un tamaño de referencia más pesado, genera menos código por componente. En escenarios del mundo real, una aplicación Vue puede terminar siendo más ligera.
 
-## ¿Vue escala?
+## ¿Vue escala? {#vue-escala}
 
 Si. A pesar de la idea errónea común de que Vue solo es adecuado para casos de uso simples, Vue es perfectamente capaz de manejar aplicaciones a gran escala:
 
@@ -68,17 +72,17 @@ Si. A pesar de la idea errónea común de que Vue solo es adecuado para casos de
 
 - Menor barrera de entrada y excelente documentación se traducen en menores costos de incorporación y capacitación para los nuevos desarrolladores.
 
-## ¿Cómo contribuyo a Vue?
+## ¿Cómo contribuyo a Vue? {#como-contribuyo-a-vue}
 
 ¡Agradecemos tu interés! Consulta nuestra [Guía de la Comunidad](/about/community-guide.html).
 
-## ¿Debo usar Options API o Composition API?
+## ¿Debo usar Options API o Composition API? {#debo-usar-options-api-o-composition-api}
 
-Si eres nuevo en Vue, ofrecemos una comparación de alto nivel entre los dos estilos [aquí](/guide/introduction.html#what-to-choose).
+Si eres nuevo en Vue, ofrecemos una comparación de alto nivel entre los dos estilos [aquí](/guide/introduction.html#cual-elegir).
 
 Si previamente utilizaste Options API y estás evaluando en la actualidad la Composition API, consulta [estas FAQ](/guide/extras/composition-api-faq).
 
-## ¿Debo usar JavaScript o TypeScript con Vue?
+## ¿Debo usar JavaScript o TypeScript con Vue? {#debo-usar-javascript-o-typescript-con-vue}
 
 Si bien Vue en sí está implementado en TypeScript y proporciona compatibilidad de primera clase con TypeScript, no impone una opinión sobre si debes usar TypeScript como usuario.
 
@@ -86,7 +90,7 @@ La compatibilidad con TypeScript es una consideración importante cuando se agre
 
 La adopción de TypeScript implica una compensación entre la complejidad de incorporación y las ganancias de mantenibilidad a largo plazo. La justificación de tal compensación puede variar según los antecedentes de tu equipo y la escala del proyecto, pero Vue no es realmente un factor que influya en la toma de esa decisión.
 
-## ¿Cómo se equipara Vue con los componentes web?
+## ¿Cómo se equipara Vue con los componentes web? {#como-se-equipara-vue-con-los-componentes-web}
 
 Vue se creó antes de que los componentes web estuvieran disponibles de forma nativa y algunos aspectos del diseño de Vue (por ejemplo, los slots) se inspiraron en el modelo de Componentes Web.
 

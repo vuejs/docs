@@ -12,7 +12,7 @@ Vue también proporciona una distribución alternativa llamada [petite-vue](http
 
 Puedes utilizar Vue para [construir Componentes Web estándar](/guide/extras/web-components) que pueden ser embebidos en cualquier página HTML, independientemente de cómo sean renderizados. Esta opción permite aprovechar Vue de una forma completamente agnóstica para el consumidor: los componentes web resultantes pueden ser embebidos en aplicaciones heredadas, HTML estático, o incluso aplicaciones construidas con otros frameworks.
 
-## Aplicación de una Sola Página (SPA)
+## Aplicación de una Sola Página (SPA) {#aplicaciones-de-una-sola-pagina-spa}
 
 Algunas aplicaciones requieren una rica interactividad, una gran profundidad de sesión y una lógica de estado no trivial en el frontend. La mejor manera de construir este tipo de aplicaciones es utilizar una arquitectura en la que Vue no sólo controla toda la página, sino que también maneja las actualizaciones de los datos y la navegación sin tener que recargar la página. Este tipo de aplicación se suele denominar Aplicación de una Sola Página (SPA).
 

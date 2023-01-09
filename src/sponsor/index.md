@@ -9,16 +9,16 @@ sponsors: false
 import SponsorsGroup from '@theme/components/SponsorsGroup.vue'
 </script>
 
-# Hazte Patrocinador de Vue.js
+# Hazte Patrocinador de Vue.js {#hazte-patrocinador-de-vue-js}
 
 Vue.js es un proyecto de código abierto con licencia del MIT y de uso completamente gratuito.
 La enorme cantidad de esfuerzo necesario para mantener un ecosistema tan grande y desarrollar nuevas características para el proyecto solo se hace sostenible gracias al generoso respaldo financiero de nuestros patrocinadores.
 
-## Cómo Patrocinar
+## Cómo Patrocinar {#como-patrocinar}
 
 Los patrocinios se pueden realizar a través de [GitHub Sponsors](https://github.com/sponsors/yyx990803) u [OpenCollective](https://opencollective.com/vuejs). Las facturas se pueden obtener a través del sistema de pago de GitHub. Se aceptan tanto patrocinios mensuales recurrentes como donaciones únicas. Los patrocinios recurrentes tienen derecho a la colocación de sus logotipos según se especifica en [Niveles de patrocinio](#niveles-de-patrocinio).
 
-## Patrocinar a Vue como una Empresa
+## Patrocinar a Vue como una Empresa {#patrocinar-a-vue-como-una-empresa}
 
 Patrocinar a Vue brinda una gran exposición a más de **1,7 millones** de desarrolladores de Vue en todo el mundo a través de nuestro sitio web y los archivos README del proyecto en GitHub. Además, apoyar el software de código abierto (OSS) mejora la reputación de las marcas, lo cual es un activo importante para cualquier empresa que interactúe con desarrolladores.
 
@@ -26,13 +26,13 @@ Si utilizan Vue para crear un producto que genere ingresos, tiene sentido comerc
 
 Si se está creando un producto en el que el target de clientes son desarrolladores, se obtendrá tráfico de alta calidad a través de la exposición del patrocinio, ya que todos nuestros visitantes son desarrolladores. El patrocinio también genera reconocimiento de marca y mejora la conversión.
 
-## Patrocinar a Vue como un Individuo
+## Patrocinar a Vue como un Individuo {#patrocinar-a-vue-como-un-individuo}
 
 Si eres un usuario individual y has disfrutado de la productividad de usar Vue, considera hacer una donación como una señal de agradecimiento, como invitarnos a un café de vez en cuando. Muchos de los miembros de nuestro equipo aceptan patrocinios y donaciones a través de GitHub Sponsors. Busque el botón "Sponsor" en el perfil de cada miembro del equipo en nuestra [página del equipo](/about/team).
 
 También puedes intentar convencer a tu empleador para que patrocine a Vue como empresa. Puede que esto no sea fácil, pero los patrocinios comerciales generalmente tienen un impacto mucho mayor en la sostenibilidad de los proyectos de OSS que las donaciones individuales, por lo que nos ayudarás mucho más si tienes éxito.
 
-## Niveles de Patrocinio
+## Niveles de Patrocinio {#niveles-de-patrocinio}
 
 - **Global Especial**:
   - Limitado a un patrocinador a nivel mundial (actualmente ocupado).
@@ -54,24 +54,24 @@ También puedes intentar convencer a tu empleador para que patrocine a Vue como 
 - **Apoyador individual (USD$5/mes)**:
   - Nombre listado en el archivo `BACKERS.md` de `vuejs/core` y `vuejs/vue`.
 
-## Patrocinadores Actuales
+## Patrocinadores Actuales {#patrocinadores-actuales}
 
-### Patrocinador Global Especial
+### Patrocinador Global Especial {#patrocinador-global}
 
 <SponsorsGroup tier="special" placement="page" />
 
-### Platino
+### Platino {#platino}
 
-<SponsorsGroup tier="platino" placement="page" />
+<SponsorsGroup tier="platinum" placement="page" />
 
-### Platino (China)
+### Platino (China) {#platino-china}
 
 <SponsorsGroup tier="platinum_china" placement="page" />
 
-### Oro
+### Oro {#oro}
 
 <SponsorsGroup tier="gold" placement="page" />
 
-### Plata
+### Plata {#plata}
 
 <SponsorsGroup tier="silver" placement="page" />

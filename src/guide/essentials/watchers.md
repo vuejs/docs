@@ -136,7 +136,7 @@ const obj = reactive({ count: 0 })
 
 // esto no funcionará porque estamos pasando un número a watch()
 watch(obj.count, (count) => {
-  console.log(`la cuenta es: ${count}`)
+  console.log(`El contador está en: ${count}`)
 })
 ```
 
@@ -147,7 +147,7 @@ En su lugar, utiliza un getter:
 watch(
   () => obj.count,
   (count) => {
-    console.log(`count is: ${count}`)
+    console.log(`El contador está en: ${count}`)
   }
 )
 ```
@@ -223,11 +223,11 @@ watch(
 La vigilancia profunda requiere recorrer todas las propiedades anidadas en el objeto vigilado, y puede ser costosa cuando se utiliza en estructuras de datos grandes. Utilízala sólo cuando sea necesario y ten cuidado con las implicaciones de rendimiento.
 :::
 
-<div class="options-api">
-
-## Watchers "Entusiastas" (Eager Watchers)
+## Watchers "Entusiastas" (Eager Watchers) {#watchers-entusiastas-eager-watchers}
 
 La función `watch` es perezosa por defecto: el callback no será llamado hasta que la fuente observada haya cambiado. Pero en algunos casos podemos querer que la misma lógica de callback se ejecute con urgencia; por ejemplo, podemos querer obtener algunos datos iniciales, y luego volver a obtener los datos cada vez que el estado relevante cambie.
+
+<div class="options-api">
 
 Podemos forzar que el callback de un watcher se ejecute inmediatamente declarándolo mediante un objeto con una función `handler` y la opción `immediate: true`:
 
@@ -247,34 +247,53 @@ export default {
 }
 ```
 
+La ejecución inicial de la función handler tendrá lugar justo antes del hook `created`. Vue ya habrá procesado las opciones `data`, `computed` y `methods`, por lo que esas propiedades estarán disponibles en la primera invocación.
+
+</div>
+
+<div class="composition-api">
+
+Podemos forzar que la llamada de retorno de un watcher se ejecute inmediatamente pasando la opción `immediate: true`:
+
+```js
+watch(
+  source,
+  (newValue, oldValue) => {
+    // ...
+  },
+  { immediate: true }
+)
+```
+
 </div>
 
 <div class="composition-api">
 
 ## `watchEffect()` \*\*
 
-La función `watch()` es perezosa: el callback no será llamado hasta que la fuente observada haya cambiado. Pero en algunos casos podemos querer que la misma lógica de callback se ejecute con urgencia; por ejemplo, podemos querer obtener algunos datos iniciales, y luego volver a obtener los datos cada vez que el estado relevante cambie. Podemos encontrarnos haciendo esto:
+Es habitual que la llamada de retorno del watcher utilice exactamente el mismo estado reactivo que la fuente. Por ejemplo, considera el siguiente código, que utiliza un watcher para cargar un recurso remoto cada vez que la ref `todoId` cambia:
 
 ```js
-const url = ref('https://...')
+const todoId = ref(1)
 const data = ref(null)
 
-async function fetchData() {
-  const response = await fetch(url.value)
+watch(todoId, async, () => {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  )
   data.value = await response.json()
-}
-
-// recuperar inmediatamente
-fetchData()
-// ... y luego vigilar por el cambio de la url
-watch(url, fetchData)
+}, { immediate: true })
 ```
 
-Esto se puede simplificar con [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` nos permite obtener un efecto secundario de forma inmediata mientras se realiza un seguimiento automático de las dependencias reactivas del efecto. El ejemplo anterior puede reescribirse como:
+En particular, observa cómo el watcher utiliza `todoId` dos veces, una como fuente y otra dentro del callback.
+
+Esto puede simplificarse con [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` nos permite rastrear automáticamente las dependencias reactivas del callback. El watcher anterior puede reescribirse como:
 
 ```js
 watchEffect(async () => {
-  const response = await fetch(url.value)
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  )
   data.value = await response.json()
 })
 ```
@@ -282,6 +301,8 @@ watchEffect(async () => {
 Aquí, el callback se ejecutará inmediatamente. Durante su ejecución, también hará un seguimiento automático de `url.value` como dependencia (similar a las propiedades computadas). Cada vez que `url.value` cambie, el callback se ejecutará de nuevo.
 
 Puedes ver [este ejemplo](/examples/#fetching-data) con `watchEffect` y la obtención reactiva de datos en acción.
+
+Para ejemplos como estos, con una sola dependencia, el beneficio de `watchEffect()` es relativamente pequeño. Pero para watchers que tienen múltiples dependencias, el uso de `watchEffect()` elimina la carga de tener que mantener la lista de dependencias manualmente. Además, si necesitas vigilar varias propiedades en una estructura de datos anidada, `watchEffect()` puede resultar más eficiente que un watcher profundo, ya que sólo realizará un seguimiento de las propiedades que se utilizan en la llamada de retorno, en lugar de realizar un seguimiento recursivo de todas ellas.
 
 :::tip
 `watchEffect` sólo rastrea las dependencias durante su ejecución **sincrónica**. Cuando se utiliza con un callback asíncrono, sólo se rastrean las propiedades a las que se accede antes del primer paso del `await`.

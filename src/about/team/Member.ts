@@ -19,6 +19,7 @@ export interface Link {
 }
 
 export interface Socials {
+  linkedin?: string
   github: string
   twitter?: string
   codepen?: string

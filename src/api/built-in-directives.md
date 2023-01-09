@@ -8,7 +8,7 @@ Actualiza el texto de un elemento.
 
 - **Detalles**
 
-  `v-text` trabaja seteando la propiedad [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) del elemento, por lo que sobreescribirá cualquier contenido existente dentro del elemento. Si necesitas actualizar parte del  `textContent`, deberías usar la [interpolación de mostacho](/guide/essentials/template-syntax.html#text-interpolation) instead.
+  `v-text` trabaja seteando la propiedad [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) del elemento, por lo que sobreescribirá cualquier contenido existente dentro del elemento. Si necesitas actualizar parte del `textContent`, deberías usar la [interpolación de mostacho](/guide/essentials/template-syntax.html#text-interpolation) instead.
 
 - **Ejemplo**
 
@@ -362,7 +362,7 @@ Crear un enlace bidireccional en un elemento de entrada del formulario o un comp
 - **Ver también:**
 
   - [Vinculación de Entradas de Formularios](/guide/essentials/forms.html)
-  - [Eventos de los Componentes - Uso con `v-model`](/guide/components/events.html#uso-con-v-model)
+  - [Eventos de los Componentes - Uso con `v-model`](/guide/components/v-model.html)
 
 ## v-slot
 

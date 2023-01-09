@@ -197,7 +197,7 @@ export const store = reactive({
 </div>
 
 :::tip
-Ten en cuenta que el manejador de clics usa `store.increment()` con el paréntesis; esto es necesario para llamar al método en el contexto apropiado de `this`, ya que no es un método del componente.
+Ten en cuenta que el manejador de clics usa `store.increment()` con paréntesis; esto es necesario para llamar al método en el contexto apropiado de `this`, ya que no es un método del componente.
 :::
 
 Aunque aquí estamos usando un único objeto reactivo como una store, también puedes compartir el estado reactivo creado con otras [APIs de reactividad](/api/reactivity-core.html), como `ref()` o `computed()`, o incluso devolver el estado global desde un [Composable](/guide/reusability/composables.html):

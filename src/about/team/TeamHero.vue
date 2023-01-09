@@ -66,7 +66,7 @@
   font-size: 14px;
   font-weight: 500;
   color: var(--vt-c-brand);
-  transition: color .25s;
+  transition: color 0.25s;
 }
 
 .action :deep(a:hover) {

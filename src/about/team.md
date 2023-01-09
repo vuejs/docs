@@ -1,6 +1,6 @@
 ---
 page: true
-title: Conoce el Equipo
+title: Conoce al Equipo
 ---
 
 <script setup>

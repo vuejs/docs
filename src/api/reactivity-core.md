@@ -1,4 +1,4 @@
-# Reactividad: Núcleo (Core)
+# Reactividad: Núcleo (Core) {#reactividad-nucleo-core}
 
 :::info Véase también
 Para comprender mejor las API de Reactividad, se recomienda leer los siguientes capítulos de la guía:
@@ -7,7 +7,7 @@ Para comprender mejor las API de Reactividad, se recomienda leer los siguientes 
 - [Reactividad en Profundidad](/guide/extras/reactivity-in-depth.html)
   :::
 
-## ref()
+## ref() {#ref}
 
 Toma un valor interno y devuelve un objeto ref reactivo y mutable, que tiene una sola propiedad `.value` que apunta al valor interno.
 
@@ -43,7 +43,7 @@ Toma un valor interno y devuelve un objeto ref reactivo y mutable, que tiene una
   - [Guía - Variables Reactivas con `ref()`](/guide/essentials/reactivity-fundamentals.html#variables-reactivas-con-ref)
   - [Guía - Escritura de `ref()`](/guide/typescript/composition-api.html#escritura-de-ref)
 
-## computed()
+## computed() {#computed}
 
 Toma una función getter y devuelve un objeto [ref](#ref) reactivo de solo lectura para el valor devuelto por el getter. También puede tomar un objeto con funciones `get` y `set` para crear un objeto ref escribible.
 
@@ -113,7 +113,7 @@ Toma una función getter y devuelve un objeto [ref](#ref) reactivo de solo lectu
   - [Guía - Depuración Computada](/guide/extras/reactivity-in-depth.html#depuracion-computada)
   - [Guía - Escritura de `computed()`](/guide/typescript/composition-api.html#escritura-de-computed)
 
-## reactive()
+## reactive() {#reactive}
 
 Devuelve un proxy reactivo del objeto.
 
@@ -190,7 +190,7 @@ Devuelve un proxy reactivo del objeto.
   - [Guía - Fundamentos de Reactividad](/guide/essentials/reactivity-fundamentals.html)
   - [Guía - Escritura de `reactive()`](/guide/typescript/composition-api.html#escritura-de-reactive)
 
-## readonly()
+## readonly() {#readonly}
 
 Toma un objeto (reactivo o simple) o una [ref](#ref) y devuelve un proxy de solo lectura del original.
 
@@ -227,7 +227,7 @@ Toma un objeto (reactivo o simple) o una [ref](#ref) y devuelve un proxy de solo
   copy.count++ // advertencia!
   ```
 
-## watchEffect()
+## watchEffect() {#watcheffect}
 
 Ejecuta una función inmediatamente mientras realiza un seguimiento reactivo de sus dependencias y la vuelve a ejecutar cada vez que las dependencias cambian.
 
@@ -312,15 +312,15 @@ Ejecuta una función inmediatamente mientras realiza un seguimiento reactivo de 
   - [Guía - Watchers](/guide/essentials/watchers.html#watcheffect)
   - [Guía - Depuración del Watcher](/guide/extras/reactivity-in-depth.html#depuracion-del-watcher)
 
-## watchPostEffect()
+## watchPostEffect() {#watchposteffect}
 
 Alias de [`watchEffect()`](#watcheffect) con la opción `flush: 'post'`.
 
-## watchSyncEffect()
+## watchSyncEffect() {#watchsynceffect}
 
 Alias de [`watchEffect()`](#watcheffect) con la opción `flush: 'sync'`.
 
-## watch()
+## watch() {#watch}
 
 Observa una o más fuentes de datos reactivas e invoca una función de devolución de llamada cuando las fuentes cambian.
 
@@ -453,7 +453,30 @@ Observa una o más fuentes de datos reactivas e invoca una función de devoluci�
     flush: 'post',
     onTrack(e) {
       debugger
+    },
+    onTrigger(e) {
+      debugger
     }
+  })
+  ```
+
+  Detener el watcher:
+
+  ```js
+  const stop = watch(source, callback)
+  // cuando el watcher ya no es necesario:
+  stop()
+  ```
+
+  Limpieza de efectos secundarios:
+
+  ```js
+  watch(id, async (newId, oldId, onCleanup) => {
+    const { response, cancel } = doAsyncWork(newId)
+    // `cancel` será llamado si `id` cambia, cancelando
+    // la petición anterior si aún no se ha completado
+    onCleanup(cancel)
+    data.value = await response
   })
   ```
 

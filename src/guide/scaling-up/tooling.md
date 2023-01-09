@@ -51,7 +51,7 @@ Nuestras configuraciones de herramientas por defecto utilizan la compilación s�
 
 Si estás buscando una alternativa más liviana para el uso sin pasos de compilación, consulta [petite-vue](https://github.com/vuejs/petite-vue).
 
-## Soporte para IDE
+## Soporte para IDE {#soporte-para-ide}
 
 - La configuración recomendada del IDE es [VSCode](https://code.visualstudio.com/) + la extensión [Volar](https://github.com/johnsoncodehk/volar). Volar proporciona resaltado de sintaxis, soporte para TypeScript, intellisense para expresiones de plantillas y props de componentes.
 

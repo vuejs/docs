@@ -27,7 +27,7 @@
       }
     ],
     "location": "Denver, CO, USA",
-    "languages": ["English"],
+    "languages": ["Inglés"],
     "website": {
       "label": "sarah.dev",
       "url": "https://sarah.dev/"
@@ -42,7 +42,7 @@
     "name": "Chris Fritz",
     "title": "Educator & Consultant",
     "location": "Durham, NC, USA",
-    "languages": ["English", "German"],
+    "languages": ["Inglés", "Alemán"],
     "socials": {
       "github": "chrisvfritz",
       "twitter": "chrisvfritz"
@@ -53,7 +53,7 @@
     "name": "Blake Newman",
     "title": "Performance Specializer & Code Deleter",
     "location": "London, UK",
-    "languages": ["English"],
+    "languages": ["Inglés"],
     "socials": {
       "github": "blake-newman",
       "twitter": "blakenewman"
@@ -71,7 +71,7 @@
       }
     ],
     "location": "Beijing, China",
-    "languages": ["Chinese"],
+    "languages": ["Chino"],
     "socials": {
       "github": "kingwl"
     }
@@ -88,7 +88,7 @@
       }
     ],
     "location": "Hangzhou, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "fnlctrl"
     }
@@ -99,7 +99,7 @@
     "company": "zbj.com",
     "companyLink": "http://www.zbj.com/",
     "location": "Chongqing, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "defcc"
     }
@@ -110,7 +110,7 @@
     "company": "zbj.com",
     "companyLink": "http://www.zbj.com/",
     "location": "Chongqing, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "gebilaoxiong"
     }
@@ -121,7 +121,7 @@
     "company": "Neolant",
     "companyLink": "http://neolant.ru/",
     "location": "Dubna, Russia",
-    "languages": ["Russian", "English"],
+    "languages": ["Ruso", "Inglés"],
     "socials": {
       "github": "simplesmiler",
       "twitter": "simplesmiler"
@@ -141,7 +141,7 @@
       }
     ],
     "location": "London, UK",
-    "languages": ["English"],
+    "languages": ["Inglés"],
     "socials": {
       "github": "eddyerburgh",
       "twitter": "EddYerburgh"
@@ -161,7 +161,7 @@
       }
     ],
     "location": "Shanghai, China",
-    "languages": ["Chinese", "English", "Japanese"],
+    "languages": ["Chino", "Inglés", "Japonés"],
     "socials": {
       "github": "octref",
       "twitter": "octref"
@@ -179,7 +179,7 @@
       }
     ],
     "location": "Hangzhou, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": { "github": "ulivz", "twitter": "_ulivz" }
   },
   {
@@ -202,7 +202,7 @@
       }
     ],
     "location": "Singapore",
-    "languages": ["Japanese", "English"],
+    "languages": ["Japonés", "Inglés"],
     "socials": {
       "github": "ktsn",
       "twitter": "ktsn"
@@ -214,7 +214,7 @@
     "company": "Netguru",
     "companyLink": "https://netguru.co/",
     "location": "Poznań, Poland",
-    "languages": ["Polish", "English"],
+    "languages": ["Polaco", "Inglés"],
     "projects": [
       {
         "label": "eslint-plugin-vue",

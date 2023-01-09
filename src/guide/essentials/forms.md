@@ -458,4 +458,4 @@ Si quieres que los espacios en blanco de la entrada del usuario se recorten auto
 
 > Si aún no estás familiarizado con los componentes de Vue, puedes saltarte esto por ahora.
 
-Los tipos de entrada incorporados en HTML no siempre satisfacen tus necesidades. Afortunadamente, los componentes de Vue te permiten construir entradas reutilizables con un comportamiento completamente personalizado. ¡Estas entradas incluso funcionan con `v-model`! Para aprender más, lee sobre [Uso con `v-model`](/guide/components/events.html#uso-con-v-model) en la guía de Componentes.
+Los tipos de entrada incorporados en HTML no siempre satisfacen tus necesidades. Afortunadamente, los componentes de Vue te permiten construir entradas reutilizables con un comportamiento completamente personalizado. ¡Estas entradas incluso funcionan con `v-model`! Para aprender más, lee sobre [Uso con `v-model`](/guide/components/v-model) en la guía de Componentes.

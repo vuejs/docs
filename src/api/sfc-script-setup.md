@@ -1,4 +1,4 @@
-# \<script setup>
+# \<script setup> {#script-setup}
 
 `<script setup>` es un azúcar sintáctico en tiempo de compilación para usar la API de composición dentro de los componentes de un solo archivo (SFC). Es la sintaxis recomendada si estás utilizando tanto SFC como API de composición. Proporciona una serie de ventajas sobre la sintaxis normal de `<script>`:
 
@@ -7,7 +7,7 @@
 - Mejor rendimiento en tiempo de ejecución (la plantilla se compila en una función de renderizado en el mismo ámbito, sin un proxy intermedio)
 - Mejor rendimiento de inferencia de tipos IDE (menos trabajo para que el servidor de lenguaje extraiga los tipos del código)
 
-## Sintaxis Básica
+## Sintaxis Básica {#sintaxis-basica}
 
 Para optar por la sintaxis, agregue el atributo `setup` al bloque `<script>`:
 
@@ -19,7 +19,7 @@ console.log('hola script setup')
 
 El código interno se compila como el contenido de la función `setup()` del componente. Esto significa que, a diferencia del `<script>` normal, que solo se ejecuta una vez cuando el componente se importa por primera vez, el código dentro de `<script setup>` **se ejecutará cada vez que se cree una instancia del componente**.
 
-### Los enlaces de nivel superior se exponen a la plantilla
+### Los enlaces de nivel superior se exponen a la plantilla {#los-enlaces-de-nivel-superior-se-exponen-a-la-plantilla}
 
 Al usar `<script setup>`, cualquier enlace de nivel superior (incluyendo variables, declaraciones de funciones e importaciones) declarado dentro de `<script setup>` se puede usar directamente en la plantilla:
 
@@ -51,7 +51,7 @@ import { capitalize } from './helpers'
 </template>
 ```
 
-## Reactividad
+## Reactividad {#reactividad}
 
 El estado reactivo debe crearse explícitamente mediante las [API de reactividad](./reactivity-core.html). Al igual que los valores devueltos por una función `setup()`, las refs se desenvuelven automáticamente cuando se hace referencia a ellas en las plantillas:
 
@@ -67,7 +67,7 @@ const count = ref(0)
 </template>
 ```
 
-## Usando Componentes
+## Usando Componentes {#usando-componentes}
 
 Los valores en el ámbito de `<script setup>` también pueden utilizarse directamente como nombres de etiquetas de componentes personalizados:
 
@@ -83,7 +83,7 @@ import MyComponent from './MyComponent.vue'
 
 Piensa en `MyComponent` como si fuera una variable. Si has utilizado JSX, el modelo mental es similar aquí. El equivalente en kebab-case `<my-component>` también funciona en la plantilla; sin embargo, se recomiendan encarecidamente las etiquetas de componentes en PascalCase para mantener la coherencia. También ayuda a diferenciarse de los elementos personalizados nativos.
 
-### Componentes Dinámicos
+### Componentes Dinámicos {#componentes-dinamicos}
 
 Dado que los componentes se referencian como variables en lugar de registrarse bajo claves de tipo cadena, deberíamos utilizar el enlace dinámico `:is` cuando usamos componentes dinámicos dentro de `<script setup>`:
 
@@ -101,7 +101,7 @@ import Bar from './Bar.vue'
 
 Nota cómo los componentes pueden utilizarse como variables en una expresión ternaria.
 
-### Componentes Recursivos
+### Componentes Recursivos {#componentes-recursivos}
 
 Un SFC puede referirse implícitamente a sí mismo a través de su nombre de archivo. Por ejemplo, un archivo llamado `FooBar.vue` puede referirse a sí mismo como `<FooBar/>` en su plantilla.
 
@@ -111,7 +111,7 @@ Ten en cuenta que esto tiene menor prioridad que los componentes importados. Si 
 import { FooBar as FooBarChild } from './components'
 ```
 
-### Componentes con Espacio de nombres
+### Componentes con Espacio de Nombres {#componentes-con-espacio-de-nombres}
 
 Puedes utilizar etiquetas de componentes con puntos como `<Foo.Bar>` para referirte a los componentes anidados en las propiedades del objeto. Esto es útil cuando importas múltiples componentes desde un solo archivo:
 
@@ -127,7 +127,7 @@ import * as Form from './form-components'
 </template>
 ```
 
-## Usando Directivas Personalizadas
+## Usando Directivas Personalizadas {#usando-directivas-personalizadas}
 
 Las directivas personalizadas registradas globalmente funcionan normalmente. Las directivas personalizadas locales no necesitan registrarse explícitamente con `<script setup>`, pero deben seguir el esquema de nombres `vNameOfDirective`:
 
@@ -152,7 +152,7 @@ import { myDirective as vMyDirective } from './MyDirective.js'
 </script>
 ```
 
-## defineProps() y defineEmits()
+## defineProps() y defineEmits() {#defineprops-y-defineemits}
 
 Para declarar opciones como `props` y `emits` con soporte completo de inferencia de tipo, podemos usar las API `defineProps` y `defineEmits`, que están disponibles automáticamente dentro de `<script setup>`:
 
@@ -177,7 +177,7 @@ const emit = defineEmits(['change', 'delete'])
 
 Si estás utilizando TypeScript, también es posible [declarar props y emits usando anotaciones de tipo puro](#funcionalidades-exclusivas-de-typescript).
 
-## defineExpose()
+## defineExpose() {#defineexpose}
 
 Los componentes que utilizan `<script setup>` **están cerrados por defecto**, es decir, la instancia pública del componente, que se recupera a través de las refs de plantilla o de las cadenas `$parent`, **no** expondrá ninguno de los enlaces declarados dentro de `<script setup>`.
 
@@ -199,7 +199,7 @@ defineExpose({
 
 Cuando un padre obtiene una instancia de este componente a través de refs de plantilla, la instancia recuperada tendrá la forma `{ a: number, b: number }` (las refs se desenvuelven automáticamente como en las instancias normales).
 
-## `useSlots()` y `useAttrs()`
+## `useSlots()` y `useAttrs()` {#useslots-y-useattrs}
 
 El uso de `slots` y `attrs` dentro de `<script setup>` debería ser relativamente raro, ya que puedes acceder a ellos directamente como `$slots` y `$attrs` en la plantilla. En el raro caso de que los necesites, utiliza los ayudantes `useSlots` y `useAttrs` respectivamente:
 
@@ -214,7 +214,7 @@ const attrs = useAttrs()
 
 `useSlots` y `useAttrs` son funciones reales en tiempo de ejecución que devuelven el equivalente de `setupContext.slots` y `setupContext.attrs`. También se pueden utilizar en las funciones normales de la API de composición.
 
-## Usando junto a un `<script>` normal
+## Usando junto a un `<script>` normal {#usando-junto-a-un-script-normal}
 
 `<script setup>` se puede usar junto a un `<script>` normal. Es posible que se necesite un `<script>` normal en los casos en que necesitemos:
 
@@ -232,14 +232,21 @@ export default {
   inheritAttrs: false,
   customOptions: {}
 }
-</script>
+</script-normal>
 
 <script setup>
 // ejecutado en el ámbito de setup() (para cada instancia)
 </script>
 ```
 
-## Nivel Superior de `await`
+El soporte para combinar `<script setup>` y `<script>` en el mismo componente está limitado a los escenarios descritos anteriormente. En concreto:
+
+- **NO** utilice una sección `<script>` separada para opciones que ya pueden definirse utilizando `<script setup>`, tales como `props` y `emits`.
+- Las variables creadas dentro de `<script setup>` no se añaden como propiedades a la instancia del componente, haciéndolas inaccesibles desde la Options API. Se desaconseja encarecidamente mezclar APIs de este modo.
+
+Si se encuentra en uno de los escenarios no soportados, debería considerar cambiar a una función [`setup()`](/api/composition-api-setup.html) explícita, en lugar de utilizar `<script setup>`.
+
+## Nivel Superior de `await` {#nivel-superior-de-await}
 
 El nivel superior de `await` se puede usar dentro de `<script setup>`. El código resultante se compilará como `async setup()`:
 
@@ -255,9 +262,9 @@ Además, la expresión esperada se compilará automáticamente en un formato que
 `async setup()` debe usarse en combinación con `Suspense`, que actualmente sigue siendo una característica experimental. Planeamos finalizarla y documentarla en una versión futura, pero si tienes curiosidad ahora, puedes consultar sus [pruebas](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts) para ver cómo funciona.
 :::
 
-## Funcionalidades Exclusivas de TypeScript <sup class="vt-badge ts" />
+## Funcionalidades Exclusivas de TypeScript <sup class="vt-badge ts" /> {#funcionalidades-exclusivas-de-typescript}
 
-### Declaraciones de props/emit de sólo tipo
+### Declaraciones de props/emit de sólo tipo {#declaraciones-de-props-emit-de-solo-tipo}
 
 Los props y los emits también pueden declararse utilizando la sintaxis de tipo puro, pasando un argumento de tipo literal a `defineProps` o `defineEmits`:
 
@@ -290,7 +297,7 @@ const emit = defineEmits<{
 
   Actualmente, los tipos complejos y las importaciones de tipos de otros archivos no están soportados. Es posible admitir importaciones de tipos en el futuro.
 
-### Valores por defecto de props cuando se usa declaración de tipo
+### Valores por defecto de props cuando se usa declaración de tipo {#valores-por-defecto-de-props-cuando-se-usa-declaracion-de-tipo}
 
 Uno de los inconvenientes de la declaración de tipo con `defineProps` es que no tiene una forma de proporcionar valores por defecto para los props. Para resolver este problema, también se proporciona una macro del compilador `withDefaults`:
 
@@ -308,6 +315,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 Esto se compilará con las opciones equivalentes de props `default` en tiempo de ejecución. Además, el ayudante `withDefaults` proporciona comprobaciones de tipo para los valores por defecto y garantiza que el tipo `props` devuelto tenga los indicadores opcionales eliminados para las propiedades que sí tienen valores por defecto declarados.
 
-## Restricciones
+## Restricciones {#restricciones}
 
 Debido a la diferencia en la semántica de ejecución del módulo, el código dentro de `<script setup>` depende del contexto de un SFC. Cuando se mueve a archivos externos `.js` o `.ts`, puede generar confusión tanto para los desarrolladores como para las herramientas. Por lo tanto, **`<script setup>`** no se puede utilizar con el atributo `src`.

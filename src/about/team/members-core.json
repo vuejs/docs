@@ -14,7 +14,7 @@
       }
     ],
     "location": "Singapore",
-    "languages": ["English", "Chinese"],
+    "languages": ["Inglés", "Chino"],
     "website": {
       "label": "evanyou.me",
       "url": "https://evanyou.me"
@@ -37,7 +37,7 @@
       }
     ],
     "location": "Washington, DC, USA",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "website": {
       "label": "bencodezen.io",
       "url": "https://www.bencodezen.io"
@@ -53,7 +53,7 @@
     "title": "Developer & Consultant",
     "company": "Freelance",
     "location": "Paris, France",
-    "languages": ["Spanish", "French", "English"],
+    "languages": ["Español", "Francés", "Inglés"],
     "socials": {
       "github": "posva",
       "twitter": "posva"
@@ -101,7 +101,7 @@
       }
     ],
     "location": "Hangzhou, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "sodatea",
       "twitter": "haoqunjiang"
@@ -134,7 +134,7 @@
       }
     ],
     "location": "Singapore",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "jinjiang",
       "twitter": "zhaojinjiang"
@@ -164,7 +164,7 @@
       }
     ],
     "location": "Tokyo, Japan",
-    "languages": ["Japanese", "English"],
+    "languages": ["Japonés", "Inglés"],
     "website": {
       "label": "patreon.com/kazupon",
       "url": "https://www.patreon.com/kazupon"
@@ -192,7 +192,7 @@
       }
     ],
     "location": "Bangalore, India",
-    "languages": ["Hindi", "English"],
+    "languages": ["Hindú", "Inglés"],
     "socials": {
       "github": "znck",
       "twitter": "znck0"
@@ -206,8 +206,8 @@
   {
     "name": "Linusborg",
     "title": "Hive-Mind Community Wrangler (Probably a Bot)",
-    "location": "Mannheim, Germany",
-    "languages": ["German", "English"],
+    "location": "Mannheim, Alemány",
+    "languages": ["Alemán", "Inglés"],
     "projects": [
       {
         "label": "vuejs/*",
@@ -265,7 +265,7 @@
       }
     ],
     "location": "Lyon, France",
-    "languages": ["French", "English"],
+    "languages": ["Francés", "Inglés"],
     "website": {
       "label": "patreon.com/akryum",
       "url": "http://patreon.com/akryum"
@@ -290,7 +290,7 @@
       }
     ],
     "location": "Wrocław, Poland",
-    "languages": ["Polish", "English"],
+    "languages": ["Polaco", "Inglés"],
     "socials": {
       "github": "shentao",
       "twitter": "DamianDulisz"
@@ -329,7 +329,7 @@
       }
     ],
     "location": "Shanghai, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "Justineo",
       "twitter": "_justineo"
@@ -354,8 +354,8 @@
         "url": "https://github.com/vue-google-signin-button"
       }
     ],
-    "location": "Munich, Germany",
-    "languages": ["Vietnamese", "English"],
+    "location": "Munich, Alemány",
+    "languages": ["Vietnamita", "Inglés"],
     "socials": { "github": "phanan", "twitter": "notphanan" },
     "website": {
       "label": "https://phanan.net/",
@@ -376,7 +376,7 @@
       { "label": "vue-cli", "url": "https://github.com/vuejs/vue-cli" }
     ],
     "location": "Amsterdam, Netherlands",
-    "languages": ["Ukrainian", "Russian", "English"],
+    "languages": ["Ucraniano", "Ruso", "Inglés"],
     "socials": {
       "github": "NataliaTepluhina",
       "twitter": "N_Tepluhina"
@@ -403,7 +403,7 @@
       }
     ],
     "location": "Kanagawa, Japan",
-    "languages": ["Japanese"],
+    "languages": ["Japonés"],
     "socials": {
       "github": "ota-meshi",
       "twitter": "omoteota"
@@ -426,7 +426,7 @@
       }
     ],
     "location": "Kanagawa, Japan",
-    "languages": ["English", "Japanese"],
+    "languages": ["Inglés", "Japonés"],
     "socials": {
       "github": "kiaking",
       "twitter": "KiaKing85"
@@ -451,7 +451,7 @@
       }
     ],
     "location": "Shanghai, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "antfu",
       "twitter": "antfu7"
@@ -472,7 +472,7 @@
       }
     ],
     "location": "Beijing, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "HcySunYang",
       "twitter": "HcySunYang"
@@ -488,7 +488,7 @@
       }
     ],
     "location": "Hong Kong, China",
-    "languages": ["Chinese", "English"],
+    "languages": ["Chino", "Inglés"],
     "socials": {
       "github": "johnsoncodehk",
       "twitter": "johnsoncodehk"
@@ -505,7 +505,7 @@
       }
     ],
     "location": "London, United Kingdom",
-    "languages": ["English", "Portuguese"],
+    "languages": ["Inglés", "Portugués"],
     "socials": {
       "github": "pikax",
       "twitter": "pikax_dev"
