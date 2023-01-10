@@ -529,21 +529,35 @@ components/
 
 ## Prop name casing {#prop-name-casing}
 
-**Prop names should always use camelCase during declaration, but kebab-case in templates and [JSX](/guide/extras/render-function.html#jsx-tsx).**
+**Prop names should always use camelCase during declaration. When used inside in-DOM templates, props should be kebab-cased. Single-File Components templates and [JSX](/guide/extras/render-function.html#jsx-tsx) can use either kebab-case or camelCase props**
 
 We're simply following the conventions of each language. Within JavaScript, camelCase is more natural. Within HTML, kebab-case is.
 
+
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
+
+<div class="options-api">
 
 ```js
 props: {
   'greeting-text': String
 }
 ```
+</div>
+
+<div class="composition-api">
+
+```js
+const props = defineProps({
+  'greeting-text': String
+})
+```
+</div>
 
 ```vue-html
-<WelcomeMessage greetingText="hi"/>
+// for in-DOM templates
+<welcome-message greetingText="hi"></welcome-message>
 ```
 
 </div>
@@ -551,14 +565,32 @@ props: {
 <div class="style-example style-example-good">
 <h3>Good</h3>
 
+<div class="options-api">
+
 ```js
 props: {
   greetingText: String
 }
 ```
+</div>
+
+<div class="composition-api">
+
+```js
+const props = defineProps({
+  greetingText: String
+})
+```
+</div>
 
 ```vue-html
+// for SFC
 <WelcomeMessage greeting-text="hi"/>
+<WelcomeMessage greetingText="hi"/>
+```
+```vue-html
+// for in-DOM templates
+<welcome-message greeting-text="hi"></welcome-message>
 ```
 
 </div>
