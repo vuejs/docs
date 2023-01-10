@@ -254,7 +254,7 @@ We can force a watcher's callback to be executed immediately by passing the `imm
 
 ```js
 watch(source, (newValue, oldValue) => {
-  // ...
+  // executed immediately, then again when `source` changes
 }, { immediate: true })
 ```
 
