@@ -661,6 +661,8 @@ Complex expressions in your templates make them less declarative. We should stri
 {{ normalizedFullName }}
 ```
 
+<div class="options-api">
+
 ```js
 // The complex expression has been moved to a computed property
 computed: {
@@ -671,6 +673,18 @@ computed: {
   }
 }
 ```
+</div>
+
+<div class="composition-api">
+
+```js
+// The complex expression has been moved to a computed property
+const normalizedFullName = computed(() => fullName.value.split(' ')
+  .map(word => word[0].toUpperCase() + word.slice(1))
+  .join(' '))
+```
+</div>
+
 
 </div>
 
