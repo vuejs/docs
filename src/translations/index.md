@@ -14,6 +14,7 @@ aside: false
 
 - [Українська / Ukrainian](https://ua.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ua)]
 - [Français / French](https://vuejs-docs-fr.netlify.app) [[source](https://github.com/vuejs-translations/docs-fr)]
+- [Русский / Russian](https://v3.ru.vuejs.org/) [[source](https://github.com/translation-gang/docs-ru)]
 
 ## Starting a new Translation {#starting-a-new-translation}
 
