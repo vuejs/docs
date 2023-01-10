@@ -477,7 +477,7 @@ Watches one or more reactive data sources and invokes a callback function when t
     // `cancel` will be called if `id` changes, cancelling
     // the previous request if it hasn't completed yet
     onCleanup(cancel)
-    data.value = await response
+    id.value = await response
   })
   ```
 
