@@ -533,7 +533,6 @@ components/
 
 We're simply following the conventions of each language. Within JavaScript, camelCase is more natural. Within HTML, kebab-case is.
 
-
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -544,6 +543,7 @@ props: {
   'greeting-text': String
 }
 ```
+
 </div>
 
 <div class="composition-api">
@@ -553,6 +553,7 @@ const props = defineProps({
   'greeting-text': String
 })
 ```
+
 </div>
 
 ```vue-html
@@ -572,6 +573,7 @@ props: {
   greetingText: String
 }
 ```
+
 </div>
 
 <div class="composition-api">
@@ -581,6 +583,7 @@ const props = defineProps({
   greetingText: String
 })
 ```
+
 </div>
 
 ```vue-html
@@ -588,6 +591,7 @@ const props = defineProps({
 <WelcomeMessage greeting-text="hi"/>
 <WelcomeMessage greetingText="hi"/>
 ```
+
 ```vue-html
 // for in-DOM templates
 <welcome-message greeting-text="hi"></welcome-message>
@@ -673,18 +677,22 @@ computed: {
   }
 }
 ```
+
 </div>
 
 <div class="composition-api">
 
 ```js
 // The complex expression has been moved to a computed property
-const normalizedFullName = computed(() => fullName.value.split(' ')
-  .map(word => word[0].toUpperCase() + word.slice(1))
-  .join(' '))
+const normalizedFullName = computed(() =>
+  fullName.value
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(' ')
+)
 ```
-</div>
 
+</div>
 
 </div>
 
@@ -713,6 +721,8 @@ Simpler, well-named computed properties are:
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
+<div class="options-api">
+
 ```js
 computed: {
   price() {
@@ -727,8 +737,23 @@ computed: {
 
 </div>
 
+<div class="composition-api">
+
+```js
+const price = computed(() => {
+  const basePrice = manufactureCost.value / (1 - profitMargin.value)
+  return basePrice - basePrice * (discountPercent.value || 0)
+})
+```
+
+</div>
+
+</div>
+
 <div class="style-example style-example-good">
 <h3>Good</h3>
+
+<div class="options-api">
 
 ```js
 computed: {
@@ -745,6 +770,24 @@ computed: {
   }
 }
 ```
+
+</div>
+
+<div class="composition-api">
+
+```js
+const basePrice = computed(
+  () => manufactureCost.value / (1 - profitMargin.value)
+)
+
+const discount = computed(
+  () => basePrice.value * (discountPercent.value || 0)
+)
+
+const finalPrice = compued(() => basePrice.value - discount.value)
+```
+
+</div>
 
 </div>
 
