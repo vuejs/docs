@@ -1,14 +1,14 @@
-# Component Instance {#component-instance}
+# Экземпляр компонента {#component-instance}
 
 :::info Информация
-This page documents the built-in properties and methods exposed on the component public instance, i.e. `this`.
+На этой странице описаны встроенные свойства и методы, доступные в общедоступном экземпляре компонента, т.е. `this`.
 
-All properties listed on this page are readonly (except nested properties in `$data`).
+Все свойства, перечисленные на этой странице, доступны только для чтения (за исключением вложенных свойств в `$data`).
 :::
 
 ## $data {#data}
 
-The object returned from the [`data`](./options-state.html#data) option, made reactive by the component. The component instance proxies access to the properties on its data object.
+Объект, возвращенный из параметра [`data`](./options-state.html#data), который компонент сделал реактивным. Экземпляр компонента проксирует доступ к свойствам объекта данных.
 
 - **Тип:**
 
@@ -20,7 +20,7 @@ The object returned from the [`data`](./options-state.html#data) option, made re
 
 ## $props {#props}
 
-An object representing the component's current, resolved props.
+Объект, содержащий текущие входные параметры, которые получил компонент.
 
 - **Тип:**
 
@@ -32,11 +32,11 @@ An object representing the component's current, resolved props.
 
 - **Подробности:**
 
-  Only props declared via the [`props`](./options-state.html#props) option will be included. The component instance proxies access to the properties on its props object.
+  Будут включены только параметры, объявленные с помощью опции [`props`](./options-state.html#props). Экземпляр компонента предоставляет прокси-доступ к свойствам своего объекта props.
 
 ## $el {#el}
 
-The root DOM node that the component instance is managing.
+Корневой узел DOM, которым управляет экземпляр компонента.
 
 - **Тип:**
 
@@ -48,19 +48,19 @@ The root DOM node that the component instance is managing.
 
 - **Подробности:**
 
-  `$el` will be `undefined` until the component is [mounted](./options-lifecycle#mounted).
+  `$el` будет `undefined`, пока компонент не будет [смонтирован](./options-lifecycle#mounted).
 
-  - For components with a single root element, `$el` will point to that element.
-  - For components with text root, `$el` will point to the text node.
-  - For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM (a text node, or a comment node in SSR hydration mode).
+  - Для компонентов с одним корневым элементом, `$el` будет указывать на этот элемент.
+  - Для компонентов с текстовым корнем `$el` будет указывать на текстовый узел.
+  - Для компонентов с несколькими корневыми узлами `$el` будет узлом-заполнителем DOM, который Vue использует для отслеживания позиции компонента в DOM (текстовый узел или узел комментария в режиме гидратации SSR).
 
   :::tip Совет
-  For consistency, it is recommended to use [template refs](/guide/essentials/template-refs.html) for direct access to elements instead of relying on `$el`.
+  Для обеспечения согласованности рекомендуется использовать [ссылки на шаблон](/guide/essentials/template-refs.html) для прямого доступа к элементам вместо того, чтобы полагаться на `$el`.
   :::
 
 ## $options {#options}
 
-The resolved component options used for instantiating the current component instance.
+Разрешенные параметры компонента, используемые для создания экземпляра текущего компонента.
 
 - **Тип:**
 
@@ -72,13 +72,13 @@ The resolved component options used for instantiating the current component inst
 
 - **Подробности:**
 
-  The `$options` object exposes the resolved options for the current component and is the merge result of these possible sources:
+  Объект `$options` раскрывает разрешенные опции для текущего компонента и является результатом слияния этих возможных источников:
 
-  - Global mixins
-  - Component `extends` base
-  - Component mixins
+  - Глобальные миксины
+  - Компонент `расширяемый` базовый
+  - Компонентные миксины
 
-  It is typically used to support custom component options:
+  Обычно он используется для поддержки пользовательских параметров компонента:
 
   ```js
   const app = createApp({
@@ -93,7 +93,7 @@ The resolved component options used for instantiating the current component inst
 
 ## $parent {#parent}
 
-The parent instance, if the current instance has one. It will be `null` for the root instance itself.
+Родительский экземпляр, если у текущего экземпляра он есть. Для самого корневого экземпляра это будет `null`.
 
 - **Тип:**
 
@@ -105,7 +105,7 @@ The parent instance, if the current instance has one. It will be `null` for the 
 
 ## $root {#root}
 
-The root component instance of the current component tree. If the current instance has no parents this value will be itself.
+Экземпляр корневого компонента текущего дерева компонентов. Если у текущего экземпляра нет родителя, то значением будет он сам.
 
 - **Тип:**
 
@@ -117,7 +117,7 @@ The root component instance of the current component tree. If the current instan
 
 ## $slots {#slots}
 
-An object representing the [slots](/guide/components/slots.html) passed by the parent component.
+Объект, представляющий [слоты](/guide/components/slots.html ), передаваемый родительским компонентом.
 
 - **Тип:**
 
@@ -131,17 +131,17 @@ An object representing the [slots](/guide/components/slots.html) passed by the p
 
 - **Подробности:**
 
-  Typically used when manually authoring [render functions](/guide/extras/render-function.html), but can also be used to detect whether a slot is present.
+  Обычно используется при ручном создании [функций рендеринга](/guide/extras/render-function.html ), но также может использоваться для определения наличия слота.
 
-  Each slot is exposed on `this.$slots` as a function that returns an array of vnodes under the key corresponding to that slot's name. The default slot is exposed as `this.$slots.default`.
+  Каждый слот отображается в `this.$slots` как функция, которая возвращает массив узлов под ключом, соответствующим имени этого слота. Слот по умолчанию отображается как `this.$slots.default`.
 
-  If a slot is a [scoped slot](/guide/components/slots.html#scoped-slots), arguments passed to the slot functions are available to the slot as its slot props.
+  Если слот является [слотом с ограниченной областью действия](/guide/components/slots.html#scoped-slots), аргументы, переданные функциям слота, доступны слоту в качестве реквизита слота.
 
-- **См. также:** [Render Functions - Rendering Slots](/guide/extras/render-function.html#rendering-slots)
+- **См. также:** [Функции рендеринга - слоты рендеринга](/guide/extras/render-function.html#rendering-slots)
 
 ## $refs {#refs}
 
-An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs.html).
+Объект элементов DOM и экземпляров компонентов, зарегистрированный через [атрибутов](/guide/essentials/template-refs.html).
 
 - **Тип:**
 
@@ -153,12 +153,12 @@ An object of DOM elements and component instances, registered via [template refs
 
 - **См. также:**
 
-  - [Template refs](/guide/essentials/template-refs.html)
-  - [Special Attributes - ref](./built-in-special-attributes.md#ref)
+  - [Ссылки на элементы шаблона](/guide/essentials/template-refs.html)
+  - [Специальные атрибуты — ref](./built-in-special-attributes.md#ref)
 
 ## $attrs {#attrs}
 
-An object that contains the component's fallthrough attributes.
+Объект, содержащий атрибуты Fallthrough компонента.
 
 - **Тип:**
 
@@ -170,17 +170,17 @@ An object that contains the component's fallthrough attributes.
 
 - **Подробности:**
 
-  [Fallthrough Attributes](/guide/components/attrs.html) are attributes and event handlers passed by the parent component, but not declared as a prop or an emitted event by the child.
+  [Атрибуты Fallthrough](/guide/components/attrs.html) это атрибуты и обработчики событий, передаваемые родительским компонентом, но не объявленные дочерним компонентом как prop или событие, передаваемое дочерним компонентом.
 
-  By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc.html#inheritattrs) option.
+  По умолчанию все, что содержится в `$attrs`, будет автоматически унаследовано в корневом элементе компонента, если существует только один корневой элемент. Это поведение отключено, если компонент имеет несколько корневых узлов, и может быть явно отключено с помощью опции [`inheritAttrs`](./options-разное.html#inheritattrs).
 
 - **См. также:**
 
-  - [Fallthrough Attributes](/guide/components/attrs.html)
+  - [Атрибуты Fallthrough](/guide/components/attrs.html)
 
 ## $watch() {#watch}
 
-Imperative API for creating watchers.
+Императивный API для создания наблюдателей.
 
 - **Тип:**
 
@@ -212,43 +212,43 @@ Imperative API for creating watchers.
 
 - **Подробности:**
 
-  The first argument is the watch source. It can be a component property name string, a simple dot-delimited path string, or a getter function.
+  Первый аргумент - это источник наблюдения. Это может быть строка имени свойства компонента, простая строка пути, разделенная точкой, или функция получения.
 
-  The second argument is the callback function. The callback receives the new value and the old value of the watched source.
+  Второй аргумент - это функция обратного вызова. Обратный вызов получает новое значение и старое значение наблюдаемого источника.
 
-  - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
-  - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers.html#deep-watchers).
-  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core.html#watcheffect).
-  - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging).
+  - **`immediate`**: обратный вызов запускается сразу после создания наблюдателя. Старое значение будет `undefined` при первом вызове.
+  - **`deep`**: принудительный глубокий обход источника, если это объект, так что обратный вызов срабатывает при глубоких мутациях. Смотрите [Глубинные наблюдатели](/guide/essentials/watchers.html#deep-watchers).
+  - **`flush`**: настройте время очистки коллбэка. См. раздел [Тайминг очистки коллбэка](/guide/essentials/watchers.html#callback-flush-timing) и [`watchEffect()`](/api/reactivity-core.html#watcheffect).
+  - **`onTrack / onTrigger`**: Для отладки зависимостей наблюдателя. См. [Отладка наблюдателя](/guide/extras/reactivity-in-depth.html#watcher-debugging).
 
 - **Пример:**
 
-  Watch a property name:
+  Наблюдение за именем свойства:
 
   ```js
   this.$watch('a', (newVal, oldVal) => {})
   ```
 
-  Watch a dot-delimited path:
+  Наблюдение за путём, разделенный точками:
 
   ```js
   this.$watch('a.b', (newVal, oldVal) => {})
   ```
 
-  Using getter for more complex expressions:
+  Использование getter для более сложных выражений:
 
   ```js
   this.$watch(
-    // every time the expression `this.a + this.b` yields
-    // a different result, the handler will be called.
-    // It's as if we were watching a computed property
-    // without defining the computed property itself.
+    // каждый раз, когда выражение `this.a + this.b` дает
+    // другой результат, будет вызываться обработчик.
+    // Это как если бы наблюдали за вычисляемым свойством.
+    // не определяя само вычисляемое свойство.
     () => this.a + this.b,
     (newVal, oldVal) => {}
   )
   ```
 
-  Stopping the watcher:
+  Остановка наблюдателя:
 
   ```js
   const unwatch = this.$watch('a', cb)
@@ -258,12 +258,12 @@ Imperative API for creating watchers.
   ```
 
 - **См. также:**
-  - [Options - `watch`](/api/options-state.html#watch)
-  - [Guide - Watchers](/guide/essentials/watchers.html)
+  - [Параметры - `watch`](/api/options-state.html#watch)
+  - [Руководство - Наблюдатели](/guide/essentials/watchers.html)
 
 ## $emit() {#emit}
 
-Trigger a custom event on the current instance. Any additional arguments will be passed into the listener's callback function.
+Запуск пользовательского события на текущем экземпляре. Любые дополнительные аргументы будут переданы в функцию коллбэка слушателя.
 
 - **Тип:**
 
@@ -278,9 +278,9 @@ Trigger a custom event on the current instance. Any additional arguments will be
   ```js
   export default {
     created() {
-      // only event
+      // только определяя имя события:
       this.$emit('foo')
-      // with additional arguments
+      // с передачей дополнительных аргументов:
       this.$emit('bar', 1, 2, 3)
     }
   }
@@ -288,12 +288,12 @@ Trigger a custom event on the current instance. Any additional arguments will be
 
 - **См. также:**
 
-  - [Component - Events](/guide/components/events.html)
-  - [`emits` option](./options-state.html#emits)
+  - [Компонент - События](/guide/components/events.html)
+  - [`emits` опции](./options-state.html#emits)
 
 ## $forceUpdate() {#forceupdate}
 
-Force the component instance to re-render.
+Вызывает принудительную перерисовку экземпляра компонента.
 
 - **Тип:**
 
@@ -305,11 +305,11 @@ Force the component instance to re-render.
 
 - **Подробности:**
 
-  This should be rarely needed given Vue's fully automatic reactivity system. The only cases where you may need it is when you have explicitly created non-reactive component state using advanced reactivity APIs.
+  Ввиду полностью автоматической системы реактивности в Vue это требуется крайне редко. Единственный случай, когда она может понадобиться, это когда вы явно создали нереактивное состояние компонента, используя расширенные API реактивности.
 
 ## $nextTick() {#nexttick}
 
-Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
+Откладывает вызов коллбэка до следующего цикла обновления DOM. Используйте его сразу после изменения данных, чтобы дождаться обновления DOM.  [`nextTick()`](./general.html#nexttick).
 
 - **Тип:**
 
@@ -321,6 +321,6 @@ Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
 
 - **Подробности:**
 
-  The only difference from the global version of `nextTick()` is that the callback passed to `this.$nextTick()` will have its `this` context bound to the current component instance.
+  Единственное отличие от глобальной версии `nextTick()` заключается в том, что коллбэк, переданный `this.$next Trick()`, будет иметь контекст `this`, привязанный к текущему экземпляру компонента.
 
 - **См. также:** [`nextTick()`](./general.html#nexttick)
