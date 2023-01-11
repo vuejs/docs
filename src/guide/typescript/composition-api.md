@@ -135,6 +135,49 @@ export default defineComponent({
 })
 ```
 
+### Складні типи реквізитів {#complex-prop-types}
+
+За допомогою декларації на основі типу, реквізит може використовувати складний тип, як і будь-який інший тип:
+
+```vue
+<script setup lang="ts">
+interface Book {
+  title: string
+  author: string
+  year: number
+}
+
+const props = defineProps<{
+  book: Book
+}>()
+</script>
+```
+
+Для декларації під час виконання ми можемо використовувати утилітарний тип `PropType`:
+
+```ts
+import type { PropType } from 'vue'
+
+const props = defineProps({
+  book: Object as PropType<Book>
+})
+```
+
+Це працює приблизно так само, якщо ми безпосередньо вказуємо опцію `props`:
+
+```ts
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+
+export default defineComponent({
+  props: {
+    book: Object as PropType<Book>
+  }
+})
+```
+
+Параметр `props` частіше використовується з Options API, тому ви знайдете докладніші приклади в посібнику [TypeScript with Options API](/guide/typescript/options-api.html#typing-component-props) . Техніки, показані в цих прикладах, також застосовуються до декларацій під час виконання за допомогою `defineProps()`.
+
 ## Типізація випромінювань компонента {#typing-component-emits}
 
 В `<script setup>`, `emit`- функцію також можна типізувати за допомогою, декларації під час виконання, АБО декларації на основі типу:

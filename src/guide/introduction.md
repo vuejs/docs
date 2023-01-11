@@ -6,6 +6,7 @@ footer: false
 
 :::info Ви переглядаєте документацію для Vue 3!
 
+- Підтримка Vue 2 припиниться 31 грудня 2023 р. Докладніше про [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
 - Документацію по Vue 2 було переміщено за адресою [v2.vuejs.org.ua](https://v2.vuejs.org.ua/).
 - Оновлюєтесь з Vue 2? Перегляньте [Гід по міграції](https://v3-migration.vuejs.org/).
   :::
@@ -44,7 +45,7 @@ createApp({
 ```vue-html
 <div id="app">
   <button @click="count++">
-    Count is: {{ count }}
+    Рахунок: {{ count }}
   </button>
 </div>
 ```
@@ -58,7 +59,7 @@ const count = ref(0)
 
 <div class="demo">
   <button @click="count++">
-    Count is: {{ count }}
+    Рахунок: {{ count }}
   </button>
 </div>
 

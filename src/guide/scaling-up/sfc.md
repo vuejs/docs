@@ -4,6 +4,8 @@
 
 Одно-файлові компоненти Vue (відомі також як файли `*.vue`, скорочено **SFC**) — це спеціальний формат файлу, який дозволяє нам інкапсулювати шаблон, логіку **та** стиль компонента Vue в одному файл. Ось приклад SFC:
 
+<div class="options-api">
+
 ```vue
 <script>
 export default {
@@ -26,6 +28,30 @@ export default {
 }
 </style>
 ```
+
+</div>
+
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref } from 'vue'
+const greeting = ref('Привіт, світе!')
+</script>
+
+<template>
+  <p class="greeting">{{ greeting }}</p>
+</template>
+
+<style>
+.greeting {
+  color: red;
+  font-weight: bold;
+}
+</style>
+```
+
+</div>
 
 Як ми бачимо, Vue SFC є природним розширенням класичного тріо HTML, CSS і JavaScript. Блоки `<template>`, `<script>` і `<style>` інкапсулюють та розміщують вид, логіку та стиль компонента в одному файлі. Повний синтаксис визначено в [специфікації синтаксису SFC](/api/sfc-spec).
 

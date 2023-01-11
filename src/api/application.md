@@ -522,6 +522,8 @@ console.log(app.config)
     }
   }
   ```
+  
+- **Також до вашої уваги:** [Гід - Доповнення глобальних властивостей](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies
 
