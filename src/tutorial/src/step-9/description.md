@@ -1,4 +1,4 @@
-# Lifecycle and Template Refs
+# Lifecycle and Template Refs {#lifecycle-and-template-refs}
 
 So far, Vue has been handling all the DOM updates for us, thanks to reactivity and declarative rendering. However, inevitably there will be cases where we need to manually work with the DOM.
 

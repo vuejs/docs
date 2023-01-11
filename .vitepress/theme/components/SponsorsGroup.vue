@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
-import { SponsorData, data, base, load } from './sponsors';
+import { SponsorData, data, base, load } from './sponsors'
 
 const { tier, placement = 'aside' } = defineProps<{
   tier: keyof SponsorData

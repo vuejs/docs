@@ -1,35 +1,35 @@
-# Creating a Vue Application
+# Створення додатку Vue {#creating-a-vue-application}
 
-## The application instance
+## Екземпляр додатку {#the-application-instance}
 
-Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
+Кожен додаток Vue починається зі створення нового **екземпляру додатку** функцією [`createApp`](/api/application#createapp):
 
 ```js
 import { createApp } from 'vue'
 
 const app = createApp({
-  /* root component options */
+  /* параметри кореневого компонента */
 })
 ```
 
-## The Root Component
+## Кореневий компонент {#the-root-component}
 
-The object we are passing into `createApp` is in fact a component. Every app requires a "root component" that can contain other components as its children.
+Обʼєкт, який ми передаємо в `createApp` є, по суті, компонентом. Кожен додаток вимагає "кореневого компонента", який може містити інші дочірні компоненти.
 
-If you are using Single-File Components, we typically import the root component from another file:
+Якщо ви використовуєте одно-файлові компоненти, то зазвичай ми імпортуємо кореневий компонент з іншого файлу:
 
 ```js
 import { createApp } from 'vue'
-// import the root component App from a single-file component.
+// імпортуємо кореневий компонент програми з одно-файлового компонента.
 import App from './App.vue'
 
 const app = createApp(App)
 ```
 
-While many examples in this guide only need a single component, most real applications are organized into a tree of nested, reusable components. For example, a Todo application's component tree might look like this:
+Багато прикладів в цьому гіді використовують лише один компонент, але більш реальні додатки організовані як дерево вкладених та повторно використовуваних компонентів. Наприклад, дерево компонента в додатку "Список справ" може виглядати так:
 
 ```
-App (root component)
+App (кореневий компонент)
 ├─ TodoList
 │  └─ TodoItem
 │     ├─ TodoDeleteButton
@@ -39,11 +39,11 @@ App (root component)
    └─ TodoStatistics
 ```
 
-We will discuss how to define and compose multiple components together in later sections of the guide. Before that, we will focus on what happens inside a single component.
+Ми пояснимо, як визначати і поєднувати  кілька компонентів разом в наступних розділах гіду. Перед цим, ми сфокусуємось над тим, що відбувається всередині одниночного компонента.
 
-## Mounting the App
+## Монтування програми {#mounting-the-app}
 
-An application instance won't render anything until its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
+Екземпляр додатка не буде нічого рендерити, допоки метод `.mount()` не буде викликаний. Він очікує аргумент-контейнер, який може бути актуальним DOM елементом або рядком-селектором:
 
 ```html
 <div id="app"></div>
@@ -53,13 +53,13 @@ An application instance won't render anything until its `.mount()` method is cal
 app.mount('#app')
 ```
 
-The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app.
+Вміст кореневого компонента буде рендеритись всередині контейнера. Сам елемент-контейнер не вважається частиною додатка.
 
-The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
+Метод `.mount()` завжди має викликатись після усіх налаштувань додатку, та після реєстрацій додаткових ресурсів. Варто зазначити, що він, на відміну від методів реєстрації додаткових ресурсів, повертає екземпляр кореневого компонента замість екземпляра додатка.
 
-### In-DOM Root Component Template
+### Шаблон кореневого компонента в DOM {#in-dom-root-component-template}
 
-When using Vue without a build step, we can write our root component's template directly inside the mount container:
+Коли ми використовуємо Vue без етапу збірки, ми можемо записати наш шаблон кореневого компонента відразу у вмонтований контейнер:
 
 ```html
 <div id="app">
@@ -81,31 +81,31 @@ const app = createApp({
 app.mount('#app')
 ```
 
-Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
+Vue автоматично використає `innerHTML` контейнера, як шаблон, якщо кореневий компонент не має параметра `template`.
 
-## App Configurations
+## Конфігурації додатка {#app-configurations}
 
-The application instance exposes a `.config` object that allows us to configure a few app-level options, for example defining an app-level error handler that captures errors from all descendent components:
+Екземпляр додатка надає доступ до  обʼєкта `.config`, що дозволяє нам налаштувати кілька параметрів на рівні додатка, наприклад, визначити обробник помилок, який фіксує помилки з усіх дочірніх компонентів:
 
 ```js
 app.config.errorHandler = (err) => {
-  /* handle error */
+  /* обробка помилки */
 }
 ```
 
-The application instance also provides a few methods for registering app-scoped assets. For example, registering a component:
+Екземпляр додатка також забезпечує кілька методів для реєстрації ресурсів додатка. Наприклад, реєстрація компонента:
 
 ```js
 app.component('TodoDeleteButton', TodoDeleteButton)
 ```
 
-This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](/api/application).
+Це дає можливість використовувати `TodoDeleteButton` будь-де у вашому додатку. Ми пояснимо, як відбувається реєстрація компонентів та інших видів ресурсів в наступних розділах гіду. Ви також можете знайти повний список АРІ екземплярів додатку в [довіднику API](/api/application).
 
-Make sure to apply all app configurations before mounting the app!
+Перш ніж монтувати програму, переконайтеся, що ви застосували всі налаштування програми!
 
-## Multiple application instances
+## Декілька екземплярів додатка {#multiple-application-instances}
 
-You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
+Ви не обмежені одним екземпляром додатку на одній сторінці. API `createApp` дозволяє декільком додаткам Vue співіснувати на одній сторінці, кожен з яких має свою область конфігурації та глобальних ресурсів:
 
 ```js
 const app1 = createApp({
@@ -119,4 +119,4 @@ const app2 = createApp({
 app2.mount('#container-2')
 ```
 
-If you are using Vue to enhance server-rendered HTML and only need Vue to control specific parts of a large page, avoid mounting a single Vue application instance on the entire page. Instead, create multiple small application instances and mount them on the elements they are responsible for.
+Якщо Ви використовуєте Vue для покращення HTML рендерингу на стороні сервера, і потребуєте Vue лише для контролю певних частин величезної сторінки, уникайте монтування одного екземпляр додатку Vue на всій сторінці. Замість цього створіть декілька невеликих екземплярів додатку і вмонтуйте їх в елементи, за які вони відповідають.

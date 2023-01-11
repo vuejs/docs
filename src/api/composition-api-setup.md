@@ -1,17 +1,17 @@
-# Composition API: setup()
+# Композиційний АРІ: setup() {#composition-api-setup}
 
-:::info Note
-This page documents the usage of the `setup` component option. If you are using Composition API with Single-File Components, [`<script setup>`](/api/sfc-script-setup.html) is recommended for a more succinct and ergonomic syntax.
+:::info Примітка
+На цій сторінці описано використання параметра компонента `setup`. Якщо ви використовуєте Композиційний API з однофайловими компонентами, [`<script setup>`](/api/sfc-script-setup.html) рекомендується для більш стислого та ергономічного синтаксису.
 :::
 
-The `setup()` hook serves as the entry point for Composition API usage in components in the following cases:
+Хук `setup()` служить точкою входу для використання Композиційного API у компонентах у наступних випадках:
 
-1. Using Composition API without a build step;
-2. Integrating with Composition-API-based code in an Options API component.
+1. Використання Композиційного API без етапу збірки;
+2. Інтеграція коду на основі Композиційного API в Опційний API компонента.
 
-## Basic Usage
+## Основне використання {#basic-usage}
 
-We can declare reactive state using [Reactivity APIs](./reactivity-core.html) and expose them to the template by returning an object from `setup()`. The properties on the returned object will also be made available on the component instance (if other options are used):
+Ми можемо оголосити реактивний стан за допомогою [API Реактивності](./reactivity-core.html) й представити його шаблону, повернувши об’єкт із `setup()`. Властивості повернутого об'єкта також будуть доступні в екземплярі компонента (якщо використовуються інші параметри):
 
 ```vue
 <script>
@@ -21,7 +21,7 @@ export default {
   setup() {
     const count = ref(0)
 
-    // expose to template and other options API hooks
+    // представити до шаблону та інших параметрів API хуків
     return {
       count
     }
@@ -38,15 +38,15 @@ export default {
 </template>
 ```
 
-Note that [refs](/api/reactivity-core.html#ref) returned from `setup` are [automatically shallow unwrapped](/guide/essentials/reactivity-fundamentals.html#deep-reactivity) when accessed in the template so you do not need to use `.value` when accessing them. They are also unwrapped in the same way when accessed on `this`.
+Зауважте, що [референції](/api/reactivity-core.html#ref), повернуті з `setup`, [автоматично неглибоко розгортаються](/guide/essentials/reactivity-fundamentals.html#deep-reactivity) під час доступу в шаблоні, тому вам не потрібно використовувати `.value` під час доступу до них. Вони розгортаються таким же чином, коли до них звертаються через `this`.
 
-:::tip
-`setup()` itself does not have access to the component instance - `this` will have a value of `undefined` inside `setup()`. You can access Composition-API-exposed values from Options API, but not the other way around.
-:::
+Сам `setup()` не має доступу до екземпляра компонента - тому `this` матиме значення `undefined` всередині `setup()`. Ви можете отримати доступ до значень представленого Композиційним API з Опційного API, але не навпаки.
 
-## Accessing Props
+`setup()` має повертати об’єкт _синхронно_. Єдиний випадок, коли можна використовувати `async setup()`, це коли компонент є нащадком компонента [Suspense](../guide/built-ins/suspense.html).
 
-The first argument in the `setup` function is the `props` argument. Just as you would expect in a standard component, `props` inside of a `setup` function are reactive and will be updated when new props are passed in.
+## Доступ до реквізитів {#accessing-props}
+
+Першим аргументом у функції `setup` є аргумент `props`. Так само як і очікувалося в стандартному компоненті, `props` всередині функції `setup` є реактивними та оновлюються, коли надходять нові реквізити.
 
 ```js
 export default {
@@ -59,49 +59,49 @@ export default {
 }
 ```
 
-Note that if you destructure the `props` object, the destructured variables will lose reactivity. It is therefore recommended to always access props in the form of `props.xxx`.
+Зауважте, що якщо ви деструктуруєте об’єкт `props`, то деструктуровані змінні втратять реактивність. Тому рекомендується завжди звертатися до реквізитів у формі `props.xxx`.
 
-If you really need to destructure the props, or need to pass a prop into an external function while retaining reactivity, you can do so with the [toRefs()](./reactivity-utilities.html#torefs) and [toRef()](/api/reactivity-utilities.html#toref) utility APIs:
+Якщо вам справді потрібно деструктурувати реквізити або передати реквізит у зовнішню функцію, зберігаючи реактивність, ви можете зробити це за допомогою API утиліт [toRefs()](./reactivity-utilities.html#torefs) і [toRef() ](/api/reactivity-utilities.html#toref):
 
 ```js
 import { toRefs, toRef } from 'vue'
 
 export default {
   setup(props) {
-    // turn `props` into an object of refs, then destructure
+    // перетворюємо `props` на об'єкт посилань, потім деструктуруємо
     const { title } = toRefs(props)
-    // `title` is a ref that tracks `props.title`
+    // `title` — це посилання, яке відстежує `props.title`
     console.log(title.value)
 
-    // OR, turn a single property on `props` into a ref
+    // АБО перетворити одну властивість `props` на посилання
     const title = toRef(props, 'title')
   }
 }
 ```
 
-## Setup Context
+## Контекст `setup` {#setup-context}
 
-The second argument passed to the `setup` function is a **Setup Context** object. The context object exposes other values that may be useful inside `setup`:
+Другим аргументом, який передається до функції `setup`, є об’єкт **Контекст `setup`**. Об’єкт контексту надає інші значення, які можуть бути корисними всередині `setup`:
 
 ```js
 export default {
   setup(props, context) {
-    // Attributes (Non-reactive object, equivalent to $attrs)
+    // Атрибути (Нереактивний об'єкт, еквівалент $attrs)
     console.log(context.attrs)
 
-    // Slots (Non-reactive object, equivalent to $slots)
+    // Слоти (Нереактивний об'єкт, еквівалент $slots)
     console.log(context.slots)
 
-    // Emit events (Function, equivalent to $emit)
+    // Випромінювач подій (функція, еквівалентна $emit)
     console.log(context.emit)
 
-    // Expose public properties (Function)
+    // Представити загальнодоступні властивості (функція)
     console.log(context.expose)
   }
 }
 ```
 
-The context object is not reactive and can be safely destructured:
+Об’єкт контексту не реактивний і може бути безпечно деструктурований:
 
 ```js
 export default {
@@ -111,30 +111,30 @@ export default {
 }
 ```
 
-`attrs` and `slots` are stateful objects that are always updated when the component itself is updated. This means you should avoid destructuring them and always reference properties as `attrs.x` or `slots.x`. Also note that, unlike `props`, the properties of `attrs` and `slots` are **not** reactive. If you intend to apply side effects based on changes to `attrs` or `slots`, you should do so inside an `onBeforeUpdate` lifecycle hook.
+`attrs` і `slots` — це об'єкти зі збереженням стану, які завжди оновлюються, коли оновлюється сам компонент. Це означає, що вам слід уникати їх деструктуризації та завжди посилатися на властивості як `attr.x` або `slots.x`. Також зауважте, що, на відміну від `props`, властивості `attrs` і `slots` **не** реактивні. Якщо ви маєте намір застосувати побічні ефекти на основі змін до `attrs` або `slots`, вам слід зробити це всередині хука життєвого циклу `onBeforeUpdate`.
 
-### Exposing Public Properties
+### Представлення публічних власностей {#exposing-public-properties}
 
-`expose` is a function that can be used to explicitly limit the properties exposed when the component instance is accessed by a parent component via [template refs](/guide/essentials/template-refs.html#ref-on-component):
+`expose` — це функція, яку можна використовувати для явного обмеження представлених властивостей, коли до екземпляра компонента звертається батьківський компонент через [посилання шаблону](/guide/essentials/template-refs.html#ref-on-component):
 
 ```js{5,10}
 export default {
   setup(props, { expose }) {
-    // make the instance "closed" -
-    // i.e. do not expose anything to the parent
+    // зробити екземпляр "закритим" -
+    // тобто нічого не представляти батьківському компоненту
     expose()
 
     const publicCount = ref(0)
     const privateCount = ref(0)
-    // selectively expose local state
+    // вибірково представити локальний стан
     expose({ count: publicCount })
   }
 }
 ```
 
-## Usage with Render Functions
+## Використання з функціями рендерингу {#usage-with-render-functions}
 
-`setup` can also return a [render function](/guide/extras/render-function.html) which can directly make use of the reactive state declared in the same scope:
+`setup` також може повертати [функцію рендерингу](/guide/extras/render-function.html), яка може безпосередньо використовувати реактивний стан, оголошений у тій же області:
 
 ```js{6}
 import { h, ref } from 'vue'
@@ -147,9 +147,9 @@ export default {
 }
 ```
 
-Returning a render function prevents us from returning anything else. Internally that shouldn't be a problem, but it can be problematic if we want to expose methods of this component to the parent component via template refs.
+Повертаючи функцію рендерингу, запобігає поверненню будь-чого іншого. Внутрішньо це не повинно бути проблемою, але це може бути проблематично, якщо ми хочемо надати методи цього компонента батьківському компоненту через посилання шаблону.
 
-We can solve this problem by calling [`expose()`](#exposing-public-properties):
+Ми можемо розв'язати цю проблему, викликавши [`expose()`](#exposing-public-properties):
 
 ```js{8-10}
 import { h, ref } from 'vue'
@@ -168,4 +168,4 @@ export default {
 }
 ```
 
-The `increment` method would then be available in the parent component via a template ref.
+Тоді метод `increment` буде доступний у батьківському компоненті через посилання шаблону.

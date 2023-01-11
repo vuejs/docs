@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 const activeId = ref('vtu-api')
 
 const testingLangs = [
@@ -14,9 +14,8 @@ const testingLangs = [
   {
     label: 'Testing Library',
     className: 'testing-library-api'
-  },
+  }
 ]
-
 </script>
 
 <template>
@@ -31,7 +30,7 @@ const testingLangs = [
       >{{ lang.label }}</div>
     </div>
     <div class="code-example">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -44,7 +43,7 @@ const testingLangs = [
   flex-direction: column;
 }
 
-.code-example :slotted([class*=language]) {
+.code-example :slotted([class*='language']) {
   margin-top: 0;
   border-top-left-radius: 0;
 }
@@ -57,7 +56,7 @@ const testingLangs = [
 .tab {
   color: white;
   background: #292d3ef0;
-  border-bottom-color: rgba(255,255,255,0.3);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
   padding: 6px 24px;
   border-width: 2px;
   border-style: solid;
@@ -65,11 +64,7 @@ const testingLangs = [
   border-right: transparent;
   border-left: transparent;
   cursor: pointer;
-  transition: border, background-color .2s;
-    transition-property: border, background-color;
-    transition-duration: 0.2s, 0.2s;
-    transition-timing-function: ease, ease;
-    transition-delay: 0s, 0s;
+  transition: border 0.2s, background-color 0.2s;
 }
 
 .tab.active {
@@ -102,7 +97,7 @@ const testingLangs = [
 }
 
 :global(.dark .testing-code-examples .tab:not(.active)) {
-  border-bottom: 2px solid rgba(255,255,255,.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   background: #2f2f2f;
   color: inherit;
 }
@@ -112,7 +107,7 @@ const testingLangs = [
 }
 
 /* Show/Hide logic for codeblocks */
-:slotted([class$="api"]) {
+:slotted([class$='api']) {
   display: none;
 }
 
@@ -121,5 +116,4 @@ const testingLangs = [
 .prefers-vtu-api :slotted(.vtu-api) {
   display: block;
 }
-
 </style>

@@ -1,6 +1,6 @@
-# Custom Renderer API
+# Custom Renderer API {#custom-renderer-api}
 
-## createRenderer()
+## createRenderer() {#createrenderer}
 
 Creates a custom renderer. By providing platform-specific node creation and manipulation APIs, you can leverage Vue's core runtime to target non-DOM environments.
 

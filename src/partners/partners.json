@@ -200,35 +200,79 @@
     "hiring": "https://webreinvent.com/career?utm_source=vuejs.org&utm_medium=website&utm_campaign=partner-hiring-link"
   },
   {
-    "name": "Active Logic",
-    "logo": "activelogic.png",
-    "flipLogo": true,
-    "intro": "We’re not just an extension of your Vue.JS development team, we’re a rapid-speed injector. Since 2014, we have been providing premium software development & staff augmentation solutions for various organizations nationwide. By utilizing our 100% on-shore development team, we can conduct the groundwork for a new application, or continue to engineer existing software that needs modifications.",
+    "name": "Dreamonkey",
+    "logo": "dreamonkey.png",
+    "hero": "dreamonkey-hero.png",
+    "intro": "We are an Italian software house, including international team collaborators, with 8 years of experience in software design and development. We build software from scratch or re-design it and support other companies’ teams, especially for industrial IoT, delivery, finance, medical, automotive and supply chain, working mostly for American and Canadian clients. We are proud sponsors of the Quasar framework and members of its core team.",
     "description": [
-      "Headquartered in the heart of America, our mission is simple - provide nationwide organizations with tailored, technical solutions; one system at a time. We are proud to say that we continue to fulfill our mission on a daily basis.",
-      "We believe that a project, regardless of size or tech stack, should always be managed by a dedicated Software Lead who works closely with you and your team. Their expertise and guidance will better allow you to focus on your daily business operations while we do the heavy lifting.",
-      "We have produced over 200 final projects for our clients in the past 8 years, all of which follow well-known industry standards to ensure their functionality, security, and scalability.",
-      "Optimizing your business operations has never been easier; reach out to us here at Active Logic today!"
+      "Our stack includes Vue, Quasar, Laravel and, when requested, Angular too. We strive to produce high quality, clean and well-documented code, making it rock-solid by means of automatic tests. Our frontend follows the main guidelines of Google Material Design.",
+      "We are able to lead projects from the very start to their deployment, including requirements analysis, UX/UI design, design assets hand-off, development and setup of CI/CD pipelines on AWS. We can merge with the client’s agile methodology and, when requested, we can take care of project management too with a dedicated professional.",
+      "We have experience with different project complexity, from startup to enterprise-level. We can provide static UIs, working MPVs, fully operative SPA or mobile apps. We also split our team in order to provide the client just with the specific expertise that is needed, be it development, design or just a feasibility analysis.",
+      "If you need to integrate new skills in your team, we can structure a training program focusing on development or design topics of your interest and help your employees progress with dedicated lessons."
     ],
     "proficiencies": [
       "Vue",
+      "Quasar",
+      "Angular",
+      "Capacitor",
       "Laravel",
       "Node.js",
-      "React",
-      "React Native",
-      "Angular",
-      "Swift",
-      "Kotlin",
-      ".NET"
+      "NestJS",
+      "UX Design",
+      "AWS"
     ],
-    "region": ["North America"],
-    "location": ["Leadwood, Kansas, USA"],
+    "region": ["Europe", "North America"],
     "website": {
-      "text": "activelogic.io",
-      "url": "https://activelogic.io/services/vue-js-development/"
+      "text": "dreamonkey.com",
+      "url": "https://dreamonkey.com/en/vue-partner"
     },
-    "contact": "sales@activelogic.io",
-    "hiring": "https://activelogic.io/careers/",
-    "platinum": true
+    "contact": "info@dreamonkey.com",
+    "hiring": "https://dreamonkey.com/en/work-with-us"
+  },
+  {
+    "name": "Jump24",
+    "logo": "jump24.svg",
+    "flipLogo": true,
+    "hero": "jump24-hero.jpg",
+    "intro": "Hand crafted software, delivered. We work alongside start-ups, enterprises and tech teams creating bespoke web software solutions that will help them grow. Honing our skills since 2013, our strength is our people. We design and build custom applications to the highest standard, so you can reap the benefits.",
+    "description": [
+      "Jump24 is a full-circle development studio that brings ideas to life. From our base in the UK, we’ve worked closely over the years with clients in Europe and the United States, including Jamie Oliver, Admiral, InPost and Buffer. With a team of 16 developers, you’ll be in safe hands with us.",
+      "Long-lasting relationships are our speciality. Whether you’re a startup, enterprise or agency, your story is important to us. We focus on the minute details to help create something that reflects you and your business.",
+      "We’re a talkative bunch, so to find out even more about us, head to our Twitter and LinkedIn."
+    ],
+    "proficiencies": ["Vue", "Laravel", "Tailwind", "Inertia", "React"],
+    "region": ["Europe"],
+    "website": {
+      "text": "jump24.co.uk",
+      "url": "https://jump24.co.uk/vue-specialist/"
+    },
+    "contact": "hello@jump24.co.uk",
+    "hiring": "jump24.co.uk/careers"
+  },
+  {
+    "name": "Epicmax",
+    "logo": "epicmax.svg",
+    "hero": "epicmax.png",
+    "intro": "Epicmax is a team of Vue.js experts with 6 years of experience in building Vue.js interfaces. We bring Vue.js knowledge in front-end development across industries and geographies, serving businesses of different sizes. We have more than 55 completed projects, 45 clients worldwide and 3 Open Source products in our portfolio.",
+    "description": [
+      "Epicmax is a Vue.js software development company with over 55 successfully completed projects all over the world and 3 widely acclaimed Open Source products.",
+      "Since 2017, we’ve helped international clients in over 15 industries, both startups and larger companies, build everything from e-commerce through social media platforms to real-time analytics products.",
+      "We bring deep Vue.js knowledge necessary to help clients solve the most complex issues for their business: from building Vue.js applications to consulting, code auditing and migration to Vue. We move fast and smoothly integrate into a client’s team for agile and collaborative processes.",
+      "Epicmax is built around Open Source software - it is a part of our culture and everyone on the team is an active contributor. We’ve created and are maintaining Vuestic UI, Vuestic Admin and Epic Spinners libraries which are completely free for everyone and available on GitHub."
+    ],
+    "proficiencies": [
+      "Vue",
+      "Nuxt",
+      "TypeScript",
+      "Tailwind",
+      "Vuetify",
+      "Quasar"
+    ],
+    "region": ["Europe"],
+    "website": {
+      "text": "epicmax.co",
+      "url": "https://epicmax.co/"
+    },
+    "contact": "hello@epicmax.co"
   }
 ]

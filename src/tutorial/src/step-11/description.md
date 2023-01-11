@@ -1,4 +1,4 @@
-# Components
+# Components {#components}
 
 So far, we've only been working with a single component. Real Vue applications are typically created with nested components.
 

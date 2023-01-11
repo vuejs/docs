@@ -11,9 +11,9 @@ import {
 
 const route = useRoute()
 const show = $computed(() =>
-  /^\/(guide|tutorial|examples)\//.test(route.path)
+  /^\/(guide|tutorial|examples|style-guide)\//.test(route.path)
 )
-const showSFC = $computed(() => !/^\/guide/.test(route.path))
+const showSFC = $computed(() => !/^\/guide|style-guide/.test(route.path))
 
 let isOpen = $ref(true)
 
@@ -74,7 +74,7 @@ function useToggleFn(
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
       <div class="switch-container">
         <label class="options-label" @click="toggleCompositionAPI(false)"
-          >Опційне</label
+          >Опційний</label
         >
         <VTSwitch
           class="api-switch"
@@ -85,7 +85,7 @@ function useToggleFn(
         <label
           class="composition-label"
           @click="toggleCompositionAPI(true)"
-          >Композиційне</label
+          >Композиційний</label
         >
         <a
           class="switch-link"
@@ -206,11 +206,11 @@ function useToggleFn(
     font-size: 11px;
     padding: 8px 4px;
   }
-  
+
   .vt-switch {
     margin: auto;
   }
-  
+
   .switch-link {
     margin-left: auto;
   }

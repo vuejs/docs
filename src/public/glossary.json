@@ -11,7 +11,7 @@
     },
     {
       "original": "application",
-      "translation": "додаток"
+      "translation": "застосунок"
     },
     {
       "original": "attribute",
@@ -134,6 +134,10 @@
       "translation": "обробник подій"
     },
     {
+      "original": "event listener",
+      "translation": "слухач подій"
+    },
+    {
       "original": "explicit",
       "translation": "явно"
     },
@@ -183,7 +187,7 @@
     },
     {
       "original": "listener",
-      "translation": "наглядач"
+      "translation": "слухач"
     },
     {
       "original": "maintenance",
@@ -287,11 +291,11 @@
     },
     {
       "original": "SPA, Single-Page Application",
-      "translation": "SPA, одно-сторінковий додаток"
+      "translation": "SPA, односторінковий застосунок"
     },
     {
       "original": "Static Site Generation (SSG)",
-      "translation": "SSG, генерація статичного додатку"
+      "translation": "SSG, генерація статичного сайту"
     },
     {
       "original": "stack",

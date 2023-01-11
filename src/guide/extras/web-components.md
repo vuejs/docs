@@ -1,28 +1,28 @@
-# Vue and Web Components
+# Vue і вебкомпоненти {#vue-and-web-components}
 
-[Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) is an umbrella term for a set of web native APIs that allows developers to create reusable custom elements.
+[Вебкомпоненти](https://developer.mozilla.org/en-US/docs/Web/Web_Components) — це загальний термін для набору власних веб-інтерфейсів API, які дозволяють розробникам створювати багаторазові спеціальні елементи.
 
-We consider Vue and Web Components to be primarily complementary technologies. Vue has excellent support for both consuming and creating custom elements. Whether you are integrating custom elements into an existing Vue application, or using Vue to build and distribute custom elements, you are in good company.
+Ми вважаємо Vue і вебкомпоненти насамперед додатковими технологіями. Vue має відмінну підтримку як для споживання, так і для створення власних елементів. Якщо ви інтегруєте спеціальні елементи в існуючий додаток Vue або використовуєте Vue для створення та розповсюдження спеціальних елементів, ви в хорошій компанії.
 
-## Using Custom Elements in Vue
+## Використання спеціальних елементів у Vue {#using-custom-elements-in-vue}
 
-Vue [scores a perfect 100% in the Custom Elements Everywhere tests](https://custom-elements-everywhere.com/libraries/vue/results/results.html). Consuming custom elements inside a Vue application largely works the same as using native HTML elements, with a few things to keep in mind:
+Vue [отримав ідеальні 100% у тестах Custom Elements Everywhere](https://custom-elements-everywhere.com/libraries/vue/results/results.html). Використання користувацьких елементів у додатку на Vue здебільшого працює так само, як і використання власних елементів HTML, з деякими речами, про які слід пам’ятати:
 
-### Skipping Component Resolution
+### Запобігання визначення компонента {#skipping-component-resolution}
 
-By default, Vue will attempt to resolve a non-native HTML tag as a registered Vue component before falling back to rendering it as a custom element. This will cause Vue to emit a "failed to resolve component" warning during development. To let Vue know that certain elements should be treated as custom elements and skip component resolution, we can specify the [`compilerOptions.isCustomElement` option](/api/application.html#app-config-compileroptions).
+За промовчанням Vue намагатиметься розпізнати нерідний HTML-тег як зареєстрований компонент Vue, перш ніж повернутися до відтворення його як спеціального елемента. Це призведе до того, що під час розробки Vue видаватиме попередження «не вдалося визначити компонент» (англ.: "failed to resolve component"). Щоб повідомити Vue, що певні елементи слід розглядати як спеціальні елементи та запобігати їх визначенню як компонентів, ми можемо вказати параметр [`compilerOptions.isCustomElement`](/api/application.html#app-config-compileroptions).
 
-If you are using Vue with a build setup, the option should be passed via build configs since it is a compile-time option.
+Якщо ви використовуєте Vue із налаштуваннями збірки, цей параметр слід передати через конфігурації збірки, оскільки це є параметром часу компіляції.
 
-#### Example In-Browser Config
+#### Приклад конфігурації в браузері {#example-in-browser-config}
 
 ```js
-// Only works if using in-browser compilation.
-// If using build tools, see config examples below.
+// Працює, лише якщо використовується компіляція у браузері.
+// Якщо ви використовуєте інструменти збирання, перегляньте приклади конфігурації нижче.
 app.config.compilerOptions.isCustomElement = (tag) => tag.includes('-')
 ```
 
-#### Example Vite Config
+#### Приклад конфігурації Vite {#example-vite-config}
 
 ```js
 // vite.config.js
@@ -33,7 +33,7 @@ export default {
     vue({
       template: {
         compilerOptions: {
-          // treat all tags with a dash as custom elements
+          // обробляти всі теги з тире як власні елементи
           isCustomElement: (tag) => tag.includes('-')
         }
       }
@@ -42,7 +42,7 @@ export default {
 }
 ```
 
-#### Example Vue CLI Config
+#### Приклад конфігурації Vue CLI {#example-vue-cli-config}
 
 ```js
 // vue.config.js
@@ -54,7 +54,7 @@ module.exports = {
       .tap(options => ({
         ...options,
         compilerOptions: {
-          // treat any tag that starts with ion- as custom elements
+          // обробляти будь-які теги, які починаються з ion- як спеціальні елементи
           isCustomElement: tag => tag.startsWith('ion-')
         }
       }))
@@ -62,26 +62,26 @@ module.exports = {
 }
 ```
 
-### Passing DOM Properties
+### Передача властивостей DOM {#passing-dom-properties}
 
-Since DOM attributes can only be strings, we need to pass complex data to custom elements as DOM properties. When setting props on a custom element, Vue 3 automatically checks DOM-property presence using the `in` operator and will prefer setting the value as a DOM property if the key is present. This means that, in most cases, you won't need to think about this if the custom element follows the [recommended best practices](https://web.dev/custom-elements-best-practices/).
+Оскільки атрибути DOM можуть бути лише рядками, нам потрібно передавати складні дані користувацьким елементам як властивості DOM. Під час встановлення реквізитів для спеціального елемента Vue 3 автоматично перевіряє наявність властивості DOM за допомогою оператора `in` і віддасть перевагу встановленню значення як властивості DOM, якщо ключ присутній. Це означає, що в більшості випадків вам не потрібно думати про це, якщо спеціальний елемент відповідає [рекомендованим найкращим практикам](https://web.dev/custom-elements-best-practices/).
 
-However, there could be rare cases where the data must be passed as a DOM property, but the custom element does not properly define/reflect the property (causing the `in` check to fail). In this case, you can force a `v-bind` binding to be set as a DOM property using the `.prop` modifier:
+Однак, можуть бути рідкісні випадки, коли дані потрібно передати як властивість DOM, але налаштовуваний елемент не визначає/відображає властивість належним чином (що призводить до помилки перевірки `in`). У цьому випадку ви можете примусово встановити прив’язку `v-bind` як властивість DOM за допомогою модифікатора `.prop`:
 
 ```vue-html
 <my-element :user.prop="{ name: 'jack' }"></my-element>
 
-<!-- shorthand equivalent -->
+<!-- скорочений еквівалент -->
 <my-element .user="{ name: 'jack' }"></my-element>
 ```
 
-## Building Custom Elements with Vue
+## Створення користувацьких елементів за допомогою Vue {#building-custom-elements-with-vue}
 
-The primary benefit of custom elements is that they can be used with any framework, or even without a framework. This makes them ideal for distributing components where the end consumer may not be using the same frontend stack, or when you want to insulate the end application from the implementation details of the components it uses.
+Основна перевага користувацьких елементів полягає в тому, що їх можна використовувати з будь-якою структурою або навіть без неї. Це робить їх ідеальними для розповсюдження компонентів, де кінцевий споживач може не використовувати той самий фронденд стек, або коли ви хочете ізолювати кінцеву програму від деталей реалізації компонентів, які вона використовує.
 
-### defineCustomElement
+### defineCustomElement {#definecustomelement}
 
-Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElement`](/api/general.html#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/general.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
+Vue підтримує створення користувацьких елементів за допомогою тих самих API компонентів Vue за допомогою методу [`defineCustomElement`](/api/general.html#definecustomelement). Метод приймає той самий аргумент, що й [`defineComponent`](/api/general.html#definecomponent), але натомість повертає власний конструктор елемента, який розширює `HTMLElement`:
 
 ```vue-html
 <my-vue-element></my-vue-element>
@@ -91,48 +91,48 @@ Vue supports creating custom elements using exactly the same Vue component APIs 
 import { defineCustomElement } from 'vue'
 
 const MyVueElement = defineCustomElement({
-  // normal Vue component options here
+  // звичайні параметри компонента Vue тут
   props: {},
   emits: {},
   template: `...`,
 
-  // defineCustomElement only: CSS to be injected into shadow root
+  // Лише defineCustomElement: CSS буде введено в тіньовий кореневий елемент
   styles: [`/* inlined css */`]
 })
 
-// Register the custom element.
-// After registration, all `<my-vue-element>` tags
-// on the page will be upgraded.
+// Зареєструйте користувацький елемент.
+// Після реєстрації всі теги `<my-vue-element>`
+// на сторінці буде оновлено.
 customElements.define('my-vue-element', MyVueElement)
 
-// You can also programmatically instantiate the element:
-// (can only be done after registration)
+// Ви також можете програмно створити екземпляр елемента:
+// (можливо лише після реєстрації)
 document.body.appendChild(
   new MyVueElement({
-    // initial props (optional)
+    // початкові реквізити (необов'язково)
   })
 )
 ```
 
-#### Lifecycle
+#### Життєвий цикл {#lifecycle}
 
-- A Vue custom element will mount an internal Vue component instance inside its shadow root when the element's [`connectedCallback`](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks) is called for the first time.
+- Спеціальний елемент Vue змонтує внутрішній екземпляр компонента Vue у своєму тіньовому корені, коли елемент [`connectedCallback`](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks) викликаний вперше.
 
-- When the element's `disconnectedCallback` is invoked, Vue will check whether the element is detached from the document after a microtask tick.
+- Коли викликається `disconnectedCallback` елемента, Vue перевірить, чи елемент від’єднано від документа після тіку мікрозавдання.
 
-  - If the element is still in the document, it's a move and the component instance will be preserved;
+   - Якщо елемент все ще знаходиться в документі — це переміщення, тому екземпляр компонента буде збережено;
 
-  - If the element is detached from the document, it's a removal and the component instance will be unmounted.
+   - Якщо елемент від’єднано від документа — це видалення, тому екземпляр компонента буде демонтовано.
 
-#### Props
+#### Реквізити {#props}
 
-- All props declared using the `props` option will be defined on the custom element as properties. Vue will automatically handle the reflection between attributes / properties where appropriate.
+- Усі реквізити, оголошені за допомогою параметра `props`, будуть визначені в користувацькому елементі як властивості. Vue автоматично оброблятиме відображення між атрибутами / властивостями, де це необхідно.
 
-  - Attributes are always reflected to corresponding properties.
+   - Атрибути завжди відображаються у відповідних властивостях.
 
-  - Properties with primitive values (`string`, `boolean` or `number`) are reflected as attributes.
+   - Реквізити з примітивними значеннями (`string`, `boolean` або `number`)відображаються як атрибути.
 
-- Vue also automatically casts props declared with `Boolean` or `Number` types into the desired type when they are set as attributes (which are always strings). For example given the following props declaration:
+- Vue також автоматично перетворює властивості, оголошені за допомогою типів `Boolean` або `Number`, у потрібний тип, коли вони встановлені як атрибути (які завжди є рядками). Наприклад, задано наступне оголошення реквізитів:
 
   ```js
   props: {
@@ -141,69 +141,69 @@ document.body.appendChild(
   }
   ```
 
-  And the custom element usage:
+  І використання користувацького елемента:
 
   ```vue-html
   <my-element selected index="1"></my-element>
   ```
 
-  In the component, `selected` will be cast to `true` (boolean) and `index` will be cast to `1` (number).
+  У компоненті `selected` буде приведено до `true` (логічне значення), а `index` — до `1` (число).
 
-#### Events
+#### Події {#events}
 
-Events emitted via `this.$emit` or setup `emit` are dispatched as native [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent) on the custom element. Additional event arguments (payload) will be exposed as an array on the CustomEvent object as its `detail` property.
+Події, створені через `this.$emit` або `emit` в `setup`, надсилаються як рідні [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/EventsCreating_and_triggering_events#adding_custom_data_%E2%80%93_customevent) на користувацькому елементі. Додаткові аргументи події (корисне навантаження) відображатимуться як масив об’єкта CustomEvent як його властивість `detail`.
 
-#### Slots
+#### Слоти {#slots}
 
-Inside the component, slots can be rendered using the `<slot/>` element as usual. However, when consuming the resulting element, it only accepts [native slots syntax](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots):
+Усередині компонента слоти можна відобразити за допомогою елемента `<slot/>`, як зазвичай. Однак під час використання отриманого елемента він приймає лише [рідний синтаксис слотів](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots):
 
-- [Scoped slots](/guide/components/slots.html#scoped-slots) are not supported.
+- [Обмежені слоти](/guide/components/slots.html#scoped-slots) не підтримуються.
 
-- When passing named slots, use the `slot` attribute instead of the `v-slot` directive:
+- При передачі іменованих слотів використовуйте атрибут `slot` замість директиви `v-slot`:
 
   ```vue-html
   <my-element>
-    <div slot="named">hello</div>
+    <div slot="named">привіт</div>
   </my-element>
   ```
 
-#### Provide / Inject
+#### Надавання / введення {#provide-inject}
 
-The [Provide / Inject API](/guide/components/provide-inject.html#provide-inject) and its [Composition API equivalent](/api/composition-api-dependency-injection.html#provide) also work between Vue-defined custom elements. However, note that this works **only between custom elements**. i.e. a Vue-defined custom element won't be able to inject properties provided by a non-custom-element Vue component.
+[API надавання / введення](/guide/components/provide-inject.html#provide-inject) і [еквівалент композиційного АРІ](/api/composition-api-dependency-injection.html#provide) також працюють з користувацькими елементи, визначеними Vue. Однак зауважте, що це працює **тільки з користувацькими елементами**. Тобто користувацький елемент, визначений Vue, не зможе вводити властивості, надані компонентом Vue, що не є користувацьким елементом.
 
-### SFC as Custom Element
+### SFC як спеціальний елемент {#sfc-as-custom-element}
 
-`defineCustomElement` also works with Vue Single-File Components (SFCs). However, with the default tooling setup, the `<style>` inside the SFCs will still be extracted and merged into a single CSS file during production build. When using an SFC as a custom element, it is often desirable to inject the `<style>` tags into the custom element's shadow root instead.
+`defineCustomElement` також працює з однофайловими компонентами Vue (SFC). Однак із налаштуванням інструментів за промовчанням `<style>` всередині SFC все одно буде витягнуто та об’єднано в один файл CSS під час виробничої збірки. У разі використання SFC як користувацького елемента, часто бажано замість цього додати теги `<style>` до тіньового кореня користувацького елемента.
 
-The official SFC toolings support importing SFCs in "custom element mode" (requires `@vitejs/plugin-vue@^1.4.0` or `vue-loader@^16.5.0`). An SFC loaded in custom element mode inlines its `<style>` tags as strings of CSS and exposes them under the component's `styles` option. This will be picked up by `defineCustomElement` and injected into the element's shadow root when instantiated.
+Офіційні інструменти SFC підтримують імпорт SFC у «режимі користувацьких елементів» (потрібно `@vitejs/plugin-vue@^1.4.0` або `vue-loader@^16.5.0`). SFC, завантажений у режимі користувацького елемента, вставляє свої теги `<style>` як рядки CSS і розкриває їх у параметрі `styles` компонента. Це буде підібрано `defineCustomElement` і вставлено в тіньовий корінь елемента під час створення екземпляра.
 
-To opt-in to this mode, simply end your component file name with `.ce.vue`:
+Щоб увімкнути цей режим, просто завершіть назву файлу компонента `.ce.vue`:
 
 ```js
 import { defineCustomElement } from 'vue'
 import Example from './Example.ce.vue'
 
-console.log(Example.styles) // ["/* inlined css */"]
+console.log(Example.styles) // ["/* вбудований css */"]
 
-// convert into custom element constructor
+// перетворити на користувацький конструктор елементів
 const ExampleElement = defineCustomElement(Example)
 
-// register
+// зареєструйте
 customElements.define('my-example', ExampleElement)
 ```
 
-If you wish to customize what files should be imported in custom element mode (for example treating _all_ SFCs as custom elements), you can pass the `customElement` option to the respective build plugins:
+Якщо ви бажаєте налаштувати, які файли слід імпортувати в режимі користувацьких елементів (наприклад, розглядаючи _всі_ SFC як користувацькі елементи), ви можете передати опцію `customElement` до відповідних плагінів збірки:
 
-- [@vitejs/plugin-vue](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#using-vue-sfcs-as-custom-elements)
+- [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#using-vue-sfcs-as-custom-elements)
 - [vue-loader](https://github.com/vuejs/vue-loader/tree/next#v16-only-options)
 
-### Tips for a Vue Custom Elements Library
+### Поради щодо бібліотеки користувацьких елементів Vue {#tips-for-a-vue-custom-elements-library}
 
-When building custom elements with Vue, the elements will rely on Vue's runtime. There is a ~16kb baseline size cost depending on how many features are being used. This means it is not ideal to use Vue if you are shipping a single custom element - you may want to use vanilla JavaScript, [petite-vue](https://github.com/vuejs/petite-vue), or frameworks that specialize in small runtime size. However, the base size is more than justifiable if you are shipping a collection of custom elements with complex logic, as Vue will allow each component to be authored with much less code. The more elements you are shipping together, the better the trade-off.
+Під час створення користувацьких елементів за допомогою Vue, елементи покладатимуться на середовище виконання Vue. Існує вартість базового розміру ~16 Кб залежно від того, скільки функцій використовується. Це означає, що Vue не ідеально використовувати, якщо ви надсилаєте окремий користувацький елемент – ви можете використовувати ванільний JavaScript, [petite-vue](https://github.com/vuejs/petite-vue) або фреймворки, які спеціалізуються на невеликому розмірі часу виконання. Однак базовий розмір більш ніж виправданий, якщо ви постачаєте колекцію користувацьких елементів зі складною логікою, оскільки Vue дозволить створювати кожен компонент із набагато меншим кодом. Чим більше елементів ви доставляєте разом, тим кращий компроміс.
 
-If the custom elements will be used in an application that is also using Vue, you can choose to externalize Vue from the built bundle so that the elements will be using the same copy of Vue from the host application.
+Якщо користувацькі елементи застосовуються в програмі, яка також використовує Vue, ви можете вибрати екстерналізацію Vue із вбудованого набору, щоб елементи використовували ту саму копію Vue із головної програми.
 
-It is recommended to export the individual element constructors to give your users the flexibility to import them on-demand and register them with desired tag names. You can also export a convenience function to automatically register all elements. Here's an example entry point of a Vue custom element library:
+Рекомендується експортувати окремі конструктори елементів, щоб ваші користувачі мали можливість імпортувати їх на вимогу та реєструвати з бажаними іменами тегів. Ви також можете експортувати зручну функцію для автоматичної реєстрації всіх елементів. Ось приклад точки входу бібліотеки власних елементів Vue:
 
 ```js
 import { defineCustomElement } from 'vue'
@@ -213,7 +213,7 @@ import Bar from './MyBar.ce.vue'
 const MyFoo = defineCustomElement(Foo)
 const MyBar = defineCustomElement(Bar)
 
-// export individual elements
+// експорт окремих елементів
 export { MyFoo, MyBar }
 
 export function register() {
@@ -222,30 +222,30 @@ export function register() {
 }
 ```
 
-If you have many components, you can also leverage build tool features such as Vite's [glob import](https://vitejs.dev/guide/features.html#glob-import) or webpack's [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext) to load all components from a directory.
+Якщо у вас багато компонентів, ви також можете скористатися функціями інструментів для створення, такими як [glob import](https://vitejs.dev/guide/features.html#glob-import) Vite або [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext), щоб завантажити всі компоненти з каталогу.
 
-## Web Components vs. Vue Components
+## Вебкомпоненти проти компонентів Vue {#web-components-vs-vue-components}
 
-Some developers believe that framework-proprietary component models should be avoided, and that exclusively using Custom Elements makes an application "future-proof". Here we will try to explain why we believe that this is an overly simplistic take on the problem.
+Деякі розробники вважають, що слід уникати власних моделей компонентів фреймворку, і що виняткове використання спеціальних елементів робить програму «придатною для майбутнього». Тут ми спробуємо пояснити, чому ми вважаємо, що це надто спрощений погляд на проблему.
 
-There is indeed a certain level of feature overlap between Custom Elements and Vue Components: they both allow us to define reusable components with data passing, event emitting, and lifecycle management. However, Web Components APIs are relatively low-level and bare-bones. To build an actual application, we need quite a few additional capabilities which the platform does not cover:
+Між спеціальними елементами та компонентами Vue справді існує певний рівень перекриття функцій: обидва вони дозволяють нам визначати багаторазово використовувані компоненти з передачею даних, створенням подій та керуванням життєвим циклом. Однак API вебкомпонентів є відносно низькорівневими та базовими. Щоб створити справжню програму, нам потрібно чимало додаткових можливостей, які платформа не охоплює:
 
-- A declarative and efficient templating system;
+- Декларативна та ефективна система шаблонів;
 
-- A reactive state management system that facilitates cross-component logic extraction and reuse;
+- Реактивна система управління станом, яка полегшує міжкомпонентне вилучення та повторне використання логіки;
 
-- A performant way to render the components on the server and hydrate them on the client (SSR), which is important for SEO and [Web Vitals metrics such as LCP](https://web.dev/vitals/). Native custom elements SSR typically involves simulating the DOM in Node.js and then serializing the mutated DOM, while Vue SSR compiles into string concatenation whenever possible, which is much more efficient.
+- Ефективний спосіб візуалізації компонентів на сервері та гідратації їх на клієнті (SSR), що важливо для SEO та [показників Web Vitals, таких як LCP](https://web.dev/vitals/). Рідні користувацькі елементи SSR зазвичай включають симуляцію DOM у Node.js, а потім серіалізацію мутованого DOM, тоді як Vue SSR компілює в конкатенацію рядків, коли це можливо, що набагато ефективніше.
 
-Vue's component model is designed with these needs in mind as a coherent system.
+Модель компонентів Vue розроблена з урахуванням цих потреб як узгоджена система.
 
-With a competent engineering team, you could probably build the equivalent on top of native Custom Elements - but this also means you are taking on the long-term maintenance burden of an in-house framework, while losing out on the ecosystem and community benefits of a mature framework like Vue.
+Маючи компетентну команду інженерів, ви, ймовірно, зможете створити еквівалент на основі власних спеціальних елементів, але це також означає, що ви берете на себе довготерміновий тягар обслуговування внутрішньої структури, водночас втрачаючи переваги екосистеми та спільноти зрілий фреймворк, такий як Vue.
 
-There are also frameworks built using Custom Elements as the basis of their component model, but they all inevitably have to introduce their proprietary solutions to the problems listed above. Using these frameworks entails buying into their technical decisions on how to solve these problems - which, despite what may be advertised, doesn't automatically insulate you from potential future churns.
+Існують також фреймворки, побудовані з використанням спеціальних елементів як основи їх компонентної моделі, але всі вони неминуче мають запроваджувати власні рішення проблем, перелічених вище. Використання цих фреймворків передбачає прийняття їхніх технічних рішень щодо вирішення цих проблем — що, незважаючи на те, що може бути рекламоване, автоматично не захищає вас від потенційних майбутніх відтоків.
 
-There are also some areas where we find custom elements to be limiting:
+Є також деякі області, де ми вважаємо, що спеціальні елементи є обмеженнями:
 
-- Eager slot evaluation hinders component composition. Vue's [scoped slots](/guide/components/slots.html#scoped-slots) are a powerful mechanism for component composition, which can't be supported by custom elements due to native slots' eager nature. Eager slots also mean the receiving component cannot control when or whether to render a piece of slot content.
+- Ретельне оцінювання слотів перешкоджає створенню компонентів. [Обмежені слоти](/guide/components/slots.html#scoped-slots) Vue — це потужний механізм композиції компонентів, який не підтримується користувацькими елементами через потребу рідних слотів. Охочі слоти також означають, що приймаючий компонент не може контролювати, коли та чи відтворювати частину вмісту слота.
 
-- Shipping custom elements with shadow DOM scoped CSS today requires embedding the CSS inside JavaScript so that they can be injected into shadow roots at runtime. They also result in duplicated styles in markup in SSR scenarios. There are [platform features](https://github.com/whatwg/html/pull/4898/) being worked on in this area - but as of now they are not yet universally supported, and there are still production performance / SSR concerns to be addressed. In the meanwhile, Vue SFCs provide [CSS scoping mechanisms](/api/sfc-css-features.html) that support extracting the styles into plain CSS files.
+- Для доставки користувацьких елементів із CSS із тіньовою областю DOM сьогодні потрібно вбудовувати CSS у JavaScript, щоб їх можна було вставляти в тіньові корені під час виконання. Вони також призводять до дублювання стилів у розмітці в сценаріях SSR. У цій сфері працюють над [функціями платформи](https://github.com/whatwg/html/pull/4898/), але наразі вони ще не підтримуються всюди, і все ще є проблеми з виробничою продуктивністю / SSR, які необхідно вирішити. Тим часом Vue SFC надає [механізми визначення області CSS](/api/sfc-css-features.html), які підтримують вилучення стилів у звичайні файли CSS.
 
-Vue will always be staying up to date with the latest standards in the web platform, and we will happily leverage whatever the platform provides if it makes our job easier. However, our goal is to provide solutions that work well and work today. That means we have to incorporate new platform features with a critical mindset - and that involves filling the gaps where the standards fall short while that is still the case.
+Vue завжди буде в курсі найновіших стандартів вебплатформи, і ми з радістю використаємо все, що пропонує платформа, якщо це полегшить нашу роботу. Проте наша мета — надавати рішення, які добре працюють і працюють сьогодні. Це означає, що ми маємо впроваджувати нові функції платформи з критичним мисленням — і це передбачає заповнення прогалин, де стандарти не відповідають вимогам.

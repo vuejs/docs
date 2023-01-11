@@ -4,9 +4,8 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
-import { jobsPlugin } from './jobsMdPlugin'
 
-const nav = [
+const nav: ThemeConfig['nav'] = [
   {
     text: 'Документація',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
@@ -123,7 +122,7 @@ const nav = [
   }
 ]
 
-export const sidebar = {
+export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
       text: 'Початок',
@@ -173,7 +172,7 @@ export const sidebar = {
           link: '/guide/essentials/lifecycle'
         },
         { text: 'Спостерігачі', link: '/guide/essentials/watchers' },
-        { text: 'Посилання шаблону', link: '/guide/essentials/template-refs' },
+        { text: 'Референції в шаблонах', link: '/guide/essentials/template-refs' },
         {
           text: 'Основи компонентів',
           link: '/guide/essentials/component-basics'
@@ -189,8 +188,9 @@ export const sidebar = {
         },
         { text: 'Реквізити', link: '/guide/components/props' },
         { text: 'Події', link: '/guide/components/events' },
+        { text: 'v-model з компонентами', link: '/guide/components/v-model' },
         {
-          text: 'Атрибути Fallthrough',
+          text: 'Прохідні атрибути',
           link: '/guide/components/attrs'
         },
         { text: 'Слоти', link: '/guide/components/slots' },
@@ -252,11 +252,11 @@ export const sidebar = {
       text: 'Найкращі практики',
       items: [
         {
-          text: 'Підготовка до продакшна',
+          text: 'Розгортання продакшну',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Швидкодія',
+          text: 'Продуктивність',
           link: '/guide/best-practices/performance'
         },
         {
@@ -551,6 +551,10 @@ export const sidebar = {
   ]
 }
 
+// Placeholder of the i18n config for @vuejs-translations.
+// const i18n: ThemeConfig['i18n'] = {
+// }
+
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
@@ -619,6 +623,26 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     nav,
     sidebar,
+    // Placeholder of the i18n config for @vuejs-translations.
+    // i18n,
+
+    localeLinks: [
+      {
+        link: 'https://cn.vuejs.org',
+        text: '简体中文',
+        repo: 'https://github.com/vuejs-translations/docs-zh-cn'
+      },
+      {
+        link: 'https://ja.vuejs.org',
+        text: '日本語',
+        repo: 'https://github.com/vuejs-translations/docs-ja'
+      },
+      {
+        link: '/translations/',
+        text: 'Допоможіть нам перекласти!',
+        isTranslationsDesc: true
+      }
+    ],
 
     algolia: {
       indexName: 'vuejs',
@@ -629,20 +653,43 @@ export default defineConfigWithTheme<ThemeConfig>({
       }
     },
 
+    i18n: {
+      search: 'Пошук',
+      menu: 'Меню',
+      toc: 'На цій сторінці',
+      returnToTop: 'Повернутися до початку',
+      appearance: 'Зовнішній вигляд',
+      previous: 'Попередня сторінка',
+      next: 'Наступна сторінка',
+      pageNotFound: 'Сторінку не знайдено',
+      deadLink: {
+        before: 'Ви відкрили посилання, якого не існує:',
+        after: '',
+      },
+      deadLinkReport: {
+        before: 'Будь ласка,',
+        link: 'повідомте нас,',
+        after: 'щоб ми могли це виправити'
+      },
+      footerLicense: {
+        before: '',
+        after: ''
+      },
+    },
+
     carbonAds: {
       code: 'CEBDT27Y',
       placement: 'vuejsorg'
     },
 
     socialLinks: [
-      { icon: 'languages', link: '/translations/' },
       { icon: 'github', link: 'https://github.com/vuejs/' },
       { icon: 'twitter', link: 'https://twitter.com/vuejs' },
       { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
     ],
 
     editLink: {
-      repo: 'vuejsorgua/docs',
+      repo: 'vuejs-translations/docs-uk',
       text: 'Редагувати цю сторінку на GitHub'
     },
 
@@ -658,7 +705,6 @@ export default defineConfigWithTheme<ThemeConfig>({
   markdown: {
     config(md) {
       md.use(headerPlugin)
-        .use(jobsPlugin)
     }
   },
 

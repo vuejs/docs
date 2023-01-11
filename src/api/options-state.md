@@ -1,10 +1,10 @@
-# Options: State
+# Опції: Стан {#options-state}
 
-## data
+## data {#data}
 
-A function that returns the initial reactive state for the component instance.
+Функція, яка повертає початковий реактивний стан для екземпляра компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -15,17 +15,17 @@ A function that returns the initial reactive state for the component instance.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  The function is expected to return a plain JavaScript object, which will be made reactive by Vue. After the instance is created, the reactive data object can be accessed as `this.$data`. The component instance also proxies all the properties found on the data object, so `this.a` will be equivalent to `this.$data.a`.
+  Очікується, що функція повертатиме звичайний об’єкт JavaScript, який Vue зробить реактивним. Після створення екземпляра доступ до реактивного об'єкта даних можна отримати за допомогою `this.$data`. Екземпляр компонента також проксіює всі властивості, знайдені в об'єкті даних, тому `this.a` буде еквівалентним `this.$data.a`.
 
-  All top-level data properties must be included in the returned data object. Adding new properties to `this.$data` is possible, but it is **not** recommended. If the desired value of a property is not yet available then an empty value such as `undefined` or `null` should be included as a placeholder to ensure that Vue knows that the property exists.
+  Усі властивості даних верхнього рівня мають бути включені до об'єкта даних, що повертається. Додавання нових властивостей до `this.$data` можливо, але це **не** рекомендується. Якщо бажане значення властивості ще не доступне, слід включити пусте значення, наприклад `undefined` або `null`, як підмінне значення, щоб гарантувати, що Vue знає, що властивість існує.
 
-  Properties that start with `_` or `$` will **not** be proxied on the component instance because they may conflict with Vue's internal properties and API methods. You will have to access them as `this.$data._property`.
+  Властивості екземпляра компонента, які починаються з `_` або `$`, **не** будуть проксі, оскільки вони можуть конфліктувати з внутрішніми властивостями Vue і методами API. Ви матимете доступ до них за допомогою `this.$data._property`.
 
-  It is **not** recommend to return objects with their own stateful behavior like browser API objects and prototype properties. The returned object should ideally be a plain object that only represents the state of the component.
+  **Не** рекомендується повертати об'єкти з їхнім власним станом, наприклад об'єкти API браузера та властивості прототипу. Повернений об’єкт в ідеалі має бути звичайним об'єктом, який представляє лише стан компонента.
 
-- **Example**
+- **Приклад**
 
   ```js
   export default {
@@ -39,19 +39,19 @@ A function that returns the initial reactive state for the component instance.
   }
   ```
 
-  Note that if you use an arrow function with the `data` property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  Зауважте, що якщо ви використовуєте стрілочну функцію з властивістю `data`, `this` не буде екземпляром компонента, але ви все одно можете отримати доступ до екземпляра як першого аргументу функції:
 
   ```js
   data: (vm) => ({ a: vm.myProp })
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **Також до вашої уваги:** [Реактивність поглиблено](/guide/extras/reactivity-in-depth.html)
 
-## props
+## props {#props}
 
-Declare the props of a component.
+Оголошення реквізитів компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -74,30 +74,30 @@ Declare the props of a component.
   type PropType<T> = { new (): T } | { new (): T }[]
   ```
 
-  > Types are simplified for readability.
+  > Типи спрощено для зручності читання.
 
-- **Details**
+- **Подробиці**
 
-  In Vue, all component props need to be explicitly declared. Component props can be declared in two forms:
+  У Vue усі атрибути компонентів мають бути явно оголошені. Реквізити компонентів можуть бути оголошені у двох формах:
 
-  - Simple form using an array of strings
-  - Full form using an object where each property key is the name of the prop, and the value is the prop's type (a constructor function) or advanced options.
+  - Проста форма з використанням масиву рядків
+  - Повна форма з використанням об'єкта, де кожен ключ властивості є ім’ям реквізиту, а значення – типом реквізиту (функція конструктора) або розширеними параметрами.
 
-  With object-based syntax, each prop can further define the following options:
+  За допомогою об'єктного синтаксису кожен реквізит може додатково визначати наступні параметри:
 
-  - **`type`**: Can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. In development mode, Vue will check if a prop's value matches the declared type, and will throw a warning if it doesn't. See [Prop Validation](/guide/components/props.html#prop-validation) for more details.
+  - **`type`**: Може бути одним із таких нативних конструкторів: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, будь-яка функція користувацького конструктора або їх масив. У режимі розробки Vue перевірить, чи значення реквізиту відповідає заявленому типу, і видасть попередження, якщо воно не відповідає. Додаткову інформацію див. у розділі [Перевірка реквізиту](/guide/components/props.html#prop-validation).
 
-    Also note that a prop with `Boolean` type affects its value casting behavior in both development and production. See [Boolean Casting](/guide/components/props.html#boolean-casting) for more details.
+    Також зауважте, що реквізит із типом `Boolean` впливає на правила приведення значення як у розробці, так і в виробництві. Додаткову інформацію див. у розділі [Логічна перевірка](/guide/components/props.html#boolean-casting).
 
-  - **`default`**: Specifies a default value for the prop when it is not passed by the parent or has `undefined` value. Object or array defaults must be returned using a factory function. The factory function also receives the raw props object as the argument.
+  - **`default`**: Визначає значення за промовчанням для реквізиту, якщо воно не передається батьківським компонентом або має значення `undefined`. Значення за промовчанням для об'єктів або масивів потрібно повертати за допомогою фабричної функції. Фабрична функція також отримує необроблений об’єкт реквізитів як аргумент.
 
-  - **`required`**: Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
+  - **`required`**: Визначає, чи потрібен реквізит. У невиробничому середовищі буде видано попередження консолі, якщо це значення встановлене в `true` і реквізит не передано.
 
-  - **`validator`**: Custom validator function that takes the prop value as the sole argument. In development mode, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails).
+  - **`validator`**: Користувацька функція перевірки, яка приймає значення реквізиту як єдиний аргумент. У режимі розробки буде видано попередження консолі, якщо ця функція повертає хибне значення (тобто перевірка не вдається).
 
-- **Example**
+- **Приклад**
 
-  Simple declaration:
+  Проста декларація:
 
   ```js
   export default {
@@ -105,14 +105,14 @@ Declare the props of a component.
   }
   ```
 
-  Object declaration with validations:
+  Оголошення об'єкта з перевірками:
 
   ```js
   export default {
     props: {
-      // type check
+      // перевірка типу
       height: Number,
-      // type check plus other validations
+      // перевірка типу та інші перевірки
       age: {
         type: Number,
         default: 0,
@@ -125,13 +125,15 @@ Declare the props of a component.
   }
   ```
 
-- **See also:** [Props](/guide/components/props.html)
+- **Також до вашої уваги:**
+  - [Гід - Реквізити](/guide/components/props.html)
+  - [Гід - Типізація властивостей компонента](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
 
-## computed
+## computed {#computed}
 
-Declare computed properties to be exposed on the component instance.
+Оголошення обчислюваних властивостей, які будуть представлені в екземплярі компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -156,13 +158,13 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  The option accepts an object where the key is the name of the computed property, and the value is either a computed getter, or an object with `get` and `set` methods (for writable computed properties).
+  Параметр приймає об’єкт, де ключ є назвою обчислюваних властивостей, а значенням є обчислюваний getter, або об’єкт із методами `get` і `set` (для обчислюваних властивостей доступних для запису).
 
-  All getters and setters have their `this` context automatically bound to the component instance.
+  Усі getters та setters мають свій контекст `this`, автоматично прив'язаний до екземпляра компонента.
 
-  Note that if you use an arrow function with a computed property, `this` won't point to the component's instance, but you can still access the instance as the function's first argument:
+  Зауважте, що якщо ви використовуєте стрілочну функцію з обчислюваною властивістю, `this` не вказуватиме на екземпляр компонента, але ви все одно можете отримати доступ до екземпляра як першого аргументу функції:
 
   ```js
   export default {
@@ -172,7 +174,7 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
   export default {
@@ -180,11 +182,11 @@ Declare computed properties to be exposed on the component instance.
       return { a: 1 }
     },
     computed: {
-      // readonly
+      // лише для читання
       aDouble() {
         return this.a * 2
       },
-      // writable
+      // доступний для запису
       aPlus: {
         get() {
           return this.a + 1
@@ -205,13 +207,15 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **See also:** [Computed Properties](/guide/essentials/computed.html)
+- **Також до вашої уваги:**
+  - [Гід - Обчислювані властивості](/guide/essentials/computed.html)
+  - [Гід - Типізація обчислюваних властивостей](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
 
-## methods
+## methods {#methods}
 
-Declare methods to be mixed into the component instance.
+Оголошення методів для змішування з екземпляром компонента.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -221,13 +225,13 @@ Declare methods to be mixed into the component instance.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  Declared methods can be directly accessed on the component instance, or used in template expressions. All methods have their `this` context automatically bound to the component instance, even when passed around.
+  Оголошені методи можна отримати безпосередньо в екземплярі компонента або використовувати у виразах шаблону. Усі методи мають свій `this` контекст, автоматично прив'язаний до екземпляра компонента, навіть якщо його передають.
 
-  Avoid using arrow functions when declaring methods, as they will not have access to the component instance via `this`.
+  Уникайте використання стрілочних функцій під час оголошення методів, оскільки вони не матимуть доступу до екземпляра компонента через `this`.
 
-- **Example**
+- **Приклад**
 
   ```js
   export default {
@@ -246,13 +250,13 @@ Declare methods to be mixed into the component instance.
   }
   ```
 
-- **See also:** [Event Handling](/guide/essentials/event-handling.html)
+- **Також до вашої уваги:** [Обробка подій](/guide/essentials/event-handling.html)
 
-## watch
+## watch {#watch}
 
-Declare watch callbacks to be invoked on data change.
+Оголосити функції зворотного виклику для спостереження, які будуть викликані при зміні даних.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -271,32 +275,32 @@ Declare watch callbacks to be invoked on data change.
 
   type ObjectWatchOptionItem = {
     handler: WatchCallback | string
-    immediate?: boolean // default: false
-    deep?: boolean // default: false
-    flush?: 'pre' | 'post' | 'sync' // default: 'pre'
+    immediate?: boolean // за промовчанням: false
+    deep?: boolean // за промовчанням: false
+    flush?: 'pre' | 'post' | 'sync' // за промовчанням: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
   }
   ```
 
-  > Types are simplified for readability.
+  > Типи спрощено для зручності читання.
 
-- **Details**
+- **Подробиці**
 
-  The `watch` option expects an object where keys are the reactive component instance properties to watch (e.g. properties declared via `data` or `computed`) — and values are the corresponding callbacks. The callback receives the new value and the old value of the watched source.
+  Параметр `watch` очікує об’єкт, де ключі є реактивними властивостями екземпляра компонента, за якими слід спостерігати (наприклад, властивості, оголошені через `data` або `computed`), а значення — це відповідні зворотні виклики. Зворотний виклик отримує нове значення та старе значення джерела, за якими іде спостереження.
 
-  In addition to a root-level property, the key can also be a simple dot-delimited path, e.g. `a.b.c`. Note that this usage does **not** support complex expressions - only dot-delimited paths are supported. If you need to watch complex data sources, use the imperative [`$watch()`](/api/component-instance.html#watch) API instead.
+  На додаток до властивості кореневого рівня, ключ також може бути простим шляхом, розділеним крапками, наприклад. `a.b.c`. Зауважте, що таке використання **не** підтримує складні вирази – підтримуються лише шляхи, розділені крапками. Якщо вам потрібно спостерігати за складними джерелами даних, замість цього використовуйте імперативний API [`$watch()`](/api/component-instance.html#watch).
 
-  The value can also be a string of a method name (declared via `methods`), or an object that contains additional options. When using the object syntax, the callback should be declared under the `handler` field. Additional options include:
+  Значенням також може бути рядок назви методу (оголошений через `methods`) або об’єкт, який містить додаткові параметри. При використанні об'єктного синтаксису зворотний виклик має бути оголошений у полі `handler`. Додаткові параметри включають:
 
-  - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
-  - **`deep`**: force deep traversal of the source if it is an object or an array, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers.html#deep-watchers).
-  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core.html#watcheffect).
-  - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging).
+  - **`immediate`**: активувати зворотний виклик негайно після створення спостерігача. Під час першого виклику старе значення буде `undefined`.
+  - **`deep`**: примусовий глибокий обхід джерела, якщо це об’єкт або масив, так що зворотний виклик запускає глибокі зміни. Див. [Глибинні спостерігачі](/guide/essentials/watchers.html#deep-watchers).
+  - **`flush`**: регулює час спрацювання зворотного виклику. Див. [Час спрацювання](/guide/essentials/watchers.html#callback-flush-timing) і [`watchEffect()`](/api/reactivity-core.html#watcheffect).
+  - **`onTrack / onTrigger`**: налагодити залежності спостерігача. Див. [Налагодження спостерігача](/guide/extras/reactivity-in-depth.html#watcher-debugging).
 
-  Avoid using arrow functions when declaring watch callbacks as they will not have access to the component instance via `this`.
+  Уникайте використання стрілочних функцій під час оголошення зворотних викликів спостереження, оскільки вони не матимуть доступу до екземпляра компонента через `this`.
 
-- **Example**
+- **Приклад**
 
   ```js
   export default {
@@ -312,31 +316,34 @@ Declare watch callbacks to be invoked on data change.
       }
     },
     watch: {
-      // watching top-level property
+      // спостереження за властивостю верхнього рівня
       a(val, oldVal) {
         console.log(`new: ${val}, old: ${oldVal}`)
       },
-      // string method name
+      // ім'я методу є рядок
       b: 'someMethod',
-      // the callback will be called whenever any of the watched object properties change regardless of their nested depth
+      // зворотний виклик буде викликаний щоразу, коли будь-яка з
+      // властивостей спостережуваного об’єкта змінюється незалежно
+      // від глибини їх вкладеності
       c: {
         handler(val, oldVal) {
           console.log('c changed')
         },
         deep: true
       },
-      // watching a single nested property:
+      // спостереження за окремою вкладеною властивостю:
       'c.d': function (val, oldVal) {
-        // do something
+        // робити щось
       },
-      // the callback will be called immediately after the start of the observation
+      // зворотний виклик буде викликано відразу після початку спостереження
       e: {
         handler(val, oldVal) {
           console.log('e changed')
         },
         immediate: true
       },
-      // you can pass array of callbacks, they will be called one-by-one
+      // ви можете передати масив зворотних викликів, вони будуть
+      // викликані один за одним
       f: [
         'handle1',
         function handle2(val, oldVal) {
@@ -359,18 +366,18 @@ Declare watch callbacks to be invoked on data change.
       }
     },
     created() {
-      this.a = 3 // => new: 3, old: 1
+      this.a = 3 // => нове: 3, старе: 1
     }
   }
   ```
 
-- **See also:** [Watchers](/guide/essentials/watchers.html)
+- **Також до вашої уваги:** [Спостерігачі](/guide/essentials/watchers.html)
 
-## emits
+## emits {#emits}
 
-Declare the custom events emitted by the component.
+Оголошення користувацьких подій, які випромінюються компонентом.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -384,20 +391,20 @@ Declare the custom events emitted by the component.
   type EmitValidator = (...args: unknown[]) => boolean
   ```
 
-- **Details**
+- **Подробиці**
 
-  Emitted events can be declared in two forms:
+  Випромінювані події можуть бути оголошені у двох формах:
 
-  - Simple form using an array of strings
-  - Full form using an object where each property key is the name of the event, and the value is either `null` or a validator function.
+  - Проста форма з використанням масиву рядків
+  - Повна форма з використанням об'єкта, де кожний ключ властивості є назвою події, а значенням є або `null`, або функція перевірки.
 
-  The validation function will receive the additional arguments passed to the component's `$emit` call. For example, if `this.$emit('foo', 1)` is called, the corresponding validator for `foo` will receive the argument `1`. The validator function should return a boolean to indicate whether the event arguments are valid.
+  Функція перевірки отримає додаткові аргументи, передані до виклику `$emit` компонента. Для Прикладу, якщо викликається `this.$emit('foo', 1)`, відповідний валідатор для `foo` отримає аргумент `1`. Функція перевірки має повертати логічне значення, щоб вказати, чи є аргументи події дійсними.
 
-  Note that the `emits` option affects which event listeners are considered component event listeners, rather than native DOM event listeners. The listeners for declared events will be removed from the component's `$attrs` object, so they will not be passed through to the component's root element. See [Fallthrough Attributes](/guide/components/attrs.html) for more details.
+  Зауважте, що параметр `emits` впливає на те, які слухачі подій вважаються слухачами компонентних подій, а не рідними слухачами подій DOM. Слухачі оголошених подій буде видалено з `$attrs` об'єкта компонента, тому їх не буде передано до кореневого елемента компонента. Див. [Прохідні атрибути](/guide/components/attrs.html) для отримання додаткової інформації.
 
-- **Example**
+- **Приклад**
 
-  Array syntax:
+  Синтаксис масиву:
 
   ```js
   export default {
@@ -408,20 +415,20 @@ Declare the custom events emitted by the component.
   }
   ```
 
-  Object syntax:
+  Синтаксис об'єкта:
 
   ```js
   export default {
     emits: {
-      // no validation
+      // немає перевірки
       click: null,
 
-      // with validation
+      // з перевіркою
       submit: (payload) => {
         if (payload.email && payload.password) {
           return true
         } else {
-          console.warn(`Invalid submit event payload!`)
+          console.warn(`Недійсне надсилання корисного навантаження події!`)
           return false
         }
       }
@@ -429,13 +436,15 @@ Declare the custom events emitted by the component.
   }
   ```
 
-* **See also:** [Fallthrough Attributes](/guide/components/attrs.html)
+- **Також до вашої уваги:**
+  - [Гід - Прохідні атрибути](/guide/components/attrs.html)
+  - [Гід - Типізація випромінювань компонента](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
-## expose
+## expose {#expose}
 
-Declare exposed public properties when the component instance is accessed by a parent via template refs.
+Оголошення відкритих загальнодоступних властивостей, коли до екземпляра компонента звертається батьківський елемент через посилання шаблону.
 
-- **Type**
+- **Тип**
 
   ```ts
   interface ComponentOptions {
@@ -443,19 +452,19 @@ Declare exposed public properties when the component instance is accessed by a p
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  By default, a component instance exposes all instance properties to the parent when accessed via `$parent`, `$root`, or template refs. This can be undesirable, since a component most likely has internal state or methods that should be kept private to avoid tight coupling.
+  За промовчанням екземпляр компонента відкриває всі властивості екземпляра для батьківського компонента, коли до нього звертаються через `$parent`, `$root` або посилання шаблону. Це може бути небажаним, оскільки компонент, швидше за все, має внутрішній стан або методи, які слід зберігати приватними, щоб уникнути тісного зв'язку.
 
-  The `expose` option expects a list of property name strings. When `expose` is used, only the properties explicitly listed will be exposed on the component's public instance.
+  Параметр `expose` очікує список рядків імен властивостей. Коли використовується `expose`, лише ті властивості, які явно вказані в списку, будуть представлені у відкритому екземплярі компонента.
 
-  `expose` only affects user-defined properties - it does not filter out built-in component instance properties.
+  `expose` впливає лише на визначені користувачем властивості - він не відфільтровує вбудовані властивості екземпляра компонента.
 
-- **Example**
+- **Приклад**
 
   ```js
   export default {
-    // only `publicMethod` will be available on the public instance
+    // лише `publicMethod` буде доступним у публічному екземплярі
     expose: ['publicMethod'],
     methods: {
       publicMethod() {

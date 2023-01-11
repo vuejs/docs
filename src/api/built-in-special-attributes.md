@@ -1,6 +1,6 @@
-# Built-in Special Attributes
+# Built-in Special Attributes {#built-in-special-attributes}
 
-## key
+## key {#key}
 
 The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify vnodes when diffing the new list of nodes against the old list.
 
@@ -37,7 +37,7 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
 
 - **See also:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list.html#maintaining-state-with-key)
 
-## ref
+## ref {#ref}
 
 Denotes a [template ref](/guide/essentials/template-refs.html).
 
@@ -80,9 +80,12 @@ Denotes a [template ref](/guide/essentials/template-refs.html).
 
   `this.$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
-- **See also:** [Template Refs](/guide/essentials/template-refs.html)
+- **See also:**
+  - [Guide - Template Refs](/guide/essentials/template-refs.html)
+  - [Guide - Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
+  - [Guide - Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
 
-## is
+## is {#is}
 
 Used for binding [dynamic components](/guide/essentials/component-basics.html#dynamic-components).
 

@@ -2,13 +2,13 @@
 outline: deep
 ---
 
-# Composition API FAQ
+# Composition API FAQ {#composition-api-faq}
 
 :::tip
 This FAQ assumes prior experience with Vue - in particular, experience with Vue 2 while primarily using Options API.
 :::
 
-## What is Composition API?
+## What is Composition API? {#what-is-composition-api}
 
 Composition API is a set of APIs that allows us to author Vue components using imported functions instead of declaring options. It is an umbrella term that covers the following APIs:
 
@@ -47,15 +47,15 @@ Despite an API style based on function composition, **Composition API is NOT fun
 
 If you are interested in learning how to use Vue with Composition API, you can set the site-wide API preference to Composition API using the toggle at the top of the left sidebar, and then go through the guide from the beginning.
 
-## Why Composition API?
+## Why Composition API? {#why-composition-api}
 
-### Better Logic Reuse
+### Better Logic Reuse {#better-logic-reuse}
 
 The primary advantage of Composition API is that it enables clean, efficient logic reuse in the form of [Composable functions](/guide/reusability/composables.html). It solves [all the drawbacks of mixins](/guide/reusability/composables.html#vs-mixins), the primary logic reuse mechanism for Options API.
 
 Composition API's logic reuse capability has given rise to impressive community projects such as [VueUse](https://vueuse.org/), an ever-growing collection of composable utilities. It also serves as a clean mechanism for easily integrating stateful third-party services or libraries into Vue's reactivity system, for example [immutable data](/guide/extras/reactivity-in-depth.html#immutable-data), [state machines](/guide/extras/reactivity-in-depth.html#state-machines), and [RxJS](https://vueuse.org/rxjs/readme.html#vueuse-rxjs).
 
-### More Flexible Code Organization
+### More Flexible Code Organization {#more-flexible-code-organization}
 
 Many users love that we write organized code by default with Options API: everything has its place based on the option it falls under. However, Options API poses serious limitations when a single component's logic grows beyond a certain complexity threshold. This limitation is particularly prominent in components that need to deal with multiple **logical concerns**, which we have witnessed first hand in many production Vue 2 apps.
 
@@ -80,7 +80,7 @@ Here's the same component, before and after the [refactor into Composition API](
 
 Notice how the code related to the same logical concern can now be grouped together: we no longer need to jump between different options blocks while working on a specific logical concern. Moreover, we can now move a group of code into an external file with minimal effort, since we no longer need to shuffle the code around in order to extract them. This reduced friction for refactoring is key to the long-term maintainability in large codebases.
 
-### Better Type Inference
+### Better Type Inference {#better-type-inference}
 
 In recent years, more and more frontend developers are adopting [TypeScript](https://www.typescriptlang.org/) as it helps us write more robust code, make changes with more confidence, and provides a great development experience with IDE support. However, the Options API, originally conceived in 2013, was designed without type inference in mind. We had to implement some [absurdly complex type gymnastics](https://github.com/vuejs/core/blob/44b95276f5c086e1d88fa3c686a5f39eb5bb7821/packages/runtime-core/src/componentPublicInstance.ts#L132-L165) to make type inference work with the Options API. Even with all this effort, type inference for Options API can still break down for mixins and dependency injection.
 
@@ -88,13 +88,13 @@ This had led many developers who wanted to use Vue with TS to lean towards Class
 
 In comparison, Composition API utilizes mostly plain variables and functions, which are naturally type friendly. Code written in Composition API can enjoy full type inference with little need for manual type hints. Most of the time, Composition API code will look largely identical in TypeScript and plain JavaScript. This also makes it possible for plain JavaScript users to benefit from partial type inference.
 
-### Smaller Production Bundle and Less Overhead
+### Smaller Production Bundle and Less Overhead {#smaller-production-bundle-and-less-overhead}
 
 Code written in Composition API and `<script setup>` is also more efficient and minification-friendly than Options API equivalent. This is because the template in a `<script setup>` component is compiled as a function inlined in the same scope of the `<script setup>` code. Unlike property access from `this`, the compiled template code can directly access variables declared inside `<script setup>`, without an instance proxy in between. This also leads to better minification because all the variable names can be safely shortened.
 
-## Relationship with Options API
+## Relationship with Options API {#relationship-with-options-api}
 
-### Trade-offs
+### Trade-offs {#trade-offs}
 
 Some users moving from Options API found their Composition API code less organized, and concluded that Composition API is "worse" in terms of code organization. We recommend users with such opinions to look at that problem from a different perspective.
 
@@ -102,27 +102,27 @@ It is true that Composition API no longer provides the "guard rails" that guide 
 
 Options API does allow you to "think less" when writing component code, which is why many users love it. However, in reducing the mental overhead, it also locks you into the prescribed code organization pattern with no escape hatch, which can make it difficult to refactor or improve code quality in larger scale projects. In this regard, Composition API provides better long term scalability.
 
-### Does Composition API cover all use cases?
+### Does Composition API cover all use cases? {#does-composition-api-cover-all-use-cases}
 
 Yes in terms of stateful logic. When using Composition API, there are only a few options that may still be needed: `props`, `emits`, `name`, and `inheritAttrs`. If using `<script setup>`, then `inheritAttrs` is typically the only option that may require a separate normal `<script>` block.
 
 If you intend to exclusively use Composition API (along with the options listed above), you can shave a few kbs off your production bundle via a [compile-time flag](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) that drops Options API related code from Vue. Note this also affects Vue components in your dependencies.
 
-### Can I use both APIs together?
+### Can I use both APIs together? {#can-i-use-both-apis-together}
 
 Yes. You can use Composition API via the [`setup()`](/api/composition-api-setup.html) option in an Options API component.
 
 However, we only recommend doing so if you have an existing Options API codebase that needs to integrate with new features / external libraries written with Composition API.
 
-### Will Options API be deprecated?
+### Will Options API be deprecated? {#will-options-api-be-deprecated}
 
 No, we do not have any plan to do so. Options API is an integral part of Vue and the reason many developers love it. We also realize that many of the benefits of Composition API only manifest in larger-scale projects, and Options API remains a solid choice for many low-to-medium-complexity scenarios.
 
-## Relationship with Class API
+## Relationship with Class API {#relationship-with-class-api}
 
 We no longer recommend using Class API with Vue 3, given that Composition API provides great TypeScript integration with additional logic reuse and code organization benefits.
 
-## Comparison with React Hooks
+## Comparison with React Hooks {#comparison-with-react-hooks}
 
 Composition API provides the same level of logic composition capabilities as React Hooks, but with some important differences.
 

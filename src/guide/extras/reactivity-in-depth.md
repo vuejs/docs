@@ -6,19 +6,19 @@ outline: deep
 import SpreadSheet from './demos/SpreadSheet.vue'
 </script>
 
-# Reactivity in Depth
+# Реактивність поглиблено {#reactivity-in-depth}
 
-One of Vue’s most distinct features is the unobtrusive reactivity system. Component state are reactive JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
+Однією з найбільш відмінних рис Vue є ненав'язлива система реактивності. Стан компонента складається з реактивних об'єктів JavaScript. Коли ви змінюєте їх, вигляд оновлюється. Це робить управління станом простим та інтуїтивно зрозумілим, але також важливо розуміти, як це працює, щоб уникнути деяких поширених помилок. У цьому розділі ми збираємося розібратися в деяких деталях нижчого рівня системи реактивності Vue.
 
-## What is Reactivity?
+## Що таке реактивність? {#what-is-reactivity}
 
-This term comes up in programming quite a bit these days, but what do people mean when they say it? Reactivity is a programming paradigm that allows us to adjust to changes in a declarative manner. The canonical example that people usually show, because it’s a great one, is an Excel spreadsheet:
+Цей термін з'являється в програмуванні досить часто в наші дні, але що мають на увазі люди, коли говорять про це? Реактивність - це парадигма програмування, яка дозволяє пристосуватися до змін декларативним чином. Канонічним прикладом, який зазвичай показують люди, оскільки він чудовий - електронна таблиця Excel:
 
 <SpreadSheet />
 
-Here cell A2 is defined via a formula of `= A0 + A1` (you can click on A2 to view or edit the formula), so the spreadsheet gives us 3. No surprises there. But if you update A0 or A1, you'll notice that A2 automagically updates too.
+Тут клітинка `A2` визначається за допомогою формули `= A0 + A1` (ви можете натиснути на `A2`, щоб переглянути або відредагувати формулу), тому електронна таблиця дає нам 3. Ніяких сюрпризів тут немає. Але якщо ви оновите `A0` або `A1`, ви помітите, що `A2` також автоматично оновлюється.
 
-JavaScript doesn’t usually work like this. If we were to write something comparable in JavaScript:
+JavaScript зазвичай так не працює. Якби ми написали щось подібне в JavaScript:
 
 ```js
 let A0 = 1
@@ -28,12 +28,12 @@ let A2 = A0 + A1
 console.log(A2) // 3
 
 A0 = 2
-console.log(A2) // Still 3
+console.log(A2) // Досі 3
 ```
 
-When we mutate `A0`, `A2` does not change automatically.
+Коли ми змінюємо `A0`, `A2` не змінюється автоматично.
 
-So how would we do this in JavaScript? First, in order to re-run the code that updates `A2`, let's wrap it in a function:
+Отже, як би ми зробили це в JavaScript? По-перше, щоб повторно запустити код, який оновлює `A2`, давайте загорнемо його у функцію:
 
 ```js
 let A2
@@ -43,31 +43,31 @@ function update() {
 }
 ```
 
-Then, we need to define a few terms:
+Потім нам потрібно визначити кілька умов:
 
-- The `update()` function produces a **side effect**, or **effect** for short, because it modifies the state of the program.
+- Функція `update()` виробляє **побічний ефект**, або просто **ефект**, оскільки змінює стан програми.
 
-- `A0` and `A1` are considered **dependencies** of the effect, as their values are used to perform the effect. The effect is said to be a **subscriber** to its dependencies.
+- `A0` і `A1` вважаються **залежностями** ефекту, оскільки їх значення використовуються для виконання ефекту. Кажуть, що ефект є **підписником** його залежностей.
 
-What we need is a magic function that can invoke `update()` (the **effect**) whenever `A0` or `A1` (the **dependencies**) change:
+Нам потрібна магічна функція, яка може викликати `update()` (**ефект**) кожного разу, коли `A0` або `A1` (**залежності**) змінюються:
 
 ```js
 whenDepsChange(update)
 ```
 
-This `whenDepsChange()` function has the following tasks:
+Ця функція `whenDepsChange()` має такі завдання:
 
-1. Track when a variable is read. E.g. when evaluating the expression `A0 + A1`, both `A0` and `A1` are read.
+1. Відстежувати, коли змінна зчитується. Наприклад, при обчисленні виразу `A0 + A1` читаються як `A0`, так і `A1`.
 
-2. If a variable is read when there is a currently running effect, make that effect a subscriber to that variable. E.g. because `A0` and `A1` are read when `update()` is being executed, `update()` becomes a subscriber to both `A0` and `A1` after the first call.
+2. Якщо змінна зчитується, під час ефекту, робити цей ефект підписником на цю змінну. Оскільки `A0` і `A1` зчитуються під час виконання `update()`, `update()` стає підписником на `A0` і `A1` після першого виклику.
 
-3. Detect when a variable is mutated. E.g. when `A0` is assigned a new value, notify all its subscriber effects to re-run.
+3. Визначати, коли змінна змінена. Наприклад, коли `A0` присвоєно нове значення, сповіщати всіх його підписникиків про повторний запуск.
 
-## How Reactivity Works in Vue
+## Як працює реактивність у Vue {#how-reactivity-works-in-vue}
 
-We can't really track the reading and writing of local variables like in the example. There's just no mechanism for doing that in vanilla JavaScript. What we **can** do though, is intercept the reading and writing of **object properties**.
+Ми не можемо відстежувати читання та запис локальних змінних, як у прикладі. Просто у JavaScript немає механізму для цього. Що ми **можемо** зробити, це перехопити читання та запис **властивостей об’єкта**.
 
-There are two ways of intercepting property access in JavaScript: [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) / [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) and [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 used getter / setters exclusively due to browser support limitations. In Vue 3, Proxies are used for reactive objects and getter / setters are used for refs. Here's some pseudo-code that illustrates how they work:
+У JavaScript є два способи перехоплення доступу до властивості: [геттери](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)/[сеттери](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) та [Проксі](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 використовував геттери/сеттери виключно через обмеження підтримки браузера. У Vue 3 проксі використовуються для реактивних об’єктів, а геттери/сеттери використовуються для референцій. Ось псевдокод, який ілюструє, як вони працюють:
 
 ```js{4,9,17,22}
 function reactive(obj) {
@@ -99,20 +99,20 @@ function ref(value) {
 ```
 
 :::tip
-Code snippets here and below are meant to explain the core concepts in the simplest form possible, so many details are omitted, and edge cases ignored.
+Фрагменти коду тут і нижче призначені для пояснення основних концепцій у найпростішій формі, тому багато деталей спрощено, а крайні випадки ігноруються.
 :::
 
-This explains a few [limitations of reactive objects](/guide/essentials/reactivity-fundamentals.html#limitations-of-reactive) that we have discussed in the fundamentals section:
+Це пояснює деякі [обмеження реактивних об’єктів](/guide/essentials/reactivity-fundamentals.html#limitations-of-reactive), які ми обговорювали в розділі основ:
 
-- When you assign or destructure a reactive object's property to a local variable, the reactivity is "disconnected" because access to the local variable no longer triggers the get / set proxy traps.
+- Коли ви призначаєте або деструктуруєте властивість реактивного об’єкта локальній змінній, реактивність «від’єднується», оскільки доступ до локальної змінної більше не запускає перехоплення гет/сет проксі.
 
-- The returned proxy from `reactive()`, although behaving just like the original, has a different identity if we compare it to the original using the `===` operator.
+- Повернений проксі від `reactive()`, хоча і поводиться так само, як оригінал, має іншу ідентичність, якщо ми порівнюємо його з оригіналом за допомогою оператора `===`.
 
-Inside `track()`, we check whether there is a currently running effect. If there is one, we lookup the subscriber effects (stored in a Set) for the property being tracked, and add the effect to the Set:
+- Всередині `track()` ми перевіряємо, чи запущений на даний момент ефект. Якщо так, то ми шукаємо ефекти підписника (збережені в `Set`) для властивості, що відстежується, і додаємо ефект до `Set`:
 
 ```js
-// This will be set right before an effect is about
-// to be run. We'll deal with this later.
+// Це буде встановлено безпосередньо перед запуском ефекту.
+// Ми розберемося з цим пізніше.
 let activeEffect
 
 function track(target, key) {
@@ -123,9 +123,9 @@ function track(target, key) {
 }
 ```
 
-Effect subscriptions are stored in a global `WeakMap<target, Map<key, Set<effect>>>` data structure. If no subscribing effects Set was found for a property (tracked for the first time), it will be created. This is what the `getSubscribersForProperty()` function does, in short. For simplicity, we will skip its details.
+Підписки на ефекти зберігаються в глобальній структурі даних `WeakMap<target, Map<key, Set<effect>>>`. Якщо для властивості (яка відстежується вперше) не знайдено жодного підписника, його буде створено. Коротше кажучи, це те, що робить функція `getSubscribersForProperty()`. Для простоти ми пропустимо подробиці.
 
-Inside `trigger()`, we again lookup the subscriber effects for the property. But this time we invoke them instead:
+Усередині `trigger()` ми знову шукаємо підписків властивості. Але цього разу ми викликаємо їх:
 
 ```js
 function trigger(target, key) {
@@ -134,7 +134,7 @@ function trigger(target, key) {
 }
 ```
 
-Now let's circle back to the `whenDepsChange()` function:
+Тепер повернемося до функції `whenDepsChange()`:
 
 ```js
 function whenDepsChange(update) {
@@ -147,11 +147,11 @@ function whenDepsChange(update) {
 }
 ```
 
-It wraps the raw `update` function in an effect that sets itself as the current active effect before running the actual update. This enables `track()` calls during the update to locate the current active effect.
+Вона обгортає необроблену функцію `update` в ефект, який встановлює себе як поточний активний ефект перед запуском оновлення. Це дозволяє викликати `track()` під час оновлення, щоб знайти поточний активний ефект.
 
-At this point, we have created an effect that automatically tracks its dependencies, and re-runs whenever a dependency changes. We call this a **Reactive Effect**.
+На цьому етапі ми створили ефект, який автоматично відстежує його залежності та запускається повторно щоразу, коли залежність змінюється. Ми називаємо це **Реактивним ефектом**.
 
-Vue provides an API that allows you to create reactive effects: [`watchEffect()`](/api/reactivity-core.html#watcheffect). In fact, you may have noticed that it works pretty similarly to the magical `whenDepsChange()` in the example. We can now rework the original example using actual Vue APIs:
+Vue надає API, який дозволяє створювати реактивні ефекти: [`watchEffect()`](/api/reactivity-core.html#watcheffect). Фактично, ви могли помітити, що він працює подібно до чарівного `whenDepsChange()` у прикладі. Тепер ми можемо переробити оригінальний приклад, використовуючи API Vue:
 
 ```js
 import { ref, watchEffect } from 'vue'
@@ -161,15 +161,15 @@ const A1 = ref(1)
 const A2 = ref()
 
 watchEffect(() => {
-  // tracks A0 and A1
+  // відстежує A0 та A1
   A2.value = A0.value + A1.value
 })
 
-// triggers the effect
+// викликає ефект
 A0.value = 2
 ```
 
-Using a reactive effect to mutate a ref isn't the most interesting use case - in fact, using a computed property makes it more declarative:
+Використання реактивного ефекту для зміни референції не є найцікавішим випадком - насправді використання обчислюваної властивості робить його більш декларативним:
 
 ```js
 import { ref, computed } from 'vue'
@@ -181,9 +181,9 @@ const A2 = computed(() => A0.value + A1.value)
 A0.value = 2
 ```
 
-Internally, `computed` manages its invalidation and re-computation using a reactive effect.
+Всередині `computed` керує своєю інвалідацією та повторним обчисленням за допомогою реактивного ефекту.
 
-So what's an example of a common and useful reactive effect? Well, updating the DOM! We can implement simple "reactive rendering" like this:
+Отже, який приклад звичайного та корисного реактивного ефекту? Що ж, оновлення DOM! Ми можемо реалізувати простий «реактивний рендеринг» таким чином:
 
 ```js
 import { ref, watchEffect } from 'vue'
@@ -194,46 +194,46 @@ watchEffect(() => {
   document.body.innerHTML = `count is: ${count.value}`
 })
 
-// updates the DOM
+// оновлює DOM
 count.value++
 ```
 
-In fact, this is pretty close to how a Vue component keeps the state and the DOM in sync - each component instance creates a reactive effect to render and update the DOM. Of course, Vue components use much more efficient ways to update the DOM than `innerHTML`. This is discussed in [Rendering Mechanism](./rendering-mechanism).
+Фактично, це дуже близько до того, як компонент Vue підтримує синхронізацію стану та DOM – кожний екземпляр компонента створює реактивний ефект для візуалізації та оновлення DOM. Звичайно, компоненти Vue використовують набагато ефективніші способи оновлення DOM, ніж `innerHTML`. Це описано в [механізмі рендерингу](./rendering-mechanism).
 
 <div class="options-api">
 
-The `ref()`, `computed()` and `watchEffect()` APIs are all part of the Composition API. If you have only been using Options API with Vue so far, you'll notice that Composition API is closer to how Vue's reactivity system works under the hood. In fact, in Vue 3 the Options API is implemented on top of the Composition API. All property access on the component instance (`this`) triggers getter / setters for reactivity tracking, and options like `watch` and `computed` invoke their Composition API equivalents internally.
+Усі API `ref()`, `computed()` і `watchEffect()` є частинами композиційного АРІ. Якщо ви досі використовували тільки опційний АРІ з Vue, ви помітите, що композиційний АРІ ближче до того, як працює система реактивності Vue під капотом. Насправді у Vue 3 опційний АРІ реалізовано поверх композиційного АРІ. Увесь доступ до властивостей екземпляра компонента (`this`) запускає геттер/сеттер для відстеження реактивності, а такі параметри, як `watch` і `computed`, викликають еквіваленти композиційного АРІ.
 
 </div>
 
-## Runtime vs. Compile-time Reactivity
+## Реактивність під час виконання та під час компіляції {#runtime-vs-compile-time-reactivity}
 
-Vue's reactivity system is primarily runtime-based: the tracking and triggering are all performed while the code is running directly in the browser. The pros of runtime reactivity is that it can work without a build step, and there are fewer edge cases. On the other hand, this makes it constrained by the syntax limitations of JavaScript.
+Система реактивності Vue в основному відбувається під час виконання: відстеження та запуск виконуються, коли код виконується безпосередньо в браузері. Плюси реактивності під час виконання полягають у тому, що вона може працювати без етапу збірки, та має менше крайових випадків. З іншого боку, це робить її обмеженою синтаксичними можливостями JavaScript.
 
-We have already encountered a limitation in the previous example: JavaScript does not provide a way for us to intercept the reading and writing of local variables, so we have to always access reactive state as object properties, using either reactive objects or refs.
+Ми вже зіткнулися з обмеженням у попередньому прикладі: JavaScript не надає нам способу перехопити читання та запис локальних змінних, тому ми маємо завжди отримувати доступ до реактивного стану як властивостей об’єкта, використовуючи або реактивні об’єкти, або референції.
 
-We have been experimenting with the [Reactivity Transform](/guide/extras/reactivity-transform.html) feature to reduce the code verbosity:
+Ми експериментували з [перетворенням реактивності](/guide/extras/reactivity-transform.html), щоб зменшити багатослівність коду:
 
 ```js
 let A0 = $ref(0)
 let A1 = $ref(1)
 
-// track on variable read
+// відстежує читання змінної
 const A2 = $computed(() => A0 + A1)
 
-// trigger on variable write
+// запускається під час запису змінної
 A0 = 2
 ```
 
-This snippet compiles into exactly what we'd have written without the transform, by automatically appending `.value` after references to the variables. With Reactivity Transform, Vue's reactivity system becomes a hybrid one.
+Цей фрагмент компілюється саме в те, що ми б написали без перетворення, шляхом автоматичного додавання `.value` після посилань на змінні. Завдяки перетворенню реактивності система реактивності Vue стає гібридною.
 
-## Reactivity Debugging
+## Налагодження реактивності {#reactivity-debugging}
 
-It's great that Vue's reactivity system automatically tracks dependencies, but in some cases we may want to figure out exactly what is being tracked, or what is causing a component to re-render.
+Чудово, що система реактивності Vue автоматично відстежує залежності, але в деяких випадках ми можемо захотіти з’ясувати, що саме відстежується, або що спричиняє повторний рендеринг компонента.
 
-### Component Debugging Hooks
+### Хуки налагодження компонентів {#component-debugging-hooks}
 
-We can debug what dependencies are used during a component's render and which dependency is triggering an update using the <span class="options-api">`renderTracked`</span><span class="composition-api">`onRenderTracked`</span> and <span class="options-api">`renderTriggered`</span><span class="composition-api">`onRenderTriggered`</span> lifecycle hooks. Both hooks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in the callbacks to interactively inspect the dependency:
+За допомогою хуків життєвого циклу <span class="options-api">`renderTracked`</span><span class="composition-api">`onRenderTracked`</span> та <span class="options-api">`renderTriggered`</span><span class="composition-api">`onRenderTriggered`</span> ми можемо налагодити залежності, які використовуються під час візуалізації компонента та залежність, яка ініціює оновлення. Обидва хуки отримають подію налагоджувача, яка містить інформацію про відповідну залежність. Рекомендується розмістити оператор `debugger` у зворотних викликах, щоб інтерактивно перевірити залежність:
 
 <div class="composition-api">
 
@@ -268,10 +268,10 @@ export default {
 </div>
 
 :::tip
-Component debug hooks only work in development mode.
+Хуки налагодження компонентів працюють лише в режимі розробки.
 :::
 
-The debug event objects have the following type:
+Об'єкти події налагодження мають такий тип:
 
 <span id="debugger-event"></span>
 
@@ -289,45 +289,45 @@ type DebuggerEvent = {
 }
 ```
 
-### Computed Debugging
+### Налагодження обчислюваної властивості {#computed-debugging}
 
 <!-- TODO options API equivalent -->
 
-We can debug computed properties by passing `computed()` a second options object with `onTrack` and `onTrigger` callbacks:
+Ми можемо налагодити обчислювані властивості, передавши `computed()` другий об’єкт параметрів зі зворотними викликами `onTrack` і `onTrigger`:
 
-- `onTrack` will be called when a reactive property or ref is tracked as a dependency.
-- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency.
+- `onTrack` буде викликано, коли реактивна властивість або референція відстежуються як залежність.
+- `onTrigger` буде викликано, коли зворотний виклик спостерігача запускається мутацією залежності.
 
-Both callbacks will receive debugger events in the [same format](#debugger-event) as component debug hooks:
+Обидва зворотні виклики отримають події налагоджувача в [однаковому форматі](#debugger-event), що й хуки налагодження компонентів:
 
 ```js
 const plusOne = computed(() => count.value + 1, {
   onTrack(e) {
-    // triggered when count.value is tracked as a dependency
+    // запускається, коли count.value відстежується як залежність
     debugger
   },
   onTrigger(e) {
-    // triggered when count.value is mutated
+    // запускається, коли count.value змінено
     debugger
   }
 })
 
-// access plusOne, should trigger onTrack
+// доступ до plusOne, має запустити onTrack
 console.log(plusOne.value)
 
-// mutate count.value, should trigger onTrigger
+// зміна count.value, має запустити onTrigger
 count.value++
 ```
 
 :::tip
-`onTrack` and `onTrigger` computed options only work in development mode.
+Параметри `onTrack` і `onTrigger` працюють лише в режимі розробки.
 :::
 
-### Watcher Debugging
+### Налагодження спостерігача {#watcher-debugging}
 
 <!-- TODO options API equivalent -->
 
-Similar to `computed()`, watchers also support the `onTrack` and `onTrigger` options:
+Подібно до `computed()`, спостерігачі також підтримують параметри `onTrack` та `onTrigger`:
 
 ```js
 watch(source, callback, {
@@ -350,22 +350,22 @@ watchEffect(callback, {
 ```
 
 :::tip
-`onTrack` and `onTrigger` watcher options only work in development mode.
+Параметри `onTrack` і `onTrigger` працюють лише в режимі розробки.
 :::
 
-## Integration with External State Systems
+## Інтеграція з зовнішніми системами стану {#integration-with-external-state-systems}
 
-Vue's reactivity system works by deeply converting plain JavaScript objects into reactive proxies. The deep conversion can be unnecessary or sometimes unwanted when integrating with external state management systems (e.g. if an external solution also uses Proxies).
+Система реактивності Vue працює шляхом глибокого перетворення простих об’єктів JavaScript у реактивні проксі. Глибоке перетворення може бути непотрібним або іноді небажаним під час інтеграції зі зовнішніми системами керування станом (наприклад, якщо зовнішнє рішення також використовує проксі).
 
-The general idea of integrating Vue's reactivity system with an external state management solution is to hold the external state in a [`shallowRef`](/api/reactivity-advanced.html#shallowref). A shallow ref is only reactive when its `.value` property is accessed - the inner value is left intact. When the external state changes, replace the ref value to trigger updates.
+Загальна ідея інтеграції системи реактивності Vue зі зовнішнім рішенням керування станом полягає у збереженні зовнішнього стану в [`shallowRef`](/api/reactivity-advanced.html#shallowref). Неглибока референція є реактивною лише тоді, коли здійснюється доступ до її властивості `.value` - внутрішнє значення залишається недоторканим. Коли зовнішній стан змінюється, змінюється значення референції, щоб запустити оновлення.
 
-### Immutable Data
+### Незмінні дані {#immutable-data}
 
-If you are implementing an undo / redo feature, you likely want to take a snapshot of the application's state on every user edit. However, Vue's mutable reactivity system isn't best suited for this if the state tree is large, because serializing the entire state object on every update can be expensive in terms of both CPU and memory costs.
+Якщо ви використовуєте функцію скасування/повторення, ви, ймовірно, захочете робити знімок стану додатку під час кожного редагування користувача. Однак змінна реактивность Vue не найкраще підходить для цього, якщо дерево стану велике, тому що серіалізація всього об’єкта стану під час кожного оновлення може бути дорогою з точки зору витрат як для процесора, так і для пам’яті.
 
-[Immutable data structures](https://en.wikipedia.org/wiki/Persistent_data_structure) solve this by never mutating the state objects - instead, it creates new objects that share the same, unchanged parts with old ones. There are different ways of using immutable data in JavaScript, but we recommend using [Immer](https://immerjs.github.io/immer/) with Vue because it allows you to use immutable data while keeping the more ergonomic, mutable syntax.
+[Незмінні структури даних](https://en.wikipedia.org/wiki/Persistent_data_structure) вирішують це, ніколи не змінюючи об’єкти стану – натомість створюються нові об’єкти, які мають однакові незмінні частини зі старими. Існують різні способи використання незмінних даних у JavaScript, але ми рекомендуємо використовувати [Immer](https://immerjs.github.io/immer/) із Vue, оскільки він дозволяє використовувати незмінні дані, зберігаючи більш ергономічний, змінний синтаксис.
 
-We can integrate Immer with Vue via a simple composable:
+Ми можемо інтегрувати Immer із Vue за допомогою простого компонування:
 
 ```js
 import produce from 'immer'
@@ -381,13 +381,13 @@ export function useImmer(baseState) {
 }
 ```
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZUltbWVyIH0gZnJvbSAnLi9pbW1lci5qcydcbiAgXG5jb25zdCBbaXRlbXMsIHVwZGF0ZUl0ZW1zXSA9IHVzZUltbWVyKFtcbiAge1xuICAgICB0aXRsZTogXCJMZWFybiBWdWVcIixcbiAgICAgZG9uZTogdHJ1ZVxuICB9LFxuICB7XG4gICAgIHRpdGxlOiBcIlVzZSBWdWUgd2l0aCBJbW1lclwiLFxuICAgICBkb25lOiBmYWxzZVxuICB9XG5dKVxuXG5mdW5jdGlvbiB0b2dnbGVJdGVtKGluZGV4KSB7XG4gIHVwZGF0ZUl0ZW1zKGl0ZW1zID0+IHtcbiAgICBpdGVtc1tpbmRleF0uZG9uZSA9ICFpdGVtc1tpbmRleF0uZG9uZVxuICB9KVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHVsPlxuICAgIDxsaSB2LWZvcj1cIih7IHRpdGxlLCBkb25lIH0sIGluZGV4KSBpbiBpdGVtc1wiXG4gICAgICAgIDpjbGFzcz1cInsgZG9uZSB9XCJcbiAgICAgICAgQGNsaWNrPVwidG9nZ2xlSXRlbShpbmRleClcIj5cbiAgICAgICAge3sgdGl0bGUgfX1cbiAgICA8L2xpPlxuICA8L3VsPlxuPC90ZW1wbGF0ZT5cblxuPHN0eWxlPlxuLmRvbmUge1xuICB0ZXh0LWRlY29yYXRpb246IGxpbmUtdGhyb3VnaDtcbn1cbjwvc3R5bGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCIsXG4gICAgXCJpbW1lclwiOiBcImh0dHBzOi8vdW5wa2cuY29tL2ltbWVyQDkuMC43L2Rpc3QvaW1tZXIuZXNtLmpzP21vZHVsZVwiXG4gIH1cbn0iLCJpbW1lci5qcyI6ImltcG9ydCBwcm9kdWNlIGZyb20gJ2ltbWVyJ1xuaW1wb3J0IHsgc2hhbGxvd1JlZiB9IGZyb20gJ3Z1ZSdcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZUltbWVyKGJhc2VTdGF0ZSkge1xuICBjb25zdCBzdGF0ZSA9IHNoYWxsb3dSZWYoYmFzZVN0YXRlKVxuICBjb25zdCB1cGRhdGUgPSAodXBkYXRlcikgPT4ge1xuICAgIHN0YXRlLnZhbHVlID0gcHJvZHVjZShzdGF0ZS52YWx1ZSwgdXBkYXRlcilcbiAgfVxuXG4gIHJldHVybiBbc3RhdGUsIHVwZGF0ZV1cbn0ifQ==)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNptVLtu2zAU/RWWS2zAkroVVe00HbO2QBfTgyJRNhOKFEjKcSEY6GPo3i8pstTokG+Q/6iXD8mqHQ0WL3l47rnX56rFH+o63jYUp3iuc8VqgzQ1TX1NBKtqqQxqUaPpbVVRhfaoVLJCV3HCbBzf6ysiECIil0IbtGSGVnqGmrrIDL21wQothuuTpQW39gcewwynKSK4+9Uduqfjz+5w/N4d0OeGEjwLoEIKwBgFe7Cxd9svE/ztno9fgeIbkDwD3Y/uqfvdE6LuD3ISzpnLjGtPTcRqSgQRZSNyw6RARq7X3BUxYaKgu6lPPKpt4spFi+tekouXDr2KbQIo/tXFpksHuSDlPPEth2ZDAMCaAzlECM0b7t6w4gxto1KqBcGT1pc9c/qhIShoY8JnJzjUB0+a80xruNUG9PjwJucsf4DDizoJDont04aEaA9ynZqEMy8wcQrnyUg2hNp84Xbp63eNMXRnooLmUmW2syniTNDIbJRs1pt3fSPcPTzD3nVRldVgLynAl46EhAOoMO37TTAY18YEb4ypdZokusytm+91LNU6gVWsGmFYRWOqq+hOyUftfDsYwfI6Y4xZGlE/rONcVt7nN2/j1/GbpGDaBOMDGZC8r2TR8JNdnZ4EEmypihSFbqpz5v/1nUEvNAZn7l1b/MBBP8Jc1gqy5zSMpDuHaRyGVm8yzuXjR1oOYwuJAUEE3TnMYPVhQO8yTT8Z+C+D2f1Ya7sDVj4xjoAnmJ8MwE38Sk1Ho+E44m3GYRgXvfTJaLf/aijHCEXbl4IvkRJo6XA9YmUbsv8HRK+sqw==)
 
-### State Machines
+### Скінченний автомат {#state-machines}
 
-[State Machine](https://en.wikipedia.org/wiki/Finite-state_machine) is a model for describing all the possible states an application can be in, and all the possible ways it can transition from one state to another. While it may be overkill for simple components, it can help make complex state flows more robust and manageable.
+[Скінченний автомат](https://uk.wikipedia.org/wiki/Скінченний_автомат) — це модель для опису всіх можливих станів, у яких може перебувати програма, і всіх можливих способів переходу з одного стану в інший. Хоча це може бути надмірним для простих компонентів, це може допомогти зробити складні потоки стану більш надійними та керованими.
 
-One of the most popular state machine implementations in JavaScript is [XState](https://xstate.js.org/). Here's a composable that integrates with it:
+Однією з найпопулярніших реалізацій скінченного автомата в JavaScript є [XState](https://xstate.js.org/). Ось інтеграція з нею:
 
 ```js
 import { createMachine, interpret } from 'xstate'
@@ -405,8 +405,8 @@ export function useMachine(options) {
 }
 ```
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZU1hY2hpbmUgfSBmcm9tICcuL21hY2hpbmUuanMnXG4gIFxuY29uc3QgW3N0YXRlLCBzZW5kXSA9IHVzZU1hY2hpbmUoe1xuICBpZDogJ3RvZ2dsZScsXG4gIGluaXRpYWw6ICdpbmFjdGl2ZScsXG4gIHN0YXRlczoge1xuICAgIGluYWN0aXZlOiB7IG9uOiB7IFRPR0dMRTogJ2FjdGl2ZScgfSB9LFxuICAgIGFjdGl2ZTogeyBvbjogeyBUT0dHTEU6ICdpbmFjdGl2ZScgfSB9XG4gIH1cbn0pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cInNlbmQoJ1RPR0dMRScpXCI+XG4gICAge3sgc3RhdGUubWF0Y2hlcyhcImluYWN0aXZlXCIpID8gXCJPZmZcIiA6IFwiT25cIiB9fVxuICA8L2J1dHRvbj5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCIsXG4gICAgXCJ4c3RhdGVcIjogXCJodHRwczovL3VucGtnLmNvbS94c3RhdGVANC4yNy4wL2VzL2luZGV4LmpzP21vZHVsZVwiXG4gIH1cbn0iLCJtYWNoaW5lLmpzIjoiaW1wb3J0IHsgY3JlYXRlTWFjaGluZSwgaW50ZXJwcmV0IH0gZnJvbSAneHN0YXRlJ1xuaW1wb3J0IHsgc2hhbGxvd1JlZiB9IGZyb20gJ3Z1ZSdcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZU1hY2hpbmUob3B0aW9ucykge1xuICBjb25zdCBtYWNoaW5lID0gY3JlYXRlTWFjaGluZShvcHRpb25zKVxuICBjb25zdCBzdGF0ZSA9IHNoYWxsb3dSZWYobWFjaGluZS5pbml0aWFsU3RhdGUpXG4gIGNvbnN0IHNlcnZpY2UgPSBpbnRlcnByZXQobWFjaGluZSlcbiAgICAub25UcmFuc2l0aW9uKChuZXdTdGF0ZSkgPT4gKHN0YXRlLnZhbHVlID0gbmV3U3RhdGUpKVxuICAgIC5zdGFydCgpXG4gIGNvbnN0IHNlbmQgPSAoZXZlbnQpID0+IHNlcnZpY2Uuc2VuZChldmVudClcblxuICByZXR1cm4gW3N0YXRlLCBzZW5kXVxufSJ9)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9VM2O0zAQfpWRL0mlboIQElLV7i4HtBcQEuwNc8im09a7yTiynbZS1ZfgwIMgISEEPEN4I8Z2mraL2EOieOb7Zr75cXbiVdNk6xbFRExtaVTjwKJrm0tJqm60cbCD1uLbolwpQtjDwugakiyvoyW7t4kkAEmlJuvgo3WFwzEHofknmJ1w053HqfkEEqeXywqTcTCQcqqo2KqoKJ1a9/YQx04gsDwsOtkAmvz79t3NzZvXzOtZrG0fmAD/hQ4pPNhj+bUfSZrmsXaumg8O66bi7HwCmN61zmmC67JS5cNMCl9ZmsSQyUiKgALY7aLkrC5cuUKbSnHIJsUIrkCK7nP3vfvZ/eh+dd/4+S0FTKL5658vjxz7IG+ax+ycY5oPssRYxNlc1EXDA9DE0wt94pzBYaUYOicFj9efpVg519hJnttF6Wd+bzNtljl/ZaYlp2rM0NYXd0ZvLBoOLEXfUCm2objzMC01D8us1HUevdcvsucvs2c52lzRHLcc4arW87Zi3hCIs+UcfY3mwnAn0aB5Stwj6D8CD0Pknhw3ktsxLG9pkKX1OzjmPXJoGoNuWOWonZd4oNhVUVV68x4XA4gFMUISbgNm0RJPlrfiZL114y12FPseb0Mvie/BmYwBe0QGEYw75k4P9fQ35INHnDK4M6r0nKGmAyWgADJNt6Ygy3RNaUq4iTFgdglpXNZ1UbU+xOA7UNltXHqWjuYMTHGN5EKIXkAWLkQ0+xYBsJLW0PmvwI9o/xfkWpJJ)
 
-### RxJS
+### RxJS {#rxjs}
 
-[RxJS](https://rxjs.dev/) is a library for working with asynchronous event streams. The [VueUse](https://vueuse.org/) library provides the [`@vueuse/rxjs`](https://vueuse.org/rxjs/readme.html) add-on for connecting RxJS streams with Vue's reactivity system.
+[RxJS](https://rxjs.dev/) — це бібліотека для роботи з асинхронними потоками подій. Бібліотека [VueUse](https://vueuse.org/) надає надбудову [`@vueuse/rxjs`](https://vueuse.org/rxjs/readme.html) для підключення потоків RxJS до системи реактивності Vue.

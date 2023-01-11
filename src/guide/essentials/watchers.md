@@ -1,23 +1,23 @@
-# Watchers
+# Спостерігачі {#watchers}
 
-## Basic Example
+## Базовий приклад {#basic-example}
 
-Computed properties allow us to declaratively compute derived values. However, there are cases where we need to perform "side effects" in reaction to state changes - for example, mutating the DOM, or changing another piece of state based on the result of an async operation.
+Обчислювані властивості дозволяють нам декларативно обчислювати похідні значення. Однак є випадки, коли нам потрібно створити «побічні ефекти» у відповідь на зміни стану - наприклад, змінити DOM або змінити іншу частину стану на основі результату асинхронної операції.
 
 <div class="options-api">
 
-With the Options API, we can use the [`watch` option](/api/options-state.html#watch) to trigger a function whenever a reactive property changes:
+За допомогою Опційного API ми можемо використовувати параметр [`watch`](/api/options-state.html#watch), щоб запускати функцію щоразу, коли змінюється реактивна властивість:
 
 ```js
 export default {
   data() {
     return {
       question: '',
-      answer: 'Questions usually contain a question mark. ;-)'
+      answer: 'Запитання зазвичай містять знак питання. ;-)'
     }
   },
   watch: {
-    // whenever question changes, this function will run
+    // ця функція запускатиметься щоразу, коли питання зміниться 
     question(newQuestion, oldQuestion) {
       if (newQuestion.includes('?')) {
         this.getAnswer()
@@ -26,12 +26,12 @@ export default {
   },
   methods: {
     async getAnswer() {
-      this.answer = 'Thinking...'
+      this.answer = 'Думаю...'
       try {
         const res = await fetch('https://yesno.wtf/api')
         this.answer = (await res.json()).answer
       } catch (error) {
-        this.answer = 'Error! Could not reach the API. ' + error
+        this.answer = 'Помилка! Неможливо досягнути до API. ' + error
       }
     }
   }
@@ -40,20 +40,20 @@ export default {
 
 ```vue-html
 <p>
-  Ask a yes/no question:
+  Поставте запитання «так»/«ні»:
   <input v-model="question" />
 </p>
 <p>{{ answer }}</p>
 ```
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgcXVlc3Rpb246ICcnLFxuICAgICAgYW5zd2VyOiAnUXVlc3Rpb25zIHVzdWFsbHkgY29udGFpbiBhIHF1ZXN0aW9uIG1hcmsuIDstKSdcbiAgICB9XG4gIH0sXG4gIHdhdGNoOiB7XG4gICAgLy8gd2hlbmV2ZXIgcXVlc3Rpb24gY2hhbmdlcywgdGhpcyBmdW5jdGlvbiB3aWxsIHJ1blxuICAgIHF1ZXN0aW9uKG5ld1F1ZXN0aW9uLCBvbGRRdWVzdGlvbikge1xuICAgICAgaWYgKG5ld1F1ZXN0aW9uLmluZGV4T2YoJz8nKSA+IC0xKSB7XG4gICAgICAgIHRoaXMuZ2V0QW5zd2VyKClcbiAgICAgIH1cbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBhc3luYyBnZXRBbnN3ZXIoKSB7XG4gICAgICB0aGlzLmFuc3dlciA9ICdUaGlua2luZy4uLidcbiAgICAgIHRyeSB7XG4gICAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCdodHRwczovL3llc25vLnd0Zi9hcGknKVxuICAgICAgICB0aGlzLmFuc3dlciA9IChhd2FpdCByZXMuanNvbigpKS5hbnN3ZXJcbiAgICAgIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgICAgIHRoaXMuYW5zd2VyID0gJ0Vycm9yISBDb3VsZCBub3QgcmVhY2ggdGhlIEFQSS4gJyArIGVycm9yXG4gICAgICB9XG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBBc2sgYSB5ZXMvbm8gcXVlc3Rpb246XG4gICAgPGlucHV0IHYtbW9kZWw9XCJxdWVzdGlvblwiIC8+XG4gIDwvcD5cbiAgPHA+e3sgYW5zd2VyIH19PC9wPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9VM1u00AQfpXBFzsiWYtrSIt65ATcfTHJpnEVr83uOm4URaINAiEhekHhhHiAXqpCaMhfpTzB7hsx6z+SFCEl8c7szHzj75vJyDqJYzJIqNW0WqLNg1gee4yexxGX0KFdP+lLGHkMoONL36nlZwBOZcJZaQG8SaiQQcSaYNv10ukzkVKOLvVV3ah7NdeX+Fyrtb4CdYfHO3WLzg94+g1qpaf6Ql/qK/x+Mvdr9C9gP4/A00bNzgHG5jHO0FJftnvNsh3XBf0eMfQ7PcG0BRrTEvJeT/SFWqgbrDlXKzUzaIiL0R/VRr81XelJHTBko5ZqfoBvimCjaKAzT8wxSwIcRtNXxbkOUb9TGhV1AEEXdsNIwDr0/EXXsZ/ZNTiGxpOdWADZCwQ5pfIkY9OplTfZ6++xEFLZizqi4sEXQ9aGndS/ZbOiuT5whAJ9QaZWSMpnQkhBLwbx4W4j7YgJicoLzPBTP5DQpUi7Y/ekjEXTdYdUsIiksuv6cWBXjR6iOXkyFiJnAhmr1Yq76s2gbfQEh3Ie8Ydk7PT9HVVaoZBLI+kjUN/UDO2N+mW0w+nagPqJsqJM6gfqNzGqZy44efmcgA2PIQP5J6kew0/LrdYCDUnDuO9LihZAK84eAKYNM7s4Jbf4OytGbW9wtteZsdgu3e01eqbbZTPPbgUsTiQMGmHUof0jzypnybPAzYHcHAkBR6NirWA8zt0tt2rKqltBaFa3EfpxRi6udcaeV1wIz6rGw7Nw743tWaWCots2fwZngkT81MUT4QmTQUgJFWHjNY9SQTkW9qxiybMaLjoHlDc4xUHmqON/ah6EPqhbEm+N/wC/wui2)
 
-The `watch` option also supports a dot-delimited path as the key:
+Параметр `watch` також підтримує шлях, розділений крапками як ключ:
 
 ```js
 export default {
   watch: {
-    // Note: only simple paths. Expressions are not supported.
+    // Примітка: тільки прості шляхи. Вирази не підтримуються.
     'some.nested.key'(newValue) {
       // ...
     }
@@ -65,24 +65,24 @@ export default {
 
 <div class="composition-api">
 
-With Composition API, we can use the [`watch` function](/api/reactivity-core.html#watch) to trigger a callback whenever a piece of reactive state changes:
+За допомогою композиційного API ми можемо використовувати функцію [`watch`](/api/reactivity-core.html#watch), щоб ініціювати зворотний виклик щоразу, коли частина реактивного стану змінюється:
 
 ```vue
 <script setup>
 import { ref, watch } from 'vue'
 
 const question = ref('')
-const answer = ref('Questions usually contain a question mark. ;-)')
+const answer = ref('Запитання зазвичай містять знак питання. ;-)')
 
-// watch works directly on a ref
+// watch працює безпосередньо на референції
 watch(question, async (newQuestion, oldQuestion) => {
   if (newQuestion.indexOf('?') > -1) {
-    answer.value = 'Thinking...'
+    answer.value = 'Думаю...'
     try {
       const res = await fetch('https://yesno.wtf/api')
       answer.value = (await res.json()).answer
     } catch (error) {
-      answer.value = 'Error! Could not reach the API. ' + error
+      answer.value = 'Помилка! Неможливо досягнути до API. ' + error
     }
   }
 })
@@ -90,81 +90,81 @@ watch(question, async (newQuestion, oldQuestion) => {
 
 <template>
   <p>
-    Ask a yes/no question:
+    Поставте запитання «так»/«ні»:
     <input v-model="question" />
   </p>
   <p>{{ answer }}</p>
 </template>
 ```
 
-[Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgd2F0Y2ggfSBmcm9tICd2dWUnXG5cbmNvbnN0IHF1ZXN0aW9uID0gcmVmKCcnKVxuY29uc3QgYW5zd2VyID0gcmVmKCdRdWVzdGlvbnMgdXN1YWxseSBjb250YWluIGEgcXVlc3Rpb24gbWFyay4gOy0pJylcblxud2F0Y2gocXVlc3Rpb24sIGFzeW5jIChuZXdRdWVzdGlvbikgPT4ge1xuICBpZiAobmV3UXVlc3Rpb24uaW5kZXhPZignPycpID4gLTEpIHtcbiAgICBhbnN3ZXIudmFsdWUgPSAnVGhpbmtpbmcuLi4nXG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCdodHRwczovL3llc25vLnd0Zi9hcGknKVxuICAgICAgYW5zd2VyLnZhbHVlID0gKGF3YWl0IHJlcy5qc29uKCkpLmFuc3dlclxuICAgIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgICBhbnN3ZXIudmFsdWUgPSAnRXJyb3IhIENvdWxkIG5vdCByZWFjaCB0aGUgQVBJLiAnICsgZXJyb3JcbiAgICB9XG4gIH1cbn0pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBBc2sgYSB5ZXMvbm8gcXVlc3Rpb246XG4gICAgPGlucHV0IHYtbW9kZWw9XCJxdWVzdGlvblwiIC8+XG4gIDwvcD5cbiAgPHA+e3sgYW5zd2VyIH19PC9wPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Спробуйте в пісочниці](https://sfc.vuejs.org/#eNp9U8Fu00AQ/ZXBF9siXotrSIN65ATc92LcNXUUr83uOiaKfKA9cEHkgsoJ8QG9RIXSkDRByhes/4hZb1yRgnqIvfP2zczzm8nMOS4KMimZ03cGMhZpoUAyVRZDytOsyIWCGQiW9KCKVHwKNSQiz8DFDJdyyuOcSwVvSyZVmnM4MlzPdf3uJuKyYqLD9Re90L/1sjnD90ZvmjnoGzze6CsEP+DpF+jb5qJ535w1c/x9NPcbxFdwmEfgaeCbNpS3wrxOQg8iOeUxeJxVr/aYD0dDmFEOkCYHFyTlJ+zdC1T2zPVhCMET3/JgL5xMonHJUL6rPzfn+lYvmk+EEPx0w1Fi2tEB7PcKJpEdVVGqIGFGmHuqVCH7YThlkuekUkkYFamRbvPuNfJsLtYhI5lzz/eJZVh+DXE7B48JkYs7tf/R+01vUe9Sr/VKLx6B/qqvMd7qn4gs0e8t6B96i07P9Xd09By9XbYQHL98TsCFx9D22Pc1L3zUqHsQ2kXBFcFAsawYR4phBDAwe2P4pr2ZIs7rCp/Xds6Ho99dtsFqtw53l4hc7NZ9mz1IeVEqmARZfsLGR9TppksdCG2j0HbChrNZt2V1beFBeCfK6Tl2jYMsKlpHcdFb0+j+QlKn39lIHdxrE1Onm5pMYvP3GEmSizchnogouUozRpjMgtciryTaPsIqvb9qhAhOmAgEwwUTOLwHat6j/lO3c96p/wARy4B1)
 
-### Watch Source Types
+### Вихідні типи спостерігачів {#watch-source-types}
 
-`watch`'s first argument can be different types of reactive "sources": it can be a ref (including computed refs), a reactive object, a getter function, or an array of multiple sources:
+Першим аргументом `watch` можуть бути різні типи реактивних "джерел": це може бути референція (включаючи обчислювані референції), реактивний об’єкт, функція отримання або масив із кількох джерел:
 
 ```js
 const x = ref(0)
 const y = ref(0)
 
-// single ref
+// одиночна референція
 watch(x, (newX) => {
-  console.log(`x is ${newX}`)
+  console.log(`x — це ${newX}`)
 })
 
 // getter
 watch(
   () => x.value + y.value,
   (sum) => {
-    console.log(`sum of x + y is: ${sum}`)
+    console.log(`сума x + y: ${sum}`)
   }
 )
 
-// array of multiple sources
+// масив із кількох джерел
 watch([x, () => y.value], ([newX, newY]) => {
-  console.log(`x is ${newX} and y is ${newY}`)
+  console.log(`x це ${newX}, y це ${newY}`)
 })
 ```
 
-Do note that you can't watch a property of a reactive object like this:
+Зверніть увагу, що ви не можете спостерігати властивість реактивного об'єкта, як тут:
 
 ```js
 const obj = reactive({ count: 0 })
 
-// this won't work because we are passing a number to watch()
+// це не спрацює, тому що ми передаємо число в watch()
 watch(obj.count, (count) => {
-  console.log(`count is: ${count}`)
+  console.log(`кількість: ${count}`)
 })
 ```
 
-Instead, use a getter:
+Краще використовувати getter:
 
 ```js
-// instead, use a getter:
+// краще використовувати getter:
 watch(
   () => obj.count,
   (count) => {
-    console.log(`count is: ${count}`)
+    console.log(`кількість: ${count}`)
   }
 )
 ```
 
 </div>
 
-## Deep Watchers
+## Глибинні спостерігачі {#deep-watchers}
 
 <div class="options-api">
 
-`watch` is shallow by default: the callback will only trigger when the watched property has been assigned a new value - it won't trigger on nested property changes. If you want the callback to fire on all nested mutations, you need to use a deep watcher:
+`watch` за промовчанням є поверхневим: зворотний виклик запускатиметься лише тоді, коли спостережуваним властивостям було призначено нове значення, але він не запускатиметься під час зміни вкладених властивостей. Якщо ви хочете, щоб зворотний виклик запускався при всіх вкладених змінах, вам потрібно використовувати глибинний спостерігач:
 
 ```js
 export default {
   watch: {
     someObject: {
       handler(newValue, oldValue) {
-        // Note: `newValue` will be equal to `oldValue` here
-        // on nested mutations as long as the object itself
-        // hasn't been replaced.
+        // Примітка: Тут, `newValue` дорівнюватиме `oldValue`
+        // при вкладених змінах при умові,
+        // що сам об’єкт не було замінено.
       },
       deep: true
     }
@@ -176,39 +176,39 @@ export default {
 
 <div class="composition-api">
 
-When you call `watch()` directly on a reactive object, it will implicitly create a deep watcher - the callback will be triggered on all nested mutations:
+Коли ви викликаєте `watch()` безпосередньо для реактивного об'єкта, це неявно створить глибинний спостерігач - зворотний виклик буде запущено для всіх вкладених змін:
 
 ```js
 const obj = reactive({ count: 0 })
 
 watch(obj, (newValue, oldValue) => {
-  // fires on nested property mutations
-  // Note: `newValue` will be equal to `oldValue` here
-  // because they both point to the same object!
+  // спрацьовує при зміні вкладених властивостей
+  // Примітка: тут `newValue` дорівнюватиме `oldValue`
+  // тому що вони обидва вказують на один і той же об'єкт!
 })
 
 obj.count++
 ```
 
-This should be differentiated with a getter that returns a reactive object - in the latter case, the callback will only fire if the getter returns a different object:
+Це слід відрізняти від того, як працює getter, що повертає реактивний об'єкт – в останньому випадку зворотний виклик запускатиметься, лише якщо геттер повертає інший об’єкт:
 
 ```js
 watch(
   () => state.someObject,
   () => {
-    // fires only when state.someObject is replaced
+    // спрацьовує лише тоді, коли state.someObject замінено
   }
 )
 ```
 
-You can, however, force the second case into a deep watcher by explicitly using the `deep` option:
+Однак, ви можете примусово перевести другий випадок у глибинний спостерігач, явно використовуючи опцію `deep`:
 
 ```js
 watch(
   () => state.someObject,
   (newValue, oldValue) => {
-    // Note: `newValue` will be equal to `oldValue` here
-    // *unless* state.someObject has been replaced
+    // Примітка: тут `newValue` дорівнюватиме `oldValue`
+    // якщо state.someObject **не було** замінено
   },
   { deep: true }
 )
@@ -216,17 +216,17 @@ watch(
 
 </div>
 
-:::warning Use with Caution
-Deep watch requires traversing all nested properties in the watched object, and can be expensive when used on large data structures. Use it only when necessary and beware of the performance implications.
+:::warning Використовувати з обережністю
+Глибоке спостереження вимагає обходу всіх вкладених властивостей у спостережуваному об'єкті та може бути дорогим при використанні на великих структурах даних. Використовуйте його лише за необхідності та остерігайтеся наслідків щодо продуктивності.
 :::
+
+## Негайні спостерігачі {#eager-watchers}
+
+`watch` за промовчанням є лінивим: зворотний виклик не буде викликано, доки не зміниться спостережуване джерело. Але в деяких випадках ми можемо захотіти, щоб та сама логіка зворотного виклику запускалася невідкладно - наприклад, ми можемо захотіти отримати деякі початкові дані, а потім повторно отримати дані щоразу, коли відповідний стан змінюється.
 
 <div class="options-api">
 
-## Eager Watchers \*
-
-`watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
-
-We can force a watcher's callback to be executed immediately by declaring it using an object with a `handler` function and the `immediate: true` option:
+Ми можемо змусити зворотний виклик спостерігача виконуватися негайно, оголосивши його за допомогою об'єкта з функцією `handler` та параметром `immediate: true`:
 
 ```js
 export default {
@@ -234,9 +234,9 @@ export default {
   watch: {
     question: {
       handler(newQuestion) {
-        // this will be run immediately on component creation.
+        // це буде запущено відразу після створення компонента.
       },
-      // force eager callback execution
+      // негайне виконання зворотного виклику
       immediate: true
     }
   }
@@ -244,63 +244,80 @@ export default {
 }
 ```
 
+Початкове виконання функції обробки відбудеться безпосередньо перед `created` хуком. Vue вже обробить параметри `data`, `computed` і `methods`, тому ці властивості будуть доступні під час першого виклику.
+  
 </div>
 
 <div class="composition-api">
 
-## `watchEffect()` \*\*
-
-`watch()` is lazy: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes. We may find ourselves doing this:
+Ми можемо змусити зворотний виклик спостерігача виконуватися негайно, передавши опцію `immediate: true`:
 
 ```js
-const url = ref('https://...')
-const data = ref(null)
-
-async function fetchData() {
-  const response = await fetch(url.value)
-  data.value = await response.json()
-}
-
-// fetch immediately
-fetchData()
-// ...then watch for url change
-watch(url, fetchData)
+watch(source, (newValue, oldValue) => {
+  // виконується негайно, а потім знову, коли `source` змінюється
+}, { immediate: true })
 ```
 
-This can be simplified with [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` allows us to perform a side effect immediately while automatically tracking the effect's reactive dependencies. The above example can be rewritten as:
+</div>
+
+<div class="composition-api">
+
+## `watchEffect()` \*\* {#watcheffect}
+
+Зворотний виклик спостерігача зазвичай використовує той самий реактивний стан, що й джерело. Наприклад, розглянемо наступний код, який використовує спостерігач для завантаження віддаленого ресурсу щоразу, коли змінюється посилання `todoId`:
+
+```js
+const todoId = ref(1)
+const data = ref(null)
+
+watch(todoId, async () => {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  )
+  data.value = await response.json()
+}, { immediate: true })
+```
+
+Зокрема, зверніть увагу, як спостерігач використовує `todoId` двічі, один раз як джерело, а потім знову в зворотному виклику.
+
+Це можна спростити за допомогою [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` дозволяє нам негайно виконати побічний ефект, автоматично відстежуючи реактивні залежності ефекту. Наведений вище приклад можна переписати так:
 
 ```js
 watchEffect(async () => {
-  const response = await fetch(url.value)
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  )
   data.value = await response.json()
 })
 ```
 
-Here, the callback will run immediately. During its execution, it will also automatically track `url.value` as a dependency (similar to computed properties). Whenever `url.value` changes, the callback will be run again.
+Тут зворотний виклик запуститься негайно, немає потреби вказувати `immediate: true`. Під час виконання `todoId.value` буде автоматично відстежуватись як залежність (подібно до обчислюваних властивостей). Щоразу, коли `todoId.value` змінюється, зворотній виклик буде виконуватись. З `watchEffect()` нам більше не потрібно явно вказувати `todoId`, як вихідне значення.
 
-You can check out [this example](/examples/#fetching-data) with `watchEffect` and reactive data-fetching in action.
+Ви можете переглянути [цей приклад](/examples/#fetching-data) з `watchEffect` і реактивним отримання даних на практиці.
+
+Для подібних прикладів із лише однією залежністю перевага `watchEffect()` відносно невелика. Але для спостерігачів, які мають кілька залежностей, використання `watchEffect()` знімає тягар необхідності підтримувати список залежностей вручну. Крім того, якщо вам потрібно спостерігати за кількома властивостями у вкладеній структурі даних, `watchEffect()` може виявитися ефективнішим, ніж глибокий спостерігач, оскільки він відстежуватиме лише властивості, які використовуються у зворотному виклику, а не рекурсивно відстежуватиме їх всіх.
 
 :::tip
-`watchEffect` only tracks dependencies during its **synchronous** execution. When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
+`watchEffect` відстежує лише залежності під час свого **синхронного** виконання. У разі використання з асинхронним зворотним викликом відстежуватимуться лише властивості, доступ до яких було отримано до першої позначки `await`.
 :::
 
-### `watch` vs. `watchEffect`
+### `watch` та `watchEffect` {#watch-vs-watcheffect}
 
-`watch` and `watchEffect` both allow us to reactively perform side effects. Their main difference is the way they track their reactive dependencies:
+`watch` і `watchEffect` дозволяють нам реактивно виконувати побічні ефекти. Їх головна відмінність полягає в тому, яким чином вони відстежують свої реактивні залежності:
 
-- `watch` only tracks the explicitly watched source. It won't track anything accessed inside the callback. In addition, the callback only triggers when the source has actually changed. `watch` separates dependency tracking from the side effect, giving us more precise control over when the callback should fire.
-
-- `watchEffect`, on the other hand, combines dependency tracking and side effect into one phase. It automatically tracks every reactive property accessed during its synchronous execution. This is more convenient and typically results in terser code, but makes its reactive dependencies less explicit.
+- `watch` відстежує лише явне спостережуване джерело. Він не відстежуватиме нічого, до чого звертаються всередині зворотного виклику. Крім того, зворотний виклик запускається лише тоді, коли джерело дійсно змінилося. `watch` відокремлює відстеження залежностей від побічного ефекту, що дає нам точніший контроль над тим, коли зворотний виклик повинен запускатися.
+  
+- `watchEffect`, з іншого боку, поєднує відстеження залежностей і побічний ефект в одну фазу. Він автоматично відстежує кожну реактивну властивість, до якої звертаються під час його синхронного виконання. Це зручніше і зазвичай призводить до терсерного коду, але робить його реактивні залежності менш явними.
 
 </div>
 
-## Callback Flush Timing
+## Час спрацювання {#callback-flush-timing}
 
-When you mutate reactive state, it may trigger both Vue component updates and watcher callbacks created by you.
+Коли ви змінюєте реактивний стан, це може запускати як оновлення компонентів Vue, так і зворотні виклики спостерігача, створені вами.
 
-By default, user-created watcher callbacks are called **before** Vue component updates. This means if you attempt to access the DOM inside a watcher callback, the DOM will be in the state before Vue has applied any updates.
+За замовчуванням користувацькі зворотні виклики спостерігача, викликаються **перед** оновленням компонента Vue. Це означає, що якщо ви спробуєте отримати доступ до DOM у зворотному виклику спостерігача, DOM буде в стані до того, як Vue застосовує будь-які оновлення.
 
-If you want to access the DOM in a watcher callback **after** Vue has updated it, you need to specify the `flush: 'post'` option:
+Якщо ви хочете отримати доступ до DOM у зворотному виклику спостерігача **після** оновлення Vue, вам потрібно вказати опцію `flush: 'post'`:
 
 <div class="options-api">
 
@@ -330,13 +347,13 @@ watchEffect(callback, {
 })
 ```
 
-Post-flush `watchEffect()` also has a convenience alias, `watchPostEffect()`:
+Постспрацювання `watchEffect()` також має зручний псевдонім, `watchPostEffect()`:
 
 ```js
 import { watchPostEffect } from 'vue'
 
 watchPostEffect(() => {
-  /* executed after Vue updates */
+  /* виконується після оновлення Vue */
 })
 ```
 
@@ -344,9 +361,9 @@ watchPostEffect(() => {
 
 <div class="options-api">
 
-## `this.$watch()` \*
+## `this.$watch()` \* {#this-watch}
 
-It's also possible to imperatively create watchers using the [`$watch()` instance method](/api/component-instance.html#watch):
+Також можливе імперативне створення спостерігачів за допомогою [`watch()` методу екземпляра](/api/component-instance.html#watch):
 
 ```js
 export default {
@@ -358,22 +375,22 @@ export default {
 }
 ```
 
-This is useful when you need to conditionally set up a watcher, or only watch something in response to user interaction. It also allows you to stop the watcher early.
+Це корисно, коли вам потрібно умовно налаштувати спостерігач або спостерігати щось лише у відповідь на взаємодію користувача. Це також дозволяє раніше зупинити спостерігача.
 
 </div>
 
-## Stopping a Watcher
+## Зупинення спостерігача {#stopping-a-watcher}
 
 <div class="options-api">
 
-Watchers declared using the `watch` option or the `$watch()` instance method are automatically stopped when the owner component is unmounted, so in most cases you don't need to worry about stopping the watcher yourself.
+Спостерігачі, оголошені за допомогою параметра `watch` або методу екземпляра `$watch()`, автоматично зупиняються, коли компонент-власник демонтується, тому в більшості випадків вам не потрібно самостійно турбуватися про зупинку спостерігача.
 
-In the rare case where you need to stop a watcher before the owner component unmounts, the `$watch()` API returns a function for that:
+У рідкісних випадках, коли вам потрібно зупинити спостерігач до того, як компонент-власник демонтується, API `$watch()` повертає для цього функцію:
 
 ```js
 const unwatch = this.$watch('foo', callback)
 
-// ...when the watcher is no longer needed:
+// ...коли спостерігач більше не потрібен:
 unwatch()
 ```
 
@@ -381,42 +398,42 @@ unwatch()
 
 <div class="composition-api">
 
-Watchers declared synchronously inside `setup()` or `<script setup>` are bound to the owner component instance, and will be automatically stopped when the owner component is unmounted. In most cases, you don't need to worry about stopping the watcher yourself.
+Спостерігачі, оголошені синхронно всередині `setup()` або `<script setup>`, прив'язані до екземпляра компонента-власника та будуть автоматично зупинені, коли компонент-власник буде демонтовано. У більшості випадків вам не потрібно турбуватися про те, щоб зупинити спостерігача самостійно.
 
-The key here is that the watcher must be created **synchronously**: if the watcher is created in an async callback, it won't be bound to the owner component and must be stopped manually to avoid memory leaks. Here's an example:
+Ключовим тут є те, що спостерігач має бути створений **синхронно**: якщо спостерігач створюється в асинхронному зворотному виклику, він не буде прив'язаний до компонента-власника та має бути зупинений вручну, щоб уникнути витоку пам’яті. Ось приклад:
 
 ```vue
 <script setup>
 import { watchEffect } from 'vue'
 
-// this one will be automatically stopped
+// цей буде автоматично зупинено
 watchEffect(() => {})
 
-// ...this one will not!
+// ...а цей — ні!
 setTimeout(() => {
   watchEffect(() => {})
 }, 100)
 </script>
 ```
 
-To manually stop a watcher, use the returned handle function. This works for both `watch` and `watchEffect`:
+Щоб вручну зупинити спостерігач, скористайтеся повернутою функцією вручну. Це працює як для `watch`, так і для `watchEffect`:
 
 ```js
 const unwatch = watchEffect(() => {})
 
-// ...later, when no longer needed
+// ...пізніше, коли більше не потрібно
 unwatch()
 ```
 
-Note that there should be very few cases where you need to create watchers asynchronously, and synchronous creation should be preferred whenever possible. If you need to wait for some async data, you can make your watch logic conditional instead:
+Зауважте, що існує дуже мало випадків, коли вам потрібно створити спостерігачі асинхронно, і коли це можливо, слід віддавати перевагу синхронному створенню. Якщо вам потрібно дочекатися деяких асинхронних даних, ви можете натомість зробити логіку свого спостерігача умовною:
 
 ```js
-// data to be loaded asynchronously
+// дані, які завантажуються асинхронно
 const data = ref(null)
 
 watchEffect(() => {
   if (data.value) {
-    // do something when data is loaded
+    // щось зробити, коли дані завантажились
   }
 })
 ```
