@@ -45,7 +45,7 @@ createApp({
 ```vue-html
 <div id="app">
   <button @click="count++">
-    Count is: {{ count }}
+    Рахунок: {{ count }}
   </button>
 </div>
 ```
@@ -59,7 +59,7 @@ const count = ref(0)
 
 <div class="demo">
   <button @click="count++">
-    Count is: {{ count }}
+    Рахунок: {{ count }}
   </button>
 </div>
 
