@@ -16,11 +16,11 @@ const multiSelected = ref([])
 # Прив'язування елементів форми {#form-input-bindings}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Безкоштовний урок по взаємодії з користувачем на Vue.js"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Безкоштовний урок по елементах форм із Vue.js"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Безкоштовний урок по взаємодії з користувачем на Vue.js"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Безкоштовний урок по елементах форм із Vue.js"/>
 </div>
 
 Коли ми маємо справу з формами на фронтенді, нам часто потрібно синхронізувати стан елементів введення форми з відповідним станом у JavaScript. Вручну підключати зв'язки значень і змінювати слухачів подій може бути громіздким:
@@ -37,7 +37,7 @@ const multiSelected = ref([])
 <input v-model="text">
 ```
 
-Крім того, `v-model` можна використовувати для входів різних типів, елементів `<textarea>` і `<select>`. Він автоматично розширюється до різних пар властивостей і подій DOM на основі елемента, у якому він використовується:
+Крім того, `v-model` можна використовувати для елементів різних типів, таких як `<textarea>` і `<select>`. Вона автоматично розширюється до різних пар властивостей і подій DOM на основі елемента, у якому ця директива використовується:
 
 - `<input>` з текстовими типами та елементами `<textarea>` використовують властивість `value` та подію `input`;
 - `<input type="checkbox">` і `<input type="radio">` використовують властивість `checked` і подію `change`;
