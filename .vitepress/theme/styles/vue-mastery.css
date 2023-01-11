@@ -13,8 +13,8 @@
 .vue-mastery-link .banner {
   background-color: var(--vt-c-white-soft);
   border-radius: 4px;
-  width:96px;
-  height:56px;
+  width: 96px;
+  height: 56px;
   object-fit: cover;
 }
 
@@ -50,7 +50,7 @@
 
 @media (max-width: 576px) {
   .vue-mastery-link .banner {
-    width:56px;
+    width: 56px;
   }
 
   .vue-mastery-link .description {

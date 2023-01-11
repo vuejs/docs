@@ -11,7 +11,7 @@ Used to annotate a prop with more advanced types when using runtime props declar
 - **Example**
 
   ```ts
-  import { PropType } from 'vue'
+  import type { PropType } from 'vue'
 
   interface Book {
     title: string

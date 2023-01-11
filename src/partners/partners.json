@@ -248,5 +248,31 @@
     },
     "contact": "hello@jump24.co.uk",
     "hiring": "jump24.co.uk/careers"
+  },
+  {
+    "name": "Epicmax",
+    "logo": "epicmax.svg",
+    "hero": "epicmax.png",
+    "intro": "Epicmax is a team of Vue.js experts with 6 years of experience in building Vue.js interfaces. We bring Vue.js knowledge in front-end development across industries and geographies, serving businesses of different sizes. We have more than 55 completed projects, 45 clients worldwide and 3 Open Source products in our portfolio.",
+    "description": [
+      "Epicmax is a Vue.js software development company with over 55 successfully completed projects all over the world and 3 widely acclaimed Open Source products.",
+      "Since 2017, we’ve helped international clients in over 15 industries, both startups and larger companies, build everything from e-commerce through social media platforms to real-time analytics products.",
+      "We bring deep Vue.js knowledge necessary to help clients solve the most complex issues for their business: from building Vue.js applications to consulting, code auditing and migration to Vue. We move fast and smoothly integrate into a client’s team for agile and collaborative processes.",
+      "Epicmax is built around Open Source software - it is a part of our culture and everyone on the team is an active contributor. We’ve created and are maintaining Vuestic UI, Vuestic Admin and Epic Spinners libraries which are completely free for everyone and available on GitHub."
+    ],
+    "proficiencies": [
+      "Vue",
+      "Nuxt",
+      "TypeScript",
+      "Tailwind",
+      "Vuetify",
+      "Quasar"
+    ],
+    "region": ["Europe"],
+    "website": {
+      "text": "epicmax.co",
+      "url": "https://epicmax.co/"
+    },
+    "contact": "hello@epicmax.co"
   }
 ]
