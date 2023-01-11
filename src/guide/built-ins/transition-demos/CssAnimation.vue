@@ -6,7 +6,7 @@ let show = $ref(true)
   <div class="demo">
     <button @click="show = !show">Переключити</button>
     <Transition name="bounce">
-      <p v-if="show" style="margin-top: 20px; text-align: center;">
+      <p v-if="show" style="margin-top: 20px; text-align: center">
         Привіт, ось якийсь стрибучий текст!
       </p>
     </Transition>

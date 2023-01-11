@@ -227,6 +227,7 @@ import { ref } from 'vue'
 const a = 1
 const b = ref(2)
 
+// Макроси компілятора, такі як defineExpose, не потрібно імпортувати
 defineExpose({
   a,
   b

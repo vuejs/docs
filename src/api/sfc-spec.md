@@ -88,7 +88,7 @@ Blocks can declare pre-processor languages using the `lang` attribute. The most 
 </script>
 ```
 
-`lang` can be applied to any block - for example we can use `<style>` with [SASS](https://sass-lang.com/) and `<template>` with [Pug](https://pugjs.org/api/getting-started.html):
+`lang` can be applied to any block - for example we can use `<style>` with [Sass](https://sass-lang.com/) and `<template>` with [Pug](https://pugjs.org/api/getting-started.html):
 
 ```vue-html
 <template lang="pug">

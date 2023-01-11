@@ -16,7 +16,7 @@ const cols = cells.map((_, i) => String.fromCharCode(65 + i))
     <tbody>
       <tr v-for="i in cells[0].length">
         <th>{{ i - 1 }}</th>
-        <td v-for="c, j in cols">
+        <td v-for="(c, j) in cols">
           <Cell :r="i - 1" :c="j"></Cell>
         </td>
       </tr>

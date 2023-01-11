@@ -4,6 +4,6 @@ let count = $ref(0)
 
 <template>
   <p>Компонент: A</p>
-  <span style="margin-right:20px">Рахунок: {{ count }}</span>
+  <span style="margin-right: 20px">Рахунок: {{ count }}</span>
   <button @click="count++">+</button>
 </template>
