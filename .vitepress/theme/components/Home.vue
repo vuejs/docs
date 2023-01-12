@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import NewsLetter from './NewsLetter.vue'
+// import NewsLetter from './NewsLetter.vue'
 import { load, data, base } from './sponsors'
 import SponsorsGroup from './SponsorsGroup.vue'
 import VueMasteryModal from './VueMasteryModal.vue'
@@ -88,7 +88,7 @@ onMounted(async () => {
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
-  <NewsLetter />
+  <!-- <NewsLetter /> -->
 </template>
 
 <style scoped>
