@@ -16,6 +16,28 @@
       "headingKeywords": {}
     },
     {
+      "src": "docs/essentials/template-syntax.md",
+      "title": "",
+      "headings": {
+        "template-syntax": "Template Syntax",
+        "text-interpolation": "Text Interpolation",
+        "raw-html": "Raw HTML",
+        "attribute-bindings": "Attribute Bindings",
+        "shorthand": "Shorthand",
+        "boolean-attributes": "Boolean Attributes",
+        "dynamically-binding-multiple-attributes": "Dynamically Binding Multiple Attributes",
+        "using-javascript-expressions": "Using JavaScript Expressions",
+        "expressions-only": "Expressions Only",
+        "calling-functions": "Calling Functions",
+        "restricted-globals-access": "Restricted Globals Access",
+        "directives": "Directives",
+        "arguments": "Arguments",
+        "dynamic-arguments": "Dynamic Arguments",
+        "modifiers": "Modifiers"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "index.md",
       "title": "Landing Page",
       "headings": {
