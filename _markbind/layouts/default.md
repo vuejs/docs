@@ -24,7 +24,8 @@
     <div class="nav-component slim-scroll">
       <site-nav>
 <!-- * [Home :house:]({{ baseUrl }}/index.html) -->
-* Getting Started
+* Getting Started :expanded:
+  * [Quick Start]({{baseUrl}}/docs/quick-start.html)
 * Essentials :expanded:
   * [Creating an Application]({{baseUrl}}/docs/essentials/application.html)
 * Components In-Depth
