@@ -1,0 +1,32 @@
+{
+  "baseUrl": "",
+  "titlePrefix": "",
+  "titleSuffix": "",
+  "ignore": [
+    "_markbind/layouts/*",
+    "_markbind/logs/*",
+    "_site/*",
+    "site.json",
+    "*.md",
+    "*.njk",
+    ".git/*",
+    "node_modules/*",
+    ".github/*",
+    ".editorconfig",
+    ".gitignore",
+    "LICENSE"
+  ],
+  "pagesExclude": ["node_modules/*"],
+  "pages": [
+    {
+      "src": "index.md",
+      "title": "Landing Page"
+    },
+    {
+      "glob": ["docs/essentials/application.md"]
+    }
+  ],
+  "deploy": {
+    "message": "Site Update."
+  }
+}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash-es": "https://cdn.jsdelivr.net/npm/lodash-es/+esm"
-  }
-}
