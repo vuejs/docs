@@ -4,6 +4,9 @@
 .AppleDouble
 .LSOverride
 
+# Builds
+_site/
+
 # Thumbnails
 ._*
 
