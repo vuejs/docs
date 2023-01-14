@@ -1,2 +1,0 @@
-A nested tree component that recursively renders itself.
-You can double click on an item to turn it into a folder.

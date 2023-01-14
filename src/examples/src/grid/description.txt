@@ -1,1 +1,0 @@
-An example of creating a reusable grid component and using it with external data.

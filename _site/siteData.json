@@ -1,0 +1,27 @@
+{
+  "enableSearch": true,
+  "pages": [
+    {
+      "src": "docs/essentials/application.md",
+      "title": "",
+      "headings": {
+        "creating-a-vue-application": "Creating a Vue Application",
+        "the-application-instance": "The application instance",
+        "the-root-component": "The Root Component",
+        "mounting-the-app": "Mounting the App",
+        "in-dom-root-component-template": "In-DOM Root Component Template",
+        "app-configurations": "App Configurations",
+        "multiple-application-instances": "Multiple application instances"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "index.md",
+      "title": "Landing Page",
+      "headings": {
+        "vue-js-the-progressive-javascript-framework": "Vue.js - The Progressive JavaScript Framework"
+      },
+      "headingKeywords": {}
+    }
+  ]
+}

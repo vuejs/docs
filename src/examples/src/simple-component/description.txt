@@ -1,2 +1,0 @@
-Here we show the simplest possible component which accepts a prop and renders it.
-Learn more about components in the guide!
