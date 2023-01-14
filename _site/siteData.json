@@ -16,6 +16,23 @@
       "headingKeywords": {}
     },
     {
+      "src": "docs/quick-start.md",
+      "title": "",
+      "headings": {
+        "quick-start": "Quick Start",
+        "try-vue-online": "Try Vue Online",
+        "creating-a-vue-application": "Creating a Vue Application",
+        "using-vue-from-cdn": "Using Vue from CDN",
+        "using-the-global-build": "Using the Global Build",
+        "using-the-es-module-build": "Using the ES Module Build",
+        "enabling-import-maps": "Enabling Import maps",
+        "splitting-up-the-modules": "Splitting Up the Modules",
+        "using-composition-api-without-a-build-step": "Using Composition API without a Build Step",
+        "next-steps": "Next Steps"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "index.md",
       "title": "Landing Page",
       "headings": {

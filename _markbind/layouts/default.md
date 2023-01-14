@@ -25,6 +25,7 @@
       <site-nav>
 <!-- * [Home :house:]({{ baseUrl }}/index.html) -->
 * Getting Started
+* [Quick Start]({{baseUrl}}/docs/quick-start.html)
 * Essentials :expanded:
   * [Creating an Application]({{baseUrl}}/docs/essentials/application.html)
 * Components In-Depth
