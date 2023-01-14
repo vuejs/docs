@@ -1,14 +1,14 @@
-# Props {#props}
+# Props
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](/docs/essentials/component-basics). Read that first if you are new to components.
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Free Vue.js Props Lesson"/>
 </div>
 
-## Props Declaration {#props-declaration}
+## Props Declaration
 
-Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in [its dedicated section](/guide/components/attrs)).
+Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in [its dedicated section](/docs/components/attrs)).
 
 <div class="composition-api">
 
@@ -96,7 +96,7 @@ This not only documents your component, but will also warn other developers usin
 
 <div class="options-api">
 
-See also: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
+See also: [Typing Component Props](/docs/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
@@ -113,13 +113,13 @@ defineProps<{
 </script>
 ```
 
-More details: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+More details: [Typing Component Props](/docs/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
-## Prop Passing Details {#prop-passing-details}
+## Prop Passing Details
 
-### Prop Name Casing {#prop-name-casing}
+### Prop Name Casing
 
 We declare long prop names using camelCase because this avoids having to use quotes when using them as property keys, and allows us to reference them directly in template expressions because they are valid JavaScript identifiers:
 
@@ -148,15 +148,15 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Technically, you can also use camelCase when passing props to a child component (except in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
+Technically, you can also use camelCase when passing props to a child component (except in [DOM templates](/docs/essentials/component-basics.html#dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
 
 ```vue-html
 <MyComponent greeting-message="hello" />
 ```
 
-We use [PascalCase for component tags](/guide/components/registration.html#component-name-casing) when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
+We use [PascalCase for component tags](/docs/components/registration.html#component-name-casing) when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
 
-### Static vs. Dynamic Props {#static-vs-dynamic-props}
+### Static vs. Dynamic Props
 
 So far, you've seen props passed as static values, like in:
 
@@ -174,11 +174,11 @@ You've also seen props assigned dynamically with `v-bind` or its `:` shortcut, s
 <BlogPost :title="post.title + ' by ' + post.author.name" />
 ```
 
-### Passing Different Value Types {#passing-different-value-types}
+### Passing Different Value Types
 
 In the two examples above, we happen to pass string values, but _any_ type of value can be passed to a prop.
 
-#### Number {#number}
+#### Number
 
 ```vue-html
 <!-- Even though `42` is static, we need v-bind to tell Vue that -->
@@ -189,7 +189,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <BlogPost :likes="post.likes" />
 ```
 
-#### Boolean {#boolean}
+#### Boolean
 
 ```vue-html
 <!-- Including the prop with no value will imply `true`. -->
@@ -203,7 +203,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <BlogPost :is-published="post.isPublished" />
 ```
 
-#### Array {#array}
+#### Array
 
 ```vue-html
 <!-- Even though the array is static, we need v-bind to tell Vue that -->
@@ -214,7 +214,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <BlogPost :comment-ids="post.commentIds" />
 ```
 
-#### Object {#object}
+#### Object
 
 ```vue-html
 <!-- Even though the object is static, we need v-bind to tell Vue that -->
@@ -230,9 +230,9 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <BlogPost :author="post.author" />
 ```
 
-### Binding Multiple Properties Using an Object {#binding-multiple-properties-using-an-object}
+### Binding Multiple Properties Using an Object
 
-If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
+If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/docs/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
 
 <div class="options-api">
 
@@ -273,7 +273,7 @@ Will be equivalent to:
 <BlogPost :id="post.id" :title="post.title" />
 ```
 
-## One-Way Data Flow {#one-way-data-flow}
+## One-Way Data Flow
 
 All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
 
@@ -363,13 +363,13 @@ There are usually two cases where it's tempting to mutate a prop:
 
    </div>
 
-### Mutating Object / Array Props {#mutating-object-array-props}
+### Mutating Object / Array Props
 
 When objects and arrays are passed as props, while the child component cannot mutate the prop binding, it **will** be able to mutate the object or array's nested properties. This is because in JavaScript objects and arrays are passed by reference, and it is unreasonably expensive for Vue to prevent such mutations.
 
-The main drawback of such mutations is that it allows the child component to affect parent state in a way that isn't obvious to the parent component, potentially making it more difficult to reason about the data flow in the future. As a best practice, you should avoid such mutations unless the parent and child are tightly coupled by design. In most cases, the child should [emit an event](/guide/components/events.html) to let the parent perform the mutation.
+The main drawback of such mutations is that it allows the child component to affect parent state in a way that isn't obvious to the parent component, potentially making it more difficult to reason about the data flow in the future. As a best practice, you should avoid such mutations unless the parent and child are tightly coupled by design. In most cases, the child should [emit an event](/docs/components/events.html) to let the parent perform the mutation.
 
-## Prop Validation {#prop-validation}
+## Prop Validation
 
 Components can specify requirements for their props, such as the types you've already seen. If a requirement is not met, Vue will warn you in the browser's JavaScript console. This is especially useful when developing a component that is intended to be used by others.
 
@@ -503,7 +503,7 @@ Note that props are validated **before** a component instance is created, so ins
 
 </div>
 
-### Runtime Type Checks {#runtime-type-checks}
+### Runtime Type Checks
 
 The `type` can be one of the following native constructors:
 
@@ -552,7 +552,7 @@ export default {
 
 Vue will use `instanceof Person` to validate whether the value of the `author` prop is indeed an instance of the `Person` class.
 
-## Boolean Casting {#boolean-casting}
+## Boolean Casting
 
 Props with `Boolean` type has special casting rules to mimic the behavior of native boolean attributes. Given a `<MyComponent>` with the following declaration:
 

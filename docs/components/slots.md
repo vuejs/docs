@@ -1,16 +1,16 @@
-# Slots {#slots}
+# Slots
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](/docs/essentials/component-basics). Read that first if you are new to components.
 
 <VueSchoolLink href="https://vueschool.io/lessons/vue-3-component-slots" title="Free Vue.js Slots Lesson"/>
 
-## Slot Content and Outlet {#slot-content-and-outlet}
+## Slot Content and Outlet
 
 We have learned that components can accept props, which can be JavaScript values of any type. But how about template content? In some cases, we may want to pass a template fragment to a child component, and let the child component render the fragment within its own template.
 
 For example, we may have a `<FancyButton>` component that supports usage like this:
 
-```vue-html{2}
+```vue-html
 <FancyButton>
   Click me! <!-- slot content -->
 </FancyButton>
@@ -18,7 +18,7 @@ For example, we may have a `<FancyButton>` component that supports usage like th
 
 The template of `<FancyButton>` looks like this:
 
-```vue-html{2}
+```vue-html
 <button class="fancy-btn">
   <slot></slot> <!-- slot outlet -->
 </button>
@@ -87,7 +87,7 @@ By using slots, our `<FancyButton>` is more flexible and reusable. We can now us
 
 Vue components' slot mechanism is inspired by the [native Web Component `<slot>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot), but with additional capabilities that we will see later.
 
-## Render Scope {#render-scope}
+## Render Scope
 
 Slot content has access to the data scope of the parent component, because it is defined in the parent. For example:
 
@@ -102,7 +102,7 @@ Slot content does **not** have access to the child component's data. Expressions
 
 > Expressions in the parent template only have access to the parent scope; expressions in the child template only have access to the child scope.
 
-## Fallback Content {#fallback-content}
+## Fallback Content
 
 There are cases when it's useful to specify fallback (i.e. default) content for a slot, to be rendered only when no content is provided. For example, in a `<SubmitButton>` component:
 
@@ -114,7 +114,7 @@ There are cases when it's useful to specify fallback (i.e. default) content for 
 
 We might want the text "Submit" to be rendered inside the `<button>` if the parent didn't provide any slot content. To make "Submit" the fallback content, we can place it in between the `<slot>` tags:
 
-```vue-html{3}
+```vue-html
 <button type="submit">
   <slot>
     Submit <!-- fallback content -->
@@ -157,7 +157,7 @@ Then the provided content will be rendered instead:
 
 </div>
 
-## Named Slots {#named-slots}
+## Named Slots
 
 There are times when it's useful to have multiple slot outlets in a single component. For example, in a `<BaseLayout>` component with the following template:
 
@@ -296,9 +296,9 @@ function BaseLayout(slots) {
 }
 ```
 
-## Dynamic Slot Names {#dynamic-slot-names}
+## Dynamic Slot Names
 
-[Dynamic directive arguments](/guide/essentials/template-syntax.md#dynamic-arguments) also work on `v-slot`, allowing the definition of dynamic slot names:
+[Dynamic directive arguments](/docs/essentials/template-syntax.md#dynamic-arguments) also work on `v-slot`, allowing the definition of dynamic slot names:
 
 ```vue-html
 <base-layout>
@@ -313,9 +313,9 @@ function BaseLayout(slots) {
 </base-layout>
 ```
 
-Do note the expression is subject to the [syntax constraints](/guide/essentials/template-syntax.html#directives) of dynamic directive arguments.
+Do note the expression is subject to the [syntax constraints](/docs/essentials/template-syntax.html#directives) of dynamic directive arguments.
 
-## Scoped Slots {#scoped-slots}
+## Scoped Slots
 
 As discussed in [Render Scope](#render-scope), slot content does not have access to state in the child component.
 
@@ -374,7 +374,7 @@ function MyComponent(slots) {
 }
 ```
 
-In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/extras/render-function.html).
+In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/docs/extras/render-function.html).
 
 Notice how `v-slot="slotProps"` matches the slot function signature. Just like with function arguments, we can use destructuring in `v-slot`:
 
@@ -384,7 +384,7 @@ Notice how `v-slot="slotProps"` matches the slot function signature. Just like w
 </MyComponent>
 ```
 
-### Named Scoped Slots {#named-scoped-slots}
+### Named Scoped Slots
 
 Named scoped slots work similarly - slot props are accessible as the value of the `v-slot` directive: `v-slot:name="slotProps"`. When using the shorthand, it looks like this:
 
@@ -444,7 +444,7 @@ Using an explicit `<template>` tag for the default slot helps to make it clear t
 </template>
 ```
 
-### Fancy List Example {#fancy-list-example}
+### Fancy List Example
 
 You may be wondering what would be a good use case for scoped slots. Here's an example: imagine a `<FancyList>` component that renders a list of items - it may encapsulate the logic for loading remote data, using the data to display a list, or even advanced features like pagination or infinite scrolling. However, we want it to be flexible with how each item looks and leave the styling of each item to the parent component consuming it. So the desired usage may look like this:
 
@@ -480,7 +480,7 @@ Inside `<FancyList>`, we can render the same `<slot>` multiple times with differ
 
 </div>
 
-### Renderless Components {#renderless-components}
+### Renderless Components
 
 The `<FancyList>` use case we discussed above encapsulates both reusable logic (data fetching, pagination etc.) and visual output, while delegating part of the visual output to the consumer component via scoped slots.
 
@@ -505,6 +505,6 @@ An example renderless component could be one that encapsulates the logic of trac
 
 </div>
 
-While an interesting pattern, most of what can be achieved with Renderless Components can be achieved in a more efficient fashion with Composition API, without incurring the overhead of extra component nesting. Later, we will see how we can implement the same mouse tracking functionality as a [Composable](/guide/reusability/composables.html).
+While an interesting pattern, most of what can be achieved with Renderless Components can be achieved in a more efficient fashion with Composition API, without incurring the overhead of extra component nesting. Later, we will see how we can implement the same mouse tracking functionality as a [Composable](/docs/reusability/composables.html).
 
 That said, scoped slots are still useful in cases where we need to both encapsulate logic **and** compose visual output, like in the `<FancyList>` example.

@@ -1,10 +1,10 @@
-# Provide / Inject {#provide-inject}
+# Provide / Inject
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](/docs/essentials/component-basics). Read that first if you are new to components.
 
-## Prop Drilling {#prop-drilling}
+## Prop Drilling
 
-Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
+Usually, when we need to pass data from the parent to a child component, we use [props](/docs/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
 
 ![prop drilling diagram](./images/prop-drilling.png)
 
@@ -18,7 +18,7 @@ We can solve props drilling with `provide` and `inject`. A parent component can 
 
 <!-- https://www.figma.com/file/PbTJ9oXis5KUawEOWdy2cE/provide-inject -->
 
-## Provide {#provide}
+## Provide
 
 <div class="composition-api">
 
@@ -75,7 +75,7 @@ For each property in the `provide` object, the key is used by child components t
 
 If we need to provide per-instance state, for example data declared via the `data()`, then `provide` must use a function value:
 
-```js{7-12}
+```js
 export default {
   data() {
     return {
@@ -95,7 +95,7 @@ However, do note this does **not** make the injection reactive. We will discuss 
 
 </div>
 
-## App-level Provide {#app-level-provide}
+## App-level Provide
 
 In addition to providing data in a component, we can also provide at the app level:
 
@@ -107,9 +107,9 @@ const app = createApp({})
 app.provide(/* key */ 'message', /* value */ 'hello!')
 ```
 
-App-level provides are available to all components rendered in the app. This is especially useful when writing [plugins](/guide/reusability/plugins.html), as plugins typically wouldn't be able to provide values using components.
+App-level provides are available to all components rendered in the app. This is especially useful when writing [plugins](/docs/reusability/plugins.html), as plugins typically wouldn't be able to provide values using components.
 
-## Inject {#inject}
+## Inject
 
 <div class="composition-api">
 
@@ -171,7 +171,7 @@ export default {
 
 [Full provide + inject example](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7IENoaWxkIH0sXG4gIHByb3ZpZGUoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIG1lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
 
-### Injection Aliasing \* {#injection-aliasing}
+### Injection Aliasing \*
 
 When using the array syntax for `inject`, the injected properties are exposed on the component instance using the same key. In the example above, the property was provided under the key `"message"`, and injected as `this.message`. The local key is the same as the injection key.
 
@@ -191,7 +191,7 @@ Here, the component will locate a property provided with the key `"message"`, an
 
 </div>
 
-### Injection Default Values {#injection-default-values}
+### Injection Default Values
 
 By default, `inject` assumes that the injected key is provided somewhere in the parent chain. In the case where the key is not provided, there will be a runtime warning.
 
@@ -235,7 +235,7 @@ export default {
 
 </div>
 
-## Working with Reactivity {#working-with-reactivity}
+## Working with Reactivity
 
 <div class="composition-api">
 
@@ -243,7 +243,7 @@ When using reactive provide / inject values, **it is recommended to keep any mut
 
 There may be times when we need to update the data from an injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
 
-```vue{7-9,13}
+```vue
 <!-- inside provider component -->
 <script setup>
 import { provide, ref } from 'vue'
@@ -261,7 +261,7 @@ provide('location', {
 </script>
 ```
 
-```vue{5}
+```vue
 <!-- in injector component -->
 <script setup>
 import { inject } from 'vue'
@@ -291,7 +291,7 @@ provide('read-only-count', readonly(count))
 
 In order to make injections reactively linked to the provider, we need to provide a computed property using the [computed()](/api/reactivity-core.html#computed) function:
 
-```js{10}
+```js
 import { computed } from 'vue'
 
 export default {
@@ -311,7 +311,7 @@ export default {
 
 [Full provide + inject Example with Reactivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcbmltcG9ydCB7IGNvbXB1dGVkIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgQ2hpbGQgfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogJ2hlbGxvJ1xuICAgIH1cbiAgfSxcbiAgcHJvdmlkZSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogY29tcHV0ZWQoKCkgPT4gdGhpcy5tZXNzYWdlKVxuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGlucHV0IHYtbW9kZWw9XCJtZXNzYWdlXCI+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
 
-The `computed()` function is typically used in Composition API components, but can also be used to complement certain use cases in Options API. You can learn more about its usage by reading the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) and [Computed Properties](/guide/essentials/computed.html) with the API Preference set to Composition API.
+The `computed()` function is typically used in Composition API components, but can also be used to complement certain use cases in Options API. You can learn more about its usage by reading the [Reactivity Fundamentals](/docs/essentials/reactivity-fundamentals.html) and [Computed Properties](/docs/essentials/computed.html) with the API Preference set to Composition API.
 
 :::warning Temporary Config Required
 The above usage requires setting `app.config.unwrapInjectedRef = true` to make injections automatically unwrap computed refs. This will become the default behavior in Vue 3.3 and this config is introduced temporarily to avoid breakage. It will no longer be required after 3.3.
@@ -319,7 +319,7 @@ The above usage requires setting `app.config.unwrapInjectedRef = true` to make i
 
 </div>
 
-## Working with Symbol Keys {#working-with-symbol-keys}
+## Working with Symbol Keys
 
 So far, we have been using string injection keys in the examples. If you are working in a large application with many dependency providers, or you are authoring components that are going to be used by other developers, it is best to use Symbol injection keys to avoid potential collisions.
 
@@ -350,7 +350,7 @@ import { myInjectionKey } from './keys.js'
 const injected = inject(myInjectionKey)
 ```
 
-See also: [Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+See also: [Typing Provide / Inject](/docs/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
 
 </div>
 

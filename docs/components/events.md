@@ -17,15 +17,15 @@ if (typeof window !== 'undefined') {
   }
 }
 </script>
-# Component Events {#component-events}
+# Component Events
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> This page assumes you've already read the [Components Basics](/docs/essentials/component-basics). Read that first if you are new to components.
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Free Vue.js Lesson on Defining Custom Events"/>
 </div>
 
-## Emitting and Listening to Events {#emitting-and-listening-to-events}
+## Emitting and Listening to Events
 
 A component can emit custom events directly in template expressions (e.g. in a `v-on` handler) using the built-in `$emit` method:
 
@@ -62,13 +62,13 @@ The `.once` modifier is also supported on component event listeners:
 <MyComponent @some-event.once="callback" />
 ```
 
-Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but can listen for it using a kebab-cased listener in the parent. As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
+Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but can listen for it using a kebab-cased listener in the parent. As with [props casing](/docs/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
 
 :::tip
-Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component. If there is a need to communicate between sibling or deeply nested components, use an external event bus or a [global state management solution](/guide/scaling-up/state-management.html).
+Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component. If there is a need to communicate between sibling or deeply nested components, use an external event bus or a [global state management solution](/docs/scaling-up/state-management.html).
 :::
 
-## Event Arguments {#event-arguments}
+## Event Arguments
 
 It's sometimes useful to emit a specific value with an event. For example, we may want the `<BlogPost>` component to be in charge of how much to enlarge the text by. In those cases, we can pass extra arguments to `$emit` to provide this value:
 
@@ -117,7 +117,7 @@ function increaseCount(n) {
 All extra arguments passed to `$emit()` after the event name will be forwarded to the listener. For example, with `$emit('foo', 1, 2, 3)` the listener function will receive three arguments.
 :::
 
-## Declaring Emitted Events {#declaring-emitted-events}
+## Declaring Emitted Events
 
 A component can explicitly declare the events it will emit using the <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span><span class="options-api">[`emits`](/api/options-state.html#emits) option</span>:
 
@@ -202,7 +202,7 @@ const emit = defineEmits<{
 </script>
 ```
 
-More details: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+More details: [Typing Component Emits](/docs/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
@@ -218,17 +218,17 @@ export default {
 }
 ```
 
-See also: [Typing Component Emits](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
+See also: [Typing Component Emits](/docs/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 
-Although optional, it is recommended to define all emitted events in order to better document how a component should work. It also allows Vue to exclude known listeners from [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance), avoiding edge cases caused by DOM events manually dispatched by 3rd party code.
+Although optional, it is recommended to define all emitted events in order to better document how a component should work. It also allows Vue to exclude known listeners from [fallthrough attributes](/docs/components/attrs.html#v-on-listener-inheritance), avoiding edge cases caused by DOM events manually dispatched by 3rd party code.
 
 :::tip
 If a native event (e.g., `click`) is defined in the `emits` option, the listener will now only listen to component-emitted `click` events and no longer respond to native `click` events.
 :::
 
-## Events Validation {#events-validation}
+## Events Validation
 
 Similar to prop type validation, an emitted event can be validated if it is defined with the object syntax instead of the array syntax.
 

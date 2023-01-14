@@ -145,7 +145,7 @@ const value = computed({
 
 </div>
 
-## `v-model` arguments {#v-model-arguments}
+## `v-model` arguments
 
 By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
 
@@ -200,7 +200,7 @@ export default {
 
 </div>
 
-## Multiple `v-model` bindings {#multiple-v-model-bindings}
+## Multiple `v-model` bindings
 
 By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple v-model bindings on a single component instance.
 
@@ -273,9 +273,9 @@ export default {
 
 </div>
 
-## Handling `v-model` modifiers {#handling-v-model-modifiers}
+## Handling `v-model` modifiers
 
-When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, you might also want the `v-model` on your custom input component to support custom modifiers.
+When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/docs/essentials/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, you might also want the `v-model` on your custom input component to support custom modifiers.
 
 Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding:
 
@@ -287,7 +287,7 @@ Modifiers added to a component `v-model` will be provided to the component via t
 
 <div class="composition-api">
 
-```vue{4,9}
+```vue
 <script setup>
 const props = defineProps({
   modelValue: String,
@@ -311,7 +311,7 @@ console.log(props.modelModifiers) // { capitalize: true }
 </div>
 <div class="options-api">
 
-```vue{11}
+```vue
 <script>
 export default {
   props: {
@@ -344,7 +344,7 @@ Now that we have our prop set up, we can check the `modelModifiers` object keys 
 
 <div class="composition-api">
 
-```vue{11-13}
+```vue
 <script setup>
 const props = defineProps({
   modelValue: String,
@@ -372,7 +372,7 @@ function emitValue(e) {
 </div>
 <div class="options-api">
 
-```vue{13-15}
+```vue
 <script>
 export default {
   props: {

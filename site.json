@@ -23,7 +23,7 @@
       "title": "Landing Page"
     },
     {
-      "glob": ["docs/quick-start.md", "docs/essentials/application.md", "docs/essentials/template-syntax.md"]
+      "glob": ["docs/essentials/application.md", "docs/components/*.md", "docs/built-ins/*.md"]
     }
   ],
   "deploy": {

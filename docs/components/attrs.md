@@ -1,12 +1,8 @@
----
-outline: deep
----
+# Fallthrough Attributes
 
-# Fallthrough Attributes {#fallthrough-attributes}
+> This page assumes you've already read the [Components Basics](/docs/essentials/component-basics). Read that first if you are new to components.
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
-
-## Attribute Inheritance {#attribute-inheritance}
+## Attribute Inheritance
 
 A "fallthrough attribute" is an attribute or `v-on` event listener that is passed to a component, but is not explicitly declared in the receiving component's [props](./props) or [emits](./events.html#declaring-emitted-events). Common examples of this include `class`, `style`, and `id` attributes.
 
@@ -31,7 +27,7 @@ The final rendered DOM would be:
 
 Here, `<MyButton>` did not declare `class` as an accepted prop. Therefore, `class` is treated as a fallthrough attribute and automatically added to `<MyButton>`'s root element.
 
-### `class` and `style` Merging {#class-and-style-merging}
+### `class` and `style` Merging
 
 If the child component's root element already has existing `class` or `style` attributes, it will be merged with the `class` and `style` values that are inherited from the parent. Suppose we change the template of `<MyButton>` in the previous example to:
 
@@ -46,7 +42,7 @@ Then the final rendered DOM would now become:
 <button class="btn large">click me</button>
 ```
 
-### `v-on` Listener Inheritance {#v-on-listener-inheritance}
+### `v-on` Listener Inheritance
 
 The same rule applies to `v-on` event listeners:
 
@@ -56,7 +52,7 @@ The same rule applies to `v-on` event listeners:
 
 The `click` listener will be added to the root element of `<MyButton>`, i.e. the native `<button>` element. When the native `<button>` is clicked, it will trigger the `onClick` method of the parent component. If the native `<button>` already has a `click` listener bound with `v-on`, then both listeners will trigger.
 
-### Nested Component Inheritance {#nested-component-inheritance}
+### Nested Component Inheritance
 
 If a component renders another component as its root node, for example, we refactored `<MyButton>` to render a `<BaseButton>` as its root:
 
@@ -73,7 +69,7 @@ Note that:
 
 2. Forwarded attributes may be accepted as props by `<BaseButton>`, if declared by it.
 
-## Disabling Attribute Inheritance {#disabling-attribute-inheritance}
+## Disabling Attribute Inheritance
 
 If you do **not** want a component to automatically inherit attributes, you can set `inheritAttrs: false` in the component's options.
 
@@ -122,15 +118,15 @@ Using our `<MyButton>` component example from the [previous section](#attribute-
 
 We want all fallthrough attributes like `class` and `v-on` listeners to be applied to the inner `<button>`, not the outer `<div>`. We can achieve this with `inheritAttrs: false` and `v-bind="$attrs"`:
 
-```vue-html{2}
+```vue-html
 <div class="btn-wrapper">
   <button class="btn" v-bind="$attrs">click me</button>
 </div>
 ```
 
-Remember that [`v-bind` without an argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) binds all the properties of an object as attributes of the target element.
+Remember that [`v-bind` without an argument](/docs/essentials/template-syntax.html#dynamically-binding-multiple-attributes) binds all the properties of an object as attributes of the target element.
 
-## Attribute Inheritance on Multiple Root Nodes {#attribute-inheritance-on-multiple-root-nodes}
+## Attribute Inheritance on Multiple Root Nodes
 
 Unlike components with a single root node, components with multiple root nodes do not have an automatic attribute fallthrough behavior. If `$attrs` are not bound explicitly, a runtime warning will be issued.
 
@@ -148,13 +144,13 @@ If `<CustomLayout>` has the following multi-root template, there will be a warni
 
 The warning will be suppressed if `$attrs` is explicitly bound:
 
-```vue-html{2}
+```vue-html
 <header>...</header>
 <main v-bind="$attrs">...</main>
 <footer>...</footer>
 ```
 
-## Accessing Fallthrough Attributes in JavaScript {#accessing-fallthrough-attributes-in-javascript}
+## Accessing Fallthrough Attributes in JavaScript
 
 <div class="composition-api">
 

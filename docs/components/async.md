@@ -1,6 +1,6 @@
-# Async Components {#async-components}
+# Async Components
 
-## Basic Usage {#basic-usage}
+## Basic Usage
 
 In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's needed. To make that possible, Vue has a [`defineAsyncComponent`](/api/general.html#defineasynccomponent) function:
 
@@ -30,7 +30,7 @@ const AsyncComp = defineAsyncComponent(() =>
 
 The resulting `AsyncComp` is a wrapper component that only calls the loader function when it is actually rendered on the page. In addition, it will pass along any props and slots to the inner component, so you can use the async wrapper to seamlessly replace the original component while achieving lazy loading.
 
-As with normal components, async components can be [registered globally](/guide/components/registration.html#global-registration) using `app.component()`:
+As with normal components, async components can be [registered globally](/docs/components/registration.html#global-registration) using `app.component()`:
 
 ```js
 app.component('MyComponent', defineAsyncComponent(() =>
@@ -40,7 +40,7 @@ app.component('MyComponent', defineAsyncComponent(() =>
 
 <div class="options-api">
 
-You can also use `defineAsyncComponent` when [registering a component locally](/guide/components/registration.html#local-registration):
+You can also use `defineAsyncComponent` when [registering a component locally](/docs/components/registration.html#local-registration):
 
 ```vue
 <script>
@@ -82,7 +82,7 @@ const AdminPage = defineAsyncComponent(() =>
 
 </div>
 
-## Loading and Error States {#loading-and-error-states}
+## Loading and Error States
 
 Asynchronous operations inevitably involve loading and error states - `defineAsyncComponent()` supports handling these states via advanced options:
 
@@ -108,6 +108,6 @@ If a loading component is provided, it will be displayed first while the inner c
 
 If an error component is provided, it will be displayed when the Promise returned by the loader function is rejected. You can also specify a timeout to show the error component when the request is taking too long.
 
-## Using with Suspense {#using-with-suspense}
+## Using with Suspense
 
-Async components can be used with the `<Suspense>` built-in component. The interaction between `<Suspense>` and async components is documented in the [dedicated chapter for `<Suspense>`](/guide/built-ins/suspense.html).
+Async components can be used with the `<Suspense>` built-in component. The interaction between `<Suspense>` and async components is documented in the [dedicated chapter for `<Suspense>`](/docs/built-ins/suspense.html).

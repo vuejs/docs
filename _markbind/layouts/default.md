@@ -9,6 +9,23 @@
       <li><a href="{{baseUrl}}/docs/essentials/application.html" class="dropdown-item">Creating an Application</a></li>
       <li><a href="{{baseUrl}}/docs/essentials/template-syntax.html" class="dropdown-item">Template Syntax</a></li>
     </dropdown>
+    <dropdown header="Components In-Depth" class="nav-link">
+      <li><a href="{{baseUrl}}/docs/components/registration.html" class="dropdown-item">Registration</a></li>
+      <li><a href="{{baseUrl}}/docs/components/props.html" class="dropdown-item">Props</a></li>
+      <li><a href="{{baseUrl}}/docs/components/events.html" class="dropdown-item">Events</a></li>
+      <li><a href="{{baseUrl}}/docs/components/v-model.html" class="dropdown-item">Component v-model</a></li>
+      <li><a href="{{baseUrl}}/docs/components/attrs.html" class="dropdown-item">Fallthrough Attributes</a></li>
+      <li><a href="{{baseUrl}}/docs/components/slots.html" class="dropdown-item">Slots</a></li>
+      <li><a href="{{baseUrl}}/docs/components/provide-inject.html" class="dropdown-item">Provide / inject</a></li>
+      <li><a href="{{baseUrl}}/docs/components/async.html" class="dropdown-item">Async Components</a></li>
+    </dropdown>
+    <dropdown header="Built-in Components" class="nav-link">
+      <li><a href="{{baseUrl}}/docs/built-ins/transition.html" class="dropdown-item">Transition</a></li>
+      <li><a href="{{baseUrl}}/docs/built-ins/transition-group.html" class="dropdown-item">TransitionGroup</a></li>
+      <li><a href="{{baseUrl}}/docs/built-ins/keep-alive.html" class="dropdown-item">KeepAlive</a></li>
+      <li><a href="{{baseUrl}}/docs/built-ins/teleport.html" class="dropdown-item">Teleport</a></li>
+      <li><a href="{{baseUrl}}/docs/built-ins/suspense.html" class="dropdown-item">Suspense</a></li>
+    </dropdown>
     <li slot="right">
       <form class="navbar-form">
         <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right></searchbar>
@@ -31,8 +48,21 @@
   * [Creating an Application]({{baseUrl}}/docs/essentials/application.html)
   * [Template Syntax]({{baseUrl}}/docs/essentials/template-syntax.html)
 * Components In-Depth
+  * [Registration]({{baseUrl}}/docs/components/registration.html)
+  * [Props]({{baseUrl}}/docs/components/props.html)
+  * [Events]({{baseUrl}}/docs/components/events.html)
+  * [Component v-model]({{baseUrl}}/docs/components/v-model.html)
+  * [Fallthrough Attributes]({{baseUrl}}/docs/components/attrs.html)
+  * [Slots]({{baseUrl}}/docs/components/slots.html)
+  * [Provide / inject]({{baseUrl}}/docs/components/provide-inject.html)
+  * [Async Components]({{baseUrl}}/docs/components/async.html)
 * Reusability
 * Built-in Components
+  * [Transition]({{baseUrl}}/docs/built-ins/transition.html)
+  * [TransitionGroup]({{baseUrl}}/docs/built-ins/transition-group.html)
+  * [KeepAlive]({{baseUrl}}/docs/built-ins/keep-alive.html)
+  * [Teleport]({{baseUrl}}/docs/built-ins/teleport.html)
+  * [Suspense]({{baseUrl}}/docs/built-ins/suspense.html)
 * Scaling Up
 * Best Practices
 * TypeScript

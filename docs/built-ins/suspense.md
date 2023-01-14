@@ -1,16 +1,12 @@
----
-outline: deep
----
+# Suspense
 
-# Suspense {#suspense}
 
-:::warning Experimental Feature
 `<Suspense>` is an experimental feature. It is not guaranteed to reach stable status and the API may change before it does.
-:::
+
 
 `<Suspense>` is a built-in component for orchestrating async dependencies in a component tree. It can render a loading state while waiting for multiple nested async dependencies down the component tree to be resolved.
 
-## Async Dependencies {#async-dependencies}
+## Async Dependencies
 
 To explain the problem `<Suspense>` is trying to solve and how it interacts with these async dependencies, let's imagine a component hierarchy like the following:
 
@@ -32,9 +28,9 @@ There are two types of async dependencies that `<Suspense>` can wait on:
 
 1. Components with an async `setup()` hook. This includes components using `<script setup>` with top-level `await` expressions.
 
-2. [Async Components](/guide/components/async.html).
+2. [Async Components](/docs/components/async.html).
 
-### `async setup()` {#async-setup}
+### `async setup()`
 
 A Composition API component's `setup()` hook can be async:
 
@@ -63,13 +59,13 @@ const posts = await res.json()
 </template>
 ```
 
-### Async Components {#async-components}
+### Async Components
 
 Async components are **"suspensible"** by default. This means that if it has a `<Suspense>` in the parent chain, it will be treated as an async dependency of that `<Suspense>`. In this case, the loading state will be controlled by the `<Suspense>`, and the component's own loading, error, delay and timeout options will be ignored.
 
 The async component can opt-out of `Suspense` control and let the component always control its own loading state by specifying `suspensible: false` in its options.
 
-## Loading State {#loading-state}
+## Loading State
 
 The `<Suspense>` component has two slots: `#default` and `#fallback`. Both slots only allow for **one** immediate child node. The node in the default slot is shown if possible. If not, the node in the fallback slot will be shown instead.
 
@@ -93,17 +89,17 @@ Once in a resolved state, `<Suspense>` will only revert to a pending state if th
 
 When a revert happens, fallback content will not be immediately displayed. Instead, `<Suspense>` will display the previous `#default` content while waiting for the new content and its async dependencies to be resolved. This behavior can be configured with the `timeout` prop: `<Suspense>` will switch to fallback content if it takes longer than `timeout` to render the new default content. A `timeout` value of `0` will cause the fallback content to be displayed immediately when default content is replaced.
 
-## Events {#events}
+## Events
 
 The `<Suspense>` component emits 3 events: `pending`, `resolve` and `fallback`. The `pending` event occurs when entering a pending state. The `resolve` event is emitted when new content has finished resolving in the `default` slot. The `fallback` event is fired when the contents of the `fallback` slot are shown.
 
 The events could be used, for example, to show a loading indicator in front of the old DOM while new components are loading.
 
-## Error Handling {#error-handling}
+## Error Handling
 
 `<Suspense>` currently does not provide error handling via the component itself - however, you can use the [`errorCaptured`](/api/options-lifecycle.html#errorcaptured) option or the [`onErrorCaptured()`](/api/composition-api-lifecycle.html#onerrorcaptured) hook to capture and handle async errors in the parent component of `<Suspense>`.
 
-## Combining with Other Components {#combining-with-other-components}
+## Combining with Other Components
 
 It is common to want to use `<Suspense>` in combination with the [`<Transition>`](./transition) and [`<KeepAlive>`](./keep-alive) components. The nesting order of these components is important to get them all working correctly.
 
@@ -131,4 +127,4 @@ The following example shows how to nest these components so that they all behave
 </RouterView>
 ```
 
-Vue Router has built-in support for [lazily loading components](https://router.vuejs.org/guide/advanced/lazy-loading.html) using dynamic imports. These are distinct from async components and currently they will not trigger `<Suspense>`. However, they can still have async components as descendants and those can trigger `<Suspense>` in the usual way.
+Vue Router has built-in support for [lazily loading components](https://router.vuejs.org/docs/advanced/lazy-loading.html) using dynamic imports. These are distinct from async components and currently they will not trigger `<Suspense>`. However, they can still have async components as descendants and those can trigger `<Suspense>` in the usual way.
