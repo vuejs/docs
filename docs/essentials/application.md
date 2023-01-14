@@ -2,9 +2,7 @@
 
 ## The application instance
 
-Every Vue application starts by creating a new **application instance** with the createApp function:
-
-<!-- [`createApp`](/api/application#createapp) -->
+Every Vue application starts by creating a new **application instance** with the [createApp](https://vuejs.org/api/application.html#createapp) function:
 
 ```js
 import { createApp } from 'vue'
@@ -101,9 +99,7 @@ The application instance also provides a few methods for registering app-scoped 
 app.component('TodoDeleteButton', TodoDeleteButton)
 ```
 
-This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its API reference.
-
-<!-- [API reference](/api/application) -->
+This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](https://vuejs.org/api/application.html).
 
 Make sure to apply all app configurations before mounting the app!
 
