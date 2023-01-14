@@ -7,6 +7,7 @@
     <!-- <a slot="brand" href="{{baseUrl}}/index.html" title="Home" class="navbar-brand">Your Logo</a> -->
     <dropdown header="Essentials" class="nav-link">
       <li><a href="{{baseUrl}}/docs/essentials/application.html" class="dropdown-item">Creating an Application</a></li>
+      <li><a href="{{baseUrl}}/docs/essentials/template-syntax.html" class="dropdown-item">Template Syntax</a></li>
     </dropdown>
     <li slot="right">
       <form class="navbar-form">
@@ -28,6 +29,7 @@
   * [Quick Start]({{baseUrl}}/docs/quick-start.html)
 * Essentials :expanded:
   * [Creating an Application]({{baseUrl}}/docs/essentials/application.html)
+  * [Template Syntax]({{baseUrl}}/docs/essentials/template-syntax.html)
 * Components In-Depth
 * Reusability
 * Built-in Components
