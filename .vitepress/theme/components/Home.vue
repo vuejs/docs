@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import SiteMap from './SiteMap.vue';
 // import NewsLetter from './NewsLetter.vue'
 import { load, data, base } from './sponsors'
 import SponsorsGroup from './SponsorsGroup.vue'
@@ -88,6 +89,7 @@ onMounted(async () => {
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
+  <SiteMap />
   <!-- <NewsLetter /> -->
 </template>
 
