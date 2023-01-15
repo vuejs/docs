@@ -125,7 +125,9 @@
   }
   ```
 
-- **Також до вашої уваги:** [Реквізити](/guide/components/props.html)
+- **Також до вашої уваги:**
+  - [Гід - Реквізити](/guide/components/props.html)
+  - [Гід - Типізація властивостей компонента](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 ## computed {#computed}
 
@@ -205,7 +207,9 @@
   }
   ```
 
-- **Також до вашої уваги:** [Обчислювані властивості](/guide/essentials/computed.html)
+- **Також до вашої уваги:**
+  - [Гід - Обчислювані властивості](/guide/essentials/computed.html)
+  - [Гід - Типізація обчислюваних властивостей](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
 
 ## methods {#methods}
 
@@ -432,7 +436,9 @@
   }
   ```
 
-* **Також до вашої уваги:** [Прохідні атрибути](/guide/components/attrs.html)
+- **Також до вашої уваги:**
+  - [Гід - Прохідні атрибути](/guide/components/attrs.html)
+  - [Гід - Типізація випромінювань компонента](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 ## expose {#expose}
 

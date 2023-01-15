@@ -402,8 +402,8 @@ console.log(app.config)
 
 - Для `vue-loader`: [передається через параметр завантажувача `compilerOptions`](https://vue-loader.vuejs.org/options.html#compileroptions). Також дивіться [як його налаштувати в `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
-- Для `vite`: [передається через параметри `@vitejs/plugin-vue`](https://github.com/vitejs/vite/tree/main/packages/plugin-vue#options).
-  :::
+- Для `vite`: [передається через параметри `@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options).
+:::
 
 ### app.config.compilerOptions.isCustomElement
 
@@ -522,6 +522,8 @@ console.log(app.config)
     }
   }
   ```
+  
+- **Також до вашої уваги:** [Гід - Доповнення глобальних властивостей](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies
 

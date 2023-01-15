@@ -1,52 +1,52 @@
-# Provide / Inject {#provide-inject}
+# Надавання / введення {#provide-inject}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> На цій сторінці передбачається, що ви вже прочитали [основи компонентів](/guide/essentials/component-basics). Прочитайте це спочатку, якщо ви новачок у компонентах.
 
-## Prop Drilling {#prop-drilling}
+## Прокидання реквізитів {#prop-drilling}
 
-Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
+Зазвичай, коли нам потрібно передати дані від батьківського до дочірнього компонента, ми використовуємо [реквізити](/guide/components/props). Однак уявіть випадок, коли у нас є велике дерево компонентів, а глибоко вкладеному компоненту потрібне щось із компонента-предка. Маючи лише атрибути, ми мали б передати один і той самий атрибут по всьому батьківському ланцюжку:
 
-![prop drilling diagram](./images/prop-drilling.png)
+![діаграма прокидання реквізитів](./images/prop-drilling.png)
 
-<!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/prop-drilling -->
+<!-- https://www.figma.com/file/baI7BcyWw9apxsI4tZqLLA/prop-drilling-(Copy) -->
 
-Notice although the `<Footer>` component may not care about these props at all, it still needs to declare and pass them along just so `<DeepChild>` can access them. If there is a longer parent chain, more components would be affected along the way. This is called "props drilling" and definitely isn't fun to deal with.
+Зауважте, хоча компонент `<Footer>` може взагалі не піклуватися про ці атрибути, йому все одно потрібно оголосити та передати їх, щоб `<DeepChild>` міг отримати до них доступ. Якщо є довший батьківський ланцюг, більше компонентів буде задіяно на цьому шляху. Це називається «прокиданням реквізиту», і мати справу з ним точно нецікаво.
 
-We can solve props drilling with `provide` and `inject`. A parent component can serve as a **dependency provider** for all its descendants. Any component in the descendant tree, regardless of how deep it is, can **inject** dependencies provided by components up in its parent chain.
+Ми можемо вирішити прокидання реквізитів за допомогою `provide` і `inject`. Батьківський компонент може служити **постачальником залежностей** для всіх своїх нащадків. Будь-який компонент у нащадковому дереві, незалежно від того, наскільки він глибокий, може **надавати** залежності, пропоновані компонентами в його батьківському ланцюжку.
 
-![Provide/inject scheme](./images/provide-inject.png)
+![Схема надавання / введення](./images/provide-inject.png)
 
-<!-- https://www.figma.com/file/PbTJ9oXis5KUawEOWdy2cE/provide-inject -->
+<!-- https://www.figma.com/file/ipsCQpV1evpFwKfmVFSkdy/provide%2Finject-(Copy) -->
 
-## Provide {#provide}
+## Надавання {#provide}
 
 <div class="composition-api">
 
-To provide data to a component's descendants, use the [`provide()`](/api/composition-api-dependency-injection.html#provide) function:
+Щоб надати дані нащадкам компонента, скористайтеся функцією [`provide()`](/api/composition-api-dependency-injection.html#provide):
 
 ```vue
 <script setup>
 import { provide } from 'vue'
 
-provide(/* key */ 'message', /* value */ 'hello!')
+provide(/* ключ */ 'message', /* значення */ 'привіт!')
 </script>
 ```
 
-If not using `<script setup>`, make sure `provide()` is called synchronously inside `setup()`:
+Якщо не використовується `<script setup>`, переконайтеся, що `provide()` викликається синхронно в `setup()`:
 
 ```js
 import { provide } from 'vue'
 
 export default {
   setup() {
-    provide(/* key */ 'message', /* value */ 'hello!')
+    provide(/* ключ */ 'message', /* значення */ 'привіт!')
   }
 }
 ```
 
-The `provide()` function accepts two arguments. The first argument is called the **injection key**, which can be a string or a `Symbol`. The injection key is used by descendant components to lookup the desired value to inject. A single component can call `provide()` multiple times with different injection keys to provide different values.
+Функція `provide()` приймає два аргументи. Перший аргумент називається **ключем введення**, який може бути рядком або `Symbol`. Ключ введення використовується компонентами-нащадками для пошуку потрібного значення для введення. Один компонент може викликати `provide()` кілька разів з різними ключами введення, щоб надати різні значення.
 
-The second argument is the provided value. The value can be of any type, including reactive state such as refs:
+Другим аргументом є надане значення. Значення може бути будь-якого типу, включаючи реактивний стан, наприклад референція:
 
 ```js
 import { ref, provide } from 'vue'
@@ -55,35 +55,35 @@ const count = ref(0)
 provide('key', count)
 ```
 
-Providing reactive values allows the descendant components using the provided value to establish a reactive connection to the provider component.
+Надання реактивних значень дозволяє компонентам-нащадкам, використовуючи надане значення, встановити реактивне з'єднання з компонентом-провайдером.
 
 </div>
 
 <div class="options-api">
 
-To provide data to a component's descendants, use the [`provide`](/api/options-composition.html#provide) option:
+Щоб надати дані нащадкам компонента, скористайтеся параметром [`provide`](/api/options-composition.html#provide):
 
 ```js
 export default {
   provide: {
-    message: 'hello!'
+    message: 'привіт!'
   }
 }
 ```
 
-For each property in the `provide` object, the key is used by child components to locate the correct value to inject, while the value is what ends up being injected.
+Для кожної властивості в об'єкті `provide` ключ використовується дочірніми компонентами для пошуку правильного значення для введення, тоді як значення є тим, що вводиться в кінцевому підсумку.
 
-If we need to provide per-instance state, for example data declared via the `data()`, then `provide` must use a function value:
+Якщо нам потрібно надати стан кожного екземпляра, наприклад дані, оголошені за допомогою `data()`, тоді `provide` має використовувати значення функції:
 
 ```js{7-12}
 export default {
   data() {
     return {
-      message: 'hello!'
+      message: 'привіт!'
     }
   },
   provide() {
-    // use function syntax so that we can access `this`
+    // використовуйте синтаксис функції, щоб ми могли отримати доступ до `this`
     return {
       message: this.message
     }
@@ -91,29 +91,29 @@ export default {
 }
 ```
 
-However, do note this does **not** make the injection reactive. We will discuss [making injections reactive](#working-with-reactivity) below.
+Однак зауважте, що це *не* робить введення реактивним. Нижче ми обговоримо, [як зробити введення реактивними](#working-with-reactivity).
 
 </div>
 
-## App-level Provide {#app-level-provide}
+## Надання на рівні програми {#app-level-provide}
 
-In addition to providing data in a component, we can also provide at the app level:
+Окрім надання даних у компоненті, ми також можемо надати на рівні програми:
 
 ```js
 import { createApp } from 'vue'
 
 const app = createApp({})
 
-app.provide(/* key */ 'message', /* value */ 'hello!')
+app.provide(/* ключ */ 'message', /* значення */ 'привіт!')
 ```
 
-App-level provides are available to all components rendered in the app. This is especially useful when writing [plugins](/guide/reusability/plugins.html), as plugins typically wouldn't be able to provide values using components.
+Надавання на рівні програми доступне для всіх компонентів програми. Це особливо корисно під час написання [плагінів](/guide/reusability/plugins.html), оскільки плагіни зазвичай не можуть надавати значення за допомогою компонентів.
 
-## Inject {#inject}
+## Введення {#inject}
 
 <div class="composition-api">
 
-To inject data provided by an ancestor component, use the [`inject()`](/api/composition-api-dependency-injection.html#inject) function:
+Щоб ввести дані, надані компонентом-предком, скористайтеся функцією [`inject()`](/api/composition-api-dependency-injection.html#inject):
 
 ```vue
 <script setup>
@@ -123,11 +123,11 @@ const message = inject('message')
 </script>
 ```
 
-If the provided value is a ref, it will be injected as-is and will **not** be automatically unwrapped. This allows the injector component to retain the reactivity connection to the provider component.
+Якщо надане значення є референцію, воно буде введено як є і *не буде* автоматично розгорнуто. Це дозволяє компоненту-приймачу зберігати реактивний зв'язок з компонентом-надавачем.
 
-[Full provide + inject Example with Reactivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgcHJvdmlkZSB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuLy8gYnkgcHJvdmlkaW5nIGEgcmVmLCB0aGUgR3JhbmRDaGlsZFxuLy8gY2FuIHJlYWN0IHRvIGNoYW5nZXMgaGFwcGVuaW5nIGhlcmUuXG5jb25zdCBtZXNzYWdlID0gcmVmKCdoZWxsbycpXG5wcm92aWRlKCdtZXNzYWdlJywgbWVzc2FnZSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxpbnB1dCB2LW1vZGVsPVwibWVzc2FnZVwiPlxuICA8Q2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkNoaWxkLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgR3JhbmRDaGlsZCBmcm9tICcuL0dyYW5kQ2hpbGQudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0IHNldHVwPlxuaW1wb3J0IHsgaW5qZWN0IH0gZnJvbSAndnVlJ1xuXG5jb25zdCBtZXNzYWdlID0gaW5qZWN0KCdtZXNzYWdlJylcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxwPlxuICAgIE1lc3NhZ2UgdG8gZ3JhbmQgY2hpbGQ6IHt7IG1lc3NhZ2UgfX1cbiAgPC9wPlxuPC90ZW1wbGF0ZT4ifQ==)
+[Повний приклад реактивного надавання та введення](https://sfc.vuejs.org/#eNqFUktOwzAQvcrIm4DUxvuqICEWXMIbk0ybVI1t2W4RqiIhOAA7tlwBIZAQ3yu4N2LchLSloqySmXnvJfPmLdiJMel8hmzAhi6zpfHg0M/MsVBlZbT1sACLox4Yq+dljlDDyOoKEuIkHea0KKd5O0j5qoqiBBCKczi/bOmlGoNs9HyBcGalylfoFSyTimYy8+A1ZIVUY3RQSGNQRWKBFlOhMq2chwqdk2OEo6h2kISv5VV4CY/Lu+V1cihU+7cHSYtLej8MGg55syntSIXHykylR6oAhqUyMw/zfqVznB4J1rIEa8bNopyKIe+IrMcaH/qVNOnEaUVuLiJetAMn2ABWndgjZ2ItWOG9cQPO3SiLdk1cqu2Y01tqZ8qXFaboqv651RcOLQkL1tvQ4NSco+1bVDlZY/dp/oLu6EbZWqiaVumu93ck1nfrbr5utYffZ/IGf9fKbaV9uSzVBCks24ncDUgDW0fhnwTET0SPw334jIEKT/R8D2/hOXyEj+UtxAaER3q/Ca/hgQ676L5Wk4mkwaPI5lr1N4fIQ3c=)
 
-Again, if not using `<script setup>`, `inject()` should only be called synchronously inside `setup()`:
+Знову ж таки, якщо не використовується `<script setup>`, `inject()` має викликатися лише синхронно в `setup()`:
 
 ```js
 import { inject } from 'vue'
@@ -144,68 +144,68 @@ export default {
 
 <div class="options-api">
 
-To inject data provided by an ancestor component, use the [`inject`](/api/options-composition.html#inject) option:
+Щоб ввести дані, надані компонентом-предком, скористайтеся параметром [`inject`](/api/options-composition.html#inject):
 
 ```js
 export default {
   inject: ['message'],
   created() {
-    console.log(this.message) // injected value
+    console.log(this.message) // введене значення
   }
 }
 ```
 
-Injections are resolved **before** the component's own state, so you can access injected properties in `data()`:
+Введення обчислюються **перед** власним станом компонента, тому ви можете отримати доступ до ввдених властивостей у `data()`:
 
 ```js
 export default {
   inject: ['message'],
   data() {
     return {
-      // initial data based on injected value
+      // вихідні дані на основі введеного значення
       fullMessage: this.message
     }
   }
 }
 ```
 
-[Full provide + inject example](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7IENoaWxkIH0sXG4gIHByb3ZpZGUoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIG1lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
+[Повний приклад надавання та введення](https://sfc.vuejs.org/#eNqNUt1KwzAUfpVDbqqwNfelCOKFD2G8qOvZ1rGmIcmmMAqiD+Cdt76CDAVRp6+QvpEnbffnhg5Kk/P7fV/OmbFTpcLpBFnEYtPTmbInQma5KrSFs2E2TqGvixyCkNeWTw2EFBJv6pQU+8lkbGEmJECvoDqJ0poIZm112fERpYtpluLRcZMIoNFOtFxaADkakwwwgsB9V7fuzc2rx+qOkHyw9Af96Iv5iiQZFnM1TiySBRA3gJyMmK8irMMaNd08UeHIFJKU1rCiDRjBiG6DJBjp87ZgQ2uViTg3/Z4XPTJhoQecbqGeSJvlGKLJu1e6uDaoqbFgtdK2ByfnFHVXo0xRo/6r56/Unb5L9SRlNYN94zrXiUy3Z7Z2HT64RsW68rDH3wDfncA2jS3u++hkcoQ9G8FF0K5FcPkvvqoPAPfkvvzyuBc6P92He3ULt6gewDvAzel+797dMwmdLbcOynrDYu6bbDIvfwCPoid7)
 
-### Injection Aliasing \* {#injection-aliasing}
+### Псевдонім введення \* {#injection-aliasing}
 
-When using the array syntax for `inject`, the injected properties are exposed on the component instance using the same key. In the example above, the property was provided under the key `"message"`, and injected as `this.message`. The local key is the same as the injection key.
+У разі використання синтаксису масиву для `inject` введені властивості відображаються в екземплярі компонента за допомогою того самого ключа. У наведеному вище прикладі властивість було надано в ключі `"message"` і введено як `this.message`. Локальний ключ такий самий, як ключ введення.
 
-If we want to inject the property using a different local key, we need to use the object syntax for the `inject` option:
+Якщо ми хочемо ввести властивість за допомогою іншого локального ключа, нам потрібно використовувати синтаксис об'єкта для опції `inject`:
 
 ```js
 export default {
   inject: {
-    /* local key */ localMessage: {
-      from: /* injection key */ 'message'
+    /* локальний ключ */ localMessage: {
+      from: /* ключ введення */ 'message'
     }
   }
 }
 ```
 
-Here, the component will locate a property provided with the key `"message"`, and then expose it as `this.localMessage`.
+Тут компонент знайде властивість, надану ключем `"message"`, а потім представить його як `this.localMessage`.
 
 </div>
 
-### Injection Default Values {#injection-default-values}
+### Стандартні значення введення {#injection-default-values}
 
-By default, `inject` assumes that the injected key is provided somewhere in the parent chain. In the case where the key is not provided, there will be a runtime warning.
+За промовчанням `inject` передбачає, що введений ключ надано десь у батьківському ланцюжку. Якщо ключ не надано, з'явиться попередження під час виконання.
 
-If we want to make an injected property work with optional providers, we need to declare a default value, similar to props:
+Якщо ми хочемо, щоб введена властивість працювала з додатковими надавачами, нам потрібно оголосити значення за промовчанням, подібне до реквізитів:
 
 <div class="composition-api">
 
 ```js
-// `value` will be "default value"
-// if no data matching "message" was provided
-const value = inject('message', 'default value')
+// `value` буде "значенням за промовчанням"
+// якщо не було надано жодних даних, що відповідають "message".
+const value = inject('message', 'значенням за промовчанням')
 ```
 
-In some cases, the default value may need to be created by calling a function or instantiating a new class. To avoid unnecessary computation or side effects in case the optional value is not used, we can use a factory function for creating the default value:
+У деяких випадках може знадобитися створити значення за промовчанням шляхом виклику функції або створення екземпляра нового класу. Щоб уникнути непотрібних обчислень або побічних ефектів у випадку, якщо необов'язкове значення не використовується, ми можемо використовувати фабричну функцію для створення значення за замовчуванням:
 
 ```js
 const value = inject('key', () => new ExpensiveClass())
@@ -217,17 +217,17 @@ const value = inject('key', () => new ExpensiveClass())
 
 ```js
 export default {
-  // object syntax is required
-  // when declaring default values for injections
+  // необхідний синтаксис об'єкта
+  // при оголошенні значень за замовчуванням для надавання
   inject: {
     message: {
-      from: 'message', // this is optional if using the same key for injection
-      default: 'default value'
+      from: 'message', // це необов’язково, якщо для введення використовується той самий ключ
+      default: 'значенням за промовчанням'
     },
     user: {
-      // use a factory function for non-primitive values that are expensive
-      // to create, or ones that should be unique per component instance.
-      default: () => ({ name: 'John' })
+      // використовувати функцію фабрики для непримітивних значень, які є дорогими
+      // для створення, або такі, які мають бути унікальними для екземпляра компонента.
+      default: () => ({ name: 'Степан' })
     }
   }
 }
@@ -235,23 +235,23 @@ export default {
 
 </div>
 
-## Working with Reactivity {#working-with-reactivity}
+## Робота з реактивністю {#working-with-reactivity}
 
 <div class="composition-api">
 
-When using reactive provide / inject values, **it is recommended to keep any mutations to reactive state inside of the _provider_ whenever possible**. This ensures that the provided state and its possible mutations are co-located in the same component, making it easier to maintain in the future.
+Під час використання реактивних значень надавання та введення **рекомендується зберігати будь-які мутації реактивного стану всередині _надавача_, наскільки це можливо**. Це гарантує, що наданий стан і його можливі мутації розташовані в одному компоненті, що полегшує його підтримку в майбутньому.
 
-There may be times when we need to update the data from an injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
+Бувають випадки, коли нам потрібно оновити дані з компонента-приймача. У таких випадках ми рекомендуємо надати функцію, яка відповідає за зміну стану:
 
 ```vue{7-9,13}
-<!-- inside provider component -->
+<!-- всередині компонента провайдера -->
 <script setup>
 import { provide, ref } from 'vue'
 
-const location = ref('North Pole')
+const location = ref('Північний полюс')
 
 function updateLocation() {
-  location.value = 'South Pole'
+  location.value = 'Південний полюс'
 }
 
 provide('location', {
@@ -262,7 +262,7 @@ provide('location', {
 ```
 
 ```vue{5}
-<!-- in injector component -->
+<!-- всередині компонента-приймача -->
 <script setup>
 import { inject } from 'vue'
 
@@ -274,7 +274,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Finally, you can wrap the provided value with [`readonly()`](/api/reactivity-core.html#readonly) if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
+Нарешті, ви можете обернути надане значення за допомогою [`readonly()`](/api/reactivity-core.html#readonly), якщо ви хочете переконатися, що дані, передані через `provide`, не можуть бути змінені компонентом-приймачем.
 
 ```vue
 <script setup>
@@ -289,7 +289,7 @@ provide('read-only-count', readonly(count))
 
 <div class="options-api">
 
-In order to make injections reactively linked to the provider, we need to provide a computed property using the [computed()](/api/reactivity-core.html#computed) function:
+Щоб введення були зв'язані реактивно із надавачем, нам потрібно надати обчислену властивість за допомогою функції [computed()](/api/reactivity-core.html#computed):
 
 ```js{10}
 import { computed } from 'vue'
@@ -297,33 +297,33 @@ import { computed } from 'vue'
 export default {
   data() {
     return {
-      message: 'hello!'
+      message: 'привіт!'
     }
   },
   provide() {
     return {
-      // explicitly provide a computed property
+      // явно надати обчислювану властивість
       message: computed(() => this.message)
     }
   }
 }
 ```
 
-[Full provide + inject Example with Reactivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcbmltcG9ydCB7IGNvbXB1dGVkIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgQ2hpbGQgfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogJ2hlbGxvJ1xuICAgIH1cbiAgfSxcbiAgcHJvdmlkZSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogY29tcHV0ZWQoKCkgPT4gdGhpcy5tZXNzYWdlKVxuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGlucHV0IHYtbW9kZWw9XCJtZXNzYWdlXCI+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
+[Повний приклад реактивного надавання та введення](https://sfc.vuejs.org/#eNqNUktqIzEQvUqhTScQt/ZNJzDMYg4xmkWPuxy3sT5Ias+AaRhmDjC7bHOFEBII+V5BvlFKrbZjJyExCKRSPT1VvXpL9sWYfNEiK1jpxrYx/kSoRhptPXydNvMaJlZLyHLeRxGabQBLGGtpWo81dAMu5YXC3z2ixknVzgkpFPRgrVB5V9DTxN4dxUxd+ergMKEALPrWqnUEING56hQLyMLT6k+4CZers9Vf+iYmu7glFmP1oqlxD6J12QeEPT4BP21cPiQPt2mFolXyjTAUeJRmXnmkCKBsFPHAYiR1jfNjwQYSwVI69cgpKPnmITtiSb+RrEw+c1qR+H2NYkg4wUihVIhgJGmMBZt6b1zBuZuM4xxmLtf2lNMpt63yjcQcnRz9tPqXQ0vEgvWyDBycLhdoRxZVjRbtR5yvoG941+JQKxtbvOegb7ZS9a6NXq4GL+3hldTFy8v9ZrP1+dsJ7JaxU/t75TRqhmNfwPdsmHD249P/Tb8BhPPwGC0brmi/D3fhOjyEh9V/iBcQLun8L9yGC2p0ubYodL0BSx5JtivvngFIKVey)
 
-The `computed()` function is typically used in Composition API components, but can also be used to complement certain use cases in Options API. You can learn more about its usage by reading the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) and [Computed Properties](/guide/essentials/computed.html) with the API Preference set to Composition API.
+Функція `computed()` зазвичай використовується в компонентах композиційного API, але також може використовуватися для доповнення певних випадків використання в опційному API. Ви можете дізнатися більше про його використання, прочитавши [основи реактивності](/guide/essentials/reactivity-fundamentals.html) і [обчислювані властивості](/guide/essentials/computed.html) із вподобанням API, встановленим як Композиційний.
 
-:::warning Temporary Config Required
-The above usage requires setting `app.config.unwrapInjectedRef = true` to make injections automatically unwrap computed refs. This will become the default behavior in Vue 3.3 and this config is introduced temporarily to avoid breakage. It will no longer be required after 3.3.
+:::warning Потрібна тимчасова конфігурація
+Наведене вище використання вимагає налаштування `app.config.unwrapInjectedRef = true`, щоб введення автоматично розгортали обчислювані посилання. Це стане типовою поведінкою у Vue 3.3, і цю конфігурацію введено тимчасово, щоб уникнути поломки. Після 3.3 він більше не потрібен.
 :::
 
 </div>
 
-## Working with Symbol Keys {#working-with-symbol-keys}
+## Робота з ключами типу Symbol {#working-with-symbol-keys}
 
-So far, we have been using string injection keys in the examples. If you are working in a large application with many dependency providers, or you are authoring components that are going to be used by other developers, it is best to use Symbol injection keys to avoid potential collisions.
+Досі ми використовували ключі введення рядків у прикладах. Якщо ви працюєте у великій програмі з багатьма залежними надавачами або створюєте компоненти, які будуть використовуватися іншими розробниками, найкраще використовувати ключі введення типу Symbol, щоб уникнути можливих зіткнень.
 
-It's recommended to export the Symbols in a dedicated file:
+Рекомендовано експортувати ключі типу Symbol в окремий файл:
 
 ```js
 // keys.js
@@ -333,38 +333,38 @@ export const myInjectionKey = Symbol()
 <div class="composition-api">
 
 ```js
-// in provider component
+// у компоненті-надавачі
 import { provide } from 'vue'
 import { myInjectionKey } from './keys.js'
 
 provide(myInjectionKey, {
-  /* data to provide */
+  /* дані для надання */
 })
 ```
 
 ```js
-// in injector component
+// в компоненті-приймачі
 import { inject } from 'vue'
 import { myInjectionKey } from './keys.js'
 
 const injected = inject(myInjectionKey)
 ```
 
-See also: [Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+Дивіться також: [типізація надавання / введення](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
 
 </div>
 
 <div class="options-api">
 
 ```js
-// in provider component
+// у компоненті-приймачі
 import { myInjectionKey } from './keys.js'
 
 export default {
   provide() {
     return {
       [myInjectionKey]: {
-        /* data to provide */
+        /* дані для надання */
       }
     }
   }
@@ -372,7 +372,7 @@ export default {
 ```
 
 ```js
-// in injector component
+// в компоненті-приймачі
 import { myInjectionKey } from './keys.js'
 
 export default {

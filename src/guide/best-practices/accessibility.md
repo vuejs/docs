@@ -15,7 +15,7 @@
 ```vue-html
 <ul class="skip-links">
   <li>
-    <a href="#main" ref="skipLink">Skip to main content</a>
+    <a href="#main" ref="skipLink" class="skip-link">Skip to main content</a>
   </li>
 </ul>
 ```
@@ -23,7 +23,7 @@
 Приховувати посилання, доки воно не отримає фокус, можна за допомогою стилів:
 
 ```css
-.skipLink {
+.skip-link {
   white-space: nowrap;
   margin: 1em auto;
   top: 0;
@@ -32,7 +32,7 @@
   margin-left: -72px;
   opacity: 0;
 }
-.skipLink:focus {
+.skip-link:focus {
   opacity: 1;
   background-color: white;
   padding: 0.5em;
@@ -511,6 +511,7 @@ W3C's WAI-ARIA надає вказівки щодо створення дина�
 - Автоматизовані інструменти
   - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
   - [WAVE](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
+  - [ARC Toolkit](https://chrome.google.com/webstore/detail/arc-toolkit/chdkkkccnlfncngelccgbgfmjebmkmce?hl=en-US)
 - Інструменти для роботи з кольором
   - [WebAim Color Contrast](https://webaim.org/resources/contrastchecker/)
   - [WebAim Link Color Contrast](https://webaim.org/resources/linkcontrastchecker)
@@ -519,6 +520,8 @@ W3C's WAI-ARIA надає вказівки щодо створення дина�
   - [Color Oracle](https://colororacle.org)
   - [Focus Indicator](https://chrome.google.com/webstore/detail/focus-indicator/heeoeadndnhebmfebjccbhmccmaoedlf?hl=en-US…)
   - [NerdeFocus](https://chrome.google.com/webstore/detail/nerdefocus/lpfiljldhgjecfepfljnbjnbjfhennpd?hl=en-US…)
+  - [Visual Aria](https://chrome.google.com/webstore/detail/visual-aria/lhbmajchkkmakajkjenkchhnhbadmhmk?hl=en-US)
+  - [Silktide Website Accessibility Simulator](https://chrome.google.com/webstore/detail/silktide-website-accessib/okcpiimdfkpkjcbihbmhppldhiebhhaf?hl=en-US)
 
 ### Користувачі {#users}
 

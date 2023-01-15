@@ -3,7 +3,7 @@
 :::info Також до вашої уваги
 Щоб краще зрозуміти основи реактивності, рекомендується прочитати наступні розділи гіда:
 
-- [Основи реактивності](/guide/essentials/reactivity-fundamentals.html) (з вподобанням API, встановленому в композиційне АРІ)
+- [Основи реактивності](/guide/essentials/reactivity-fundamentals.html) (з вподобанням API, встановленому як Композиційний)
 - [Реактивність у глибині](/guide/extras/reactivity-in-depth.html)
   :::
 
@@ -41,7 +41,7 @@
 
 - **Також до вашої уваги:**
   - [Гід - Реактивні змінні використовуючи `ref()`](/guide/essentials/reactivity-fundamentals.html#reactive-variables-with-ref)
-  - [Гід - Типізація `ref()`](/guide/typescript/composition-api.html#typing-ref)
+  - [Гід - Типізація `ref()`](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
 
 ## computed() {#computed}
 
@@ -111,7 +111,7 @@
 - **Також до вашої уваги:**
   - [Гід - Обчислювані властивості](/guide/essentials/computed.html)
   - [Гід - Налагодження обчислюваних властивостей](/guide/extras/reactivity-in-depth.html#computed-debugging)
-  - [Гід - Типізація `computed()`](/guide/typescript/composition-api.html#typing-computed)
+  - [Гід - Типізація `computed()`](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
 
 ## reactive() {#reactive}
 
@@ -188,7 +188,7 @@
 
 - **Також до вашої уваги:**
   - [Гід - Основи реактивності](/guide/essentials/reactivity-fundamentals.html)
-  - [Гід - Типізація `reactive()`](/guide/typescript/composition-api.html#typing-reactive)
+  - [Гід - Типізація `reactive()`](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
 
 ## readonly() {#readonly}
 
@@ -453,7 +453,31 @@
     flush: 'post',
     onTrack(e) {
       debugger
+    },
+    onTrigger(e) {
+      debugger
     }
+  })
+  ```
+
+  Зупинка спостерігача:
+
+  ```js
+  const stop = watch(source, callback)
+
+  // when the watcher is no longer needed:
+  stop()
+  ```
+
+  Очищення побічних ефектів:
+
+  ```js
+  watch(id, async (newId, oldId, onCleanup) => {
+    const { response, cancel } = doAsyncWork(newId)
+    // `cancel` will be called if `id` changes, cancelling
+    // the previous request if it hasn't completed yet
+    onCleanup(cancel)
+    data.value = await response
   })
   ```
 

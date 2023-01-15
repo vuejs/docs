@@ -163,9 +163,13 @@ html:not(.banner-dismissed) {
     display: none;
   }
   #vt-top .vt-core .vt-button {
-    background: #fff;
+    background: #ffffff;
     color: #000;
     white-space: nowrap;
+  }
+  #vt-top:hover .vt-core .vt-button {
+    opacity: 1;
+    background: #f2f2f2;
   }
   #vt-top .vt-core .vt-button:first-line {
     color: #000;
