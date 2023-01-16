@@ -70,7 +70,7 @@ Das oben genannte Beispiel demonstriert die beiden Kernfunktionen von Vue:
 
 Vielleicht haben Sie bereits Fragen - keine Sorge. Wir werden jedes kleine Detail im Rest der Dokumentation behandeln. Für den Moment lesen Sie bitte weiter, damit Sie ein grundlegendes Verständnis für die Möglichkeiten von Vue bekommen.
 
-:::tip Prerequisites
+:::tip Voraussetzungen
 The rest of the documentation assumes basic familiarity with HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Prior experience with other frameworks helps, but is not required.
 :::
 
