@@ -14,7 +14,7 @@
 
   ```vue-html
   <span v-text="msg"></span>
-  <!-- такий же, як -->
+  <!-- те ж саме, що -->
   <span>{{msg}}</span>
   ```
 
