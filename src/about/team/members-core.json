@@ -415,21 +415,23 @@
   {
     "name": "Anthony Fu",
     "title": "Open Sourceror",
+    "company": "NuxtLabs",
+    "companyLink": "https://nuxtlabs.com/",
     "projects": [
-      {
-        "label": "composition-api",
-        "url": "https://github.com/vuejs/composition-api"
-      },
       {
         "label": "VueUse",
         "url": "https://github.com/vueuse/vueuse"
+      },
+      {
+        "label": "Vitesse",
+        "url": "https://github.com/antfu/vitesse"
       },
       {
         "label": "vue-demi",
         "url": "https://github.com/vueuse/vue-demi"
       }
     ],
-    "location": "Shanghai, China",
+    "location": "Paris, France",
     "languages": ["Chinese", "English"],
     "socials": {
       "github": "antfu",
