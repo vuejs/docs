@@ -19,6 +19,10 @@ const {
   flipLogo,
   website
 } = data
+
+function track(id: string, linkType: string) {
+  fathom.trackGoal(`partner-click-${id}-${linkType}`, 0)
+}
 </script>
 
 <template>
@@ -29,7 +33,7 @@ const {
     :href="'/partners/' + normalizeName(name) + '.html'"
   >
     <div class="info">
-      <a :href="website.url" target="_blank">
+      <a :href="website.url" target="_blank" @click="track(name, 'logo')">
         <img
           class="logo dark"
           v-if="hero && flipLogo"

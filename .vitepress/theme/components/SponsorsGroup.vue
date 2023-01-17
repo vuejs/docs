@@ -21,12 +21,16 @@ onMounted(async () => {
     },
     { rootMargin: '0px 0px 300px 0px' }
   )
-  observer.observe(container)
+  observer.observe(container!)
   onUnmounted(() => observer.disconnect())
 
   // load data
   await load()
 })
+
+function track(sponsorID: string) {
+  fathom.trackGoal(`sponsor-click-${placement}-${sponsorID}`, 0)
+}
 </script>
 
 <template>
@@ -42,6 +46,7 @@ onMounted(async () => {
         :href="url"
         target="_blank"
         rel="sponsored noopener"
+        @click="track(name)"
       >
         <picture v-if="img.endsWith('png')">
           <source
@@ -57,6 +62,7 @@ onMounted(async () => {
       v-if="placement !== 'page' && tier !== 'special'"
       href="/sponsor/"
       class="sponsor-item action"
+      @click="track('INTEREST')"
       >Your logo</a
     >
   </div>

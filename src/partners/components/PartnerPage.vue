@@ -13,8 +13,14 @@ const p = (data as Partner[]).find(
   (p) => normalizeName(p.name) === partner
 )!
 
+const { name, description, hiring, contact, website } = p
+
 function genMailLink(email: string) {
   return `mailto:${email}?subject=Looking for a Vue.js Partner`
+}
+
+function track(id: string, linkType: string) {
+  fathom.trackGoal(`partner-click-${id}-${linkType}`, 0)
 }
 </script>
 
@@ -29,19 +35,30 @@ function genMailLink(email: string) {
     <PartnerCard hero page :data="p" />
 
     <div class="description">
-      <h2>About {{ p.name }}</h2>
-      <p v-for="desc in p.description" v-html="desc"></p>
+      <h2>About {{ name }}</h2>
+      <p v-for="desc in description" v-html="desc"></p>
     </div>
 
     <div class="actions">
-      <a :href="p.website.url" target="_blank">Visit Website</a>
-      <a class="contact" :href="genMailLink(p.contact)" target="_blank"
+      <a
+        :href="website.url"
+        target="_blank"
+        @click="track(name, 'website')"
+        >Visit Website</a
+      >
+      <a
+        class="contact"
+        :href="genMailLink(contact)"
+        target="_blank"
+        @click="track(name, 'tracking')"
         >Contact</a
       >
     </div>
 
-    <div class="hiring" v-if="p.hiring">
-      <a :href="p.hiring">{{ p.name }} is hiring!</a>
+    <div class="hiring" v-if="hiring">
+      <a :href="hiring" @click="track(name, 'hiring')"
+        >{{ name }} is hiring!</a
+      >
     </div>
   </div>
 </template>
