@@ -6,20 +6,20 @@ const { x, y } = useMouse()
 </script>
 
 :::tip
-This section assumes basic knowledge of Composition API. If you have been learning Vue with Options API only, you can set the API Preference to Composition API (using the toggle at the top of the left sidebar) and re-read the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) and [Lifecycle Hooks](/guide/essentials/lifecycle.html) chapters.
+Để đọc phần này, bạn cần kiến thức cơ bản về [Composition API](# "abc"). Nếu bạn mới chỉ học Options API, bạn nên chuyển API Preference thành Composition API (dùng nút chuyển ở bên trên sidebar) và đọc lại hai chương [Các nguyên tắc cơ bản về Reactivity](/guide/essentials/reactivity-fundamentals.html) và [Các Lifecycle Hook](/guide/essentials/lifecycle.html).
 :::
 
-## What is a "Composable"? {#what-is-a-composable}
+## "Composable" là gì? {#what-is-a-composable}
 
-In the context of Vue applications, a "composable" is a function that leverages Vue's Composition API to encapsulate and reuse **stateful logic**.
+Trong project Vue, một "composable" là một hàm tận dụng Composition API để đóng gói và tái sử dụng **stateful logic** (logic có động tới state của component).
 
-When building frontend applications, we often need to reuse logic for common tasks. For example, we may need to format dates in many places, so we extract a reusable function for that. This formatter function encapsulates **stateless logic**: it takes some input and immediately returns expected output. There are many libraries out there for reusing stateless logic - for example [lodash](https://lodash.com/) and [date-fns](https://date-fns.org/), which you may have heard of.
+Khi xây dựng frontend, ta hay phải tái sử dụng logic cho các task thông dụng. Ví dụ, ta có thể phải format ngày tháng ở nhiều chỗ, do đó cần tách logic ra thành một hàm có thể tái sử dụng. Hàm format này đóng gói các **stateless logic** (logic không chứa các state của component): nó nhận một vài input và ngay lập tức trả về output mong muốn. Có nhiều thư viện hỗ trợ tái sử dụng stateless logic, ví dụ hai thư viện nổi tiếng [lodash](https://lodash.com/) và [date-fns](https://date-fns.org/).
 
-By contrast, stateful logic involves managing state that changes over time. A simple example would be tracking the current position of the mouse on a page. In real world scenarios, it could also be more complex logic such as touch gestures or connection status to a database.
+Ngược lại, stateful logic liên quan đến quản lý state, mà state thì thay đổi. Một ví dụ đơn giản là theo dõi vị trí hiện tại của con trỏ chuột trong một trang. Trong các tình huống thực tế, logic có thể phức tạp hơn, như là các cử chỉ chạm trên màn hình cảm ứng hay trạng thái connect tới database.
 
-## Mouse Tracker Example {#mouse-tracker-example}
+## Ví dụ: Theo dõi con trỏ chuột {#mouse-tracker-example}
 
-If we were to implement the mouse tracking functionality using the Composition API directly inside a component, it would look like this:
+Nếu làm chức năng này trong một component bằng Composition API, code sẽ như sau:
 
 ```vue
 <script setup>
@@ -37,38 +37,38 @@ onMounted(() => window.addEventListener('mousemove', update))
 onUnmounted(() => window.removeEventListener('mousemove', update))
 </script>
 
-<template>Mouse position is at: {{ x }}, {{ y }}</template>
+<template>Vị trí con trỏ chuột là: {{ x }}, {{ y }}</template>
 ```
 
-But what if we want to reuse the same logic in multiple components? We can extract the logic into an external file, as a composable function:
+Nhưng nếu ta cần tái sử dụng logic này trong nhiều component thì sao? Chúng ta có thể tách logic ra một file khác, như một "composable function" (chức năng có thể tổng hợp:
 
 ```js
 // mouse.js
 import { ref, onMounted, onUnmounted } from 'vue'
 
-// by convention, composable function names start with "use"
+// theo quy ước, tên các composable function bắt đầu với "use"
 export function useMouse() {
-  // state encapsulated and managed by the composable
+  // đóng gói và quản lý state với composable
   const x = ref(0)
   const y = ref(0)
 
-  // a composable can update its managed state over time.
+  // một composable có thể update state bên trong nó.
   function update(event) {
     x.value = event.pageX
     y.value = event.pageY
   }
 
-  // a composable can also hook into its owner component's
-  // lifecycle to setup and teardown side effects.
+  // một composable cũng có thể được gán vào lifecycle của component dùng nó
+  // để cài đặt và loại bỏ các "side effect".
   onMounted(() => window.addEventListener('mousemove', update))
   onUnmounted(() => window.removeEventListener('mousemove', update))
 
-  // expose managed state as return value
+  // expose các state thông qua return
   return { x, y }
 }
 ```
 
-And this is how it can be used in components:
+Sau đó dùng nó trong các component:
 
 ```vue
 <script setup>
@@ -77,20 +77,20 @@ import { useMouse } from './mouse.js'
 const { x, y } = useMouse()
 </script>
 
-<template>Mouse position is at: {{ x }}, {{ y }}</template>
+<template>Vị trí con trỏ chuột là: {{ x }}, {{ y }}</template>
 ```
 
 <div class="demo">
-  Mouse position is at: {{ x }}, {{ y }}
+  Vị trí con trỏ chuột là: {{ x }}, {{ y }}
 </div>
 
 [Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZU1vdXNlIH0gZnJvbSAnLi9tb3VzZS5qcydcblxuY29uc3QgeyB4LCB5IH0gPSB1c2VNb3VzZSgpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICBNb3VzZSBwb3NpdGlvbiBpcyBhdDoge3sgeCB9fSwge3sgeSB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwibW91c2UuanMiOiJpbXBvcnQgeyByZWYsIG9uTW91bnRlZCwgb25Vbm1vdW50ZWQgfSBmcm9tICd2dWUnXG5cbmV4cG9ydCBmdW5jdGlvbiB1c2VNb3VzZSgpIHtcbiAgY29uc3QgeCA9IHJlZigwKVxuICBjb25zdCB5ID0gcmVmKDApXG5cbiAgZnVuY3Rpb24gdXBkYXRlKGV2ZW50KSB7XG4gICAgeC52YWx1ZSA9IGV2ZW50LnBhZ2VYXG4gICAgeS52YWx1ZSA9IGV2ZW50LnBhZ2VZXG4gIH1cblxuICBvbk1vdW50ZWQoKCkgPT4gd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIHVwZGF0ZSkpXG4gIG9uVW5tb3VudGVkKCgpID0+IHdpbmRvdy5yZW1vdmVFdmVudExpc3RlbmVyKCdtb3VzZW1vdmUnLCB1cGRhdGUpKVxuXG4gIHJldHVybiB7IHgsIHkgfVxufSJ9)
 
-As we can see, the core logic remains identical - all we had to do was move it into an external function and return the state that should be exposed. Just like inside a component, you can use the full range of [Composition API functions](/api/#composition-api) in composables. The same `useMouse()` functionality can now be used in any component.
+Có thể thấy, logic quan trọng vẫn tương tự - việc ta làm là chuyển nó tới một hàm bên ngoài và trả về state cần được expose. Cũng giống như bên trong một component, bạn có thể dùng tất cả [các hàm của Composition API](/api/#composition-api) trong các composable. `useMouse()` giờ có thể được dùng trong bất kỳ component nào.
 
-The cooler part about composables though, is that you can also nest them: one composable function can call one or more other composable functions. This enables us to compose complex logic using small, isolated units, similar to how we compose an entire application using components. In fact, this is why we decided to call the collection of APIs that make this pattern possible Composition API.
+Phần cool hơn về các composable, là bạn có thể lồng chúng với nhau: một hàm composable có thể gọi một hoặc nhiều hàm composable khác. Điều này cho phép chúng ta kết hợp (nguyên văn: compose) nhiều đơn vị nhỏ, riêng lẻ thành một composable phức tạp, tương tự như cách ta tạo ra một app Vue từ các component. Thực tế, đây là lý do chúng tôi quyết định gọi tập hợp các API tạo nên pattern này là Composition API.
 
-For example, we can extract the logic of adding and removing a DOM event listener into its own composable:
+Ví dụ, ta có thể tách logic thêm và xóa một event listener DOM thành composable riêng:
 
 ```js
 // event.js

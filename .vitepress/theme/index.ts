@@ -1,4 +1,5 @@
 import './styles/index.css'
+import './styles/custom.css'
 import { h, App } from 'vue'
 import { VPTheme } from '@vue/theme'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
