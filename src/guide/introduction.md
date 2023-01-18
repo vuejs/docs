@@ -74,7 +74,7 @@ Vielleicht haben Sie bereits Fragen - keine Sorge. Wir werden jedes kleine Detai
 Der Rest der Dokumentation setzt grundlegende Kenntnisse in HTML, CSS und JavaScript voraus. Wenn Sie völlig neu in der Frontend-Entwicklung sind, ist es vielleicht nicht die beste Idee, gleich in ein Framework einzusteigen - machen Sie sich mit den Grundlagen vertraut und kommen Sie dann wieder! Sie können Ihren Kenntnisstand mit [dieser JavaScript-Übersicht überprüfen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Frühere Erfahrungen mit anderen Frameworks sind hilfreich, aber nicht erforderlich.
 :::
 
-## The Progressive Framework {#the-progressive-framework}
+## Das Progressive Framework {#the-progressive-framework}
 
 Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
 
