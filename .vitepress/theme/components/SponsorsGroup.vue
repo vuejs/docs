@@ -2,9 +2,11 @@
 import { onMounted, onUnmounted } from 'vue'
 import { SponsorData, data, base, load } from './sponsors'
 
+type Placement = 'aside' | 'page' | 'landing'
+
 const { tier, placement = 'aside' } = defineProps<{
   tier: keyof SponsorData
-  placement?: 'aside' | 'page' | 'landing'
+  placement?: Placement
 }>()
 
 let container = $ref<HTMLElement>()
@@ -28,8 +30,15 @@ onMounted(async () => {
   await load()
 })
 
-function track(sponsorID: string) {
-  fathom.trackGoal(`sponsor-click-${placement}-${sponsorID}`, 0)
+// fathom events
+const eventMap: Record<Placement, string> = {
+  aside: '4QUPDDRU',
+  landing: '58FLAR2Z',
+  page: 'ZXLO3IUT'
+}
+
+function track(interest?: boolean) {
+  fathom.trackGoal(interest ? `Y2BVYNT2` : eventMap[placement], 0)
 }
 </script>
 
@@ -46,7 +55,7 @@ function track(sponsorID: string) {
         :href="url"
         target="_blank"
         rel="sponsored noopener"
-        @click="track(name)"
+        @click="track()"
       >
         <picture v-if="img.endsWith('png')">
           <source
@@ -62,7 +71,7 @@ function track(sponsorID: string) {
       v-if="placement !== 'page' && tier !== 'special'"
       href="/sponsor/"
       class="sponsor-item action"
-      @click="track('INTEREST')"
+      @click="track(true)"
       >Your logo</a
     >
   </div>
