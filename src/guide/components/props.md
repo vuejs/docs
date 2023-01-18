@@ -554,7 +554,7 @@ Vue will use `instanceof Person` to validate whether the value of the `author` p
 
 ## Boolean Casting {#boolean-casting}
 
-Props with `Boolean` type has special casting rules to mimic the behavior of native boolean attributes. Given a `<MyComponent>` with the following declaration:
+Props with `Boolean` type have special casting rules to mimic the behavior of native boolean attributes. Given a `<MyComponent>` with the following declaration:
 
 <div class="composition-api">
 
