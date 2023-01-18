@@ -131,7 +131,7 @@ export default defineComponent({
 })
 ```
 
-### Complex prop types
+### Complex prop types {#complex-prop-types}
 
 With type-based declaration, a prop can use a complex type much like any other type:
 

@@ -1,4 +1,4 @@
-# Component v-model
+# Component v-model {#component-v-model}
 
 `v-model` can be used on a component to implement a two-way binding.
 
