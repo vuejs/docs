@@ -529,9 +529,7 @@ components/
 
 ## Prop name casing {#prop-name-casing}
 
-**Prop names should always use camelCase during declaration. When used inside in-DOM templates, props should be kebab-cased. Single-File Components templates and [JSX](/guide/extras/render-function.html#jsx-tsx) can use either kebab-case or camelCase props**
-
-We're simply following the conventions of each language. Within JavaScript, camelCase is more natural. Within HTML, kebab-case is.
+**Prop names should always use camelCase during declaration. When used inside in-DOM templates, props should be kebab-cased. Single-File Components templates and [JSX](/guide/extras/render-function.html#jsx-tsx) can use either kebab-case or camelCase props. Casing should be consistent - if you choose to use camelCased props, make sure you don't use kebab-cased ones in your application**
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
@@ -587,8 +585,10 @@ const props = defineProps({
 </div>
 
 ```vue-html
-// for SFC
+// for SFC - please make sure your casing is consistent throughout the project
+// you can use either convention but we don't recommend mixing two different casing styles
 <WelcomeMessage greeting-text="hi"/>
+// or
 <WelcomeMessage greetingText="hi"/>
 ```
 
