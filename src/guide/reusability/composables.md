@@ -221,76 +221,76 @@ Bây giờ, `useFetch()` đã có thể nhận cả URL cố định và URL là
 
 Đây là [phiên bản nâng cấp của `useFetch()`](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgY29tcHV0ZWQgfSBmcm9tICd2dWUnXG5pbXBvcnQgeyB1c2VGZXRjaCB9IGZyb20gJy4vdXNlRmV0Y2guanMnXG5cbmNvbnN0IGJhc2VVcmwgPSAnaHR0cHM6Ly9qc29ucGxhY2Vob2xkZXIudHlwaWNvZGUuY29tL3RvZG9zLydcbmNvbnN0IGlkID0gcmVmKCcxJylcbmNvbnN0IHVybCA9IGNvbXB1dGVkKCgpID0+IGJhc2VVcmwgKyBpZC52YWx1ZSlcblxuY29uc3QgeyBkYXRhLCBlcnJvciwgcmV0cnkgfSA9IHVzZUZldGNoKHVybClcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIExvYWQgcG9zdCBpZDpcbiAgPGJ1dHRvbiB2LWZvcj1cImkgaW4gNVwiIEBjbGljaz1cImlkID0gaVwiPnt7IGkgfX08L2J1dHRvbj5cblxuXHQ8ZGl2IHYtaWY9XCJlcnJvclwiPlxuICAgIDxwPk9vcHMhIEVycm9yIGVuY291bnRlcmVkOiB7eyBlcnJvci5tZXNzYWdlIH19PC9wPlxuICAgIDxidXR0b24gQGNsaWNrPVwicmV0cnlcIj5SZXRyeTwvYnV0dG9uPlxuICA8L2Rpdj5cbiAgPGRpdiB2LWVsc2UtaWY9XCJkYXRhXCI+RGF0YSBsb2FkZWQ6IDxwcmU+e3sgZGF0YSB9fTwvcHJlPjwvZGl2PlxuICA8ZGl2IHYtZWxzZT5Mb2FkaW5nLi4uPC9kaXY+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJ1c2VGZXRjaC5qcyI6ImltcG9ydCB7IHJlZiwgaXNSZWYsIHVucmVmLCB3YXRjaEVmZmVjdCB9IGZyb20gJ3Z1ZSdcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZUZldGNoKHVybCkge1xuICBjb25zdCBkYXRhID0gcmVmKG51bGwpXG4gIGNvbnN0IGVycm9yID0gcmVmKG51bGwpXG5cbiAgYXN5bmMgZnVuY3Rpb24gZG9GZXRjaCgpIHtcbiAgICAvLyByZXNldCBzdGF0ZSBiZWZvcmUgZmV0Y2hpbmcuLlxuICAgIGRhdGEudmFsdWUgPSBudWxsXG4gICAgZXJyb3IudmFsdWUgPSBudWxsXG4gICAgXG4gICAgLy8gcmVzb2x2ZSB0aGUgdXJsIHZhbHVlIHN5bmNocm9ub3VzbHkgc28gaXQncyB0cmFja2VkIGFzIGFcbiAgICAvLyBkZXBlbmRlbmN5IGJ5IHdhdGNoRWZmZWN0KClcbiAgICBjb25zdCB1cmxWYWx1ZSA9IHVucmVmKHVybClcbiAgICBcbiAgICB0cnkge1xuICAgICAgLy8gYXJ0aWZpY2lhbCBkZWxheSAvIHJhbmRvbSBlcnJvclxuICBcdCAgYXdhaXQgdGltZW91dCgpXG4gIFx0ICAvLyB1bnJlZigpIHdpbGwgcmV0dXJuIHRoZSByZWYgdmFsdWUgaWYgaXQncyBhIHJlZlxuXHQgICAgLy8gb3RoZXJ3aXNlIHRoZSB2YWx1ZSB3aWxsIGJlIHJldHVybmVkIGFzLWlzXG4gICAgXHRjb25zdCByZXMgPSBhd2FpdCBmZXRjaCh1cmxWYWx1ZSlcblx0ICAgIGRhdGEudmFsdWUgPSBhd2FpdCByZXMuanNvbigpXG4gICAgfSBjYXRjaCAoZSkge1xuICAgICAgZXJyb3IudmFsdWUgPSBlXG4gICAgfVxuICB9XG5cbiAgaWYgKGlzUmVmKHVybCkpIHtcbiAgICAvLyBzZXR1cCByZWFjdGl2ZSByZS1mZXRjaCBpZiBpbnB1dCBVUkwgaXMgYSByZWZcbiAgICB3YXRjaEVmZmVjdChkb0ZldGNoKVxuICB9IGVsc2Uge1xuICAgIC8vIG90aGVyd2lzZSwganVzdCBmZXRjaCBvbmNlXG4gICAgZG9GZXRjaCgpXG4gIH1cblxuICByZXR1cm4geyBkYXRhLCBlcnJvciwgcmV0cnk6IGRvRmV0Y2ggfVxufVxuXG4vLyBhcnRpZmljaWFsIGRlbGF5XG5mdW5jdGlvbiB0aW1lb3V0KCkge1xuICByZXR1cm4gbmV3IFByb21pc2UoKHJlc29sdmUsIHJlamVjdCkgPT4ge1xuICAgIHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgaWYgKE1hdGgucmFuZG9tKCkgPiAwLjMpIHtcbiAgICAgICAgcmVzb2x2ZSgpXG4gICAgICB9IGVsc2Uge1xuICAgICAgICByZWplY3QobmV3IEVycm9yKCdSYW5kb20gRXJyb3InKSlcbiAgICAgIH1cbiAgICB9LCAzMDApXG4gIH0pXG59In0=), với khoảng delay giả và lỗi random để demo.
 
-## Conventions and Best Practices {#conventions-and-best-practices}
+## Quy ước và Best Practice {#conventions-and-best-practices}
 
-### Naming {#naming}
+### Đặt tên {#naming}
 
-It is a convention to name composable functions with camelCase names that start with "use".
+Theo quy ước, tên của các hàm composable có dạng camelCase và bắt đầu với "use".
 
-### Input Arguments {#input-arguments}
+### Tham số đầu vào {#input-arguments}
 
-A composable can accept ref arguments even if it doesn't rely on them for reactivity. If you are writing a composable that may be used by other developers, it's a good idea to handle the case of input arguments being refs instead of raw values. The [`unref()`](/api/reactivity-utilities.html#unref) utility function will come in handy for this purpose:
+Một composable có thể nhận tham số ref kể cả nó không phụ thuộc vào các ref này cho reactivity. Nếu bạn viết một composable (mà có thể sau này dev khác sẽ dùng), bạn nên xử lý thêm xử lý cho trường hợp tham số là các ref, thay vì giá trị tĩnh. Hàm [`unref()`](/api/reactivity-utilities.html#unref) sẽ hữu ích cho mục đích này:
 
 ```js
 import { unref } from 'vue'
 
 function useFeature(maybeRef) {
-  // if maybeRef is indeed a ref, its .value will be returned
-  // otherwise, maybeRef is returned as-is
+  // nếu maybeRef is indeed a thực sự là một ref, giá trị của nó sẽ được trả về
+  // nếu không, trả về chính maybeRef
   const value = unref(maybeRef)
 }
 ```
 
-If your composable creates reactive effects when the input is a ref, make sure to either explicitly watch the ref with `watch()`, or call `unref()` inside a `watchEffect()` so that it is properly tracked.
+Nếu composable tạo các reactive effect khi đầu vào là một ref, bạn cần "watch" (quan sát) ref với `watch()`, hoặc dùng `unref()` bên trong một `watchEffect()` để  có thể theo dõi khi ref cập nhật.
 
-### Return Values {#return-values}
+### Các giá trị trả về {#return-values}
 
-You have probably noticed that we have been exclusively using `ref()` instead of `reactive()` in composables. The recommended convention is for composables to always return a plain, non-reactive object containing multiple refs. This allows it to be destructured in components while retaining reactivity:
+Có lẽ bạn đã để ý rằng chúng ta đang chỉ sử dụng `ref()` thay vì `reactive()` trong các composable. Quy ước gợi ý với các composable là luôn trả về một object JS không reactive, trong đó chứa các ref. Cách này cho phép destructure object trong các component, trong khi vẫn giữ lại reactivity:
 
 ```js
-// x and y are refs
+// x và y là các ref
 const { x, y } = useMouse()
 ```
 
-Returning a reactive object from a composable will cause such destructures to lose the reactivity connection to the state inside the composable, while the refs will retain that connection.
+Trả về một reactive object từ composable sẽ khiến quá trình destructure làm mất kết nối reactivity tới state bên trong composable, trong khi các ref sẽ giữ lại kết nối này.
 
-If you prefer to use returned state from composables as object properties, you can wrap the returned object with `reactive()` so that the refs are unwrapped. For example:
+Nếu bạn muốn trả về state từ các composable theo kiểu các property của object, bạn có thể wrap giá trị trả về với `reactive()` để các ref vẫn unwrapped. Ví dụ:
 
 ```js
 const mouse = reactive(useMouse())
-// mouse.x is linked to original ref
+// mouse.x được link tới ref gốc
 console.log(mouse.x)
 ```
 
 ```vue-html
-Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
+Vị trí của con trỏ chuột là: {{ mouse.x }}, {{ mouse.y }}
 ```
 
-### Side Effects {#side-effects}
+### Các Side Effect {#side-effects}
 
-It is OK to perform side effects (e.g. adding DOM event listeners or fetching data) in composables, but pay attention to the following rules:
+Bạn hoàn toàn có thể thực hiện các side effect (ví dụ thêm DOM event listener hoặc fetch data) trong composable, chỉ cần để ý các quy định dưới đây:
 
-- If you are working on an application that uses [Server-Side Rendering](/guide/scaling-up/ssr.html) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser, so you can be sure that code inside them has access to the DOM.
+- Nếu bạn đang làm việc với ứng dụng [Server-Side Rendering](/guide/scaling-up/ssr.html) (SSR), đảm bảo rằng chỉ thực hiện các side effect liên quan đến DOM trong các lifecycle hook sau khi mount, ví dụ `onMounted()`. Các hook này chỉ được gọi ở trên trình duyệt, nên code bên trong hook có thể truy cập tới DOM.
 
-- Remember to clean up side effects in `onUnmounted()`. For example, if a composable sets up a DOM event listener, it should remove that listener in `onUnmounted()` as we have seen in the `useMouse()` example. It can be a good idea to use a composable that automatically does this for you, like the `useEventListener()` example.
+- Nhớ clean các side effect trong `onUnmounted()`. Ví dụ, nếu một composable cài một DOM event listener thì cần loại bỏ listener trong `onUnmounted()` như ta đã thấy trong ví dụ `useMouse()`. Tốt hơn nên có một composable làm việc này tự động, ví dụ như `useEventListener()` ở trên.
 
-### Usage Restrictions {#usage-restrictions}
+### Những hạn chế {#usage-restrictions}
 
-Composables should only be called **synchronously** in `<script setup>` or the `setup()` hook. In some cases, you can also call them in lifecycle hooks like `onMounted()`.
+Các composable chỉ nên được gọi **synchronously (đồng bộ)** bên trong `<script setup>` hoặc `setup()` hook. Trong một số trường hợp, bạn có thể gọi chúng ở trong các hook, ví dụ `onMounted()`.
 
-These are the contexts where Vue is able to determine the current active component instance. Access to an active component instance is necessary so that:
+Đây là các phạm vi mà Vue có thể xác định được bạn đang dùng composable bên trong component instance nào. Cần xác định component instance vì:
 
-1. Lifecycle hooks can be registered to it.
+1. Các lifecycle hook có thể gán vào instance.
 
-2. Computed properties and watchers can be linked to it, so that they can be disposed when the instance is unmounted to prevent memory leaks.
+2. Các thuộc tính Computed và các watcher có thể gắn vào instance, để chúng được xử lý khi instance unmounted để không bị tràn bộ nhớ.
 
 :::tip
-`<script setup>` is the only place where you can call composables **after** using `await`. The compiler automatically restores the active instance context for you after the async operation.
+`<script setup>` là chỗ duy nhất bạn có thể gọi các composable **sau khi** dùng `await`. Compiler tự động phục hồi instance context cho bạn sau khi chạy xong async.
 :::
 
-## Extracting Composables for Code Organization {#extracting-composables-for-code-organization}
+## Tách các composable để tổ chức code tốt hơn {#extracting-composables-for-code-organization}
 
-Composables can be extracted not only for reuse, but also for code organization. As the complexity of your components grow, you may end up with components that are too large to navigate and reason about. Composition API gives you the full flexibility to organize your component code into smaller functions based on logical concerns:
+Các composable có thể được tách ra, không chỉ để tái sử dụng mà còn giúp tổ chức code tốt hơn. Khi các component của bạn phức tạp dần lên, việc theo dõi code là rất khó. Composition API cho bạn đủ sự linh động để tổ chức component của bạn thành các hàm nhỏ hơn, dựa vào logic:
 
 ```vue
 <script setup>
@@ -304,11 +304,11 @@ const { qux } = useFeatureC(baz)
 </script>
 ```
 
-To some extent, you can think of these extracted composables as component-scoped services that can talk to one another.
+Ở mức độ nào đó, bạn có thể nghĩ các composable này như là các service ở phạm vi component, và chúng có thể giao tiếp với nhau.
 
-## Using Composables in Options API {#using-composables-in-options-api}
+## Dùng composable trong Options API {#using-composables-in-options-api}
 
-If you are using Options API, composables must be called inside `setup()`, and the returned bindings must be returned from `setup()` so that they are exposed to `this` and the template:
+Nếu bạn đang dùng Options API, bạn phải gọi các composable trong `setup()`, và các ràng buộc phải được trả về từ `setup()` để chúng được expose tới `this` và template:
 
 ```js
 import { useMouse } from './mouse.js'
@@ -321,26 +321,26 @@ export default {
     return { x, y, data, error }
   },
   mounted() {
-    // setup() exposed properties can be accessed on `this`
+    // các thuộc tính expose từ setup() có thể truy cập bằng `this`
     console.log(this.x)
   }
-  // ...other options
+  // ...các option khác
 }
 ```
 
-## Comparisons with Other Techniques {#comparisons-with-other-techniques}
+## So sánh với các kỹ thuật khác {#comparisons-with-other-techniques}
 
 ### vs. Mixins {#vs-mixins}
 
-Users coming from Vue 2 may be familiar with the [mixins](/api/options-composition.html#mixins) option, which also allows us to extract component logic into reusable units. There are three primary drawbacks to mixins:
+Người dùng Vue 2 có thể quen với [mixins](/api/options-composition.html#mixins), cái cũng cho phép ta tách component logic thành các unit có thể tái sử dụng. Có ba hạn chế đối với mixin:
 
-1. **Unclear source of properties**: when using many mixins, it becomes unclear which instance property is injected by which mixin, making it difficult to trace the implementation and understand the component's behavior. This is also why we recommend using the refs + destructure pattern for composables: it makes the property source clear in consuming components.
+1. **Nguồn gốc của các thuộc tính không rõ ràng**: khi sử dụng nhiều mixin, sẽ không rõ ràng để biết thuộc tính instance nào được inject bới mixin nào, làm ta khó theo dõi và khó để hiểu hành vi của component. Đây cũng là lý do chúng tôi khuyên sử dụng ref + destructure cho composable: nó giúp nguồn của các thuộc tính rõ ràng trong các component.
 
-2. **Namespace collisions**: multiple mixins from different authors can potentially register the same property keys, causing namespace collisions. With composables, you can rename the destructured variables if there are conflicting keys from different composables.
+2. **Xung đột namespace**: mixin từ các dev khác nhau có thể tiềm tàng đăng ký cùng key, làm xung đột namespace. Với composable, bạn có thể thay đổi các biến được destructure nếu có conflict từ composable khác nhau.
 
-3. **Implicit cross-mixin communication**: multiple mixins that need to interact with one another have to rely on shared property keys, making them implicitly coupled. With composables, values returned from one composable can be passed into another as arguments, just like normal functions.
+3. **Giao tiếp ẩn giữa các mixin**: các mixin tương tác với mixin khác sẽ phụ thuộc vào các thuộc tính được share, làm chúng bắt cặp với nhau không rõ ràng. Với composable, giá trị trả về từ một composable có thể truyền vào composable khác như là tham số, giống như hàm bình thường.
 
-For the above reasons, we no longer recommend using mixins in Vue 3. The feature is kept only for migration and familiarity reasons.
+Vì các lý do trên, chúng tôi không khuyến khích dùng mixin trong Vue 3. Chức năng này được giữ để giúp migration (Vue 2 lên Vue 3) và do nó đã quen thuộc.
 
 ### vs. Renderless Components {#vs-renderless-components}
 
