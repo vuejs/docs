@@ -161,11 +161,11 @@ It would be tedious to have to repeat this pattern in every component that needs
 // fetch.js
 import { ref } from 'vue'
 
-export function useFetch(url) {
+export async function useFetch(url) {
   const data = ref(null)
   const error = ref(null)
 
-  fetch(url)
+  await fetch(url)
     .then((res) => res.json())
     .then((json) => (data.value = json))
     .catch((err) => (error.value = err))
@@ -180,7 +180,7 @@ Now in our component we can just do:
 <script setup>
 import { useFetch } from './fetch.js'
 
-const { data, error } = useFetch('...')
+const { data, error } = await useFetch('...')
 </script>
 ```
 
@@ -194,12 +194,12 @@ export function useFetch(url) {
   const data = ref(null)
   const error = ref(null)
 
-  function doFetch() {
+  async function doFetch() {
     // reset state before fetching..
     data.value = null
     error.value = null
     // unref() unwraps potential refs
-    fetch(unref(url))
+    await fetch(unref(url))
       .then((res) => res.json())
       .then((json) => (data.value = json))
       .catch((err) => (error.value = err))
@@ -211,7 +211,7 @@ export function useFetch(url) {
   } else {
     // otherwise, just fetch once
     // and avoid the overhead of a watcher
-    doFetch()
+    await doFetch()
   }
 
   return { data, error }
