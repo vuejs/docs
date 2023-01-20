@@ -2,18 +2,18 @@
 pageClass: api
 ---
 
-# Built-in Components {#built-in-components}
+# Вбудовані компоненти {#built-in-components}
 
-:::info Registration and Usage
-Built-in components can be used directly in templates without needing to be registered. They are also tree-shakeable: they are only included in the build when they are used.
+:::info Реєстрація та використання
+Вбудовані компоненти можна використовувати безпосередньо в шаблонах без необхідності реєстрації. Вони також підтримують струшування дерева: вони включаються в збірку лише тоді, коли використовуються.
 
-When using them in [render functions](/guide/extras/render-function.html), they need to be imported explicitly. For example:
+При їх використанні в [функціях рендерингу](/guide/extras/render-function.html), їх потрібно імпортувати явно. Наприклад:
 
 ```js
 import { h, Transition } from 'vue'
 
 h(Transition, {
-  /* props */
+  /* реквізити */
 })
 ```
 
@@ -21,50 +21,50 @@ h(Transition, {
 
 ## `<Transition>` {#transition}
 
-Provides animated transition effects to a **single** element or component.
+Забезпечує анімовані ефекти переходу для **окремого** елемента або компонента.
 
-- **Props**
+- **Реквізити**
 
   ```ts
   interface TransitionProps {
     /**
-     * Used to automatically generate transition CSS class names.
-     * e.g. `name: 'fade'` will auto expand to `.fade-enter`,
-     * `.fade-enter-active`, etc.
+     * Використовується для автоматичної генерації назв класів переходу CSS.
+     * напр. `name: 'fade'` буде автоматично розширено до `.fade-enter`,
+     * `.fade-enter-active`, тощо.
      */
     name?: string
     /**
-     * Whether to apply CSS transition classes.
-     * Default: true
+     * Чи застосовувати класи переходу CSS.
+     * За промовчанням: true
      */
     css?: boolean
     /**
-     * Specifies the type of transition events to wait for to
-     * determine transition end timing.
-     * Default behavior is auto detecting the type that has
-     * longer duration.
+     * Визначає тип подій переходу, на які потрібно чекати щоб
+     * визначити час закінчення переходу.
+     * Тип за промовчанням автоматично визначає тип, який має
+     * більшу тривалість.
      */
     type?: 'transition' | 'animation'
     /**
-     * Specifies explicit durations of the transition.
-     * Default behavior is wait for the first `transitionend`
-     * or `animationend` event on the root transition element.
+     * Визначає явну тривалість переходу.
+     * За промовчанням чекає першої `transitionend`
+     * або `animationend` події на кореневому елементі переходу.
      */
     duration?: number | { enter: number; leave: number }
     /**
-     * Controls the timing sequence of leaving/entering transitions.
-     * Default behavior is simultaneous.
+     * Контролює послідовність синхронізації переходів виходу/входу.
+     * Поведінка за промовчанням - одночасна.
      */
     mode?: 'in-out' | 'out-in' | 'default'
     /**
-     * Whether to apply transition on initial render.
-     * Default: false
+     * Чи застосовувати перехід під час початкового рендерингу.
+     * За промовчанням: false
      */
     appear?: boolean
 
     /**
-     * Props for customizing transition classes.
-     * Use kebab-case in templates, e.g. enter-from-class="xxx"
+     * Реквізити для налаштування перехідних класів.
+     * Використовуйте kebab-case в шаблонах, напр. enter-from-class="xxx"
      */
     enterFromClass?: string
     enterActiveClass?: string
@@ -78,7 +78,7 @@ Provides animated transition effects to a **single** element or component.
   }
   ```
 
-- **Events**
+- **Події**
 
   - `@before-enter`
   - `@before-leave`
@@ -89,20 +89,20 @@ Provides animated transition effects to a **single** element or component.
   - `@after-leave`
   - `@after-appear`
   - `@enter-cancelled`
-  - `@leave-cancelled` (`v-show` only)
+  - `@leave-cancelled` (тільки для `v-show`)
   - `@appear-cancelled`
 
-- **Example**
+- **Приклад**
 
-  Simple element:
+  Простий елемент:
 
   ```vue-html
   <Transition>
-    <div v-if="ok">toggled content</div>
+    <div v-if="ok">вміст, що перемикається</div>
   </Transition>
   ```
 
-  Dynamic component, with transition mode + animate on appear:
+  Динамічний компонент з увімкненим режимом переходу + анімацією:
 
   ```vue-html
   <Transition name="fade" mode="out-in" appear>
@@ -110,51 +110,51 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-  Listening to transition events:
+  Прослуховування перехідних подій:
 
   ```vue-html
   <Transition @after-enter="onTransitionComplete">
-    <div v-show="ok">toggled content</div>
+    <div v-show="ok">вміст, що перемикається</div>
   </Transition>
   ```
 
-- **See also:** [`<Transition>` Guide](/guide/built-ins/transition.html)
+- **Також до вашої уваги:** [Гід `<Transition>`](/guide/built-ins/transition.html)
 
 ## `<TransitionGroup>` {#transitiongroup}
 
-Provides transition effects for **multiple** elements or components in a list.
+Забезпечує ефекти переходу для **декількох** елементів або компонентів у списку.
 
-- **Props**
+- **Реквізити**
 
-  `<TransitionGroup>` accepts the same props as `<Transition>` except `mode`, plus two additional props:
+  `<TransitionGroup>` приймає ті самі властивості, що і `<Transition>`, за винятком `mode`, а також дві додаткові властивості:
 
   ```ts
   interface TransitionGroupProps extends Omit<TransitionProps, 'mode'> {
     /**
-     * If not defined, renders as a fragment.
+     * Якщо не визначено, відрендериться як фрагмент.
      */
     tag?: string
     /**
-     * For customizing the CSS class applied during move transitions.
-     * Use kebab-case in templates, e.g. move-class="xxx"
+     * Для налаштування класу CSS, застосованого під час переходів переміщення.
+     * Використовуйте kebab-case в шаблонах, напр. move-class="xxx"
      */
     moveClass?: string
   }
   ```
 
-- **Events**
+- **Події**
 
-  `<TransitionGroup>` emits the same events as `<Transition>`.
+  `<TransitionGroup>` випромінює ті самі події, що `<Transition>`.
 
-- **Details**
+- **Подробиці**
 
-  By default, `<TransitionGroup>` doesn't render a wrapper DOM element, but one can be defined via the `tag` prop.
+  За промовчанням `<TransitionGroup>` не рендерить DOM-елемент обгортки, але його можна визначити за допомогою властивості `tag`.
 
-  Note that every child in a `<transition-group>` must be [**uniquely keyed**](/guide/essentials/list.html#maintaining-state-with-key) for the animations to work properly.
+  Зауважте, що кожен дочірній елемент у `<transition-group>` повинен мати [**унікальний ключ**](/guide/essentials/list.html#maintaining-state-with-key), щоб анімації працювали належним чином.
 
-  `<TransitionGroup>` supports moving transitions via CSS transform. When a child's position on screen has changed after an update, it will get applied a moving CSS class (auto generated from the `name` attribute or configured with the `move-class` prop). If the CSS `transform` property is "transition-able" when the moving class is applied, the element will be smoothly animated to its destination using the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
+  `<TransitionGroup>` підтримує переходи з переміщеннями за допомогою CSS transform. Якщо позиція дочірнього елемента на екрані змінилася після оновлення, до нього буде застосовано CSS-клас переміщення (автоматично створений з атрибута `name` або налаштований за допомогою реквізиту `move-class`). Якщо при застосуванні CSS `transform` властивості можливе переміщення, елемент буде плавно анімовано до місця призначення за допомогою [технології FLIP](https://aerotwist.com/blog/flip-your-animations/).
 
-- **Example**
+- **Приклад**
 
   ```vue-html
   <TransitionGroup tag="ul" name="slide">
@@ -164,28 +164,28 @@ Provides transition effects for **multiple** elements or components in a list.
   </TransitionGroup>
   ```
 
-- **See also:** [Guide - TransitionGroup](/guide/built-ins/transition-group.html)
+- **Також до вашої уваги:** [Гід - TransitionGroup](/guide/built-ins/transition-group.html)
 
 ## `<KeepAlive>` {#keepalive}
 
-Caches dynamically toggled components wrapped inside.
+Кешування динамічно перемикаємих компонент, загорнутих всередину.
 
-- **Props**
+- **Реквізити**
 
   ```ts
   interface KeepAliveProps {
     /**
-     * If specified, only components with names matched by
-     * `include` will be cached.
+     * Тільки компоненти з іменами, що збігаються, з
+     * `include` будуть кешовані.
      */
     include?: MatchPattern
     /**
-     * Any component with a name matched by `exclude` will
-     * not be cached.
+     * Будь-який компонент з відповідним ім'ям з `exclude`
+     * не буде кешовано.
      */
     exclude?: MatchPattern
     /**
-     * The maximum number of component instances to cache.
+     * Максимальна кількість екземплярів компонентів для кешування.
      */
     max?: number | string
   }
@@ -193,17 +193,17 @@ Caches dynamically toggled components wrapped inside.
   type MatchPattern = string | RegExp | (string | RegExp)[]
   ```
 
-- **Details**
+- **Подробиці**
 
-  When wrapped around a dynamic component, `<KeepAlive>` caches the inactive component instances without destroying them.
+  При обгортанні навколо динамічного компонента `<KeepAlive>` кешуватиме неактивні екземпляри компонентів, не знищуючи їх
 
-  There can only be one active component instance as the direct child of `<KeepAlive>` at any time.
+  У будь-який час може бути лише один активний екземпляр компонента як прямий дочірній елемент `<KeepAlive>`.
 
-  When a component is toggled inside `<KeepAlive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly, providing an alternative to `mounted` and `unmounted`, which are not called. This applies to the direct child of `<KeepAlive>` as well as to all of its descendants.
+  Коли компонент перемикається всередині `<KeepAlive>`, його хуки життєвого циклу `activated` та `deactivated` будуть викликані відповідно, надаючи альтернативу `mounted` і `unmounted`, які не викликаються. Це стосується прямого дочірнього елемента `<KeepAlive>`, а також усіх його нащадків.
 
-- **Example**
+- **Приклад**
 
-  Basic usage:
+  Базове використання:
 
   ```vue-html
   <KeepAlive>
@@ -211,7 +211,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-  When used with `v-if` / `v-else` branches, there must be only one component rendered at a time:
+  Якщо використовується з гілками `v-if` / `v-else`, одночасно повинен відтворюватися лише один компонент:
 
   ```vue-html
   <KeepAlive>
@@ -220,7 +220,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-  Used together with `<Transition>`:
+  Використовується разом з `<Transition>`:
 
   ```vue-html
   <Transition>
@@ -230,26 +230,26 @@ Caches dynamically toggled components wrapped inside.
   </Transition>
   ```
 
-  Using `include` / `exclude`:
+  Використання `include` / `exclude`:
 
   ```vue-html
-  <!-- comma-delimited string -->
+  <!-- рядок, розділений комами -->
   <KeepAlive include="a,b">
     <component :is="view"></component>
   </KeepAlive>
 
-  <!-- regex (use `v-bind`) -->
+  <!-- regex (використання `v-bind`) -->
   <KeepAlive :include="/a|b/">
     <component :is="view"></component>
   </KeepAlive>
 
-  <!-- Array (use `v-bind`) -->
+  <!-- Array (використання `v-bind`) -->
   <KeepAlive :include="['a', 'b']">
     <component :is="view"></component>
   </KeepAlive>
   ```
 
-  Usage with `max`:
+  Використання з `max`:
 
   ```vue-html
   <KeepAlive :max="10">
@@ -257,33 +257,33 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-- **See also:** [Guide - KeepAlive](/guide/built-ins/keep-alive.html)
+- **Також до вашої уваги:** [Гід - KeepAlive](/guide/built-ins/keep-alive.html)
 
 ## `<Teleport>` {#teleport}
 
-Renders its slot content to another part of the DOM.
+Рендеринг вмісту свого слота в іншій частині DOM.
 
-- **Props**
+- **Реквізити**
 
   ```ts
   interface TeleportProps {
     /**
-     * Required. Specify target container.
-     * Can either be a selector or an actual element.
+     * Обов'язковий вхідний реквізит. Визначиний цільовий контейнер.
+     * Може бути селектором або фактичним елементом.
      */
     to: string | HTMLElement
     /**
-     * When `true`, the content will remain in its original
-     * location instead of moved into the target container.
-     * Can be changed dynamically.
+     * Якщо `true`, вміст залишиться в оригінальному вигляді
+     * розташування замість переміщення в цільовий контейнер.
+     * Можна динамічно змінювати.
      */
     disabled?: boolean
   }
   ```
 
-- **Example**
+- **Приклад**
 
-  Specifying target container:
+  Визначення цільового контейнера:
 
   ```vue-html
   <teleport to="#some-id" />
@@ -291,7 +291,7 @@ Renders its slot content to another part of the DOM.
   <teleport to="[data-teleport]" />
   ```
 
-  Conditionally disabling:
+  Умовне відключення:
 
   ```vue-html
   <teleport to="#popup" :disabled="displayVideoInline">
@@ -299,13 +299,13 @@ Renders its slot content to another part of the DOM.
   </teleport>
   ```
 
-- **See also:** [Guide - Teleport](/guide/built-ins/teleport.html)
+- **Також до вашої уваги:** [Гід - Teleport](/guide/built-ins/teleport.html)
 
 ## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
-Used for orchestrating nested async dependencies in a component tree.
+Використовується для управління вкладених асинхронних залежностей у дереві компонентів.
 
-- **Props**
+- **Реквізити**
 
   ```ts
   interface SuspenseProps {
@@ -313,16 +313,16 @@ Used for orchestrating nested async dependencies in a component tree.
   }
   ```
 
-- **Events**
+- **Події**
 
   - `@resolve`
   - `@pending`
   - `@fallback`
 
-- **Details**
+- **Подробиці**
 
-  `<Suspense>` accepts two slots: the `#default` slot and the `#fallback` slot. It will display the content of the fallback slot while rendering the default slot in memory.
+  `<Suspense>` приймає два слоти: `#default` слот і `#fallback` слот. Він показуватиме вміст `#fallback` слота під час рендерингу слота за промовчанням у пам’яті.
 
-  If it encounters async dependencies ([Async Components](/guide/components/async.html) and components with [`async setup()`](/guide/built-ins/suspense.html#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
+  Якщо він зустрічає асинхронні залежності ([Асинхронні компоненти](/guide/components/async.html) й компоненти з [`async setup()`](/guide/built-ins/suspense.html#async-setup)) під час рендерингу слота за промовчанням, він чекатиме, доки всі вони будуть вирішені, перш ніж показати слот за промовчанням.
 
-- **See also:** [Guide - Suspense](/guide/built-ins/suspense.html)
+- **Також до вашої уваги:** [Гід - Suspense](/guide/built-ins/suspense.html)
