@@ -101,24 +101,6 @@
     "platinum": true
   },
   {
-    "name": "64 Robots",
-    "logo": "64robots.svg",
-    "intro": "We're a team of Vue / Nuxt experts creating beautifully designed, cutting edge modern applications. Whether building something new, refactoring an existing project or moving to Vue/Nuxt 3, we'll give you a personal and thoughtful approach to development.",
-    "description": [
-      "We specialize in building Laravel APIs, Vue.js 2/3 SPAs, Nuxt.js 2/3 SSR applications, and Flutter mobile applications.",
-      "We love working with companies of all sizes. We've guided early-stage, funded startups to a successful launch and helped large international companies refactor and rebuild existing products to scale into the future. Whatever your needs, we'll help you make the right technology decisions and build a polished product that will put you on the path to success.",
-      "We set ourselves apart by our level of involvement in your product. Think of us as an extension of your team. Whether augmenting an existing team or stepping in as de facto CTO to make the technical decisions, we're there for you. We're selective in the products that we take on, as we truly want to believe in our work and do everything we can to make them successful. Your success is our success."
-    ],
-    "region": ["North America", "Europe", "Africa"],
-    "proficiencies": ["Vue", "Nuxt", "Laravel", "Flutter", "Node.js"],
-    "website": {
-      "text": "64robots.com",
-      "url": "https://64robots.com/"
-    },
-    "contact": "rob@64robots.com",
-    "platinum": true
-  },
-  {
     "name": "DevSquad",
     "logo": "devsquad.png",
     "intro": "You can think of DevSquad as the Navy SEALs of software development. Our team members have unique and diverse skills, and this cross-functionality lets us successfully complete any mission.",
