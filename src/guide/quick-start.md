@@ -180,6 +180,8 @@ As we dive deeper into the guide, we may need to split our code into separate Ja
 
 ```html
 <!-- index.html -->
+<div id="app"></div>
+
 <script type="module">
   import { createApp } from 'vue'
   import MyComponent from './my-component.js'
