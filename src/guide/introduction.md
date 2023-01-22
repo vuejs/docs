@@ -78,8 +78,8 @@ Der Rest der Dokumentation setzt grundlegende Kenntnisse in HTML, CSS und JavaSc
 
 Vue ist ein Framework und Ecosystem, das die meisten der gängigen Funktionen abdeckt, die in der Frontend-Entwicklung benötigt werden. Aber das Web ist extrem vielfältig - die Dinge, die wir im Web bauen, können in Form und Umfang drastisch variieren. Aus diesem Grund ist Vue so konzipiert, dass es flexibel und schrittweise anpassbar ist. Je nach Anwendungsfall kann Vue auf unterschiedliche Weise eingesetzt werden:
 
-- Enhancing static HTML without a build step
-- Embedding as Web Components on any page
+- Erweitern von statischem HTML ohne Build-Schritt
+- Einbettung als Webkomponenten auf einer beliebigen Seite
 - Single-Page Application (SPA)
 - Fullstack / Server-Side Rendering (SSR)
 - Jamstack / Static Site Generation (SSG)
