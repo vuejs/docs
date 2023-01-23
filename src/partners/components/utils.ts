@@ -1,3 +1,7 @@
+export function track() {
+  fathom.trackGoal('TTDUIE6G', 0)
+}
+
 export function normalizeName(name: string) {
   return name.toLowerCase().replace(/\s+/g, '')
 }

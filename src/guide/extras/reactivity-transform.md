@@ -246,7 +246,7 @@ function useMouse() {
 }
 ```
 
-### Using `$()` on destructured props {#using-on-destructured-props}
+### Using `$$()` on destructured props {#using-on-destructured-props}
 
 `$$()` works on destructured props since they are reactive variables as well. The compiler will convert it with `toRef` for efficiency:
 

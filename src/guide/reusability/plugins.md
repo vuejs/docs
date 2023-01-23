@@ -1,4 +1,4 @@
-﻿# Plugins
+﻿# Plugins {#plugins}
 
 ## Introduction {#introduction}
 
