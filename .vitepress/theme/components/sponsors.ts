@@ -2,6 +2,12 @@
 
 import { ref } from 'vue'
 
+declare global {
+  const fathom: {
+    trackGoal: (id: string, value: number) => any
+  }
+}
+
 export interface Sponsor {
   url: string
   img: string

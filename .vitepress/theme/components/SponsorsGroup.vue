@@ -2,9 +2,11 @@
 import { onMounted, onUnmounted } from 'vue'
 import { SponsorData, data, base, load } from './sponsors'
 
+type Placement = 'aside' | 'page' | 'landing'
+
 const { tier, placement = 'aside' } = defineProps<{
   tier: keyof SponsorData
-  placement?: 'aside' | 'page' | 'landing'
+  placement?: Placement
 }>()
 
 let container = $ref<HTMLElement>()
@@ -21,12 +23,23 @@ onMounted(async () => {
     },
     { rootMargin: '0px 0px 300px 0px' }
   )
-  observer.observe(container)
+  observer.observe(container!)
   onUnmounted(() => observer.disconnect())
 
   // load data
   await load()
 })
+
+// fathom events
+const eventMap: Record<Placement, string> = {
+  aside: '4QUPDDRU',
+  landing: '58FLAR2Z',
+  page: 'ZXLO3IUT'
+}
+
+function track(interest?: boolean) {
+  fathom.trackGoal(interest ? `Y2BVYNT2` : eventMap[placement], 0)
+}
 </script>
 
 <template>
@@ -42,6 +55,7 @@ onMounted(async () => {
         :href="url"
         target="_blank"
         rel="sponsored noopener"
+        @click="track()"
       >
         <picture v-if="img.endsWith('png')">
           <source
@@ -57,6 +71,7 @@ onMounted(async () => {
       v-if="placement !== 'page' && tier !== 'special'"
       href="/sponsor/"
       class="sponsor-item action"
+      @click="track(true)"
       >Your logo</a
     >
   </div>

@@ -237,5 +237,26 @@
       "github": "michalsnik",
       "twitter": "michalsnik"
     }
+  },
+  {
+    "name": "Damian Dulisz",
+    "title": "Consultant",
+    "projects": [
+      {
+        "label": "news.vuejs.org",
+        "url": "https://news.vuejs.org"
+      },
+      {
+        "label": "vue-multiselect",
+        "url": "https://vue-multiselect.js.org/"
+      }
+    ],
+    "location": "Wrocław, Poland",
+    "languages": ["Polish", "English"],
+    "socials": {
+      "github": "shentao",
+      "twitter": "DamianDulisz"
+    },
+    "sponsor": true
   }
 ]

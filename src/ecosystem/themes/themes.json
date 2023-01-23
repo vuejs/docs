@@ -274,8 +274,8 @@
   },
   {
     "name": "PrimeVue",
-    "description": "The open-source UI component library [PrimeVue](https://www.primefaces.org/primevue/#/?af_id=4218) offers over 80 flexible components to build your apps with! They have a ton of different component themes and Vue-CLI application templates available to get the look & feel that suits you best.`",
-    "seeMoreUrl": "https://www.primefaces.org/primevue/#/?af_id=4218",
+    "description": "The open-source UI component library [PrimeVue](https://www.primefaces.org/primevue/?af_id=4218) offers over 90 flexible components to build your apps with! They have a ton of different component themes and application templates available to get the look & feel that suits you best.",
+    "seeMoreUrl": "https://www.primefaces.org/primevue/?af_id=4218",
     "products": [
       {
         "name": "Sakai",
@@ -283,6 +283,13 @@
         "description": "Free Admin Template",
         "url": "https://www.primefaces.org/sakai-vue/#/?af_id=4218",
         "image": "https://www.primefaces.org/vue-templates/sakai.jpg"
+      },
+      {
+        "name": "Apollo",
+        "price": 59,
+        "description": "Next-Gen Application Template",
+        "url": "https://www.primefaces.org/layouts/apollo-vue?af_id=4218",
+        "image": "https://www.primefaces.org/vue-templates/apollo.jpg"
       },
       {
         "name": "Atlantis",
@@ -346,13 +353,6 @@
         "description": "Material Design Admin Template",
         "url": "https://www.primefaces.org/layouts/serenity-vue?af_id=4218",
         "image": "https://www.primefaces.org/vue-templates/serenity.jpg"
-      },
-      {
-        "name": "Apollo",
-        "price": 49,
-        "description": "Admin Template with a Dark Mode",
-        "url": "https://www.primefaces.org/layouts/apollo-vue?af_id=4218",
-        "image": "https://www.primefaces.org/vue-templates/apollo.jpg"
       },
       {
         "name": "Babylon",
