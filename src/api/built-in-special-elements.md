@@ -1,14 +1,14 @@
-# Built-in Special Elements {#built-in-special-elements}
+# Вбудовані спеціальні елементи {#built-in-special-elements}
 
-:::info Not Components
-`<component>`, `<slot>` and `<template>` are component-like features and part of the template syntax. They are not true components and are compiled away during template compilation. As such, they are conventionally written with lowercase in templates.
+:::info Не компоненти
+`<component>`, `<slot>` і `<template>` є компонентними функціями та частиною синтаксису шаблону. Вони не є справжніми компонентами та компілюються під час компіляції шаблону. Тому в шаблонах вони зазвичай пишуться з малої літери.
 :::
 
 ## `<component>` {#component}
 
-A "meta component" for rendering dynamic components or elements.
+"Метакомпонент" для рендерингу динамічних компонентів або елементів.
 
-- **Props**
+- **Реквізити**
 
   ```ts
   interface DynamicComponentProps {
@@ -16,17 +16,17 @@ A "meta component" for rendering dynamic components or elements.
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  The actual component to render is determined by the `is` prop.
+  Фактичний компонент для рендерингу визначається реквізитом `is`.
 
-  - When `is` is a string, it could be either an HTML tag name or a component's registered name.
+  - Коли `is` є рядком, то це може бути ім'я тегу HTML або зареєстроване ім'я компонента.
 
-  - Alternatively, `is` can also be directly bound to the definition of a component.
+  - Крім того, `is` також може бути безпосередньо пов’язаний з визначенням компонента.
 
-- **Example**
+- **Приклад**
 
-  Rendering components by registered name (Options API):
+  Рендеринг компонентів за зареєстрованим іменем (опційний АРІ):
 
   ```vue
   <script>
@@ -48,7 +48,7 @@ A "meta component" for rendering dynamic components or elements.
   </template>
   ```
 
-  Rendering components by definition (Composition API with `<script setup>`):
+  Рендеринг компонентів за визначенням (композиційний АРІ з `<script setup>`):
 
   ```vue
   <script setup>
@@ -61,13 +61,13 @@ A "meta component" for rendering dynamic components or elements.
   </template>
   ```
 
-  Rendering HTML elements:
+  Рендеринг HTML елементів:
 
   ```vue-html
   <component :is="href ? 'a' : 'span'"></component>
   ```
 
-  The [built-in components](./built-in-components.html) can all be passed to `is`, but you must register them if you want to pass them by name. For example:
+  Усі [вбудовані компоненти](./built-in-components.html) можна передати в `is`, але ви повинні зареєструвати їх, якщо хочете передати їх за іменем. Наприклад:
 
   ```vue
   <script>
@@ -88,77 +88,77 @@ A "meta component" for rendering dynamic components or elements.
   </template>
   ```
 
-  Registration is not required if you pass the component itself to `is` rather than its name, e.g. in `<script setup>`.
+  Реєстрація не потрібна, якщо ви передаєте сам компонент у `is`, а не його назву, наприклад. у  `<script setup>`.
 
-  If `v-model` is used on a `<component>` tag, the template compiler will expand it to a `modelValue` prop and `update:modelValue` event listener, much like it would for any other component. However, this won't be compatible with native HTML elements, such as `<input>` or `<select>`. As a result, using `v-model` with a dynamically created native element won't work: 
+  Якщо `v-model` використовується в тегу `<component>`, компілятор шаблону розширить його до реквізиту `modelValue` і слухача подій `update:modelValue`, так само як і для будь-якого іншого компонента. Однак це не буде сумісним із рідними елементами HTML, такими як `<input>` або `<select>`. Як результат, використання `v-model` з динамічно створеним рідним елементом не працюватиме:
 
   ```vue
   <script setup>
   import { ref } from 'vue'
-  
+
   const tag = ref('input')
   const username = ref('')
   </script>
 
   <template>
-    <!-- This won't work as 'input' is a native HTML element -->
+    <!-- Це не працюватиме, оскільки 'input' є рідним HTML елементом -->
     <component :is="tag" v-model="username" />
   </template>
   ```
 
-  In practice, this edge case isn't common as native form fields are typically wrapped in components in real applications. If you do need to use a native element directly then you can split the `v-model` into an attribute and event manually.
+  На практиці цей крайовий випадок не є поширеним, оскільки рідні поля форми зазвичай загорнуті в компоненти у реальних застосунках. Якщо вам потрібно використовувати рідний елемент безпосередньо, ви можете вручну розділити `v-model` на атрибут і подію.
 
-- **See also:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
+- **Також до вашої уваги:** [Динамічні компоненти](/guide/essentials/component-basics.html#dynamic-components)
 
 ## `<slot>` {#slot}
 
-Denotes slot content outlets in templates.
+Служить як точка поширення контенту в шаблонах.
 
-- **Props**
+- **Реквізити**
 
   ```ts
   interface SlotProps {
     /**
-     * Any props passed to <slot> to passed as arguments
-     * for scoped slots
+     * Будь-які реквізити, передані в <slot> передаються як аргументи
+     * для обмежених слотів
      */
     [key: string]: any
     /**
-     * Reserved for specifying slot name.
+     * Зарезервовано для вказівки назви слота.
      */
     name?: string
   }
   ```
 
-- **Details**
+- **Подробиці**
 
-  The `<slot>` element can use the `name` attribute to specify a slot name. When no `name` is specified, it will render the default slot. Additional attributes passed to the slot element will be passed as slot props to the scoped slot defined in the parent.
+  Елемент `<slot>` може використовувати атрибут `name` для визначення імені слота. Якщо `name` не вказано, він відрендерить слот за промовчанням. Додаткові атрибути, передані до елемента слота, будуть передані як реквізити слота до слота з областю дії, визначеного в батьківському.
 
-  The element itself will be replaced by its matched slot content.
+  Сам елемент буде замінено відповідним вмістом слота.
 
-  `<slot>` elements in Vue templates are compiled into JavaScript, so they are not to be confused with [native `<slot>` elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
+  Елементи `<slot>` у шаблонах Vue скомпільовані в JavaScript, тому їх не слід плутати з [рідними `<slot>` елементами](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
 
-- **See also:** [Component - Slots](/guide/components/slots.html)
+- **Також до вашої уваги:** [Компонент -слоти](/guide/components/slots.html)
 
 ## `<template>` {#template}
 
-The `<template>` tag is used as a placeholder when we want to use a built-in directive without rendering an element in the DOM.
+Тег `<template>` використовується як підмінний елемент, коли ми хочемо використовувати вбудовану директиву без рендерингу елемента в DOM.
 
-- **Details:**
+- **Подробиці:**
 
-  The special handling for `<template>` is only triggered if it is used with one of these directives:
+  Спеціальна обробка для `<template>` ініціюється, лише якщо він використовується з однією з цих директив:
 
-  - `v-if`, `v-else-if`, or `v-else`
+  - `v-if`, `v-else-if`, або `v-else`
   - `v-for`
   - `v-slot`
-  
-  If none of those directives are present then it will be rendered as a [native `<template>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) instead.
 
-  A `<template>` with a `v-for` can also have a [`key` attribute](/api/built-in-special-attributes.html#key). All other attributes and directives will be discarded, as they aren't meaningful without a corresponding element.
+  Якщо жодна з цих директив не присутня, натомість він буде відрендериний як [рідний `<template>` елемент](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).
 
-  Single-file components use a [top-level `<template>` tag](/api/sfc-spec.html#language-blocks) to wrap the entire template. That usage is separate from the use of `<template>` described above. That top-level tag is not part of the template itself and doesn't support template syntax, such as directives.  
+  `<template>` із `v-for` також може мати [атрибут `key`](/api/built-in-special-attributes.html#key). Усі інші атрибути та директиви буде відкинуто, оскільки вони не мають сенсу без відповідного елемента.
 
-- **See also:**
-  - [Guide - `v-if` on `<template>`](/guide/essentials/conditional.html#v-if-on-template) 
-  - [Guide - `v-for` on `<template>`](/guide/essentials/list.html#v-for-on-template) 
-  - [Guide - Named slots](/guide/components/slots.html#named-slots) 
+  Одно-файлові компоненти використовують [тег верхнього рівня `<template>`](/api/sfc-spec.html#language-blocks), щоб охопити весь шаблон. Це використання окремо від використання `<template>`, описаного вище. Цей тег верхнього рівня не є частиною самого шаблону та не підтримує синтаксис шаблону, наприклад директиви.
+
+- **Також до вашої уваги:**
+  - [Гід - `v-if` в `<template>`](/guide/essentials/conditional.html#v-if-on-template)
+  - [Гід - `v-for` в `<template>`](/guide/essentials/list.html#v-for-on-template)
+  - [Гід - Іменовані слоти](/guide/components/slots.html#named-slots)
