@@ -529,12 +529,12 @@ components/
 
 ## Prop name casing {#prop-name-casing}
 
-**Prop names should always use camelCase during declaration, but kebab-case in templates and [JSX](/guide/extras/render-function.html#jsx-tsx).**
-
-We're simply following the conventions of each language. Within JavaScript, camelCase is more natural. Within HTML, kebab-case is.
+**Prop names should always use camelCase during declaration. When used inside in-DOM templates, props should be kebab-cased. Single-File Components templates and [JSX](/guide/extras/render-function.html#jsx-tsx) can use either kebab-case or camelCase props. Casing should be consistent - if you choose to use camelCased props, make sure you don't use kebab-cased ones in your application**
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
+
+<div class="options-api">
 
 ```js
 props: {
@@ -542,8 +542,21 @@ props: {
 }
 ```
 
+</div>
+
+<div class="composition-api">
+
+```js
+const props = defineProps({
+  'greeting-text': String
+})
+```
+
+</div>
+
 ```vue-html
-<WelcomeMessage greetingText="hi"/>
+// for in-DOM templates
+<welcome-message greetingText="hi"></welcome-message>
 ```
 
 </div>
@@ -551,14 +564,37 @@ props: {
 <div class="style-example style-example-good">
 <h3>Good</h3>
 
+<div class="options-api">
+
 ```js
 props: {
   greetingText: String
 }
 ```
 
+</div>
+
+<div class="composition-api">
+
+```js
+const props = defineProps({
+  greetingText: String
+})
+```
+
+</div>
+
 ```vue-html
+// for SFC - please make sure your casing is consistent throughout the project
+// you can use either convention but we don't recommend mixing two different casing styles
 <WelcomeMessage greeting-text="hi"/>
+// or
+<WelcomeMessage greetingText="hi"/>
+```
+
+```vue-html
+// for in-DOM templates
+<welcome-message greeting-text="hi"></welcome-message>
 ```
 
 </div>
@@ -629,6 +665,8 @@ Complex expressions in your templates make them less declarative. We should stri
 {{ normalizedFullName }}
 ```
 
+<div class="options-api">
+
 ```js
 // The complex expression has been moved to a computed property
 computed: {
@@ -639,6 +677,22 @@ computed: {
   }
 }
 ```
+
+</div>
+
+<div class="composition-api">
+
+```js
+// The complex expression has been moved to a computed property
+const normalizedFullName = computed(() =>
+  fullName.value
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(' ')
+)
+```
+
+</div>
 
 </div>
 
@@ -667,6 +721,8 @@ Simpler, well-named computed properties are:
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
+<div class="options-api">
+
 ```js
 computed: {
   price() {
@@ -681,8 +737,23 @@ computed: {
 
 </div>
 
+<div class="composition-api">
+
+```js
+const price = computed(() => {
+  const basePrice = manufactureCost.value / (1 - profitMargin.value)
+  return basePrice - basePrice * (discountPercent.value || 0)
+})
+```
+
+</div>
+
+</div>
+
 <div class="style-example style-example-good">
 <h3>Good</h3>
+
+<div class="options-api">
 
 ```js
 computed: {
@@ -699,6 +770,24 @@ computed: {
   }
 }
 ```
+
+</div>
+
+<div class="composition-api">
+
+```js
+const basePrice = computed(
+  () => manufactureCost.value / (1 - profitMargin.value)
+)
+
+const discount = computed(
+  () => basePrice.value * (discountPercent.value || 0)
+)
+
+const finalPrice = compued(() => basePrice.value - discount.value)
+```
+
+</div>
 
 </div>
 
