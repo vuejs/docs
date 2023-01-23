@@ -87,7 +87,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 
 <div class="demo">
   <span>Multiline message is:</span>
-  <p style="white-space: pre-line;">{{ multilineText }}</p>
+  <p style="white-space: pre-line, word-break: break-all;">{{ multilineText }}</p>
   <textarea v-model="multilineText" placeholder="add multiple lines"></textarea>
 </div>
 
