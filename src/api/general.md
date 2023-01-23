@@ -122,11 +122,7 @@
   type FooInstance = InstanceType<typeof Foo>
   ```
 
-<<<<<<< HEAD
   ### Примітка щодо "Струшування дерева" {#note-on-webpack-treeshaking}
-=======
-  ### Note on webpack Treeshaking {#note-on-webpack-treeshaking}
->>>>>>> 3ff373208e1369acbf30cf34556d423311617d3b
 
   Оскільки `defineComponent()` є викликом функції, це може виглядати так, ніби це спричинить побічні ефекти для деяких інструментів збірки, напр. webpack. Це запобіжить струшування компонента, навіть якщо компонент ніколи не використовується.
 
