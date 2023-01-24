@@ -82,7 +82,7 @@ Vue ist ein Framework und Ecosystem, das die meisten der gängigen Funktionen ab
 - Einbettung als Webkomponenten auf einer beliebigen Seite
 - Einzelseitige Bewerbung (SPA)
 - Fullstack / Server-seitiges Rendering (SSR)
-- Jamstack / Static Site Generation (SSG)
+- Jamstack / Statische Website-Generierung (SSG)
 - Targeting desktop, mobile, WebGL, and even the terminal
 
 If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
