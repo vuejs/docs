@@ -340,23 +340,23 @@ Người dùng Vue 2 có thể quen với [mixins](/api/options-composition.html
 
 3. **Giao tiếp ẩn giữa các mixin**: các mixin tương tác với mixin khác sẽ phụ thuộc vào các thuộc tính được share, làm chúng bắt cặp với nhau không rõ ràng. Với composable, giá trị trả về từ một composable có thể truyền vào composable khác như là tham số, giống như hàm bình thường.
 
-Vì các lý do trên, chúng tôi không khuyến khích dùng mixin trong Vue 3. Chức năng này được giữ để giúp migration (Vue 2 lên Vue 3) và do nó đã quen thuộc.
+Vì các lý do trên, chúng tôi không còn khuyến khích dùng mixin trong Vue 3. Chức năng này được giữ để giúp migration (Vue 2 lên Vue 3) và do nó đã quen thuộc.
 
 ### vs. Renderless Components {#vs-renderless-components}
 
-In the component slots chapter, we discussed the [Renderless Component](/guide/components/slots.html#renderless-components) pattern based on scoped slots. We even implemented the same mouse tracking demo using renderless components.
+Trong chương component slot, ta đã thảo luận về [Renderless Component](/guide/components/slots.html#renderless-components) pattern dựa trên scoped slots. Ta cũng đã thực hiện lại ví dụ mouse tracking sử dụng renderless components.
 
-The main advantage of composables over renderless components is that composables do not incur the extra component instance overhead. When used across an entire application, the amount of extra component instances created by the renderless component pattern can become a noticeable performance overhead.
+Lợi ích chính của composable so với renderless components là dùng composable thì không phải đau đầu về instance của renderless component. Khi được dùng qua cả một project, số lượng instance thêm vào có thể làm vấn đề performance trở nên đau đầu hơn đáng kể.
 
-The recommendation is to use composables when reusing pure logic, and use components when reusing both logic and visual layout.
+Lời khuyên là hãy sử dụng composable khi tái sử dụng logic, và dùng component khi tái sử dụng cả logic và giao diện.
 
 ### vs. React Hooks {#vs-react-hooks}
 
-If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more detail in the [Composition API FAQ](/guide/extras/composition-api-faq#comparison-with-react-hooks).
+Nếu bạn có kinh nghiệm với React, bạn có thể thấy rằng composable nhìn khá giống với custom React hook. Composition API được truyền cảm hứng một phần từ React hook, và thực sự là Vue composable tương tự với React hook ở chỗ có khả năng mix logic từ nhiều phần nhỏ. Tuy nhiên, Vue composable được dựa trên hệ thống reactivity rất chi tiết của Vue, về cơ bản khác với execution model của React hook. Điều này được thảo luận chi tiết hơn trong [Các câu hỏi thường gặp về Composition API](/guide/extras/composition-api-faq#comparison-with-react-hooks).
 
-## Further Reading {#further-reading}
+## Đọc thêm {#further-reading}
 
-- [Reactivity In Depth](/guide/extras/reactivity-in-depth.html): for a low-level understanding of how Vue's reactivity system works.
-- [State Management](/guide/scaling-up/state-management.html): for patterns of managing state shared by multiple components.
-- [Testing Composables](/guide/scaling-up/testing.html#testing-composables): tips on unit testing composables.
-- [VueUse](https://vueuse.org/): an ever-growing collection of Vue composables. The source code is also a great learning resource.
+- [Sâu hơn về Reactivity](/guide/extras/reactivity-in-depth.html): để hiểu hơn cách hệ thống reactivity của Vue hoạt động.
+- [State Management](/guide/scaling-up/state-management.html): để biết về các pattern quản lý các state chia sẻ trong nhiều component.
+- [Testing Composables](/guide/scaling-up/testing.html#testing-composables): các mẹo về unit testing các composable.
+- [VueUse](https://vueuse.org/): một bộ sưu tập Vue composable không ngừng phát triển. Source code cũng là nguồn tài liệu rất tốt để học.
