@@ -85,7 +85,7 @@ Vue ist ein Framework und Ecosystem, das die meisten der gängigen Funktionen ab
 - Jamstack / Statische Website-Generierung (SSG)
 - Für Desktop, Mobile, WebGL und sogar das Terminal
 
-If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
+Wenn Sie diese Konzepte einschüchternd finden, machen Sie sich keine Sorgen! Für das Tutorial und den Leitfaden sind nur grundlegende HTML- und JavaScript-Kenntnisse erforderlich, und Sie sollten in der Lage sein, den Ausführungen zu folgen, ohne ein Experte auf diesem Gebiet zu sein.
 
 If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more detail in [Ways of Using Vue](/guide/extras/ways-of-using-vue).
 
