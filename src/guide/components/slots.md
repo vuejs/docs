@@ -324,7 +324,7 @@ function BaseLayout(slots) {
 Фактично, ми можемо зробити саме це - ми можемо передати атрибути до виводу так само як передати атрибути до компонента:
 
 ```vue-html
-<!-- <MyComponent> template -->
+<!-- шаблон <MyComponent> -->
 <div>
   <slot :text="greetingMessage" :count="1"></slot>
 </div>
