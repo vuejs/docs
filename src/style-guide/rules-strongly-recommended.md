@@ -784,7 +784,7 @@ const discount = computed(
   () => basePrice.value * (discountPercent.value || 0)
 )
 
-const finalPrice = compued(() => basePrice.value - discount.value)
+const finalPrice = computed(() => basePrice.value - discount.value)
 ```
 
 </div>
