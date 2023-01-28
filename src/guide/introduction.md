@@ -89,7 +89,7 @@ Wenn Sie diese Konzepte einschüchternd finden, machen Sie sich keine Sorgen! F�
 
 Wenn Sie ein erfahrener Entwickler sind, der sich dafür interessiert, wie man Vue am besten in seinen Stack integriert, oder wenn Sie neugierig sind, was diese Begriffe bedeuten, diskutieren wir sie ausführlicher in [Arten der Verwendung von Vue](/guide/extras/ways-of-using-vue).
 
-Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
+Trotz der Flexibilität ist das Kernwissen über die Funktionsweise von Vue für all diese Anwendungsfälle gleich. Selbst wenn Sie jetzt nur ein Anfänger sind, wird das Wissen, das Sie auf dem Weg gewonnen haben, nützlich bleiben, wenn Sie wachsen, um in Zukunft ehrgeizigere Ziele anzugehen. Wenn Sie ein Veteran sind, können Sie den optimalen Weg wählen, um Vue zu nutzen, basierend auf den Problemen, die Sie zu lösen versuchen, während Sie die gleiche Produktivität beibehalten. Aus diesem Grund nennen wir Vue "The Progressive Framework": Es ist ein Framework, das mit Ihnen wachsen und sich Ihren Bedürfnissen anpassen kann.
 
 ## Single-File Components {#single-file-components}
 
