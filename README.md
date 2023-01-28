@@ -6,12 +6,14 @@ Este sitio está construido con [VitePress](https://github.com/vuejs/vitepress) 
 
 Para el desarrollo local, se prefiere [pnpm](https://pnpm.io/) como gestor de paquetes:
 
-``bash
+```
+bash
 pnpm i
 pnpm run dev
 ```
 
 Este proyecto requiere que Node.js sea `v14.0.0` o superior, porque usamos nuevas características de JavaScript en nuestro código, como el encadenamiento opcional.
+
 
 ## Trabajando en el contenido
 
