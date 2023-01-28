@@ -38,9 +38,11 @@ export default {
 import { ref } from 'vue'
 const greeting = ref('¡Hola Mundo!')
 </script>
+
 <template>
   <p class="greeting">{{ greeting }}</p>
 </template>
+
 <style>
 .greeting {
   color: red;

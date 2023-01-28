@@ -269,7 +269,7 @@ watch(
 
 <div class="composition-api">
 
-## `watchEffect()` \*\*
+## `watchEffect()` \*\* {#watcheffect}
 
 Es habitual que la llamada de retorno del watcher utilice exactamente el mismo estado reactivo que la fuente. Por ejemplo, considera el siguiente código, que utiliza un watcher para cargar un recurso remoto cada vez que la ref `todoId` cambia:
 

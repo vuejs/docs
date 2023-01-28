@@ -1,6 +1,6 @@
-﻿# Plugins
+﻿# Plugins {#plugins}
 
-## Introducción
+## Introducción {#introduccion}
 
 Los plugins son código autocontenido que normalmente añaden funcionalidad a nivel de aplicación a Vue. Así es como se instala un plugin:
 
@@ -34,7 +34,7 @@ No hay un ámbito de aplicación estrictamente definido para un plugin, pero los
 
 4. Una librería que necesite realizar alguna combinación de las anteriores (por ejemplo, [vue-router](https://github.com/vuejs/vue-router-next)).
 
-## Escritura de un Plugin
+## Escritura de un Plugin {#escritura-de-un-plugin}
 
 Para entender mejor cómo crear tus propios plugins de Vue.js, crearemos una versión muy simplificada de un plugin que muestre cadenas `i18n` (abreviatura de [Internationalization](https://en.wikipedia.org/wiki/Internationalization_and_localization)).
 
@@ -95,7 +95,7 @@ Consulta también: [Aumento de las Propiedades Globales](/guide/typescript/optio
 Utiliza las propiedades globales escasamente, ya que puede volverse rápidamente confuso si se utilizan demasiadas propiedades globales inyectadas por diferentes plugins a lo largo de una app.
 :::
 
-### Provide / Inject con Plugins
+### Provide / Inject con Plugins {#provide-inject-con-plugins}
 
 Los plugins también nos permiten utilizar `inject` para proporcionar una función o atributo a los usuarios del plugin. Por ejemplo, podemos permitir que la aplicación tenga acceso al parámetro `options` para poder utilizar el objeto translations.
 

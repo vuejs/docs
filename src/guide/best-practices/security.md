@@ -66,13 +66,13 @@ entonces se escaparía al siguiente HTML:
 
 evitando así el cierre del atributo `title` para inyectar HTML nuevo y arbitrario. Este escape se realiza mediante las API nativas del navegador, como `setAttribute`, por lo que una vulnerabilidad solo puede existir si el navegador en sí es vulnerable.
 
-## Peligros Potenciales
+## Peligros Potenciales {#peligros-potenciales}
 
 En cualquier aplicación web, permitir que el contenido no desinfectado proporcionado por el usuario se ejecute como HTML, CSS o JavaScript es potencialmente peligroso, por lo que debe evitarse siempre que sea posible. Sin embargo, hay ocasiones en las que cierto riesgo puede ser aceptable.
 
 Por ejemplo, los servicios como CodePen y JSFiddle permiten que se ejecute el contenido proporcionado por el usuario, pero está en un contexto en el que esto se espera y está aislado hasta cierto punto dentro de iframes. En los casos en que una característica importante requiere inherentemente algún nivel de vulnerabilidad, depende de tu equipo sopesar la importancia de la característica frente a los peores escenarios que permite la vulnerabilidad.
 
-### Inyección de HTML
+### Inyección de HTML {#inyeccion-de-html}
 
 Como aprendiste antes, Vue escapa automáticamente el contenido HTML, evitando que accidentalmente inyectes HTML ejecutable en tu aplicación. Sin embargo, **en los casos en los que sepas que el HTML es seguro**, puedes renderizar explícitamente el contenido HTML:
 
@@ -100,7 +100,7 @@ Como aprendiste antes, Vue escapa automáticamente el contenido HTML, evitando q
 El HTML proporcionado por el usuario nunca se puede considerar 100% seguro a menos que esté en un iframe aislado o en una parte de la aplicación donde solo el usuario que escribió ese HTML pueda estar expuesto a él. Además, permitir que los usuarios escriban sus propias plantillas de Vue conlleva peligros similares.
 :::
 
-### Inyección de URL
+### Inyección de URL {#inyeccion-de-url}
 
 En una URL como esta:
 

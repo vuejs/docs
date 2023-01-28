@@ -18,6 +18,8 @@ La enorme cantidad de esfuerzo necesario para mantener un ecosistema tan grande 
 
 Los patrocinios se pueden realizar a través de [GitHub Sponsors](https://github.com/sponsors/yyx990803) u [OpenCollective](https://opencollective.com/vuejs). Las facturas se pueden obtener a través del sistema de pago de GitHub. Se aceptan tanto patrocinios mensuales recurrentes como donaciones únicas. Los patrocinios recurrentes tienen derecho a la colocación de sus logotipos según se especifica en [Niveles de patrocinio](#niveles-de-patrocinio).
 
+Si tiene alguna pregunta sobre los niveles, la logística de pagos o la exposición de datos de los patrocinadores, póngase en contacto con [sponsor@vuejs.org](mailto:sponsor@vuejs.org).
+
 ## Patrocinar a Vue como una Empresa {#patrocinar-a-vue-como-una-empresa}
 
 Patrocinar a Vue brinda una gran exposición a más de **1,7 millones** de desarrolladores de Vue en todo el mundo a través de nuestro sitio web y los archivos README del proyecto en GitHub. Además, apoyar el software de código abierto (OSS) mejora la reputación de las marcas, lo cual es un activo importante para cualquier empresa que interactúe con desarrolladores.

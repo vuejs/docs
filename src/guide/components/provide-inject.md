@@ -236,7 +236,7 @@ export default {
 
 </div>
 
-## Trabajando con Reactividad
+## Trabajando con Reactividad {#trabajando-con-reactividad}
 
 <div class="composition-api">
 
@@ -275,7 +275,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Finalmente, puedes envolver el valor proporcionado con [`readonly()`](/api/reactivity-core.html#readonly) si quieres asegurarte de que los datos pasados a través de `provide` no pueden ser mutados por el componente inyectado.
+Finalmente, puedes envolver el valor proporcionado con [`readonly()`](/api/reactivity-core.html#readonly) si quieres asegurarte de que los datos pasados a través de `provide` no pueden ser mutados por el componente inyector.
 
 ```vue
 <script setup>

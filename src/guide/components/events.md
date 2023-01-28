@@ -18,7 +18,7 @@ if (typeof window !== 'undefined') {
 }
 </script>
 
-# Eventos de los Componentes
+# Eventos de los Componentes {#eventos-de-los-componentes}
 
 > Esta página supone que ya has leído los [Fundamentos de los Componentes](/guide/essentials/component-basics). Léelo primero si eres nuevo en el tema de componentes.
 

@@ -26,7 +26,7 @@ Una utilidad para esperar la próxima actualización del DOM.
 
 - **Detalles**
 
-  Cuando se muta el estado reactivo en Vue, las actualizaciones del DOM resultantes no son aplicadas de forma sincrónica. 
+  Cuando se muta el estado reactivo en Vue, las actualizaciones del DOM resultantes no son aplicadas de forma sincrónica.
   En su lugar, Vue las almacena en el búfer hasta el "siguiente _tick_" para garantizar que cada componente se actualice sólo una vez, sin importar cuántos cambios de estado hayas realizado.
 
   `nextTick()` puede utilizarse inmediatamente después de un cambio de estado para esperar a que se completen las actualizaciones del DOM. Puedes pasar una función como argumento para ejecutarla al finalizar, o esperar (con _await_) la Promesa (Promise) devuelta.
@@ -123,7 +123,7 @@ Un ayudante de tipo para definir un componente Vue con inferencia de tipo.
   type FooInstance = InstanceType<typeof Foo>
   ```
 
-  ### Nota sobre el Treeshaking de webpack 
+  ### Nota sobre el Treeshaking de webpack {#nota-sobre-el-treeshaking-de-webpack}
 
   Dado que `defineComponent()` es una llamada a una función, podría parecer que produce efectos secundarios a algunas herramientas de compilación, por ejemplo, webpack. Esto evitará que se aplique tree-shaken al componente incluso cuando el componente nunca se utilice .
 

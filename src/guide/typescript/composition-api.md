@@ -1,10 +1,10 @@
-# TypeScript con Composition API
+# TypeScript con Composition API {#typescript-con-composition-api}
 
 > Esta página supone que ya has leído las generalidades en la sección [Usando Vue con TypeScript](./overview).
 
-## Escritura de las Props de Componentes
+## Escritura de las Props de Componentes {#escritura-de-las-props-de-componentes}
 
-### Usando `<script setup>`
+### Usando `<script setup>` {#usando-script-setup}
 
 Cuando se utiliza `<script setup>`, la macro `defineProps()` permite inferir los tipos de props basándose en su argumento:
 
@@ -50,7 +50,7 @@ const props = defineProps<Props>()
 </script>
 ```
 
-#### Limitaciones de la Sintaxis
+#### Limitaciones de la Sintaxis {#limitaciones-de-la-sintaxis}
 
 Para generar el código correcto en tiempo de ejecución, el argumento genérico para `defineProps()` debe ser uno de los siguientes
 
@@ -83,7 +83,7 @@ defineProps<Props>()
 
 Esto se debe a que los componentes Vue se compilan de forma aislada y el compilador actualmente no rastrea los archivos importados para analizar el tipo de fuente. Esta limitación podría eliminarse en una futura versión.
 
-### Valores por Defecto de las Props />
+### Valores por Defecto de las Props {#valores-por-defecto-de-las-props}
 
 Al utilizar la declaración basada en tipos, perdemos la capacidad de declarar valores por defecto para los props. Esto puede resolverse con la macro del compilador `withDefaults`:
 
@@ -118,7 +118,7 @@ const { name, count = 100 } = defineProps<Props>()
 
 Este comportamiento requiere por el momento [opt-in explícito](/guide/extras/reactivity-transform.html#opt-in-explicito).
 
-### Sin `<script setup>`
+### Sin `<script setup>` {#sin-script-setup}
 
 Si no usas `<script setup>`, es necesario utilizar `defineComponent()` para habilitar la inferencia del tipo de props. El tipo del objeto props pasado a `setup()` se infiere de la opción `props`.
 
@@ -135,7 +135,47 @@ export default defineComponent({
 })
 ```
 
-## Escritura de Emits del Componente
+### Tipos de prop complejas {#tipos-de-prop-complejas}
+
+Con la declaración basada en tipos, una prop puede usar un tipo complejo como cualquier otro tipo:
+
+```vue
+<script setup lang="ts">
+interface Book {
+  title: string
+  author: string
+  year: number
+}
+const props = defineProps<{
+  book: Book
+}>()
+</script>
+```
+
+Para la declaración en tiempo de ejecución, podemos utilizar el tipo de utilidad `PropType`:
+
+```ts
+import type { PropType } from 'vue'
+const props = defineProps({
+  book: Object as PropType<Book>
+})
+```
+
+Esto funciona de forma muy parecida si especificamos la opción `props` directamente:
+
+```ts
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+export default defineComponente({
+  props: {
+    book: Object as PropType<Book>
+  }
+})
+```
+
+La opción `props` se utiliza más comúnmente con la Options API, por lo que encontrarás ejemplos más detallados en la guía de [TypeScript con Options API](/guide/typescript/options-api.html#escritura-de-las-props-de-componentes). Las técnicas mostradas en esos ejemplos también se aplican a las declaraciones en tiempo de ejecución usando `defineProps()`.
+
+## Escritura de Emits del Componente {#escritura-de-emits-del-componente}
 
 En `<script setup>`, la función `emit` también puede ser tipada usando la declaración en tiempo de ejecución O la declaración de tipo:
 
@@ -167,7 +207,7 @@ export default defineComponent({
 })
 ```
 
-## Escritura de `ref()`
+## Escritura de `ref()` {#escritura-de-ref}
 
 Las referencias infieren el tipo a partir del valor inicial:
 
@@ -207,7 +247,7 @@ Si se especifica un argumento de tipo genérico pero se omite el valor inicial, 
 const n = ref<number>()
 ```
 
-## Escritura de `reactive()`
+## Escritura de `reactive()` {#escritura-de-reactive}
 
 La función `reactive()` también infiere implícitamente el tipo a partir de su argumento:
 
@@ -235,7 +275,7 @@ const book: Book = reactive({ title: 'Guía de Vue 3' })
 No es recomendable usar el argumento genérico de `reactive()` porque el tipo devuelto, que maneja el desempaquetado de la ref anidada, es diferente del tipo del argumento genérico.
 :::
 
-## Escritura de `computed()`
+## Escritura de `computed()` {#escritura-de-computed}
 
 `computed()` infiere su tipo basándose en el valor de retorno del getter:
 
@@ -259,7 +299,7 @@ const double = computed<number>(() => {
 })
 ```
 
-## Escritura de Manejadores de Eventos
+## Escritura de Manejadores de Eventos {#escritura-de-manejadores-de-eventos}
 
 Cuando se trata de eventos nativos del DOM, puede ser útil escribir correctamente el argumento que pasamos al manejador. Veamos este ejemplo:
 
@@ -284,7 +324,7 @@ function handleChange(event: Event) {
 }
 ```
 
-## Escritura de Provide / Inject
+## Escritura de Provide / Inject {#escritura-de-provide-inject}
 
 Provide e Inject se ejecutan normalmente en componentes separados. Para tipificar adecuadamente los valores inyectados, Vue proporciona una interfaz `InjectionKey`, que es un tipo genérico que extiende `Symbol`. Se puede utilizar para sincronizar el tipo del valor inyectado entre el proveedor y el consumidor:
 
@@ -320,7 +360,7 @@ Si estás seguro de que el valor siempre se provisto, también puedes forzar el 
 const foo = inject('foo') as string
 ```
 
-## Escritura de Refs de la Plantilla
+## Escritura de Refs de la Plantilla {#escritura-de-refs-de-la-plantilla}
 
 Las refs de las plantillas deben ser creadas con un argumento de tipo genérico explícito y un valor inicial de `null`:
 
@@ -342,7 +382,7 @@ onMounted(() => {
 
 Ten en cuenta que para una estricta seguridad de tipo, es necesario utilizar encadenamiento opcional o guías de tipo cuando se accede a `el.value`. Esto se debe a que el valor inicial de la referencia es `null` hasta que se monta el componente, y también puede ser establecido a `null` si el elemento referenciado es desmontado por `v-if`.
 
-## Escritura de Refs de la Plantilla del Componente
+## Escritura de Refs de la Plantilla del Componente {#escritura-de-refs-de-la-plantilla-del-componente}
 
 A veces puede ser necesario añadir una anotación a la plantilla de un componente hijo para llamar a su método público. Por ejemplo, tenemos un componente hijo `MyModal` con un método que abre el modal:
 
@@ -375,4 +415,4 @@ const openModal = () => {
 </script>
 ```
 
-Ten en cuenta que si quieres usar esta técnica en archivos TypeScript en lugar de SFCs de Vue, necesitas habilitar el [Modo Takeover](./overview.html#takeover-mode) de Volar.
+Ten en cuenta que si quieres usar esta técnica en archivos TypeScript en lugar de SFCs de Vue, necesitas habilitar el [Modo Takeover de Volar](./overview.html#modo-takeover-de-volar).

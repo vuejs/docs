@@ -7,4 +7,4 @@ footer: false
 import Page from './components/PartnerPage.vue'
 </script>
 
-<Page partner="64robots" />
+<Page partner="epicmax" />

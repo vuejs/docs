@@ -101,24 +101,6 @@
     "platinum": true
   },
   {
-    "name": "64 Robots",
-    "logo": "64robots.svg",
-    "intro": "Somos un equipo de expertos en Vue / Nuxt que crea aplicaciones modernas, bellamente diseñadas y de vanguardia. Ya sea construyendo algo nuevo, refactorizando un proyecto existente o pasando a Vue/Nuxt 3, le daremos un enfoque personal y cuidadoso al desarrollo.",
-    "description": [
-      "Nos especializamos en la construcción de APIs de Laravel, SPAs de Vue.js 2/3, aplicaciones SSR de Nuxt.js 2/3 y aplicaciones móviles de Flutter.",
-      "Nos encanta trabajar con empresas de todos los tamaños. Hemos guiado a startups financiadas en su etapa inicial hacia un lanzamiento exitoso y hemos ayudado a grandes compañías internacionales a refactorizar y reconstruir productos existentes para escalar hacia el futuro. Sean cuales sean sus necesidades, le ayudaremos a tomar las decisiones tecnológicas correctas y a construir un producto optimizado que le pondrá en el camino del éxito.",
-      "Nos distinguimos por nuestro nivel de compromiso con su producto. Piense en nosotros como una extensión de su equipo. Tanto si aumentamos el equipo existente como si entramos como CTO de facto para tomar las decisiones técnicas, estamos ahí para usted. Somos selectivos con los productos que aceptamos, ya que realmente queremos creer en nuestro trabajo y hacer todo lo posible para que tengan éxito. Su éxito es nuestro éxito."
-    ],
-    "region": ["Norte América", "Europa", "África"],
-    "proficiencies": ["Vue", "Nuxt", "Laravel", "Flutter", "Node.js"],
-    "website": {
-      "text": "64robots.com",
-      "url": "https://64robots.com/"
-    },
-    "contact": "rob@64robots.com",
-    "platinum": true
-  },
-  {
     "name": "DevSquad",
     "logo": "devsquad.png",
     "intro": "Puede pensar en DevSquad como los Navy SEALs del desarrollo de software. Los miembros de nuestro equipo tienen habilidades únicas y diversas, y esta funcionalidad cruzada nos permite completar con éxito cualquier misión.",
@@ -248,5 +230,31 @@
     },
     "contact": "hello@jump24.co.uk",
     "hiring": "jump24.co.uk/careers"
+  },
+  {
+    " name": "Epicmax",
+    "logo": "epicmax.svg",
+    " hero": "epicmax.png",
+    "intro": "Epicmax es un equipo de expertos en Vue.js con 6 años de experiencia en la construcción de interfaces Vue.js. Aportamos el conocimiento de Vue.js en el desarrollo front-end a través de industrias y geografías, sirviendo a empresas de diferentes tamaños. Tenemos más de 55 proyectos finalizados, 45 clientes en todo el mundo y 3 productos Open Source en nuestro portfolio.",
+    "description": [
+      "Epicmax es una empresa de desarrollo de software Vue.js con más de 55 proyectos completados con éxito en todo el mundo y 3 productos Open Source ampliamente aclamados.",
+      "Desde 2017, hemos ayudado a clientes internacionales en más de 15 industrias, tanto startups como empresas más grandes, a construir todo, desde comercio electrónico hasta productos de análisis en tiempo real, pasando por plataformas de medios sociales",
+      "Aportamos un profundo conocimiento de Vue.js necesario para ayudar a los clientes a resolver los problemas más complejos para su negocio: desde la construcción de aplicaciones Vue.js hasta la consultoría, la auditoría de código y la migración a Vue. Nos movemos rápido y nos integramos sin problemas en el equipo del cliente para lograr procesos ágiles y colaborativos",
+      "Epicmax se construye en torno al software de código abierto - es una parte de nuestra cultura y todo el mundo en el equipo es un contribuyente activo. Hemos creado y mantenemos las librerías Vuestic UI, Vuestic Admin y Epic Spinners que son completamente gratuitas para todos y están disponibles en GitHub."
+    ],
+    "proficiencies": [
+      "Vue",
+      "Nuxt",
+      "TypeScript",
+      "Tailwind",
+      "Vuetify",
+      "Quasar"
+    ],
+    "region": ["Europa"],
+    "website": {
+      "texto": "epicmax.co",
+      "url": "https://epicmax.co/"
+    },
+    "contact": "hello@epicmax.co"
   }
 ]

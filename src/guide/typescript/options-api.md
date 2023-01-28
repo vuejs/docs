@@ -1,4 +1,4 @@
-# TypeScript con la Options API
+# TypeScript con la Options API {#typescript-con-la-options-api}
 
 > Esta página supone que ya has leído las generalidades en la sección [Usando Vue con TypeScript](./overview).
 
@@ -6,7 +6,7 @@
 Aunque Vue soporta el uso de TypeScript con Options API, se recomienda usar Vue con TypeScript a través de Composition API ya que ofrece una inferencia de tipos más simple, eficiente y robusta.
 :::
 
-## Escritura de las Props de Componentes
+## Escritura de las Props de Componentes {#escritura-de-las-props-de-componentes}
 
 La inferencia de tipos para las props en la Options API requiere el encapsulamiento del componente con `defineComponent()`. Con ello, Vue es capaz de inferir los tipos para las props basándose en la opción `props`, teniendo en cuenta opciones adicionales como `required: true` y `default`:
 
@@ -65,7 +65,7 @@ export default defineComponent({
 })
 ```
 
-### Advertencias
+### Advertencias {#advertencias}
 
 Si tu versión de TypeScript es inferior a `4.7`, tienes que tener cuidado cuando utilices valores de función para las opciones de las props `validator` y `default`; asegúrate de utilizar funciones de flecha:
 
@@ -95,7 +95,7 @@ export default defineComponent({
 
 Esto evita que TypeScript tenga que inferir el tipo de `this` dentro de estas funciones, lo que, desafortunadamente, puede hacer que la inferencia de tipo falle. Esta era una [limitación de diseño](https://github.com/microsoft/TypeScript/issues/38845) previa, y ahora ha sido mejorada en [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
 
-## Escritura de Emits del Componente
+## Escritura de Emits del Componente {#escritura-de-emits-del-componente}
 
 Podemos declarar el tipo de payload esperado para un evento emitido usando la sintaxis de objeto de la opción `emits`. Además, todos los eventos emitidos no declarados lanzarán un error de tipo cuando sean llamados:
 
@@ -121,7 +121,7 @@ export default defineComponent({
 })
 ```
 
-## Escritura de Propiedades Computadas
+## Escritura de Propiedades Computadas {#escritura-de-propiedades-computadas}
 
 Una propiedad computada infiere su tipo basándose en su valor de retorno:
 
@@ -177,7 +177,7 @@ export default defineComponent({
 
 Las indicaciones explícitas también pueden ser necesarias en algunos casos extremos en los que TypeScript no puede inferir el tipo de una propiedad computada debido a bucles de inferencia circular.
 
-## Escritura de Manejadores de Eventos
+## Escritura de Manejadores de Eventos {#escritura-de-manejadores-de-eventos}
 
 Cuando se trata de eventos nativos del DOM, puede ser útil escribir correctamente el argumento que pasamos al manejador. Veamos este ejemplo:
 
@@ -214,7 +214,7 @@ export default defineComponent({
 })
 ```
 
-## Aumento de las Propiedades Globales
+## Aumento de las Propiedades Globales {#aumento-de-las-propiedades-globales}
 
 Algunos plugins instalan propiedades disponibles globalmente a todas las instancias del componente a través de [`app.config.globalProperties`](/api/application.html#app-config-globalproperties). Por ejemplo, podemos instalar `this.$http` para la obtención de datos o `this.$translate` para la internacionalización. Para que esto funcione bien con TypeScript, Vue expone una interfaz `ComponentCustomProperties` diseñada para ser aumentada mediante [TypeScript module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation):
 
@@ -233,7 +233,7 @@ Mira también:
 
 - [Pruebas unitarias de TypeScript para extensiones de tipos de componentes](https://github.com/vuejs/core/blob/main/test-dts/componentTypeExtensions.test-d.tsx)
 
-### Ubicación del Aumento de Tipo
+### Ubicación del Aumento de Tipo {#ubicacion-del-aumento-de-tipo}
 
 Podemos poner este aumento de tipo en un archivo `.ts`, o en un archivo de todo el proyecto `*.d.ts`. De cualquier manera, asegúrate de que está incluido en `tsconfig.json`. Para los autores de librerías / plugins, este archivo debe ser especificado en la propiedad `types` en `package.json`.
 
@@ -259,7 +259,7 @@ declare module 'vue' {
 }
 ```
 
-## Aumento de las Opciones Personalizadas
+## Aumento de las Opciones Personalizadas {#aumento-de-las-opciones-personalizadas}
 
 Algunos plugins, por ejemplo `vue-router`, proporcionan soporte para opciones de componentes personalizados como `beforeRouteEnter`:
 

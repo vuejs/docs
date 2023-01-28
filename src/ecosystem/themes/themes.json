@@ -274,8 +274,8 @@
   },
   {
     "name": "PrimeVue",
-    "description": "La librería de componentes de UI de código abierto de [PrimeVue](https://www.primefaces.org/primevue/#/?af_id=4218) ofrece ¡más de 80 componentes flexibles para construir tus aplicaciones con ellos! Tienen un montón de diferentes temas de componentes y plantillas de aplicaciones Vue-CLI disponibles para obtener la apariencia y sensaciones que mejor se adapten a ti.",
-    "seeMoreUrl": "https://www.primefaces.org/primevue/#/?af_id=4218",
+    "description": "La librería de componentes de UI de código abierto de [PrimeVue](https://www.primefaces.org/primevue/?af_id=4218) ofrece ¡más de 90 componentes flexibles para construir tus aplicaciones con ellos! Tienen un montón de diferentes temas de componentes y plantillas de aplicaciones disponibles para obtener la apariencia y sensaciones que mejor se adapten a ti.",
+    "seeMoreUrl": "https://www.primefaces.org/primevue/?af_id=4218",
     "products": [
       {
         "name": "Sakai",

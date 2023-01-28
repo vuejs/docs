@@ -554,7 +554,7 @@ export default {
 
 Vue utilizará `instanceof Person` para validar si el valor de la prop `author` es efectivamente una instancia de la clase `Person`.
 
-## Asignación de Booleanos
+## Asignación de Booleanos {#asignacion-de-booleanos}
 
 Las props de tipo `Boolean` tienen reglas especiales de asignación para imitar el comportamiento de los atributos booleanos nativos. Dado un `<MyComponent>` con la siguiente declaración:
 

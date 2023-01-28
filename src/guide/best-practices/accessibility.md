@@ -490,7 +490,7 @@ WAI-ARIA del W3C brinda orientación sobre cómo crear contenido dinámico y con
 - [Aplicaciones ricas de Internet accesibles (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
 - [Prácticas de autoría WAI-ARIA 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/)
 
-### Tecnologías de Apoyo
+### Tecnologías de Apoyo {#tecnologias-de-apoyo}
 
 - Lectores de pantalla
   - [NVDA](https://www.nvaccess.org/download/)
@@ -502,11 +502,12 @@ WAI-ARIA del W3C brinda orientación sobre cómo crear contenido dinámico y con
   - [ZoomText](https://www.zoomtext.com/)
   - [Magnifier](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
 
-### Testing
+### Testing {#testing}
 
 - Herramientas automatizadas
   - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
   - [WAVE](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
+  - [ARC Toolkit](https://chrome.google.com/webstore/detail/arc-toolkit/chdkkkccnlfncngelccgbgfmjebmkmce?hl=en-US)
 - Herramientas de color
   - [WebAim Color Contrast](https://webaim.org/resources/contrastchecker/)
   - [WebAim Link Color Contrast](https://webaim.org/resources/linkcontrastchecker)
@@ -515,8 +516,10 @@ WAI-ARIA del W3C brinda orientación sobre cómo crear contenido dinámico y con
   - [Color Oracle](https://colororacle.org)
   - [Focus Indicator](https://chrome.google.com/webstore/detail/focus-indicator/heeoeadndnhebmfebjccbhmccmaoedlf?hl=en-US…)
   - [NerdeFocus](https://chrome.google.com/webstore/detail/nerdefocus/lpfiljldhgjecfepfljnbjnbjfhennpd?hl=en-US…)
+  - [Visual Aria](https://chrome.google.com/webstore/detail/visual-aria/lhbmajchkkmakajkjenkchhnhbadmhmk?hl=en-US)
+  - [Silktide Website Accessibility Simulator](https://chrome.google.com/webstore/detail/silktide-website-accessib/okcpiimdfkpkjcbihbmhppldhiebhhaf?hl=en-US)
 
-### Usuarios
+### Usuarios {#usuarios}
 
 La Organización Mundial de la Salud estima que el 15% de la población mundial tiene algún tipo de discapacidad, entre el 2 y el 4% de ellas graves. Eso es un estimado de 1.000 millones de personas en todo el mundo, lo que convierte a las personas con discapacidad en el grupo minoritario más grande del mundo.
 
