@@ -72,6 +72,6 @@ The RFC process is conducted in the [vuejs/rfcs](https://github.com/vuejs/rfcs) 
 
 ## Experimental Features {#experimental-features}
 
-Some features are shipped and documented in a stable version of Vue, but marked as experimental. Experimental features are typically features that have an associated RFC discussion with most of the design problems resolved on paper, but still lacking feedback from real world usage.
+Some features are shipped and documented in a stable version of Vue, but marked as experimental. Experimental features are typically features that have an associated RFC discussion with most of the design problems resolved on paper, but still lacking feedback from real-world usage.
 
 The goal of experimental features is to allow users to provide feedback for them by testing them in a production setting, without having to use an unstable version of Vue. Experimental features themselves are considered unstable, and should only be used in a controlled manner, with the expectation that the feature may change between any release types.
