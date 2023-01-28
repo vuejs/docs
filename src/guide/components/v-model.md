@@ -202,9 +202,9 @@ export default {
 
 ## Multiple `v-model` bindings {#multiple-v-model-bindings}
 
-By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple v-model bindings on a single component instance.
+By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple `v-model` bindings on a single component instance.
 
-Each v-model will sync to a different prop, without the need for extra options in the component:
+Each `v-model` will sync to a different prop, without the need for extra options in the component:
 
 ```vue-html
 <UserName
