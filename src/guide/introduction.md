@@ -91,7 +91,7 @@ Wenn Sie ein erfahrener Entwickler sind, der sich dafür interessiert, wie man V
 
 Trotz der Flexibilität ist das Kernwissen über die Funktionsweise von Vue für all diese Anwendungsfälle gleich. Selbst wenn Sie jetzt nur ein Anfänger sind, wird das Wissen, das Sie auf dem Weg gewonnen haben, nützlich bleiben, wenn Sie wachsen, um in Zukunft ehrgeizigere Ziele anzugehen. Wenn Sie ein Veteran sind, können Sie den optimalen Weg wählen, um Vue zu nutzen, basierend auf den Problemen, die Sie zu lösen versuchen, während Sie die gleiche Produktivität beibehalten. Aus diesem Grund nennen wir Vue "The Progressive Framework": Es ist ein Framework, das mit Ihnen wachsen und sich Ihren Bedürfnissen anpassen kann.
 
-## Single-File Components {#single-file-components}
+## Single-File-Komponenten {#single-file-components}
 
 In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
 
