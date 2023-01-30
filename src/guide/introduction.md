@@ -93,7 +93,7 @@ Trotz der Flexibilität ist das Kernwissen über die Funktionsweise von Vue für
 
 ## Single-File-Komponenten {#single-file-components}
 
-In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
+In den meisten Build-Tool-aktivierten Vue-Projekten werden Vue-Komponenten in einem HTML-ähnlichen Dateiformat namens **Single-File Component** erstellt (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
 
 ```vue
 <script>
