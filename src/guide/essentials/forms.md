@@ -379,7 +379,7 @@ For radio, checkbox and select options, the `v-model` binding values are usually
 
 But sometimes we may want to bind the value to a dynamic property on the current active instance. We can use `v-bind` to achieve that. In addition, using `v-bind` allows us to bind the input value to non-string values.
 
-### Checkbox
+### Checkbox {#checkbox-1}
 
 ```vue-html
 <input
@@ -403,7 +403,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
 The `true-value` and `false-value` attributes don't affect the input's `value` attribute, because browsers don't include unchecked boxes in form submissions. To guarantee that one of two values is submitted in a form (e.g. "yes" or "no"), use radio inputs instead.
 :::
 
-### Radio
+### Radio {#radio-1}
 
 ```vue-html
 <input type="radio" v-model="pick" :value="first" />
