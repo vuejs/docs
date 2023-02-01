@@ -40,12 +40,14 @@ You can use either type-based declaration OR runtime declaration, but you cannot
 We can also move the props types into a separate interface:
 
 ```vue
-<script setup lang="ts">
+<script lang="ts">
 interface Props {
   foo: string
   bar?: number
 }
+</script>
 
+<script setup lang="ts">
 const props = defineProps<Props>()
 </script>
 ```
