@@ -107,7 +107,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="count++">Zählen ist: {{ count }}</button>
 </template>
 
 <style scoped>
