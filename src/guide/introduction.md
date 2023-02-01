@@ -117,7 +117,7 @@ button {
 </style>
 ```
 
-SFC is a defining feature of Vue and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
+SFC ist ein entscheidendes Merkmal von Vue und ist der empfohlene Weg, um Vue-Komponenten zu erstellen, **wenn** Ihr Anwendungsfall ein Build-Setup rechtfertigt. Sie können mehr über das [wie und Warum von SFC](/guide/scaling-up/sfc) erfahren in seinem speziellen Bereich - aber für jetzt, nur wissen, dass Vue wird alle Build-Tools Setup für Sie behandeln.
 
 ## API Styles {#api-styles}
 
