@@ -4,6 +4,15 @@ This glossary is intended to provide some rough guidance about the meanings of t
 
 [[TOC]]
 
+## async component
+
+An *async component* is a wrapper around another component that allows for the wrapped component to be lazy loaded. This is typically used as a way to reduce the size of the built `.js` files, allowing them to be split into smaller chunks that are loaded only when required.
+
+Vue Router has a similar feature for the [lazy loading of route components](https://router.vuejs.org/guide/advanced/lazy-loading.html), though this does not use Vue's async component feature.
+
+For more details see:
+- [Async Components](/guide/components/async.html)
+
 ## compiler macro
 
 A *compiler macro* is special code that is processed by a compiler and converted into something else. They are effectively just a clever form of string replacement.
@@ -13,6 +22,35 @@ Vue's [SFC](#single-file-component) compiler supports various macros, such as `d
 Macros have limitations on their use that don't apply to normal JavaScript code. For example, you might think that `const dp = defineProps` would allow you to create an alias for `defineProps`, but it'll actually result in an error. There are also limitations on what values can be passed to `defineProps()`, as the 'arguments' have to be processed by the compiler and not at runtime.
 
 These macros are conceptually similar to dynamic imports using `import()`. While `import()` looks a lot like a function call, it's actually special syntax that gets processed by the bundler as part of the build. Like with `defineProps()`, we can't create an alias using `const myImport = import`. There are also restrictions on exactly what syntax can be used to pass values to the 'function', so that the compiler can understand the values.
+
+## component
+
+The term *component* is not unique to Vue. It is common to many UI frameworks. It describes a chunk of the UI, such as a button or checkbox. Components can also be combined to form larger components.
+
+Components are the primary mechanism provided by Vue to split a UI into smaller pieces, both to improve maintainability and to allow for code reuse.
+
+A component is an object. All properties are optional, but either a template or render function is required for the component to render. For example, the following object would be a valid component:
+
+```js
+const HelloWorldComponent = {
+  render() {
+    return 'Hello world!'
+  }
+}
+```
+
+In practice, most Vue applications are written using [Single-File Components](#single-file-component) (`.vue` files). While these components may not appear to be objects at first glance, they are ultimately compiled into an object, which becomes the default export for the file. From an external perspective, a `.vue` file is just an ES module that exports a component object.
+
+The properties of a component object are usually referred to as *options*. This is where the [Options API](#options-api) gets its name.
+
+The options for a component define how instances of that component should be created. Components are conceptually similar to classes, though Vue doesn't use actual JavaScript classes to define them.
+
+The term component can also be used more loosely to refer to component instances.
+
+A [functional component](#functional-component) is a special type of component that is defined using a function rather than an object.
+
+For more details see:
+- [Guide - Component Basics](/guide/essentials/component-basics.html)
 
 ## composable
 
@@ -73,9 +111,45 @@ export default {
 
 Even though `computed()` is part of the Composition API, the component above would usually be described as being an Options API component, not a Composition API component.
 
+## custom element
+
+The term *custom element* is not unique to Vue. It is part of the Web Components standard, which is implemented in modern web browsers. It refers to the ability to use a custom HTML element in your HTML markup to include a Web Component at that point in the page.
+
+Vue's HTML-like template syntax also allows for custom elements to be used to integrate Web Components within a Vue application. These should not be confused with Vue's own component system, nor the ability to include Vue components as tags within a template.
+
+For more details see:
+- [Guide - Vue and Web Components](/guide/extras/web-components.html)
+
+## directive
+
+The term *directive* refers to template attributes beginning with the `v-` prefix, or their equivalent shorthands.
+
+Built-in directives include `v-if`, `v-for`, `v-bind`, `v-on` and `v-slot`.
+
+Vue also supports creating custom directives, though they are typically only used as an 'escape hatch' for manipulating DOM nodes directly. Custom directives generally can't be used to recreate the functionality of the built-in directives.
+
+For more details see:
+- [Guide - Template Syntax - Directives](/guide/essentials/template-syntax.html#directives)
+- [Guide - Custom Directives](/guide/reusability/custom-directives.html)
+
+## dynamic component
+
+A *dynamic component* is not a specific type of component. Instead, the term refers to cases where the choice of which child component to render needs to be made dynamically. Typically, this is achieved using `<component :is="type">`.
+
+For more details see:
+- [Guide - Components Basics - Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
+
 ## effect
 
 See [reactive effect](#reactive-effect) and [side effect](#side-effect).
+
+## event
+
+The idea of an *event* is common in many different areas of programming. Within Vue the term is commonly applied to both native HTML element events and custom component events. The `v-on` directive is used in templates to listen for both types of event. 
+
+For more details see:
+- [Guide - Event Handling](/guide/essentials/event-handling.html)
+- [Guide - Component Events](/guide/components/events.html)
 
 ## fragment
 
@@ -113,6 +187,21 @@ For more details see:
 - [Guide - Component Basics - DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats)
 - [Options: Rendering - template](/api/options-rendering.html#template)
 
+## inject
+
+See [provide / inject](#provide-inject).
+
+## lifecycle hooks
+
+A specific instance of a Vue component goes through a lifecycle. For example, it is created, mounted, updated, and unmounted.
+
+The *lifecycle hooks* are a way to listen for these lifecycle events.
+
+With the Options API, each hook is provided as a separate option, e.g. `mounted`. The Composition API uses functions instead, such as `onMounted()`.
+
+For more details see:
+- [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html)
+
 ## macro
 
 See [compiler macro](#compiler-macro).
@@ -136,6 +225,15 @@ Some options, such as `props`, `emits` and `inheritAttrs`, can be used with eith
 
 The `setup()` function itself is a component option, so it *could* be described as part of the Options API. However, this is not how the term 'Options API' is normally used. Instead, the `setup()` function is considered to be part of Composition API.
 
+## plugin
+
+While the term *plugin* can be used in a wide variety of contexts, Vue has a specific concept of a plugin as a way to add functionality to an application.
+
+Plugins are added to an application by calling `app.use(plugin)`. The plugin itself is either a function or an object with an `install` function. That function will be passed the application instance and can then do whatever it needs to do. 
+
+For more details see:
+- [Guide - Plugins](/guide/reusability/plugins.html)
+
 ## prop
 
 There are three common uses of the term *prop*:
@@ -154,7 +252,7 @@ In all cases, props are properties that are passed in from elsewhere.
 
 While the word props is derived from the word *properties*, the term props has a much more specific meaning in the context of Vue. You should avoid using it as an abbreviation of properties.
 
-## provide/inject
+## provide / inject
 
 `provide` and `inject` are a form of inter-component communication.
 
