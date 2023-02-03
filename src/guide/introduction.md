@@ -119,7 +119,7 @@ button {
 
 SFC ist ein entscheidendes Merkmal von Vue und ist der empfohlene Weg, um Vue-Komponenten zu erstellen, **wenn** Ihr Anwendungsfall ein Build-Setup rechtfertigt. Sie können mehr über das [wie und Warum von SFC](/guide/scaling-up/sfc) erfahren in seinem speziellen Bereich - aber für jetzt, nur wissen, dass Vue wird alle Build-Tools Setup für Sie behandeln.
 
-## API Styles {#api-styles}
+## API-Stile {#api-styles}
 
 Vue components can be authored in two different API styles: **Options API** and **Composition API**.
 
