@@ -121,7 +121,7 @@ SFC ist ein entscheidendes Merkmal von Vue und ist der empfohlene Weg, um Vue-Ko
 
 ## API-Stile {#api-styles}
 
-Vue components can be authored in two different API styles: **Options API** and **Composition API**.
+Vue-Komponenten können in zwei verschiedenen API-Stilen erstellt werden: **Options API** and **Composition API**.
 
 ### Options API {#options-api}
 
