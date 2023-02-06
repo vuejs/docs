@@ -551,9 +551,9 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ]
 }
 
-// Placeholder of the i18n config for @vuejs-translations.
-// const i18n: ThemeConfig['i18n'] = {
-// }
+const i18n: ThemeConfig['i18n'] = {
+  ecosystem: 'Ecosystem',
+}
 
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
@@ -605,8 +605,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     nav,
     sidebar,
-    // Placeholder of the i18n config for @vuejs-translations.
-    // i18n,
+    i18n,
 
     localeLinks: [
       {
