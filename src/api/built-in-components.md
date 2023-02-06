@@ -102,7 +102,7 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
   
-  Transition on changing key atribute:
+  Transition on changing key attribute:
   
   ```vue-html
   <Transition>
