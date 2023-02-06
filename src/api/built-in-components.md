@@ -101,6 +101,14 @@ Provides animated transition effects to a **single** element or component.
     <div v-if="ok">toggled content</div>
   </Transition>
   ```
+  
+  Transition on changing key atribute:
+  
+  ```vue-html
+  <Transition>
+    <div :key="data-id">{{changing-text}}</div>
+  </Transition>
+  ```
 
   Dynamic component, with transition mode + animate on appear:
 
