@@ -24,7 +24,7 @@ Aside from these two components, we can also apply animations in Vue using other
 
 - Conditional rendering via `v-if`
 - Conditional display via `v-show`
-- Change of special `key` atribute
+- Change of special `key` attribute
 - Dynamic components toggling via the `<component>` special element
 
 This is an example of the most basic usage:
