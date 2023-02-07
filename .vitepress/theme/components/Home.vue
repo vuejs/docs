@@ -14,18 +14,17 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      একটি 
+      <span class="accent">প্রগতিশীল</span>
+      <br />জাভাস্ক্রিপ্ট ফ্রেমওয়ার্ক
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      কাস্টম ওয়েব ইন্টারফেস তৈরির জন্য একটি সাশ্রয়ী মূল্যের, উৎপাদনশীল এবং সর্বজনীন কাঠামো।
     </p>
     <p class="actions">
       <vue-mastery-modal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        শুরু করুন
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,12 +37,12 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">ইনস্টল</a>
     </p>
   </section>
 
   <section id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
+    <span class="lead">বিশেষ স্পন্সর</span>
     <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
@@ -60,32 +59,29 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>সহজগম্য</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        বিশ্ব-মানের ডকুমেন্টেশন সহ স্ট্যান্ডার্ড HTML, CSS এবং JavaScript with intuitive API এর উপরে তৈরি।
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>উৎপাদনশীল</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        সত্যিকারের প্রতিক্রিয়াশীল, কম্পাইলার-অপ্টিমাইজড রেন্ডারিং সিস্টেম যার জন্য খুব কমই ম্যানুয়াল অপ্টিমাইজেশনের প্রয়োজন হয়।
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>সর্বজনীন</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        একটি সমৃদ্ধ, ক্রমবর্ধমানভাবে গ্রহণযোগ্য ইকোসিস্টেম যা একটি লাইব্রেরি এবং একটি সম্পূর্ণ বৈশিষ্ট্যযুক্ত কাঠামোর মধ্যে মাপকাঠি।
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>প্লাটিনাম স্পনসর</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>গোল্ড স্পনসর</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 

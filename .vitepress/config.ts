@@ -97,7 +97,7 @@ const nav: ThemeConfig['nav'] = [
     text: 'সম্পর্কিত',
     activeMatch: `^/about/`,
     items: [
-      { text: 'FAQ', link: '/about/faq' },
+      { text: 'প্রায়শই জিজ্ঞাসিত প্রশ্ন', link: '/about/faq' },
       { text: 'টীম', link: '/about/team' },
       { text: 'Releases', link: '/about/releases' },
       {
