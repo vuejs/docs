@@ -1,25 +1,24 @@
-# vuejs.org
+# ডকুমেন্টেশন bn.vuejs.org
 
-## Contributing
+## অবদানের জন্য
 
-This site is built with [VitePress](https://github.com/vuejs/vitepress) and depends on [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`. For simple edits, you can directly edit the file on GitHub and generate a Pull Request.
+এই সাইটটি [VitePress](https://github.com/vuejs/vitepress) দিয়ে নির্মিত এবং [@vue/theme](https://github.com/vuejs/vue-theme) উপর নির্ভর করে । সাইটের বিষয়বস্তু Markdown ফরম্যাটে লেখা হয়েছে `src`। সাধারণ সম্পাদনার জন্য, আপনি সরাসরি GitHub-এ ফাইলটি সম্পাদনা করতে পারেন এবং একটি Pull Request তৈরি করতে পারেন।
 
-For local development, [pnpm](https://pnpm.io/) is preferred as package manager:
+local development এর জন্য, প্যাকেজ ম্যানেজার হিসাবে [pnpm](https://pnpm.io/) ব্যবহার করার হয়েছে:
 
 ```bash
 pnpm i
 pnpm run dev
 ```
 
-This project requires Node.js to be `v14.0.0` or higher, because we use new JavaScript features in our code, such as optional chaining.
+এই প্রকল্পের জন্য Node.js `v14.0.0` বা `v14.0.0+` প্রয়োজন কারণ আমরা আমাদের কোডে নতুন জাভাস্ক্রিপ্ট বৈশিষ্ট্য ব্যবহার করি, যেমন ঐচ্ছিক চেইনিং।
 
+## বিষয়বস্তু নিয়ে কাজ করুন
 
-## Working on the content
+- VitePress ডকুমেন্টেশনে সমর্থিত [Markdown এক্সটেনশনগুলি](https://vitepress.vuejs.org/guide/markdown.html) এবং [Markdown এর ভিতরে Vue সিনট্যাক্স](https://vitepress.vuejs.org/guide/using-vue.html) কিভাবে ব্যবহার করা যায় দেখুন ।
 
-- See VitePress docs on supported [Markdown Extensions](https://vitepress.vuejs.org/guide/markdown.html) and the ability to [use Vue syntax inside markdown](https://vitepress.vuejs.org/guide/using-vue.html).
+- ডকুমেন্টেশন লেখা এবং রক্ষণাবেক্ষণের জন্য আমাদের নিয়ম এবং নির্দেশিকাগুলি [দেখুন](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md)।
 
-- See the [Writing Guide](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) for our rules and recommendations on writing and maintaining documentation content.
+## থিম নিয়ে কাজ করুন
 
-## Working on the theme
-
-If changes need to made for the theme, check out the [instructions for developing the theme alongside the docs](https://github.com/vuejs/vue-theme#developing-with-real-content).
+আপনি যদি থিমে পরিবর্তন করতে চান তবে [ডকুমেন্টেশন সহ থিম বিকাশের নির্দেশাবলী দেখুন](https://github.com/vuejs/vue-theme#developing-with-real-content)।
