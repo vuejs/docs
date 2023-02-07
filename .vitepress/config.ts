@@ -7,20 +7,20 @@ import { headerPlugin } from './headerMdPlugin'
 
 const nav: ThemeConfig['nav'] = [
   {
-    text: 'Docs',
+    text: 'ডকুমেন্টেশন',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Guide', link: '/guide/introduction' },
-      { text: 'Tutorial', link: '/tutorial/' },
-      { text: 'Examples', link: '/examples/' },
-      { text: 'Quick Start', link: '/guide/quick-start' },
+      { text: 'গাইড', link: '/guide/introduction' },
+      { text: 'ম্যানুয়াল', link: '/tutorial/' },
+      { text: 'উদাহরণ', link: '/examples/' },
+      { text: 'দ্রুত শুরু', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
       {
-        text: 'Vue 2 Docs',
+        text: 'Vue 2 ডকুমেন্টেশন',
         link: 'https://v2.vuejs.org'
       },
       {
-        text: 'Migration from Vue 2',
+        text: 'Vue 2 থেকে Vue 3 মাইগ্রেশন',
         link: 'https://v3-migration.vuejs.org/'
       }
     ]
@@ -31,24 +31,24 @@ const nav: ThemeConfig['nav'] = [
     link: '/api/'
   },
   {
-    text: 'Playground',
+    text: 'স্যান্ডবক্স',
     link: 'https://sfc.vuejs.org'
   },
   {
-    text: 'Ecosystem',
+    text: 'ইকোসিস্টেম',
     activeMatch: `^/ecosystem/`,
     items: [
       {
-        text: 'Resources',
+        text: 'সম্পদ',
         items: [
-          { text: 'Partners', link: '/partners/' },
-          { text: 'Themes', link: '/ecosystem/themes' },
-          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+          { text: 'অংশীদার', link: '/partners/' },
+          { text: 'থিম', link: '/ecosystem/themes' },
+          { text: 'চাকরি', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'টি-শার্টের দোকান', link: 'https://vue.threadless.com/' }
         ]
       },
       {
-        text: 'Official Libraries',
+        text: 'অফিসিয়াল লাইব্রেরি',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
@@ -56,7 +56,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Video Courses',
+        text: 'ভিডিও কোর্স',
         items: [
           {
             text: 'Vue Mastery',
@@ -69,7 +69,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Help',
+        text: 'সাহায্য',
         items: [
           {
             text: 'Discord Chat',
@@ -83,36 +83,36 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'News',
+        text: 'খবর',
         items: [
-          { text: 'Blog', link: 'https://blog.vuejs.org/' },
-          { text: 'Twitter', link: 'https://twitter.com/vuejs' },
-          { text: 'Events', link: 'https://events.vuejs.org/' },
-          { text: 'Newsletters', link: '/ecosystem/newsletters' }
+          { text: 'ব্লগ', link: 'https://blog.vuejs.org/' },
+          { text: 'টুইটার', link: 'https://twitter.com/vuejs' },
+          { text: 'ঘটনা', link: 'https://events.vuejs.org/' },
+          { text: 'সংবাদপত্র', link: '/ecosystem/newsletters' }
         ]
       }
     ]
   },
   {
-    text: 'About',
+    text: 'সম্পর্কিত',
     activeMatch: `^/about/`,
     items: [
       { text: 'FAQ', link: '/about/faq' },
-      { text: 'Team', link: '/about/team' },
+      { text: 'টীম', link: '/about/team' },
       { text: 'Releases', link: '/about/releases' },
       {
-        text: 'Community Guide',
+        text: 'কমিউনিটি গাইড',
         link: '/about/community-guide'
       },
-      { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'আচরণ বিধি', link: '/about/coc' },
       {
-        text: 'The Documentary',
+        text: 'তথ্যচিত্র',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
   },
   {
-    text: 'Sponsor',
+    text: 'স্পন্সর',
     link: '/sponsor/'
   },
   {
@@ -552,15 +552,36 @@ export const sidebar: ThemeConfig['sidebar'] = {
 }
 
 // Placeholder of the i18n config for @vuejs-translations.
-// const i18n: ThemeConfig['i18n'] = {
-// }
+const i18n: ThemeConfig['i18n'] = {
+  search: 'অনুসন্ধান করুন',
+    menu: 'তালিকা',
+    toc: 'এই পৃষ্ঠায়',
+    returnToTop: 'শুরুতে ফিরে যান',
+    appearance: 'উপস্থিতি',
+    previous: 'আগের পৃষ্ঠা',
+    next: 'পরবর্তী পৃষ্ঠা',
+    pageNotFound: 'পৃষ্ঠা খুঁজে পাওয়া যায়নি',
+    deadLink: {
+      before: 'আপনি একটি লিঙ্ক খুলেছেন যা বিদ্যমান নেই:',
+      after: '',
+    },
+    deadLinkReport: {
+      before: 'অনুগ্রহ,',
+      link: 'আমাদের জানতে দাও',
+      after: 'তাই আমরা এটা ঠিক করতে পারি'
+    },
+    footerLicense: {
+      before: '',
+      after: ''
+    }
+}
 
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
-  lang: 'en-US',
+  lang: 'bn-BD',
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - প্রগতিশীল জাভাস্ক্রিপ্ট ফ্রেমওয়ার্ক',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
   scrollOffset: 'header',
@@ -606,7 +627,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     nav,
     sidebar,
     // Placeholder of the i18n config for @vuejs-translations.
-    // i18n,
+    i18n,
 
     localeLinks: [
       {
@@ -621,11 +642,11 @@ export default defineConfigWithTheme<ThemeConfig>({
       },
       {
         link: '/translations/',
-        text: 'Help Us Translate!',
+        text: 'অনুবাদ করতে সাহায্য করুন!',
         isTranslationsDesc: true
       }
     ],
-
+    
     algolia: {
       indexName: 'vuejs',
       appId: 'ML0LEBN7FQ',
@@ -647,8 +668,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
 
     editLink: {
-      repo: 'vuejs/docs',
-      text: 'Edit this page on GitHub'
+      repo: 'mahmudunnabikajal/docs-bn',
+      text: 'GitHub-এ এই পৃষ্ঠাটি সম্পাদনা করুন'
     },
 
     footer: {
@@ -656,7 +677,7 @@ export default defineConfigWithTheme<ThemeConfig>({
         text: 'MIT License',
         link: 'https://opensource.org/licenses/MIT'
       },
-      copyright: `Copyright © 2014-${new Date().getFullYear()} Evan You`
+      copyright: `কপিরাইট © 2014-${new Date().getFullYear()} Evan You`
     }
   },
 
