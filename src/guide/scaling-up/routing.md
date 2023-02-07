@@ -1,6 +1,6 @@
 # Routing {#routing}
 
-## Client-Side vs. Server-Side Routing {#client-side-vs-server-side-routing}
+## Client-Side vs Server-Side Routing {#client-side-vs-server-side-routing}
 
 Routing on the server side means the server sending a response based on the URL path that the user is visiting. When we click on a link in a traditional server-rendered web app, the browser receives an HTML response from the server and reloads the entire page with the new HTML.
 

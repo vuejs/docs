@@ -224,7 +224,7 @@ export function register() {
 
 If you have many components, you can also leverage build tool features such as Vite's [glob import](https://vitejs.dev/guide/features.html#glob-import) or webpack's [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext) to load all components from a directory.
 
-## Web Components vs. Vue Components {#web-components-vs-vue-components}
+## Web Components vs Vue Components {#web-components-vs-vue-components}
 
 Some developers believe that framework-proprietary component models should be avoided, and that exclusively using Custom Elements makes an application "future-proof". Here we will try to explain why we believe that this is an overly simplistic take on the problem.
 

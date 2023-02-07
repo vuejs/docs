@@ -41,7 +41,7 @@ It is possible to add a new property directly to `this` without including it in 
 
 Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
 
-### Reactive Proxy vs. Original \* {#reactive-proxy-vs-original}
+### Reactive Proxy vs Original \* {#reactive-proxy-vs-original}
 
 In Vue 3, data is made reactive by leveraging [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Users coming from Vue 2 should be aware of the following edge case:
 
@@ -302,7 +302,7 @@ It is also possible to explicitly create [shallow reactive objects](/api/reactiv
 
 <div class="composition-api">
 
-### Reactive Proxy vs. Original \*\* {#reactive-proxy-vs-original-1}
+### Reactive Proxy vs Original \*\* {#reactive-proxy-vs-original-1}
 
 It is important to note that the returned value from `reactive()` is a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) of the original object, which is not equal to the original object:
 

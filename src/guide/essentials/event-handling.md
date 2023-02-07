@@ -129,7 +129,7 @@ See also: [Typing Event Handlers](/guide/typescript/options-api.html#typing-even
 
 </div>
 
-### Method vs. Inline Detection {#method-vs-inline-detection}
+### Method vs Inline Detection {#method-vs-inline-detection}
 
 The template compiler detects method handlers by checking whether the `v-on` value string is a valid JavaScript identifier or property access path. For example, `foo`, `foo.bar` and `foo['bar']` are treated as method handlers, while `foo()` and `count++` are treated as inline handlers.
 

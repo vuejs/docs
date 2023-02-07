@@ -206,7 +206,7 @@ The `ref()`, `computed()` and `watchEffect()` APIs are all part of the Compositi
 
 </div>
 
-## Runtime vs. Compile-time Reactivity {#runtime-vs-compile-time-reactivity}
+## Runtime vs Compile-time Reactivity {#runtime-vs-compile-time-reactivity}
 
 Vue's reactivity system is primarily runtime-based: the tracking and triggering are all performed while the code is running directly in the browser. The pros of runtime reactivity are that it can work without a build step, and there are fewer edge cases. On the other hand, this makes it constrained by the syntax limitations of JavaScript.
 

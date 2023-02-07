@@ -18,8 +18,8 @@ onHashChange(updateExample)
 /**
  * We perform some runtime logic to transform source files into different
  * API / format combinations:
- * - Options vs. Composition
- * - plain HTML vs. SFCs
+ * - Options vs Composition
+ * - plain HTML vs SFCs
  */
 function updateExample() {
   let hash = location.hash.slice(1)

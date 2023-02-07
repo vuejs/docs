@@ -301,7 +301,7 @@ For examples like these, with only one dependency, the benefit of `watchEffect()
 `watchEffect` only tracks dependencies during its **synchronous** execution. When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
 :::
 
-### `watch` vs. `watchEffect` {#watch-vs-watcheffect}
+### `watch` vs `watchEffect` {#watch-vs-watcheffect}
 
 `watch` and `watchEffect` both allow us to reactively perform side effects. Their main difference is the way they track their reactive dependencies:
 

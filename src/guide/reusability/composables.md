@@ -331,7 +331,7 @@ export default {
 
 ## Comparisons with Other Techniques {#comparisons-with-other-techniques}
 
-### vs. Mixins {#vs-mixins}
+### vs Mixins {#vs-mixins}
 
 Users coming from Vue 2 may be familiar with the [mixins](/api/options-composition.html#mixins) option, which also allows us to extract component logic into reusable units. There are three primary drawbacks to mixins:
 
@@ -343,7 +343,7 @@ Users coming from Vue 2 may be familiar with the [mixins](/api/options-compositi
 
 For the above reasons, we no longer recommend using mixins in Vue 3. The feature is kept only for migration and familiarity reasons.
 
-### vs. Renderless Components {#vs-renderless-components}
+### vs Renderless Components {#vs-renderless-components}
 
 In the component slots chapter, we discussed the [Renderless Component](/guide/components/slots.html#renderless-components) pattern based on scoped slots. We even implemented the same mouse tracking demo using renderless components.
 
@@ -351,7 +351,7 @@ The main advantage of composables over renderless components is that composables
 
 The recommendation is to use composables when reusing pure logic, and use components when reusing both logic and visual layout.
 
-### vs. React Hooks {#vs-react-hooks}
+### vs React Hooks {#vs-react-hooks}
 
 If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more detail in the [Composition API FAQ](/guide/extras/composition-api-faq#comparison-with-react-hooks).
 

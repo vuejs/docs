@@ -138,7 +138,7 @@ See also: [Typing Computed](/guide/typescript/composition-api.html#typing-comput
 
 </div>
 
-## Computed Caching vs. Methods {#computed-caching-vs-methods}
+## Computed Caching vs Methods {#computed-caching-vs-methods}
 
 You may have noticed we can achieve the same result by invoking a method in the expression:
 

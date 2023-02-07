@@ -330,7 +330,7 @@ In fact, we can do exactly that - we can pass attributes to a slot outlet just l
 </div>
 ```
 
-Receiving the slot props is a bit different when using a single default slot vs. using named slots. We are going to show how to receive props using a single default slot first, by using `v-slot` directly on the child component tag:
+Receiving the slot props is a bit different when using a single default slot vs using named slots. We are going to show how to receive props using a single default slot first, by using `v-slot` directly on the child component tag:
 
 ```vue-html
 <MyComponent v-slot="slotProps">

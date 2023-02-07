@@ -1,6 +1,6 @@
 # Production Deployment {#production-deployment}
 
-## Development vs. Production {#development-vs-production}
+## Development vs Production {#development-vs-production}
 
 During development, Vue provides a number of features to improve the development experience:
 
