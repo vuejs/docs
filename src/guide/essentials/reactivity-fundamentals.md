@@ -465,7 +465,7 @@ The following expression will **NOT** work as expected:
 {{ object.foo + 1 }}
 ```
 
-The rendered result will be `[object Object]` because `object.foo` is a ref object. We can fix that by making `foo` a top-level property:
+The rendered result will be `[object Object]1` because `object.foo` is a ref object. We can fix that by making `foo` a top-level property:
 
 ```js
 const { foo } = object
