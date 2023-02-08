@@ -7,20 +7,20 @@ import { headerPlugin } from './headerMdPlugin'
 
 const nav: ThemeConfig['nav'] = [
   {
-    text: 'ডকুমেন্টেশন',
+    text: 'Docs',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'গাইড', link: '/guide/introduction' },
-      { text: 'ম্যানুয়াল', link: '/tutorial/' },
-      { text: 'উদাহরণ', link: '/examples/' },
-      { text: 'দ্রুত শুরু', link: '/guide/quick-start' },
+      { text: 'Guide', link: '/guide/introduction' },
+      { text: 'Tutorial', link: '/tutorial/' },
+      { text: 'Examples', link: '/examples/' },
+      { text: 'Quick Start', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
       {
-        text: 'Vue 2 ডকুমেন্টেশন',
+        text: 'Vue 2 Docs',
         link: 'https://v2.vuejs.org'
       },
       {
-        text: 'Vue 2 থেকে Vue 3 মাইগ্রেশন',
+        text: 'Migration from Vue 2',
         link: 'https://v3-migration.vuejs.org/'
       }
     ]
@@ -31,24 +31,24 @@ const nav: ThemeConfig['nav'] = [
     link: '/api/'
   },
   {
-    text: 'স্যান্ডবক্স',
+    text: 'Playground',
     link: 'https://sfc.vuejs.org'
   },
   {
-    text: 'ইকোসিস্টেম',
+    text: 'Ecosystem',
     activeMatch: `^/ecosystem/`,
     items: [
       {
-        text: 'সম্পদ',
+        text: 'Resources',
         items: [
-          { text: 'অংশীদার', link: '/partners/' },
-          { text: 'থিম', link: '/ecosystem/themes' },
-          { text: 'চাকরি', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'টি-শার্টের দোকান', link: 'https://vue.threadless.com/' }
+          { text: 'Partners', link: '/partners/' },
+          { text: 'Themes', link: '/ecosystem/themes' },
+          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
         ]
       },
       {
-        text: 'অফিসিয়াল লাইব্রেরি',
+        text: 'Official Libraries',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
@@ -56,7 +56,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'ভিডিও কোর্স',
+        text: 'Video Courses',
         items: [
           {
             text: 'Vue Mastery',
@@ -69,7 +69,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'সাহায্য',
+        text: 'Help',
         items: [
           {
             text: 'Discord Chat',
@@ -83,36 +83,36 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'খবর',
+        text: 'News',
         items: [
-          { text: 'ব্লগ', link: 'https://blog.vuejs.org/' },
-          { text: 'টুইটার', link: 'https://twitter.com/vuejs' },
-          { text: 'ঘটনা', link: 'https://events.vuejs.org/' },
-          { text: 'সংবাদপত্র', link: '/ecosystem/newsletters' }
+          { text: 'Blog', link: 'https://blog.vuejs.org/' },
+          { text: 'Twitter', link: 'https://twitter.com/vuejs' },
+          { text: 'Events', link: 'https://events.vuejs.org/' },
+          { text: 'Newsletters', link: '/ecosystem/newsletters' }
         ]
       }
     ]
   },
   {
-    text: 'সম্পর্কিত',
+    text: 'About',
     activeMatch: `^/about/`,
     items: [
-      { text: 'প্রায়শই জিজ্ঞাসিত প্রশ্ন', link: '/about/faq' },
-      { text: 'টীম', link: '/about/team' },
+      { text: 'FAQ', link: '/about/faq' },
+      { text: 'Team', link: '/about/team' },
       { text: 'Releases', link: '/about/releases' },
       {
-        text: 'কমিউনিটি গাইড',
+        text: 'Community Guide',
         link: '/about/community-guide'
       },
-      { text: 'আচরণ বিধি', link: '/about/coc' },
+      { text: 'Code of Conduct', link: '/about/coc' },
       {
-        text: 'তথ্যচিত্র',
+        text: 'The Documentary',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
   },
   {
-    text: 'স্পন্সর',
+    text: 'Sponsor',
     link: '/sponsor/'
   },
   {
