@@ -464,8 +464,12 @@
     "title": "Developer",
     "projects": [
       {
-        "label": "volar",
-        "url": "https://github.com/johnsoncodehk/volar"
+        "label": "@vue/language-tools",
+        "url": "https://github.com/vuejs/language-tools"
+      },
+      {
+        "label": "Volar.js",
+        "url": "https://github.com/volarjs"
       }
     ],
     "location": "Hong Kong, China",
