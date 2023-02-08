@@ -347,7 +347,7 @@ The `reactive()` API has two limitations:
 
    ```js
    let state = reactive({ count: 0 })
-
+   
    // the above reference ({ count: 0 }) is no longer being tracked (reactivity connection is lost!)
    state = reactive({ count: 1 })
    ```
@@ -356,18 +356,18 @@ The `reactive()` API has two limitations:
 
    ```js
    const state = reactive({ count: 0 })
-
+   
    // n is a local variable that is disconnected
    // from state.count.
    let n = state.count
    // does not affect original state
    n++
-
+   
    // count is also disconnected from state.count.
    let { count } = state
    // does not affect original state
    count++
-
+   
    // the function receives a plain number and
    // won't be able to track changes to state.count
    callSomeFunction(state.count)
@@ -465,7 +465,7 @@ The following expression will **NOT** work as expected:
 {{ object.foo + 1 }}
 ```
 
-The rendered result will be `[object Object]` because `object.foo` is a ref object. We can fix that by making `foo` a top-level property:
+The rendered result will be `[object Object]1` because `object.foo` is a ref object. We can fix that by making `foo` a top-level property:
 
 ```js
 const { foo } = object
