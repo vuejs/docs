@@ -165,7 +165,7 @@ You can also add entries for other dependencies to the import map - but make sur
 :::tip Import Maps Browser Support
 Import maps are supported by default in Chromium-based browsers, so we recommend using Chrome or Edge during the learning process.
 
-If using Firefox, it is only supported in version 102+ and currently needs to be enabled via the `dom.importMaps.enabled` option in `about:config`.
+If using Firefox, it is supported by default in version 108+ or by setting the `dom.importMaps.enabled` option to true in `about:config` for versions 102+.
 
 If your preferred browser does not support import maps yet, you can polyfill it with [es-module-shims](https://github.com/guybedford/es-module-shims).
 :::
