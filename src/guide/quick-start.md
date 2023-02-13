@@ -48,7 +48,7 @@ footer: false
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-আপনি এখন আপনার প্রথম Vue প্রকল্প চলমান করা উচিত! মনে রাখবেন যে জেনারেট করা প্রকল্পের উদাহরণ উপাদানগুলি [Options API](/guide/introduction) এর পরিবর্তে [Composition API](/guide/introduction.html#composition-api) এবং `<script setup>` ব্যবহার করে লেখা হয়েছে। html#options-api)। এখানে কিছু অতিরিক্ত টিপস আছে:
+আপনি এখন আপনার প্রথম Vue প্রকল্প চলমান করা উচিত! মনে রাখবেন যে জেনারেট করা প্রকল্পের উদাহরণ উপাদানগুলি [Options API](/guide/introduction.html#options-api) এর পরিবর্তে [Composition API](/guide/introduction.html#composition-api) এবং `<script setup>` ব্যবহার করে লেখা হয়েছে। এখানে কিছু অতিরিক্ত টিপস আছে:
 
 - প্রস্তাবিত IDE সেটআপ হল [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar)। আপনি যদি অন্যান্য সম্পাদক ব্যবহার করেন তবে [IDE support section](/guide/scaling-up/tooling.html#ide-support) দেখুন।
 - ব্যাকএন্ড ফ্রেমওয়ার্কের সাথে ইন্টিগ্রেশন সহ আরও টুলিং বিশদ [Tooling Guide](/guide/scaling-up/tooling.html) এ আলোচনা করা হয়েছে।
@@ -204,9 +204,7 @@ export default {
 
 আপনি হয়তো লক্ষ্য করেছেন যে import করা উপাদানের টেমপ্লেটটি জাভাস্ক্রিপ্ট স্ট্রিং হিসাবে ইনলাইন করা হয়েছে। আপনি যদি VSCode ব্যবহার করেন তবে আপনি [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) এক্সটেনশন ইনস্টল করতে পারেন এবং একটি `/*html*/` সহ স্ট্রিংগুলি comment করতে পারেন তাদের জন্য সিনট্যাক্স হাইলাইটিং পেতে মন্তব্য করুন।
 
-### বিল্ড স্টেপ ছাড়া Composition API ব্যবহার করা
-
-{#using-composition-api-without-a-build-step}
+### বিল্ড স্টেপ ছাড়া Composition API ব্যবহার করা {#using-composition-api-without-a-build-step}
 
 Composition API-এর অনেক উদাহরণ `<script setup>` সিনট্যাক্স ব্যবহার করবে। আপনি যদি বিল্ড স্টেপ ছাড়া কম্পোজিশন API ব্যবহার করতে চান, তাহলে [`setup()` option](/api/composition-api-setup.html) ব্যবহারের পরামর্শ নিন।
 
