@@ -125,7 +125,7 @@ Vue-Komponenten können in zwei verschiedenen API-Stilen erstellt werden: **Opti
 
 ### Options API {#options-api}
 
-With Options API, we define a component's logic using an object of options such as `data`, `methods`, and `mounted`. Properties defined by options are exposed on `this` inside functions, which points to the component instance:
+Mit der Options-API definieren wir die Logik einer Komponente mithilfe eines Objekts von Optionen wie `data`, `methods`, und `mounted`. Die durch die Optionen definierten Eigenschaften werden innerhalb der Funktionen auf  `dies` ausgesetzt, das auf die Komponenteninstanz verweist:
 
 ```vue
 <script>
