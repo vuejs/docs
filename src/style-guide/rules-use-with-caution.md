@@ -1,17 +1,17 @@
-# Priority D Rules: Use with Caution {#priority-d-rules-use-with-caution}
+# অগ্রাধিকার D নিয়ম: সতর্কতার সাথে ব্যবহার করুন {#priority-d-rules-use-with-caution}
 
-Some features of Vue exist to accommodate rare edge cases or smoother migrations from a legacy code base. When overused however, they can make your code more difficult to maintain or even become a source of bugs. These rules shine a light on potentially risky features, describing when and why they should be avoided.
+বিরল এজ কেস বা লিগ্যাসি কোড বেস থেকে মসৃণ মাইগ্রেশন মিটমাট করার জন্য Vue-এর কিছু বৈশিষ্ট্য বিদ্যমান। যদিও অত্যধিক ব্যবহার করা হয়, তারা আপনার কোড বজায় রাখা আরও কঠিন করে তুলতে পারে বা এমনকি বাগগুলির উৎস হয়ে উঠতে পারে। এই নিয়মগুলি কখন এবং কেন এড়ানো উচিত তা বর্ণনা করে সম্ভাব্য ঝুঁকিপূর্ণ বৈশিষ্ট্যগুলির উপর আলোকপাত করে৷
 
-## Element selectors with `scoped` {#element-selectors-with-scoped}
+## `scoped` উপাদান নির্বাচক {#element-selectors-with-scoped}
 
-**Element selectors should be avoided with `scoped`.**
+**এলিমেন্ট নির্বাচকদের `scoped` এড়ানো উচিত।**
 
-Prefer class selectors over element selectors in `scoped` styles, because large numbers of element selectors are slow.
+`scoped` উপাদান নির্বাচকদের চেয়ে শ্রেণী নির্বাচকদের পছন্দ করুন, কারণ বড় সংখ্যক উপাদান নির্বাচক ধীর।
 
-::: details Detailed Explanation
-To scope styles, Vue adds a unique attribute to component elements, such as `data-v-f3f3eg9`. Then selectors are modified so that only matching elements with this attribute are selected (e.g. `button[data-v-f3f3eg9]`).
+::: details বিস্তারিত ব্যাখ্যা
+স্কোপ শৈলীতে, Vue উপাদান উপাদানগুলিতে একটি অনন্য বৈশিষ্ট্য যোগ করে, যেমন `data-v-f3f3eg9`। তারপরে নির্বাচকদের সংশোধন করা হয় যাতে শুধুমাত্র এই বৈশিষ্ট্যের সাথে মিলে যাওয়া উপাদানগুলি নির্বাচন করা হয় (যেমন `button[data-v-f3f3eg9]`)।
 
-The problem is that large numbers of element-attribute selectors (e.g. `button[data-v-f3f3eg9]`) will be considerably slower than class-attribute selectors (e.g. `.btn-close[data-v-f3f3eg9]`), so class selectors should be preferred whenever possible.
+সমস্যা হল যে বড় সংখ্যক উপাদান-অ্যাট্রিবিউট নির্বাচক (যেমন `button[data-v-f3f3eg9]`) ক্লাস-অ্যাট্রিবিউট নির্বাচকদের তুলনায় যথেষ্ট ধীর হবে (যেমন `.btn-close[data-v-f3f3eg9]`), তাই যখনই সম্ভব ক্লাস নির্বাচকদের পছন্দ করা উচিত।
 :::
 
 <div class="style-example style-example-bad">
@@ -48,13 +48,13 @@ button {
 
 </div>
 
-## Implicit parent-child communication {#implicit-parent-child-communication}
+## অন্তর্নিহিত parent-child যোগাযোগ {#implicit-parent-child-communication}
 
-**Props and events should be preferred for parent-child component communication, instead of `this.$parent` or mutating props.**
+**parent-child কম্পোনেন্ট কমিউনিকেশনের জন্য প্রপস এবং ইভেন্টগুলিকে পছন্দ করা উচিত, এর পরিবর্তে `this.$parent` বা mutating props.**
 
-An ideal Vue application is props down, events up. Sticking to this convention makes your components much easier to understand. However, there are edge cases where prop mutation or `this.$parent` can simplify two components that are already deeply coupled.
+একটি আদর্শ Vue অ্যাপ্লিকেশন প্রপস ডাউন, ইভেন্ট আপ। এই কনভেনশনে লেগে থাকা আপনার উপাদানগুলিকে বুঝতে অনেক সহজ করে তোলে। যাইহোক, এমন কিছু এজ কেস রয়েছে যেখানে প্রপ মিউটেশন বা `this.$parent` দুটি উপাদানকে সরল করতে পারে যেগুলি ইতিমধ্যেই গভীরভাবে মিলিত হয়েছে।
 
-The problem is, there are also many _simple_ cases where these patterns may offer convenience. Beware: do not be seduced into trading simplicity (being able to understand the flow of your state) for short-term convenience (writing less code).
+সমস্যা হল, এমন অনেক _সাধারণ_ ক্ষেত্রেও রয়েছে যেখানে এই নিদর্শনগুলি সুবিধা দিতে পারে। সতর্ক থাকুন: স্বল্পমেয়াদী সুবিধার জন্য (কম কোড লেখা) ট্রেডিং সরলতার (আপনার রাজ্যের প্রবাহ বুঝতে সক্ষম হওয়া) প্রলুব্ধ করবেন না।
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
