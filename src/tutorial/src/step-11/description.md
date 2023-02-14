@@ -1,8 +1,8 @@
 # Components {#components}
 
-So far, we've only been working with a single component. Real Vue applications are typically created with nested components.
+এখন পর্যন্ত, আমরা শুধুমাত্র একটি একক উপাদান নিয়ে কাজ করছি। রিয়েল ভিউ অ্যাপ্লিকেশনগুলি সাধারণত নেস্টেড উপাদান দিয়ে তৈরি করা হয়।
 
-A parent component can render another component in its template as a child component. To use a child component, we need to first import it:
+একটি প্যারেন্ট কম্পোনেন্ট তার টেমপ্লেটে অন্য একটি কম্পোনেন্টকে চাইল্ড কম্পোনেন্ট হিসেবে রেন্ডার করতে পারে। একটি শিশু উপাদান ব্যবহার করতে, আমাদের প্রথমে এটি আমদানি করতে হবে:
 
 <div class="composition-api">
 <div class="sfc">
@@ -27,14 +27,14 @@ export default {
 }
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+আমাদের `components` বিকল্পটি ব্যবহার করে উপাদানটি নিবন্ধন করতে হবে। এখানে আমরা `ChildComp` কী এর অধীনে `ChildComp` উপাদান নিবন্ধন করতে অবজেক্ট প্রপার্টি শর্টহ্যান্ড ব্যবহার করছি।
 
 </div>
 </div>
 
 <div class="sfc">
 
-Then, we can use the component in the template as:
+তারপর, আমরা টেমপ্লেটে উপাদানটি ব্যবহার করতে পারি:
 
 ```vue-html
 <ChildComp />
@@ -54,9 +54,9 @@ createApp({
 })
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+আমাদের `components` বিকল্পটি ব্যবহার করে উপাদানটি নিবন্ধন করতে হবে। এখানে আমরা `ChildComp` কী এর অধীনে `ChildComp` উপাদান নিবন্ধন করতে অবজেক্ট প্রপার্টি শর্টহ্যান্ড ব্যবহার করছি।
 
-Because we are writing the template in the DOM, it will be subject to browser's parsing rules, which is case-insensitive for tag names. Therefore, we need to use the kebab-cased name to reference the child component:
+যেহেতু আমরা টেমপ্লেটটি DOM-এ লিখছি, এটি ব্রাউজারের পার্সিং নিয়মের অধীন হবে, যা ট্যাগ নামের ক্ষেত্রে অক্ষর-সংবেদনশীল। অতএব, শিশু উপাদান উল্লেখ করার জন্য আমাদের কাবাব-কেসযুক্ত নাম ব্যবহার করতে হবে:
 
 ```vue-html
 <child-comp></child-comp>
@@ -64,5 +64,4 @@ Because we are writing the template in the DOM, it will be subject to browser's 
 
 </div>
 
-
-Now try it yourself - import the child component and render it in the template.
+এখন নিজে চেষ্টা করুন - চাইল্ড কম্পোনেন্ট ইম্পোর্ট করুন এবং টেমপ্লেটে রেন্ডার করুন।
