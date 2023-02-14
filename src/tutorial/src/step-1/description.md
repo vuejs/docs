@@ -1,4 +1,4 @@
-# শুরু হচ্ছে {#getting-started}
+# Getting Started {#getting-started}
 
 Vue টিউটোরিয়ালে স্বাগতম!
 

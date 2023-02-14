@@ -1,4 +1,4 @@
-# ঘোষণামূলক রেন্ডারিং৷ {#declarative-rendering}
+# Declarative Rendering {#declarative-rendering}
 
 <div class="sfc">
 

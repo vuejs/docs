@@ -1,19 +1,19 @@
 # Attribute Bindings {#attribute-bindings}
 
-In Vue, mustaches are only used for text interpolation. To bind an attribute to a dynamic value, we use the `v-bind` directive:
+Vue-তে, গোঁফগুলি শুধুমাত্র টেক্সট ইন্টারপোলেশনের জন্য ব্যবহৃত হয়। একটি গতিশীল মানের সাথে একটি বৈশিষ্ট্য আবদ্ধ করতে, আমরা `v-bind` নির্দেশ ব্যবহার করি:
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
 ```
 
-A **directive** is a special attribute that starts with the `v-` prefix. They are part of Vue's template syntax. Similar to text interpolations, directive values are JavaScript expressions that have access to the component's state. The full details of `v-bind` and directive syntax are discussed in <a target="_blank" href="/guide/essentials/template-syntax.html">Guide - Template Syntax</a>.
+একটি **directive** হল একটি বিশেষ বৈশিষ্ট্য যা `v-` উপসর্গ দিয়ে শুরু হয়। তারা Vue এর টেমপ্লেট সিনট্যাক্সের অংশ। টেক্সট ইন্টারপোলেশনের মতোই, নির্দেশমূলক মান হল জাভাস্ক্রিপ্ট এক্সপ্রেশন যা কম্পোনেন্টের অবস্থায় অ্যাক্সেস করতে পারে। `v-bind` এবং নির্দেশমূলক সিনট্যাক্সের সম্পূর্ণ বিবরণ <a target="_blank" href="/guide/essentials/template-syntax.html">গাইড - টেমপ্লেট সিনট্যাক্স</a>-এ আলোচনা করা হয়েছে।
 
-The part after the colon (`:id`) is the "argument" of the directive. Here, the element's `id` attribute will be synced with the `dynamicId` property from the component's state.
+কোলনের পরের অংশ (`:id`) নির্দেশের "আর্গুমেন্ট"। এখানে, উপাদানটির `id` বৈশিষ্ট্যটি উপাদানটির অবস্থা থেকে `dynamicId` বৈশিষ্ট্যের সাথে সিঙ্ক করা হবে।
 
-Because `v-bind` is used so frequently, it has a dedicated shorthand syntax:
+কারণ `v-bind` প্রায়শই ব্যবহৃত হয়, এটির একটি ডেডিকেটেড শর্টহ্যান্ড সিনট্যাক্স রয়েছে:
 
 ```vue-html
 <div :id="dynamicId"></div>
 ```
 
-Now, try to add a dynamic `class` binding to the `<h1>`, using the `titleClass` <span class="options-api">data property</span><span class="composition-api">ref</span> as its value. If it's bound correctly, the text should turn red.
+এখন, `titleClass` <span class="options-api">ডেটা প্রপার্টি</span><span class="composition-api"> ব্যবহার করে `<h1>`-এ একটি ডাইনামিক `ক্লাস` বাইন্ডিং যোগ করার চেষ্টা করুন ref</span> এর মান হিসাবে। এটি সঠিকভাবে আবদ্ধ হলে, পাঠ্যটি লাল হওয়া উচিত।
