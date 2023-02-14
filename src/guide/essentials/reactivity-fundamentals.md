@@ -452,7 +452,7 @@ function increment() {
 
 [Спробуйте в пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-Зауважте, що розгортання застосовується, лише якщо обєкт-референція є властивістю верхнього рівня в контексті візуалізації шаблону. Наприклад, `foo` є властивістю верхнього рівня, а `object.foo` - ні.
+Зауважте, що розгортання застосовується, лише якщо обєкт-референція є властивістю верхнього рівня в контексті візуалізації шаблону. Наприклад, `object` є властивістю верхнього рівня, а `object.foo` - ні.
 
 Наприклад, в нас є такий обʼєкт:
 
@@ -466,7 +466,7 @@ const object = { foo: ref(1) }
 {{ object.foo + 1 }}
 ```
 
-Відображеним результатом буде `[object Object]`, тому що `object.foo` є об'єктом-референцією. Ми можемо виправити це, зробивши `foo` властивістю верхнього рівня:
+Відображеним результатом буде `[object Object]1`, тому що `object.foo` є об'єктом-референцією. Ми можемо виправити це, зробивши `foo` властивістю верхнього рівня:
 
 ```js
 const { foo } = object

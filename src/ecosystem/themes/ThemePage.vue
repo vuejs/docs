@@ -8,7 +8,7 @@ import ThemeContact from './ThemeContact.vue'
   <div class="ThemePage">
     <ThemeHero>
       <template #title>Themes</template>
-      <template #lead>Check out the themes, UI Kits, and plugins. you can see how a real world application is built with Vue by our partners.</template>
+      <template #lead>Check out the themes, UI Kits, and plugins. You can see how a real-world application is built with Vue by our partners.</template>
     </ThemeHero>
 
     <ThemeList />
