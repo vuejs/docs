@@ -230,7 +230,7 @@ declare module 'vue' {
 
 Також до вашої уваги:
 
-- [TypeScript модульні тести для доповнення типів компонентів](https://github.com/vuejs/core/blob/main/test-dts/componentTypeExtensions.test-d.tsx)
+- [TypeScript модульні тести для доповнення типів компонентів](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
 
 ### Розміщення доповнень типу {#type-augmentation-placement}
 
@@ -290,4 +290,4 @@ declare module 'vue' {
 
 Також до вашої уваги:
 
-- [TypeScript TypeScript модульні тести для доповнення типів компонентів](https://github.com/vuejs/core/blob/main/test-dts/componentTypeExtensions.test-d.tsx)
+- [TypeScript TypeScript модульні тести для доповнення типів компонентів](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)

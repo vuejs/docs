@@ -4,8 +4,9 @@ import { computed, onMounted } from 'vue'
 import PartnerCard from './PartnerCard.vue'
 import { Partner } from './type'
 
-const { filter } = defineProps<{
+const { filter, showLinkToAll } = defineProps<{
   filter?: (p: Partner) => boolean | undefined
+  showLinkToAll?: boolean
 }>()
 
 let mounted = $ref(false)
@@ -49,6 +50,9 @@ function shuffle(array: Array<any>) {
     <ClientOnly>
       <PartnerCard v-for="p in filtered" :key="p.name" :data="p" />
     </ClientOnly>
+    <a class="browse-all" href="./all.html" v-if="showLinkToAll && filtered.length % 2">
+      Browse and Search<br>All Partners
+    </a>
   </div>
 </template>
 
@@ -57,5 +61,28 @@ function shuffle(array: Array<any>) {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.browse-all {
+  color: var(--vt-c-text-2);
+  transition: color .5s ease;
+  font-size: 1.2em;
+  text-align: center;
+  padding-top: 240px;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--vt-c-divider-light);
+  width: 48.5%;
+  margin-bottom: 36px;
+}
+
+.browse-all:hover {
+  color: var(--vt-c-text-1);
+}
+
+@media (max-width: 768px) {
+  .browse-all {
+    display: none;
+  }
 }
 </style>

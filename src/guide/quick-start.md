@@ -165,7 +165,7 @@ import { createApp } from 'vue'
 :::tip Підтримка Карт імпорту браузерами
 Карти імпорту підтримуються за замовчуванням браузерами сімейства Chromium, тому ми радимо використовувати Chrome чи Edge під час навчального процесу.
 
-Якщо ви використовуєте Firefox, лише версії 102+ підтримують карти імпорту, та ця можливість повинна бути увімкнена через параметр `dom.importMaps.enabled` в `about:config`.
+Якщо ви використовуєте Firefox, вони доступні за замовчуванням у версії 108+ або через параметр `dom.importMaps.enabled` в `about:config` для версій 102+.
 
 Якщо ж ваш улюблений браузер ще не підтримує карти імпорту, ви можете забезпечити таку підтримку за допомогою [es-module-shims](https://github.com/guybedford/es-module-shims).
 :::
@@ -180,6 +180,8 @@ import { createApp } from 'vue'
 
 ```html
 <!-- index.html -->
+<div id="app"></div>
+
 <script type="module">
   import { createApp } from 'vue'
   import MyComponent from './my-component.js'
