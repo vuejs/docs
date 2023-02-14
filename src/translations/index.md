@@ -2,21 +2,21 @@
 aside: false
 ---
 
-# Translations {#translations}
+# অনুবাদসমূহ {#translations}
 
-## Available Languages {#available-languages}
+## উপলব্ধ ভাষা {#available-languages}
 
-- [English](https://vuejs.org/) [[source](https://github.com/vuejs/docs)]
-- [简体中文 / Simplified Chinese](https://cn.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-zh-cn)]
-- [日本語 / Japanese](https://ja.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ja)]
+- [ইংরেজি](https://vuejs.org/) [[source](https://github.com/vuejs/docs)]
+- [简体中文 / সরলীকৃত চাইনিজ](https://cn.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-zh-cn)]
+- [日本語 / জাপানিজ](https://ja.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ja)]
 
-## Work in Progress Languages {#work-in-progress-languages}
+## অগ্রগতি ভাষায় কাজ {#work-in-progress-languages}
 
-- [Українська / Ukrainian](https://ua.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ua)]
-- [Français / French](https://fr.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fr)]
+- [Українська / ইউক্রেনিয়ান](https://ua.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ua)]
+- [Français / ফরাসি](https://fr.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fr)]
 
-## Starting a new Translation {#starting-a-new-translation}
+## একটি নতুন অনুবাদ শুরু করুন {#starting-a-new-translation}
 
-The Vue documentation has recently undergone a major revision, so translations in other languages are still missing or work-in-progress.
+Vue ডকুমেন্টেশন সম্প্রতি একটি বড় সংশোধনের মধ্য দিয়ে গেছে, তাই অন্যান্য ভাষায় অনুবাদগুলি এখনও অনুপস্থিত বা কাজ চলছে।
 
-We welcome community efforts to provide more translations. Translation efforts are managed in the [vuejs-translations](https://github.com/vuejs-translations/) GitHub organization. If you are interested in contributing, please check out the [Translation Guidelines](https://github.com/vuejs-translations/guidelines/blob/main/README.md) to get started.
+আমরা আরও অনুবাদ প্রদানের জন্য সম্প্রদায়ের প্রচেষ্টাকে স্বাগত জানাই। অনুবাদের প্রচেষ্টাগুলি [vuejs-translations](https://github.com/vuejs-translations/) GitHub সংস্থায় পরিচালিত হয়। আপনি যদি অবদান রাখতে আগ্রহী হন তবে শুরু করতে অনুগ্রহ করে [অনুবাদ নির্দেশিকা](https://github.com/vuejs-translations/guidelines/blob/main/README.md) দেখুন।
