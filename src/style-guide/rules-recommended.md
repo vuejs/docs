@@ -1,55 +1,55 @@
-# Priority C Rules: Recommended {#priority-c-rules-recommended}
+# অগ্রাধিকার C নিয়ম: প্রস্তাবিত {#priority-c-rules-recommended}
 
-Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
+যেখানে একাধিক, সমানভাবে ভাল বিকল্প বিদ্যমান, সেখানে ধারাবাহিকতা নিশ্চিত করার জন্য একটি নির্বিচারে পছন্দ করা যেতে পারে। এই নিয়মগুলিতে, আমরা প্রতিটি গ্রহণযোগ্য বিকল্প বর্ণনা করি এবং একটি ডিফল্ট পছন্দের পরামর্শ দিই। তার মানে আপনি আপনার নিজের কোডবেসে একটি ভিন্ন পছন্দ করতে নির্দ্বিধায় পারেন, যতক্ষণ না আপনি সামঞ্জস্যপূর্ণ এবং একটি ভাল কারণ আছে। যদিও একটি ভাল কারণ আছে দয়া করে! কমিউনিটি স্ট্যান্ডার্ডের সাথে খাপ খাইয়ে, আপনি করবেন:
 
-1. Train your brain to more easily parse most of the community code you encounter
-2. Be able to copy and paste most community code examples without modification
-3. Often find new hires are already accustomed to your preferred coding style, at least in regards to Vue
+1. আপনার মস্তিস্ককে প্রশিক্ষিত করুন যাতে আপনি যে সম্প্রদায়ের কোডের মুখোমুখি হন তার বেশিরভাগই আরও সহজে পার্স করুন৷
+2. পরিবর্তন ছাড়াই বেশিরভাগ কমিউনিটি কোড উদাহরণ কপি এবং পেস্ট করতে সক্ষম হন
+3. প্রায়শই দেখুন নতুন নিয়োগকারীরা ইতিমধ্যেই আপনার পছন্দের কোডিং শৈলীতে অভ্যস্ত, অন্তত Vue এর ক্ষেত্রে
 
-## Component/instance options order {#component-instance-options-order}
+## কম্পোনেন্ট/ইনস্ট্যান্স অপশন অর্ডার {#component-instance-options-order}
 
-**Component/instance options should be ordered consistently.**
+**কম্পোনেন্ট/ইনস্ট্যান্স বিকল্পগুলি ধারাবাহিকভাবে অর্ডার করা উচিত।**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add new properties from plugins.
+এটি হল ডিফল্ট অর্ডার যা আমরা উপাদান বিকল্পগুলির জন্য সুপারিশ করি। এগুলি বিভাগগুলিতে বিভক্ত, তাই আপনি জানতে পারবেন কোথায় প্লাগইনগুলি থেকে নতুন বৈশিষ্ট্য যুক্ত করতে হবে৷
 
-1. **Global Awareness** (requires knowledge beyond the component)
+1. **Global Awareness** (উপাদানের বাইরে জ্ঞানের প্রয়োজন)
 
    - `name`
 
-2. **Template Compiler Options** (changes the way templates are compiled)
+2. **Template Compiler Options** (টেমপ্লেট কম্পাইল করার পদ্ধতি পরিবর্তন করে)
 
    - `compilerOptions`
 
-3. **Template Dependencies** (assets used in the template)
+3. **Template Dependencies** (টেমপ্লেটে ব্যবহৃত সম্পদ)
 
    - `components`
    - `directives`
 
-4. **Composition** (merges properties into the options)
+4. **Composition** (অপশনের মধ্যে বৈশিষ্ট্য মার্জ করে)
 
    - `extends`
    - `mixins`
    - `provide`/`inject`
 
-5. **Interface** (the interface to the component)
+5. **Interface** (কম্পোনেন্টের ইন্টারফেস)
 
    - `inheritAttrs`
    - `props`
    - `emits`
 
-6. **Composition API** (the entry point for using the Composition API)
+6. **Composition API** (কম্পোজিশন এপিআই ব্যবহার করার জন্য এন্ট্রি পয়েন্ট)
 
    - `setup`
 
-7. **Local State** (local reactive properties)
+7. **Local State** (স্থানীয় প্রতিক্রিয়াশীল বৈশিষ্ট্য)
 
    - `data`
    - `computed`
 
-8. **Events** (callbacks triggered by reactive events)
+8. **Events** (প্রতিক্রিয়াশীল ইভেন্ট দ্বারা ট্রিগার কলব্যাক)
 
    - `watch`
-   - Lifecycle Events (in the order they are called)
+   - Lifecycle Events (যে ক্রমে বলা হয়)
      - `beforeCreate`
      - `created`
      - `beforeMount`
@@ -64,28 +64,28 @@ This is the default order we recommend for component options. They're split into
      - `renderTracked`
      - `renderTriggered`
 
-9. **Non-Reactive Properties** (instance properties independent of the reactivity system)
+9. **Non-Reactive Properties** (প্রতিক্রিয়াশীলতা সিস্টেমের থেকে স্বাধীন উদাহরণ বৈশিষ্ট্য)
 
    - `methods`
 
-10. **Rendering** (the declarative description of the component output)
+10. **Rendering** (কম্পোনেন্ট আউটপুটের ঘোষণামূলক বিবরণ)
     - `template`/`render`
 
-## Element attribute order {#element-attribute-order}
+## উপাদান বৈশিষ্ট্য ক্রম {#element-attribute-order}
 
-**The attributes of elements (including components) should be ordered consistently.**
+**উপাদানের গুণাবলী (উপাদান সহ) ধারাবাহিকভাবে অর্ডার করা উচিত।**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add custom attributes and directives.
+এটি হল ডিফল্ট অর্ডার যা আমরা উপাদান বিকল্পগুলির জন্য সুপারিশ করি। এগুলি বিভাগগুলিতে বিভক্ত, তাই আপনি জানতে পারবেন কোথায় কাস্টম বৈশিষ্ট্য এবং নির্দেশাবলী যোগ করতে হবে৷
 
-1. **Definition** (provides the component options)
+1. **Definition** (উপাদান বিকল্প প্রদান করে)
 
    - `is`
 
-2. **List Rendering** (creates multiple variations of the same element)
+2. **List Rendering** (cএকই উপাদানের একাধিক বৈচিত্র তৈরি করে)
 
    - `v-for`
 
-3. **Conditionals** (whether the element is rendered/shown)
+3. **Conditionals** (উপাদানটি রেন্ডার/দেখানো হয়েছে কিনা)
 
    - `v-if`
    - `v-else-if`
@@ -93,39 +93,40 @@ This is the default order we recommend for component options. They're split into
    - `v-show`
    - `v-cloak`
 
-4. **Render Modifiers** (changes the way the element renders)
+4. **Render Modifiers** (উপাদান রেন্ডার উপায় পরিবর্তন)
 
    - `v-pre`
    - `v-once`
 
-5. **Global Awareness** (requires knowledge beyond the component)
+5. **Global Awareness** (উপাদান অতিক্রম জ্ঞান প্রয়োজন)
 
    - `id`
 
-6. **Unique Attributes** (attributes that require unique values)
+6. **Unique Attributes** (বৈশিষ্ট্য যে অনন্য মান প্রয়োজন)
 
    - `ref`
    - `key`
 
-7. **Two-Way Binding** (combining binding and events)
+7. **Two-Way Binding** (বাঁধাই এবং ঘটনা একত্রিত করা)
 
    - `v-model`
 
-8. **Other Attributes** (all unspecified bound & unbound attributes)
+8. **Other Attributes** (সমস্ত অনির্দিষ্ট আবদ্ধ এবং আনবাউন্ড বৈশিষ্ট্য)
 
-9. **Events** (component event listeners)
+9. **Events** (কম্পোনেন্ট ইভেন্ট শ্রোতা)
 
    - `v-on`
 
-10. **Content** (overrides the content of the element)
+10. **Content** (উপাদানের বিষয়বস্তু ওভাররাইড করে)
+
     - `v-html`
     - `v-text`
 
-## Empty lines in component/instance options {#empty-lines-in-component-instance-options}
+## কম্পোনেন্ট/ইনস্ট্যান্স বিকল্পে খালি লাইন {#empty-lines-in-component-instance-options}
 
-**You may want to add one empty line between multi-line properties, particularly if the options can no longer fit on your screen without scrolling.**
+**আপনি মাল্টি-লাইন বৈশিষ্ট্যগুলির মধ্যে একটি খালি লাইন যোগ করতে চাইতে পারেন, বিশেষ করে যদি বিকল্পগুলি স্ক্রোল না করে আপনার স্ক্রিনে আর ফিট না হয়৷**
 
-When components begin to feel cramped or difficult to read, adding spaces between multi-line properties can make them easier to skim again. In some editors, such as Vim, formatting options like this can also make them easier to navigate with the keyboard.
+যখন উপাদানগুলি সঙ্কুচিত বা পড়তে অসুবিধা হতে শুরু করে, বহু-লাইন বৈশিষ্ট্যগুলির মধ্যে স্পেস যোগ করা তাদের আবার স্কিম করা সহজ করে তোলে। কিছু এডিটরে, যেমন Vim, এই ধরনের ফরম্যাটিং বিকল্পগুলি তাদের কীবোর্ড দিয়ে নেভিগেট করা আরও সহজ করে তুলতে পারে।
 
 <div class="style-example style-example-good">
 <h3>Good</h3>
@@ -184,9 +185,9 @@ computed: {
 
 </div>
 
-## Single-file component top-level element order {#single-file-component-top-level-element-order}
+## একক-ফাইল উপাদান শীর্ষ-স্তরের উপাদানের ক্রম {#single-file-component-top-level-element-order}
 
-**[Single-File Components](/guide/scaling-up/sfc.html) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
+**[একক-ফাইল উপাদান](/guide/scaling-up/sfc.html) সবসময় `<style>` সহ `<script>`, `<template>`, এবং `<style>` ট্যাগগুলিকে ধারাবাহিকভাবে অর্ডার করতে হবে শেষ, কারণ অন্য দুটির মধ্যে অন্তত একটি সর্বদা প্রয়োজনীয়।**
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
