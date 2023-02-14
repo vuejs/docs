@@ -1,6 +1,6 @@
 # Emits {#emits}
 
-In addition to receiving props, a child component can also emit events to the parent:
+props প্রাপ্তির পাশাপাশি, একটি 'child component' 'parent component' এর কাছে ইভেন্টগুলি emit করতে পারে:
 
 <div class="composition-api">
 <div class="sfc">
@@ -49,9 +49,9 @@ export default {
 
 </div>
 
-The first argument to <span class="options-api">`this.$emit()`</span><span class="composition-api">`emit()`</span> is the event name. Any additional arguments are passed on to the event listener.
+<span class="options-api">`this.$emit()`</span><span class="composition-api">`emit()`</span> এর প্রথম আর্গুমেন্ট হল ইভেন্টের নাম। কোন অতিরিক্ত আর্গুমেন্ট event listener পাস করা হয়.
 
-The parent can listen to child-emitted events using `v-on` - here the handler receives the extra argument from the child emit call and assigns it to local state:
+parent component `v-on` ব্যবহার করে child component এর ইভেন্ট শুনতে পারেন - এখানে হ্যান্ডলার চাইল্ড emit কলের কাছ থেকে অতিরিক্ত আর্গুমেন্ট গ্রহণ করে এবং এটি local state এ বরাদ্দ করে:
 
 <div class="sfc">
 
@@ -68,4 +68,4 @@ The parent can listen to child-emitted events using `v-on` - here the handler re
 
 </div>
 
-Now try it yourself in the editor.
+এখন এডিটরে নিজেই চেষ্টা করে দেখুন।
