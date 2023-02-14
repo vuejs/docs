@@ -1,6 +1,6 @@
 # Watchers {#watchers}
 
-Sometimes we may need to perform "side effects" reactively - for example, logging a number to the console when it changes. We can achieve this with watchers:
+কখনও কখনও আমাদের প্রতিক্রিয়াশীলভাবে "পার্শ্ব প্রতিক্রিয়া" সম্পাদন করতে হতে পারে - উদাহরণস্বরূপ, কনসোলে একটি নম্বর লগ করা যখন এটি পরিবর্তন হয়। আমরা পর্যবেক্ষকদের সাথে এটি অর্জন করতে পারি:
 
 <div class="composition-api">
 
@@ -15,7 +15,7 @@ watch(count, (newCount) => {
 })
 ```
 
-`watch()` can directly watch a ref, and the callback gets fired whenever `count`'s value changes. `watch()` can also watch other types of data sources - more details are covered in <a target="_blank" href="/guide/essentials/watchers.html">Guide - Watchers</a>.
+`watch()` সরাসরি একটি রেফ দেখতে পারে এবং যখনই `count` এর মান পরিবর্তন হয় তখন কলব্যাকটি বরখাস্ত হয়ে যায়। `watch()` অন্যান্য ধরনের ডেটা উত্সও দেখতে পারে - আরও বিশদ বিবরণ <a target="_blank" href="/guide/essentials/watchers.html">গাইড - ওয়াচার্স</a>-এ দেওয়া আছে।
 
 </div>
 <div class="options-api">
@@ -36,8 +36,8 @@ export default {
 }
 ```
 
-Here, we are using the `watch` option to watch changes to the `count` property. The watch callback is called when `count` changes, and receives the new value as the argument. More details are covered in <a target="_blank" href="/guide/essentials/watchers.html">Guide - Watchers</a>.
+এখানে, আমরা `count` বৈশিষ্ট্যের পরিবর্তনগুলি দেখতে `watch` বিকল্পটি ব্যবহার করছি। ঘড়ি কলব্যাক বলা হয় যখন `count` পরিবর্তিত হয়, এবং আর্গুমেন্ট হিসাবে নতুন মান গ্রহণ করে। আরো বিশদ বিবরণ <a target="_blank" href="/guide/essentials/watchers.html">গাইড - ওয়াচার্স</a>-এ দেওয়া আছে।
 
 </div>
 
-A more practical example than logging to the console would be fetching new data when an ID changes. The code we have is fetching todos data from a mock API on component mount. There is also a button that increments the todo ID that should be fetched. Try to implement a watcher that fetches a new todo when the button is clicked.
+কনসোলে লগ করার চেয়ে একটি আরও বাস্তব উদাহরণ হল একটি আইডি পরিবর্তন হলে নতুন ডেটা আনা। আমাদের কাছে কোডটি উপাদান মাউন্টে একটি মক API থেকে todos ডেটা আনছে। এছাড়াও একটি বোতাম রয়েছে যা টোডো আইডি বৃদ্ধি করে যা আনতে হবে। বোতামটি ক্লিক করার সময় একটি নতুন করণীয় নিয়ে আসে এমন একটি প্রহরী প্রয়োগ করার চেষ্টা করুন৷
