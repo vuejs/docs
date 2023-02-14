@@ -1,12 +1,12 @@
 # Event Listeners {#event-listeners}
 
-We can listen to DOM events using the `v-on` directive:
+আমরা `v-on` নির্দেশ ব্যবহার করে DOM ইভেন্ট শুনতে পারি:
 
 ```vue-html
 <button v-on:click="increment">{{ count }}</button>
 ```
 
-Due to its frequent use, `v-on` also has a shorthand syntax:
+এর ঘন ঘন ব্যবহারের কারণে, `v-on` এর একটি সংক্ষিপ্ত বাক্য গঠনও রয়েছে:
 
 ```vue-html
 <button @click="increment">{{ count }}</button>
@@ -14,7 +14,7 @@ Due to its frequent use, `v-on` also has a shorthand syntax:
 
 <div class="options-api">
 
-Here, `increment` references a function declared using the `methods` option:
+এখানে, `increment` `methods` option ব্যবহার করে ঘোষিত একটি ফাংশন উল্লেখ করে:
 
 <div class="sfc">
 
@@ -55,7 +55,7 @@ createApp({
 
 </div>
 
-Inside a method, we can access the component instance using `this`. The component instance exposes the data properties declared by `data`. We can update the component state by mutating these properties.
+একটি পদ্ধতির ভিতরে, আমরা `this` ব্যবহার করে কম্পোনেন্ট ইনস্ট্যান্স অ্যাক্সেস করতে পারি। কম্পোনেন্ট ইনস্ট্যান্স `data` দ্বারা ঘোষিত ডেটা বৈশিষ্ট্যগুলিকে প্রকাশ করে। আমরা এই বৈশিষ্ট্যগুলিকে পরিবর্তন করে উপাদানের অবস্থা আপডেট করতে পারি।
 
 </div>
 
@@ -63,7 +63,7 @@ Inside a method, we can access the component instance using `this`. The componen
 
 <div class="sfc">
 
-Here, `increment` is referencing a function declared in `<script setup>`:
+এখানে, `increment` `<script setup>` এ ঘোষিত একটি ফাংশনকে উল্লেখ করছে:
 
 ```vue{6-9}
 <script setup>
@@ -82,7 +82,7 @@ function increment() {
 
 <div class="html">
 
-Here, `increment` is referencing a method in the object returned from `setup()`:
+এখানে, `increment` `setup()` থেকে প্রত্যাবর্তিত বস্তুর একটি পদ্ধতির উল্লেখ করছে:
 
 ```js{$}
 setup() {
@@ -102,10 +102,10 @@ setup() {
 
 </div>
 
-Inside the function, we can update the component state by mutating refs.
+ফাংশনের ভিতরে, আমরা refs পরিবর্তন করে উপাদানের অবস্থা আপডেট করতে পারি।
 
 </div>
 
-Event handlers can also use inline expressions, and can simplify common tasks with modifiers. These details are covered in <a target="_blank" href="/guide/essentials/event-handling.html">Guide - Event Handling</a>.
+ইভেন্ট হ্যান্ডলাররাও ইনলাইন এক্সপ্রেশন ব্যবহার করতে পারে এবং মডিফায়ারের সাহায্যে সাধারণ কাজগুলোকে সহজ করতে পারে। এই বিবরণগুলি <a target="_blank" href="/guide/essentials/event-handling.html">গাইড - ইভেন্ট হ্যান্ডলিং</a>-এ কভার করা হয়েছে ৷
 
-Now, try to implement the `increment` <span class="options-api">method</span><span class="composition-api">function</span> yourself and bind it to the button using `v-on`.
+এখন, `increment` <span class="options-api">পদ্ধতি</span><span class="composition-api">ফাংশন</span> প্রয়োগ করার চেষ্টা করুন এবং `v-on` ব্যবহার করে বোতামে এটি আবদ্ধ করুন ৷
