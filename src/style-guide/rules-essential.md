@@ -1,10 +1,10 @@
-# Priority A Rules: Essential {#priority-a-rules-essential}
+# অগ্রাধিকার A নিয়ম: অপরিহার্য {#priority-a-rules-essential}
 
-These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
+এই নিয়মগুলি ত্রুটিগুলি প্রতিরোধ করতে সহায়তা করে, তাই যে কোনও মূল্যে সেগুলি শিখুন এবং মেনে চলুন৷ ব্যতিক্রম থাকতে পারে, কিন্তু খুবই বিরল হতে হবে এবং শুধুমাত্র জাভাস্ক্রিপ্ট এবং Vue উভয় বিষয়ে বিশেষজ্ঞ জ্ঞানসম্পন্ন ব্যক্তিদের দ্বারা করা উচিত।
 
-## Use multi-word component names {#use-multi-word-component-names}
+## বহু-শব্দ উপাদানের নাম ব্যবহার করুন {#use-multi-word-component-names}
 
-User component names should always be multi-word, except for root `App` components. This [prevents conflicts](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) with existing and future HTML elements, since all HTML elements are a single word.
+রুট `App` উপাদান ব্যতীত ব্যবহারকারীর উপাদানের নাম সর্বদা বহু-শব্দ হওয়া উচিত। বিদ্যমান এবং ভবিষ্যতের HTML উপাদানগুলির সাথে এটি [prevents conflicts](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name), যেহেতু সমস্ত HTML উপাদান একটি একক শব্দ।
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
@@ -32,15 +32,15 @@ User component names should always be multi-word, except for root `App` componen
 
 </div>
 
-## Use detailed prop definitions {#use-detailed-prop-definitions}
+## বিস্তারিত prop সংজ্ঞা ব্যবহার করুন {#use-detailed-prop-definitions}
 
-In committed code, prop definitions should always be as detailed as possible, specifying at least type(s).
+প্রতিশ্রুতিবদ্ধ কোডে, প্রপ সংজ্ঞাগুলি সর্বদা যতটা সম্ভব বিস্তারিত হওয়া উচিত, অন্তত প্রকার (গুলি) নির্দিষ্ট করে।
 
-::: details Detailed Explanation
-Detailed [prop definitions](/guide/components/props.html#prop-validation) have two advantages:
+::: details বিস্তারিত ব্যাখ্যা
+বিস্তারিত [prop সংজ্ঞা](/guide/components/props.html#prop-validation) এর দুটি সুবিধা রয়েছে:
 
-- They document the API of the component, so that it's easy to see how the component is meant to be used.
-- In development, Vue will warn you if a component is ever provided incorrectly formatted props, helping you catch potential sources of error.
+- তারা কম্পোনেন্টের API নথিভুক্ত করে, যাতে কম্পোনেন্টটি কীভাবে ব্যবহার করা হয় তা দেখা সহজ হয়।
+- ডেভেলপমেন্টে, Vue আপনাকে সতর্ক করবে যদি কোনো উপাদান ভুলভাবে ফরম্যাট করা প্রপস প্রদান করা হয়, যা আপনাকে সম্ভাব্য ত্রুটির উৎস ধরতে সাহায্য করে।
   :::
 
 <div class="options-api">
@@ -125,12 +125,12 @@ const props = defineProps({
 </div>
 </div>
 
-## Use keyed `v-for` {#use-keyed-v-for}
+## `v-for`এর সাথে `key` ব্যবহার করুন {#use-keyed-v-for}
 
-`key` with `v-for` is _always_ required on components, in order to maintain internal component state down the subtree. Even for elements though, it's a good practice to maintain predictable behavior, such as [object constancy](https://bost.ocks.org/mike/constancy/) in animations.
+সাবট্রির নিচে অভ্যন্তরীণ উপাদানের অবস্থা বজায় রাখার জন্য উপাদানগুলিতে `v-for` সহ `key` _সর্বদাই_ প্রয়োজন। এমনকি উপাদানগুলির জন্যও, অ্যানিমেশনগুলিতে [অবজেক্ট কনস্টেন্সি](https://bost.ocks.org/mike/constancy/) এর মতো অনুমানযোগ্য আচরণ বজায় রাখা একটি ভাল অভ্যাস।
 
-::: details Detailed Explanation
-Let's say you have a list of todos:
+::: details বিস্তারিত ব্যাখ্যা
+ধরা যাক আপনার কাছে করণীয়গুলির একটি তালিকা রয়েছে:
 
 ```js
 data() {
@@ -149,11 +149,11 @@ data() {
 }
 ```
 
-Then you sort them alphabetically. When updating the DOM, Vue will optimize rendering to perform the cheapest DOM mutations possible. That might mean deleting the first todo element, then adding it again at the end of the list.
+তারপর আপনি তাদের বর্ণানুক্রমিকভাবে সাজান। DOM আপডেট করার সময়, Vue সম্ভাব্য সবচেয়ে সস্তা DOM মিউটেশনগুলি সম্পাদন করতে রেন্ডারিং অপ্টিমাইজ করবে। এর অর্থ হতে পারে প্রথম করণীয় উপাদানটি মুছে ফেলা, তারপর তালিকার শেষে আবার যোগ করা।
 
-The problem is, there are cases where it's important not to delete elements that will remain in the DOM. For example, you may want to use `<transition-group>` to animate list sorting, or maintain focus if the rendered element is an `<input>`. In these cases, adding a unique key for each item (e.g. `:key="todo.id"`) will tell Vue how to behave more predictably.
+সমস্যা হল, এমন কিছু ক্ষেত্রে রয়েছে যেখানে DOM-এ থাকা উপাদানগুলি মুছে ফেলা গুরুত্বপূর্ণ নয়। উদাহরণস্বরূপ, আপনি তালিকা সাজানোর অ্যানিমেট করতে `<transition-group>` ব্যবহার করতে চাইতে পারেন, অথবা যদি রেন্ডার করা উপাদানটি `<input>` হয় তাহলে ফোকাস বজায় রাখতে পারেন। এই ক্ষেত্রে, প্রতিটি আইটেমের জন্য একটি অনন্য কী যোগ করা (যেমন `:key="todo.id"`) Vue কে বলবে কিভাবে আরও অনুমানযোগ্য আচরণ করতে হবে।
 
-In our experience, it's better to _always_ add a unique key, so that you and your team simply never have to worry about these edge cases. Then in the rare, performance-critical scenarios where object constancy isn't necessary, you can make a conscious exception.
+আমাদের অভিজ্ঞতায়, _সর্বদা_ একটি অনন্য কী যোগ করা ভাল, যাতে আপনি এবং আপনার দলকে এই প্রান্তের ক্ষেত্রেগুলি নিয়ে চিন্তা করতে হবে না। তারপরে বিরল, কর্মক্ষমতা-সমালোচনামূলক পরিস্থিতিতে যেখানে বস্তুর স্থিরতা প্রয়োজন হয় না, আপনি সচেতন ব্যতিক্রম করতে পারেন।
 :::
 
 <div class="style-example style-example-bad">
@@ -185,18 +185,18 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 
 </div>
 
-## Avoid `v-if` with `v-for` {#avoid-v-if-with-v-for}
+## `v-for` এর সাথে `v-if` এড়িয়ে চলুন {#avoid-v-if-with-v-for}
 
-**Never use `v-if` on the same element as `v-for`.**
+**কখনই `v-if` একই উপাদানে `v-for` ব্যবহার করবেন না।**
 
-There are two common cases where this can be tempting:
+দুটি সাধারণ ক্ষেত্রে এটি প্রলুব্ধ হতে পারে:
 
-- To filter items in a list (e.g. `v-for="user in users" v-if="user.isActive"`). In these cases, replace `users` with a new computed property that returns your filtered list (e.g. `activeUsers`).
+- একটি তালিকায় আইটেম ফিল্টার করতে (যেমন `v-for="user in user" v-if="user.isActive"`)। এই ক্ষেত্রে, `users`কে একটি নতুন গণনাকৃত সম্পত্তি দিয়ে প্রতিস্থাপন করুন যা আপনার ফিল্টার করা তালিকা (যেমন `activeUsers`) প্রদান করে।
 
-- To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
+- একটি তালিকা লুকানো উচিত হলে রেন্ডার করা এড়াতে (যেমন `v-for="user in user" v-if="shouldShowUsers"`)। এই ক্ষেত্রে, `v-if` একটি ধারক উপাদানে সরান (যেমন `ul`, `ol`)।
 
-::: details Detailed Explanation
-When Vue processes directives, `v-if` has a higher priority than `v-for`, so that this template:
+::: details বিস্তারিত ব্যাখ্যা
+যখন Vue নির্দেশাবলী প্রসেস করে, `v-if` এর থেকে `v-for` এর চেয়ে বেশি অগ্রাধিকার থাকে, যাতে এই টেমপ্লেটটি:
 
 ```vue-html
 <ul>
@@ -210,9 +210,9 @@ When Vue processes directives, `v-if` has a higher priority than `v-for`, so tha
 </ul>
 ```
 
-Will throw an error, because the `v-if` directive will be evaluated first and the iteration variable `user` does not exist at this moment.
+একটি ত্রুটি নিক্ষেপ করবে, কারণ `v-if` নির্দেশটি প্রথমে মূল্যায়ন করা হবে এবং পুনরাবৃত্তি ভেরিয়েবল `user` এই মুহূর্তে বিদ্যমান নেই।
 
-This could be fixed by iterating over a computed property instead, like this:
+এটি পরিবর্তে একটি গণনাকৃত সম্পত্তির উপর পুনরাবৃত্তি করে ঠিক করা যেতে পারে, যেমন:
 
 ```js
 computed: {
@@ -233,7 +233,7 @@ computed: {
 </ul>
 ```
 
-Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` element:
+বিকল্পভাবে, আমরা `<li>` উপাদানটিকে মোড়ানোর জন্য `v-for` সহ একটি `<template>` ট্যাগ ব্যবহার করতে পারি:
 
 ```vue-html
 <ul>
@@ -290,20 +290,20 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 
 </div>
 
-## Use component-scoped styling {#use-component-scoped-styling}
+## কম্পোনেন্ট-স্কোপড স্টাইলিং ব্যবহার করুন {#use-component-scoped-styling}
 
-For applications, styles in a top-level `App` component and in layout components may be global, but all other components should always be scoped.
+অ্যাপ্লিকেশানগুলির জন্য, একটি শীর্ষ-স্তরের `App`' উপাদান এবং লেআউট উপাদানগুলির ধরনগুলি বিশ্বব্যাপী হতে পারে, তবে অন্যান্য সমস্ত উপাদান সর্বদা ব্যাপ্ত হওয়া উচিত৷
 
-This is only relevant for [Single-File Components](/guide/scaling-up/sfc.html). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
+এটি শুধুমাত্র [একক-ফাইল উপাদান](/guide/scaling-up/sfc.html) এর জন্য প্রাসঙ্গিক। এটির জন্য [`স্কোপড` অ্যাট্রিবিউট](https://vue-loader.vuejs.org/en/features/scoped-css.html) ব্যবহার করার প্রয়োজন নেই। স্কোপিং হতে পারে [CSS মডিউল](https://vue-loader.vuejs.org/en/features/css-modules.html), একটি ক্লাস-ভিত্তিক কৌশল যেমন [BEM](http://getbem.com) /), অথবা অন্য লাইব্রেরি/সম্মেলন।
 
-**Component libraries, however, should prefer a class-based strategy instead of using the `scoped` attribute.**
+**কম্পোনেন্ট লাইব্রেরি, তবে, `scoped` অ্যাট্রিবিউট ব্যবহার করার পরিবর্তে একটি ক্লাস-ভিত্তিক কৌশল পছন্দ করা উচিত।**
 
-This makes overriding internal styles easier, with human-readable class names that don't have too high specificity, but are still very unlikely to result in a conflict.
+এটি অভ্যন্তরীণ শৈলীগুলিকে ওভাররাইড করা সহজ করে তোলে, মানব-পঠনযোগ্য শ্রেণির নামগুলির সাথে যেগুলির খুব বেশি নির্দিষ্টতা নেই, তবে এখনও একটি দ্বন্দ্বের ফলে হওয়ার সম্ভাবনা খুব কম।
 
-::: details Detailed Explanation
-If you are developing a large project, working with other developers, or sometimes include 3rd-party HTML/CSS (e.g. from Auth0), consistent scoping will ensure that your styles only apply to the components they are meant for.
+::: details বিস্তারিত ব্যাখ্যা
+আপনি যদি একটি বড় প্রকল্প তৈরি করেন, অন্যান্য বিকাশকারীদের সাথে কাজ করেন, বা কখনও কখনও 3য়-পক্ষের HTML/CSS (যেমন Auth0 থেকে) অন্তর্ভুক্ত করেন, তাহলে ধারাবাহিক স্কোপিং নিশ্চিত করবে যে আপনার শৈলীগুলি শুধুমাত্র সেগুলির জন্য প্রযোজ্য উপাদানগুলির জন্য প্রযোজ্য৷
 
-Beyond the `scoped` attribute, using unique class names can help ensure that 3rd-party CSS does not apply to your own HTML. For example, many projects use the `button`, `btn`, or `icon` class names, so even if not using a strategy such as BEM, adding an app-specific and/or component-specific prefix (e.g. `ButtonClose-icon`) can provide some protection.
+`scoped` অ্যাট্রিবিউটের বাইরে, অনন্য ক্লাসের নাম ব্যবহার করা নিশ্চিত করতে সাহায্য করতে পারে যে 3য়-পক্ষের CSS আপনার নিজের HTML-এ প্রযোজ্য নয়। উদাহরণস্বরূপ, অনেক প্রকল্প `button`, `btn`, বা `icon` শ্রেণীর নাম ব্যবহার করে, তাই BEM-এর মতো কোনো কৌশল ব্যবহার না করলেও, একটি অ্যাপ-নির্দিষ্ট এবং/অথবা উপাদান-নির্দিষ্ট উপসর্গ যোগ করা (যেমন `ButtonClose-icon`) কিছু সুরক্ষা প্রদান করতে পারে।
 :::
 
 <div class="style-example style-example-bad">
