@@ -1,6 +1,6 @@
 # Computed Property {#computed-property}
 
-Let's keep building on top of the todo list from the last step. Here, we've already added a toggle functionality to each todo. This is done by adding a `done` property to each todo object, and using `v-model` to bind it to a checkbox:
+শেষ ধাপ থেকে করণীয় তালিকার শীর্ষে তৈরি করা যাক। এখানে, আমরা ইতিমধ্যে প্রতিটি টোডোতে একটি টগল কার্যকারিতা যোগ করেছি। এটি প্রতিটি টোডো অবজেক্টে একটি `done` বৈশিষ্ট্য যোগ করে এবং এটিকে একটি চেকবক্সে আবদ্ধ করতে `v-model` ব্যবহার করে করা হয়:
 
 ```vue-html{2}
 <li v-for="todo in todos">
@@ -9,11 +9,11 @@ Let's keep building on top of the todo list from the last step. Here, we've alre
 </li>
 ```
 
-The next improvement we can add is to be able to hide already completed todos. We already have a button that toggles the `hideCompleted` state. But how do we render different list items based on that state?
+পরবর্তী উন্নতি যা আমরা যোগ করতে পারি তা হল ইতিমধ্যে সম্পন্ন করা টোডো লুকিয়ে রাখতে সক্ষম হওয়া। আমাদের কাছে ইতিমধ্যেই একটি বোতাম রয়েছে যা `hideCompleted` অবস্থাকে টগল করে। কিন্তু কিভাবে আমরা যে state এর উপর ভিত্তি করে বিভিন্ন তালিকা আইটেম রেন্ডার করব?
 
 <div class="options-api">
 
-Introducing <a target="_blank" href="/guide/essentials/computed.html">computed property</a>. We can declare a property that is reactively computed from other properties using the `computed` option:
+<a target="_blank" href="/guide/essentials/computed.html">গণনা করা সম্পত্তি</a> উপস্থাপন করা হচ্ছে৷ আমরা একটি সম্পত্তি ঘোষণা করতে পারি যা প্রতিক্রিয়াশীলভাবে অন্যান্য বৈশিষ্ট্য থেকে গণনা করা হয় `গণনা করা` বিকল্প ব্যবহার করে:
 
 <div class="sfc">
 
@@ -47,7 +47,7 @@ createApp({
 </div>
 <div class="composition-api">
 
-Introducing <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>. We can create a computed ref that computes its `.value` based on other reactive data sources:
+পেশ করা হচ্ছে <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>। আমরা একটি গণনাকৃত রেফ তৈরি করতে পারি যা অন্যান্য প্রতিক্রিয়াশীল ডেটা উত্সের উপর ভিত্তি করে এর `.value` গণনা করে:
 
 <div class="sfc">
 
@@ -99,6 +99,6 @@ createApp({
 + <li v-for="todo in filteredTodos">
 ```
 
-A computed property tracks other reactive state used in its computation as dependencies. It caches the result and automatically updates it when its dependencies change.
+একটি গণনাকৃত সম্পত্তি নির্ভরতা হিসাবে তার গণনায় ব্যবহৃত অন্যান্য প্রতিক্রিয়াশীল অবস্থাকে ট্র্যাক করে। এটি ফলাফল ক্যাশ করে এবং যখন এর নির্ভরতা পরিবর্তিত হয় তখন এটি স্বয়ংক্রিয়ভাবে আপডেট হয়।
 
-Now, try to add the `filteredTodos` computed property and implement its computation logic! If implemented correctly, checking off a todo when hiding completed items should instantly hide it as well.
+এখন, `filteredTodos` গণনাকৃত সম্পত্তি যোগ করার চেষ্টা করুন এবং এর গণনা যুক্তি প্রয়োগ করুন! সঠিকভাবে প্রয়োগ করা হলে, সম্পূর্ণ আইটেম লুকানোর সময় একটি টোডো চেক করা হলে তা সঙ্গে সঙ্গে লুকিয়ে রাখাও উচিত।
