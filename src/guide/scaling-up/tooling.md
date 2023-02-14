@@ -53,7 +53,7 @@
 
 ## Підтримка IDE {#ide-support}
 
-- Рекомендоване налаштування IDE: [VSCode](https://code.visualstudio.com/) + розширення [Volar](https://github.com/johnsoncodehk/volar). Volar забезпечує підсвітку синтаксису, підтримку TypeScript та інтелектуальну функцію для шаблонних виразів і атрибутів компонентів.
+- Рекомендоване налаштування IDE: [VSCode](https://code.visualstudio.com/) + розширення [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Це розширення забезпечує підсвітку синтаксису, підтримку TypeScript та інтелектуальну функцію для шаблонних виразів і атрибутів компонентів.
 
   :::tip
   Volar замінює [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), наше попереднє офіційне розширення VSCode для Vue 2. Якщо у вас наразі встановлено Vetur, обов’язково вимкніть його в проектах Vue 3 .
