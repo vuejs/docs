@@ -1,45 +1,45 @@
-# Code Of Conduct {#code-of-conduct}
+# আচরণবিধি {#code-of-conduct}
 
-## Our Pledge {#our-pledge}
+## আমাদের অঙ্গীকার {#our-pledge}
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, political party, or sexual identity and orientation. Note, however, that religion, political party, or other ideological affiliation provide no exemptions for the behavior we outline as unacceptable in this Code of Conduct.
+একটি উন্মুক্ত এবং স্বাগত পরিবেশ গড়ে তোলার স্বার্থে, আমরা অবদানকারী এবং রক্ষণাবেক্ষণকারী হিসাবে আমাদের প্রকল্প এবং আমাদের সম্প্রদায়কে বয়স, শরীরের আকার, অক্ষমতা, জাতিগততা, লিঙ্গ বৈশিষ্ট্য, লিঙ্গ পরিচয় নির্বিশেষে প্রত্যেকের জন্য একটি হয়রানি-মুক্ত অভিজ্ঞতা তৈরি করার অঙ্গীকার করছি। এবং অভিব্যক্তি, অভিজ্ঞতার স্তর, শিক্ষা, আর্থ-সামাজিক অবস্থা, জাতীয়তা, ব্যক্তিগত চেহারা, জাতি, ধর্ম, রাজনৈতিক দল বা যৌন পরিচয় এবং অভিযোজন। উল্লেখ্য, যাইহোক, ধর্ম, রাজনৈতিক দল বা অন্যান্য আদর্শগত অনুষঙ্গ এই আচরণবিধিতে অগ্রহণযোগ্য হিসাবে আমরা যে আচরণের রূপরেখা দিই তার জন্য কোনো ছাড় দেয় না।
 
-## Our Standards {#our-standards}
+## আমাদের মান {#our-standards}
 
-Examples of behavior that contributes to creating a positive environment include:
+একটি ইতিবাচক পরিবেশ তৈরিতে অবদান রাখে এমন আচরণের উদাহরণগুলির মধ্যে রয়েছে:
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
+- স্বাগত এবং অন্তর্ভুক্তিমূলক ভাষা ব্যবহার করে
+- ভিন্ন ভিন্ন দৃষ্টিভঙ্গি এবং অভিজ্ঞতার প্রতি শ্রদ্ধাশীল হওয়া
+- গঠনমূলক সমালোচনাকে সুন্দরভাবে গ্রহণ করা
+- সম্প্রদায়ের জন্য সবচেয়ে ভাল কি ফোকাস করা
+- অন্যান্য সম্প্রদায়ের সদস্যদের প্রতি সহানুভূতি দেখানো
 
-Examples of unacceptable behavior by participants include:
+অংশগ্রহণকারীদের দ্বারা অগ্রহণযোগ্য আচরণের উদাহরণগুলির মধ্যে রয়েছে:
 
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or electronic address, without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+- যৌনতাপূর্ণ ভাষা বা চিত্রের ব্যবহার এবং অনাকাঙ্ক্ষিত যৌন মনোযোগ বা অগ্রগতি
+- ট্রোলিং, অপমানজনক/অপমানজনক মন্তব্য এবং ব্যক্তিগত বা রাজনৈতিক আক্রমণ
+- সরকারী বা ব্যক্তিগত হয়রানি
+- সুস্পষ্ট অনুমতি ছাড়া অন্যের ব্যক্তিগত তথ্য, যেমন একটি শারীরিক বা ইলেকট্রনিক ঠিকানা প্রকাশ করা
+- অন্যান্য আচরণ যা একটি পেশাদার পরিবেশে যুক্তিসঙ্গতভাবে অনুপযুক্ত বলে বিবেচিত হতে পারে
 
-## Our Responsibilities {#our-responsibilities}
+## আমাদের দায়িত্ব {#our-responsibilities}
 
-Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+প্রকল্পের রক্ষণাবেক্ষণকারীরা গ্রহণযোগ্য আচরণের মানগুলি স্পষ্ট করার জন্য দায়ী এবং অগ্রহণযোগ্য আচরণের যেকোন দৃষ্টান্তের প্রতিক্রিয়া হিসাবে উপযুক্ত এবং ন্যায্য সংশোধনমূলক পদক্ষেপ নেওয়ার আশা করা হয়।
 
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+প্রজেক্ট রক্ষণাবেক্ষণকারীদের এই আচরণবিধির সাথে সংযুক্ত নয় এমন মন্তব্য, প্রতিশ্রুতি, কোড, উইকি সম্পাদনা, সমস্যা এবং অন্যান্য অবদানগুলিকে অপসারণ, সম্পাদনা বা প্রত্যাখ্যান করার অধিকার এবং দায়িত্ব রয়েছে, বা অন্যান্য আচরণের জন্য অস্থায়ী বা স্থায়ীভাবে কোনো অবদানকারীকে নিষিদ্ধ করার অধিকার রয়েছে। তারা অনুপযুক্ত, হুমকি, আপত্তিকর, বা ক্ষতিকারক বলে মনে করে।
 
-## Scope {#scope}
+## সুযোগ {#scope}
 
-This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+এই আচরণবিধি প্রজেক্ট স্পেস এবং পাবলিক স্পেসে উভয় ক্ষেত্রেই প্রযোজ্য হয় যখন একজন ব্যক্তি প্রজেক্ট বা তার সম্প্রদায়ের প্রতিনিধিত্ব করেন। একটি প্রকল্প বা সম্প্রদায়ের প্রতিনিধিত্ব করার উদাহরণগুলির মধ্যে রয়েছে একটি অফিসিয়াল প্রকল্পের ই-মেইল ঠিকানা ব্যবহার করা, একটি অফিসিয়াল সোশ্যাল মিডিয়া অ্যাকাউন্টের মাধ্যমে পোস্ট করা, বা একটি অনলাইন বা অফলাইন ইভেন্টে একজন নিযুক্ত প্রতিনিধি হিসাবে কাজ করা। একটি প্রকল্পের প্রতিনিধিত্ব প্রকল্প রক্ষণাবেক্ষণকারীদের দ্বারা আরও সংজ্ঞায়িত এবং স্পষ্ট করা যেতে পারে।
 
-## Enforcement {#enforcement}
+## প্রয়োগ {#enforcement}
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at community@vuejs.org. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+সম্প্রদায়@vuejs.org-এ প্রকল্প দলের সাথে যোগাযোগ করে আপত্তিজনক, হয়রানি বা অন্যথায় অগ্রহণযোগ্য আচরণের ঘটনাগুলি রিপোর্ট করা যেতে পারে। সমস্ত অভিযোগ পর্যালোচনা করা হবে এবং তদন্ত করা হবে এবং পরিস্থিতির জন্য প্রয়োজনীয় এবং উপযুক্ত বলে মনে করা হবে। প্রজেক্ট টিম একটি ঘটনার রিপোর্টারের ব্যাপারে গোপনীয়তা বজায় রাখতে বাধ্য। নির্দিষ্ট প্রয়োগ নীতির আরও বিশদ আলাদাভাবে পোস্ট করা যেতে পারে।
 
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
+প্রজেক্ট রক্ষণাবেক্ষণকারী যারা সরল বিশ্বাসে আচরণবিধি অনুসরণ বা প্রয়োগ করে না তারা প্রকল্পের নেতৃত্বের অন্যান্য সদস্যদের দ্বারা নির্ধারিত অস্থায়ী বা স্থায়ী প্রতিক্রিয়ার সম্মুখীন হতে পারে।
 
-## Attribution {#attribution}
+## বৈশিষ্ট্য {#attribution}
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+এই আচরণবিধিটি [অবদানকারী চুক্তি][হোমপেজ], সংস্করণ 1.4, https://www.contributor-covenant.org/version/1/4/code-of-conduct.html এ উপলব্ধ থেকে অভিযোজিত হয়েছে
 
-[homepage]: https://www.contributor-covenant.org
+[হোমপেজ]: https://www.contributor-covenant.org
