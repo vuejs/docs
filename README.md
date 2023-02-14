@@ -2,6 +2,8 @@
 
 ## অবদানের জন্য
 
+vuejs বাংলা ডকুমেন্টেশন এ অবদান এর জন্য official vuejs-translations [discussions](https://github.com/vuejs-translations/guidelines/discussions/66) এ মন্তব্য করুন।
+
 এই সাইটটি [VitePress](https://github.com/vuejs/vitepress) দিয়ে নির্মিত এবং [@vue/theme](https://github.com/vuejs/vue-theme) উপর নির্ভর করে । সাইটের বিষয়বস্তু Markdown ফরম্যাটে লেখা হয়েছে `src`। সাধারণ সম্পাদনার জন্য, আপনি সরাসরি GitHub-এ ফাইলটি সম্পাদনা করতে পারেন এবং একটি Pull Request তৈরি করতে পারেন।
 
 local development এর জন্য, প্যাকেজ ম্যানেজার হিসাবে [pnpm](https://pnpm.io/) ব্যবহার করার হয়েছে:
