@@ -121,7 +121,7 @@ updateExample()
       <div class="vt-doc" v-html="currentDescription"></div>
       <div class="hint" v-if="data[currentStep]?._hint">
         <button @click="toggleResult">
-          {{ showingHint ? 'Reset' : 'Show me!' }}
+          {{ showingHint ? 'পুনরায় সেট করুন' : 'আমাকে দেখাও!' }}
         </button>
       </div>
       <footer>

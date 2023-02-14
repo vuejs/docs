@@ -1,16 +1,16 @@
-# Declarative Rendering {#declarative-rendering}
+# ঘোষণামূলক রেন্ডারিং৷ {#declarative-rendering}
 
 <div class="sfc">
 
-What you see in the editor is a Vue Single-File Component (SFC). An SFC is a reusable self-contained block of code that encapsulates HTML, CSS and JavaScript that belong together, written inside a `.vue` file.
+আপনি সম্পাদকে যা দেখছেন তা হল একটি Vue একক-ফাইল উপাদান (SFC)। একটি SFC হল কোডের একটি পুনঃব্যবহারযোগ্য স্বয়ংসম্পূর্ণ ব্লক যা HTML, CSS এবং JavaScriptকে একত্রে অন্তর্ভুক্ত করে, একটি `.vue` ফাইলের ভিতরে লেখা।
 
 </div>
 
-The core feature of Vue is **declarative rendering**: using a template syntax that extends HTML, we can describe how the HTML should look like based on JavaScript state. When the state changes, the HTML updates automatically.
+Vue-এর মূল বৈশিষ্ট্য হল **ঘোষণামূলক রেন্ডারিং**: একটি টেমপ্লেট সিনট্যাক্স ব্যবহার করে যা HTML কে প্রসারিত করে, আমরা জাভাস্ক্রিপ্ট অবস্থার উপর ভিত্তি করে HTML কেমন হওয়া উচিত তা বর্ণনা করতে পারি। যখন অবস্থা পরিবর্তন হয়, HTML স্বয়ংক্রিয়ভাবে আপডেট হয়।
 
 <div class="composition-api">
 
-State that can trigger updates when changed are considered **reactive**. We can declare reactive state using Vue's `reactive()` API. Objects created from `reactive()` are JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) that work just like normal objects:
+পরিবর্তন করা হলে আপডেট ট্রিগার করতে পারে এমন রাজ্যকে **প্রতিক্রিয়াশীল** হিসেবে বিবেচনা করা হয়। আমরা Vue এর `reactive()` API ব্যবহার করে প্রতিক্রিয়াশীল অবস্থা ঘোষণা করতে পারি। `reactive()` থেকে তৈরি করা বস্তুগুলি হল JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) যেগুলি সাধারণ বস্তুর মতোই কাজ করে:
 
 ```js
 import { reactive } from 'vue'
@@ -23,7 +23,7 @@ console.log(counter.count) // 0
 counter.count++
 ```
 
-`reactive()` only works on objects (including arrays and built-in types like `Map` and `Set`). `ref()`, on the other hand, can take any value type and create an object that exposes the inner value under a `.value` property:
+`reactive()` শুধুমাত্র অবজেক্টে কাজ করে (অ্যারে এবং বিল্ট-ইন প্রকার যেমন `Map` এবং `Set` সহ)। অন্যদিকে, `ref()` যেকোনো মান ধরতে পারে এবং একটি বস্তু তৈরি করতে পারে যা একটি `.value` বৈশিষ্ট্যের অধীনে অভ্যন্তরীণ মান প্রকাশ করে:
 
 ```js
 import { ref } from 'vue'
@@ -34,17 +34,17 @@ console.log(message.value) // "Hello World!"
 message.value = 'Changed'
 ```
 
-Details on `reactive()` and `ref()` are discussed in <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">Guide - Reactivity Fundamentals</a>.
+`reactive()` এবং `ref()` সম্পর্কে বিস্তারিত <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">গাইড - প্রতিক্রিয়াশীলতার মৌলিক বিষয়সমূহ</a>-এ আলোচনা করা হয়েছে।
 
 <div class="sfc">
 
-Reactive state declared in the component's `<script setup>` block can be used directly in the template. This is how we can render dynamic text based on the value of the `counter` object and `message` ref, using mustaches syntax:
+কম্পোনেন্টের `<স্ক্রিপ্ট সেটআপ>` ব্লকে ঘোষিত প্রতিক্রিয়াশীল অবস্থা সরাসরি টেমপ্লেটে ব্যবহার করা যেতে পারে। গোঁফের সিনট্যাক্স ব্যবহার করে 'কাউন্টার' অবজেক্ট এবং 'মেসেজ' রেফের মানের উপর ভিত্তি করে আমরা এইভাবে গতিশীল পাঠ্য রেন্ডার করতে পারি:
 
 </div>
 
 <div class="html">
 
-The object being passed to `createApp()` is a Vue component. A component's state should be declared inside its `setup()` function, and returned using an object:
+বস্তুটি `createApp()`-এ পাস করা হচ্ছে একটি Vue উপাদান। একটি উপাদানের অবস্থা তার `setup()` ফাংশনের ভিতরে ঘোষণা করা উচিত এবং একটি বস্তু ব্যবহার করে ফেরত দেওয়া উচিত:
 
 ```js{2,5}
 setup() {
@@ -57,7 +57,7 @@ setup() {
 }
 ```
 
-Properties in the returned object will be made available in the template. This is how we can render dynamic text based on the value of `message`, using mustaches syntax:
+প্রত্যাবর্তিত বস্তুর বৈশিষ্ট্যগুলি টেমপ্লেটে উপলব্ধ করা হবে। গোঁফের সিনট্যাক্স ব্যবহার করে আমরা এভাবেই `message` এর মানের উপর ভিত্তি করে গতিশীল পাঠ্য রেন্ডার করতে পারি:
 
 </div>
 
@@ -66,15 +66,15 @@ Properties in the returned object will be made available in the template. This i
 <p>count is: {{ counter.count }}</p>
 ```
 
-Notice how we did not need to use `.value` when accessing the `message` ref in templates: it is automatically unwrapped for more succinct usage.
+টেমপ্লেটগুলিতে `message` রেফ অ্যাক্সেস করার সময় আমাদের কীভাবে `.value` ব্যবহার করার প্রয়োজন ছিল না তা লক্ষ্য করুন: আরও সংক্ষিপ্ত ব্যবহারের জন্য এটি স্বয়ংক্রিয়ভাবে খুলে দেওয়া হয়।
 
 </div>
 
 <div class="options-api">
 
-State that can trigger updates when changed are considered **reactive**. In Vue, reactive state is held in components. <span class="html">In the example code, the object being passed to `createApp()` is a component.</span>
+পরিবর্তন করা হলে আপডেট ট্রিগার করতে পারে এমন রাজ্যকে **প্রতিক্রিয়াশীল** হিসেবে বিবেচনা করা হয়। Vue-তে, প্রতিক্রিয়াশীল অবস্থা উপাদানগুলিতে রাখা হয়। <span class="html">উদাহরণ কোডে, বস্তুটি `createApp()`-এ পাস করা হচ্ছে একটি উপাদান।</span>
 
-We can declare reactive state using the `data` component option, which should be a function that returns an object:
+আমরা `data` উপাদান বিকল্প ব্যবহার করে প্রতিক্রিয়াশীল অবস্থা ঘোষণা করতে পারি, যেটি এমন একটি ফাংশন হওয়া উচিত যা কোনো বস্তুকে ফেরত দেয়:
 
 <div class="sfc">
 
@@ -103,7 +103,7 @@ createApp({
 
 </div>
 
-The `message` property will be made available in the template. This is how we can render dynamic text based on the value of `message`, using mustaches syntax:
+টেমপ্লেটে `message` সম্পত্তি উপলব্ধ করা হবে। গোঁফের সিনট্যাক্স ব্যবহার করে আমরা এভাবেই `message` এর মানের উপর ভিত্তি করে গতিশীল পাঠ্য রেন্ডার করতে পারি:
 
 ```vue-html
 <h1>{{ message }}</h1>
@@ -111,7 +111,7 @@ The `message` property will be made available in the template. This is how we ca
 
 </div>
 
-The content inside the mustaches is not limited to just identifiers or paths - we can use any valid JavaScript expression:
+গোঁফের ভিতরের বিষয়বস্তু শুধুমাত্র শনাক্তকারী বা পথের মধ্যে সীমাবদ্ধ নয় - আমরা যেকোনো বৈধ জাভাস্ক্রিপ্ট এক্সপ্রেশন ব্যবহার করতে পারি:
 
 ```vue-html
 <h1>{{ message.split('').reverse().join('') }}</h1>
@@ -119,12 +119,12 @@ The content inside the mustaches is not limited to just identifiers or paths - w
 
 <div class="composition-api">
 
-Now, try to create some reactive state yourself, and use it to render dynamic text content for the `<h1>` in the template.
+এখন, নিজে কিছু প্রতিক্রিয়াশীল অবস্থা তৈরি করার চেষ্টা করুন এবং টেমপ্লেটে `<h1>` এর জন্য গতিশীল পাঠ্য সামগ্রী রেন্ডার করতে এটি ব্যবহার করুন।
 
 </div>
 
 <div class="options-api">
 
-Now, try to create a data property yourself, and use it as the text content for the `<h1>` in the template.
+এখন, নিজে একটি ডেটা প্রপার্টি তৈরি করার চেষ্টা করুন এবং টেমপ্লেটে `<h1>`-এর পাঠ্য বিষয়বস্তু হিসেবে এটি ব্যবহার করুন।
 
 </div>
