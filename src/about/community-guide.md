@@ -2,82 +2,82 @@
 outline: deep
 ---
 
-# Community Guide {#community-guide}
+# সম্প্রদায় নির্দেশিকা {#community-guide}
 
-Vue's community is growing incredibly fast and if you're reading this, there's a good chance you're ready to join it. So... welcome!
+Vue-এর সম্প্রদায় অবিশ্বাস্যভাবে দ্রুত বৃদ্ধি পাচ্ছে এবং আপনি যদি এটি পড়ছেন, তাহলে আপনি এতে যোগ দিতে প্রস্তুত হওয়ার একটি ভাল সুযোগ রয়েছে। তাই... স্বাগতম!
 
-Now we'll answer both what the community can do for you and what you can do for the community.
+সম্প্রদায় আপনার জন্য কী করতে পারে এবং আপনি সম্প্রদায়ের জন্য কী করতে পারেন উভয়েরই এখন আমরা উত্তর দেব৷.
 
-## Resources {#resources}
+## সংস্থান {#resources}
 
-### Code of Conduct {#code-of-conduct}
+### আচরণবিধি {#code-of-conduct}
 
-Our [Code of Conduct](/about/coc) is a guide to make it easier to enrich all of us and the technical communities in which we participate.
+আমাদের [আচরণবিধি](/about/coc) হল আমাদের সকলকে এবং যে প্রযুক্তিগত সম্প্রদায়গুলিতে আমরা অংশগ্রহণ করি তাদের সমৃদ্ধ করা সহজ করার জন্য একটি নির্দেশিকা৷
 
-### Stay in the Know {#stay-in-the-know}
+### জেনে রাখুন {#stay-in-the-know}
 
-- Follow our [official Twitter account](https://twitter.com/vuejs).
-- Follow our [team members](./team) on Twitter or GitHub.
-- Follow the [RFC discussions](https://github.com/vuejs/rfcs).
-- Subscribe to the [official blog](https://blog.vuejs.org/).
+- আমাদের [অফিসিয়াল টুইটার অ্যাকাউন্ট](https://twitter.com/vuejs) অনুসরণ করুন।
+- Twitter বা GitHub-এ আমাদের [টিমের সদস্যদের](./team) অনুসরণ করুন।
+- [RFC আলোচনা](https://github.com/vuejs/rfcs) অনুসরণ করুন।
+- [অফিসিয়াল ব্লগ](https://blog.vuejs.org/) এ সদস্যতা নিন।
 
-### Get Support {#get-support}
+### সমর্থন পেতে {#get-support}
 
-- [Discord Chat](https://chat.vuejs.org/): A place for Vue devs to meet and chat in real time.
-- [Forum](https://forum.vuejs.org/): The best place to ask questions and get answers about Vue and its ecosystem.
-- [DEV Community](https://dev.to/t/vue): Share and discuss Vue related topics on Dev.to.
-- [Meetups](https://events.vuejs.org/meetups): Want to find local Vue enthusiasts like yourself? Interested in becoming a community leader? We have the help and support you need right here!
-- [GitHub](https://github.com/vuejs): If you have a bug to report or feature to request, that's what the GitHub issues are for. Please respect the rules specified in each repository's issue template.
-- [Twitter Community (unofficial)](https://twitter.com/i/communities/1516368750634840064): A Twitter community, where you can meet other Vue enthusiasts, get help, or just chat about Vue.
+- [Discord Chat](https://chat.vuejs.org/): Vue devs-এর রিয়েল টাইমে দেখা ও চ্যাট করার জায়গা।
+- [Forum](https://forum.vuejs.org/): Vue এবং এর ইকোসিস্টেম সম্পর্কে প্রশ্ন জিজ্ঞাসা এবং উত্তর পাওয়ার সেরা জায়গা।
+- [DEV কমিউনিটি](https://dev.to/t/vue): Dev.to-এ Vue সম্পর্কিত বিষয় শেয়ার করুন এবং আলোচনা করুন।
+- [মিটআপ](https://events.vuejs.org/meetups): নিজের মতো স্থানীয় Vue উত্সাহীদের খুঁজে পেতে চান? একটি সম্প্রদায়ের নেতা হতে আগ্রহী? আমাদের এখানে আপনার প্রয়োজনীয় সহায়তা এবং সমর্থন রয়েছে!
+- [GitHub](https://github.com/vuejs): যদি আপনার কাছে রিপোর্ট করার জন্য একটি বাগ থাকে বা অনুরোধ করার জন্য বৈশিষ্ট্য থাকে, তাহলে GitHub সমস্যাগুলি এর জন্যই। অনুগ্রহ করে প্রতিটি রিপোজিটরির ইস্যু টেমপ্লেটে উল্লেখিত নিয়মগুলিকে সম্মান করুন।
+- [Twitter Community (unofficial)](https://twitter.com/i/communities/1516368750634840064): একটি টুইটার সম্প্রদায়, যেখানে আপনি অন্য Vue উত্সাহীদের সাথে দেখা করতে পারেন, সাহায্য পেতে পারেন বা শুধু Vue সম্পর্কে চ্যাট করতে পারেন৷
 
-### Explore the Ecosystem {#explore-the-ecosystem}
+### ইকোসিস্টেম অন্বেষণ {#explore-the-ecosystem}
 
-- [The Awesome Vue Page](https://github.com/vuejs/awesome-vue): See what other awesome resources have been published by other awesome people.
-- [Vue Telescope Explorer](https://vuetelescope.com/explore): Explore websites made with Vue, with insights on what framework / libraries they use.
-- [Made with Vue.js](https://madewithvuejs.com/): showcases of projects and libraries made with Vue.
-- [The "Show and Tell" Subforum](https://forum.vuejs.org/c/show-and-tell): Another great place to check out what others have built with and for the growing Vue ecosystem.
+- [The Awesome Vue Page](https://github.com/vuejs/awesome-vue): দেখুন অন্যান্য অসাধারণ ব্যক্তিরা কী কী অসাধারণ সম্পদ প্রকাশ করেছেন।
+- [Vue Telescope Explorer](https://vuetelescope.com/explore): Vue দিয়ে তৈরি ওয়েবসাইটগুলি ঘুরে দেখুন, তারা কোন ফ্রেমওয়ার্ক/লাইব্রেরি ব্যবহার করে তার অন্তর্দৃষ্টি সহ।
+- [Made with Vue.js](https://madewithvuejs.com/): Vue দিয়ে তৈরি প্রকল্প এবং লাইব্রেরির শোকেস।
+- [The "Show and Tell" Subforum](https://forum.vuejs.org/c/show-and-tell): অন্যরা কী তৈরি করেছে এবং ক্রমবর্ধমান Vue ইকোসিস্টেমের জন্য কী তৈরি করেছে তা দেখার জন্য আরেকটি দুর্দান্ত জায়গা।
 
-## What You Can Do {#what-you-can-do}
+## আপনি কি করতে পারেন {#what-you-can-do}
 
-### Help Fellow Users {#help-fellow-users}
+### সহযোগী ব্যবহারকারীদের সাহায্য করুন {#help-fellow-users}
 
-Code contribution is not the only form of contribution to the Vue community. Answering a question for a fellow Vue user on Discord or the forum is also considered a valuable contribution.
+কোড অবদান Vue সম্প্রদায়ের অবদানের একমাত্র রূপ নয়। ডিসকর্ড বা ফোরামে সহকর্মী Vue ব্যবহারকারীর জন্য একটি প্রশ্নের উত্তর দেওয়াও একটি মূল্যবান অবদান হিসাবে বিবেচিত হয়।
 
-### Help Triage Issues {#help-triage-issues}
+### ট্রায়াজ সমস্যাই সাহায্য {#help-triage-issues}
 
-Triaging an issue means gathering missing information, running the reproduction, verifying the issue's validity, and investigating the cause of the issue.
+একটি সমস্যা ট্রাইজিং মানে অনুপস্থিত তথ্য সংগ্রহ করা, পুনরুত্পাদন চালানো, সমস্যাটির বৈধতা যাচাই করা এবং সমস্যার কারণ অনুসন্ধান করা।
 
-We receive many issues in [our repositories on GitHub](https://github.com/vuejs) every single day. Our bandwidth is limited compared to the amount of users we have, so issue triaging alone can take an enormous amount of effort from the team. By helping us triage the issues, you are helping us become more efficient, allowing us to spend time on higher priority work.
+আমরা [GitHub-এ আমাদের সংগ্রহস্থলে](https://github.com/vuejs) প্রতিদিন অনেক সমস্যা পাই। আমাদের ব্যান্ডউইথ আমাদের ব্যবহারকারীর পরিমাণের তুলনায় সীমিত, তাই ইস্যু ট্রাইজিং একাই দলের কাছ থেকে প্রচুর পরিমাণে প্রচেষ্টা নিতে পারে। সমস্যা সমাধানে আমাদের সাহায্য করার মাধ্যমে, আপনি আমাদেরকে আরও দক্ষ হতে সাহায্য করছেন, আমাদেরকে উচ্চ অগ্রাধিকারমূলক কাজে সময় ব্যয় করার অনুমতি দিচ্ছেন।
 
-You don't have to triage an issue with the goal of fixing it (although that would be nice too). Sharing the result of your investigation, for example the commit that led to the bug, can already save us a ton of time.
+আপনাকে এটি ঠিক করার লক্ষ্য নিয়ে একটি সমস্যা সমাধান করতে হবে না (যদিও এটিও চমৎকার হবে)। আপনার তদন্তের ফলাফল শেয়ার করা, উদাহরণস্বরূপ যে প্রতিশ্রুতিটি বাগটির দিকে পরিচালিত করে, ইতিমধ্যেই আমাদের অনেক সময় বাঁচাতে পারে৷
 
-### Contribute Code {#contribute-code}
+### কোড অবদান {#contribute-code}
 
-Contributing bug fixes or new features is the most direct form of contribution you can make.
+বাগ ফিক্স বা নতুন বৈশিষ্ট্যগুলি অবদান রাখা হল সবচেয়ে সরাসরি অবদান যা আপনি করতে পারেন৷
 
-The Vue core repository provides a [contributing guide](https://github.com/vuejs/core/blob/main/.github/contributing.md), which contains pull request guidelines and information regarding build setup and high-level architecture. Other sub-project repositories may also contain its own contribution guide - please make sure to read them before submitting pull requests.
+Vue কোর রিপোজিটরি একটি [কন্ট্রিবিউটিং গাইড](https://github.com/vuejs/core/blob/main/.github/contributing.md) প্রদান করে, যাতে পুল অনুরোধের নির্দেশিকা এবং বিল্ড সেটআপ এবং উচ্চ-স্তরের আর্কিটেকচার সম্পর্কিত তথ্য রয়েছে . অন্যান্য সাব-প্রকল্পের সংগ্রহস্থলে এর নিজস্ব অবদানের নির্দেশিকাও থাকতে পারে - পুল অনুরোধ জমা দেওয়ার আগে দয়া করে সেগুলি পড়তে ভুলবেন না।
 
-Bug fixes are welcome at any time. For new features, it is best to discuss the use case and implementation details first in the [RFC repo](https://github.com/vuejs/rfcs/discussions).
+বাগ সংশোধন যে কোনো সময় স্বাগত জানাই. নতুন বৈশিষ্ট্যগুলির জন্য, প্রথমে [RFC repo](https://github.com/vuejs/rfcs/discussions) এ ব্যবহারের ক্ষেত্রে এবং বাস্তবায়নের বিশদ আলোচনা করা ভাল।
 
-### Share (and Build) Your Experience {#share-and-build-your-experience}
+### আপনার অভিজ্ঞতা শেয়ার করুন (এবং তৈরি করুন) {#share-and-build-your-experience}
 
-Apart from answering questions and sharing resources in the forum and chat, there are a few other less obvious ways to share and expand what you know:
+প্রশ্নগুলির উত্তর দেওয়া এবং ফোরাম এবং চ্যাটে সংস্থানগুলি ভাগ করা ছাড়াও, আপনি যা জানেন তা ভাগ এবং প্রসারিত করার আরও কয়েকটি কম সুস্পষ্ট উপায় রয়েছে:
 
-- **Develop learning materials.** It's often said that the best way to learn is to teach. If there's something interesting you're doing with Vue, strengthen your expertise by writing a blog post, developing a workshop, or even publishing a gist that you share on social media.
-- **Watch a repo you care about.** This will send you notifications whenever there's activity in that repository, giving you insider knowledge about ongoing discussions and upcoming features. It's a fantastic way to build expertise so that you're eventually able to help address issues and pull requests.
+- **শিক্ষার উপকরণ তৈরি করুন।** প্রায়শই বলা হয় যে শেখার সর্বোত্তম উপায় হল শেখানো। যদি আপনি Vue এর সাথে আকর্ষণীয় কিছু করছেন, তাহলে একটি ব্লগ পোস্ট লিখে, একটি ওয়ার্কশপ তৈরি করে বা এমনকি সামাজিক মিডিয়াতে শেয়ার করা একটি সারাংশ প্রকাশ করে আপনার দক্ষতাকে শক্তিশালী করুন৷
+- **আপনার পছন্দের একটি রেপো দেখুন।** এটি আপনাকে বিজ্ঞপ্তি পাঠাবে যখনই সেই সংগ্রহস্থলে কার্যকলাপ থাকবে, যা আপনাকে চলমান আলোচনা এবং আসন্ন বৈশিষ্ট্য সম্পর্কে অভ্যন্তরীণ জ্ঞান দেবে। এটি দক্ষতা তৈরি করার একটি দুর্দান্ত উপায় যাতে আপনি শেষ পর্যন্ত সমস্যাগুলি সমাধান করতে এবং অনুরোধগুলি টানতে সহায়তা করতে সক্ষম হন।
 
-### Translate Docs {#translate-docs}
+### ডক্স অনুবাদ করুন {#translate-docs}
 
-I hope that right now, you're reading this sentence in your preferred language. If not, would you like to help us get there?
+আমি আশা করি এই মুহূর্তে, আপনি আপনার পছন্দের ভাষায় এই বাক্যটি পড়ছেন। যদি না হয়, আপনি কি আমাদের সেখানে যেতে সাহায্য করতে চান?
 
-See the [Translations guide](/translations/) for more details on how you can get involved.
+আপনি কীভাবে জড়িত হতে পারেন সে সম্পর্কে আরও বিস্তারিত জানার জন্য [অনুবাদ নির্দেশিকা](/translations/) দেখুন।
 
-### Become a Community Leader {#become-a-community-leader}
+### একজন সম্প্রদায়ের নেতা হন {#become-a-community-leader}
 
-There's a lot you can do to help Vue grow in your community:
+Vue কে আপনার সম্প্রদায়ে বৃদ্ধি পেতে সাহায্য করার জন্য আপনি অনেক কিছু করতে পারেন:
 
-- **Present at your local meetup.** Whether it's giving a talk or running a workshop, you can bring a lot of value to your community by helping both new and experienced Vue developers continue to grow.
-- **Start your own meetup.** If there's not already a Vue meetup in your area, you can start your own! Use the [resources at events.vuejs.org](https://events.vuejs.org/resources/#getting-started) to help you succeed!
-- **Help meetup organizers.** There can never be too much help when it comes to running an event, so offer a hand to help out local organizers to help make every event a success.
+- **আপনার স্থানীয় মিটআপে উপস্থিত থাকুন।** এটি একটি বক্তৃতা দেওয়া বা একটি কর্মশালা পরিচালনা করা হোক না কেন, আপনি নতুন এবং অভিজ্ঞ Vue বিকাশকারীদের ক্রমাগত বৃদ্ধি পেতে সহায়তা করে আপনার সম্প্রদায়ের জন্য অনেক মূল্য আনতে পারেন।
+- **আপনার নিজের মিটআপ শুরু করুন।** যদি আপনার এলাকায় ইতিমধ্যেই Vue মিটআপ না থাকে, তাহলে আপনি নিজের মত করে শুরু করতে পারেন! আপনাকে সফল হতে সাহায্য করার জন্য [events.vuejs.org-এ সম্পদ](https://events.vuejs.org/resources/#getting-started) ব্যবহার করুন!
+- **মেটআপ সংগঠকদের সাহায্য করুন।** একটি ইভেন্ট চালানোর ক্ষেত্রে কখনই খুব বেশি সাহায্য হতে পারে না, তাই প্রতিটি ইভেন্টকে সফল করতে সাহায্য করার জন্য স্থানীয় সংগঠকদের সাহায্য করার জন্য একটি হাত অফার করুন।
 
-If you have any questions on how you can get more involved with your local Vue community, reach out on Twitter at [@vuejs_events](https://www.twitter.com/vuejs_events)!
+আপনি কীভাবে আপনার স্থানীয় Vue সম্প্রদায়ের সাথে আরও জড়িত হতে পারেন সে সম্পর্কে আপনার কোনো প্রশ্ন থাকলে, [@vuejs_events](https://www.twitter.com/vuejs_events) এ টুইটারে যোগাযোগ করুন!
