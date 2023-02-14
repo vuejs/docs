@@ -156,7 +156,7 @@ export default {
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Anzahl ist: {{ count }}</button>
 </template>
 ```
 
