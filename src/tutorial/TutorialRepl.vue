@@ -127,10 +127,10 @@ updateExample()
       <footer>
         <a v-if="prevStep" :href="`#${prevStep}`"
           ><VTIconChevronLeft class="vt-link-icon" style="margin: 0" />
-          Prev</a
+          পূর্ববর্তী</a
         >
         <a class="next-step" v-if="nextStep" :href="`#${nextStep}`"
-          >Next <VTIconChevronRight class="vt-link-icon"
+          >পরবর্তী <VTIconChevronRight class="vt-link-icon"
         /></a>
       </footer>
     </article>
