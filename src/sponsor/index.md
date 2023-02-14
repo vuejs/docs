@@ -9,71 +9,71 @@ sponsors: false
 import SponsorsGroup from '@theme/components/SponsorsGroup.vue'
 </script>
 
-# Become a Vue.js Sponsor {#become-a-vue-js-sponsor}
+# Vue.js স্পন্সর হন {#become-a-vue-js-sponsor}
 
-Vue.js is an MIT licensed open source project and completely free to use.
-The tremendous amount of effort needed to maintain such a large ecosystem and develop new features for the project is only made sustainable thanks to the generous financial backing of our sponsors.
+Vue.js হল একটি MIT লাইসেন্সপ্রাপ্ত ওপেন সোর্স প্রকল্প এবং সম্পূর্ণ বিনামূল্যে ব্যবহার করা যায়।
+এত বড় ইকোসিস্টেম বজায় রাখার জন্য এবং প্রকল্পের জন্য নতুন বৈশিষ্ট্যগুলি বিকাশের জন্য যে প্রচুর পরিশ্রমের প্রয়োজন তা শুধুমাত্র আমাদের স্পনসরদের উদার আর্থিক সমর্থনের জন্য টেকসই করা হয়েছে।
 
-## How to Sponsor {#how-to-sponsor}
+## কিভাবে স্পন্সর করতে হয় {#how-to-sponsor}
 
-Sponsorships can be done via [GitHub Sponsors](https://github.com/sponsors/yyx990803) or [OpenCollective](https://opencollective.com/vuejs). Invoices can be obtained via GitHub's payment system. Both monthly-recurring sponsorships and one-time donations are accepted. Recurring sponsorships are entitled to logo placements as specified in [Sponsorship Tiers](#tier-benefits).
+স্পনসরশিপগুলি [GitHub Sponsors](https://github.com/sponsors/yyx990803) বা [OpenCollective](https://opencollective.com/vuejs) এর মাধ্যমে করা যেতে পারে। GitHub এর পেমেন্ট সিস্টেমের মাধ্যমে ইনভয়েসগুলি পাওয়া যেতে পারে। মাসিক-পুনরাবৃত্ত স্পনসরশিপ এবং এককালীন অনুদান উভয়ই গ্রহণ করা হয়। পুনরাবৃত্ত স্পনসরশিপগুলি [স্পন্সরশিপ টিয়ার](#tier-benefits) এ উল্লেখিত লোগো প্লেসমেন্টের অধিকারী।
 
-If you have questions regarding tiers, payment logistics, or sponsor exposure data, please reach out to [sponsor@vuejs.org](mailto:sponsor@vuejs.org).
+টিয়ার, পেমেন্ট লজিস্টিকস, বা স্পনসর এক্সপোজার ডেটা সম্পর্কিত প্রশ্ন থাকলে, অনুগ্রহ করে [sponsor@vuejs.org](mailto:sponsor@vuejs.org) এ যোগাযোগ করুন।
 
-## Sponsoring Vue as a Business {#sponsoring-vue-as-a-business}
+## প্রতিষ্ঠান হিসাবে Vue স্পনসর করুন {#sponsoring-vue-as-a-business}
 
-Sponsoring Vue gives you great exposure to over **1.7 million** Vue developers around the world through our website and GitHub project READMEs. In addition, supporting OSS improves the reputation of your brand, which is an important asset for any company that interacts with developers.
+স্পনসরিং Vue আপনাকে আমাদের ওয়েবসাইট এবং GitHub প্রজেক্ট README-এর মাধ্যমে বিশ্বজুড়ে **১.৭ মিলিয়ন** Vue ডেভেলপারদের কাছে দুর্দান্ত এক্সপোজার দেয়। উপরন্তু, OSS সমর্থন করা আপনার ব্র্যান্ডের খ্যাতি উন্নত করে, যা ডেভেলপারদের সাথে যোগাযোগ করে এমন যেকোনো কোম্পানির জন্য একটি গুরুত্বপূর্ণ সম্পদ।
 
-If you are using Vue to build a revenue-generating product, it makes business sense to sponsor Vue's development: **it ensures the project that your product relies on stays healthy and actively maintained.** The exposure and positive brand image in the Vue community also makes it easier to attract and recruit Vue developers.
+আপনি যদি একটি আয়-উৎপাদনকারী পণ্য তৈরি করতে Vue ব্যবহার করেন, তাহলে Vue-এর বিকাশকে স্পনসর করা ব্যবসায়িক অর্থে পরিণত হয়: **এটি নিশ্চিত করে যে প্রোজেক্টের উপর আপনার প্রোডাক্ট নির্ভর করে সুস্থ এবং সক্রিয়ভাবে রক্ষণাবেক্ষণ করে।** Vue-তে এক্সপোজার এবং ইতিবাচক ব্র্যান্ড ইমেজ সম্প্রদায় ভিউ ডেভেলপারদের আকৃষ্ট করা এবং নিয়োগ করা সহজ করে তোলে।
 
-If you are building a product where your target customers are developers, you will gain high quality traffic through the sponsorship exposure, since all our visitors are developers. The sponsorship also builds brand recognition and improves conversion.
+আপনি যদি এমন একটি পণ্য তৈরি করেন যেখানে আপনার টার্গেট গ্রাহকরা ডেভেলপার হন, তাহলে আপনি স্পনসরশিপ এক্সপোজারের মাধ্যমে উচ্চ মানের ট্র্যাফিক লাভ করবেন, যেহেতু আমাদের সমস্ত দর্শকরা ডেভেলপার। স্পনসরশিপ ব্র্যান্ড স্বীকৃতি তৈরি করে এবং রূপান্তর উন্নত করে।
 
-## Sponsoring Vue as an Individual {#sponsoring-vue-as-an-individual}
+## ব্যক্তি হিসাবে Vue স্পনসর করুন {#sponsoring-vue-as-an-individual}
 
-If you are an individual user and have enjoyed the productivity of using Vue, consider donating as a sign of appreciation - like buying us coffee once in a while. Many of our team members accept sponsorships and donations via GitHub Sponsors. Look for the "Sponsor" button on each team member's profile on our [team page](/about/team).
+আপনি যদি একজন স্বতন্ত্র ব্যবহারকারী হন এবং Vue ব্যবহার করে উৎপাদনশীলতা উপভোগ করেন, তাহলে অনুদানকে প্রশংসার চিহ্ন হিসাবে বিবেচনা করুন - যেমন আমাদের মাঝে মাঝে একবার কফি কেনা। আমাদের দলের অনেক সদস্য GitHub স্পনসরের মাধ্যমে স্পনসরশিপ এবং অনুদান গ্রহণ করেন। আমাদের [টিম পৃষ্ঠা](/about/team) প্রতিটি দলের সদস্যের প্রোফাইলে "স্পন্সর" বোতামটি সন্ধান করুন৷
 
-You can also try to convince your employer to sponsor Vue as a business. This may not be easy, but business sponsorships typically make a much larger impact on the sustainability of OSS projects than individual donations, so you will help us much more if you succeed.
+আপনি আপনার নিয়োগকর্তাকে ব্যবসা হিসাবে Vue স্পনসর করার জন্য রাজি করার চেষ্টা করতে পারেন। এটি সহজ নাও হতে পারে, কিন্তু ব্যবসায়িক স্পনসরশিপগুলি সাধারণত ব্যক্তিগত অনুদানের তুলনায় OSS প্রকল্পগুলির স্থায়িত্বের উপর অনেক বেশি প্রভাব ফেলে, তাই আপনি সফল হলে আমাদের আরও অনেক বেশি সাহায্য করবেন৷
 
-## Tier Benefits {#tier-benefits}
+## স্তরের সুবিধা {#tier-benefits}
 
-- **Global Special**:
-  - Limited to one sponsor globally (currently filled).
-  - Exclusive above the fold logo placement on the front page of [vuejs.org](/).
-  - Most prominent logo placement in all locations from tiers below.
-- **Platinum (USD$2,000/mo)**:
-  - Prominent logo placement on the front page of [vuejs.org](/).
-  - Prominent logo placement in sidebar of all content pages.
-  - Prominent logo placement in the README of [`vuejs/core`](https://github.com/vuejs/core) and [`vuejs/vue`](https://github.com/vuejs/core).
-- **Gold (USD$500/mo)**:
-  - Large logo placement on the front page of [vuejs.org](/).
-  - Large logo placement in the README of `vuejs/core` and `vuejs/vue`.
-- **Silver (USD$250/mo)**:
-  - Medium logo placement in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`.
-- **Bronze (USD$100/mo)**:
-  - Small logo placement in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`.
-- **Generous Backer (USD$50/mo)**:
-  - Name listed in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`, above other individual backers.
-- **Individual Backer (USD$5/mo)**:
-  - Name listed in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`.
+- **গ্লোবাল স্পেশাল**:
+  - বিশ্বব্যাপী একটি স্পনসরে সীমিত (বর্তমানে ভরা)।
+  - [vuejs.org](/) এর প্রথম পৃষ্ঠায় ভাঁজ লোগো স্থাপনের উপরে একচেটিয়া।
+  - নীচের স্তরগুলি থেকে সমস্ত অবস্থানে সর্বাধিক বিশিষ্ট লোগো বসানো৷
+- **প্ল্যাটিনাম (USD$2,000/mo)**:
+  - [vuejs.org](/) এর প্রথম পৃষ্ঠায় বিশিষ্ট লোগো বসানো।
+  - সমস্ত বিষয়বস্তু পৃষ্ঠার সাইডবারে বিশিষ্ট লোগো বসানো।
+  - [`vuejs/core`](https://github.com/vuejs/core) এবং [`vuejs/vue`](https://github.com/vuejs/core) এর README-এ বিশিষ্ট লোগো স্থাপন।
+- **স্বর্ণ (USD$500/mo)**:
+  - [vuejs.org](/) এর প্রথম পৃষ্ঠায় বড় লোগো বসানো।
+  - `vuejs/core` এবং `vuejs/vue` এর README-এ বড় লোগো বসানো।
+- **রৌপ্য (USD$250/mo)**:
+  - `vuejs/core` এবং `vuejs/vue` এর `BACKERS.md` ফাইলে মাঝারি লোগো স্থাপন।
+- **ব্রোঞ্জ (USD$100/mo)**:
+  - `vuejs/core` এবং `vuejs/vue` এর `BACKERS.md` ফাইলে ছোট লোগো বসানো।
+- **উদার সমর্থক (USD$50/mo)**:
+  - অন্য স্বতন্ত্র সমর্থকদের উপরে, `vuejs/core` এবং `vuejs/vue`-এর `BACKERS.md` ফাইলে তালিকাভুক্ত নাম।
+- **স্বতন্ত্র সমর্থক (USD$5/mo)**:
+  - `vuejs/core` এবং `vuejs/vue` এর `BACKERS.md` ফাইলে তালিকাভুক্ত নাম।
 
-## Current Sponsors {#current-sponsors}
+## বর্তমান স্পন্সর {#current-sponsors}
 
-### Special Global Sponsor {#special-global-sponsor}
+### বিশেষ গ্লোবাল স্পন্সর {#special-global-sponsor}
 
 <SponsorsGroup tier="special" placement="page" />
 
-### Platinum {#platinum}
+### প্লাটিনাম {#platinum}
 
 <SponsorsGroup tier="platinum" placement="page" />
 
-### Platinum (China) {#platinum-china}
+### প্লাটিনাম (চীন) {#platinum-china}
 
 <SponsorsGroup tier="platinum_china" placement="page" />
 
-### Gold {#gold}
+### স্বর্ণ {#gold}
 
 <SponsorsGroup tier="gold" placement="page" />
 
-### Silver {#silver}
+### রৌপ্য {#silver}
 
 <SponsorsGroup tier="silver" placement="page" />
