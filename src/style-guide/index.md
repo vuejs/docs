@@ -2,44 +2,44 @@
 outline: deep
 ---
 
-# Style Guide {#style-guide}
+# স্টাইল গাইড {#style-guide}
 
-:::warning Status Notice
-The style guide is currently a bit outdated. Most examples are in Options API only, and there are no rules regarding `<script setup>` and Composition API. We are planning to improve it in the future.
+:::সতর্কতা স্থিতি বিজ্ঞপ্তি
+শৈলী নির্দেশিকা বর্তমানে একটি বিট পুরানো. বেশিরভাগ উদাহরণ শুধুমাত্র অপশন এপিআই-এ রয়েছে এবং `<script setup>` এবং কম্পোজিশন এপিআই সংক্রান্ত কোনো নিয়ম নেই। আমরা ভবিষ্যতে এটি আরও উন্নত করার পরিকল্পনা করছি।
 :::
 
-This is the official style guide for Vue-specific code. If you use Vue in a project, it's a great reference to avoid errors, bikeshedding, and anti-patterns. However, we don't believe that any style guide is ideal for all teams or projects, so mindful deviations are encouraged based on past experience, the surrounding tech stack, and personal values.
+এটি Vue-নির্দিষ্ট কোডের জন্য অফিসিয়াল স্টাইল গাইড। আপনি যদি একটি প্রকল্পে Vue ব্যবহার করেন, এটি ত্রুটি, বাইকশেডিং এবং অ্যান্টি-প্যাটার্ন এড়াতে একটি দুর্দান্ত রেফারেন্স। যাইহোক, আমরা বিশ্বাস করি না যে কোনও স্টাইল গাইড সমস্ত দল বা প্রকল্পের জন্য আদর্শ, তাই অতীতের অভিজ্ঞতা, আশেপাশের প্রযুক্তিগত স্ট্যাক এবং ব্যক্তিগত মূল্যবোধের উপর ভিত্তি করে মননশীল বিচ্যুতিগুলিকে উৎসাহিত করা হয়।
 
-For the most part, we also avoid suggestions about JavaScript or HTML in general. We don't mind whether you use semicolons or trailing commas. We don't mind whether your HTML uses single-quotes or double-quotes for attribute values. Some exceptions will exist however, where we've found that a particular pattern is helpful in the context of Vue.
+বেশিরভাগ ক্ষেত্রে, আমরা সাধারণভাবে জাভাস্ক্রিপ্ট বা এইচটিএমএল সম্পর্কে পরামর্শগুলি এড়িয়ে চলি। আপনি সেমিকোলন বা ট্রেলিং কমা ব্যবহার করুন কিনা তাতে আমাদের আপত্তি নেই। আপনার এইচটিএমএল অ্যাট্রিবিউট মানগুলির জন্য একক-উদ্ধৃতি বা ডাবল-উদ্ধৃতি ব্যবহার করে কিনা তা নিয়ে আমাদের আপত্তি নেই। তবে কিছু ব্যতিক্রম বিদ্যমান থাকবে, যেখানে আমরা খুঁজে পেয়েছি যে একটি নির্দিষ্ট প্যাটার্ন Vue-এর প্রসঙ্গে সহায়ক।
 
-Finally, we've split rules into four categories:
+অবশেষে, আমরা নিয়মগুলিকে চারটি বিভাগে বিভক্ত করেছি:
 
-## Rule Categories {#rule-categories}
+## নিয়ম বিভাগ {#rule-categories}
 
-### Priority A: Essential (Error Prevention) {#priority-a-essential-error-prevention}
+### অগ্রাধিকার A: অপরিহার্য (ত্রুটি প্রতিরোধ) {#priority-a-essential-error-prevention}
 
-These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
+এই নিয়মগুলি ত্রুটিগুলি প্রতিরোধ করতে সহায়তা করে, তাই যে কোনও মূল্যে সেগুলি শিখুন এবং মেনে চলুন৷ ব্যতিক্রম থাকতে পারে, কিন্তু খুবই বিরল হতে হবে এবং শুধুমাত্র জাভাস্ক্রিপ্ট এবং Vue উভয় বিষয়ে বিশেষজ্ঞ জ্ঞানসম্পন্ন ব্যক্তিদের দ্বারা করা উচিত।
 
-- [See all priority A rules](./rules-essential)
+- [সব অগ্রাধিকার A নিয়ম দেখুন](./rules-essential)
 
-### Priority B: Strongly Recommended {#priority-b-strongly-recommended}
+### অগ্রাধিকার বি: দৃঢ়ভাবে প্রস্তাবিত {#priority-b-strongly-recommended}
 
-These rules have been found to improve readability and/or developer experience in most projects. Your code will still run if you violate them, but violations should be rare and well-justified.
+বেশিরভাগ প্রকল্পে পঠনযোগ্যতা এবং/অথবা বিকাশকারীর অভিজ্ঞতা উন্নত করতে এই নিয়মগুলি পাওয়া গেছে। আপনি যদি সেগুলি লঙ্ঘন করেন তবে আপনার কোড এখনও চলবে, তবে লঙ্ঘনগুলি বিরল এবং যথাযথ হওয়া উচিত৷
 
-- [See all priority B rules](./rules-strongly-recommended)
+- [সমস্ত অগ্রাধিকার B নিয়ম দেখুন](./rules-strongly-recommended)
 
-### Priority C: Recommended {#priority-c-recommended}
+### অগ্রাধিকার C: প্রস্তাবিত {#priority-c-recommended}
 
-Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
+যেখানে একাধিক, সমানভাবে ভাল বিকল্প বিদ্যমান, সেখানে ধারাবাহিকতা নিশ্চিত করার জন্য একটি নির্বিচারে পছন্দ করা যেতে পারে। এই নিয়মগুলিতে, আমরা প্রতিটি গ্রহণযোগ্য বিকল্প বর্ণনা করি এবং একটি ডিফল্ট পছন্দের পরামর্শ দিই। তার মানে আপনি আপনার নিজের কোডবেসে একটি ভিন্ন পছন্দ করতে নির্দ্বিধায় পারেন, যতক্ষণ না আপনি সামঞ্জস্যপূর্ণ এবং একটি ভাল কারণ আছে। যদিও একটি ভাল কারণ আছে দয়া করে! কমিউনিটি স্ট্যান্ডার্ডের সাথে খাপ খাইয়ে, আপনি করবেন:
 
-1. Train your brain to more easily parse most of the community code you encounter
-2. Be able to copy and paste most community code examples without modification
-3. Often find new hires are already accustomed to your preferred coding style, at least in regards to Vue
+1. আপনার মস্তিস্ককে প্রশিক্ষিত করুন যাতে আপনি যে সম্প্রদায়ের কোডের মুখোমুখি হন তার বেশিরভাগই আরও সহজে পার্স করুন৷
+2. পরিবর্তন ছাড়াই বেশিরভাগ কমিউনিটি কোড উদাহরণ কপি এবং পেস্ট করতে সক্ষম হন
+3. প্রায়শই দেখুন নতুন নিয়োগকারীরা ইতিমধ্যেই আপনার পছন্দের কোডিং শৈলীতে অভ্যস্ত, অন্তত Vue এর ক্ষেত্রে
 
-- [See all priority C rules](./rules-recommended)
+- [সব অগ্রাধিকার C নিয়ম দেখুন](./rules-recommended)
 
-### Priority D: Use with Caution {#priority-d-use-with-caution}
+### অগ্রাধিকার D: সতর্কতার সাথে ব্যবহার করুন {#priority-d-use-with-caution}
 
-Some features of Vue exist to accommodate rare edge cases or smoother migrations from a legacy code base. When overused however, they can make your code more difficult to maintain or even become a source of bugs. These rules shine a light on potentially risky features, describing when and why they should be avoided.
+বিরল এজ কেস বা লিগ্যাসি কোড বেস থেকে মসৃণ মাইগ্রেশন মিটমাট করার জন্য Vue-এর কিছু বৈশিষ্ট্য বিদ্যমান। যদিও অত্যধিক ব্যবহার করা হয়, তারা আপনার কোড বজায় রাখা আরও কঠিন করে তুলতে পারে বা এমনকি বাগগুলির উৎস হয়ে উঠতে পারে। এই নিয়মগুলি কখন এবং কেন এড়ানো উচিত তা বর্ণনা করে সম্ভাব্য ঝুঁকিপূর্ণ বৈশিষ্ট্যগুলির উপর আলোকপাত করে৷
 
-- [See all priority D rules](./rules-use-with-caution)
+- [সব অগ্রাধিকার D নিয়ম দেখুন](./rules-use-with-caution)
