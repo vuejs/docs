@@ -1,102 +1,102 @@
-# Frequently Asked Questions {#frequently-asked-questions}
+# প্রায়শই জিজ্ঞাসিত প্রশ্ন {#frequently-asked-questions}
 
-## Who maintains Vue? {#who-maintains-vue}
+## Vue কে রক্ষণাবেক্ষণ করে? {#who-maintains-vue}
 
-Vue is an independent, community-driven project. It was created by [Evan You](https://twitter.com/youyuxi) in 2014 as a personal side project. Today, Vue is actively maintained by [a team of both full-time and volunteer members from all around the world](/about/team), where Evan serves as the project lead. You can learn more about the story of Vue in this [documentary](https://www.youtube.com/watch?v=OrxmtDw4pVI).
+Vue একটি স্বাধীন, সম্প্রদায়-চালিত প্রকল্প। এটি 2014 সালে [ইভান ইউ](https://twitter.com/youyuxi) দ্বারা একটি ব্যক্তিগত পার্শ্ব প্রকল্প হিসাবে তৈরি করা হয়েছিল। আজ, Vue সক্রিয়ভাবে রক্ষণাবেক্ষণ করে [সারা বিশ্ব থেকে পূর্ণ-সময়ের এবং স্বেচ্ছাসেবক উভয় সদস্যের একটি দল](/about/team), যেখানে ইভান প্রকল্পের প্রধান হিসেবে কাজ করে। আপনি এই [ডকুমেন্টারি](https://www.youtube.com/watch?v=OrxmtDw4pVI) থেকে Vue-এর গল্প সম্পর্কে আরও জানতে পারবেন।
 
-Vue's development is primarily funded through sponsorships and we have been financially sustainable since 2016. If you or your business benefit from Vue, consider [sponsoring us](/sponsor/) to support Vue's development!
+Vue-এর উন্নয়ন প্রাথমিকভাবে স্পনসরশিপের মাধ্যমে অর্থায়ন করা হয় এবং আমরা 2016 সাল থেকে আর্থিকভাবে টেকসই হয়েছি। আপনি বা আপনার ব্যবসা যদি Vue থেকে উপকৃত হন, তাহলে Vue-এর উন্নয়নে সমর্থন করার জন্য [আমাদের পৃষ্ঠপোষকতা](/sponsor/) বিবেচনা করুন!
 
-## What's the difference between Vue 2 and Vue 3? {#what-s-the-difference-between-vue-2-and-vue-3}
+## Vue 2 এবং Vue 3 এর মধ্যে পার্থক্য কী? {#what-s-the-difference-between-vue-2-and-vue-3}
 
-Vue 3 is the current, latest major version of Vue. It contains new features that are not present in Vue 2, such as Teleport, Suspense, and multiple root elements per template. It also contains breaking changes that make it incompatible with Vue 2. Full details are documented in the [Vue 3 Migration Guide](https://v3-migration.vuejs.org/).
+Vue 3 হল Vue-এর বর্তমান, সর্বশেষ প্রধান সংস্করণ। এতে নতুন বৈশিষ্ট্য রয়েছে যা Vue 2-তে নেই, যেমন Teleport, Suspense, এবং প্রতি টেমপ্লেটের একাধিক রুট উপাদান। এটিতে ব্রেকিং পরিবর্তনগুলিও রয়েছে যা এটিকে Vue 2 এর সাথে বেমানান করে তোলে৷ সম্পূর্ণ বিবরণ [Vue 3 মাইগ্রেশন গাইড](https://v3-migration.vuejs.org/) এ নথিভুক্ত করা হয়েছে৷
 
-Despite the differences, the majority of Vue APIs are shared between the two major versions, so most of your Vue 2 knowledge will continue to work in Vue 3. Notably, Composition API was originally a Vue-3-only feature, but has now been backported to Vue 2 and is available in [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
+পার্থক্য থাকা সত্ত্বেও, Vue API-গুলির বেশিরভাগ দুটি প্রধান সংস্করণের মধ্যে ভাগ করা হয়, তাই আপনার Vue 2 জ্ঞানের বেশিরভাগ Vue 3-তে কাজ করতে থাকবে। উল্লেখযোগ্যভাবে, কম্পোজিশন API মূলত একটি Vue-3-শুধু বৈশিষ্ট্য ছিল, কিন্তু এখন হয়েছে Vue 2 এ ব্যাকপোর্ট করা হয়েছে এবং [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01) এ উপলব্ধ।
 
-In general, Vue 3 provides smaller bundle sizes, better performance, better scalability, and better TypeScript / IDE support. If you are starting a new project today, Vue 3 is the recommended choice. There are only a few reasons for you to consider Vue 2 as of now:
+সাধারণভাবে, Vue 3 ছোট বান্ডিল আকার, ভাল কর্মক্ষমতা, ভাল মাপযোগ্যতা এবং আরও ভাল TypeScript/IDE সমর্থন প্রদান করে। আপনি যদি আজ একটি নতুন প্রকল্প শুরু করেন, Vue 3 হল প্রস্তাবিত পছন্দ। এখন পর্যন্ত Vue 2 বিবেচনা করার জন্য আপনার কাছে কয়েকটি কারণ রয়েছে:
 
-- You need to support IE11. Vue 3 leverages modern JavaScript features and does not support IE11.
+- আপনাকে IE11 সমর্থন করতে হবে। Vue 3 আধুনিক জাভাস্ক্রিপ্ট বৈশিষ্ট্যগুলি ব্যবহার করে এবং IE11 সমর্থন করে না।
 
-- You are still waiting for major ecosystem projects like Nuxt or Vuetify to release stable versions for Vue 3. This is reasonable if you do not wish to use beta-stage software. However, do note there are other already stable Vue 3 component libraries such as [Quasar](https://quasar.dev/), [Naive UI](https://www.naiveui.com/) and [Element Plus](https://element-plus.org/).
+- আপনি এখনও Vue 3-এর জন্য স্থিতিশীল সংস্করণ প্রকাশ করার জন্য Nuxt বা Vuetify-এর মতো বড় ইকোসিস্টেম প্রকল্পগুলির জন্য অপেক্ষা করছেন৷ আপনি যদি বিটা-স্টেজ সফ্টওয়্যার ব্যবহার করতে না চান তবে এটি যুক্তিসঙ্গত৷ যাইহোক, মনে রাখবেন যে অন্যান্য ইতিমধ্যেই স্থিতিশীল Vue 3 উপাদান লাইব্রেরি রয়েছে যেমন [Quasar](https://quasar.dev/), [Naive UI](https://www.naiveui.com/) এবং [Element Plus] (https://element-plus.org/)।
 
-If you intend to migrate an existing Vue 2 app to Vue 3, consult the [migration guide](https://v3-migration.vuejs.org/).
+আপনি যদি একটি বিদ্যমান Vue 2 অ্যাপকে Vue 3-এ স্থানান্তর করতে চান তবে [মাইগ্রেশন গাইড](https://v3-migration.vuejs.org/) দেখুন।
 
-## Is Vue 2 Still Supported? {#is-vue-2-still-supported}
+## Vue 2 কি এখনও সমর্থিত? {#is-vue-2-still-supported}
 
-Vue 2.7, which was shipped in July 2022, is the final minor release of the Vue 2 version range. Vue 2 has now entered maintenance mode: it will no longer ship new features, but will continue to receive critical bug fixes and security updates for 18 months starting from the 2.7 release date. This means **Vue 2 will reach End of Life on December 31st, 2023**.
+Vue 2.7, যা জুলাই ২০২২-এ পাঠানো হয়েছিল, Vue 2 সংস্করণ পরিসরের চূড়ান্ত ক্ষুদ্র প্রকাশ। Vue 2 এখন রক্ষণাবেক্ষণ মোডে প্রবেশ করেছে: এটি আর নতুন বৈশিষ্ট্য পাঠাবে না, তবে 2.7 প্রকাশের তারিখ থেকে শুরু করে ১৮ মাসের জন্য সমালোচনামূলক বাগ সংশোধন এবং নিরাপত্তা আপডেট পেতে থাকবে। এর মানে **Vue 2 শেষ হবে ৩১শে ডিসেম্বর, ২০২৩ এ**।
 
-We believe this should provide plenty of time for most of the ecosystem to migrate over to Vue 3. However, we also understand that there could be teams or projects that cannot upgrade by this timeline while still needing to fulfill security and compliance requirements. We are partnering with industry experts to provide extended support for Vue 2 for teams with such needs - if your team expects to be using Vue 2 beyond the end of 2023, make sure to plan ahead and learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
+আমরা বিশ্বাস করি যে এটি Vue 3-তে স্থানান্তরিত করার জন্য বেশিরভাগ ইকোসিস্টেমের জন্য প্রচুর সময় প্রদান করবে। যাইহোক, আমরা এটাও বুঝি যে এমন দল বা প্রকল্প থাকতে পারে যেগুলি এই টাইমলাইনে আপগ্রেড করতে পারে না যখন এখনও নিরাপত্তা এবং সম্মতির প্রয়োজনীয়তাগুলি পূরণ করতে হবে। আমরা শিল্প বিশেষজ্ঞদের সাথে অংশীদারি করছি যাতে এই ধরনের প্রয়োজন আছে এমন দলগুলির জন্য Vue 2-এর জন্য বর্ধিত সহায়তা প্রদান করতে - যদি আপনার টিম 2023 সালের শেষের দিকে Vue 2 ব্যবহার করার আশা করে, তাহলে আগে থেকে পরিকল্পনা করা নিশ্চিত করুন এবং [Vue 2 Extended LTS] সম্পর্কে আরও জানুন ( https://v2.vuejs.org/lts/)।
 
-## What license does Vue use? {#what-license-does-vue-use}
+## Vue কি লাইসেন্স ব্যবহার করে? {#what-license-does-vue-use}
 
-Vue is a free and open source project released under the [MIT License](https://opensource.org/licenses/MIT).
+Vue হল একটি বিনামূল্যের এবং ওপেন সোর্স প্রকল্প যা [MIT লাইসেন্স](https://opensource.org/licenses/MIT) এর অধীনে প্রকাশিত হয়েছে।
 
-## What browsers does Vue support? {#what-browsers-does-vue-support}
+## Vue কোন ব্রাউজার সমর্থন করে? {#what-browsers-does-vue-support}
 
-The latest version of Vue (3.x) only supports [browsers with native ES2015 support](https://caniuse.com/es6). This excludes IE11. Vue 3.x uses ES2015 features that cannot be polyfilled in legacy browsers, so if you need to support legacy browsers, you will need to use Vue 2.x instead.
+Vue এর সর্বশেষ সংস্করণ (3.x) শুধুমাত্র [নেটিভ ES2015 সমর্থন সহ ব্রাউজার](https://caniuse.com/es6) সমর্থন করে। এটি IE11 বাদ দেয়। Vue 3.x ES2015 বৈশিষ্ট্যগুলি ব্যবহার করে যা লিগ্যাসি ব্রাউজারগুলিতে পলিফিল করা যায় না, তাই আপনি যদি লিগ্যাসি ব্রাউজারগুলিকে সমর্থন করতে চান তবে আপনাকে এর পরিবর্তে Vue 2.x ব্যবহার করতে হবে৷
 
-## Is Vue reliable? {#is-vue-reliable}
+## Vue কি নির্ভরযোগ্য? {#is-vue-reliable}
 
-Vue is a mature and battle-tested framework. It is one of the most widely used JavaScript frameworks in production today, with over 1.5 million users worldwide, and is downloaded close to 10 million times a month on npm.
+Vue একটি পরিপক্ক এবং যুদ্ধ-পরীক্ষিত কাঠামো। এটি বর্তমানে বিশ্বব্যাপী 1.5 মিলিয়ন ব্যবহারকারীর সাথে উৎপাদনে সর্বাধিক ব্যবহৃত জাভাস্ক্রিপ্ট ফ্রেমওয়ার্কগুলির মধ্যে একটি, এবং npm-এ মাসে প্রায় 10 মিলিয়ন বার ডাউনলোড করা হয়।
 
-Vue is used in production by renowned organizations in varying capacities all around the world, including Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou, and many more.
+উইকিমিডিয়া ফাউন্ডেশন, নাসা, অ্যাপল, গুগল, মাইক্রোসফ্ট, গিটল্যাব, জুম, টেনসেন্ট, ওয়েইবো, বিলিবিলি, কুয়াইশো, এবং আরও অনেকগুলি সহ সারা বিশ্বে বিভিন্ন ধারণক্ষমতার নামকরা সংস্থাগুলির দ্বারা Vue উৎপাদনে ব্যবহৃত হয়।
 
-## Is Vue fast? {#is-vue-fast}
+## Vue কি দ্রুত? {#is-vue-fast}
 
-Vue 3 is one of the most performant mainstream frontend frameworks, and handles most web application use cases with ease, without the need for manual optimizations.
+Vue 3 হল সবচেয়ে কার্যকরী মূলধারার ফ্রন্টএন্ড ফ্রেমওয়ার্কগুলির মধ্যে একটি, এবং ম্যানুয়াল অপ্টিমাইজেশনের প্রয়োজন ছাড়াই বেশিরভাগ ওয়েব অ্যাপ্লিকেশন ব্যবহারের ক্ষেত্রে সহজেই পরিচালনা করে।
 
-In stress-testing scenarios, Vue outperforms React and Angular by a decent margin in the [js-framework-benchmark](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html). It also goes neck-and-neck against some of the fastest production-level non-Virtual-DOM frameworks in the benchmark.
+স্ট্রেস-পরীক্ষার পরিস্থিতিতে, [js-framework-benchmark](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html) এ একটি শালীন ব্যবধানে Vue প্রতিক্রিয়া এবং কৌণিককে ছাড়িয়ে যায়। এটি বেঞ্চমার্কের কিছু দ্রুততম উত্পাদন-স্তরের নন-ভার্চুয়াল-ডোম ফ্রেমওয়ার্কের বিরুদ্ধেও ঘাড়-ঘাড় চলে।
 
-Do note that synthetic benchmarks like the above focus on raw rendering performance with dedicated optimizations and may not be fully representative of real-world performance results. If you care more about page load performance, you are welcome to audit this very website using [WebPageTest](https://www.webpagetest.org/lighthouse) or [PageSpeed Insights](https://pagespeed.web.dev/). This website is powered by Vue itself, with SSG pre-rendering, full page hydration and SPA client-side navigation. It scores 100 in performance on an emulated Moto G4 with 4x CPU throttling over slow 4G networks.
+মনে রাখবেন যে উপরের মত সিন্থেটিক বেঞ্চমার্কগুলি ডেডিকেটেড অপ্টিমাইজেশানের সাথে কাঁচা রেন্ডারিং পারফরম্যান্সের উপর ফোকাস করে এবং বাস্তব-বিশ্বের কর্মক্ষমতা ফলাফলের সম্পূর্ণ প্রতিনিধি নাও হতে পারে। আপনি যদি পৃষ্ঠা লোড পারফরম্যান্সের বিষয়ে আরও যত্নশীল হন, তাহলে আপনাকে [WebPageTest](https://www.webpagetest.org/lighthouse) অথবা [PageSpeed Insights](https://pagespeed.web.dev/) ব্যবহার করে এই ওয়েবসাইটটি অডিট করতে স্বাগত জানাই। ) SSG প্রি-রেন্ডারিং, ফুল পেজ হাইড্রেশন এবং SPA ক্লায়েন্ট-সাইড নেভিগেশন সহ এই ওয়েবসাইটটি Vue দ্বারা চালিত। এটি একটি ইমুলেটেড Moto G4-এ 4x CPU থ্রটলিং সহ স্লো 4G নেটওয়ার্কে পারফরম্যান্সে 100 স্কোর করে।
 
-You can learn more about how Vue automatically optimizes runtime performance in the [Rendering Mechanism](/guide/extras/rendering-mechanism.html) section, and how to optimize a Vue app in particularly demanding cases in the [Performance Optimization Guide](/guide/best-practices/performance.html).
+আপনি [রেন্ডারিং মেকানিজম](/guide/extras/rendering-mechanism.html) বিভাগে কীভাবে Vue স্বয়ংক্রিয়ভাবে রানটাইম পারফরম্যান্সকে অপ্টিমাইজ করে এবং [পারফরম্যান্স অপ্টিমাইজেশান গাইড](/guide/best-practices/performance.html) -এ বিশেষভাবে চাহিদাপূর্ণ ক্ষেত্রে একটি Vue অ্যাপকে কীভাবে অপ্টিমাইজ করা যায় সে সম্পর্কে আরও শিখতে পারেন।
 
-## Is Vue lightweight? {#is-vue-lightweight}
+## Vue কি হালকা ওজনের? {#is-vue-lightweight}
 
-When you use a build tool, many of Vue's APIs are ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). For example, if you don't use the built-in `<Transition>` component, it won't be included in the final production bundle.
+আপনি যখন একটি বিল্ড টুল ব্যবহার করেন, তখন Vue-এর অনেক API ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking) হয়। উদাহরণস্বরূপ, আপনি যদি বিল্ট-ইন `<Transition>` কম্পোনেন্ট ব্যবহার না করেন, তাহলে এটি চূড়ান্ত উৎপাদন বান্ডেলে অন্তর্ভুক্ত হবে না।
 
-A hello world Vue app that only uses the absolutely minimal APIs has a baseline size of only around **16kb**, with minification and brotli compression. The actual size of the application will depend on how many optional features you use from the framework. In the unlikely case where an app uses every single feature that Vue provides, the total runtime size is around **27kb**.
+একটি হ্যালো ওয়ার্ল্ড ভিউ অ্যাপ যেটি শুধুমাত্র একেবারে ন্যূনতম এপিআই ব্যবহার করে তার বেসলাইন সাইজ মাত্র **16kb**, মিনিফিকেশন এবং ব্রোটলি কম্প্রেশন সহ। অ্যাপ্লিকেশনটির প্রকৃত আকার নির্ভর করবে ফ্রেমওয়ার্ক থেকে আপনি কতগুলি ঐচ্ছিক বৈশিষ্ট্য ব্যবহার করেন তার উপর। অসম্ভাব্য ক্ষেত্রে যেখানে একটি অ্যাপ Vue প্রদান করা প্রতিটি একক বৈশিষ্ট্য ব্যবহার করে, মোট রানটাইম আকার প্রায় **27kb**।
 
-When using Vue without a build tool, we not only lose tree-shaking, but also have to ship the template compiler to the browser. This bloats up the size to around **41kb**. Therefore, if you are using Vue primarily for progressive enhancement without a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
+একটি বিল্ড টুল ছাড়া Vue ব্যবহার করার সময়, আমরা শুধুমাত্র গাছ-কাঁপানো হারাই না, কিন্তু ব্রাউজারে টেমপ্লেট কম্পাইলার পাঠাতে হয়। এটি প্রায় **41kb** আকারে ফুলে যায়। তাই, আপনি যদি প্রাথমিকভাবে বিল্ড স্টেপ ছাড়াই প্রগতিশীল বর্ধনের জন্য Vue ব্যবহার করেন, তাহলে পরিবর্তে [petite-vue](https://github.com/vuejs/petite-vue) (শুধু **6kb**) ব্যবহার করার কথা বিবেচনা করুন।
 
-Some frameworks, such as Svelte, use a compilation strategy that produces extremely lightweight output in single-component scenarios. However, [our research](https://github.com/yyx990803/vue-svelte-size-analysis) shows that the size difference heavily depends on the number of components in the application. While Vue has a heavier baseline size, it generates less code per component. In real-world scenarios, a Vue app may very well end up being lighter.
+কিছু ফ্রেমওয়ার্ক, যেমন Svelte, একটি সংকলন কৌশল ব্যবহার করে যা একক-কম্পোনেন্ট পরিস্থিতিতে অত্যন্ত লাইটওয়েট আউটপুট তৈরি করে। যাইহোক, [আমাদের গবেষণা](https://github.com/yyx990803/vue-svelte-size-analysis) দেখায় যে আকারের পার্থক্যটি প্রয়োগের উপাদানগুলির সংখ্যার উপর নির্ভর করে। যদিও Vue এর একটি ভারী বেসলাইন আকার রয়েছে, এটি প্রতি উপাদানের কম কোড তৈরি করে। বাস্তব-বিশ্বের পরিস্থিতিতে, একটি Vue অ্যাপ খুব হালকা হতে পারে।
 
-## Does Vue scale? {#does-vue-scale}
+## Vue স্কেল করে? {#does-vue-scale}
 
-Yes. Despite a common misconception that Vue is only suitable for simple use cases, Vue is perfectly capable of handling large scale applications:
+হ্যাঁ. একটি সাধারণ ভুল ধারণা থাকা সত্ত্বেও Vue শুধুমাত্র সাধারণ ব্যবহারের ক্ষেত্রে উপযুক্ত, Vue বড় আকারের অ্যাপ্লিকেশনগুলি পরিচালনা করতে পুরোপুরি সক্ষম:
 
-- [Single-File Components](/guide/scaling-up/sfc) provide a modularized development model that allows different parts of an application to be developed in isolation.
+- [একক-ফাইল উপাদান](/guide/scaling-up/sfc) একটি মডুলারাইজড ডেভেলপমেন্ট মডেল প্রদান করে যা একটি অ্যাপ্লিকেশনের বিভিন্ন অংশকে বিচ্ছিন্নভাবে বিকাশ করতে দেয়।
 
-- [Composition API](/guide/reusability/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
+- [কম্পোজিশন এপিআই](/guide/reusability/composables) প্রথম শ্রেণীর টাইপস্ক্রিপ্ট ইন্টিগ্রেশন প্রদান করে এবং জটিল লজিক সংগঠিত, নিষ্কাশন এবং পুনরায় ব্যবহার করার জন্য পরিষ্কার প্যাটার্ন সক্ষম করে।
 
-- [Comprehensive tooling support](/guide/scaling-up/tooling.html) ensures a smooth development experience as the application grows.
+- [বিস্তৃত টুলিং সমর্থন](/guide/scaling-up/tooling.html) অ্যাপ্লিকেশন বৃদ্ধির সাথে সাথে একটি মসৃণ বিকাশের অভিজ্ঞতা নিশ্চিত করে।
 
-- Lower barrier to entry and excellent documentation translate to lower onboarding and training costs for new developers.
+- প্রবেশে কম বাধা এবং চমৎকার ডকুমেন্টেশন নতুন ডেভেলপারদের জন্য অনবোর্ডিং এবং প্রশিক্ষণের খরচ কমাতে অনুবাদ করে।
 
-## How do I contribute to Vue? {#how-do-i-contribute-to-vue}
+## আমি কীভাবে Vue-তে অবদান রাখব? {#how-do-i-contribute-to-vue}
 
-We appreciate your interest! Please check out our [Community Guide](/about/community-guide.html).
+আমরা আপনার আগ্রহের প্রশংসা করি! অনুগ্রহ করে আমাদের [কমিউনিটি গাইড](/about/community-guide.html) দেখুন।
 
-## Should I use Options API or Composition API? {#should-i-use-options-api-or-composition-api}
+## আমার কি Options API বা Composition API ব্যবহার করা উচিত? {#should-i-use-options-api-or-composition-api}
 
-If you are new to Vue, we provide a high-level comparison between the two styles [here](/guide/introduction.html#which-to-choose).
+আপনি যদি Vue-তে নতুন হন, আমরা দুটি শৈলীর মধ্যে একটি উচ্চ-স্তরের তুলনা প্রদান করি [এখানে](/guide/introduction.html#which-to-choose)।
 
-If you have previously used Options API and are currently evaluating Composition API, check out [this FAQ](/guide/extras/composition-api-faq).
+আপনি যদি পূর্বে অপশন এপিআই ব্যবহার করে থাকেন এবং বর্তমানে কম্পোজিশন এপিআই মূল্যায়ন করছেন, [প্রায়শই জিজ্ঞাসিত প্রশ্ন](/guide/extras/composition-api-faq) দেখুন।
 
-## Should I use JavaScript or TypeScript with Vue? {#should-i-use-javascript-or-typescript-with-vue}
+## আমার কি Vue এর সাথে JavaScript বা TypeScript ব্যবহার করা উচিত? {#should-i-use-javascript-or-typescript-with-vue}
 
-While Vue itself is implemented in TypeScript and provides first-class TypeScript support, it does not enforce an opinion on whether you should use TypeScript as a user.
+যদিও Vue নিজেই টাইপস্ক্রিপ্টে প্রয়োগ করা হয় এবং প্রথম-শ্রেণীর টাইপস্ক্রিপ্ট সমর্থন প্রদান করে, এটি আপনার ব্যবহারকারী হিসাবে টাইপস্ক্রিপ্ট ব্যবহার করা উচিত কিনা সে বিষয়ে কোনও মতামত প্রয়োগ করে না।
 
-TypeScript support is an important consideration when new features are added to Vue. APIs that are designed with TypeScript in mind are typically easier for IDEs and linters to understand, even if you aren't using TypeScript yourself. Everybody wins. Vue APIs are also designed to work the same way in both JavaScript and TypeScript as much as possible.
+Vue-তে নতুন বৈশিষ্ট্য যোগ করা হলে TypeScript সমর্থন একটি গুরুত্বপূর্ণ বিবেচনা। টাইপস্ক্রিপ্টকে মাথায় রেখে ডিজাইন করা APIগুলি সাধারণত IDE এবং লিন্টারের পক্ষে বোঝা সহজ, এমনকি আপনি নিজে টাইপস্ক্রিপ্ট ব্যবহার না করলেও৷ সবাই জয়ী হয়। Vue APIগুলিকে জাভাস্ক্রিপ্ট এবং টাইপস্ক্রিপ্ট উভয় ক্ষেত্রেই যতটা সম্ভব একইভাবে কাজ করার জন্য ডিজাইন করা হয়েছে।
 
-Adopting TypeScript involves a trade-off between onboarding complexity and long-term maintainability gains. Whether such a trade-off can be justified can vary depending on your team's background and project scale, but Vue isn't really an influencing factor in making that decision.
+TypeScript গ্রহণের সাথে অনবোর্ডিং জটিলতা এবং দীর্ঘমেয়াদী রক্ষণাবেক্ষণযোগ্যতা লাভের মধ্যে একটি বাণিজ্য-অফ জড়িত। এই ধরনের ট্রেড-অফ ন্যায্য হতে পারে কিনা তা আপনার দলের পটভূমি এবং প্রকল্পের স্কেলের উপর নির্ভর করে পরিবর্তিত হতে পারে, কিন্তু Vue সত্যিই সেই সিদ্ধান্ত নেওয়ার ক্ষেত্রে একটি প্রভাবক ফ্যাক্টর নয়।
 
-## How does Vue compare to Web Components? {#how-does-vue-compare-to-web-components}
+## Vue কিভাবে ওয়েব কম্পোনেন্টের সাথে তুলনা করে? {#how-does-vue-compare-to-web-components}
 
-Vue was created before Web Components were natively available, and some aspects of Vue's design (e.g. slots) were inspired by the Web Components model.
+ওয়েব কম্পোনেন্টগুলি স্থানীয়ভাবে উপলব্ধ হওয়ার আগে Vue তৈরি করা হয়েছিল এবং Vue এর ডিজাইনের কিছু দিক (যেমন slots) ওয়েব কম্পোনেন্ট মডেল দ্বারা অনুপ্রাণিত হয়েছিল।
 
-The Web Components specs are relatively low-level, as they are centered around defining custom elements. As a framework, Vue addresses additional higher-level concerns such as efficient DOM rendering, reactive state management, tooling, client-side routing, and server-side rendering.
+ওয়েব কম্পোনেন্ট স্পেক্স তুলনামূলকভাবে নিম্ন-স্তরের, কারণ সেগুলি কাস্টম উপাদানগুলিকে সংজ্ঞায়িত করার চারপাশে কেন্দ্রীভূত। একটি কাঠামো হিসাবে, Vue অতিরিক্ত উচ্চ-স্তরের উদ্বেগগুলি যেমন দক্ষ DOM রেন্ডারিং, প্রতিক্রিয়াশীল রাষ্ট্র পরিচালনা, টুলিং, ক্লায়েন্ট-সাইড রাউটিং এবং সার্ভার-সাইড রেন্ডারিং এর সমাধান করে।
 
-Vue also fully supports consuming or exporting to native custom elements - check out the [Vue and Web Components Guide](/guide/extras/web-components) for more details.
+Vue সম্পূর্ণরূপে নেটিভ কাস্টম উপাদানগুলিতে ব্যবহার বা রপ্তানিকে সমর্থন করে - আরও বিশদ বিবরণের জন্য [Vue এবং ওয়েব উপাদান নির্দেশিকা](/guide/extras/web-components) দেখুন।
 
 <!-- ## TODO How does Vue compare to React? -->
 
