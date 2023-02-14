@@ -1,6 +1,6 @@
 # Form Bindings {#form-bindings}
 
-Using `v-bind` and `v-on` together, we can create two-way bindings on form input elements:
+`v-bind` এবং `v-on` একসাথে ব্যবহার করে, আমরা form ইনপুট উপাদানগুলিতে দ্বি-মুখী বাইন্ডিং তৈরি করতে পারি:
 
 ```vue-html
 <input :value="text" @input="onInput">
@@ -32,16 +32,16 @@ function onInput(e) {
 
 </div>
 
-Try typing in the input box - you should see the text in `<p>` updating as you type.
+ইনপুট বাক্সে টাইপ করার চেষ্টা করুন - আপনি টাইপ করার সাথে সাথে আপডেট হওয়া `<p>`-এ পাঠ্য দেখতে পাবেন।
 
-To simplify two-way bindings, Vue provides a directive, `v-model`, which is essentially a syntax sugar for the above:
+দ্বি-মুখী বাইন্ডিং সহজ করার জন্য, Vue একটি নির্দেশিকা প্রদান করে, `v-model`, যা মূলত উপরের জন্য একটি সিনট্যাক্স চিনি:
 
 ```vue-html
 <input v-model="text">
 ```
 
-`v-model` automatically syncs the `<input>`'s value with the bound state, so we no longer need to use an event handler for that.
+`v-model` স্বয়ংক্রিয়ভাবে `<input>` এর মানকে আবদ্ধ অবস্থার সাথে সিঙ্ক করে, তাই এর জন্য আমাদের আর কোনো ইভেন্ট হ্যান্ডলার ব্যবহার করতে হবে না।
 
-`v-model` works not only on text inputs, but also on other input types such as checkboxes, radio buttons, and select dropdowns. We cover more details in <a target="_blank" href="/guide/essentials/forms.html">Guide - Form Bindings</a>.
+`v-model` শুধুমাত্র টেক্সট ইনপুট নয়, অন্যান্য ইনপুট ধরনের যেমন চেকবক্স, রেডিও বোতাম এবং নির্বাচিত ড্রপডাউনগুলিতেও কাজ করে। আমরা <a target="_blank" href="/guide/essentials/forms.html">গাইড - ফর্ম বাইন্ডিং</a>-এ আরও বিশদ বিবরণ কভার করি।
 
-Now, try to refactor the code to use `v-model` instead.
+এখন, পরিবর্তে `v-model` ব্যবহার করতে কোডটিকে রিফ্যাক্টর করার চেষ্টা করুন।
