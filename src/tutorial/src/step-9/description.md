@@ -1,8 +1,8 @@
 # Lifecycle and Template Refs {#lifecycle-and-template-refs}
 
-So far, Vue has been handling all the DOM updates for us, thanks to reactivity and declarative rendering. However, inevitably there will be cases where we need to manually work with the DOM.
+এখন পর্যন্ত, Vue আমাদের জন্য সমস্ত DOM আপডেট পরিচালনা করছে, প্রতিক্রিয়াশীলতা এবং ঘোষণামূলক রেন্ডারিংয়ের জন্য ধন্যবাদ। যাইহোক, অনিবার্যভাবে এমন কিছু ক্ষেত্রে থাকবে যেখানে আমাদের DOM-এর সাথে ম্যানুয়ালি কাজ করতে হবে।
 
-We can request a **template ref** - i.e. a reference to an element in the template - using the <a target="_blank" href="/api/built-in-special-attributes.html#ref">special `ref` attribute</a>:
+আমরা <a target="_blank" href="/api/built-in-special-attributes.html#ref">বিশেষ ব্যবহার করে একটি **template ref** - অর্থাৎ টেমপ্লেটের একটি উপাদানের রেফারেন্সের জন্য অনুরোধ করতে পারি `ref` অ্যাট্রিবিউট</a>:
 
 ```vue-html
 <p ref="p">hello</p>
@@ -10,7 +10,7 @@ We can request a **template ref** - i.e. a reference to an element in the templa
 
 <div class="composition-api">
 
-To access the ref, we need to declare<span class="html"> and expose</span> a ref with matching name:
+রেফারেন্স অ্যাক্সেস করার জন্য, আমাদেরকে মিলিত নামের সাথে একটি ref <span class="html"> এবং প্রকাশ</span> করতে হবে:
 
 <div class="sfc">
 
@@ -33,9 +33,9 @@ setup() {
 
 </div>
 
-Notice the ref is initialized with `null` value. This is because the element doesn't exist yet when <span class="sfc">`<script setup>`</span><span class="html">`setup()`</span> is executed. The template ref is only accessible after the component is **mounted**.
+লক্ষ্য করুন রেফটি `null` মান দিয়ে আরম্ভ করা হয়েছে। কারণ <span class="sfc">`<script setup>`</span><span class="html">`setup()`</span> সম্পাদিত হলে উপাদানটি এখনও বিদ্যমান নেই৷ টেমপ্লেট রেফ শুধুমাত্র কম্পোনেন্ট **mounted** করার পরেই অ্যাক্সেসযোগ্য।
 
-To run code after mount, we can use the `onMounted()` function:
+মাউন্টের পরে কোড চালানোর জন্য, আমরা `onMounted()` ফাংশন ব্যবহার করতে পারি:
 
 <div class="sfc">
 
@@ -67,9 +67,9 @@ createApp({
 
 <div class="options-api">
 
-The element will be exposed on `this.$refs` as `this.$refs.p`. However, you can only access it after the component is **mounted**.
+উপাদানটি `this.$refs`-এ `this.$refs.p` হিসেবে প্রকাশ করা হবে। যাইহোক, কম্পোনেন্ট **mounted** হওয়ার পরেই আপনি এটি অ্যাক্সেস করতে পারবেন।
 
-To run code after mount, we can use the `mounted` option:
+mount পরে কোড চালানোর জন্য, আমরা 'mounted' option ব্যবহার করতে পারি:
 
 <div class="sfc">
 
@@ -95,6 +95,6 @@ createApp({
 </div>
 </div>
 
-This is called a **lifecycle hook** - it allows us to register a callback to be called at certain times of the component's lifecycle. There are other hooks such as <span class="options-api">`created` and `updated`</span><span class="composition-api">`onUpdated` and `onUnmounted`</span>. Check out the <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Lifecycle Diagram</a> for more details.
+এটিকে **lifecycle hook** বলা হয় - এটি আমাদেরকে কম্পোনেন্টের জীবনচক্রের নির্দিষ্ট সময়ে কল করার জন্য একটি কলব্যাক নিবন্ধন করতে দেয়। অন্যান্য হুক আছে যেমন <span class="options-api">`created` এবং `updated`</span><span class="composition-api">`onUpdated` এবং `onUnmounted`</span>। আরো বিস্তারিত জানার জন্য <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">লাইফসাইকেল ডায়াগ্রাম</a> দেখুন।
 
-Now, try to add <span class="options-api">a `mounted`</span><span class="composition-api">an `onMounted`</span> hook, access the `<p>` via <span class="options-api">`this.$refs.p`</span><span class="composition-api">`p.value`</span>, and perform some direct DOM operations on it (e.g. changing its `textContent`).
+এখন, <span class="options-api">a `mounted`</span><span class="composition-api">একটি `onMounted`</span> হুক যোগ করার চেষ্টা করুন, `<p>` অ্যাক্সেস করুন <span class="options-api">`this.$refs.p`</span><span class="composition-api">`p.value`</span> এর মাধ্যমে, এবং কিছু সরাসরি DOM অপারেশন সম্পাদন করুন এটি (যেমন এর `textContent` পরিবর্তন করা)।
