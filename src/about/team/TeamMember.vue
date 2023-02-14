@@ -34,7 +34,7 @@ const avatarUrl = computed(() => {
       :href="`https://github.com/sponsors/${member.socials.github}`"
       no-icon
     >
-      <VTIconHeart class="sponsor-icon" /> Sponsor
+      <VTIconHeart class="sponsor-icon" /> স্পন্সর
     </VTLink>
 
     <figure class="avatar">
@@ -68,7 +68,7 @@ const avatarUrl = computed(() => {
       <div class="profiles">
         <section v-if="member.projects" class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Projects</h2>
+            <h2 class="sr-only">প্রকল্পগুলি</h2>
             <VTIconCode class="desc-icon code" />
           </div>
           <ul class="desc-list">
@@ -90,7 +90,7 @@ const avatarUrl = computed(() => {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Location</h2>
+            <h2 class="sr-only">স্থান</h2>
             <VTIconMapPin class="desc-icon" />
           </div>
           <p class="desc-text">
@@ -100,7 +100,7 @@ const avatarUrl = computed(() => {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Languages</h2>
+            <h2 class="sr-only">ভাষাসমূহ</h2>
             <VTIconGlobe class="desc-icon" />
           </div>
           <ul class="desc-list">
@@ -116,7 +116,7 @@ const avatarUrl = computed(() => {
 
         <section v-if="member.website" class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Website</h2>
+            <h2 class="sr-only">ওয়েবসাইট</h2>
             <VTIconLink class="desc-icon" />
           </div>
           <p class="desc-text">
