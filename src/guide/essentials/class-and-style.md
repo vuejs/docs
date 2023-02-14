@@ -209,7 +209,7 @@ Then add some classes when using it:
 The rendered HTML will be:
 
 ```vue-html
-<p class="foo bar baz boo">Hi</p>
+<p class="foo bar baz boo">Hi!</p>
 ```
 
 The same is true for class bindings:
@@ -221,7 +221,7 @@ The same is true for class bindings:
 When `isActive` is truthy, the rendered HTML will be:
 
 ```vue-html
-<p class="foo bar active">Hi</p>
+<p class="foo bar active">Hi!</p>
 ```
 
 If your component has multiple root elements, you would need to define which element will receive this class. You can do this using the `$attrs` component property:
