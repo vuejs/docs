@@ -82,7 +82,7 @@ function increment() {
 
 <div class="html">
 
-Тут `increment` ссилається на метод в об'єкті, який повертає `setup()`:
+Тут `increment` посилається на метод в об'єкті, який повертає `setup()`:
 
 ```js{$}
 setup() {
