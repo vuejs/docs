@@ -108,4 +108,4 @@ setup() {
 
 Обробники подій також можуть використовувати вбудовані вирази та спрощувати типові завдання за допомогою модифікаторів. Ці деталі описані в <a target="_blank" href="/guide/essentials/event-handling.html">гіді з обробки подій</a>.
 
-Тепер спробуйте самостійно реалізувати <span class="options-api">метод</span><span class="composition-api">функцію</span> `increment` і привязати <span class="options-api">його</span><span class="composition-api">її</span> до кнопки за допомогою `v-on`.
+Тепер спробуйте самостійно реалізувати <span class="options-api">метод</span><span class="composition-api">функцію</span> `increment` і прив'язати <span class="options-api">його</span><span class="composition-api">її</span> до кнопки за допомогою `v-on`.
