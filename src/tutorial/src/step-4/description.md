@@ -1,6 +1,6 @@
 # Прослуховування подій {#event-listeners}
 
-Ми можемо слухати DOM події використовуючи `v-on` директиву:
+Ми можемо слухати події DOM, використовуючи директиву `v-on`:
 
 ```vue-html
 <button v-on:click="increment">{{ count }}</button>
