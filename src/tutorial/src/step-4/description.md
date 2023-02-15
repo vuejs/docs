@@ -63,7 +63,7 @@ createApp({
 
 <div class="sfc">
 
-Тут `increment` ссилається на функцію, яка оголошена в `<script setup>`:
+Тут `increment` посилається на функцію, яка оголошена в `<script setup>`:
 
 ```vue{6-9}
 <script setup>
