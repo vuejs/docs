@@ -232,6 +232,8 @@ A "base class" component to extend from.
   However, `extends` and `mixins` express different intents. The `mixins` option is primarily used to compose chunks of functionality, whereas `extends` is primarily concerned with inheritance.
 
   As with `mixins`, any options will be merged using the relevant merge strategy.
+  
+  **Note:** The `setup` option will not be extended when using `extends`. If you need to extending a compontent build with the composition API you would need to manually merge the setup method: `const Component = {extends: SomeComponent, setup: SomeComponent.setup}`
 
 - **Example:**
 
@@ -243,3 +245,4 @@ A "base class" component to extend from.
     ...
   }
   ```
+  
