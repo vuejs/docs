@@ -233,7 +233,7 @@ A "base class" component to extend from.
 
   As with `mixins`, any options will be merged using the relevant merge strategy.
   
-  **Note:** The `setup` option will not be extended when using `extends`. If you need to extending a compontent build with the composition API you would need to manually merge the setup method: `const Component = {extends: SomeComponent, setup: SomeComponent.setup}`
+  **Note:** The `setup` option will not be extended when using `extends` so extending a component built with the composition API may have unexpected functionality. In such cases you would need to manually merge the setup method into your component: `const MyComponent = {extends: CompComponent, setup: ComeComponent.setup}`
 
 - **Example:**
 
