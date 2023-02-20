@@ -166,7 +166,7 @@ export default {
 
 Mit der Composition API definieren wir die Logik einer Komponente mithilfe importierter API-Funktionen. In SFCs wird die Kompositions-API typischerweise mit [`<script setup>`](/api/sfc-script-setup). Das `setup` -Attribut ist ein Hinweis, der Vue dazu veranlasst, Compile-Time-Transformationen durchzuführen, die es uns ermöglichen, Composition API mit weniger Boilerplate zu verwenden. Zum Beispiel sind Importe und Top-Level-Variablen / Funktionen, die in `<script setup>` deklariert sind, direkt in der Vorlage verwendbar.
 
-Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
+Hier ist die gleiche Komponente, mit genau der gleichen Vorlage, aber unter Verwendung von Composition API und  `<script setup>` statt:
 
 ```vue
 <script setup>
