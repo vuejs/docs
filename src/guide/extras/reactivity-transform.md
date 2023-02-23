@@ -1,7 +1,9 @@
 # Reactivity Transform {#reactivity-transform}
 
-:::warning Experimental Feature
-Reactivity Transform is currently an experimental feature. It is disabled by default and requires [explicit opt-in](#explicit-opt-in). It may also change before being finalized. To stay up-to-date, keep an eye on its [proposal and discussion on GitHub](https://github.com/vuejs/rfcs/discussions/369).
+:::danger Deprecated Experimental Feature
+Reactivity Transform was an experimental feature, and has been deprecated. Please read about [the reasoning here](https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028).
+
+It will eventually be removed Vue core in a future minor release. If you still intend to use it, it is now available via the [Vue Macros](https://vue-macros.sxzz.moe/features/reactivity-transform.html) plugin.
 :::
 
 :::tip Composition-API-specific
@@ -281,7 +283,9 @@ When explicitly importing the macros from `vue/macros`, the type will work witho
 
 ## Explicit Opt-in {#explicit-opt-in}
 
-Reactivity Transform is currently disabled by default and requires explicit opt-in. In addition, all of the following setups require `vue@^3.2.25`.
+:::warning
+The following only applies up to Vue version 3.3 and below. Core support will be removed in 3.4 and above. If you intend to continue using the transform, please migrate to [Vue Macros](https://vue-macros.sxzz.moe/features/reactivity-transform.html) instead.
+:::
 
 ### Vite {#vite}
 
