@@ -430,7 +430,7 @@ The design of Preact and Qwik's signals are very similar to Vue's [shallowRef](/
 
 #### Solid Signals
 
-Solid's `useSignal()` API design emphasizes read / write segregation. Signals are exposed as a read-only getter and a separate setter:
+Solid's `createSignal()` API design emphasizes read / write segregation. Signals are exposed as a read-only getter and a separate setter:
 
 ```js
 const [count, setCount] = createSignal(0)
