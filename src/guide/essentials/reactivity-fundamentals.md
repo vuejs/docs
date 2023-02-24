@@ -123,7 +123,7 @@ export default {
 }
 ```
 
-Exposed methods are typically used as event listeners:
+Exposed methods are typically used with event listeners:
 
 ```vue-html
 <button @click="increment">
