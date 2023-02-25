@@ -578,6 +578,7 @@ export default {
 
 ## Reactivity Transform <sup class="vt-badge experimental" /> \*\* {#reactivity-transform}
 
+:::danger Deprecated Experimental Feature
 Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the earlier "counter" example like this:
 
 ```vue
@@ -595,6 +596,7 @@ function increment() {
 </template>
 ```
 
-You can learn more about [Reactivity Transform](/guide/extras/reactivity-transform.html) in its dedicated section. Do note that it is currently still experimental and may change before being finalized.
+You can learn more about [Reactivity Transform](/guide/extras/reactivity-transform.html) in its dedicated section. However, [it was decided](https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028) to be removed from Vue.js core soon.
+:::
 
 </div>

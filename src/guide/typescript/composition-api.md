@@ -97,6 +97,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
 
+:::danger Deprecated Experimental Feature
 Alternatively, you can use the currently experimental [Reactivity Transform](/guide/extras/reactivity-transform.html):
 
 ```vue
@@ -112,7 +113,8 @@ const { name, count = 100 } = defineProps<Props>()
 </script>
 ```
 
-This behavior currently requires [explicit opt-in](/guide/extras/reactivity-transform.html#explicit-opt-in).
+This behavior currently requires [explicit opt-in](/guide/extras/reactivity-transform.html#explicit-opt-in) and will be removed from Vue.js core soon.
+:::
 
 ### Without `<script setup>` {#without-script-setup}
 
