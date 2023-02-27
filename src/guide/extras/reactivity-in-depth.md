@@ -398,7 +398,7 @@ export function useMachine(options) {
 
 [RxJS](https://rxjs.dev/) is a library for working with asynchronous event streams. The [VueUse](https://vueuse.org/) library provides the [`@vueuse/rxjs`](https://vueuse.org/rxjs/readme.html) add-on for connecting RxJS streams with Vue's reactivity system.
 
-## Connection to Signals
+## Connection to Signals {#connection-to-signals}
 
 Quite a few other frameworks have introduced reactivity primitives similar to refs from Vue's Composition API, under the term "signals":
 
@@ -411,11 +411,11 @@ Fundamentally, signals are the same kind of reactivity primitive as Vue refs. It
 
 Although not a necessary trait for something to qualify as signals, today the concept is often discussed alongside the rendering model where updates are performed through fine-grained subscriptions. Due to the use of Virtual DOM, Vue currently [relies on compilers to achieve similar optimizations](https://vuejs.org/guide/extras/rendering-mechanism.html#compiler-informed-virtual-dom). However, we are also exploring a new Solid-inspired compilation strategy (Vapor Mode) that does not rely on Virtual DOM and takes more advantage of Vue's built-in reactivity system.
 
-### API Design Trade-Offs
+### API Design Trade-Offs {#api-design-trade-offs}
 
 The design of Preact and Qwik's signals are very similar to Vue's [shallowRef](/api/reactivity-advanced.html#shallowref): all three provide a mutable interface via the `.value` property. We will focus the discussion on Solid and Angular signals.
 
-#### Solid Signals
+#### Solid Signals {#solid-signals}
 
 Solid's `createSignal()` API design emphasizes read / write segregation. Signals are exposed as a read-only getter and a separate setter:
 
@@ -444,7 +444,7 @@ export function createSignal(value, options) {
 
 [Try it in the Playground](https://sfc.vuejs.org/#eNp9UsFu2zAM/RVCl9iYY63XwE437A+2Y9WD69KOOlvSKNndEPjfR8lOsnZAbxTfIx/Jp7P46lw5TygOovItaRfAY5jcURk9OksBztASNgF/6N40AyzQkR1hV0pvB/289yldvvidMsq01vgAD62dTChip28xeoT6TZPsc65MJVc9VuJHwNENTOAXQHW6O55ZN9ZmOSxLJTmTkKcpBGvgSzvo9metxEUim6E+wgyf4C5XInEBtGHVEU1IpXKtZaySVzlRiHXP/dg43sIavsQ58tUGeCUOkDIxx6eKbyVOITh/kNJ3bbzfiy8t9ZKjkngcPWKJftw/kX31SNxYieKfHpKTM9Ke0DwjIX3U8x31v76x7aLMwqu8s4RXuZroT80w2Nfv2BUQSPc9EsdXO1kuGYi/E7+bTBs0H/qNbXMzTFiAdRHy+XqV1XJii28SK5NNvsA9Biawl2wSlQm9gexhBOeEbpfeSJwPfxzajq2t6xp2l8F2cA9ztrFyOMC8Wd5Bts13X+KvqRl8Kuw4YN5t84zSeHw4FuMfTwYeeMr0aR/jNZe/yX4QHw==)
 
-#### Angular Signals
+#### Angular Signals {#angular-signals}
 
 Angular is undergoing some fundamental changes by foregoing dirty-checking and introducing its own implementation of a reactivity primitive. The Angular Signal API looks like this:
 
