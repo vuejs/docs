@@ -107,6 +107,10 @@ app.component('TodoItem', {
 
 ```js
 app.component('TodoItem', {
+  model: {
+    prop: "todo"
+  },
+  
   props: {
     todo: {
       type: Object,
@@ -114,12 +118,12 @@ app.component('TodoItem', {
     }
   },
 
-  emits: ['input'],
+  emits: ["input"],
 
   template: `
     <input
       :value="todo.text"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('input', { text: $event.target.value })"
     >
   `
 })
