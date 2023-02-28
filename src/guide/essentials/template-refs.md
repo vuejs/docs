@@ -1,25 +1,25 @@
-# Template Refs {#template-refs}
+# Ссылки на элементы шаблона {#template-refs}
 
-While Vue's declarative rendering model abstracts away most of the direct DOM operations for you, there may still be cases where we need direct access to the underlying DOM elements. To achieve this, we can use the special `ref` attribute:
+Хотя декларативная модель рендеринга Vue абстрагирует от большинства прямых операций с DOM, все же могут быть случаи, когда нужен прямой доступ к базовым элементам DOM. Для этого можно использовать специальный атрибут `ref`:
 
 ```vue-html
 <input ref="input">
 ```
 
-`ref` is a special attribute, similar to the `key` attribute discussed in the `v-for` chapter. It allows us to obtain a direct reference to a specific DOM element or child component instance after it's mounted. This may be useful when you want to, for example, programmatically focus an input on component mount, or initialize a 3rd party library on an element.
+`ref` - специальный атрибут, аналогичный атрибуту `key`, о котором говорилось в главе `v-for`. Он позволяет получить прямую ссылку на определенный элемент DOM или экземпляр дочернего компонента после его монтирования. Это может быть полезно, когда нужно, например, программно выставить фокус на поле ввода при монтировании компонента или инициализировать стороннюю библиотеку на элементе.
 
-## Accessing the Refs {#accessing-the-refs}
+## Доступ к ссылкам {#accessing-the-refs}
 
 <div class="composition-api">
 
-To obtain the reference with Composition API, we need to declare a ref with the same name:
+Чтобы получить ссылку с помощью Composition API, нужно объявить ref с тем же именем:
 
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// declare a ref to hold the element reference
-// the name must match template ref value
+// объявляем ref-ссылку на элемент
+// имя должно совпадать со значением ref в шаблоне
 const input = ref(null)
 
 onMounted(() => {
@@ -32,7 +32,7 @@ onMounted(() => {
 </template>
 ```
 
-If not using `<script setup>`, make sure to also return the ref from `setup()`:
+Если не используется `<script setup>`, не забудьте также вернуть ссылку из `setup()`:
 
 ```js{6}
 export default {
@@ -49,7 +49,7 @@ export default {
 </div>
 <div class="options-api">
 
-The resulting ref is exposed on `this.$refs`:
+Полученная ссылка доступна через `this.$refs`:
 
 ```vue
 <script>
@@ -67,33 +67,33 @@ export default {
 
 </div>
 
-Note that you can only access the ref **after the component is mounted.** If you try to access <span class="options-api">`$refs.input`</span><span class="composition-api">`input`</span> in a template expression, it will be `null` on the first render. This is because the element doesn't exist until after the first render!
+Обратите внимание, что доступ к ссылке возможен только **после того, как компонент будет смонтирован.** Если попытаться получить доступ к <span class="options-api">`$refs.input`</span><span class="composition-api">`input`</span> в выражении шаблона, то при первом рендере оно будет равно `null`. Это происходит потому, что элемент не существует до окончания первого рендеринга!
 
 <div class="composition-api">
 
-If you are trying to watch the changes of a template ref, make sure to account for the case where the ref has `null` value:
+Если попытаться следить за изменениями ссылки на элемент шаблона, обязательно учитывать случай, когда ссылка имеет значение `null`:
 
 ```js
 watchEffect(() => {
   if (input.value) {
     input.value.focus()
   } else {
-    // not mounted yet, or the element was unmounted (e.g. by v-if)
+    // еще не смонтирован, или элемент был демонтирован (например: v-if)
   }
 })
 ```
 
-См. также: [Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
+См. также: [Типизированные ссылки на элементы шаблона](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
 
 </div>
 
-## Refs inside `v-for` {#refs-inside-v-for}
+## Использование внутри `v-for` {#refs-inside-v-for}
 
-> Requires v3.2.25 or above
+> Требуется v3.2.25 или выше
 
 <div class="composition-api">
 
-When `ref` is used inside `v-for`, the corresponding ref should contain an Array value, which will be populated with the elements after mount:
+Когда `ref` используется внутри `v-for`, соответствующая ссылка должна содержать массив, который будет заполнен элементами после монтирования:
 
 ```vue
 <script setup>
@@ -122,7 +122,7 @@ onMounted(() => console.log(itemRefs.value))
 </div>
 <div class="options-api">
 
-When `ref` is used inside `v-for`, the resulting ref value will be an array containing the corresponding elements:
+Когда `ref` используется внутри `v-for`, итоговым значением ссылки будет массив, содержащий соответствующие элементы:
 
 ```vue
 <script>
@@ -153,23 +153,23 @@ export default {
 
 </div>
 
-It should be noted that the ref array does **not** guarantee the same order as the source array.
+Следует отметить, что массив ссылок **не гарантирует** тот же порядок, что и исходный массив.
 
-## Function Refs {#function-refs}
+## Ссылка на функцию {#function-refs}
 
-Instead of a string key, the `ref` attribute can also be bound to a function, which will be called on each component update and gives you full flexibility on where to store the element reference. The function receives the element reference as the first argument:
+Вместо строкового ключа атрибут `ref` может быть привязан к функции, которая будет вызываться при каждом обновлении компонента и дает полную свободу выбора места хранения ссылки на элемент. Функция получает ссылку на элемент в качестве первого аргумента:
 
 ```vue-html
-<input :ref="(el) => { /* assign el to a property or ref */ }">
+<input :ref="(el) => { /* присвоить el свойству или ссылке */ }">
 ```
 
-Note we are using a dynamic `:ref` binding so we can pass it a function instead of a ref name string. When the element is unmounted, the argument will be `null`. You can, of course, use a method instead of an inline function.
+Обратите внимание, что используется динамическое связывание `:ref`, поэтому можно передать ему функцию вместо строки с названием ссылки. Когда элемент будет размонтирован, аргументом будет `null`. Конечно, можно использовать метод вместо встроенной функции.
 
-## Ref on Component {#ref-on-component}
+## Ссылка на компонент {#ref-on-component}
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> Этот раздел предполагает знание [Компонентов](/guide/essentials/component-basics). Не стесняйтесь пропустить его и вернуться позже.
 
-`ref` can also be used on a child component. In this case the reference will be that of a component instance:
+`ref` можно также использовать для дочернего компонента. В этом случае ссылка будет принадлежать экземпляру компонента:
 
 <div class="composition-api">
 
@@ -181,7 +181,7 @@ import Child from './Child.vue'
 const child = ref(null)
 
 onMounted(() => {
-  // child.value will hold an instance of <Child />
+  // child.value будет содержать экземпляр <Child />
 })
 </script>
 
@@ -202,7 +202,7 @@ export default {
     Child
   },
   mounted() {
-    // this.$refs.child will hold an instance of <Child />
+    // this.$refs.child будет содержать экземпляр <Child />
   }
 }
 </script>
@@ -214,11 +214,11 @@ export default {
 
 </div>
 
-<span class="composition-api">If the child component is using Options API or not using `<script setup>`, the</span><span class="options-api">The</span> referenced instance will be identical to the child component's `this`, which means the parent component will have full access to every property and method of the child component. This makes it easy to create tightly coupled implementation details between the parent and the child, so component refs should be only used when absolutely needed - in most cases, you should try to implement parent / child interactions using the standard props and emit interfaces first.
+<span class="composition-api">Если дочерний компонент использует Options API или не использует `<script setup>`, </span><span class="options-api">то экземпляр ссылки будет идентичен экземпляру дочернего компонента `this`, что означает, что родительский компонент будет иметь полный доступ к каждому свойству и методу дочернего компонента. Это позволяет легко создавать тесно связанные детали реализации между родительским и дочерним компонентами, поэтому ссылки на компонент следует использовать только в случае крайней необходимости - в большинстве случаев необходимо попытаться реализовать взаимодействие родителя и ребенка, используя стандартные интерфейсы props и emit.</span>
 
 <div class="composition-api">
 
-An exception here is that components using `<script setup>` are **private by default**: a parent component referencing a child component using `<script setup>` won't be able to access anything unless the child component chooses to expose a public interface using the `defineExpose` macro:
+Исключением здесь является то, что компоненты, использующие `<script setup>`, являются **приватными по умолчанию**: родительский компонент, ссылающийся на дочерний компонент, использующий `<script setup>`, не сможет получить доступ ни к чему, пока дочерний компонент не решит раскрыть публичный интерфейс с помощью макроса `defineExpose`:
 
 ```vue
 <script setup>
@@ -227,7 +227,7 @@ import { ref } from 'vue'
 const a = 1
 const b = ref(2)
 
-// Compiler macros, such as defineExpose, don't need to be imported
+// Макросы компилятора, такие как defineExpose, не нужно импортировать
 defineExpose({
   a,
   b
@@ -235,14 +235,14 @@ defineExpose({
 </script>
 ```
 
-When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
+Когда родитель получает экземпляр этого компонента через ссылки шаблона, полученный экземпляр будет иметь вид `{ a: number, b: number }` (ссылки автоматически разворачиваются, как и для обычных экземпляров).
 
-См. также: [Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
+См. также: [Типизированные ссылки на шаблоны компонентов](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-The `expose` option can be used to limit the access to a child instance:
+Опция `expose` может быть использована для ограничения доступа к дочернему экземпляру:
 
 ```js
 export default {
@@ -264,6 +264,6 @@ export default {
 }
 ```
 
-In the above example, a parent referencing this component via template ref will only be able to access `publicData` and `publicMethod`.
+В приведенном выше примере родитель, ссылающийся на этот компонент через ссылку, сможет получить доступ только к `publicData` и `publicMethod`.
 
 </div>
