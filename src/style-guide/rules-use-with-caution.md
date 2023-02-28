@@ -108,7 +108,7 @@ app.component('TodoItem', {
 ```js
 app.component('TodoItem', {
   model: {
-    prop: "todo"
+    prop: 'todo'
   },
   
   props: {
@@ -118,7 +118,7 @@ app.component('TodoItem', {
     }
   },
 
-  emits: ["input"],
+  emits: ['input'],
 
   template: `
     <input
