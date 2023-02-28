@@ -52,4 +52,4 @@
 
 У нас є простий список завдань — спробуйте реалізувати логіку для методів `addTodo()` та `removeTodo()`, щоб він запрацював!
 
-Більш детально про `v-for` в <a target="_blank" href="/guide/essentials/list.html">гіді про рендеринг списків</a>.
+Більш детально про `v-for` у <a target="_blank" href="/guide/essentials/list.html">гіді про рендеринг списків</a>.
