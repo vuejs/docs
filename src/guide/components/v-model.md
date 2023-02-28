@@ -434,3 +434,55 @@ export default {
 ```
 
 </div>
+
+## Multiple `v-model` modifiers {#multiple-v-model-modifiers}
+
+In some scenarios, we may bind custom modifiers to multiple `v-model` 
+
+```vue-html
+<UserName v-model:first-name.first="first" v-model:last-name.last="last" />
+```
+
+<div class="composition-api">
+
+```vue{5,6,11,12}
+<script setup >
+const props = defineProps({
+  firstName: String,
+  lastName: String,
+  firstNameModifiers: { default: () => ({}) },
+  lastNameModifiers: { default: () => ({}) }
+})
+
+defineEmits(['update:firstName', 'update:lastName'])
+   
+console.log(props.firstNameModifiers) // {first: true}
+console.log(props.lastNameModifiers) // {last: true}
+</script>
+```
+
+</div>
+<div class="options-api">
+
+```vue{15,16}
+<script>
+export default {
+  props: {
+    firstName: String,
+    lastName: String,
+    firstNameModifiers: {
+      default: () => ({})
+    },
+    lastNameModifiers: {
+      default: () => ({})
+    }
+  },
+  emits: ['update:firstName', 'update:lastName'],
+  created() {
+    console.log(this.firstNameModifiers) // {first: true}
+    console.log(this.lastNameModifiers) // {last: true}
+  }
+}
+</script>
+```
+</div>
