@@ -67,7 +67,7 @@ export default defineComponent({
 
 ### Caveats {#caveats}
 
-যদি আপনার TypeScript সংস্করণ `4.7` এর কম হয়, তাহলে `validator` এবং `default` প্রপ বিকল্পগুলির জন্য ফাংশন মান ব্যবহার করার সময় আপনাকে সতর্ক থাকতে হবে - তীর ফাংশন ব্যবহার করতে ভুলবেন না:
+যদি আপনার TypeScript সংস্করণ `4.7` এর কম হয়, তাহলে `validator` এবং `default` প্রপ বিকল্পগুলির জন্য ফাংশন মান ব্যবহার করার সময় আপনাকে সতর্ক থাকতে হবে - arrow functions ব্যবহার করতে ভুলবেন না:
 
 ```ts
 import { defineComponent } from 'vue'

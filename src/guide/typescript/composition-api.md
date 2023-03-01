@@ -62,7 +62,7 @@ const props = defineProps<Props>()
   }>()
   ```
 
-- A reference to an interface or object literal type **in the same file**:
+- একটি ইন্টারফেস বা বস্তুর আক্ষরিক প্রকারের একটি রেফারেন্স **একই ফাইলে**:
 
   ```ts
   interface Props {
