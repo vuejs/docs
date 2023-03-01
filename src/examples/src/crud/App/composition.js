@@ -15,7 +15,7 @@ export default {
     )
 
     watch(selected, (name) => {
-      ;[last.value, first.value] = name.split(', ')
+      [last.value, first.value] = name.split(', ')
     })
 
     function create() {
