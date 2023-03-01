@@ -15,7 +15,7 @@ We can declare reactive state using [Reactivity APIs](./reactivity-core.html) an
 
 ```vue
 <script>
-import { ref } from 'vue'
+import { ref, mounted } from 'vue'
 
 export default {
   setup() {
