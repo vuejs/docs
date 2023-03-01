@@ -1,14 +1,14 @@
 # TypeScript with Options API {#typescript-with-options-api}
 
-> This page assumes you've already read the overview on [Using Vue with TypeScript](./overview).
+> এই পৃষ্ঠাটি ধরে নেওয়া হয়েছে আপনি ইতিমধ্যেই [TypeScript এর সাথে Vue ব্যবহার করে](./overview) এর ওভারভিউ পড়েছেন।
 
 :::tip
-While Vue does support TypeScript usage with Options API, it is recommended to use Vue with TypeScript via Composition API as it offers simpler, more efficient and more robust type inference.
+যদিও Vue Options API এর সাথে TypeScript ব্যবহার সমর্থন করে, এটি Composition API এর মাধ্যমে TypeScript-এর সাথে Vue ব্যবহার করার পরামর্শ দেওয়া হয় কারণ এটি সহজ, আরও দক্ষ এবং আরও শক্তিশালী টাইপ ইনফারেন্স প্রদান করে।
 :::
 
 ## Typing Component Props {#typing-component-props}
 
-Type inference for props in Options API requires wrapping the component with `defineComponent()`. With it, Vue is able to infer the types for the props based on the `props` option, taking additional options such as `required: true` and `default` into account:
+অপশন এপিআই-এ প্রপসের জন্য টাইপ ইনফারেন্সের জন্য কম্পোনেন্টকে `defineComponent()` দিয়ে মোড়ানো প্রয়োজন। এটির সাহায্যে, Vue `props` বিকল্পের উপর ভিত্তি করে প্রপগুলির জন্য প্রকারগুলি অনুমান করতে সক্ষম হয়, অতিরিক্ত বিকল্পগুলি যেমন `required: true` এবং `default` হিসাবে বিবেচনা করে:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -30,9 +30,9 @@ export default defineComponent({
 })
 ```
 
-However, the runtime `props` options only support using constructor functions as a prop's type - there is no way to specify complex types such as objects with nested properties or function call signatures.
+যাইহোক, রানটাইম `props` বিকল্পগুলি শুধুমাত্র কনস্ট্রাক্টর ফাংশনগুলিকে প্রপের ধরণ হিসাবে ব্যবহার করে সমর্থন করে - নেস্টেড বৈশিষ্ট্য বা ফাংশন কল স্বাক্ষর সহ বস্তুর মতো জটিল প্রকারগুলি নির্দিষ্ট করার কোনো উপায় নেই৷
 
-To annotate complex props types, we can use the `PropType` utility type:
+জটিল প্রপ ধরনের টীকা করতে, আমরা `PropType` ইউটিলিটি টাইপ ব্যবহার করতে পারি:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -67,7 +67,7 @@ export default defineComponent({
 
 ### Caveats {#caveats}
 
-If your TypeScript version is less than `4.7`, you have to be careful when using function values for `validator` and `default` prop options - make sure to use arrow functions:
+যদি আপনার TypeScript সংস্করণ `4.7` এর কম হয়, তাহলে `validator` এবং `default` প্রপ বিকল্পগুলির জন্য ফাংশন মান ব্যবহার করার সময় আপনাকে সতর্ক থাকতে হবে - তীর ফাংশন ব্যবহার করতে ভুলবেন না:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -92,11 +92,11 @@ export default defineComponent({
 })
 ```
 
-This prevents TypeScript from having to infer the type of `this` inside these functions, which, unfortunately, can cause the type inference to fail. It was a previous [design limitation](https://github.com/microsoft/TypeScript/issues/38845), and now has been improved in [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
+এটি টাইপস্ক্রিপ্টকে এই ফাংশনগুলির মধ্যে `this` ধরনের অনুমান করতে বাধা দেয়, যা দুর্ভাগ্যবশত, টাইপ অনুমান ব্যর্থ হতে পারে। এটি একটি পূর্ববর্তী [ডিজাইন সীমাবদ্ধতা](https://github.com/microsoft/TypeScript/issues/38845), এবং এখন উন্নত করা হয়েছে [TypeScript 4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
 
 ## Typing Component Emits {#typing-component-emits}
 
-We can declare the expected payload type for an emitted event using the object syntax of the `emits` option. Also, all non-declared emitted events will throw a type error when called:
+আমরা `emits` বিকল্পের অবজেক্ট সিনট্যাক্স ব্যবহার করে নির্গত ইভেন্টের জন্য প্রত্যাশিত পেলোডের ধরন ঘোষণা করতে পারি। এছাড়াও, সমস্ত অ-ঘোষিত নির্গত ইভেন্টগুলি কল করার সময় একটি টাইপ ত্রুটি নিক্ষেপ করবে:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -122,7 +122,7 @@ export default defineComponent({
 
 ## Typing Computed Properties {#typing-computed-properties}
 
-A computed property infers its type based on its return value:
+একটি গণনাকৃত সম্পত্তি তার রিটার্ন মানের উপর ভিত্তি করে তার ধরন অনুমান করে:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -144,7 +144,7 @@ export default defineComponent({
 })
 ```
 
-In some cases, you may want to explicitly annotate the type of a computed property to ensure its implementation is correct:
+কিছু ক্ষেত্রে, আপনি একটি গণনা করা সম্পত্তির ধরনটি স্পষ্টভাবে ব্যাখ্যা করতে চাইতে পারেন যাতে এটির বাস্তবায়ন সঠিক হয়:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -174,11 +174,11 @@ export default defineComponent({
 })
 ```
 
-Explicit annotations may also be required in some edge cases where TypeScript fails to infer the type of a computed property due to circular inference loops.
+কিছু প্রান্তের ক্ষেত্রেও স্পষ্ট টীকাগুলির প্রয়োজন হতে পারে যেখানে বৃত্তাকার অনুমান লুপের কারণে টাইপস্ক্রিপ্ট একটি গণনাকৃত সম্পত্তির ধরণ অনুমান করতে ব্যর্থ হয়।
 
 ## Typing Event Handlers {#typing-event-handlers}
 
-When dealing with native DOM events, it might be useful to type the argument we pass to the handler correctly. Let's take a look at this example:
+নেটিভ DOM ইভেন্টগুলির সাথে ডিল করার সময়, আমরা হ্যান্ডলারকে সঠিকভাবে যে আর্গুমেন্ট দিয়ে থাকি তা টাইপ করা কার্যকর হতে পারে। আসুন এই উদাহরণটি একবার দেখে নেওয়া যাক:
 
 ```vue
 <script lang="ts">
@@ -199,7 +199,7 @@ export default defineComponent({
 </template>
 ```
 
-Without type annotation, the `event` argument will implicitly have a type of `any`. This will also result in a TS error if `"strict": true` or `"noImplicitAny": true` are used in `tsconfig.json`. It is therefore recommended to explicitly annotate the argument of event handlers. In addition, you may need to explicitly cast properties on `event`:
+টাইপ টীকা ব্যতীত, `event` আর্গুমেন্টে নিহিতভাবে `any` প্রকার থাকবে। যদি `tsconfig.json`-এ `"strict": true` বা `"noImplicitAny": true` ব্যবহার করা হয় তাহলে এটি একটি TS ত্রুটির কারণ হবে। তাই ইভেন্ট হ্যান্ডলারদের যুক্তি স্পষ্টভাবে টীকা করার সুপারিশ করা হয়। এছাড়াও, আপনাকে `event`-এ স্পষ্টভাবে বৈশিষ্ট্যগুলি কাস্ট করতে হতে পারে:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -215,7 +215,7 @@ export default defineComponent({
 
 ## Augmenting Global Properties {#augmenting-global-properties}
 
-Some plugins install globally available properties to all component instances via [`app.config.globalProperties`](/api/application.html#app-config-globalproperties). For example, we may install `this.$http` for data-fetching or `this.$translate` for internationalization. To make this play well with TypeScript, Vue exposes a `ComponentCustomProperties` interface designed to be augmented via [TypeScript module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation):
+কিছু প্লাগইন [`app.config.globalProperties`](/api/application.html#app-config-globalproperties) এর মাধ্যমে সমস্ত কম্পোনেন্ট ইনস্ট্যান্সে বিশ্বব্যাপী উপলব্ধ বৈশিষ্ট্যগুলি ইনস্টল করে। উদাহরণস্বরূপ, আমরা ডেটা-ফেচিংয়ের জন্য `this.$http` বা আন্তর্জাতিকীকরণের জন্য `this.$translate` ইনস্টল করতে পারি। TypeScript-এর সাথে এই নাটকটিকে ভালভাবে তৈরি করতে, Vue একটি `ComponentCustomProperties` ইন্টারফেস প্রকাশ করে যা [TypeScript মডিউল অগমেন্টেশন](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) এর মাধ্যমে পরিবর্ধন করার জন্য ডিজাইন করা হয়েছে :
 
 ```ts
 import axios from 'axios'
@@ -228,15 +228,15 @@ declare module 'vue' {
 }
 ```
 
-See also:
+আরো দেখুন:
 
-- [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
+- [কম্পোনেন্ট টাইপ এক্সটেনশনের জন্য TypeScript ইউনিট পরীক্ষা করে](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
 
 ### Type Augmentation Placement {#type-augmentation-placement}
 
-We can put this type augmentation in a `.ts` file, or in a project-wide `*.d.ts` file. Either way, make sure it is included in `tsconfig.json`. For library / plugin authors, this file should be specified in the `types` property in `package.json`.
+আমরা এই ধরনের পরিবর্ধন একটি `.ts` ফাইলে বা প্রজেক্ট-ব্যাপী `*.d.ts` ফাইলে রাখতে পারি। যেভাবেই হোক, নিশ্চিত করুন যে এটি `tsconfig.json`-এ অন্তর্ভুক্ত রয়েছে। লাইব্রেরি/প্লাগইন লেখকদের জন্য, এই ফাইলটি `package.json`-এ `types` প্রপার্টিতে উল্লেখ করা উচিত।
 
-In order to take advantage of module augmentation, you will need to ensure the augmentation is placed in a [TypeScript module](https://www.typescriptlang.org/docs/handbook/modules.html). That is to say, the file needs to contain at least one top-level `import` or `export`, even if it is just `export {}`. If the augmentation is placed outside of a module, it will overwrite the original types rather than augmenting them!
+মডিউল অগমেন্টেশনের সুবিধা নেওয়ার জন্য, আপনাকে নিশ্চিত করতে হবে যে অগমেন্টেশনটি একটি [TypeScript মডিউল](https://www.typescriptlang.org/docs/handbook/modules.html) এ স্থাপন করা হয়েছে। অর্থাৎ, ফাইলটিতে অন্তত একটি শীর্ষ-স্তরের `import` বা `export` থাকতে হবে, এমনকি যদি তা কেবল `export {}`ই হয়। যদি পরিবর্ধন একটি মডিউলের বাইরে স্থাপন করা হয়, তবে এটি মূল প্রকারগুলিকে বৃদ্ধি করার পরিবর্তে ওভাররাইট করবে!
 
 ```ts
 // Does not work, overwrites the original types.
@@ -260,7 +260,7 @@ declare module 'vue' {
 
 ## Augmenting Custom Options {#augmenting-custom-options}
 
-Some plugins, for example `vue-router`, provide support for custom component options such as `beforeRouteEnter`:
+কিছু প্লাগইন, উদাহরণস্বরূপ `vue-router`, কাস্টম উপাদান বিকল্পগুলির জন্য সমর্থন প্রদান করে যেমন `beforeRouteEnter`:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -272,7 +272,7 @@ export default defineComponent({
 })
 ```
 
-Without proper type augmentation, the arguments of this hook will implicitly have `any` type. We can augment the `ComponentCustomOptions` interface to support these custom options:
+সঠিক টাইপ অগমেন্টেশন ছাড়া, এই হুকের আর্গুমেন্টের অন্তর্নিহিতভাবে `any` প্রকার থাকবে। আমরা এই কাস্টম বিকল্পগুলিকে সমর্থন করার জন্য `ComponentCustomOptions` ইন্টারফেসকে বাড়িয়ে তুলতে পারি:
 
 ```ts
 import { Route } from 'vue-router'
@@ -284,10 +284,10 @@ declare module 'vue' {
 }
 ```
 
-Now the `beforeRouteEnter` option will be properly typed. Note this is just an example - well-typed libraries like `vue-router` should automatically perform these augmentations in their own type definitions.
+এখন `beforeRouteEnter` অপশনটি সঠিকভাবে টাইপ করা হবে। মনে রাখবেন এটি শুধুমাত্র একটি উদাহরণ - ভাল-টাইপ করা লাইব্রেরি যেমন `vue-router` স্বয়ংক্রিয়ভাবে তাদের নিজস্ব টাইপ সংজ্ঞায় এই বৃদ্ধিগুলি সম্পাদন করা উচিত।
 
-The placement of this augmentation is subject the [same restrictions](#type-augmentation-placement) as global property augmentations.
+এই পরিবর্ধনের স্থান নির্ধারণ [একই বিধিনিষেধ](#type-augmentation-placement) বৈশ্বিক সম্পত্তি বৃদ্ধির বিষয়।
 
-See also:
+আরো দেখুন:
 
-- [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
+- [কম্পোনেন্ট টাইপ এক্সটেনশনের জন্য টাইপস্ক্রিপ্ট ইউনিট পরীক্ষা](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
