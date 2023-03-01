@@ -22,7 +22,7 @@ footer: false
 
 In diesem Abschnitt werden wir Ihnen zeigen, wie Sie ein Vue [Single Page Application](/guide/extras/ways-of-using-vue.html#single-page-application-spa) auf Ihrem lokalen Rechner erstellen können. Das erstellte Projekt wird ein Build-Setup verwenden, das auf [Vite](https://vitejs.dev) basiert und uns erlaubt, Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs) zu verwenden.
 
-Stellen Sie sicher, dass Sie eine aktuelle Version von  [Node.js](https://nodejs.org/) installiert haben, und führen Sie dann den folgenden Befehl in Ihrer Befehlszeile aus (ohne das `>` Zeichen):
+Stellen Sie sicher, dass Sie eine aktuelle Version von [Node.js](https://nodejs.org/) installiert haben, und führen Sie dann den folgenden Befehl in Ihrer Befehlszeile aus (ohne das `>` Zeichen):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
@@ -78,7 +78,7 @@ Bei der Verwendung von Vue aus einem CDN gibt es keinen "Build-Schritt". Das mac
 
 ### Verwenden des globalen Builds {#using-the-global-build}
 
-Der obige Link lädt den *globalen Build* von Vue, in dem alle Top-Level-APIs als Eigenschaften des globalen `Vue`-Objekts dargestellt werden. Hier ist ein vollständiges Beispiel, das den globalen Build verwendet:
+Der obige Link lädt den _globalen Build_ von Vue, in dem alle Top-Level-APIs als Eigenschaften des globalen `Vue`-Objekts dargestellt werden. Hier ist ein vollständiges Beispiel, das den globalen Build verwendet:
 
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -199,13 +199,9 @@ export default {
 }
 ```
 
-If you directly open the above `index.html` in your browser, you will find that it throws an error because ES modules cannot work over the `file://` protocol. In order for this to work, you need to serve your `index.html` over the `http://` protocol, with a local HTTP server.
-
 Wenn Sie die obige `index.html` direkt in Ihrem Browser öffnen, werden Sie feststellen, dass sie einen Fehler auslöst, weil ES-Module nicht über das Protokoll `file://` arbeiten können. Damit dies funktioniert, müssen Sie Ihre `index.html` über das Protokoll `http://` mit einem lokalen HTTP-Server bereitstellen.
 
 Um einen lokalen HTTP-Server zu starten, installieren Sie zunächst [Node.js](https://nodejs.org/en/) und führen dann `npx serve` von der Kommandozeile aus in demselben Verzeichnis aus, in dem sich Ihre HTML-Datei befindet. Sie können auch jeden anderen HTTP-Server verwenden, der statische Dateien mit den richtigen MIME-Typen verarbeiten kann.
-
-You may have noticed that the imported component's template is inlined as a JavaScript string. If you are using VSCode, you can install the [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) extension and prefix the strings with a `/*html*/` comment to get syntax highlighting for them.
 
 Sie haben vielleicht bemerkt, dass das importierte Komponenten-Template als JavaScript-String eingefügt ist. Wenn Sie VSCode verwenden, können Sie die Erweiterung [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) installieren und den Strings einen `/*html*/`-Kommentar voranstellen, um eine Syntaxhervorhebung für sie zu erhalten.
 
