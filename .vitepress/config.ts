@@ -187,10 +187,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Registrieren',
           link: '/guide/components/registration'
         },
-        { text: 'Requisiten', link: '/guide/components/props' },
+        { text: 'Props', link: '/guide/components/props' },
         { text: 'Events', link: '/guide/components/events' },
         {
-          text: 'Eingereicherte Attribute',
+          text: 'Durchfallende Attribute',
           link: '/guide/components/attrs'
         },
         { text: 'Slots', link: '/guide/components/slots' },
