@@ -1,18 +1,20 @@
 <script setup>
+import { ref, computed } from 'vue'
 import dynamics from 'dynamics.js'
 
 const headerHeight = 120
 
 let isDragging = false
 const start = { x: 0, y: 0 }
-let c = $ref({ x: headerHeight, y: headerHeight })
+const x = ref(headerHeight)
+const y = ref(headerHeight)
 
-const headerPath = $computed(() => {
-  return `M0,0 L320,0 320,${headerHeight}Q${c.x},${c.y} 0,${headerHeight}`
+const headerPath = computed(() => {
+  return `M0,0 L320,0 320,${headerHeight}Q${x.value},${y.value} 0,${headerHeight}`
 })
 
-const contentPosition = $computed(() => {
-  const dy = c.y - headerHeight
+const contentPosition = computed(() => {
+  const dy = y.value - headerHeight
   const dampen = dy > 0 ? 2 : 4
   return {
     transform: `translate(0,${dy / dampen}px)`
@@ -29,10 +31,10 @@ function startDrag(e) {
 function onDrag(e) {
   e = e.changedTouches ? e.changedTouches[0] : e
   if (isDragging) {
-    c.x = headerHeight + (e.pageX - start.x)
+    x.value = headerHeight + (e.pageX - start.x)
     const dy = e.pageY - start.y
     const dampen = dy > 0 ? 1.5 : 4
-    c.y = headerHeight + dy / dampen
+    y.value = headerHeight + dy / dampen
   }
 }
 
@@ -40,7 +42,7 @@ function stopDrag() {
   if (isDragging) {
     isDragging = false
     dynamics.animate(
-      c,
+      { x: x.value, y: y.value },
       { x: headerHeight, y: headerHeight },
       { type: dynamics.spring, duration: 700, firction: 280 }
     )

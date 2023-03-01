@@ -5,12 +5,12 @@ import { normalizeName, track } from './utils'
 import PartnerCard from './PartnerCard.vue'
 import { VTIconChevronLeft } from '@vue/theme'
 
-const { partner } = defineProps<{
+const props = defineProps<{
   partner: string
 }>()
 
 const p = (data as Partner[]).find(
-  (p) => normalizeName(p.name) === partner
+  (p) => normalizeName(p.name) === props.partner
 )!
 
 const { name, description, hiring, contact, website } = p

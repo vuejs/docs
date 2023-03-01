@@ -97,23 +97,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
 
-Alternatively, you can use the currently experimental [Reactivity Transform](/guide/extras/reactivity-transform.html):
-
-```vue
-<script setup lang="ts">
-interface Props {
-  name: string
-  count?: number
-}
-
-// reactive destructure for defineProps()
-// default value is compiled to equivalent runtime option
-const { name, count = 100 } = defineProps<Props>()
-</script>
-```
-
-This behavior currently requires [explicit opt-in](/guide/extras/reactivity-transform.html#explicit-opt-in).
-
 ### Without `<script setup>` {#without-script-setup}
 
 If not using `<script setup>`, it is necessary to use `defineComponent()` to enable props type inference. The type of the props object passed to `setup()` is inferred from the `props` option.

@@ -1,5 +1,6 @@
 <script setup>
-let count = $ref(0)
+import { ref } from 'vue'
+const count = ref(0)
 </script>
 
 <template>

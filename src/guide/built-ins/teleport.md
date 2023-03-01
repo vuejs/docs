@@ -116,7 +116,8 @@ The `to` target of `<Teleport>` expects a CSS selector string or an actual DOM n
 You can click the button below and inspect the `<body>` tag via your browser's devtools:
 
 <script setup>
-let open = $ref(false)
+import { ref } from 'vue'
+const open = ref(false)
 </script>
 
 <div class="demo">

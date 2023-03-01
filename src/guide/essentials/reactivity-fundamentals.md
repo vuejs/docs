@@ -573,28 +573,3 @@ export default {
 ```
 
 </div>
-
-<div class="composition-api">
-
-## Reactivity Transform <sup class="vt-badge experimental" /> \*\* {#reactivity-transform}
-
-Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the earlier "counter" example like this:
-
-```vue
-<script setup>
-let count = $ref(0)
-
-function increment() {
-  // no need for .value
-  count++
-}
-</script>
-
-<template>
-  <button @click="increment">{{ count }}</button>
-</template>
-```
-
-You can learn more about [Reactivity Transform](/guide/extras/reactivity-transform.html) in its dedicated section. Do note that it is currently still experimental and may change before being finalized.
-
-</div>
