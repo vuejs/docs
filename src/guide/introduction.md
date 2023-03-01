@@ -195,7 +195,7 @@ onMounted(() => {
 
 ### Was soll ich wählen? {#which-to-choose}
 
-Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+Beide API-Stile sind voll und ganz in der Lage, gängige Anwendungsfälle abzudecken. Es handelt sich um unterschiedliche Schnittstellen, die auf demselben System basieren. Tatsächlich ist die Options API auf der Composition API implementiert! Die grundlegenden Konzepte und das Wissen über Vue sind in beiden Stilen gleich.
 
 The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
 
