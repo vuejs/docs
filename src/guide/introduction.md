@@ -195,45 +195,45 @@ onMounted(() => {
 
 ### Was soll ich wählen? {#which-to-choose}
 
-Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+Beide API-Stile sind voll und ganz in der Lage, gängige Anwendungsfälle abzudecken. Es handelt sich um unterschiedliche Schnittstellen, die auf demselben System basieren. Tatsächlich ist die Options API auf der Composition API implementiert! Die grundlegenden Konzepte und das Wissen über Vue sind in beiden Stilen gleich.
 
-The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
+Die Options-API basiert auf dem Konzept einer "Komponenteninstanz" (`this`, wie im Beispiel zu sehen), was für Benutzer, die aus einer OOP-Sprache kommen, in der Regel besser zu einem klassenbasierten Denkmodell passt. Sie ist auch anfängerfreundlicher, da sie die Details der Reaktivität abstrahiert und die Organisation des Codes über Optionsgruppen erzwingt.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope and composing state from multiple functions together to handle complexity. It is more free-form and requires an understanding of how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
+Die Composition API konzentriert sich darauf, reaktive Zustandsvariablen direkt in einem Funktionsbereich zu deklarieren und den Zustand von mehreren Funktionen zusammenzusetzen, um die Komplexität zu handhaben. Sie ist freier und erfordert ein Verständnis dafür, wie Reaktivität in Vue funktioniert, um effektiv genutzt werden zu können. Im Gegenzug ermöglicht seine Flexibilität leistungsfähigere Muster für die Organisation und Wiederverwendung von Logik.
 
-You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/extras/composition-api-faq).
+Mehr über den Vergleich zwischen den beiden Stilen und die potenziellen Vorteile von Composition API erfahren Sie in den [Composition API FAQ](/guide/extras/composition-api-faq).
 
-If you are new to Vue, here's our general recommendation:
+Wenn Sie neu bei Vue sind, dann empfehlen wir:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
+- Zum Lernen sollten Sie sich für den Stil entscheiden, der Ihnen leichter verständlich erscheint. Auch hier gilt, dass die meisten Kernkonzepte in beiden Stilen gleich sind. Sie können sich später immer noch für den anderen Stil entscheiden.
 
-- For production use:
+- Für den produktiven Einsatz:
 
-  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
+  - Wählen Sie die Options-API, wenn Sie keine Build-Tools verwenden oder planen, Vue hauptsächlich in Szenarien mit geringer Komplexität zu verwenden, z. B. für progressive Erweiterungen.
 
-  - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
+  - Entscheiden Sie sich für Composition API + Single-File Components, wenn Sie planen, vollständige Anwendungen mit Vue zu erstellen.
 
-You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
+Sie müssen sich während der Lernphase nicht auf einen Stil festlegen. Im Rest der Dokumentation finden Sie gegebenenfalls Codebeispiele in beiden Stilen, und Sie können mit den **API-Einstellungsschaltern** oben in der linken Seitenleiste jederzeit zwischen den beiden Stilen umschalten.
 
-## Still Got Questions? {#still-got-questions}
+## Haben Sie noch Fragen? {#still-got-questions}
 
-Check out our [FAQ](/about/faq).
+Lesen Sie unsere [FAQ](/about/faq).
 
-## Pick Your Learning Path {#pick-your-learning-path}
+## Wählen Sie Ihren Lernweg {#pick-your-learning-path}
 
-Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
+Verschiedene Entwickler haben unterschiedliche Lernstile. Suchen Sie sich einen Lernweg aus, der Ihren Vorlieben entspricht - wir empfehlen jedoch, möglichst alle Inhalte durchzuarbeiten!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">Versuchen Sie das Tutorial</p>
+    <p class="next-steps-caption">Für diejenigen, die es vorziehen, Dinge praktisch zu lernen.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Read the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">Den Leitfaden lesen</p>
+    <p class="next-steps-caption">Der Leitfaden führt Sie detailliert durch jeden Aspekt des Rahmens.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">Sehen Sie sich die Beispiele an</p>
+    <p class="next-steps-caption">Erkunden Sie Beispiele für Kernfunktionen und häufige Aufgaben der Benutzeroberfläche.</p>
   </a>
 </div>
