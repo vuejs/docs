@@ -26,7 +26,7 @@ const myPlugin = {
 
 There is no strictly defined scope for a plugin, but common scenarios where plugins are useful include:
 
-1. Register one or more global components or custom directives with [`app.component()`](/api/application#app-component) and [`app.directive()`](/api/application.html#app-directive).
+1. Register one or more global components or custom directives with [`app.component()`](/api/application#app-component) and [`app.directive()`](/api/application#app-directive).
 
 2. Make a resource [injectable](/guide/components/provide-inject) throughout the app by calling [`app.provide()`](/api/application#app-provide).
 
