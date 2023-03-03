@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vitepress",
     "build": "vitepress build",
-    "serve": "vitepress serve",
+    "preview": "vitepress preview",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
