@@ -35,7 +35,7 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
 
   When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
 
-- **See also:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list.html#maintaining-state-with-key)
+- **See also:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list#maintaining-state-with-key)
 
 ## ref {#ref}
 
@@ -82,12 +82,12 @@ Denotes a [template ref](/guide/essentials/template-refs).
 
 - **See also:**
   - [Guide - Template Refs](/guide/essentials/template-refs)
-  - [Guide - Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
-  - [Guide - Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
+  - [Guide - Typing Template Refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
+  - [Guide - Typing Component Template Refs](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 ## is {#is}
 
-Used for binding [dynamic components](/guide/essentials/component-basics.html#dynamic-components).
+Used for binding [dynamic components](/guide/essentials/component-basics#dynamic-components).
 
 - **Expects:** `string | Component`
 
@@ -95,7 +95,7 @@ Used for binding [dynamic components](/guide/essentials/component-basics.html#dy
 
   When the `is` attribute is used on a native HTML element, it will be interpreted as a [Customized built-in element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), which is a native web platform feature.
 
-  There is, however, a use case where you may need Vue to replace a native element with a Vue component, as explained in [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats). You can prefix the value of the `is` attribute with `vue:` so that Vue will render the element as a Vue component instead:
+  There is, however, a use case where you may need Vue to replace a native element with a Vue component, as explained in [DOM Template Parsing Caveats](/guide/essentials/component-basics#dom-template-parsing-caveats). You can prefix the value of the `is` attribute with `vue:` so that Vue will render the element as a Vue component instead:
 
   ```vue-html
   <table>
@@ -105,5 +105,5 @@ Used for binding [dynamic components](/guide/essentials/component-basics.html#dy
 
 - **See also:**
 
-  - [Built-in Special Element - `<component>`](/api/built-in-special-elements.html#component)
-  - [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
+  - [Built-in Special Element - `<component>`](/api/built-in-special-elements#component)
+  - [Dynamic Components](/guide/essentials/component-basics#dynamic-components)

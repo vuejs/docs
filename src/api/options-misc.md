@@ -22,7 +22,7 @@ Explicitly declare a display name for the component.
 
   When you use Single-File Components, the component already infers its own name from the filename. For example, a file named `MyComponent.vue` will have the inferred display name "MyComponent".
 
-  Another case is that when a component is registered globally with [`app.component`](/api/application.html#app-component), the global ID is automatically set as its name.
+  Another case is that when a component is registered globally with [`app.component`](/api/application#app-component), the global ID is automatically set as its name.
 
   The `name` option allows you to override the inferred name, or to explicitly provide a name when no name can be inferred (e.g. when not using build tools, or an inlined non-SFC component).
 

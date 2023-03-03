@@ -22,7 +22,7 @@ console.log(props.foo)
 </script>
 ```
 
-In non-`<script setup>` components, props are declared using the [`props`](/api/options-state.html#props) option:
+In non-`<script setup>` components, props are declared using the [`props`](/api/options-state#props) option:
 
 ```js
 export default {
@@ -40,7 +40,7 @@ Notice the argument passed to `defineProps()` is the same as the value provided 
 
 <div class="options-api">
 
-Props are declared using the [`props`](/api/options-state.html#props) option:
+Props are declared using the [`props`](/api/options-state#props) option:
 
 ```js
 export default {
@@ -96,7 +96,7 @@ This not only documents your component, but will also warn other developers usin
 
 <div class="options-api">
 
-See also: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
+See also: [Typing Component Props](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
@@ -113,7 +113,7 @@ defineProps<{
 </script>
 ```
 
-More details: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+More details: [Typing Component Props](/guide/typescript/composition-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
@@ -148,13 +148,13 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Technically, you can also use camelCase when passing props to a child component (except in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
+Technically, you can also use camelCase when passing props to a child component (except in [DOM templates](/guide/essentials/component-basics#dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
 
 ```vue-html
 <MyComponent greeting-message="hello" />
 ```
 
-We use [PascalCase for component tags](/guide/components/registration.html#component-name-casing) when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
+We use [PascalCase for component tags](/guide/components/registration#component-name-casing) when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
 
 ### Static vs. Dynamic Props {#static-vs-dynamic-props}
 
@@ -232,7 +232,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 
 ### Binding Multiple Properties Using an Object {#binding-multiple-properties-using-an-object}
 
-If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
+If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
 
 <div class="options-api">
 
@@ -492,7 +492,7 @@ When prop validation fails, Vue will produce a console warning (if using the dev
 
 <div class="composition-api">
 
-If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+If using [Type-based props declarations](/api/sfc-script-setup#typescript-only-features) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">

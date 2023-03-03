@@ -6,7 +6,7 @@ Computed properties allow us to declaratively compute derived values. However, t
 
 <div class="options-api">
 
-With the Options API, we can use the [`watch` option](/api/options-state.html#watch) to trigger a function whenever a reactive property changes:
+With the Options API, we can use the [`watch` option](/api/options-state#watch) to trigger a function whenever a reactive property changes:
 
 ```js
 export default {
@@ -65,7 +65,7 @@ export default {
 
 <div class="composition-api">
 
-With Composition API, we can use the [`watch` function](/api/reactivity-core.html#watch) to trigger a callback whenever a piece of reactive state changes:
+With Composition API, we can use the [`watch` function](/api/reactivity-core#watch) to trigger a callback whenever a piece of reactive state changes:
 
 ```vue
 <script setup>
@@ -245,7 +245,7 @@ export default {
 ```
 
 The initial execution of the handler function will happen just before the `created` hook. Vue will have already processed the `data`, `computed`, and `methods` options, so those properties will be available on the first invocation.
-  
+
 </div>
 
 <div class="composition-api">
@@ -278,9 +278,9 @@ watch(todoId, async () => {
 }, { immediate: true })
 ```
 
-In particular, notice how the watcher uses `todoId` twice, once as the source and then again inside the callback. 
+In particular, notice how the watcher uses `todoId` twice, once as the source and then again inside the callback.
 
-This can be simplified with [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` allows us to track the callback's reactive dependencies automatically. The watcher above can be rewritten as:
+This can be simplified with [`watchEffect()`](/api/reactivity-core#watcheffect). `watchEffect()` allows us to track the callback's reactive dependencies automatically. The watcher above can be rewritten as:
 
 ```js
 watchEffect(async () => {
@@ -363,7 +363,7 @@ watchPostEffect(() => {
 
 ## `this.$watch()` \* {#this-watch}
 
-It's also possible to imperatively create watchers using the [`$watch()` instance method](/api/component-instance.html#watch):
+It's also possible to imperatively create watchers using the [`$watch()` instance method](/api/component-instance#watch):
 
 ```js
 export default {

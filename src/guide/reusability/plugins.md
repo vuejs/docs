@@ -26,11 +26,11 @@ const myPlugin = {
 
 There is no strictly defined scope for a plugin, but common scenarios where plugins are useful include:
 
-1. Register one or more global components or custom directives with [`app.component()`](/api/application.html#app-component) and [`app.directive()`](/api/application.html#app-directive).
+1. Register one or more global components or custom directives with [`app.component()`](/api/application#app-component) and [`app.directive()`](/api/application.html#app-directive).
 
-2. Make a resource [injectable](/guide/components/provide-inject) throughout the app by calling [`app.provide()`](/api/application.html#app-provide).
+2. Make a resource [injectable](/guide/components/provide-inject) throughout the app by calling [`app.provide()`](/api/application#app-provide).
 
-3. Add some global instance properties or methods by attaching them to [`app.config.globalProperties`](/api/application.html#app-config-globalproperties).
+3. Add some global instance properties or methods by attaching them to [`app.config.globalProperties`](/api/application#app-config-globalproperties).
 
 4. A library that needs to perform some combination of the above (e.g. [vue-router](https://github.com/vuejs/vue-router-next)).
 
@@ -89,7 +89,7 @@ app.use(i18nPlugin, {
 
 Now, our initial expression `$translate('greetings.hello')` will be replaced by `Bonjour!` at runtime.
 
-See also: [Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
+See also: [Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
 Use global properties scarcely, since it can quickly become confusing if too many global properties injected by different plugins are used throughout an app.

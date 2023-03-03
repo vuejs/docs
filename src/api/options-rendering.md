@@ -23,7 +23,7 @@ A string template for the component.
   If the root component of your application doesn't have a `template` or `render` option specified, Vue will try to use the `innerHTML` of the mounted element as the template instead.
 
   :::warning Security Note
-  Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security.html#rule-no-1-never-use-non-trusted-templates) for more details.
+  Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security#rule-no-1-never-use-non-trusted-templates) for more details.
   :::
 
 ## render {#render}
@@ -80,6 +80,6 @@ Configure runtime compiler options for the component's template.
 
 - **Details**
 
-  This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application.html#app-config-compileroptions), and has higher priority for the current component.
+  This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application#app-config-compileroptions), and has higher priority for the current component.
 
-- **See also:** [app.config.compilerOptions](/api/application.html#app-config-compileroptions)
+- **See also:** [app.config.compilerOptions](/api/application#app-config-compileroptions)

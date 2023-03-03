@@ -46,7 +46,7 @@ export default {
 
 - The script is executed as an ES Module.
 
-- The **default export** should be a Vue component options object, either as a plain object or as the return value of [defineComponent](/api/general.html#definecomponent).
+- The **default export** should be a Vue component options object, either as a plain object or as the return value of [defineComponent](/api/general#definecomponent).
 
 ### `<script setup>` {#script-setup}
 
@@ -68,7 +68,7 @@ Additional custom blocks can be included in a `*.vue` file for any project-speci
 - [vite-plugin-vue-gql: `<gql>`](https://github.com/wheatjs/vite-plugin-vue-gql)
 - [vue-i18n: `<i18n>`](https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n#i18n-custom-block)
 
-Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see [relevant tooling section](/guide/scaling-up/tooling.html#sfc-custom-block-integrations) for more details.
+Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see [relevant tooling section](/guide/scaling-up/tooling#sfc-custom-block-integrations) for more details.
 
 ## Automatic Name Inference {#automatic-name-inference}
 

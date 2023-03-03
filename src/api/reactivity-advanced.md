@@ -2,7 +2,7 @@
 
 ## shallowRef() {#shallowref}
 
-Shallow version of [`ref()`](./reactivity-core.html#ref).
+Shallow version of [`ref()`](./reactivity-core#ref).
 
 - **Type**
 
@@ -33,8 +33,8 @@ Shallow version of [`ref()`](./reactivity-core.html#ref).
   ```
 
 - **See also:**
-  - [Guide - Reduce Reactivity Overhead for Large Immutable Structures](/guide/best-practices/performance.html#reduce-reactivity-overhead-for-large-immutable-structures)
-  - [Guide - Integration with External State Systems](/guide/extras/reactivity-in-depth.html#integration-with-external-state-systems)
+  - [Guide - Reduce Reactivity Overhead for Large Immutable Structures](/guide/best-practices/performance#reduce-reactivity-overhead-for-large-immutable-structures)
+  - [Guide - Integration with External State Systems](/guide/extras/reactivity-in-depth#integration-with-external-state-systems)
 
 ## triggerRef() {#triggerref}
 
@@ -95,7 +95,7 @@ Creates a customized ref with explicit control over its dependency tracking and 
 
   ```js
   import { customRef } from 'vue'
-  
+
   export function useDebouncedRef(value, delay = 200) {
     let timeout
     return customRef((track, trigger) => {
@@ -133,7 +133,7 @@ Creates a customized ref with explicit control over its dependency tracking and 
 
 ## shallowReactive() {#shallowreactive}
 
-Shallow version of [`reactive()`](./reactivity-core.html#reactive).
+Shallow version of [`reactive()`](./reactivity-core#reactive).
 
 - **Type**
 
@@ -171,7 +171,7 @@ Shallow version of [`reactive()`](./reactivity-core.html#reactive).
 
 ## shallowReadonly() {#shallowreadonly}
 
-Shallow version of [`readonly()`](./reactivity-core.html#readonly).
+Shallow version of [`readonly()`](./reactivity-core#readonly).
 
 - **Type**
 
@@ -219,7 +219,7 @@ Returns the raw, original object of a Vue-created proxy.
 
 - **Details**
 
-  `toRaw()` can return the original object from proxies created by [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](#shallowreactive) or [`shallowReadonly()`](#shallowreadonly).
+  `toRaw()` can return the original object from proxies created by [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](#shallowreactive) or [`shallowReadonly()`](#shallowreadonly).
 
   This is an escape hatch that can be used to temporarily read without incurring proxy access / tracking overhead or write without triggering changes. It is **not** recommended to hold a persistent reference to the original object. Use with caution.
 

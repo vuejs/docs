@@ -37,7 +37,7 @@ User component names should always be multi-word, except for root `App` componen
 In committed code, prop definitions should always be as detailed as possible, specifying at least type(s).
 
 ::: details Detailed Explanation
-Detailed [prop definitions](/guide/components/props.html#prop-validation) have two advantages:
+Detailed [prop definitions](/guide/components/props#prop-validation) have two advantages:
 
 - They document the API of the component, so that it's easy to see how the component is meant to be used.
 - In development, Vue will warn you if a component is ever provided incorrectly formatted props, helping you catch potential sources of error.
@@ -294,7 +294,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 
 For applications, styles in a top-level `App` component and in layout components may be global, but all other components should always be scoped.
 
-This is only relevant for [Single-File Components](/guide/scaling-up/sfc.html). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
+This is only relevant for [Single-File Components](/guide/scaling-up/sfc). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
 
 **Component libraries, however, should prefer a class-based strategy instead of using the `scoped` attribute.**
 

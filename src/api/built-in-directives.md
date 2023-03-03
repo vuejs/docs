@@ -8,7 +8,7 @@ Update the element's text content.
 
 - **Details**
 
-  `v-text` works by setting the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) property, so it will overwrite any existing content inside the element. If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax.html#text-interpolation) instead.
+  `v-text` works by setting the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) property, so it will overwrite any existing content inside the element. If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax#text-interpolation) instead.
 
 - **Example**
 
@@ -18,7 +18,7 @@ Update the element's text content.
   <span>{{msg}}</span>
   ```
 
-- **See also:** [Template Syntax - Text Interpolation](/guide/essentials/template-syntax.html#text-interpolation)
+- **See also:** [Template Syntax - Text Interpolation](/guide/essentials/template-syntax#text-interpolation)
 
 ## v-html {#v-html}
 
@@ -34,7 +34,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
   Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
   :::
 
-  In [Single-File Components](/guide/scaling-up/sfc), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](./sfc-css-features.html#css-modules) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
+  In [Single-File Components](/guide/scaling-up/sfc), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](./sfc-css-features#css-modules) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
 
 - **Example:**
 
@@ -42,7 +42,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
   <div v-html="html"></div>
   ```
 
-- **See also:** [Template Syntax - Raw HTML](/guide/essentials/template-syntax.html#raw-html)
+- **See also:** [Template Syntax - Raw HTML](/guide/essentials/template-syntax#raw-html)
 
 ## v-show {#v-show}
 
@@ -54,7 +54,7 @@ Toggle the element's visibility based on the truthy-ness of the expression value
 
   `v-show` works by setting the `display` CSS property via inline styles, and will try to respect the initial `display` value when the element is visible. It also triggers transitions when its condition changes.
 
-- **See also:** [Conditional Rendering - v-show](/guide/essentials/conditional.html#v-show)
+- **See also:** [Conditional Rendering - v-show](/guide/essentials/conditional#v-show)
 
 ## v-if {#v-if}
 
@@ -70,9 +70,9 @@ Conditionally render an element or a template fragment based on the truthy-ness 
 
   This directive triggers transitions when its condition changes.
 
-  When used together, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element — see the [list rendering guide](/guide/essentials/list.html#v-for-with-v-if) for details.
+  When used together, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element — see the [list rendering guide](/guide/essentials/list#v-for-with-v-if) for details.
 
-- **See also:** [Conditional Rendering - v-if](/guide/essentials/conditional.html#v-if)
+- **See also:** [Conditional Rendering - v-if](/guide/essentials/conditional#v-if)
 
 ## v-else {#v-else}
 
@@ -97,7 +97,7 @@ Denote the "else block" for `v-if` or a `v-if` / `v-else-if` chain.
   </div>
   ```
 
-- **See also:** [Conditional Rendering - v-else](/guide/essentials/conditional.html#v-else)
+- **See also:** [Conditional Rendering - v-else](/guide/essentials/conditional#v-else)
 
 ## v-else-if {#v-else-if}
 
@@ -128,7 +128,7 @@ Denote the "else if block" for `v-if`. Can be chained.
   </div>
   ```
 
-- **See also:** [Conditional Rendering - v-else-if](/guide/essentials/conditional.html#v-else-if)
+- **See also:** [Conditional Rendering - v-else-if](/guide/essentials/conditional#v-else-if)
 
 ## v-for {#v-for}
 
@@ -251,7 +251,7 @@ Attach an event listener to the element.
 
 - **See also:**
   - [Event Handling](/guide/essentials/event-handling)
-  - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-events)
+  - [Components - Custom Events](/guide/essentials/component-basics#listening-to-events)
 
 ## v-bind {#v-bind}
 
@@ -273,7 +273,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   When used to bind the `class` or `style` attribute, `v-bind` supports additional value types such as Array or Objects. See linked guide section below for more details.
 
-  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/extras/web-components.html#passing-dom-properties).
+  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/extras/web-components#passing-dom-properties).
 
   When used for component prop binding, the prop must be properly declared in the child component.
 
@@ -338,7 +338,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
 - **See also:**
   - [Class and Style Bindings](/guide/essentials/class-and-style)
-  - [Components - Prop Passing Details](/guide/components/props.html#prop-passing-details)
+  - [Components - Prop Passing Details](/guide/components/props#prop-passing-details)
 
 ## v-model {#v-model}
 
@@ -355,9 +355,9 @@ Create a two-way binding on a form input element or a component.
 
 - **Modifiers:**
 
-  - [`.lazy`](/guide/essentials/forms.html#lazy) - listen to `change` events instead of `input`
-  - [`.number`](/guide/essentials/forms.html#number) - cast valid input string to numbers
-  - [`.trim`](/guide/essentials/forms.html#trim) - trim input
+  - [`.lazy`](/guide/essentials/forms#lazy) - listen to `change` events instead of `input`
+  - [`.number`](/guide/essentials/forms#number) - cast valid input string to numbers
+  - [`.trim`](/guide/essentials/forms#trim) - trim input
 
 - **See also:**
 
@@ -377,7 +377,7 @@ Denote named slots or scoped slots that expect to receive props.
 - **Limited to:**
 
   - `<template>`
-  - [components](/guide/components/slots.html#scoped-slots) (for a lone default slot with props)
+  - [components](/guide/components/slots#scoped-slots) (for a lone default slot with props)
 
 - **Example:**
 
@@ -460,7 +460,7 @@ Render the element and component once only, and skip future updates.
   Since 3.2, you can also memoize part of the template with invalidation conditions using [`v-memo`](#v-memo).
 
 - **See also:**
-  - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text-interpolation)
+  - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax#text-interpolation)
   - [v-memo](#v-memo)
 
 ## v-memo <sup class="vt-badge" data-text="3.2+" /> {#v-memo}

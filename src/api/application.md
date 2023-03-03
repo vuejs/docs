@@ -39,7 +39,7 @@ Creates an application instance.
 
 ## createSSRApp() {#createssrapp}
 
-Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr.html#client-hydration) mode. Usage is exactly the same as `createApp()`.
+Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr#client-hydration) mode. Usage is exactly the same as `createApp()`.
 
 ## app.mount() {#app-mount}
 
@@ -59,7 +59,7 @@ Mounts the application instance in a container element.
 
   If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
 
-  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr.html#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
+  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
 
   For each app instance, `mount()` can only be called once.
 
@@ -146,7 +146,7 @@ Provide a value that can be injected in all descendant components within the app
 
 - **See also:**
   - [Provide / Inject](/guide/components/provide-inject)
-  - [App-level Provide](/guide/components/provide-inject.html#app-level-provide)
+  - [App-level Provide](/guide/components/provide-inject#app-level-provide)
 
 ## app.component() {#app-component}
 
@@ -297,7 +297,7 @@ Provides the version of Vue that the application was created with. This is usefu
   }
   ```
 
-- **See also:** [Global API - version](/api/general.html#version)
+- **See also:** [Global API - version](/api/general#version)
 
 ## app.config {#app-config}
 
@@ -395,7 +395,7 @@ Set this to `true` to enable component init, compile, render and patch performan
 
 ## app.config.compilerOptions {#app-config-compileroptions}
 
-Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affect every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-rendering.html#compileroptions).
+Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affect every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-rendering#compileroptions).
 
 ::: warning Important
 This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). If you are using the runtime-only build with a build setup, compiler options must be passed to `@vue/compiler-dom` via build tool configurations instead.
@@ -523,7 +523,7 @@ An object that can be used to register global properties that can be accessed on
   }
   ```
 
-- **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
+- **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
 
@@ -574,4 +574,4 @@ An object for defining merging strategies for custom component options.
   // logs 'Hello Vue'
   ```
 
-- **See also:** [Component Instance - `$options`](/api/component-instance.html#options)
+- **See also:** [Component Instance - `$options`](/api/component-instance#options)

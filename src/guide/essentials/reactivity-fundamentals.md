@@ -67,7 +67,7 @@ When you access `this.someObject` after assigning it, the value is a reactive pr
 
 <div class="composition-api">
 
-We can create a reactive object or array with the [`reactive()`](/api/reactivity-core.html#reactive) function:
+We can create a reactive object or array with the [`reactive()`](/api/reactivity-core#reactive) function:
 
 ```js
 import { reactive } from 'vue'
@@ -77,7 +77,7 @@ const state = reactive({ count: 0 })
 
 Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and behave just like normal objects. The difference is that Vue is able to track the property access and mutations of a reactive object. If you are curious about the details, we explain how Vue's reactivity system works in [Reactivity in Depth](/guide/extras/reactivity-in-depth) - but we recommend reading it after you have finished the main guide.
 
-See also: [Typing Reactive](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
+See also: [Typing Reactive](/guide/typescript/composition-api#typing-reactive) <sup class="vt-badge ts" />
 
 To use reactive state in a component's template, declare and return them from a component's `setup()` function:
 
@@ -216,7 +216,7 @@ In the example above, the method `increment` will be called when the `<button>` 
 
 When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component updates only once no matter how many state changes you have made.
 
-To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general.html#nexttick) global API:
+To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general#nexttick) global API:
 
 <div class="composition-api">
 
@@ -298,7 +298,7 @@ function mutateDeeply() {
 
 </div>
 
-It is also possible to explicitly create [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, but these are typically only needed in advanced use cases.
+It is also possible to explicitly create [shallow reactive objects](/api/reactivity-advanced#shallowreactive) where the reactivity is only tracked at the root-level, but these are typically only needed in advanced use cases.
 
 <div class="composition-api">
 
@@ -375,7 +375,7 @@ The `reactive()` API has two limitations:
 
 ## Reactive Variables with `ref()` \*\* {#reactive-variables-with-ref}
 
-To address the limitations of `reactive()`, Vue also provides a [`ref()`](/api/reactivity-core.html#ref) function which allows us to create reactive **"refs"** that can hold any value type:
+To address the limitations of `reactive()`, Vue also provides a [`ref()`](/api/reactivity-core#ref) function which allows us to create reactive **"refs"** that can hold any value type:
 
 ```js
 import { ref } from 'vue'
@@ -395,7 +395,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-See also: [Typing Refs](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
+See also: [Typing Refs](/guide/typescript/composition-api#typing-ref) <sup class="vt-badge ts" />
 
 Similar to properties on a reactive object, the `.value` property of a ref is reactive. In addition, when holding object types, ref automatically converts its `.value` with `reactive()`.
 
@@ -512,7 +512,7 @@ console.log(state.count) // 2
 console.log(count.value) // 1
 ```
 
-Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced.html#shallowreactive).
+Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced#shallowreactive).
 
 ### Ref Unwrapping in Arrays and Collections {#ref-unwrapping-in-arrays-and-collections}
 

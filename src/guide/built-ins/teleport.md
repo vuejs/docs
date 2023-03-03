@@ -199,5 +199,5 @@ The rendered result would be:
 
 **Related**
 
-- [`<Teleport>` API reference](/api/built-in-components.html#teleport)
-- [Handling Teleports in SSR](/guide/scaling-up/ssr.html#teleports)
+- [`<Teleport>` API reference](/api/built-in-components#teleport)
+- [Handling Teleports in SSR](/guide/scaling-up/ssr#teleports)

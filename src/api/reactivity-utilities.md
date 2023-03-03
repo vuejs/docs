@@ -96,7 +96,7 @@ Can be used to create a ref for a property on a source reactive object. The crea
   </script>
   ```
 
-  When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core.html#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/v-model) for more information.
+  When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/v-model) for more information.
 
   `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
 
@@ -163,7 +163,7 @@ Converts a reactive object to a plain object where each property of the resultin
 
 ## isProxy() {#isproxy}
 
-Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
+Checks if an object is a proxy created by [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
 
 - **Type**
 
@@ -173,7 +173,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 ## isReactive() {#isreactive}
 
-Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive) or [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
+Checks if an object is a proxy created by [`reactive()`](./reactivity-core#reactive) or [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
 
 - **Type**
 
@@ -185,7 +185,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 Checks whether the passed value is a readonly object. The properties of a readonly object can change, but they can't be assigned directly via the passed object.
 
-The proxies created by [`readonly()`](./reactivity-core.html#readonly) and [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly) are both considered readonly, as is a [`computed()`](./reactivity-core.html#computed) ref without a `set` function.
+The proxies created by [`readonly()`](./reactivity-core#readonly) and [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly) are both considered readonly, as is a [`computed()`](./reactivity-core.html#computed) ref without a `set` function.
 
 - **Type**
 

@@ -87,7 +87,7 @@ If you are currently using Vue 3 + TypeScript via Vue CLI, we strongly recommend
 
 ### `defineComponent()` {#definecomponent}
 
-To let TypeScript properly infer types inside component options, we need to define components with [`defineComponent()`](/api/general.html#definecomponent):
+To let TypeScript properly infer types inside component options, we need to define components with [`defineComponent()`](/api/general#definecomponent):
 
 ```ts
 import { defineComponent } from 'vue'
@@ -129,7 +129,7 @@ export default defineComponent({
 
 See also:
 
-- [Note on webpack Treeshaking](/api/general.html#note-on-webpack-treeshaking)
+- [Note on webpack Treeshaking](/api/general#note-on-webpack-treeshaking)
 - [type tests for `defineComponent`](https://github.com/vuejs/core/blob/main/packages/dts-test/defineComponent.test-d.tsx)
 
 :::tip
