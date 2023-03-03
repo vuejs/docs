@@ -39,7 +39,7 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
 
 ## ref {#ref}
 
-Denotes a [template ref](/guide/essentials/template-refs.html).
+Denotes a [template ref](/guide/essentials/template-refs).
 
 - **Expects:** `string | Function`
 
@@ -81,7 +81,7 @@ Denotes a [template ref](/guide/essentials/template-refs.html).
   `this.$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
 - **See also:**
-  - [Guide - Template Refs](/guide/essentials/template-refs.html)
+  - [Guide - Template Refs](/guide/essentials/template-refs)
   - [Guide - Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
   - [Guide - Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
 

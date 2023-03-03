@@ -67,7 +67,7 @@ A "meta component" for rendering dynamic components or elements.
   <component :is="href ? 'a' : 'span'"></component>
   ```
 
-  The [built-in components](./built-in-components.html) can all be passed to `is`, but you must register them if you want to pass them by name. For example:
+  The [built-in components](./built-in-components) can all be passed to `is`, but you must register them if you want to pass them by name. For example:
 
   ```vue
   <script>
@@ -90,12 +90,12 @@ A "meta component" for rendering dynamic components or elements.
 
   Registration is not required if you pass the component itself to `is` rather than its name, e.g. in `<script setup>`.
 
-  If `v-model` is used on a `<component>` tag, the template compiler will expand it to a `modelValue` prop and `update:modelValue` event listener, much like it would for any other component. However, this won't be compatible with native HTML elements, such as `<input>` or `<select>`. As a result, using `v-model` with a dynamically created native element won't work: 
+  If `v-model` is used on a `<component>` tag, the template compiler will expand it to a `modelValue` prop and `update:modelValue` event listener, much like it would for any other component. However, this won't be compatible with native HTML elements, such as `<input>` or `<select>`. As a result, using `v-model` with a dynamically created native element won't work:
 
   ```vue
   <script setup>
   import { ref } from 'vue'
-  
+
   const tag = ref('input')
   const username = ref('')
   </script>
@@ -138,7 +138,7 @@ Denotes slot content outlets in templates.
 
   `<slot>` elements in Vue templates are compiled into JavaScript, so they are not to be confused with [native `<slot>` elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
 
-- **See also:** [Component - Slots](/guide/components/slots.html)
+- **See also:** [Component - Slots](/guide/components/slots)
 
 ## `<template>` {#template}
 
@@ -151,14 +151,14 @@ The `<template>` tag is used as a placeholder when we want to use a built-in dir
   - `v-if`, `v-else-if`, or `v-else`
   - `v-for`
   - `v-slot`
-  
+
   If none of those directives are present then it will be rendered as a [native `<template>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) instead.
 
   A `<template>` with a `v-for` can also have a [`key` attribute](/api/built-in-special-attributes.html#key). All other attributes and directives will be discarded, as they aren't meaningful without a corresponding element.
 
-  Single-file components use a [top-level `<template>` tag](/api/sfc-spec.html#language-blocks) to wrap the entire template. That usage is separate from the use of `<template>` described above. That top-level tag is not part of the template itself and doesn't support template syntax, such as directives.  
+  Single-file components use a [top-level `<template>` tag](/api/sfc-spec.html#language-blocks) to wrap the entire template. That usage is separate from the use of `<template>` described above. That top-level tag is not part of the template itself and doesn't support template syntax, such as directives.
 
 - **See also:**
-  - [Guide - `v-if` on `<template>`](/guide/essentials/conditional.html#v-if-on-template) 
-  - [Guide - `v-for` on `<template>`](/guide/essentials/list.html#v-for-on-template) 
-  - [Guide - Named slots](/guide/components/slots.html#named-slots) 
+  - [Guide - `v-if` on `<template>`](/guide/essentials/conditional.html#v-if-on-template)
+  - [Guide - `v-for` on `<template>`](/guide/essentials/list.html#v-for-on-template)
+  - [Guide - Named slots](/guide/components/slots.html#named-slots)

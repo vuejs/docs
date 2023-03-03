@@ -58,8 +58,8 @@ A function that programmatically returns the virtual DOM tree of the component.
   Pre-compiled templates, for example those in Single-File Components, are compiled into the `render` option at build time. If both `render` and `template` are present in a component, `render` will take higher priority.
 
 - **See also:**
-  - [Rendering Mechanism](/guide/extras/rendering-mechanism.html)
-  - [Render Functions](/guide/extras/render-function.html)
+  - [Rendering Mechanism](/guide/extras/rendering-mechanism)
+  - [Render Functions](/guide/extras/render-function)
 
 ## compilerOptions {#compileroptions}
 

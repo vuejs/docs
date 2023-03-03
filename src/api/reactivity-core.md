@@ -3,8 +3,8 @@
 :::info See also
 To better understand the Reactivity APIs, it is recommended to read the following chapters in the guide:
 
-- [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) (with the API preference set to Composition API)
-- [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals) (with the API preference set to Composition API)
+- [Reactivity in Depth](/guide/extras/reactivity-in-depth)
   :::
 
 ## ref() {#ref}
@@ -109,7 +109,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   ```
 
 - **See also:**
-  - [Guide - Computed Properties](/guide/essentials/computed.html)
+  - [Guide - Computed Properties](/guide/essentials/computed)
   - [Guide - Computed Debugging](/guide/extras/reactivity-in-depth.html#computed-debugging)
   - [Guide - Typing `computed()`](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
 
@@ -187,7 +187,7 @@ Returns a reactive proxy of the object.
   ```
 
 - **See also:**
-  - [Guide - Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html)
+  - [Guide - Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals)
   - [Guide - Typing `reactive()`](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
 
 ## readonly() {#readonly}
@@ -483,5 +483,5 @@ Watches one or more reactive data sources and invokes a callback function when t
 
 - **See also**:
 
-  - [Guide - Watchers](/guide/essentials/watchers.html)
+  - [Guide - Watchers](/guide/essentials/watchers)
   - [Guide - Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging)

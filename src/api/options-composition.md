@@ -52,7 +52,7 @@ Provide values that can be injected by descendant components.
 
   Note in the above example, the provided `msg` will NOT be reactive. See [Working with Reactivity](/guide/components/provide-inject.html#working-with-reactivity) for more details.
 
-- **See also:** [Provide / Inject](/guide/components/provide-inject.html)
+- **See also:** [Provide / Inject](/guide/components/provide-inject)
 
 ## inject {#inject}
 
@@ -167,7 +167,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-- **See also:** [Provide / Inject](/guide/components/provide-inject.html)
+- **See also:** [Provide / Inject](/guide/components/provide-inject)
 
 ## mixins {#mixins}
 
@@ -188,7 +188,7 @@ An array of option objects to be mixed into the current component.
   Mixin hooks are called in the order they are provided, and called before the component's own hooks.
 
   :::warning No Longer Recommended
-  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composition API](/guide/reusability/composables.html) is now the preferred approach for code reuse between components.
+  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composition API](/guide/reusability/composables) is now the preferred approach for code reuse between components.
   :::
 
 - **Example:**

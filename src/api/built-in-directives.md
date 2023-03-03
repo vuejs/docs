@@ -165,7 +165,7 @@ Render the element or template block multiple times based on the source data.
   `v-for` can also work on values that implement the [Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), including native `Map` and `Set`.
 
 - **See also:**
-  - [List Rendering](/guide/essentials/list.html)
+  - [List Rendering](/guide/essentials/list)
 
 ## v-on {#v-on}
 
@@ -250,7 +250,7 @@ Attach an event listener to the element.
   ```
 
 - **See also:**
-  - [Event Handling](/guide/essentials/event-handling.html)
+  - [Event Handling](/guide/essentials/event-handling)
   - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-events)
 
 ## v-bind {#v-bind}
@@ -337,7 +337,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   `.camel` is not needed if you are using string templates, or pre-compiling the template with a build step.
 
 - **See also:**
-  - [Class and Style Bindings](/guide/essentials/class-and-style.html)
+  - [Class and Style Bindings](/guide/essentials/class-and-style)
   - [Components - Prop Passing Details](/guide/components/props.html#prop-passing-details)
 
 ## v-model {#v-model}
@@ -361,8 +361,8 @@ Create a two-way binding on a form input element or a component.
 
 - **See also:**
 
-  - [Form Input Bindings](/guide/essentials/forms.html)
-  - [Component Events - Usage with `v-model`](/guide/components/v-model.html)
+  - [Form Input Bindings](/guide/essentials/forms)
+  - [Component Events - Usage with `v-model`](/guide/components/v-model)
 
 ## v-slot {#v-slot}
 
@@ -413,7 +413,7 @@ Denote named slots or scoped slots that expect to receive props.
   ```
 
 - **See also:**
-  - [Components - Slots](/guide/components/slots.html)
+  - [Components - Slots](/guide/components/slots)
 
 ## v-pre {#v-pre}
 

@@ -35,7 +35,7 @@ Creates an application instance.
   const app = createApp(App)
   ```
 
-- **See also:** [Guide - Creating a Vue Application](/guide/essentials/application.html)
+- **See also:** [Guide - Creating a Vue Application](/guide/essentials/application)
 
 ## createSSRApp() {#createssrapp}
 
@@ -145,7 +145,7 @@ Provide a value that can be injected in all descendant components within the app
   </div>
 
 - **See also:**
-  - [Provide / Inject](/guide/components/provide-inject.html)
+  - [Provide / Inject](/guide/components/provide-inject)
   - [App-level Provide](/guide/components/provide-inject.html#app-level-provide)
 
 ## app.component() {#app-component}
@@ -177,7 +177,7 @@ Registers a global component if passing both a name string and a component defin
   const MyComponent = app.component('my-component')
   ```
 
-- **See also:** [Component Registration](/guide/components/registration.html)
+- **See also:** [Component Registration](/guide/components/registration)
 
 ## app.directive() {#app-directive}
 
@@ -215,11 +215,11 @@ Registers a global custom directive if passing both a name string and a directiv
   const myDirective = app.directive('my-directive')
   ```
 
-- **See also:** [Custom Directives](/guide/reusability/custom-directives.html)
+- **See also:** [Custom Directives](/guide/reusability/custom-directives)
 
 ## app.use() {#app-use}
 
-Installs a [plugin](/guide/reusability/plugins.html).
+Installs a [plugin](/guide/reusability/plugins).
 
 - **Type**
 
@@ -250,7 +250,7 @@ Installs a [plugin](/guide/reusability/plugins.html).
   app.use(MyPlugin)
   ```
 
-- **See also:** [Plugins](/guide/reusability/plugins.html)
+- **See also:** [Plugins](/guide/reusability/plugins)
 
 ## app.mixin() {#app-mixin}
 
@@ -259,7 +259,7 @@ Applies a global mixin (scoped to the application). A global mixin applies its i
 :::warning Not Recommended
 Mixins are supported in Vue 3 mainly for backwards compatibility, due to their widespread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
 
-For logic reuse, prefer [Composables](/guide/reusability/composables.html) instead.
+For logic reuse, prefer [Composables](/guide/reusability/composables) instead.
 :::
 
 - **Type**
@@ -272,7 +272,7 @@ For logic reuse, prefer [Composables](/guide/reusability/composables.html) inste
 
 ## app.version {#app-version}
 
-Provides the version of Vue that the application was created with. This is useful inside [plugins](/guide/reusability/plugins.html), where you might need conditional logic based on different Vue versions.
+Provides the version of Vue that the application was created with. This is useful inside [plugins](/guide/reusability/plugins), where you might need conditional logic based on different Vue versions.
 
 - **Type**
 
@@ -391,7 +391,7 @@ Set this to `true` to enable component init, compile, render and patch performan
 
 - **Type**: `boolean`
 
-- **See also:** [Guide - Performance](/guide/best-practices/performance.html)
+- **See also:** [Guide - Performance](/guide/best-practices/performance)
 
 ## app.config.compilerOptions {#app-config-compileroptions}
 
@@ -426,7 +426,7 @@ Specifies a check method to recognize native custom elements.
   }
   ```
 
-- **See also:** [Vue and Web Components](/guide/extras/web-components.html)
+- **See also:** [Vue and Web Components](/guide/extras/web-components)
 
 ### app.config.compilerOptions.whitespace {#app-config-compileroptions-whitespace}
 
@@ -522,7 +522,7 @@ An object that can be used to register global properties that can be accessed on
     }
   }
   ```
-  
+
 - **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}

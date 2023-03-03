@@ -43,7 +43,7 @@
 
   Most other SSR APIs on this page also optionally accept a context object. The context object can be accessed in component code via the [useSSRContext](#usessrcontext) helper.
 
-- **See also:** [Guide - Server-Side Rendering](/guide/scaling-up/ssr.html)
+- **See also:** [Guide - Server-Side Rendering](/guide/scaling-up/ssr)
 
 ## renderToNodeStream() {#rendertonodestream}
 

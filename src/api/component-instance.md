@@ -55,7 +55,7 @@ The root DOM node that the component instance is managing.
   - For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM (a text node, or a comment node in SSR hydration mode).
 
   :::tip
-  For consistency, it is recommended to use [template refs](/guide/essentials/template-refs.html) for direct access to elements instead of relying on `$el`.
+  For consistency, it is recommended to use [template refs](/guide/essentials/template-refs) for direct access to elements instead of relying on `$el`.
   :::
 
 ## $options {#options}
@@ -117,7 +117,7 @@ The root component instance of the current component tree. If the current instan
 
 ## $slots {#slots}
 
-An object representing the [slots](/guide/components/slots.html) passed by the parent component.
+An object representing the [slots](/guide/components/slots) passed by the parent component.
 
 - **Type**
 
@@ -131,7 +131,7 @@ An object representing the [slots](/guide/components/slots.html) passed by the p
 
 - **Details**
 
-  Typically used when manually authoring [render functions](/guide/extras/render-function.html), but can also be used to detect whether a slot is present.
+  Typically used when manually authoring [render functions](/guide/extras/render-function), but can also be used to detect whether a slot is present.
 
   Each slot is exposed on `this.$slots` as a function that returns an array of vnodes under the key corresponding to that slot's name. The default slot is exposed as `this.$slots.default`.
 
@@ -141,7 +141,7 @@ An object representing the [slots](/guide/components/slots.html) passed by the p
 
 ## $refs {#refs}
 
-An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs.html).
+An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs).
 
 - **Type**
 
@@ -153,7 +153,7 @@ An object of DOM elements and component instances, registered via [template refs
 
 - **See also:**
 
-  - [Template refs](/guide/essentials/template-refs.html)
+  - [Template refs](/guide/essentials/template-refs)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
 
 ## $attrs {#attrs}
@@ -170,13 +170,13 @@ An object that contains the component's fallthrough attributes.
 
 - **Details**
 
-  [Fallthrough Attributes](/guide/components/attrs.html) are attributes and event handlers passed by the parent component, but not declared as a prop or an emitted event by the child.
+  [Fallthrough Attributes](/guide/components/attrs) are attributes and event handlers passed by the parent component, but not declared as a prop or an emitted event by the child.
 
   By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc.html#inheritattrs) option.
 
 - **See also:**
 
-  - [Fallthrough Attributes](/guide/components/attrs.html)
+  - [Fallthrough Attributes](/guide/components/attrs)
 
 ## $watch() {#watch}
 
@@ -259,7 +259,7 @@ Imperative API for creating watchers.
 
 - **See also:**
   - [Options - `watch`](/api/options-state.html#watch)
-  - [Guide - Watchers](/guide/essentials/watchers.html)
+  - [Guide - Watchers](/guide/essentials/watchers)
 
 ## $emit() {#emit}
 
@@ -288,7 +288,7 @@ Trigger a custom event on the current instance. Any additional arguments will be
 
 - **See also:**
 
-  - [Component - Events](/guide/components/events.html)
+  - [Component - Events](/guide/components/events)
   - [`emits` option](./options-state.html#emits)
 
 ## $forceUpdate() {#forceupdate}

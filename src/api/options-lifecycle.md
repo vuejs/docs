@@ -1,7 +1,7 @@
 # Options: Lifecycle {#options-lifecycle}
 
 :::info See also
-For shared usage of lifecycle hooks, see [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html)
+For shared usage of lifecycle hooks, see [Guide - Lifecycle Hooks](/guide/essentials/lifecycle)
 :::
 
 ## beforeCreate {#beforecreate}
@@ -76,7 +76,7 @@ Called after the component has been mounted.
 
   - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
 
-  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr.html).
+  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr).
 
   **This hook is not called during server-side rendering.**
 
@@ -230,7 +230,7 @@ Called when a reactive dependency has been tracked by the component's render eff
   }
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
 
 ## renderTriggered <sup class="vt-badge dev-only" /> {#rendertriggered}
 
@@ -256,7 +256,7 @@ Called when a reactive dependency triggers the component's render effect to be r
   }
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
 
 ## activated {#activated}
 
@@ -333,4 +333,4 @@ Async function to be resolved before the component instance is to be rendered on
   }
   ```
 
-- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr.html)
+- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr)

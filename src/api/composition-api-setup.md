@@ -8,10 +8,10 @@ The `setup()` hook serves as the entry point for Composition API usage in compon
 2. Integrating with Composition-API-based code in an Options API component.
 
 :::info Note
-If you are using Composition API with Single-File Components, [`<script setup>`](/api/sfc-script-setup.html) is strongly recommended for a more succinct and ergonomic syntax.
+If you are using Composition API with Single-File Components, [`<script setup>`](/api/sfc-script-setup) is strongly recommended for a more succinct and ergonomic syntax.
 :::
 
-We can declare reactive state using [Reactivity APIs](./reactivity-core.html) and expose them to the template by returning an object from `setup()`. The properties on the returned object will also be made available on the component instance (if other options are used):
+We can declare reactive state using [Reactivity APIs](./reactivity-core) and expose them to the template by returning an object from `setup()`. The properties on the returned object will also be made available on the component instance (if other options are used):
 
 ```vue
 <script>
@@ -42,7 +42,7 @@ export default {
 
 `setup()` itself does not have access to the component instance - `this` will have a value of `undefined` inside `setup()`. You can access Composition-API-exposed values from Options API, but not the other way around.
 
-`setup()` should return an object _synchronously_. The only case when `async setup()` can be used is when the component is a descendant of a [Suspense](../guide/built-ins/suspense.html) component.
+`setup()` should return an object _synchronously_. The only case when `async setup()` can be used is when the component is a descendant of a [Suspense](../guide/built-ins/suspense) component.
 
 ## Accessing Props {#accessing-props}
 
@@ -134,7 +134,7 @@ export default {
 
 ## Usage with Render Functions {#usage-with-render-functions}
 
-`setup` can also return a [render function](/guide/extras/render-function.html) which can directly make use of the reactive state declared in the same scope:
+`setup` can also return a [render function](/guide/extras/render-function) which can directly make use of the reactive state declared in the same scope:
 
 ```js{6}
 import { h, ref } from 'vue'

@@ -45,7 +45,7 @@ A function that returns the initial reactive state for the component instance.
   data: (vm) => ({ a: vm.myProp })
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
 
 ## props {#props}
 
@@ -126,7 +126,7 @@ Declare the props of a component.
   ```
 
 - **See also:**
-  - [Guide - Props](/guide/components/props.html)
+  - [Guide - Props](/guide/components/props)
   - [Guide - Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 ## computed {#computed}
@@ -208,7 +208,7 @@ Declare computed properties to be exposed on the component instance.
   ```
 
 - **See also:**
-  - [Guide - Computed Properties](/guide/essentials/computed.html)
+  - [Guide - Computed Properties](/guide/essentials/computed)
   - [Guide - Typing Computed Properties](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
 
 ## methods {#methods}
@@ -250,7 +250,7 @@ Declare methods to be mixed into the component instance.
   }
   ```
 
-- **See also:** [Event Handling](/guide/essentials/event-handling.html)
+- **See also:** [Event Handling](/guide/essentials/event-handling)
 
 ## watch {#watch}
 
@@ -368,7 +368,7 @@ Declare watch callbacks to be invoked on data change.
   }
   ```
 
-- **See also:** [Watchers](/guide/essentials/watchers.html)
+- **See also:** [Watchers](/guide/essentials/watchers)
 
 ## emits {#emits}
 
@@ -397,7 +397,7 @@ Declare the custom events emitted by the component.
 
   The validation function will receive the additional arguments passed to the component's `$emit` call. For example, if `this.$emit('foo', 1)` is called, the corresponding validator for `foo` will receive the argument `1`. The validator function should return a boolean to indicate whether the event arguments are valid.
 
-  Note that the `emits` option affects which event listeners are considered component event listeners, rather than native DOM event listeners. The listeners for declared events will be removed from the component's `$attrs` object, so they will not be passed through to the component's root element. See [Fallthrough Attributes](/guide/components/attrs.html) for more details.
+  Note that the `emits` option affects which event listeners are considered component event listeners, rather than native DOM event listeners. The listeners for declared events will be removed from the component's `$attrs` object, so they will not be passed through to the component's root element. See [Fallthrough Attributes](/guide/components/attrs) for more details.
 
 - **Example**
 
@@ -434,7 +434,7 @@ Declare the custom events emitted by the component.
   ```
 
 - **See also:**
-  - [Guide - Fallthrough Attributes](/guide/components/attrs.html)
+  - [Guide - Fallthrough Attributes](/guide/components/attrs)
   - [Guide - Typing Component Emits](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 ## expose {#expose}
