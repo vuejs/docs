@@ -36,7 +36,7 @@ Called after the instance has finished processing all state-related options.
 
 - **Details**
 
-  When this hooks is called, the following have been set up: reactive data, computed properties, methods, and watchers. However, the mounting phase has not been started, and the `$el` property will not be available yet.
+  When this hook is called, the following have been set up: reactive data, computed properties, methods, and watchers. However, the mounting phase has not been started, and the `$el` property will not be available yet.
 
 ## beforeMount {#beforemount}
 
