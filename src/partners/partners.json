@@ -53,6 +53,7 @@
   {
     "name": "Monterail",
     "logo": "monterail.png",
+    "flipLogo": true,
     "intro": "Monterail is a full-service software development company from Poland. Since 2010, we have been building innovative software for start-ups, SMBs, and enterprises from various industries globally. Our Vue experts, using battle-tested technologies and frameworks, have delivered more than 30 Vue-based projects.",
     "description": [
       "At a full-service consultancy like Monterail, you get every competence under one roof. From concept, to design, and product release. Depending on the product lifecycle stage, we guide clients through building applications from scratch or scaling them quickly.",
@@ -103,6 +104,7 @@
   {
     "name": "DevSquad",
     "logo": "devsquad.png",
+    "flipLogo": true,
     "intro": "You can think of DevSquad as the Navy SEALs of software development. Our team members have unique and diverse skills, and this cross-functionality lets us successfully complete any mission.",
     "description": [
       "All of our clients get their own dedicated Squad. Even if you need 30 developers, everyone working on your project is split into small agile teams of 2-6 people. A battle-tested small team can move quicker and with more precision than larger teams, just like the Navy SEALs.",
@@ -257,5 +259,33 @@
     },
     "platinum": false,
     "contact": "hello@epicmax.co"
+  },
+  {
+    "name": "HeroDevs",
+    "logo": "herodevs.png",
+    "flipLogo": true,
+    "hero": "herodevs-hero.png",
+    "intro": "The end-of-life of open source software versions creates massive challenges for companies. HeroDevs offers two solutions: (1) We provide never-ending support for sunsetted open source software, and (2)  we provide consulting and engineering to help companies migrate to in-support open source software.",
+    "description": [
+      "When open source software is reaching end-of-life, you’re faced with a difficult decision: do you spend months or years of dev time migrating your code, or do you risk being non-compliant with industry regulations and your company’s SLAs?",
+      "At HeroDevs we pride ourselves in being the experts that help you navigate end-of-life events in your technology stack. Companies offering enterprise support for open source libraries stop at the end of life. That’s where our value prop begins with our Never-Ending Support (NES) products. Our team has not only provided over 450 organizations with supported, secured versions of open source software beyond their end of life, but has also helped dozens of companies migrate their codebase to a modern, supported open source stack.",
+      "With all NES Products we offer: continuous source code scanning for vulnerabilities, 5-minute installation without leaving your network, scanning for possible IP infringement in your code, and checks for platform, browser and 3rd-party library compatibility.",
+      "Need to migrate? HeroDevs can help with that too. Hire our team of experts to help you navigate the challenges that come with migrating your code.",
+      "Want to learn more? Find us at herodevs.com or send us a note at hello@herodevs.com."
+    ],
+    "proficiencies": [
+      "Vue",
+      "Angular",
+      "Migration",
+      "EOL Support"
+    ],
+    "region": ["North America"],
+    "website": {
+      "text": "herodevs.com",
+      "url": "https://www.herodevs.com/support/vue"
+    },
+    "platinum": true,
+    "contact": "hello@herodevs.com",
+    "hiring": "https://www.herodevs.com/job-board"
   }
 ]
