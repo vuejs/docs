@@ -81,7 +81,7 @@ The primary benefit of custom elements is that they can be used with any framewo
 
 ### defineCustomElement {#definecustomelement}
 
-Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElement`](/api/general#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/general.html#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
+Vue supports creating custom elements using exactly the same Vue component APIs via the [`defineCustomElement`](/api/general#definecustomelement) method. The method accepts the same argument as [`defineComponent`](/api/general#definecomponent), but instead returns a custom element constructor that extends `HTMLElement`:
 
 ```vue-html
 <my-vue-element></my-vue-element>
@@ -169,7 +169,7 @@ Inside the component, slots can be rendered using the `<slot/>` element as usual
 
 #### Provide / Inject {#provide-inject}
 
-The [Provide / Inject API](/guide/components/provide-inject#provide-inject) and its [Composition API equivalent](/api/composition-api-dependency-injection.html#provide) also work between Vue-defined custom elements. However, note that this works **only between custom elements**. i.e. a Vue-defined custom element won't be able to inject properties provided by a non-custom-element Vue component.
+The [Provide / Inject API](/guide/components/provide-inject#provide-inject) and its [Composition API equivalent](/api/composition-api-dependency-injection#provide) also work between Vue-defined custom elements. However, note that this works **only between custom elements**. i.e. a Vue-defined custom element won't be able to inject properties provided by a non-custom-element Vue component.
 
 ### SFC as Custom Element {#sfc-as-custom-element}
 

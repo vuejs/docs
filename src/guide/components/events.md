@@ -119,7 +119,7 @@ All extra arguments passed to `$emit()` after the event name will be forwarded t
 
 ## Declaring Emitted Events {#declaring-emitted-events}
 
-A component can explicitly declare the events it will emit using the <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup#defineprops-defineemits) macro</span><span class="options-api">[`emits`](/api/options-state.html#emits) option</span>:
+A component can explicitly declare the events it will emit using the <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup#defineprops-defineemits) macro</span><span class="options-api">[`emits`](/api/options-state#emits) option</span>:
 
 <div class="composition-api">
 

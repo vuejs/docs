@@ -93,7 +93,7 @@ When a component instance is removed from the DOM but is part of a component tre
 
 <div class="composition-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`onActivated()`](/api/composition-api-lifecycle#onactivated) and [`onDeactivated()`](/api/composition-api-lifecycle.html#ondeactivated):
+A kept-alive component can register lifecycle hooks for these two states using [`onActivated()`](/api/composition-api-lifecycle#onactivated) and [`onDeactivated()`](/api/composition-api-lifecycle#ondeactivated):
 
 ```vue
 <script setup>
@@ -114,7 +114,7 @@ onDeactivated(() => {
 </div>
 <div class="options-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`activated`](/api/options-lifecycle#activated) and [`deactivated`](/api/options-lifecycle.html#deactivated) hooks:
+A kept-alive component can register lifecycle hooks for these two states using [`activated`](/api/options-lifecycle#activated) and [`deactivated`](/api/options-lifecycle#deactivated) hooks:
 
 ```js
 export default {

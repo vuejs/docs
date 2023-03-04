@@ -261,7 +261,7 @@ Modifiers are special postfixes denoted by a dot, which indicate that a directiv
 <form @submit.prevent="onSubmit">...</form>
 ```
 
-You'll see other examples of modifiers later, [for `v-on`](./event-handling#event-modifiers) and [for `v-model`](./forms.html#modifiers), when we explore those features.
+You'll see other examples of modifiers later, [for `v-on`](./event-handling#event-modifiers) and [for `v-model`](./forms#modifiers), when we explore those features.
 
 And finally, here's the full directive syntax visualized:
 
