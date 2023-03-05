@@ -10,11 +10,11 @@ const vFocus = {
 
 ## Introduction {#introduction}
 
-In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives.
+কোরে পাঠানো নির্দেশাবলীর ডিফল্ট সেট ছাড়াও (যেমন `v-model` বা `v-show`), Vue আপনাকে আপনার নিজস্ব কাস্টম নির্দেশাবলী নিবন্ধন করার অনুমতি দেয়।
 
-We have introduced two forms of code reuse in Vue: [components](/guide/essentials/component-basics.html) and [composables](./composables). Components are the main building blocks, while composables are focused on reusing stateful logic. Custom directives, on the other hand, are mainly intended for reusing logic that involves low-level DOM access on plain elements.
+আমরা Vue-তে কোড পুনঃব্যবহারের দুটি ফর্ম চালু করেছি: [components](/guide/essentials/component-basics.html) এবং [composables](./composables)। উপাদানগুলি হল প্রধান বিল্ডিং ব্লক, যখন কম্পোজেবলগুলি রাষ্ট্রীয় যুক্তি পুনঃব্যবহারের উপর দৃষ্টি নিবদ্ধ করে। অন্যদিকে, কাস্টম নির্দেশাবলী প্রধানত যুক্তির পুনঃব্যবহারের উদ্দেশ্যে তৈরি করা হয়েছে যা প্লেইন উপাদানগুলিতে নিম্ন-স্তরের DOM অ্যাক্সেস জড়িত।
 
-A custom directive is defined as an object containing lifecycle hooks similar to those of a component. The hooks receive the element the directive is bound to. Here is an example of a directive that focuses an input when the element is inserted into the DOM by Vue:
+একটি কাস্টম নির্দেশিকাকে একটি বস্তু হিসাবে সংজ্ঞায়িত করা হয় যাতে একটি উপাদানের অনুরূপ জীবনচক্র হুক থাকে। হুকগুলি সেই উপাদানটি গ্রহণ করে যা নির্দেশে আবদ্ধ। এখানে একটি নির্দেশের একটি উদাহরণ যা একটি ইনপুট ফোকাস করে যখন উপাদানটি Vue দ্বারা DOM-এ ঢোকানো হয়:
 
 <div class="composition-api">
 
@@ -58,13 +58,13 @@ export default {
   <input v-focus placeholder="This should be focused" />
 </div>
 
-Assuming you haven't clicked elsewhere on the page, the input above should be auto-focused. This directive is more useful than the `autofocus` attribute because it works not just on page load - it also works when the element is dynamically inserted by Vue.
+ধরে নিচ্ছি আপনি পৃষ্ঠার অন্য কোথাও ক্লিক করেননি, উপরের ইনপুটটি স্বয়ংক্রিয়ভাবে ফোকাস করা উচিত। এই নির্দেশিকাটি `autofocus` অ্যাট্রিবিউটের চেয়ে বেশি কার্যকর কারণ এটি শুধুমাত্র পৃষ্ঠা লোডের ক্ষেত্রে কাজ করে না - এটি Vue দ্বারা উপাদানটিকে গতিশীলভাবে সন্নিবেশ করা হলে এটিও কাজ করে।
 
 <div class="composition-api">
 
-In `<script setup>`, any camelCase variable that starts with the `v` prefix can be used as a custom directive. In the example above, `vFocus` can be used in the template as `v-focus`.
+`<script setup>`-এ, `v` prefix দিয়ে শুরু হওয়া যে কোনো camelCase variable একটি কাস্টম নির্দেশিকা হিসেবে ব্যবহার করা যেতে পারে। উপরের উদাহরণে, `vFocus` টেমপ্লেটে `v-focus` হিসেবে ব্যবহার করা যেতে পারে।
 
-If not using `<script setup>`, custom directives can be registered using the `directives` option:
+`<script setup>` ব্যবহার না করলে, কাস্টম নির্দেশাবলী `directives` বিকল্প ব্যবহার করে নিবন্ধিত করা যেতে পারে:
 
 ```js
 export default {
@@ -84,11 +84,11 @@ export default {
 
 <div class="options-api">
 
-Similar to components, custom directives must be registered so that they can be used in templates. In the example above, we are using local registration via the `directives` option.
+উপাদানগুলির অনুরূপ, কাস্টম নির্দেশাবলী অবশ্যই নিবন্ধিত হতে হবে যাতে সেগুলি টেমপ্লেটে ব্যবহার করা যায়। উপরের উদাহরণে, আমরা `directives` বিকল্পের মাধ্যমে স্থানীয় নিবন্ধন ব্যবহার করছি।
 
 </div>
 
-It is also common to globally register custom directives at the app level:
+অ্যাপ স্তরে বিশ্বব্যাপী কাস্টম নির্দেশাবলী নিবন্ধন করাও সাধারণ:
 
 ```js
 const app = createApp({})
@@ -100,12 +100,12 @@ app.directive('focus', {
 ```
 
 :::tip
-Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation. Prefer declarative templating using built-in directives such as `v-bind` when possible because they are more efficient and server-rendering friendly.
+কাস্টম নির্দেশাবলী শুধুমাত্র তখনই ব্যবহার করা উচিত যখন কাঙ্ক্ষিত কার্যকারিতা শুধুমাত্র সরাসরি DOM ম্যানিপুলেশনের মাধ্যমে অর্জন করা যায়। বিল্ট-ইন নির্দেশাবলী ব্যবহার করে ঘোষণামূলক টেমপ্লেটিং পছন্দ করুন যেমন সম্ভব হলে `v-bind` কারণ সেগুলি আরও দক্ষ এবং সার্ভার-রেন্ডারিং বন্ধুত্বপূর্ণ।
 :::
 
 ## Directive Hooks {#directive-hooks}
 
-A directive definition object can provide several hook functions (all optional):
+একটি নির্দেশমূলক সংজ্ঞা বস্তু বিভিন্ন হুক ফাংশন প্রদান করতে পারে (সমস্ত ঐচ্ছিক):
 
 ```js
 const myDirective = {
@@ -133,29 +133,29 @@ const myDirective = {
 
 ### Hook Arguments {#hook-arguments}
 
-Directive hooks are passed these arguments:
+নির্দেশিক হুক এই আর্গুমেন্ট পাস করা হয়:
 
-- `el`: the element the directive is bound to. This can be used to directly manipulate the DOM.
+- `el`: নির্দেশিকাটি যে উপাদানটির সাথে আবদ্ধ। এটি সরাসরি DOM ম্যানিপুলেট করতে ব্যবহার করা যেতে পারে।
 
-- `binding`: an object containing the following properties.
+- `binding`: নিম্নলিখিত বৈশিষ্ট্য ধারণকারী একটি বস্তু।
 
-  - `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-  - `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
-  - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-  - `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-  - `instance`: The instance of the component where the directive is used.
-  - `dir`: the directive definition object.
+  - `value`: নির্দেশিকায় পাঠানো মান। যেমন `v-my-directive="1 + 1"`-এ, মান হবে `2`।
+  - `oldValue`: পূর্ববর্তী মান, শুধুমাত্র `beforeUpdate` এবং `updated`-এ উপলব্ধ। মান পরিবর্তিত হয়েছে কিনা তা উপলব্ধ।
+  - `arg`: আর্গুমেন্ট নির্দেশে চলে গেছে, যদি থাকে। যেমন `v-my-directive:foo`-এ, arg হবে `"foo"`।
+  - `modifiers`: কোনো বস্তু যাতে মডিফায়ার থাকে, যদি থাকে। যেমন `v-my-directive.foo.bar`-এ, মডিফায়ার অবজেক্ট হবে `{ foo: true, bar: true }`।
+  - `instance`: উপাদানের উদাহরণ যেখানে নির্দেশিকা ব্যবহার করা হয়।
+  - `dir`: নির্দেশক সংজ্ঞা বস্তু।
 
-- `vnode`: the underlying VNode representing the bound element.
-- `prevNode`: the VNode representing the bound element from the previous render. Only available in the `beforeUpdate` and `updated` hooks.
+- `vnode`: অন্তর্নিহিত VNode আবদ্ধ উপাদানের প্রতিনিধিত্ব করে।
+- `prevNode`: VNode পূর্ববর্তী রেন্ডার থেকে আবদ্ধ উপাদানের প্রতিনিধিত্ব করে। শুধুমাত্র `beforeUpdate` এবং `updated` হুকগুলিতে উপলব্ধ।
 
-As an example, consider the following directive usage:
+একটি উদাহরণ হিসাবে, নিম্নলিখিত নির্দেশিক ব্যবহার বিবেচনা করুন:
 
 ```vue-html
 <div v-example:foo.bar="baz">
 ```
 
-The `binding` argument would be an object in the shape of:
+`binding` আর্গুমেন্ট এর আকারে একটি বস্তু হবে:
 
 ```js
 {
@@ -166,21 +166,21 @@ The `binding` argument would be an object in the shape of:
 }
 ```
 
-Similar to built-in directives, custom directive arguments can be dynamic. For example:
+অন্তর্নির্মিত নির্দেশের অনুরূপ, কাস্টম নির্দেশিক আর্গুমেন্টগুলি গতিশীল হতে পারে। উদাহরণ স্বরূপ:
 
 ```vue-html
 <div v-example:[arg]="value"></div>
 ```
 
-Here the directive argument will be reactively updated based on `arg` property in our component state.
+এখানে নির্দেশমূলক আর্গুমেন্ট আমাদের কম্পোনেন্ট স্টেটে `arg` সম্পত্তির উপর ভিত্তি করে প্রতিক্রিয়াশীলভাবে আপডেট করা হবে।
 
 :::tip Note
-Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+'el' ছাড়াও, আপনার এই আর্গুমেন্টগুলিকে শুধুমাত্র পঠনযোগ্য হিসাবে বিবেচনা করা উচিত এবং সেগুলিকে কখনও সংশোধন করবেন না৷ আপনি যদি হুক জুড়ে তথ্য ভাগ করতে চান তবে উপাদানের [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) এর মাধ্যমে এটি করার পরামর্শ দেওয়া হয়।
 :::
 
 ## Function Shorthand {#function-shorthand}
 
-It's common for a custom directive to have the same behavior for `mounted` and `updated`, with no need for the other hooks. In such cases we can define the directive as a function:
+একটি কাস্টম নির্দেশের জন্য `mounted` এবং `updated`-এর জন্য একই আচরণ করা সাধারণ, অন্য হুকের প্রয়োজন নেই। এই ধরনের ক্ষেত্রে আমরা নির্দেশকে একটি ফাংশন হিসাবে সংজ্ঞায়িত করতে পারি:
 
 ```vue-html
 <div v-color="color"></div>
@@ -195,7 +195,7 @@ app.directive('color', (el, binding) => {
 
 ## Object Literals {#object-literals}
 
-If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
+আপনার নির্দেশের একাধিক মান প্রয়োজন হলে, আপনি জাভাস্ক্রিপ্ট অবজেক্ট আক্ষরিকভাবেও পাস করতে পারেন। মনে রাখবেন, নির্দেশাবলী যেকোনো বৈধ জাভাস্ক্রিপ্ট এক্সপ্রেশন নিতে পারে।
 
 ```vue-html
 <div v-demo="{ color: 'white', text: 'hello!' }"></div>
@@ -210,7 +210,7 @@ app.directive('demo', (el, binding) => {
 
 ## Usage on Components {#usage-on-components}
 
-When used on components, custom directives will always apply to a component's root node, similar to [Fallthrough Attributes](/guide/components/attrs.html).
+উপাদানগুলিতে ব্যবহার করা হলে, কাস্টম নির্দেশাবলী সর্বদা একটি উপাদানের রুট নোডে প্রযোজ্য হবে, [Fallthrough Attributes](/guide/components/attrs.html) এর মতো।
 
 ```vue-html
 <MyComponent v-demo="test" />
@@ -224,4 +224,4 @@ When used on components, custom directives will always apply to a component's ro
 </div>
 ```
 
-Note that components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be thrown. Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`. In general, it is **not** recommended to use custom directives on components.
+মনে রাখবেন যে উপাদানগুলির সম্ভাব্য একাধিক রুট নোড থাকতে পারে। মাল্টি-রুট উপাদানে প্রয়োগ করা হলে, একটি নির্দেশ উপেক্ষা করা হবে এবং একটি সতর্কতা নিক্ষেপ করা হবে। অ্যাট্রিবিউটের বিপরীতে, নির্দেশাবলী `v-bind="$attrs"` সহ একটি ভিন্ন উপাদানে পাঠানো যাবে না। সাধারণভাবে, উপাদানগুলিতে কাস্টম নির্দেশাবলী ব্যবহার করার জন্য **not** সুপারিশ করা হয়।
