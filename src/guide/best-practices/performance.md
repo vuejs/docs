@@ -6,68 +6,68 @@ outline: deep
 
 ## Overview {#overview}
 
-Vue is designed to be performant for most common use cases without much need for manual optimizations. However, there are always challenging scenarios where extra fine-tuning is needed. In this section, we will discuss what you should pay attention to when it comes to performance in a Vue application.
+Vue কে ম্যানুয়াল অপ্টিমাইজেশনের খুব বেশি প্রয়োজন ছাড়াই সর্বাধিক সাধারণ ব্যবহারের ক্ষেত্রে পারফরম্যান্স করার জন্য ডিজাইন করা হয়েছে। যাইহোক, সবসময় চ্যালেঞ্জিং পরিস্থিতিতে আছে যেখানে অতিরিক্ত সূক্ষ্ম-টিউনিং প্রয়োজন। এই বিভাগে, Vue অ্যাপ্লিকেশনে পারফরম্যান্সের ক্ষেত্রে আপনার কী মনোযোগ দেওয়া উচিত তা আমরা আলোচনা করব।
 
-First, let's discuss the two major aspects of web performance:
+প্রথমে, ওয়েব পারফরম্যান্সের দুটি প্রধান দিক নিয়ে আলোচনা করা যাক:
 
-- **Page Load Performance**: how fast the application shows content and becomes interactive on the initial visit. This is usually measured using web vital metrics like [Largest Contentful Paint (LCP)](https://web.dev/lcp/) and [First Input Delay (FID)](https://web.dev/fid/).
+- **পৃষ্ঠা লোড পারফরম্যান্স**: অ্যাপ্লিকেশনটি কত দ্রুত বিষয়বস্তু দেখায় এবং প্রাথমিক পরিদর্শনে ইন্টারেক্টিভ হয়ে ওঠে। এটি সাধারণত [Largest Contentful Paint (LCP)](https://web.dev/lcp/) এবং [First Input Delay (FID)](https://web.dev/fid/) এর মতো ওয়েব গুরুত্বপূর্ণ মেট্রিক্স ব্যবহার করে পরিমাপ করা হয়। .
 
-- **Update Performance**: how fast the application updates in response to user input. For example, how fast a list updates when the user types in a search box, or how fast the page switches when the user clicks a navigation link in a Single-Page Application (SPA).
+- **আপডেট পারফরম্যান্স**: ব্যবহারকারীর ইনপুটের প্রতিক্রিয়ায় অ্যাপ্লিকেশনটি কত দ্রুত আপডেট হয়। উদাহরণস্বরূপ, ব্যবহারকারী যখন একটি অনুসন্ধান বাক্সে টাইপ করেন তখন একটি তালিকা কত দ্রুত আপডেট হয়, বা ব্যবহারকারী যখন একটি একক-পৃষ্ঠা অ্যাপ্লিকেশন (SPA) একটি নেভিগেশন লিঙ্কে ক্লিক করেন তখন পৃষ্ঠাটি কত দ্রুত পরিবর্তন হয়৷
 
-While it would be ideal to maximize both, different frontend architectures tend to affect how easy it is to attain desired performance in these aspects. In addition, the type of application you are building greatly influences what you should prioritize in terms of performance. Therefore, the first step of ensuring optimal performance is picking the right architecture for the type of application you are building:
+যদিও এটি উভয়কে সর্বাধিক করা আদর্শ হবে, বিভিন্ন ফ্রন্টএন্ড আর্কিটেকচারগুলি এই দিকগুলিতে পছন্দসই কর্মক্ষমতা অর্জন করা কতটা সহজ তা প্রভাবিত করে। উপরন্তু, আপনি যে ধরনের অ্যাপ্লিকেশন তৈরি করছেন তা কার্যক্ষমতার ক্ষেত্রে আপনার কী অগ্রাধিকার দেওয়া উচিত তা ব্যাপকভাবে প্রভাবিত করে। অতএব, সর্বোত্তম কর্মক্ষমতা নিশ্চিত করার প্রথম ধাপ হল আপনি যে ধরনের অ্যাপ্লিকেশন তৈরি করছেন তার জন্য সঠিক আর্কিটেকচার বাছাই করা:
 
-- Consult [Ways of Using Vue](/guide/extras/ways-of-using-vue.html) to see how you can leverage Vue in different ways.
+- আপনি কিভাবে বিভিন্ন উপায়ে Vue ব্যবহার করতে পারেন তা দেখতে [Vue ব্যবহার করার উপায়](/guide/extras/ways-of-using-vue.html) এর সাথে পরামর্শ করুন৷
 
-- Jason Miller discusses the types of web applications and their respective ideal implementation / delivery in [Application Holotypes](https://jasonformat.com/application-holotypes/).
+- জেসন মিলার [Application Holotypes](https://jasonformat.com/application-holotypes/) এ ওয়েব অ্যাপ্লিকেশনের ধরন এবং তাদের নিজ নিজ আদর্শ বাস্তবায়ন/ডেলিভারি নিয়ে আলোচনা করেছেন।
 
 ## Profiling Options {#profiling-options}
 
-To improve performance, we need to first know how to measure it. There are a number of great tools that can help in this regard:
+কর্মক্ষমতা উন্নত করতে, আমাদের প্রথমে এটি পরিমাপ করতে হবে তা জানতে হবে। এই বিষয়ে সাহায্য করতে পারে এমন অনেকগুলি দুর্দান্ত সরঞ্জাম রয়েছে:
 
-For profiling load performance of production deployments:
+প্রোডাকশন ডিপ্লয়মেন্টের প্রোফাইলিং লোড পারফরম্যান্সের জন্য:
 
 - [PageSpeed Insights](https://pagespeed.web.dev/)
 - [WebPageTest](https://www.webpagetest.org/)
 
-For profiling performance during local development:
+স্থানীয় উন্নয়নের সময় প্রোফাইলিং কর্মক্ষমতা জন্য:
 
 - [Chrome DevTools Performance Panel](https://developer.chrome.com/docs/devtools/evaluate-performance/)
-  - [`app.config.performance`](/api/application.html#app-config-performance) enables Vue-specific performance markers in Chrome DevTools' performance timeline.
-- [Vue DevTools Extension](/guide/scaling-up/tooling.html#browser-devtools) also provides a performance profiling feature.
+  - [`app.config.performance`](/api/application.html#app-config-performance) Chrome DevTools-এর পারফরম্যান্স টাইমলাইনে Vue-নির্দিষ্ট পারফরম্যান্স মার্কার সক্ষম করে৷
+- [Vue DevTools Extension](/guide/scaling-up/tooling.html#browser-devtools) এছাড়াও একটি কর্মক্ষমতা প্রোফাইলিং বৈশিষ্ট্য প্রদান করে।
 
 ## Page Load Optimizations {#page-load-optimizations}
 
-There are many framework-agnostic aspects for optimizing page load performance - check out [this web.dev guide](https://web.dev/fast/) for a comprehensive round up. Here, we will primarily focus on techniques that are specific to Vue.
+পৃষ্ঠা লোড কর্মক্ষমতা অপ্টিমাইজ করার জন্য অনেকগুলি কাঠামো-অজ্ঞেয়মূলক দিক রয়েছে - একটি বিস্তৃত রাউন্ড আপের জন্য [এই web.dev গাইড](https://web.dev/fast/) দেখুন। এখানে, আমরা প্রাথমিকভাবে Vue-এর জন্য নির্দিষ্ট কৌশলগুলিতে ফোকাস করব।
 
 ### Choosing the Right Architecture {#choosing-the-right-architecture}
 
-If your use case is sensitive to page load performance, avoid shipping it as a pure client-side SPA. You want your server to be directly sending HTML containing the content the users want to see. Pure client-side rendering suffers from slow time-to-content. This can be mitigated with [Server-Side Rendering (SSR)](/guide/extras/ways-of-using-vue.html#fullstack-ssr) or [Static Site Generation (SSG)](/guide/extras/ways-of-using-vue.html#jamstack-ssg). Check out the [SSR Guide](/guide/scaling-up/ssr.html) to learn about performing SSR with Vue. If your app doesn't have rich interactivity requirements, you can also use a traditional backend server to render the HTML and enhance it with Vue on the client.
+আপনার ব্যবহারের ক্ষেত্রে যদি পৃষ্ঠা লোড কর্মক্ষমতা সংবেদনশীল হয়, তাহলে এটিকে বিশুদ্ধ ক্লায়েন্ট-সাইড এসপিএ হিসাবে শিপিং এড়িয়ে চলুন। আপনি চান যে আপনার সার্ভার ব্যবহারকারীরা দেখতে চায় এমন সামগ্রী সহ সরাসরি HTML পাঠাতে পারে। বিশুদ্ধ ক্লায়েন্ট-সাইড রেন্ডারিং ধীর সময় থেকে বিষয়বস্তু থেকে ভুগছে। এটি [Server-Side Rendering (SSR)](/guide/extras/ways-of-using-vue.html#fullstack-ssr) বা [Static Site Generation (SSG)](/guide/extras/ways) দিয়ে প্রশমিত করা যেতে পারে -of-using-vue.html#jamstack-ssg)। Vue-এর সাথে SSR করার বিষয়ে জানতে [SSR গাইড](/guide/scaling-up/ssr.html) দেখুন। আপনার অ্যাপের সমৃদ্ধ ইন্টারঅ্যাক্টিভিটি প্রয়োজনীয়তা না থাকলে, আপনি এইচটিএমএল রেন্ডার করতে এবং ক্লায়েন্টে Vue এর সাথে উন্নত করতে একটি ঐতিহ্যগত ব্যাকএন্ড সার্ভারও ব্যবহার করতে পারেন।
 
-If your main application has to be an SPA, but has marketing pages (landing, about, blog), ship them separately! Your marketing pages should ideally be deployed as static HTML with minimal JS, by using SSG.
+যদি আপনার মূল আবেদনটি একটি এসপিএ হতে হয়, তবে বিপণন পৃষ্ঠাগুলি (ল্যান্ডিং, সম্পর্কে, ব্লগ) থাকে, সেগুলি আলাদাভাবে পাঠান! আপনার মার্কেটিং পৃষ্ঠাগুলি আদর্শভাবে SSG ব্যবহার করে ন্যূনতম JS সহ স্ট্যাটিক HTML হিসাবে স্থাপন করা উচিত।
 
 ### Bundle Size and Tree-shaking {#bundle-size-and-tree-shaking}
 
-One of the most effective ways to improve page load performance is shipping smaller JavaScript bundles. Here are a few ways to reduce bundle size when using Vue:
+পৃষ্ঠা লোড কর্মক্ষমতা উন্নত করার সবচেয়ে কার্যকর উপায়গুলির মধ্যে একটি হল ছোট জাভাস্ক্রিপ্ট বান্ডিল পাঠানো। Vue ব্যবহার করার সময় বান্ডিলের আকার হ্রাস করার কয়েকটি উপায় এখানে রয়েছে:
 
-- Use a build step if possible.
+- সম্ভব হলে একটি বিল্ড স্টেপ ব্যবহার করুন।
 
-  - Many of Vue's APIs are ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking) if bundled via a modern build tool. For example, if you don't use the built-in `<Transition>` component, it won't be included in the final production bundle. Tree-shaking can also remove other unused modules in your source code.
+  - Vue-এর অনেকগুলি API ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking) যদি একটি আধুনিক বিল্ড টুলের মাধ্যমে বান্ডিল করা হয়। উদাহরণস্বরূপ, আপনি যদি বিল্ট-ইন `<Transition>` কম্পোনেন্ট ব্যবহার না করেন, তাহলে এটি চূড়ান্ত উৎপাদন বান্ডেলে অন্তর্ভুক্ত হবে না। ট্রি-কাঁপানো আপনার সোর্স কোডের অন্যান্য অব্যবহৃত মডিউলগুলিকেও সরিয়ে দিতে পারে।
 
-  - When using a build step, templates are pre-compiled so we don't need to ship the Vue compiler to the browser. This saves **14kb** min+gzipped JavaScript and avoids the runtime compilation cost.
+  - একটি বিল্ড স্টেপ ব্যবহার করার সময়, টেমপ্লেটগুলি আগে থেকে কম্পাইল করা হয় তাই আমাদের ব্রাউজারে Vue কম্পাইলার পাঠাতে হবে না। এটি **14kb** min+gzipped JavaScript বাঁচায় এবং রানটাইম সংকলন খরচ এড়ায়।
 
-- Be cautious of size when introducing new dependencies! In real-world applications, bloated bundles are most often a result of introducing heavy dependencies without realizing it.
+- নতুন নির্ভরতা প্রবর্তনের সময় আকার সম্পর্কে সতর্ক থাকুন! বাস্তব-বিশ্বের অ্যাপ্লিকেশনগুলিতে, ফোলা বান্ডিলগুলি প্রায়শই এটি উপলব্ধি না করেই ভারী নির্ভরতা প্রবর্তনের ফলাফল।
 
-  - If using a build step, prefer dependencies that offer ES module formats and are tree-shaking friendly. For example, prefer `lodash-es` over `lodash`.
+  - যদি একটি বিল্ড স্টেপ ব্যবহার করেন, তাহলে নির্ভরতা পছন্দ করুন যা ES মডিউল ফরম্যাট অফার করে এবং ট্রি-কাঁপানো বন্ধুত্বপূর্ণ। উদাহরণস্বরূপ, `lodash` এর চেয়ে `lodash-es` পছন্দ করুন।
 
-  - Check a dependency's size and evaluate whether it is worth the functionality it provides. Note if the dependency is tree-shaking friendly, the actual size increase will depend on the APIs you actually import from it. Tools like [bundlejs.com](https://bundlejs.com/) can be used for quick checks, but measuring with your actual build setup will always be the most accurate.
+  - একটি নির্ভরতার আকার পরীক্ষা করুন এবং এটি যে কার্যকারিতা প্রদান করে তা মূল্যবান কিনা তা মূল্যায়ন করুন৷ নোট করুন যদি নির্ভরতা গাছ-কাঁপানো বন্ধুত্বপূর্ণ হয়, প্রকৃত আকার বৃদ্ধি নির্ভর করবে আপনি আসলে এটি থেকে আমদানি করা APIগুলির উপর। [bundlejs.com](https://bundlejs.com/) এর মতো সরঞ্জামগুলি দ্রুত পরীক্ষা করার জন্য ব্যবহার করা যেতে পারে, তবে আপনার প্রকৃত বিল্ড সেটআপের সাথে পরিমাপ করা সর্বদা সবচেয়ে সঠিক হবে।
 
-- If you are using Vue primarily for progressive enhancement and prefer to avoid a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
+- আপনি যদি প্রাথমিকভাবে প্রগতিশীল বর্ধনের জন্য Vue ব্যবহার করেন এবং একটি বিল্ড স্টেপ এড়াতে পছন্দ করেন, তাহলে পরিবর্তে [petite-vue](https://github.com/vuejs/petite-vue) (শুধু **6kb**) ব্যবহার করার কথা বিবেচনা করুন।
 
 ### Code Splitting {#code-splitting}
 
-Code splitting is where a build tool splits the application bundle into multiple smaller chunks, which can then be loaded on demand or in parallel. With proper code splitting, features required at page load can be downloaded immediately, with additional chunks being lazy loaded only when needed, thus improving performance.
+কোড স্প্লিটিং হল যেখানে একটি বিল্ড টুল অ্যাপ্লিকেশন বান্ডিলকে একাধিক ছোট খণ্ডে বিভক্ত করে, যা চাহিদা অনুযায়ী বা সমান্তরালভাবে লোড করা যেতে পারে। সঠিক কোড বিভাজন সহ, পৃষ্ঠা লোডের জন্য প্রয়োজনীয় বৈশিষ্ট্যগুলি অবিলম্বে ডাউনলোড করা যেতে পারে, অতিরিক্ত অংশগুলি শুধুমাত্র প্রয়োজনের সময় অলসভাবে লোড করা হয়, এইভাবে কর্মক্ষমতা উন্নত হয়।
 
-Bundlers like Rollup (which Vite is based upon) or webpack can automatically create split chunks by detecting the ESM dynamic import syntax:
+রোলআপ (যার উপর ভিত্তি করে Vite) বা ওয়েবপ্যাকের মতো বান্ডলারগুলি ESM গতিশীল আমদানি সিনট্যাক্স সনাক্ত করে স্বয়ংক্রিয়ভাবে বিভক্ত অংশ তৈরি করতে পারে:
 
 ```js
 // lazy.js and its dependencies will be split into a separate chunk
@@ -77,7 +77,7 @@ function loadLazy() {
 }
 ```
 
-Lazy loading is best used on features that are not immediately needed after initial page load. In Vue applications, this can be used in combination with Vue's [Async Component](/guide/components/async.html) feature to create split chunks for component trees:
+অলস লোডিং এমন বৈশিষ্ট্যগুলিতে সবচেয়ে ভাল ব্যবহার করা হয় যেগুলি প্রাথমিক পৃষ্ঠা লোডের পরে অবিলম্বে প্রয়োজন হয় না। Vue অ্যাপ্লিকেশনগুলিতে, উপাদান গাছের জন্য বিভক্ত অংশ তৈরি করতে এটি Vue এর [Async Component](/guide/components/async.html) বৈশিষ্ট্যের সাথে একত্রে ব্যবহার করা যেতে পারে:
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -88,13 +88,13 @@ import { defineAsyncComponent } from 'vue'
 const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 ```
 
-For applications using Vue Router, it is strongly recommended to use lazy loading for route components. Vue Router has explicit support for lazy loading, separate from `defineAsyncComponent`. See [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html) for more details.
+Vue রাউটার ব্যবহার করে অ্যাপ্লিকেশনগুলির জন্য, রুটের উপাদানগুলির জন্য অলস লোডিং ব্যবহার করার জন্য দৃঢ়ভাবে সুপারিশ করা হয়। Vue রাউটারে `defineAsyncComponent` থেকে পৃথক, অলস লোডিংয়ের জন্য স্পষ্ট সমর্থন রয়েছে। আরও বিস্তারিত জানার জন্য [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html) দেখুন।
 
 ## Update Optimizations {#update-optimizations}
 
 ### Props Stability {#props-stability}
 
-In Vue, a child component only updates when at least one of its received props has changed. Consider the following example:
+Vue-তে, একটি চাইল্ড কম্পোনেন্ট শুধুমাত্র তখনই আপডেট হয় যখন তার প্রাপ্ত প্রপগুলির মধ্যে অন্তত একটি পরিবর্তিত হয়। নিম্নলিখিত উদাহরণ বিবেচনা করুন:
 
 ```vue-html
 <ListItem
@@ -103,9 +103,9 @@ In Vue, a child component only updates when at least one of its received props h
   :active-id="activeId" />
 ```
 
-Inside the `<ListItem>` component, it uses its `id` and `activeId` props to determine whether it is the currently active item. While this works, the problem is that whenever `activeId` changes, **every** `<ListItem>` in the list has to update!
+`<ListItem>` উপাদানের ভিতরে, এটি বর্তমানে সক্রিয় আইটেম কিনা তা নির্ধারণ করতে এটির `id` এবং `activeId` প্রপস ব্যবহার করে। যদিও এটি কাজ করে, সমস্যা হল যে যখনই `activeId` পরিবর্তিত হয়, তালিকার **প্রতি** `<ListItem>` আপডেট করতে হয়!
 
-Ideally, only the items whose active status changed should update. We can achieve that by moving the active status computation into the parent, and make `<ListItem>` directly accept an `active` prop instead:
+আদর্শভাবে, শুধুমাত্র যে আইটেমগুলির সক্রিয় স্থিতি পরিবর্তিত হয়েছে তা আপডেট করা উচিত। আমরা সক্রিয় স্থিতি গণনাকে অভিভাবকের মধ্যে স্থানান্তর করে এটি অর্জন করতে পারি এবং এর পরিবর্তে `<ListItem>` সরাসরি একটি `active` প্রপ গ্রহণ করতে পারি:
 
 ```vue-html
 <ListItem
@@ -114,27 +114,27 @@ Ideally, only the items whose active status changed should update. We can achiev
   :active="item.id === activeId" />
 ```
 
-Now, for most components the `active` prop will remain the same when `activeId` changes, so they no longer need to update. In general, the idea is keeping the props passed to child components as stable as possible.
+এখন, বেশিরভাগ উপাদানের জন্য `active` প্রপ একই থাকবে যখন `activeId` পরিবর্তিত হবে, তাই তাদের আর আপডেট করার প্রয়োজন নেই। সাধারণভাবে, ধারণাটি যতটা সম্ভব স্থিতিশীল শিশুর উপাদানগুলিতে পাঠানো প্রপস রাখা।
 
 ### `v-once` {#v-once}
 
-`v-once` is a built-in directive that can be used to render content that relies on runtime data but never needs to update. The entire sub-tree it is used on will be skipped for all future updates. Consult its [API reference](/api/built-in-directives.html#v-once) for more details.
+`v-one` হল একটি অন্তর্নির্মিত নির্দেশিকা যা রানটাইম ডেটার উপর নির্ভর করে এমন সামগ্রী রেন্ডার করতে ব্যবহার করা যেতে পারে কিন্তু আপডেট করার প্রয়োজন নেই৷ এটি ব্যবহার করা সম্পূর্ণ উপ-বৃক্ষটি ভবিষ্যতের সমস্ত আপডেটের জন্য বাদ দেওয়া হবে। আরো বিস্তারিত জানার জন্য এর [API রেফারেন্স](/api/built-in-directives.html#v-one) দেখুন।
 
 ### `v-memo` {#v-memo}
 
-`v-memo` is a built-in directive that can be used to conditionally skip the update of large sub-trees or `v-for` lists. Consult its [API reference](/api/built-in-directives.html#v-memo) for more details.
+`v-memo` হল একটি অন্তর্নির্মিত নির্দেশিকা যা শর্তসাপেক্ষে বড় সাব-ট্রি বা `v-for` তালিকার আপডেট এড়িয়ে যেতে ব্যবহার করা যেতে পারে। আরো বিস্তারিত জানার জন্য এটির [API রেফারেন্স](/api/built-in-directives.html#v-memo) দেখুন।
 
 ## General Optimizations {#general-optimizations}
 
-> The following tips affect both page load and update performance.
+> নিম্নলিখিত টিপস পৃষ্ঠা লোড এবং আপডেট কর্মক্ষমতা উভয়ই প্রভাবিত করে।
 
 ### Virtualize Large Lists {#virtualize-large-lists}
 
-One of the most common performance issues in all frontend applications is rendering large lists. No matter how performant a framework is, rendering a list with thousands of items **will** be slow due to the sheer number of DOM nodes that the browser needs to handle.
+সমস্ত ফ্রন্টএন্ড অ্যাপ্লিকেশনের সবচেয়ে সাধারণ পারফরম্যান্স সমস্যাগুলির মধ্যে একটি হল বড় তালিকা রেন্ডার করা। ফ্রেমওয়ার্ক যতই পারফরম্যান্স হোক না কেন, ব্রাউজারকে যে পরিমাণ DOM নোড পরিচালনা করতে হবে তার কারণে হাজার হাজার আইটেমের সাথে একটি তালিকা রেন্ডার করা **ধীরে হবে**।
 
-However, we don't necessarily have to render all these nodes upfront. In most cases, the user's screen size can display only a small subset of our large list. We can greatly improve the performance with **list virtualization**, the technique of only rendering the items that are currently in or close to the viewport in a large list.
+যাইহোক, আমাদের অগত্যা এই সমস্ত নোডগুলিকে সামনে রেন্ডার করতে হবে না। বেশিরভাগ ক্ষেত্রে, ব্যবহারকারীর পর্দার আকার আমাদের বড় তালিকার শুধুমাত্র একটি ছোট উপসেট প্রদর্শন করতে পারে। আমরা **তালিকা ভার্চুয়ালাইজেশন** দিয়ে পারফরম্যান্সকে ব্যাপকভাবে উন্নত করতে পারি, শুধুমাত্র সেই আইটেমগুলিকে রেন্ডার করার কৌশল যা বর্তমানে একটি বড় তালিকায় ভিউপোর্টে রয়েছে বা কাছাকাছি রয়েছে৷
 
-Implementing list virtualization isn't easy, luckily there are existing community libraries that you can directly use:
+তালিকা ভার্চুয়ালাইজেশন বাস্তবায়ন করা সহজ নয়, ভাগ্যক্রমে বিদ্যমান কমিউনিটি লাইব্রেরি রয়েছে যা আপনি সরাসরি ব্যবহার করতে পারেন:
 
 - [vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)
 - [vue-virtual-scroll-grid](https://github.com/rocwang/vue-virtual-scroll-grid)
@@ -142,9 +142,9 @@ Implementing list virtualization isn't easy, luckily there are existing communit
 
 ### Reduce Reactivity Overhead for Large Immutable Structures {#reduce-reactivity-overhead-for-large-immutable-structures}
 
-Vue's reactivity system is deep by default. While this makes state management intuitive, it does create a certain level of overhead when the data size is large, because every property access triggers proxy traps that perform dependency tracking. This typically becomes noticeable when dealing with large arrays of deeply nested objects, where a single render needs to access 100,000+ properties, so it should only affect very specific use cases.
+Vue এর প্রতিক্রিয়াশীলতা সিস্টেম ডিফল্টরূপে গভীর। যদিও এটি স্টেট ম্যানেজমেন্টকে স্বজ্ঞাত করে তোলে, এটি ডেটার আকার বড় হলে এটি ওভারহেডের একটি নির্দিষ্ট স্তর তৈরি করে, কারণ প্রতিটি সম্পত্তি অ্যাক্সেস প্রক্সি ফাঁদগুলিকে ট্রিগার করে যা নির্ভরতা ট্র্যাকিং সম্পাদন করে। গভীরভাবে নেস্টেড অবজেক্টের বড় অ্যারের সাথে কাজ করার সময় এটি সাধারণত লক্ষণীয় হয়ে ওঠে, যেখানে একটি একক রেন্ডারকে ১০০,০০০+ বৈশিষ্ট্যগুলি অ্যাক্সেস করতে হবে, তাই এটি শুধুমাত্র খুব নির্দিষ্ট ব্যবহারের ক্ষেত্রে প্রভাবিত করা উচিত।
 
-Vue does provide an escape hatch to opt-out of deep reactivity by using [`shallowRef()`](/api/reactivity-advanced.html#shallowref) and [`shallowReactive()`](/api/reactivity-advanced.html#shallowreactive). Shallow APIs create state that is reactive only at the root level, and exposes all nested objects untouched. This keeps nested property access fast, with the trade-off being that we must now treat all nested objects as immutable, and updates can only be triggered by replacing the root state:
+Vue [`shallowRef()`](/api/reactivity-advanced.html#shallowref) এবং [`shallowReactive()`](/api/reactivity-advanced ব্যবহার করে গভীর প্রতিক্রিয়া থেকে অপ্ট-আউট করার জন্য একটি এস্কেপ হ্যাচ প্রদান করে। html# shallowreactive)। অগভীর API গুলি এমন অবস্থা তৈরি করে যা শুধুমাত্র রুট স্তরে প্রতিক্রিয়াশীল, এবং সমস্ত নেস্টেড অবজেক্টগুলিকে স্পর্শ করে না। এটি নেস্টেড প্রপার্টি অ্যাক্সেসকে দ্রুত রাখে, ট্রেড-অফ হল যে আমাদের এখন সমস্ত নেস্টেড অবজেক্টকে অপরিবর্তনীয় হিসাবে বিবেচনা করতে হবে এবং আপডেটগুলি শুধুমাত্র রুট স্টেট প্রতিস্থাপন করে ট্রিগার করা যেতে পারে:
 
 ```js
 const shallowArray = shallowRef([
@@ -170,6 +170,6 @@ shallowArray.value = [
 
 ### Avoid Unnecessary Component Abstractions {#avoid-unnecessary-component-abstractions}
 
-Sometimes we may create [renderless components](/guide/components/slots.html#renderless-components) or higher-order components (i.e. components that render other components with extra props) for better abstraction or code organization. While there is nothing wrong with this, do keep in mind that component instances are much more expensive than plain DOM nodes, and creating too many of them due to abstraction patterns will incur performance costs.
+কখনও কখনও আমরা আরও ভাল বিমূর্ততা বা কোড সংগঠনের জন্য [renderless components](/guide/components/slots.html#renderless-components) বা উচ্চ-ক্রম উপাদান (অর্থাৎ অতিরিক্ত প্রপস সহ অন্যান্য উপাদান রেন্ডার করে) তৈরি করতে পারি। যদিও এতে কোনো ভুল নেই, তবে মনে রাখবেন যে কম্পোনেন্ট ইন্সট্যান্স প্লেইন DOM নোডের তুলনায় অনেক বেশি ব্যয়বহুল, এবং অ্যাবস্ট্রাকশন প্যাটার্নের কারণে তাদের অনেকগুলি তৈরি করা কর্মক্ষমতা খরচ বহন করবে।
 
-Note that reducing only a few instances won't have noticeable effect, so don't sweat it if the component is rendered only a few times in the app. The best scenario to consider this optimization is again in large lists. Imagine a list of 100 items where each item component contains many child components. Removing one unnecessary component abstraction here could result in a reduction of hundreds of component instances.
+মনে রাখবেন যে শুধুমাত্র কয়েকটি দৃষ্টান্ত হ্রাস করা লক্ষণীয় প্রভাব ফেলবে না, তাই অ্যাপটিতে উপাদানটি কয়েকবার রেন্ডার করা হলে এটি ঘামবেন না। এই অপ্টিমাইজেশানটি বিবেচনা করার সেরা দৃশ্যটি আবার বড় তালিকায় রয়েছে। ১০০ টি আইটেমের একটি তালিকা কল্পনা করুন যেখানে প্রতিটি আইটেমের উপাদানে অনেকগুলি শিশু উপাদান রয়েছে। এখানে একটি অপ্রয়োজনীয় উপাদান বিমূর্ততা অপসারণ করার ফলে শত শত উপাদান দৃষ্টান্ত হ্রাস হতে পারে।
