@@ -1,16 +1,16 @@
 # Accessibility {#accessibility}
 
-Web accessibility (also known as a11y) refers to the practice of creating websites that can be used by anyone — be that a person with a disability, a slow connection, outdated or broken hardware or simply someone in an unfavorable environment. For example, adding subtitles to a video would help both your deaf and hard-of-hearing users and your users who are in a loud environment and can't hear their phone. Similarly, making sure your text isn't too low contrast will help both your low-vision users and your users who are trying to use their phone in bright sunlight.
+ওয়েব অ্যাক্সেসিবিলিটি (এছাড়াও a11y নামে পরিচিত) এমন ওয়েবসাইট তৈরির অনুশীলনকে বোঝায় যা যে কেউ ব্যবহার করতে পারে - সে একজন প্রতিবন্ধী ব্যক্তি, একটি ধীর সংযোগ, পুরানো বা ভাঙা হার্ডওয়্যার বা কেবল প্রতিকূল পরিবেশে থাকা ব্যক্তি। উদাহরণ স্বরূপ, একটি ভিডিওতে সাবটাইটেল যোগ করা আপনার বধির এবং শ্রবণশক্তিহীন ব্যবহারকারী এবং আপনার ব্যবহারকারী যারা উচ্চস্বরে পরিবেশে আছেন এবং তাদের ফোন শুনতে পাচ্ছেন না উভয়কেই সাহায্য করবে৷ একইভাবে, আপনার টেক্সট খুব কম কনট্রাস্ট নয় তা নিশ্চিত করা আপনার কম-দৃষ্টিসম্পন্ন ব্যবহারকারী এবং আপনার ব্যবহারকারী যারা উজ্জ্বল সূর্যের আলোতে তাদের ফোন ব্যবহার করার চেষ্টা করছেন উভয়কেই সাহায্য করবে।
 
-Ready to start but aren’t sure where?
+শুরু করতে প্রস্তুত কিন্তু কোথায় নিশ্চিত নন?
 
-Checkout the [Planning and managing web accessibility guide](https://www.w3.org/WAI/planning-and-managing/) provided by [World Wide Web Consortium (W3C)](https://www.w3.org/)
+[ওয়ার্ল্ড ওয়াইড ওয়েব কনসোর্টিয়াম (W3C)](https://www.w3.org/) দ্বারা প্রদত্ত [ওয়েব অ্যাক্সেসিবিলিটি গাইড](https://www.w3.org/WAI/planning-and-managing/) দেখুন।
 
 ## Skip link {#skip-link}
 
-You should add a link at the top of each page that goes directly to the main content area so users can skip content that is repeated on multiple Web pages.
+আপনার প্রতিটি পৃষ্ঠার শীর্ষে একটি লিঙ্ক যুক্ত করা উচিত যা সরাসরি মূল বিষয়বস্তু এলাকায় যায় যাতে ব্যবহারকারীরা একাধিক ওয়েব পৃষ্ঠায় পুনরাবৃত্তি করা বিষয়বস্তু এড়িয়ে যেতে পারেন।
 
-Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
+সাধারণত এটি `App.vue` এর শীর্ষে করা হয় কারণ এটি আপনার সমস্ত পৃষ্ঠায় প্রথম ফোকাসযোগ্য উপাদান হবে:
 
 ```vue-html
 <ul class="skip-links">
@@ -20,7 +20,7 @@ Typically this is done on the top of `App.vue` as it will be the first focusable
 </ul>
 ```
 
-To hide the link unless it is focused, you can add the following style:
+লিঙ্কটি ফোকাস না করা পর্যন্ত লুকানোর জন্য, আপনি নিম্নলিখিত শৈলী যোগ করতে পারেন:
 
 ```css
 .skip-link {
@@ -40,7 +40,7 @@ To hide the link unless it is focused, you can add the following style:
 }
 ```
 
-Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus on the skip link's template ref (assuming usage of `vue-router`):
+একবার একজন ব্যবহারকারী রুট পরিবর্তন করলে, স্কিপ লিঙ্কে ফোকাস ফিরিয়ে আনুন। স্কিপ লিঙ্কের টেমপ্লেট রেফের উপর ফোকাস কল করে এটি অর্জন করা যেতে পারে (`vue-router` ব্যবহার অনুমান করে):
 
 <div class="options-api">
 
@@ -78,21 +78,21 @@ watch(
 
 </div>
 
-[Read documentation on skip link to main content](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
+[প্রধান বিষয়বস্তুর লিঙ্ক এড়িয়ে যাওয়ার ডকুমেন্টেশন পড়ুন](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
 
 ## Content Structure {#content-structure}
 
-One of the most important pieces of accessibility is making sure that design can support accessible implementation. Design should consider not only color contrast, font selection, text sizing, and language, but also how the content is structured in the application.
+অ্যাক্সেসযোগ্যতার সবচেয়ে গুরুত্বপূর্ণ অংশগুলির মধ্যে একটি হল নিশ্চিত করা যে ডিজাইনটি অ্যাক্সেসযোগ্য বাস্তবায়নকে সমর্থন করতে পারে। ডিজাইনে শুধুমাত্র রঙের বৈসাদৃশ্য, ফন্ট নির্বাচন, পাঠ্যের আকার এবং ভাষা বিবেচনা করা উচিত নয়, তবে অ্যাপ্লিকেশনটিতে বিষয়বস্তু কীভাবে গঠন করা হয়েছে তাও বিবেচনা করা উচিত।
 
 ### Headings {#headings}
 
-Users can navigate an application through headings. Having descriptive headings for every section of your application makes it easier for users to predict the content of each section. When it comes to headings, there are a couple of recommended accessibility practices:
+ব্যবহারকারী শিরোনাম মাধ্যমে একটি অ্যাপ্লিকেশন নেভিগেট করতে পারেন. আপনার অ্যাপ্লিকেশনের প্রতিটি বিভাগের জন্য বর্ণনামূলক শিরোনাম থাকা ব্যবহারকারীদের জন্য প্রতিটি বিভাগের বিষয়বস্তু অনুমান করা সহজ করে তোলে। যখন শিরোনামের কথা আসে, সেখানে কয়েকটি প্রস্তাবিত অ্যাক্সেসিবিলিটি অনুশীলন রয়েছে:
 
-- Nest headings in their ranking order: `<h1>` - `<h6>`
-- Don’t skip headings within a section
-- Use actual heading tags instead of styling text to give the visual appearance of headings
+- নেস্ট শিরোনামগুলি তাদের র‌্যাঙ্কিং ক্রমে: `<h1>` - `<h6>`৷
+- একটি বিভাগের মধ্যে শিরোনাম এড়িয়ে যাবেন না
+- শিরোনামগুলির চাক্ষুষ চেহারা দিতে পাঠ্য স্টাইল করার পরিবর্তে প্রকৃত শিরোনাম ট্যাগ ব্যবহার করুন
 
-[Read more about headings](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
+[শিরোনাম সম্পর্কে আরও পড়ুন](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
 
 ```vue-html
 <main role="main" aria-labelledby="main-title">
@@ -114,7 +114,7 @@ Users can navigate an application through headings. Having descriptive headings 
 
 ### Landmarks {#landmarks}
 
-[Landmarks](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/landmark_role) provide programmatic access to sections within an application. Users who rely on assistive technology can navigate to each section of the application and skip over content. You can use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) to help you achieve this.
+[ল্যান্ডমার্কস](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/landmark_role) একটি অ্যাপ্লিকেশনের মধ্যে বিভাগগুলিতে প্রোগ্রাম্যাটিক অ্যাক্সেস প্রদান করে। যে ব্যবহারকারীরা সহায়ক প্রযুক্তির উপর নির্ভর করে তারা অ্যাপ্লিকেশনের প্রতিটি বিভাগে নেভিগেট করতে পারে এবং বিষয়বস্তু এড়িয়ে যেতে পারে। আপনি এটি অর্জনে সহায়তা করতে [ARIA ভূমিকা](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) ব্যবহার করতে পারেন।
 
 | HTML            | ARIA Role            | Landmark Purpose                                                                                                 |
 | --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -128,16 +128,16 @@ Users can navigate an application through headings. Having descriptive headings 
 | section         | role="region"        | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element |
 
 :::tip Tip:
-It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).
+লিগ্যাসি [HTML5 শব্দার্থিক উপাদান সমর্থন করে না এমন ব্রাউজার](https://caniuse.com/#feat=html5semantic) এর সাথে সামঞ্জস্যপূর্ণতা বাড়াতে অপ্রয়োজনীয় ল্যান্ডমার্ক ভূমিকা বৈশিষ্ট্য সহ ল্যান্ডমার্ক HTML উপাদানগুলি ব্যবহার করার পরামর্শ দেওয়া হয়।
 :::
 
-[Read more about landmarks](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
+[ল্যান্ডমার্ক সম্পর্কে আরও পড়ুন](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
 
 ## Semantic Forms {#semantic-forms}
 
-When creating a form, you can use the following elements: `<form>`, `<label>`, `<input>`, `<textarea>`, and `<button>`
+একটি ফর্ম তৈরি করার সময়, আপনি নিম্নলিখিত উপাদানগুলি ব্যবহার করতে পারেন: `<form>`, `<label>`, `<input>`, `<textarea>`, এবং `<button>`
 
-Labels are typically placed on top or to the left of the form fields:
+লেবেলগুলি সাধারণত ফর্ম ক্ষেত্রগুলির উপরে বা বাম দিকে রাখা হয়:
 
 ```vue-html
 <form action="/dataCollectionLocation" method="post" autocomplete="on">
@@ -156,11 +156,11 @@ Labels are typically placed on top or to the left of the form fields:
 
 <!-- <common-codepen-snippet title="Simple Form" slug="dyNzzWZ" :height="368" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-Notice how you can include `autocomplete='on'` on the form element and it will apply to all inputs in your form. You can also set different [values for autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for each input.
+লক্ষ্য করুন কিভাবে আপনি ফর্ম উপাদানটিতে `autocomplete='on'` অন্তর্ভুক্ত করতে পারেন এবং এটি আপনার ফর্মের সমস্ত ইনপুটগুলিতে প্রযোজ্য হবে৷ এছাড়াও আপনি প্রতিটি ইনপুটের জন্য বিভিন্ন [স্বয়ংসম্পূর্ণ বৈশিষ্ট্যের জন্য মান](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) সেট করতে পারেন।
 
 ### Labels {#labels}
 
-Provide labels to describe the purpose of all form control; linking `for` and `id`:
+সমস্ত ফর্ম নিয়ন্ত্রণের উদ্দেশ্য বর্ণনা করার জন্য লেবেল প্রদান করুন; `for`' এবং `id` লিঙ্ক করা:
 
 ```vue-html
 <label for="name">Name</label>
@@ -169,12 +169,12 @@ Provide labels to describe the purpose of all form control; linking `for` and `i
 
 <!-- <common-codepen-snippet title="Form Label" slug="XWpaaaj" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-If you inspect this element in your chrome developer tools and open the Accessibility tab inside the Elements tab, you will see how the input gets its name from the label:
+আপনি যদি আপনার ক্রোম বিকাশকারী সরঞ্জামগুলিতে এই উপাদানটি পরিদর্শন করেন এবং এলিমেন্টস ট্যাবের ভিতরে অ্যাক্সেসিবিলিটি ট্যাবটি খোলেন, আপনি দেখতে পাবেন কিভাবে ইনপুটটি লেবেল থেকে এর নাম পায়:
 
-![Chrome Developer Tools showing input accessible name from label](./images/AccessibleLabelChromeDevTools.png)
+![Chrome বিকাশকারী সরঞ্জামগুলি লেবেল থেকে ইনপুট অ্যাক্সেসযোগ্য নাম দেখাচ্ছে৷](./images/AccessibleLabelChromeDevTools.png)
 
-:::warning Warning:
-Though you might have seen labels wrapping the input fields like this:
+:::warning সতর্কতা:
+যদিও আপনি ইনপুট ক্ষেত্রগুলিকে এভাবে মোড়ানো লেবেলগুলি দেখে থাকতে পারেন:
 
 ```vue-html
 <label>
@@ -183,12 +183,12 @@ Though you might have seen labels wrapping the input fields like this:
 </label>
 ```
 
-Explicitly setting the labels with a matching id is better supported by assistive technology.
+একটি ম্যাচিং আইডি সহ লেবেলগুলি স্পষ্টভাবে সেট করা সহায়ক প্রযুক্তি দ্বারা আরও ভাল সমর্থিত৷
 :::
 
 #### `aria-label` {#aria-label}
 
-You can also give the input an accessible name with [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
+আপনি ইনপুটটি দিয়ে একটি অ্যাক্সেসযোগ্য নামও দিতে পারেন [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
 
 ```vue-html
 <label for="name">Name</label>
@@ -203,13 +203,13 @@ You can also give the input an accessible name with [`aria-label`](https://devel
 
 <!-- <common-codepen-snippet title="Form ARIA label" slug="NWdvvYQ" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-Feel free to inspect this element in Chrome DevTools to see how the accessible name has changed:
+অ্যাক্সেসযোগ্য নামটি কীভাবে পরিবর্তিত হয়েছে তা দেখতে Chrome DevTools-এ এই উপাদানটি নির্দ্বিধায় পরিদর্শন করুন:
 
-![Chrome Developer Tools showing input accessible name from aria-label](./images/AccessibleARIAlabelDevTools.png)
+![Chrome ডেভেলপার টুলস অ্যারিয়া-লেবেল থেকে ইনপুট অ্যাক্সেসযোগ্য নাম দেখাচ্ছে](./images/AccessibleARIAlabelDevTools.png)
 
 #### `aria-labelledby` {#aria-labelledby}
 
-Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) is similar to `aria-label` except it is used if the label text is visible on screen. It is paired to other elements by their `id` and you can link multiple `id`s:
+[`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) ব্যবহার করা `aria-label` এর মতোই, তবে এটি ব্যবহার করা হলে লেবেল পাঠ্য পর্দায় দৃশ্যমান। এটি তাদের `id` দ্বারা অন্যান্য উপাদানের সাথে যুক্ত করা হয়েছে এবং আপনি একাধিক `id` লিঙ্ক করতে পারেন:
 
 ```vue-html
 <form
@@ -235,11 +235,11 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 
 <!-- <common-codepen-snippet title="Form ARIA labelledby" slug="MWJvvBe" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-![Chrome Developer Tools showing input accessible name from aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
+![Chrome ডেভেলপার টুলস aria-লেবেল দ্বারা ইনপুট অ্যাক্সেসযোগ্য নাম দেখাচ্ছে৷](./images/AccessibleARIAlabelledbyDevTools.png)
 
 #### `aria-describedby` {#aria-describedby}
 
-[aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) is used the same way as `aria-labelledby` except provides a description with additional information that the user might need. This can be used to describe the criteria for any input:
+[aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) একইভাবে ব্যবহার করা হয় `aria-labelledby` এর সাথে একটি বিবরণ প্রদান করা ছাড়া ব্যবহারকারীর প্রয়োজন হতে পারে এমন অতিরিক্ত তথ্য। এটি যেকোনো ইনপুটের মানদণ্ড বর্ণনা করতে ব্যবহার করা যেতে পারে:
 
 ```vue-html
 <form
@@ -267,17 +267,17 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 
 <!-- <common-codepen-snippet title="Form ARIA describedby" slug="gOgxxQE" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-You can see the description by inspecting Chrome DevTools:
+আপনি Chrome DevTools পরিদর্শন করে বিবরণ দেখতে পারেন:
 
-![Chrome Developer Tools showing input accessible name from aria-labelledby and description with aria-describedby](./images/AccessibleARIAdescribedby.png)
+![Chrome ডেভেলপার টুলস aria-labelledby থেকে ইনপুট অ্যাক্সেসযোগ্য নাম এবং aria-describedby-এর সাথে বর্ণনা দেখাচ্ছে](./images/AccessibleARIAdescribedby.png)
 
 ### Placeholder {#placeholder}
 
-Avoid using placeholders as they can confuse many users.
+স্থানধারক ব্যবহার করা এড়িয়ে চলুন কারণ তারা অনেক ব্যবহারকারীকে বিভ্রান্ত করতে পারে।
 
-One of the issues with placeholders is that they don't meet the [color contrast criteria](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) by default; fixing the color contrast makes the placeholder look like pre-populated data in the input fields. Looking at the following example, you can see that the Last Name placeholder which meets the color contrast criteria looks like pre-populated data:
+স্থানধারকদের সাথে একটি সমস্যা হল যে তারা ডিফল্টরূপে [রঙের বৈসাদৃশ্যের মানদণ্ড](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) পূরণ করে না; রঙের বৈসাদৃশ্য ঠিক করা স্থানধারককে ইনপুট ক্ষেত্রের পূর্ব-জনসংখ্যা ডেটার মতো দেখায়। নিম্নলিখিত উদাহরণের দিকে তাকালে, আপনি দেখতে পারেন যে শেষ নাম স্থানধারক যা রঙের বৈসাদৃশ্যের মানদণ্ড পূরণ করে পূর্ব-জনসংখ্যার ডেটার মতো দেখায়:
 
-![Accessible placeholder](./images/AccessiblePlaceholder.png)
+![অ্যাক্সেসযোগ্য স্থানধারক](./images/AccessiblePlaceholder.png)
 
 ```vue-html
 <form
@@ -320,12 +320,12 @@ One of the issues with placeholders is that they don't meet the [color contrast 
 }
 ```
 
-It is best to provide all the information the user needs to fill out forms outside any inputs.
+যেকোনো ইনপুটের বাইরে ফর্ম পূরণ করার জন্য ব্যবহারকারীর প্রয়োজনীয় সমস্ত তথ্য প্রদান করা ভাল।
 
 ### Instructions {#instructions}
 
-When adding instructions for your input fields, make sure to link it correctly to the input.
-You can provide additional instructions and bind multiple ids inside an [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby). This allows for more flexible design.
+আপনার ইনপুট ক্ষেত্রগুলির জন্য নির্দেশাবলী যোগ করার সময়, এটি ইনপুটের সাথে সঠিকভাবে লিঙ্ক করা নিশ্চিত করুন৷
+আপনি অতিরিক্ত নির্দেশাবলী প্রদান করতে পারেন এবং একটি [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) এর ভিতরে একাধিক আইডি আবদ্ধ করতে পারেন। এটি আরও নমনীয় নকশার জন্য অনুমতি দেয়।
 
 ```vue-html
 <fieldset>
@@ -341,7 +341,7 @@ You can provide additional instructions and bind multiple ids inside an [`aria-l
 </fieldset>
 ```
 
-Alternatively, you can attach the instructions to the input with [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby):
+বিকল্পভাবে, আপনি ইনপুটের সাথে নির্দেশাবলী সংযুক্ত করতে পারেন[`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby):
 
 ```vue-html
 <fieldset>
@@ -356,9 +356,9 @@ Alternatively, you can attach the instructions to the input with [`aria-describe
 
 ### Hiding Content {#hiding-content}
 
-Usually it is not recommended to visually hide labels, even if the input has an accessible name. However, if the functionality of the input can be understood with surrounding content, then we can hide the visual label.
+সাধারণত লেবেলগুলিকে দৃশ্যত লুকানোর পরামর্শ দেওয়া হয় না, এমনকি যদি ইনপুটে একটি অ্যাক্সেসযোগ্য নাম থাকে। যাইহোক, যদি ইনপুটের কার্যকারিতা আশেপাশের বিষয়বস্তুর সাথে বোঝা যায়, তাহলে আমরা ভিজ্যুয়াল লেবেলটি লুকিয়ে রাখতে পারি।
 
-Let's look at this search field:
+আসুন এই অনুসন্ধান ক্ষেত্রটি দেখি:
 
 ```vue-html
 <form role="search">
@@ -368,9 +368,9 @@ Let's look at this search field:
 </form>
 ```
 
-We can do this because the search button will help visual users identify the purpose of the input field.
+আমরা এটি করতে পারি কারণ অনুসন্ধান বোতামটি ভিজ্যুয়াল ব্যবহারকারীদের ইনপুট ক্ষেত্রের উদ্দেশ্য সনাক্ত করতে সহায়তা করবে।
 
-We can use CSS to visually hide elements but keep them available for assistive technology:
+আমরা দৃশ্যত উপাদানগুলি লুকানোর জন্য CSS ব্যবহার করতে পারি কিন্তু সহায়ক প্রযুক্তির জন্য সেগুলি উপলব্ধ রাখতে পারি:
 
 ```css
 .hidden-visually {
@@ -390,7 +390,7 @@ We can use CSS to visually hide elements but keep them available for assistive t
 
 #### `aria-hidden="true"` {#aria-hidden-true}
 
-Adding `aria-hidden="true"` will hide the element from assistive technology but leave it visually available for other users. Do not use it on focusable elements, purely on decorative, duplicated or offscreen content.
+`aria-hidden="true"` যোগ করলে সহায়ক প্রযুক্তি থেকে উপাদানটি আড়াল হবে কিন্তু অন্যান্য ব্যবহারকারীদের জন্য এটি দৃশ্যত উপলব্ধ থাকবে। এটিকে ফোকাসযোগ্য উপাদানগুলিতে ব্যবহার করবেন না, সম্পূর্ণরূপে আলংকারিক, সদৃশ বা অফস্ক্রিন সামগ্রীতে।
 
 ```vue-html
 <p>This is not hidden from screen readers.</p>
@@ -399,8 +399,8 @@ Adding `aria-hidden="true"` will hide the element from assistive technology but 
 
 ### Buttons {#buttons}
 
-When using buttons inside a form, you must set the type to prevent submitting the form.
-You can also use an input to create buttons:
+একটি ফর্মের ভিতরে বোতামগুলি ব্যবহার করার সময়, ফর্ম জমা দেওয়া প্রতিরোধ করতে আপনাকে অবশ্যই টাইপ সেট করতে হবে৷
+আপনি বোতাম তৈরি করতে একটি ইনপুট ব্যবহার করতে পারেন:
 
 ```vue-html
 <form action="/dataCollectionLocation" method="post" autocomplete="on">
@@ -418,7 +418,7 @@ You can also use an input to create buttons:
 
 ### Functional Images {#functional-images}
 
-You can use this technique to create functional images.
+আপনি কার্যকরী ইমেজ তৈরি করতে এই কৌশল ব্যবহার করতে পারেন.
 
 - Input fields
 
@@ -454,18 +454,18 @@ You can use this technique to create functional images.
 
 ## Standards {#standards}
 
-The World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI) develops web accessibility standards for the different components:
+ওয়ার্ল্ড ওয়াইড ওয়েব কনসোর্টিয়াম (W3C) ওয়েব অ্যাক্সেসিবিলিটি ইনিশিয়েটিভ (WAI) বিভিন্ন উপাদানের জন্য ওয়েব অ্যাক্সেসিবিলিটি মান তৈরি করে:
 
-- [User Agent Accessibility Guidelines (UAAG)](https://www.w3.org/WAI/standards-guidelines/uaag/)
-  - web browsers and media players, including some aspects of assistive technologies
-- [Authoring Tool Accessibility Guidelines (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
-  - authoring tools
-- [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-  - web content - used by developers, authoring tools, and accessibility evaluation tools
+- [ব্যবহারকারী এজেন্ট অ্যাক্সেসিবিলিটি নির্দেশিকা (UAAG)](https://www.w3.org/WAI/standards-guidelines/uaag/)
+  - ওয়েব ব্রাউজার এবং মিডিয়া প্লেয়ার, সহকারী প্রযুক্তির কিছু দিক
+- [লেখক টুল অ্যাক্সেসিবিলিটি নির্দেশিকা (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
+  - লেখার সরঞ্জাম
+- [ওয়েব সামগ্রী অ্যাক্সেসিবিলিটি নির্দেশিকা (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
+  - ওয়েব বিষয়বস্তু - ডেভেলপারদের দ্বারা ব্যবহৃত, অথরিং টুল, এবং অ্যাক্সেসিবিলিটি মূল্যায়ন টুল
 
 ### Web Content Accessibility Guidelines (WCAG) {#web-content-accessibility-guidelines-wcag}
 
-[WCAG 2.1](https://www.w3.org/TR/WCAG21/) extends on [WCAG 2.0](https://www.w3.org/TR/WCAG20/) and allows implementation of new technologies by addressing changes to the web. The W3C encourages use of the most current version of WCAG when developing or updating Web accessibility policies.
+[WCAG 2.1](https://www.w3.org/TR/WCAG21/) [WCAG 2.0](https://www.w3.org/TR/WCAG20/) পর্যন্ত প্রসারিত এবং ঠিকানার মাধ্যমে নতুন প্রযুক্তি বাস্তবায়নের অনুমতি দেয় ওয়েবে পরিবর্তন। ওয়েব অ্যাক্সেসিবিলিটি নীতিগুলি তৈরি বা আপডেট করার সময় W3C WCAG-এর সবচেয়ে বর্তমান সংস্করণ ব্যবহার করতে উৎসাহিত করে.
 
 #### WCAG 2.1 Four Main Guiding Principles (abbreviated as POUR): {#wcag-2-1-four-main-guiding-principles-abbreviated-as-pour}
 
@@ -480,9 +480,9 @@ The World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI) develops 
 
 #### Web Accessibility Initiative – Accessible Rich Internet Applications (WAI-ARIA) {#web-accessibility-initiative-–-accessible-rich-internet-applications-wai-aria}
 
-W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced user interface controls.
+W3C-এর WAI-ARIA কীভাবে গতিশীল বিষয়বস্তু এবং উন্নত ব্যবহারকারী ইন্টারফেস নিয়ন্ত্রণ তৈরি করতে হয় তার নির্দেশিকা প্রদান করে।
 
-- [Accessible Rich Internet Applications (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
+- [অ্যাক্সেসিবল রিচ ইন্টারনেট অ্যাপ্লিকেশন (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
 - [WAI-ARIA Authoring Practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/)
 
 ## Resources {#resources}
@@ -491,16 +491,18 @@ W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced us
 
 - [WCAG 2.0](https://www.w3.org/TR/WCAG20/)
 - [WCAG 2.1](https://www.w3.org/TR/WCAG21/)
-- [Accessible Rich Internet Applications (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
+- [অ্যাক্সেসিবল রিচ ইন্টারনেট অ্যাপ্লিকেশন (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
 - [WAI-ARIA Authoring Practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/)
 
 ### Assistive Technologies {#assistive-technologies}
 
 - Screen Readers
+
   - [NVDA](https://www.nvaccess.org/download/)
   - [VoiceOver](https://www.apple.com/accessibility/mac/vision/)
   - [JAWS](https://www.freedomscientific.com/products/software/jaws/?utm_term=jaws%20screen%20reader&utm_source=adwords&utm_campaign=All+Products&utm_medium=ppc&hsa_tgt=kwd-394361346638&hsa_cam=200218713&hsa_ad=296201131673&hsa_kw=jaws%20screen%20reader&hsa_grp=52663682111&hsa_net=adwords&hsa_mt=e&hsa_src=g&hsa_acc=1684996396&hsa_ver=3&gclid=Cj0KCQjwnv71BRCOARIsAIkxW9HXKQ6kKNQD0q8a_1TXSJXnIuUyb65KJeTWmtS6BH96-5he9dsNq6oaAh6UEALw_wcB)
   - [ChromeVox](https://chrome.google.com/webstore/detail/chromevox-classic-extensi/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en)
+
 - Zooming Tools
   - [MAGic](https://www.freedomscientific.com/products/software/magic/)
   - [ZoomText](https://www.zoomtext.com/)
@@ -508,8 +510,8 @@ W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced us
 
 ### Testing {#testing}
 
-- Automated Tools
-  - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
+- স্বয়ংক্রিয় সরঞ্জাম
+  - [Lighthpuse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
   - [WAVE](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
   - [ARC Toolkit](https://chrome.google.com/webstore/detail/arc-toolkit/chdkkkccnlfncngelccgbgfmjebmkmce?hl=en-US)
 - Color Tools
@@ -525,16 +527,16 @@ W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced us
 
 ### Users {#users}
 
-The World Health Organization estimates that 15% of the world's population has some form of disability, 2-4% of them severely so. That is an estimated 1 billion people worldwide; making people with disabilities the largest minority group in the world.
+বিশ্ব স্বাস্থ্য সংস্থা অনুমান করে যে বিশ্বের জনসংখ্যার ১৫% কোনো না কোনো ধরনের অক্ষমতা রয়েছে, তাদের মধ্যে ২-৪% গুরুতরভাবে তাই। এটি বিশ্বব্যাপী আনুমানিক ১ বিলিয়ন মানুষ; প্রতিবন্ধী ব্যক্তিদের বিশ্বের বৃহত্তম সংখ্যালঘু গোষ্ঠীতে পরিণত করা।
 
-There are a huge range of disabilities, which can be divided roughly into four categories:
+অক্ষমতার একটি বিশাল পরিসর রয়েছে, যেগুলোকে মোটামুটিভাবে চারটি বিভাগে ভাগ করা যায়:
 
-- _[Visual](https://webaim.org/articles/visual/)_ - These users can benefit from the use of screen readers, screen magnification, controlling screen contrast, or braille display.
-- _[Auditory](https://webaim.org/articles/auditory/)_ - These users can benefit from captioning, transcripts or sign language video.
-- _[Motor](https://webaim.org/articles/motor/)_ - These users can benefit from a range of [assistive technologies for motor impairments](https://webaim.org/articles/motor/assistive): voice recognition software, eye tracking, single-switch access, head wand, sip and puff switch, oversized trackball mouse, adaptive keyboard or other assistive technologies.
-- _[Cognitive](https://webaim.org/articles/cognitive/)_ - These users can benefit from supplemental media, structural organization of content, clear and simple writing.
+- _[Visual](https://webaim.org/articles/visual/)_ - এই ব্যবহারকারীরা স্ক্রিন রিডার, স্ক্রিন ম্যাগনিফিকেশন, স্ক্রিন কনট্রাস্ট নিয়ন্ত্রণ বা ব্রেইল ডিসপ্লে ব্যবহার করে উপকৃত হতে পারেন।
+- _[Auditory](https://webaim.org/articles/auditory/)_ - এই ব্যবহারকারীরা ক্যাপশন, ট্রান্সক্রিপ্ট বা সাইন ল্যাঙ্গুয়েজ ভিডিও থেকে উপকৃত হতে পারেন।
+- _[Motor](https://webaim.org/articles/motor/)_ - এই ব্যবহারকারীরা বিভিন্ন ধরনের [মোটর দুর্বলতার জন্য সহায়ক প্রযুক্তি](https://webaim.org/articles/motor/assistive) থেকে উপকৃত হতে পারেন ): ভয়েস রিকগনিশন সফটওয়্যার, আই ট্র্যাকিং, একক-সুইচ অ্যাক্সেস, হেড ওয়ান্ড, সিপ এবং পাফ সুইচ, বড় আকারের ট্র্যাকবল মাউস, অভিযোজিত কীবোর্ড বা অন্যান্য সহায়ক প্রযুক্তি।
+- _[Cognitive](https://webaim.org/articles/cognitive/)_ - এই ব্যবহারকারীরা সম্পূরক মিডিয়া, বিষয়বস্তুর কাঠামোগত সংগঠন, পরিষ্কার এবং সহজ লেখা থেকে উপকৃত হতে পারেন।
 
-Check out the following links from WebAim to understand from users:
+ব্যবহারকারীদের কাছ থেকে বোঝার জন্য WebAim থেকে নিম্নলিখিত লিঙ্কগুলি দেখুন:
 
-- [Web Accessibility Perspectives: Explore the Impact and Benefits for Everyone](https://www.w3.org/WAI/perspective-videos/)
-- [Stories of Web Users](https://www.w3.org/WAI/people-use-web/user-stories/)
+- [ওয়েব অ্যাক্সেসিবিলিটি দৃষ্টিকোণ: প্রত্যেকের জন্য প্রভাব এবং সুবিধাগুলি অন্বেষণ করুন](https://www.w3.org/WAI/perspective-videos/)
+- [ওয়েব ব্যবহারকারীদের গল্প](https://www.w3.org/WAI/people-use-web/user-stories/)
