@@ -8,53 +8,53 @@ outline: deep
 
 ### What is SSR? {#what-is-ssr}
 
-Vue.js is a framework for building client-side applications. By default, Vue components produce and manipulate DOM in the browser as output. However, it is also possible to render the same components into HTML strings on the server, send them directly to the browser, and finally "hydrate" the static markup into a fully interactive app on the client.
+Vue.js হল ক্লায়েন্ট-সাইড অ্যাপ্লিকেশন তৈরির জন্য একটি কাঠামো। ডিফল্টরূপে, Vue উপাদানগুলি আউটপুট হিসাবে ব্রাউজারে DOM তৈরি করে এবং পরিচালনা করে। যাইহোক, সার্ভারের HTML স্ট্রিংগুলিতে একই উপাদানগুলি রেন্ডার করা, সেগুলিকে সরাসরি ব্রাউজারে প্রেরণ করা এবং অবশেষে ক্লায়েন্টে একটি সম্পূর্ণ ইন্টারেক্টিভ অ্যাপে স্ট্যাটিক মার্কআপকে "hydrate" করাও সম্ভব।
 
-A server-rendered Vue.js app can also be considered "isomorphic" or "universal", in the sense that the majority of your app's code runs on both the server **and** the client.
+একটি সার্ভার-রেন্ডার করা Vue.js অ্যাপটিকে "isomorphic" বা "universal" হিসাবেও বিবেচনা করা যেতে পারে, এই অর্থে যে আপনার অ্যাপের বেশিরভাগ কোড সার্ভার **and** ক্লায়েন্ট উভয়েই চলে৷
 
 ### Why SSR? {#why-ssr}
 
-Compared to a client-side Single-Page Application (SPA), the advantage of SSR primarily lies in:
+একটি ক্লায়েন্ট-সাইড সিঙ্গেল-পেজ অ্যাপ্লিকেশন (SPA) এর তুলনায়, SSR-এর সুবিধা প্রাথমিকভাবে নিহিত:
 
-- **Faster time-to-content**: this is more prominent on slow internet or slow devices. Server-rendered markup doesn't need to wait until all JavaScript has been downloaded and executed to be displayed, so your user will see a fully-rendered page sooner. In addition, data fetching is done on the server-side for the initial visit, which likely has a faster connection to your database than the client. This generally results in improved [Core Web Vitals](https://web.dev/vitals/) metrics, better user experience, and can be critical for applications where time-to-content is directly associated with conversion rate.
+- **দ্রুত সময় এ বিষয়বস্তু**: এটি ধীর ইন্টারনেট বা ধীর ডিভাইসে আরও বিশিষ্ট। সার্ভার-রেন্ডার করা মার্কআপের জন্য অপেক্ষা করতে হবে না যতক্ষণ না সমস্ত জাভাস্ক্রিপ্ট ডাউনলোড করা হয় এবং প্রদর্শিত হওয়ার জন্য কার্যকর করা হয়, তাই আপনার ব্যবহারকারী শীঘ্রই একটি সম্পূর্ণ-রেন্ডার করা পৃষ্ঠা দেখতে পাবে। এছাড়াও, প্রাথমিক ভিজিটের জন্য সার্ভার-সাইডে ডেটা আনা হয়, যার সম্ভবত ক্লায়েন্টের তুলনায় আপনার ডাটাবেসের সাথে দ্রুত সংযোগ রয়েছে। এটি সাধারণত উন্নত [Core Web Vitals](https://web.dev/vitals/) মেট্রিক্স, আরও ভাল ব্যবহারকারীর অভিজ্ঞতার ফলাফল করে এবং এমন অ্যাপ্লিকেশনগুলির জন্য গুরুত্বপূর্ণ হতে পারে যেখানে সময়-টু-কন্টেন্ট সরাসরি রূপান্তর হারের সাথে যুক্ত।
 
-- **Unified mental model**: you get to use the same language and the same declarative, component-oriented mental model for developing your entire app, instead of jumping back and forth between a backend templating system and a frontend framework.
+- **ইউনিফাইড মেন্টাল মডেল**: আপনি ব্যাকএন্ড টেমপ্লেটিং সিস্টেম এবং ফ্রন্টএন্ড ফ্রেমওয়ার্কের মধ্যে এগিয়ে যাওয়ার পরিবর্তে একই ভাষা এবং একই ঘোষণামূলক, উপাদান-ভিত্তিক মানসিক মডেল ব্যবহার করতে পারবেন।
 
-- **Better SEO**: the search engine crawlers will directly see the fully rendered page.
+- **বেটার এসইও**: সার্চ ইঞ্জিন ক্রলাররা সরাসরি সম্পূর্ণ রেন্ডার করা পৃষ্ঠাটি দেখতে পাবে।
 
   :::tip
-  As of now, Google and Bing can index synchronous JavaScript applications just fine. Synchronous being the key word there. If your app starts with a loading spinner, then fetches content via Ajax, the crawler will not wait for you to finish. This means if you have content fetched asynchronously on pages where SEO is important, SSR might be necessary.
+  এখন পর্যন্ত, Google এবং Bing সিঙ্ক্রোনাস জাভাস্ক্রিপ্ট অ্যাপ্লিকেশনগুলিকে ঠিকঠাকভাবে সূচী করতে পারে। সিনক্রোনাস হচ্ছে মূল শব্দ। যদি আপনার অ্যাপটি একটি লোডিং স্পিনার দিয়ে শুরু হয়, তাহলে Ajax এর মাধ্যমে সামগ্রী নিয়ে আসে, ক্রলার আপনার শেষ হওয়ার জন্য অপেক্ষা করবে না। এর অর্থ হল আপনার যদি এসইও গুরুত্বপূর্ণ এমন পৃষ্ঠাগুলিতে অ্যাসিঙ্ক্রোনাসভাবে সামগ্রী আনা হয়, তাহলে SSR প্রয়োজন হতে পারে।
   :::
 
-There are also some trade-offs to consider when using SSR:
+SSR ব্যবহার করার সময় বিবেচনা করার জন্য কিছু ট্রেড-অফ রয়েছে:
 
-- Development constraints. Browser-specific code can only be used inside certain lifecycle hooks; some external libraries may need special treatment to be able to run in a server-rendered app.
+- উন্নয়নের সীমাবদ্ধতা। ব্রাউজার-নির্দিষ্ট কোড শুধুমাত্র নির্দিষ্ট জীবনচক্র হুকের ভিতরে ব্যবহার করা যেতে পারে; কিছু বহিরাগত লাইব্রেরি একটি সার্ভার-রেন্ডার করা অ্যাপে চালানোর জন্য বিশেষ চিকিত্সার প্রয়োজন হতে পারে।
 
-- More involved build setup and deployment requirements. Unlike a fully static SPA that can be deployed on any static file server, a server-rendered app requires an environment where a Node.js server can run.
+- আরো জড়িত বিল্ড সেটআপ এবং স্থাপনার প্রয়োজনীয়তা. একটি সম্পূর্ণ স্ট্যাটিক এসপিএ থেকে ভিন্ন যা যেকোনো স্ট্যাটিক ফাইল সার্ভারে স্থাপন করা যেতে পারে, একটি সার্ভার-রেন্ডার করা অ্যাপের জন্য একটি পরিবেশ প্রয়োজন যেখানে একটি Node.js সার্ভার চলতে পারে।
 
-- More server-side load. Rendering a full app in Node.js is going to be more CPU-intensive than just serving static files, so if you expect high traffic, be prepared for corresponding server load and wisely employ caching strategies.
+- আরও সার্ভার-সাইড লোড। Node.js-এ একটি সম্পূর্ণ অ্যাপ রেন্ডার করা কেবল স্ট্যাটিক ফাইল পরিবেশন করার চেয়ে বেশি CPU-নিবিড় হতে চলেছে, তাই আপনি যদি উচ্চ ট্র্যাফিক আশা করেন, তাহলে সংশ্লিষ্ট সার্ভার লোডের জন্য প্রস্তুত থাকুন এবং বুদ্ধিমানের সাথে ক্যাশিং কৌশল প্রয়োগ করুন।
 
-Before using SSR for your app, the first question you should ask is whether you actually need it. It mostly depends on how important time-to-content is for your app. For example, if you are building an internal dashboard where an extra few hundred milliseconds on initial load doesn't matter that much, SSR would be an overkill. However, in cases where time-to-content is absolutely critical, SSR can help you achieve the best possible initial load performance.
+আপনার অ্যাপের জন্য SSR ব্যবহার করার আগে, আপনাকে প্রথমে যে প্রশ্নটি জিজ্ঞাসা করা উচিত তা হল আপনার আসলে এটির প্রয়োজন আছে কিনা। এটি আপনার অ্যাপের জন্য সময়-টু-কন্টেন্ট কতটা গুরুত্বপূর্ণ তার উপর নির্ভর করে। উদাহরণস্বরূপ, আপনি যদি একটি অভ্যন্তরীণ ড্যাশবোর্ড তৈরি করেন যেখানে প্রাথমিক লোডের অতিরিক্ত কয়েকশ মিলিসেকেন্ড তেমন কোন ব্যাপার না, SSR একটি ওভারকিল হবে। যাইহোক, যে ক্ষেত্রে সময়-টু-কন্টেন্ট একেবারেই গুরুত্বপূর্ণ, SSR আপনাকে সর্বোত্তম সম্ভাব্য প্রাথমিক লোড কর্মক্ষমতা অর্জনে সহায়তা করতে পারে।
 
 ### SSR vs. SSG {#ssr-vs-ssg}
 
-**Static Site Generation (SSG)**, also referred to as pre-rendering, is another popular technique for building fast websites. If the data needed to server-render a page is the same for every user, then instead of rendering the page every time a request comes in, we can render it only once, ahead of time, during the build process. Pre-rendered pages are generated and served as static HTML files.
+**Static Site Generation (SSG)**, যাকে প্রি-রেন্ডারিংও বলা হয়, দ্রুত ওয়েবসাইট তৈরির আরেকটি জনপ্রিয় কৌশল। যদি একটি পৃষ্ঠা সার্ভার-রেন্ডার করার জন্য প্রয়োজনীয় ডেটা প্রতিটি ব্যবহারকারীর জন্য একই হয়, তাহলে প্রতিবার অনুরোধ আসার সময় পৃষ্ঠাটি রেন্ডার করার পরিবর্তে, আমরা এটিকে শুধুমাত্র একবার, সময়ের আগে, বিল্ড প্রক্রিয়া চলাকালীন রেন্ডার করতে পারি। প্রি-রেন্ডার করা পৃষ্ঠাগুলি তৈরি হয় এবং স্ট্যাটিক HTML ফাইল হিসাবে পরিবেশন করা হয়।
 
-SSG retains the same performance characteristics of SSR apps: it provides great time-to-content performance. At the same time, it is cheaper and easier to deploy than SSR apps because the output is static HTML and assets. The keyword here is **static**: SSG can only be applied to pages consuming static data, i.e. data that is known at build time and does not change between deploys. Every time the data changes, a new deployment is needed.
+SSG SSR অ্যাপের একই পারফরম্যান্স বৈশিষ্ট্য বজায় রাখে: এটি সময়-টু-কন্টেন্ট পারফরম্যান্স প্রদান করে। একই সময়ে, এসএসআর অ্যাপের তুলনায় এটি স্থাপন করা সস্তা এবং সহজ কারণ আউটপুটটি স্ট্যাটিক HTML এবং সম্পদ। এখানে কীওয়ার্ডটি হল **static**: SSG শুধুমাত্র স্ট্যাটিক ডেটা ব্যবহার করে এমন পৃষ্ঠাগুলিতে প্রয়োগ করা যেতে পারে, যেমন ডেটা যা বিল্ড টাইমে পরিচিত এবং ডিপ্লোয়ের মধ্যে পরিবর্তন হয় না। প্রতিবার ডেটা পরিবর্তিত হলে, একটি নতুন স্থাপনার প্রয়োজন হয়।
 
-If you're only investigating SSR to improve the SEO of a handful of marketing pages (e.g. `/`, `/about`, `/contact`, etc.), then you probably want SSG instead of SSR. SSG is also great for content-based websites such as documentation sites or blogs. In fact, this website you are reading right now is statically generated using [VitePress](https://vitepress.vuejs.org/), a Vue-powered static site generator.
+আপনি যদি শুধুমাত্র কিছু মার্কেটিং পৃষ্ঠার (যেমন `/`, `/about`, `/contact`, ইত্যাদি) এসইও উন্নত করার জন্য SSR তদন্ত করছেন, তাহলে আপনি সম্ভবত SSR-এর পরিবর্তে SSG চান। এসএসজি বিষয়বস্তু-ভিত্তিক ওয়েবসাইট যেমন ডকুমেন্টেশন সাইট বা ব্লগের জন্যও দুর্দান্ত। আসলে, আপনি এই মুহূর্তে যে ওয়েবসাইটটি পড়ছেন সেটি স্ট্যাটিকভাবে তৈরি করা হয়েছে [VitePress](https://vitepress.vuejs.org/), একটি Vue-চালিত স্ট্যাটিক সাইট জেনারেটর ব্যবহার করে।
 
 ## Basic Tutorial {#basic-tutorial}
 
 ### Rendering an App {#rendering-an-app}
 
-Let's take a look at the most bare-bones example of Vue SSR in action.
+চলুন কর্মে Vue SSR-এর সবচেয়ে নগ্ন-হাড়ের উদাহরণটি একবার দেখে নেওয়া যাক।
 
-1. Create a new directory and `cd` into it
-2. Run `npm init -y`
-3. Add `"type": "module"` in `package.json` so that Node.js runs in [ES modules mode](https://nodejs.org/api/esm.html#modules-ecmascript-modules).
-4. Run `npm install vue`
-5. Create an `example.js` file:
+1. একটি নতুন ডিরেক্টরি তৈরি করুন এবং এতে `cd` চালান
+2. `npm init -y` চালান
+3. `package.json`-এ `"type": "module"` যোগ করুন যাতে Node.js [ES মডিউল মোডে] চলে (https://nodejs.org/api/esm.html#modules-ecmascript-modules) )
+4. `npm install vue` চালান
+5. একটি `example.js` ফাইল তৈরি করুন:
 
 ```js
 // this runs in Node.js on the server.
@@ -72,24 +72,24 @@ renderToString(app).then((html) => {
 })
 ```
 
-Then run:
+তারপর চালান:
 
 ```sh
 > node example.js
 ```
 
-It should print the following to the command line:
+এটি কমান্ড লাইনে নিম্নলিখিত মুদ্রণ করা উচিত:
 
 ```
 <button>1</button>
 ```
 
-[`renderToString()`](/api/ssr.html#rendertostring) takes a Vue app instance and returns a Promise that resolves to the rendered HTML of the app. It is also possible to stream rendering using the [Node.js Stream API](https://nodejs.org/api/stream.html) or [Web Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). Check out the [SSR API Reference](/api/ssr.html) for full details.
+[`renderToString()`](/api/ssr.html#rendertostring) একটি Vue অ্যাপের উদাহরণ নেয় এবং একটি প্রতিশ্রুতি প্রদান করে যা অ্যাপের রেন্ডার করা HTML-এর সমাধান করে। [Node.js Stream API](https://nodejs.org/api/stream.html) অথবা [ওয়েব স্ট্রিম API](https://developer.mozilla.org/en-) ব্যবহার করে রেন্ডারিং স্ট্রিম করাও সম্ভব। US/docs/Web/API/Streams_API)। সম্পূর্ণ বিবরণের জন্য [SSR API রেফারেন্স](/api/ssr.html) দেখুন।
 
-We can then move the Vue SSR code into a server request handler, which wraps the application markup with the full page HTML. We will be using [`express`](https://expressjs.com/) for the next steps:
+তারপরে আমরা Vue SSR কোডটিকে একটি সার্ভার অনুরোধ হ্যান্ডলারে স্থানান্তর করতে পারি, যা সম্পূর্ণ পৃষ্ঠার এইচটিএমএল দিয়ে অ্যাপ্লিকেশন মার্কআপকে মুড়ে দেয়। আমরা পরবর্তী পদক্ষেপের জন্য [`express`](https://expressjs.com/) ব্যবহার করব:
 
-- Run `npm install express`
-- Create the following `server.js` file:
+- `npm install express` চালান
+- নিম্নলিখিত `server.js` ফাইল তৈরি করুন:
 
 ```js
 import express from 'express'
@@ -124,17 +124,17 @@ server.listen(3000, () => {
 })
 ```
 
-Finally, run `node server.js` and visit `http://localhost:3000`. You should see the page working with the button.
+অবশেষে, `node server.js` চালান এবং `http://localhost:3000` দেখুন। আপনি দেখতে হবে যে পৃষ্ঠাটি বোতামের সাথে কাজ করছে।
 
-[Try it on StackBlitz](https://stackblitz.com/fork/vue-ssr-example-basic?file=index.js)
+[StackBlitz এ চেষ্টা করে দেখুন](https://stackblitz.com/fork/vue-ssr-example-basic?file=index.js)
 
 ### Client Hydration {#client-hydration}
 
-If you click the button, you'll notice the number doesn't change. The HTML is completely static on the client since we are not loading Vue in the browser.
+আপনি যদি বোতামটি ক্লিক করেন, আপনি লক্ষ্য করবেন যে নম্বরটি পরিবর্তন হচ্ছে না। আমরা ব্রাউজারে Vue লোড করছি না বলে এইচটিএমএল ক্লায়েন্টে সম্পূর্ণরূপে স্থির।
 
-To make the client-side app interactive, Vue needs to perform the **hydration** step. During hydration, it creates the same Vue application that was run on the server, matches each component to the DOM nodes it should control, and attaches DOM event listeners.
+ক্লায়েন্ট-সাইড অ্যাপটিকে ইন্টারেক্টিভ করতে, Vue-কে **hydration** ধাপটি সম্পাদন করতে হবে। হাইড্রেশনের সময়, এটি একই Vue অ্যাপ্লিকেশন তৈরি করে যা সার্ভারে চালানো হয়েছিল, প্রতিটি উপাদানকে DOM নোডের সাথে মেলে যা এটি নিয়ন্ত্রণ করা উচিত এবং DOM ইভেন্ট শ্রোতাদের সংযুক্ত করে।
 
-To mount an app in hydration mode, we need to use [`createSSRApp()`](/api/application.html#createssrapp) instead of `createApp()`:
+হাইড্রেশন মোডে একটি অ্যাপ মাউন্ট করতে, আমাদের `createApp()` এর পরিবর্তে [`createSSRApp()`](/api/application.html#createssrapp) ব্যবহার করতে হবে:
 
 ```js{2}
 // this runs in the browser.
@@ -152,9 +152,9 @@ app.mount('#app')
 
 ### Code Structure {#code-structure}
 
-Notice how we need to reuse the same app implementation as on the server. This is where we need to start thinking about code structure in an SSR app - how do we share the same application code between the server and the client?
+লক্ষ্য করুন কিভাবে আমাদের সার্ভারের মতো একই অ্যাপ বাস্তবায়ন পুনরায় ব্যবহার করতে হবে। এখানেই আমাদের একটি SSR অ্যাপে কোড স্ট্রাকচার সম্পর্কে চিন্তা করা শুরু করতে হবে - কিভাবে আমরা সার্ভার এবং ক্লায়েন্টের মধ্যে একই অ্যাপ্লিকেশন কোড শেয়ার করব?
 
-Here we will demonstrate the most bare-bones setup. First, let's split the app creation logic into a dedicated file, `app.js`:
+এখানে আমরা সবচেয়ে বেয়ার-বোন সেটআপ প্রদর্শন করব। প্রথমে, অ্যাপ তৈরির যুক্তিটিকে একটি ডেডিকেটেড ফাইল, `app.js`-এ ভাগ করা যাক:
 
 ```js
 // app.js (shared between server and client)
@@ -168,9 +168,9 @@ export function createApp() {
 }
 ```
 
-This file and its dependencies are shared between the server and the client - we call them **universal code**. There are a number of things you need to pay attention to when writing universal code, as we will [discuss below](#writing-ssr-friendly-code).
+এই ফাইল এবং এর নির্ভরতা সার্ভার এবং ক্লায়েন্টের মধ্যে ভাগ করা হয় - আমরা তাদের **universal code** বলি। সার্বজনীন কোড লেখার সময় আপনাকে অনেকগুলি বিষয়ের প্রতি মনোযোগ দিতে হবে, যেমন আমরা [নীচে আলোচনা করব](#writing-ssr-friendly-code)।
 
-Our client entry imports the universal code, creates the app, and performs the mount:
+আমাদের ক্লায়েন্ট এন্ট্রি সার্বজনীন কোড আমদানি করে, অ্যাপ তৈরি করে এবং মাউন্টটি সম্পাদন করে:
 
 ```js
 // client.js
@@ -179,7 +179,7 @@ import { createApp } from './app.js'
 createApp().mount('#app')
 ```
 
-And the server uses the same app creation logic in the request handler:
+এবং সার্ভার অনুরোধ হ্যান্ডলারে একই অ্যাপ তৈরির যুক্তি ব্যবহার করে:
 
 ```js{2,5}
 // server.js (irrelevant code omitted)
@@ -193,79 +193,79 @@ server.get('/', (req, res) => {
 })
 ```
 
-In addition, in order to load the client files in the browser, we also need to:
+উপরন্তু, ব্রাউজারে ক্লায়েন্ট ফাইলগুলি লোড করার জন্য, আমাদেরও প্রয়োজন:
 
-1. Serve client files by adding `server.use(express.static('.'))` in `server.js`.
-2. Load the client entry by adding `<script type="module" src="/client.js"></script>` to the HTML shell.
-3. Support usage like `import * from 'vue'` in the browser by adding an [Import Map](https://github.com/WICG/import-maps) to the HTML shell.
+1. `server.js`-এ `server.use(express.static('.'))` যোগ করে ক্লায়েন্ট ফাইল পরিবেশন করুন।
+2. HTML শেলে `<script type="module" src="/client.js"></script>` যোগ করে ক্লায়েন্ট এন্ট্রি লোড করুন।
+3. HTML শেলে একটি [Import Map](https://github.com/WICG/import-maps) যোগ করে ব্রাউজারে `import * from 'vue'` ব্যবহার সমর্থন করুন।
 
-[Try the completed example on StackBlitz](https://stackblitz.com/fork/vue-ssr-example?file=index.js). The button is now interactive!
+[StackBlitz-এ সম্পূর্ণ উদাহরণ ব্যবহার করে দেখুন](https://stackblitz.com/fork/vue-ssr-example?file=index.js)। বোতামটি এখন ইন্টারেক্টিভ!
 
 ## Higher Level Solutions {#higher-level-solutions}
 
-Moving from the example to a production-ready SSR app involves a lot more. We will need to:
+উদাহরণ থেকে একটি প্রোডাকশন-প্রস্তুত SSR অ্যাপে যাওয়ার জন্য আরও অনেক কিছু জড়িত। আমাদের প্রয়োজন হবে:
 
-- Support Vue SFCs and other build step requirements. In fact, we will need to coordinate two builds for the same app: one for the client, and one for the server.
+- সমর্থন Vue SFC এবং অন্যান্য বিল্ড ধাপ প্রয়োজনীয়তা. আসলে, আমাদের একই অ্যাপের জন্য দুটি বিল্ড সমন্বয় করতে হবে: একটি ক্লায়েন্টের জন্য এবং একটি সার্ভারের জন্য।
 
   :::tip
-  Vue components are compiled differently when used for SSR - templates are compiled into string concatenations instead of Virtual DOM render functions for more efficient rendering performance.
+  SSR-এর জন্য ব্যবহার করা হলে Vue উপাদানগুলি ভিন্নভাবে কম্পাইল করা হয় - আরও দক্ষ রেন্ডারিং পারফরম্যান্সের জন্য ভার্চুয়াল DOM রেন্ডার ফাংশনের পরিবর্তে টেমপ্লেটগুলিকে স্ট্রিং কনক্যাটেনেশনে কম্পাইল করা হয়।
   :::
 
-- In the server request handler, render the HTML with the correct client-side asset links and optimal resource hints. We may also need to switch between SSR and SSG mode, or even mix both in the same app.
+- সার্ভার রিকোয়েস্ট হ্যান্ডলারে, সঠিক ক্লায়েন্ট-সাইড অ্যাসেট লিঙ্ক এবং সর্বোত্তম রিসোর্স ইঙ্গিত সহ HTML রেন্ডার করুন। আমাদের SSR এবং SSG মোডের মধ্যে স্যুইচ করতে হতে পারে, অথবা একই অ্যাপে উভয়কে মিশ্রিত করতে হতে পারে।
 
-- Manage routing, data fetching, and state management stores in a universal manner.
+- একটি সার্বজনীন পদ্ধতিতে রাউটিং, ডেটা আনয়ন এবং স্টেট ম্যানেজমেন্ট স্টোরগুলি পরিচালনা করুন৷
 
-A complete implementation would be quite complex and depends on the build toolchain you have chosen to work with. Therefore, we highly recommend going with a higher-level, opinionated solution that abstracts away the complexity for you. Below we will introduce a few recommended SSR solutions in the Vue ecosystem.
+একটি সম্পূর্ণ বাস্তবায়ন বেশ জটিল হবে এবং আপনি যে বিল্ড টুলচেইনের সাথে কাজ করতে বেছে নিয়েছেন তার উপর নির্ভর করে। অতএব, আমরা একটি উচ্চ-স্তরের, মতামতযুক্ত সমাধান নিয়ে যাওয়ার সুপারিশ করি যা আপনার জন্য জটিলতা দূর করে। নীচে আমরা Vue ইকোসিস্টেমে কয়েকটি সুপারিশকৃত SSR সমাধান উপস্থাপন করব।
 
 ### Nuxt {#nuxt}
 
-[Nuxt](https://nuxt.com/) is a higher-level framework built on top of the Vue ecosystem which provides a streamlined development experience for writing universal Vue applications. Better yet, you can also use it as a static site generator! We highly recommend giving it a try.
+[Nuxt](https://nuxt.com/) হল একটি উচ্চ-স্তরের ফ্রেমওয়ার্ক যা Vue ইকোসিস্টেমের উপরে তৈরি করা হয়েছে যা সার্বজনীন Vue অ্যাপ্লিকেশন লেখার জন্য একটি সুবিন্যস্ত উন্নয়ন অভিজ্ঞতা প্রদান করে। আরও ভাল, আপনি এটিকে স্ট্যাটিক সাইট জেনারেটর হিসাবেও ব্যবহার করতে পারেন! আমরা অত্যন্ত এটি চেষ্টা করার সুপারিশ.
 
 ### Quasar {#quasar}
 
-[Quasar](https://quasar.dev) is a complete Vue-based solution that allows you to target SPA, SSR, PWA, mobile app, desktop app, and browser extension all using one codebase. It not only handles the build setup, but also provides a full collection of Material Design compliant UI components.
+[Quasar](https://quasar.dev) হল একটি সম্পূর্ণ Vue-ভিত্তিক সমাধান যা আপনাকে SPA, SSR, PWA, মোবাইল অ্যাপ, ডেস্কটপ অ্যাপ, এবং ব্রাউজার এক্সটেনশনকে একটি কোডবেস ব্যবহার করে লক্ষ্য করতে দেয়। এটি শুধুমাত্র বিল্ড সেটআপ পরিচালনা করে না, তবে মেটেরিয়াল ডিজাইন অনুগত UI উপাদানগুলির একটি সম্পূর্ণ সংগ্রহও সরবরাহ করে।
 
 ### Vite SSR {#vite-ssr}
 
-Vite provides built-in [support for Vue server-side rendering](https://vitejs.dev/guide/ssr.html), but it is intentionally low-level. If you wish to go directly with Vite, check out [vite-plugin-ssr](https://vite-plugin-ssr.com/), a community plugin that abstracts away many challenging details for you.
+Vite বিল্ট-ইন [Vue সার্ভার-সাইড রেন্ডারিংয়ের জন্য সমর্থন](https://vitejs.dev/guide/ssr.html) প্রদান করে, তবে এটি ইচ্ছাকৃতভাবে নিম্ন-স্তরের। আপনি যদি সরাসরি Vite-এর সাথে যেতে চান, তাহলে [vite-plugin-ssr](https://vite-plugin-ssr.com/) দেখুন, একটি কমিউনিটি প্লাগইন যা আপনার জন্য অনেক চ্যালেঞ্জিং বিশদ বিমূর্ত করে।
 
-You can also find an example Vue + Vite SSR project using manual setup [here](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue), which can serve as a base to build upon. Note this is only recommended if you are experienced with SSR / build tools and really want to have complete control over the higher-level architecture.
+এছাড়াও আপনি ম্যানুয়াল সেটআপ ব্যবহার করে একটি উদাহরণ Vue + Vite SSR প্রজেক্ট খুঁজে পেতে পারেন [এখানে](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue), যা একটি হিসাবে কাজ করতে পারে ভিত্তি গড়ে তোলার জন্য। মনে রাখবেন এটি শুধুমাত্র তখনই সুপারিশ করা হয় যদি আপনি SSR/বিল্ড টুলের সাথে অভিজ্ঞ হন এবং সত্যিই উচ্চ-স্তরের আর্কিটেকচারের উপর সম্পূর্ণ নিয়ন্ত্রণ রাখতে চান।
 
 ## Writing SSR-friendly Code {#writing-ssr-friendly-code}
 
-Regardless of your build setup or higher-level framework choice, there are some principles that apply in all Vue SSR applications.
+আপনার বিল্ড সেটআপ বা উচ্চ-স্তরের ফ্রেমওয়ার্ক পছন্দ নির্বিশেষে, কিছু নীতি রয়েছে যা সমস্ত Vue SSR অ্যাপ্লিকেশনগুলিতে প্রযোজ্য।
 
 ### Reactivity on the Server {#reactivity-on-the-server}
 
-During SSR, each request URL maps to a desired state of our application. There is no user interaction and no DOM updates, so reactivity is unnecessary on the server. By default, reactivity is disabled during SSR for better performance.
+এসএসআর চলাকালীন, প্রতিটি অনুরোধের URL আমাদের আবেদনের একটি পছন্দসই অবস্থায় ম্যাপ করে। কোন ব্যবহারকারীর মিথস্ক্রিয়া নেই এবং কোন DOM আপডেট নেই, তাই সার্ভারে প্রতিক্রিয়াশীলতা অপ্রয়োজনীয়। ডিফল্টরূপে, ভালো কর্মক্ষমতার জন্য SSR চলাকালীন প্রতিক্রিয়া নিষ্ক্রিয় করা হয়।
 
 ### Component Lifecycle Hooks {#component-lifecycle-hooks}
 
-Since there are no dynamic updates, lifecycle hooks such as <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> or <span class="options-api">`updated`</span><span class="composition-api">`onUpdated`</span> will **NOT** be called during SSR and will only be executed on the client.<span class="options-api"> The only hooks that are called during SSR are `beforeCreate` and `created`</span>
+যেহেতু কোন dynamic আপডেট নেই, যেমন জীবনচক্র হুক <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> or <span class="options-api">`updated`</span><span class="composition-api">`onUpdated`</span> SSR চলাকালীন **NOT** কল করা হবে এবং শুধুমাত্র ক্লায়েন্টের উপর কার্যকর করা হবে।<span class="options-api">SSR-এর সময় যে হুকগুলিকে ডাকা হয় তা হল `beforeCreate` এবং `created`</span>
 
-You should avoid code that produces side effects that need cleanup in <span class="options-api">`beforeCreate` and `created`</span><span class="composition-api">`setup()` or the root scope of `<script setup>`</span>. An example of such side effects is setting up timers with `setInterval`. In client-side only code we may setup a timer and then tear it down in <span class="options-api">`beforeUnmount`</span><span class="composition-api">`onBeforeUnmount`</span> or <span class="options-api">`unmounted`</span><span class="composition-api">`onUnmounted`</span>. However, because the unmount hooks will never be called during SSR, the timers will stay around forever. To avoid this, move your side-effect code into <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> instead.
+আপনার এমন কোড এড়ানো উচিত যা পার্শ্বপ্রতিক্রিয়া তৈরি করে যার পরিচ্ছন্নতার প্রয়োজন <span class="options-api">`beforeCreate` এবং `created`</span><span class="composition-api">`setup()` অথবা এর মূল সুযোগ `<script setup>`</span>. এই ধরনের পার্শ্বপ্রতিক্রিয়ার একটি উদাহরণ হল `setInterval` দিয়ে টাইমার সেট আপ করা। শুধুমাত্র ক্লায়েন্ট-সাইড কোডে আমরা একটি টাইমার সেটআপ করতে পারি এবং তারপরে এটি ছিঁড়ে ফেলতে পারি <span class="options-api">`beforeUnmount`</span><span class="composition-api">`onBeforeUnmount`</span> or <span class="options-api">`unmounted`</span><span class="composition-api">`onUnmounted`</span>৷ যাইহোক, যেহেতু SSR চলাকালীন আনমাউন্ট হুকগুলিকে কখনই কল করা হবে না, তাই টাইমারগুলি চিরকালই থাকবে৷ এটি এড়াতে, আপনার পার্শ্ব-প্রতিক্রিয়া কোডটি এতে সরান ৷<span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> পরিবর্তে.
 
 ### Access to Platform-Specific APIs {#access-to-platform-specific-apis}
 
-Universal code cannot assume access to platform-specific APIs, so if your code directly uses browser-only globals like `window` or `document`, they will throw errors when executed in Node.js, and vice-versa.
+ইউনিভার্সাল কোড প্ল্যাটফর্ম-নির্দিষ্ট API-এ অ্যাক্সেস অনুমান করতে পারে না, তাই যদি আপনার কোড সরাসরি ব্রাউজার-শুধুমাত্র গ্লোবাল যেমন `window` বা `document` ব্যবহার করে, তাহলে তারা Node.js-এ এক্সিকিউট করার সময় ত্রুটি নিক্ষেপ করবে এবং এর বিপরীতে।
 
-For tasks that are shared between server and client but with different platform APIs, it's recommended to wrap the platform-specific implementations inside a universal API, or use libraries that do this for you. For example, you can use [`node-fetch`](https://github.com/node-fetch/node-fetch) to use the same fetch API on both server and client.
+সার্ভার এবং ক্লায়েন্টের মধ্যে কিন্তু বিভিন্ন প্ল্যাটফর্ম API-এর সাথে ভাগ করা কাজগুলির জন্য, একটি সর্বজনীন API-এর মধ্যে প্ল্যাটফর্ম-নির্দিষ্ট বাস্তবায়নগুলি মোড়ানো বা আপনার জন্য এটি করে এমন লাইব্রেরিগুলি ব্যবহার করার পরামর্শ দেওয়া হয়৷ উদাহরণস্বরূপ, আপনি সার্ভার এবং ক্লায়েন্ট উভয় ক্ষেত্রে একই ফেচ API ব্যবহার করতে [`node-fetch`](https://github.com/node-fetch/node-fetch) ব্যবহার করতে পারেন।
 
-For browser-only APIs, the common approach is to lazily access them inside client-only lifecycle hooks such as <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
+ব্রাউজার-কেবল API-গুলির জন্য, সাধারণ পদ্ধতি হল ক্লায়েন্ট-শুধু লাইফসাইকেল হুকের মধ্যে অলসভাবে সেগুলি অ্যাক্সেস করা যেমন <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
 
-Note that if a third-party library is not written with universal usage in mind, it could be tricky to integrate it into a server-rendered app. You _might_ be able to get it working by mocking some of the globals, but it would be hacky and may interfere with the environment detection code of other libraries.
+মনে রাখবেন যে যদি একটি তৃতীয় পক্ষের লাইব্রেরি সর্বজনীন ব্যবহারের কথা মাথায় রেখে লেখা না হয় তবে এটি একটি সার্ভার-রেন্ডার করা অ্যাপে সংহত করা কঠিন হতে পারে। আপনি _হতে পারে_ কিছু গ্লোবালকে উপহাস করে এটিকে কাজ করতে সক্ষম, তবে এটি হ্যাকি হবে এবং অন্যান্য লাইব্রেরির পরিবেশ সনাক্তকরণ কোডে হস্তক্ষেপ করতে পারে।
 
 ### Cross-Request State Pollution {#cross-request-state-pollution}
 
-In the State Management chapter, we introduced a [simple state management pattern using Reactivity APIs](state-management.html#simple-state-management-with-reactivity-api). In an SSR context, this pattern requires some additional adjustments.
+স্টেট ম্যানেজমেন্ট অধ্যায়ে, আমরা একটি [রিঅ্যাক্টিভিটি API ব্যবহার করে সরল স্টেট ম্যানেজমেন্ট প্যাটার্ন](state-management.html#simple-state-management-with-reactivity-api) চালু করেছি। একটি SSR প্রসঙ্গে, এই প্যাটার্নের জন্য কিছু অতিরিক্ত সমন্বয় প্রয়োজন।
 
-The pattern declares shared state in a JavaScript module's root scope. This makes them **singletons** - i.e. there is only one instance of the reactive object throughout the entire lifecycle of our application. This works as expected in a pure client-side Vue application, since the modules in our application are initialized fresh for each browser page visit.
+প্যাটার্নটি জাভাস্ক্রিপ্ট মডিউলের রুট স্কোপে শেয়ার করা অবস্থা ঘোষণা করে। এটি তাদের **singletons** করে তোলে - অর্থাৎ আমাদের অ্যাপ্লিকেশনের সমগ্র জীবনচক্র জুড়ে প্রতিক্রিয়াশীল বস্তুর একটি মাত্র উদাহরণ রয়েছে। এটি একটি বিশুদ্ধ ক্লায়েন্ট-সাইড Vue অ্যাপ্লিকেশনে প্রত্যাশিত হিসাবে কাজ করে, যেহেতু আমাদের অ্যাপ্লিকেশনের মডিউলগুলি প্রতিটি ব্রাউজার পৃষ্ঠা দেখার জন্য নতুন করে শুরু করা হয়।
 
-However, in an SSR context, the application modules are typically initialized only once on the server, when the server boots up. The same module instances will be reused across multiple server requests, and so will our singleton state objects. If we mutate the shared singleton state with data specific to one user, it can be accidentally leaked to a request from another user. We call this **cross-request state pollution.**
+যাইহোক, একটি SSR প্রসঙ্গে, অ্যাপ্লিকেশন মডিউলগুলি সাধারণত সার্ভারে শুধুমাত্র একবার শুরু হয়, যখন সার্ভার বুট আপ হয়। একই মডিউল দৃষ্টান্তগুলি একাধিক সার্ভার অনুরোধ জুড়ে পুনরায় ব্যবহার করা হবে, এবং আমাদের সিঙ্গলটন স্টেট অবজেক্টগুলিও তাই হবে৷ যদি আমরা একটি ব্যবহারকারীর জন্য নির্দিষ্ট ডেটা সহ শেয়ার করা সিঙ্গলটন স্টেটকে পরিবর্তন করি, তবে এটি দুর্ঘটনাক্রমে অন্য ব্যবহারকারীর অনুরোধে ফাঁস হতে পারে। আমরা একে **ক্রস-রিকোয়েস্ট স্টেট পলিউশন বলি।**
 
-We can technically re-initialize all the JavaScript modules on each request, just like we do in browsers. However, initializing JavaScript modules can be costly, so this would significantly affect server performance.
+আমরা প্রতিটি অনুরোধে সমস্ত জাভাস্ক্রিপ্ট মডিউলকে প্রযুক্তিগতভাবে পুনরায় আরম্ভ করতে পারি, ঠিক যেমন আমরা ব্রাউজারে করি। যাইহোক, জাভাস্ক্রিপ্ট মডিউল শুরু করা ব্যয়বহুল হতে পারে, তাই এটি সার্ভারের কার্যকারিতাকে উল্লেখযোগ্যভাবে প্রভাবিত করবে।
 
-The recommended solution is to create a new instance of the entire application - including the router and global stores - on each request. Then, instead of directly importing it in our components, we provide the shared state using [app-level provide](/guide/components/provide-inject.html#app-level-provide) and inject it in components that need it:
+প্রস্তাবিত সমাধান হল প্রতিটি অনুরোধে - রাউটার এবং গ্লোবাল স্টোর সহ - সম্পূর্ণ অ্যাপ্লিকেশনটির একটি নতুন উদাহরণ তৈরি করা৷ তারপরে, আমাদের উপাদানগুলিতে এটি সরাসরি আমদানি করার পরিবর্তে, আমরা [app-level provide](/guide/components/provide-inject.html#app-level-provide) ব্যবহার করে শেয়ার্ড স্টেট প্রদান করি এবং এটি প্রয়োজনীয় উপাদানগুলিতে ইনজেক্ট করি:
 
 ```js
 // app.js (shared between server and client)
@@ -284,19 +284,19 @@ export function createApp() {
 }
 ```
 
-State Management libraries like Pinia are designed with this in mind. Consult [Pinia's SSR guide](https://pinia.vuejs.org/ssr/) for more details.
+পিনিয়ার মতো স্টেট ম্যানেজমেন্ট লাইব্রেরিগুলি এটি মাথায় রেখে ডিজাইন করা হয়েছে। আরও বিশদ বিবরণের জন্য [Pinia's SSR গাইড](https://pinia.vuejs.org/ssr/) দেখুন।
 
 ### Hydration Mismatch {#hydration-mismatch}
 
-If the DOM structure of the pre-rendered HTML does not match the expected output of the client-side app, there will be a hydration mismatch error. Hydration mismatch is most commonly introduced by the following causes:
+যদি প্রি-রেন্ডার করা HTML এর DOM স্ট্রাকচার ক্লায়েন্ট-সাইড অ্যাপের প্রত্যাশিত আউটপুটের সাথে মেলে না, তাহলে একটি হাইড্রেশন অমিল ত্রুটি হবে। হাইড্রেশন অমিল সবচেয়ে সাধারণত নিম্নলিখিত কারণ দ্বারা প্রবর্তিত হয়:
 
-1. The template contains invalid HTML nesting structure, and the rendered HTML got "corrected" by the browser's native HTML parsing behavior. For example, a common gotcha is that [`<div>` cannot be placed inside `<p>`](https://stackoverflow.com/questions/8397852/why-cant-the-p-tag-contain-a-div-tag-inside-it):
+1. টেমপ্লেটটিতে অবৈধ HTML নেস্টিং কাঠামো রয়েছে এবং রেন্ডার করা HTML ব্রাউজারের নেটিভ HTML পার্সিং আচরণ দ্বারা "সংশোধন" হয়েছে। উদাহরণস্বরূপ, একটি সাধারণ গোট হল যে [`<div>` ভিতরে রাখা যাবে না `<p>`](https://stackoverflow.com/questions/8397852/why-cant-the-p-tag-contain-a) এর ভিতরে রাখা যাবে না -ডিভ-ট্যাগ-ভিতরে-এটি):
 
    ```html
    <p><div>hi</div></p>
    ```
 
-   If we produce this in our server-rendered HTML, the browser will terminate the first `<p>` when `<div>` is encountered and parse it into the following DOM structure:
+   যদি আমরা এটি আমাদের সার্ভার-রেন্ডার করা HTML-এ তৈরি করি, তাহলে ব্রাউজারটি প্রথম `<p>`টি বন্ধ করে দেবে যখন `<div>` সম্মুখীন হবে এবং এটিকে নিম্নলিখিত DOM কাঠামোতে পার্স করবে:
 
    ```html
    <p></p>
@@ -304,19 +304,19 @@ If the DOM structure of the pre-rendered HTML does not match the expected output
    <p></p>
    ```
 
-2. The data used during render contains randomly generated values. Since the same application will run twice - once on the server, and once on the client - the random values are not guaranteed to be the same between the two runs. There are two ways to avoid random-value-induced mismatches:
+2. রেন্ডারের সময় ব্যবহৃত ডেটা এলোমেলোভাবে উৎপন্ন মান ধারণ করে। যেহেতু একই অ্যাপ্লিকেশন দুবার চলবে - একবার সার্ভারে, এবং একবার ক্লায়েন্টে - এলোমেলো মান দুটি রানের মধ্যে একই হওয়ার নিশ্চয়তা নেই। এলোমেলো-মান-প্ররোচিত অমিল এড়াতে দুটি উপায় রয়েছে:
 
-   1. Use `v-if` + `onMounted` to render the part that depends on random values only on the client. Your framework may also have built-in features to make this easier, for example the `<ClientOnly>` component in VitePress.
+   1. শুধুমাত্র ক্লায়েন্টের উপর এলোমেলো মানের উপর নির্ভর করে এমন অংশ রেন্ডার করতে `v-if` + `onMounted` ব্যবহার করুন। এটি সহজ করার জন্য আপনার ফ্রেমওয়ার্কের অন্তর্নির্মিত বৈশিষ্ট্যও থাকতে পারে, উদাহরণস্বরূপ VitePress-এ `<ClientOnly>` উপাদান।
 
-   2. Use a random number generator library that supports generating with seeds, and guarantee the server run and the client run are using the same seed (e.g. by including the seed in serialized state and retrieving it on the client).
+   2. একটি র্যান্ডম নম্বর জেনারেটর লাইব্রেরি ব্যবহার করুন যা বীজের সাহায্যে তৈরি করাকে সমর্থন করে এবং সার্ভার চালানোর গ্যারান্টি দেয় এবং ক্লায়েন্ট রান একই বীজ ব্যবহার করছে (যেমন ক্রমিক অবস্থায় বীজ অন্তর্ভুক্ত করে এবং ক্লায়েন্টের উপর এটি পুনরুদ্ধার করে)।
 
-3. The server and the client are in different time zones. Sometimes, we may want to convert a timestamp into the user's local time. However, the timezone during the server run and the timezone during the client run are not always the same, and we may not reliably know the user's timezone during the server run. In such cases, the local time conversion should also be performed as a client-only operation.
+3. সার্ভার এবং ক্লায়েন্ট বিভিন্ন সময় অঞ্চলে রয়েছে। কখনও কখনও, আমরা ব্যবহারকারীর স্থানীয় সময়ে একটি টাইমস্ট্যাম্প রূপান্তর করতে চাই। যাইহোক, সার্ভার চালানোর সময় টাইমজোন এবং ক্লায়েন্ট চালানোর সময় টাইমজোন সবসময় এক হয় না, এবং আমরা সার্ভার চালানোর সময় ব্যবহারকারীর টাইমজোন নির্ভরযোগ্যভাবে নাও জানতে পারি। এই ধরনের ক্ষেত্রে, স্থানীয় সময় রূপান্তরটি শুধুমাত্র ক্লায়েন্ট-অপারেশন হিসাবে সঞ্চালিত হওয়া উচিত।
 
-When Vue encounters a hydration mismatch, it will attempt to automatically recover and adjust the pre-rendered DOM to match the client-side state. This will lead to some rendering performance loss due to incorrect nodes being discarded and new nodes being mounted, but in most cases, the app should continue to work as expected. That said, it is still best to eliminate hydration mismatches during development.
+যখন Vue একটি হাইড্রেশন অমিলের সম্মুখীন হয়, তখন এটি স্বয়ংক্রিয়ভাবে পুনরুদ্ধার করার চেষ্টা করবে এবং ক্লায়েন্ট-সাইড স্টেটের সাথে মেলে প্রি-রেন্ডার করা DOM সামঞ্জস্য করবে। এটি ভুল নোড বাতিল করা এবং নতুন নোড মাউন্ট করার কারণে কিছু রেন্ডারিং কর্মক্ষমতা ক্ষতির দিকে পরিচালিত করবে, তবে বেশিরভাগ ক্ষেত্রে, অ্যাপটি প্রত্যাশিত হিসাবে কাজ চালিয়ে যাওয়া উচিত। এটি বলেছে, উন্নয়নের সময় হাইড্রেশনের অমিলগুলি দূর করা এখনও ভাল।
 
 ### Custom Directives {#custom-directives}
 
-Since most custom directives involve direct DOM manipulation, they are ignored during SSR. However, if you want to specify how a custom directive should be rendered (i.e. what attributes it should add to the rendered element), you can use the `getSSRProps` directive hook:
+যেহেতু বেশিরভাগ কাস্টম নির্দেশাবলী সরাসরি DOM ম্যানিপুলেশন জড়িত, সেগুলি SSR এর সময় উপেক্ষা করা হয়। যাইহোক, আপনি যদি নির্দিষ্ট করতে চান যে একটি কাস্টম নির্দেশিকা কীভাবে রেন্ডার করা উচিত (অর্থাৎ এটি রেন্ডার করা উপাদানটিতে কোন বৈশিষ্ট্য যুক্ত করা উচিত), আপনি `getSSRProps` নির্দেশিকা হুক ব্যবহার করতে পারেন:
 
 ```js
 const myDirective = {
@@ -338,9 +338,9 @@ const myDirective = {
 
 ### Teleports {#teleports}
 
-Teleports require special handling during SSR. If the rendered app contains Teleports, the teleported content will not be part of the rendered string. An easier solution is to conditionally render the Teleport on mount.
+SSR চলাকালীন টেলিপোর্টের বিশেষ হ্যান্ডলিং প্রয়োজন। যদি রেন্ডার করা অ্যাপে Teleports থাকে, তাহলে টেলিপোর্ট করা কন্টেন্ট রেন্ডার করা স্ট্রিংয়ের অংশ হবে না। একটি সহজ সমাধান হল শর্তসাপেক্ষে মাউন্টে টেলিপোর্ট রেন্ডার করা।
 
-If you do need to hydrate teleported content, they are exposed under the `teleports` property of the ssr context object:
+আপনার যদি টেলিপোর্ট করা বিষয়বস্তু হাইড্রেট করার প্রয়োজন হয়, সেগুলি ssr প্রসঙ্গ অবজেক্টের `teleports` সম্পত্তির অধীনে প্রকাশ করা হয়:
 
 ```js
 const ctx = {}
@@ -349,10 +349,10 @@ const html = await renderToString(app, ctx)
 console.log(ctx.teleports) // { '#teleported': 'teleported content' }
 ```
 
-You need to inject the teleport markup into the correct location in your final page HTML similar to how you need to inject the main app markup.
+আপনাকে আপনার চূড়ান্ত পৃষ্ঠার HTML-এর সঠিক অবস্থানে টেলিপোর্ট মার্কআপটি ইনজেকশন করতে হবে যেভাবে আপনাকে মূল অ্যাপ মার্কআপটি ইনজেকশন করতে হবে।
 
 :::tip
-Avoid targeting `body` when using Teleports and SSR together - usually, `<body>` will contain other server-rendered content which makes it impossible for Teleports to determine the correct starting location for hydration.
+টেলিপোর্ট এবং SSR একসাথে ব্যবহার করার সময় `body` টার্গেট করা এড়িয়ে চলুন - সাধারণত, `<body>` অন্যান্য সার্ভার-রেন্ডার করা সামগ্রী থাকবে যা টেলিপোর্টের পক্ষে হাইড্রেশনের জন্য সঠিক শুরুর অবস্থান নির্ধারণ করা অসম্ভব করে তোলে।
 
-Instead, prefer a dedicated container, e.g. `<div id="teleported"></div>` which contains only teleported content.
+পরিবর্তে, একটি উত্সর্গীকৃত পাত্র পছন্দ করুন, যেমন `<div id="teleported"></div>` যেটিতে শুধুমাত্র টেলিপোর্ট করা সামগ্রী রয়েছে৷
 :::
