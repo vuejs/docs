@@ -109,7 +109,7 @@ Note that integration with various pre-processors may differ by toolchain. Check
 - [Vue CLI](https://cli.vuejs.org/guide/css.html#pre-processors)
 - [webpack + vue-loader](https://vue-loader.vuejs.org/guide/pre-processors.html#using-pre-processors)
 
-## src Imports {#src-imports}
+## `src` Imports {#src-imports}
 
 If you prefer splitting up your `*.vue` components into multiple files, you can use the `src` attribute to import an external file for a language block:
 
