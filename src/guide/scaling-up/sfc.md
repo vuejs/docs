@@ -2,7 +2,7 @@
 
 ## Introduction {#introduction}
 
-Vue Single-File Components (a.k.a. `*.vue` files, abbreviated as **SFC**) is a special file format that allows us to encapsulate the template, logic, **and** styling of a Vue component in a single file. Here's an example SFC:
+Vue একক-ফাইল উপাদান (ওরফে `*.vue` ফাইল, সংক্ষেপে **SFC**) হল একটি বিশেষ ফাইল বিন্যাস যা আমাদেরকে একটি ভিউ উপাদানের টেমপ্লেট, যুক্তি, **and** স্টাইলিংকে এককভাবে এনক্যাপসুলেট করতে দেয় ফাইল এখানে একটি উদাহরণ SFC:
 
 <div class="options-api">
 
@@ -53,32 +53,32 @@ const greeting = ref('Hello World!')
 
 </div>
 
-As we can see, Vue SFC is a natural extension of the classic trio of HTML, CSS and JavaScript. The `<template>`, `<script>`, and `<style>` blocks encapsulate and colocate the view, logic and styling of a component in the same file. The full syntax is defined in the [SFC Syntax Specification](/api/sfc-spec).
+আমরা দেখতে পাচ্ছি, Vue SFC হল এইচটিএমএল, সিএসএস এবং জাভাস্ক্রিপ্টের ক্লাসিক ত্রয়ীটির একটি প্রাকৃতিক এক্সটেনশন। `<template>`, `<script>`, এবং `<style>` ব্লক একই ফাইলে একটি উপাদানের ভিউ, লজিক এবং স্টাইলিংকে এনক্যাপসুলেট করে এবং একত্রিত করে। সম্পূর্ণ সিনট্যাক্সটি [SFC Syntax Specification](/api/sfc-spec) এ সংজ্ঞায়িত করা হয়েছে।
 
 ## Why SFC {#why-sfc}
 
-While SFCs require a build step, there are numerous benefits in return:
+যদিও SFC-এর জন্য একটি বিল্ড স্টেপ প্রয়োজন, তার বিনিময়ে অনেক সুবিধা রয়েছে:
 
-- Author modularized components using familiar HTML, CSS and JavaScript syntax
+- পরিচিত HTML, CSS এবং JavaScript সিনট্যাক্স ব্যবহার করে লেখক মডুলারাইজড উপাদান
 - [Colocation of inherently coupled concerns](#what-about-separation-of-concerns)
 - Pre-compiled templates without runtime compilation cost
 - [Component-scoped CSS](/api/sfc-css-features)
 - [More ergonomic syntax when working with Composition API](/api/sfc-script-setup)
 - More compile-time optimizations by cross-analyzing template and script
 - [IDE support](/guide/scaling-up/tooling.html#ide-support) with auto-completion and type-checking for template expressions
-- Out-of-the-box Hot-Module Replacement (HMR) support
+- আউট-অফ-দ্য-বক্স হট-মডিউল প্রতিস্থাপন (HMR) সমর্থন
 
-SFC is a defining feature of Vue as a framework, and is the recommended approach for using Vue in the following scenarios:
+SFC হল একটি কাঠামো হিসাবে Vue-এর একটি সংজ্ঞায়িত বৈশিষ্ট্য, এবং নিম্নলিখিত পরিস্থিতিতে Vue ব্যবহার করার জন্য প্রস্তাবিত পদ্ধতি:
 
-- Single-Page Applications (SPA)
-- Static Site Generation (SSG)
-- Any non-trivial frontend where a build step can be justified for better development experience (DX).
+- একক-পৃষ্ঠা অ্যাপ্লিকেশন (SPA)
+- স্ট্যাটিক সাইট জেনারেশন (SSG)
+- যেকোন নন-তুচ্ছ ফ্রন্টএন্ড যেখানে একটি বিল্ড স্টেপ আরও ভালো উন্নয়ন অভিজ্ঞতার (DX) জন্য ন্যায়সঙ্গত হতে পারে।
 
-That said, we do realize there are scenarios where SFCs can feel like overkill. This is why Vue can still be used via plain JavaScript without a build step. If you are just looking for enhancing largely static HTML with light interactions, you can also check out [petite-vue](https://github.com/vuejs/petite-vue), a 6 kB subset of Vue optimized for progressive enhancement.
+এটি বলেছিল, আমরা বুঝতে পারি এমন পরিস্থিতি রয়েছে যেখানে SFCগুলি ওভারকিলের মতো অনুভব করতে পারে। এই কারণেই Vue এখনও বিল্ড স্টেপ ছাড়া প্লেইন জাভাস্ক্রিপ্টের মাধ্যমে ব্যবহার করা যেতে পারে। আপনি যদি হালকা ইন্টারঅ্যাকশনের সাথে বহুলাংশে স্ট্যাটিক এইচটিএমএল উন্নত করতে চান তবে আপনি [petite-vue](https://github.com/vuejs/petite-vue), প্রগতিশীল বর্ধনের জন্য অপ্টিমাইজ করা Vue-এর একটি 6 kB উপসেটও দেখতে পারেন .
 
 ## How It Works {#how-it-works}
 
-Vue SFC is a framework-specific file format and must be pre-compiled by [@vue/compiler-sfc](https://github.com/vuejs/core/tree/main/packages/compiler-sfc) into standard JavaScript and CSS. A compiled SFC is a standard JavaScript (ES) module - which means with proper build setup you can import an SFC like a module:
+Vue SFC হল একটি ফ্রেমওয়ার্ক-নির্দিষ্ট ফাইল বিন্যাস এবং এটি অবশ্যই [@vue/compiler-sfc](https://github.com/vuejs/core/tree/main/packages/compiler-sfc) দ্বারা আদর্শ জাভাস্ক্রিপ্টে প্রি-কম্পাইল করা আবশ্যক। এবং CSS। একটি সংকলিত SFC হল একটি স্ট্যান্ডার্ড জাভাস্ক্রিপ্ট (ES) মডিউল - যার মানে সঠিক বিল্ড সেটআপের সাথে আপনি একটি মডিউলের মতো একটি SFC আমদানি করতে পারেন:
 
 ```js
 import MyComponent from './MyComponent.vue'
@@ -90,18 +90,18 @@ export default {
 }
 ```
 
-`<style>` tags inside SFCs are typically injected as native `<style>` tags during development to support hot updates. For production they can be extracted and merged into a single CSS file.
+SFC-এর ভিতরে `<style>` ট্যাগগুলি সাধারণত হট আপডেটগুলিকে সমর্থন করার জন্য বিকাশের সময় নেটিভ `<style>` ট্যাগ হিসাবে ইনজেক্ট করা হয়। উৎপাদনের জন্য এগুলি বের করে একটি একক CSS ফাইলে মার্জ করা যায়।
 
-You can play with SFCs and explore how they are compiled in the [Vue SFC Playground](https://sfc.vuejs.org/).
+আপনি SFC-এর সাথে খেলতে পারেন এবং [Vue SFC প্লেগ্রাউন্ড](https://sfc.vuejs.org/) এ কীভাবে সেগুলো কম্পাইল করা হয় তা দেখতে পারেন।
 
-In actual projects, we typically integrate the SFC compiler with a build tool such as [Vite](https://vitejs.dev/) or [Vue CLI](http://cli.vuejs.org/) (which is based on [webpack](https://webpack.js.org/)), and Vue provides official scaffolding tools to get you started with SFCs as fast as possible. Check out more details in the [SFC Tooling](/guide/scaling-up/tooling) section.
+প্রকৃত প্রকল্পগুলিতে, আমরা সাধারণত [Vite](https://vitejs.dev/) বা [Vue CLI](http://cli.vuejs.org/) (যার উপর ভিত্তি করে) একটি বিল্ড টুলের সাথে SFC কম্পাইলারকে সংহত করি [webpack](https://webpack.js.org/)), এবং Vue আপনাকে যত দ্রুত সম্ভব SFC-এর সাথে শুরু করার জন্য অফিসিয়াল স্ক্যাফোল্ডিং টুল সরবরাহ করে। [SFC টুলিং](/guide/scaling-up/tooling) বিভাগে আরও বিশদ দেখুন।
 
 ## What About Separation of Concerns? {#what-about-separation-of-concerns}
 
-Some users coming from a traditional web development background may have the concern that SFCs are mixing different concerns in the same place - which HTML/CSS/JS were supposed to separate!
+প্রথাগত ওয়েব ডেভেলপমেন্ট ব্যাকগ্রাউন্ড থেকে আগত কিছু ব্যবহারকারীর উদ্বেগ থাকতে পারে যে SFC একই জায়গায় বিভিন্ন উদ্বেগ মিশ্রিত করছে - যা HTML/CSS/JS আলাদা করার কথা ছিল!
 
-To answer this question, it is important for us to agree that **separation of concerns is not equal to the separation of file types**. The ultimate goal of engineering principles is to improve the maintainability of codebases. Separation of concerns, when applied dogmatically as separation of file types, does not help us reach that goal in the context of increasingly complex frontend applications.
+এই প্রশ্নের উত্তর দেওয়ার জন্য, আমাদের পক্ষে একমত হওয়া গুরুত্বপূর্ণ যে **উদ্বেগের পৃথকীকরণ ফাইল প্রকারের বিভাজনের সমান নয়**। প্রকৌশল নীতির চূড়ান্ত লক্ষ্য হল কোডবেসগুলির রক্ষণাবেক্ষণযোগ্যতা উন্নত করা। উদ্বেগের বিচ্ছেদ, যখন দৃঢ়তার সাথে ফাইলের প্রকারের পৃথকীকরণ হিসাবে প্রয়োগ করা হয়, ক্রমবর্ধমান জটিল ফ্রন্টএন্ড অ্যাপ্লিকেশনের পরিপ্রেক্ষিতে আমাদের সেই লক্ষ্যে পৌঁছাতে সাহায্য করে না।
 
-In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic, and styles are inherently coupled, and colocating them actually makes the component more cohesive and maintainable.
+আধুনিক UI ডেভেলপমেন্টে, আমরা দেখতে পেয়েছি যে কোডবেসকে তিনটি বিশাল স্তরে বিভক্ত করার পরিবর্তে যা একে অপরের সাথে আন্তঃপ্রবেশ করে, তাদের ঢিলেঢালাভাবে সংযুক্ত উপাদানগুলিতে ভাগ করা এবং সেগুলি রচনা করা অনেক বেশি অর্থবহ। একটি উপাদানের অভ্যন্তরে, এর টেমপ্লেট, যুক্তিবিদ্যা এবং শৈলীগুলি সহজাতভাবে মিলিত হয় এবং সেগুলিকে একত্রিত করা আসলে উপাদানটিকে আরও সুসংহত এবং রক্ষণাবেক্ষণযোগ্য করে তোলে।
 
-Note even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files using [Src Imports](/api/sfc-spec.html#src-imports).
+মনে রাখবেন যে আপনি একক-ফাইল উপাদানগুলির ধারণা পছন্দ না করলেও, আপনি [Src Imports](/api/sfc-spec) ব্যবহার করে আপনার জাভাস্ক্রিপ্ট এবং CSS আলাদা ফাইলে আলাদা করে এর হট-রিলোডিং এবং প্রাক-সংকলন বৈশিষ্ট্যগুলিকে ব্যবহার করতে পারেন .html#src-imports)।
