@@ -2,7 +2,7 @@
 
 ## Introduction {#introduction}
 
-Plugins are self-contained code that usually add app-level functionality to Vue. This is how we install a plugin:
+প্লাগইন হল স্বয়ংসম্পূর্ণ কোড যা সাধারণত Vue-তে অ্যাপ-স্তরের কার্যকারিতা যোগ করে। এইভাবে আমরা একটি প্লাগইন ইনস্টল করি:
 
 ```js
 import { createApp } from 'vue'
@@ -14,7 +14,7 @@ app.use(myPlugin, {
 })
 ```
 
-A plugin is defined as either an object that exposes an `install()` method, or simply a function that acts as the install function itself. The install function receives the [app instance](/api/application.html) along with additional options passed to `app.use()`, if any:
+একটি প্লাগইনকে একটি বস্তু হিসাবে সংজ্ঞায়িত করা হয় যা একটি `install()` পদ্ধতি প্রকাশ করে, অথবা কেবলমাত্র একটি ফাংশন যা নিজেই ইনস্টল ফাংশন হিসাবে কাজ করে। ইনস্টল ফাংশনটি [app instance](/api/application.html) এবং অতিরিক্ত বিকল্পগুলিকে `app.use()`-এ পাস করে, যদি থাকে:
 
 ```js
 const myPlugin = {
@@ -24,21 +24,21 @@ const myPlugin = {
 }
 ```
 
-There is no strictly defined scope for a plugin, but common scenarios where plugins are useful include:
+একটি প্লাগইনের জন্য কোন কঠোরভাবে সংজ্ঞায়িত সুযোগ নেই, তবে সাধারণ পরিস্থিতিতে যেখানে প্লাগইনগুলি দরকারী সেগুলির মধ্যে রয়েছে:
 
-1. Register one or more global components or custom directives with [`app.component()`](/api/application.html#app-component) and [`app.directive()`](/api/application.html#app-directive).
+1. এক বা একাধিক বিশ্বব্যাপী উপাদান বা কাস্টম নির্দেশাবলী নিবন্ধন করুন [`app.component()`](/api/application.html#app-component) and [`app.directive()`](/api/application.html#app-directive).
 
-2. Make a resource [injectable](/guide/components/provide-inject.html) throughout the app by calling [`app.provide()`](/api/application.html#app-provide).
+2. একটি resource তৈরি করুন [injectable](/guide/components/provide-inject.html) কলের মাধ্যমে অ্যাপ জুড়ে [`app.provide()`](/api/application.html#app-provide).
 
-3. Add some global instance properties or methods by attaching them to [`app.config.globalProperties`](/api/application.html#app-config-globalproperties).
+3. [`app.config.globalProperties`](/api/application.html#app-config-globalproperties) এ সংযুক্ত করে কিছু গ্লোবাল ইনস্ট্যান্স বৈশিষ্ট্য বা পদ্ধতি যোগ করুন।
 
-4. A library that needs to perform some combination of the above (e.g. [vue-router](https://github.com/vuejs/vue-router-next)).
+4. একটি লাইব্রেরি যা উপরের কিছু সমন্বয় করতে হবে (যেমন [vue-router](https://github.com/vuejs/vue-router-next))।
 
 ## Writing a Plugin {#writing-a-plugin}
 
-In order to better understand how to create your own Vue.js plugins, we will create a very simplified version of a plugin that displays `i18n` (short for [Internationalization](https://en.wikipedia.org/wiki/Internationalization_and_localization)) strings.
+আপনার নিজের Vue.js প্লাগইনগুলি কীভাবে তৈরি করবেন তা আরও ভালভাবে বোঝার জন্য, আমরা একটি প্লাগইনের একটি খুব সরলীকৃত সংস্করণ তৈরি করব যা `i18n` প্রদর্শন করে ([Internationalization](https://en.wikipedia.org/wiki/Internationalization_and_localization) )) strings
 
-Let's begin by setting up the plugin object. It is recommended to create it in a separate file and export it, as shown below to keep the logic contained and separate.
+প্লাগইন অবজেক্ট সেট আপ করে শুরু করা যাক। এটিকে একটি পৃথক ফাইলে তৈরি করার এবং এটিকে export করার পরামর্শ দেওয়া হচ্ছে, যেমনটি যুক্তি ধারণ করে এবং আলাদা রাখতে নীচে দেখানো হয়েছে৷
 
 ```js
 // plugins/i18n.js
@@ -49,13 +49,13 @@ export default {
 }
 ```
 
-We want to create a translation function. This function will receive a dot-delimited `key` string, which we will use to look up the translated string in the user-provided options. This is the intended usage in templates:
+আমরা একটি অনুবাদ ফাংশন তৈরি করতে চাই। এই ফাংশনটি একটি ডট-ডিলিমিটেড `key` string পাবে, যা আমরা ব্যবহারকারী-প্রদত্ত বিকল্পগুলিতে অনুবাদিত স্ট্রিংটি দেখতে ব্যবহার করব। এটি টেমপ্লেটগুলিতে উদ্দেশ্যমূলক ব্যবহার:
 
 ```vue-html
 <h1>{{ $translate('greetings.hello') }}</h1>
 ```
 
-Since this function should be globally available in all templates, we will make it so by attaching it to `app.config.globalProperties` in our plugin:
+যেহেতু এই ফাংশনটি সমস্ত টেমপ্লেটে বিশ্বব্যাপী উপলব্ধ হওয়া উচিত, তাই আমরা এটিকে আমাদের প্লাগইনে `app.config.globalProperties`-এর সাথে সংযুক্ত করে তৈরি করব:
 
 ```js{4-11}
 // plugins/i18n.js
@@ -73,9 +73,9 @@ export default {
 }
 ```
 
-Our `$translate` function will take a string such as `greetings.hello`, look inside the user provided configuration and return the translated value.
+আমাদের `$translate` ফাংশন একটি স্ট্রিং নেবে যেমন `greetings.hello`, ব্যবহারকারীর প্রদত্ত কনফিগারেশনের ভিতরে তাকাবে এবং অনুবাদিত মান ফেরত দেবে।
 
-The object containing the translated keys should be passed to the plugin during installation via additional parameters to `app.use()`:
+অনূদিত কীগুলি ধারণকারী বস্তুটিকে ইনস্টলেশনের সময় অতিরিক্ত প্যারামিটারের মাধ্যমে `app.use()`-এ প্লাগইনে পাঠানো উচিত:
 
 ```js
 import i18nPlugin from './plugins/i18n'
@@ -87,17 +87,17 @@ app.use(i18nPlugin, {
 })
 ```
 
-Now, our initial expression `$translate('greetings.hello')` will be replaced by `Bonjour!` at runtime.
+এখন, আমাদের প্রাথমিক অভিব্যক্তি `$translate('greetings.hello')` রানটাইমে `Bonjour!` দ্বারা প্রতিস্থাপিত হবে।
 
-See also: [Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
+আরও দেখুন: [Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
-Use global properties scarcely, since it can quickly become confusing if too many global properties injected by different plugins are used throughout an app.
+গ্লোবাল প্রপার্টি খুব কমই ব্যবহার করুন, যেহেতু একটি অ্যাপ জুড়ে বিভিন্ন প্লাগইন দ্বারা ইনজেকশন করা অনেকগুলি বৈশ্বিক বৈশিষ্ট্য ব্যবহার করা হলে এটি দ্রুত বিভ্রান্তিকর হয়ে উঠতে পারে।
 :::
 
 ### Provide / Inject with Plugins {#provide-inject-with-plugins}
 
-Plugins also allow us to use `inject` to provide a function or attribute to the plugin's users. For example, we can allow the application to have access to the `options` parameter to be able to use the translations object.
+প্লাগইনগুলি আমাদের প্লাগইন ব্যবহারকারীদের একটি ফাংশন বা বৈশিষ্ট্য প্রদান করতে `inject` ব্যবহার করার অনুমতি দেয়। উদাহরণস্বরূপ, অনুবাদ বস্তু ব্যবহার করতে সক্ষম হওয়ার জন্য আমরা অ্যাপ্লিকেশনটিকে `options` প্যারামিটারে অ্যাক্সেসের অনুমতি দিতে পারি।
 
 ```js{10}
 // plugins/i18n.js
@@ -114,7 +114,7 @@ export default {
 }
 ```
 
-Plugin users will now be able to inject the plugin options into their components using the `i18n` key:
+প্লাগইন ব্যবহারকারীরা এখন `i18n` কী ব্যবহার করে তাদের উপাদানগুলিতে প্লাগইন বিকল্পগুলি ইনজেক্ট করতে সক্ষম হবেন:
 
 <div class="composition-api">
 
