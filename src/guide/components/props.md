@@ -414,7 +414,8 @@ defineProps({
   // Function with a default value
   propG: {
     type: Function,
-    // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+    // Unlike object or array default, this is not a factory 
+    // function - this is a function to serve as a default value
     default() {
       return 'Default function'
     }
@@ -467,7 +468,8 @@ export default {
     // Function with a default value
     propG: {
       type: Function,
-      // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+      // Unlike object or array default, this is not a factory 
+      // function - this is a function to serve as a default value
       default() {
         return 'Default function'
       }
