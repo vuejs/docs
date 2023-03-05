@@ -2,35 +2,35 @@
 
 ## Development vs. Production {#development-vs-production}
 
-During development, Vue provides a number of features to improve the development experience:
+During development, Vue উন্নয়ন অভিজ্ঞতা উন্নত করতে বেশ কয়েকটি বৈশিষ্ট্য প্রদান করে:
 
 - Warning for common errors and pitfalls
 - Props / events validation
 - [Reactivity debugging hooks](/guide/extras/reactivity-in-depth.html#reactivity-debugging)
 - Devtools integration
 
-However, these features become useless in production. Some of the warning checks can also incur a small amount of performance overhead. When deploying to production, we should drop all the unused, development-only code branches for smaller payload size and better performance.
+যাইহোক, এই বৈশিষ্ট্যগুলি উত্পাদন অকেজো হয়ে যায়। কিছু সতর্কতা চেক ওভারহেড কর্মক্ষমতা একটি ছোট পরিমাণ বহন করতে পারে. উৎপাদনে মোতায়েন করার সময়, ছোট পেলোড আকার এবং আরও ভাল কার্যকারিতার জন্য আমাদের সমস্ত অব্যবহৃত, শুধুমাত্র বিকাশের কোড শাখা বাদ দেওয়া উচিত।
 
 ## Without Build Tools {#without-build-tools}
 
-If you are using Vue without a build tool by loading it from a CDN or self-hosted script, make sure to use the production build (dist files that end in `.prod.js`) when deploying to production. Production builds are pre-minified with all development-only code branches removed.
+আপনি যদি CDN বা স্ব-হোস্টেড স্ক্রিপ্ট থেকে লোড করে বিল্ড টুল ছাড়াই Vue ব্যবহার করেন, তাহলে প্রোডাকশনে স্থাপন করার সময় প্রোডাকশন বিল্ড (ডিস্ট ফাইল যা `.prod.js`-এ শেষ হয়) ব্যবহার করতে ভুলবেন না। প্রোডাকশন বিল্ডগুলি সমস্ত ডেভেলপমেন্ট-কেবল কোড শাখাগুলি সরিয়ে দিয়ে প্রাক-মিনিফাই করা হয়।
 
-- If using global build (accessing via the `Vue` global): use `vue.global.prod.js`.
-- If using ESM build (accessing via native ESM imports): use `vue.esm-browser.prod.js`.
+- যদি গ্লোবাল বিল্ড ব্যবহার করে (`Vue` global মাধ্যমে অ্যাক্সেস করা হয়): `vue.global.prod.js` ব্যবহার করুন।
+- যদি ESM বিল্ড ব্যবহার করেন (নেটিভ ESM imports মাধ্যমে অ্যাক্সেস করা হয়): `vue.esm-browser.prod.js` ব্যবহার করুন।
 
-Consult the [dist file guide](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) for more details.
+আরও বিস্তারিত জানার জন্য [dist ফাইল গাইড](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) দেখুন।
 
 ## With Build Tools {#with-build-tools}
 
-Projects scaffolded via `create-vue` (based on Vite) or Vue CLI (based on webpack) are pre-configured for production builds.
+`create-vue` (Vite-এর উপর ভিত্তি করে) বা Vue CLI (ওয়েবপ্যাকের উপর ভিত্তি করে) এর মাধ্যমে স্ক্যাফোল্ড করা প্রজেক্টগুলি প্রোডাকশন বিল্ডের জন্য প্রি-কনফিগার করা হয়।
 
-If using a custom setup, make sure that:
+একটি কাস্টম সেটআপ ব্যবহার করলে, নিশ্চিত করুন যে:
 
-1. `vue` resolves to `vue.runtime.esm-bundler.js`.
-2. The [compile time feature flags](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) are properly configured.
-3. <code>process.env<wbr>.NODE_ENV</code> is replaced with `"production"` during build.
+1. `vue` `vue.runtime.esm-bundler.js`-এ সমাধান করে।
+2. [কম্পাইল টাইম ফিচার ফ্ল্যাগ](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) সঠিকভাবে কনফিগার করা হয়েছে।
+3. <code>process.env<wbr>.NODE_ENV</code> বিল্ড করার সময় `"production"` দিয়ে প্রতিস্থাপিত হয়।
 
-Additional references:
+অতিরিক্ত তথ্যসূত্র:
 
 - [Vite production build guide](https://vitejs.dev/guide/build.html)
 - [Vite deployment guide](https://vitejs.dev/guide/static-deploy.html)
@@ -38,7 +38,7 @@ Additional references:
 
 ## Tracking Runtime Errors {#tracking-runtime-errors}
 
-The [app-level error handler](/api/application.html#app-config-errorhandler) can be used to report errors to tracking services:
+[অ্যাপ-লেভেল এরর হ্যান্ডলার](/api/application.html#app-config-errorhandler) ট্র্যাকিং পরিষেবাগুলিতে ত্রুটি রিপোর্ট করতে ব্যবহার করা যেতে পারে:
 
 ```js
 import { createApp } from 'vue'
@@ -50,4 +50,4 @@ app.config.errorHandler = (err, instance, info) => {
 }
 ```
 
-Services such as [Sentry](https://docs.sentry.io/platforms/javascript/guides/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/javascript/vue/) also provide official integrations for Vue.
+[Sentry](https://docs.sentry.io/platforms/javascript/guides/vue/) এবং [Bugsnag](https://docs.bugsnag.com/platforms/javascript/vue/) এর মতো পরিষেবাগুলিও প্রদান করে Vue এর জন্য অফিসিয়াল ইন্টিগ্রেশন।
