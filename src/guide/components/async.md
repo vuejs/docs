@@ -2,7 +2,7 @@
 
 ## Basic Usage {#basic-usage}
 
-In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's needed. To make that possible, Vue has a [`defineAsyncComponent`](/api/general.html#defineasynccomponent) function:
+বড় অ্যাপ্লিকেশানগুলিতে, আমাদের অ্যাপটিকে ছোট ছোট খণ্ডে ভাগ করতে হবে এবং প্রয়োজন হলেই সার্ভার থেকে একটি উপাদান লোড করতে হবে। এটি সম্ভব করার জন্য, Vue এর একটি [`defineAsyncComponent`](/api/general.html#defineasynccomponent) ফাংশন রয়েছে:
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -16,9 +16,9 @@ const AsyncComp = defineAsyncComponent(() => {
 // ... use `AsyncComp` like a normal component
 ```
 
-As you can see, `defineAsyncComponent` accepts a loader function that returns a Promise. The Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
+আপনি দেখতে পাচ্ছেন, `defineAsyncComponent` একটি লোডার ফাংশন গ্রহণ করে যা একটি প্রতিশ্রুতি প্রদান করে। যখন আপনি সার্ভার থেকে আপনার উপাদান সংজ্ঞা পুনরুদ্ধার করেছেন তখন প্রতিশ্রুতির `resolve` কলব্যাক কল করা উচিত। আপনি লোড ব্যর্থ হয়েছে নির্দেশ করতে `reject(reason)` কল করতে পারেন।
 
-[ES module dynamic import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) also returns a Promise, so most of the time we will use it in combination with `defineAsyncComponent`. Bundlers like Vite and webpack also support the syntax (and will use it as bundle split points), so we can use it to import Vue SFCs:
+[ES মডিউল ডাইনামিক ইম্পোর্ট](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) এছাড়াও একটি প্রতিশ্রুতি প্রদান করে, তাই বেশিরভাগ সময় আমরা এটির সাথে একত্রে ব্যবহার করব `fineAsyncComponent`. Vite এবং ওয়েবপ্যাকের মতো বান্ডলারগুলিও সিনট্যাক্স সমর্থন করে (এবং এটিকে বান্ডেল স্প্লিট পয়েন্ট হিসাবে ব্যবহার করবে), তাই আমরা এটি Vue SFC আমদানি করতে ব্যবহার করতে পারি:
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -28,19 +28,20 @@ const AsyncComp = defineAsyncComponent(() =>
 )
 ```
 
-The resulting `AsyncComp` is a wrapper component that only calls the loader function when it is actually rendered on the page. In addition, it will pass along any props and slots to the inner component, so you can use the async wrapper to seamlessly replace the original component while achieving lazy loading.
+ফলস্বরূপ `AsyncComp` হল একটি র‍্যাপার উপাদান যা শুধুমাত্র লোডার ফাংশনকে কল করে যখন এটি আসলে পৃষ্ঠায় রেন্ডার করা হয়। উপরন্তু, এটি যেকোনো প্রপস এবং স্লট বরাবর অভ্যন্তরীণ কম্পোনেন্টে চলে যাবে, তাই আপনি অলস লোডিং অর্জনের সময় মূল উপাদানটিকে নির্বিঘ্নে প্রতিস্থাপন করতে অ্যাসিঙ্ক র‍্যাপার ব্যবহার করতে পারেন।
 
-As with normal components, async components can be [registered globally](/guide/components/registration.html#global-registration) using `app.component()`:
+সাধারণ উপাদানগুলির মতো, async উপাদানগুলি `app.component()` ব্যবহার করে [registered globally](/guide/components/registration.html#global-registration) হতে পারে:
 
 ```js
-app.component('MyComponent', defineAsyncComponent(() =>
-  import('./components/MyComponent.vue')
-))
+app.component(
+  'MyComponent',
+  defineAsyncComponent(() => import('./components/MyComponent.vue'))
+)
 ```
 
 <div class="options-api">
 
-You can also use `defineAsyncComponent` when [registering a component locally](/guide/components/registration.html#local-registration):
+আপনি যখন `defineAsyncComponent` ব্যবহার করতে পারেন [registering a component locally](/guide/components/registration.html#local-registration):
 
 ```vue
 <script>
@@ -64,7 +65,7 @@ export default {
 
 <div class="composition-api">
 
-They can also be defined directly inside their parent component:
+এগুলি সরাসরি তাদের মূল উপাদানের ভিতরেও সংজ্ঞায়িত করা যেতে পারে:
 
 ```vue
 <script setup>
@@ -84,7 +85,7 @@ const AdminPage = defineAsyncComponent(() =>
 
 ## Loading and Error States {#loading-and-error-states}
 
-Asynchronous operations inevitably involve loading and error states - `defineAsyncComponent()` supports handling these states via advanced options:
+অ্যাসিঙ্ক্রোনাস অপারেশনে অনিবার্যভাবে লোডিং এবং ত্রুটির অবস্থা জড়িত - `defineAsyncComponent()` উন্নত বিকল্পগুলির মাধ্যমে এই অবস্থাগুলি পরিচালনা করতে সমর্থন করে:
 
 ```js
 const AsyncComp = defineAsyncComponent({
@@ -104,10 +105,10 @@ const AsyncComp = defineAsyncComponent({
 })
 ```
 
-If a loading component is provided, it will be displayed first while the inner component is being loaded. There is a default 200ms delay before the loading component is shown - this is because on fast networks, an instant loading state may get replaced too fast and end up looking like a flicker.
+যদি একটি লোডিং উপাদান প্রদান করা হয়, এটি প্রথমে প্রদর্শিত হবে যখন ভিতরের উপাদানটি লোড হচ্ছে৷ লোডিং কম্পোনেন্ট দেখানোর আগে একটি ডিফল্ট 200ms বিলম্ব আছে - এর কারণ হল দ্রুত নেটওয়ার্কগুলিতে, একটি তাত্ক্ষণিক লোডিং অবস্থা খুব দ্রুত প্রতিস্থাপিত হতে পারে এবং এটি একটি ঝাঁকুনির মতো দেখায়।
 
-If an error component is provided, it will be displayed when the Promise returned by the loader function is rejected. You can also specify a timeout to show the error component when the request is taking too long.
+যদি একটি ত্রুটি উপাদান প্রদান করা হয়, এটি প্রদর্শিত হবে যখন লোডার ফাংশন দ্বারা প্রত্যাবর্তিত প্রতিশ্রুতি প্রত্যাখ্যান করা হয়। অনুরোধটি খুব বেশি সময় নিলে আপনি ত্রুটি উপাদানটি দেখানোর জন্য একটি সময়সীমা নির্দিষ্ট করতে পারেন।
 
 ## Using with Suspense {#using-with-suspense}
 
-Async components can be used with the `<Suspense>` built-in component. The interaction between `<Suspense>` and async components is documented in the [dedicated chapter for `<Suspense>`](/guide/built-ins/suspense.html).
+Async উপাদানগুলি `<Suspense>` বিল্ট-ইন কম্পোনেন্টের সাথে ব্যবহার করা যেতে পারে। `<Suspense>` এবং async উপাদানগুলির মধ্যে মিথস্ক্রিয়া নথিভুক্ত করা হয়েছে [`<Suspense>`](/guide/built-ins/suspense.html) এর জন্য নিবেদিত অধ্যায়ে।
