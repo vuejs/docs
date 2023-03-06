@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      message: 'Hello World!',
+      message: 'Привіт, світе!',
       counter: {
         count: 0
       }
