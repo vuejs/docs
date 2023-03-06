@@ -6,41 +6,41 @@ import TestingApiSwitcher from './TestingApiSwitcher.vue'
 
 ## Why Test? {#why-test}
 
-Automated tests help you and your team build complex Vue applications quickly and confidently by preventing regressions and encouraging you to break apart your application into testable functions, modules, classes, and components. As with any application, your new Vue app can break in many ways, and it's important that you can catch these issues and fix them before releasing.
+স্বয়ংক্রিয় পরীক্ষাগুলি আপনাকে এবং আপনার টিমকে দ্রুত এবং আত্মবিশ্বাসের সাথে জটিল Vue অ্যাপ্লিকেশন তৈরি করতে সাহায্য করে রিগ্রেশন প্রতিরোধ করে এবং আপনার অ্যাপ্লিকেশনটিকে পরীক্ষাযোগ্য ফাংশন, মডিউল, ক্লাস এবং উপাদানগুলিতে আলাদা করতে উত্সাহিত করে। যেকোনো অ্যাপ্লিকেশানের মতো, আপনার নতুন Vue অ্যাপটি বিভিন্ন উপায়ে ভেঙে যেতে পারে এবং এটি গুরুত্বপূর্ণ যে আপনি এই সমস্যাগুলি ধরতে পারেন এবং মুক্তির আগে সেগুলি ঠিক করতে পারেন৷
 
-In this guide, we'll cover basic terminology and provide our recommendations on which tools to choose for your Vue 3 application.
+এই নির্দেশিকায়, আমরা মৌলিক পরিভাষাগুলি কভার করব এবং আপনার Vue 3 অ্যাপ্লিকেশনের জন্য কোন সরঞ্জামগুলি বেছে নিতে হবে সে সম্পর্কে আমাদের সুপারিশগুলি প্রদান করব৷
 
-There is one Vue-specific section covering composables. See [Testing Composables](#testing-composables) below for more details.
+কম্পোজেবল কভার করে একটি Vue-নির্দিষ্ট বিভাগ রয়েছে। আরও বিশদ বিবরণের জন্য নীচে [টেস্টিং কম্পোজেবল](#টেস্টিং-কম্পোজেবল) দেখুন।
 
 ## When to Test {#when-to-test}
 
-Start testing early! We recommend you begin writing tests as soon as you can. The longer you wait to add tests to your application, the more dependencies your application will have, and the harder it will be to start.
+তাড়াতাড়ি পরীক্ষা শুরু করুন! আমরা আপনাকে যত তাড়াতাড়ি সম্ভব পরীক্ষা লেখা শুরু করার পরামর্শ দিই। আপনার অ্যাপ্লিকেশনে পরীক্ষাগুলি যোগ করার জন্য আপনি যত বেশি অপেক্ষা করবেন, আপনার অ্যাপ্লিকেশনের নির্ভরতা তত বেশি হবে এবং এটি শুরু করা তত কঠিন হবে।
 
 ## Testing Types {#testing-types}
 
-When designing your Vue application's testing strategy, you should leverage the following testing types:
+আপনার Vue অ্যাপ্লিকেশনের পরীক্ষার কৌশল ডিজাইন করার সময়, আপনাকে নিম্নলিখিত পরীক্ষার ধরনগুলি ব্যবহার করা উচিত:
 
-- **Unit**: Checks that inputs to a given function, class, or composable are producing the expected output or side effects.
-- **Component**: Checks that your component mounts, renders, can be interacted with, and behaves as expected. These tests import more code than unit tests, are more complex, and require more time to execute.
-- **End-to-end**: Checks features that span multiple pages and make real network requests against your production-built Vue application. These tests often involve standing up a database or other backend.
+- **Unit**: প্রদত্ত ফাংশন, ক্লাস বা কম্পোজেবলের ইনপুটগুলি প্রত্যাশিত আউটপুট বা পার্শ্ব প্রতিক্রিয়া তৈরি করছে কিনা তা পরীক্ষা করে।
+- **Component**: চেক করে যে আপনার কম্পোনেন্ট মাউন্ট হয়, রেন্ডার হয়, এর সাথে ইন্টারঅ্যাক্ট করা যায় এবং আশানুরূপ আচরণ করে। এই পরীক্ষাগুলি ইউনিট পরীক্ষার চেয়ে বেশি কোড আমদানি করে, আরও জটিল এবং কার্যকর করতে আরও সময় লাগে।
+- **End-to-end**: একাধিক পৃষ্ঠা বিস্তৃত বৈশিষ্ট্যগুলি পরীক্ষা করে এবং আপনার প্রোডাকশন-নির্মিত Vue অ্যাপ্লিকেশনের বিরুদ্ধে বাস্তব নেটওয়ার্ক অনুরোধ করে। এই পরীক্ষাগুলি প্রায়ই একটি ডাটাবেস বা অন্যান্য ব্যাকএন্ড দাঁড়ানো জড়িত।
 
-Each testing type plays a role in your application's testing strategy and each will protect you against different types of issues.
+প্রতিটি পরীক্ষার ধরন আপনার অ্যাপ্লিকেশনের পরীক্ষার কৌশলে একটি ভূমিকা পালন করে এবং প্রতিটি আপনাকে বিভিন্ন ধরণের সমস্যা থেকে রক্ষা করবে।
 
 ## Overview {#overview}
 
-We will briefly discuss what each of these are, how they can be implemented for Vue applications, and provide some general recommendations.
+আমরা সংক্ষিপ্তভাবে আলোচনা করব যে এইগুলির প্রতিটি কী, কীভাবে সেগুলি Vue অ্যাপ্লিকেশনগুলির জন্য প্রয়োগ করা যেতে পারে এবং কিছু সাধারণ সুপারিশ প্রদান করব৷
 
 ## Unit Testing {#unit-testing}
 
-Unit tests are written to verify that small, isolated units of code are working as expected. A unit test usually covers a single function, class, composable, or module. Unit tests focus on logical correctness and only concern themselves with a small portion of the application's overall functionality. They may mock large parts of your application's environment (e.g. initial state, complex classes, 3rd party modules, and network requests).
+ইউনিট পরীক্ষাগুলি যাচাই করার জন্য লিখিত হয় যে কোডের ছোট, বিচ্ছিন্ন ইউনিটগুলি প্রত্যাশিত হিসাবে কাজ করছে। একটি ইউনিট পরীক্ষা সাধারণত একটি একক ফাংশন, ক্লাস, কম্পোজেবল বা মডিউল কভার করে। ইউনিট পরীক্ষাগুলি যৌক্তিক শুদ্ধতার উপর ফোকাস করে এবং শুধুমাত্র অ্যাপ্লিকেশনের সামগ্রিক কার্যকারিতার একটি ছোট অংশ নিয়ে নিজেদের উদ্বিগ্ন করে। তারা আপনার অ্যাপ্লিকেশনের পরিবেশের বড় অংশকে উপহাস করতে পারে (যেমন প্রাথমিক অবস্থা, জটিল ক্লাস, 3য় পক্ষের মডিউল এবং নেটওয়ার্ক অনুরোধ)।
 
-In general, unit tests will catch issues with a function's business logic and logical correctness.
+সাধারণভাবে, ইউনিট পরীক্ষা একটি ফাংশনের ব্যবসায়িক যুক্তি এবং যৌক্তিক সঠিকতার সাথে সমস্যাগুলি ধরবে।
 
-Take for example this `increment` function:
+উদাহরণস্বরূপ এই `increment` ফাংশন নিন:
 
 ```js
 // helpers.js
-export function increment (current, max = 10) {
+export function increment(current, max = 10) {
   if (current < max) {
     return current + 1
   }
@@ -48,9 +48,9 @@ export function increment (current, max = 10) {
 }
 ```
 
-Because it's very self-contained, it'll be easy to invoke the increment function and assert that it returns what it's supposed to, so we'll write a Unit Test.
+যেহেতু এটি খুব স্বয়ংসম্পূর্ণ, এটি ইনক্রিমেন্ট ফাংশনটি চালু করা সহজ হবে এবং দাবি করবে যে এটি যা করার কথা তা ফিরিয়ে দেয়, তাই আমরা একটি ইউনিট পরীক্ষা লিখব।
 
-If any of these assertions fail, it's clear that the issue is contained within the `increment` function.
+যদি এই দাবিগুলির মধ্যে কোনোটি ব্যর্থ হয়, তাহলে এটা পরিষ্কার যে সমস্যাটি `increment` ফাংশনের মধ্যে রয়েছে।
 
 ```js{4-16}
 // helpers.spec.js
@@ -71,62 +71,62 @@ describe('increment', () => {
 })
 ```
 
-As mentioned previously, unit testing is typically applied to self-contained business logic, components, classes, modules, or functions that do not involve UI rendering, network requests, or other environmental concerns.
+পূর্বে উল্লিখিত হিসাবে, ইউনিট পরীক্ষা সাধারণত স্বয়ংসম্পূর্ণ ব্যবসায়িক যুক্তি, উপাদান, ক্লাস, মডিউল বা ফাংশনগুলিতে প্রয়োগ করা হয় যা UI রেন্ডারিং, নেটওয়ার্ক অনুরোধ, বা অন্যান্য পরিবেশগত উদ্বেগ জড়িত নয়।
 
-These are typically plain JavaScript / TypeScript modules unrelated to Vue. In general, writing unit tests for business logic in Vue applications does not differ significantly from applications using other frameworks.
+এগুলি সাধারণত প্লেইন জাভাস্ক্রিপ্ট / টাইপস্ক্রিপ্ট মডিউলগুলি Vue এর সাথে সম্পর্কিত নয়। সাধারণভাবে, Vue অ্যাপ্লিকেশনগুলিতে ব্যবসায়িক যুক্তির জন্য ইউনিট পরীক্ষা লেখা অন্যান্য ফ্রেমওয়ার্ক ব্যবহার করে অ্যাপ্লিকেশনগুলির থেকে উল্লেখযোগ্যভাবে আলাদা নয়।
 
-There are two instances where you DO unit test Vue-specific features:
+দুটি দৃষ্টান্ত রয়েছে যেখানে আপনি ইউনিট পরীক্ষা করেন Vue-নির্দিষ্ট বৈশিষ্ট্য:
 
 1. Composables
 2. Components
 
 ### Composables {#composables}
 
-One category of functions specific to Vue applications are [Composables](/guide/reusability/composables.html), which may require special handling during tests.
-See [Testing Composables](#testing-composables) below for more details.
+Vue অ্যাপ্লিকেশনগুলির জন্য নির্দিষ্ট ফাংশনগুলির একটি বিভাগ হল [Composables](/guide/reusability/composables.html), যা পরীক্ষার সময় বিশেষ পরিচালনার প্রয়োজন হতে পারে।
+আরও বিশদ বিবরণের জন্য নীচে [Testing Composables](#টেস্টিং-কম্পোজেবল) দেখুন।
 
 ### Unit Testing Components {#unit-testing-components}
 
-A component can be tested in two ways:
+একটি উপাদান দুটি উপায়ে পরীক্ষা করা যেতে পারে:
 
-1. Whitebox: Unit Testing
+1. হোয়াইটবক্স: ইউনিট টেস্টিং
 
-   Tests that are "Whitebox tests" are aware of the implementation details and dependencies of a component. They are focused on **isolating** the component under test. These tests will usually involve mocking some, if not all of your component's children, as well as setting up plugin state and dependencies (e.g. Vuex).
+   "হোয়াইটবক্স পরীক্ষা" যে পরীক্ষাগুলি একটি উপাদানের বাস্তবায়নের বিবরণ এবং নির্ভরতা সম্পর্কে সচেতন। তারা পরীক্ষার অধীনে উপাদানটিকে **বিচ্ছিন্ন** করার উপর দৃষ্টি নিবদ্ধ করে। এই পরীক্ষাগুলিতে সাধারণত কিছু উপহাস করা জড়িত থাকে, যদি আপনার সমস্ত উপাদানের সন্তান না হয়, সেইসাথে প্লাগইন অবস্থা এবং নির্ভরতা সেট আপ করা (যেমন Vuex)।
 
-2. Blackbox: Component Testing
+2. ব্ল্যাকবক্স: কম্পোনেন্ট টেস্টিং
 
-   Tests that are "Blackbox tests" are unaware of the implementation details of a component. These tests mock as little as possible to test the integration of your component and the entire system. They usually render all child components and are considered more of an "integration test". See the [Component Testing recommendations](#component-testing) below.
+   "ব্ল্যাকবক্স পরীক্ষা" যে পরীক্ষাগুলি একটি উপাদানের বাস্তবায়নের বিশদ সম্পর্কে অবগত নয়। এই পরীক্ষাগুলি আপনার উপাদান এবং সমগ্র সিস্টেমের একীকরণ পরীক্ষা করার জন্য যতটা সম্ভব কম উপহাস করে। তারা সাধারণত সব শিশু উপাদান রেন্ডার করে এবং একটি "একীকরণ পরীক্ষা" হিসাবে বিবেচিত হয়। নীচে [কম্পোনেন্ট টেস্টিং সুপারিশ](#কম্পোনেন্ট-টেস্টিং) দেখুন।
 
 ### Recommendation {#recommendation}
 
 - [Vitest](https://vitest.dev/)
 
-  Since the official setup created by `create-vue` is based on [Vite](https://vitejs.dev/), we recommend using a unit testing framework that can leverage the same configuration and transform pipeline directly from Vite. [Vitest](https://vitest.dev/) is a unit testing framework designed specifically for this purpose, created and maintained by Vue / Vite team members. It integrates with Vite-based projects with minimal effort, and is blazing fast.
+  যেহেতু `create-vue` দ্বারা তৈরি করা অফিসিয়াল সেটআপটি [Vite](https://vitejs.dev/) এর উপর ভিত্তি করে তৈরি করা হয়েছে, তাই আমরা একটি ইউনিট টেস্টিং ফ্রেমওয়ার্ক ব্যবহার করার পরামর্শ দিই যা একই কনফিগারেশনের সুবিধা নিতে পারে এবং সরাসরি Vite থেকে পাইপলাইন রূপান্তর করতে পারে। [Vitest](https://vitest.dev/) হল একটি ইউনিট টেস্টিং ফ্রেমওয়ার্ক যা বিশেষভাবে এই উদ্দেশ্যে ডিজাইন করা হয়েছে, Vue / Vite টিমের সদস্যরা তৈরি এবং রক্ষণাবেক্ষণ করে। এটি ন্যূনতম প্রচেষ্টার সাথে Vite-ভিত্তিক প্রকল্পগুলির সাথে সংহত করে এবং দ্রুত জ্বলছে।
 
 ### Other Options {#other-options}
 
-- [Peeky](https://peeky.dev/) is another fast unit test runner with first-class Vite integration. It is also created by a Vue core team member and offers a GUI-based testing interface.
+- [Peeky](https://peeky.dev/) হল ফার্স্ট-ক্লাস Vite ইন্টিগ্রেশন সহ আরেকটি দ্রুত ইউনিট টেস্ট রানার। এটি একটি Vue কোর দলের সদস্য দ্বারা তৈরি করা হয়েছে এবং একটি GUI-ভিত্তিক পরীক্ষার ইন্টারফেস অফার করে।
 
-- [Jest](https://jestjs.io/) is a popular unit testing framework, and can be made to work with Vite via the [vite-jest](https://github.com/sodatea/vite-jest) package. However, we only recommend Jest if you have an existing Jest test suite that needs to be migrated over to a Vite-based project, as Vitest offers a more seamless integration and better performance.
+- [Jest](https://jestjs.io/) একটি জনপ্রিয় ইউনিট টেস্টিং ফ্রেমওয়ার্ক এবং [vite-jest](https://github.com/sodatea/vite-jest) এর মাধ্যমে Vite-এর সাথে কাজ করা যেতে পারে ) প্যাকেজ। যাইহোক, আমরা কেবল তখনই জেস্টের সুপারিশ করি যদি আপনার কাছে একটি বিদ্যমান জেস্ট টেস্ট স্যুট থাকে যা ভিটে-ভিত্তিক প্রকল্পে স্থানান্তরিত করা প্রয়োজন, কারণ Vitest একটি আরও নিরবচ্ছিন্ন ইন্টিগ্রেশন এবং আরও ভাল পারফরম্যান্স অফার করে।
 
 ## Component Testing {#component-testing}
 
-In Vue applications, components are the main building blocks of the UI. Components are therefore the natural unit of isolation when it comes to validating your application's behavior. From a granularity perspective, component testing sits somewhere above unit testing and can be considered a form of integration testing. Much of your Vue Application should be covered by a component test and we recommend that each Vue component has its own spec file.
+Vue অ্যাপ্লিকেশনগুলিতে, উপাদানগুলি হল UI এর প্রধান বিল্ডিং ব্লক। উপাদানগুলি তাই বিচ্ছিন্নতার প্রাকৃতিক একক যখন এটি আপনার অ্যাপ্লিকেশনের আচরণকে যাচাই করার ক্ষেত্রে আসে। একটি গ্রানুলারিটি দৃষ্টিকোণ থেকে, উপাদান পরীক্ষা ইউনিট পরীক্ষার উপরে কোথাও বসে এবং একীকরণ পরীক্ষার একটি ফর্ম হিসাবে বিবেচিত হতে পারে। আপনার Vue অ্যাপ্লিকেশনের বেশিরভাগ অংশ একটি উপাদান পরীক্ষার দ্বারা আবৃত করা উচিত এবং আমরা সুপারিশ করি যে প্রতিটি Vue উপাদানের নিজস্ব বিশেষ ফাইল রয়েছে।
 
-Component tests should catch issues relating to your component's props, events, slots that it provides, styles, classes, lifecycle hooks, and more.
+কম্পোনেন্ট পরীক্ষায় আপনার কম্পোনেন্টের প্রপস, ইভেন্ট, স্লট যা এটি প্রদান করে, শৈলী, ক্লাস, লাইফসাইকেল হুক এবং আরও অনেক কিছু সম্পর্কিত সমস্যা ধরা উচিত।
 
-Component tests should not mock child components, but instead test the interactions between your component and its children by interacting with the components as a user would. For example, a component test should click on an element like a user would instead of programmatically interacting with the component.
+কম্পোনেন্ট টেস্টগুলি শিশুর উপাদানগুলিকে উপহাস করবে না, বরং ব্যবহারকারীর মতো উপাদানগুলির সাথে ইন্টারঅ্যাক্ট করে আপনার উপাদান এবং এর শিশুদের মধ্যে মিথস্ক্রিয়া পরীক্ষা করবে। উদাহরণস্বরূপ, একটি উপাদান পরীক্ষার একটি উপাদানের উপর ক্লিক করা উচিত যেমন একজন ব্যবহারকারী উপাদানটির সাথে প্রোগ্রাম্যাটিকভাবে ইন্টারঅ্যাক্ট করার পরিবর্তে।
 
-Component tests should focus on the component's public interfaces rather than internal implementation details. For most components, the public interface is limited to: events emitted, props, and slots. When testing, remember to **test what a component does, not how it does it**.
+কম্পোনেন্ট পরীক্ষাগুলি অভ্যন্তরীণ বাস্তবায়নের বিবরণের পরিবর্তে কম্পোনেন্টের পাবলিক ইন্টারফেসের উপর ফোকাস করা উচিত। বেশিরভাগ উপাদানের জন্য, সর্বজনীন ইন্টারফেস এর মধ্যে সীমাবদ্ধ: ইভেন্ট নির্গত, প্রপস এবং স্লট। পরীক্ষা করার সময়, **একটি উপাদান কী করে তা পরীক্ষা করতে ভুলবেন না, এটি কীভাবে করে**।
 
 **DO**
 
-- For **Visual** logic: assert correct render output based on inputted props and slots.
-- For **Behavioral** logic: assert correct render updates or emitted events in response to user input events.
+- **Visual** যুক্তির জন্য: ইনপুট করা প্রপস এবং স্লটের উপর ভিত্তি করে সঠিক রেন্ডার আউটপুট দাবি করুন।
+- **আচরণমূলক** যুক্তির জন্য: ব্যবহারকারীর ইনপুট ইভেন্টের প্রতিক্রিয়া হিসাবে সঠিক রেন্ডার আপডেট বা নির্গত ইভেন্টগুলি দাবি করুন।
 
-  In the below example, we demonstrate a Stepper component that has a DOM element labeled "increment" and can be clicked. We pass a prop called `max` that prevents the Stepper from being incremented past `2`, so if we click the button 3 times, the UI should still say `2`.
+  নীচের উদাহরণে, আমরা একটি স্টেপার কম্পোনেন্ট দেখাই যেটিতে "বৃদ্ধি" লেবেলযুক্ত একটি DOM উপাদান রয়েছে এবং ক্লিক করা যেতে পারে। আমরা `max` নামক একটি প্রপ পাস করি যা স্টেপারকে `2` এর আগে বর্ধিত হতে বাধা দেয়, তাই যদি আমরা বোতামটি 3 বার ক্লিক করি, UI-কে এখনও `2` বলতে হবে।
 
-  We know nothing about the implementation of Stepper, only that the "input" is the `max` prop and the "output" is the state of the DOM as the user will see it.
+  আমরা Stepper বাস্তবায়ন সম্পর্কে কিছুই জানি না, শুধুমাত্র "ইনপুট" হল `max` প্রপ এবং "আউটপুট" হল DOM-এর অবস্থা যেভাবে ব্যবহারকারী এটি দেখতে পাবে।
 
 <TestingApiSwitcher>
 
@@ -186,9 +186,13 @@ mount(Stepper, {
   }
 })
 
-cy.get(valueSelector).should('be.visible').and('contain.text', '0')
-  .get(buttonSelector).click()
-  .get(valueSelector).should('contain.text', '1')
+cy.get(valueSelector)
+  .should('be.visible')
+  .and('contain.text', '0')
+  .get(buttonSelector)
+  .click()
+  .get(valueSelector)
+  .should('contain.text', '1')
 ```
 
 </div>
@@ -197,95 +201,95 @@ cy.get(valueSelector).should('be.visible').and('contain.text', '0')
 
 - **DON'T**
 
-  Don't assert the private state of a component instance or test the private methods of a component. Testing implementation details makes the tests brittle, as they are more likely to break and require updates when the implementation changes.
+  একটি কম্পোনেন্ট ইনস্ট্যান্সের প্রাইভেট স্টেট জাহির করবেন না বা কম্পোনেন্টের প্রাইভেট পদ্ধতি পরীক্ষা করবেন না। বাস্তবায়নের বিবরণ পরীক্ষা করা পরীক্ষাগুলিকে ভঙ্গুর করে তোলে, কারণ প্রয়োগের পরিবর্তন হলে সেগুলি ভেঙে যাওয়ার সম্ভাবনা বেশি থাকে এবং আপডেটের প্রয়োজন হয়।
 
-  The component's ultimate job is rendering the correct DOM output, so tests focusing on the DOM output provide the same level of correctness assurance (if not more) while being more robust and resilient to change.
+  কম্পোনেন্টের চূড়ান্ত কাজ হল সঠিক DOM আউটপুট রেন্ডার করা, তাই DOM আউটপুটের উপর ফোকাস করা পরীক্ষাগুলি একই স্তরের সঠিকতার নিশ্চয়তা প্রদান করে (যদি বেশি না হয়) যখন আরও শক্তিশালী এবং পরিবর্তনের জন্য স্থিতিস্থাপক হয়।
 
-  Don't rely exclusively on snapshot tests. Asserting HTML strings does not describe correctness. Write tests with intentionality.
+  স্ন্যাপশট পরীক্ষার উপর একচেটিয়াভাবে নির্ভর করবেন না। HTML স্ট্রিং জাহির করা সঠিকতা বর্ণনা করে না। ইচ্ছাকৃতভাবে পরীক্ষা লিখুন।
 
-  If a method needs to be tested thoroughly, consider extracting it into a standalone utility function and write a dedicated unit test for it. If it cannot be extracted cleanly, it may be tested as a part of a component, integration, or end-to-end test that covers it.
+  একটি পদ্ধতি পুঙ্খানুপুঙ্খভাবে পরীক্ষা করা প্রয়োজন হলে, এটি একটি স্বতন্ত্র ইউটিলিটি ফাংশনে নিষ্কাশন বিবেচনা করুন এবং এটির জন্য একটি ডেডিকেটেড ইউনিট পরীক্ষা লিখুন। যদি এটি পরিষ্কারভাবে নিষ্কাশন করা না যায় তবে এটি একটি উপাদান, একীকরণ বা শেষ থেকে শেষ পরীক্ষার অংশ হিসাবে পরীক্ষা করা যেতে পারে যা এটি কভার করে।
 
 ### Recommendation {#recommendation-1}
 
-- [Vitest](https://vitest.dev/) for components or composables that render headlessly (e.g. the [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) function in VueUse). Components and DOM can be tested using [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro).
+- [Vitest](https://vitest.dev/) কম্পোনেন্ট বা কম্পোজেবলের জন্য যা হেডলেসভাবে রেন্ডার করে (যেমন, VueUse-এ [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) ফাংশন)। উপাদান এবং DOM [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro) ব্যবহার করে পরীক্ষা করা যেতে পারে।
 
-- [Cypress Component Testing](https://on.cypress.io/component) for components whose expected behavior depends on properly rendering styles or triggering native DOM events. Can be used with Testing Library via [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro).
+- [Cypress Component Testing](https://on.cypress.io/component) উপাদানগুলির জন্য যাদের প্রত্যাশিত আচরণ সঠিকভাবে স্টাইল রেন্ডার করা বা নেটিভ DOM ইভেন্ট ট্রিগার করার উপর নির্ভর করে। [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro) এর মাধ্যমে টেস্টিং লাইব্রেরির সাথে ব্যবহার করা যেতে পারে।
 
-The main differences between Vitest and browser-based runners are speed and execution context. In short, browser-based runners, like Cypress, can catch issues that node-based runners, like Vitest, cannot (e.g. style issues, real native DOM events, cookies, local storage, and network failures), but browser-based runners are *orders of magnitude slower than Vitest* because they do open a browser, compile your stylesheets, and more. Cypress is a browser-based runner that supports component testing. Please read [Vitest's comparison page](https://vitest.dev/guide/comparisons.html#cypress) for the latest information comparing Vitest and Cypress.
+ভিটেস্ট এবং ব্রাউজার-ভিত্তিক রানারদের মধ্যে প্রধান পার্থক্য হল গতি এবং কার্যকর করার প্রসঙ্গ। সংক্ষেপে, সাইপ্রেসের মতো ব্রাউজার-ভিত্তিক রানাররা এমন সমস্যাগুলি ধরতে পারে যা ভিটেস্টের মতো নোড-ভিত্তিক রানাররা পারে না (যেমন শৈলীর সমস্যা, আসল স্থানীয় DOM ইভেন্ট, কুকি, স্থানীয় স্টোরেজ এবং নেটওয়ার্ক ব্যর্থতা), কিন্তু ব্রাউজার-ভিত্তিক রানাররা _অর্ডারগুলি Vitest_ এর চেয়ে ধীরগতির কারণ তারা একটি ব্রাউজার খুলে, আপনার স্টাইলশীটগুলি কম্পাইল করে এবং আরও অনেক কিছু করে। সাইপ্রেস একটি ব্রাউজার-ভিত্তিক রানার যা উপাদান পরীক্ষা সমর্থন করে। ভিটেস্ট এবং সাইপ্রেসের তুলনা করার সাম্প্রতিক তথ্যের জন্য অনুগ্রহ করে [Vitest's comparison page](https://vitest.dev/guide/comparisons.html#cypress) পড়ুন।
 
 ### Mounting Libraries {#mounting-libraries}
 
-Component testing often involves mounting the component being tested in isolation, triggering simulated user input events, and asserting on the rendered DOM output. There are dedicated utility libraries that make these tasks simpler.
+কম্পোনেন্ট টেস্টিংয়ে প্রায়শই বিচ্ছিন্নভাবে পরীক্ষা করা উপাদানটিকে মাউন্ট করা, সিমুলেটেড ইউজার ইনপুট ইভেন্টগুলিকে ট্রিগার করা এবং রেন্ডার করা DOM আউটপুটে জোর দেওয়া জড়িত। এখানে ডেডিকেটেড ইউটিলিটি লাইব্রেরি রয়েছে যা এই কাজগুলোকে সহজ করে তোলে।
 
-- [`@testing-library/vue`](https://github.com/testing-library/vue-testing-library) is a Vue testing library focused on testing components without relying on implementation details. Built with accessibility in mind, its approach also makes refactoring a breeze. Its guiding principle is that the more tests resemble the way software is used, the more confidence they can provide.
+- [`@testing-library/vue`](https://github.com/testing-library/vue-testing-library) হল একটি Vue টেস্টিং লাইব্রেরি যা বাস্তবায়নের বিশদ বিবরণের উপর নির্ভর না করে উপাদান পরীক্ষা করার উপর দৃষ্টি নিবদ্ধ করে। সহজলভ্যতার কথা মাথায় রেখে তৈরি করা হয়েছে, এটির পদ্ধতিও রিফ্যাক্টরিংকে একটি হাওয়ায় পরিণত করে। এর গাইডিং নীতি হল যে যত বেশি পরীক্ষা সফ্টওয়্যার ব্যবহার করা হয় তার সাথে সাদৃশ্যপূর্ণ, তারা তত বেশি আত্মবিশ্বাস প্রদান করতে পারে।
 
-- [`@vue/test-utils`](https://github.com/vuejs/test-utils) is the official low-level component testing library that was written to provide users access to Vue specific APIs. It's also the lower-level library `@testing-library/vue` is built on top of.
+- [`@vue/test-utils`](https://github.com/vuejs/test-utils) হল অফিসিয়াল নিম্ন-স্তরের কম্পোনেন্ট টেস্টিং লাইব্রেরি যা ব্যবহারকারীদের Vue নির্দিষ্ট API-এ অ্যাক্সেস দেওয়ার জন্য লেখা হয়েছিল। এছাড়াও এটি নিম্ন-স্তরের লাইব্রেরি `@testing-library/vue` এর উপরে নির্মিত।
 
-We recommend using `@testing-library/vue` for testing components in applications, as its focus aligns better with the testing priorities of applications. Use `@vue/test-utils` only if you are building advanced components that require testing Vue-specific internals.
+আমরা অ্যাপ্লিকেশানগুলিতে উপাদানগুলি পরীক্ষা করার জন্য `@testing-library/vue` ব্যবহার করার পরামর্শ দিই, কারণ এর ফোকাস অ্যাপ্লিকেশনগুলির পরীক্ষার অগ্রাধিকারের সাথে আরও ভালভাবে সারিবদ্ধ হয়৷ `@vue/test-utils` ব্যবহার করুন শুধুমাত্র যদি আপনি উন্নত উপাদান তৈরি করেন যার জন্য Vue-নির্দিষ্ট অভ্যন্তরীণ পরীক্ষার প্রয়োজন হয়।
 
 ### Other Options {#other-options-1}
 
-- [Nightwatch](https://v2.nightwatchjs.org/) is an E2E test runner with Vue Component Testing support. ([Example Project](https://github.com/nightwatchjs-community/todo-vue) in Nightwatch v2)
+- [Nightwatch](https://v2.nightwatchjs.org/) Vue কম্পোনেন্ট টেস্টিং সাপোর্ট সহ একটি E2E টেস্ট রানার। ([উদাহরণ প্রকল্প](https://github.com/nightwatchjs-community/todo-vue) নাইটওয়াচ v2)
 
 ## E2E Testing {#e2e-testing}
 
-While unit tests provide developers with some degree of confidence, unit and component tests are limited in their abilities to provide holistic coverage of an application when deployed to production. As a result, end-to-end (E2E) tests provide coverage on what is arguably the most important aspect of an application: what happens when users actually use your applications.
+যদিও ইউনিট পরীক্ষাগুলি ডেভেলপারদের কিছু পরিমাণে আত্মবিশ্বাস প্রদান করে, ইউনিট এবং উপাদান পরীক্ষাগুলি উৎপাদনে মোতায়েন করার সময় একটি অ্যাপ্লিকেশনের সামগ্রিক কভারেজ প্রদান করার ক্ষমতার মধ্যে সীমিত। ফলস্বরূপ, এন্ড-টু-এন্ড (E2E) পরীক্ষাগুলি একটি অ্যাপ্লিকেশানের সবচেয়ে গুরুত্বপূর্ণ দিক কী তা নিয়ে কভারেজ প্রদান করে: ব্যবহারকারীরা আসলে আপনার অ্যাপ্লিকেশনগুলি ব্যবহার করলে কী হয়৷
 
-End-to-end tests focus on multi-page application behavior that makes network requests against your production-built Vue application. They often involve standing up a database or other backend and may even be run against a live staging environment.
+এন্ড-টু-এন্ড পরীক্ষাগুলি বহু-পৃষ্ঠা অ্যাপ্লিকেশন আচরণের উপর ফোকাস করে যা আপনার উত্পাদন-নির্মিত Vue অ্যাপ্লিকেশনের বিরুদ্ধে নেটওয়ার্ক অনুরোধ করে। তারা প্রায়ই একটি ডাটাবেস বা অন্যান্য ব্যাকএন্ড দাঁড়ানো জড়িত এবং এমনকি একটি লাইভ স্টেজিং পরিবেশের বিরুদ্ধে চালানো হতে পারে।
 
-End-to-end tests will often catch issues with your router, state management library, top-level components (e.g. an App or Layout), public assets, or any request handling. As stated above, they catch critical issues that may be impossible to catch with unit tests or component tests.
+এন্ড-টু-এন্ড পরীক্ষাগুলি প্রায়ই আপনার রাউটার, স্টেট ম্যানেজমেন্ট লাইব্রেরি, টপ-লেভেল কম্পোনেন্ট (যেমন একটি অ্যাপ বা লেআউট), পাবলিক অ্যাসেট বা যেকোনো রিকোয়েস্ট হ্যান্ডলিং নিয়ে সমস্যা দেখাবে। উপরে উল্লিখিত হিসাবে, তারা জটিল সমস্যাগুলি ধরে যা ইউনিট পরীক্ষা বা উপাদান পরীক্ষার মাধ্যমে ধরা অসম্ভব হতে পারে।
 
-End-to-end tests do not import any of your Vue application's code, but instead rely completely on testing your application by navigating through entire pages in a real browser.
+এন্ড-টু-এন্ড পরীক্ষাগুলি আপনার Vue অ্যাপ্লিকেশনের কোনো কোড আমদানি করে না, বরং একটি বাস্তব ব্রাউজারে সমগ্র পৃষ্ঠাগুলিতে নেভিগেট করে আপনার অ্যাপ্লিকেশন পরীক্ষা করার উপর সম্পূর্ণ নির্ভর করে।
 
-End-to-end tests validate many of the layers in your application. They can either target your locally built application, or even a live Staging environment. Testing against your Staging environment not only includes your frontend code and static server, but all associated backend services and infrastructure.
+এন্ড-টু-এন্ড পরীক্ষাগুলি আপনার অ্যাপ্লিকেশনের অনেকগুলি স্তরকে বৈধ করে। তারা হয় আপনার স্থানীয়ভাবে নির্মিত অ্যাপ্লিকেশন, বা এমনকি একটি লাইভ স্টেজিং পরিবেশ লক্ষ্য করতে পারে। আপনার স্টেজিং এনভায়রনমেন্টের বিরুদ্ধে টেস্টিং শুধুমাত্র আপনার ফ্রন্টএন্ড কোড এবং স্ট্যাটিক সার্ভারই অন্তর্ভুক্ত করে না, কিন্তু সমস্ত সংশ্লিষ্ট ব্যাকএন্ড পরিষেবা এবং অবকাঠামো অন্তর্ভুক্ত করে।
 
-> The more your tests resemble the way your software is used, the more confidence they can give you. - [Kent C. Dodds](https://twitter.com/kentcdodds/status/977018512689455106) - Author of the Testing Library
+> আপনার সফ্টওয়্যার ব্যবহার করার পদ্ধতিতে আপনার পরীক্ষাগুলি যত বেশি সাদৃশ্যপূর্ণ, তারা আপনাকে তত বেশি আত্মবিশ্বাস দিতে পারে। - [Kent C. Dodds](https://twitter.com/kentcdodds/status/977018512689455106) - টেস্টিং লাইব্রেরির লেখক
 
-By testing how user actions impact your application, E2E tests are often the key to higher confidence in whether an application is functioning properly or not.
+ব্যবহারকারীর ক্রিয়াগুলি কীভাবে আপনার অ্যাপ্লিকেশনকে প্রভাবিত করে তা পরীক্ষা করে, E2E পরীক্ষাগুলি প্রায়শই একটি অ্যাপ্লিকেশন সঠিকভাবে কাজ করছে কিনা সে সম্পর্কে উচ্চ আত্মবিশ্বাসের চাবিকাঠি।
 
 ### Choosing an E2E Testing Solution {#choosing-an-e2e-testing-solution}
 
-While end-to-end (E2E) testing on the web has gained a negative reputation for unreliable (flaky) tests and slowing down development processes, modern E2E tools have made strides forward to create more reliable, interactive, and useful tests. When choosing an E2E testing framework, the following sections provide some guidance on things to keep in mind when choosing a testing framework for your application.
+যদিও ওয়েবে এন্ড-টু-এন্ড (E2E) টেস্টিং অবিশ্বস্ত (ফ্ল্যাকি) পরীক্ষার জন্য নেতিবাচক খ্যাতি অর্জন করেছে এবং বিকাশ প্রক্রিয়াগুলিকে ধীর করে দিয়েছে, আধুনিক E2E সরঞ্জামগুলি আরও নির্ভরযোগ্য, ইন্টারেক্টিভ এবং দরকারী পরীক্ষাগুলি তৈরি করতে এগিয়ে গেছে। একটি E2E টেস্টিং ফ্রেমওয়ার্ক বেছে নেওয়ার সময়, নিম্নলিখিত বিভাগগুলি আপনার অ্যাপ্লিকেশনের জন্য একটি টেস্টিং ফ্রেমওয়ার্ক বেছে নেওয়ার সময় মাথায় রাখতে হবে এমন কিছু নির্দেশিকা প্রদান করে।
 
 #### Cross-browser testing {#cross-browser-testing}
 
-One of the primary benefits that end-to-end (E2E) testing is known for is its ability to test your application across multiple browsers. While it may seem desirable to have 100% cross-browser coverage, it is important to note that cross browser testing has diminishing returns on a team's resources due the additional time and machine power required to run them consistently. As a result, it is important to be mindful of this trade-off when choosing the amount of cross-browser testing your application needs.
+এন্ড-টু-এন্ড (E2E) পরীক্ষার জন্য পরিচিত প্রাথমিক সুবিধাগুলির মধ্যে একটি হল একাধিক ব্রাউজারে আপনার অ্যাপ্লিকেশন পরীক্ষা করার ক্ষমতা। যদিও এটি 100% ক্রস-ব্রাউজার কভারেজ থাকা বাঞ্ছনীয় বলে মনে হতে পারে, এটি লক্ষ্য করা গুরুত্বপূর্ণ যে ক্রস ব্রাউজার টেস্টিং একটি দলের সংস্থানগুলির উপর রিটার্ন হ্রাস করে কারণ সেগুলিকে ধারাবাহিকভাবে চালানোর জন্য প্রয়োজনীয় অতিরিক্ত সময় এবং মেশিন শক্তি। ফলস্বরূপ, ক্রস-ব্রাউজার পরীক্ষা করার সময় আপনার অ্যাপ্লিকেশনের প্রয়োজনের পরিমাণ নির্বাচন করার সময় এই ট্রেড-অফ সম্পর্কে সচেতন হওয়া গুরুত্বপূর্ণ।
 
 #### Faster feedback loops {#faster-feedback-loops}
 
-One of the primary problems with end-to-end (E2E) tests and development is that running the entire suite takes a long time. Typically, this is only done in continuous integration and deployment (CI/CD) pipelines. Modern E2E testing frameworks have helped to solve this by adding features like parallelization, which allows for CI/CD pipelines to often run magnitudes faster than before. In addition, when developing locally, the ability to selectively run a single test for the page you are working on while also providing hot reloading of tests can help to boost a developer's workflow and productivity.
+এন্ড-টু-এন্ড (E2E) পরীক্ষা এবং বিকাশের প্রাথমিক সমস্যাগুলির মধ্যে একটি হল যে পুরো স্যুটটি চালাতে অনেক সময় লাগে। সাধারণত, এটা শুধুমাত্র একটানা ইন্টিগ্রেশন এবং ডিপ্লয়মেন্ট (CI/CD) পাইপলাইনে করা হয়। আধুনিক E2E টেস্টিং ফ্রেমওয়ার্কগুলি সমান্তরালকরণের মতো বৈশিষ্ট্যগুলি যোগ করে এটি সমাধান করতে সাহায্য করেছে, যা CI/CD পাইপলাইনগুলিকে প্রায়শই আগের চেয়ে দ্রুত গতিতে চালানোর অনুমতি দেয়। উপরন্তু, স্থানীয়ভাবে বিকাশ করার সময়, আপনি যে পৃষ্ঠায় কাজ করছেন তার জন্য বেছে বেছে একটি একক পরীক্ষা চালানোর ক্ষমতা এবং পরীক্ষার হট রিলোডিং প্রদান করার ক্ষমতা একটি বিকাশকারীর কর্মপ্রবাহ এবং উত্পাদনশীলতা বাড়াতে সাহায্য করতে পারে।
 
 #### First-class debugging experience {#first-class-debugging-experience}
 
-While developers have traditionally relied on scanning logs in a terminal window to help determine what went wrong in a test, modern end-to-end (E2E) test frameworks allow developers to leverage tools that they are already familiar with, e.g. browser developer tools.
+যদিও ডেভেলপাররা ঐতিহ্যগতভাবে একটি পরীক্ষায় কী ভুল হয়েছে তা নির্ধারণ করতে সাহায্য করার জন্য একটি টার্মিনাল উইন্ডোতে লগ স্ক্যান করার উপর নির্ভর করে, আধুনিক এন্ড-টু-এন্ড (E2E) টেস্ট ফ্রেমওয়ার্কগুলি ডেভেলপারদের এমন সরঞ্জামগুলিকে লিভারেজ করতে দেয় যা তারা ইতিমধ্যে পরিচিত, যেমন ব্রাউজার ডেভেলপার টুল।
 
 #### Visibility in headless mode {#visibility-in-headless-mode}
 
-When end-to-end (E2E) tests are run in continuous integration / deployment pipelines, they are often run in headless browsers (i.e., no visible browser is opened for the user to watch). A critical feature of modern E2E testing frameworks is the ability to see snapshots and/or videos of the application during testing, providing some insight into why errors are happening. Historically, it was tedious to maintain these integrations.
+যখন এন্ড-টু-এন্ড (E2E) পরীক্ষাগুলি ক্রমাগত ইন্টিগ্রেশন/ডিপ্লয়মেন্ট পাইপলাইনে চালানো হয়, তখন সেগুলি প্রায়শই হেডলেস ব্রাউজারে চালানো হয় (অর্থাৎ, ব্যবহারকারীর দেখার জন্য কোনো দৃশ্যমান ব্রাউজার খোলা হয় না)। আধুনিক E2E টেস্টিং ফ্রেমওয়ার্কগুলির একটি গুরুত্বপূর্ণ বৈশিষ্ট্য হল পরীক্ষার সময় অ্যাপ্লিকেশনটির স্ন্যাপশট এবং/অথবা ভিডিও দেখার ক্ষমতা, কেন ত্রুটি ঘটছে তার কিছু অন্তর্দৃষ্টি প্রদান করে। ঐতিহাসিকভাবে, এই একীকরণ বজায় রাখা ক্লান্তিকর ছিল।
 
 ### Recommendation {#recommendation-2}
 
 - [Cypress](https://www.cypress.io/)
 
-  Overall, we believe Cypress provides the most complete E2E solution with features like an informative graphical interface, excellent debuggability, built-in assertions and stubs, flake-resistance, parallelization, and snapshots. As mentioned above, it also provides support for [Component Testing](https://docs.cypress.io/guides/component-testing/introduction). However, it only supports Chromium-based browsers and Firefox.
+  সামগ্রিকভাবে, আমরা বিশ্বাস করি সাইপ্রেস একটি তথ্যপূর্ণ গ্রাফিকাল ইন্টারফেস, চমৎকার ডিবাগবিলিটি, অন্তর্নির্মিত দাবী এবং স্টাবস, ফ্লেক-প্রতিরোধ, সমান্তরালকরণ এবং স্ন্যাপশটের মতো বৈশিষ্ট্য সহ সবচেয়ে সম্পূর্ণ E2E সমাধান প্রদান করে। উপরে উল্লিখিত হিসাবে, এটি [Component Testing](https://docs.cypress.io/guides/component-testing/introduction) এর জন্যও সহায়তা প্রদান করে। যাইহোক, এটি শুধুমাত্র ক্রোমিয়াম-ভিত্তিক ব্রাউজার এবং ফায়ারফক্স সমর্থন করে।
 
 ### Other Options {#other-options-2}
 
-- [Playwright](https://playwright.dev/) is also a great E2E testing solution with a wider range of browser support (mainly WebKit). See [Why Playwright](https://playwright.dev/docs/why-playwright) for more details.
+- [Playwright](https://playwright.dev/) ব্রাউজার সমর্থনের বিস্তৃত পরিসরের (প্রধানত ওয়েবকিট) সহ একটি দুর্দান্ত E2E পরীক্ষার সমাধান। আরও বিশদ বিবরণের জন্য [Why Playwright](https://playwright.dev/docs/why-playwright) দেখুন।
 
-- [Nightwatch v2](https://v2.nightwatchjs.org/) is an E2E testing solution based on [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). This gives it the widest browser support range.
+- [Nightwatch v2](https://v2.nightwatchjs.org/) হল [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver) এর উপর ভিত্তি করে একটি E2E পরীক্ষার সমাধান। এটি এটিকে বিস্তৃত ব্রাউজার সমর্থন পরিসর দেয়।
 
 ## Recipes {#recipes}
 
 ### Adding Vitest to a Project {#adding-vitest-to-a-project}
 
-In a Vite-based Vue project, run:
+একটি Vite-ভিত্তিক Vue প্রকল্পে, চালান:
 
 ```sh
 > npm install -D vitest happy-dom @testing-library/vue
 ```
 
-Next, update the Vite configuration to add the `test` option block:
+পরবর্তী, `test` বিকল্প ব্লক যোগ করতে Vite কনফিগারেশন আপডেট করুন:
 
 ```js{6-12}
 // vite.config.js
@@ -304,20 +308,21 @@ export default defineConfig({
 ```
 
 :::tip
-If you are using TypeScript, add `vitest/globals` to the `types` field in your `tsconfig.json`.
+আপনি যদি TypeScript ব্যবহার করেন, তাহলে আপনার `tsconfig.json`-এর `types` ক্ষেত্রে `vitest/globals` যোগ করুন।
 
 ```json
 // tsconfig.json
 
 {
- "compilerOptions": {
+  "compilerOptions": {
     "types": ["vitest/globals"]
   }
 }
 ```
+
 :::
 
-Then create a file ending in `*.test.js` in your project. You can place all test files in a test directory in project root, or in test directories next to your source files. Vitest will automatically search for them using the naming convention.
+তারপর আপনার প্রজেক্টে `*.test.js` দিয়ে শেষ হওয়া একটি ফাইল তৈরি করুন। আপনি প্রোজেক্ট রুটে একটি টেস্ট ডিরেক্টরিতে বা আপনার সোর্স ফাইলের পাশে টেস্ট ডিরেক্টরিতে সমস্ত টেস্ট ফাইল রাখতে পারেন। Vitest স্বয়ংক্রিয়ভাবে নামকরণ পদ্ধতি ব্যবহার করে তাদের জন্য অনুসন্ধান করবে।
 
 ```js
 // MyComponent.test.js
@@ -336,7 +341,7 @@ test('it should work', () => {
 })
 ```
 
-Finally, update `package.json` to add the test script and run it:
+অবশেষে, পরীক্ষা স্ক্রিপ্ট যোগ করতে `package.json` আপডেট করুন এবং এটি চালান:
 
 ```json{4}
 {
@@ -353,16 +358,16 @@ Finally, update `package.json` to add the test script and run it:
 
 ### Testing Composables {#testing-composables}
 
-> This section assumes you have read the [Composables](/guide/reusability/composables.html) section.
+> এই বিভাগটি ধরে নেয় যে আপনি [Composables](/guide/reusability/composables.html) বিভাগটি পড়েছেন।
 
-When it comes to testing composables, we can divide them into two categories: composables that do not rely on a host component instance, and composables that do.
+যখন কম্পোজেবল পরীক্ষা করার কথা আসে, তখন আমরা সেগুলিকে দুটি বিভাগে ভাগ করতে পারি: কম্পোজেবল যেগুলি হোস্ট কম্পোনেন্ট ইনস্ট্যান্সের উপর নির্ভর করে না এবং কম্পোজেবল যা করে।
 
-A composable depends on a host component instance when it uses the following APIs:
+একটি কম্পোজেবল একটি হোস্ট উপাদান উদাহরণের উপর নির্ভর করে যখন এটি নিম্নলিখিত API ব্যবহার করে:
 
 - Lifecycle hooks
 - Provide / Inject
 
-If a composable only uses Reactivity APIs, then it can be tested by directly invoking it and asserting its returned state / methods:
+যদি একটি কম্পোজেবল শুধুমাত্র রিঅ্যাকটিভিটি এপিআই ব্যবহার করে, তাহলে এটি সরাসরি এটিকে আহ্বান করে এবং তার প্রত্যাবর্তিত অবস্থা / পদ্ধতিগুলি নিশ্চিত করে পরীক্ষা করা যেতে পারে:
 
 ```js
 // counter.js
@@ -392,7 +397,7 @@ test('useCounter', () => {
 })
 ```
 
-A composable that relies on lifecycle hooks or Provide / Inject needs to be wrapped in a host component to be tested. We can create a helper like the following:
+একটি কম্পোজেবল যা লাইফসাইকেল হুকের উপর নির্ভর করে বা প্রোভাইড/ইনজেক্টকে পরীক্ষা করার জন্য হোস্ট কম্পোনেন্টে মোড়ানো প্রয়োজন। আমরা নিম্নলিখিত মত একটি সাহায্যকারী তৈরি করতে পারেন:
 
 ```js
 // test-utils.js
@@ -413,6 +418,7 @@ export function withSetup(composable) {
   return [result, app]
 }
 ```
+
 ```js
 import { withSetup } from './test-utils'
 import { useFoo } from './foo'
@@ -428,7 +434,7 @@ test('useFoo', () => {
 })
 ```
 
-For more complex composables, it could also be easier to test it by writing tests against the wrapper component using [Component Testing](#component-testing) techniques.
+আরও জটিল কম্পোজেবলের জন্য, [কম্পোনেন্ট টেস্টিং](#কম্পোনেন্ট-টেস্টিং) কৌশল ব্যবহার করে র্যাপার উপাদানের বিরুদ্ধে পরীক্ষা লিখে পরীক্ষা করাও সহজ হতে পারে।
 
 <!--
 TODO more testing recipes can be added in the future e.g.
