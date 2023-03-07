@@ -8,7 +8,7 @@ This glossary is intended to provide some guidance about the meanings of technic
 
 An *async component* is a wrapper around another component that allows for the wrapped component to be lazy loaded. This is typically used as a way to reduce the size of the built `.js` files, allowing them to be split into smaller chunks that are loaded only when required.
 
-Vue Router has a similar feature for the [lazy loading of route components](https://router.vuejs.org/guide/advanced/lazy-loading.html), though this does not use Vue's async component feature.
+Vue Router has a similar feature for the [lazy loading of route components](https://router.vuejs.org/guide/advanced/lazy-loading.html), though this does not use Vue's async components feature.
 
 For more details see:
 - [Guide - Async Components](/guide/components/async.html)
@@ -21,7 +21,11 @@ Vue's [SFC](#single-file-component) compiler supports various macros, such as `d
 
 Macros have limitations on their use that don't apply to normal JavaScript code. For example, you might think that `const dp = defineProps` would allow you to create an alias for `defineProps`, but it'll actually result in an error. There are also limitations on what values can be passed to `defineProps()`, as the 'arguments' have to be processed by the compiler and not at runtime.
 
-These macros are conceptually similar to dynamic imports using `import()`. While `import()` looks a lot like a function call, it's actually special syntax that gets processed by the bundler as part of the build. Like with `defineProps()`, we can't create an alias using `const myImport = import`. There are also restrictions on exactly what syntax can be used to pass values to the 'function', so that the compiler can understand the values.
+These macros are conceptually similar to dynamic imports using `import()`. While `import()` looks a lot like a function call, it's actually special syntax that gets processed by the bundler as part of the build. Like with `defineProps()`, we can't create an alias using `const myImport = import`. There are also restrictions on exactly what syntax can be used to pass values to the `import()` 'function', so that the bundler can understand the values.
+
+For more details see:
+- [`<script setup>` - `defineProps()` & `defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)
+- [`<script setup>` - `defineExpose()`](/api/sfc-script-setup.html#defineexpose)
 
 ## component {#component}
 
@@ -29,7 +33,7 @@ The term *component* is not unique to Vue. It is common to many UI frameworks. I
 
 Components are the primary mechanism provided by Vue to split a UI into smaller pieces, both to improve maintainability and to allow for code reuse.
 
-A component is an object. All properties are optional, but either a template or render function is required for the component to render. For example, the following object would be a valid component:
+A Vue component is an object. All properties are optional, but either a template or render function is required for the component to render. For example, the following object would be a valid component:
 
 ```js
 const HelloWorldComponent = {
@@ -58,9 +62,7 @@ The word 'component' also features in several other terms:
 
 ## composable {#composable}
 
-The term *composable* describes a common usage pattern in Vue. It isn't a separate feature of Vue, it's just a way of using the framework's Composition API. As with many patterns, there can be some disagreement about whether specific code qualifies for the label.
-
-Some common features of the composable pattern:
+The term *composable* describes a common usage pattern in Vue. It isn't a separate feature of Vue, it's just a way of using the framework's [Composition API](#composition-api).
 
 * Composables are used to encapsulate and reuse stateful logic.
 * A composable is a function.
@@ -68,7 +70,7 @@ Some common features of the composable pattern:
 * The function is typically expected to be called during the synchronous execution of a component's `setup()` function (or, equivalently, during the execution of a `<script setup>` block). This ties the invocation of the composable to the current component context, e.g. via calls to `provide()`, `inject()` or `onMounted()`.
 * Composables typically return a plain object, not a reactive object. This object usually contains refs and functions and is expected to be destructured within the calling code.
 
-Not all JavaScript utility functions are composables. If a function doesn't use the Composition API then it probably isn't a composable. If it doesn't expect to be called during the synchronous execution of `setup()` then it probably isn't a composable. Composables are specifically used to encapsulate stateful logic, they are not just a naming convention for functions.
+As with many patterns, there can be some disagreement about whether specific code qualifies for the label. Not all JavaScript utility functions are composables. If a function doesn't use the Composition API then it probably isn't a composable. If it doesn't expect to be called during the synchronous execution of `setup()` then it probably isn't a composable. Composables are specifically used to encapsulate stateful logic, they are not just a naming convention for functions.
 
 See [Guide - Composables](/guide/reusability/composables.html) for more details about writing composables.
 
@@ -96,7 +98,7 @@ export default {
 </script>
 ```
 
-In some cases it may be necessary to use functions from the Composition API within the Options API, for example:
+In some cases it may be necessary to use functions from the Composition API within the [Options API](#options-api), for example:
 
 ```js
 import { computed } from 'vue'
@@ -124,7 +126,7 @@ A *custom element* is a feature of the [Web Components](#web-components) standar
 
 Vue has built-in support for rendering custom elements and allows them to be used directly in Vue component templates.
 
-Custom elements should not be confused with the ability to include Vue components as tags within another component's template. Custom elements are used to create Web Components, not Vue components.
+Custom elements should not be confused with the ability to include Vue components as tags within another Vue component's template. Custom elements are used to create Web Components, not Vue components.
 
 For more details see:
 - [Guide - Vue and Web Components](/guide/extras/web-components.html)
@@ -170,7 +172,7 @@ The name comes from the similar concept of a [`DocumentFragment`](https://develo
 
 Fragments are used to support components with multiple root nodes. While such components might appear to have multiple roots, behind the scenes they use a fragment node as a single root, as a parent of the 'root' nodes.
 
-Fragments are also used by the template compiler as a way to wrap multiple dynamic nodes, e.g. those created via `v-for` or `v-if`. This allows for extra hints to be passed to the VDOM patching algorithm. Much of this is handled internally, but one place you may encounter this directly is using a `key` on a `<template>` tag with `v-for`. In that scenario, the `key` is added as a prop to the fragment VNode.
+Fragments are also used by the template compiler as a way to wrap multiple dynamic nodes, e.g. those created via `v-for` or `v-if`. This allows for extra hints to be passed to the [VDOM](#virtual-dom) patching algorithm. Much of this is handled internally, but one place you may encounter this directly is using a `key` on a `<template>` tag with `v-for`. In that scenario, the `key` is added as a [prop](#prop) to the fragment VNode.
 
 Fragment nodes are currently rendered to the DOM as empty text nodes, though that is an implementation detail. You may encounter those text nodes if you use `$el` or attempt to walk the DOM with built-in browser APIs.
 
@@ -243,7 +245,7 @@ Components can be written in two styles. One style uses the [Composition API](#c
 
 The Options API includes options such as `data()`, `computed`, `methods` and `created()`.
 
-Some options, such as `props`, `emits` and `inheritAttrs`, can be used when authoring components with either API. As they are component options, they can be considered part of the Options API. However, as these options are also used in conjunction with `setup()`, it is usually more useful to think of them as shared between the two component styles.
+Some options, such as `props`, `emits` and `inheritAttrs`, can be used when authoring components with either API. As they are component options, they could be considered part of the Options API. However, as these options are also used in conjunction with `setup()`, it is usually more useful to think of them as shared between the two component styles.
 
 The `setup()` function itself is a component option, so it *could* be described as part of the Options API. However, this is not how the term 'Options API' is normally used. Instead, the `setup()` function is considered to be part of Composition API.
 
@@ -287,14 +289,14 @@ When a component *provides* a value, all descendants of that component can then 
 
 `provide` and `inject` are sometimes used to avoid *prop drilling*. They can also be used as an implicit way for a component to communicate with its slot contents.
 
-`provide` can also be used as the application level, making a value available to all components within that application.
+`provide` can also be used at the application level, making a value available to all components within that application.
 
 For more details see:
 - [Guide - provide / inject](/guide/components/provide-inject.html)
 
 ## reactive effect {#reactive-effect}
 
-A *reactive effect* is part of Vue's reactivity system. It refers to the process of tracking the dependencies of a function and re-running that function when those dependencies change.
+A *reactive effect* is part of Vue's reactivity system. It refers to the process of tracking the dependencies of a function and re-running that function when the values of those dependencies change.
 
 `watchEffect()` is the most direct way to create an effect. Various other parts of Vue use effects internally. e.g. component rendering updates, `computed()` and `watch()`.
 
@@ -357,9 +359,9 @@ The *scheduler* is the part of Vue's internals that controls the timing of when 
 
 When reactive state changes, Vue doesn't immediately trigger rendering updates. Instead, it batches them together using a queue. This ensures that a component only re-renders once, even if multiple changes are made to the underlying data.
 
-There are two other queues inside the scheduler. The `flush: 'pre'` queue is processed prior to the rendering queue. The `flush: 'post'` queue runs after the rendering queue. These two queues are used by watchers, with `flush: 'pre'` being the default.
+[Watchers](/guide/essentials/watchers.html) are also batched using the scheduler queue. Watchers with `flush: 'pre'` (the default) will run before component rendering, whereas those with `flush: 'post'` will run after component rendering.
 
-Jobs in the scheduler queues are also used to perform various other internal tasks, such as triggering some [lifecycle hooks](#lifecycle-hooks) and updating [template refs](#template-refs).
+Jobs in the scheduler are also used to perform various other internal tasks, such as triggering some [lifecycle hooks](#lifecycle-hooks) and updating [template refs](#template-refs).
 
 ## scoped slot {#scoped-slot}
 
@@ -369,7 +371,7 @@ Historically, Vue made a much greater distinction between scoped and non-scoped 
 
 In Vue 3, the slot APIs were simplified to make all slots behave like scoped slots. However, the use cases for scoped and non-scoped slots often differ, so the term still proves useful as a way to refer to slots with props.
 
-The props passed to a slot can only be used within a specific region of the parent template, responsible for defining the slot's contents. This region of the template behaves as a variable scope for the props, hence 'scoped slot'.
+The props passed to a slot can only be used within a specific region of the parent template, responsible for defining the slot's contents. This region of the template behaves as a variable scope for the props, hence the name 'scoped slot'.
 
 For more details see:
 - [Guide - Slots - Scoped Slots](/guide/components/slots.html#scoped-slots)
@@ -422,7 +424,7 @@ See [virtual DOM](#virtual-dom).
 
 ## virtual DOM {#virtual-dom}
 
-The term *virtual DOM* is not unique to Vue. It is a common approach used by several UI frameworks for managing updates to the UI.
+The term *virtual DOM* (VDOM) is not unique to Vue. It is a common approach used by several web frameworks for managing updates to the UI.
 
 Browsers use a tree of nodes to represent the current state of the page. That tree, and the JavaScript APIs used to interact with it, are referred to as the *document object model*, or *DOM*.
 
