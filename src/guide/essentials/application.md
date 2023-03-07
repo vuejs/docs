@@ -2,7 +2,7 @@
 
 ## The application instance {#the-application-instance}
 
-Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
+প্রতিটি Vue অ্যাপ্লিকেশন [`createApp`](/api/application#createapp) ফাংশনের সাথে একটি নতুন **অ্যাপ্লিকেশন ইনস্ট্যান্স** তৈরি করে শুরু হয়:
 
 ```js
 import { createApp } from 'vue'
@@ -14,9 +14,9 @@ const app = createApp({
 
 ## The Root Component {#the-root-component}
 
-The object we are passing into `createApp` is in fact a component. Every app requires a "root component" that can contain other components as its children.
+আমরা যে বস্তুটিকে `createApp`-এ পাঠাচ্ছি তা আসলে একটি উপাদান। প্রতিটি অ্যাপ্লিকেশানের একটি "রুট উপাদান" প্রয়োজন যাতে অন্যান্য উপাদানগুলি তার সন্তান হিসাবে থাকতে পারে৷
 
-If you are using Single-File Components, we typically import the root component from another file:
+আপনি যদি একক-ফাইল উপাদান ব্যবহার করেন, আমরা সাধারণত অন্য ফাইল থেকে রুট উপাদান আমদানি করি:
 
 ```js
 import { createApp } from 'vue'
@@ -26,7 +26,7 @@ import App from './App.vue'
 const app = createApp(App)
 ```
 
-While many examples in this guide only need a single component, most real applications are organized into a tree of nested, reusable components. For example, a Todo application's component tree might look like this:
+যদিও এই নির্দেশিকায় অনেক উদাহরণের জন্য শুধুমাত্র একটি একক উপাদান প্রয়োজন, বেশিরভাগ বাস্তব অ্যাপ্লিকেশন নেস্টেড, পুনঃব্যবহারযোগ্য উপাদানগুলির একটি গাছে সংগঠিত হয়। উদাহরণস্বরূপ, একটি টোডো অ্যাপ্লিকেশনের উপাদান গাছটি দেখতে এইরকম হতে পারে:
 
 ```
 App (root component)
@@ -39,11 +39,11 @@ App (root component)
    └─ TodoStatistics
 ```
 
-In later sections of the guide, we will discuss how to define and compose multiple components together. Before that, we will focus on what happens inside a single component.
+গাইডের পরবর্তী অংশগুলিতে, আমরা আলোচনা করব কিভাবে একাধিক উপাদান একসাথে সংজ্ঞায়িত করা যায় এবং রচনা করা যায়। তার আগে, আমরা একটি একক উপাদানের অভ্যন্তরে কী ঘটবে তা ফোকাস করব।
 
 ## Mounting the App {#mounting-the-app}
 
-An application instance won't render anything until its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
+একটি অ্যাপ্লিকেশন ইন্সট্যান্স কিছুই রেন্ডার করবে না যতক্ষণ না তার `.mount()` পদ্ধতি কল করা হয়। এটি একটি "ধারক" যুক্তি আশা করে, যা হয় একটি প্রকৃত DOM উপাদান বা একটি নির্বাচক স্ট্রিং হতে পারে:
 
 ```html
 <div id="app"></div>
@@ -53,13 +53,13 @@ An application instance won't render anything until its `.mount()` method is cal
 app.mount('#app')
 ```
 
-The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app.
+অ্যাপের রুট কম্পোনেন্টের বিষয়বস্তু কন্টেইনার এলিমেন্টের ভিতরে রেন্ডার করা হবে। ধারক উপাদান নিজেই অ্যাপের অংশ হিসাবে বিবেচিত হয় না।
 
-The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
+সমস্ত অ্যাপ কনফিগারেশন এবং সম্পদ নিবন্ধন সম্পন্ন হওয়ার পরে `.mount()` পদ্ধতিটি সর্বদা কল করা উচিত। এছাড়াও মনে রাখবেন যে সম্পদ নিবন্ধন পদ্ধতির বিপরীতে এর রিটার্ন মান হল অ্যাপ্লিকেশন ইনস্ট্যান্সের পরিবর্তে রুট কম্পোনেন্ট ইনস্ট্যান্স।
 
 ### In-DOM Root Component Template {#in-dom-root-component-template}
 
-When using Vue without a build step, we can write our root component's template directly inside the mount container:
+বিল্ড স্টেপ ছাড়া Vue ব্যবহার করার সময়, আমরা আমাদের রুট কম্পোনেন্টের টেমপ্লেট সরাসরি মাউন্ট কন্টেইনারের ভিতরে লিখতে পারি:
 
 ```html
 <div id="app">
@@ -81,11 +81,11 @@ const app = createApp({
 app.mount('#app')
 ```
 
-Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
+Vue স্বয়ংক্রিয়ভাবে কন্টেইনারের `innerHTML` কে টেমপ্লেট হিসেবে ব্যবহার করবে যদি রুট কম্পোনেন্টে আগে থেকেই `template` বিকল্প না থাকে।
 
 ## App Configurations {#app-configurations}
 
-The application instance exposes a `.config` object that allows us to configure a few app-level options, for example, defining an app-level error handler that captures errors from all descendant components:
+অ্যাপ্লিকেশন উদাহরণটি একটি `.config` অবজেক্টকে প্রকাশ করে যা আমাদের কয়েকটি অ্যাপ-স্তরের বিকল্প কনফিগার করতে দেয়, উদাহরণস্বরূপ, একটি অ্যাপ-লেভেল ত্রুটি হ্যান্ডলারকে সংজ্ঞায়িত করা যা সমস্ত বংশধর উপাদান থেকে ত্রুটিগুলি ক্যাপচার করে:
 
 ```js
 app.config.errorHandler = (err) => {
@@ -93,19 +93,19 @@ app.config.errorHandler = (err) => {
 }
 ```
 
-The application instance also provides a few methods for registering app-scoped assets. For example, registering a component:
+অ্যাপ্লিকেশন উদাহরণটি অ্যাপ-স্কোপড সম্পদ নিবন্ধনের জন্য কয়েকটি পদ্ধতিও সরবরাহ করে। উদাহরণস্বরূপ, একটি উপাদান নিবন্ধন:
 
 ```js
 app.component('TodoDeleteButton', TodoDeleteButton)
 ```
 
-This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](/api/application).
+এটি আমাদের অ্যাপের যেকোনো জায়গায় ব্যবহারের জন্য `TodoDeleteButton` উপলব্ধ করে। আমরা গাইডের পরবর্তী বিভাগে উপাদান এবং অন্যান্য ধরনের সম্পদের নিবন্ধন নিয়ে আলোচনা করব। আপনি এটির [API রেফারেন্স](/api/application) এ অ্যাপ্লিকেশন ইনস্ট্যান্স API এর সম্পূর্ণ তালিকা ব্রাউজ করতে পারেন।
 
-Make sure to apply all app configurations before mounting the app!
+অ্যাপটি মাউন্ট করার আগে সমস্ত অ্যাপ কনফিগারেশন প্রয়োগ করতে ভুলবেন না!
 
 ## Multiple application instances {#multiple-application-instances}
 
-You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
+আপনি একই পৃষ্ঠায় একটি একক অ্যাপ্লিকেশন উদাহরণে সীমাবদ্ধ নন। `createApp` API একাধিক Vue অ্যাপ্লিকেশনকে একই পৃষ্ঠায় সহ-অস্তিত্বের অনুমতি দেয়, প্রতিটির নিজস্ব কনফিগারেশন এবং বৈশ্বিক সম্পদের সুযোগ রয়েছে:
 
 ```js
 const app1 = createApp({
@@ -119,4 +119,4 @@ const app2 = createApp({
 app2.mount('#container-2')
 ```
 
-If you are using Vue to enhance server-rendered HTML and only need Vue to control specific parts of a large page, avoid mounting a single Vue application instance on the entire page. Instead, create multiple small application instances and mount them on the elements they are responsible for.
+আপনি যদি সার্ভার-রেন্ডার করা এইচটিএমএল উন্নত করতে Vue ব্যবহার করেন এবং শুধুমাত্র একটি বড় পৃষ্ঠার নির্দিষ্ট অংশগুলিকে নিয়ন্ত্রণ করতে Vue-এর প্রয়োজন হয়, তাহলে পুরো পৃষ্ঠায় একটি একক Vue অ্যাপ্লিকেশন ইন্সট্যান্স মাউন্ট করা এড়িয়ে চলুন। পরিবর্তে, একাধিক ছোট অ্যাপ্লিকেশন দৃষ্টান্ত তৈরি করুন এবং তাদের জন্য দায়ী উপাদানগুলিতে মাউন্ট করুন।
