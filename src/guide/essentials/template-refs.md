@@ -1,18 +1,18 @@
 # Template Refs {#template-refs}
 
-While Vue's declarative rendering model abstracts away most of the direct DOM operations for you, there may still be cases where we need direct access to the underlying DOM elements. To achieve this, we can use the special `ref` attribute:
+যদিও Vue-এর ঘোষণামূলক রেন্ডারিং মডেল আপনার জন্য বেশিরভাগ সরাসরি DOM ক্রিয়াকলাপগুলিকে বিমূর্ত করে দেয়, তখনও এমন কিছু ক্ষেত্রে হতে পারে যেখানে আমাদের অন্তর্নিহিত DOM উপাদানগুলিতে সরাসরি অ্যাক্সেসের প্রয়োজন। এটি অর্জন করতে, আমরা বিশেষ `ref` বৈশিষ্ট্য ব্যবহার করতে পারি:
 
 ```vue-html
 <input ref="input">
 ```
 
-`ref` is a special attribute, similar to the `key` attribute discussed in the `v-for` chapter. It allows us to obtain a direct reference to a specific DOM element or child component instance after it's mounted. This may be useful when you want to, for example, programmatically focus an input on component mount, or initialize a 3rd party library on an element.
+`ref` একটি বিশেষ বৈশিষ্ট্য, `v-for` অধ্যায়ে আলোচিত `key` বৈশিষ্ট্যের অনুরূপ। এটি মাউন্ট করার পরে এটি আমাদের একটি নির্দিষ্ট DOM উপাদান বা চাইল্ড কম্পোনেন্ট ইনস্ট্যান্সের সরাসরি রেফারেন্স পেতে দেয়। এটি উপযোগী হতে পারে যখন আপনি চান, উদাহরণস্বরূপ, প্রোগ্রাম্যাটিকভাবে উপাদান মাউন্টে একটি ইনপুট ফোকাস করতে, বা একটি উপাদানে একটি 3য় পক্ষের লাইব্রেরি শুরু করতে।
 
 ## Accessing the Refs {#accessing-the-refs}
 
 <div class="composition-api">
 
-To obtain the reference with Composition API, we need to declare a ref with the same name:
+Composition API এর সাথে রেফারেন্স পেতে, আমাদের একই নামের একটি রেফ ঘোষণা করতে হবে:
 
 ```vue
 <script setup>
@@ -32,7 +32,7 @@ onMounted(() => {
 </template>
 ```
 
-If not using `<script setup>`, make sure to also return the ref from `setup()`:
+যদি `<script setup>` ব্যবহার না করেন, তাহলে নিশ্চিত করুন যে `setup()` থেকে রেফটিও ফেরত দিতে হবে:
 
 ```js{6}
 export default {
@@ -49,7 +49,7 @@ export default {
 </div>
 <div class="options-api">
 
-The resulting ref is exposed on `this.$refs`:
+ফলাফলের রেফটি `this.$refs`-এ উন্মোচিত হয়:
 
 ```vue
 <script>
@@ -67,11 +67,11 @@ export default {
 
 </div>
 
-Note that you can only access the ref **after the component is mounted.** If you try to access <span class="options-api">`$refs.input`</span><span class="composition-api">`input`</span> in a template expression, it will be `null` on the first render. This is because the element doesn't exist until after the first render!
+মনে রাখবেন যে আপনি শুধুমাত্র রেফ অ্যাক্সেস করতে পারবেন **কম্পোনেন্ট মাউন্ট করার পরে।** আপনি যদি <span class="options-api">`$refs.input`</span><span class="composition- অ্যাক্সেস করার চেষ্টা করেন api">`input`</span> একটি টেমপ্লেট এক্সপ্রেশনে, এটি প্রথম রেন্ডারে `null` হবে। কারণ প্রথম রেন্ডার না হওয়া পর্যন্ত উপাদানটির অস্তিত্ব নেই!
 
 <div class="composition-api">
 
-If you are trying to watch the changes of a template ref, make sure to account for the case where the ref has `null` value:
+আপনি যদি একটি টেমপ্লেট রেফের পরিবর্তনগুলি দেখার চেষ্টা করছেন, তাহলে রেফের `null` মান আছে এমন ক্ষেত্রে অ্যাকাউন্ট নিশ্চিত করুন:
 
 ```js
 watchEffect(() => {
@@ -83,7 +83,7 @@ watchEffect(() => {
 })
 ```
 
-See also: [Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
 
 </div>
 
@@ -93,7 +93,7 @@ See also: [Typing Template Refs](/guide/typescript/composition-api.html#typing-t
 
 <div class="composition-api">
 
-When `ref` is used inside `v-for`, the corresponding ref should contain an Array value, which will be populated with the elements after mount:
+যখন `v-for`-এর ভিতরে `ref` ব্যবহার করা হয়, তখন সংশ্লিষ্ট রেফটিতে একটি অ্যারে মান থাকা উচিত, যা মাউন্টের পরে উপাদানগুলির সাথে পপুলেট করা হবে:
 
 ```vue
 <script setup>
@@ -117,12 +117,12 @@ onMounted(() => console.log(itemRefs.value))
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBsaXN0ID0gcmVmKFsxLCAyLCAzXSlcblxuY29uc3QgaXRlbVJlZnMgPSByZWYoW10pXG5cbm9uTW91bnRlZCgoKSA9PiB7XG4gIGFsZXJ0KGl0ZW1SZWZzLnZhbHVlLm1hcChpID0+IGkudGV4dENvbnRlbnQpKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDx1bD5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGxpc3RcIiByZWY9XCJpdGVtUmVmc1wiPlxuICAgICAge3sgaXRlbSB9fVxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBsaXN0ID0gcmVmKFsxLCAyLCAzXSlcblxuY29uc3QgaXRlbVJlZnMgPSByZWYoW10pXG5cbm9uTW91bnRlZCgoKSA9PiB7XG4gIGFsZXJ0KGl0ZW1SZWZzLnZhbHVlLm1hcChpID0+IGkudGV4dENvbnRlbnQpKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDx1bD5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGxpc3RcIiByZWY9XCJpdGVtUmVmc1wiPlxuICAgICAge3sgaXRlbSB9fVxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 </div>
 <div class="options-api">
 
-When `ref` is used inside `v-for`, the resulting ref value will be an array containing the corresponding elements:
+যখন `v-for`-এর ভিতরে `ref` ব্যবহার করা হয়, তখন রেফ মানটি সংশ্লিষ্ট উপাদান সমন্বিত একটি অ্যারে হবে:
 
 ```vue
 <script>
@@ -149,27 +149,27 @@ export default {
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbGlzdDogWzEsIDIsIDNdXG4gICAgfVxuICB9LFxuICBtb3VudGVkKCkge1xuICAgIGNvbnNvbGUubG9nKHRoaXMuJHJlZnMuaXRlbXMpXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDx1bD5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGxpc3RcIiByZWY9XCJpdGVtc1wiPlxuICAgICAge3sgaXRlbSB9fVxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbGlzdDogWzEsIDIsIDNdXG4gICAgfVxuICB9LFxuICBtb3VudGVkKCkge1xuICAgIGNvbnNvbGUubG9nKHRoaXMuJHJlZnMuaXRlbXMpXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDx1bD5cbiAgICA8bGkgdi1mb3I9XCJpdGVtIGluIGxpc3RcIiByZWY9XCJpdGVtc1wiPlxuICAgICAge3sgaXRlbSB9fVxuICAgIDwvbGk+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 </div>
 
-It should be noted that the ref array does **not** guarantee the same order as the source array.
+এটা উল্লেখ করা উচিত যে রেফ অ্যারে সোর্স অ্যারের মতো একই অর্ডারের নিশ্চয়তা **না** দেয়।
 
 ## Function Refs {#function-refs}
 
-Instead of a string key, the `ref` attribute can also be bound to a function, which will be called on each component update and gives you full flexibility on where to store the element reference. The function receives the element reference as the first argument:
+একটি স্ট্রিং কী এর পরিবর্তে, `ref` অ্যাট্রিবিউটটি একটি ফাংশনের সাথেও আবদ্ধ হতে পারে, যা প্রতিটি উপাদান আপডেটে কল করা হবে এবং আপনাকে উপাদানের রেফারেন্স কোথায় সংরক্ষণ করতে হবে সে সম্পর্কে সম্পূর্ণ নমনীয়তা দেয়। ফাংশন প্রথম যুক্তি হিসাবে উপাদান রেফারেন্স গ্রহণ করে:
 
 ```vue-html
 <input :ref="(el) => { /* assign el to a property or ref */ }">
 ```
 
-Note we are using a dynamic `:ref` binding so we can pass it a function instead of a ref name string. When the element is unmounted, the argument will be `null`. You can, of course, use a method instead of an inline function.
+মনে রাখবেন আমরা একটি ডায়নামিক `:ref` বাইন্ডিং ব্যবহার করছি যাতে আমরা এটিকে রেফ নামের স্ট্রিংয়ের পরিবর্তে একটি ফাংশন পাস করতে পারি। যখন উপাদানটি আনমাউন্ট করা হয়, আর্গুমেন্টটি হবে `null`। আপনি, অবশ্যই, ইনলাইন ফাংশনের পরিবর্তে একটি পদ্ধতি ব্যবহার করতে পারেন।
 
 ## Ref on Component {#ref-on-component}
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> এই বিভাগটি [Components](/guide/essentials/component-basics) সম্পর্কে জ্ঞান গ্রহণ করে। নির্দ্বিধায় এটি এড়িয়ে যান এবং পরে ফিরে আসুন।
 
-`ref` can also be used on a child component. In this case the reference will be that of a component instance:
+`ref` একটি child উপাদানেও ব্যবহার করা যেতে পারে। এই ক্ষেত্রে রেফারেন্স একটি উপাদান উদাহরণ যে হবে:
 
 <div class="composition-api">
 
@@ -214,11 +214,11 @@ export default {
 
 </div>
 
-<span class="composition-api">If the child component is using Options API or not using `<script setup>`, the</span><span class="options-api">The</span> referenced instance will be identical to the child component's `this`, which means the parent component will have full access to every property and method of the child component. This makes it easy to create tightly coupled implementation details between the parent and the child, so component refs should be only used when absolutely needed - in most cases, you should try to implement parent / child interactions using the standard props and emit interfaces first.
+<span class="composition-api">যদি চাইল্ড কম্পোনেন্ট Options API ব্যবহার করে বা `<script setup>` ব্যবহার না করে, তাহলে</span><span class="options-api">দি</span> রেফারেন্স করা উদাহরণ চাইল্ড কম্পোনেন্টের 'এই'-এর সাথে অভিন্ন হবে, যার মানে প্যারেন্ট কম্পোনেন্টের চাইল্ড কম্পোনেন্টের প্রতিটি সম্পত্তি এবং পদ্ধতিতে সম্পূর্ণ অ্যাক্সেস থাকবে। এটি পিতামাতা এবং সন্তানের মধ্যে দৃঢ়ভাবে সংযুক্ত বাস্তবায়নের বিশদ তৈরি করা সহজ করে তোলে, তাই কম্পোনেন্ট রেফ শুধুমাত্র যখন একেবারে প্রয়োজন হয় তখনই ব্যবহার করা উচিত - বেশিরভাগ ক্ষেত্রে, আপনাকে স্ট্যান্ডার্ড প্রপস ব্যবহার করে অভিভাবক/শিশু মিথস্ক্রিয়া প্রয়োগ করার চেষ্টা করা উচিত এবং প্রথমে ইন্টারফেস নির্গত করার চেষ্টা করা উচিত।
 
 <div class="composition-api">
 
-An exception here is that components using `<script setup>` are **private by default**: a parent component referencing a child component using `<script setup>` won't be able to access anything unless the child component chooses to expose a public interface using the `defineExpose` macro:
+এখানে একটি ব্যতিক্রম হল যে `<স্ক্রিপ্ট সেটআপ>` ব্যবহার করা উপাদানগুলি **ডিফল্টরূপে ব্যক্তিগত**: একটি অভিভাবক উপাদান যা `<স্ক্রিপ্ট সেটআপ>` ব্যবহার করে একটি শিশু উপাদানকে উল্লেখ করে কোনো কিছু অ্যাক্সেস করতে সক্ষম হবে না যদি না শিশু উপাদান পছন্দ করে 'defineExpose' ম্যাক্রো ব্যবহার করে একটি সর্বজনীন ইন্টারফেস প্রকাশ করুন:
 
 ```vue
 <script setup>
@@ -235,14 +235,14 @@ defineExpose({
 </script>
 ```
 
-When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
+যখন একজন অভিভাবক টেমপ্লেট রেফের মাধ্যমে এই উপাদানটির একটি দৃষ্টান্ত পান, তখন পুনরুদ্ধারকৃত দৃষ্টান্তটি `{ a: number , b: number  }` আকারের হবে (রেফগুলি স্বয়ংক্রিয়ভাবে স্বাভাবিক উদাহরণের মতোই খুলে ফেলা হয়)।
 
-See also: [Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-The `expose` option can be used to limit the access to a child instance:
+`expose` option একটি child উদাহরণে অ্যাক্সেস সীমিত করতে ব্যবহার করা যেতে পারে:
 
 ```js
 export default {
@@ -264,6 +264,6 @@ export default {
 }
 ```
 
-In the above example, a parent referencing this component via template ref will only be able to access `publicData` and `publicMethod`.
+উপরের উদাহরণে, টেমপ্লেট রেফের মাধ্যমে এই উপাদানটি উল্লেখ করা একজন অভিভাবক শুধুমাত্র `publicData` এবং `publicMethod` অ্যাক্সেস করতে সক্ষম হবেন।
 
 </div>
