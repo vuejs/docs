@@ -1,10 +1,10 @@
 # Lifecycle Hooks {#lifecycle-hooks}
 
-Each Vue component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages.
+প্রতিটি Vue কম্পোনেন্ট ইন্সট্যান্স তৈরি করার সময় শুরু করার ধাপগুলির একটি সিরিজের মধ্য দিয়ে যায় - উদাহরণস্বরূপ, এটিকে ডেটা পর্যবেক্ষণ সেট আপ করতে হবে, টেমপ্লেট কম্পাইল করতে হবে, ইনস্ট্যান্সটিকে DOM-এ মাউন্ট করতে হবে এবং ডেটা পরিবর্তন হলে DOM আপডেট করতে হবে। পথের পাশাপাশি, এটি লাইফসাইকেল হুক নামে ফাংশনও চালায়, যা ব্যবহারকারীদের নির্দিষ্ট পর্যায়ে তাদের নিজস্ব কোড যোগ করার সুযোগ দেয়।
 
 ## Registering Lifecycle Hooks {#registering-lifecycle-hooks}
 
-For example, the <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> hook can be used to run code after the component has finished the initial rendering and created the DOM nodes:
+উদাহরণস্বরূপ, <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> হুকটি কম্পোনেন্ট শেষ হওয়ার পরে কোড চালানোর জন্য ব্যবহার করা যেতে পারে প্রাথমিক রেন্ডারিং এবং DOM নোড তৈরি করেছে:
 
 <div class="composition-api">
 
@@ -31,17 +31,17 @@ export default {
 
 </div>
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, with the most commonly used being <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html#onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated), and [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated), and [`unmounted`](/api/options-lifecycle.html#unmounted).</span>
+এছাড়াও আরও কিছু হুক আছে যেগুলোকে ইনস্ট্যান্সের লাইফসাইকেলের বিভিন্ন পর্যায়ে ডাকা হবে, সবচেয়ে বেশি ব্যবহৃত হচ্ছে <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html# onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated), এবং [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted)।</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated), এবং [`unmounted`] (/api/options-lifecycle.html#unmounted)।</span>
 
 <div class="options-api">
 
-All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it. Note this means you should avoid using arrow functions when declaring lifecycle hooks, as you won't be able to access the component instance via `this` if you do so.
+সমস্ত লাইফসাইকেল হুকগুলিকে তাদের `this` প্রেক্ষাপটে বলা হয় যা বর্তমান সক্রিয় দৃষ্টান্তের দিকে ইঙ্গিত করে। মনে রাখবেন এর অর্থ হল লাইফসাইকেল হুক ঘোষণা করার সময় আপনার তীর ফাংশন ব্যবহার করা এড়ানো উচিত, কারণ আপনি যদি তা করেন তাহলে আপনি `this` এর মাধ্যমে কম্পোনেন্ট ইনস্ট্যান্স অ্যাক্সেস করতে পারবেন না।
 
 </div>
 
 <div class="composition-api">
 
-When calling `onMounted`, Vue automatically associates the registered callback function with the current active component instance. This requires these hooks to be registered **synchronously** during component setup. For example, do not do this:
+'onMounted' কল করার সময়, Vue স্বয়ংক্রিয়ভাবে নিবন্ধিত কলব্যাক ফাংশনকে বর্তমান সক্রিয় উপাদান উদাহরণের সাথে সংযুক্ত করে। এর জন্য এই হুকগুলিকে কম্পোনেন্ট সেটআপের সময় **synchronously** নিবন্ধিত হতে হবে। উদাহরণস্বরূপ, এটি করবেন না:
 
 ```js
 setTimeout(() => {
@@ -51,16 +51,16 @@ setTimeout(() => {
 }, 100)
 ```
 
-Do note this doesn't mean that the call must be placed lexically inside `setup()` or `<script setup>`. `onMounted()` can be called in an external function as long as the call stack is synchronous and originates from within `setup()`.
+মনে রাখবেন এর মানে এই নয় যে কলটি অবশ্যই লেক্সিকভাবে `setup()` বা `<script setup>`-এর ভিতরে রাখতে হবে। যতক্ষণ না কল স্ট্যাক সিঙ্ক্রোনাস থাকে এবং `setup()` এর মধ্যে থেকে উৎপন্ন হয় ততক্ষণ `onMounted()` একটি বাহ্যিক ফাংশনে কল করা যেতে পারে।
 
 </div>
 
 ## Lifecycle Diagram {#lifecycle-diagram}
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+নীচে উদাহরণ জীবনচক্রের জন্য একটি চিত্র রয়েছে। আপনার এখনই যা চলছে তা সম্পূর্ণরূপে বোঝার দরকার নেই, তবে আপনি যখন আরও শিখবেন এবং আরও তৈরি করবেন, এটি একটি দরকারী রেফারেন্স হবে।
 
 ![Component lifecycle diagram](./images/lifecycle.png)
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Consult the <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle.html)</span> for details on all lifecycle hooks and their respective use cases.
+পরামর্শ করুন <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle.html)</span> সমস্ত জীবনচক্র হুক এবং তাদের নিজ নিজ ব্যবহারের ক্ষেত্রে বিস্তারিত জানার জন্য।
