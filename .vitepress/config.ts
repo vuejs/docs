@@ -594,6 +594,13 @@ export default defineConfigWithTheme<ThemeConfig>({
         'data-spa': 'auto',
         defer: ''
       }
+    ],
+    [
+      'script',
+      {
+        src: '/vueschool/banner.js',
+        async: true
+      }
     ]
   ],
 
