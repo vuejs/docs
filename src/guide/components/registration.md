@@ -1,14 +1,14 @@
 # Component Registration {#component-registration}
 
-<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Free Vue.js Component Registration Lesson"/>
+<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="বিনামূল্যে Vue.js Component Registration পাঠ"/>
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> এই পৃষ্ঠাটি ধরে নেওয়া হচ্ছে আপনি ইতিমধ্যেই [Components Basics](/guide/essentials/component-basics) পড়েছেন। আপনি যদি উপাদানগুলিতে নতুন হন তবে প্রথমে এটি পড়ুন।
 
-A Vue component needs to be "registered" so that Vue knows where to locate its implementation when it is encountered in a template. There are two ways to register components: global and local.
+একটি Vue কম্পোনেন্টকে "রেজিস্টার" করতে হবে যাতে Vue জানতে পারে যে এটি একটি টেমপ্লেটে যখন এটির সম্মুখীন হয় তখন এটির বাস্তবায়ন কোথায় পাওয়া যায়। উপাদান নিবন্ধন করার দুটি উপায় আছে: বিশ্বব্যাপী এবং স্থানীয়।
 
 ## Global Registration {#global-registration}
 
-We can make components available globally in the current [Vue application](/guide/essentials/application.html) using the `app.component()` method:
+আমরা `app.component()` পদ্ধতি ব্যবহার করে বর্তমান [Vue application](/guide/essentials/application.html) বিশ্বব্যাপী উপাদানগুলি উপলব্ধ করতে পারি:
 
 ```js
 import { createApp } from 'vue'
@@ -25,7 +25,7 @@ app.component(
 )
 ```
 
-If using SFCs, you will be registering the imported `.vue` files:
+SFC ব্যবহার করলে, আপনি আমদানি করা `.vue` ফাইল রেজিস্টার করবেন:
 
 ```js
 import MyComponent from './App.vue'
@@ -42,7 +42,7 @@ app
   .component('ComponentC', ComponentC)
 ```
 
-Globally registered components can be used in the template of any component within this application:
+বিশ্বব্যাপী নিবন্ধিত উপাদানগুলি এই অ্যাপ্লিকেশনের মধ্যে যে কোনও উপাদানের টেমপ্লেটে ব্যবহার করা যেতে পারে:
 
 ```vue-html
 <!-- this will work in any component inside the app -->
@@ -51,21 +51,21 @@ Globally registered components can be used in the template of any component with
 <ComponentC/>
 ```
 
-This even applies to all subcomponents, meaning all three of these components will also be available _inside each other_.
+এটি এমনকি সমস্ত সাবকম্পোনেন্টের ক্ষেত্রেও প্রযোজ্য, যার অর্থ এই তিনটি উপাদানও পাওয়া যাবে _একে অপরের ভিতর_।
 
 ## Local Registration {#local-registration}
 
-While convenient, global registration has a few drawbacks:
+সুবিধাজনক হলেও, বিশ্বব্যাপী নিবন্ধনের কিছু ত্রুটি রয়েছে:
 
-1. Global registration prevents build systems from removing unused components (a.k.a "tree-shaking"). If you globally register a component but end up not using it anywhere in your app, it will still be included in the final bundle.
+1. গ্লোবাল রেজিস্ট্রেশন বিল্ড সিস্টেমকে অব্যবহৃত উপাদান অপসারণ করতে বাধা দেয় (ওরফে "গাছ কাঁপানো")। আপনি যদি বিশ্বব্যাপী একটি উপাদান নিবন্ধন করেন কিন্তু শেষ পর্যন্ত এটি আপনার অ্যাপের কোথাও ব্যবহার না করেন, তাহলেও এটি চূড়ান্ত বান্ডেলে অন্তর্ভুক্ত থাকবে।
 
-2. Global registration makes dependency relationships less explicit in large applications. It makes it difficult to locate a child component's implementation from a parent component using it. This can affect long-term maintainability similar to using too many global variables.
+2. গ্লোবাল রেজিস্ট্রেশন বড় অ্যাপ্লিকেশনগুলিতে নির্ভরতা সম্পর্ককে কম স্পষ্ট করে তোলে। এটি ব্যবহার করে একটি পিতামাতার উপাদান থেকে একটি শিশু উপাদানের বাস্তবায়ন সনাক্ত করা কঠিন করে তোলে। এটি অনেকগুলি গ্লোবাল ভেরিয়েবল ব্যবহারের মতো দীর্ঘমেয়াদী রক্ষণাবেক্ষণকে প্রভাবিত করতে পারে।
 
-Local registration scopes the availability of the registered components to the current component only. It makes the dependency relationship more explicit, and is more tree-shaking friendly.
+স্থানীয় রেজিস্ট্রেশন শুধুমাত্র বর্তমান কম্পোনেন্টে নিবন্ধিত উপাদানগুলির প্রাপ্যতাকে স্কোপ করে। এটি নির্ভরতার সম্পর্ককে আরও স্পষ্ট করে তোলে এবং আরও বৃক্ষ-কাঁপানো বন্ধুত্বপূর্ণ।
 
 <div class="composition-api">
 
-When using SFC with `<script setup>`, imported components can be locally used without registration:
+`<script setup>` সহ SFC ব্যবহার করার সময়, আমদানি করা উপাদানগুলি নিবন্ধন ছাড়াই স্থানীয়ভাবে ব্যবহার করা যেতে পারে:
 
 ```vue
 <script setup>
@@ -77,7 +77,7 @@ import ComponentA from './ComponentA.vue'
 </template>
 ```
 
-In non-`<script setup>`, you will need to use the `components` option:
+অ-`<script setup>`-এ, আপনাকে `components` বিকল্প ব্যবহার করতে হবে:
 
 ```js
 import ComponentA from './ComponentA.js'
@@ -95,7 +95,7 @@ export default {
 </div>
 <div class="options-api">
 
-Local registration is done using the `components` option:
+`components` বিকল্প ব্যবহার করে স্থানীয় নিবন্ধন করা হয়:
 
 ```vue
 <script>
@@ -115,7 +115,7 @@ export default {
 
 </div>
 
-For each property in the `components` object, the key will be the registered name of the component, while the value will contain the implementation of the component. The above example is using the ES2015 property shorthand and is equivalent to:
+`components` অবজেক্টের প্রতিটি প্রপার্টির জন্য, কী হবে কম্পোনেন্টের রেজিস্টার্ড নাম, যখন মানটিতে কম্পোনেন্টের ইমপ্লিমেন্টেশন থাকবে। উপরের উদাহরণটি ES2015 প্রপার্টি শর্টহ্যান্ড ব্যবহার করছে এবং এর সমতুল্য:
 
 ```js
 export default {
@@ -126,16 +126,16 @@ export default {
 }
 ```
 
-Note that **locally registered components are _not_ also available in descendant components**. In this case, `ComponentA` will be made available to the current component only, not any of its child or descendant components.
+মনে রাখবেন যে **স্থানীয়ভাবে নিবন্ধিত উপাদানগুলি বংশধর উপাদানগুলিতে *না*ও উপলব্ধ রয়েছে**। এই ক্ষেত্রে, `ComponentA` শুধুমাত্র বর্তমান উপাদানের জন্য উপলব্ধ করা হবে, এর কোনো শিশু বা বংশধর উপাদান নয়।
 
 ## Component Name Casing {#component-name-casing}
 
-Throughout the guide, we are using PascalCase names when registering components. This is because:
+সমস্ত নির্দেশিকা জুড়ে, উপাদান নিবন্ধন করার সময় আমরা PascalCase নাম ব্যবহার করছি। এই কারণ:
 
-1. PascalCase names are valid JavaScript identifiers. This makes it easier to import and register components in JavaScript. It also helps IDEs with auto-completion.
+1. PascalCase নামগুলি বৈধ জাভাস্ক্রিপ্ট শনাক্তকারী৷ এটি জাভাস্ক্রিপ্টে উপাদানগুলি আমদানি এবং নিবন্ধন করা সহজ করে তোলে। এটি স্বয়ংক্রিয়-সম্পূর্ণতার সাথে IDE-কে সহায়তা করে।
 
-2. `<PascalCase />` makes it more obvious that this is a Vue component instead of a native HTML element in templates. It also differentiates Vue components from custom elements (web components).
+2. `<PascalCase />` এটিকে আরও স্পষ্ট করে তোলে যে এটি টেমপ্লেটগুলিতে একটি নেটিভ HTML উপাদানের পরিবর্তে একটি Vue উপাদান। এটি কাস্টম উপাদান (ওয়েব উপাদান) থেকে Vue উপাদানগুলিকেও আলাদা করে।
 
-This is the recommended style when working with SFC or string templates. However, as discussed in [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats), PascalCase tags are not usable in DOM templates.
+এসএফসি বা স্ট্রিং টেমপ্লেটগুলির সাথে কাজ করার সময় এটি প্রস্তাবিত শৈলী। যাইহোক, [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats) এ যেমন আলোচনা করা হয়েছে, DOM টেমপ্লেটে PascalCase ট্যাগ ব্যবহারযোগ্য নয়।
 
-Luckily, Vue supports resolving kebab-case tags to components registered using PascalCase. This means a component registered as `MyComponent` can be referenced in the template via both `<MyComponent>` and `<my-component>`. This allows us to use the same JavaScript component registration code regardless of template source.
+ভাগ্যক্রমে, Vue PascalCase ব্যবহার করে নিবন্ধিত উপাদানগুলিতে কাবাব-কেস ট্যাগগুলি সমাধান করতে সমর্থন করে। এর অর্থ হল `MyComponent` হিসেবে নিবন্ধিত একটি উপাদান টেমপ্লেটে `<MyComponent>` এবং `<my-component>` উভয়ের মাধ্যমে উল্লেখ করা যেতে পারে। এটি আমাদের টেমপ্লেট উত্স নির্বিশেষে একই জাভাস্ক্রিপ্ট উপাদান নিবন্ধন কোড ব্যবহার করার অনুমতি দেয়।
