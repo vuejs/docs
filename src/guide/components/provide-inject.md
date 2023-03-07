@@ -1,18 +1,18 @@
 # Provide / Inject {#provide-inject}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> এই পৃষ্ঠাটি ধরে নেওয়া হচ্ছে আপনি ইতিমধ্যেই [Components Basics](/guide/essentials/component-basics) পড়েছেন। আপনি যদি উপাদানগুলিতে নতুন হন তবে প্রথমে এটি পড়ুন।
 
 ## Prop Drilling {#prop-drilling}
 
-Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
+সাধারণত, যখন আমাদের পিতামাতার কাছ থেকে একটি শিশু উপাদানে ডেটা পাঠানোর প্রয়োজন হয়, আমরা [props](/guide/components/props) ব্যবহার করি। যাইহোক, সেই ক্ষেত্রে কল্পনা করুন যেখানে আমাদের একটি বড় উপাদান গাছ রয়েছে এবং একটি গভীরভাবে নেস্টেড উপাদানটির জন্য একটি দূরবর্তী পূর্বপুরুষ উপাদান থেকে কিছু প্রয়োজন। শুধুমাত্র প্রপস সহ, আমাদের পুরো প্যারেন্ট চেইন জুড়ে একই প্রপ পাস করতে হবে:
 
 ![prop drilling diagram](./images/prop-drilling.png)
 
 <!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/prop-drilling -->
 
-Notice although the `<Footer>` component may not care about these props at all, it still needs to declare and pass them along just so `<DeepChild>` can access them. If there is a longer parent chain, more components would be affected along the way. This is called "props drilling" and definitely isn't fun to deal with.
+লক্ষ্য করুন যদিও `<Footer>` কম্পোনেন্টটি এই প্রপসগুলিকে মোটেও গুরুত্ব নাও দিতে পারে, তবুও এটিকে ঘোষণা করতে হবে এবং পাস করতে হবে যাতে `<DeepChild>` সেগুলি অ্যাক্সেস করতে পারে। যদি একটি দীর্ঘ অভিভাবক শৃঙ্খল থাকে, তবে আরও উপাদানগুলি পথে প্রভাবিত হবে। এটিকে "প্রপস ড্রিলিং" বলা হয় এবং এটি মোকাবেলা করা অবশ্যই মজাদার নয়।
 
-We can solve props drilling with `provide` and `inject`. A parent component can serve as a **dependency provider** for all its descendants. Any component in the descendant tree, regardless of how deep it is, can **inject** dependencies provided by components up in its parent chain.
+আমরা `provide` এবং `inject` দিয়ে প্রপস ড্রিলিং সমাধান করতে পারি। একটি অভিভাবক উপাদান তার সমস্ত বংশধরদের জন্য **নির্ভরতা প্রদানকারী** হিসেবে কাজ করতে পারে। বংশধর গাছের যেকোনো উপাদান, তা যতই গভীর হোক না কেন, **inject** করতে পারে তার মূল শৃঙ্খলে থাকা উপাদানগুলির দ্বারা প্রদত্ত নির্ভরতা।
 
 ![Provide/inject scheme](./images/provide-inject.png)
 
@@ -22,7 +22,7 @@ We can solve props drilling with `provide` and `inject`. A parent component can 
 
 <div class="composition-api">
 
-To provide data to a component's descendants, use the [`provide()`](/api/composition-api-dependency-injection.html#provide) function:
+একটি উপাদানের বংশধরদের ডেটা প্রদান করতে, [`provide()`](/api/composition-api-dependency-injection.html#provide) ফাংশনটি ব্যবহার করুন:
 
 ```vue
 <script setup>
@@ -32,7 +32,7 @@ provide(/* key */ 'message', /* value */ 'hello!')
 </script>
 ```
 
-If not using `<script setup>`, make sure `provide()` is called synchronously inside `setup()`:
+`<script setup>` ব্যবহার না করলে, নিশ্চিত করুন যে `setup()` এর ভিতরে সিঙ্ক্রোনাসভাবে `provide()` বলা হয়েছে:
 
 ```js
 import { provide } from 'vue'
@@ -44,9 +44,9 @@ export default {
 }
 ```
 
-The `provide()` function accepts two arguments. The first argument is called the **injection key**, which can be a string or a `Symbol`. The injection key is used by descendant components to lookup the desired value to inject. A single component can call `provide()` multiple times with different injection keys to provide different values.
+`provide()` ফাংশন দুটি আর্গুমেন্ট গ্রহণ করে। প্রথম যুক্তিটিকে **injection key** বলা হয়, যা একটি স্ট্রিং বা একটি `Symbol` হতে পারে। ইনজেকশন কীটি ইনজেকশনের জন্য পছন্দসই মান খুঁজতে বংশধর উপাদান দ্বারা ব্যবহৃত হয়। একটি একক উপাদান বিভিন্ন মান প্রদানের জন্য বিভিন্ন ইনজেকশন কী সহ একাধিকবার `provide()` কল করতে পারে।
 
-The second argument is the provided value. The value can be of any type, including reactive state such as refs:
+দ্বিতীয় যুক্তি হল প্রদত্ত মান। মান যেকোন প্রকারের হতে পারে, যার মধ্যে প্রতিক্রিয়াশীল অবস্থা যেমন refs:
 
 ```js
 import { ref, provide } from 'vue'
@@ -55,13 +55,13 @@ const count = ref(0)
 provide('key', count)
 ```
 
-Providing reactive values allows the descendant components using the provided value to establish a reactive connection to the provider component.
+প্রতিক্রিয়াশীল মান প্রদানের মাধ্যমে সরবরাহকারী উপাদানের সাথে একটি প্রতিক্রিয়াশীল সংযোগ স্থাপন করার জন্য প্রদত্ত মান ব্যবহার করে বংশধর উপাদানগুলিকে অনুমতি দেয়।
 
 </div>
 
 <div class="options-api">
 
-To provide data to a component's descendants, use the [`provide`](/api/options-composition.html#provide) option:
+একটি উপাদানের বংশধরদের ডেটা প্রদান করতে, [`provide`](/api/options-composition.html#provide) বিকল্পটি ব্যবহার করুন:
 
 ```js
 export default {
@@ -71,9 +71,9 @@ export default {
 }
 ```
 
-For each property in the `provide` object, the key is used by child components to locate the correct value to inject, while the value is what ends up being injected.
+`provide` অবজেক্টের প্রতিটি প্রপার্টির জন্য, কীটি চাইল্ড কম্পোনেন্ট দ্বারা ইনজেকশনের সঠিক মানটি সনাক্ত করতে ব্যবহার করা হয়, যখন মানটি ইনজেকশনের মাধ্যমে শেষ হয়।
 
-If we need to provide per-instance state, for example data declared via the `data()`, then `provide` must use a function value:
+যদি আমাদের প্রতি-দৃষ্টান্তের অবস্থা প্রদান করতে হয়, উদাহরণস্বরূপ `data()` এর মাধ্যমে ঘোষিত ডেটা, তাহলে `provide` একটি ফাংশন মান ব্যবহার করতে হবে:
 
 ```js{7-12}
 export default {
@@ -91,13 +91,13 @@ export default {
 }
 ```
 
-However, do note this does **not** make the injection reactive. We will discuss [making injections reactive](#working-with-reactivity) below.
+যাইহোক, মনে রাখবেন যে এটি ইনজেকশনকে ক্রিয়াশীল করে তোলে **না**। আমরা নীচে [making injections reactive](#working-with-reactivity) নিয়ে আলোচনা করব।
 
 </div>
 
 ## App-level Provide {#app-level-provide}
 
-In addition to providing data in a component, we can also provide at the app level:
+একটি উপাদানে ডেটা প্রদানের পাশাপাশি, আমরা অ্যাপ স্তরেও প্রদান করতে পারি:
 
 ```js
 import { createApp } from 'vue'
@@ -107,13 +107,13 @@ const app = createApp({})
 app.provide(/* key */ 'message', /* value */ 'hello!')
 ```
 
-App-level provides are available to all components rendered in the app. This is especially useful when writing [plugins](/guide/reusability/plugins.html), as plugins typically wouldn't be able to provide values using components.
+অ্যাপ-স্তরের প্রদানগুলি অ্যাপে রেন্ডার করা সমস্ত উপাদানের জন্য উপলব্ধ। [plugins](/guide/reusability/plugins.html) লেখার সময় এটি বিশেষভাবে উপযোগী, কারণ প্লাগইনগুলি সাধারণত উপাদান ব্যবহার করে মান প্রদান করতে সক্ষম হয় না।
 
 ## Inject {#inject}
 
 <div class="composition-api">
 
-To inject data provided by an ancestor component, use the [`inject()`](/api/composition-api-dependency-injection.html#inject) function:
+একটি পূর্বপুরুষ উপাদান দ্বারা প্রদত্ত ডেটা ইনজেক্ট করতে, [`inject()`](/api/composition-api-dependency-injection.html#inject) ফাংশন ব্যবহার করুন:
 
 ```vue
 <script setup>
@@ -123,11 +123,11 @@ const message = inject('message')
 </script>
 ```
 
-If the provided value is a ref, it will be injected as-is and will **not** be automatically unwrapped. This allows the injector component to retain the reactivity connection to the provider component.
+যদি প্রদত্ত মানটি একটি রেফ হয়, তাহলে এটি যেমন আছে-সেভাবেই ইনজেকশন করা হবে এবং **না** স্বয়ংক্রিয়ভাবে খুলে যাবে। এটি ইনজেক্টর উপাদানটিকে প্রদানকারী উপাদানের সাথে প্রতিক্রিয়াশীলতা সংযোগ বজায় রাখতে দেয়।
 
 [Full provide + inject Example with Reactivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgcHJvdmlkZSB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuLy8gYnkgcHJvdmlkaW5nIGEgcmVmLCB0aGUgR3JhbmRDaGlsZFxuLy8gY2FuIHJlYWN0IHRvIGNoYW5nZXMgaGFwcGVuaW5nIGhlcmUuXG5jb25zdCBtZXNzYWdlID0gcmVmKCdoZWxsbycpXG5wcm92aWRlKCdtZXNzYWdlJywgbWVzc2FnZSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxpbnB1dCB2LW1vZGVsPVwibWVzc2FnZVwiPlxuICA8Q2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkNoaWxkLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgR3JhbmRDaGlsZCBmcm9tICcuL0dyYW5kQ2hpbGQudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0IHNldHVwPlxuaW1wb3J0IHsgaW5qZWN0IH0gZnJvbSAndnVlJ1xuXG5jb25zdCBtZXNzYWdlID0gaW5qZWN0KCdtZXNzYWdlJylcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxwPlxuICAgIE1lc3NhZ2UgdG8gZ3JhbmQgY2hpbGQ6IHt7IG1lc3NhZ2UgfX1cbiAgPC9wPlxuPC90ZW1wbGF0ZT4ifQ==)
 
-Again, if not using `<script setup>`, `inject()` should only be called synchronously inside `setup()`:
+আবার, `<script setup>` ব্যবহার না করলে, `inject()` কে শুধুমাত্র `setup()`-এর ভিতরে সিঙ্ক্রোনাসভাবে বলা উচিত:
 
 ```js
 import { inject } from 'vue'
@@ -144,7 +144,7 @@ export default {
 
 <div class="options-api">
 
-To inject data provided by an ancestor component, use the [`inject`](/api/options-composition.html#inject) option:
+একটি পূর্বপুরুষ উপাদান দ্বারা প্রদত্ত ডেটা ইনজেক্ট করতে, [`inject`](/api/options-composition.html#inject) বিকল্পটি ব্যবহার করুন:
 
 ```js
 export default {
@@ -155,7 +155,7 @@ export default {
 }
 ```
 
-Injections are resolved **before** the component's own state, so you can access injected properties in `data()`:
+ইনজেকশনগুলি উপাদানের নিজস্ব অবস্থার **before** সমাধান করা হয়, যাতে আপনি `data()`-এ ইনজেকশনের বৈশিষ্ট্যগুলি অ্যাক্সেস করতে পারেন:
 
 ```js
 export default {
@@ -173,9 +173,9 @@ export default {
 
 ### Injection Aliasing \* {#injection-aliasing}
 
-When using the array syntax for `inject`, the injected properties are exposed on the component instance using the same key. In the example above, the property was provided under the key `"message"`, and injected as `this.message`. The local key is the same as the injection key.
+`inject`-এর জন্য অ্যারে সিনট্যাক্স ব্যবহার করার সময়, একই কী ব্যবহার করে কম্পোনেন্ট ইনস্ট্যান্সে ইনজেকশনের বৈশিষ্ট্যগুলি প্রকাশ করা হয়। উপরের উদাহরণে, প্রপার্টিটি `"message"`-এর অধীনে প্রদান করা হয়েছে এবং `this.message` হিসেবে ইনজেকশন করা হয়েছে। স্থানীয় কী ইনজেকশন কী হিসাবে একই।
 
-If we want to inject the property using a different local key, we need to use the object syntax for the `inject` option:
+যদি আমরা একটি ভিন্ন স্থানীয় কী ব্যবহার করে সম্পত্তি ইনজেকশন করতে চাই, তাহলে আমাদের `inject` বিকল্পের জন্য অবজেক্ট সিনট্যাক্স ব্যবহার করতে হবে:
 
 ```js
 export default {
@@ -187,15 +187,15 @@ export default {
 }
 ```
 
-Here, the component will locate a property provided with the key `"message"`, and then expose it as `this.localMessage`.
+এখানে, উপাদানটি `"message"` কী সহ প্রদত্ত একটি সম্পত্তি সনাক্ত করবে এবং তারপরে এটিকে `this.localMessage` হিসাবে প্রকাশ করবে।
 
 </div>
 
 ### Injection Default Values {#injection-default-values}
 
-By default, `inject` assumes that the injected key is provided somewhere in the parent chain. In the case where the key is not provided, there will be a runtime warning.
+ডিফল্টরূপে, `inject` অনুমান করে যে ইনজেকশন করা কীটি প্যারেন্ট চেইনের কোথাও সরবরাহ করা হয়েছে। যে ক্ষেত্রে কী প্রদান করা হয়নি, সেখানে একটি রানটাইম সতর্কতা থাকবে।
 
-If we want to make an injected property work with optional providers, we need to declare a default value, similar to props:
+যদি আমরা ঐচ্ছিক প্রদানকারীদের সাথে একটি ইনজেকশনযুক্ত সম্পত্তি কাজ করতে চাই, তাহলে আমাদের প্রপসের মতো একটি ডিফল্ট মান ঘোষণা করতে হবে:
 
 <div class="composition-api">
 
@@ -205,7 +205,7 @@ If we want to make an injected property work with optional providers, we need to
 const value = inject('message', 'default value')
 ```
 
-In some cases, the default value may need to be created by calling a function or instantiating a new class. To avoid unnecessary computation or side effects in case the optional value is not used, we can use a factory function for creating the default value:
+কিছু ক্ষেত্রে, একটি ফাংশন কল করে বা একটি নতুন ক্লাস ইনস্ট্যান্টিয়েট করে ডিফল্ট মান তৈরি করতে হতে পারে। ঐচ্ছিক মান ব্যবহার না করা হলে অপ্রয়োজনীয় গণনা বা পার্শ্ব প্রতিক্রিয়া এড়াতে, আমরা ডিফল্ট মান তৈরি করার জন্য একটি কারখানা ফাংশন ব্যবহার করতে পারি:
 
 ```js
 const value = inject('key', () => new ExpensiveClass())
@@ -239,9 +239,9 @@ export default {
 
 <div class="composition-api">
 
-When using reactive provide / inject values, **it is recommended to keep any mutations to reactive state inside of the _provider_ whenever possible**. This ensures that the provided state and its possible mutations are co-located in the same component, making it easier to maintain in the future.
+প্রতিক্রিয়াশীল প্রদান / ইনজেকশন মান ব্যবহার করার সময়, **যখনই সম্ভব** যেকোন মিউটেশনকে _provider_ এর ভিতরে প্রতিক্রিয়াশীল অবস্থায় রাখার পরামর্শ দেওয়া হয়। এটি নিশ্চিত করে যে প্রদত্ত অবস্থা এবং এর সম্ভাব্য মিউটেশনগুলি একই উপাদানে সহ-অবস্থিত রয়েছে, যা ভবিষ্যতে বজায় রাখা সহজ করে তোলে।
 
-There may be times when we need to update the data from an injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
+এমন সময় হতে পারে যখন আমাদের একটি ইনজেক্টর উপাদান থেকে ডেটা আপডেট করতে হবে। এই ধরনের ক্ষেত্রে, আমরা এমন একটি ফাংশন প্রদান করার পরামর্শ দিই যা রাষ্ট্রকে পরিবর্তন করার জন্য দায়ী:
 
 ```vue{7-9,13}
 <!-- inside provider component -->
@@ -274,7 +274,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Finally, you can wrap the provided value with [`readonly()`](/api/reactivity-core.html#readonly) if you want to ensure that the data passed through `provide` cannot be mutated by the injector component.
+পরিশেষে, আপনি প্রদত্ত মানটিকে [`readonly()`](/api/reactivity-core.html#readonly) দিয়ে মোড়ানো করতে পারেন যদি আপনি নিশ্চিত করতে চান যে `provide`-এর মাধ্যমে পাস করা ডেটা ইনজেক্টর কম্পোনেন্ট দ্বারা পরিবর্তন করা যাবে না।
 
 ```vue
 <script setup>
@@ -289,7 +289,7 @@ provide('read-only-count', readonly(count))
 
 <div class="options-api">
 
-In order to make injections reactively linked to the provider, we need to provide a computed property using the [computed()](/api/reactivity-core.html#computed) function:
+ইনজেকশনগুলিকে সরবরাহকারীর সাথে প্রতিক্রিয়াশীলভাবে লিঙ্ক করার জন্য, আমাদের [computed()](/api/reactivity-core.html#computed) ফাংশন ব্যবহার করে একটি গণনাকৃত সম্পত্তি প্রদান করতে হবে:
 
 ```js{10}
 import { computed } from 'vue'
@@ -311,19 +311,19 @@ export default {
 
 [Full provide + inject Example with Reactivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcbmltcG9ydCB7IGNvbXB1dGVkIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgQ2hpbGQgfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogJ2hlbGxvJ1xuICAgIH1cbiAgfSxcbiAgcHJvdmlkZSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogY29tcHV0ZWQoKCkgPT4gdGhpcy5tZXNzYWdlKVxuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGlucHV0IHYtbW9kZWw9XCJtZXNzYWdlXCI+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
 
-The `computed()` function is typically used in Composition API components, but can also be used to complement certain use cases in Options API. You can learn more about its usage by reading the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) and [Computed Properties](/guide/essentials/computed.html) with the API Preference set to Composition API.
+`Computed()` ফাংশনটি সাধারণত কম্পোজিশন API উপাদানগুলিতে ব্যবহৃত হয়, তবে বিকল্প API-এ নির্দিষ্ট ব্যবহারের ক্ষেত্রে পরিপূরক করতেও ব্যবহার করা যেতে পারে। আপনি কম্পোজিশন এপিআই-এ সেট করা API পছন্দের সাথে [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) এবং [Computed Properties](/guide/essentials/computed.html) পড়ে এর ব্যবহার সম্পর্কে আরও জানতে পারেন।
 
-:::warning Temporary Config Required
-The above usage requires setting `app.config.unwrapInjectedRef = true` to make injections automatically unwrap computed refs. This will become the default behavior in Vue 3.3 and this config is introduced temporarily to avoid breakage. It will no longer be required after 3.3.
+:::warning অস্থায়ী কনফিগার প্রয়োজন
+উপরোক্ত ব্যবহারের জন্য `app.config.unwrapInjectedRef = true` সেট করা প্রয়োজন যাতে ইনজেকশনগুলি স্বয়ংক্রিয়ভাবে গণনা করা রেফগুলিকে আনর্যাপ করা যায়৷ এটি Vue 3.3-এ ডিফল্ট আচরণে পরিণত হবে এবং ভাঙা এড়াতে এই কনফিগারেশন সাময়িকভাবে চালু করা হয়েছে। এটি 3.3 এর পরে আর প্রয়োজন হবে না।
 :::
 
 </div>
 
 ## Working with Symbol Keys {#working-with-symbol-keys}
 
-So far, we have been using string injection keys in the examples. If you are working in a large application with many dependency providers, or you are authoring components that are going to be used by other developers, it is best to use Symbol injection keys to avoid potential collisions.
+এখন পর্যন্ত, আমরা উদাহরণগুলিতে স্ট্রিং ইনজেকশন কী ব্যবহার করে আসছি। আপনি যদি অনেক নির্ভরতা প্রদানকারীর সাথে একটি বড় অ্যাপ্লিকেশনে কাজ করেন, বা আপনি অন্যান্য বিকাশকারীদের দ্বারা ব্যবহৃত উপাদানগুলি রচনা করছেন, তাহলে সম্ভাব্য সংঘর্ষ এড়াতে সিম্বল ইনজেকশন কীগুলি ব্যবহার করা ভাল।
 
-It's recommended to export the Symbols in a dedicated file:
+একটি ডেডিকেটেড ফাইলে প্রতীকগুলি রপ্তানি করার পরামর্শ দেওয়া হচ্ছে:
 
 ```js
 // keys.js
@@ -350,7 +350,7 @@ import { myInjectionKey } from './keys.js'
 const injected = inject(myInjectionKey)
 ```
 
-See also: [Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
 
 </div>
 
