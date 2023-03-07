@@ -1,6 +1,6 @@
 # Erstellen einer Vue-Anwendung {#creating-a-vue-application}
 
-## The application instance {#the-application-instance}
+## Die Anwendungsinstanz {#the-application-instance}
 
 Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
 
