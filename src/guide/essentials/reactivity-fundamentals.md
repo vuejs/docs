@@ -4,15 +4,15 @@ outline: deep
 
 # Reactivity Fundamentals {#reactivity-fundamentals}
 
-:::tip API Preference
-This page and many other chapters later in the guide contain different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
+:::tip API অগ্রাধিকার
+এই পৃষ্ঠাটি এবং পরবর্তীতে গাইডের অন্যান্য অনেক অধ্যায়ে অপশন এপিআই এবং কম্পোজিশন এপিআই-এর জন্য বিভিন্ন বিষয়বস্তু রয়েছে। আপনার বর্তমান পছন্দ হল <span class="options-api">Options API</span><span class="composition-api">Composition API</span>। আপনি বাম সাইডবারের শীর্ষে "API অগ্রাধিকার" সুইচগুলি ব্যবহার করে API styles মধ্যে টগল করতে পারেন।
 :::
 
 ## Declaring Reactive State {#declaring-reactive-state}
 
 <div class="options-api">
 
-With Options API, we use the `data` option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. Any top-level properties of this object are proxied on the component instance (`this` in methods and lifecycle hooks):
+অপশন এপিআই এর সাথে, আমরা একটি উপাদানের প্রতিক্রিয়াশীল অবস্থা ঘোষণা করতে `data` বিকল্প ব্যবহার করি। বিকল্পের মান একটি ফাংশন হওয়া উচিত যা একটি বস্তু প্রদান করে। একটি নতুন কম্পোনেন্ট ইন্সট্যান্স তৈরি করার সময় Vue ফাংশনটিকে কল করবে এবং রিঅ্যাকটিভিটি সিস্টেমে রিটার্ন করা অবজেক্টকে মোড়ানো হবে। এই বস্তুর যেকোনো শীর্ষ-স্তরের বৈশিষ্ট্যগুলি কম্পোনেন্ট ইনস্ট্যান্সে প্রক্সি করা হয় (পদ্ধতি এবং লাইফসাইকেল হুকগুলিতে `this`):
 
 ```js{2-6}
 export default {
@@ -33,17 +33,17 @@ export default {
 }
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDFcbiAgICB9XG4gIH0sXG5cbiAgLy8gYG1vdW50ZWRgIGlzIGEgbGlmZWN5Y2xlIGhvb2sgd2hpY2ggd2Ugd2lsbCBleHBsYWluIGxhdGVyXG4gIG1vdW50ZWQoKSB7XG4gICAgLy8gYHRoaXNgIHJlZmVycyB0byB0aGUgY29tcG9uZW50IGluc3RhbmNlLlxuICAgIGNvbnNvbGUubG9nKHRoaXMuY291bnQpIC8vID0+IDFcblxuICAgIC8vIGRhdGEgY2FuIGJlIG11dGF0ZWQgYXMgd2VsbFxuICAgIHRoaXMuY291bnQgPSAyXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIENvdW50IGlzOiB7eyBjb3VudCB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDFcbiAgICB9XG4gIH0sXG5cbiAgLy8gYG1vdW50ZWRgIGlzIGEgbGlmZWN5Y2xlIGhvb2sgd2hpY2ggd2Ugd2lsbCBleHBsYWluIGxhdGVyXG4gIG1vdW50ZWQoKSB7XG4gICAgLy8gYHRoaXNgIHJlZmVycyB0byB0aGUgY29tcG9uZW50IGluc3RhbmNlLlxuICAgIGNvbnNvbGUubG9nKHRoaXMuY291bnQpIC8vID0+IDFcblxuICAgIC8vIGRhdGEgY2FuIGJlIG11dGF0ZWQgYXMgd2VsbFxuICAgIHRoaXMuY291bnQgPSAyXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIENvdW50IGlzOiB7eyBjb3VudCB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 
-These instance properties are only added when the instance is first created, so you need to ensure they are all present in the object returned by the `data` function. Where necessary, use `null`, `undefined` or some other placeholder value for properties where the desired value isn't yet available.
+এই উদাহরণ বৈশিষ্ট্যগুলি শুধুমাত্র যোগ করা হয় যখন দৃষ্টান্তটি প্রথম তৈরি করা হয়, তাই আপনাকে নিশ্চিত করতে হবে যে সেগুলি `data` ফাংশন দ্বারা প্রত্যাবর্তিত বস্তুতে উপস্থিত রয়েছে। যেখানে প্রয়োজন, সেইসব বৈশিষ্ট্যের জন্য `null`, `undefined` বা অন্য কোনো স্থানধারক মান ব্যবহার করুন যেখানে পছন্দসই মান এখনও উপলব্ধ নয়।
 
-It is possible to add a new property directly to `this` without including it in `data`. However, properties added this way will not be able to trigger reactive updates.
+এটিকে `data`-এ অন্তর্ভুক্ত না করে সরাসরি `this`তে একটি নতুন প্রপার্টি যোগ করা সম্ভব। যাইহোক, এইভাবে যোগ করা বৈশিষ্ট্য প্রতিক্রিয়াশীল আপডেট ট্রিগার করতে সক্ষম হবে না।
 
-Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
+Vue একটি `$` উপসর্গ ব্যবহার করে যখন কম্পোনেন্ট ইন্সট্যান্সের মাধ্যমে তার নিজস্ব বিল্ট-ইন APIs প্রকাশ করে। এটি অভ্যন্তরীণ বৈশিষ্ট্যের জন্য উপসর্গ `_` সংরক্ষণ করে। এই অক্ষরগুলির যেকোনো একটি দিয়ে শুরু হওয়া শীর্ষ-স্তরের `data` বৈশিষ্ট্যগুলির জন্য আপনার নাম ব্যবহার করা এড়ানো উচিত।
 
 ### Reactive Proxy vs. Original \* {#reactive-proxy-vs-original}
 
-In Vue 3, data is made reactive by leveraging [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Users coming from Vue 2 should be aware of the following edge case:
+Vue 3-তে, [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) ব্যবহার করে ডেটা প্রতিক্রিয়াশীল করা হয়। Vue 2 থেকে আগত ব্যবহারকারীদের নিম্নলিখিত এজ কেস সম্পর্কে সচেতন হওয়া উচিত:
 
 ```js
 export default {
@@ -61,13 +61,13 @@ export default {
 }
 ```
 
-When you access `this.someObject` after assigning it, the value is a reactive proxy of the original `newObject`. **Unlike in Vue 2, the original `newObject` is left intact and will not be made reactive: make sure to always access reactive state as a property of `this`.**
+বরাদ্দ করার পরে আপনি যখন `this.someObject` অ্যাক্সেস করেন, তখন মানটি আসল `newObject`-এর একটি প্রতিক্রিয়াশীল প্রক্সি। **ভিউ 2-এর বিপরীতে, আসল `নতুন বস্তু` অক্ষত রাখা হয়েছে এবং প্রতিক্রিয়াশীল করা হবে না: নিশ্চিত করুন যে সর্বদা `এই`-এর বৈশিষ্ট্য হিসেবে প্রতিক্রিয়াশীল অবস্থা অ্যাক্সেস করতে হবে।**
 
 </div>
 
 <div class="composition-api">
 
-We can create a reactive object or array with the [`reactive()`](/api/reactivity-core.html#reactive) function:
+আমরা [`reactive()`](/api/reactivity-core.html#reactive) ফাংশন দিয়ে একটি প্রতিক্রিয়াশীল বস্তু বা অ্যারে তৈরি করতে পারি:
 
 ```js
 import { reactive } from 'vue'
@@ -75,11 +75,11 @@ import { reactive } from 'vue'
 const state = reactive({ count: 0 })
 ```
 
-Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and behave just like normal objects. The difference is that Vue is able to track the property access and mutations of a reactive object. If you are curious about the details, we explain how Vue's reactivity system works in [Reactivity in Depth](/guide/extras/reactivity-in-depth.html) - but we recommend reading it after you have finished the main guide.
+প্রতিক্রিয়াশীল বস্তু হল [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) এবং সাধারণ বস্তুর মতো আচরণ করে। পার্থক্য হল Vue একটি প্রতিক্রিয়াশীল বস্তুর সম্পত্তি অ্যাক্সেস এবং মিউটেশন ট্র্যাক করতে সক্ষম। আপনি যদি বিশদ বিবরণ সম্পর্কে জানতে আগ্রহী হন, আমরা ব্যাখ্যা করি যে কীভাবে Vue-এর প্রতিক্রিয়াশীলতা সিস্টেম [Reactivity in Depth](/guide/extras/reactivity-in-depth.html) এ কাজ করে - তবে আমরা আপনাকে মূল নির্দেশিকা শেষ করার পরে এটি পড়ার পরামর্শ দিই।
 
-See also: [Typing Reactive](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
+আরও দেখুন: [Typing Reactive](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
 
-To use reactive state in a component's template, declare and return them from a component's `setup()` function:
+একটি উপাদানের টেমপ্লেটে প্রতিক্রিয়াশীল অবস্থা ব্যবহার করতে, একটি উপাদানের `setup()` ফাংশন থেকে তাদের ঘোষণা করুন এবং ফেরত দিন:
 
 ```js{5,9-11}
 import { reactive } from 'vue'
@@ -101,7 +101,7 @@ export default {
 <div>{{ state.count }}</div>
 ```
 
-Similarly, we can declare functions that mutate reactive state in the same scope and expose them as methods alongside the state:
+একইভাবে, আমরা ফাংশন ঘোষণা করতে পারি যেগুলি প্রতিক্রিয়াশীল অবস্থাকে একই সুযোগে পরিবর্তিত করে এবং সেগুলিকে রাষ্ট্রের পাশাপাশি পদ্ধতি হিসাবে প্রকাশ করতে পারে:
 
 ```js{7-9,14}
 import { reactive } from 'vue'
@@ -123,7 +123,7 @@ export default {
 }
 ```
 
-Exposed methods are typically used as event listeners:
+উন্মুক্ত পদ্ধতিগুলি সাধারণত ইভেন্ট শ্রোতা হিসাবে ব্যবহৃত হয়:
 
 ```vue-html
 <button @click="increment">
@@ -133,7 +133,7 @@ Exposed methods are typically used as event listeners:
 
 ### `<script setup>` \*\* {#script-setup}
 
-Manually exposing state and methods via `setup()` can be verbose. Luckily, it is only necessary when not using a build step. When using Single-File Components (SFCs), we can greatly simplify the usage with `<script setup>`:
+`setup()` এর মাধ্যমে ম্যানুয়ালি স্টেট এবং পদ্ধতি প্রকাশ করা ভার্বোস হতে পারে। সৌভাগ্যবশত, এটি শুধুমাত্র প্রয়োজনীয় যখন একটি বিল্ড পদক্ষেপ ব্যবহার না করা হয়। সিঙ্গেল-ফাইল কম্পোনেন্টস (এসএফসি) ব্যবহার করার সময়, আমরা `<script setup>` এর মাধ্যমে ব্যবহারকে অনেকটাই সহজ করতে পারি:
 
 ```vue
 <script setup>
@@ -153,11 +153,11 @@ function increment() {
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBzdGF0ZSA9IHJlYWN0aXZlKHsgY291bnQ6IDAgfSlcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBzdGF0ZS5jb3VudCsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPlxuICAgIHt7IHN0YXRlLmNvdW50IH19XG4gIDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBzdGF0ZSA9IHJlYWN0aXZlKHsgY291bnQ6IDAgfSlcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBzdGF0ZS5jb3VudCsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPlxuICAgIHt7IHN0YXRlLmNvdW50IH19XG4gIDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 
-Top-level imports and variables declared in `<script setup>` are automatically usable in the template of the same component.
+`<script setup>`-এ ঘোষিত শীর্ষ-স্তরের আমদানি এবং ভেরিয়েবল একই উপাদানের টেমপ্লেটে স্বয়ংক্রিয়ভাবে ব্যবহারযোগ্য।
 
-> For the rest of the guide, we will be primarily using SFC + `<script setup>` syntax for Composition API code examples, as that is the most common usage for Vue developers.
+> বাকি গাইডের জন্য, আমরা প্রাথমিকভাবে কম্পোজিশন API কোড উদাহরণের জন্য SFC + `<script setup>` সিনট্যাক্স ব্যবহার করব, কারণ এটি Vue বিকাশকারীদের জন্য সবচেয়ে সাধারণ ব্যবহার।
 
 </div>
 
@@ -165,9 +165,9 @@ Top-level imports and variables declared in `<script setup>` are automatically u
 
 ## Declaring Methods \* {#declaring-methods}
 
-<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Free Vue.js Methods Lesson"/>
+<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="বিনামূল্যে Vue.js methods পাঠ"/>
 
-To add methods to a component instance we use the `methods` option. This should be an object containing the desired methods:
+একটি উপাদান উদাহরণে পদ্ধতি যোগ করতে আমরা `methods` বিকল্প ব্যবহার করি। এটি পছন্দসই পদ্ধতি ধারণকারী একটি বস্তু হওয়া উচিত:
 
 ```js{7-11}
 export default {
@@ -188,7 +188,7 @@ export default {
 }
 ```
 
-Vue automatically binds the `this` value for `methods` so that it always refers to the component instance. This ensures that a method retains the correct `this` value if it's used as an event listener or callback. You should avoid using arrow functions when defining `methods`, as that prevents Vue from binding the appropriate `this` value:
+Vue স্বয়ংক্রিয়ভাবে `this` মানটিকে `methods` এর জন্য আবদ্ধ করে যাতে এটি সর্বদা কম্পোনেন্ট ইনস্ট্যান্সকে নির্দেশ করে। এটি নিশ্চিত করে যে একটি পদ্ধতি সঠিক `this` মান ধরে রাখে যদি এটি একটি ইভেন্ট লিসেনার বা কলব্যাক হিসাবে ব্যবহার করা হয়। `methods` সংজ্ঞায়িত করার সময় আপনার তীর ফাংশন ব্যবহার করা এড়ানো উচিত, কারণ এটি Vue-কে উপযুক্ত `this` মান বাঁধাই করতে বাধা দেয়:
 
 ```js
 export default {
@@ -200,23 +200,23 @@ export default {
 }
 ```
 
-Just like all other properties of the component instance, the `methods` are accessible from within the component's template. Inside a template they are most commonly used as event listeners:
+কম্পোনেন্ট ইন্সট্যান্সের অন্যান্য সব বৈশিষ্ট্যের মতোই, উপাদানের টেমপ্লেট থেকে `methods` অ্যাক্সেসযোগ্য। একটি টেমপ্লেটের ভিতরে তারা সাধারণত ইভেন্ট শ্রোতা হিসাবে ব্যবহৃত হয়:
 
 ```vue-html
 <button @click="increment">{{ count }}</button>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBpbmNyZW1lbnQoKSB7XG4gICAgICB0aGlzLmNvdW50KytcbiAgICB9XG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgdGhpcy5pbmNyZW1lbnQoKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBpbmNyZW1lbnQoKSB7XG4gICAgICB0aGlzLmNvdW50KytcbiAgICB9XG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgdGhpcy5pbmNyZW1lbnQoKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-In the example above, the method `increment` will be called when the `<button>` is clicked.
+উপরের উদাহরণে, `<button>` ক্লিক করলে `increment` পদ্ধতিটিকে বলা হবে।
 
 </div>
 
 ### DOM Update Timing {#dom-update-timing}
 
-When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component updates only once no matter how many state changes you have made.
+যখন আপনি প্রতিক্রিয়াশীল অবস্থা পরিবর্তন করেন, DOM স্বয়ংক্রিয়ভাবে আপডেট হয়। যাইহোক, এটি লক্ষ করা উচিত যে DOM আপডেটগুলি সিঙ্ক্রোনাসভাবে প্রয়োগ করা হয় না। পরিবর্তে, Vue আপডেট চক্রে "পরবর্তী টিক" না হওয়া পর্যন্ত সেগুলিকে বাফার করে যাতে আপনি যতগুলি রাজ্য পরিবর্তন করেছেন না কেন প্রতিটি উপাদান শুধুমাত্র একবার আপডেট হয়।
 
-To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general.html#nexttick) global API:
+একটি রাষ্ট্র পরিবর্তনের পরে DOM আপডেট সম্পূর্ণ হওয়ার জন্য অপেক্ষা করতে, আপনি [nextTick()](/api/general.html#nexttick) গ্লোবাল API ব্যবহার করতে পারেন:
 
 <div class="composition-api">
 
@@ -253,7 +253,7 @@ export default {
 
 ### Deep Reactivity {#deep-reactivity}
 
-In Vue, state is deeply reactive by default. This means you can expect changes to be detected even when you mutate nested objects or arrays:
+Vue-তে, state ডিফল্টরূপে গভীরভাবে প্রতিক্রিয়াশীল। এর মানে আপনি নেস্টেড অবজেক্ট বা অ্যারে পরিবর্তন করলেও আপনি পরিবর্তনগুলি সনাক্ত করা আশা করতে পারেন:
 
 <div class="options-api">
 
@@ -298,13 +298,13 @@ function mutateDeeply() {
 
 </div>
 
-It is also possible to explicitly create [shallow reactive objects](/api/reactivity-advanced.html#shallowreactive) where the reactivity is only tracked at the root-level, but these are typically only needed in advanced use cases.
+এটি স্পষ্টভাবে [অগভীর reactive objects](/api/reactivity-advanced.html#shallowreactive) তৈরি করাও সম্ভব যেখানে প্রতিক্রিয়াশীলতা শুধুমাত্র রুট-লেভেলে ট্র্যাক করা হয়, তবে এগুলি সাধারণত শুধুমাত্র উন্নত ব্যবহারের ক্ষেত্রে প্রয়োজন হয়।
 
 <div class="composition-api">
 
 ### Reactive Proxy vs. Original \*\* {#reactive-proxy-vs-original-1}
 
-It is important to note that the returned value from `reactive()` is a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) of the original object, which is not equal to the original object:
+এটা মনে রাখা গুরুত্বপূর্ণ যে `reactive()` থেকে প্রত্যাবর্তিত মান হল একটি [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) বস্তু, যা মূল বস্তুর সমান নয়:
 
 ```js
 const raw = {}
@@ -314,9 +314,9 @@ const proxy = reactive(raw)
 console.log(proxy === raw) // false
 ```
 
-Only the proxy is reactive - mutating the original object will not trigger updates. Therefore, the best practice when working with Vue's reactivity system is to **exclusively use the proxied versions of your state**.
+শুধুমাত্র প্রক্সিই প্রতিক্রিয়াশীল - আসল অবজেক্টকে পরিবর্তন করলে আপডেট ট্রিগার হবে না। অতএব, Vue এর প্রতিক্রিয়াশীলতা সিস্টেমের সাথে কাজ করার সময় সর্বোত্তম অনুশীলন হল **একচেটিয়াভাবে আপনার রাজ্যের প্রক্সি সংস্করণগুলি ব্যবহার করা**।
 
-To ensure consistent access to the proxy, calling `reactive()` on the same object always returns the same proxy, and calling `reactive()` on an existing proxy also returns that same proxy:
+প্রক্সিতে সামঞ্জস্যপূর্ণ অ্যাক্সেস নিশ্চিত করতে, একই বস্তুতে `reactive()` কল করা সর্বদা একই প্রক্সি ফেরত দেয় এবং একটি বিদ্যমান প্রক্সিতে `reactive()` কল করাও একই প্রক্সি ফেরত দেয়:
 
 ```js
 // calling reactive() on the same object returns the same proxy
@@ -326,7 +326,7 @@ console.log(reactive(raw) === proxy) // true
 console.log(reactive(proxy) === proxy) // true
 ```
 
-This rule applies to nested objects as well. Due to deep reactivity, nested objects inside a reactive object are also proxies:
+এই নিয়ম নেস্টেড অবজেক্টের ক্ষেত্রেও প্রযোজ্য। গভীর প্রতিক্রিয়াশীলতার কারণে, প্রতিক্রিয়াশীল বস্তুর ভিতরে নেস্টেড অবজেক্টগুলিও প্রক্সি:
 
 ```js
 const proxy = reactive({})
@@ -339,11 +339,11 @@ console.log(proxy.nested === raw) // false
 
 ### Limitations of `reactive()` \*\* {#limitations-of-reactive}
 
-The `reactive()` API has two limitations:
+`reactive()` API এর দুটি সীমাবদ্ধতা রয়েছে:
 
-1. It only works for object types (objects, arrays, and [collection types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections) such as `Map` and `Set`). It cannot hold [primitive types](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) such as `string`, `number` or `boolean`.
+1. এটি শুধুমাত্র বস্তুর প্রকারের জন্য কাজ করে (অবজেক্ট, অ্যারে, এবং [সংগ্রহের ধরন](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections) যেমন `Map` এবং `Set`)। এটি [প্রিমিটিভ ধরনের](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) যেমন `string`, `number` বা `boolean` ধরে রাখতে পারে না।
 
-2. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost:
+2. যেহেতু Vue এর প্রতিক্রিয়াশীলতা ট্র্যাকিং সম্পত্তি অ্যাক্সেসের উপর কাজ করে, তাই আমাদের অবশ্যই প্রতিক্রিয়াশীল বস্তুর একই রেফারেন্স রাখতে হবে। এর মানে হল যে আমরা একটি প্রতিক্রিয়াশীল বস্তুকে সহজে "প্রতিস্থাপন" করতে পারি না কারণ প্রথম রেফারেন্সের প্রতিক্রিয়াশীলতার সংযোগ হারিয়ে গেছে:
 
    ```js
    let state = reactive({ count: 0 })
@@ -352,7 +352,7 @@ The `reactive()` API has two limitations:
    state = reactive({ count: 1 })
    ```
 
-   It also means that when we assign or destructure a reactive object's property into local variables, or when we pass that property into a function, we will lose the reactivity connection:
+   এর মানে হল যে যখন আমরা একটি প্রতিক্রিয়াশীল বস্তুর সম্পত্তি স্থানীয় ভেরিয়েবলে বরাদ্দ করি বা ধ্বংস করি, বা যখন আমরা সেই সম্পত্তিটিকে একটি ফাংশনে পাস করি, তখন আমরা প্রতিক্রিয়াশীলতার সংযোগ হারাবো:
 
    ```js
    const state = reactive({ count: 0 })
@@ -375,7 +375,7 @@ The `reactive()` API has two limitations:
 
 ## Reactive Variables with `ref()` \*\* {#reactive-variables-with-ref}
 
-To address the limitations of `reactive()`, Vue also provides a [`ref()`](/api/reactivity-core.html#ref) function which allows us to create reactive **"refs"** that can hold any value type:
+`reactive()` এর সীমাবদ্ধতাগুলিকে সমাধান করার জন্য, Vue একটি [`ref()`](/api/reactivity-core.html#ref) ফাংশনও প্রদান করে যা আমাদের প্রতিক্রিয়াশীল **"refs"** তৈরি করতে দেয় যা করতে পারে যেকোনো মান ধরুন:
 
 ```js
 import { ref } from 'vue'
@@ -383,7 +383,7 @@ import { ref } from 'vue'
 const count = ref(0)
 ```
 
-`ref()` takes the argument and returns it wrapped within a ref object with a `.value` property:
+`ref()` আর্গুমেন্ট নেয় এবং একটি `.value` বৈশিষ্ট্য সহ একটি রেফ অবজেক্টের মধ্যে মোড়ানো রিটার্ন করে:
 
 ```js
 const count = ref(0)
@@ -395,11 +395,11 @@ count.value++
 console.log(count.value) // 1
 ```
 
-See also: [Typing Refs](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
+আরও দেখুন: [Typing Refs](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
 
-Similar to properties on a reactive object, the `.value` property of a ref is reactive. In addition, when holding object types, ref automatically converts its `.value` with `reactive()`.
+একটি প্রতিক্রিয়াশীল বস্তুর বৈশিষ্ট্যের মতো, একটি রেফের `.value` বৈশিষ্ট্য প্রতিক্রিয়াশীল। উপরন্তু, অবজেক্টের ধরন ধরে রাখার সময়, ref স্বয়ংক্রিয়ভাবে তার `.value` কে `reactive()` দিয়ে রূপান্তর করে।
 
-A ref containing an object value can reactively replace the entire object:
+একটি বস্তুর মান সম্বলিত একটি রেফ প্রতিক্রিয়াশীলভাবে সমগ্র বস্তুটিকে প্রতিস্থাপন করতে পারে:
 
 ```js
 const objectRef = ref({ count: 0 })
@@ -408,7 +408,7 @@ const objectRef = ref({ count: 0 })
 objectRef.value = { count: 1 }
 ```
 
-Refs can also be passed into functions or destructured from plain objects without losing reactivity:
+Refs এছাড়াও ফাংশন মধ্যে পাস করা যেতে পারে বা প্রতিক্রিয়া হারানো ছাড়া প্লেইন অবজেক্ট থেকে ধ্বংস করা যেতে পারে:
 
 ```js
 const obj = {
@@ -425,11 +425,11 @@ callSomeFunction(obj.foo)
 const { foo, bar } = obj
 ```
 
-In other words, `ref()` allows us to create a "reference" to any value and pass it around without losing reactivity. This capability is quite important as it is frequently used when extracting logic into [Composable Functions](/guide/reusability/composables.html).
+অন্য কথায়, `ref()` আমাদেরকে যেকোনো মানের একটি "রেফারেন্স" তৈরি করতে এবং প্রতিক্রিয়াশীলতা না হারিয়ে এটিকে পাস করার অনুমতি দেয়। এই ক্ষমতাটি বেশ গুরুত্বপূর্ণ কারণ [Composable Functions](/guide/reusability/composables.html) এ লজিক বের করার সময় এটি প্রায়শই ব্যবহৃত হয়।
 
 ### Ref Unwrapping in Templates \*\* {#ref-unwrapping-in-templates}
 
-When refs are accessed as top-level properties in the template, they are automatically "unwrapped" so there is no need to use `.value`. Here's the previous counter example, using `ref()` instead:
+যখন রেফগুলিকে টেমপ্লেটে শীর্ষ-স্তরের বৈশিষ্ট্য হিসাবে অ্যাক্সেস করা হয়, তখন সেগুলি স্বয়ংক্রিয়ভাবে "unwrapped" হয় তাই `.value` ব্যবহার করার দরকার নেই৷ এখানে পূর্ববর্তী কাউন্টার উদাহরণ, পরিবর্তে `ref()` ব্যবহার করে:
 
 ```vue{13}
 <script setup>
@@ -449,23 +449,23 @@ function increment() {
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-Note that the unwrapping only applies if the ref is a top-level property on the template render context. As an example, `object` is a top-level property, but `object.foo` is not.
+মনে রাখবেন যে রেফারটি টেমপ্লেট রেন্ডার প্রসঙ্গে একটি শীর্ষ-স্তরের সম্পত্তি হলেই কেবল আনর্যাপিং প্রযোজ্য। উদাহরণ হিসাবে, `object` একটি শীর্ষ-স্তরের সম্পত্তি, কিন্তু `object.foo` নয়।
 
-So, given the following object:
+সুতরাং, নিম্নলিখিত বস্তু দেওয়া:
 
 ```js
 const object = { foo: ref(1) }
 ```
 
-The following expression will **NOT** work as expected:
+নিম্নোক্ত অভিব্যক্তিটি প্রত্যাশিত **নই** কাজ করবে:
 
 ```vue-html
 {{ object.foo + 1 }}
 ```
 
-The rendered result will be `[object Object]1` because `object.foo` is a ref object. We can fix that by making `foo` a top-level property:
+রেন্ডার করা ফলাফল হবে `[object Object]1` কারণ `object.foo` একটি রেফ অবজেক্ট। আমরা 'foo' একটি শীর্ষ-স্তরের সম্পত্তি তৈরি করে এটি ঠিক করতে পারি:
 
 ```js
 const { foo } = object
@@ -475,19 +475,19 @@ const { foo } = object
 {{ foo + 1 }}
 ```
 
-Now the render result will be `2`.
+এখন রেন্ডার ফলাফল হবে `2`।
 
-One thing to note is that a ref will also be unwrapped if it is the final evaluated value of a text interpolation (i.e. a <code v-pre>{{ }}</code> tag), so the following will render `1`:
+একটি বিষয় লক্ষণীয় যে একটি রেফটিও খুলে ফেলা হবে যদি এটি একটি পাঠ্য ইন্টারপোলেশনের চূড়ান্ত মূল্যায়ন করা মান হয় (যেমন একটি <code v-pre>{{ }}</code> ট্যাগ), তাই নিম্নলিখিতটি `1 রেন্ডার করবে `:
 
 ```vue-html
 {{ object.foo }}
 ```
 
-This is just a convenience feature of text interpolation and is equivalent to <code v-pre>{{ object.foo.value }}</code>.
+এটি টেক্সট ইন্টারপোলেশনের একটি সুবিধাজনক বৈশিষ্ট্য এবং এটি <code v-pre>{{ object.foo.value }}</code> এর সমতুল্য।
 
 ### Ref Unwrapping in Reactive Objects \*\* {#ref-unwrapping-in-reactive-objects}
 
-When a `ref` is accessed or mutated as a property of a reactive object, it is also automatically unwrapped so it behaves like a normal property:
+যখন একটি `ref` অ্যাক্সেস করা হয় বা একটি প্রতিক্রিয়াশীল বস্তুর একটি সম্পত্তি হিসাবে পরিবর্তিত হয়, তখন এটি স্বয়ংক্রিয়ভাবে মোড়ানো হয় তাই এটি একটি সাধারণ সম্পত্তির মতো আচরণ করে:
 
 ```js
 const count = ref(0)
@@ -501,7 +501,7 @@ state.count = 1
 console.log(count.value) // 1
 ```
 
-If a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
+যদি একটি নতুন রেফ একটি বিদ্যমান রেফের সাথে লিঙ্কযুক্ত একটি সম্পত্তিতে বরাদ্দ করা হয় তবে এটি পুরানো রেফের প্রতিস্থাপন করবে:
 
 ```js
 const otherCount = ref(2)
@@ -512,11 +512,11 @@ console.log(state.count) // 2
 console.log(count.value) // 1
 ```
 
-Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced.html#shallowreactive).
+Ref unwrapping শুধুমাত্র তখনই ঘটে যখন একটি গভীর প্রতিক্রিয়াশীল বস্তুর ভিতরে নেস্ট করা হয়। এটি প্রযোজ্য হয় না যখন এটি একটি [অগভীর reactive object](/api/reactivity-advanced.html#shallowreactive) এর একটি সম্পত্তি হিসাবে অ্যাক্সেস করা হয়।
 
 ### Ref Unwrapping in Arrays and Collections {#ref-unwrapping-in-arrays-and-collections}
 
-Unlike reactive objects, there is no unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`:
+প্রতিক্রিয়াশীল বস্তুর বিপরীতে, যখন রেফটিকে একটি প্রতিক্রিয়াশীল অ্যারের উপাদান হিসাবে বা `Map`-এর মতো একটি নেটিভ সংগ্রহের ধরণ হিসাবে অ্যাক্সেস করা হয় তখন কোনও মোড়ক করা হয় না:
 
 ```js
 const books = reactive([ref('Vue 3 Guide')])
@@ -534,7 +534,7 @@ console.log(map.get('count').value)
 
 ### Stateful Methods \* {#stateful-methods}
 
-In some cases, we may need to dynamically create a method function, for example creating a debounced event handler:
+কিছু ক্ষেত্রে, আমাদের গতিশীলভাবে একটি পদ্ধতি ফাংশন তৈরি করতে হতে পারে, উদাহরণস্বরূপ একটি ডিবাউন্সড ইভেন্ট হ্যান্ডলার তৈরি করা:
 
 ```js
 import { debounce } from 'lodash-es'
@@ -549,9 +549,9 @@ export default {
 }
 ```
 
-However, this approach is problematic for components that are reused because a debounced function is **stateful**: it maintains some internal state on the elapsed time. If multiple component instances share the same debounced function, they will interfere with one another.
+যাইহোক, এই পদ্ধতিটি পুনঃব্যবহৃত উপাদানগুলির জন্য সমস্যাযুক্ত কারণ একটি ডিবাউন্সড ফাংশন **stateful**: এটি অতিবাহিত সময়ে কিছু অভ্যন্তরীণ অবস্থা বজায় রাখে। একাধিক কম্পোনেন্ট ইনস্ট্যান্স একই ডিবাউন্সড ফাংশন শেয়ার করলে, তারা একে অপরের সাথে হস্তক্ষেপ করবে।
 
-To keep each component instance's debounced function independent of the others, we can create the debounced version in the `created` lifecycle hook:
+প্রতিটি কম্পোনেন্ট ইনস্ট্যান্সের ডিবাউন্সড ফাংশন অন্যদের থেকে স্বাধীন রাখতে, আমরা `created` লাইফসাইকেল হুকে ডিবাউন্সড সংস্করণ তৈরি করতে পারি:
 
 ```js
 export default {
@@ -578,7 +578,7 @@ export default {
 
 ## Reactivity Transform <sup class="vt-badge experimental" /> \*\* {#reactivity-transform}
 
-Having to use `.value` with refs is a drawback imposed by the language constraints of JavaScript. However, with compile-time transforms we can improve the ergonomics by automatically appending `.value` in appropriate locations. Vue provides a compile-time transform that allows us to write the earlier "counter" example like this:
+রেফের সাথে `.value` ব্যবহার করা জাভাস্ক্রিপ্টের ভাষার সীমাবদ্ধতার দ্বারা আরোপিত একটি ত্রুটি। যাইহোক, কম্পাইল-টাইম ট্রান্সফর্মের সাথে আমরা যথাযথ স্থানে স্বয়ংক্রিয়ভাবে `.value` যুক্ত করে এরগোনমিক্সকে উন্নত করতে পারি। Vue একটি কম্পাইল-টাইম ট্রান্সফর্ম প্রদান করে যা আমাদের আগের "কাউন্টার" উদাহরণটি এভাবে লিখতে দেয়:
 
 ```vue
 <script setup>
@@ -595,6 +595,6 @@ function increment() {
 </template>
 ```
 
-You can learn more about [Reactivity Transform](/guide/extras/reactivity-transform.html) in its dedicated section. Do note that it is currently still experimental and may change before being finalized.
+আপনি [Reactivity Transform](/guide/extras/reactivity-transform.html) সম্পর্কে এর ডেডিকেটেড বিভাগে আরও জানতে পারবেন। মনে রাখবেন যে এটি এখনও পরীক্ষামূলক এবং চূড়ান্ত হওয়ার আগে পরিবর্তিত হতে পারে।
 
 </div>
