@@ -17,17 +17,18 @@ if (typeof window !== 'undefined') {
   }
 }
 </script>
+
 # Component Events {#component-events}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> এই পৃষ্ঠাটি ধরে নেওয়া হচ্ছে আপনি ইতিমধ্যেই [Components Basics](/guide/essentials/component-basics) পড়েছেন। আপনি যদি উপাদানগুলিতে নতুন হন তবে প্রথমে এটি পড়ুন।
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Free Vue.js Lesson on Defining Custom Events"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="কাস্টম ইভেন্ট সংজ্ঞায়িত করার জন্য বিনামূল্যে Vue.js পাঠ"/>
 </div>
 
 ## Emitting and Listening to Events {#emitting-and-listening-to-events}
 
-A component can emit custom events directly in template expressions (e.g. in a `v-on` handler) using the built-in `$emit` method:
+একটি component অন্তর্নির্মিত `$emit` পদ্ধতি ব্যবহার করে সরাসরি টেমপ্লেট এক্সপ্রেশনে (যেমন `v-on` হ্যান্ডলারে) কাস্টম ইভেন্ট নির্গত করতে পারে:
 
 ```vue-html
 <!-- MyComponent -->
@@ -36,7 +37,7 @@ A component can emit custom events directly in template expressions (e.g. in a `
 
 <div class="options-api">
 
-The `$emit()` method is also available on the component instance as `this.$emit()`:
+`$emit()` পদ্ধতিটি কম্পোনেন্ট ইনস্ট্যান্সে `this.$emit()` হিসেবেও পাওয়া যায়:
 
 ```js
 export default {
@@ -50,27 +51,27 @@ export default {
 
 </div>
 
-The parent can then listen to it using `v-on`:
+তারপর parent `v-on` ব্যবহার করে এটি শুনতে পারেন:
 
 ```vue-html
 <MyComponent @some-event="callback" />
 ```
 
-The `.once` modifier is also supported on component event listeners:
+`.once` সংশোধকটি উপাদান ইভেন্ট শ্রোতাদের জন্যও সমর্থিত:
 
 ```vue-html
 <MyComponent @some-event.once="callback" />
 ```
 
-Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but can listen for it using a kebab-cased listener in the parent. As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
+উপাদান এবং প্রপসের মতো, ইভেন্টের নামগুলি একটি স্বয়ংক্রিয় কেস রূপান্তর প্রদান করে। লক্ষ্য করুন আমরা একটি ক্যামেলকেস ইভেন্ট নির্গত করেছি, কিন্তু পিতামাতার মধ্যে একটি কাবাব-কেসড শ্রোতা ব্যবহার করে এটি শুনতে পারি। [props casing](/guide/components/props.html#prop-name-casing) এর মতো, আমরা টেমপ্লেটে কাবাব-কেসড ইভেন্ট শ্রোতাদের ব্যবহার করার পরামর্শ দিই।
 
 :::tip
-Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component. If there is a need to communicate between sibling or deeply nested components, use an external event bus or a [global state management solution](/guide/scaling-up/state-management.html).
+নেটিভ DOM ইভেন্টের বিপরীতে, উপাদান নির্গত ইভেন্টগুলি বুদ্বুদ **না** করে। আপনি শুধুমাত্র একটি সরাসরি শিশু উপাদান দ্বারা নির্গত ঘটনা শুনতে পারেন. ভাইবোন বা গভীরভাবে নেস্টেড উপাদানগুলির মধ্যে যোগাযোগ করার প্রয়োজন হলে, একটি বহিরাগত ইভেন্ট বাস বা একটি [global state management solution](/guide/scaling-up/state-management.html) ব্যবহার করুন।
 :::
 
 ## Event Arguments {#event-arguments}
 
-It's sometimes useful to emit a specific value with an event. For example, we may want the `<BlogPost>` component to be in charge of how much to enlarge the text by. In those cases, we can pass extra arguments to `$emit` to provide this value:
+এটি কখনও কখনও একটি ইভেন্টের সাথে একটি নির্দিষ্ট মান নির্গত করা দরকারী। উদাহরণ স্বরূপ, আমরা `<BlogPost>` কম্পোনেন্টকে টেক্সটকে কতটা বড় করতে হবে তার দায়িত্বে থাকতে চাই। এই ক্ষেত্রে, আমরা এই মান প্রদান করতে `$emit`-এ অতিরিক্ত আর্গুমেন্ট পাঠাতে পারি:
 
 ```vue-html
 <button @click="$emit('increaseBy', 1)">
@@ -78,19 +79,19 @@ It's sometimes useful to emit a specific value with an event. For example, we ma
 </button>
 ```
 
-Then, when we listen to the event in the parent, we can use an inline arrow function as the listener, which allows us to access the event argument:
+তারপর, যখন আমরা পিতামাতার ইভেন্টটি শুনি, তখন আমরা শ্রোতা হিসাবে একটি ইনলাইন তীর ফাংশন ব্যবহার করতে পারি, যা আমাদের ইভেন্ট আর্গুমেন্ট অ্যাক্সেস করতে দেয়:
 
 ```vue-html
 <MyButton @increase-by="(n) => count += n" />
 ```
 
-Or, if the event handler is a method:
+অথবা, যদি ইভেন্ট হ্যান্ডলার একটি পদ্ধতি হয়:
 
 ```vue-html
 <MyButton @increase-by="increaseCount" />
 ```
 
-Then the value will be passed as the first parameter of that method:
+তারপর মানটি সেই পদ্ধতির প্রথম প্যারামিটার হিসাবে পাস করা হবে:
 
 <div class="options-api">
 
@@ -114,12 +115,12 @@ function increaseCount(n) {
 </div>
 
 :::tip
-All extra arguments passed to `$emit()` after the event name will be forwarded to the listener. For example, with `$emit('foo', 1, 2, 3)` the listener function will receive three arguments.
+ইভেন্টের নামের পরে সমস্ত অতিরিক্ত আর্গুমেন্ট `$emit()`-এ পাঠানো হয়েছে শ্রোতার কাছে ফরোয়ার্ড করা হবে। উদাহরণস্বরূপ, `$emit('foo', 1, 2, 3)` দিয়ে শ্রোতা ফাংশন তিনটি আর্গুমেন্ট পাবে।
 :::
 
 ## Declaring Emitted Events {#declaring-emitted-events}
 
-A component can explicitly declare the events it will emit using the <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span><span class="options-api">[`emits`](/api/options-state.html#emits) option</span>:
+একটি উপাদান স্পষ্টভাবে <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits) ম্যাক্রো</span> ব্যবহার করে নির্গত ইভেন্টগুলি স্পষ্টভাবে ঘোষণা করতে পারে <span class="options-api">[`emits`](/api/options-state.html#emits) বিকল্প</span>:
 
 <div class="composition-api">
 
@@ -129,7 +130,7 @@ defineEmits(['inFocus', 'submit'])
 </script>
 ```
 
-The `$emit` method that we used in the `<template>` isn't accessible within the `<script setup>` section of a component, but `defineEmits()` returns an equivalent function that we can use instead:
+আমরা `<template>` এ যে `$emit` পদ্ধতিটি ব্যবহার করেছি সেটি কোনো উপাদানের `<script setup>` বিভাগে অ্যাক্সেসযোগ্য নয়, কিন্তু `defineEmits()` একটি সমতুল্য ফাংশন প্রদান করে যা আমরা পরিবর্তে ব্যবহার করতে পারি:
 
 ```vue
 <script setup>
@@ -141,9 +142,9 @@ function buttonClick() {
 </script>
 ```
 
-The `defineEmits()` macro **cannot** be used inside a function, it must be placed directly within `<script setup>`, as in the example above.
+`defineEmits()` ম্যাক্রো **কোনও ফাংশনের ভিতরে ব্যবহার করা যাবে না**, এটি অবশ্যই উপরের উদাহরণের মতো সরাসরি `<script setup>`-এর মধ্যে রাখতে হবে।
 
-If you're using an explicit `setup` function instead of `<script setup>`, events should be declared using the [`emits`](/api/options-state.html#emits) option, and the `emit` function is exposed on the `setup()` context:
+আপনি যদি `<script setup>`-এর পরিবর্তে একটি স্পষ্ট `setup` ফাংশন ব্যবহার করেন, তাহলে [`emits`](/api/options-state.html#emits) বিকল্প এবং `emit` ব্যবহার করে ইভেন্ট ঘোষণা করা উচিত। ফাংশনটি `setup()` প্রসঙ্গে উন্মুক্ত করা হয়েছে:
 
 ```js
 export default {
@@ -154,7 +155,7 @@ export default {
 }
 ```
 
-As with other properties of the `setup()` context, `emit` can safely be destructured:
+`setup()` প্রসঙ্গের অন্যান্য বৈশিষ্ট্যের মতো, `emit` নিরাপদে ধ্বংস করা যেতে পারে:
 
 ```js
 export default {
@@ -176,7 +177,7 @@ export default {
 
 </div>
 
-The `emits` option also supports an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
+`emits` বিকল্পটি একটি অবজেক্ট সিনট্যাক্সকেও সমর্থন করে, যা আমাদের নির্গত ইভেন্টের পেলোডের রানটাইম বৈধতা সম্পাদন করতে দেয়:
 
 <div class="composition-api">
 
@@ -191,7 +192,7 @@ const emit = defineEmits({
 </script>
 ```
 
-If you are using TypeScript with `<script setup>`, it's also possible to declare emitted events using pure type annotations:
+আপনি যদি `<script setup>` এর সাথে TypeScript ব্যবহার করেন, তাহলে বিশুদ্ধ ধরনের টীকা ব্যবহার করে নির্গত ইভেন্ট ঘোষণা করাও সম্ভব:
 
 ```vue
 <script setup lang="ts">
@@ -202,7 +203,7 @@ const emit = defineEmits<{
 </script>
 ```
 
-More details: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+আরো বিস্তারিত: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
@@ -218,21 +219,21 @@ export default {
 }
 ```
 
-See also: [Typing Component Emits](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Component Emits](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 
-Although optional, it is recommended to define all emitted events in order to better document how a component should work. It also allows Vue to exclude known listeners from [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance), avoiding edge cases caused by DOM events manually dispatched by 3rd party code.
+যদিও ঐচ্ছিক, একটি উপাদান কীভাবে কাজ করবে তা আরও ভালভাবে নথি করার জন্য সমস্ত নির্গত ইভেন্টকে সংজ্ঞায়িত করার সুপারিশ করা হয়। এটি Vue-কে পরিচিত শ্রোতাদের [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance) থেকে বাদ দেওয়ার অনুমতি দেয়, 3য় পক্ষের কোড দ্বারা ম্যানুয়ালি পাঠানো DOM ইভেন্টের কারণে এজ কেস এড়িয়ে যায়।
 
 :::tip
-If a native event (e.g., `click`) is defined in the `emits` option, the listener will now only listen to component-emitted `click` events and no longer respond to native `click` events.
+যদি একটি নেটিভ ইভেন্ট (যেমন, `click`) `emits` বিকল্পে সংজ্ঞায়িত করা হয়, তাহলে শ্রোতা এখন শুধুমাত্র উপাদান-নির্গত `click` ইভেন্ট শুনবে এবং নেটিভ `click` ইভেন্টে আর সাড়া দেবে না।
 :::
 
 ## Events Validation {#events-validation}
 
-Similar to prop type validation, an emitted event can be validated if it is defined with the object syntax instead of the array syntax.
+প্রপ টাইপ ভ্যালিডেশনের অনুরূপ, একটি নির্গত ইভেন্টকে বৈধ করা যেতে পারে যদি এটি অ্যারে সিনট্যাক্সের পরিবর্তে অবজেক্ট সিনট্যাক্স দিয়ে সংজ্ঞায়িত করা হয়।
 
-To add validation, the event is assigned a function that receives the arguments passed to the <span class="options-api">`this.$emit`</span><span class="composition-api">`emit`</span> call and returns a boolean to indicate whether the event is valid or not.
+বৈধতা যোগ করতে, ইভেন্টটিকে একটি ফাংশন বরাদ্দ করা হয় যা <span class="options-api">`this.$emit`</span><span class="composition-api">`emit`-এ পাস করা আর্গুমেন্টগুলি গ্রহণ করে </span> কল করে এবং ইভেন্টটি বৈধ কিনা তা নির্দেশ করতে একটি বুলিয়ান ফেরত দেয়।
 
 <div class="composition-api">
 
