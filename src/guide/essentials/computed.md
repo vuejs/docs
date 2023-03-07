@@ -1,16 +1,16 @@
 # Computed Properties {#computed-properties}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="Free Vue.js Computed Properties Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="বিনামূল্যে Vue.js Computed Properties পাঠ"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-computed-properties-in-vue-with-the-composition-api" title="Free Vue.js Computed Properties Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-computed-properties-in-vue-with-the-composition-api" title="বিনামূল্যে Vue.js Computed Properties পাঠ"/>
 </div>
 
 ## Basic Example {#basic-example}
 
-In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
+ইন-টেমপ্লেট এক্সপ্রেশনগুলি খুব সুবিধাজনক, তবে সেগুলি সাধারণ ক্রিয়াকলাপের জন্য তৈরি৷ আপনার টেমপ্লেটগুলিতে অত্যধিক যুক্তি রাখলে সেগুলি ফুলে উঠতে পারে এবং বজায় রাখা কঠিন হতে পারে। উদাহরণস্বরূপ, যদি আমাদের একটি নেস্টেড অ্যারে সহ একটি বস্তু থাকে:
 
 <div class="options-api">
 
@@ -47,16 +47,16 @@ const author = reactive({
 
 </div>
 
-And we want to display different messages depending on if `author` already has some books or not:
+এবং `author` ইতিমধ্যেই কিছু বই আছে কি না তার উপর নির্ভর করে আমরা বিভিন্ন বার্তা প্রদর্শন করতে চাই:
 
 ```vue-html
 <p>Has published books:</p>
 <span>{{ author.books.length > 0 ? 'Yes' : 'No' }}</span>
 ```
 
-At this point, the template is getting a bit cluttered. We have to look at it for a second before realizing that it performs a calculation depending on `author.books`. More importantly, we probably don't want to repeat ourselves if we need to include this calculation in the template more than once.
+এই মুহুর্তে, টেমপ্লেটটি কিছুটা বিশৃঙ্খল হচ্ছে। এটি `author.books`-এর উপর নির্ভর করে একটি গণনা করে তা উপলব্ধি করার আগে আমাদের এটিকে এক সেকেন্ডের জন্য দেখতে হবে। আরও গুরুত্বপূর্ণ, যদি আমাদের এই গণনাটি একাধিকবার টেমপ্লেটে অন্তর্ভুক্ত করার প্রয়োজন হয় তবে আমরা সম্ভবত নিজেদের পুনরাবৃত্তি করতে চাই না।
 
-That's why for complex logic that includes reactive data, it is recommended to use a **computed property**. Here's the same example, refactored:
+এই কারণেই জটিল যুক্তির জন্য যা প্রতিক্রিয়াশীল ডেটা অন্তর্ভুক্ত করে, এটি একটি **গণনা করা সম্পত্তি** ব্যবহার করার পরামর্শ দেওয়া হয়। এখানে একই উদাহরণ, রিফ্যাক্টর করা হয়েছে:
 
 <div class="options-api">
 
@@ -89,15 +89,15 @@ export default {
 <span>{{ publishedBooksMessage }}</span>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgYXV0aG9yOiB7XG4gICAgICAgIG5hbWU6ICdKb2huIERvZScsXG4gICAgICAgIGJvb2tzOiBbXG4gICAgICAgICAgJ1Z1ZSAyIC0gQWR2YW5jZWQgR3VpZGUnLFxuICAgICAgICAgICdWdWUgMyAtIEJhc2ljIEd1aWRlJyxcbiAgICAgICAgICAnVnVlIDQgLSBUaGUgTXlzdGVyeSdcbiAgICAgICAgXVxuICAgICAgfVxuICAgIH1cbiAgfSxcbiAgY29tcHV0ZWQ6IHtcbiAgICBwdWJsaXNoZWRCb29rc01lc3NhZ2UoKSB7XG4gICAgICByZXR1cm4gdGhpcy5hdXRob3IuYm9va3MubGVuZ3RoID4gMCA/ICdZZXMnIDogJ05vJ1xuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHA+SGFzIHB1Ymxpc2hlZCBib29rczo8L3A+XG4gIDxzcGFuPnt7IGF1dGhvci5ib29rcy5sZW5ndGggPiAwID8gJ1llcycgOiAnTm8nIH19PC9zcGFuPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgYXV0aG9yOiB7XG4gICAgICAgIG5hbWU6ICdKb2huIERvZScsXG4gICAgICAgIGJvb2tzOiBbXG4gICAgICAgICAgJ1Z1ZSAyIC0gQWR2YW5jZWQgR3VpZGUnLFxuICAgICAgICAgICdWdWUgMyAtIEJhc2ljIEd1aWRlJyxcbiAgICAgICAgICAnVnVlIDQgLSBUaGUgTXlzdGVyeSdcbiAgICAgICAgXVxuICAgICAgfVxuICAgIH1cbiAgfSxcbiAgY29tcHV0ZWQ6IHtcbiAgICBwdWJsaXNoZWRCb29rc01lc3NhZ2UoKSB7XG4gICAgICByZXR1cm4gdGhpcy5hdXRob3IuYm9va3MubGVuZ3RoID4gMCA/ICdZZXMnIDogJ05vJ1xuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPHA+SGFzIHB1Ymxpc2hlZCBib29rczo8L3A+XG4gIDxzcGFuPnt7IGF1dGhvci5ib29rcy5sZW5ndGggPiAwID8gJ1llcycgOiAnTm8nIH19PC9zcGFuPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 
-Here we have declared a computed property `publishedBooksMessage`.
+এখানে আমরা একটি গণনাকৃত সম্পত্তি `publishedBooksMessage` ঘোষণা করেছি।
 
-Try to change the value of the `books` array in the application `data` and you will see how `publishedBooksMessage` is changing accordingly.
+অ্যাপ্লিকেশন `data`-এ `books` অ্যারের মান পরিবর্তন করার চেষ্টা করুন এবং আপনি দেখতে পাবেন কিভাবে `publishedBooksMessage` সেই অনুযায়ী পরিবর্তিত হচ্ছে।
 
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `this.publishedBooksMessage` when `this.author.books` changes.
+আপনি একটি সাধারণ সম্পত্তির মতো টেমপ্লেটগুলিতে গণনা করা বৈশিষ্ট্যগুলিতে ডেটা-বাইন্ড করতে পারেন। Vue সচেতন যে `this.publishedBooksMessage` `this.author.books` এর উপর নির্ভর করে, তাই যখন `this.author.books` পরিবর্তিত হয় তখন এটি `this.publishedBooksMessage`-এর উপর নির্ভর করে এমন কোনো বাঁধাই আপডেট করবে।
 
-See also: [Typing Computed Properties](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Computed Properties](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
 
 </div>
 
@@ -128,11 +128,11 @@ const publishedBooksMessage = computed(() => {
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlLCBjb21wdXRlZCB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgYXV0aG9yID0gcmVhY3RpdmUoe1xuICBuYW1lOiAnSm9obiBEb2UnLFxuICBib29rczogW1xuICAgICdWdWUgMiAtIEFkdmFuY2VkIEd1aWRlJyxcbiAgICAnVnVlIDMgLSBCYXNpYyBHdWlkZScsXG4gICAgJ1Z1ZSA0IC0gVGhlIE15c3RlcnknXG4gIF1cbn0pXG5cbi8vIGEgY29tcHV0ZWQgcmVmXG5jb25zdCBwdWJsaXNoZWRCb29rc01lc3NhZ2UgPSBjb21wdXRlZCgoKSA9PiB7XG4gIHJldHVybiBhdXRob3IuYm9va3MubGVuZ3RoID4gMCA/ICdZZXMnIDogJ05vJ1xufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxwPkhhcyBwdWJsaXNoZWQgYm9va3M6PC9wPlxuICA8c3Bhbj57eyBwdWJsaXNoZWRCb29rc01lc3NhZ2UgfX08L3NwYW4+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlLCBjb21wdXRlZCB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgYXV0aG9yID0gcmVhY3RpdmUoe1xuICBuYW1lOiAnSm9obiBEb2UnLFxuICBib29rczogW1xuICAgICdWdWUgMiAtIEFkdmFuY2VkIEd1aWRlJyxcbiAgICAnVnVlIDMgLSBCYXNpYyBHdWlkZScsXG4gICAgJ1Z1ZSA0IC0gVGhlIE15c3RlcnknXG4gIF1cbn0pXG5cbi8vIGEgY29tcHV0ZWQgcmVmXG5jb25zdCBwdWJsaXNoZWRCb29rc01lc3NhZ2UgPSBjb21wdXRlZCgoKSA9PiB7XG4gIHJldHVybiBhdXRob3IuYm9va3MubGVuZ3RoID4gMCA/ICdZZXMnIDogJ05vJ1xufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxwPkhhcyBwdWJsaXNoZWQgYm9va3M6PC9wPlxuICA8c3Bhbj57eyBwdWJsaXNoZWRCb29rc01lc3NhZ2UgfX08L3NwYW4+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-Here we have declared a computed property `publishedBooksMessage`. The `computed()` function expects to be passed a getter function, and the returned value is a **computed ref**. Similar to normal refs, you can access the computed result as `publishedBooksMessage.value`. Computed refs are also auto-unwrapped in templates so you can reference them without `.value` in template expressions.
+এখানে আমরা একটি গণনাকৃত সম্পত্তি `publishedBooksMessage` ঘোষণা করেছি। `computed()` ফাংশনটি একটি গেটার ফাংশন পাস করার আশা করে এবং প্রত্যাবর্তিত মানটি একটি **গণিত রেফ**। সাধারণ রেফের মতো, আপনি গণনা করা ফলাফলটি `publishedBooksMessage.value` হিসাবে অ্যাক্সেস করতে পারেন। কম্পিউটেড রেফগুলিও টেমপ্লেটগুলিতে স্বয়ংক্রিয়ভাবে আনর্যাপ করা হয় যাতে আপনি টেমপ্লেট এক্সপ্রেশনে `.value` ছাড়াই তাদের উল্লেখ করতে পারেন।
 
-A computed property automatically tracks its reactive dependencies. Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes.
+একটি গণনাকৃত সম্পত্তি স্বয়ংক্রিয়ভাবে তার প্রতিক্রিয়াশীল নির্ভরতা ট্র্যাক করে। Vue সচেতন যে `publishedBooksMessage`-এর গণনা `author.books`-এর উপর নির্ভর করে, তাই যখন `author.books` পরিবর্তিত হয় তখন `publishedBooksMessage`-এর উপর নির্ভর করে এমন কোনো বাঁধাই আপডেট করবে।
 
 See also: [Typing Computed](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
 
@@ -140,7 +140,7 @@ See also: [Typing Computed](/guide/typescript/composition-api.html#typing-comput
 
 ## Computed Caching vs. Methods {#computed-caching-vs-methods}
 
-You may have noticed we can achieve the same result by invoking a method in the expression:
+আপনি হয়তো লক্ষ্য করেছেন যে আমরা অভিব্যক্তিতে একটি পদ্ধতি ব্যবহার করে একই ফলাফল অর্জন করতে পারি:
 
 ```vue-html
 <p>{{ calculateBooksMessage() }}</p>
@@ -170,9 +170,9 @@ function calculateBooksMessage() {
 
 </div>
 
-Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to `publishedBooksMessage` will immediately return the previously computed result without having to run the getter function again.
+একটি গণনাকৃত সম্পত্তির পরিবর্তে, আমরা একটি পদ্ধতি হিসাবে একই ফাংশন সংজ্ঞায়িত করতে পারি। শেষ ফলাফলের জন্য, দুটি পন্থা আসলেই ঠিক একই। যাইহোক, পার্থক্য হল **গণনা করা বৈশিষ্ট্যগুলি তাদের প্রতিক্রিয়াশীল নির্ভরতার উপর ভিত্তি করে ক্যাশে করা হয়।** একটি গণনা করা সম্পত্তি শুধুমাত্র তখনই পুনরায় মূল্যায়ন করবে যখন এর কিছু প্রতিক্রিয়াশীল নির্ভরতা পরিবর্তিত হয়। এর মানে যতক্ষণ `author.books` পরিবর্তিত না হয়, `publishedBooksMessage`-এ একাধিক অ্যাক্সেস অবিলম্বে পূর্বে গণনা করা ফলাফল আবার গেটার ফাংশন চালানো ছাড়াই ফিরিয়ে দেবে।
 
-This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
+এর মানে হল নিম্নলিখিত গণনা করা সম্পত্তি কখনই আপডেট হবে না, কারণ `Date.now()` একটি প্রতিক্রিয়াশীল নির্ভরতা নয়:
 
 <div class="options-api">
 
@@ -194,13 +194,13 @@ const now = computed(() => Date.now())
 
 </div>
 
-In comparison, a method invocation will **always** run the function whenever a re-render happens.
+তুলনামূলকভাবে, যখনই রি-রেন্ডার হবে তখন একটি পদ্ধতি আহ্বান **সর্বদা** ফাংশনটি চালাবে।
 
-Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a method call instead.
+কেন আমরা ক্যাশিং প্রয়োজন? কল্পনা করুন আমাদের একটি ব্যয়বহুল গণনাকৃত সম্পত্তি `list` আছে, যার জন্য একটি বিশাল অ্যারের মাধ্যমে লুপ করা এবং প্রচুর গণনা করা প্রয়োজন। তারপরে আমাদের অন্যান্য গণনা করা বৈশিষ্ট্য থাকতে পারে যা ঘুরে `list`-এর উপর নির্ভর করে। ক্যাশিং ছাড়া, আমরা প্রয়োজনের চেয়ে অনেক বেশি বার `list`-এর গেটার চালাব! যে ক্ষেত্রে আপনি ক্যাশিং করতে চান না, পরিবর্তে একটি পদ্ধতি কল ব্যবহার করুন।
 
 ## Writable Computed {#writable-computed}
 
-Computed properties are by default getter-only. If you attempt to assign a new value to a computed property, you will receive a runtime warning. In the rare cases where you need a "writable" computed property, you can create one by providing both a getter and a setter:
+গণনা করা বৈশিষ্ট্যগুলি ডিফল্ট গেটার-শুধুমাত্র। আপনি যদি একটি গণনা করা সম্পত্তিতে একটি নতুন মান নির্ধারণ করার চেষ্টা করেন, আপনি একটি রানটাইম সতর্কতা পাবেন। বিরল ক্ষেত্রে যেখানে আপনার একটি "লেখাযোগ্য" গণনা করা সম্পত্তি প্রয়োজন, আপনি একটি গেটার এবং একটি সেটার উভয় প্রদান করে একটি তৈরি করতে পারেন:
 
 <div class="options-api">
 
@@ -221,14 +221,14 @@ export default {
       // setter
       set(newValue) {
         // Note: we are using destructuring assignment syntax here.
-        [this.firstName, this.lastName] = newValue.split(' ')
+        ;[this.firstName, this.lastName] = newValue.split(' ')
       }
     }
   }
 }
 ```
 
-Now when you run `this.fullName = 'John Doe'`, the setter will be invoked and `this.firstName` and `this.lastName` will be updated accordingly.
+এখন আপনি যখন `this.fullName = 'John Doe'` চালাবেন, তখন সেটারকে ডাকা হবে এবং সেই অনুযায়ী `this.firstName` এবং `this.lastName` আপডেট করা হবে।
 
 </div>
 
@@ -249,13 +249,13 @@ const fullName = computed({
   // setter
   set(newValue) {
     // Note: we are using destructuring assignment syntax here.
-    [firstName.value, lastName.value] = newValue.split(' ')
+    ;[firstName.value, lastName.value] = newValue.split(' ')
   }
 })
 </script>
 ```
 
-Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `firstName` and `lastName` will be updated accordingly.
+এখন আপনি যখন `fullName.value = 'John Doe'` চালাবেন, তখন সেটারকে ডাকা হবে এবং সেই অনুযায়ী `firstName` এবং `lastName` আপডেট করা হবে।
 
 </div>
 
@@ -263,8 +263,8 @@ Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `
 
 ### Getters should be side-effect free {#getters-should-be-side-effect-free}
 
-It is important to remember that computed getter functions should only perform pure computation and be free of side effects. For example, **don't make async requests or mutate the DOM inside a computed getter!** Think of a computed property as declaratively describing how to derive a value based on other values - its only responsibility should be computing and returning that value. Later in the guide we will discuss how we can perform side effects in reaction to state changes with [watchers](./watchers).
+এটা মনে রাখা গুরুত্বপূর্ণ যে কম্পিউটেড গেটার ফাংশনগুলি শুধুমাত্র বিশুদ্ধ গণনা করা উচিত এবং পার্শ্ব প্রতিক্রিয়া মুক্ত হওয়া উচিত। উদাহরণস্বরূপ, **অ্যাসিঙ্ক অনুরোধ করবেন না বা একটি গণনা করা গেটারের মধ্যে DOM পরিবর্তন করবেন না!** একটি গণনাকৃত সম্পত্তির কথা ভাবেন যেটি ঘোষণামূলকভাবে বর্ণনা করে যে কীভাবে অন্যান্য মানের উপর ভিত্তি করে একটি মান অর্জন করা যায় - এর একমাত্র দায়িত্ব হওয়া উচিত গণনা করা এবং সেই মানটি ফিরিয়ে দেওয়া . পরবর্তীতে নির্দেশিকায় আমরা আলোচনা করব কিভাবে আমরা [watchers](./watchers) এর সাথে রাষ্ট্রীয় পরিবর্তনের প্রতিক্রিয়ায় পার্শ্ব প্রতিক্রিয়া করতে পারি।
 
 ### Avoid mutating computed value {#avoid-mutating-computed-value}
 
-The returned value from a computed property is derived state. Think of it as a temporary snapshot - every time the source state changes, a new snapshot is created. It does not make sense to mutate a snapshot, so a computed return value should be treated as read-only and never be mutated - instead, update the source state it depends on to trigger new computations.
+একটি গণনাকৃত সম্পত্তি থেকে প্রত্যাবর্তিত মানটি প্রাপ্ত অবস্থা। এটিকে একটি অস্থায়ী স্ন্যাপশট হিসাবে ভাবুন - প্রতিবার উত্স অবস্থা পরিবর্তিত হলে, একটি নতুন স্ন্যাপশট তৈরি করা হয়। এটি একটি স্ন্যাপশট পরিবর্তন করার কোন মানে হয় না, তাই একটি গণনাকৃত রিটার্ন মানকে শুধুমাত্র পঠনযোগ্য হিসাবে বিবেচনা করা উচিত এবং কখনই পরিবর্তিত করা উচিত নয় - পরিবর্তে, নতুন গণনাগুলি ট্রিগার করার জন্য এটির উপর নির্ভর করে এমন উত্স অবস্থা আপডেট করুন৷
