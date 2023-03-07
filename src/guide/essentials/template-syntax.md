@@ -1,24 +1,24 @@
 # Template Syntax {#template-syntax}
 
-Vue uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying component instance's data. All Vue templates are syntactically valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
+Vue একটি HTML-ভিত্তিক টেমপ্লেট সিনট্যাক্স ব্যবহার করে যা আপনাকে রেন্ডার করা DOM-কে অন্তর্নিহিত কম্পোনেন্ট ইনস্ট্যান্সের ডেটাতে ঘোষণামূলকভাবে আবদ্ধ করতে দেয়। সমস্ত Vue টেমপ্লেটগুলি সিনট্যাক্টিক্যালি বৈধ HTML যা বিশেষ-অনুসরণকারী ব্রাউজার এবং এইচটিএমএল পার্সার দ্বারা পার্স করা যেতে পারে।
 
-Under the hood, Vue compiles the templates into highly-optimized JavaScript code. Combined with the reactivity system, Vue can intelligently figure out the minimal number of components to re-render and apply the minimal amount of DOM manipulations when the app state changes.
+হুডের নিচে, Vue টেমপ্লেটগুলিকে উচ্চ-অপ্টিমাইজ করা জাভাস্ক্রিপ্ট কোডে কম্পাইল করে। রিঅ্যাকটিভিটি সিস্টেমের সাথে একত্রিত হয়ে, Vue বুদ্ধিমত্তার সাথে পুনরায় রেন্ডার করার জন্য ন্যূনতম সংখ্যক উপাদান বের করতে পারে এবং অ্যাপের অবস্থা পরিবর্তন হলে ন্যূনতম পরিমাণ DOM ম্যানিপুলেশন প্রয়োগ করতে পারে।
 
-If you are familiar with Virtual DOM concepts and prefer the raw power of JavaScript, you can also [directly write render functions](/guide/extras/render-function.html) instead of templates, with optional JSX support. However, do note that they do not enjoy the same level of compile-time optimizations as templates.
+আপনি যদি ভার্চুয়াল DOM ধারণার সাথে পরিচিত হন এবং জাভাস্ক্রিপ্টের কাঁচা শক্তি পছন্দ করেন তবে আপনি ঐচ্ছিক JSX সমর্থন সহ টেমপ্লেটের পরিবর্তে [সরাসরি রেন্ডার ফাংশনগুলি](/guide/extras/render-function.html) লিখতে পারেন। যাইহোক, মনে রাখবেন যে তারা টেমপ্লেটের মতো একই স্তরের কম্পাইল-টাইম অপ্টিমাইজেশন উপভোগ করে না।
 
 ## Text Interpolation {#text-interpolation}
 
-The most basic form of data binding is text interpolation using the "Mustache" syntax (double curly braces):
+ডাটা বাইন্ডিং এর সবচেয়ে মৌলিক ফর্ম হল "Mustache" সিনট্যাক্স ব্যবহার করে টেক্সট ইন্টারপোলেশন (ডাবল কোঁকড়া বন্ধনী):
 
 ```vue-html
 <span>Message: {{ msg }}</span>
 ```
 
-The mustache tag will be replaced with the value of the `msg` property from the corresponding component instance. It will also be updated whenever the `msg` property changes.
+mustache ট্যাগটি সংশ্লিষ্ট কম্পোনেন্ট ইন্সট্যান্স থেকে `msg` সম্পত্তির মান দিয়ে প্রতিস্থাপিত হবে। এটি আপডেট করা হবে যখনই `msg` প্রপার্টি পরিবর্তন হবে।
 
 ## Raw HTML {#raw-html}
 
-The double mustaches interpret the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](/api/built-in-directives.html#v-html):
+ডাবল mustaches ডেটাকে প্লেইন টেক্সট হিসাবে ব্যাখ্যা করে, HTML নয়। আসল HTML আউটপুট করার জন্য, আপনাকে [`v-html` নির্দেশিকা](/api/built-in-directives.html#v-html) ব্যবহার করতে হবে:
 
 ```vue-html
 <p>Using text interpolation: {{ rawHtml }}</p>
@@ -34,51 +34,51 @@ The double mustaches interpret the data as plain text, not HTML. In order to out
   <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 </div>
 
-Here we're encountering something new. The `v-html` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, we're basically saying "keep this element's inner HTML up-to-date with the `rawHtml` property on the current active instance."
+এখানে আমরা নতুন কিছু সম্মুখীন করছি. আপনি যে `v-html` অ্যাট্রিবিউটটি দেখছেন তাকে **নির্দেশ** বলা হয়। নির্দেশিকাগুলিকে `v-` এর সাথে উপসর্গযুক্ত করা হয় তা নির্দেশ করার জন্য যে সেগুলি Vue দ্বারা প্রদত্ত বিশেষ গুণাবলী, এবং আপনি যেমন অনুমান করেছেন, সেগুলি রেন্ডার করা DOM-এ বিশেষ প্রতিক্রিয়াশীল আচরণ প্রয়োগ করে৷ এখানে, আমরা মূলত বলছি "বর্তমান সক্রিয় উদাহরণে `rawHtml` বৈশিষ্ট্যের সাথে এই উপাদানটির অভ্যন্তরীণ HTML আপ-টু-ডেট রাখুন।"
 
-The contents of the `span` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
+`span` এর বিষয়বস্তু `rawHtml` বৈশিষ্ট্যের মান দিয়ে প্রতিস্থাপিত হবে, যাকে সাধারণ HTML হিসাবে ব্যাখ্যা করা হবে - ডেটা বাইন্ডিং উপেক্ষা করা হয়। মনে রাখবেন যে আপনি টেমপ্লেট আংশিক রচনা করতে `v-html` ব্যবহার করতে পারবেন না, কারণ Vue একটি স্ট্রিং-ভিত্তিক টেমপ্লেটিং ইঞ্জিন নয়। পরিবর্তে, উপাদানগুলিকে UI পুনঃব্যবহার এবং রচনার জন্য মৌলিক একক হিসাবে পছন্দ করা হয়।
 
-:::warning Security Warning
-Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS vulnerabilities](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
+:::warning নিরাপত্তা সতর্কতা
+গতিশীলভাবে আপনার ওয়েবসাইটে নির্বিচারে HTML রেন্ডার করা খুব বিপজ্জনক হতে পারে কারণ এটি সহজেই [XSS দুর্বলতা](https://en.wikipedia.org/wiki/Cross-site_scripting) হতে পারে। শুধুমাত্র বিশ্বস্ত কন্টেন্টে `v-html` ব্যবহার করুন এবং ব্যবহারকারীর দেওয়া কন্টেন্টে **কখনই না** ব্যবহার করুন।
 :::
 
 ## Attribute Bindings {#attribute-bindings}
 
-Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](/api/built-in-directives.html#v-bind):
+HTML বৈশিষ্ট্যের মধ্যে mustaches ব্যবহার করা যাবে না। পরিবর্তে, একটি ব্যবহার করুন[`v-bind` directive](/api/built-in-directives.html#v-bind):
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
 ```
 
-The `v-bind` directive instructs Vue to keep the element's `id` attribute in sync with the component's `dynamicId` property. If the bound value is `null` or `undefined`, then the attribute will be removed from the rendered element.
+`v-bind` নির্দেশিকা Vue-কে উপাদানের `id` বৈশিষ্ট্যকে উপাদানের `dynamicId` বৈশিষ্ট্যের সাথে সিঙ্কে রাখার নির্দেশ দেয়। যদি আবদ্ধ মান `null` বা `undefined` হয়, তাহলে বৈশিষ্ট্যটি রেন্ডার করা উপাদান থেকে সরানো হবে।
 
 ### Shorthand {#shorthand}
 
-Because `v-bind` is so commonly used, it has a dedicated shorthand syntax:
+কারণ `v-bind` খুব সাধারণভাবে ব্যবহৃত হয়, এতে একটি ডেডিকেটেড শর্টহ্যান্ড সিনট্যাক্স রয়েছে:
 
 ```vue-html
 <div :id="dynamicId"></div>
 ```
 
-Attributes that start with `:` may look a bit different from normal HTML, but it is in fact a valid character for attribute names and all Vue-supported browsers can parse it correctly. In addition, they do not appear in the final rendered markup. The shorthand syntax is optional, but you will likely appreciate it when you learn more about its usage later.
+যে অ্যাট্রিবিউটগুলি `:` দিয়ে শুরু হয় তা সাধারণ HTML থেকে কিছুটা আলাদা দেখতে পারে, কিন্তু এটি আসলে অ্যাট্রিবিউট নামের জন্য একটি বৈধ অক্ষর এবং সমস্ত Vue-সমর্থিত ব্রাউজার এটিকে সঠিকভাবে পার্স করতে পারে। উপরন্তু, তারা চূড়ান্ত রেন্ডার করা মার্কআপে উপস্থিত হয় না। শর্টহ্যান্ড সিনট্যাক্স ঐচ্ছিক, কিন্তু আপনি সম্ভবত এটির প্রশংসা করবেন যখন আপনি পরে এর ব্যবহার সম্পর্কে আরও জানবেন।
 
-> For the rest of the guide, we will be using the shorthand syntax in code examples, as that's the most common usage for Vue developers.
+> গাইডের বাকি অংশের জন্য, আমরা কোড উদাহরণে শর্টহ্যান্ড সিনট্যাক্স ব্যবহার করব, কারণ এটি Vue বিকাশকারীদের জন্য সবচেয়ে সাধারণ ব্যবহার।
 
 ### Boolean Attributes {#boolean-attributes}
 
-[Boolean attributes](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) are attributes that can indicate true / false values by their presence on an element. For example, [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled) is one of the most commonly used boolean attributes.
+[Boolean attributes](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) এমন বৈশিষ্ট্য যা একটি উপাদানে তাদের উপস্থিতি দ্বারা সত্য / মিথ্যা মান নির্দেশ করতে পারে। উদাহরণ স্বরূপ, [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled) সর্বাধিক ব্যবহৃত বুলিয়ান বৈশিষ্ট্যগুলির মধ্যে একটি।
 
-`v-bind` works a bit differently in this case:
+`v-bind` এই ক্ষেত্রে একটু ভিন্নভাবে কাজ করে:
 
 ```vue-html
 <button :disabled="isButtonDisabled">Button</button>
 ```
 
-The `disabled` attribute will be included if `isButtonDisabled` has a [truthy value](https://developer.mozilla.org/en-US/docs/Glossary/Truthy). It will also be included if the value is an empty string, maintaining consistency with `<button disabled="">`. For other [falsy values](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) the attribute will be omitted.
+যদি `isButtonDisabled` এর একটি [truthy value](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) থাকে তাহলে `disabled` অ্যাট্রিবিউট অন্তর্ভুক্ত করা হবে। মানটি খালি স্ট্রিং হলে, `<button disabled="">`-এর সাথে সামঞ্জস্য বজায় রেখে এটিও অন্তর্ভুক্ত করা হবে। অন্যান্য [falsy values](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) এর জন্য এট্রিবিউটটি বাদ দেওয়া হবে।
 
 ### Dynamically Binding Multiple Attributes {#dynamically-binding-multiple-attributes}
 
-If you have a JavaScript object representing multiple attributes that looks like this:
+আপনার যদি এমন একটি জাভাস্ক্রিপ্ট অবজেক্ট থাকে যা এইরকম দেখায় এমন একাধিক বৈশিষ্ট্য উপস্থাপন করে:
 
 <div class="composition-api">
 
@@ -105,7 +105,7 @@ data() {
 
 </div>
 
-You can bind them to a single element by using `v-bind` without an argument:
+আপনি একটি যুক্তি ছাড়াই `v-bind` ব্যবহার করে একটি একক উপাদানের সাথে আবদ্ধ করতে পারেন:
 
 ```vue-html
 <div v-bind="objectOfAttrs"></div>
@@ -113,7 +113,7 @@ You can bind them to a single element by using `v-bind` without an argument:
 
 ## Using JavaScript Expressions {#using-javascript-expressions}
 
-So far we've only been binding to simple property keys in our templates. But Vue actually supports the full power of JavaScript expressions inside all data bindings:
+এখন পর্যন্ত আমরা আমাদের টেমপ্লেটগুলিতে কেবলমাত্র সাধারণ সম্পত্তি কীগুলির সাথে আবদ্ধ হয়েছি। কিন্তু Vue আসলে সমস্ত ডেটা বাইন্ডিংয়ের ভিতরে জাভাস্ক্রিপ্ট এক্সপ্রেশনের সম্পূর্ণ শক্তি সমর্থন করে:
 
 ```vue-html
 {{ number + 1 }}
@@ -125,18 +125,18 @@ So far we've only been binding to simple property keys in our templates. But Vue
 <div :id="`list-${id}`"></div>
 ```
 
-These expressions will be evaluated as JavaScript in the data scope of the current component instance.
+বর্তমান কম্পোনেন্ট ইনস্ট্যান্সের ডেটা স্কোপে এই এক্সপ্রেশনগুলিকে জাভাস্ক্রিপ্ট হিসাবে মূল্যায়ন করা হবে।
 
-In Vue templates, JavaScript expressions can be used in the following positions:
+Vue টেমপ্লেটগুলিতে, JavaScript এক্সপ্রেশনগুলি নিম্নলিখিত অবস্থানগুলিতে ব্যবহার করা যেতে পারে:
 
-- Inside text interpolations (mustaches)
-- In the attribute value of any Vue directives (special attributes that start with `v-`)
+- ভিতরে টেক্সট ইন্টারপোলেশন (mustaches)
+- যেকোন Vue নির্দেশের অ্যাট্রিবিউট মানের মধ্যে (বিশেষ বৈশিষ্ট্য যা `v-` দিয়ে শুরু হয়)
 
 ### Expressions Only {#expressions-only}
 
-Each binding can only contain **one single expression**. An expression is a piece of code that can be evaluated to a value. A simple check is whether it can be used after `return`.
+প্রতিটি বাঁধাইতে শুধুমাত্র **একটি একক অভিব্যক্তি** থাকতে পারে। একটি অভিব্যক্তি কোডের একটি অংশ যা একটি মান মূল্যায়ন করা যেতে পারে। একটি সহজ চেক হল এটি `return` এর পরে ব্যবহার করা যাবে কিনা।
 
-Therefore, the following will **NOT** work:
+অতএব, নিম্নলিখিতগুলি কাজ করবে **না**:
 
 ```vue-html
 <!-- this is a statement, not an expression: -->
@@ -148,7 +148,7 @@ Therefore, the following will **NOT** work:
 
 ### Calling Functions {#calling-functions}
 
-It is possible to call a component-exposed method inside a binding expression:
+একটি বাইন্ডিং এক্সপ্রেশনের ভিতরে একটি উপাদান-উন্মুক্ত পদ্ধতি কল করা সম্ভব:
 
 ```vue-html
 <span :title="toTitleDate(date)">
@@ -157,30 +157,30 @@ It is possible to call a component-exposed method inside a binding expression:
 ```
 
 :::tip
-Functions called inside binding expressions will be called every time the component updates, so they should **not** have any side effects, such as changing data or triggering asynchronous operations.
+ইনসাইড বাইন্ডিং এক্সপ্রেশন বলা ফাংশনগুলিকে প্রতিবার কম্পোনেন্ট আপডেট করার সময় কল করা হবে, তাই তাদের কোনও পার্শ্ব প্রতিক্রিয়া যেমন ডেটা পরিবর্তন করা বা অ্যাসিঙ্ক্রোনাস ক্রিয়াকলাপ ট্রিগার করা **না** উচিত।
 :::
 
 ### Restricted Globals Access {#restricted-globals-access}
 
-Template expressions are sandboxed and only have access to a [restricted list of globals](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsWhitelist.ts#L3). The list exposes commonly used built-in globals such as `Math` and `Date`.
+টেমপ্লেট এক্সপ্রেশনগুলি স্যান্ডবক্সযুক্ত এবং শুধুমাত্র একটি [গ্লোবালের সীমাবদ্ধ তালিকা](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsWhitelist.ts#L3) অ্যাক্সেস করতে পারে। তালিকাটি সাধারণত ব্যবহৃত বিল্ট-ইন গ্লোবাল যেমন `Math` এবং `Date` প্রকাশ করে।
 
-Globals not explicitly included in the list, for example user-attached properties on `window`, will not be accessible in template expressions. You can, however, explicitly define additional globals for all Vue expressions by adding them to [`app.config.globalProperties`](/api/application.html#app-config-globalproperties).
+তালিকায় স্পষ্টভাবে অন্তর্ভুক্ত নয় গ্লোবাল, উদাহরণস্বরূপ `window`-এ ব্যবহারকারী-সংযুক্ত বৈশিষ্ট্য, টেমপ্লেট এক্সপ্রেশনে অ্যাক্সেসযোগ্য হবে না। যাইহোক, আপনি [`app.config.globalProperties`](/api/application.html#app-config-globalproperties) এ যোগ করে সমস্ত Vue এক্সপ্রেশনের জন্য অতিরিক্ত গ্লোবালকে স্পষ্টভাবে সংজ্ঞায়িত করতে পারেন।
 
 ## Directives {#directives}
 
-Directives are special attributes with the `v-` prefix. Vue provides a number of [built-in directives](/api/built-in-directives.html), including `v-html` and `v-bind` which we have introduced above.
+নির্দেশাবলী হল `v-` উপসর্গ সহ বিশেষ বৈশিষ্ট্য। Vue অনেকগুলি [built-in directives](/api/built-in-directives.html) প্রদান করে, যার মধ্যে রয়েছে `v-html` এবং `v-bind` যা আমরা উপরে উপস্থাপন করেছি।
 
-Directive attribute values are expected to be single JavaScript expressions (with the exception of `v-for`, `v-on` and `v-slot`, which will be discussed in their respective sections later). A directive's job is to reactively apply updates to the DOM when the value of its expression changes. Take [`v-if`](/api/built-in-directives.html#v-if) as an example:
+নির্দেশমূলক বৈশিষ্ট্যের মানগুলি একক জাভাস্ক্রিপ্ট এক্সপ্রেশন হতে প্রত্যাশিত (`v-for`, `v-on` এবং `v-slot` ব্যতীত, যা পরে তাদের নিজ নিজ বিভাগে আলোচনা করা হবে)। একটি নির্দেশের কাজ হল প্রতিক্রিয়াশীলভাবে DOM-এ আপডেটগুলি প্রয়োগ করা যখন এর অভিব্যক্তির মান পরিবর্তিত হয়। উদাহরণ হিসেবে [`v-if`](/api/built-in-directives.html#v-if) নিন:
 
 ```vue-html
 <p v-if="seen">Now you see me</p>
 ```
 
-Here, the `v-if` directive would remove / insert the `<p>` element based on the truthiness of the value of the expression `seen`.
+এখানে, `v-if` নির্দেশিকা `seen` অভিব্যক্তিটির মানের সত্যতার উপর ভিত্তি করে `<p>` উপাদানটিকে অপসারণ/ সন্নিবেশ করবে।
 
 ### Arguments {#arguments}
 
-Some directives can take an "argument", denoted by a colon after the directive name. For example, the `v-bind` directive is used to reactively update an HTML attribute:
+কিছু নির্দেশাবলী একটি "যুক্তি" নিতে পারে, নির্দেশিক নামের পরে একটি কোলন দ্বারা চিহ্নিত করা হয়। উদাহরণস্বরূপ, `v-bind` নির্দেশিকাটি প্রতিক্রিয়াশীলভাবে একটি HTML বৈশিষ্ট্য আপডেট করতে ব্যবহৃত হয়:
 
 ```vue-html
 <a v-bind:href="url"> ... </a>
@@ -189,9 +189,9 @@ Some directives can take an "argument", denoted by a colon after the directive n
 <a :href="url"> ... </a>
 ```
 
-Here, `href` is the argument, which tells the `v-bind` directive to bind the element's `href` attribute to the value of the expression `url`. In the shorthand, everything before the argument (i.e., `v-bind:`) is condensed into a single character, `:`.
+এখানে, `href` হল আর্গুমেন্ট, যা `v-bind` নির্দেশকে বলে উপাদানের `href` অ্যাট্রিবিউটকে `url`-এর মানের সাথে আবদ্ধ করতে। শর্টহ্যান্ডে, আর্গুমেন্টের আগে সবকিছু (অর্থাৎ, `v-bind:`) একটি একক অক্ষরে ঘনীভূত হয়, `:`।
 
-Another example is the `v-on` directive, which listens to DOM events:
+আরেকটি উদাহরণ হল `v-on` নির্দেশিকা, যা DOM ইভেন্ট শোনে:
 
 ```vue-html
 <a v-on:click="doSomething"> ... </a>
@@ -200,11 +200,11 @@ Another example is the `v-on` directive, which listens to DOM events:
 <a @click="doSomething"> ... </a>
 ```
 
-Here, the argument is the event name to listen to: `click`. `v-on` has a corresponding shorthand, namely the `@` character. We will talk about event handling in more detail too.
+এখানে, যুক্তি হল ইভেন্টের নাম যা শুনতে হবে: `click`। `v-on` এর একটি সংশ্লিষ্ট সংক্ষিপ্ত হস্ত আছে, যথা `@` অক্ষর। আমরা আরও বিস্তারিতভাবে ইভেন্ট পরিচালনা সম্পর্কে কথা বলব।
 
 ### Dynamic Arguments {#dynamic-arguments}
 
-It is also possible to use a JavaScript expression in a directive argument by wrapping it with square brackets:
+এটি বর্গাকার বন্ধনী দিয়ে মোড়ানো একটি নির্দেশমূলক যুক্তিতে একটি জাভাস্ক্রিপ্ট এক্সপ্রেশন ব্যবহার করাও সম্ভব:
 
 ```vue-html
 <!--
@@ -217,9 +217,9 @@ as explained in the "Dynamic Argument Value Constraints" and "Dynamic Argument S
 <a :[attributeName]="url"> ... </a>
 ```
 
-Here, `attributeName` will be dynamically evaluated as a JavaScript expression, and its evaluated value will be used as the final value for the argument. For example, if your component instance has a data property, `attributeName`, whose value is `"href"`, then this binding will be equivalent to `v-bind:href`.
+এখানে, `attributeName` একটি জাভাস্ক্রিপ্ট এক্সপ্রেশন হিসাবে গতিশীলভাবে মূল্যায়ন করা হবে, এবং এর মূল্যায়ন করা মানটি যুক্তির জন্য চূড়ান্ত মান হিসাবে ব্যবহার করা হবে। উদাহরণস্বরূপ, যদি আপনার কম্পোনেন্ট ইনস্ট্যান্সে একটি ডেটা প্রপার্টি থাকে, `attributeName`, যার মান `"href"`, তাহলে এই বাইন্ডিংটি `v-bind:href` এর সমতুল্য হবে।
 
-Similarly, you can use dynamic arguments to bind a handler to a dynamic event name:
+একইভাবে, আপনি একটি হ্যান্ডলারকে একটি ডায়নামিক ইভেন্ট নামের সাথে আবদ্ধ করতে গতিশীল আর্গুমেন্ট ব্যবহার করতে পারেন:
 
 ```vue-html
 <a v-on:[eventName]="doSomething"> ... </a>
@@ -228,42 +228,42 @@ Similarly, you can use dynamic arguments to bind a handler to a dynamic event na
 <a @[eventName]="doSomething">
 ```
 
-In this example, when `eventName`'s value is `"focus"`, `v-on:[eventName]` will be equivalent to `v-on:focus`.
+এই উদাহরণে, যখন `eventName` এর মান `"focus"` হয়, `v-on:[eventName]` হবে `v-on:focus` এর সমতুল্য।
 
 #### Dynamic Argument Value Constraints {#dynamic-argument-value-constraints}
 
-Dynamic arguments are expected to evaluate to a string, with the exception of `null`. The special value `null` can be used to explicitly remove the binding. Any other non-string value will trigger a warning.
+ডায়নামিক আর্গুমেন্টগুলি একটি স্ট্রিংকে মূল্যায়ন করবে বলে আশা করা হচ্ছে, `null` বাদ দিয়ে। বিশেষ মান `null` স্পষ্টভাবে বাঁধাই অপসারণ করতে ব্যবহার করা যেতে পারে। অন্য কোনো নন-স্ট্রিং মান একটি সতর্কতা ট্রিগার করবে।
 
 #### Dynamic Argument Syntax Constraints {#dynamic-argument-syntax-constraints}
 
-Dynamic argument expressions have some syntax constraints because certain characters, such as spaces and quotes, are invalid inside HTML attribute names. For example, the following is invalid:
+ডায়নামিক আর্গুমেন্ট এক্সপ্রেশনের কিছু সিনট্যাক্স সীমাবদ্ধতা রয়েছে কারণ নির্দিষ্ট অক্ষর, যেমন স্পেস এবং উদ্ধৃতি, HTML অ্যাট্রিবিউট নামের মধ্যে অবৈধ। উদাহরণস্বরূপ, নিম্নলিখিতটি অবৈধ:
 
 ```vue-html
 <!-- This will trigger a compiler warning. -->
 <a :['foo' + bar]="value"> ... </a>
 ```
 
-If you need to pass a complex dynamic argument, it's probably better to use a [computed property](./computed.html), which we will cover shortly.
+আপনি যদি একটি জটিল গতিশীল যুক্তি পাস করতে চান তবে সম্ভবত একটি [computed property](./computed.html) ব্যবহার করা ভাল, যা আমরা শীঘ্রই কভার করব।
 
-When using in-DOM templates (templates directly written in an HTML file), you should also avoid naming keys with uppercase characters, as browsers will coerce attribute names into lowercase:
+ইন-ডোম টেমপ্লেটগুলি ব্যবহার করার সময় (টেমপ্লেটগুলি সরাসরি একটি HTML ফাইলে লেখা), আপনাকে বড় হাতের অক্ষর সহ নামকরণ কীগুলি এড়াতে হবে, কারণ ব্রাউজারগুলি ছোট হাতের অক্ষরগুলিতে নামগুলিকে জোর করে নামগুলিকে বাধ্য করবে:
 
 ```vue-html
 <a :[someAttr]="value"> ... </a>
 ```
 
-The above will be converted to `:[someattr]` in in-DOM templates. If your component has a `someAttr` property instead of `someattr`, your code won't work. Templates inside Single-File Components are **not** subject to this constraint.
+উপরেরটি ইন-ডোম টেমপ্লেটে `:[someattr]`-এ রূপান্তরিত হবে। যদি আপনার কম্পোনেন্টে `someattr` এর পরিবর্তে `someAttr` প্রপার্টি থাকে, তাহলে আপনার কোড কাজ করবে না। একক-ফাইল উপাদানের ভিতরের টেমপ্লেটগুলি এই সীমাবদ্ধতার সাপেক্ষে **নয়**।
 
 ### Modifiers {#modifiers}
 
-Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
+সংশোধকগুলি একটি বিন্দু দ্বারা চিহ্নিত বিশেষ পোস্টফিক্সগুলি, যা নির্দেশ করে যে একটি নির্দেশকে কিছু বিশেষ উপায়ে আবদ্ধ করা উচিত। উদাহরণস্বরূপ, ট্রিগার করা ইভেন্টে `event.preventDefault()` কল করার জন্য `.prevent` সংশোধক `v-on` নির্দেশকে বলে:
 
 ```vue-html
 <form @submit.prevent="onSubmit">...</form>
 ```
 
-You'll see other examples of modifiers later, [for `v-on`](./event-handling.html#event-modifiers) and [for `v-model`](./forms.html#modifiers), when we explore those features.
+আপনি পরে পরিবর্তনকারীদের অন্যান্য উদাহরণ দেখতে পাবেন, [for `v-on`](./event-handling.html#event-modifiers) এবং [for `v-model`](./forms.html#modifiers), যখন আমরা সেই বৈশিষ্ট্যগুলি অন্বেষণ করি।
 
-And finally, here's the full directive syntax visualized:
+এবং অবশেষে, এখানে সম্পূর্ণ নির্দেশক সিনট্যাক্স ভিজ্যুয়ালাইজ করা হয়েছে:
 
 ![directive syntax graph](./images/directive.png)
 
