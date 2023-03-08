@@ -2,7 +2,7 @@
 
 ## Die Anwendungsinstanz {#the-application-instance}
 
-Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
+Jede Vue Anwendung beginnt mit der Erstellung einer neuen **Anwendungsinstanz** mit der Funktion [`createApp`](/api/application#createapp).
 
 ```js
 import { createApp } from 'vue'
