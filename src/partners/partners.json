@@ -265,7 +265,7 @@
     "logo": "herodevs.png",
     "flipLogo": true,
     "hero": "herodevs-hero.png",
-    "intro": "The end-of-life of open source software versions creates massive challenges for companies. HeroDevs offers two solutions: (1) We provide never-ending support for sunsetted open source software, and (2)  we provide consulting and engineering to help companies migrate to in-support open source software.",
+    "intro": "End-of-life of open source software versions creates massive challenges for companies. HeroDevs offers two solutions: (1) We provide never-ending support for sunsetted open source software, and (2)  we provide consulting and engineering to help companies migrate to in-support open source software.",
     "description": [
       "When open source software is reaching end-of-life, you’re faced with a difficult decision: do you spend months or years of dev time migrating your code, or do you risk being non-compliant with industry regulations and your company’s SLAs?",
       "At HeroDevs we pride ourselves in being the experts that help you navigate end-of-life events in your technology stack. Companies offering enterprise support for open source libraries stop at the end of life. That’s where our value prop begins with our Never-Ending Support (NES) products. Our team has not only provided over 450 organizations with supported, secured versions of open source software beyond their end of life, but has also helped dozens of companies migrate their codebase to a modern, supported open source stack.",
