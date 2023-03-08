@@ -598,22 +598,22 @@ e.g.
 <div class="composition-api">
 
 ```js
-<!-- disabled will be parsed as true -->
+// disabled will be parsed as true
 defineProps({
   disabled: [Boolean, Number]
 })
   
-<!-- disabled will be parsed as true -->
+// disabled will be parsed as true
 defineProps({
   disabled: [Boolean, String]
 })
   
-<!-- disabled will be parsed as true -->
+// disabled will be parsed as true
 defineProps({
   disabled: [Number, Boolean]
 })
   
-<!-- disabled will be parsed as an empty string -->
+// disabled will be parsed as an empty string
 defineProps({
   disabled: [String, Boolean]
 })
@@ -623,28 +623,28 @@ defineProps({
 <div class="options-api">
 
 ```js
-<!-- disabled will be parsed as true -->
+// disabled will be parsed as true
 export default {
   props: {
     disabled: [Boolean, Number]
   }
 }
   
-<!-- disabled will be parsed as true -->
+// disabled will be parsed as true
 export default {
   props: {
     disabled: [Boolean, String]
   }
 }
   
-<!-- disabled will be parsed as true -->
+// disabled will be parsed as true
 export default {
   props: {
     disabled: [Number, Boolean]
   }
 }
   
-<!-- disabled will be parsed as an empty string -->
+// disabled will be parsed as an empty string
 export default {
   props: {
     disabled: [String, Boolean]
