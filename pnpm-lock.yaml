@@ -4,7 +4,7 @@ specifiers:
   '@types/markdown-it': ^12.2.3
   '@types/node': ^16.9.1
   '@vue/repl': ^1.3.2
-  '@vue/theme': ^1.3.0
+  '@vue/theme': ^2.0.0
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
   terser: ^5.14.2
@@ -13,7 +13,7 @@ specifiers:
 
 dependencies:
   '@vue/repl': 1.3.2_vue@3.2.47
-  '@vue/theme': 1.3.0_vue@3.2.47
+  '@vue/theme': 2.0.0_vue@3.2.47
   dynamics.js: 1.1.5
   gsap: 3.9.0
   vitepress: 1.0.0-alpha.50_svno5mexjalzzlm4w6lhjlrqwe
@@ -26,29 +26,10 @@ devDependencies:
 
 packages:
 
-  /@algolia/autocomplete-core/1.7.1:
-    resolution: {integrity: sha512-eiZw+fxMzNQn01S8dA/hcCpoWCOCwcIIEUtHHdzN5TGB3IpzLbuhqFeTfh2OUhhgkE8Uo17+wH+QJ/wYyQmmzg==}
-    dependencies:
-      '@algolia/autocomplete-shared': 1.7.1
-    dev: false
-
   /@algolia/autocomplete-core/1.7.4:
     resolution: {integrity: sha512-daoLpQ3ps/VTMRZDEBfU8ixXd+amZcNJ4QSP3IERGyzqnL5Ch8uSRFt/4G8pUvW9c3o6GA4vtVv4I4lmnkdXyg==}
     dependencies:
       '@algolia/autocomplete-shared': 1.7.4
-    dev: false
-
-  /@algolia/autocomplete-preset-algolia/1.7.1_algoliasearch@4.10.5:
-    resolution: {integrity: sha512-pJwmIxeJCymU1M6cGujnaIYcY3QPOVYZOXhFkWVM7IxKzy272BwCvMFMyc5NpG/QmiObBxjo7myd060OeTNJXg==}
-    peerDependencies:
-      '@algolia/client-search': ^4.9.1
-      algoliasearch: ^4.9.1
-    peerDependenciesMeta:
-      '@algolia/client-search':
-        optional: true
-    dependencies:
-      '@algolia/autocomplete-shared': 1.7.1
-      algoliasearch: 4.10.5
     dev: false
 
   /@algolia/autocomplete-preset-algolia/1.7.4_algoliasearch@4.10.5:
@@ -62,10 +43,6 @@ packages:
     dependencies:
       '@algolia/autocomplete-shared': 1.7.4
       algoliasearch: 4.10.5
-    dev: false
-
-  /@algolia/autocomplete-shared/1.7.1:
-    resolution: {integrity: sha512-eTmGVqY3GeyBTT8IWiB2K5EuURAqhnumfktAEoHxfDY2o7vg2rSnO16ZtIG0fMgt3py28Vwgq42/bVEuaQV7pg==}
     dev: false
 
   /@algolia/autocomplete-shared/1.7.4:
@@ -183,24 +160,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@docsearch/css/3.2.1:
-    resolution: {integrity: sha512-gaP6TxxwQC+K8D6TRx5WULUWKrcbzECOPA2KCVMuI+6C7dNiGUk5yXXzVhc5sld79XKYLnO9DRTI4mjXDYkh+g==}
-    dev: false
-
   /@docsearch/css/3.3.3:
     resolution: {integrity: sha512-6SCwI7P8ao+se1TUsdZ7B4XzL+gqeQZnBc+2EONZlcVa0dVrk0NjETxozFKgMv0eEGH8QzP1fkN+A1rH61l4eg==}
-    dev: false
-
-  /@docsearch/js/3.2.1:
-    resolution: {integrity: sha512-H1PekEtSeS0msetR2YGGey2w7jQ2wAKfGODJvQTygSwMgUZ+2DHpzUgeDyEBIXRIfaBcoQneqrzsljM62pm6Xg==}
-    dependencies:
-      '@docsearch/react': 3.2.1
-      preact: 10.5.14
-    transitivePeerDependencies:
-      - '@algolia/client-search'
-      - '@types/react'
-      - react
-      - react-dom
     dev: false
 
   /@docsearch/js/3.3.3:
@@ -213,28 +174,6 @@ packages:
       - '@types/react'
       - react
       - react-dom
-    dev: false
-
-  /@docsearch/react/3.2.1:
-    resolution: {integrity: sha512-EzTQ/y82s14IQC5XVestiK/kFFMe2aagoYFuTAIfIb/e+4FU7kSMKonRtLwsCiLQHmjvNQq+HO+33giJ5YVtaQ==}
-    peerDependencies:
-      '@types/react': '>= 16.8.0 < 19.0.0'
-      react: '>= 16.8.0 < 19.0.0'
-      react-dom: '>= 16.8.0 < 19.0.0'
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      '@algolia/autocomplete-core': 1.7.1
-      '@algolia/autocomplete-preset-algolia': 1.7.1_algoliasearch@4.10.5
-      '@docsearch/css': 3.2.1
-      algoliasearch: 4.10.5
-    transitivePeerDependencies:
-      - '@algolia/client-search'
     dev: false
 
   /@docsearch/react/3.3.3:
@@ -506,10 +445,6 @@ packages:
   /@types/node/16.10.3:
     resolution: {integrity: sha512-ho3Ruq+fFnBrZhUYI46n/bV2GjwzSkwuT4dTf0GkuNFmnb8nq4ny2z9JEVemFi6bdEJanHLlYfy9c6FN9B9McQ==}
 
-  /@types/web-bluetooth/0.0.15:
-    resolution: {integrity: sha512-w7hEHXnPMEZ+4nGKl/KDRVpxkwYxYExuHOYXyzIzCDzEZ9ZCGMAewulr9IqJu2LR4N37fcnb1XVeuZ09qgOxhA==}
-    dev: false
-
   /@types/web-bluetooth/0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
     dev: false
@@ -620,12 +555,12 @@ packages:
     resolution: {integrity: sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==}
     dev: false
 
-  /@vue/theme/1.3.0_vue@3.2.47:
-    resolution: {integrity: sha512-79XEtpERf+yeG91XNOq4Uhz1A33bt3Kz29Z2mbBnsgREpifR7saLaCiZIrgm2Php+CIeSOIhPTNUdMKeEliCdg==}
+  /@vue/theme/2.0.0_vue@3.2.47:
+    resolution: {integrity: sha512-YrYwkQ9se6oGg87suzFB6Y1487ED+DS7c+/jodfYo7J70F5D7ItLPS3zg9VVp/97j8checPUzjGIM/EHuRzoRw==}
     dependencies:
-      '@docsearch/css': 3.2.1
-      '@docsearch/js': 3.2.1
-      '@vueuse/core': 9.1.1_vue@3.2.47
+      '@docsearch/css': 3.3.3
+      '@docsearch/js': 3.3.3
+      '@vueuse/core': 9.13.0_vue@3.2.47
       body-scroll-lock: 3.1.5
       normalize.css: 8.0.1
     transitivePeerDependencies:
@@ -634,18 +569,6 @@ packages:
       - '@vue/composition-api'
       - react
       - react-dom
-      - vue
-    dev: false
-
-  /@vueuse/core/9.1.1_vue@3.2.47:
-    resolution: {integrity: sha512-QfuaNWRDMQcCUwXylCyYhPC3ScS9Tiiz4J0chdwr3vOemBwRToSywq8MP+ZegKYFnbETzRY8G/5zC+ca30wrRQ==}
-    dependencies:
-      '@types/web-bluetooth': 0.0.15
-      '@vueuse/metadata': 9.1.1
-      '@vueuse/shared': 9.1.1_vue@3.2.47
-      vue-demi: 0.12.1_vue@3.2.47
-    transitivePeerDependencies:
-      - '@vue/composition-api'
       - vue
     dev: false
 
@@ -661,21 +584,8 @@ packages:
       - vue
     dev: false
 
-  /@vueuse/metadata/9.1.1:
-    resolution: {integrity: sha512-XZ2KtSW+85LLHB/IdGILPAtbIVHasPsAW7aqz3BRMzJdAQWRiM/FGa1OKBwLbXtUw/AmjKYFlZJo7eOFIBXRog==}
-    dev: false
-
   /@vueuse/metadata/9.13.0:
     resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==}
-    dev: false
-
-  /@vueuse/shared/9.1.1_vue@3.2.47:
-    resolution: {integrity: sha512-c+IfcOYmHiHqoEa3ED1Tbpue5GHmoUmTp8PtO4YbczthtY155Rt6DmWhjxMLXBF1Bcidagxljmp/7xtAzEHXLw==}
-    dependencies:
-      vue-demi: 0.12.1_vue@3.2.47
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
     dev: false
 
   /@vueuse/shared/9.13.0_vue@3.2.47:
