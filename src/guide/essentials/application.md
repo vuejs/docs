@@ -12,7 +12,7 @@ const app = createApp({
 })
 ```
 
-## The Root Component {#the-root-component}
+## Die Wurzel-Komponente {#the-root-component}
 
 The object we are passing into `createApp` is in fact a component. Every app requires a "root component" that can contain other components as its children.
 
