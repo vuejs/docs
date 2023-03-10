@@ -14,7 +14,7 @@ const app = createApp({
 
 ## Die Wurzel-Komponente {#the-root-component}
 
-The object we are passing into `createApp` is in fact a component. Every app requires a "root component" that can contain other components as its children.
+Das Objekt, das wir an `createApp` übergeben, ist in Wirklichkeit eine Komponente. Jede App benötigt eine "Wurzelkomponente", die andere Komponenten als ihre Kinder enthalten kann.
 
 If you are using Single-File Components, we typically import the root component from another file:
 
