@@ -1,20 +1,19 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { reactive, computed } from 'vue'
 import dynamics from 'dynamics.js'
 
 const headerHeight = 120
 
 let isDragging = false
 const start = { x: 0, y: 0 }
-const x = ref(headerHeight)
-const y = ref(headerHeight)
+const c = reactive({ x: headerHeight, y: headerHeight })
 
 const headerPath = computed(() => {
-  return `M0,0 L320,0 320,${headerHeight}Q${x.value},${y.value} 0,${headerHeight}`
+  return `M0,0 L320,0 320,${headerHeight}Q${c.x},${c.y} 0,${headerHeight}`
 })
 
 const contentPosition = computed(() => {
-  const dy = y.value - headerHeight
+  const dy = c.y - headerHeight
   const dampen = dy > 0 ? 2 : 4
   return {
     transform: `translate(0,${dy / dampen}px)`
@@ -31,10 +30,10 @@ function startDrag(e) {
 function onDrag(e) {
   e = e.changedTouches ? e.changedTouches[0] : e
   if (isDragging) {
-    x.value = headerHeight + (e.pageX - start.x)
+    c.x = headerHeight + (e.pageX - start.x)
     const dy = e.pageY - start.y
     const dampen = dy > 0 ? 1.5 : 4
-    y.value = headerHeight + dy / dampen
+    c.y = headerHeight + dy / dampen
   }
 }
 
@@ -42,7 +41,7 @@ function stopDrag() {
   if (isDragging) {
     isDragging = false
     dynamics.animate(
-      { x: x.value, y: y.value },
+      c,
       { x: headerHeight, y: headerHeight },
       { type: dynamics.spring, duration: 700, friction: 280 }
     )
@@ -67,7 +66,7 @@ function stopDrag() {
     <div class="header">Drag Me</div>
     <div class="content" :style="contentPosition">
       <a
-        href="https://sfc.vuejs.org/#eNqlVmtv2zYU/SuEGqAOFkl2Hl2hOdkDw9APK9AB+7BhGhBapGS1EkmQlGPH8H/vISnZluMABQoEDnkf5x7ee3nFbfSrUsmq41EWzU2ha2WJ4bZTD7moWyW1JWwjaFsXhpRatuTtsE0+m7e5yEUhhbFkySnj+gOvq6Ul92R2PXW6hltSm981rapaVJCXtDF88DGWAv6ebMk6I9MrssEv2QWvAvILzcuJVx6je7tRuN3lKY9P1C4dQCFb1VnOJpNLcv9AtrkgRON0WpDHj9OrKfnz5tr9c78X22PQ3V8X2yJZ7yAuks0O9E70j7k4jotfy4X9JE1tayleCx6M2QZ6wJJ4dJAjA9oq7kBg+YCk/EyuSUZuj+h7NEKspsKUUrcZefTrhlo+cWThmfY4O7W+BF3ichs4l50oPE1fAlefCb8MmBxReVIsqag4+1t2xZIbxD8V/Tf9H4xQSjIusNWdF3rgZO3BFK34PwehO3wQ/gs+IzpSfC+XkkwOfHoYZNUzGTXND2TSM0MVerbIjbc+FKnnuTfZjCxeVGmW3A11ckEdwknQo7IMFTkpiFQ+Bz33Vw507lI5+f5yUtxe1wpBDDJXw+pbLtSRsd0onh1wjdIIekVYp6kjnJEfp7i6pa49/4xcv/d32Dn7dIYTztMwWzBVsLG8Va5RsSNkzupVn7CGGnOfR8wdjS4ankdB8UsrO8OZfBLQ7lt2r7WuDbz4rNo7t3LFoQ0NNvY8r/JenfKIoSRjLy7YOZ13azj1kGOtPy3Oa1bV/qgL6MhTzewSG0wh7Ja+BtjevcO2d4KbcjMtc0EPMw7mZd00kL25+eNu9tsdHOapsxyCpYg2rJHofeCAAXPHj3zk8xTac4b9YEOkzNhN4451MusA8oE3jTxADKt5elRpbD0AMYVUnEGS7Asd2npBiy+Vlp1gcSEbqTPypizLn7xKrmOzpGgB9424VWsye4cfXS0opp37eLi/ZHZ36c19RjM31tXaC0JS0Z23gwRF12Xj8JY1Y1x4YUs17hQcYUVoZ6WXqv6gGYYvDlOvuBdbvrYxbeoKigL54NqLS2QnNvUzbs0MRA+yp57DzXTqhWgUHbtmKSAUUgTUhdQoTKwpqzuTkfceATcoWVQhSwc2dGFkgy9MYCMVUuOXDS+BGNbPcS0Yd9/XHiYUHhc86ct4ijo64959FjJBGcP1Dwk6FKZ+9sKeOkSjWMOXb1zRoSJ4KRwnKSTumrcv87aQDQvA6GrXSWih6CoKr5S4pQovEinwjvHx8l5h8igbpmYe4aHj9uh/a5XJ0tSUhXv9fDaJ1FWKVaI7YeuWJ9y08ULLJ1QJwHnUz0SMp8MDaIxVMJGYLxuFNk4YX6Ujw707YqTARPvFGkOEa3cNX6d0YvqC1jBjo91Xn6ZCFA=="
+        href="https://sfc.vuejs.org/#eNqlVm2L4zYQ/ivCd3BZGttJdnM93Oz2hVLuQw+u0A8tTWEVS3Z8Z0tCkrPJhvz3PpLsJM5moXCwZKV5eebRzGisffSzUsmm5VEWLUyuK2WJ4bZVD0tRNUpqS/ZEc5rbasPHJJeNai1n5EAKLRvyDp7vjpZsJ2hT5abT9dvki4HNUuRSGEvWnDKuP/KqXFtyT6azidPV3JLK/KppWVaihLygteG9j7EU8Pegss3IZEx2+CWHXptD01MceZPzGN56EPRwc8nmM7VrgPSnG41uyP0D2S8FAbBttSCPnybjCfn9dub+ud+3+3PMwx9v93myPUCcJ7sDOF7oH5fiPCx+LRf2szSVraR4JXawZTunTnYkHhzjzIA2ijsMWD4gMT+SGcnI3Rl7j0aI1VSYQuomI49+XVPLR44rPNMO56C2N2BLXH4D5aIVyC1Y+jK4Go34TcDkiMqTfE1Fydmfss3X3CD+peifyb9ghHKSYZGtbr3QAydbD6Zoyf86Cd3hg/Bv8BnQkeJbuRRkdOLTwSCrnsmgZb4jo44ZqtCxRW689alIHc+jyW5g8aJK02Te18kFdQgXQc/K0lfkoiBS+Rx03F850LWL5eTHC0pxg10rBDHIjPvV/7lOZ8Z2p3h2wjVKI+iYsFZTRzgj309wfQtdef4ZmX3w99g5+3SGEy7SMIkwg7CxvFGuUbEjZMGqTZewmhpzv4yYOxpd1XwZBcVPjWwNZ/JJQHts2aPWujbw4qtq79zIDYc2NNjQ87rKe7XKI4aSDL24YNd03q3m1EMOtf60OK/ZlMejrqAjTxWza2wwhLBb+xpgO3+PbecEN+UmWuaCniYczIuqriF7c/vbfPrLHA6L1Fn2wVJE69dI9DFwwIC540c+8UUK7TXDbq4hUmbsrnbHuhh1APnI61qeIPrVIj2rNLYegJhcKs4gSY6FDm29ovnXUstWsDiXtdQZeVMUxQ9eJbexWVO0gPtO3Kktmb7Hjy5XFNPOfUDcXzKd33hzn9HMTXW19YKQVHTnXS9B0XVRO7x1xRgXXthQjTsFR1gR2lrppao7aIbhi8Pgm+TFlm9tTOuqhCJHPrj24gLZiU31jFszBdGT7KnjcDuZeCEaRceuWXIIhRQBdSU1ChNryqrWZOSDR8ANSlZlyNKJDV0ZWeMLE9hIhdT4Zc0LIIb1c1wJxt03toMJhccFT7oyXqIOznh0n4ZMUMZw/UOCToWpnr2wow7RIFb/5RtWtK8IXgvnSQqJm/HmZd5WsmYBGF3tOgktFI2j8FKJG6rwKpECrx4fb9kpzDLK+qm5jPC4cXv0v7XKZGlqity9lb6YROoyxSrRrbBVwxNumnil5ROqBOBl1M1EjKfTI2iIlTORmK87hTZOGN+kA8OjO2KkwET7xRpDhGt3DV+ndGH6glY/Y6PDfyVJU+8="
         target="_blank"
         >Source code</a
       >
