@@ -13,7 +13,7 @@ const list = [
 const query = ref('')
 
 const computedList = computed(() => {
-  return list.filter((item) => item.msg.toLowerCase().includes(query))
+  return list.filter((item) => item.msg.toLowerCase().includes(query.value))
 })
 
 function onBeforeEnter(el) {
