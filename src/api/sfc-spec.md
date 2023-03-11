@@ -36,13 +36,13 @@ export default {
 
 ### `<template>` {#template}
 
-- Each `*.vue` file can contain at most one top-level `<template>` block at a time.
+- Each `*.vue` file can contain at most one top-level `<template>` block.
 
 - Contents will be extracted and passed on to `@vue/compiler-dom`, pre-compiled into JavaScript render functions, and attached to the exported component as its `render` option.
 
 ### `<script>` {#script}
 
-- Each `*.vue` file can contain at most one `<script>` block at a time (excluding [`<script setup>`](/api/sfc-script-setup)).
+- Each `*.vue` file can contain at most one `<script>` block (excluding [`<script setup>`](/api/sfc-script-setup)).
 
 - The script is executed as an ES Module.
 
@@ -50,7 +50,7 @@ export default {
 
 ### `<script setup>` {#script-setup}
 
-- Each `*.vue` file can contain at most one `<script setup>` block at a time (excluding normal `<script>`).
+- Each `*.vue` file can contain at most one `<script setup>` block (excluding normal `<script>`).
 
 - The script is pre-processed and used as the component's `setup()` function, which means it will be executed **for each instance of the component**. Top-level bindings in `<script setup>` are automatically exposed to the template. For more details, see [dedicated documentation on `<script setup>`](/api/sfc-script-setup).
 
@@ -68,7 +68,7 @@ Additional custom blocks can be included in a `*.vue` file for any project-speci
 - [vite-plugin-vue-gql: `<gql>`](https://github.com/wheatjs/vite-plugin-vue-gql)
 - [vue-i18n: `<i18n>`](https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n#i18n-custom-block)
 
-Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see [relevant tooling section](/guide/scaling-up/tooling#sfc-custom-block-integrations) for more details.
+Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see the [SFC custom block integrations tooling section](/guide/scaling-up/tooling#sfc-custom-block-integrations) for more details.
 
 ## Automatic Name Inference {#automatic-name-inference}
 
@@ -76,7 +76,7 @@ An SFC automatically infers the component's name from its **filename** in the fo
 
 - Dev warning formatting
 - DevTools inspection
-- Recursive self-reference. E.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template. This has lower priority than explicitly registered/imported components.
+- Recursive self-reference, e.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template. This has lower priority than explicitly registered/imported components.
 
 ## Pre-Processors {#pre-processors}
 
@@ -109,7 +109,7 @@ Note that integration with various pre-processors may differ by toolchain. Check
 - [Vue CLI](https://cli.vuejs.org/guide/css.html#pre-processors)
 - [webpack + vue-loader](https://vue-loader.vuejs.org/guide/pre-processors.html#using-pre-processors)
 
-## Src Imports {#src-imports}
+## `src` Imports {#src-imports}
 
 If you prefer splitting up your `*.vue` components into multiple files, you can use the `src` attribute to import an external file for a language block:
 
