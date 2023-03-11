@@ -16,7 +16,7 @@ const app = createApp({
 
 Das Objekt, das wir an `createApp` übergeben, ist in Wirklichkeit eine Komponente. Jede App benötigt eine "Wurzelkomponente", die andere Komponenten als ihre Kinder enthalten kann.
 
-If you are using Single-File Components, we typically import the root component from another file:
+Wenn Sie Komponenten aus einer einzigen Datei verwenden, importieren wir normalerweise die Stammkomponente aus einer anderen Datei:
 
 ```js
 import { createApp } from 'vue'
