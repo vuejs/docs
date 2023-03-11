@@ -39,8 +39,8 @@ h('div', { id: 'foo' })
 // Vue automatically picks the right way to assign it
 h('div', { class: 'bar', innerHTML: 'hello' })
 
-// props modifiers such as .prop and .attr can be added
-// with '.' and `^' prefixes respectively
+// props modifiers such as `.prop` and `.attr` can be added
+// with `.` and `^` prefixes respectively
 h('div', { '.name': 'some-name', '^width': '100' })
 
 // class and style have the same object / array
