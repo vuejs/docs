@@ -93,7 +93,7 @@ Creates virtual DOM nodes (vnodes).
   })
   ```
 
-- **See also:** [Guide - Render Functions - Creating VNodes](/guide/extras/render-function.html#creating-vnodes)
+- **See also:** [Guide - Render Functions - Creating VNodes](/guide/extras/render-function#creating-vnodes)
 
 ## mergeProps() {#mergeprops}
 
@@ -228,7 +228,7 @@ For manually resolving a registered component by name.
 
   </div>
 
-- **See also:** [Guide - Render Functions - Components](/guide/extras/render-function.html#components)
+- **See also:** [Guide - Render Functions - Components](/guide/extras/render-function#components)
 
 ## resolveDirective() {#resolvedirective}
 
@@ -248,7 +248,7 @@ For manually resolving a registered directive by name.
 
   If the directive is not found, a runtime warning will be emitted, and the function returns `undefined`.
 
-- **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
+- **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function#custom-directives)
 
 ## withDirectives() {#withdirectives}
 
@@ -296,11 +296,11 @@ For adding custom directives to vnodes.
   ])
   ```
 
-- **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function.html#custom-directives)
+- **See also:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function#custom-directives)
 
 ## withModifiers() {#withmodifiers}
 
-For adding built-in [`v-on` modifiers](/guide/essentials/event-handling.html#event-modifiers) to an event handler function.
+For adding built-in [`v-on` modifiers](/guide/essentials/event-handling#event-modifiers) to an event handler function.
 
 - **Type**
 
@@ -321,4 +321,4 @@ For adding built-in [`v-on` modifiers](/guide/essentials/event-handling.html#eve
   })
   ```
 
-- **See also:** [Guide - Render Functions - Event Modifiers](/guide/extras/render-function.html#event-modifiers)
+- **See also:** [Guide - Render Functions - Event Modifiers](/guide/extras/render-function#event-modifiers)

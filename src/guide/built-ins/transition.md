@@ -14,9 +14,9 @@ Vue offers two built-in components that can help work with transitions and anima
 
 - `<Transition>` for applying animations when an element or component is entering and leaving the DOM. This is covered on this page.
 
-- `<TransitionGroup>` for applying animations when an element or component is inserted into, removed from, or moved within a `v-for` list. This is covered in [the next chapter](/guide/built-ins/transition-group.html).
+- `<TransitionGroup>` for applying animations when an element or component is inserted into, removed from, or moved within a `v-for` list. This is covered in [the next chapter](/guide/built-ins/transition-group).
 
-Aside from these two components, we can also apply animations in Vue using other techniques such as toggling CSS classes or state-driven animations via style bindings. These additional techniques are covered in the [Animation Techniques](/guide/extras/animation.html) chapter.
+Aside from these two components, we can also apply animations in Vue using other techniques such as toggling CSS classes or state-driven animations via style bindings. These additional techniques are covered in the [Animation Techniques](/guide/extras/animation) chapter.
 
 ## The `<Transition>` Component {#the-transition-component}
 
@@ -25,6 +25,7 @@ Aside from these two components, we can also apply animations in Vue using other
 - Conditional rendering via `v-if`
 - Conditional display via `v-show`
 - Dynamic components toggling via the `<component>` special element
+- Changing the special `key` attribute
 
 This is an example of the most basic usage:
 
@@ -543,7 +544,7 @@ Here's the previous demo with `mode="out-in"`:
 
 ## Transition Between Components {#transition-between-components}
 
-`<Transition>` can also be used around [dynamic components](/guide/essentials/component-basics.html#dynamic-components):
+`<Transition>` can also be used around [dynamic components](/guide/essentials/component-basics#dynamic-components):
 
 ```vue-html
 <Transition name="fade" mode="out-in">
@@ -582,4 +583,4 @@ You can also apply different behavior in JavaScript transition hooks based on th
 
 **Related**
 
-- [`<Transition>` API reference](/api/built-in-components.html#transition)
+- [`<Transition>` API reference](/api/built-in-components#transition)

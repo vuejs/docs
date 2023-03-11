@@ -65,7 +65,7 @@ While SFCs require a build step, there are numerous benefits in return:
 - [Component-scoped CSS](/api/sfc-css-features)
 - [More ergonomic syntax when working with Composition API](/api/sfc-script-setup)
 - More compile-time optimizations by cross-analyzing template and script
-- [IDE support](/guide/scaling-up/tooling.html#ide-support) with auto-completion and type-checking for template expressions
+- [IDE support](/guide/scaling-up/tooling#ide-support) with auto-completion and type-checking for template expressions
 - Out-of-the-box Hot-Module Replacement (HMR) support
 
 SFC is a defining feature of Vue as a framework, and is the recommended approach for using Vue in the following scenarios:
@@ -104,4 +104,4 @@ To answer this question, it is important for us to agree that **separation of co
 
 In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic, and styles are inherently coupled, and colocating them actually makes the component more cohesive and maintainable.
 
-Note even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files using [Src Imports](/api/sfc-spec.html#src-imports).
+Note even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files using [Src Imports](/api/sfc-spec#src-imports).

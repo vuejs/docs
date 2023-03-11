@@ -82,7 +82,7 @@ There are two instances where you DO unit test Vue-specific features:
 
 ### Composables {#composables}
 
-One category of functions specific to Vue applications are [Composables](/guide/reusability/composables.html), which may require special handling during tests.
+One category of functions specific to Vue applications are [Composables](/guide/reusability/composables), which may require special handling during tests.
 See [Testing Composables](#testing-composables) below for more details.
 
 ### Unit Testing Components {#unit-testing-components}
@@ -353,7 +353,7 @@ Finally, update `package.json` to add the test script and run it:
 
 ### Testing Composables {#testing-composables}
 
-> This section assumes you have read the [Composables](/guide/reusability/composables.html) section.
+> This section assumes you have read the [Composables](/guide/reusability/composables) section.
 
 When it comes to testing composables, we can divide them into two categories: composables that do not rely on a host component instance, and composables that do.
 

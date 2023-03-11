@@ -14,14 +14,14 @@ import ListStagger from './transition-demos/ListStagger.vue'
 
 - By default, it doesn't render a wrapper element. But you can specify an element to be rendered with the `tag` prop.
 
-- [Transition modes](./transition.html#transition-modes) are not available, because we are no longer alternating between mutually exclusive elements.
+- [Transition modes](./transition#transition-modes) are not available, because we are no longer alternating between mutually exclusive elements.
 
 - Elements inside are **always required** to have a unique `key` attribute.
 
 - CSS transition classes will be applied to individual elements in the list, **not** to the group / container itself.
 
 :::tip
-When used in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats), it should be referenced as `<transition-group>`.
+When used in [DOM templates](/guide/essentials/component-basics#dom-template-parsing-caveats), it should be referenced as `<transition-group>`.
 :::
 
 ## Enter / Leave Transitions {#enter-leave-transitions}
@@ -132,4 +132,4 @@ function onEnter(el, done) {
 
 **Related**
 
-- [`<TransitionGroup>` API reference](/api/built-in-components.html#transitiongroup)
+- [`<TransitionGroup>` API reference](/api/built-in-components#transitiongroup)

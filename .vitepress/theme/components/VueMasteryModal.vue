@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { ref, watch } from 'vue'
 
 const VIDEO_SOURCE = 'https://player.vimeo.com/video/647441538?autoplay=1'
-let showWhyVue: boolean = $ref(false)
+const showWhyVue = ref(false)
 
 watch(
   () => showWhyVue,

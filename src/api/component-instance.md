@@ -8,7 +8,7 @@ All properties listed on this page are readonly (except nested properties in `$d
 
 ## $data {#data}
 
-The object returned from the [`data`](./options-state.html#data) option, made reactive by the component. The component instance proxies access to the properties on its data object.
+The object returned from the [`data`](./options-state#data) option, made reactive by the component. The component instance proxies access to the properties on its data object.
 
 - **Type**
 
@@ -32,7 +32,7 @@ An object representing the component's current, resolved props.
 
 - **Details**
 
-  Only props declared via the [`props`](./options-state.html#props) option will be included. The component instance proxies access to the properties on its props object.
+  Only props declared via the [`props`](./options-state#props) option will be included. The component instance proxies access to the properties on its props object.
 
 ## $el {#el}
 
@@ -55,7 +55,7 @@ The root DOM node that the component instance is managing.
   - For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM (a text node, or a comment node in SSR hydration mode).
 
   :::tip
-  For consistency, it is recommended to use [template refs](/guide/essentials/template-refs.html) for direct access to elements instead of relying on `$el`.
+  For consistency, it is recommended to use [template refs](/guide/essentials/template-refs) for direct access to elements instead of relying on `$el`.
   :::
 
 ## $options {#options}
@@ -89,7 +89,7 @@ The resolved component options used for instantiating the current component inst
   })
   ```
 
-- **See also:** [`app.config.optionMergeStrategies`](/api/application.html#app-config-optionmergestrategies)
+- **See also:** [`app.config.optionMergeStrategies`](/api/application#app-config-optionmergestrategies)
 
 ## $parent {#parent}
 
@@ -117,7 +117,7 @@ The root component instance of the current component tree. If the current instan
 
 ## $slots {#slots}
 
-An object representing the [slots](/guide/components/slots.html) passed by the parent component.
+An object representing the [slots](/guide/components/slots) passed by the parent component.
 
 - **Type**
 
@@ -131,17 +131,17 @@ An object representing the [slots](/guide/components/slots.html) passed by the p
 
 - **Details**
 
-  Typically used when manually authoring [render functions](/guide/extras/render-function.html), but can also be used to detect whether a slot is present.
+  Typically used when manually authoring [render functions](/guide/extras/render-function), but can also be used to detect whether a slot is present.
 
   Each slot is exposed on `this.$slots` as a function that returns an array of vnodes under the key corresponding to that slot's name. The default slot is exposed as `this.$slots.default`.
 
-  If a slot is a [scoped slot](/guide/components/slots.html#scoped-slots), arguments passed to the slot functions are available to the slot as its slot props.
+  If a slot is a [scoped slot](/guide/components/slots#scoped-slots), arguments passed to the slot functions are available to the slot as its slot props.
 
-- **See also:** [Render Functions - Rendering Slots](/guide/extras/render-function.html#rendering-slots)
+- **See also:** [Render Functions - Rendering Slots](/guide/extras/render-function#rendering-slots)
 
 ## $refs {#refs}
 
-An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs.html).
+An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs).
 
 - **Type**
 
@@ -153,7 +153,7 @@ An object of DOM elements and component instances, registered via [template refs
 
 - **See also:**
 
-  - [Template refs](/guide/essentials/template-refs.html)
+  - [Template refs](/guide/essentials/template-refs)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
 
 ## $attrs {#attrs}
@@ -170,13 +170,13 @@ An object that contains the component's fallthrough attributes.
 
 - **Details**
 
-  [Fallthrough Attributes](/guide/components/attrs.html) are attributes and event handlers passed by the parent component, but not declared as a prop or an emitted event by the child.
+  [Fallthrough Attributes](/guide/components/attrs) are attributes and event handlers passed by the parent component, but not declared as a prop or an emitted event by the child.
 
-  By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc.html#inheritattrs) option.
+  By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc#inheritattrs) option.
 
 - **See also:**
 
-  - [Fallthrough Attributes](/guide/components/attrs.html)
+  - [Fallthrough Attributes](/guide/components/attrs)
 
 ## $watch() {#watch}
 
@@ -217,9 +217,9 @@ Imperative API for creating watchers.
   The second argument is the callback function. The callback receives the new value and the old value of the watched source.
 
   - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
-  - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers.html#deep-watchers).
-  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers.html#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core.html#watcheffect).
-  - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging).
+  - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
+  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
+  - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth#watcher-debugging).
 
 - **Example**
 
@@ -258,8 +258,8 @@ Imperative API for creating watchers.
   ```
 
 - **See also:**
-  - [Options - `watch`](/api/options-state.html#watch)
-  - [Guide - Watchers](/guide/essentials/watchers.html)
+  - [Options - `watch`](/api/options-state#watch)
+  - [Guide - Watchers](/guide/essentials/watchers)
 
 ## $emit() {#emit}
 
@@ -288,8 +288,8 @@ Trigger a custom event on the current instance. Any additional arguments will be
 
 - **See also:**
 
-  - [Component - Events](/guide/components/events.html)
-  - [`emits` option](./options-state.html#emits)
+  - [Component - Events](/guide/components/events)
+  - [`emits` option](./options-state#emits)
 
 ## $forceUpdate() {#forceupdate}
 
@@ -309,7 +309,7 @@ Force the component instance to re-render.
 
 ## $nextTick() {#nexttick}
 
-Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
+Instance-bound version of the global [`nextTick()`](./general#nexttick).
 
 - **Type**
 
@@ -323,4 +323,4 @@ Instance-bound version of the global [`nextTick()`](./general.html#nexttick).
 
   The only difference from the global version of `nextTick()` is that the callback passed to `this.$nextTick()` will have its `this` context bound to the current component instance.
 
-- **See also:** [`nextTick()`](./general.html#nexttick)
+- **See also:** [`nextTick()`](./general#nexttick)

@@ -1,10 +1,10 @@
 <script setup>
-import { h } from 'vue'
+import { h, ref } from 'vue'
 
 const CompA = () => h('div', 'Component A')
 const CompB = () => h('div', 'Component B')
 
-let activeComponent = $ref(CompA)
+const activeComponent = ref(CompA)
 </script>
 
 <template>
