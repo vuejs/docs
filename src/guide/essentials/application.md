@@ -26,7 +26,7 @@ import App from './App.vue'
 const app = createApp(App)
 ```
 
-While many examples in this guide only need a single component, most real applications are organized into a tree of nested, reusable components. For example, a Todo application's component tree might look like this:
+Während viele Beispiele in diesem Handbuch nur eine einzige Komponente benötigen, sind die meisten realen Anwendungen in einem Baum aus verschachtelten, wiederverwendbaren Komponenten organisiert. Der Komponentenbaum einer Todo-Anwendung könnte zum Beispiel wie folgt aussehen:
 
 ```
 App (root component)
