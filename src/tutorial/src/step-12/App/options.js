@@ -6,7 +6,7 @@ export default {
   },
   data() {
     return {
-      greeting: 'Hello from parent'
+      greeting: 'Привіт від батьківського компонента!'
     }
   }
 }

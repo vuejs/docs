@@ -6,7 +6,7 @@ export default {
     ChildComp
   },
   setup() {
-    const greeting = ref('Hello from parent')
+    const greeting = ref('Привіт від батьківського компонента!')
 
     return {
       greeting
