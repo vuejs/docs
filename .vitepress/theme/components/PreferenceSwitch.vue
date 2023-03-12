@@ -173,7 +173,7 @@ function useToggleFn(
 
 @media(max-width:960px){
   .switch-container {
-    padding:0px 10px;
+    padding:0px 1em;
   }
 }
 
