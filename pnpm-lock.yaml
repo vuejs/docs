@@ -8,7 +8,7 @@ specifiers:
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
   terser: ^5.14.2
-  vitepress: ^1.0.0-alpha.50
+  vitepress: ^1.0.0-alpha.56
   vue: ^3.2.47
 
 dependencies:
@@ -16,7 +16,7 @@ dependencies:
   '@vue/theme': 2.0.0_vue@3.2.47
   dynamics.js: 1.1.5
   gsap: 3.9.0
-  vitepress: 1.0.0-alpha.50_svno5mexjalzzlm4w6lhjlrqwe
+  vitepress: 1.0.0-alpha.56_svno5mexjalzzlm4w6lhjlrqwe
   vue: 3.2.47
 
 devDependencies:
@@ -861,8 +861,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/1.0.0-alpha.50_svno5mexjalzzlm4w6lhjlrqwe:
-    resolution: {integrity: sha512-6EdT6JIiHRD7KatKMfxCJ3J7aHlkMp67ZEcfYrMTLKAJ+K+qWs2p427udMHSenCOzVNLIikEC5v/rP3GOGWubQ==}
+  /vitepress/1.0.0-alpha.56_svno5mexjalzzlm4w6lhjlrqwe:
+    resolution: {integrity: sha512-FNoanHwmgWn4xZZcc8D34VKWcEs0F7e39xiVUahI7VzzI4VeiB+R/euYtPIUcTxIC2pRDhclw7/DO0JFYSGIpw==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.3
