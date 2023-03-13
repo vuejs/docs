@@ -439,7 +439,7 @@ Declare the custom events emitted by the component.
 
 ## expose {#expose}
 
-Declare exposed public properties when the component instance is accessed by a parent via template refs.
+Declare exposed public properties when the component instance is accessed by the other component via template refs.
 
 - **Type**
 
