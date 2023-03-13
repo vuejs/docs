@@ -39,7 +39,7 @@ App (root component)
    └─ TodoStatistics
 ```
 
-In later sections of the guide, we will discuss how to define and compose multiple components together. Before that, we will focus on what happens inside a single component.
+In späteren Abschnitten des Leitfadens werden wir erörtern, wie mehrere Komponenten definiert und zusammengesetzt werden können. Vorher werden wir uns darauf konzentrieren, was innerhalb einer einzelnen Komponente geschieht.
 
 ## Mounting the App {#mounting-the-app}
 
