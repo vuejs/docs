@@ -41,7 +41,7 @@ App (root component)
 
 In späteren Abschnitten des Leitfadens werden wir erörtern, wie mehrere Komponenten definiert und zusammengesetzt werden können. Vorher werden wir uns darauf konzentrieren, was innerhalb einer einzelnen Komponente geschieht.
 
-## Mounting the App {#mounting-the-app}
+## Montage der App {#mounting-the-app}
 
 An application instance won't render anything until its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
 
