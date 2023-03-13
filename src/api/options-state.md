@@ -451,7 +451,7 @@ Declare exposed public properties when the component instance is accessed by a p
 
 - **Details**
 
-  By default, a component instance exposes all instance properties to the parent when accessed via `$parent`, `$root`, or template refs. This can be undesirable, since a component most likely has internal state or methods that should be kept private to avoid tight coupling.
+  By default, a component instance exposes all instance properties to the access component when accessed via `$parent`, `$root`, or template refs. This can be undesirable, since a component most likely has internal state or methods that should be kept private to avoid tight coupling.
 
   The `expose` option expects a list of property name strings. When `expose` is used, only the properties explicitly listed will be exposed on the component's public instance.
 
