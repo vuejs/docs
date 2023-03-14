@@ -599,7 +599,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       'script',
       {
         src: 'https://vueschool.io/banner.js?affiliate=vuejs&type=top',
-        async: true
+        async: 'true'
       }
     ]
   ],
