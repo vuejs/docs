@@ -6,7 +6,7 @@ export default {
   },
   data() {
     return {
-      childMsg: 'No child msg yet'
+      childMsg: 'Поки що немає повідомлення від дочірнього компонента'
     }
   }
 }
