@@ -171,9 +171,9 @@ function useToggleFn(
   align-items: center;  
 }
 
-@media(max-width:960px){
+@media(max-width:959px){
   .switch-container {
-    padding:0px 1em;
+    padding:0 1em;
   }
 }
 
