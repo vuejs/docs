@@ -43,7 +43,7 @@ In späteren Abschnitten des Leitfadens werden wir erörtern, wie mehrere Kompon
 
 ## Montage der App {#mounting-the-app}
 
-An application instance won't render anything until its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
+Eine Anwendungsinstanz rendert nichts, bis ihre Methode `.mount()` aufgerufen wird. Sie erwartet ein "container"-Argument, das entweder ein tatsächliches DOM-Element oder ein Selektor-String sein kann:
 
 ```html
 <div id="app"></div>
