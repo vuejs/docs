@@ -97,7 +97,7 @@ export default {
 
 Ви можете прив'язувати дані до обчислюваних властивостей в шаблонах як звичайну властивість. Vue в курсі, що `this.publishedBooksMessage` залежить від `this.author.books`, тому він автоматично оновить всі зв'язки, що залежать від `this.publishedBooksMessage`, коли змінюється `this.author.books`.
 
-Також до вашої уваги: [Типізація обчислюваних властивостей](/guide/typescript/options-api.html#типізація-обчисnюваних-вnастивостей) <sup class="vt-badge ts" />
+Також до вашої уваги: [Типізація обчислюваних властивостей](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
 
 </div>
 
@@ -134,7 +134,7 @@ const publishedBooksMessage = computed(() => {
 
 Обчислювана властивість автоматично відстежує свої реактивні залежності. Vue знає, що обчислення `publishedBooksMessage` залежить від `author.books`, тому він оновить усі зв'язки `publishedBooksMessage`, у разі якщо `author.books` зміниться.
 
-Також перегляньте: [Типізовані обчислювані вирази](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
+Також перегляньте: [Типізовані обчислювані вирази](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
 
 </div>
 

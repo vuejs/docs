@@ -1,5 +1,6 @@
 <script setup>
-let msg = $ref('')
+import { ref } from 'vue'
+const msg = ref('')
 </script>
 
 <template>

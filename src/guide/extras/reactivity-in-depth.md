@@ -102,7 +102,7 @@ function ref(value) {
 Фрагменти коду тут і нижче призначені для пояснення основних концепцій у найпростішій формі, тому багато деталей спрощено, а крайні випадки ігноруються.
 :::
 
-Це пояснює деякі [обмеження реактивних об’єктів](/guide/essentials/reactivity-fundamentals.html#limitations-of-reactive), які ми обговорювали в розділі основ:
+Це пояснює деякі [обмеження реактивних об’єктів](/guide/essentials/reactivity-fundamentals#limitations-of-reactive), які ми обговорювали в розділі основ:
 
 - Коли ви призначаєте або деструктуруєте властивість реактивного об’єкта локальній змінній, реактивність «від’єднується», оскільки доступ до локальної змінної більше не запускає перехоплення гет/сет проксі.
 
@@ -151,7 +151,7 @@ function whenDepsChange(update) {
 
 На цьому етапі ми створили ефект, який автоматично відстежує його залежності та запускається повторно щоразу, коли залежність змінюється. Ми називаємо це **Реактивним ефектом**.
 
-Vue надає API, який дозволяє створювати реактивні ефекти: [`watchEffect()`](/api/reactivity-core.html#watcheffect). Фактично, ви могли помітити, що він працює подібно до чарівного `whenDepsChange()` у прикладі. Тепер ми можемо переробити оригінальний приклад, використовуючи API Vue:
+Vue надає API, який дозволяє створювати реактивні ефекти: [`watchEffect()`](/api/reactivity-core#watcheffect). Фактично, ви могли помітити, що він працює подібно до чарівного `whenDepsChange()` у прикладі. Тепер ми можемо переробити оригінальний приклад, використовуючи API Vue:
 
 ```js
 import { ref, watchEffect } from 'vue'
@@ -208,24 +208,11 @@ count.value++
 
 ## Реактивність під час виконання та під час компіляції {#runtime-vs-compile-time-reactivity}
 
-Система реактивності Vue в основному відбувається під час виконання: відстеження та запуск виконуються, коли код виконується безпосередньо в браузері. Плюси реактивності під час виконання полягають у тому, що вона може працювати без етапу збірки, та має менше крайових випадків. З іншого боку, це робить її обмеженою синтаксичними можливостями JavaScript.
+Система реактивності Vue в основному відбувається під час виконання: відстеження та запуск виконуються, коли код виконується безпосередньо в браузері. Плюси реактивності під час виконання полягають у тому, що вона може працювати без етапу збірки, та має менше крайових випадків. З іншого боку, це робить її обмеженою синтаксичними можливостями JavaScript, що призводить до потреби в контейнерах значень, таких як Vue рефененції.
 
-Ми вже зіткнулися з обмеженням у попередньому прикладі: JavaScript не надає нам способу перехопити читання та запис локальних змінних, тому ми маємо завжди отримувати доступ до реактивного стану як властивостей об’єкта, використовуючи або реактивні об’єкти, або референції.
+Деякі фреймворки, такі як [Svelte](https://svelte.dev/), вирішили подолати такі обмеження, реалізувавши реактивність під час компіляції. Він аналізує та перетворює код, щоб імітувати реактивність. Етап компіляції дозволяє структурі змінювати семантику самого JavaScript - наприклад, неявно впроваджувати код, який виконує аналіз залежностей і запускає ефект навколо доступу до локально визначених змінних. Недоліком є те, що такі перетворення вимагають етапу побудови, а зміна семантики JavaScript по суті означає створення мови, яка виглядає як JavaScript, але компілюється в щось інше.
 
-Ми експериментували з [перетворенням реактивності](/guide/extras/reactivity-transform.html), щоб зменшити багатослівність коду:
-
-```js
-let A0 = $ref(0)
-let A1 = $ref(1)
-
-// відстежує читання змінної
-const A2 = $computed(() => A0 + A1)
-
-// запускається під час запису змінної
-A0 = 2
-```
-
-Цей фрагмент компілюється саме в те, що ми б написали без перетворення, шляхом автоматичного додавання `.value` після посилань на змінні. Завдяки перетворенню реактивності система реактивності Vue стає гібридною.
+Команда Vue досліджувала цей напрямок за допомогою експериментальної функції під назвою [Перетворення реактивності](/guide/extras/reactivity-transform), але зрештою ми вирішили, що це не підійде для проекту через [обґрунтування тут](https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028).
 
 ## Налагодження реактивності {#reactivity-debugging}
 
@@ -357,7 +344,7 @@ watchEffect(callback, {
 
 Система реактивності Vue працює шляхом глибокого перетворення простих об’єктів JavaScript у реактивні проксі. Глибоке перетворення може бути непотрібним або іноді небажаним під час інтеграції зі зовнішніми системами керування станом (наприклад, якщо зовнішнє рішення також використовує проксі).
 
-Загальна ідея інтеграції системи реактивності Vue зі зовнішнім рішенням керування станом полягає у збереженні зовнішнього стану в [`shallowRef`](/api/reactivity-advanced.html#shallowref). Неглибока референція є реактивною лише тоді, коли здійснюється доступ до її властивості `.value` - внутрішнє значення залишається недоторканим. Коли зовнішній стан змінюється, змінюється значення референції, щоб запустити оновлення.
+Загальна ідея інтеграції системи реактивності Vue зі зовнішнім рішенням керування станом полягає у збереженні зовнішнього стану в [`shallowRef`](/api/reactivity-advanced#shallowref). Неглибока референція є реактивною лише тоді, коли здійснюється доступ до її властивості `.value` - внутрішнє значення залишається недоторканим. Коли зовнішній стан змінюється, змінюється значення референції, щоб запустити оновлення.
 
 ### Незмінні дані {#immutable-data}
 
@@ -410,3 +397,98 @@ export function useMachine(options) {
 ### RxJS {#rxjs}
 
 [RxJS](https://rxjs.dev/) — це бібліотека для роботи з асинхронними потоками подій. Бібліотека [VueUse](https://vueuse.org/) надає надбудову [`@vueuse/rxjs`](https://vueuse.org/rxjs/readme.html) для підключення потоків RxJS до системи реактивності Vue.
+
+## Підключення до сигналів {#connection-to-signals}
+
+Чимало інших фреймворків представили примітиви реактивності, схожі на рефененції з композиційного API, під терміном "сигнали":
+
+- [Сигнали Solid](https://www.solidjs.com/docs/latest/api#createsignal)
+- [Сигнали Angular](https://github.com/angular/angular/discussions/49090)
+- [Сигнали Preact](https://preactjs.com/guide/v10/signals/)
+- [Сигнали Qwik](https://qwik.builder.io/docs/components/state/#usesignal)
+
+По суті, сигнали є тим самим примітивом реактивності, що й рефененції Vue. Це контейнер значень, який забезпечує відстеження залежностей від доступу та ініціювання побічних ефектів у разі мутації. Ця парадигма на основі примітивів реактивності не є особливо новою концепцією у світі фронтенду: вона бере свій початок із таких реалізацій, як [Knockout observables](https://knockoutjs.com/documentation/observables.html) і [Meteor Tracker]( https://docs.meteor.com/api/tracker.html) понад десять років тому. Опційний API і бібліотека керування станом React [MobX](https://mobx.js.org/) також базуються на тих самих принципах, але приховують примітиви за властивостями об’єкта.
+
+Хоча це не обов’язкова риса для того, щоб щось кваліфікувалося як сигнали, сьогодні ця концепція часто обговорюється разом із моделлю візуалізації, де оновлення виконуються через детальні підписки. Завдяки використанню віртуальної DOM Vue наразі [покладається на компілятори для досягнення аналогічної оптимізації](/guide/extras/rendering-mechanism#compiler-informed-virtual-dom). Однак ми також досліджуємо нову стратегію компіляції, натхненну Solid (режим Vapor), яка не покладається на Virtual DOM і використовує більше переваг вбудованої системи реактивності Vue.
+
+### Компроміси дизайну API {#api-design-trade-offs}
+
+Конструкція сигналів Preact і Qwik дуже схожа на [shallowRef](/api/reactivity-advanced#shallowref) Vue: усі три забезпечують змінний інтерфейс через властивість `.value`. Ми зосередимося на обговоренні сигналів Solid та Angular.
+
+#### Сигнали Solid {#solid-signals}
+
+Розробка API `createSignal()` Solid наголошує на сегрегації читання та запису. Сигнали представлені як геттер лише для читання та окремий сеттер:
+
+```js
+const [count, setCount] = createSignal(0)
+
+count() // отримати доступ до значення
+setCount(1) // оновити значення
+```
+
+Зверніть увагу, як сигнал `count` може бути переданий без сетера. Це гарантує, що стан ніколи не може бути змінений, якщо сеттер також явно не піддається впливу. Чи виправдовує ця гарантія безпеки більш детальний синтаксис, залежить від вимог проекту та особистого смаку, але якщо ви віддаєте перевагу цьому стилю API, ви можете легко скопіювати його у Vue:
+
+```js
+import { shallowRef, triggerRef } from 'vue'
+
+export function createSignal(value, options) {
+  const r = shallowRef(value)
+  const get = () => r.value
+  const set = (v) => {
+    r.value = typeof v === 'function' ? v(r.value) : v
+    if (options?.equals === false) triggerRef(r)
+  }
+  return [get, set]
+}
+```
+
+[Try it in the Playground](https://sfc.vuejs.org/#eNp9UsFu2zAM/RVCl9iYY63XwE437A+2Y9WD69KOOlvSKNndEPjfR8lOsnZAbxTfIx/Jp7P46lw5TygOovItaRfAY5jcURk9OksBztASNgF/6N40AyzQkR1hV0pvB/289yldvvidMsq01vgAD62dTChip28xeoT6TZPsc65MJVc9VuJHwNENTOAXQHW6O55ZN9ZmOSxLJTmTkKcpBGvgSzvo9metxEUim6E+wgyf4C5XInEBtGHVEU1IpXKtZaySVzlRiHXP/dg43sIavsQ58tUGeCUOkDIxx6eKbyVOITh/kNJ3bbzfiy8t9ZKjkngcPWKJftw/kX31SNxYieKfHpKTM9Ke0DwjIX3U8x31v76x7aLMwqu8s4RXuZroT80w2Nfv2BUQSPc9EsdXO1kuGYi/E7+bTBs0H/qNbXMzTFiAdRHy+XqV1XJii28SK5NNvsA9Biawl2wSlQm9gexhBOeEbpfeSJwPfxzajq2t6xp2l8F2cA9ztrFyOMC8Wd5Bts13X+KvqRl8Kuw4YN5t84zSeHw4FuMfTwYeeMr0aR/jNZe/yX4QHw==)
+
+#### Сигнали Angular {#angular-signals}
+
+Angular зазнає деяких фундаментальних змін, відмовившись від брудної перевірки та представивши власну реалізацію примітиву реактивності. API Angular Signal виглядає так:
+
+```js
+const count = signal(0)
+
+count() // отримати доступ до значення
+count.set(1) // встановити нове значення
+count.update((v) => v + 1) // оновлення на основі попереднього значення
+
+// мутувати глибокі об'єкти з однаковою ідентичністю
+const state = signal({ count: 0 })
+state.mutate((o) => {
+  o.count++
+})
+```
+
+Знову ж таки, ми можемо легко відтворити API у Vue:
+
+```js
+import { shallowRef, triggerRef } from 'vue'
+
+export function signal(initialValue) {
+  const r = shallowRef(initialValue)
+  const s = () => r.value
+  s.set = (value) => {
+    r.value = value
+  }
+  s.update = (updater) => {
+    r.value = updater(r.value)
+  }
+  s.mutate = (mutator) => {
+    mutator(r.value)
+    triggerRef(r)
+  }
+  return s
+}
+```
+
+[Спробуйте у пісочниці](https://sfc.vuejs.org/#eNp9U81u00AQfpXRXupAYlOOIYngFThwWgk5zsZxsXet/UmRLEtAhcSBM1d4BEBIpK3aZ1i/UWe9tps0VW+7M998M/vNtxV5U5bh1jAyJTOVyKzUoJg25YLyrCiF1FCBylIe52NIRFEazVZQw1qKAk7CKOapyWM58ZDwTJ1QTnkiuNIIN1zDvCsPXoz6xEqYZc4w0xMGwQjmC1+Ax2fwErGzyM+Dk+BFs6LMY83wBjDbnC7sL/u7+dpc2Bt7a6+mUFVDfV3PIkQMyJ+I+Gf/Nj/sJaJ39hKaT0fFfqgH1UujteDwOsmz5MOckrZDaMoVThJs3cxbeA6nI0paPID9b/9gn+vme/PN7povdtfyRJ7oKVJU3UnUEzWf7RWOetNcPEIyiwY5yJj4PU2KuET9BcdNVg5Pu4SiBB/oWSnBVbs7JRutSzWNIrVO3P7PVChkGuEplDhOVrCQqWKylOJcMYnElIz3OCIMbpmcSMZXTDL5FOcD6BGvo60pr/EpR3bCx9zbcBPnuTh/y9Zj0DJLUybb82DLWMH7I4/iHK0n2ceWZm14ojOUv3NlxjOdxfm7ODds5GXyJpXOuUPHQ9w9SiHKm1eGW5dzKeWWiYk24HJVnx2C+F6H807CqD9gz0NwFw66CJrT1xVG+7r2ILq67jKgX+3JFMiuWOLvlvh8FPwxWYYvmTKNnQ8kSbDhIHAP2OPsfnEvRE3qO9a1nNk=)
+
+Порівняно з посиланнями Vue, стиль API на основі геттерів Solid і Angular забезпечує деякі цікаві компроміси при використанні в компонентах Vue:
+
+- `()` є трохи менш докладним, ніж `.value`, але оновлення значення є більш докладним.
+- Немає ref-unwrapping: для доступу до значень завжди потрібен `()`. Це робить доступ до значення узгодженим всюди. Це також означає, що ви можете передавати необроблені сигнали як властивості компонентів.
+
+Те, чи підходять вам ці стилі API, певною мірою суб’єктивно. Наша мета тут — продемонструвати основну подібність і компроміси між цими різними дизайнами API. Ми також хочемо показати, що Vue є гнучким: ви насправді не обмежені в існуючих API. За потреби ви можете створити власний примітивний API реактивності, щоб відповідати більш конкретним потребам.

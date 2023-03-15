@@ -6,7 +6,7 @@ const { x, y } = useMouse()
 </script>
 
 :::tip
-Цей розділ передбачає базові знання композиційного API. Якщо ви вивчали Vue лише з опційним API, ви можете встановити налаштування API на композиційний (за допомогою перемикача у верхній частині лівої бічної панелі) і перечитати [основи реактивності](/guide/essentials/reactivity-fundamentals.html) та розділи по [хуках життєвого циклу](/guide/essentials/lifecycle.html).
+Цей розділ передбачає базові знання композиційного API. Якщо ви вивчали Vue лише з опційним API, ви можете встановити налаштування API на композиційний (за допомогою перемикача у верхній частині лівої бічної панелі) і перечитати [основи реактивності](/guide/essentials/reactivity-fundamentals) та розділи по [хуках життєвого циклу](/guide/essentials/lifecycle).
 :::
 
 ## Що таке композиційна функція? {#what-is-a-composable}
@@ -125,7 +125,7 @@ export function useMouse() {
 ```
 
 :::tip
-Кожен екземпляр компонента, що викликає `useMouse()`, створить власні копії стану `x` і `y`, щоб вони не заважали один одному. Якщо ви хочете керувати спільним станом між компонентами, прочитайте розділ [Керування станом](/guide/scaling-up/state-management.html).
+Кожен екземпляр компонента, що викликає `useMouse()`, створить власні копії стану `x` і `y`, щоб вони не заважали один одному. Якщо ви хочете керувати спільним станом між компонентами, прочитайте розділ [Керування станом](/guide/scaling-up/state-management).
 :::
 
 ## Приклад асинхронного стану {#async-state-example}
@@ -218,7 +218,7 @@ export function useFetch(url) {
 }
 ```
 
-Ця версія `useFetch()` тепер приймає як статичні рядки URL-адреси, так і референції на рядки URL-адреси. Коли він виявляє, що URL-адреса є динамічною референцією за допомогою [`isRef()`](/api/reactivity-utilities.html#isref), він встановлює реактивний ефект за допомогою [`watchEffect()`](/api/reactivity-core.html#watcheffect). Ефект запуститься негайно, а також відстежуватиме URL-адресу як залежність. Щоразу, коли URL-адреса змінюється, дані скидаються та завантажуються знову.
+Ця версія `useFetch()` тепер приймає як статичні рядки URL-адреси, так і референції на рядки URL-адреси. Коли він виявляє, що URL-адреса є динамічною референцією за допомогою [`isRef()`](/api/reactivity-utilities#isref), він встановлює реактивний ефект за допомогою [`watchEffect()`](/api/reactivity-core#watcheffect). Ефект запуститься негайно, а також відстежуватиме URL-адресу як залежність. Щоразу, коли URL-адреса змінюється, дані скидаються та завантажуються знову.
 
 Ось [оновлена версія `useFetch()`](https://sfc.vuejs.org/#eNqFVt1u40QUfpWDb+KK1C5acROlFVwsVyChFcuVb1xnsnVJbMszTqmiSEtLl0VCuxKqundIPAGlP9ts23RfYfxGfGfGdt00gKrG9sz5/c73jT11vswyb1IIp+f0ZZTHmSIpVJFtBUk8ztJc0ZRyMexSlI6zQokBzWiYp2PqwKnTMiqk+EqoaKfZ9/x6yduVsAySKE2kou1Qiuf5iDaps6NUJnu+vyvTJBuFkdhJRwORe2o/i6N0IDwk9VU6SKWPANY9HsATFbmdzzpr9WJh4tUluu4abW41iT6FjzcJR4WAfe0xpUGowi6JPE/zLgKqfB+lbzZ9uIgJ+75vUQEeeFBijDqVwBORfqdP9Rn+F+UBft/rOa5zKn/ix/IAf29IX5Fe6Dt9qy/Ll3ztsWd/u1AqTWiyPkzzzcCJKU7o88ChL6JRHP3AK9xlHDhb0ynFNJv1fetiyghUfxBP4B0PYWo6gCUHRuhsS/+hP3xC+nc9R+q5vtY3+pT0R1PFHA/X+rRHiGscvbGQMnwhTA6euglS1deUY+BBDv2n/mj6+Ls85NZtw7/qS8Lqqb5qlYkoPqq0d7ZcMZLC1szYc7hlBC8ZLNIXZumkh25ywRCwva0Qzyvjro61KN96nlc79P1mfk7XscxdH4cZ+JkmEMCUYwJ7syEDByhZPAIHZOfnwKkpK4cRy2ZXemn+wsedlxeJisfCE3K8vp2nexJE3kWUbiuGj8WJyNdzkYDnAmP795hLpo/icthZkMzQSktoaOOhbmP5jC9FYp72Qpg9HQ5FpJaEHCTiR+M3LJJIxZj+AyVYKKx2zDSsCJNixCqpdwylHm7xZij3k+g+8CC1caugRL4P1YCXczt5HlslI9weMndZPZf6gvQdZPUShre1ob71PBuFy7I6RwWc3S5bmj9eb6eGUsojQ2zEtGy+01f6rIP4V01JuF2A87/U1KLnz77uMv2hBwL32BvsvcXNOXSG27PyRF8g/g1f0eAdVhrhoMPfCAmum0pMrhuEf8/0ZwRgAccb5GpNzjWI15hjOt9XzZkhVwfXfYt8slVA235fI+4h2kAzJmUDKU4GH9XNAfhpXe+js8OIRGGoe2GsiCmfFlVJvMxt/KWvGRUqX1ksL8ufqwkuyldo7C1QO8C+rXfNJjgzJoz+I5xXhHjHx2Dd0AnbI+frVc7mrLrgnVYW9M8FMPpUHldoKQtoLiSwtO0NawEYiJnOJukDqllLeJlzpB7OjCKeGLmiofkyF0VlWSmZL/GQXKNYM8W2QEyLOMnt9OxJ14BjugelsMxvm3PDPX4focFzxrTGwuprXh5hAujdTAmcPDL85LfFByY1IFmF+XH5xpbT5mIlZtP1jPgobhd9ZoaDwYBArOQWucrDLkbCSjNSb1eM6RyzjCB3WEKc1eul0nl9fLRwwwuqyJOVb/Ve7WBOSzb/Pw0ESXNUNfS2TVVpErFH3+LsjKVwXQw+HU0EZ9sFIObTo0IAX1LfVQHsJ0lDBJ7zN6Ha8fIwGaRj7G7RhvekRRVOZgLXhFqG15pwSpfrecotux3z2v8v+XbW7uNV/OvSk40NiyZ+Z87sH8nRkM4=), зі штучною затримкою та випадковою помилкою для демонстраційних цілей.
 
@@ -230,7 +230,7 @@ export function useFetch(url) {
 
 ### Вхідні аргументи {#input-arguments}
 
-Композиційна функція може приймати референції як аргументи, навіть якщо вона не покладається на них для реактивності. Якщо ви пишете композиційну функцію, яка може використовуватися іншими розробниками, буде гарною ідеєю розглянути випадок, коли вхідні аргументи є референціями замість необроблених значень. Допоміжна функція [`unref()`](/api/reactivity-utilities.html#unref) стане в пригоді для цієї мети:
+Композиційна функція може приймати референції як аргументи, навіть якщо вона не покладається на них для реактивності. Якщо ви пишете композиційну функцію, яка може використовуватися іншими розробниками, буде гарною ідеєю розглянути випадок, коли вхідні аргументи є референціями замість необроблених значень. Допоміжна функція [`unref()`](/api/reactivity-utilities#unref) стане в пригоді для цієї мети:
 
 ```js
 import { unref } from 'vue'
@@ -271,7 +271,7 @@ console.log(mouse.x)
 
 Виконувати побічні ефекти (наприклад, додавати прослуховувачі подій DOM або отримувати дані) у композиційних функціях можна, але зверніть увагу на наступні правила:
 
-- Якщо ви працюєте над програмою, яка використовує [рендеринг на стороні сервера](/guide/scaling-up/ssr.html) (SSR), переконайтеся, що ви виконуєте специфічні для DOM побічні ефекти в хуках життєвого циклу після монтування, наприклад, `onMounted()`. Ці хуки викликаються лише в браузері, тож ви можете бути впевнені, що код у них має доступ до DOM.
+- Якщо ви працюєте над програмою, яка використовує [рендеринг на стороні сервера](/guide/scaling-up/ssr) (SSR), переконайтеся, що ви виконуєте специфічні для DOM побічні ефекти в хуках життєвого циклу після монтування, наприклад, `onMounted()`. Ці хуки викликаються лише в браузері, тож ви можете бути впевнені, що код у них має доступ до DOM.
 
 - Не забудьте очищувати побічні ефекти в `onUnmounted()`. Наприклад, якщо композиційна функція встановлює слухач подій DOM, він повинен видалити цей слухач у `onUnmounted()`, як ми бачили у прикладі `useMouse()`. Гарною ідеєю може бути використання композиційної функції, яка автоматично робить це за вас, як-от приклад `useEventListener()`.
 
@@ -333,7 +333,7 @@ export default {
 
 ### щодо міксинів {#vs-mixins}
 
-Користувачі, які перейшли з Vue 2, можуть бути знайомі з параметром [mixins](/api/options-composition.html#mixins), який також дозволяє нам витягувати логіку компонентів у багаторазові блоки. У міксинів є три основні недоліки:
+Користувачі, які перейшли з Vue 2, можуть бути знайомі з параметром [mixins](/api/options-composition#mixins), який також дозволяє нам витягувати логіку компонентів у багаторазові блоки. У міксинів є три основні недоліки:
 
 1. **Незрозуміле джерело властивостей**: при використанні багатьох міксинів стає незрозуміло, яка властивість екземпляра впроваджується яким міксином, що ускладнює відстеження реалізації та розуміння поведінки компонента. Ось чому ми також рекомендуємо використовувати шаблон "референція + деструктуризація" для композиційних функцій: це робить джерело властивості зрозумілим у споживаючих компонентах.
 
@@ -345,7 +345,7 @@ export default {
 
 ### щодо компонент без рендерингу {#vs-renderless-components}
 
-У розділі про слоти компонентів ми обговорили шаблон [компоненти без рендеру](/guide/components/slots.html#renderless-components) на основі слотів з обмеженою областю. Ми навіть реалізували ту саму демонстрацію відстеження миші, використовуючи компоненти без рендерингу.
+У розділі про слоти компонентів ми обговорили шаблон [компоненти без рендеру](/guide/components/slots#renderless-components) на основі слотів з обмеженою областю. Ми навіть реалізували ту саму демонстрацію відстеження миші, використовуючи компоненти без рендерингу.
 
 Основна перевага складових компонентів над компонентами без рендерингу полягає в тому, що складові компоненти не спричиняють додаткових витрат на екземпляр компонента. При використанні в усій програмі, кількість додаткових екземплярів компонентів, створених за допомогою шаблону компонента без рендерингу, може призвести до помітних накладних витрат на продуктивність.
 
@@ -357,7 +357,7 @@ export default {
 
 ## Подальше читання {#further-reading}
 
-- [Реактивність поглиблено](/guide/extras/reactivity-in-depth.html): для низькорівневого розуміння того, як працює система реактивності Vue.
-- [Керування станом](/guide/scaling-up/state-management.html): для шаблонів керування станом, спільного для кількох компонентів.
-- [Тестування композиційниї функцій](/guide/scaling-up/testing.html#testing-composables): поради щодо модульного тестування композиційних функцій.
+- [Реактивність поглиблено](/guide/extras/reactivity-in-depth): для низькорівневого розуміння того, як працює система реактивності Vue.
+- [Керування станом](/guide/scaling-up/state-management): для шаблонів керування станом, спільного для кількох компонентів.
+- [Тестування композиційниї функцій](/guide/scaling-up/testing#testing-composables): поради щодо модульного тестування композиційних функцій.
 - [VueUse](https://vueuse.org/): колекція Vue композиційних функцій, постійно покращується. Вихідний код також є чудовим навчальним ресурсом.

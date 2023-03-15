@@ -314,15 +314,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Техніки анімації',
           link: '/guide/extras/animation'
         },
-        {
-          text: 'Трансформація реактивності',
-          link: '/guide/extras/reactivity-transform'
-        }
         // {
         //   text: 'Building a Library for Vue',
         //   link: '/guide/extras/building-a-library'
         // },
-        // { text: 'Custom Renderers', link: '/guide/extras/custom-renderer' },
         // {
         //   text: 'Vue for React Devs',
         //   link: '/guide/extras/vue-for-react-devs'
@@ -563,7 +558,6 @@ export default defineConfigWithTheme<ThemeConfig>({
   description: 'Vue.js - Прогресивний фрейморк на JavaScript',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
-  scrollOffset: 'header',
 
   head: [
     ['meta', { name: 'theme-color', content: '#3c8772' }],
@@ -618,6 +612,13 @@ export default defineConfigWithTheme<ThemeConfig>({
           gtag('config', 'UA-2918085-50');
       `
     ],
+    [
+      'script',
+      {
+        src: 'https://vueschool.io/banner.js?affiliate=vuejs&type=top',
+        async: 'true'
+      }
+    ]
   ],
 
   themeConfig: {
@@ -734,9 +735,5 @@ export default defineConfigWithTheme<ThemeConfig>({
     json: {
       stringify: true
     }
-  },
-
-  vue: {
-    reactivityTransform: true
   }
 })

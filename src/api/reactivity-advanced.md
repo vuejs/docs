@@ -2,7 +2,7 @@
 
 ## shallowRef() {#shallowref}
 
-Неглибока версія [`ref()`](./reactivity-core.html#ref).
+Неглибока версія [`ref()`](./reactivity-core#ref).
 
 - **Тип**
 
@@ -33,8 +33,8 @@
   ```
 
 - **Також до вашої уваги:**
-  - [Гід - Зменшення витрат на реактивність для великих незмінних структур](/guide/best-practices/performance.html#reduce-reactivity-overhead-for-large-immutable-structures)
-  - [Гід - Інтеграція з зовнішніми системами стану](/guide/extras/reactivity-in-depth.html#integration-with-external-state-systems)
+  - [Гід - Зменшення витрат на реактивність для великих незмінних структур](/guide/best-practices/performance#reduce-reactivity-overhead-for-large-immutable-structures)
+  - [Гід - Інтеграція з зовнішніми системами стану](/guide/extras/reactivity-in-depth#integration-with-external-state-systems)
 
 ## triggerRef() {#triggerref}
 
@@ -133,7 +133,7 @@
 
 ## shallowReactive() {#shallowreactive}
 
-Неглибока версія [`reactive()`](./reactivity-core.html#reactive).
+Неглибока версія [`reactive()`](./reactivity-core#reactive).
 
 - **Тип**
 
@@ -171,7 +171,7 @@
 
 ## shallowReadonly() {#shallowreadonly}
 
-Неглибока версія [`readonly()`](./reactivity-core.html#readonly).
+Неглибока версія [`readonly()`](./reactivity-core#readonly).
 
 - **Тип**
 
@@ -219,7 +219,7 @@
 
 - **Подробиці**
 
-  `toRaw()` може повертати оригінальний об'єкт із проксі, які створенні за допомогою [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](#shallowreactive) або [`shallowReadonly()`](#shallowreadonly).
+  `toRaw()` може повертати оригінальний об'єкт із проксі, які створенні за допомогою [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core#readonly), [`shallowReactive()`](#shallowreactive) або [`shallowReadonly()`](#shallowreadonly).
 
   Застосовується в крайньому разі, коли потрібне лише читання без доступу/відстеження або запис без ініціювання змін. **Не** рекомендується зберігати постійне посилання на оригінальний об’єкт. Використовуйте з обережністю.
 

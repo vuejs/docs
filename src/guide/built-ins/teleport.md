@@ -116,7 +116,8 @@ export default {
 Ви можете натиснути кнопку нижче та перевірити тег `<body>` за допомогою інструментів розробника вашого браузера:
 
 <script setup>
-let open = $ref(false)
+import { ref } from 'vue'
+const open = ref(false)
 </script>
 
 <div class="demo">
@@ -198,5 +199,5 @@ let open = $ref(false)
 
 **Пов'язані**
 
-- [Посилання на API `<Teleport>`](/api/built-in-components.html#teleport)
-- [Обробка телепортів у SSR](/guide/scaling-up/ssr.html#teleports)
+- [Посилання на API `<Teleport>`](/api/built-in-components#teleport)
+- [Обробка телепортів у SSR](/guide/scaling-up/ssr#teleports)

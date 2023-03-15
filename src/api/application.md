@@ -35,11 +35,11 @@
   const app = createApp(App)
   ```
 
-- **Також до вашої уваги:** [Гід - Створення додатку Vue](/guide/essentials/application.html)
+- **Також до вашої уваги:** [Гід - Створення додатку Vue](/guide/essentials/application)
 
 ## createSSRApp()
 
-Створює екземпляр додатку в режимі [гідратації SSR](/guide/scaling-up/ssr.html#client-hydration). Використання точно таке ж, як `createApp()`.
+Створює екземпляр додатку в режимі [гідратації SSR](/guide/scaling-up/ssr#client-hydration). Використання точно таке ж, як `createApp()`.
 
 ## app.mount()
 
@@ -59,7 +59,7 @@
 
   Якщо компонент має шаблон або визначену функцію рендерингу, він замінить будь-які наявні вузли DOM усередині контейнера. В іншому випадку, якщо доступний компілятор під час виконання, `innerHTML` контейнера буде використано як шаблон.
 
-  У режимі SSR гідратації він гідратує наявні вузли DOM всередині контейнера. Якщо є [невідповідності](/guide/scaling-up/ssr.html#hydration-mismatch), наявні вузли DOM буде змінено відповідно до очікуваного результату.
+  У режимі SSR гідратації він гідратує наявні вузли DOM всередині контейнера. Якщо є [невідповідності](/guide/scaling-up/ssr#hydration-mismatch), наявні вузли DOM буде змінено відповідно до очікуваного результату.
 
   Для кожного екземпляра додатка, `mount()` можна викликати лише один раз.
 
@@ -145,8 +145,8 @@
   </div>
 
 - **Також до вашої уваги:**
-  - [Надавання / введення](/guide/components/provide-inject.html)
-  - [Надавання на рівні додатку](/guide/components/provide-inject.html#app-level-provide)
+  - [Надавання / введення](/guide/components/provide-inject)
+  - [Надавання на рівні додатку](/guide/components/provide-inject#app-level-provide)
 
 ## app.component()
 
@@ -177,7 +177,7 @@
   const MyComponent = app.component('my-component')
   ```
 
-- **Також до вашої уваги:** [Реєстрація компонента](/guide/components/registration.html)
+- **Також до вашої уваги:** [Реєстрація компонента](/guide/components/registration)
 
 ## app.directive()
 
@@ -215,11 +215,11 @@
   const myDirective = app.directive('my-directive')
   ```
 
-- **Також до вашої уваги:** [Користувацькі директиви](/guide/reusability/custom-directives.html)
+- **Також до вашої уваги:** [Користувацькі директиви](/guide/reusability/custom-directives)
 
 ## app.use()
 
-Встановлює [плагін](/guide/reusability/plugins.html).
+Встановлює [плагін](/guide/reusability/plugins).
 
 - **Тип**
 
@@ -250,7 +250,7 @@
   app.use(MyPlugin)
   ```
 
-- **Також до вашої уваги:** [Плагіни](/guide/reusability/plugins.html)
+- **Також до вашої уваги:** [Плагіни](/guide/reusability/plugins)
 
 ## app.mixin()
 
@@ -259,7 +259,7 @@
 :::warning Не рекомендується
 Міксини підтримуються у Vue 3 головним чином для зворотної сумісності через їх широке використання в бібліотеках екосистем. У коді додатку слід уникати використання міксинів, особливо глобальних міксинів.
 
-Для повторного використання логіки віддайте перевагу [композиційним функціям](/guide/reusability/composables.html).
+Для повторного використання логіки віддайте перевагу [композиційним функціям](/guide/reusability/composables).
 :::
 
 - **Тип**
@@ -272,7 +272,7 @@
 
 ## app.version
 
-Надає версію Vue, у якій було створено додаток. Це корисно в [плагінах](/guide/reusability/plugins.html), де вам може знадобитися умовна логіка на основі різних версій Vue.
+Надає версію Vue, у якій було створено додаток. Це корисно в [плагінах](/guide/reusability/plugins), де вам може знадобитися умовна логіка на основі різних версій Vue.
 
 - **Тип**
 
@@ -297,7 +297,7 @@
   }
   ```
 
-- **Також до вашої уваги:** [Глобальний API - версія](/api/general.html#version)
+- **Також до вашої уваги:** [Глобальний API - версія](/api/general#version)
 
 ## app.config
 
@@ -391,11 +391,11 @@ console.log(app.config)
 
 - **Тип**: `boolean`
 
-- **Також до вашої уваги:** [Гід - Продуктивність](/guide/best-practices/performance.html)
+- **Також до вашої уваги:** [Гід - Продуктивність](/guide/best-practices/performance)
 
 ## app.config.compilerOptions
 
-Налаштовує параметри компілятора під час виконання. Значення, встановлені для цього об'єкта, будуть передані компілятору шаблонів у браузері та впливатимуть на кожен компонент налаштованого додатка. Зауважте, що ви також можете змінити ці параметри для кожного компонента за допомогою параметра [`compilerOptions`](/api/options-rendering.html#compileroptions).
+Налаштовує параметри компілятора під час виконання. Значення, встановлені для цього об'єкта, будуть передані компілятору шаблонів у браузері та впливатимуть на кожен компонент налаштованого додатка. Зауважте, що ви також можете змінити ці параметри для кожного компонента за допомогою параметра [`compilerOptions`](/api/options-rendering#compileroptions).
 
 ::: warning Важливо
 Цей параметр конфігурації враховується лише під час використання повної збірки (тобто окремого `vue.js`, який може компілювати шаблони у браузері). Якщо ви використовуєте збірку лише під час виконання з налаштуваннями збірки, натомість параметри компілятора потрібно передати в `@vue/compiler-dom` через конфігурації інструменту збирання.
@@ -426,7 +426,7 @@ console.log(app.config)
   }
   ```
 
-- **Також до вашої уваги:** [Vue і вебкомпоненти](/guide/extras/web-components.html)
+- **Також до вашої уваги:** [Vue і вебкомпоненти](/guide/extras/web-components)
 
 ### app.config.compilerOptions.whitespace
 
@@ -523,7 +523,7 @@ console.log(app.config)
   }
   ```
   
-- **Також до вашої уваги:** [Гід - Доповнення глобальних властивостей](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
+- **Також до вашої уваги:** [Гід - Доповнення глобальних властивостей](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies
 
@@ -574,4 +574,4 @@ console.log(app.config)
   // покаже 'привіт Vue'
   ```
 
-- **Також до вашої уваги:** [Екземпляр компонента - `$options`](/api/component-instance.html#options)
+- **Також до вашої уваги:** [Екземпляр компонента - `$options`](/api/component-instance#options)

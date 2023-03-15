@@ -186,7 +186,7 @@ computed: {
 
 ## Single-file component top-level element order {#single-file-component-top-level-element-order}
 
-**[Single-File Components](/guide/scaling-up/sfc.html) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
+**[Single-File Components](/guide/scaling-up/sfc) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>

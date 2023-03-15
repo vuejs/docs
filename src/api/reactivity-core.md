@@ -3,8 +3,8 @@
 :::info Також до вашої уваги
 Щоб краще зрозуміти основи реактивності, рекомендується прочитати наступні розділи гіда:
 
-- [Основи реактивності](/guide/essentials/reactivity-fundamentals.html) (з вподобанням API, встановленому як Композиційний)
-- [Реактивність у глибині](/guide/extras/reactivity-in-depth.html)
+- [Основи реактивності](/guide/essentials/reactivity-fundamentals) (з вподобанням API, встановленому як Композиційний)
+- [Реактивність у глибині](/guide/extras/reactivity-in-depth)
   :::
 
 ## ref() {#ref}
@@ -27,7 +27,7 @@
 
   Якщо об'єкту присвоєно значення референції, об’єкт стає глибоко реактивним за допомогою [reactive()](#reactive). Це також означає, що якщо об’єкт містить вкладені референції, вони будуть глибоко розгорнуті.
 
-  Щоб уникнути глибокого перетворення, натомість використовуйте [`shallowRef()`](./reactivity-advanced.html#shallowref).
+  Щоб уникнути глибокого перетворення, натомість використовуйте [`shallowRef()`](./reactivity-advanced#shallowref).
 
 - **Приклад**
 
@@ -40,8 +40,8 @@
   ```
 
 - **Також до вашої уваги:**
-  - [Гід - Реактивні змінні використовуючи `ref()`](/guide/essentials/reactivity-fundamentals.html#reactive-variables-with-ref)
-  - [Гід - Типізація `ref()`](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
+  - [Гід - Реактивні змінні використовуючи `ref()`](/guide/essentials/reactivity-fundamentals#reactive-variables-with-ref)
+  - [Гід - Типізація `ref()`](/guide/typescript/composition-api#typing-ref) <sup class="vt-badge ts" />
 
 ## computed() {#computed}
 
@@ -109,9 +109,9 @@
   ```
 
 - **Також до вашої уваги:**
-  - [Гід - Обчислювані властивості](/guide/essentials/computed.html)
-  - [Гід - Налагодження обчислюваних властивостей](/guide/extras/reactivity-in-depth.html#computed-debugging)
-  - [Гід - Типізація `computed()`](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
+  - [Гід - Обчислювані властивості](/guide/essentials/computed)
+  - [Гід - Налагодження обчислюваних властивостей](/guide/extras/reactivity-in-depth#computed-debugging)
+  - [Гід - Типізація `computed()`](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
 
 ## reactive() {#reactive}
 
@@ -129,7 +129,7 @@
 
   Слід також зазначити, що розгортання референції не виконується, коли до референції звертаються як до елемента реактивного масиву або типу колекції, наприклад `Map`.
 
-  Щоб уникнути глибокого перетворення та зберегти реактивність лише на кореневому рівні, замість цього використовуйте [shallowReactive()](./reactivity-advanced.html#shallowreactive).
+  Щоб уникнути глибокого перетворення та зберегти реактивність лише на кореневому рівні, замість цього використовуйте [shallowReactive()](./reactivity-advanced#shallowreactive).
 
   Повернений об’єкт і його вкладені об'єкти обгорнуті [ES проксі](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) й **не** дорівнюють оригінальним об'єктам. Рекомендується працювати виключно з реактивним проксі та уникати покладань на оригінальний об’єкт.
 
@@ -187,8 +187,8 @@
   ```
 
 - **Також до вашої уваги:**
-  - [Гід - Основи реактивності](/guide/essentials/reactivity-fundamentals.html)
-  - [Гід - Типізація `reactive()`](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
+  - [Гід - Основи реактивності](/guide/essentials/reactivity-fundamentals)
+  - [Гід - Типізація `reactive()`](/guide/typescript/composition-api#typing-reactive) <sup class="vt-badge ts" />
 
 ## readonly() {#readonly}
 
@@ -206,7 +206,7 @@
 
   Проксі лише для читання є глибоким: будь-яка вкладена властивість, до якої здійснюється доступ, також буде лише для читання. Він також має таку саму поведінку розгортання референцій, що й `reactive()`, за винятком того, що розгорнуті значення також будуть доступні лише для читання.
 
-   Щоб уникнути глибокого перетворення, натомість використовуйте [shallowReadonly()](./reactivity-advanced.html#shallowreadonly).
+   Щоб уникнути глибокого перетворення, натомість використовуйте [shallowReadonly()](./reactivity-advanced#shallowreadonly).
 
 - **Приклад**
 
@@ -256,7 +256,7 @@
 
   Другий аргумент — це необов'язковий об’єкт параметрів, який можна використовувати для налаштування часу спрацювання ефекту або для налагодження залежностей ефекту.
 
-  За замовчуванням спостерігачі запускаються безпосередньо перед рендерингом компонента. Налаштування `flush: 'post'` відкладе спостерігач до завершення рендерингу компонента. Додаткову інформацію див. у розділі [час спрацювання](/guide/essentials/watchers.html#callback-flush-timing). У рідкісних випадках може знадобитися негайно запустити спостерігач, коли змінюється реактивна залежність, напр. зробити кеш недійсним. Цього можна досягти за допомогою `flush: 'sync'`. Однак цей параметр слід використовувати з обережністю, оскільки він може призвести до проблем із продуктивністю та узгодженістю даних, якщо одночасно оновлюється кілька властивостей.
+  За замовчуванням спостерігачі запускаються безпосередньо перед рендерингом компонента. Налаштування `flush: 'post'` відкладе спостерігач до завершення рендерингу компонента. Додаткову інформацію див. у розділі [час спрацювання](/guide/essentials/watchers#callback-flush-timing). У рідкісних випадках може знадобитися негайно запустити спостерігач, коли змінюється реактивна залежність, напр. зробити кеш недійсним. Цього можна досягти за допомогою `flush: 'sync'`. Однак цей параметр слід використовувати з обережністю, оскільки він може призвести до проблем із продуктивністю та узгодженістю даних, якщо одночасно оновлюється кілька властивостей.
 
   Повернене значення є функцією обробника, яку можна викликати, щоб зупинити повторний запуск ефекту.
 
@@ -309,8 +309,8 @@
   ```
 
 - **Також до вашої уваги**:
-  - [Гід - Спостерігачі](/guide/essentials/watchers.html#watcheffect)
-  - [Гід - Налагодження спостерігача](/guide/extras/reactivity-in-depth.html#watcher-debugging)
+  - [Гід - Спостерігачі](/guide/essentials/watchers#watcheffect)
+  - [Гід - Налагодження спостерігача](/guide/extras/reactivity-in-depth#watcher-debugging)
 
 ## watchPostEffect() {#watchposteffect}
 
@@ -383,9 +383,9 @@
   Третій необов'язковий аргумент - це об'єкт параметрів, який підтримує такі параметри:
 
   - **`immediate`**: активувати зворотний виклик негайно після створення спостерігача. Під час першого виклику старе значення буде `undefined`.
-   - **`deep`**: примусовий глибокий обхід джерела, якщо це об’єкт, так що зворотний виклик запускає глибокі зміни. Перегляньте [Глибинні спостерігачі](/guide/essentials/watchers.html#deep-watchers).
-   - **`flush`**: регулює час спрацювання зворотного виклику. Перегляньте [Час спрацювання](/guide/essentials/watchers.html#callback-flush-timing) і [`watchEffect()`](/api/reactivity-core.html#watcheffect).
-   - **`onTrack / onTrigger`**: налагодити залежності спостерігача. Перегляньте [Налагодження спостерігача](/guide/extras/reactivity-in-depth.html#watcher-debugging).
+   - **`deep`**: примусовий глибокий обхід джерела, якщо це об’єкт, так що зворотний виклик запускає глибокі зміни. Перегляньте [Глибинні спостерігачі](/guide/essentials/watchers#deep-watchers).
+   - **`flush`**: регулює час спрацювання зворотного виклику. Перегляньте [Час спрацювання](/guide/essentials/watchers#callback-flush-timing) і [`watchEffect()`](/api/reactivity-core#watcheffect).
+   - **`onTrack / onTrigger`**: налагодити залежності спостерігача. Перегляньте [Налагодження спостерігача](/guide/extras/reactivity-in-depth#watcher-debugging).
 
   У порівнянні з [`watchEffect()`](#watcheffect), `watch()` дозволяє нам:
 
@@ -483,5 +483,5 @@
 
 - **Також до вашої уваги**:
 
-  - [Гід - Спостерігачі](/guide/essentials/watchers.html)
-  - [Гід - Налагодження спостерігача](/guide/extras/reactivity-in-depth.html#watcher-debugging)
+  - [Гід - Спостерігачі](/guide/essentials/watchers)
+  - [Гід - Налагодження спостерігача](/guide/extras/reactivity-in-depth#watcher-debugging)

@@ -83,7 +83,7 @@ watchEffect(() => {
 })
 ```
 
-Дивіться також: [Типізація референцій в шаблонах](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
+Дивіться також: [Типізація референцій в шаблонах](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
 
 </div>
 
@@ -237,7 +237,7 @@ defineExpose({
 
 Коли батьківський елемент отримує екземпляр цього компонента через референцію в шаблоні, отриманий екземпляр матиме форму `{ a: number, b: number }` (референції автоматично розгортаються так само як у звичайних екземплярах).
 
-Дивіться також: [типізація референцій в шаблонах для компонент](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
+Дивіться також: [типізація референцій в шаблонах для компонент](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">

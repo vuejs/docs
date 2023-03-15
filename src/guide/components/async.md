@@ -2,7 +2,7 @@
 
 ## Основне використання {#basic-usage}
 
-У великих програмах нам може знадобитися розділити програму на менші частини та завантажувати компонент із сервера лише тоді, коли це необхідно. Щоб зробити це можливим, Vue має функцію [`defineAsyncComponent`](/api/general.html#defineasynccomponent):
+У великих програмах нам може знадобитися розділити програму на менші частини та завантажувати компонент із сервера лише тоді, коли це необхідно. Щоб зробити це можливим, Vue має функцію [`defineAsyncComponent`](/api/general#defineasynccomponent):
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -30,7 +30,7 @@ const AsyncComp = defineAsyncComponent(() =>
 
 Отриманий `AsyncComp` є компонентом-оболонкою, який викликає функцію завантажувача лише тоді, коли вона фактично показується на сторінці. Крім того, він передасть усі реквізити та слоти до внутрішнього компонента, тож ви можете використовувати асинхронну оболонку для плавної заміни оригінального компонента, досягаючи відкладеного завантаження.
 
-Як і звичайні компоненти, асинхронні компоненти можна [зареєструвати глобально](/guide/components/registration.html#global-registration) за допомогою `app.component()`:
+Як і звичайні компоненти, асинхронні компоненти можна [зареєструвати глобально](/guide/components/registration#global-registration) за допомогою `app.component()`:
 
 ```js
 app.component('MyComponent', defineAsyncComponent(() =>
@@ -40,7 +40,7 @@ app.component('MyComponent', defineAsyncComponent(() =>
 
 <div class="options-api">
 
-Ви також можете використовувати `defineAsyncComponent`, якщо [реєструєте компонент локально](/guide/components/registration.html#local-registration):
+Ви також можете використовувати `defineAsyncComponent`, якщо [реєструєте компонент локально](/guide/components/registration#local-registration):
 
 ```vue
 <script>
@@ -110,4 +110,4 @@ const AsyncComp = defineAsyncComponent({
 
 ## Використання із Suspense {#using-with-suspense}
 
-Асинхронні компоненти можна використовувати з вбудованим компонентом `<Suspense>`. Взаємодію між `<Suspense>` і асинхронними компонентами задокументовано в [розділі, присвяченому `<Suspense>`](/guide/built-ins/suspense.html).
+Асинхронні компоненти можна використовувати з вбудованим компонентом `<Suspense>`. Взаємодію між `<Suspense>` і асинхронними компонентами задокументовано в [розділі, присвяченому `<Suspense>`](/guide/built-ins/suspense).

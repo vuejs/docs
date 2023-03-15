@@ -7,7 +7,7 @@ pageClass: api
 :::info Реєстрація та використання
 Вбудовані компоненти можна використовувати безпосередньо в шаблонах без необхідності реєстрації. Вони також підтримують струшування дерева: вони включаються в збірку лише тоді, коли використовуються.
 
-При їх використанні в [функціях рендерингу](/guide/extras/render-function.html), їх потрібно імпортувати явно. Наприклад:
+При їх використанні в [функціях рендерингу](/guide/extras/render-function), їх потрібно імпортувати явно. Наприклад:
 
 ```js
 import { h, Transition } from 'vue'
@@ -102,6 +102,14 @@ h(Transition, {
   </Transition>
   ```
 
+  Примусовий перехід шляхом зміни атрибута `key`:
+  
+  ```vue-html
+  <Transition>
+    <div :key="text">{{ text }}</div>
+  </Transition>
+  ```
+
   Динамічний компонент з увімкненим режимом переходу + анімацією:
 
   ```vue-html
@@ -118,7 +126,7 @@ h(Transition, {
   </Transition>
   ```
 
-- **Також до вашої уваги:** [Гід `<Transition>`](/guide/built-ins/transition.html)
+- **Також до вашої уваги:** [Гід `<Transition>`](/guide/built-ins/transition)
 
 ## `<TransitionGroup>` {#transitiongroup}
 
@@ -150,7 +158,7 @@ h(Transition, {
 
   За промовчанням `<TransitionGroup>` не рендерить DOM-елемент обгортки, але його можна визначити за допомогою властивості `tag`.
 
-  Зауважте, що кожен дочірній елемент у `<transition-group>` повинен мати [**унікальний ключ**](/guide/essentials/list.html#maintaining-state-with-key), щоб анімації працювали належним чином.
+  Зауважте, що кожен дочірній елемент у `<transition-group>` повинен мати [**унікальний ключ**](/guide/essentials/list#maintaining-state-with-key), щоб анімації працювали належним чином.
 
   `<TransitionGroup>` підтримує переходи з переміщеннями за допомогою CSS transform. Якщо позиція дочірнього елемента на екрані змінилася після оновлення, до нього буде застосовано CSS-клас переміщення (автоматично створений з атрибута `name` або налаштований за допомогою реквізиту `move-class`). Якщо при застосуванні CSS `transform` властивості можливе переміщення, елемент буде плавно анімовано до місця призначення за допомогою [технології FLIP](https://aerotwist.com/blog/flip-your-animations/).
 
@@ -164,7 +172,7 @@ h(Transition, {
   </TransitionGroup>
   ```
 
-- **Також до вашої уваги:** [Гід - TransitionGroup](/guide/built-ins/transition-group.html)
+- **Також до вашої уваги:** [Гід - TransitionGroup](/guide/built-ins/transition-group)
 
 ## `<KeepAlive>` {#keepalive}
 
@@ -257,7 +265,7 @@ h(Transition, {
   </KeepAlive>
   ```
 
-- **Також до вашої уваги:** [Гід - KeepAlive](/guide/built-ins/keep-alive.html)
+- **Також до вашої уваги:** [Гід - KeepAlive](/guide/built-ins/keep-alive)
 
 ## `<Teleport>` {#teleport}
 
@@ -299,7 +307,7 @@ h(Transition, {
   </teleport>
   ```
 
-- **Також до вашої уваги:** [Гід - Teleport](/guide/built-ins/teleport.html)
+- **Також до вашої уваги:** [Гід - Teleport](/guide/built-ins/teleport)
 
 ## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
@@ -323,6 +331,6 @@ h(Transition, {
 
   `<Suspense>` приймає два слоти: `#default` слот і `#fallback` слот. Він показуватиме вміст `#fallback` слота під час рендерингу слота за промовчанням у пам’яті.
 
-  Якщо він зустрічає асинхронні залежності ([Асинхронні компоненти](/guide/components/async.html) й компоненти з [`async setup()`](/guide/built-ins/suspense.html#async-setup)) під час рендерингу слота за промовчанням, він чекатиме, доки всі вони будуть вирішені, перш ніж показати слот за промовчанням.
+  Якщо він зустрічає асинхронні залежності ([Асинхронні компоненти](/guide/components/async) й компоненти з [`async setup()`](/guide/built-ins/suspense#async-setup)) під час рендерингу слота за промовчанням, він чекатиме, доки всі вони будуть вирішені, перш ніж показати слот за промовчанням.
 
-- **Також до вашої уваги:** [Гід - Suspense](/guide/built-ins/suspense.html)
+- **Також до вашої уваги:** [Гід - Suspense](/guide/built-ins/suspense)

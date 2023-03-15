@@ -101,23 +101,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 Це буде скомпільовано до еквівалентних параметрів реквізитів `default`. Крім того, помічник `withDefaults` забезпечує перевірку типу для значень за замовчуванням і гарантує, що повернутий тип `props` має видалені додаткові прапорці для властивостей, які мають оголошені значення за замовчуванням.
 
-Крім того, ви можете використовувати експериментальний [Reactivity Transform](/guide/extras/reactivity-transform.html):
-
-```vue
-<script setup lang="ts">
-interface Props {
-  name: string
-  count?: number
-}
-
-// реактивне видалення для defineProps()
-// значення за замовчуванням компілюється до еквівалентного параметру під час виконання
-const { name, count = 100 } = defineProps<Props>()
-</script>
-```
-
-Ця поведінка наразі вимагає [явно opt-in](/guide/extras/reactivity-transform.html#explicit-opt-in).
-
 ### Без `<script setup>` {#without-script-setup}
 
 Якщо не використовувати `<script setup>`, то необхідно використовувати `defineComponent()` щоб увімкнути визначення типу реквізитів. Тип реквізитів, який переданий до `setup()`, визначається з параметру `props`.
@@ -176,7 +159,7 @@ export default defineComponent({
 })
 ```
 
-Параметр `props` частіше використовується з Options API, тому ви знайдете докладніші приклади в посібнику [TypeScript with Options API](/guide/typescript/options-api.html#typing-component-props) . Техніки, показані в цих прикладах, також застосовуються до декларацій під час виконання за допомогою `defineProps()`.
+Параметр `props` частіше використовується з Options API, тому ви знайдете докладніші приклади в посібнику [TypeScript with Options API](/guide/typescript/options-api#typing-component-props) . Техніки, показані в цих прикладах, також застосовуються до декларацій під час виконання за допомогою `defineProps()`.
 
 ## Типізація випромінювань компонента {#typing-component-emits}
 
@@ -420,4 +403,4 @@ const openModal = () => {
 </script>
 ```
 
-Зверніть увагу, якщо ви хочете використовувати цю техніку у файлах TypeScript, замість одно-файлових компонент, вам потрібно ввімкнути [Режим Takeover](./overview.html#volar-takeover-mode) у Volar.
+Зверніть увагу, якщо ви хочете використовувати цю техніку у файлах TypeScript, замість одно-файлових компонент, вам потрібно ввімкнути [Режим Takeover](./overview#volar-takeover-mode) у Volar.

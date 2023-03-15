@@ -80,11 +80,11 @@ const vnode = {
 </div>
 ```
 
-[Перегляньте в Template Explorer](https://vue-next-template-explorer.netlify.app/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2PmZvbzwvZGl2PlxuICA8ZGl2PmJhcjwvZGl2PlxuICA8ZGl2Pnt7IGR5bmFtaWMgfX08L2Rpdj5cbjwvZGl2PiIsInNzciI6ZmFsc2UsIm9wdGlvbnMiOnsiaG9pc3RTdGF0aWMiOnRydWV9fQ==)
+[Перегляньте в Template Explorer](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2PmZvbzwvZGl2PiA8IS0tIGhvaXN0ZWQgLS0+XG4gIDxkaXY+YmFyPC9kaXY+IDwhLS0gaG9pc3RlZCAtLT5cbiAgPGRpdj57eyBkeW5hbWljIH19PC9kaXY+XG48L2Rpdj5cbiIsIm9wdGlvbnMiOnsiaG9pc3RTdGF0aWMiOnRydWV9fQ==)
 
 Елементи div `foo` і `bar` є статичними - повторне створення vnodes і їх відмінності під час кожного повторного рендерингу не потрібні. Компілятор Vue автоматично виводить виклики створення vnode із функції рендерингу та повторно використовує ті самі vnode під час кожного рендерингу. Засіб візуалізації також може повністю пропустити їх різницю, якщо помітить, що старий vnode і новий vnode є однаковими.
 
-Крім того, коли буде достатньо послідовних статичних елементів, вони будуть згорнуті в один "статичний vnode", який містить простий рядок HTML для всіх цих вузлів ([Приклад](https://vue-next-template-explorer.netlify.app/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdiBjbGFzcz1cImZvb1wiPmZvbzwvZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdj57eyBkeW5hbWljIH19PC9kaXY+XG48L2Rpdj4iLCJzc3IiOmZhbHNlLCJvcHRpb25zIjp7ImhvaXN0U3RhdGljIjp0cnVlfX0=)). Ці статичні вузли монтуються прямим налаштуванням `innerHTML`. Вони також кешують свої відповідні вузли DOM під час початкового монтування - якщо той самий фрагмент вмісту повторно використовується в іншому місці програми, нові вузли DOM створюються за допомогою рідного `cloneNode()`, що є надзвичайно ефективним.
+Крім того, коли буде достатньо послідовних статичних елементів, вони будуть згорнуті в один "статичний vnode", який містить простий рядок HTML для всіх цих вузлів ([Приклад](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdiBjbGFzcz1cImZvb1wiPmZvbzwvZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdj57eyBkeW5hbWljIH19PC9kaXY+XG48L2Rpdj4iLCJzc3IiOmZhbHNlLCJvcHRpb25zIjp7ImhvaXN0U3RhdGljIjp0cnVlfX0=)). Ці статичні вузли монтуються прямим налаштуванням `innerHTML`. Вони також кешують свої відповідні вузли DOM під час початкового монтування - якщо той самий фрагмент вмісту повторно використовується в іншому місці програми, нові вузли DOM створюються за допомогою рідного `cloneNode()`, що є надзвичайно ефективним.
 
 ### Патч-прапори {#patch-flags}
 
@@ -185,7 +185,7 @@ div (кореневий блок)
 
 ### Вплив на гідрацію SSR {#impact-on-ssr-hydration}
 
-Патч-прапори та зведення дерева також значно покращують продуктивність [гідрації SSR](/guide/scaling-up/ssr.html#client-hydration) Vue:
+Патч-прапори та зведення дерева також значно покращують продуктивність [гідрації SSR](/guide/scaling-up/ssr#client-hydration) Vue:
 
 - Гідрація одного елемента може здійснюватися швидко на основі патч-прапора відповідного vnode.
 

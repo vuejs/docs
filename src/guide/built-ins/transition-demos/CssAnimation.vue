@@ -1,5 +1,6 @@
 <script setup>
-let show = $ref(true)
+import { ref } from 'vue'
+const show = ref(true)
 </script>
 
 <template>

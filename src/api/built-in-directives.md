@@ -8,7 +8,7 @@
 
 - **Подробиці**
 
-  `v-text` працює, встановлюючи властивість [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) елемента, тому він перезаписує будь-який наявний вміст усередині елемента. Якщо вам потрібно оновити частину `textContent`, замість цього слід використовувати [інтерполяцію вусів](/guide/essentials/template-syntax.html#text-interpolation).
+  `v-text` працює, встановлюючи властивість [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) елемента, тому він перезаписує будь-який наявний вміст усередині елемента. Якщо вам потрібно оновити частину `textContent`, замість цього слід використовувати [інтерполяцію вусів](/guide/essentials/template-syntax#text-interpolation).
 
 - **Приклад**
 
@@ -18,7 +18,7 @@
   <span>{{msg}}</span>
   ```
 
-- **Також до вашої уваги:** [Синтаксис шаблону - Інтерполяція тексту](/guide/essentials/template-syntax.html#text-interpolation)
+- **Також до вашої уваги:** [Синтаксис шаблону - Інтерполяція тексту](/guide/essentials/template-syntax#text-interpolation)
 
 ## v-html {#v-html}
 
@@ -34,7 +34,7 @@
   Динамічний рендеринг довільного HTML-коду на вашому вебсайті може бути дуже небезпечним, оскільки це може легко призвести до [XSS-атак](https://en.wikipedia.org/wiki/Cross-site_scripting). Використовуйте `v-html` лише для надійного вмісту та **ніколи** для вмісту, наданого користувачами.
   :::
 
-  У [одно-файлових компонентах](/guide/scaling-up/sfc) стилі `scoped` не застосовуватимуться до вмісту всередині `v-html`, оскільки цей HTML не обробляється компілятором шаблонів Vue. Якщо ви хочете стилізувати вміст `v-html` за допомогою CSS з обмеженою областю, ви можете натомість використовувати [модулі CSS](./sfc-css-features.html#css-modules) або вказати додатковий глобальний елемент `<style>` з власною стратегією модульності, такою як БЕМ.
+  У [одно-файлових компонентах](/guide/scaling-up/sfc) стилі `scoped` не застосовуватимуться до вмісту всередині `v-html`, оскільки цей HTML не обробляється компілятором шаблонів Vue. Якщо ви хочете стилізувати вміст `v-html` за допомогою CSS з обмеженою областю, ви можете натомість використовувати [модулі CSS](./sfc-css-features#css-modules) або вказати додатковий глобальний елемент `<style>` з власною стратегією модульності, такою як БЕМ.
 
 - **Приклад:**
 
@@ -42,7 +42,7 @@
   <div v-html="html"></div>
   ```
 
-- **Також до вашої уваги:** [Синтаксис шаблону - чистий HTML](/guide/essentials/template-syntax.html#raw-html)
+- **Також до вашої уваги:** [Синтаксис шаблону - чистий HTML](/guide/essentials/template-syntax#raw-html)
 
 ## v-show {#v-show}
 
@@ -54,7 +54,7 @@
 
   `v-show` працює, встановлюючи властивість `display` CSS за допомогою вбудованих стилів, і намагатиметься враховувати початкове значення `display`, коли елемент видимий. Вона також запускає анімації переходу при зміні стану.
 
-- **Також до вашої уваги:** [Умовний рендеринг - v-show](/guide/essentials/conditional.html#v-show)
+- **Також до вашої уваги:** [Умовний рендеринг - v-show](/guide/essentials/conditional#v-show)
 
 ## v-if {#v-if}
 
@@ -70,9 +70,9 @@
 
   Ця директива запускає переходи, коли змінюється її умова.
 
-  При спільному використанні  `v-if` має вищий пріоритет, ніж `v-for`. Ми не рекомендуємо використовувати ці дві директиви разом в одному елементі — див. [гід із відтворення списку](/guide/essentials/list.html#v-for-with-v-if), щоб отримати докладнішу інформацію.
+  При спільному використанні  `v-if` має вищий пріоритет, ніж `v-for`. Ми не рекомендуємо використовувати ці дві директиви разом в одному елементі — див. [гід із відтворення списку](/guide/essentials/list#v-for-with-v-if), щоб отримати докладнішу інформацію.
 
-- **Також до вашої уваги:** [Умовний рендеринг - v-if](/guide/essentials/conditional.html#v-if)
+- **Також до вашої уваги:** [Умовний рендеринг - v-if](/guide/essentials/conditional#v-if)
 
 ## v-else {#v-else}
 
@@ -97,7 +97,7 @@
   </div>
   ```
 
-- **Також до вашої уваги:** [Умовний рендеринг - v-else](/guide/essentials/conditional.html#v-else)
+- **Також до вашої уваги:** [Умовний рендеринг - v-else](/guide/essentials/conditional#v-else)
 
 ## v-else-if {#v-else-if}
 
@@ -128,7 +128,7 @@
   </div>
   ```
 
-- **Також до вашої уваги:** [Умовний рендеринг - v-else-if](/guide/essentials/conditional.html#v-else-if)
+- **Також до вашої уваги:** [Умовний рендеринг - v-else-if](/guide/essentials/conditional#v-else-if)
 
 ## v-for {#v-for}
 
@@ -165,7 +165,7 @@
   `v-for` також може працювати зі значеннями, які реалізують [протокол Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), включаючи рідну `Map` і `Set`.
 
 - **Також до вашої уваги:**
-  - [Рендеринг списку](/guide/essentials/list.html)
+  - [Рендеринг списку](/guide/essentials/list)
 
 ## v-on {#v-on}
 
@@ -250,8 +250,8 @@
   ```
 
 - **Також до вашої уваги:**
-  - [Обробка подій](/guide/essentials/event-handling.html)
-  - [Компоненти - користувацькі події](/guide/essentials/component-basics.html#listening-to-events)
+  - [Обробка подій](/guide/essentials/event-handling)
+  - [Компоненти - користувацькі події](/guide/essentials/component-basics#listening-to-events)
 
 ## v-bind {#v-bind}
 
@@ -273,7 +273,7 @@
 
   Коли використовується для прив'язування атрибутів `class` або `style`, `v-bind` підтримує додаткові типи значень, такі як Array або Objects. Щоб отримати докладніші відомості, перегляньте пов’язаний розділ гіда нижче.
 
-  Встановлюючи прив'язування до елемента, Vue за промовчанням перевіряє, чи має елемент ключ, визначений як властивість, використовуючи перевірку оператора `in`. Якщо властивість визначено, Vue встановить значення як властивість DOM замість атрибута. У більшості випадків це має працювати, але ви можете змінити цю поведінку, явно використовуючи модифікатори `.prop` або `.attr`. Це іноді необхідно, особливо під час [роботи з користувацькими елементами](/guide/extras/web-components.html#passing-dom-properties).
+  Встановлюючи прив'язування до елемента, Vue за промовчанням перевіряє, чи має елемент ключ, визначений як властивість, використовуючи перевірку оператора `in`. Якщо властивість визначено, Vue встановить значення як властивість DOM замість атрибута. У більшості випадків це має працювати, але ви можете змінити цю поведінку, явно використовуючи модифікатори `.prop` або `.attr`. Це іноді необхідно, особливо під час [роботи з користувацькими елементами](/guide/extras/web-components#passing-dom-properties).
 
   При використанні для прив'язування реквізиту компонента, реквізит має бути належним чином оголошений в дочірньому компоненті.
 
@@ -337,8 +337,8 @@
   `.camel` не потрібен, якщо ви використовуєте рядкові шаблони або попередню компіляцію шаблону на етапі збірки.
 
 - **Також до вашої уваги:**
-  - [Прив'язування класів та стилей](/guide/essentials/class-and-style.html)
-  - [Компоненти - деталі передачі реквізиту](/guide/components/props.html#prop-passing-details)
+  - [Прив'язування класів та стилей](/guide/essentials/class-and-style)
+  - [Компоненти - деталі передачі реквізиту](/guide/components/props#prop-passing-details)
 
 ## v-model {#v-model}
 
@@ -355,14 +355,14 @@
 
 - **Модифікатори:**
 
-  - [`.lazy`](/guide/essentials/forms.html#lazy) - слухати `change` події замість `input`
-  - [`.number`](/guide/essentials/forms.html#number) - перетворення коректного рядка на числа
-  - [`.trim`](/guide/essentials/forms.html#trim) - обрізати вхідні дані
+  - [`.lazy`](/guide/essentials/forms#lazy) - слухати `change` події замість `input`
+  - [`.number`](/guide/essentials/forms#number) - перетворення коректного рядка на числа
+  - [`.trim`](/guide/essentials/forms#trim) - обрізати вхідні дані
 
 - **Також до вашої уваги:**
 
-  - [Прив'язування елементів форми](/guide/essentials/forms.html)
-  - [Події компонентів - використання з `v-model`](/guide/components/events.html#usage-with-v-model)
+  - [Прив'язування елементів форми](/guide/essentials/forms)
+  - [Події компонентів - використання з `v-model`](/guide/components/events#usage-with-v-model)
 
 ## v-slot {#v-slot}
 
@@ -377,7 +377,7 @@
 - **Використовується тільки з:**
 
   - `<template>`
-  - [компонентами](/guide/components/slots.html#scoped-slots) (для єдиного слота за промовчанням із реквізитами)
+  - [компонентами](/guide/components/slots#scoped-slots) (для єдиного слота за промовчанням із реквізитами)
 
 - **Приклад:**
 
@@ -413,7 +413,7 @@
   ```
 
 - **Також до вашої уваги:**
-  - [Компоненти - слоти](/guide/components/slots.html)
+  - [Компоненти - слоти](/guide/components/slots)
 
 ## v-pre {#v-pre}
 
@@ -460,7 +460,7 @@
   Починаючи з версії 3.2, можна використовувати мемоізацію частини шаблону, з можливістю вказівки умов які визнані недійсними, за допомогою директиви [`v-memo`](#v-memo).
 
 - **Також до вашої уваги:**
-  - [Синтаксис прив'язування даних - інтерполяції](/guide/essentials/template-syntax.html#text-interpolation)
+  - [Синтаксис прив'язування даних - інтерполяції](/guide/essentials/template-syntax#text-interpolation)
   - [v-memo](#v-memo)
 
 ## v-memo <sup class="vt-badge" data-text="3.2+" /> {#v-memo}

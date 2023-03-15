@@ -6,7 +6,9 @@ import { ref } from 'vue'
  * 2. uncomment and update BANNER_ID in ../../inlined-scripts/restorePreferences.ts
  * 3. update --vt-banner-height if necessary
  */
-let open = $ref(true)
+
+let open = ref(true)
+
 const banner = ref({
   cta: 'Help Ukraine Now',
   title:
@@ -15,11 +17,12 @@ const banner = ref({
   shortText: 'Russia has invaded Ukraine and already killed tens of thousands of civilians. We need your help.',
   link: 'https://stand-with-ukraine.pp.ua/'
 })
+
 /**
  * Call this if the banner is dismissible
  */
 function dismiss() {
-  open = false
+  open.value = false
   document.documentElement.classList.add('banner-dismissed')
   localStorage.setItem(
     `vue-docs-banner-${window.__VUE_BANNER_ID__}`,

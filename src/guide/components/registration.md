@@ -1,14 +1,14 @@
 # Реєстрація компонентів {#component-registration}
 
-<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Безкоштовний урок реєстрації компонентів Vue.js"/>
-
 > Ця сторінка передбачає, що ви вже прочитали [основи компонентів](/guide/essentials/component-basics). Прочитайте це спочатку, якщо ви новачок у компонентах.
+
+<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Безкоштовний урок реєстрації компонентів Vue.js"/>
 
 Компонент Vue потрібно «зареєструвати», щоб Vue знав, де знайти його реалізацію, коли він зустрічається в шаблоні. Є два способи реєстрації компонентів: глобальний і локальний.
 
 ## Глобальна реєстрація {#global-registration}
 
-Ми можемо зробити компоненти глобально доступними в [додатку Vue](/guide/essentials/application.html) за допомогою методу `app.component()`:
+Ми можемо зробити компоненти глобально доступними в [додатку Vue](/guide/essentials/application) за допомогою методу `app.component()`:
 
 ```js
 import { createApp } from 'vue'
@@ -136,6 +136,6 @@ export default {
 
 2. `<PascalCase />` робить більш очевидним, що це компонент Vue, а не рідний елемент HTML у шаблонах. Він також відрізняє компоненти Vue від спеціальних елементів (веб-компонентів).
 
-Це рекомендований стиль під час роботи з SFC або строковими шаблонами. Однак, як зазначено в [Застереженнях щодо парсингу шаблонів DOM](/guide/essentials/component-basics.html#dom-template-parsing-caveats), теги PascalCase не можна використовувати в шаблонах DOM.
+Це рекомендований стиль під час роботи з SFC або строковими шаблонами. Однак, як зазначено в [Застереженнях щодо парсингу шаблонів DOM](/guide/essentials/component-basics#dom-template-parsing-caveats), теги PascalCase не можна використовувати в шаблонах DOM.
 
 На щастя, Vue підтримує розпізнавання тегів kebab-case до компонентів, зареєстрованих за допомогою PascalCase. Це означає, що на компонент, зареєстрований як `MyComponent`, можна посилатися в шаблоні через `<MyComponent>` і `<my-component>`. Це дозволяє нам використовувати той самий код реєстрації компонента JavaScript незалежно від джерела шаблону.
