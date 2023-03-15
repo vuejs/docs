@@ -1,8 +1,8 @@
-# Components {#components}
+# Компоненти {#components}
 
-So far, we've only been working with a single component. Real Vue applications are typically created with nested components.
+Досі ми працювали лише з одним компонентом. Справжні додатки Vue зазвичай створюються за допомогою вкладених компонентів.
 
-A parent component can render another component in its template as a child component. To use a child component, we need to first import it:
+Батьківський компонент може рендерити інший компонент у своєму шаблоні як дочірній. Щоб використовувати дочірній компонент, нам потрібно спочатку його імпортувати:
 
 <div class="composition-api">
 <div class="sfc">
@@ -27,14 +27,14 @@ export default {
 }
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+Нам також потрібно зареєструвати компонент за допомогою опції `components`. Тут ми використовуємо скорочення властивостей об'єкта, щоб зареєструвати компонент `ChildComp` під ключем `ChildComp`.
 
 </div>
 </div>
 
 <div class="sfc">
 
-Then, we can use the component in the template as:
+Потім ми можемо використовувати компонент у шаблоні як:
 
 ```vue-html
 <ChildComp />
@@ -54,9 +54,9 @@ createApp({
 })
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+Нам також потрібно зареєструвати компонент за допомогою опції `components`. Тут ми використовуємо скорочення властивостей об'єкта, щоб зареєструвати компонент `ChildComp` під ключем `ChildComp`.
 
-Because we are writing the template in the DOM, it will be subject to browser's parsing rules, which is case-insensitive for tag names. Therefore, we need to use the kebab-cased name to reference the child component:
+Оскільки ми пишемо шаблон в DOM, він буде підпорядкований правилам парсингу браузера, які не враховують регістр для імен тегів. Тому для посилання на дочірній компонент нам потрібно використовувати ім'я в стилі `kebab-cased`:
 
 ```vue-html
 <child-comp></child-comp>
@@ -65,4 +65,4 @@ Because we are writing the template in the DOM, it will be subject to browser's 
 </div>
 
 
-Now try it yourself - import the child component and render it in the template.
+Тепер спробуйте самі - імпортуйте дочірній компонент і виведіть його в шаблоні.

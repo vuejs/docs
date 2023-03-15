@@ -18,7 +18,7 @@ Vue написаний на TypeScript, тому забезпечує першо
 
 - Під час розробки рекомендуємо покладатися на хорошу [IDE підтримку](#ide-support) для миттєвого зворотного зв'язку при помилках типу.
 
-- Якщо ви використовуєте одно-файлові компоненти, використовуйте [`vue-tsc`](https://github.com/johnsoncodehk/volar/tree/master/vue-language-tools/vue-tsc) утиліту для перевірки типу командного рядка та створення декларації типу. `vue-tsc` це обгортка навколо `tsc`, власного інтерфейсу командного рядка TypeScript. Він працює майже так само, як `tsc`, за винятком того, що він підтримує одно-файлові компоненти на додаток до файлів TypeScript. Ви можете запустити `vue-tsc` у режимі перегляду, паралельно із сервером розробки Vite або використати плагін для Vite, наприклад [vite-plugin-checker](https://vite-plugin-checker.netlify.app/) який запускає перевірку в окремому робочому потоці.
+- Якщо ви використовуєте одно-файлові компоненти, використовуйте [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/vue-tsc) утиліту для перевірки типу командного рядка та створення декларації типу. `vue-tsc` це обгортка навколо `tsc`, власного інтерфейсу командного рядка TypeScript. Він працює майже так само, як `tsc`, за винятком того, що він підтримує одно-файлові компоненти на додаток до файлів TypeScript. Ви можете запустити `vue-tsc` у режимі перегляду, паралельно із сервером розробки Vite або використати плагін для Vite, наприклад [vite-plugin-checker](https://vite-plugin-checker.netlify.app/) який запускає перевірку в окремому робочому потоці.
 
 - Vue CLI також забезпечує підтримку TypeScript, але більше не рекомендується. Дивіться [примітки нижче](#note-on-vue-cli-and-ts-loader).
 
@@ -130,7 +130,7 @@ export default defineComponent({
 Також до вашої уваги:
 
 - [Примітка щодо webpack Treeshaking](/api/general.html#note-on-webpack-treeshaking)
-- [Типові тести для `defineComponent`](https://github.com/vuejs/core/blob/main/test-dts/defineComponent.test-d.tsx)
+- [Типові тести для `defineComponent`](https://github.com/vuejs/core/blob/main/packages/dts-test/defineComponent.test-d.tsx)
 
 :::tip
 `defineComponent()` також дає змогу визначати типи для компонентів, визначених у звичайному JavaScript.

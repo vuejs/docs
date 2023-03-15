@@ -1,11 +1,11 @@
-[![GitHub stars](https://img.shields.io/github/stars/vuejsorgua/docs)](https://github.com/vuejsorgua/docs/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/vuejsorgua/docs)](https://github.com/vuejsorgua/docs/issues)
+[![GitHub stars](https://img.shields.io/github/stars/vuejs-translations/docs-uk)](https://github.com/vuejsorgua/docs/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/vuejs-translations/docs-uk)](https://github.com/vuejsorgua/docs/issues)
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
 <a href="https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-no-action.svg" /></a>
 
 
-# Документація vuejs.org.ua
+# Документація Vue.js українською мовою
 
 ## Сприяння
 

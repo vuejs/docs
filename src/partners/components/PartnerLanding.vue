@@ -29,7 +29,7 @@ onMounted(() => {
 
     <div class="featured">
       <h2>Featured Partners</h2>
-      <PartnerList :filter="(p) => p.platinum" />
+      <PartnerList :filter="(p) => p.platinum" showLinkToAll />
       <a class="browse-all" href="./all.html">Browse All Partners</a>
     </div>
 

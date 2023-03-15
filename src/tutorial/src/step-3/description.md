@@ -1,19 +1,19 @@
-# Attribute Bindings {#attribute-bindings}
+# Прив'язування атрибутів {#attribute-bindings}
 
-In Vue, mustaches are only used for text interpolation. To bind an attribute to a dynamic value, we use the `v-bind` directive:
+Хвилясті дужки у Vue використовуються лише для інтерполяції тексту. Для того, щоб прив'язати атрибут до динамічного значення, ми використовуємо директиву `v-bind`:
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
 ```
 
-A **directive** is a special attribute that starts with the `v-` prefix. They are part of Vue's template syntax. Similar to text interpolations, directive values are JavaScript expressions that have access to the component's state. The full details of `v-bind` and directive syntax are discussed in <a target="_blank" href="/guide/essentials/template-syntax.html">Guide - Template Syntax</a>.
+**Директива** - це спеціальний атрибут, який починається з префікса `v-`. Вона є частиною синтаксу темплейта Vue. Подібно до інтерполяції тексту, значеннями директив є вирази JavaScript, які мають доступ до стану компонента. Більш детально про `v-bind` та синтаксис директиви можна знайти в <a target="_blank" href="/guide/essentials/template-syntax.html">гіді про синтаксис шаблона</a>.
 
-The part after the colon (`:id`) is the "argument" of the directive. Here, the element's `id` attribute will be synced with the `dynamicId` property from the component's state.
+Частина, що після двокрапки  (`:id`), є "аргументом" директиви. Тут атрибут `id` елемента буде синхронізовано з властивістю `dynamicId` зі стану компонента.
 
-Because `v-bind` is used so frequently, it has a dedicated shorthand syntax:
+Оскільки `v-bind` використовується дуже часто, він має спеціальний скорочений синтаксис:
 
 ```vue-html
 <div :id="dynamicId"></div>
 ```
 
-Now, try to add a dynamic `class` binding to the `<h1>`, using the `titleClass` <span class="options-api">data property</span><span class="composition-api">ref</span> as its value. If it's bound correctly, the text should turn red.
+Тепер спробуйте додати динамічний `class`, прив'язавши його до `<h1>`, використовуючи <span class="options-api">властивість `titleClass` опції `data`</span><span class="composition-api">референцію `titleClass`</span> як її значення. Якщо він прив'язаний вірно, тоді текст стане червоним.

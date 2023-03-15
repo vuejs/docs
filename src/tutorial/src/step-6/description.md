@@ -1,20 +1,20 @@
-# Conditional Rendering {#conditional-rendering}
+# Умовний рендеринг {#conditional-rendering}
 
-We can use the `v-if` directive to conditionally render an element:
-
-```vue-html
-<h1 v-if="awesome">Vue is awesome!</h1>
-```
-
-This `<h1>` will be rendered only if the value of `awesome` is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy). If `awesome` changes to a [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value, it will be removed from the DOM.
-
-We can also use `v-else` and `v-else-if` to denote other branches of the condition:
+Ми можемо використовувати `v-if` директиву для умовного рендерингу елемента:
 
 ```vue-html
-<h1 v-if="awesome">Vue is awesome!</h1>
-<h1 v-else>Oh no 😢</h1>
+<h1 v-if="awesome">Vue - це круто!</h1>
 ```
 
-Currently, the demo is showing both `<h1>`s at the same time, and the button does nothing. Try to add `v-if` and `v-else` directives to them, and implement the `toggle()` method so that we can use the button to toggle between them.
+Цей елемент `<h1>` буде згенеровано лише якщо значення `awesome` є [правдивим](https://developer.mozilla.org/en-US/docs/Glossary/Truthy). Якщо ж `awesome` змінюється на [неправдиве значення](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), тоді цей елемент буде видалено з DOM.
 
-More details on `v-if`: <a target="_blank" href="/guide/essentials/conditional.html">Guide - Conditional Rendering</a>
+Також можливо використовувати `v-else` та `v-else-if`, щоб вказати альтернативні варіанти умови:
+
+```vue-html
+<h1 v-if="awesome">Vue - це круто!</h1>
+<h1 v-else>Ой, ні 😢</h1>
+```
+
+Наразі, демо показує обидва елементи `<h1>` одночасно, і кнопка нічого не робить. Спробуйте додати директиви `v-if` та `v-else` і напишіть метод `toggle()` таким чином, щоб кнопка перемикала ці елементи.
+
+Більш детально про `v-if` в <a target="_blank" href="/guide/essentials/conditional.html">гіді про умовний рендеринг</a>.

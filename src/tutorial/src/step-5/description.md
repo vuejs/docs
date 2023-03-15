@@ -1,6 +1,6 @@
-# Form Bindings {#form-bindings}
+# Прив'язування елементів форми {#form-bindings}
 
-Using `v-bind` and `v-on` together, we can create two-way bindings on form input elements:
+Використовуючи `v-bind` та `v-on` разом, ми можемо створити двосторонні прив'язки до полів введення форми:
 
 ```vue-html
 <input :value="text" @input="onInput">
@@ -11,8 +11,7 @@ Using `v-bind` and `v-on` together, we can create two-way bindings on form input
 ```js
 methods: {
   onInput(e) {
-    // a v-on handler receives the native DOM event
-    // as the argument.
+    // v-on обробник отримує нативну подію DOM як аргумент.
     this.text = e.target.value
   }
 }
@@ -24,24 +23,23 @@ methods: {
 
 ```js
 function onInput(e) {
-  // a v-on handler receives the native DOM event
-  // as the argument.
+  // v-on обробник отримує нативну подію DOM як аргумент
   text.value = e.target.value
 }
 ```
 
 </div>
 
-Try typing in the input box - you should see the text in `<p>` updating as you type.
+Спробуйте вписати щось в полі введення - ви повинні бачити текст в `<p>`, який оновлюється під час введення.
 
-To simplify two-way bindings, Vue provides a directive, `v-model`, which is essentially a syntax sugar for the above:
+Щоб спростити двостороннє прив’язування, Vue надає директиву `v-model`, яка, по суті, є синтетичним цукром для вищесказаного:
 
 ```vue-html
 <input v-model="text">
 ```
 
-`v-model` automatically syncs the `<input>`'s value with the bound state, so we no longer need to use an event handler for that.
+`v-model` автоматично синхронізує значення `<input>` з прив'язаним станом, тож для цього нам не потрібно більше використовувати обробника подій.
 
-`v-model` works not only on text inputs, but also on other input types such as checkboxes, radio buttons, and select dropdowns. We cover more details in <a target="_blank" href="/guide/essentials/forms.html">Guide - Form Bindings</a>.
+`v-model` працює не лише з текстовими полями вводу, а також з іншими елементами такими як чекбокси, радіо кнопки та випадаючі списки. Більш детально ми це описали в <a target="_blank" href="/guide/essentials/forms.html">гіді про прив'язку елементів введення</a>.
 
-Now, try to refactor the code to use `v-model` instead.
+Тепер спробуйте змінити код, використовуючи `v-model`.

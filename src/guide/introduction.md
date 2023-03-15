@@ -13,7 +13,7 @@ footer: false
 
 <style src="@theme/styles/vue-mastery.css"></style>
 <div class="vue-mastery-link">
-  <a href="https://www.vuemastery.com/courses-path/beginner" target="_blank">
+  <a href="https://www.vuemastery.com/courses/" target="_blank">
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>

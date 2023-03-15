@@ -1,6 +1,6 @@
 <form @submit.prevent="addTodo">
   <input v-model="newTodo">
-  <button>Add Todo</button>    
+  <button>Додати завдання</button>
 </form>
 <ul>
   <li v-for="todo in todos" :key="todo.id">

@@ -1,6 +1,6 @@
-# Props {#props}
+# Реквізити {#props}
 
-A child component can accept input from the parent via **props**. First, it needs to declare the props it accepts:
+Дочірній компонент може приймати вхідні дані від батьківського компонента через **реквізити**. Спочатку йому потрібно оголосити реквізити, які він приймає:
 
 <div class="composition-api">
 <div class="sfc">
@@ -14,25 +14,25 @@ const props = defineProps({
 </script>
 ```
 
-Note `defineProps()` is a compile-time macro and doesn't need to be imported. Once declared, the `msg` prop can be used in the child component's template. It can also be accessed in JavaScript via the returned object of `defineProps()`.
+Зверніть увагу, що `defineProps()` - це попередньо встановлений макрос, тому його не потрібно імпортувати. Після оголошення, реквізит `msg` стає доступним в `this` і може бути використаний у шаблоні дочірнього компонента. До нього також можна отримати доступ у JavaScript через повернутий об’єкт `defineProps()`.
 
 </div>
 
 <div class="html">
 
 ```js
-// in child component
+// в дочірньому компоненті
 export default {
   props: {
     msg: String
   },
   setup(props) {
-    // access props.msg
+    // доступ до props.msg
   }
 }
 ```
 
-Once declared, the `msg` prop is exposed on `this` and can be used in the child component's template. The received props are passed to `setup()` as the first argument.
+Після оголошення, реквізит `msg` стає доступним в `this` і може бути використаний у шаблоні дочірнього компонента. Отримані реквізити передаються в `setup()` як перший аргумент.
 
 </div>
 
@@ -41,7 +41,7 @@ Once declared, the `msg` prop is exposed on `this` and can be used in the child 
 <div class="options-api">
 
 ```js
-// in child component
+// в дочірньому компоненті
 export default {
   props: {
     msg: String
@@ -49,11 +49,11 @@ export default {
 }
 ```
 
-Once declared, the `msg` prop is exposed on `this` and can be used in the child component's template.
+Після оголошення, реквізит `msg` стає доступним в `this` і може бути використаний у шаблоні дочірнього компонента.
 
 </div>
 
-The parent can pass the prop to the child just like attributes. To pass a dynamic value, we can also use the `v-bind` syntax:
+Батьки можуть передавати реквізити дочірньому елементу так само як і атрибути. Щоб передати динамічне значення, ми також можемо використовувати синтаксис `v-bind`:  
 
 <div class="sfc">
 
@@ -70,4 +70,4 @@ The parent can pass the prop to the child just like attributes. To pass a dynami
 
 </div>
 
-Now try it yourself in the editor.
+А тепер спробуйте самі в редакторі.
