@@ -1,10 +1,10 @@
-# Server-Side Rendering API {#server-side-rendering-api}
+# API рендерингу на стороні сервера {#server-side-rendering-api}
 
 ## renderToString() {#rendertostring}
 
-- **Exported from `vue/server-renderer`**
+- **Експортовано з `vue/server-renderer`**
 
-- **Type**
+- **Тип**
 
   ```ts
   function renderToString(
@@ -13,7 +13,7 @@
   ): Promise<string>
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
   import { createSSRApp } from 'vue'
@@ -30,28 +30,28 @@
   })()
   ```
 
-  ### SSR Context {#ssr-context}
+  ### Контекст SSR {#ssr-context}
 
-  You can pass an optional context object, which can be used to record additional data during the render, for example [accessing content of Teleports](/guide/scaling-up/ssr.html#teleports):
+  Ви можете передати необов'язковий об'єкт контексту, який можна використовувати для запису додаткових даних під час візуалізації, наприклад [доступ до вмісту телепортів](/guide/scaling-up/ssr#teleports):
 
   ```js
   const ctx = {}
   const html = await renderToString(app, ctx)
 
-  console.log(ctx.teleports) // { '#teleported': 'teleported content' }
+  console.log(ctx.teleports) // { '#teleported': 'телепортований вміст' }
   ```
 
-  Most other SSR APIs on this page also optionally accept a context object. The context object can be accessed in component code via the [useSSRContext](#usessrcontext) helper.
+  Більшість інших API SSR на цій сторінці також опціонально приймають контекстний об'єкт. Доступ до об'єкта контексту можна отримати в коді компонента за допомогою помічника [useSSRContext](#usessrcontext).
 
-- **See also:** [Guide - Server-Side Rendering](/guide/scaling-up/ssr.html)
+- **Дивіться також:** [Посібник - Рендеринг на стороні сервера](/guide/scaling-up/ssr)
 
 ## renderToNodeStream() {#rendertonodestream}
 
-Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable).
+Рендеринг вхідних даних як [читабельного потоку Node.js](https://nodejs.org/api/stream.html#stream_class_stream_readable).
 
-- **Exported from `vue/server-renderer`**
+- **Експортовано з `vue/server-renderer`**
 
-- **Type**
+- **Тип**
 
   ```ts
   function renderToNodeStream(
@@ -60,24 +60,24 @@ Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#
   ): Readable
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
-  // inside a Node.js http handler
+  // всередині обробника http Node.js
   renderToNodeStream(app).pipe(res)
   ```
 
-  :::tip Note
-  This method is not supported in the ESM build of `vue/server-renderer`, which is decoupled from Node.js environments. Use [`pipeToNodeWritable`](#pipetonodewritable) instead.
+  :::tip Примітка
+  Цей метод не підтримується в збірці ESM `vue/server-renderer`, яка відокремлена від середовища Node.js. Натомість використовуйте [`pipeToNodeWritable`](#pipetonodewritable).
   :::
 
 ## pipeToNodeWritable() {#pipetonodewritable}
 
-Render and pipe to an existing [Node.js Writable stream](https://nodejs.org/api/stream.html#stream_writable_streams) instance.
+Рендеринг та передавання в екземпляр [потоку Node.js з можливістю запису](https://nodejs.org/api/stream.html#stream_writable_streams).
 
-- **Exported from `vue/server-renderer`**
+- **Експортовано з `vue/server-renderer`**
 
-- **Type**
+- **Тип**
 
   ```ts
   function pipeToNodeWritable(
@@ -87,20 +87,20 @@ Render and pipe to an existing [Node.js Writable stream](https://nodejs.org/api/
   ): void
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
-  // inside a Node.js http handler
+  // всередині обробника http Node.js
   pipeToNodeWritable(app, {}, res)
   ```
 
 ## renderToWebStream() {#rendertowebstream}
 
-Renders input as a [Web ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
+Рендеринг введення як [Web ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
 
-- **Exported from `vue/server-renderer`**
+- **Експортовано з `vue/server-renderer`**
 
-- **Type**
+- **Тип**
 
   ```ts
   function renderToWebStream(
@@ -109,24 +109,24 @@ Renders input as a [Web ReadableStream](https://developer.mozilla.org/en-US/docs
   ): ReadableStream
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
-  // inside an environment with ReadableStream support
+  // всередині середовища з підтримкою ReadableStream
   return new Response(renderToWebStream(app))
   ```
 
-  :::tip Note
-  In environments that do not expose `ReadableStream` constructor in the global scope, [`pipeToWebWritable()`](#pipetowebwritable) should be used instead.
+  :::tip Примітка
+  У середовищах, які не надають конструктора `ReadableStream` у глобальній області видимості, замість нього слід використовувати [`pipeToWebWritable()`](#pipetowebwritable).
   :::
 
 ## pipeToWebWritable() {#pipetowebwritable}
 
-Render and pipe to an existing [Web WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream) instance.
+Рендерить та передавання в існуючий екземпляр [Web WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream).
 
-- **Exported from `vue/server-renderer`**
+- **Експортовано з `vue/server-renderer`**
 
-- **Type**
+- **Тип**
 
   ```ts
   function pipeToWebWritable(
@@ -136,13 +136,13 @@ Render and pipe to an existing [Web WritableStream](https://developer.mozilla.or
   ): void
   ```
 
-- **Example**
+- **Приклад**
 
-  This is typically used in combination with [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream):
+  Це зазвичай використовується в поєднанні з [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream):
 
   ```js
-  // TransformStream is available in environments such as CloudFlare workers.
-  // in Node.js, TransformStream needs to be explicitly imported from 'stream/web'
+  // TransformStream доступний у таких середовищах, як робочі середовища CloudFlare.
+  // у Node.js TransformStream потрібно явно імпортувати з 'stream/web'
   const { readable, writable } = new TransformStream()
   pipeToWebWritable(app, {}, writable)
 
@@ -151,11 +151,11 @@ Render and pipe to an existing [Web WritableStream](https://developer.mozilla.or
 
 ## renderToSimpleStream() {#rendertosimplestream}
 
-Renders input in streaming mode using a simple readable interface.
+Рендеринг вхідних даних в потоковому режимі за допомогою простого читабельного інтерфейсу.
 
-- **Exported from `vue/server-renderer`**
+- **Експортовано з `vue/server-renderer`**
 
-- **Type**
+- **Тип**
 
   ```ts
   function renderToSimpleStream(
@@ -170,7 +170,7 @@ Renders input in streaming mode using a simple readable interface.
   }
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
   let res = ''
@@ -181,14 +181,14 @@ Renders input in streaming mode using a simple readable interface.
     {
       push(chunk) {
         if (chunk === null) {
-          // done
+          // готово
           console(`render complete: ${res}`)
         } else {
           res += chunk
         }
       },
       destroy(err) {
-        // error encountered
+        // сталася помилка
       }
     }
   )
@@ -196,27 +196,27 @@ Renders input in streaming mode using a simple readable interface.
 
 ## useSSRContext() {#usessrcontext}
 
-A runtime API used to retrieve the context object passed to `renderToString()` or other server render APIs.
+API часу виконання, який використовується для отримання об'єкта контексту, переданого до `renderToString()` або іншого API відтворення сервера.
 
-- **Type**
+- **Тип**
 
   ```ts
   function useSSRContext<T = Record<string, any>>(): T | undefined
   ```
 
-- **Example**
+- **Приклад**
 
-  The retrieved context can be used to attach information that is needed for rendering the final HTML (e.g. head metadata).
+  Отриманий контекст можна використовувати для додавання інформації, необхідної для відтворення остаточного HTML (наприклад, метаданих заголовка).
 
   ```vue
   <script setup>
   import { useSSRContext } from 'vue'
 
-  // make sure to only call it during SSR
+  // переконайтеся, що це викликається лише під час SSR
   // https://vitejs.dev/guide/ssr.html#conditional-logic
   if (import.meta.env.SSR) {
     const ctx = useSSRContext()
-    // ...attach properties to the context
+    // ...додати властивості до контексту
   }
   </script>
   ```
