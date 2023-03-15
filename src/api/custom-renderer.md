@@ -1,10 +1,10 @@
-# Custom Renderer API {#custom-renderer-api}
+# API користувацького рендереру {#custom-renderer-api}
 
 ## createRenderer() {#createrenderer}
 
-Creates a custom renderer. By providing platform-specific node creation and manipulation APIs, you can leverage Vue's core runtime to target non-DOM environments.
+Створює користувацький рендерер. Надаючи API для створення та маніпулювання вузлами для конкретної платформи, ви можете використовувати основне середовище виконання Vue для вказування на середовища, відмінні від DOM.
 
-- **Type**
+- **Тип**
 
   ```ts
   function createRenderer<HostNode, HostElement>(
@@ -22,7 +22,7 @@ Creates a custom renderer. By providing platform-specific node creation and mani
       key: string,
       prevValue: any,
       nextValue: any,
-      // the rest is unused for most custom renderers
+      // решта не використовується для більшості користувальницьких рендерів
       isSVG?: boolean,
       prevChildren?: VNode<HostNode, HostElement>[],
       parentComponent?: ComponentInternalInstance | null,
@@ -48,7 +48,7 @@ Creates a custom renderer. By providing platform-specific node creation and mani
     parentNode(node: HostNode): HostElement | null
     nextSibling(node: HostNode): HostNode | null
 
-    // optional, DOM-specific
+    // необов'язковий, специфічний для DOM
     querySelector?(selector: string): HostElement | null
     setScopeId?(el: HostElement, id: string): void
     cloneNode?(node: HostNode): HostNode
@@ -61,7 +61,7 @@ Creates a custom renderer. By providing platform-specific node creation and mani
   }
   ```
 
-- **Example**
+- **Приклад**
 
   ```js
   import { createRenderer } from '@vue/runtime-core'
@@ -74,12 +74,12 @@ Creates a custom renderer. By providing platform-specific node creation and mani
     // ...
   })
 
-  // `render` is the low-level API
-  // `createApp` returns an app instance
+  // `render` це API низького рівня
+  // `createApp` повертає екземпляр застосунку
   export { render, createApp }
 
-  // re-export Vue core APIs
+  // повторно експортовані Vue core APIs
   export * from '@vue/runtime-core'
   ```
 
-  Vue's own `@vue/runtime-dom` is [implemented using the same API](https://github.com/vuejs/core/blob/main/packages/runtime-dom/src/index.ts). For a simpler implementation, check out [`@vue/runtime-test`](https://github.com/vuejs/core/blob/main/packages/runtime-test/src/index.ts) which is a private package for Vue's own unit testing.
+  Власний `@vue/runtime-dom` Vue [реалізовано за допомогою того самого API](https://github.com/vuejs/core/blob/main/packages/runtime-dom/src/index.ts). Для простішої реалізації перегляньте [`@vue/runtime-test`](https://github.com/vuejs/core/blob/main/packages/runtime-test/src/index.ts), який є приватним пакетом для власного модульного тестування Vue.
