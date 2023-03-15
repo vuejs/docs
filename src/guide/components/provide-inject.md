@@ -22,7 +22,7 @@
 
 <div class="composition-api">
 
-Щоб надати дані нащадкам компонента, скористайтеся функцією [`provide()`](/api/composition-api-dependency-injection.html#provide):
+Щоб надати дані нащадкам компонента, скористайтеся функцією [`provide()`](/api/composition-api-dependency-injection#provide):
 
 ```vue
 <script setup>
@@ -61,7 +61,7 @@ provide('key', count)
 
 <div class="options-api">
 
-Щоб надати дані нащадкам компонента, скористайтеся параметром [`provide`](/api/options-composition.html#provide):
+Щоб надати дані нащадкам компонента, скористайтеся параметром [`provide`](/api/options-composition#provide):
 
 ```js
 export default {
@@ -107,13 +107,13 @@ const app = createApp({})
 app.provide(/* ключ */ 'message', /* значення */ 'привіт!')
 ```
 
-Надавання на рівні програми доступне для всіх компонентів програми. Це особливо корисно під час написання [плагінів](/guide/reusability/plugins.html), оскільки плагіни зазвичай не можуть надавати значення за допомогою компонентів.
+Надавання на рівні програми доступне для всіх компонентів програми. Це особливо корисно під час написання [плагінів](/guide/reusability/plugins), оскільки плагіни зазвичай не можуть надавати значення за допомогою компонентів.
 
 ## Введення {#inject}
 
 <div class="composition-api">
 
-Щоб ввести дані, надані компонентом-предком, скористайтеся функцією [`inject()`](/api/composition-api-dependency-injection.html#inject):
+Щоб ввести дані, надані компонентом-предком, скористайтеся функцією [`inject()`](/api/composition-api-dependency-injection#inject):
 
 ```vue
 <script setup>
@@ -144,7 +144,7 @@ export default {
 
 <div class="options-api">
 
-Щоб ввести дані, надані компонентом-предком, скористайтеся параметром [`inject`](/api/options-composition.html#inject):
+Щоб ввести дані, надані компонентом-предком, скористайтеся параметром [`inject`](/api/options-composition#inject):
 
 ```js
 export default {
@@ -274,7 +274,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Нарешті, ви можете обернути надане значення за допомогою [`readonly()`](/api/reactivity-core.html#readonly), якщо ви хочете переконатися, що дані, передані через `provide`, не можуть бути змінені компонентом-приймачем.
+Нарешті, ви можете обернути надане значення за допомогою [`readonly()`](/api/reactivity-core#readonly), якщо ви хочете переконатися, що дані, передані через `provide`, не можуть бути змінені компонентом-приймачем.
 
 ```vue
 <script setup>
@@ -289,7 +289,7 @@ provide('read-only-count', readonly(count))
 
 <div class="options-api">
 
-Щоб введення були зв'язані реактивно із надавачем, нам потрібно надати обчислену властивість за допомогою функції [computed()](/api/reactivity-core.html#computed):
+Щоб введення були зв'язані реактивно із надавачем, нам потрібно надати обчислену властивість за допомогою функції [computed()](/api/reactivity-core#computed):
 
 ```js{10}
 import { computed } from 'vue'
@@ -311,7 +311,7 @@ export default {
 
 [Повний приклад реактивного надавання та введення](https://sfc.vuejs.org/#eNqNUktqIzEQvUqhTScQt/ZNJzDMYg4xmkWPuxy3sT5Ias+AaRhmDjC7bHOFEBII+V5BvlFKrbZjJyExCKRSPT1VvXpL9sWYfNEiK1jpxrYx/kSoRhptPXydNvMaJlZLyHLeRxGabQBLGGtpWo81dAMu5YXC3z2ixknVzgkpFPRgrVB5V9DTxN4dxUxd+ergMKEALPrWqnUEING56hQLyMLT6k+4CZers9Vf+iYmu7glFmP1oqlxD6J12QeEPT4BP21cPiQPt2mFolXyjTAUeJRmXnmkCKBsFPHAYiR1jfNjwQYSwVI69cgpKPnmITtiSb+RrEw+c1qR+H2NYkg4wUihVIhgJGmMBZt6b1zBuZuM4xxmLtf2lNMpt63yjcQcnRz9tPqXQ0vEgvWyDBycLhdoRxZVjRbtR5yvoG941+JQKxtbvOegb7ZS9a6NXq4GL+3hldTFy8v9ZrP1+dsJ7JaxU/t75TRqhmNfwPdsmHD249P/Tb8BhPPwGC0brmi/D3fhOjyEh9V/iBcQLun8L9yGC2p0ubYodL0BSx5JtivvngFIKVey)
 
-Функція `computed()` зазвичай використовується в компонентах композиційного API, але також може використовуватися для доповнення певних випадків використання в опційному API. Ви можете дізнатися більше про його використання, прочитавши [основи реактивності](/guide/essentials/reactivity-fundamentals.html) і [обчислювані властивості](/guide/essentials/computed.html) із вподобанням API, встановленим як Композиційний.
+Функція `computed()` зазвичай використовується в компонентах композиційного API, але також може використовуватися для доповнення певних випадків використання в опційному API. Ви можете дізнатися більше про його використання, прочитавши [основи реактивності](/guide/essentials/reactivity-fundamentals) і [обчислювані властивості](/guide/essentials/computed) із вподобанням API, встановленим як Композиційний.
 
 :::warning Потрібна тимчасова конфігурація
 Наведене вище використання вимагає налаштування `app.config.unwrapInjectedRef = true`, щоб введення автоматично розгортали обчислювані посилання. Це стане типовою поведінкою у Vue 3.3, і цю конфігурацію введено тимчасово, щоб уникнути поломки. Після 3.3 він більше не потрібен.
@@ -350,7 +350,7 @@ import { myInjectionKey } from './keys.js'
 const injected = inject(myInjectionKey)
 ```
 
-Дивіться також: [типізація надавання / введення](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+Дивіться також: [типізація надавання / введення](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
 </div>
 
