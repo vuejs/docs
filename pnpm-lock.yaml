@@ -4,19 +4,19 @@ specifiers:
   '@types/markdown-it': ^12.2.3
   '@types/node': ^16.9.1
   '@vue/repl': ^1.3.2
-  '@vue/theme': ^2.1.1
+  '@vue/theme': ^2.2.0
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
   terser: ^5.14.2
-  vitepress: ^1.0.0-alpha.58
+  vitepress: ^1.0.0-alpha.60
   vue: ^3.2.47
 
 dependencies:
   '@vue/repl': 1.3.2_vue@3.2.47
-  '@vue/theme': 2.1.1_noxoh66mwa3btlmdzhpowrpxsa
+  '@vue/theme': 2.2.0_ahv4xal3d4so6da4w2jgiudfwy
   dynamics.js: 1.1.5
   gsap: 3.9.0
-  vitepress: 1.0.0-alpha.58_svno5mexjalzzlm4w6lhjlrqwe
+  vitepress: 1.0.0-alpha.60_svno5mexjalzzlm4w6lhjlrqwe
   vue: 3.2.47
 
 devDependencies:
@@ -555,17 +555,17 @@ packages:
     resolution: {integrity: sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==}
     dev: false
 
-  /@vue/theme/2.1.1_noxoh66mwa3btlmdzhpowrpxsa:
-    resolution: {integrity: sha512-hdKWzbjTZ/nD3BU+o88ZIDmXP689kJZLUTlIds9+sHv4OG2VK7d8aO18HQjH2BNAqY94N74L1c6zbesNqlSa1g==}
+  /@vue/theme/2.2.0_ahv4xal3d4so6da4w2jgiudfwy:
+    resolution: {integrity: sha512-eIJFxIiVgL6TR/WItUWa3dE0Mgme0UwhPEvhv8EXfnirxbwSlmXGvA+tzE/qAkdCfWQeD84xIeKNg98NbjjVdw==}
     peerDependencies:
-      vitepress: ^1.0.0-alpha.58
+      vitepress: ^1.0.0-alpha.60
     dependencies:
       '@docsearch/css': 3.3.3
       '@docsearch/js': 3.3.3
       '@vueuse/core': 9.13.0_vue@3.2.47
       body-scroll-lock: 3.1.5
       normalize.css: 8.0.1
-      vitepress: 1.0.0-alpha.58_svno5mexjalzzlm4w6lhjlrqwe
+      vitepress: 1.0.0-alpha.60_svno5mexjalzzlm4w6lhjlrqwe
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/react'
@@ -864,8 +864,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/1.0.0-alpha.58_svno5mexjalzzlm4w6lhjlrqwe:
-    resolution: {integrity: sha512-aENSAiE2uKMoQPwBTELY8Nig5qSWrmAl+MgsO3l/TE8At6kXii+2rseEId/bVfT700JeucYdqtCgWxu+LwpYIw==}
+  /vitepress/1.0.0-alpha.60_svno5mexjalzzlm4w6lhjlrqwe:
+    resolution: {integrity: sha512-GI5iLDkZRqGEPixbSloT+p6pbKcMh9ykRRxt8vf9AjV1gaPit6Stg/t9WNxTdIhKVCuQMexGs1605DNApSRK2A==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.3
