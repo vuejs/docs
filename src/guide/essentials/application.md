@@ -53,7 +53,7 @@ Eine Anwendungsinstanz rendert nichts, bis ihre Methode `.mount()` aufgerufen wi
 app.mount('#app')
 ```
 
-The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app.
+Der Inhalt der Stammkomponente der Anwendung wird innerhalb des Containerelements gerendert. Das Container-Element selbst wird nicht als Teil der App betrachtet.
 
 The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
 
