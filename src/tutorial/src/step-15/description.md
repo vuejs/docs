@@ -1,13 +1,14 @@
-# You Did It! {#you-did-it}
+# Ви зробили це! {#you-did-it}
 
-You have finished the tutorial!
+Ви закінчили тренувальний курс!
 
-At this point, you should have a good idea of what it's like to work with Vue. However, we covered a lot of things really fast and glossed over the details, so definitely keep learning! As a next step, you can:
+На цьому етапі ви повинні мати уявлення про те, як працювати з Vue. Однак ми розглянули багато речей дуже швидко і не зупинилися на деталях, тому обов'язково продовжуйте вчитися! Наступне, що ви можете зробити:
 
-- Set up a real Vue project on your machine by following the [Quick Start](/guide/quick-start).
+- Створіть справжній проект Vue на своєму комп'ютері, дотримуючись інструкцій [швидкого старту](/guide/quick-start).
 
-- Go through the [Main Guide](/guide/essentials/application), which covers all the topics we learned so far in greater details, and much more.
+- Перегляньте [основний гід](/guide/essentials/application), який більш детально охоплює всі теми, які ми вивчили до цього часу, і багато іншого.
 
-- Check out some more practical [Examples](/examples/).
+- Ознайомтесь ще з іншими [практичними прикладами](/examples/).
 
-We can't wait to see what you build next!
+Ми вже не можемо дочекатися, щоб побачити, що ви побудуєте далі!
+

@@ -1,8 +1,8 @@
-﻿# Plugins {#plugins}
+﻿# Плагіни {#plugins}
 
-## Introduction {#introduction}
+## Вступ {#introduction}
 
-Plugins are self-contained code that usually add app-level functionality to Vue. This is how we install a plugin:
+Плагіни — це самодостатній код, який зазвичай додає функціональність до Vue на рівні app. Ось як ми встановлюємо плагін:
 
 ```js
 import { createApp } from 'vue'
@@ -10,61 +10,61 @@ import { createApp } from 'vue'
 const app = createApp({})
 
 app.use(myPlugin, {
-  /* optional options */
+  /* додаткові опції */
 })
 ```
 
-A plugin is defined as either an object that exposes an `install()` method, or simply a function that acts as the install function itself. The install function receives the [app instance](/api/application) along with additional options passed to `app.use()`, if any:
+Плагін визначається або як об'єкт, який надає метод `install()`, або просто як функція, яка діє як сама функція встановлення. Функція встановлення отримує [екземпляр app](/api/application) разом із додатковими опціями, яки передаються до `app.use()`, якщо такі є:
 
 ```js
 const myPlugin = {
   install(app, options) {
-    // configure the app
+    // налаштування app
   }
 }
 ```
 
-There is no strictly defined scope for a plugin, but common scenarios where plugins are useful include:
+Немає чітко визначеної сфери застосування для плагіна, але найбільш поширені сценарії, коли плагіни корисні, включають:
 
-1. Register one or more global components or custom directives with [`app.component()`](/api/application#app-component) and [`app.directive()`](/api/application#app-directive).
+1. Реєстрація одного або кількох глобальних компонентів або користувацьках директив у [`app.component()`](/api/application#app-component) та [`app.directive()`](/api/application#app-directive).
 
-2. Make a resource [injectable](/guide/components/provide-inject) throughout the app by calling [`app.provide()`](/api/application#app-provide).
+2. Зробити ресурс [injectable](/guide/components/provide-inject) у всьому додатку через виклик [`app.provide()`](/api/application#app-provide).
 
-3. Add some global instance properties or methods by attaching them to [`app.config.globalProperties`](/api/application#app-config-globalproperties).
+3. Додавання деяких властивостей або методів глобального екземпляра, приєднавши їх до [`app.config.globalProperties`](/api/application#app-config-globalproperties).
 
-4. A library that needs to perform some combination of the above (e.g. [vue-router](https://github.com/vuejs/vue-router-next)).
+4. Бібліотека, яка повинна виконати певну комбінацію вищезазначеного (наприклад, [vue-router](https://github.com/vuejs/vue-router-next)).
 
-## Writing a Plugin {#writing-a-plugin}
+## Написання плагіну {#writing-a-plugin}
 
-In order to better understand how to create your own Vue.js plugins, we will create a very simplified version of a plugin that displays `i18n` (short for [Internationalization](https://en.wikipedia.org/wiki/Internationalization_and_localization)) strings.
+Щоб краще зрозуміти, як створювати власні плагіни Vue.js, ми створимо дуже спрощену версію плагіна, який відображає рядки `i18n` (скорочено від [Інтернаціоналізація](https://en.wikipedia.org/wiki/Internationalization_and_localization)).
 
-Let's begin by setting up the plugin object. It is recommended to create it in a separate file and export it, as shown below to keep the logic contained and separate.
+Почнемо з налаштування об'єкта плагіна. Рекомендується створити його в окремому файлі та експортувати, як показано нижче, щоб тримати логіку окремо.
 
 ```js
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-    // Plugin code goes here
+    // Тут міститься код плагіна
   }
 }
 ```
 
-We want to create a translation function. This function will receive a dot-delimited `key` string, which we will use to look up the translated string in the user-provided options. This is the intended usage in templates:
+Ми хочемо створити функцію перекладу. Ця функція отримає розділений крапками рядок `key`, який ми будемо використовувати для пошуку перекладу рядка в опціях, наданих користувачем. Це передбачає використання в шаблонах:
 
 ```vue-html
 <h1>{{ $translate('greetings.hello') }}</h1>
 ```
 
-Since this function should be globally available in all templates, we will make it so by attaching it to `app.config.globalProperties` in our plugin:
+Оскільки ця функція має бути глобально доступною в усіх шаблонах, ми зробимо її такою, приєднавши до `app.config.globalProperties` нашого плагіна:
 
 ```js{4-11}
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-    // inject a globally available $translate() method
+    // введення глобально доступного методу $translate()
     app.config.globalProperties.$translate = (key) => {
-      // retrieve a nested property in `options`
-      // using `key` as the path
+      // отримати вкладену властивість у `options`,
+      // використовуючи `key` як шлях
       return key.split('.').reduce((o, i) => {
         if (o) return o[i]
       }, options)
@@ -73,9 +73,9 @@ export default {
 }
 ```
 
-Our `$translate` function will take a string such as `greetings.hello`, look inside the user provided configuration and return the translated value.
+Наша функція `$translate` візьме рядок, наприклад, `greetings.hello`, загляне в надану користувачем конфігурацію та поверне перекладене значення.
 
-The object containing the translated keys should be passed to the plugin during installation via additional parameters to `app.use()`:
+Об'єкт, що містить перекладені ключі, слід передати плагіну під час інсталяції за допомогою додаткових параметрів до `app.use()`:
 
 ```js
 import i18nPlugin from './plugins/i18n'
@@ -87,17 +87,17 @@ app.use(i18nPlugin, {
 })
 ```
 
-Now, our initial expression `$translate('greetings.hello')` will be replaced by `Bonjour!` at runtime.
+Тепер наш початковий вираз `$translate('greetings.hello')` буде замінено на `Bonjour!` під час виконання.
 
-See also: [Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+Дивіться також: [Розширення глобальних властивостей](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
-Use global properties scarcely, since it can quickly become confusing if too many global properties injected by different plugins are used throughout an app.
+Використовуйте глобальні властивості рідко, оскільки це може швидко заплутати, якщо в застосунку використовується занадто багато глобальних властивостей, введених різними плагінами.
 :::
 
-### Provide / Inject with Plugins {#provide-inject-with-plugins}
+### Provide / Inject з плагінами {#provide-inject-with-plugins}
 
-Plugins also allow us to use `inject` to provide a function or attribute to the plugin's users. For example, we can allow the application to have access to the `options` parameter to be able to use the translations object.
+Плагіни також дозволяють нам використовувати `inject`, щоб надати функцію або атрибут користувачам плагіна. Наприклад, ми можемо дозволити застосунку мати доступ до параметра `options`, щоб мати можливість використовувати об'єкт з перекладами.
 
 ```js{10}
 // plugins/i18n.js
@@ -114,7 +114,7 @@ export default {
 }
 ```
 
-Plugin users will now be able to inject the plugin options into their components using the `i18n` key:
+Користувачі плагіну тепер зможуть додавати його параметри у свої компоненти за допомогою ключа `i18n`:
 
 <div class="composition-api">
 
