@@ -55,7 +55,7 @@ app.mount('#app')
 
 Der Inhalt der Stammkomponente der Anwendung wird innerhalb des Containerelements gerendert. Das Container-Element selbst wird nicht als Teil der App betrachtet.
 
-The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
+Die Methode `.mount()` sollte immer aufgerufen werden, nachdem alle Anwendungskonfigurationen und Asset-Registrierungen abgeschlossen sind. Beachten Sie auch, dass ihr Rückgabewert, im Gegensatz zu den Asset-Registrierungsmethoden, die Instanz der Stammkomponente ist und nicht die Instanz der Anwendung.
 
 ### In-DOM Root Component Template {#in-dom-root-component-template}
 
