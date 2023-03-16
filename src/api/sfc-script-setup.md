@@ -63,7 +63,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">{{ count }}</button>
+  <button @click="count.value++">{{ count }}</button>
 </template>
 ```
 
