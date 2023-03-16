@@ -17,8 +17,8 @@ export default {
     function book() {
       alert(
         isReturn.value
-          ? `You have booked a return flight leaving on ${departureDate.value} and returning on ${returnDate.value}.`
-          : `You have booked a one-way flight leaving on ${departureDate.value}.`
+          ? `Ви забронювали рейс з вильотом ${departureDate.value} та поверненням ${returnDate.value}.`
+          : `Ви забронювали рейс в один бік на ${departureDate.value}.`
       )
     }
 

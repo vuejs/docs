@@ -495,7 +495,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#temperature-converter'
         },
         {
-          text: 'Бронювання літаків',
+          text: 'Бронювання квитків',
           link: '/examples/#flight-booker'
         },
         {
