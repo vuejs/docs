@@ -31,7 +31,7 @@ export default {
 
 </div>
 
-Також існують й інші хуки, які викликатимуться на різних етапах життєвого циклу екземпляра, причому найчастіше використовуються <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html#onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated), а також [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated), а також [`unmounted`](/api/options-lifecycle.html#unmounted).</span>
+Також існують й інші хуки, які викликатимуться на різних етапах життєвого циклу екземпляра, причому найчастіше використовуються <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated), а також [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated), а також [`unmounted`](/api/options-lifecycle#unmounted).</span>
 
 <div class="options-api">
 
@@ -63,4 +63,4 @@ setTimeout(() => {
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Зверніться до <span class="composition-api">[довідника API хуків життєвого циклу](/api/composition-api-lifecycle.html)</span><span class="options-api">[довідника API хуків життєвого циклу](/api/options-lifecycle.html)</span>, щоб дізнатися більше про всі хуки життєвого циклу та їх відповідні випадки використання.
+Зверніться до <span class="composition-api">[довідника API хуків життєвого циклу](/api/composition-api-lifecycle)</span><span class="options-api">[довідника API хуків життєвого циклу](/api/options-lifecycle)</span>, щоб дізнатися більше про всі хуки життєвого циклу та їх відповідні випадки використання.

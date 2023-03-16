@@ -20,7 +20,7 @@ footer: false
 - Встановіть [Node.js](https://nodejs.org/uk/) версії 16.0 або новішу
   :::
 
-У цій секції ми розповімо, як створити Vue [одно-сторінковий додаток](/guide/extras/ways-of-using-vue.html#одно-сторінковий-додаток-spa) на вашому локальному комп'ютері. Створений проєкт буде використовувати збірку, яка заснована на [Vite](https://vitejs.dev), і дозволяє використовувати [одно-файлові компоненти](/guide/scaling-up/sfc) Vue (SFC).
+У цій секції ми розповімо, як створити Vue [одно-сторінковий додаток](/guide/extras/ways-of-using-vue#single-page-application-spa) на вашому локальному комп'ютері. Створений проєкт буде використовувати збірку, яка заснована на [Vite](https://vitejs.dev), і дозволяє використовувати [одно-файлові компоненти](/guide/scaling-up/sfc) Vue (SFC).
 
 Переконайтеся, що у вас встановлена актуальна версія [Node.js](https://nodejs.org/uk/), і виконайте наступну команду в командному рядку (без знаку `>`):
 
@@ -48,19 +48,19 @@ footer: false
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-Вітаємо, тепер у вас має бути запущений перший проєкт на Vue! Зауважте, що приклади компонентів у створеному проєкті написані за допомогою [Композиційного API](/guide/introduction.html#composition-api) і `<script setup>`, а не [Опційним API](/guide/introduction.html#options-api). Ось кілька додаткових порад:
+Вітаємо, тепер у вас має бути запущений перший проєкт на Vue! Зауважте, що приклади компонентів у створеному проєкті написані за допомогою [Композиційного API](/guide/introduction#composition-api) і `<script setup>`, а не [Опційним API](/guide/introduction#options-api). Ось кілька додаткових порад:
 
-- Рекомендовано використовувати [Visual Studio Code](https://code.visualstudio.com/) в якості вашої IDE ї [розширенням Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Якщо ви користуєтесь іншими редакторами, перевірте [можливості щодо їхньої підтримки](/guide/scaling-up/tooling.html#ide-support).
-- Стосовно інших інструментів, зокрема інтеграції з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling.html).
+- Рекомендовано використовувати [Visual Studio Code](https://code.visualstudio.com/) в якості вашої IDE ї [розширенням Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Якщо ви користуєтесь іншими редакторами, перевірте [можливості щодо їхньої підтримки](/guide/scaling-up/tooling#ide-support).
+- Стосовно інших інструментів, зокрема інтеграції з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling).
 - Для поглибленого вивчення інструментів, на яких оснований Vite, перегляньте [документацію по Vite](https://vitejs.dev).
-- Якщо ви користуєтесь TypeScript, пропонуємо до вашої уваги [Гід по використанню TypeScript](typescript/overview.html).
+- Якщо ви користуєтесь TypeScript, пропонуємо до вашої уваги [Гід по використанню TypeScript](typescript/overview).
 
 Коли ви будете готові до запуску свого додатку у продакшн, виконайте наступне:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-Виконання цієї команди створить в директорії `./dist` збірку вашого додатка, готового до продакшну. Прочитайте [Гід з підготовки до продакшну](/guide/best-practices/production-deployment.html) для отримання деталей.
+Виконання цієї команди створить в директорії `./dist` збірку вашого додатка, готового до продакшну. Прочитайте [Гід з підготовки до продакшну](/guide/best-practices/production-deployment) для отримання деталей.
 
 [Наступні кроки >](#наступні-кроки)
 
@@ -171,7 +171,7 @@ import { createApp } from 'vue'
 :::
 
 :::warning Не для продакшну
-Конфігурацію через карти імпорту є зміст використовувати лише в навчальних цілях, але якщо ви збираєтесь використовувати Vue без інструментів збірки в продакшні, обов'язково перегляньте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment.html#without-build-tools).
+Конфігурацію через карти імпорту є зміст використовувати лише в навчальних цілях, але якщо ви збираєтесь використовувати Vue без інструментів збірки в продакшні, обов'язково перегляньте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment#without-build-tools).
 :::
 
 ### Розділення модулів {#splitting-up-the-modules}
@@ -208,7 +208,7 @@ export default {
 
 ### Використання Композиційного API без засобів збірки {#using-composition-api-without-a-build-step}
 
-Багато прикладів для Композиційного API використовують синтаксис `<script setup>`. Якщо ви бажаєте використовувати Композиційний API без засобів збірки, ознайомтесь з використанням [функції `setup()`](/api/composition-api-setup.html).
+Багато прикладів для Композиційного API використовують синтаксис `<script setup>`. Якщо ви бажаєте використовувати Композиційний API без засобів збірки, ознайомтесь з використанням [функції `setup()`](/api/composition-api-setup).
 
 ## Наступні кроки {#next-steps}
 

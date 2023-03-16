@@ -120,12 +120,12 @@ methods: {
 
 <div class="composition-api">
 
-Дивіться також: [Типізація обробників подій](/guide/typescript/composition-api.html#типізація-обробників-подій) <sup class="vt-badge ts" />
+Дивіться також: [Типізація обробників подій](/guide/typescript/composition-api#typing-event-handlers) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-Дивіться також: [Типізація обробників подій](/guide/typescript/options-api.html#типізація-обробників-подій) <sup class="vt-badge ts" />
+Дивіться також: [Типізація обробників подій](/guide/typescript/options-api#typing-event-handlers) <sup class="vt-badge ts" />
 
 </div>
 

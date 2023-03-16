@@ -7,7 +7,7 @@ import AnimateWatcher from './demos/AnimateWatcher.vue'
 
 # Техніки анімації {#animation-techniques}
 
-Vue надає компоненти [`<Transition>`](/guide/built-ins/transition.html) і [`<TransitionGroup>`](/guide/built-ins/transition-group.html) для обробки переходів входу / виходу і списків. Однак існує багато інших способів використання анімації в Інтернеті, навіть у програмі Vue. Тут ми обговоримо кілька додаткових прийомів.
+Vue надає компоненти [`<Transition>`](/guide/built-ins/transition) і [`<TransitionGroup>`](/guide/built-ins/transition-group) для обробки переходів входу / виходу і списків. Однак існує багато інших способів використання анімації в Інтернеті, навіть у програмі Vue. Тут ми обговоримо кілька додаткових прийомів.
 
 ## Анімація на основі класу {#class-based-animations}
 

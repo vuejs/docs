@@ -92,7 +92,7 @@
 
   </div>
 
-- **Також до вашої уваги:** [`this.$nextTick()`](/api/component-instance.html#nexttick)
+- **Також до вашої уваги:** [`this.$nextTick()`](/api/component-instance#nexttick)
 
 ## defineComponent() {#definecomponent}
 
@@ -134,7 +134,7 @@
 
   Зауважте, що це не обов'язково робити, якщо ви використовуєте Vite, оскільки Rollup (основний продакшн комплектувальник, який використовує Vite) достатньо розумний, щоб визначити, що `defineComponent()` насправді не має побічних ефектів і не потребує ручних анотацій.
 
-- **Також до вашої уваги:** [Гід - Використання Vue з TypeScript](/guide/typescript/overview.html#general-usage-notes)
+- **Також до вашої уваги:** [Гід - Використання Vue з TypeScript](/guide/typescript/overview#general-usage-notes)
 
 ## defineAsyncComponent() {#defineasynccomponent}
 
@@ -165,7 +165,7 @@
   }
   ```
 
-- **Також до вашої уваги:** [Гід - Асинхронні компоненти](/guide/components/async.html)
+- **Також до вашої уваги:** [Гід - Асинхронні компоненти](/guide/components/async)
 
 ## defineCustomElement() {#definecustomelement}
 
@@ -206,6 +206,6 @@
 
 - **Також до вашої уваги:**
 
-  - [Гід - Створення власних елементів за допомогою Vue](/guide/extras/web-components.html#building-custom-elements-with-vue)
+  - [Гід - Створення власних елементів за допомогою Vue](/guide/extras/web-components#building-custom-elements-with-vue)
 
-  - Також зауважте, що `defineCustomElement()` вимагає [спеціальної конфігурації](/guide/extras/web-components.html#sfc-as-custom-element) при використанні з однофайловими компонентами.
+  - Також зауважте, що `defineCustomElement()` вимагає [спеціальної конфігурації](/guide/extras/web-components#sfc-as-custom-element) при використанні з однофайловими компонентами.

@@ -23,7 +23,7 @@
   Якщо в кореневому компоненті вашого застосунку не вказано параметри `template` або `render`, Vue замість цього спробує використати `innerHTML` змонтованого елемента як шаблон.
 
   :::warning Примітка безпеки
-  Використовуйте лише джерела шаблонів, яким можна довіряти. Не використовуйте вміст, наданий користувачами, як шаблон. Додаткову інформацію див. у [Гіді безпеки](/guide/best-practices/security.html#rule-no-1-never-use-non-trusted-templates).
+  Використовуйте лише джерела шаблонів, яким можна довіряти. Не використовуйте вміст, наданий користувачами, як шаблон. Додаткову інформацію див. у [Гіді безпеки](/guide/best-practices/security#rule-no-1-never-use-non-trusted-templates).
   :::
 
 ## render {#render}
@@ -58,8 +58,8 @@
   Попередньо скомпільовані шаблони, наприклад ті, що містяться в одно-файлових компонентах, компілюються в параметр `render` під час збірки. Якщо в компоненті присутні `render` і `template`, `render` матиме вищий пріоритет.
 
 - **Також до вашої уваги:**
-  - [Механізм рендерингу](/guide/extras/rendering-mechanism.html)
-  - [Функції рендерингу](/guide/extras/render-function.html)
+  - [Механізм рендерингу](/guide/extras/rendering-mechanism)
+  - [Функції рендерингу](/guide/extras/render-function)
 
 ## compilerOptions {#compileroptions}
 
@@ -80,6 +80,6 @@
 
 - **Подробиці**
 
-  Цей параметр конфігурації застосовується лише під час використання повної збірки (тобто окремого `vue.js`, який може компілювати шаблони у браузері). Він підтримує ті самі параметри, що й [app.config.compilerOptions](/api/application.html#app-config-compileroptions) на рівні застосунку, і має вищий пріоритет для поточного компонента.
+  Цей параметр конфігурації застосовується лише під час використання повної збірки (тобто окремого `vue.js`, який може компілювати шаблони у браузері). Він підтримує ті самі параметри, що й [app.config.compilerOptions](/api/application#app-config-compileroptions) на рівні застосунку, і має вищий пріоритет для поточного компонента.
 
-- **Також до вашої уваги:** [app.config.compilerOptions](/api/application.html#app-config-compileroptions)
+- **Також до вашої уваги:** [app.config.compilerOptions](/api/application#app-config-compileroptions)

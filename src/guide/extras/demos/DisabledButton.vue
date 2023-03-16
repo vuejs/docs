@@ -1,10 +1,12 @@
 <script setup>
-let notActivated = $ref(false)
+import { ref } from 'vue'
+
+const notActivated = ref(false)
 
 function warnNotActivated() {
-  notActivated = true
+  notActivated.value = true
   setTimeout(() => {
-    notActivated = false
+    notActivated.value = false
   }, 1500)
 }
 </script>

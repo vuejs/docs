@@ -14,14 +14,14 @@ import ListStagger from './transition-demos/ListStagger.vue'
 
 - За промовчанням він не відображає елемент обгортки. Але ви можете вказати елемент для візуалізації за допомогою властивості `tag`.
 
-- [Режими переходу](./transition.html#transition-modes) недоступні, оскільки ми більше не чергуємо взаємовиключні елементи.
+- [Режими переходу](./transition#transition-modes) недоступні, оскільки ми більше не чергуємо взаємовиключні елементи.
 
 - Елементи всередині **завжди повинні** мати унікальний атрибут `key`.
 
 - Класи переходу CSS будуть застосовані до окремих елементів у списку, а **не** до самої групи/контейнера.
 
 :::tip
-У разі використання в [шаблонах DOM](/guide/essentials/component-basics.html#dom-template-parsing-caveats) на нього слід посилатися як `<transition-group>`.
+У разі використання в [шаблонах DOM](/guide/essentials/component-basics#dom-template-parsing-caveats) на нього слід посилатися як `<transition-group>`.
 :::
 
 ## Вхід / вихід з переходів {#enter-leave-transitions}
@@ -133,4 +133,4 @@ function onEnter(el, done) {
 
 **Пов'язані**
 
-- [Посилання на API `<TransitionGroup>`](/api/built-in-components.html#transitiongroup)
+- [Посилання на API `<TransitionGroup>`](/api/built-in-components#transitiongroup)

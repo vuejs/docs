@@ -215,7 +215,7 @@ export default defineComponent({
 
 ## Доповнення глобальних властивостей {#augmenting-global-properties}
 
-Деякі плагіни інсталюють глобально доступні властивості для всіх екземплярів компонента за допомогою [`app.config.globalProperties`](/api/application.html#app-config-globalproperties). Наприклад, ми можемо інсталювати `this.$http` для отримання даних, або `this.$translate` для інтернаціоналізації. Щоб це добре працювало з TypeScript, Vue надає інтерфейс `ComponentCustomProperties`, призначений для доповнення за допомогою [доповнення модуля TypeScript](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation):
+Деякі плагіни інсталюють глобально доступні властивості для всіх екземплярів компонента за допомогою [`app.config.globalProperties`](/api/application#app-config-globalproperties). Наприклад, ми можемо інсталювати `this.$http` для отримання даних, або `this.$translate` для інтернаціоналізації. Щоб це добре працювало з TypeScript, Vue надає інтерфейс `ComponentCustomProperties`, призначений для доповнення за допомогою [доповнення модуля TypeScript](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation):
 
 ```ts
 import axios from 'axios'

@@ -56,4 +56,4 @@ Vue надає першокласні API для «рендерингу» про
 - Створювати комп'ютерні програми за допомогою [Electron](https://www.electronjs.org/) або [Tauri](https://tauri.studio/en/)
 - Створювати мобільні програми за допомогою [Ionic Vue](https://ionicframework.com/docs/vue/overview)
 - Створювати комп'ютерні та мобільні додатки з однієї кодової бази за допомогою [Quasar](https://quasar.dev/)
-- Використовувати [АРІ користувацького рендерингу](/api/custom-renderer) від Vue для створення користувацьких засобів візуалізації, націлених на [WebGL](https://troisjs.github.io/) або навіть на [термінал](https://github.com/ycmjason/vuminal)!
+- Використовувати [АРІ користувацького рендерингу](/api/custom-renderer) від Vue для створення користувацьких засобів візуалізації, націлених на [WebGL](https://troisjs.github.io/) або навіть на [термінал](https://github.com/vue-terminal/vue-termui)!

@@ -1,10 +1,11 @@
 <script setup>
+import { shallowRef } from 'vue'
 import CompA from './CompA.vue'
 import CompB from './CompB.vue'
 
-let current = $shallowRef(CompA)
+const current = shallowRef(CompA)
 
-const { useKeepAlive } = defineProps({ useKeepAlive: Boolean })
+defineProps({ useKeepAlive: Boolean })
 </script>
 
 <template>

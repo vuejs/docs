@@ -3,13 +3,13 @@ outline: deep
 ---
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
-let version = $ref()
+const version = ref()
 
 onMounted(async () => {
   const res = await fetch('https://api.github.com/repos/vuejs/core/releases?per_page=1')
-  version = (await res.json())[0].name
+  version.value = (await res.json())[0].name
 })
 </script>
 

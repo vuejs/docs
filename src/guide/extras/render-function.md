@@ -6,7 +6,7 @@ outline: deep
 
 Vue рекомендує використовувати шаблони для створення застосунків у переважній більшості випадків. Однак є ситуації, коли нам потрібна повна програмна потужність JavaScript. Саме тут ми можемо використати **функцію рендерингу**.
 
-> Якщо ви ще не знайомі з концепцією віртуальної DOM і функціями рендерингу, обов'язково прочитайте спочатку розділ [Механізм рендерингу](/guide/extras/rendering-mechanism.html).
+> Якщо ви ще не знайомі з концепцією віртуальної DOM і функціями рендерингу, обов'язково прочитайте спочатку розділ [Механізм рендерингу](/guide/extras/rendering-mechanism).
 
 ## Основне використання {#basic-usage}
 
@@ -39,8 +39,8 @@ h('div', { id: 'foo' })
 // Vue автоматично вибирає правильний спосіб призначення
 h('div', { class: 'bar', innerHTML: 'hello' })
 
-// можна додати модифікатори реквізитів, такі як .prop і .attr
-// з префіксами '.' та `^' відповідно
+// можна додати модифікатори реквізитів, такі як `.prop` і `.attr`
+// з префіксами `.` та `^` відповідно
 h('div', { '.name': 'some-name', '^width': '100' })
 
 // class і style мають ту саму підтримку значень
@@ -381,7 +381,7 @@ h('input', {
 />
 ```
 
-Для інших модифікаторів подій і ключів можна використовувати помічник [`withModifiers`](/api/render-function.html#withmodifiers):
+Для інших модифікаторів подій і ключів можна використовувати помічник [`withModifiers`](/api/render-function#withmodifiers):
 
 ```js
 import { withModifiers } from 'vue'
@@ -438,7 +438,7 @@ function render() {
 }
 ```
 
-Якщо компонент зареєстровано за ім'ям і не може бути імпортований безпосередньо (наприклад, бібліотекою, яка зареєстрована глобально), це можна вирішити програмно за допомогою помічника [`resolveComponent()`](/api/render-function.html#resolvecomponent).
+Якщо компонент зареєстровано за ім'ям і не може бути імпортований безпосередньо (наприклад, бібліотекою, яка зареєстрована глобально), це можна вирішити програмно за допомогою помічника [`resolveComponent()`](/api/render-function#resolvecomponent).
 
 ### Слоти рендеринга {#rendering-slots}
 
@@ -481,7 +481,7 @@ export default {
 </div>
 <div class="options-api">
 
-У функціях рендерингу можна отримати доступ до слотів [`this.$slots`](/api/component-instance.html#slots):
+У функціях рендерингу можна отримати доступ до слотів [`this.$slots`](/api/component-instance#slots):
 
 ```js
 export default {
@@ -551,7 +551,7 @@ h(MyComponent, null, {
 
 ### Вбудовані компоненти {#built-in-components}
 
-[Вбудовані компоненти](/api/built-in-components.html), такі як `<KeepAlive>`, `<Transition>`, `<TransitionGroup>`, `<Teleport>` і `<Suspense>`, мають бути імпортовані для використання у функціях рендерингу:
+[Вбудовані компоненти](/api/built-in-components), такі як `<KeepAlive>`, `<Transition>`, `<TransitionGroup>`, `<Teleport>` і `<Suspense>`, мають бути імпортовані для використання у функціях рендерингу:
 
 <div class="composition-api">
 
@@ -621,7 +621,7 @@ export default {
 
 ### Користувацькі директиви {#custom-directives}
 
-Користувацькі директиви можуть бути застосовані до vnode за допомогою [`withDirectives`](/api/render-function.html#withdirectives):
+Користувацькі директиви можуть бути застосовані до vnode за допомогою [`withDirectives`](/api/render-function#withdirectives):
 
 ```js
 import { h, withDirectives } from 'vue'
@@ -642,7 +642,7 @@ const vnode = withDirectives(h('div'), [
 ])
 ```
 
-Якщо директива зареєстрована за назвою та не може бути імпортована напряму, це можна вирішити за допомогою помічника [`resolveDirective`](/api/render-function.html#resolvedirective).
+Якщо директива зареєстрована за назвою та не може бути імпортована напряму, це можна вирішити за допомогою помічника [`resolveDirective`](/api/render-function#resolvedirective).
 
 ## Функціональні компоненти {#functional-components}
 
@@ -671,11 +671,11 @@ function MyComponent(props, context) {
 }
 ```
 
-Другий аргумент, `context`, містить три властивості: `attrs`, `emit` і `slots`. Вони еквівалентні властивостям екземпляра [`$attrs`](/api/component-instance.html#attrs), [`$emit`](/api/component-instance.html#emit), та [`$slots`](/api/component-instance.html#slots) відповідно.
+Другий аргумент, `context`, містить три властивості: `attrs`, `emit` і `slots`. Вони еквівалентні властивостям екземпляра [`$attrs`](/api/component-instance#attrs), [`$emit`](/api/component-instance#emit), та [`$slots`](/api/component-instance#slots) відповідно.
 
 </div>
 
-Більшість звичайних параметрів конфігурації компонентів недоступні для функціональних компонентів. Однак можна визначити [`props`](/api/options-state.html#props) та [`emits`](/api/options-state.html#emits), додавши їх як властивості:
+Більшість звичайних параметрів конфігурації компонентів недоступні для функціональних компонентів. Однак можна визначити [`props`](/api/options-state#props) та [`emits`](/api/options-state#emits), додавши їх як властивості:
 
 ```js
 MyComponent.props = ['value']
@@ -684,7 +684,7 @@ MyComponent.emits = ['click']
 
 Якщо параметр `props` не вказано, то об’єкт `props`, переданий у функцію, міститиме всі атрибути, такі самі, як `attrs`. Назви властивостей не будуть нормалізовані у CamelCase, якщо не вказано параметр `props`.
 
-Для функціональних компонентів із явними `props` [передача атрибутів](/guide/components/attrs.html) працює майже так само, як і зі звичайними компонентами. Однак для функціональних компонентів, які явно не вказують свої `props`, лише `class`, `style` і `onXxx` слухачі подій будуть успадковані від `attrs` за замовчуванням. У будь-якому випадку для `inheritAttrs` можна встановити значення `false`, щоб вимкнути успадкування атрибутів:
+Для функціональних компонентів із явними `props` [передача атрибутів](/guide/components/attrs) працює майже так само, як і зі звичайними компонентами. Однак для функціональних компонентів, які явно не вказують свої `props`, лише `class`, `style` і `onXxx` слухачі подій будуть успадковані від `attrs` за замовчуванням. У будь-якому випадку для `inheritAttrs` можна встановити значення `false`, щоб вимкнути успадкування атрибутів:
 
 ```js
 MyComponent.inheritAttrs = false

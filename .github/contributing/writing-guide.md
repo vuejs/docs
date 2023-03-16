@@ -10,15 +10,15 @@ Writing documentation is an exercise in empathy. We're not describing an objecti
   - Cognitive capacity is **depleted more slowly** when we help them feel consistently smart, powerful, and curious. Breaking things down into digestible pieces and minding the flow of the document can help keep them in this state.
 - **Always try to see from the user's perspective.** When we understand something thoroughly, it becomes obvious to us. This is called _the curse of knowledge_. In order to write good documentation, try to remember what you first needed to know when learning this concept. What jargon did you need to learn? What did you misunderstand? What took a long time to really grasp? Good documentation meets users where they are. It can be helpful to practice explaining the concept to people in person before.
 - **Describe the _problem_ first, then the solution.** Before showing how a feature works, it's important to explain why it exists. Otherwise, users won't have the context to know if this information is important to them (is it a problem they experience?) or what prior knowledge/experience to connect it to.
-- **While writing, don't be afraid to ask questions**, _especially_ if you're afraid they might be "dumb". Being vulnerable is hard, but it's the only way for us to more fully understand what we need to explain.
-- **Be involved in feature discussions.** The best APIs come from documentation-driven development, where we build features that are easy to explain, rather than trying to figure out how to explain them later. Asking questions (especially "dumb" questions) earlier often helps reveal confusions, inconsistencies, and problematic behavior before a breaking change would be required to fix them.
+- **While writing, don't be afraid to ask questions**, _especially_ if you're afraid that your questions might be "foolish". Being vulnerable is hard, but it's the only way for us to more fully understand what we need to explain.
+- **Be involved in feature discussions.** The best APIs come from documentation-driven development, where we build features that are easy to explain, rather than trying to figure out how to explain them later. Asking questions (especially "foolish" questions) earlier often helps reveal confusions, inconsistencies, and problematic behavior before a breaking change would be required to fix them.
 
 ## Organization
 
 - **Installation/Integration**: Provide a thorough overview of how to integrate the software into as many different kinds of projects as necessary.
 - **Introduction/Getting Started**:
   - Provide a less than 10 minute overview of the problems the project solves and why it exists.
-  - Provide a less than 30 minute overview of the problems the project solves and how, including when and why to use the project and some simple code examples. At the end, link to both to Installation page and the beginning of the Essentials Guide.
+  - Provide a less than 30 minute overview of the problems the project solves and how, including when and why to use the project and some simple code examples. At the end, link to both the Installation page and the beginning of the Essentials Guide.
 - **Guide**: Make users feel smart, powerful, and curious, then maintain this state so that users maintain the motivation and cognitive capacity to keep learning more. Guide pages are meant to be read sequentially, so should generally be ordered from the highest to lowest power/effort ratio.
   - **Essentials**: It should take no longer than 5 hours to read the Essentials, though shorter is better. Its goal is to provide the 20% of knowledge that will help users handle 80% of use cases. Essentials can link to more advanced guides and the API, though, in most cases, you should avoid such links. When they are provided, you need also provide a context so users are aware if they should follow this link on their first reading. Otherwise, many users end up exhausting their cognitive capacity link-hopping, trying to fully learn every aspect of a feature before moving on, and as a result, never finish that first read-through of the Essentials. Remember that a smooth read is more important than being thorough. We want to give people the information they need to avoid a frustrating experience, but they can always come back and read further, or Google a less common problem when they encounter it.
   - **Advanced**: While the Essentials helps people handle ~80% of use cases, subsequent guides help get users to 95% of use cases, plus more detailed information on non-essential features (e.g. transitions, animations), more complex convenience features (e.g. mixins, custom directives), and dev experience improvements (e.g. JSX, plugins). The final 5% of use cases that are more niche, complex, and/or prone to abuse will be left to the cookbook and API reference, which can be linked to from these advanced guides.
@@ -59,9 +59,9 @@ Writing documentation is an exercise in empathy. We're not describing an objecti
 - **When referencing a directly following example, use a colon (`:`) to end a sentence**, rather than a period (`.`).
 - **Use the Oxford comma** (e.g. "a, b, and c" instead of "a, b and c"). ![Why the Oxford comma is important](./oxford-comma.jpg)
   - Source: [The Serial (Oxford) Comma: When and Why To Use It](https://www.inkonhand.com/2015/10/the-serial-oxford-comma-when-and-why-to-use-it/)
-- **When referencing the name of a project, use the name that project refers to itself as.** For example, "webpack" and "npm" should both use lowercase as that's how their documentation refers to them.
+- **When referencing the name of a project, use the name that the project refers to itself as.** For example, "webpack" and "npm" should both use lowercase as that's how their documentation refers to them.
 - **Use Title Case for headings** - at least for now, since it's what we use through the rest of the docs. There's research suggesting that sentence case (only first word of the heading starts with a capital) is actually superior for legibility and also reduces the cognitive overhead for documentation writers, since they don't have to try to remember whether to capitalize words like "and", "with", and "about".
-- **Don't use emojis (except in discussions).** Emojis are cute and friendly, but they can be a distraction in documentation and some emoji even convey different meanings in different cultures.
+- **Don't use emojis (except in discussions).** Emojis are cute and friendly, but they can be a distraction in documentation and some emojis even convey different meanings in different cultures.
 
 ## Iteration & Communication
 
@@ -87,9 +87,9 @@ Writing documentation is an exercise in empathy. We're not describing an objecti
 
 We have some dedicated styles to denote something that's worth highlighting in a particular way. These are captured [on this page](https://vitepress.vuejs.org/guide/markdown.html#custom-containers). **They are to be used sparingly.**
 
-There is a certain temptation to abuse these styles, as one can simply add a change inside a callout. However, this breaks up the flow of reading for the user, and thus, should only be used in special circumstances. Wherever possible, we should attempt to create a narrative and flow within the page to respect the readers cognitive load.
+There is a certain temptation to abuse these styles, as one can simply add a change inside a callout. However, this breaks up the flow of reading for the user and should only be used in special circumstances. Wherever possible, we should attempt to create a narrative and flow within the page to respect the reader's cognitive load.
 
-Under no circumstances should 2 alerts be used next to one another, it's a sign that we're not able to explain context well enough.
+Under no circumstances should two alerts be used next to one another, it's a sign that we're not able to explain context well enough.
 
 ### Contributing
 

@@ -35,11 +35,11 @@
 
   При зміні значення `text`, елемент `<span>` завжди буде замінюватися повністю, замість оновлення вмісту, а значить і анімація переходу буде запущена..
 
-- **See also:** [Гід - Рендеринг списків - підтримка стану за допомогою `key`](/guide/essentials/list.html#maintaining-state-with-key)
+- **See also:** [Гід - Рендеринг списків - підтримка стану за допомогою `key`](/guide/essentials/list#maintaining-state-with-key)
 
 ## ref {#ref}
 
-Позначає [посилання шаблону](/guide/essentials/template-refs.html).
+Позначає [посилання шаблону](/guide/essentials/template-refs).
 
 - **Очікує:** `string | Function`
 
@@ -81,13 +81,13 @@
   `this.$refs` також нереактивна, тому не варто використовувати її в шаблонах для прив'язування даних..
 
 - **Також до вашої уваги:**
-  - [Гід - Референції в шаблонах](/guide/essentials/template-refs.html)
-  - [Гід - Типізація референцій в шаблонах](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
-  - [Гід - Типізація референцій в шаблонах для компонент](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
+  - [Гід - Референції в шаблонах](/guide/essentials/template-refs)
+  - [Гід - Типізація референцій в шаблонах](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
+  - [Гід - Типізація референцій в шаблонах для компонент](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 ## is {#is}
 
-Використовується для прив'язки [динамічних компонентів](/guide/essentials/component-basics.html#dynamic-components).
+Використовується для прив'язки [динамічних компонентів](/guide/essentials/component-basics#dynamic-components).
 
 - **Очікує:** `string | Component`
 
@@ -95,7 +95,7 @@
 
   Коли атрибут `is` використовується в рідному елементі HTML, він інтерпретуватиметься як [користувацький вбудований елемент](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), це є рідною можливістю вебплатформи.
 
-  Але є випадки, коли може знадобитися, щоб Vue замінив рідний елемент на компонент Vue, як пояснюється у [застереженні щодо аналізу шаблону DOM](/guide/essentials/component-basics.html#dom-template-parsing-caveats). У такому разі можна додати до значення атрибуту `is` префікс `vue:` щоб Vue замість елемента відрендерив компонент Vue:
+  Але є випадки, коли може знадобитися, щоб Vue замінив рідний елемент на компонент Vue, як пояснюється у [застереженні щодо аналізу шаблону DOM](/guide/essentials/component-basics#dom-template-parsing-caveats). У такому разі можна додати до значення атрибуту `is` префікс `vue:` щоб Vue замість елемента відрендерив компонент Vue:
 
   ```vue-html
   <table>
@@ -105,5 +105,5 @@
 
 - **Також до вашої уваги:**
 
-  - [Вбудовані спеціальні елементи - `<component>`](/api/built-in-special-elements.html#component)
-  - [Динамічні компоненти](/guide/essentials/component-basics.html#dynamic-components)
+  - [Вбудовані спеціальні елементи - `<component>`](/api/built-in-special-elements#component)
+  - [Динамічні компоненти](/guide/essentials/component-basics#dynamic-components)

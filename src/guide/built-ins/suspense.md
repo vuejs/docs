@@ -32,7 +32,7 @@ outline: deep
 
 1. Компоненти з асинхронним хуком `setup()`. Це включає компоненти, які використовують `<script setup>` з виразами `await` верхнього рівня.
 
-2. [Асинхронні компоненти](/guide/components/async.html).
+2. [Асинхронні компоненти](/guide/components/async).
 
 ### `async setup()` {#async-setup}
 
@@ -101,7 +101,7 @@ const posts = await res.json()
 
 ## Обробка помилок {#error-handling}
 
-`<Suspense>` наразі не забезпечує обробку помилок через сам компонент, однак ви можете використовувати параметр [`errorCaptured`](/api/options-lifecycle.html#errorcaptured) або [`onErrorCaptured()`]( /api/composition-api-lifecycle.html#onerrorcaptured) перехоплення для захоплення та обробки асинхронних помилок у батьківському компоненті `<Suspense>`.
+`<Suspense>` наразі не забезпечує обробку помилок через сам компонент, однак ви можете використовувати параметр [`errorCaptured`](/api/options-lifecycle#errorcaptured) або [`onErrorCaptured()`]( /api/composition-api-lifecycle#onerrorcaptured) перехоплення для захоплення та обробки асинхронних помилок у батьківському компоненті `<Suspense>`.
 
 ## Поєднання з іншими компонентами {#combining-with-other-components}
 

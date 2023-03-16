@@ -96,7 +96,7 @@
   </script>
   ```
 
-  Коли `toRef` використовується з реквізитами компонента, звичайні обмеження щодо зміни реквізитів все ще діють. Спроба призначити нове значення референції еквівалентна спробі безпосередньо змінити реквізит і це не дозволяється. У цьому випадку ви можете використовувати [`computed`](./reactivity-core.html#computed) з `get` і `set` натомість. Додаткову інформацію див. у гіді [використання `v-model` з компонентами](/guide/components/v-model.html).
+  Коли `toRef` використовується з реквізитами компонента, звичайні обмеження щодо зміни реквізитів все ще діють. Спроба призначити нове значення референції еквівалентна спробі безпосередньо змінити реквізит і це не дозволяється. У цьому випадку ви можете використовувати [`computed`](./reactivity-core#computed) з `get` і `set` натомість. Додаткову інформацію див. у гіді [використання `v-model` з компонентами](/guide/components/v-model).upstream/main
 
   `toRef()` поверне придатну референцію, навіть якщо властивість джерела наразі не існує. Це дає змогу працювати з необов'язковими властивостями, які не будуть підхоплені [`toRefs`](#torefs).
 
@@ -163,7 +163,7 @@
 
 ## isProxy() {#isproxy}
 
-Перевіряє, чи є об’єкт проксі, створеним [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) або [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
+Перевіряє, чи є об’єкт проксі, створеним [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core#readonly), [`shallowReactive()`](./reactivity-advanced#shallowreactive) або [`shallowReadonly()`](./reactivity-advanced#shallowreadonly).
 
 - **Тип**
 
@@ -173,7 +173,7 @@
 
 ## isReactive() {#isreactive}
 
-Перевіряє, чи є об’єкт проксі, створеним [`reactive()`](./reactivity-core.html#reactive) або [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
+Перевіряє, чи є об’єкт проксі, створеним [`reactive()`](./reactivity-core#reactive) або [`shallowReactive()`](./reactivity-advanced#shallowreactive).
 
 - **Тип**
 
@@ -185,7 +185,7 @@
 
 Перевіряє, чи є передане значення об’єктом лише для читання. Властивості об’єкта лише для читання можуть змінюватися, але їх не можна призначати безпосередньо через переданий об’єкт.
 
-Проксі-сервери, створені [`readonly()`](./reactivity-core.html#readonly) і [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly), вважаються лише для читання, як і [ `computed()`](./reactivity-core.html#computed) посилання без функції `set`.
+Проксі-сервери, створені [`readonly()`](./reactivity-core#readonly) і [`shallowReadonly()`](./reactivity-advanced#shallowreadonly), вважаються лише для читання, як і [ `computed()`](./reactivity-core#computed) посилання без функції `set`.
 
 - **Тип**
 

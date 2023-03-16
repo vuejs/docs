@@ -42,11 +42,11 @@ export default {
 
 ### `<script>` {#script}
 
-- Кожен файл `*.vue` може містити не більше одного блоку `<script>` (за винятком [`<script setup>`](/api/sfc-script-setup.html)).
+- Кожен файл `*.vue` може містити не більше одного блоку `<script>` (за винятком [`<script setup>`](/api/sfc-script-setup)).
 
 - Сценарій виконується як ES модуль.
 
-- **Експорт за промовчанням** повинен бути об'єктом опцій компонента Vue, або звичайним об'єктом, або як значення, що повертається [defineComponent](/api/general.html#definecomponent).
+- **Експорт за промовчанням** повинен бути об'єктом опцій компонента Vue, або звичайним об'єктом, або як значення, що повертається [defineComponent](/api/general#definecomponent).
 
 ### `<script setup>` {#script-setup}
 
@@ -68,7 +68,7 @@ export default {
 - [vite-plugin-vue-gql: `<gql>`](https://github.com/wheatjs/vite-plugin-vue-gql)
 - [vue-i18n: `<i18n>`](https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n#i18n-custom-block)
 
-Обробка користувацьких блоків залежатиме від інструментів. Якщо ви хочете створити власні користувацькі інтеграції блоків, див. [відповідний розділ інструментів](/guide/scaling-up/tooling.html#sfc-custom-block-integrations), щоб отримати докладнішу інформацію.
+Обробка користувацьких блоків залежатиме від інструментів. Якщо ви хочете створити власні користувацькі інтеграції блоків, див. [відповідний розділ інструментів](/guide/scaling-up/tooling#sfc-custom-block-integrations), щоб отримати докладнішу інформацію.
 
 ## Автоматичне визначення імені {#automatic-name-inference}
 
@@ -76,7 +76,7 @@ export default {
 
 - Форматування попереджень під час розробки
 - Інспектування у DevTools
-- Рекурсивне посилання на самого себе. Наприклад, файл з ім'ям `FooBar.vue` може посилатися на себе як `<FooBar/>` у своєму шаблоні. Це має нижчий пріоритет, ніж явно зареєстровані/імпортовані компоненти.
+- Рекурсивне посилання на самого себе, наприклад, файл з ім'ям `FooBar.vue` може посилатися на себе як `<FooBar/>` у своєму шаблоні. Це має нижчий пріоритет, ніж явно зареєстровані/імпортовані компоненти.
 
 ## Пре-процесори {#pre-processors}
 
@@ -109,7 +109,7 @@ p {{ msg }}
 - [Vue CLI](https://cli.vuejs.org/guide/css.html#pre-processors)
 - [webpack + vue-loader](https://vue-loader.vuejs.org/guide/pre-processors.html#using-pre-processors)
 
-## Імпорти через src {#src-imports}
+## Імпорти `src` {#src-imports}
 
 Якщо ви віддаєте перевагу розділенню ваших компонентів `*.vue` на кілька файлів, ви можете використовувати атрибут `src`, щоб імпортувати зовнішній файл для мовного блоку:
 

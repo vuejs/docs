@@ -67,7 +67,7 @@
   <component :is="href ? 'a' : 'span'"></component>
   ```
 
-  Усі [вбудовані компоненти](./built-in-components.html) можна передати в `is`, але ви повинні зареєструвати їх, якщо хочете передати їх за іменем. Наприклад:
+  Усі [вбудовані компоненти](./built-in-components) можна передати в `is`, але ви повинні зареєструвати їх, якщо хочете передати їх за іменем. Наприклад:
 
   ```vue
   <script>
@@ -108,7 +108,7 @@
 
   На практиці цей крайовий випадок не є поширеним, оскільки рідні поля форми зазвичай загорнуті в компоненти у реальних застосунках. Якщо вам потрібно використовувати рідний елемент безпосередньо, ви можете вручну розділити `v-model` на атрибут і подію.
 
-- **Також до вашої уваги:** [Динамічні компоненти](/guide/essentials/component-basics.html#dynamic-components)
+- **Також до вашої уваги:** [Динамічні компоненти](/guide/essentials/component-basics#dynamic-components)
 
 ## `<slot>` {#slot}
 
@@ -138,7 +138,7 @@
 
   Елементи `<slot>` у шаблонах Vue скомпільовані в JavaScript, тому їх не слід плутати з [рідними `<slot>` елементами](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
 
-- **Також до вашої уваги:** [Компонент -слоти](/guide/components/slots.html)
+- **Також до вашої уваги:** [Компонент -слоти](/guide/components/slots)
 
 ## `<template>` {#template}
 
@@ -154,11 +154,11 @@
 
   Якщо жодна з цих директив не присутня, натомість він буде відрендериний як [рідний `<template>` елемент](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).
 
-  `<template>` із `v-for` також може мати [атрибут `key`](/api/built-in-special-attributes.html#key). Усі інші атрибути та директиви буде відкинуто, оскільки вони не мають сенсу без відповідного елемента.
+  `<template>` із `v-for` також може мати [атрибут `key`](/api/built-in-special-attributes#key). Усі інші атрибути та директиви буде відкинуто, оскільки вони не мають сенсу без відповідного елемента.
 
-  Одно-файлові компоненти використовують [тег верхнього рівня `<template>`](/api/sfc-spec.html#language-blocks), щоб охопити весь шаблон. Це використання окремо від використання `<template>`, описаного вище. Цей тег верхнього рівня не є частиною самого шаблону та не підтримує синтаксис шаблону, наприклад директиви.
+  Одно-файлові компоненти використовують [тег верхнього рівня `<template>`](/api/sfc-spec#language-blocks), щоб охопити весь шаблон. Це використання окремо від використання `<template>`, описаного вище. Цей тег верхнього рівня не є частиною самого шаблону та не підтримує синтаксис шаблону, наприклад директиви.
 
 - **Також до вашої уваги:**
-  - [Гід - `v-if` в `<template>`](/guide/essentials/conditional.html#v-if-on-template)
-  - [Гід - `v-for` в `<template>`](/guide/essentials/list.html#v-for-on-template)
-  - [Гід - Іменовані слоти](/guide/components/slots.html#named-slots)
+  - [Гід - `v-if` в `<template>`](/guide/essentials/conditional#v-if-on-template)
+  - [Гід - `v-for` в `<template>`](/guide/essentials/list#v-for-on-template)
+  - [Гід - Іменовані слоти](/guide/components/slots#named-slots)
