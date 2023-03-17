@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import SiteMap from './SiteMap.vue';
+import SiteMap from './SiteMap.vue'
 // import NewsLetter from './NewsLetter.vue'
 import { load, data, base } from './sponsors'
 import SponsorsGroup from './SponsorsGroup.vue'
@@ -48,10 +48,19 @@ onMounted(async () => {
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
           <picture v-if="img.endsWith('png')">
-            <source type="image/avif" :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`" />
+            <source
+              type="image/avif"
+              :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`"
+            />
             <img :src="`${base}/images/${img}`" :alt="name" />
           </picture>
-          <img v-else :src="`${base}/images/${img}`" :alt="name" />
+          <img
+            width="168"
+            height="42"
+            v-else
+            :src="`${base}/images/${img}`"
+            :alt="name"
+          />
         </a>
         <span>{{ description }}</span>
       </template>
