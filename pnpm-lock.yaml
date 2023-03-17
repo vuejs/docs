@@ -4,7 +4,7 @@ specifiers:
   '@types/markdown-it': ^12.2.3
   '@types/node': ^16.9.1
   '@vue/repl': ^1.3.3
-  '@vue/theme': ^2.2.0
+  '@vue/theme': ^2.2.1
   dynamics.js: ^1.1.5
   gsap: ^3.9.0
   terser: ^5.14.2
@@ -13,7 +13,7 @@ specifiers:
 
 dependencies:
   '@vue/repl': 1.3.3_vue@3.2.47
-  '@vue/theme': 2.2.0_ahv4xal3d4so6da4w2jgiudfwy
+  '@vue/theme': 2.2.1_ahv4xal3d4so6da4w2jgiudfwy
   dynamics.js: 1.1.5
   gsap: 3.9.0
   vitepress: 1.0.0-alpha.60_svno5mexjalzzlm4w6lhjlrqwe
@@ -555,8 +555,8 @@ packages:
     resolution: {integrity: sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==}
     dev: false
 
-  /@vue/theme/2.2.0_ahv4xal3d4so6da4w2jgiudfwy:
-    resolution: {integrity: sha512-eIJFxIiVgL6TR/WItUWa3dE0Mgme0UwhPEvhv8EXfnirxbwSlmXGvA+tzE/qAkdCfWQeD84xIeKNg98NbjjVdw==}
+  /@vue/theme/2.2.1_ahv4xal3d4so6da4w2jgiudfwy:
+    resolution: {integrity: sha512-/7xL/lRmVTUo1DywzhKgAsXuqzkTgBHcXfVvr6SWSVTDlZoEPrlV1owzj4DI7eBUs+vEcZSY1yv3GIennRfYYA==}
     peerDependencies:
       vitepress: ^1.0.0-alpha.60
     dependencies:
