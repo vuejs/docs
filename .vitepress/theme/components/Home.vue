@@ -23,7 +23,7 @@ onMounted(async () => {
       user interfaces.
     </p>
     <p class="actions">
-      <vue-mastery-modal />
+      <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
         Get Started
         <svg
@@ -279,7 +279,7 @@ html:not(.dark) .accent,
 
 @media (max-width: 576px) {
   #hero {
-    padding: 64px 32px;
+    padding: 56px 32px;
   }
   .description {
     font-size: 16px;
@@ -302,7 +302,7 @@ html:not(.dark) .accent,
     padding: 20px 36px;
   }
   .actions a {
-    margin: 0.5em 0;
+    margin: 18px 0;
   }
 }
 
