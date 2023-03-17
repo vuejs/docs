@@ -9,7 +9,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@vue/repl": "^1.3.2",
+    "@vue/repl": "^1.3.3",
     "@vue/theme": "^2.2.0",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
