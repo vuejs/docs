@@ -57,7 +57,7 @@ Der Inhalt der Stammkomponente der Anwendung wird innerhalb des Containerelement
 
 Die Methode `.mount()` sollte immer aufgerufen werden, nachdem alle Anwendungskonfigurationen und Asset-Registrierungen abgeschlossen sind. Beachten Sie auch, dass ihr Rückgabewert, im Gegensatz zu den Asset-Registrierungsmethoden, die Instanz der Stammkomponente ist und nicht die Instanz der Anwendung.
 
-### In-DOM Root Component Template {#in-dom-root-component-template}
+### In-DOM-Wurzel-Komponentenvorlage {#in-dom-root-component-template}
 
 When using Vue without a build step, we can write our root component's template directly inside the mount container:
 
