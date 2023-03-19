@@ -59,7 +59,7 @@ Die Methode `.mount()` sollte immer aufgerufen werden, nachdem alle Anwendungsko
 
 ### In-DOM-Wurzel-Komponentenvorlage {#in-dom-root-component-template}
 
-When using Vue without a build step, we can write our root component's template directly inside the mount container:
+Wenn wir Vue ohne Build-Schritt verwenden, können wir das Template unserer Root-Komponente direkt in den Mount-Container schreiben:
 
 ```html
 <div id="app">
