@@ -13,7 +13,7 @@ export default {
   },
 
   watch: {
-    // отримує дані щоразу, коли змінюється currentBranch
+    // отримання дані щоразу, коли змінюється currentBranch
     currentBranch: 'fetchData'
   },
 
