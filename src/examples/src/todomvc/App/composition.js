@@ -10,12 +10,12 @@ const filters = {
 
 export default {
   setup() {
-    // state
+    // стан
     const todos = ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
     const visibility = ref('all')
     const editedTodo = ref()
 
-    // derived state
+    // обчислюваний стан
     const filteredTodos = computed(() => filters[visibility.value](todos.value))
     const remaining = computed(() => filters.active(todos.value).length)
 
@@ -23,7 +23,7 @@ export default {
     window.addEventListener('hashchange', onHashChange)
     onHashChange()
 
-    // persist state
+    // персистентний стан
     watchEffect(() => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(todos.value))
     })

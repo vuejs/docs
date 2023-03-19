@@ -1,6 +1,6 @@
-<button @click="insert">insert at random index</button>
-<button @click="reset">reset</button>
-<button @click="shuffle">shuffle</button>
+<button @click="insert">Вставити за довільним індексом</button>
+<button @click="reset">Скинути</button>
+<button @click="shuffle">Перетасувати</button>
 
 <TransitionGroup tag="ul" name="fade" class="container">
   <div v-for="item in items" class="item" :key="item">

@@ -1,2 +1,2 @@
-A fully spec-compliant TodoMVC implementation
+Повністю сумісна зі специфікаціями реалізація списку завдань
 https://todomvc.com/

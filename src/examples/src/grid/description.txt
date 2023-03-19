@@ -1,1 +1,1 @@
-An example of creating a reusable grid component and using it with external data.
+Приклад створення багаторазового компонента таблиці та його використання із зовнішніми даними.

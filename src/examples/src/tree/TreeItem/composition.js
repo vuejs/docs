@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 
 export default {
-  name: 'TreeItem', // necessary for self-reference
+  name: 'TreeItem', // необхідні для референції на самого себе
   props: {
     model: Object
   },
@@ -24,7 +24,7 @@ export default {
     }
 
     function addChild() {
-      props.model.children.push({ name: 'new stuff' })
+      props.model.children.push({ name: 'нова папка' })
     }
 
     return {
