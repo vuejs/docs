@@ -11,22 +11,22 @@
   box-sizing: border-box;
 }
 
-/* 1. declare transition */
+/* 1. Оголошення переходу */
 .fade-move,
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-/* 2. declare enter from and leave to state */
+/* 2. Оголошення входу і виходу зі стану */
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
   transform: scaleY(0.01) translate(30px, 0);
 }
 
-/* 3. ensure leaving items are taken out of layout flow so that moving
-      animations can be calculated correctly. */
+/* 3. Переконайтеся, що елементи, які вилучаються з потоку макету
+      є видалені, шоб анімації були розраховані коректно. */
 .fade-leave-active {
   position: absolute;
 }
