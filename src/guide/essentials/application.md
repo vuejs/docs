@@ -83,7 +83,7 @@ app.mount('#app')
 
 Vue wird automatisch das `innerHTML` des Containers als Template verwenden, wenn die Wurzelkomponente nicht bereits eine `template` Option hat.
 
-## App Configurations {#app-configurations}
+## App-Konfigurationen {#app-configurations}
 
 The application instance exposes a `.config` object that allows us to configure a few app-level options, for example, defining an app-level error handler that captures errors from all descendant components:
 
