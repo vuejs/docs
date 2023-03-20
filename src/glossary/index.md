@@ -15,7 +15,7 @@ For more details see:
 
 ## compiler macro {#compiler-macro}
 
-A *compiler macro* is special code that is processed by a compiler and converted into something else. They are effectively just a clever form of string replacement.
+A *compiler macro* is special code that is processed by a compiler and converted into something else. They are effectively a clever form of string replacement.
 
 Vue's [SFC](#single-file-component) compiler supports various macros, such as `defineProps()`, `defineEmits()` and `defineExpose()`. These macros are intentionally designed to look like normal JavaScript functions, but they aren't functions at all. These are special strings that the compiler detects and replaces with the real JavaScript code that will run in the browser.
 
