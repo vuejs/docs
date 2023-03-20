@@ -81,7 +81,7 @@ const app = createApp({
 app.mount('#app')
 ```
 
-Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
+Vue wird automatisch das `innerHTML` des Containers als Template verwenden, wenn die Wurzelkomponente nicht bereits eine `template` Option hat.
 
 ## App Configurations {#app-configurations}
 
