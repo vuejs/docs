@@ -2,16 +2,16 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    const message = ref('Hello World!')
+    const message = ref('Привіт світ!')
 
     function reverseMessage() {
-      // Access/mutate the value of a ref via
-      // its .value property.
+      // Доступ/зміна значення реквізиту через
+      // його властивість .value.
       message.value = message.value.split('').reverse().join('')
     }
 
     function notify() {
-      alert('navigation was prevented.')
+      alert('навігацію було припинено.')
     }
 
     return {

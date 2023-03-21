@@ -1,45 +1,45 @@
-<h2>Text Input</h2>
+<h2>Введення тексту</h2>
 <input v-model="text"> {{ text }}
 
-<h2>Checkbox</h2>
+<h2>Прапорець</h2>
 <input type="checkbox" id="checkbox" v-model="checked">
-<label for="checkbox">Checked: {{ checked }}</label>
+<label for="checkbox">Відмічено: {{ checked }}</label>
 
 <!--
-  multiple checkboxes can bind to the same
-  array v-model value
+  кілька прапорців можуть бути прив'язані
+  до одного значення v-model масиву
 -->
-<h2>Multi Checkbox</h2>
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-<label for="jack">Jack</label>
-<input type="checkbox" id="john" value="John" v-model="checkedNames">
-<label for="john">John</label>
-<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-<label for="mike">Mike</label>
-<p>Checked names: <pre>{{ checkedNames }}</pre></p>
+<h2>Прапорці декількох значень</h2>
+<input type="checkbox" id="petro" value="Петро" v-model="checkedNames">
+<label for="petro">Петро</label>
+<input type="checkbox" id="mary" value="Марічка" v-model="checkedNames">
+<label for="mary">Марічка</label>
+<input type="checkbox" id="iren" value="Ірина" v-model="checkedNames">
+<label for="iren">Ірина</label>
+<p>Відмічені імена: <pre>{{ checkedNames }}</pre></p>
 
-<h2>Radio</h2>
-<input type="radio" id="one" value="One" v-model="picked">
-<label for="one">One</label>
+<h2>Радіобокс</h2>
+<input type="radio" id="one" value="Один" v-model="picked">
+<label for="one">Один</label>
 <br>
-<input type="radio" id="two" value="Two" v-model="picked">
-<label for="two">Two</label>
+<input type="radio" id="two" value="Два" v-model="picked">
+<label for="two">Два</label>
 <br>
-<span>Picked: {{ picked }}</span>
+<span>Обрано: {{ picked }}</span>
 
-<h2>Select</h2>
+<h2>Вибирання</h2>
 <select v-model="selected">
-  <option disabled value="">Please select one</option>
-  <option>A</option>
-  <option>B</option>
-  <option>C</option>
+  <option disabled value="">Виберіть один, будь ласка</option>
+  <option>А</option>
+  <option>Б</option>
+  <option>В</option>
 </select>
-<span>Selected: {{ selected }}</span>
+<span>Обрано: {{ selected }}</span>
 
-<h2>Multi Select</h2>
+<h2>Вибирання декількох значень</h2>
 <select v-model="multiSelected" multiple style="width:100px">
-  <option>A</option>
-  <option>B</option>
-  <option>C</option>
+  <option>А</option>
+  <option>Б</option>
+  <option>В</option>
 </select>
-<span>Selected: {{ multiSelected }}</span>
+<span>Обрано: {{ multiSelected }}</span>

@@ -1,22 +1,23 @@
 <!--
-  Note we don't need .value inside templates because
-  refs are automatically "unwrapped" in templates.
+  Зверніть увагу, що нам не потрібен .value всередині
+  шаблонів, оскільки реквізити автоматично
+  "розгортаються" в шаблонах.
 -->
 <h1>{{ message }}</h1>
 
 <!--
-  Bind to a method/function.
-  The @click syntax is short for v-on:click.
+  Прив'язка до методу/функції.
+  Синтаксис @click є скороченням від v-on:click.
 -->
-<button @click="reverseMessage">Reverse Message</button>
+<button @click="reverseMessage">Повідомлення навиворіт</button>
 
-<!-- Can also be an inline expression statement -->
-<button @click="message += '!'">Append "!"</button>
+<!-- Також може бути вбудованим виразом -->
+<button @click="message += '!'">Додати "!"</button>
 
 <!--
-  Vue also provides modifiers for common tasks
-  such as e.preventDefault() and e.stopPropagation()
+  Vue також надає модифікатори для типових завдань,
+  таких як e.preventDefault() і e.stopPropagation()
 -->
 <a href="https://vuejs.org" @click.prevent="notify">
-  A link with e.preventDefault()
+  Посилання з e.preventDefault()
 </a>
