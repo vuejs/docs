@@ -313,7 +313,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
   <!-- shorthand binding an object of attributes -->
-  <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+  <div :="{ id: someProp, 'other-attr': otherProp }"></div>
 
   <!-- prop binding. "prop" must be declared in the child component. -->
   <MyComponent :prop="someThing" />
