@@ -52,7 +52,7 @@ Vue.js — це проєкт із відкритим вихідним кодом
 - **Bronze (USD$100/mo)**:
   - Розміщення маленького логотипа у файлі `BACKERS.md` `vuejs/core` і `vuejs/vue`.
 - **Generous Backer (USD$50/mo)**:
-  - Ім’я, указане у файлі `BACKERS.md` `vuejs/core` і `vuejs/vue`, над іншими окремими спонсорами.
+  - Ім’я, вказане у файлі `BACKERS.md` `vuejs/core` і `vuejs/vue`, над іншими окремими спонсорами.
 - **Individual Backer (USD$5/mo)**:
   - Ім’я, вказане у файлі `BACKERS.md` `vuejs/core` і `vuejs/vue`.
 
