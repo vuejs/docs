@@ -238,6 +238,9 @@ Attach an event listener to the element.
 
   <!-- object syntax -->
   <button v-on="{ mousedown: doThis, mouseup: doThat }"></button>
+
+  <!-- shorthand object syntax -->
+  <button @="{ mousedown: doThis, mouseup: doThat }"></button>
   ```
 
   Listening to custom events on a child component (the handler is called when "my-event" is emitted on the child):
@@ -307,6 +310,9 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   <div :style="[styleObjectA, styleObjectB]"></div>
 
   <!-- binding an object of attributes -->
+  <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+
+  <!-- shorthand binding an object of attributes -->
   <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
   <!-- prop binding. "prop" must be declared in the child component. -->
