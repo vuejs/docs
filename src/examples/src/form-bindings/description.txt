@@ -1,1 +1,1 @@
-We can create two-way bindings between state and form inputs using the v-model directive.
+Ми можемо створювати двосторонні зв'язки між вхідними даними стану та форми за допомогою директиви v-model.

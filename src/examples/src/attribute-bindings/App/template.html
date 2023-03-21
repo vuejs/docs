@@ -1,18 +1,20 @@
 <p>
   <span :title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound title!
+    Наведіть на мене вказівник миші на кілька секунд, щоб побачити мій
+    динамічно пов'язаний заголовок!
   </span>
 </p>
 
 <!--
-class bindings have special support for objects and arrays
-in addition to plain strings
+прив'язки класів мають спеціальну підтримку об'єктів
+і масивів на додаток до простих рядків
 -->
 <p :class="{ red: isRed }" @click="toggleRed">
-  This should be red... but click me to toggle it.
+  Це має бути червоним... але натисніть мене, щоб перемкнути це.
 </p>
 
-<!-- style bindings also support object and arrays -->
+<!-- прив'язки стилів також підтримують об'єкти та масиви -->
 <p :style="{ color }" @click="toggleColor">
-  This should be green, and should toggle between green and blue on click.
+  Це має бути зеленим і має перемикатися між зеленим і синім після
+  натискання.
 </p>

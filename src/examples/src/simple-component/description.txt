@@ -1,2 +1,2 @@
-Here we show the simplest possible component which accepts a prop and renders it.
-Learn more about components in the guide!
+Тут ми показуємо найпростіший можливий компонент, який приймає реквізит і рендерить його.
+Дізнайтеся більше про компоненти в посібнику!
