@@ -55,7 +55,7 @@ function shuffle(array: Array<any>) {
       href="./all.html"
       v-if="showLinkToAll && filtered.length % 2"
     >
-      Browse and Search<br />All Partners
+      Переглянути<br />всіх партнерів
     </a>
   </div>
 </template>

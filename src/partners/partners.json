@@ -5,17 +5,17 @@
     "flipLogo": true,
     "intro": "Vehikl has deep knowledge of Vue and will act as an extension of your team. We focus on writing clean, maintainable code. We are passionate about continual improvement, and we practice Mob Programming and Pair Programming on a daily basis.",
     "description": [
-      "Vehikl is a Team that values Caring, Growing, and Delivering. We instill those values in everything we do, and everyone we work with. Our goal is to be an extension of your development efforts, and build exceptional web and mobile applications.",
-      "Our Team has a strong specialty and deep knowledge of Vue, Laravel, and React frameworks. In addition to this, our Team of 75 has worked with every tech stack you can imagine. We’re proud test-driven developers who focus on writing clean, maintainable code. Our Team is passionate about continual improvement, and we practice Mob Programming and Pair Programming on a daily basis.",
-      "We’ve worked on projects from a wide range of companies ranging from startups to enterprise-level organizations. We are one team with our clients and we share in their successes.",
-      "So what does working with us look like?",
-      "- Daily communication with your team",
-      "- Collaborate with you on weekly or bi-weekly Sprint Planning",
-      "- Demos & Retrospectives at the end of each Sprint",
-      "- Collaborative PR reviews",
-      "- Daily Pairing and Mobbing sessions",
-      "We’re always looking for opportunities to learn new things and refine our skills using lean Agile development, open communication, and collaboration. We combine one-on-one communication, and the iterative values of the Agile methodology to deliver high quality code.",
-      "We’re active members of the JavaScript and PHP community, and love to collaborate with other enthusiasts."
+      "Vehikl — це команда, яка цінує турботу, розвиток і доставку. Ми прищеплюємо ці цінності всьому, що робимо, і всім, з ким працюємо. Наша мета — бути продовженням ваших зусиль щодо розробки та створювати виняткові веб- та мобільні програми.",
+      "Наша команда має серйозні знання та глибокі знання фреймворків Vue, Laravel та React. На додаток до цього, наша команда з 75 працювала з усіма технічним набором, який ви можете собі уявити. Ми пишаємося розробниками, що керуються тестуванням і зосереджені на написанні чистого коду, який зручно підтримувати. Наша команда прагне до постійного вдосконалення, і ми щодня практикуємо мобпрограмування та парне програмування.",
+      "Ми працювали над проектами від багатьох компаній, починаючи від стартапів і закінчуючи корпоративними організаціями. Ми одна команда з нашими клієнтами і розділяємо їхні успіхи.",
+      "Отже, як виглядає робота з нами?",
+      "- Щоденне спілкування з вашою командою",
+      "- Співпрацюйте з вами над тижневим або двотижневим плануванням спринту",
+      "- Демонстрації та ретроспективи в кінці кожного спринту",
+      "- Спільні PR огляди",
+      "- Щоденні сеанси парування та мобінгу",
+      "Ми завжди шукаємо можливості навчитися новому та вдосконалити свої навички за допомогою ощадливої гнучкої розробки, відкритого спілкування та співпраці. Ми поєднуємо спілкування один на один та ітераційні значення методології Agile, щоб надати код високої якості.",
+      "Ми є активними членами спільноти JavaScript і PHP і любимо співпрацювати з іншими ентузіастами."
     ],
     "proficiencies": ["Vue", "Laravel", "React", "Node.js", "Unity"],
     "region": ["North America"],
@@ -34,11 +34,11 @@
     "flipLogo": true,
     "intro": "We provide you with additional technical capacity to power-up your digital transformation journeys with our teams of first-class engineers and consultants. Full stack JavaScript Cloud Engineers ready to work with you and your teams.",
     "description": [
-      "Founded in October 2017, Passionate People is the leading JavaScript consultancy in the Netherlands.",
-      "Our aim is to help our customers speed up their digital transformation initiatives at scale, and our standard is the highest in the sector.",
-      "We have a wide client base spanning industries such as FinTech, E-commerce, Logistics, Supply Chain, Industrial Automation, etc. To achieve their digital goals and to make their products scalable and secure for millions of users, companies such as Albert Heijn Digital, GrandVision, Nationale Nederlanden, Talpa and AKQA have trusted us to deliver top-notch work.",
-      "Besides being the leading JavaScript Consultancy in the Netherlands, Passionate People is also proud to host the largest tech conferences and community events in the world.",
-      "Starting in February 2018 with Frontend Love and Vue.js Amsterdam, we are now responsible for many other conferences in Europe under the Frontend Love brand: React Live, AngularNL, Vue.js Amsterdam, and JS World Conference."
+      "Passionate People, заснована в жовтні 2017 року, є провідною консалтинговою компанією з питань JavaScript у Нідерландах.",
+      "Наша мета полягає в тому, щоб допомогти нашим клієнтам прискорити їхні ініціативи з цифрової трансформації в масштабі, і наші стандарти є найвищими в секторі.",
+      "Ми маємо широку клієнтську базу, яка охоплює такі галузі, як фінансові технології, електронна комерція, логістика, ланцюг поставок, промислова автоматизація тощо. Щоб досягти своїх цифрових цілей і зробити свої продукти масштабованими та безпечними для мільйонів користувачів, такі компанії, як Albert Heijn Digital , GrandVision, Nationale Nederlanden, Talpa та AKQA довірили нам виконати першокласну роботу.",
+      "Окрім того, що Passionate People є провідною консалтинговою компанією JavaScript у Нідерландах, вона також пишається тим, що проводить найбільші технічні конференції та громадські заходи у світі.",
+      "Починаючи з лютого 2018 року з Frontend Love і Vue.js Amsterdam, ми тепер відповідаємо за багато інших конференцій у Європі під брендом Frontend Love: React Live, AngularNL, Vue.js Amsterdam і JS World Conference."
     ],
     "proficiencies": ["Vue", "Nuxt", "Node.js", "JAMStack"],
     "region": ["Europe"],
@@ -54,18 +54,18 @@
     "name": "Monterail",
     "logo": "monterail.png",
     "flipLogo": true,
-    "intro": "Monterail is a full-service software development company from Poland. Since 2010, we have been building innovative software for start-ups, SMBs, and enterprises from various industries globally. Our Vue experts, using battle-tested technologies and frameworks, have delivered more than 30 Vue-based projects.",
+    "intro": "Monterail — польська компанія з розробки програмного забезпечення, що надає повний спектр послуг. З 2010 року ми створюємо інноваційне програмне забезпечення для стартапів, малого та середнього бізнесу та підприємств з різних галузей у всьому світі. Наші експерти Vue, використовуючи випробувані в боях технології та фреймворки, створили понад 30 проектів на основі Vue.",
     "description": [
-      "At a full-service consultancy like Monterail, you get every competence under one roof. From concept, to design, and product release. Depending on the product lifecycle stage, we guide clients through building applications from scratch or scaling them quickly.",
-      "A diverse pool of experts, including Product Designers, QA specialists and Business Analysts, take care of professional tech stack consultation and business idea validation. We work within the Agile methodology ensuring smooth communication flow and aim for long-term partnerships. We've developed all kinds of Vue applications from virtual real estate tours to donation platforms.",
-      "Why Monterail?",
-      "- Listed in the Financial Times 1000 rank twice in a row (2018 & 2019)",
-      "- Recognized by Deloitte as one of the fastest-growing tech companies in Central Europe (2016 & 2017)",
-      "- Rated 4.7/5 on Clutch.",
-      "- NPS Score - 71",
-      "- Experts in software development and design with solid business experience",
-      "- A team experienced with remote work in a multicultural environment",
-      "- Detailed budget estimation received in weeks, not months"
+      "У такій консалтинговій компанії, яка надає повний спектр послуг, як Monterail, ви отримуєте всі знання під одним дахом. Від концепції до дизайну та випуску продукту. Залежно від етапу життєвого циклу продукту ми супроводжуємо клієнтів шляхом створення програм з нуля або їх швидкого масштабування.",
+      "Різноманітний пул експертів, включаючи дизайнерів продуктів, спеціалістів із забезпечення якості та бізнес-аналітиків, піклується про професійні консультації щодо стеку технологій та перевірку бізнес-ідей. Ми працюємо за методологією Agile, забезпечуючи плавний потік комунікацій і прагнемо до довгострокових партнерств. Ми розробили всі види додатків Vue від віртуальних турів по нерухомості до платформ для пожертв.",
+      "Чому Monterail?",
+      "- Двічі поспіль входить до рейтингу Financial Times 1000 (2018 та 2019)",
+      "- Визнана Deloitte як одна з найбільш швидкозростаючих технологічних компаній у Центральній Європі (2016 та 2017)",
+      "- Оцінка 4,7/5 на Clutch.",
+      "- Оцінка NPS - 71",
+      "- Експерти з розробки та дизайну програмного забезпечення з серйозним досвідом ведення бізнесу",
+      "- Команда з досвідом віддаленої роботи в мультикультурному середовищі",
+      "- Детальна оцінка бюджету отримана за тижні, а не за місяці"
     ],
     "proficiencies": [
       "Vue.js",
@@ -86,10 +86,10 @@
   {
     "name": "Curotec",
     "logo": "curotec.png",
-    "intro": "Our clients leverage our deep Vue.js & Nuxt.js expertise to develop better digital products and quickly expand their product development team velocity.",
+    "intro": "Наші клієнти використовують наш глибокий досвід Vue.js і Nuxt.js для розробки кращих цифрових продуктів і швидкого розширення команди розробки продуктів.",
     "description": [
-      "Curotec approaches software development and IT support differently – address the business problems that our clients tell us they need to have solved with technology and with the right resources at the right time. That starts with understanding your challenges and pairing it with solutions and talent to get the outcome you’re driving for.",
-      "The result? Products that are responsive to your needs and primed for your growth, while ensuring your applications have a clean and straightforward end-user experience. And with well-developed and elegantly written code, it’s seamless for us to support and maintain as your needs evolve."
+      "Curotec по-іншому підходить до розробки програмного забезпечення та ІТ-підтримки – вирішуйте бізнес-проблеми, які наші клієнти кажуть нам, що їм потрібно вирішити за допомогою технологій і з потрібними ресурсами в потрібний час. Це починається з розуміння ваших проблем і поєднання їх із рішеннями та талантом, щоб отримати результат, до якого ви прагнете.",
+      "Результат? Продукти, які відповідають вашим потребам і створені для вашого розвитку, водночас гарантують, що ваші додатки мають чистий і зрозумілий досвід кінцевого користувача. А завдяки добре розробленому та елегантно написаному коду ми можемо безперешкодно підтримувати та підтримувати його в міру розвитку ваших потреб."
     ],
     "region": ["North America", "Latin America"],
     "proficiencies": ["Vue", "Nuxt", "Laravel", "Jamstack"],
@@ -105,11 +105,11 @@
     "name": "DevSquad",
     "logo": "devsquad.png",
     "flipLogo": true,
-    "intro": "You can think of DevSquad as the Navy SEALs of software development. Our team members have unique and diverse skills, and this cross-functionality lets us successfully complete any mission.",
+    "intro": "Ви можете думати про DevSquad як про морських котиків у розробці програмного забезпечення. Члени нашої команди мають унікальні та різноманітні навички, і ця багатофункціональність дозволяє нам успішно виконувати будь-які місії.",
     "description": [
-      "All of our clients get their own dedicated Squad. Even if you need 30 developers, everyone working on your project is split into small agile teams of 2-6 people. A battle-tested small team can move quicker and with more precision than larger teams, just like the Navy SEALs.",
-      "Instead of the bug-filled code, you may have received in the past, we write robust software and test the hell out of it. But instead of just testing manually, we write additional code to test your code. This ensures bugs are spotted quickly and automatically before your employees or customers ever touch the software. And it prevents bigger problems down the road when you try to scale usage or add new features.",
-      "DevSquad gives you the proven proves and all the experience you need to build your software better, faster, and right the first time."
+      "Усі наші клієнти отримують власну команду. Навіть якщо вам потрібно 30 розробників, усі, хто працює над вашим проектом, розділені на невеликі гнучкі команди з 2-6 осіб. Невелика команда, випробувана в боях, може рухатися швидше й точніше, ніж більші команди, так само як морські котики.",
+      "Замість коду, повного помилок, який ви могли отримати в минулому, ми пишемо надійне програмне забезпечення та тестуємо його до біса. Але замість того, щоб просто тестувати вручну, ми пишемо додатковий код для перевірки вашого коду. Це гарантує швидке й автоматичне виявлення помилок ще до того, як ваші співробітники чи клієнти торкнуться програмного забезпечення. І це запобігає більшим проблемам у майбутньому, коли ви намагаєтеся масштабувати використання або додавати нові функції.",
+      "DevSquad надає вам перевірені докази та весь досвід, який вам потрібен, щоб створювати програмне забезпечення краще, швидше та правильно з першого разу."
     ],
     "region": ["North America"],
     "proficiencies": ["Vue.js", "Laravel", "Node.js"],
@@ -124,12 +124,12 @@
     "name": "Tighten",
     "logo": "tighten.svg",
     "flipLogo": true,
-    "intro": "Treat people well, solve the right problems, build spectacular software—that's how we roll. We're ultra-focused and deeply experienced in the technology powering modern business, including Vue.js. Via our signature method, our meticulously assembled team delivers unparalleled service, helping you do more with your software, and do right by your business.",
+    "intro": "Ставтеся до людей добре, вирішуйте правильні проблеми, створюйте вражаюче програмне забезпечення — ось як ми працюємо. Ми надзвичайно зосереджені та маємо глибокий досвід у технологіях, що забезпечують розвиток сучасного бізнесу, зокрема Vue.js. За допомогою нашого методу підпису наша ретельно зібрана команда надає неперевершені послуги, допомагаючи вам робити більше з вашим програмним забезпеченням і працювати правильно для вашого бізнесу.",
     "description": [
-      "Empathetically opinionated, expertly executed development. That's what we deliver.",
-      "At Tighten, we sweat the hell out of the details to give your app the fit-and-finish today's users expect, while giving you the clarity and confidence to charge ahead.",
-      "Whether you’re looking to simply enhance a user interface or build a sophisticated JavaScript-based application, we’ve got you covered. Vue.js is a flexible and robust framework, capable of powering a complex single-page application. We typically combine it with a Laravel-based API.",
-      "If you're building a development team, you know it takes time and diligence, and it could be the make-or-break factor for your business. Companies turn to Tighten at key turning points, to propel their technology forward while they assemble the <b>right</b> team for their business."
+      "Емпатична, впевнена, майстерно виконана розробка. Це те, що ми доставляємо.",
+      "У Tighten ми докладаємо всіх зусиль, щоб надати вашій програмі відповідну обробку, яку очікують сучасні користувачі, водночас даючи вам ясність і впевненість, щоб випереджати.",
+      "Незалежно від того, чи хочете ви просто покращити інтерфейс користувача чи створити складну програму на основі JavaScript, ми допоможемо вам. Vue.js — це гнучкий і надійний фреймворк, здатний працювати над складною односторінковою програмою. Зазвичай ми поєднуємо його з API на основі Laravel.",
+      "Якщо ви створюєте команду розробників, ви знаєте, що це потребує часу та старанності, і це може стати вирішальним фактором для вашого бізнесу. Компанії звертаються до Tighten у ключові поворотні моменти, щоб просувати свої технології вперед, одночасно збираючи <b>правильну</b> команду для свого бізнесу."
     ],
     "region": ["North America", "Europe", "Latin America"],
     "proficiencies": ["Vue", "Nuxt", "Laravel", "Inertia", "Tailwind"],
@@ -143,13 +143,13 @@
   {
     "name": "Redberry",
     "logo": "redberry.png",
-    "intro": "We are a 100+ award-winning, Laravel & Vue partner software design, development, and growth marketing agency from Tbilisi. In 8 years, we have taken 300+ products from zero to hero using Vue, Laravel, React and React Native for clients ranging from startups and government institutions to international agencies and enterprises.",
+    "intro": "Маючи 100+ нагородам, ми є партнерами Laravel & Vue з дизайну, розробки та маркетингового агентства з Тбілісі. За 8 років ми створили понад 300 продуктів від нуля до героя, використовуючи Vue, Laravel, React і React Native для клієнтів, починаючи від стартапів і державних установ до міжнародних агентств і підприємств.",
     "description": [
-      "Redberry was born in 2014 as a four friends’ venture to bring digital transformation to the brick-to-mortar business in Georgia. Today, we are more than 150 and represent the biggest Georgian agency. We are multifaceted in every way - technology, services, people. We accompany our clients along the entire product journey - from product design to development to its growth. We boast a 100+ international award-winning team of legendary UX/UI designers, software developers, DevOps engineers, project managers, scrum masters, digital strategists, copywriters, content creators, and growth hackers. So call us your swiss-army-knife digital partner if you like; we do.",
-      "While we are a top-tier agency, one of the most beautiful things about us is our location, both literally and metaphorically. We are based in Georgia (country, not the state), where IT outsourcing is almost tax-free. As a result, our EU and US-based partner startups, agencies, and companies enjoy a longer runway and more significant project margins. Luckily, we have a substantial capacity and easy access to the rapidly growing local tech talent, so we are our clients’ reliable and scalable partner.",
-      "Besides being an official Laravel and now Vue Partner software house, we are a Google and Facebook partner creative growth agency, making us an ideal, full-service partner for 80+ companies of all sizes to grow their business progressively. It has also earned us the Best Agency of the Year titles twice in 3 years, 2019 and 2021. Our client’s business is our business, so we remain results-oriented at all times, on and off work hours, weekdays and weekends, to ensure we deliver the solutions that drive your business results. That mindset has shaped our list of clients with industry leaders and runner-ups in finance, insurance, real estate, auto, education, healthcare, etc.",
-      "As for the methodology, running our startup studio has imprinted agile into our DNA. We have built a dozen MVPs and continued developing them over time according to the ever-changing business requirements, honing our ability to optimize for low initial time-to-market and high development velocity on any project we take on. We also internalized and standardized setting up and maintaining adequate codebase test coverage and regularly using CI/CD pipelines, making our lives and codes that much more manageable.",
-      "If you would like to collaborate on extending your product team, you can contact us through our website."
+      "Компанія Redberry була заснована в 2014 році як компанія чотирьох друзів, яка мала запровадити цифрову трансформацію фізичного бізнесу в Джорджії. Сьогодні нас понад 150 і ми представляємо найбільше грузинське агентство. Ми багатогранні в усіх відношеннях – технології, послуги, люди. Ми супроводжуємо наших клієнтів на всьому шляху продукту - від дизайну продукту до розробки та його зростання. Ми можемо похвалитися понад 100 міжнародними нагородами командою легендарних дизайнерів UX/UI, розробників програмного забезпечення, інженерів DevOps, менеджерів проектів, scrum-майстрів, цифрових стратегів, копірайтерів, творців контенту та хакерів росту. Тож називайте нас своїм цифровим партнером швейцарського ножа, якщо хочете.",
+      "Хоча ми є агентством вищого рівня, одна з найпрекрасніших речей у нас — це наше місцезнаходження, як буквально, так і метафорично. Ми знаходимося в Грузії (країні, а не штаті), де ІТ-аутсорсинг майже не оподатковується. Як наслідок, наші партнерські стартапи, агенції та компанії, що базуються в ЄС і США, мають більшу злітну смугу та значнішу маржу проекту. На щастя, у нас є значні потужності та легкий доступ до швидко зростаючих місцевих технічних талантів, тож ми є надійним і масштабованим партнером наших клієнтів.",
+      "Окрім того, що ми є офіційним партнером програмного забезпечення Laravel, а тепер і Vue, ми є партнерським агентством творчого розвитку Google і Facebook, що робить нас ідеальним партнером із повним набором послуг для 80+ компаній будь-якого розміру, які можуть поступово розвивати свій бізнес. Це також принесло нам звання «Найкраще агентство року» двічі за 3 роки, у 2019 та 2021 роках. Бізнес наших клієнтів є нашим бізнесом, тому ми залишаємося орієнтованими на результат у будь-який час, у робочий та неробочий час, у будні та вихідні, щоб гарантувати ми пропонуємо рішення, які сприяють результатам вашого бізнесу. Таке мислення сформувало наш список клієнтів, серед яких лідери галузі та посідають друге місце у сферах фінансів, страхування, нерухомості, автомобілів, освіти, охорони здоров’я тощо.",
+      "Що стосується методології, то управління нашою стартап-студією закарбувало гнучкість у нашій ДНК. Ми створили десяток MVP і продовжували їх розвивати з часом відповідно до постійно мінливих бізнес-вимог, відточуючи нашу здатність оптимізувати для короткого початкового часу виходу на ринок і високої швидкості розробки будь-якого проекту, який ми беремо. Ми також інтерналізували та стандартизували налаштування та підтримку адекватного тестового покриття кодової бази та регулярне використання конвеєрів CI/CD, що робить наше життя та коди набагато більш керованими.",
+      "Якщо ви бажаєте співпрацювати для розширення команди продуктів, ви можете зв’язатися з нами через наш веб-сайт."
     ],
     "region": ["Europe"],
     "proficiencies": [
@@ -168,11 +168,11 @@
   {
     "name": "WebReinvent",
     "logo": "webreinvent.png",
-    "intro": "WebReinvent is a software development company that provides a range of end-to-end software products, real-time apps, multi-tenant SaaS applications, low latency API & mobile app development services. We have delivered MVP to enterprise-level software globally from startup to MNC. Email us, and let's build your software product.",
+    "intro": "WebReinvent — це компанія з розробки програмного забезпечення, яка надає низку наскрізних програмних продуктів, додатків у режимі реального часу, багатокористувальницьких додатків SaaS, API із низькою затримкою та послуг із розробки мобільних додатків. Ми постачаємо MVP для програмного забезпечення корпоративного рівня в усьому світі від запуску до MNC. Надішліть нам електронний лист, і давайте створимо ваш програмний продукт.",
     "description": [
-      "WebReinvent is a process-oriented software development company that provides a range of end-to-end software products, real-time apps, multi-tenant SaaS applications, low latency API & mobile apps development services. Our team is well versed with VueJs and its ecosystem. We have delivered MVP to enterprise-level software from startup to MNC. Not only client projects we have developed multiple open-source products which are based on VueJs. We are proud to mention that we are one of the few official Laravel & Nuxt partners too.",
-      "Our team loves to follow the industry standards, some of which are managing git repo, code review, release deployments via CI/CD (DevOps), automated software testing, maintaining detailed technical documentation, application performance monitoring, etc.",
-      "Email us, and let's build your software product."
+      "WebReinvent — це компанія, орієнтована на процес розробки програмного забезпечення, яка надає низку наскрізних програмних продуктів, додатків у реальному часі, багатокористувальницьких додатків SaaS, API із низькою затримкою та послуги з розробки мобільних додатків. Наша команда добре обізнана з VueJs та його екосистемою. Ми поставили MVP на корпоративне програмне забезпечення від запуску до MNC. Ми розробили не лише клієнтські проекти, а й кілька продуктів із відкритим кодом, які базуються на VueJ. Ми з гордістю зазначаємо, що ми також є одним із небагатьох офіційних партнерів Laravel & Nuxt.",
+      "Наша команда любить дотримуватися галузевих стандартів, деякі з яких включають керування git repo, перевірку коду, розгортання випусків через CI/CD (DevOps), автоматизоване тестування програмного забезпечення, ведення детальної технічної документації, моніторинг продуктивності програм тощо.",
+      "Надішліть нам електронний лист, і давайте створимо ваш програмний продукт."
     ],
     "region": ["North America", "Asia", "Europe"],
     "proficiencies": ["Vue", "Laravel", "Nuxt", "Ionic", "Node.js"],
@@ -187,12 +187,12 @@
     "name": "Dreamonkey",
     "logo": "dreamonkey.png",
     "hero": "dreamonkey-hero.png",
-    "intro": "We are an Italian software house, including international team collaborators, with 8 years of experience in software design and development. We build software from scratch or re-design it and support other companies’ teams, especially for industrial IoT, delivery, finance, medical, automotive and supply chain, working mostly for American and Canadian clients. We are proud sponsors of the Quasar framework and members of its core team.",
+    "intro": "Ми є італійським виробником програмного забезпечення, до якого входять міжнародні співробітники, з 8-річним досвідом проектування та розробки програмного забезпечення. Ми створюємо програмне забезпечення з нуля або переробляємо його та підтримуємо команди інших компаній, особливо для промислового Інтернету речей, доставки, фінансів, медицини, автомобілебудування та ланцюга поставок, працюючи переважно для американських та канадських клієнтів. Ми пишаємось спонсорами Quasar Framework і членами його основної команди.",
     "description": [
-      "Our stack includes Vue, Quasar, Laravel and, when requested, Angular too. We strive to produce high quality, clean and well-documented code, making it rock-solid by means of automatic tests. Our frontend follows the main guidelines of Google Material Design.",
-      "We are able to lead projects from the very start to their deployment, including requirements analysis, UX/UI design, design assets hand-off, development and setup of CI/CD pipelines on AWS. We can merge with the client’s agile methodology and, when requested, we can take care of project management too with a dedicated professional.",
-      "We have experience with different project complexity, from startup to enterprise-level. We can provide static UIs, working MPVs, fully operative SPA or mobile apps. We also split our team in order to provide the client just with the specific expertise that is needed, be it development, design or just a feasibility analysis.",
-      "If you need to integrate new skills in your team, we can structure a training program focusing on development or design topics of your interest and help your employees progress with dedicated lessons."
+      "Наш стек включає Vue, Quasar, Laravel і, якщо потрібно, також Angular. Ми прагнемо створювати високоякісний, чистий і добре задокументований код, роблячи його надійним за допомогою автоматичних тестів. Наш зовнішній інтерфейс відповідає основним принципам Google Material Design.",
+      "Ми можемо керувати проектами від самого початку до їх розгортання, включаючи аналіз вимог, розробку UX/UI, передачу проектних ресурсів, розробку та налаштування конвеєрів CI/CD на AWS. Ми можемо об’єднатися з гнучкою методологією клієнта та, за запитом, можемо також подбати про управління проектом за допомогою відданого фахівця.",
+      "Ми маємо досвід роботи з проектами різної складності, від стартапу до корпоративного рівня. Ми можемо надати статичні інтерфейси користувача, робочі MPV, повністю оперативні SPA або мобільні програми. Ми також розділили нашу команду, щоб надати клієнту лише ті конкретні знання, які необхідні, будь то розробка, дизайн чи просто техніко-економічний аналіз.",
+      "Якщо вам потрібно інтегрувати нові навички у свою команду, ми можемо скласти навчальну програму, зосереджену на темах розробки або дизайну, які вас цікавлять, і допомогти вашим співробітникам розвиватися за допомогою спеціальних уроків."
     ],
     "proficiencies": [
       "Vue",
@@ -218,11 +218,11 @@
     "logo": "jump24.svg",
     "flipLogo": true,
     "hero": "jump24-hero.jpg",
-    "intro": "Hand crafted software, delivered. We work alongside start-ups, enterprises and tech teams creating bespoke web software solutions that will help them grow. Honing our skills since 2013, our strength is our people. We design and build custom applications to the highest standard, so you can reap the benefits.",
+    "intro": "Програмне забезпечення ручної роботи, доставлено. Ми працюємо разом із стартапами, підприємствами та технічними командами, створюючи індивідуальні веб-програмні рішення, які допоможуть їм розвиватися. Відточуючи свої навички з 2013 року, наша сила — наші люди. Ми розробляємо та створюємо спеціальні додатки за найвищими стандартами, щоб ви могли скористатися перевагами.",
     "description": [
-      "Jump24 is a full-circle development studio that brings ideas to life. From our base in the UK, we’ve worked closely over the years with clients in Europe and the United States, including Jamie Oliver, Admiral, InPost and Buffer. With a team of 16 developers, you’ll be in safe hands with us.",
-      "Long-lasting relationships are our speciality. Whether you’re a startup, enterprise or agency, your story is important to us. We focus on the minute details to help create something that reflects you and your business.",
-      "We’re a talkative bunch, so to find out even more about us, head to our Twitter and LinkedIn."
+      "Jump24 — це студія розробки повного циклу, яка втілює ідеї в життя. З нашої бази у Великій Британії ми протягом багатьох років тісно співпрацювали з клієнтами в Європі та Сполучених Штатах, зокрема з Джеймі Олівером, Admiral, InPost і Buffer. З нашою командою з 16 розробників ви будете в надійних руках.",
+      "Довготривалі стосунки – наша спеціалізація. Незалежно від того, чи ви стартап, підприємство чи агентство, ваша історія важлива для нас. Ми зосереджуємося на найдрібніших деталях, щоб допомогти створити те, що відображає вас і ваш бізнес.",
+      "Ми балакучі, тому, щоб дізнатися про нас ще більше, перейдіть до нашого Twitter і LinkedIn."
     ],
     "proficiencies": ["Vue", "Laravel", "Tailwind", "Inertia", "React"],
     "region": ["Europe"],
@@ -237,12 +237,12 @@
     "name": "Epicmax",
     "logo": "epicmax.svg",
     "hero": "epicmax.png",
-    "intro": "Epicmax is a team of Vue.js experts with 6 years of experience in building Vue.js interfaces. We bring Vue.js knowledge in front-end development across industries and geographies, serving businesses of different sizes. We have more than 55 completed projects, 45 clients worldwide and 3 Open Source products in our portfolio.",
+    "intro": "Epicmax — це команда експертів Vue.js із 6-річним досвідом створення інтерфейсів Vue.js. Ми надаємо знання Vue.js у розробці інтерфейсу в різних галузях і регіонах, обслуговуючи підприємства різного розміру. У нашому портфоліо понад 55 завершених проектів, 45 клієнтів по всьому світу та 3 продукти з відкритим кодом.",
     "description": [
-      "Epicmax is a Vue.js software development company with over 55 successfully completed projects all over the world and 3 widely acclaimed Open Source products.",
-      "Since 2017, we’ve helped international clients in over 15 industries, both startups and larger companies, build everything from e-commerce through social media platforms to real-time analytics products.",
-      "We bring deep Vue.js knowledge necessary to help clients solve the most complex issues for their business: from building Vue.js applications to consulting, code auditing and migration to Vue. We move fast and smoothly integrate into a client’s team for agile and collaborative processes.",
-      "Epicmax is built around Open Source software - it is a part of our culture and everyone on the team is an active contributor. We’ve created and are maintaining Vuestic UI, Vuestic Admin and Epic Spinners libraries which are completely free for everyone and available on GitHub."
+      "Epicmax — це компанія з розробки програмного забезпечення Vue.js із понад 55 успішно завершеними проектами по всьому світу та 3 широко відомими продуктами з відкритим кодом.",
+      "З 2017 року ми допомагаємо міжнародним клієнтам у понад 15 галузях, як стартапам, так і великим компаніям, створювати все, від електронної комерції через платформи соціальних мереж до аналітичних продуктів у реальному часі.",
+      "Ми надаємо глибокі знання Vue.js, необхідні для того, щоб допомогти клієнтам вирішити найскладніші проблеми для їхнього бізнесу: від створення додатків Vue.js до консультацій, аудиту коду та переходу на Vue. Ми швидко рухаємось і плавно інтегруємося в команду клієнта для гнучких і спільних процесів.",
+      "Epicmax побудовано на програмному забезпеченні з відкритим вихідним кодом - це частина нашої культури, і кожен член команди є активним учасником. Ми створили та підтримуємо бібліотеки Vuestic UI, Vuestic Admin та Epic Spinners, які абсолютно безкоштовні для всіх і доступні на GitHub."
     ],
     "proficiencies": [
       "Vue",
@@ -265,13 +265,13 @@
     "logo": "herodevs.png",
     "flipLogo": true,
     "hero": "herodevs-hero.png",
-    "intro": "End-of-life of open source software versions creates massive challenges for companies. HeroDevs offers two solutions: (1) We provide never-ending support for sunsetted open source software, and (2)  we provide consulting and engineering to help companies migrate to in-support open source software.",
+    "intro": "Кінець терміну служби версій програмного забезпечення з відкритим кодом створює величезні проблеми для компаній. HeroDevs пропонує два рішення: (1) ми надаємо безперервну підтримку програмного забезпечення з відкритим вихідним кодом, що припинило свою дію, і (2) ми надаємо консультації та інжиніринг, щоб допомогти компаніям перейти на програмне забезпечення з відкритим кодом із підтримкою.",
     "description": [
-      "When open source software is reaching end-of-life, you’re faced with a difficult decision: do you spend months or years of dev time migrating your code, or do you risk being non-compliant with industry regulations and your company’s SLAs?",
-      "At HeroDevs we pride ourselves in being the experts that help you navigate end-of-life events in your technology stack. Companies offering enterprise support for open source libraries stop at the end of life. That’s where our value prop begins with our Never-Ending Support (NES) products. Our team has not only provided over 450 organizations with supported, secured versions of open source software beyond their end of life, but has also helped dozens of companies migrate their codebase to a modern, supported open source stack.",
-      "With all NES Products we offer: continuous source code scanning for vulnerabilities, 5-minute installation without leaving your network, scanning for possible IP infringement in your code, and checks for platform, browser and 3rd-party library compatibility.",
-      "Need to migrate? HeroDevs can help with that too. Hire our team of experts to help you navigate the challenges that come with migrating your code.",
-      "Want to learn more? Find us at herodevs.com or send us a note at hello@herodevs.com."
+      "Коли термін служби програмного забезпечення з відкритим вихідним кодом закінчується, ви стикаєтеся з важким рішенням: чи витрачаєте ви місяці чи роки часу розробників на перенесення коду, чи ризикуєте виявитися невідповідним галузевим нормам і угодам про рівень обслуговування вашої компанії?",
+      "У HeroDevs ми пишаємося тим, що ми є експертами, які допомагають вам орієнтуватися в подіях кінця життя у вашому наборі технологій. Компанії, які пропонують корпоративну підтримку бібліотек з відкритим кодом, припиняють роботу. Ось де починається наша ціннісна пропозиція з нашими продуктами Never-Ending Support (NES). Наша команда не лише надала понад 450 організаціям підтримувані, захищені версії програмного забезпечення з відкритим кодом після завершення терміну їх експлуатації, але також допомогла десяткам компаній перенести свою кодову базу на сучасний підтримуваний стек із відкритим кодом.",
+      "З усіма продуктами NES ми пропонуємо: безперервне сканування вихідного коду на наявність вразливостей, 5-хвилинне встановлення без виходу з мережі, сканування можливого порушення IP-адреси у вашому коді та перевірку сумісності платформи, браузера та бібліотеки сторонніх розробників.",
+      "Потрібно перенести? HeroDevs також може допомогти в цьому. Найміть нашу команду експертів, щоб допомогти вам подолати труднощі, пов’язані з перенесенням коду.",
+      "Хочете дізнатися більше? Знайдіть нас на herodevs.com або надішліть нам повідомлення на hello@herodevs.com."
     ],
     "proficiencies": [
       "Vue",
