@@ -192,7 +192,7 @@ function useToggleFn(
 }
 
 .switch-container label:first-child {
-  width: 53px;
+  width: 58px;
 }
 
 .switch-link {
@@ -221,7 +221,7 @@ function useToggleFn(
     margin-left: auto;
   }
   .switch-container label:first-child {
-    width: 46px;
+    width: 54px;
   }
 }
 </style>
