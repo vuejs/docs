@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import SiteMap from './SiteMap.vue';
+import SiteMap from './SiteMap.vue'
 // import NewsLetter from './NewsLetter.vue'
 import { load, data, base } from './sponsors'
 import SponsorsGroup from './SponsorsGroup.vue'
@@ -22,7 +22,7 @@ onMounted(async () => {
       веб інтерфейсів.
     </p>
     <p class="actions">
-      <vue-mastery-modal />
+      <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
         Розпочати
         <svg
@@ -47,10 +47,19 @@ onMounted(async () => {
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
           <picture v-if="img.endsWith('png')">
-            <source type="image/avif" :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`" />
+            <source
+              type="image/avif"
+              :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`"
+            />
             <img :src="`${base}/images/${img}`" :alt="name" />
           </picture>
-          <img v-else :src="`${base}/images/${img}`" :alt="name" />
+          <img
+            width="168"
+            height="42"
+            v-else
+            :src="`${base}/images/${img}`"
+            :alt="name"
+          />
         </a>
         <span>{{ description }}</span>
       </template>
@@ -269,7 +278,7 @@ html:not(.dark) .accent,
 
 @media (max-width: 576px) {
   #hero {
-    padding: 64px 32px;
+    padding: 56px 32px;
   }
   .description {
     font-size: 16px;
@@ -292,7 +301,7 @@ html:not(.dark) .accent,
     padding: 20px 36px;
   }
   .actions a {
-    margin: 0.5em 0;
+    margin: 18px 0;
   }
 }
 
