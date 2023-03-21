@@ -51,7 +51,7 @@ const filtered = computed(() => {
 <template>
   <div id="api-index">
     <div class="header">
-      <h1>API довідник</h1>
+      <h1>Довідник API</h1>
       <div class="api-filter">
         <label for="api-filter">Фільтр</label>
         <input
