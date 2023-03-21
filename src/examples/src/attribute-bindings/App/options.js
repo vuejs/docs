@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      message: 'Привіт світ!',
+      message: 'Привіт, світе!',
       isRed: true,
       color: 'green'
     }
