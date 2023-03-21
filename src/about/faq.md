@@ -82,7 +82,7 @@ Vue 3 - один з найпродуктивніших фронтенд-фрей
 
 Якщо ви раніше використовували Опційний API і зараз оцінюєте Композиційний API, перегляньте [цей розділ поширених запитань](/guide/extras/composition-api-faq).
 
-## Чи слід використовувати Javascript або Typescript з Vue? {#should-i-use-javascript-or-typescript-with-vue}
+## Що слід використовувати з Vue: Javascript чи Typescript? {#should-i-use-javascript-or-typescript-with-vue}
 
 Хоча сам Vue реалізований на TypeScript і забезпечує першокласну підтримку TypeScript, він не нав'язує думку про те, чи варто вам використовувати TypeScript як користувачеві.
 
