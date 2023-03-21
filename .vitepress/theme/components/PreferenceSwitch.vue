@@ -90,7 +90,7 @@ function useToggleFn(
         <a
           class="switch-link"
           title="About API preference"
-          href="/guide/introduction.html#стиnі-api"
+          href="/guide/introduction.html#api-styles"
           @click="closeSideBar"
           >?</a
         >
@@ -168,7 +168,7 @@ function useToggleFn(
 
 .switch-container {
   display: flex;
-  align-items: center;  
+  align-items: center;
 }
 
 @media(max-width: 959px){
@@ -192,7 +192,7 @@ function useToggleFn(
 }
 
 .switch-container label:first-child {
-  width: 53px;
+  width: 58px;
 }
 
 .switch-link {
@@ -221,7 +221,7 @@ function useToggleFn(
     margin-left: auto;
   }
   .switch-container label:first-child {
-    width: 46px;
+    width: 54px;
   }
 }
 </style>

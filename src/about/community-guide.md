@@ -2,82 +2,82 @@
 outline: deep
 ---
 
-# Community Guide {#community-guide}
+# Гід спільноти {#community-guide}
 
-Vue's community is growing incredibly fast and if you're reading this, there's a good chance you're ready to join it. So... welcome!
+Спільнота Vue неймовірно швидко зростає, і якщо ви читаєте це, є хороший шанс, що ви готові до неї приєднатися. Тож... ласкаво просимо!
 
-Now we'll answer both what the community can do for you and what you can do for the community.
+Зараз ми відповімо як на те, що спільнота може зробити для вас, так і на те, що ви можете зробити для спільноти.
 
-## Resources {#resources}
+## Ресурси {#resources}
 
-### Code of Conduct {#code-of-conduct}
+### Кодекс честі {#code-of-conduct}
 
-Our [Code of Conduct](/about/coc) is a guide to make it easier to enrich all of us and the technical communities in which we participate.
+Наш [Кодекс честі](/about/coc) — це посібник, який полегшить збагачення всіх нас і технічних спільнот, у яких ми беремо участь.
 
-### Stay in the Know {#stay-in-the-know}
+### Будьте в курсі {#stay-in-the-know}
 
-- Follow our [official Twitter account](https://twitter.com/vuejs).
-- Follow our [team members](./team) on Twitter or GitHub.
-- Follow the [RFC discussions](https://github.com/vuejs/rfcs).
-- Subscribe to the [official blog](https://blog.vuejs.org/).
+- Підпишіться на наш [офіційний акаунт у Twitter](https://twitter.com/vuejs).
+- Слідкуйте за нашими [членами команди](./team) у Twitter або GitHub.
+- Слідкуйте за [обговореннями RFC](https://github.com/vuejs/rfcs).
+- Підпишіться на [офіційний блог](https://blog.vuejs.org/).
 
-### Get Support {#get-support}
+### Отримайте підтримку {#get-support}
 
-- [Discord Chat](https://chat.vuejs.org/): A place for Vue devs to meet and chat in real time.
-- [Forum](https://forum.vuejs.org/): The best place to ask questions and get answers about Vue and its ecosystem.
-- [DEV Community](https://dev.to/t/vue): Share and discuss Vue related topics on Dev.to.
-- [Meetups](https://events.vuejs.org/meetups): Want to find local Vue enthusiasts like yourself? Interested in becoming a community leader? We have the help and support you need right here!
-- [GitHub](https://github.com/vuejs): If you have a bug to report or feature to request, that's what the GitHub issues are for. Please respect the rules specified in each repository's issue template.
-- [Twitter Community (unofficial)](https://twitter.com/i/communities/1516368750634840064): A Twitter community, where you can meet other Vue enthusiasts, get help, or just chat about Vue.
+- [Discord Chat](https://chat.vuejs.org/): місце, де розробники Vue можуть зустрічатися та спілкуватися в реальному часі.
+- [Форум](https://forum.vuejs.org/): найкраще місце, щоб поставити запитання та отримати відповіді про Vue та його екосистему.
+- [Спільнота розробників](https://dev.to/t/vue): діліться та обговорюйте теми, пов'язані з Vue, на Dev.to.
+- [Зустрічі](https://events.vuejs.org/meetups): хочете знайти місцевих ентузіастів Vue, як і ви? Хочете стати лідером спільноти? У нас є допомога та підтримка, які вам потрібні!
+- [GitHub](https://github.com/vuejs): якщо у вас є помилка, про яку потрібно повідомити, або функція, яку ви хочете запитати, проблеми з GitHub саме для цього. Будь ласка, дотримуйтеся правил, указаних у шаблоні випуску кожного сховища.
+- [Спільнота Twitter (неофіційна)](https://twitter.com/i/communities/1516368750634840064): спільнота Twitter, де ви можете зустрітися з іншими ентузіастами Vue, отримати допомогу або просто поспілкуватися про Vue.
 
-### Explore the Ecosystem {#explore-the-ecosystem}
+### Дослідіть екосистему {#explore-the-ecosystem}
 
-- [The Awesome Vue Page](https://github.com/vuejs/awesome-vue): See what other awesome resources have been published by other awesome people.
-- [Vue Telescope Explorer](https://vuetelescope.com/explore): Explore websites made with Vue, with insights on what framework / libraries they use.
-- [Made with Vue.js](https://madewithvuejs.com/): showcases of projects and libraries made with Vue.
-- [The "Show and Tell" Subforum](https://forum.vuejs.org/c/show-and-tell): Another great place to check out what others have built with and for the growing Vue ecosystem.
+- [Сторінка Awesome Vue](https://github.com/vuejs/awesome-vue): подивіться, які ще чудові ресурси опублікували інші чудові люди.
+- [Vue Telescope Explorer](https://vuetelescope.com/explore): досліджуйте вебсайти, створені за допомогою Vue, з інформацією про те, які фреймворки та бібліотеки вони використовують.
+- [Made with Vue.js](https://madewithvuejs.com/): демонстрація проєктів і бібліотек, створених за допомогою Vue.
+  – [Підфорум «Покажи та розкажи»](https://forum.vuejs.org/c/show-and-tell): ще одне чудове місце, щоб перевірити, що створили інші за допомогою та для екосистеми Vue, що розвивається.
 
-## What You Can Do {#what-you-can-do}
+## Що ви можете зробити {#what-you-can-do}
 
-### Help Fellow Users {#help-fellow-users}
+### Допоможіть іншим користувачам {#help-fellow-users}
 
-Code contribution is not the only form of contribution to the Vue community. Answering a question for a fellow Vue user on Discord or the forum is also considered a valuable contribution.
+Внесок коду — не єдина форма внеску в спільноту Vue. Відповідь на запитання іншого користувача Vue на Discord або форумі також вважається цінним внеском.
 
-### Help Triage Issues {#help-triage-issues}
+### Допомога в сортуванні проблем {#help-triage-issues}
 
-Triaging an issue means gathering missing information, running the reproduction, verifying the issue's validity, and investigating the cause of the issue.
+Сортування проблем означає збір відсутньої інформації, запуск відтворення, перевірку дійсності проблеми та дослідження причини проблеми.
 
-We receive many issues in [our repositories on GitHub](https://github.com/vuejs) every single day. Our bandwidth is limited compared to the amount of users we have, so issue triaging alone can take an enormous amount of effort from the team. By helping us triage the issues, you are helping us become more efficient, allowing us to spend time on higher priority work.
+Щодня ми отримуємо багато випусків у [наших репозиторіях на GitHub](https://github.com/vuejs). Наша пропускна здатність обмежена в порівнянні з кількістю користувачів, тому лише сортування проблеми може потребувати величезних зусиль від команди. Допомагаючи нам сортувати проблеми, ви допомагаєте нам стати ефективнішими, дозволяючи нам витрачати час на більш пріоритетну роботу.
 
-You don't have to triage an issue with the goal of fixing it (although that would be nice too). Sharing the result of your investigation, for example the commit that led to the bug, can already save us a ton of time.
+Вам не потрібно аналізувати проблему з метою її вирішення (хоча це теж було б добре). Розповсюдження результатів вашого дослідження, наприклад коміту, який призвів до помилки, вже може заощадити нам купу часу.
 
-### Contribute Code {#contribute-code}
+### Діліться кодом {#contribute-code}
 
-Contributing bug fixes or new features is the most direct form of contribution you can make.
+Допомога у виправленні помилок або нових функціях є найбільш прямою формою внеску, яку ви можете зробити.
 
-The Vue core repository provides a [contributing guide](https://github.com/vuejs/core/blob/main/.github/contributing.md), which contains pull request guidelines and information regarding build setup and high-level architecture. Other sub-project repositories may also contain its own contribution guide - please make sure to read them before submitting pull requests.
+Базовий репозиторій Vue надає [посібник для внесення змін](https://github.com/vuejs/core/blob/main/.github/contributing.md), який містить вказівки щодо запитів на отримання та інформацію щодо налаштування збірки та архітектури високого рівня . Інші репозиторії підпроектів також можуть містити власний посібник із внесків – обов’язково прочитайте їх, перш ніж надсилати запити на отримання.
 
-Bug fixes are welcome at any time. For new features, it is best to discuss the use case and implementation details first in the [RFC repo](https://github.com/vuejs/rfcs/discussions).
+Виправлення помилок вітаються в будь-який час. Для нових функцій найкраще спочатку обговорити варіант використання та деталі реалізації в [репозиторії RFC](https://github.com/vuejs/rfcs/discussions).
 
-### Share (and Build) Your Experience {#share-and-build-your-experience}
+### Діліться своїм досвідом (та вдосконалюйте) {#share-and-build-your-experience}
 
-Apart from answering questions and sharing resources in the forum and chat, there are a few other less obvious ways to share and expand what you know:
+Окрім відповідей на запитання та обміну ресурсами на форумі та в чаті, є кілька інших менш очевидних способів поділитися та розширити те, що ви знаєте:
 
-- **Develop learning materials.** It's often said that the best way to learn is to teach. If there's something interesting you're doing with Vue, strengthen your expertise by writing a blog post, developing a workshop, or even publishing a gist that you share on social media.
-- **Watch a repo you care about.** This will send you notifications whenever there's activity in that repository, giving you insider knowledge about ongoing discussions and upcoming features. It's a fantastic way to build expertise so that you're eventually able to help address issues and pull requests.
+- **Розробіть навчальні матеріали.** Часто кажуть, що найкращий спосіб вчитися – це вчити. Якщо ви робите щось цікаве з Vue, зміцніть свій досвід, написавши публікацію в блозі, розробивши семінар або навіть опублікувавши суть, якою ви поділитеся в соціальних мережах.
+- **Перегляньте репо, яке вас цікавить.** Це надсилатиме вам сповіщення щоразу, коли буде активність у цьому сховищі, даючи вам інсайдерську інформацію про поточні обговорення та майбутні функції. Це фантастичний спосіб набути досвіду, щоб зрештою ви могли допомогти у вирішенні проблем і запитах на отримання.
 
-### Translate Docs {#translate-docs}
+### Перекладайте документацію {#translate-docs}
 
-I hope that right now, you're reading this sentence in your preferred language. If not, would you like to help us get there?
+Я сподіваюся, що зараз ви читаєте це речення мовою, яку ви бажаєте. Якщо ні, чи хотіли б ви допомогти нам дістатися?
 
-See the [Translations guide](/translations/) for more details on how you can get involved.
+Перегляньте [посібник з перекладів](/translations/), щоб дізнатися більше про те, як ви можете взяти участь.
 
-### Become a Community Leader {#become-a-community-leader}
+### Станьте лідером спільноти {#become-a-community-leader}
 
-There's a lot you can do to help Vue grow in your community:
+Ви можете багато чого зробити, щоб допомогти Vue розвиватися у вашій спільноті:
 
-- **Present at your local meetup.** Whether it's giving a talk or running a workshop, you can bring a lot of value to your community by helping both new and experienced Vue developers continue to grow.
-- **Start your own meetup.** If there's not already a Vue meetup in your area, you can start your own! Use the [resources at events.vuejs.org](https://events.vuejs.org/resources/#getting-started) to help you succeed!
-- **Help meetup organizers.** There can never be too much help when it comes to running an event, so offer a hand to help out local organizers to help make every event a success.
+- **Будьте присутнім на місцевій зустрічі.** Незалежно від того, чи ви виступаєте чи проводите семінар, ви можете принести велику цінність своїй спільноті, допомагаючи новим і досвідченим розробникам Vue продовжувати розвиватися.
+- **Почніть власну зустріч.** Якщо у вашому регіоні ще немає зустрічі Vue, ви можете розпочати власну! Використовуйте [ресурси на Events.vuejs.org](https://events.vuejs.org/resources/#getting-started), щоб допомогти вам досягти успіху!
+- **Допоможіть організаторам зустрічей.** Допомоги в організації заходу ніколи не буває забагато, тож пропонуйте руку допомоги місцевим організаторам, щоб зробити кожну подію успішною.
 
-If you have any questions on how you can get more involved with your local Vue community, reach out on Twitter at [@vuejs_events](https://www.twitter.com/vuejs_events)!
+Якщо у вас виникли запитання щодо того, як ви можете більше залучитися до місцевої спільноти Vue, зв'яжіться з ними в Twitter за адресою [@vuejs_events](https://www.twitter.com/vuejs_events)!

@@ -9,56 +9,56 @@ sponsors: false
 import SponsorsGroup from '@theme/components/SponsorsGroup.vue'
 </script>
 
-# Become a Vue.js Sponsor {#become-a-vue-js-sponsor}
+# Станьте спонсором Vue.js {#become-a-vue-js-sponsor}
 
-Vue.js is an MIT licensed open source project and completely free to use.
-The tremendous amount of effort needed to maintain such a large ecosystem and develop new features for the project is only made sustainable thanks to the generous financial backing of our sponsors.
+Vue.js — це проєкт із відкритим вихідним кодом з ліцензією Массачусетського технологічного інституту і повністю безплатний у використанні.
+Величезна кількість зусиль, необхідних для підтримки такої великої екосистеми та розробки нових функцій для проєкту, стає стабільною лише завдяки щедрій фінансовій підтримці наших спонсорів.
 
-## How to Sponsor {#how-to-sponsor}
+## Як стати спонсором {#how-to-sponsor}
 
-Sponsorships can be done via [GitHub Sponsors](https://github.com/sponsors/yyx990803) or [OpenCollective](https://opencollective.com/vuejs). Invoices can be obtained via GitHub's payment system. Both monthly-recurring sponsorships and one-time donations are accepted. Recurring sponsorships are entitled to logo placements as specified in [Sponsorship Tiers](#tier-benefits).
+Спонсорство можна зробити через [Спонсорів GitHub](https://github.com/sponsors/yyx990803) або [OpenCollective](https://opencollective.com/vuejs). Рахунки можна отримати через платіжну систему GitHub. Приймаються як щомісячні спонсорські внески, так і одноразові пожертви. Періодичні спонсори мають право на розміщення логотипів, як зазначено в [Рівнях спонсорства](#tier-benefits).
 
-If you have questions regarding tiers, payment logistics, or sponsor exposure data, please reach out to [sponsor@vuejs.org](mailto:sponsor@vuejs.org).
+Якщо у вас виникли запитання щодо рівнів, логістики платежів або даних про доступність спонсорів, зверніться за адресою [sponsor@vuejs.org](mailto:sponsor@vuejs.org).
 
-## Sponsoring Vue as a Business {#sponsoring-vue-as-a-business}
+## Спонсорство Vue як бізнес {#sponsoring-vue-as-a-business}
 
-Sponsoring Vue gives you great exposure to over **1.7 million** Vue developers around the world through our website and GitHub project READMEs. In addition, supporting OSS improves the reputation of your brand, which is an important asset for any company that interacts with developers.
+Спонсорство Vue дає вам чудовий доступ до понад **1,7 мільйона** розробників Vue у всьому світі через наш вебсайт і README проєкту GitHub. Крім того, підтримка OSS покращує репутацію вашого бренду, що є важливим активом для будь-якої компанії, яка взаємодіє з розробниками.
 
-If you are using Vue to build a revenue-generating product, it makes business sense to sponsor Vue's development: **it ensures the project that your product relies on stays healthy and actively maintained.** The exposure and positive brand image in the Vue community also makes it easier to attract and recruit Vue developers.
+Якщо ви використовуєте Vue для створення продукту, який приносить дохід, доцільно спонсорувати розробку Vue: **це гарантує, що проєкт, на який покладається ваш продукт, залишається здоровим і активно підтримується.** Виявлення та позитивний імідж бренду у Vue спільнота також полегшує залучення та наймання розробників Vue.
 
-If you are building a product where your target customers are developers, you will gain high quality traffic through the sponsorship exposure, since all our visitors are developers. The sponsorship also builds brand recognition and improves conversion.
+Якщо ви створюєте продукт, де цільовими клієнтами є розробники, ви отримаєте високоякісний трафік коштом спонсорства, оскільки всі наші відвідувачі є розробниками. Спонсорство також сприяє впізнаваності бренду та покращує конверсію.
 
-## Sponsoring Vue as an Individual {#sponsoring-vue-as-an-individual}
+## Спонсорування Vue як фізична особа {#sponsoring-vue-as-an-individual}
 
-If you are an individual user and have enjoyed the productivity of using Vue, consider donating as a sign of appreciation - like buying us coffee once in a while. Many of our team members accept sponsorships and donations via GitHub Sponsors. Look for the "Sponsor" button on each team member's profile on our [team page](/about/team).
+Якщо ви окремий користувач і вам сподобалася продуктивність використання Vue, вважайте пожертвування як знак вдячності, як час від часу купуючи нам каву. Багато членів нашої команди приймають спонсорство та пожертви через спонсорів GitHub. Знайдіть кнопку «Спонсор» у профілі кожного члена команди на нашій [сторінці команди](/about/team).
 
-You can also try to convince your employer to sponsor Vue as a business. This may not be easy, but business sponsorships typically make a much larger impact on the sustainability of OSS projects than individual donations, so you will help us much more if you succeed.
+Ви також можете спробувати переконати свого роботодавця спонсорувати Vue як бізнес. Це може бути непросто, але спонсорство бізнесу зазвичай значно більше впливає на стійкість проєктів OSS, ніж індивідуальні пожертви, тому ви допоможете нам набагато більше, якщо досягнете успіху.
 
-## Tier Benefits {#tier-benefits}
+## Рівні переваг {#tier-benefits}
 
 - **Global Special**:
-  - Limited to one sponsor globally (currently filled).
-  - Exclusive above the fold logo placement on the front page of [vuejs.org](/).
-  - Most prominent logo placement in all locations from tiers below.
+  - Обмежено одним спонсором у всьому світі (наразі заповнено).
+  - Ексклюзивне розміщення логотипа у верхній частині сторінки на головній сторінці [vuejs.org](/).
+  - Найпомітніше розміщення логотипа на всіх рівнях нижче.
 - **Platinum (USD$2,000/mo)**:
-  - Prominent logo placement on the front page of [vuejs.org](/).
-  - Prominent logo placement in sidebar of all content pages.
-  - Prominent logo placement in the README of [`vuejs/core`](https://github.com/vuejs/core) and [`vuejs/vue`](https://github.com/vuejs/core).
+  - Помітне розміщення логотипа на першій сторінці [vuejs.org](/).
+  - Помітне розміщення логотипа на бічній панелі всіх сторінок із вмістом.
+  - Помітне розміщення логотипа в README [`vuejs/core`](https://github.com/vuejs/core) і [`vuejs/vue`](https://github.com/vuejs/core).
 - **Gold (USD$500/mo)**:
-  - Large logo placement on the front page of [vuejs.org](/).
-  - Large logo placement in the README of `vuejs/core` and `vuejs/vue`.
+  - Розміщення великого логотипа на головній сторінці [vuejs.org](/).
+  - Розміщення великого логотипа в README `vuejs/core` і `vuejs/vue`.
 - **Silver (USD$250/mo)**:
-  - Medium logo placement in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`.
+  - Середнє розміщення логотипа у файлі `BACKERS.md` `vuejs/core` і `vuejs/vue`.
 - **Bronze (USD$100/mo)**:
-  - Small logo placement in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`.
+  - Розміщення маленького логотипа у файлі `BACKERS.md` `vuejs/core` і `vuejs/vue`.
 - **Generous Backer (USD$50/mo)**:
-  - Name listed in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`, above other individual backers.
+  - Ім’я, вказане у файлі `BACKERS.md` `vuejs/core` і `vuejs/vue`, над іншими окремими спонсорами.
 - **Individual Backer (USD$5/mo)**:
-  - Name listed in the `BACKERS.md` file of `vuejs/core` and `vuejs/vue`.
+  - Ім’я, вказане у файлі `BACKERS.md` `vuejs/core` і `vuejs/vue`.
 
-## Current Sponsors {#current-sponsors}
+## Поточні спонсори {#current-sponsors}
 
-### Special Global Sponsor {#special-global-sponsor}
+### Спонсор Special Global {#special-global-sponsor}
 
 <SponsorsGroup tier="special" placement="page" />
 
