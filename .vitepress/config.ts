@@ -97,7 +97,7 @@ const nav: ThemeConfig['nav'] = [
     text: 'Довідка',
     activeMatch: `^/about/`,
     items: [
-      { text: 'ЧаПи', link: '/about/faq' },
+      { text: 'Поширені запитання', link: '/about/faq' },
       { text: 'Команда', link: '/about/team' },
       { text: 'Випуски', link: '/about/releases' },
       {
@@ -291,7 +291,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/extras/ways-of-using-vue'
         },
         {
-          text: 'ЧаПи по Композиційному API',
+          text: 'Поширені запитання по Композиційному API',
           link: '/guide/extras/composition-api-faq'
         },
         {
