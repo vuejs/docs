@@ -85,7 +85,7 @@ Vue wird automatisch das `innerHTML` des Containers als Template verwenden, wenn
 
 ## App-Konfigurationen {#app-configurations}
 
-The application instance exposes a `.config` object that allows us to configure a few app-level options, for example, defining an app-level error handler that captures errors from all descendant components:
+Die Anwendungsinstanz stellt ein `config`-Objekt zur Verfügung, mit dem wir einige Optionen auf Anwendungsebene konfigurieren können, z. B. die Definition eines Fehlerbehandlungsprogramms auf Anwendungsebene, das Fehler von allen untergeordneten Komponenten auffängt:
 
 ```js
 app.config.errorHandler = (err) => {
