@@ -93,7 +93,7 @@ app.config.errorHandler = (err) => {
 }
 ```
 
-The application instance also provides a few methods for registering app-scoped assets. For example, registering a component:
+Die Anwendungsinstanz bietet auch einige Methoden für die Registrierung von Assets, die unter die Anwendung fallen. Zum Beispiel die Registrierung einer Komponente:
 
 ```js
 app.component('TodoDeleteButton', TodoDeleteButton)
