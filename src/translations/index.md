@@ -6,7 +6,7 @@ aside: false
 
 ## Доступні мови {#available-languages}
 
-- [Англійська](https://vuejs.org/) [[source](https://github.com/vuejs/docs)]
+- [English / Англійська](https://vuejs.org/) [[source](https://github.com/vuejs/docs)]
 - [简体中文 / Спрощена Китайська](https://cn.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-zh-cn)]
 - [日本語 / Японська](https://ja.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ja)]
 - [Українська](https://ua.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ua)]
