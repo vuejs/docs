@@ -75,7 +75,7 @@ const question = ref('')
 const answer = ref('Questions usually contain a question mark. ;-)')
 
 // watch works directly on a ref
-watch(question, async (newQuestion, oldQuestion) => {
+watch(question, async (newQuestion) => {
   if (newQuestion.indexOf('?') > -1) {
     answer.value = 'Thinking...'
     try {
