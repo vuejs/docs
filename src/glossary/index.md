@@ -17,11 +17,9 @@ For more details see:
 
 A *compiler macro* is special code that is processed by a compiler and converted into something else. They are effectively a clever form of string replacement.
 
-Vue's [SFC](#single-file-component) compiler supports various macros, such as `defineProps()`, `defineEmits()` and `defineExpose()`. These macros are intentionally designed to look like normal JavaScript functions so that they can leverage the same parser and type inference tooling around JavaScript / TypeScript. However they are not actual functions that are run in the browser. These are special strings that the compiler detects and replaces with the real JavaScript code that will actually be run.
+Vue's [SFC](#single-file-component) compiler supports various macros, such as `defineProps()`, `defineEmits()` and `defineExpose()`. These macros are intentionally designed to look like normal JavaScript functions so that they can leverage the same parser and type inference tooling around JavaScript / TypeScript. However, they are not actual functions that are run in the browser. These are special strings that the compiler detects and replaces with the real JavaScript code that will actually be run.
 
 Macros have limitations on their use that don't apply to normal JavaScript code. For example, you might think that `const dp = defineProps` would allow you to create an alias for `defineProps`, but it'll actually result in an error. There are also limitations on what values can be passed to `defineProps()`, as the 'arguments' have to be processed by the compiler and not at runtime.
-
-These macros are conceptually similar to dynamic imports using `import()`. While `import()` looks a lot like a function call, it's actually special syntax that gets processed by the bundler as part of the build. Like with `defineProps()`, we can't create an alias using `const myImport = import`. There are also restrictions on exactly what syntax can be used to pass values to the `import()` 'function', so that the bundler can understand the values.
 
 For more details see:
 - [`<script setup>` - `defineProps()` & `defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)
@@ -64,8 +62,8 @@ The word 'component' also features in several other terms:
 
 The term *composable* describes a common usage pattern in Vue. It isn't a separate feature of Vue, it's just a way of using the framework's [Composition API](#composition-api).
 
-* Composables are used to encapsulate and reuse stateful logic.
 * A composable is a function.
+* Composables are used to encapsulate and reuse stateful logic.
 * The function name usually begins with `use`, so that other developers know it's a composable.
 * The function is typically expected to be called during the synchronous execution of a component's `setup()` function (or, equivalently, during the execution of a `<script setup>` block). This ties the invocation of the composable to the current component context, e.g. via calls to `provide()`, `inject()` or `onMounted()`.
 * Composables typically return a plain object, not a reactive object. This object usually contains refs and functions and is expected to be destructured within the calling code.
@@ -76,49 +74,11 @@ See [Guide - Composables](/guide/reusability/composables.html) for more details 
 
 ## Composition API {#composition-api}
 
-The *Composition API* is a collection of functions used to write components and composables in Vue. It includes the [Reactivity API](#reactivity-api), as well as various other functions, such as `provide()` and `inject()` and lifecycle hooks such as `onMounted()`.
+The *Composition API* is a collection of functions used to write components and composables in Vue.
 
-In the context of authoring components, a component would typically be described as a Composition API component if it uses `<script setup>` or has an explicit `setup()` function.
+The term is also used to describe one of the two main styles used to write components, the other being the [Options API](#options-api). Components written using the Composition API use either `<script setup>` or an explicit `setup()` function.
 
-For example, it would be common to describe either one of these examples as Composition API components:
-
-```vue
-<script setup>
-// ...
-</script>
-```
-
-```vue
-<script>
-export default {
-  setup() {
-    // ...
-  }
-}
-</script>
-```
-
-In some cases it may be necessary to use functions from the Composition API within the [Options API](#options-api), for example:
-
-```js
-import { computed } from 'vue'
-
-export default {
-  data() {
-    return {
-      message: 'hello!'
-    }
-  },
-  provide() {
-    return {
-      // explicitly provide a computed property
-      message: computed(() => this.message)
-    }
-  }
-}
-```
-
-Even though `computed()` is part of the Composition API, the component above would usually be described as being an Options API component, not a Composition API component.
+See the [Composition API FAQ](/guide/extras/composition-api-faq) for more details.
 
 ## custom element {#custom-element}
 
@@ -351,7 +311,7 @@ For more details see:
 A *render function* is the part of a component that generates the VNodes used during rendering. Templates are compiled down into render functions.
 
 For more details see:
-- [Guide - Render Functions & JSX - Functional Components](/guide/extras/render-function.html#functional-components)
+- [Guide - Render Functions & JSX](/guide/extras/render-function.html)
 
 ## scheduler {#scheduler}
 
@@ -434,9 +394,11 @@ Rather than creating DOM nodes directly, Vue components generate a description o
 
 Every time a component re-renders, the new tree of VNodes is compared to the previous tree of VNodes and any differences are then applied to the real DOM. If nothing has changed then the DOM doesn't need to be touched.
 
+Vue uses a hybrid approach that we call [Compiler-Informed Virtual DOM](/guide/extras/rendering-mechanism.html#compiler-informed-virtual-dom). Vue's template compiler is able to apply performance optimizations based on static analysis of the template. Rather than performing a full comparison of a component's old and new VNode trees at runtime, Vue can use information extracted by the compiler to reduce the comparison to just the parts of the tree that can actually change.
+
 For more details see:
 - [Guide - Rendering Mechanism](/guide/extras/rendering-mechanism.html)
-- [Guide - Render Functions & JSX - Functional Components](/guide/extras/render-function.html#functional-components)
+- [Guide - Render Functions & JSX](/guide/extras/render-function.html)
 
 ## VNode {#vnode}
 
