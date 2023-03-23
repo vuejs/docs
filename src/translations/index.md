@@ -2,18 +2,18 @@
 aside: false
 ---
 
-# Translations {#translations}
+# Переклади {#translations}
 
-## Available Languages {#available-languages}
+## Доступні мови {#available-languages}
 
-- [English](https://vuejs.org/) [[source](https://github.com/vuejs/docs)]
-- [简体中文 / Simplified Chinese](https://cn.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-zh-cn)]
-- [日本語 / Japanese](https://ja.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ja)]
-- [Українська / Ukrainian](https://ua.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ua)]
-- [Français / French](https://fr.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fr)]
+- [English / Англійська](https://vuejs.org/) [[джерело](https://github.com/vuejs/docs)]
+- [简体中文 / Спрощена Китайська](https://cn.vuejs.org/) [[джерело](https://github.com/vuejs-translations/docs-zh-cn)]
+- [日本語 / Японська](https://ja.vuejs.org/) [[джерело](https://github.com/vuejs-translations/docs-ja)]
+- [Українська](https://ua.vuejs.org) [[джерело](https://github.com/vuejs-translations/docs-ua)]
+- [Français / Французька](https://fr.vuejs.org) [[джерело](https://github.com/vuejs-translations/docs-fr)]
 
-## Starting a new Translation {#starting-a-new-translation}
+## Початок нового перекладу {#starting-a-new-translation}
 
-The Vue documentation has recently undergone a major revision, so translations in other languages are still missing or work-in-progress.
+Документація Vue нещодавно зазнала значних змін, тож переклади іншими мовами досі відсутні або в процесі перекладу.
 
-We welcome community efforts to provide more translations. Translation efforts are managed in the [vuejs-translations](https://github.com/vuejs-translations/) GitHub organization. If you are interested in contributing, please check out the [Translation Guidelines](https://github.com/vuejs-translations/guidelines/blob/main/README.md) to get started.
+Ми вітаємо зусилля спільноти щодо надання більше перекладів. Роботою з перекладу керує організація [vuejs-translations](https://github.com/vuejs-translations/) на GitHub. Якщо ви зацікавлені зробити свій внесок, перегляньте [Інструкції з перекладу](https://github.com/vuejs-translations/guidelines/blob/main/README.md), щоб почати.
