@@ -13,7 +13,7 @@
 
 Також рекомендується використовувати ці онлайн пісочниці, для надання репродукцій при повідомленні про помилки.
 
-## Створення проекту {#project-scaffolding}
+## Створення проєкту {#project-scaffolding}
 
 ### Vite {#vite}
 
@@ -23,16 +23,16 @@
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
-Ця команда встановить та виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проектів Vue.
+Ця команда встановить та виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проєктів Vue.
 
 - Щоб дізнатися більше про Vite, перегляньте [документацію Vite](https://vitejs.dev).
-- Щоб налаштувати спеціальну поведінку Vue у проекті Vite, наприклад, передати параметри компілятору Vue, перегляньте документацію для [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
+- Щоб налаштувати спеціальну поведінку Vue у проєкті Vite, наприклад, передати параметри компілятору Vue, перегляньте документацію для [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
 
-Обидві онлайн-пісочниці, згадані вище, також підтримують завантаження файлів як проект Vite.
+Обидві онлайн-пісочниці, згадані вище, також підтримують завантаження файлів як проєкт Vite.
 
 ### Vue CLI {#vue-cli}
 
-[Vue CLI](https://cli.vuejs.org/) — це офіційний інструментарій для Vue на основі Webpack. Зараз він у режимі обслуговування, і ми рекомендуємо починати нові проекти з Vite, якщо ви не покладаєтеся на певні функції лише для Webpack. У більшості випадків Vite забезпечить чудовий досвід розробки.
+[Vue CLI](https://cli.vuejs.org/) — це офіційний інструментарій для Vue на основі Webpack. Зараз він у режимі обслуговування, і ми рекомендуємо починати нові проєкти з Vite, якщо ви не покладаєтеся на певні функції лише для Webpack. У більшості випадків Vite забезпечить чудовий досвід розробки.
 
 Щоб отримати інформацію щодо переходу з Vue CLI на Vite:
 
@@ -56,7 +56,7 @@
 - Рекомендоване налаштування IDE: [VSCode](https://code.visualstudio.com/) + розширення [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Це розширення забезпечує підсвітку синтаксису, підтримку TypeScript та інтелектуальну функцію для шаблонних виразів і атрибутів компонентів.
 
   :::tip
-  Volar замінює [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), наше попереднє офіційне розширення VSCode для Vue 2. Якщо у вас наразі встановлено Vetur, обов’язково вимкніть його в проектах Vue 3 .
+  Volar замінює [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), наше попереднє офіційне розширення VSCode для Vue 2. Якщо у вас наразі встановлено Vetur, обов’язково вимкніть його в проєктах Vue 3 .
   :::
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) також забезпечує чудову вбудовану підтримку для Vue SFC.
