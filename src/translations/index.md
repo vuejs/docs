@@ -6,11 +6,11 @@ aside: false
 
 ## Доступні мови {#available-languages}
 
-- [English / Англійська](https://vuejs.org/) [[source](https://github.com/vuejs/docs)]
-- [简体中文 / Спрощена Китайська](https://cn.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-zh-cn)]
-- [日本語 / Японська](https://ja.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ja)]
-- [Українська](https://ua.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ua)]
-- [Français / Французька](https://fr.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fr)]
+- [English / Англійська](https://vuejs.org/) [[джерело](https://github.com/vuejs/docs)]
+- [简体中文 / Спрощена Китайська](https://cn.vuejs.org/) [[джерело](https://github.com/vuejs-translations/docs-zh-cn)]
+- [日本語 / Японська](https://ja.vuejs.org/) [[джерело](https://github.com/vuejs-translations/docs-ja)]
+- [Українська](https://ua.vuejs.org) [[джерело](https://github.com/vuejs-translations/docs-ua)]
+- [Français / Французька](https://fr.vuejs.org) [[джерело](https://github.com/vuejs-translations/docs-fr)]
 
 ## Початок нового перекладу {#starting-a-new-translation}
 
