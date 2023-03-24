@@ -101,7 +101,7 @@ app.component('TodoDeleteButton', TodoDeleteButton)
 
 Dadurch wird der "ToDeleteButton" überall in unserer Anwendung verfügbar. Wir werden die Registrierung für Komponenten und andere Arten von Assets in späteren Abschnitten des Handbuchs besprechen. Sie können auch die vollständige Liste der Anwendungsinstanz-APIs in der [API-Referenz](/api/application) einsehen.
 
-Make sure to apply all app configurations before mounting the app!
+Stellen Sie sicher, dass Sie alle Anwendungskonfigurationen anwenden, bevor Sie die Anwendung installieren!
 
 ## Multiple application instances {#multiple-application-instances}
 
