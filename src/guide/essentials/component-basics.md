@@ -357,16 +357,7 @@ Now let's add a button to the `<BlogPost>` component's template:
 </template>
 ```
 
-The button doesn't do anything yet - we want clicking the button to communicate to the parent that it should enlarge the text of all posts. To solve this problem, components provide a custom events system. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
-
-```vue-html{3}
-<BlogPost
-  ...
-  @enlarge-text="postFontSize += 0.1"
- />
-```
-
-Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](/api/component-instance#emit), passing the name of the event:
+The button doesn't do anything yet - we want clicking the button to communicate to the parent that it should enlarge the text of all posts. To solve this problem, components provide a custom events system. The child component can emit an event on itself by calling the built-in [**`$emit`** method](/api/component-instance#emit), passing the name of the event:
 
 ```vue{5}
 <!-- BlogPost.vue, omitting <script> -->
@@ -376,6 +367,15 @@ Then the child component can emit an event on itself by calling the built-in [**
     <button @click="$emit('enlarge-text')">Enlarge text</button>
   </div>
 </template>
+```
+
+Then the parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
+
+```vue-html{3}
+<BlogPost
+  ...
+  @enlarge-text="postFontSize += 0.1"
+ />
 ```
 
 Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will receive the event and update the value of `postFontSize`.
