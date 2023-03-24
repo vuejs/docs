@@ -99,7 +99,7 @@ Die Anwendungsinstanz bietet auch einige Methoden für die Registrierung von Ass
 app.component('TodoDeleteButton', TodoDeleteButton)
 ```
 
-This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](/api/application).
+Dadurch wird der "ToDeleteButton" überall in unserer Anwendung verfügbar. Wir werden die Registrierung für Komponenten und andere Arten von Assets in späteren Abschnitten des Handbuchs besprechen. Sie können auch die vollständige Liste der Anwendungsinstanz-APIs in der [API-Referenz](/api/application) einsehen.
 
 Make sure to apply all app configurations before mounting the app!
 
