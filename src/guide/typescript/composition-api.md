@@ -404,3 +404,12 @@ const openModal = () => {
 ```
 
 Зверніть увагу, якщо ви хочете використовувати цю техніку у файлах TypeScript, замість одно-файлових компонент, вам потрібно ввімкнути [Режим Takeover](./overview#volar-takeover-mode) у Volar.
+
+У випадках, коли точний тип компонента недоступний або неважливий, замість нього можна використовувати `ComponentPublicInstance`. Це включатиме лише властивості, які є спільними для всіх компонентів, наприклад `$el`:
+
+```ts
+import { ref } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
+
+const child = ref<ComponentPublicInstance | null>(null)
+```
