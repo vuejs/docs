@@ -405,7 +405,6 @@ const openModal = () => {
 
 Зверніть увагу, якщо ви хочете використовувати цю техніку у файлах TypeScript, замість одно-файлових компонент, вам потрібно ввімкнути [Режим Takeover](./overview#volar-takeover-mode) у Volar.
 
-In cases where the exact type of the component isn't available or isn't important, `ComponentPublicInstance` can be used instead. This will only include properties that are shared by all components, such as `$el`:
 У випадках, коли точний тип компонента недоступний або неважливий, замість нього можна використовувати `ComponentPublicInstance`. Це включатиме лише властивості, які є спільними для всіх компонентів, наприклад `$el`:
 
 ```ts
