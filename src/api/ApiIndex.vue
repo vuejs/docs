@@ -158,7 +158,7 @@ h3 {
   margin-bottom: 20px;
   background-color: var(--vt-c-bg-soft);
   border-radius: 8px;
-  padding: 28px 32px;
+  padding: 24px 28px;
   transition: background-color 0.5s;
 }
 
