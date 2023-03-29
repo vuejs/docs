@@ -103,7 +103,7 @@ Dadurch wird der "ToDeleteButton" überall in unserer Anwendung verfügbar. Wir 
 
 Stellen Sie sicher, dass Sie alle Anwendungskonfigurationen anwenden, bevor Sie die Anwendung installieren!
 
-## Multiple application instances {#multiple-application-instances}
+## Mehrere Anwendungsinstanzen {#multiple-application-instances}
 
 You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
 
