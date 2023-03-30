@@ -130,6 +130,29 @@ Component tests should focus on the component's public interfaces rather than in
 
 <TestingApiSwitcher>
 
+<div class="testing-library-api">
+
+```js
+const { getByText } = render(Stepper, {
+  props: {
+    max: 1
+  }
+})
+
+getByText('0') // Implicit assertion that "0" is within the component
+
+const button = getByText('increment')
+
+// Dispatch a click event to our increment button.
+await fireEvent.click(button)
+
+getByText('1')
+
+await fireEvent.click(button)
+```
+
+</div>
+
 <div class="vtu-api">
 
 ```js
