@@ -105,7 +105,7 @@ Stellen Sie sicher, dass Sie alle Anwendungskonfigurationen anwenden, bevor Sie 
 
 ## Mehrere Anwendungsinstanzen {#multiple-application-instances}
 
-You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
+Sie sind nicht auf eine einzige Anwendungsinstanz auf der gleichen Seite beschränkt. Die `createApp` API erlaubt die Koexistenz mehrerer Vue Anwendungen auf der gleichen Seite, jede mit ihrem eigenen Bereich für Konfiguration und globale Assets:
 
 ```js
 const app1 = createApp({
