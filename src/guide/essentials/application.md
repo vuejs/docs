@@ -119,4 +119,4 @@ const app2 = createApp({
 app2.mount('#container-2')
 ```
 
-If you are using Vue to enhance server-rendered HTML and only need Vue to control specific parts of a large page, avoid mounting a single Vue application instance on the entire page. Instead, create multiple small application instances and mount them on the elements they are responsible for.
+Wenn Sie Vue zur Verbesserung von servergerendertem HTML verwenden und Vue nur zur Steuerung bestimmter Teile einer großen Seite benötigen, sollten Sie es vermeiden, eine einzelne Vue-Anwendungsinstanz auf der gesamten Seite zu mounten. Erstellen Sie stattdessen mehrere kleine Anwendungsinstanzen und binden Sie sie in die Elemente ein, für die sie verantwortlich sind.
