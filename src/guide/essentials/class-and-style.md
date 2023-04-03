@@ -1,6 +1,6 @@
 # Klassen- und Stilbindungen {#class-and-style-bindings}
 
-A common need for data binding is manipulating an element's class list and inline styles. Since `class` and `style` are both attributes, we can use `v-bind` to assign them a string value dynamically, much like with other attributes. However, trying to generate those values using string concatenation can be annoying and error-prone. For this reason, Vue provides special enhancements when `v-bind` is used with `class` and `style`. In addition to strings, the expressions can also evaluate to objects or arrays.
+Ein häufiger Bedarf an Datenbindung ist die Bearbeitung der Klassenliste eines Elements und der Inline-Stile. Da `class` und `style` beides Attribute sind, können wir `v-bind` verwenden, um ihnen dynamisch einen String-Wert zuzuweisen, ähnlich wie bei anderen Attributen. Allerdings kann der Versuch, diese Werte mit Hilfe von String-Konkatenation zu erzeugen, lästig und fehleranfällig sein. Aus diesem Grund bietet Vue spezielle Erweiterungen, wenn `v-bind` mit `class` und `style` verwendet wird. Zusätzlich zu Strings können die Ausdrücke auch auf Objekte oder Arrays ausgewertet werden.
 
 ## Binding HTML Classes {#binding-html-classes}
 
