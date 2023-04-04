@@ -2,7 +2,7 @@
 
 Ein häufiger Bedarf an Datenbindung ist die Bearbeitung der Klassenliste eines Elements und der Inline-Stile. Da `class` und `style` beides Attribute sind, können wir `v-bind` verwenden, um ihnen dynamisch einen String-Wert zuzuweisen, ähnlich wie bei anderen Attributen. Allerdings kann der Versuch, diese Werte mit Hilfe von String-Konkatenation zu erzeugen, lästig und fehleranfällig sein. Aus diesem Grund bietet Vue spezielle Erweiterungen, wenn `v-bind` mit `class` und `style` verwendet wird. Zusätzlich zu Strings können die Ausdrücke auch auf Objekte oder Arrays ausgewertet werden.
 
-## Binding HTML Classes {#binding-html-classes}
+## Binden von HTML-Klassen {#binding-html-classes}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3" title="Free Vue.js Dynamic CSS Classes Lesson"/>
