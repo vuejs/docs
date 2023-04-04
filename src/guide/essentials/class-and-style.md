@@ -12,7 +12,7 @@ Ein häufiger Bedarf an Datenbindung ist die Bearbeitung der Klassenliste eines 
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Free Vue.js Dynamic CSS Classes Lesson"/>
 </div>
 
-### Binding to Objects {#binding-to-objects}
+### Bindung an Objekte {#binding-to-objects}
 
 We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
 
