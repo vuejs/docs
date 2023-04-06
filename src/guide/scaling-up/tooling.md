@@ -4,7 +4,7 @@
 
 You don't need to install anything on your machine to try out Vue SFCs - there are online playgrounds that allow you to do so right in the browser:
 
-- [Vue SFC Playground](https://sfc.vuejs.org)
+- [Vue SFC Playground](https://play.vuejs.org)
   - Always deployed from latest commit
   - Designed for inspecting component compilation results
 - [Vue + Vite on StackBlitz](https://vite.new/vue)

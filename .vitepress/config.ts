@@ -32,7 +32,7 @@ const nav: ThemeConfig['nav'] = [
   },
   {
     text: 'Playground',
-    link: 'https://sfc.vuejs.org'
+    link: 'https://play.vuejs.org'
   },
   {
     text: 'Ecosystem',
