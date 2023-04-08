@@ -351,6 +351,8 @@ Create a two-way binding on a form input element or a component.
   - `<input>`
   - `<select>`
   - `<textarea>`
+  - `<details>`
+  - `<dialog>`
   - components
 
 - **Modifiers:**
