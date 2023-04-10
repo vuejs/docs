@@ -101,6 +101,9 @@ dist/
 # Serverless directories
 .serverless/
 
+# idea config folder
+.idea
+
 # Temporary folders
 tmp/
 temp/
