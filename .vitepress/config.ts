@@ -159,7 +159,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'Konditionales Rendering',
+          text: 'Bedingtes Rendering',
           link: '/guide/essentials/conditional'
         },
         { text: 'Listen Rendering', link: '/guide/essentials/list' },
