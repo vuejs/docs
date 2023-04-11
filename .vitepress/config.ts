@@ -223,7 +223,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       items: [
         { text: 'Transition', link: '/guide/built-ins/transition' },
         {
-          text: 'TransitionGroup',
+          text: 'Переходы в списках',
           link: '/guide/built-ins/transition-group'
         },
         { text: 'KeepAlive', link: '/guide/built-ins/keep-alive' },
