@@ -12,6 +12,8 @@ aside: false
 - [Українська](https://ua.vuejs.org) [[джерело](https://github.com/vuejs-translations/docs-ua)]
 - [Français / Французька](https://fr.vuejs.org) [[джерело](https://github.com/vuejs-translations/docs-fr)]
 
+<!-- ## Work in Progress Languages {#work-in-progress-languages} -->
+
 ## Початок нового перекладу {#starting-a-new-translation}
 
 Документація Vue нещодавно зазнала значних змін, тож переклади іншими мовами досі відсутні або в процесі перекладу.
