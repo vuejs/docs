@@ -1,4 +1,4 @@
-.vt-doc a[href^="https://sfc.vuejs.org"]:before
+.vt-doc a[href^="https://play.vuejs.org"]:before
 {
   content: '▶';
   width: 20px;

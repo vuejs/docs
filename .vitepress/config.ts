@@ -32,7 +32,7 @@ const nav: ThemeConfig['nav'] = [
   },
   {
     text: 'Пісочниця',
-    link: 'https://sfc.vuejs.org'
+    link: 'https://play.vuejs.org'
   },
   {
     text: 'Екосистема',
@@ -643,6 +643,11 @@ export default defineConfigWithTheme<ThemeConfig>({
         text: '日本語',
         repo: 'https://github.com/vuejs-translations/docs-ja'
       },{
+        link: 'https://fr.vuejs.org',
+        text: 'Français',
+        repo: 'https://github.com/vuejs-translations/docs-fr'
+      },
+      {
         link: 'https://fr.vuejs.org',
         text: 'Français',
         repo: 'https://github.com/vuejs-translations/docs-fr'

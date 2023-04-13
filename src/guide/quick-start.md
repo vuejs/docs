@@ -6,7 +6,7 @@ footer: false
 
 ## Спробуйте Vue онлайн {#try-vue-online}
 
-- Щоб швидко відчути смак Vue, спробуйте його безпосередньо в нашій [пісочниці](https://sfc.vuejs.org/#eNp9UFFqwzAMvYqmn26QxOw3ZIXdwz9Zo7YpsWNkJxuEwLZD7Hd3GAx2jORGU5qljBYKxtbTk5+e1OGjc0nbEKaY+Q2XLqy1pRdXc4CCtnlTBei0BSjykN/ezTEAU2jYLgjA+F0Kq+FzfB1+hq/xY3yPYHybo+H7ZjXX9dMjl5xMnboJCGRclQcSBJDt79ddN0lC32dK0DFbWtcEaGNTF1Q9aBReo1CZOv3GCEszWY9N7pKDr62MdfSo/wivMV1ca5S5J6xxH4LzqVJ+u5mWcfBJzTslUcKNDaWhhLyJn7h+9sQirDH6p6Ek2RLHTLYgJr6meVZ6obtsCPtf0fmTIA==).
+- Щоб швидко відчути смак Vue, спробуйте його безпосередньо в нашій [пісочниці](https://play.vuejs.org/#eNo9jU0KwjAQha8yZqOCWtyWWPAe2QQbtdCmIZ0UIQTUQ7j1DoLgMZIbObVYGGbeN29+PNsbs+mdYjnj3cFWBguh1cW0FqFUR+lqBC80QClRLpajBrAKndV/Ami6Uw7z+EzX+Imv9Ej3FaTbqOJ7Nh/nwlAoUfBs+kaAqjG1REUEwM/bwvvhJITAM6Jft9LGIfTrpi1VvROMfMHI4tm0zcIXmzJMuw==).
 
 - Якщо ви віддаєте перевагу звичайному HTML без етапу збірки, ви можете використовувати цей [JSFiddle](https://jsfiddle.net/z6d9k84y/), як відправну точку.
 
