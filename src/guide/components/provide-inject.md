@@ -125,7 +125,7 @@ const message = inject('message')
 
 Якщо надане значення є референцію, воно буде введено як є і *не буде* автоматично розгорнуто. Це дозволяє компоненту-приймачу зберігати реактивний зв'язок з компонентом-надавачем.
 
-[Повний приклад реактивного надавання та введення](https://sfc.vuejs.org/#eNqFUktOwzAQvcrIm4DUxvuqICEWXMIbk0ybVI1t2W4RqiIhOAA7tlwBIZAQ3yu4N2LchLSloqySmXnvJfPmLdiJMel8hmzAhi6zpfHg0M/MsVBlZbT1sACLox4Yq+dljlDDyOoKEuIkHea0KKd5O0j5qoqiBBCKczi/bOmlGoNs9HyBcGalylfoFSyTimYy8+A1ZIVUY3RQSGNQRWKBFlOhMq2chwqdk2OEo6h2kISv5VV4CY/Lu+V1cihU+7cHSYtLej8MGg55syntSIXHykylR6oAhqUyMw/zfqVznB4J1rIEa8bNopyKIe+IrMcaH/qVNOnEaUVuLiJetAMn2ABWndgjZ2ItWOG9cQPO3SiLdk1cqu2Y01tqZ8qXFaboqv651RcOLQkL1tvQ4NSco+1bVDlZY/dp/oLu6EbZWqiaVumu93ck1nfrbr5utYffZ/IGf9fKbaV9uSzVBCks24ncDUgDW0fhnwTET0SPw334jIEKT/R8D2/hOXyEj+UtxAaER3q/Ca/hgQ676L5Wk4mkwaPI5lr1N4fIQ3c=)
+[Повний приклад реактивного надавання та введення](https://play.vuejs.org/#eNqFUUFOwzAQ/MrKlxSp1PcqRUIc+EQuJtk2Ro1jOW4lFEVC8ABuXPkCqkBCQOELmx9hJyFpVVFyidc7M+uZLdm51pP1CtmUhUVspLZQoF3ps0jJTOfGQgkG52PQJl/LBKGCuckzCBwn6DEXqVwmXWPCm8qLOkCkOIerm44u1QJEq2dThEsjVNKgG1gslOuJ2ILNIU6FWmABqdAalSemaHASqThXhYUMi0IsEGZebRTQd31Lb7SpH+u74CRS3WtHQYcLxr8M1wx569R5dIXFTC+FRVcBhFLplYX1aZYnuJxFrGNFrG23RrkrQt4T2Zj1lv/OcTDbBzVcdWkde9kO/3D+vtKxZUp1jS7h/TUeptrChvz+ic2PAPfRE335LdCL+3/SB73Slrb1A/gLoI0739M7PU+hLPtpVdVocC+ya6v6Abh0/QM=)
 
 Знову ж таки, якщо не використовується `<script setup>`, `inject()` має викликатися лише синхронно в `setup()`:
 
@@ -169,7 +169,7 @@ export default {
 }
 ```
 
-[Повний приклад надавання та введення](https://sfc.vuejs.org/#eNqNUt1KwzAUfpVDbqqwNfelCOKFD2G8qOvZ1rGmIcmmMAqiD+Cdt76CDAVRp6+QvpEnbffnhg5Kk/P7fV/OmbFTpcLpBFnEYtPTmbInQma5KrSFs2E2TqGvixyCkNeWTw2EFBJv6pQU+8lkbGEmJECvoDqJ0poIZm112fERpYtpluLRcZMIoNFOtFxaADkakwwwgsB9V7fuzc2rx+qOkHyw9Af96Iv5iiQZFnM1TiySBRA3gJyMmK8irMMaNd08UeHIFJKU1rCiDRjBiG6DJBjp87ZgQ2uViTg3/Z4XPTJhoQecbqGeSJvlGKLJu1e6uDaoqbFgtdK2ByfnFHVXo0xRo/6r56/Unb5L9SRlNYN94zrXiUy3Z7Z2HT64RsW68rDH3wDfncA2jS3u++hkcoQ9G8FF0K5FcPkvvqoPAPfkvvzyuBc6P92He3ULt6gewDvAzel+797dMwmdLbcOynrDYu6bbDIvfwCPoid7)
+[Повний приклад надавання та введення](https://play.vuejs.org/#eNqNkVFKxDAQhq8y9CUKy+a9BEF88BDWh9LOaqRNQ5ouQimIHsA3X72CLAqirl5heiOTdre7ZRd2IWTyZ2Yy32Tq4Fzr6bzCIAxEmRip7VmkZK4LY+HiVmYpzEyRA5vyTvlQFqlI4X0XkuIsrjILdaQAksLlKVS2DKFeZTcT79GmmMsUT077QACDtjJqrQByLMv4BkNg9Nc+0Cct2pf20VXyzsYbt7kl+ADphMVcZ7FFpwBEX5A7IfjgCSbBAL6vx0sTq3Tc6Obq+G570E3mccRbxXexxxgj9n04Ut1hYkO4Yqu/ZNcH6+vOANAr/fofp3dnf+ibPmhJy/YZ/AXQwp2f6IveXKP1elTQdGMR3D+yTd78AzNr4Qc=)
 
 ### Псевдонім введення \* {#injection-aliasing}
 
@@ -309,7 +309,7 @@ export default {
 }
 ```
 
-[Повний приклад реактивного надавання та введення](https://sfc.vuejs.org/#eNqNUktqIzEQvUqhTScQt/ZNJzDMYg4xmkWPuxy3sT5Ias+AaRhmDjC7bHOFEBII+V5BvlFKrbZjJyExCKRSPT1VvXpL9sWYfNEiK1jpxrYx/kSoRhptPXydNvMaJlZLyHLeRxGabQBLGGtpWo81dAMu5YXC3z2ixknVzgkpFPRgrVB5V9DTxN4dxUxd+ergMKEALPrWqnUEING56hQLyMLT6k+4CZers9Vf+iYmu7glFmP1oqlxD6J12QeEPT4BP21cPiQPt2mFolXyjTAUeJRmXnmkCKBsFPHAYiR1jfNjwQYSwVI69cgpKPnmITtiSb+RrEw+c1qR+H2NYkg4wUihVIhgJGmMBZt6b1zBuZuM4xxmLtf2lNMpt63yjcQcnRz9tPqXQ0vEgvWyDBycLhdoRxZVjRbtR5yvoG941+JQKxtbvOegb7ZS9a6NXq4GL+3hldTFy8v9ZrP1+dsJ7JaxU/t75TRqhmNfwPdsmHD249P/Tb8BhPPwGC0brmi/D3fhOjyEh9V/iBcQLun8L9yGC2p0ubYodL0BSx5JtivvngFIKVey)
+[Повний приклад реактивного надавання та введення](https://play.vuejs.org/#eNqNUVFKw0AQvcqwP7FQm/+QFsQPD2H8CN2pXUk2y2ZThBIQPYB//noFKQqiVq8wuZG72TRtsWAhMJmdN2/evFmyM6VGiwpZxOJyqoUyk0SKXBXawPlcZBxmusghGIVt5qBBD1jCtMhVZZBD3eF8PZF42yI4ztIqs8hEQgsuJEpTRrbVs9dDV+GpSU8GHgWg0VRabjKAHMsyvcYIAvpp7uidVs1Tc2/HuGLtgmdRulgIjkcQbWSfWOx4AmYuylFXHOzSJtJ+cdgbYxODucpSgzYDiIW0PLA4zQuO2ThhHUnCfNnvGNokDvtGNmS9l4dsv9Cp5Pveb5+6AxxhsN9j23ncQjvD/8rel7Gn/ZAcIW9waiK4DDpbgqt/56s2ANAzfbs706uNX/RJb7SmdfMI7gFoZf8f6INe7KLLzV2hbq8Wh45kV3n9C64MEU0=)
 
 Функція `computed()` зазвичай використовується в компонентах композиційного API, але також може використовуватися для доповнення певних випадків використання в опційному API. Ви можете дізнатися більше про його використання, прочитавши [основи реактивності](/guide/essentials/reactivity-fundamentals) і [обчислювані властивості](/guide/essentials/computed) із вподобанням API, встановленим як Композиційний.
 
