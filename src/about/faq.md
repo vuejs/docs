@@ -74,7 +74,7 @@ Yes. Despite a common misconception that Vue is only suitable for simple use cas
 
 ## How do I contribute to Vue? {#how-do-i-contribute-to-vue}
 
-We appreciate your interest! Please check out our [Community Guide](/about/community-guide).
+We appreciate your interest! Please check out our [Community Guide](https://vuejs.org/about/community-guide.html#what-you-can-do).
 
 ## Should I use Options API or Composition API? {#should-i-use-options-api-or-composition-api}
 
