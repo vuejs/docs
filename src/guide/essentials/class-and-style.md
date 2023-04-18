@@ -14,7 +14,7 @@ Ein häufiger Bedarf an Datenbindung ist die Bearbeitung der Klassenliste eines 
 
 ### Bindung an Objekte {#binding-to-objects}
 
-We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
+Wir können ein Objekt an `:class` (kurz für `v-bind:class`) übergeben, um Klassen dynamisch umzuschalten:
 
 ```vue-html
 <div :class="{ active: isActive }"></div>
