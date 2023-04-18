@@ -57,7 +57,7 @@ function track(interest?: boolean) {
       <a
         v-for="{ url, img, name } of data[tier]"
         class="sponsor-item"
-        :href="url"
+        :href="url.startsWith('https') ? url : `https://${url}`"
         target="_blank"
         rel="sponsored noopener"
         @click="track()"
