@@ -22,7 +22,7 @@ Wir können ein Objekt an `:class` (kurz für `v-bind:class`) übergeben, um Kla
 
 Die obige Syntax bedeutet, dass das Vorhandensein der Klasse "active" durch die [Wahrhaftigkeit] (https://developer.mozilla.org/en-US/docs/Glossary/Truthy) der Dateneigenschaft "isActive" bestimmt wird.
 
-You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following state:
+Es können mehrere Klassen umgeschaltet werden, indem mehrere Felder im Objekt vorhanden sind. Darüber hinaus kann die `:class`-Direktive auch mit dem einfachen Attribut `class` koexistieren. Der folgende Zustand ist also gegeben:
 
 <div class="composition-api">
 
