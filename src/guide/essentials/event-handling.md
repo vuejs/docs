@@ -1,26 +1,26 @@
 # Event Handling {#event-handling}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/user-events-in-vue-3" title="Free Vue.js Events Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/user-events-in-vue-3" title="Gratis Vue.js Lerneinheit zu Events"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-events-in-vue-3" title="Free Vue.js Events Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-events-in-vue-3" title="Gratis Vue.js Lerneinheit zu Events"/>
 </div>
 
 ## Auf Events horchen {#listening-to-events}
 
-We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="handler"` or with the shortcut, `@click="handler"`.
+Die `v-on`-Direktive wird genutzt, um beim Auslösen von DOM-Events JavaScript-Code auszuführen. Sie wird meist in der Kurzform `@` benutzt. Die Direktive wird in der Form `v-on:click="handler"` oder in der Kurzform, `@click="handler"` genutzt.
 
-The handler value can be one of the following:
+Der Inhalt von _handler_ kann wie folgt definiert werden:
 
-1. **Inline handlers:** Inline JavaScript to be executed when the event is triggered (similar to the native `onclick` attribute).
+1. **Inline Handlers:** Inline JavaScript, welches ausgeführt wird wenn der Event ausgelöst wird (analog zum nativen `onclick`-Attribut).
 
-2. **Method handlers:** A property name or path that points to a method defined on the component.
+2. **Method Handlers:** Der Name einer Property oder ein Verweis auf eine Methode, die in der Komponente definiert ist.
 
 ## Inline Handlers {#inline-handlers}
 
-Inline handlers are typically used in simple cases, for example:
+Inline Handler werden in der Regel für sehr einfache Anwendungsfälle genutzt, z.B.:
 
 <div class="composition-api">
 
@@ -48,20 +48,20 @@ data() {
 
 <div class="composition-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnRlciA9IHJlZigwKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJjb3VudGVyKytcIj5BZGQgMTwvYnV0dG9uPlxuXHQ8cD5UaGUgYnV0dG9uIGFib3ZlIGhhcyBiZWVuIGNsaWNrZWQge3sgY291bnRlciB9fSB0aW1lcy48L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Probiere es im Playground aus](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnRlciA9IHJlZigwKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJjb3VudGVyKytcIj5BZGQgMTwvYnV0dG9uPlxuXHQ8cD5UaGUgYnV0dG9uIGFib3ZlIGhhcyBiZWVuIGNsaWNrZWQge3sgY291bnRlciB9fSB0aW1lcy48L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcblx0ICByZXR1cm4ge1xuICAgIFx0Y291bnRlcjogMFxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJjb3VudGVyKytcIj5BZGQgMTwvYnV0dG9uPlxuXHQ8cD5UaGUgYnV0dG9uIGFib3ZlIGhhcyBiZWVuIGNsaWNrZWQge3sgY291bnRlciB9fSB0aW1lcy48L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Probiere es im Playground aus](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcblx0ICByZXR1cm4ge1xuICAgIFx0Y291bnRlcjogMFxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJjb3VudGVyKytcIj5BZGQgMTwvYnV0dG9uPlxuXHQ8cD5UaGUgYnV0dG9uIGFib3ZlIGhhcyBiZWVuIGNsaWNrZWQge3sgY291bnRlciB9fSB0aW1lcy48L3A+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 </div>
 
 ## Method Handlers {#method-handlers}
 
-The logic for many event handlers will be more complex though, and likely isn't feasible with inline handlers. That's why `v-on` can also accept the name or path of a component method you'd like to call.
+Für die meisten Eventhandler ist die Logik in der Realität komplexer als in den bisherigen Beispielen. Die Nutzung eines Inline Handlers ist in diesen komplexeren Fällen eher unhandlich. Deshalb kann auch der Name oder ein Verweis auf eine Methode innerhalb der Komponente an `v-on` übergeben werden.
 
-For example:
+Ein Beispiel:
 
 <div class="composition-api">
 
@@ -70,7 +70,7 @@ const name = ref('Vue.js')
 
 function greet(event) {
   alert(`Hello ${name.value}!`)
-  // `event` is the native DOM event
+  // `event` ist das native DOM Event
   if (event) {
     alert(event.target.tagName)
   }
@@ -88,9 +88,9 @@ data() {
 },
 methods: {
   greet(event) {
-    // `this` inside methods points to the current active instance
+    // `this` zeigt innerhalb einer Methode auf die aktuell aktive Instanz
     alert(`Hello ${this.name}!`)
-    // `event` is the native DOM event
+    // `event` ist das native DOM Event
     if (event) {
       alert(event.target.tagName)
     }
@@ -101,41 +101,41 @@ methods: {
 </div>
 
 ```vue-html
-<!-- `greet` is the name of the method defined above -->
+<!-- `greet` ist der Name der oben definierten Methode  -->
 <button @click="greet">Greet</button>
 ```
 
 <div class="composition-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgbmFtZSA9IHJlZignVnVlLmpzJylcblxuZnVuY3Rpb24gZ3JlZXQoZXZlbnQpIHtcbiAgYWxlcnQoYEhlbGxvICR7bmFtZS52YWx1ZX0hYClcbiAgLy8gYGV2ZW50YCBpcyB0aGUgbmF0aXZlIERPTSBldmVudFxuICBpZiAoZXZlbnQpIHtcbiAgICBhbGVydChldmVudC50YXJnZXQudGFnTmFtZSlcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJncmVldFwiPkdyZWV0PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Probiere es im Playground aus](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgbmFtZSA9IHJlZignVnVlLmpzJylcblxuZnVuY3Rpb24gZ3JlZXQoZXZlbnQpIHtcbiAgYWxlcnQoYEhlbGxvICR7bmFtZS52YWx1ZX0hYClcbiAgLy8gYGV2ZW50YCBpcyB0aGUgbmF0aXZlIERPTSBldmVudFxuICBpZiAoZXZlbnQpIHtcbiAgICBhbGVydChldmVudC50YXJnZXQudGFnTmFtZSlcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJncmVldFwiPkdyZWV0PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbmFtZTogJ1Z1ZS5qcydcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBncmVldChldmVudCkge1xuICAgICAgLy8gYHRoaXNgIGluc2lkZSBtZXRob2RzIHBvaW50cyB0byB0aGUgY3VycmVudCBhY3RpdmUgaW5zdGFuY2VcbiAgICAgIGFsZXJ0KGBIZWxsbyAke3RoaXMubmFtZX0hYClcbiAgICAgIC8vIGBldmVudGAgaXMgdGhlIG5hdGl2ZSBET00gZXZlbnRcbiAgICAgIGlmIChldmVudCkge1xuICAgICAgICBhbGVydChldmVudC50YXJnZXQudGFnTmFtZSlcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxidXR0b24gQGNsaWNrPVwiZ3JlZXRcIj5HcmVldDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Probiere es im Playground aus](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbmFtZTogJ1Z1ZS5qcydcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBncmVldChldmVudCkge1xuICAgICAgLy8gYHRoaXNgIGluc2lkZSBtZXRob2RzIHBvaW50cyB0byB0aGUgY3VycmVudCBhY3RpdmUgaW5zdGFuY2VcbiAgICAgIGFsZXJ0KGBIZWxsbyAke3RoaXMubmFtZX0hYClcbiAgICAgIC8vIGBldmVudGAgaXMgdGhlIG5hdGl2ZSBET00gZXZlbnRcbiAgICAgIGlmIChldmVudCkge1xuICAgICAgICBhbGVydChldmVudC50YXJnZXQudGFnTmFtZSlcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxidXR0b24gQGNsaWNrPVwiZ3JlZXRcIj5HcmVldDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 
 </div>
 
-A method handler automatically receives the native DOM Event object that triggers it - in the example above, we are able to access the element dispatching the event via `event.target.tagName`.
+Ein Method Handler erhält automatisch das native DOM Event Objekt, von dem er ausgelöst wurde - im Beispiel oben können wir auf das Element, von dem das Event ausgelöst wurde, über `event.target.tagName` zugreifen.
 
 <div class="composition-api">
 
-See also: [Typing Event Handlers](/guide/typescript/composition-api.html#typing-event-handlers) <sup class="vt-badge ts" />
+Siehe dazu auch: [Typisierte Eventhandler](/guide/typescript/composition-api.html#typing-event-handlers) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-See also: [Typing Event Handlers](/guide/typescript/options-api.html#typing-event-handlers) <sup class="vt-badge ts" />
+Siehe dazu auch: [Typisierte Eventhandler](/guide/typescript/options-api.html#typing-event-handlers) <sup class="vt-badge ts" />
 
 </div>
 
-### Method vs. Inline Detection {#method-vs-inline-detection}
+### Automatische Identifizierung bei Method und Inline Handlern {#method-vs-inline-detection}
 
-The template compiler detects method handlers by checking whether the `v-on` value string is a valid JavaScript identifier or property access path. For example, `foo`, `foo.bar` and `foo['bar']` are treated as method handlers, while `foo()` and `count++` are treated as inline handlers.
+Der Template-Compiler erkennt, um welchen Typ es sich bei einem Handler handelt, indem der Inhalt der `v-on`-Direktive überprüft wird. ist dessen Wert ein gültiger JavaScript Identifier oder ein Verweis auf eine Property, wird ein Method Handler erkannt. Zum Beispiel werden `foo`, `foo.bar` und `foo['bar']` als Method Handler erkannt, `foo()` und `count++` werden als Inline Handler behandelt.
 
-## Calling Methods in Inline Handlers {#calling-methods-in-inline-handlers}
+## Aufrufen von Methoden in Inline Handlern {#calling-methods-in-inline-handlers}
 
-Instead of binding directly to a method name, we can also call methods in an inline handler. This allows us to pass the method custom arguments instead of the native event:
+Anstatt das Event direkt an eine Methode zu binden, können aus einem Inline Handler heraus auch Methoden aufgerufen werden. So können der Methode auch beliebige Parameter übergeben werden und nicht nur das native Eventobjekt:
 
 <div class="composition-api">
 
@@ -165,18 +165,18 @@ methods: {
 
 <div class="composition-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eNp9kN1uwjAMhV8l8g1Dos191aHtGXabm7QzUNb8yHaYKtR3X0KnCoHEnY/j88XHV/iMsb4khAZa7mmIohglxb3xh+R7GYJXbKc3h8z2iFt1NV4pOyLJ2jN+Nr7Viz0bsxB0cbSCRUnbJZHM+ejHof95N1CAmxOOY9hsDey/7KRuqtXL5AtXN+HqyfWdo9Xrp7CDwcVAUjkb6zMHn+PdFjf/D2ygWaKUXs5ftIGTSORGaz705ShnrgMdda5qSl4GhzWyqzoKv4yUwQZ2dwydmxekitB/IyG9Yj6MPnELNl91hvkPugmTrw==)
+[Probiere es im Playground aus](https://sfc.vuejs.org/#eNp9kN1uwjAMhV8l8g1Dos191aHtGXabm7QzUNb8yHaYKtR3X0KnCoHEnY/j88XHV/iMsb4khAZa7mmIohglxb3xh+R7GYJXbKc3h8z2iFt1NV4pOyLJ2jN+Nr7Viz0bsxB0cbSCRUnbJZHM+ejHof95N1CAmxOOY9hsDey/7KRuqtXL5AtXN+HqyfWdo9Xrp7CDwcVAUjkb6zMHn+PdFjf/D2ygWaKUXs5ftIGTSORGaz705ShnrgMdda5qSl4GhzWyqzoKv4yUwQZ2dwydmxekitB/IyG9Yj6MPnELNl91hvkPugmTrw==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgbWV0aG9kczoge1xuXHQgIHNheShtZXNzYWdlKSB7XG4gICAgXHRhbGVydChtZXNzYWdlKVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJzYXkoJ2hpJylcIj5TYXkgaGk8L2J1dHRvbj5cbiAgPGJ1dHRvbiBAY2xpY2s9XCJzYXkoJ3doYXQnKVwiPlNheSB3aGF0PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Probiere es im Playground aus](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgbWV0aG9kczoge1xuXHQgIHNheShtZXNzYWdlKSB7XG4gICAgXHRhbGVydChtZXNzYWdlKVxuICBcdH1cblx0fVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cblx0PGJ1dHRvbiBAY2xpY2s9XCJzYXkoJ2hpJylcIj5TYXkgaGk8L2J1dHRvbj5cbiAgPGJ1dHRvbiBAY2xpY2s9XCJzYXkoJ3doYXQnKVwiPlNheSB3aGF0PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
 </div>
 
-## Accessing Event Argument in Inline Handlers {#accessing-event-argument-in-inline-handlers}
+## In Inline Handlern auf Eventparameter zugreifen {#accessing-event-argument-in-inline-handlers}
 
-Sometimes we also need to access the original DOM event in an inline handler. You can pass it into a method using the special `$event` variable, or use an inline arrow function:
+Manchmal wollen wir innerhalb eines Inline Handler auf die Attribute des auslösenden DOM-Events zugreifen. Die ist über die spezielle Variable `$event` möglich, oder akternativ über eine Inline-Funktion:
 
 ```vue-html
 <!-- using $event special variable -->
@@ -194,7 +194,7 @@ Sometimes we also need to access the original DOM event in an inline handler. Yo
 
 ```js
 function warn(message, event) {
-  // now we have access to the native event
+  // jetzt haben wir Zugriff auf das native Event
   if (event) {
     event.preventDefault()
   }
@@ -208,7 +208,7 @@ function warn(message, event) {
 ```js
 methods: {
   warn(message, event) {
-    // now we have access to the native event
+    // jetzt haben wir Zugriff auf das native Event
     if (event) {
       event.preventDefault()
     }
@@ -219,11 +219,11 @@ methods: {
 
 </div>
 
-## Event Modifiers {#event-modifiers}
+## Event Modifier {#event-modifiers}
 
-It is a very common need to call `event.preventDefault()` or `event.stopPropagation()` inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.
+Eine sehr übliche Anforderung ist das AUfrufen von Funktionen wie `event.preventDefault()` oder `event.stopPropagation()` innerhalb eines Eventhandlers. Obwohl dieser Code problemlos auch innerhalb andere Methoden aufgerufen werden kann, macht es den Code lesbarer und wartbarer, wenn die Methode nur die tatsächliche Anwendungslogik implmentiert und diese nicht mit der Behandlung von DOM Events vermischt wird.
 
-To address this problem, Vue provides **event modifiers** for `v-on`. Recall that modifiers are directive postfixes denoted by a dot.
+Zur Lösung dieses Problems stellt Vue **Event Modifier** für die `v-on`-Direktive bereit. Modifiers werden in der Postfix-Notation durch einen Punkt getrennt an die Direktive ergänzt.
 
 - `.stop`
 - `.prevent`
@@ -233,73 +233,71 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 - `.passive`
 
 ```vue-html
-<!-- the click event's propagation will be stopped -->
+<!-- Die Weitergabe des Click-Events wird verhindert -->
 <a @click.stop="doThis"></a>
 
-<!-- the submit event will no longer reload the page -->
+<!-- Das Submit-Event wird die Seite nicht neu laden -->
 <form @submit.prevent="onSubmit"></form>
 
-<!-- modifiers can be chained -->
+<!-- Modifier können verkettet genutzt werden -->
 <a @click.stop.prevent="doThat"></a>
 
-<!-- just the modifier -->
+<!-- nur der Modifier ohne weiteren Handler -->
 <form @submit.prevent></form>
 
-<!-- only trigger handler if event.target is the element itself -->
+<!-- löse den Handler nur aus, wenn event.target das auslösende Element selbst ist -->
 <!-- i.e. not from a child element -->
 <div @click.self="doThat">...</div>
 ```
 
 ::: tip
-Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **click's default action on the element itself and its children**, while `@click.self.prevent` will only prevent click's default action on the element itself.
+Bei der Nutzung von Modifiern ist es wichtig die Reihenfolge der Modifier zu beachten, weil der relevante Code in derselben Reihenfolge generiert wird. Somit wird bei der Nutzung von `@click.prevent.self` die **Standardaktion von Click auf dem Element und seinen UNterlementen verhindert**, während `@click.self.prevent` nur das Standardverhalten von Click auf dem Element selbst betrifft.
 :::
 
-The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the native `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
+Die Modifier `.capture`, `.once` und `.passive` spiegeln die [Optionen der nativen `addEventListener` Methode](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options) wieder:
 
 ```vue-html
-<!-- use capture mode when adding the event listener -->
-<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<!-- nutze den capture-Modus beim Hinzufügen des Eventlisteners -->
+<!-- z.B. wird ein Event eines Unterelementes dort behandelt, bevor der Handler des Elementes selbst ausgelöst wird -->
 <div @click.capture="doThis">...</div>
 
-<!-- the click event will be triggered at most once -->
+<!-- Das Click-Event wird maximal einmal ausgelöst -->
 <a @click.once="doThis"></a>
 
-<!-- the scroll event's default behavior (scrolling) will happen -->
-<!-- immediately, instead of waiting for `onScroll` to complete  -->
-<!-- in case it contains `event.preventDefault()`                -->
+<!-- Das Standardverhalten des Scroll-Event (scrolling) wird direkt ausgeführt. Es wird nicht auf die Fertigstellung von `onScroll` gewartet falls es `event.preventDefault()` enthält                -->
 <div @scroll.passive="onScroll">...</div>
 ```
 
-The `.passive` modifier is typically used with touch event listeners for [improving performance on mobile devices](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
+Der Modifier `.passive` wird üblicherweise bei Touch-Eventlistenern verwendet, um [die Performance auf Mobilgeräten zu verbessern](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
 
 ::: tip
-Do not use `.passive` and `.prevent` together, because `.passive` already indicates to the browser that you _do not_ intend to prevent the event's default behavior, and you will likely see a warning from the browser if you do so.
+Nutze `.passive` und `.prevent` nicht zusammen, da `.passive` dem Browser bereits anzeigt, dass das Standardverhalten _nicht_ unterdrückt werden soll und der Browser (sehr wahrscheinlich) eine Warnung anzeigen wird, wenn dies doch umgesetzt wird.
 :::
 
-## Key Modifiers {#key-modifiers}
+## Key Modifier {#key-modifiers}
 
-When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` or `@` when listening for key events:
+Beim Horchen auf Tastaturevents müssen wir oft die Benutzung bestimmter Tasten überprüfen. Vue erlaubt das Anfügen von Key Modifiern an `v-on` oder `@` zum Reagieren auf Tastaturevents:
 
 ```vue-html
-<!-- only call `submit` when the `key` is `Enter` -->
+<!-- rufe `submit` nur auf, wenn der `key` `Enter` ist -->
 <input @keyup.enter="submit" />
 ```
 
-You can directly use any valid key names exposed via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case.
+Es können beliebige gültige Tasten als Modifier genutzt werden, die über [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) verfügbar sind. Dazu müssen sie in Kebab-Case umgewandelt werden.
 
 ```vue-html
 <input @keyup.page-down="onPageDown" />
 ```
 
-In the above example, the handler will only be called if `$event.key` is equal to `'PageDown'`.
+Im Beispiel wird der Handler nur aufgerufen, wenn `$event.key` dem Wert `'PageDown'` entspricht.
 
-### Key Aliases {#key-aliases}
+### Key Aliase {#key-aliases}
 
-Vue provides aliases for the most commonly used keys:
+Vue stellt Aliase für häufig genutzte Tasten bereit:
 
 - `.enter`
 - `.tab`
-- `.delete` (captures both "Delete" and "Backspace" keys)
+- `.delete` (reagiert sowohl auf "Delete" als auch auf "Backspace")
 - `.esc`
 - `.space`
 - `.up`
@@ -309,7 +307,7 @@ Vue provides aliases for the most commonly used keys:
 
 ### System Modifier Keys {#system-modifier-keys}
 
-You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
+Die folgenden Modifier können genutzt werden, um nur auf Maus- oder Tastaturevents zu reagieren, wenn der entsprechende Modifier Key gedrückt ist:
 
 - `.ctrl`
 - `.alt`
@@ -317,10 +315,10 @@ You can use the following modifiers to trigger mouse or keyboard event listeners
 - `.meta`
 
 ::: tip Note
-On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the Windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+Auf Macintosh-Tastaturen ist meta der Command Key (⌘). Bei Windows-Tastaturen ist meta die Windowstaste (⊞). Auf Sun Microsystems-Tastaturen ist meta als ausgefüllter Diamand (◆) dargestellt. Auf anderen Tastaturen, speziell MIT und 'Lisp Machine Keyboards' und deren Nachfolgern, wie z.B. das 'Knight Keyboard' oder 'Space-Cadet Keyboard', ist meta mit “META” beschriftet. Bei Symboltastaturen ist meta als “META” oder “Meta” beschriftet.
 :::
 
-For example:
+Beispiele:
 
 ```vue-html
 <!-- Alt + Enter -->
@@ -331,28 +329,28 @@ For example:
 ```
 
 ::: tip
-Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone.
+Beachte, dass Modifier Keys sich von normalen Tasten unterscheiden. Wenn sie mit `keyup`-Events genutzt werden, müssen sie beim Auslösen des Events gedrückt sein. Konkret bedeutet das, dass `keyup.ctrl` nur ausgelöst wird, wenn eine Taste losgelassen wird während `ctrl` gedrückt ist. Das Event wird nicht ausgelöst, wenn die `ctrl` losgelassen wird.
 :::
 
 ### `.exact` Modifier {#exact-modifier}
 
-The `.exact` modifier allows control of the exact combination of system modifiers needed to trigger an event.
+Der Modifier `.exact` erlaubt es, genaue Kombinationen von System Modifiern abzufragen, um ein Event auszulösen.
 
 ```vue-html
-<!-- this will fire even if Alt or Shift is also pressed -->
+<!-- hier wird das Event auch ausgelöst, wenn Alt oder Shift auch gedürckt sind -->
 <button @click.ctrl="onClick">A</button>
 
-<!-- this will only fire when Ctrl and no other keys are pressed -->
+<!-- hier wird das Event nur ausgelöst, wenn nur Ctrl und keine andere Taste gedrückt werden -->
 <button @click.ctrl.exact="onCtrlClick">A</button>
 
-<!-- this will only fire when no system modifiers are pressed -->
+<!-- hier wird das Event nur ausgelöst, wenn keine System Keys gedrückt sind -->
 <button @click.exact="onClick">A</button>
 ```
 
-## Mouse Button Modifiers {#mouse-button-modifiers}
+## Maustasten Modifier {#mouse-button-modifiers}
 
 - `.left`
 - `.right`
 - `.middle`
 
-These modifiers restrict the handler to events triggered by a specific mouse button.
+Diese Modifier begrenzen den Handler auf Events, die von der angegebenen Maustaste ausgelöst werden.
