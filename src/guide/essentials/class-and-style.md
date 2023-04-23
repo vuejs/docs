@@ -46,7 +46,7 @@ data() {
 
 </div>
 
-And the following template:
+Und die folgende Vorlage:
 
 ```vue-html
 <div
