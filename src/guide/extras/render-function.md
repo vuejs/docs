@@ -647,6 +647,41 @@ const vnode = withDirectives(h('div'), [
 
 If the directive is registered by name and cannot be imported directly, it can be resolved using the [`resolveDirective`](/api/render-function#resolvedirective) helper.
 
+### Template Refs
+
+<div class="composition-api">
+
+With the Composition API, template refs are created by passing the `ref()` itself as a prop to the vnode:
+
+```js
+import { h, ref } from 'vue'
+
+export default {
+  setup() {
+    const divEl = ref()
+
+    // <div ref="divEl">
+    return () => h('div', { ref: divEl })
+  }
+}
+```
+
+</div>
+<div class="options-api">
+
+With the Options API, template refs are created by passing the ref name as a string in the vnode props: 
+
+```js
+export default {
+  render() {
+    // <div ref="divEl">
+    return h('div', { ref: 'divEl' })
+  }
+}
+```
+
+</div>
+
 ## Functional Components {#functional-components}
 
 Functional components are an alternative form of component that don't have any state of their own. They act like pure functions: props in, vnodes out. They are rendered without creating a component instance (i.e. no `this`), and without the usual component lifecycle hooks.
