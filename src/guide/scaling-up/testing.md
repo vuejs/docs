@@ -40,7 +40,7 @@ Take for example this `increment` function:
 
 ```js
 // helpers.js
-export function increment(current, max = 10) {
+export function increment (current, max = 10) {
   if (current < max) {
     return current + 1
   }
@@ -186,13 +186,9 @@ mount(Stepper, {
   }
 })
 
-cy.get(valueSelector)
-  .should('be.visible')
-  .and('contain.text', '0')
-  .get(buttonSelector)
-  .click()
-  .get(valueSelector)
-  .should('contain.text', '1')
+cy.get(valueSelector).should('be.visible').and('contain.text', '0')
+  .get(buttonSelector).click()
+  .get(valueSelector).should('contain.text', '1')
 ```
 
 </div>
@@ -223,9 +219,9 @@ Component testing often involves mounting the component being tested in isolatio
 
 - [`@vue/test-utils`](https://github.com/vuejs/test-utils) is the official low-level component testing library that was written to provide users access to Vue specific APIs. It's also the lower-level library `@testing-library/vue` is built on top of.
 
-- [`@testing-library/vue`](https://github.com/testing-library/vue-testing-library) is a Vue testing library focused on testing components without relying on implementation details. Built with accessibility in mind, its approach also makes refactoring a breeze. Its guiding principle is that the more tests resemble the way software is used, the more confidence they can provide.
+- [`@testing-library/vue`](https://github.com/testing-library/vue-testing-library) is a Vue testing library focused on testing components without relying on implementation details. Its guiding principle is that the more tests resemble the way software is used, the more confidence they can provide.
 
-We recommend using `@vue/test-utils` for testing components in applications, as its focus aligns better with the testing priorities of applications. `@testing-library/vue` has issues with testing asynchronous component with Suspense, so it should be used with caution.
+We recommend using `@vue/test-utils` for testing components in applications. `@testing-library/vue` has issues with testing asynchronous component with Suspense, so it should be used with caution.
 
 ### Other Options {#other-options-1}
 
