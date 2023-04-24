@@ -314,7 +314,7 @@ For adding built-in [`v-on` modifiers](/guide/essentials/event-handling#event-mo
   import { h, withModifiers } from 'vue'
 
   const vnode = h('button', {
-    // equivalent of v-on.stop.prevent
+    // equivalent of v-on:click.stop.prevent
     onClick: withModifiers(() => {
       // ...
     }, ['stop', 'prevent'])
