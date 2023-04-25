@@ -6,6 +6,7 @@
  * 3. update --vt-banner-height if necessary
  */
 import { ref } from 'vue'
+import { VTIconPlus } from '@vue/theme'
 
 const open = ref(true)
 
@@ -20,12 +21,22 @@ function dismiss() {
 </script>
 
 <template>
-  <div class="banner" v-if="open"></div>
+  <div class="banner" v-if="open">
+    <a href="https://vuejslive.com/" target="_blank"
+      >Vue.js Live<span> - London - May 12 & 15</span></a
+    >&nbsp; | &nbsp;
+    <a href="http://vueconf.us/" target="_blank"
+      >VueConf US<span> - New Orleans - May 24-26</span></a
+    >
+    <button @click="dismiss">
+      <VTIconPlus class="close" />
+    </button>
+  </div>
 </template>
 
 <style>
 html:not(.banner-dismissed) {
-  --vt-banner-height: 60px;
+  --vt-banner-height: 30px;
 }
 </style>
 
@@ -38,15 +49,45 @@ html:not(.banner-dismissed) {
   left: 0;
   right: 0;
   height: var(--vt-banner-height);
-  line-height: 0;
+  line-height: var(--vt-banner-height);
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #fff;
   background-color: var(--vt-c-green);
+  background: linear-gradient(
+    90deg,
+    rgba(66, 184, 131, 1) 0%,
+    rgba(39, 179, 137, 1) 19%,
+    rgba(100, 126, 255, 1) 100%
+  );
 }
 
 .banner-dismissed .banner {
   display: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+}
+
+.close {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 720px) {
+  a > span {
+    display: none;
+  }
 }
 </style>
