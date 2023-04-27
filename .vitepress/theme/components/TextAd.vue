@@ -12,7 +12,7 @@ function track() {
       target="_blank"
       rel="noopener nofollow"
       @click="track"
-      ><span>Build a</span>ChatGPT bot with JavaScript in 5 minutes</a
+      >Build a ChatGPT bot with JavaScript in 5 minutes</a
     >
   </div>
 </template>
@@ -47,9 +47,7 @@ function track() {
 @media (max-width: 512px) {
   .text-ad {
     font-size: 12px;
-  }
-  .text-ad a span {
-    display: none;
+    letter-spacing: -0.1px;
   }
 }
 </style>
