@@ -6,13 +6,13 @@ function track() {
 
 <template>
   <div class="text-ad">
-    <span>Ad</span>
+    <span class="label">Ad</span>
     <a
       href="https://docs.aircode.io/chatgpt/"
       target="_blank"
       rel="noopener nofollow"
       @click="track"
-      >Build a ChatGPT bot with JavaScript in 5 minutes</a
+      ><span>Build a</span>ChatGPT bot with JavaScript in 5 minutes</a
     >
   </div>
 </template>
@@ -28,7 +28,7 @@ function track() {
   border-radius: 8px;
 }
 
-.text-ad span {
+.label {
   white-space: nowrap;
   display: inline-block;
   color: var(--vt-c-blue);
@@ -36,10 +36,20 @@ function track() {
   border: 1px solid var(--vt-c-blue);
   border-radius: 4px;
   padding: 0 4px;
-  margin-right: 1rem;
+  margin-right: 0.75rem;
+  height: 22px;
 }
 
 .text-ad a {
   color: var(--vt-c-text-2);
+}
+
+@media (max-width: 512px) {
+  .text-ad {
+    font-size: 12px;
+  }
+  .text-ad a span {
+    display: none;
+  }
 }
 </style>
