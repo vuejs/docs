@@ -1,16 +1,16 @@
-# Components Basics {#components-basics}
+# Grundlagen zu Komponenten {#components-basics}
 
-Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
+Komponenten ermöglichen es, das User Interface in unabhängige und wiederverwendbare Teile aufzuteilen und jedes einzelne Teil isoliert zu konzipieren. Üblicherweise wird eine Applikation als Baum verschachtelter Komponenten organisiert:
 
 ![Component Tree](./images/components.png)
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-This is very similar to how we nest native HTML elements, but Vue implements its own component model that allow us to encapsulate custom content and logic in each component. Vue also plays nicely with native Web Components. If you are curious about the relationship between Vue Components and native Web Components, [read more here](/guide/extras/web-components.html).
+Dies ist der Art, wie native HTML-Elemente ineinander verschachtelt werden, sehr ähnlich, wobei Vue sein eigenens Komponentenmodell nutzt. Dieses Modell ermöhlicht es, den Inhalt und die Funktionalität - also die Anwendungslogik - einer selbsterstellten Komponete zu kapseln. Vue harmoniert dabei gut mit nativen Komponenten (Web Components). Weiterführende Informationen zum Gemeinsamkeiten und Unterschieden von Komponenten in Vue und nativen Komponenten können Sie [hier](/guide/extras/web-components.html) finden.
 
-## Defining a Component {#defining-a-component}
+## Komponenten definieren {#defining-a-component}
 
-When using a build step, we typically define each Vue component in a dedicated file using the `.vue` extension - known as a [Single-File Component](/guide/scaling-up/sfc.html) (SFC for short):
+Wird die Applikation mit einem Build Tool erstellt, definieren wir eine Vue-Komponente üblicherweise in einer eigenen Datei, die mit Dateiendung `.vue` gespeichert wird. Diese Komponente wird daher als [Single-File Component](/guide/scaling-up/sfc.html)  bezeichnet (oder oft auch als SFC abgekürzt):
 
 <div class="options-api">
 
@@ -47,7 +47,7 @@ const count = ref(0)
 
 </div>
 
-When not using a build step, a Vue component can be defined as a plain JavaScript object containing Vue-specific options:
+Wird kein Build Tool verwendet, kann eine Vue-Komponente als normales JavaScript-Objekt erstellt werden. Dieses Objekt enthält dabei einige Vue-spezifische Optionen:
 
 <div class="options-api">
 
@@ -86,14 +86,14 @@ export default {
 
 </div>
 
-The template is inlined as a JavaScript string here, which Vue will compile on the fly. You can also use an ID selector pointing to an element (usually native `<template>` elements) - Vue will use its content as the template source.
+Das Template ist hierbei ein Inline-JavaScript-String. Vue wird diesen String zu Laufzeit kompilieren. Es kann auch ein ID-Selektor verwendet werden, der auf ein DOM-Element verweist (üblicherweise das native `<template>` Element) - Vue nutzt dann dessen INhalt als Quelle für das Vue-Template.
 
-The example above defines a single component and exports it as the default export of a `.js` file, but you can use named exports to export multiple components from the same file.
+Das Beispiel definiert eine einzelne Komponente und exportiert diese als Standardexport in einer `.js`-Datei. Es können aber auch benannte Exporte verwendet werden, um mehrere Komponenten aus derselben Datei zu exportieren.
 
-## Using a Component {#using-a-component}
+## Komponenten nutzen {#using-a-component}
 
 :::tip
-We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step or not. The [Examples](/examples/) section shows component usage in both scenarios.
+In der Dokumentation werden wir die SFC-Syntax verwenden. Die eingesetzen Konzepte sind unabhängig von der Nutzung eines Build-Tools identisch. Im Bereich [Beispiele](/examples/) finden sich Beispiele für die Nutzung von Komponenten in beiden Szenarien.
 :::
 
 To use a child component, we need to import it in the parent component. Assuming we placed our counter component inside a file called `ButtonCounter.vue`, the component will be exposed as the file's default export:
