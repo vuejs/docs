@@ -55,7 +55,7 @@ Und die folgende Vorlage:
 ></div>
 ```
 
-It will render:
+Es wird wiedergegeben:
 
 ```vue-html
 <div class="static active"></div>
