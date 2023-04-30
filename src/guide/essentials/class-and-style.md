@@ -63,7 +63,7 @@ Es wird wiedergegeben:
 
 Wenn sich `isActive` oder `hasError` ändert, wird die Klassenliste entsprechend aktualisiert. Wenn zum Beispiel `hasError` zu `true` wird, wird die Klassenliste zu `"static active text-danger"`.
 
-The bound object doesn't have to be inline:
+Das gebundene Objekt muss nicht inline sein:
 
 <div class="composition-api">
 
