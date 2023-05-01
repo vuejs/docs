@@ -41,11 +41,23 @@ Returns the inner value if the argument is a ref, otherwise return the argument 
 
 ## toRef() {#toref}
 
-Can be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
+Can be used to normalize values / refs / getters into refs (3.3+).
+
+Can also be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
 
 - **Type**
 
   ```ts
+  // normalization signature (3.3+)
+  function toRef<T>(
+    value: T
+  ): T extends () => infer R
+    ? Readonly<Ref<R>>
+    : T extends Ref
+    ? T
+    : Ref<UnwrapRef<T>>
+
+  // object property signature
   function toRef<T extends object, K extends keyof T>(
     object: T,
     key: K,
@@ -57,12 +69,29 @@ Can be used to create a ref for a property on a source reactive object. The crea
 
 - **Example**
 
+  Normalization signature (3.3+):
+
+  ```js
+  // returns existing refs as-is
+  toRef(existingRef)
+
+  // creates a readonly ref that calls the getter on .value access
+  toRef(() => props.foo)
+
+  // creates normal refs from non-function values
+  // equivalent to ref(1)
+  toRef(1)
+  ```
+
+  Object property signature:
+
   ```js
   const state = reactive({
     foo: 1,
     bar: 2
   })
 
+  // a two-way ref that syncs with the original property
   const fooRef = toRef(state, 'foo')
 
   // mutating the ref updates the original
@@ -93,12 +122,15 @@ Can be used to create a ref for a property on a source reactive object. The crea
   // convert `props.foo` into a ref, then pass into
   // a composable
   useSomeFeature(toRef(props, 'foo'))
+
+  // getter syntax - recommended in 3.3+
+  useSomeFeature(toRef(() => props.foo))
   </script>
   ```
 
   When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/v-model) for more information.
 
-  `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
+  When using the object property signature, `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
 
 ## toRefs() {#torefs}
 
