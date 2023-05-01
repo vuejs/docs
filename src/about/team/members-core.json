@@ -387,7 +387,7 @@
       "github": "ota-meshi",
       "twitter": "omoteota"
     },
-    "sponsor": "https://github.com/sponsors/ota-meshi"
+    "sponsor": true
   },
   {
     "name": "Kia King Ishii",
@@ -410,7 +410,7 @@
       "github": "kiaking",
       "twitter": "KiaKing85"
     },
-    "sponsor": "https://github.com/sponsors/kiaking"
+    "sponsor": true
   },
   {
     "name": "Anthony Fu",
@@ -441,7 +441,7 @@
       "label": "https://antfu.me/",
       "url": "https://antfu.me/"
     },
-    "sponsor": "https://github.com/sponsors/antfu"
+    "sponsor": true
   },
   {
     "name": "HcySunYang",
@@ -478,7 +478,7 @@
       "github": "johnsoncodehk",
       "twitter": "johnsoncodehk"
     },
-    "sponsor": "https://github.com/sponsors/johnsoncodehk"
+    "sponsor": true
   },
   {
     "name": "Carlos Rodrigues",
@@ -495,6 +495,23 @@
       "github": "pikax",
       "twitter": "pikax_dev"
     },
-    "sponsor": "https://github.com/sponsors/pikax"
+    "sponsor": true
+  },
+  {
+    "name": "Divyansh Singh",
+    "title": "Developer",
+    "projects": [
+      {
+        "label": "vitepress",
+        "url": "https://github.com/vuejs/vitepress"
+      }
+    ],
+    "location": "India",
+    "languages": ["English", "Hindi"],
+    "socials": {
+      "github": "brc-dd",
+      "twitter": "_brc_dd"
+    },
+    "sponsor": true
   }
 ]

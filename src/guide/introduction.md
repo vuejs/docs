@@ -8,7 +8,7 @@ footer: false
 
 - Підтримка Vue 2 припиниться 31 грудня 2023 р. Докладніше про [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
 - Документацію по Vue 2 було переміщено за адресою [v2.vuejs.org.ua](https://v2.vuejs.org.ua/).
-- Оновлюєтесь з Vue 2? Перегляньте [Гід по міграції](https://v3-migration.vuejs.org/).
+- Оновлюєтесь з Vue 2? Перегляньте [Гід по міграції](https://v3-migration.vuejs.org/uk/).
   :::
 
 <style src="@theme/styles/vue-mastery.css"></style>
