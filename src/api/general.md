@@ -101,9 +101,16 @@ A type helper for defining a Vue component with type inference.
 - **Type**
 
   ```ts
+  // options syntax
   function defineComponent(
-    component: ComponentOptions | ComponentOptions['setup']
+    component: ComponentOptions
   ): ComponentConstructor
+
+  // function syntax (requires 3.3+)
+  function defineComponent(
+    setup: ComponentOptions['setup'],
+    extraOptions?: ComponentOptions
+  ): () => any
   ```
 
   > Type is simplified for readability.
@@ -121,6 +128,56 @@ A type helper for defining a Vue component with type inference.
 
   type FooInstance = InstanceType<typeof Foo>
   ```
+
+  ### Function Signature <sup class="vt-badge" data-text="3.3+" /> {#function-signature}
+
+  `defineComponent()` also has an alternative signature that is meant to be used with Composition API and [render functions or JSX](/guide/extras/render-function.html).
+
+  Instead of passing in an options object, a function is expected instead. This function works the same as the Composition API [`setup()`](/api/composition-api-setup.html#composition-api-setup) function: it receives the props and the setup context. The return value should be a render function - both `h()` and JSX are supported:
+
+  ```js
+  import { ref, h } from 'vue'
+
+  const Comp = defineComponent(
+    (props) => {
+      // use Composition API here like in <script setup>
+      const count = ref(0)
+
+      return () => {
+        // render function or JSX
+        return h('div', count.value)
+      }
+    },
+    // extra options, e.g. declare props and emits
+    {
+      props: {
+        /* ... */
+      }
+    }
+  )
+  ```
+
+  The main use case for this signature is with TypeScript (and in particular with TSX), as it supports generics:
+
+  ```tsx
+  const Comp = defineComponent(
+    <T extends string | number>(props: { msg: T; list: T[] }) => {
+      // use Composition API here like in <script setup>
+      const count = ref(0)
+
+      return () => {
+        // render function or JSX
+        return <div>{count.value}</div>
+      }
+    },
+    // manual runtime props declaration is currently still needed.
+    {
+      props: ['msg', 'list']
+    }
+  )
+  ```
+
+  In the future, we plan to provide a Babel plugin that automatically infers and injects the runtime props (like for `defineProps` in SFCs) so that the runtime props declaration can be omitted.
 
   ### Note on webpack Treeshaking {#note-on-webpack-treeshaking}
 
