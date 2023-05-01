@@ -265,6 +265,24 @@ defineOptions({
 - Only supported in 3.3+.
 - This is a macro. The options will be hoisted to module scope and cannot access local variables in `<script setup>` that are not literal constants.
 
+## defineSlots()<sup class="vt-badge ts"/> {#defineslots}
+
+This macro can be used to provide type hints to IDEs for slot name and props type checking.
+
+`defineSlots()` only accepts a type parameter and no runtime arguments. The type parameter should be a type literal where the property key is the slot name, and the value type is the expected props for that slot.
+
+It also returns the `slots` object, which is equivalent to the `slots` object exposed on the setup context or returned by `useSlots()`.
+
+```vue
+<script setup lang="ts">
+const slots = defineSlots<{
+  default: { msg: string }
+}>()
+</script>
+```
+
+- Only supported in 3.3+.
+
 ## `useSlots()` & `useAttrs()` {#useslots-useattrs}
 
 Usage of `slots` and `attrs` inside `<script setup>` should be relatively rare, since you can access them directly as `$slots` and `$attrs` in the template. In the rare case where you do need them, use the `useSlots` and `useAttrs` helpers respectively:
