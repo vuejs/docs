@@ -175,6 +175,10 @@ const count = ref(1)
 </template>
 ```
 
+See also:
+
+- [TypeScript-only Features in `<script setup>`](/api/sfc-script-setup.html#typescript-only-features)
+
 ### TypeScript in Templates {#typescript-in-templates}
 
 The `<template>` also supports TypeScript in binding expressions when `<script lang="ts">` or `<script setup lang="ts">` is used. This is useful in cases where you need to perform type casting in template expressions.
@@ -211,6 +215,13 @@ If using Vue CLI or a webpack-based setup, TypeScript in template expressions re
 ### Usage with TSX
 
 Vue also supports authoring components with JSX / TSX. Details are covered in the [Render Function & JSX](/guide/extras/render-function.html#jsx-tsx) guide.
+
+## Generic Components {#generic-components}
+
+Generic components are supported in two cases:
+
+- In SFCs: [`<script setup>` with the `generic` attribute](/api/sfc-script-setup.html#generics)
+- Render function / JSX components: [`defineComponent()`'s function signature](/api/general.html#function-signature)
 
 ## API-Specific Recipes {#api-specific-recipes}
 
