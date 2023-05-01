@@ -288,14 +288,7 @@ const emit = defineEmits<{
 
   - In prod mode, the compiler will generate the array format declaration to reduce bundle size (the props here will be compiled into `['foo', 'bar']`)
 
-  - The emitted code is still TypeScript with valid typing, which can be further processed by other tools.
-
-- As of now, the type declaration argument must be one of the following to ensure correct static analysis:
-
-  - A type literal
-  - A reference to an interface or a type literal in the same file
-
-  Currently complex types and type imports from other files are not supported. It is possible to support type imports in the future.
+- In versions 3.2 and below, the type parameter is limited to either a type literal or a reference to a local type. This limitation has been removed in 3.3. Starting in 3.3, Vue is able to infer runtime props from most common types, including externally imported ones.
 
 ### Default props values when using type declaration {#default-props-values-when-using-type-declaration}
 
