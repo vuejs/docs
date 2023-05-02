@@ -95,7 +95,7 @@ data() {
 <div :class="classObject"></div>
 ```
 
-This will render the same result. We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
+Dies wird das gleiche Ergebnis liefern. Wir können auch an eine [berechnete Eigenschaft](./computed) binden, die ein Objekt zurückgibt. Dies ist ein gängiges und leistungsfähiges Muster:
 
 <div class="composition-api">
 
