@@ -647,7 +647,7 @@ const vnode = withDirectives(h('div'), [
 
 If the directive is registered by name and cannot be imported directly, it can be resolved using the [`resolveDirective`](/api/render-function#resolvedirective) helper.
 
-### Template Refs
+### Template Refs {#template-refs}
 
 <div class="composition-api">
 
