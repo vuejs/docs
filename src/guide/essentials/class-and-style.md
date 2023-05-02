@@ -136,7 +136,7 @@ computed: {
 <div :class="classObject"></div>
 ```
 
-### Binding to Arrays {#binding-to-arrays}
+### Bindung an Arrays {#binding-to-arrays}
 
 We can bind `:class` to an array to apply a list of classes:
 
