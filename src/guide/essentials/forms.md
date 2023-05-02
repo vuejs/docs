@@ -44,7 +44,7 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 - `<select>` use `value` as a prop and `change` as an event.
 
 ::: tip Note
-`v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using <span class="options-api">the `data` option</span><span class="composition-api">reactivity APIs</span>.
+`v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using <span class="options-api">the [`data`](/api/options-state.html#data) option</span><span class="composition-api">[reactivity APIs](/api/reactivity-core.html#reactivity-api-core)</span>.
 :::
 
 ## Basic Usage {#basic-usage}
