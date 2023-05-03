@@ -729,3 +729,96 @@ MyComponent.inheritAttrs = false
 ```
 
 Functional components can be registered and consumed just like normal components. If you pass a function as the first argument to `h()`, it will be treated as a functional component.
+
+### Typing Functional Components
+
+Functional Components can be typed based on whether they are named or anonymous. Volar will warn you if you are not using the right props. It will show you the right types for events that are emitted by them if you are using the right name.  
+
+**Named Functional Component**
+
+
+```tsx
+import type { SetupContext } from "vue";
+
+type FComponentProps = {
+  message:string
+}
+
+type Events = {
+  sendMessage(message:string):void
+}
+
+function FComponent(props:FComponentProps, context:SetupContext<Events>) {
+
+  return <button onClick={()=>context.emit("sendMessage", props.message)}>
+  {props.message}
+  </button>
+
+}
+  
+ FComponentProps.props={
+  message:{
+    type:String,
+    required:true
+  },
+  }
+  
+  FComponent.emits={
+    sendMessage:(value)=> typeof value === "string"
+  }
+
+```
+
+
+**Anonymous Functional Component**
+
+```tsx
+import type { FunctionalComponent } from 'vue'
+
+type FComponentProps = {
+  message:string
+}
+
+type Events = {
+  sendMessage(message:string):void
+}
+
+const FComponent:FunctionalComponent<FComponentProps,Events> = (props, context) {
+
+  return <button 
+  onClick={()=>context.emit("sendMessage", props.message)}
+  >
+  {props.message}
+  </button>
+
+}
+
+  FComponentProps.props={
+  message:{
+    type:String,
+    required:true
+  },
+  }
+  
+  FComponent.emits={
+    sendMessage:(value)=> typeof value === "string"
+  }
+  
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
