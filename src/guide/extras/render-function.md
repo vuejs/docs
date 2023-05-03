@@ -775,7 +775,7 @@ function FComponent(props:FComponentProps, context:SetupContext<Events>) {
 ```tsx
 import type { FunctionalComponent } from 'vue'
 
-type FComponentProps = {
+type FComponent = {
   message:string
 }
 
@@ -793,7 +793,7 @@ const FComponent:FunctionalComponent<FComponentProps,Events> = (props, context) 
 
 }
 
-  FComponentProps.props={
+  FComponent.props={
   message:{
     type:String,
     required:true
