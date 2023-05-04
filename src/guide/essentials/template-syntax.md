@@ -151,9 +151,9 @@ Therefore, the following will **NOT** work:
 It is possible to call a component-exposed method inside a binding expression:
 
 ```vue-html
-<span :title="toTitleDate(date)">
+<time :title="toTitleDate(date)" :datetime="date">
   {{ formatDate(date) }}
-</span>
+</time>
 ```
 
 :::tip
