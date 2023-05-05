@@ -432,3 +432,9 @@ Be careful with `reverse()` and `sort()` in a computed property! These two metho
 - return numbers.reverse()
 + return [...numbers].reverse()
 ```
+
+Or use copying versions of these methods `toReversed()` and `toSorted()`:
+```diff
+- return numbers.reverse()
++ return numbers.toReversed()
+```
