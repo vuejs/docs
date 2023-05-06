@@ -12,7 +12,7 @@ function track() {
       target="_blank"
       rel="noopener nofollow"
       @click="track"
-      >Build a ChatGPT bot with JavaScript in 5 minutes</a
+      >Build and deploy your own ChatGPT bot with JavaScript in 5 minutes</a
     >
   </div>
 </template>
