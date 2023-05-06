@@ -8,7 +8,7 @@ function track() {
   <div class="text-ad">
     <span class="label">Ad</span>
     <a
-      href="https://docs.aircode.io/chatgpt/"
+      href="https://aircode.io"
       target="_blank"
       rel="noopener nofollow"
       @click="track"
