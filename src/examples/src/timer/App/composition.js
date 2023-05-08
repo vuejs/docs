@@ -1,27 +1,41 @@
-import { ref, onUnmounted } from 'vue'
-
+import { ref, onUnmounted, computed } from 'vue'
 export default {
   setup() {
     const duration = ref(15 * 1000)
     const elapsed = ref(0)
 
-    let lastTime = performance.now()
+    let lastTime
     let handle
+
     const update = () => {
-      const time = performance.now()
-      elapsed.value += Math.min(time - lastTime, duration.value - elapsed.value)
-      lastTime = time
-      handle = requestAnimationFrame(update)
+      elapsed.value = performance.now() - lastTime
+      if (elapsed.value >= duration.value) {
+        cancelAnimationFrame(handle)
+      } else {
+        handle = requestAnimationFrame(update)
+      }
     }
 
-    update()
+    const reset = () => {
+      elapsed.value = 0
+      lastTime = performance.now()
+      update()
+    }
+
+    const progressRate = computed(() =>
+      Math.min(elapsed.value / duration.value, 1)
+    )
+
+    reset()
+
     onUnmounted(() => {
       cancelAnimationFrame(handle)
     })
-
     return {
       duration,
-      elapsed
+      elapsed,
+      progressRate,
+      reset
     }
   }
 }
