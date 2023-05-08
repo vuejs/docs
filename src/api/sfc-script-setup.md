@@ -205,7 +205,9 @@ const emit = defineEmits<{
 
   - In prod mode, the compiler will generate the array format declaration to reduce bundle size (the props here will be compiled into `['foo', 'bar']`)
 
-- In versions 3.2 and below, the type parameter is limited to either a type literal or a reference to a local type. This limitation has been removed in 3.3. Starting in 3.3, Vue is able to infer runtime props from most common types, including externally imported ones.
+- In version 3.2 and below, the generic type parameter for `defineProps()` were limited to a type literal or a reference to a local interface.
+
+  This limitation has been resolved in 3.3. The latest version of Vue supports referencing imported and a limited set of complex types in the type parameter position. However, because the type to runtime conversion is still AST-based, some complex types that require actual type analysis, e.g. conditional types, are not supported. You can use conditional types for the type of a single prop, but not the entire props object.
 
 ### Default props values when using type declaration {#default-props-values-when-using-type-declaration}
 
@@ -353,13 +355,13 @@ Generic type parameters can be declared using the `generic` attribute on the `<s
 ```vue
 <script setup lang="ts" generic="T">
 defineProps<{
-  id: T
-  list: T[]
+  items: T[]
+  selected: T
 }>()
 </script>
 ```
 
-The value of `generic` works exactly the same as the parameter list between `<...>` in TypeScript. For example, you can use multiple parameters, `extends` constraints, default types, or reference imported types:
+The value of `generic` works exactly the same as the parameter list between `<...>` in TypeScript. For example, you can use multiple parameters, `extends` constraints, default types, and reference imported types:
 
 ```vue
 <script
