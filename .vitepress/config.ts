@@ -226,7 +226,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Переходы в списках',
           link: '/guide/built-ins/transition-group'
         },
-        { text: 'KeepAlive', link: '/guide/built-ins/keep-alive' },
+        { text: 'Сохранение состояния', link: '/guide/built-ins/keep-alive' },
         { text: 'Teleport', link: '/guide/built-ins/teleport' },
         { text: 'Suspense', link: '/guide/built-ins/suspense' }
       ]
