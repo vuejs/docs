@@ -223,11 +223,11 @@ To wait for the DOM update to complete after a state change, you can use the [ne
 ```js
 import { nextTick } from 'vue'
 
-function increment() {
+async  function increment() {
   state.count++
-  nextTick(() => {
-    // access updated DOM
-  })
+  await nextTick()
+  // Now the DOM is updated
+  
 }
 ```
 
@@ -239,11 +239,10 @@ import { nextTick } from 'vue'
 
 export default {
   methods: {
-    increment() {
+    async increment() {
       this.count++
-      nextTick(() => {
-        // access updated DOM
-      })
+      await nextTick()
+      // Now the DOM is updated
     }
   }
 }
