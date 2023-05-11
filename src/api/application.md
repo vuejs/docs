@@ -90,64 +90,6 @@ Unmounts a mounted application instance, triggering the unmount lifecycle hooks 
   }
   ```
 
-## app.provide() {#app-provide}
-
-Provide a value that can be injected in all descendant components within the application.
-
-- **Type**
-
-  ```ts
-  interface App {
-    provide<T>(key: InjectionKey<T> | symbol | string, value: T): this
-  }
-  ```
-
-- **Details**
-
-  Expects the injection key as the first argument, and the provided value as the second. Returns the application instance itself.
-
-- **Example**
-
-  ```js
-  import { createApp } from 'vue'
-
-  const app = createApp(/* ... */)
-
-  app.provide('message', 'hello')
-  ```
-
-  Inside a component in the application:
-
-  <div class="composition-api">
-
-  ```js
-  import { inject } from 'vue'
-
-  export default {
-    setup() {
-      console.log(inject('message')) // 'hello'
-    }
-  }
-  ```
-
-  </div>
-  <div class="options-api">
-
-  ```js
-  export default {
-    inject: ['message'],
-    created() {
-      console.log(this.message) // 'hello'
-    }
-  }
-  ```
-
-  </div>
-
-- **See also:**
-  - [Provide / Inject](/guide/components/provide-inject)
-  - [App-level Provide](/guide/components/provide-inject#app-level-provide)
-
 ## app.component() {#app-component}
 
 Registers a global component if passing both a name string and a component definition, or retrieves an already registered one if only the name is passed.
@@ -268,6 +210,95 @@ For logic reuse, prefer [Composables](/guide/reusability/composables) instead.
   interface App {
     mixin(mixin: ComponentOptions): this
   }
+  ```
+
+## app.provide() {#app-provide}
+
+Provide a value that can be injected in all descendant components within the application.
+
+- **Type**
+
+  ```ts
+  interface App {
+    provide<T>(key: InjectionKey<T> | symbol | string, value: T): this
+  }
+  ```
+
+- **Details**
+
+  Expects the injection key as the first argument, and the provided value as the second. Returns the application instance itself.
+
+- **Example**
+
+  ```js
+  import { createApp } from 'vue'
+
+  const app = createApp(/* ... */)
+
+  app.provide('message', 'hello')
+  ```
+
+  Inside a component in the application:
+
+  <div class="composition-api">
+
+  ```js
+  import { inject } from 'vue'
+
+  export default {
+    setup() {
+      console.log(inject('message')) // 'hello'
+    }
+  }
+  ```
+
+  </div>
+  <div class="options-api">
+
+  ```js
+  export default {
+    inject: ['message'],
+    created() {
+      console.log(this.message) // 'hello'
+    }
+  }
+  ```
+
+  </div>
+
+- **See also:**
+  - [Provide / Inject](/guide/components/provide-inject)
+  - [App-level Provide](/guide/components/provide-inject#app-level-provide)
+  - [app.runWithContext()](#app-runwithcontext)
+
+## app.runWithContext()<sup class="vt-badge" data-text="3.3+" /> {#app-runwithcontext}
+
+Execute a callback with the current app as injection context.
+
+- **Type**
+
+  ```ts
+  interface App {
+    runWithContext<T>(fn: () => T): T
+  }
+  ```
+
+- **Details**
+
+  Expects a callback function and runs the callback immediately. During the synchronous call of the callback,  `inject()` calls are able to look up injections from the values provided by the current app, even when there is no current active component instance. The return value of the callback will also be returned.
+
+- **Example**
+
+  ```js
+  import { inject } from 'vue'
+
+  app.provide('id', 1)
+
+  const injected = app.runWithContext(() => {
+    return inject('id')
+  })
+
+  console.log(injected) // 1
   ```
 
 ## app.version {#app-version}
