@@ -82,15 +82,8 @@ If you do **not** want a component to automatically inherit attributes, you can 
 If using `<script setup>`, you will need to declare this option using a separate, normal `<script>` block:
 
 ```vue
-<script>
-// use normal <script> to declare options
-export default {
-  inheritAttrs: false
-}
-</script>
-
 <script setup>
-// ...setup logic
+defineOptions({ inheritAttrs: false })
 </script>
 ```
 
