@@ -140,7 +140,7 @@ export default {
   },
 
   // Methods are functions that mutate state and trigger updates.
-  // They can be bound as event listeners in templates.
+  // They can be bound as event handlers in templates.
   methods: {
     increment() {
       this.count++
