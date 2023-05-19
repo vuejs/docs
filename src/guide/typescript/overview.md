@@ -175,6 +175,10 @@ const count = ref(1)
 </template>
 ```
 
+Дивіться також:
+
+- [Особливості тільки для TypeScript `<script setup>`](/api/sfc-script-setup.html#typescript-only-features)
+
 ### TypeScript у шаблонах {#typescript-in-templates}
 
 `<template>` також підтримує TypeScript у виразах прив'язування, коли використовується `<script lang="ts">` або `<script setup lang="ts">`. Це корисно в тих випадках, коли вам потрібно виконати приведення типів у виразах шаблону.
@@ -207,6 +211,17 @@ let x: string | number = 1
 :::tip
 У разі використання Vue CLI, або інструмент збірки на основі webpack, TypeScript вимагає у виразах шаблону `vue-loader@^16.8.0`.
 :::
+
+### Використання з TSX
+
+Vue також підтримує авторські компоненти з JSX / TSX. Подробиці описано в посібнику [Функція візуалізації та JSX](/guide/extras/render-function.html#jsx-tsx).
+
+## Компоненти загального типу {#generic-components}
+
+Компоненти загального типу підтримуються у двох випадках:
+
+- У SFCs: [`<script setup>` з атрибутом `generic`](/api/sfc-script-setup.html#generics)
+- Функції рендерингу / JSX компонентах: [сигнатура функції `defineComponent()`](/api/general.html#function-signature)
 
 ## API-специфічні рецепти {#api-specific-recipes}
 

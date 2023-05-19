@@ -90,65 +90,7 @@
   }
   ```
 
-## app.provide()
-
-Надає значення, яке можна додати до всіх компонентів-нащадків додатка.
-
-- **Тип**
-
-  ```ts
-  interface App {
-    provide<T>(key: InjectionKey<T> | symbol | string, value: T): this
-  }
-  ```
-
-- **Подробиці**
-
-  Очікує ключ ін'єкції як перший аргумент, а надане значення як другий. Повертає сам екземпляр додатка.
-
-- **Приклад**
-
-  ```js
-  import { createApp } from 'vue'
-
-  const app = createApp(/* ... */)
-
-  app.provide('message', 'привіт')
-  ```
-
-  Усередині компонента в додатку:
-
-  <div class="composition-api">
-
-  ```js
-  import { inject } from 'vue'
-
-  export default {
-    setup() {
-      console.log(inject('message')) // 'привіт'
-    }
-  }
-  ```
-
-  </div>
-  <div class="options-api">
-
-  ```js
-  export default {
-    inject: ['message'],
-    created() {
-      console.log(this.message) // 'привіт'
-    }
-  }
-  ```
-
-  </div>
-
-- **Також до вашої уваги:**
-  - [Надавання / введення](/guide/components/provide-inject)
-  - [Надавання на рівні додатку](/guide/components/provide-inject#app-level-provide)
-
-## app.component()
+## app.component() {#app-component}
 
 Реєструє глобальний компонент, якщо передається ім’я і визначення компонента, або отримує вже зареєстрований, якщо передається лише ім’я.
 
@@ -270,7 +212,96 @@
   }
   ```
 
-## app.version
+## app.provide() {#app-provide}
+
+Надає значення, яке можна додати до всіх компонентів-нащадків додатка.
+
+- **Тип**
+
+  ```ts
+  interface App {
+    provide<T>(key: InjectionKey<T> | symbol | string, value: T): this
+  }
+  ```
+
+- **Подробиці**
+
+  Очікує ключ ін'єкції як перший аргумент, а надане значення як другий. Повертає сам екземпляр додатка.
+
+- **Приклад**
+
+  ```js
+  import { createApp } from 'vue'
+
+  const app = createApp(/* ... */)
+
+  app.provide('message', 'привіт')
+  ```
+
+  Усередині компонента в додатку:
+
+  <div class="composition-api">
+
+  ```js
+  import { inject } from 'vue'
+
+  export default {
+    setup() {
+      console.log(inject('message')) // 'привіт'
+    }
+  }
+  ```
+
+  </div>
+  <div class="options-api">
+
+  ```js
+  export default {
+    inject: ['message'],
+    created() {
+      console.log(this.message) // 'привіт'
+    }
+  }
+  ```
+
+  </div>
+
+- **Також до вашої уваги:**
+  - [Надавання / введення](/guide/components/provide-inject)
+  - [Надавання на рівні додатку](/guide/components/provide-inject#app-level-provide)
+  - [app.runWithContext()](#app-runwithcontext)
+
+## app.runWithContext()<sup class="vt-badge" data-text="3.3+" /> {#app-runwithcontext}
+
+Виконує зворотній виклик з поточним додатком як контекстом ін'єкції.
+
+- **Тип**
+
+  ```ts
+  interface App {
+    runWithContext<T>(fn: () => T): T
+  }
+  ```
+
+- **Подробиці**
+
+  Очікує функцію зворотного виклику та запускає зворотний виклик негайно. Під час синхронного виклику функції зворотного виклику, виклики `inject()` можуть шукати ін'єкції зі значень, наданих поточним застосунком, навіть якщо поточного екземпляра активного компонента немає. Також буде повернуто значення зворотного виклику.
+
+- **Приклад**
+
+  ```js
+  import { inject } from 'vue'
+
+  app.provide('id', 1)
+
+  const injected = app.runWithContext(() => {
+    return inject('id')
+  })
+
+  console.log(injected) // 1
+  ```
+
+## app.version {#app-version}
 
 Надає версію Vue, у якій було створено додаток. Це корисно в [плагінах](/guide/reusability/plugins), де вам може знадобитися умовна логіка на основі різних версій Vue.
 
@@ -403,7 +434,7 @@ console.log(app.config)
 - Для `vue-loader`: [передається через параметр завантажувача `compilerOptions`](https://vue-loader.vuejs.org/options.html#compileroptions). Також дивіться [як його налаштувати в `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
 - Для `vite`: [передається через параметри `@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options).
-:::
+  :::
 
 ### app.config.compilerOptions.isCustomElement
 
@@ -522,7 +553,7 @@ console.log(app.config)
     }
   }
   ```
-  
+
 - **Також до вашої уваги:** [Гід - Доповнення глобальних властивостей](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies

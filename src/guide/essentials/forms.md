@@ -44,7 +44,7 @@ const multiSelected = ref([])
 - `<select>` використовує `value` як властивість і `change` як подію.
 
 ::: tip Примітка
-`v-model` ігноруватиме початкові атрибути `value`, `checked` або `selected`, знайдені в будь-яких елементах форми. Він завжди розглядатиме поточний зв’язаний стан JavaScript як джерело правди. Вам слід оголосити початкове значення на стороні JavaScript, використовуючи <span class="options-api">параметр `data`</span><span class="composition-api">API реактивності</span>.
+`v-model` ігноруватиме початкові атрибути `value`, `checked` або `selected`, знайдені в будь-яких елементах форми. Він завжди розглядатиме поточний зв'язаний стан JavaScript як джерело правди. Вам слід оголосити початкове значення на стороні JavaScript, використовуючи <span class="options-api">параметр [`data`](/api/options-state.html#data)</span><span class="composition-api">[API реактивності](/api/reactivity-core.html#reactivity-api-core)</span>.
 :::
 
 ## Основне використання {#basic-usage}

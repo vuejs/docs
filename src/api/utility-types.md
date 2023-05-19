@@ -32,9 +32,153 @@
 
 - **Дивіться також:** [Посібник - Типізація реквізитів компонентів](/guide/typescript/options-api#typing-component-props)
 
+## MaybeRef\<T> {#mayberef}
+
+Псевдонім для `T | Ref<T>`. Корисно для анотування аргументів [Композиційних функцій](/guide/reusability/composables.html).
+
+- Підтримується лише в 3.3+.
+
+## MaybeRefOrGetter\<T> {#maybereforgetter}
+
+Псевдонім для `T | Ref<T> | (() => T)`. Корисно для анотування аргументів [Композиційних функцій](/guide/reusability/composables.html).
+
+- Підтримується лише в 3.3+.
+
+## ExtractPropTypes\<T> {#extractproptypes}
+
+Витягти типи реквізитів з об'єкту параметрів реквізитів під час виконання. Витягнуті типи є внутрішніми, тобто вирішеними реквізитами, отриманими компонентом. Це означає, що булеві реквізити та реквізити зі значеннями за замовчуванням завжди визначені, навіть якщо вони не потрібні.
+
+Щоб витягти загальнодоступні реквізити, тобто реквізити, які дозволено передати батьківському, використовуйте [`ExtractPublicPropTypes`](#extractpublicproptypes).
+
+- **Приклад**
+
+  ```ts
+  const propsOptions = {
+    foo: String,
+    bar: Boolean,
+    baz: {
+      type: Number,
+      required: true
+    },
+    qux: {
+      type: Number,
+      default: 1
+    }
+  } as const
+
+  type Props = ExtractPropTypes<typeof propsOptions>
+  // {
+  //   foo?: string,
+  //   bar: boolean,
+  //   baz: number,
+  //   qux: number
+  // }
+  ```
+
+## ExtractPublicPropTypes\<T> {#extractpublicproptypes}
+
+Витягти типи реквізитів з об'єкта параметрів реквізиту під час виконання. Витягнуті типи є загальнодоступними, тобто реквізитами, які дозволено передати батьківському.
+
+- **Приклад**
+
+  ```ts
+  const propsOptions = {
+    foo: String,
+    bar: Boolean,
+    baz: {
+      type: Number,
+      required: true
+    },
+    qux: {
+      type: Number,
+      default: 1
+    }
+  } as const
+
+  type Props = ExtractPublicPropTypes<typeof propsOptions>
+  // {
+  //   foo?: string,
+  //   bar?: boolean,
+  //   baz: number,
+  //   qux?: number
+  // }
+  ```
+
+## MaybeRef\<T> {#mayberef}
+
+Псевдонім для `T | Ref<T>`. Корисно для анотування аргументів [Композиційних функцій](/guide/reusability/composables.html).
+
+- Підтримується лише в 3.3+.
+
+## MaybeRefOrGetter\<T> {#maybereforgetter}
+
+Псевдонім для `T | Ref<T> | (() => T)`. Корисно для анотування аргументів [Композиційних функцій](/guide/reusability/composables.html).
+
+- Підтримується лише в 3.3+.
+
+## ExtractPropTypes\<T> {#extractproptypes}
+
+Витягти типи реквізитів з об'єкту параметрів реквізитів під час виконання. Витягнуті типи є внутрішніми, тобто вирішеними реквізитами, отриманими компонентом. Це означає, що булеві реквізити та реквізити зі значеннями за замовчуванням завжди визначені, навіть якщо вони не потрібні.
+
+Щоб витягти загальнодоступні реквізити, тобто реквізити, які дозволено передати батьківському, використовуйте [`ExtractPublicPropTypes`](#extractpublicproptypes).
+
+- **Приклад**
+
+  ```ts
+  const propsOptions = {
+    foo: String,
+    bar: Boolean,
+    baz: {
+      type: Number,
+      required: true
+    },
+    qux: {
+      type: Number,
+      default: 1
+    }
+  } as const
+
+  type Props = ExtractPropTypes<typeof propsOptions>
+  // {
+  //   foo?: string,
+  //   bar: boolean,
+  //   baz: number,
+  //   qux: number
+  // }
+  ```
+
+## ExtractPublicPropTypes\<T> {#extractpublicproptypes}
+
+Витягти типи реквізитів з об'єкта параметрів реквізитів під час виконання. Витягнуті типи є загальнодоступними, тобто реквізитами, які дозволено передати батьківському.
+
+- **Приклад**
+
+  ```ts
+  const propsOptions = {
+    foo: String,
+    bar: Boolean,
+    baz: {
+      type: Number,
+      required: true
+    },
+    qux: {
+      type: Number,
+      default: 1
+    }
+  } as const
+
+  type Props = ExtractPublicPropTypes<typeof propsOptions>
+  // {
+  //   foo?: string,
+  //   bar?: boolean,
+  //   baz: number,
+  //   qux?: number
+  // }
+  ```
+
 ## ComponentCustomProperties {#componentcustomproperties}
 
-Використовується для розширення типу екземпляра компонента для підтримки спеціальних глобальних властивостей.
+Використовується для розширення типу екземпляра компонента для підтримки користувацьких глобальних властивостей.
 
 - **Приклад**
 
