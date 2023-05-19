@@ -239,7 +239,7 @@ Although first introduced by React, JSX actually has no defined runtime semantic
 
 Vue's type definition also provides type inference for TSX usage. When using TSX, make sure to specify `"jsx": "preserve"` in `tsconfig.json` so that TypeScript leaves the JSX syntax intact for Vue JSX transform to process.
 
-### JSX Type Inference
+### JSX Type Inference {#jsx-type-inference}
 
 Similar to the transform, Vue's JSX also needs different type definitions. Currently, Vue's types automatically registers Vue's JSX types globally. This means TSX will work out of the box when Vue's type is available.
 
