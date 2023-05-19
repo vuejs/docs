@@ -1,5 +1,5 @@
 <label
-  >Elapsed Time: <progress :value="elapsed / duration"></progress
+  >Elapsed Time: <progress :value="progressRate"></progress
 ></label>
 
 <div>{{ (elapsed / 1000).toFixed(1) }}s</div>
@@ -9,4 +9,4 @@
   {{ (duration / 1000).toFixed(1) }}s
 </div>
 
-<button @click="elapsed = 0">Reset</button>
+<button @click="reset">Reset</button>
