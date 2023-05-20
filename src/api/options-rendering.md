@@ -80,6 +80,31 @@
 
 - **Подробиці**
 
-  Цей параметр конфігурації застосовується лише під час використання повної збірки (тобто окремого `vue.js`, який може компілювати шаблони у браузері). Він підтримує ті самі параметри, що й [app.config.compilerOptions](/api/application#app-config-compileroptions) на рівні застосунку, і має вищий пріоритет для поточного компонента.
+Цей параметр конфігурації застосовується лише під час використання повної збірки (тобто окремого `vue.js`, який може компілювати шаблони у браузері). Він підтримує ті самі параметри, що й [app.config.compilerOptions](/api/application#app-config-compileroptions) рівня застосунку, і має вищий пріоритет для поточного компонента.
 
-- **Також до вашої уваги:** [app.config.compilerOptions](/api/application#app-config-compileroptions)
+- **Дивіться також:** [app.config.compilerOptions](/api/application#app-config-compileroptions)
+
+## slots<sup class="vt-badge ts"/> {#slots}
+
+Опція для допомоги у визначенні типу під час програмного використання слотів у функціях рендерингу. Підтримується лише в 3.3+.
+
+- **Подробиці**
+
+Значення під час виконання цього параметра не використовується. Фактичні типи мають бути оголошені за допомогою приведення типу за допомогою помічника типу `SlotsType`:
+
+```ts
+import { SlotsType } from 'vue'
+
+defineComponent({
+  slots: Object as SlotsType<{
+    default: { foo: string; bar: number }
+    item: { data: number }
+  }>,
+  setup(props, { slots }) {
+    expectType<undefined | ((scope: { foo: string; bar: number }) => any)>(
+      slots.default
+    )
+    expectType<undefined | ((scope: { data: number }) => any)>(slots.item)
+  }
+})
+```

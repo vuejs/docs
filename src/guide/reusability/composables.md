@@ -94,13 +94,13 @@ const { x, y } = useMouse()
 
 ```js
 // event.js
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 
 export function useEventListener(target, event, callback) {
   // за бажанням, ви також можете додати 
   // підтримку рядків в якості цілі для прослуховування
   onMounted(() => target.addEventListener(event, callback))
-  onUnmounted(() => target.removeEventListener(event, callback))
+  onBeforeUnmount(() => target.removeEventListener(event, callback))
 }
 ```
 
