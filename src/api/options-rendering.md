@@ -108,28 +108,3 @@ defineComponent({
   }
 })
 ```
-
-## slots<sup class="vt-badge ts"/> {#slots}
-
-Опція для допомоги у визначенні типу під час програмного використання слотів у функціях рендерингу. Підтримується лише в 3.3+.
-
-- **Подробиці**
-
-Значення під час виконання цього параметра не використовується. Фактичні типи мають бути оголошені за допомогою приведення типу за допомогою помічника типу `SlotsType`:
-
-```ts
-import { SlotsType } from 'vue'
-
-defineComponent({
-  slots: Object as SlotsType<{
-    default: { foo: string; bar: number }
-    item: { data: number }
-  }>,
-  setup(props, { slots }) {
-    expectType<undefined | ((scope: { foo: string; bar: number }) => any)>(
-      slots.default
-    )
-    expectType<undefined | ((scope: { data: number }) => any)>(slots.item)
-  }
-})
-```
