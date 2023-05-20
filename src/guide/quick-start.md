@@ -22,7 +22,7 @@ footer: false
 
 У цій секції ми розповімо, як створити Vue [одно-сторінковий додаток](/guide/extras/ways-of-using-vue#single-page-application-spa) на вашому локальному комп'ютері. Створений проєкт буде використовувати збірку, яка заснована на [Vite](https://vitejs.dev), і дозволяє використовувати [одно-файлові компоненти](/guide/scaling-up/sfc) Vue (SFC).
 
-Переконайтеся, що у вас встановлена актуальна версія [Node.js](https://nodejs.org/uk/), і виконайте наступну команду в командному рядку (без знаку `>`):
+Переконайтеся, що у вас встановлено найновішу версію [Node.js](https://nodejs.org/uk/), і ваш поточний робочий каталог є тим, у якому ви збираєтеся створити проект. Виконайте наступну команду в командному рядку (без знаку `>`):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
@@ -34,7 +34,7 @@ footer: false
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Vue Router для розробки односторінкових додатків - SPA)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Pinia for state management? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Pinia для керування станом додатку)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Vitest для модульних тестів)</span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Cypress for both Unit and End-to-End testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Cypress для наскрізного тестування)</span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add an End-to-End Testing Solution? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Cypress / Playwright</span> (Чи бажаєте використовувати рішення для наскрізного тестування)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add ESLint for code quality? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте використовувати Eslint для перевірки на правильність написання коду)</span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formatting? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span> (Чи бажаєте додати Prettier для автоматичного форматування коду)</span>
 <span></span>
@@ -78,7 +78,7 @@ footer: false
 
 ### Використання глобальної збірки {#using-the-global-build}
 
-Наведене вище посилання завантажує *глобальну збірку* Vue, де всі API верхнього рівня представлені як властивості глобального об’єкта `Vue`. Ось повний приклад використання глобальної збірки:
+Наведене вище посилання завантажує _глобальну збірку_ Vue, де всі API верхнього рівня представлені як властивості глобального об'єкта `Vue`. Ось повний приклад використання глобальної збірки:
 
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

@@ -151,9 +151,9 @@ data() {
 У виразі прив'язки можна викликати метод, відкритий для компонентів:
 
 ```vue-html
-<span :title="toTitleDate(date)">
+<time :title="toTitleDate(date)" :datetime="date">
   {{ formatDate(date) }}
-</span>
+</time>
 ```
 
 :::tip Підказка
