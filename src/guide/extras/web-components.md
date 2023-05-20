@@ -224,6 +224,31 @@ export function register() {
 
 If you have many components, you can also leverage build tool features such as Vite's [glob import](https://vitejs.dev/guide/features.html#glob-import) or webpack's [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext) to load all components from a directory.
 
+### Web Components and Typescript {#web-components-and-typescript}
+
+If you are developing an application or a library, you may want to [typecheck](/guide/scaling-up/tooling.html#typescript) your Vue components.
+
+The `defineCustomElement` function does not automatically infer the types of components.
+Instead we can define a global component typings using the the [`GlobalComponents` interface](https://github.com/vuejs/language-tools/tree/1b90234ec6f10a3c0f080d0310711c2cd8de02dd/extensions/vscode-vue-language-features#usage) in Vue templates and/or in [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements).
+
+
+```typescript
+import { defineCustomElement } from 'vue'
+
+// vue SFC
+import CounterSFC from './src/components/counter.ce.vue'
+
+// turn component into web components
+export const Counter = defineCustomElement(Counter)
+
+// global typings
+declare module 'vue' {
+  export interface GlobalComponents {
+    'Counter': typeof Counter,
+  }
+}
+```
+
 ## Web Components vs. Vue Components {#web-components-vs-vue-components}
 
 Some developers believe that framework-proprietary component models should be avoided, and that exclusively using Custom Elements makes an application "future-proof". Here we will try to explain why we believe that this is an overly simplistic take on the problem.
