@@ -77,7 +77,7 @@ The rest of the documentation assumes basic familiarity with HTML, CSS, and Java
 
 ## The Progressive Framework {#the-progressive-framework}
 
-Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
+Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adaptable. Depending on your use case, Vue can be used in different ways:
 
 - Enhancing static HTML without a build step
 - Embedding as Web Components on any page
