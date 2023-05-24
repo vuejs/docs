@@ -22,9 +22,7 @@ function dismiss() {
 
 <template>
   <div class="banner" v-if="open">
-    <a href="http://vueconf.us/" target="_blank"
-      ><span>Upcoming: </span>VueConf US - New Orleans - May 24-26</a
-    >
+    <a target="_blank"></a>
     <button @click="dismiss">
       <VTIconPlus class="close" />
     </button>
@@ -81,10 +79,10 @@ button {
   fill: #fff;
   transform: rotate(45deg);
 }
-
+/*
 @media (max-width: 720px) {
   a > span {
     display: none;
   }
-}
+} */
 </style>
