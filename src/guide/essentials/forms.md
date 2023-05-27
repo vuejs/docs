@@ -407,8 +407,8 @@ export default {
 ### Радіокнопка {#radio-1}
 
 ```vue-html
-<input type="radio" v-model="pick" :value="перший" />
-<input type="radio" v-model="pick" :value="другий" />
+<input type="radio" v-model="pick" value="перший" />
+<input type="radio" v-model="pick" value="другий" />
 ```
 
 `pick` матиме значення `перший`, коли обрано першу радіокнопку, і значення `другий`, коли другу.
