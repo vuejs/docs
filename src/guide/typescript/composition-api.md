@@ -151,6 +151,18 @@ const emit = defineEmits<{
 </script>
 ```
 
+A cleaner way to define emits with types, introduced in Vue 3.3:
+```vue
+<script setup lang="ts">
+
+const emit = defineEmits<{
+  change: [id: number]
+  update: [value: string]
+}>()
+
+</script>
+```
+
 The type argument should be a type literal with [Call Signatures](https://www.typescriptlang.org/docs/handbook/2/functions.html#call-signatures). The type literal will be used as the type of the returned `emit` function. As we can see, the type declaration gives us much finer-grained control over the type constraints of emitted events.
 
 When not using `<script setup>`, `defineComponent()` is able to infer the allowed events for the `emit` function exposed on the setup context:
