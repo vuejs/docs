@@ -2,7 +2,7 @@
 
 ## Basic Usage {#basic-usage}
 
-বড় অ্যাপ্লিকেশানগুলিতে, আমাদের অ্যাপটিকে ছোট ছোট খণ্ডে ভাগ করতে হবে এবং প্রয়োজন হলেই সার্ভার থেকে একটি উপাদান লোড করতে হবে। এটি সম্ভব করার জন্য, Vue এর একটি [`defineAsyncComponent`](/api/general.html#defineasynccomponent) ফাংশন রয়েছে:
+বড় অ্যাপ্লিকেশানগুলিতে, আমাদের অ্যাপটিকে ছোট ছোট খণ্ডে ভাগ করতে হবে এবং প্রয়োজন হলেই সার্ভার থেকে একটি উপাদান লোড করতে হবে। এটি সম্ভব করার জন্য, Vue এর একটি [`defineAsyncComponent`](/api/general#defineasynccomponent) ফাংশন রয়েছে:
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -30,7 +30,7 @@ const AsyncComp = defineAsyncComponent(() =>
 
 ফলস্বরূপ `AsyncComp` হল একটি র‍্যাপার উপাদান যা শুধুমাত্র লোডার ফাংশনকে কল করে যখন এটি আসলে পৃষ্ঠায় রেন্ডার করা হয়। উপরন্তু, এটি যেকোনো প্রপস এবং স্লট বরাবর অভ্যন্তরীণ কম্পোনেন্টে চলে যাবে, তাই আপনি অলস লোডিং অর্জনের সময় মূল উপাদানটিকে নির্বিঘ্নে প্রতিস্থাপন করতে অ্যাসিঙ্ক র‍্যাপার ব্যবহার করতে পারেন।
 
-সাধারণ উপাদানগুলির মতো, async উপাদানগুলি `app.component()` ব্যবহার করে [registered globally](/guide/components/registration.html#global-registration) হতে পারে:
+সাধারণ উপাদানগুলির মতো, async উপাদানগুলি `app.component()` ব্যবহার করে [registered globally](/guide/components/registration#global-registration) হতে পারে:
 
 ```js
 app.component(
@@ -41,7 +41,7 @@ app.component(
 
 <div class="options-api">
 
-আপনি যখন `defineAsyncComponent` ব্যবহার করতে পারেন [registering a component locally](/guide/components/registration.html#local-registration):
+[স্থানীয়ভাবে একটি উপাদান নিবন্ধন করার সময়](/guide/components/registration#local-registration): আপনি `defineAsyncComponent` ব্যবহার করতে পারেন:
 
 ```vue
 <script>
@@ -111,4 +111,4 @@ const AsyncComp = defineAsyncComponent({
 
 ## Using with Suspense {#using-with-suspense}
 
-Async উপাদানগুলি `<Suspense>` বিল্ট-ইন কম্পোনেন্টের সাথে ব্যবহার করা যেতে পারে। `<Suspense>` এবং async উপাদানগুলির মধ্যে মিথস্ক্রিয়া নথিভুক্ত করা হয়েছে [`<Suspense>`](/guide/built-ins/suspense.html) এর জন্য নিবেদিত অধ্যায়ে।
+Async উপাদানগুলি `<Suspense>` বিল্ট-ইন কম্পোনেন্টের সাথে ব্যবহার করা যেতে পারে। `<Suspense>` এবং অ্যাসিঙ্ক উপাদানগুলির মধ্যে মিথস্ক্রিয়া নথিভুক্ত করা হয়েছে [`<Suspense>`](/guide/built-ins/suspense)-এর জন্য নিবেদিত অধ্যায়ে।

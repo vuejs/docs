@@ -199,7 +199,7 @@ export default defineComponent({
 </template>
 ```
 
-টাইপ টীকা ব্যতীত, `event` আর্গুমেন্টে নিহিতভাবে `any` প্রকার থাকবে। যদি `tsconfig.json`-এ `"strict": true` বা `"noImplicitAny": true` ব্যবহার করা হয় তাহলে এটি একটি TS ত্রুটির কারণ হবে। তাই ইভেন্ট হ্যান্ডলারদের যুক্তি স্পষ্টভাবে টীকা করার সুপারিশ করা হয়। এছাড়াও, আপনাকে `event`-এ স্পষ্টভাবে বৈশিষ্ট্যগুলি কাস্ট করতে হতে পারে:
+টাইপ টীকা ব্যতীত, `event` আর্গুমেন্টে নিহিতভাবে `any` প্রকার থাকবে। `tsconfig.json`-এ যদি `"strict": true` বা `"noImplicitAny": true` ব্যবহার করা হয় তাহলে এটি একটি TS ত্রুটির কারণ হবে। তাই ইভেন্ট হ্যান্ডলারদের যুক্তি স্পষ্টভাবে টীকা করার সুপারিশ করা হয়। উপরন্তু, `event` এর বৈশিষ্ট্যগুলি অ্যাক্সেস করার সময় আপনাকে টাইপ অ্যাসার্টেশন ব্যবহার করতে হতে পারে:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -215,7 +215,7 @@ export default defineComponent({
 
 ## Augmenting Global Properties {#augmenting-global-properties}
 
-কিছু প্লাগইন [`app.config.globalProperties`](/api/application.html#app-config-globalproperties) এর মাধ্যমে সমস্ত কম্পোনেন্ট ইনস্ট্যান্সে বিশ্বব্যাপী উপলব্ধ বৈশিষ্ট্যগুলি ইনস্টল করে। উদাহরণস্বরূপ, আমরা ডেটা-ফেচিংয়ের জন্য `this.$http` বা আন্তর্জাতিকীকরণের জন্য `this.$translate` ইনস্টল করতে পারি। TypeScript-এর সাথে এই নাটকটিকে ভালভাবে তৈরি করতে, Vue একটি `ComponentCustomProperties` ইন্টারফেস প্রকাশ করে যা [TypeScript মডিউল অগমেন্টেশন](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) এর মাধ্যমে পরিবর্ধন করার জন্য ডিজাইন করা হয়েছে :
+কিছু প্লাগইন [`app.config.globalProperties`](/api/application#app-config-globalproperties) এর মাধ্যমে সমস্ত উপাদান উদাহরণে বিশ্বব্যাপী উপলব্ধ বৈশিষ্ট্যগুলি ইনস্টল করে। উদাহরণস্বরূপ, আমরা ডেটা-ফেচিংয়ের জন্য `this.$http` বা আন্তর্জাতিকীকরণের জন্য `this.$translate` ইনস্টল করতে পারি। TypeScript-এর সাথে এই নাটকটিকে ভালভাবে তৈরি করতে, Vue একটি `কম্পোনেন্ট কাস্টম প্রোপার্টিজ` ইন্টারফেস প্রকাশ করে যা [TypeScript মডিউল অগমেন্টেশন](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) এর মাধ্যমে পরিবর্ধন করার জন্য ডিজাইন করা হয়েছে :
 
 ```ts
 import axios from 'axios'
@@ -290,4 +290,4 @@ declare module 'vue' {
 
 আরো দেখুন:
 
-- [কম্পোনেন্ট টাইপ এক্সটেনশনের জন্য টাইপস্ক্রিপ্ট ইউনিট পরীক্ষা](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
+- [কম্পোনেন্ট টাইপ এক্সটেনশনের জন্য TypeScript ইউনিট পরীক্ষা করে](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)

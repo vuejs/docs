@@ -1,1 +1,1 @@
-Say Hello World with Vue!
+An SVG graph

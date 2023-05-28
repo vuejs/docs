@@ -1,14 +1,14 @@
 # Component Registration {#component-registration}
 
-<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="বিনামূল্যে Vue.js Component Registration পাঠ"/>
+> এই পৃষ্ঠাটি ধরে নেওয়া হচ্ছে আপনি ইতিমধ্যেই [কম্পোনেন্ট বেসিকস](/guide/essentials/component-basics) পড়েছেন। আপনি যদি উপাদানগুলিতে নতুন হন তবে প্রথমে এটি পড়ুন।
 
-> এই পৃষ্ঠাটি ধরে নেওয়া হচ্ছে আপনি ইতিমধ্যেই [Components Basics](/guide/essentials/component-basics) পড়েছেন। আপনি যদি উপাদানগুলিতে নতুন হন তবে প্রথমে এটি পড়ুন।
+<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="বিনামূল্যে Vue.js কম্পোনেন্ট নিবন্ধন পাঠ"/>
 
 একটি Vue কম্পোনেন্টকে "রেজিস্টার" করতে হবে যাতে Vue জানতে পারে যে এটি একটি টেমপ্লেটে যখন এটির সম্মুখীন হয় তখন এটির বাস্তবায়ন কোথায় পাওয়া যায়। উপাদান নিবন্ধন করার দুটি উপায় আছে: বিশ্বব্যাপী এবং স্থানীয়।
 
 ## Global Registration {#global-registration}
 
-আমরা `app.component()` পদ্ধতি ব্যবহার করে বর্তমান [Vue application](/guide/essentials/application.html) বিশ্বব্যাপী উপাদানগুলি উপলব্ধ করতে পারি:
+আমরা `app.component()` পদ্ধতি ব্যবহার করে বর্তমান [Vue অ্যাপ্লিকেশন](/guide/essentials/application) বিশ্বব্যাপী উপাদানগুলি উপলব্ধ করতে পারি:
 
 ```js
 import { createApp } from 'vue'
@@ -136,6 +136,6 @@ export default {
 
 2. `<PascalCase />` এটিকে আরও স্পষ্ট করে তোলে যে এটি টেমপ্লেটগুলিতে একটি নেটিভ HTML উপাদানের পরিবর্তে একটি Vue উপাদান। এটি কাস্টম উপাদান (ওয়েব উপাদান) থেকে Vue উপাদানগুলিকেও আলাদা করে।
 
-এসএফসি বা স্ট্রিং টেমপ্লেটগুলির সাথে কাজ করার সময় এটি প্রস্তাবিত শৈলী। যাইহোক, [DOM Template Parsing Caveats](/guide/essentials/component-basics.html#dom-template-parsing-caveats) এ যেমন আলোচনা করা হয়েছে, DOM টেমপ্লেটে PascalCase ট্যাগ ব্যবহারযোগ্য নয়।
+এসএফসি বা স্ট্রিং টেমপ্লেটগুলির সাথে কাজ করার সময় এটি প্রস্তাবিত শৈলী। যাইহোক, [DOM Template Parsing Caveats](/guide/essentials/component-basics#dom-template-parsing-caveats) এ আলোচনা করা হয়েছে, PascalCase ট্যাগগুলি DOM টেমপ্লেটে ব্যবহারযোগ্য নয়।
 
 ভাগ্যক্রমে, Vue PascalCase ব্যবহার করে নিবন্ধিত উপাদানগুলিতে কাবাব-কেস ট্যাগগুলি সমাধান করতে সমর্থন করে। এর অর্থ হল `MyComponent` হিসেবে নিবন্ধিত একটি উপাদান টেমপ্লেটে `<MyComponent>` এবং `<my-component>` উভয়ের মাধ্যমে উল্লেখ করা যেতে পারে। এটি আমাদের টেমপ্লেট উত্স নির্বিশেষে একই জাভাস্ক্রিপ্ট উপাদান নিবন্ধন কোড ব্যবহার করার অনুমতি দেয়।

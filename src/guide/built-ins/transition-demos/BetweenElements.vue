@@ -1,7 +1,9 @@
 <script setup>
-const { mode } = defineProps(['mode'])
+import { ref } from 'vue'
 
-let docState = $ref('saved')
+defineProps(['mode'])
+
+const docState = ref('saved')
 </script>
 
 <template>

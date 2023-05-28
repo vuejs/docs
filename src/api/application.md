@@ -35,11 +35,11 @@ Creates an application instance.
   const app = createApp(App)
   ```
 
-- **See also:** [Guide - Creating a Vue Application](/guide/essentials/application.html)
+- **See also:** [Guide - Creating a Vue Application](/guide/essentials/application)
 
 ## createSSRApp() {#createssrapp}
 
-Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr.html#client-hydration) mode. Usage is exactly the same as `createApp()`.
+Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr#client-hydration) mode. Usage is exactly the same as `createApp()`.
 
 ## app.mount() {#app-mount}
 
@@ -59,7 +59,7 @@ Mounts the application instance in a container element.
 
   If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
 
-  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr.html#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
+  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
 
   For each app instance, `mount()` can only be called once.
 
@@ -87,6 +87,128 @@ Unmounts a mounted application instance, triggering the unmount lifecycle hooks 
   ```ts
   interface App {
     unmount(): void
+  }
+  ```
+
+## app.component() {#app-component}
+
+Registers a global component if passing both a name string and a component definition, or retrieves an already registered one if only the name is passed.
+
+- **Type**
+
+  ```ts
+  interface App {
+    component(name: string): Component | undefined
+    component(name: string, component: Component): this
+  }
+  ```
+
+- **Example**
+
+  ```js
+  import { createApp } from 'vue'
+
+  const app = createApp({})
+
+  // register an options object
+  app.component('my-component', {
+    /* ... */
+  })
+
+  // retrieve a registered component
+  const MyComponent = app.component('my-component')
+  ```
+
+- **See also:** [Component Registration](/guide/components/registration)
+
+## app.directive() {#app-directive}
+
+Registers a global custom directive if passing both a name string and a directive definition, or retrieves an already registered one if only the name is passed.
+
+- **Type**
+
+  ```ts
+  interface App {
+    directive(name: string): Directive | undefined
+    directive(name: string, directive: Directive): this
+  }
+  ```
+
+- **Example**
+
+  ```js
+  import { createApp } from 'vue'
+
+  const app = createApp({
+    /* ... */
+  })
+
+  // register (object directive)
+  app.directive('my-directive', {
+    /* custom directive hooks */
+  })
+
+  // register (function directive shorthand)
+  app.directive('my-directive', () => {
+    /* ... */
+  })
+
+  // retrieve a registered directive
+  const myDirective = app.directive('my-directive')
+  ```
+
+- **See also:** [Custom Directives](/guide/reusability/custom-directives)
+
+## app.use() {#app-use}
+
+Installs a [plugin](/guide/reusability/plugins).
+
+- **Type**
+
+  ```ts
+  interface App {
+    use(plugin: Plugin, ...options: any[]): this
+  }
+  ```
+
+- **Details**
+
+  Expects the plugin as the first argument, and optional plugin options as the second argument.
+
+  The plugin can either be an object with an `install()` method, or just a function that will be used as the `install()` method. The options (second argument of `app.use()`) will be passed along to the plugin's `install()` method.
+
+  When `app.use()` is called on the same plugin multiple times, the plugin will be installed only once.
+
+- **Example**
+
+  ```js
+  import { createApp } from 'vue'
+  import MyPlugin from './plugins/MyPlugin'
+
+  const app = createApp({
+    /* ... */
+  })
+
+  app.use(MyPlugin)
+  ```
+
+- **See also:** [Plugins](/guide/reusability/plugins)
+
+## app.mixin() {#app-mixin}
+
+Applies a global mixin (scoped to the application). A global mixin applies its included options to every component instance in the application.
+
+:::warning Not Recommended
+Mixins are supported in Vue 3 mainly for backwards compatibility, due to their widespread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
+
+For logic reuse, prefer [Composables](/guide/reusability/composables) instead.
+:::
+
+- **Type**
+
+  ```ts
+  interface App {
+    mixin(mixin: ComponentOptions): this
   }
   ```
 
@@ -145,134 +267,43 @@ Provide a value that can be injected in all descendant components within the app
   </div>
 
 - **See also:**
-  - [Provide / Inject](/guide/components/provide-inject.html)
-  - [App-level Provide](/guide/components/provide-inject.html#app-level-provide)
+  - [Provide / Inject](/guide/components/provide-inject)
+  - [App-level Provide](/guide/components/provide-inject#app-level-provide)
+  - [app.runWithContext()](#app-runwithcontext)
 
-## app.component() {#app-component}
+## app.runWithContext()<sup class="vt-badge" data-text="3.3+" /> {#app-runwithcontext}
 
-Registers a global component if passing both a name string and a component definition, or retrieves an already registered one if only the name is passed.
-
-- **Type**
-
-  ```ts
-  interface App {
-    component(name: string): Component | undefined
-    component(name: string, component: Component): this
-  }
-  ```
-
-- **Example**
-
-  ```js
-  import { createApp } from 'vue'
-
-  const app = createApp({})
-
-  // register an options object
-  app.component('my-component', {
-    /* ... */
-  })
-
-  // retrieve a registered component
-  const MyComponent = app.component('my-component')
-  ```
-
-- **See also:** [Component Registration](/guide/components/registration.html)
-
-## app.directive() {#app-directive}
-
-Registers a global custom directive if passing both a name string and a directive definition, or retrieves an already registered one if only the name is passed.
+Execute a callback with the current app as injection context.
 
 - **Type**
 
   ```ts
   interface App {
-    directive(name: string): Directive | undefined
-    directive(name: string, directive: Directive): this
-  }
-  ```
-
-- **Example**
-
-  ```js
-  import { createApp } from 'vue'
-
-  const app = createApp({
-    /* ... */
-  })
-
-  // register (object directive)
-  app.directive('my-directive', {
-    /* custom directive hooks */
-  })
-
-  // register (function directive shorthand)
-  app.directive('my-directive', () => {
-    /* ... */
-  })
-
-  // retrieve a registered directive
-  const myDirective = app.directive('my-directive')
-  ```
-
-- **See also:** [Custom Directives](/guide/reusability/custom-directives.html)
-
-## app.use() {#app-use}
-
-Installs a [plugin](/guide/reusability/plugins.html).
-
-- **Type**
-
-  ```ts
-  interface App {
-    use(plugin: Plugin, ...options: any[]): this
+    runWithContext<T>(fn: () => T): T
   }
   ```
 
 - **Details**
 
-  Expects the plugin as the first argument, and optional plugin options as the second argument.
-
-  The plugin can either be an object with an `install()` method, or just a function that will be used as the `install()` method. The options (second argument of `app.use()`) will be passed along to the plugin's `install()` method.
-
-  When `app.use()` is called on the same plugin multiple times, the plugin will be installed only once.
+  Expects a callback function and runs the callback immediately. During the synchronous call of the callback,  `inject()` calls are able to look up injections from the values provided by the current app, even when there is no current active component instance. The return value of the callback will also be returned.
 
 - **Example**
 
   ```js
-  import { createApp } from 'vue'
-  import MyPlugin from './plugins/MyPlugin'
+  import { inject } from 'vue'
 
-  const app = createApp({
-    /* ... */
+  app.provide('id', 1)
+
+  const injected = app.runWithContext(() => {
+    return inject('id')
   })
 
-  app.use(MyPlugin)
-  ```
-
-- **See also:** [Plugins](/guide/reusability/plugins.html)
-
-## app.mixin() {#app-mixin}
-
-Applies a global mixin (scoped to the application). A global mixin applies its included options to every component instance in the application.
-
-:::warning Not Recommended
-Mixins are supported in Vue 3 mainly for backwards compatibility, due to their widespread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
-
-For logic reuse, prefer [Composables](/guide/reusability/composables.html) instead.
-:::
-
-- **Type**
-
-  ```ts
-  interface App {
-    mixin(mixin: ComponentOptions): this
-  }
+  console.log(injected) // 1
   ```
 
 ## app.version {#app-version}
 
-Provides the version of Vue that the application was created with. This is useful inside [plugins](/guide/reusability/plugins.html), where you might need conditional logic based on different Vue versions.
+Provides the version of Vue that the application was created with. This is useful inside [plugins](/guide/reusability/plugins), where you might need conditional logic based on different Vue versions.
 
 - **Type**
 
@@ -297,7 +328,7 @@ Provides the version of Vue that the application was created with. This is usefu
   }
   ```
 
-- **See also:** [Global API - version](/api/general.html#version)
+- **See also:** [Global API - version](/api/general#version)
 
 ## app.config {#app-config}
 
@@ -391,11 +422,11 @@ Set this to `true` to enable component init, compile, render and patch performan
 
 - **Type**: `boolean`
 
-- **See also:** [Guide - Performance](/guide/best-practices/performance.html)
+- **See also:** [Guide - Performance](/guide/best-practices/performance)
 
 ## app.config.compilerOptions {#app-config-compileroptions}
 
-Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affect every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-rendering.html#compileroptions).
+Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affect every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-rendering#compileroptions).
 
 ::: warning Important
 This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). If you are using the runtime-only build with a build setup, compiler options must be passed to `@vue/compiler-dom` via build tool configurations instead.
@@ -426,7 +457,7 @@ Specifies a check method to recognize native custom elements.
   }
   ```
 
-- **See also:** [Vue and Web Components](/guide/extras/web-components.html)
+- **See also:** [Vue and Web Components](/guide/extras/web-components)
 
 ### app.config.compilerOptions.whitespace {#app-config-compileroptions-whitespace}
 
@@ -522,8 +553,8 @@ An object that can be used to register global properties that can be accessed on
     }
   }
   ```
-  
-- **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
+
+- **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
 
@@ -574,4 +605,4 @@ An object for defining merging strategies for custom component options.
   // logs 'Hello Vue'
   ```
 
-- **See also:** [Component Instance - `$options`](/api/component-instance.html#options)
+- **See also:** [Component Instance - `$options`](/api/component-instance#options)

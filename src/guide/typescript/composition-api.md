@@ -52,36 +52,9 @@ const props = defineProps<Props>()
 
 #### Syntax Limitations {#syntax-limitations}
 
-সঠিক রানটাইম কোড তৈরি করার জন্য, `defineProps()` এর জন্য জেনেরিক আর্গুমেন্ট অবশ্যই নিম্নলিখিতগুলির মধ্যে একটি হতে হবে:
+সংস্করণ 3.2 এবং নীচে, `defineProps()`-এর জন্য জেনেরিক টাইপ প্যারামিটার একটি আক্ষরিক টাইপ বা স্থানীয় ইন্টারফেসের একটি রেফারেন্সের মধ্যে সীমাবদ্ধ ছিল।
 
-- An object literal type:
-
-  ```ts
-  defineProps<{
-    /*... */
-  }>()
-  ```
-
-- একটি ইন্টারফেস বা বস্তুর আক্ষরিক প্রকারের একটি রেফারেন্স **একই ফাইলে**:
-
-  ```ts
-  interface Props {
-    /* ... */
-  }
-
-  defineProps<Props>()
-  ```
-
-ইন্টারফেস বা বস্তুর আক্ষরিক প্রকারে অন্যান্য ফাইল থেকে আমদানি করা প্রকারের রেফারেন্স থাকতে পারে, তবে, জেনেরিক আর্গুমেন্ট নিজেই `defineProps`-এ পাস করা আমদানি করা টাইপ **হতে পারে না**:
-
-```ts
-import { Props } from './other-file'
-
-// NOT supported
-defineProps<Props>()
-```
-
-এর কারণ হল Vue উপাদানগুলি বিচ্ছিন্নভাবে কম্পাইল করা হয় এবং কম্পাইলার বর্তমানে উৎসের প্রকার বিশ্লেষণ করার জন্য আমদানি করা ফাইলগুলি ক্রল করে না। এই সীমাবদ্ধতা একটি ভবিষ্যতে রিলিজ সরানো হতে পারে.
+এই সীমাবদ্ধতা 3.3 এ সমাধান করা হয়েছে। Vue-এর সর্বশেষ সংস্করণটি টাইপ প্যারামিটার অবস্থানে আমদানি করা রেফারেন্সিং এবং জটিল ধরনের একটি সীমিত সেট সমর্থন করে। যাইহোক, যেহেতু রানটাইম রূপান্তরের ধরনটি এখনও AST-ভিত্তিক, কিছু জটিল প্রকারের প্রকৃত প্রকার বিশ্লেষণের প্রয়োজন, যেমন শর্তাধীন প্রকার, সমর্থিত নয়। আপনি একটি একক প্রপের ধরণের জন্য শর্তসাপেক্ষ প্রকারগুলি ব্যবহার করতে পারেন, তবে সম্পূর্ণ প্রপস অবজেক্ট নয়।
 
 ### Props Default Values {#props-default-values}
 
@@ -100,23 +73,6 @@ const props = withDefaults(defineProps<Props>(), {
 ```
 
 এটি সমতুল্য রানটাইম প্রপস `default` বিকল্পে কম্পাইল করা হবে। উপরন্তু, `withDefaults` হেল্পার ডিফল্ট মানগুলির জন্য টাইপ চেক প্রদান করে এবং নিশ্চিত করে যে প্রত্যাবর্তিত `props` টাইপটিতে ডিফল্ট মান ঘোষিত বৈশিষ্ট্যগুলির জন্য ঐচ্ছিক ফ্ল্যাগগুলি সরানো হয়েছে।
-
-বিকল্পভাবে, আপনি বর্তমানে পরীক্ষামূলক ব্যবহার করতে পারেন[রিঅ্যাক্টিভিটি ট্রান্সফর্ম](/guide/extras/reactivity-transform.html):
-
-```vue
-<script setup lang="ts">
-interface Props {
-  name: string
-  count?: number
-}
-
-// reactive destructure for defineProps()
-// default value is compiled to equivalent runtime option
-const { name, count = 100 } = defineProps<Props>()
-</script>
-```
-
-এই আচরণের জন্য বর্তমানে [স্পষ্ট অপ্ট-ইন](/guide/extras/reactivity-transform.html#explicit-opt-in) প্রয়োজন
 
 ### Without `<script setup>` {#without-script-setup}
 
@@ -176,7 +132,7 @@ export default defineComponent({
 })
 ```
 
-অপশন এপিআই এর সাথে `props` অপশনটি বেশি ব্যবহৃত হয়, তাই আপনি [TypeScript with Options API](/guide/typescript/options-api.html#typing-component-props) এর গাইডে আরো বিস্তারিত উদাহরণ পাবেন . এই উদাহরণগুলিতে দেখানো কৌশলগুলি `defineProps()` ব্যবহার করে রানটাইম ঘোষণার ক্ষেত্রেও প্রযোজ্য।
+অপশন এপিআই-এর সাথে `props` বিকল্পটি বেশি ব্যবহৃত হয়, তাই আপনি [TypeScript with Options API](/guide/typescript/options-api#typing-component-props) এর গাইডে আরও বিস্তারিত উদাহরণ পাবেন। এই উদাহরণগুলিতে দেখানো কৌশলগুলি `defineProps()` ব্যবহার করে রানটাইম ঘোষণার ক্ষেত্রেও প্রযোজ্য।
 
 ## Typing Component Emits {#typing-component-emits}
 
@@ -320,7 +276,7 @@ function handleChange(event) {
 </template>
 ```
 
-টাইপ টীকা ব্যতীত, `event` আর্গুমেন্টে নিহিতভাবে `any` প্রকার থাকবে। যদি `tsconfig.json`-এ `"strict": true` বা `"noImplicitAny": true` ব্যবহার করা হয় তাহলে এটি একটি TS ত্রুটির কারণ হবে। তাই ইভেন্ট হ্যান্ডলারদের যুক্তি স্পষ্টভাবে টীকা করার সুপারিশ করা হয়। এছাড়াও, আপনাকে `event`-এ স্পষ্টভাবে বৈশিষ্ট্যগুলি কাস্ট করতে হতে পারে:
+টাইপ টীকা ব্যতীত, `event` আর্গুমেন্টে নিহিতভাবে `any` প্রকার থাকবে। `tsconfig.json`-এ যদি `"strict": true` বা `"noImplicitAny": true` ব্যবহার করা হয় তাহলে এটি একটি TS ত্রুটির কারণ হবে। তাই ইভেন্ট হ্যান্ডলারদের যুক্তি স্পষ্টভাবে টীকা করার সুপারিশ করা হয়। উপরন্তু, `event` এর বৈশিষ্ট্যগুলি অ্যাক্সেস করার সময় আপনাকে টাইপ অ্যাসার্টেশন ব্যবহার করতে হতে পারে:
 
 ```ts
 function handleChange(event: Event) {
@@ -420,4 +376,13 @@ const openModal = () => {
 </script>
 ```
 
-মনে রাখবেন আপনি যদি Vue SFC-এর পরিবর্তে TypeScript ফাইলগুলিতে এই কৌশলটি ব্যবহার করতে চান তবে আপনাকে Volar-এর [টেকওভার মোড](./overview.html#volar-takeover-mode) সক্ষম করতে হবে।
+মনে রাখবেন আপনি যদি Vue SFC এর পরিবর্তে TypeScript ফাইলগুলিতে এই কৌশলটি ব্যবহার করতে চান তবে আপনাকে Volar's সক্ষম করতে হবে[Takeover Mode](./overview#volar-takeover-mode).
+
+যে ক্ষেত্রে কম্পোনেন্টের সঠিক ধরন পাওয়া যায় না বা গুরুত্বপূর্ণ নয়, তার পরিবর্তে `ComponentPublicInstance` ব্যবহার করা যেতে পারে। এটি কেবলমাত্র সেই বৈশিষ্ট্যগুলি অন্তর্ভুক্ত করবে যা সমস্ত উপাদান দ্বারা ভাগ করা হয়, যেমন `$el`:
+
+```ts
+import { ref } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
+
+const child = ref<ComponentPublicInstance | null>(null)
+```

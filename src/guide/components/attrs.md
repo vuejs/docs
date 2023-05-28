@@ -8,7 +8,7 @@ outline: deep
 
 ## Attribute Inheritance {#attribute-inheritance}
 
-একটি "ফলথ্রু অ্যাট্রিবিউট" হল একটি অ্যাট্রিবিউট বা `v-on` ইভেন্ট লিসেনার যা একটি কম্পোনেন্টে পাস করা হয়, কিন্তু রিসিভিং কম্পোনেন্টের [props](./props) বা [emits](./events.html) এ স্পষ্টভাবে ঘোষণা করা হয় না #ঘোষণা-নির্গত-ঘটনা)। এর সাধারণ উদাহরণগুলির মধ্যে রয়েছে `class`, `style`, এবং `id` বৈশিষ্ট্য।
+একটি "ফলথ্রু অ্যাট্রিবিউট" হল একটি অ্যাট্রিবিউট বা `v-on` ইভেন্ট লিসেনার যা একটি কম্পোনেন্টে পাস করা হয়, কিন্তু গ্রহনকারী উপাদানের [props](./props) বা [emits](./events#declaring) এ স্পষ্টভাবে ঘোষণা করা হয় না - নির্গত-ঘটনা)। এর সাধারণ উদাহরণগুলির মধ্যে রয়েছে `class`, `style` এবং `id` বৈশিষ্ট্য।
 
 যখন একটি উপাদান একটি একক রুট উপাদান রেন্ডার করে, তখন ফলথ্রু বৈশিষ্ট্যগুলি স্বয়ংক্রিয়ভাবে রুট উপাদানের বৈশিষ্ট্যগুলিতে যোগ করা হবে। উদাহরণস্বরূপ, নিম্নলিখিত টেমপ্লেট সহ একটি `<MyButton>` উপাদান দেওয়া হয়েছে:
 
@@ -128,7 +128,7 @@ export default {
 </div>
 ```
 
-মনে রাখবেন [`v-bind` কোনো যুক্তি ছাড়াই](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) কোনো বস্তুর সমস্ত বৈশিষ্ট্যকে লক্ষ্য উপাদানের বৈশিষ্ট্য হিসেবে আবদ্ধ করে।
+মনে রাখবেন [`v-bind` কোনো যুক্তি ছাড়া](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) কোনো বস্তুর সমস্ত বৈশিষ্ট্যকে লক্ষ্য উপাদানের বৈশিষ্ট্য হিসেবে আবদ্ধ করে।
 
 ## Attribute Inheritance on Multiple Root Nodes {#attribute-inheritance-on-multiple-root-nodes}
 

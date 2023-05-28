@@ -19,7 +19,7 @@ pnpm run dev
 
 - VitePress ডকুমেন্টেশনে সমর্থিত [Markdown এক্সটেনশনগুলি](https://vitepress.vuejs.org/guide/markdown.html) এবং [Markdown এর ভিতরে Vue সিনট্যাক্স](https://vitepress.vuejs.org/guide/using-vue.html) কিভাবে ব্যবহার করা যায় দেখুন ।
 
-- ডকুমেন্টেশন লেখা এবং রক্ষণাবেক্ষণের জন্য আমাদের নিয়ম এবং নির্দেশিকাগুলি [দেখুন](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md)।
+- সমর্থিত [মার্কডাউন এক্সটেনশন]-এ VitePres ডক্স দেখুন(https://vitepress.vuejs.org/guide/markdown)এবং [মার্কডাউনের ভিতরে Vue সিনট্যাক্স ব্যবহার করার ক্ষমতা](https://vitepress.vuejs.org/guide/using-vue).
 
 ## থিম নিয়ে কাজ করুন
 

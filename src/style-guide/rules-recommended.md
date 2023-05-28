@@ -187,7 +187,7 @@ computed: {
 
 ## একক-ফাইল উপাদান শীর্ষ-স্তরের উপাদানের ক্রম {#single-file-component-top-level-element-order}
 
-**[একক-ফাইল উপাদান](/guide/scaling-up/sfc.html) সবসময় `<style>` সহ `<script>`, `<template>`, এবং `<style>` ট্যাগগুলিকে ধারাবাহিকভাবে অর্ডার করতে হবে শেষ, কারণ অন্য দুটির মধ্যে অন্তত একটি সর্বদা প্রয়োজনীয়।**
+**[একক-ফাইল উপাদান]](/guide/scaling-up/sfc) সর্বদা `<script>`, `<টেমপ্লেট>`, এবং `<style>` ট্যাগগুলিকে ধারাবাহিকভাবে, `<style>` শেষের সাথে অর্ডার করতে হবে, কারণ অন্য দুটির মধ্যে অন্তত একটি সর্বদা প্রয়োজনীয়।**
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>

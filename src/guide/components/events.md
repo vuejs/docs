@@ -63,10 +63,10 @@ export default {
 <MyComponent @some-event.once="callback" />
 ```
 
-উপাদান এবং প্রপসের মতো, ইভেন্টের নামগুলি একটি স্বয়ংক্রিয় কেস রূপান্তর প্রদান করে। লক্ষ্য করুন আমরা একটি ক্যামেলকেস ইভেন্ট নির্গত করেছি, কিন্তু পিতামাতার মধ্যে একটি কাবাব-কেসড শ্রোতা ব্যবহার করে এটি শুনতে পারি। [props casing](/guide/components/props.html#prop-name-casing) এর মতো, আমরা টেমপ্লেটে কাবাব-কেসড ইভেন্ট শ্রোতাদের ব্যবহার করার পরামর্শ দিই।
+উপাদান এবং প্রপসের মতো, ইভেন্টের নামগুলি একটি স্বয়ংক্রিয় কেস রূপান্তর প্রদান করে। লক্ষ্য করুন আমরা একটি ক্যামেলকেস ইভেন্ট নির্গত করেছি, কিন্তু পিতামাতার মধ্যে একটি কাবাব-কেসড শ্রোতা ব্যবহার করে এটি শুনতে পারি। [প্রপস কেসিং](/guide/components/props#prop-name-casing) এর মতো, আমরা টেমপ্লেটে কাবাব-কেসড ইভেন্ট শ্রোতাদের ব্যবহার করার পরামর্শ দিই।
 
 :::tip
-নেটিভ DOM ইভেন্টের বিপরীতে, উপাদান নির্গত ইভেন্টগুলি বুদ্বুদ **না** করে। আপনি শুধুমাত্র একটি সরাসরি শিশু উপাদান দ্বারা নির্গত ঘটনা শুনতে পারেন. ভাইবোন বা গভীরভাবে নেস্টেড উপাদানগুলির মধ্যে যোগাযোগ করার প্রয়োজন হলে, একটি বহিরাগত ইভেন্ট বাস বা একটি [global state management solution](/guide/scaling-up/state-management.html) ব্যবহার করুন।
+নেটিভ DOM ইভেন্টের বিপরীতে, উপাদান নির্গত ইভেন্টগুলি বুদ্বুদ **না** করে। আপনি শুধুমাত্র একটি সরাসরি শিশু উপাদান দ্বারা নির্গত ঘটনা শুনতে পারেন. ভাইবোন বা গভীরভাবে নেস্টেড উপাদানগুলির মধ্যে যোগাযোগ করার প্রয়োজন হলে, একটি বহিরাগত ইভেন্ট বাস বা একটি [গ্লোবাল স্টেট ম্যানেজমেন্ট সলিউশন](/guide/scaling-up/state-management) ব্যবহার করুন।
 :::
 
 ## Event Arguments {#event-arguments}
@@ -120,7 +120,7 @@ function increaseCount(n) {
 
 ## Declaring Emitted Events {#declaring-emitted-events}
 
-একটি উপাদান স্পষ্টভাবে <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits) ম্যাক্রো</span> ব্যবহার করে নির্গত ইভেন্টগুলি স্পষ্টভাবে ঘোষণা করতে পারে <span class="options-api">[`emits`](/api/options-state.html#emits) বিকল্প</span>:
+একটি উপাদান স্পষ্টভাবে ইভেন্ট ঘোষণা করতে পারে এটি ব্যবহার করে নির্গত হবে <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup#defineprops-defineemits) ম্যাক্রো</span><span class="options-api">[`emits`](/api/options-state#emits) বিকল্প</span>:
 
 <div class="composition-api">
 
@@ -144,7 +144,7 @@ function buttonClick() {
 
 `defineEmits()` ম্যাক্রো **কোনও ফাংশনের ভিতরে ব্যবহার করা যাবে না**, এটি অবশ্যই উপরের উদাহরণের মতো সরাসরি `<script setup>`-এর মধ্যে রাখতে হবে।
 
-আপনি যদি `<script setup>`-এর পরিবর্তে একটি স্পষ্ট `setup` ফাংশন ব্যবহার করেন, তাহলে [`emits`](/api/options-state.html#emits) বিকল্প এবং `emit` ব্যবহার করে ইভেন্ট ঘোষণা করা উচিত। ফাংশনটি `setup()` প্রসঙ্গে উন্মুক্ত করা হয়েছে:
+আপনি যদি `<script setup>` এর পরিবর্তে একটি স্পষ্ট `setup` ফাংশন ব্যবহার করেন, তবে ইভেন্টগুলি [`emits`](/api/options-state#emits) বিকল্প ব্যবহার করে ঘোষণা করা উচিত এবং `emit` ফাংশনটি হল `setup()` প্রসঙ্গে প্রকাশ করা হয়েছে:
 
 ```js
 export default {
@@ -203,7 +203,7 @@ const emit = defineEmits<{
 </script>
 ```
 
-আরো বিস্তারিত: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+আরো বিস্তারিত: [টাইপিং কম্পোনেন্ট এমিটস](/guide/typescript/composition-api#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
@@ -219,11 +219,11 @@ export default {
 }
 ```
 
-আরো দেখুন: [Typing Component Emits](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Component Emits](/guide/typescript/options-api#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 
-যদিও ঐচ্ছিক, একটি উপাদান কীভাবে কাজ করবে তা আরও ভালভাবে নথি করার জন্য সমস্ত নির্গত ইভেন্টকে সংজ্ঞায়িত করার সুপারিশ করা হয়। এটি Vue-কে পরিচিত শ্রোতাদের [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance) থেকে বাদ দেওয়ার অনুমতি দেয়, 3য় পক্ষের কোড দ্বারা ম্যানুয়ালি পাঠানো DOM ইভেন্টের কারণে এজ কেস এড়িয়ে যায়।
+যদিও ঐচ্ছিক, একটি উপাদান কীভাবে কাজ করবে তা আরও ভালভাবে নথি করার জন্য সমস্ত নির্গত ইভেন্টকে সংজ্ঞায়িত করার সুপারিশ করা হয়। এটি Vue-কে পরিচিত শ্রোতাদের [fallthrough attributes](/guide/components/attrs#v-on-listener-inheritance) থেকে বাদ দেওয়ার অনুমতি দেয়, 3য় পক্ষের কোড দ্বারা ম্যানুয়ালি প্রেরিত DOM ইভেন্টের কারণে এজ কেস এড়িয়ে যায়।
 
 :::tip
 যদি একটি নেটিভ ইভেন্ট (যেমন, `click`) `emits` বিকল্পে সংজ্ঞায়িত করা হয়, তাহলে শ্রোতা এখন শুধুমাত্র উপাদান-নির্গত `click` ইভেন্ট শুনবে এবং নেটিভ `click` ইভেন্টে আর সাড়া দেবে না।

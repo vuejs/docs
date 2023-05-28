@@ -6,7 +6,7 @@ footer: false
 
 ## Vue অনলাইন চেষ্টা করুন {#try-vue-online}
 
-- দ্রুত Vue এর স্বাদ পেতে, আপনি এটি সরাসরি আমাদের এ চেষ্টা করতে পারেন [চেষ্টা করুন](https://sfc.vuejs.org/#eNo9j01qAzEMha+iapMWOjbdDm6gu96gG2/cjJJM8B+2nBaGuXvlpBMwtj4/JL234EfO6toIRzT1UObMexvpN6fCMNHRNc+w2AgwOXbPL/caoBC3EjcCCPU0wu6TvE/wlYqfnnZ3ae2PXHKMfiwQYArZOyYhAHN+2y9LnwLrarTQ7XeOuTFch5Am8u8WRbcoktGPbnzFOXS3Q3BZXWqKkuRmy/4L1eK4GbUoUTtbPDPnOmpdj4ee/1JVKictlSot8hxIUQ3Dd0k/lYoMtrglwfUPkXdoJg==).
+- দ্রুত Vue এর স্বাদ পেতে, আপনি এটি সরাসরি আমাদের এ চেষ্টা করতে পারেন [Playground](https://play.vuejs.org/#eNo9jcEKwjAMhl/lt5fpQYfXUQfefAMvvRQbddC1pUuHUPrudg4HIcmXjyRZXEM4zYlEJ+T0iEPgXjn6BB8Zhp46WUZWDjCa9f6w9kAkTtH9CRinV4fmRtZ63H20Ztesqiylphqy3R5UYBqD1UyVAPk+9zkvV1CKbCv9poMLiTEfR2/IXpSoXomqZLtti/IFwVtA9A==).
 
 - আপনি যদি কোনো বিল্ড স্টেপ ছাড়াই একটি প্লেইন HTML সেটআপ পছন্দ করেন, তাহলে আপনি এটি [JSFiddle](https://jsfiddle.net/yyx990803/2ke1ab0z/) আপনার শুরুর পয়েন্ট হিসেবে ব্যবহার করতে পারেন।
 
@@ -19,11 +19,9 @@ footer: false
 - কমান্ড লাইনের সাথে পরিচিতি
 - [Node.js](https://nodejs.org/) 16.0 বা উচ্চতর সংস্করণ ইনস্টল করুন
 
-:::
+এই বিভাগে আমরা আপনার স্থানীয় মেশিনে কীভাবে একটি Vue [একক পৃষ্ঠা অ্যাপ্লিকেশন](/guide/extras/ways-of-using-vue#single-page-application-spa) ভারাবেন তা পরিচয় করিয়ে দেব। তৈরি করা প্রোজেক্টটি [Vite](https://vitejs.dev) এর উপর ভিত্তি করে একটি বিল্ড সেটআপ ব্যবহার করবে এবং আমাদেরকে Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs) ব্যবহার করার অনুমতি দেবে।
 
-এই বিভাগে আমরা আপনার স্থানীয় মেশিনে কীভাবে একটি Vue [একক পৃষ্ঠা অ্যাপ্লিকেশন](/guide/extras/ways-of-using-vue.html#single-page-application-spa) ভারাবেন তা পরিচয় করিয়ে দেব। তৈরি করা প্রোজেক্টটি [Vite](https://vitejs.dev) এর উপর ভিত্তি করে একটি বিল্ড সেটআপ ব্যবহার করবে এবং আমাদের Vue [সিঙ্গেল-ফাইল কম্পোনেন্ট](/guide/scaling-up/sfc) (SFCs) ব্যবহার করার অনুমতি দেবে।
-
-নিশ্চিত করুন যে আপনি [Node.js](https://nodejs.org/) এর একটি আপ-টু-ডেট সংস্করণ ইনস্টল করেছেন, তারপর আপনার কমান্ড লাইনে নিম্নলিখিত কমান্ডটি চালান (`>` চিহ্ন ছাড়া):
+নিশ্চিত করুন যে আপনার কাছে [Node.js](https://nodejs.org/) এর একটি আপ-টু-ডেট সংস্করণ ইনস্টল করা আছে এবং আপনার বর্তমান কার্যকারী ডিরেক্টরিটি যেখানে আপনি একটি প্রকল্প তৈরি করতে চান। আপনার কমান্ড লাইনে নিম্নলিখিত কমান্ডটি চালান (`>` চিহ্ন ছাড়া):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
@@ -35,7 +33,7 @@ footer: false
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Pinia for state management? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Cypress for both Unit and End-to-End testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add an End-to-End Testing Solution? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Cypress / Playwright</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add ESLint for code quality? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formatting? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span></span>
@@ -49,19 +47,19 @@ footer: false
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-আপনি এখন আপনার প্রথম Vue প্রকল্প চলমান করা উচিত! মনে রাখবেন যে জেনারেট করা প্রকল্পের উদাহরণ উপাদানগুলি [Options API](/guide/introduction.html#options-api) এর পরিবর্তে [Composition API](/guide/introduction.html#composition-api) এবং `<script setup>` ব্যবহার করে লেখা হয়েছে। এখানে কিছু অতিরিক্ত টিপস আছে:
+আপনি এখন আপনার প্রথম Vue প্রকল্প চলমান করা উচিত! মনে রাখবেন যে উত্পন্ন প্রকল্পের উদাহরণ উপাদানগুলি [Options API](/guide/introduction#options-এর পরিবর্তে [কম্পোজিশন API](/guide/introduction#composition-api) এবং `<script setup>` ব্যবহার করে লেখা হয়েছে। api)। এখানে কিছু অতিরিক্ত টিপস আছে:
 
-- প্রস্তাবিত IDE সেটআপ হল [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar)। আপনি যদি অন্যান্য সম্পাদক ব্যবহার করেন তবে [IDE support section](/guide/scaling-up/tooling.html#ide-support) দেখুন।
-- ব্যাকএন্ড ফ্রেমওয়ার্কের সাথে ইন্টিগ্রেশন সহ আরও টুলিং বিশদ [Tooling Guide](/guide/scaling-up/tooling.html) এ আলোচনা করা হয়েছে।
+- প্রস্তাবিত IDE সেটআপ হল [ভিজ্যুয়াল স্টুডিও কোড](https://code.visualstudio.com/) + [ভোলার এক্সটেনশন](https://marketplace.visualstudio.com/items?itemName=Vue.volar)। আপনি যদি অন্য এডিটর ব্যবহার করেন তবে [IDE সমর্থন বিভাগ](/guide/scaling-up/tooling#ide-support) দেখুন।
+- ব্যাকএন্ড ফ্রেমওয়ার্কের সাথে ইন্টিগ্রেশন সহ আরও টুলিং বিশদ [টুলিং গাইড]/guide/scaling-up/tooling) এ আলোচনা করা হয়েছে।
 - অন্তর্নিহিত বিল্ড টুল Vite সম্পর্কে আরও জানতে, [Vite docs](https://vitejs.dev) দেখুন।
-- আপনি যদি TypeScript ব্যবহার করতে চান তবে [TypeScript ব্যবহার নির্দেশিকা](typescript/overview.html) দেখুন।
+- আপনি যদি টাইপস্ক্রিপ্ট ব্যবহার করতে চান তবে [টাইপস্ক্রিপ্ট ব্যবহার নির্দেশিকা](typescript/overview) দেখুন।
 
 আপনি যখন আপনার অ্যাপটিকে প্রোডাকশনে পাঠানোর জন্য প্রস্তুত হন, তখন নিম্নলিখিতটি চালান:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-এটি প্রোজেক্টের `./dist` ডিরেক্টরিতে আপনার অ্যাপের একটি প্রোডাকশন-রেডি বিল্ড তৈরি করবে। আপনার অ্যাপটিকে প্রোডাকশনে পাঠানোর বিষয়ে আরও জানতে [প্রোডাকশন ডিপ্লয়মেন্ট গাইড](/guide/best-practices/production-deployment.html) দেখুন।
+এটি প্রোজেক্টের `./dist` ডিরেক্টরিতে আপনার অ্যাপের একটি প্রোডাকশন-রেডি বিল্ড তৈরি করবে। আপনার অ্যাপকে প্রোডাকশনে পাঠানোর বিষয়ে আরও জানতে [প্রোডাকশন ডিপ্লয়মেন্ট গাইড](/guide/best-practices/production-deployment) দেখুন।
 
 [পরবর্তী ধাপ >](#next-steps)
 
@@ -166,13 +164,13 @@ import { createApp } from 'vue'
 :::tip import maps ব্রাউজার সমর্থন করে
 ক্রোমিয়াম-ভিত্তিক ব্রাউজারগুলিতে import maps ডিফল্টরূপে সমর্থিত, তাই আমরা শেখার প্রক্রিয়া চলাকালীন Chrome বা Edge ব্যবহার করার পরামর্শ দিই।
 
-Firefox ব্যবহার করলে, এটি 108+ সংস্করণে ডিফল্টরূপে সমর্থিত হয় অথবা 102+ সংস্করণের জন্য `about:config`-এ `dom.importMaps.enabled` বিকল্পটিকে সত্য হিসেবে সেট করে।
+ফায়ারফক্স ব্যবহার করলে, এটি 108+ সংস্করণে ডিফল্টরূপে সমর্থিত হয় অথবা 102+ সংস্করণের জন্য `about:config`-এ `dom.importMaps.enabled` বিকল্পটিকে সত্য হিসেবে সেট করে।
 
 যদি আপনার পছন্দের ব্রাউজার এখনও import maps সমর্থন না করে, আপনি এটি [es-module-shims](https://github.com/guybedford/es-module-shims) দিয়ে পলিফিল করতে পারেন।
 :::
 
-:::warning প্রোডাকশনে ব্যবহারের বিষয়ে সতর্কীকরণ নোট
-এখন পর্যন্ত উদাহরণগুলি হল Vue-এর ডেভেলপমেন্ট বিল্ড ব্যবহার করা - আপনি যদি প্রোডাকশনে CDN থেকে Vue ব্যবহার করতে চান, তাহলে [প্রোডাকশন ডিপ্লয়মেন্ট গাইড](/guide/best-practices/production-deployment.html#without-build-tools)।
+:::warning Production ব্যবহারের উপর নোট
+এখন পর্যন্ত উদাহরণগুলি হল Vue-এর ডেভেলপমেন্ট বিল্ড ব্যবহার করা - আপনি যদি প্রোডাকশনে CDN থেকে Vue ব্যবহার করতে চান, তবে [Production স্থাপনার নির্দেশিকা](/guide/best-practices/production-deployment#without-build) পরীক্ষা করে দেখুন -সরঞ্জাম)।
 :::
 
 ### মডিউলগুলি বিভক্ত করা {#splitting-up-the-modules}
@@ -209,7 +207,7 @@ export default {
 
 ### বিল্ড স্টেপ ছাড়া Composition API ব্যবহার করা {#using-composition-api-without-a-build-step}
 
-Composition API-এর অনেক উদাহরণ `<script setup>` সিনট্যাক্স ব্যবহার করবে। আপনি যদি বিল্ড স্টেপ ছাড়া কম্পোজিশন API ব্যবহার করতে চান, তাহলে [`setup()` option](/api/composition-api-setup.html) ব্যবহারের পরামর্শ নিন।
+Composition API-এর অনেক উদাহরণ `<script setup>` সিনট্যাক্স ব্যবহার করবে। আপনি যদি বিল্ড স্টেপ ছাড়া কম্পোজিশন এপিআই ব্যবহার করতে চান, তাহলে [`সেটআপ()` অপশন](/api/composition-api-setup) ব্যবহারের পরামর্শ নিন।
 
 ## পরবর্তী ধাপ {#next-steps}
 

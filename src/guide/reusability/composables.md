@@ -6,7 +6,7 @@ const { x, y } = useMouse()
 </script>
 
 :::tip
-এই বিভাগটি কম্পোজিশন এপিআই এর প্রাথমিক জ্ঞান গ্রহণ করে। আপনি যদি শুধুমাত্র Options API এর সাথে Vue শিখছেন, তাহলে আপনি API পছন্দকে কম্পোজিশন API (বাম সাইডবারের উপরে টগল ব্যবহার করে) সেট করতে পারেন এবং [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals) পুনরায় পড়তে পারেন .html) এবং [Lifecycle Hooks](/guide/essentials/lifecycle.html)।
+এই বিভাগটি কম্পোজিশন এপিআই এর প্রাথমিক জ্ঞান গ্রহণ করে। আপনি যদি শুধুমাত্র অপশন এপিআই এর সাথে Vue শিখছেন, তাহলে আপনি কম্পোজিশন এপিআই (বাম সাইডবারের উপরে টগলটি ব্যবহার করে) এপিআই প্রেফারেন্স সেট করতে পারেন এবং [রিঅ্যাক্টিভিটি ফান্ডামেন্টাল](/guide/essentials/reactivity-fundamentals) পুনরায় পড়তে পারেন ) এবং [লাইফসাইকেল হুকস](/guide/essentials/lifecycle) অধ্যায়।
 :::
 
 ## What is a "Composable"? {#what-is-a-composable}
@@ -84,7 +84,7 @@ const { x, y } = useMouse()
   Mouse position is at: {{ x }}, {{ y }}
 </div>
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHVzZU1vdXNlIH0gZnJvbSAnLi9tb3VzZS5qcydcblxuY29uc3QgeyB4LCB5IH0gPSB1c2VNb3VzZSgpXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICBNb3VzZSBwb3NpdGlvbiBpcyBhdDoge3sgeCB9fSwge3sgeSB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwibW91c2UuanMiOiJpbXBvcnQgeyByZWYsIG9uTW91bnRlZCwgb25Vbm1vdW50ZWQgfSBmcm9tICd2dWUnXG5cbmV4cG9ydCBmdW5jdGlvbiB1c2VNb3VzZSgpIHtcbiAgY29uc3QgeCA9IHJlZigwKVxuICBjb25zdCB5ID0gcmVmKDApXG5cbiAgZnVuY3Rpb24gdXBkYXRlKGV2ZW50KSB7XG4gICAgeC52YWx1ZSA9IGV2ZW50LnBhZ2VYXG4gICAgeS52YWx1ZSA9IGV2ZW50LnBhZ2VZXG4gIH1cblxuICBvbk1vdW50ZWQoKCkgPT4gd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIHVwZGF0ZSkpXG4gIG9uVW5tb3VudGVkKCgpID0+IHdpbmRvdy5yZW1vdmVFdmVudExpc3RlbmVyKCdtb3VzZW1vdmUnLCB1cGRhdGUpKVxuXG4gIHJldHVybiB7IHgsIHkgfVxufSJ9)
+[চেষ্টা করুন](https://play.vuejs.org/#eNqNkj1rwzAQhv/KocUOGKVzSAIdurVjoQUvJj4XlfgkJNmxMfrvPcmJkkKHLrbu69H7SlrEszFyHFDsxN6drDIeHPrBHGtSvdHWwwKDwzfNHwjQWd1DIbd9jOW3K2qq6aTJxb6pgpl7Dnmg3NS0365YBnLgsTfnxiNHACvUaKe80gTKQeN3sDAIQqjignEhIvKYqMRta1acFVrsKtDEQPLYxuU7cV8Msmg2mdTilIa6gU5p27tYWKKq1c3ENphaPrGFW25+yMXsHWFaFlfiiOSvFIBJjs15QJ5JeWmaL/xYS/Mfpc9YYrPxl52ULOpwhIuiVl9k07Yvsf9VOY+EtizSWfR6xKK6itgkvQ/+fyNs6v4XJXIsPwVL+WprCiL8AEUxw5s=)
 
 আমরা দেখতে পাচ্ছি, মূল যুক্তিটি অভিন্ন রয়ে গেছে - আমাদের যা করতে হবে তা হল এটিকে একটি বাহ্যিক ফাংশনে স্থানান্তরিত করা এবং যে অবস্থাটি প্রকাশ করা উচিত তা ফিরিয়ে দেওয়া। ঠিক একটি উপাদানের ভিতরের মতো, আপনি কম্পোজেবলগুলিতে [Composition API functions](/api/#composition-api) এর সম্পূর্ণ পরিসর ব্যবহার করতে পারেন। একই `useMouse()` কার্যকারিতা এখন যেকোনো উপাদানে ব্যবহার করা যেতে পারে।
 
@@ -94,13 +94,13 @@ const { x, y } = useMouse()
 
 ```js
 // event.js
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 
 export function useEventListener(target, event, callback) {
   // if you want, you can also make this
   // support selector strings as target
   onMounted(() => target.addEventListener(event, callback))
-  onUnmounted(() => target.removeEventListener(event, callback))
+  onBeforeUnmount(() => target.removeEventListener(event, callback))
 }
 ```
 
@@ -125,7 +125,7 @@ export function useMouse() {
 ```
 
 :::tip
-প্রতিটি কম্পোনেন্ট ইন্সট্যান্স যাকে `useMouse()` কল করে তা `x` এবং `y` অবস্থার নিজস্ব কপি তৈরি করবে যাতে তারা একে অপরের সাথে হস্তক্ষেপ না করে। আপনি যদি উপাদানগুলির মধ্যে ভাগ করা অবস্থা পরিচালনা করতে চান তবে [State Management](/guide/scaling-up/state-management.html) অধ্যায়টি পড়ুন।
+প্রতিটি কম্পোনেন্ট ইন্সট্যান্স যাকে `useMouse()` কল করে তা `x` এবং `y` অবস্থার নিজস্ব কপি তৈরি করবে যাতে তারা একে অপরের সাথে হস্তক্ষেপ না করে। আপনি যদি উপাদানগুলির মধ্যে ভাগ করা অবস্থা পরিচালনা করতে চান তবে [স্টেট ম্যানেজমেন্ট](/guide/scaling-up/state-management) অধ্যায়টি পড়ুন।
 :::
 
 ## Async State Example {#async-state-example}
@@ -218,9 +218,9 @@ export function useFetch(url) {
 }
 ```
 
-`useFetch()` এর এই সংস্করণটি এখন স্ট্যাটিক ইউআরএল স্ট্রিং এবং ইউআরএল স্ট্রিংয়ের রেফ উভয়ই গ্রহণ করে। যখন এটি সনাক্ত করে যে URLটি [`isRef()`](/api/reactivity-utilities.html#isref) ব্যবহার করে একটি গতিশীল রেফ, এটি [`watchEffect()`](/api/reactivity-core.html#watcheffect) ব্যবহার করে একটি প্রতিক্রিয়াশীল প্রভাব সেট আপ করে। প্রভাব অবিলম্বে চালানো হবে এবং নির্ভরতা হিসাবে URL রেফ ট্র্যাক করবে। যখনই URL রেফ পরিবর্তন হবে, ডেটা পুনরায় সেট করা হবে এবং আবার আনা হবে।
+`useFetch()` এর এই সংস্করণটি এখন স্ট্যাটিক ইউআরএল স্ট্রিং এবং ইউআরএল স্ট্রিংয়ের রেফ উভয়ই গ্রহণ করে। যখন এটি সনাক্ত করে যে ইউআরএলটি একটি গতিশীল রেফ ব্যবহার করে [`isRef()`](/api/reactivity-utilities#isref), এটি ব্যবহার করে একটি প্রতিক্রিয়াশীল প্রভাব সেট আপ করে [`watchEffect()`](/api/reactivity-core#watcheffect). প্রভাব অবিলম্বে চালানো হবে এবং নির্ভরতা হিসাবে URL রেফ ট্র্যাক করবে। যখনই URL রেফ পরিবর্তন হবে, ডেটা পুনরায় সেট করা হবে এবং আবার আনা হবে।
 
-এখানে [`useFetch()` এর আপডেট করা সংস্করণ](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgY29tcHV0ZWQgfSBmcm9tICd2dWUnXG5pbXBvcnQgeyB1c2VGZXRjaCB9IGZyb20gJy4vdXNlRmV0Y2guanMnXG5cbmNvbnN0IGJhc2VVcmwgPSAnaHR0cHM6Ly9qc29ucGxhY2Vob2xkZXIudHlwaWNvZGUuY29tL3RvZG9zLydcbmNvbnN0IGlkID0gcmVmKCcxJylcbmNvbnN0IHVybCA9IGNvbXB1dGVkKCgpID0+IGJhc2VVcmwgKyBpZC52YWx1ZSlcblxuY29uc3QgeyBkYXRhLCBlcnJvciwgcmV0cnkgfSA9IHVzZUZldGNoKHVybClcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIExvYWQgcG9zdCBpZDpcbiAgPGJ1dHRvbiB2LWZvcj1cImkgaW4gNVwiIEBjbGljaz1cImlkID0gaVwiPnt7IGkgfX08L2J1dHRvbj5cblxuXHQ8ZGl2IHYtaWY9XCJlcnJvclwiPlxuICAgIDxwPk9vcHMhIEVycm9yIGVuY291bnRlcmVkOiB7eyBlcnJvci5tZXNzYWdlIH19PC9wPlxuICAgIDxidXR0b24gQGNsaWNrPVwicmV0cnlcIj5SZXRyeTwvYnV0dG9uPlxuICA8L2Rpdj5cbiAgPGRpdiB2LWVsc2UtaWY9XCJkYXRhXCI+RGF0YSBsb2FkZWQ6IDxwcmU+e3sgZGF0YSB9fTwvcHJlPjwvZGl2PlxuICA8ZGl2IHYtZWxzZT5Mb2FkaW5nLi4uPC9kaXY+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJ1c2VGZXRjaC5qcyI6ImltcG9ydCB7IHJlZiwgaXNSZWYsIHVucmVmLCB3YXRjaEVmZmVjdCB9IGZyb20gJ3Z1ZSdcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZUZldGNoKHVybCkge1xuICBjb25zdCBkYXRhID0gcmVmKG51bGwpXG4gIGNvbnN0IGVycm9yID0gcmVmKG51bGwpXG5cbiAgYXN5bmMgZnVuY3Rpb24gZG9GZXRjaCgpIHtcbiAgICAvLyByZXNldCBzdGF0ZSBiZWZvcmUgZmV0Y2hpbmcuLlxuICAgIGRhdGEudmFsdWUgPSBudWxsXG4gICAgZXJyb3IudmFsdWUgPSBudWxsXG4gICAgXG4gICAgLy8gcmVzb2x2ZSB0aGUgdXJsIHZhbHVlIHN5bmNocm9ub3VzbHkgc28gaXQncyB0cmFja2VkIGFzIGFcbiAgICAvLyBkZXBlbmRlbmN5IGJ5IHdhdGNoRWZmZWN0KClcbiAgICBjb25zdCB1cmxWYWx1ZSA9IHVucmVmKHVybClcbiAgICBcbiAgICB0cnkge1xuICAgICAgLy8gYXJ0aWZpY2lhbCBkZWxheSAvIHJhbmRvbSBlcnJvclxuICBcdCAgYXdhaXQgdGltZW91dCgpXG4gIFx0ICAvLyB1bnJlZigpIHdpbGwgcmV0dXJuIHRoZSByZWYgdmFsdWUgaWYgaXQncyBhIHJlZlxuXHQgICAgLy8gb3RoZXJ3aXNlIHRoZSB2YWx1ZSB3aWxsIGJlIHJldHVybmVkIGFzLWlzXG4gICAgXHRjb25zdCByZXMgPSBhd2FpdCBmZXRjaCh1cmxWYWx1ZSlcblx0ICAgIGRhdGEudmFsdWUgPSBhd2FpdCByZXMuanNvbigpXG4gICAgfSBjYXRjaCAoZSkge1xuICAgICAgZXJyb3IudmFsdWUgPSBlXG4gICAgfVxuICB9XG5cbiAgaWYgKGlzUmVmKHVybCkpIHtcbiAgICAvLyBzZXR1cCByZWFjdGl2ZSByZS1mZXRjaCBpZiBpbnB1dCBVUkwgaXMgYSByZWZcbiAgICB3YXRjaEVmZmVjdChkb0ZldGNoKVxuICB9IGVsc2Uge1xuICAgIC8vIG90aGVyd2lzZSwganVzdCBmZXRjaCBvbmNlXG4gICAgZG9GZXRjaCgpXG4gIH1cblxuICByZXR1cm4geyBkYXRhLCBlcnJvciwgcmV0cnk6IGRvRmV0Y2ggfVxufVxuXG4vLyBhcnRpZmljaWFsIGRlbGF5XG5mdW5jdGlvbiB0aW1lb3V0KCkge1xuICByZXR1cm4gbmV3IFByb21pc2UoKHJlc29sdmUsIHJlamVjdCkgPT4ge1xuICAgIHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgaWYgKE1hdGgucmFuZG9tKCkgPiAwLjMpIHtcbiAgICAgICAgcmVzb2x2ZSgpXG4gICAgICB9IGVsc2Uge1xuICAgICAgICByZWplY3QobmV3IEVycm9yKCdSYW5kb20gRXJyb3InKSlcbiAgICAgIH1cbiAgICB9LCAzMDApXG4gIH0pXG59In0=), with an artificial delay and randomized error for demo purposes.
+এখানে [`useFetch()` এর আপডেট করা সংস্করণ](https://play.vuejs.org/#eNptVMFu2zAM/RXOl7hYancYdgnSYAO2nTZsKLadfFFsulHrSIYkJwuC/PtISnbdrpc4ksjH9x4pnbNPfV8cBsxW2drXTvcBPIah31RG73vrApzBYbuE2u77IWADF2id3cOCkhazoMHjVwz1bjovynGrePAUWZnaGh9gqzz+dh3cwmIXQu9XZfngrek7VePOdg26Ipx6XdsGCypaBttYXxJATNcNZRKjfPFucTVuDoI3UszzK7jdTIXeUk5xUN2AFD9mnKFRQS0BnbNuSYDBnYj67aQjJ0yKX5fRFfKDFgH3xDMgrQC+WdVAb4XTijfW2yEEa+Bw3Vp3W2UatIEPVQYf607Xj7zD5HWVbc5n0HC5rMuYIuhVWDf6QNm6pVAhRpEMTND95oft/Rv4wtuApGIwAR02KyAsCS726L26R8HlBkpi4jRREKWEe8ffWX0KLal8/Bd5YOcxkmGvKOczfaAj2Vx23TtkHXwWS9L6VYwNO6XNfVEU4/m6nKzMltlsUGgOn8+d9nf8GYysjorCvrQt1uHFIFYG/0peO5g6aJL8rJNwZlKx98I4DpEZOu7yeCI+Pj/iQ+VPpn4CbmzETaAAZUkZdG3AB1IEW6T+I7QcJLJjFJeNc0gVGD1ux979vz+Htt0BIexQBj2GMqWds8YOvjuBt6DDwkNwqn6kS6o8qAmgwR5NQzNzgu1pbmEu0kfxhP0nsRC30w144sJXJCkWXOWCbnWtVUclOnUC4qpMQz2Jw0uRVSD3jkoHCHqPdkgleZsAYpkrOOqu4ys4OCMqaTep1G3UpXiPr0gqbSnMHbWPrsRYQdlyNgOJCdfaJwEhaiQvSV5kJP1hkaKaWy3oz9oUIymLRtOa0a8L1Gwi5DiNwMs+YorkD/3wh7TkMs1i7Hx45MWlKormixrt8Fq4iXpDTxr8vvtGF2F0gbPmXUzzKOQuwDduhj05tYSHgRyIyNbUieE0zDOmqRWvvZGrMYFjJfyVQajMdFemtkdKCdngEX7S5SVaeZ7mmws8kBx5uxN/MuZXAohv+uQ2m/ldhV0RJ45ON3BTvJ/1g4sJ8Ni1l+bEEC6ZMx95WfPFXZxgWS2unlJTP5fw/uYmekW/l+zyD/mIah0=), with an artificial delay and randomized error for demo purposes.
 
 ## Conventions and Best Practices {#conventions-and-best-practices}
 
@@ -230,7 +230,7 @@ export function useFetch(url) {
 
 ### Input Arguments {#input-arguments}
 
-একটি কম্পোজেবল রেফ আর্গুমেন্ট গ্রহণ করতে পারে এমনকি যদি এটি প্রতিক্রিয়াশীলতার জন্য তাদের উপর নির্ভর না করে। আপনি যদি অন্য ডেভেলপারদের দ্বারা ব্যবহার করা হতে পারে এমন একটি কম্পোজেবল লিখছেন, তাহলে ইনপুট আর্গুমেন্টগুলি কাঁচা মানের পরিবর্তে রেফ হওয়ার ক্ষেত্রে পরিচালনা করা একটি ভাল ধারণা। [`unref()`](/api/reactivity-utilities.html#unref) ইউটিলিটি ফাংশন এই উদ্দেশ্যে কাজে আসবে:
+একটি কম্পোজেবল রেফ আর্গুমেন্ট গ্রহণ করতে পারে এমনকি যদি এটি প্রতিক্রিয়াশীলতার জন্য তাদের উপর নির্ভর না করে। আপনি যদি অন্য ডেভেলপারদের দ্বারা ব্যবহার করা হতে পারে এমন একটি কম্পোজেবল লিখছেন, তাহলে ইনপুট আর্গুমেন্টগুলি কাঁচা মানের পরিবর্তে রেফ হওয়ার ক্ষেত্রে পরিচালনা করা একটি ভাল ধারণা। [`unref()`](/api/reactivity-utilities#unref) ইউটিলিটি ফাংশন এই উদ্দেশ্যে কাজে আসবে:
 
 ```js
 import { unref } from 'vue'
@@ -271,7 +271,7 @@ Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
 
 কম্পোজেবলগুলিতে পার্শ্ব প্রতিক্রিয়া (যেমন DOM ইভেন্ট শ্রোতা যোগ করা বা ডেটা আনা) করা ঠিক, তবে নিম্নলিখিত নিয়মগুলিতে মনোযোগ দিন:
 
-- আপনি যদি [Server-Side Rendering](/guide/scaling-up/ssr.html) (SSR) ব্যবহার করে এমন একটি অ্যাপ্লিকেশনে কাজ করছেন, তাহলে পোস্ট-মাউন্ট লাইফসাইকেল হুকগুলিতে DOM-নির্দিষ্ট পার্শ্বপ্রতিক্রিয়া সম্পাদন করতে ভুলবেন না, যেমন `onMounted()`। এই হুকগুলি শুধুমাত্র ব্রাউজারে কল করা হয়, তাই আপনি নিশ্চিত হতে পারেন যে তাদের ভিতরের কোডের DOM-এ অ্যাক্সেস আছে।
+- আপনি যদি [সার্ভার-সাইড রেন্ডারিং](/guide/scaling-up/ssr) (SSR) ব্যবহার করে এমন একটি অ্যাপ্লিকেশনে কাজ করছেন, তবে পোস্ট-মাউন্ট লাইফসাইকেল হুকগুলিতে DOM-নির্দিষ্ট পার্শ্ব প্রতিক্রিয়াগুলি সম্পাদন করতে ভুলবেন না, যেমন `onMounted()`। এই হুকগুলি শুধুমাত্র ব্রাউজারে কল করা হয়, তাই আপনি নিশ্চিত হতে পারেন যে তাদের ভিতরের কোডের DOM-এ অ্যাক্সেস আছে।
 
 - 'onUnmounted()' এর পার্শ্বপ্রতিক্রিয়াগুলি পরিষ্কার করতে মনে রাখবেন। উদাহরণস্বরূপ, যদি একটি কম্পোজেবল একটি DOM ইভেন্ট লিসেনার সেট আপ করে, তাহলে এটি সেই শ্রোতাকে `onUnmounted()` থেকে সরিয়ে দেবে যেমনটি আমরা `useMouse()` উদাহরণে দেখেছি। একটি কম্পোজেবল ব্যবহার করা একটি ভাল ধারণা হতে পারে যা স্বয়ংক্রিয়ভাবে আপনার জন্য এটি করে, যেমন `useEventListener()` উদাহরণ।
 
@@ -333,7 +333,7 @@ export default {
 
 ### vs. Mixins {#vs-mixins}
 
-Vue 2 থেকে আগত ব্যবহারকারীরা [mixins](/api/options-composition.html#mixins) বিকল্পের সাথে পরিচিত হতে পারে, যা আমাদের পুনঃব্যবহারযোগ্য ইউনিটগুলিতে উপাদানের যুক্তি বের করতে দেয়। মিশ্রণের তিনটি প্রাথমিক ত্রুটি রয়েছে:
+Vue 2 থেকে আগত ব্যবহারকারীরা [mixins](/api/options-composition#mixins) বিকল্পের সাথে পরিচিত হতে পারে, যা আমাদেরকে পুনঃব্যবহারযোগ্য ইউনিটগুলিতে কম্পোনেন্ট লজিক বের করতে দেয়। মিশ্রণের তিনটি প্রাথমিক ত্রুটি রয়েছে:
 
 1. **Unclear source of properties**: অনেকগুলি মিক্সিন ব্যবহার করার সময়, কোন মিক্সিনের দ্বারা কোন উদাহরণের বৈশিষ্ট্যটি ইনজেকশন করা হয়েছে তা অস্পষ্ট হয়ে যায়, যার ফলে বাস্তবায়নটি সনাক্ত করা এবং উপাদানটির আচরণ বোঝা কঠিন হয়। এই কারণেই আমরা কম্পোজেবলের জন্য refs + destructure প্যাটার্ন ব্যবহার করার পরামর্শ দিই: এটি উপাদানগুলি ব্যবহার করার ক্ষেত্রে সম্পত্তির উৎসকে স্পষ্ট করে তোলে।
 
@@ -345,7 +345,7 @@ Vue 2 থেকে আগত ব্যবহারকারীরা [mixins](/a
 
 ### vs. Renderless Components {#vs-renderless-components}
 
-কম্পোনেন্ট স্লট অধ্যায়ে, আমরা স্কোপড স্লটের উপর ভিত্তি করে [রেন্ডারলেস কম্পোনেন্ট](/guide/components/slots.html#renderless-components) প্যাটার্ন নিয়ে আলোচনা করেছি। এমনকি আমরা রেন্ডারলেস উপাদান ব্যবহার করে একই মাউস ট্র্যাকিং ডেমো প্রয়োগ করেছি।
+কম্পোনেন্ট স্লট অধ্যায়ে, আমরা স্কোপড স্লটের উপর ভিত্তি করে [রেন্ডারলেস কম্পোনেন্ট](/guide/components/slots#renderless-components) প্যাটার্ন নিয়ে আলোচনা করেছি। এমনকি আমরা রেন্ডারলেস উপাদান ব্যবহার করে একই মাউস ট্র্যাকিং ডেমো প্রয়োগ করেছি।
 
 রেন্ডারলেস কম্পোনেন্টের উপর কম্পোজেবলের প্রধান সুবিধা হল যে কম্পোজেবল অতিরিক্ত কম্পোনেন্ট ইনস্ট্যান্স ওভারহেড বহন করে না। একটি সম্পূর্ণ অ্যাপ্লিকেশন জুড়ে ব্যবহার করা হলে, রেন্ডারলেস কম্পোনেন্ট প্যাটার্ন দ্বারা তৈরি অতিরিক্ত কম্পোনেন্ট ইনস্ট্যান্সের পরিমাণ একটি লক্ষণীয় কার্যক্ষমতা ওভারহেড হয়ে উঠতে পারে।
 
@@ -357,7 +357,7 @@ Vue 2 থেকে আগত ব্যবহারকারীরা [mixins](/a
 
 ## Further Reading {#further-reading}
 
-- [Reactivity In Depth](/guide/extras/reactivity-in-depth.html): for a low-level understanding of how Vue's reactivity system works.
-- [State Management](/guide/scaling-up/state-management.html): for patterns of managing state shared by multiple components.
-- [Testing Composables](/guide/scaling-up/testing.html#testing-composables): tips on unit testing composables.
+- [Reactivity In Depth](/guide/extras/reactivity-in-depth): for a low-level understanding of how Vue's reactivity system works.
+- [State Management](/guide/scaling-up/state-management): for patterns of managing state shared by multiple components.
+- [Testing Composables](/guide/scaling-up/testing#testing-composables): tips on unit testing composables.
 - [VueUse](https://vueuse.org/): an ever-growing collection of Vue composables. The source code is also a great learning resource.

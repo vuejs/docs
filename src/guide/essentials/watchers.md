@@ -6,7 +6,7 @@
 
 <div class="options-api">
 
-অপশন এপিআই-এর সাথে, যখনই কোনো প্রতিক্রিয়াশীল প্রপার্টি পরিবর্তন হয় তখন আমরা একটি ফাংশন ট্রিগার করতে [`watch` বিকল্প](/api/options-state.html#watch) ব্যবহার করতে পারি:
+অপশন এপিআই এর সাথে, যখনই একটি প্রতিক্রিয়াশীল প্রপার্টি পরিবর্তন হয় তখন আমরা একটি ফাংশন ট্রিগার করতে [`ঘড়ি` বিকল্প](/api/options-state#watch) ব্যবহার করতে পারি:
 
 ```js
 export default {
@@ -46,7 +46,7 @@ export default {
 <p>{{ answer }}</p>
 ```
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgcXVlc3Rpb246ICcnLFxuICAgICAgYW5zd2VyOiAnUXVlc3Rpb25zIHVzdWFsbHkgY29udGFpbiBhIHF1ZXN0aW9uIG1hcmsuIDstKSdcbiAgICB9XG4gIH0sXG4gIHdhdGNoOiB7XG4gICAgLy8gd2hlbmV2ZXIgcXVlc3Rpb24gY2hhbmdlcywgdGhpcyBmdW5jdGlvbiB3aWxsIHJ1blxuICAgIHF1ZXN0aW9uKG5ld1F1ZXN0aW9uLCBvbGRRdWVzdGlvbikge1xuICAgICAgaWYgKG5ld1F1ZXN0aW9uLmluZGV4T2YoJz8nKSA+IC0xKSB7XG4gICAgICAgIHRoaXMuZ2V0QW5zd2VyKClcbiAgICAgIH1cbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBhc3luYyBnZXRBbnN3ZXIoKSB7XG4gICAgICB0aGlzLmFuc3dlciA9ICdUaGlua2luZy4uLidcbiAgICAgIHRyeSB7XG4gICAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCdodHRwczovL3llc25vLnd0Zi9hcGknKVxuICAgICAgICB0aGlzLmFuc3dlciA9IChhd2FpdCByZXMuanNvbigpKS5hbnN3ZXJcbiAgICAgIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgICAgIHRoaXMuYW5zd2VyID0gJ0Vycm9yISBDb3VsZCBub3QgcmVhY2ggdGhlIEFQSS4gJyArIGVycm9yXG4gICAgICB9XG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBBc2sgYSB5ZXMvbm8gcXVlc3Rpb246XG4gICAgPGlucHV0IHYtbW9kZWw9XCJxdWVzdGlvblwiIC8+XG4gIDwvcD5cbiAgPHA+e3sgYW5zd2VyIH19PC9wPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[চেষ্টা করুন](https://play.vuejs.org/#eNptUk2PmzAQ/SuvXAA1sdVrmt0qqnroqa3UIxcLhuCGjKk/wkYR/70OBJLuroRkPDPvzbznuSS7rhOnQMkm2brS6s4/F0wvnbEeFdUqtB6XgoFKeZXl0z9gyQfL8w34G8h5bXiDNF3NQcWuJxtDv25Zh+CCatszSsNeaYZakDgqexD4vM7TCT9cj2Ek65Uvm83cTUr0DTGdyN7RZaN4T24F32iHOnA5hnvdtrCBJ+RcnTH180wrmLaaL4s+QNd4LBOaK3r5UWfplzTHM9afHmoxdhV78rtRcpbPmVHEf1qO5BtTuUWNcmcu8QC9046kk4l4Qvq70XzQvBdC3CyKJfb8OEa01fn4OC7Wq15pj5qidVnaeN+5jZRncmxE72upOp0uY77ulU3gSCT+uOhXnt9yiy6U1zdBRtYa+9aK+9TfrgUf8NWEtgKbK6mKQN8Qdj+/C6T4iJHkXcsKjt9WLpsZL56OXas8xRuw7cYD2LlDXKYoT7K5b+OU22rugsdpfTQVtU9FMueLBHKikRNPpLtcbnuLYZjCW7m0TIZ/92UFiQ==)
 
 `watch` option key হিসাবে একটি ডট-ডিলিমিটেড পাথকেও সমর্থন করে:
 
@@ -65,7 +65,7 @@ export default {
 
 <div class="composition-api">
 
-কম্পোজিশন এপিআই এর সাথে, যখনই প্রতিক্রিয়াশীল অবস্থার একটি অংশ পরিবর্তিত হয় তখন আমরা একটি কলব্যাক ট্রিগার করতে [`watch` ফাংশন](/api/reactivity-core.html#watch) ব্যবহার করতে পারি:
+কম্পোজিশন এপিআই-এর সাথে, যখনই প্রতিক্রিয়াশীল অবস্থার একটি অংশ পরিবর্তিত হয় তখন আমরা একটি কলব্যাক ট্রিগার করতে [`ঘড়ি` ফাংশন](/api/reactivity-core#watch) ব্যবহার করতে পারি:
 
 ```vue
 <script setup>
@@ -97,7 +97,7 @@ watch(question, async (newQuestion, oldQuestion) => {
 </template>
 ```
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgd2F0Y2ggfSBmcm9tICd2dWUnXG5cbmNvbnN0IHF1ZXN0aW9uID0gcmVmKCcnKVxuY29uc3QgYW5zd2VyID0gcmVmKCdRdWVzdGlvbnMgdXN1YWxseSBjb250YWluIGEgcXVlc3Rpb24gbWFyay4gOy0pJylcblxud2F0Y2gocXVlc3Rpb24sIGFzeW5jIChuZXdRdWVzdGlvbikgPT4ge1xuICBpZiAobmV3UXVlc3Rpb24uaW5kZXhPZignPycpID4gLTEpIHtcbiAgICBhbnN3ZXIudmFsdWUgPSAnVGhpbmtpbmcuLi4nXG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCdodHRwczovL3llc25vLnd0Zi9hcGknKVxuICAgICAgYW5zd2VyLnZhbHVlID0gKGF3YWl0IHJlcy5qc29uKCkpLmFuc3dlclxuICAgIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgICBhbnN3ZXIudmFsdWUgPSAnRXJyb3IhIENvdWxkIG5vdCByZWFjaCB0aGUgQVBJLiAnICsgZXJyb3JcbiAgICB9XG4gIH1cbn0pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBBc2sgYSB5ZXMvbm8gcXVlc3Rpb246XG4gICAgPGlucHV0IHYtbW9kZWw9XCJxdWVzdGlvblwiIC8+XG4gIDwvcD5cbiAgPHA+e3sgYW5zd2VyIH19PC9wPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[চেষ্টা করুন](https://play.vuejs.org/#eNplkkGPmzAQhf/KKxdA3Rj1mpJUUdVDT22lHrlYxDRuYOzaJjRC/PcdxyGr3b2A7PfmmzcMc3awVlxGlW2z2rdO2wCvwmj3DenBGhcww6nuCZMM7QkLOmcG5FyRN9RQa8gH/BuVD9oQdtFb5Hm5KpL8pNx6/+vu8xj9KPv+CnYFqQnyhTFIdxb4vCkjpaFb32JVnyD9lVoUpKaVVmK3x9wQoLtXgtB0VP9/cOMveYk9Np/K5MM9l7jIflScLv990nTW9EcIwXNFR3DX1YwYk4dxyrNXTlIHdCrGyk8hWL+tqqvyZMQUukpaHYOnujdtilTLHPHXGyrKUiRH8i9obx+5UM4Z98j6Pu23qH/AVzP2R5CJRMl14aRw+PldIMdH3Bh3bnzxY+FcdZW2zPvlQ1CD7WVQfALquPToP/gzL4RHqsg89rJNWq3JjgGXzWCOqt812ao3GaqEqRKHcfO8/gDLkq7r6tEyW54Bf5TTlg==)
 
 ### Watch Source Types {#watch-source-types}
 
@@ -244,7 +244,7 @@ export default {
 }
 ```
 
-হ্যান্ডলার ফাংশনের প্রাথমিক সঞ্চালন `created` হুকের ঠিক আগে ঘটবে। Vue ইতিমধ্যেই `data`, `computed` এবং `methods` options প্রক্রিয়া করেছে, তাই সেই বৈশিষ্ট্যগুলি প্রথম আহ্বানে উপলব্ধ হবে।
+হ্যান্ডলার ফাংশনের প্রাথমিক সঞ্চালন 'তৈরি' হুকের ঠিক আগে ঘটবে। Vue ইতিমধ্যেই `data`, `computed` এবং `created` বিকল্পগুলিকে প্রক্রিয়া করেছে, তাই সেই বৈশিষ্ট্যগুলি প্রথম আহ্বানে উপলব্ধ হবে।
 
 </div>
 
@@ -288,7 +288,7 @@ watch(
 
 বিশেষ করে, লক্ষ্য করুন কিভাবে পর্যবেক্ষক দুইবার `todoId` ব্যবহার করে, একবার উৎস হিসেবে এবং তারপর আবার কলব্যাকের ভিতরে।
 
-এটি [`watchEffect()`](/api/reactivity-core.html#watcheffect) দিয়ে সরলীকৃত করা যেতে পারে। `watchEffect()` আমাদের কলব্যাকের প্রতিক্রিয়াশীল নির্ভরতা স্বয়ংক্রিয়ভাবে ট্র্যাক করতে দেয়। উপরের প্রহরীটিকে এইভাবে পুনরায় লেখা যেতে পারে:
+এটি [`watchEffect()`](/api/reactivity-core#watcheffect) দিয়ে সরলীকৃত করা যেতে পারে। `watchEffect()` আমাদের কলব্যাকের প্রতিক্রিয়াশীল নির্ভরতা স্বয়ংক্রিয়ভাবে ট্র্যাক করতে দেয়। উপরের প্রহরীটিকে এইভাবে পুনরায় লেখা যেতে পারে:
 
 ```js
 watchEffect(async () => {
@@ -371,7 +371,7 @@ watchPostEffect(() => {
 
 ## `this.$watch()` \* {#this-watch}
 
-[`$watch()` instance method](/api/component-instance.html#watch) ব্যবহার করে অপরিহার্যভাবে পর্যবেক্ষক তৈরি করাও সম্ভব:
+এটি ব্যবহার করে অপরিহার্যভাবে পর্যবেক্ষক তৈরি করাও সম্ভব [`$watch()` instance method](/api/component-instance#watch):
 
 ```js
 export default {

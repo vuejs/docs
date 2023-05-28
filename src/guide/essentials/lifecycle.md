@@ -31,7 +31,7 @@ export default {
 
 </div>
 
-এছাড়াও আরও কিছু হুক আছে যেগুলোকে ইনস্ট্যান্সের লাইফসাইকেলের বিভিন্ন পর্যায়ে ডাকা হবে, সবচেয়ে বেশি ব্যবহৃত হচ্ছে <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html# onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated), এবং [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted)।</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated), এবং [`unmounted`] (/api/options-lifecycle.html#unmounted)।</span>
+এছাড়াও অন্যান্য হুক রয়েছে যা ইনস্ট্যান্সের জীবনচক্রের বিভিন্ন পর্যায়ে বলা হবে, যার মধ্যে সবচেয়ে বেশি ব্যবহৃত হচ্ছে<span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated), and [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated), and [`unmounted`](/api/options-lifecycle#unmounted).</span>
 
 <div class="options-api">
 
@@ -63,4 +63,4 @@ setTimeout(() => {
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-পরামর্শ করুন <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle.html)</span> সমস্ত জীবনচক্র হুক এবং তাদের নিজ নিজ ব্যবহারের ক্ষেত্রে বিস্তারিত জানার জন্য।
+পরামর্শ করুন <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle)</span> সমস্ত জীবনচক্র হুক এবং তাদের নিজ নিজ ব্যবহারের ক্ষেত্রে বিস্তারিত জানার জন্য।

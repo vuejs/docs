@@ -1,7 +1,10 @@
 <script setup>
-let x = $ref(0)
+import { ref } from 'vue'
+
+const x = ref(0)
+
 function onMousemove(e) {
-  x = e.clientX
+  x.value = e.clientX
 }
 </script>
 

@@ -59,7 +59,7 @@ app.mount('#app')
 
 ### In-DOM Root Component Template {#in-dom-root-component-template}
 
-বিল্ড স্টেপ ছাড়া Vue ব্যবহার করার সময়, আমরা আমাদের রুট কম্পোনেন্টের টেমপ্লেট সরাসরি মাউন্ট কন্টেইনারের ভিতরে লিখতে পারি:
+রুট কম্পোনেন্টের জন্য টেমপ্লেট সাধারণত কম্পোনেন্টেরই অংশ, কিন্তু মাউন্ট কন্টেইনারের ভিতরে সরাসরি লিখে আলাদাভাবে টেমপ্লেট প্রদান করাও সম্ভব:
 
 ```html
 <div id="app">
@@ -82,6 +82,8 @@ app.mount('#app')
 ```
 
 Vue স্বয়ংক্রিয়ভাবে কন্টেইনারের `innerHTML` কে টেমপ্লেট হিসেবে ব্যবহার করবে যদি রুট কম্পোনেন্টে আগে থেকেই `template` বিকল্প না থাকে।
+
+In-DOM templates are often used in applications that are [using Vue without a build step](/guide/quick-start.html#using-vue-from-cdn). They can also be used in conjunction with server-side frameworks, where the root template might be generated dynamically by the server.
 
 ## App Configurations {#app-configurations}
 

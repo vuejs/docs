@@ -6,7 +6,7 @@ During development, Vue উন্নয়ন অভিজ্ঞতা উন্
 
 - Warning for common errors and pitfalls
 - Props / events validation
-- [Reactivity debugging hooks](/guide/extras/reactivity-in-depth.html#reactivity-debugging)
+- [Reactivity debugging hooks](/guide/extras/reactivity-in-depth#reactivity-debugging)
 - Devtools integration
 
 যাইহোক, এই বৈশিষ্ট্যগুলি উত্পাদন অকেজো হয়ে যায়। কিছু সতর্কতা চেক ওভারহেড কর্মক্ষমতা একটি ছোট পরিমাণ বহন করতে পারে. উৎপাদনে মোতায়েন করার সময়, ছোট পেলোড আকার এবং আরও ভাল কার্যকারিতার জন্য আমাদের সমস্ত অব্যবহৃত, শুধুমাত্র বিকাশের কোড শাখা বাদ দেওয়া উচিত।
@@ -38,7 +38,7 @@ During development, Vue উন্নয়ন অভিজ্ঞতা উন্
 
 ## Tracking Runtime Errors {#tracking-runtime-errors}
 
-[অ্যাপ-লেভেল এরর হ্যান্ডলার](/api/application.html#app-config-errorhandler) ট্র্যাকিং পরিষেবাগুলিতে ত্রুটি রিপোর্ট করতে ব্যবহার করা যেতে পারে:
+[অ্যাপ-লেভেল এরর হ্যান্ডলার](/api/application#app-config-errorhandler) ট্র্যাকিং পরিষেবাগুলিতে ত্রুটি রিপোর্ট করতে ব্যবহার করা যেতে পারে:
 
 ```js
 import { createApp } from 'vue'

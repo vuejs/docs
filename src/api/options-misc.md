@@ -22,11 +22,11 @@ Explicitly declare a display name for the component.
 
   When you use Single-File Components, the component already infers its own name from the filename. For example, a file named `MyComponent.vue` will have the inferred display name "MyComponent".
 
-  Another case is that when a component is registered globally with [`app.component`](/api/application.html#app-component), the global ID is automatically set as its name.
+  Another case is that when a component is registered globally with [`app.component`](/api/application#app-component), the global ID is automatically set as its name.
 
   The `name` option allows you to override the inferred name, or to explicitly provide a name when no name can be inferred (e.g. when not using build tools, or an inlined non-SFC component).
 
-  There is one case where `name` is explicitly necessary: when matching against cacheable components in [`<KeepAlive>`](/guide/built-ins/keep-alive.html) via its `include / exclude` props.
+  There is one case where `name` is explicitly necessary: when matching against cacheable components in [`<KeepAlive>`](/guide/built-ins/keep-alive) via its `include / exclude` props.
 
   :::tip
   Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name even when used with `<KeepAlive>`.
@@ -104,7 +104,7 @@ Controls whether the default component attribute fallthrough behavior should be 
 
   </div>
 
-- **See also:** [Fallthrough Attributes](/guide/components/attrs.html)
+- **See also:** [Fallthrough Attributes](/guide/components/attrs)
 
 ## components {#components}
 
@@ -134,7 +134,7 @@ An object that registers components to be made available to the component instan
   }
   ```
 
-- **See also:** [Component Registration](/guide/components/registration.html)
+- **See also:** [Component Registration](/guide/components/registration)
 
 ## directives {#directives}
 
@@ -169,4 +169,4 @@ An object that registers directives to be made available to the component instan
 
   A hash of directives to be made available to the component instance.
 
-- **See also:** [Custom Directives](/guide/reusability/custom-directives.html)
+- **See also:** [Custom Directives](/guide/reusability/custom-directives)

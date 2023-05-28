@@ -67,7 +67,7 @@ export default {
 1. একাধিক ভিউ একই রাজ্যের উপর নির্ভর করতে পারে।
 2. বিভিন্ন দৃষ্টিভঙ্গি থেকে ক্রিয়াকলাপের জন্য একই state অংশকে পরিবর্তন করতে হতে পারে।
 
-প্রথম ক্ষেত্রে, একটি সম্ভাব্য সমাধান হল শেয়ার্ড স্টেটটিকে একটি সাধারণ পূর্বপুরুষ উপাদান পর্যন্ত "উঠিয়ে" এবং তারপর এটিকে প্রপস হিসাবে নামিয়ে দেওয়া। যাইহোক, এটি গভীর স্তরবিন্যাস সহ উপাদান গাছগুলিতে দ্রুত ক্লান্তিকর হয়ে ওঠে, যার ফলে [Prop Drilling](/guide/components/provide-inject.html#prop-drilling) নামে পরিচিত আরেকটি সমস্যা দেখা দেয়।
+প্রথম ক্ষেত্রে, একটি সম্ভাব্য সমাধান হল শেয়ার্ড স্টেটটিকে একটি সাধারণ পূর্বপুরুষ উপাদান পর্যন্ত "উঠিয়ে" এবং তারপর এটিকে প্রপস হিসাবে নামিয়ে দেওয়া। যাইহোক, এটি গভীর শ্রেণিবিন্যাস সহ উপাদান গাছগুলিতে দ্রুত ক্লান্তিকর হয়ে ওঠে, যার ফলে আরেকটি সমস্যা হয় যা [Prop Drilling](/guide/components/provide-inject#prop-drilling).
 
 দ্বিতীয় ক্ষেত্রে, আমরা প্রায়শই নিজেদেরকে সমাধানের অবলম্বন করতে দেখি যেমন টেমপ্লেট রেফের মাধ্যমে সরাসরি পিতামাতা/শিশুদের কাছে পৌঁছানো, বা নির্গত ইভেন্টের মাধ্যমে রাষ্ট্রের একাধিক অনুলিপি পরিবর্তন এবং সিঙ্ক্রোনাইজ করার চেষ্টা করা। এই দুটি প্যাটার্নই ভঙ্গুর এবং দ্রুত অরক্ষণীয় কোডের দিকে নিয়ে যায়।
 
@@ -77,11 +77,11 @@ export default {
 
 <div class="options-api">
 
-Options API -এ, `data()` বিকল্প ব্যবহার করে প্রতিক্রিয়াশীল ডেটা ঘোষণা করা হয়। অভ্যন্তরীণভাবে, `data()` দ্বারা প্রত্যাবর্তিত বস্তুটিকে [`reactive()`](/api/reactivity-core.html#reactive) ফাংশনের মাধ্যমে প্রতিক্রিয়াশীল করা হয়, যা একটি সর্বজনীন API হিসাবেও উপলব্ধ।
+অপশন এপিআই-এ, `data()` বিকল্প ব্যবহার করে প্রতিক্রিয়াশীল ডেটা ঘোষণা করা হয়। অভ্যন্তরীণভাবে, `data()` দ্বারা প্রত্যাবর্তিত বস্তুটিকে [`reactive()`](/api/reactivity-core#reactive) ফাংশনের মাধ্যমে প্রতিক্রিয়াশীল করা হয়, যা একটি সর্বজনীন API হিসাবেও উপলব্ধ।
 
 </div>
 
-আপনার যদি রাজ্যের একটি অংশ থাকে যা একাধিক দৃষ্টান্ত দ্বারা ভাগ করা উচিত, আপনি একটি প্রতিক্রিয়াশীল বস্তু তৈরি করতে [`reactive()`](/api/reactivity-core.html#reactive) ব্যবহার করতে পারেন এবং তারপরে এটি একাধিক উপাদানে আমদানি করতে পারেন :
+আপনার যদি state একটি অংশ থাকে যা একাধিক দৃষ্টান্ত দ্বারা ভাগ করা উচিত, আপনি একটি প্রতিক্রিয়াশীল বস্তু তৈরি করতে [`reactive()`](/api/reactivity-core#reactive) ব্যবহার করতে পারেন, এবং তারপর এটিকে একাধিক উপাদানে আমদানি করতে পারেন:
 
 ```js
 // store.js
@@ -187,12 +187,12 @@ export const store = reactive({
 
 <div class="composition-api">
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBDb21wb25lbnRBIGZyb20gJy4vQ29tcG9uZW50QS52dWUnXG5pbXBvcnQgQ29tcG9uZW50QiBmcm9tICcuL0NvbXBvbmVudEIudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPENvbXBvbmVudEEgLz5cbiAgPENvbXBvbmVudEIgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkNvbXBvbmVudEEudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHN0b3JlIH0gZnJvbSAnLi9zdG9yZS5qcydcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxkaXY+XG4gICAgPGJ1dHRvbiBAY2xpY2s9XCJzdG9yZS5pbmNyZW1lbnQoKVwiPlxuICAgICAgRnJvbSBBOiB7eyBzdG9yZS5jb3VudCB9fVxuICAgIDwvYnV0dG9uPlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+IiwiQ29tcG9uZW50Qi52dWUiOiI8c2NyaXB0IHNldHVwPlxuaW1wb3J0IHsgc3RvcmUgfSBmcm9tICcuL3N0b3JlLmpzJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGRpdj5cbiAgICA8YnV0dG9uIEBjbGljaz1cInN0b3JlLmluY3JlbWVudCgpXCI+XG4gICAgICBGcm9tIEI6IHt7IHN0b3JlLmNvdW50IH19XG4gICAgPC9idXR0b24+XG4gIDwvZGl2PlxuPC90ZW1wbGF0ZT4iLCJzdG9yZS5qcyI6ImltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgY29uc3Qgc3RvcmUgPSByZWFjdGl2ZSh7XG4gIGNvdW50OiAwLFxuICBpbmNyZW1lbnQoKSB7XG4gICAgdGhpcy5jb3VudCsrXG4gIH1cbn0pIn0=)
+[চেষ্টা করুন](https://play.vuejs.org/#eNrNkk1uwyAQha8yYpNEiUzXllPVrtRTeJNSqtLGgGBsVbK4ewdwnT9FWWSTFczwmPc+xMhqa4uhl6xklRdOWQQvsbfPrVadNQ7h1dCqpcYaPp3pYFHwQyteXVxKm0tpM0krnm3IgAqUnd3vUFIFUB1Z8bNOkzoVny+wDTuNcZ1gBI/GSQhzqlQX3/5Gng81pA1t33tEo+FF7JX42bYsT1BaONlRguWqZZMU4C261CWMk3EhTK8RQphm8Twse/BscoUsvdqDkTX3kP3nI6aZwcmdQDUcMPJPabX8TQphtCf0RLqd1csxuqQAJTxtYnEUGtIpAH4pn1Ou17FDScOKhT+QNAVM)
 
 </div>
 <div class="options-api">
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDb21wb25lbnRBIGZyb20gJy4vQ29tcG9uZW50QS52dWUnXG5pbXBvcnQgQ29tcG9uZW50QiBmcm9tICcuL0NvbXBvbmVudEIudnVlJ1xuICBcbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIENvbXBvbmVudEEsXG4gICAgQ29tcG9uZW50QlxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8Q29tcG9uZW50QSAvPlxuICA8Q29tcG9uZW50QiAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ29tcG9uZW50QS52dWUiOiI8c2NyaXB0PlxuaW1wb3J0IHsgc3RvcmUgfSBmcm9tICcuL3N0b3JlLmpzJ1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIHN0b3JlXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8ZGl2PlxuICAgIDxidXR0b24gQGNsaWNrPVwic3RvcmUuaW5jcmVtZW50KClcIj5cbiAgICAgIEZyb20gQToge3sgc3RvcmUuY291bnQgfX1cbiAgICA8L2J1dHRvbj5cbiAgPC9kaXY+XG48L3RlbXBsYXRlPiIsIkNvbXBvbmVudEIudnVlIjoiPHNjcmlwdD5cbmltcG9ydCB7IHN0b3JlIH0gZnJvbSAnLi9zdG9yZS5qcydcblxuZXhwb3J0IGRlZmF1bHQge1xuICBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBzdG9yZVxuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGRpdj5cbiAgICA8YnV0dG9uIEBjbGljaz1cInN0b3JlLmluY3JlbWVudCgpXCI+XG4gICAgICBGcm9tIEI6IHt7IHN0b3JlLmNvdW50IH19XG4gICAgPC9idXR0b24+XG4gIDwvZGl2PlxuPC90ZW1wbGF0ZT4iLCJzdG9yZS5qcyI6ImltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgY29uc3Qgc3RvcmUgPSByZWFjdGl2ZSh7XG4gIGNvdW50OiAwLFxuICBpbmNyZW1lbnQoKSB7XG4gICAgdGhpcy5jb3VudCsrXG4gIH1cbn0pIn0=)
+[চেষ্টা করুন](https://play.vuejs.org/#eNrdU8FqhDAU/JVHLruyi+lZ3FIt9Cu82JilaTWR5CkF8d8bE5O1u1so9FYQzAyTvJnRTKTo+3QcOMlIbpgWPT5WUnS90gjPyr4ll1jAWasOdim9UMum3a20vJWWqxSgkvzTyRt+rocWYVpYFoQm8wRsJh+viHLBcyXtk9No2ALkXd/WyC0CyDfW6RVTOiancQM5ku+x7nUxgUGlOcwxn8Ppu7HJ7udqaqz3SYikOQ5aBgT+OA9slt9kasToFnb5OiAqCU+sFezjVBHvRUimeWdT7JOKrFKAl8VvYatdI6RMDRJhdlPtWdQf5mdQP+SHdtyX/IftlH9pJyS1vcQ2NK8ZivFSiL8BsQmmpMG1s1NU79frYA1k8OD+/I3pUA6+CeNdHg6hmoTMX9pPSnk=)
 
 </div>
 
@@ -200,7 +200,7 @@ export const store = reactive({
 মনে রাখবেন ক্লিক হ্যান্ডলার বন্ধনী সহ `store.increment()` ব্যবহার করে - এটি একটি উপাদান পদ্ধতি না হওয়ায় সঠিক `this` প্রসঙ্গ সহ পদ্ধতিটিকে কল করতে হবে।
 :::
 
-যদিও এখানে আমরা একটি দোকান হিসাবে একটি একক প্রতিক্রিয়াশীল বস্তু ব্যবহার করছি, আপনি অন্যান্য [Reactivity APIs](/api/reactivity-core.html) যেমন `ref()` বা `computed()` ব্যবহার করে তৈরি প্রতিক্রিয়াশীল অবস্থা শেয়ার করতে পারেন, অথবা এমনকি একটি [Composable](/guide/reusability/composables.html) থেকে বৈশ্বিক অবস্থা ফেরত দিন:
+যদিও এখানে আমরা একটি দোকান হিসাবে একটি একক প্রতিক্রিয়াশীল বস্তু ব্যবহার করছি, আপনি অন্যান্য [রিঅ্যাকটিভিটি API](/api/reactivity-core) যেমন `ref()` বা `কম্পিউটেড()`, অথবা এমনকি ব্যবহার করে তৈরি প্রতিক্রিয়াশীল অবস্থাও ভাগ করতে পারেন। একটি [কম্পোজযোগ্য](/guide/reusability/composables) থেকে বৈশ্বিক অবস্থা ফেরত দিন:
 
 ```js
 import { ref } from 'vue'

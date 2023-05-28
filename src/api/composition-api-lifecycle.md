@@ -1,7 +1,7 @@
 # Composition API: Lifecycle Hooks {#composition-api-lifecycle-hooks}
 
 :::info Usage Note
-All APIs listed on this page must be called synchronously during the `setup()` phase of a component. See [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html) for more details.
+All APIs listed on this page must be called synchronously during the `setup()` phase of a component. See [Guide - Lifecycle Hooks](/guide/essentials/lifecycle) for more details.
 :::
 
 ## onMounted() {#onmounted}
@@ -22,7 +22,7 @@ Registers a callback to be called after the component has been mounted.
 
   - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
 
-  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr.html).
+  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr).
 
   **This hook is not called during server-side rendering.**
 
@@ -60,7 +60,7 @@ Registers a callback to be called after the component has updated its DOM tree d
 
   A parent component's updated hook is called after that of its child components.
 
-  This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general.html#nexttick) instead.
+  This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general#nexttick) instead.
 
   **This hook is not called during server-side rendering.**
 
@@ -212,7 +212,7 @@ Registers a hook to be called when an error propagating from a descendant compon
 
   **Error Propagation Rules**
 
-  - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application.html#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
+  - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
 
   - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error, in the order of bottom to top. This is similar to the bubbling mechanism of native DOM events.
 
@@ -241,7 +241,7 @@ Registers a debug hook to be called when a reactive dependency has been tracked 
   }
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
 
 ## onRenderTriggered() <sup class="vt-badge dev-only" /> {#onrendertriggered}
 
@@ -267,11 +267,11 @@ Registers a debug hook to be called when a reactive dependency triggers the comp
   }
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
 
 ## onActivated() {#onactivated}
 
-Registers a callback to be called after the component instance is inserted into the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
+Registers a callback to be called after the component instance is inserted into the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components#keepalive).
 
 **This hook is not called during server-side rendering.**
 
@@ -281,11 +281,11 @@ Registers a callback to be called after the component instance is inserted into 
   function onActivated(callback: () => void): void
   ```
 
-- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
+- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
 ## onDeactivated() {#ondeactivated}
 
-Registers a callback to be called after the component instance is removed from the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components.html#keepalive).
+Registers a callback to be called after the component instance is removed from the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components#keepalive).
 
 **This hook is not called during server-side rendering.**
 
@@ -295,7 +295,7 @@ Registers a callback to be called after the component instance is removed from t
   function onDeactivated(callback: () => void): void
   ```
 
-- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive.html#lifecycle-of-cached-instance)
+- **See also:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
 ## onServerPrefetch() <sup class="vt-badge" data-text="SSR only" /> {#onserverprefetch}
 
@@ -338,4 +338,4 @@ Registers an async function to be resolved before the component instance is to b
   </script>
   ```
 
-- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr.html)
+- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr)

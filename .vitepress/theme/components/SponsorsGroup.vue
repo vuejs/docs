@@ -1,29 +1,34 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { SponsorData, data, base, load } from './sponsors'
 
 type Placement = 'aside' | 'page' | 'landing'
 
-const { tier, placement = 'aside' } = defineProps<{
-  tier: keyof SponsorData
-  placement?: Placement
-}>()
+const props = withDefaults(
+  defineProps<{
+    tier: keyof SponsorData
+    placement?: Placement
+  }>(),
+  {
+    placement: 'aside'
+  }
+)
 
-let container = $ref<HTMLElement>()
-let visible = $ref(false)
+const container = ref<HTMLElement>()
+const visible = ref(false)
 
 onMounted(async () => {
   // only render when entering view
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting) {
-        visible = true
+        visible.value = true
         observer.disconnect()
       }
     },
     { rootMargin: '0px 0px 300px 0px' }
   )
-  observer.observe(container!)
+  observer.observe(container.value!)
   onUnmounted(() => observer.disconnect())
 
   // load data
@@ -38,7 +43,7 @@ const eventMap: Record<Placement, string> = {
 }
 
 function track(interest?: boolean) {
-  fathom.trackGoal(interest ? `Y2BVYNT2` : eventMap[placement], 0)
+  fathom.trackGoal(interest ? `Y2BVYNT2` : eventMap[props.placement], 0)
 }
 </script>
 

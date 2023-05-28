@@ -4,15 +4,15 @@ outline: deep
 
 # Reactivity Fundamentals {#reactivity-fundamentals}
 
-:::tip API অগ্রাধিকার
-এই পৃষ্ঠাটি এবং পরবর্তীতে গাইডের অন্যান্য অনেক অধ্যায়ে অপশন এপিআই এবং কম্পোজিশন এপিআই-এর জন্য বিভিন্ন বিষয়বস্তু রয়েছে। আপনার বর্তমান পছন্দ হল <span class="options-api">Options API</span><span class="composition-api">Composition API</span>। আপনি বাম সাইডবারের শীর্ষে "API অগ্রাধিকার" সুইচগুলি ব্যবহার করে API styles মধ্যে টগল করতে পারেন।
+:::tip API Preference
+এই পৃষ্ঠাটি এবং পরবর্তীতে গাইডের অন্যান্য অনেক অধ্যায়ে অপশন এপিআই এবং কম্পোজিশন এপিআই-এর জন্য বিভিন্ন বিষয়বস্তু রয়েছে। আপনার বর্তমান পছন্দ হল <span class="options-api">বিকল্প API</span><span class="composition-api">কম্পোজিশন API</span>। আপনি বাম সাইডবারের শীর্ষে "API পছন্দ" সুইচগুলি ব্যবহার করে API শৈলীগুলির মধ্যে টগল করতে পারেন।
 :::
 
 ## Declaring Reactive State {#declaring-reactive-state}
 
 <div class="options-api">
 
-অপশন এপিআই এর সাথে, আমরা একটি উপাদানের প্রতিক্রিয়াশীল অবস্থা ঘোষণা করতে `data` বিকল্প ব্যবহার করি। বিকল্পের মান একটি ফাংশন হওয়া উচিত যা একটি বস্তু প্রদান করে। একটি নতুন কম্পোনেন্ট ইন্সট্যান্স তৈরি করার সময় Vue ফাংশনটিকে কল করবে এবং রিঅ্যাকটিভিটি সিস্টেমে রিটার্ন করা অবজেক্টকে মোড়ানো হবে। এই বস্তুর যেকোনো শীর্ষ-স্তরের বৈশিষ্ট্যগুলি কম্পোনেন্ট ইনস্ট্যান্সে প্রক্সি করা হয় (পদ্ধতি এবং লাইফসাইকেল হুকগুলিতে `this`):
+অপশন API-এর সাথে, আমরা একটি উপাদানের প্রতিক্রিয়াশীল অবস্থা ঘোষণা করতে `data` বিকল্প ব্যবহার করি। বিকল্পের মান একটি ফাংশন হওয়া উচিত যা একটি বস্তু প্রদান করে। একটি নতুন কম্পোনেন্ট ইন্সট্যান্স তৈরি করার সময় Vue ফাংশনটিকে কল করবে এবং রিঅ্যাকটিভিটি সিস্টেমে রিটার্ন করা অবজেক্টকে মোড়ানো হবে। এই বস্তুর যেকোনো শীর্ষ-স্তরের বৈশিষ্ট্যগুলি কম্পোনেন্ট ইনস্ট্যান্সে প্রক্সি করা হয় (পদ্ধতি এবং লাইফসাইকেল হুকগুলিতে `this`):
 
 ```js{2-6}
 export default {
@@ -33,7 +33,7 @@ export default {
 }
 ```
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDFcbiAgICB9XG4gIH0sXG5cbiAgLy8gYG1vdW50ZWRgIGlzIGEgbGlmZWN5Y2xlIGhvb2sgd2hpY2ggd2Ugd2lsbCBleHBsYWluIGxhdGVyXG4gIG1vdW50ZWQoKSB7XG4gICAgLy8gYHRoaXNgIHJlZmVycyB0byB0aGUgY29tcG9uZW50IGluc3RhbmNlLlxuICAgIGNvbnNvbGUubG9nKHRoaXMuY291bnQpIC8vID0+IDFcblxuICAgIC8vIGRhdGEgY2FuIGJlIG11dGF0ZWQgYXMgd2VsbFxuICAgIHRoaXMuY291bnQgPSAyXG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIENvdW50IGlzOiB7eyBjb3VudCB9fVxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Try it in the Playground](https://play.vuejs.org/#eNpFUNFqhDAQ/JXBpzsoHu2j3B2U/oYPpnGtoetGkrW2iP/eRFsPApthd2Zndilex7H8mqioimu0wY16r4W+Rx8ULXVmYsVSC9AaNafz/gcC6RTkHwHWT6IVnne85rI+1ZLr5YJmyG1qG7gIA3Yd2R/LhN77T8y9sz1mwuyYkXazcQI2SiHz/7iP3VlQexeb5KKjEKEe2lPyMIxeSBROohqxVO4E6yV6ppL9xykTy83tOQvd7tnzoZtDwhrBO2GYNFloYWLyxrzPPOi44WWLWUt618txvASUhhRCKSHgbZt2scKy7HfCujGOqWL9BVfOgyI=)
 
 এই উদাহরণ বৈশিষ্ট্যগুলি শুধুমাত্র যোগ করা হয় যখন দৃষ্টান্তটি প্রথম তৈরি করা হয়, তাই আপনাকে নিশ্চিত করতে হবে যে সেগুলি `data` ফাংশন দ্বারা প্রত্যাবর্তিত বস্তুতে উপস্থিত রয়েছে। যেখানে প্রয়োজন, সেইসব বৈশিষ্ট্যের জন্য `null`, `undefined` বা অন্য কোনো স্থানধারক মান ব্যবহার করুন যেখানে পছন্দসই মান এখনও উপলব্ধ নয়।
 
@@ -67,7 +67,7 @@ export default {
 
 <div class="composition-api">
 
-আমরা [`reactive()`](/api/reactivity-core.html#reactive) ফাংশন দিয়ে একটি প্রতিক্রিয়াশীল বস্তু বা অ্যারে তৈরি করতে পারি:
+আমরা [`reactive()`](/api/reactivity-core#reactive) ফাংশন দিয়ে একটি প্রতিক্রিয়াশীল বস্তু বা অ্যারে তৈরি করতে পারি:
 
 ```js
 import { reactive } from 'vue'
@@ -75,9 +75,9 @@ import { reactive } from 'vue'
 const state = reactive({ count: 0 })
 ```
 
-প্রতিক্রিয়াশীল বস্তু হল [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) এবং সাধারণ বস্তুর মতো আচরণ করে। পার্থক্য হল Vue একটি প্রতিক্রিয়াশীল বস্তুর সম্পত্তি অ্যাক্সেস এবং মিউটেশন ট্র্যাক করতে সক্ষম। আপনি যদি বিশদ বিবরণ সম্পর্কে জানতে আগ্রহী হন, আমরা ব্যাখ্যা করি যে কীভাবে Vue-এর প্রতিক্রিয়াশীলতা সিস্টেম [Reactivity in Depth](/guide/extras/reactivity-in-depth.html) এ কাজ করে - তবে আমরা আপনাকে মূল নির্দেশিকা শেষ করার পরে এটি পড়ার পরামর্শ দিই।
+প্রতিক্রিয়াশীল বস্তু হল [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) এবং সাধারণ বস্তুর মতোই আচরণ করে। পার্থক্য হল Vue একটি প্রতিক্রিয়াশীল বস্তুর সম্পত্তি অ্যাক্সেস এবং মিউটেশন ট্র্যাক করতে সক্ষম। আপনি যদি বিশদ বিবরণ সম্পর্কে জানতে আগ্রহী হন, আমরা ব্যাখ্যা করি যে কীভাবে Vue-এর প্রতিক্রিয়াশীলতা সিস্টেম [গভীরতার মধ্যে প্রতিক্রিয়া](/guide/extras/reactivity-in-depth) এ কাজ করে - তবে আমরা আপনাকে মূল নির্দেশিকা শেষ করার পরে এটি পড়ার পরামর্শ দিই।
 
-আরও দেখুন: [Typing Reactive](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Reactive](/guide/typescript/composition-api#typing-reactive) <sup class="vt-badge ts" />
 
 একটি উপাদানের টেমপ্লেটে প্রতিক্রিয়াশীল অবস্থা ব্যবহার করতে, একটি উপাদানের `setup()` ফাংশন থেকে তাদের ঘোষণা করুন এবং ফেরত দিন:
 
@@ -85,7 +85,7 @@ const state = reactive({ count: 0 })
 import { reactive } from 'vue'
 
 export default {
-  // `setup` is a special hook dedicated for composition API.
+  // `setup` is a special hook dedicated for the composition API.
   setup() {
     const state = reactive({ count: 0 })
 
@@ -153,7 +153,7 @@ function increment() {
 </template>
 ```
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlYWN0aXZlIH0gZnJvbSAndnVlJ1xuXG5jb25zdCBzdGF0ZSA9IHJlYWN0aXZlKHsgY291bnQ6IDAgfSlcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBzdGF0ZS5jb3VudCsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPlxuICAgIHt7IHN0YXRlLmNvdW50IH19XG4gIDwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
+[Try it in the Playground](https://play.vuejs.org/#eNpNjkEKgzAURK8yZFNF0K5FS3uPbGyIEKo/If64Cbl7fxWky2HePCarVwjtnqzq1bCZ6AJjs5zCQ5Nbg4+MjGgnw263KJijX3ET/qZJk/G0Cc8TW4wXVmUYn4h73FHqHzcnksYTHJloV0tc1ciacG7bA28aTUXT0J035IAEtmtYBJEEDO/ELJanWZz5jFpdOq0OAMj5X4kiQtl151CYobuMqnwBBoFaVA==)
 
 `<script setup>`-এ ঘোষিত শীর্ষ-স্তরের আমদানি এবং ভেরিয়েবল একই উপাদানের টেমপ্লেটে স্বয়ংক্রিয়ভাবে ব্যবহারযোগ্য।
 
@@ -206,7 +206,7 @@ export default {
 <button @click="increment">{{ count }}</button>
 ```
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBpbmNyZW1lbnQoKSB7XG4gICAgICB0aGlzLmNvdW50KytcbiAgICB9XG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgdGhpcy5pbmNyZW1lbnQoKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Try it in the Playground](https://play.vuejs.org/#eNplj9EKwyAMRX8l+LSx0e65uLL9hy+dZlTWqtg4BuK/z1baDgZicsPJgUR2d656B2QN45P02lErDH6c9QQKn10YCKIwAKqj7nAsPYBHCt6sCUDaYKiBS8lpLuk8/yNSb9XUrKg20uOIhnYXAPV6qhbF6fRvmOeodn6hfzwLKkx+vN5OyIFwdENHmBMAfwQia+AmBy1fV8E2gWBtjOUASInXBcxLvN4MLH0BCe1i4Q==)
 
 উপরের উদাহরণে, `<button>` ক্লিক করলে `increment` পদ্ধতিটিকে বলা হবে।
 
@@ -216,7 +216,7 @@ export default {
 
 যখন আপনি প্রতিক্রিয়াশীল অবস্থা পরিবর্তন করেন, DOM স্বয়ংক্রিয়ভাবে আপডেট হয়। যাইহোক, এটি লক্ষ করা উচিত যে DOM আপডেটগুলি সিঙ্ক্রোনাসভাবে প্রয়োগ করা হয় না। পরিবর্তে, Vue আপডেট চক্রে "পরবর্তী টিক" না হওয়া পর্যন্ত সেগুলিকে বাফার করে যাতে আপনি যতগুলি রাজ্য পরিবর্তন করেছেন না কেন প্রতিটি উপাদান শুধুমাত্র একবার আপডেট হয়।
 
-একটি রাষ্ট্র পরিবর্তনের পরে DOM আপডেট সম্পূর্ণ হওয়ার জন্য অপেক্ষা করতে, আপনি [nextTick()](/api/general.html#nexttick) গ্লোবাল API ব্যবহার করতে পারেন:
+একটি রাষ্ট্র পরিবর্তনের পরে DOM আপডেট সম্পূর্ণ হওয়ার জন্য অপেক্ষা করতে, আপনি [nextTick()](/api/general#nexttick) গ্লোবাল API ব্যবহার করতে পারেন:
 
 <div class="composition-api">
 
@@ -298,7 +298,7 @@ function mutateDeeply() {
 
 </div>
 
-এটি স্পষ্টভাবে [অগভীর reactive objects](/api/reactivity-advanced.html#shallowreactive) তৈরি করাও সম্ভব যেখানে প্রতিক্রিয়াশীলতা শুধুমাত্র রুট-লেভেলে ট্র্যাক করা হয়, তবে এগুলি সাধারণত শুধুমাত্র উন্নত ব্যবহারের ক্ষেত্রে প্রয়োজন হয়।
+এটি স্পষ্টভাবে [অগভীর প্রতিক্রিয়াশীল বস্তু](/api/reactivity-advanced#shallowreactive) তৈরি করাও সম্ভব যেখানে প্রতিক্রিয়াশীলতা শুধুমাত্র রুট-লেভেলে ট্র্যাক করা হয়, তবে এগুলি সাধারণত শুধুমাত্র উন্নত ব্যবহারের ক্ষেত্রে প্রয়োজন হয়।
 
 <div class="composition-api">
 
@@ -375,7 +375,7 @@ console.log(proxy.nested === raw) // false
 
 ## Reactive Variables with `ref()` \*\* {#reactive-variables-with-ref}
 
-`reactive()` এর সীমাবদ্ধতাগুলিকে সমাধান করার জন্য, Vue একটি [`ref()`](/api/reactivity-core.html#ref) ফাংশনও প্রদান করে যা আমাদের প্রতিক্রিয়াশীল **"refs"** তৈরি করতে দেয় যা করতে পারে যেকোনো মান ধরুন:
+`reactive()` এর সীমাবদ্ধতাগুলিকে মোকাবেলা করার জন্য, Vue একটি [`ref()`](/api/reactivity-core#ref) ফাংশনও প্রদান করে যা আমাদেরকে প্রতিক্রিয়াশীল **"refs"** তৈরি করতে দেয় যা যেকোনো একটি ধারণ করতে পারে। মান প্রকার:
 
 ```js
 import { ref } from 'vue'
@@ -395,7 +395,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-আরও দেখুন: [Typing Refs](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Refs](/guide/typescript/composition-api#typing-ref) <sup class="vt-badge ts" />
 
 একটি প্রতিক্রিয়াশীল বস্তুর বৈশিষ্ট্যের মতো, একটি রেফের `.value` বৈশিষ্ট্য প্রতিক্রিয়াশীল। উপরন্তু, অবজেক্টের ধরন ধরে রাখার সময়, ref স্বয়ংক্রিয়ভাবে তার `.value` কে `reactive()` দিয়ে রূপান্তর করে।
 
@@ -425,7 +425,7 @@ callSomeFunction(obj.foo)
 const { foo, bar } = obj
 ```
 
-অন্য কথায়, `ref()` আমাদেরকে যেকোনো মানের একটি "রেফারেন্স" তৈরি করতে এবং প্রতিক্রিয়াশীলতা না হারিয়ে এটিকে পাস করার অনুমতি দেয়। এই ক্ষমতাটি বেশ গুরুত্বপূর্ণ কারণ [Composable Functions](/guide/reusability/composables.html) এ লজিক বের করার সময় এটি প্রায়শই ব্যবহৃত হয়।
+অন্য কথায়, `ref()` আমাদেরকে যেকোনো মানের একটি "রেফারেন্স" তৈরি করতে এবং প্রতিক্রিয়াশীলতা না হারিয়ে এটিকে পাস করার অনুমতি দেয়। এই ক্ষমতাটি বেশ গুরুত্বপূর্ণ কারণ [কম্পোজেবল ফাংশন](/guide/reusability/composables) এ লজিক বের করার সময় এটি প্রায়শই ব্যবহৃত হয়।
 
 ### Ref Unwrapping in Templates \*\* {#ref-unwrapping-in-templates}
 
@@ -449,9 +449,9 @@ function increment() {
 </template>
 ```
 
-[চেষ্টা করুন](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgY291bnQgPSByZWYoMClcblxuZnVuY3Rpb24gaW5jcmVtZW50KCkge1xuICBjb3VudC52YWx1ZSsrXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
+[Try it in the Playground](https://play.vuejs.org/#eNo9jUEKgzAQRa8yZKMiaNclSnuP2dgwQqiZhDhxE3L3Riwu//DmvazeIQxHIvVUejfRBoGdJIUZ2brgo0CGSCsUWKN30FS0QUY2nncB4xMLTCfRPrrzviY2Yj2DZRPJEUvbQUaGix2OZUvU98gFWY9XsbbqEHJhW4TqAtCfJFItL7NZ851Q3TpUc87/cCl6vMD6pMfboMoPvd1Nzg==)
 
-মনে রাখবেন যে রেফারটি টেমপ্লেট রেন্ডার প্রসঙ্গে একটি শীর্ষ-স্তরের সম্পত্তি হলেই কেবল আনর্যাপিং প্রযোজ্য। উদাহরণ হিসাবে, `object` একটি শীর্ষ-স্তরের সম্পত্তি, কিন্তু `object.foo` নয়।
+Note that the unwrapping only applies if the ref is a top-level property on the template render context. As an example, `object` is a top-level property, but `object.foo` is not.
 
 সুতরাং, নিম্নলিখিত বস্তু দেওয়া:
 
@@ -465,7 +465,7 @@ const object = { foo: ref(1) }
 {{ object.foo + 1 }}
 ```
 
-রেন্ডার করা ফলাফল হবে `[object Object]1` কারণ `object.foo` একটি রেফ অবজেক্ট। আমরা 'foo' একটি শীর্ষ-স্তরের সম্পত্তি তৈরি করে এটি ঠিক করতে পারি:
+রেন্ডার করা ফলাফল হবে `[object Object]1` কারণ `object.foo` একটি রেফ অবজেক্ট। আমরা `foo` একটি শীর্ষ-স্তরের সম্পত্তি তৈরি করে এটি ঠিক করতে পারি:
 
 ```js
 const { foo } = object
@@ -512,7 +512,7 @@ console.log(state.count) // 2
 console.log(count.value) // 1
 ```
 
-Ref unwrapping শুধুমাত্র তখনই ঘটে যখন একটি গভীর প্রতিক্রিয়াশীল বস্তুর ভিতরে নেস্ট করা হয়। এটি প্রযোজ্য হয় না যখন এটি একটি [অগভীর reactive object](/api/reactivity-advanced.html#shallowreactive) এর একটি সম্পত্তি হিসাবে অ্যাক্সেস করা হয়।
+Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced#shallowreactive).
 
 ### Ref Unwrapping in Arrays and Collections {#ref-unwrapping-in-arrays-and-collections}
 
@@ -571,30 +571,5 @@ export default {
   }
 }
 ```
-
-</div>
-
-<div class="composition-api">
-
-## Reactivity Transform <sup class="vt-badge experimental" /> \*\* {#reactivity-transform}
-
-রেফের সাথে `.value` ব্যবহার করা জাভাস্ক্রিপ্টের ভাষার সীমাবদ্ধতার দ্বারা আরোপিত একটি ত্রুটি। যাইহোক, কম্পাইল-টাইম ট্রান্সফর্মের সাথে আমরা যথাযথ স্থানে স্বয়ংক্রিয়ভাবে `.value` যুক্ত করে এরগোনমিক্সকে উন্নত করতে পারি। Vue একটি কম্পাইল-টাইম ট্রান্সফর্ম প্রদান করে যা আমাদের আগের "কাউন্টার" উদাহরণটি এভাবে লিখতে দেয়:
-
-```vue
-<script setup>
-let count = $ref(0)
-
-function increment() {
-  // no need for .value
-  count++
-}
-</script>
-
-<template>
-  <button @click="increment">{{ count }}</button>
-</template>
-```
-
-আপনি [Reactivity Transform](/guide/extras/reactivity-transform.html) সম্পর্কে এর ডেডিকেটেড বিভাগে আরও জানতে পারবেন। মনে রাখবেন যে এটি এখনও পরীক্ষামূলক এবং চূড়ান্ত হওয়ার আগে পরিবর্তিত হতে পারে।
 
 </div>

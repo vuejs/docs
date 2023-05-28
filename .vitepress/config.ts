@@ -4,6 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
+import { textAdPlugin } from './textAdMdPlugin'
 
 const nav: ThemeConfig['nav'] = [
   {
@@ -32,7 +33,7 @@ const nav: ThemeConfig['nav'] = [
   },
   {
     text: 'Playground',
-    link: 'https://sfc.vuejs.org'
+    link: 'https://play.vuejs.org'
   },
   {
     text: 'Ecosystem',
@@ -43,6 +44,10 @@ const nav: ThemeConfig['nav'] = [
         items: [
           { text: 'Partners', link: '/partners/' },
           { text: 'Themes', link: '/ecosystem/themes' },
+          {
+            text: 'Certification',
+            link: 'https://certification.vuejs.org/?ref=vuejs-nav'
+          },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
         ]
@@ -313,16 +318,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
         {
           text: 'Animation Techniques',
           link: '/guide/extras/animation'
-        },
-        {
-          text: 'Reactivity Transform',
-          link: '/guide/extras/reactivity-transform'
         }
         // {
         //   text: 'Building a Library for Vue',
         //   link: '/guide/extras/building-a-library'
         // },
-        // { text: 'Custom Renderers', link: '/guide/extras/custom-renderer' },
         // {
         //   text: 'Vue for React Devs',
         //   link: '/guide/extras/vue-for-react-devs'
@@ -584,7 +584,6 @@ export default defineConfigWithTheme<ThemeConfig>({
   description: 'Vue.js - প্রগতিশীল জাভাস্ক্রিপ্ট ফ্রেমওয়ার্ক',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
-  scrollOffset: 'header',
 
   head: [
     ['meta', { name: 'theme-color', content: '#3c8772' }],
@@ -620,6 +619,13 @@ export default defineConfigWithTheme<ThemeConfig>({
         'data-spa': 'auto',
         defer: ''
       }
+    ],
+    [
+      'script',
+      {
+        src: 'https://vueschool.io/banner.js?affiliate=vuejs&type=top',
+        async: 'true'
+      }
     ]
   ],
 
@@ -639,6 +645,16 @@ export default defineConfigWithTheme<ThemeConfig>({
         link: 'https://ja.vuejs.org',
         text: '日本語',
         repo: 'https://github.com/vuejs-translations/docs-ja'
+      },
+      {
+        link: 'https://ua.vuejs.org',
+        text: 'Українська',
+        repo: 'https://github.com/vuejs-translations/docs-uk'
+      },
+      {
+        link: 'https://fr.vuejs.org',
+        text: 'Français',
+        repo: 'https://github.com/vuejs-translations/docs-fr'
       },
       {
         link: '/translations/',
@@ -683,7 +699,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   markdown: {
     config(md) {
-      md.use(headerPlugin)
+      md.use(headerPlugin).use(textAdPlugin)
     }
   },
 
@@ -713,9 +729,5 @@ export default defineConfigWithTheme<ThemeConfig>({
     json: {
       stringify: true
     }
-  },
-
-  vue: {
-    reactivityTransform: true
   }
 })

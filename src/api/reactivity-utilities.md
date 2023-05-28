@@ -41,11 +41,23 @@ Returns the inner value if the argument is a ref, otherwise return the argument 
 
 ## toRef() {#toref}
 
-Can be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
+Can be used to normalize values / refs / getters into refs (3.3+).
+
+Can also be used to create a ref for a property on a source reactive object. The created ref is synced with its source property: mutating the source property will update the ref, and vice-versa.
 
 - **Type**
 
   ```ts
+  // normalization signature (3.3+)
+  function toRef<T>(
+    value: T
+  ): T extends () => infer R
+    ? Readonly<Ref<R>>
+    : T extends Ref
+    ? T
+    : Ref<UnwrapRef<T>>
+
+  // object property signature
   function toRef<T extends object, K extends keyof T>(
     object: T,
     key: K,
@@ -57,12 +69,29 @@ Can be used to create a ref for a property on a source reactive object. The crea
 
 - **Example**
 
+  Normalization signature (3.3+):
+
+  ```js
+  // returns existing refs as-is
+  toRef(existingRef)
+
+  // creates a readonly ref that calls the getter on .value access
+  toRef(() => props.foo)
+
+  // creates normal refs from non-function values
+  // equivalent to ref(1)
+  toRef(1)
+  ```
+
+  Object property signature:
+
   ```js
   const state = reactive({
     foo: 1,
     bar: 2
   })
 
+  // a two-way ref that syncs with the original property
   const fooRef = toRef(state, 'foo')
 
   // mutating the ref updates the original
@@ -87,18 +116,58 @@ Can be used to create a ref for a property on a source reactive object. The crea
   ```vue
   <script setup>
   import { toRef } from 'vue'
-  
+
   const props = defineProps(/* ... */)
 
   // convert `props.foo` into a ref, then pass into
   // a composable
   useSomeFeature(toRef(props, 'foo'))
+
+  // getter syntax - recommended in 3.3+
+  useSomeFeature(toRef(() => props.foo))
   </script>
   ```
 
-  When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core.html#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/v-model.html) for more information.
+  When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/v-model) for more information.
 
-  `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
+  When using the object property signature, `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
+
+## toValue() <sup class="vt-badge" data-text="3.3+" /> {#tovalue}
+
+Normalizes values / refs / getters to values. This is similar to [unref()](#unref), except that it also normalizes getters. If the argument is a getter, it will be invoked and its return value will be returned.
+
+This can be used in [Composables](/guide/reusability/composables.html) to normalize an argument that can be either a value, a ref, or a getter.
+
+- **Type**
+
+  ```ts
+  function toValue<T>(source: T | Ref<T> | (() => T)): T
+  ```
+
+- **Example**
+
+  ```js
+  toValue(1) //       --> 1
+  toValue(ref(1)) //  --> 1
+  toValue(() => 1) // --> 1
+  ```
+
+  Normalizing arguments in composables:
+
+  ```ts
+  import type { MaybeRefOrGetter } from 'vue'
+
+  function useFeature(id: MaybeRefOrGetter<number>) {
+    watch(() => toValue(id), id => {
+      // react to id changes
+    })
+  }
+
+  // this composable supports any of the following:
+  useFeature(1)
+  useFeature(ref(1))
+  useFeature(() => 1)
+  ```
 
 ## toRefs() {#torefs}
 
@@ -163,7 +232,7 @@ Converts a reactive object to a plain object where each property of the resultin
 
 ## isProxy() {#isproxy}
 
-Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive), [`readonly()`](./reactivity-core.html#readonly), [`shallowReactive()`](./reactivity-advanced.html#shallowreactive) or [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly).
+Checks if an object is a proxy created by [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core#readonly), [`shallowReactive()`](./reactivity-advanced#shallowreactive) or [`shallowReadonly()`](./reactivity-advanced#shallowreadonly).
 
 - **Type**
 
@@ -173,7 +242,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 ## isReactive() {#isreactive}
 
-Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#reactive) or [`shallowReactive()`](./reactivity-advanced.html#shallowreactive).
+Checks if an object is a proxy created by [`reactive()`](./reactivity-core#reactive) or [`shallowReactive()`](./reactivity-advanced#shallowreactive).
 
 - **Type**
 
@@ -185,7 +254,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core.html#
 
 Checks whether the passed value is a readonly object. The properties of a readonly object can change, but they can't be assigned directly via the passed object.
 
-The proxies created by [`readonly()`](./reactivity-core.html#readonly) and [`shallowReadonly()`](./reactivity-advanced.html#shallowreadonly) are both considered readonly, as is a [`computed()`](./reactivity-core.html#computed) ref without a `set` function.
+The proxies created by [`readonly()`](./reactivity-core#readonly) and [`shallowReadonly()`](./reactivity-advanced#shallowreadonly) are both considered readonly, as is a [`computed()`](./reactivity-core#computed) ref without a `set` function.
 
 - **Type**
 

@@ -209,7 +209,7 @@ data() {
 রেন্ডার করা HTML হবে:
 
 ```vue-html
-<p class="foo bar baz boo">Hi</p>
+<p class="foo bar baz boo">Hi!</p>
 ```
 
 class bindings জন্য একই কথা সত্য:
@@ -221,7 +221,7 @@ class bindings জন্য একই কথা সত্য:
 যখন `isActive` সত্য হয়, রেন্ডার করা HTML হবে:
 
 ```vue-html
-<p class="foo bar active">Hi</p>
+<p class="foo bar active">Hi!</p>
 ```
 
 আপনার কম্পোনেন্টে একাধিক রুট এলিমেন্ট থাকলে, কোন এলিমেন্টটি এই ক্লাসটি পাবে তা আপনাকে নির্ধারণ করতে হবে। আপনি `$attrs` উপাদান বৈশিষ্ট্য ব্যবহার করে এটি করতে পারেন:
@@ -243,7 +243,7 @@ class bindings জন্য একই কথা সত্য:
 <span>This is a child component</span>
 ```
 
-আপনি [Fallthrough Attributes](/guide/components/attrs.html) বিভাগে কম্পোনেন্ট অ্যাট্রিবিউটের উত্তরাধিকার সম্পর্কে আরও জানতে পারেন।
+আপনি [Fallthrough Attributes](/guide/components/attrs) বিভাগে কম্পোনেন্ট অ্যাট্রিবিউটের উত্তরাধিকার সম্পর্কে আরও জানতে পারেন।
 
 ## Binding Inline Styles {#binding-inline-styles}
 

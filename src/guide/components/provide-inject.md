@@ -22,7 +22,7 @@
 
 <div class="composition-api">
 
-একটি উপাদানের বংশধরদের ডেটা প্রদান করতে, [`provide()`](/api/composition-api-dependency-injection.html#provide) ফাংশনটি ব্যবহার করুন:
+একটি উপাদানের বংশধরদের ডেটা প্রদান করতে, [`provide()`](/api/composition-api-dependency-injection#provide) ফাংশনটি ব্যবহার করুন:
 
 ```vue
 <script setup>
@@ -61,7 +61,7 @@ provide('key', count)
 
 <div class="options-api">
 
-একটি উপাদানের বংশধরদের ডেটা প্রদান করতে, [`provide`](/api/options-composition.html#provide) বিকল্পটি ব্যবহার করুন:
+একটি উপাদানের বংশধরদের ডেটা প্রদান করতে, [`provide`](/api/options-composition#provide) বিকল্পটি ব্যবহার করুন:
 
 ```js
 export default {
@@ -107,13 +107,13 @@ const app = createApp({})
 app.provide(/* key */ 'message', /* value */ 'hello!')
 ```
 
-অ্যাপ-স্তরের প্রদানগুলি অ্যাপে রেন্ডার করা সমস্ত উপাদানের জন্য উপলব্ধ। [plugins](/guide/reusability/plugins.html) লেখার সময় এটি বিশেষভাবে উপযোগী, কারণ প্লাগইনগুলি সাধারণত উপাদান ব্যবহার করে মান প্রদান করতে সক্ষম হয় না।
+অ্যাপ-স্তরের প্রদানগুলি অ্যাপে রেন্ডার করা সমস্ত উপাদানের জন্য উপলব্ধ। [plugins](/guide/reusability/plugins) লেখার সময় এটি বিশেষভাবে উপযোগী, কারণ প্লাগইনগুলি সাধারণত উপাদান ব্যবহার করে মান প্রদান করতে সক্ষম হয় না।
 
 ## Inject {#inject}
 
 <div class="composition-api">
 
-একটি পূর্বপুরুষ উপাদান দ্বারা প্রদত্ত ডেটা ইনজেক্ট করতে, [`inject()`](/api/composition-api-dependency-injection.html#inject) ফাংশন ব্যবহার করুন:
+একটি ancestor component দ্বারা প্রদত্ত ডেটা ইনজেক্ট করতে, [`ইনজেক্ট()`](/api/composition-api-dependency-injection#inject) ফাংশনটি ব্যবহার করুন:
 
 ```vue
 <script setup>
@@ -125,7 +125,7 @@ const message = inject('message')
 
 যদি প্রদত্ত মানটি একটি রেফ হয়, তাহলে এটি যেমন আছে-সেভাবেই ইনজেকশন করা হবে এবং **না** স্বয়ংক্রিয়ভাবে খুলে যাবে। এটি ইনজেক্টর উপাদানটিকে প্রদানকারী উপাদানের সাথে প্রতিক্রিয়াশীলতা সংযোগ বজায় রাখতে দেয়।
 
-[Full provide + inject Example with Reactivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgcHJvdmlkZSB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuLy8gYnkgcHJvdmlkaW5nIGEgcmVmLCB0aGUgR3JhbmRDaGlsZFxuLy8gY2FuIHJlYWN0IHRvIGNoYW5nZXMgaGFwcGVuaW5nIGhlcmUuXG5jb25zdCBtZXNzYWdlID0gcmVmKCdoZWxsbycpXG5wcm92aWRlKCdtZXNzYWdlJywgbWVzc2FnZSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxpbnB1dCB2LW1vZGVsPVwibWVzc2FnZVwiPlxuICA8Q2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge1xuICAgIFwidnVlXCI6IFwiaHR0cHM6Ly9zZmMudnVlanMub3JnL3Z1ZS5ydW50aW1lLmVzbS1icm93c2VyLmpzXCJcbiAgfVxufSIsIkNoaWxkLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgR3JhbmRDaGlsZCBmcm9tICcuL0dyYW5kQ2hpbGQudnVlJ1xuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0IHNldHVwPlxuaW1wb3J0IHsgaW5qZWN0IH0gZnJvbSAndnVlJ1xuXG5jb25zdCBtZXNzYWdlID0gaW5qZWN0KCdtZXNzYWdlJylcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxwPlxuICAgIE1lc3NhZ2UgdG8gZ3JhbmQgY2hpbGQ6IHt7IG1lc3NhZ2UgfX1cbiAgPC9wPlxuPC90ZW1wbGF0ZT4ifQ==)
+[Full provide + inject Example with Reactivity](https://play.vuejs.org/#eNqFUUFugzAQ/MrKF1IpxfeIVKp66Kk/8MWFDXYFtmUbpArx967BhURRU9/WOzO7MzuxV+fKcUB2YlWovXYRAsbBvQije2d9hAk8Xo7gvB11gzDDxdseCuIUG+ZN6a7JjZIvVRIlgDCcw+d3pmvTglz1okJ499I0C3qB1dJQT9YRooVaSdNiACWdQ5OICj2WwtTWhAg9hiBbhHNSOxQKu84WT8LkNQ9FBhTHXyg1K75aJHNUROxdJyNSBVBp44YI43NvG+zOgmWWYGt7dcipqPhGZEe2ef07wN3lltD+lWN6tNkV/37+rdKjK2rzhRTt7f3u41xhe37/xJZGAL2PLECXa9NKdD/a6QTTtGnP88LgiXJtYv4BaLHhvg==)
 
 আবার, `<script setup>` ব্যবহার না করলে, `inject()` কে শুধুমাত্র `setup()`-এর ভিতরে সিঙ্ক্রোনাসভাবে বলা উচিত:
 
@@ -144,7 +144,7 @@ export default {
 
 <div class="options-api">
 
-একটি পূর্বপুরুষ উপাদান দ্বারা প্রদত্ত ডেটা ইনজেক্ট করতে, [`inject`](/api/options-composition.html#inject) বিকল্পটি ব্যবহার করুন:
+ancestor component দ্বারা প্রদত্ত ডেটা ইনজেক্ট করতে, [`ইনজেক্ট`](/api/options-composition#inject) বিকল্পটি ব্যবহার করুন:
 
 ```js
 export default {
@@ -169,7 +169,7 @@ export default {
 }
 ```
 
-[Full provide + inject example](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcblxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7IENoaWxkIH0sXG4gIHByb3ZpZGUoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIG1lc3NhZ2U6ICdoZWxsbydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
+[Full provide + inject example](https://play.vuejs.org/#eNqNkcFqwzAQRH9l0EUthOhuRKH00FO/oO7B2JtERZaEvA4F43+vZCdOTAIJCImRdpi32kG8h7A99iQKobs6msBvpTNt8JHxcTC2wS76FnKrJpVLZelKR39TSUO7qreMoXRA7ZPPkeOuwHByj5v8EqI/moZeXudCIBL30Z0V0FLXVXsqIA9krU8R+XbMR9rS0mqhS4KpDbZiSgrQc5JKQqvlRWzEQnyvuc9YuWbd4eXq+TZn0IvzOeKr8FvsNcaK/R6Ocb9Uc4FvefpE+fMwP0wH8DU7wB77nIo6x6a2hvNEME5D0CpbrjnHf+8excI=)
 
 ### Injection Aliasing \* {#injection-aliasing}
 
@@ -274,7 +274,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-পরিশেষে, আপনি প্রদত্ত মানটিকে [`readonly()`](/api/reactivity-core.html#readonly) দিয়ে মোড়ানো করতে পারেন যদি আপনি নিশ্চিত করতে চান যে `provide`-এর মাধ্যমে পাস করা ডেটা ইনজেক্টর কম্পোনেন্ট দ্বারা পরিবর্তন করা যাবে না।
+পরিশেষে, আপনি প্রদত্ত মানটিকে [`readonly()`](/api/reactivity-core#readonly) দিয়ে মুড়ে দিতে পারেন যদি আপনি নিশ্চিত করতে চান যে `provide`-এর মাধ্যমে পাস করা ডেটা ইনজেক্টর উপাদান দ্বারা পরিবর্তিত হতে পারে না।
 
 ```vue
 <script setup>
@@ -289,7 +289,7 @@ provide('read-only-count', readonly(count))
 
 <div class="options-api">
 
-ইনজেকশনগুলিকে সরবরাহকারীর সাথে প্রতিক্রিয়াশীলভাবে লিঙ্ক করার জন্য, আমাদের [computed()](/api/reactivity-core.html#computed) ফাংশন ব্যবহার করে একটি গণনাকৃত সম্পত্তি প্রদান করতে হবে:
+ইনজেকশনগুলিকে সরবরাহকারীর সাথে প্রতিক্রিয়াশীলভাবে সংযুক্ত করার জন্য, আমাদের [computed()](/api/reactivity-core#computed) ফাংশন ব্যবহার করে একটি গণনা করা সম্পত্তি প্রদান করতে হবে:
 
 ```js{10}
 import { computed } from 'vue'
@@ -309,9 +309,9 @@ export default {
 }
 ```
 
-[Full provide + inject Example with Reactivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcbmltcG9ydCB7IGNvbXB1dGVkIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgQ2hpbGQgfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogJ2hlbGxvJ1xuICAgIH1cbiAgfSxcbiAgcHJvdmlkZSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogY29tcHV0ZWQoKCkgPT4gdGhpcy5tZXNzYWdlKVxuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGlucHV0IHYtbW9kZWw9XCJtZXNzYWdlXCI+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
+[Full provide + inject Example with Reactivity](https://play.vuejs.org/#eNqNUctqwzAQ/JVFFyeQxnfjBEoPPfULqh6EtYlV9EKWTcH43ytZtmPTQA0CsdqZ2dlRT16tPXctkoKUTeWE9VeqhbLGeXirheRwc0ZBds7HKkKzBdBDZZRtPXIYJlzqU40/I4LjjbUyIKmGEWw0at8UgZrUh1PscObZ4ZhQAA596/RcAShsGnbHArIapTRBP74O8Up060wnOO5QmP0eAvZyBV+L5jw1j2tZqsMp8yWRUHhUVjKPoQIohQ460L0ow1FeKJlEKEnttFweijJfiORElhCf5f3umObb0B9PU/I7kk17PJj7FloN/2t7a2Pj/Zkdob+x8gV8ZlMs2de/8+14AXwkBngD9zgVqjg2rNXPvwjD+EdlHilrn8MvtvD1+Q==)
 
-`Computed()` ফাংশনটি সাধারণত কম্পোজিশন API উপাদানগুলিতে ব্যবহৃত হয়, তবে বিকল্প API-এ নির্দিষ্ট ব্যবহারের ক্ষেত্রে পরিপূরক করতেও ব্যবহার করা যেতে পারে। আপনি কম্পোজিশন এপিআই-এ সেট করা API পছন্দের সাথে [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) এবং [Computed Properties](/guide/essentials/computed.html) পড়ে এর ব্যবহার সম্পর্কে আরও জানতে পারেন।
+`computed()` ফাংশনটি সাধারণত কম্পোজিশন API উপাদানগুলিতে ব্যবহৃত হয়, তবে বিকল্প API-এ নির্দিষ্ট ব্যবহারের ক্ষেত্রে পরিপূরক করতেও ব্যবহার করা যেতে পারে। আপনি কম্পোজিশন এপিআই-এ সেট করা API পছন্দের সাথে [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals) এবং [Computed Properties](/guide/essentials/computed) পড়ে এর ব্যবহার সম্পর্কে আরও জানতে পারেন।
 
 :::warning অস্থায়ী কনফিগার প্রয়োজন
 উপরোক্ত ব্যবহারের জন্য `app.config.unwrapInjectedRef = true` সেট করা প্রয়োজন যাতে ইনজেকশনগুলি স্বয়ংক্রিয়ভাবে গণনা করা রেফগুলিকে আনর্যাপ করা যায়৷ এটি Vue 3.3-এ ডিফল্ট আচরণে পরিণত হবে এবং ভাঙা এড়াতে এই কনফিগারেশন সাময়িকভাবে চালু করা হয়েছে। এটি 3.3 এর পরে আর প্রয়োজন হবে না।
@@ -350,7 +350,7 @@ import { myInjectionKey } from './keys.js'
 const injected = inject(myInjectionKey)
 ```
 
-আরো দেখুন: [Typing Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
 </div>
 

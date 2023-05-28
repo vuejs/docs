@@ -14,7 +14,7 @@ app.use(myPlugin, {
 })
 ```
 
-একটি প্লাগইনকে একটি বস্তু হিসাবে সংজ্ঞায়িত করা হয় যা একটি `install()` পদ্ধতি প্রকাশ করে, অথবা কেবলমাত্র একটি ফাংশন যা নিজেই ইনস্টল ফাংশন হিসাবে কাজ করে। ইনস্টল ফাংশনটি [app instance](/api/application.html) এবং অতিরিক্ত বিকল্পগুলিকে `app.use()`-এ পাস করে, যদি থাকে:
+একটি প্লাগইনকে একটি বস্তু হিসাবে সংজ্ঞায়িত করা হয় যা একটি `install()` পদ্ধতি প্রকাশ করে, অথবা কেবলমাত্র একটি ফাংশন যা নিজেই ইনস্টল ফাংশন হিসাবে কাজ করে। ইনস্টল ফাংশনটি [অ্যাপ ইনস্ট্যান্স](/api/application) এর সাথে অতিরিক্ত বিকল্পগুলি `app.use()`-এ পাস করে, যদি থাকে:
 
 ```js
 const myPlugin = {
@@ -26,11 +26,11 @@ const myPlugin = {
 
 একটি প্লাগইনের জন্য কোন কঠোরভাবে সংজ্ঞায়িত সুযোগ নেই, তবে সাধারণ পরিস্থিতিতে যেখানে প্লাগইনগুলি দরকারী সেগুলির মধ্যে রয়েছে:
 
-1. এক বা একাধিক বিশ্বব্যাপী উপাদান বা কাস্টম নির্দেশাবলী নিবন্ধন করুন [`app.component()`](/api/application.html#app-component) and [`app.directive()`](/api/application.html#app-directive).
+1. এক বা একাধিক global উপাদান বা কাস্টম নির্দেশাবলী নিবন্ধন করুন [`app.component()`](/api/application#app-component) এবং [`app.directive()`](/api/application#app-directive).
 
-2. একটি resource তৈরি করুন [injectable](/guide/components/provide-inject.html) কলের মাধ্যমে অ্যাপ জুড়ে [`app.provide()`](/api/application.html#app-provide).
+2. একটি resource তৈরি করুন [injectable](/guide/components/provide-inject) কল করে অ্যাপ জুড়ে [`app.provide()`](/api/application#app-provide).
 
-3. [`app.config.globalProperties`](/api/application.html#app-config-globalproperties) এ সংযুক্ত করে কিছু গ্লোবাল ইনস্ট্যান্স বৈশিষ্ট্য বা পদ্ধতি যোগ করুন।
+3. তাদের সাথে সংযুক্ত করে কিছু বৈশ্বিক উদাহরণ বৈশিষ্ট্য বা পদ্ধতি যোগ করুন[`app.config.globalProperties`](/api/application#app-config-globalproperties).
 
 4. একটি লাইব্রেরি যা উপরের কিছু সমন্বয় করতে হবে (যেমন [vue-router](https://github.com/vuejs/vue-router-next))।
 
@@ -89,7 +89,7 @@ app.use(i18nPlugin, {
 
 এখন, আমাদের প্রাথমিক অভিব্যক্তি `$translate('greetings.hello')` রানটাইমে `Bonjour!` দ্বারা প্রতিস্থাপিত হবে।
 
-আরও দেখুন: [Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties) <sup class="vt-badge ts" />
+আরো দেখুন: [Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
 গ্লোবাল প্রপার্টি খুব কমই ব্যবহার করুন, যেহেতু একটি অ্যাপ জুড়ে বিভিন্ন প্লাগইন দ্বারা ইনজেকশন করা অনেকগুলি বৈশ্বিক বৈশিষ্ট্য ব্যবহার করা হলে এটি দ্রুত বিভ্রান্তিকর হয়ে উঠতে পারে।

@@ -87,7 +87,7 @@ Vue CLI-এর মতো ওয়েবপ্যাক-ভিত্তিক �
 
 ### `defineComponent()` {#definecomponent}
 
-টাইপস্ক্রিপ্ট সঠিকভাবে কম্পোনেন্ট অপশনের অভ্যন্তরে প্রকারগুলি অনুমান করতে দিতে, আমাদের [`defineComponent()`](/api/general.html#definecomponent) দিয়ে উপাদানগুলি সংজ্ঞায়িত করতে হবে:
+টাইপস্ক্রিপ্ট সঠিকভাবে কম্পোনেন্ট অপশনের অভ্যন্তরে প্রকারগুলি অনুমান করতে দিতে, আমাদের এর সাথে উপাদানগুলি সংজ্ঞায়িত করতে হবে[`defineComponent()`](/api/general#definecomponent):
 
 ```ts
 import { defineComponent } from 'vue'
@@ -129,7 +129,7 @@ export default defineComponent({
 
 আরো দেখুন:
 
-- [ওয়েবপ্যাক ট্রিশেকিং-এ নোট](/api/general.html#note-on-webpack-treeshaking)
+- [ওয়েবপ্যাক ট্রিশেকিং-এ নোট](/api/general#note-on-webpack-treeshaking)
 - [`defineComponent` এর জন্য টাইপ টেস্ট](https://github.com/vuejs/core/blob/main/packages/dts-test/defineComponent.test-d.tsx)
 
 :::tip
@@ -175,6 +175,10 @@ const count = ref(1)
 </template>
 ```
 
+See also:
+
+- [TypeScript-only Features in `<script setup>`](/api/sfc-script-setup.html#typescript-only-features)
+
 ### TypeScript in Templates {#typescript-in-templates}
 
 যখন `<script lang="ts">` বা `<script setup lang="ts">` ব্যবহার করা হয় তখন `<template>` টাইপস্ক্রিপ্টকে বাইন্ডিং এক্সপ্রেশনে সমর্থন করে। এটি এমন ক্ষেত্রে দরকারী যেখানে আপনাকে টেমপ্লেট এক্সপ্রেশনে টাইপ কাস্টিং করতে হবে।
@@ -207,6 +211,17 @@ let x: string | number = 1
 :::tip
 Vue CLI বা একটি ওয়েবপ্যাক-ভিত্তিক সেটআপ ব্যবহার করলে, টেমপ্লেট এক্সপ্রেশনে TypeScript-এর প্রয়োজন `vue-loader@^16.8.0`।
 :::
+
+### Usage with TSX
+
+Vue also supports authoring components with JSX / TSX. Details are covered in the [Render Function & JSX](/guide/extras/render-function.html#jsx-tsx) guide.
+
+## Generic Components {#generic-components}
+
+Generic components are supported in two cases:
+
+- In SFCs: [`<script setup>` with the `generic` attribute](/api/sfc-script-setup.html#generics)
+- Render function / JSX components: [`defineComponent()`'s function signature](/api/general.html#function-signature)
 
 ## API-Specific Recipes {#api-specific-recipes}
 

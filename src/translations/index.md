@@ -6,16 +6,15 @@ aside: false
 
 ## উপলব্ধ ভাষা {#available-languages}
 
-- [ইংরেজি](https://vuejs.org/) [[source](https://github.com/vuejs/docs)]
-- [简体中文 / সরলীকৃত চাইনিজ](https://cn.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-zh-cn)]
-- [日本語 / জাপানিজ](https://ja.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ja)]
+- [English](https://vuejs.org/) [[source](https://github.com/vuejs/docs)]
+- [简体中文 / Simplified Chinese](https://cn.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-zh-cn)]
+- [日本語 / Japanese](https://ja.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ja)]
+- [Українська / Ukrainian](https://ua.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-uk)]
+- [Français / French](https://fr.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fr)]
 
-## অগ্রগতি ভাষায় কাজ {#work-in-progress-languages}
+<!-- ## Work in Progress Languages {#work-in-progress-languages} -->
 
-- [Українська / ইউক্রেনিয়ান](https://ua.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ua)]
-- [Français / ফরাসি](https://fr.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fr)]
-
-## একটি নতুন অনুবাদ শুরু করুন {#starting-a-new-translation}
+## Starting a new Translation {#starting-a-new-translation}
 
 Vue ডকুমেন্টেশন সম্প্রতি একটি বড় সংশোধনের মধ্য দিয়ে গেছে, তাই অন্যান্য ভাষায় অনুবাদগুলি এখনও অনুপস্থিত বা কাজ চলছে।
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { ref, watch } from 'vue'
 
 const VIDEO_SOURCE = 'https://player.vimeo.com/video/647441538?autoplay=1'
-let showWhyVue: boolean = $ref(false)
+const showWhyVue = ref(false)
 
 watch(
   () => showWhyVue,
@@ -185,9 +185,11 @@ watch(
   font-weight: 600;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 576px) {
   #vuemastery-action {
-    margin-right: 0;
+    display: block;
+    margin: 0px auto;
+    width: 150px;
   }
 }
 </style>

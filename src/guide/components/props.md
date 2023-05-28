@@ -22,7 +22,7 @@ console.log(props.foo)
 </script>
 ```
 
-অ-`<script setup>` উপাদানগুলিতে, [`props`](/api/options-state.html#props) বিকল্প ব্যবহার করে প্রপ ঘোষণা করা হয়:
+অ-`<script setup>` উপাদানগুলিতে, প্রপগুলি [`props`](/api/options-state#props) বিকল্প ব্যবহার করে ঘোষণা করা হয়:
 
 ```js
 export default {
@@ -40,7 +40,7 @@ export default {
 
 <div class="options-api">
 
-প্রপগুলি [`props`](/api/options-state.html#props) বিকল্প ব্যবহার করে ঘোষণা করা হয়:
+প্রপগুলি [`props`](/api/options-state#props) বিকল্প ব্যবহার করে ঘোষণা করা হয়:
 
 ```js
 export default {
@@ -96,7 +96,7 @@ export default {
 
 <div class="options-api">
 
-আরো দেখুন: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
+আরো দেখুন: [Typing Component Props](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
@@ -113,7 +113,7 @@ defineProps<{
 </script>
 ```
 
-আরো বিস্তারিত: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+আরো বিস্তারিত: [Typing Component Props](/guide/typescript/composition-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
@@ -148,13 +148,13 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-টেকনিক্যালি, আপনি চাইল্ড কম্পোনেন্টে প্রপস দেওয়ার সময়ও ক্যামেলকেস ব্যবহার করতে পারেন ([DOM টেমপ্লেট](/guide/essentials/component-basics.html#dom-template-parsing-caveats) ছাড়া)। যাইহোক, কনভেনশন এইচটিএমএল অ্যাট্রিবিউটের সাথে সারিবদ্ধ করার জন্য সব ক্ষেত্রে কাবাব-কেস ব্যবহার করছে:
+টেকনিক্যালি, আপনি চাইল্ড কম্পোনেন্টে প্রপস দেওয়ার সময় ক্যামেলকেস ব্যবহার করতে পারেন ([DOM টেমপ্লেট](/guide/essentials/component-basics#dom-template-parsing-caveats) ছাড়া)। যাইহোক, কনভেনশন এইচটিএমএল বৈশিষ্ট্যের সাথে সারিবদ্ধ করার জন্য সব ক্ষেত্রে কাবাব-কেস ব্যবহার করছে:
 
 ```vue-html
 <MyComponent greeting-message="hello" />
 ```
 
-আমরা যখন সম্ভব [কম্পোনেন্ট ট্যাগের জন্য PascalCase](/guide/components/registration.html#component-name-casing) ব্যবহার করি কারণ এটি Vue উপাদানগুলিকে নেটিভ উপাদান থেকে আলাদা করে টেমপ্লেট পাঠযোগ্যতা উন্নত করে। যাইহোক, প্রপস পাস করার সময় ক্যামেলকেস ব্যবহার করার মতো ব্যবহারিক সুবিধা নেই, তাই আমরা প্রতিটি ভাষার নিয়ম অনুসরণ করা বেছে নিই।
+আমরা যখনই সম্ভব [কম্পোনেন্ট ট্যাগের জন্য PascalCase](/guide/components/registration#component-name-casing) ব্যবহার করি কারণ এটি Vue উপাদানগুলিকে নেটিভ উপাদান থেকে আলাদা করে টেমপ্লেট পাঠযোগ্যতা উন্নত করে। যাইহোক, প্রপস পাস করার সময় ক্যামেলকেস ব্যবহার করার মতো ব্যবহারিক সুবিধা নেই, তাই আমরা প্রতিটি ভাষার নিয়ম অনুসরণ করা বেছে নিই।
 
 ### Static vs. Dynamic Props {#static-vs-dynamic-props}
 
@@ -232,7 +232,7 @@ export default {
 
 ### Binding Multiple Properties Using an Object {#binding-multiple-properties-using-an-object}
 
-আপনি যদি একটি বস্তুর সমস্ত বৈশিষ্ট্যকে প্রপ হিসাবে পাস করতে চান তবে আপনি যুক্তি ছাড়াই [`v-bind` ব্যবহার করতে পারেন](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v -bind` এর পরিবর্তে `:prop-name`)। উদাহরণস্বরূপ, একটি 'পোস্ট' অবজেক্ট দেওয়া হয়েছে:
+আপনি যদি একটি বস্তুর সমস্ত বৈশিষ্ট্যকে প্রপ হিসাবে পাস করতে চান তবে আপনি যুক্তি ছাড়াই [`v-bind` ব্যবহার করতে পারেন](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) (`v-bind `` এর পরিবর্তে `:প্রপ-নাম`)। উদাহরণস্বরূপ, একটি 'পোস্ট' অবজেক্ট দেওয়া হয়েছে:
 
 <div class="options-api">
 
@@ -367,7 +367,7 @@ export default {
 
 যখন বস্তু এবং অ্যারেগুলিকে প্রপ হিসাবে পাস করা হয়, যখন চাইল্ড কম্পোনেন্ট প্রপ বাইন্ডিংকে পরিবর্তন করতে পারে না, তখন এটি বস্তু বা অ্যারের নেস্টেড বৈশিষ্ট্যগুলিকে পরিবর্তিত করতে সক্ষম **হবে**। এর কারণ হল জাভাস্ক্রিপ্টে অবজেক্ট এবং অ্যারে রেফারেন্স দ্বারা পাস করা হয় এবং এই ধরনের মিউটেশন প্রতিরোধ করা Vue-এর জন্য অযৌক্তিকভাবে ব্যয়বহুল।
 
-এই ধরনের মিউটেশনগুলির প্রধান ত্রুটি হল যে এটি শিশু উপাদানটিকে এমনভাবে পিতামাতার অবস্থাকে প্রভাবিত করতে দেয় যা পিতামাতার উপাদানের কাছে স্পষ্ট নয়, সম্ভাব্যভাবে ভবিষ্যতে ডেটা প্রবাহ সম্পর্কে যুক্তি করা আরও কঠিন করে তোলে। একটি সর্বোত্তম অভ্যাস হিসাবে, আপনার এই ধরনের মিউটেশন এড়ানো উচিত যদি না পিতামাতা এবং সন্তানের নকশা দ্বারা শক্তভাবে মিলিত হয়। বেশিরভাগ ক্ষেত্রে, সন্তানের উচিত [emit an event](/guide/components/events.html) যাতে পিতামাতাকে মিউটেশন করতে দেয়।
+এই ধরনের মিউটেশনগুলির প্রধান ত্রুটি হল যে এটি শিশু উপাদানটিকে এমনভাবে পিতামাতার অবস্থাকে প্রভাবিত করতে দেয় যা পিতামাতার উপাদানের কাছে স্পষ্ট নয়, সম্ভাব্যভাবে ভবিষ্যতে ডেটা প্রবাহ সম্পর্কে যুক্তি করা আরও কঠিন করে তোলে। একটি সর্বোত্তম অভ্যাস হিসাবে, আপনার এই ধরনের মিউটেশন এড়ানো উচিত যদি না পিতামাতা এবং সন্তানের নকশা দ্বারা শক্তভাবে মিলিত হয়। বেশিরভাগ ক্ষেত্রে, সন্তানের উচিত [একটি ইভেন্ট নির্গত করা](/guide/components/events) যাতে পিতামাতাকে মিউটেশন করতে দেয়।
 
 ## Prop Validation {#prop-validation}
 
@@ -414,7 +414,8 @@ defineProps({
   // Function with a default value
   propG: {
     type: Function,
-    // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+    // Unlike object or array default, this is not a factory 
+    // function - this is a function to serve as a default value
     default() {
       return 'Default function'
     }
@@ -467,7 +468,8 @@ export default {
     // Function with a default value
     propG: {
       type: Function,
-      // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+      // Unlike object or array default, this is not a factory 
+      // function - this is a function to serve as a default value
       default() {
         return 'Default function'
       }
@@ -492,7 +494,7 @@ export default {
 
 <div class="composition-api">
 
-[Type-based props declarations](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" /> ব্যবহার করলে, Vue টাইপ টীকা কম্পাইল করার জন্য যথাসাধ্য চেষ্টা করবে সমতুল্য রানটাইম প্রপ ঘোষণা মধ্যে. উদাহরণস্বরূপ, `defineProps<{ msg: string }>` কম্পাইল করা হবে `{ msg: { type: String, required: true }}`-এ।
+[Type-based props declarations](/api/sfc-script-setup#typescript-only-features) <sup class="vt-badge ts" /> ব্যবহার করলে, Vue টাইপ টীকাগুলিকে সমতুল্য কম্পাইল করার জন্য যথাসাধ্য চেষ্টা করবে রানটাইম প্রপ ঘোষণা। উদাহরণস্বরূপ, `defineProps<{ msg: string }>` কম্পাইল করা হবে `{ msg: { type: String, required: true }}`-এ।
 
 </div>
 <div class="options-api">
