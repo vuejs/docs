@@ -10,7 +10,7 @@ import {
 import SponsorsAside from './components/SponsorsAside.vue'
 import VueSchoolLink from './components/VueSchoolLink.vue'
 // import Banner from './components/Banner.vue'
-import TextAd from './components/TextAd.vue'
+// import TextAd from './components/TextAd.vue'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {
@@ -26,6 +26,6 @@ export default Object.assign({}, VPTheme, {
     app.provide('prefer-sfc', preferSFC)
     app.provide('filter-headers', filterHeadersByPreference)
     app.component('VueSchoolLink', VueSchoolLink)
-    app.component('TextAd', TextAd)
+    // app.component('TextAd', TextAd)
   }
 })
