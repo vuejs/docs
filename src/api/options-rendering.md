@@ -23,7 +23,8 @@ A string template for the component.
   If the root component of your application doesn't have a `template` or `render` option specified, Vue will try to use the `innerHTML` of the mounted element as the template instead.
 
   :::warning Security Note
-  Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security#rule-no-1-never-use-non-trusted-templates) for more details.
+  - Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security#rule-no-1-never-use-non-trusted-templates) for more details.
+  - In-DOM Root Component Template does not support `<script setup>` [Related Discussion](https://github.com/vuejs/core/issues/8391).
   :::
 
 ## render {#render}
