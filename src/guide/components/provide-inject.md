@@ -264,13 +264,18 @@ provide('location', {
 ```vue{5}
 <!-- in injector component -->
 <script setup>
-import { inject } from 'vue'
+import { inject, computed } from 'vue'
 
 const { location, updateLocation } = inject('location')
+
+const emoji = computed(() => {
+  // locaion is a ref
+  return location.value === 'North Pole' ? '🎅' : '⬇️'
+})
 </script>
 
 <template>
-  <button @click="updateLocation">{{ location }}</button>
+  <button @click="updateLocation">{{ location }} {{emoji}}</button>
 </template>
 ```
 
