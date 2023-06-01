@@ -180,7 +180,7 @@ If you would like to also toggle a class in the list conditionally, you can do i
 
 This will always apply `errorClass`, but `activeClass` will only be applied when `isActive` is truthy.
 
-However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
+However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside the array syntax:
 
 ```vue-html
 <div :class="[{ active: isActive }, errorClass]"></div>
@@ -190,7 +190,7 @@ However, this can be a bit verbose if you have multiple conditional classes. Tha
 
 > This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
 
-When you use the `class` attribute on a component with a single root element, those classes will be added to the component's root element, and merged with any existing class already on it.
+When you use the `class` attribute on a component with a single root element, those classes will be added to the component's root element and merged with any existing class already on it.
 
 For example, if we have a component named `MyComponent` with the following template:
 
