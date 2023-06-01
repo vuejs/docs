@@ -102,7 +102,7 @@ Controls whether the default component attribute fallthrough behavior should be 
   </template>
   ```
 
-  Since 3.3 you can also use defineOptions directly in script setup, no longer need normal `<script>` block.
+  Since 3.3 you can also use `defineOptions` directly in `<script setup>`:
 
   ```vue
   <script setup>

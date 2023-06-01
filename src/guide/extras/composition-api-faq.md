@@ -110,7 +110,7 @@ Yes in terms of stateful logic. When using Composition API, there are only a few
 
 :::tip
 
-Since 3.3 you can directly use defineOptions in `<script setup>` to set name or inheritAttrs.
+Since 3.3 you can directly use `defineOptions` in `<script setup>` to set the component name or `inheritAttrs` property
 
 :::
 
