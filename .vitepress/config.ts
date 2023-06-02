@@ -227,7 +227,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/built-ins/transition-group'
         },
         { text: 'Сохранение состояния', link: '/guide/built-ins/keep-alive' },
-        { text: 'Teleport', link: '/guide/built-ins/teleport' },
+        { text: 'Телепорт', link: '/guide/built-ins/teleport' },
         { text: 'Suspense', link: '/guide/built-ins/suspense' }
       ]
     },
