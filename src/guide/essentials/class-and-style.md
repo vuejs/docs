@@ -138,7 +138,7 @@ computed: {
 
 ### Bindung an Arrays {#binding-to-arrays}
 
-We can bind `:class` to an array to apply a list of classes:
+Wir können `:class` an ein Array binden, um eine Liste von Klassen anzuwenden:
 
 <div class="composition-api">
 
