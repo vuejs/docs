@@ -208,7 +208,7 @@ const { data, error } = useFetch(() => `/posts/${props.id}`)
 
 We can refactor our existing implementation with the [`watchEffect()`](/api/reactivity-core.html#watcheffect) and [`toValue()`](/api/reactivity-utilities.html#tovalue) APIs:
 
-```js
+```js{8,13}
 // fetch.js
 import { ref, watchEffect, toValue } from 'vue'
 
@@ -253,8 +253,9 @@ A composable can accept ref or getter arguments even if it doesn't rely on them 
 import { toValue } from 'vue'
 
 function useFeature(maybeRefOrGetter) {
-  // if maybeRef is indeed a ref, its .value will be returned
-  // otherwise, maybeRef is returned as-is
+  // If maybeRefOrGetter is a ref or a getter,
+  // its normalized value will be returned.
+  // Otherwise, it is returned as-is.
   const value = toValue(maybeRefOrGetter)
 }
 ```
