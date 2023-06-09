@@ -27,7 +27,8 @@
         "@algolia/client-search",
         "react",
         "react-dom",
-        "@types/react"
+        "@types/react",
+        "search-insights"
       ]
     }
   }
