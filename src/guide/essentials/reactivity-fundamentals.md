@@ -165,7 +165,7 @@ import { ref } from 'vue'
 const count = ref(0)
 
 function increment() {
-  ref.value++
+  count.value++
 }
 </script>
 
