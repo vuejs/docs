@@ -105,7 +105,7 @@ export default {
 
     // expose the ref to the template
     return {
-      ref
+      count
     }
   }
 }
