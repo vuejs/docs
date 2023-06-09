@@ -156,6 +156,8 @@ Exposed methods can then be used as event handlers:
 </button>
 ```
 
+Here's the example live on [Codepen](https://codepen.io/vuejs-examples/pen/WNYbaqo), without using any build tools.
+
 ### `<script setup>` \*\* {#script-setup}
 
 Manually exposing state and methods via `setup()` can be verbose. Luckily, it can be avoided when using [Single-File Components (SFCs)](/guide/scaling-up/sfc). We can simplify the usage with `<script setup>`:
