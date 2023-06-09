@@ -115,9 +115,11 @@ export default {
 <div>{{ count }}</div>
 ```
 
-Notice that we did **not** need to append `.value` when using the ref in the template. For convenience, refs are automatically unwrapped when used inside templates. You can also mutate a ref directly in event handlers:
+Notice that we did **not** need to append `.value` when using the ref in the template. For convenience, refs are automatically unwrapped when used inside templates (with a few [caveats](#caveat-when-unwrapping-in-templates)).
 
-```vue-html
+You can also mutate a ref directly in event handlers:
+
+```vue-html{1}
 <button @click="count++">
   {{ count }}
 </button>
@@ -148,7 +150,7 @@ export default {
 
 Exposed methods can then be used as event handlers:
 
-```vue-html
+```vue-html{1}
 <button @click="increment">
   {{ count }}
 </button>
