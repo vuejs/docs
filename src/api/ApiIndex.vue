@@ -3,10 +3,15 @@
 // named import "data" is the resolved static data
 // can also import types for type consistency
 import { data as apiIndex, APIGroup } from './api.data'
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
+const search = ref()
 const query = ref('')
 const normalize = (s: string) => s.toLowerCase().replace(/-/g, ' ')
+
+onMounted(() => {
+  search.value?.focus()
+})
 
 const filtered = computed(() => {
   const q = normalize(query.value)
@@ -55,6 +60,7 @@ const filtered = computed(() => {
       <div class="api-filter">
         <label for="api-filter">Filter</label>
         <input
+          ref="search"
           type="search"
           placeholder="Enter keyword"
           id="api-filter"
@@ -175,10 +181,15 @@ h3 {
   gap: 1rem;
 }
 
-.api-filter input {
+#api-filter {
   border: 1px solid var(--vt-c-divider);
   border-radius: 8px;
   padding: 6px 12px;
+  transition: box-shadow 0.25s ease;
+}
+
+#api-filter:focus {
+  box-shadow: 0 0 4pt #00d47499;
 }
 
 .api-filter:focus {
