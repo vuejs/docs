@@ -98,7 +98,7 @@ The above link loads the *global build* of Vue, where all top-level APIs are exp
 </script>
 ```
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/nw1xg8Lj/)
+[Codepen demo](https://codepen.io/vuejs-examples/pen/QWJwJLp)
 
 ### Using the ES Module Build {#using-the-es-module-build}
 
@@ -122,7 +122,7 @@ Throughout the rest of the documentation, we will be primarily using [ES modules
 
 Notice that we are using `<script type="module">`, and the imported CDN URL is pointing to the **ES modules build** of Vue instead.
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/vo23c470/)
+[Codepen demo](https://codepen.io/vuejs-examples/pen/VwVYVZO)
 
 ### Enabling Import maps {#enabling-import-maps}
 
