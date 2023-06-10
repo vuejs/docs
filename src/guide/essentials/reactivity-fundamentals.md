@@ -372,7 +372,7 @@ export default {
 
 <div class="composition-api">
 
-## `reactive()`
+## `reactive()` \** {#reactive}
 
 There is another way to declare reactive state, with the `reactive()` API. Unlike a ref which wraps the inner value in a special object, `reactive()` makes an object itself reactive:
 
@@ -496,7 +496,7 @@ console.log(count.value) // 1
 
 Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced#shallowreactive).
 
-### Caveat in Arrays and Collections {#caveat-in-arrays-and-collections}
+### Caveat in Arrays and Collections \** {#caveat-in-arrays-and-collections}
 
 Unlike reactive objects, there is **no** unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`:
 
