@@ -4,6 +4,7 @@
 // can also import types for type consistency
 import { data as apiIndex, APIGroup } from './api.data'
 import { ref, computed, onMounted } from 'vue'
+import { withBase } from 'vitepress'
 
 const search = ref()
 const query = ref('')
@@ -84,7 +85,7 @@ const filtered = computed(() => {
           <h3>{{ item.text }}</h3>
           <ul>
             <li v-for="h of item.headers" :key="h.anchor">
-              <a :href="item.link + '.html#' + h.anchor">{{ h.text }}</a>
+              <a :href="withBase(item.link) + '.html#' + h.anchor">{{ h.text }}</a>
             </li>
           </ul>
         </div>
