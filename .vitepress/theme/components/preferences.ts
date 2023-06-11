@@ -1,9 +1,9 @@
 import { ref } from 'vue'
 import { AugmentedHeader } from '../../headerMdPlugin'
 
-export const hasStorage = typeof localStorage !== 'undefined'
+export const inBrowser = typeof window !== 'undefined'
 const get = (key: string, defaultValue = false): boolean =>
-  hasStorage
+  inBrowser
     ? JSON.parse(localStorage.getItem(key) || String(defaultValue))
     : defaultValue
 

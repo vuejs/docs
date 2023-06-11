@@ -1,34 +1,125 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { preferComposition, preferCompositionKey } from './preferences'
-import { useData } from 'vitepress'
+import { onMounted, ref, watch } from 'vue'
+import {
+  inBrowser,
+  preferComposition,
+  preferCompositionKey
+} from './preferences'
+import { useData, type Header } from 'vitepress'
 
 const show = ref(false)
 const { page } = useData()
 
+type Source = 'url-query' | 'url-header' | 'default'
+let source: Source | false =
+  inBrowser && localStorage.getItem(preferCompositionKey) === null
+    ? 'default'
+    : false
+
+if (inBrowser) {
+  // 1. check if URL contains explicit preference
+  const match = location.search.match(/[\?&]api=(\w+)/)
+  const preference = match && match[1]
+  if (preference === 'composition') {
+    setPreference(true, 'url-query')
+  } else if (preference === 'options') {
+    setPreference(false, 'url-query')
+  } else {
+    // 2. check if target header only exists for a certain API
+    if (location.hash) {
+      const h = findHeader(page.value.headers, location.hash)
+      if (h && h.optionsOnly) {
+        setPreference(false, 'url-header')
+      } else if (h && h.compositionOnly) {
+        setPreference(true, 'url-header')
+      }
+    }
+  }
+}
+
+function findHeader(
+  headers: Header[],
+  link: string
+):
+  | (Header & {
+      optionsOnly?: boolean
+      compositionOnly?: boolean
+    })
+  | undefined {
+  for (const h of headers) {
+    if (h.link === link) {
+      return h
+    }
+    if (h.children) {
+      const c = findHeader(h.children, link)
+      if (c) return c
+    }
+  }
+}
+
+function setPreference(capi: boolean, s: Source) {
+  if (capi && !preferComposition.value) {
+    source = s
+    preferComposition.value = true
+    document.documentElement.classList.add('prefer-composition')
+  } else if (!capi && preferComposition.value) {
+    source = s
+    preferComposition.value = false
+    document.documentElement.classList.remove('prefer-composition')
+  }
+}
+
 onMounted(() => {
-  show.value =
+  if (
     !page.value.relativePath.startsWith('tutorial/') &&
-    localStorage.getItem(preferCompositionKey) === null
+    source !== false
+  ) {
+    show.value = true
+    // dismiss if user switches with the tooltip open
+    const stop = watch(preferComposition, () => {
+      show.value = false
+      stop()
+    })
+  }
 })
 
 function dismiss() {
   show.value = false
-  localStorage.setItem(
-    preferCompositionKey,
-    String(preferComposition.value)
-  )
+  // save if default
+  if (source === 'default') {
+    localStorage.setItem(
+      preferCompositionKey,
+      String(preferComposition.value)
+    )
+  }
 }
 </script>
 
 <template>
   <Transition name="fly-in">
     <div class="preference-tooltip" v-if="show">
-      <p>API style now defaults to Composition API.</p>
-      <p>
-        Some pages contain different content based on the API style chosen.
-        Use this switch to toggle between APIs styles.
-      </p>
+      <template v-if="source === 'default'">
+        <p>API style now defaults to Composition API.</p>
+        <p>
+          Some pages contain different content based on the API style
+          chosen. Use this switch to toggle between APIs styles.
+        </p>
+      </template>
+      <template v-if="source && source.startsWith('url')">
+        <p>
+          Showing content for
+          {{ preferComposition ? 'Composition' : 'Options' }} API because
+          {{
+            source === 'url-query'
+              ? 'it is specified by the URL query.'
+              : 'the target section is only available for that API.'
+          }}
+        </p>
+        <p>
+          This is different from your saved preference and will only affect
+          the current browsing session.
+        </p>
+      </template>
       <p class="actions">
         <a href="/guide/introduction#api-styles">Learn more</a>
         <button @click="dismiss">Got it</button>
@@ -78,7 +169,20 @@ p {
   border-bottom: 9px solid var(--vt-c-green);
   position: absolute;
   top: -16px;
+  left: 18px;
+}
+
+.prefer-composition .arrow-top {
   left: 130px;
+}
+
+@media (max-width: 1439px) {
+  .arrow-top {
+    left: 16px;
+  }
+  .prefer-composition .arrow-top {
+    left: 136px;
+  }
 }
 
 .arrow-top.inner {
@@ -105,12 +209,6 @@ button {
   padding: 2px 8px;
   border-radius: 6px;
   background-color: var(--vt-c-green);
-}
-
-@media (max-width: 1439px) {
-  .arrow-top {
-    left: 136px;
-  }
 }
 
 .fly-in-enter-active {
