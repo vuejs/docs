@@ -5,7 +5,7 @@
       document.documentElement.classList.add(cls)
     }
   }
-  restore('vue-docs-prefer-composition', 'prefer-composition')
+  restore('vue-docs-prefer-composition', 'prefer-composition', true)
   restore('vue-docs-prefer-sfc', 'prefer-sfc', true)
 
   // window.__VUE_BANNER_ID__ = ''
