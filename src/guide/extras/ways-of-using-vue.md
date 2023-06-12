@@ -41,7 +41,7 @@ Server-side rendering can be done ahead of time if the required data is static. 
 
 There are two flavors of SSG: single-page and multi-page. Both flavors pre-render the site into static HTML, the difference is that:
 
-- After the initial page load, a single-page SSG "hydrates" the page into an SPA. This requires more upfront JS payload and hydration cost, but subsequent navigations will be faster, since it only needs to partially update the page content instead of reloading the entire page.
+- After the initial page load, a single-page SSG "hydrates" the page into a SPA. This requires more upfront JS payload and hydration cost, but subsequent navigations will be faster, since it only needs to partially update the page content instead of reloading the entire page.
 
 - A multi-page SSG loads a new page on every navigation. The upside is that it can ship minimal JS - or no JS at all if the page requires no interaction! Some multi-page SSG frameworks such as [Astro](https://astro.build/) also support "partial hydration" - which allows you to use Vue components to create interactive "islands" inside static HTML.
 
