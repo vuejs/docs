@@ -612,4 +612,4 @@ export default {
 
 </div>
 
-The casting rules for `Boolean` will apply regardless of type appearance order.
+If the array of types includes `Boolean` then the casting rules for `Boolean` will apply, unless `String` appears earlier in the array.
