@@ -3,11 +3,9 @@ import { computed } from 'vue'
 import { VTLink } from '@vue/theme'
 import ThemeProduct from './ThemeProduct.vue'
 
-const props = defineProps({
-  provider: { type: Object, required: true }
-})
-
-const regex = /\[([^\[]+)\](\(.*\))/gm
+const props = defineProps<{
+  provider: Record<string, any>
+}>()
 
 const description = computed(() => {
   // replace markdown link to html tag.
