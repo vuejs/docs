@@ -297,9 +297,9 @@ It is OK to perform side effects (e.g. adding DOM event listeners or fetching da
 
 ### Usage Restrictions {#usage-restrictions}
 
-Composables should only be called **synchronously** in `<script setup>` or the `setup()` hook. In some cases, you can also call them in lifecycle hooks like `onMounted()`.
+Composables should only be called in `<script setup>` or the `setup()` hook. They should also be called **synchronously** in these contexts. In some cases, you can also call them in lifecycle hooks like `onMounted()`.
 
-These are the contexts where Vue is able to determine the current active component instance. Access to an active component instance is necessary so that:
+These restrictions are important because these are the contexts where Vue is able to determine the current active component instance. Access to an active component instance is necessary so that:
 
 1. Lifecycle hooks can be registered to it.
 
