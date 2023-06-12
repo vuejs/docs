@@ -514,7 +514,7 @@ console.log(map.get('count').value)
 
 Ref unwrapping in templates only applies if the ref is a top-level property in the template render context.
 
-In the example below, `count` and `object` are top-level properties, but `object.count` is not:
+In the example below, `count` and `object` are top-level properties, but `object.id` is not:
 
 ```js
 const count = ref(0)
