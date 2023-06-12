@@ -593,7 +593,7 @@ When a prop is declared to allow multiple types, e.g.
 
 ```js
 defineProps({
-  disabled: [String, Boolean, Number]
+  disabled: [Boolean, Number]
 })
 ```
 
@@ -603,7 +603,7 @@ defineProps({
 ```js
 export default {
   props: {
-    disabled: [String, Boolean, Number]
+    disabled: [Boolean, Number]
   }
 }
 ```
