@@ -226,11 +226,9 @@ If you have many components, you can also leverage build tool features such as V
 
 ### Web Components and Typescript {#web-components-and-typescript}
 
-If you are developing an application or a library, you may want to [typecheck](/guide/scaling-up/tooling.html#typescript) your Vue components.
+If you are developing an application or a library, you may want to [type check](/guide/scaling-up/tooling.html#typescript) your Vue components, including those that are defined as custom elements.
 
-The `defineCustomElement` function does not automatically infer the types of components.
-Instead we can define a global component typings using the the [`GlobalComponents` interface](https://github.com/vuejs/language-tools/tree/1b90234ec6f10a3c0f080d0310711c2cd8de02dd/extensions/vscode-vue-language-features#usage) in Vue templates and/or in [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements).
-
+Custom elements are registered globally using native APIs, so by default they won't have type inference when used in Vue templates. To provide type support for Vue components registered as custom elements, we can register global component typings using the the [`GlobalComponents` interface](https://github.com/vuejs/language-tools/blob/master/packages/vscode-vue/README.md#usage) in Vue templates and/or in [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements):
 
 ```typescript
 import { defineCustomElement } from 'vue'
@@ -239,9 +237,9 @@ import { defineCustomElement } from 'vue'
 import CounterSFC from './src/components/counter.ce.vue'
 
 // turn component into web components
-export const Counter = defineCustomElement(Counter)
+export const Counter = defineCustomElement(CounterSFC)
 
-// global typings
+// register global typings
 declare module 'vue' {
   export interface GlobalComponents {
     'Counter': typeof Counter,
