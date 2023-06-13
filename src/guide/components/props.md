@@ -494,7 +494,7 @@ When prop validation fails, Vue will produce a console warning (if using the dev
 
 <div class="composition-api">
 
-If using [Type-based props declarations](/api/sfc-script-setup#typescript-only-features) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+If using [Type-based props declarations](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">

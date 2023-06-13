@@ -89,7 +89,7 @@ The resolved component options used for instantiating the current component inst
   })
   ```
 
-- **See also:** [`app.config.optionMergeStrategies`](/api/application#app-config-optionmergestrategies)
+- **See also** [`app.config.optionMergeStrategies`](/api/application#app-config-optionmergestrategies)
 
 ## $parent {#parent}
 
@@ -137,7 +137,7 @@ An object representing the [slots](/guide/components/slots) passed by the parent
 
   If a slot is a [scoped slot](/guide/components/slots#scoped-slots), arguments passed to the slot functions are available to the slot as its slot props.
 
-- **See also:** [Render Functions - Rendering Slots](/guide/extras/render-function#rendering-slots)
+- **See also** [Render Functions - Rendering Slots](/guide/extras/render-function#rendering-slots)
 
 ## $refs {#refs}
 
@@ -151,7 +151,7 @@ An object of DOM elements and component instances, registered via [template refs
   }
   ```
 
-- **See also:**
+- **See also**
 
   - [Template refs](/guide/essentials/template-refs)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
@@ -174,7 +174,7 @@ An object that contains the component's fallthrough attributes.
 
   By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc#inheritattrs) option.
 
-- **See also:**
+- **See also**
 
   - [Fallthrough Attributes](/guide/components/attrs)
 
@@ -257,7 +257,7 @@ Imperative API for creating watchers.
   unwatch()
   ```
 
-- **See also:**
+- **See also**
   - [Options - `watch`](/api/options-state#watch)
   - [Guide - Watchers](/guide/essentials/watchers)
 
@@ -286,7 +286,7 @@ Trigger a custom event on the current instance. Any additional arguments will be
   }
   ```
 
-- **See also:**
+- **See also**
 
   - [Component - Events](/guide/components/events)
   - [`emits` option](./options-state#emits)
@@ -323,4 +323,4 @@ Instance-bound version of the global [`nextTick()`](./general#nexttick).
 
   The only difference from the global version of `nextTick()` is that the callback passed to `this.$nextTick()` will have its `this` context bound to the current component instance.
 
-- **See also:** [`nextTick()`](./general#nexttick)
+- **See also** [`nextTick()`](./general#nexttick)

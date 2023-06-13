@@ -39,8 +39,8 @@ h('div', { id: 'foo' })
 // Vue automatically picks the right way to assign it
 h('div', { class: 'bar', innerHTML: 'hello' })
 
-// props modifiers such as .prop and .attr can be added
-// with '.' and `^' prefixes respectively
+// props modifiers such as `.prop` and `.attr` can be added
+// with `.` and `^` prefixes respectively
 h('div', { '.name': 'some-name', '^width': '100' })
 
 // class and style have the same object / array
@@ -238,6 +238,16 @@ Although first introduced by React, JSX actually has no defined runtime semantic
 - Passing children to components (i.e. slots) [works differently](#passing-slots).
 
 Vue's type definition also provides type inference for TSX usage. When using TSX, make sure to specify `"jsx": "preserve"` in `tsconfig.json` so that TypeScript leaves the JSX syntax intact for Vue JSX transform to process.
+
+### JSX Type Inference {#jsx-type-inference}
+
+Similar to the transform, Vue's JSX also needs different type definitions. Currently, Vue's types automatically registers Vue's JSX types globally. This means TSX will work out of the box when Vue's type is available.
+
+The global JSX types may cause conflict with used together with other libraries that also needs JSX type inference, in particular React. Starting in 3.3, Vue supports specifying JSX namespace via TypeScript's [jsxImportSource](https://www.typescriptlang.org/tsconfig#jsxImportSource) option. We plan to remove the default global JSX namespace registration in 3.4.
+
+For TSX users, it is suggested to set [jsxImportSource](https://www.typescriptlang.org/tsconfig#jsxImportSource) to `'vue'` in `tsconfig.json` after upgrading to 3.3, or opt-in per file with `/* @jsxImportSource vue */`. This will allow you to opt-in to the new behavior now and upgrade seamlessly when 3.4 releases.
+
+If there is code that depends on the presence of the global `JSX` namespace,  you can retain the exact pre-3.4 global behavior by explicitly referencing `vue/jsx`, which registers the global `JSX` namespace.
 
 ## Render Function Recipes {#render-function-recipes}
 
@@ -646,6 +656,41 @@ const vnode = withDirectives(h('div'), [
 ```
 
 If the directive is registered by name and cannot be imported directly, it can be resolved using the [`resolveDirective`](/api/render-function#resolvedirective) helper.
+
+### Template Refs {#template-refs}
+
+<div class="composition-api">
+
+With the Composition API, template refs are created by passing the `ref()` itself as a prop to the vnode:
+
+```js
+import { h, ref } from 'vue'
+
+export default {
+  setup() {
+    const divEl = ref()
+
+    // <div ref="divEl">
+    return () => h('div', { ref: divEl })
+  }
+}
+```
+
+</div>
+<div class="options-api">
+
+With the Options API, template refs are created by passing the ref name as a string in the vnode props:
+
+```js
+export default {
+  render() {
+    // <div ref="divEl">
+    return h('div', { ref: 'divEl' })
+  }
+}
+```
+
+</div>
 
 ## Functional Components {#functional-components}
 

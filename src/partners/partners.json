@@ -102,25 +102,6 @@
     "platinum": true
   },
   {
-    "name": "DevSquad",
-    "logo": "devsquad.png",
-    "flipLogo": true,
-    "intro": "You can think of DevSquad as the Navy SEALs of software development. Our team members have unique and diverse skills, and this cross-functionality lets us successfully complete any mission.",
-    "description": [
-      "All of our clients get their own dedicated Squad. Even if you need 30 developers, everyone working on your project is split into small agile teams of 2-6 people. A battle-tested small team can move quicker and with more precision than larger teams, just like the Navy SEALs.",
-      "Instead of the bug-filled code, you may have received in the past, we write robust software and test the hell out of it. But instead of just testing manually, we write additional code to test your code. This ensures bugs are spotted quickly and automatically before your employees or customers ever touch the software. And it prevents bigger problems down the road when you try to scale usage or add new features.",
-      "DevSquad gives you the proven proves and all the experience you need to build your software better, faster, and right the first time."
-    ],
-    "region": ["North America"],
-    "proficiencies": ["Vue.js", "Laravel", "Node.js"],
-    "website": {
-      "text": "devsquad.com",
-      "url": "https://devsquad.com/vuejs-developers/"
-    },
-    "contact": "phil@devsquad.com",
-    "platinum": true
-  },
-  {
     "name": "Tighten",
     "logo": "tighten.svg",
     "flipLogo": true,
@@ -137,7 +118,7 @@
       "text": "tighten.com",
       "url": "https://tighten.com/vue"
     },
-    "contact": "keith.damiani@tighten.co",
+    "contact": "hello@tighten.co",
     "platinum": true
   },
   {
@@ -234,38 +215,11 @@
     "hiring": "jump24.co.uk/careers"
   },
   {
-    "name": "Epicmax",
-    "logo": "epicmax.svg",
-    "hero": "epicmax.png",
-    "intro": "Epicmax is a team of Vue.js experts with 6 years of experience in building Vue.js interfaces. We bring Vue.js knowledge in front-end development across industries and geographies, serving businesses of different sizes. We have more than 55 completed projects, 45 clients worldwide and 3 Open Source products in our portfolio.",
-    "description": [
-      "Epicmax is a Vue.js software development company with over 55 successfully completed projects all over the world and 3 widely acclaimed Open Source products.",
-      "Since 2017, we’ve helped international clients in over 15 industries, both startups and larger companies, build everything from e-commerce through social media platforms to real-time analytics products.",
-      "We bring deep Vue.js knowledge necessary to help clients solve the most complex issues for their business: from building Vue.js applications to consulting, code auditing and migration to Vue. We move fast and smoothly integrate into a client’s team for agile and collaborative processes.",
-      "Epicmax is built around Open Source software - it is a part of our culture and everyone on the team is an active contributor. We’ve created and are maintaining Vuestic UI, Vuestic Admin and Epic Spinners libraries which are completely free for everyone and available on GitHub."
-    ],
-    "proficiencies": [
-      "Vue",
-      "Nuxt",
-      "TypeScript",
-      "Tailwind",
-      "Vuetify",
-      "Quasar"
-    ],
-    "region": ["Europe"],
-    "website": {
-      "text": "epicmax.co",
-      "url": "https://epicmax.co/"
-    },
-    "platinum": false,
-    "contact": "hello@epicmax.co"
-  },
-  {
     "name": "HeroDevs",
     "logo": "herodevs.png",
     "flipLogo": true,
     "hero": "herodevs-hero.png",
-    "intro": "The end-of-life of open source software versions creates massive challenges for companies. HeroDevs offers two solutions: (1) We provide never-ending support for sunsetted open source software, and (2)  we provide consulting and engineering to help companies migrate to in-support open source software.",
+    "intro": "End-of-life of open source software versions creates massive challenges for companies. HeroDevs offers two solutions: (1) We provide never-ending support for sunsetted open source software, and (2)  we provide consulting and engineering to help companies migrate to in-support open source software.",
     "description": [
       "When open source software is reaching end-of-life, you’re faced with a difficult decision: do you spend months or years of dev time migrating your code, or do you risk being non-compliant with industry regulations and your company’s SLAs?",
       "At HeroDevs we pride ourselves in being the experts that help you navigate end-of-life events in your technology stack. Companies offering enterprise support for open source libraries stop at the end of life. That’s where our value prop begins with our Never-Ending Support (NES) products. Our team has not only provided over 450 organizations with supported, secured versions of open source software beyond their end of life, but has also helped dozens of companies migrate their codebase to a modern, supported open source stack.",
@@ -273,12 +227,7 @@
       "Need to migrate? HeroDevs can help with that too. Hire our team of experts to help you navigate the challenges that come with migrating your code.",
       "Want to learn more? Find us at herodevs.com or send us a note at hello@herodevs.com."
     ],
-    "proficiencies": [
-      "Vue",
-      "Angular",
-      "Migration",
-      "EOL Support"
-    ],
+    "proficiencies": ["Vue", "Angular", "Migration", "EOL Support"],
     "region": ["North America"],
     "website": {
       "text": "herodevs.com",

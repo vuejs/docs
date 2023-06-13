@@ -102,9 +102,30 @@ Controls whether the default component attribute fallthrough behavior should be 
   </template>
   ```
 
+  Since 3.3 you can also use `defineOptions` directly in `<script setup>`:
+
+  ```vue
+  <script setup>
+  defineProps(['label', 'value'])
+  defineEmits(['input'])
+  defineOptions({ inheritAttrs: false })
+  </script>
+
+  <template>
+    <label>
+      {{ label }}
+      <input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      />
+    </label>
+  </template>
+  ```
+
   </div>
 
-- **See also:** [Fallthrough Attributes](/guide/components/attrs)
+- **See also** [Fallthrough Attributes](/guide/components/attrs)
 
 ## components {#components}
 
@@ -134,7 +155,7 @@ An object that registers components to be made available to the component instan
   }
   ```
 
-- **See also:** [Component Registration](/guide/components/registration)
+- **See also** [Component Registration](/guide/components/registration)
 
 ## directives {#directives}
 
@@ -169,4 +190,4 @@ An object that registers directives to be made available to the component instan
 
   A hash of directives to be made available to the component instance.
 
-- **See also:** [Custom Directives](/guide/reusability/custom-directives)
+- **See also** [Custom Directives](/guide/reusability/custom-directives)

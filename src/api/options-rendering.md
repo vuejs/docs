@@ -51,13 +51,13 @@ A function that programmatically returns the virtual DOM tree of the component.
   type VNodeArrayChildren = (VNodeArrayChildren | VNodeChildAtom)[]
   ```
 
-- **Details:**
+- **Details**
 
   `render` is an alternative to string templates that allows you to leverage the full programmatic power of JavaScript to declare the render output of the component.
 
   Pre-compiled templates, for example those in Single-File Components, are compiled into the `render` option at build time. If both `render` and `template` are present in a component, `render` will take higher priority.
 
-- **See also:**
+- **See also**
   - [Rendering Mechanism](/guide/extras/rendering-mechanism)
   - [Render Functions](/guide/extras/render-function)
 
@@ -82,4 +82,31 @@ Configure runtime compiler options for the component's template.
 
   This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application#app-config-compileroptions), and has higher priority for the current component.
 
-- **See also:** [app.config.compilerOptions](/api/application#app-config-compileroptions)
+- **See also** [app.config.compilerOptions](/api/application#app-config-compileroptions)
+
+## slots<sup class="vt-badge ts"/> {#slots}
+
+An option to assist with type inference when using slots programmatically in render functions. Only supported in 3.3+.
+
+- **Details**
+
+  This option's runtime value is not used. The actual types should be declared via type casting using the `SlotsType` type helper:
+
+  ```ts
+  import { SlotsType } from 'vue'
+
+  defineComponent({
+    slots: Object as SlotsType<{
+      default: { foo: string; bar: number }
+      item: { data: number }
+    }>,
+    setup(props, { slots }) {
+      expectType<
+        undefined | ((scope: { foo: string; bar: number }) => any)
+      >(slots.default)
+      expectType<undefined | ((scope: { data: number }) => any)>(
+        slots.item
+      )
+    }
+  })
+  ```
