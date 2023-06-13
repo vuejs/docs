@@ -22,4 +22,3 @@ jobs:
           track-from: 72b203380bda37f83cbcf31805f969d67b7b0214
           #path-starts-with: docs/
           workflow-name: ryu-cho
-          
