@@ -30,6 +30,8 @@ Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building u
 
 Here is a minimal example:
 
+<div class="options-api">
+
 ```js
 import { createApp } from 'vue'
 
@@ -41,6 +43,23 @@ createApp({
   }
 }).mount('#app')
 ```
+
+</div>
+<div class="composition-api">
+
+```js
+import { createApp, ref } from 'vue'
+
+createApp({
+  setup() {
+    return {
+      count: ref(0)
+    }
+  }
+}).mount('#app')
+```
+
+</div>
 
 ```vue-html
 <div id="app">
@@ -96,6 +115,8 @@ Despite the flexibility, the core knowledge about how Vue works is shared across
 
 In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
 
+<div class="options-api">
+
 ```vue
 <script>
 export default {
@@ -117,6 +138,28 @@ button {
 }
 </style>
 ```
+
+</div>
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref } from 'vue'
+const count = ref(0)
+</script>
+
+<template>
+  <button @click="count++">Count is: {{ count }}</button>
+</template>
+
+<style scoped>
+button {
+  font-weight: bold;
+}
+</style>
+```
+
+</div>
 
 SFC is a defining feature of Vue and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
 
