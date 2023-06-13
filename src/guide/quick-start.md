@@ -22,7 +22,7 @@ footer: false
 
 In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vitejs.dev) and allow us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
 
-Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) installed, then run the following command in your command line (without the `>` sign):
+Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) installed and your current working directory is the one where you intend to create a project. Run the following command in your command line (without the `>` sign):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
@@ -98,7 +98,7 @@ The above link loads the *global build* of Vue, where all top-level APIs are exp
 </script>
 ```
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/nw1xg8Lj/)
+[Codepen demo](https://codepen.io/vuejs-examples/pen/QWJwJLp)
 
 ### Using the ES Module Build {#using-the-es-module-build}
 
@@ -122,7 +122,7 @@ Throughout the rest of the documentation, we will be primarily using [ES modules
 
 Notice that we are using `<script type="module">`, and the imported CDN URL is pointing to the **ES modules build** of Vue instead.
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/vo23c470/)
+[Codepen demo](https://codepen.io/vuejs-examples/pen/VwVYVZO)
 
 ### Enabling Import maps {#enabling-import-maps}
 

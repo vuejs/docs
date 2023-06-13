@@ -6,16 +6,29 @@ export default {
     }
   },
   created() {
-    let lastTime = performance.now()
-    const update = () => {
-      const time = performance.now()
-      this.elapsed += Math.min(time - lastTime, this.duration - this.elapsed)
-      lastTime = time
-      this.handle = requestAnimationFrame(update)
-    }
-    update()
+    this.reset()
   },
   unmounted() {
     cancelAnimationFrame(this.handle)
+  },
+  computed: {
+    progressRate() {
+      return Math.min(this.elapsed / this.duration, 1)
+    }
+  },
+  methods: {
+    update() {
+      this.elapsed = performance.now() - this.lastTime
+      if (this.elapsed >= this.duration) {
+        cancelAnimationFrame(this.handle)
+      } else {
+        this.handle = requestAnimationFrame(this.update)
+      }
+    },
+    reset() {
+      this.elapsed = 0
+      this.lastTime = performance.now()
+      this.update()
+    }
   }
 }

@@ -494,7 +494,7 @@ When prop validation fails, Vue will produce a console warning (if using the dev
 
 <div class="composition-api">
 
-If using [Type-based props declarations](/api/sfc-script-setup#typescript-only-features) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+If using [Type-based props declarations](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
@@ -589,13 +589,29 @@ The component can be used like this:
 <MyComponent />
 ```
 
-When a prop is declared to allow multiple types, e.g.
+When a prop is declared to allow multiple types, the casting rules for `Boolean` will also be applied. However, there is an edge when both `String` and `Boolean` are allowed - the Boolean casting rule only applies if Boolean appears before String:
 
 <div class="composition-api">
 
 ```js
+// disabled will be casted to true
 defineProps({
   disabled: [Boolean, Number]
+})
+  
+// disabled will be casted to true
+defineProps({
+  disabled: [Boolean, String]
+})
+  
+// disabled will be casted to true
+defineProps({
+  disabled: [Number, Boolean]
+})
+  
+// disabled will be parsed as an empty string (disabled="")
+defineProps({
+  disabled: [String, Boolean]
 })
 ```
 
@@ -603,13 +619,33 @@ defineProps({
 <div class="options-api">
 
 ```js
+// disabled will be casted to true
 export default {
   props: {
     disabled: [Boolean, Number]
   }
 }
+  
+// disabled will be casted to true
+export default {
+  props: {
+    disabled: [Boolean, String]
+  }
+}
+  
+// disabled will be casted to true
+export default {
+  props: {
+    disabled: [Number, Boolean]
+  }
+}
+  
+// disabled will be parsed as an empty string (disabled="")
+export default {
+  props: {
+    disabled: [String, Boolean]
+  }
+}
 ```
 
 </div>
-
-The casting rules for `Boolean` will apply regardless of type appearance order.

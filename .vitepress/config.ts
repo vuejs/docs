@@ -4,7 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
-import { textAdPlugin } from './textAdMdPlugin'
+// import { textAdPlugin } from './textAdMdPlugin'
 
 const nav: ThemeConfig['nav'] = [
   {
@@ -16,6 +16,7 @@ const nav: ThemeConfig['nav'] = [
       { text: 'Examples', link: '/examples/' },
       { text: 'Quick Start', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
+      { text: 'Glossary', link: '/glossary/' },
       {
         text: 'Vue 2 Docs',
         link: 'https://v2.vuejs.org'
@@ -678,7 +679,8 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   markdown: {
     config(md) {
-      md.use(headerPlugin).use(textAdPlugin)
+      md.use(headerPlugin)
+        // .use(textAdPlugin)
     }
   },
 

@@ -92,7 +92,7 @@ A utility for waiting for the next DOM update flush.
 
   </div>
 
-- **See also:** [`this.$nextTick()`](/api/component-instance#nexttick)
+- **See also** [`this.$nextTick()`](/api/component-instance#nexttick)
 
 ## defineComponent() {#definecomponent}
 
@@ -191,7 +191,7 @@ A type helper for defining a Vue component with type inference.
 
   Note this is not necessary if you are using Vite, because Rollup (the underlying production bundler used by Vite) is smart enough to determine that `defineComponent()` is in fact side-effect-free without the need for manual annotations.
 
-- **See also:** [Guide - Using Vue with TypeScript](/guide/typescript/overview#general-usage-notes)
+- **See also** [Guide - Using Vue with TypeScript](/guide/typescript/overview#general-usage-notes)
 
 ## defineAsyncComponent() {#defineasynccomponent}
 
@@ -222,7 +222,7 @@ Define an async component which is lazy loaded only when it is rendered. The arg
   }
   ```
 
-- **See also:** [Guide - Async Components](/guide/components/async)
+- **See also** [Guide - Async Components](/guide/components/async)
 
 ## defineCustomElement() {#definecustomelement}
 
@@ -261,7 +261,7 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
   customElements.define('my-vue-element', MyVueElement)
   ```
 
-- **See also:**
+- **See also**
 
   - [Guide - Building Custom Elements with Vue](/guide/extras/web-components#building-custom-elements-with-vue)
 
