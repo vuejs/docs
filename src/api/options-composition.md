@@ -188,7 +188,7 @@ An array of option objects to be mixed into the current component.
   Mixin hooks are called in the order they are provided, and called before the component's own hooks.
 
   :::warning No Longer Recommended
-  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composition API](/guide/reusability/composables) is now the preferred approach for code reuse between components.
+  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composable functions using Composition API](/guide/reusability/composables) is now the preferred approach for code reuse between components.
   :::
 
 - **Example:**
@@ -231,7 +231,7 @@ A "base class" component to extend from.
 
   However, `extends` and `mixins` express different intents. The `mixins` option is primarily used to compose chunks of functionality, whereas `extends` is primarily concerned with inheritance.
 
-  As with `mixins`, any options will be merged using the relevant merge strategy.
+  As with `mixins`, any options (except for `setup()`) will be merged using the relevant merge strategy.
 
 - **Example:**
 
@@ -243,3 +243,23 @@ A "base class" component to extend from.
     ...
   }
   ```
+
+  :::warning Not Recommended for Composition API
+  `extends` is designed for Options API and does not handle the merging of the `setup()` hook.
+
+  In Composition API, the preferred mental model for logic reuse is "compose" over "inheritance". If you have logic from a component that needs to be reused in another one, consider extracting the relevant logic into a [Composable](/guide/reusability/composables#composables).
+
+  If you still intend to "extend" a component using Composition API, you can call the base component's `setup()` in the extending component's `setup()`:
+
+  ```js
+  import Base from './Base.js'
+  export default {
+    setup(props, ctx) {
+      return {
+        ...Base.setup(props, ctx),
+        // local bindings
+      }
+    }
+  }
+  ```
+  :::
