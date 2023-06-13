@@ -76,14 +76,14 @@ Controls whether the default component attribute fallthrough behavior should be 
   </div>
   <div class="composition-api">
 
-  When declaring this option in a component that uses `<script setup>`, you can use the `defineOptions` macro:
+  When declaring this option in a component that uses `<script setup>`, you can use the [`defineOptions`](/api/sfc-script-setup#defineoptions) macro:
 
   ```vue
   <script setup>
   defineProps(['label', 'value'])
   defineEmits(['input'])
   defineOptions({
-    inheritAttrs: false,
+    inheritAttrs: false
   })
   </script>
 
