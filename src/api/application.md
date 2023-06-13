@@ -35,7 +35,7 @@ Creates an application instance.
   const app = createApp(App)
   ```
 
-- **See also:** [Guide - Creating a Vue Application](/guide/essentials/application)
+- **See also** [Guide - Creating a Vue Application](/guide/essentials/application)
 
 ## createSSRApp() {#createssrapp}
 
@@ -119,7 +119,7 @@ Registers a global component if passing both a name string and a component defin
   const MyComponent = app.component('my-component')
   ```
 
-- **See also:** [Component Registration](/guide/components/registration)
+- **See also** [Component Registration](/guide/components/registration)
 
 ## app.directive() {#app-directive}
 
@@ -157,7 +157,7 @@ Registers a global custom directive if passing both a name string and a directiv
   const myDirective = app.directive('my-directive')
   ```
 
-- **See also:** [Custom Directives](/guide/reusability/custom-directives)
+- **See also** [Custom Directives](/guide/reusability/custom-directives)
 
 ## app.use() {#app-use}
 
@@ -192,7 +192,7 @@ Installs a [plugin](/guide/reusability/plugins).
   app.use(MyPlugin)
   ```
 
-- **See also:** [Plugins](/guide/reusability/plugins)
+- **See also** [Plugins](/guide/reusability/plugins)
 
 ## app.mixin() {#app-mixin}
 
@@ -266,7 +266,7 @@ Provide a value that can be injected in all descendant components within the app
 
   </div>
 
-- **See also:**
+- **See also**
   - [Provide / Inject](/guide/components/provide-inject)
   - [App-level Provide](/guide/components/provide-inject#app-level-provide)
   - [app.runWithContext()](#app-runwithcontext)
@@ -328,7 +328,7 @@ Provides the version of Vue that the application was created with. This is usefu
   }
   ```
 
-- **See also:** [Global API - version](/api/general#version)
+- **See also** [Global API - version](/api/general#version)
 
 ## app.config {#app-config}
 
@@ -420,9 +420,9 @@ Assign a custom handler for runtime warnings from Vue.
 
 Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
 
-- **Type**: `boolean`
+- **Type:** `boolean`
 
-- **See also:** [Guide - Performance](/guide/best-practices/performance)
+- **See also** [Guide - Performance](/guide/best-practices/performance)
 
 ## app.config.compilerOptions {#app-config-compileroptions}
 
@@ -457,7 +457,7 @@ Specifies a check method to recognize native custom elements.
   }
   ```
 
-- **See also:** [Vue and Web Components](/guide/extras/web-components)
+- **See also** [Vue and Web Components](/guide/extras/web-components)
 
 ### app.config.compilerOptions.whitespace {#app-config-compileroptions-whitespace}
 
@@ -554,7 +554,7 @@ An object that can be used to register global properties that can be accessed on
   }
   ```
 
-- **See also:** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+- **See also** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
 
@@ -605,4 +605,4 @@ An object for defining merging strategies for custom component options.
   // logs 'Hello Vue'
   ```
 
-- **See also:** [Component Instance - `$options`](/api/component-instance#options)
+- **See also** [Component Instance - `$options`](/api/component-instance#options)
