@@ -589,31 +589,27 @@ The component can be used like this:
 <MyComponent />
 ```
 
-When a prop is declared to allow multiple types and any of the following conditions are met, special conversion rules for `Boolean` types will be applied.
-  - The declared type does not contain `String`
-  - `Boolean` before `String`
-
-e.g.
+When a prop is declared to allow multiple types, the casting rules for `Boolean` will also be applied. However, there is an edge when both `String` and `Boolean` are allowed - the Boolean casting rule only applies if Boolean appears before String:
 
 <div class="composition-api">
 
 ```js
-// disabled will be parsed as true
+// disabled will be casted to true
 defineProps({
   disabled: [Boolean, Number]
 })
   
-// disabled will be parsed as true
+// disabled will be casted to true
 defineProps({
   disabled: [Boolean, String]
 })
   
-// disabled will be parsed as true
+// disabled will be casted to true
 defineProps({
   disabled: [Number, Boolean]
 })
   
-// disabled will be parsed as an empty string
+// disabled will be parsed as an empty string (disabled="")
 defineProps({
   disabled: [String, Boolean]
 })
@@ -623,28 +619,28 @@ defineProps({
 <div class="options-api">
 
 ```js
-// disabled will be parsed as true
+// disabled will be casted to true
 export default {
   props: {
     disabled: [Boolean, Number]
   }
 }
   
-// disabled will be parsed as true
+// disabled will be casted to true
 export default {
   props: {
     disabled: [Boolean, String]
   }
 }
   
-// disabled will be parsed as true
+// disabled will be casted to true
 export default {
   props: {
     disabled: [Number, Boolean]
   }
 }
   
-// disabled will be parsed as an empty string
+// disabled will be parsed as an empty string (disabled="")
 export default {
   props: {
     disabled: [String, Boolean]
