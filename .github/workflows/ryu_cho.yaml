@@ -1,0 +1,24 @@
+name: ryu-cho
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch: # on button click
+
+jobs:
+  ryu-cho:
+    name: Ryu Cho
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vuejs-translations/ryu-cho@v1
+        with:
+          access-token: ${{ secrets.RYU_CHO_ACCESS_TOKEN }}
+          username: ${{ secrets.RYU_CHO_USER_NAME }}
+          email: ${{ secrets.RYU_CHO_USER_EMAIL }}
+          upstream-repo: https://github.com/vuejs-translations/docs-bn
+          upstream-repo-branch: upstream
+          head-repo: https://github.com/vuejs/docs
+          head-repo-branch: main
+          track-from: 72b203380bda37f83cbcf31805f969d67b7b0214
+          #path-starts-with: docs/
+          workflow-name: ryu-cho
