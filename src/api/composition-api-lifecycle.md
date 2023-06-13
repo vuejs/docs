@@ -60,7 +60,7 @@ Registers a callback to be called after the component has updated its DOM tree d
 
   A parent component's updated hook is called after that of its child components.
 
-  This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general#nexttick) instead.
+  This hook is called after any DOM update of the component, which can be caused by different state changes, because multiple state changes can be batched into a single render cycle for performance reasons. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general#nexttick) instead.
 
   **This hook is not called during server-side rendering.**
 
