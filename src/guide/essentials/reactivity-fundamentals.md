@@ -198,7 +198,7 @@ When you use a ref in the template, and changes the ref's value later, Vue autom
 
 In standard JavaScript, there is no way to detect the access or mutation of plain variables. But we can intercept a property's get and set operations.
 
-The `.value` property gives Vue the opportunity to detect when a ref has been accessed or mutated. Under the hood, Vue perform the tracking in its getter, and performs triggering in its setter. Conceptually, you can think of a ref as an object that looks like this:
+The `.value` property gives Vue the opportunity to detect when a ref has been accessed or mutated. Under the hood, Vue performs the tracking in its getter, and performs triggering in its setter. Conceptually, you can think of a ref as an object that looks like this:
 
 ```js
 // pseudo code, not actual implementation
