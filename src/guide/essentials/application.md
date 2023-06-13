@@ -85,10 +85,6 @@ Vue will automatically use the container's `innerHTML` as the template if the ro
 
 In-DOM templates are often used in applications that are [using Vue without a build step](/guide/quick-start.html#using-vue-from-cdn). They can also be used in conjunction with server-side frameworks, where the root template might be generated dynamically by the server.
 
-:::warning Notes on In-DOM Root Component Template
-In-DOM Root Component Template does not support `<script setup>` [Related Discussion](https://github.com/vuejs/core/issues/8391).
-:::
-
 ## App Configurations {#app-configurations}
 
 The application instance exposes a `.config` object that allows us to configure a few app-level options, for example, defining an app-level error handler that captures errors from all descendant components:
