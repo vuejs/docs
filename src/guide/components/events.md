@@ -9,8 +9,7 @@ if (typeof window !== 'undefined') {
     '#usage-with-v-model',
     '#v-model-arguments',
     '#multiple-v-model-bindings',
-    '#handling-v-model-modifiers',
-    '#multiple-v-model-modifiers'
+    '#handling-v-model-modifiers'
   ].includes(hash)) {
     onMounted(() => {
       window.location = './v-model.html' + hash
