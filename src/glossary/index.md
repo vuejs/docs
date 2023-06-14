@@ -265,7 +265,7 @@ Vue can only track reactive dependencies within a reactive effect. If a property
 The term is derived from 'side effect'. Calling the effect function is a side effect of the property value being changed.
 
 For more details see:
-- [Guide - Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)
+- [Guide - Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
 ## reactivity {#reactivity}
 
