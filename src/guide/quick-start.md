@@ -79,6 +79,8 @@ footer: false
 
 উপরের লিঙ্কটি Vue-এর _global build_ লোড করে, যেখানে সমস্ত টপ-লেভেল APIs গ্লোবাল `Vue` অবজেক্টের বৈশিষ্ট্য হিসেবে উন্মুক্ত হয়। এখানে গ্লোবাল বিল্ড ব্যবহার করে একটি সম্পূর্ণ উদাহরণ রয়েছে:
 
+<div class="options-api">
+
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -97,11 +99,44 @@ footer: false
 </script>
 ```
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/nw1xg8Lj/)
+[Codepen demo](https://codepen.io/vuejs-examples/pen/QWJwJLp)
+
+</div>
+
+<div class="composition-api">
+
+```html
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const message = ref('Hello vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/eYQpQEG)
+
+:::tip
+Many of the examples for Composition API throughout the guide will be using the `<script setup>` syntax, which requires build tools. If you intend to use Composition API without a build step, consult the usage of the [`setup()` option](/api/composition-api-setup).
+:::
+
+</div>
 
 ### ES মডিউল বিল্ড ব্যবহার করে {#using-the-es-module-build}
 
 বাকি ডকুমেন্টেশন জুড়ে, আমরা প্রাথমিকভাবে [ES মডিউল](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) সিনট্যাক্স ব্যবহার করব। বেশিরভাগ আধুনিক ব্রাউজার এখন স্থানীয়ভাবে ES মডিউলগুলিকে সমর্থন করে, তাই আমরা একটি CDN থেকে Vue ব্যবহার করতে পারি নেটিভ ES মডিউলগুলির মাধ্যমে:
+
+<div class="options-api">
 
 ```html{3,4}
 <div id="app">{{ message }}</div>
@@ -119,9 +154,41 @@ footer: false
 </script>
 ```
 
+</div>
+
+<div class="composition-api">
+
+```html{3,4}
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  createApp({
+    setup() {
+      const message = ref('Hello Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+</div>
+
 লক্ষ্য করুন যে আমরা `<script type="module">` ব্যবহার করছি, এবং imported CDN URL এর পরিবর্তে Vue-এর **ES মডিউল বিল্ড**-এর দিকে নির্দেশ করছে।
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/vo23c470/)
+<div class="options-api">
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/VwVYVZO)
+
+</div>
+<div class="composition-api">
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/MWzazEv)
+
+</div>
 
 ### Import maps ব্যবহার করে {#enabling-import-maps}
 
@@ -132,6 +199,8 @@ import { createApp } from 'vue'
 ```
 
 আমরা ব্রাউজারকে শেখাতে পারি কোথায় `vue` ইম্পোর্ট ব্যবহার করে সনাক্ত করতে হয় [Import Maps](https://caniuse.com/import-maps):
+
+<div class="options-api">
 
 ```html{1-7,12}
 <script type="importmap">
@@ -157,16 +226,45 @@ import { createApp } from 'vue'
 </script>
 ```
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/2ke1ab0z/)
+[Codepen demo](https://codepen.io/vuejs-examples/pen/wvQKQyM)
+
+</div>
+
+<div class="composition-api">
+
+```html{1-7,12}
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp, ref } from 'vue'
+
+  createApp({
+    setup() {
+      const message = ref('Hello Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/YzRyRYM)
+
+</div>
 
 আপনি import maps অন্যান্য নির্ভরতার জন্য এন্ট্রি যোগ করতে পারেন - তবে নিশ্চিত করুন যে তারা লাইব্রেরির ES মডিউল সংস্করণের দিকে নির্দেশ করে যা আপনি ব্যবহার করতে চান।
 
-:::tip import maps ব্রাউজার সমর্থন করে
-ক্রোমিয়াম-ভিত্তিক ব্রাউজারগুলিতে import maps ডিফল্টরূপে সমর্থিত, তাই আমরা শেখার প্রক্রিয়া চলাকালীন Chrome বা Edge ব্যবহার করার পরামর্শ দিই।
-
-ফায়ারফক্স ব্যবহার করলে, এটি 108+ সংস্করণে ডিফল্টরূপে সমর্থিত হয় অথবা 102+ সংস্করণের জন্য `about:config`-এ `dom.importMaps.enabled` বিকল্পটিকে সত্য হিসেবে সেট করে।
-
-যদি আপনার পছন্দের ব্রাউজার এখনও import maps সমর্থন না করে, আপনি এটি [es-module-shims](https://github.com/guybedford/es-module-shims) দিয়ে পলিফিল করতে পারেন।
+:::tip Import Maps ব্রাউজার সমর্থন
+Import Maps একটি অপেক্ষাকৃত নতুন ব্রাউজার বৈশিষ্ট্য। একটি ব্রাউজার এর [সমর্থন পরিসর](https://caniuse.com/import-maps) এর মধ্যে ব্যবহার করা নিশ্চিত করুন। বিশেষ করে, এটি শুধুমাত্র Safari 16.4+ এ সমর্থিত।
 :::
 
 :::warning Production ব্যবহারের উপর নোট
@@ -189,6 +287,8 @@ import { createApp } from 'vue'
 </script>
 ```
 
+<div class="options-api">
+
 ```js
 // my-component.js
 export default {
@@ -199,17 +299,32 @@ export default {
 }
 ```
 
-আপনি যদি সরাসরি আপনার ব্রাউজারে উপরের `index.html` খোলেন, আপনি দেখতে পাবেন যে এটি একটি ত্রুটি নিক্ষেপ করে কারণ ES মডিউলগুলি `file://` প্রোটোকলের উপর কাজ করতে পারে না। এটি কাজ করার জন্য, আপনাকে একটি স্থানীয় HTTP সার্ভারের সাথে `http://` প্রোটোকলের মাধ্যমে আপনার `index.html` পরিবেশন করতে হবে।
+</div>
+<div class="composition-api">
 
-একটি স্থানীয় HTTP সার্ভার শুরু করতে, প্রথমে [Node.js](https://nodejs.org/en/) ইনস্টল করুন এবং তারপর আপনার HTML ফাইল যেখানে রয়েছে একই ডিরেক্টরিতে কমান্ড লাইন থেকে `npx serve` চালান। আপনি অন্য কোনো HTTP সার্ভারও ব্যবহার করতে পারেন যা সঠিক MIME প্রকারের সাথে স্ট্যাটিক ফাইল পরিবেশন করতে পারে।
+```js
+// my-component.js
+import { ref } from 'vue'
+export default {
+  setup() {
+    const count = ref(0)
+    return { count }
+  },
+  template: `<div>count is {{ count }}</div>`
+}
+```
+
+</div>
+
+আপনি যদি সরাসরি আপনার ব্রাউজারে উপরের `index.html` খোলেন, তাহলে আপনি দেখতে পাবেন যে এটি একটি ত্রুটি ছুঁড়েছে কারণ ES মডিউলগুলি `file://` প্রোটোকলের উপর কাজ করতে পারে না, যেটি প্রোটোকল ব্রাউজার ব্যবহার করে যখন আপনি একটি স্থানীয় খুলবেন ফাইল
+
+নিরাপত্তার কারণে, ES মডিউলগুলি শুধুমাত্র `http://` প্রোটোকলের উপর কাজ করতে পারে, যা ওয়েবে পৃষ্ঠা খোলার সময় ব্রাউজার ব্যবহার করে। আমাদের স্থানীয় মেশিনে ES মডিউলগুলি কাজ করার জন্য, আমাদের একটি স্থানীয় HTTP সার্ভারের সাথে `http://` প্রোটোকলের উপর `index.html` পরিবেশন করতে হবে।
+
+একটি স্থানীয় HTTP সার্ভার শুরু করতে, প্রথমে নিশ্চিত করুন যে আপনি [Node.js](https://nodejs.org/en/) ইনস্টল করেছেন, তারপরে আপনার HTML ফাইলটি যেখানে একই ডিরেক্টরিতে কমান্ড লাইন থেকে `npx serve` চালান। . আপনি অন্য কোনো HTTP সার্ভারও ব্যবহার করতে পারেন যা সঠিক MIME প্রকারের সাথে স্ট্যাটিক ফাইল পরিবেশন করতে পারে।
 
 আপনি হয়তো লক্ষ্য করেছেন যে import করা উপাদানের টেমপ্লেটটি জাভাস্ক্রিপ্ট স্ট্রিং হিসাবে ইনলাইন করা হয়েছে। আপনি যদি VSCode ব্যবহার করেন তবে আপনি [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) এক্সটেনশন ইনস্টল করতে পারেন এবং একটি `/*html*/` সহ স্ট্রিংগুলি comment করতে পারেন তাদের জন্য সিনট্যাক্স হাইলাইটিং পেতে মন্তব্য করুন।
 
-### বিল্ড স্টেপ ছাড়া Composition API ব্যবহার করা {#using-composition-api-without-a-build-step}
-
-Composition API-এর অনেক উদাহরণ `<script setup>` সিনট্যাক্স ব্যবহার করবে। আপনি যদি বিল্ড স্টেপ ছাড়া কম্পোজিশন এপিআই ব্যবহার করতে চান, তাহলে [`সেটআপ()` অপশন](/api/composition-api-setup) ব্যবহারের পরামর্শ নিন।
-
-## পরবর্তী ধাপ {#next-steps}
+## Next Steps {#next-steps}
 
 আপনি যদি [ভূমিকা](/guide/introduction) এড়িয়ে যান, তাহলে বাকি ডকুমেন্টেশনে যাওয়ার আগে আমরা দৃঢ়ভাবে এটি পড়ার পরামর্শ দিচ্ছি।
 

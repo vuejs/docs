@@ -162,7 +162,7 @@ Vue টেমপ্লেটগুলিতে, JavaScript এক্সপ্র
 
 ### Restricted Globals Access {#restricted-globals-access}
 
-টেমপ্লেট এক্সপ্রেশনগুলি স্যান্ডবক্সযুক্ত এবং শুধুমাত্র একটি [গ্লোবালের সীমাবদ্ধ তালিকা](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsWhitelist.ts#L3) অ্যাক্সেস করতে পারে। তালিকাটি সাধারণত ব্যবহৃত বিল্ট-ইন গ্লোবাল যেমন `Math` এবং `Date` প্রকাশ করে।
+টেমপ্লেট এক্সপ্রেশনগুলি স্যান্ডবক্সযুক্ত এবং শুধুমাত্র একটি [গ্লোবালের সীমাবদ্ধ তালিকা](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsAllowList.ts#L3) অ্যাক্সেস করতে পারে। তালিকাটি সাধারণত ব্যবহৃত বিল্ট-ইন গ্লোবাল যেমন `Math` এবং `Date` প্রকাশ করে।
 
 তালিকায় স্পষ্টভাবে অন্তর্ভুক্ত নয় গ্লোবাল, উদাহরণস্বরূপ `উইন্ডো`-এ ব্যবহারকারী-সংযুক্ত বৈশিষ্ট্য, টেমপ্লেট এক্সপ্রেশনে অ্যাক্সেসযোগ্য হবে না। তবে, আপনি [`app.config.globalProperties`](/api/application#app-config-globalproperties) এ যোগ করে সমস্ত Vue এক্সপ্রেশনের জন্য অতিরিক্ত গ্লোবালকে স্পষ্টভাবে সংজ্ঞায়িত করতে পারেন।
 

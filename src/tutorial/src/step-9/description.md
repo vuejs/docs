@@ -5,7 +5,7 @@
 আমরা <a target="_blank" href="/api/built-in-special-attributes.html#ref">বিশেষ ব্যবহার করে একটি **template ref** - অর্থাৎ টেমপ্লেটের একটি উপাদানের রেফারেন্সের জন্য অনুরোধ করতে পারি `ref` অ্যাট্রিবিউট</a>:
 
 ```vue-html
-<p ref="p">hello</p>
+<p ref="pElementRef">hello</p>
 ```
 
 <div class="composition-api">
@@ -15,7 +15,7 @@
 <div class="sfc">
 
 ```js
-const p = ref(null)
+const pElementRef = ref(null)
 ```
 
 </div>
@@ -23,10 +23,10 @@ const p = ref(null)
 
 ```js
 setup() {
-  const p = ref(null)
+  const pElementRef = ref(null)
 
   return {
-    p
+    pElementRef
   }
 }
 ```
@@ -67,7 +67,7 @@ createApp({
 
 <div class="options-api">
 
-উপাদানটি `this.$refs`-এ `this.$refs.p` হিসেবে প্রকাশ করা হবে। যাইহোক, কম্পোনেন্ট **mounted** হওয়ার পরেই আপনি এটি অ্যাক্সেস করতে পারবেন।
+উপাদানটি `this.$refs`-এ `this.$refs.pElementRef` হিসেবে প্রকাশ করা হবে। যাইহোক, কম্পোনেন্ট **mounted** হওয়ার পরেই আপনি এটি অ্যাক্সেস করতে পারবেন।
 
 mount পরে কোড চালানোর জন্য, আমরা 'mounted' option ব্যবহার করতে পারি:
 
@@ -97,4 +97,4 @@ createApp({
 
 এটিকে **lifecycle hook** বলা হয় - এটি আমাদেরকে কম্পোনেন্টের জীবনচক্রের নির্দিষ্ট সময়ে কল করার জন্য একটি কলব্যাক নিবন্ধন করতে দেয়। অন্যান্য হুক আছে যেমন <span class="options-api">`created` এবং `updated`</span><span class="composition-api">`onUpdated` এবং `onUnmounted`</span>। আরো বিস্তারিত জানার জন্য <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">লাইফসাইকেল ডায়াগ্রাম</a> দেখুন।
 
-এখন, <span class="options-api">a `mounted`</span><span class="composition-api">একটি `onMounted`</span> হুক যোগ করার চেষ্টা করুন, `<p>` অ্যাক্সেস করুন <span class="options-api">`this.$refs.p`</span><span class="composition-api">`p.value`</span> এর মাধ্যমে, এবং কিছু সরাসরি DOM অপারেশন সম্পাদন করুন এটি (যেমন এর `textContent` পরিবর্তন করা)।
+এখন, <span class="options-api">a `mounted`</span><span class="composition-api">একটি `onMounted`</span> হুক যোগ করার চেষ্টা করুন, `<p>` অ্যাক্সেস করুন <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> এর মাধ্যমে, এবং কিছু সরাসরি DOM অপারেশন সম্পাদন করুন এটি (যেমন এর `textContent` পরিবর্তন করা)।

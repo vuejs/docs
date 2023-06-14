@@ -184,43 +184,60 @@ const { data, error } = useFetch('...')
 </script>
 ```
 
-`useFetch()` ইনপুট হিসাবে একটি স্ট্যাটিক ইউআরএল স্ট্রিং নেয় - তাই এটি শুধুমাত্র একবার আনয়ন সম্পাদন করে এবং তারপর সম্পন্ন হয়। যখনই ইউআরএল পরিবর্তিত হয় তখন আমরা যদি এটি পুনরায় আনতে চাই? আমরা একটি যুক্তি হিসাবে refs গ্রহণ করে এটি অর্জন করতে পারি:
+### Accepting Reactive State {#accepting-reactive-state}
+
+`useFetch()` ইনপুট হিসাবে একটি স্ট্যাটিক ইউআরএল স্ট্রিং নেয় - তাই এটি শুধুমাত্র একবার আনয়ন সম্পাদন করে এবং তারপর সম্পন্ন হয়। যখনই ইউআরএল পরিবর্তিত হয় তখন আমরা যদি এটি পুনরায় আনতে চাই? এটি অর্জন করার জন্য, আমাদের কম্পোজেবল ফাংশনে প্রতিক্রিয়াশীল অবস্থা পাস করতে হবে এবং কম্পোজেবলকে এমন প্রহরী তৈরি করতে দিন যা পাস করা অবস্থা ব্যবহার করে ক্রিয়া সম্পাদন করে।
+
+উদাহরণস্বরূপ, `useFetch()` একটি রেফারেন্স গ্রহণ করতে সক্ষম হওয়া উচিত:
 
 ```js
+const url = ref('/initial-url')
+
+const { data, error } = useFetch(url)
+
+// this should trigger a re-fetch
+url.value = '/new-url'
+```
+
+Or, accept a getter function:
+
+```js
+// re-fetch when props.id changes
+const { data, error } = useFetch(() => `/posts/${props.id}`)
+```
+
+We can refactor our existing implementation with the [`watchEffect()`](/api/reactivity-core.html#watcheffect) and [`toValue()`](/api/reactivity-utilities.html#tovalue) APIs:
+
+```js{8,13}
 // fetch.js
-import { ref, isRef, unref, watchEffect } from 'vue'
+import { ref, watchEffect, toValue } from 'vue'
 
 export function useFetch(url) {
   const data = ref(null)
   const error = ref(null)
 
-  function doFetch() {
+  watchEffect(() => {
     // reset state before fetching..
     data.value = null
     error.value = null
-    // unref() unwraps potential refs
-    fetch(unref(url))
+    // toValue() unwraps potential refs or getters
+    fetch(toValue(url))
       .then((res) => res.json())
       .then((json) => (data.value = json))
       .catch((err) => (error.value = err))
-  }
-
-  if (isRef(url)) {
-    // setup reactive re-fetch if input URL is a ref
-    watchEffect(doFetch)
-  } else {
-    // otherwise, just fetch once
-    // and avoid the overhead of a watcher
-    doFetch()
-  }
+  })
 
   return { data, error }
 }
 ```
 
-`useFetch()` এর এই সংস্করণটি এখন স্ট্যাটিক ইউআরএল স্ট্রিং এবং ইউআরএল স্ট্রিংয়ের রেফ উভয়ই গ্রহণ করে। যখন এটি সনাক্ত করে যে ইউআরএলটি একটি গতিশীল রেফ ব্যবহার করে [`isRef()`](/api/reactivity-utilities#isref), এটি ব্যবহার করে একটি প্রতিক্রিয়াশীল প্রভাব সেট আপ করে [`watchEffect()`](/api/reactivity-core#watcheffect). প্রভাব অবিলম্বে চালানো হবে এবং নির্ভরতা হিসাবে URL রেফ ট্র্যাক করবে। যখনই URL রেফ পরিবর্তন হবে, ডেটা পুনরায় সেট করা হবে এবং আবার আনা হবে।
+`toValue()` হল 3.3-এ যোগ করা একটি API। এটি রেফ বা গেটারকে মানগুলিতে স্বাভাবিক করার জন্য ডিজাইন করা হয়েছে। যদি যুক্তিটি একটি রেফ হয়, তবে এটি রেফের মান প্রদান করে; আর্গুমেন্ট যদি একটি ফাংশন হয়, তাহলে এটি ফাংশনটিকে কল করবে এবং এর রিটার্ন মান প্রদান করবে। অন্যথায়, এটি যুক্তিটিকে যেমন-ই ফিরিয়ে দেয়। এটি একইভাবে কাজ করে [`unref()`](/api/reactivity-utilities.html#unref), কিন্তু ফাংশনের জন্য বিশেষ চিকিত্সার সাথে।
 
-এখানে [`useFetch()` এর আপডেট করা সংস্করণ](https://play.vuejs.org/#eNptVMFu2zAM/RXOl7hYancYdgnSYAO2nTZsKLadfFFsulHrSIYkJwuC/PtISnbdrpc4ksjH9x4pnbNPfV8cBsxW2drXTvcBPIah31RG73vrApzBYbuE2u77IWADF2id3cOCkhazoMHjVwz1bjovynGrePAUWZnaGh9gqzz+dh3cwmIXQu9XZfngrek7VePOdg26Ipx6XdsGCypaBttYXxJATNcNZRKjfPFucTVuDoI3UszzK7jdTIXeUk5xUN2AFD9mnKFRQS0BnbNuSYDBnYj67aQjJ0yKX5fRFfKDFgH3xDMgrQC+WdVAb4XTijfW2yEEa+Bw3Vp3W2UatIEPVQYf607Xj7zD5HWVbc5n0HC5rMuYIuhVWDf6QNm6pVAhRpEMTND95oft/Rv4wtuApGIwAR02KyAsCS726L26R8HlBkpi4jRREKWEe8ffWX0KLal8/Bd5YOcxkmGvKOczfaAj2Vx23TtkHXwWS9L6VYwNO6XNfVEU4/m6nKzMltlsUGgOn8+d9nf8GYysjorCvrQt1uHFIFYG/0peO5g6aJL8rJNwZlKx98I4DpEZOu7yeCI+Pj/iQ+VPpn4CbmzETaAAZUkZdG3AB1IEW6T+I7QcJLJjFJeNc0gVGD1ux979vz+Htt0BIexQBj2GMqWds8YOvjuBt6DDwkNwqn6kS6o8qAmgwR5NQzNzgu1pbmEu0kfxhP0nsRC30w144sJXJCkWXOWCbnWtVUclOnUC4qpMQz2Jw0uRVSD3jkoHCHqPdkgleZsAYpkrOOqu4ys4OCMqaTep1G3UpXiPr0gqbSnMHbWPrsRYQdlyNgOJCdfaJwEhaiQvSV5kJP1hkaKaWy3oz9oUIymLRtOa0a8L1Gwi5DiNwMs+YorkD/3wh7TkMs1i7Hx45MWlKormixrt8Fq4iXpDTxr8vvtGF2F0gbPmXUzzKOQuwDduhj05tYSHgRyIyNbUieE0zDOmqRWvvZGrMYFjJfyVQajMdFemtkdKCdngEX7S5SVaeZ7mmws8kBx5uxN/MuZXAohv+uQ2m/ldhV0RJ45ON3BTvJ/1g4sJ8Ni1l+bEEC6ZMx95WfPFXZxgWS2unlJTP5fw/uYmekW/l+zyD/mIah0=), with an artificial delay and randomized error for demo purposes.
+লক্ষ্য করুন যে `toValue(url)` কে `watchEffect` কলব্যাকের **ভিতরে** বলা হয়। এটি নিশ্চিত করে যে `toValue()` স্বাভাবিকীকরণের সময় অ্যাক্সেস করা যেকোনো প্রতিক্রিয়াশীল নির্ভরতা পর্যবেক্ষক দ্বারা ট্র্যাক করা হয়।
+
+`useFetch()` এর এই সংস্করণটি এখন স্ট্যাটিক ইউআরএল স্ট্রিং, রেফ এবং গেটার গ্রহণ করে, এটিকে অনেক বেশি নমনীয় করে তোলে। ঘড়ির প্রভাব অবিলম্বে চলবে এবং `toValue(url)`-এর সময় অ্যাক্সেস করা যেকোনো নির্ভরতা ট্র্যাক করবে। যদি কোন নির্ভরতা ট্র্যাক করা না হয় (যেমন url ইতিমধ্যেই একটি স্ট্রিং), প্রভাব শুধুমাত্র একবার চলে; অন্যথায়, যখনই একটি ট্র্যাক করা নির্ভরতা পরিবর্তিত হয় তখন এটি পুনরায় চালানো হবে।
+
+এখানে [`useFetch()` এর আপডেট করা সংস্করণ](https://play.vuejs.org/#eNptVMFu2zAM/RXOFztYZncodgmSYAPWnTZsKLadfFFsulHrSIZEJwuC/PtIyXaTtkALxxT5yPf45FPypevyfY/JIln6yumOwCP13bo0etdZR3ACh80cKrvresIaztA4u4OUi9KLpN7jN6RqO53nxRjKHz1nlqayxhNslMc/roUVpFuizi+K4tFb07Wqwq1ta3Q5HTtd2RpzblqQra0vGCCW65oreaIs/ZjOxmAf8MYRs2wGq/XU6D3X5HvV9sj5Y8UJakVqDuicdXMGJHfk0VcTj4wxOX9ZRFVYD34h3PGchPwG8N2qGjobZlpIYLnpiayB/YfGulWZaNAGPpUJfK5aXT1JRIbXZbI+nUDD+bwsYklAL2lZ6z1X64ZTw2CcKcAM3a1/2s6/gzsJAzKL3hA6rBfAWCE536H36gEDriwwFA4zTSMEpox7L8+L/pxacPv4K86Brcc4jGjFNV/5AS3TlrbLzqHwkLPYkt/fxFiLUto85Hk+ni+LScpknlwYhX147buD4oO7psGK5kD2r+zxhQdLg/9CSdObijSzvVoinGSeuPYwbPSP6VtZ8HgSJHx5JP8XA2TKH00F0V4BFaAouISvDHhiNrBB3j1CI90D5ZglfaMHuYXAx3Dc2+v4JbRt9wi0xWDymCpTbJ01tvftEbwFTakHcqp64guqPKgJoMYOTc1+OcLmeMUlEBzZM3ZUdjVqPPj/eRq5IAPngKwc6UZXWrXcpFVH4GmVqXkt0boiHwGog9IEpHdo+6GphBmgN6L1DA66beUC9s4EnhwdeOomMlMSkwsytLac5g7aR11ibkDZSLUABRk+aD8QoMiS1WSCcaKwISEZ2MqXIaBfLSpmchUb05pRsTNUIiNkOFjr9SZxyJTHOXx1YGR49eGRDP4rzRt6lmay86Re7DcgGTzAL74GrEOWDUaRL9kjb/fSoWzO3wPAlXNB9M1+KNrmcXF8uoab/PaCljQLwCN5oS93+jpFWmYyT/g8Zel9NEJ4S2fPpYMsc7i9uQlREeecnP8DWEwr0Q==), with an artificial delay and randomized error for demo purposes.
 
 ## Conventions and Best Practices {#conventions-and-best-practices}
 
@@ -230,19 +247,22 @@ export function useFetch(url) {
 
 ### Input Arguments {#input-arguments}
 
-একটি কম্পোজেবল রেফ আর্গুমেন্ট গ্রহণ করতে পারে এমনকি যদি এটি প্রতিক্রিয়াশীলতার জন্য তাদের উপর নির্ভর না করে। আপনি যদি অন্য ডেভেলপারদের দ্বারা ব্যবহার করা হতে পারে এমন একটি কম্পোজেবল লিখছেন, তাহলে ইনপুট আর্গুমেন্টগুলি কাঁচা মানের পরিবর্তে রেফ হওয়ার ক্ষেত্রে পরিচালনা করা একটি ভাল ধারণা। [`unref()`](/api/reactivity-utilities#unref) ইউটিলিটি ফাংশন এই উদ্দেশ্যে কাজে আসবে:
+একটি কম্পোজেবল রেফ বা গেটার আর্গুমেন্ট গ্রহণ করতে পারে এমনকি যদি এটি প্রতিক্রিয়াশীলতার জন্য তাদের উপর নির্ভর না করে। আপনি যদি অন্য ডেভেলপারদের দ্বারা ব্যবহার করা হতে পারে এমন একটি কম্পোজেবল লিখছেন, তাহলে কাঁচা মানের পরিবর্তে রেফ বা গেটার হওয়ার ক্ষেত্রে ইনপুট আর্গুমেন্টগুলিকে পরিচালনা করা একটি ভাল ধারণা। [`toValue()`](/api/reactivity-utilities#tovalue) ইউটিলিটি ফাংশন এই উদ্দেশ্যে কাজে আসবে:
 
 ```js
-import { unref } from 'vue'
+import { toValue } from 'vue'
 
-function useFeature(maybeRef) {
-  // if maybeRef is indeed a ref, its .value will be returned
-  // otherwise, maybeRef is returned as-is
-  const value = unref(maybeRef)
+function useFeature(maybeRefOrGetter) {
+  // If maybeRefOrGetter is a ref or a getter,
+  // its normalized value will be returned.
+  // Otherwise, it is returned as-is.
+  const value = toValue(maybeRefOrGetter)
 }
 ```
 
-যদি আপনার কম্পোজেবল প্রতিক্রিয়াশীল প্রভাব তৈরি করে যখন ইনপুট একটি রেফ হয়, তাহলে নিশ্চিত করুন যে হয় স্পষ্টভাবে রেফটিকে `watch()` দিয়ে দেখুন, অথবা `watchEffect()` এর ভিতরে `unref()` কল করুন যাতে এটি সঠিকভাবে ট্র্যাক করা হয়।
+যদি আপনার কম্পোজেবল প্রতিক্রিয়াশীল প্রভাব তৈরি করে যখন ইনপুট একটি রেফ বা গেটার হয়, তাহলে নিশ্চিত করুন যে হয় স্পষ্টভাবে রেফ/গেটারকে `ওয়াচ()` দিয়ে দেখুন, অথবা `ওয়াচ ইফেক্ট()` এর ভিতরে `toValue()` কল করুন যাতে এটি সঠিকভাবে ট্র্যাক করা হয়।
+
+[useFetch() বাস্তবায়ন পূর্বে আলোচনা করা হয়েছে](#accepting-reactive-state) একটি কম্পোজেবলের একটি সুনির্দিষ্ট উদাহরণ প্রদান করে যা রেফ, গেটার এবং প্লেইন মানকে ইনপুট আর্গুমেন্ট হিসেবে গ্রহণ করে।
 
 ### Return Values {#return-values}
 
@@ -277,9 +297,9 @@ Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
 
 ### Usage Restrictions {#usage-restrictions}
 
-কম্পোজেবলকে শুধুমাত্র `<script setup>` বা `setup()` হুকে **synchronously** বলা উচিত। কিছু ক্ষেত্রে, আপনি তাদের লাইফসাইকেল হুকগুলিতেও কল করতে পারেন যেমন `onMounted()`।
+কম্পোজেবল শুধুমাত্র `<script setup>` বা `setup()` হুকে কল করা উচিত। এই প্রেক্ষাপটে তাদের **synchronously** বলা উচিত। কিছু ক্ষেত্রে, আপনি তাদের লাইফসাইকেল হুকগুলিতেও কল করতে পারেন যেমন `onMounted()`।
 
-এগুলি সেই প্রসঙ্গ যেখানে Vue বর্তমান সক্রিয় উপাদানের উদাহরণ নির্ধারণ করতে সক্ষম। একটি সক্রিয় উপাদান উদাহরণে অ্যাক্সেস প্রয়োজন যাতে:
+এই বিধিনিষেধগুলি গুরুত্বপূর্ণ কারণ এইগুলি হল সেই প্রসঙ্গ যেখানে Vue বর্তমান সক্রিয় উপাদানের উদাহরণ নির্ধারণ করতে সক্ষম। একটি সক্রিয় উপাদান উদাহরণে অ্যাক্সেস প্রয়োজন যাতে:
 
 1. লাইফসাইকেল হুকগুলি এতে নিবন্ধিত হতে পারে।
 

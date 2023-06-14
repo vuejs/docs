@@ -208,8 +208,10 @@ const value = inject('message', 'default value')
 কিছু ক্ষেত্রে, একটি ফাংশন কল করে বা একটি নতুন ক্লাস ইনস্ট্যান্টিয়েট করে ডিফল্ট মান তৈরি করতে হতে পারে। ঐচ্ছিক মান ব্যবহার না করা হলে অপ্রয়োজনীয় গণনা বা পার্শ্ব প্রতিক্রিয়া এড়াতে, আমরা ডিফল্ট মান তৈরি করার জন্য একটি কারখানা ফাংশন ব্যবহার করতে পারি:
 
 ```js
-const value = inject('key', () => new ExpensiveClass())
+const value = inject('key', () => new ExpensiveClass(), true)
 ```
+
+The third parameter indicates the default value should be treated as a factory function.
 
 </div>
 

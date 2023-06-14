@@ -175,10 +175,6 @@ const count = ref(1)
 </template>
 ```
 
-See also:
-
-- [TypeScript-only Features in `<script setup>`](/api/sfc-script-setup.html#typescript-only-features)
-
 ### TypeScript in Templates {#typescript-in-templates}
 
 যখন `<script lang="ts">` বা `<script setup lang="ts">` ব্যবহার করা হয় তখন `<template>` টাইপস্ক্রিপ্টকে বাইন্ডিং এক্সপ্রেশনে সমর্থন করে। এটি এমন ক্ষেত্রে দরকারী যেখানে আপনাকে টেমপ্লেট এক্সপ্রেশনে টাইপ কাস্টিং করতে হবে।

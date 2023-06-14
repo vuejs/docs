@@ -2,10 +2,10 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    const p = ref(null)
+    const pElementRef = ref(null)
 
     return {
-      p
+      pElementRef
     }
   }
 }

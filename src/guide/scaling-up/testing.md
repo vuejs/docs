@@ -229,7 +229,9 @@ cy.get(valueSelector)
 
 ### Other Options {#other-options-1}
 
-- [Nightwatch](https://v2.nightwatchjs.org/) Vue কম্পোনেন্ট টেস্টিং সাপোর্ট সহ একটি E2E টেস্ট রানার। ([উদাহরণ প্রকল্প](https://github.com/nightwatchjs-community/todo-vue) নাইটওয়াচ v2)
+- [Nightwatch](https://nightwatchjs.org/) Vue কম্পোনেন্ট টেস্টিং সমর্থন সহ একটি E2E পরীক্ষা রানার। ([উদাহরণ project](https://github.com/nightwatchjs-community/todo-vue))
+
+- [WebdriverIO](https://webdriver.io/docs/component-testing/vue) ক্রস ব্রাউজার উপাদান পরীক্ষার জন্য যা প্রমিত অটোমেশনের উপর ভিত্তি করে নেটিভ ব্যবহারকারীর ইন্টারঅ্যাকশনের উপর নির্ভর করে। টেস্টিং লাইব্রেরির সাথেও ব্যবহার করা যেতে পারে।
 
 ## E2E Testing {#e2e-testing}
 
@@ -277,7 +279,9 @@ cy.get(valueSelector)
 
 - [Playwright](https://playwright.dev/) ব্রাউজার সমর্থনের বিস্তৃত পরিসরের (প্রধানত ওয়েবকিট) সহ একটি দুর্দান্ত E2E পরীক্ষার সমাধান। আরও বিশদ বিবরণের জন্য [Why Playwright](https://playwright.dev/docs/why-playwright) দেখুন।
 
-- [Nightwatch v2](https://v2.nightwatchjs.org/) হল [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver) এর উপর ভিত্তি করে একটি E2E পরীক্ষার সমাধান। এটি এটিকে বিস্তৃত ব্রাউজার সমর্থন পরিসর দেয়।
+- [Nightwatch](https://nightwatchjs.org/) উপর ভিত্তি করে একটি E2E পরীক্ষার সমাধান [Selenium WebDrive](https://www.npmjs.com/package/selenium-webdriver)। এটি এটিকে বিস্তৃত ব্রাউজার সমর্থন পরিসর দেয়।
+
+- [WebdriverIO](https://webdriver.io/) ওয়েবড্রাইভার প্রোটোকলের উপর ভিত্তি করে ওয়েব এবং মোবাইল পরীক্ষার জন্য একটি পরীক্ষা অটোমেশন ফ্রেমওয়ার্ক।
 
 ## Recipes {#recipes}
 

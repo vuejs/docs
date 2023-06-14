@@ -494,7 +494,7 @@ export default {
 
 <div class="composition-api">
 
-[Type-based props declarations](/api/sfc-script-setup#typescript-only-features) <sup class="vt-badge ts" /> ব্যবহার করলে, Vue টাইপ টীকাগুলিকে সমতুল্য কম্পাইল করার জন্য যথাসাধ্য চেষ্টা করবে রানটাইম প্রপ ঘোষণা। উদাহরণস্বরূপ, `defineProps<{ msg: string }>` কম্পাইল করা হবে `{ msg: { type: String, required: true }}`-এ।
+[Type-based props declarations](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" /> ব্যবহার করলে, Vue কম্পাইল করার জন্য যথাসাধ্য চেষ্টা করবে সমতুল্য রানটাইম প্রপ ঘোষণায় টীকা টাইপ করুন। উদাহরণস্বরূপ, `defineProps<{ msg: string }>` কম্পাইল করা হবে `{ msg: { type: String, required: true }}`-এ।
 
 </div>
 <div class="options-api">
@@ -589,13 +589,29 @@ component এই মত ব্যবহার করা যেতে পার�
 <MyComponent />
 ```
 
-যখন একটি প্রপ একাধিক প্রকারের অনুমতি দেওয়ার জন্য ঘোষণা করা হয়, যেমন
+যখন একাধিক প্রকারের অনুমতি দেওয়ার জন্য একটি প্রপ ঘোষণা করা হয়, তখন `Boolean` এর জন্য কাস্টিং নিয়মগুলিও প্রয়োগ করা হবে। যাইহোক, একটি প্রান্ত আছে যখন `String` এবং `Boolean` উভয়ই অনুমোদিত - বুলিয়ান কাস্টিং নিয়ম শুধুমাত্র তখনই প্রযোজ্য হয় যদি স্ট্রিং-এর আগে বুলিয়ান উপস্থিত হয়:
 
 <div class="composition-api">
 
 ```js
+// disabled will be casted to true
 defineProps({
   disabled: [Boolean, Number]
+})
+  
+// disabled will be casted to true
+defineProps({
+  disabled: [Boolean, String]
+})
+  
+// disabled will be casted to true
+defineProps({
+  disabled: [Number, Boolean]
+})
+  
+// disabled will be parsed as an empty string (disabled="")
+defineProps({
+  disabled: [String, Boolean]
 })
 ```
 
@@ -603,13 +619,33 @@ defineProps({
 <div class="options-api">
 
 ```js
+// disabled will be casted to true
 export default {
   props: {
     disabled: [Boolean, Number]
   }
 }
+  
+// disabled will be casted to true
+export default {
+  props: {
+    disabled: [Boolean, String]
+  }
+}
+  
+// disabled will be casted to true
+export default {
+  props: {
+    disabled: [Number, Boolean]
+  }
+}
+  
+// disabled will be parsed as an empty string (disabled="")
+export default {
+  props: {
+    disabled: [String, Boolean]
+  }
+}
 ```
 
 </div>
-
-`Boolean`-এর জন্য ঢালাই নিয়ম প্রযোজ্য হবে তা নির্বিশেষে উপস্থিতি ক্রম প্রকার।
