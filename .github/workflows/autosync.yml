@@ -14,7 +14,7 @@ jobs:
           github_token: ${{ secrets.UPSTREAM_SYNC_TOKEN }}
           upstream_repository: vuejs/docs
           upstream_branch: main
-          target_repository: vuejs-translations/docs-zh-cn
+          target_repository: vuejs-translations/docs-bn
           target_branch: test
           force: false
           tags: false
