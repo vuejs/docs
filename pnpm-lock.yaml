@@ -3,7 +3,7 @@ lockfileVersion: '6.0'
 dependencies:
   '@vue/repl':
     specifier: ^1.3.3
-    version: 1.3.3(vue@3.2.47)
+    version: 1.5.0(vue@3.2.47)
   '@vue/theme':
     specifier: ^2.2.1
     version: 2.2.3(vitepress@1.0.0-alpha.74)(vue@3.2.47)
@@ -525,8 +525,8 @@ packages:
       '@vue/shared': 3.2.47
     dev: false
 
-  /@vue/repl@1.3.3(vue@3.2.47):
-    resolution: {integrity: sha512-mrN3Gd4CIaiIiRdi7/pAOH9rPud8q8I5svLurSoyxLhxFXs9WdfaKZlirExSJIuecHYFiAAozTBtb8XQPNhCHw==}
+  /@vue/repl@1.5.0(vue@3.2.47):
+    resolution: {integrity: sha512-qFqKtvA2FM9viYXzbWrpGrL8mDGswsqDsEjfaibr/YOqeza7i49VmO0AKPrOdQDOS2qmq9uV+G6OPX1rGhUSIQ==}
     peerDependencies:
       vue: ^3.2.13
     dependencies:
