@@ -82,7 +82,7 @@ See the [Composition API FAQ](/guide/extras/composition-api-faq) for more detail
 
 ## custom element {#custom-element}
 
-A *custom element* is a feature of the [Web Components](#web-components) standard, which is implemented in modern web browsers. It refers to the ability to use a custom HTML element in your HTML markup to include a Web Component at that point in the page.
+A *custom element* is a feature of the [Web Components](#web-component) standard, which is implemented in modern web browsers. It refers to the ability to use a custom HTML element in your HTML markup to include a Web Component at that point in the page.
 
 Vue has built-in support for rendering custom elements and allows them to be used directly in Vue component templates.
 
@@ -118,7 +118,7 @@ See [reactive effect](#reactive-effect) and [side effect](#side-effect).
 
 ## event {#event}
 
-The use of events for communicating between different parts of a program is common to many different areas of programming. Within Vue, the term is commonly applied to both native HTML element events and Vue component events. The `v-on` directive is used in templates to listen for both types of event. 
+The use of events for communicating between different parts of a program is common to many different areas of programming. Within Vue, the term is commonly applied to both native HTML element events and Vue component events. The `v-on` directive is used in templates to listen for both types of event.
 
 For more details see:
 - [Guide - Event Handling](/guide/essentials/event-handling.html)
@@ -213,7 +213,7 @@ The `setup()` function itself is a component option, so it *could* be described 
 
 While the term *plugin* can be used in a wide variety of contexts, Vue has a specific concept of a plugin as a way to add functionality to an application.
 
-Plugins are added to an application by calling `app.use(plugin)`. The plugin itself is either a function or an object with an `install` function. That function will be passed the application instance and can then do whatever it needs to do. 
+Plugins are added to an application by calling `app.use(plugin)`. The plugin itself is either a function or an object with an `install` function. That function will be passed the application instance and can then do whatever it needs to do.
 
 For more details see:
 - [Guide - Plugins](/guide/reusability/plugins.html)
@@ -265,7 +265,7 @@ Vue can only track reactive dependencies within a reactive effect. If a property
 The term is derived from 'side effect'. Calling the effect function is a side effect of the property value being changed.
 
 For more details see:
-- [Guide - Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)
+- [Guide - Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
 
 ## reactivity {#reactivity}
 
@@ -315,17 +315,17 @@ For more details see:
 
 ## scheduler {#scheduler}
 
-The *scheduler* is the part of Vue's internals that controls the timing of when [reactive effects](#reactive-effect) are run. 
+The *scheduler* is the part of Vue's internals that controls the timing of when [reactive effects](#reactive-effect) are run.
 
 When reactive state changes, Vue doesn't immediately trigger rendering updates. Instead, it batches them together using a queue. This ensures that a component only re-renders once, even if multiple changes are made to the underlying data.
 
 [Watchers](/guide/essentials/watchers.html) are also batched using the scheduler queue. Watchers with `flush: 'pre'` (the default) will run before component rendering, whereas those with `flush: 'post'` will run after component rendering.
 
-Jobs in the scheduler are also used to perform various other internal tasks, such as triggering some [lifecycle hooks](#lifecycle-hooks) and updating [template refs](#template-refs).
+Jobs in the scheduler are also used to perform various other internal tasks, such as triggering some [lifecycle hooks](#lifecycle-hooks) and updating [template refs](#template-ref).
 
 ## scoped slot {#scoped-slot}
 
-The term *scoped slot* is used to refer to a [slot](#slot) that receives [props](#props).
+The term *scoped slot* is used to refer to a [slot](#slot) that receives [props](#prop).
 
 Historically, Vue made a much greater distinction between scoped and non-scoped slots. To some extent they could be regarded as two separate features, unified behind a common template syntax.
 

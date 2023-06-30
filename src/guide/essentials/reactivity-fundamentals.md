@@ -67,9 +67,9 @@ When you access `this.someObject` after assigning it, the value is a reactive pr
 
 <div class="composition-api">
 
-## Declaring Reactive State \** {#declaring-reactive-state-1}
+## Declaring Reactive State \*\* {#declaring-reactive-state-1}
 
-### `ref()` \** {#ref}
+### `ref()` \*\* {#ref}
 
 In Composition API, the recommended way to declare reactive state is using the [`ref()`](/api/reactivity-core#ref) function:
 
@@ -198,7 +198,7 @@ When you use a ref in the template, and changes the ref's value later, Vue autom
 
 In standard JavaScript, there is no way to detect the access or mutation of plain variables. But we can intercept a property's get and set operations.
 
-The `.value` property gives Vue the opportunity to detect when a ref has been accessed or mutated. Under the hood, Vue perform the tracking in its getter, and performs triggering in its setter. Conceptually, you can think of a ref as an object that looks like this:
+The `.value` property gives Vue the opportunity to detect when a ref has been accessed or mutated. Under the hood, Vue performs the tracking in its getter, and performs triggering in its setter. Conceptually, you can think of a ref as an object that looks like this:
 
 ```js
 // pseudo code, not actual implementation
@@ -342,11 +342,10 @@ To wait for the DOM update to complete after a state change, you can use the [ne
 ```js
 import { nextTick } from 'vue'
 
-function increment() {
+async function increment() {
   count.value++
-  nextTick(() => {
-    // access updated DOM
-  })
+  await nextTick()
+  // Now the DOM is updated
 }
 ```
 
@@ -358,11 +357,10 @@ import { nextTick } from 'vue'
 
 export default {
   methods: {
-    increment() {
+    async increment() {
       this.count++
-      nextTick(() => {
-        // access updated DOM
-      })
+      await nextTick()
+      // Now the DOM is updated
     }
   }
 }
@@ -372,7 +370,7 @@ export default {
 
 <div class="composition-api">
 
-## `reactive()` \** {#reactive}
+## `reactive()` \*\* {#reactive}
 
 There is another way to declare reactive state, with the `reactive()` API. Unlike a ref which wraps the inner value in a special object, `reactive()` makes an object itself reactive:
 
@@ -496,7 +494,7 @@ console.log(count.value) // 1
 
 Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](/api/reactivity-advanced#shallowreactive).
 
-### Caveat in Arrays and Collections \** {#caveat-in-arrays-and-collections}
+### Caveat in Arrays and Collections \*\* {#caveat-in-arrays-and-collections}
 
 Unlike reactive objects, there is **no** unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`:
 

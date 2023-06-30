@@ -80,7 +80,8 @@ export default {
     <button @click="count++">
       You clicked me {{ count }} times.
     </button>`
-  // or `template: '#my-template-element'`
+  // Can also target an in-DOM template:
+  // template: '#my-template-element'
 }
 ```
 

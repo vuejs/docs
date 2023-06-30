@@ -1,6 +1,6 @@
 /*
-  X-Frame-Options: ALLOW-FROM https://staging.certification.vuejs.org https://certification.vuejs.org https://certificates.dev https://staging.certificates.dev
-  Content-Security-Policy: frame-ancestors https://staging.certification.vuejs.org https://certification.vuejs.org https://certificates.dev https://staging.certificates.dev
+  X-Frame-Options: ALLOW-FROM https://staging.certification.vuejs.org https://certification.vuejs.org https://certificates.dev https://staging.certificates.dev https://alemira.com https://*.alemira.com
+  Content-Security-Policy: frame-ancestors https://staging.certification.vuejs.org https://certification.vuejs.org https://certificates.dev https://staging.certificates.dev https://alemira.com https://*.alemira.com
 
 /assets/*
   cache-control: max-age=31536000

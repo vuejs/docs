@@ -37,7 +37,7 @@ Provides a value that can be injected by descendant components.
   </script>
   ```
 
-- **See also**:
+- **See also**
   - [Guide - Provide / Inject](/guide/components/provide-inject)
   - [Guide - Typing Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
@@ -66,7 +66,9 @@ Injects a value provided by an ancestor component or the application (via `app.p
 
   The first argument is the injection key. Vue will walk up the parent chain to locate a provided value with a matching key. If multiple components in the parent chain provides the same key, the one closest to the injecting component will "shadow" those higher up the chain. If no value with matching key was found, `inject()` returns `undefined` unless a default value is provided.
 
-  The second argument is optional and is the default value to be used when no matching value was found. It can also be a factory function to return values that are expensive to create. If the default value is a function, then `false` must be passed as the third argument to indicate that the function should be used as the value instead of the factory.
+  The second argument is optional and is the default value to be used when no matching value was found.
+
+  The second argument can also be a factory function that returns values that are expensive to create. In this case, `true` must be passed as the third argument to indicate that the function should be used as a factory instead of the value itself.
 
   Similar to lifecycle hook registration APIs, `inject()` must be called synchronously during a component's `setup()` phase.
 
@@ -81,7 +83,7 @@ Injects a value provided by an ancestor component or the application (via `app.p
   import { inject } from 'vue'
   import { fooSymbol } from './injectionSymbols'
 
-  // inject static value with default
+  // inject static value without default
   const foo = inject('foo')
 
   // inject reactive value
@@ -93,14 +95,14 @@ Injects a value provided by an ancestor component or the application (via `app.p
   // inject with default value
   const bar = inject('foo', 'default value')
 
-  // inject with default value factory
-  const baz = inject('foo', () => new Map())
+  // inject with function default value
+  const fn = inject('function', () => {})
 
-  // inject with function default value, by passing the 3rd argument
-  const fn = inject('function', () => {}, false)
+  // inject with default value factory
+  const baz = inject('factory', () => new ExpensiveObject(), true)
   </script>
   ```
 
-- **See also**:
+- **See also**
   - [Guide - Provide / Inject](/guide/components/provide-inject)
   - [Guide - Typing Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />

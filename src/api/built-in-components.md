@@ -103,7 +103,7 @@ Provides animated transition effects to a **single** element or component.
   ```
 
   Forcing a transition by changing the `key` attribute:
-  
+
   ```vue-html
   <Transition>
     <div :key="text">{{ text }}</div>
@@ -126,7 +126,7 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-- **See also:** [`<Transition>` Guide](/guide/built-ins/transition)
+- **See also** [`<Transition>` Guide](/guide/built-ins/transition)
 
 ## `<TransitionGroup>` {#transitiongroup}
 
@@ -172,7 +172,7 @@ Provides transition effects for **multiple** elements or components in a list.
   </TransitionGroup>
   ```
 
-- **See also:** [Guide - TransitionGroup](/guide/built-ins/transition-group)
+- **See also** [Guide - TransitionGroup](/guide/built-ins/transition-group)
 
 ## `<KeepAlive>` {#keepalive}
 
@@ -265,7 +265,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-- **See also:** [Guide - KeepAlive](/guide/built-ins/keep-alive)
+- **See also** [Guide - KeepAlive](/guide/built-ins/keep-alive)
 
 ## `<Teleport>` {#teleport}
 
@@ -307,7 +307,7 @@ Renders its slot content to another part of the DOM.
   </teleport>
   ```
 
-- **See also:** [Guide - Teleport](/guide/built-ins/teleport)
+- **See also** [Guide - Teleport](/guide/built-ins/teleport)
 
 ## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
@@ -333,4 +333,4 @@ Used for orchestrating nested async dependencies in a component tree.
 
   If it encounters async dependencies ([Async Components](/guide/components/async) and components with [`async setup()`](/guide/built-ins/suspense#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
 
-- **See also:** [Guide - Suspense](/guide/built-ins/suspense)
+- **See also** [Guide - Suspense](/guide/built-ins/suspense)
