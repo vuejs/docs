@@ -4,8 +4,3 @@
 [build]
   publish = ".vitepress/dist"
   command = "pnpm run build"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "frame-ancestors '*';"
