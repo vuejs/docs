@@ -1,0 +1,10 @@
+.sponsor-item,
+.VPCarbonAds,
+.vue-mastery-link,
+.sponsors-aside-text,
+#special-sponsor,
+.vueschool {
+  display: none !important;
+}
+
+a[target=_blank] { cursor: not-allowed; opacity: 0.25; pointer-events: none !important;}

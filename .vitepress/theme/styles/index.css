@@ -4,6 +4,7 @@
 @import "./inline-demo.css";
 @import "./utilities.css";
 @import "./style-guide.css";
+@import "./iframed.css";
 
 /* bugfix: https://github.com/vuejs/theme/pull/95 */
 
