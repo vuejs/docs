@@ -510,6 +510,6 @@ While an interesting pattern, most of what can be achieved with Renderless Compo
 That said, scoped slots are still useful in cases where we need to both encapsulate logic **and** compose visual output, like in the `<FancyList>` example.
 
 
-## Typing Slots
+## TypeScript With Slots <sup class="vt-badge ts"/>
 
-Slots can be typed with `defineSlots()` to give hints to your IDE for slot name and prop type checking. Learn more about the `defineSlots()` macro [here](https://vuejs.org/api/sfc-script-setup.html#defineslots) 
+Slots can be typed with `defineSlots()` to give hints to your IDE for slot name and prop type checking. [Learn more about the `defineSlots()` macro](https://vuejs.org/api/sfc-script-setup.html#defineslots) 
