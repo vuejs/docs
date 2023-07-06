@@ -208,6 +208,21 @@ let x: string | number = 1
 If using Vue CLI or a webpack-based setup, TypeScript in template expressions requires `vue-loader@^16.8.0`.
 :::
 
+### Importing Types
+Because [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) is set to `true` (due to Vite using [esbuild](https://esbuild.github.io/) for transpiling), it is necessary when using [`type only imports`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html) to use the `import type` syntax.
+
+In other words, when importing a type you would typically use:
+
+```vue
+import { Product } from 'product.interface
+```
+
+Instead, you should use:
+
+```vue
+import type { Product } from 'product.interface
+```
+
 ### Usage with TSX
 
 Vue also supports authoring components with JSX / TSX. Details are covered in the [Render Function & JSX](/guide/extras/render-function.html#jsx-tsx) guide.
