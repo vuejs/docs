@@ -431,12 +431,20 @@ Notice how the `count` signal can be passed down without the setter. This ensure
 ```js
 import { shallowRef, triggerRef } from 'vue'
 
-export function createSignal(value, options) {
+export function createSignal(value, { equals } = {}) {
   const r = shallowRef(value)
   const get = () => r.value
   const set = (v) => {
-    r.value = typeof v === 'function' ? v(r.value) : v
-    if (options?.equals === false) triggerRef(r)
+    const [prev, next] = [r.value, typeof v === 'function' ? v(r.value) : v]
+
+    if (equals === undefined) return void (r.value = next)
+    if (equals === false) return void (r.value = next, triggerRef(r))
+    if (typeof equals === "function") {
+      if (equals(prev, next)) return
+
+      r.value = next
+      triggerRef(r)
+    }
   }
   return [get, set]
 }
