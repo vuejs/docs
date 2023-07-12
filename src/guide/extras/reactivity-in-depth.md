@@ -439,7 +439,7 @@ export function createSignal(value, { equals } = {}) {
 
     if (equals === undefined) return void (r.value = next)
     if (equals === false) return void (r.value = next, triggerRef(r))
-    if (typeof equals === "function") {
+    if (typeof equals === 'function') {
       if (equals(prev, next)) return
 
       r.value = next
