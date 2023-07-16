@@ -445,7 +445,7 @@ The `reactive()` API has a few limitations:
    state = reactive({ count: 1 })
    ```
 
-3. **Not destructure-friendly:** when we destructure a reactive object's property into local variables, or when we pass that property into a function, we will lose the reactivity connection:
+3. **Not destructure-friendly:** when we destructure a reactive object's primitive type property into local variables, or when we pass that property into a function, we will lose the reactivity connection:
 
    ```js
    const state = reactive({ count: 0 })
