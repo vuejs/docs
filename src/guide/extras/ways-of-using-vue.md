@@ -47,7 +47,7 @@ There are two flavors of SSG: single-page and multi-page. Both flavors pre-rende
 
 Single-page SSGs are better suited if you expect non-trivial interactivity, deep session lengths, or persisted elements / state across navigations. Otherwise, multi-page SSG would be the better choice.
 
-The Vue team also maintains a static-site generator called [VitePress](https://vitepress.vuejs.org/), which powers this website you are reading right now! VitePress supports both flavors of SSG. [Nuxt](https://nuxt.com/) also supports SSG. You can even mix SSR and SSG for different routes in the same Nuxt app.
+The Vue team also maintains a static-site generator called [VitePress](https://vitepress.dev/), which powers this website you are reading right now! VitePress supports both flavors of SSG. [Nuxt](https://nuxt.com/) also supports SSG. You can even mix SSR and SSG for different routes in the same Nuxt app.
 
 ## Beyond the Web {#beyond-the-web}
 
