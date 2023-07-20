@@ -362,7 +362,8 @@ function onEnter(el, done) {
 
 // called when the enter transition has finished.
 function onAfterEnter(el) {}
-// called when the enter transition is cancaled before completion.
+
+// called when the enter transition is cancelled before completion.
 function onEnterCancelled(el) {}
 
 // called before the leave hook.
