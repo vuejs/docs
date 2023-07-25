@@ -10,33 +10,33 @@ import BetweenComponents from './transition-demos/BetweenComponents.vue'
 
 # Transition {#transition}
 
-Vue offers two built-in components that can help work with transitions and animations in response to changing state:
+Vue предлагает два встроенных компонента, которые помогают работать с переходами и анимацией в ответ на изменение состояния:
 
-- `<Transition>` for applying animations when an element or component is entering and leaving the DOM. This is covered on this page.
+- `<Transition>` для применения анимации элемента или компонента при входе и выходе из DOM. Об этом рассказывается на этой странице.
 
-- `<TransitionGroup>` for applying animations when an element or component is inserted into, removed from, or moved within a `v-for` list. This is covered in [the next chapter](/guide/built-ins/transition-group.html).
+- `<TransitionGroup>` для применения анимации при вставке, удалении или перемещении элемента или компонента в списке `v-for`. Этому посвящена [следующая глава](/guide/built-ins/transition-group.html).
 
-Aside from these two components, we can also apply animations in Vue using other techniques such as toggling CSS classes or state-driven animations via style bindings. These additional techniques are covered in the [Animation Techniques](/guide/extras/animation.html) chapter.
+Помимо этих двух компонентов, в Vue можно применять анимацию и с помощью других приемов, таких как переключение CSS-классов или анимация, управляемая состоянием, с помощью привязки стилей. Эти дополнительные приемы рассматриваются в главе [Техники анимации](/guide/extras/animation.html).
 
-## The `<Transition>` Component {#the-transition-component}
+## Компонент `<Transition>` {#the-transition-component}
 
-`<Transition>` is a built-in component: this means it is available in any component's template without having to register it. It can be used to apply enter and leave animations on elements or components passed to it via its default slot. The enter or leave can be triggered by one of the following:
+`<Transition>` является встроенным компонентом: это означает, что он доступен в шаблоне любого компонента без необходимости его регистрации. Он может использоваться для применения анимации входа и выхода к элементам или компонентам, передаваемым ему через слот по умолчанию. Вход или выход может быть вызван одним из следующих действий:
 
-- Conditional rendering via `v-if`
-- Conditional display via `v-show`
-- Dynamic components toggling via the `<component>` special element
+- Условное отображение через `v-if`
+- Условное отображение с помощью `v-show`
+- Переключение динамических компонентов с помощью специального элемента `<component>`
 
-This is an example of the most basic usage:
+Это пример наиболее простого использования:
 
 ```vue-html
 <button @click="show = !show">Toggle</button>
 <Transition>
-  <p v-if="show">hello</p>
+  <p v-if="show">привет</p>
 </Transition>
 ```
 
 ```css
-/* we will explain what these classes do next! */
+/* мы объясним, что делают эти классы дальше! */
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
@@ -62,44 +62,44 @@ This is an example of the most basic usage:
 </div>
 
 :::tip Совет
-`<Transition>` only supports a single element or component as its slot content. If the content is a component, the component must also have only one single root element.
+`<Transition>` поддерживает только один элемент или компонент в качестве содержимого своего слота. Если содержимое является компонентом, то компонент также должен иметь только один единственный корневой элемент.
 :::
 
-When an element in a `<Transition>` component is inserted or removed, this is what happens:
+Когда элемент в компоненте `<Transition>` вставляется или удаляется, происходит следующее:
 
-1. Vue will automatically sniff whether the target element has CSS transitions or animations applied. If it does, a number of [CSS transition classes](#transition-classes) will be added / removed at appropriate timings.
+1. Vue автоматически определяет, есть ли в целевом элементе CSS-переходы или анимация. Если это так, то в соответствующие моменты времени будут добавлены/удалены несколько [классов CSS-переходов](#transition-classes).
 
-2. If there are listeners for [JavaScript hooks](#javascript-hooks), these hooks will be called at appropriate timings.
+2. Если есть слушатели для [JavaScript хуков](#javascript-hooks), то эти хуки будут вызываться в соответствующие моменты времени.
 
-3. If no CSS transitions / animations are detected and no JavaScript hooks are provided, the DOM operations for insertion and/or removal will be executed on the browser's next animation frame.
+3. Если переходы/анимации CSS не обнаружены и хуки JavaScript не предоставлены, операции DOM по вставке и/или удалению будут выполняться в следующем кадре анимации браузера.
 
-## CSS-Based Transitions {#css-based-transitions}
+## Переходы на основе CSS {#css-based-transitions}
 
-### Transition Classes {#transition-classes}
+### Классы перехода {#transition-classes}
 
-There are six classes applied for enter / leave transitions.
+Для переходов входа/выхода применяются шесть классов.
 
-![Transition Diagram](./images/transition-classes.png)
+![Диаграмма переходов](./images/transition-classes.png)
 
 <!-- https://www.figma.com/file/rlOv0ZKJFFNA9hYmzdZv3S/Transition-Classes -->
 
-1. `v-enter-from`: Starting state for enter. Added before the element is inserted, removed one frame after the element is inserted.
+1. `v-enter-from`: Начало анимации появления элемента. Добавляется перед вставкой элемента, удаляется через один кадр после вставки элемента.
 
-2. `v-enter-active`: Active state for enter. Applied during the entire entering phase. Added before the element is inserted, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.
+2. `v-enter-active`: Активное состояние появления элемента. Этот класс остаётся на элементе в течение всей анимации появления. Добавляется перед вставкой элемента, удаляется по завершении перехода/анимации. Этот класс можно использовать для установки длительности, задержки или функции плавности (easing curve) анимации появления.
 
-3. `v-enter-to`: Ending state for enter. Added one frame after the element is inserted (at the same time `v-enter-from` is removed), removed when the transition/animation finishes.
+3. `v-enter-to`: Завершение анимации появления элемента. Добавляется в следующем фрейме после вставки элемента (тогда же удаляется `v-enter-from`), а удаляется после завершения перехода или анимации.
 
-4. `v-leave-from`: Starting state for leave. Added immediately when a leaving transition is triggered, removed after one frame.
+4. `v-leave-from`: Начало анимации исчезновения элемента. Добавляется сразу после вызова анимации исчезновения, а удаляется в следующем фрейме после этого.
 
-5. `v-leave-active`: Active state for leave. Applied during the entire leaving phase. Added immediately when a leaving transition is triggered, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the leaving transition.
+5. `v-leave-active`: Активное состояние анимации исчезновения. Этот класс остаётся на элементе в течение всей анимации исчезновения. Он добавляется при вызове анимации исчезновения, а удаляется после завершения перехода или анимации. Этот класс можно использовать для установки длительности, задержки или функции плавности (easing curve) анимации исчезновения.
 
-6. `v-leave-to`: Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave-from` is removed), removed when the transition/animation finishes.
+6. `v-leave-to`: Завершение анимации исчезновения элемента. Добавляется в следующем фрейме после вызова анимации исчезновения (тогда же удаляется `v-leave-from`), а удаляется после завершения перехода или анимации.
 
-`v-enter-active` and `v-leave-active` give us the ability to specify different easing curves for enter / leave transitions, which we'll see an example of in the following sections.
+Классы  `v-enter-active` и `v-leave-active` позволяют устанавливать кривые плавности для переходов появления и исчезновения элемента. Пример использования рассмотрим ниже.
 
-### Named Transitions {#named-transitions}
+### Именованные переходы {#named-transitions}
 
-A transition can be named via the `name` prop:
+Переход может быть назван с помощью свойства `name`:
 
 ```vue-html
 <Transition name="fade">
@@ -107,7 +107,7 @@ A transition can be named via the `name` prop:
 </Transition>
 ```
 
-For a named transition, its transition classes will be prefixed with its name instead of `v`. For example, the applied class for the above transition will be `fade-enter-active` instead of `v-enter-active`. The CSS for the fade transition should look like this:
+Для именованного перехода его классы переходов будут иметь префикс с названием, а не `v`. Например, применяемый класс для приведенного выше перехода будет `fade-enter-active`, а не `v-enter-active`. CSS для перехода fade должен выглядеть следующим образом:
 
 ```css
 .fade-enter-active,
@@ -121,22 +121,22 @@ For a named transition, its transition classes will be prefixed with its name in
 }
 ```
 
-### CSS Transitions {#css-transitions}
+### CSS-переходы {#css-transitions}
 
-`<Transition>` is most commonly used in combination with [native CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), as seen in the basic example above. The `transition` CSS property is a shorthand that allows us to specify multiple aspects of a transition, including properties that should be animated, duration of the transition, and [easing curves](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
+`<Transition>` чаще всего используется в сочетании с [собственными CSS-переходами](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), как показано в базовом примере выше. CSS-свойство `transition` - это сокращение, позволяющее указать множество аспектов перехода, включая свойства, которые должны быть анимированы, длительность перехода и [функции плавности](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
 
-Here is a more advanced example that transitions multiple properties, with different durations and easing curves for enter and leave:
+Приведем более сложный пример, в котором переходы осуществляются по нескольким свойствам, с различными длительностями и функциями плавностями для входа и выхода:
 
 ```vue-html
 <Transition name="slide-fade">
-  <p v-if="show">hello</p>
+  <p v-if="show">привет</p>
 </Transition>
 ```
 
 ```css
 /*
-  Enter and leave animations can use different
-  durations and timing functions.
+  Анимации появления и исчезновения могут иметь
+  различные продолжительности и функции плавности.
 */
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
@@ -166,16 +166,16 @@ Here is a more advanced example that transitions multiple properties, with diffe
 
 </div>
 
-### CSS Animations {#css-animations}
+### CSS-анимации {#css-animations}
 
-[Native CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) are applied in the same way as CSS transitions, with the difference being that `*-enter-from` is not removed immediately after the element is inserted, but on an `animationend` event.
+[Собственные CSS-анимации](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) применяются таким же образом, что и CSS-переходы. Они отличаются лишь тем, что `*-enter-from` удаляется не сразу после вставки элемента, а при наступлении события `animationend`.
 
-For most CSS animations, we can simply declare them under the `*-enter-active` and `*-leave-active` classes. Here's an example:
+Для большинства CSS-анимаций мы можем просто объявить их в классах `*-enter-active` и `*-leave-active`. Вот пример:
 
 ```vue-html
 <Transition name="bounce">
   <p v-if="show" style="text-align: center;">
-    Hello here is some bouncy text!
+    Привет, вот какой-то задорный текст!
   </p>
 </Transition>
 ```
@@ -213,9 +213,9 @@ For most CSS animations, we can simply declare them under the `*-enter-active` a
 
 </div>
 
-### Custom Transition Classes {#custom-transition-classes}
+### Пользовательские классы переходов {#custom-transition-classes}
 
-You can also specify custom transition classes by passing the following props to `<Transition>`:
+Вы также можете указать пользовательские классы переходов, передав в `<Transition>` следующие входные параметры:
 
 - `enter-from-class`
 - `enter-active-class`
@@ -224,16 +224,16 @@ You can also specify custom transition classes by passing the following props to
 - `leave-active-class`
 - `leave-to-class`
 
-These will override the conventional class names. This is especially useful when you want to combine Vue's transition system with an existing CSS animation library, such as [Animate.css](https://daneden.github.io/animate.css/):
+Они будут заменять обычные имена классов. Это особенно полезно, если вы хотите объединить систему переходов Vue с существующей библиотекой анимации CSS, например  [Animate.css](https://daneden.github.io/animate.css/):
 
 ```vue-html
-<!-- assuming Animate.css is included on the page -->
+<!-- при условии, что Animate.css добавлен на странице -->
 <Transition
   name="custom-classes"
   enter-active-class="animate__animated animate__tada"
   leave-active-class="animate__animated animate__bounceOutRight"
 >
-  <p v-if="show">hello</p>
+  <p v-if="show">привет</p>
 </Transition>
 ```
 
@@ -248,32 +248,32 @@ These will override the conventional class names. This is especially useful when
 
 </div>
 
-### Using Transitions and Animations Together {#using-transitions-and-animations-together}
+### Совместное использование переходов и анимаций {#using-transitions-and-animations-together}
 
-Vue needs to attach event listeners in order to know when a transition has ended. It can either be `transitionend` or `animationend`, depending on the type of CSS rules applied. If you are only using one or the other, Vue can automatically detect the correct type.
+Для определения завершения анимации Vue использует прослушиватели событий с типом `transitionend` или `animationend`, в зависимости от типа применяемых CSS-правил. Если используется только один подход из них, Vue определит правильный тип автоматически.
 
-However, in some cases you may want to have both on the same element, for example having a CSS animation triggered by Vue, along with a CSS transition effect on hover. In these cases, you will have to explicitly declare the type you want Vue to care about by passing the `type` prop, with a value of either `animation` or `transition`:
+Однако, в некоторых случах может потребоваться использовать оба подхода на одном элементе. Например CSS-анимация, запущенная Vue, может соседствовать с эффектом CSS-перехода при наведении на элемент. В таких случаях потребуется явное указание типа события, на которое должен ориентироваться Vue. Для этого нужно использовать атрибут `type` со значением `animation` или `transition`:
 
 ```vue-html
 <Transition type="animation">...</Transition>
 ```
 
-### Nested Transitions and Explicit Transition Durations {#nested-transitions-and-explicit-transition-durations}
+### Вложенные переходы и явные длительности переходов {#nested-transitions-and-explicit-transition-durations}
 
-Although the transition classes are only applied to the direct child element in `<Transition>`, we can transition nested elements using nested CSS selectors:
+Хотя классы перехода применяются только к непосредственному дочернему элементу `<Transition>`, мы можем переходить к вложенным элементам с помощью вложенных CSS-селекторов:
 
 ```vue-html
 <Transition name="nested">
   <div v-if="show" class="outer">
     <div class="inner">
-      Hello
+      Привет
     </div>
   </div>
 </Transition>
 ```
 
 ```css
-/* rules that target nested elements */
+/* правила, нацеленные на вложенные элементы */
 .nested-enter-active .inner,
 .nested-leave-active .inner {
   transition: all 0.3s ease-in-out;
@@ -285,21 +285,21 @@ Although the transition classes are only applied to the direct child element in 
   opacity: 0;
 }
 
-/* ... other necessary CSS omitted */
+/* ... другие необходимые CSS не указаны */
 ```
 
-We can even add a transition delay to the nested element on enter, which creates a staggered enter animation sequence:
+Мы можем даже добавить задержку перехода во вложенный элемент при входе, что создаст ступенчатую последовательность анимации входа:
 
 ```css{3}
-/* delay enter of nested element for staggered effect */
+/* задержка появления вложенного элемента для эффекта */
 .nested-enter-active .inner {
   transition-delay: 0.25s;
 }
 ```
 
-However, this creates a small issue. By default, the `<Transition>` component attempts to automatically figure out when the transition has finished by listening to the **first** `transitionend` or `animationend` event on the root transition element. With a nested transition, the desired behavior should be waiting until the transitions of all inner elements have finished.
+Однако при этом возникает небольшая проблема. По умолчанию компонент `<Transition>` пытается автоматически определить момент завершения перехода, слушая **первое событие** `transitionend` или `animationend` на корневом элементе перехода.  При вложенном переходе желательным поведением будет ожидание завершения переходов всех внутренних элементов.
 
-In such cases you can specify an explicit transition duration (in milliseconds) using the `duration` prop on the `<transition>` component. The total duration should match the delay plus transition duration of the inner element:
+В таких случаях можно указать явную длительность перехода (в миллисекундах) с помощью параметра `duration` компонента `<transition>`. Общая длительность должна соответствовать длительности задержки плюс длительности перехода внутреннего элемента:
 
 ```vue-html
 <Transition :duration="550">...</Transition>
@@ -309,25 +309,25 @@ In such cases you can specify an explicit transition duration (in milliseconds) 
 
 [Попробовать в песочнице](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3Qgc2hvdyA9IHJlZih0cnVlKVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGJ1dHRvbiBAY2xpY2s9XCJzaG93ID0gIXNob3dcIj5Ub2dnbGU8L2J1dHRvbj5cbiAgPFRyYW5zaXRpb24gZHVyYXRpb249XCI1NTBcIiBuYW1lPVwibmVzdGVkXCI+XG4gICAgPGRpdiB2LWlmPVwic2hvd1wiIGNsYXNzPVwib3V0ZXJcIj5cbiAgICAgIDxkaXYgY2xhc3M9XCJpbm5lclwiPlxuICAgXHRcdFx0SGVsbG9cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICA8L1RyYW5zaXRpb24+XG48L3RlbXBsYXRlPlxuXG48c3R5bGU+XG4ub3V0ZXIsIC5pbm5lciB7XG5cdGJhY2tncm91bmQ6ICNlZWU7XG4gIHBhZGRpbmc6IDMwcHg7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xufVxuICBcbi5pbm5lciB7IFxuICBiYWNrZ3JvdW5kOiAjY2NjO1xufVxuICBcbi5uZXN0ZWQtZW50ZXItYWN0aXZlLCAubmVzdGVkLWxlYXZlLWFjdGl2ZSB7XG5cdHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2UtaW4tb3V0O1xufVxuLyogZGVsYXkgbGVhdmUgb2YgcGFyZW50IGVsZW1lbnQgKi9cbi5uZXN0ZWQtbGVhdmUtYWN0aXZlIHtcbiAgdHJhbnNpdGlvbi1kZWxheTogMC4yNXM7XG59XG5cbi5uZXN0ZWQtZW50ZXItZnJvbSxcbi5uZXN0ZWQtbGVhdmUtdG8ge1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMzBweCk7XG4gIG9wYWNpdHk6IDA7XG59XG5cbi8qIHdlIGNhbiBhbHNvIHRyYW5zaXRpb24gbmVzdGVkIGVsZW1lbnRzIHVzaW5nIG5lc3RlZCBzZWxlY3RvcnMgKi9cbi5uZXN0ZWQtZW50ZXItYWN0aXZlIC5pbm5lcixcbi5uZXN0ZWQtbGVhdmUtYWN0aXZlIC5pbm5lciB7IFxuICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlLWluLW91dDtcbn1cbi8qIGRlbGF5IGVudGVyIG9mIG5lc3RlZCBlbGVtZW50ICovXG4ubmVzdGVkLWVudGVyLWFjdGl2ZSAuaW5uZXIge1xuXHR0cmFuc2l0aW9uLWRlbGF5OiAwLjI1cztcbn1cblxuLm5lc3RlZC1lbnRlci1mcm9tIC5pbm5lcixcbi5uZXN0ZWQtbGVhdmUtdG8gLmlubmVyIHtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDMwcHgpO1xuICAvKlxuICBcdEhhY2sgYXJvdW5kIGEgQ2hyb21lIDk2IGJ1ZyBpbiBoYW5kbGluZyBuZXN0ZWQgb3BhY2l0eSB0cmFuc2l0aW9ucy5cbiAgICBUaGlzIGlzIG5vdCBuZWVkZWQgaW4gb3RoZXIgYnJvd3NlcnMgb3IgQ2hyb21lIDk5KyB3aGVyZSB0aGUgYnVnXG4gICAgaGFzIGJlZW4gZml4ZWQuXG4gICovXG4gIG9wYWNpdHk6IDAuMDAxO1xufVxuPC9zdHlsZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59In0=)
 
-If necessary, you can also specify separate values for enter and leave durations using an object:
+При необходимости можно также задать отдельные значения для продолжительности входа и выхода с помощью объекта:
 
 ```vue-html
 <Transition :duration="{ enter: 500, leave: 800 }">...</Transition>
 ```
 
-### Performance Considerations {#performance-considerations}
+### Соображения по производительности {#performance-considerations}
 
-You may notice that the animations shown above are mostly using properties like `transform` and `opacity`. These properties are efficient to animate because:
+Вы можете заметить, что в приведенных выше анимациях в основном используются такие свойства, как `transform` и `opacity`. Эти свойства эффективны для анимации, поскольку:
 
-1. They do not affect the document layout during the animation, so they do not trigger expensive CSS layout calculation on every animation frame.
+1. Они не влияют на макет документа во время анимации, поэтому не вызывают дорогостоящих расчетов шаблона CSS на каждом кадре анимации.
 
-2. Most modern browsers can leverage GPU hardware acceleration when animating `transform`.
+2. Большинство современных браузеров могут использовать аппаратное ускорение GPU при `transform`.
 
-In comparison, properties like `height` or `margin` will trigger CSS layout, so they are much more expensive to animate, and should be used with caution. We can check resources like [CSS-Triggers](https://csstriggers.com/) to see which properties will trigger layout if we animate them.
+Для сравнения, такие свойства, как `height` или `margin` вызывают шаблон CSS, поэтому их анимировать гораздо дороже, и использовать их следует с осторожностью. Мы можем обратиться к таким ресурсам, как [CSS-Triggers](https://csstriggers.com/), чтобы узнать, какие свойства будут вызывать компоновку, если мы их анимируем.
 
-## JavaScript Hooks {#javascript-hooks}
+## JavaScript хуки {#javascript-hooks}
 
-You can hook into the transition process with JavaScript by listening to events on the `<Transition>` component:
+Вы можете подключиться к процессу перехода с помощью JavaScript, прослушивая события на компоненте `<Transition>`:
 
 ```html
 <Transition
@@ -347,39 +347,39 @@ You can hook into the transition process with JavaScript by listening to events 
 <div class="composition-api">
 
 ```js
-// called before the element is inserted into the DOM.
-// use this to set the "enter-from" state of the element
+// вызывается перед вставкой элемента в DOM.
+// используется для установки состояния "enter-from" элемента
 function onBeforeEnter(el) {}
 
-// called one frame after the element is inserted.
-// use this to start the entering animation.
+// вызывается через один кадр после вставки элемента.
+// используйте его для запуска анимации входа.
 function onEnter(el, done) {
-  // call the done callback to indicate transition end
-  // optional if used in combination with CSS
+  // вызов обратного вызова done для индикации окончания перехода
+  // необязателен, если используется в сочетании с CSS
   done()
 }
 
-// called when the enter transition has finished.
+// вызывается по завершении перехода enter.
 function onAfterEnter(el) {}
 function onEnterCancelled(el) {}
 
-// called before the leave hook.
-// Most of the time, you should just use the leave hook
+// вызывается перед хуком leave.
+// В большинстве случаев следует использовать только хук leave
 function onBeforeLeave(el) {}
 
-// called when the leave transition starts.
-// use this to start the leaving animation.
+// вызывается, когда начинается переход к leave.
+// используйте его для запуска анимации ухода.
 function onLeave(el, done) {
-  // call the done callback to indicate transition end
-  // optional if used in combination with CSS
+  // вызов обратного вызова done для индикации окончания перехода
+  // необязательно, если используется в сочетании с CSS
   done()
 }
 
-// called when the leave transition has finished and the
-// element has been removed from the DOM.
+// вызывается, когда переход к leave завершен
+// элемент был удален из DOM.
 function onAfterLeave(el) {}
 
-// only available with v-show transitions
+// доступно только при использовании переходов v-show
 function onLeaveCancelled(el) {}
 ```
 
@@ -390,39 +390,39 @@ function onLeaveCancelled(el) {}
 export default {
   // ...
   methods: {
-    // called before the element is inserted into the DOM.
-    // use this to set the "enter-from" state of the element
+    // вызывается перед вставкой элемента в DOM.
+    // используется для установки состояния "вход-выход" элемента
     onBeforeEnter(el) {},
 
-    // called one frame after the element is inserted.
-    // use this to start the animation.
+    // вызывается через один кадр после вставки элемента.
+    // используйте это, чтобы запустить анимацию.
     onEnter(el, done) {
-      // call the done callback to indicate transition end
-      // optional if used in combination with CSS
+      // вызов обратного вызова done для индикации окончания перехода
+      // необязательно, если используется в сочетании с CSS
       done()
     },
 
-    // called when the enter transition has finished.
+    // вызывается по завершении перехода на enter.
     onAfterEnter(el) {},
     onEnterCancelled(el) {},
 
-    // called before the leave hook.
-    // Most of the time, you should just use the leave hook.
+    // вызывается перед хуком leave.
+    // В большинстве случаев вам следует просто использовать хук leave.
     onBeforeLeave(el) {},
 
-    // called when the leave transition starts.
-    // use this to start the leaving animation.
+    // вызывается, когда начинается переход к leave.
+    // используйте это, чтобы запустить анимацию ухода.
     onLeave(el, done) {
-      // call the done callback to indicate transition end
-      // optional if used in combination with CSS
+      // вызовите обратный вызов done, чтобы указать конец перехода
+      // необязательно, если используется в сочетании с CSS
       done()
     },
 
-    // called when the leave transition has finished and the
-    // element has been removed from the DOM.
+    // вызывается, когда переход к leave завершен
+    // и элемент был удален из DOM.
     onAfterLeave(el) {},
 
-    // only available with v-show transitions
+    // доступно только с переходами v-show
     onLeaveCancelled(el) {}
   }
 }
@@ -430,9 +430,9 @@ export default {
 
 </div>
 
-These hooks can be used in combination with CSS transitions / animations or on their own.
+Эти хуки могут использоваться как в сочетании с CSS-переходами/анимацией, так и самостоятельно.
 
-When using JavaScript-only transitions, it is usually a good idea to add the `:css="false"` prop. This explicitly tells Vue to skip auto CSS transition detection. Aside from being slightly more performant, this also prevents CSS rules from accidentally interfering with the transition:
+При использовании переходов, основанных только на JavaScript, обычно рекомендуется добавить параметр `:css="false"`. Это явно указывает Vue на необходимость пропускать автоматическое определение CSS-переходов. Помимо того, что это несколько повышает производительность, это также предотвращает случайное вмешательство CSS-правил в переход:
 
 ```vue-html{3}
 <Transition
@@ -443,9 +443,9 @@ When using JavaScript-only transitions, it is usually a good idea to add the `:c
 </Transition>
 ```
 
-With `:css="false"`, we are also fully responsible for controlling when the transition ends. In this case, the `done` callbacks are required for the `@enter` and `@leave` hooks. Otherwise, the hooks will be called synchronously and the transition will finish immediately.
+При использовании `:css="false"`  мы также полностью отвечаем за контроль окончания перехода. В этом случае обратные вызовы `done` необходимы для хуков `@enter` и `@leave`. В противном случае хуки будут вызываться синхронно и переход завершится немедленно.
 
-Here's a demo using the [GreenSock library](https://greensock.com/) to perform the animations. You can, of course, use any other animation library you want, for example [Anime.js](https://animejs.com/) or [Motion One](https://motion.dev/).
+Вот демонстрация использования [библиотеки GreenSock](https://greensock.com/) для выполнения анимации. Конечно, вы можете использовать любую другую библиотеку анимации, например [Anime.js](https://animejs.com/) или [Motion One](https://motion.dev/).
 
 <JsHooks />
 
@@ -460,46 +460,46 @@ Here's a demo using the [GreenSock library](https://greensock.com/) to perform t
 
 </div>
 
-## Reusable Transitions {#reusable-transitions}
+## Переиспользуемые переходы {#reusable-transitions}
 
-Transitions can be reused through Vue's component system. To create a reusable transition, we can create a component that wraps the `<Transition>` component and passes down the slot content:
+Переходы можно повторно использовать через систему компонентов Vue. Чтобы создать повторно используемый переход, мы можем создать компонент, который обертывает компонент `<Transition>` и передает содержимое слота:
 
 ```vue{5}
 <!-- MyTransition.vue -->
 <script>
-// JavaScript hooks logic...
+// Логика хуков JavaScript...
 </script>
 
 <template>
-  <!-- wrap the built-in Transition component -->
+  <!-- обернуть встроенный компонент Transition -->
   <Transition
     name="my-transition"
     @enter="onEnter"
     @leave="onLeave">
-    <slot></slot> <!-- pass down slot content -->
+    <slot></slot> <!-- передать содержимое слота -->
   </Transition>
 </template>
 
 <style>
 /*
-  Necessary CSS...
-  Note: avoid using <style scoped> here since it
-  does not apply to slot content.
+  Необходимый CSS...
+  Примечание: избегайте использования здесь <style scoped>,
+  так как это не относится к содержимому слота.
 */
 </style>
 ```
 
-Now `MyTransition` can be imported and used just like the built-in version:
+Теперь `MyTransition` можно импортировать и использовать так же, как встроенную версию:
 
 ```vue-html
 <MyTransition>
-  <div v-if="show">Hello</div>
+  <div v-if="show">привет</div>
 </MyTransition>
 ```
 
-## Transition on Appear {#transition-on-appear}
+## Переход при появлении {#transition-on-appear}
 
-If you also want to apply a transition on the initial render of a node, you can add the `appear` prop:
+Если вы также хотите применить переход при начальном рендеринге узла, вы можете добавить атрибут `appear`:
 
 ```vue-html
 <Transition appear>
@@ -507,15 +507,15 @@ If you also want to apply a transition on the initial render of a node, you can 
 </Transition>
 ```
 
-## Transition Between Elements {#transition-between-elements}
+## Переход между элементами {#transition-between-elements}
 
-In addition to toggling an element with `v-if` / `v-show`, we can also transition between two elements using `v-if` / `v-else` / `v-else-if`, as long as we make sure that there is only one element being shown at any given moment:
+Помимо переключения элемента с помощью `v-if` / `v-show`, мы также можем осуществлять переход между двумя элементами с помощью `v-if` / `v-else` / `v-else-if`, при условии, что в каждый момент времени отображается только один элемент:
 
 ```vue-html
 <Transition>
-  <button v-if="docState === 'saved'">Edit</button>
-  <button v-else-if="docState === 'edited'">Save</button>
-  <button v-else-if="docState === 'editing'">Cancel</button>
+  <button v-if="docState === 'saved'">Редактировать</button>
+  <button v-else-if="docState === 'edited'">Сохранить</button>
+  <button v-else-if="docState === 'editing'">Отменить</button>
 </Transition>
 ```
 
@@ -523,11 +523,11 @@ In addition to toggling an element with `v-if` / `v-show`, we can also transitio
 
 [Попробовать в песочнице](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcblxuY29uc3QgZG9jU3RhdGUgPSByZWYoJ3NhdmVkJylcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxzcGFuIHN0eWxlPVwibWFyZ2luLXJpZ2h0OiAyMHB4XCI+Q2xpY2sgdG8gY3ljbGUgdGhyb3VnaCBzdGF0ZXM6PC9zcGFuPlxuICA8ZGl2IGNsYXNzPVwiYnRuLWNvbnRhaW5lclwiPlxuXHRcdDxUcmFuc2l0aW9uIG5hbWU9XCJzbGlkZS11cFwiPlxuICAgICAgPGJ1dHRvbiB2LWlmPVwiZG9jU3RhdGUgPT09ICdzYXZlZCdcIlxuICAgICAgICAgICAgICBAY2xpY2s9XCJkb2NTdGF0ZSA9ICdlZGl0ZWQnXCI+RWRpdDwvYnV0dG9uPlxuICAgICAgPGJ1dHRvbiB2LWVsc2UtaWY9XCJkb2NTdGF0ZSA9PT0gJ2VkaXRlZCdcIlxuICAgICAgICAgICAgICBAY2xpY2s9XCJkb2NTdGF0ZSA9ICdlZGl0aW5nJ1wiPlNhdmU8L2J1dHRvbj5cbiAgICAgIDxidXR0b24gdi1lbHNlLWlmPVwiZG9jU3RhdGUgPT09ICdlZGl0aW5nJ1wiXG4gICAgICAgICAgICAgIEBjbGljaz1cImRvY1N0YXRlID0gJ3NhdmVkJ1wiPkNhbmNlbDwvYnV0dG9uPlxuICAgIDwvVHJhbnNpdGlvbj5cbiAgPC9kaXY+XG48L3RlbXBsYXRlPlxuXG48c3R5bGU+XG4uYnRuLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBoZWlnaHQ6IDFlbTtcbn1cblxuYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xufVxuXG4uc2xpZGUtdXAtZW50ZXItYWN0aXZlLFxuLnNsaWRlLXVwLWxlYXZlLWFjdGl2ZSB7XG4gIHRyYW5zaXRpb246IGFsbCAwLjI1cyBlYXNlLW91dDtcbn1cblxuLnNsaWRlLXVwLWVudGVyLWZyb20ge1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMzBweCk7XG59XG5cbi5zbGlkZS11cC1sZWF2ZS10byB7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMzBweCk7XG59XG48L3N0eWxlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-## Transition Modes {#transition-modes}
+## Режимы перехода {#transition-modes}
 
-In the previous example, the entering and leaving elements are animated at the same time, and we had to make them `position: absolute` to avoid the layout issue when both elements are present in the DOM.
+В предыдущем примере элементы входа и выхода анимируются одновременно, и нам пришлось сделать `position: absolute` чтобы избежать проблем с компоновкой, когда оба элемента присутствуют в DOM.
 
-However, in some cases this isn't an option, or simply isn't the desired behavior. We may want the leaving element to be animated out first, and for the entering element to only be inserted **after** the leaving animation has finished. Orchestrating such animations manually would be very complicated - luckily, we can enable this behavior by passing `<Transition>` a `mode` prop:
+Однако в некоторых случаях это невозможно или просто нежелательно. Мы можем захотеть, чтобы сначала анимировался выходящий элемент, а входящий элемент вставлялся только **после** завершения анимации выхода. Организовать такую анимацию вручную было бы очень сложно - к счастью, мы можем включить это поведение, передав `<Transition>` свойство `mode`:
 
 ```vue-html
 <Transition mode="out-in">
@@ -535,15 +535,15 @@ However, in some cases this isn't an option, or simply isn't the desired behavio
 </Transition>
 ```
 
-Here's the previous demo with `mode="out-in"`:
+Вот предыдущая демонстрация с `mode="out-in"`:
 
 <BetweenElements mode="out-in" />
 
-`<Transition>` also supports `mode="in-out"`, although it's much less frequently used.
+`<Transition>` также поддерживает режим `mode="in-out"`, хотя он используется гораздо реже.
 
-## Transition Between Components {#transition-between-components}
+## Переход между компонентами {#transition-between-components}
 
-`<Transition>` can also be used around [dynamic components](/guide/essentials/component-basics.html#dynamic-components):
+`<Transition>` также может использоваться вокруг [динамических компонентов](/guide/essentials/component-basics.html#dynamic-components):
 
 ```vue-html
 <Transition name="fade" mode="out-in">
@@ -564,9 +564,9 @@ Here's the previous demo with `mode="out-in"`:
 
 </div>
 
-## Dynamic Transitions {#dynamic-transitions}
+## Динамические переходы {#dynamic-transitions}
 
-`<Transition>` props like `name` can also be dynamic! It allows us to dynamically apply different transitions based on state change:
+Входные параметры `<Transition>`, например `name` также может быть динамическим! Это позволяет нам динамически применять различные переходы в зависимости от изменения состояния:
 
 ```vue-html
 <Transition :name="transitionName">
@@ -574,12 +574,12 @@ Here's the previous demo with `mode="out-in"`:
 </Transition>
 ```
 
-This can be useful when you've defined CSS transitions / animations using Vue's transition class conventions and want to switch between them.
+Это может быть полезно, если вы определили CSS-переходы / анимацию, используя соглашения Vue о классах переходов, и хотите переключаться между ними.
 
-You can also apply different behavior in JavaScript transition hooks based on the current state of your component. Finally, the ultimate way of creating dynamic transitions is through [reusable transition components](#reusable-transitions) that accept props to change the nature of the transition(s) to be used. It may sound cheesy, but the only limit really is your imagination.
+Также можно применять различное поведение в переходах JavaScript-хуков в зависимости от текущего состояния компонента. Наконец, окончательный способ создания динамических переходов - это [многократно используемые компоненты переходов](#reusable-transitions), которые принимают входные параметры для изменения характера используемого перехода (переходов). Это может показаться банальным, но на самом деле единственное ограничение - это ваше воображение.
 
 ---
 
-**Related**
+**Связанное**
 
-- [`<Transition>` API reference](/api/built-in-components.html#transition)
+- [`<Transition>` Справочник API](/api/built-in-components.html#transition)

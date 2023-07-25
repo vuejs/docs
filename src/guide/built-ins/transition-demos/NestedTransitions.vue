@@ -4,10 +4,10 @@ let show = $ref(true)
 
 <template>
   <div class="demo">
-    <button @click="show = !show" style="margin-bottom: 20px">Toggle</button>
+    <button @click="show = !show" style="margin-bottom: 20px">Переключить</button>
     <Transition duration="550" name="nested">
       <div v-if="show" class="transition-demo-outer">
-        <div class="transition-demo-inner">Hello</div>
+        <div class="transition-demo-inner">Привет</div>
       </div>
     </Transition>
   </div>
