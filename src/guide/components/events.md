@@ -1,23 +1,23 @@
-# Component Events {#component-events}
+# События компонентов {#component-events}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> Подразумевается, что вы уже изучили и разобрались с разделом [Основы компонентов](/guide/essentials/component-basics). Если нет — прочитайте его сначала.
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Free Vue.js Lesson on Defining Custom Events"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Бесплатный урок по объявлению пользовательских событий"/>
 </div>
 
-## Emitting and Listening to Events {#emitting-and-listening-to-events}
+## Отправка и прослушивание событий {#emitting-and-listening-to-events}
 
-A component can emit custom events directly in template expressions (e.g. in a `v-on` handler) using the built-in `$emit` method:
+Компонент может генерировать пользовательские события непосредственно в выражениях шаблона (например, в обработчике `v-on`), используя встроенный метод `$emit`:
 
 ```vue-html
 <!-- MyComponent -->
-<button @click="$emit('someEvent')">click me</button>
+<button @click="$emit('someEvent')">нажми на меня</button>
 ```
 
 <div class="options-api">
 
-The `$emit()` method is also available on the component instance as `this.$emit()`:
+Метод `$emit()` также доступен в экземпляре компонента как `this.$emit()`:
 
 ```js
 export default {
@@ -31,47 +31,47 @@ export default {
 
 </div>
 
-The parent can then listen to it using `v-on`:
+Родительский компонент может прослушать его, используя `v-on`:
 
 ```vue-html
 <MyComponent @some-event="callback" />
 ```
 
-The `.once` modifier is also supported on component event listeners:
+Модификатор `.once` также поддерживается для слушателей событий компонента:
 
 ```vue-html
 <MyComponent @some-event.once="callback" />
 ```
 
-Like components and props, event names provide an automatic case transformation. Notice we emitted a camelCase event, but can listen for it using a kebab-cased listener in the parent. As with [props casing](/guide/components/props.html#prop-name-casing), we recommend using kebab-cased event listeners in templates.
+Как компоненты и входные параметры, имена событий обеспечивают автоматическое преобразование регистра. Обратите внимание, что мы испустили событие в регистре camelCase, но можем прослушать его с помощью слушателя в регистре kebab-case в родительском компоненте. Как и в случае с [регистрацией входных параметров](/guide/components/props.html#prop-name-casing), мы рекомендуем использовать kebab-case регистр для прослушивания событий в шаблонах.
 
 :::tip Совет
-Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component. If there is a need to communicate between sibling or deeply nested components, use an external event bus or a [global state management solution](/guide/scaling-up/state-management.html).
+В отличие от собственных событий DOM, события, испускаемые компонентами, **не** всплывают. Вы можете слушать только события, испускаемые непосредственно дочерним компонентом. Если необходимо взаимодействие между родственными или глубоко вложенными компонентами, используйте внешнюю шину событий или [глобальное управление состоянием](/guide/scaling-up/state-management.html).
 :::
 
-## Event Arguments {#event-arguments}
+## Аргументы события {#event-arguments}
 
-It's sometimes useful to emit a specific value with an event. For example, we may want the `<BlogPost>` component to be in charge of how much to enlarge the text by. In those cases, we can pass extra arguments to `$emit` to provide this value:
+Иногда бывает полезно передать определенное значение вместе с событием. Например, мы можем захотеть, чтобы компонент `<BlogPost>` отвечал за то, насколько увеличить текст. В таких случаях мы можем передать `$emit` дополнительные аргументы, чтобы предоставить это значение:
 
 ```vue-html
 <button @click="$emit('increaseBy', 1)">
-  Increase by 1
+  Увеличить на 1
 </button>
 ```
 
-Then, when we listen to the event in the parent, we can use an inline arrow function as the listener, which allows us to access the event argument:
+Затем, когда мы прослушиваем событие в родителе, мы можем использовать встроенную стрелочную функцию в качестве слушателя, что позволит нам получить доступ к аргументу события:
 
 ```vue-html
 <MyButton @increase-by="(n) => count += n" />
 ```
 
-Or, if the event handler is a method:
+Или, если обработчик события является методом:
 
 ```vue-html
 <MyButton @increase-by="increaseCount" />
 ```
 
-Then the value will be passed as the first parameter of that method:
+Затем значение будет передано в качестве первого параметра этого метода:
 
 <div class="options-api">
 
@@ -95,12 +95,12 @@ function increaseCount(n) {
 </div>
 
 :::tip Совет
-All extra arguments passed to `$emit()` after the event name will be forwarded to the listener. For example, with `$emit('foo', 1, 2, 3)` the listener function will receive three arguments.
+Все дополнительные аргументы, переданные в `$emit()` после имени события, будут переданы слушателю. Например, при `$emit('foo', 1, 2, 3)` функция обработчика события получит три аргумента.
 :::
 
-## Declaring Emitted Events {#declaring-emitted-events}
+## Определение пользовательских событий {#declaring-emitted-events}
 
-Emitted events can be explicitly declared on the component via the <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span><span class="options-api">[`emits`](/api/options-state.html#emits) option</span>:
+События генерируемые компонентом можно объявить с помощью <span class="composition-api">[`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)</span><span class="options-api">опции [`emits`](/api/options-state.html#emits)</span>:
 
 <div class="composition-api">
 
@@ -110,7 +110,7 @@ defineEmits(['inFocus', 'submit'])
 </script>
 ```
 
-The `$emit` method that we used in the `<template>` isn't accessible within the `<script setup>` section of a component, but `defineEmits()` returns an equivalent function that we can use instead:
+Метод `$emit`, который мы использовали в `<template>` недоступен в разделе `<script setup>` компонента, но `defineEmits()` возвращает эквивалентную функцию, которую мы можем использовать вместо него:
 
 ```vue
 <script setup>
@@ -122,9 +122,9 @@ function buttonClick() {
 </script>
 ```
 
-The `defineEmits()` macro **cannot** be used inside a function, it must be placed directly within `<script setup>`, as in the example above.
+Макрос `defineEmits()` **нельзя использовать внутри функции**, он должен быть помещен непосредственно в `<script setup>`, как в примере выше.
 
-If you're using an explicit `setup` function instead of `<script setup>`, events should be declared using the [`emits`](/api/options-state.html#emits) option, and the `emit` function is exposed on the `setup()` context:
+Если вы используете явную функцию `setup` вместо `<script setup>` события должны быть объявлены с помощью опции [`emits`](/api/options-state.html#emits), а функция `emit` доступна в контексте `setup()`:
 
 ```js
 export default {
@@ -135,7 +135,7 @@ export default {
 }
 ```
 
-As with other properties of the `setup()` context, `emit` can safely be destructured:
+Как и другие свойства контекста `setup()`, `emit` можно безопасно деструктурировать:
 
 ```js
 export default {
@@ -157,7 +157,7 @@ export default {
 
 </div>
 
-The `emits` option also supports an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
+Опция `emits` также поддерживает синтаксис объекта, что позволяет нам выполнять проверку полезной нагрузки пользовательских событий во время выполнения:
 
 <div class="composition-api">
 
@@ -165,14 +165,14 @@ The `emits` option also supports an object syntax, which allows us to perform ru
 <script setup>
 const emit = defineEmits({
   submit(payload) {
-    // return `true` or `false` to indicate
-    // validation pass / fail
+    // возвращает `true` или `false`, чтобы показать
+    // что проверка пройдена / не пройдена
   }
 })
 </script>
 ```
 
-If you are using TypeScript with `<script setup>`, it's also possible to declare emitted events using pure type annotations:
+Если вы используете TypeScript с `<script setup>`, можно также объявить генерируемые события с помощью чистых аннотаций типов:
 
 ```vue
 <script setup lang="ts">
@@ -183,7 +183,7 @@ const emit = defineEmits<{
 </script>
 ```
 
-More details: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+Подробнее: [Типизирование пользовательских событий компонента](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
@@ -192,43 +192,43 @@ More details: [Typing Component Emits](/guide/typescript/composition-api.html#ty
 export default {
   emits: {
     submit(payload) {
-      // return `true` or `false` to indicate
-      // validation pass / fail
+      // возвращает `true` или `false`, чтобы показать
+      // что проверка пройдена / не пройдена
     }
   }
 }
 ```
 
-См. также: [Typing Component Emits](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
+См. также: [Типизирование пользовательских событий компонента](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 
-Although optional, it is recommended to define all emitted events in order to better document how a component should work. It also allows Vue to exclude known listeners from [fallthrough attributes](/guide/components/attrs.html#v-on-listener-inheritance), avoiding edge cases caused by DOM events manually dispatched by 3rd party code.
+Хотя это и необязательно, рекомендуется определить все генерируемые события, чтобы лучше документировать, как должен работать компонент. Это также позволяет Vue исключать известных слушателей из [проваливающихся атрибутов](/guide/components/attrs.html#v-on-listener-inheritance), избегая пограничных случаев, вызванных событиями DOM, которые вручную отправляются сторонним кодом.
 
 :::tip Совет
-If a native event (e.g., `click`) is defined in the `emits` option, the listener will now only listen to component-emitted `click` events and no longer respond to native `click` events.
+Если в опции `emits` определено собственное событие (например, `click`), слушатель теперь будет прослушивать только события `click`, генерируемые компонентом, и больше не будет реагировать на собственные события `click`.
 :::
 
-## Events Validation {#events-validation}
+## Валидация сгенерированных событий {#events-validation}
 
-Similar to prop type validation, an emitted event can be validated if it is defined with the object syntax instead of the array syntax.
+Аналогично валидации входных параметров, генерируемые события также могут быть валидированы, если это определено с помощью объектного синтаксиса или синтаксиса массива.
 
-To add validation, the event is assigned a function that receives the arguments passed to the <span class="options-api">`this.$emit`</span><span class="composition-api">`emit`</span> call and returns a boolean to indicate whether the event is valid or not.
+Для добавления валидации событию необходимо указать функцию, которая получает аргументы, с которыми вызывался <span class="options-api">`this.$emit`</span><span class="composition-api">`emit`</span> и возвращает булево, определяющее является ли событие корректным или нет.
 
 <div class="composition-api">
 
 ```vue
 <script setup>
 const emit = defineEmits({
-  // No validation
+  // Без валидации
   click: null,
 
-  // Validate submit event
+  // Валидация события submit
   submit: ({ email, password }) => {
     if (email && password) {
       return true
     } else {
-      console.warn('Invalid submit event payload!')
+      console.warn('Некорректные данные для события submit!')
       return false
     }
   }
@@ -246,15 +246,15 @@ function submitForm(email, password) {
 ```js
 export default {
   emits: {
-    // No validation
+    // Без валидации
     click: null,
 
-    // Validate submit event
+    // Валидация события submit
     submit: ({ email, password }) => {
       if (email && password) {
         return true
       } else {
-        console.warn('Invalid submit event payload!')
+        console.warn('Некорректные данные для события submit!')
         return false
       }
     }
@@ -269,15 +269,15 @@ export default {
 
 </div>
 
-## Usage with `v-model` {#usage-with-v-model}
+## Использование вместе с `v-model` {#usage-with-v-model}
 
-Custom events can also be used to create custom inputs that work with `v-model`. Let's revisit how `v-model` is used on a native element:
+Пользовательские события также можно использовать для создания пользовательских входных данных, которые работают с `v-model`. Давайте рассмотрим, как `v-model` используется на нативном элементе:
 
 ```vue-html
 <input v-model="searchText" />
 ```
 
-Under the hood, the template compiler expands `v-model` to the more verbose equivalent for us. So the above code does the same as the following:
+Под капотом компилятор шаблонов расширяет `v-model` до более точного эквивалента для нас. Таким образом, приведенный выше код делает то же самое, что и следующий:
 
 ```vue-html
 <input
@@ -286,7 +286,7 @@ Under the hood, the template compiler expands `v-model` to the more verbose equi
 />
 ```
 
-When used on a component, `v-model` instead expands to this:
+Вместо этого при использовании на компоненте, `v-model` расширяется до этого:
 
 ```vue-html
 <CustomInput
@@ -295,12 +295,12 @@ When used on a component, `v-model` instead expands to this:
 />
 ```
 
-For this to actually work though, the `<CustomInput>` component must do two things:
+Для того чтобы это действительно работало, компонент `<CustomInput>` должен выполнять две вещи:
 
-1. Bind the `value` attribute of a native `<input>` element to the `modelValue` prop
-2. When a native `input` event is triggered, emit an `update:modelValue` custom event with the new value
+1. Привязать атрибут `value` нативного элемента `<input>` к входному параметру `modelValue`
+2. При срабатывании нативного события `input`, сгенерировать пользовательское событие `update:modelValue` с новым значением
 
-Here's that in action:
+Вот как это выглядит:
 
 <div class="options-api">
 
@@ -341,7 +341,7 @@ defineEmits(['update:modelValue'])
 
 </div>
 
-Now `v-model` should work perfectly with this component:
+Теперь `v-model` должна отлично работать с этим компонентом:
 
 ```vue-html
 <CustomInput v-model="searchText" />
@@ -358,7 +358,7 @@ Now `v-model` should work perfectly with this component:
 
 </div>
 
-Another way of implementing `v-model` within this component is to use a writable `computed` property with both a getter and a setter. The `get` method should return the `modelValue` property and the `set` method should emit the corresponding event:
+Другой способ реализации `v-model` в этом компоненте - использовать `computed` свойство с геттером и сеттером. Метод `get` должен возвращать свойство `modelValue`, а метод `set` генерировать соответствующее событие:
 
 <div class="options-api">
 
@@ -414,15 +414,15 @@ const value = computed({
 
 </div>
 
-### `v-model` arguments {#v-model-arguments}
+### Аргументы `v-model` {#v-model-arguments}
 
-By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
+При использовании `v-model` на компоненте по умолчанию используется входной параметр `modelValue` и событие `update:modelValue`. Их можно изменить с помощью аргумента `v-model`:
 
 ```vue-html
 <MyComponent v-model:title="bookTitle" />
 ```
 
-In this case, the child component should expect a `title` prop and emit an `update:title` event to update the parent value:
+В таком случае, ожидается что дочерний компонент будет использовать входной параметр `title` и генерировать событие `update:title` для синхронизации значения:
 
 <div class="composition-api">
 
@@ -471,9 +471,9 @@ export default {
 
 ### Multiple `v-model` bindings {#multiple-v-model-bindings}
 
-By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple v-model bindings on a single component instance.
+Развивая потенциал возможности определять конкретный входной параметр и событие, как мы изучили ранее с помощью [аргумента `v-model`](#v-model-arguments), теперь стало возможным создавать несколько привязок v-model на одном экземпляре компонента.
 
-Each v-model will sync to a different prop, without the need for extra options in the component:
+Каждый v-model синхронизирует свой входной параметр, без необходимости дополнительных опций в компоненте:
 
 ```vue-html
 <UserName
@@ -542,17 +542,17 @@ export default {
 
 </div>
 
-### Handling `v-model` modifiers {#handling-v-model-modifiers}
+### Обработка модификаторов `v-model` {#handling-v-model-modifiers}
 
-When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, you might also want the `v-model` on your custom input component to support custom modifiers.
+Изучая работу с формами, можно заметить, что у `v-model` есть [встроенные модификаторы](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` и `.lazy`. Но в некоторых случаях может потребоваться добавить пользовательские модификаторы.
 
-Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding:
+Создадим для примера пользовательский модификатор `capitalize`, который станет делать заглавной первую букву строки, привязанной с помощью `v-model`:
 
 ```vue-html
 <MyComponent v-model.capitalize="myText" />
 ```
 
-Modifiers added to a component `v-model` will be provided to the component via the `modelModifiers` prop. In the below example, we have created a component that contains a `modelModifiers` prop that defaults to an empty object:
+Модификаторы, которые будут использоваться в `v-model` компонента, нужно указывать через входной параметр `modelModifiers`. В примере ниже, у компонента есть входной параметр `modelModifiers`, который по умолчанию будет пустым объектом.
 
 <div class="composition-api">
 
@@ -607,9 +607,9 @@ export default {
 
 </div>
 
-Notice the component's `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="myText"`.
+Обратите внимание, в хуке жизненного цикла `created` входной параметр `modelModifiers` будет содержать `capitalize` со значением `true` -  потому что он указан на привязке `v-model` компонента `v-model.capitalize="myText"`.
 
-Now that we have our prop set up, we can check the `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string whenever the `<input />` element fires an `input` event.
+Теперь, после настройки входного параметра, можно проверять ключи `modelModifiers` и создать обработчик для изменения значения. Например, будем запускать этот обработчик каждый раз, когда элемент `<input />` генерирует событие `input`.
 
 <div class="composition-api">
 
@@ -672,13 +672,13 @@ export default {
 
 </div>
 
-For `v-model` bindings with both argument and modifiers, the generated prop name will be `arg + "Modifiers"`. For example:
+При использовании привязки `v-model` с аргументом, имя входного параметра будет генерироваться как `arg + "Modifiers"`:
 
 ```vue-html
 <MyComponent v-model:title.capitalize="myText">
 ```
 
-The corresponding declarations should be:
+Соответствующие объявления должны быть:
 
 <div class="composition-api">
 
