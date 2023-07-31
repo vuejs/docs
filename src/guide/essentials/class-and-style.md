@@ -166,7 +166,7 @@ data() {
 <div :class="[activeClass, errorClass]"></div>
 ```
 
-Which will render:
+Das wird wiedergegeben:
 
 ```vue-html
 <div class="active text-danger"></div>
