@@ -172,7 +172,7 @@ Das wird wiedergegeben:
 <div class="active text-danger"></div>
 ```
 
-If you would like to also toggle a class in the list conditionally, you can do it with a ternary expression:
+Wenn Sie eine Klasse in der Liste auch bedingt umschalten möchten, können Sie dies mit einem ternären Ausdruck tun:
 
 ```vue-html
 <div :class="[isActive ? activeClass : '', errorClass]"></div>
