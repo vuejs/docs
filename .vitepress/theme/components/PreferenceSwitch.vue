@@ -79,7 +79,7 @@ function useToggleFn(
         >
         <VTSwitch
           class="api-switch"
-          aria-label="prefer composition api"
+          aria-label="scegliere composition api"
           :aria-checked="preferComposition"
           @click="toggleCompositionAPI()"
         />
@@ -90,7 +90,7 @@ function useToggleFn(
         >
         <a
           class="switch-link"
-          title="About API preference"
+          title="Informazioni sulla scelta dell'API"
           href="/guide/introduction.html#api-styles"
           @click="closeSideBar"
           >?</a
@@ -101,14 +101,14 @@ function useToggleFn(
         <label class="no-sfc-label" @click="toggleSFC(false)">HTML</label>
         <VTSwitch
           class="sfc-switch"
-          aria-label="prefer single file component"
+          aria-label="scegliere i single file component"
           :aria-checked="preferSFC"
           @click="toggleSFC()"
         />
         <label class="sfc-label" @click="toggleSFC(true)">SFC</label>
         <a
           class="switch-link"
-          title="About SFC"
+          title="Informazioni su SFC"
           href="/guide/scaling-up/sfc.html"
           @click="closeSideBar"
           >?</a

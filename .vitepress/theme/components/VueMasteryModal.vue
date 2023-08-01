@@ -70,7 +70,7 @@ watch(
                 href="https://www.vuemastery.com"
                 target="_blank"
                 rel="sponsored noopener"
-                title="Vue.js Courses on Vue Mastery"
+                title="Corsi Vue.js su Vue Mastery"
               >
                 Vue Mastery.</a
               > Guarda il corso gratuito di Vue Mastery per una
@@ -78,7 +78,7 @@ watch(
                 href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3"
                 target="_blank"
                 rel="sponsored noopener"
-                title="Vue.js Courses on Vue Mastery"
+                title="Corsi Vue.js su Vue Mastery"
               >
                 Introduzione a Vue.</a
               >
