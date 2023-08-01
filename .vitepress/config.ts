@@ -11,18 +11,18 @@ const nav: ThemeConfig['nav'] = [
     text: 'Docs',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Guide', link: '/guide/introduction' },
+      { text: 'Guida', link: '/guide/introduction' },
       { text: 'Tutorial', link: '/tutorial/' },
-      { text: 'Examples', link: '/examples/' },
+      { text: 'Esempi', link: '/examples/' },
       { text: 'Quick Start', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
-      { text: 'Glossary', link: '/glossary/' },
+      { text: 'Glossario', link: '/glossary/' },
       {
         text: 'Vue 2 Docs',
         link: 'https://v2.vuejs.org'
       },
       {
-        text: 'Migration from Vue 2',
+        text: 'Migrare da Vue 2',
         link: 'https://v3-migration.vuejs.org/'
       }
     ]
@@ -37,16 +37,16 @@ const nav: ThemeConfig['nav'] = [
     link: 'https://play.vuejs.org'
   },
   {
-    text: 'Ecosystem',
+    text: 'Ecosistema',
     activeMatch: `^/ecosystem/`,
     items: [
       {
-        text: 'Resources',
+        text: 'Risorse',
         items: [
           { text: 'Partners', link: '/partners/' },
-          { text: 'Themes', link: '/ecosystem/themes' },
+          { text: 'Temi', link: '/ecosystem/themes' },
           {
-            text: 'Certification',
+            text: 'Certificazioni',
             link: 'https://certification.vuejs.org/?ref=vuejs-nav'
           },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
@@ -54,7 +54,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Official Libraries',
+        text: 'Librerie Ufficiali',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
@@ -62,7 +62,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Video Courses',
+        text: 'Video-corsi',
         items: [
           {
             text: 'Vue Mastery',
@@ -75,25 +75,25 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Help',
+        text: 'Aiuto',
         items: [
           {
-            text: 'Discord Chat',
+            text: 'Chat Discord',
             link: 'https://discord.com/invite/HBherRA'
           },
           {
-            text: 'GitHub Discussions',
+            text: 'Discussioni GitHub',
             link: 'https://github.com/vuejs/core/discussions'
           },
-          { text: 'DEV Community', link: 'https://dev.to/t/vue' }
+          { text: 'Comunità degli Sviluppatori', link: 'https://dev.to/t/vue' }
         ]
       },
       {
-        text: 'News',
+        text: 'Notizie',
         items: [
           { text: 'Blog', link: 'https://blog.vuejs.org/' },
           { text: 'Twitter', link: 'https://twitter.com/vuejs' },
-          { text: 'Events', link: 'https://events.vuejs.org/' },
+          { text: 'Eventi', link: 'https://events.vuejs.org/' },
           { text: 'Newsletters', link: '/ecosystem/newsletters' }
         ]
       }
@@ -110,9 +110,9 @@ const nav: ThemeConfig['nav'] = [
         text: 'Community Guide',
         link: '/about/community-guide'
       },
-      { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'Codice di condotta', link: '/about/coc' },
       {
-        text: 'The Documentary',
+        text: 'Il Documentario',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
@@ -559,7 +559,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
-  lang: 'en-US',
+  lang: 'it-IT',
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
   srcDir: 'src',

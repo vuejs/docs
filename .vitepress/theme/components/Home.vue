@@ -14,18 +14,18 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      Il 
+      Framework JavaScript
+      <br /><span class="accent">Progressivo</span>
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Un framework accessibile, performante e versatile per la creazione di 
+      interfacce utente web.
     </p>
     <p class="actions">
       <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Inizia Subito
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Installa</a>
     </p>
   </section>
 
@@ -69,32 +69,32 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>Accessibile</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        Si basa sui migliori standard HTML, CSS e JavaScript con una API intuitiva 
+         e una documentazione eccellente a livello mondiale.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Performante</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        Un sistema di rendering veramente reattivo, ottimizzato per la compilazione 
+        che raramente richiede interventi manuali.
       </p>
     </div>
     <div class="vt-box">
       <h2>Versatile</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        Un ricco ecosistema utilizzabile in maniera incrementale, espandibile 
+        da una libreria a un framework completo di ogni funzionalità.
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>Sponsor Platinum</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>Sponsor Gold</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
