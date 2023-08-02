@@ -180,7 +180,7 @@ Wenn Sie eine Klasse in der Liste auch bedingt umschalten möchten, können Sie 
 
 Dies wird immer `errorClass` anwenden, aber `activeClass` wird nur angewendet, wenn `isActive` wahr ist.
 
-However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
+Dies kann jedoch etwas umständlich sein, wenn Sie mehrere bedingte Klassen haben. Deshalb ist es auch möglich, die Objektsyntax innerhalb der Array-Syntax zu verwenden:
 
 ```vue-html
 <div :class="[{ active: isActive }, errorClass]"></div>
