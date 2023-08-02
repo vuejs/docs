@@ -10,7 +10,7 @@ dependencies:
     version: 1.5.0(vue@3.3.4)
   '@vue/theme':
     specifier: ^2.2.4
-    version: 2.2.4(vitepress@1.0.0-beta.1)(vue@3.3.4)
+    version: 2.2.4(vitepress@1.0.0-beta.7)(vue@3.3.4)
   dynamics.js:
     specifier: ^1.1.5
     version: 1.1.5
@@ -18,8 +18,8 @@ dependencies:
     specifier: ^3.9.0
     version: 3.9.0
   vitepress:
-    specifier: latest
-    version: 1.0.0-beta.1(@types/node@16.9.1)(terser@5.14.2)
+    specifier: 1.0.0-beta.7
+    version: 1.0.0-beta.7(@types/node@16.9.1)(terser@5.14.2)
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -608,7 +608,7 @@ packages:
     resolution: {integrity: sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==}
     dev: false
 
-  /@vue/theme@2.2.4(vitepress@1.0.0-beta.1)(vue@3.3.4):
+  /@vue/theme@2.2.4(vitepress@1.0.0-beta.7)(vue@3.3.4):
     resolution: {integrity: sha512-6zHZNdTTnZ2ZZzA18o9hg2oUhcGeZw3/Rzl83eKZI+0M9NApaPvLNDB/qEYJkwhkC/BueY8MoRX93LudgaNVbg==}
     peerDependencies:
       vitepress: ^1.0.0-alpha.60
@@ -618,7 +618,7 @@ packages:
       '@vueuse/core': 9.13.0(vue@3.3.4)
       body-scroll-lock: 3.1.5
       normalize.css: 8.0.1
-      vitepress: 1.0.0-beta.1(@types/node@16.9.1)(terser@5.14.2)
+      vitepress: 1.0.0-beta.7(@types/node@16.9.1)(terser@5.14.2)
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/react'
@@ -965,8 +965,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress@1.0.0-beta.1(@types/node@16.9.1)(terser@5.14.2):
-    resolution: {integrity: sha512-V2yyCwQ+v9fh7rbnGDLp8M7vHa9sLElexXf/JHtBOsOwv7ed9wt1QI4WUagYgKR3TeoJT9v2s6f0UaQSne0EvQ==}
+  /vitepress@1.0.0-beta.7(@types/node@16.9.1)(terser@5.14.2):
+    resolution: {integrity: sha512-P9Rw+FXatKIU4fVdtKxqwHl6fby8E/8zE3FIfep6meNgN4BxbWqoKJ6yfuuQQR9IrpQqwnyaBh4LSabyll6tWg==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.1
