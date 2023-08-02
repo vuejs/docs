@@ -178,7 +178,7 @@ Wenn Sie eine Klasse in der Liste auch bedingt umschalten möchten, können Sie 
 <div :class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
-This will always apply `errorClass`, but `activeClass` will only be applied when `isActive` is truthy.
+Dies wird immer `errorClass` anwenden, aber `activeClass` wird nur angewendet, wenn `isActive` wahr ist.
 
 However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
 
