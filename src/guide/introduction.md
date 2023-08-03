@@ -2,13 +2,13 @@
 footer: false
 ---
 
-# Introduction {#introduction}
+# Panoramica {#introduction}
 
-:::info You are reading the documentation for Vue 3!
+:::info Stai leggendo la documentazione per Vue 3!
 
-- Vue 2 support will end on Dec 31, 2023. Learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
-- Vue 2 documentation has been moved to [v2.vuejs.org](https://v2.vuejs.org/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+- Il supporto a Vue 2 terminerà il 31 Dicembre 2023. Per saperne di più vai su [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
+- La documentazione di Vue 2 è stata spostata su [v2.vuejs.org](https://v2.vuejs.org/).
+- Stai aggiornando da Vue 2? Dai un'occhiata alla [Guida alla Migrazione ](https://v3-migration.vuejs.org/).
   :::
 
 <style src="@theme/styles/vue-mastery.css"></style>
@@ -17,18 +17,18 @@ footer: false
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>
-    <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <p class="description">Impara Vue con i tutorial video su <span>VueMastery.com</span></p>
     <div class="logo-wrapper">
-        <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
+        <img alt="Logo di Vue Mastery" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
 
-## What is Vue? {#what-is-vue}
+## Cos'è Vue? {#what-is-vue}
 
-Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex.
+Vue (pronunciato /vjuː/, come **view** in inglese) è un framework JavaScript per la costruzione di interfacce utente. Si basa su standard HTML, CSS e JavaScript e fornisce un modello di programmazione dichiarativo e basato su componenti che ti aiuta a sviluppare in modo efficiente interfacce utente, siano esse semplici o complesse.
 
-Here is a minimal example:
+Questo è un piccolo esempio:
 
 <div class="options-api">
 
@@ -69,7 +69,7 @@ createApp({
 </div>
 ```
 
-**Result**
+**Risultato**
 
 <script setup>
 import { ref } from 'vue'
@@ -82,38 +82,38 @@ const count = ref(0)
   </button>
 </div>
 
-The above example demonstrates the two core features of Vue:
+L'esempio precedente dimostra le due caratteristiche fondamentali di Vue:
 
-- **Declarative Rendering**: Vue extends standard HTML with a template syntax that allows us to declaratively describe HTML output based on JavaScript state.
+- **Rendering Dichiarativo**: Vue estende l'HTML standard con una sintassi di template che ci permette di descrivere in modo dichiarativo l'output HTML basato sullo stato JavaScript.
 
-- **Reactivity**: Vue automatically tracks JavaScript state changes and efficiently updates the DOM when changes happen.
+- **Reattività**: Vue traccia automaticamente i cambiamenti dello stato JavaScript e aggiorna in modo efficiente il DOM quando avvengono modifiche.
 
-You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
+Potresti già avere delle domande, non preoccuparti. Copriremo ogni piccolo dettaglio nel resto della documentazione. Per ora, ti preghiamo di continuare a leggere per avere una comprensione di alto livello di ciò che Vue offre.
 
-:::tip Prerequisites
-The rest of the documentation assumes basic familiarity with HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Prior experience with other frameworks helps, but is not required.
+:::tip Prerequisiti
+Il resto della documentazione presume una conoscenza di base di HTML, CSS e JavaScript. Se sei completamente nuovo allo sviluppo frontend, potrebbe non essere la migliore idea tuffarti direttamente nell'uso di un framework Javascript - impara le basi e poi riprendi! Puoi verificare il tuo livello di conoscenza con questa [panoramica di JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). L'esperienza precedente con altri framework aiuta, ma non è necessaria.
 :::
 
-## The Progressive Framework {#the-progressive-framework}
+## Il Framework Progressivo {#the-progressive-framework}
 
-Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
+Vue è un framework e un ecosistema che copre la maggior parte delle caratteristiche necessarie allo sviluppo frontend. Ma il web è estremamente vario - le cose che costruiamo sul web possono essere estremamente differenti nella forma e nella grandezza. Pensando a ciò, Vue è stato progettato per essere flessibile e favorirne l'uso in modo incrementale. A seconda del tuo caso d'uso, Vue può essere utilizzato in modi diversi:
 
-- Enhancing static HTML without a build step
-- Embedding as Web Components on any page
-- Single-Page Application (SPA)
-- Fullstack / Server-Side Rendering (SSR)
-- Jamstack / Static Site Generation (SSG)
-- Targeting desktop, mobile, WebGL, and even the terminal
+- Migliorare l'HTML statico senza l'uso della compilazione
+- Incorporare Web Components su qualsiasi pagina
+- Applicazioni Single-Page (SPA)
+- Fullstack / Rendering Server-Side (SSR)
+- Jamstack / Generazione di Siti Statici (SSG)
+- per usi su desktop, mobile, WebGL e perfino al terminale
 
-If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
+Se questi concetti sembrano difficili non preoccuparti! Il tutorial e la guida richiedono conoscenze di HTML e JavaScript di base e dovresti riuscire a seguire tutto senza essere un esperto.
 
-If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more detail in [Ways of Using Vue](/guide/extras/ways-of-using-vue).
+Se sei uno sviluppatore esperto interessato a come integrare al meglio Vue nel tuo stack tecnologico, o sei curioso di sapere cosa significano questi termini, ne discutiamo in modo più dettagliato in [Modi di utilizzare Vue](/guide/extras/ways-of-using-vue).
 
-Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
+Indipendentemente dalla sua flessibilità, la conoscenza di base su come funziona Vue rimane la stessa in tutti casi d'uso visti qui sopra. Anche se ora sei solo un principiante, le conoscenze acquisite lungo il cammino rimarranno utili mentre cresci e affronti obiettivi sempre più ambiziosi. Se sei un veterano, puoi scegliere il modo più congeniale per sfruttare Vue in base ai problemi che stai cercando di risolvere, mantenendo la stessa produttività. Questo è il motivo per cui chiamiamo Vue "Il Framework Progressivo": è un framework che può crescere con te e adattarsi alle tue esigenze.
 
-## Single-File Components {#single-file-components}
+## Componenti Single-File {#single-file-components}
 
-In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
+Nei progetti Vue che sfruttano gli strumenti di compilazione, creiamo componenti Vue utilizzando un formato di file simile a HTML chiamato **Single-File Component** (Componente in un singolo file, anche noto come file `*.vue` , abbreviato in **SFC**). Un file SFC, come suggerisce il nome, incorpora in un singolo file la logica (JavaScript), il template (HTML) e lo stile (CSS) del componente. Ecco l'esempio precedente, riscritto in formato SFC:
 
 <div class="options-api">
 
@@ -161,15 +161,15 @@ button {
 
 </div>
 
-SFC is a defining feature of Vue and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
+L'SFC è una caratteristica distintiva di Vue ed è il modo consigliato per la creazione di componenti Vue **se** il tuo progetto richiede l'uso e la configurazione della compilazione. Nella sezione dedicata puoi saperne di più su [come e perché usare SFC](/guide/scaling-up/sfc). Al momento è sufficiente sapere che Vue si occuperà di tutta la configurazione degli strumenti di compilazione per te.
 
-## API Styles {#api-styles}
+## Stili delle API {#api-styles}
 
-Vue components can be authored in two different API styles: **Options API** and **Composition API**.
+I componenti Vue possono essere scritti in due diversi stili di API: **Options API** e **Composition API**.
 
 ### Options API {#options-api}
 
-With Options API, we define a component's logic using an object of options such as `data`, `methods`, and `mounted`. Properties defined by options are exposed on `this` inside functions, which points to the component instance:
+Con l'Options API definiamo la logica di un componente utilizzando un oggetto contenente opzioni come `data`, `methods`, and `mounted`. Le proprietà definite dalle opzioni vengono esposte all'interno delle funzioni su `this`, che fa riferimento all'istanza del componente:
 
 ```vue
 <script>
@@ -204,13 +204,13 @@ export default {
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNptkMFqxCAQhl9lkB522ZL0HNKlpa/Qo4e1ZpLIGhUdl5bgu9es2eSyIMio833zO7NP56pbRNawNkivHJ25wV9nPUGHvYiaYOYGoK7Bo5CkbgiBBOFy2AkSh2N5APmeojePCkDaaKiBt1KnZUuv3Ky0PppMsyYAjYJgigu0oEGYDsirYUAP0WULhqVrQhptF5qHQhnpcUJD+wyQaSpUd/Xp9NysVY/yT2qE0dprIS/vsds5Mg9mNVbaDofL94jZpUgJXUKBCvAy76ZUXY53CTd5tfX2k7kgnJzOCXIF0P5EImvgQ2olr++cbRE4O3+t6JxvXj0ptXVpye1tvbFY+ge/NJZt)
+[Prova nel Playground](https://play.vuejs.org/#eNptkMFqxCAQhl9lkB522ZL0HNKlpa/Qo4e1ZpLIGhUdl5bgu9es2eSyIMio833zO7NP56pbRNawNkivHJ25wV9nPUGHvYiaYOYGoK7Bo5CkbgiBBOFy2AkSh2N5APmeojePCkDaaKiBt1KnZUuv3Ky0PppMsyYAjYJgigu0oEGYDsirYUAP0WULhqVrQhptF5qHQhnpcUJD+wyQaSpUd/Xp9NysVY/yT2qE0dprIS/vsds5Mg9mNVbaDofL94jZpUgJXUKBCvAy76ZUXY53CTd5tfX2k7kgnJzOCXIF0P5EImvgQ2olr++cbRE4O3+t6JxvXj0ptXVpye1tvbFY+ge/NJZt)
 
 ### Composition API {#composition-api}
 
-With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). The `setup` attribute is a hint that makes Vue perform compile-time transforms that allow us to use Composition API with less boilerplate. For example, imports and top-level variables / functions declared in `<script setup>` are directly usable in the template.
+Nella Composition API definiamo la logica di un componente importando le funzioni dell'API. Negli SFC, di solito, la Composition API è utilizzata con [`<script setup>`](/api/sfc-script-setup). L'attributo `setup` è un suggerimento che, durante la compilazione, permette a Vue di eseguire delle trasformazioni e usare la Composition API con meno codice ripetitivo. Per esempio gli imports e le variabili / funzioni di livello superiore dichiarate in `<script setup>` possono essere usate direttamente nel template.
 
-Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
+Ecco lo stesso componente, con lo stesso identico template, ma utilizzando la Composition API usando `<script setup>`:
 
 ```vue
 <script setup>
@@ -235,49 +235,49 @@ onMounted(() => {
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNpNkMFqwzAQRH9lMYU4pNg9Bye09NxbjzrEVda2iLwS0spQjP69a+yYHnRYad7MaOfiw/tqSliciybqYDxDRE7+qsiM3gWGGQJ2r+DoyyVivEOGLrgRDkIdFCmqa1G0ms2EELllVKQdRQa9AHBZ+PLtuEm7RCKVd+ChZRjTQqwctHQHDqbvMUDyd7mKip4AGNIBRyQujzArgtW/mlqb8HRSlLcEazrUv9oiDM49xGGvXgp5uT5his5iZV1f3r4HFHvDprVbaxPhZf4XkKub/CDLaep1T7IhGRhHb6WoTADNT2KWpu/aGv24qGKvrIrr5+Z7hnneQnJu6hURvKl3ryL/ARrVkuI=)
+[Prova nel Playground](https://play.vuejs.org/#eNpNkMFqwzAQRH9lMYU4pNg9Bye09NxbjzrEVda2iLwS0spQjP69a+yYHnRYad7MaOfiw/tqSliciybqYDxDRE7+qsiM3gWGGQJ2r+DoyyVivEOGLrgRDkIdFCmqa1G0ms2EELllVKQdRQa9AHBZ+PLtuEm7RCKVd+ChZRjTQqwctHQHDqbvMUDyd7mKip4AGNIBRyQujzArgtW/mlqb8HRSlLcEazrUv9oiDM49xGGvXgp5uT5his5iZV1f3r4HFHvDprVbaxPhZf4XkKub/CDLaep1T7IhGRhHb6WoTADNT2KWpu/aGv24qGKvrIrr5+Z7hnneQnJu6hURvKl3ryL/ARrVkuI=)
 
-### Which to Choose? {#which-to-choose}
+### Quale scegliere? {#which-to-choose}
 
-Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+Entrambi gli stili di API sono completamente in grado di coprire i casi d'uso più comuni. Si tratta di interfacce diverse alimentate dallo stesso identico sistema. In effetti l'Options API è implementata al di sopra della Composition API! I concetti fondamentali e la conoscenza riguardo Vue sono condivisi dai due stili.
 
-The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
+L'Options API è incentrata sul concetto di "component instance" ('istanza di componente', `this` come visto nell'esempio), che tipicamente si allinea meglio con un modello mentale basato sulle Classi per gli utenti provenienti da linguaggi OOP. È anche più accessibile ai principianti, nascondendo i dettagli della reattività e imponendo un'organizzazione del codice tramite gruppi di opzioni.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope and composing state from multiple functions together to handle complexity. It is more free-form and requires an understanding of how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
+La Composition API, invece, si concentra sulla dichiarazione di variabili di stato reattive direttamente nell'ambito di una funzione e, per gestire la complessità, sulla composizione dello stato da più funzioni insieme. È un modo di scrivere codice più libero e richiede una comprensione di come funziona la reattività in Vue per essere utilizzata in modo efficace. In cambio la sua flessibilità consente strutture per l'organizzazione e il riutilizzo della logica più potenti.
 
-You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/extras/composition-api-faq).
+Puoi saperne di più sul confronto tra i due stili e sui potenziali vantaggi della Composition API nelle [FAQ sulla Composition API](/guide/extras/composition-api-faq).
 
-If you are new to Vue, here's our general recommendation:
+Se sei nuovo in Vue, in linea di massima, ecco la nostra raccomandazione:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
+- Per scopi di apprendimento scegli lo stile che ti sembra più facile da capire. Ancora una volta, la maggior parte dei concetti chiave sono condivisi tra i due stili. Puoi sempre imparare l'altro stile in seguito.
 
-- For production use:
+- Per l'uso in produzione:
 
-  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
+  - Scegli l'Options API se non stai utilizzando strumenti di build, o se prevedi di utilizzare Vue principalmente in scenari di bassa complessità, ad esempio per un miglioramento progressivo.
 
-  - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
+  - Scegli la Composition API + Componenti Single-File se prevedi di costruire applicazioni complete con Vue.
 
-You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
+ The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar. Non devi impegnarti a utilizzare un solo stile durante la fase di apprendimento. Il resto della documentazione fornirà esempi di codice in entrambi gli stili dove applicabile, e potrai passare da uno all'altro in qualsiasi momento utilizzando il **selettore di preferenza API**, presente nella parte superiore della barra laterale sinistra.
 
-## Still Got Questions? {#still-got-questions}
+## Hai ancora domande?? {#still-got-questions}
 
-Check out our [FAQ](/about/faq).
+Consulta le nostre [FAQ](/about/faq).
 
-## Pick Your Learning Path {#pick-your-learning-path}
+## Scegli il tuo percorso di apprendimento​ {#pick-your-learning-path}
 
-Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
+Ogni sviluppatore ha uno stile di apprendimento diverso. Sentiti libero di scegliere un percorso di apprendimento che si adatti alle tue preferenze - anche se ti consigliamo di esaminare tutto il contenuto, se possibile!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">Prova il Tutorial</p>
+    <p class="next-steps-caption">Per coloro che preferiscono apprendere sporcandosi le mani.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Read the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">Leggi la Guida</p>
+    <p class="next-steps-caption">La guida ti accompagnerà attraverso ogni aspetto del framework in dettaglio.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">Guarda gli Esempi</p>
+    <p class="next-steps-caption">Esplora esempi di funzionalità fondamentali e di attività comuni per l'interfaccia utente.</p>
   </a>
 </div>

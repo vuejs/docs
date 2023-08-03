@@ -293,7 +293,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: 'Argomenti Extra',
       items: [
         {
-          text: 'Modi per utilizzare Vue',
+          text: 'Modi di utilizzare Vue',
           link: '/guide/extras/ways-of-using-vue'
         },
         {
