@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Guida della community {#community-guide}
+# Guida della comunità {#community-guide}
 
 La community di Vue sta crescendo in modo incredibilmente veloce e se stai leggendo questo, c'è una buona probabilità che tu sia pronto a unirti. Quindi... benvenuto!
 
