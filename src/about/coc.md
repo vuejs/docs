@@ -1,45 +1,44 @@
-# Code Of Conduct {#code-of-conduct}
+# Codice di condotta {#code-of-conduct}
 
-## Our Pledge {#our-pledge}
+## Il nostro impegno {#our-pledge}
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, political party, or sexual identity and orientation. Note, however, that religion, political party, or other ideological affiliation provide no exemptions for the behavior we outline as unacceptable in this Code of Conduct.
+Nel perseguire un ambiente aperto e accogliente, noi, in quanto contributori e mantenitori, ci impegniamo a rendere la partecipazione al nostro progetto e alla nostra comunità un'esperienza priva di molestie per tutti, indipendentemente dall'età, dalla corporatura, dalle disabilità, dall'etnia, dalle caratteristiche sessuali, dall'identità e dall'espressione di genere, dal livello di esperienza, dall'educazione, dallo stato socio-economico, dalla nazionalità, dall'aspetto personale, dalla razza, dalla religione, dal partito politico o dall'identità sessuale e orientamento sessuale. Tuttavia, è importante notare che la religione, il partito politico o altre affiliazioni ideologiche non forniscono eccezioni per i comportamenti che consideriamo inaccettabili in questo Codice di Condotta.
 
-## Our Standards {#our-standards}
+## I nostri standard {#our-standards}
 
-Examples of behavior that contributes to creating a positive environment include:
+Esempi di comportamenti che contribuiscono a creare un ambiente positivo:
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
+Utilizzare un linguaggio consono e accogliente
+Mostrare rispetto per punti di vista differenti
+Accettare con grazia e rispetto le critiche costruttive
+Concentrarsi su ciò che è meglio per la community
+Mostrare empatia verso gli altri membri della community
+Esempi di comportamenti inaccettabili da parte dei partecipanti:
 
-Examples of unacceptable behavior by participants include:
+L'uso di linguaggio o immagini sessualizzate e attenzione o avanzamenti sessuali non graditi
+Trollare, insulti o commenti disprezzanti e attacchi personali o politici
+Molestie pubbliche o private
+Pubblicare informazioni private di altre persone, come indirizzi fisici o elettronici, senza permesso esplicito
+Altri comportamenti che potrebbero essere ragionevolmente considerati inappropriati in un contesto professionale.
 
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or electronic address, without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+## Le nostre responsabilità {#our-responsibilities}
 
-## Our Responsibilities {#our-responsibilities}
+I responsabili del progetto sono responsabili di chiarire gli standard di comportamento accettabile e ci si aspetta che prendano azioni correttive equilibrate in risposta a qualsiasi comportamento inaccettabile.
 
-Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+I responsabili del progetto hanno il diritto e la responsabilità di rimuovere, modificare o respingere commenti, commit, codice, modifiche wiki, problemi e altri generi di contributi che non sono conformi al nostro Codice di Condotta, o di bandire temporaneamente o permanentemente qualsiasi collaboratore per altri comportamenti che considerano inappropriati, minacciosi, offensivi o dannosi.
 
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+## A chi è rivolto {#scope}
 
-## Scope {#scope}
+Il nostro Codice di Condotta si applica sia negli spazi del progetto che negli spazi pubblici quando un individuo rappresenta il progetto o la sua comunità. Esempi di rappresentazione di un progetto o comunità includono l'utilizzo di un indirizzo e-mail ufficiale del progetto, la pubblicazione tramite un account di social media ufficiale o l'agire come rappresentante nominato in un evento online o offline. La rappresentanza di un progetto può essere ulteriormente definita e chiarita dai responsabili del progetto.
 
-This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+## Applicazione {#enforcement}
 
-## Enforcement {#enforcement}
+I casi di comportamenti abusivi, molestativi o altrimenti inaccettabili possono essere segnalati contattando il team del progetto all'indirizzo community@vuejs.org. Tutte le segnalazioni saranno esaminate e investigate e avranno una risposta ritenuta necessaria e appropriata alle circostanze. Il team del progetto è obbligato a mantenere la riservatezza riguardo al segnalante di un incidente. Ulteriori dettagli sulle politiche specifiche di applicazione possono essere pubblicati separatamente.
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at community@vuejs.org. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+I responsabili del progetto che non seguono o applicano in buona fede il Codice di Condotta possono affrontare conseguenze temporanee o permanenti, come deciso da altri membri della leadership del progetto.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
+## Attribuzione {#attribution}
 
-## Attribution {#attribution}
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+Questo Codice di Condotta è adattato da [Contributor Covenant][homepage], versione 1.4, disponibile su https://www.contributor-covenant.org/version/1/4/code-of-conduct.html.
 
 [homepage]: https://www.contributor-covenant.org
