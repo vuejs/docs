@@ -68,7 +68,7 @@ const avatarUrl = computed(() => {
       <div class="profiles">
         <section v-if="member.projects" class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Projects</h2>
+            <h2 class="sr-only">Progetti</h2>
             <VTIconCode class="desc-icon code" />
           </div>
           <ul class="desc-list">
@@ -90,7 +90,7 @@ const avatarUrl = computed(() => {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Location</h2>
+            <h2 class="sr-only">Località</h2>
             <VTIconMapPin class="desc-icon" />
           </div>
           <p class="desc-text">
@@ -100,7 +100,7 @@ const avatarUrl = computed(() => {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Languages</h2>
+            <h2 class="sr-only">Lingue</h2>
             <VTIconGlobe class="desc-icon" />
           </div>
           <ul class="desc-list">
