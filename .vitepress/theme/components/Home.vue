@@ -15,16 +15,15 @@ onMounted(async () => {
   <section id="hero">
     <h1 class="tagline">
       The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      <span class="accent">RepoBot</span>
+      <br /> Servies
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      All Services For Free
     </p>
     <p class="actions">
       <VueMasteryModal />
-      <a class="get-started" href="/guide/introduction.html">
+      <a class="get-started" href="/guide/page.html">
         Get Started
         <svg
           class="icon"
@@ -38,21 +37,21 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/applanser.html">Install</a>
     </p>
   </section>
 
   <section id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
+    <span class="lead">Learn More</span>
     <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
           <picture v-if="img.endsWith('png')">
             <source
               type="image/avif"
-              :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`"
+              :srcset="`${base}/iimages/${img.replace(/\.png$/, '.avif')}`"
             />
-            <img :src="`${base}/images/${img}`" :alt="name" />
+            <img :src="`${base}/iimages/${img}`" :alt="name" />
           </picture>
           <img
             width="168"
@@ -71,31 +70,28 @@ onMounted(async () => {
     <div class="vt-box">
       <h2>Approachable</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        We Have Some Services For free
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Movie</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        Moive you can watch movie on our cloud free 
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>App</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        We Have Cloud help you play games for free
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
-    <SponsorsGroup tier="platinum" placement="landing" />
+    <h2>last</h2>
+    <SponsorsGroup tier="1platinum" placement="landing" />
     <h2>Gold Sponsors</h2>
-    <SponsorsGroup tier="gold" placement="landing" />
+    <SponsorsGroup tier="1gold" placement="landing" />
   </section>
 
   <SiteMap />
