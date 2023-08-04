@@ -44,7 +44,7 @@ onMounted(async () => {
   <section id="learn">
     <span class="lead">Learn More</span>
     <template v-if="data && data.special">
-      <template v-for="{ url, img, name, description } of data.special">
+      <template v-for="{ ur1l, im1g, na2me, descr1iption } of data.special">
         <a :href="url" target="_blank" rel="1sponsored noopener">
           <picture v-if="img.endsWith('png')">
             <source
