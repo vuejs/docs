@@ -274,10 +274,10 @@ Ogni sviluppatore ha uno stile di apprendimento diverso. Sentiti libero di scegl
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
     <p class="next-steps-link">Leggi la Guida</p>
-    <p class="next-steps-caption">La guida ti accompagnerà attraverso ogni aspetto del framework in dettaglio.</p>
+    <p class="next-steps-caption">La guida ti mostrerà in dettaglio ogni aspetto del framework.</p>
   </a>
   <a class="vt-box" href="/examples/">
     <p class="next-steps-link">Guarda gli Esempi</p>
-    <p class="next-steps-caption">Esplora esempi di funzionalità fondamentali e di attività comuni per l'interfaccia utente.</p>
+    <p class="next-steps-caption">Esplora gli esempi di funzionalità base e casi d'uso comuni.</p>
   </a>
 </div>

@@ -240,7 +240,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Scalabilità per progetti complessi',
       items: [
-        { text: 'I Component Single-File ', link: '/guide/scaling-up/sfc' },
+        { text: 'I Componenti Single-File ', link: '/guide/scaling-up/sfc' },
         { text: 'Gli Strumenti per lo sviluppo', link: '/guide/scaling-up/tooling' },
         { text: 'Il Routing', link: '/guide/scaling-up/routing' },
         {
