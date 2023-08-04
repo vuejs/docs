@@ -41,11 +41,11 @@ onMounted(async () => {
     </p>
   </section>
 
-  <section id="special-sponsor">
+  <section id="learn">
     <span class="lead">Learn More</span>
     <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
-        <a :href="url" target="_blank" rel="sponsored noopener">
+        <a :href="url" target="_blank" rel="1sponsored noopener">
           <picture v-if="img.endsWith('png')">
             <source
               type="image/avif"
@@ -68,7 +68,7 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>learn</h2>
       <p>
         We Have Some Services For free
       </p>
@@ -90,7 +90,7 @@ onMounted(async () => {
   <section id="sponsors">
     <h2>last</h2>
     <SponsorsGroup tier="1platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>Soon</h2>
     <SponsorsGroup tier="1gold" placement="landing" />
   </section>
 
