@@ -10,7 +10,7 @@ Vue stesso è scritto in TypeScript e offre un supporto TypeScript di prima clas
 
 ## Creare un applicazione {#project-setup}
 
-[`create-vue`](https://github.com/vuejs/create-vue), il tool ufficiale, offre la possibilità di creare un progetto [Vite](https://vitejs.dev/) TypeScript-ready.
+[`create-vue`](https://github.com/vuejs/create-vue), il tool ufficiale, offre la possibilità di creare un progetto [Vite](https://vitejs.dev/) con TypeScript già incluso.
 
 ### Overview {#overview}
 
