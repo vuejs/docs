@@ -1,4 +1,4 @@
-# TypeScript con il Composition API {#typescript-with-composition-api}
+# TypeScript con Composition API {#typescript-with-composition-api}
 
 > Si presume che tu abbia già letto [Usare Vue con TypeScript](./overview).
 
