@@ -1,18 +1,18 @@
 # Props {#props}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> Si assume che tu abbia già letto le [Basi dei componenti](/guide/essentials/component-basics). Leggi prima quello se sei nuovo al concetto di componente.
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Free Vue.js Props Lesson"/>
 </div>
 
-## Props Declaration {#props-declaration}
+## Dichiarazione delle Props {#props-declaration}
 
-Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in [its dedicated section](/guide/components/attrs)).
+I componenti di Vue richiedono una dichiarazione esplicita delle props affinché Vue sappia come trattare le props esterne passate al componente come attributi passanti (che verranno discusse nella [sezione dedicata](/guide/components/attrs)).
 
 <div class="composition-api">
 
-In SFCs using `<script setup>`, props can be declared using the `defineProps()` macro:
+Nei SFC utilizzando `<script setup>`, le props possono essere dichiarate utilizzando la macro `defineProps()`:
 
 ```vue
 <script setup>
@@ -22,31 +22,31 @@ console.log(props.foo)
 </script>
 ```
 
-In non-`<script setup>` components, props are declared using the [`props`](/api/options-state#props) option:
+Nei componenti non-`<script setup>`, le props vengono dichiarate utilizzando la sezione [`props`](/api/options-state#props):
 
 ```js
 export default {
   props: ['foo'],
   setup(props) {
-    // setup() receives props as the first argument.
+    // setup() prende props come primo parametro
     console.log(props.foo)
   }
 }
 ```
 
-Notice the argument passed to `defineProps()` is the same as the value provided to the `props` options: the same props options API is shared between the two declaration styles.
+Nota che l'argomento passato a defineProps() è lo stesso valore fornito all'opzione props: la stessa API di opzioni per le props è condivisa tra i due stili di dichiarazione..
 
 </div>
 
 <div class="options-api">
 
-Props are declared using the [`props`](/api/options-state#props) option:
+Le props vengono dichiarate nella sezione [`props`](/api/options-state#props):
 
 ```js
 export default {
   props: ['foo'],
   created() {
-    // props are exposed on `this`
+    // puoi riferirti alle props con `this`
     console.log(this.foo)
   }
 }
@@ -54,7 +54,7 @@ export default {
 
 </div>
 
-In addition to declaring props using an array of strings, we can also use the object syntax:
+Oltre a dichiarare le props utilizzando un array di stringhe, possiamo anche utilizzare la sintassi dell'oggetto:
 
 <div class="options-api">
 
@@ -79,7 +79,7 @@ defineProps({
 ```
 
 ```js
-// in non-<script setup>
+// non-<script setup>
 export default {
   props: {
     title: String,
@@ -90,19 +90,19 @@ export default {
 
 </div>
 
-For each property in the object declaration syntax, the key is the name of the prop, while the value should be the constructor function of the expected type.
+Per ogni proprietà nella sintassi di dichiarazione dell'oggetto, la chiave rappresenta il nome della prop, mentre il valore dovrebbe essere la funzione costruttrice del tipo previsto.
 
-This not only documents your component, but will also warn other developers using your component in the browser console if they pass the wrong type. We will discuss more details about [prop validation](#prop-validation) further down this page.
+Questo non solo documenta il componente, ma avvertirà anche gli altri sviluppatori che utilizzano il componente nella console del browser se passano un tipo errato. Discuteremo ulteriori dettagli sulla [validazione delle props](#prop-validation) più avanti in questa pagina.
 
 <div class="options-api">
 
-See also: [Typing Component Props](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
+Guarda anche: [Typing Component Props](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
 <div class="composition-api">
 
-If you are using TypeScript with `<script setup>`, it's also possible to declare props using pure type annotations:
+Se stai usando TypeScript con `<script setup>`, è anche possibile dichiarare le props utilizzando solo annotazioni di tipo:
 
 ```vue
 <script setup lang="ts">
@@ -113,15 +113,15 @@ defineProps<{
 </script>
 ```
 
-More details: [Typing Component Props](/guide/typescript/composition-api#typing-component-props) <sup class="vt-badge ts" />
+Più dettagli: [Typing Component Props](/guide/typescript/composition-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
-## Prop Passing Details {#prop-passing-details}
+## Dettagli sul passaggio delle Props {#prop-passing-details}
 
-### Prop Name Casing {#prop-name-casing}
+### Casing dei nomi delle Props {#prop-name-casing}
 
-We declare long prop names using camelCase because this avoids having to use quotes when using them as property keys, and allows us to reference them directly in template expressions because they are valid JavaScript identifiers:
+Dichiarare i nomi delle props lunghi utilizzando camelCase ci permette di evitare l'uso di virgolette quando li utilizziamo come chiavi di proprietà e ci consente di farvi riferimento direttamente nelle espressioni del template, poiché sono identificatori JavaScript validi:
 
 <div class="composition-api">
 
@@ -148,48 +148,48 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Technically, you can also use camelCase when passing props to a child component (except in [DOM templates](/guide/essentials/component-basics#dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
+Tecnicamente, puoi anche utilizzare camelCase quando passi props a un componente figlio (ad eccezione dei [template DOM](/guide/essentials/component-basics#dom-template-parsing-caveats)). Tuttavia, la convenzione è utilizzare kebab-case in tutti i casi per allinearsi agli attributi HTML:
 
 ```vue-html
 <MyComponent greeting-message="hello" />
 ```
 
-We use [PascalCase for component tags](/guide/components/registration#component-name-casing) when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
+Utilizziamo [PascalCase per i tag dei componenti](/guide/components/registration#component-name-casing)  quando possibile poiché migliora la leggibilità del template differenziando i componenti Vue dagli elementi nativi. Tuttavia, non ci sono molti vantaggi pratici nell'utilizzare camelCase quando si passano props, quindi scegliamo di seguire le convenzioni di ciascun linguaggio.
 
-### Static vs. Dynamic Props {#static-vs-dynamic-props}
+### Props Statiche vs. Dinamiche {#static-vs-dynamic-props}
 
-So far, you've seen props passed as static values, like in:
+Finora, hai visto le props passate come valori statici, come in:
 
 ```vue-html
 <BlogPost title="My journey with Vue" />
 ```
 
-You've also seen props assigned dynamically with `v-bind` or its `:` shortcut, such as in:
+Hai anche visto le props assegnate dinamicamente con v-bind o il suo abbreviato :, come ad esempio in:
 
 ```vue-html
-<!-- Dynamically assign the value of a variable -->
+<!-- Assegna dinamicamente il valore di una variabile -->
 <BlogPost :title="post.title" />
 
-<!-- Dynamically assign the value of a complex expression -->
+<!-- Assegna dinamicamente il valore di una espressione complessa -->
 <BlogPost :title="post.title + ' by ' + post.author.name" />
 ```
 
-### Passing Different Value Types {#passing-different-value-types}
+### Passaggio di diversi tipi di valori {#passing-different-value-types}
 
-In the two examples above, we happen to pass string values, but _any_ type of value can be passed to a prop.
+Negli esempi sopra, casualmente abbiamo passato valori di tipo stringa, ma  _qualsiasi_ tipo di valore può essere passato a una prop.
 
-#### Number {#number}
+#### Numero  {#number}
 
 ```vue-html
-<!-- Even though `42` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.       -->
+<!-- Anche se `42` è statico, abbiamo bisogno di v-bind per indicare a Vue che -->
+<!-- questa è un'espressione JavaScript piuttosto che una stringa. -->
 <BlogPost :likes="42" />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Assegna dinamicamente il valore di una variabile -->
 <BlogPost :likes="post.likes" />
 ```
 
-#### Boolean {#boolean}
+#### Booleani {#boolean}
 
 ```vue-html
 <!-- Including the prop with no value will imply `true`. -->
