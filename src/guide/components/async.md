@@ -10,7 +10,7 @@ import { defineAsyncComponent } from 'vue'
 const AsyncComp = defineAsyncComponent(() => {
   return new Promise((resolve, reject) => {
     // ...carica il componente dal server
-    resolve(/* componente montato */)
+    resolve(/* componente caricato */)
   })
 })
 // ... utilizzo normale del componente

@@ -192,47 +192,47 @@ Negli esempi sopra, casualmente abbiamo passato valori di tipo stringa, ma  _qua
 #### Booleani {#boolean}
 
 ```vue-html
-<!-- Including the prop with no value will imply `true`. -->
+<!-- Includere la prop senza valore implicherà `true`. -->
 <BlogPost is-published />
 
-<!-- Even though `false` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.          -->
+<!-- Anche se `false` è statico, abbiamo bisogno di v-bind per dire a Vue che -->
+<!-- questa è un'espressione JavaScript piuttosto che una stringa.          -->
 <BlogPost :is-published="false" />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Assegnare dinamicamente al valore di una variabile. -->
 <BlogPost :is-published="post.isPublished" />
 ```
 
 #### Array {#array}
 
 ```vue-html
-<!-- Even though the array is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.            -->
-<BlogPost :comment-ids="[234, 266, 273]" />
+<!-- Anche se l'array è statico, abbiamo bisogno di v-bind per dire a Vue che -->
+<!-- questa è un'espressione JavaScript piuttosto che una stringa. -->
 
-<!-- Dynamically assign to the value of a variable. -->
+<BlogPost :comment-ids="[234, 266, 273]" />
+<!-- Assegnare dinamicamente al valore di una variabile. -->
 <BlogPost :comment-ids="post.commentIds" />
 ```
 
-#### Object {#object}
+#### Oggetti {#object}
 
 ```vue-html
-<!-- Even though the object is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.             -->
+<!-- Anche se l'oggetto è statico, abbiamo bisogno di v-bind per dire a Vue che -->
+<!-- questa è un'espressione JavaScript piuttosto che una stringa.             -->
 <BlogPost
-  :author="{
-    name: 'Veronica',
-    company: 'Veridian Dynamics'
+:author="{
+ name: 'Veronica',
+ company: 'Veridian Dynamics'
   }"
- />
+/>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Assegnare dinamicamente al valore di una variabile. -->
 <BlogPost :author="post.author" />
 ```
 
-### Binding Multiple Properties Using an Object {#binding-multiple-properties-using-an-object}
+### Associazione di più proprietà utilizzando un oggetto {#binding-multiple-properties-using-an-object}
 
-If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
+Se desideri passare tutte le proprietà di un oggetto come props, puoi utilizzare [`v-bind` senza un argomento](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) (`v-bind` invece di `:prop-name`). Ad esempio, dato un oggetto `post`:
 
 <div class="options-api">
 
@@ -261,30 +261,30 @@ const post = {
 
 </div>
 
-The following template:
+Il seguente codice:
 
 ```vue-html
 <BlogPost v-bind="post" />
 ```
 
-Will be equivalent to:
+Sarà equivalente a:
 
 ```vue-html
 <BlogPost :id="post.id" :title="post.title" />
 ```
 
-## One-Way Data Flow {#one-way-data-flow}
+## Flusso unidirezionale dei dati {#one-way-data-flow}
 
-All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
+Tutte le props formano un legame **unidirezionale verso il basso** tra la proprietà figlio e quella genitore: quando la proprietà genitore viene aggiornata, essa fluirà verso il basso fino al figlio, ma non viceversa. Questo impedisce ai componenti figlio di mutare accidentalmente lo stato del genitore, il che può rendere più difficile comprendere il flusso dei dati dell'app.
 
-In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console:
+Inoltre, ogni volta che il componente genitore viene aggiornato, tutte le props nel componente figlio verranno aggiornate con il valore più recente. Ciò significa che **non** dovresti tentare di mutare una prop all'interno di un componente figlio. Se lo fai, Vue ti avviserà nella console:
 
 <div class="composition-api">
 
 ```js
 const props = defineProps(['foo'])
 
-// ❌ warning, props are readonly!
+// ❌ Attenzione, le props sono readonly!
 props.foo = 'bar'
 ```
 
@@ -295,7 +295,7 @@ props.foo = 'bar'
 export default {
   props: ['foo'],
   created() {
-    // ❌ warning, props are readonly!
+    // ❌ Attenzione, le props sono readonly!
     this.foo = 'bar'
   }
 }
@@ -303,17 +303,17 @@ export default {
 
 </div>
 
-There are usually two cases where it's tempting to mutate a prop:
+Di solito ci sono due casi in cui è tentativo mutare una prop:
 
-1. **The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.** In this case, it's best to define a local data property that uses the prop as its initial value:
+1. **La prop viene utilizzata per passare un valore iniziale; il componente figlio vuole usarla successivamente come proprietà dati locale.** In questo caso, è meglio definire una proprietà dati locale che utilizzi la prop come suo valore iniziale:
 
    <div class="composition-api">
 
    ```js
    const props = defineProps(['initialCounter'])
 
-   // counter only uses props.initialCounter as the initial value;
-   // it is disconnected from future prop updates.
+   // counter utilizza solo props.initialCounter come valore iniziale;
+   // è scollegato dagli aggiornamenti futuri della prop.
    const counter = ref(props.initialCounter)
    ```
 
@@ -325,8 +325,8 @@ There are usually two cases where it's tempting to mutate a prop:
      props: ['initialCounter'],
      data() {
        return {
-         // counter only uses this.initialCounter as the initial value;
-         // it is disconnected from future prop updates.
+         // counter utilizza solo this.initialCounter come valore iniziale;
+         // è scollegato dagli aggiornamenti futuri della prop.
          counter: this.initialCounter
        }
      }
@@ -335,14 +335,14 @@ There are usually two cases where it's tempting to mutate a prop:
 
    </div>
 
-2. **The prop is passed in as a raw value that needs to be transformed.** In this case, it's best to define a computed property using the prop's value:
+2. **La prop viene passata come un valore grezzo che deve essere trasformato.** In questo caso, è meglio definire una proprietà calcolata che utilizzi il valore della prop:
 
    <div class="composition-api">
 
    ```js
    const props = defineProps(['size'])
 
-   // computed property that auto-updates when the prop changes
+   // computed property che fa un auto-update quando la prop cambia
    const normalizedSize = computed(() => props.size.trim().toLowerCase())
    ```
 
@@ -353,7 +353,7 @@ There are usually two cases where it's tempting to mutate a prop:
    export default {
      props: ['size'],
      computed: {
-       // computed property that auto-updates when the prop changes
+       // computed property che fa un auto-update quando la prop cambia
        normalizedSize() {
          return this.size.trim().toLowerCase()
        }
@@ -363,51 +363,51 @@ There are usually two cases where it's tempting to mutate a prop:
 
    </div>
 
-### Mutating Object / Array Props {#mutating-object-array-props}
+### Modifica props Oggetto / Array{#mutating-object-array-props}
 
-When objects and arrays are passed as props, while the child component cannot mutate the prop binding, it **will** be able to mutate the object or array's nested properties. This is because in JavaScript objects and arrays are passed by reference, and it is unreasonably expensive for Vue to prevent such mutations.
+Quando oggetti e array vengono passati come props, sebbene il componente figlio non possa mutare il legame con la prop, **potrà** mutare le proprietà annidate dell'oggetto o dell'array. Questo perché in JavaScript gli oggetti e gli array vengono passati per riferimento, ed è irragionevolmente costoso per Vue prevenire tali mutazioni.
 
-The main drawback of such mutations is that it allows the child component to affect parent state in a way that isn't obvious to the parent component, potentially making it more difficult to reason about the data flow in the future. As a best practice, you should avoid such mutations unless the parent and child are tightly coupled by design. In most cases, the child should [emit an event](/guide/components/events) to let the parent perform the mutation.
+Il principale svantaggio di tali mutazioni è che consentono al componente figlio di influenzare lo stato del genitore in un modo che non è ovvio per il componente genitore, rendendo potenzialmente più difficile ragionare sul flusso dei dati in futuro. Come buona pratica, dovresti evitare tali mutazioni a meno che il genitore e il figlio siano strettamente accoppiati dal design. Nella maggior parte dei casi, il figlio dovrebbe [emettere un evento](/guide/components/events) per permettere al genitore di effettuare il cambiamento.
 
-## Prop Validation {#prop-validation}
+## Validazione delle props {#prop-validation}
 
-Components can specify requirements for their props, such as the types you've already seen. If a requirement is not met, Vue will warn you in the browser's JavaScript console. This is especially useful when developing a component that is intended to be used by others.
+I componenti possono specificare requisiti per le loro props, come i tipi che hai già visto. Se un requisito non viene soddisfatto, Vue ti avviserà nella console JavaScript del browser. Questo è particolarmente utile quando sviluppi un componente destinato ad essere utilizzato da altri.
 
-To specify prop validations, you can provide an object with validation requirements to the <span class="composition-api">`defineProps()` macro</span><span class="options-api">`props` option</span>, instead of an array of strings. For example:
+Per specificare la validazione delle props, puoi fornire un oggetto con requisiti di validazione alla macro <span class="composition-api">`defineProps()`</span><span class="options-api">opzione `props`</span>, invece di un array di stringhe. Ad esempio:
 
 <div class="composition-api">
 
 ```js
 defineProps({
-  // Basic type check
-  //  (`null` and `undefined` values will allow any type)
+  // Controllo di base dei tipi
+  // (null e undefined consentiranno qualsiasi tipo)
   propA: Number,
-  // Multiple possible types
+  // Diversi tipi possibili
   propB: [String, Number],
-  // Required string
+  // Stringa obbligatoria
   propC: {
     type: String,
     required: true
   },
-  // Number with a default value
+  // Numero con un valore predefinito
   propD: {
     type: Number,
     default: 100
   },
-  // Object with a default value
+  // Oggetto con un valore predefinito
   propE: {
     type: Object,
-    // Object or array defaults must be returned from
-    // a factory function. The function receives the raw
-    // props received by the component as the argument.
-    default(rawProps) {
-      return { message: 'hello' }
-    }
-  },
-  // Custom validator function
+  // I valori predefiniti degli oggetti o degli array devono essere restituiti da
+  // una funzione di fabbrica. La funzione riceve come argomento le props grezze
+  // ricevute dal componente.
+  default(rawProps) {
+    return { message: 'hello' }
+  }
+},
+  // Funzione di validazione personalizzata
   propF: {
     validator(value) {
-      // The value must match one of these strings
+  // Il valore deve corrispondere a una di queste stringhe
       return ['success', 'warning', 'danger'].includes(value)
     }
   },
