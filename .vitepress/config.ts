@@ -211,7 +211,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'La Riutilizzabilità',
+      text: 'Il Riutilizzo del Codice',
       items: [
         {
           text: 'I Composables',
