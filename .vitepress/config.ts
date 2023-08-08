@@ -196,7 +196,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
         { text: 'Gli Eventi', link: '/guide/components/events' },
         { text: 'Il v-model nei componenti', link: '/guide/components/v-model' },
         {
-          text: 'Gli Attributi Trasferiti (Fallthrough)',
+          text: 'Gli Attributi Trasferibili (Fallthrough)',
           link: '/guide/components/attrs'
         },
         { text: 'Gli Slot', link: '/guide/components/slots' },
