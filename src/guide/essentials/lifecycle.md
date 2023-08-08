@@ -1,10 +1,10 @@
-# Lifecycle Hooks {#lifecycle-hooks}
+# Hook del Ciclo di Vita {#lifecycle-hooks}
 
-Each Vue component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages.
+Quando viene creata, ciascuna istanza di un componente Vue attraversa una serie di passaggi di inizializzazione - ad esempio: deve impostare l'osservazione dei dati, compilare il template, montare l'istanza nel DOM e aggiornare il DOM quando i dati cambiano. Lungo il percorso, esegue anche delle funzioni chiamate hook del ciclo di vita, dando agli utenti l'opportunità di aggiungere il proprio codice in specifiche fasi.
 
-## Registering Lifecycle Hooks {#registering-lifecycle-hooks}
+## Registrazione degli Hook del Ciclo di Vita {#registering-lifecycle-hooks}
 
-For example, the <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> hook can be used to run code after the component has finished the initial rendering and created the DOM nodes:
+Ad esempio, l'hook <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> può essere utilizzato per eseguire del codice dopo che il componente ha terminato il rendering iniziale e creato i nodi del DOM:
 
 <div class="composition-api">
 
@@ -13,7 +13,7 @@ For example, the <span class="composition-api">`onMounted`</span><span class="op
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  console.log(`the component is now mounted.`)
+  console.log(`il componente è ora montato.`)
 })
 </script>
 ```
@@ -24,43 +24,43 @@ onMounted(() => {
 ```js
 export default {
   mounted() {
-    console.log(`the component is now mounted.`)
+    console.log(`il componente è ora montato.`)
   }
 }
 ```
 
 </div>
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, with the most commonly used being <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated), and [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated), and [`unmounted`](/api/options-lifecycle#unmounted).</span>
+Ci sono anche altri hook che verranno chiamati in diverse fasi del ciclo di vita dell'istanza del componente, quelli comunemente utilizzati sono <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated) e [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span> <span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated) e [`unmounted`](/api/options-lifecycle#unmounted).</span>
 
 <div class="options-api">
 
-All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it. Note this means you should avoid using arrow functions when declaring lifecycle hooks, as you won't be able to access the component instance via `this` if you do so.
+Tutti gli hook del ciclo di vita sono chiamati con il loro contesto `this` che punta all'istanza corrente attiva che li invoca. Nota: ciò significa che dovresti evitare di utilizzare le funzioni arrow quando dichiari gli hook del ciclo di vita, poiché, se lo fai, non sarai in grado di accedere all'istanza del componente tramite `this`.
 
 </div>
 
 <div class="composition-api">
 
-When calling `onMounted`, Vue automatically associates the registered callback function with the current active component instance. This requires these hooks to be registered **synchronously** during component setup. For example, do not do this:
+Quando si chiama `onMounted`, Vue associa automaticamente la funzione di callback registrata con l'istanza corrente del componente attivo. Questo richiede che gli hook vengano registrati **in maniera sincronizzata** durante l'installazione del componente. Ad esempio, non fare questo:
 
 ```js
 setTimeout(() => {
   onMounted(() => {
-    // this won't work.
+    // questo non funzionerà.
   })
 }, 100)
 ```
 
-Do note this doesn't mean that the call must be placed lexically inside `setup()` or `<script setup>`. `onMounted()` can be called in an external function as long as the call stack is synchronous and originates from within `setup()`.
+Si noti che ciò non significa che la chiamata debba essere posta lessicalmente all'interno di `setup()` o `<script setup>`. `onMounted()` può essere chiamato in una funzione esterna purché lo stack di chiamate sia sincrono e abbia origine all'interno di `setup()`.
 
 </div>
 
-## Lifecycle Diagram {#lifecycle-diagram}
+## Diagramma del Ciclo di Vita {#lifecycle-diagram}
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+Di seguito è riportato un diagramma per il ciclo di vita dell'istanza di un componente. Non è necessario comprendere completamente tutto ciò che sta accadendo in questo momento, ma man mano che impari e costruisci più applicazioni, sarà un riferimento utile.
 
-![Component lifecycle diagram](./images/lifecycle.png)
+![Diagramma del Ciclo di Vita](./images/lifecycle.png)
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Consult the <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle)</span> for details on all lifecycle hooks and their respective use cases.
+Consulta le <span class="composition-api">[API sugli Hook del Ciclo di Vita](/api/composition-api-lifecycle)</span><span class="options-api">[API sugli Hook del Ciclo di Vita](/api/options-lifecycle)</span> per i dettagli su tutti gli hook del ciclo di vita e i rispettivi casi d'uso.
