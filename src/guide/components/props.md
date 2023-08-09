@@ -398,7 +398,7 @@ defineProps({
   propE: {
     type: Object,
   // I valori predefiniti degli oggetti o degli array devono essere restituiti da
-  // una funzione di fabbrica. La funzione riceve come argomento le props grezze
+  // una funzione factory. La funzione riceve come argomento le props grezze
   // ricevute dal componente.
   default(rawProps) {
     return { message: 'hello' }
@@ -415,7 +415,7 @@ defineProps({
   propG: {
     type: Function,
     // A differenza dei valori predefiniti degli oggetti o degli array, questa non è una
-    // funzione "di fabbrica" - questa è una funzione da utilizzare come valore predefinito
+    // funzione "factory" - questa è una funzione da utilizzare come valore predefinito
     default() {
       return 'Default function'
     }
@@ -452,7 +452,7 @@ export default {
     propE: {
       type: Object,
       // I valori predefiniti degli oggetti o degli array devono essere restituiti da
-      // una funzione di fabbrica. La funzione riceve come argomento le props grezze
+      // una funzione factory. La funzione riceve come argomento le props grezze
       // ricevute dal componente.
       default(rawProps) {
         return { message: 'hello' }
@@ -469,7 +469,7 @@ export default {
     propG: {
       type: Function,
       // A differenza dei valori predefiniti degli oggetti o degli array, questa non è una 
-      // funzione di fabbrica - questa è una funzione da utilizzare come valore predefinito
+      // funzione factory - questa è una funzione da utilizzare come valore predefinito
       default() {
         return 'Default function'
       }
