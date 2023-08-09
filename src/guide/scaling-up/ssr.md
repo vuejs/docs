@@ -199,7 +199,8 @@ In addition, in order to load the client files in the browser, we also need to:
 2. Load the client entry by adding `<script type="module" src="/client.js"></script>` to the HTML shell.
 3. Support usage like `import * from 'vue'` in the browser by adding an [Import Map](https://github.com/WICG/import-maps) to the HTML shell.
 
-[Try the completed example on StackBlitz](https://stackblitz.com/fork/vue-ssr-example?file=index.js). The button is now interactive!
+[Try the completed example on StackBlitz](https://stackblitz.com/fork/vue-ssr-example?file=index.js). The button is now interactive! (**the example on StackBlitz shows div instead of button, please correct it**)
+
 
 ## Higher Level Solutions {#higher-level-solutions}
 
