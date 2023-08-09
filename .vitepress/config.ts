@@ -211,7 +211,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'La Riutilizzabilità',
+      text: 'Il Riutilizzo del Codice',
       items: [
         {
           text: 'I Composables',
@@ -553,8 +553,41 @@ export const sidebar: ThemeConfig['sidebar'] = {
 }
 
 // Placeholder of the i18n config for @vuejs-translations.
-// const i18n: ThemeConfig['i18n'] = {
-// }
+ const i18n: ThemeConfig['i18n'] = {
+  previous: 'Precedente',
+  next: 'Successivo',
+  toc: 'In questa pagina',
+  search: 'Ricerca',
+  menu: 'Menu',
+  returnToTop: 'Torna in cima',
+  appearance: 'Aspetto',
+  pageNotFound: 'Pagina non trovata',
+  deadLink: {
+    before: 'Hai trovato un link morto : ',
+    after: ''
+  },
+  deadLinkReport: {
+    before: 'Grazie per ',
+    link: 'farcelo sapere',
+    after: ' per aiutarci a risolvere quanto prima.'
+  },
+  footerLicense: {
+    before: '',
+    after: ''
+  },
+
+  // aria labels
+  // typo issue https://github.com/vuejs/theme/issues/75
+  // ariaAnnouncer: {
+  //   before: '',
+  //   after: 'a chargé'
+  // },
+  ariaDarkMode: 'Modalità scura',
+  ariaSkipToContent: 'Passa al contenuto',
+  ariaMainNav: 'Navigazione principale',
+  ariaMobileNav: 'Navigazione da mobile',
+  ariaSidebarNav: 'Navigazione secondaria' 
+}
 
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
@@ -613,7 +646,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     nav,
     sidebar,
     // Placeholder of the i18n config for @vuejs-translations.
-    // i18n,
+    i18n,
 
     localeLinks: [
       {
