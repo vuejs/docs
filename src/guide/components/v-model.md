@@ -1,14 +1,14 @@
-# Component v-model {#component-v-model}
+# Il v-model sui componenti {#component-v-model}
 
-`v-model` can be used on a component to implement a two-way binding.
+`v-model` può essere utilizzato su un componente per implementare un legame bidirezionale.
 
-First let's revisit how `v-model` is used on a native element:
+Prima di tutto, rivediamo come viene utilizzato `v-model` su un elemento nativo:
 
 ```vue-html
 <input v-model="searchText" />
 ```
 
-Under the hood, the template compiler expands `v-model` to the more verbose equivalent for us. So the above code does the same as the following:
+Nel backend, il compilatore del template espande `v-model` in un modo più verboso. Quindi, il codice sopra fa la stessa cosa del seguente:
 
 ```vue-html
 <input
@@ -17,7 +17,7 @@ Under the hood, the template compiler expands `v-model` to the more verbose equi
 />
 ```
 
-When used on a component, `v-model` instead expands to this:
+Quando usato su un componente, `v-model` invece si espande in questo modo:
 
 ```vue-html
 <CustomInput
@@ -26,12 +26,12 @@ When used on a component, `v-model` instead expands to this:
 />
 ```
 
-For this to actually work though, the `<CustomInput>` component must do two things:
+Affinché ciò funzioni effettivamente, il componente `<CustomInput>` deve fare due cose:
 
-1. Bind the `value` attribute of a native `<input>` element to the `modelValue` prop
-2. When a native `input` event is triggered, emit an `update:modelValue` custom event with the new value
+1. Collegare l'attributo `value` di un elemento `<input>` alla prop `modelValue`
+2. Quando scatta un evento nativo `input` emettere un evento personalizzato `update:modelValue` con il nuovo valore
 
-Here's that in action:
+Una dimostrazione pratica:
 
 <div class="options-api">
 
@@ -72,7 +72,7 @@ defineEmits(['update:modelValue'])
 
 </div>
 
-Now `v-model` should work perfectly with this component:
+Ora il `v-model` dovrebbe funzionare perfettamente con questo componente:
 
 ```vue-html
 <CustomInput v-model="searchText" />
@@ -89,7 +89,7 @@ Now `v-model` should work perfectly with this component:
 
 </div>
 
-Another way of implementing `v-model` within this component is to use a writable `computed` property with both a getter and a setter. The `get` method should return the `modelValue` property and the `set` method should emit the corresponding event:
+Un altro modo per implementare `v-model` all'interno di questo componente è utilizzare una proprietà `computed` scrivibile con sia un getter che un setter. Il metodo `get` dovrebbe restituire la proprietà `modelValue` e il metodo `set` dovrebbe emettere l'evento corrispondente:
 
 <div class="options-api">
 
@@ -145,15 +145,15 @@ const value = computed({
 
 </div>
 
-## `v-model` arguments {#v-model-arguments}
+## Argomenti `v-model` {#v-model-arguments}
 
-By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
+Per impostazione predefinita, `v-model` su un componente utilizza `modelValue` come prop e `update:modelValue` come evento. Possiamo modificare questi nomi passando un argomento a  `v-model`:
 
 ```vue-html
 <MyComponent v-model:title="bookTitle" />
 ```
 
-In this case, the child component should expect a `title` prop and emit an `update:title` event to update the parent value:
+In questo caso, il componente figlio dovrebbe aspettarsi una prop `title` ed emettere un evento `update:title` per aggiornare il valore nel componente genitore:
 
 <div class="composition-api">
 
@@ -200,11 +200,11 @@ export default {
 
 </div>
 
-## Multiple `v-model` bindings {#multiple-v-model-bindings}
+## Molteplici `v-model` {#multiple-v-model-bindings}
 
-By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple `v-model` bindings on a single component instance.
+Sfruttando la capacità di specificare una prop e un evento particolari come abbiamo imparato precedentemente con gli [argomenti del `v-model`](#v-model-arguments), ora possiamo creare più collegamenti `v-model` su una singola istanza del componente.
 
-Each `v-model` will sync to a different prop, without the need for extra options in the component:
+Ogni `v-model` si sincronizzerà con una prop diversa, senza bisogno di opzioni aggiuntive nel componente:
 
 ```vue-html
 <UserName
@@ -273,17 +273,17 @@ export default {
 
 </div>
 
-## Handling `v-model` modifiers {#handling-v-model-modifiers}
+## Gestire i modificatori del `v-model` {#handling-v-model-modifiers}
 
-When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/essentials/forms#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, you might also want the `v-model` on your custom input component to support custom modifiers.
+Quando abbiamo imparato a proposito dei vincoli per gli input nei form, abbiamo visto che `v-model` ha [modificatori integrati](/guide/essentials/forms#modifiers) - `.trim`, `.number` e `.lazy`. In alcuni casi, potresti anche voler supportare modificatori personalizzati per il `v-model` nel tuo componente input personalizzato.
 
-Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding:
+Creiamo un esempio di modificatore personalizzato chiamato `capitalize`, che rende maiuscola la prima lettera della stringa fornita dal binding `v-model`:
 
 ```vue-html
 <MyComponent v-model.capitalize="myText" />
 ```
 
-Modifiers added to a component `v-model` will be provided to the component via the `modelModifiers` prop. In the below example, we have created a component that contains a `modelModifiers` prop that defaults to an empty object:
+I modificatori aggiunti a un componente `v-model` saranno forniti al componente tramite la prop `modelModifiers`. Nell'esempio qui sotto, abbiamo creato un componente che contiene una prop `modelModifiers` che per impostazione predefinita è un oggetto vuoto:
 
 <div class="composition-api">
 
@@ -338,9 +338,9 @@ export default {
 
 </div>
 
-Notice the component's `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="myText"`.
+Nota che la prop `modelModifiers` del componente contiene `capitalize` e il suo valore è `true` - perché è stato impostato sul binding `v-model` `v-model.capitalize="myText"`.
 
-Now that we have our prop set up, we can check the `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string whenever the `<input />` element fires an `input` event.
+Ora che abbiamo la nostra prop impostata, possiamo controllare le chiavi dell'oggetto `modelModifiers` e scrivere un gestore per cambiare il valore emesso. Nel codice qui sotto, rendiamo maiuscola la stringa ogni volta che l'elemento `<input />` scatena un evento `input`.
 
 <div class="composition-api">
 
@@ -403,15 +403,15 @@ export default {
 
 </div>
 
-### Modifiers for `v-model` with arguments {#modifiers-for-v-model-with-arguments}
+### Modificatori per il `v-model` con argomenti {#modifiers-for-v-model-with-arguments}
 
-For `v-model` bindings with both argument and modifiers, the generated prop name will be `arg + "Modifiers"`. For example:
+Per i binding `v-model` con sia un argomento che dei modificatori, il nome della prop generata sarà `arg + "Modifiers"`. Ad esempio:
 
 ```vue-html
 <MyComponent v-model:title.capitalize="myText">
 ```
 
-The corresponding declarations should be:
+Le dichiarazioni corrispondenti dovrebbero essere:
 
 <div class="composition-api">
 
@@ -437,7 +437,7 @@ export default {
 
 </div>
 
-Here's another example of using modifiers with multiple `v-model` with different arguments:
+Ecco un altro esempio di utilizzo dei modificatori con più `v-model` con argomenti diversi:
 
 ```vue-html
 <UserName
