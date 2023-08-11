@@ -398,7 +398,7 @@ defineProps({
   propE: {
     type: Object,
   // I valori predefiniti degli oggetti o degli array devono essere restituiti da
-  // una funzione di fabbrica. La funzione riceve come argomento le props grezze
+  // una funzione factory. La funzione riceve come argomento le props grezze
   // ricevute dal componente.
   default(rawProps) {
     return { message: 'hello' }
@@ -411,11 +411,11 @@ defineProps({
       return ['success', 'warning', 'danger'].includes(value)
     }
   },
-  // Function with a default value
+  // Funzione con un valore predefinito
   propG: {
     type: Function,
-    // Unlike object or array default, this is not a factory 
-    // function - this is a function to serve as a default value
+    // A differenza dei valori predefiniti degli oggetti o degli array, questa non è una
+    // funzione "factory" - questa è una funzione da utilizzare come valore predefinito
     default() {
       return 'Default function'
     }
@@ -424,7 +424,7 @@ defineProps({
 ```
 
 :::tip
-Code inside the `defineProps()` argument **cannot access other variables declared in `<script setup>`**, because the entire expression is moved to an outer function scope when compiled.
+Il codice all'interno dell'argomento di `defineProps()` **non può accedere ad altre variabili dichiarate in  `<script setup>`**, perché l'intera espressione viene spostata in un ambito di funzione esterno durante la compilazione.
 :::
 
 </div>
@@ -433,43 +433,43 @@ Code inside the `defineProps()` argument **cannot access other variables declare
 ```js
 export default {
   props: {
-    // Basic type check
-    //  (`null` and `undefined` values will allow any type)
+    // Controllo di base dei tipi
+    //  (i valori `null` e `undefined`  consentiranno qualsiasi tipo)
     propA: Number,
-    // Multiple possible types
+    // Molteplici tipi possibili
     propB: [String, Number],
-    // Required string
+    // stringa required 
     propC: {
       type: String,
       required: true
     },
-    // Number with a default value
+    // Numero con un valore default 
     propD: {
       type: Number,
       default: 100
     },
-    // Object with a default value
+    // Oggetto con un valore default 
     propE: {
       type: Object,
-      // Object or array defaults must be returned from
-      // a factory function. The function receives the raw
-      // props received by the component as the argument.
+      // I valori predefiniti degli oggetti o degli array devono essere restituiti da
+      // una funzione factory. La funzione riceve come argomento le props grezze
+      // ricevute dal componente.
       default(rawProps) {
         return { message: 'hello' }
       }
     },
-    // Custom validator function
+    // funzione custom `validator`
     propF: {
       validator(value) {
-        // The value must match one of these strings
+        // Il valore deve corrispondere a una di queste stringhe
         return ['success', 'warning', 'danger'].includes(value)
       }
     },
-    // Function with a default value
+    // Funzione con un valore default
     propG: {
       type: Function,
-      // Unlike object or array default, this is not a factory 
-      // function - this is a function to serve as a default value
+      // A differenza dei valori predefiniti degli oggetti o degli array, questa non è una 
+      // funzione factory - questa è una funzione da utilizzare come valore predefinito
       default() {
         return 'Default function'
       }
@@ -480,34 +480,34 @@ export default {
 
 </div>
 
-Additional details:
+Dettagli aggiuntivi:
 
-- All props are optional by default, unless `required: true` is specified.
+- Tutte le props sono opzionali per impostazione predefinita, a meno che non venga specificato `required: true`.
 
-- An absent optional prop other than `Boolean` will have `undefined` value.
+- Una prop opzionale assente diversa da `Boolean` avrà il valore `undefined`.
 
-- The `Boolean` absent props will be cast to `false`. You can change this by setting a `default` for it — i.e.: `default: undefined` to behave as a non-Boolean prop.
+- Le props `Boolean` assenti verranno convertite in `false`. You can change this by setting a `default` for it — i.e.: `default: undefined` to behave as a non-Boolean prop.
 
-- If a `default` value is specified, it will be used if the resolved prop value is `undefined` - this includes both when the prop is absent, or an explicit `undefined` value is passed.
+- Se viene specificato un valore `default`, verrà utilizzato se il valore della prop risolto è `undefined` - ciò include sia quando la prop è assente, sia quando viene passato esplicitamente un valore `undefined`.
 
-When prop validation fails, Vue will produce a console warning (if using the development build).
+Quando la validazione delle props fallisce, Vue genererà un avviso nella console (se si utilizza la versione di sviluppo).
 
 <div class="composition-api">
 
-If using [Type-based props declarations](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+Se si utilizzano le [Dichiarazioni delle props basate sul tipo](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue farà del suo meglio per compilare le annotazioni di tipo in dichiarazioni di props runtime equivalenti. Ad esempio, `defineProps<{ msg: string }>` verrà compilato in `{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
 
 ::: tip Note
-Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc.) will not be available inside `default` or `validator` functions.
+Tieni presente che le props vengono validate **prima** che venga creata un'istanza del componente, quindi le proprietà dell'istanza (ad es. `data`, `computed`, etc.) non saranno disponibili all'interno delle funzioni `default` o `validator`.
 :::
 
 </div>
 
-### Runtime Type Checks {#runtime-type-checks}
+### Verifiche dei tipi nel runtime {#runtime-type-checks}
 
-The `type` can be one of the following native constructors:
+Il `type` può essere uno dei seguenti costruttori nativi:
 
 - `String`
 - `Number`
@@ -518,7 +518,7 @@ The `type` can be one of the following native constructors:
 - `Function`
 - `Symbol`
 
-In addition, `type` can also be a custom class or constructor function and the assertion will be made with an `instanceof` check. For example, given the following class:
+Inoltre, `type` può anche essere una classe personalizzata o una funzione costruttrice e la verifica verrà effettuata con un controllo `instanceof` check. Ad esempio, data la seguente classe:
 
 ```js
 class Person {
@@ -529,7 +529,7 @@ class Person {
 }
 ```
 
-You could use it as a prop's type:
+Potresti usarla come tipo di prop:
 
 <div class="composition-api">
 
@@ -552,11 +552,11 @@ export default {
 
 </div>
 
-Vue will use `instanceof Person` to validate whether the value of the `author` prop is indeed an instance of the `Person` class.
+Vue utilizzerà  `instanceof Person` per validare se il valore della prop `author` è effettivamente un'istanza della classe `Person`.
 
-## Boolean Casting {#boolean-casting}
+## Conversione in Booleano {#boolean-casting}
 
-Props with `Boolean` type have special casting rules to mimic the behavior of native boolean attributes. Given a `<MyComponent>` with the following declaration:
+Le props con il tipo `Boolean` hanno regole speciali di conversione per emulare il comportamento degli attributi booleani nativi. Dato un `<MyComponent>` con la seguente dichiarazione:
 
 <div class="composition-api">
 
@@ -579,37 +579,37 @@ export default {
 
 </div>
 
-The component can be used like this:
+Il componente può essere utilizzato in questo modo:
 
 ```vue-html
-<!-- equivalent of passing :disabled="true" -->
+<!-- equivalente di passare :disabled="true" -->
 <MyComponent disabled />
 
-<!-- equivalent of passing :disabled="false" -->
+<!-- equivalente di passare :disabled="false" -->
 <MyComponent />
 ```
 
-When a prop is declared to allow multiple types, the casting rules for `Boolean` will also be applied. However, there is an edge when both `String` and `Boolean` are allowed - the Boolean casting rule only applies if Boolean appears before String:
+Quando una prop è dichiarata per consentire più tipi, le regole di conversione per `Boolean` verranno applicate anche a essa. Tuttavia, c'è un'eccezione quando sia `String` che `Boolean` sono consentiti - la regola di conversione in booleano si applica solo se Boolean appare prima di String:
 
 <div class="composition-api">
 
 ```js
-// disabled will be casted to true
+// disabled verrà convertito in true
 defineProps({
   disabled: [Boolean, Number]
 })
   
-// disabled will be casted to true
+// disabled verrà convertito in true
 defineProps({
   disabled: [Boolean, String]
 })
   
-// disabled will be casted to true
+// disabled verrà convertito in true
 defineProps({
   disabled: [Number, Boolean]
 })
   
-// disabled will be parsed as an empty string (disabled="")
+
 defineProps({
   disabled: [String, Boolean]
 })
@@ -619,28 +619,28 @@ defineProps({
 <div class="options-api">
 
 ```js
-// disabled will be casted to true
+// disabled verrà convertito in true
 export default {
   props: {
     disabled: [Boolean, Number]
   }
 }
   
-// disabled will be casted to true
+// disabled verrà convertito in true
 export default {
   props: {
     disabled: [Boolean, String]
   }
 }
   
-// disabled will be casted to true
+// disabled verrà convertito in true
 export default {
   props: {
     disabled: [Number, Boolean]
   }
 }
   
-// disabled will be parsed as an empty string (disabled="")
+// disabled verrà interpretato come una stringa vuota (disabled="")
 export default {
   props: {
     disabled: [String, Boolean]
