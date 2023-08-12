@@ -1,7 +1,7 @@
 [
   {
     "name": "Creative Tim",
-    "description": "With the examples below built by our partners from [Creative Tim](https://creative-tim.com?affiliate_id=116187) you can see how a real-world application is built, the technology stack behind it and how most of the concepts you've learned so far apply in a real-world application.",
+    "description": "Con gli esempi sottostanti realizzati dai nostri partner di [Creative Tim](https://creative-tim.com/?affiliate_id=116187), puoi vedere come viene costruita una vera applicazione, lo stack tecnologico usato e come la maggior parte dei concetti che hai appreso finora si applicano in un'applicazione reale.",
     "seeMoreUrl": "https://www.creative-tim.com/bootstrap-themes/vuejs-themes?affiliate_id=116187",
     "products": [
       {
@@ -92,7 +92,7 @@
   },
   {
     "name": "MDBootstrap",
-    "description": "Check out the themes, UI Kits and plugins below built by our partners from [MDBootstrap](https://mdbootstrap.com/?utm_ref_id=82665). Learn how to use Vue in professional projects along such technologies as Bootstrap. Templates & ready components make your development faster and more efficient.",
+    "description": "Scopri i temi, i kit UI e i plugin realizzati dai nostri partner di [MDBootstrap](https://mdbootstrap.com/?utm_ref_id=82665). Impara come utilizzare Vue in progetti professionali insieme a tecnologie come Bootstrap. I template e i componenti pronti all'uso rendono lo sviluppo più rapido ed efficiente.",
     "seeMoreUrl": "https://mdbootstrap.com/docs/vue/?utm_ref_id=82665",
     "products": [
       {
@@ -274,7 +274,7 @@
   },
   {
     "name": "PrimeVue",
-    "description": "The open-source UI component library [PrimeVue](https://www.primefaces.org/primevue/?af_id=4218) offers over 90 flexible components to build your apps with! They have a ton of different component themes and application templates available to get the look & feel that suits you best.",
+    "description": "La libreria di componenti UI open-source [PrimeVue](https://www.primefaces.org/primevue/?af_id=4218) offre oltre 90 componenti flessibili con cui costruire le tue app! Mette a disposizione una vasta gamma di temi per i componenti e template di applicazione per ottenere il look&feel che più ti piace.",
     "seeMoreUrl": "https://www.primefaces.org/primevue/?af_id=4218",
     "products": [
       {
@@ -379,8 +379,8 @@
   },
   {
     "name": "Flatlogic",
-    "description": "Check out the admin dashboard templates built by our partners from [Flatlogic](https://flatlogic.com/templates?ref=x-fdkuTAVW). With these themes you can see how real applications are built. Additionally, these templates will help you to start a new application and save you time and money.",
-    "seeMoreUrl": "https://flatlogic.com/templates?ref=x-fdkuTAVW",
+    "description": "Scopri i template per i pannelli di amministrazione creati dai nostri partner di [Flatlogic](https://flatlogic.com/templates?ref=x-fdkuTAVW). Con questi temi puoi vedere come vengono costruite delle reali applicazioni. Inoltre, questi template ti aiuteranno a iniziare una nuova applicazione da zero, risparmiando tempo e denaro.",
+     "seeMoreUrl": "https://flatlogic.com/templates?ref=x-fdkuTAVW",
     "products": [
       {
         "name": "Sing App Vue",
