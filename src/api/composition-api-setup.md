@@ -1,6 +1,6 @@
 # Composition API: setup() {#composition-api-setup}
 
-## Basic Usage {#basic-usage}
+## Utilizzo Base {#basic-usage}
 
 The `setup()` hook serves as the entry point for Composition API usage in components in the following cases:
 

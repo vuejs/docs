@@ -467,8 +467,6 @@ Ecco una demo che utilizza la [libreria GreenSock](https://greensock.com/) per e
 
 Le transizioni possono essere riutilizzate attraverso il sistema dei componenti di Vue. Per creare una transizione riutilizzabile, possiamo creare un componente che racchiude il componente `<Transition>` e passa il contenuto dello slot:
 
-Transitions can be reused through Vue's component system. To create a reusable transition, we can create a component that wraps the `<Transition>` component and passes down the slot content:
-
 ```vue{5}
 <!-- MyTransition.vue -->
 <script>
