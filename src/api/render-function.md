@@ -242,7 +242,7 @@ For manually resolving a registered directive by name.
 
 - **Details**
 
-  **Note: you do not need this if you can import the component directly.**
+  **Note: you do not need this if you can import the directive directly.**
 
   `resolveDirective()` must be called inside<span class="composition-api"> either `setup()` or</span> the render function in order to resolve from the correct component context.
 
