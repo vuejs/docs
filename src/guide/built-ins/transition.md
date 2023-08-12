@@ -585,6 +585,6 @@ Puoi anche applicare un comportamento diverso negli hook di transizione in JavaS
 
 ---
 
-**Related**
+**Correlati**
 
 - [Referenza API `<Transition>`](/api/built-in-components#transition)

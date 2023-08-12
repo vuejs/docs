@@ -130,6 +130,6 @@ function onEnter(el, done) {
 
 ---
 
-**Related**
+**Correlati**
 
 - [`<TransitionGroup>` API reference](/api/built-in-components#transitiongroup)

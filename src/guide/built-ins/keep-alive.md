@@ -139,6 +139,6 @@ Note that:
 
 ---
 
-**Related**
+**Correlati**
 
 - [`<KeepAlive>` API reference](/api/built-in-components#keepalive)

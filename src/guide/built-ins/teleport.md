@@ -197,7 +197,7 @@ The rendered result would be:
 
 ---
 
-**Related**
+**Correlati**
 
 - [`<Teleport>` API reference](/api/built-in-components#teleport)
 - [Handling Teleports in SSR](/guide/scaling-up/ssr#teleports)
