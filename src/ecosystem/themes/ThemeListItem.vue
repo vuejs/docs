@@ -32,7 +32,7 @@ const description = computed(() => {
 
     <div class="action">
       <VTLink class="action-link" :href="provider.seeMoreUrl" no-icon>
-        See More Themes from {{ provider.name }}
+        Vedi Altri Temi da {{ provider.name }}
       </VTLink>
     </div>
   </section>
