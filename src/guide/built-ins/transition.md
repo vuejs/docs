@@ -259,7 +259,7 @@ Tuttavia, in alcuni casi potresti voler usare entrambi sullo stesso elemento, ad
 <Transition type="animation">...</Transition>
 ```
 
-### Transizioni Annidate e Durate di Transizione Esplicite {#nested-transitions-and-explicit-transition-durations}
+### Transizioni Annidate e Durata Esplicita della Transizione {#nested-transitions-and-explicit-transition-durations}
 
 Sebbene le classi di transizione vengano applicate solo al diretto elemento figlio in `<Transition>`, possiamo applicare transizioni agli elementi annidati utilizzando i selettori CSS annidati:
 
