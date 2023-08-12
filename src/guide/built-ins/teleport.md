@@ -1,10 +1,10 @@
 # Teleport {#teleport}
 
- <VueSchoolLink href="https://vueschool.io/lessons/vue-3-teleport" title="Free Vue.js Teleport Lesson"/>
+ <VueSchoolLink href="https://vueschool.io/lessons/vue-3-teleport" title="Lezione gratuita sul Teleport in Vue.js"/>
 
-`<Teleport>` is a built-in component that allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM hierarchy of that component.
+`<Teleport>` è un componente nativo che ci permette di "teletrasportare" una parte del template di un componente in un nodo DOM che esiste al di fuori della gerarchia DOM di quel componente.
 
-## Basic Usage {#basic-usage}
+## Utilizzo Base {#basic-usage}
 
 Sometimes we may run into the following scenario: a part of a component's template belongs to it logically, but from a visual standpoint, it should be displayed somewhere else in the DOM, outside of the Vue application.
 
