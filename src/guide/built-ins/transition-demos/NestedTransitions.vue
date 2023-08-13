@@ -8,7 +8,7 @@ const show = ref(true)
     <button @click="show = !show" style="margin-bottom: 20px">Toggle</button>
     <Transition duration="550" name="nested">
       <div v-if="show" class="transition-demo-outer">
-        <div class="transition-demo-inner">Hello</div>
+        <div class="transition-demo-inner">Ciao</div>
       </div>
     </Transition>
   </div>

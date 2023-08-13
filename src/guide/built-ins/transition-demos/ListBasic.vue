@@ -19,8 +19,8 @@ function randomIndex() {
 
 <template>
   <div class="demo">
-    <button @click="add">Add at random index</button>
-    <button @click="remove">Remove at random index</button>
+    <button @click="add">Aggiungi in una posizione casuale</button>
+    <button @click="remove">Rimuovi da una posizione casuale</button>
     <TransitionGroup name="list" tag="ul" style="margin-top: 20px">
       <li v-for="item in items" :key="item">
         {{ item }}
