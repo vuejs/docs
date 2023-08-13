@@ -4,7 +4,7 @@ import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 
 # KeepAlive {#keepalive}
 
-`<KeepAlive>` è un Componente nativo che ci permette di memorizzare nella cache, in modo condizionale, le istanze dei componenti quando si passa dinamicamente tra componenti multipli.
+`<KeepAlive>` è un Componente nativo che, in modo condizionale, ci permette di memorizzare nella cache le istanze dei componenti quando si passa dinamicamente tra diversi componenti.
 
 ## Utilizzo Base {#basic-usage}
 
@@ -22,7 +22,7 @@ Nell'esempio qui sotto, abbiamo due componenti stateful: A contiene un contatore
 
 Noterai che quando ritorni, lo stato precedentemente modificato sarà stato reimpostato.
 
-Creare una nuova istanza di componente allo switch è, di norma, un comportamento utile, ma in questo caso, ci piacerebbe davvero che le due istanze dei componenti fossero conservate anche quando sono inattive. Per risolvere questo problema possiamo racchiudere il nostro componente dinamico con il componente nativo `<KeepAlive>`:
+Di solito, creare una nuova istanza di componente allo switch è un comportamento utile, ma, in questo caso, vorremmo che le due istanze dei componenti vengano conservate anche quando sono inattive. Per risolvere questo problema possiamo racchiudere il nostro componente dinamico con il componente nativo `<KeepAlive>`:
 
 ```vue-html
 <!-- I componenti inattivi saranno memorizzati nella cache! -->
@@ -31,7 +31,7 @@ Creare una nuova istanza di componente allo switch è, di norma, un comportament
 </KeepAlive>
 ```
 
-Ora, lo stato sarà mantenuto durante gli switch dei componenti:
+Ora, lo stato verraà conservato durante lo switch dei componenti:
 
 <SwitchComponent use-KeepAlive />
 
@@ -79,7 +79,7 @@ Dalla versione 3.2.34, un Componente Single-File (SFC) che utilizza `<script set
 
 ## Numero Massimo di Istanze Memorizzate {#max-cached-instances}
 
-Possiamo limitare il numero massimo di istanze del componente che possono essere memorizzate nella cache tramite la prop `max`. Quando `max` è specificata, `<KeepAlive>` si comporta come una cache [LRU cache](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): se il numero di istanze memorizzate nella cache sta per superare il conteggio massimo specificato, l'istanza meno recente, memorizzata nella cache, verrà distrutta per fare spazio a quella nuova.
+Possiamo limitare il numero massimo di istanze del componente che possono essere memorizzate nella cache tramite la prop `max`. Quando `max` è specificata, `<KeepAlive>` si comporta come una [cache LRU](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): se il numero di istanze memorizzate nella cache sta per superare il conteggio massimo specificato, l'istanza meno recente, memorizzata nella cache, verrà distrutta per fare spazio a quella nuova.
 
 ```vue-html
 <KeepAlive :max="10">

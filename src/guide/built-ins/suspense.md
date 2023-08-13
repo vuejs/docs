@@ -65,7 +65,7 @@ const posts = await res.json()
 
 ### Componenti Asincroni {#async-components}
 
-I componenti asincroni possono essere messi **sospesi** (messi in attesa) per impostazione predefinita. Ciò significa che, se hanno un `<Suspense>` nella catena genitoriale, verranno trattati come una dipendenza asincrona di quel `<Suspense>`. In questo caso, lo stato di caricamento sarà controllato dal `<Suspense>`, e le opzioni di caricamento, errore, ritardo e timeout del componente saranno ignorate.
+I componenti asincroni possono essere **sospesi** (messi in attesa) per impostazione predefinita. Ciò significa che, se hanno un `<Suspense>` nella catena genitoriale, verranno trattati come una dipendenza asincrona di quel `<Suspense>`. In questo caso, lo stato di caricamento sarà controllato dal `<Suspense>`, e le opzioni di caricamento, errore, ritardo e timeout del componente saranno ignorate.
 
 Il componente asincrono può scegliere di non essere controllato da `Suspense` e lasciare che il componente controlli sempre il proprio stato di caricamento specificando `suspensible: false` nelle sue opzioni.
 
@@ -85,9 +85,9 @@ Il componente `<Suspense>` ha due slot: `#default` e `#fallback`. Entrambi gli s
 </Suspense>
 ```
 
-Al rendering iniziale, `<Suspense>` renderizzerà il contenuto dello slot predefinito in memoria. Se durante il processo vengono riscontrate dipendenze asincrone, entrerà in uno stato di **pending**. Durante lo stato di sospensione, verrà visualizzato il contenuto di fallback. Quando tutte le dipendenze asincrone riscontrate sono state risolte, `<Suspense>` entra in uno stato **resolved** e viene visualizzato il contenuto risolto dello slot predefinito.
+Al rendering iniziale, `<Suspense>` renderizzerà il contenuto dello slot predefinito in memoria. Se durante il processo vengono riscontrate dipendenze asincrone, entrerà in uno stato di **pending**. Durante lo stato di sospensione, verrà visualizzato il contenuto di fallback. Quando tutte le dipendenze asincrone riscontrate vengono risolte, `<Suspense>` entra in uno stato **resolved** e viene visualizzato il contenuto risolto dello slot predefinito.
 
-Se non sono state riscontrate dipendenze asincrone durante il rendering iniziale, `<Suspense>` passerà direttamente a uno stato "resolved".
+Se non vengono riscontrate dipendenze asincrone durante il rendering iniziale, `<Suspense>` passerà direttamente a uno stato "resolved".
 
 Una volta in uno stato "resolved", `<Suspense>` tornerà allo stato "pending" solo se il nodo radice dello slot `#default` viene sostituito. Nuove dipendenze asincrone annidate più in profondità nell'albero **non** causeranno il ritorno di `<Suspense>` a uno stato "pending".
 
@@ -107,7 +107,7 @@ Attualmente, `<Suspense>` non fornisce una gestione degli errori tramite il comp
 
 È comune voler utilizzare `<Suspense>` in combinazione con i componenti [`<Transition>`](./transition) e [`<KeepAlive>`](./keep-alive). L'ordine di annidamento di questi componenti è importante per farli funzionare correttamente.
 
-In più, questi componenti sono spesso utilizzati insieme al componente `<RouterView>` da [Vue Router](https://router.vuejs.org/).
+In più, questi componenti sono spesso utilizzati insieme al componente `<RouterView>` di [Vue Router](https://router.vuejs.org/).
 
 L'esempio seguente mostra come annidare questi componenti in modo che si comportino come previsto. Per combinazioni più semplici è possibile rimuovere i componenti che non servono:
 

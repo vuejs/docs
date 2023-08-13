@@ -78,11 +78,11 @@ Ora sembra molto meglio, con un'animazione fluida anche quando l'intera lista vi
 
 <ListMove />
 
-[Full Example](/examples/#list-transition)
+[Esempio Completo](/examples/#list-transition)
 
 ## Transizioni Sfalsate degli Elementi in un Elenco {#staggering-list-transitions}
 
-Comunicando con le transizioni JavaScript tramite i data attribute, è anche possibile sfalsare le transizioni in un elenco. Per prima cosa, visualizziamo l'indice di un elemento in un data attribute sull'elemento DOM:
+Comunicando con le transizioni JavaScript tramite i data attribute, è possibile anche sfalsare le transizioni in un elenco. Per prima cosa, visualizziamo l'indice di un elemento in un data attribute sull'elemento DOM:
 
 ```vue-html{11}
 <TransitionGroup

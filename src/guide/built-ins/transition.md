@@ -84,7 +84,7 @@ Ci sono sei classi applicate per le transizioni di entrata / uscita.
 
 <!-- https://www.figma.com/file/rlOv0ZKJFFNA9hYmzdZv3S/Transition-Classes -->
 
-1. `v-enter-from`: Stato iniziale per l'entrata. Aggiunta prima che l'elemento venga inserito, rimossa un frame dopo che l'elemento è inserito.
+1. `v-enter-from`: Stato iniziale per l'entrata. Aggiunta prima che l'elemento venga inserito, rimossa un frame dopo che l'elemento è stato inserito.
 
 2. `v-enter-active`: Stato attivo per l'entrata. Applicata durante l'intera fase di entrata. Aggiunto prima che l'elemento venga inserito, rimosso quando la transizione/animazione finisce. Questa classe può essere utilizzata per definire la durata, il ritardo e la curva di easing per la transizione di entrata.
 
@@ -108,7 +108,7 @@ Si può assegnare un nome ad una transizione tramite la prop `name`:
 </Transition>
 ```
 
-In una transizione con nome (named transition), le classi di transizione verranno prefissate con il suo nome invece di `v`. Ad esempio, la classe applicata per la transizione sopra sarà `fade-enter-active` invece di `v-enter-active`. Il CSS per la transizione fade dovrebbe apparire così:
+In una transizione con nome (named transition), le classi di transizione verranno prefissate con il nome assegnato al posto di `v`. Ad esempio, la classe applicata per la transizione sopra sarà `fade-enter-active` invece di `v-enter-active`. Il CSS per la transizione fade dovrebbe apparire così:
 
 ```css
 .fade-enter-active,
@@ -124,7 +124,7 @@ In una transizione con nome (named transition), le classi di transizione verrann
 
 ### Transizioni CSS {#css-transitions}
 
-`<Transition>` è comunemente usata in combinazione con [transizioni CSS native](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), come visto nell'esempio base sopra. La proprietà CSS `transition` è una scorciatoia che ci permette di specificare molti aspetti di una transizione, incluse le proprietà che dovrebbero essere animate, la durata della transizione e le [curve di easing](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
+`<Transition>` è comunemente usato in combinazione con le [transizioni CSS native](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), come visto nell'esempio base sopra. La proprietà CSS `transition` è una scorciatoia che ci permette di specificare molti aspetti di una transizione, incluse le proprietà che dovrebbero essere animate, la durata della transizione e le [curve di easing](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
 
 Ecco un esempio più avanzato che usa le transizioni per molteplici proprietà, con diverse durate e curve di easing per l'entrata e l'uscita:
 
@@ -171,7 +171,7 @@ Ecco un esempio più avanzato che usa le transizioni per molteplici proprietà, 
 
 Le [Animazioni CSS native](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) sono applicate nello stesso modo delle transizioni CSS, con la differenza che `*-enter-from` non viene rimosso immediatamente dopo che l'elemento è inserito, ma con un evento `animationend`.
 
-La maggior parte delle animazioni CSS può dichiarata semplicemente sotto le classi `*-enter-active` e `*-leave-active`. Ecco un esempio:
+La maggior parte delle animazioni CSS può essere dichiarata semplicemente sotto le classi `*-enter-active` e `*-leave-active`. Ecco un esempio:
 
 ```vue-html
 <Transition name="bounce">
@@ -253,7 +253,7 @@ Queste sovrascriveranno i nomi delle classi convenzionali. Ciò è particolarmen
 
 Vue ha bisogno di aggiungere un listener di eventi per sapere quando una transizione è terminata. Può essere o `transitionend` o `animationend`, a seconda del tipo di regole CSS applicate. Se stai usando solo uno o l'altro, Vue può rilevare automaticamente il tipo corretto.
 
-Tuttavia, in alcuni casi potresti voler usare entrambi sullo stesso elemento, ad esempio avendo un'animazione CSS innescata da Vue, insieme a un effetto di transizione CSS al passaggio del mouse. In questi casi, dovrai dichiarare esplicitamente il tipo di cui vuoi che Vue si occupi passando la prop `type`, con un valore di `animation` o `transition`:
+Tuttavia, in alcuni casi potresti voler usare entrambi sullo stesso elemento, ad esempio avendo un'animazione CSS innescata da Vue, insieme a un effetto di transizione CSS al passaggio del mouse. In questi casi dovrai dichiarare in modo esplicito quale vuoi che Vue gestisca, passando la prop `type` con un valore di `animation` o `transition`:
 
 ```vue-html
 <Transition type="animation">...</Transition>
@@ -298,7 +298,7 @@ Possiamo anche aggiungere un ritardo di transizione all'elemento annidato durant
 }
 ```
 
-Tuttavia, ciò crea un piccolo problema. Di default, il componente `<Transition>` cerca di capire automaticamente quando la transizione è finita, ascoltando il **primo** evento `transitionend` o `animationend` sull'elemento di transizione radice. Con una transizione annidata, il comportamento desiderato dovrebbe aspettare fino a quando le transizioni di tutti gli elementi interni sono terminate.
+Tuttavia, ciò crea un piccolo problema. Di default, il componente `<Transition>` cerca di capire automaticamente quando la transizione è finita, ascoltando il **primo** evento `transitionend` o `animationend` sull'elemento di transizione radice. Con una transizione annidata, il comportamento desiderato dovrebbe essere quello di aspettare fino a quando le transizioni di tutti gli elementi interni sono terminate.
 
 In questi casi puoi specificare una durata di transizione esplicita (in millisecondi) utilizzando la prop `duration` sul componente `<transition>`. La durata totale dovrebbe corrispondere al ritardo più la durata della transizione dell'elemento interno:
 
@@ -435,7 +435,7 @@ export default {
 
 Questi hook possono essere utilizzati in combinazione con le transizioni/animazioni CSS, o da soli.
 
-Quando si utilizzano transizioni solo JavaScript, è solitamente una buona idea aggiungere la prop `:css="false"`. Questo dice esplicitamente a Vue di saltare il rilevamento automatico delle transizioni CSS. Oltre ad essere leggermente più performante, ciò impedisce anche che le regole CSS interferiscano accidentalmente con la transizione:
+Quando si utilizzano solo transizioni JavaScript, di norma è una buona idea aggiungere la prop `:css="false"`. Questo dice esplicitamente a Vue di saltare il rilevamento automatico delle transizioni CSS. Oltre ad essere leggermente più performante, ciò impedisce anche che le regole CSS interferiscano accidentalmente con la transizione:
 
 ```vue-html{3}
 <Transition
@@ -502,7 +502,7 @@ Ora `MyTransition` può essere importato e utilizzato proprio come la versione n
 
 ## Transizione all'Appear {#transition-on-appear}
 
-Se vuoi anche applicare una transizione al rendering iniziale di un nodo, puoi aggiungere la prop `appear`:
+Se vuoi applicare una transizione anche al rendering iniziale di un nodo, puoi aggiungere la prop `appear`:
 
 ```vue-html
 <Transition appear>
@@ -512,7 +512,7 @@ Se vuoi anche applicare una transizione al rendering iniziale di un nodo, puoi a
 
 ## Transizione tra Elementi {#transition-between-elements}
 
-Oltre a fare un toggle per un elemento con `v-if` / `v-show`, possiamo fare anche una transizione tra due elementi utilizzando `v-if` / `v-else` / `v-else-if`, purché siamo sicuri che ci sia solo un elemento mostrato in un dato momento:
+Oltre a fare un toggle per un elemento con `v-if` / `v-show`, possiamo fare una transizione anche tra due elementi utilizzando `v-if` / `v-else` / `v-else-if`, purché siamo sicuri che ci sia solo un elemento mostrato in un dato momento:
 
 ```vue-html
 <Transition>
@@ -530,7 +530,7 @@ Oltre a fare un toggle per un elemento con `v-if` / `v-show`, possiamo fare anch
 
 Nell'esempio precedente gli elementi che entrano ed escono vengono animati contemporaneamente, e abbiamo dovuto renderli con `position: absolute` per evitare il problema con il layout quando entrambi gli elementi sono presenti nel DOM.
 
-Tuttavia, in alcuni casi questo non è possibile, o semplicemente non è il comportamento desiderato. Potremmo volere che l'elemento in uscita venga animato prima e che l'elemento in entrata venga inserito solo **dopo** che l'animazione di uscita sia terminata. Coordinare questo tipo di animazioni manualmente sarebbe molto complicato - fortunatamente, possiamo abilitare questo comportamento passando a `<Transition>` una prop `mode`:
+In alcuni casi, però, questo non è possibile, o, semplicemente, non è il comportamento desiderato. Potremmo volere che l'elemento in uscita venga animato prima e che l'elemento in entrata venga inserito solo **dopo** che l'animazione di uscita sia terminata. Coordinare questo tipo di animazioni manualmente sarebbe molto complicato - fortunatamente, possiamo abilitare questo comportamento passando a `<Transition>` una prop `mode`:
 
 ```vue-html
 <Transition mode="out-in">
@@ -569,7 +569,7 @@ Ecco la demo precedente con `mode="out-in"`:
 
 ## Transizioni Dinamiche {#dynamic-transitions}
 
-Le prop di `<Transition>` come `name` possono essere anche dinamiche! Ciò ci permette di applicare dinamicamente diverse transizioni in base al cambiamento dello stato:
+Le prop di `<Transition>` come `name` possono essere anche dinamiche! Questo ci permette di applicare dinamicamente diverse transizioni, in base al cambiamento dello stato:
 
 ```vue-html
 <Transition :name="transitionName">
@@ -579,7 +579,7 @@ Le prop di `<Transition>` come `name` possono essere anche dinamiche! Ciò ci pe
 
 Questo può essere utile quando hai definito transizioni / animazioni CSS utilizzando le convenzioni di classe di transizione di Vue e vuoi passare da una all'altra.
 
-Puoi anche applicare un comportamento diverso negli hook di transizione in JavaScript in base allo stato attuale del tuo componente. Infine, il modo definitivo per creare transizioni dinamiche è attraverso [componenti di transizione riutilizzabili](#reusable-transitions) che accettano prop per cambiare la natura delle transizioni da utilizzare. Potrebbe sembrare banale, ma l'unico limite è davvero la tua immaginazione.
+Puoi applicare anche un comportamento diverso negli hook di transizione in JavaScript, in base allo stato attuale del tuo componente. Infine, il modo definitivo per creare transizioni dinamiche è attraverso i [componenti di transizione riutilizzabili](#reusable-transitions), che accettano prop per cambiare la natura delle transizioni da utilizzare. Potrebbe sembrare banale, ma l'unico limite è davvero la tua immaginazione.
 
 ---
 
