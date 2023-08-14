@@ -498,9 +498,9 @@ Come potrai vedere, utilizziamo il `<slot>` come contenitore per indicare dove p
 
 Questo è tutto ciò che c'è da sapere sugli slot per il momento, ma una volta che avrai terminato la lettura di questa pagina e ti sentirai a tuo agio con il suo contenuto, ti suggeriamo di tornare in seguito a leggere la guida completa sugli [Slots](/guide/components/slots).
 
-## Dynamic Components {#dynamic-components}
+## Componenti Dinamici {#dynamic-components}
 
-Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
+A volte, può essere utile passare dinamicamente da un componente all'altro, come in un'interfaccia a schede (tab):
 
 <div class="options-api">
 

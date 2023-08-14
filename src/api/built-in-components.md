@@ -211,7 +211,7 @@ Caches dynamically toggled components wrapped inside.
 
 - **Example**
 
-  Basic usage:
+  Utilizzo Base:
 
   ```vue-html
   <KeepAlive>

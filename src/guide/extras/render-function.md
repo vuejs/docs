@@ -8,7 +8,7 @@ Vue recommends using templates to build applications in the vast majority of cas
 
 > If you are new to the concept of virtual DOM and render functions, make sure to read the [Rendering Mechanism](/guide/extras/rendering-mechanism) chapter first.
 
-## Basic Usage {#basic-usage}
+## Utilizzo Base {#basic-usage}
 
 ### Creating Vnodes {#creating-vnodes}
 

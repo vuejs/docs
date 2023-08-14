@@ -4,34 +4,34 @@ import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 
 # KeepAlive {#keepalive}
 
-`<KeepAlive>` is a built-in component that allows us to conditionally cache component instances when dynamically switching between multiple components.
+`<KeepAlive>` è un Componente nativo che, in modo condizionale, ci permette di memorizzare nella cache le istanze dei componenti quando si passa dinamicamente tra diversi componenti.
 
-## Basic Usage {#basic-usage}
+## Utilizzo Base {#basic-usage}
 
-In the Component Basics chapter, we introduced the syntax for [Dynamic Components](/guide/essentials/component-basics#dynamic-components), using the `<component>` special element:
+Nel capitolo Nozioni base sui Componenti, abbiamo introdotto la sintassi per i [Componenti Dinamici](/guide/essentials/component-basics#dynamic-components), utilizzando l'elemento speciale `<component>`:
 
 ```vue-html
 <component :is="activeComponent" />
 ```
 
-By default, an active component instance will be unmounted when switching away from it. This will cause any changed state it holds to be lost. When this component is displayed again, a new instance will be created with only the initial state.
+Di default, un'istanza di componente attiva verrà smontata quando si passa ad un'altra. Ciò causerà la perdita di qualsiasi stato modificato che essa contiene. Quando questo componente viene visualizzato di nuovo, verrà creata una nuova istanza con solo lo stato iniziale.
 
-In the example below, we have two stateful components - A contains a counter, while B contains a message synced with an input via `v-model`. Try updating the state of one of them, switch away, and then switch back to it:
+Nell'esempio qui sotto, abbiamo due componenti stateful: A contiene un contatore, mentre B contiene un messaggio sincronizzato con un input tramite `v-model`. Prova ad aggiornare lo stato di uno di essi, passa ad un altro, e poi torna di nuovo sul precedente:
 
 <SwitchComponent />
 
-You'll notice that when switched back, the previous changed state would have been reset.
+Noterai che quando ritorni, lo stato precedentemente modificato sarà stato reimpostato.
 
-Creating fresh component instance on switch is normally useful behavior, but in this case, we'd really like the two component instances to be preserved even when they are inactive. To solve this problem, we can wrap our dynamic component with the `<KeepAlive>` built-in component:
+Di solito, creare una nuova istanza di componente allo switch è un comportamento utile, ma, in questo caso, vorremmo che le due istanze dei componenti vengano conservate anche quando sono inattive. Per risolvere questo problema possiamo racchiudere il nostro componente dinamico con il componente nativo `<KeepAlive>`:
 
 ```vue-html
-<!-- Inactive components will be cached! -->
+<!-- I componenti inattivi saranno memorizzati nella cache! -->
 <KeepAlive>
   <component :is="activeComponent" />
 </KeepAlive>
 ```
 
-Now, the state will be persisted across component switches:
+Ora, lo stato verraà conservato durante lo switch dei componenti:
 
 <SwitchComponent use-KeepAlive />
 
@@ -47,39 +47,39 @@ Now, the state will be persisted across component switches:
 </div>
 
 :::tip
-When used in [DOM templates](/guide/essentials/component-basics#dom-template-parsing-caveats), it should be referenced as `<keep-alive>`.
+Quando utilizzato nei [template DOM](/guide/essentials/component-basics#dom-template-parsing-caveats), dovrebbe essere referenziato come `<keep-alive>`.
 :::
 
-## Include / Exclude {#include-exclude}
+## Includi / Escludi {#include-exclude}
 
-By default, `<KeepAlive>` will cache any component instance inside. We can customize this behavior via the `include` and `exclude` props. Both props can be a comma-delimited string, a `RegExp`, or an array containing either types:
+Di default `<KeepAlive>` memorizzerà nella cache qualsiasi istanza del componente al suo interno. Possiamo personalizzare questo comportamento tramite le props `include` ed `exclude`. Entrambe le prop possono accettare una stringa separata da virgole, una `RegExp`, o un array contenente entrambi i tipi:
 
 ```vue-html
-<!-- comma-delimited string -->
+<!-- stringa separata da virgole -->
 <KeepAlive include="a,b">
   <component :is="view" />
 </KeepAlive>
 
-<!-- regex (use `v-bind`) -->
+<!-- regex (usa `v-bind`) -->
 <KeepAlive :include="/a|b/">
   <component :is="view" />
 </KeepAlive>
 
-<!-- Array (use `v-bind`) -->
+<!-- Array (usa `v-bind`) -->
 <KeepAlive :include="['a', 'b']">
   <component :is="view" />
 </KeepAlive>
 ```
 
-The match is checked against the component's [`name`](/api/options-misc#name) option, so components that need to be conditionally cached by `KeepAlive` must explicitly declare a `name` option.
+La corrispondenza viene verificata contro l'opzione [`name`](/api/options-misc#name) del componente, quindi i componenti che devono essere memorizzati nella cache in modo condizionale da `KeepAlive` devono dichiarare esplicitamente un'opzione `name`.
 
 :::tip
-Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name.
+Dalla versione 3.2.34, un Componente Single-File (SFC) che utilizza `<script setup>` dedurrà automaticamente la sua opzione `name` in base al nome del file, eliminando la necessità di dichiarare manualmente il nome.
 :::
 
-## Max Cached Instances {#max-cached-instances}
+## Numero Massimo di Istanze Memorizzate {#max-cached-instances}
 
-We can limit the maximum number of component instances that can be cached via the `max` prop. When `max` is specified, `<KeepAlive>` behaves like an [LRU cache](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): if the number of cached instances is about to exceed the specified max count, the least recently accessed cached instance will be destroyed to make room for the new one.
+Possiamo limitare il numero massimo di istanze del componente che possono essere memorizzate nella cache tramite la prop `max`. Quando `max` è specificata, `<KeepAlive>` si comporta come una [cache LRU](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): se il numero di istanze memorizzate nella cache sta per superare il conteggio massimo specificato, l'istanza meno recente, memorizzata nella cache, verrà distrutta per fare spazio a quella nuova.
 
 ```vue-html
 <KeepAlive :max="10">
@@ -87,26 +87,26 @@ We can limit the maximum number of component instances that can be cached via th
 </KeepAlive>
 ```
 
-## Lifecycle of Cached Instance {#lifecycle-of-cached-instance}
+## Ciclo di Vita dell'Istanza in Cache {#lifecycle-of-cached-instance}
 
-When a component instance is removed from the DOM but is part of a component tree cached by `<KeepAlive>`, it goes into a **deactivated** state instead of being unmounted. When a component instance is inserted into the DOM as part of a cached tree, it is **activated**.
+Quando un'istanza di componente viene rimossa dal DOM ma fa parte di un albero di componenti memorizzato nella cache da `<KeepAlive>`, entra in uno stato **disattivato** invece di essere smontata (unmounted). Quando un'istanza di componente viene inserita nel DOM come parte di un albero memorizzato nella cache, essa viene **attivata**.
 
 <div class="composition-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`onActivated()`](/api/composition-api-lifecycle#onactivated) and [`onDeactivated()`](/api/composition-api-lifecycle#ondeactivated):
+Un componente kept-alive può registrare gli hook del ciclo di vita per questi due stati utilizzando [`onActivated()`](/api/composition-api-lifecycle#onactivated) e [`onDeactivated()`](/api/composition-api-lifecycle#ondeactivated):
 
 ```vue
 <script setup>
 import { onActivated, onDeactivated } from 'vue'
 
 onActivated(() => {
-  // called on initial mount
-  // and every time it is re-inserted from the cache
+  // chiamato al mount iniziale
+  // e ogni volta che è inserito nuovamente dalla cache
 })
 
 onDeactivated(() => {
-  // called when removed from the DOM into the cache
-  // and also when unmounted
+  // chiamato quando rimosso dal DOM e inserito in cache
+  // e anche quando viene unmounted
 })
 </script>
 ```
@@ -114,31 +114,31 @@ onDeactivated(() => {
 </div>
 <div class="options-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`activated`](/api/options-lifecycle#activated) and [`deactivated`](/api/options-lifecycle#deactivated) hooks:
+Un componente kept-alive può registrare gli hook del ciclo di vita per questi due stati utilizzando gli hook [`activated`](/api/options-lifecycle#activated) e [`deactivated`](/api/options-lifecycle#deactivated):
 
 ```js
 export default {
   activated() {
-    // called on initial mount
-    // and every time it is re-inserted from the cache
+  // chiamato al mount iniziale
+  // e ogni volta che è inserito nuovamente dalla cache
   },
   deactivated() {
-    // called when removed from the DOM into the cache
-    // and also when unmounted
+  // chiamato quando rimosso dal DOM e inserito in cache
+  // e anche quando viene unmounted
   }
 }
 ```
 
 </div>
 
-Note that:
+Nota che:
 
-- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> is also called on mount, and <span class="composition-api">`onDeactivated`</span><span class="options-api">`deactivated`</span> on unmount.
+- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> viene chiamato anche al mount, e <span class="composition-api">`onDeactivated`</span><span class="options-api">`deactivated`</span> all'unmount.
 
-- Both hooks work for not only the root component cached by `<KeepAlive>`, but also descendant components in the cached tree.
+- Entrambi gli hook funzionano non solo per il componente radice memorizzato nella cache da `<KeepAlive>`, ma anche per i componenti discendenti nell'albero memorizzato nella cache.
 
 ---
 
-**Related**
+**Correlati**
 
-- [`<KeepAlive>` API reference](/api/built-in-components#keepalive)
+- [Referenza API `<KeepAlive>`](/api/built-in-components#keepalive)

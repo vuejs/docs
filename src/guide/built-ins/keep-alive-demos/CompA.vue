@@ -4,7 +4,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <p>Current component: A</p>
-  <span style="margin-right: 20px">count: {{ count }}</span>
+  <p>Componente Corrente: A</p>
+  <span style="margin-right: 20px">somma: {{ count }}</span>
   <button @click="count++">+</button>
 </template>
