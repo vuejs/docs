@@ -2,9 +2,11 @@
 
 Questo progetto è un fork di `vuejs/docs` con lo scopo di centralizzare gli sforzi per la sua traduzione in italiano.
 
-Si prega di fare riferimento alla sezione [Contribuire](#contribuire---contributing) e, soprattutto, di seguire le [indicazioni per la contribuzione](CONTRIBUTING.md) per poter dare il tuo contributo nel modo più efficace.
+Si prega di fare riferimento:
+- per far partire il progetto, alla sezione [Contribuire](#contribuire---contributing) originale della VueDoc
+- per la traduzione, alle [indicazioni per la contribuzione](CONTRIBUTING.md) così da poter dare il tuo contributo nel modo più efficace.
 
-È anche importante prendere conoscenza delle [linee guida per la traduzione della documentazione](https://github.com/vuejs-translations/guidelines).
+È anche importante prendere conoscenza delle [linee guida per la traduzione della documentazione](https://github.com/vuejs-translations/guidelines), indicate dal core team di vue.
 
 ## Contribuire alla traduzione italiana
 
