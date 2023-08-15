@@ -230,8 +230,9 @@ Se stai costruendo un'applicazione che sfrutta il [Server-Side Rendering (SSR)](
 Sebbene la soluzione di gestione dello stato fatta in casa sia sufficiente in scenari semplici, ci sono molte altre cose da considerare nelle applicazioni di produzione su larga scala:
 
 - Convenzioni più solide per la collaborazione in team
+- Hot Module Replacement (HMR)
 - Integrazione con gli Strumenti di Sviluppo di Vue, inclusa la timeline, l'ispezione all'interno del componente e il debugging con il time-travel
-- Supporto per la Sideload Rendering
+- Supporto per Server-Side Rendering
 
 [Pinia](https://pinia.vuejs.org) è una libreria per la gestione dello stato che implementa tutto quanto sopra. È mantenuta dal team di sviluppo di Vue, e funziona sia con Vue 2 che con Vue 3.
 
