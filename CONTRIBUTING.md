@@ -73,8 +73,8 @@ Ciò ci consentirà di seguire più facilmente le parti di testo che in futuro s
 : Crea una PR (Pull Request) (dal tuo ramo di fork  `{your-username}/docs-it:{branch}` se non sei un contributor) completando la descrizione precompilata verso il ramo principale del repository.
 Se il tuo lavoro è lungo, puoi utilizzare lo stato `draft` per segnalare che la tua PR è in `Work in Progress`.
 
-> **Nota**
-> La PR può essere considerata pronta quando tutte le checkbox saranno spuntate
+    > **Nota**
+    : La PR può essere considerata pronta quando tutte le checkbox saranno spuntate
 
 6. **Richiedere revisioni** : Quando la tua traduzione è abbastanza matura per una revisione, assegna dei revisori (in genere i contributor o chi ti ha aiutato durante la traduzione) per far sapere loro che possono dedicare più tempo alla revisione approfondita del tuo lavoro.
 
