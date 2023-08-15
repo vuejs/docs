@@ -22,7 +22,7 @@ function update(e) {
       :value="cells[c][r]"
       @change="update"
       @blur="update"
-      @vnode-mounted="({ el }) => el.focus()"
+      @vue:mounted="({ el }) => el.focus()"
     />
     <span v-else>{{ evalCell(cells[c][r]) }}</span>
   </div>

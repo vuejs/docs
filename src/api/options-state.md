@@ -45,7 +45,7 @@ A function that returns the initial reactive state for the component instance.
   data: (vm) => ({ a: vm.myProp })
   ```
 
-- **See also:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
+- **See also** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
 
 ## props {#props}
 
@@ -125,7 +125,7 @@ Declare the props of a component.
   }
   ```
 
-- **See also:**
+- **See also**
   - [Guide - Props](/guide/components/props)
   - [Guide - Typing Component Props](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
 
@@ -207,7 +207,7 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **See also:**
+- **See also**
   - [Guide - Computed Properties](/guide/essentials/computed)
   - [Guide - Typing Computed Properties](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
 
@@ -250,7 +250,7 @@ Declare methods to be mixed into the component instance.
   }
   ```
 
-- **See also:** [Event Handling](/guide/essentials/event-handling)
+- **See also** [Event Handling](/guide/essentials/event-handling)
 
 ## watch {#watch}
 
@@ -368,7 +368,7 @@ Declare watch callbacks to be invoked on data change.
   }
   ```
 
-- **See also:** [Watchers](/guide/essentials/watchers)
+- **See also** [Watchers](/guide/essentials/watchers)
 
 ## emits {#emits}
 
@@ -433,7 +433,7 @@ Declare the custom events emitted by the component.
   }
   ```
 
-- **See also:**
+- **See also**
   - [Guide - Fallthrough Attributes](/guide/components/attrs)
   - [Guide - Typing Component Emits](/guide/typescript/options-api#typing-component-emits) <sup class="vt-badge ts" />
 

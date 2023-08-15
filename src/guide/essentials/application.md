@@ -59,7 +59,7 @@ The `.mount()` method should always be called after all app configurations and a
 
 ### In-DOM Root Component Template {#in-dom-root-component-template}
 
-When using Vue without a build step, we can write our root component's template directly inside the mount container:
+The template for the root component is usually part of the component itself, but it is also possible to provide the template separately by writing it directly inside the mount container:
 
 ```html
 <div id="app">
@@ -82,6 +82,8 @@ app.mount('#app')
 ```
 
 Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
+
+In-DOM templates are often used in applications that are [using Vue without a build step](/guide/quick-start.html#using-vue-from-cdn). They can also be used in conjunction with server-side frameworks, where the root template might be generated dynamically by the server.
 
 ## App Configurations {#app-configurations}
 

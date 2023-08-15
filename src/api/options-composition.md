@@ -12,7 +12,7 @@ Provide values that can be injected by descendant components.
   }
   ```
 
-- **Details:**
+- **Details**
 
   `provide` and [`inject`](#inject) are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain.
 
@@ -52,7 +52,7 @@ Provide values that can be injected by descendant components.
 
   Note in the above example, the provided `msg` will NOT be reactive. See [Working with Reactivity](/guide/components/provide-inject#working-with-reactivity) for more details.
 
-- **See also:** [Provide / Inject](/guide/components/provide-inject)
+- **See also** [Provide / Inject](/guide/components/provide-inject)
 
 ## inject {#inject}
 
@@ -167,7 +167,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-- **See also:** [Provide / Inject](/guide/components/provide-inject)
+- **See also** [Provide / Inject](/guide/components/provide-inject)
 
 ## mixins {#mixins}
 
@@ -181,17 +181,17 @@ An array of option objects to be mixed into the current component.
   }
   ```
 
-- **Details:**
+- **Details**
 
   The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the certain option merging logic. For example, if your mixin contains a `created` hook and the component itself also has one, both functions will be called.
 
   Mixin hooks are called in the order they are provided, and called before the component's own hooks.
 
   :::warning No Longer Recommended
-  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composition API](/guide/reusability/composables) is now the preferred approach for code reuse between components.
+  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composable functions using Composition API](/guide/reusability/composables) is now the preferred approach for code reuse between components.
   :::
 
-- **Example:**
+- **Example**
 
   ```js
   const mixin = {
@@ -215,7 +215,7 @@ An array of option objects to be mixed into the current component.
 
 A "base class" component to extend from.
 
-- **Type:**
+- **Type**
 
   ```ts
   interface ComponentOptions {
@@ -223,7 +223,7 @@ A "base class" component to extend from.
   }
   ```
 
-- **Details:**
+- **Details**
 
   Allows one component to extend another, inheriting its component options.
 
@@ -231,9 +231,9 @@ A "base class" component to extend from.
 
   However, `extends` and `mixins` express different intents. The `mixins` option is primarily used to compose chunks of functionality, whereas `extends` is primarily concerned with inheritance.
 
-  As with `mixins`, any options will be merged using the relevant merge strategy.
+  As with `mixins`, any options (except for `setup()`) will be merged using the relevant merge strategy.
 
-- **Example:**
+- **Example**
 
   ```js
   const CompA = { ... }
@@ -243,3 +243,24 @@ A "base class" component to extend from.
     ...
   }
   ```
+
+  :::warning Not Recommended for Composition API
+  `extends` is designed for Options API and does not handle the merging of the `setup()` hook.
+
+  In Composition API, the preferred mental model for logic reuse is "compose" over "inheritance". If you have logic from a component that needs to be reused in another one, consider extracting the relevant logic into a [Composable](/guide/reusability/composables#composables).
+
+  If you still intend to "extend" a component using Composition API, you can call the base component's `setup()` in the extending component's `setup()`:
+
+  ```js
+  import Base from './Base.js'
+  export default {
+    extends: Base,
+    setup(props, ctx) {
+      return {
+        ...Base.setup(props, ctx),
+        // local bindings
+      }
+    }
+  }
+  ```
+  :::

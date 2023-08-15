@@ -16,8 +16,6 @@ In general, Vue 3 provides smaller bundle sizes, better performance, better scal
 
 - You need to support IE11. Vue 3 leverages modern JavaScript features and does not support IE11.
 
-- You are still waiting for major ecosystem projects like Nuxt or Vuetify to release stable versions for Vue 3. This is reasonable if you do not wish to use beta-stage software. However, do note there are other already stable Vue 3 component libraries such as [Quasar](https://quasar.dev/), [Naive UI](https://www.naiveui.com/) and [Element Plus](https://element-plus.org/).
-
 If you intend to migrate an existing Vue 2 app to Vue 3, consult the [migration guide](https://v3-migration.vuejs.org/).
 
 ## Is Vue 2 Still Supported? {#is-vue-2-still-supported}

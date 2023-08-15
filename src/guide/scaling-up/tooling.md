@@ -4,7 +4,7 @@
 
 You don't need to install anything on your machine to try out Vue SFCs - there are online playgrounds that allow you to do so right in the browser:
 
-- [Vue SFC Playground](https://sfc.vuejs.org)
+- [Vue SFC Playground](https://play.vuejs.org)
   - Always deployed from latest commit
   - Designed for inspecting component compilation results
 - [Vue + Vite on StackBlitz](https://vite.new/vue)
@@ -21,7 +21,7 @@ It is also recommended to use these online playgrounds to provide reproductions 
 
 To get started with Vite + Vue, simply run:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#A6ACCD;">npm create vue@latest</span></span></code></pre></div>
 
 This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool.
 
@@ -80,6 +80,7 @@ The Vue browser devtools extension allows you to explore a Vue app's component t
 - [Documentation](https://devtools.vuejs.org/)
 - [Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 - [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+- [Edge Extension](https://microsoftedge.microsoft.com/addons/detail/vuejs-devtools/olofadcdnkkjdfgjcmjaadnlehnnihnl)
 - [Standalone Electron app](https://devtools.vuejs.org/guide/installation.html#standalone)
 
 ## TypeScript {#typescript}
