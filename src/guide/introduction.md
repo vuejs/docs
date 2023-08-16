@@ -281,3 +281,8 @@ Different developers have different learning styles. Feel free to pick a learnin
     <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
   </a>
 </div>
+
+## Next Steps
+
+- [Quick Start Guide](quick-start.md): This guide will walk you through the process of creating your first Vue.js project. It is designed to be a fast-paced introduction to the key concepts you'll need to understand to use Vue.js effectively.
+
