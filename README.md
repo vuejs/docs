@@ -3,6 +3,7 @@
 Questo progetto è un fork di `vuejs/docs` con lo scopo di centralizzare gli sforzi per la sua traduzione in italiano.
 
 Si prega di fare riferimento:
+
 - per far partire il progetto, alla sezione [Contribuire](#contribuire---contributing) originale della VueDoc
 - per la traduzione, alle [indicazioni per la contribuzione](CONTRIBUTING.md) così da poter dare il tuo contributo nel modo più efficace.
 
@@ -10,7 +11,7 @@ Si prega di fare riferimento:
 
 ## Contribuire alla traduzione italiana
 
-Visita il documento [CONTRIBUTING.md](CONTRIBUTING.md) per saperne di più.
+Leggi il documento [CONTRIBUTING.md](CONTRIBUTING.md) per saperne di più.
 
 ---
 ---

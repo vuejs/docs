@@ -11,7 +11,10 @@ Grazie per prendere visione di questa `Guida alla scrittura`. Lo scopo della gui
 - [Contribuire al progetto](#contribuire-al-progetto)
   - [Passaggi](#passaggi)
 - [Diventare un Contributor della traduzione italiana](#diventare-un-contributor-della-traduzione-italiana)
-- [Estensioni VS Code](#estensioni-vs-code)
+- [Il progetto in locale](#il-progetto-in-locale)
+  - [Lavorare sui contenuti](#lavorare-sui-contenuti)
+  - [Estensioni VS Code](#estensioni-vs-code)
+  - [Lavorare sul tema](#lavorare-sul-tema)
 
 ---
 
@@ -23,9 +26,11 @@ Grazie per prendere visione di questa `Guida alla scrittura`. Lo scopo della gui
 - Tutti i nomi di variabili, codici e testi tra parentesi graffe devono rimanere inalterati (preserva l'integrità del codice originale).
 - Non tradurre termini specifici di VueJS: Lasciare inalterati i termini tecnici specifici di VueJS, aggiungendo al massimo degli articoli se necessario (mantiene l'autenticità e l'integrità dei termini tecnici legati a VueJS).
 
-In caso di dubbi, consulta il `glossario` [In-Fase-Di-Aggiornamento]().
+In caso di dubbi, consulta il [Glossario condiviso](https://github.com/phox081/docs-it/discussions/79) `in fase di aggiornamento`.
 
 Se un termine ti crea problemi (perché è troppo ambiguo), apri una `discussione` sul Termine/Frase per prendere una decisione di comune accordo.
+
+[`torna al menu`](#menu)
 
 ---
 
@@ -86,6 +91,8 @@ Se il tuo lavoro è lungo, puoi utilizzare lo stato `draft` per segnalare che la
 Se sei un contributor, potrai procedere al merge della tua stessa PR.
 e se tutto ok potrai cancellare il tuo BR dal remote. Altrimenti, qualcuno se ne occuperà.
 
+[`torna al menu`](#menu)
+
 ---
 
 ## Diventare un Contributor della traduzione italiana
@@ -94,17 +101,7 @@ Essere un Contributor semplifica il processo e permette di evitare i fork lavora
 
 Per i contributor il canale Discord: [vue-doc-it-translation](https://discord.com/channels/486549696584876033/1135155463411998770)
 
----
-
-## Estensioni VS Code
-
-Utilizza le seguenti estensioni per evitare errori ortografici:
-
-- streetsidesoftware.code-spell-checker
-- streetsidesoftware.code-spell-checker-italian
-
-in VS code ricorda di configurare i settings di spell-checker, includendo `it`:
-> "cSpell.language": "en,it",
+[`torna al menu`](#menu)
 
 ---
 
@@ -122,5 +119,57 @@ Per creare un nuovo issue:
 Nell'issue appena creato, inserisci ulteriori informazioni/motivazione per la creazione.
 
 Continua con i [Passaggi](#passaggi).
+
+[`torna al menu`](#menu)
+
+---
+---
+
+## Il progetto in locale
+
+Indicazioni tecniche prese dal [README.md](README.md#vuejsorg) del progetto.
+
+Questo sito è costruito con [VitePress](https://github.com/vuejs/vitepress) e dipende da [@vue/theme](https://github.com/vuejs/vue-theme). Il contenuto del sito è scritto in formato Markdown e si trova in `src`. Per modifiche semplici, puoi modificare direttamente il file su GitHub e generare una Pull Request.
+
+Per lo sviluppo locale è preferibile utilizzare [pnpm](https://pnpm.io/) come gestore di pacchetti:
+
+```bash
+pnpm i
+pnpm run dev
+```
+
+Questo progetto richiede che Node.js sia alla versione `v14.0.0` o superiore, perché il codice utilizza nuove funzionalità di JavaScript, come l'optional chaining.
+
+[`torna al menu`](#menu)
+
+---
+
+### Lavorare sui contenuti
+
+- Consulta la documentazione di VitePress sulle [Estensioni Markdown supportate](https://vitepress.dev/guide/markdown) e la possibilità di [usare la sintassi Vue all'interno di markdown](https://vitepress.dev/guide/using-vue).
+
+- Consulta la [Guida alla Scrittura](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) per le regole e raccomandazioni sulla scrittura e manutenzione dei contenuti della documentazione.
+
+---
+
+### Estensioni VS Code
+
+Utilizza le seguenti estensioni per evitare errori ortografici:
+
+- streetsidesoftware.code-spell-checker
+- streetsidesoftware.code-spell-checker-italian
+
+in VS code ricorda di configurare i settings di spell-checker, includendo `it`:
+> "cSpell.language": "en,it",
+
+[`torna al menu`](#menu)
+
+---
+
+### Lavorare sul tema
+
+Se devi apportare modifiche al tema, consulta le [istruzioni per sviluppare il tema insieme alla documentazione](https://github.com/vuejs/vue-theme#developing-with-real-content).
+
+[`torna al menu`](#menu)
 
 ---
