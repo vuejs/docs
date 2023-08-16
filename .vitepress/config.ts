@@ -333,11 +333,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ],
   '/api/': [
     {
-      text: 'Global API',
+      text: 'API Globali',
       items: [
-        { text: 'Application', link: '/api/application' },
+        { text: 'Applicazione', link: '/api/application' },
         {
-          text: 'General',
+          text: 'Generale',
           link: '/api/general'
         }
       ]
@@ -347,19 +347,19 @@ export const sidebar: ThemeConfig['sidebar'] = {
       items: [
         { text: 'setup()', link: '/api/composition-api-setup' },
         {
-          text: 'Reactivity: Core',
+          text: 'Reactivity: Le Basi',
           link: '/api/reactivity-core'
         },
         {
-          text: 'Reactivity: Utilities',
+          text: 'Reactivity: Utilità',
           link: '/api/reactivity-utilities'
         },
         {
-          text: 'Reactivity: Advanced',
+          text: 'Reactivity: Uso Avanzato',
           link: '/api/reactivity-advanced'
         },
         {
-          text: 'Lifecycle Hooks',
+          text: 'Hook del Ciclo di Vita',
           link: '/api/composition-api-lifecycle'
         },
         {
@@ -371,115 +371,115 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Options API',
       items: [
-        { text: 'Options: State', link: '/api/options-state' },
+        { text: 'Options: Lo Stato', link: '/api/options-state' },
         { text: 'Options: Rendering', link: '/api/options-rendering' },
         {
-          text: 'Options: Lifecycle',
+          text: 'Options: Ciclo di Vita',
           link: '/api/options-lifecycle'
         },
         {
-          text: 'Options: Composition',
+          text: 'Options: Composizione',
           link: '/api/options-composition'
         },
-        { text: 'Options: Misc', link: '/api/options-misc' },
+        { text: 'Options: Varie', link: '/api/options-misc' },
         {
-          text: 'Component Instance',
+          text: 'Istanza del Componente',
           link: '/api/component-instance'
         }
       ]
     },
     {
-      text: 'Built-ins',
+      text: 'API Native',
       items: [
-        { text: 'Directives', link: '/api/built-in-directives' },
-        { text: 'Components', link: '/api/built-in-components' },
+        { text: 'Direttive', link: '/api/built-in-directives' },
+        { text: 'Componenti', link: '/api/built-in-components' },
         {
-          text: 'Special Elements',
+          text: 'Elementi Speciali',
           link: '/api/built-in-special-elements'
         },
         {
-          text: 'Special Attributes',
+          text: 'Attributi Speciali',
           link: '/api/built-in-special-attributes'
         }
       ]
     },
     {
-      text: 'Single-File Component',
+      text: 'Componente Single-File',
       items: [
-        { text: 'Syntax Specification', link: '/api/sfc-spec' },
+        { text: 'Specifiche della Sintassi', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
-        { text: 'CSS Features', link: '/api/sfc-css-features' }
+        { text: 'Funzionalità CSS', link: '/api/sfc-css-features' }
       ]
     },
     {
-      text: 'Advanced APIs',
+      text: 'API Avanzate',
       items: [
-        { text: 'Render Function', link: '/api/render-function' },
-        { text: 'Server-Side Rendering', link: '/api/ssr' },
-        { text: 'TypeScript Utility Types', link: '/api/utility-types' },
-        { text: 'Custom Renderer', link: '/api/custom-renderer' }
+        { text: 'Funzione di Rendering', link: '/api/render-function' },
+        { text: 'Rendering Server Side', link: '/api/ssr' },
+        { text: 'Tipi di Utility TypeScript', link: '/api/utility-types' },
+        { text: 'Renderer Personalizzato', link: '/api/custom-renderer' }
       ]
     }
   ],
   '/examples/': [
     {
-      text: 'Basic',
+      text: 'Base',
       items: [
         {
-          text: 'Hello World',
+          text: 'Ciao Mondo',
           link: '/examples/#hello-world'
         },
         {
-          text: 'Handling User Input',
+          text: 'Gestione dell\'Input dell\'Utente',
           link: '/examples/#handling-input'
         },
         {
-          text: 'Attribute Bindings',
+          text: 'Binding di Attributi',
           link: '/examples/#attribute-bindings'
         },
         {
-          text: 'Conditionals and Loops',
+          text: 'Op. Condizionali e Cicli',
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Form Bindings',
+          text: 'Binding di Form',
           link: '/examples/#form-bindings'
         },
         {
-          text: 'Simple Component',
+          text: 'Componente Semplice',
           link: '/examples/#simple-component'
         }
       ]
     },
     {
-      text: 'Practical',
+      text: 'Utili',
       items: [
         {
-          text: 'Markdown Editor',
+          text: 'Editor di Markdown',
           link: '/examples/#markdown'
         },
         {
-          text: 'Fetching Data',
+          text: 'Fetching di Dati',
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Grid with Sort and Filter',
+          text: 'Griglia con Ordinamento e Filtri',
           link: '/examples/#grid'
         },
         {
-          text: 'Tree View',
+          text: 'Visualizzazione ad Albero',
           link: '/examples/#tree'
         },
         {
-          text: 'SVG Graph',
+          text: 'Grafico SVG',
           link: '/examples/#svg'
         },
         {
-          text: 'Modal with Transitions',
+          text: 'Modale con Transizioni',
           link: '/examples/#modal'
         },
         {
-          text: 'List with Transitions',
+          text: 'Lista con Transizioni',
           link: '/examples/#list-transition'
         },
         {
@@ -493,15 +493,15 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: '7 GUIs',
       items: [
         {
-          text: 'Counter',
+          text: 'Contatore',
           link: '/examples/#counter'
         },
         {
-          text: 'Temperature Converter',
+          text: 'Convertitore di Temperatura',
           link: '/examples/#temperature-converter'
         },
         {
-          text: 'Flight Booker',
+          text: 'Prenotazione Volo',
           link: '/examples/#flight-booker'
         },
         {
@@ -517,7 +517,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Cells',
+          text: 'Celle',
           link: '/examples/#cells'
         }
       ]
@@ -528,23 +528,23 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: 'Style Guide',
       items: [
         {
-          text: 'Overview',
+          text: 'Panoramica',
           link: '/style-guide/'
         },
         {
-          text: 'A - Essential',
+          text: 'A - Essenziale',
           link: '/style-guide/rules-essential'
         },
         {
-          text: 'B - Strongly Recommended',
+          text: 'B - Fortemente Raccomandato',
           link: '/style-guide/rules-strongly-recommended'
         },
         {
-          text: 'C - Recommended',
+          text: 'C - Raccomandato',
           link: '/style-guide/rules-recommended'
         },
         {
-          text: 'D - Use with Caution',
+          text: 'D - Usare con Cautela',
           link: '/style-guide/rules-use-with-caution'
         }
       ]
