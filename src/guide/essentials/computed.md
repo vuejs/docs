@@ -259,6 +259,44 @@ Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `
 
 </div>
 
+## Computed with Parameters
+
+You can also create computed property that accepts an parameter and returns reactive value by returning a function instead of a value:
+
+<div class="options-api">
+
+```js{3-7}
+export default {
+  computed: {
+    double() {
+      return function (number) {
+        return number * 2
+      }
+    }
+  }
+}
+```
+
+[Try it in Playground](https://play.vuejs.org/#eNp9klFPwjAQx79K0ydRwkTeyCAq8oAPatTHvozugEHXLu0Vlyz77rYbLZgYkiXr3f/f6+/aa+hTVY2OFuiUpobrosI5k1BXSiPJYZNZgaRhkpA8w+xm0K8J0YBWyxARwpWVCHpK7od9qvW/tgu4KiuLkE+DPVd2LeBcLJbbWMmxUJLcSFuuQV84oqdXyC15CFJ3VDiRSfelSWzFBQhlJTIEFxGS7sbzRYBtmgBO2jZNnBQsLx2iR24C7sk5+GNdW0TH+8hFwQ8zRkO5WSx8R8aMzleSa8gMpEm/w+1OkwhGhxQNV3JTbEd7o6R7jK5xX6+sCgH6vfL3YhiNl8hoJoT6ee1yqC2cLt7t2QE//JPfm9rnGP3QYEAfgdGoYaa3gL28/HqD2q2jWKrcCue+In6CUcJ6xt72bGXusC98He2q9INVyO23WdYI0oSmPOh5Yhh1E7m40voZdzKahHen7S8xJOmI)
+
+</div>
+
+<div class="composition-api">
+
+```vue{4}
+<script setup>
+import { ref, computed } from 'vue'
+
+const double = computed(() => (num) => num * 2)
+</script>
+```
+
+[Try it in the Playground](https://play.vuejs.org/#eNp9Us1OwkAQfpXJXixKQORGSqMiBzyoUY97Ke0AhXZ3sz9I0vTdnd3aoonhtLPfz843m6nZg1Kjo0M2Y7HJdKEsGLROJVwUlZLaQg0aN0PIZKWcxRwa2GhZwRWZrrjgIpPCWKKdsKhh7tXR7aDDc+nWJRLc+aNoAPMEIuGqUNAJ13BHhnjcBqDWdLFYqTK1SDeAeDdJFm2HGdR1361p4jFRneQpNMuDpG0c/SgHf6RrZ60UcJ+VRXaYc3YO31U3MOEsWYlMY2owHrcOcsfjPhgbMmtoyk2xHe2NFPSFtX/ev1epokT9qmxBv8AZJfKM59KylF/PAbPa4bDDsx1mh3/wvTl5jLM3jQb1ETnrOZvqLdqWXn684Inqnqxk7kpSXyDf0cjS+Yyt7NGJnGL/0oW0q7AIhdh+muXJojDdUD6oVzZBzxmtxOLC6Oe409E0+LhoWPMNLL/V2w==)
+
+</div>
+
+Now you have a reactive value that auto updates when it's parameter gets updated.
+
 ## Best Practices {#best-practices}
 
 ### Getters should be side-effect free {#getters-should-be-side-effect-free}
