@@ -259,7 +259,7 @@ Se sei nuovo in Vue, in linea di massima, ecco la nostra raccomandazione:
 
  The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar. Non devi impegnarti a utilizzare un solo stile durante la fase di apprendimento. Il resto della documentazione fornirà esempi di codice in entrambi gli stili dove applicabile, e potrai passare da uno all'altro in qualsiasi momento utilizzando il **selettore di preferenza API**, presente nella parte superiore della barra laterale sinistra.
 
-## Hai ancora domande?? {#still-got-questions}
+## Hai ancora domande? {#still-got-questions}
 
 Consulta le nostre [FAQ](/about/faq).
 
