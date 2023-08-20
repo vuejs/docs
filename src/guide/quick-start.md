@@ -93,7 +93,7 @@ Il link sopra carica la _global build_ di Vue, dove tutte le API di livello supe
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        message: 'Ciao Vue!'
       }
     }
   }).mount('#app')
@@ -148,7 +148,7 @@ Nel resto della documentazione utilizzeremo principalmente la sintassi dei [modu
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        message: 'Ciao Vue!'
       }
     }
   }).mount('#app')
@@ -167,7 +167,7 @@ Nel resto della documentazione utilizzeremo principalmente la sintassi dei [modu
 
   createApp({
     setup() {
-      const message = ref('Hello Vue!')
+      const message = ref('Ciao Vue!')
       return {
         message
       }
@@ -220,7 +220,7 @@ Possiamo indicare al browser dove trovare l'import di `vue` usando le [Import Ma
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        message: 'Ciao Vue!'
       }
     }
   }).mount('#app')
@@ -249,7 +249,7 @@ Possiamo indicare al browser dove trovare l'import di `vue` usando le [Import Ma
 
   createApp({
     setup() {
-      const message = ref('Hello Vue!')
+      const message = ref('Ciao Vue!')
       return {
         message
       }
@@ -296,7 +296,7 @@ export default {
   data() {
     return { count: 0 }
   },
-  template: `<div>count is {{ count }}</div>`
+  template: `<div>il conteggio è {{ count }}</div>`
 }
 ```
 
@@ -311,7 +311,7 @@ export default {
     const count = ref(0)
     return { count }
   },
-  template: `<div>count is {{ count }}</div>`
+  template: `<div>il conteggio è {{ count }}</div>`
 }
 ```
 

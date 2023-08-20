@@ -64,7 +64,7 @@ createApp({
 ```vue-html
 <div id="app">
   <button @click="count++">
-    Count is: {{ count }}
+    Il conteggio è: {{ count }}
   </button>
 </div>
 ```
@@ -78,7 +78,7 @@ const count = ref(0)
 
 <div class="demo">
   <button @click="count++">
-    Count is: {{ count }}
+    Il conteggio è: {{ count }}
   </button>
 </div>
 
@@ -129,7 +129,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="count++">Il conteggio è: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -149,7 +149,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="count++">Il conteggio è: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -174,25 +174,25 @@ Con l'Options API definiamo la logica di un componente utilizzando un oggetto co
 ```vue
 <script>
 export default {
-  // Properties returned from data() become reactive state
-  // and will be exposed on `this`.
+  // Le proprietà restituite da data() diventano parte dello stato reattivo.
+  // e saranno esposte su `this`.
   data() {
     return {
       count: 0
     }
   },
 
-  // Methods are functions that mutate state and trigger updates.
-  // They can be bound as event handlers in templates.
+  // I metodi sono funzioni che modificano lo stato e innescano degli aggiornamenti.
+  // Possono essere usati come gestori di eventi nei template (tramite `v-on`).
   methods: {
     increment() {
       this.count++
     }
   },
 
-  // Lifecycle hooks are called at different stages
-  // of a component's lifecycle.
-  // This function will be called when the component is mounted.
+  // Gli hook del ciclo di vita vengono chiamati in diverse fasi
+  // del ciclo di vita di un componente.
+  // Questa funzione verrà chiamata quando il componente sarà montato.
   mounted() {
     console.log(`The initial count is ${this.count}.`)
   }
@@ -200,7 +200,7 @@ export default {
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Il conteggio è: {{ count }}</button>
 </template>
 ```
 
@@ -216,22 +216,22 @@ Ecco lo stesso componente, con lo stesso identico template, ma utilizzando la Co
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// reactive state
+// stato reattivo
 const count = ref(0)
 
-// functions that mutate state and trigger updates
+// funzioni che modificano lo stato e innescano l'aggiornamento
 function increment() {
   count.value++
 }
 
-// lifecycle hooks
+// hook del ciclo di vita
 onMounted(() => {
   console.log(`The initial count is ${count.value}.`)
 })
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Il conteggio è: {{ count }}</button>
 </template>
 ```
 

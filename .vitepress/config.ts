@@ -240,7 +240,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Scalabilità per progetti complessi',
       items: [
-        { text: 'I Componenti Single-File ', link: '/guide/scaling-up/sfc' },
+        { text: 'I Componenti Single-File', link: '/guide/scaling-up/sfc' },
         { text: 'Gli Strumenti per lo sviluppo', link: '/guide/scaling-up/tooling' },
         { text: 'Il Routing', link: '/guide/scaling-up/routing' },
         {
@@ -347,7 +347,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       items: [
         { text: 'setup()', link: '/api/composition-api-setup' },
         {
-          text: 'Reactivity: Le Basi',
+          text: 'Reactivity: Il Core',
           link: '/api/reactivity-core'
         },
         {
@@ -414,9 +414,9 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'API Avanzate',
       items: [
-        { text: 'Funzione di Rendering', link: '/api/render-function' },
+        { text: 'Render Function', link: '/api/render-function' },
         { text: 'Rendering Server Side', link: '/api/ssr' },
-        { text: 'Tipi di Utility TypeScript', link: '/api/utility-types' },
+        { text: 'Types delle Utility TypeScript', link: '/api/utility-types' },
         { text: 'Renderer Personalizzato', link: '/api/custom-renderer' }
       ]
     }
