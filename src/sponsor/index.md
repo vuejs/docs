@@ -9,7 +9,7 @@ sponsors: false
 import SponsorsGroup from '@theme/components/SponsorsGroup.vue'
 </script>
 
-# Become a Vue.js Sponsor {#become-a-vue-js-sponsor}
+# Diventa uno sponsor di Vue.js {#become-a-vue-js-sponsor}
 
 Vue.js è un progetto open source con licenza MIT ed il suo uso è completamente gratuito.
 Il notevole sforzo per mantenere un ecosistema così grande e sviluppare nuove funzionalità per il progetto è reso possibile solo grazie al generoso sostegno finanziario dei nostri sponsor.

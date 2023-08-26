@@ -1,14 +1,14 @@
-# Utility Types {#utility-types}
+# Types delle Utility.{#utility-types}
 
 :::info
-This page only lists a few commonly used utility types that may need explanation for their usage. For a full list of exported types, consult the [source code](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/index.ts#L131).
+Questa pagina elenca solo alcuni tipi di utilità comunemente utilizzati che potrebbero necessitare di spiegazioni per il loro utilizzo. Per una lista completa dei tipi esportati, consulta il [codice sorgente](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/index.ts#L131).
 :::
 
 ## PropType\<T> {#proptype-t}
 
-Used to annotate a prop with more advanced types when using runtime props declarations.
+Viene utilizzato per annotare una prop con tipi più avanzati quando si utilizzano dichiarazioni di prop runtime.
 
-- **Example**
+- **Esempio**
 
   ```ts
   import type { PropType } from 'vue'
@@ -22,7 +22,7 @@ Used to annotate a prop with more advanced types when using runtime props declar
   export default {
     props: {
       book: {
-        // provide more specific type to `Object`
+        // fornisce un type più specifico rispetto a `Object`
         type: Object as PropType<Book>,
         required: true
       }
@@ -30,27 +30,27 @@ Used to annotate a prop with more advanced types when using runtime props declar
   }
   ```
 
-- **See also** [Guide - Typing Component Props](/guide/typescript/options-api#typing-component-props)
+- **Guarda anche** [Guida - Tipizzare le Props dei Componenti](/guide/typescript/options-api#typing-component-props)
 
 ## MaybeRef\<T> {#mayberef}
 
-Alias for `T | Ref<T>`. Useful for annotating arguments of [Composables](/guide/reusability/composables.html).
+Alias per `T | Ref<T>`. Utile per annotare gli argomenti dei [Composables](/guide/reusability/composables.html).
 
-- Only supported in 3.3+.
+- Supportato solo dalla versione 3.3+.
 
 ## MaybeRefOrGetter\<T> {#maybereforgetter}
 
-Alias for `T | Ref<T> | (() => T)`. Useful for annotating arguments of [Composables](/guide/reusability/composables.html).
+Alias per `T | Ref<T> | (() => T)`. Utile per annotare gli argomenti dei [Composables](/guide/reusability/composables.html).
 
-- Only supported in 3.3+.
+- Supportato solo dalla versione 3.3+.
 
 ## ExtractPropTypes\<T> {#extractproptypes}
 
-Extract prop types from a runtime props options object. The extracted types are internal facing - i.e. the resolved props received by the component. This means boolean props and props with default values are always defined, even if they are not required.
+Estrae i type delle prop dall'oggetto delle opzioni delle prop a runtime. I tipi estratti sono interni - ovvero le props risolte ricevute dal componente. Ciò significa che le props booleane e le props con valori predefiniti sono sempre definite, anche se non sono richieste.
 
-To extract public facing props, i.e. props that the parent is allowed to pass, use [`ExtractPublicPropTypes`](#extractpublicproptypes).
+Per estrarre le props esterne, ovvero le props che il componente genitore è autorizzato a passare, utilizza [`ExtractPublicPropTypes`](#extractpublicproptypes).
 
-- **Example**
+- **Esempio**
 
   ```ts
   const propsOptions = {
@@ -77,9 +77,9 @@ To extract public facing props, i.e. props that the parent is allowed to pass, u
 
 ## ExtractPublicPropTypes\<T> {#extractpublicproptypes}
 
-Extract prop types from a runtime props options object. The extracted types are public facing - i.e. the props that the parent is allowed to pass.
+Estrae i type delle prop dall'oggetto delle opzioni delle prop a runtime. I tipi estratti sono rivolti all'esterno - ovvero le props che il componente genitore è autorizzato a passare.
 
-- **Example**
+- **Esempio**
 
   ```ts
   const propsOptions = {
@@ -106,9 +106,9 @@ Extract prop types from a runtime props options object. The extracted types are 
 
 ## ComponentCustomProperties {#componentcustomproperties}
 
-Used to augment the component instance type to support custom global properties.
+Viene utilizzato per estendere il type dell'istanza del componente al fine di supportare proprietà globali personalizzate.
 
-- **Example**
+- **Esempio**
 
   ```ts
   import axios from 'axios'
@@ -122,16 +122,16 @@ Used to augment the component instance type to support custom global properties.
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
+  Le estensioni devono essere inserite in un file di modulo `.ts` o `.d.ts`. Per ulteriori dettagli, consulta [Posizionamento delle Estensioni dei Type](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
-- **See also** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties)
+- **Guarda anche** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties)
 
 ## ComponentCustomOptions {#componentcustomoptions}
 
-Used to augment the component options type to support custom options.
+Viene utilizzata per estendere il type delle opzioni del componente al fine di supportare opzioni personalizzate.
 
-- **Example**
+- **Esempio**
 
   ```ts
   import { Route } from 'vue-router'
@@ -144,16 +144,16 @@ Used to augment the component options type to support custom options.
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
+  Le estensioni devono essere inserite in un file di modulo `.ts` o `.d.ts`. Per ulteriori dettagli, consulta [Posizionamento delle Estensioni dei Type](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
-- **See also** [Guide - Augmenting Custom Options](/guide/typescript/options-api#augmenting-custom-options)
+- **Guarda anche** [Guide - Augmenting Custom Options](/guide/typescript/options-api#augmenting-custom-options)
 
 ## ComponentCustomProps {#componentcustomprops}
 
-Used to augment allowed TSX props in order to use non-declared props on TSX elements.
+Viene utilizzata per estendere le proprietà consentite TSX al fine di utilizzare proprietà non dichiarate negli elementi TSX.
 
-- **Example**
+- **Esempio**
 
   ```ts
   declare module 'vue' {
@@ -166,21 +166,21 @@ Used to augment allowed TSX props in order to use non-declared props on TSX elem
   ```
 
   ```tsx
-  // now works even if hello is not a declared prop
+  // ora funziona anche se hello è una prop NON dichiarata
   <MyComponent hello="world" />
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
+  Le estensioni devono essere inserite in un file di modulo `.ts` o `.d.ts`. Per ulteriori dettagli, consulta [Posizionamento delle Estensioni dei Type](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
 ## CSSProperties {#cssproperties}
 
-Used to augment allowed values in style property bindings.
+Viene utilizzata per estendere i valori consentiti nei binding delle proprietà di stile.
 
-- **Example**
+- **Esempio**
 
-  Allow any custom CSS property
+  Permette qualsiasi proprietà CSS personalizzata.
 
   ```ts
   declare module 'vue' {
@@ -199,11 +199,11 @@ Used to augment allowed values in style property bindings.
   ```
 
 :::tip
-Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
-:::
+  Le estensioni devono essere inserite in un file di modulo `.ts` o `.d.ts`. Per ulteriori dettagli, consulta [Posizionamento delle Estensioni dei Type](/guide/typescript/options-api#augmenting-global-properties).
+  :::
 
-:::info See also
-SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function. This allows for custom properties without type augmentation.
+:::info Vedi anche
+I tag `<style>` dei SFC supportano il collegamento dei valori CSS allo stato dinamico del componente utilizzando la funzione CSS `v-bind`. Questo consente di utilizzare proprietà personalizzate senza estendere i type.
 
 - [v-bind() in CSS](/api/sfc-css-features#v-bind-in-css)
   :::
