@@ -1,16 +1,16 @@
-# Components Basics {#components-basics}
+# Komponenten Grundlagen {#components-basics}
 
-Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
+Komponenten ermöglichen es uns, die Benutzeroberfläche in unabhängige und wiederverwendbare Teile aufzuteilen und jedes Teil isoliert zu betrachten. Es ist üblich, dass eine Anwendung in einem Baum von verschachtelten Komponenten organisiert ist:
 
-![Component Tree](./images/components.png)
+![Komponentenbaum](./images/components.png)
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-This is very similar to how we nest native HTML elements, but Vue implements its own component model that allow us to encapsulate custom content and logic in each component. Vue also plays nicely with native Web Components. If you are curious about the relationship between Vue Components and native Web Components, [read more here](/guide/extras/web-components.html).
+Dies ist der Verschachtelung nativer HTML-Elemente sehr ähnlich, aber Vue implementiert sein eigenes Komponentenmodell, das es uns ermöglicht, benutzerdefinierte Inhalte und Logik in jeder Komponente zu kapseln. Vue spielt auch gut mit nativen Webkomponenten zusammen. Wenn Sie neugierig auf die Beziehung zwischen Vue-Komponenten und nativen Web-Komponenten sind, [lesen Sie hier mehr](/guide/extras/web-components.html).
 
-## Defining a Component {#defining-a-component}
+## Definieren einer Komponente {#defining-a-component}
 
-When using a build step, we typically define each Vue component in a dedicated file using the `.vue` extension - known as a [Single-File Component](/guide/scaling-up/sfc.html) (SFC for short):
+Wenn wir einen Build-Schritt verwenden, definieren wir normalerweise jede Vue-Komponente in einer eigenen Datei mit der Erweiterung `.vue` - bekannt als [Single-File Component](/guide/scaling-up/sfc.html) (Kurzbezeichnung SFC):
 
 <div class="options-api">
 
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <button @click="count++">Du hast mich {{ Anzahl }} Mal geklickt.</button>
 </template>
 ```
 
@@ -41,13 +41,13 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <button @click="count++">Du hast mich {{ Anzahl }} Mal geklickt.</button>
 </template>
 ```
 
 </div>
 
-When not using a build step, a Vue component can be defined as a plain JavaScript object containing Vue-specific options:
+Wenn kein Build-Schritt verwendet wird, kann eine Vue-Komponente als einfaches JavaScript-Objekt definiert werden, das Vue-spezifische Optionen enthält:
 
 <div class="options-api">
 
@@ -60,7 +60,7 @@ export default {
   },
   template: `
     <button @click="count++">
-      You clicked me {{ count }} times.
+      Du hast mich {{ Anzahl }} Mal geklickt.
     </button>`
 }
 ```
