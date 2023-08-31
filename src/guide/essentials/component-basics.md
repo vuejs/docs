@@ -86,17 +86,17 @@ export default {
 
 </div>
 
-The template is inlined as a JavaScript string here, which Vue will compile on the fly. You can also use an ID selector pointing to an element (usually native `<template>` elements) - Vue will use its content as the template source.
+Die Vorlage wird hier als JavaScript-String eingefügt, den Vue während der Ausführung kompiliert. Sie können auch einen ID-Selektor verwenden, der auf ein Element verweist (normalerweise native `<Template>`-Elemente) - Vue wird dessen Inhalt als Template-Quelle verwenden.
 
-The example above defines a single component and exports it as the default export of a `.js` file, but you can use named exports to export multiple components from the same file.
+Das obige Beispiel definiert eine einzelne Komponente und exportiert sie als Standard-Export einer `.js`-Datei, aber Sie können benannte Exporte verwenden, um mehrere Komponenten aus derselben Datei zu exportieren.
 
-## Using a Component {#using-a-component}
+## Verwendung einer Komponente {#using-a-component}
 
 :::tip
-We will be using SFC syntax for the rest of this guide - the concepts around components are the same regardless of whether you are using a build step or not. The [Examples](/examples/) section shows component usage in both scenarios.
+Wir werden für den Rest dieses Leitfadens die SFC-Syntax verwenden - die Konzepte rund um die Komponenten sind dieselben, unabhängig davon, ob Sie einen Build-Schritt verwenden oder nicht. Die [Beispiele](/examples/) zeigt die Verwendung der Komponenten in beiden Szenarien.
 :::
 
-To use a child component, we need to import it in the parent component. Assuming we placed our counter component inside a file called `ButtonCounter.vue`, the component will be exposed as the file's default export:
+Um eine untergeordnete Komponente zu verwenden, müssen wir sie in die übergeordnete Komponente importieren. Angenommen, wir haben unsere Zählerkomponente in einer Datei mit dem Namen "ButtonCounter.vue" platziert, wird die Komponente als Standard-Export der Datei angezeigt:
 
 <div class="options-api">
 
@@ -117,7 +117,7 @@ export default {
 </template>
 ```
 
-To expose the imported component to our template, we need to [register](/guide/components/registration.html) it with the `components` option. The component will then be available as a tag using the key it is registered under.
+Um die importierte Komponente für unsere Vorlage freizugeben, müssen wir [registrieren](/guide/components/registration.html) mit der Option `components`. Die Komponente ist dann als Tag mit dem Schlüssel, unter dem sie registriert ist, verfügbar.
 
 </div>
 
@@ -134,13 +134,13 @@ import ButtonCounter from './ButtonCounter.vue'
 </template>
 ```
 
-With `<script setup>`, imported components are automatically made available to the template.
+Mit `<script setup>` werden importierte Komponenten automatisch in der Vorlage verfügbar gemacht.
 
 </div>
 
-It's also possible to globally register a component, making it available to all components in a given app without having to import it. The pros and cons of global vs. local registration is discussed in the dedicated [Component Registration](/guide/components/registration.html) section.
+Es ist auch möglich, eine Komponente global zu registrieren, so dass sie für alle Komponenten in einer bestimmten Anwendung verfügbar ist, ohne dass sie importiert werden muss. Die Vor- und Nachteile der globalen gegenüber der lokalen Registrierung werden im Abschnitt [Komponentenregistrierung](/guide/components/registration.html) diskutiert.
 
-Components can be reused as many times as you want:
+Die Komponenten können beliebig oft wiederverwendet werden:
 
 ```vue-html
 <h1>Here are many child components!</h1>
@@ -151,20 +151,20 @@ Components can be reused as many times as you want:
 
 <div class="options-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG4gIFxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7XG4gICAgQnV0dG9uQ291bnRlclxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIGNvdW50OiAwXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Versuchen Sie es auf dem Spielplatz](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG4gIFxuZXhwb3J0IGRlZmF1bHQge1xuICBjb21wb25lbnRzOiB7XG4gICAgQnV0dG9uQ291bnRlclxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQ+XG5leHBvcnQgZGVmYXVsdCB7XG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIGNvdW50OiAwXG4gICAgfVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
 
 </div>
 <div class="composition-api">
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgeyByZWYgfSBmcm9tICd2dWUnXG5cbmNvbnN0IGNvdW50ID0gcmVmKDApXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Versuchen Sie es auf dem Spielplatz](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCBCdXR0b25Db3VudGVyIGZyb20gJy4vQnV0dG9uQ291bnRlci52dWUnXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8aDE+SGVyZSBhcmUgbWFueSBjaGlsZCBjb21wb25lbnRzITwvaDE+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG5cdDxCdXR0b25Db3VudGVyIC8+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJCdXR0b25Db3VudGVyLnZ1ZSI6IjxzY3JpcHQgc2V0dXA+XG5pbXBvcnQgeyByZWYgfSBmcm9tICd2dWUnXG5cbmNvbnN0IGNvdW50ID0gcmVmKDApXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImNvdW50KytcIj5cbiAgICBZb3UgY2xpY2tlZCBtZSB7eyBjb3VudCB9fSB0aW1lcy5cbiAgPC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
 
 </div>
 
-Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
+Beachten Sie, dass beim Anklicken der Schaltflächen jede ihre eigene, separate "Anzahl" beibehält. Das liegt daran, dass jedes Mal, wenn Sie eine Komponente verwenden, eine neue **Instanz** der Komponente erstellt wird.
 
-In SFCs, it's recommended to use `PascalCase` tag names for child components to differentiate from native HTML elements. Although native HTML tag names are case-insensitive, Vue SFC is a compiled format so we are able to use case-sensitive tag names in it. We are also able to use `/>` to close a tag.
+In SFCs wird empfohlen, Tag-Namen für untergeordnete Komponenten in PascalCase zu verwenden, um sie von nativen HTML-Elementen zu unterscheiden. Obwohl native HTML-Tag-Namen Groß- und Kleinschreibung nicht berücksichtigen, ist Vue SFC ein kompiliertes Format, so dass wir in der Lage sind, Tag-Namen mit Groß- und Kleinschreibung zu verwenden. Wir sind auch in der Lage, `/>` zu verwenden, um ein Tag zu schließen.
 
-If you are authoring your templates directly in a DOM (e.g. as the content of a native `<template>` element), the template will be subject to the browser's native HTML parsing behavior. In such cases, you will need to use `kebab-case` and explicit closing tags for components:
+Wenn Sie Ihre Templates direkt in einem DOM erstellen (z.B. als Inhalt eines nativen `<Template>`-Elements), wird das Template dem nativen HTML-Parsing-Verhalten des Browsers unterliegen. In solchen Fällen müssen Sie `kebab-case` und explizite schließende Tags für Komponenten verwenden:
 
 ```vue-html
 <!-- if this template is written in the DOM -->
@@ -173,7 +173,7 @@ If you are authoring your templates directly in a DOM (e.g. as the content of a 
 <button-counter></button-counter>
 ```
 
-See [DOM template parsing caveats](#dom-template-parsing-caveats) for more details.
+Siehe [DOM template parsing caveats](#dom-template-parsing-caveats) für weitere Details.
 
 ## Passing Props {#passing-props}
 
