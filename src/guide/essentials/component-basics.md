@@ -1,16 +1,16 @@
-# Komponenten Grundlagen {#components-basics}
+# Grundlagen zu Komponenten {#components-basics}
 
-Komponenten ermöglichen es uns, die Benutzeroberfläche in unabhängige und wiederverwendbare Teile aufzuteilen und jedes Teil isoliert zu betrachten. Es ist üblich, dass eine Anwendung in einem Baum von verschachtelten Komponenten organisiert ist:
+Komponenten ermöglichen es, das User Interface in unabhängige und wiederverwendbare Teile aufzuteilen und jedes einzelne Teil isoliert zu konzipieren. Üblicherweise wird eine Applikation als Baum verschachtelter Komponenten organisiert:
 
 ![Komponentenbaum](./images/components.png)
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-Dies ist der Verschachtelung nativer HTML-Elemente sehr ähnlich, aber Vue implementiert sein eigenes Komponentenmodell, das es uns ermöglicht, benutzerdefinierte Inhalte und Logik in jeder Komponente zu kapseln. Vue spielt auch gut mit nativen Webkomponenten zusammen. Wenn Sie neugierig auf die Beziehung zwischen Vue-Komponenten und nativen Web-Komponenten sind, [lesen Sie hier mehr](/guide/extras/web-components.html).
+Dies ist der Art, wie native HTML-Elemente ineinander verschachtelt werden, sehr ähnlich, wobei Vue sein eigenens Komponentenmodell nutzt. Dieses Modell ermöhlicht es, den Inhalt und die Funktionalität - also die Anwendungslogik - einer selbsterstellten Komponete zu kapseln. Vue harmoniert dabei gut mit nativen Komponenten (Web Components). Weiterführende Informationen zum Gemeinsamkeiten und Unterschieden von Komponenten in Vue und nativen Komponenten können Sie [hier](/guide/extras/web-components.html) finden.
 
-## Definieren einer Komponente {#defining-a-component}
+## Komponenten definieren {#defining-a-component}
 
-Wenn wir einen Build-Schritt verwenden, definieren wir normalerweise jede Vue-Komponente in einer eigenen Datei mit der Erweiterung `.vue` - bekannt als [Single-File Component](/guide/scaling-up/sfc.html) (Kurzbezeichnung SFC):
+Wird die Applikation mit einem Build Tool erstellt, definieren wir eine Vue-Komponente üblicherweise in einer eigenen Datei, die mit Dateiendung `.vue` gespeichert wird. Diese Komponente wird daher als [Single-File Component](/guide/scaling-up/sfc.html)  bezeichnet (oder oft auch als SFC abgekürzt):
 
 <div class="options-api">
 
@@ -47,7 +47,7 @@ const count = ref(0)
 
 </div>
 
-Wenn kein Build-Schritt verwendet wird, kann eine Vue-Komponente als einfaches JavaScript-Objekt definiert werden, das Vue-spezifische Optionen enthält:
+Wird kein Build Tool verwendet, kann eine Vue-Komponente als normales JavaScript-Objekt erstellt werden. Dieses Objekt enthält dabei einige Vue-spezifische Optionen:
 
 <div class="options-api">
 
@@ -86,14 +86,14 @@ export default {
 
 </div>
 
-Die Vorlage wird hier als JavaScript-String eingefügt, den Vue während der Ausführung kompiliert. Sie können auch einen ID-Selektor verwenden, der auf ein Element verweist (normalerweise native `<Template>`-Elemente) - Vue wird dessen Inhalt als Template-Quelle verwenden.
+Das Template ist hierbei ein Inline-JavaScript-String. Vue wird diesen String zu Laufzeit kompilieren. Es kann auch ein ID-Selektor verwendet werden, der auf ein DOM-Element verweist (üblicherweise das native `<template>` Element) - Vue nutzt dann dessen INhalt als Quelle für das Vue-Template.
 
-Das obige Beispiel definiert eine einzelne Komponente und exportiert sie als Standard-Export einer `.js`-Datei, aber Sie können benannte Exporte verwenden, um mehrere Komponenten aus derselben Datei zu exportieren.
+Das Beispiel definiert eine einzelne Komponente und exportiert diese als Standardexport in einer `.js`-Datei. Es können aber auch benannte Exporte verwendet werden, um mehrere Komponenten aus derselben Datei zu exportieren.
 
-## Verwendung einer Komponente {#using-a-component}
+## Komponenten nutzen {#using-a-component}
 
 :::tip
-Wir werden für den Rest dieses Leitfadens die SFC-Syntax verwenden - die Konzepte rund um die Komponenten sind dieselben, unabhängig davon, ob Sie einen Build-Schritt verwenden oder nicht. Die [Beispiele](/examples/) zeigt die Verwendung der Komponenten in beiden Szenarien.
+In der Dokumentation werden wir die SFC-Syntax verwenden. Die eingesetzen Konzepte sind unabhängig von der Nutzung eines Build-Tools identisch. Im Bereich [Beispiele](/examples/) finden sich Beispiele für die Nutzung von Komponenten in beiden Szenarien.
 :::
 
 Um eine untergeordnete Komponente zu verwenden, müssen wir sie in die übergeordnete Komponente importieren. Angenommen, wir haben unsere Zählerkomponente in einer Datei mit dem Namen "ButtonCounter.vue" platziert, wird die Komponente als Standard-Export der Datei angezeigt:
