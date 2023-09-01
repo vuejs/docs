@@ -186,45 +186,45 @@ Dies kann jedoch etwas umständlich sein, wenn Sie mehrere bedingte Klassen habe
 <div :class="[{ active: isActive }, errorClass]"></div>
 ```
 
-### With Components {#with-components}
+### Mit Komponenten {#with-components}
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> Dieser Abschnitt setzt Kenntnisse voraus über [Komponenten](/guide/essentials/component-basics). Sie können es auch überspringen und später wiederkommen.
 
-When you use the `class` attribute on a component with a single root element, those classes will be added to the component's root element, and merged with any existing class already on it.
+Wenn Sie das Attribut `class` für eine Komponente mit einem einzigen Wurzelelement verwenden, werden diese Klassen dem Wurzelelement der Komponente hinzugefügt und mit jeder bereits vorhandenen Klasse zusammengeführt.
 
-For example, if we have a component named `MyComponent` with the following template:
+Zum Beispiel, wenn wir eine Komponente mit dem Namen `MyComponent` mit der folgenden Vorlage haben:
 
 ```vue-html
 <!-- child component template -->
 <p class="foo bar">Hi!</p>
 ```
 
-Then add some classes when using it:
+Fügen Sie dann einige Klassen hinzu, wenn Sie sie verwenden:
 
 ```vue-html
 <!-- when using the component -->
 <MyComponent class="baz boo" />
 ```
 
-The rendered HTML will be:
+Das gerenderte HTML wird sein:
 
 ```vue-html
 <p class="foo bar baz boo">Hi</p>
 ```
 
-The same is true for class bindings:
+Das Gleiche gilt für Klassenbindungen:
 
 ```vue-html
 <MyComponent :class="{ active: isActive }" />
 ```
 
-When `isActive` is truthy, the rendered HTML will be:
+Wenn "isActive" wahrheitsgemäß ist, wird der gerenderte HTML-Code so aussehen:
 
 ```vue-html
 <p class="foo bar active">Hi</p>
 ```
 
-If your component has multiple root elements, you would need to define which element will receive this class. You can do this using the `$attrs` component property:
+Wenn Ihre Komponente mehrere Wurzelelemente hat, müssen Sie festlegen, welches Element diese Klasse erhalten soll. Sie können dies mit der Komponenteneigenschaft `$attrs` tun:
 
 ```vue-html
 <!-- MyComponent template using $attrs -->
@@ -236,20 +236,20 @@ If your component has multiple root elements, you would need to define which ele
 <MyComponent class="baz" />
 ```
 
-Will render:
+Wird gerendert:
 
 ```html
-<p class="baz">Hi!</p>
-<span>This is a child component</span>
+<p class="baz">Hallo!</p>
+<span>Dies ist eine untergeordnete Komponente</span>
 ```
 
-You can learn more about component attribute inheritance in [Fallthrough Attributes](/guide/components/attrs.html) section.
+Weitere Informationen über die Vererbung von Komponentenattributen finden Sie unter  [Fallthrough-Attribute](/guide/components/attrs.html) Abschnitt.
 
-## Binding Inline Styles {#binding-inline-styles}
+## Binden von Inline-Styles {#binding-inline-styles}
 
-### Binding to Objects
+### Bindung an Objekte
 
-`:style` supports binding to JavaScript object values - it corresponds to an [HTML element's `style` property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
+`:style` unterstützt die Bindung an JavaScript-Objektwerte - es entspricht einer [HTML-Element-Eigenschaft `style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
 
 <div class="composition-api">
 
@@ -277,13 +277,13 @@ data() {
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
 
-Although camelCase keys are recommended, `:style` also supports kebab-cased CSS property keys (corresponds to how they are used in actual CSS) - for example:
+Obwohl camelCase-Schlüssel empfohlen werden, unterstützt `:style` auch CSS-Eigenschaftsschlüssel in Großbuchstaben (wie sie in CSS verwendet werden) - zum Beispiel:
 
 ```vue-html
 <div :style="{ 'font-size': fontSize + 'px' }"></div>
 ```
 
-It is often a good idea to bind to a style object directly so that the template is cleaner:
+Oft ist es eine gute Idee, direkt an ein Stilobjekt zu binden, damit die Vorlage übersichtlicher ist:
 
 <div class="composition-api">
 
@@ -315,26 +315,26 @@ data() {
 <div :style="styleObject"></div>
 ```
 
-Again, object style binding is often used in conjunction with computed properties that return objects.
+Auch hier wird die Bindung im Objektstil häufig in Verbindung mit berechneten Eigenschaften verwendet, die Objekte zurückgeben.
 
-### Binding to Arrays
+### Bindung an Arrays
 
-We can bind `:style` to an array of multiple style objects. These objects will be merged and applied to the same element:
+Wir können `:style` an ein Array von mehreren Style-Objekten binden. Diese Objekte werden zusammengeführt und auf dasselbe Element angewendet:
 
 ```vue-html
 <div :style="[baseStyles, overridingStyles]"></div>
 ```
 
-### Auto-prefixing {#auto-prefixing}
+### Automatisches Voranstellen {#auto-prefixing}
 
-When you use a CSS property that requires a [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, Vue will automatically add the appropriate prefix. Vue does this by checking at runtime to see which style properties are supported in the current browser. If the browser doesn't support a particular property then various prefixed variants will be tested to try to find one that is supported.
+Wenn Sie eine CSS-Eigenschaft verwenden, für die ein [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, wird Vue automatisch das entsprechende Präfix hinzufügen. Vue macht dies, indem es zur Laufzeit überprüft, welche Style-Eigenschaften im aktuellen Browser unterstützt werden. Wenn der Browser eine bestimmte Eigenschaft nicht unterstützt, dann werden verschiedene präfixierte Varianten getestet, um eine zu finden, die unterstützt wird.
 
-### Multiple Values {#multiple-values}
+### Mehrere Werte {#multiple-values}
 
-You can provide an array of multiple (prefixed) values to a style property, for example:
+Sie können zum Beispiel einer Stileigenschaft ein Array mit mehreren (vorangestellten) Werten zuweisen:
 
 ```vue-html
 <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
-This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
+Dadurch wird nur der letzte Wert im Array wiedergegeben, den der Browser unterstützt. In diesem Beispiel wird `display: flex` für Browser dargestellt, die die unpräfixierte Version von flexbox unterstützen.
