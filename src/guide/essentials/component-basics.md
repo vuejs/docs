@@ -196,7 +196,7 @@ export default {
 </template>
 ```
 
-When a value is passed to a prop attribute, it becomes a property on that component instance. The value of that property is accessible within the template and on the component's `this` context, just like any other component property.
+Wenn ein Wert an ein prop-Attribut übergeben wird, wird er zu einer Eigenschaft dieser Komponenteninstanz. Auf den Wert dieser Eigenschaft kann innerhalb der Vorlage und im Kontext "this" der Komponente zugegriffen werden, genau wie auf jede andere Komponenteneigenschaft.
 
 </div>
 <div class="composition-api">
