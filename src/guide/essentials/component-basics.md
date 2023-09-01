@@ -175,11 +175,11 @@ Wenn Sie Ihre Templates direkt in einem DOM erstellen (z.B. als Inhalt eines nat
 
 Siehe [DOM template parsing caveats](#dom-template-parsing-caveats) für weitere Details.
 
-## Passing Props {#passing-props}
+## Passende Requisiten {#passing-props}
 
-If we are building a blog, we will likely need a component representing a blog post. We want all the blog posts to share the same visual layout, but with different content. Such a component won't be useful unless you can pass data to it, such as the title and content of the specific post we want to display. That's where props come in.
+Wenn wir einen Blog erstellen, benötigen wir wahrscheinlich eine Komponente, die einen Blogbeitrag darstellt. Wir möchten, dass alle Blogeinträge das gleiche visuelle Layout haben, aber mit unterschiedlichem Inhalt. Eine solche Komponente ist nur dann nützlich, wenn Sie ihr Daten übergeben können, z. B. den Titel und den Inhalt des bestimmten Beitrags, den wir anzeigen möchten. An dieser Stelle kommen Props ins Spiel.
 
-Props are custom attributes you can register on a component. To pass a title to our blog post component, we must declare it in the list of props this component accepts, using the <span class="options-api">[`props`](/api/options-state.html#props) option</span><span class="composition-api">[`defineProps`](/api/sfc-script-setup.html#defineprops-defineemits) macro</span>:
+Props sind benutzerdefinierte Attribute, die Sie für eine Komponente registrieren können. Um einen Titel an unsere Blogpost-Komponente zu übergeben, müssen wir ihn in der Liste der Requisiten, die diese Komponente akzeptiert, deklarieren, indem wir die <span class="options-api">[`props`](/api/options-state.html#props) Option</span><span class="composition-api">[`defineProps`](/api/sfc-script-setup.html#defineprops-defineemits) Makro</span>:
 
 <div class="options-api">
 
