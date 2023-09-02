@@ -196,7 +196,7 @@ export default {
 </template>
 ```
 
-When a value is passed to a prop attribute, it becomes a property on that component instance. The value of that property is accessible within the template and on the component's `this` context, just like any other component property.
+Wenn ein Wert an ein prop-Attribut übergeben wird, wird er zu einer Eigenschaft dieser Komponenteninstanz. Auf den Wert dieser Eigenschaft kann innerhalb der Vorlage und im Kontext "this" der Komponente zugegriffen werden, genau wie auf jede andere Komponenteneigenschaft.
 
 </div>
 <div class="composition-api">
@@ -212,7 +212,7 @@ defineProps(['title'])
 </template>
 ```
 
-`defineProps` is a compile-time macro that is only available inside `<script setup>` and does not need to be explicitly imported. Declared props are automatically exposed to the template. `defineProps` also returns an object that contains all the props passed to the component, so that we can access them in JavaScript if needed:
+`defineProps` ist ein Makro zur Kompilierzeit, das nur innerhalb von `<script setup>` verfügbar ist und nicht explizit importiert werden muss. Deklarierte Requisiten werden automatisch in der Vorlage angezeigt. `defineProps` gibt auch ein Objekt zurück, das alle an die Komponente übergebenen Requisiten enthält, so dass wir bei Bedarf in JavaScript darauf zugreifen können:
 
 ```js
 const props = defineProps(['title'])
