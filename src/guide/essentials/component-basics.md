@@ -221,7 +221,7 @@ console.log(props.title)
 
 Siehe auch: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
 
-If you are not using `<script setup>`, props should be declared using the `props` option, and the props object will be passed to `setup()` as the first argument:
+Wenn Sie nicht `<script setup>` verwenden, sollten props mit der Option `props` deklariert werden, und das props-Objekt wird an `setup()` als erstes Argument übergeben:
 
 ```js
 export default {
