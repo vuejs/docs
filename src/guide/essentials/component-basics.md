@@ -234,9 +234,9 @@ export default {
 
 </div>
 
-A component can have as many props as you like and, by default, any value can be passed to any prop.
+Eine Komponente kann so viele Requisiten haben, wie Sie möchten, und standardmäßig kann jeder Wert an jede Requisite übergeben werden.
 
-Once a prop is registered, you can pass data to it as a custom attribute, like this:
+Sobald eine Requisite registriert ist, können Sie ihr Daten als benutzerdefiniertes Attribut übergeben, etwa so:
 
 ```vue-html
 <BlogPost title="My journey with Vue" />
