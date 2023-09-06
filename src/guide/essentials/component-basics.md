@@ -244,7 +244,7 @@ Sobald eine Requisite registriert ist, können Sie ihr Daten als benutzerdefinie
 <BlogPost title="Why Vue is so fun" />
 ```
 
-In a typical app, however, you'll likely have an array of posts in your parent component:
+In einer typischen Anwendung werden Sie jedoch wahrscheinlich ein Array von Beiträgen in Ihrer übergeordneten Komponente haben:
 
 <div class="options-api">
 
