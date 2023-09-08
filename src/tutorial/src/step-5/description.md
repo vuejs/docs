@@ -1,6 +1,6 @@
-# Form Bindings {#form-bindings}
+# Bindings Dei Form {#form-bindings}
 
-Using `v-bind` and `v-on` together, we can create two-way bindings on form input elements:
+Utilizzando `v-bind` e `v-on`insieme, possiamo creare binding bidirezionali sugli elementi di input di un form:
 
 ```vue-html
 <input :value="text" @input="onInput">
@@ -11,8 +11,8 @@ Using `v-bind` and `v-on` together, we can create two-way bindings on form input
 ```js
 methods: {
   onInput(e) {
-    // a v-on handler receives the native DOM event
-    // as the argument.
+    // un v-on handler riceve l'evento DOM nativo
+    // come argomento.
     this.text = e.target.value
   }
 }
@@ -24,24 +24,24 @@ methods: {
 
 ```js
 function onInput(e) {
-  // a v-on handler receives the native DOM event
-  // as the argument.
+  // un v-on handler riceve l'evento DOM nativo
+  // come argomento.
   text.value = e.target.value
 }
 ```
 
 </div>
 
-Try typing in the input box - you should see the text in `<p>` updating as you type.
+Prova a digitare nell'input box - dovresti vedere il testo nel tag `<p>` aggiornarsi mentre digiti.
 
-To simplify two-way bindings, Vue provides a directive, `v-model`, which is essentially a syntax sugar for the above:
+Per semplificare il binding bidirezionale, Vue fornisce una direttiva chiamata `v-model`, che essenzialmente è una sintassi semplificata per quanto sopra:
 
 ```vue-html
 <input v-model="text">
 ```
 
-`v-model` automatically syncs the `<input>`'s value with the bound state, so we no longer need to use an event handler for that.
+`v-model` sincronizza automaticamente il valore dell'elemento `<input>` con lo stato associato, quindi non è più necessario utilizzare un handler degli eventi per questo.
 
-`v-model` works not only on text inputs, but also on other input types such as checkboxes, radio buttons, and select dropdowns. We cover more details in <a target="_blank" href="/guide/essentials/forms.html">Guide - Form Bindings</a>.
+`v-model` funziona non solo su input di tipo testuali, ma anche su altri tipi di input come checkboxes, pulsanti radio (radio buttons) e menu a discesa (select dropdowns). Per ulteriori dettagli, consulta la <a target="_blank" href="/guide/essentials/forms.html">Guida - Binding di Form</a>.
 
-Now, try to refactor the code to use `v-model` instead.
+Ora, prova a fare il refactor del codice utilizzando `v-model`.
