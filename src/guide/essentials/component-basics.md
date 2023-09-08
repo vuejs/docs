@@ -276,7 +276,7 @@ const posts = ref([
 
 </div>
 
-Then want to render a component for each one, using `v-for`:
+Dann wollen Sie eine Komponente für jede, mit `v-for` zu rendern:
 
 ```vue-html
 <BlogPost
