@@ -37,16 +37,17 @@ shuffleMembers(membersPartnerData as Member[])
   <div class="TeamPage">
     <TeamHero>
       <template #title>Lernen Sie das Team kennen</template>
-      <template #lead
-        >Die Entwicklung von Vue und seinem Ökosystem wird von einem
-        internationalen Team geleitet, , von dem einige
+      <template #lead>
+        Die Entwicklung von Vue und seinem Ökosystem wird von einem
+        internationalen Team geleitet, von dem einige
         <span class="nowrap">im Folgenden vorgestellt</span> werden sollen.
       </template>
 
       <template #action>
         <VTLink
           href="https://github.com/vuejs/governance/blob/master/Team-Charter.md"
-          >Erfahren Sie mehr über Teams
+        >
+          Erfahren Sie mehr über Teams
         </VTLink>
       </template>
     </TeamHero>
