@@ -36,47 +36,47 @@ shuffleMembers(membersPartnerData as Member[])
 <template>
   <div class="TeamPage">
     <TeamHero>
-      <template #title>Meet the Team</template>
+      <template #title>Lernen Sie das Team kennen</template>
       <template #lead
-        >The development of Vue and its ecosystem is guided by an international
-        team, some of whom have chosen to be
-        <span class="nowrap">featured below.</span></template
-      >
+        >Die Entwicklung von Vue und seinem Ökosystem wird von einem
+        internationalen Team geleitet, , von dem einige
+        <span class="nowrap">im Folgenden vorgestellt</span> werden sollen.
+      </template>
 
       <template #action>
         <VTLink
           href="https://github.com/vuejs/governance/blob/master/Team-Charter.md"
-          >Learn more about teams</VTLink
-        >
+          >Erfahren Sie mehr über Teams
+        </VTLink>
       </template>
     </TeamHero>
 
     <TeamList :members="membersCoreData as Member[]">
-      <template #title>Core Team Members</template>
+      <template #title>Mitglieder des Kernteams</template>
       <template #lead
-        >Core team members are those who are actively involved in the
-        maintenance of one or more core projects. They have made significant
-        contributions to the Vue ecosystem, with a long term commitment to the
-        success of the project and its users.</template
-      >
+        >Mitglieder des Kernteams sind diejenigen, die sich aktiv an der an
+        der Betreuung eines oder mehrerer Kernprojekte beteiligt sind. Sie
+        haben Beiträge zum Vue-Ökosystem geleistet, mit einem langfristigen
+        dem Erfolg des Projekts und seiner Benutzer verpflichtet.
+      </template>
     </TeamList>
 
     <TeamList :members="membersEmeritiData as Member[]">
-      <template #title>Core Team Emeriti</template>
-      <template #lead
-        >Here we honor some no-longer-active core team members who have made
-        valuable contributions in the past.</template
-      >
+      <template #title>Ehemalige Mitglieder des Kernteams</template>
+      <template #lead>
+        Hier ehren wir einige nicht mehr aktive Mitglieder des Kernteams,
+        die die in der Vergangenheit wertvolle Beiträge geleistet haben.
+      </template>
     </TeamList>
 
     <TeamList :members="membersPartnerData as Member[]">
-      <template #title>Community Partners</template>
-      <template #lead
-        >Some members of the Vue community have so enriched it, that they
-        deserve special mention. We've developed a more intimate relationship
-        with these key partners, often coordinating with them on upcoming
-        features and news.</template
-      >
+      <template #title>Community Partner</template>
+      <template #lead>
+        Einige Mitglieder der Vue-Community haben sie so bereichert, dass
+        sie eine besondere Erwähnung verdienen. Wir haben eine engere
+        Beziehung Beziehung zu diesen wichtigen Partnern entwickelt und
+        stimmen uns oft mit ihnen über kommende Funktionen und Neuigkeiten.
+      </template>
     </TeamList>
   </div>
 </template>
