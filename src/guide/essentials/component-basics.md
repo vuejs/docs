@@ -299,7 +299,7 @@ Dann wollen Sie eine Komponente für jede, mit `v-for` zu rendern:
 
 Beachten Sie, wie `v-bind` verwendet wird, um dynamische Prop-Werte zu übergeben. Dies ist besonders nützlich, wenn Sie den genauen Inhalt, den Sie rendern werden, nicht im Voraus kennen.
 
-That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](/guide/components/props.html).
+Das ist alles, was Sie im Moment über Requisiten wissen müssen. Wenn Sie diese Seite gelesen haben und mit ihrem Inhalt vertraut sind, empfehlen wir Ihnen, später wiederzukommen, um den vollständigen Leitfaden zu [Props](/guide/components/props.html) zu lesen.
 
 ## Listening to Events {#listening-to-events}
 
