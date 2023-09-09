@@ -1,4 +1,4 @@
-// give each todo a unique id
+// assegna un ID univoco a ciascun todo
 let id = 0
 
 export default {
