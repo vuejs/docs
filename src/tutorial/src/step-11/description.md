@@ -1,8 +1,8 @@
-# Components {#components}
+# Componenti {#components}
 
-So far, we've only been working with a single component. Real Vue applications are typically created with nested components.
+Fino a questo momento, abbiamo lavorato con un solo componente. Le applicazioni Vue reali di solito sono create utilizzando componenti annidati.
 
-A parent component can render another component in its template as a child component. To use a child component, we need to first import it:
+Un componente padre può renderizzare un altro componete all'interno del suo template come componente figlio. Per usare un componente figlio, occorre prima importarlo:
 
 <div class="composition-api">
 <div class="sfc">
@@ -27,14 +27,14 @@ export default {
 }
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+Abbiamo anche bisogno di registrare il componente usando l'opzione `components`. Qui stiamo usando la notazione degli oggetti per registrare il componente `ChildComp` con la chiave `ChildComp`. 
 
 </div>
 </div>
 
 <div class="sfc">
 
-Then, we can use the component in the template as:
+Quindi, possiamo usare il componente all'interno del template come:
 
 ```vue-html
 <ChildComp />
@@ -54,9 +54,9 @@ createApp({
 })
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+Abbiamo anche bisogno di registrare il componente usando l'opzione `components`. Qui stiamo usando la notazione degli oggetti per registrare il componente `ChildComp` con la chiave `ChildComp`.
 
-Because we are writing the template in the DOM, it will be subject to browser's parsing rules, which is case-insensitive for tag names. Therefore, we need to use the kebab-cased name to reference the child component:
+Dato che stiamo scrivendo il template all'interno del DOM, esso sarà soggetto alle regole di parsing del browser, che è case-insensitive per i nomi dei tag. Di conseguenza, è necessario usare il kebab-case per fare riferimento al componente figlio:
 
 ```vue-html
 <child-comp></child-comp>
@@ -65,4 +65,4 @@ Because we are writing the template in the DOM, it will be subject to browser's 
 </div>
 
 
-Now try it yourself - import the child component and render it in the template.
+Prova adesso a importare il componente figlio e a renderizzarlo nel template.
