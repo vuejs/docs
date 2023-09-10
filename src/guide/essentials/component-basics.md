@@ -303,7 +303,7 @@ Das ist alles, was Sie im Moment über Requisiten wissen müssen. Wenn Sie diese
 
 ## Anhören von Veranstaltungen {#listening-to-events}
 
-As we develop our `<BlogPost>` component, some features may require communicating back up to the parent. For example, we may decide to include an accessibility feature to enlarge the text of blog posts, while leaving the rest of the page at its default size.
+Bei der Entwicklung unserer `<BlogPost>`-Komponente kann es erforderlich sein, dass einige Funktionen mit der übergeordneten Komponente rückgekoppelt werden müssen. Wir könnten zum Beispiel beschließen, eine Funktion für die Barrierefreiheit einzubauen, um den Text von Blogeinträgen zu vergrößern, während der Rest der Seite in seiner Standardgröße bleibt.
 
 In the parent, we can support this feature by adding a `postFontSize` <span class="options-api">data property</span><span class="composition-api">ref</span>:
 
