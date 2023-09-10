@@ -301,7 +301,7 @@ Beachten Sie, wie `v-bind` verwendet wird, um dynamische Prop-Werte zu übergebe
 
 Das ist alles, was Sie im Moment über Requisiten wissen müssen. Wenn Sie diese Seite gelesen haben und mit ihrem Inhalt vertraut sind, empfehlen wir Ihnen, später wiederzukommen, um den vollständigen Leitfaden zu [Props](/guide/components/props.html) zu lesen.
 
-## Listening to Events {#listening-to-events}
+## Anhören von Veranstaltungen {#listening-to-events}
 
 As we develop our `<BlogPost>` component, some features may require communicating back up to the parent. For example, we may decide to include an accessibility feature to enlarge the text of blog posts, while leaving the rest of the page at its default size.
 
