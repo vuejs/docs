@@ -305,7 +305,7 @@ Das ist alles, was Sie im Moment über Requisiten wissen müssen. Wenn Sie diese
 
 Bei der Entwicklung unserer `<BlogPost>`-Komponente kann es erforderlich sein, dass einige Funktionen mit der übergeordneten Komponente rückgekoppelt werden müssen. Wir könnten zum Beispiel beschließen, eine Funktion für die Barrierefreiheit einzubauen, um den Text von Blogeinträgen zu vergrößern, während der Rest der Seite in seiner Standardgröße bleibt.
 
-In the parent, we can support this feature by adding a `postFontSize` <span class="options-api">data property</span><span class="composition-api">ref</span>:
+Im Elternteil können wir diese Funktion unterstützen, indem wir eine `postFontSize` <span class="options-api">data property</span><span class="composition-api">ref</span>:
 
 <div class="options-api">
 
