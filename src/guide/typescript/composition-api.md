@@ -397,3 +397,18 @@ import type { ComponentPublicInstance } from 'vue'
 
 const child = ref<ComponentPublicInstance | null>(null)
 ```
+
+If `MyModal` is a generic component, you should use `ComponentExposed` from the `vue-component-type-helpers` package instead of TypeScript's built-in `InstanceType` utility:
+
+```ts
+<script setup lang="ts">
+import MyModal from './MyModal.vue'
+import type { ComponentExposed } from 'vue-component-type-helpers'
+
+const modal = ref<ComponentExposed<typeof MyModal> | null>(null)
+
+const openModal = () => {
+  modal.value?.open()
+}
+</script>
+```
