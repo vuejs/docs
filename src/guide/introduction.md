@@ -202,9 +202,49 @@ export default {
 <template>
   <button @click="increment">Count is: {{ count }}</button>
 </template>
-```
 
+``` vue
+``` 
+<template>
+  <div>
+    <h1>{{ message }}</h1>
+    <button @click="changeMessage">Change Message</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: 'Hello, Vue!'
+    };
+  },
+  methods: {
+    changeMessage() {
+      this.message = 'Message changed!';
+    }
+  }
+};
+</script>
+
+<style scoped>
+h1 {
+  color: #42b883;
+}
+button {
+  background-color: ... ... lightblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
+
+```
 [Try it in the Playground](https://play.vuejs.org/#eNptkMFqxCAQhl9lkB522ZL0HNKlpa/Qo4e1ZpLIGhUdl5bgu9es2eSyIMio833zO7NP56pbRNawNkivHJ25wV9nPUGHvYiaYOYGoK7Bo5CkbgiBBOFy2AkSh2N5APmeojePCkDaaKiBt1KnZUuv3Ky0PppMsyYAjYJgigu0oEGYDsirYUAP0WULhqVrQhptF5qHQhnpcUJD+wyQaSpUd/Xp9NysVY/yT2qE0dprIS/vsds5Mg9mNVbaDofL94jZpUgJXUKBCvAy76ZUXY53CTd5tfX2k7kgnJzOCXIF0P5EImvgQ2olr++cbRE4O3+t6JxvXj0ptXVpye1tvbFY+ge/NJZt)
+[Try it in the Playground]([https://play.vuejs.org/#eNptkMFqxCAQhl9lkB522ZL0HNKlpa/Qo4e1ZpLIGhUdl5bgu9es2eSyIMio833zO7NP56pbRNawNkivHJ25wV9nPUGHvYiaYOYGoK7Bo5CkbgiBBOFy2AkSh2N5APmeojePCkDaaKiBt1KnZUuv3Ky0PppMsyYAjYJgigu0oEGYDsirYUAP0WULhqVrQhptF5qHQhnpcUJD+wyQaSpUd/Xp9NysVY/yT2qE0dprIS/vsds5Mg9mNVbaDofL94jZpUgJXUKBCvAy76ZUXY53CTd5tfX2k7kgnJzOCXIF0P5EImvgQ2olr++cbRE4O3+t6JxvXj0ptXVpye1tvbFY+ge/NJZt](https://play.vuejs.org/#eNp9U01v2zAM/SuqLtmAzFnWW+YG24oC24B9YBt28sWxWFuNLAkSlXoI/N9HSbbTAUMPlinyPfKRps/8vbXFKQDf8RKht6pG2FeasVLIUzLI7Lb785n14H3dAhvHckOeKXYIiEazd42SzfGm4k1X6xa+ZGzF97fpziZHucn4XGKTa5SbJ5Xp6hsnLZINgzUOmYD7Oihk50gSNdYvXmabMQcYnJ5vbNa4Y6uPoJRZs98BrlY5Or6N73Edzx6wM8LvZuY/qi/pGcNO+mLu/IatJshEEFerlJTSptyVjkXKzdJB7Ab/KGC+MRYEebptTt4YZdyOHVQAohBzGmQKHurm2DoTtHg14YqiSI+SbYcTaUny2EnMDlsLIXW7Y9vXdmBv6Ejug3ECCKiNnojB+ci0RmoElxWQ7qiVRPI1R1Ks72VbPHijaTuSLvq8prdSgftmURrtK76MsOI1Tfzxc/KhC5AGnTgdNMf/+B/8EH0V/+7AgzvRuiwxrF0LmMN3P7/CQPYS7I0IitDPBH+ANypEjRn2gWZJsp/gktpPfdwwmtgvfzcgaD83FYVe1qXi9IvcPtP6Re51cT2vAh//AvyHHN8=))
+
 
 ### Composition API {#composition-api}
 
@@ -281,3 +321,5 @@ Different developers have different learning styles. Feel free to pick a learnin
     <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
   </a>
 </div>
+
+
