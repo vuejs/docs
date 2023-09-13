@@ -422,7 +422,7 @@ Sie dokumentiert alle Ereignisse, die eine Komponente auslöst und [validiert si
 
 <div class="composition-api">
 
-Similar to `defineProps`, `defineEmits` is only usable in `<script setup>` and doesn't need to be imported. It returns an `emit` function that is equivalent to the `$emit` method. It can be used to emit events in the `<script setup>` section of a component, where `$emit` isn't directly accessible:
+Ähnlich wie `defineProps` ist `defineEmits` nur in `<script setup>` verwendbar und muss nicht importiert werden. Es gibt eine `emit` Funktion zurück, die äquivalent zur `$emit` Methode ist. Sie kann verwendet werden, um Ereignisse im `<script setup>` Abschnitt einer Komponente auszulösen, wo `$emit` nicht direkt zugänglich ist:
 
 ```vue
 <script setup>
