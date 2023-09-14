@@ -432,9 +432,9 @@ emit('enlarge-text')
 </script>
 ```
 
-See also: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+Siehe auch: [Typing Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
 
-If you are not using `<script setup>`, you can declare emitted events using the `emits` option. You can access the `emit` function as a property of the setup context (passed to `setup()` as the second argument):
+Wenn Sie nicht `<script setup>` verwenden, können Sie emittierte Ereignisse mit der Option `emits` deklarieren. Sie können auf die Funktion `emit` als Eigenschaft des Setup-Kontextes zugreifen (der als zweites Argument an `setup()` übergeben wird):
 
 ```js
 export default {
@@ -447,11 +447,11 @@ export default {
 
 </div>
 
-That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](/guide/components/events).
+Das ist alles, was Sie im Moment über benutzerdefinierte Komponentenereignisse wissen müssen. Wenn Sie diese Seite gelesen haben und mit dem Inhalt vertraut sind, empfehlen wir Ihnen, zu einem späteren Zeitpunkt wiederzukommen, um die vollständige Anleitung zu [Benutzerdefinierte Ereignisse](/guide/components/events) zu lesen.
 
-## Content Distribution with Slots {#content-distribution-with-slots}
+## Verteilung von Inhalten mit Slots {#content-distribution-with-slots}
 
-Just like with HTML elements, it's often useful to be able to pass content to a component, like this:
+Genau wie bei HTML-Elementen ist es oft nützlich, Inhalte an eine Komponente übergeben zu können, etwa so:
 
 ```vue-html
 <AlertBox>
