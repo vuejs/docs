@@ -22,7 +22,7 @@ When used on a component, `v-model` instead expands to this:
 ```vue-html
 <CustomInput
   :modelValue="searchText"
-  @update:modelValue="newValue => searchText = newValue"
+  @update:model-value="newValue => searchText = newValue"
 />
 ```
 
