@@ -6,7 +6,7 @@ export default {
   },
   data() {
     return {
-      msg: 'from parent'
+      msg: 'dal padre'
     }
   }
 }
