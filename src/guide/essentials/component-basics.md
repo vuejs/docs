@@ -603,11 +603,11 @@ wird geparst als:
 </my-component> <!-- but the browser will close it here. -->
 ```
 
-### Element Placement Restrictions {#element-placement-restrictions}
+### Beschränkungen der Elementplatzierung {#element-placement-restrictions}
 
-Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
+Einige HTML-Elemente, wie z. B. `<ul>`, `<ol>`, `<table>` und `<select>` haben Beschränkungen, welche Elemente in ihnen erscheinen können, und einige Elemente wie `<li>`, `<tr>`, und `<option>` können nur innerhalb bestimmter anderer Elemente erscheinen.
 
-This will lead to issues when using components with elements that have such restrictions. For example:
+Dies führt zu Problemen bei der Verwendung von Komponenten mit Elementen, die solche Einschränkungen haben. Zum Beispiel:
 
 ```vue-html
 <table>
@@ -615,7 +615,7 @@ This will lead to issues when using components with elements that have such rest
 </table>
 ```
 
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. We can use the special [`is` attribute](/api/built-in-special-attributes.html#is) as a workaround:
+Die benutzerdefinierte Komponente `<blog-post-row>` wird als ungültiger Inhalt ausgegeben, was zu Fehlern in der gerenderten Ausgabe führt. Wir können die spezielle [`is` Attribut](/api/built-in-special-attributes.html#is) als Abhilfe:
 
 ```vue-html
 <table>
@@ -624,9 +624,9 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 ```
 
 :::tip
-When used on native HTML elements, the value of `is` must be prefixed with `vue:` in order to be interpreted as a Vue component. This is required to avoid confusion with native [customized built-in elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
+Bei der Verwendung in nativen HTML-Elementen muss dem Wert von "is" das Präfix "vue:" vorangestellt werden, damit er als Vue-Komponente interpretiert werden kann. Dies ist erforderlich, um Verwechslungen mit nativen [angepasste eingebaute Elemente](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 
-That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself - build something fun, or check out some of the [Examples](/examples/) if you haven't already.
+Das ist alles, was Sie für den Moment über DOM Template Parsing Caveats wissen müssen - und eigentlich auch das Ende von Vue's _Essentials_. Herzlichen Glückwunsch! Es gibt noch mehr zu lernen, aber zuerst empfehlen wir, eine Pause zu machen und selbst mit Vue zu spielen - bauen Sie etwas, das Spaß macht, oder schauen Sie sich einige der [Examples](/examples/) an, falls Sie das noch nicht getan haben.
 
-Once you feel comfortable with the knowledge you've just digested, move on with the guide to learn more about components in depth.
+Sobald Sie sich mit dem Wissen, das Sie gerade verdaut haben, wohl fühlen, fahren Sie mit dem Leitfaden fort, um mehr über Komponenten in der Tiefe zu lernen.
