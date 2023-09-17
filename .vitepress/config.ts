@@ -8,121 +8,124 @@ import { headerPlugin } from './headerMdPlugin'
 
 const nav: ThemeConfig['nav'] = [
   {
-    text: 'Docs',
+    text: 'اسناد',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Guide', link: '/guide/introduction' },
-      { text: 'Tutorial', link: '/tutorial/' },
-      { text: 'Examples', link: '/examples/' },
-      { text: 'Quick Start', link: '/guide/quick-start' },
+      { text: 'راهنما', link: '/guide/introduction' },
+      { text: 'آموزش', link: '/tutorial/' },
+      { text: 'مثال‌ها', link: '/examples/' },
+      { text: 'شروع سریع', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
-      { text: 'Glossary', link: '/glossary/' },
+      { text: 'واژه‌نامه', link: '/glossary/' },
       {
-        text: 'Vue 2 Docs',
+        text: 'اسناد Vue ۲',
         link: 'https://v2.vuejs.org'
       },
       {
-        text: 'Migration from Vue 2',
+        text: 'مهاجرت از Vue ۲',
         link: 'https://v3-migration.vuejs.org/'
       }
     ]
   },
   {
-    text: 'API',
+    text: '(API) میانجی‌های برنامه نویسی',
     activeMatch: `^/api/`,
     link: '/api/'
   },
   {
-    text: 'Playground',
+    text: 'تفریحگاه',
     link: 'https://play.vuejs.org'
   },
   {
-    text: 'Ecosystem',
+    text: 'زیست‌بوم',
     activeMatch: `^/ecosystem/`,
     items: [
       {
-        text: 'Resources',
+        text: 'منابع',
         items: [
-          { text: 'Partners', link: '/partners/' },
-          { text: 'Themes', link: '/ecosystem/themes' },
+          { text: 'همکاران', link: '/partners/' },
+          { text: 'تم‌ها', link: '/ecosystem/themes' },
           {
-            text: 'Certification',
+            text: 'گواهی‌نامه',
             link: 'https://certification.vuejs.org/?ref=vuejs-nav'
           },
-          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+          { text: 'مشاغل', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'فروشگاه تیشرت', link: 'https://vue.threadless.com/' }
         ]
       },
       {
-        text: 'Official Libraries',
+        text: 'کتابخانه‌های رسمی',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
-          { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
+          {
+            text: 'رهنمای ابزارها',
+            link: '/guide/scaling-up/tooling.html'
+          }
         ]
       },
       {
-        text: 'Video Courses',
+        text: 'دوره‌های ویدیویی',
         items: [
           {
-            text: 'Vue Mastery',
+            text: 'Vue Mastery تارنمای',
             link: 'https://www.vuemastery.com/courses/'
           },
           {
-            text: 'Vue School',
+            text: 'Vue School تارنمای',
             link: 'https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown'
           }
         ]
       },
       {
-        text: 'Help',
+        text: 'کمک',
         items: [
           {
-            text: 'Discord Chat',
+            text: 'چت دیسکورد',
             link: 'https://discord.com/invite/HBherRA'
           },
           {
-            text: 'GitHub Discussions',
+            text: 'Discussions گیت‌هاب',
             link: 'https://github.com/vuejs/core/discussions'
           },
-          { text: 'DEV Community', link: 'https://dev.to/t/vue' }
+          { text: 'DEV Community تارنمای', link: 'https://dev.to/t/vue' }
         ]
       },
       {
-        text: 'News',
+        text: 'اخبار',
         items: [
-          { text: 'Blog', link: 'https://blog.vuejs.org/' },
-          { text: 'Twitter', link: 'https://twitter.com/vuejs' },
-          { text: 'Events', link: 'https://events.vuejs.org/' },
-          { text: 'Newsletters', link: '/ecosystem/newsletters' }
+          { text: 'وبلاگ', link: 'https://blog.vuejs.org/' },
+          { text: 'توییتر', link: 'https://twitter.com/vuejs' },
+          { text: 'رویدادها', link: 'https://events.vuejs.org/' },
+          { text: 'خبرنامه‌ها', link: '/ecosystem/newsletters' }
         ]
       }
     ]
   },
   {
-    text: 'About',
+    text: 'درباره',
     activeMatch: `^/about/`,
     items: [
-      { text: 'FAQ', link: '/about/faq' },
-      { text: 'Team', link: '/about/team' },
-      { text: 'Releases', link: '/about/releases' },
+      { text: 'سوالات متدوال', link: '/about/faq' },
+      { text: 'تیم', link: '/about/team' },
+      { text: 'انتشارات', link: '/about/releases' },
       {
-        text: 'Community Guide',
+        text: 'راهنمای جامعه',
         link: '/about/community-guide'
       },
-      { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'کدرفتار', link: '/about/coc' },
       {
-        text: 'The Documentary',
+        text: 'مستند',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
   },
   {
-    text: 'Sponsor',
+    text: 'حامی',
     link: '/sponsor/'
   },
   {
-    text: 'Partners',
+    text: 'همکاران',
     link: '/partners/',
     activeMatch: `^/partners/`
   }
@@ -680,17 +683,17 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     footer: {
       license: {
-        text: 'MIT License',
+        text: 'MIT Li2cense',
         link: 'https://opensource.org/licenses/MIT'
       },
-      copyright: `Copyright © 2014-${new Date().getFullYear()} Evan You`
+      copyright: `کپی رایت © 2014-${new Date().getFullYear()} ایوان یو`
     }
   },
 
   markdown: {
     config(md) {
       md.use(headerPlugin)
-        // .use(textAdPlugin)
+      // .use(textAdPlugin)
     }
   },
 
