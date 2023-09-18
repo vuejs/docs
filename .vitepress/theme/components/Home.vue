@@ -19,7 +19,8 @@ onMounted(async () => {
       <br />جاوااسکریپت
     </h1>
     <p class="description">
-      یک فریمورک قابل دسترس، کارآمد و همه کاره برای ساخت رابط کاربری وب.
+      یک فریمورک <strong>آسان، بهینه و همه‌کاره</strong> برای ساخت
+      روابط کاربری وب.
     </p>
     <div class="actions">
       <VueMasteryModal />
