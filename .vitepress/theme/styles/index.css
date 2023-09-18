@@ -1,12 +1,15 @@
-@import "./pages.css";
-@import "./badges.css";
-@import "./options-boxes.css";
-@import "./inline-demo.css";
-@import "./utilities.css";
-@import "./style-guide.css";
+@import './pages.css';
+@import './badges.css';
+@import './options-boxes.css';
+@import './inline-demo.css';
+@import './utilities.css';
+@import './style-guide.css';
+@import './overrides.css';
 
 /* bugfix: https://github.com/vuejs/theme/pull/95 */
 
 .vt-flyout-menu {
-  max-height: calc(100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px)) !important;
+  max-height: calc(
+    100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px)
+  ) !important;
 }
