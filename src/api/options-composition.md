@@ -231,7 +231,7 @@
 
   Однак `extends` і `mixins` виражають різні наміри. Параметр `mixins` в основному використовується для створення функціональності фрагментів, тоді як `extends` насамперед пов'язаний з успадкуванням.
 
-  As with `mixins`, any options (не стосується `setup()`) will be merged using the relevant merge strategy.
+  Як і у випадку з міксинами, будь-які опції (не стосується `setup()`) буде об'єднано за допомогою відповідної стратегії злиття.
 
 - **Приклад:**
 
@@ -244,12 +244,12 @@
   }
   ```
 
-  :::warning Not Recommended for Composition API
-  `extends` is designed for Options API and does not handle the merging of the `setup()` hook.
+  :::warning Не рекомендовано для Композиційного API
+  `extends` розроблено для Опційного API та не обробляє об'єднання хука `setup()`.
 
-  In Composition API, the preferred mental model for logic reuse is "compose" over "inheritance". If you have logic from a component that needs to be reused in another one, consider extracting the relevant logic into a [Composable](/guide/reusability/composables#composables).
+  В Композиційному API бажаною ментальною моделлю для повторного використання логіки є «складання» над «успадкуванням». Якщо у вас є логіка з компонента, який потрібно повторно використовувати в іншому, подумайте про виділення відповідної логіки в [Композиційних функціях](/guide/reusability/composables#composables).
 
-  If you still intend to "extend" a component using Composition API, you can call the base component's `setup()` in the extending component's `setup()`:
+  Якщо ви все ще маєте намір «розширити» компонент за допомогою Композиційного API, ви можете викликати `setup()` базового компонента в `setup()` компонента розширення:
 
   ```js
   import Base from './Base.js'
@@ -258,7 +258,7 @@
     setup(props, ctx) {
       return {
         ...Base.setup(props, ctx),
-        // local bindings
+        // локальні прив'язки
       }
     }
   }

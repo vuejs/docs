@@ -363,7 +363,7 @@ function onEnter(el, done) {
 // викликається після завершення переходу enter.
 function onAfterEnter(el) {}
 
-// called when the enter transition is cancelled before completion.
+// викликається, коли перехід enter скасовано до завершення.
 function onEnterCancelled(el) {}
 
 // викликається перед виходом.

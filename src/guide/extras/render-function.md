@@ -737,11 +737,11 @@ MyComponent.inheritAttrs = false
 
 Функціональні компоненти можна реєструвати та використовувати так само, як і звичайні компоненти. Якщо ви передаєте функцію як перший аргумент у `h()`, вона розглядатиметься як функціональний компонент.
 
-### Typing Functional Components<sup class="vt-badge ts" /> {#typing-functional-components}
+### Типізація функціональних компонентів<sup class="vt-badge ts" /> {#typing-functional-components}
 
-Functional Components can be typed based on whether they are named or anonymous. Volar also supports type checking properly typed functional components when consuming them in SFC templates.
+Функціональні компоненти можна типізовувати залежно від того, є вони іменними чи анонімними. Volar також підтримує перевірку типу правильно типізованих функціональних компонентів під час їх використання в шаблонах SFC.
 
-**Named Functional Component**
+**Іменовані функціональні компоненти**
 
 ```tsx
 import type { SetupContext } from 'vue'
@@ -776,7 +776,7 @@ FComponent.emits = {
 }
 ```
 
-**Anonymous Functional Component**
+**Анонімні функціональні компоненти**
 
 ```tsx
 import type { FunctionalComponent } from 'vue'

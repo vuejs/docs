@@ -156,7 +156,7 @@ export default {
 </button>
 ```
 
-Here's the example live on [Codepen](https://codepen.io/vuejs-examples/pen/WNYbaqo), without using any build tools.
+Ось приклад, опублікований на [Codepen](https://codepen.io/vuejs-examples/pen/WNYbaqo), без використання інструментів збірки.
 
 ### `<script setup>` \*\* {#script-setup}
 

@@ -437,7 +437,7 @@ export default {
 
 </div>
 
-Here's another example of using modifiers with multiple `v-model` with different arguments:
+Ось ще один приклад використання модифікаторів із кількома `v-model` з різними аргументами:
 
 ```vue-html
 <UserName

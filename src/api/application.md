@@ -35,15 +35,15 @@
   const app = createApp(App)
   ```
 
-- **See also** [Guide - Creating a Vue Application](/guide/essentials/application)
+- **Див. також** [Посібник - Створення додатка на Vue](/guide/essentials/application)
 
 ## createSSRApp() {#createssrapp}
 
-Створює екземпляр додатку в режимі [гідратації SSR](/guide/scaling-up/ssr#client-hydration). Використання точно таке ж, як `createApp()`.
+Створює екземпляр додатка в режимі [гідратації SSR](/guide/scaling-up/ssr#client-hydration). Використання точно таке ж, як `createApp()`.
 
 ## app.mount() {#app-mount}
 
-Монтує екземпляр додатку в елемент-контейнер.
+Монтує екземпляр додатка в елемент-контейнер.
 
 - **Тип**
 

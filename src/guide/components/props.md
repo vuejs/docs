@@ -494,7 +494,7 @@ export default {
 
 <div class="composition-api">
 
-If using [Type-based props declarations](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+Якщо використовуються [Оголошення реквізитів на основі типу](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue докладе всіх зусиль, щоб скомпілювати анотації типу в еквівалентні оголошення властивостей часу виконання. Наприклад, `defineProps<{ msg: string }>` буде скомпільовано в `{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
@@ -594,22 +594,22 @@ export default {
 <div class="composition-api">
 
 ```js
-// disabled will be casted to true
+// disabled буде приведено до true
 defineProps({
   disabled: [Boolean, Number]
 })
   
-// disabled will be casted to true
+// disabled буде приведено до true
 defineProps({
   disabled: [Boolean, String]
 })
   
-// disabled will be casted to true
+// disabled буде приведено до true
 defineProps({
   disabled: [Number, Boolean]
 })
-  
-// disabled will be parsed as an empty string (disabled="")
+
+// disabled буде проаналізовано як порожній рядок (disabled="")
 defineProps({
   disabled: [String, Boolean]
 })
@@ -619,28 +619,28 @@ defineProps({
 <div class="options-api">
 
 ```js
-// disabled will be casted to true
+// disabled буде приведено до true
 export default {
   props: {
     disabled: [Boolean, Number]
   }
 }
   
-// disabled will be casted to true
+// disabled буде приведено до true
 export default {
   props: {
     disabled: [Boolean, String]
   }
 }
   
-// disabled will be casted to true
+// disabled буде приведено до true
 export default {
   props: {
     disabled: [Number, Boolean]
   }
 }
-  
-// disabled will be parsed as an empty string (disabled="")
+
+// disabled буде проаналізовано як порожній рядок (disabled="")
 export default {
   props: {
     disabled: [String, Boolean]
