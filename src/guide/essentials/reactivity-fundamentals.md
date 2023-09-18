@@ -451,7 +451,7 @@ const state = reactive({ count: 0 })
 
 // count від'єднується від state.count під час деструктурування.
    let { count } = state
-   // does not affect original state
+   // не впливає на початковий стан
    count++
 
    // функція отримує звичайне число і
