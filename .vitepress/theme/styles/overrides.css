@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Vazirmatn:wght@400;500&display=swap');
 
+/* RTL & Persian Styles */
+
 h1,
 h2,
 h3,
@@ -16,5 +18,10 @@ p {
 }
 
 .license {
-    direction: ltr;
+  direction: ltr;
+}
+
+.vt-link-icon {
+  margin-left: 0;
+  margin-right: 4px;
 }
