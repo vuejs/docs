@@ -50,6 +50,7 @@ function track(interest?: boolean) {
 <template>
   <div
     ref="container"
+    dir="rtl"
     class="sponsor-container"
     :class="[tier.startsWith('plat') ? 'platinum' : tier, placement]"
   >
@@ -77,7 +78,7 @@ function track(interest?: boolean) {
       href="/sponsor/"
       class="sponsor-item action"
       @click="track(true)"
-      >Become a Sponsor</a
+      >حامی شوید</a
     >
   </div>
 </template>

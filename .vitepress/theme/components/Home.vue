@@ -14,18 +14,16 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      فریمورک
+      <span class="accent">پیش‌رونده</span>
+      <br />جاوااسکریپت
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      یک فریمورک قابل دسترس، کارآمد و همه کاره برای ساخت رابط کاربری وب.
     </p>
-    <p class="actions">
+    <div class="actions">
       <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -37,13 +35,14 @@ onMounted(async () => {
             d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
           />
         </svg>
+        شروع کنید
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
-    </p>
+      <a class="setup" href="/guide/quick-start.html">نصب</a>
+    </div>
   </section>
 
-  <section id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
+  <section dir="rtl" id="special-sponsor">
+    <span class="lead">حامی ویژه</span>
     <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
@@ -62,39 +61,39 @@ onMounted(async () => {
             :alt="name"
           />
         </a>
-        <span>{{ description }}</span>
+        <span dir="ltr">{{ description }}</span>
       </template>
     </template>
   </section>
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>قابل دسترسی</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        ساخته شده براساس استانداردهای HTML، CSS و JavaScript به همراه
+        APIهای قابل فهم و مستندات عالی.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>بهینه و با عملکرد بالا</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        سیستم رندر واقعا واکنشی و بهینه سازی شده توسط کامپایلر که به ندرت
+        به بهینه سازی دستی نیاز دارد.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
-      <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+      <h2>انعطاف‌پذیر</h2>
+      <p dir="auto">
+        یک اکوسیستم غنی و به تدریج قابل پذیرش که در مقیاس بین یک کتابخانه و
+        یک چارچوب با ویژگی‌های کامل قرار می‌گیرد.
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>حامی‌های پلاتین</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>حامی‌های طلا</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
@@ -158,6 +157,7 @@ html:not(.dark) .accent,
   top: -1px;
   margin-left: 2px;
   fill: currentColor;
+  transform: rotate(180deg);
   transition: transform 0.2s;
 }
 
@@ -166,7 +166,7 @@ html:not(.dark) .accent,
 }
 
 .actions .get-started:hover .icon {
-  transform: translateX(2px);
+  transform: rotate(180deg) translateX(2px);
 }
 
 .actions .get-started,
@@ -198,11 +198,12 @@ html:not(.dark) .accent,
   font-weight: 500;
   font-size: 13px;
   vertical-align: middle;
+  text-align: end;
   flex: 1;
 }
 
 #special-sponsor span:first-child {
-  text-align: right;
+  text-align: left;
 }
 
 #special-sponsor a {

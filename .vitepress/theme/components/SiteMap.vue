@@ -11,7 +11,7 @@ const items = nav
 </script>
 
 <template>
-  <section id="sitemap">
+  <section dir="rtl" id="sitemap">
     <div class="container">
       <div class="sitemap-col" v-for="col in items">
         <h4>{{ col.text }}</h4>
