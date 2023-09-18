@@ -494,7 +494,7 @@ export default {
 
 <div class="composition-api">
 
-Якщо використовується [оголошення реквізитів на основі типів](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" />, Vue докладе всіх зусиль для компіляції анотацій типів в еквівалентні оголошення реквізитів. Наприклад, `defineProps<{ msg: string }>` буде скомпільовано в `{ msg: { type: String, required: true }}`.
+If using [Type-based props declarations](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
@@ -589,13 +589,29 @@ export default {
 <MyComponent />
 ```
 
-Коли реквізит оголошено таким чином, що він дозволяє кілька типів, наприклад:
+Якщо реквізит оголошено таким, що дозволяє використовувати декілька типів, також застосовуватимуться правила приведення для `Boolean`. Однак існує перевага, коли дозволені і `String`, і `Boolean` - правило приведення Boolean застосовується, лише якщо Boolean з'являється перед String:
 
 <div class="composition-api">
 
 ```js
+// disabled will be casted to true
 defineProps({
   disabled: [Boolean, Number]
+})
+  
+// disabled will be casted to true
+defineProps({
+  disabled: [Boolean, String]
+})
+  
+// disabled will be casted to true
+defineProps({
+  disabled: [Number, Boolean]
+})
+  
+// disabled will be parsed as an empty string (disabled="")
+defineProps({
+  disabled: [String, Boolean]
 })
 ```
 
@@ -603,13 +619,33 @@ defineProps({
 <div class="options-api">
 
 ```js
+// disabled will be casted to true
 export default {
   props: {
     disabled: [Boolean, Number]
   }
 }
+  
+// disabled will be casted to true
+export default {
+  props: {
+    disabled: [Boolean, String]
+  }
+}
+  
+// disabled will be casted to true
+export default {
+  props: {
+    disabled: [Number, Boolean]
+  }
+}
+  
+// disabled will be parsed as an empty string (disabled="")
+export default {
+  props: {
+    disabled: [String, Boolean]
+  }
+}
 ```
 
 </div>
-
-Правила приведення для `Boolean` застосовуватимуться незалежно від порядку появи типу.

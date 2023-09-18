@@ -162,7 +162,7 @@ data() {
 
 ### Обмежений глобальний доступ {#restricted-globals-access}
 
-Вирази в шаблонах знаходяться в ізольованому програмному середовищі та мають доступ лише до [списку глобальних змінних](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsWhitelist.ts#L3). У списку представлені вбудовані глобальні елементи, які часто використовуються, наприклад `Math` та `Date`.
+Template expressions are sandboxed and only have access to a [restricted list of globals](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsAllowList.ts#L3). The list exposes commonly used built-in globals such as `Math` and `Date`.
 
 Глобальні елементи, явно не включені до списку, наприклад властивості, прикріплені користувачем у `window`, не будуть доступні у виразах шаблона. Однак ви можете явно визначити додаткові глобальні для всіх виразів Vue, додавши їх до [`app.config.globalProperties`](/api/application#app-config-globalproperties).
 

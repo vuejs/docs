@@ -231,7 +231,7 @@
 
   Однак `extends` і `mixins` виражають різні наміри. Параметр `mixins` в основному використовується для створення функціональності фрагментів, тоді як `extends` насамперед пов'язаний з успадкуванням.
 
-  Як і у випадку з міксинами, будь-які параметри буде об'єднано за допомогою відповідної стратегії злиття.
+  As with `mixins`, any options (не стосується `setup()`) will be merged using the relevant merge strategy.
 
 - **Приклад:**
 
@@ -243,3 +243,24 @@
     ...
   }
   ```
+
+  :::warning Not Recommended for Composition API
+  `extends` is designed for Options API and does not handle the merging of the `setup()` hook.
+
+  In Composition API, the preferred mental model for logic reuse is "compose" over "inheritance". If you have logic from a component that needs to be reused in another one, consider extracting the relevant logic into a [Composable](/guide/reusability/composables#composables).
+
+  If you still intend to "extend" a component using Composition API, you can call the base component's `setup()` in the extending component's `setup()`:
+
+  ```js
+  import Base from './Base.js'
+  export default {
+    extends: Base,
+    setup(props, ctx) {
+      return {
+        ...Base.setup(props, ctx),
+        // local bindings
+      }
+    }
+  }
+  ```
+  :::

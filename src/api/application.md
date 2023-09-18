@@ -1,6 +1,6 @@
 # API додатку {#application-api}
 
-## createApp()
+## createApp() {#createapp}
 
 Створює екземпляр додатку.
 
@@ -35,13 +35,13 @@
   const app = createApp(App)
   ```
 
-- **Також до вашої уваги:** [Гід - Створення додатку Vue](/guide/essentials/application)
+- **See also** [Guide - Creating a Vue Application](/guide/essentials/application)
 
-## createSSRApp()
+## createSSRApp() {#createssrapp}
 
 Створює екземпляр додатку в режимі [гідратації SSR](/guide/scaling-up/ssr#client-hydration). Використання точно таке ж, як `createApp()`.
 
-## app.mount()
+## app.mount() {#app-mount}
 
 Монтує екземпляр додатку в елемент-контейнер.
 
@@ -78,7 +78,7 @@
   app.mount(document.body.firstChild)
   ```
 
-## app.unmount()
+## app.unmount() {#app-unmount}
 
 Демонтує змонтований екземпляр додатка, ініціюючи хуки життєвого циклу демонтування для всіх компонентів у дереві компонентів додатка.
 
@@ -420,7 +420,7 @@ console.log(app.config)
 
 Встановіть для цього параметра значення `true`, щоб увімкнути ініціалізацію, компіляцію, рендеринг і відстеження продуктивності компонентів на панелі продуктивності/часової шкали devtool браузера. Працює лише в режимі розробки та в браузерах, які підтримують [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
 
-- **Тип**: `boolean`
+- **Тип:** `boolean`
 
 - **Також до вашої уваги:** [Гід - Продуктивність](/guide/best-practices/performance)
 

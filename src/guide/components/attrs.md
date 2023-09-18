@@ -79,18 +79,14 @@ outline: deep
 
 <div class="composition-api">
 
-Якщо використовується `<script setup>`, то вам потрібно буде оголосити цей параметр за допомогою окремого звичайного блоку `<script>`:
+Починаючи з 3.3 ви також можете використовувати [`defineOptions`](/api/sfc-script-setup#defineoptions) безпосередньо в `<script setup>`:
 
 ```vue
-<script>
-// використовуйте звичайний <script> для оголошення параметрів
-export default {
-  inheritAttrs: false
-}
-</script>
-
 <script setup>
-// ...логіка налаштування
+  defineOptions({
+    inheritAttrs: false
+  })
+  // ...логіка налаштування
 </script>
 ```
 
