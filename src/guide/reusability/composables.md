@@ -202,7 +202,7 @@ url.value = '/new-url'
 Або приймати геттер:
 
 ```js
-// re-fetch when props.id changes
+// повторно отримати, коли змінюється props.id
 const { data, error } = useFetch(() => `/posts/${props.id}`)
 ```
 
