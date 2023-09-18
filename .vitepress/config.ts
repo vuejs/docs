@@ -562,7 +562,8 @@ export const sidebar: ThemeConfig['sidebar'] = {
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
-  lang: 'en-US',
+  lang: 'fa',
+  dir: 'rtl',
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
   srcDir: 'src',
@@ -683,10 +684,10 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     footer: {
       license: {
-        text: 'MIT Li2cense',
+        text: 'MIT License',
         link: 'https://opensource.org/licenses/MIT'
       },
-      copyright: `کپی رایت © 2014-${new Date().getFullYear()} ایوان یو`
+      copyright: `Copyright © 2014-${new Date().getFullYear()} Evan You`
     }
   },
 
