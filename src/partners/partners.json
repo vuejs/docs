@@ -77,7 +77,7 @@
     "region": ["Europe"],
     "website": {
       "text": "www.monterail.com",
-      "url": "https://www.monterail.com/services/vue-js-development/?utm_source=vuejs.org"
+      "url": "https://www.monterail.com/services/vue/?utm_source=vuejs.org"
     },
     "contact": "hello@monterail.com",
     "hiring": "https://www.monterail.com/careers?utm_source=vuejs.org&utm_medium=referral&utm_campaign=partner-hiring-link",
@@ -193,26 +193,6 @@
     },
     "contact": "info@dreamonkey.com",
     "hiring": "https://dreamonkey.com/en/work-with-us"
-  },
-  {
-    "name": "Jump24",
-    "logo": "jump24.svg",
-    "flipLogo": true,
-    "hero": "jump24-hero.jpg",
-    "intro": "Програмне забезпечення ручної роботи, доставлено. Ми працюємо разом із стартапами, підприємствами та технічними командами, створюючи індивідуальні веб-програмні рішення, які допоможуть їм розвиватися. Відточуючи свої навички з 2013 року, наша сила — наші люди. Ми розробляємо та створюємо спеціальні додатки за найвищими стандартами, щоб ви могли скористатися перевагами.",
-    "description": [
-      "Jump24 — це студія розробки повного циклу, яка втілює ідеї в життя. З нашої бази у Великій Британії ми протягом багатьох років тісно співпрацювали з клієнтами в Європі та Сполучених Штатах, зокрема з Джеймі Олівером, Admiral, InPost і Buffer. З нашою командою з 16 розробників ви будете в надійних руках.",
-      "Довготривалі стосунки – наша спеціалізація. Незалежно від того, чи ви стартап, підприємство чи агентство, ваша історія важлива для нас. Ми зосереджуємося на найдрібніших деталях, щоб допомогти створити те, що відображає вас і ваш бізнес.",
-      "Ми балакучі, тому, щоб дізнатися про нас ще більше, перейдіть до нашого Twitter і LinkedIn."
-    ],
-    "proficiencies": ["Vue", "Laravel", "Tailwind", "Inertia", "React"],
-    "region": ["Europe"],
-    "website": {
-      "text": "jump24.co.uk",
-      "url": "https://jump24.co.uk/vue-specialist/"
-    },
-    "contact": "hello@jump24.co.uk",
-    "hiring": "jump24.co.uk/careers"
   },
   {
     "name": "HeroDevs",

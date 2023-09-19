@@ -24,7 +24,7 @@ footer: false
 
 Переконайтеся, що у вас встановлено найновішу версію [Node.js](https://nodejs.org/uk/), і ваш поточний робочий каталог є тим, у якому ви збираєтеся створити проект. Виконайте наступну команду в командному рядку (без знаку `>`):
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm create vue@latest</span></span></code></pre></div>
 
 Ця команда встановить і виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проєктів Vue. Вам буде надано підказки щодо ряду додаткових функцій, таких як TypeScript з підтримкою тестування:
 
@@ -80,6 +80,8 @@ footer: false
 
 Наведене вище посилання завантажує _глобальну збірку_ Vue, де всі API верхнього рівня представлені як властивості глобального об'єкта `Vue`. Ось повний приклад використання глобальної збірки:
 
+<div class="options-api">
+
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -100,9 +102,42 @@ footer: false
 
 [Демонстрація JSFiddle](https://jsfiddle.net/to2dk19q/)
 
+</div>
+
+<div class="composition-api">
+
+```html
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const message = ref('Привіт, Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/eYQpQEG)
+
+:::tip
+У багатьох прикладах Композиційний API у посібнику використовуватиметься синтаксис `<script setup>`, для якого потрібні інструменти для збірки. Якщо ви збираєтеся використовувати Композиційний API без кроку збірки, ознайомтеся з використанням [параметра `setup()`](/api/composition-api-setup).
+:::
+
+</div>
+
 ### Використання збірки модулів ES {#using-the-es-module-build}
 
 У решті документації ми будемо в основному використовувати синтаксис [модулів ES](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). Більшість сучасних браузерів зараз підтримують модулі ES, тому ми можемо використовувати Vue із CDN через нативні модулі ES, як тут:
+
+<div class="options-api">
 
 ```html{3,4}
 <div id="app">{{ message }}</div>
@@ -120,9 +155,41 @@ footer: false
 </script>
 ```
 
+</div>
+
+<div class="composition-api">
+
+```html{3,4}
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  createApp({
+    setup() {
+      const message = ref('Привіт, Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+</div>
+
 Зверніть увагу, що ми використовуємо `<script type="module">`, а імпортована URL-адреса CDN натомість вказує на **збірку модулів ES** Vue.
 
-[Демонстрація JSFiddle](https://jsfiddle.net/4nbeyd2g/)
+<div class="options-api">
+
+[JSFiddle demo](https://jsfiddle.net/yyx990803/vo23c470/)
+
+</div>
+<div class="composition-api">
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/MWzazEv)
+
+</div>
 
 ### Увімкнення карт імпорту {#enabling-import-maps}
 
@@ -133,6 +200,8 @@ import { createApp } from 'vue'
 ```
 
 Ми можемо навчити браузер, де знаходити імпорт `vue` за допомогою [карт імпорту](https://caniuse.com/import-maps):
+
+<div class="options-api">
 
 ```html{1-7,12}
 <script type="importmap">
@@ -160,18 +229,47 @@ import { createApp } from 'vue'
 
 [Демонстрація JSFiddle](https://jsfiddle.net/bLu9e3kj/)
 
-Ви також можете додавати записи для інших залежностей до карти імпорту — але переконайтесь, що вони вказують на саме ES модуль бібліотеки, яку ви збираєтесь використовувати.
+</div>
 
-:::tip Підтримка Карт імпорту браузерами
-Карти імпорту підтримуються за замовчуванням браузерами сімейства Chromium, тому ми радимо використовувати Chrome чи Edge під час навчального процесу.
+<div class="composition-api">
 
-Якщо ви використовуєте Firefox, вони доступні за замовчуванням у версії 108+ або через параметр `dom.importMaps.enabled` в `about:config` для версій 102+.
+```html{1-7,12}
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
 
-Якщо ж ваш улюблений браузер ще не підтримує карти імпорту, ви можете забезпечити таку підтримку за допомогою [es-module-shims](https://github.com/guybedford/es-module-shims).
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp, ref } from 'vue'
+
+  createApp({
+    setup() {
+      const message = ref('Hello Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/YzRyRYM)
+
+</div>
+
+Ви також можете додавати записи для інших залежностей до карти імпорту — але переконайтесь, що вони вказують саме на ES модуль бібліотеки, яку ви збираєтесь використовувати.
+
+:::tip Підтримка карт імпорту браузерами
+Імпорт карт — відносно нова функція браузера. Обов'язково використовуйте веб-переглядач у [діапазоні підтримки](https://caniuse.com/import-maps). Зокрема, він підтримується лише в Safari 16.4+.
 :::
 
-:::warning Не для продакшну
-Конфігурацію через карти імпорту є зміст використовувати лише в навчальних цілях, але якщо ви збираєтесь використовувати Vue без інструментів збірки в продакшні, обов'язково перегляньте [Гід по підготовці до продакшну](/guide/best-practices/production-deployment#without-build-tools).
+:::warning Примітки щодо виробничого використання
+У наведених прикладах наразі використовується збірка Vue для розробки. Якщо ви збираєтеся використовувати Vue із CDN у виробництві, обов’язково перегляньте [Посібник із розгортання виробництва](/guide/best-practices/production-deployment#without-build). -інструменти).
 :::
 
 ### Розділення модулів {#splitting-up-the-modules}
@@ -190,6 +288,8 @@ import { createApp } from 'vue'
 </script>
 ```
 
+<div class="options-api">
+
 ```js
 // my-component.js
 export default {
@@ -199,16 +299,30 @@ export default {
   template: `<div>лічильник {{ count }}</div>`
 }
 ```
+</div>
+<div class="composition-api">
 
-Якщо ви відкриєте `index.html` безпосередньо в браузері, то виявиться, що нічого не працює, тому що ES модулі не можуть працювати за межами протоколу `file://`. В цьому випадку вам потрібно подавати файл `index.html` через протокол `http://`, через локальний HTTP сервер.
+```js
+// my-component.js
+import { ref } from 'vue'
+export default {
+  setup() {
+    const count = ref(0)
+    return { count }
+  },
+  template: `<div>лічильник: {{ count }}</div>`
+}
+```
+
+</div>
+
+Якщо ви відкриєте `index.html` безпосередньо в браузері, то виявиться, що нічого не працює, тому що ES модулі не можуть працювати за межами протоколу `file://`, який використовується браузером для відкриття локальних файлів.
+
+З міркувань безпеки модулі ES можуть працювати лише через протокол `http://`, який використовують браузери, коли відкривають сторінки в Інтернеті. Щоб модулі ES працювали на нашій локальній машині, нам потрібно обслуговувати `index.html` через протокол `http://` з локальним сервером HTTP. 
 
 Для запуску локального HTTP-сервера, встановіть спочатку [Node.js](https://nodejs.org/uk/), а потім виконайте `npx serve` в командному рядку у директорії з вашим HTML файлом. Ви також можете використовувати будь-який інший HTTP сервер, що має можливість віддавати статичні файли з коректними MIME-типами.
 
 Можливо, ви помітили, що імпортовані шаблони компонентів вказані у вигляді JavasScript рядка. Якщо ви використовуєте VSCode, ви можете встановити розширення [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) та додавати коментар `/*html*/` перед такими рядками, щоб VSCode підсвічував для них синтаксис.
-
-### Використання Композиційного API без засобів збірки {#using-composition-api-without-a-build-step}
-
-Багато прикладів для Композиційного API використовують синтаксис `<script setup>`. Якщо ви бажаєте використовувати Композиційний API без засобів збірки, ознайомтесь з використанням [функції `setup()`](/api/composition-api-setup).
 
 ## Наступні кроки {#next-steps}
 

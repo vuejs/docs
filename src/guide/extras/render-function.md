@@ -231,7 +231,7 @@ const vnode = <div id={dynamicId}>привіт, {userName}</div>
 
 Визначення типів Vue також забезпечує визначення типів для використання TSX. Використовуючи TSX, обов'язково вкажіть `"jsx": "preserve"` у `tsconfig.json`, щоб TypeScript залишав синтаксис JSX недоторканим для обробки Vue JSX-перетворення.
 
-### Виведення типу JSX {#jsx-type-inference}
+### Вгадування типу JSX {#jsx-type-inference}
 
 Подібно до трансформації, JSX Vue також потребує визначення різних типів. Наразі типи Vue автоматично реєструють типи JSX Vue глобально. Це означає, що TSX працюватиме з коробки, коли доступний тип Vue.
 
@@ -736,3 +736,78 @@ MyComponent.inheritAttrs = false
 ```
 
 Функціональні компоненти можна реєструвати та використовувати так само, як і звичайні компоненти. Якщо ви передаєте функцію як перший аргумент у `h()`, вона розглядатиметься як функціональний компонент.
+
+### Типізація функціональних компонентів <sup class="vt-badge ts" /> {#typing-functional-components}
+
+Функціональні компоненти можна типізовувати залежно від того, є вони іменними чи анонімними. Volar також підтримує перевірку типу правильно типізованих функціональних компонентів під час їх використання в шаблонах SFC.
+
+**Іменовані функціональні компоненти**
+
+```tsx
+import type { SetupContext } from 'vue'
+type FComponentProps = {
+  message: string
+}
+
+type Events = {
+  sendMessage(message: string): void
+}
+
+function FComponent(
+  props: FComponentProps,
+  context: SetupContext<Events>
+) {
+  return (
+    <button onClick={() => context.emit('sendMessage', props.message)}>
+        {props.message} {' '}
+    </button>
+  )
+}
+
+FComponent.props = {
+  message: {
+    type: String,
+    required: true
+  }
+}
+
+FComponent.emits = {
+  sendMessage: (value: unknown) => typeof value === 'string'
+}
+```
+
+**Анонімні функціональні компоненти**
+
+```tsx
+import type { FunctionalComponent } from 'vue'
+
+type FComponentProps = {
+  message: string
+}
+
+type Events = {
+  sendMessage(message: string): void
+}
+
+const FComponent: FunctionalComponent<FComponentProps, Events> = (
+  props,
+  context
+) => {
+  return (
+    <button onClick={() => context.emit('sendMessage', props.message)}>
+        {props.message} {' '}
+    </button>
+  )
+}
+
+FComponent.props = {
+  message: {
+    type: String,
+    required: true
+  }
+}
+
+FComponent.emits = {
+  sendMessage: (value) => typeof value === 'string'
+}
+```

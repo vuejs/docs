@@ -5,7 +5,7 @@
 Ми можемо звернутися до **template ref**, що являється референцією на елемент в темплейті, використовуючи <a target="_blank" href="/api/built-in-special-attributes.html#ref">спеціальний атрибут `ref`</a>:
 
 ```vue-html
-<p ref="p">Привіт</p>
+<p ref="pElementRef">hello</p>
 ```
 
 <div class="composition-api">
@@ -15,7 +15,7 @@
 <div class="sfc">
 
 ```js
-const p = ref(null)
+const pElementRef = ref(null)
 ```
 
 </div>
@@ -23,10 +23,10 @@ const p = ref(null)
 
 ```js
 setup() {
-  const p = ref(null)
+  const pElementRef = ref(null)
 
   return {
-    p
+    pElementRef
   }
 }
 ```
@@ -67,7 +67,7 @@ createApp({
 
 <div class="options-api">
 
-Елемент буде представлено в `this.$refs` як `this.$refs.p`. Проте ви можете отримати доступ до компонента лише після того, коли він буде **змонтований**.
+Елемент буде представлено в `this.$refs` як `this.$refs.pElementRef`. Проте ви можете отримати доступ до компонента лише після того, коли він буде **змонтований**.
 
 Щоб запустити код після монтування, ми можемо використовувати параметр `mounted`:
 
@@ -97,4 +97,4 @@ createApp({
 
 Це називається **хуком життєвого циклу**, який дозволяє нам вказати функцію зворотного виклику в певні моменти життєвого циклу компонента. Також існують інші хуки, такі як <span class="options-api">`created` та `updated`</span><span class="composition-api">`onUpdated` and `onUnmounted`</span>. Щоб дізнатися більше, перегляньте <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Діаграму життєвого циклу</a>.
 
-Тепер спробуйте додати хук <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> для того, щоб отримати доступ до `<p>` через <span class="options-api">`this.$refs.p`</span><span class="composition-api">`p.value`</span> і виконайте будь-які операції з DOM (наприклад, змініть його `textContent`).
+Тепер спробуйте додати хук <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> для того, щоб отримати доступ до `<p>` через <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> і виконайте будь-які операції з DOM (наприклад, змініть його `textContent`).

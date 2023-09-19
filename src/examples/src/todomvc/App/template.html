@@ -34,7 +34,7 @@
           class="edit"
           type="text"
           v-model="todo.title"
-          @vnode-mounted="({ el }) => el.focus()"
+          @vue:mounted="({ el }) => el.focus()"
           @blur="doneEdit(todo)"
           @keyup.enter="doneEdit(todo)"
           @keyup.escape="cancelEdit(todo)"

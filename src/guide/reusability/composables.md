@@ -94,13 +94,13 @@ const { x, y } = useMouse()
 
 ```js
 // event.js
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 
 export function useEventListener(target, event, callback) {
   // за бажанням, ви також можете додати 
   // підтримку рядків в якості цілі для прослуховування
   onMounted(() => target.addEventListener(event, callback))
-  onBeforeUnmount(() => target.removeEventListener(event, callback))
+  onUnmounted(() => target.removeEventListener(event, callback))
 }
 ```
 
@@ -184,43 +184,60 @@ const { data, error } = useFetch('...')
 </script>
 ```
 
+### Приймання рективного стану {#accepting-reactive-state}
+
 `useFetch()` приймає статичний рядок URL-адреси як вхідні дані, тому він виконує витягнення даних лише один раз, а потім завершує роботу. Що, якщо ми хочемо, щоб він повторно витягував дані щоразу, коли змінюється URL? Ми можемо досягти цього, також приймаючи референції як аргумент:
 
+Для прикладу, `useFetch()` має мати можливість приймати референцію:
+
 ```js
+const url = ref('/initial-url')
+
+const { data, error } = useFetch(url)
+
+// це має викликати повторне витягування даних
+url.value = '/new-url'
+```
+
+Або приймати геттер:
+
+```js
+// повторно отримати, коли змінюється props.id
+const { data, error } = useFetch(() => `/posts/${props.id}`)
+```
+
+Ми можемо змінити нашу існуючу реалізацію за допомогою API [`watchEffect()`](/api/reactivity-core.html#watcheffect) і [`toValue()`](/api/reactivity-utilities.html#tovalue):
+
+```js{8,13}
 // fetch.js
-import { ref, isRef, unref, watchEffect } from 'vue'
+import { ref, watchEffect, toValue } from 'vue'
 
 export function useFetch(url) {
   const data = ref(null)
   const error = ref(null)
 
-  function doFetch() {
+  watchEffect(() => {
     // скидання стану перед отриманням..
     data.value = null
     error.value = null
-    // unref() розгортає потенційні референції
-    fetch(unref(url))
+    // toValue() розгортає потенційні референції або геттери
+    fetch(toValue(url))
       .then((res) => res.json())
       .then((json) => (data.value = json))
       .catch((err) => (error.value = err))
-  }
-
-  if (isRef(url)) {
-    // налаштувати реактивне повторне витягнення даних, якщо вхідна URL-адреса є референцією
-    watchEffect(doFetch)
-  } else {
-    // інакше просто витягуємо один раз,
-    // уникаючи накладних витрат спостерігача
-    doFetch()
-  }
+  })
 
   return { data, error }
 }
 ```
 
-Ця версія `useFetch()` тепер приймає як статичні рядки URL-адреси, так і референції на рядки URL-адреси. Коли він виявляє, що URL-адреса є динамічною референцією за допомогою [`isRef()`](/api/reactivity-utilities#isref), він встановлює реактивний ефект за допомогою [`watchEffect()`](/api/reactivity-core#watcheffect). Ефект запуститься негайно, а також відстежуватиме URL-адресу як залежність. Щоразу, коли URL-адреса змінюється, дані скидаються та завантажуються знову.
+`toValue()` — API, доданий у версії 3.3. Він призначений для нормалізації посилань або геттерів у значення. Якщо аргумент є посиланням, він повертає значення посилання; якщо аргумент є функцією, він її викличе та поверне її значення. В іншому випадку аргумент повертає самого себе. Він працює подібно до [`unref()`](/api/reactivity-utilities.html#unref), але з особливою обробкою функцій.
 
-Ось [оновлена версія `useFetch()`](https://play.vuejs.org/#eNqFVstu20YU/ZVbbUSjKuki6EaQhXaRrlqgCJquuGHIYU1XIglyKNcQBKR2naZAkQCF4ewK9Auqylas2JbzC8M/yrkzJE3bQgLDfMzc1zn33KGmnW/S1J4UotPvDHI/i1JJuZBFOnTjaJwmmaQpZSLskZ+M00KKgGYUZsmYunDqtoyKXHwrpL/b7NtOvWTv5bB0Yz+Jc0nPvFw8zUa0Q91dKdO87zh7eRKnI88Xu8koEJktD9LITwJhI6kjkyDJHQQw7lEAT1Rkdb/sbtWLhY5Xl2hZW7QzbBJ9Dh974o0KAfvaY0qBJ70eiSxLsh4CyuwApe80OCzEhP3AMayAD7xIMUadUuCNSL1Rc7XA/7o8xPWtWuG+ovI3fi0P8feK1AWptbpR12pZPud7nz0Hzwopk5gmX4RJtuN2Iopi+srt0Nf+KPJ/4RVGGbmd4XRKEc1mA8e46DJcOQiiCbyjEKYaASw5MEKnQ/WPevcZqb/VCqlX6lJdqTmp97qKFV4u1bxPiKsd7bHIc+9noXNw13WQqr6mHE0Pcqh/1XuN4//yiKEbwH+qJWF1ri5aZSKKgyrNkylXjHJhambuOdx9BpdMFqlzvXTaB5pMMAVsbyrE+8a4m2Oty9e2bdcOA6fpX6fXaakT4r8r9ih/wrci1m/7Hsweh6Hw5T31u7H4VfuFRezLCJTdkQ9NuUojOA3BKDcuRiytekf34e4Wb3r5QezfBg4SE7cKSuQ4kBqauTJ0MdZKe3g84oaz5JbqnNQNtPgchte1obq2bROFyzLDgQo4u1k22ni43k4NeZXHWg2IaSRwoy7Uoov4F01JeFxDKH/U/aCnT77rsWYgIkLD2Bstv8bDGcSJx0V5qs4R/4rvAHiDlUZtQPgXIcFlU4nOdYXwb1kzzAAs4HiFXK3OWZrxmnN056cKnG5yNe23EPk4qIg2eF8i7hFgAIxO2VCKcXJQ3QqEz+t6HwwcR3IlmrrvRZJkNBZJUZXEywzjP3XJrFD5wnC5LH+vOrguXwDYa7B2iH1T75ZJsNAmzP4DnjeEeMNnRw3olO2R8+UmZz3g57zTygL8XACzT+VJxZY0hGYiB5cGXlgPgKaY5ayT3pGasYQXxi+J6+bMyOeOkSUamd/Xoqgs+YYL36KQLD2xuovtAdEQcfyZ7pnjoSFHo4eksMxH9JnWHh/iAHjGnNZcmPlalcfoALDrLkGTx1qffMS+Y1GDkk2cn5SvTDltLVbDrFHPiM+vdtEL3Rw0BgLiSW6JqzzqoSU8aXrU2xWjOyc8Rhh3WGI4qzO5mvP6+GjxhlO9yOKNn8J+7cC22vxTM+DGzVHVyNuAqtLEYp9+wNkZ5cKy0PhkNBGcbQ+E6O91xQB+fvxYBTDf8UYI3OfvPblrZ14cJGPsDmnbftSSCifTgWtB3afXmHBKi+t5zJCtrv5Wfmx8u1u38Sr99ejR9rZhE9dZZ/YB1YdKaQ==), зі штучною затримкою та випадковою помилкою для демонстраційних цілей.
+Зверніть увагу, що `toValue(url)` викликається **всередині** зворотного виклику `watchEffect`. Це гарантує, що спостерігач відстежує будь-які реактивні залежності, до яких звертаються під час нормалізації `toValue()`.
+
+Ця версія `useFetch()` тепер приймає статичні рядки URL-адрес, посилання та геттери, що робить її набагато гнучкішою. Ефект спостереження запуститься негайно та відстежуватиме будь-які залежності, доступ до яких здійснюється під час `toValue(url)`. Якщо жодні залежності не відстежуються (наприклад, URL-адреса вже є рядком), ефект запускається лише один раз; інакше він запускатиметься повторно щоразу, коли відстежувана залежність зміниться.
+
+Ось [оновлена версія `useFetch()`](https://play.vuejs.org/#eNqFVd1O40YUfpVT38SoWZsK9QYF1B9RqVV/VnS3V77xOhNi1rEtexxAUaQttNutVBWpqti7Sn2CpogsKSXwCuM32u/M2CaBaFeQxHPm/HznO9+MR9anaeoMC2FtWp08yMJUUi5kkW57cThIk0zSiDLRa1OQDNJCii6NqZclA2ohqLXgVOTiCyGDfrPvuLXJ2c/h6cVBEueSnvm5eJpFtEWtvpRpvum6+3kSp5EfiH4SdUXmyKM0DJKucFDUlUk3yV0kMOFhF5FAZLc+aq3VxkLnqyHa9hptbTeFPkSMM/SjQsC/jhhR15d+m0SWJVkbCWV2BOhbTR82csK/4xpWwAcWUgyAUwqsiNRrNVHn+MzLY3y/UTP8zqj8kZflMf5+J3VJaq5u1LWali/4d5MjO88KKZOYho96SbblWSGFMX3sWfRJEIXBc7Zwl6FnbY9GFNJ43HFNiIbhyU43HCI67MFVdwBPTozU6bb6S/33Aak/1AylZ+pK/a8mpG41ihkWV2qyScirA52ByHN/T+gaPHWdpMLXwNH0oIb6W93qPv4tT7h10/CvakqwTtTlAkxkcYHSPBm4IsqFwczcc7r7DE6ZLFIX2nS2iW4ywRSwv0GI9cq8q3PNy1PHceqAjtvMz2pbC+qE+JfFfuBjY6fXE4Fsk0x+YPHcE74Xi0Md0iviQIZga0k5NGKARmsavRFtXESsqnpHj+D+Fn8WANh+fhQHZDStsxK5LmSGQc4MVdxnpTs8nvCwWW5TdUHqBjp8Acfr2lFdO47JwrjMwQAELm/MRhcP7YulIa3yZ60E5OSRncN0icdJ+Ut1DpplNQh6uvv1I4C4YGScos3KgZQ4mPNwlvIM+9zIVL0xEoNgb2BBf6fqivwGBNLzHvxYKhxT/lYlWGJPU1rzjcmYWW7VU62O+V1/fA9ULJtmXyHzCdpAM7powyfOkav7vuWusLxhvPdOmh6oJPIP/FCSDAciKSpQbOZG/lFXTASVL805mpY/VeObly/R2imIOsZ+EbNM1kyBc+0yR8QDnlekeM2XRt3QGfuj5qtVwfpkX/DOQhX0zwD0BMo/K7akoTQTOdg07fVq+Wtq+bbVRZd0ZjwRhXOXxPV4xhTwzMgW1cl5KERRefLPWN/kxNd2kcXLlzl74N+L3zc8L26ObjMXU7xKG4sDeowjH+bCtoE4iYaCXxX70NXiacQL80mVYOmUEoU9sr/xZd/J/LibDLC7TevOxkKPXEwnrplgLvhCW3bhkjbj2eEW7dauzmdWrbW70IqjNm2sr2srMzXGbSdzjKsX7mnWcd/p7J7Fr8wwEtl3KfOQexbeDNV8LT+KkoOvtE1mhWjX9qAvgucr7Pv5Ids86zFaEtlQeFazJ/1sT0izvfP9t+IQz83mIOkWEbzfsbnLJBWM0bh9VsRdwF7w02i/1Ld4GO89yXcOpYjzuikGqunQ/p6FO/zzd7R+B3fD2dBxzOL4LWfa5SM=) зі штучною затримкою та рандомізовано помилка для демонстраційних цілей.
 
 ## Конвенції та найкращі практики {#conventions-and-best-practices}
 
@@ -230,19 +247,22 @@ export function useFetch(url) {
 
 ### Вхідні аргументи {#input-arguments}
 
-Композиційна функція може приймати референції як аргументи, навіть якщо вона не покладається на них для реактивності. Якщо ви пишете композиційну функцію, яка може використовуватися іншими розробниками, буде гарною ідеєю розглянути випадок, коли вхідні аргументи є референціями замість необроблених значень. Допоміжна функція [`unref()`](/api/reactivity-utilities#unref) стане в пригоді для цієї мети:
+Композиційна функція може приймати референції або геттери в якості аргументів, навіть якщо вона не покладається на них для реактивності. Якщо ви пишете композиційну функцію, яка може використовуватися іншими розробниками, буде гарною ідеєю розглянути випадок, коли вхідні аргументи є референціями або геттерами замість необроблених значень. Допоміжна функція [`toValue()`](/api/reactivity-utilities#tovalue) стане в пригоді для цієї мети:
 
 ```js
-import { unref } from 'vue'
+import { toValue } from 'vue'
 
-function useFeature(maybeRef) {
-  // якщо maybeRef справді є референцією, буде повернено його .value
-  // інакше maybeRef повертається як є
-  const value = unref(maybeRef)
+function useFeature(maybeRefOrGetter) {
+  // якщо maybeRefOrGetter справді є референцією або геттером,
+  // буде повернено його нормалізоване значення.
+  // Інакше воно буде повернуте як є
+  const value = toValue(maybeRefOrGetter)
 }
 ```
 
-Якщо ваша композиційна функція створює реактивні ефекти, коли вхідний аргумент є референцією, переконайтеся, що ви явно спостерігаєте за посиланням за допомогою `watch()`, або викликаєте `unref()` всередині `watchEffect()`, щоб воно належним чином відстежувалося.
+Якщо ваша композиційна функція створює реактивні ефекти, коли вхідний аргумент є референцією або геттером, переконайтеся, що ви явно спостерігаєте за посиланням / геттером за допомогою `watch()`, або викликаєте `toValue()` всередині `watchEffect()`, щоб воно належним чином відстежувалося.
+
+[Реалізація useFetch(), розглянута раніше](#accepting-reactive-state) надає конкретний приклад компонованого, який приймає посилання, геттери та звичайні значення як вхідний аргумент.
 
 ### Повернуті значення {#return-values}
 
@@ -277,9 +297,9 @@ console.log(mouse.x)
 
 ### Обмеження при використанні {#usage-restrictions}
 
-Композиційні функції слід викликати лише **синхронно** в `<script setup>` або `setup()` хуку. У деяких випадках ви також можете викликати їх у хуках життєвого циклу, наприклад `onMounted()`.
+Composables слід викликати лише в `<script setup>` або `setup()`. У цьому контексті їх також слід називати **синхронно**. У деяких випадках ви також можете викликати їх у хуках життєвого циклу, наприклад `onMounted()`.
 
-Це контексти, у яких Vue може визначити поточний екземпляр активного компонента. Доступ до екземпляра активного компонента необхідний для того, щоб:
+Ці обмеження важливі, оскільки це контексти, де Vue може визначити поточний активний екземпляр компонента. Доступ до екземпляра активного компонента необхідний для того, щоб:
 
 1. В ньому можна зареєструвати хуки життєвого циклу.
 

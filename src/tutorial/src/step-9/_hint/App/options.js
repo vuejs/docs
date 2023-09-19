@@ -1,5 +1,5 @@
 export default {
   mounted() {
-    this.$refs.p.textContent = 'Змонтовано!'
+    this.$refs.pElementRef.textContent = 'Змонтовано!'
   }
 }

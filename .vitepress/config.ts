@@ -4,7 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
-import { textAdPlugin } from './textAdMdPlugin'
+// import { textAdPlugin } from './textAdMdPlugin'
 
 const nav: ThemeConfig['nav'] = [
   {
@@ -16,6 +16,7 @@ const nav: ThemeConfig['nav'] = [
       { text: 'Приклади', link: '/examples/' },
       { text: 'Швидкий старт', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
+      { text: 'Глосарій', link: '/glossary/' },
       {
         text: 'Документація по Vue 2',
         link: 'https://v2.vuejs.org.ua'
@@ -653,6 +654,16 @@ export default defineConfigWithTheme<ThemeConfig>({
         repo: 'https://github.com/vuejs-translations/docs-fr'
       },
       {
+        link: 'https://ko.vuejs.org',
+        text: '한국어',
+        repo: 'https://github.com/vuejs-translations/docs-ko'
+      },
+      {
+        link: 'https://pt.vuejs.org',
+        text: 'Português',
+        repo: 'https://github.com/vuejs-translations/docs-pt'
+      },
+      {
         link: '/translations/',
         text: 'Допоможіть нам перекласти!',
         isTranslationsDesc: true
@@ -719,7 +730,8 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   markdown: {
     config(md) {
-      md.use(headerPlugin).use(textAdPlugin)
+      md.use(headerPlugin)
+        // .use(textAdPlugin)
     }
   },
 

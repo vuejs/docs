@@ -224,7 +224,30 @@ export function register() {
 
 Якщо у вас багато компонентів, ви також можете скористатися функціями інструментів для створення, такими як [glob import](https://vitejs.dev/guide/features.html#glob-import) Vite або [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext), щоб завантажити всі компоненти з каталогу.
 
-## Вебкомпоненти проти компонентів Vue {#web-components-vs-vue-components}
+### Веб-компоненти та Typescript {#web-components-and-typescript}
+
+Якщо ви розробляєте програму чи бібліотеку, ви можете [перевірити тип](/guide/scaling-up/tooling.html#typescript) свої компоненти Vue, включно з тими, які визначені як спеціальні елементи.
+
+Спеціальні елементи реєструються глобально за допомогою власних API, тому за замовчуванням вони не матимуть визначення типу під час використання в шаблонах Vue. Щоб забезпечити підтримку типів для компонентів Vue, зареєстрованих як спеціальні елементи, ми можемо зареєструвати типи глобальних компонентів за допомогою [`GlobalComponents` інтерфейсу](https://github.com/vuejs/language-tools/blob/master/packages/vscode- vue/README.md#usage) у шаблонах Vue та/або в [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements):
+
+```typescript
+import { defineCustomElement } from 'vue'
+
+// vue SFC
+import CounterSFC from './src/components/counter.ce.vue'
+
+// перетворити компонент на веб-компоненти
+export const Counter = defineCustomElement(CounterSFC)
+
+// реєструємо глобальні типи
+declare module 'vue' {
+  export interface GlobalComponents {
+    'Counter': typeof Counter,
+  }
+}
+```
+
+## Веб-компоненти проти компонентів Vue {#web-components-vs-vue-components}
 
 Деякі розробники вважають, що слід уникати власних моделей компонентів фреймворку, і що виняткове використання спеціальних елементів робить програму «придатною для майбутнього». Тут ми спробуємо пояснити, чому ми вважаємо, що це надто спрощений погляд на проблему.
 

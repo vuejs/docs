@@ -34,7 +34,7 @@ Vue написаний на TypeScript, тому забезпечує першо
 
   - [TypeScript Vue Plugin](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) також необхідний для підтримки імпорту `*.vue` у файли TS.
 
-- [WebStorm](https://www.jetbrains.com/webstorm/) також забезпечує готову підтримку для TypeScript і Vue. Інші IDE JetBrains також підтримують їх, або з коробки, або через [вільні плагіни](https://plugins.jetbrains.com/plugin/9442-vue-js).
+- [WebStorm](https://www.jetbrains.com/webstorm/) також забезпечує готову підтримку для TypeScript і Vue. Інші IDE JetBrains також підтримують їх, або з коробки, або через [вільні плагіни](https://plugins.jetbrains.com/plugin/9442-vue-js). Починаючи з версії 2023.2, WebStorm і Vue Plugin мають вбудовану підтримку для Vue Language Server. Ви можете налаштувати службу Vue на використання інтеграції Volar у всіх версіях TypeScript у меню «Параметри» > «Мови та фреймворки» > «TypeScript» > Vue. За замовчуванням Volar використовуватиметься для TypeScript версії 5.0 і вище.
 
 ### Конфігурація `tsconfig.json` {#configuring-tsconfig-json}
 
@@ -174,10 +174,6 @@ const count = ref(1)
   {{ count.toFixed(2) }}
 </template>
 ```
-
-Дивіться також:
-
-- [Особливості тільки для TypeScript `<script setup>`](/api/sfc-script-setup.html#typescript-only-features)
 
 ### TypeScript у шаблонах {#typescript-in-templates}
 
