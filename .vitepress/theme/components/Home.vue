@@ -23,7 +23,6 @@ onMounted(async () => {
       کاربری وب.
     </p>
     <div class="actions">
-      <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
         <svg
           class="icon"
@@ -39,6 +38,7 @@ onMounted(async () => {
         شروع کنید
       </a>
       <a class="setup" href="/guide/quick-start.html">نصب</a>
+      <VueMasteryModal />
     </div>
   </section>
 
