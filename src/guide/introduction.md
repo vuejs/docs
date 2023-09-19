@@ -2,29 +2,29 @@
 footer: false
 ---
 
-# Introduction {#introduction}
+# مقدمه {#introduction}
 
-:::info You are reading the documentation for Vue 3!
+:::info شما در حال خواندن مستندات نسخه ۳ از Vue هستید!
 
-- Vue 2 support will end on Dec 31, 2023. Learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
-- Vue 2 documentation has been moved to [v2.vuejs.org](https://v2.vuejs.org/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+- پیشتیبانی از نسخه ۲ ویو در تاریخ ۹ مهر ۱۴۰۳ به اتمام می‌رسد. درباره [تمدید نسخه ۲ پایدار](https://v2.vuejs.org/lts/) بخوانید.
+- مستندات ورژن ۲ از Vue به [v2.vuejs.org](https://v2.vuejs.org/) منتقل شده است.
+- درحال مهاجرت از نسخه ۲ Vue هستید؟ [راهنمای مهاجرت](https://v3-migration.vuejs.org/) را مطالعه کنید.
   :::
 
 <style src="@theme/styles/vue-mastery.css"></style>
-<div class="vue-mastery-link">
+<div class="vue-mastery-link" dir="rtl">
   <a href="https://www.vuemastery.com/courses/" target="_blank">
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>
-    <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <p class="description">می‌توانید Vue را با آموزش‌های ویدیویی در <span>VueMastery.com</span> بیاموزید</p>
     <div class="logo-wrapper">
         <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
 
-## What is Vue? {#what-is-vue}
+## Vue چیست؟ {#what-is-vue}
 
 Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex.
 
@@ -94,7 +94,7 @@ You may already have questions - don't worry. We will cover every little detail 
 The rest of the documentation assumes basic familiarity with HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Prior experience with other frameworks helps, but is not required.
 :::
 
-## The Progressive Framework {#the-progressive-framework}
+## فریمورک پیش‌رونده {#the-progressive-framework}
 
 Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
 
@@ -111,7 +111,7 @@ If you are an experienced developer interested in how to best integrate Vue into
 
 Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
 
-## Single-File Components {#single-file-components}
+## کامپوننت‌های تک‌فایل (SFC) {#single-file-components}
 
 In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
 
@@ -163,7 +163,7 @@ button {
 
 SFC is a defining feature of Vue and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
 
-## API Styles {#api-styles}
+## سبک APIها {#api-styles}
 
 Vue components can be authored in two different API styles: **Options API** and **Composition API**.
 
@@ -259,11 +259,11 @@ If you are new to Vue, here's our general recommendation:
 
 You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
 
-## Still Got Questions? {#still-got-questions}
+## هنوز هم سوالی دارید؟ {#still-got-questions}
 
 Check out our [FAQ](/about/faq).
 
-## Pick Your Learning Path {#pick-your-learning-path}
+## مسیر یادگیری خود را انتخاب کنید {#pick-your-learning-path}
 
 Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
 
