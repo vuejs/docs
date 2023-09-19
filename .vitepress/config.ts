@@ -134,56 +134,56 @@ const nav: ThemeConfig['nav'] = [
 export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
-      text: 'Getting Started',
+      text: 'آغاز',
       items: [
-        { text: 'Introduction', link: '/guide/introduction' },
+        { text: 'مقدمه', link: '/guide/introduction' },
         {
-          text: 'Quick Start',
+          text: 'شروع سریع',
           link: '/guide/quick-start'
         }
       ]
     },
     {
-      text: 'Essentials',
+      text: 'الزامات',
       items: [
         {
-          text: 'Creating an Application',
+          text: 'ساخت یک اپلیکیشن',
           link: '/guide/essentials/application'
         },
         {
-          text: 'Template Syntax',
+          text: 'ترکیب قالب (Template Syntax)',
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'Reactivity Fundamentals',
+          text: 'مبانی واکنش‌گرایی (Reactivity)',
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Computed Properties',
+          text: 'ویژگی‌های کامپیوتد (Computed)',
           link: '/guide/essentials/computed'
         },
         {
-          text: 'Class and Style Bindings',
+          text: 'اتصالات کلاس‌ و استایل (Class and Style Bindings)',
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'Conditional Rendering',
+          text: 'اجرای شرطی (Conditional Rendering)',
           link: '/guide/essentials/conditional'
         },
-        { text: 'List Rendering', link: '/guide/essentials/list' },
+        { text: 'اجرای لیست‌ها (List Rendering)', link: '/guide/essentials/list' },
         {
-          text: 'Event Handling',
+          text: 'مدیریت رویداد‌ها (Event Handling)',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
+        { text: 'اتصالات ورودی فرم (Form Input Bindings)', link: '/guide/essentials/forms' },
         {
-          text: 'Lifecycle Hooks',
+          text: 'چرخه‌حیات قلاب‌ها (Lifecycle Hooks)',
           link: '/guide/essentials/lifecycle'
         },
-        { text: 'Watchers', link: '/guide/essentials/watchers' },
-        { text: 'Template Refs', link: '/guide/essentials/template-refs' },
+        { text: 'ناظرها (Watchers)', link: '/guide/essentials/watchers' },
+        { text: 'مرجع قالب‌ها (Template Refs)', link: '/guide/essentials/template-refs' },
         {
-          text: 'Components Basics',
+          text: 'مبانی کامپوننت‌ها (Components Basics)',
           link: '/guide/essentials/component-basics'
         }
       ]
