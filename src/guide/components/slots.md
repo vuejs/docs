@@ -83,7 +83,7 @@ Slot content is not just limited to text. It can be any valid template content. 
 
 </div>
 
-By using slots, our `<FancyButton>` is more flexible and reusable. We can now use it in different places with different inner content, but all with the same fancy styling.
+By using slots, our `<FancyButton>` is more flexible and reusable. We can now use it in different places with different inner content, but all with the same fancy styling. [For more about styling](#style-usages).
 
 Vue components' slot mechanism is inspired by the [native Web Component `<slot>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot), but with additional capabilities that we will see later.
 
@@ -508,3 +508,55 @@ An example renderless component could be one that encapsulates the logic of trac
 While an interesting pattern, most of what can be achieved with Renderless Components can be achieved in a more efficient fashion with Composition API, without incurring the overhead of extra component nesting. Later, we will see how we can implement the same mouse tracking functionality as a [Composable](/guide/reusability/composables).
 
 That said, scoped slots are still useful in cases where we need to both encapsulate logic **and** compose visual output, like in the `<FancyList>` example.
+
+## Style Usages  {#style-usages}
+
+For example, we may have a `<SectionHeadline>` component that supports usage like this:
+
+```vue-html{4,10-12}
+<!-- Parent Component -->
+<template>
+  <SectionHeadline>
+    <span class="red">Section</span>
+    <span class="green">Headline</span>
+  </SectionHeadline>
+</template>
+
+<style>
+.red{
+  color:red;
+}
+</style>
+```
+
+The template of `<SectionHeadline>` looks like this:
+
+```vue-html{11-13,18-20,22-23}
+<!-- Slot Component -->
+
+<template>
+<h1 class="fancy-title">
+  <slot></slot>
+</h1>
+</template>
+
+<style scoped>
+/*
+  Necessary CSS...
+  Note: avoid using <style scoped> here since it
+  does not apply to slot content.
+*/
+.fancy-title{
+  font-size:24px;
+}
+.green{
+  color:green; 
+}
+/* 
+  .green class wouldn't change in parent 
+  component because of <style scoped> 
+*/
+</style>
+```
+
+[Try it in the Playground](https://play.vuejs.org/#eNp1UsFOwzAM/RXTy6SJtgJx2soktAsnhLRrLyH1tkiZEyXpoEz7d5yETaUap9bP9vN7rz0VL9ZWxx6LRQHNXVnCu3BIAdbmYA3Ft7JctdRS46VTNoDH0FtGFPddgA3KoAy9oui0IoStMweYVfUEjydmTFJnlswY8GC1CMgVQDPZSCDD3goCqYX3z23hsGuL1e8kMBs3bw7uHCLx6IVtNNpMtTHa1CMt0WsYdFZQ8clTviCNNm7B9TLW5+QmzRX3xQ27nGgKdKPNrTj/mt8/XKVvBcmhDCpoZAOx24bGM8mK78UHr4em3j/8pxu8NBY7Rup5XH9Did4LN8B6s6mqKmEm4ALE0agOeq9ox/mNd2GPjgtFEkGFuNEZ9EBsRVirBwgGohgOhQLbYtJ53VI1Ep9S23K79OobF49P9ouD49iq9HFSO0ea6iWkZj3nJ8eesJwJfJpedzTjY3tBOxZEYPNfmjku0X6gFL1HMNupm6zu+r3OP6/WB5k=)
