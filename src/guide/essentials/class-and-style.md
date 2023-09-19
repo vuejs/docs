@@ -95,7 +95,13 @@ data() {
 <div :class="classObject"></div>
 ```
 
-This will render the same result. We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
+This will render:
+
+```vue-html
+<div class="active"></div>
+```
+
+We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
 
 <div class="composition-api">
 
