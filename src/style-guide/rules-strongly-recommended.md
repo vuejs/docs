@@ -337,7 +337,7 @@ components/
 
 ## Self-closing components {#self-closing-components}
 
-**Components with no content should be self-closing in [Single-File Components](/guide/scaling-up/sfc), string templates, and [JSX](/guide/extras/render-function#jsx-tsx) - but never in DOM templates.**
+**Components with no content should be self-closing in [Single-File Components](/guide/scaling-up/sfc), string templates, and [JSX](/guide/extras/render-function#jsx-tsx) - but never in in-DOM templates.**
 
 Components that self-close communicate that they not only have no content, but are **meant** to have no content. It's the difference between a blank page in a book and one labeled "This page intentionally left blank." Your code is also cleaner without the unnecessary closing tag.
 
@@ -375,7 +375,7 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 
 ## Component name casing in templates {#component-name-casing-in-templates}
 
-**In most projects, component names should always be PascalCase in [Single-File Components](/guide/scaling-up/sfc) and string templates - but kebab-case in DOM templates.**
+**In most projects, component names should always be PascalCase in [Single-File Components](/guide/scaling-up/sfc) and string templates - but kebab-case in in-DOM templates.**
 
 PascalCase has a few advantages over kebab-case:
 
@@ -383,7 +383,7 @@ PascalCase has a few advantages over kebab-case:
 - `<MyComponent>` is more visually distinct from a single-word HTML element than `<my-component>`, because there are two character differences (the two capitals), rather than just one (a hyphen).
 - If you use any non-Vue custom elements in your templates, such as a web component, PascalCase ensures that your Vue components remain distinctly visible.
 
-Unfortunately, due to HTML's case insensitivity, DOM templates must still use kebab-case.
+Unfortunately, due to HTML's case insensitivity, in-DOM templates must still use kebab-case.
 
 Also note that if you've already invested heavily in kebab-case, consistency with HTML conventions and being able to use the same casing across all your projects may be more important than the advantages listed above. In those cases, **using kebab-case everywhere is also acceptable.**
 
@@ -401,7 +401,7 @@ Also note that if you've already invested heavily in kebab-case, consistency wit
 ```
 
 ```vue-html
-<!-- In DOM templates -->
+<!-- In in-DOM templates -->
 <MyComponent></MyComponent>
 ```
 
@@ -416,7 +416,7 @@ Also note that if you've already invested heavily in kebab-case, consistency wit
 ```
 
 ```vue-html
-<!-- In DOM templates -->
+<!-- In in-DOM templates -->
 <my-component></my-component>
 ```
 
