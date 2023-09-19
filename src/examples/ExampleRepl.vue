@@ -2,7 +2,7 @@
 import { Repl, ReplStore } from '@vue/repl'
 import '@vue/repl/style.css'
 import { data } from './examples.data'
-import { inject, watchEffect, version, Ref, onMounted, ref } from 'vue'
+import { inject, watchEffect, version, Ref, onMounted, ref, onUnmounted } from 'vue'
 import {
   resolveSFCExample,
   resolveNoBuildExample,
@@ -49,6 +49,10 @@ onMounted(() => {
   }
   set()
   window.addEventListener('resize', set)
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', set)
+  })
 })
 </script>
 

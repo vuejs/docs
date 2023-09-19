@@ -57,7 +57,7 @@ const nav: ThemeConfig['nav'] = [
         text: 'Офіційні бібліотеки',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
-          { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
+          { text: 'Pinia', link: 'https://pinia-ua.netlify.app/uk/' },
           { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
         ]
       },
@@ -662,6 +662,11 @@ export default defineConfigWithTheme<ThemeConfig>({
         link: 'https://pt.vuejs.org',
         text: 'Português',
         repo: 'https://github.com/vuejs-translations/docs-pt'
+      },
+      {
+        link: 'https://bn.vuejs.org',
+        text: 'বাংলা',
+        repo: 'https://github.com/vuejs-translations/docs-bn'
       },
       {
         link: '/translations/',

@@ -148,7 +148,7 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Технічно ви також можете використовувати camelCase під час передачі реквізитів дочірньому компоненту (за винятком [шаблонів DOM](/guide/essentials/component-basics.html#dom-template-parsing-caveats)). Однак, угода передбачає використання kebab-case у всіх випадках для узгодження з атрибутами HTML:
+Технічно ви також можете використовувати camelCase під час передачі реквізитів дочірньому компоненту (за винятком [шаблонів DOM](/guide/essentials/component-basics.html#in-dom-template-parsing-caveats)). Однак, угода передбачає використання kebab-case у всіх випадках для узгодження з атрибутами HTML:
 
 ```vue-html
 <MyComponent greeting-message="привіт" />
