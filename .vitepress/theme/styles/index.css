@@ -8,3 +8,9 @@
 :root {
   --vp-sidebar-width-small: 289px !important;
 }
+
+/* bugfix: https://github.com/vuejs/theme/pull/95 */
+
+.vt-flyout-menu {
+  max-height: calc(100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px)) !important;
+}

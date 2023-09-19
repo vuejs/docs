@@ -21,7 +21,7 @@
 
 Щоб розпочати роботу з Vite + Vue, просто запустіть:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
+<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#A6ACCD;">npm create vue@latest</span></span></code></pre></div>
 
 Ця команда встановить та виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проєктів Vue.
 
@@ -80,6 +80,7 @@
 - [Документація](https://devtools.vuejs.org/)
 - [Розширення Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 - [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+- [Розширення для Edge](https://microsoftedge.microsoft.com/addons/detail/vuejs-devtools/olofadcdnkkjdfgjcmjaadnlehnnihnl)
 - [Автономний додаток Electron](https://devtools.vuejs.org/guide/installation.html#standalone)
 
 ## TypeScript {#typescript}

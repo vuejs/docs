@@ -79,15 +79,33 @@
   При оголошенні цього параметра в компоненті, який використовує `<script setup>`, потрібен окремий блок `<script>`:
 
   ```vue
-  <script>
-  export default {
-    inheritAttrs: false
-  }
-  </script>
-
   <script setup>
   defineProps(['label', 'value'])
   defineEmits(['input'])
+  defineOptions({
+    inheritAttrs: false
+  })
+  </script>
+
+  <template>
+    <label>
+      {{ label }}
+      <input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      />
+    </label>
+  </template>
+  ```
+
+  Починаючи з версії 3.3, ви також можете використовувати `defineOptions` безпосередньо в `<script setup>`:
+
+  ```vue
+  <script setup>
+  defineProps(['label', 'value'])
+  defineEmits(['input'])
+  defineOptions({ inheritAttrs: false })
   </script>
 
   <template>

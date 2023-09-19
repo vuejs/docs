@@ -30,6 +30,8 @@ Vue (вимовляється як (англ.) /vjuː/, (укр) /в'ю/) — ц
 
 Найпростіший приклад:
 
+<div class="options-api">
+
 ```js
 import { createApp } from 'vue'
 
@@ -41,6 +43,23 @@ createApp({
   }
 }).mount('#app')
 ```
+
+</div>
+<div class="composition-api">
+
+```js
+import { createApp, ref } from 'vue'
+
+createApp({
+  setup() {
+    return {
+      count: ref(0)
+    }
+  }
+}).mount('#app')
+```
+
+</div>
 
 ```vue-html
 <div id="app">
@@ -96,6 +115,8 @@ Vue — це фреймворк та екосистема, яка охоплює
 
 У більшості проєктів Vue, що використовують інструменти збірки та потребують етапу збірки, ми створюємо компоненти Vue, використовуючи HTML-подібний формат файлу під назвою **Single-File Component** (також відомий як файли `*.vue`, скорочено **SFC**). Vue SFC, як випливає з назви, інкапсулює логіку компонента (JavaScript), шаблон (HTML) і стилі (CSS) в одному файлі. Ось попередній приклад, написаний у форматі SFC:
 
+<div class="options-api">
+
 ```vue
 <script>
 export default {
@@ -117,6 +138,28 @@ button {
 }
 </style>
 ```
+
+</div>
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref } from 'vue'
+const count = ref(0)
+</script>
+
+<template>
+  <button @click="count++">Лічильник: {{ count }}</button>
+</template>
+
+<style scoped>
+button {
+  font-weight: bold;
+}
+</style>
+```
+
+</div>
 
 SFC є однією з основних функцій Vue і рекомендованим способом створення компонентів Vue, **якщо** ваша задача вимагає використання інструментів збірки. Ви можете дізнатися більше [як і навіщо використовувати SFC](/guide/scaling-up/sfc) у спеціальному розділі, але наразі знайте, що Vue впорається з усіма налаштуваннями інструментів збірки за вас автоматично.
 

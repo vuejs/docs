@@ -4,7 +4,6 @@
 
 <a href="https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-no-action.svg" /></a>
 
-
 # Документація Vue.js українською мовою
 
 ## Сприяння
@@ -25,7 +24,7 @@ pnpm run dev
 
 - Перегляньте документацію по VitePress для ознайомлення із підтримуваними [розширеннями Markdown](https://vitepress.vuejs.org/guide/markdown) і можливостями [використання синтаксису Vue всередині markdown](https://vitepress.vuejs.org/guide/using-vue).
 
-- Перегляньте [Редакторський Посібник](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) з нашими правилами та рекомендаціями по написанню та обслуговуванню документації.
+- Перегляньте документацію по VitePress по підтримуваних [Розширеннях Markdown](https://vitepress.dev/guide/markdown) та можливості [використовувати синтаксис Vue всередині markdown](https://vitepress.dev/guide/using-vue).
 
 ## Робота з темою
 

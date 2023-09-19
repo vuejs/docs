@@ -229,7 +229,9 @@ cy.get(valueSelector)
 
 ### Інші варіанти {#other-options-1}
 
-- [Nightwatch](https://v2.nightwatchjs.org/) - це засіб тестування E2E з підтримкою тестування компонентів Vue. ([Приклад проєкту](https://github.com/nightwatchjs-community/todo-vue) з Nightwatch v2)
+- [Nightwatch](https://nightwatchjs.org/) — програма для тестування E2E із підтримкою тестування компонентів Vue. ([Приклад проекту](https://github.com/nightwatchjs-community/todo-vue))
+
+- [WebdriverIO](https://webdriver.io/docs/component-testing/vue) для міжбраузерного тестування компонентів, яке покладається на власну взаємодію користувача на основі стандартизованої автоматизації. Також можна використовувати з бібліотекою тестування. 
 
 ## E2E тестування {#e2e-testing}
 
@@ -277,7 +279,9 @@ cy.get(valueSelector)
 
 - [Playwright](https://playwright.dev/) також є чудовим рішенням для E2E тестування із ширшою підтримкою браузерів (переважно WebKit). Дивіться [Чому Playwright](https://playwright.dev/docs/why-playwright) для більш детальної інформації.
 
-- [Nightwatch v2](https://v2.nightwatchjs.org/) це рішення для E2E тестування, засноване на [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). Це забезпечує найширший діапазон підтримки браузерів.
+- [Nightwatch](https://nightwatchjs.org/) – це рішення для тестування E2E на основі [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). Це забезпечує найширший діапазон підтримки браузера.
+
+- [WebdriverIO](https://webdriver.io/) – це платформа автоматизації тестування для Інтернету та мобільного тестування на основі протоколу WebDriver.
 
 ## Рецепти {#recipes}
 

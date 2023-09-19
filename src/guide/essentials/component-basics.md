@@ -80,7 +80,8 @@ export default {
     <button @click="count++">
       Ви натиснули на мене {{ count }} разів.
     </button>`
-  // or `template: '#my-template-element'`
+  // Також можна використати шаблон у DOM:
+  // template: '#my-template-element'
 }
 ```
 
@@ -173,7 +174,7 @@ import ButtonCounter from './ButtonCounter.vue'
 <button-counter></button-counter>
 ```
 
-Дивіться [застереження щодо аналізу шаблону DOM](#dom-template-parsing-caveats) для отримання додаткової інформації.
+Дивіться [застереження щодо аналізу шаблону DOM](#in-dom-template-parsing-caveats) для отримання додаткової інформації.
 
 ## Передавання реквізитів {#passing-props}
 
@@ -540,7 +541,7 @@ export default {
 
 Під час перемикання між декількома компонентами за допомогою `<component :is="...">` компонент буде демонтовано, коли з нього буде перемкнуто. Ми можемо змусити неактивні компоненти залишатися «живими» за допомогою вбудованого [компонента `<KeepAlive>`](/guide/built-ins/keep-alive).
 
-## Застереження щодо аналізу шаблону DOM {#dom-template-parsing-caveats}
+## Застереження щодо аналізу шаблону DOM {#in-dom-template-parsing-caveats}
 
 Якщо ви пишете свої шаблони Vue безпосередньо в DOM, Vue доведеться отримати рядок шаблону з DOM. Це призводить до деяких застережень через власну поведінку браузерів під час аналізу HTML.
 
