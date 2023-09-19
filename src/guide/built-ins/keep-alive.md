@@ -47,7 +47,7 @@ import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 </div>
 
 :::tip
-У разі використання в [шаблонах DOM](/guide/essentials/component-basics#dom-template-parsing-caveats) на нього слід посилатися як `<keep-alive>`.
+У разі використання в [шаблонах DOM](/guide/essentials/component-basics#in-dom-template-parsing-caveats) на нього слід посилатися як `<keep-alive>`.
 :::
 
 ## Включити / Виключити {#include-exclude}
