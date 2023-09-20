@@ -47,7 +47,7 @@ const author = reactive({
 
 </div>
 
-And we want to display different messages depending on if `author` already has some books or not:
+Und wir wollen unterschiedliche Meldungen anzeigen, je nachdem, ob `Autor` bereits einige Bücher hat oder nicht:
 
 ```vue-html
 <p>Has published books:</p>
