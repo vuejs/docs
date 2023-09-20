@@ -44,3 +44,7 @@ li {
   left: auto !important;
   right: 17px;
 }
+
+.outline-title {
+  direction: rtl;
+}
