@@ -99,9 +99,9 @@ function dismiss() {
   <Transition name="fly-in">
     <div class="preference-tooltip" v-if="show">
       <template v-if="source === 'default'">
-        <p> اکنون Composition API به عنوان سبک API پیش‌فرض تنظیم شده. </p>
+        <p> درحال حاضر Composition API به عنوان سبک API پیش‌فرض تنظیم شده است. </p>
         <p>
-          برخی صفحات محتوای متفاوتی بر اساس سبک API انتخاب شده دارند. از این سوئیچ برای تغییر بین سبک‌های API صفحه استفاده کنید.
+          برخی صفحات محتوای متفاوتی بر اساس سبک API انتخاب شده دارند. از این سوئیچ می‌توانید برای تغییر بین سبک‌های API صفحه استفاده کنید.
         </p>
       </template>
       <template v-if="source && source.startsWith('url')">
@@ -120,7 +120,7 @@ function dismiss() {
       </template>
       <p class="actions">
         <a href="/guide/introduction#api-styles">بیشتر بدانید</a>
-        <button @click="dismiss">متوجه شدم</button>
+        <button @click="dismiss">فهمیدم</button>
       </p>
       <div class="arrow-top"></div>
       <div class="arrow-top inner"></div>
@@ -189,7 +189,7 @@ p {
 }
 
 .actions {
-  text-align: right;
+  text-align: left;
   margin-top: 14px;
   margin-bottom: 0;
 }
