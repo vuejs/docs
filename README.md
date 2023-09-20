@@ -1,6 +1,6 @@
 # ترجمه مستندات [Vue.js](vuejs.org) به فارسی
 
-مستندات با [VitePress](https://github.com/vuejs/vitepress) ساخته شده است و وابستگی به [@vue/theme](https://github.com/vuejs/vue-theme) دارد. محتوای وب‌سایت با فرمت Markdown در مسیر `src` نوشته شده است. برای ویرایش‌های ساده، می‌توانید مستقیماً فایل را در GitHub ویرایش کرده و یک درخواست Pull Request ایجاد کنید.
+مستندات با [VitePress](https://github.com/vuejs/vitepress) ساخته شده است و وابستگی به [@vue/theme](https://github.com/vuejs/vue-theme) دارد. محتوای وب‌سایت با فرمت Markdown در مسیر `src` نوشته شده است. برای ویرایش‌های ساده، می‌توانید مستقیماً فایل را در GitHub ویرایش کرده و یک Pull Request ایجاد کنید.
 
 برای توسعه، pnpm به عنوان Package Manager توصیه می‌شود:
 ```bash
