@@ -224,7 +224,7 @@ export function useFetch(url) {
 	}
 
   watchEffect(() => {
-    // reset state before fetching..
+    // обнулити стан перед отриманням...
     fetchData(url)
   })
 
