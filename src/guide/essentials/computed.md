@@ -54,7 +54,7 @@ Und wir wollen unterschiedliche Meldungen anzeigen, je nachdem, ob `Autor` berei
 <span>{{ author.books.length > 0 ? 'Yes' : 'No' }}</span>
 ```
 
-At this point, the template is getting a bit cluttered. We have to look at it for a second before realizing that it performs a calculation depending on `author.books`. More importantly, we probably don't want to repeat ourselves if we need to include this calculation in the template more than once.
+An diesem Punkt wird die Vorlage ein wenig unübersichtlich. Wir müssen sie eine Sekunde lang betrachten, um zu erkennen, dass sie eine Berechnung in Abhängigkeit von `author.books` durchführt. Noch wichtiger ist, dass wir uns wahrscheinlich nicht wiederholen wollen, wenn wir diese Berechnung mehr als einmal in die Vorlage aufnehmen müssen.
 
 That's why for complex logic that includes reactive data, it is recommended to use a **computed property**. Here's the same example, refactored:
 
