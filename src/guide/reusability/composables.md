@@ -216,15 +216,16 @@ export function useFetch(url) {
   const data = ref(null)
   const error = ref(null)
 
-  watchEffect(() => {
-    // скидання стану перед отриманням..
-    data.value = null
-    error.value = null
-    // toValue() розгортає потенційні референції або геттери
-    fetch(toValue(url))
+	const fetchData = (dt) => {
+			fetch(toValue(url))
       .then((res) => res.json())
       .then((json) => (data.value = json))
       .catch((err) => (error.value = err))
+	}
+
+  watchEffect(() => {
+    // reset state before fetching..
+    fetchData(url)
   })
 
   return { data, error }
