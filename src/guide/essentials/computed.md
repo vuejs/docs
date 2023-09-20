@@ -10,7 +10,7 @@
 
 ## Grundlegendes Beispiel {#basic-example}
 
-In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
+Vorlageninterne Ausdrücke sind sehr praktisch, aber sie sind für einfache Operationen gedacht. Wenn Sie zu viel Logik in Ihre Vorlagen einbauen, können diese aufgebläht und schwer zu pflegen werden. Zum Beispiel, wenn wir ein Objekt mit einem verschachtelten Array haben:
 
 <div class="options-api">
 
