@@ -13,3 +13,5 @@ pnpm run dev
 در مستندات VitePress، می‌توانید در مورد [Markdown Extentions](https://vitepress.dev/guide/markdown) پشتیبانی‌شده و قابلیت [استفاده از دستورات Vue داخل Markdown](https://vitepress.dev/guide/using-vue) بیشتر بخوانید.
 
 برای دستورات و توصیه‌های ما درباره نوشتن و حفظ محتوای مستندات، به [راهنمای نوشتاری ما](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) مراجعه کنید.
+
+پی‌نوشت: شما کاملا بدون نیاز به یادگیری VitePress می‌توانید در ترجمه مستندات مشارکت کنید!
