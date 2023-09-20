@@ -174,7 +174,7 @@ If you are authoring your templates directly in a DOM (e.g. as the content of a 
 <button-counter></button-counter>
 ```
 
-See [DOM template parsing caveats](#dom-template-parsing-caveats) for more details.
+See [in-DOM template parsing caveats](#in-dom-template-parsing-caveats) for more details.
 
 ## Passing Props {#passing-props}
 
@@ -541,7 +541,7 @@ You can also use the `is` attribute to create regular HTML elements.
 
 When switching between multiple components with `<component :is="...">`, a component will be unmounted when it is switched away from. We can force the inactive components to stay "alive" with the built-in [`<KeepAlive>` component](/guide/built-ins/keep-alive).
 
-## DOM Template Parsing Caveats {#dom-template-parsing-caveats}
+## in-DOM Template Parsing Caveats {#in-dom-template-parsing-caveats}
 
 If you are writing your Vue templates directly in the DOM, Vue will have to retrieve the template string from the DOM. This leads to some caveats due to browsers' native HTML parsing behavior.
 
@@ -583,7 +583,7 @@ We have been using self-closing tags for components in previous code samples:
 
 This is because Vue's template parser respects `/>` as an indication to end any tag, regardless of its type.
 
-In DOM templates, however, we must always include explicit closing tags:
+In in-DOM templates, however, we must always include explicit closing tags:
 
 ```vue-html
 <my-component></my-component>
@@ -628,6 +628,6 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 When used on native HTML elements, the value of `is` must be prefixed with `vue:` in order to be interpreted as a Vue component. This is required to avoid confusion with native [customized built-in elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 
-That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself - build something fun, or check out some of the [Examples](/examples/) if you haven't already.
+That's all you need to know about in-DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself - build something fun, or check out some of the [Examples](/examples/) if you haven't already.
 
 Once you feel comfortable with the knowledge you've just digested, move on with the guide to learn more about components in depth.
