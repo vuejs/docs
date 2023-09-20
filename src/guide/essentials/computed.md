@@ -1,4 +1,4 @@
-# Computed Properties {#computed-properties}
+# Berechnete Eigenschaften {#computed-properties}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="Free Vue.js Computed Properties Lesson"/>
