@@ -106,10 +106,13 @@ updateExample()
 </script>
 
 <template>
-  <section class="tutorial">
+  <section class="tutorial" dir="rtl">
     <article class="instruction" ref="instruction">
       <PreferenceSwitch />
-      <VTFlyout :button="`${currentStepIndex} / ${totalSteps}`">
+      <VTFlyout
+        style="margin-right: 25%"
+        :button="`${currentStepIndex} / ${totalSteps}`"
+      >
         <VTLink
           v-for="(step, i) of allSteps"
           class="vt-menu-link"
@@ -125,13 +128,14 @@ updateExample()
         </button>
       </div>
       <footer>
-        <a v-if="prevStep" :href="`#${prevStep}`"
-          ><VTIconChevronLeft class="vt-link-icon" style="margin: 0" />
-          Prev</a
-        >
         <a class="next-step" v-if="nextStep" :href="`#${nextStep}`"
-          >Next <VTIconChevronRight class="vt-link-icon"
+          >بعدی <VTIconChevronLeft class="vt-link-icon"
         /></a>
+
+        <a v-if="prevStep" :href="`#${prevStep}`"
+          ><VTIconChevronRight class="vt-link-icon" style="margin: 0" />
+          قبلی</a
+        >
       </footer>
     </article>
     <Repl
