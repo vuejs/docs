@@ -48,3 +48,9 @@ li {
 .outline-title {
   direction: rtl;
 }
+
+.vt-doc .header-anchor {
+  float: right !important;
+  margin-right: -1.1em;
+  padding-left: 0.23em;
+}
