@@ -34,3 +34,10 @@ pnpm run dev
 <p dir="rtl">
 هم‌اکنون در<a href="https://github.com/vuejs-translations/guidelines#current-active-translations-in-alphabetical-order">مرحله ۳</a> (از ۵ مرحله) قرار داریم. هدف فعلی ما ترجمه ۵۰٪ مستندات هست تا ریپازیتوری اختصاصی از <a href="https://github.com/vuejs-translations">vuejs-translations</a> دریافت کنیم. برای جزئیات بیشتر و اطلاع از فرایند کلی پروژه این <a href="https://github.com/vuejs-translations/guidelines">این صفحه</a> را مطالعه کنید.
 </p>
+
+
+<h2 dir="rtl">چگونه می‌توانم با مشارکت کنندگان در ارتباط باشم؟</h2>
+
+<p dir="rtl">
+در گروه تلگرامی <a href="https://t.me/Vue_Docs_Fa">@Vue_Docs_Fa</a> به می‌توانید با مشارکت‌کنندگان به طور مستقیم درارتباط باشید.
+</p>
