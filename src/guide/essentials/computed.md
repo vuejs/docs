@@ -56,7 +56,7 @@ Und wir wollen unterschiedliche Meldungen anzeigen, je nachdem, ob `Autor` berei
 
 An diesem Punkt wird die Vorlage ein wenig unübersichtlich. Wir müssen sie eine Sekunde lang betrachten, um zu erkennen, dass sie eine Berechnung in Abhängigkeit von `author.books` durchführt. Noch wichtiger ist, dass wir uns wahrscheinlich nicht wiederholen wollen, wenn wir diese Berechnung mehr als einmal in die Vorlage aufnehmen müssen.
 
-That's why for complex logic that includes reactive data, it is recommended to use a **computed property**. Here's the same example, refactored:
+Aus diesem Grund wird für komplexe Logik, die reaktive Daten enthält, die Verwendung einer **berechneten Eigenschaft** empfohlen. Hier ist das gleiche Beispiel, umstrukturiert:
 
 <div class="options-api">
 
