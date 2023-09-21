@@ -59,7 +59,7 @@ function useToggleFn(
 </script>
 
 <template>
-  <div v-if="show" class="preference-switch">
+  <div v-if="show" class="preference-switch" dir="rtl">
     <button
       class="toggle"
       aria-label="preference switches toggle"
@@ -69,7 +69,7 @@ function useToggleFn(
       @mousedown="removeOutline"
       @blur="restoreOutline"
     >
-      <span>API Preference</span>
+      <span>سبک مرجع API</span>
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
     </button>
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
@@ -173,7 +173,7 @@ function useToggleFn(
   align-items: center;
 }
 
-@media(max-width: 959px){
+@media (max-width: 959px) {
   .switch-container {
     padding: 0 1em;
   }
@@ -184,7 +184,7 @@ function useToggleFn(
 }
 
 .vt-switch {
-  margin-right: 5px;
+  margin-left: 5px;
   transform: scale(0.8);
 }
 
@@ -198,7 +198,8 @@ function useToggleFn(
 }
 
 .switch-link {
-  margin-left: 8px;
+  padding-top: 1px;
+  margin-right: 8px;
   font-size: 11px;
   min-width: 14px;
   height: 14px;
@@ -245,7 +246,7 @@ function useToggleFn(
 }
 
 .prefer-composition .api-switch .vt-switch-check {
-  transform: translateX(18px);
+  transform: translateX(-18px);
 }
 
 .composition-label,
@@ -261,7 +262,7 @@ function useToggleFn(
 }
 
 .prefer-sfc .sfc-switch .vt-switch-check {
-  transform: translateX(18px);
+  transform: translateX(-18px);
 }
 
 .tip .options-api,
@@ -269,5 +270,9 @@ function useToggleFn(
   color: var(--vt-c-text-code);
   /* transition: color 0.5s; */
   font-weight: 600;
+}
+
+.vt-switch-check {
+  right: 1px;
 }
 </style>
