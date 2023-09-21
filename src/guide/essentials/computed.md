@@ -93,7 +93,7 @@ export default {
 
 Hier haben wir eine berechnete Eigenschaft `publishedBooksMessage` deklariert.
 
-Try to change the value of the `books` array in the application `data` and you will see how `publishedBooksMessage` is changing accordingly.
+Versuchen Sie, den Wert des Arrays `books` in der Anwendung `data` zu ändern und Sie werden sehen, wie sich `publishedBooksMessage` entsprechend ändert.
 
 You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `this.publishedBooksMessage` when `this.author.books` changes.
 
