@@ -426,101 +426,101 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ],
   '/examples/': [
     {
-      text: 'Basic',
+      text: 'پایه',
       items: [
         {
-          text: 'Hello World',
+          text: 'سلام دنیا',
           link: '/examples/#hello-world'
         },
         {
-          text: 'Handling User Input',
+          text: 'مدیریت ورودی کاربر',
           link: '/examples/#handling-input'
         },
         {
-          text: 'Attribute Bindings',
+          text: 'اتصال صفت‌ها',
           link: '/examples/#attribute-bindings'
         },
         {
-          text: 'Conditionals and Loops',
+          text: 'شرط‌ها و حلقه‌ها',
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Form Bindings',
+          text: 'اتصالات فرم',
           link: '/examples/#form-bindings'
         },
         {
-          text: 'Simple Component',
+          text: 'کامپوننت ساده',
           link: '/examples/#simple-component'
         }
       ]
     },
     {
-      text: 'Practical',
+      text: 'کاربردی',
       items: [
         {
-          text: 'Markdown Editor',
+          text: 'ویرایشگر Markdown',
           link: '/examples/#markdown'
         },
         {
-          text: 'Fetching Data',
+          text: 'گرفتن داده',
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Grid with Sort and Filter',
+          text: 'گرید با مرتب‌سازی و فیلتر',
           link: '/examples/#grid'
         },
         {
-          text: 'Tree View',
+          text: 'نمای درختی',
           link: '/examples/#tree'
         },
         {
-          text: 'SVG Graph',
+          text: 'نمودار SVG',
           link: '/examples/#svg'
         },
         {
-          text: 'Modal with Transitions',
+          text: 'مودال با انیمیشن',
           link: '/examples/#modal'
         },
         {
-          text: 'List with Transitions',
+          text: 'لیست با انیمیشن',
           link: '/examples/#list-transition'
         },
         {
-          text: 'TodoMVC',
+          text: 'نمونه TodoMVC',
           link: '/examples/#todomvc'
         }
       ]
     },
     {
       // https://eugenkiss.github.io/7guis/
-      text: '7 GUIs',
+      text: 'بنچمارک 7GUIs',
       items: [
         {
-          text: 'Counter',
+          text: 'شمارنده',
           link: '/examples/#counter'
         },
         {
-          text: 'Temperature Converter',
+          text: 'مبدل دما',
           link: '/examples/#temperature-converter'
         },
         {
-          text: 'Flight Booker',
+          text: 'رزرو پرواز',
           link: '/examples/#flight-booker'
         },
         {
-          text: 'Timer',
+          text: 'شمارنده',
           link: '/examples/#timer'
         },
         {
-          text: 'CRUD',
+          text: 'عملیات CRUD',
           link: '/examples/#crud'
         },
         {
-          text: 'Circle Drawer',
+          text: 'کشوی دایره‌ای',
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Cells',
+          text: 'سلول‌های جدول',
           link: '/examples/#cells'
         }
       ]
