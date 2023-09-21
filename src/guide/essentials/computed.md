@@ -132,7 +132,7 @@ const publishedBooksMessage = computed(() => {
 
 Hier haben wir eine berechnete Eigenschaft `publishedBooksMessage` deklariert. Die Funktion "berechnet()" erwartet die Übergabe einer Getter-Funktion, und der zurückgegebene Wert ist eine **berechnete Referenz**. Ähnlich wie bei normalen Refs kann man auf das berechnete Ergebnis als `publishedBooksMessage.value` zugreifen. Berechnete Refs werden auch automatisch in Templates entpackt, so dass man sie ohne `.value` in Template-Ausdrücken referenzieren kann.
 
-A computed property automatically tracks its reactive dependencies. Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes.
+Eine berechnete Eigenschaft verfolgt automatisch ihre reaktiven Abhängigkeiten. Vue ist sich bewusst, dass die Berechnung von `publishedBooksMessage` von `author.books` abhängt, also wird es alle Bindungen, die von `publishedBooksMessage` abhängen, aktualisieren, wenn sich `author.books` ändert.
 
 See also: [Typing Computed](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
 
