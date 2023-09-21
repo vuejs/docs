@@ -95,7 +95,7 @@ Hier haben wir eine berechnete Eigenschaft `publishedBooksMessage` deklariert.
 
 Versuchen Sie, den Wert des Arrays `books` in der Anwendung `data` zu ändern und Sie werden sehen, wie sich `publishedBooksMessage` entsprechend ändert.
 
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `this.publishedBooksMessage` when `this.author.books` changes.
+Sie können Daten an berechnete Eigenschaften in Templates binden, genau wie eine normale Eigenschaft. Vue ist sich bewusst, dass `this.publishedBooksMessage` von `this.author.books` abhängt, also wird es alle Bindungen, die von `this.publishedBooksMessage` abhängen, aktualisieren, wenn `this.author.books` sich ändert.
 
 See also: [Typing Computed Properties](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
 
