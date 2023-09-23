@@ -1,2 +1,2 @@
-A nested tree component that recursively renders itself.
-You can double click on an item to turn it into a folder.
+Un componente ad albero che si renderizza ricorsivamente.
+Puoi fare doppio click su un elemento per trasformarlo in una cartella.
