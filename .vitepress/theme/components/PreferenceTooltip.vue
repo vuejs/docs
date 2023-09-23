@@ -99,30 +99,28 @@ function dismiss() {
   <Transition name="fly-in">
     <div class="preference-tooltip" v-if="show">
       <template v-if="source === 'default'">
-        <p>API style now defaults to Composition API.</p>
+        <p> درحال حاضر Composition API به عنوان سبک API پیش‌فرض تنظیم شده است. </p>
         <p>
-          Some pages contain different content based on the API style
-          chosen. Use this switch to toggle between APIs styles.
+          برخی صفحات محتوای متفاوتی بر اساس سبک API انتخاب شده دارند. از این سوئیچ می‌توانید برای تغییر بین سبک‌های API صفحه استفاده کنید.
         </p>
       </template>
       <template v-if="source && source.startsWith('url')">
         <p>
-          Showing content for
-          {{ preferComposition ? 'Composition' : 'Options' }} API because
+          محتوا فقط برای   
+          {{ preferComposition ? 'Composition' : 'Options' }} API نمایش داده می‌شود. 
           {{
             source === 'url-query'
-              ? 'it is specified by the URL query.'
-              : 'the target section is only available for that API.'
+              ? 'زیرا آن توسط query URL مشخص شده است.'
+              : 'زیرا بخش هدف فقط برای آن API در دسترس است.'
           }}
         </p>
         <p>
-          This is different from your saved preference and will only affect
-          the current browsing session.
+          این با تنظیمات ذخیره شده شما متفاوت است و فقط بر نشست فعلی مرورگر تأثیر می‌گذارد.
         </p>
       </template>
       <p class="actions">
-        <a href="/guide/introduction#api-styles">Learn more</a>
-        <button @click="dismiss">Got it</button>
+        <a href="/guide/introduction#api-styles">بیشتر بدانید</a>
+        <button @click="dismiss">فهمیدم</button>
       </p>
       <div class="arrow-top"></div>
       <div class="arrow-top inner"></div>
@@ -135,7 +133,7 @@ function dismiss() {
   font-weight: 500;
   line-height: 1.6;
   position: absolute;
-  padding: 12px 20px 12px 36px;
+  padding: 12px 36px 12px 20px;
   width: 100%;
   background-color: var(--vt-c-bg-soft);
   top: 7.5em;
@@ -151,7 +149,7 @@ function dismiss() {
   font-weight: 600;
   font-size: 14px;
   top: 9px;
-  left: 13px;
+  right: 13px;
 }
 
 .dark .preference-tooltip {
@@ -191,7 +189,7 @@ p {
 }
 
 .actions {
-  text-align: right;
+  text-align: left;
   margin-top: 14px;
   margin-bottom: 0;
 }
@@ -199,7 +197,7 @@ p {
 a {
   color: var(--vt-c-green);
   text-decoration: underline;
-  margin-right: 1.5em;
+  margin-left: 0.625rem;
 }
 
 button {

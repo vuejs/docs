@@ -1,4 +1,4 @@
-# Conditional Rendering {#conditional-rendering}
+# رِندر شرطی (Conditional Rendering) {#conditional-rendering}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Free Vue.js Conditional Rendering Lesson"/>
@@ -15,45 +15,45 @@ const awesome = ref(true)
 
 ## `v-if` {#v-if}
 
-The directive `v-if` is used to conditionally render a block. The block will only be rendered if the directive's expression returns a truthy value.
+از دستور `v-if` برای رِندر شرطی روی یک بلوک استفاده می‌شود. بلوک فقط در صورتی رِندر می‌شود که عبارت داخل دستور یک مقدار صحیح برگرداند.
 
 ```vue-html
-<h1 v-if="awesome">Vue is awesome!</h1>
+<h1 v-if="awesome"> Vue عالی است! </h1>
 ```
 
 ## `v-else` {#v-else}
 
-You can use the `v-else` directive to indicate an "else block" for `v-if`:
+می‌توانید از دستور `v-else` برای مشخص کردن قسمت "else" برای `v-if` استفاده کنید:
 
 ```vue-html
-<button @click="awesome = !awesome">Toggle</button>
+<button @click="awesome = !awesome"> تغییر وضعیت </button>
 
-<h1 v-if="awesome">Vue is awesome!</h1>
-<h1 v-else>Oh no 😢</h1>
+<h1 v-if="awesome"> Vue عالی است! </h1>
+<h1 v-else> اوه نه 😢 </h1>
 ```
 
 <div class="demo">
-  <button @click="awesome = !awesome">Toggle</button>
-  <h1 v-if="awesome">Vue is awesome!</h1>
-  <h1 v-else>Oh no 😢</h1>
+  <button @click="awesome = !awesome"> تغییر وضعیت </button>
+  <h1 v-if="awesome"> Vue عالی است! </h1>
+  <h1 v-else> اوه نه 😢 </h1>
 </div>
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNpFjkEOgjAQRa8ydIMulLA1hegJ3LnqBskAjdA27RQXhHu4M/GEHsEiKLv5mfdf/sBOxux7j+zAuCutNAQOyZtcKNkZbQkGsFjBCJXVHcQBjYUSqtTKERR3dLpDyCZmQ9bjViiezKKgCIGwM21BGBIAv3oireBYtrK8ZYKtgmg5BctJ13WLPJnhr0YQb1Lod7JaS4G8eATpfjMinjTphC8wtg7zcwNKw/v5eC1fnvwnsfEDwaha7w==)
+[امتحان این مورد در Playground](https://play.vuejs.org/#eNpFjkEOgjAQRa8ydIMulLA1hegJ3LnqBskAjdA27RQXhHu4M/GEHsEiKLv5mfdf/sBOxux7j+zAuCutNAQOyZtcKNkZbQkGsFjBCJXVHcQBjYUSqtTKERR3dLpDyCZmQ9bjViiezKKgCIGwM21BGBIAv3oireBYtrK8ZYKtgmg5BctJ13WLPJnhr0YQb1Lod7JaS4G8eATpfjMinjTphC8wtg7zcwNKw/v5eC1fnvwnsfEDwaha7w==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNpFjj0OwjAMha9iMsEAFWuVVnACNqYsoXV/RJpEqVOQqt6DDYkTcgRSWoplWX7y56fXs6O1u84jixlvM1dbSoXGuzWOIMdCekXQCw2QS5LrzbQLckje6VEJglDyhq1pMAZyHidkGG9hhObRYh0EYWOVJAwKgF88kdFwyFSdXRPBZidIYDWvgqVkylIhjyb4ayOIV3votnXxfwrk2SPU7S/PikfVfsRnGFWL6akCbeD9fLzmK4+WSGz4AA5dYQY=)
+[امتحان این مورد در Playground](https://play.vuejs.org/#eNpFjj0OwjAMha9iMsEAFWuVVnACNqYsoXV/RJpEqVOQqt6DDYkTcgRSWoplWX7y56fXs6O1u84jixlvM1dbSoXGuzWOIMdCekXQCw2QS5LrzbQLckje6VEJglDyhq1pMAZyHidkGG9hhObRYh0EYWOVJAwKgF88kdFwyFSdXRPBZidIYDWvgqVkylIhjyb4ayOIV3votnXxfwrk2SPU7S/PikfVfsRnGFWL6akCbeD9fLzmK4+WSGz4AA5dYQY=)
 
 </div>
 
-A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - otherwise it will not be recognized.
+یک عنصر `v-else` باید بلافاصله بعد از یک عنصر `v-if` یا `v-else-if` قرار بگیرد - در غیر این صورت شناخته نخواهد شد.
 
 ## `v-else-if` {#v-else-if}
 
-The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
+`v-else-if`، همانطور که از اسمش پیداست، به عنوان یک بلوک "else if" برای `v-if` عمل می‌کند. همچنین می‌تواند به صورت زنجیره‌ای، چندین بار استفاده شود:
 
 ```vue-html
 <div v-if="type === 'A'">
@@ -70,11 +70,11 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
 </div>
 ```
 
-Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+مشابه `v-else`، یک عنصر `v-else-if` باید بلافاصله بعد از یک عنصر `v-if` یا `v-else-if`  قرار بگیرد.
 
-## `v-if` on `<template>` {#v-if-on-template}
+## `v-if` روی `<template>` {#v-if-on-template}
 
-Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+از آنجا که `v-if` یک دستورالعمل است، باید روی یک عنصر قرار بگیرد. اما اگر بخواهیم بیش از یک عنصر را تغییر دهیم چطور؟ در این صورت می‌توان از `v-if` روی عنصر `<template>` استفاده کرد که به عنوان یک پوشش مخفی عمل می‌کند. نتیجهٔ نهایی رِندر شده شامل عنصر `<template>` نخواهد بود.
 
 ```vue-html
 <template v-if="ok">
@@ -84,34 +84,34 @@ Because `v-if` is a directive, it has to be attached to a single element. But wh
 </template>
 ```
 
-`v-else` and `v-else-if` can also be used on `<template>`.
+همچنین می‌توانیم از `v-else` و `v-else-if` روی `<template>` استفاده کنیم.
 
 ## `v-show` {#v-show}
 
-Another option for conditionally displaying an element is the `v-show` directive. The usage is largely the same:
+گزینهٔ دیگر برای نمایش شرطی یک عنصر، دستور `v-show` است. استفاده از آن تا حد زیادی مشابه است:
 
 ```vue-html
 <h1 v-show="ok">Hello!</h1>
 ```
 
-The difference is that an element with `v-show` will always be rendered and remain in the DOM; `v-show` only toggles the `display` CSS property of the element.
+تفاوت در این است که یک عنصر با `v-show` همیشه رِندر می‌شود و در DOM باقی می‌ماند. `v-show` فقط ویژگی `display` عنصر را در css آن تغییر می‌دهد.
 
-`v-show` doesn't support the `<template>` element, nor does it work with `v-else`.
+`v-show` از عنصر `<template>` پشتیبانی نمی‌کند و همچنین `v-else` را قبول نمی‌کند.
 
-## `v-if` vs. `v-show` {#v-if-vs-v-show}
+## `v-if` در مقابل `v-show` {#v-if-vs-v-show}
 
-`v-if` is "real" conditional rendering because it ensures that event listeners and child components inside the conditional block are properly destroyed and re-created during toggles.
+`v-if` یک رِندر شرطی "واقعی" است چون اطمینان حاصل می‌کند که event listenerها و کامپوننت‌های فرزند داخل بلوک شرطی به درستی در طول جابجایی از بین بروند و دوباره ساخته شوند.
 
-`v-if` is also **lazy**: if the condition is false on initial render, it will not do anything - the conditional block won't be rendered until the condition becomes true for the first time.
+`v-if` همچنین دارای تاخیر در لود شدن است (**lazy**): اگر شرط در ابتدا false باشد، هیچ کاری انجام نمی‌دهد - بلوک شرطی تا زمانی که شرط برای اولین بار true شود رِندر نمی‌شود.
 
-In comparison, `v-show` is much simpler - the element is always rendered regardless of initial condition, with CSS-based toggling.
+در مقابل، `v-show` خیلی ساده‌تر است - عنصر همیشه صرف نظر از شرط اولیه رِندر می‌شود، با تغییر وضعیت مبتنی بر CSS عمل می‌کند.
 
-Generally speaking, `v-if` has higher toggle costs while `v-show` has higher initial render costs. So prefer `v-show` if you need to toggle something very often, and prefer `v-if` if the condition is unlikely to change at runtime.
+به طور کلی، `v-if` هزینه‌ی تغییر وضعیت بالاتری دارد در حالی که `v-show` هزینه‌ی رِندر اولیه بالاتری دارد. پس اگر نیاز است چیزی به طور مکرر تغییر کند از `v-show` استفاده کنید و اگر شرط احتمالا در رانتایم تغییر نمی‌کند از `v-if` استفاده کنید. (مترجم: استفاده از `v-if` راحت‌تر است.)
 
-## `v-if` with `v-for` {#v-if-with-v-for}
+## `v-if` با `v-for` {#v-if-with-v-for}
 
-::: warning Note
-It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential#avoid-v-if-with-v-for) for details.
+::: warning توجه داشته باشید
+استفاده از `v-if` و `v-for` روی یک عنصر به دلیل اولویت ضمنی، **توصیه نمی‌شود**. برای جزئیات به [style guide](/style-guide/rules-essential#avoid-v-if-with-v-for) مراجعه کنید. 
 :::
 
-When `v-if` and `v-for` are both used on the same element, `v-if` will be evaluated first. See the [list rendering guide](list#v-for-with-v-if) for details.
+زمانی که `v-if` و `v-for` هر دو روی یک عنصر استفاده می‌شوند، ابتدا `v-if` ارزیابی می‌شود. برای جزئیات به [list rendering guide](list#v-for-with-v-if) مراجعه کنید.

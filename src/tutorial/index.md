@@ -1,6 +1,6 @@
 ---
 page: true
-title: Tutorial
+title: آموزش
 sidebar: false
 aside: false
 footer: false

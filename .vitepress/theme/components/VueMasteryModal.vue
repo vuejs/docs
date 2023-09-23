@@ -98,7 +98,7 @@ watch(
   font-weight: 600;
   background-color: var(--vt-c-green);
   color: #fff;
-  margin-right: 18px;
+  margin-left: 18px;
   padding: 8px 1em 8px 3em;
 }
 

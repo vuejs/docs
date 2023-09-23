@@ -1,7 +1,7 @@
 .vue-mastery-link {
   background-color: var(--vt-c-bg-soft);
   border-radius: 8px;
-  padding: 8px 16px 8px 8px;
+  padding: 8px 8px 8px 16px;
   transition: color 0.5s, background-color 0.5s;
 }
 
@@ -24,7 +24,7 @@
   font-size: 14px;
   line-height: 20px;
   color: var(--vt-c-text-1);
-  margin: 0 0 0 16px;
+  margin: 0 16px 0 0px;
   transition: color 0.5s;
 }
 

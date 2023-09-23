@@ -134,56 +134,65 @@ const nav: ThemeConfig['nav'] = [
 export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
-      text: 'شروع به کار',
+      text: 'آغاز',
       items: [
         { text: 'مقدمه', link: '/guide/introduction' },
         {
-          text: 'راه‌اندازی سریع',
+          text: 'شروع سریع',
           link: '/guide/quick-start'
         }
       ]
     },
     {
-      text: 'اصول',
+      text: 'الزامات',
       items: [
         {
-          text: 'ایجاد یک برنامه',
+          text: 'ساخت یک اپلیکیشن',
           link: '/guide/essentials/application'
         },
         {
-          text: 'سینتکس Template',
+          text: 'ترکیب قالب (Template Syntax)',
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'اصول پایه‌ای واکنش‌پذیری',
+          text: 'مبانی واکنش‌گرایی (Reactivity)',
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Computed',
+          text: 'ویژگی‌های کامپیوتد (Computed)',
           link: '/guide/essentials/computed'
         },
         {
-          text: 'استایل',
+          text: 'اتصالات کلاس‌ و استایل (Class and Style Bindings)',
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'رندر کردن شرطی',
+          text: 'اجرای شرطی (Conditional Rendering)',
           link: '/guide/essentials/conditional'
         },
-        { text: 'رندر کردن لیست', link: '/guide/essentials/list' },
         {
-          text: 'Event',
+          text: 'اجرای لیست‌ها (List Rendering)',
+          link: '/guide/essentials/list'
+        },
+        {
+          text: 'مدیریت رویداد‌ها (Event Handling)',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'فرم ها', link: '/guide/essentials/forms' },
         {
-          text: 'Lifecycle Hooks',
+          text: 'اتصالات ورودی فرم (Form Input Bindings)',
+          link: '/guide/essentials/forms'
+        },
+        {
+          text: 'چرخه‌حیات قلاب‌ها (Lifecycle Hooks)',
           link: '/guide/essentials/lifecycle'
         },
-        { text: 'Watchers', link: '/guide/essentials/watchers' },
-        { text: 'Template Refs', link: '/guide/essentials/template-refs' },
+        { text: 'ناظرها (Watchers)', link: '/guide/essentials/watchers' },
         {
-          text: 'مبانی کامپوننت‌ها',
+          text: 'مرجع قالب‌ها (Template Refs)',
+          link: '/guide/essentials/template-refs'
+        },
+        {
+          text: 'مبانی کامپوننت‌ها (Components Basics)',
           link: '/guide/essentials/component-basics'
         }
       ]
@@ -426,101 +435,101 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ],
   '/examples/': [
     {
-      text: 'Basic',
+      text: 'پایه',
       items: [
         {
-          text: 'Hello World',
+          text: 'سلام دنیا',
           link: '/examples/#hello-world'
         },
         {
-          text: 'Handling User Input',
+          text: 'مدیریت ورودی کاربر',
           link: '/examples/#handling-input'
         },
         {
-          text: 'Attribute Bindings',
+          text: 'اتصال صفت‌ها',
           link: '/examples/#attribute-bindings'
         },
         {
-          text: 'Conditionals and Loops',
+          text: 'شرط‌ها و حلقه‌ها',
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Form Bindings',
+          text: 'اتصالات فرم',
           link: '/examples/#form-bindings'
         },
         {
-          text: 'Simple Component',
+          text: 'کامپوننت ساده',
           link: '/examples/#simple-component'
         }
       ]
     },
     {
-      text: 'Practical',
+      text: 'کاربردی',
       items: [
         {
-          text: 'Markdown Editor',
+          text: 'ویرایشگر Markdown',
           link: '/examples/#markdown'
         },
         {
-          text: 'Fetching Data',
+          text: 'گرفتن داده',
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Grid with Sort and Filter',
+          text: 'گرید با مرتب‌سازی و فیلتر',
           link: '/examples/#grid'
         },
         {
-          text: 'Tree View',
+          text: 'نمای درختی',
           link: '/examples/#tree'
         },
         {
-          text: 'SVG Graph',
+          text: 'نمودار SVG',
           link: '/examples/#svg'
         },
         {
-          text: 'Modal with Transitions',
+          text: 'مودال با انیمیشن',
           link: '/examples/#modal'
         },
         {
-          text: 'List with Transitions',
+          text: 'لیست با انیمیشن',
           link: '/examples/#list-transition'
         },
         {
-          text: 'TodoMVC',
+          text: 'نمونه TodoMVC',
           link: '/examples/#todomvc'
         }
       ]
     },
     {
       // https://eugenkiss.github.io/7guis/
-      text: '7 GUIs',
+      text: 'بنچمارک 7GUIs',
       items: [
         {
-          text: 'Counter',
+          text: 'شمارنده',
           link: '/examples/#counter'
         },
         {
-          text: 'Temperature Converter',
+          text: 'مبدل دما',
           link: '/examples/#temperature-converter'
         },
         {
-          text: 'Flight Booker',
+          text: 'رزرو پرواز',
           link: '/examples/#flight-booker'
         },
         {
-          text: 'Timer',
+          text: 'شمارنده',
           link: '/examples/#timer'
         },
         {
-          text: 'CRUD',
+          text: 'عملیات CRUD',
           link: '/examples/#crud'
         },
         {
-          text: 'Circle Drawer',
+          text: 'کشوی دایره‌ای',
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Cells',
+          text: 'سلول‌های جدول',
           link: '/examples/#cells'
         }
       ]
@@ -649,6 +658,11 @@ export default defineConfigWithTheme<ThemeConfig>({
         link: 'https://pt.vuejs.org',
         text: 'Português',
         repo: 'https://github.com/vuejs-translations/docs-pt'
+      },
+      {
+        link: 'https://bn.vuejs.org',
+        text: 'বাংলা',
+        repo: 'https://github.com/vuejs-translations/docs-bn'
       },
       {
         link: '/translations/',

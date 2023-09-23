@@ -19,11 +19,10 @@ onMounted(async () => {
       <br />جاوااسکریپت
     </h1>
     <p class="description">
-      یک فریمورک <strong>آسان، بهینه و همه‌کاره</strong> برای ساخت
-      روابط کاربری وب.
+      یک فریمورک <strong>آسان، بهینه و انعطاف‌پذیر</strong> برای ساخت روابط
+      کاربری وب.
     </p>
     <div class="actions">
-      <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
         <svg
           class="icon"
@@ -39,6 +38,7 @@ onMounted(async () => {
         شروع کنید
       </a>
       <a class="setup" href="/guide/quick-start.html">نصب</a>
+      <VueMasteryModal />
     </div>
   </section>
 
@@ -69,24 +69,24 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>قابل دسترسی</h2>
+      <h2>آسان</h2>
       <p>
-        ساخته شده براساس استانداردهای HTML، CSS و JavaScript به همراه
-        APIهای قابل فهم و مستندات عالی.
+        براساس استانداردهای HTML، CSS و JavaScript ساخته شده و دارای
+        مستندات قابل‌فهم با APIهای آسان برای استفاده است.
       </p>
     </div>
     <div class="vt-box">
       <h2>بهینه و با عملکرد بالا</h2>
       <p>
-        سیستم رندر واقعا واکنشی و بهینه سازی شده توسط کامپایلر که به ندرت
+        سیستم رندر کاملا واکنشی و بهینه سازی شده توسط کامپایلر که به ندرت
         به بهینه سازی دستی نیاز دارد.
       </p>
     </div>
     <div class="vt-box">
       <h2>انعطاف‌پذیر</h2>
       <p dir="auto">
-        یک اکوسیستم غنی و به تدریج قابل پذیرش که در مقیاس بین یک کتابخانه و
-        یک چارچوب با ویژگی‌های کامل قرار می‌گیرد.
+        یک اکوسیستم غنی و به تدریج درحال رشد که بین مقیاس یک کتابخانه و یک
+        چارچوب با ویژگی‌های کامل قرار می‌گیرد.
       </p>
     </div>
   </section>

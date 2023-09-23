@@ -1,21 +1,21 @@
-# Getting Started {#getting-started}
+# شروع میکنیم {#getting-started}
 
-Welcome to the Vue tutorial!
+به آموزش ویو خوش آمدید !
 
-The goal of this tutorial is to quickly give you an experience of what it feels like to work with Vue, right in the browser. It does not aim to be comprehensive, and you don't need to understand everything before moving on. However, after you complete it, make sure to also read the <a target="_blank" href="/guide/introduction.html">Guide</a> which covers each topic in more detail.
+هدف از این آموزش تجربه سریع ویو و حس کردن تجربه کاربری آن می باشد، درست در مرورگر شما. این آموزش شما را ماهر نمی سازد و نیازی هم به درک همه چیز پیش از شروع نیست. به هر حال ، زمانی که شما این آموزش را به پایان رسانید ، حتما سعی کنید <a target="_blank" href="/guide/introduction.html">راهنما</a> را مطالعه کنید که هر موضوع را با جزئیات بیشتری توضیح می دهد.
 
-## Prerequisites {#prerequisites}
+## پیش نیاز ها {#prerequisites}
 
-The tutorial assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to front-end development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
+این آموزش آشنایی اولیه با HTML، CSS و جاوا اسکریپت را فرض می کند. اگر کاملاً در توسعه فرانت‌اند تازه کار هستید، ممکن است بهترین ایده نباشد که به‌ عنوان اولین گام به سراغ یک فریم ورک بروید - اصول اولیه را درک کنید و سپس برگردید! تجربه قبلی با فریم ورک های دیگر کمک می کند، اما لازم نیست.
 
-## How to Use This Tutorial {#how-to-use-this-tutorial}
+## چگونه از این آموزش استفاده کنیم ؟ {#how-to-use-this-tutorial}
 
-You can edit the code <span class="wide">on the right</span><span class="narrow">below</span> and see the result update instantly. Each step will introduce a core feature of Vue, and you will be expected to complete the code to get the demo working. If you get stuck, you will have a "Show me!" button that reveals the working code for you. Try not to rely on it too much - you'll learn faster by figuring things out on your own.
+شما میتوانید این کد را ویرایش کرده <span class="wide">در سمت راست</span><span class="narrow">زیر</span> و نتیجه را بلافاضله مشاهده کنید.هر قدم یک ویژگی اصلی ویو را معرفی خواهد کرد، و از شما انتظار خواهد رفت که کد را کامل کنید تا پیش نمایش کار کند. اگر در مسیر به مشکلی برخوردید شما به دکمه خواهید داشت به نام "نشانم بده " که کدکامل شده را به شما نمایش خواهد داد. سعی کنید روی این ویژگی خیلی حساب باز نکنید - شما با دست و پنجه نرم کردن با کد سریع تر یاد میگیرید.
 
-If you are an experienced developer coming from Vue 2 or other frameworks, there are a few settings you can tweak to make the best use of this tutorial. If you are a beginner, it's recommended to go with the defaults.
+اگر یک توسعه‌دهنده با تجربه هستید که از Vue 2 یا سایر فریم ورک‌ها می‌آیید، چند تنظیمات وجود دارد که می‌توانید برای بهترین استفاده از این آموزش، آن‌ها را تغییر دهید. اگر مبتدی هستید، توصیه می‌شود با پیش‌فرض‌ها بروید.
 
 <details>
-<summary>Tutorial Setting Details</summary>
+<summary>جزئیات تنظیمات آموزش</summary>
 
 - Vue offers two API styles: Options API and Composition API. This tutorial is designed to work for both - you can choose your preferred style using the **API Preference** switches at the top. <a target="_blank" href="/guide/introduction.html#api-styles">Learn more about API styles</a>.
 
@@ -23,4 +23,4 @@ If you are an experienced developer coming from Vue 2 or other frameworks, there
 
 </details>
 
-Ready? Click "Next" to get started.
+آماده ای ؟ برای شروع روی "بعدی " کلیک کن.

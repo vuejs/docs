@@ -8,7 +8,9 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+ul,
+li {
   direction: rtl;
 }
 
@@ -24,4 +26,31 @@ p {
 .vt-link-icon {
   margin-left: 0;
   margin-right: 4px;
+}
+
+.vt-doc ul {
+  padding-right: 1.25rem;
+}
+
+.vt-doc ul > li:before {
+  right: -1.25rem;
+}
+
+.vt-doc .custom-block {
+  padding: 20px 40px 4px 42px !important;
+}
+
+.vt-doc .custom-block:before {
+  left: auto !important;
+  right: 17px;
+}
+
+.outline-title {
+  direction: rtl;
+}
+
+.vt-doc .header-anchor {
+  float: right !important;
+  margin-right: -1.1em;
+  padding-left: 0.23em;
 }

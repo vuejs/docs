@@ -1,32 +1,32 @@
-# Creating a Vue Application {#creating-a-vue-application}
+# ایجاد یک برنامه Vue {#creating-a-vue-application}
 
-## The application instance {#the-application-instance}
+## نمونه برنامه {#the-application-instance}
 
-Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
+هر برنامه Vue با ایجاد یک **نمونه برنامه** جدید با تابع [`createApp`](/api/application#createapp) شروع می‌شود:
 
 ```js
 import { createApp } from 'vue'
 
 const app = createApp({
-  /* root component options */
+  /* تنظیمات کامپوننت ریشه */
 })
 ```
 
-## The Root Component {#the-root-component}
+## کامپوننت ریشه {#the-root-component}
 
-The object we are passing into `createApp` is in fact a component. Every app requires a "root component" that can contain other components as its children.
+آبجکتی که به `createApp` می‌دهیم در واقع یک کامپوننت است. هر برنامه نیاز به یک "کامپوننت ریشه" دارد که می‌تواند شامل سایر کامپوننت‌ها به عنوان فرزند باشد.
 
-If you are using Single-File Components, we typically import the root component from another file:
+اگر از کامپوننت‌های تک فایلی استفاده می‌کنید (یعنی برای هر کامپوننت یک فایل جدا در نظر می‌گیرید)، معمولاً برای این حالت کامپوننت ریشه را از فایل دیگری وارد می‌کنیم:
 
 ```js
 import { createApp } from 'vue'
-// import the root component App from a single-file component.
+// را از یک کامپوننت تک فایلی وارد می‌کنیم App کامپوننت ریشه
 import App from './App.vue'
 
 const app = createApp(App)
 ```
 
-While many examples in this guide only need a single component, most real applications are organized into a tree of nested, reusable components. For example, a Todo application's component tree might look like this:
+در حالی که بسیاری از نمونه‌ها در این راهنما تنها به یک کامپوننت نیاز دارند، اکثر برنامه‌های واقعی به صورت درختی از کامپوننت‌های تودرتوی قابل استفاده مجدد سازماندهی می‌شوند. به عنوان مثال، درخت کامپوننت‌های یک برنامه Todo ممکن است به این شکل باشد:
 
 ```
 App (root component)
@@ -39,11 +39,11 @@ App (root component)
    └─ TodoStatistics
 ```
 
-In later sections of the guide, we will discuss how to define and compose multiple components together. Before that, we will focus on what happens inside a single component.
+در بخش‌های بعدی راهنما، در مورد تعریف و ترکیب چندین کامپوننت با هم بحث خواهیم کرد. قبل از آن، روی آنچه در داخل یک کامپوننت منفرد اتفاق می‌افتد تمرکز خواهیم کرد.
 
-## Mounting the App {#mounting-the-app}
+## سوار کردن برنامه (mounting app) {#mounting-the-app}
 
-An application instance won't render anything until its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
+یک نمونه برنامه تا زمانی که متد `‎.mount()‎` آن صدا زده نشود، چیزی render نمی‌کند. این متد انتظار یک آرگومان "container" دارد که می‌تواند یا یک عنصر DOM واقعی باشد یا یک رشته انتخابگر:
 
 ```html
 <div id="app"></div>
@@ -53,13 +53,13 @@ An application instance won't render anything until its `.mount()` method is cal
 app.mount('#app')
 ```
 
-The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app.
+محتوای کامپوننت ریشه برنامه داخل عنصر container ارائه خواهد شد. خود عنصر container به عنوان بخشی از برنامه در نظر گرفته نمی‌شود.
 
-The `.mount()` method should always be called after all app configurations and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
+متد `‎.mount()‎` باید همیشه پس از انجام تمام پیکربندی‌ها و ثبت اجزاء برنامه صدا زده شود. همچنین توجه داشته باشید که مقدار بازگشتی آن، برخلاف متدهای ثبت اجزاء، نمونه کامپوننت ریشه است نه نمونه برنامه.
 
-### In-DOM Root Component Template {#in-dom-root-component-template}
+### قالب کامپوننت ریشه درون DOM {#in-dom-root-component-template}
 
-The template for the root component is usually part of the component itself, but it is also possible to provide the template separately by writing it directly inside the mount container:
+(یکی از قسمت های اصلی هر کامپوننت بخش `template` آن است. در اینجا منظور از قالب همان بخش template است که اینگونه ترجمه شده) قالب برای کامپوننت ریشه معمولاً بخشی از خود کامپوننت است، اما ارائه قالب به صورت جداگانه نیز با نوشتن آن مستقیماً درون container که قرار است mount شود امکان‌پذیر است:
 
 ```html
 <div id="app">
@@ -81,13 +81,13 @@ const app = createApp({
 app.mount('#app')
 ```
 
-Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
+Vue به طور خودکار از محتوای `innerHTML` مربوط به container به عنوان قالب استفاده خواهد کرد اگر کامپوننت ریشه از قبل گزینه `template` نداشته باشد.
 
-In-DOM templates are often used in applications that are [using Vue without a build step](/guide/quick-start.html#using-vue-from-cdn). They can also be used in conjunction with server-side frameworks, where the root template might be generated dynamically by the server.
+قالب‌های درون DOM اغلب در [برنامه‌هایی که از Vue بدون مرحله ساخت استفاده می‌کنند](/guide/quick-start.html#using-vue-from-cdn) به کار می‌روند. همچنین می‌توانند به همراه فریمورک‌های سمت سرور استفاده شوند که در آن‌ها قالب ریشه ممکن است به صورت پویا توسط سرور تولید شود.
 
-## App Configurations {#app-configurations}
+## پیکربندی برنامه {#app-configurations}
 
-The application instance exposes a `.config` object that allows us to configure a few app-level options, for example, defining an app-level error handler that captures errors from all descendant components:
+نمونه برنامه، شی `‎.config` را در اختیار می‌گذارد که به ما اجازه می‌دهد چند گزینه در سطح برنامه را پیکربندی کنیم، به عنوان مثال، تعریف یک کنترل کننده خطا در سطح برنامه که خطاها از تمام کامپوننت‌های فرزند را بگیرد:
 
 ```js
 app.config.errorHandler = (err) => {
@@ -95,19 +95,19 @@ app.config.errorHandler = (err) => {
 }
 ```
 
-The application instance also provides a few methods for registering app-scoped assets. For example, registering a component:
+نمونه برنامه همچنین چند متد برای ثبت اجزاء در سطح برنامه ارائه می‌دهد. به عنوان مثال، ثبت یک کامپوننت:
 
 ```js
 app.component('TodoDeleteButton', TodoDeleteButton)
 ```
 
-This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](/api/application).
+این کار `TodoDeleteButton` را برای استفاده در هر جای برنامه‌مان در دسترس قرار می‌دهد. در بخش‌های بعدی راهنما در مورد ثبت کامپوننت‌ها و سایر اجزاء بحث خواهیم کرد. همچنین می‌توانید فهرست کامل API‌های نمونه برنامه را در [مرجع API](/api/application) آن بررسی کنید.
 
-Make sure to apply all app configurations before mounting the app!
+مطمئن شوید تمام پیکربندی‌های برنامه را قبل از mount کردن برنامه اعمال کنید!
 
-## Multiple application instances {#multiple-application-instances}
+## چندین نمونه برنامه {#multiple-application-instances}
 
-You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
+شما محدود به یک نمونه برنامه در یک صفحه نیستید. `createApp` اجازه ایجاد چندین برنامه Vue مجزا را در یک صفحه می‌دهد که هر کدام محدوده خود را برای پیکربندی و منابع سراسری دارند:
 
 ```js
 const app1 = createApp({
@@ -121,4 +121,4 @@ const app2 = createApp({
 app2.mount('#container-2')
 ```
 
-If you are using Vue to enhance server-rendered HTML and only need Vue to control specific parts of a large page, avoid mounting a single Vue application instance on the entire page. Instead, create multiple small application instances and mount them on the elements they are responsible for.
+اگر از Vue برای ارتقای HTML سمت سرور استفاده می‌کنید و تنها نیاز دارید Vue کنترل بخش‌های خاصی از یک صفحه بزرگ را بر عهده بگیرد، از سوار کردن یک نمونه برنامه Vue تک بر روی کل صفحه پرهیز کنید. به جای آن، چندین نمونه برنامه کوچک ایجاد کرده و آن‌ها را روی عناصری که مسئول آن‌ها هستند سوار کنید.

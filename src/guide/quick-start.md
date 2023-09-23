@@ -2,31 +2,31 @@
 footer: false
 ---
 
-# Quick Start {#quick-start}
+# شروع سریع {#quick-start}
 
-## Try Vue Online {#try-vue-online}
+## امتحان Vue بصورت آنلاین {#try-vue-online}
 
-- To quickly get a taste of Vue, you can try it directly in our [Playground](https://play.vuejs.org/#eNo9jcEKwjAMhl/lt5fpQYfXUQfefAMvvRQbddC1pUuHUPrudg4HIcmXjyRZXEM4zYlEJ+T0iEPgXjn6BB8Zhp46WUZWDjCa9f6w9kAkTtH9CRinV4fmRtZ63H20Ztesqiylphqy3R5UYBqD1UyVAPk+9zkvV1CKbCv9poMLiTEfR2/IXpSoXomqZLtti/IFwVtA9A==).
+- برای اینکه بتوانید به سرعت Vue را امتحان کنید، می‌توانید آن را مستقیماً در [Playground](https://play.vuejs.org/#eNo9jcEKwjAMhl/lt5fpQYfXUQfefAMvvRQbddC1pUuHUPrudg4HIcmXjyRZXEM4zYlEJ+T0iEPgXjn6BB8Zhp46WUZWDjCa9f6w9kAkTtH9CRinV4fmRtZ63H20Ztesqiylphqy3R5UYBqD1UyVAPk+9zkvV1CKbCv9poMLiTEfR2/IXpSoXomqZLtti/IFwVtA9A==) ما امتحان کنید.
 
-- If you prefer a plain HTML setup without any build steps, you can use this [JSFiddle](https://jsfiddle.net/yyx990803/2ke1ab0z/) as your starting point.
+- اگر ترجیح می‌دهید یک راه‌اندازی HTML ساده بدون هیچ مراحل ساختی داشته باشید، می‌توانید از [JSFiddle](https://jsfiddle.net/yyx990803/2ke1ab0z/) به عنوان نقطه شروع خود استفاده کنید.
 
-- If you are already familiar with Node.js and the concept of build tools, you can also try a complete build setup right within your browser on [StackBlitz](https://vite.new/vue).
+- اگر شما از قبل با Node.js و مفهوم ابزارهای ساخت آشنا هستید، می‌توانید یک تنظیم کامل ساخت را مستقیماً در مرورگر خود با [StackBlitz](https://vite.new/vue) امتحان کنید.
 
-## Creating a Vue Application {#creating-a-vue-application}
+## ایجاد یک برنامه Vue {#creating-a-vue-application}
 
-:::tip Prerequisites
+:::tip پیش‌نیازها
 
-- Familiarity with the command line
-- Install [Node.js](https://nodejs.org/) version 16.0 or higher
+- آشنایی با خط فرمان (command line)
+- نصب [Node.js](https://nodejs.org/) نسخه 16.0 یا بالاتر
   :::
 
-In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vitejs.dev) and allow us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
+در این بخش به ایجاد اولیه یک برنامه تک صفحه‌ای Vue بر روی ماشین محلی خود می‌پردازیم ([Single Page Application](/guide/extras/ways-of-using-vue#single-page-application-spa)). پروژه ایجاد شده از یک ابزار راه اندازی ساخت مبتنی بر [Vite](https://vitejs.dev) استفاده خواهد کرد و به ما امکان می‌دهد از [کامپوننت‌های تک فایلی](/guide/scaling-up/sfc) Vue استفاده کنیم  (SFCs).
 
-Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) installed and your current working directory is the one where you intend to create a project. Run the following command in your command line (without the `>` sign):
+اطمینان حاصل کنید که شما یک نسخه به‌روز از [Node.js](https://nodejs.org/)  را بصورت نصب شده دارید و دایرکتوری فعلی شما همان جایی است که قصد ایجاد یک پروژه جدید را دارید. دستور زیر را در خط فرمان خود اجرا کنید (بدون علامت `<`): 
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm create vue@latest</span></span></code></pre></div>
 
-This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You will be presented with prompts for several optional features such as TypeScript and testing support:
+این دستور ابزار رسمی ایجاد اولیه پروژه Vue به نام [create-vue](https://github.com/vuejs/create-vue) را نصب و اجرا خواهد کرد. شما با گزینه‌هایی برای قابلیت‌های اختیاری مختلف مانند پشتیبانی از TypeScript و تست نویسی روبرو خواهید شد:
 
 <div class="language-sh"><pre><code><span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Project name: <span style="color:#888;">… <span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add TypeScript? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
@@ -41,44 +41,44 @@ This command will install and execute [create-vue](https://github.com/vuejs/crea
 <span style="color:#A6ACCD;">Scaffolding project in ./<span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span>...</span>
 <span style="color:#A6ACCD;">Done.</span></code></pre></div>
 
-If you are unsure about an option, simply choose `No` by hitting enter for now. Once the project is created, follow the instructions to install dependencies and start the dev server:
+اگر در مورد یک گزینه مطمئن نیستید، فعلاً با زدن enter برای انتخاب `No` آن را نادیده بگیرید. وقتی پروژه ایجاد شد، دستورالعمل‌های زیر را برای نصب وابستگی‌ها و راه‌اندازی dev server دنبال کنید:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">your-project-name</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-You should now have your first Vue project running! Note that the example components in the generated project are written using the [Composition API](/guide/introduction#composition-api) and `<script setup>`, rather than the [Options API](/guide/introduction#options-api). Here are some additional tips:
+حالا شما باید اولین پروژه Vue خود را بصورت اجرا شده داشته باشید! توجه داشته باشید که کامپوننت‌های نمونه در پروژه ایجاد شده با استفاده از [Composition API](/guide/introduction#composition-api) و `<script setup>` نوشته شده‌اند، به جای [Options API](/guide/introduction#options-api). چند نکته بیشتر:
 
-- The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Volar extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling#ide-support).
-- More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling).
-- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
-- If you choose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview).
+- IDE توصیه شده [Visual Studio Code](https://code.visualstudio.com/) + [افزونه Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) است. اگر از ویرایشگرهای دیگر استفاده می‌کنید، بخش [پشتیبانی IDE](/guide/scaling-up/tooling#ide-support) را بررسی کنید.
+- جزئیات بیشتر ابزار، از جمله یکپارچه‌سازی با فریم‌ورک‌های بک‌اند، در [راهنمای ابزارها](/guide/scaling-up/tooling) مورد بحث قرار گرفته.
+- برای یادگیری بیشتر در مورد ابزار ساخت پایه Vite، [مستندات Vite](https://vitejs.dev) را بررسی کنید.
+- اگر TypeScript را انتخاب کردید، [راهنمای استفاده از TypeScript](typescript/overview) را بررسی کنید.
 
-When you are ready to ship your app to production, run the following:
+هنگامی که آماده ارسال برنامه خود به پروداکشن هستید، کامند زیر را اجرا کنید:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-This will create a production-ready build of your app in the project's `./dist` directory. Check out the [Production Deployment Guide](/guide/best-practices/production-deployment) to learn more about shipping your app to production.
+این کار یک بیلد آماده برای محیط پروداکشن در دایرکتوری `‎./dist` پروژه شما ایجاد خواهد کرد. [راهنمای استقرار پروداکشن](/guide/best-practices/production-deployment) را برای یادگیری بیشتر در مورد ارسال برنامه خود به پروداکشن بررسی کنید.
 
-[Next Steps >](#next-steps)
+[مراحل بعدی >](#next-steps)
 
-## Using Vue from CDN {#using-vue-from-cdn}
+## استفاده از Vue از طریق CDN {#using-vue-from-cdn}
 
-You can use Vue directly from a CDN via a script tag:
+شما می‌توانید مستقیماً از Vue از طریق یک تگ script استفاده کنید:
 
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 ```
 
-Here we are using [unpkg](https://unpkg.com/), but you can also use any CDN that serves npm packages, for example [jsdelivr](https://www.jsdelivr.com/package/npm/vue) or [cdnjs](https://cdnjs.com/libraries/vue). Of course, you can also download this file and serve it yourself.
+اینجا از [unpkg](https://unpkg.com/) استفاده کردیم، اما شما همچنین می‌توانید از هر CDN دیگری که بسته‌های npm را ارائه می‌دهد مثل [jsdelivr](https://www.jsdelivr.com/package/npm/vue) یا [cdnjs](https://cdnjs.com/libraries/vue) استفاده کنید. البته، شما همچنین می‌توانید این فایل را دانلود و خودتان سرو کنید.
 
-When using Vue from a CDN, there is no "build step" involved. This makes the setup a lot simpler, and is suitable for enhancing static HTML or integrating with a backend framework. However, you won't be able to use the Single-File Component (SFC) syntax.
+هنگام استفاده از Vue از طریق CDN، هیچ مرحله‌ای برای بیلد گرفتن وجود ندارد. این موضوع تنظیمات را بسیار ساده‌تر می‌کند، و برای بهبود HTML ایستا یا یکپارچه‌سازی با یک فریم‌ورک بک‌اند مناسب است. با این حال، شما نمی‌توانید از سینتکس کامپوننت تک فایلی (SFC) استفاده کنید.
 
-### Using the Global Build {#using-the-global-build}
+### استفاده از بیلد سراسری {#using-the-global-build}
 
-The above link loads the _global build_ of Vue, where all top-level APIs are exposed as properties on the global `Vue` object. Here is a full example using the global build:
+لینک بالا بیلد سراسری ویو را بارگذاری می‌کند که در آن تمام API‌های سطح بالا به عنوان خاصیت‌هایی روی شی سراسری `Vue` در دسترس هستند. اینجا یک نمونه کامل با استفاده از بیلد سراسری است:
 
 <div class="options-api">
 
@@ -100,7 +100,7 @@ The above link loads the _global build_ of Vue, where all top-level APIs are exp
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/QWJwJLp)
+[نمونه در Codepen](https://codepen.io/vuejs-examples/pen/QWJwJLp)
 
 </div>
 
@@ -125,17 +125,17 @@ The above link loads the _global build_ of Vue, where all top-level APIs are exp
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/eYQpQEG)
+[نمونه در Codepen](https://codepen.io/vuejs-examples/pen/eYQpQEG)
 
-:::tip
-Many of the examples for Composition API throughout the guide will be using the `<script setup>` syntax, which requires build tools. If you intend to use Composition API without a build step, consult the usage of the [`setup()` option](/api/composition-api-setup).
+:::tip نکته
+بسیاری از نمونه‌های Composition API در سراسر راهنما از سینتکس `<script setup>` استفاده خواهند کرد که نیاز به ابزارهای ساخت دارد. اگر قصد استفاده از Composition API بدون مرحله ساخت را دارید، استفاده از [گزینه `setup()‎`](/api/composition-api-setup) را مشاهده کنید.
 :::
 
 </div>
 
-### Using the ES Module Build {#using-the-es-module-build}
+### استفاده از بیلد ES Module {#using-the-es-module-build}
 
-Throughout the rest of the documentation, we will be primarily using [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntax. Most modern browsers now support ES modules natively, so we can use Vue from a CDN via native ES modules like this:
+در بقیه مستندات، ما عمدتاً از سینتکس [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) استفاده خواهیم کرد. اکثر مرورگرهای مدرن اکنون بطور بومی از ES modules پشتیبانی می‌کنند، بنابراین می‌توانیم از Vue از طریق CDN با استفاده از ES modules بومی مانند این استفاده کنیم:
 
 <div class="options-api">
 
@@ -178,28 +178,28 @@ Throughout the rest of the documentation, we will be primarily using [ES modules
 
 </div>
 
-Notice that we are using `<script type="module">`, and the imported CDN URL is pointing to the **ES modules build** of Vue instead.
+توجه کنید که از `<script type="module"‎>` استفاده می‌کنیم، و URL وارد شده CDN به مکان بیلد **ES modules** برای Vue اشاره دارد.
 
 <div class="options-api">
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/VwVYVZO)
+[نمونه در Codepen](https://codepen.io/vuejs-examples/pen/VwVYVZO)
 
 </div>
 <div class="composition-api">
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/MWzazEv)
+[نمونه در Codepen](https://codepen.io/vuejs-examples/pen/MWzazEv)
 
 </div>
 
-### Enabling Import maps {#enabling-import-maps}
+### فعال کردن Import maps {#enabling-import-maps}
 
-In the above example, we are importing from the full CDN URL, but in the rest of the documentation you will see code like this:
+در مثال بالا، ما URL کامل CDN را وارد می‌کنیم، اما در بقیه مستندات شما کدی مانند این خواهید دید:
 
 ```js
 import { createApp } from 'vue'
 ```
 
-We can teach the browser where to locate the `vue` import by using [Import Maps](https://caniuse.com/import-maps):
+ما می‌توانیم به مرورگر بگوییم که `vue` را از کجا وارد کند با استفاده از [Import Maps](https://caniuse.com/import-maps):
 
 <div class="options-api">
 
@@ -227,7 +227,7 @@ We can teach the browser where to locate the `vue` import by using [Import Maps]
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/wvQKQyM)
+[نمونه در Codepen](https://codepen.io/vuejs-examples/pen/wvQKQyM)
 
 </div>
 
@@ -258,23 +258,23 @@ We can teach the browser where to locate the `vue` import by using [Import Maps]
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/YzRyRYM)
+[نمونه در Codepen](https://codepen.io/vuejs-examples/pen/YzRyRYM)
 
 </div>
 
-You can also add entries for other dependencies to the import map - but make sure they point to the ES modules version of the library you intend to use.
+شما همچنین می‌توانید ورودی‌هایی برای سایر وابستگی‌ها به import map اضافه کنید - اما مطمئن شوید آن‌ها به نسخه ES modules کتابخانه‌ای که قصد استفاده از آن را دارید اشاره می‌کنند.
 
-:::tip Import Maps Browser Support
-Import Maps is a relatively new browser feature. Make sure to use a browser within its [support range](https://caniuse.com/import-maps). In particular, it is only supported in Safari 16.4+.
+:::tip پشتیبانی مرورگر از Import Maps
+Import Maps یک ویژگی نسبتاً جدید مرورگر است. مطمئن شوید از یک مرورگر در محدوده پشتیبانی آن استفاده می‌کنید. به طور خاص، تنها در Safari 16.4+ پشتیبانی می‌شود.
 :::
 
-:::warning Notes on Production Use
-The examples so far are using the development build of Vue - if you intend to use Vue from a CDN in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment#without-build-tools).
+:::warning نکاتی درباره استفاده در محیط پروداکشن
+نمونه‌های تا اینجا از بیلد مناسب برای محیط توسعه Vue استفاده کرده‌اند - اگر قصد دارید از ویو از طریق CDN در محیط پروداکشن استفاده کنید، حتماً [راهنمای استقرار پروداکشن](/guide/best-practices/production-deployment#without-build-tools) را بررسی کنید.
 :::
 
-### Splitting Up the Modules {#splitting-up-the-modules}
+### تفکیک ماژول‌ها {#splitting-up-the-modules}
 
-As we dive deeper into the guide, we may need to split our code into separate JavaScript files so that they are easier to manage. For example:
+هنگامی که عمیق‌تر به درون راهنما می‌رویم، ممکن است نیاز داشته باشیم کدمان را به فایل‌های JavaScript جداگانه‌ای تقسیم کنیم تا مدیریت آن‌ها آسان‌تر شود. برای مثال:
 
 ```html
 <!-- index.html -->
@@ -317,29 +317,29 @@ export default {
 
 </div>
 
-If you directly open the above `index.html` in your browser, you will find that it throws an error because ES modules cannot work over the `file://` protocol, which is the protocol the browser uses when you open a local file.
+اگر `index.html` بالا را مستقیماً در مرورگر باز کنید، متوجه خواهید شد که خطایی رخ می‌دهد زیرا ماژول‌های ES نمی‌توانند روی پروتکل `file://‎` کار کنند که مرورگرها هنگام باز کردن یک فایل محلی از آن استفاده می‌کنند.
 
-Due to security reasons, ES modules can only work over the `http://` protocol, which is what the browsers use when opening pages on the web. In order for ES modules to work on our local machine, we need to serve the `index.html` over the `http://` protocol, with a local HTTP server.
+به دلایل امنیتی، ماژول‌های ES تنها می‌توانند روی پروتکل `http://‎` کار کنند که مرورگرها هنگام باز کردن صفحات در وب از آن استفاده می‌کنند. برای اینکه ماژول‌های ES بر روی ماشین محلی ما کار کنند، نیاز داریم که `index.html` را از طریق پروتکل `http://‎` سرو کنیم، با استفاده از یک سرور HTTP محلی.
 
-To start a local HTTP server, first make sure you have [Node.js](https://nodejs.org/en/) installed, then run `npx serve` from the command line in the same directory where your HTML file is. You can also use any other HTTP server that can serve static files with the correct MIME types.
+برای راه‌اندازی یک سرور HTTP محلی، ابتدا مطمئن شوید [Node.js](https://nodejs.org/en/) نصب شده است، سپس `npx serve` را از خط فرمان در همان دایرکتوری حاوی فایل HTML خود اجرا کنید. همچنین می‌توانید از هر سرور HTTP دیگری که بتواند فایل‌های ایستا را با انواع MIME صحیح سرو کند، استفاده نمایید.
 
-You may have noticed that the imported component's template is inlined as a JavaScript string. If you are using VSCode, you can install the [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) extension and prefix the strings with a `/*html*/` comment to get syntax highlighting for them.
+شاید متوجه شده باشید که قالب کامپوننت وارد شده به صورت یک رشته JavaScript درون خطی شده است. اگر از VSCode استفاده می‌کنید، می‌توانید افزونه [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) را نصب کرده و رشته‌ها را با یک توضیح `/*html*/` پیشوند دهید تا برای آن‌ها هایلایت سینتکس فعال شود.
 
-## Next Steps {#next-steps}
+## مراحل بعدی {#next-steps}
 
-If you skipped the [Introduction](/guide/introduction), we strongly recommend reading it before moving on to the rest of the documentation.
+اگر از [معرفی](/guide/introduction) صرف‌نظر کردید، توصیه می‌کنیم قبل از حرکت به بقیه مستندات آن را بخوانید.
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application.html">
-    <p class="next-steps-link">Continue with the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">ادامه با راهنما</p>
+    <p class="next-steps-caption"> راهنما شما را به تمام جنبه‌های فریمورک با جزئیات کامل هدایت می‌کند. </p>
   </a>
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link"> آموزش‌ها را امتحان کنید </p>
+    <p class="next-steps-caption"> برای کسانی که یادگیری عملی را ترجیح می‌دهند. </p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">مشاهده نمونه‌ها</p>
+    <p class="next-steps-caption"> نمونه‌هایی از ویژگی‌های اصلی و کارهای معمول UI را کاوش کنید. </p>
   </a>
 </div>
