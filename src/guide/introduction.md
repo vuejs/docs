@@ -2,13 +2,13 @@
 footer: false
 ---
 
-# Introduction {#introduction}
+# مقدمه {#introduction}
 
-:::info You are reading the documentation for Vue 3!
+:::info شما در حال مطالعه مستندات Vue 3 هستید!
 
-- Vue 2 support will end on Dec 31, 2023. Learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
-- Vue 2 documentation has been moved to [v2.vuejs.org](https://v2.vuejs.org/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+- پشتیبانی از Vue 2 در تاریخ Dec 31, 2023 پایان می یابد. اطلاعات بیشتر [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
+- مستندات Vue 2 منتقل شده به [v2.vuejs.org](https://v2.vuejs.org/).
+- اطلاعات بیشتر جهت ارتقا از Vue 2 [Migration Guide](https://v3-migration.vuejs.org/).
   :::
 
 <style src="@theme/styles/vue-mastery.css"></style>
@@ -17,18 +17,18 @@ footer: false
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>
-    <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <p class="description">یادگیری Vue در <span>VueMastery.com</span></p>
     <div class="logo-wrapper">
         <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
 
-## What is Vue? {#what-is-vue}
+## چیست Vue؟ {#what-is-vue}
 
-Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex.
+Vue (که مانند واژه "view" خوانده می‌شود) یک فریمورک جاوا اسکریپت برای ساخت رابط کاربری است. این فریمورک بر بالای استانداردهای HTML، CSS و جاوا اسکریپت ساخته شده و یک مدل برنامه‌نویسی اعلامی و مبتنی بر کامپوننت را فراهم می‌کند که به شما کمک می‌کند به طور کارآمد رابط کاربری را توسعه دهید، چه ساده باشد یا پیچیده.
 
-Here is a minimal example:
+در اینجا یک نمونه ساده آورده شده است:
 
 <div class="options-api">
 
@@ -69,7 +69,7 @@ createApp({
 </div>
 ```
 
-**Result**
+**نتیجه**
 
 <script setup>
 import { ref } from 'vue'
@@ -82,38 +82,39 @@ const count = ref(0)
   </button>
 </div>
 
-The above example demonstrates the two core features of Vue:
+نمونه فوق دو ویژگی اصلی Vue را نشان می‌دهد:
 
-- **Declarative Rendering**: Vue extends standard HTML with a template syntax that allows us to declaratively describe HTML output based on JavaScript state.
+- **Declarative Rendering**: Vue با افزودن یک سینتکس قالب به HTML استاندارد، به ما امکان می‌دهد تا خروجی HTML را بر اساس وضعیت جاوا اسکریپت به صورت اعلامی توصیف کنیم.
 
-- **Reactivity**: Vue automatically tracks JavaScript state changes and efficiently updates the DOM when changes happen.
+- **Reactivity**: Vue به طور خودکار تغییرات وضعیت جاوا اسکریپت را پیگیری می‌کند و هنگامی که تغییرات رخ می‌دهد، به طور کارآمد DOM را به‌روز می‌کند.
 
-You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
+شما ممکن است هم اکنون سوالاتی داشته باشید - نگران نباشید. ما در بقیه مستندات، هر جزئی را پوشش خواهیم داد. اکنون، لطفاً ادامه دهید تا متوجه سطح بالایی از آنچه Vue ارائه می‌دهد شوید.
 
-:::tip Prerequisites
-The rest of the documentation assumes basic familiarity with HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Prior experience with other frameworks helps, but is not required.
+:::tip پیش‌نیازها
+بقیه مستندات فرض می‌کند که شما با HTML، CSS و جاوا اسکریپت آشنایی ابتدایی دارید. اگر کاملاً به توسعه فرانت‌اند جدید هستید، ممکن است بهترین ایده نباشد که مستقیماً با یک فریمورک شروع کنید - ابتدا مبانی را فهمیده و سپس برگردید! شما می‌توانید سطح دانش خود را با [مبانی جاوااسکریپت](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) ارتقا بدهید. تجربه قبلی با فریمورک‌های دیگر کمک می‌کند، ولی الزامی نیست.
+
 :::
 
-## The Progressive Framework {#the-progressive-framework}
+## فریمورک پیش‌رونده {#the-progressive-framework}
 
-Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
+Vue یک فریمورک و اکوسیستم است که بیشتر ویژگی‌های متداول مورد نیاز در توسعه فرانت‌اند را پوشش می‌دهد. اما وب بسیار متنوع است - چیزهایی که ما روی وب می‌سازیم ممکن است از نظر شکل و مقیاس به طور جدی متفاوت باشد. با این نظر، Vue طراحی شده است تا مرن و به صورت گام‌به‌گام قابل پذیرش باشد. بسته به مورد استفاده شما، Vue می‌تواند به روش‌های مختلفی استفاده شود:
 
-- Enhancing static HTML without a build step
-- Embedding as Web Components on any page
-- Single-Page Application (SPA)
-- Fullstack / Server-Side Rendering (SSR)
-- Jamstack / Static Site Generation (SSG)
-- Targeting desktop, mobile, WebGL, and even the terminal
+- افزایش قابلیت HTML استاتیک بدون گام ساخت و ساز
+- جاسازی به عنوان وب کامپوننت‌ها در هر صفحه
+- برنامه تک صفحه‌ای (SPA)
+- فول‌استک / رندر سمت سرور (SSR)
+- Jamstack / تولید سایت استاتیک (SSG)
+- برای دسکتاپ، موبایل، WebGL و حتی ترمینال
 
-If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
+اگر این مفاهیم را تهدیدآمیز می‌یابید، نگران نباشید! آموزش و راهنما فقط به دانش ابتدایی HTML و جاوا اسکریپت نیاز دارند و شما باید بتوانید بدون اینکه در هیچ یک از این موارد متخصص باشید، پیگیری کنید.
 
-If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more detail in [Ways of Using Vue](/guide/extras/ways-of-using-vue).
+اگر شما یک توسعه‌دهنده با تجربه هستید که به دنبال راه بهترین ادغام Vue در مجموعه‌ی تکنولوژی‌های خود هستید، یا کنجکاو هستید که معنی این واژگان چیست، ما در مورد آنها به تفصیل بحث می‌کنیم در [روش های استفاده مختلف از Vue](/guide/extras/ways-of-using-vue).
 
-Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
+علیرغم این انعطاف‌پذیری، دانش اصلی در مورد نحوه کارکرد Vue در تمام این موارد استفاده مشترک است. حتی اگر شما هم‌اکنون فقط یک مبتدی هستید، دانشی که در طول مسیر به دست می‌آورید در آینده، هنگامی که با هدف‌های بلندپروازانه‌تر مواجه می‌شوید، مفید خواهد بود. اگر شما یک کارآزموده هستید، می‌توانید راه بهینه برای استفاده از Vue را بر اساس مشکلاتی که سعی دارید حل کنید انتخاب کنید، در حالی که همان بهره‌وری را حفظ می‌کنید. به همین دلیل است که ما Vue را "فریمورک پیشرو" می‌نامیم: این یک فریمورک است که می‌تواند با شما رشد کند و به نیازهای شما واکنش نشان دهد.
 
 ## Single-File Components {#single-file-components}
 
-In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
+در بیشتر پروژه‌های Vue که از ابزار ساخت استفاده می‌کنند، ما کامپوننت‌های Vue را با استفاده از یک فرمت فایل شبیه به HTML به نام **Single-File Components** نوشته‌ایم (همچنین به نام فایل‌های ‍‍`*.vue` شناخته شده و به اختصار SFC نامیده می‌شود). یک SFC Vue، همان‌طور که از نام آن پیداست، منطق کامپوننت (جاوا اسکریپت)، قالب (HTML) و سبک‌ها (CSS) را در یک فایل جمع‌آوری می‌کند. در اینجا نمونه قبلی است که به فرمت SFC نوشته شده است:
 
 <div class="options-api">
 
@@ -161,15 +162,15 @@ button {
 
 </div>
 
-SFC is a defining feature of Vue and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
+SFC یک ویژگی معین‌کننده در Vue است و روش پیشنهادی برای نوشتن کامپوننت‌های Vue است **اگر** مورد استفاده شما نیاز به یک تنظیمات Build داشته باشد. شما می‌توانید بیشتر در مورد آن بیاموزید [چگونگی و چرای SFC](/guide/scaling-up/sfc) اما برای حال، فقط بدانید که Vue تمام تنظیمات Build را برای شما انجام می‌دهد.
 
-## API Styles {#api-styles}
+## استایل API {#api-styles}
 
-Vue components can be authored in two different API styles: **Options API** and **Composition API**.
+کامپوننت‌های Vue می‌توانند با دو سبک API مختلف نوشته شوند: **Options API** و **Composition API**.
 
 ### Options API {#options-api}
 
-With Options API, we define a component's logic using an object of options such as `data`, `methods`, and `mounted`. Properties defined by options are exposed on `this` inside functions, which points to the component instance:
+با استفاده از API, ما منطق یک کامپوننت را با استفاده از یک شیء از گزینه‌ها تعریف می‌کنیم مانند `data`, `methods`, و `mounted`. ویژگی‌هایی که توسط گزینه‌ها تعریف شده‌اند، در داخل `this` قرار داده شده‌اند، که به نمونه کامپوننت اشاره دارد:
 
 ```vue
 <script>
@@ -204,13 +205,13 @@ export default {
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNptkMFqxCAQhl9lkB522ZL0HNKlpa/Qo4e1ZpLIGhUdl5bgu9es2eSyIMio833zO7NP56pbRNawNkivHJ25wV9nPUGHvYiaYOYGoK7Bo5CkbgiBBOFy2AkSh2N5APmeojePCkDaaKiBt1KnZUuv3Ky0PppMsyYAjYJgigu0oEGYDsirYUAP0WULhqVrQhptF5qHQhnpcUJD+wyQaSpUd/Xp9NysVY/yT2qE0dprIS/vsds5Mg9mNVbaDofL94jZpUgJXUKBCvAy76ZUXY53CTd5tfX2k7kgnJzOCXIF0P5EImvgQ2olr++cbRE4O3+t6JxvXj0ptXVpye1tvbFY+ge/NJZt)
+[امتحان کنید](https://play.vuejs.org/#eNptkMFqxCAQhl9lkB522ZL0HNKlpa/Qo4e1ZpLIGhUdl5bgu9es2eSyIMio833zO7NP56pbRNawNkivHJ25wV9nPUGHvYiaYOYGoK7Bo5CkbgiBBOFy2AkSh2N5APmeojePCkDaaKiBt1KnZUuv3Ky0PppMsyYAjYJgigu0oEGYDsirYUAP0WULhqVrQhptF5qHQhnpcUJD+wyQaSpUd/Xp9NysVY/yT2qE0dprIS/vsds5Mg9mNVbaDofL94jZpUgJXUKBCvAy76ZUXY53CTd5tfX2k7kgnJzOCXIF0P5EImvgQ2olr++cbRE4O3+t6JxvXj0ptXVpye1tvbFY+ge/NJZt)
 
 ### Composition API {#composition-api}
 
-With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). The `setup` attribute is a hint that makes Vue perform compile-time transforms that allow us to use Composition API with less boilerplate. For example, imports and top-level variables / functions declared in `<script setup>` are directly usable in the template.
+با استفاده از API ترکیب، ما منطق یک کامپوننت را با استفاده از توابع API وارد شده تعریف می‌کنیم. در SFCها، معمولاً API ترکیب با [`<script setup>`](/api/sfc-script-setup) می‌شود استفاده. ویژگی setup یک نکته است که باعث می‌شود Vue تبدیل‌های زمان کامپایل را انجام دهد که به ما اجازه می‌دهد تا Composition API استفاده کنیم با استفاده از الگوهای کمتر. به عنوان مثال، وارد کردن متغیرها/توابع سطح بالا که در `<script setup>` اعلام شده‌اند، مستقیماً در قالب قابل استفاده هستند.
 
-Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
+در اینجا همان کامپوننت است، با دقیقاً همان قالب، اما با استفاده از Composition API و `<script setup>` :
 
 ```vue
 <script setup>
@@ -235,49 +236,49 @@ onMounted(() => {
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNpNkMFqwzAQRH9lMYU4pNg9Bye09NxbjzrEVda2iLwS0spQjP69a+yYHnRYad7MaOfiw/tqSliciybqYDxDRE7+qsiM3gWGGQJ2r+DoyyVivEOGLrgRDkIdFCmqa1G0ms2EELllVKQdRQa9AHBZ+PLtuEm7RCKVd+ChZRjTQqwctHQHDqbvMUDyd7mKip4AGNIBRyQujzArgtW/mlqb8HRSlLcEazrUv9oiDM49xGGvXgp5uT5his5iZV1f3r4HFHvDprVbaxPhZf4XkKub/CDLaep1T7IhGRhHb6WoTADNT2KWpu/aGv24qGKvrIrr5+Z7hnneQnJu6hURvKl3ryL/ARrVkuI=)
+[امتحان کنید](https://play.vuejs.org/#eNpNkMFqwzAQRH9lMYU4pNg9Bye09NxbjzrEVda2iLwS0spQjP69a+yYHnRYad7MaOfiw/tqSliciybqYDxDRE7+qsiM3gWGGQJ2r+DoyyVivEOGLrgRDkIdFCmqa1G0ms2EELllVKQdRQa9AHBZ+PLtuEm7RCKVd+ChZRjTQqwctHQHDqbvMUDyd7mKip4AGNIBRyQujzArgtW/mlqb8HRSlLcEazrUv9oiDM49xGGvXgp5uT5his5iZV1f3r4HFHvDprVbaxPhZf4XkKub/CDLaep1T7IhGRhHb6WoTADNT2KWpu/aGv24qGKvrIrr5+Z7hnneQnJu6hURvKl3ryL/ARrVkuI=)
 
-### Which to Choose? {#which-to-choose}
+### کدام را انتخاب کنیم؟ {#which-to-choose}
 
-Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+هر دو سبک API کاملاً قادر به پوشش موارد استفاده متداول هستند. آن‌ها واسط‌های متفاوتی هستند که توسط دقیقاً یک سیستم زیرین به قدرت می‌رسند. در واقع، Options API بر روی Composition API پیاده‌سازی شده است! مفاهیم اساسی و دانش در مورد Vue در دو سبک به اشتراک گذاشته شده است.
 
-The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
+Options API به مفهوم "component instance" متمرکز است (که در مثال به عنوان ‍`this` دیده می‌شود)، که معمولاً برای کاربرانی که از زمینه‌های زبان OOP می‌آیند، بهتر با مدل ذهنی مبتنی بر کلاس تطابق دارد. همچنین با پنهان کردن جزئیات واکنش‌پذیری و اجبار به سازماندهی کد از طریق گروه‌های گزینه، برای مبتدیان دوستانه‌تر است.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope and composing state from multiple functions together to handle complexity. It is more free-form and requires an understanding of how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
+Composition API به اعلام متغیرهای وضعیت واکنش‌پذیر مستقیماً در محدوده تابع و ترکیب وضعیت از چندین تابع با یکدیگر برای مدیریت پیچیدگی متمرکز است. این سبک آزادتر است و نیاز به درک این دارد که چگونه واکنش‌پذیری در Vue کار می‌کند تا به طور موثر استفاده شود. به عوض، انعطاف‌پذیری آن الگوهای قدرتمندتری را برای سازماندهی و استفاده مجدد از منطق فراهم می‌کند.
 
-You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/extras/composition-api-faq).
+شما می‌توانید در مورد مقایسه بین دو سبک و مزایای بالقوه Composition API بیشتر بیاموزید در [سوالات متداول Composition API](/guide/extras/composition-api-faq).
 
-If you are new to Vue, here's our general recommendation:
+اگر شما به Vue جدید هستید، در اینجا توصیه عمومی ما است:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
+- برای اهداف یادگیری، با سبکی که برایتان آسان‌تر به نظر می‌رسد پیش بروید. دوباره، بیشتر مفاهیم اصلی بین دو سبک به اشتراک گذاشته شده است. شما همیشه می‌توانید بعداً سبک دیگر را یاد بگیرید.
 
-- For production use:
+- برای استفاده در محیط پروداکشن:
 
-  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
+  - اگر از ابزارهای ساخت و ساز استفاده نمی‌کنید، یا قصد دارید Vue را عمدتاً در سناریوهای کم‌پیچیدگی استفاده کنید، مثل بهبود تدریجی، با Options API پیش بروید.
 
-  - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
+  - اگر قصد دارید نرم‌افزارهای کامل با Vue بسازید، با Composition API + کامپوننت‌های Single-File پیش بروید.
 
-You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
+شما در طول مرحله یادگیری نیازی به پایبندی به فقط یک سبک ندارید. بقیه اسناد مستندات نمونه‌های کد را در هر دو سبک (جایی که کاربردی باشد) ارائه خواهد داد، و شما می‌توانید در هر زمان با استفاده از کلید API در بالای نوار کناری سمت چپ بین Composition و Options جابجا شوید.
 
-## Still Got Questions? {#still-got-questions}
+## هنوز سوالاتی دارید؟? {#still-got-questions}
 
-Check out our [FAQ](/about/faq).
+به [سوالات متداول](/about/faq) ما سر بزنید.
 
-## Pick Your Learning Path {#pick-your-learning-path}
+## انتخاب مسیر یادگیری {#pick-your-learning-path}
 
-Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
+توسعه‌دهندگان مختلف، سبک‌های متفاوتی در یادگیری دارند. بدون هیچ مشکلی مسیر یادگیری را انتخاب کنید که به سلیقه شما مناسب است - اگرچه ما توصیه می‌کنیم اگر امکان دارد، تمام محتوا را مطالعه کنید!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">این آموزش را امتحان کنید.</p>
+    <p class="next-steps-caption">برای کسانی که ترجیح می‌دهند چیزها را به صورت عملی یاد بگیرند.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Read the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">راهنما را بخوانید.</p>
+    <p class="next-steps-caption">راهنما شما را از هر جنبه‌ای از فریمورک با جزئیات کامل یاد می‌دهد.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">نمونه‌ها را بررسی کنید</p>
+    <p class="next-steps-caption">نمونه‌های ویژگی‌های اصلی و وظایف رابط کاربری رایج را کاوش کنید.</p>
   </a>
 </div>

@@ -134,48 +134,48 @@ const nav: ThemeConfig['nav'] = [
 export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
-      text: 'Getting Started',
+      text: 'شروع به کار',
       items: [
-        { text: 'Introduction', link: '/guide/introduction' },
+        { text: 'مقدمه', link: '/guide/introduction' },
         {
-          text: 'Quick Start',
+          text: 'راه‌اندازی سریع',
           link: '/guide/quick-start'
         }
       ]
     },
     {
-      text: 'Essentials',
+      text: 'اصول',
       items: [
         {
-          text: 'Creating an Application',
+          text: 'ایجاد یک برنامه',
           link: '/guide/essentials/application'
         },
         {
-          text: 'Template Syntax',
+          text: 'سینتکس Template',
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'Reactivity Fundamentals',
+          text: 'اصول پایه‌ای واکنش‌پذیری',
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Computed Properties',
+          text: 'Computed',
           link: '/guide/essentials/computed'
         },
         {
-          text: 'Class and Style Bindings',
+          text: 'استایل',
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'Conditional Rendering',
+          text: 'رندر کردن شرطی',
           link: '/guide/essentials/conditional'
         },
-        { text: 'List Rendering', link: '/guide/essentials/list' },
+        { text: 'رندر کردن لیست', link: '/guide/essentials/list' },
         {
-          text: 'Event Handling',
+          text: 'Event',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
+        { text: 'فرم ها', link: '/guide/essentials/forms' },
         {
           text: 'Lifecycle Hooks',
           link: '/guide/essentials/lifecycle'
@@ -183,13 +183,13 @@ export const sidebar: ThemeConfig['sidebar'] = {
         { text: 'Watchers', link: '/guide/essentials/watchers' },
         { text: 'Template Refs', link: '/guide/essentials/template-refs' },
         {
-          text: 'Components Basics',
+          text: 'مبانی کامپوننت‌ها',
           link: '/guide/essentials/component-basics'
         }
       ]
     },
     {
-      text: 'Components In-Depth',
+      text: 'کامپوننت‌ها به‌طور عمیق',
       items: [
         {
           text: 'Registration',
@@ -197,12 +197,12 @@ export const sidebar: ThemeConfig['sidebar'] = {
         },
         { text: 'Props', link: '/guide/components/props' },
         { text: 'Events', link: '/guide/components/events' },
-        { text: 'Component v-model', link: '/guide/components/v-model' },
+        { text: 'v-model', link: '/guide/components/v-model' },
         {
           text: 'Fallthrough Attributes',
           link: '/guide/components/attrs'
         },
-        { text: 'Slots', link: '/guide/components/slots' },
+        { text: 'اسلات‌ها', link: '/guide/components/slots' },
         {
           text: 'Provide / inject',
           link: '/guide/components/provide-inject'
@@ -214,7 +214,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'Reusability',
+      text: 'قابلیت استفاده مجدد',
       items: [
         {
           text: 'Composables',
@@ -224,11 +224,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Custom Directives',
           link: '/guide/reusability/custom-directives'
         },
-        { text: 'Plugins', link: '/guide/reusability/plugins' }
+        { text: 'افزونه‌ها', link: '/guide/reusability/plugins' }
       ]
     },
     {
-      text: 'Built-in Components',
+      text: 'کامپوننت‌های داخلی',
       items: [
         { text: 'Transition', link: '/guide/built-ins/transition' },
         {
@@ -241,7 +241,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'Scaling Up',
+      text: 'مقیاس‌بندی به بالا',
       items: [
         { text: 'Single-File Components', link: '/guide/scaling-up/sfc' },
         { text: 'Tooling', link: '/guide/scaling-up/tooling' },
@@ -258,69 +258,69 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'Best Practices',
+      text: 'بهترین روش‌ها',
       items: [
         {
           text: 'Production Deployment',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Performance',
+          text: 'کارایی',
           link: '/guide/best-practices/performance'
         },
         {
-          text: 'Accessibility',
+          text: 'دسترسی‌پذیری',
           link: '/guide/best-practices/accessibility'
         },
         {
-          text: 'Security',
+          text: 'امنیت',
           link: '/guide/best-practices/security'
         }
       ]
     },
     {
-      text: 'TypeScript',
+      text: 'تایپ‌اسکریپت',
       items: [
-        { text: 'Overview', link: '/guide/typescript/overview' },
+        { text: 'بررسی کلی', link: '/guide/typescript/overview' },
         {
-          text: 'TS with Composition API',
+          text: 'تایپ‌اسکریپت با API Composition',
           link: '/guide/typescript/composition-api'
         },
         {
-          text: 'TS with Options API',
+          text: 'تایپ‌اسکریپت با API Options',
           link: '/guide/typescript/options-api'
         }
       ]
     },
     {
-      text: 'Extra Topics',
+      text: 'موضوعات اضافی',
       items: [
         {
-          text: 'Ways of Using Vue',
+          text: 'روش‌های استفاده از Vue',
           link: '/guide/extras/ways-of-using-vue'
         },
         {
-          text: 'Composition API FAQ',
+          text: 'Composition API پرسش و پاسخ ',
           link: '/guide/extras/composition-api-faq'
         },
         {
-          text: 'Reactivity in Depth',
+          text: 'واکنش‌پذیری به تفصیل',
           link: '/guide/extras/reactivity-in-depth'
         },
         {
-          text: 'Rendering Mechanism',
+          text: 'مکانیزم رندر',
           link: '/guide/extras/rendering-mechanism'
         },
         {
-          text: 'Render Functions & JSX',
+          text: 'توابع رندر و JSX',
           link: '/guide/extras/render-function'
         },
         {
-          text: 'Vue and Web Components',
+          text: 'Vue و کامپوننت‌های وب',
           link: '/guide/extras/web-components'
         },
         {
-          text: 'Animation Techniques',
+          text: 'تکنیک‌های انیمیشن',
           link: '/guide/extras/animation'
         }
         // {
