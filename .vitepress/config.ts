@@ -692,8 +692,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
 
     editLink: {
-      repo: 'vuejs/docs',
-      text: 'Edit this page on GitHub'
+      repo: 'the-pesar/docs-fa',
+      text: 'ویرایش این صفحه در گیت‌هاب'
     },
 
     footer: {

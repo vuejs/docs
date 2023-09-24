@@ -38,4 +38,4 @@
 | endpoint | پایانه | pending |
 | event | رویداد | pending |
 | expression | عبارت | pending |
-
+| GitHub | گیت‌هاب | pending |

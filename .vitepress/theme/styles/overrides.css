@@ -54,3 +54,8 @@ li {
   margin-right: -1.1em;
   padding-left: 0.23em;
 }
+
+.vt-icon {
+  margin-right: 0px !important;
+  margin-left: 8px;
+}
