@@ -24,14 +24,14 @@ function genMailLink(email: string) {
   <div class="partner-page">
     <div class="back">
       <a href="/partners/all.html"
-        ><VTIconChevronLeft class="icon" />Back to all partners</a
+        ><VTIconChevronLeft class="icon" />برگشتن به تمام حامیان</a
       >
     </div>
 
     <PartnerCard hero page :data="p" />
 
     <div class="description">
-      <h2>About {{ name }}</h2>
+      <h2>درباره {{ name }}</h2>
       <p v-for="desc in description" v-html="desc"></p>
     </div>
 

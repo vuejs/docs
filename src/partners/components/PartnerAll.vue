@@ -21,11 +21,11 @@ function includes(a: string, b: string) {
 </script>
 
 <template>
-  <PartnerHero title="Browser All Partners" />
+  <PartnerHero title="تمام شرکا را مرور کنید" />
   <div class="container">
     <VTIconSearch class="icon" />
     <input
-      placeholder="Search partners by name or region"
+      placeholder="شرکا را بر اساس نام یا منطقه جستجو کنید"
       v-model="query"
     />
     <PartnerList :filter="filter" />

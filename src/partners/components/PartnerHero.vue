@@ -4,13 +4,13 @@ defineProps<{ title?: string }>()
 
 <template>
   <div class="PartnerHero">
-    <h1 class="title">{{ title || 'Vue Partners' }}</h1>
+    <h1 class="title">{{ title || 'شرکای Vue' }}</h1>
     <p class="lead">
-      Vue Partners are Vue-team endorsed agencies that provide first-class
-      Vue consulting and development services. If your company is
-      interested in being listed as a partner, please
+      شرکای Vue آژانس‌های تأیید شده توسط تیم Vue هستند که خدمات مشاوره و
+      توسعه Vue در سطح ممتاز را ارائه می‌دهند. اگر شرکت شما علاقه‌مند به
+      لیست شدن به عنوان یک شریک است، لطفا
       <a href="https://airtable.com/shrCQhat57SApJI2l" target="_blank"
-        >register your interest here</a
+        >علاقه خود را اینجا ثبت نام کنید</a
       >.
     </p>
   </div>
