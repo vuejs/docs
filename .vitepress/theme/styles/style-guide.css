@@ -59,3 +59,10 @@
 .style-verb.avoid {
   background-color: var(--vt-c-red);
 }
+
+.vt-doc blockquote {
+  border-right: 0.2rem solid var(--vt-c-divider) !important;
+  border-left: none !important;
+  padding-right: 1rem !important;
+  padding-left: 0 !important;
+}

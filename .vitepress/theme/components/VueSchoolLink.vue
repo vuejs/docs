@@ -1,12 +1,12 @@
 <template>
-  <div class="vueschool">
+  <div dir='rtl' class="vueschool">
     <a
       :href="`${href}?friend=vuejs`"
       target="_blank"
       rel="sponsored noopener"
       :title="title"
     >
-      <slot>Watch a free video lesson on Vue School</slot>
+      <slot>یک ویدیو از یک درس رایگان در Vue School ببینید</slot>
     </a>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
 .vueschool a {
   color: var(--c-text);
   position: relative;
-  padding-left: 36px;
+  padding-right: 36px;
 }
 .vueschool a:before {
   content: '';
@@ -40,7 +40,7 @@ export default {
   width: 30px;
   height: 30px;
   top: calc(50% - 15px);
-  left: -4px;
+  right: -4px;
   border-radius: 50%;
   background-color: #73abfe;
 }
@@ -51,7 +51,7 @@ export default {
   width: 0;
   height: 0;
   top: calc(50% - 5px);
-  left: 8px;
+  right: 6px;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 8px solid #fff;
