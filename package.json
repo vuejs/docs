@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^16.9.1",
+    "@vue/compiler-core": "npm:@vue/compiler-core-canary@minor",
     "terser": "^5.14.2"
   },
   "pnpm": {
