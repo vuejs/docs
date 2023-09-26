@@ -1,100 +1,103 @@
-# Frequently Asked Questions {#frequently-asked-questions}
+# Câu hỏi thường gặp {#cau-hoi-thuong-gap}
 
-## Who maintains Vue? {#who-maintains-vue}
+## Ai đang duy trì Vue? {#ai-dang-duy-tri-vue}
 
-Vue is an independent, community-driven project. It was created by [Evan You](https://twitter.com/youyuxi) in 2014 as a personal side project. Today, Vue is actively maintained by [a team of both full-time and volunteer members from all around the world](/about/team), where Evan serves as the project lead. You can learn more about the story of Vue in this [documentary](https://www.youtube.com/watch?v=OrxmtDw4pVI).
+Vue là một dự án độc lập, được phát triển theo hướng cộng đồng. Nó được tạo ra bởi [Evan You](https://twitter.com/youyuxi) vào năm 2014 như một dự án cá nhân. Hiện nay, Vue được duy trì tích cực bởi [một nhóm bao gồm các thành viên toàn thời gian và tình nguyện viên từ khắp nơi trên thế giới](/about/team), trong đó Evan là người điều hành dự án. Bạn có thể tìm hiểu thêm về câu chuyện của Vue trong [phim tài liệu](https://www.youtube.com/watch?v=OrxmtDw4pVI).
 
-Vue's development is primarily funded through sponsorships and we have been financially sustainable since 2016. If you or your business benefit from Vue, consider [sponsoring us](/sponsor/) to support Vue's development!
+Vue được phát triển chủ yếu thông qua các tài trợ và chúng tôi đã có khả năng tài chính bền vững kể từ năm 2016. Nếu bạn hoặc doanh nghiệp của bạn có lợi từ Vue, hãy xem xét [tài trợ cho chúng tôi](/sponsor/) để hỗ trợ cho sự phát triển của Vue!
 
-## What's the difference between Vue 2 and Vue 3? {#what-s-the-difference-between-vue-2-and-vue-3}
+## Sự khác biệt giữa Vue 2 và Vue 3 là gì? {#su-khac-biet-giua-vue-2-va-vue-3-la-gi}
 
-Vue 3 is the current, latest major version of Vue. It contains new features that are not present in Vue 2, such as Teleport, Suspense, and multiple root elements per template. It also contains breaking changes that make it incompatible with Vue 2. Full details are documented in the [Vue 3 Migration Guide](https://v3-migration.vuejs.org/).
+Vue 3 là phiên bản chính thức hiện tại của Vue. Nó bao gồm các tính năng mới, vốn không có trong Vue 2, chẳng hạn như Teleport, Suspense và multiple root elements trong một template. Nó cũng chứa các thay đổi đột phá, khiến cho Vue 3 không tương thích với Vue 2. Chi tiết đầy đủ được ghi lại trong [Hướng dẫn Vue 3 Migration](https://v3-migration.vuejs.org/).
 
-Despite the differences, the majority of Vue APIs are shared between the two major versions, so most of your Vue 2 knowledge will continue to work in Vue 3. Notably, Composition API was originally a Vue-3-only feature, but has now been backported to Vue 2 and is available in [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
+Mặc dù có sự khác biệt, hầu hết các API của Vue được chia sẻ giữa hai phiên bản chính, vì vậy hầu hết kiến thức Vue 2 của bạn vẫn có thể sử dụng trong Vue 3. Đáng chú ý, Composition API ban đầu là một tính năng chỉ có trong Vue 3, nhưng hiện đã được thêm vào Vue 2 và có sẵn trong [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
 
-In general, Vue 3 provides smaller bundle sizes, better performance, better scalability, and better TypeScript / IDE support. If you are starting a new project today, Vue 3 is the recommended choice. There are only a few reasons for you to consider Vue 2 as of now:
+Nhìn chung, Vue 3 cung cấp kích thước bundle nhỏ hơn, hiệu suất tốt hơn, khả năng mở rộng tốt hơn và hỗ trợ TypeScript / IDE tốt hơn. Nếu bạn bắt đầu một dự án mới trong hiện tại, Vue 3 là lựa chọn được khuyến nghị. Chỉ có một số lý do để bạn xem xét Vue 2 nếu như:
 
-- You need to support IE11. Vue 3 leverages modern JavaScript features and does not support IE11.
+- Bạn cần hỗ trợ cho IE11. Vue 3 sử dụng các tính năng JavaScript hiện đại và không hỗ trợ IE11.
 
-If you intend to migrate an existing Vue 2 app to Vue 3, consult the [migration guide](https://v3-migration.vuejs.org/).
+Nếu như bạn đang xây dựng một ứng dụng Vue 2 và muốn chuyển sang Vue 3, hãy tham khảo [hướng dẫn migration](https://v3-migration.vuejs.org/).
 
-## Is Vue 2 Still Supported? {#is-vue-2-still-supported}
+## Vue 2 có còn được hỗ trợ không? {#vue-2-co-con-duoc-ho-tro-khong}
 
-Vue 2.7, which was shipped in July 2022, is the final minor release of the Vue 2 version range. Vue 2 has now entered maintenance mode: it will no longer ship new features, but will continue to receive critical bug fixes and security updates for 18 months starting from the 2.7 release date. This means **Vue 2 will reach End of Life on December 31st, 2023**.
+Vue 2.7, được phát hành vào tháng 7 năm 2022, là phiên bản phụ cuối cùng của dải phiên bản Vue 2. Vue 2 hiện đã bước vào chế độ bảo trì: nó sẽ không còn cập nhật thêm các tính năng mới nữa, nhưng vẫn tiếp tục nhận các bản sửa lỗi và cập nhật bảo mật quan trọng trong vòng 18 tháng kể từ ngày phát hành 2.7. Điều này có nghĩa là **Vue 2 sẽ Kết thúc Vòng đời vào ngày 31 tháng 12 năm 2023**.
 
-We believe this should provide plenty of time for most of the ecosystem to migrate over to Vue 3. However, we also understand that there could be teams or projects that cannot upgrade by this timeline while still needing to fulfill security and compliance requirements. We are partnering with industry experts to provide extended support for Vue 2 for teams with such needs - if your team expects to be using Vue 2 beyond the end of 2023, make sure to plan ahead and learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
+Chúng tôi tin rằng điều này sẽ cung cấp đủ thời gian cho hầu hết các hệ sinh thái để chuyển sang Vue 3. Tuy nhiên, chúng tôi cũng hiểu rằng có thể có các nhóm hoặc dự án không thể nâng cấp trước thời hạn này trong khi vẫn cần đáp ứng các yêu cầu về bảo mật và tuân thủ. Chúng tôi đang hợp tác với các chuyên gia trong ngành để cung cấp hỗ trợ kéo dài cho Vue 2 cho các nhóm có nhu cầu như vậy - nếu nhóm của bạn dự kiến sẽ sử dụng Vue 2 vượt quá cuối năm 2023, hãy đảm bảo lên kế hoạch trước và tìm hiểu thêm về [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
 
-## What license does Vue use? {#what-license-does-vue-use}
+## Vue đang sử dụng loại giấy phép nào? {#vue-dang-su-dung-loai-giay-phep-nao}
 
-Vue is a free and open source project released under the [MIT License](https://opensource.org/licenses/MIT).
+Vue là một dự án open source miễn phí được phát hành theo [Giấy phép MIT](https://opensource.org/licenses/MIT).
 
-## What browsers does Vue support? {#what-browsers-does-vue-support}
 
-The latest version of Vue (3.x) only supports [browsers with native ES2015 support](https://caniuse.com/es6). This excludes IE11. Vue 3.x uses ES2015 features that cannot be polyfilled in legacy browsers, so if you need to support legacy browsers, you will need to use Vue 2.x instead.
+## Vue hỗ trợ những trình duyệt nào? {#vue-ho-tro-nhung-trinh-duyet-nao}
 
-## Is Vue reliable? {#is-vue-reliable}
+Phiên bản mới nhất của Vue (3.x) chỉ hỗ trợ những [trình duyệt có hỗ trợ ES2015](https://caniuse.com/es6), trong đó không bao gồm IE11. Vue 3.x sử dụng các tính năng ES2015 mà không thể polyfill được trong các trình duyệt cũ, vì vậy nếu bạn cần hỗ trợ các trình duyệt cũ, bạn sẽ cần sử dụng Vue 2.x.
 
-Vue is a mature and battle-tested framework. It is one of the most widely used JavaScript frameworks in production today, with over 1.5 million users worldwide, and is downloaded close to 10 million times a month on npm.
+## Vue có đáng tin cậy không? {#vue-co-dang-tin-cay-khong}
+
+Vue là một framework đã và đang được phát triển, trải nghiệm qua thực tế. Nó là một trong những framework JavaScript được sử dụng rộng rãi nhất trong thực tế ngày nay, với hơn 1,5 triệu người dùng trên toàn thế giới với gần 10 triệu lượt tải mỗi tháng trên npm.
+
+Vue được sử dụng trong production bởi các tổ chức nổi tiếng trong nhiều lĩnh vực trên toàn thế giới, bao gồm Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou và nhiều hơn nữa.
 
 Vue is used in production by renowned organizations in varying capacities all around the world, including Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou, and many more.
 
-## Is Vue fast? {#is-vue-fast}
+## Vue có nhanh không? {#vue-co-nhanh-khong}/
 
-Vue 3 is one of the most performant mainstream frontend frameworks, and handles most web application use cases with ease, without the need for manual optimizations.
+Vue 3 là một trong những framework frontend phổ biến nhất hiện nay, và xử lý hầu hết các trường hợp sử dụng ứng dụng web một cách dễ dàng, mà không cần tối ưu hóa thủ công.
 
-In stress-testing scenarios, Vue outperforms React and Angular by a decent margin in the [js-framework-benchmark](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html). It also goes neck-and-neck against some of the fastest production-level non-Virtual-DOM frameworks in the benchmark.
+Đối với stress-testing, Vue vượt trội hơn React và Angular một khoảng cách đáng kể trong [js-framework-benchmark](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html). Nó cũng cạnh tranh sát nút với một số framework non-Virtual-DOM nhanh nhất trong benchmark.
 
-Do note that synthetic benchmarks like the above focus on raw rendering performance with dedicated optimizations and may not be fully representative of real-world performance results. If you care more about page load performance, you are welcome to audit this very website using [WebPageTest](https://www.webpagetest.org/lighthouse) or [PageSpeed Insights](https://pagespeed.web.dev/). This website is powered by Vue itself, with SSG pre-rendering, full page hydration and SPA client-side navigation. It scores 100 in performance on an emulated Moto G4 with 4x CPU throttling over slow 4G networks.
+Vui lòng lưu ý rằng các benchmark tổng quát như trên tập trung vào hiệu suất render thô được tối ưu hóa riêng biệt và có thể không phản ánh đầy đủ kết quả hiệu suất thực tế. Nếu bạn quan tâm hơn đến hiệu suất tải trang, bạn có thể kiểm tra bằng công cụ [WebPageTest](https://www.webpagetest.org/lighthouse) hoặc [PageSpeed Insights](https://pagespeed.web.dev/). Trang web này được tạo ra bằng Vue, với SSG pre-rendering, full page hydration và SPA client-side navigation. Nó đạt 100  điểm hiệu suất trong giả lập Moto G4 với 4x CPU throttling trên mạng 4G chậm.
 
-You can learn more about how Vue automatically optimizes runtime performance in the [Rendering Mechanism](/guide/extras/rendering-mechanism) section, and how to optimize a Vue app in particularly demanding cases in the [Performance Optimization Guide](/guide/best-practices/performance).
+Bạn có thể tìm hiểu thêm về cách Vue tự động tối ưu hiệu suất runtime tại [Cơ chế render](/guide/extras/rendering-mechanism), và cách tối ưu hóa một ứng dụng Vue trong các trường hợp đặc biệt tại [Hướng dẫn tối ưu hiệu suất](/guide/best-practices/performance).
 
-## Is Vue lightweight? {#is-vue-lightweight}
+## Vue có nhẹ không? {#vue-co-nhe-khong}
 
-When you use a build tool, many of Vue's APIs are ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). For example, if you don't use the built-in `<Transition>` component, it won't be included in the final production bundle.
+Khi bạn sử dụng một công cụ build, nhiều API của Vue có thể ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). Ví dụ, nếu bạn không sử dụng built-in component `<Transition>`, nó sẽ không được build trong production bundle cuối cùng.
 
-A hello world Vue app that only uses the absolutely minimal APIs has a baseline size of only around **16kb**, with minification and brotli compression. The actual size of the application will depend on how many optional features you use from the framework. In the unlikely case where an app uses every single feature that Vue provides, the total runtime size is around **27kb**.
+Một ứng dụng hello world Vue, chỉ sử dụng các API tối thiểu, với minification và brotli compression, có kích thước chỉ khoảng **16kb**. Kích thước thực tế của ứng dụng sẽ phụ thuộc vào số lượng tính năng mà bạn sử dụng từ framework. Trong trường hợp ứng dụng sử dụng tất cả các tính năng của Vue (điều hiếm khi xảy ra), tổng kích thước runtime sẽ rơi vào khoảng **27kb**.
 
-When using Vue without a build tool, we not only lose tree-shaking, but also have to ship the template compiler to the browser. This bloats up the size to around **41kb**. Therefore, if you are using Vue primarily for progressive enhancement without a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
+Khi sử dụng Vue mà không có build tool, chúng ta không chỉ không có tree-shaking, mà còn phải gửi trình biên dịch template đến trình duyệt. Điều này làm tăng kích thước lên khoảng **41kb**. Do đó, nếu bạn sử dụng Vue chủ yếu cho Progressive Enhancement mà không có bước build, hãy xem xét việc sử dụng [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**).
 
-Some frameworks, such as Svelte, use a compilation strategy that produces extremely lightweight output in single-component scenarios. However, [our research](https://github.com/yyx990803/vue-svelte-size-analysis) shows that the size difference heavily depends on the number of components in the application. While Vue has a heavier baseline size, it generates less code per component. In real-world scenarios, a Vue app may very well end up being lighter.
+Một số frameworks, ví dụ như Svelte, sử dụng một chiến lược biên dịch tạo ra đầu ra cực kỳ nhẹ trong các trườn hợp single-component. Tuy nhiên, [nghiên cứu của chúng tôi](https://github.com/yyx990803/vue-svelte-size-analysis) cho thấy sự khác biệt về kích thước phụ thuộc rất nhiều vào số lượng component trong ứng dụng. Trong khi Vue có kích thước cơ sở nặng hơn, nó tạo ra ít mã hơn cho mỗi component. Trong các trường hợp thực tế, một ứng dụng Vue có thể rất nhẹ.
 
-## Does Vue scale? {#does-vue-scale}
+## Vue có scale hay không? {#vue-co-scale-hay-khong}
 
-Yes. Despite a common misconception that Vue is only suitable for simple use cases, Vue is perfectly capable of handling large scale applications:
+Có. Mặc dù có một quan niệm sai lầm rằng Vue chỉ phù hợp với các trường hợp sử dụng đơn giản, Vue hoàn toàn có thể xử lý các ứng dụng quy mô lớn:
 
-- [Single-File Components](/guide/scaling-up/sfc) provide a modularized development model that allows different parts of an application to be developed in isolation.
+- [Single-File Components](/guide/scaling-up/sfc) cung cấp một 'mô hình phát triển module hoá' cho phép các phần khác nhau của một ứng dụng được phát triển độc lập.
 
-- [Composition API](/guide/reusability/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
+- [Composition API](/guide/reusability/composables) tích hợp TypeScript tân tiến nhất và cho phép sử dụng clean parttern trong việc tổ chức, trích xuất và tái sử dụng logic phức tạp.
 
-- [Comprehensive tooling support](/guide/scaling-up/tooling) ensures a smooth development experience as the application grows.
+- [Comprehensive tooling support](/guide/scaling-up/tooling) đảm bảo một trải nghiệm phát triển mượt mà khi ứng dụng trở nên lớn hơn.
 
-- Lower barrier to entry and excellent documentation translate to lower onboarding and training costs for new developers.
+- Hạ thấp rào cản về độ phức tạp của các tính năng cốt lõi của framework, giúp cho việc tìm hiểu và bảo trì dễ dàng hơn.
 
-## How do I contribute to Vue? {#how-do-i-contribute-to-vue}
+## Làm sao để tôi có đóng góp cho Vue? {#lam-sao-de-toi-co-the-dong-gop-cho-vue}
 
-We appreciate your interest! Please check out our [Community Guide](/about/community-guide).
+Chúng tôi rất hoan nghênh mọi đóng góp vào Vue. Hãy xem [Hướng dẫn cộng đồng](/about/community-guide) để biết thêm chi tiết.
 
-## Should I use Options API or Composition API? {#should-i-use-options-api-or-composition-api}
+## Tôi nên sử dụng Options API hay Composition API? {#toi-nen-su-dung-options-api-hay-composition-api}
 
-If you are new to Vue, we provide a high-level comparison between the two styles [here](/guide/introduction#which-to-choose).
+Nếu như bạn mới bắt đầu sử dụng Vue, chúng tôi có một bản so sánh chi tiết giữa hai lựa chọn [tại đây](/guide/introduction#which-to-choose).
 
-If you have previously used Options API and are currently evaluating Composition API, check out [this FAQ](/guide/extras/composition-api-faq).
+Nếu như bạn đã sử dụng Options API trước đây và hiện đang đánh giá Composition API, hãy xem [FAQ](/guide/extras/composition-api-faq) này.
 
-## Should I use JavaScript or TypeScript with Vue? {#should-i-use-javascript-or-typescript-with-vue}
+## Tôi nên sử dụng JavaScript hay TypeScript với Vue? {#toi-nen-su-dung-javascript-hay-typescript-voi-vue}
 
-While Vue itself is implemented in TypeScript and provides first-class TypeScript support, it does not enforce an opinion on whether you should use TypeScript as a user.
+Mặc dù Vue được viết bằng TypeScript và có hỗ trợ TypeScript, bạn không bắt buộc phải sử dụng TypeScript với Vue.
 
-TypeScript support is an important consideration when new features are added to Vue. APIs that are designed with TypeScript in mind are typically easier for IDEs and linters to understand, even if you aren't using TypeScript yourself. Everybody wins. Vue APIs are also designed to work the same way in both JavaScript and TypeScript as much as possible.
+Việc hỗ trợ TypeScript là một yếu tố quan trọng khi các tính năng mới được thêm vào Vue. Các API được thiết kế với TypeScript trong tâm trí thường dễ hiểu hơn cho các IDE và linter, ngay cả khi bạn không sử dụng TypeScript. Mọi người đều có lợi. Các API Vue cũng được thiết kế một cách tối ưu hết mức có thể để hoạt động theo cùng một cách trong cả JavaScript và TypeScript.
 
-Adopting TypeScript involves a trade-off between onboarding complexity and long-term maintainability gains. Whether such a trade-off can be justified can vary depending on your team's background and project scale, but Vue isn't really an influencing factor in making that decision.
+Việc sử dụng TypeScript với Vue là sự trao đổi giữa độ phức tạp trong quá trình phát triển và sự dễ dàng trong quá trình bảo trì. Sự trao đổi này có thể thay đổi tùy thuộc vào kích thước của dự án và kinh nghiệm của đội ngũ phát triển. Còn Vue không hề ảnh hưởng đến quyết định này.
 
-## How does Vue compare to Web Components? {#how-does-vue-compare-to-web-components}
+## Vue như thế nào so với Web Components? {#vue-nhu-the-nao-so-voi-web-components}
 
-Vue was created before Web Components were natively available, and some aspects of Vue's design (e.g. slots) were inspired by the Web Components model.
+Vue được tạo ra trước khi Web Components được hỗ trợ built-in, và một số khía cạnh của thiết kế của Vue (ví dụ: slots) được lấy cảm hứng từ mô hình Web Components.
 
-The Web Components specs are relatively low-level, as they are centered around defining custom elements. As a framework, Vue addresses additional higher-level concerns such as efficient DOM rendering, reactive state management, tooling, client-side routing, and server-side rendering.
+Các khía cạnh của Web Components khá là low-level, vì chúng chỉ định nghĩa các custom elements. Trong khi đó, Vue, như một framework, định nghĩa các khía cạnh cao hơn như hiệu suất DOM rendering, reactive state management, tooling, client-side routing, và server-side rendering.
 
-Vue also fully supports consuming or exporting to native custom elements - check out the [Vue and Web Components Guide](/guide/extras/web-components) for more details.
+Vue cũng hỗ trợ đầy đủ việc sử dụng Web Components hoặc xuất ra các native custom elements - xem [Hướng dẫn Vue và Web Components](/guide/extras/web-components) để biết thêm chi tiết.
 
 <!-- ## TODO How does Vue compare to React? -->
 
