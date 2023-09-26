@@ -270,7 +270,7 @@ methods: {
 <div @scroll.passive="onScroll">...</div>
 ```
 
-Модифікатор `.passive` зазвичай використовується зі слухачами подій touch (дотику) для [підвищення продуктивності на мобільних пристроях](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
+Модифікатор `.passive` зазвичай використовується зі слухачами подій touch (дотику) для [підвищення продуктивності на мобільних пристроях](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scroll_performance_using_passive_listeners).
 
 ::: tip
 Не використовуйте `.passive` і `.prevent` разом, оскільки `.passive` вже вказує браузеру, що ви _не_ маєте намір запобігти поведінці події за замовчуванням, і, ймовірно, ви побачите попередження від браузера, якщо ви це зробите.
