@@ -58,6 +58,8 @@ This is only a concern for library authors, because in applications, the compile
 
 Minor releases typically go through a non-fixed number of beta releases. Major releases will go through an alpha phase and a beta phase.
 
+Additionally, we publish canary releases every week from the `main` and `minor` branches on GitHub. They are published as different packages to avoid bloating the npm metadata of the stable channel. You can install them via `npx install-vue@canary` or `npx install-vue@canary-minor`, respectively.
+
 Pre-releases are meant for integration / stability testing, and for early adopters to provide feedback for unstable features. Do not use pre-releases in production. All pre-releases are considered unstable and may ship breaking changes in between, so always pin to exact versions when using pre-releases.
 
 ## Deprecations {#deprecations}
