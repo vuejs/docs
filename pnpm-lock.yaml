@@ -34,6 +34,9 @@ devDependencies:
   '@vue/compiler-core':
     specifier: npm:@vue/compiler-core-canary@minor
     version: /@vue/compiler-core-canary@3.20230925.0-minor.0
+  '@vue/runtime-core':
+    specifier: npm:@vue/runtime-core-canary@minor
+    version: /@vue/runtime-core-canary@3.20230925.0-minor.0
   terser:
     specifier: ^5.14.2
     version: 5.14.2
@@ -563,6 +566,12 @@ packages:
     resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
     dev: false
 
+  /@vue/reactivity-canary@3.20230925.0-minor.0:
+    resolution: {integrity: sha512-fuyAKENLZIh1bW1b4/Z1uQ6QIFW6+SvkSHSAQcf+5bmj4I0qGgjzZ4IYWfioO4SX6h2JN0pNAVMNYit2jD/bLw==}
+    dependencies:
+      '@vue/shared': /@vue/shared-canary@3.20230925.0-minor.0
+    dev: true
+
   /@vue/reactivity-transform@3.3.4:
     resolution: {integrity: sha512-MXgwjako4nu5WFLAjpBnCj/ieqcjE2aJBINUNQzkZQfzIZA4xn+0fV1tIYBJvvva3N3OvKGofRLvQIwEQPpaXw==}
     dependencies:
@@ -586,6 +595,13 @@ packages:
     dependencies:
       vue: 3.3.4
     dev: false
+
+  /@vue/runtime-core-canary@3.20230925.0-minor.0:
+    resolution: {integrity: sha512-IyvHKHjkGshtDn836RT5QkAyQcnnHzLtWypF07eb4SpViwX/RDojqLcVLwQG4Exmjjzp9K5XdwCTSEoEb8bAug==}
+    dependencies:
+      '@vue/reactivity': /@vue/reactivity-canary@3.20230925.0-minor.0
+      '@vue/shared': /@vue/shared-canary@3.20230925.0-minor.0
+    dev: true
 
   /@vue/runtime-core@3.3.4:
     resolution: {integrity: sha512-R+bqxMN6pWO7zGI4OMlmvePOdP2c93GsHFM/siJI7O2nxFRzj55pLwkpCedEY+bTMgp5miZ8CxfIZo3S+gFqvA==}
