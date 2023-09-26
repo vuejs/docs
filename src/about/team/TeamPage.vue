@@ -36,46 +36,46 @@ shuffleMembers(membersPartnerData as Member[])
 <template>
   <div class="TeamPage">
     <TeamHero>
-      <template #title>Meet the Team</template>
+      <template #title>Đội ngũ thành viên</template>
       <template #lead
-        >The development of Vue and its ecosystem is guided by an international
-        team, some of whom have chosen to be
-        <span class="nowrap">featured below.</span></template
+        >Vue và hệ sinh thái của Vue được phát triển bởi một đội ngũ quốc tế, <span class="nowrap">và dưới đây là những thành viên đã đồng ý được liệt kê trong danh sách này.</span>
+        </template
       >
 
       <template #action>
         <VTLink
           href="https://github.com/vuejs/governance/blob/master/Team-Charter.md"
-          >Learn more about teams</VTLink
+          >Tìm hiểu thêm về đội ngũ phát triển Vue</VTLink
         >
       </template>
     </TeamHero>
 
     <TeamList :members="membersCoreData as Member[]">
-      <template #title>Core Team Members</template>
+      <template #title>Thành viên chủ chốt</template>
       <template #lead
-        >Core team members are those who are actively involved in the
-        maintenance of one or more core projects. They have made significant
-        contributions to the Vue ecosystem, with a long term commitment to the
-        success of the project and its users.</template
+        >Thành viên chủ chốt là những người thường xuyên hoạt động 
+        trong việc duy trì, bảo dưỡng các dự án cốt lõi. Họ đã có những 
+        cống hiến quan trọng đối với hệ sinh thái Vue, và sự cam kết dài lâu 
+        đối với sự thành công của Vue cũng như người dùng của nó.</template
       >
     </TeamList>
 
     <TeamList :members="membersEmeritiData as Member[]">
-      <template #title>Core Team Emeriti</template>
+      <template #title>Thành viên danh dự chủ chốt</template>
       <template #lead
-        >Here we honor some no-longer-active core team members who have made
-        valuable contributions in the past.</template
+        >Tôn vinh những thành viên chủ chốt đã dừng hoạt động, 
+        những người đã có những đóng góp giá trị trong quá khứ.</template
       >
     </TeamList>
 
     <TeamList :members="membersPartnerData as Member[]">
-      <template #title>Community Partners</template>
+      <template #title>Đối tác cộng đồng</template>
       <template #lead
-        >Some members of the Vue community have so enriched it, that they
-        deserve special mention. We've developed a more intimate relationship
-        with these key partners, often coordinating with them on upcoming
-        features and news.</template
+        >Một số thành viên của cộng đồng Vue đã hoạt động, 
+        phát triển cộng đồng rất tích cực. Vậy nên, họ xứng đáng 
+        được nhắc đến tại đây. Chúng tôi cũng đã xây dựng một mối quan hệ 
+        gần gũi hơn với những thành viên cộng tác này, thường xuyên 
+        hợp tác với họ về những tính năng và tin tức mới.</template
       >
     </TeamList>
   </div>
