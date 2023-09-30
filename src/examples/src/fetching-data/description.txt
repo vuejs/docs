@@ -1,2 +1,2 @@
-This example fetches latest Vue.js commits data from GitHub’s API and displays them as a list.
-You can switch between the two branches.
+Questo esempio recupera i dati degli ultimi commit di Vue.js dall'API di Github e li visualizza come elenco.
+Puoi passare da un branch all'altro.
