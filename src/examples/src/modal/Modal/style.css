@@ -34,12 +34,12 @@
 }
 
 /*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
+ * I seguenti stili vengono applicati automaticamente agli elementi con
+ * transition="modal" quando la loro visibility viene modificata
+ * da Vue.js.
  *
- * You can easily play with the modal transition by editing
- * these styles.
+ * Puoi facilmente giocare con la transizione della modale modificando
+ * questi stili.
  */
 
 .modal-enter-from {

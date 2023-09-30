@@ -1,1 +1,1 @@
-Modal component with customizable slots and CSS transitions.
+Componente modale con slot e transizioni CSS personalizzabili.
