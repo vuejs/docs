@@ -7,9 +7,9 @@ export default {
   },
   setup() {
     const groceryList = ref([
-      { id: 0, text: 'Vegetables' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Whatever else humans are supposed to eat' }
+      { id: 0, text: 'Verdure' },
+      { id: 1, text: 'Formaggio' },
+      { id: 2, text: 'Qualsiasi altra cosa che gli umani dovrebbero mangiare' }
     ])
 
     return {

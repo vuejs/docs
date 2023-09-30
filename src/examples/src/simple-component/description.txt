@@ -1,2 +1,2 @@
-Here we show the simplest possible component which accepts a prop and renders it.
-Learn more about components in the guide!
+Qui mostriamo il componente più semplice possibile, che accetta un oggetto e lo renderizza.
+Per saperne di più sui componenti, consulta la guida!
