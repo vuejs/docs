@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      message: 'Hello World!'
+      message: 'Ciao Mondo!'
     }
   },
   methods: {
@@ -9,7 +9,7 @@ export default {
       this.message = this.message.split('').reverse().join('')
     },
     notify() {
-      alert('navigation was prevented.')
+      alert('la navigazione è stata bloccata.')
     }
   }
 }
