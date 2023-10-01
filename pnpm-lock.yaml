@@ -33,10 +33,10 @@ devDependencies:
     version: 16.9.1
   '@vue/compiler-core':
     specifier: npm:@vue/compiler-core-canary@minor
-    version: /@vue/compiler-core-canary@3.20230925.0-minor.0
+    version: /@vue/compiler-core-canary@3.20231001.0-minor.0
   '@vue/runtime-core':
     specifier: npm:@vue/runtime-core-canary@minor
-    version: /@vue/runtime-core-canary@3.20230925.0-minor.0
+    version: /@vue/runtime-core-canary@3.20231001.0-minor.0
   terser:
     specifier: ^5.14.2
     version: 5.14.2
@@ -515,11 +515,11 @@ packages:
       vue: 3.3.4
     dev: false
 
-  /@vue/compiler-core-canary@3.20230925.0-minor.0:
-    resolution: {integrity: sha512-g9EhohwXeq0Hk1qCX+E824hq8y/thYbTG4+S2/RoXWh39lH4z4GCsmvC7ogfcb3E+0S+/xs98/oT9Soc9Ux1jA==}
+  /@vue/compiler-core-canary@3.20231001.0-minor.0:
+    resolution: {integrity: sha512-aZVWq/um0ZdXQeht/FLdERrQ+EaL4E0wukwzB2s5TnncMDAFHvIXJuXPUYA7RnP2NCecM2A4kmW9w8c9n26+Aw==}
     dependencies:
       '@babel/parser': 7.23.0
-      '@vue/shared': /@vue/shared-canary@3.20230925.0-minor.0
+      '@vue/shared': /@vue/shared-canary@3.20231001.0-minor.0
       estree-walker: 2.0.2
       source-map-js: 1.0.2
     dev: true
@@ -566,10 +566,10 @@ packages:
     resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
     dev: false
 
-  /@vue/reactivity-canary@3.20230925.0-minor.0:
-    resolution: {integrity: sha512-fuyAKENLZIh1bW1b4/Z1uQ6QIFW6+SvkSHSAQcf+5bmj4I0qGgjzZ4IYWfioO4SX6h2JN0pNAVMNYit2jD/bLw==}
+  /@vue/reactivity-canary@3.20231001.0-minor.0:
+    resolution: {integrity: sha512-OU2aKwn+JRt2X4dPS8YE+GgnO4bM1/3u1Qi9FNqbJhxb1h+D5kQZCjPhRbgpXnF7ubj/kZ1iPiR4174Addl7yg==}
     dependencies:
-      '@vue/shared': /@vue/shared-canary@3.20230925.0-minor.0
+      '@vue/shared': /@vue/shared-canary@3.20231001.0-minor.0
     dev: true
 
   /@vue/reactivity-transform@3.3.4:
@@ -596,11 +596,11 @@ packages:
       vue: 3.3.4
     dev: false
 
-  /@vue/runtime-core-canary@3.20230925.0-minor.0:
-    resolution: {integrity: sha512-IyvHKHjkGshtDn836RT5QkAyQcnnHzLtWypF07eb4SpViwX/RDojqLcVLwQG4Exmjjzp9K5XdwCTSEoEb8bAug==}
+  /@vue/runtime-core-canary@3.20231001.0-minor.0:
+    resolution: {integrity: sha512-blMJ/1Gwkw+4oocWOHQmtrVZ6ktcVX0jSrrj6+4DpXoH/9dlV4MqDigdeKW2pvbYmMstjpw1DSC4ygJ+0wQVgQ==}
     dependencies:
-      '@vue/reactivity': /@vue/reactivity-canary@3.20230925.0-minor.0
-      '@vue/shared': /@vue/shared-canary@3.20230925.0-minor.0
+      '@vue/reactivity': /@vue/reactivity-canary@3.20231001.0-minor.0
+      '@vue/shared': /@vue/shared-canary@3.20231001.0-minor.0
     dev: true
 
   /@vue/runtime-core@3.3.4:
@@ -628,8 +628,8 @@ packages:
       vue: 3.3.4
     dev: false
 
-  /@vue/shared-canary@3.20230925.0-minor.0:
-    resolution: {integrity: sha512-kxJwZaim+FfxqxQqbjDX/nI0vhNHcixpYC3UsxJXA4neoi+EpGgSHiZ8a8xNv4xpK7jWUN251gWsHlVizcevFA==}
+  /@vue/shared-canary@3.20231001.0-minor.0:
+    resolution: {integrity: sha512-dzYL5X5giyIeBzXP7jKyJ0DP9dxKX2qQAklT3fq6KO23V1+fFvUfV/9LZtIXD8dddHU55nWmSdgh429Pxgx1xQ==}
     dev: true
 
   /@vue/shared@3.3.4:
@@ -846,8 +846,8 @@ packages:
       tabbable: 6.2.0
     dev: false
 
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+  /fsevents@2.3.3:
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -909,7 +909,7 @@ packages:
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: false
 
   /shiki@0.14.3:
@@ -987,7 +987,7 @@ packages:
       rollup: 3.27.0
       terser: 5.14.2
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: false
 
   /vitepress@1.0.0-beta.7(@types/node@16.9.1)(terser@5.14.2):

@@ -11,6 +11,10 @@ onMounted(() => {
 
 # Error Reference {#error-reference}
 
+## Runtime Errors {#runtime-errors}
+
+<ErrorsTable kind="runtime" :errors="data.runtime" :highlight="highlight" />
+
 ## Compiler Errors {#compiler-errors}
 
 <ErrorsTable kind="compiler" :errors="data.compiler" :highlight="highlight" />
