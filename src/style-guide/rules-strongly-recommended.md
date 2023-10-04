@@ -352,7 +352,7 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 ```
 
 ```vue-html
-<!-- In DOM templates -->
+<!-- In in-DOM templates -->
 <my-component/>
 ```
 
@@ -367,7 +367,7 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 ```
 
 ```vue-html
-<!-- In DOM templates -->
+<!-- In in-DOM templates -->
 <my-component></my-component>
 ```
 
