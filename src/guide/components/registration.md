@@ -33,7 +33,7 @@ import MyComponent from './App.vue'
 app.component('MyComponent', MyComponent)
 ```
 
-The `app.component()` method can be chained:
+The `.component()` method can be chained:
 
 ```js
 app
