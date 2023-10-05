@@ -134,13 +134,13 @@ Hier haben wir eine berechnete Eigenschaft `publishedBooksMessage` deklariert. D
 
 Eine berechnete Eigenschaft verfolgt automatisch ihre reaktiven Abhängigkeiten. Vue ist sich bewusst, dass die Berechnung von `publishedBooksMessage` von `author.books` abhängt, also wird es alle Bindungen, die von `publishedBooksMessage` abhängen, aktualisieren, wenn sich `author.books` ändert.
 
-See also: [Typing Computed](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
+Siehe auch: [Typing Computed](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
 
 </div>
 
-## Computed Caching vs. Methods {#computed-caching-vs-methods}
+## Berechnetes Caching vs. Methoden {#computed-caching-vs-methods}
 
-You may have noticed we can achieve the same result by invoking a method in the expression:
+Sie haben vielleicht bemerkt, dass wir das gleiche Ergebnis durch den Aufruf einer Methode im Ausdruck erreichen können:
 
 ```vue-html
 <p>{{ calculateBooksMessage() }}</p>
@@ -170,9 +170,9 @@ function calculateBooksMessage() {
 
 </div>
 
-Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to `publishedBooksMessage` will immediately return the previously computed result without having to run the getter function again.
+Anstelle einer berechneten Eigenschaft können wir die gleiche Funktion als Methode definieren. Was das Endergebnis betrifft, sind die beiden Ansätze tatsächlich genau gleich. Der Unterschied besteht jedoch darin, dass **berechnete Eigenschaften auf der Grundlage ihrer reaktiven Abhängigkeiten zwischengespeichert werden.** Eine berechnete Eigenschaft wird nur dann neu ausgewertet, wenn sich einige ihrer reaktiven Abhängigkeiten geändert haben. Das heißt, solange sich `author.books` nicht geändert hat, wird ein mehrfacher Zugriff auf `publishedBooksMessage` sofort das zuvor berechnete Ergebnis zurückgeben, ohne dass die Getter-Funktion erneut ausgeführt werden muss.
 
-This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
+Das bedeutet auch, dass die folgende berechnete Eigenschaft nie aktualisiert wird, da "date.now()" keine reaktive Abhängigkeit ist:
 
 <div class="options-api">
 
@@ -194,13 +194,13 @@ const now = computed(() => Date.now())
 
 </div>
 
-In comparison, a method invocation will **always** run the function whenever a re-render happens.
+Im Vergleich dazu wird bei einem Methodenaufruf die Funktion **immer** ausgeführt, wenn eine Neuberechnung erfolgt.
 
-Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a method call instead.
+Warum brauchen wir eine Zwischenspeicherung? Stellen Sie sich vor, wir haben eine teure berechnete Eigenschaft `list`, die eine Schleife durch ein großes Array und viele Berechnungen erfordert. Dann haben wir vielleicht andere berechnete Eigenschaften, die wiederum von `list` abhängen. Ohne Zwischenspeicherung würden wir den Getter von `list` viel öfter als nötig ausführen! In Fällen, in denen Sie keine Zwischenspeicherung wünschen, verwenden Sie stattdessen einen Methodenaufruf.
 
-## Writable Computed {#writable-computed}
+## Beschreibbar Berechnet {#writable-computed}
 
-Computed properties are by default getter-only. If you attempt to assign a new value to a computed property, you will receive a runtime warning. In the rare cases where you need a "writable" computed property, you can create one by providing both a getter and a setter:
+Berechnete Eigenschaften sind standardmäßig nur Getter-Eigenschaften. Wenn Sie versuchen, einer berechneten Eigenschaft einen neuen Wert zuzuweisen, erhalten Sie eine Laufzeitwarnung. In den seltenen Fällen, in denen Sie eine "beschreibbare" berechnete Eigenschaft benötigen, können Sie eine erstellen, indem Sie sowohl einen Getter als auch einen Setter bereitstellen:
 
 <div class="options-api">
 
@@ -228,7 +228,7 @@ export default {
 }
 ```
 
-Now when you run `this.fullName = 'John Doe'`, the setter will be invoked and `this.firstName` and `this.lastName` will be updated accordingly.
+Wenn Sie nun `this.fullName = 'John Doe'` ausführen, wird der Setter aufgerufen und `this.firstName` und `this.lastName` werden entsprechend aktualisiert.
 
 </div>
 
@@ -255,16 +255,16 @@ const fullName = computed({
 </script>
 ```
 
-Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `firstName` and `lastName` will be updated accordingly.
+Wenn Sie nun `fullName.value = 'John Doe'` ausführen, wird der Setter aufgerufen und `firstName` und `lastName` werden entsprechend aktualisiert.
 
 </div>
 
-## Best Practices {#best-practices}
+## Beste Praktiken {#best-practices}
 
-### Getters should be side-effect free {#getters-should-be-side-effect-free}
+### Getter sollten nebenwirkungsfrei sein {#getters-should-be-side-effect-free}
 
-It is important to remember that computed getter functions should only perform pure computation and be free of side effects. For example, **don't make async requests or mutate the DOM inside a computed getter!** Think of a computed property as declaratively describing how to derive a value based on other values - its only responsibility should be computing and returning that value. Later in the guide we will discuss how we can perform side effects in reaction to state changes with [watchers](./watchers).
+Es ist wichtig, daran zu denken, dass berechnete Getter-Funktionen nur reine Berechnungen durchführen und frei von Nebeneffekten sein sollten. Stellen Sie sich eine berechnete Eigenschaft als eine deklarative Beschreibung vor, die beschreibt, wie ein Wert auf der Grundlage anderer Werte abgeleitet wird - ihre einzige Aufgabe sollte die Berechnung und Rückgabe dieses Wertes sein. Später im Handbuch werden wir besprechen, wie wir Seiteneffekte in Reaktion auf Zustandsänderungen mit [watchers](./watchers).
 
-### Avoid mutating computed value {#avoid-mutating-computed-value}
+### Mutation des berechneten Wertes vermeiden {#avoid-mutating-computed-value}
 
-The returned value from a computed property is derived state. Think of it as a temporary snapshot - every time the source state changes, a new snapshot is created. It does not make sense to mutate a snapshot, so a computed return value should be treated as read-only and never be mutated - instead, update the source state it depends on to trigger new computations.
+Der von einer berechneten Eigenschaft zurückgegebene Wert ist ein abgeleiteter Zustand. Betrachten Sie ihn als einen temporären Schnappschuss - jedes Mal, wenn sich der Quellzustand ändert, wird ein neuer Schnappschuss erstellt. Es ist nicht sinnvoll, einen Schnappschuss zu verändern, daher sollte ein berechneter Rückgabewert als schreibgeschützt behandelt und niemals verändert werden - aktualisieren Sie stattdessen den Quellzustand, von dem er abhängt, um neue Berechnungen auszulösen.
