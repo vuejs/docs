@@ -14,6 +14,7 @@ aside: false
 - [한국어 / Korean](https://ko.vuejs.org) [[source](https://github.com/vuejs-translations/docs-ko)]
 - [Português / Portuguese](https://pt.vuejs.org) [[source](https://github.com/vuejs-translations/docs-pt)]
 - [বাংলা / Bengali](https://bn.vuejs.org) [[source](https://github.com/vuejs-translations/docs-bn)]
+- [Italiano / Italian](https://it.vuejs.org) [[source](https://github.com/vuejs-translations/docs-it)]
 
 <!-- ## Work in Progress Languages {#work-in-progress-languages} -->
 

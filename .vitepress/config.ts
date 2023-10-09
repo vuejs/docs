@@ -655,6 +655,11 @@ export default defineConfigWithTheme<ThemeConfig>({
         link: '/translations/',
         text: 'Help Us Translate!',
         isTranslationsDesc: true
+      },
+      {
+        link: 'https://it.vuejs.org',
+        text: 'Italiano',
+        repo: 'https://github.com/vuejs-translations/docs-it'
       }
     ],
 
