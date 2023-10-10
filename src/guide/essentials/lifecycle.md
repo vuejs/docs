@@ -1,10 +1,10 @@
-# Lifecycle Hooks {#lifecycle-hooks}
+# Lebenszyklus-Haken {#lifecycle-hooks}
 
-Each Vue component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages.
+Jede Vue-Komponenteninstanz durchläuft eine Reihe von Initialisierungsschritten, wenn sie erstellt wird - zum Beispiel muss sie die Datenbeobachtung einrichten, das Template kompilieren, die Instanz in das DOM einbinden und das DOM aktualisieren, wenn sich Daten ändern. Auf dem Weg dorthin werden auch Funktionen ausgeführt, die als Lifecycle Hooks bezeichnet werden und den Benutzern die Möglichkeit geben, ihren eigenen Code in bestimmten Phasen hinzuzufügen.
 
-## Registering Lifecycle Hooks {#registering-lifecycle-hooks}
+## Registrierung von Lebenszyklus-Hooks {#registering-lifecycle-hooks}
 
-For example, the <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> hook can be used to run code after the component has finished the initial rendering and created the DOM nodes:
+Zum Beispiel, die <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> Hook kann verwendet werden, um Code auszuführen, nachdem die Komponente das erste Rendering abgeschlossen und die DOM-Knoten erstellt hat:
 
 <div class="composition-api">
 
@@ -24,24 +24,24 @@ onMounted(() => {
 ```js
 export default {
   mounted() {
-    console.log(`the component is now mounted.`)
+    console.log(`das Bauteil ist nun montiert.`)
   }
 }
 ```
 
 </div>
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, with the most commonly used being <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html#onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated), and [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated), and [`unmounted`](/api/options-lifecycle.html#unmounted).</span>
+Es gibt auch andere Hooks, die in verschiedenen Phasen des Lebenszyklus der Instanz aufgerufen werden, wobei die am häufigsten verwendeten sind <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html#onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated), and [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated), and [`unmounted`](/api/options-lifecycle.html#unmounted).</span>
 
 <div class="options-api">
 
-All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it. Note this means you should avoid using arrow functions when declaring lifecycle hooks, as you won't be able to access the component instance via `this` if you do so.
+Alle Lifecycle-Hooks werden mit ihrem `this`-Kontext aufgerufen, der auf die aktuell aktive Instanz zeigt, die sie aufruft. Dies bedeutet, dass Sie die Verwendung von Pfeilfunktionen bei der Deklaration von Lifecycle-Hooks vermeiden sollten, da Sie sonst nicht in der Lage sind, über "this" auf die Komponenteninstanz zuzugreifen.
 
 </div>
 
 <div class="composition-api">
 
-When calling `onMounted`, Vue automatically associates the registered callback function with the current active component instance. This requires these hooks to be registered **synchronously** during component setup. For example, do not do this:
+Beim Aufruf von `onMounted` assoziiert Vue automatisch die registrierte Callback-Funktion mit der aktuell aktiven Komponenteninstanz. Dies erfordert, dass diese Hooks **synchron** während der Einrichtung der Komponente registriert werden. Zum Beispiel, tun Sie dies nicht:
 
 ```js
 setTimeout(() => {
@@ -51,16 +51,16 @@ setTimeout(() => {
 }, 100)
 ```
 
-Do note this doesn't mean that the call must be placed lexically inside `setup()` or `<script setup>`. `onMounted()` can be called in an external function as long as the call stack is synchronous and originates from within `setup()`.
+Beachten Sie, dass dies nicht bedeutet, dass der Aufruf lexikalisch innerhalb von `setup()` oder `<script setup>` platziert werden muss. `onMounted()` kann in einer externen Funktion aufgerufen werden, solange der Aufrufstapel synchron ist und aus `setup()` stammt.
 
 </div>
 
-## Lifecycle Diagram {#lifecycle-diagram}
+## Lebenszyklus-Diagramm {#lifecycle-diagram}
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+Im Folgenden finden Sie ein Diagramm für den Lebenszyklus einer Instanz. Sie müssen im Moment nicht alles verstehen, aber wenn Sie mehr lernen und bauen, wird es eine nützliche Referenz sein.
 
-![Component lifecycle diagram](./images/lifecycle.png)
+![Diagramm des Lebenszyklus einer Komponente](./images/lifecycle.png)
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Consult the <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle.html)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle.html)</span> for details on all lifecycle hooks and their respective use cases.
+In der <span class="composition-api">[API-Referenz für Lebenszyklus-Hooks](/api/composition-api-lifecycle.html)</span> inden Sie Einzelheiten zu allen Lebenszyklus-Hooks und ihren jeweiligen Anwendungsfällen.
