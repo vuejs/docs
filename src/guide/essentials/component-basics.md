@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Du hast mich {{ Anzahl }} Mal geklickt.</button>
+  <button @click="count++">Du hast mich {{ count }} Mal geklickt.</button>
 </template>
 ```
 
@@ -41,7 +41,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">Du hast mich {{ Anzahl }} Mal geklickt.</button>
+  <button @click="count++">Du hast mich {{ count }} Mal geklickt.</button>
 </template>
 ```
 
@@ -60,7 +60,7 @@ export default {
   },
   template: `
     <button @click="count++">
-      Du hast mich {{ Anzahl }} Mal geklickt.
+      Du hast mich {{ count }} Mal geklickt.
     </button>`
 }
 ```
@@ -160,7 +160,7 @@ Die Komponenten können beliebig oft wiederverwendet werden:
 
 </div>
 
-Beachten Sie, dass beim Anklicken der Schaltflächen jede ihre eigene, separate "Anzahl" beibehält. Das liegt daran, dass jedes Mal, wenn Sie eine Komponente verwenden, eine neue **Instanz** der Komponente erstellt wird.
+Beachten Sie, dass beim Anklicken der Schaltflächen jede ihre eigene, separate `count` beibehält. Das liegt daran, dass jedes Mal, wenn Sie eine Komponente verwenden, eine neue **Instanz** der Komponente erstellt wird.
 
 In SFCs wird empfohlen, Tag-Namen für untergeordnete Komponenten in PascalCase zu verwenden, um sie von nativen HTML-Elementen zu unterscheiden. Obwohl native HTML-Tag-Namen Groß- und Kleinschreibung nicht berücksichtigen, ist Vue SFC ein kompiliertes Format, so dass wir in der Lage sind, Tag-Namen mit Groß- und Kleinschreibung zu verwenden. Wir sind auch in der Lage, `/>` zu verwenden, um ein Tag zu schließen.
 
