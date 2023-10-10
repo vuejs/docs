@@ -3,4 +3,4 @@
 
 [build]
   publish = ".vitepress/dist"
-  command = "pnpm install && pnpm run build"
+  command = "pnpm run build"
