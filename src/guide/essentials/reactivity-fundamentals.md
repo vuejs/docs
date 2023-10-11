@@ -2,10 +2,10 @@
 outline: deep
 ---
 
-# Reactivity Fundamentals {#reactivity-fundamentals}
+# Grundlagen der Reaktivität {#reactivity-fundamentals}
 
-:::tip API Preference
-This page and many other chapters later in the guide contain different content for Options API and Composition API. Your current preference is <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
+:::tip API-Präferenz
+Diese Seite und viele andere Kapitel im weiteren Verlauf des Handbuchs enthalten unterschiedliche Inhalte für die Options-API und die Composition-API. Ihre aktuelle Präferenz ist <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. Mit den Schaltern "API-Einstellungen" oben in der linken Seitenleiste können Sie zwischen den API-Stilen wechseln.
 :::
 
 ## Declaring Reactive State {#declaring-reactive-state}
