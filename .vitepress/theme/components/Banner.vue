@@ -29,9 +29,10 @@ function dismiss() {
       <a
         target="_blank"
         class="vt-primary-action"
-        href="https://vuetoronto.com?utm_source=vuejs&utm_content=top_banner"
-        >Register <span class="vt-time-now">Now</span></a
+        href="https://vuetoronto.com/schedule?utm_source=vuejs&utm_content=top_banner"
       >
+        <span class="vt-time-now">View</span> Schedule
+      </a>
     </p>
     <button @click="dismiss">
       <VTIconPlus class="close" />
