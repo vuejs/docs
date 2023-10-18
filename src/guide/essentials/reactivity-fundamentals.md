@@ -8,7 +8,7 @@ outline: deep
 Diese Seite und viele andere Kapitel im weiteren Verlauf des Handbuchs enthalten unterschiedliche Inhalte für die Options-API und die Composition-API. Ihre aktuelle Präferenz ist <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. Mit den Schaltern "API-Einstellungen" oben in der linken Seitenleiste können Sie zwischen den API-Stilen wechseln.
 :::
 
-## Declaring Reactive State {#declaring-reactive-state}
+## Reaktiven Zustand deklarieren {#declaring-reactive-state}
 
 <div class="options-api">
 
