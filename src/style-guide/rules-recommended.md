@@ -127,8 +127,8 @@ This is the default order we recommend for component options. They're split into
 
 When components begin to feel cramped or difficult to read, adding spaces between multi-line properties can make them easier to skim again. In some editors, such as Vim, formatting options like this can also make them easier to navigate with the keyboard.
 
-<div class="style-example style-example-good">
-<h3>Good</h3>
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
 
 ```js
 props: {
@@ -156,6 +156,10 @@ computed: {
   }
 }
 ```
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
 
 ```js
 // No spaces are also fine, as long as the component
