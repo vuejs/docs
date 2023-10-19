@@ -12,7 +12,7 @@ Diese Seite und viele andere Kapitel im weiteren Verlauf des Handbuchs enthalten
 
 <div class="options-api">
 
-With Options API, we use the `data` option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. Any top-level properties of this object are proxied on the component instance (`this` in methods and lifecycle hooks):
+Mit der Options-API verwenden wir die Option `data`, um den reaktiven Zustand einer Komponente zu deklarieren. Der Optionswert sollte eine Funktion sein, die ein Objekt zurückgibt. Vue wird die Funktion bei der Erstellung einer neuen Komponenteninstanz aufrufen und das zurückgegebene Objekt in sein Reaktivitätssystem verpacken. Alle Top-Level-Eigenschaften dieses Objekts werden auf die Komponenteninstanz (`this` in Methoden und Lifecycle Hooks) proxiert:
 
 ```js{2-6}
 export default {
