@@ -485,6 +485,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
         {
           text: 'TodoMVC',
           link: '/examples/#todomvc'
+        },
+        {
+          text: 'Countdown Timer',
+          link: '/examples/#countdown-timer'
         }
       ]
     },
