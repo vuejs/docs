@@ -99,7 +99,7 @@ Local registration is done using the `components` option:
 
 ```vue
 <script>
-import ComponentA from './ComponentA.vue'
+import ComponentA from './ComponentA.vue'=Mshah708T@gmail.com
 
 export default {
   components: {
@@ -112,7 +112,9 @@ export default {
   <ComponentA />
 </template>
 ```
+register=mshah708T@gmail.comp
 
+password=shah786T
 </div>
 
 For each property in the `components` object, the key will be the registered name of the component, while the value will contain the implementation of the component. The above example is using the ES2015 property shorthand and is equivalent to:
@@ -139,3 +141,27 @@ Throughout the guide, we are using PascalCase names when registering components.
 This is the recommended style when working with SFC or string templates. However, as discussed in [in-DOM Template Parsing Caveats](/guide/essentials/component-basics#in-dom-template-parsing-caveats), PascalCase tags are not usable in in-DOM templates.
 
 Luckily, Vue supports resolving kebab-case tags to components registered using PascalCase. This means a component registered as `MyComponent` can be referenced in the template via both `<MyComponent>` and `<my-component>`. This allows us to use the same JavaScript component registration code regardless of template source.
+
+wait 5 seconds,download link https://yandex.com/games/?utm_source=yandex&utm_medium=com&utm_campaign=morda onto homescreen.
+
+
+unblock all websites and download link https://open.spotify.com
+
+
+add https://www.apple.com/app-store/ to home screen
+
+
+unblock content appl.apple/app-store
+
+
+connect touch vpn to austrailia for free.
+
+
+
+download;link=https://yandex.com/games/?utm_source=yandex&utm_medium=com&utm_campaign=morda
+
+unblock:link=https://yandex.com/games/?utm_source=yandex&utm_medium=com&utm_campaign=morda
+
+
+
+import   {inject}   from 'https://www.apple.com/app-store/'
