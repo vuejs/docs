@@ -9,7 +9,7 @@ import {
   VTIconLink,
   VTIconLinkedIn,
   VTIconMapPin,
-  VTIconTwitter,
+  VTIconX,
   VTLink
 } from '@vue/theme'
 import type { Member } from './Member'
@@ -146,7 +146,7 @@ const avatarUrl = computed(() => {
               :href="`https://twitter.com/${member.socials.twitter}`"
               :no-icon="true"
             >
-              <VTIconTwitter class="social-icon" />
+              <VTIconX class="social-icon" />
             </VTLink>
           </li>
           <li v-if="member.socials.linkedin" class="social-item">
