@@ -39,7 +39,7 @@ Diese Instanzeigenschaften werden nur hinzugefügt, wenn die Instanz zum ersten 
 
 Es ist möglich, eine neue Eigenschaft direkt zu `this` hinzuzufügen, ohne sie in `data` aufzunehmen. Eigenschaften, die auf diese Weise hinzugefügt werden, können jedoch keine reaktiven Aktualisierungen auslösen.
 
-Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
+Vue verwendet ein `$` Präfix, wenn es seine eigenen eingebauten APIs über die Komponenteninstanz offenlegt. Es reserviert auch das Präfix `_` für interne Eigenschaften. Sie sollten es vermeiden, Namen für Top-Level `data` Eigenschaften zu verwenden, die mit einem dieser Zeichen beginnen.
 
 ### Reactive Proxy vs. Original \* {#reactive-proxy-vs-original}
 
