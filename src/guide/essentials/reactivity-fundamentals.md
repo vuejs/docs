@@ -37,7 +37,7 @@ export default {
 
 Diese Instanzeigenschaften werden nur hinzugefügt, wenn die Instanz zum ersten Mal erstellt wird, daher müssen Sie sicherstellen, dass sie alle in dem von der Funktion "data" zurückgegebenen Objekt vorhanden sind. Wenn nötig, verwenden Sie `null`, `undefined` oder einen anderen Platzhalterwert für Eigenschaften, für die der gewünschte Wert noch nicht verfügbar ist.
 
-It is possible to add a new property directly to `this` without including it in `data`. However, properties added this way will not be able to trigger reactive updates.
+Es ist möglich, eine neue Eigenschaft direkt zu `this` hinzuzufügen, ohne sie in `data` aufzunehmen. Eigenschaften, die auf diese Weise hinzugefügt werden, können jedoch keine reaktiven Aktualisierungen auslösen.
 
 Vue uses a `$` prefix when exposing its own built-in APIs via the component instance. It also reserves the prefix `_` for internal properties. You should avoid using names for top-level `data` properties that start with either of these characters.
 
