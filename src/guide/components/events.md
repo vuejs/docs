@@ -176,9 +176,9 @@ export default {
 
 </div>
 
-<div class="composition-api">
+The <span class="composition-api">`defineEmits()` macro</span><span class="composition-api">`emits` option</span> also supports an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
 
-The `defineEmits()` macro also supports an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
+<div class="composition-api">
 
 ```vue
 <script setup>
@@ -206,8 +206,6 @@ More details: [Typing Component Emits](/guide/typescript/composition-api#typing-
 
 </div>
 <div class="options-api">
-
-The `emits` option also supports an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
 
 ```js
 export default {
