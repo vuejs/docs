@@ -41,9 +41,9 @@ Es ist möglich, eine neue Eigenschaft direkt zu `this` hinzuzufügen, ohne sie 
 
 Vue verwendet ein `$` Präfix, wenn es seine eigenen eingebauten APIs über die Komponenteninstanz offenlegt. Es reserviert auch das Präfix `_` für interne Eigenschaften. Sie sollten es vermeiden, Namen für Top-Level `data` Eigenschaften zu verwenden, die mit einem dieser Zeichen beginnen.
 
-### Reactive Proxy vs. Original \* {#reactive-proxy-vs-original}
+### Reaktiver Proxy vs. Original \* {#reactive-proxy-vs-original}
 
-In Vue 3, data is made reactive by leveraging [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Users coming from Vue 2 should be aware of the following edge case:
+In Vue 3 werden die Daten reaktiv gemacht, indem man die [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Benutzer, die von Vue 2 kommen, sollten sich des folgenden Falles bewusst sein:
 
 ```js
 export default {
