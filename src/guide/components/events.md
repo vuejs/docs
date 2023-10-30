@@ -176,7 +176,7 @@ export default {
 
 </div>
 
-The `emits` option also supports an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
+The `emits` option and `defineEmits()` macro also support an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
 
 <div class="composition-api">
 
