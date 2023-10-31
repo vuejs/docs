@@ -61,7 +61,7 @@ export default {
 }
 ```
 
-When you access `this.someObject` after assigning it, the value is a reactive proxy of the original `newObject`. **Unlike in Vue 2, the original `newObject` is left intact and will not be made reactive: make sure to always access reactive state as a property of `this`.**
+Wenn Sie auf `this.someObject` zugreifen, nachdem Sie es zugewiesen haben, ist der Wert ein reaktiver Proxy des ursprünglichen `newObject`. **Im Gegensatz zu Vue 2 bleibt das ursprüngliche `newObject` intakt und wird nicht reaktiv gemacht: stellen Sie sicher, dass Sie immer auf den reaktiven Zustand als Eigenschaft von `this` zugreifen.**
 
 </div>
 
