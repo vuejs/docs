@@ -426,7 +426,7 @@ You can use this technique to create functional images.
 
   ```vue-html
   <form role="search">
-    <label for="search" class="hidden-visually">Search:</label>
+    <label for="search" class="hidden-visually">Search: </label>
     <input type="text" name="search" id="search" v-model="search" />
     <input
       type="image"
@@ -441,7 +441,7 @@ You can use this technique to create functional images.
 
 ```vue-html
 <form role="search">
-  <label for="searchIcon" class="hidden-visually">Search:</label>
+  <label for="searchIcon" class="hidden-visually">Search: </label>
   <input type="text" name="searchIcon" id="searchIcon" v-model="searchIcon" />
   <button type="submit">
     <i class="fas fa-search" aria-hidden="true"></i>
