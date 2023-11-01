@@ -26,12 +26,16 @@ export default {
   },
   methods: {
     async getAnswer() {
+      this.$refs.input.disabled = true
       this.answer = 'Thinking...'
       try {
         const res = await fetch('https://yesno.wtf/api')
         this.answer = (await res.json()).answer
       } catch (error) {
         this.answer = 'Error! Could not reach the API. ' + error
+      } finally {
+        this.$refs.input.disabled = false
+        this.$refs.input.focus()
       }
     }
   }
@@ -41,16 +45,12 @@ export default {
 ```vue-html
 <p>
   Ask a yes/no question:
-  <input v-model="question" />
+  <input ref="input" v-model="question" />
 </p>
 <p>{{ answer }}</p>
 ```
 
-:::info
-The above code may cause race conditions, but the cleanup process is omitted for simplicity.
-:::
-
-[Try it in the Playground](https://play.vuejs.org/#eNptUk2PmzAQ/SuvXAA1sdVrmt0qqnroqa3UIxcLhuCGjKk/wkYR/70OBJLuroRkPDPvzbznuSS7rhOnQMkm2brS6s4/F0wvnbEeFdUqtB6XgoFKeZXl0z9gyQfL8w34G8h5bXiDNF3NQcWuJxtDv25Zh+CCatszSsNeaYZakDgqexD4vM7TCT9cj2Ek65Uvm83cTUr0DTGdyN7RZaN4T24F32iHOnA5hnvdtrCBJ+RcnTH180wrmLaaL4s+QNd4LBOaK3r5UWfplzTHM9afHmoxdhV78rtRcpbPmVHEf1qO5BtTuUWNcmcu8QC9046kk4l4Qvq70XzQvBdC3CyKJfb8OEa01fn4OC7Wq15pj5qidVnaeN+5jZRncmxE72upOp0uY77ulU3gSCT+uOhXnt9yiy6U1zdBRtYa+9aK+9TfrgUf8NWEtgKbK6mKQN8Qdj+/C6T4iJHkXcsKjt9WLpsZL56OXas8xRuw7cYD2LlDXKYoT7K5b+OU22rugsdpfTQVtU9FMueLBHKikRNPpLtcbnuLYZjCW7m0TIZ/92UFiQ==)
+[Try it in the Playground](https://play.vuejs.org/#eNp9VE2Pm0AM/SvuqBJEzcJhb2m2VbrKYXtot+0euUzBhNkMM3Q+QqIo/71mCJD9lJBg7GeP37PNka2aJtl5ZAu2tLkRjfuSKdw32jgosOReOjhmCqDgjsez/hvAoPNGDSeAfx6tE1otIIrmg5Er26Ih06+z14K3nkt5gFwrx4UCPkZCzc02gc9Xs6iPP3WvU0jWcpdXi+G2NIW2QoU7NFN0XnG1QTsHVwkLpVd5MLdCSjBe9ZEDOlbYDjXNQctiOIz8AEQJl7BEqFz6Am0cfY1mFzgINyYbdKtAN54NnkDgCY8aXaULOzLh9qByuAid0oakHw2Wlm5uvEsKYflfiQXcgDMen+B6ockTPVRCbYXaJElylpEg5nBZLklvHTXQEp63XDgokeSNo8q5xi7S9IBW6aR1ZcobEY10nt8V98GUKHm0pOlsdvaN/CHv+gYxGqPNS8mmqtcd4APcai8LULpLyinQVQir+7sEIvgEIcmUuhQqDNLzpG9IVnJpR81egZY69/aN1mWKnmU6bgcdHNaN5A7pBLBswgtgZbc00CRfqvS0Eb1vGe4hYuVNxsJ3xmB3VesCJVkGNBnTPmnaZ6Xkx+N5k+B06s3LdCyAzZmz1NJSbEIbaI+DJBnLdd0IieZnE1YvY+PYZYyk0+33YOuG6byxFFNhvn3F/mj3nS1j99RuNDvM2Ohz3NAE9+71nx+4p+/RSfy8JPQ7zt9otfQ9+Q72zauCyr7AhWrv6u6fRKP9YNd7h8oOpIZt6FcsY/Qzu32H+lTudXI99Jed/gMs855C)
 
 The `watch` option also supports a dot-delimited path as the key:
 
@@ -77,16 +77,21 @@ import { ref, watch } from 'vue'
 
 const question = ref('')
 const answer = ref('Questions usually contain a question mark. ;-)')
+const inputRef = ref()
 
 // watch works directly on a ref
 watch(question, async (newQuestion, oldQuestion) => {
-  if (newQuestion.indexOf('?') > -1) {
+  if (newQuestion.includes('?')) {
+    inputRef.value.disabled = true
     answer.value = 'Thinking...'
     try {
       const res = await fetch('https://yesno.wtf/api')
       answer.value = (await res.json()).answer
     } catch (error) {
       answer.value = 'Error! Could not reach the API. ' + error
+    } finally {
+      inputRef.value.disabled = false
+      inputRef.value.focus()
     }
   }
 })
@@ -95,17 +100,13 @@ watch(question, async (newQuestion, oldQuestion) => {
 <template>
   <p>
     Ask a yes/no question:
-    <input v-model="question" />
+    <input ref="inputRef" v-model="question" />
   </p>
   <p>{{ answer }}</p>
 </template>
 ```
 
-:::info
-The above code may cause race conditions, but the cleanup process is omitted for simplicity.
-:::
-
-[Try it in the Playground](https://play.vuejs.org/#eNplkkGPmzAQhf/KKxdA3Rj1mpJUUdVDT22lHrlYxDRuYOzaJjRC/PcdxyGr3b2A7PfmmzcMc3awVlxGlW2z2rdO2wCvwmj3DenBGhcww6nuCZMM7QkLOmcG5FyRN9RQa8gH/BuVD9oQdtFb5Hm5KpL8pNx6/+vu8xj9KPv+CnYFqQnyhTFIdxb4vCkjpaFb32JVnyD9lVoUpKaVVmK3x9wQoLtXgtB0VP9/cOMveYk9Np/K5MM9l7jIflScLv990nTW9EcIwXNFR3DX1YwYk4dxyrNXTlIHdCrGyk8hWL+tqqvyZMQUukpaHYOnujdtilTLHPHXGyrKUiRH8i9obx+5UM4Z98j6Pu23qH/AVzP2R5CJRMl14aRw+PldIMdH3Bh3bnzxY+FcdZW2zPvlQ1CD7WVQfALquPToP/gzL4RHqsg89rJNWq3JjgGXzWCOqt812ao3GaqEqRKHcfO8/gDLkq7r6tEyW54Bf5TTlg==)
+[Try it in the Playground](https://play.vuejs.org/#eNp9VE1z0zAQ/SuLLraH1D70FtIypdNDOUApPeoi7HWixpGMPuJkMv7vrKzIBQq92Nbu26fdp2ed2E3fl3uPbMlWtjayd2DR+f6aK7nrtXFwAoPtAgbh6g2M0Bq9g4wqMq64qrWyDqTqvXvEFq4CNi9S/KdH66RW53iWzRmh7IAmxb+dcRa89aLrjkAoJ6QC8cKxE2ZbwoeLIrBwVVXnlgZtthYaabB2VElIEVi5mtJ5ql+AsEdVQ65wSPstQHdNWhRwdQ0nrgBk+weqlKrufIM2zz5mRRExhDoPXe5F57FspBU/OmxoJmc8RkwcMyIokT1tpNpKtS7LkuQLCGeOiRDC1KSNQUtYMQjpoMUwQ7ZxrrfLqjqiVbocXFuJXgYdYt1f2+SxlnjKZ6tVXhRlRET8CPUkXI7GaDPP87rbu5B/B7fadw0oHRgF1bkNws3DfQkZvIeJI/G2Uk2nNzP+X6NWdPYs0itYq2tvg4sm1vCix0jrVRUtSuakhcNd3wmHtAJYBccG/I3dkgFIqErp2TzLmFtNGwV3XHGWNuUM9hc73WBHwVRAwSryVpGY+E+nZNtxjOFVNffAFsxZOr9WrifR6X+aVOCs1rtedmi+9pPFOVsmfTgjtfTweYoF0yxSvN5gvf1H/NkeQoyzBzpcNHvkbM45YdboYvru+xc80PecpPl8R+g3ko9odefj8AH2yauG2v4NN3V7P90K5OEne3dwqGwaKrl+nPCc0RVx+8boL+1elpfpjNn4C24chFc=)
 
 ### Watch Source Types {#watch-source-types}
 
