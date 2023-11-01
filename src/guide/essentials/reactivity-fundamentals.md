@@ -67,7 +67,7 @@ Wenn Sie auf `this.someObject` zugreifen, nachdem Sie es zugewiesen haben, ist d
 
 <div class="composition-api">
 
-We can create a reactive object or array with the [`reactive()`](/api/reactivity-core.html#reactive) function:
+Wir können ein reaktives Objekt oder Array mit der [`reactive()`](/api/reactivity-core.html#reactive) Funktion:
 
 ```js
 import { reactive } from 'vue'
