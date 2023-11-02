@@ -13,7 +13,8 @@ export default {
   data() {
     return {
       question: '',
-      answer: 'Questions usually contain a question mark. ;-)'
+      answer: 'Questions usually contain a question mark. ;-)',
+      loading: false
     }
   },
   watch: {
@@ -26,7 +27,7 @@ export default {
   },
   methods: {
     async getAnswer() {
-      this.$refs.input.disabled = true
+      this.loading = true
       this.answer = 'Thinking...'
       try {
         const res = await fetch('https://yesno.wtf/api')
@@ -34,8 +35,7 @@ export default {
       } catch (error) {
         this.answer = 'Error! Could not reach the API. ' + error
       } finally {
-        this.$refs.input.disabled = false
-        this.$refs.input.focus()
+        this.loading = false
       }
     }
   }
@@ -45,12 +45,12 @@ export default {
 ```vue-html
 <p>
   Ask a yes/no question:
-  <input ref="input" v-model="question" />
+  <input v-model="question" :disabled="loading" />
 </p>
 <p>{{ answer }}</p>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNp9VE2Pm0AM/SvuqBJEzcJhb2m2VbrKYXtot+0euUzBhNkMM3Q+QqIo/71mCJD9lJBg7GeP37PNka2aJtl5ZAu2tLkRjfuSKdw32jgosOReOjhmCqDgjsez/hvAoPNGDSeAfx6tE1otIIrmg5Er26Ih06+z14K3nkt5gFwrx4UCPkZCzc02gc9Xs6iPP3WvU0jWcpdXi+G2NIW2QoU7NFN0XnG1QTsHVwkLpVd5MLdCSjBe9ZEDOlbYDjXNQctiOIz8AEQJl7BEqFz6Am0cfY1mFzgINyYbdKtAN54NnkDgCY8aXaULOzLh9qByuAid0oakHw2Wlm5uvEsKYflfiQXcgDMen+B6ockTPVRCbYXaJElylpEg5nBZLklvHTXQEp63XDgokeSNo8q5xi7S9IBW6aR1ZcobEY10nt8V98GUKHm0pOlsdvaN/CHv+gYxGqPNS8mmqtcd4APcai8LULpLyinQVQir+7sEIvgEIcmUuhQqDNLzpG9IVnJpR81egZY69/aN1mWKnmU6bgcdHNaN5A7pBLBswgtgZbc00CRfqvS0Eb1vGe4hYuVNxsJ3xmB3VesCJVkGNBnTPmnaZ6Xkx+N5k+B06s3LdCyAzZmz1NJSbEIbaI+DJBnLdd0IieZnE1YvY+PYZYyk0+33YOuG6byxFFNhvn3F/mj3nS1j99RuNDvM2Ohz3NAE9+71nx+4p+/RSfy8JPQ7zt9otfQ9+Q72zauCyr7AhWrv6u6fRKP9YNd7h8oOpIZt6FcsY/Qzu32H+lTudXI99Jed/gMs855C)
+[Try it in the Playground](https://play.vuejs.org/#eNp9VE1v2zAM/SucLnaw1D70lqUbsiKH7rB1W4++aDYdq5ElTx9xgiD/fbT8lXZFAQO2+Mgn8pH0mW2aJjl4ZCu2trkRjfucKTw22jgosOReOjhnCqDgjseL/hvAoPNGjSeAvx6tE1qtIIqWo5Er26Ih088BteCt51KeINfKcaGAT5FQc7NP4NPNYiaQmhdC7VZQcmlxMF+61yUcWu7yajVmkabQVqjwgGZmzSuudmiX4CphofQqD+ZWSAnGqz5y9I4VtmOuS9CyGA9T3QCihGu3RKhc+gJtHH2JFld+EG5Mdug2QYZ4MSKhgBd11OgqXdipEm5PKoer0Jk2kA66wB044/EF1GtOSPRUCbUnryRJosnFnK4zpC5YR7205M9bLhyUSIrGUeVcY1dpekKrdNK6MuWNiKYKXt8V98FElDxbknGxGLCpZMi7VkGMxmjzv0pz1tvO4QPcay8LULoj5RToKoTN40MCEXyEQDJTl0KFmXpNOqsUxudN+TNFzzqdJp8ODutGcod0Alg34QWwsXsaVtIjVXqe9h5bC9V4B4ebWhco7zI24hmDVSEs/yOxIPOQEFnTnjzt2emS83nYFrhcevM6nRJhS+Ys9aoUu6Av7WqoNWO5rhsh0fxownplbBqhjJEmuv0WbN2UDNtDMRXm+zfsz/bY2TL2SH1Ec8CMTZjjhqaxh7e/v+ORvieQqvaSvN8Bf6HV0veSdG5fvSoo7Su/kO1D3f13SKInuz06VHYsahzzfl0yRj+s+3dKn9O9TW7HPrPLP624lFU=)
 
 The `watch` option also supports a dot-delimited path as the key:
 
@@ -77,12 +77,12 @@ import { ref, watch } from 'vue'
 
 const question = ref('')
 const answer = ref('Questions usually contain a question mark. ;-)')
-const inputRef = ref()
+const loading = ref(false)
 
 // watch works directly on a ref
 watch(question, async (newQuestion, oldQuestion) => {
   if (newQuestion.includes('?')) {
-    inputRef.value.disabled = true
+    loading.value = true
     answer.value = 'Thinking...'
     try {
       const res = await fetch('https://yesno.wtf/api')
@@ -90,8 +90,7 @@ watch(question, async (newQuestion, oldQuestion) => {
     } catch (error) {
       answer.value = 'Error! Could not reach the API. ' + error
     } finally {
-      inputRef.value.disabled = false
-      inputRef.value.focus()
+      loading.value = false
     }
   }
 })
@@ -100,13 +99,13 @@ watch(question, async (newQuestion, oldQuestion) => {
 <template>
   <p>
     Ask a yes/no question:
-    <input ref="inputRef" v-model="question" />
+    <input v-model="question" :disabled="loading" />
   </p>
   <p>{{ answer }}</p>
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNp9VE1z0zAQ/SuLLraH1D70FtIypdNDOUApPeoi7HWixpGMPuJkMv7vrKzIBQq92Nbu26fdp2ed2E3fl3uPbMlWtjayd2DR+f6aK7nrtXFwAoPtAgbh6g2M0Bq9g4wqMq64qrWyDqTqvXvEFq4CNi9S/KdH66RW53iWzRmh7IAmxb+dcRa89aLrjkAoJ6QC8cKxE2ZbwoeLIrBwVVXnlgZtthYaabB2VElIEVi5mtJ5ql+AsEdVQ65wSPstQHdNWhRwdQ0nrgBk+weqlKrufIM2zz5mRRExhDoPXe5F57FspBU/OmxoJmc8RkwcMyIokT1tpNpKtS7LkuQLCGeOiRDC1KSNQUtYMQjpoMUwQ7ZxrrfLqjqiVbocXFuJXgYdYt1f2+SxlnjKZ6tVXhRlRET8CPUkXI7GaDPP87rbu5B/B7fadw0oHRgF1bkNws3DfQkZvIeJI/G2Uk2nNzP+X6NWdPYs0itYq2tvg4sm1vCix0jrVRUtSuakhcNd3wmHtAJYBccG/I3dkgFIqErp2TzLmFtNGwV3XHGWNuUM9hc73WBHwVRAwSryVpGY+E+nZNtxjOFVNffAFsxZOr9WrifR6X+aVOCs1rtedmi+9pPFOVsmfTgjtfTweYoF0yxSvN5gvf1H/NkeQoyzBzpcNHvkbM45YdboYvru+xc80PecpPl8R+g3ko9odefj8AH2yauG2v4NN3V7P90K5OEne3dwqGwaKrl+nPCc0RVx+8boL+1elpfpjNn4C24chFc=)
+[Try it in the Playground](https://play.vuejs.org/#eNp9U8Fy0zAQ/ZVFF9tDah96C2mZ0umhHKBAj7oIe52oUSQjyXEyGf87KytyoDC9JPa+p+e3b1cndtd15b5HtmQrV1vZeXDo++6Wa7nrjPVwAovtAgbh6w2M0Fqzg4xOZFxzXRvtPPzq0XlpNNwEbp5lRUKEdgPaVP925jnoXS+UOgKxvJAaxEVjJ+y2hA9XxUVFGdFIvT7LtEI5JIzrqjrbGozdOmikxdqTKqmIQOV6gvOkvQDhjrqGXOOQvCzAqCa9FHBzCyeuAWT7F6uUulZ9gy7PPmZFETmQjJV7oXoke972GJHY+Axkzxupt4FalhRcYHh7TDIQcqA+LTriikFIDy0G59nG+84tq+qITpty8G0lOhmSiedefSaPZ0mnfHFG50VRRkbkj1BPceVorbFzF/+6fQj4O7g3vWpAm6Ao6JzfINw9PZaQwXuYNJJuK/U0z1nxdTLT0M7s8Ec/I3WxquLS0brRi8ddp4RHegNYhR0M/Du3pXFSAJU285osI7aSuus97K92pkF1w1nCOYNlI534qbCh8tkOVasoXkV1+sjplLZ0HGN5Vc1G2IJ5R8Np5XpKlK7J1CJntdl1UqH92k0bzdkyNc8ZRWGGz1MtbMQi1esN1tv/1F/cIdQ4e6LJod0jZzPmhV2jj/DDjy94oOcZpK57Rew3wO/ojOpjJIH2qdcN2f6DN7l9nC47RfTsHg4etUtNpZUeJz5ndPPv32j9Yve6vE6DZuNvu1R2Tg==)
 
 ### Watch Source Types {#watch-source-types}
 
@@ -262,9 +261,13 @@ The initial execution of the handler function will happen just before the `creat
 We can force a watcher's callback to be executed immediately by passing the `immediate: true` option:
 
 ```js
-watch(source, (newValue, oldValue) => {
-  // executed immediately, then again when `source` changes
-}, { immediate: true })
+watch(
+  source,
+  (newValue, oldValue) => {
+    // executed immediately, then again when `source` changes
+  },
+  { immediate: true }
+)
 ```
 
 </div>
@@ -279,12 +282,16 @@ It is common for the watcher callback to use exactly the same reactive state as 
 const todoId = ref(1)
 const data = ref(null)
 
-watch(todoId, async () => {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
-  )
-  data.value = await response.json()
-}, { immediate: true })
+watch(
+  todoId,
+  async () => {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+    )
+    data.value = await response.json()
+  },
+  { immediate: true }
+)
 ```
 
 In particular, notice how the watcher uses `todoId` twice, once as the source and then again inside the callback.
