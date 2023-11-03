@@ -60,7 +60,7 @@ onMounted(() => {
     document.documentElement.classList.add('vuemastery-menu-fixed')
     setTimeout(() => {
       showFlash.value = true
-    }, 1000)
+    }, 2000)
   }
 })
 </script>
@@ -75,15 +75,12 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   max-height: 70px;
-  /* background: url(/vuemastery/banner-bg.svg) left center no-repeat; */
   background: linear-gradient(45deg, #0a2b4e, #835ec2);
+  background-size: 110%;
+  background-position: 50% 50%;
   overflow: hidden;
   padding: 12px;
   margin: 0;
-  background-size: cover;
-  /*  */
-  background-size: 110%;
-  background-position: 50% 50%;
   transition: background-size 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
@@ -116,14 +113,6 @@ onMounted(() => {
   top: 0;
   left: 0;
   pointer-events: none;
-}
-
-.vuemastery-banner-wrapper:hover {
-  /* background-size: 150% auto; */
-}
-
-.vuemastery-banner-wrapper:hover:before {
-  /* transform: scale(1); */
 }
 
 .vuemastery-banner-wrapper:hover:after {
@@ -233,7 +222,7 @@ onMounted(() => {
 
 @media (max-width: 850px) {
   .vuemastery-banner-wrapper:after {
-    /* background: none; */
+    background: none;
   }
 }
 @media (max-width: 767px) {
@@ -265,7 +254,6 @@ onMounted(() => {
   position: absolute;
   width: 100%;
   height: 100%;
-  /* background: rgba(50, 49, 49, 0.329); */
   top: 0;
   left: 0;
 }
@@ -302,5 +290,11 @@ html.vuemastery-menu-fixed {
 
 html.vuemastery-menu-fixed {
   margin-top: 72px;
+}
+
+@media (max-width: 960px) {
+  html.vuemastery-menu-fixed .VPNav {
+    top: 0;
+  }
 }
 </style>
