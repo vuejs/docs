@@ -1,5 +1,10 @@
 <template>
   <div class="vuemastery-banner-wrapper" role="banner" v-if="isVisible">
+    <div
+      :class="{ 'show-flash': showFlash }"
+      class="vuemastery-background-dim"
+      ref="vuemastery-banner-flash"
+    ></div>
     <a
       id="vm-free-weekend"
       href="https://www.vuemastery.com/free-weekend"
@@ -38,6 +43,7 @@ import { ref, onMounted } from 'vue'
 import { VTIconPlus } from '@vue/theme'
 
 const isVisible = ref<Boolean>(true)
+const showFlash = ref<Boolean>(false)
 const nameStorage = 'VUEMASTERY-BANNER--FREE-WEEKEND-MARCH-2023'
 
 const closeBanner = () => {
@@ -52,6 +58,9 @@ onMounted(() => {
   isVisible.value = !localStorage.getItem(nameStorage)
   if (isVisible.value) {
     document.documentElement.classList.add('vuemastery-menu-fixed')
+    setTimeout(() => {
+      showFlash.value = true
+    }, 1000)
   }
 })
 </script>
@@ -66,12 +75,20 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   max-height: 70px;
-  background: url(/vuemastery/background-vuemastery.svg) left center
-    no-repeat;
+  /* background: url(/vuemastery/banner-bg.svg) left center no-repeat; */
+  background: linear-gradient(45deg, #0a2b4e, #835ec2);
   overflow: hidden;
   padding: 12px;
   margin: 0;
   background-size: cover;
+  /*  */
+  background-size: 110%;
+  background-position: 50% 50%;
+  transition: background-size 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.vuemastery-banner-wrapper:hover {
+  background-size: 100%;
 }
 
 .vuemastery-banner-wrapper:before {
@@ -102,11 +119,11 @@ onMounted(() => {
 }
 
 .vuemastery-banner-wrapper:hover {
-  background-size: 150% auto;
+  /* background-size: 150% auto; */
 }
 
 .vuemastery-banner-wrapper:hover:before {
-  transform: scale(1);
+  /* transform: scale(1); */
 }
 
 .vuemastery-banner-wrapper:hover:after {
@@ -216,7 +233,7 @@ onMounted(() => {
 
 @media (max-width: 850px) {
   .vuemastery-banner-wrapper:after {
-    background: none;
+    /* background: none; */
   }
 }
 @media (max-width: 767px) {
@@ -242,6 +259,34 @@ onMounted(() => {
     font-size: 12px;
     margin: 0;
   }
+}
+
+.vuemastery-background-dim {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(50, 49, 49, 0.329); */
+  top: 0;
+  left: 0;
+}
+.vuemastery-background-dim:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.vuemastery-background-dim.show-flash:after {
+  left: 100%;
 }
 </style>
 
