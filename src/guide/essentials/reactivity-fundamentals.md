@@ -77,7 +77,7 @@ const state = reactive({ count: 0 })
 
 Reaktive Objekte sind [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) und verhalten sich genau wie normale Objekte. Der Unterschied ist, dass Vue in der Lage ist, den Eigenschaftszugriff und die Mutationen eines reaktiven Objekts zu verfolgen. Wenn Sie neugierig auf die Details sind, erklären wir, wie Vue's Reaktivitätssystem funktioniert in [Reaktivität in der Tiefe](/guide/extras/reactivity-in-depth.html) - aber wir empfehlen, ihn zu lesen, nachdem Sie den Hauptleitfaden gelesen haben.
 
-See also: [Typing Reactive](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
+Siehe auch: [Typisierung Reaktiv](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
 
 To use reactive state in a component's template, declare and return them from a component's `setup()` function:
 
