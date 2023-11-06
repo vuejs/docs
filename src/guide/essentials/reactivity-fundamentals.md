@@ -79,7 +79,7 @@ Reaktive Objekte sind [JavaScript Proxies](https://developer.mozilla.org/en-US/d
 
 Siehe auch: [Typisierung Reaktiv](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
 
-To use reactive state in a component's template, declare and return them from a component's `setup()` function:
+Um reaktive Zustände in einer Komponentenvorlage zu verwenden, deklarieren Sie sie und geben sie von der Funktion `setup()` der Komponente zurück:
 
 ```js{5,9-11}
 import { reactive } from 'vue'
