@@ -1,5 +1,5 @@
 ---
-footer: false
+footer: true
 ---
 
 # Introduction {#introduction}
