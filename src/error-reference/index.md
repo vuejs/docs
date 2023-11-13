@@ -15,9 +15,9 @@ onMounted(() => {
 
 In production builds, the 3rd argument passed to the following error handler APIs will be a short code instead of the full information string:
 
-- [`app.config.errorHandler`](/api/application.html#app-config-errorhandler)
-- [`onErrorCaptured`](/api/composition-api-lifecycle.html#onerrorcaptured) (Composition API)
-- [`errorCaptured`](/api/options-lifecycle.html#errorcaptured) (Options API)
+- [`app.config.errorHandler`](/api/application#app-config-errorhandler)
+- [`onErrorCaptured`](/api/composition-api-lifecycle#onerrorcaptured) (Composition API)
+- [`errorCaptured`](/api/options-lifecycle#errorcaptured) (Options API)
 
 The following table maps the codes to their original full information strings.
 

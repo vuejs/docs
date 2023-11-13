@@ -227,6 +227,52 @@ const props = withDefaults(defineProps<Props>(), {
 
 This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
 
+## defineModel() <sup class="vt-badge" data-text="3.4+" /> {#definemodel}
+
+This macro can be used to declare a two-way binding prop that can be consumed via `v-model` from the parent component, and it can be declared and mutated like a ref. This will declare a prop with the same name and a corresponding `update:propName` event.
+
+If the first argument is a literial string, it will be used as the prop name; Otherwise the prop name will default to `"modelValue"`. In both cases, you can also pass an additional object which will be used as the prop's options.
+
+```vue
+<script setup>
+const modelValue = defineModel({ type: String })
+modelValue.value = 'hello'
+
+const count = defineModel('count', { default: 0 })
+function inc() {
+  count.value++
+}
+</script>
+
+<template>
+  <input v-model="modelValue" />
+  <button @click="inc">increment</button>
+</template>
+```
+
+### Local mode
+
+The options object can also specify an additional option, `local`. When set to `true`, the ref can be locally mutated even if the parent did not pass the matching `v-model`, essentially making the model optional.
+
+```ts
+// local mutable model, can be mutated locally
+// even if the parent did not pass the matching `v-model`.
+const count = defineModel('count', { local: true, default: 0 })
+```
+
+### Provide value type <sup class="vt-badge ts" /> {#provide-value-type}
+
+Like `defineProps` and `defineEmits`, `defineModel` can also receive a type argument to specify the type of the model value:
+
+```ts
+const modelValue = defineModel<string>()
+//    ^? Ref<string | undefined>
+
+// default model with options, required removes possible undefined values
+const modelValue = defineModel<string>({ required: true })
+//    ^? Ref<string>
+```
+
 ## defineExpose() {#defineexpose}
 
 Components using `<script setup>` are **closed by default** - i.e. the public instance of the component, which is retrieved via template refs or `$parent` chains, will **not** expose any of the bindings declared inside `<script setup>`.
@@ -249,7 +295,7 @@ defineExpose({
 
 When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
 
-## defineOptions() {#defineoptions}
+## defineOptions() <sup class="vt-badge" data-text="3.3+" /> {#defineoptions}
 
 This macro can be used to declare component options directly inside `<script setup>` without having to use a separate `<script>` block:
 
@@ -379,5 +425,5 @@ defineProps<{
 
 ## Restrictions {#restrictions}
 
-* Due to the difference in module execution semantics, code inside `<script setup>` relies on the context of an SFC. When moved into external `.js` or `.ts` files, it may lead to confusion for both developers and tools. Therefore, **`<script setup>`** cannot be used with the `src` attribute.
-* `<script setup>` does not support In-DOM Root Component Template.([Related Discussion](https://github.com/vuejs/core/issues/8391))
+- Due to the difference in module execution semantics, code inside `<script setup>` relies on the context of an SFC. When moved into external `.js` or `.ts` files, it may lead to confusion for both developers and tools. Therefore, **`<script setup>`** cannot be used with the `src` attribute.
+- `<script setup>` does not support In-DOM Root Component Template.([Related Discussion](https://github.com/vuejs/core/issues/8391))
