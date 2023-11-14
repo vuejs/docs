@@ -124,7 +124,7 @@ Can also be used to create a ref for a property on a source reactive object. The
   useSomeFeature(toRef(props, 'foo'))
 
   // getter syntax - recommended in 3.3+
-  useSomeFeature(toRef(() => props.foo))
+  useSomeFeature(() => props.foo)
   </script>
   ```
 
