@@ -35,7 +35,7 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
   const count = ref(0)
   console.log(count.value) // 0
 
-  count.value++
+  count.value = 1
   console.log(count.value) // 1
   ```
 
