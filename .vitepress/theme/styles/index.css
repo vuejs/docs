@@ -12,5 +12,5 @@
 }
 
 .aside-container{
-  top: calc(var(--vt-nav-height) + var(--vt-banner-height, 70px) + 24px) !important
+  top: calc(var(--vt-nav-height) + var(--vt-banner-height, 70px) + 24px) !important;
 }
