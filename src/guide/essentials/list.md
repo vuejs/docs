@@ -431,4 +431,8 @@ Be careful with `reverse()` and `sort()` in a computed property! These two metho
 ```diff
 - return numbers.reverse()
 + return [...numbers].reverse()
+
+// Or you can use toReversed() method which returns 
+// a reversed copy of the original array
++ return numbers.toReversed()
 ```
