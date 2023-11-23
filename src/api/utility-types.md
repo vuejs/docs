@@ -380,15 +380,3 @@ Returns the component bindings from `data` and `setup`.
 ```ts
 
 ```
-
-## DeclareComponent {#declarecomponent}
-
-More user friendly way to generate or extend `DefineComponent` type.
-
-:::warning
-This is only typescript, might fail at runtime, if you don't define the properties.
-:::
-
-```ts
-
-```
