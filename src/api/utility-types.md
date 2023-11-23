@@ -268,6 +268,41 @@ extendAsHTMLElement(
 ).props.about // { type: String, required: false}
 ```
 
+- **Generic Example**
+
+You don't necessarily need to you `DeclareComponent`, but you can.
+
+> Is necessary to use `new<...>{ $props: { ... } }` for Generic components.
+
+```ts
+type ErrorLevel = 'debug' | 'warning' | 'error'
+
+declare function ErrorComponent<T>(options: T): T &
+  DeclareComponent<{
+    new <T extends ErrorLevel = 'debug'>(): {
+      $props: { type: T } & {
+        [K in `on${Capitalize<T>}`]: (msg: string) => void
+      }
+      $slots: SlotsType<Record<T, (msg: string) => any[]>>
+    }
+  }>
+
+const Comp = ErrorComponent(
+  defineComponent({
+    props: {
+      type: {
+        type: String as () => ErrorLevel,
+        default: 'debug'
+      }
+    },
+    emits: ['debug', 'warning', 'error']
+  })
+)
+;<Comp type="debug" onDebug={() => {}} />
+// @ts-expect-error onError is not there
+;<Comp type="debug" onError={(v) => {}} />
+```
+
 ## ExtractComponentOptions\<T> {#extractcomponentoptions}
 
 Extracts component declared options.
