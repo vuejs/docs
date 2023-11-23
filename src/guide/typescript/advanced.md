@@ -1,7 +1,6 @@
 # Typescript: advanced
 
 > This page assumes you've already read the overview on [Using Vue with TypeScript](./overview), Essentials and Components in-Depth.
->
 
 ## Components
 
@@ -23,7 +22,7 @@ In terms of typing Vue components are mainly composed by 3 parts:
 
 #### Options
 
-Used to declare the component's `props`, `emits`, `slots`, etc.
+Used to declare the component's `props`, `emits`, `slots`, etc. It can also be a `function`.
 
 ```ts
 defineComponent({
@@ -43,7 +42,7 @@ defineComponent({
 
 #### Instance
 
-Component's context (`this`) and retuned by [ComponentInstance](./../../api/utility-types#componentinstance)
+[ComponentPublicInstance](../../api/component-instance.md), retuned by [ComponentInstance](./../../api/utility-types#componentinstance),
 
 ```ts
 const Comp = defineComponent({
@@ -67,7 +66,7 @@ compEl.value.msg //string
 compEl.value.onClick // function
 ```
 
-### Render
+#### Render
 
 Contract to render the component, eg: `props` and `slots`.
 
@@ -96,4 +95,45 @@ h(Comp, {
     // button clicked
   }
 })
+```
+
+#### Differences
+
+`Instance` and `Render` are pretty much the same, the main difference being `Instance` will set
+`$props` with `default` properties as **not** `optional`, while `Render` will set `default` `$props` as optional.
+
+```ts
+const Comp = defineComponent({
+  props: {
+    foo: {
+      type: String,
+      default: 'foo'
+    }
+  },
+  render() {
+    this.$props.foo
+  }
+})
+
+// valid because foo=string | undefined
+;<Comp foo={undefined}></Comp>
+```
+
+### defineComponent Advanced
+
+[defineComponent](./../../api/general.html#definecomponent), will accept component `Options` + `Instance` and return `Render` + `Options`.
+
+If you check the [defineComponent source-code](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/apiDefineComponent.ts), you'll find there's a lot of generics and overloads, the reason for this is to make the API as flexible as possible, since Vue is very flexible in terms of declarations.
+
+#### Generics parameters
+
+`DefineComponent` generic order is pretty stable, but it's not guaranteed to be the same in future versions, so it's recommended to use [DeclareComponent](./../../api/utility-types.html#declarecomponent) instead.
+
+```ts
+
+
+
+### DefineComponent
+
+Returned from [defineComponent](./../../api/general.html#definecomponent),
 ```
