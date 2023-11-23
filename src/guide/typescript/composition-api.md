@@ -374,14 +374,15 @@ defineExpose({
 </script>
 ```
 
-In order to get the instance type of `MyModal`, we need to first get its type via `typeof`, then use TypeScript's built-in `InstanceType` utility to extract its instance type:
+In order to get the instance type of `MyModal`, we need to first get its type via `typeof`, then use Vue provided `ComponentInstance` utility to extract its instance type:
 
 ```vue{5}
 <!-- App.vue -->
 <script setup lang="ts">
+import { ComponentInstance } from 'vue'
 import MyModal from './MyModal.vue'
 
-const modal = ref<InstanceType<typeof MyModal> | null>(null)
+const modal = ref<ComponentInstance<typeof MyModal> | null>(null)
 
 const openModal = () => {
   modal.value?.open()

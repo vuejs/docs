@@ -104,6 +104,24 @@ Extract prop types from a runtime props options object. The extracted types are 
   // }
   ```
 
+## ComponentInstance {#componentinstance}
+
+Used to extract the instance type of a component (equivalent to the type of `this` in its options).
+
+- **Example**
+
+```vue
+<script setup lang="ts">
+import { ComponentInstance } from 'vue'
+import Foo from './Foo.vue'
+
+const fooEl = ref<null | ComponentInstance<typeof Foo>>(null)
+</script>
+<template>
+  <Foo ref="fooEl" />
+</template>
+```
+
 ## ComponentCustomProperties {#componentcustomproperties}
 
 Used to augment the component instance type to support custom global properties.
