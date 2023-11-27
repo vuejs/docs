@@ -114,7 +114,7 @@ export default {
       state.count++
     }
 
-    // don't forget to expose the function as well.
+    // Vergessen Sie nicht, auch die Funktion freizulegen.
     return {
       state,
       increment
