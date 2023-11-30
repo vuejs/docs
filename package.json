@@ -2,6 +2,7 @@
   "engines": {
     "node": ">=14.0.0"
   },
+  "type": "module",
   "scripts": {
     "dev": "vitepress",
     "build": "vitepress build",
@@ -9,16 +10,16 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@vue/repl": "^1.5.0",
-    "@vue/theme": "^2.2.4",
+    "@vue/repl": "^3.0.0",
+    "@vue/theme": "^2.2.5",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
-    "vitepress": "1.0.0-beta.7",
-    "vue": "^3.3.4"
+    "vitepress": "1.0.0-rc.31",
+    "vue": "^3.4.0-alpha.3"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^16.9.1",
+    "@types/node": "^20.10.1",
     "terser": "^5.14.2"
   },
   "pnpm": {
