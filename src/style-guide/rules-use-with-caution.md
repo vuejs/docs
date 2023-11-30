@@ -56,6 +56,8 @@ An ideal Vue application is props down, events up. Sticking to this convention m
 
 The problem is, there are also many _simple_ cases where these patterns may offer convenience. Beware: do not be seduced into trading simplicity (being able to understand the flow of your state) for short-term convenience (writing less code).
 
+<div class="options-api">
+
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -146,5 +148,104 @@ app.component('TodoItem', {
   `
 })
 ```
+
+</div>
+
+</div>
+
+<div class="composition-api">
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```vue
+<script setup>
+defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+})
+</script>
+
+<template>
+  <input v-model="todo.text" />
+</template>
+```
+
+```vue
+<script setup>
+import { getCurrentInstance } from 'vue'
+
+const props = defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+})
+
+const instance = getCurrentInstance()
+
+function removeTodo() {
+  const parent = instance.parent
+  if (!parent) return
+
+  parent.props.todos = parent.props.todos.filter((todo) => {
+    return todo.id !== props.todo.id
+  })
+}
+</script>
+
+<template>
+  <span>
+    {{ todo.text }}
+    <button @click="removeTodo">×</button>
+  </span>
+</template>
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```vue
+<script setup>
+defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+})
+
+const emit = defineEmits(['input'])
+</script>
+
+<template>
+  <input :value="todo.text" @input="emit('input', $event.target.value)" />
+</template>
+```
+
+```vue
+<script setup>
+defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+})
+
+const emit = defineEmits(['delete'])
+</script>
+
+<template>
+  <span>
+    {{ todo.text }}
+    <button @click="emit('delete')">×</button>
+  </span>
+</template>
+```
+
+</div>
 
 </div>
