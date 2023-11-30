@@ -17,6 +17,7 @@ if (typeof window !== 'undefined') {
   }
 }
 </script>
+
 # Component Events {#component-events}
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
@@ -176,14 +177,14 @@ export default {
 
 </div>
 
-The `emits` option and `defineEmits()` macro also support an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
+The `emits` option and `defineEmits()` macro also support an object syntax, if using typescript you can type arguments, which allows us to perform runtime validation of the payload of the emitted events:
 
 <div class="composition-api">
 
 ```vue
 <script setup>
 const emit = defineEmits({
-  submit(payload) {
+  submit(payload: { email: string, password: string }) {
     // return `true` or `false` to indicate
     // validation pass / fail
   }
@@ -210,7 +211,7 @@ More details: [Typing Component Emits](/guide/typescript/composition-api#typing-
 ```js
 export default {
   emits: {
-    submit(payload) {
+    submit(payload: { email: string, password: string }) {
       // return `true` or `false` to indicate
       // validation pass / fail
     }
@@ -287,3 +288,17 @@ export default {
 ```
 
 </div>
+
+## Events as Props {#events-props}
+
+You may also declare and pass `events` as `props`, by prefixing the event name with `on` + Capitalized name.
+
+:::info
+Using `props.onEvent` has a different behaviour than using `emit('event')`, as the former will pass only handle the property based listener (either `@event` or `:on-event`)
+:::
+
+:::warning
+If both `:onEvent` and `@event` are passed `props.onEvent` might be an array of `functions` instead of `function`.
+:::
+
+Because of this, it is recommended to use `emit('event')` instead of `props.onEvent` when emitting events.
