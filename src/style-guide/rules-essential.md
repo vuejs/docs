@@ -44,6 +44,7 @@ Detailed [prop definitions](/guide/components/props#prop-validation) have two ad
   :::
 
 <div class="options-api">
+
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -83,9 +84,11 @@ props: {
 ```
 
 </div>
+
 </div>
 
 <div class="composition-api">
+
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -123,6 +126,7 @@ const props = defineProps({
 ```
 
 </div>
+
 </div>
 
 ## Use keyed `v-for` {#use-keyed-v-for}
@@ -131,6 +135,8 @@ const props = defineProps({
 
 ::: details Detailed Explanation
 Let's say you have a list of todos:
+
+<div class="options-api">
 
 ```js
 data() {
@@ -148,6 +154,25 @@ data() {
   }
 }
 ```
+
+</div>
+
+<div class="composition-api">
+
+```js
+const todos = ref([
+  {
+    id: 1,
+    text: 'Learn to use v-for'
+  },
+  {
+    id: 2,
+    text: 'Learn to use key'
+  }
+])
+```
+
+</div>
 
 Then you sort them alphabetically. When updating the DOM, Vue will optimize rendering to perform the cheapest DOM mutations possible. That might mean deleting the first todo element, then adding it again at the end of the list.
 
@@ -214,6 +239,8 @@ Will throw an error, because the `v-if` directive will be evaluated first and th
 
 This could be fixed by iterating over a computed property instead, like this:
 
+<div class="options-api">
+
 ```js
 computed: {
   activeUsers() {
@@ -221,6 +248,18 @@ computed: {
   }
 }
 ```
+
+</div>
+
+<div class="composition-api">
+
+```js
+const activeUsers = computed(() => {
+  return users.filter((user) => user.isActive)
+})
+```
+
+</div>
 
 ```vue-html
 <ul>
