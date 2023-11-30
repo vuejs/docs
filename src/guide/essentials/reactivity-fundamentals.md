@@ -133,7 +133,7 @@ Ausgesetzte Methoden werden in der Regel als Ereignis-Listener verwendet:
 
 ### `<script setup>` \*\* {#script-setup}
 
-Manually exposing state and methods via `setup()` can be verbose. Luckily, it is only necessary when not using a build step. When using Single-File Components (SFCs), we can greatly simplify the usage with `<script setup>`:
+Die manuelle Freigabe von Zuständen und Methoden über `setup()` kann sehr aufwendig sein. Glücklicherweise ist es nur notwendig, wenn kein Build-Schritt verwendet wird. Bei der Verwendung von Single-File Components (SFCs) können wir die Verwendung mit `<script setup>` stark vereinfachen:
 
 ```vue
 <script setup>
