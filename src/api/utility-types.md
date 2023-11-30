@@ -272,20 +272,18 @@ extendAsHTMLElement(
 
 You don't necessarily need to you `DeclareComponent`, but you can.
 
-> Is necessary to use `new<...>{ $props: { ... } }` for Generic components.
+> Is necessary to use `new<...>{ $props: { ... } }` for Generic components, using type helpers with Generic params might break generic types.
 
 ```ts
 type ErrorLevel = 'debug' | 'warning' | 'error'
 
 declare function ErrorComponent<T>(options: T): T &
-  DeclareComponent<{
     new <T extends ErrorLevel = 'debug'>(): {
       $props: { type: T } & {
         [K in `on${Capitalize<T>}`]: (msg: string) => void
       }
       $slots: SlotsType<Record<T, (msg: string) => any[]>>
     }
-  }>
 
 const Comp = ErrorComponent(
   defineComponent({
@@ -415,3 +413,70 @@ Returns the component bindings from `data` and `setup`.
 ```ts
 
 ```
+
+## DefineComponentOptions & DefineComponentFromOptions {#definecomponentoptions}
+
+Allows to get vue component options and generate `DefineComponent` type.
+
+:::warning
+The generic order is not prone to change, but it might, `Options` should be the last generic used, new generics will be added before `Options`.
+:::
+
+:::info
+Note that you if you need to handle generics, it should be it's own overload, since
+any change to the Generic definition might break the Generic type.
+:::
+
+```ts
+declare function defineComponentWithDefaults<
+  Props = never,
+  RawBindings = {},
+  D = {},
+  C extends ComputedOptions = {},
+  M extends MethodOptions = {},
+  Mixin extends ComponentOptionsMixin = ComponentOptionsMixin,
+  Extends extends ComponentOptionsMixin = ComponentOptionsMixin,
+  E extends EmitsOptions = {},
+  EE extends string = string,
+  I extends ComponentInjectOptions = {},
+  II extends string = string,
+  S extends SlotsType = {},
+  Options extends {} = {}
+>(
+  options: DefineComponentOptions<
+    Props,
+    RawBindings,
+    D,
+    C,
+    M,
+    Mixin,
+    Extends,
+    E,
+    EE,
+    I,
+    II,
+    S,
+    Options
+  >,
+  defaults: Partial<
+    [Props] extends [string]
+      ? { [K in Props]?: any }
+      : ExtractPropTypes<Props>
+  >
+): DefineComponentFromOptions<
+  undefined extends Props ? {} : Props,
+  RawBindings,
+  D,
+  C,
+  M,
+  Mixin,
+  Extends,
+  E,
+  EE,
+  I,
+  II,
+  S,
+  Options
+>
+```
+

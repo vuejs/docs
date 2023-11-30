@@ -137,3 +137,11 @@ If you check the [defineComponent source-code](https://github.com/vuejs/core/blo
 
 Returned from [defineComponent](./../../api/general.html#definecomponent),
 ```
+
+
+### Bespoke `defineComponent`
+
+Vue options are very hard to get the type hard, sometimes `defineComponent` is not enough and creating a bespoke `defineComponent` can be useful for some more advance cases, such as [@vue/test-utils](https://test-utils.vuejs.org/) [mount](https://test-utils.vuejs.org/api/#mount) method.
+
+
+http://localhost:5173/api/utility-types.html#definecomponentoptions
