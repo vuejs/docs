@@ -599,6 +599,13 @@ export default defineConfigWithTheme<ThemeConfig>({
         'data-spa': 'auto',
         defer: ''
       }
+    ],
+    [
+      'script',
+      {
+        src: 'https://vueschool.io/banner.js?affiliate=vuejs&type=top',
+        async: 'true'
+      }
     ]
   ],
 
@@ -693,7 +700,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   markdown: {
     config(md) {
       md.use(headerPlugin)
-      // .use(textAdPlugin)
+        // .use(textAdPlugin)
     }
   },
 
