@@ -143,6 +143,18 @@ In `<script setup>`, the `emit` function can also be typed using either runtime 
 // runtime
 const emit = defineEmits(['change', 'update'])
 
+// options based
+const emit = defineEmits({
+  change: (id: number) => {
+    // return `true` or `false` to indicate
+    // validation pass / fail
+  },
+  update: (value: string) => {
+    // return `true` or `false` to indicate
+    // validation pass / fail
+  }
+})
+
 // type-based
 const emit = defineEmits<{
   (e: 'change', id: number): void
