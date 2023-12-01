@@ -23,17 +23,17 @@ Provides a value that can be injected by descendant components.
   ```vue
   <script setup>
   import { ref, provide } from 'vue'
-  import { fooSymbol } from './injectionSymbols'
+  import { countSymbol } from './injectionSymbols'
 
   // provide static value
-  provide('foo', 'bar')
+  provide('path', '/project/')
 
   // provide reactive value
   const count = ref(0)
   provide('count', count)
 
   // provide with Symbol keys
-  provide(fooSymbol, count)
+  provide(countSymbol, count)
   </script>
   ```
 
@@ -81,19 +81,19 @@ Injects a value provided by an ancestor component or the application (via `app.p
   ```vue
   <script setup>
   import { inject } from 'vue'
-  import { fooSymbol } from './injectionSymbols'
+  import { countSymbol } from './injectionSymbols'
 
   // inject static value without default
-  const foo = inject('foo')
+  const path = inject('path')
 
   // inject reactive value
   const count = inject('count')
 
   // inject with Symbol keys
-  const foo2 = inject(fooSymbol)
+  const count2 = inject(countSymbol)
 
   // inject with default value
-  const bar = inject('foo', 'default value')
+  const bar = inject('path', '/default-path')
 
   // inject with function default value
   const fn = inject('function', () => {})
@@ -103,6 +103,16 @@ Injects a value provided by an ancestor component or the application (via `app.p
   </script>
   ```
 
-- **See also**
+## hasInjectionContext() <sup class="vt-badge" data-text="3.3+" /> {#has-injection-context}
+
+Returns true if [inject()](#inject) can be used without warning about being called in the wrong place (e.g. outside of `setup()`). This method is designed to be used by libraries that want to use `inject()` internally without triggering a warning to the end user.
+
+- **Type**
+
+  ```ts
+  function hasInjectionContext(): boolean
+  ```
+
+* **See also**
   - [Guide - Provide / Inject](/guide/components/provide-inject)
   - [Guide - Typing Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
