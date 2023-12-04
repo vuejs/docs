@@ -115,7 +115,7 @@ You can bind them to a single element by using `v-bind` without an argument:
 
 So far we've only been binding to simple property keys in our templates. But Vue actually supports the full power of JavaScript expressions inside all data bindings:
 
-```html
+```vue-html
 {{ number + 1 }}
 
 {{ ok ? 'YES' : 'NO' }}
@@ -138,7 +138,7 @@ Each binding can only contain **one single expression**. An expression is a piec
 
 Therefore, the following will **NOT** work:
 
-```html
+```vue-html
 <!-- this is a statement, not an expression: -->
 {{ var a = 1 }}
 
@@ -150,7 +150,7 @@ Therefore, the following will **NOT** work:
 
 It is possible to call a component-exposed method inside a binding expression:
 
-```html
+```vue-html
 <time :title="toTitleDate(date)" :datetime="date">
   {{ formatDate(date) }}
 </time>
