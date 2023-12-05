@@ -157,7 +157,7 @@ function increment() {
 
 Top-Level-Importe und Variablen, die in `<script setup>` deklariert werden, sind automatisch in der Vorlage der gleichen Komponente verwendbar.
 
-> For the rest of the guide, we will be primarily using SFC + `<script setup>` syntax for Composition API code examples, as that is the most common usage for Vue developers.
+> Für den Rest des Leitfadens werden wir hauptsächlich die SFC + `<script setup>` Syntax für Composition API Code Beispiele verwenden, da dies die häufigste Verwendung für Vue Entwickler ist.
 
 </div>
 
