@@ -27,6 +27,53 @@ const nav: ThemeConfig['nav'] = [
       }
     ]
   },
+  {
+    text: 'API',
+    activeMatch: `^/api/`,
+    link: '/api/'
+  },
+  {
+    text: 'Playground',
+    link: 'https://play.vuejs.org'
+  },
+  {
+    text: 'Ecosystem',
+    activeMatch: `^/ecosystem/`,
+    items: [
+      {
+        text: 'Resources',
+        items: [
+          { text: 'Partners', link: '/partners/' },
+          { text: 'Themes', link: '/ecosystem/themes' },
+          {
+            text: 'Certification',
+            link: 'https://certification.vuejs.org/?ref=vuejs-nav'
+          },
+          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+        ]
+      },
+      {
+        text: 'Official Libraries',
+        items: [
+          { text: 'Vue Router', link: 'https://router.vuejs.org/' },
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
+          { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
+        ]
+      },
+      {
+        text: 'Video Courses',
+        items: [
+          {
+            text: 'Vue Mastery',
+            link: 'https://www.vuemastery.com/courses/'
+          },
+          {
+            text: 'Vue School',
+            link: 'https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown'
+          }
+        ]
+      },
       {
         text: 'Help',
         items: [
