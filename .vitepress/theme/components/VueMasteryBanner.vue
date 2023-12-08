@@ -23,7 +23,7 @@
       <div class="vm-banner-wrapper">
         <div class="vm-banner-content">
           <h1 class="vm-banner-title">
-            Learn w/ Evan You
+            Learn Vue with Evan You
             <!-- <span>Dec 18-29</span> -->
           </h1>
           <p class="vm-banner-sub">Get 60% off a year of Vue courses</p>
