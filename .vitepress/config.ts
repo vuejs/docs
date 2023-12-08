@@ -11,90 +11,43 @@ const nav: ThemeConfig['nav'] = [
     text: 'Docs',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Hi', link: '/guide/introduction1' },
-      { text: 'Tutorial', link: '/tutorial/' },
-      { text: 'Examples', link: '/examples/' },
-      { text: 'Quick Start', link: '/guide/quick-start' },
+      { text: 'Posts', link: '/service/posts' },
+      { text: 'App', link: '/service/apps' },
+      { text: 'King', link: '/King/' },
+      // { text: 'Quick Start', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
-      { text: 'Glossary', link: '/glossary/' },
+      // { text: 'Glossary', link: '/glossary/' },
       {
-        text: 'Vue 2 Docs',
-        link: 'https://v2.vuejs.org'
+        text: 'Docs',
+        link: '0'
       },
       {
-        text: 'Migration from Vue 2',
-        link: 'https://v3-migration.vuejs.org/'
+        text: 'Migration from 2',
+        link: '0'
       }
     ]
   },
-  {
-    text: 'API',
-    activeMatch: `^/api/`,
-    link: '/api/'
-  },
-  {
-    text: 'Playground',
-    link: 'https://play.vuejs.org'
-  },
-  {
-    text: 'Ecosystem',
-    activeMatch: `^/ecosystem/`,
-    items: [
-      {
-        text: 'Resources',
-        items: [
-          { text: 'Partners', link: '/partners/' },
-          { text: 'Themes', link: '/ecosystem/themes' },
-          {
-            text: 'Certification',
-            link: 'https://certification.vuejs.org/?ref=vuejs-nav'
-          },
-          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
-        ]
-      },
-      {
-        text: 'Official Libraries',
-        items: [
-          { text: 'Vue Router', link: 'https://router.vuejs.org/' },
-          { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
-          { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
-        ]
-      },
-      {
-        text: 'Video Courses',
-        items: [
-          {
-            text: 'Vue Mastery',
-            link: 'https://www.vuemastery.com/courses/'
-          },
-          {
-            text: 'Vue School',
-            link: 'https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown'
-          }
-        ]
-      },
       {
         text: 'Help',
         items: [
           {
             text: 'Discord Chat',
-            link: 'https://discord.com/invite/HBherRA'
+            link: '0'
           },
           {
             text: 'GitHub Discussions',
-            link: 'https://github.com/vuejs/core/discussions'
+            link: '0'
           },
-          { text: 'DEV Community', link: 'https://dev.to/t/vue' }
+          { text: 'DEV Community', link: 'https://dev.to/' }
         ]
       },
       {
         text: 'News',
         items: [
-          { text: 'Blog', link: 'https://blog.vuejs.org/' },
-          { text: 'Twitter', link: 'https://twitter.com/vuejs' },
-          { text: 'Events', link: 'https://events.vuejs.org/' },
-          { text: 'Newsletters', link: '/ecosystem/newsletters' }
+          { text: 'Blog', link: 'kingbt.netlify.app/king' },
+          { text: 'Twitter', link: 'https//web.threadles.net/king' },
+          //{ text: 'Events', link: 'https://events.vuejs.org/' },
+          //{ text: 'Newsletters', link: '/ecosystem/newsletters' }
         ]
       }
     ]
@@ -103,14 +56,14 @@ const nav: ThemeConfig['nav'] = [
     text: 'About',
     activeMatch: `^/about/`,
     items: [
-      { text: 'FAQ', link: '/about/faq' },
-      { text: 'Team', link: '/about/team' },
-      { text: 'Releases', link: '/about/releases' },
+      { text: 'FAQ', link: '/about/faq1' },
+      { text: 'Team', link: '/about/team1' },
+      { text: 'Releases', link: '/about/releases1' },
       {
         text: 'Community Guide',
-        link: '/about/community-guide'
+        link: '/about/community-guide1'
       },
-      { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'Code of Conduct', link: '/about/coc1' },
       {
         text: 'The Documentary',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
@@ -119,11 +72,11 @@ const nav: ThemeConfig['nav'] = [
   },
   {
     text: 'Sponsor',
-    link: '/sponsor/'
+    link: '/sponsor1/'
   },
   {
     text: 'Partners',
-    link: '/partners/',
+    link: '/partners1/',
     activeMatch: `^/partners/`
   }
 ]
@@ -560,8 +513,8 @@ export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
   lang: 'en-US',
-  title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  title: 'King',
+  description: 'King - Our Services',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
 
@@ -573,14 +526,14 @@ export default defineConfigWithTheme<ThemeConfig>({
       'meta',
       {
         name: 'twitter:image',
-        content: 'https://vuejs.org/images/logo.png'
+        content: 'https://vuejs.org/images/1logo.png'
       }
     ],
     [
       'link',
       {
         rel: 'preconnect',
-        href: 'https://sponsors.vuejs.org'
+        href: '0'
       }
     ],
     [
@@ -617,24 +570,24 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     localeLinks: [
       {
-        link: 'https://cn.vuejs.org',
+        link: '0',
         text: '简体中文',
-        repo: 'https://github.com/vuejs-translations/docs-zh-cn'
+        repo: '0'
       },
       {
-        link: 'https://ja.vuejs.org',
+        link: '0',
         text: '日本語',
-        repo: 'https://github.com/vuejs-translations/docs-ja'
+        repo: '0'
       },
       {
-        link: 'https://ua.vuejs.org',
+        link: '0',
         text: 'Українська',
-        repo: 'https://github.com/vuejs-translations/docs-uk'
+        repo: '0'
       },
       {
-        link: 'https://fr.vuejs.org',
+        link: '0',
         text: 'Français',
-        repo: 'https://github.com/vuejs-translations/docs-fr'
+        repo: '0'
       },
       {
         link: '/translations/',
@@ -658,19 +611,19 @@ export default defineConfigWithTheme<ThemeConfig>({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/' },
-      { icon: 'twitter', link: 'https://twitter.com/vuejs' },
-      { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
+      { icon: 'github', link: '0' },
+      { icon: 'twitter', link: 'https://web.threadles.net/king' },
+      { icon: 'discord', link: '0' }
     ],
 
     editLink: {
-      repo: 'vuejs/docs',
-      text: 'Edit this page on GitHub'
+      repo: '.',
+      text: '.'
     },
 
     footer: {
       license: {
-        text: 'MIT License',
+        text: 'King',
         link: 'https://opensource.org/licenses/MIT'
       },
       copyright: `Copyright © 2014-${new Date().getFullYear()} Evan You`
