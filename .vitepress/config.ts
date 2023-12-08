@@ -103,14 +103,14 @@ const nav: ThemeConfig['nav'] = [
     text: 'About',
     activeMatch: `^/about/`,
     items: [
-      { text: 'FAQ', link: '/about/faq1' },
-      { text: 'Team', link: '/about/team1' },
-      { text: 'Releases', link: '/about/releases1' },
+      { text: 'kingy', link: '/about/faq1' },
+      { text: 'Teamking', link: '/about/team1' },
+      { text: 'lking', link: '/about/releases1' },
       {
-        text: 'Community Guide',
-        link: '/about/community-guide1'
+        text: 'Community',
+        link: '/about/3'
       },
-      { text: 'Code of Conduct', link: '/about/coc1' },
+      { text: 'Code3', link: '/about/coc2' },
       {
         text: 'The Documentary',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
@@ -118,12 +118,12 @@ const nav: ThemeConfig['nav'] = [
     ]
   },
   {
-    text: 'Sponsor',
-    link: '/sponsor1/'
+    text: '5',
+    link: '/sponsor5/'
   },
   {
-    text: 'Partners',
-    link: '/partners1/',
+    text: '5',
+    link: '/partners5/',
     activeMatch: `^/partners/`
   }
 ]
@@ -618,22 +618,22 @@ export default defineConfigWithTheme<ThemeConfig>({
     localeLinks: [
       {
         link: '0',
-        text: '简体中文',
+        text: '09',
         repo: '0'
       },
       {
         link: '0',
-        text: '日本語',
+        text: '010',
         repo: '0'
       },
       {
         link: '0',
-        text: 'Українська',
+        text: '011',
         repo: '0'
       },
       {
         link: '0',
-        text: 'Français',
+        text: '012',
         repo: '0'
       },
       {
@@ -658,9 +658,9 @@ export default defineConfigWithTheme<ThemeConfig>({
     },
 
     socialLinks: [
-      { icon: 'github', link: '0' },
-      { icon: 'twitter', link: 'https://web.threadles.net/king' },
-      { icon: 'discord', link: '0' }
+      { icon: 'wop', link: '0' },
+      { icon: 'Threadles', link: 'https://web.threadles.net/king' },
+      { icon: 'po', link: '0' }
     ],
 
     editLink: {
