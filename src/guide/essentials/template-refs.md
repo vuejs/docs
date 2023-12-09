@@ -1,6 +1,6 @@
 # Template Refs {#template-refs}
 
-While Vue's declarative rendering model abstracts away most of the direct DOM operations for you, there may still be cases where we need direct access to the underlying DOM elements. To achieve this, we can use the special `ref` attribute:
+Während das deklarative Rendering-Modell von Vue die meisten direkten DOM-Operationen für Sie abstrahiert, kann es immer noch Fälle geben, in denen wir direkten Zugriff auf die zugrunde liegenden DOM-Elemente benötigen. Um dies zu erreichen, können wir das spezielle `ref`-Attribut verwenden:
 
 ```vue-html
 <input ref="input">
