@@ -50,6 +50,20 @@ const props = defineProps<Props>()
 </script>
 ```
 
+This also works if `Props` is imported from an external source. 
+
+```vue
+<script setup lang="ts">
+import type { Props } from './foo'
+
+const props = defineProps<Props>()
+</script>
+```
+
+:::info
+This feature requires TypeScript to be a peer dependency of vue.
+:::
+
 #### Syntax Limitations {#syntax-limitations}
 
 In version 3.2 and below, the generic type parameter for `defineProps()` were limited to a type literal or a reference to a local interface.
