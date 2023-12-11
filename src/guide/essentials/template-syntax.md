@@ -263,7 +263,7 @@ Modifikatoren sind spezielle Postfixe, die mit einem Punkt gekennzeichnet sind u
 
 Sie werden später weitere Beispiele für Modifikatoren sehen, [für `v-on`](./event-handling.html#event-modifiers) und [für `v-model`](./forms.html#modifiers), wenn wir diese Funktionen untersuchen.
 
-And finally, here's the full directive syntax visualized:
+Und schließlich ist hier die vollständige Syntax der Richtlinie visualisiert:
 
 ![directive syntax graph](./images/directive.png)
 
