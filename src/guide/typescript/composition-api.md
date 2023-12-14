@@ -50,7 +50,7 @@ const props = defineProps<Props>()
 </script>
 ```
 
-This also works if `Props` is imported from an external source. 
+This also works if `Props` is imported from an external source. This feature requires TypeScript to be a peer dependency of vue.
 
 ```vue
 <script setup lang="ts">
@@ -59,10 +59,6 @@ import type { Props } from './foo'
 const props = defineProps<Props>()
 </script>
 ```
-
-:::info
-This feature requires TypeScript to be a peer dependency of vue.
-:::
 
 #### Syntax Limitations {#syntax-limitations}
 
