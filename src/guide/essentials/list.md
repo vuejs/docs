@@ -432,3 +432,10 @@ Be careful with `reverse()` and `sort()` in a computed property! These two metho
 - return numbers.reverse()
 + return [...numbers].reverse()
 ```
+
+Or you can use the copying counterpart of the method such as `toReversed()` and `toSorted()` from the latest ECMAScript 2023:
+
+```diff
+- return numbers.reverse()
++ return numbers.toReversed()
+```
