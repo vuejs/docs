@@ -99,8 +99,8 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
   
   ```sh
   $ cd <your-project-name>
-  $ yarn install
-  $ yarn run dev
+  $ yarn
+  $ yarn dev
   ```
 
   </VTCodeGroupTab>
@@ -142,7 +142,7 @@ When you are ready to ship your app to production, run the following:
   <VTCodeGroupTab label="yarn">
   
   ```sh
-  $ yarn run build
+  $ yarn build
   ```
 
   </VTCodeGroupTab>
