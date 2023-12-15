@@ -291,7 +291,8 @@ export default {
 
 ## Events as Props {#events-props}
 
-You may also declare and pass `events` as `props`, by prefixing the capitalized event name with `on`
+You may also declare and pass `events` as `props`, by prefixing the capitalized event name with `on`.
+
 Using `props.onEvent` has a different behaviour than using `emit('event')`, as the former will pass only handle the property based listener (either `@event` or `:on-event`)
 
 :::warning
