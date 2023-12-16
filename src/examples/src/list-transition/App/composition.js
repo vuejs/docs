@@ -14,6 +14,7 @@ export default {
 
     function reset() {
       items.value = getInitialItems()
+      id = getInitialItems().length + 1
     }
 
     function shuffle() {
