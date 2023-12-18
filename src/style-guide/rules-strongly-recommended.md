@@ -156,34 +156,6 @@ components/
 
 </div>
 
-## Single-instance component names {#single-instance-component-names}
-
-**Components that should only ever have a single active instance should begin with the `The` prefix, to denote that there can be only one.**
-
-This does not mean the component is only used in a single page, but it will only be used once _per page_. These components never accept any props, since they are specific to your app, not their context within your app. If you find the need to add props, it's a good indication that this is actually a reusable component that is only used once per page _for now_.
-
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-
-```
-components/
-|- Heading.vue
-|- MySidebar.vue
-```
-
-</div>
-
-<div class="style-example style-example-good">
-<h3>Good</h3>
-
-```
-components/
-|- TheHeading.vue
-|- TheSidebar.vue
-```
-
-</div>
-
 ## Tightly coupled component names {#tightly-coupled-component-names}
 
 **Child components that are tightly coupled with their parent should include the parent component name as a prefix.**
