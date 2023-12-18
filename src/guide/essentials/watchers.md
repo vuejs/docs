@@ -2,7 +2,7 @@
 
 ## Grundlegendes Beispiel {#basic-example}
 
-Computed properties allow us to declaratively compute derived values. However, there are cases where we need to perform "side effects" in reaction to state changes - for example, mutating the DOM, or changing another piece of state based on the result of an async operation.
+Mit berechneten Eigenschaften können wir abgeleitete Werte deklarativ berechnen. Es gibt jedoch Fälle, in denen als Reaktion auf Zustandsänderungen "Seiteneffekte" ausgeführt werden müssen, z. B. Mutation des DOM oder Änderung eines anderen Teils des Zustands auf der Grundlage des Ergebnisses einer asynchronen Operation.
 
 <div class="options-api">
 
