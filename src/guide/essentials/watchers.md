@@ -6,7 +6,7 @@ Mit berechneten Eigenschaften können wir abgeleitete Werte deklarativ berechnen
 
 <div class="options-api">
 
-With the Options API, we can use the [`watch` option](/api/options-state.html#watch) to trigger a function whenever a reactive property changes:
+Mit der Options-API können wir die Option [`watch`](/api/options-state.html#watch) verwenden, um eine Funktion auszulösen, sobald sich eine reaktive Eigenschaft ändert:
 
 ```js
 export default {
