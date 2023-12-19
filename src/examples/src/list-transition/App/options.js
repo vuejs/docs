@@ -16,6 +16,7 @@ export default {
     },
     reset() {
       this.items = getInitialItems()
+      id = getInitialItems().length + 1
     },
     shuffle() {
       this.items = shuffle(this.items)
