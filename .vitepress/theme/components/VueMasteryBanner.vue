@@ -7,7 +7,7 @@
     ></div>
     <a
       id="vm-banner"
-      href="https://www.vuemastery.com/pricing"
+      href="https://www.vuemastery.com/holiday"
       target="_blank"
     >
       <img
