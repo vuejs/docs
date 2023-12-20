@@ -10,7 +10,7 @@ overrides:
 dependencies:
   '@vue/repl':
     specifier: ^3.0.0
-    version: 3.0.0
+    version: 3.0.1
   '@vue/theme':
     specifier: ^2.2.5
     version: 2.2.5(vitepress@1.0.0-rc.31)(vue@3.4.0-beta.4)
@@ -743,8 +743,8 @@ packages:
       '@vue/shared': 3.4.0-beta.4
     dev: false
 
-  /@vue/repl@3.0.0:
-    resolution: {integrity: sha512-tGYibiftMo5yEuIKPWVsNuuNDejjJk0JQmvKtTm12KNLFqtGD7fWoGv1qUzcN9EAxwVeDgnT9ljRgqGVgZkyEg==}
+  /@vue/repl@3.0.1:
+    resolution: {integrity: sha512-o3/0bVx8n70BZ+OD/r3KMuWuUR93zA99YtXOtTAKYMYvHf18DfdQt7n1wyIaOgXwK1HwTfUYWJA261Wdyh+U2Q==}
     dev: false
 
   /@vue/runtime-core@3.3.11:
