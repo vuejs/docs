@@ -5,7 +5,7 @@ import {
   preferComposition,
   preferCompositionKey
 } from './preferences'
-import { useData, type Header } from 'vitepress'
+import { useData, withBase, type Header } from 'vitepress'
 
 const show = ref(false)
 const { page } = useData()
@@ -121,7 +121,7 @@ function dismiss() {
         </p>
       </template>
       <p class="actions">
-        <a href="/guide/introduction#api-styles">Learn more</a>
+        <a :href="withBase('/guide/introduction#api-styles')">Learn more</a>
         <button @click="dismiss">Got it</button>
       </p>
       <div class="arrow-top"></div>

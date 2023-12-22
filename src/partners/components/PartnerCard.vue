@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { withBase } from 'vitepress'
 import { Partner } from './type'
 import { normalizeName, getHero, getLogo, track } from './utils'
 import Location from './PartnerLocation.vue'
@@ -19,6 +20,8 @@ const {
   flipLogo,
   website
 } = props.data
+
+const getPartnerLink = withBase('/partners/' + normalizeName(name) + '.html')
 </script>
 
 <template>
@@ -26,7 +29,7 @@ const {
     :is="page ? 'div' : 'a'"
     class="partner-card"
     :class="{ hero, page, flipLogo }"
-    :href="'/partners/' + normalizeName(name) + '.html'"
+    :href="getPartnerLink"
   >
     <div class="info">
       <a :href="website.url" target="_blank" @click="track">
