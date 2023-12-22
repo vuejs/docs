@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { VTSwitch, VTIconChevronDown } from '@vue/theme'
-import { useRoute, withBase } from 'vitepress'
+import { useRoute, useData, withBase } from 'vitepress'
 import { ref, computed, inject, Ref } from 'vue'
 import {
   preferCompositionKey,
@@ -11,10 +11,34 @@ import {
 import PreferenceTooltip from './PreferenceTooltip.vue'
 
 const route = useRoute()
+
+const trimPrefix = (s: string, prefix: string): string => {
+  if (!prefix || s.length < prefix.length) {
+    return s
+  }
+  if (s.slice(0, prefix.length) === prefix) {
+    return s.slice(prefix.length)
+  }
+  return s
+}
+const trimSuffix = (s: string, suffix: string): string => {
+  if (!suffix || s.length < suffix.length) {
+    return s
+  }
+  if (s.slice(s.length - suffix.length) === suffix) {
+    return s.slice(0, s.length - suffix.length);
+  }
+  return s;
+}
+
+const { site } = useData()
+const baseWithoutSuffixSlash = trimSuffix(site.value.base, '/');
+const trimBase = (path: string) => trimPrefix(path, baseWithoutSuffixSlash);
+
 const show = computed(() =>
-  /^\/(guide|tutorial|examples|style-guide)\//.test(route.path)
+  /^\/(guide|tutorial|examples|style-guide)\//.test(trimBase(route.path))
 )
-const showSFC = computed(() => !/^\/guide|style-guide/.test(route.path))
+const showSFC = computed(() => !/^\/guide|style-guide/.test(trimBase(route.path)))
 
 let isOpen = ref(true)
 
