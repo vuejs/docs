@@ -28,12 +28,12 @@ const trimSuffix = (s: string, suffix: string): string => {
   if (s.slice(s.length - suffix.length) === suffix) {
     return s.slice(0, s.length - suffix.length);
   }
-  return s;
+  return s
 }
 
 const { site } = useData()
-const baseWithoutSuffixSlash = trimSuffix(site.value.base, '/');
-const trimBase = (path: string) => trimPrefix(path, baseWithoutSuffixSlash);
+const baseWithoutSuffixSlash = trimSuffix(site.value.base, '/')
+const trimBase = (path: string) => trimPrefix(path, baseWithoutSuffixSlash)
 
 const show = computed(() =>
   /^\/(guide|tutorial|examples|style-guide)\//.test(trimBase(route.path))
