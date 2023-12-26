@@ -53,7 +53,7 @@ The Vue team also maintains a static-site generator called [VitePress](https://v
 
 Although Vue is primarily designed for building web applications, it is by no means limited to just the browser. You can:
 
-- Build desktop apps with [Electron](https://www.electronjs.org/) or [Tauri](https://tauri.studio/en/)
+- Build desktop apps with [Electron](https://www.electronjs.org/) or [Tauri](https://tauri.app)
 - Build mobile apps with [Ionic Vue](https://ionicframework.com/docs/vue/overview)
 - Build desktop and mobile apps from the same codebase with [Quasar](https://quasar.dev/)
 - Use Vue's [Custom Renderer API](/api/custom-renderer) to build custom renderers targeting [WebGL](https://troisjs.github.io/) or even [the terminal](https://github.com/vue-terminal/vue-termui)!
