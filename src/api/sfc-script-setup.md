@@ -229,40 +229,60 @@ This will be compiled to equivalent runtime props `default` options. In addition
 
 ## defineModel() <sup class="vt-badge" data-text="3.4+" /> {#definemodel}
 
-This macro can be used to declare a two-way binding prop that can be consumed via `v-model` from the parent component, and it can be declared and mutated like a ref. This will declare a prop with the same name and a corresponding `update:propName` event.
+This macro can be used to declare a two-way binding prop that can be consumed via `v-model` from the parent component. Example usage is also discussed in the [Component `v-model`](/guide/components/v-model) guide.
 
-If the first argument is a literial string, it will be used as the prop name; Otherwise the prop name will default to `"modelValue"`. In both cases, you can also pass an additional object which will be used as the prop's options.
+Under the hood, this macro declares a model prop and a corresponding value update event. If the first argument is a literal string, it will be used as the prop name; Otherwise the prop name will default to `"modelValue"`. In both cases, you can also pass an additional object which can include the prop's options and the model ref's value transform options.
 
-```vue
-<script setup>
+```js
+// declares "modelValue" prop, consumed by parent via v-model
+const modelValue = defineModel()
+// OR: declares "modelValue" prop with options
 const modelValue = defineModel({ type: String })
+
+// emits "update:modelValue" when mutated
 modelValue.value = 'hello'
 
-const count = defineModel('count', { default: 0 })
+// declares "count" prop, consumed by parent via v-model:count
+const count = defineModel('count')
+// OR: declares "count" prop with options
+const count = defineModel('count', { type: Number, default: 0 })
+
 function inc() {
+  // emits "update:count" when mutated
   count.value++
 }
-</script>
-
-<template>
-  <input v-model="modelValue" />
-  <button @click="inc">increment</button>
-</template>
 ```
 
-### Local mode
+### Modifiers and Transformers
 
-The options object can also specify an additional option, `local`. When set to `true`, the ref can be locally mutated even if the parent did not pass the matching `v-model`, essentially making the model optional.
+To access modifiers used with the `v-model` directive, we can destructure the return value of `defineModel()` like this:
 
-```ts
-// local mutable model, can be mutated locally
-// even if the parent did not pass the matching `v-model`.
-const count = defineModel('count', { local: true, default: 0 })
+```js
+const [modelValue, modelModifiers] = defineModel()
+
+// corresponds to v-model.trim
+if (modelModifiers.trim) {
+  // ...
+}
 ```
 
-### Provide value type <sup class="vt-badge ts" /> {#provide-value-type}
+Usually, we need to conditionally transform the value read from or synced back to the parent when a modifier is present. We can achieve this via the `get` and `set` transformer options:
 
-Like `defineProps` and `defineEmits`, `defineModel` can also receive a type argument to specify the type of the model value:
+```js
+const [modelValue, modelModifiers] = defineModel({
+  // get() omitted as it is not needed here
+  set(value) {
+    if (modelModifiers.trim) {
+      return value.trim()
+    }
+    return value
+  }
+})
+```
+
+### Usage with TypeScript <sup class="vt-badge ts" /> {#usage-with-typescript}
+
+Like `defineProps` and `defineEmits`, `defineModel` can also receive type arguments to specify the types of the model value and the modifiers:
 
 ```ts
 const modelValue = defineModel<string>()
@@ -271,6 +291,9 @@ const modelValue = defineModel<string>()
 // default model with options, required removes possible undefined values
 const modelValue = defineModel<string>({ required: true })
 //    ^? Ref<string>
+
+const [modelValue, modifiers] = defineModel<string, 'trim' | 'uppercase'>()
+//                 ^? Record<'trim' | 'uppercase', true | undefined>
 ```
 
 ## defineExpose() {#defineexpose}
