@@ -241,13 +241,23 @@ Vue's type definition also provides type inference for TSX usage. When using TSX
 
 ### JSX Type Inference {#jsx-type-inference}
 
-Similar to the transform, Vue's JSX also needs different type definitions. Currently, Vue's types automatically registers Vue's JSX types globally. This means TSX will work out of the box when Vue's type is available.
+Similar to the transform, Vue's JSX also needs different type definitions.
 
-The global JSX types may cause conflict with used together with other libraries that also needs JSX type inference, in particular React. Starting in 3.3, Vue supports specifying JSX namespace via TypeScript's [jsxImportSource](https://www.typescriptlang.org/tsconfig#jsxImportSource) option. We plan to remove the default global JSX namespace registration in 3.4.
+Starting in Vue 3.4, Vue no longer implicitly registers the global `JSX` namespace. To instruct TypeScript to use Vue's JSX type definitions, make sure to include the following in your `tsconfig.json`:
 
-For TSX users, it is suggested to set [jsxImportSource](https://www.typescriptlang.org/tsconfig#jsxImportSource) to `'vue'` in `tsconfig.json` after upgrading to 3.3, or opt-in per file with `/* @jsxImportSource vue */`. This will allow you to opt-in to the new behavior now and upgrade seamlessly when 3.4 releases.
+```json
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
+    // ...
+  }
+}
+```
 
-If there is code that depends on the presence of the global `JSX` namespace,  you can retain the exact pre-3.4 global behavior by explicitly referencing `vue/jsx`, which registers the global `JSX` namespace.
+You can also opt-in per file by adding a `/* @jsxImportSource vue */` comment at the top of the file.
+
+If there is code that depends on the presence of the global `JSX` namespace,  you can retain the exact pre-3.4 global behavior by explicitly importing or referencing `vue/jsx` in your project, which registers the global `JSX` namespace.
 
 ## Render Function Recipes {#render-function-recipes}
 
