@@ -124,6 +124,53 @@ Now, for most components the `active` prop will remain the same when `activeId` 
 
 `v-memo` is a built-in directive that can be used to conditionally skip the update of large sub-trees or `v-for` lists. Consult its [API reference](/api/built-in-directives#v-memo) for more details.
 
+### Computed Stability <sup class="vt-badge" data-text="3.4+" /> {#computed-stability}
+
+Starting in 3.4, a computed property will only trigger effects when its computed value has changed from the previous one. For example, the following `isEven` computed only triggers effects if the returned value has changed from `true` to `false`, or vice-versa:
+
+```js
+const count = ref(0)
+const isEven = computed(() => {
+  return count.value % 2 === 0 ? true : false
+})
+
+watchEffect(() => console.log(isEven.value)) // true
+
+// will not trigger new logs because the computed value stays `true`
+count.value = 2
+count.value = 4
+```
+
+This reduces unnecessary effect triggers, but unfortunately doesn't work if the computed creates a new object on each compute:
+
+```js
+const computedObj = computed(() => {
+  return {
+    isEven: count.value % 2 === 0 ? true : false
+  }
+})
+```
+
+Because a new object is created each time, the new value is technically always different from the old value. Even if the `isEven` property remains the same, Vue won't be able to know unless it performs a deep comparison of the old value and the new value. Such comparison could be expensive and likely not worth it.
+
+Instead, we can optimize this by manually comparing the new value with the old value, and conditionally returning the old value if we know nothing has changed:
+
+```js
+const computedObj = computed(oldValue => {
+  const newValue = {
+    isEven: count.value % 2 === 0 ? true : false
+  }
+  if (oldValue && oldValue.isEven === newValue.isEven) {
+    return oldValue
+  }
+  return newValue
+})
+```
+
+[Playground Example](https://play.vuejs.org/#eNqlVMlu2zAQ/ZUBgSZ24UpuczMkd4MPLdAFadEeyh4UibKVSKRADm2jhv+9Q1KyDTRRXOQggJrlzeO8Ge7Y27aN1lawGUtMrqsWwQi07ZzLqmmVRtiBFuUEctW0FkUxgU2G+WpRliJH2EOpVQOXhHDJJZe5kgYp1kqE1CWOpuOjXfikayvNzwpXyuKXFqum+pNhpWQX/+s3JfQwoeT9wb13pOriR1ZbAekcdlwCwaDVMpwBKrNYCzkLpKK1j3wGryBNU5jCa0BNhhmUWW2Ey9hzuX+Q8/mEz2YbUqXYdOYn8KakEo4VLi6gP0cBzSf3pTrbuC/Yta1POWB29j6tb8/JGIxG48N1BjUO14haa1ajAXW7sI7ffxU8p9rjpUorcy+cbYsMBVXzpeLYLUc33qggA53JguZfuN5K29wIfSIpafkpw1VU1krpkT+GeMJ7Di+nbjVc8FFfEgde0Ec6ExUukzjsJG0j/aBo2pro0B/Abtfx2HuRkhuLSITf5HWV36WcBeaczcNhmHQSh3SPnLjldwPhegqbIA+o03mm4sO73JGKA9S/iI/APYiVxCdNYBOGhnpdVsvo1ihJb5iXiTOndlUL7XBIC85m/ZBzltW12nz0NrdCk96er0R+d4/91mydjbOvWhih19TTgw8zvRQY3Itvn8WWzgdnowpbU/SA81oYVVvHMYS9s7Ig2idxnu0H/xJXcvndLLYopOkv5Yj6PfXxnNEz/H7g6ke6V9FV/9ax/V8w4Rl9)
+
+Note that you should always perform the full computation before comparing and returning the old value, so that the same dependencies can be collected on every run.
+
 ## General Optimizations {#general-optimizations}
 
 > The following tips affect both page load and update performance.
