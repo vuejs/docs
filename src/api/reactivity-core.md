@@ -52,7 +52,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   ```ts
   // read-only
   function computed<T>(
-    getter: () => T,
+    getter: (oldValue: T | undefined) => T,
     // see "Computed Debugging" link below
     debuggerOptions?: DebuggerOptions
   ): Readonly<Ref<Readonly<T>>>
@@ -60,7 +60,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   // writable
   function computed<T>(
     options: {
-      get: () => T
+      get: (oldValue: T | undefined) => T
       set: (value: T) => void
     },
     debuggerOptions?: DebuggerOptions
@@ -112,6 +112,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   - [Guide - Computed Properties](/guide/essentials/computed)
   - [Guide - Computed Debugging](/guide/extras/reactivity-in-depth#computed-debugging)
   - [Guide - Typing `computed()`](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
+  - [Guide - Performance - Computed Stability](/guide/best-practices/performance#computed-stability) <sup class="vt-badge" data-text="3.4+" />
 
 ## reactive() {#reactive}
 
