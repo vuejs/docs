@@ -419,7 +419,8 @@ export const sidebar: ThemeConfig['sidebar'] = {
         { text: 'Render Function', link: '/api/render-function' },
         { text: 'Server-Side Rendering', link: '/api/ssr' },
         { text: 'TypeScript Utility Types', link: '/api/utility-types' },
-        { text: 'Custom Renderer', link: '/api/custom-renderer' }
+        { text: 'Custom Renderer', link: '/api/custom-renderer' },
+        { text: 'Compile-Time Flags', link: '/api/compile-time-flags' }
       ]
     }
   ],
