@@ -14,8 +14,8 @@
     "@vue/theme": "^2.2.5",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
-    "vitepress": "1.0.0-rc.31",
-    "vue": "^3.4.0-rc.2"
+    "vitepress": "1.0.0-rc.33",
+    "vue": "^3.4.0-rc.3"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
