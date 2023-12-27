@@ -405,8 +405,9 @@ defineProps({
     }
   },
   // Custom validator function
+  // full props passed as 2nd argument in 3.4+
   propF: {
-    validator(value) {
+    validator(value, props) {
       // The value must match one of these strings
       return ['success', 'warning', 'danger'].includes(value)
     }
@@ -459,8 +460,9 @@ export default {
       }
     },
     // Custom validator function
+    // full props passed as 2nd argument in 3.4+
     propF: {
-      validator(value) {
+      validator(value, props) {
         // The value must match one of these strings
         return ['success', 'warning', 'danger'].includes(value)
       }
