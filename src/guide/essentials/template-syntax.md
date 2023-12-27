@@ -64,6 +64,20 @@ Attributes that start with `:` may look a bit different from normal HTML, but it
 
 > For the rest of the guide, we will be using the shorthand syntax in code examples, as that's the most common usage for Vue developers.
 
+### Same-name Shorthand <sup class="vt-badge" data-text="3.4+" /> {#same-name-shorthand}
+
+If the attribute has the same name with the JavaScript value being bound, the syntax can be further shortened to omit the attribute value:
+
+```vue-html
+<!-- same as :id="id" -->
+<div :id></div>
+
+<!-- this also works -->
+<div v-bind:id></div>
+```
+
+This is similar to the property shorthand syntax when declaring objects in JavaScript. Note this is a feature that is only available in Vue 3.4 and above.
+
 ### Boolean Attributes {#boolean-attributes}
 
 [Boolean attributes](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) are attributes that can indicate true / false values by their presence on an element. For example, [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled) is one of the most commonly used boolean attributes.

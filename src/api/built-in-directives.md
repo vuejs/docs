@@ -257,7 +257,9 @@ Attach an event listener to the element.
 
 Dynamically bind one or more attributes, or a component prop to an expression.
 
-- **Shorthand:** `:` or `.` (when using `.prop` modifier)
+- **Shorthand:**
+  - `:` or `.` (when using `.prop` modifier)
+  - Omitting value (when attribute and bound value has the same name) <sup class="vt-badge">3.4+</sup>
 
 - **Expects:** `any (with argument) | Object (without argument)`
 
@@ -290,6 +292,9 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   <!-- shorthand -->
   <img :src="imageSrc" />
+
+  <!-- same-name shorthand (3.4+), expands to :src="src" -->
+  <img :src />
 
   <!-- shorthand dynamic attribute name -->
   <button :[key]="value"></button>
