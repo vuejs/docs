@@ -235,12 +235,12 @@ Under the hood, this macro declares a model prop and a corresponding value updat
 
 ```js
 // declares "modelValue" prop, consumed by parent via v-model
-const modelValue = defineModel()
+const model = defineModel()
 // OR: declares "modelValue" prop with options
-const modelValue = defineModel({ type: String })
+const model = defineModel({ type: String })
 
 // emits "update:modelValue" when mutated
-modelValue.value = 'hello'
+model.value = 'hello'
 
 // declares "count" prop, consumed by parent via v-model:count
 const count = defineModel('count')
@@ -266,15 +266,17 @@ if (modelModifiers.trim) {
 }
 ```
 
-Usually, we need to conditionally transform the value read from or synced back to the parent when a modifier is present. We can achieve this via the `get` and `set` transformer options:
+When a modifier is present, we likely need to transform the value when reading or syncing it back to the parent. We can achieve this by using the `get` and `set` transformer options:
 
 ```js
 const [modelValue, modelModifiers] = defineModel({
   // get() omitted as it is not needed here
   set(value) {
+    // if the .trim modifier is used, return trimmed value
     if (modelModifiers.trim) {
       return value.trim()
     }
+    // otherwise, return the value as-is
     return value
   }
 })
