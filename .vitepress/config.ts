@@ -568,6 +568,8 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   head: [
     ['meta', { name: 'theme-color', content: '#3c8772' }],
+    ['meta', { name: 'og:title', content: 'Vue.js' }],
+    ['meta', { name: 'og:description', content: 'Vue.js - The Progressive JavaScript Framework' }],
     ['meta', { name: 'og:image', content: 'https://vuejs.org/images/logo.png' }],
     ['meta', { name: 'twitter:site', content: '@vuejs' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
