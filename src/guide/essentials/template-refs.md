@@ -12,7 +12,7 @@ While Vue's declarative rendering model abstracts away most of the direct DOM op
 
 <div class="composition-api">
 
-To obtain the reference with Composition API, we need to declare a ref with the same name:
+To obtain the reference with Composition API, we need to declare a ref with a name that matches the template ref attribute's value:
 
 ```vue
 <script setup>
