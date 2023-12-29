@@ -373,8 +373,6 @@ To conditionally adjust how the value should be read / written based on modifier
 
 ```vue{6-8}
 <script setup>
-import { computed } from 'vue'
-
 const [model, modifiers] = defineModel({
   set(value) {
     if (modifiers.capitalize) {
