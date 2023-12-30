@@ -5,8 +5,7 @@
 @import "./utilities.css";
 @import "./style-guide.css";
 
-/* bugfix: https://github.com/vuejs/theme/pull/95 */
-
-.vt-flyout-menu {
-  max-height: calc(100vh - var(--vt-nav-height) - var(--vt-banner-height, 0px)) !important;
+/* vitepress rc.31 migrated to shijiki and need this to apply code styles */
+.vp-code span {
+  color: var(--shiki-dark, inherit);
 }

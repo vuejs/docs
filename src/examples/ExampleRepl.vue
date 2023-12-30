@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Repl, ReplStore } from '@vue/repl'
-import '@vue/repl/style.css'
+import CodeMirror from '@vue/repl/codemirror-editor'
 import { data } from './examples.data'
 import { inject, watchEffect, version, Ref, onMounted, ref, onUnmounted } from 'vue'
 import {
@@ -16,7 +16,12 @@ const store = new ReplStore({
 const preferComposition = inject('prefer-composition') as Ref<boolean>
 const preferSFC = inject('prefer-sfc') as Ref<boolean>
 
-watchEffect(updateExample)
+watchEffect(updateExample, {
+  onTrigger(e) {
+    console.log(e)
+    debugger
+  }
+})
 onHashChange(updateExample)
 
 /**
@@ -59,6 +64,7 @@ onMounted(() => {
 <template>
   <div ref="heightProvider">
     <Repl
+      :editor="CodeMirror"
       :store="store"
       :showImportMap="!preferSFC"
       :showCompileOutput="false"
