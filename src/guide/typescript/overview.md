@@ -210,7 +210,7 @@ let x: string | number = 1
 If using Vue CLI or a webpack-based setup, TypeScript in template expressions requires `vue-loader@^16.8.0`.
 :::
 
-### Usage with TSX
+### Usage with TSX {#usage-with-tsx}
 
 Vue also supports authoring components with JSX / TSX. Details are covered in the [Render Function & JSX](/guide/extras/render-function.html#jsx-tsx) guide.
 
