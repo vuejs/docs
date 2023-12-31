@@ -365,15 +365,27 @@ Converts an Record<string, any> into a props definition like object.
 Useful for extending component props.
 
 ```ts
-
+const props: ObjectToComponentProps<{ foo: 'bar' | 'baz', baz?: number }>
+ // props is:
+ {
+   foo: {
+    type: Prop<'bar' | 'baz'>,
+    required: true
+   },
+   baz: {
+    type: Prop<number>,
+    required: false
+   }
+ }
 ```
 
 ## ComponentEmitsAsProps\<T> {#componentemitsasprops}
 
-Converts `Emit` declaration into `props` declaration.
+Converts `Emit` declaration into `props` declaration, returned object will be optional.
 
 ```ts
-
+declare const emit: ComponentEmitsAsProps<{ emits: { foo: () => true } }>
+emit.onFoo?.() // ok
 ```
 
 ## ComponentProps\<T> {#componentprops}
@@ -395,7 +407,14 @@ props.foo // string | undefined
 Returns runtime slots for a component.
 
 ```ts
+const Comp = defineComponent({
+  slots: {} as SlotsType<{
+    default: (arg: { msg: string }) => any
+  }>
+})
 
+const slots = {} as ComponentSlots<typeof Comp>
+slots.default // { arg: { msg: string } } => any
 ```
 
 ## ComponentEmit\<T> {#componentemit}
@@ -403,7 +422,14 @@ Returns runtime slots for a component.
 Returns the `emit` function from options.
 
 ```ts
+const CompSlotsTyped = defineComponent({
+  emits: {
+    foo: (arg: string) => true
+  }
+})
 
+const emit = {} as ComponentEmit<typeof CompSlotsTyped>
+emit // (event: 'foo', arg: string) => void
 ```
 
 ## ComponentData\<T> {#componentdata}
@@ -411,7 +437,23 @@ Returns the `emit` function from options.
 Returns the component bindings from `data` and `setup`.
 
 ```ts
+const Comp = defineComponent({
+  data() {
+    return {
+      foo: 'string'
+    }
+  },
 
+  setup(props, ctx) {
+    return {
+      bar: 42
+    }
+  }
+})
+
+const data = {} as ComponentData<typeof Comp>
+data.foo // string
+data.bar // number
 ```
 
 ## DefineComponentOptions & DefineComponentFromOptions {#definecomponentoptions}
@@ -479,4 +521,3 @@ declare function defineComponentWithDefaults<
   Options
 >
 ```
-
