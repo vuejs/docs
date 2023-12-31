@@ -253,7 +253,7 @@ function inc() {
 }
 ```
 
-### Modifiers and Transformers
+### Modifiers and Transformers {#modifiers-and-transformers}
 
 To access modifiers used with the `v-model` directive, we can destructure the return value of `defineModel()` like this:
 
