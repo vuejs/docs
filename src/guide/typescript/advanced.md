@@ -129,6 +129,44 @@ If you check the [defineComponent source-code](https://github.com/vuejs/core/blo
 
 `DefineComponent` generic order is pretty stable, but it's not guaranteed to be the same in future versions, the reason is because it needs to support the full Vue behavior (eg: Mixins/Extends), so it's recommended to use the more stable helper [DeclareComponent](./../../api/utility-types.html#declarecomponent) instead.
 
+```ts
+type DefineComponent<
+  PropsOrPropOptions = any,
+  RawBindings = any,
+  D = any,
+  C extends ComputedOptions = ComputedOptions,
+  M extends MethodOptions = MethodOptions,
+  Mixin extends ComponentOptionsMixin = {},
+  Extends extends ComponentOptionsMixin = {},
+  E extends EmitsOptions = {},
+  EE extends string = string,
+  PP = PublicProps,
+  Props = ResolveProps<PropsOrPropOptions, E>,
+  Defaults = ExtractDefaultPropTypes<PropsOrPropOptions>,
+  I extends ComponentInjectOptions = any,
+  II extends string = string,
+  S extends SlotsType = any,
+  Options extends Record<PropertyKey, any> = {},
+>
+```
+
+- `PropsOrPropOptions`: `Props` definition.
+- `RawBindings`: `setup` return type.
+- `D`: `data` return type.
+- `C`: `computed` object.
+- `M`: `methods` object.
+- `Mixin`: `mixins` union type `(MixinA | MixinB)[]`.
+- `Extends`: `extends` type.
+- `E`: `emits` object, if object declaration is used.
+- `EE`: `emits` string union type, if string is used.
+- `PP`: `PublicProps`, contains `class`, `style`, `VNode` specific props and [ComponentCustomProps](../../api/utility-types#componentcustomprops).
+- `Props`: Sanitised props, these are `PropsOrPropOptions` but with the resolved type.
+- `Defaults`: defaulted props
+- `I`: `inject` object, if object declaration is used.
+- `II`: `inject` string union type, if string is used.
+- `S`: `slots` object.
+- `Options`: Unaltered `Options` object used to define the component.
+
 ### DefineComponent
 
 Returned from [defineComponent](./../../api/general.html#definecomponent), has [Options](#options), [Render](#render) and [Instance](#instance) information about the component.
