@@ -127,21 +127,14 @@ If you check the [defineComponent source-code](https://github.com/vuejs/core/blo
 
 #### Generics parameters
 
-`DefineComponent` generic order is pretty stable, but it's not guaranteed to be the same in future versions, so it's recommended to use [DeclareComponent](./../../api/utility-types.html#declarecomponent) instead.
-
-```ts
-
-
+`DefineComponent` generic order is pretty stable, but it's not guaranteed to be the same in future versions, the reason is because it needs to support the full Vue behavior (eg: Mixins/Extends), so it's recommended to use the more stable helper [DeclareComponent](./../../api/utility-types.html#declarecomponent) instead.
 
 ### DefineComponent
 
-Returned from [defineComponent](./../../api/general.html#definecomponent),
-```
-
+Returned from [defineComponent](./../../api/general.html#definecomponent), has [Options](#options), [Render](#render) and [Instance](#instance) information about the component.
 
 ### Bespoke `defineComponent`
 
-Vue options are very hard to get the type hard, sometimes `defineComponent` is not enough and creating a bespoke `defineComponent` can be useful for some more advance cases, such as [@vue/test-utils](https://test-utils.vuejs.org/) [mount](https://test-utils.vuejs.org/api/#mount) method.
+Vue options are very hard to get the correct type, sometimes `defineComponent` is not enough and creating a bespoke `defineComponent` can be useful for some more advance cases, such as [@vue/test-utils](https://test-utils.vuejs.org/) [mount](https://test-utils.vuejs.org/api/#mount) method.
 
-
-http://localhost:5173/api/utility-types.html#definecomponentoptions
+For that use case we recommend using the utilities [DefineComponentOptions & DefineComponentFromOptions](../../api//utility-types.md#definecomponentoptions).
