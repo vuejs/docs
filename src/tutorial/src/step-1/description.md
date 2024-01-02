@@ -21,6 +21,8 @@ If you are an experienced developer coming from Vue 2 or other frameworks, there
 
 - You can also switch between SFC-mode or HTML-mode. The former will show code examples in <a target="_blank" href="/guide/introduction.html#single-file-components">Single-File Component</a> (SFC) format, which is what most developers use when they use Vue with a build step. HTML-mode shows usage without a build step.
 
+<div class="html">
+
 :::tip
 If you're about to use HTML-mode without a build step in your own applications, make sure you either change imports to 
 
@@ -43,6 +45,8 @@ export default {
 
 See the respective [section in Tooling guide](/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation) for more information.
 :::
+
+</div>
 
 </details>
 
