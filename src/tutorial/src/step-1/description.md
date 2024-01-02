@@ -34,10 +34,10 @@ inside your scripts or configure your build tool to resolve `vue` accordingly. S
 // vite.config.js
 export default {
   resolve: {
-      alias: {
-        vue: 'vue/dist/vue.esm-bundler.js'
-      }
+    alias: {
+      vue: 'vue/dist/vue.esm-bundler.js'
     }
+  }
 }
 ```
 
