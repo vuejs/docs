@@ -22,7 +22,7 @@ props.bar // number | undefined
 
 This is called "runtime declaration", because the argument passed to `defineProps()` will be used as the runtime `props` option.
 
-However, it is usually more straightforward to define props with pure types via a generic type argument:
+However, it is usually more straightforward to define props with pure types via a type argument:
 
 ```vue
 <script setup lang="ts">
@@ -62,7 +62,7 @@ const props = defineProps<Props>()
 
 #### Syntax Limitations {#syntax-limitations}
 
-In version 3.2 and below, the generic type parameter for `defineProps()` were limited to a type literal or a reference to a local interface.
+In version 3.2 and below, the type parameter for `defineProps()` were limited to a type literal or a reference to a local interface.
 
 This limitation has been resolved in 3.3. The latest version of Vue supports referencing imported and a limited set of complex types in the type parameter position. However, because the type to runtime conversion is still AST-based, some complex types that require actual type analysis, e.g. conditional types, are not supported. You can use conditional types for the type of a single prop, but not the entire props object.
 
@@ -224,7 +224,7 @@ const year: Ref<string | number> = ref('2020')
 year.value = 2020 // ok!
 ```
 
-Or, by passing a generic argument when calling `ref()` to override the default inference:
+Or, by passing a type argument when calling `ref()` to override the default inference:
 
 ```ts
 // resulting type: Ref<string | number>
@@ -233,7 +233,7 @@ const year = ref<string | number>('2020')
 year.value = 2020 // ok!
 ```
 
-If you specify a generic type argument but omit the initial value, the resulting type will be a union type that includes `undefined`:
+If you specify a type argument but omit the initial value, the resulting type will be a union type that includes `undefined`:
 
 ```ts
 // inferred type: Ref<number | undefined>
@@ -265,7 +265,7 @@ const book: Book = reactive({ title: 'Vue 3 Guide' })
 ```
 
 :::tip
-It's not recommended to use the generic argument of `reactive()` because the returned type, which handles nested ref unwrapping, is different from the generic argument type.
+It's not recommended to pass a type argument to `reactive()` because the returned type, which handles nested ref unwrapping, is different from the type passed in.
 :::
 
 ## Typing `computed()` {#typing-computed}
@@ -284,7 +284,7 @@ const double = computed(() => count.value * 2)
 const result = double.value.split('')
 ```
 
-You can also specify an explicit type via a generic argument:
+You can also pass in a type argument:
 
 ```ts
 const double = computed<number>(() => {
@@ -334,7 +334,7 @@ const foo = inject(key) // type of foo: string | undefined
 
 It's recommended to place the injection key in a separate file so that it can be imported in multiple components.
 
-When using string injection keys, the type of the injected value will be `unknown`, and needs to be explicitly declared via a generic type argument:
+When using string injection keys, the type of the injected value will be `unknown`, and needs to be explicitly declared via a type argument:
 
 ```ts
 const foo = inject<string>('foo') // type: string | undefined
@@ -356,7 +356,7 @@ const foo = inject('foo') as string
 
 ## Typing Template Refs {#typing-template-refs}
 
-Template refs should be created with an explicit generic type argument and an initial value of `null`:
+Template refs should be created with an explicit type argument and an initial value of `null`:
 
 ```vue
 <script setup lang="ts">
