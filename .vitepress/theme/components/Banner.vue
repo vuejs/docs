@@ -84,16 +84,8 @@ html:not(.banner-dismissed) {
   font-size: 13px;
   font-weight: 600;
   color: #fff;
-  background-color: #ed00d2;
+  background: linear-gradient(90deg, #f926e1 0.22%, #2ab5fb 99.76%);
 }
-/*background-color: var(--vt-c-green);
-  background: linear-gradient(
-      0deg,
-      rgba(13, 13, 13, 0.76) 0%,
-      rgba(13, 13, 13, 0.76) 100%
-    ),
-    linear-gradient(90deg, #f926e1 0.22%, #2ab5fb 99.76%);*/
-
 .banner__container {
   cursor: pointer;
   text-decoration: none;
