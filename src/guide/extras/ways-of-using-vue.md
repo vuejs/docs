@@ -56,4 +56,5 @@ Although Vue is primarily designed for building web applications, it is by no me
 - Build desktop apps with [Electron](https://www.electronjs.org/) or [Tauri](https://tauri.app)
 - Build mobile apps with [Ionic Vue](https://ionicframework.com/docs/vue/overview)
 - Build desktop and mobile apps from the same codebase with [Quasar](https://quasar.dev/)
-- Use Vue's [Custom Renderer API](/api/custom-renderer) to build custom renderers targeting [WebGL](https://troisjs.github.io/) or even [the terminal](https://github.com/vue-terminal/vue-termui)!
+- Build 3D WebGL experiences with [TresJS](https://tresjs.org/)
+- Use Vue's [Custom Renderer API](/api/custom-renderer) to build custom renderers, like those for [the terminal](https://github.com/vue-terminal/vue-termui)!
