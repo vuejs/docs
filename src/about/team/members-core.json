@@ -111,30 +111,24 @@
   {
     "name": "Jinjiang",
     "title": "Developer",
+    "company": "Bit",
+    "companyLink": "https://bit.dev",
     "projects": [
+      {
+        "label": "vuejs-translations",
+        "url": "https://github.com/vuejs-translations"
+      },
       {
         "label": "cn.vuejs.org",
         "url": "https://cn.vuejs.org"
-      },
-      {
-        "label": "vue-a11y-utils",
-        "url": "https://github.com/jinjiang/vue-a11y-utils"
-      },
-      {
-        "label": "vue-mark-display",
-        "url": "https://github.com/jinjiang/vue-mark-display"
-      },
-      {
-        "label": "mark2slides",
-        "url": "https://github.com/jinjiang/mark2slides"
-      },
-      {
-        "label": "vue-keyboard-over",
-        "url": "https://github.com/jinjiang/vue-keyboard-over"
       }
     ],
     "location": "Singapore",
     "languages": ["Chinese", "English"],
+    "website": {
+      "label": "jinjiang.me",
+      "url": "http://jinjiang.me"
+    },
     "socials": {
       "github": "jinjiang",
       "twitter": "zhaojinjiang"
