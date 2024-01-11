@@ -239,7 +239,7 @@ Similarly, you can use dynamic arguments to bind a handler to a dynamic event na
 <a v-on:[eventName]="doSomething"> ... </a>
 
 <!-- shorthand -->
-<a @[eventName]="doSomething">
+<a @[eventName]="doSomething"> ... </a>
 ```
 
 In this example, when `eventName`'s value is `"focus"`, `v-on:[eventName]` will be equivalent to `v-on:focus`.
