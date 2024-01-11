@@ -65,7 +65,7 @@ export default {
 
 <div class="composition-api">
 
-With Composition API, we can use the [`watch` function](/api/reactivity-core.html#watch) to trigger a callback whenever a piece of reactive state changes:
+Mit der Composition API können wir die Funktion [`watch`](/api/reactivity-core.html#watch) verwenden, um einen Callback auszulösen, sobald sich ein Teil des reaktiven Zustands ändert:
 
 ```vue
 <script setup>
