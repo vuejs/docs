@@ -24,10 +24,10 @@ If you are an experienced developer coming from Vue 2 or other frameworks, there
 <div class="html">
 
 :::tip
-If you're about to use HTML-mode without a build step in your own applications, make sure you either change imports to 
+If you're about to use HTML-mode without a build step in your own applications, make sure you either change imports to:
 
 ```js
-import { * } from vue/dist/vue.esm-bundler.js
+import { ... } from 'vue/dist/vue.esm-bundler.js'
 ```
 
 inside your scripts or configure your build tool to resolve `vue` accordingly. Sample config for [Vite](https://vitejs.dev/):
