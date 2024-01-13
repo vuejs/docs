@@ -126,6 +126,12 @@ Single checkbox, boolean value:
   <label for="checkbox-demo">{{ checked }}</label>
 </div>
 
+The v-model is equivalent to:
+
+```vue-html
+<input type="checkbox" id="checkbox" :checked="checked" @input="checked = $event.target.checked" />
+```
+
 <div class="composition-api">
 
 [Try it in the Playground](https://play.vuejs.org/#eNpVjssKgzAURH/lko3tonVfotD/yEaTKw3Ni3gjLSH/3qhUcDnDnMNk9gzhviRkD8ZnGXUgmJFS6IXTNvhIkCHiBAWm6C00ddoIJ5z0biaQL5RvVNCtmwvFhFfheLuLqqIGQhvMQLgm4tqFREDfgJ1gGz36j2Cg1TkvN+sVmn+JqnbtrjDDiAYmH09En/PxphTebqsK8PY4wMoPslBUxQ==)
