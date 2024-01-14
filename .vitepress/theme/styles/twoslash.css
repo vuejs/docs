@@ -1,0 +1,27 @@
+.floating-vue-twoslash .twoslash-popup-type {
+  max-width: 600px;
+  display: block;
+  padding: 6px 12px;
+  width: fit-content;
+  min-width: 100%;
+  font-family: var(--vt-font-family-mono);
+  line-height: var(--vt-doc-code-line-height);
+  font-size: 14px;
+  color: white;
+  transition: color 0.5s;
+  white-space: pre-wrap;
+}
+
+.v-popper--theme-twoslash .v-popper__inner {
+  background: #24292e;
+  color: white;
+  border-color: #8885;
+}
+
+.v-popper--theme-dropdown .v-popper__arrow-outer {
+  border-color: #8885;
+}
+
+.v-popper--theme-dropdown .v-popper__arrow-inner {
+  border-color: #24292e;
+}

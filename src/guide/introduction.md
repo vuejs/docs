@@ -31,7 +31,7 @@ Here is a minimal example:
 
 <div class="options-api">
 
-```js
+```js twoslash
 import { createApp } from 'vue'
 
 createApp({
@@ -46,7 +46,7 @@ createApp({
 </div>
 <div class="composition-api">
 
-```js
+```js twoslash
 import { createApp, ref } from 'vue'
 
 createApp({
@@ -141,7 +141,7 @@ button {
 </div>
 <div class="composition-api">
 
-```vue
+```vue twoslash
 <script setup>
 import { ref } from 'vue'
 const count = ref(0)

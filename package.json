@@ -10,21 +10,29 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@vue/repl": "^3.0.0",
+    "@vue/repl": "^3.3.0",
     "@vue/theme": "^2.2.5",
     "dynamics.js": "^1.1.5",
-    "gsap": "^3.9.0",
-    "vitepress": "1.0.0-rc.33",
-    "vue": "^3.4.0"
+    "floating-vue": "^5.0.3",
+    "gsap": "^3.12.4",
+    "vitepress": "1.0.0-rc.36",
+    "vue": "^3.4.13"
   },
   "devDependencies": {
-    "@types/markdown-it": "^12.2.3",
-    "@types/node": "^20.10.1",
-    "terser": "^5.14.2"
+    "@types/markdown-it": "^13.0.7",
+    "@types/node": "^20.11.0",
+    "shikiji": "0.10.0-beta.1",
+    "shikiji-transformers": "0.10.0-beta.1",
+    "shikiji-twoslash": "0.10.0-beta.1",
+    "terser": "^5.26.0",
+    "vitepress-plugin-twoslash": "0.10.0-beta.1"
   },
   "pnpm": {
     "overrides": {
-      "@vitejs/plugin-vue": "5.0.0-beta.1"
+      "shikiji": "0.10.0-beta.1",
+      "shikiji-transformers": "0.10.0-beta.1",
+      "shikiji-twoslash": "0.10.0-beta.1",
+      "vitepress-plugin-twoslash": "0.10.0-beta.1"
     },
     "peerDependencyRules": {
       "ignoreMissing": [
