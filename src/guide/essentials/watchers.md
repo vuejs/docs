@@ -40,7 +40,7 @@ export default {
 
 ```vue-html
 <p>
-  Ask a yes/no question:
+  Stellen Sie eine Ja/Nein-Frage:
   <input v-model="question" />
 </p>
 <p>{{ answer }}</p>
