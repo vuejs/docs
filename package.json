@@ -16,23 +16,23 @@
     "floating-vue": "^5.0.3",
     "gsap": "^3.12.4",
     "vitepress": "1.0.0-rc.36",
-    "vue": "^3.4.13"
+    "vue": "^3.4.14"
   },
   "devDependencies": {
     "@types/markdown-it": "^13.0.7",
-    "@types/node": "^20.11.0",
-    "shikiji": "0.10.0-beta.1",
-    "shikiji-transformers": "0.10.0-beta.1",
-    "shikiji-twoslash": "0.10.0-beta.1",
+    "@types/node": "^20.11.2",
+    "shikiji": "0.10.0-beta.2",
+    "shikiji-transformers": "0.10.0-beta.2",
+    "shikiji-twoslash": "0.10.0-beta.2",
     "terser": "^5.26.0",
-    "vitepress-plugin-twoslash": "0.10.0-beta.1"
+    "vitepress-plugin-twoslash": "0.10.0-beta.2"
   },
   "pnpm": {
     "overrides": {
-      "shikiji": "0.10.0-beta.1",
-      "shikiji-transformers": "0.10.0-beta.1",
-      "shikiji-twoslash": "0.10.0-beta.1",
-      "vitepress-plugin-twoslash": "0.10.0-beta.1"
+      "shikiji": "0.10.0-beta.2",
+      "shikiji-transformers": "0.10.0-beta.2",
+      "shikiji-twoslash": "0.10.0-beta.2",
+      "vitepress-plugin-twoslash": "0.10.0-beta.2"
     },
     "peerDependencyRules": {
       "ignoreMissing": [
