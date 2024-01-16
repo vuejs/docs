@@ -72,7 +72,7 @@ Mit der Composition API können wir die Funktion [`watch`](/api/reactivity-core.
 import { ref, watch } from 'vue'
 
 const question = ref('')
-const answer = ref('Questions usually contain a question mark. ;-)')
+const answer = ref('Fragen enthalten in der Regel ein Fragezeichen. ;-)')
 
 // watch works directly on a ref
 watch(question, async (newQuestion, oldQuestion) => {
