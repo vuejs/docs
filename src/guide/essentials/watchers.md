@@ -101,7 +101,7 @@ watch(question, async (newQuestion, oldQuestion) => {
 
 ### Quellenarten beobachten {#watch-source-types}
 
-`watch`'s first argument can be different types of reactive "sources": it can be a ref (including computed refs), a reactive object, a getter function, or an array of multiple sources:
+Das erste Argument von `watch` kann aus verschiedenen Arten von reaktiven "Quellen" bestehen: Es kann ein ref (einschließlich berechneter refs), ein reaktives Objekt, eine Getter-Funktion oder ein Array aus mehreren Quellen sein:
 
 ```js
 const x = ref(0)
