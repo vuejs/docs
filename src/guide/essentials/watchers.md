@@ -126,7 +126,7 @@ watch([x, () => y.value], ([newX, newY]) => {
 })
 ```
 
-Do note that you can't watch a property of a reactive object like this:
+Beachten Sie, dass Sie eine Eigenschaft eines reaktiven Objekts nicht auf diese Weise überwachen können:
 
 ```js
 const obj = reactive({ count: 0 })
