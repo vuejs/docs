@@ -99,7 +99,7 @@ To access refs in a component's template, declare and return them from a compone
 import { ref } from 'vue'
 
 export default {
-  // `setup` is a special hook dedicated for the Composition API.
+  // `setup` is a special hook dedicated for the Options API.
   setup() {
     const count = ref(0)
 
