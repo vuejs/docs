@@ -331,13 +331,17 @@ For examples like these, with only one dependency, the benefit of `watchEffect()
 
 When you mutate reactive state, it may trigger both Vue component updates and watcher callbacks created by you.
 
-By default, user-created watcher callbacks are called **before** Vue component updates. This means if you attempt to access the DOM inside a watcher callback, the DOM will be in the state before Vue has applied any updates.
+Similar to component updates, user-created watcher callbacks are batched to avoid duplicate invocations. For example, we probably don't want a watcher to fire a thousand times if we synchronously push a thousand items into an array being watched.
 
-If you want to access the DOM in a watcher callback **after** Vue has updated it, you need to specify the `flush: 'post'` option:
+By default, a watcher's callback is called **after** parent component updates (if any), and **before** the owner component's DOM updates. This means if you attempt to access the owner component's own DOM inside a watcher callback, the DOM will be in a pre-update state.
+
+### Post Watchers
+
+If you want to access the owner component's DOM in a watcher callback **after** Vue has updated it, you need to specify the `flush: 'post'` option:
 
 <div class="options-api">
 
-```js
+```js{6}
 export default {
   // ...
   watch: {
@@ -353,7 +357,7 @@ export default {
 
 <div class="composition-api">
 
-```js
+```js{2,6}
 watch(source, callback, {
   flush: 'post'
 })
@@ -374,6 +378,54 @@ watchPostEffect(() => {
 ```
 
 </div>
+
+### Sync Watchers
+
+It's also possible to create a watcher that fires synchronously, before any Vue-managed updates:
+
+<div class="options-api">
+
+```js{6}
+export default {
+  // ...
+  watch: {
+    key: {
+      handler() {},
+      flush: 'sync'
+    }
+  }
+}
+```
+
+</div>
+
+<div class="composition-api">
+
+```js{2,6}
+watch(source, callback, {
+  flush: 'sync'
+})
+
+watchEffect(callback, {
+  flush: 'sync'
+})
+```
+
+Sync `watchEffect()` also has a convenience alias, `watchSyncEffect()`:
+
+```js
+import { watchSyncEffect } from 'vue'
+
+watchSyncEffect(() => {
+  /* executed synchronously upon reactive data change */
+})
+```
+
+</div>
+
+:::warning Use with Caution
+Sync watchers do not have batching and triggers every time a reactive mutation is detected. It's ok to use them to watch simple boolean values, but avoid using them on data sources that might be synchronously mutated many times, e.g. arrays.
+:::
 
 <div class="options-api">
 
