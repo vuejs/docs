@@ -13,27 +13,18 @@
     "@vue/repl": "^3.3.0",
     "@vue/theme": "^2.2.5",
     "dynamics.js": "^1.1.5",
-    "floating-vue": "^5.0.3",
-    "gsap": "^3.12.4",
+    "floating-vue": "^5.2.0",
+    "gsap": "^3.12.5",
     "vitepress": "1.0.0-rc.36",
-    "vue": "^3.4.14"
+    "vue": "^3.4.15"
   },
   "devDependencies": {
     "@types/markdown-it": "^13.0.7",
-    "@types/node": "^20.11.2",
-    "shikiji": "0.10.0-beta.2",
-    "shikiji-transformers": "0.10.0-beta.2",
-    "shikiji-twoslash": "0.10.0-beta.2",
-    "terser": "^5.26.0",
-    "vitepress-plugin-twoslash": "0.10.0-beta.2"
+    "@types/node": "^20.11.5",
+    "terser": "^5.27.0",
+    "vitepress-plugin-twoslash": "^0.10.0-beta.8"
   },
   "pnpm": {
-    "overrides": {
-      "shikiji": "0.10.0-beta.2",
-      "shikiji-transformers": "0.10.0-beta.2",
-      "shikiji-twoslash": "0.10.0-beta.2",
-      "vitepress-plugin-twoslash": "0.10.0-beta.2"
-    },
     "peerDependencyRules": {
       "ignoreMissing": [
         "@algolia/client-search",
