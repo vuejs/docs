@@ -257,8 +257,9 @@ Order matters when using modifiers because the relevant code is generated in the
 The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the native `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
 
 ```vue-html
-<!-- use capture mode when adding the event listener -->
-<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<!-- use capture mode when adding the event listener     -->
+<!-- i.e. an event targeting an inner element is handled -->
+<!-- here before being handled by that element           -->
 <div @click.capture="doThis">...</div>
 
 <!-- the click event will be triggered at most once -->
