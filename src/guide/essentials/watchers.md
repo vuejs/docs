@@ -335,7 +335,7 @@ Similar to component updates, user-created watcher callbacks are batched to avoi
 
 By default, a watcher's callback is called **after** parent component updates (if any), and **before** the owner component's DOM updates. This means if you attempt to access the owner component's own DOM inside a watcher callback, the DOM will be in a pre-update state.
 
-### Post Watchers
+### Post Watchers {#post-watchers}
 
 If you want to access the owner component's DOM in a watcher callback **after** Vue has updated it, you need to specify the `flush: 'post'` option:
 
@@ -379,7 +379,7 @@ watchPostEffect(() => {
 
 </div>
 
-### Sync Watchers
+### Sync Watchers {#sync-watchers}
 
 It's also possible to create a watcher that fires synchronously, before any Vue-managed updates:
 
