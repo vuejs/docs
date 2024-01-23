@@ -53,7 +53,7 @@ Die Option `watch` unterstützt auch einen durch Punkte getrennten Pfad als Schl
 ```js
 export default {
   watch: {
-    // Note: only simple paths. Expressions are not supported.
+    // Hinweis: nur einfache Pfade. Ausdrücke werden nicht unterstützt.
     'some.nested.key'(newValue) {
       // ...
     }
