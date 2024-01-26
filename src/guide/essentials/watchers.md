@@ -74,7 +74,7 @@ import { ref, watch } from 'vue'
 const question = ref('')
 const answer = ref('Fragen enthalten in der Regel ein Fragezeichen. ;-)')
 
-// watch works directly on a ref
+// Uhr arbeitet direkt auf einem Ref
 watch(question, async (newQuestion, oldQuestion) => {
   if (newQuestion.indexOf('?') > -1) {
     answer.value = 'Thinking...'
