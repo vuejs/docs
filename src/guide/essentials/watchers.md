@@ -155,7 +155,7 @@ watch(
 
 <div class="options-api">
 
-`watch` is shallow by default: the callback will only trigger when the watched property has been assigned a new value - it won't trigger on nested property changes. If you want the callback to fire on all nested mutations, you need to use a deep watcher:
+`watch` ist standardmäßig oberflächlich: der Callback wird nur ausgelöst, wenn der überwachten Eigenschaft ein neuer Wert zugewiesen wurde - er wird nicht bei verschachtelten Eigenschaftsänderungen ausgelöst. Wenn Sie möchten, dass der Callback bei allen verschachtelten Änderungen ausgelöst wird, müssen Sie einen Deep Watcher verwenden:
 
 ```js
 export default {
