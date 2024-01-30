@@ -176,7 +176,7 @@ export default {
 
 <div class="composition-api">
 
-When you call `watch()` directly on a reactive object, it will implicitly create a deep watcher - the callback will be triggered on all nested mutations:
+Wenn Sie `watch()` direkt auf einem reaktiven Objekt aufrufen, wird implizit ein Deep Watcher erstellt - der Callback wird bei allen verschachtelten Mutationen ausgelöst:
 
 ```js
 const obj = reactive({ count: 0 })
