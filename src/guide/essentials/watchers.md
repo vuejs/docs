@@ -190,7 +190,7 @@ watch(obj, (newValue, oldValue) => {
 obj.count++
 ```
 
-This should be differentiated with a getter that returns a reactive object - in the latter case, the callback will only fire if the getter returns a different object:
+Dies ist zu unterscheiden von einem Getter, der ein reaktives Objekt zurückgibt - im letzteren Fall wird der Callback nur ausgelöst, wenn der Getter ein anderes Objekt zurückgibt:
 
 ```js
 watch(
