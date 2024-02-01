@@ -162,9 +162,9 @@ export default {
   watch: {
     someObject: {
       handler(newValue, oldValue) {
-        // Note: `newValue` will be equal to `oldValue` here
-        // on nested mutations as long as the object itself
-        // hasn't been replaced.
+        // Hinweis: `newValue` ist hier gleich `oldValue`
+        // bei verschachtelten Mutationen, solange das Objekt selbst
+        // nicht ersetzt worden ist.
       },
       deep: true
     }
