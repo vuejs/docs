@@ -207,8 +207,8 @@ You can, however, force the second case into a deep watcher by explicitly using 
 watch(
   () => state.someObject,
   (newValue, oldValue) => {
-    // Note: `newValue` will be equal to `oldValue` here
-    // *unless* state.someObject has been replaced
+    // Hinweis: `newValue` ist hier gleich `oldValue`
+    // *außer* state.someObject wurde ersetzt
   },
   { deep: true }
 )
