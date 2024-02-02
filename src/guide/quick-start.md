@@ -365,6 +365,8 @@ Import Maps is a relatively new browser feature. Make sure to use a browser with
 
 :::warning Notes on Production Use
 The examples so far are using the development build of Vue - if you intend to use Vue from a CDN in production, make sure to check out the [Production Deployment Guide](/guide/best-practices/production-deployment#without-build-tools).
+
+While it is possible to use Vue without a build system, we consider it to be a little too much for minimalist approaches, so we recommend giving a chance to the [`vuejs/petite-vue`](https://github.com/vuejs/petite-vue) that could suit better on the context where [`jquery/jquery`](https://github.com/jquery/jquery) (in the past) or [`alpinejs/alpine`](https://github.com/alpinejs/alpine) (in the present) would be more indicated.
 :::
 
 ### Splitting Up the Modules {#splitting-up-the-modules}
