@@ -209,7 +209,11 @@ const title = defineModel('title', { required: true })
 ```vue
 <!-- MyComponent.vue -->
 <script setup>
-defineProps(['title'])
+defineProps({
+  title: {
+    required: true 
+  }
+})
 defineEmits(['update:title'])
 </script>
 
