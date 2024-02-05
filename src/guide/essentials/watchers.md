@@ -196,7 +196,7 @@ Dies ist zu unterscheiden von einem Getter, der ein reaktives Objekt zurückgibt
 watch(
   () => state.someObject,
   () => {
-    // fires only when state.someObject is replaced
+    // wird nur ausgelöst, wenn state.someObject ersetzt wird
   }
 )
 ```
