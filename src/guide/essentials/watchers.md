@@ -182,9 +182,9 @@ Wenn Sie `watch()` direkt auf einem reaktiven Objekt aufrufen, wird implizit ein
 const obj = reactive({ count: 0 })
 
 watch(obj, (newValue, oldValue) => {
-  // fires on nested property mutations
-  // Note: `newValue` will be equal to `oldValue` here
-  // because they both point to the same object!
+  // feuert auf verschachtelte Eigenschaftsmutationen
+  // Hinweis: `newValue` wird hier gleich `oldValue` sein
+  // weil sie beide auf dasselbe Objekt zeigen!
 })
 
 obj.count++
