@@ -313,7 +313,7 @@ function BaseLayout(slots) {
 </base-layout>
 ```
 
-Do note the expression is subject to the [syntax constraints](/guide/essentials/template-syntax#directives) of dynamic directive arguments.
+Do note the expression is subject to the [syntax constraints](/guide/essentials/template-syntax.md#dynamic-argument-syntax-constraints) of dynamic directive arguments.
 
 ## Scoped Slots {#scoped-slots}
 

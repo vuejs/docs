@@ -4,7 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
-import { transformerTwoslash } from 'vitepress-plugin-twoslash'
+import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 // import { textAdPlugin } from './textAdMdPlugin'
 
 const nav: ThemeConfig['nav'] = [

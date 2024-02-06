@@ -1,9 +1,9 @@
-import 'vitepress-plugin-twoslash/style.css'
+import '@shikijs/vitepress-twoslash/style.css'
 import './styles/index.css'
 
 import { h, App, Plugin } from 'vue'
 import { VPTheme } from '@vue/theme'
-import twoslashFloatingVue from 'vitepress-plugin-twoslash/client'
+import twoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
 import {
   preferComposition,
@@ -12,14 +12,14 @@ import {
 } from './components/preferences'
 import SponsorsAside from './components/SponsorsAside.vue'
 import VueSchoolLink from './components/VueSchoolLink.vue'
-import Banner from './components/Banner.vue'
+// import Banner from './components/Banner.vue'
 // import TextAd from './components/TextAd.vue'
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {
     // @ts-ignore
     return h(VPTheme.Layout, null, {
-      banner: () => h(Banner),
+      // banner: () => h(Banner),
       'sidebar-top': () => h(PreferenceSwitch),
       'aside-mid': () => h(SponsorsAside)
     })

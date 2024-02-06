@@ -1,17 +1,21 @@
-.floating-vue-twoslash .twoslash-popup-container {
+:root {
+  --twoslash-border-color: var(--vt-c-divider);
+  --twoslash-unmatched-color: var(--vt-c-text-2);
+}
+
+.twoslash-floating .twoslash-popup-container {
   font-family: var(--vt-font-family-mono);
   line-height: var(--vt-doc-code-line-height);
   font-size: 14px;
   color: white;
 }
 
-.floating-vue-twoslash .twoslash-popup-docs {
-  border-top: 1px solid var(--vt-c-divider);
+.twoslash-floating .twoslash-popup-docs {
   font-family: var(--vt-font-family-base) !important;
   font-size: 1em;
 }
 
-.floating-vue-twoslash .twoslash-popup-docs-tag-name {
+.twoslash-floating .twoslash-popup-docs-tag-name {
   color: var(--vt-c-text-2) !important;
 }
 

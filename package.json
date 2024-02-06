@@ -15,14 +15,18 @@
     "dynamics.js": "^1.1.5",
     "floating-vue": "^5.2.0",
     "gsap": "^3.12.5",
-    "vitepress": "1.0.0-rc.36",
+    "vitepress": "1.0.0-rc.41",
     "vue": "^3.4.15"
   },
   "devDependencies": {
     "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.11.5",
     "terser": "^5.27.0",
-    "vitepress-plugin-twoslash": "^0.10.0-beta.8"
+    "@shikijs/vitepress-twoslash": "^1.0.0-beta.6"
+  },
+  "resolutions": {
+    "shiki": "1.0.0-beta.6",
+    "@shikijs/core": "1.0.0-beta.6"
   },
   "pnpm": {
     "peerDependencyRules": {
