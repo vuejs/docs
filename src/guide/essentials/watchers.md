@@ -131,7 +131,7 @@ Beachten Sie, dass Sie eine Eigenschaft eines reaktiven Objekts nicht auf diese 
 ```js
 const obj = reactive({ count: 0 })
 
-// this won't work because we are passing a number to watch()
+// dies wird nicht funktionieren, da wir eine Zahl an watch() übergeben
 watch(obj.count, (count) => {
   console.log(`count is: ${count}`)
 })
