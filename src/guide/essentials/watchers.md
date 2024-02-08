@@ -140,7 +140,7 @@ watch(obj.count, (count) => {
 Verwenden Sie stattdessen einen Getter:
 
 ```js
-// instead, use a getter:
+// verwenden Sie stattdessen einen Getter:
 watch(
   () => obj.count,
   (count) => {
