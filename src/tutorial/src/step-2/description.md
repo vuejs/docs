@@ -6,7 +6,7 @@ What you see in the editor is a Vue Single-File Component (SFC). An SFC is a reu
 
 </div>
 
-The core feature of Vue is **declarative rendering**: using a template syntax that extends HTML, we can describe how the HTML should look like based on JavaScript state. When the state changes, the HTML updates automatically.
+The core feature of Vue is **declarative rendering**: using a template syntax that extends HTML, we can describe how the HTML should look based on JavaScript state. When the state changes, the HTML updates automatically.
 
 <div class="composition-api">
 
