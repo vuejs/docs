@@ -120,7 +120,7 @@ watch(
   }
 )
 
-// Array aus mehreren Quellen
+// Array from multiple sources
 watch([x, () => y.value], ([newX, newY]) => {
   console.log(`x is ${newX} and y is ${newY}`)
 })
