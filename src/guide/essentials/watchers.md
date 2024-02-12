@@ -201,7 +201,7 @@ watch(
 )
 ```
 
-You can, however, force the second case into a deep watcher by explicitly using the `deep` option:
+Sie können jedoch den zweiten Fall in einen Deep Watcher erzwingen, indem Sie explizit die Option `deep` verwenden:
 
 ```js
 watch(
