@@ -226,7 +226,7 @@ Deep watch requires traversing all nested properties in the watched object, and 
 
 `watch` ist standardmäßig lazy: der Callback wird erst aufgerufen, wenn sich die überwachte Quelle geändert hat. Aber in manchen Fällen möchten wir, dass die gleiche Callback-Logik eifrig ausgeführt wird - zum Beispiel möchten wir einige anfängliche Daten abrufen und dann die Daten erneut abrufen, wenn sich der relevante Zustand ändert.
 
-We can force a watcher's callback to be executed immediately by declaring it using an object with a `handler` function and the `immediate: true` option:
+Wir können erzwingen, dass der Rückruf eines Watchers sofort ausgeführt wird, indem wir ihn als Objekt mit einer `handler`-Funktion und der Option `immediate: true` deklarieren:
 
 ```js
 export default {
