@@ -234,7 +234,7 @@ export default {
   watch: {
     question: {
       handler(newQuestion) {
-        // this will be run immediately on component creation.
+        // wird dies sofort bei der Erstellung der Komponente ausgeführt.
       },
       // force eager callback execution
       immediate: true
