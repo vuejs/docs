@@ -587,7 +587,7 @@ Sometimes you need to force the re-render of a DOM element in order for a transi
 
 Take this counter component for example.
 
-```vue-html
+```vue
 <script setup>
 import { ref } from 'vue';
 const count = ref(0);
