@@ -236,7 +236,7 @@ export default {
       handler(newQuestion) {
         // wird dies sofort bei der Erstellung der Komponente ausgeführt.
       },
-      // force eager callback execution
+      // eifrige Callback-Ausführung erzwingen
       immediate: true
     }
   }
