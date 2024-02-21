@@ -18,7 +18,9 @@ Called when the instance is initialized.
 
 - **Details**
 
-  Called immediately when the instance is initialized, after props resolution, before processing other options such as `data()` or `computed`.
+  Called immediately when the instance is initialized and props are resolved .
+
+  Then the props will be defined as reactive properties and the state such as `data()` or `computed` will be set up.
 
   Note that the `setup()` hook of Composition API is called before any Options API hooks, even `beforeCreate()`.
 
