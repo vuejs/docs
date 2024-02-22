@@ -216,8 +216,8 @@ watch(
 
 </div>
 
-:::warning Use with Caution
-Deep watch requires traversing all nested properties in the watched object, and can be expensive when used on large data structures. Use it only when necessary and beware of the performance implications.
+:::warning Verwendung mit Vorsicht
+Deep Watch erfordert das Durchlaufen aller verschachtelten Eigenschaften des überwachten Objekts und kann bei großen Datenstrukturen teuer sein. Verwenden Sie es nur, wenn es notwendig ist, und achten Sie auf die Auswirkungen auf die Leistung.
 :::
 
 <div class="options-api">
