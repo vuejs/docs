@@ -21,7 +21,9 @@ export default {
   },
   methods: {
     addTodo() {
-      this.todos.push({ id: id++, text: this.newTodo, done: false })
+      if (this.newTodo.trim() !== '') {
+        this.todos.push({ id: id++, text: this.newTodo, done: false })
+      }
       this.newTodo = ''
     },
     removeTodo(todo) {
