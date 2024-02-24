@@ -15,7 +15,7 @@ export default {
   methods: {
     addTodo() {
       if (newTodo.value.trim() !== '') {
-        todos.value.push({ id: id++, text: newTodo.value })
+        this.todos.push({ id: id++, text: this.newTodo })
       }
       this.newTodo = ''
     },
