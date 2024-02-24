@@ -13,7 +13,9 @@ export default {
     ])
 
     function addTodo() {
-      todos.value.push({ id: id++, text: newTodo.value })
+      if (newTodo.value.trim() !== '') {
+        todos.value.push({ id: id++, text: newTodo.value })
+      }
       newTodo.value = ''
     }
 
