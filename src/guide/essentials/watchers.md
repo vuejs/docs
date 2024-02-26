@@ -224,7 +224,7 @@ Deep Watch erfordert das Durchlaufen aller verschachtelten Eigenschaften des üb
 
 ## Eager Watchers \* {#eager-watchers}
 
-`watch` ist standardmäßig lazy: der Callback wird erst aufgerufen, wenn sich die überwachte Quelle geändert hat. Aber in manchen Fällen möchten wir, dass die gleiche Callback-Logik eifrig ausgeführt wird - zum Beispiel möchten wir einige anfängliche Daten abrufen und dann die Daten erneut abrufen, wenn sich der relevante Zustand ändert.
+`watch` is lazy by default: the callback is only called when the monitored source has changed. But in some cases, we want the same callback logic to run eagerly - for example, we want to retrieve some initial data and then retrieve the data again when the relevant state changes.
 
 Wir können erzwingen, dass der Rückruf eines Watchers sofort ausgeführt wird, indem wir ihn als Objekt mit einer `handler`-Funktion und der Option `immediate: true` deklarieren:
 
