@@ -277,7 +277,7 @@ watchEffect(async () => {
 })
 ```
 
-Here, the callback will run immediately. During its execution, it will also automatically track `url.value` as a dependency (similar to computed properties). Whenever `url.value` changes, the callback will be run again.
+Hier wird der Callback sofort ausgeführt. Während seiner Ausführung wird er auch automatisch `url.value` als Abhängigkeit verfolgen (ähnlich wie bei berechneten Eigenschaften). Wann immer sich `url.value` ändert, wird der Callback erneut ausgeführt.
 
 You can check out [this example](/examples/#fetching-data) with `watchEffect` and reactive data-fetching in action.
 
