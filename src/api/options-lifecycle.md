@@ -18,7 +18,7 @@ Called when the instance is initialized.
 
 - **Details**
 
-  Called immediately when the instance is initialized and props are resolved .
+  Called immediately when the instance is initialized and props are resolved.
 
   Then the props will be defined as reactive properties and the state such as `data()` or `computed` will be set up.
 
