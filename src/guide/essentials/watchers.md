@@ -268,7 +268,7 @@ fetchData()
 watch(url, fetchData)
 ```
 
-This can be simplified with [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` allows us to perform a side effect immediately while automatically tracking the effect's reactive dependencies. The above example can be rewritten as:
+Dies kann mit [`watchEffect()`](/api/reactivity-core.html#watcheffect) vereinfacht werden. Mit `watchEffect()` können wir einen Seiteneffekt sofort ausführen und dabei automatisch die reaktiven Abhängigkeiten des Effekts verfolgen. Das obige Beispiel kann umgeschrieben werden als:
 
 ```js
 watchEffect(async () => {
