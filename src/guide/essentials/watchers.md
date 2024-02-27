@@ -120,7 +120,7 @@ watch(
   }
 )
 
-// Array from multiple sources
+// Array aus mehreren Quellen
 watch([x, () => y.value], ([newX, newY]) => {
   console.log(`x is ${newX} and y is ${newY}`)
 })
@@ -244,14 +244,14 @@ export default {
 }
 ```
 
-The initial execution of the handler function will happen just before the `created` hook. Vue will have already processed the `data`, `computed`, and `methods` options, so those properties will be available on the first invocation.
+Die anfängliche Ausführung der Handler-Funktion wird kurz vor dem `created`-Hook erfolgen. Vue hat bereits die Optionen `data`, `computed` und `methods` verarbeitet, so dass diese Eigenschaften beim ersten Aufruf verfügbar sind.
 </div>
 
 <div class="composition-api">
 
 ## `watchEffect()` \*\* {#watcheffect}
 
-`watch()` is lazy: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes. We may find ourselves doing this:
+`watch()` ist träge: der Callback wird erst aufgerufen, wenn sich die überwachte Quelle geändert hat. Aber in einigen Fällen möchten wir vielleicht, dass die gleiche Callback-Logik eifrig ausgeführt wird - zum Beispiel möchten wir einige anfängliche Daten abrufen und dann die Daten erneut abrufen, wenn sich der relevante Zustand ändert. Möglicherweise werden wir dies tun:
 
 ```js
 const url = ref('https://...')
@@ -262,9 +262,9 @@ async function fetchData() {
   data.value = await response.json()
 }
 
-// fetch immediately
+// sofort abrufen
 fetchData()
-// ...then watch for url change
+// ...dann auf Url-Änderung achten
 watch(url, fetchData)
 ```
 
