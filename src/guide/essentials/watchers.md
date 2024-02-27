@@ -282,7 +282,7 @@ Hier wird der Callback sofort ausgeführt. Während seiner Ausführung wird er a
 Sie können sich [dieses Beispiel](/examples/#fetching-data) mit `watchEffect` und reaktivem Datenabruf in Aktion ansehen.
 
 :::tip
-`watchEffect` only tracks dependencies during its **synchronous** execution. When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
+`watchEffect` verfolgt Abhängigkeiten nur während seiner **synchronen** Ausführung. Wenn es mit einem asynchronen Callback verwendet wird, werden nur Eigenschaften verfolgt, auf die vor dem ersten `await`-Tick zugegriffen wird.
 :::
 
 ### `watch` vs. `watchEffect` {#watch-vs-watcheffect}
