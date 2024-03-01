@@ -407,6 +407,8 @@ export default {
 
     // called when the enter transition has finished.
     onAfterEnter(el) {},
+
+    // called when the enter transition is cancelled before completion.
     onEnterCancelled(el) {},
 
     // called before the leave hook.
