@@ -287,7 +287,7 @@ Sie können sich [dieses Beispiel](/examples/#fetching-data) mit `watchEffect` u
 
 ### `watch` vs. `watchEffect` {#watch-vs-watcheffect}
 
-`watch` and `watchEffect` both allow us to reactively perform side effects. Their main difference is the way they track their reactive dependencies:
+Sowohl `watch` als auch `watchEffect` erlauben es uns, reaktiv Seiteneffekte auszuführen. Ihr Hauptunterschied ist die Art und Weise, wie sie ihre reaktiven Abhängigkeiten verfolgen:
 
 - `watch` only tracks the explicitly watched source. It won't track anything accessed inside the callback. In addition, the callback only triggers when the source has actually changed. `watch` separates dependency tracking from the side effect, giving us more precise control over when the callback should fire.
 
