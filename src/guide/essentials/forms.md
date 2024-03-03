@@ -293,6 +293,9 @@ Multiple select (bound to array):
     <option>C</option>
   </select>
 </div>
+:::tip Note
+Mouse users can hold the Ctrl, Command, or Shift keys (depending on your operating system) and then click multiple options to select/deselect them.
+:::
 
 <div class="composition-api">
 
