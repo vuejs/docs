@@ -182,7 +182,7 @@ The `emits` option and `defineEmits()` macro also support an object syntax. If u
 <div class="composition-api">
 
 ```vue
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits({
   submit(payload: { email: string, password: string }) {
     // return `true` or `false` to indicate
