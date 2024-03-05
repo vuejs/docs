@@ -26,7 +26,7 @@ With a Vite-based setup, the dev server and the bundler are transpilation-only a
 
 - [Visual Studio Code](https://code.visualstudio.com/) (VSCode) is strongly recommended for its great out-of-the-box support for TypeScript.
 
-  - [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (Previously Volar) is the official VSCode extension that provides TypeScript support inside Vue SFCs, along with many other great features.
+  - [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) is the official VSCode extension that provides TypeScript support inside Vue SFCs, along with many other great features.
 
     :::tip
     Vue - Official extension replaces [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), our previous official VSCode extension for Vue 2. If you have Vetur currently installed, make sure to disable it in Vue 3 projects.
