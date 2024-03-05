@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@vue/repl':
-    specifier: ^3.3.0
-    version: 3.3.0
+    specifier: ^4.0.1
+    version: 4.1.1
   '@vue/theme':
     specifier: ^2.2.5
     version: 2.2.5(vitepress@1.0.0-rc.44)(vue@3.4.21)
@@ -798,8 +798,8 @@ packages:
     dependencies:
       '@vue/shared': 3.4.21
 
-  /@vue/repl@3.3.0:
-    resolution: {integrity: sha512-A9tdO7obt/kpFUHdgGoRnan6bZjfz/WAJ5+DpPkvgNEc960W+bJraURv8MUVtH2Id/byWotKbUve2jTakiccSw==}
+  /@vue/repl@4.1.1:
+    resolution: {integrity: sha512-gkbnU+rM01/ILdnDJbsWS8+PW6qMAzprBo/U2+7eVci0kx6VAR26fL/qrcEPwEYa6q0vzzptZ4il0SaUGGqZKw==}
     dev: false
 
   /@vue/runtime-core@3.4.21:
