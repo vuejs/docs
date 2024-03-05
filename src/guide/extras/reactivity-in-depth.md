@@ -16,7 +16,7 @@ This term comes up in programming quite a bit these days, but what do people mea
 
 <SpreadSheet />
 
-Here cell A2 is defined via a formula of `= A0 + A1` (you can click on A2 to view or edit the formula), so the spreadsheet gives us 3. No surprises there. But if you update A0 or A1, you'll notice that A2 automagically updates too.
+Here cell A2 is defined via a formula of `= A0 + A1` (you can click on A2 to view or edit the formula), so the spreadsheet gives us 3. No surprises there. But if you update A0 or A1, you'll notice that A2 automatically updates too.
 
 JavaScript doesn’t usually work like this. If we were to write something comparable in JavaScript:
 
