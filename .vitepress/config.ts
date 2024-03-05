@@ -623,8 +623,6 @@ export default defineConfigWithTheme<ThemeConfig>({
     ]
   ],
 
-
-
   themeConfig: {
     nav,
     sidebar,
@@ -726,6 +724,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   vite: {
     define: {
+      // Turn this back off after floating-vue migrated to Composition API
       __VUE_OPTIONS_API__: true
     },
     optimizeDeps: {

@@ -4,7 +4,7 @@
 
 Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
 
-```js
+```js twoslash
 import { createApp } from 'vue'
 
 const app = createApp({
@@ -18,7 +18,7 @@ The object we are passing into `createApp` is in fact a component. Every app req
 
 If you are using Single-File Components, we typically import the root component from another file:
 
-```js
+```js twoslash
 import { createApp } from 'vue'
 // import the root component App from a single-file component.
 import App from './App.vue'
@@ -67,7 +67,7 @@ The template for the root component is usually part of the component itself, but
 </div>
 ```
 
-```js
+```js twoslash
 import { createApp } from 'vue'
 
 const app = createApp({

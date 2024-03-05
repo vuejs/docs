@@ -211,7 +211,7 @@ With Composition API, we define a component's logic using imported API functions
 
 Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
 
-```vue
+```vue twoslash
 <script setup>
 import { ref, onMounted } from 'vue'
 
