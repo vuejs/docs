@@ -224,7 +224,7 @@ export function register() {
 
 If you have many components, you can also leverage build tool features such as Vite's [glob import](https://vitejs.dev/guide/features.html#glob-import) or webpack's [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext) to load all components from a directory.
 
-### Web Components and Typescript {#web-components-and-typescript}
+### Web Components and TypeScript {#web-components-and-typescript}
 
 If you are developing an application or a library, you may want to [type check](/guide/scaling-up/tooling.html#typescript) your Vue components, including those that are defined as custom elements.
 

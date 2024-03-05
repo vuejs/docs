@@ -13,20 +13,16 @@
     "@vue/repl": "^3.3.0",
     "@vue/theme": "^2.2.5",
     "dynamics.js": "^1.1.5",
-    "floating-vue": "^5.2.0",
+    "floating-vue": "^5.2.2",
     "gsap": "^3.12.5",
-    "vitepress": "1.0.0-rc.41",
+    "vitepress": "1.0.0-rc.44",
     "vue": "^3.4.15"
   },
   "devDependencies": {
+    "@shikijs/vitepress-twoslash": "^1.1.7",
     "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.11.5",
-    "terser": "^5.27.0",
-    "@shikijs/vitepress-twoslash": "^1.0.0-beta.6"
-  },
-  "resolutions": {
-    "shiki": "1.0.0-beta.6",
-    "@shikijs/core": "1.0.0-beta.6"
+    "terser": "^5.27.0"
   },
   "pnpm": {
     "peerDependencyRules": {
