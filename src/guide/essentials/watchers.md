@@ -291,7 +291,7 @@ Sowohl `watch` als auch `watchEffect` erlauben es uns, reaktiv Seiteneffekte aus
 
 - Sowohl `watch` als auch `watchEffect` erlauben es uns, reaktiv Seiteneffekte auszuführen. Ihr Hauptunterschied ist die Art und Weise, wie sie ihre reaktiven Abhängigkeiten verfolgen.
 
-- `watchEffect`, on the other hand, combines dependency tracking and side effect into one phase. It automatically tracks every reactive property accessed during its synchronous execution. This is more convenient and typically results in terser code, but makes its reactive dependencies less explicit.
+- `watchEffect` hingegen kombiniert die Verfolgung von Abhängigkeiten und Seiteneffekten in einer Phase. Sie verfolgt automatisch jede reaktive Eigenschaft, auf die während ihrer synchronen Ausführung zugegriffen wird. Dies ist bequemer und führt in der Regel zu kürzerem Code, macht aber die reaktiven Abhängigkeiten weniger explizit.
 
 </div>
 
