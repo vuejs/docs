@@ -297,7 +297,7 @@ Sowohl `watch` als auch `watchEffect` erlauben es uns, reaktiv Seiteneffekte aus
 
 ## Callback Flush Timing {#callback-flush-timing}
 
-When you mutate reactive state, it may trigger both Vue component updates and watcher callbacks created by you.
+Wenn Sie den reaktiven Zustand verändern, kann dies sowohl Aktualisierungen der Vue-Komponenten als auch von Ihnen erstellte Watcher-Rückrufe auslösen.
 
 By default, user-created watcher callbacks are called **before** Vue component updates. This means if you attempt to access the DOM inside a watcher callback, the DOM will be in the state before Vue has applied any updates.
 
