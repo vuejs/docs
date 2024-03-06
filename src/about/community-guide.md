@@ -23,7 +23,7 @@ Our [Code of Conduct](/about/coc) is a guide to make it easier to enrich all of 
 
 ### Get Support {#get-support}
 
-- [Discord Chat](https://chat.vuejs.org/): A place for Vue devs to meet and chat in real time.
+- [Discord Chat](https://discord.com/invite/vue): A place for Vue devs to meet and chat in real time.
 - [Forum](https://forum.vuejs.org/): The best place to ask questions and get answers about Vue and its ecosystem.
 - [DEV Community](https://dev.to/t/vue): Share and discuss Vue related topics on Dev.to.
 - [Meetups](https://events.vuejs.org/meetups): Want to find local Vue enthusiasts like yourself? Interested in becoming a community leader? We have the help and support you need right here!
