@@ -299,7 +299,7 @@ Sowohl `watch` als auch `watchEffect` erlauben es uns, reaktiv Seiteneffekte aus
 
 Wenn Sie den reaktiven Zustand verändern, kann dies sowohl Aktualisierungen der Vue-Komponenten als auch von Ihnen erstellte Watcher-Rückrufe auslösen.
 
-By default, user-created watcher callbacks are called **before** Vue component updates. This means if you attempt to access the DOM inside a watcher callback, the DOM will be in the state before Vue has applied any updates.
+Standardmäßig werden vom Benutzer erstellte Watcher-Callbacks **vor** den Aktualisierungen der Vue-Komponenten aufgerufen. Das bedeutet, wenn Sie versuchen, auf das DOM innerhalb eines Watcher-Callbacks zuzugreifen, wird das DOM in dem Zustand sein, bevor Vue irgendwelche Updates angewendet hat.
 
 If you want to access the DOM in a watcher callback **after** Vue has updated it, you need to specify the `flush: 'post'` option:
 
