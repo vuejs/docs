@@ -301,7 +301,7 @@ Wenn Sie den reaktiven Zustand verändern, kann dies sowohl Aktualisierungen der
 
 Standardmäßig werden vom Benutzer erstellte Watcher-Callbacks **vor** den Aktualisierungen der Vue-Komponenten aufgerufen. Das bedeutet, wenn Sie versuchen, auf das DOM innerhalb eines Watcher-Callbacks zuzugreifen, wird das DOM in dem Zustand sein, bevor Vue irgendwelche Updates angewendet hat.
 
-If you want to access the DOM in a watcher callback **after** Vue has updated it, you need to specify the `flush: 'post'` option:
+Wenn Sie in einem Watcher-Callback auf das DOM zugreifen wollen, ** nachdem** Vue es aktualisiert hat, müssen Sie die Option `flush: 'post'` angeben:
 
 <div class="options-api">
 
