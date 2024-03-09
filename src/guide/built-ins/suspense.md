@@ -132,3 +132,9 @@ The following example shows how to nest these components so that they all behave
 ```
 
 Vue Router has built-in support for [lazily loading components](https://router.vuejs.org/guide/advanced/lazy-loading.html) using dynamic imports. These are distinct from async components and currently they will not trigger `<Suspense>`. However, they can still have async components as descendants and those can trigger `<Suspense>` in the usual way.
+
+---
+
+**Related**
+
+- [`<Suspense>` API reference](/api/built-in-components#suspense)
