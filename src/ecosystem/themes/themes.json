@@ -194,5 +194,54 @@
         "image": "https://flatlogic.com/assets/templates/light_blue_vue_full_nodejs-06f941c849f0a83a3c0d38c728101eace06a7515ea048f12bcd91f165280246f.webp"
       }
     ]
+  },
+  {
+    "name": "WrapPixel",
+    "description": "Check out developer friendly vue js admin dashboard templates built by our partners from [WrapPixel](https://wrappixel.com). Download them to start building your real time web application quickly to save hundreds of hours in development and design.",
+    "seeMoreUrl": "https://www.wrappixel.com/templates/category/vuejs-templates/",
+    "products": [
+      {
+        "name": "Spike Free VueJs Admin Template",
+        "price": 0,
+        "description": "Free & Open Source VueJs Admin Template",
+        "url": "https://www.wrappixel.com/templates/spike-free-vuejs-admin-template/",
+        "image": "https://www.wrappixel.com/wp-content/uploads/edd/2023/10/spike-free-vuetify-vuejs-admin-template-wp.jpg"
+      },
+      {
+        "name": "Spike Vue3 Admin Dashboard",
+        "price": 49,
+        "description": "Powerful Vue3 Dashboard Theme",
+        "url": "https://www.wrappixel.com/templates/spike-vuejs-admin-dashboard/",
+        "image": "https://www.wrappixel.com/wp-content/uploads/edd/2023/09/spike-vuejs-admin-dashboard-prev-img.jpg"
+      },
+      {
+        "name": "MaterialPro Vue3 Admin Dashboard",
+        "price": 49,
+        "description": "Vue 3 + Vuetify 3 + Vite + Typescript",
+        "url": "https://www.wrappixel.com/templates/materialpro-vuetify-admin/",
+        "image": "https://www.wrappixel.com/wp-content/uploads/edd/2020/05/materialpro-vuejs-dashboard-template-20.jpg"
+      },
+      {
+        "name": "Free MaterialPro Vuetify Admin",
+        "price": 0,
+        "description": "Free Vuetify Dashboard Template",
+        "url": "https://www.wrappixel.com/templates/materialpro-vuetify-admin-lite/",
+        "image": "https://www.wrappixel.com/wp-content/uploads/edd/2020/05/materialpro-vuejs-lite-admin-wp-20.jpg"
+      },
+      {
+        "name": "Free AdminPro VueJs Lite",
+        "price": 0,
+        "description": "Free & Open Source VueJs Admin Template",
+        "url": "https://www.wrappixel.com/templates/adminpro-vuetify-admin-lite/",
+        "image": "https://www.wrappixel.com/wp-content/uploads/edd/2020/11/feature_image.jpg"
+      },
+      {
+        "name": "AdminPro Vue3 + Vuetify Dashboard",
+        "price": 49,
+        "description": "Vue3 + Vite + Vuetify + Typescript",
+        "url": "https://www.wrappixel.com/templates/adminpro-vuetify-dashboard/",
+        "image": "https://www.wrappixel.com/wp-content/uploads/edd/2020/10/adminpro-vuetify-dasboard-template-y.jpg"
+      }
+    ]
   }
 ]
