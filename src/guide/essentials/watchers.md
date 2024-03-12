@@ -331,7 +331,7 @@ watchEffect(callback, {
 })
 ```
 
-Post-flush `watchEffect()` also has a convenience alias, `watchPostEffect()`:
+Post-flush `watchEffect()` hat auch einen praktischen Alias, `watchPostEffect()`:
 
 ```js
 import { watchPostEffect } from 'vue'
