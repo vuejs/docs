@@ -114,7 +114,7 @@ Since 3.3 you can directly use `defineOptions` in `<script setup>` to set the co
 
 :::
 
-If you intend to exclusively use Composition API (along with the options listed above), you can shave a few kbs off your production bundle via a [compile-time flag](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) that drops Options API related code from Vue. Note this also affects Vue components in your dependencies.
+If you intend to exclusively use Composition API (along with the options listed above), you can shave a few kbs off your production bundle via a [compile-time flag](/api/compile-time-flags) that drops Options API related code from Vue. Note this also affects Vue components in your dependencies.
 
 ### Can I use both APIs in the same component? {#can-i-use-both-apis-in-the-same-component}
 

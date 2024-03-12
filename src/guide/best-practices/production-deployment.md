@@ -27,7 +27,7 @@ Projects scaffolded via `create-vue` (based on Vite) or Vue CLI (based on webpac
 If using a custom setup, make sure that:
 
 1. `vue` resolves to `vue.runtime.esm-bundler.js`.
-2. The [compile time feature flags](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) are properly configured.
+2. The [compile time feature flags](/api/compile-time-flags) are properly configured.
 3. <code>process.env<wbr>.NODE_ENV</code> is replaced with `"production"` during build.
 
 Additional references:
