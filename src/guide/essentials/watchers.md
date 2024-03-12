@@ -347,7 +347,7 @@ watchPostEffect(() => {
 
 ## `this.$watch()` \* {#this-watch}
 
-It's also possible to imperatively create watchers using the [`$watch()` instance method](/api/component-instance.html#watch):
+Es ist auch möglich, zwingend Watcher zu erstellen, indem man die [`$watch()` instance method](/api/component-instance.html#watch):
 
 ```js
 export default {
