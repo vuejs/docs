@@ -243,5 +243,55 @@
         "image": "https://www.wrappixel.com/wp-content/uploads/edd/2020/10/adminpro-vuetify-dasboard-template-y.jpg"
       }
     ]
-  }
+  },
+  {
+  "name": "CodedThemes",
+  "description": "Explore Vue.js admin dashboard templates crafted with developers in mind by our partners at [CodedThemes](https://codedthemes.com). Download now to expedite the development of your real-time web applications, saving you countless hours in design and development.",
+  "seeMoreUrl": "https://codedthemes.com/item/category/templates/vue-template/",
+  "products": [
+    {
+      "name": "Free Berry Vuetify VueJs Admin Template",
+      "price": 0,
+      "description": "Free & Open Source VueJs Admin Template with well known desing of Berry",
+      "url": "https://codedthemes.com/item/berry-free-vuetify-vuejs-admin-template/?ref=evan.vuejs",
+      "image": "https://codedthemes.com/wp-content/uploads/2024/03/Berry-free-vue.png"
+    },
+    {
+      "name": "Berry Vue3 Admin Dashboard",
+      "price": 59,
+      "description": "Discover our visually captivating Vue 3 Dashboard Theme!",
+      "url": "https://codedthemes.com/item/berry-vue-admin-dashboard/?ref=evan.vuejs",
+      "image": "https://codedthemes.com/wp-content/uploads/2024/03/Berry-pro-vue.png"
+    },
+    {
+      "name": "Mantis Vue3 Admin Dashboard",
+      "price": 59,
+      "description": "Simple yet rebust to start any development with latest VueJs and Vuetify",
+      "url": "https://codedthemes.com/item/mantis-vue-admin-template/?ref=evan.vuejs",
+      "image": "https://codedthemes.com/wp-content/uploads/2024/03/Mantis-pro-vue.png"
+    },
+    {
+      "name": "Free Mantis Vuetify VueJs Admin Template",
+      "price": 0,
+      "description": "Free Vuetify Dashboard Template with simplest design and code",
+      "url": "https://codedthemes.com/item/mantis-free-vuetify-vuejs-admin-template/?ref=evan.vuejs",
+      "image": "https://codedthemes.com/wp-content/uploads/2024/03/Mantis-free-vue.png"
+    },
+    {
+      "name": "Free Able Pro VueJs",
+      "price": 0,
+      "description": "Free & Open Source Able pro VueJs Admin Template",
+      "url": "https://codedthemes.com/item/able-pro-free-vuejs-admin-dashboard/?ref=evan.vuejs",
+      "image": "https://codedthemes.com/wp-content/uploads/2024/03/Able-pro-free-vue.png"
+    },
+    {
+      "name": "Able Pro Vue3 + Vuetify Dashboard",
+      "price": 11,
+      "description": "Vue3 + Vite + Vuetify + Typescript",
+      "url": "https://codedthemes.com/item/able-pro-vuejs-admin-dashboard/?ref=evan.vuejs",
+      "image": "https://codedthemes.com/wp-content/uploads/2024/03/Able-pro-pro-vue.png"
+    }
+  ]
+}
+
 ]
