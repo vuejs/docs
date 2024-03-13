@@ -147,7 +147,7 @@ Directive hooks are passed these arguments:
   - `dir`: the directive definition object.
 
 - `vnode`: the underlying VNode representing the bound element.
-- `prevNode`: the VNode representing the bound element from the previous render. Only available in the `beforeUpdate` and `updated` hooks.
+- `prevVnode`: the VNode representing the bound element from the previous render. Only available in the `beforeUpdate` and `updated` hooks.
 
 As an example, consider the following directive usage:
 
