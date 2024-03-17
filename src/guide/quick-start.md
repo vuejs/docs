@@ -37,21 +37,21 @@ Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) insta
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="pnpm">
-  
+
   ```sh
   $ pnpm create vue@latest
   ```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="yarn">
-  
+
   ```sh
   $ yarn create vue@latest
   ```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="bun">
-  
+
   ```sh
   $ bun create vue@latest
   ```
@@ -79,35 +79,35 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
 <VTCodeGroup>
   <VTCodeGroupTab label="npm">
 
-  ```sh
-  $ cd <your-project-name>
+  ```sh-vue
+  $ cd {{'<your-project-name>'}}
   $ npm install
   $ npm run dev
   ```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="pnpm">
-  
-  ```sh
-  $ cd <your-project-name>
+
+  ```sh-vue
+  $ cd {{'<your-project-name>'}}
   $ pnpm install
   $ pnpm run dev
   ```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="yarn">
-  
-  ```sh
-  $ cd <your-project-name>
+
+  ```sh-vue
+  $ cd {{'<your-project-name>'}}
   $ yarn
   $ yarn dev
   ```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="bun">
-  
-  ```sh
-  $ cd <your-project-name>
+
+  ```sh-vue
+  $ cd {{'<your-project-name>'}}
   $ bun install
   $ bun run dev
   ```
@@ -133,21 +133,21 @@ When you are ready to ship your app to production, run the following:
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="pnpm">
-  
+
   ```sh
   $ pnpm run build
   ```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="yarn">
-  
+
   ```sh
   $ yarn build
   ```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="bun">
-  
+
   ```sh
   $ bun run build
   ```
