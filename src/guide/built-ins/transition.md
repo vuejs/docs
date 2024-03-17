@@ -450,7 +450,7 @@ When using JavaScript-only transitions, it is usually a good idea to add the `:c
 
 With `:css="false"`, we are also fully responsible for controlling when the transition ends. In this case, the `done` callbacks are required for the `@enter` and `@leave` hooks. Otherwise, the hooks will be called synchronously and the transition will finish immediately.
 
-Here's a demo using the [GSAP library](https://gsap.com/) to perform the animations. You can, of course, use any other animation library you want, for example [Anime.js](https://animejs.com/) or [Motion One](https://motion.dev/).
+Here's a demo using the [GSAP library](https://gsap.com/) to perform the animations. You can, of course, use any other animation library you want, for example [Anime.js](https://animejs.com/) or [Motion One](https://motion.dev/):
 
 <JsHooks />
 
@@ -587,7 +587,7 @@ You can also apply different behavior in JavaScript transition hooks based on th
 
 Sometimes you need to force the re-render of a DOM element in order for a transition to occur.
 
-Take this counter component for example.
+Take this counter component for example:
 
 <div class="composition-api">
 
