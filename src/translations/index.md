@@ -17,6 +17,8 @@ aside: false
 - [Italiano / Italian](https://it.vuejs.org) [[source](https://github.com/vuejs-translations/docs-it)]
 - [فارسی / Persian](https://fa.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fa)]
 
+- [Русский / Russian](https://ru.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ru)]
+
 ## Work in Progress Languages {#work-in-progress-languages}
 
 - [Čeština / Czech](https://cs.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-cs)]
