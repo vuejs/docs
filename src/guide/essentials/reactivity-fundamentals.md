@@ -73,7 +73,7 @@ When you access `this.someObject` after assigning it, the value is a reactive pr
 
 In Composition API, the recommended way to declare reactive state is using the [`ref()`](/api/reactivity-core#ref) function:
 
-```js
+```js twoslash
 import { ref } from 'vue'
 
 const count = ref(0)
@@ -81,7 +81,7 @@ const count = ref(0)
 
 `ref()` takes the argument and returns it wrapped within a ref object with a `.value` property:
 
-```js
+```js twoslash
 const count = ref(0)
 
 console.log(count) // { value: 0 }
@@ -95,7 +95,7 @@ console.log(count.value) // 1
 
 To access refs in a component's template, declare and return them from a component's `setup()` function:
 
-```js{5,9-11}
+```js{5,9-11} twoslash
 import { ref } from 'vue'
 
 export default {
@@ -127,7 +127,7 @@ You can also mutate a ref directly in event handlers:
 
 For more complex logic, we can declare functions that mutate refs in the same scope and expose them as methods alongside the state:
 
-```js{7-10,15}
+```js{7-10,15} twoslash
 import { ref } from 'vue'
 
 export default {
@@ -150,7 +150,7 @@ export default {
 
 Exposed methods can then be used as event handlers:
 
-```vue-html{1}
+```vue{1}
 <button @click="increment">
   {{ count }}
 </button>
@@ -162,7 +162,7 @@ Here's the example live on [Codepen](https://codepen.io/vuejs-examples/pen/WNYba
 
 Manually exposing state and methods via `setup()` can be verbose. Luckily, it can be avoided when using [Single-File Components (SFCs)](/guide/scaling-up/sfc). We can simplify the usage with `<script setup>`:
 
-```vue{1}
+```vue{1} twoslash
 <script setup>
 import { ref } from 'vue'
 
@@ -305,7 +305,7 @@ Refs can hold any value type, including deeply nested objects, arrays, or JavaSc
 
 A ref will make its value deeply reactive. This means you can expect changes to be detected even when you mutate nested objects or arrays:
 
-```js
+```js twoslash
 import { ref } from 'vue'
 
 const obj = ref({

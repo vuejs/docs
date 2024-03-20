@@ -1,6 +1,9 @@
+import '@shikijs/vitepress-twoslash/style.css'
 import './styles/index.css'
-import { h, App } from 'vue'
+
+import { h, App, Plugin } from 'vue'
 import { VPTheme } from '@vue/theme'
+import twoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
 import {
   preferComposition,
@@ -22,6 +25,7 @@ export default Object.assign({}, VPTheme, {
     })
   },
   enhanceApp({ app }: { app: App }) {
+    app.use(twoslashFloatingVue as Plugin<[]>)
     app.provide('prefer-composition', preferComposition)
     app.provide('prefer-sfc', preferSFC)
     app.provide('filter-headers', filterHeadersByPreference)

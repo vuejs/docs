@@ -4,6 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
+import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 // import { textAdPlugin } from './textAdMdPlugin'
 
 const nav: ThemeConfig['nav'] = [
@@ -720,12 +721,16 @@ export default defineConfigWithTheme<ThemeConfig>({
     config(md) {
       md.use(headerPlugin)
       // .use(textAdPlugin)
-    }
+    },
+    codeTransformers: [
+      transformerTwoslash()
+    ]
   },
 
   vite: {
     define: {
-      __VUE_OPTIONS_API__: false
+      // Turn this back off after floating-vue migrated to Composition API
+      __VUE_OPTIONS_API__: true
     },
     optimizeDeps: {
       include: ['gsap', 'dynamics.js'],
