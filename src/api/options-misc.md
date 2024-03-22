@@ -29,7 +29,7 @@ Explicitly declare a display name for the component.
   There is one case where `name` is explicitly necessary: when matching against cacheable components in [`<KeepAlive>`](/guide/built-ins/keep-alive) via its `include / exclude` props.
 
   :::tip
-  Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name even when used with `<KeepAlive>`.
+  Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name even when used with `<KeepAlive>`.  If you need access to this property, please use [__name](https://github.com/vuejs/core/issues/10348#issuecomment-1951604644).
   :::
 
 ## inheritAttrs {#inheritattrs}
