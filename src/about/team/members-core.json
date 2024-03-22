@@ -507,5 +507,34 @@
       "twitter": "_brc_dd"
     },
     "sponsor": true
+  },
+  {
+    "name": "Kevin Deng 三咲智子",
+    "title": "Open Sourceror",
+    "projects": [
+      {
+        "label": "vuejs/core",
+        "url": "https://github.com/vuejs/core"
+      },
+      {
+        "label": "vuejs/core-vapor",
+        "url": "https://github.com/vuejs/core-vapor"
+      },
+      {
+        "label": "Vue Macros",
+        "url": "https://github.com/vue-macros/vue-macros"
+      },
+      {
+        "label": "VueUse",
+        "url": "https://github.com/vueuse/vueuse"
+      }
+    ],
+    "location": ["Hangzhou", "Singapore"],
+    "languages": ["English", "Chinese"],
+    "socials": {
+      "github": "sxzz",
+      "twitter": "sanxiaozhizi"
+    },
+    "sponsor": true
   }
 ]
