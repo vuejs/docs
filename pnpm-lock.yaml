@@ -13,7 +13,7 @@ dependencies:
     version: 4.1.1
   '@vue/theme':
     specifier: ^2.2.5
-    version: 2.2.5(vitepress@1.0.0)(vue@3.4.21)
+    version: 2.2.5(vitepress@1.0.1)(vue@3.4.21)
   dynamics.js:
     specifier: ^1.1.5
     version: 1.1.5
@@ -22,7 +22,7 @@ dependencies:
     version: 3.9.0
   vitepress:
     specifier: ^1.0.0
-    version: 1.0.0(@types/node@20.10.1)(terser@5.14.2)
+    version: 1.0.1(@types/node@20.10.1)(terser@5.14.2)
   vue:
     specifier: ^3.4.0
     version: 3.4.21
@@ -798,7 +798,7 @@ packages:
     resolution: {integrity: sha512-PuJe7vDIi6VYSinuEbUIQgMIRZGgM8e4R+G+/dQTk0X1NEdvgvvgv7m+rfmDH1gZzyA1OjjoWskvHlfRNfQf3g==}
     dev: false
 
-  /@vue/theme@2.2.5(vitepress@1.0.0)(vue@3.4.21):
+  /@vue/theme@2.2.5(vitepress@1.0.1)(vue@3.4.21):
     resolution: {integrity: sha512-UUPD0XxlRa69Ytely8JEU/cu8Pae5f4UqZNIXANPN8KT6j/O23dCbOfp1cKlSn+Q/xXLYp0K+vRh4IqZjt/9BQ==}
     peerDependencies:
       vitepress: ^1.0.0-alpha.60
@@ -808,7 +808,7 @@ packages:
       '@vueuse/core': 9.13.0(vue@3.4.21)
       body-scroll-lock: 3.1.5
       normalize.css: 8.0.1
-      vitepress: 1.0.0(@types/node@20.10.1)(terser@5.14.2)
+      vitepress: 1.0.1(@types/node@20.10.1)(terser@5.14.2)
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/react'
@@ -913,7 +913,7 @@ packages:
   /@vueuse/shared@9.13.0(vue@3.4.21):
     resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==}
     dependencies:
-      vue-demi: 0.14.6(vue@3.4.21)
+      vue-demi: 0.14.7(vue@3.4.21)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -1066,7 +1066,7 @@ packages:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.0.0
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: false
 
   /postcss@8.4.38:
@@ -1199,12 +1199,12 @@ packages:
       fsevents: 2.3.3
     dev: false
 
-  /vitepress@1.0.0(@types/node@20.10.1)(terser@5.14.2):
-    resolution: {integrity: sha512-4YXbHzuyhymuVTKPexnnOgJOgf1Uzmak4B6g3L3SQf9KRgtnVKHoPV4/WorWhaGnLBaIS/g8KspxRJAIOsOdJQ==}
+  /vitepress@1.0.1(@types/node@20.10.1)(terser@5.14.2):
+    resolution: {integrity: sha512-eNr5pOBppYUUjEhv8S0S2t9Tv95LQ6mMeHj6ivaGwfHxpov70Vduuwl/QQMDRznKDSaP0WKV7a82Pb4JVOaqEw==}
     hasBin: true
     peerDependencies:
-      markdown-it-mathjax3: ^4.3.2
-      postcss: ^8.4.35
+      markdown-it-mathjax3: ^4
+      postcss: ^8
     peerDependenciesMeta:
       markdown-it-mathjax3:
         optional: true
