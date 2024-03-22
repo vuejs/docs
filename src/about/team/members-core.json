@@ -529,11 +529,8 @@
         "url": "https://github.com/vueuse/vueuse"
       }
     ],
-    "location": "Hangzhou 🔁 Singapore",
-    "languages": [
-      "English",
-      "Chinese"
-    ],
+    "location": ["Hangzhou", "Singapore"],
+    "languages": ["English", "Chinese"],
     "socials": {
       "github": "sxzz",
       "twitter": "sanxiaozhizi"
