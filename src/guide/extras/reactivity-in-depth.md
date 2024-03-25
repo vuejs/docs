@@ -31,7 +31,7 @@ A0 = 2
 console.log(A2) // Still 3
 ```
 
-When we mutate `A0`, `A2` does not change automatically.
+When we reassign `A0`, `A2` does not change automatically.
 
 So how would we do this in JavaScript? First, in order to re-run the code that updates `A2`, let's wrap it in a function:
 
@@ -61,7 +61,7 @@ This `whenDepsChange()` function has the following tasks:
 
 2. If a variable is read when there is a currently running effect, make that effect a subscriber to that variable. E.g. because `A0` and `A1` are read when `update()` is being executed, `update()` becomes a subscriber to both `A0` and `A1` after the first call.
 
-3. Detect when a variable is mutated. E.g. when `A0` is assigned a new value, notify all its subscriber effects to re-run.
+3. Detect when a variable is modified. E.g. when `A0` is assigned a new value, notify all its subscriber effects to re-run.
 
 ## How Reactivity Works in Vue {#how-reactivity-works-in-vue}
 
