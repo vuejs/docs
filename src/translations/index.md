@@ -16,10 +16,10 @@ aside: false
 - [বাংলা / Bengali](https://bn.vuejs.org) [[source](https://github.com/vuejs-translations/docs-bn)]
 - [Italiano / Italian](https://it.vuejs.org) [[source](https://github.com/vuejs-translations/docs-it)]
 - [فارسی / Persian](https://fa.vuejs.org) [[source](https://github.com/vuejs-translations/docs-fa)]
+- [Čeština / Czech](https://cs.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-cs)]
 
 ## Work in Progress Languages {#work-in-progress-languages}
 
-- [Čeština / Czech](https://cs.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-cs)]
 - [العربية / Arabic](https://ar.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ar)]
 
 ## Starting a new Translation {#starting-a-new-translation}
