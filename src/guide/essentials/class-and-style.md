@@ -189,7 +189,7 @@ This will always apply `errorClass`, but `activeClass` will only be applied when
 However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside the array syntax:
 
 ```vue-html
-<div :class="[{ active: isActive }, errorClass]"></div>
+<div :class="[{ activeClass: isActive }, errorClass]"></div>
 ```
 
 ### With Components {#with-components}

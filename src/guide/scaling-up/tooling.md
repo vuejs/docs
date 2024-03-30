@@ -86,10 +86,10 @@ If you are looking for a lighter-weight alternative for no-build-step usage, che
 
 ## IDE Support {#ide-support}
 
-- The recommended IDE setup is [VSCode](https://code.visualstudio.com/) + the [Vue - Official extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar). The extension provides syntax highlighting, TypeScript support, and intellisense for template expressions and component props.
+- The recommended IDE setup is [VS Code](https://code.visualstudio.com/) + the [Vue - Official extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar). The extension provides syntax highlighting, TypeScript support, and intellisense for template expressions and component props.
 
   :::tip
-  Vue - Official replaces [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), our previous official VSCode extension for Vue 2. If you have Vetur currently installed, make sure to disable it in Vue 3 projects.
+  Vue - Official replaces [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), our previous official VS Code extension for Vue 2. If you have Vetur currently installed, make sure to disable it in Vue 3 projects.
   :::
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) also provides great built-in support for Vue SFCs.
@@ -142,7 +142,7 @@ Users previously using Vue CLI may be used to having linters configured via webp
 
 1. `npm install -D eslint eslint-plugin-vue`, then follow `eslint-plugin-vue`'s [configuration guide](https://eslint.vuejs.org/user-guide/#usage).
 
-2. Setup ESLint IDE extensions, for example [ESLint for VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), so you get linter feedback right in your editor during development. This also avoids unnecessary linting cost when starting the dev server.
+2. Setup ESLint IDE extensions, for example [ESLint for VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), so you get linter feedback right in your editor during development. This also avoids unnecessary linting cost when starting the dev server.
 
 3. Run ESLint as part of the production build command, so you get full linter feedback before shipping to production.
 
@@ -150,7 +150,7 @@ Users previously using Vue CLI may be used to having linters configured via webp
 
 ## Formatting {#formatting}
 
-- The [Vue - Official](https://github.com/vuejs/language-tools) VSCode extension provides formatting for Vue SFCs out of the box.
+- The [Vue - Official](https://github.com/vuejs/language-tools) VS Code extension provides formatting for Vue SFCs out of the box.
 
 - Alternatively, [Prettier](https://prettier.io/) provides built-in Vue SFC formatting support.
 
