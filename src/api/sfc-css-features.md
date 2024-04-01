@@ -120,7 +120,7 @@ A `<style module>` tag is compiled as [CSS Modules](https://github.com/css-modul
 
 The resulting classes are hashed to avoid collision, achieving the same effect of scoping the CSS to the current component only.
 
-Refer to the [CSS Modules spec](https://github.com/css-modules/css-modules) for more details such as [global exceptions](https://github.com/css-modules/css-modules#exceptions) and [composition](https://github.com/css-modules/css-modules#composition).
+Refer to the [CSS Modules spec](https://github.com/css-modules/css-modules) for more details such as [global exceptions](https://github.com/css-modules/css-modules/blob/master/docs/composition.md#exceptions) and [composition](https://github.com/css-modules/css-modules/blob/master/docs/composition.md#composition).
 
 ### Custom Inject Name {#custom-inject-name}
 
