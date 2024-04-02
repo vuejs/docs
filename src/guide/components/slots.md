@@ -296,7 +296,7 @@ function BaseLayout(slots) {
 }
 ```
 
-## Conditional Slots
+## Conditional Slots {#conditional-slots}
 
 Sometimes you want to render something based on whether or not a slot is present. 
 
