@@ -300,7 +300,7 @@ function BaseLayout(slots) {
 
 Sometimes you want to render something based on whether or not a slot is present. 
 
-You can use the [$slots](https://vuejs.org/api/component-instance.html#slots) property in combination with a [v-if](https://vuejs.org/guide/essentials/conditional.html#v-if) to achieve this.
+You can use the [$slots](/api/component-instance.html#slots) property in combination with a [v-if](/guide/essentials/conditional.html#v-if) to achieve this.
 
 In the example below we define a Card component with two conditional slots: `header` and `footer`.
 When the header / footer is present we want wrap them to provide additional styling:
