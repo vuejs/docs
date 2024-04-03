@@ -49,7 +49,7 @@ const nav: ThemeConfig['nav'] = [
           { text: 'UI Components', link: 'https://ui-libs.vercel.app/' },
           {
             text: 'Certification',
-            link: 'https://certification.vuejs.org/?ref=vuejs-nav'
+            link: 'https://certificates.dev/vuejs/?friend=VUEJS&ref=vuejs-nav&utm_source=vuejs&utm_medium=link&utm_campaign=vuejs_nav'
           },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
