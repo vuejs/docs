@@ -466,7 +466,7 @@ Which might render something like:
 Something bad happened.
 :::
 
-This can be achieved using Vue's custom `<slot>` element in the AlertBox component:
+This can be achieved using Vue's custom `<slot>` element, which in our example is used in the AlertBox component:
 
 ```vue{4}
 <template>
