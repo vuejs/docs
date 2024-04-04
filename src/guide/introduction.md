@@ -32,6 +32,7 @@ Here is a minimal example:
 <div class="options-api">
 
 ```js
+<script>
 import { createApp } from 'vue'
 
 createApp({
@@ -41,12 +42,14 @@ createApp({
     }
   }
 }).mount('#app')
+</script>
 ```
 
 </div>
 <div class="composition-api">
 
 ```js
+<script>
 import { createApp, ref } from 'vue'
 
 createApp({
@@ -56,16 +59,19 @@ createApp({
     }
   }
 }).mount('#app')
+</script>
 ```
 
 </div>
 
 ```vue-html
+<template>
 <div id="app">
   <button @click="count++">
     Count is: {{ count }}
   </button>
 </div>
+</template>
 ```
 
 **Result**
@@ -75,11 +81,13 @@ import { ref } from 'vue'
 const count = ref(0)
 </script>
 
+<template>
 <div class="demo">
   <button @click="count++">
     Count is: {{ count }}
   </button>
 </div>
+</template>
 
 The above example demonstrates the two core features of Vue:
 
