@@ -359,7 +359,7 @@ export default {
 }
 ```
 
-This is useful when you need to conditionally set up a watcher, or only watch something in response to user interaction. It also allows you to stop the watcher early.
+Dies ist nützlich, wenn Sie einen Watcher bedingt einrichten oder etwas nur als Reaktion auf eine Benutzerinteraktion beobachten wollen. Außerdem können Sie damit den Watcher frühzeitig beenden.
 
 </div>
 
