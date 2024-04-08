@@ -208,8 +208,15 @@ export function resolveNoBuildExample(
 }
 
 export function onHashChange(cb: () => void) {
-  window.addEventListener('hashchange', cb)
+  if (typeof document === 'undefined') return
+  const { pathname } = window.location
+  function handler() {
+    if (window.location.pathname === pathname) {
+      cb()
+    }
+  }
+  window.addEventListener('hashchange', handler)
   onBeforeUnmount(() => {
-    window.removeEventListener('hashchange', cb)
+    window.removeEventListener('hashchange', handler)
   })
 }
