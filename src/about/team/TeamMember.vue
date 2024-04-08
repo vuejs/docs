@@ -24,10 +24,6 @@ const avatarUrl = computed(() => {
     `https://www.github.com/${props.member.socials.github}.png`
   )
 })
-
-function arrayify(value: string | string[]): string[] {
-  return Array.isArray(value) ? value : [value]
-}
 </script>
 
 <template>
@@ -97,15 +93,9 @@ function arrayify(value: string | string[]): string[] {
             <h2 class="sr-only">Location</h2>
             <VTIconMapPin class="desc-icon" />
           </div>
-          <ul class="desc-list">
-            <li
-              v-for="location in arrayify(member.location)"
-              :key="location"
-              class="desc-item"
-            >
-              {{ location }}
-            </li>
-          </ul>
+          <p class="desc-text">
+            {{ member.location }}
+          </p>
         </section>
 
         <section class="desc">

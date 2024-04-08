@@ -5,7 +5,7 @@ export interface Member {
   company?: string
   companyLink?: string
   projects: Link[]
-  location: string | string[]
+  location: string
   languages: string[]
   website?: Link
   socials: Socials
