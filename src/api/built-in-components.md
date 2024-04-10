@@ -318,6 +318,7 @@ Used for orchestrating nested async dependencies in a component tree.
   ```ts
   interface SuspenseProps {
     timeout?: string | number
+    suspensible?: boolean
   }
   ```
 
@@ -332,5 +333,8 @@ Used for orchestrating nested async dependencies in a component tree.
   `<Suspense>` accepts two slots: the `#default` slot and the `#fallback` slot. It will display the content of the fallback slot while rendering the default slot in memory.
 
   If it encounters async dependencies ([Async Components](/guide/components/async) and components with [`async setup()`](/guide/built-ins/suspense#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
+
+  By setting the Suspense as `suspensible`, all the async dependency handling
+  will be handled by the parent Suspense. See [implementation details](https://github.com/vuejs/core/pull/6736)
 
 - **See also** [Guide - Suspense](/guide/built-ins/suspense)
