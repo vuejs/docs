@@ -374,7 +374,7 @@ In dem seltenen Fall, dass Sie einen Watcher stoppen müssen, bevor die Owner-Ko
 ```js
 const unwatch = this.$watch('foo', callback)
 
-// ...when the watcher is no longer needed:
+// ...wenn der Beobachter nicht mehr benötigt wird:
 unwatch()
 ```
 
