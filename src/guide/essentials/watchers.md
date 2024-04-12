@@ -369,7 +369,7 @@ Dies ist nützlich, wenn Sie einen Watcher bedingt einrichten oder etwas nur als
 
 Watcher, die mit der Option `watch` oder der Instanzmethode `$watch()` deklariert wurden, werden automatisch gestoppt, wenn die Eigentümerkomponente ausgehängt wird, so dass Sie sich in den meisten Fällen nicht selbst um das Stoppen des Watchers kümmern müssen.
 
-In the rare case where you need to stop a watcher before the owner component unmounts, the `$watch()` API returns a function for that:
+In dem seltenen Fall, dass Sie einen Watcher stoppen müssen, bevor die Owner-Komponente aussteigt, gibt die `$watch()` API eine Funktion dafür zurück:
 
 ```js
 const unwatch = this.$watch('foo', callback)
