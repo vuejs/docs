@@ -14,18 +14,16 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      <span class="accent">Дэвшилтэт</span>
+      <br />JavaScript Фреймворк
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Хялбар, гүйцэтгэлтэй, олон талт шийдлээр веб бүтээх.
     </p>
     <p class="actions">
       <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Ашилглаж эхлэх
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,12 +36,12 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Суулгах</a>
     </p>
   </section>
 
   <section v-if="data && data.special" id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
+    <span class="lead">Тусгай Спонсор</span>
     <template v-for="{ url, img, name, description } of data.special">
       <a :href="url" target="_blank" rel="sponsored noopener">
         <picture v-if="img.endsWith('png')">
@@ -67,32 +65,31 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>Хялбар</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        Стандарт HTML, CSS, JavaScript дээр суурилан бүтээгдсэн ба
+        зохистой API болон өндөр зэрэглэлийн докюмент бичиглэлтэй.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Гүйцэтгэл өндөртэй</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        Өөрөө өөрчлөгдөх реактив бүтэцтэй ба, compilеr-optimized рендер хийгддэг тул
+        манюал оптимизац хийх шаардлага бараг хэрэггүй.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>Олон талт</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        Жижиг либраригаас авахуулаад бүрэн хэмжээний фрэймворк хүртэл баялаг эко-системтэй.
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>Платинус спонсорууд</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>Алтан спонсорууд</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 

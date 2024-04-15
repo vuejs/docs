@@ -2,12 +2,12 @@
 footer: false
 ---
 
-# Introduction {#introduction}
+# Оршил {#introduction}
 
-:::info You are reading the documentation for Vue 3!
+:::info Та Vue 3 -н талаарх бичиглэлийг уншиж байна!
 
-- Vue 2 support has ended on **Dec 31, 2023**. Learn more about [Vue 2 EOL](https://v2.vuejs.org/eol/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+- Vue 2 дэмжих хугацаа **Dec 31, 2023** -р дуусна. Цааш унших [Vue 2 EOL](https://v2.vuejs.org/eol/).
+- Vue 2 -с шинэ уруу шилжих? [Шинэчлэх заавар](https://v3-migration.vuejs.org/)-г шалгаарай.
   :::
 
 <style src="@theme/styles/vue-mastery.css"></style>
@@ -16,18 +16,18 @@ footer: false
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>
-    <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <p class="description">Vue -г видео туториал ашиглан сурцгаая <span>VueMastery.com</span></p>
     <div class="logo-wrapper">
         <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
 
-## What is Vue? {#what-is-vue}
+## Vue гэж юу вэ? {#what-is-vue}
 
-Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative, component-based programming model that helps you efficiently develop user interfaces of any complexity.
+Vue (дуудлага /vjuː/, англиар **view**) бол user interface бүтээх зориулалттай Javascript фреймворк юм. Vue нь стандард HTML, CSS, Javascript дээр суурилсан ба, declarative (тунхаглалт), component (бүрэлдэхүүн) төвтэй програминг модел дээр тулгуурлан бүтээгдсэн. Тиймээс user interface бүтээхэд тань илүү хялбар, үр дүнтэй байдлыг хангах болно.
 
-Here is a minimal example:
+Энгийн жишээг харуулъя:
 
 <div class="options-api">
 
@@ -63,12 +63,12 @@ createApp({
 ```vue-html
 <div id="app">
   <button @click="count++">
-    Count is: {{ count }}
+    Тооллого: {{ count }}
   </button>
 </div>
 ```
 
-**Result**
+**Үр дүн**
 
 <script setup>
 import { ref } from 'vue'
@@ -77,42 +77,42 @@ const count = ref(0)
 
 <div class="demo">
   <button @click="count++">
-    Count is: {{ count }}
+    Тооллого: {{ count }}
   </button>
 </div>
 
-The above example demonstrates the two core features of Vue:
+Дээрх үзүүлэн нь Vue-н үндсэн хоёр feature-г харуулж байна:
 
-- **Declarative Rendering**: Vue extends standard HTML with a template syntax that allows us to declaratively describe HTML output based on JavaScript state.
+- **Declarative Rendering (Тунхаглалт дүрслэл)**: Vue стандарт HTML-г загвар синтаксаар өргөтгөсөн бөгөөд энэ нь бидэнд JavaScript төлөвт суурилсан HTML гаралтыг тунхаглалтайгаар дүрслэх боломжийг олгодог.
 
-- **Reactivity**: Vue automatically tracks JavaScript state changes and efficiently updates the DOM when changes happen.
+- **Риактив байдал**: Vue нь JavaScript-н төлөвийн өөрчлөлтийг автоматаар хянаж, өөрчлөлт гарсан үед DOM-г үр дүнтэй шинэчилдэг.
 
-You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
+Танд аль хэдийн асуулт байгаа байж магадгүй - санаа зовох хэрэггүй. Үлдсэн бичиглэлд бид жижиг нарийн ширийн зүйлийг тусгах болно. Одоохондоо Vue-ийн санал болгож буй зүйлийн талаар өндөр түвшний ойлголттой болохын тулд уншина уу.
 
-:::tip Prerequisites
-The rest of the documentation assumes basic familiarity with HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with these overviews for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) and [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) if needed. Prior experience with other frameworks helps, but is not required.
+:::tip Урьдчилсан нөхцөл
+Үлдсэн баримт бичгийг ойлгоход HTML, CSS болон JavaScript-ийн үндсэн мэдлэгтэй байхад болно. Хэрэв та frontend хөгжүүлэлтэд цоо шинэ хүн бол шууд фрэймворкийг суралцаж эхлэх нь тийм ч санаа биш байж магадгүй. Эхлээд үндсэн ойлголтуудыг ойлгож, дараа нь буцаж ирээрэй. Шаардлагатай бол та [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) , [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) болон [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)- ийн талаархи эдгээр тоймыг ашиглан мэдлэгийнхээ түвшинг шалгаж болно . Бусад фрэймворктой холбоотой өмнөх туршлага хэрэг болж магадгүй ч, нэг их шаардлагагүй.
 :::
 
-## The Progressive Framework {#the-progressive-framework}
+## Дэвшилтэт фреймворк {#the-progressive-framework}
 
-Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
+Vue нь фронтын хөгжүүлэлтэд шаардлагатай ихэнх нийтлэг шинж чанаруудыг хамарсан фреймворк, экосистем юм. Гэхдээ вэб нь маш олон янз байдаг - бидний вэб дээр бүтээдэг зүйлс хэлбэр, цар хүрээний хувьд эрс ялгаатай байж болно. Үүнийг харгалзан Vue нь уян хатан, аажмаар аажмаар тохируулах боломжтой байхаар бүтээгдсэн. Таны хэрэглээний байдлаас хамааран Vue-г янз бүрийн аргаар ашиглаж болно:
 
-- Enhancing static HTML without a build step
-- Embedding as Web Components on any page
-- Single-Page Application (SPA)
-- Fullstack / Server-Side Rendering (SSR)
-- Jamstack / Static Site Generation (SSG)
-- Targeting desktop, mobile, WebGL, and even the terminal
+- Build хийлгүйгээр статик HTML-г сайжруулах/өргөтгөх
+- Дурын хуудсан дээр вэб бүрэлдэхүүн хэсэг болгон оруулах
+- Нэг хуудаст аппликейшн (SPA)
+- Fullstack / Сервер талын дүрслэл (SSR)
+- Jamstack / Статик сайт үүсгэх (SSG)
+- Ширээний компьютер, гар утас, WebGL, мөн терминал уруу чиглэсэн аппликейшн
 
-If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
+Хэрэв танд эдгээр ойлголтууд ойлгомжгүй хэцүү санагдаж байвал санаа зовох хэрэггүй! Заавар болон гарын авлага нь зөвхөн HTML болон JavaScript-ийн үндсэн мэдлэгийг шаарддаг бөгөөд та эдгээрийн аль нэгэнд нь мэргэжилтэн байхгүйгээр дагаж мөрдөх боломжтой.
 
-If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more detail in [Ways of Using Vue](/guide/extras/ways-of-using-vue).
+Хэрэв та туршлагатай хөгжүүлэгч бөгөөд Vue-г өөрийн ажилдаа хэрхэн хамгийн ашиглах талаар сонирхож байгаа эсвэл нэр томъёонуудыг ямар утгатай болохыг сонирхож байгаа бол бид [Vue-г ашиглах аргууд](/guide/extras/ways-of-using-vue) дээр илүү дэлгэрэнгүй авч үзэх болно.
 
-Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
+Уян хатан байдлыг үл харгалзан, Vue хэрхэн ажилладаг тухай үндсэн мэдлэг нь дээрх бүх хэрэглээний тохиолдлуудад адил хэрэгждэг. Та одоо дөнгөж эхлэн суралцаж байгаа ч гэсэн ирээдүйд илүү их амбицтай зорилгоо биелүүлэхийн тулд энэ замд олж авсан мэдлэг тань хэрэг болох болно. Хэрэв та ахмад дайчин бол өндөр бүтээмжийг хадгалахын зэрэгцээ шийдвэрлэх гэж буй асуудал дээрээ үндэслэн Vue-г ашиглах оновчтой аргыг сонгож болно. Тиймээс бид Vue-г "Дэвшилтэт фреймворк" гэж нэрлэдэг: энэ нь тантай хамт хөгжиж, таны хэрэгцээнд нийцүүлэн ажиллах боломжтой фреймворк гэсэн утгатай.
 
-## Single-File Components {#single-file-components}
+## Нэг Бүрэлдэхүүнт Файл {#single-file-components}
 
-In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
+Ихэнх бүтээх хэрэгсэл идэвхижсэн Vue төслүүдэд бид Vue бүрэлдэхүүнийг HTML-тэй төстэй файлын форматаар бичдэг ба Нэг бүрэлдэхүүнт файл (мөн *.vue файлууд буюу, SFC(Single File component) гэж нэрлэдэг) гэж нэрлэдэг. Vue НБФ нь нэршлийн дагуу, бүрэлдэхүүний логик (JavaScript), загвар (HTML) болон хэв маягийг (CSS) нэг файлд багтаадаг. Өмнөх жишээг НБФ форматаар бичсэн нь энд байна:
 
 <div class="options-api">
 
@@ -128,7 +128,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="count++">Тооллого: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -148,7 +148,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="count++">Тооллого: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -160,123 +160,120 @@ button {
 
 </div>
 
-SFC is a defining feature of Vue and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
+НБФ нь Vue-г тодорхойлогч шинж чанар бөгөөд **хэрэв** та өөрийн ажил дээр Vue бүрэлдэхүүний бүтээх тохиргоог хийх шаардлагатай бол санал болгох арга юм. Та [НБФ-ийн талаар хэрхэн, яагаад](/guide/scaling-up/sfc) гэдгийг тусгай хэсгээс мэдэж болно - гэхдээ одоохондоо Vue нь танд зориулж бүтээх бүх хэрэгслийг тохируулах болно гэдгийг мэдэж аваарай.
 
 ## API Styles {#api-styles}
 
-Vue components can be authored in two different API styles: **Options API** and **Composition API**.
+Vue бүрэлдэхүүнийг хоёр өөр API загвараар бичиж болно: **Сонголтот API** болон **Composition API**.
 
-### Options API {#options-api}
+### Сонголтын API {#options-api}
 
-With Options API, we define a component's logic using an object of options such as `data`, `methods`, and `mounted`. Properties defined by options are exposed on `this` inside functions, which points to the component instance:
+Сонголтын API-ийн тусламжтайгаар бид, `data`, `methods` болон `mounted` гэх мэт сонголтын объектыг ашиглан бүрэлдэхүүн хэсгийн логикийг тодорхойлдог. Сонголтоор тодорхойлсон пропертинууд нь, функц дотор `this`-руу хандах байдлаар ашиглах боломжтой. Өөр үгээр энэ нь бүрэлдэхүүний инстанс-г илэрхийлдэг:
 
 ```vue
 <script>
 export default {
-  // Properties returned from data() become reactive state
-  // and will be exposed on `this`.
+  // data() буцаж ирэх пропертинууд реактив төлөвтэй болно
+  // мөн энэ уруу `this`-р хандах боломжтой болно.
   data() {
     return {
       count: 0
     }
   },
 
-  // Methods are functions that mutate state and trigger updates.
-  // They can be bound as event handlers in templates.
+  // Methods бол төлөвийг өөрчлөх, шинэчлэх функцууд.
+  // Эдгээрийг загвар дотор ивент зохицуулагчтай холбох боломжтой.
   methods: {
     increment() {
       this.count++
     }
   },
 
-  // Lifecycle hooks are called at different stages
-  // of a component's lifecycle.
-  // This function will be called when the component is mounted.
+  // Эргэх холбооны дэгээнүүд бүрэлдэхүүний эргэх холбооны янз бүрийн үе шатанд дуудагдана.
+  // Энэ функц бол бүрэлдэхүүн анх холбогдсон үед дуудагдана.
   mounted() {
-    console.log(`The initial count is ${this.count}.`)
+    console.log(`Анхны тооллого: ${this.count}.`)
   }
 }
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Тооллого: {{ count }}</button>
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNptkMFqxCAQhl9lkB522ZL0HNKlpa/Qo4e1ZpLIGhUdl5bgu9es2eSyIMio833zO7NP56pbRNawNkivHJ25wV9nPUGHvYiaYOYGoK7Bo5CkbgiBBOFy2AkSh2N5APmeojePCkDaaKiBt1KnZUuv3Ky0PppMsyYAjYJgigu0oEGYDsirYUAP0WULhqVrQhptF5qHQhnpcUJD+wyQaSpUd/Xp9NysVY/yT2qE0dprIS/vsds5Mg9mNVbaDofL94jZpUgJXUKBCvAy76ZUXY53CTd5tfX2k7kgnJzOCXIF0P5EImvgQ2olr++cbRE4O3+t6JxvXj0ptXVpye1tvbFY+ge/NJZt)
+[Тоглоомын талбай дээр турших](https://play.vuejs.org/#eNptkMFqxCAQhl9lkB522ZL0HNKlpa/Qo4e1ZpLIGhUdl5bgu9es2eSyIMio833zO7NP56pbRNawNkivHJ25wV9nPUGHvYiaYOYGoK7Bo5CkbgiBBOFy2AkSh2N5APmeojePCkDaaKiBt1KnZUuv3Ky0PppMsyYAjYJgigu0oEGYDsirYUAP0WULhqVrQhptF5qHQhnpcUJD+wyQaSpUd/Xp9NysVY/yT2qE0dprIS/vsds5Mg9mNVbaDofL94jZpUgJXUKBCvAy76ZUXY53CTd5tfX2k7kgnJzOCXIF0P5EImvgQ2olr++cbRE4O3+t6JxvXj0ptXVpye1tvbFY+ge/NJZt)
 
-### Composition API {#composition-api}
+### Зохиолын API {#composition-api}
 
-With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). The `setup` attribute is a hint that makes Vue perform compile-time transforms that allow us to use Composition API with less boilerplate. For example, imports and top-level variables / functions declared in `<script setup>` are directly usable in the template.
+Зохиолын API-ийн тусламжтайгаар бид API функцуудыг импорт хийн бүрэлдэхүүн хэсгийн логикийг бичих боломжтой. НБФ-д Зохиолын API-г ихэвчлэн ашигладаг [`<script setup>`](/api/sfc-script-setup). Уг `setup` атрибут нь Vue-г хөрвүүлэх хугацааны хувиргалтыг гүйцэтгэхэд тусалдаг зөвлөмж бөгөөд Зохиолын API-г зовлонгүйгээр ашиглах боломжийг бидэнд олгодог. Жишээлбэл, импорт болон дээд түвшний хувьсагч/функцийг `<script setup>` загварт шууд ашиглах боломжтой.
 
-Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
+Энд ижил бүрэлдэхүүнийг яг ижил загвартай боловч оронд нь Зохиолын API `<script setup>` ашиглаж байгаагаар харуулав:
 
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// reactive state
+// реактив төлөв
 const count = ref(0)
 
-// functions that mutate state and trigger updates
-function increment() {
+// төлөвийг өөрчилж, шинэчлэх функц
+const increment = () => {
   count.value++
 }
 
-// lifecycle hooks
+// Эргэх холбооны дэгээ
 onMounted(() => {
-  console.log(`The initial count is ${count.value}.`)
+  console.log(`Анхны тооллого ${count.value}.`)
 })
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Тооллого: {{ count }}</button>
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNpNkMFqwzAQRH9lMYU4pNg9Bye09NxbjzrEVda2iLwS0spQjP69a+yYHnRYad7MaOfiw/tqSliciybqYDxDRE7+qsiM3gWGGQJ2r+DoyyVivEOGLrgRDkIdFCmqa1G0ms2EELllVKQdRQa9AHBZ+PLtuEm7RCKVd+ChZRjTQqwctHQHDqbvMUDyd7mKip4AGNIBRyQujzArgtW/mlqb8HRSlLcEazrUv9oiDM49xGGvXgp5uT5his5iZV1f3r4HFHvDprVbaxPhZf4XkKub/CDLaep1T7IhGRhHb6WoTADNT2KWpu/aGv24qGKvrIrr5+Z7hnneQnJu6hURvKl3ryL/ARrVkuI=)
+[Тоглоомын талбай дээр турших](https://play.vuejs.org/#eNpNkMFqwzAQRH9lMYU4pNg9Bye09NxbjzrEVda2iLwS0spQjP69a+yYHnRYad7MaOfiw/tqSliciybqYDxDRE7+qsiM3gWGGQJ2r+DoyyVivEOGLrgRDkIdFCmqa1G0ms2EELllVKQdRQa9AHBZ+PLtuEm7RCKVd+ChZRjTQqwctHQHDqbvMUDyd7mKip4AGNIBRyQujzArgtW/mlqb8HRSlLcEazrUv9oiDM49xGGvXgp5uT5his5iZV1f3r4HFHvDprVbaxPhZf4XkKub/CDLaep1T7IhGRhHb6WoTADNT2KWpu/aGv24qGKvrIrr5+Z7hnneQnJu6hURvKl3ryL/ARrVkuI=)
 
-### Which to Choose? {#which-to-choose}
+### Алийг нь сонгох вэ? {#which-to-choose}
 
-Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+API загвар хоёулаа нийтлэг хэрэглээний тохиолдлуудыг бүрэн хамрах чадвартай. Эдгээр нь яг ижил үндсэн системээр ажилладаг өөр өөр интерфейс юм. Үнэн хэрэгтээ, Сонголтын API нь Зохиолын API дээр үндэслэн бичигдсэн! Vue-ийн талаархи үндсэн ойлголт, мэдлэг нь энэхүү хоёр хэв маягаар бусдад түгээгддэг.
 
-The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
+Сонголтын API нь "бүрэлдэхүүн инстанс" гэсэн ойлголт дээр төвлөрсөн байдаг (`this` жишээнээс харахад), энэ нь ихэвчлэн OOP (Объект хандлагат програм) хэлний суурьтай хэрэглэгчдэд зориулсан class загвартай илүү нийцдэг. Энэ нь реактив байдлын дэлгэрэнгүй мэдээллийг хасч, сонголтын бүлгүүдээр дамжуулан кодын зохион байгуулалтыг хэрэгжүүлэх замаар эхлэн сурагчдад илүү ээлтэй.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope and composing state from multiple functions together to handle complexity. It is more free-form and requires an understanding of how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
+Зохиолын API нь реактив төлөвийн хувьсагчдыг функцийн хүрээнд шууд зарлаж, нарийн төвөгтэй байдлыг зохицуулахын тулд олон функцээс төлөвийг бүрдүүлэхэд төвлөрдөг. Энэ нь илүү чөлөөтэй хэлбэртэй бөгөөд үр дүнтэй ашиглахын тулд Vue-д реактив байдал хэрхэн ажилладаг талаар ойлголттой байхыг шаарддаг. Үүний хариуд түүний уян хатан байдал нь логикийг зохион байгуулах, дахин ашиглах илүү хүчирхэг загварыг бий болгодог.
 
-You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/extras/composition-api-faq).
+Та хоёр хэв маягийн харьцуулалт болон Зохиолын API-ийн боломжит ашиг тусын талаар [Зохиолын API Асуулт Хариулт](/guide/extras/composition-api-faq). хэсгээс илүү ихийг мэдэж болно.
 
-If you are new to Vue, here's our general recommendation:
+Хэрэв та Vue-д шинээр орсон бол бидний ерөнхий зөвлөмж энд байна:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
+- Суралцахын тулд танд ойлгоход хялбар хэв маягийг сонгоорой. Дахин хэлэхэд, үндсэн ойлголтуудын ихэнх нь хоёр хэв маягийн хооронд хуваагддаг. Та дараа нь үргэлж өөр хэв маягийг сонгож болно.
 
-- For production use:
+- Үйлдвэрлэлийн зориулалтаар:
+  - Хэрэв та бүтээх хэрэгсэл ашиглаагүй бол Сонголтын API-г ашиглана уу, эсвэл Vue-г үндсэндээ бага оврын энгийн зүйл дээр ашиглах бол.
+  - Хэрэв та Vue ашиглан бүрэн хэмжээний програм бүтээхээр төлөвлөж байгаа бол Зохиолын API + Нэг бүрэлдэхүүн файлыг сонгох нь илүү дээр байх
 
-  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
+Сургалтын үе шатанд та зөвхөн нэг хэв маягт тууштай байх шаардлагагүй. Дараагийн докюментууд хоёр загварын кодын аль альний дээжийг өгөх бөгөөд та зүүн талын самбарын дээд хэсэгт байрлах **API Сонголт шилжүүлэгч** ийг ашиглан хүссэн үедээ хооронд нь сольж болно.
 
-  - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
+## Асуулт байсаар л байна уу? {#still-got-questions}
 
-You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
+Бидний [Асуулт Хариулт](/about/faq) хэсгийг хараарай.
 
-## Still Got Questions? {#still-got-questions}
+## Сурах замаа сонгох {#pick-your-learning-path}
 
-Check out our [FAQ](/about/faq).
-
-## Pick Your Learning Path {#pick-your-learning-path}
-
-Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
+Өөр өөр хөгжүүлэгчид өөр өөр сургалтын хэв маягтай байдаг. Өөрийнхөө сонголтод тохирсон сурах арга замыг сонгоорой, гэхдээ боломжтой бол бид бүх агуулгыг судлахыг зөвлөж байна!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">Зааварчилгааг үзээрэй</p>
+    <p class="next-steps-caption">Аливаа зүйлийг гараараа сурахыг илүүд үздэг хүмүүст зориулав.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Read the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">Удирдамжийг уншина уу</p>
+    <p class="next-steps-caption">Энэхүү гарын авлага нь фреймворкийн бүх талыг бүхэлд нь нарийвчлан авч үзэх болно.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">Жишээнүүдийг шалгана уу</p>
+    <p class="next-steps-caption">Үндсэн функцууд болон нийтлэг UI даалгавруудын жишээг судлаарай.</p>
   </a>
 </div>
