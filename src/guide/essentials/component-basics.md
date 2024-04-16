@@ -469,6 +469,7 @@ Something bad happened.
 This can be achieved using Vue's custom `<slot>` element:
 
 ```vue{4}
+<!-- AlertBox.vue -->
 <template>
   <div class="alert-box">
     <strong>This is an Error for Demo Purposes</strong>
