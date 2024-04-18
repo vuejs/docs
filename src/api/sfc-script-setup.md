@@ -192,7 +192,7 @@ const emit = defineEmits<{
 
 // 3.3+: alternative, more succinct syntax
 const emit = defineEmits<{
-  change: [id: number] // named tuple syntax
+  change: [id: number]; // named tuple syntax
   update: [value: string]
 }>()
 ```
