@@ -329,7 +329,7 @@ In case you want to render conditially the `default` slot you can do it the foll
 <template>
   <div class="content">
     ...
-    <div v-id="$slots.default" class="main-content">
+    <div v-if="$slots.default" class="main-content">
       <slot />
     </div>
     ...
