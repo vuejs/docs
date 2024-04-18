@@ -323,6 +323,20 @@ When the header / footer is present we want wrap them to provide additional styl
 </template>
 ```
 
+In case you want to render conditially the `default` slot you can do it the following way:
+
+```vue-html
+<template>
+  <div class="content">
+    ...
+    <div v-id="$slots.default" class="main-content">
+      <slot />
+    </div>
+    ...
+  </div>
+</template>
+```
+
 [Try it in the Playground](https://play.vuejs.org/#eNqFVD1v2zAQ/SsEWyBLIjVoJlcN0AYZ2qEt2oxaaOkkMaZIgqRcGYH/e4+kqFi26wAejvfevfu0XugXrbPtAHRFC1sZrh2x4AZ9X0rea2UceWCmJo1RPbnKcv/w9KtSFnnkIxMfDnotmAN8EVJ4WrDQTgh51wGrwUx+RLrb+6eOW4I/1wGJcJGjewrND1RP1Gpo2CB8+klOL9QqJR1IV+S+lbfVGqXcYW3QL9QiXOToPqPmn1PLCz+9ps5iIQ1vs2erJA75xbNLWqlecwHmp3ZcSVvSFQmIx5gQ6u/34HNmgOvkrzqoNmf8z3b0vpL+MmDBbKGkM+aYacFF+PHPDxjRnsFe1YNA9gXwN1glBl9jpH0dZI1lH/BCtd/CqXDZPtnHEcduU1O+UM/cB35J8XQeLrT+Wu7H7C7ElXKPU0xn5690Ofeab0klmLWfcUDIKmlakEe2N7xB4L0VytksHlhJFwE3yfu6e88mkvWAlDkmnxePwpN9kGkhOd3eieYbGstq48kdV5u856udY04zJevob1BYtxNxlplPkHaxVgb7XpFbPRI8AV6TtWDV5lNENatr3PaKfAgO3NIsMM1z1sGg1ig8G5yKUKhoN7u1GOBY6U6Pp1rTIJPYZXJs/v+JBW871xq2u5g6fNjCTOj+H/sTpqs=)
 
 ## Dynamic Slot Names {#dynamic-slot-names}
