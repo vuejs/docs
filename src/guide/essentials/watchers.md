@@ -382,7 +382,7 @@ unwatch()
 
 <div class="composition-api">
 
-Watchers declared synchronously inside `setup()` or `<script setup>` are bound to the owner component instance, and will be automatically stopped when the owner component is unmounted. In most cases, you don't need to worry about stopping the watcher yourself.
+Watcher, die synchron innerhalb von `setup()` oder `<script setup>` deklariert werden, sind an die Instanz der Eigentümerkomponente gebunden und werden automatisch gestoppt, wenn die Eigentümerkomponente ausgehängt wird. In den meisten Fällen müssen Sie sich nicht darum kümmern, den Watcher selbst zu stoppen.
 
 The key here is that the watcher must be created **synchronously**: if the watcher is created in an async callback, it won't be bound to the owner component and must be stopped manually to avoid memory leaks. Here's an example:
 
