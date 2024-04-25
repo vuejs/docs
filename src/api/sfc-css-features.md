@@ -183,8 +183,8 @@ The syntax works with [`<script setup>`](./sfc-script-setup), and supports JavaS
 
 ```vue
 <script setup>
-import { ref, reactive } from 'vue'
-const theme = reactive({
+import { ref } from 'vue'
+const theme = ref({
     color: 'red',
 })
 </script>
