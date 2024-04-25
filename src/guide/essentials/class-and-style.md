@@ -296,7 +296,7 @@ It is often a good idea to bind to a style object directly so that the template 
 ```js
 const styleObject = reactive({
   color: 'red',
-  fontSize: '13px'
+  fontSize: '30px'
 })
 ```
 
