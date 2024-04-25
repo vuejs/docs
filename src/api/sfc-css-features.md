@@ -183,9 +183,10 @@ The syntax works with [`<script setup>`](./sfc-script-setup), and supports JavaS
 
 ```vue
 <script setup>
-const theme = {
-  color: 'red'
-}
+import { ref } from 'vue'
+const theme = ref({
+    color: 'red',
+})
 </script>
 
 <template>
