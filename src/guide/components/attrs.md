@@ -14,7 +14,7 @@ When a component renders a single root element, fallthrough attributes will be a
 
 ```vue-html
 <!-- template of <MyButton> -->
-<button>click me</button>
+<button>Click Me</button>
 ```
 
 And a parent using this component with:
@@ -26,7 +26,7 @@ And a parent using this component with:
 The final rendered DOM would be:
 
 ```html
-<button class="large">click me</button>
+<button class="large">Click Me</button>
 ```
 
 Here, `<MyButton>` did not declare `class` as an accepted prop. Therefore, `class` is treated as a fallthrough attribute and automatically added to `<MyButton>`'s root element.
@@ -37,13 +37,13 @@ If the child component's root element already has existing `class` or `style` at
 
 ```vue-html
 <!-- template of <MyButton> -->
-<button class="btn">click me</button>
+<button class="btn">Click Me</button>
 ```
 
 Then the final rendered DOM would now become:
 
 ```html
-<button class="btn large">click me</button>
+<button class="btn large">Click Me</button>
 ```
 
 ### `v-on` Listener Inheritance {#v-on-listener-inheritance}
@@ -112,7 +112,7 @@ Using our `<MyButton>` component example from the [previous section](#attribute-
 
 ```vue-html
 <div class="btn-wrapper">
-  <button class="btn">click me</button>
+  <button class="btn">Click Me</button>
 </div>
 ```
 
@@ -120,7 +120,7 @@ We want all fallthrough attributes like `class` and `v-on` listeners to be appli
 
 ```vue-html{2}
 <div class="btn-wrapper">
-  <button class="btn" v-bind="$attrs">click me</button>
+  <button class="btn" v-bind="$attrs">Click Me</button>
 </div>
 ```
 
