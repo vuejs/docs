@@ -384,7 +384,7 @@ unwatch()
 
 Watcher, die synchron innerhalb von `setup()` oder `<script setup>` deklariert werden, sind an die Instanz der Eigentümerkomponente gebunden und werden automatisch gestoppt, wenn die Eigentümerkomponente ausgehängt wird. In den meisten Fällen müssen Sie sich nicht darum kümmern, den Watcher selbst zu stoppen.
 
-The key here is that the watcher must be created **synchronously**: if the watcher is created in an async callback, it won't be bound to the owner component and must be stopped manually to avoid memory leaks. Here's an example:
+Der Schlüssel hierzu ist, dass der Watcher **synchron** erstellt werden muss: Wenn der Watcher in einem asynchronen Callback erstellt wird, wird er nicht an die Eigentümerkomponente gebunden und muss manuell gestoppt werden, um Speicherlecks zu vermeiden. Hier ist ein Beispiel:
 
 ```vue
 <script setup>
