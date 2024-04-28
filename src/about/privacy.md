@@ -1,4 +1,4 @@
-# Vue.js Privacy Policy
+# Vue.js Privacy Policy {#vue.js-privacy-policy}
 
 > Effective Date: April 26, 2024
 
@@ -14,7 +14,7 @@ For clarity, this Privacy Policy only applies to the Websites and does not apply
 
 4. Usage statistics of our published browser extensions, which are collected by the browser vendors and governed by their respective terms and conditions.
 
-## What Kinds of Information Do We Collect?
+## What Kinds of Information Do We Collect? {#what-kinds-of-information-do-we-collect}
 
 We do not collect or store any type of personal data, but may collect anonymized data via 3rd party services integrated in our websites:
 
@@ -27,14 +27,14 @@ We do not collect or store any type of personal data, but may collect anonymized
   - Algolia's privacy policy: https://www.algolia.com/policies/privacy/
   - Algolia's security and privacy compliance: https://www.algolia.com/distributed-secure/security-compliance/
 
-## How Do We Use Information?
+## How Do We Use Information? {#how-do-we-use-information}
 
 The sole purpose of collecting the aforementioned data is to understand our website traffic and usage in the most privacy-friendly way possible so that we can continually improve our website and documentation quality. The lawful basis as per the GDPR is "Article 6(1)(f); where our legitimate interests are to improve our website and business continually." As per the explanation, no personal data is stored over time.
 
-## Data Retention
+## Data Retention {#data-retention}
 
 All data collected are stored on aforementioned 3rd party services and are subject to the services' respective data retention policies.
 
-## Questions
+## Questions {#questions}
 
 If you have any questions about this Privacy Policy or our practices, please contact us via email at hello@vuejs.org.
