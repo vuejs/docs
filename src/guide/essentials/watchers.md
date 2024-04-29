@@ -400,7 +400,7 @@ setTimeout(() => {
 </script>
 ```
 
-To manually stop a watcher, use the returned handle function. This works for both `watch` and `watchEffect`:
+Um einen Watcher manuell zu stoppen, verwenden Sie die zurückgegebene Handle-Funktion. Dies funktioniert sowohl für `watch` als auch für `watchEffect`:
 
 ```js
 const unwatch = watchEffect(() => {})
