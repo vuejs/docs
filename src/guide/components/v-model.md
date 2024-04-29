@@ -59,6 +59,7 @@ const model = defineModel()
 This is how you would implement the same child component shown above prior to 3.4:
 
 ```vue
+<!-- Child.vue -->
 <script setup>
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
@@ -70,6 +71,16 @@ const emit = defineEmits(['update:modelValue'])
     @input="emit('update:modelValue', $event.target.value)"
   />
 </template>
+```
+
+Then, `v-model="modelValue"` in the parent component will be compiled to:
+
+```vue-html
+<!-- Parent.vue -->
+<Child
+  :modelValue="foo"
+  @update:modelValue="$event => (foo = $event)"
+/>
 ```
 
 As you can see, it is quite a bit more verbose. However, it is helpful to understand what is happening under the hood.
