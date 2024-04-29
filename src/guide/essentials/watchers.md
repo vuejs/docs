@@ -390,10 +390,10 @@ Der Schlüssel hierzu ist, dass der Watcher **synchron** erstellt werden muss: W
 <script setup>
 import { watchEffect } from 'vue'
 
-// this one will be automatically stopped
+// diese wird automatisch gestoppt
 watchEffect(() => {})
 
-// ...this one will not!
+// ...dieser wird es nicht!
 setTimeout(() => {
   watchEffect(() => {})
 }, 100)
