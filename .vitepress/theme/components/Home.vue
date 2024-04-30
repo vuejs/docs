@@ -19,7 +19,12 @@ onMounted(async () => {
     <img
       v-if="uwu"
       src="/logo-uwu.svg"
-      style="width: 100%; max-width: 580px; margin: -80px auto -20px"
+      style="
+        width: 100%;
+        max-width: 580px;
+        margin: -80px auto -20px;
+        aspect-ratio: 145 / 91;
+      "
     />
     <h1 class="tagline">
       The
