@@ -63,7 +63,7 @@ createApp({
 ```vue-html
 <div id="app">
   <button @click="count++">
-    Count: {{ count }}
+    Count is: {{ count }}
   </button>
 </div>
 ```
@@ -77,7 +77,7 @@ const count = ref(0)
 
 <div class="demo">
   <button @click="count++">
-    Count: {{ count }}
+    Count is: {{ count }}
   </button>
 </div>
 
@@ -128,7 +128,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Count: {{ count }}</button>
+  <button @click="count++">Count is: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -148,7 +148,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">Count: {{ count }}</button>
+  <button @click="count++">Count is: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -199,7 +199,7 @@ export default {
 </script>
 
 <template>
-  <button @click="increment">Count: {{ count }}</button>
+  <button @click="increment">Count is: {{ count }}</button>
 </template>
 ```
 
@@ -230,7 +230,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <button @click="increment">Count: {{ count }}</button>
+  <button @click="increment">Count is: {{ count }}</button>
 </template>
 ```
 
