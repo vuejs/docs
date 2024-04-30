@@ -1,18 +1,26 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import SiteMap from './SiteMap.vue'
 // import NewsLetter from './NewsLetter.vue'
 import { load, data, base } from './sponsors'
 import SponsorsGroup from './SponsorsGroup.vue'
 import VueMasteryModal from './VueMasteryModal.vue'
 
+const uwu = ref(false)
+
 onMounted(async () => {
+  uwu.value = location.search.includes('?uwu')
   await load()
 })
 </script>
 
 <template>
   <section id="hero">
+    <img
+      v-if="uwu"
+      src="/logo-uwu.svg"
+      style="width: 100%; max-width: 580px; margin: -80px auto -20px"
+    />
     <h1 class="tagline">
       The
       <span class="accent">Progressive</span>
