@@ -6,21 +6,12 @@ import { load, data, base } from './sponsors'
 import SponsorsGroup from './SponsorsGroup.vue'
 import VueMasteryModal from './VueMasteryModal.vue'
 
-const uwu = ref(false)
-
-onMounted(async () => {
-  uwu.value = location.search.includes('?uwu')
-  await load()
-})
+onMounted(load)
 </script>
 
 <template>
   <section id="hero">
-    <img
-      v-if="uwu"
-      src="/logo-uwu.svg"
-      style="width: 100%; max-width: 580px; margin: -80px auto -20px"
-    />
+    <img id="uwu" />
     <h1 class="tagline">
       The
       <span class="accent">Progressive</span>
@@ -316,5 +307,14 @@ html:not(.dark) .accent,
   .tagline {
     font-size: 36px;
   }
+}
+
+:global(.uwu #uwu) {
+  display: block;
+  width: 100%;
+  max-width: 580px;
+  margin: -80px auto -20px;
+  aspect-ratio: 145 / 91;
+  content: url(/logo-uwu.svg);
 }
 </style>
