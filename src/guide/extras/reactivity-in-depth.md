@@ -191,7 +191,7 @@ import { ref, watchEffect } from 'vue'
 const count = ref(0)
 
 watchEffect(() => {
-  document.body.innerHTML = `count is: ${count.value}`
+  document.body.innerHTML = `Count is: ${count.value}`
 })
 
 // updates the DOM

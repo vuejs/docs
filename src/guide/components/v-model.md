@@ -19,7 +19,7 @@ function update() {
 </script>
 
 <template>
-  <div>parent bound v-model is: {{ model }}</div>
+  <div>Parent bound v-model is: {{ model }}</div>
 </template>
 ```
 

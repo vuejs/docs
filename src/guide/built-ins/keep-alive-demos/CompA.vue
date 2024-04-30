@@ -5,6 +5,6 @@ const count = ref(0)
 
 <template>
   <p>Current component: A</p>
-  <span style="margin-right: 20px">count: {{ count }}</span>
+  <span style="margin-right: 20px">Count: {{ count }}</span>
   <button @click="count++">+</button>
 </template>

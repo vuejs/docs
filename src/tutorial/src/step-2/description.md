@@ -63,7 +63,7 @@ Properties in the returned object will be made available in the template. This i
 
 ```vue-html
 <h1>{{ message }}</h1>
-<p>count is: {{ counter.count }}</p>
+<p>Count is: {{ counter.count }}</p>
 ```
 
 Notice how we did not need to use `.value` when accessing the `message` ref in templates: it is automatically unwrapped for more succinct usage.
