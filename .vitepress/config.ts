@@ -49,7 +49,7 @@ const nav: ThemeConfig['nav'] = [
           { text: 'UI Components', link: 'https://ui-libs.vercel.app/' },
           {
             text: 'Certification',
-            link: 'https://certification.vuejs.org/?ref=vuejs-nav'
+            link: 'https://certificates.dev/vuejs/?ref=vuejs-nav'
           },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
@@ -113,6 +113,7 @@ const nav: ThemeConfig['nav'] = [
         link: '/about/community-guide'
       },
       { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'Privacy Policy', link: '/about/privacy' },
       {
         text: 'The Documentary',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
@@ -601,6 +602,14 @@ export default defineConfigWithTheme<ThemeConfig>({
       {},
       fs.readFileSync(
         path.resolve(__dirname, './inlined-scripts/restorePreference.js'),
+        'utf-8'
+      )
+    ],
+    [
+      'script',
+      {},
+      fs.readFileSync(
+        path.resolve(__dirname, './inlined-scripts/uwu.js'),
         'utf-8'
       )
     ],
