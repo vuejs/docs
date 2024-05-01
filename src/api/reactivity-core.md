@@ -45,7 +45,7 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
 
 ## computed() {#computed}
 
-Takes a getter function and returns a readonly reactive [ref](#ref) object for the returned value from the getter. It can also take an object with `get` and `set` functions to create a writable ref object.
+Takes a [getter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set#description) and returns a readonly reactive [ref](#ref) object for the returned value from the getter. It can also take an object with `get` and `set` functions to create a writable ref object.
 
 - **Type**
 

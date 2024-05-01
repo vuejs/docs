@@ -109,7 +109,7 @@ watch(question, async (newQuestion, oldQuestion) => {
 
 ### Watch Source Types {#watch-source-types}
 
-`watch`'s first argument can be different types of reactive "sources": it can be a ref (including computed refs), a reactive object, a getter function, or an array of multiple sources:
+`watch`'s first argument can be different types of reactive "sources": it can be a ref (including computed refs), a reactive object, a [getter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description), or an array of multiple sources:
 
 ```js
 const x = ref(0)
@@ -272,13 +272,12 @@ watch(
 
 </div>
 
-
 ## Once Watchers <sup class="vt-badge" data-text="3.4+" /> {#once-watchers}
 
 Watcher's callback will execute whenever the watched source changes. If you want the callback to trigger only once when the source changes, use the `once: true` option.
 
 <div class="options-api">
-  
+
 ```js
 export default {
   watch: {
