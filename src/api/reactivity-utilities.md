@@ -237,7 +237,7 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core#react
 - **Type**
 
   ```ts
-  function isProxy(value: unknown): boolean
+  function isProxy(value: any): boolean
   ```
 
 ## isReactive() {#isreactive}
