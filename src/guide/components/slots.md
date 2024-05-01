@@ -303,7 +303,7 @@ Sometimes you want to render something based on whether or not a slot is present
 You can use the [$slots](/api/component-instance.html#slots) property in combination with a [v-if](/guide/essentials/conditional.html#v-if) to achieve this.
 
 In the example below we define a Card component with three conditional slots: `header`, `footer` and the `default` one.
-When the header / footer / default is present we want wrap them to provide additional styling:
+When the header / footer / default is present we want to wrap them to provide additional styling:
 
 ```vue-html
 <template>
