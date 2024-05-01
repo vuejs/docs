@@ -11,7 +11,6 @@ onMounted(load)
 
 <template>
   <section id="hero">
-    <img id="uwu" src="/logo-uwu.svg" alt="Vue.js Kawaii Logo by @icarusgkx" width="145" height="91" />
     <h1 class="tagline">
       The
       <span class="accent">Progressive</span>
@@ -307,16 +306,5 @@ html:not(.dark) .accent,
   .tagline {
     font-size: 36px;
   }
-}
-
-#uwu {
-  display: none;
-}
-
-.uwu #uwu {
-  display: block;
-  width: 100%;
-  max-width: 580px;
-  margin: -80px auto -20px;
 }
 </style>
