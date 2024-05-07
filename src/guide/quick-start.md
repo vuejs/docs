@@ -196,7 +196,7 @@ The above link loads the _global build_ of Vue, where all top-level APIs are exp
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/QWJwJLp)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/QWJwJLp)
 
 </div>
 
@@ -221,7 +221,7 @@ The above link loads the _global build_ of Vue, where all top-level APIs are exp
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/eYQpQEG)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/eYQpQEG)
 
 :::tip
 Many of the examples for Composition API throughout the guide will be using the `<script setup>` syntax, which requires build tools. If you intend to use Composition API without a build step, consult the usage of the [`setup()` option](/api/composition-api-setup).
@@ -278,12 +278,12 @@ Notice that we are using `<script type="module">`, and the imported CDN URL is p
 
 <div class="options-api">
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/VwVYVZO)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/VwVYVZO)
 
 </div>
 <div class="composition-api">
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/MWzazEv)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/MWzazEv)
 
 </div>
 
@@ -323,7 +323,7 @@ We can teach the browser where to locate the `vue` import by using [Import Maps]
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/wvQKQyM)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/wvQKQyM)
 
 </div>
 
@@ -354,7 +354,7 @@ We can teach the browser where to locate the `vue` import by using [Import Maps]
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/YzRyRYM)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/YzRyRYM)
 
 </div>
 
