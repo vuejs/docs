@@ -405,7 +405,7 @@ Um einen Watcher manuell zu stoppen, verwenden Sie die zurückgegebene Handle-Fu
 ```js
 const unwatch = watchEffect(() => {})
 
-// ...later, when no longer needed
+// ...später, wenn sie nicht mehr benötigt werden
 unwatch()
 ```
 
