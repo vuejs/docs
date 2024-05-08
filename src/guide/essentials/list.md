@@ -426,10 +426,16 @@ methods: {
 </ul>
 ```
 
-Be careful with `reverse()` and `sort()` in a computed property! These two methods will mutate the original array, which should be avoided in computed getters. Create a copy of the original array before calling these methods, alternatively, you can use their corresponding immutable methods, [`toReversed()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed) and [`toSorted()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted):
+Be careful with `reverse()` and `sort()` in a computed property! These two methods will mutate the original array, which should be avoided in computed getters. Create a copy of the original array before calling these methods. Fortunately, ES2023 adds two new their corresponding immutable methods, [`toReversed()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed) and [`toSorted()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted). If your browser or build tool supports them, you can also try using them:
 
 ```diff
 - return numbers.reverse()
 + return [...numbers].reverse()
+
+// - If the console error "Uncaught TypeError: numbers.a is not a function" is reported in the browser,
+//   you need to use Chrome / Edge 110, Firefox 115, Safari 16 or higher.
+// 
+// - If the TypeScript error "Property 'toReversed' does not exist on type 'number[]'" is reported in the editor,
+//   you need to adjust the "target" in tsconfig.json in the root directory of the project to "ESNext".
 + return numbers.toReversed()
 ```
