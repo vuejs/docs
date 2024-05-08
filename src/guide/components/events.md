@@ -69,6 +69,104 @@ Like components and props, event names provide an automatic case transformation.
 Unlike native DOM events, component emitted events do **not** bubble. You can only listen to the events emitted by a direct child component. If there is a need to communicate between sibling or deeply nested components, use an external event bus or a [global state management solution](/guide/scaling-up/state-management).
 :::
 
+### Listening to Lifecycle Events {#listening-to-lifecycle-events}
+
+Using a special prefix `vue:` followed by the name of the [Lifecycle Hook](/guide/essentials/lifecycle) allows you to listen to lifecycle events happening inside a child component. 
+
+To demonstrate this feature consider following example:
+
+<div class="composition-api">
+
+```vue{11}
+<!-- App.vue -->
+<script setup>
+import Comp from './Comp.vue'
+
+function onMountedHandler() {
+  console.log("onMounted event captured in parent")
+}
+</script>
+
+<template>
+  <Comp @vue:mounted="onMountedHandler" />
+</template>
+
+<!-- Comp.vue -->
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  console.log("onMounted hook in child")
+})
+</script>
+
+<template>
+  <div>
+    This is a child component
+  </div>
+</template>
+```
+
+</div>
+<div class="options-api">
+
+
+```vue{18}
+<!-- App.vue -->
+<script>
+import Comp from './Comp.vue'
+
+export default {
+  components: {
+    Comp
+  },
+  methods: {
+    mountedHandler() {
+      console.log("mounted event captured in parent")
+    }
+  }
+}
+</script>
+
+<template>
+  <Comp @vue:mounted="mountedHandler" />
+</template>
+
+<!-- Comp.vue -->
+<script>
+export default {
+  mounted() {
+    console.log("mounted hook in child")
+  }
+}
+</script>
+
+<template>
+  <div>
+    This is a child component
+  </div>
+</template>
+```
+</div>
+
+
+First, the lifecycle event will be handled inside the hook declared in the child component, then it gets propagated into the parent and captured there.
+
+<div class="composition-api">
+
+[Try it in the Playground](https://play.vuejs.org/#eNp9UttqwkAQ/ZVhX6ogyUP7JCq9ILSFXmh93JeQjLqazC57sYLk3zubmGihCgnszJyZPWf2HMSDMckuoBiLicutMh4c+mBmklRltPXwpCsDS6sruEnSGET4jSRJy0C5V5pA05sO5LF4zqgo0Q6GcJAEkGtyusSk1KuBFD0KcIfkIc+MD5ZDRWAyyykphpJqSZO0pcIkOPBYmTLzyBHApKFzzxTGVTttejb5eL8UkDJ6kp61ipHwjgkt1SrZOE0suOEoRc4TFXd9mCjGSTFu2cdaVpb657XJeRtw1OXzNebbf/Ibt485KT4tOrQ7lKKv+cyukDXG8vz7Hfd87ouVLkLJ6CvFL+RlhsixhT2Go9ge17B9aZ5N0Wrh5nuP5DpRkWhE1g1eCt5hXOYl6Se6t8ld08dvw1vsLHDZMYeTIaA+WqfzTF8ZsEmms+s+WWu9je7I16osWnPwf80dhdo1B4DFWjngL2u7+Q4mR9FkEZe2wL8OqX8BmMQKiQ==)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://play.vuejs.org/#eNqFUstqwzAQ/BWhSxII9qE9hbT0QaDtoS1tjroYe2MrkSWhh2sI+feu5FcDaQvGSLuzq5ndOdJ7rZPGA13Rtc0N1+6WSV5rZRx5VLUmO6NqMkvScAnAGZNMQhsBBewyLxw5MklIjgAlQTq76gIkNgin0zL8a3CVKqZsrbx0UDxlshBg5oshHlpJqwQkQpVzRnscgQabkzzTzhu8ckl0ZjDE6KIrPMW3mMRvnY5i8OKg1iJzgDdC1lHWHUpZ9Z1vxjd6LoySFLHr9EchXVJnkdiOl8neKokDi3wZDcI5Vr1px5E4o6NCRjMh1NdLjDnjIc4h1lSQHy7E97YNMUbfDVgwDTA65lxmSkC1Ib35fIUWz2OyVoUXiP4j+QE4VB84drAH34sdcZHtc1w+l+XWbloH0g6iAtFpm4ziBMMof5M+0b1KrofN4BQHI5057pKh+p1Mxrhsi0qpQzBDXnFR9F743wQFb+KBkG3FLcEv6zpMPo64tAOeW+H0DZFIFOM=)
+
+</div>
+
+Note that unlike in the example above, you **don't** have to explicitly declare and handle the respective lifecycle hook in the child component.
+
+`<Comp @vue:mounted="onMountedHandler" />` **will** trigger even if there is no explicit <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> handler declared inside `Comp` as the lifecycle is handled by Vue itself.
+
 ## Event Arguments {#event-arguments}
 
 It's sometimes useful to emit a specific value with an event. For example, we may want the `<BlogPost>` component to be in charge of how much to enlarge the text by. In those cases, we can pass extra arguments to `$emit` to provide this value:
