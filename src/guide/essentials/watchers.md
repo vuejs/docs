@@ -409,7 +409,7 @@ const unwatch = watchEffect(() => {})
 unwatch()
 ```
 
-Note that there should be very few cases where you need to create watchers asynchronously, and synchronous creation should be preferred whenever possible. If you need to wait for some async data, you can make your watch logic conditional instead:
+Beachten Sie, dass es nur sehr wenige Fälle geben sollte, in denen Sie Watcher asynchron erstellen müssen, und dass die synchrone Erstellung wann immer möglich bevorzugt werden sollte. Wenn Sie auf einige asynchrone Daten warten müssen, können Sie Ihre Watch-Logik stattdessen an Bedingungen knüpfen:
 
 ```js
 // data to be loaded asynchronously
