@@ -324,7 +324,7 @@ You may notice that the animations shown above are mostly using properties like 
 
 2. Most modern browsers can leverage GPU hardware acceleration when animating `transform`.
 
-In comparison, properties like `height` or `margin` will trigger CSS layout, so they are much more expensive to animate, and should be used with caution. We can check resources like [CSS-Triggers](https://csstriggers.com/) to see which properties will trigger layout if we animate them.
+In comparison, properties like `height` or `margin` will trigger CSS layout, so they are much more expensive to animate, and should be used with caution.
 
 ## JavaScript Hooks {#javascript-hooks}
 
