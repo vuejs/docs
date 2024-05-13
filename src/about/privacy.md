@@ -1,10 +1,10 @@
 # Vue.js Privacy Policy {#vue.js-privacy-policy}
 
-> Effective Date: April 26, 2024
+> Effective Date: May 3, 2024
 
 This Privacy Policy describes the Vue.js organization ("Vue", "we", "us" or "our") practices for handling your information in connection with this website (https://vuejs.org) and our open source-related websites ("Websites") and any content, related documentation, information and services (e.g. tutorials, tools to support the developer workflow, access to resources, etc.) made available to you on this website (collectively, the "Services"). This Privacy Policy describes the personal information we process to support our Services.
 
-For clarity, this Privacy Policy only applies to the Websites and does not apply to any:
+For clarity, this Privacy Policy does not apply to any:
 
 1. Use of open source code, documentation or specifications made available on GitHub (https://github.com/), which are governed by the terms of the applicable open source license;
 
@@ -12,11 +12,13 @@ For clarity, this Privacy Policy only applies to the Websites and does not apply
 
 3. Usage statistics of our published packages on NPM (https://npmjs.com/), which are governed by NPM's terms and conditions; or
 
-4. Usage statistics of our published browser extensions, which are collected by the browser vendors and governed by their respective terms and conditions.
+4. Usage statistics of our published browser / IDE extensions collected by the browser / IDE vendors. Such statistics are governed by the vendors' respective terms and conditions.
 
 ## What Kinds of Information Do We Collect? {#what-kinds-of-information-do-we-collect}
 
-We do not collect or store any type of personal data, but may collect anonymized data via 3rd party services integrated in our websites:
+We do **not** collect or store any type of personal data, whether through our websites or through our published npm packages or browser / IDE extensions.
+
+We may collect anonymized data via 3rd party services integrated in our websites:
 
 - **Visitor data to our websites.** Our website analytics is powered by [Fathom Analytics](https://usefathom.com/), which doesn't use cookies and complies with the GDPR, ePrivacy (including PECR), COPPA and CCPA. Using this privacy-friendly website analytics software, your IP address is only briefly processed, and we (running this website) have no way of identifying you. As per the CCPA, your personal information is de-identified. You can read more about this on Fathom Analytics' website.
 

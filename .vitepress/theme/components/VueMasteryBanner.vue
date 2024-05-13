@@ -155,9 +155,12 @@ onMounted(() => {
   font-weight: bold;
   font-size: 24px;
   text-align: center;
+<<<<<<< HEAD
 }
 
 .vm-banner-title span{
+=======
+>>>>>>> 35e8da8b3811615e3a46770cf4466186ac9ff400
   background: linear-gradient(145deg, #c3ffac, #86ec87, #38a56a);
   background-clip: text;
   -webkit-background-clip: text;
