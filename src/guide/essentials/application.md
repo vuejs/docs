@@ -50,7 +50,7 @@ An application instance won't render anything until its `.mount()` method is cal
 ```
 
 ```js
-app.mount('#app')
+app.mount("#app")
 ```
 
 The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app.
