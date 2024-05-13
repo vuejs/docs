@@ -244,7 +244,7 @@ onMounted(() => {
     width: 40px;
   }
   .vm-banner-title {
-    font-size: 14px;
+    font-size: 12px;
   }
   .vm-banner-sub {
     font-size: 12px;
