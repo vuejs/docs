@@ -412,12 +412,12 @@ unwatch()
 Beachten Sie, dass es nur sehr wenige Fälle geben sollte, in denen Sie Watcher asynchron erstellen müssen, und dass die synchrone Erstellung wann immer möglich bevorzugt werden sollte. Wenn Sie auf einige asynchrone Daten warten müssen, können Sie Ihre Watch-Logik stattdessen an Bedingungen knüpfen:
 
 ```js
-// data to be loaded asynchronously
+// asynchron zu ladende Daten
 const data = ref(null)
 
 watchEffect(() => {
   if (data.value) {
-    // do something when data is loaded
+    // etwas tun, wenn Daten geladen sind
   }
 })
 ```
