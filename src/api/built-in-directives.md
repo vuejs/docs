@@ -198,6 +198,10 @@ Attach an event listener to the element.
 
   When listening to native DOM events, the method receives the native event as the only argument. If using inline statement, the statement has access to the special `$event` property: `v-on:click="handle('ok', $event)"`.
 
+  When using an inline statement with the `$event` property, such as `v-on:click="handle('ok', $event)"`, the inline statement is transformed to `$event => handle('ok', $event)`. This means that the `$event` object is automatically passed as the first argument to the inline function. 
+
+  If you need to access the `$event` object in the listener, you should explicitly pass the `$event` object as a parameter in child components.
+
   `v-on` also supports binding to an object of event / listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.
 
 - **Example**
@@ -248,6 +252,16 @@ Attach an event listener to the element.
   <!-- inline statement -->
   <MyComponent @my-event="handleThis(123, $event)" />
   ```
+
+  ```vue-html
+  <!-- MyComponent.vue -->
+  <button @my-event="$emit('my-event', 123, $event)"></button>
+  
+  <!-- inline statement -->
+  <!-- note that $event is passed manually -->
+  <button @click="$emit('my-event', $event)"></button>
+  ```
+
 
 - **See also**
   - [Event Handling](/guide/essentials/event-handling)
