@@ -99,7 +99,8 @@ If you have a JavaScript object representing multiple attributes that looks like
 ```js
 const objectOfAttrs = {
   id: 'container',
-  class: 'wrapper'
+  class: 'wrapper',
+  style: 'background-color:green'
 }
 ```
 
