@@ -451,8 +451,6 @@ If you are mixing named slots with the default scoped slot, you need to use an e
 </div>
 ```
 
-The `message` slot prop is only available in the scope of the default slot.
-
 ```vue-html
 <!-- This template won't compile -->
 <MyComponent v-slot="{ message }">
