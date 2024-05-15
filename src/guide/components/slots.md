@@ -444,33 +444,37 @@ Note the `name` of a slot won't be included in the props because it is reserved 
 If you are mixing named slots with the default scoped slot, you need to use an explicit `<template>` tag for the default slot. Attempting to place the `v-slot` directive directly on the component will result in a compilation error. This is to avoid any ambiguity about the scope of the props of the default slot. For example:
 
 ```vue-html
+<!-- <MyComponent> template -->
+<div>
+  <slot :message="hello"></slot>
+  <slot name="footer" />
+</div>
+```
+
+```vue-html
 <!-- This template won't compile -->
-<template>
-  <MyComponent v-slot="{ message }">
+<MyComponent v-slot="{ message }">
+  <p>{{ message }}</p>
+  <template #footer>
+    <!-- message belongs to the default slot, and is not available here -->
     <p>{{ message }}</p>
-    <template #footer>
-      <!-- message belongs to the default slot, and is not available here -->
-      <p>{{ message }}</p>
-    </template>
-  </MyComponent>
-</template>
+  </template>
+</MyComponent>
 ```
 
 Using an explicit `<template>` tag for the default slot helps to make it clear that the `message` prop is not available inside the other slot:
 
 ```vue-html
-<template>
-  <MyComponent>
-    <!-- Use explicit default slot -->
-    <template #default="{ message }">
-      <p>{{ message }}</p>
-    </template>
+<MyComponent>
+  <!-- Use explicit default slot -->
+  <template #default="{ message }">
+    <p>{{ message }}</p>
+  </template>
 
-    <template #footer>
-      <p>Here's some contact info</p>
-    </template>
-  </MyComponent>
-</template>
+  <template #footer>
+    <p>Here's some contact info</p>
+  </template>
+</MyComponent>
 ```
 
 ### Fancy List Example {#fancy-list-example}
