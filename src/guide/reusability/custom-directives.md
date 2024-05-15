@@ -211,7 +211,7 @@ app.directive('demo', (el, binding) => {
 ## Usage on Components {#usage-on-components}
 
 :::warning Not recommended
-Using custom directives on components is not recommended, unexpected behaviour may occur when a component has multiple root nodes.
+Using custom directives on components is not recommended. Unexpected behaviour may occur when a component has multiple root nodes.
 :::
 
 
