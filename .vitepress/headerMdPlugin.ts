@@ -19,8 +19,6 @@ export interface AugmentedHeader extends Header {
 }
 
 export const headerPlugin = (md: MarkdownIt) => {
-  md.core.ruler.enable('text_join')
-
   md.renderer.rules.heading_open = (tokens, i, options, env, self) => {
     for (const child of tokens[i + 1].children!) {
       if (child.type === 'text' && child.content.endsWith('*')) {
