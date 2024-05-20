@@ -3,7 +3,7 @@
   content: '▶';
   width: 20px;
   height: 20px;
-  display: inline-block;
+  display: inline-flex;
   border-radius: 10px;
   vertical-align: middle;
   position: relative;
