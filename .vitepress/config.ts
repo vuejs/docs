@@ -737,6 +737,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   markdown: {
     theme: 'github-dark',
     config(md) {
+      // @ts-expect-error - broken type output in vitepress
       md.use(headerPlugin)
       // .use(textAdPlugin)
     }

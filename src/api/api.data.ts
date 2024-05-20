@@ -2,7 +2,7 @@
 // a file ending with data.(j|t)s will be evaluated in Node.js
 import fs from 'fs'
 import path from 'path'
-import type { MultiSidebarConfig } from '@vue/theme/src/vitepress/config'
+import type { MultiSidebarConfig } from '@vue/theme/src/vitepress/config.ts'
 import { sidebar } from '../../.vitepress/config'
 
 interface APIHeader {

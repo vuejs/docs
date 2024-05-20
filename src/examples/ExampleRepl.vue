@@ -2,15 +2,7 @@
 import { Repl, useStore, useVueImportMap } from '@vue/repl'
 import CodeMirror from '@vue/repl/codemirror-editor'
 import { data } from './examples.data'
-import {
-  inject,
-  watchEffect,
-  version,
-  Ref,
-  onMounted,
-  ref,
-  onUnmounted
-} from 'vue'
+import { inject, watchEffect, Ref, onMounted, ref, onUnmounted } from 'vue'
 import {
   resolveSFCExample,
   resolveNoBuildExample,
