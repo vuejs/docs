@@ -12,8 +12,8 @@ importers:
         specifier: ^4.1.2
         version: 4.1.2
       '@vue/theme':
-        specifier: ^2.2.8
-        version: 2.2.8(@algolia/client-search@4.23.3)(search-insights@2.13.0)(vitepress@1.2.0(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.4.27(typescript@5.4.5))
+        specifier: ^2.2.9
+        version: 2.2.9(@algolia/client-search@4.23.3)(search-insights@2.13.0)(vitepress@1.1.4(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.4.27(typescript@5.4.5))
       dynamics.js:
         specifier: ^1.1.5
         version: 1.1.5
@@ -21,8 +21,8 @@ importers:
         specifier: ^3.12.5
         version: 3.12.5
       vitepress:
-        specifier: ^1.2.0
-        version: 1.2.0(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5)
+        specifier: ~1.1
+        version: 1.1.4(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5)
       vue:
         specifier: ^3.4.27
         version: 3.4.27(typescript@5.4.5)
@@ -486,8 +486,8 @@ packages:
   '@vue/shared@3.4.27':
     resolution: {integrity: sha512-DL3NmY2OFlqmYYrzp39yi3LDkKxa5vZVwxWdQ3rG0ekuWscHraeIbnI8t+aZK7qhYqEqWKTUdijadunb9pnrgA==}
 
-  '@vue/theme@2.2.8':
-    resolution: {integrity: sha512-GlS4xIWQ3XWpkhYdNXu1Bl9jSDlPR7L72n5EA/Wm8mkbA3iUAdOxILztoK8hJRbiAlXxdSJi6+zzJUvC8fWEsA==}
+  '@vue/theme@2.2.9':
+    resolution: {integrity: sha512-lYVs12Zqo6PpbXSAlJHbd5Ju/h75k1vwjz3sbmbA9JJR9LPmbMwNTRz7PrGBjC8aOgY86abJinswqqTUj45Sig==}
     peerDependencies:
       vitepress: ^1.2.0
 
@@ -731,8 +731,8 @@ packages:
       terser:
         optional: true
 
-  vitepress@1.2.0:
-    resolution: {integrity: sha512-m/4PAQVyPBvKHV7sFKwcmNmrsoSxdjnw/Eg40YyuBSaBHhrro9ubnfWk5GT0xGfE98LqjZkHCWKNJlR6G/7Ayg==}
+  vitepress@1.1.4:
+    resolution: {integrity: sha512-bWIzFZXpPB6NIDBuWnS20aMADH+FcFKDfQNYFvbOWij03PR29eImTceQHIzCKordjXYBhM/TjE5VKFTUJ3EheA==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4
@@ -1183,14 +1183,14 @@ snapshots:
 
   '@vue/shared@3.4.27': {}
 
-  '@vue/theme@2.2.8(@algolia/client-search@4.23.3)(search-insights@2.13.0)(vitepress@1.2.0(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.4.27(typescript@5.4.5))':
+  '@vue/theme@2.2.9(@algolia/client-search@4.23.3)(search-insights@2.13.0)(vitepress@1.1.4(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.4.27(typescript@5.4.5))':
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.3)(search-insights@2.13.0)
       '@vueuse/core': 10.9.0(vue@3.4.27(typescript@5.4.5))
       body-scroll-lock: 4.0.0-beta.0
       normalize.css: 8.0.1
-      vitepress: 1.2.0(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5)
+      vitepress: 1.1.4(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5)
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/react'
@@ -1415,7 +1415,7 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.31.0
 
-  vitepress@1.2.0(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5):
+  vitepress@1.1.4(@algolia/client-search@4.23.3)(@types/node@20.12.12)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.31.0)(typescript@5.4.5):
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.3)(search-insights@2.13.0)
@@ -1424,7 +1424,6 @@ snapshots:
       '@types/markdown-it': 14.1.1
       '@vitejs/plugin-vue': 5.0.4(vite@5.2.11(@types/node@20.12.12)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
       '@vue/devtools-api': 7.2.1(vue@3.4.27(typescript@5.4.5))
-      '@vue/shared': 3.4.27
       '@vueuse/core': 10.9.0(vue@3.4.27(typescript@5.4.5))
       '@vueuse/integrations': 10.9.0(focus-trap@7.5.4)(vue@3.4.27(typescript@5.4.5))
       focus-trap: 7.5.4
