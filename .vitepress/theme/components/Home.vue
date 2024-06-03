@@ -13,7 +13,6 @@ onMounted(load)
   <section id="hero">
     <img id="uwu" alt="Vue.js Kawaii Logo by @icarusgkx" />
     <h1 class="tagline">
-      The
       <span class="accent">Progresywny</span>
       <br />Framework JavaScript
     </h1>
