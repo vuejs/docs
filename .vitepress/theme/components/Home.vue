@@ -18,13 +18,13 @@ onMounted(load)
       <br />JavaScript Framework
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Dostępny, wydajny i wszechstronny framework do budowania interfejsów
+      użytkownika stron internetowych.
     </p>
     <p class="actions">
       <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Rozpocznij
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -37,12 +37,12 @@ onMounted(load)
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Instalacja</a>
     </p>
   </section>
 
   <section v-if="data && data.special" id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
+    <span class="lead">Sponsor Sepcjalny</span>
     <template v-for="{ url, img, name, description } of data.special">
       <a :href="url" target="_blank" rel="sponsored noopener">
         <picture v-if="img.endsWith('png')">
@@ -66,32 +66,32 @@ onMounted(load)
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>Dostępny</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        Bazuje na standardowych HTML, CSS i JavaScript,
+        oferując intuicyjne API i dokumentację na światowym poziomie.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Wydajny</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        Prawdziwie reaktywny, zoptymalizowany przez kompilator system renderowania,
+        który rzadko wymaga ręcznej optymalizacji.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>Wszechstronny</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        Bogaty, stopniowo adoptowany ekosystem,
+        który skaluje się między biblioteką a pełnoprawnym frameworkiem.
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>Sponsorzy Platynowi</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>Sponsorzy Złoci</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
