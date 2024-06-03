@@ -14,8 +14,8 @@ onMounted(load)
     <img id="uwu" alt="Vue.js Kawaii Logo by @icarusgkx" />
     <h1 class="tagline">
       The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      <span class="accent">Progresywny</span>
+      <br />Framework JavaScript
     </h1>
     <p class="description">
       Dostępny, wydajny i wszechstronny framework do budowania interfejsów
