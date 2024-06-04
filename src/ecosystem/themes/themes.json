@@ -245,53 +245,101 @@
     ]
   },
   {
-  "name": "CodedThemes",
-  "description": "Explore Vue.js admin dashboard templates crafted with developers in mind by our partners at [CodedThemes](https://codedthemes.com). Download now to expedite the development of your real-time web applications, saving you countless hours in design and development.",
-  "seeMoreUrl": "https://codedthemes.com/item/category/templates/vue-template/",
-  "products": [
-    {
-      "name": "Free Berry Vuetify VueJs Admin Template",
-      "price": 0,
-      "description": "Free & Open Source VueJs Admin Template with well known desing of Berry",
-      "url": "https://codedthemes.com/item/berry-free-vuetify-vuejs-admin-template/?ref=evan.vuejs",
-      "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Berry-free-vue.png"
-    },
-    {
-      "name": "Berry Vue3 Admin Dashboard",
-      "price": 49,
-      "description": "Discover our visually captivating Vue 3 Dashboard Theme!",
-      "url": "https://codedthemes.com/item/berry-vue-admin-dashboard/?ref=evan.vuejs",
-      "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Berry-pro-vue.png"
-    },
-    {
-      "name": "Mantis Vue3 Admin Dashboard",
-      "price": 49,
-      "description": "Simple yet rebust to start any development with latest VueJs and Vuetify",
-      "url": "https://codedthemes.com/item/mantis-vue-admin-template/?ref=evan.vuejs",
-      "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Mantis-pro-vue.png"
-    },
-    {
-      "name": "Free Mantis Vuetify VueJs Admin Template",
-      "price": 0,
-      "description": "Free Vuetify Dashboard Template with simplest design and code",
-      "url": "https://codedthemes.com/item/mantis-free-vuetify-vuejs-admin-template/?ref=evan.vuejs",
-      "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Mantis-free-vue.png"
-    },
-    {
-      "name": "Free Able Pro VueJs",
-      "price": 0,
-      "description": "Free & Open Source Able pro VueJs Admin Template",
-      "url": "https://codedthemes.com/item/able-pro-free-vuejs-admin-dashboard/?ref=evan.vuejs",
-      "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Able+pro-free-vue.png"
-    },
-    {
-      "name": "Able Pro Vue3 + Vuetify Dashboard",
-      "price": 11,
-      "description": "Vue3 + Vite + Vuetify + Typescript",
-      "url": "https://codedthemes.com/item/able-pro-vuejs-admin-dashboard/?ref=evan.vuejs",
-      "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Able+pro-pro-vue.png"
-    }
-  ]
-}
-
+    "name": "CodedThemes",
+    "description": "Explore Vue.js admin dashboard templates crafted with developers in mind by our partners at [CodedThemes](https://codedthemes.com). Download now to expedite the development of your real-time web applications, saving you countless hours in design and development.",
+    "seeMoreUrl": "https://codedthemes.com/item/category/templates/vue-template/",
+    "products": [
+      {
+        "name": "Free Berry Vuetify VueJs Admin Template",
+        "price": 0,
+        "description": "Free & Open Source VueJs Admin Template with well known desing of Berry",
+        "url": "https://codedthemes.com/item/berry-free-vuetify-vuejs-admin-template/?ref=evan.vuejs",
+        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Berry-free-vue.png"
+      },
+      {
+        "name": "Berry Vue3 Admin Dashboard",
+        "price": 49,
+        "description": "Discover our visually captivating Vue 3 Dashboard Theme!",
+        "url": "https://codedthemes.com/item/berry-vue-admin-dashboard/?ref=evan.vuejs",
+        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Berry-pro-vue.png"
+      },
+      {
+        "name": "Mantis Vue3 Admin Dashboard",
+        "price": 49,
+        "description": "Simple yet rebust to start any development with latest VueJs and Vuetify",
+        "url": "https://codedthemes.com/item/mantis-vue-admin-template/?ref=evan.vuejs",
+        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Mantis-pro-vue.png"
+      },
+      {
+        "name": "Free Mantis Vuetify VueJs Admin Template",
+        "price": 0,
+        "description": "Free Vuetify Dashboard Template with simplest design and code",
+        "url": "https://codedthemes.com/item/mantis-free-vuetify-vuejs-admin-template/?ref=evan.vuejs",
+        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Mantis-free-vue.png"
+      },
+      {
+        "name": "Free Able Pro VueJs",
+        "price": 0,
+        "description": "Free & Open Source Able pro VueJs Admin Template",
+        "url": "https://codedthemes.com/item/able-pro-free-vuejs-admin-dashboard/?ref=evan.vuejs",
+        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Able+pro-free-vue.png"
+      },
+      {
+        "name": "Able Pro Vue3 + Vuetify Dashboard",
+        "price": 11,
+        "description": "Vue3 + Vite + Vuetify + Typescript",
+        "url": "https://codedthemes.com/item/able-pro-vuejs-admin-dashboard/?ref=evan.vuejs",
+        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Able+pro-pro-vue.png"
+      }
+    ]
+  },
+  {
+    "name": "ThemeSelection",
+    "description": "Check out the admin [dashboard templates](https://themeselection.com/item/category/admin-templates/?ref=14) built by our partners from ThemeSelection.\n\nThey provide production-ready and highly customizable Free & Premium [Vue Admin Template](https://themeselection.com/item/category/vuejs-admin-templates/?ref=14), Vue + Laravel & NuxtJS Admin Templates to build modern web applications in no time!",
+    "seeMoreUrl": "https://themeselection.com/item/category/vuejs-admin-templates/?ref=14",
+    "products": [
+      {
+        "name": "Materio - Vue Admin Template",
+        "price": 0,
+        "description": "Free & Open Source VueJS Admin inspired by Material Design",
+        "url": "https://themeselection.com/item/materio-free-vuetify-vuejs-admin-template/?ref=14",
+        "image": "https://cdn.themeselection.com/ts-assets/materio/materio-vuetify-vuejs-admin-template-free/banner/banner.png"
+      },
+      {
+        "name": "Materio - Vue Admin Template",
+        "price": 69,
+        "description": "Most Powerful & Comprehensive VueJS Admin built for developers",
+        "url": "https://themeselection.com/item/materio-vuetify-vuejs-admin-template/?ref=14",
+        "image": "https://cdn.themeselection.com/ts-assets/materio/materio-vuetify-vuejs-admin-template/banner/banner.png"
+      },
+      {
+        "name": "Sneat - Vue Laravel Admin",
+        "price": 0,
+        "description": "Free & Open Source VueJS Laravel Admin using Sneat Design System",
+        "url": "https://themeselection.com/item/sneat-free-vuetify-vuejs-laravel-admin-template/ref=14",
+        "image": "https://cdn.themeselection.com/ts-assets/sneat/sneat-vuetify-vuejs-laravel-admin-template-free/banner/banner.png"
+      },
+      {
+        "name": "Sneat - Vue Laravel Admin",
+        "price": 79,
+        "description": "Production Ready, Carefully Crafted VueJS Laravel Dashboard",
+        "url": "https://themeselection.com/item/sneat-vuetify-vuejs-laravel-admin-template/?ref=14",
+        "image": "https://cdn.themeselection.com/ts-assets/sneat/sneat-vuetify-vuejs-laravel-admin-template/banner/banner.png"
+      },
+      {
+        "name": "Materio - NuxtJS Dashboard",
+        "price": 0,
+        "description": "Free & Open Source NuxtJS Admin inspired by Material Design",
+        "url": "https://themeselection.com/item/materio-free-vuetify-nuxtjs-admin-template/?ref=14",
+        "image": "https://cdn.themeselection.com/ts-assets/materio/materio-vuetify-nuxtjs-admin-template-free/banner/banner.png"
+      },
+      {
+        "name": "Materio - NuxtJS Dashboard",
+        "price": 79,
+        "description": "Incredibly versatile, flexible and powerful NuxtJS Admin Template",
+        "url": "https://themeselection.com/item/materio-vuetify-nuxtjs-admin-template/?ref=14",
+        "image": "https://cdn.themeselection.com/ts-assets/materio/materio-vuetify-nuxtjs-admin-template/banner/banner.png"
+      }
+    ]
+  }
 ]
