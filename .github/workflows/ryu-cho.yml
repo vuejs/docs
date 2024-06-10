@@ -39,10 +39,6 @@ jobs:
           # only track commit from this hash. Required.
           track-from: e7f3f317143bdff25c57ac1ffe4328ca70a76d9a
 
-          # File path to track. In this example, Ryu-Cho will only track
-          # commits that modified files under `docs` folder. Optional.
-          path-starts-with: docs/
-
           # GitHub workflow name that runs Ryu-Cho. This is required since
           # Ryu-Cho determines the last run by looking into last workflow
           # run timestamp. Optional. Defaults to `ryu-cho`.
