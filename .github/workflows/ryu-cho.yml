@@ -30,7 +30,7 @@ jobs:
 
           # The head repo to track. This is the repository you want to
           # take a diff. Required.
-          head-repo: https://github.com/vuejs/docs.git
+          head-repo: https://github.com/vuejs/docs
 
           # The branch for the head repo. Optional. Defaults to `main`.
           head-repo-branch: main
