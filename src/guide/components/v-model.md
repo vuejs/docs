@@ -397,7 +397,7 @@ console.log(modifiers) // { capitalize: true }
 </script>
 
 <template>
-  <input type="text" v-model="model" />
+  <input type="text" v-model.capitalize="model" />
 </template>
 ```
 
@@ -416,7 +416,7 @@ const [model, modifiers] = defineModel({
 </script>
 
 <template>
-  <input type="text" v-model="model" />
+  <input type="text" v-model.capitalize="model" />
 </template>
 ```
 
