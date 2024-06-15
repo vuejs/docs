@@ -129,7 +129,51 @@ Creates a customized ref with explicit control over its dependency tracking and 
   </template>
   ```
 
+  :::warning Potential Pitfall with customRef and Reactive Dependencies
+  When using `customRef` that computes and returns a reference type value (e.g., object, array) in its getter, note that returning a new object each time without calling the setter can cause subtle issues.
+
+  **Scenario**
+
+  1. **Custom Ref Getter:** Returns a new object each time.
+  2. **No Setter Call:** Dependencies relying on the setter are not triggered.
+  3. **Dependency Not Triggered:** Direct dependencies are not updated.
+
+  **Issue with Child Components**
+
+  1. **Parent Re-render:** Another state change triggers a parent re-render.
+  2. **Prop Re-evaluation:** The custom ref getter generates a new object.
+  3. **New Object Detection:** Vue detects this as a new prop value.
+  4. **Child Update:** Triggers child component's reactive dependencies.
+
+  **Example**
+
+  ```javascript
+  import { customRef } from 'vue';
+
+  function useCustomObjectRef() {
+    return customRef((track, trigger) => {
+      return {
+        get() {
+          track();
+          return { value: 'example' }; // New object each time
+        },
+        set(newValue) {
+          trigger();
+        }
+      };
+    });
+  }
+
+  export default {
+    setup() {
+      const myRef = useCustomObjectRef();
+      return { myRef };
+    }
+  };
+  :::
+
   [Try it in the Playground](https://play.vuejs.org/#eNplUkFugzAQ/MqKC1SiIekxIpEq9QVV1BMXCguhBdsyaxqE/PcuGAhNfYGd3Z0ZDwzeq1K7zqB39OI205UiaJGMOieiapTUBAOYFt/wUxqRYf6OBVgotGzA30X5Bt59tX4iMilaAsIbwelxMfCvWNfSD+Gw3++fEhFHTpLFuCBsVJ0ScgUQjw6Az+VatY5PiroHo3IeaeHANlkrh7Qg1NBL43cILUmlMAfqVSXK40QUOSYmHAZHZO0KVkIZgu65kTnWp8Qb+4kHEXfjaDXkhd7DTTmuNZ7MsGyzDYbz5CgSgbdppOBFqqT4l0eX1gZDYOm057heOBQYRl81coZVg9LQWGr+IlrchYKAdJp9h0C6KkvUT3A6u8V1dq4ASqRgZnVnWg04/QWYNyYzC2rD5Y3/hkDgz8fY/cOT1ZjqizMZzGY3rDPC12KGZYyd3J26M8ny1KKx7c3X25q1c1wrZN3L9LCMWs/+AmeG6xI=)
+  ```
 
 ## shallowReactive() {#shallowreactive}
 
