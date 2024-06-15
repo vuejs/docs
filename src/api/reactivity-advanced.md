@@ -140,10 +140,11 @@ Creates a customized ref with explicit control over its dependency tracking and 
 
   **Issue with Child Components**
 
-  1. **Parent Re-render:** Another state change triggers a parent re-render.
-  2. **Prop Re-evaluation:** The custom ref getter generates a new object.
-  3. **New Object Detection:** Vue detects this as a new prop value.
-  4. **Child Update:** Triggers child component's reactive dependencies.
+  1. **Parent Re-render:** Another state change (not customRef) triggers a parent re-render.
+  2. **Prop Re-evaluation:** While rerendering parent, the custom value of the customRef is checked and possibly passed as a prop to child components.
+  3. **New Object Detection:** Vue detects this as a new prop value for the child component.
+  4. **Child Update:** Triggers the customRef's reactive dependencies in the child component, without directing triggering on the parent's customRef dependencies.
+  5. **Importantly:** The setter of the customRef has not been called, while this might be intended, the child component treats the prop as having changed, triggering local dependencies of the customRef prop.
 
   **Example**
 
