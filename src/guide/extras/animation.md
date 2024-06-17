@@ -5,13 +5,13 @@ import Colors from './demos/Colors.vue'
 import AnimateWatcher from './demos/AnimateWatcher.vue'
 </script>
 
-# Animation Techniques {#animation-techniques}
+# Animationstechniken {#animation-techniques}
 
 Vue stellt die Komponenten [`<Transition>`](/guide/built-ins/transition.html) und [`<TransitionGroup>`](/guide/built-ins/transition-group.html) zur Verfügung, um Übergänge beim Betreten/Verlassen und bei Listen zu behandeln. Es gibt jedoch noch viele andere Möglichkeiten, Animationen im Web zu verwenden, sogar in einer Vue-Anwendung. Hier werden wir ein paar zusätzliche Techniken diskutieren.
 
-## Class-based Animations {#class-based-animations}
+## Klassenbasierte Animationen {#class-based-animations}
 
-For elements that are not entering / leaving the DOM, we can trigger animations by dynamically adding a CSS class:
+Für Elemente, die den DOM nicht betreten oder verlassen, können wir Animationen durch dynamisches Hinzufügen einer CSS-Klasse auslösen:
 
 <div class="composition-api">
 
