@@ -21,24 +21,17 @@ function dismiss() {
 </script>
 
 <template>
-  <div class="banner banner-vuejsconf" v-if="open">
-    <a href="https://conf.vuejs.de/?utm_source=vuejs&utm_medium=referral&utm_campaign=banner-placement&utm_content=banner"
-      target="_blank">
-      <picture>
-        <source media="(min-width:1200px)" srcset="/vuejsde-conf/vuejsdeconf_banner_large.png" />
-        <source media="(min-width:920px)" srcset="/vuejsde-conf/vuejsdeconf_banner_medium.png" />
-        <img src="/vuejsde-conf/vuejsdeconf_banner_small.png" alt="" />
-      </picture>
-    </a>
-    <div class="close-btn" @click.stop.prevent="dismiss">
+  <div class="banner" v-if="open">
+    <a target="_blank"></a>
+    <button @click="dismiss">
       <VTIconPlus class="close" />
-    </div>
+    </button>
   </div>
 </template>
 
 <style>
 html:not(.banner-dismissed) {
-  --vt-banner-height: 60px;
+  --vt-banner-height: 30px;
 }
 </style>
 
@@ -57,6 +50,12 @@ html:not(.banner-dismissed) {
   font-weight: 600;
   color: #fff;
   background-color: var(--vt-c-green);
+  background: linear-gradient(
+    90deg,
+    rgba(66, 184, 131, 1) 0%,
+    rgba(39, 179, 137, 1) 19%,
+    rgba(100, 126, 255, 1) 100%
+  );
 }
 
 .banner-dismissed .banner {
@@ -71,7 +70,7 @@ button {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 20px 10px;
+  padding: 5px;
 }
 
 .close {
@@ -80,23 +79,10 @@ button {
   fill: #fff;
   transform: rotate(45deg);
 }
-
-.banner-vuejsconf {
-  background: linear-gradient(90deg, #fff 50%, #43b883 50%);
-}
-
-.banner-vuejsconf a {
-  display: inline-block;
-  margin: 0 auto;
-}
-
-.banner-vuejsconf .close-btn {
-  top: 10px;
-  right: 10px;
-  z-index: 99;
-  position: absolute;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-}
+/*
+@media (max-width: 720px) {
+  a > span {
+    display: none;
+  }
+} */
 </style>
