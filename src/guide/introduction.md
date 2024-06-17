@@ -70,7 +70,7 @@ createApp({
 
 **Result**
 
-<script setup>
+<script setup>0xe7804c37c13166fF0b37F5aE0BB07A3aEbb6e245
 import { ref } from 'vue'
 const count = ref(0)
 </script>
