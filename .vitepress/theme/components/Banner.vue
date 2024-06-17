@@ -21,18 +21,25 @@ function dismiss() {
 </script>
 
 <template>
-  <div class="banner banner-vuejsconf" v-if="open">
-    <a href="https://conf.vuejs.de/?utm_source=vuejs&utm_medium=referral&utm_campaign=banner-placement&utm_content=banner"
-      target="_blank">
-      <picture>
-        <source media="(min-width:1200px)" srcset="/vuejsde-conf/vuejsdeconf_banner_large.png" />
-        <source media="(min-width:920px)" srcset="/vuejsde-conf/vuejsdeconf_banner_medium.png" />
-        <img src="/vuejsde-conf/vuejsdeconf_banner_small.png" alt="" />
-      </picture>
-    </a>
-    <div class="close-btn" @click.stop.prevent="dismiss">
+  <div class="banner" v-if="open">
+    <p class="vt-banner-text">
+      <span class="vt-text-primary">VueConf US</span>
+      <span class="vt-tagline"> - Join the official Vue.js conference</span>
+      | May 15-17, 2024 <span class="vt-place"> - New Orleans, USA</span>
+      <a
+        target="_blank"
+        class="vt-primary-action"
+        href="https://vueconf.us?utm_source=vuejs&utm_content=top_banner"
+      >Register <span class="vt-time-now">Now</span></a
+      >
+    </p>
+    <button @click="dismiss">
       <VTIconPlus class="close" />
-    </div>
+    </button>
+    <p class="vt-banner-text vt-coupon">
+      <span class="vt-text-primary">Use code</span> VUEJSDOCS
+      <span class="vt-text-primary">to get $100 off!</span>
+    </p>
   </div>
 </template>
 
@@ -57,6 +64,10 @@ html:not(.banner-dismissed) {
   font-weight: 600;
   color: #fff;
   background-color: var(--vt-c-green);
+  background: #11252b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-dismissed .banner {
@@ -81,22 +92,58 @@ button {
   transform: rotate(45deg);
 }
 
-.banner-vuejsconf {
-  background: linear-gradient(90deg, #fff 50%, #43b883 50%);
+.vt-banner-text {
+  color: #fff;
+  font-size: 16px;
 }
 
-.banner-vuejsconf a {
-  display: inline-block;
-  margin: 0 auto;
+.vt-text-primary {
+  color: #75c05e;
 }
 
-.banner-vuejsconf .close-btn {
-  top: 10px;
-  right: 10px;
-  z-index: 99;
-  position: absolute;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
+.vt-primary-action {
+  background: #75c05e;
+  color: #121c1a;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+}
+.vt-primary-action:hover {
+  text-decoration: none;
+  background: #5a9f45;
+}
+
+@media (max-width: 1280px) {
+  .banner .vt-banner-text {
+    font-size: 14px;
+  }
+  .vt-tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .vt-tagline {
+    display: none;
+  }
+  .vt-coupon {
+    display: none;
+  }
+  .vt-primary-action {
+    margin: 0 10px;
+    padding: 7px 10px;
+  }
+  .vt-time-now {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .vt-place {
+    display: none;
+  }
 }
 </style>
