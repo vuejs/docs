@@ -176,7 +176,7 @@ When this component needs to re-render, it only needs to traverse the flattened 
   <div>
     <div v-if> <!-- if block -->
       ...
-    <div>
+    </div>
   </div>
 </div>
 ```
