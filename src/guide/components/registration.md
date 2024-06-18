@@ -42,6 +42,50 @@ app
   .component('ComponentC', ComponentC)
 ```
 
+:::tip
+You can also register all the components to make globally available with a one-time code snippet.
+
+The following is compatible with the Vite 5, Vue 3 and TypeScript:
+
+```typescript
+/* 
+  eslint will complain about `moduleImport` because it is unknown,
+  So we will use the ModuleImportInterface custom interface
+  See usage below.
+  Read more at https://github.com/vitejs/vite/discussions/14869, 
+*/
+interface ModuleImportInterface {
+  default: Object;
+}
+//You can change the 'App' prefix to the one you're using to search for the components to register
+//Preferably, it should be the same across the same application
+const componentFiles = import.meta.glob('@/components/App*.vue', {
+  eager: true,
+});
+const componentFilesEntries = Object.entries(componentFiles);
+
+for (const [componentPath, moduleImport] of componentFilesEntries) {
+  //The following supposes the file name is PascalCased as the official Style Guide tells us.
+  const componentName: string | undefined = componentPath
+    .split('/')
+    .pop()
+    ?.replace('.vue', '');
+
+  if (!componentName) {
+    console.warn(
+      `The componentName couldn't be extracted from path > ${componentPath} `
+    );
+    continue;
+  }
+  app.component(
+    componentName!,
+    (moduleImport as ModuleImportInterface).default
+  );
+  console.info(`Registered component <${componentName!}> globally.`);
+}
+```
+:::
+
 Globally registered components can be used in the template of any component within this application:
 
 ```vue-html
