@@ -197,8 +197,8 @@
   },
   {
     "name": "WrapPixel",
-    "description": "Check out developer friendly vue js admin dashboard templates built by our partners from [WrapPixel](https://wrappixel.com). Download them to start building your real time web application quickly to save hundreds of hours in development and design.",
-    "seeMoreUrl": "https://www.wrappixel.com/templates/category/vuejs-templates/",
+    "description": "Check out top [dashboard templates](https://www.wrappixel.com/templates/category/admin-dashboard-templates/?ref=320) built by our partners from [WrapPixel](https://www.wrappixel.com/?ref=320). Download highly customizable vue templates (https://www.wrappixel.com/templates/category/vuejs-templates/?ref=320) to start building your real time web application quickly to save hundreds of hours in development and design.",
+    "seeMoreUrl": "https://www.wrappixel.com/templates/category/vuejs-templates/?ref=320",
     "products": [
       {
         "name": "Spike Free VueJs Admin Template",
@@ -341,5 +341,54 @@
         "image": "https://cdn.themeselection.com/ts-assets/materio/materio-vuetify-nuxtjs-admin-template/banner/banner.png"
       }
     ]
-  }
+  },
+  {
+    "name": "AdminMart",
+    "description": "Check out top [vue dashboard templates](https://adminmart.com/templates/vuejs-admin/?ref=34) built by our partners from [AdminMart](https://adminmart.com/?ref=34). Download them to speed up your web development process and build top class web applications.",
+    "seeMoreUrl": "https://adminmart.com/templates/vuejs-admin/?ref=34",
+    "products": [
+      {
+        "name": "Matdash Free Vuejs Admin Dashboard",
+        "price": 0,
+        "description": "Free & Open Source VueJs Admin Template",
+        "url": "https://adminmart.com/product/matdash-free-vuejs-admin-dashboard/?ref=34",
+        "image": "https://adminmart.com/wp-content/uploads/2024/05/matdash-vuetifi-vuejs-2.png"
+      },
+      {
+        "name": "Matdash Vuejs Admin Dashboard",
+        "price": 49,
+        "description": "Empowering Developers with Unmatched Flexibility and Power",
+        "url": "https://adminmart.com/product/matdash-vuejs-admin-dashboard/?ref=34",
+        "image": "https://adminmart.com/wp-content/uploads/2024/05/matdash-vuetify-vuejs-admin-dashboard.png"
+      },
+      {
+        "name": "Modernize Vuetify 3 & Vue 3 Admin Dashboard",
+        "price": 49,
+        "description": "Developer Friendly & Most Powerful Vue Admin Dashboard Template",
+        "url": "https://adminmart.com/product/modernize-vuetify-vue-admin-dashboard/?ref=34",
+        "image": "https://adminmart.com/wp-content/uploads/2023/02/modernize-vuetify-admin-dashboard-min.png"
+      },
+      {
+        "name": "Modernize Free Vuetify + Vue js Admin Dashboard",
+        "price": 0,
+        "description": "Free & Open Source VueJs Admin Template",
+        "url": "https://adminmart.com/product/modernize-free-vuetify-vue-js-admin-dashboard/?ref=34",
+        "image": "https://adminmart.com/wp-content/uploads/2023/02/modernize-free-vuetify-admin-dashboard-am-min1.png"
+      },
+      {
+        "name": "Modernize Free NuxtJs Admin Dashboard Template",
+        "price": 0,
+        "description": "Free NuxtJs Dashboard Template",
+        "url": "https://adminmart.com/product/modernize-free-vuetify-vue-js-admin-dashboard/?ref=34",
+        "image": "https://adminmart.com/wp-content/uploads/2023/02/modernize-free-nuxt-admin-dashboard-am-min.png"
+      },
+      {
+        "name": "Modernize Nuxt Js Admin Dashboard",
+        "price": 49,
+        "description": "Rapidly Build Powerful Dashboards with NuxtJs - Vuetify: A Developer's Dream",
+        "url": "https://adminmart.com/product/modernize-nuxt-js-admin-dashboard/?ref=34",
+        "image": "https://adminmart.com/wp-content/uploads/2023/02/modernize-nuxt-js-admin-dashboard.png"
+      }
+    ]
+  },
 ]
