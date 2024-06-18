@@ -20,6 +20,7 @@ function update() {
 
 <template>
   <div>Parent bound v-model is: {{ model }}</div>
+  <button @click="update">Increment</button>
 </template>
 ```
 
