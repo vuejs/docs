@@ -19,7 +19,8 @@ function update() {
 </script>
 
 <template>
-  <div @click="update">Parent bound v-model is: {{ model }}</div>
+  <div>Parent bound v-model is: {{ model }}</div>
+  <button @click="update">Increment</button>
 </template>
 ```
 
