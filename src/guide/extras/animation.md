@@ -90,7 +90,7 @@ export default {
 
 ## Zustandsgesteuerte Animationen {#state-driven-animations}
 
-Some transition effects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
+Einige Übergangseffekte können durch Interpolation von Werten angewandt werden, z. B. durch Bindung eines Stils an ein Element, während eine Interaktion stattfindet. Nehmen wir zum Beispiel dieses Beispiel:
 
 <div class="composition-api">
 
