@@ -88,7 +88,7 @@ export default {
 
 <DisabledButton />
 
-## State-driven Animations {#state-driven-animations}
+## Zustandsgesteuerte Animationen {#state-driven-animations}
 
 Some transition effects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
 
