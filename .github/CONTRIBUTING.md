@@ -26,7 +26,7 @@ W przypadku aktualizacji polskiej dokumentacji o zmiany pojawiające się na bra
 
 ### Terminologia i słownictwo
 
-* Nie tłumaczymy terminów "na siłę" na język polski - terminy takie jak `composables` są jak najbardziej OK do zostawienia w języku angielskim i będą brzmiały naturalnie
+* Nie tłumaczymy terminów "na siłę" na język polski - terminy takie jak `composables`, czy `hooks` są jak najbardziej OK do zostawienia w języku angielskim i będą brzmiały naturalnie
 
 ## Inne
 
@@ -47,7 +47,7 @@ Vue is used in production by renowned organizations in varying capacities all ar
 
 ```text
 Vue to dojrzały i sprawdzony w boju framework.
-Jest to jeden z najbardziej popularnych frameworków JavaScript ...
+Jest to jeden z najbardziej popularnych frameworków języka JavaScript ...
 
 Vue jest używany produkcyjnie róznym stopniu na całym świecie przez wiele różnych organizacji, wliczając ...
 ```
@@ -56,7 +56,7 @@ Vue jest używany produkcyjnie róznym stopniu na całym świecie przez wiele r�
 Źle, usunięta pusta linia ❌
 
 ```text
-Vue to dojrzały i sprawdzony w boju framework. Jest to jeden z najbardziej popularnych frameworków JavaScript...
+Vue to dojrzały i sprawdzony w boju framework. Jest to jeden z najbardziej popularnych frameworków języka JavaScript ...
 Vue jest używany produkcyjnie róznym stopniu na całym świecie przez wiele różnych organizacji, wliczając ...
 ```
 
@@ -64,7 +64,7 @@ Vue jest używany produkcyjnie róznym stopniu na całym świecie przez wiele r�
 OK, linie pozostawione bez zmian ✔️
 
 ```text
-Vue to dojrzały i sprawdzony w boju framework. Jest to jeden z najbardziej popularnych frameworków JavaScript...
+Vue to dojrzały i sprawdzony w boju framework. Jest to jeden z najbardziej popularnych frameworków języka JavaScript ...
 
 Vue jest używany produkcyjnie róznym stopniu na całym świecie przez wiele różnych organizacji, wliczając ...
 ```
