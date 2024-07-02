@@ -2,6 +2,7 @@ import './styles/index.css'
 import { h, App } from 'vue'
 import { VPTheme } from '@vue/theme'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
+import SecurityUpdateBtn from './components/SecurityUpdateBtn.vue'
 import {
   preferComposition,
   preferSFC,
@@ -18,6 +19,7 @@ export default Object.assign({}, VPTheme, {
     return h(VPTheme.Layout, null, {
       // banner: () => h(Banner),
       'sidebar-top': () => h(PreferenceSwitch),
+      'sidebar-bottom': () => h(SecurityUpdateBtn),
       'aside-mid': () => h(SponsorsAside)
     })
   },
