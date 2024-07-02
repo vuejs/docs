@@ -227,6 +227,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
 
+:::info
+Note that default values for mutable reference types (like arrays or objects) should be wrapped in functions to avoid accidental modification and external side effects. This ensures each component instance gets its own copy of the default value.
+:::
+
 ## defineModel() <sup class="vt-badge" data-text="3.4+" /> {#definemodel}
 
 This macro can be used to declare a two-way binding prop that can be consumed via `v-model` from the parent component. Example usage is also discussed in the [Component `v-model`](/guide/components/v-model) guide.
