@@ -145,9 +145,9 @@ Zusätzlich zur Farbe können Sie auch Stilbindungen verwenden, um Transformatio
 
 <ElasticHeader />
 
-## Animating with Watchers {#animating-with-watchers}
+## Animieren mit Watchers {#animating-with-watchers}
 
-With some creativity, we can use watchers to animate anything based on some numerical state. For example, we can animate the number itself:
+Mit etwas Kreativität können wir Watcher verwenden, um irgendetwas zu animieren, das auf einem numerischen Zustand basiert. Zum Beispiel können wir die Zahl selbst animieren:
 
 <div class="composition-api">
 
