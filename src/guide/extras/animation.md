@@ -141,7 +141,7 @@ export default {
 
 <Colors />
 
-In addition to color, you can also use style bindings to animate transform, width, or height. You can even animate SVG paths using spring physics - after all, they are all attribute data bindings:
+Zusätzlich zur Farbe können Sie auch Stilbindungen verwenden, um Transformation, Breite oder Höhe zu animieren. Sie können sogar SVG-Pfade mithilfe von Federphysik animieren - schließlich handelt es sich dabei um Attributdatenbindungen:
 
 <ElasticHeader />
 
