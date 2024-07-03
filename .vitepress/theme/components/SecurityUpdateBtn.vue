@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .container {
     margin-top: 20px;
   }
