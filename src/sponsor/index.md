@@ -32,7 +32,7 @@ Jeśli budujesz produkt, którego docelowymi klientami są programiści, dzięki
 
 Jeśli jesteś indywidualnym użytkownikiem i cieszysz się wydajnością korzystania z Vue, rozważ przekazanie darowizny jako wyraz uznania - jak kupowanie nam kawy od czasu do czasu. Wielu członków naszego zespołu akceptuje sponsoring i darowizny za pośrednictwem GitHub Sponsors. Poszukaj przycisku "Sponsor" na profilu każdego członka zespołu na naszej [stronie zespołu](/about/team).
 
-Możesz również spróbować przekonać swojego pracodawcę do sponsorowania Vue jako firmy. Może to nie być łatwe, ale sponsoring biznesowy zazwyczaj ma znacznie większy wpływ na zrównoważony rozwój projektów Open Source Software (OSS) niż indywidualne darowizny, więc pomożesz nam znacznie bardziej, jeśli Ci się uda.
+Możesz również spróbować przekonać swojego pracodawcę do sponsorowania Vue jako firma. Może to nie być łatwe, ale sponsoring biznesowy zazwyczaj ma znacznie większy wpływ na zrównoważony rozwój projektów Open Source Software (OSS) niż indywidualne darowizny, więc pomożesz nam znacznie bardziej, jeśli Ci się uda.
 
 ## Korzyści wynikające z poziomów sponsoringu {#tier-benefits}
 
