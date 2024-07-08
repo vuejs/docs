@@ -1,100 +1,100 @@
-# Frequently Asked Questions {#frequently-asked-questions}
+# Często zadawane pytania (FAQ) {#frequently-asked-questions}
 
-## Who maintains Vue? {#who-maintains-vue}
+## Kto utrzymuje Vue? {#who-maintains-vue}
 
-Vue is an independent, community-driven project. It was created by [Evan You](https://twitter.com/youyuxi) in 2014 as a personal side project. Today, Vue is actively maintained by [a team of both full-time and volunteer members from all around the world](/about/team), where Evan serves as the project lead. You can learn more about the story of Vue in this [documentary](https://www.youtube.com/watch?v=OrxmtDw4pVI).
+Vue to niezależny projekt prowadzony przez społeczność. Został on stworzony przez [Evana You](https://twitter.com/youyuxi) w 2014 jako osobisty projekt poboczny. Obecnie Vue jest aktywnie utrzymywane przez [zespół zarówno pełnoetatowych członków zespołu, jak i wolontariuszy z całego świata](/about/team), gdzie Evan pełni rolę lidera projektu. Możesz dowiedzieć się więcej o historii Vue w tym [dokumencie](https://www.youtube.com/watch?v=OrxmtDw4pVI).
 
-Vue's development is primarily funded through sponsorships and we have been financially sustainable since 2016. If you or your business benefit from Vue, consider [sponsoring us](/sponsor/) to support Vue's development!
+Rozwój Vue jest finansowany głównie przez sponsorów i od 2016 roku jesteśmy stabilni finansowo. Jeśli Ty lub Twoja firma czerpiecie korzyści z Vue, rozważ [sponsorowanie nas](/sponsor/) aby wesprzeć rozwój Vue!
 
-## What's the difference between Vue 2 and Vue 3? {#what-s-the-difference-between-vue-2-and-vue-3}
+## Jaka jest różnica między Vue 2 i Vue 3? {#what-s-the-difference-between-vue-2-and-vue-3}
 
-Vue 3 is the current, latest major version of Vue. It contains new features that are not present in Vue 2, such as Teleport, Suspense, and multiple root elements per template. It also contains breaking changes that make it incompatible with Vue 2. Full details are documented in the [Vue 3 Migration Guide](https://v3-migration.vuejs.org/).
+Vue 3 to aktualna, najnowsza główna wersja Vue. Zawiera nowe funkcje, których nie ma w Vue 2, takie jak Teleport, Suspense i wiele elementów określanych jako `root` w sekcji `<template>`. Zawiera również przełomowe zmiany, które czynią ją niekompatybilną z Vue 2. Pełne szczegóły są udokumentowane w [przewodniku migracji na Vue 3](https://v3-migration.vuejs.org/).
 
-Despite the differences, the majority of Vue APIs are shared between the two major versions, so most of your Vue 2 knowledge will continue to work in Vue 3. Notably, Composition API was originally a Vue-3-only feature, but has now been backported to Vue 2 and is available in [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
+Pomimo różnic, większość interfejsów API Vue jest wspólna dla obu głównych wersji, więc większość wiedzy zdobytej w Vue 2 będzie nadal działać w Vue 3. Warto zauważyć, że Composition API było pierwotnie funkcją dostępną tylko w Vue-3, ale teraz zostało przeniesione do Vue 2 i jest dostępne w [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
 
-In general, Vue 3 provides smaller bundle sizes, better performance, better scalability, and better TypeScript / IDE support. If you are starting a new project today, Vue 3 is the recommended choice. There are only a few reasons for you to consider Vue 2 as of now:
+Ogólnie rzecz biorąc, Vue 3 zapewnia mniejsze rozmiary pakietów, lepszą wydajność, lepszą skalowalność i lepszą obsługę TypeScript / IDE. Jeśli rozpoczynasz dziś nowy projekt, Vue 3 jest zalecanym wyborem. Istnieje tylko kilka powodów, dla których warto rozważyć Vue 2:
 
-- You need to support IE11. Vue 3 leverages modern JavaScript features and does not support IE11.
+- Musisz obsługiwać IE11. Vue 3 wykorzystuje nowoczesne funkcje JavaScript i nie obsługuje IE11.
 
-If you intend to migrate an existing Vue 2 app to Vue 3, consult the [migration guide](https://v3-migration.vuejs.org/).
+Jeśli zamierzasz przeprowadzić migrację istniejącej aplikacji Vue 2 do Vue 3, zapoznaj się z [przewodnikiem migracji](https://v3-migration.vuejs.org/).
 
-## Is Vue 2 Still Supported? {#is-vue-2-still-supported}
+## Czy Vue 2 jest nadal wspierane? {#is-vue-2-still-supported}
 
-Vue 2.7, which was shipped in July 2022, is the final minor release of the Vue 2 version range. Vue 2 has now entered maintenance mode: it will no longer ship new features, but will continue to receive critical bug fixes and security updates for 18 months starting from the 2.7 release date. This means **Vue 2 will reach End of Life on December 31st, 2023**.
+Vue 2.7, który został dostarczony w lipcu 2022 r., jest ostatnią mniejszą wersją z zakresu wersji Vue 2. Vue 2 weszło teraz w tryb utrzymania: nie będzie już dostarczać nowych funkcji, ale będzie nadal otrzymywać krytyczne poprawki błędów i aktualizacje zabezpieczeń przez 18 miesięcy, począwszy od daty wydania 2.7. Oznacza to, że **Vue 2 osiągnie koniec życia 31 grudnia 2023 roku**.
 
-We believe this should provide plenty of time for most of the ecosystem to migrate over to Vue 3. However, we also understand that there could be teams or projects that cannot upgrade by this timeline while still needing to fulfill security and compliance requirements. We are partnering with industry experts to provide extended support for Vue 2 for teams with such needs - if your team expects to be using Vue 2 beyond the end of 2023, make sure to plan ahead and learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
+Uważamy, że powinno to zapewnić większości ekosystemu wystarczająco dużo czasu na migrację do Vue 3. Rozumiemy jednak również, że mogą istnieć zespoły lub projekty, które nie mogą dokonać aktualizacji w tym terminie, a jednocześnie muszą spełniać wymogi bezpieczeństwa i zgodności. Współpracujemy z ekspertami branżowymi, aby zapewnić rozszerzone wsparcie dla Vue 2 dla zespołów o takich potrzebach - jeśli Twój zespół spodziewa się korzystać z Vue 2 po zakończeniu 2023 roku, zaplanuj to z wyprzedzeniem i dowiedz się więcej o [Vue 2 Extended LTS].(https://v2.vuejs.org/lts/).
 
-## What license does Vue use? {#what-license-does-vue-use}
+## Jakiej licencji używa Vue?? {#what-license-does-vue-use}
 
-Vue is a free and open source project released under the [MIT License](https://opensource.org/licenses/MIT).
+Vue to darmowy i otwarty projekt wydany na licencji [MIT].(https://opensource.org/licenses/MIT).
 
-## What browsers does Vue support? {#what-browsers-does-vue-support}
+## Jakie przeglądarki wspiera Vue? {#what-browsers-does-vue-support}
 
-The latest version of Vue (3.x) only supports [browsers with native ES2015 support](https://caniuse.com/es6). This excludes IE11. Vue 3.x uses ES2015 features that cannot be polyfilled in legacy browsers, so if you need to support legacy browsers, you will need to use Vue 2.x instead.
+Najnowsza wersja Vue (3.x) obsługuje tylko [przeglądarki z natywną obsługą ES2015] (https://caniuse.com/es6). Wyklucza to IE11. Vue 3.x wykorzystuje funkcje ES2015, których nie można zapewnić w starszych przeglądarkach, więc jeśli chcesz obsługiwać starsze przeglądarki, musisz zamiast tego użyć Vue 2.x.
 
-## Is Vue reliable? {#is-vue-reliable}
+## Czy Vue jest niezawodne? {#is-vue-reliable}
 
-Vue is a mature and battle-tested framework. It is one of the most widely used JavaScript frameworks in production today, with over 1.5 million users worldwide, and is downloaded close to 10 million times a month on npm.
+Vue to dojrzały i sprawdzony w boju framework. Jest to jeden z najczęściej używanych frameworków JavaScript w produkcji, z ponad 1,5 miliona użytkowników na całym świecie i ma blisko 10 milionów pobrań miesięcznie na npm.
 
-Vue is used in production by renowned organizations in varying capacities all around the world, including Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou, and many more.
+Vue jest używany na produkcji przez renomowane organizacje o różnym charakterze na całym świecie, w tym Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou i wiele innych.
 
-## Is Vue fast? {#is-vue-fast}
+## Czy Vue jest szybkie? {#is-vue-fast}
 
-Vue 3 is one of the most performant mainstream frontend frameworks, and handles most web application use cases with ease, without the need for manual optimizations.
+Vue 3 jest jednym z najbardziej wydajnych frameworków frontendowych głównego nurtu i z łatwością obsługuje większość przypadków użycia aplikacji internetowych, bez konieczności ręcznej optymalizacji.
 
-In stress-testing scenarios, Vue outperforms React and Angular by a decent margin in the [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html). It also goes neck-and-neck against some of the fastest production-level non-Virtual-DOM frameworks in the benchmark.
+W testach warunków skrajnych Vue przewyższa React i Angular z przyzwoitym marginesem w [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html). W teście porównawczym Vue idzie również łeb w łeb z niektórymi najszybszymi frameworkami które nie opierają się na użyciu virtual-DOM na poziomie produkcyjnym.
 
-Do note that synthetic benchmarks like the above focus on raw rendering performance with dedicated optimizations and may not be fully representative of real-world performance results. If you care more about page load performance, you are welcome to audit this very website using [WebPageTest](https://www.webpagetest.org/lighthouse) or [PageSpeed Insights](https://pagespeed.web.dev/). This website is powered by Vue itself, with SSG pre-rendering, full page hydration and SPA client-side navigation. It scores 100 in performance on an emulated Moto G4 with 4x CPU throttling over slow 4G networks.
+Należy pamiętać, że syntetyczne testy porównawcze, takie jak powyższe, koncentrują się na surowej wydajności renderowania z dedykowanymi optymalizacjami i mogą nie być w pełni reprezentatywne dla rzeczywistych wyników wydajności. Jeśli bardziej zależy ci na wydajności ładowania strony, możesz przeprowadzić audyt tej witryny za pomocą [WebPageTest](https://www.webpagetest.org/lighthouse) lub [PageSpeed Insights](https://pagespeed.web.dev/). Ta witryna jest obsługiwana przez Vue, ze wstępnym renderowaniem SSG, pełną hydracją strony i nawigacją SPA po stronie klienta. Uzyskała 100 punktów wydajności na emulowanym Moto G4 z 4x spowolnieniem procesora w wolnych sieciach 4G.
 
-You can learn more about how Vue automatically optimizes runtime performance in the [Rendering Mechanism](/guide/extras/rendering-mechanism) section, and how to optimize a Vue app in particularly demanding cases in the [Performance Optimization Guide](/guide/best-practices/performance).
+Więcej informacji o tym, jak Vue automatycznie optymalizuje wydajność w czasie wykonywania, można znaleźć w sekcji [mechanizm renderowania](/guide/extras/rendering-mechanism), a o tym, jak zoptymalizować aplikację Vue w szczególnie wymagających przypadkach - w [przewodniku po optymalziacji wydajności](/guide/best-practices/performance).
 
-## Is Vue lightweight? {#is-vue-lightweight}
+## Czy Vue jest lekkie? {#is-vue-lightweight}
 
-When you use a build tool, many of Vue's APIs are ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). For example, if you don't use the built-in `<Transition>` component, it won't be included in the final production bundle.
+Podczas korzystania z narzędzia do kompilacji wiele interfejsów API Vue podlega procesowi ["tree-shaking"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). Na przykład, jeśli nie użyjesz wbudowanego komponentu `<Transition>`, nie zostanie on uwzględniony w ostatecznej paczce produkcyjnej.
 
-A hello world Vue app that only uses the absolutely minimal APIs has a baseline size of only around **16kb**, with minification and brotli compression. The actual size of the application will depend on how many optional features you use from the framework. In the unlikely case where an app uses every single feature that Vue provides, the total runtime size is around **27kb**.
+Aplikacja hello world Vue, która korzysta tylko z absolutnie minimalnych interfejsów API, ma podstawowy rozmiar tylko około **16kb**, z minifikacją i kompresją brotli. Rzeczywisty rozmiar aplikacji będzie zależeć od liczby opcjonalnych funkcji frameworka. W mało prawdopodobnym przypadku, gdy aplikacja korzysta z każdej funkcji udostępnianej przez Vue, całkowity rozmiar w czasie działania wynosi około **27kb**.
 
-When using Vue without a build tool, we not only lose tree-shaking, but also have to ship the template compiler to the browser. This bloats up the size to around **41kb**. Therefore, if you are using Vue primarily for progressive enhancement without a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
+Podczas korzystania z Vue bez narzędzia do kompilacji, nie tylko tracimy tree-shaking, ale także musimy wysłać kompilator szablonu do przeglądarki. Powoduje to zwiększenie rozmiaru do około **41kb**. Dlatego jeśli używasz Vue głównie do progresywnego ulepszania bez kroku kompilacji, rozważ użycie [petite-vue](https://github.com/vuejs/petite-vue) (tylko **6kb**).
 
-Some frameworks, such as Svelte, use a compilation strategy that produces extremely lightweight output in single-component scenarios. However, [our research](https://github.com/yyx990803/vue-svelte-size-analysis) shows that the size difference heavily depends on the number of components in the application. While Vue has a heavier baseline size, it generates less code per component. In real-world scenarios, a Vue app may very well end up being lighter.
+Niektóre frameworki, takie jak Svelte, wykorzystują strategię kompilacji, która generuje niezwykle lekkie dane wyjściowe w scenariuszach jednokomponentowych. Jednak [nasze badania](https://github.com/yyx990803/vue-svelte-size-analysis) pokazują, że różnica w rozmiarze w dużej mierze zależy od liczby komponentów w aplikacji. Podczas gdy Vue ma większy rozmiar bazowy, generuje mniej kodu na komponent. W rzeczywistych scenariuszach aplikacja Vue może okazać się lżejsza.
 
-## Does Vue scale? {#does-vue-scale}
+## Czy Vue się skaluje? {#does-vue-scale}
 
-Yes. Despite a common misconception that Vue is only suitable for simple use cases, Vue is perfectly capable of handling large scale applications:
+Tak. Pomimo powszechnego błędnego przekonania, że Vue nadaje się tylko do prostych przypadków użycia, Vue doskonale radzi sobie z aplikacjami na dużą skalę:
 
-- [Single-File Components](/guide/scaling-up/sfc) provide a modularized development model that allows different parts of an application to be developed in isolation.
+- [Single-File Components](/guide/scaling-up/sfc) zapewniają modularny model rozwoju, który umożliwia tworzenie różnych części aplikacji w izolacji.
 
-- [Composition API](/guide/reusability/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
+- [Composition API](/guide/reusability/composables) zapewnia pierwszorzędną integrację TypeScript i umożliwia czyste wzorce organizowania, wyodrębniania i ponownego wykorzystywania złożonej logiki.
 
-- [Comprehensive tooling support](/guide/scaling-up/tooling) ensures a smooth development experience as the application grows.
+- [Wszechstronne wsparcie narzędziowe](/guide/scaling-up/tooling) zapewnia płynny rozwój w miarę rozrastania się aplikacji.
 
-- Lower barrier to entry and excellent documentation translate to lower onboarding and training costs for new developers.
+- Niższa bariera wejścia i doskonała dokumentacja przekładają się na niższe koszty wdrożenia i szkolenia nowych deweloperów.
 
-## How do I contribute to Vue? {#how-do-i-contribute-to-vue}
+## Jak mogę przyczynić się do rozwoju Vue? {#how-do-i-contribute-to-vue}
 
-We appreciate your interest! Please check out our [Community Guide](/about/community-guide).
+Dziękujemy za zainteresowanie! Zapoznaj się z naszym [przewodnikiem dla społeczności](/about/community-guide).
 
-## Should I use Options API or Composition API? {#should-i-use-options-api-or-composition-api}
+## Powinienem użyć Options API czy Composition API? {#should-i-use-options-api-or-composition-api}
 
-If you are new to Vue, we provide a high-level comparison between the two styles [here](/guide/introduction#which-to-choose).
+Jeśli jesteś nowy w Vue, zapewniamy porównanie na wysokim poziomie między dwoma stylami [tutaj](/guide/introduction#which-to-choose).
 
-If you have previously used Options API and are currently evaluating Composition API, check out [this FAQ](/guide/extras/composition-api-faq).
+Jeśli wcześniej korzystałeś z Options API i obecnie oceniasz Composition API, zapoznaj się z [tym FAQ](/guide/extras/composition-api-faq).
 
-## Should I use JavaScript or TypeScript with Vue? {#should-i-use-javascript-or-typescript-with-vue}
+## Czy powinienem używać JavaScript czy TypeScript z Vue? {#should-i-use-javascript-or-typescript-with-vue}
 
-While Vue itself is implemented in TypeScript and provides first-class TypeScript support, it does not enforce an opinion on whether you should use TypeScript as a user.
+Chociaż Vue samo w sobie jest zaimplementowane w TypeScript i zapewnia pierwszorzędną obsługę TypeScript, nie wymusza tego, czy powinieneś używać TypeScript jako użytkownik.
 
-TypeScript support is an important consideration when new features are added to Vue. APIs that are designed with TypeScript in mind are typically easier for IDEs and linters to understand, even if you aren't using TypeScript yourself. Everybody wins. Vue APIs are also designed to work the same way in both JavaScript and TypeScript as much as possible.
+Obsługa języka TypeScript jest ważnym aspektem przy dodawaniu nowych funkcji do Vue. Interfejsy API zaprojektowane z myślą o TypeScript są zazwyczaj łatwiejsze do zrozumienia dla IDE i linterów, nawet jeśli sam nie używasz TypeScript. Wszyscy wygrywają. Interfejsy API Vue są również zaprojektowane tak, aby działały w ten sam sposób zarówno w JavaScript, jak i TypeScript.
 
-Adopting TypeScript involves a trade-off between onboarding complexity and long-term maintainability gains. Whether such a trade-off can be justified can vary depending on your team's background and project scale, but Vue isn't really an influencing factor in making that decision.
+Przyjęcie TypeScript wiąże się z kompromisem między złożonością wdrażania a długoterminowymi korzyściami w zakresie utrzymania. To, czy taki kompromis może być uzasadniony, może się różnić w zależności od doświadczenia zespołu i skali projektu, ale Vue nie jest tak naprawdę czynnikiem wpływającym na podjęcie tej decyzji.
 
-## How does Vue compare to Web Components? {#how-does-vue-compare-to-web-components}
+## Jak Vue wypada w porównaniu do Web Components? {#how-does-vue-compare-to-web-components}
 
-Vue was created before Web Components were natively available, and some aspects of Vue's design (e.g. slots) were inspired by the Web Components model.
+Vue zostało stworzone zanim technologia Web Components stała się natywnie dostępna, a niektóre aspekty projektu Vue (np. sloty) zostały zainspirowane modelem tej technologii.
 
-The Web Components specs are relatively low-level, as they are centered around defining custom elements. As a framework, Vue addresses additional higher-level concerns such as efficient DOM rendering, reactive state management, tooling, client-side routing, and server-side rendering.
+Specyfikacje Web Components są stosunkowo niskopoziomowe, ponieważ koncentrują się na definiowaniu niestandardowych elementów. Jako framework, Vue zajmuje się dodatkowymi kwestiami wyższego poziomu, takimi jak wydajne renderowanie DOM, reaktywne zarządzanie stanem, narzędzia, routing po stronie klienta i renderowanie po stronie serwera.
 
-Vue also fully supports consuming or exporting to native custom elements - check out the [Vue and Web Components Guide](/guide/extras/web-components) for more details.
+Vue w pełni obsługuje również użycie jak i eksport do natywnych elementów niestandardowych - sprawdź [przewodnik po Vue i Web Components](/guide/extras/web-components), aby uzyskać więcej informacji.
 
 <!-- ## TODO How does Vue compare to React? -->
 
