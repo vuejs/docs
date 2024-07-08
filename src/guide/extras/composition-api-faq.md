@@ -5,12 +5,12 @@ outline: deep
 # Composition API FAQ {#composition-api-faq}
 
 :::tip
-This FAQ assumes prior experience with Vue - in particular, experience with Vue 2 while primarily using Options API.
+Diese FAQ setzt Erfahrung mit Vue voraus - insbesondere Erfahrung mit Vue 2, wobei primär die Options API verwendet wird.
 :::
 
 ## What is Composition API? {#what-is-composition-api}
 
-Composition API is a set of APIs that allows us to author Vue components using imported functions instead of declaring options. It is an umbrella term that covers the following APIs:
+Die Composition API ist eine Gruppe von APIs, die es uns ermöglicht, Vue-Komponenten mit importierten Funktionen zu erstellen, anstatt Optionen zu deklarieren. Es ist ein Oberbegriff, der die folgenden APIs umfasst:
 
 - [Reactivity API](/api/reactivity-core.html), e.g. `ref()` and `reactive()`, that allows us to directly create reactive state, computed state, and watchers.
 
