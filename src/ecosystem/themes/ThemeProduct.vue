@@ -21,7 +21,7 @@ defineProps<{
 
         <div class="price">
           <p v-if="product.price > 0" class="value">${{ product.price }}</p>
-          <p v-else class="free">FREE</p>
+          <p v-else class="free">GRATIS</p>
         </div>
       </div>
     </article>
