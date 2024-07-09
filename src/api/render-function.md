@@ -305,7 +305,7 @@ For adding built-in [`v-on` modifiers](/guide/essentials/event-handling#event-mo
 - **Type**
 
   ```ts
-  function withModifiers(fn: Function, modifiers: string[]): Function
+  function withModifiers(fn: Function, modifiers: ModifierGuardsKeys[]): Function
   ```
 
 - **Example**
