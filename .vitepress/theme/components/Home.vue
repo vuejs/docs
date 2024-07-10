@@ -162,8 +162,14 @@ html:not(.dark) .accent,
     linear-gradient(45deg, #42d392, #647eff) border-box;
   border: 2px solid transparent;
 }
+
 .actions .security:hover {
   background: linear-gradient(var(--vt-c-gray-light-4), var(--vt-c-gray-light-4)) padding-box, 
+    linear-gradient(45deg, #42d392, #647eff) border-box;
+}
+
+.dark .actions .security:hover {
+  background: linear-gradient(var(--vt-c-gray-dark-3), var(--vt-c-gray-dark-3)) padding-box, 
     linear-gradient(45deg, #42d392, #647eff) border-box;
 }
 
@@ -171,7 +177,6 @@ html:not(.dark) .accent,
   width: 12px;
   height: 12px;
   margin-left: 4px;
-
 }
 
 .actions .get-started,
