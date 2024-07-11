@@ -8,7 +8,7 @@ outline: deep
 Diese FAQ setzt Erfahrung mit Vue voraus - insbesondere Erfahrung mit Vue 2, wobei primär die Options API verwendet wird.
 :::
 
-## What is Composition API? {#what-is-composition-api}
+## Was ist die Composition API? {#what-is-composition-api}
 
 Die Composition API ist eine Gruppe von APIs, die es uns ermöglicht, Vue-Komponenten mit importierten Funktionen zu erstellen, anstatt Optionen zu deklarieren. Es ist ein Oberbegriff, der die folgenden APIs umfasst:
 
