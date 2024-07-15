@@ -13,7 +13,7 @@ importers:
         version: 4.3.1
       '@vue/theme':
         specifier: ^2.2.12
-        version: 2.2.12(@algolia/client-search@4.23.3)(search-insights@2.14.0)(vitepress@1.3.0(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.4.31(typescript@5.4.5))
+        version: 2.2.12(@algolia/client-search@4.23.3)(search-insights@2.14.0)(vitepress@1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.4.31(typescript@5.4.5))
       dynamics.js:
         specifier: ^1.1.5
         version: 1.1.5
@@ -22,7 +22,7 @@ importers:
         version: 3.12.5
       vitepress:
         specifier: ^1.2.3
-        version: 1.3.0(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5)
+        version: 1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5)
       vue:
         specifier: ^3.4.27
         version: 3.4.31(typescript@5.4.5)
@@ -640,8 +640,8 @@ packages:
     resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
     engines: {node: '>=16 || 14 >=14.17'}
 
-  minisearch@6.3.0:
-    resolution: {integrity: sha512-ihFnidEeU8iXzcVHy74dhkxh/dn8Dc08ERl0xwoMMGqp4+LvRSCgicb+zGqWthVokQKvCSxITlh3P08OzdTYCQ==}
+  minisearch@7.0.0:
+    resolution: {integrity: sha512-0OIJ3hUE+YBJNruDCqbTMFmk/IoB1CpZzuGfl11khFIel66ew9UoLF/+gfq3bdyrneqr3P7BTjFZApUbmk+9Dg==}
 
   mitt@3.0.1:
     resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
@@ -762,8 +762,8 @@ packages:
       terser:
         optional: true
 
-  vitepress@1.3.0:
-    resolution: {integrity: sha512-Cbm2AgXcCrukUeV+/24g1ZDSvw8blamh/1uf2pz3ApFpaYb9T7mo4imWDZ6APn2uPo4bJ6sgOzvsJ4aH+oLbBA==}
+  vitepress@1.3.1:
+    resolution: {integrity: sha512-soZDpg2rRVJNIM/IYMNDPPr+zTHDA5RbLDHAxacRu+Q9iZ2GwSR0QSUlLs+aEZTkG0SOX1dc8RmUYwyuxK8dfQ==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4
@@ -1222,7 +1222,7 @@ snapshots:
 
   '@vue/shared@3.4.31': {}
 
-  '@vue/theme@2.2.12(@algolia/client-search@4.23.3)(search-insights@2.14.0)(vitepress@1.3.0(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.4.31(typescript@5.4.5))':
+  '@vue/theme@2.2.12(@algolia/client-search@4.23.3)(search-insights@2.14.0)(vitepress@1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.4.31(typescript@5.4.5))':
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.3)(search-insights@2.14.0)
@@ -1230,7 +1230,7 @@ snapshots:
       body-scroll-lock: 4.0.0-beta.0
       normalize.css: 8.0.1
       tiny-decode: 0.1.3
-      vitepress: 1.3.0(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5)
+      vitepress: 1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5)
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/react'
@@ -1390,7 +1390,7 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.1
 
-  minisearch@6.3.0: {}
+  minisearch@7.0.0: {}
 
   mitt@3.0.1: {}
 
@@ -1491,7 +1491,7 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.31.0
 
-  vitepress@1.3.0(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5):
+  vitepress@1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.39)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5):
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.3)(search-insights@2.14.0)
@@ -1505,7 +1505,7 @@ snapshots:
       '@vueuse/integrations': 10.11.0(focus-trap@7.5.4)(vue@3.4.31(typescript@5.4.5))
       focus-trap: 7.5.4
       mark.js: 8.11.1
-      minisearch: 6.3.0
+      minisearch: 7.0.0
       shiki: 1.10.3
       vite: 5.3.3(@types/node@20.14.1)(terser@5.31.0)
       vue: 3.4.31(typescript@5.4.5)
