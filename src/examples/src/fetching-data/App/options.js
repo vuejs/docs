@@ -4,7 +4,7 @@ export default {
   data: () => ({
     branches: ['main', 'v2-compat'],
     currentBranch: 'main',
-    commits: null
+    commits: []
   }),
 
   created() {
