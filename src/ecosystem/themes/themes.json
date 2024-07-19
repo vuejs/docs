@@ -197,7 +197,7 @@
   },
   {
     "name": "WrapPixel",
-    "description": "Check out top [dashboard templates](https://www.wrappixel.com/templates/category/admin-dashboard-templates/?ref=320) built by our partners from [WrapPixel](https://www.wrappixel.com/?ref=320). Download highly customizable vue templates (https://www.wrappixel.com/templates/category/vuejs-templates/?ref=320) to start building your real time web application quickly to save hundreds of hours in development and design.",
+    "description": "Check out top [dashboard templates](https://www.wrappixel.com/templates/category/admin-dashboard-templates/?ref=320) built by our partners from [WrapPixel](https://www.wrappixel.com/?ref=320). Download highly customizable [Vue templates](https://www.wrappixel.com/templates/category/vuejs-templates/?ref=320) to start building your real time web application quickly to save hundreds of hours in development and design.",
     "seeMoreUrl": "https://www.wrappixel.com/templates/category/vuejs-templates/?ref=320",
     "products": [
       {
@@ -344,7 +344,7 @@
   },
   {
     "name": "AdminMart",
-    "description": "Check out top [vue dashboard templates](https://adminmart.com/templates/vuejs-admin/?ref=34) built by our partners from [AdminMart](https://adminmart.com/?ref=34). Download them to speed up your web development process and build top class web applications.",
+    "description": "Check out top [Vue dashboard templates](https://adminmart.com/templates/vuejs-admin/?ref=34) built by our partners from [AdminMart](https://adminmart.com/?ref=34). Download them to speed up your web development process and build top class web applications.",
     "seeMoreUrl": "https://adminmart.com/templates/vuejs-admin/?ref=34",
     "products": [
       {
@@ -390,5 +390,5 @@
         "image": "https://adminmart.com/wp-content/uploads/2023/02/modernize-nuxt-js-admin-dashboard.png"
       }
     ]
-  },
+  }
 ]
