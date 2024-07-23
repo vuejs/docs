@@ -1,16 +1,16 @@
-# Declarative Rendering {#declarative-rendering}
+# Renderowanie deklaratywne {#declarative-rendering}
 
 <div class="sfc">
 
-What you see in the editor is a Vue Single-File Component (SFC). An SFC is a reusable self-contained block of code that encapsulates HTML, CSS and JavaScript that belong together, written inside a `.vue` file.
+To, co widzisz w edytorze, to Vue Single-File Component (SFC). SFC to samodzielny blok kodu wielokrotnego użytku, który zawiera HTML, CSS i JavaScript, które należą do siebie, zapisane w pliku `.vue`.
 
 </div>
 
-The core feature of Vue is **declarative rendering**: using a template syntax that extends HTML, we can describe how the HTML should look based on JavaScript state. When the state changes, the HTML updates automatically.
+Podstawową cechą Vue jest **deklaratywne renderowanie**: używając składni szablonu, która rozszerza HTML, możemy opisać, jak HTML powinien wyglądać w oparciu o stan JavaScript. Gdy stan się zmienia, HTML aktualizuje się automatycznie.
 
 <div class="composition-api">
 
-State that can trigger updates when changed is considered **reactive**. We can declare reactive state using Vue's `reactive()` API. Objects created from `reactive()` are JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) that work just like normal objects:
+Stan, który może wyzwalać aktualizacje po zmianie, jest uważany za **reaktywny**. Możemy zadeklarować stan reaktywny za pomocą interfejsu API `reactive()`. Obiekty utworzone za pomocą `reactive()` są JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) które działają jak zwykłe obiekty:
 
 ```js
 import { reactive } from 'vue'
@@ -23,7 +23,7 @@ console.log(counter.count) // 0
 counter.count++
 ```
 
-`reactive()` only works on objects (including arrays and built-in types like `Map` and `Set`). `ref()`, on the other hand, can take any value type and create an object that exposes the inner value under a `.value` property:
+`reactive()` działa tylko na obiektach (włączając w to tablice i wbudowane typy takie jak `Map` i `Set`). Funkcja `ref()`, z drugiej strony, może przyjąć dowolny typ wartości i utworzyć obiekt, który eksponuje wewnętrzną wartość pod właściwością `.value`:
 
 ```js
 import { ref } from 'vue'
@@ -34,17 +34,17 @@ console.log(message.value) // "Hello World!"
 message.value = 'Changed'
 ```
 
-Details on `reactive()` and `ref()` are discussed in <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">Guide - Reactivity Fundamentals</a>.
+Szczegóły dotyczące funkcji `reactive()` i `ref()` zostały omówione w <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">Przewodniku - Podstawy reaktywności</a>.
 
 <div class="sfc">
 
-Reactive state declared in the component's `<script setup>` block can be used directly in the template. This is how we can render dynamic text based on the value of the `counter` object and `message` ref, using mustaches syntax:
+Stan reaktywny zadeklarowany w bloku `<script setup>` komponentu może być użyty bezpośrednio w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości obiektu `counter` i `message`, używając składni wąsów:
 
 </div>
 
 <div class="html">
 
-The object being passed to `createApp()` is a Vue component. A component's state should be declared inside its `setup()` function, and returned using an object:
+Obiekt przekazywany do `createApp()` jest komponentem Vue. Stan komponentu powinien być zadeklarowany wewnątrz jego funkcji `setup()` i zwrócony za pomocą obiektu:
 
 ```js{2,5}
 setup() {
@@ -57,7 +57,7 @@ setup() {
 }
 ```
 
-Properties in the returned object will be made available in the template. This is how we can render dynamic text based on the value of `message`, using mustaches syntax:
+Właściwości w zwróconym obiekcie zostaną udostępnione w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości `message`, używając składni wąsów:
 
 </div>
 
@@ -66,7 +66,7 @@ Properties in the returned object will be made available in the template. This i
 <p>Count is: {{ counter.count }}</p>
 ```
 
-Notice how we did not need to use `.value` when accessing the `message` ref in templates: it is automatically unwrapped for more succinct usage.
+Zauważ, że nie musieliśmy używać `.value` podczas uzyskiwania dostępu `message` w szablonie: jest on automatycznie rozpakowywany w celu bardziej zwięzłego użycia.
 
 </div>
 
@@ -74,7 +74,7 @@ Notice how we did not need to use `.value` when accessing the `message` ref in t
 
 State that can trigger updates when changed are considered **reactive**. In Vue, reactive state is held in components. <span class="html">In the example code, the object being passed to `createApp()` is a component.</span>
 
-We can declare reactive state using the `data` component option, which should be a function that returns an object:
+Możemy zadeklarować stan reaktywny za pomocą opcji `data`, który powinien być funkcją zwracającą obiekt:
 
 <div class="sfc">
 
@@ -103,7 +103,7 @@ createApp({
 
 </div>
 
-The `message` property will be made available in the template. This is how we can render dynamic text based on the value of `message`, using mustaches syntax:
+Właściwość `message` zostanie udostępniona w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości `message`, używając składni wąsów:
 
 ```vue-html
 <h1>{{ message }}</h1>
@@ -111,7 +111,7 @@ The `message` property will be made available in the template. This is how we ca
 
 </div>
 
-The content inside the mustaches is not limited to just identifiers or paths - we can use any valid JavaScript expression:
+Zawartość wewnątrz wąsów nie jest ograniczona tylko do identyfikatorów lub ścieżek - możemy użyć dowolnego poprawnego wyrażenia JavaScript:
 
 ```vue-html
 <h1>{{ message.split('').reverse().join('') }}</h1>
@@ -119,12 +119,12 @@ The content inside the mustaches is not limited to just identifiers or paths - w
 
 <div class="composition-api">
 
-Now, try to create some reactive state yourself, and use it to render dynamic text content for the `<h1>` in the template.
+Teraz spróbuj samodzielnie utworzyć stan reaktywny i użyj go do renderowania dynamicznej zawartości tekstowej dla `<h1>` w szablonie.
 
 </div>
 
 <div class="options-api">
 
-Now, try to create a data property yourself, and use it as the text content for the `<h1>` in the template.
+Teraz spróbuj samodzielnie utworzyć właściwość danych i użyć jej jako zawartości tekstowej dla `<h1>` w szablonie.
 
 </div>
